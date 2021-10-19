@@ -1,0 +1,15 @@
+{
+  "name": "@saas-ui/palette",
+  "version": "0.0.1-beta",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@chakra-ui/theme": "^1.10.4",
+    "@types/chroma-js": "^2.1.3",
+    "chroma-js": "^2.1.2"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "prepublish": "build"
+  }
+}

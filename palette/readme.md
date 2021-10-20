@@ -60,12 +60,16 @@ const colors = [
   'purple',
   'pink',
 ]
-``
+```
 
 ## Thanks to
+
 This library was inspired by https://palx.jxnblk.com/
 
 ## License
 
 MIT
+
+```
+
 ```

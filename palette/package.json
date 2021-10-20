@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/palette",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "license": "MIT",
   "author": "Eelco Wiersma <eelco@appulse.nl>",

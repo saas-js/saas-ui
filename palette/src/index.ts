@@ -6,12 +6,11 @@ const names: Record<number, string> = {
   0: 'red',
   30: 'orange',
   50: 'yellow',
-  120: 'green',
+  150: 'green',
   180: 'teal',
   190: 'cyan',
   210: 'blue',
-  240: 'indigo',
-  270: 'purple',
+  260: 'purple',
   330: 'pink',
 }
 
@@ -21,16 +20,17 @@ const hueName = (h: number) => {
   return name
 }
 
-// const defaultLums = [900, 700, 600, 400, 280, 160, 110, 80, 50, 30].map(
-//   (n) => n / 1000,
-// )
+export interface PaletteColors {
+  [index: string]: string
+}
 
-const getLumsFromThemeColors = (name: string, colors: Record<string, any>) => {
+const getLumsFromThemeColors = (name: string, colors: PaletteColors) => {
+  const themeColors: Record<string, any> = theme.colors
   const lums = []
-  let color = colors[name]
+  let color = themeColors[name]
 
   if (!color) {
-    color = colors.blue // fallback lums from blue
+    color = colors.red // fallback lums from red
   }
 
   for (const lum in color) {
@@ -64,9 +64,9 @@ const desat = (n: number) => (hex: string) => {
   return chroma.hsl(h, n, l).hex()
 }
 
-const createBlack = (hex: string) => {
+const createBlack = (hex: string, luminance = 0) => {
   const d = desat(1 / 8)(hex)
-  return chroma(d).luminance(0.005).hex()
+  return chroma(d).luminance(luminance).hex()
 }
 
 const createShades = (hex: string, lums: Array<number>) => {
@@ -75,21 +75,13 @@ const createShades = (hex: string, lums: Array<number>) => {
   })
 }
 
-// Mappers
-const keyword = (hex: Color) => {
+const getColorName = (hex: Color) => {
   const [hue, sat] = chroma(hex).hsl()
   if (sat < 0.5) {
     return 'gray'
   }
   const name = hueName(hue)
   return name
-}
-
-// Reducer
-const toObj = (a: any, color: any) => {
-  const key = a[color.key] ? color.key + '2' : color.key
-  a[key] = color.value
-  return a
 }
 
 const mapValues = (values: Array<string>) => {
@@ -105,7 +97,7 @@ const mapValues = (values: Array<string>) => {
     '800',
     '900',
   ]
-  const obj: any = {}
+  const obj: Record<string, string> = {}
 
   for (const key in values) {
     obj[keys[key]] = values[key]
@@ -114,45 +106,43 @@ const mapValues = (values: Array<string>) => {
   return obj
 }
 
-const createPalette = (hex: string, options = {}) => {
+export interface PaletteOptions {
+  blackLuminance?: number
+  colors?: PaletteColors
+}
+
+const createPalette = (hex: string, options: PaletteOptions = {}) => {
+  const colors = options.colors || {}
   const color = chroma(hex)
-  const colors = []
+  const palette: Colors = {}
   const [hue, sat, lte] = color.hsl()
 
-  const hues = createHues(36)(hue)
+  const hues = createHues(36)(hue) // 36 so we have steps of 10
 
-  colors.push({
-    key: 'black',
-    value: createBlack('' + color.hex()),
-  })
+  const gray = colors.gray || color.hex()
 
-  colors.push({
-    key: 'gray',
-    value: mapValues(
-      createShades(
-        desat(1 / 8)('' + color.hex()),
-        getLumsFromThemeColors('gray', theme.colors)
-      )
-    ),
-  })
+  palette.black = createBlack(gray, options.blackLuminance)
+  palette.gray = mapValues(
+    createShades(desat(1 / 8)(gray), getLumsFromThemeColors('gray', colors))
+  )
 
   hues.forEach((h) => {
-    const c: Color = chroma.hsl(h, sat, lte)
-    const key = keyword(c)
-    if (!key) {
+    let c = chroma.hsl(h, sat, lte)
+    const name = getColorName(c)
+    if (!name) {
       return
     }
-    colors.push({
-      key,
-      value: mapValues(
-        createShades('' + c.hex(), getLumsFromThemeColors(key, theme.colors))
-      ),
-    })
+
+    if (colors[name]) {
+      c = chroma.hex(colors[name])
+    }
+
+    palette[name] = mapValues(
+      createShades('' + c.hex(), getLumsFromThemeColors(name, colors))
+    )
   })
 
-  const obj = Object.assign(colors.reduce(toObj, {}))
-
-  return obj
+  return Object.assign(palette)
 }
 
 export default createPalette

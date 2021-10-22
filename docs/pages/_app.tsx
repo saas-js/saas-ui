@@ -7,7 +7,7 @@ import PaletteProvider from '@/providers/PaletteProvider'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <PaletteProvider color="#6d28d9">
-      {({ colors }) => {
+      {({ colors }: any) => {
         const [theme, setTheme] = useState(
           extendTheme({
             colors,

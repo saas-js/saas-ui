@@ -3,12 +3,16 @@ import createPalette from '@saas-ui/palette'
 
 export const PaletteContext: any = React.createContext({})
 
-const PaletteProvider = ({ color = '#6d28d9', options = {}, children }) => {
+const PaletteProvider = ({
+  color = '#6d28d9',
+  options = {},
+  children,
+}: any) => {
   const [colors, setColors] = useState({
     base: color,
   })
 
-  const setPalette = (color, options) => {
+  const setPalette = (color: string, options: any) => {
     setColors(
       Object.assign(createPalette(color, options), {
         base: color,
@@ -31,6 +35,6 @@ const PaletteProvider = ({ color = '#6d28d9', options = {}, children }) => {
   )
 }
 
-export const usePalette = () => useContext(PaletteContext)
+export const usePalette = (): any => useContext(PaletteContext)
 
 export default PaletteProvider

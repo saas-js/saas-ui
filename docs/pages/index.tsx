@@ -19,7 +19,7 @@ export default function ColorsPage() {
 
   const updatePalette = useMemo(
     () =>
-      debounce((color) => {
+      debounce((color: any) => {
         setColor(color)
         if (color.match(/#[0-9a-fA-F]{6}/)) {
           setPalette(color)

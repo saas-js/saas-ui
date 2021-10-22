@@ -14,6 +14,7 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@saas-ui/palette": "^0.1.1",
+    "@types/lodash.debounce": "^4.0.6",
     "framer-motion": "^4.1.17",
     "lodash.debounce": "^4.0.8",
     "next": "11.1.2",

@@ -11,7 +11,6 @@ const PaletteProvider = ({
   const [colors, setColors] = useState({})
 
   const setPalette = (color: string, options: any) => {
-    console.log('setColors', color, options)
     setColors(createPalette(color, options))
   }
 

@@ -1,6 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from 'react'
 import {
-  Text,
   FormControl,
   FormLabel,
   Input,
@@ -36,7 +35,7 @@ export default function ColorsPage() {
     gray: options?.colors?.gray || grayColor,
     blackLuminance: options?.blackLuminance || 0.005,
   })
-  console.log(palette)
+
   const updatePalette = useMemo(
     () =>
       debounce((color: any, options) => {
@@ -48,7 +47,7 @@ export default function ColorsPage() {
   )
 
   useEffect(() => {
-    setPalette(color, {
+    updatePalette(color, {
       colors: {
         gray,
       },

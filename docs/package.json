@@ -13,13 +13,16 @@
     "@chakra-ui/theme": "^1.10.4",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@saas-ui/palette": "^0.1.1",
+    "@saas-ui/palette": "^0.2.1",
+    "@svgr/webpack": "^6.1.1",
     "@types/lodash.debounce": "^4.0.6",
     "framer-motion": "^4.1.17",
     "lodash.debounce": "^4.0.8",
     "next": "11.1.2",
+    "next-images": "^1.8.4",
     "react": "^17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.30",

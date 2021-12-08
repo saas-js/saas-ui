@@ -6,7 +6,10 @@ import PaletteProvider from '@/providers/PaletteProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PaletteProvider color="#6d28d9">
+    <PaletteProvider
+      color="#6d28d9"
+      options={{ blackLuminance: 0.005, colors: { gray: '#1f2937' } }}
+    >
       {({ colors }: any) => {
         const [theme, setTheme] = useState(
           extendTheme({

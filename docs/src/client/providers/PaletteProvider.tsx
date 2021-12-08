@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import createPalette from '@saas-ui/palette'
+import { createPalette } from '@saas-ui/palette'
 
 export const PaletteContext: any = React.createContext({})
 
@@ -8,16 +8,11 @@ const PaletteProvider = ({
   options = {},
   children,
 }: any) => {
-  const [colors, setColors] = useState({
-    base: color,
-  })
+  const [colors, setColors] = useState({})
 
   const setPalette = (color: string, options: any) => {
-    setColors(
-      Object.assign(createPalette(color, options), {
-        base: color,
-      })
-    )
+    console.log('setColors', color, options)
+    setColors(createPalette(color, options))
   }
 
   useEffect(() => {
@@ -26,7 +21,7 @@ const PaletteProvider = ({
     }
   }, [color])
 
-  const value = [colors, setPalette]
+  const value = [{ color, options, colors }, setPalette]
 
   return (
     <PaletteContext.Provider value={value}>

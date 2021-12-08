@@ -1,8 +1,23 @@
 import React from 'react'
-import { Flex, Box, Heading, Container, Spinner } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Heading,
+  Text,
+  HStack,
+  Container,
+  Spinner,
+  useColorMode,
+} from '@chakra-ui/react'
+
+import Logo from '/public/saasui.svg'
+import LogoDark from '/public/saasui-dark.svg'
+import { ColorModeToggle } from './ColorModeToggle'
 
 export interface PageProps {
-  title?: string
+  title?: React.ReactNode
+  description?: React.ReactNode
+  nav?: React.ReactNode
   children?: React.ReactNode
   isLoading?: boolean
   fullWidth?: boolean
@@ -10,10 +25,13 @@ export interface PageProps {
 
 export default function Page({
   title,
+  description,
+  nav,
   isLoading,
   fullWidth,
   children,
 }: PageProps) {
+  const { colorMode } = useColorMode()
   let content
   if (isLoading) {
     content = <Spinner justifySelf="center" />
@@ -29,14 +47,22 @@ export default function Page({
   return (
     <Flex direction="column" flex="1" minH="0">
       <Flex py="2" px="4" borderBottomWidth="1px" align="center">
-        <Box flex="1" p="2">
-          <Heading as="h2" size="md">
-            {title}
-          </Heading>
+        <Box width="120px" mr="8" pos="absolute">
+          {colorMode === 'dark' ? <LogoDark /> : <Logo />}
         </Box>
+        <Box flex="1" p="2"></Box>
+        <HStack>
+          {nav}
+
+          <ColorModeToggle />
+        </HStack>
       </Flex>
       <Box flex="1" overflow="auto">
         <Container maxW={containerWidth} p="0" pr="4" pt="8">
+          <Box mb="16">
+            <Heading size="lg">{title}</Heading>
+            <Text opacity="0.6">{description}</Text>
+          </Box>
           <Box>{content}</Box>
         </Container>
       </Box>

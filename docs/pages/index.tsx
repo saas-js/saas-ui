@@ -211,7 +211,7 @@ export default function ColorsPage() {
   )
 }
 
-const exampleCode = ({ color, gray, blackLuminance }) => `
+const exampleCode = ({ color, gray, blackLuminance }: any) => `
 import { extendTheme } from '@chakra-ui/react'
 import { createPalette } from '@saas-ui/palette'
 

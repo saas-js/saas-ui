@@ -24,7 +24,7 @@ $ npm i @saas-ui/palette --save
 
 ```jsx theme.jsx
 import { extendTheme } from '@chakra-ui/react'
-import createPalette from '@saas-ui/palette'
+import { createPalette } from '@saas-ui/palette'
 
 const colors = createPalette('#6d28d9')
 
@@ -41,7 +41,7 @@ export default theme
 const colors = createPalette('#6d28d9', {
   blackLuminance: 0.005, // defaults to 0
   colors: {
-    red: '#d00b00', // override indidual colors
+    red: '#d00b00', // override individual colors
   },
 })
 ```
@@ -68,8 +68,4 @@ This library was inspired by https://palx.jxnblk.com/
 
 ## License
 
-MIT
-
-```
-
-```
+MIT - Appulse Software

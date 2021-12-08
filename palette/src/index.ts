@@ -64,9 +64,8 @@ const desat = (n: number) => (hex: string) => {
   return chroma.hsl(h, n, l).hex()
 }
 
-const createBlack = (hex: string, luminance = 0) => {
-  const d = desat(1 / 8)(hex)
-  return chroma(d).luminance(luminance).hex()
+const createBlack = (hex: string, lum = 0) => {
+  return chroma(hex).luminance(lum).hex()
 }
 
 const createShades = (hex: string, lums: Array<number>) => {
@@ -111,7 +110,7 @@ export interface PaletteOptions {
   colors?: PaletteColors
 }
 
-const createPalette = (hex: string, options: PaletteOptions = {}) => {
+export const createPalette = (hex: string, options: PaletteOptions = {}) => {
   const colors = options.colors || {}
   const color = chroma(hex)
   const palette: Colors = {}
@@ -119,11 +118,11 @@ const createPalette = (hex: string, options: PaletteOptions = {}) => {
 
   const hues = createHues(36)(hue) // 36 so we have steps of 10
 
-  const gray = colors.gray || color.hex()
+  const gray = desat(1 / 8)(colors.gray || color.hex())
 
   palette.black = createBlack(gray, options.blackLuminance)
   palette.gray = mapValues(
-    createShades(desat(1 / 8)(gray), getLumsFromThemeColors('gray', colors))
+    createShades(gray, getLumsFromThemeColors('gray', colors))
   )
 
   hues.forEach((h) => {
@@ -133,6 +132,7 @@ const createPalette = (hex: string, options: PaletteOptions = {}) => {
       return
     }
 
+    // override the hex value if we include a custom color
     if (colors[name]) {
       c = chroma.hex(colors[name])
     }
@@ -144,5 +144,3 @@ const createPalette = (hex: string, options: PaletteOptions = {}) => {
 
   return Object.assign(palette)
 }
-
-export default createPalette

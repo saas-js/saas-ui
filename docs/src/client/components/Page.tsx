@@ -47,8 +47,8 @@ export default function Page({
   return (
     <Flex direction="column" flex="1" minH="0">
       <Flex py="2" px="4" borderBottomWidth="1px" align="center">
-        <Box width="120px" mr="8" pos="absolute">
-          {colorMode === 'dark' ? <LogoDark /> : <Logo />}
+        <Box width="100px" mr="8" pos="absolute">
+          {colorMode === 'dark' ? <Logo /> : <LogoDark />}
         </Box>
         <Box flex="1" p="2"></Box>
         <HStack>

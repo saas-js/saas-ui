@@ -55,6 +55,8 @@ const shadows = {
   outline: `0 0 0 2px ${transparentize(colors.primary[500], 0.6)(baseTheme)}`,
 }
 
+const focusBorderColor = 'primary.500'
+
 const theme = extendTheme(
   // withDefaultColorScheme({
   //   // colorScheme: "primary",
@@ -75,6 +77,65 @@ const theme = extendTheme(
     shadows,
     headers: {},
     components: {
+      FormLabel: {
+        baseStyle: {
+          fontSize: 'sm',
+        },
+      },
+      Input: {
+        defaultProps: {
+          focusBorderColor,
+          size: 'md',
+        },
+        sizes: {
+          md: {
+            field: {
+              px: 3,
+              h: 9,
+            },
+            addon: {
+              px: 3,
+              h: 9,
+            },
+          },
+        },
+      },
+      NumberInput: {
+        defaultProps: {
+          focusBorderColor,
+          size: 'md',
+        },
+        sizes: {
+          md: {
+            field: {
+              px: 3,
+              h: 9,
+            },
+            addon: {
+              px: 3,
+              h: 9,
+            },
+          },
+        },
+      },
+      Textarea: {
+        defaultProps: {
+          focusBorderColor,
+          size: 'md',
+        },
+      },
+      Select: {
+        defaultProps: {
+          focusBorderColor,
+          size: 'md',
+        },
+      },
+      PinInput: {
+        defaultProps: {
+          focusBorderColor,
+          size: 'md',
+        },
+      },
       Button,
       Container: {
         baseStyle: {

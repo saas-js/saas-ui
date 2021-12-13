@@ -333,31 +333,19 @@ const RequestAccess = () => {
             </p>
           </>
         }
-        // action={{
-        //   label: 'Sign up',
-        //   colorScheme: 'purple',
-        //   variant: 'solid',
-        //   size: 'lg',
-        //   onClick: () => {
-        //     onOpen()
-        //     /* @ts-ignore */
-        //     window?.woopra.track('Signup Clicked')
-        //   },
-        // }}
         variant="subtle"
       >
         <Container
           borderRadius="md"
-          bg={useColorModeValue('gray.200', 'gray.700')}
+          bg={useColorModeValue('white', 'gray.700')}
+          borderWidth="1px"
+          borderColor={useColorModeValue('gray.300', 'gray.700')}
           p={8}
           width={['100%', 'md']}
         >
-          <SignupForm flex="1" />
+          <SignupForm />
         </Container>
       </CTA>
-      {/* </ScaleInView> */}
-
-      {/* <SignupModal isOpen={isOpen} onClose={onClose} /> */}
     </>
   )
 }

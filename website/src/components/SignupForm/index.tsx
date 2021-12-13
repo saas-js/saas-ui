@@ -110,10 +110,12 @@ export function SignupForm({ isOpen, onClose }: any) {
   } else {
     footer = (
       <Flex justify="flex-end" pt="8">
-        <Button variant="ghost" mr={3} onClick={onClose} disabled={loading}>
-          Cancel
-        </Button>
-        <Button colorScheme="primary" type="submit" isLoading={loading}>
+        <Button
+          colorScheme="primary"
+          type="submit"
+          size="md"
+          isLoading={loading}
+        >
           Request access
         </Button>
       </Flex>

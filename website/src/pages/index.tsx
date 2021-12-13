@@ -152,7 +152,7 @@ const Home = ({ features }: any) => {
             <Text>
               Building SaaS products requires you to be a generalist on many
               fronts. However many developers aren&apos;t very design savvy and
-              vica versa.
+              vice versa.
             </Text>
             <Text>
               SaaS UI tries to fill this gap by giving developers an extensive
@@ -322,30 +322,32 @@ const RequestAccess = () => {
 
   return (
     <>
-      {/* <ScaleInView> */}
-      <CTA
-        id="request-access"
-        title="Get early access"
-        description={
-          <>
-            <p>
-              Saas UI is currently in private beta, be the first to try it out.
-            </p>
-          </>
-        }
-        variant="subtle"
-      >
-        <Container
-          borderRadius="md"
-          bg={useColorModeValue('white', 'gray.700')}
-          borderWidth="1px"
-          borderColor={useColorModeValue('gray.300', 'gray.700')}
-          p={8}
-          width={['100%', 'md']}
+      <ScaleInView>
+        <CTA
+          id="request-access"
+          title="Get early access"
+          description={
+            <>
+              <p>
+                Saas UI is currently in private beta, be the first to try it
+                out.
+              </p>
+            </>
+          }
+          variant="subtle"
         >
-          <SignupForm />
-        </Container>
-      </CTA>
+          <Container
+            borderRadius="md"
+            bg={useColorModeValue('white', 'gray.700')}
+            borderWidth="1px"
+            borderColor={useColorModeValue('gray.300', 'gray.700')}
+            p={8}
+            width={['100%', 'md']}
+          >
+            <SignupForm />
+          </Container>
+        </CTA>
+      </ScaleInView>
     </>
   )
 }

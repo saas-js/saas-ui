@@ -13,13 +13,14 @@ export default function ScaleInView({ children }: ScaleInViewProps) {
     innerHeight = window.innerHeight
   }
 
-  const height = ref.current?.offsetHeight as number
-  const start = (ref.current?.offsetTop as number) - innerHeight
+  const height = (ref.current?.offsetHeight as number) || 0
+  const offset = (ref.current?.offsetTop as number) || 0
+  const start = offset - innerHeight
   const end = start + height
 
   const { scrollY } = useViewportScroll()
-  const scale = useTransform(scrollY, [start, end], [0.8, 1]) || 1
-  const opacity = useTransform(scrollY, [start, end], [0.25, 1]) || 1
+  const scale = useTransform(scrollY, [start, end], [0.8, 1])
+  const opacity = useTransform(scrollY, [start, end], [0.25, 1])
 
   return (
     <motion.div
@@ -27,7 +28,6 @@ export default function ScaleInView({ children }: ScaleInViewProps) {
       style={{
         scale,
         opacity,
-        // transition: 'all .2s ease-out'
       }}
     >
       {children}

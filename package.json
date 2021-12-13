@@ -1,6 +1,39 @@
 {
   "name": "saas-ui",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "license": "MIT"
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "turbo": "^1.0.4"
+  },
+  "workspaces": [
+    "packages/*",
+    "docs",
+    "website"
+  ],
+  "turbo": {
+    "baseBranch": "origin/master",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          ".next/**"
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "lint": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+  }
 }

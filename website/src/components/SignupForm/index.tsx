@@ -42,6 +42,7 @@ export function SignupForm({ isOpen, onClose }: any) {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      redirect: 'manual',
       body: encode({
         'form-name': 'early-access',
         name,
@@ -120,7 +121,12 @@ export function SignupForm({ isOpen, onClose }: any) {
   }
 
   return (
-    <Box as="form" onSubmit={handleSubmit} data-netlify="true">
+    <Box
+      as="form"
+      onSubmit={handleSubmit}
+      data-netlify="true"
+      name="early-access"
+    >
       <Box>{content}</Box>
       {footer}
     </Box>

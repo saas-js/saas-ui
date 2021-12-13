@@ -161,9 +161,10 @@ const Home = ({ features }: any) => {
               designers to create their brand.
             </Text>
             <Text>
-              With SaaS UI you&apos;ll save hundreds of hours to build essential
-              functionaly for your product, time that you can use to validate
-              new ideas and find your perfect product market fit.
+              With SaaS UI you&apos;ll save hundreds of hours building essential
+              functionaly for your product. Time that you can use to validate
+              new ideas, find your perfect product market fit and build
+              functionality that makes your product unique.
             </Text>
             <Text>— Eelco Wiersma</Text>
           </VStack>

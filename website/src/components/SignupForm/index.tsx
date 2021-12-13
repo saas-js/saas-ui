@@ -80,6 +80,7 @@ export function SignupForm({ isOpen, onClose }: any) {
         <FormControl>
           <FormLabel>Name</FormLabel>
           <Input
+            name="name"
             ref={initialRef}
             onChange={({ target }) => setName(target.value)}
           />
@@ -88,6 +89,7 @@ export function SignupForm({ isOpen, onClose }: any) {
         <FormControl mt={4} isRequired isInvalid={!!error}>
           <FormLabel>Email address</FormLabel>
           <Input
+            name="email"
             type="email"
             onChange={({ target }) => setEmail(target.value)}
           />

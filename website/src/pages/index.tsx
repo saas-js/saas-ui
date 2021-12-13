@@ -40,7 +40,8 @@ import Blitz from '/public/frameworks/blitz.svg'
 import Supabase from '/public/frameworks/supabase.svg'
 import Bedrock from '/public/frameworks/bedrock.svg'
 
-import { SignupModal } from '@/components/marketing/SignupModal'
+import { SignupModal } from '@/components/SignupModal'
+import { SignupForm } from '@/components/SignupForm'
 
 const Home = ({ features }: any) => {
   return (
@@ -332,22 +333,31 @@ const RequestAccess = () => {
             </p>
           </>
         }
-        action={{
-          label: 'Sign up',
-          colorScheme: 'purple',
-          variant: 'solid',
-          size: 'lg',
-          onClick: () => {
-            onOpen()
-            /* @ts-ignore */
-            window?.woopra.track('Signup Clicked')
-          },
-        }}
+        // action={{
+        //   label: 'Sign up',
+        //   colorScheme: 'purple',
+        //   variant: 'solid',
+        //   size: 'lg',
+        //   onClick: () => {
+        //     onOpen()
+        //     /* @ts-ignore */
+        //     window?.woopra.track('Signup Clicked')
+        //   },
+        // }}
         variant="subtle"
-      />
+      >
+        <Container
+          borderRadius="md"
+          bg={useColorModeValue('gray.200', 'gray.700')}
+          p={8}
+          width={['100%', 'md']}
+        >
+          <SignupForm flex="1" />
+        </Container>
+      </CTA>
       {/* </ScaleInView> */}
 
-      <SignupModal isOpen={isOpen} onClose={onClose} />
+      {/* <SignupModal isOpen={isOpen} onClose={onClose} /> */}
     </>
   )
 }

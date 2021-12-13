@@ -30,19 +30,27 @@ export interface CTAAction extends ChakraButtonProps {
 export interface CTAProps extends Omit<SectionProps, 'children'> {
   title: string
   description?: React.ReactNode
-  action: CTAAction
+  action?: CTAAction
   secondaryAction?: CTAAction
   variant?: 'subtle' | 'solid' | 'light'
+  children?: React.ReactNode
   aside?: React.ReactNode
 }
 
 const ActionButton = ({ label, ...actionProps }: CTAAction) => {
-  console.log(actionProps)
   return <Button {...actionProps}>{label}</Button>
 }
 
 export default function CTASection(props: CTAProps) {
-  const { title, description, action, secondaryAction, variant, aside } = props
+  const {
+    title,
+    description,
+    action,
+    secondaryAction,
+    variant,
+    children,
+    aside,
+  } = props
 
   // const direction = !!aside ? 'column' : 'row'
   const align = !!aside ? 'left' : 'center'
@@ -53,13 +61,16 @@ export default function CTASection(props: CTAProps) {
 
   const ownProps = omitThemingProps(props)
 
-  const actionBtn = (
-    <ActionButton
-      colorScheme={variant === 'solid' ? 'secondary' : 'primary'}
-      sx={styles.action}
-      {...action}
-    />
-  )
+  let actionBtn
+  if (action) {
+    actionBtn = (
+      <ActionButton
+        colorScheme={variant === 'solid' ? 'secondary' : 'primary'}
+        sx={styles.action}
+        {...action}
+      />
+    )
+  }
 
   let secondaryBtn
   if (secondaryAction) {
@@ -87,6 +98,7 @@ export default function CTASection(props: CTAProps) {
             <Stack direction="row">
               {actionBtn}
               {secondaryBtn}
+              {children}
             </Stack>
           </VStack>
           {aside && (

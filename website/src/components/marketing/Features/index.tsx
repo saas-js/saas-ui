@@ -57,7 +57,7 @@ export function Feature({
 
   const pos = iconPosition || ip
   const direction = pos === 'left' ? 'row' : 'column'
-  console.log(styles, variant)
+
   return (
     <Stack sx={styles.container}>
       {icon && (

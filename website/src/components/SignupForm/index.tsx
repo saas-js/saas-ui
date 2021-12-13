@@ -1,14 +1,8 @@
 import { useRef, useState, FormEvent } from 'react'
 
 import {
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
+  Box,
+  Flex,
   Button,
   Text,
   FormControl,
@@ -22,17 +16,23 @@ function encode(data: Record<string, any>) {
     .join('&')
 }
 
-export function SignupModal({ isOpen, onClose, onSubmit }: any) {
+export function SignupForm({ isOpen, onClose }: any) {
   const initialRef = useRef<HTMLInputElement>(null)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [error, setError] = useState<string | null>(null)
 
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<boolean | null>(null)
 
   const handleSubmit = (e: FormEvent<HTMLElement>) => {
     e.preventDefault()
+
+    if (!email || !email.match(/^\S+@\S+\.\S+$/)) {
+      setError('Invalid email')
+      return
+    }
 
     setLoading(true)
 
@@ -67,9 +67,11 @@ export function SignupModal({ isOpen, onClose, onSubmit }: any) {
 
   if (result) {
     content = (
-      <Text fontWeight="semibold">
+      <Text>
         {`Awesome 😎 ! Thanks for signing up, we really appreciate your early
-        support. You\'ll hear from us soon.`}
+        support.`}{' '}
+        <br />
+        <br /> {`We'll contact you at `} <strong>{email}</strong> {`soon.`}
       </Text>
     )
   } else {
@@ -83,11 +85,11 @@ export function SignupModal({ isOpen, onClose, onSubmit }: any) {
           />
         </FormControl>
 
-        <FormControl mt={4}>
+        <FormControl mt={4} isRequired isInvalid={!!error}>
           <FormLabel>Email address</FormLabel>
           <Input
             type="email"
-            onChange={({ target }) => setName(target.value)}
+            onChange={({ target }) => setEmail(target.value)}
           />
         </FormControl>
       </>
@@ -97,41 +99,28 @@ export function SignupModal({ isOpen, onClose, onSubmit }: any) {
   let footer
 
   if (result) {
-    footer = (
-      <Button colorScheme="primary" onClick={onClose}>
-        Close
-      </Button>
-    )
+    // footer = (
+    //   <Button colorScheme="primary" onClick={onClose}>
+    //     Close
+    //   </Button>
+    // )
   } else {
     footer = (
-      <>
-        <Button variant="clost" mr={3} onClick={onClose} disabled={loading}>
+      <Flex justify="flex-end" pt="8">
+        <Button variant="ghost" mr={3} onClick={onClose} disabled={loading}>
           Cancel
         </Button>
         <Button colorScheme="primary" type="submit" isLoading={loading}>
           Request access
         </Button>
-      </>
+      </Flex>
     )
   }
 
   return (
-    <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent as="form" onSubmit={handleSubmit} data-netlify="true">
-        <ModalHeader>Sign up for early access</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <Text mb="4" fontSize="sm" opacity={0.6}>
-            We are still working hard on the first release of Saas UI. Once we
-            release the public beta, you will be the first to know.
-          </Text>
-
-          {content}
-        </ModalBody>
-
-        <ModalFooter>{footer}</ModalFooter>
-      </ModalContent>
-    </Modal>
+    <Box as="form" onSubmit={handleSubmit} data-netlify="true">
+      <Box>{content}</Box>
+      {footer}
+    </Box>
   )
 }

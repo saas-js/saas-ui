@@ -24,7 +24,21 @@ const Header = ({ position, variant }: HeaderProps) => {
     >
       <Container>
         <Flex width="full" align="center" justify="space-between">
-          <Logo svg={<LogoDark />} svgDark={<LogoSolid />} text="Saas UI" />
+          <Logo
+            svg={<LogoDark />}
+            svgDark={<LogoSolid />}
+            text="Saas UI"
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault()
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                })
+              }
+            }}
+          />
           <Navigation />
         </Flex>
       </Container>

@@ -1,15 +1,17 @@
 import { Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
 import { useColorMode } from '@chakra-ui/color-mode'
 import AccessibleLink from 'components/Link'
+import React from 'react'
 
 export interface LogoProps {
   href?: string
   svg?: React.ReactNode
   svgDark?: React.ReactNode
   text?: string
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-const Logo = ({ href = '/', svg, svgDark, text }: LogoProps) => {
+const Logo = ({ href = '/', svg, svgDark, text, onClick }: LogoProps) => {
   const { colorMode } = useColorMode()
 
   let logo = colorMode === 'dark' ? svgDark : svg
@@ -23,7 +25,13 @@ const Logo = ({ href = '/', svg, svgDark, text }: LogoProps) => {
 
   return (
     <Flex h="8">
-      <AccessibleLink href={href} display="flex" p="1" borderRadius="sm">
+      <AccessibleLink
+        href={href}
+        display="flex"
+        p="1"
+        borderRadius="sm"
+        onClick={onClick}
+      >
         {logo}
         <VisuallyHidden>{text}</VisuallyHidden>
       </AccessibleLink>

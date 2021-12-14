@@ -29,25 +29,27 @@ import Bedrock from '/public/frameworks/bedrock.svg'
 import { SignupForm } from '@/components/SignupForm'
 import { Em, Br } from '@/components/Typography'
 
-const Home = ({ features }: any) => {
+import { FallInPlace } from '@/components/motion/FallInPlace'
+
+const Home = () => {
   return (
     <Box mb={8} w="full">
       <Hero
         title={
-          <>
+          <FallInPlace>
             The React <Br display={{ sm: 'inline', lg: 'none' }} />
             <ClipText bgGradient="linear(to-r, purple.700, green.400)">
               design system
             </ClipText>{' '}
             for SaaS products
-          </>
+          </FallInPlace>
         }
         description={
-          <>
+          <FallInPlace>
             Saas UI is an advanced component library build with{' '}
             <Em>Typescript</Em> and <Em>Chakra UI</Em> that allows developers to
             build high quality and user friendly app frontends at speed.
-          </>
+          </FallInPlace>
         }
       ></Hero>
       <Features

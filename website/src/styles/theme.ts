@@ -142,15 +142,21 @@ const theme = extendTheme({
       variants: {
         ...Button.variants,
         // solid: ,
-        link: (props: any) => ({
-          fontWeight: '500',
-          color: mode('gray.700', 'whiteAlpha.700')(props),
-          transition: 'color .2s ease-in',
-          _hover: {
-            textDecoration: 'none',
-            color: mode('gray.900', 'white')(props),
-          },
-        }),
+        link: (props: any) => {
+          const { isActive } = props
+          const hoverColor = mode('gray.900', 'white')(props)
+          return {
+            fontWeight: '500',
+            color: isActive
+              ? hoverColor
+              : mode('gray.700', 'whiteAlpha.700')(props),
+            transition: 'color .2s ease-in',
+            _hover: {
+              textDecoration: 'none',
+              color: hoverColor,
+            },
+          }
+        },
       },
       sizes: deepmerge(baseTheme.components.Button.sizes, {
         sm: {

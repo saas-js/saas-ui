@@ -24,7 +24,7 @@ const Header = ({ position, variant }: HeaderProps) => {
     >
       <Container>
         <Flex width="full" align="center" justify="space-between">
-          <Logo svg={<LogoDark />} svgDark={<LogoSolid />} />
+          <Logo svg={<LogoDark />} svgDark={<LogoSolid />} text="Saas UI" />
           <Navigation />
         </Flex>
       </Container>

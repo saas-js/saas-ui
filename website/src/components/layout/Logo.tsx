@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/layout'
+import { Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
 import { useColorMode } from '@chakra-ui/color-mode'
 import AccessibleLink from 'components/Link'
 
@@ -22,9 +22,10 @@ const Logo = ({ href = '/', svg, svgDark, text }: LogoProps) => {
   }
 
   return (
-    <Flex h="6">
-      <AccessibleLink href={href} display="flex">
+    <Flex h="8">
+      <AccessibleLink href={href} display="flex" p="1" borderRadius="sm">
         {logo}
+        <VisuallyHidden>{text}</VisuallyHidden>
       </AccessibleLink>
     </Flex>
   )

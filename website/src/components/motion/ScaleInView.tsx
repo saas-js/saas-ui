@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useCallback, useRef, useState } from 'react'
 import { motion, useViewportScroll, useTransform } from 'framer-motion'
 
 export interface ScaleInViewProps {
@@ -8,10 +8,21 @@ export interface ScaleInViewProps {
 export default function ScaleInView({ children }: ScaleInViewProps) {
   const ref = useRef<HTMLDivElement | null>()
 
-  let innerHeight = 0
-  if (typeof window !== 'undefined') {
-    innerHeight = window.innerHeight
-  }
+  const [innerHeight, setInnerHeight] = useState(0)
+
+  const handleResize = useCallback(() => {
+    setInnerHeight(window.innerHeight)
+  }, [])
+
+  useEffect(() => {
+    setInnerHeight(window.innerHeight)
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const height = (ref.current?.offsetHeight as number) || 0
   const offset = (ref.current?.offsetTop as number) || 0

@@ -3,10 +3,12 @@ import {
   Container,
   Text,
   VStack,
+  Stack,
   Link,
   useColorModeValue,
   chakra,
-  useDisclosure,
+  Avatar,
+  VisuallyHidden,
 } from '@chakra-ui/react'
 
 import Hero from 'components/marketing/Hero'
@@ -145,7 +147,13 @@ const Home = ({ features }: any) => {
               validate new ideas, find your perfect product market fit and build
               functionality that makes your product unique.
             </Text>
-            <Text color="white">— Eelco Wiersma</Text>
+            <Stack direction="row" align="center">
+              <Avatar src="/eelco128.jpg" mr="2" size="lg" />
+              <VStack align="flex-start" spacing="0">
+                <Em>Eelco Wiersma</Em>
+                <Text fontSize="sm">Founder Saas UI</Text>
+              </VStack>
+            </Stack>
           </VStack>
         </ScaleInView>
       </Section>
@@ -181,11 +189,13 @@ const Home = ({ features }: any) => {
               }}
             >
               <NextJS alt="Next.JS logo" />
+              <VisuallyHidden>Next.js</VisuallyHidden>
             </Link>
           </ScaleInView>
           <ScaleInView>
             <Link href="https://blitzjs.com" p="8" d="flex">
               <Blitz alt="Blitz.js logo" />
+              <VisuallyHidden>Blitz.js</VisuallyHidden>
             </Link>
           </ScaleInView>
           <ScaleInView>
@@ -203,11 +213,13 @@ const Home = ({ features }: any) => {
                 alt="Supabase logo"
                 viewBox="0 0 581 113" // somehow this gets removed when importing
               />
+              <VisuallyHidden>Supabase</VisuallyHidden>
             </Link>
           </ScaleInView>
           <ScaleInView>
             <Link href="https://bedrock.mxstbr.com" p="8" d="flex">
               <Bedrock alt="Bedrock logo" />
+              <VisuallyHidden>Bedrock</VisuallyHidden>
             </Link>
           </ScaleInView>
         </SimpleGrid>

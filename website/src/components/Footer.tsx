@@ -1,4 +1,4 @@
-import { Box, Text, Link, HStack } from '@chakra-ui/react'
+import { Box, HStack } from '@chakra-ui/react'
 import Footer, { Copyright, FooterLink } from 'components/layout/Footer'
 
 const CustomFooter = () => {
@@ -7,9 +7,7 @@ const CustomFooter = () => {
       <Box>
         <Copyright>
           Saas UI is a product of{' '}
-          <FooterLink href="https://appulse.net" target="_blank">
-            Appulse
-          </FooterLink>
+          <FooterLink href="https://appulse.net">Appulse</FooterLink>
         </Copyright>
       </Box>
       <HStack justify="flex-end" spacing="4">

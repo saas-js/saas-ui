@@ -1,4 +1,4 @@
-import { VStack, Heading, Box } from '@chakra-ui/layout'
+import { VStack, Heading, Text, Box } from '@chakra-ui/layout'
 import { useColorModeValue } from '@chakra-ui/react'
 
 export interface PageTitleProps {
@@ -13,18 +13,12 @@ export default function PageTitle({
 }: PageTitleProps) {
   return (
     <VStack spacing={[4, null, 8]} {...props}>
-      <Heading
-        as="h1"
-        size="3xl"
-        textAlign="center"
-        fontWeight="extrabold"
-        lineHeight="1.2"
-      >
+      <Text as="h1" textStyle="h1" textAlign="center">
         {title}
-      </Heading>
-      <Box align="center" fontSize="2xl" color="gray.500" fontWeight="normal">
+      </Text>
+      <Text as="div" textStyle="subtitle" align="center" color="gray.400">
         {description}
-      </Box>
+      </Text>
     </VStack>
   )
 }

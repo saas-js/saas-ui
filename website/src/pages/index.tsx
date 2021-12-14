@@ -1,17 +1,9 @@
-import { Box, Flex, SimpleGrid } from '@chakra-ui/layout'
+import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
   Container,
-  Button,
-  SkeletonText,
-  Heading,
   Text,
-  UnorderedList,
-  ListItem,
-  Switch,
   VStack,
   Link,
-  Icon,
-  FormLabel,
   useColorModeValue,
   chakra,
   useDisclosure,
@@ -23,16 +15,8 @@ import CTA from 'components/marketing/CTA'
 import Section from 'components/marketing/SectionWrapper'
 import SectionTitle from 'components/marketing/SectionTitle'
 
-import ScrollSpy from 'components/ScrollSpy'
-
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
-import visit from 'unist-util-visit'
-import { useState, useEffect } from 'react'
-
 import ClipText from 'components/motion/ClipText'
 
-import CodePanel from 'components/CodePanel'
 import ScaleInView from 'components/motion/ScaleInView'
 
 import NextJS from '/public/frameworks/nextjs.svg'
@@ -40,8 +24,8 @@ import Blitz from '/public/frameworks/blitz.svg'
 import Supabase from '/public/frameworks/supabase.svg'
 import Bedrock from '/public/frameworks/bedrock.svg'
 
-import { SignupModal } from '@/components/SignupModal'
 import { SignupForm } from '@/components/SignupForm'
+import { Em, Br } from '@/components/Typography'
 
 const Home = ({ features }: any) => {
   return (
@@ -49,7 +33,7 @@ const Home = ({ features }: any) => {
       <Hero
         title={
           <>
-            The React{' '}
+            The React <Br display={{ sm: 'inline', lg: 'none' }} />
             <ClipText bgGradient="linear(to-r, purple.700, green.400)">
               design system
             </ClipText>{' '}
@@ -59,15 +43,8 @@ const Home = ({ features }: any) => {
         description={
           <>
             Saas UI is an advanced component library build with{' '}
-            <Text color={useColorModeValue('black', 'white')} d="inline">
-              Typescript
-            </Text>{' '}
-            and{' '}
-            <Text color={useColorModeValue('black', 'white')} d="inline">
-              Chakra UI
-            </Text>{' '}
-            that allows developers to build high quality and user friendly app
-            frontends at speed.
+            <Em>Typescript</Em> and <Em>Chakra UI</Em> that allows developers to
+            build high quality and user friendly app frontends at speed.
           </>
         }
       ></Hero>
@@ -125,11 +102,8 @@ const Home = ({ features }: any) => {
             description: (
               <>
                 All code is available as packages in a high-performance{' '}
-                <Link href="https://turborepo.com" target="_blank">
-                  Turborepo
-                </Link>
-                , you have full control to modify and adjust it to your
-                workflow.
+                <Link href="https://turborepo.com">Turborepo</Link>, you have
+                full control to modify and adjust it to your workflow.
               </>
             ),
             variant: 'inline',
@@ -148,7 +122,12 @@ const Home = ({ features }: any) => {
           <SectionTitle title="Building SaaS products that work great and look amazing is hard" />
         </ScaleInView>
         <ScaleInView>
-          <VStack fontSize="lg" spacing="8" alignItems="flex-start">
+          <VStack
+            fontSize="lg"
+            spacing="8"
+            alignItems="flex-start"
+            color="gray.400"
+          >
             <Text>
               Building SaaS products requires you to be a generalist on many
               fronts. However many developers aren&apos;t very design savvy and
@@ -156,17 +135,17 @@ const Home = ({ features }: any) => {
             </Text>
             <Text>
               SaaS UI tries to fill this gap by giving developers an extensive
-              set of beautifully designed components build on best in class
-              tools. While on the same time serve as a great foundation for
-              designers to create their brand.
+              set of beautifully designed components build on{' '}
+              <Em>best in class tools</Em>. While on the same time serve as a{' '}
+              <Em>great foundation</Em> for designers to create their brand.
             </Text>
             <Text>
-              With SaaS UI you&apos;ll save hundreds of hours building essential
-              functionaly for your product. Time that you can use to validate
-              new ideas, find your perfect product market fit and build
+              With SaaS UI you&apos;ll <Em>save hundreds of hours</Em> building
+              essential functionaly for your product. Time that you can use to
+              validate new ideas, find your perfect product market fit and build
               functionality that makes your product unique.
             </Text>
-            <Text>— Eelco Wiersma</Text>
+            <Text color="white">— Eelco Wiersma</Text>
           </VStack>
         </ScaleInView>
       </Section>
@@ -278,6 +257,10 @@ const Home = ({ features }: any) => {
             answer="No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks."
           />
           <FaqItem
+            question="Does Saas UI have a pure Javascript version?"
+            answer="No, we believe Typescript is the way to go in order to produce highly productive and qualitative code."
+          />
+          <FaqItem
             question="What does 'lifetime access' mean?"
             answer="Saas UI is a one-time purchase, with no recurring subscription. You will have access to all assets of the Saas UI library forever."
           />
@@ -289,8 +272,8 @@ const Home = ({ features }: any) => {
                 we get new ideas and feedback, these updates will always be free
                 for all customers that sign-up for the early access. <br />
                 <br />
-                We might release different stacks, for example for Vue, these
-                will be sold seperately.
+                We might release different stacks, for example for Vue and
+                backends, these will be sold seperately.
               </>
             }
           />
@@ -319,8 +302,6 @@ const Home = ({ features }: any) => {
 }
 
 const RequestAccess = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
   return (
     <>
       <ScaleInView>
@@ -357,8 +338,8 @@ const FaqItem = ({ question, answer }: any) => {
   return (
     <ScaleInView>
       <chakra.dl>
-        <chakra.dt>{question}</chakra.dt>
-        <chakra.dd color="gray.500">{answer}</chakra.dd>
+        <chakra.dt fontWeight="semibold">{question}</chakra.dt>
+        <chakra.dd color="gray.400">{answer}</chakra.dd>
       </chakra.dl>
     </ScaleInView>
   )

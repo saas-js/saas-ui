@@ -1,16 +1,7 @@
-import {
-  Box,
-  Stack,
-  VStack,
-  SimpleGrid,
-  Heading,
-  Text,
-} from '@chakra-ui/layout'
+import { Box, Stack, VStack } from '@chakra-ui/layout'
 import {
   ButtonProps as ChakraButtonProps,
-  ResponsiveValue,
   useMultiStyleConfig,
-  useColorModeValue,
   Button,
   StylesProvider,
   omitThemingProps,

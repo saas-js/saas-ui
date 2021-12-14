@@ -1,5 +1,3 @@
-import { createRef } from 'react'
-
 import { HStack } from '@chakra-ui/layout'
 
 import headerNavLinks from 'data/headerNavLinks'

@@ -8,22 +8,11 @@ interface HeroProps {
   children?: React.ReactNode
 }
 
-export default function Hero({
-  title,
-  description,
-  children
-}: HeroProps) {
+export default function Hero({ title, description, children }: HeroProps) {
   return (
-    <Flex
-      p="20"
-      height="100vh"
-      alignItems="center"
-    >
+    <Flex p={[0, null, 20]} height={['100vh']} alignItems="center">
       <Container>
-        <PageTitle
-          title={title}
-          description={description}
-        />
+        <PageTitle title={title} description={description} />
         {children}
       </Container>
     </Flex>

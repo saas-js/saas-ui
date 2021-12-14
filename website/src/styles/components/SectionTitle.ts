@@ -10,14 +10,14 @@ const SectionTitle = {
     },
     description: {
       fontSize: 'lg',
-      fontWeight: '500',
+      fontWeight: 'medium',
     },
   },
   variants: {
     default: ({ colorMode }: any) => ({
       title: {},
       description: {
-        color: 'gray.500',
+        color: 'gray.400',
       },
     }),
     dark: {

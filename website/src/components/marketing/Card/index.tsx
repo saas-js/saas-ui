@@ -1,9 +1,4 @@
-import {
-  Box,
-  Heading,
-  useStyleConfig,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { Box, Heading, useStyleConfig } from '@chakra-ui/react'
 
 export interface CardProps {
   title?: string

@@ -1,7 +1,6 @@
 import { useRef, useState, FormEvent } from 'react'
 
 import {
-  useDisclosure,
   Modal,
   ModalOverlay,
   ModalContent,

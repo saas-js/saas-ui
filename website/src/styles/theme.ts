@@ -1,9 +1,4 @@
-import {
-  theme as baseTheme,
-  extendTheme,
-  ThemeExtension,
-  withDefaultColorScheme,
-} from '@chakra-ui/react'
+import { theme as baseTheme, extendTheme } from '@chakra-ui/react'
 
 import { mode, transparentize } from '@chakra-ui/theme-tools'
 
@@ -19,9 +14,6 @@ import colors from './colors'
 
 const styles = {
   global: (props: any) => ({
-    // 'html, body': {
-    //   height: '100%'
-    // },
     body: {
       webkitFontSmoothing: 'antialiased',
       textRendering: 'optimizeLegibility',
@@ -37,10 +29,9 @@ const styles = {
 
 const textStyles = {
   h1: {
-    // you can also use responsive styles
-    fontSize: ['48px', '72px'],
-    fontWeight: '900',
-    lineHeight: '110%',
+    fontSize: ['4xl', null, '6xl'],
+    fontWeight: 'extrabold',
+    lineHeight: '1.2',
     letterSpacing: '-2%',
   },
   h2: {
@@ -48,6 +39,10 @@ const textStyles = {
     fontWeight: '900',
     lineHeight: '110%',
     letterSpacing: '-1%',
+  },
+  subtitle: {
+    fontSize: ['lg', null, '2xl'],
+    fontWeight: 'normal',
   },
 }
 
@@ -57,139 +52,133 @@ const shadows = {
 
 const focusBorderColor = 'primary.500'
 
-const theme = extendTheme(
-  // withDefaultColorScheme({
-  //   // colorScheme: "primary",
-  //   // components: ["Button", "Badge"],
-  // }),
-  {
-    config: {
-      initialColorMode: 'dark',
+const theme = extendTheme({
+  config: {
+    initialColorMode: 'dark',
+  },
+  colors,
+  styles,
+  textStyles,
+  fonts: {
+    ...baseTheme.fonts,
+    body: 'InterVariable, sans-serif',
+    heading: 'InterVariable, sans-serif',
+  },
+  shadows,
+  headers: {},
+  components: {
+    FormLabel: {
+      baseStyle: {
+        fontSize: 'sm',
+      },
     },
-    colors,
-    styles,
-    textStyles,
-    fonts: {
-      ...baseTheme.fonts,
-      body: 'InterVariable, sans-serif',
-      heading: 'InterVariable, serif',
+    Input: {
+      defaultProps: {
+        focusBorderColor,
+        size: 'md',
+      },
+      sizes: {
+        md: {
+          field: {
+            px: 3,
+            h: 9,
+          },
+          addon: {
+            px: 3,
+            h: 9,
+          },
+        },
+      },
     },
-    shadows,
-    headers: {},
-    components: {
-      FormLabel: {
-        baseStyle: {
-          fontSize: 'sm',
-        },
+    NumberInput: {
+      defaultProps: {
+        focusBorderColor,
+        size: 'md',
       },
-      Input: {
-        defaultProps: {
-          focusBorderColor,
-          size: 'md',
-        },
-        sizes: {
-          md: {
-            field: {
-              px: 3,
-              h: 9,
-            },
-            addon: {
-              px: 3,
-              h: 9,
-            },
+      sizes: {
+        md: {
+          field: {
+            px: 3,
+            h: 9,
+          },
+          addon: {
+            px: 3,
+            h: 9,
           },
         },
       },
-      NumberInput: {
-        defaultProps: {
-          focusBorderColor,
-          size: 'md',
-        },
-        sizes: {
-          md: {
-            field: {
-              px: 3,
-              h: 9,
-            },
-            addon: {
-              px: 3,
-              h: 9,
-            },
-          },
-        },
+    },
+    Textarea: {
+      defaultProps: {
+        focusBorderColor,
+        size: 'md',
       },
-      Textarea: {
-        defaultProps: {
-          focusBorderColor,
-          size: 'md',
-        },
+    },
+    Select: {
+      defaultProps: {
+        focusBorderColor,
+        size: 'md',
       },
-      Select: {
-        defaultProps: {
-          focusBorderColor,
-          size: 'md',
-        },
+    },
+    PinInput: {
+      defaultProps: {
+        focusBorderColor,
+        size: 'md',
       },
-      PinInput: {
-        defaultProps: {
-          focusBorderColor,
-          size: 'md',
-        },
+    },
+    Button,
+    Container: {
+      baseStyle: {
+        maxW: 'container.lg',
       },
-      Button,
-      Container: {
-        baseStyle: {
-          maxW: 'container.lg',
-        },
+    },
+    Heading: {
+      baseStyle: {
+        // fontWeight: '900'
       },
-      Heading: {
-        baseStyle: {
-          // fontWeight: '900'
-        },
-      },
-      NavLink: {
-        ...baseTheme.components.Button,
-        variants: {
-          ...Button.variants,
-          // solid: ,
-          link: (props: any) => ({
-            fontWeight: '500',
-            color: mode('gray.700', 'whiteAlpha.700')(props),
-            transition: 'color .2s ease-in',
-            _hover: {
-              textDecoration: 'none',
-              color: mode('gray.900', 'white')(props),
-            },
-          }),
-        },
-        sizes: deepmerge(baseTheme.components.Button.sizes, {
-          sm: {
-            lineHeight: '2rem',
-          },
-          md: {
-            lineHeight: '2.5rem',
-          },
-          lg: {
-            lineHeight: '3rem',
+    },
+    NavLink: {
+      ...baseTheme.components.Button,
+      variants: {
+        ...Button.variants,
+        // solid: ,
+        link: (props: any) => ({
+          fontWeight: '500',
+          color: mode('gray.700', 'whiteAlpha.700')(props),
+          transition: 'color .2s ease-in',
+          _hover: {
+            textDecoration: 'none',
+            color: mode('gray.900', 'white')(props),
           },
         }),
-        defaultProps: {
-          variant: 'link',
-          size: 'sm',
-        },
       },
-      CTA,
-      Section,
-      SectionTitle,
-      Features,
-      Feature,
-      Link: {
-        baseStyle: {
-          textDecoration: 'underline',
+      sizes: deepmerge(baseTheme.components.Button.sizes, {
+        sm: {
+          lineHeight: '2rem',
         },
+        md: {
+          lineHeight: '2.5rem',
+        },
+        lg: {
+          lineHeight: '3rem',
+        },
+      }),
+      defaultProps: {
+        variant: 'link',
+        size: 'sm',
       },
     },
-  }
-)
+    CTA,
+    Section,
+    SectionTitle,
+    Features,
+    Feature,
+    Link: {
+      baseStyle: {
+        textDecoration: 'underline',
+      },
+    },
+  },
+})
 // console.log(theme.components.NavLink)
 export default theme

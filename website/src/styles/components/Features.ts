@@ -13,7 +13,7 @@ const Features = {
     },
     description: {
       fontSize: 'md',
-      color: 'gray.500',
+      color: 'gray.400',
     },
     icon: {
       mb: 3,
@@ -60,8 +60,8 @@ export const Feature = {
     },
     description: {
       fontSize: 'lg',
-      fontWeight: '500',
-      color: 'gray.500',
+      fontWeight: 'normal',
+      color: 'gray.400',
     },
     icon: {
       mb: 4,

@@ -257,8 +257,8 @@ const Home = ({ features }: any) => {
             answer="No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks."
           />
           <FaqItem
-            question="Does Saas UI have a pure Javascript version?"
-            answer="No, we believe Typescript is the way to go in order to produce highly productive and qualitative code."
+            question="Does Saas UI have a Javascript version?"
+            answer="No, we believe Typescript is the way to go in order to produce highly productive and qualitative code that scales."
           />
           <FaqItem
             question="What does 'lifetime access' mean?"

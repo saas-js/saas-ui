@@ -33,7 +33,7 @@
     "remark-code-titles": "^0.1.2"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^3.4.2",
+    "@netlify/plugin-nextjs": "^3.9.2",
     "@types/react": "^17.0.11",
     "@types/react-transition-group": "^4.4.4",
     "eslint": "^7.28.0",

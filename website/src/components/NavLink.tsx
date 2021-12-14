@@ -2,11 +2,12 @@ import {
   forwardRef,
   chakra,
   useStyleConfig,
-  LinkProps,
   omitThemingProps,
   HTMLChakraProps,
   ThemingProps,
 } from '@chakra-ui/react'
+
+import Link from 'next/link'
 
 interface NavLinkProps extends HTMLChakraProps<'a'>, ThemingProps<'NavLink'> {}
 
@@ -17,9 +18,11 @@ const NavLink = forwardRef(
     const ownProps = omitThemingProps(props)
 
     return (
-      <chakra.a __css={styles} href={href} {...ownProps}>
-        {children}
-      </chakra.a>
+      <Link href={href as string} passHref>
+        <chakra.a __css={styles} {...ownProps}>
+          {children}
+        </chakra.a>
+      </Link>
     )
   }
 )

@@ -18,7 +18,6 @@ const Header = ({ position, variant }: HeaderProps) => {
       pos={position}
       top="0"
       w="full"
-      bg="transparentize('gray.800')"
       backdropFilter="blur(5px)"
       zIndex="10"
     >

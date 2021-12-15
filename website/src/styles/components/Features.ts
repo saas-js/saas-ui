@@ -47,7 +47,7 @@ const Features = {
 
 export const Feature = {
   parts: ['container', 'title', 'description', 'icon'],
-  baseStyle: {
+  baseStyle: ({ colorMode }: any) => ({
     container: {
       alignItems: 'flex-start',
       flexDirection: 'column',
@@ -61,7 +61,7 @@ export const Feature = {
     description: {
       fontSize: 'lg',
       fontWeight: 'normal',
-      color: 'gray.400',
+      color: colorMode === 'dark' ? 'gray.400' : 'gray.500',
     },
     icon: {
       mb: 4,
@@ -71,7 +71,7 @@ export const Feature = {
       color: 'white',
       float: 'left',
     },
-  },
+  }),
   variants: {
     default: {},
     'left-icon': {

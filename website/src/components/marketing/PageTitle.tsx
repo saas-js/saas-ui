@@ -6,6 +6,7 @@ export interface PageTitleProps {
   description?: string | React.ReactNode
 }
 
+// @todo add to theme
 export default function PageTitle({
   title,
   description,
@@ -16,7 +17,12 @@ export default function PageTitle({
       <Text as="h1" textStyle="h1" textAlign="center">
         {title}
       </Text>
-      <Text as="div" textStyle="subtitle" align="center" color="gray.400">
+      <Text
+        as="div"
+        textStyle="subtitle"
+        align="center"
+        color={useColorModeValue('gray.500', 'gray.400')}
+      >
         {description}
       </Text>
     </VStack>

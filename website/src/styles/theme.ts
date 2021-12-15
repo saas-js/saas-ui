@@ -184,6 +184,13 @@ const theme = extendTheme({
         textDecoration: 'underline',
       },
     },
+    Modal: {
+      baseStyle: (props: any) => ({
+        container: {
+          bg: mode('white', 'gray.800'),
+        },
+      }),
+    },
   },
 })
 // console.log(theme.components.NavLink)

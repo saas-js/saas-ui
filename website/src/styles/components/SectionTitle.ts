@@ -1,3 +1,5 @@
+import { mode } from '@chakra-ui/theme-tools'
+
 const SectionTitle = {
   parts: ['wrapper', 'title', 'description'],
   baseStyle: {
@@ -14,10 +16,10 @@ const SectionTitle = {
     },
   },
   variants: {
-    default: ({ colorMode }: any) => ({
+    default: (props: any) => ({
       title: {},
       description: {
-        color: 'gray.400',
+        color: mode('gray.500', 'gray.400')(props),
       },
     }),
     dark: {
@@ -28,7 +30,7 @@ const SectionTitle = {
         color: 'gray.700',
       },
     },
-    light: ({ colorMode }: any) => ({
+    light: (props: any) => ({
       title: {
         color: 'white',
       },

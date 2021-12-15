@@ -1,16 +1,27 @@
 import { Container, Flex } from '@chakra-ui/layout'
-import { useColorModeValue } from '@chakra-ui/react'
+import {
+  HTMLChakraProps,
+  ThemingProps,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import PageTitle from './PageTitle'
 
-interface HeroProps {
+interface HeroProps
+  extends Omit<HTMLChakraProps<'div'>, 'children' | 'title'>,
+    ThemingProps<'Hero'> {
   title: string | React.ReactNode
   description?: string | React.ReactNode
   children?: React.ReactNode
 }
 
-export default function Hero({ title, description, children }: HeroProps) {
+export default function Hero({
+  title,
+  description,
+  children,
+  ...rest
+}: HeroProps) {
   return (
-    <Flex p={[0, null, 20]} height={['100vh']} alignItems="center">
+    <Flex p={[0, null, 20]} height={['100vh']} alignItems="center" {...rest}>
       <Container>
         <PageTitle title={title} description={description} />
         {children}

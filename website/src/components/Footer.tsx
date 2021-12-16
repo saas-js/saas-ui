@@ -1,5 +1,5 @@
 import { Box, HStack } from '@chakra-ui/react'
-import Footer, { Copyright, FooterLink } from 'components/layout/Footer'
+import Footer, { Copyright, FooterLink } from '@/components/layout/Footer'
 
 import ThemeToggle from './layout/ThemeToggle'
 

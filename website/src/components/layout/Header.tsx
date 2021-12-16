@@ -1,27 +1,23 @@
-import { Box, Container, Flex } from '@chakra-ui/layout'
-import Navigation from 'components/layout/Navigation'
+import { Box, BoxProps, Container, Flex } from '@chakra-ui/layout'
+import Navigation from '@/components/layout/Navigation'
 import Logo from './Logo'
 
 import LogoSolid from '/public/saasui.svg'
 import LogoDark from '/public/saasui-dark.svg'
 
-export interface HeaderProps {
-  position: 'static' | 'absolute' | 'fixed' | 'sticky'
-  variant: 'dark' | 'light'
-}
+export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
-const Header = ({ position, variant }: HeaderProps) => {
+const Header = (props: HeaderProps) => {
   return (
     <Box
       as="header"
-      py="4"
-      pos={position}
       top="0"
       w="full"
       backdropFilter="blur(5px)"
-      zIndex="10"
+      zIndex="sticky"
+      {...props}
     >
-      <Container>
+      <Container maxW="container.2xl" px="8" py="4">
         <Flex width="full" align="center" justify="space-between">
           <Logo
             svg={<LogoDark />}

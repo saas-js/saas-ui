@@ -1,6 +1,6 @@
 import { theme as baseTheme, extendTheme } from '@chakra-ui/react'
 
-import { mode, transparentize } from '@chakra-ui/theme-tools'
+import { createBreakpoints, mode, transparentize } from '@chakra-ui/theme-tools'
 
 import deepmerge from 'deepmerge'
 
@@ -11,6 +11,8 @@ import Section from './components/Section'
 import SectionTitle from './components/SectionTitle'
 
 import colors from './colors'
+
+import mdx from './mdx'
 
 const styles = {
   global: (props: any) => ({
@@ -52,10 +54,19 @@ const shadows = {
 
 const focusBorderColor = 'primary.500'
 
+const breakpoints = {
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+  '2xl': '96em',
+}
+
 const theme = extendTheme({
   config: {
     initialColorMode: 'dark',
   },
+  breakpoints: createBreakpoints(breakpoints),
   colors,
   styles,
   textStyles,
@@ -65,7 +76,12 @@ const theme = extendTheme({
     heading: 'InterVariable, sans-serif',
   },
   shadows,
+  sizes: {
+    ...baseTheme.sizes,
+    container: breakpoints,
+  },
   headers: {},
+  mdx,
   components: {
     FormLabel: {
       baseStyle: {
@@ -179,11 +195,11 @@ const theme = extendTheme({
     SectionTitle,
     Features,
     Feature,
-    Link: {
-      baseStyle: {
-        textDecoration: 'underline',
-      },
-    },
+    // Link: {
+    //   baseStyle: {
+    //     textDecoration: 'underline',
+    //   },
+    // },
     Modal: {
       baseStyle: (props: any) => ({
         container: {

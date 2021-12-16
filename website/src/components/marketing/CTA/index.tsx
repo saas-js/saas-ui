@@ -6,12 +6,8 @@ import {
   StylesProvider,
   omitThemingProps,
 } from '@chakra-ui/react'
-import SectionWrapper, {
-  SectionProps,
-} from 'components/marketing/SectionWrapper'
-import SectionTitle, {
-  SectionTitleProps,
-} from 'components/marketing/SectionTitle'
+import SectionWrapper, { SectionProps } from '../SectionWrapper'
+import SectionTitle, { SectionTitleProps } from '../SectionTitle'
 
 export interface CTAAction extends ChakraButtonProps {
   label: string

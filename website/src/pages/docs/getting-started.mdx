@@ -1,0 +1,44 @@
+---
+title: Getting Started
+description: How to get up and running quickly with Saas UI.
+---
+
+Saas UI is build on top of Chakra UI, before you continue it's recommended to have a basic understanding of how Chakra UI works. You can find the documentation on the [Chakra UI website](https://www.chakra-ui.com/docs).
+
+## Using the starter repository
+
+### Install in an existing project
+
+Inside your React project directory, install Saas UI by running either of the
+following:
+
+```bash
+npm i @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+```
+
+```bash
+yarn add @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+```
+
+### Set up Provider
+
+For Chakra UI to work correctly, you need to set up the `ChakraProvider` at the
+root of your application.
+
+Go to the root of your application and do this:
+
+```jsx live=false
+import * as React from 'react'
+
+// 1. import `ChakraProvider` component
+import { ChakraProvider } from '@chakra-ui/react'
+
+function App({ Component }) {
+  // 2. Use at the root of your app
+  return (
+    <ChakraProvider>
+      <Component />
+    </ChakraProvider>
+  )
+}
+```

@@ -140,7 +140,7 @@ export const MovingGradients = ({ colors, animate }: MovingGradientsProps) => {
     return () => {
       window.removeEventListener('resize', resize)
     }
-  }, [animate])
+  }, [animate, colors])
 
   return <canvas ref={ref}></canvas>
 }

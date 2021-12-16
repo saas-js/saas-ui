@@ -15,14 +15,10 @@ import {
   useMultiStyleConfig,
   ThemingProps,
 } from '@chakra-ui/react'
-import SectionWrapper, {
-  SectionProps,
-} from 'components/marketing/SectionWrapper'
-import SectionTitle, {
-  SectionTitleProps,
-} from 'components/marketing/SectionTitle'
+import SectionWrapper, { SectionProps } from '../SectionWrapper'
+import SectionTitle, { SectionTitleProps } from '../SectionTitle'
 
-import ScaleInView from 'components/motion/ScaleInView'
+import ScaleInView from '@/components/motion/ScaleInView'
 
 export interface FeaturesProps extends ThemingProps<'Features'> {
   title: React.ReactNode

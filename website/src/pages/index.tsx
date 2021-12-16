@@ -12,15 +12,15 @@ import {
   useTheme,
 } from '@chakra-ui/react'
 
-import Hero from 'components/marketing/Hero'
-import Features from 'components/marketing/Features'
-import CTA from 'components/marketing/CTA'
-import Section from 'components/marketing/SectionWrapper'
-import SectionTitle from 'components/marketing/SectionTitle'
+import Hero from '@/components/marketing/Hero'
+import Features from '@/components/marketing/Features'
+import CTA from '@/components/marketing/CTA'
+import Section from '@/components/marketing/SectionWrapper'
+import SectionTitle from '@/components/marketing/SectionTitle'
 
-import ClipText from 'components/motion/ClipText'
+import ClipText from '@/components/motion/ClipText'
 
-import ScaleInView from 'components/motion/ScaleInView'
+import ScaleInView from '@/components/motion/ScaleInView'
 
 import NextJS from '/public/frameworks/nextjs.svg'
 import Blitz from '/public/frameworks/blitz.svg'
@@ -46,7 +46,7 @@ const BackgroundBox = () => {
 
   let gradient = <MovingGradients colors={colors} animate={true} />
 
-  let gradientBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 60%), radial-gradient(at bottom left, var(--chakra-colors-cyan-500) 0%, transparent 50%),
+  let fallbackBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 60%), radial-gradient(at bottom left, var(--chakra-colors-cyan-500) 0%, transparent 50%),
         radial-gradient(at top right, ${colors[3]}, transparent), radial-gradient(at bottom right, ${colors[0]} 0%, transparent 50%);`
 
   let gradientOverlay = `linear-gradient(0deg, var(--chakra-colors-${useColorModeValue(
@@ -56,7 +56,7 @@ const BackgroundBox = () => {
 
   return (
     <Box
-      backgroundImage={gradientBackground}
+      // backgroundImage={fallbackBackground}
       backgroundBlendMode="saturation"
       position="absolute"
       top="0"

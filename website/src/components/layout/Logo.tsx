@@ -1,6 +1,6 @@
 import { Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
 import { useColorMode } from '@chakra-ui/color-mode'
-import AccessibleLink from 'components/Link'
+import AccessibleLink from '@/components/Link'
 import React from 'react'
 
 export interface LogoProps {

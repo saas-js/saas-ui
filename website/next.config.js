@@ -1,24 +1,10 @@
-const withPWA = require('next-pwa')
-// const withMDX = require('@next/mdx')({
-//   extension: /\.mdx?$/,
-//   options: {
-//     remarkPlugins: [],
-//     rehypePlugins: [],
-//   },
-// })
+const { withContentlayer } = require('next-contentlayer')
 
-module.exports = withPWA({
-  // pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  pwa: {
-    disable:
-      process.env.NODE_ENV === 'development' ||
-      process.env.NODE_ENV === 'preview' ||
-      process.env.NODE_ENV === 'production',
-    // delete two lines above to enable PWA in production deployment
-    // add your own icons to public/manifest.json
-    // to re-generate manifest.json, you can visit https://tomitm.github.io/appmanifest/
-    dest: 'public',
-    register: true,
+module.exports = withContentlayer()({
+  swcMinify: true,
+  experimental: {
+    optimizeFonts: true,
+    modern: true,
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
@@ -39,16 +25,6 @@ module.exports = withPWA({
       use: ['@svgr/webpack'],
     })
 
-    // if (!dev && !isServer) {
-    //   // Replace React with Preact only in client production build
-    //   Object.assign(config.resolve.alias, {
-    //     react: 'preact/compat',
-    //     'react-dom/test-utils': 'preact/test-utils',
-    //     'react-dom': 'preact/compat',
-    //   })
-    // }
-
     return config
   },
-  target: 'serverless',
 })

@@ -22,7 +22,7 @@ export default function ScaleInView({ children }: ScaleInViewProps) {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [handleResize])
 
   const height = (ref.current?.offsetHeight as number) || 0
   const offset = (ref.current?.offsetTop as number) || 0

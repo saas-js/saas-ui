@@ -50,9 +50,10 @@
     "@netlify/plugin-nextjs": "^4.0.0-rc.2",
     "@types/react": "^17.0.11",
     "@types/react-transition-group": "^4.4.4",
-    "eslint": "^7.28.0",
+    "eslint": "^8.2.0",
     "eslint-config-next": "^12.0.7",
     "prettier": "^2.3.2",
+    "ts-node": "10.4.0",
     "typescript": "^4.3.2"
   }
 }

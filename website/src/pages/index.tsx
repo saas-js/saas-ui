@@ -33,10 +33,9 @@ import { Em, Br } from '@/components/Typography'
 import { FallInPlace } from '@/components/motion/FallInPlace'
 
 import { MovingGradients } from '@/components/motion/MovingGradients'
-import { addMessageListener } from 'next/dist/client/dev/error-overlay/websocket.js'
+
 const BackgroundBox = () => {
   const theme = useTheme()
-
   const colors = [
     theme.colors.primary['800'],
     theme.colors.secondary['500'],
@@ -98,8 +97,8 @@ const Home = () => {
           description={
             <FallInPlace>
               Saas UI is an advanced component library build with{' '}
-              <Em>Typescript</Em> and <Em>Chakra UI</Em> that allows developers
-              to build high quality and user friendly app frontends at speed.
+              <Em>Chakra UI</Em> that allows developers to build high quality
+              and user friendly app frontends at speed.
             </FallInPlace>
           }
         ></Hero>

@@ -1,6 +1,6 @@
 const { withContentlayer } = require('next-contentlayer')
 
-const config = {
+let config = {
   swcMinify: false,
   experimental: {
     optimizeFonts: true,
@@ -35,4 +35,10 @@ const config = {
   },
 }
 
-module.exports = withContentlayer()(config)
+const isNextDev = process.argv.includes('dev')
+
+if (isNextDev) {
+  config = withContentlayer()(config)
+}
+
+module.exports = config

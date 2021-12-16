@@ -5,12 +5,12 @@
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
     "dev": "next dev --port 3020",
-    "build": "next build",
+    "build": "yarn gen:contentlayer && next build",
     "start": "next start",
     "lint": "next lint",
     "prettify": "prettier --write src",
     "gen:theme-typings": "chakra-cli tokens src/styles/theme.ts",
-    "contentlayer:build": "contentlayer build --config ./contentlayer.ts"
+    "gen:contentlayer": "contentlayer build --config ./website/contentlayer.config.ts --verbose"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",

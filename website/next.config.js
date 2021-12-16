@@ -1,11 +1,12 @@
 const { withContentlayer } = require('next-contentlayer')
 
-module.exports = withContentlayer()({
+module.exports = {
   // swcMinify: true,
-  // experimental: {
-  //   optimizeFonts: true,
-  //   modern: true,
-  // },
+  experimental: {
+    optimizeFonts: true,
+    modern: true,
+    externalDir: true,
+  },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
@@ -27,4 +28,4 @@ module.exports = withContentlayer()({
 
     return config
   },
-})
+}

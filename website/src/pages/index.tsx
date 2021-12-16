@@ -33,7 +33,7 @@ import { Em, Br } from '@/components/Typography'
 import { FallInPlace } from '@/components/motion/FallInPlace'
 
 import { MovingGradients } from '@/components/motion/MovingGradients'
-
+import { addMessageListener } from 'next/dist/client/dev/error-overlay/websocket.js'
 const BackgroundBox = () => {
   const theme = useTheme()
 

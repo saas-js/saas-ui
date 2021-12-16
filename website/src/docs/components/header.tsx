@@ -21,7 +21,6 @@ import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
 import Logo, { LogoIcon } from './logo'
 import { MobileNavButton, MobileNavContent } from './mobile-nav'
 import Search from './omni-search'
-import SponsorButton from './sponsor-button'
 import VersionSwitcher from './version-switcher'
 
 function HeaderContent() {
@@ -114,7 +113,6 @@ function HeaderContent() {
             onClick={toggleMode}
             icon={<SwitchIcon />}
           />
-          <SponsorButton ml="5" />
           <MobileNavButton
             ref={mobileNavBtnRef}
             aria-label="Open Menu"

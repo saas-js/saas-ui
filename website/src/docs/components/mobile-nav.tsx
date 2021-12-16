@@ -23,7 +23,6 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { RemoveScroll } from 'react-remove-scroll'
 import Logo from './logo'
 import { SidebarContent } from './sidebar/sidebar'
-import SponsorButton from './sponsor-button'
 import { t } from 'utils/i18n'
 
 function NavLink({ href, children }) {
@@ -116,7 +115,6 @@ export function MobileNavContent(props: MobileNavContentProps) {
                 <Flex justify="space-between" px="6" pt="5" pb="4">
                   <Logo sx={{ rect: { fill: 'teal.300' } }} />
                   <HStack spacing="5">
-                    <SponsorButton display="flex" />
                     <CloseButton ref={closeBtnRef} onClick={onClose} />
                   </HStack>
                 </Flex>

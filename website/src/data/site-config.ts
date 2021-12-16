@@ -14,10 +14,10 @@ const siteConfig = {
     editUrl: `${baseUrl}/edit/main/website/pages`,
     blobUrl: `${baseUrl}/blob/main`,
   },
-  // discord: {
-  //   url: 'https://discord.gg/chakra-ui',
-  // },
-  // youtube: 'https://www.youtube.com/channel/UC4TmDovH46TB4S0SM0Y4CIg',
+  discord: {
+    url: 'https://discord.gg/saas-ui',
+  },
+  youtube: 'https://www.youtube.com/channel/UCdCi9VPceeFKYkKpS0K0Pjg',
   seo: {
     title: 'Saas UI',
     titleTemplate: '%s - Saas UI',
@@ -36,18 +36,18 @@ const siteConfig = {
       description: 'Advanced UI components for SaaS products.',
       site_name: 'Saas UI: Advanced UI components for SaaS products.',
       images: [
-        // {
-        //   url: 'https://chakra-ui.com/og-image.png',
-        //   width: 1240,
-        //   height: 480,
-        //   alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
-        // },
-        // {
-        //   url: 'https://chakra-ui.com/twitter-og-image.png',
-        //   width: 1012,
-        //   height: 506,
-        //   alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
-        // },
+        {
+          url: 'https://chakra-ui.com/og-image.png',
+          width: 1240,
+          height: 480,
+          alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+        },
+        {
+          url: 'https://chakra-ui.com/twitter-og-image.png',
+          width: 1012,
+          height: 506,
+          alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+        },
       ],
     },
   },

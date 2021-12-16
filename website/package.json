@@ -24,6 +24,7 @@
     "@mapbox/rehype-prism": "^0.7.0",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^12.0.7",
+    "@next/bundle-analyzer": "^12.0.7",
     "@saas-ui/palette": "^0.2.1",
     "@svgr/webpack": "^5.5.0",
     "contentlayer": "^0.0.33",

@@ -2,6 +2,7 @@ import {
   Box,
   BoxProps,
   Center,
+  CenterProps,
   CloseButton,
   Flex,
   Grid,
@@ -27,7 +28,12 @@ import { t } from 'utils/i18n'
 
 import headerNav from '@/data/header-nav'
 
-function NavLink({ href, children, isActive, ...rest }) {
+interface NavLinkProps extends CenterProps {
+  href?: string
+  isActive?: boolean
+}
+
+function NavLink({ href, children, isActive, ...rest }: NavLinkProps) {
   const { pathname } = useRouter()
   const bgActiveHoverColor = useColorModeValue('gray.100', 'whiteAlpha.100')
 
@@ -131,7 +137,11 @@ export function MobileNavContent(props: MobileNavContentProps) {
                 >
                   {headerNav.map(({ href, id, title, ...props }, i) => {
                     return (
-                      <NavLink href={href || `/#${id}`} key={i} {...props}>
+                      <NavLink
+                        href={href || `/#${id}`}
+                        key={i}
+                        {...(props as any)}
+                      >
                         {title}
                       </NavLink>
                     )

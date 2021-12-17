@@ -33,6 +33,8 @@ import { FallInPlace } from '@/components/motion/FallInPlace'
 
 import { MovingGradients } from '@/components/motion/MovingGradients'
 
+import SEO from '@/components/seo'
+
 const BackgroundBox = () => {
   const theme = useTheme()
   const colors = [
@@ -81,6 +83,10 @@ const BackgroundBox = () => {
 const Home = () => {
   return (
     <Box>
+      <SEO
+        title="Saas UI"
+        description="The frontend stack for SaaS companies"
+      />
       <BackgroundBox />
       <Box mb={8} w="full">
         <Container maxW="4xl">

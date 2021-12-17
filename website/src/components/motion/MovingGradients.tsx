@@ -6,11 +6,12 @@ interface GlowParticleProps {
   y: number
   radius: number
   color: string
+  speed: number
 }
 
 const PI2 = Math.PI * 2
 const GlowParticle = (props: GlowParticleProps) => {
-  let { x, y, radius, color } = props
+  let { x, y, radius, color, speed } = props
 
   let vx = Math.random() * 4
   let vy = Math.random() * 4
@@ -31,18 +32,18 @@ const GlowParticle = (props: GlowParticleProps) => {
 
     if (x < 0) {
       vx *= -1
-      x += 2
+      x += speed
     } else if (x > stageWidth) {
       vx *= -1
-      x -= 2
+      x -= speed
     }
 
     if (y < 0) {
       vy *= -1
-      y += 2
+      y += speed
     } else if (y > stageHeight) {
       vy *= -1
-      y -= 2
+      y -= speed
     }
 
     ctx.beginPath()
@@ -60,9 +61,14 @@ const GlowParticle = (props: GlowParticleProps) => {
 export interface MovingGradientsProps {
   colors: string[]
   animate: boolean
+  speed?: number
 }
 
-export const MovingGradients = ({ colors, animate }: MovingGradientsProps) => {
+export const MovingGradients = ({
+  colors,
+  animate,
+  speed = 5,
+}: MovingGradientsProps) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -98,6 +104,7 @@ export const MovingGradients = ({ colors, animate }: MovingGradientsProps) => {
           y: Math.random() * stageHeight,
           radius: Math.random() * (maxRadius - minRadius) + minRadius,
           color: colors[curColor],
+          speed,
         })
 
         if (++curColor >= colors.length) {

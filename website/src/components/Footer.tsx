@@ -8,8 +8,8 @@ const CustomFooter = () => {
     <Footer columns={2}>
       <Box>
         <Copyright>
-          Saas UI is a product of{' '}
-          <FooterLink href="https://appulse.net">Appulse</FooterLink>
+          Build by{' '}
+          <FooterLink href="https://appulse.net">Eelco Wiersma</FooterLink>
         </Copyright>
       </Box>
       <HStack justify="flex-end" spacing="4">

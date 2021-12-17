@@ -2,13 +2,13 @@ import * as React from 'react'
 
 export function useScrollSpy(
   selectors: string[],
-  options?: IntersectionObserverInit,
+  options?: IntersectionObserverInit
 ) {
   const [activeId, setActiveId] = React.useState<string>()
   const observer = React.useRef<IntersectionObserver | null>(null)
   React.useEffect(() => {
     const elements = selectors.map((selector) =>
-      document.querySelector(selector),
+      document.querySelector(selector)
     )
     observer.current?.disconnect()
     observer.current = new IntersectionObserver((entries) => {

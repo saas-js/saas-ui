@@ -23,7 +23,7 @@
       "utils/*": ["src/docs/utils/*"],
       "configs/*": ["src/docs/configs/*"],
       "components/*": ["src/docs/components/*"],
-      "hooks/*": ["src/docs/hooks/*"]
+      "hooks/*": ["src/hooks/*"]
     },
     "incremental": true
   },

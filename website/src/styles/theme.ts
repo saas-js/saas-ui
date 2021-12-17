@@ -157,7 +157,6 @@ const theme = extendTheme({
       ...baseTheme.components.Button,
       variants: {
         ...Button.variants,
-        // solid: ,
         link: (props: any) => {
           const { isActive } = props
           const hoverColor = mode('gray.900', 'white')(props)

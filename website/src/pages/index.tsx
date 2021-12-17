@@ -19,8 +19,6 @@ import CTA from '@/components/marketing/CTA'
 import Section from '@/components/marketing/SectionWrapper'
 import SectionTitle from '@/components/marketing/SectionTitle'
 
-import ClipText from '@/components/motion/ClipText'
-
 import ScaleInView from '@/components/motion/ScaleInView'
 
 import NextJS from '/public/frameworks/nextjs.svg'
@@ -56,7 +54,7 @@ const BackgroundBox = () => {
 
   return (
     <Box
-      // backgroundImage={fallbackBackground}
+      backgroundImage={fallbackBackground}
       backgroundBlendMode="saturation"
       position="absolute"
       top="0"
@@ -87,12 +85,12 @@ const Home = () => {
       <Box mb={8} w="full">
         <Container maxW="4xl">
           <Hero
+            id="home"
             justifyContent="flex-start"
             title={
               <FallInPlace>
-                The frontend stack for{' '}
-                <Br display={{ sm: 'inline', lg: 'inline' }} />
-                SaaS companies
+                The <Br display={{ sm: 'inline', lg: 'none' }} /> frontend stack
+                for SaaS companies
               </FallInPlace>
             }
             description={
@@ -103,31 +101,34 @@ const Home = () => {
               </FallInPlace>
             }
           >
-            <Box pt="4" pb="8">
-              Build with <Em>Next.js, React, Chakra UI</Em>
-            </Box>
+            <FallInPlace>
+              <Text pt="4" pb="8" color="gray.500">
+                Build with Next.js, React and Chakra UI
+              </Text>
 
-            <Button
-              colorScheme="primary"
-              mr={4}
-              onClick={() => {
-                document
-                  .getElementById('request-access')
-                  .scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              Request early access
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => {
-                document
-                  .getElementById('features')
-                  .scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              What&apos;s included?
-            </Button>
+              <Stack direction={['column', 'row']} spacing={4}>
+                <Button
+                  colorScheme="primary"
+                  onClick={() => {
+                    document
+                      .getElementById('request-access')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  }}
+                >
+                  Request early access
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    document
+                      .getElementById('features')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  }}
+                >
+                  What&apos;s included?
+                </Button>
+              </Stack>
+            </FallInPlace>
           </Hero>
         </Container>
         <Features
@@ -418,7 +419,7 @@ const RequestAccess = () => {
             borderWidth="1px"
             borderColor={useColorModeValue('gray.300', 'gray.700')}
             p={8}
-            width={['100%', 'md']}
+            width={['90vw', null, 'md']}
           >
             <SignupForm />
           </Container>

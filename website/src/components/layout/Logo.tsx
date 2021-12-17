@@ -1,24 +1,26 @@
-import { Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
+import { Box, Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
 import { useColorMode } from '@chakra-ui/color-mode'
 import AccessibleLink from '@/components/Link'
 import React from 'react'
 
 export interface LogoProps {
   href?: string
-  svg?: React.ReactNode
-  svgDark?: React.ReactNode
-  text?: string
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-const Logo = ({ href = '/', svg, svgDark, text, onClick }: LogoProps) => {
+import siteConfig from '@/data/site-config'
+
+const Logo = ({ href = '/', onClick }: LogoProps) => {
   const { colorMode } = useColorMode()
 
-  let logo = colorMode === 'dark' ? svgDark : svg
-  if (!logo) {
+  let logo = colorMode === 'dark' ? siteConfig.logoDark : siteConfig.logo
+
+  if (logo) {
+    logo = <Box as={logo} />
+  } else {
     logo = (
       <Heading as="h1" size="md">
-        {text}
+        {siteConfig.seo?.title}
       </Heading>
     )
   }
@@ -33,7 +35,7 @@ const Logo = ({ href = '/', svg, svgDark, text, onClick }: LogoProps) => {
         onClick={onClick}
       >
         {logo}
-        <VisuallyHidden>{text}</VisuallyHidden>
+        <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>
       </AccessibleLink>
     </Flex>
   )

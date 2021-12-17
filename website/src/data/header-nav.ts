@@ -1,14 +1,17 @@
+import { NavLinkProps } from '@/components/NavLink'
+
 const hideMobile = {
-  display: ['none', 'block'],
+  // display: ['none', null, 'block'],
 }
 
-const headerNav = [
-  { href: '/#features', title: 'Features', ...hideMobile },
-  { href: '/#request-access', title: 'Pricing', ...hideMobile },
-  { href: '/#faq', title: 'FAQ', ...hideMobile },
-  { href: '/docs/introduction', title: 'Documentation' },
+const headerNav: NavLinkProps[] = [
+  { id: 'home', title: 'Home', display: 'none' },
+  { id: 'features', title: 'Features', ...hideMobile },
+  { id: 'request-access', title: 'Pricing', ...hideMobile },
+  { id: 'faq', title: 'FAQ', ...hideMobile },
+  { href: '/docs/introduction', title: 'Documentation', ...hideMobile },
   {
-    href: '/#request-access',
+    id: 'request-access',
     title: 'Request access',
     variant: 'solid',
     colorScheme: 'primary',

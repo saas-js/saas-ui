@@ -1,6 +1,11 @@
-const baseUrl = 'https://github.com/chakra-ui/chakra-ui'
+import Logo from '/public/saasui.svg'
+import LogoDark from '/public/saasui-dark.svg'
+
+const baseUrl = 'https://github.com/AppulseSoftware/saas-ui'
 
 const siteConfig = {
+  logo: LogoDark,
+  logoDark: Logo,
   copyright: `Copyright © ${new Date().getFullYear()} Appulse Software B.V. All Rights Reserved.`,
   author: {
     name: 'Eelco Wiersma',

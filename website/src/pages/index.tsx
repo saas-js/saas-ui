@@ -126,7 +126,7 @@ const Home = () => {
                   .scrollIntoView({ behavior: 'smooth' })
               }}
             >
-              What's included?
+              What&apos;s included?
             </Button>
           </Hero>
         </Container>

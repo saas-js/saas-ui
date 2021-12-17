@@ -12,6 +12,18 @@
     "gen:theme-typings": "chakra-cli tokens src/styles/theme.ts",
     "gen:contentlayer": "contentlayer build --config ./website/contentlayer.config.ts --verbose"
   },
+  "turbo": {
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          ".next/**"
+        ]
+      }
+    }
+  },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/props-docs": "^1.0.40",

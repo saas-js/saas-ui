@@ -5,6 +5,7 @@ import {
   VStack,
   Stack,
   Link,
+  Button,
   useColorModeValue,
   chakra,
   Avatar,
@@ -84,24 +85,51 @@ const Home = () => {
     <Box>
       <BackgroundBox />
       <Box mb={8} w="full">
-        <Hero
-          title={
-            <FallInPlace>
-              The React <Br display={{ sm: 'inline', lg: 'none' }} />
-              <ClipText bgGradient="linear(to-r, purple.700, green.400)">
-                design system
-              </ClipText>{' '}
-              for SaaS products
-            </FallInPlace>
-          }
-          description={
-            <FallInPlace>
-              Saas UI is an advanced component library build with{' '}
-              <Em>Chakra UI</Em> that allows developers to build high quality
-              and user friendly app frontends at speed.
-            </FallInPlace>
-          }
-        ></Hero>
+        <Container maxW="4xl">
+          <Hero
+            justifyContent="flex-start"
+            title={
+              <FallInPlace>
+                The frontend stack for{' '}
+                <Br display={{ sm: 'inline', lg: 'inline' }} />
+                SaaS companies
+              </FallInPlace>
+            }
+            description={
+              <FallInPlace>
+                Saas UI is an <Em>advanced component library</Em> that helps you
+                build essential functionality <Em>in hours instead of weeks</Em>
+                .
+              </FallInPlace>
+            }
+          >
+            <Box pt="4" pb="8">
+              Build with <Em>Next.js, React, Chakra UI</Em>
+            </Box>
+
+            <Button
+              colorScheme="primary"
+              mr={4}
+              onClick={() => {
+                document
+                  .getElementById('request-access')
+                  .scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              Request early access
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                document
+                  .getElementById('features')
+                  .scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              What's included?
+            </Button>
+          </Hero>
+        </Container>
         <Features
           id="features"
           title="The SaaS SDK"

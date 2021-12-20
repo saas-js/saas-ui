@@ -12,7 +12,7 @@ import {
 
 import Logo from '/public/saasui.svg'
 import LogoDark from '/public/saasui-dark.svg'
-import { ColorModeToggle } from './ColorModeToggle'
+import { ColorModeToggle } from './color-mode-toggle'
 
 export interface PageProps {
   title?: React.ReactNode

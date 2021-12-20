@@ -38,6 +38,11 @@
     "packages/*",
     "apps/*"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "turbo": {
     "baseBranch": "origin/master",
     "pipeline": {

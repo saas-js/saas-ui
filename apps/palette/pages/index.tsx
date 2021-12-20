@@ -18,11 +18,11 @@ import {
   Code,
 } from '@chakra-ui/react'
 import debounce from 'lodash.debounce'
-import { ColorWrapper, ColorPalette, ColorPalettes } from '@/components/Palette'
-import Page from '@/components/Page'
-import Section from '@/components/Section'
+import { ColorWrapper, ColorPalette, ColorPalettes } from '@/components/palette'
+import Page from '@/components/page'
+import Section from '@/components/section'
 
-import { usePalette } from '@/providers/PaletteProvider'
+import { usePalette } from '@/providers/palette'
 
 const baseColor = '#6d28d9'
 const grayColor = '#1f2937'

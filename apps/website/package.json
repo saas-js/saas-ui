@@ -1,0 +1,72 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "scripts": {
+    "dev": "next dev --port 3020",
+    "build": "yarn gen:contentlayer && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettify": "prettier --write src",
+    "gen:theme-typings": "chakra-cli tokens src/styles/theme.ts",
+    "gen:contentlayer": "contentlayer build --config ./contentlayer.config.ts --verbose"
+  },
+  "turbo": {
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          ".next/**"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/props-docs": "^1.0.40",
+    "@chakra-ui/react": "^1.7.3",
+    "@chakra-ui/skip-nav": "^1.2.1",
+    "@chakra-ui/system": "^1.8.3",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@fontsource/inter": "^4.4.5",
+    "@mapbox/rehype-prism": "^0.7.0",
+    "@mdx-js/loader": "^1.6.22",
+    "@next/bundle-analyzer": "^12.0.7",
+    "@saas-ui/palette": "workspace:*",
+    "@svgr/webpack": "^5.5.0",
+    "contentlayer": "^0.0.33",
+    "date-fns": "^2.27.0",
+    "framer-motion": "^4",
+    "github-slugger": "^1.4.0",
+    "match-sorter": "^6.3.1",
+    "next": "^12.0.7",
+    "next-contentlayer": "^0.0.33",
+    "next-mdx-remote": "^3.0.2",
+    "next-seo": "^4.28.1",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-intersection-observer": "^8.32.0",
+    "react-transition-group": "^4.4.2",
+    "remark-code-titles": "^0.1.2",
+    "remark-emoji": "^3.0.2",
+    "remark-gfm": "^3.0.1",
+    "remark-slug": "^7.0.1"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.0.0",
+    "@types/node": "^17.0.0",
+    "@types/react": "^17.0.11",
+    "@types/react-transition-group": "^4.4.4",
+    "eslint": "^8.4.1",
+    "eslint-config-next": "^12.0.7",
+    "prettier": "^2.3.2",
+    "ts-node": "10.4.0",
+    "typescript": "^4.5.4"
+  }
+}

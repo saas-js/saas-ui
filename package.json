@@ -1,0 +1,96 @@
+{
+  "name": "saas-ui",
+  "version": "1.0.0-beta",
+  "description": "The frontend stack for SaaS companies",
+  "private": true,
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppulseSoftware/saas-ui"
+  },
+  "keywords": [
+    "saas-ui",
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "scripts": {
+    "w": "yarn workspace",
+    "changeset": "changeset",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "turbo": {
+    "baseBranch": "origin/master",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**",
+          ".next/**"
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "lint": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "@changesets/cli": "^2.19.0",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@storybook/addon-a11y": "^6.4.9",
+    "@storybook/addon-toolbars": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.3",
+    "microbundle": "^0.14.2",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "storybook-addon-performance": "^0.16.1",
+    "turbo": "^1.0.13",
+    "typescript": "^4.5.4"
+  },
+  "packageManager": "yarn@3.1.1"
+}

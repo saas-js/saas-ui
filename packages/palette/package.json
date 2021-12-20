@@ -1,0 +1,58 @@
+{
+  "name": "@saas-ui/palette",
+  "description": "Color palette generator for Chakra UI",
+  "version": "0.2.1",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.esm.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppulseSoftware/saas-ui",
+    "directory": "packages/palette"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system",
+    "hotkeys",
+    "keyboard-shortcuts"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@chakra-ui/theme": "^1.10.4",
+    "chroma-js": "^2.1.2"
+  },
+  "devDependencies": {
+    "@chakra-ui/system": "1.8.3",
+    "@types/chroma-js": "^2.1.3",
+    "react": "^17.0.2"
+  }
+}

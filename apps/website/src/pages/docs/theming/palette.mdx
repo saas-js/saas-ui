@@ -1,0 +1,62 @@
+---
+title: Palette
+description: A utility to generate a color palette for your custom theme.
+---
+
+To make it easier to create your own theme you can use the `createPalette` utility.
+It will generate hues based on a single input color. The resulting colors object
+can be used to extend your Chakra theme.
+
+You can also generate a JSON object containing all colors at https://palette.saas-ui.dev/
+without needing to depend on this package.
+
+-
+
+<ComponentLinks
+  github={{ package: 'palette' }}
+  npm={{ package: '@saas-ui/palette' }}
+/>
+
+## Basic setup
+
+```ts
+import { extendTheme } from '@chakra-ui/react'
+import { createPalette } from '@saas-ui/palette'
+
+const colors = createPalette('#6d28d9')
+
+const theme = extendTheme({
+  colors,
+})
+
+export default theme
+```
+
+## Configuration
+
+```jsx
+const colors = createPalette('#6d28d9', {
+  blackLuminance: 0.005, // defaults to 0
+  colors: {
+    red: '#d00b00', // override individual colors
+  },
+})
+```
+
+### Default colors
+
+All default Chakra colors are supported.
+
+```js
+const colors = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'teal',
+  'cyan',
+  'blue',
+  'purple',
+  'pink',
+]
+```

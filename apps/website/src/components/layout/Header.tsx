@@ -1,6 +1,6 @@
 import { Box, BoxProps, Container, Flex } from '@chakra-ui/layout'
-import Navigation from '@/components/layout/Navigation'
-import Logo from './Logo'
+import Navigation from './navigation'
+import Logo from './logo'
 
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 

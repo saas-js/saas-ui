@@ -1,9 +1,8 @@
 import { Box } from '@chakra-ui/layout'
 import { ReactNode } from 'react'
 
-import Header, { HeaderProps } from './Header'
-import Footer, { FooterProps } from './Footer'
-import Meta from './Meta'
+import Header, { HeaderProps } from './header'
+import Footer, { FooterProps } from './footer'
 
 interface LayoutProps {
   children: ReactNode
@@ -14,7 +13,6 @@ interface LayoutProps {
 const Layout = ({ children, header, footer }: LayoutProps) => {
   return (
     <Box>
-      <Meta />
       <Header {...header} />
       <Box as="main">{children}</Box>
       {footer || <Footer />}

@@ -1,15 +1,14 @@
 import { Box, HStack } from '@chakra-ui/react'
-import Footer, { Copyright, FooterLink } from '@/components/layout/Footer'
+import Footer, { Copyright, FooterLink } from './layout/footer'
 
-import ThemeToggle from './layout/ThemeToggle'
+import ThemeToggle from './layout/theme-toggle'
 
 const CustomFooter = () => {
   return (
     <Footer columns={2}>
       <Box>
         <Copyright>
-          Build by{' '}
-          <FooterLink href="https://appulse.net">Eelco Wiersma</FooterLink>
+          Build by <FooterLink href="https://appulse.net">Appulse</FooterLink>
         </Copyright>
       </Box>
       <HStack justify="flex-end" spacing="4">

@@ -26,8 +26,8 @@ import Blitz from '/public/frameworks/blitz.svg'
 import Supabase from '/public/frameworks/supabase.svg'
 import Bedrock from '/public/frameworks/bedrock.svg'
 
-import { SignupForm } from '@/components/SignupForm'
-import { Em, Br } from '@/components/Typography'
+import { SignupForm } from '@/components/signup-form'
+import { Em, Br } from '@/components/typography'
 
 import { FallInPlace } from '@/components/motion/FallInPlace'
 

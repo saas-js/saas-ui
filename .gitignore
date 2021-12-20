@@ -3,23 +3,22 @@
 # dependencies
 /node_modules
 **/node_modules
+.yarn
 
 # testing
 /coverage
 
 # next.js
-/.next/
-/out/
-**/.next/
+.next/
 **/out/
 
 # production
-/dist
 **/dist
-build/**
+**/build/**
 
 # misc
 .DS_Store
+*.pem
 
 # debug
 npm-debug.log*
@@ -33,13 +32,20 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# editors
+!.vscode
+.idea/**/*
+
 # vercel
 .vercel
 
 !.vscode
 
 # turbo
-
 .turbo
+
 # Local Netlify folder
 .netlify
+
+# Contentlayer
+.contentlayer

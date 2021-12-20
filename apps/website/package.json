@@ -1,5 +1,5 @@
 {
-  "name": "@saas-ui/website",
+  "name": "website",
   "version": "0.1.0",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
@@ -10,7 +10,7 @@
     "lint": "next lint",
     "prettify": "prettier --write src",
     "gen:theme-typings": "chakra-cli tokens src/styles/theme.ts",
-    "gen:contentlayer": "contentlayer build --config ./website/contentlayer.config.ts --verbose"
+    "gen:contentlayer": "contentlayer build --config ./contentlayer.config.ts --verbose"
   },
   "turbo": {
     "pipeline": {
@@ -29,13 +29,14 @@
     "@chakra-ui/props-docs": "^1.0.40",
     "@chakra-ui/react": "^1.7.3",
     "@chakra-ui/skip-nav": "^1.2.1",
+    "@chakra-ui/system": "^1.8.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/inter": "^4.4.5",
     "@mapbox/rehype-prism": "^0.7.0",
     "@mdx-js/loader": "^1.6.22",
     "@next/bundle-analyzer": "^12.0.7",
-    "@saas-ui/palette": "^0.2.1",
+    "@saas-ui/palette": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "contentlayer": "^0.0.33",
     "date-fns": "^2.27.0",
@@ -51,7 +52,6 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-intersection-observer": "^8.32.0",
-    "react-live": "^2.3.0",
     "react-transition-group": "^4.4.2",
     "remark-code-titles": "^0.1.2",
     "remark-emoji": "^3.0.2",

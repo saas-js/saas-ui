@@ -1,3 +1,4 @@
+const path = require('path')
 const { withContentlayer } = require('next-contentlayer')
 
 let config = {
@@ -7,7 +8,7 @@ let config = {
     modern: true,
     externalDir: true,
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev, isServer, defaultLoaders }) => {
     const fileLoaderRule = config.module.rules.find(
       (rule) => rule.test && rule.test.test('.svg')
     )
@@ -30,6 +31,19 @@ let config = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
+
+    config.module = {
+      ...config.module,
+      rules: [
+        ...config.module.rules,
+        {
+          test: /\.(js|jsx|ts|tsx)$/,
+          include: [path.join(__dirname, '../../packages')],
+          exclude: /node_modules/,
+          use: defaultLoaders.babel,
+        },
+      ],
+    }
 
     return config
   },

@@ -1,6 +1,6 @@
 // doesn't support React 17 yet
 
-export default function ReactLiveBLock() {
+export default function ReactLiveBLock(props: any) {
   return null
 }
 

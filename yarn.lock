@@ -14062,7 +14062,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.4":
+"husky@npm:^7.0.0":
   version: 7.0.4
   resolution: "husky@npm:7.0.4"
   bin:
@@ -20834,7 +20834,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-import-resolver-typescript: ^2.5.0
     eslint-plugin-import: ^2.25.3
-    husky: ^7.0.4
+    husky: ^7.0.0
     lint-staged: ^12.1.3
     microbundle: ^0.14.2
     prettier: ^2.5.1

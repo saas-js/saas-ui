@@ -1,4 +1,4 @@
-# @saas-ui/search-input
+# @saas-ui/persona
 
 ## 0.1.0
 
@@ -6,8 +6,7 @@
 
 - Added new packages and migrated to microbuild
 
-## 0.0.1
-
 ### Patch Changes
 
-- Initial release
+- Updated dependencies
+  - @saas-ui/system@0.1.0

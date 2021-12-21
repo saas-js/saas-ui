@@ -7,7 +7,7 @@ const hideMobile = {
 const headerNav: NavLinkProps[] = [
   { id: 'home', title: 'Home', display: 'none' },
   { id: 'features', title: 'Features', ...hideMobile },
-  { id: 'request-access', title: 'Pricing', ...hideMobile },
+  { id: 'pricing', title: 'Pricing', ...hideMobile },
   { id: 'faq', title: 'FAQ', ...hideMobile },
   { href: '/docs/introduction', title: 'Documentation', ...hideMobile },
   {

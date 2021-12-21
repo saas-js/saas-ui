@@ -1,7 +1,9 @@
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
   Container,
+  Heading,
   Text,
+  HStack,
   VStack,
   Stack,
   Link,
@@ -34,6 +36,8 @@ import { FallInPlace } from '@/components/motion/fall-in-place'
 import { MovingGradients } from '@/components/motion/moving-gradients'
 
 import SEO from '@/components/seo'
+import { CheckIcon } from '@chakra-ui/icons'
+import { ButtonLink } from '@/components/link'
 
 const BackgroundBox = () => {
   const theme = useTheme()
@@ -86,6 +90,7 @@ const Home = () => {
       <SEO
         title="Saas UI"
         description="The frontend stack for SaaS companies"
+        titleTemplate="%s - The frontend stack for SaaS companies"
       />
       <BackgroundBox />
       <Box mb={8} w="full">
@@ -324,6 +329,8 @@ const Home = () => {
           </Text>
         </Section>
 
+        <Pricing />
+
         <RequestAccess />
 
         <Section id="faq">
@@ -432,6 +439,169 @@ const RequestAccess = () => {
         </CTA>
       </ScaleInView>
     </>
+  )
+}
+
+const Pricing = () => {
+  return (
+    <Section id="pricing">
+      <ScaleInView>
+        <SectionTitle
+          title="Pricing for every stage"
+          description="Pay once and get life-time access and free updates to our high quality components."
+        ></SectionTitle>
+      </ScaleInView>
+
+      <ScaleInView>
+        <SimpleGrid columns={[1, null, 3]} spacing={4}>
+          <PricingBox
+            title="Open Source"
+            description="Basic components, perfect for personal projects."
+            price="Free"
+          >
+            <PricingFeatures>
+              <PricingFeature title="MIT License" />
+              <PricingFeature title="Authentication (supabase/passport.js)" />
+              <PricingFeature title="Forms (react-hook-form)" />
+              <PricingFeature title="Hotkeys" />
+              <PricingFeature title="Cards" />
+              <Text fontSize="sm">And much more...</Text>
+            </PricingFeatures>
+            <ButtonLink href="/docs/introduction" variant="outline" mt="10">
+              View documentation
+            </ButtonLink>
+          </PricingBox>
+          <PricingBox
+            title="Bootstrap"
+            price={
+              <HStack>
+                <Text
+                  textDecoration="line-through"
+                  fontSize="sm"
+                  color="gray.400"
+                >
+                  €199,-
+                </Text>
+                <Text>€99,-</Text>
+              </HStack>
+            }
+            description="Complete frontend stack for bootstrappers."
+            borderColor="primary.500"
+            boxShadow="md"
+          >
+            <PricingFeatures>
+              <PricingFeature title="One project" />
+              <PricingFeature title="One developer" />
+              <PricingFeature title="Advanced components" />
+              <PricingFeature title="Multiple themes" />
+              <PricingFeature title="Next.js and Electron boilerplates" />
+              <PricingFeature title="Free updates" />
+            </PricingFeatures>
+            <ButtonLink
+              colorScheme="primary"
+              href="#request-access"
+              onClick={() =>
+                /* @ts-ignore */
+                window?.woopra.track('Order Bootstrap')
+              }
+            >
+              Request access
+            </ButtonLink>
+          </PricingBox>
+          <PricingBox
+            title="Startup"
+            price={
+              <HStack>
+                <Text
+                  textDecoration="line-through"
+                  fontSize="sm"
+                  color="gray.400"
+                >
+                  €599,-
+                </Text>
+                <Text>€299,-</Text>
+              </HStack>
+            }
+            description="Extended license for growing teams."
+          >
+            <PricingFeatures>
+              <PricingFeature title="Unlimited projects" />
+              <PricingFeature title="Unlimited developers" />
+              <PricingFeature title="Everything from Bootstrap" />
+            </PricingFeatures>
+            <ButtonLink
+              colorScheme="primary"
+              href="#request-access"
+              onClick={() =>
+                /* @ts-ignore */
+                window?.woopra.track('Order Startup')
+              }
+            >
+              Request access
+            </ButtonLink>
+          </PricingBox>
+        </SimpleGrid>
+
+        <Text
+          p="8"
+          textAlign="center"
+          color={useColorModeValue('gray.500', 'gray.400')}
+        >
+          All prices are excluding 21% VAT.
+        </Text>
+      </ScaleInView>
+    </Section>
+  )
+}
+
+const PricingFeatures = ({ children }) => {
+  return (
+    <VStack
+      align="stretch"
+      justifyContent="stretch"
+      spacing="4"
+      mb="8"
+      flex="1"
+    >
+      {children}
+    </VStack>
+  )
+}
+
+const PricingFeature = ({ title }) => {
+  return (
+    <HStack>
+      <CheckIcon color="primary.500" />{' '}
+      <Text flex="1" fontSize="sm">
+        {title}
+      </Text>
+    </HStack>
+  )
+}
+
+const PricingBox = ({ title, description, price, children, ...props }) => {
+  return (
+    <VStack
+      bg={useColorModeValue('white', 'gray.800')}
+      borderRadius="md"
+      p="8"
+      flex="1 0"
+      alignItems="stretch"
+      border="1px solid"
+      borderColor={useColorModeValue('gray.300', 'gray.800')}
+      {...props}
+    >
+      <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
+        {title}
+      </Heading>
+      <Box color={useColorModeValue('gray.500', 'gray.400')}>{description}</Box>
+      <Box fontSize="2xl" fontWeight="bold" py="4">
+        {price}
+      </Box>
+      <VStack align="stretch" justifyContent="stretch" spacing="4" flex="1">
+        {children}
+      </VStack>
+    </VStack>
   )
 }
 

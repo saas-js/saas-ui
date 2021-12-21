@@ -42,6 +42,12 @@ const textStyles = {
     lineHeight: '110%',
     letterSpacing: '-1%',
   },
+  h3: {
+    fontSize: ['lg', 'xl'],
+    fontWeight: '900',
+    lineHeight: '110%',
+    letterSpacing: '-1%',
+  },
   subtitle: {
     fontSize: ['lg', null, '2xl'],
     fontWeight: 'normal',

@@ -6,15 +6,14 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { StoryContext } from '@storybook/react'
+import { Parameters, StoryContext } from '@storybook/react'
 import * as React from 'react'
-
-import { FiMoon, FiSun } from 'react-icons/fi'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { withPerformance } from 'storybook-addon-performance'
 
-// import { theme } from '../packages/theme'
-
-const theme = {}
+const theme = {
+  components: {},
+}
 
 /**
  * Add global context for RTL-LTR switching
@@ -33,7 +32,7 @@ export const globalTypes = {
 
 const ColorModeToggleBar = () => {
   const { toggleColorMode } = useColorMode()
-  const SwitchIcon = useColorModeValue(FiMoon, FiSun)
+  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const nextMode = useColorModeValue('dark', 'light')
 
   return (
@@ -56,6 +55,10 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
   const { direction } = context.globals
   const dir = direction.toLowerCase()
 
+  React.useEffect(() => {
+    document.documentElement.dir = dir
+  }, [dir])
+
   return (
     <ChakraProvider theme={extendTheme({ ...theme, direction: dir })}>
       <div dir={dir} id="story-wrapper" style={{ minHeight: '100vh' }}>
@@ -64,6 +67,15 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
       </div>
     </ChakraProvider>
   )
+}
+
+export const parameters: Parameters = {
+  options: {
+    storySort: (a, b) =>
+      a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+  },
 }
 
 export const decorators = [withChakra, withPerformance]

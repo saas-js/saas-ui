@@ -1,0 +1,353 @@
+import * as React from 'react'
+
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarProps,
+  AvatarBadgeProps,
+} from '@chakra-ui/avatar'
+
+import {
+  chakra,
+  forwardRef,
+  useStyles,
+  StylesProvider,
+  HTMLChakraProps,
+  ThemingProps,
+  SystemStyleObject,
+  SystemProps,
+  useColorModeValue,
+} from '@chakra-ui/system'
+
+import { useMultiStyleConfig } from '@saas-ui/system'
+
+import { PersonaStyles } from './theme'
+
+export interface PresenceOptions {
+  [presence: string]: string
+}
+
+/**
+ * Defines colors for presence
+ * Default presence values: online, offline, busy, dnd, away
+ *
+ * The change the color you can overwrite it's value.
+ * Presence.online = 'cyan.500'
+ *
+ * Or add a custom presence value
+ * Presence.vacay = 'blue.500'
+ */
+export const Presence: PresenceOptions = {
+  online: 'green.500',
+  offline: 'gray.400',
+  busy: 'orange.500',
+  dnd: 'red.500',
+  away: 'gray.400',
+}
+
+export interface PersonaContainerProps
+  extends HTMLChakraProps<'div'>,
+    ThemingProps<'Persona'> {}
+
+export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
+  (props, ref) => {
+    const { children } = props
+    const styles = useMultiStyleConfig('Persona', props, {
+      defaultStyleConfig: PersonaStyles,
+    })
+
+    const baseStyle: SystemStyleObject = {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+    }
+
+    const containerStyles = {
+      ...baseStyle,
+      ...styles.container,
+    }
+
+    return (
+      <StylesProvider value={styles}>
+        <chakra.div ref={ref} __css={containerStyles}>
+          {children}
+        </chakra.div>
+      </StylesProvider>
+    )
+  }
+)
+
+interface PresenceAvatarOptions {
+  /**
+   * The name of the person in the avatar.
+   *
+   * - if `src` has loaded, the name will be used as the `alt` attribute of the `img`
+   * - If `src` is not loaded, the name will be used to create the initials
+   */
+  name?: string
+  /**
+   * The presence status of the person
+   *
+   * If set will add an AvatarBadge with color configured in `Presence`
+   * Default presence options:
+   * - online
+   * - offline
+   * - busy
+   * - dnd
+   * - away
+   */
+  presence?: string
+  /**
+   * The icon shown in the AvatarBadge
+   */
+  presenceIcon?: React.ReactNode
+  /**
+   * The badge size. Defaults to 1em. Use em value to keep the size relative to the avatar.
+   */
+  badgeSize?: SystemProps['boxSize']
+  /**
+   * Indicates that a person is out of office. Changes the presence badge style.
+   */
+  isOutOfOffice?: boolean
+}
+
+interface PresenceAvatarProps extends PresenceAvatarOptions, AvatarProps {}
+
+export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
+  (props, ref) => {
+    const {
+      name,
+      presence,
+      presenceIcon,
+      isOutOfOffice,
+      badgeSize = '1em',
+      size,
+      getInitials,
+      icon,
+      iconLabel,
+      ignoreFallback,
+      loading,
+      onError,
+      src,
+      srcSet,
+    } = props
+    const badgeProps: AvatarBadgeProps = {}
+    let badge
+
+    if (presence) {
+      if (isOutOfOffice) {
+        badgeProps.sx = {
+          _before: {
+            content: '""',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            border: '0.1em solid',
+            borderColor: Presence[presence],
+            borderRadius: '50%',
+          },
+        }
+        badgeProps.borderWidth = '0.1em'
+        badgeProps.bg = useColorModeValue('white', 'gray.800')
+      } else {
+        badgeProps.bg = Presence[presence]
+      }
+
+      badge = (
+        <AvatarBadge boxSize={badgeSize} {...badgeProps}>
+          {presenceIcon}
+        </AvatarBadge>
+      )
+    }
+
+    return (
+      <Avatar
+        ref={ref}
+        name={name}
+        size={size}
+        getInitials={getInitials}
+        icon={icon}
+        iconLabel={iconLabel}
+        ignoreFallback={ignoreFallback}
+        loading={loading}
+        onError={onError}
+        src={src}
+        srcSet={srcSet}
+      >
+        {badge}
+      </Avatar>
+    )
+  }
+)
+
+export const PersonaDetails = forwardRef<PersonaProps, 'div'>((props, ref) => {
+  const { children } = props
+  const styles = useStyles()
+
+  const baseStyle: SystemStyleObject = {
+    display: 'flex',
+    flexDirection: 'column',
+  }
+
+  const detailsStyles = {
+    ...baseStyle,
+    ...styles.details,
+  }
+
+  return (
+    <chakra.div ref={ref} __css={detailsStyles}>
+      {children}
+    </chakra.div>
+  )
+})
+
+export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
+  (props, ref) => {
+    const styles = useStyles()
+    return <chakra.span ref={ref} isTruncated {...props} __css={styles.label} />
+  }
+)
+
+export const PersonaSecondaryLabel = forwardRef<
+  HTMLChakraProps<'span'>,
+  'span'
+>((props, ref) => {
+  const styles = useStyles()
+  return (
+    <chakra.span
+      ref={ref}
+      isTruncated
+      {...props}
+      __css={styles.secondaryLabel}
+    />
+  )
+})
+
+export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
+  (props, ref) => {
+    const styles = useStyles()
+    return (
+      <chakra.span
+        ref={ref}
+        isTruncated
+        {...props}
+        __css={styles.tertiaryLabel}
+      />
+    )
+  }
+)
+
+interface PersonaOptions {
+  /**
+   * The name of the person in the avatar.
+   *
+   * - if `src` has loaded, the name will be used as the `alt` attribute of the `img`
+   * - If `src` is not loaded, the name will be used to create the initials
+   */
+  name?: string
+  /**
+   * The presence status of the person
+   *
+   * If set will add an AvatarBadge with color configured in `Presence`
+   * Default presence options:
+   * - online
+   * - offline
+   * - busy
+   * - dnd
+   * - away
+   */
+  presence?: string
+  /**
+   * The icon shown in the AvatarBadge
+   */
+  presenceIcon?: React.ReactNode
+  /**
+   * Indicates that a person is out of office. Changes the presence badge style.
+   */
+  isOutOfOffice?: boolean
+  /**
+   * Primary label of the persona, defaults to the name
+   */
+  label?: React.ReactNode
+  /**
+   * Secondary label, usually the role of the person
+   * Only visible from md size and up.
+   */
+  secondaryLabel?: React.ReactNode
+  /**
+   * Tertiary label, usually the status of the person.
+   * Only visible from lg size and up.
+   */
+  tertiaryLabel?: React.ReactNode
+  /**
+   * Hide the persona details next to the avatar.
+   */
+  hideDetails?: boolean
+  /**
+   * The size of the persona, from 2xs to 2xl.
+   */
+  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+}
+
+export interface PersonaProps
+  extends PersonaOptions,
+    Omit<PresenceAvatarProps, 'size'> {}
+
+export const Persona: React.FC<PersonaProps> = (props) => {
+  const {
+    name,
+    presence,
+    presenceIcon,
+    isOutOfOffice,
+    label,
+    secondaryLabel,
+    tertiaryLabel,
+    size,
+    hideDetails,
+    children,
+    /** Avatar props */
+    getInitials,
+    icon,
+    iconLabel,
+    ignoreFallback,
+    loading,
+    onError,
+    src,
+    srcSet,
+    ...rest
+  } = props
+
+  return (
+    <PersonaContainer size={size} {...rest}>
+      <PersonaAvatar
+        name={name}
+        presence={presence}
+        presenceIcon={presenceIcon}
+        isOutOfOffice={isOutOfOffice}
+        size={size}
+        getInitials={getInitials}
+        icon={icon}
+        iconLabel={iconLabel}
+        ignoreFallback={ignoreFallback}
+        loading={loading}
+        onError={onError}
+        src={src}
+        srcSet={srcSet}
+      />
+      {!hideDetails && (
+        <PersonaDetails>
+          <PersonaLabel>{label || name}</PersonaLabel>
+          {secondaryLabel && (
+            <PersonaSecondaryLabel>{secondaryLabel}</PersonaSecondaryLabel>
+          )}
+          {tertiaryLabel && (
+            <PersonaTertiaryLabel>{tertiaryLabel}</PersonaTertiaryLabel>
+          )}
+          {children}
+        </PersonaDetails>
+      )}
+    </PersonaContainer>
+  )
+}

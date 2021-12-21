@@ -2594,7 +2594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/avatar@npm:1.3.1":
+"@chakra-ui/avatar@npm:1.3.1, @chakra-ui/avatar@npm:^1.3.1":
   version: 1.3.1
   resolution: "@chakra-ui/avatar@npm:1.3.1"
   dependencies:
@@ -4345,7 +4345,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:*, @emotion/react@npm:^11, @emotion/react@npm:^11.7.1":
+"@emotion/react@npm:*, @emotion/react@npm:^11":
   version: 11.7.1
   resolution: "@emotion/react@npm:11.7.1"
   dependencies:
@@ -4446,7 +4446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:*, @emotion/styled@npm:^11, @emotion/styled@npm:^11.3.0, @emotion/styled@npm:^11.6.0":
+"@emotion/styled@npm:*, @emotion/styled@npm:^11, @emotion/styled@npm:^11.3.0":
   version: 11.6.0
   resolution: "@emotion/styled@npm:11.6.0"
   dependencies:
@@ -5435,15 +5435,62 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saas-ui/palette@workspace:*, @saas-ui/palette@workspace:packages/palette":
+"@saas-ui/hotkeys@workspace:packages/saas-ui-hotkeys":
   version: 0.0.0-use.local
-  resolution: "@saas-ui/palette@workspace:packages/palette"
+  resolution: "@saas-ui/hotkeys@workspace:packages/saas-ui-hotkeys"
+  dependencies:
+    "@saas-ui/search-input": "workspace:*"
+  peerDependencies:
+    "@chakra-ui/layout": ">=1.3.1"
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/palette@workspace:*, @saas-ui/palette@workspace:packages/saas-ui-palette":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/palette@workspace:packages/saas-ui-palette"
   dependencies:
     "@chakra-ui/system": 1.8.3
     "@chakra-ui/theme": ^1.10.4
     "@types/chroma-js": ^2.1.3
     chroma-js: ^2.1.2
     react: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/persona@workspace:packages/saas-ui-persona":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/persona@workspace:packages/saas-ui-persona"
+  dependencies:
+    "@chakra-ui/avatar": ^1.3.1
+    "@saas-ui/system": "workspace:*"
+    react-icons: ^4.3.1
+  peerDependencies:
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/search-input@workspace:*, @saas-ui/search-input@workspace:packages/saas-ui-search-input":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/search-input@workspace:packages/saas-ui-search-input"
+  dependencies:
+    "@chakra-ui/icons": ^1.1.1
+    react-icons: ^4.3.1
+  peerDependencies:
+    "@chakra-ui/layout": ">=1.3.1"
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/system@workspace:*, @saas-ui/system@workspace:packages/saas-ui-system":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/system@workspace:packages/saas-ui-system"
+  peerDependencies:
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
   languageName: unknown
   linkType: soft
 
@@ -5483,6 +5530,36 @@ __metadata:
     react-dom:
       optional: true
   checksum: b9e2be4aacf68e25d30774e3e1958526abaa8a7704a3d041cc2fa82c23014c487f83bba274b2f95f1df421c402a04a7db9612902daf280378096104c411d0fbb
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-storysource@npm:^6.4.9":
+  version: 6.4.9
+  resolution: "@storybook/addon-storysource@npm:6.4.9"
+  dependencies:
+    "@storybook/addons": 6.4.9
+    "@storybook/api": 6.4.9
+    "@storybook/client-logger": 6.4.9
+    "@storybook/components": 6.4.9
+    "@storybook/router": 6.4.9
+    "@storybook/source-loader": 6.4.9
+    "@storybook/theming": 6.4.9
+    core-js: ^3.8.2
+    estraverse: ^5.2.0
+    loader-utils: ^2.0.0
+    prettier: ^2.2.1
+    prop-types: ^15.7.2
+    react-syntax-highlighter: ^13.5.3
+    regenerator-runtime: ^0.13.7
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: e8d131e7eee626b60c314c91a8437822fe91c01925ffefb9fb2763c26f77891bfc36fc48a32e31776910873a4a9281c6f7fa659ae8d7f03fc101dbe2831afd7d
   languageName: node
   linkType: hard
 
@@ -6165,6 +6242,27 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: c98225817af5539654ef547e33e4496edccc04a88b6091d4a5601f81b71743109074dc71cc444813f43c112273c9d54d5f99416e9ad08ee89b4913318e6aea90
+  languageName: node
+  linkType: hard
+
+"@storybook/source-loader@npm:6.4.9":
+  version: 6.4.9
+  resolution: "@storybook/source-loader@npm:6.4.9"
+  dependencies:
+    "@storybook/addons": 6.4.9
+    "@storybook/client-logger": 6.4.9
+    "@storybook/csf": 0.0.2--canary.87bc651.0
+    core-js: ^3.8.2
+    estraverse: ^5.2.0
+    global: ^4.4.0
+    loader-utils: ^2.0.0
+    lodash: ^4.17.21
+    prettier: ^2.2.1
+    regenerator-runtime: ^0.13.7
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1a40acda379098878af955999884ee2287c5b47e63c96857390b967b737d85ee1b263835756502de0099cbc9750b97ca477d1dc887c2614265329787e85fcf47
   languageName: node
   linkType: hard
 
@@ -20520,10 +20618,13 @@ __metadata:
     "@babel/preset-env": ^7.16.5
     "@babel/preset-react": ^7.16.5
     "@babel/preset-typescript": ^7.16.5
+    "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/react": ^1.7.3
     "@changesets/cli": ^2.19.0
-    "@emotion/react": ^11.7.1
-    "@emotion/styled": ^11.6.0
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
     "@storybook/addon-a11y": ^6.4.9
+    "@storybook/addon-storysource": ^6.4.9
     "@storybook/addon-toolbars": ^6.4.9
     "@storybook/react": ^6.4.9
     "@typescript-eslint/eslint-plugin": ^5.7.0
@@ -20531,12 +20632,14 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-import-resolver-typescript: ^2.5.0
     eslint-plugin-import: ^2.25.3
+    framer-motion: ^4
     husky: ^7.0.0
     lint-staged: ^12.1.3
     microbundle: ^0.14.2
     prettier: ^2.5.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-icons: ^4.3.1
     react-is: ^17.0.2
     storybook-addon-performance: ^0.16.1
     turbo: ^1.0.13

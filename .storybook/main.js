@@ -6,9 +6,9 @@ module.exports = {
   stories: ['../packages/**/stories/*.stories.tsx'],
   addons: [
     'storybook-addon-performance/register',
-    // '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
+    '@storybook/addon-storysource',
   ],
   typescript: {
     reactDocgen: false,

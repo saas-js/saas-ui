@@ -18,13 +18,14 @@ const PaletteProvider = ({
     if (color) {
       setPalette(color, options)
     }
-  }, [color])
+  }, [color, options])
 
   const value = [{ color, options, colors }, setPalette]
 
   return (
     <PaletteContext.Provider value={value}>
-      {children({ colors })}
+      {/* {children({ colors })} */}
+      {children}
     </PaletteContext.Provider>
   )
 }

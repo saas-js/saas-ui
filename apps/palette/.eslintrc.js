@@ -1,7 +1,7 @@
 module.exports = {
-  root: true,
+  // root: true,
   extends: ['next', 'next/core-web-vitals'],
   rules: {
-    '@next/next/no-html-link-for-pages': ['error', 'src/pages/'],
+    '@next/next/no-html-link-for-pages': ['error', 'pages'],
   },
 }

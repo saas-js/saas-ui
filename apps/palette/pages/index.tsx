@@ -43,7 +43,7 @@ export default function ColorsPage() {
           setPalette(color, options)
         }
       }, 200),
-    []
+    [setPalette]
   )
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function ColorsPage() {
       },
       blackLuminance,
     })
-  }, [color, gray, blackLuminance])
+  }, [color, gray, blackLuminance, updatePalette])
 
   const handleChange = useCallback((key: string) => {
     return (e: any) => {
@@ -68,7 +68,7 @@ export default function ColorsPage() {
     return () => {
       updatePalette.cancel()
     }
-  }, [])
+  }, [updatePalette])
 
   return (
     <Page

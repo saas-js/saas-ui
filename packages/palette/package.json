@@ -14,7 +14,8 @@
     "prebuild": "rimraf dist",
     "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
     "access": "public"

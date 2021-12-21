@@ -33,7 +33,10 @@
     "changeset": "changeset",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean": "turbo run clean",
+    "lint": "turbo run lint",
+    "lint:staged": "turbo run lint:staged --concurrency=1"
   },
   "workspaces": [
     "packages/*",
@@ -58,6 +61,12 @@
         "outputs": []
       },
       "lint": {
+        "outputs": []
+      },
+      "typecheck": {
+        "outputs": []
+      },
+      "lint:staged": {
         "outputs": []
       },
       "dev": {

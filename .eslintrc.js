@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  // root: true,
   settings: {
     'import/resolver': {
       typescript: {},

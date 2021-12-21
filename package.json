@@ -30,7 +30,7 @@
   },
   "scripts": {
     "w": "yarn workspace",
-    "changeset": "changeset",
+    "version": "changeset version",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepare": "husky install",
@@ -44,7 +44,7 @@
     "apps/*"
   ],
   "turbo": {
-    "baseBranch": "origin/master",
+    "baseBranch": "origin/main",
     "pipeline": {
       "build": {
         "dependsOn": [

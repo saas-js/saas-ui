@@ -39,7 +39,7 @@ import SEO from '@/components/seo'
 import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
 
-const BackgroundBox = () => {
+const BackgroundBox = ({ animate, ...props }: any) => {
   const theme = useTheme()
   const colors = [
     theme.colors.primary['800'],
@@ -48,7 +48,7 @@ const BackgroundBox = () => {
     theme.colors.teal['500'],
   ]
 
-  let gradient = <MovingGradients colors={colors} animate={true} />
+  let gradient = animate && <MovingGradients colors={colors} animate={true} />
 
   let fallbackBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 60%), radial-gradient(at bottom left, var(--chakra-colors-cyan-500) 0%, transparent 50%),
         radial-gradient(at top right, ${colors[3]}, transparent), radial-gradient(at bottom right, ${colors[0]} 0%, transparent 50%);`
@@ -64,11 +64,13 @@ const BackgroundBox = () => {
       backgroundBlendMode="saturation"
       position="absolute"
       top="0"
+      left="0"
       zIndex="0"
       opacity="0.5"
       height="100vh"
       width="100%"
       overflow="hidden"
+      {...props}
     >
       {gradient}
       <Box
@@ -444,112 +446,115 @@ const RequestAccess = () => {
 
 const Pricing = () => {
   return (
-    <Section id="pricing">
-      <ScaleInView>
-        <SectionTitle
-          title="Pricing for every stage"
-          description="Pay once and get life-time access and free updates to our high quality components."
-        ></SectionTitle>
-      </ScaleInView>
+    <Section id="pricing" pos="relative">
+      <BackgroundBox animate={false} height="100%" />
+      <Box zIndex="2" pos="relative">
+        <ScaleInView>
+          <SectionTitle
+            title="Pricing for every stage"
+            description="Pay once and get life-time access and free updates to our high quality components."
+          ></SectionTitle>
+        </ScaleInView>
 
-      <ScaleInView>
-        <SimpleGrid columns={[1, null, 3]} spacing={4}>
-          <PricingBox
-            title="Open Source"
-            description="Basic components, perfect for personal projects."
-            price="Free"
-          >
-            <PricingFeatures>
-              <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (supabase/passport.js)" />
-              <PricingFeature title="Forms (react-hook-form)" />
-              <PricingFeature title="Hotkeys" />
-              <PricingFeature title="Cards" />
-              <Text fontSize="sm">And much more...</Text>
-            </PricingFeatures>
-            <ButtonLink href="/docs/introduction" variant="outline" mt="10">
-              View documentation
-            </ButtonLink>
-          </PricingBox>
-          <PricingBox
-            title="Bootstrap"
-            price={
-              <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €199,-
-                </Text>
-                <Text>€99,-</Text>
-              </HStack>
-            }
-            description="Complete frontend stack for bootstrappers."
-            borderColor="primary.500"
-            boxShadow="md"
-          >
-            <PricingFeatures>
-              <PricingFeature title="One project" />
-              <PricingFeature title="One developer" />
-              <PricingFeature title="Advanced components" />
-              <PricingFeature title="Multiple themes" />
-              <PricingFeature title="Next.js and Electron boilerplates" />
-              <PricingFeature title="Free updates" />
-            </PricingFeatures>
-            <ButtonLink
-              colorScheme="primary"
-              href="#request-access"
-              onClick={() =>
-                /* @ts-ignore */
-                window?.woopra.track('Order Bootstrap')
-              }
+        <ScaleInView>
+          <SimpleGrid columns={[1, null, 3]} spacing={4}>
+            <PricingBox
+              title="Open Source"
+              description="Basic components, perfect for personal projects."
+              price="Free"
             >
-              Request access
-            </ButtonLink>
-          </PricingBox>
-          <PricingBox
-            title="Startup"
-            price={
-              <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €599,-
-                </Text>
-                <Text>€299,-</Text>
-              </HStack>
-            }
-            description="Extended license for growing teams."
-          >
-            <PricingFeatures>
-              <PricingFeature title="Unlimited projects" />
-              <PricingFeature title="Unlimited developers" />
-              <PricingFeature title="Everything from Bootstrap" />
-            </PricingFeatures>
-            <ButtonLink
-              colorScheme="primary"
-              href="#request-access"
-              onClick={() =>
-                /* @ts-ignore */
-                window?.woopra.track('Order Startup')
+              <PricingFeatures>
+                <PricingFeature title="MIT License" />
+                <PricingFeature title="Authentication (supabase/passport.js)" />
+                <PricingFeature title="Forms (react-hook-form)" />
+                <PricingFeature title="Hotkeys" />
+                <PricingFeature title="Cards" />
+                <Text fontSize="sm">And much more...</Text>
+              </PricingFeatures>
+              <ButtonLink href="/docs/introduction" variant="outline" mt="10">
+                View documentation
+              </ButtonLink>
+            </PricingBox>
+            <PricingBox
+              title="Bootstrap"
+              price={
+                <HStack>
+                  <Text
+                    textDecoration="line-through"
+                    fontSize="sm"
+                    color="gray.400"
+                  >
+                    €199,-
+                  </Text>
+                  <Text>€99,-</Text>
+                </HStack>
               }
+              description="Complete frontend stack for bootstrappers."
+              borderColor="primary.500"
+              boxShadow="md"
             >
-              Request access
-            </ButtonLink>
-          </PricingBox>
-        </SimpleGrid>
+              <PricingFeatures>
+                <PricingFeature title="One project" />
+                <PricingFeature title="One developer" />
+                <PricingFeature title="Advanced components" />
+                <PricingFeature title="Multiple themes" />
+                <PricingFeature title="Next.js and Electron boilerplates" />
+                <PricingFeature title="Free updates" />
+              </PricingFeatures>
+              <ButtonLink
+                colorScheme="primary"
+                href="#request-access"
+                onClick={() =>
+                  /* @ts-ignore */
+                  window?.woopra.track('Order Bootstrap')
+                }
+              >
+                Request access
+              </ButtonLink>
+            </PricingBox>
+            <PricingBox
+              title="Startup"
+              price={
+                <HStack>
+                  <Text
+                    textDecoration="line-through"
+                    fontSize="sm"
+                    color="gray.400"
+                  >
+                    €599,-
+                  </Text>
+                  <Text>€299,-</Text>
+                </HStack>
+              }
+              description="Extended license for growing teams."
+            >
+              <PricingFeatures>
+                <PricingFeature title="Unlimited projects" />
+                <PricingFeature title="Unlimited developers" />
+                <PricingFeature title="Everything from Bootstrap" />
+              </PricingFeatures>
+              <ButtonLink
+                colorScheme="primary"
+                href="#request-access"
+                onClick={() =>
+                  /* @ts-ignore */
+                  window?.woopra.track('Order Startup')
+                }
+              >
+                Request access
+              </ButtonLink>
+            </PricingBox>
+          </SimpleGrid>
 
-        <Text
-          p="8"
-          textAlign="center"
-          color={useColorModeValue('gray.500', 'gray.400')}
-        >
-          All prices are excluding 21% VAT.
-        </Text>
-      </ScaleInView>
+          <Text
+            p="8"
+            textAlign="center"
+            color={useColorModeValue('gray.500', 'gray.400')}
+          >
+            All prices are excluding 21% VAT.
+          </Text>
+        </ScaleInView>
+      </Box>
     </Section>
   )
 }
@@ -582,13 +587,14 @@ const PricingFeature = ({ title }) => {
 const PricingBox = ({ title, description, price, children, ...props }) => {
   return (
     <VStack
-      bg={useColorModeValue('white', 'gray.800')}
+      zIndex="2"
+      bg={useColorModeValue('whiteAlpha.600', 'blackAlpha.300')}
       borderRadius="md"
       p="8"
       flex="1 0"
       alignItems="stretch"
       border="1px solid"
-      borderColor={useColorModeValue('gray.300', 'gray.800')}
+      borderColor={useColorModeValue('gray.400', 'gray.800')}
       {...props}
     >
       <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">

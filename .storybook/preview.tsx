@@ -6,12 +6,18 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { theme as baseTheme } from '@chakra-ui/theme'
 import { Parameters, StoryContext } from '@storybook/react'
 import * as React from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import { withPerformance } from 'storybook-addon-performance'
 
 const theme = {
+  colors: {
+    ...baseTheme.colors,
+    primary: baseTheme.colors.teal,
+    secondary: baseTheme.colors.orange,
+  },
   components: {},
 }
 

@@ -1,5 +1,5 @@
 const path = require('path')
-
+const webpack = require('webpack')
 const toPath = (_path) => path.join(process.cwd(), _path)
 
 module.exports = {
@@ -24,6 +24,14 @@ module.exports = {
           'emotion-theming': toPath('node_modules/@emotion/react'),
         },
       },
+      plugins: config.plugins.concat([
+        new webpack.NormalModuleReplacementPlugin(
+          /\@saas-ui\/[a-z]+$/,
+          (resource) => {
+            resource.request = resource.request + '/src/index'
+          }
+        ),
+      ]),
     }
   },
 }

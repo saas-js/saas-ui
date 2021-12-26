@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import { FiSearch, FiX } from 'react-icons/fi'
 
-import { SearchInput } from '../'
+import { SearchInput } from '../src'
 
 export default {
   title: 'Components/Forms/SearchInput',

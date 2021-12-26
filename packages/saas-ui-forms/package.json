@@ -1,0 +1,65 @@
+{
+  "name": "@saas-ui/forms",
+  "version": "0.0.0",
+  "description": "Theme and components agnostic SaasProvider",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppulseSoftware/saas-ui",
+    "directory": "packages/saas-ui-forms"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system",
+    "forms",
+    "react-hook-form"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.8.3",
+    "@saas-ui/button": "workspace:*",
+    "@saas-ui/number-input": "workspace:^",
+    "@saas-ui/password-input": "workspace:*",
+    "@saas-ui/pin-input": "workspace:^",
+    "@saas-ui/radio": "workspace:^",
+    "@saas-ui/select": "workspace:^",
+    "react-hook-form": "^7.22.0",
+    "yup": "^0.32.11"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": "^1.7.3"
+  }
+}

@@ -18,7 +18,9 @@ import {
   ModalCloseButton,
   Input,
 } from '@chakra-ui/react'
-import React, { useEffect, useRef } from 'react'
+import * as React from 'react'
+
+const { useEffect, useRef } = React
 
 import {
   HotkeysProvider,
@@ -28,7 +30,7 @@ import {
   HotkeysListOptions,
   useHotkeysShortcut,
   useHotkeysContext,
-} from '../'
+} from '../src'
 
 const hotkeys: HotkeysListOptions = {
   general: {

@@ -47,9 +47,6 @@
     "baseBranch": "origin/main",
     "pipeline": {
       "build": {
-        "dependsOn": [
-          "^build"
-        ],
         "outputs": [
           "dist/**",
           ".next/**"
@@ -102,8 +99,11 @@
     "react-icons": "^4.3.1",
     "react-is": "^17.0.2",
     "storybook-addon-performance": "^0.16.1",
-    "turbo": "^1.0.19",
+    "turbo": "^1.0.23",
     "typescript": "^4.5.4"
   },
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "turborepo": "^0.0.1"
+  }
 }

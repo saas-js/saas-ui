@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useFormContext, FormState, Controller } from 'react-hook-form'
+import { useFormContext, FormState, Controller, get } from 'react-hook-form'
 
 import {
   forwardRef,
@@ -20,21 +20,33 @@ import { NumberInput } from '@saas-ui/number-input'
 import { PasswordInput } from '@saas-ui/password-input'
 import { RadioInput } from '@saas-ui/radio'
 import { PinInput } from '@saas-ui/pin-input'
-
 import { Select, NativeSelect } from '@saas-ui/select'
 
 export interface FieldProps extends Omit<FormControlProps, 'label'> {
   /**
    * The field name
-   * @type string
    */
   name: string
   /**
    * The field label
-   * @type string
-   * @optional
    */
   label?: string
+  /**
+   * Hide the field label
+   */
+  hideLabel?: boolean
+  /**
+   * Field help text
+   */
+  help?: string
+  /**
+   * React hook form rules
+   */
+  rules?: any
+  /**
+   * Options used for selects and radio fields
+   */
+  options?: any
   /**
    * The field type
    * Build-in types:
@@ -55,7 +67,6 @@ export interface FieldProps extends Omit<FormControlProps, 'label'> {
   type?: string
   /**
    * The input placeholder
-   * @type string
    */
   placeholder?: string
 }
@@ -69,14 +80,55 @@ const getInput = (type: string) => {
 }
 
 const getError = (name: string, formState: FormState<{ [x: string]: any }>) => {
-  return formState.errors[name]
+  return get(formState.errors, name)
 }
 
 const isTouched = (
   name: string,
   formState: FormState<{ [x: string]: any }>
 ) => {
-  return formState.touchedFields[name]
+  return get(formState.touchedFields, name)
+}
+
+export const BaseField: React.FC<FieldProps> = (props) => {
+  const {
+    name,
+    label,
+    type = defaultInputType,
+    placeholder,
+    help,
+    rules,
+    options,
+    variant,
+    hideLabel,
+    children,
+    ...controlProps
+  } = props
+
+  const { formState } = useFormContext()
+
+  const error = getError(name, formState)
+  const touched = isTouched(name, formState)
+
+  return (
+    <FormControl
+      isInvalid={!!error}
+      type={type}
+      variant={variant}
+      {...controlProps}
+    >
+      {label && !hideLabel ? (
+        <FormLabel variant={variant}>{label}</FormLabel>
+      ) : null}
+      <Box>
+        {children}
+        {help && !error?.message ? (
+          <FormHelperText>{help}</FormHelperText>
+        ) : null}
+        <FormErrorMessage>{error?.message}</FormErrorMessage>
+      </Box>
+    </FormControl>
+  )
 }
 
 export const Field = forwardRef<FieldProps, typeof FormControl>(
@@ -86,47 +138,32 @@ export const Field = forwardRef<FieldProps, typeof FormControl>(
       label,
       type = defaultInputType,
       placeholder,
-      help,
       rules,
       options,
-      variant,
-      ...controlProps
+      ...fieldProps
     } = props
 
-    const { formState } = useFormContext()
     const InputComponent = getInput(type)
-
-    const error = getError(name, formState)
-    const touched = isTouched(name, formState)
-
     const { hideLabel } = InputComponent
 
     return (
-      <FormControl
-        isInvalid={!!error && touched}
+      <BaseField
+        name={name}
+        label={label}
         type={type}
-        variant={variant}
-        {...controlProps}
+        hideLabel={hideLabel}
+        {...fieldProps}
       >
-        {label && !hideLabel ? (
-          <FormLabel variant={variant}>{label}</FormLabel>
-        ) : null}
-        <Box>
-          <InputComponent
-            name={name}
-            label={label}
-            type={type}
-            placeholder={placeholder}
-            rules={rules}
-            options={options}
-            ref={ref}
-          />
-          {help && !error?.message ? (
-            <FormHelperText>{help}</FormHelperText>
-          ) : null}
-          <FormErrorMessage>{error?.message}</FormErrorMessage>
-        </Box>
-      </FormControl>
+        <InputComponent
+          name={name}
+          label={label}
+          type={type}
+          placeholder={placeholder}
+          rules={rules}
+          options={options}
+          ref={ref}
+        />
+      </BaseField>
     )
   }
 )

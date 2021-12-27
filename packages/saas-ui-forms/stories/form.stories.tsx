@@ -5,6 +5,8 @@ import * as Yup from 'yup'
 
 import { Form, AutoForm, FormLayout, Field, SubmitButton } from '../src'
 
+import { Button } from '@saas-ui/button'
+
 import { handleSubmit } from './helpers'
 
 export default {

@@ -9,7 +9,7 @@ module.exports =
           config.module.rules.push({
             test: /\.(js|jsx|ts|tsx)$/,
             include: workspaces.map((workspace) =>
-              path.join(__dirname, basePath, workspace)
+              path.resolve(basePath, workspace)
             ),
             exclude: /node_modules/,
             use: options.defaultLoaders.babel,

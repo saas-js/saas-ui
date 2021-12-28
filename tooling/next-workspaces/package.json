@@ -1,0 +1,20 @@
+{
+  "name": "@saas-ui/next-workspaces",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppulseSoftware/saas-ui",
+    "directory": "tooling/next-workspaces"
+  },
+  "keywords": [
+    "next",
+    "yarn",
+    "workspaces",
+    "monorepo",
+    "plugin"
+  ]
+}

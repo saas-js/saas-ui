@@ -5,11 +5,16 @@
   "source": "src/index.ts",
   "exports": {
     "require": "./dist/index.cjs",
+    "development": "./src/index.ts",
     "default": "./dist/index.esm.js"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",

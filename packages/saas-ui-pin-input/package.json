@@ -5,6 +5,7 @@
   "source": "src/index.ts",
   "exports": {
     "require": "./dist/index.cjs",
+    "development": "./src/index.ts",
     "default": "./dist/index.esm.js"
   },
   "main": "./dist/index.cjs",

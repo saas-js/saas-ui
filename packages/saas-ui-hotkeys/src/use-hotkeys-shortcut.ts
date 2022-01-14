@@ -21,7 +21,7 @@ import { useHotkeys } from './use-hotkeys'
 export const useHotkeysShortcut = (
   keyOrShortcut: string,
   callback: (event: KeyboardEvent) => void,
-  deps: Array<any> = [],
+  deps: Array<any> = []
 ): string => {
   const { hotkeys } = useHotkeysContext()
 
@@ -29,7 +29,7 @@ export const useHotkeysShortcut = (
 
   let keys
   if (group && key) {
-    keys = hotkeys[group]?.hotkeys[key]?.command
+    keys = hotkeys?.[group]?.hotkeys[key]?.command
   }
 
   if (!keys) {

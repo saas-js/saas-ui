@@ -36,6 +36,7 @@ const modifiers: Record<string, string> = {
   cmd: 'meta',
   command: 'meta',
   mod: 'meta', // ios
+  esc: 'escape',
 }
 
 export const splitKeys = (keys: string) => {
@@ -67,8 +68,8 @@ const parseKeys = (keys: string | string[]) => {
           }
           return keys
         },
-        [],
-      ),
+        []
+      )
     )
     return memo
   }, [])
@@ -76,7 +77,7 @@ const parseKeys = (keys: string | string[]) => {
 
 const keysMatch = (
   pressedKeys: Set<string>,
-  targetKeys: Array<Set<string>>,
+  targetKeys: Array<Set<string>>
 ): boolean =>
   targetKeys.some((b) => {
     return (
@@ -113,13 +114,13 @@ const isInputEvent = (event: KeyboardEvent) => {
 export const useHotkeys = (
   keys: string | string[],
   callback: (event: KeyboardEvent) => void,
-  deps: Array<any> = [],
+  deps: Array<any> = []
 ) => {
   const memoizedCallback = useCallback(callback, deps || [])
 
   const targetKeys: Array<Set<string>> = useMemo(
     () => parseKeys(keys).map((k) => new Set(k)),
-    [],
+    []
   )
   const pressedKeys: Set<string> = useMemo(() => new Set(), [])
 
@@ -130,7 +131,7 @@ export const useHotkeys = (
 
     const key = getKeyFromEvent(event)
     pressedKeys.add(key)
-
+    console.log(key)
     if (keysMatch(pressedKeys, targetKeys)) {
       // execute on next tick to make sure the last keyup doesn't trigger in any focused field
       setTimeout(() => memoizedCallback(event), 0)

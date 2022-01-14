@@ -26,5 +26,5 @@ export const Button = forwardRef<ButtonProps, typeof ChakraButton>(
         {label || children}
       </ChakraButton>
     )
-  }
+  },
 )

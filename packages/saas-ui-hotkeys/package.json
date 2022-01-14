@@ -4,16 +4,16 @@
   "description": "Easy manageable keyboard shortcuts for Chakra UI",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.cjs",
+    "require": "./dist/index.js",
     "development": "./src/index.ts",
-    "default": "./dist/index.esm.js"
+    "default": "./dist/index.modern.js"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.esm.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
+    "clean": "rimraf --no-glob ./dist",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -50,11 +50,11 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
+    "@chakra-ui/layout": ">=1.3.1",
     "@saas-ui/search-input": "workspace:*",
     "@saas-ui/system": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/layout": ">=1.3.1",
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
   }

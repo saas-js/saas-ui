@@ -16,7 +16,11 @@ import {
 } from '@chakra-ui/react'
 
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import { omitThemingProps, useMultiStyleConfig } from '@chakra-ui/system'
+import {
+  chakra,
+  omitThemingProps,
+  useMultiStyleConfig,
+} from '@chakra-ui/system'
 
 interface Option {
   value: string
@@ -44,10 +48,14 @@ const SelectButton = forwardRef((props, ref) => {
   const buttonStyles = {
     fontWeight: 'normal',
     textAlign: 'left',
-
+    color: 'inherit',
+    _active: {
+      bg: 'transparent',
+    },
     ...styles.field,
   }
 
+  // Using a Button as, so we can simply use leftIcon and rightIcon
   return <Button {...props} ref={ref} sx={buttonStyles} />
 })
 
@@ -63,6 +71,8 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     leftIcon,
     rightIcon = <ChevronDownIcon />,
     multiple,
+    size,
+    variant,
     ...rest
   } = props
   const menuProps = omitThemingProps(rest)
@@ -78,11 +88,32 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     isDisabled,
     leftIcon,
     rightIcon,
+    size,
+    variant,
   }
 
-  const displayValue = Array.isArray(currentValue)
-    ? currentValue.join(', ')
-    : currentValue
+  const getDisplayValue = React.useCallback(
+    (value) => {
+      if (!options) {
+        return value
+      }
+
+      for (const option of options) {
+        if (option.label && option.value === value) {
+          return option.label
+        }
+      }
+
+      return value
+    },
+    [options]
+  )
+
+  const displayValue = (
+    Array.isArray(currentValue) ? currentValue : [currentValue]
+  )
+    .map(getDisplayValue)
+    .join(', ')
 
   return (
     <Menu {...menuProps} closeOnSelect={!multiple}>

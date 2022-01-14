@@ -91,32 +91,15 @@ const isTouched = (
 }
 
 export const BaseField: React.FC<FieldProps> = (props) => {
-  const {
-    name,
-    label,
-    type = defaultInputType,
-    placeholder,
-    help,
-    rules,
-    options,
-    variant,
-    hideLabel,
-    children,
-    ...controlProps
-  } = props
+  const { name, label, help, variant, hideLabel, children, ...controlProps } =
+    props
 
   const { formState } = useFormContext()
 
   const error = getError(name, formState)
-  const touched = isTouched(name, formState)
 
   return (
-    <FormControl
-      isInvalid={!!error}
-      type={type}
-      variant={variant}
-      {...controlProps}
-    >
+    <FormControl isInvalid={!!error} variant={variant} {...controlProps}>
       {label && !hideLabel ? (
         <FormLabel variant={variant}>{label}</FormLabel>
       ) : null}
@@ -125,7 +108,9 @@ export const BaseField: React.FC<FieldProps> = (props) => {
         {help && !error?.message ? (
           <FormHelperText>{help}</FormHelperText>
         ) : null}
-        <FormErrorMessage>{error?.message}</FormErrorMessage>
+        {error?.message && (
+          <FormErrorMessage>{error?.message}</FormErrorMessage>
+        )}
       </Box>
     </FormControl>
   )
@@ -133,40 +118,54 @@ export const BaseField: React.FC<FieldProps> = (props) => {
 
 export const Field = forwardRef<FieldProps, typeof FormControl>(
   (props, ref) => {
-    const {
-      name,
-      label,
-      type = defaultInputType,
-      placeholder,
-      rules,
-      options,
-      ...fieldProps
-    } = props
-
+    const { type = defaultInputType } = props
     const InputComponent = getInput(type)
-    const { hideLabel } = InputComponent
+
+    return <InputComponent ref={ref} {...props} />
+  }
+)
+
+interface CreateFieldProps {
+  displayName: string
+  hideLabel?: boolean
+  BaseField: React.FC<any>
+}
+
+const createField = (
+  InputComponent: React.FC<any>,
+  { displayName, hideLabel, BaseField }: CreateFieldProps
+) => {
+  const Field = forwardRef<FieldProps, typeof FormControl>((props, ref) => {
+    const {
+      label,
+      isDisabled,
+      isInvalid,
+      isReadOnly,
+      isRequired,
+      isOptional,
+      variant,
+      ...inputProps
+    } = props
 
     return (
       <BaseField
-        name={name}
         label={label}
-        type={type}
         hideLabel={hideLabel}
-        {...fieldProps}
+        isDiabled={isDisabled}
+        isInvalid={isInvalid}
+        isReadOnly={isReadOnly}
+        isRequired={isRequired}
+        isOptional={isOptional}
+        variant={variant}
       >
-        <InputComponent
-          name={name}
-          label={label}
-          type={type}
-          placeholder={placeholder}
-          rules={rules}
-          options={options}
-          ref={ref}
-        />
+        <InputComponent ref={ref} label={label} {...inputProps} />
       </BaseField>
     )
-  }
-)
+  })
+  Field.displayName = displayName
+
+  return Field
+}
 
 export const withControlledInput = (InputComponent: any) => {
   return forwardRef(({ name, rules, ...inputProps }, ref) => {
@@ -208,11 +207,12 @@ export const withUncontrolledInput = (InputComponent: any) => {
 export interface RegisterFieldTypeOptions {
   isControlled?: boolean
   hideLabel?: boolean
+  BaseField?: React.FC<any>
 }
 
 /**
  * Register a new field type
- * @param type The name for this field, eg `email`
+ * @param type The name for this field in kebab-case, eg `email` or `array-field`
  * @param component The React component
  * @param options
  * @param options.isControlled Set this to true if this is a controlled field.
@@ -230,15 +230,21 @@ export const registerFieldType = (
     InputComponent = withUncontrolledInput(component)
   }
 
-  // Not sure this is the way to go, but we need to pass some options to the parent field
-  Object.assign(InputComponent, options)
+  const Field = createField(InputComponent, {
+    displayName: `${type
+      .split('-')
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join('')}Field`,
+    hideLabel: options?.hideLabel,
+    BaseField: options?.BaseField || BaseField,
+  })
 
-  inputTypes[type] = InputComponent
+  inputTypes[type] = Field
 
-  return InputComponent
+  return Field
 }
 
-// @todo Consider not registering all fields by default to lower the package size
+// @todo Consider not registering all fields by default to lower the package size and computations.
 // Not all types may be required in a project.
 export const InputField = registerFieldType('text', Input)
 export const NumberInputField = registerFieldType('number', NumberInput, {
@@ -283,7 +289,7 @@ export const PinField = registerFieldType('pin', PinInput, {
   isControlled: true,
 })
 export const NativeSelectField = registerFieldType(
-  'nativeselect',
+  'native-select',
   NativeSelect,
   { isControlled: true }
 )

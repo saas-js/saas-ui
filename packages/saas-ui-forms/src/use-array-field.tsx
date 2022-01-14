@@ -124,3 +124,29 @@ export const useArrayFieldRow = ({ index }: UseArrayFieldRowProps) => {
     }, [index]),
   }
 }
+
+export const useArrayFieldRemoveButton = () => {
+  const { isFirst, remove } = useArrayFieldRowContext()
+  const { min, fields } = useArrayFieldContext()
+
+  const isDisabled = isFirst && !!(min && fields.length <= min)
+
+  return {
+    onClick: () => remove(),
+    isDisabled,
+  }
+}
+
+export const useArrayFieldAddButton = () => {
+  const { append, defaultValue, max, fields } = useArrayFieldContext()
+
+  const isDisabled = !!(max && fields.length >= max)
+
+  return {
+    onClick: () =>
+      append(defaultValue, {
+        shouldFocus: false,
+      }),
+    isDisabled,
+  }
+}

@@ -34,14 +34,27 @@ interface SearchInputProps
    */
   resetIcon?: React.ReactElement
   /**
+   * Right element rendered when the value is empty
+   * @type React.ReactNode
+   */
+  rightElement?: React.ReactElement
+  /**
    * Callback to trigger when the reset button is clicked or escape key is pressed
    */
   onReset?: () => void
 }
 
 export const SearchInput = forwardRef<SearchInputProps, 'div'>((props, ref) => {
-  const { value, size, variant, icon, resetIcon, onReset, ...inputProps } =
-    props
+  const {
+    value,
+    size,
+    variant,
+    icon,
+    resetIcon,
+    rightElement,
+    onReset,
+    ...inputProps
+  } = props
   const styles = useMultiStyleConfig('SearchInput', props)
 
   const onKeyDown = React.useCallback(
@@ -66,7 +79,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'div'>((props, ref) => {
         {...inputProps}
       />
       <InputRightElement>
-        {value && (
+        {value ? (
           <IconButton
             onClick={onReset}
             size="xs"
@@ -74,6 +87,8 @@ export const SearchInput = forwardRef<SearchInputProps, 'div'>((props, ref) => {
             aria-label="Reset search"
             icon={resetIcon || <CloseIcon />}
           />
+        ) : (
+          rightElement
         )}
       </InputRightElement>
     </InputGroup>

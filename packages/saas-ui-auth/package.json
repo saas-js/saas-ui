@@ -1,0 +1,72 @@
+{
+  "name": "@saas-ui/auth",
+  "version": "0.0.0",
+  "description": "Authentication provider and components for Chakra UI",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "development": "./src/index.ts",
+      "default": "./dist/index.modern.js"
+    },
+    "./services/supabase": {
+      "require": "./dist/services/supabase.js",
+      "default": "./dist/services/supabase.modern.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppulseSoftware/saas-ui",
+    "directory": "packages/saas-ui-auth"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system",
+    "authentication",
+    "supabase"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@saas-ui/button": "workspace:*",
+    "@saas-ui/forms": "workspace:*",
+    "@saas-ui/system": "workspace:*"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/system": ">=1.0.0",
+    "react": ">=16.8.6"
+  }
+}

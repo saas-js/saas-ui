@@ -20,25 +20,26 @@ import { useChakra, ThemingProps } from '@chakra-ui/system'
 
 export interface UseStyleConfigOptions {
   isMultiPart?: boolean
-  defaultStyleConfig?: SystemStyleObject
+  defaultStyleConfig?: any
 }
 
 export function useStyleConfig(
   themeKey: string,
   props: ThemingProps & Dict,
-  opts: { isMultiPart: true }
+  opts: { isMultiPart: true },
 ): Record<string, SystemStyleObject>
 
 export function useStyleConfig(
   themeKey: string,
   props?: ThemingProps & Dict,
-  opts?: UseStyleConfigOptions
+  opts?: UseStyleConfigOptions,
 ): SystemStyleObject
 
 export function useStyleConfig(themeKey: any, props: any = {}, opts: any = {}) {
   const { styleConfig: styleConfigProp, ...rest } = props
 
   const { theme, colorMode } = useChakra()
+
   const themeStyleConfig = get(theme, `components.${themeKey}`)
   const styleConfig =
     styleConfigProp || themeStyleConfig || opts.defaultStyleConfig
@@ -46,7 +47,7 @@ export function useStyleConfig(themeKey: any, props: any = {}, opts: any = {}) {
   const mergedProps = mergeWith(
     { theme, colorMode },
     styleConfig?.defaultProps ?? {},
-    filterUndefined(omit(rest, ['children']))
+    filterUndefined(omit(rest, ['children'])),
   )
 
   /**
@@ -60,12 +61,12 @@ export function useStyleConfig(themeKey: any, props: any = {}, opts: any = {}) {
 
     const variants = runIfFn(
       styleConfig.variants?.[mergedProps.variant] ?? {},
-      mergedProps
+      mergedProps,
     )
 
     const sizes = runIfFn(
       styleConfig.sizes?.[mergedProps.size] ?? {},
-      mergedProps
+      mergedProps,
     )
 
     const styles = mergeWith({}, baseStyles, sizes, variants)
@@ -89,7 +90,7 @@ export function useStyleConfig(themeKey: any, props: any = {}, opts: any = {}) {
 export function useMultiStyleConfig(
   themeKey: string,
   props: ThemingProps & Dict,
-  opts: Omit<UseStyleConfigOptions, 'isMultiPart'>
+  opts: Omit<UseStyleConfigOptions, 'isMultiPart'> = {},
 ) {
   return useStyleConfig(themeKey, props, { ...opts, isMultiPart: true })
 }

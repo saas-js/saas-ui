@@ -31,14 +31,14 @@ export const PersonaStyles: Dict = {
     xs: {
       details: { ms: 2 },
       label: {
-        fontSize: 'sm',
+        fontSize: 'md',
       },
       secondaryLabel: { display: 'none' },
       tertiaryLabel: { display: 'none' },
     },
     sm: {
       details: { ms: 2 },
-      label: { fontSize: 'sm' },
+      label: { fontSize: 'md' },
       secondaryLabel: { fontSize: 'sm' },
       tertiaryLabel: { display: 'none' },
     },

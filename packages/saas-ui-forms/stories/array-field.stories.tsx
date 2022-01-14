@@ -16,6 +16,8 @@ import {
   ArrayFieldRowFields,
   useArrayFieldContext,
   useArrayFieldRowContext,
+  useArrayFieldAddButton,
+  useArrayFieldRemoveButton,
   SubmitButton,
 } from '../src'
 
@@ -87,7 +89,9 @@ export const arrayField = () => (
 )
 
 const AddButton = () => {
-  const { append, defaultValue, fields } = useArrayFieldContext()
+  const { append, defaultValue, max, fields } = useArrayFieldContext()
+
+  const isDisabled = !!(max && fields.length >= max)
 
   return (
     <Button
@@ -97,6 +101,7 @@ const AddButton = () => {
           focusName: `arrayField.${fields.length}.id`,
         })
       }
+      isDisabled={isDisabled}
     >
       Add record
     </Button>
@@ -104,10 +109,8 @@ const AddButton = () => {
 }
 
 const RemoveButton = () => {
-  const { remove } = useArrayFieldRowContext()
-
   return (
-    <Button variant="ghost" onClick={() => remove()}>
+    <Button variant="ghost" {...useArrayFieldRemoveButton()}>
       Remove
     </Button>
   )
@@ -134,6 +137,8 @@ export const customArrayField = () => (
           label="Array field composed"
           defaultValue={{}}
           keyName="key"
+          min={2}
+          max={4}
         >
           <ArrayFieldRows>
             {(fields) => (

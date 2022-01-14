@@ -18,6 +18,8 @@ import {
   ArrayFieldOptions,
   ArrayFieldRowProvider,
   useArrayFieldRowContext,
+  useArrayFieldRemoveButton,
+  useArrayFieldAddButton,
 } from './use-array-field'
 
 interface ArrayField {
@@ -109,38 +111,23 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
 }
 
 export const ArrayFieldRemoveButton: React.FC<ButtonProps> = (props) => {
-  const { isFirst, remove } = useArrayFieldRowContext()
-  const { min, fields } = useArrayFieldContext()
-
-  const isDisabled = isFirst && !!(min && fields.length <= min)
-
   return (
     <IconButton
-      onClick={() => remove()}
       icon={<MinusIcon />}
       aria-label="Remove row"
-      isDisabled={isDisabled}
+      {...useArrayFieldRemoveButton()}
       {...props}
     />
   )
 }
 
 export const ArrayFieldAddButton: React.FC<ButtonProps> = (props) => {
-  const { append, defaultValue, max, fields } = useArrayFieldContext()
-
-  const isDisabled = !!(max && fields.length >= max)
-
   return (
     <IconButton
-      onClick={() =>
-        append(defaultValue, {
-          shouldFocus: false,
-        })
-      }
       icon={<AddIcon />}
       aria-label="Add row"
       float="right"
-      isDisabled={isDisabled}
+      {...useArrayFieldAddButton()}
       {...props}
     />
   )

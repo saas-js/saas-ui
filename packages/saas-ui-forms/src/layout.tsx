@@ -27,7 +27,10 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
   return (
     <SimpleGrid {...gridProps}>
       {React.Children.map(children, (child) => {
-        return <FormLayoutItem>{child}</FormLayoutItem>
+        if (React.isValidElement(child)) {
+          return <FormLayoutItem>{child}</FormLayoutItem>
+        }
+        return child
       })}
     </SimpleGrid>
   )

@@ -204,8 +204,8 @@ export const HotkeysCommand = ({ children, ...props }: HotkeysCommandProps) => {
 
   let keys
   if (typeof children === 'string') {
-    keys = splitKeys(children).map((key) => {
-      return <Kbd>{key}</Kbd>
+    keys = splitKeys(children).map((key, i) => {
+      return <Kbd key={i}>{key}</Kbd>
     })
   }
 

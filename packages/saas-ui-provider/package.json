@@ -1,0 +1,53 @@
+{
+  "name": "@saas-ui/provider",
+  "version": "1.0.0",
+  "description": "Theme and components agnostic SaasProvider",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "development": "./src/index.ts",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "sideEffects": false,
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppulseSoftware/saas-ui-pro",
+    "directory": "libs/provider"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@saas-ui/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/system": ">=1.0.0"
+  }
+}

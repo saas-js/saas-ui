@@ -17,6 +17,7 @@ import {
   SystemStyleObject,
   SystemProps,
   useColorModeValue,
+  useTheme,
 } from '@chakra-ui/system'
 
 import { useMultiStyleConfig } from '@saas-ui/system'
@@ -28,16 +29,23 @@ export interface PresenceOptions {
 }
 
 /**
- * Defines colors for presence
  * Default presence values: online, offline, busy, dnd, away
  *
- * The change the color you can overwrite it's value.
- * Presence.online = 'cyan.500'
+ * You can overwrite colors in the theme color tokens.
+ * theme.colors.presence.online = 'cyan.500'
  *
  * Or add a custom presence value
- * Presence.vacay = 'blue.500'
+ * theme.colors.presence.vacay = 'blue.500'
  */
 export const Presence: PresenceOptions = {
+  online: 'online',
+  offline: 'offline',
+  busy: 'busy',
+  dnd: 'dnd',
+  away: 'away',
+}
+
+export const defaultPresenceTokens = {
   online: 'green.500',
   offline: 'gray.400',
   busy: 'orange.500',
@@ -47,7 +55,7 @@ export const Presence: PresenceOptions = {
 
 export interface PersonaContainerProps
   extends HTMLChakraProps<'div'>,
-    ThemingProps<'Persona'> {}
+    Omit<ThemingProps<'Persona'>, 'size'> {}
 
 export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   (props, ref) => {
@@ -134,6 +142,10 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     const badgeProps: AvatarBadgeProps = {}
     let badge
 
+    const theme = useTheme()
+
+    const colors = theme.colors?.presence || defaultPresenceTokens
+
     if (presence) {
       if (isOutOfOffice) {
         badgeProps.sx = {
@@ -144,15 +156,15 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
             position: 'absolute',
             top: 0,
             left: 0,
-            border: '0.1em solid',
-            borderColor: Presence[presence],
+            border: '0.2em solid',
+            borderColor: colors[presence],
             borderRadius: '50%',
           },
         }
-        badgeProps.borderWidth = '0.1em'
+        badgeProps.borderWidth = '0.15em'
         badgeProps.bg = useColorModeValue('white', 'gray.800')
       } else {
-        badgeProps.bg = Presence[presence]
+        badgeProps.bg = colors[presence]
       }
 
       badge = (
@@ -293,7 +305,7 @@ interface PersonaOptions {
 
 export interface PersonaProps
   extends PersonaOptions,
-    Omit<PresenceAvatarProps, 'size'> {}
+    Omit<PresenceAvatarProps, 'size' | 'variant'> {}
 
 export const Persona: React.FC<PersonaProps> = (props) => {
   const {

@@ -17,7 +17,69 @@ import CodeBlock from './codeblock/codeblock'
 import ComponentLinks from './component-links'
 import IconsList from './icons-list'
 
-const { Alert, AspectRatio, Box, chakra, Kbd } = Chakra
+const {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AspectRatio,
+  Box,
+  Flex,
+  chakra,
+  Kbd,
+  HStack,
+  UnorderedList,
+  ListItem,
+} = Chakra
+
+const BestPractises = ({ does = [], donts = [] }) => {
+  return (
+    <HStack my="1.5em" alignItems="stretch">
+      <Do>
+        <UnorderedList spacing="2">
+          {does.map((item, i) => (
+            <ListItem key={i}>{item}</ListItem>
+          ))}
+        </UnorderedList>
+      </Do>
+      <Dont>
+        <UnorderedList spacing="2">
+          {donts.map((item, i) => (
+            <ListItem key={i}>{item}</ListItem>
+          ))}
+        </UnorderedList>
+      </Dont>
+    </HStack>
+  )
+}
+
+const BestPractice = ({ children, title, ...props }) => {
+  return (
+    <Alert
+      mt="4"
+      role="none"
+      variant="top-accent"
+      as="blockquote"
+      rounded="4px"
+      my="0"
+      flexDirection="column"
+      alignItems="flex-start"
+      {...props}
+    >
+      <Flex mb="4">
+        <AlertIcon /> <AlertTitle>{title}</AlertTitle>
+      </Flex>
+      {children}
+    </Alert>
+  )
+}
+
+const Do = (props) => {
+  return <BestPractice {...props} status="success" title="Do" />
+}
+
+const Dont = (props) => {
+  return <BestPractice {...props} status="error" title="Don't" />
+}
 
 export const MDXComponents = {
   ...Chakra,
@@ -60,6 +122,25 @@ export const MDXComponents = {
       {...props}
     />
   ),
+  Info: ({ children, ...props }) => (
+    <Alert
+      mt="4"
+      role="none"
+      status="info"
+      variant="left-accent"
+      as="blockquote"
+      rounded="4px"
+      my="1.5rem"
+      {...props}
+    >
+      <AlertIcon />
+      {children}
+    </Alert>
+  ),
+  Do,
+  Dont,
+  BestPractises,
+  HStack,
   ComponentLinks,
   IconsList,
   PropsTable,

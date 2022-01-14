@@ -10,8 +10,6 @@ can be used to extend your Chakra theme.
 You can also generate a JSON object containing all colors at https://palette.saas-ui.dev/
 without needing to depend on this package.
 
--
-
 <ComponentLinks
   github={{ package: 'palette' }}
   npm={{ package: '@saas-ui/palette' }}
@@ -19,7 +17,7 @@ without needing to depend on this package.
 
 ## Basic setup
 
-```ts
+```ts live=false
 import { extendTheme } from '@chakra-ui/react'
 import { createPalette } from '@saas-ui/palette'
 
@@ -34,7 +32,7 @@ export default theme
 
 ## Configuration
 
-```jsx
+```jsx live=false
 const colors = createPalette('#6d28d9', {
   blackLuminance: 0.005, // defaults to 0
   colors: {

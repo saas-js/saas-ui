@@ -19,7 +19,7 @@ function CodeBlock(props) {
   )
   const {
     className,
-    live = false,
+    live = true,
     manual,
     render,
     children,

@@ -6,15 +6,22 @@ import '@fontsource/inter/variable.css'
 
 import theme from '../styles/theme'
 
+import { SaasProvider } from '@saas-ui/react'
+import { NProgressNextRouter } from '@saas-ui/nprogress'
+
 import Footer from '@/components/footer'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ChakraProvider theme={theme}>
-      <Layout header={pageProps.header} footer={<Footer />}>
+    <SaasProvider theme={theme}>
+      <Layout
+        header={pageProps.header}
+        footer={pageProps.footer !== false ? <Footer /> : null}
+      >
+        <NProgressNextRouter />
         <Component {...pageProps} />
       </Layout>
-    </ChakraProvider>
+    </SaasProvider>
   )
 }
 

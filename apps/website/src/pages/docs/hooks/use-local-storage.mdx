@@ -1,0 +1,46 @@
+---
+title: useLocalStorage
+package: '@saas-ui/system'
+description: 'React hook to manage localStorage'
+---
+
+`useLocalStorage` is a custom hook used to get and set values in localStorage.
+The value is stored as JSON.
+
+## Import
+
+```js
+import { useLocalStorage } from '@saas-ui/react'
+```
+
+## Parameters
+
+| Name         | Type                                             | Description                     |
+| ------------ | ------------------------------------------------ | ------------------------------- |
+| key          | string                                           | The local storage key.          |
+| defaultValue | Object, string, number, boolean, null, undefined | The default value for this key. |
+
+## Usage
+
+The `useLocalStorage` hook returns a tuple with the value and a setValue function,
+similar to `useState`
+
+```jsx live=false
+const [value, setValue] = useLocalStorage(key, defaultValue)
+```
+
+### Example usage
+
+```jsx
+function Example() {
+  const [value, setValue] = useLocalStorage('app.example', { count: 0 })
+
+  return (
+    <>
+      <Button onClick={() => setValue({ count: value.count + 1 })}>
+        Count: {value.count}
+      </Button>
+    </>
+  )
+}
+```

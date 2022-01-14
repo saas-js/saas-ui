@@ -1,0 +1,138 @@
+---
+title: Card
+description: Cards can be used to provide easy scannable information and details.
+---
+
+<ComponentLinks
+  github={{ package: 'card' }}
+  npm={{ package: '@saas-ui/card' }}
+/>
+
+## Import
+
+```ts
+import {
+  Card,
+  CardContainer,
+  CardHeader,
+  CardTitle,
+  CardSubtitle,
+  CardMedia,
+  CardBody,
+  CardFooter,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+```jsx
+<Card title="Getting started">
+  <CardBody>
+    <Text fontSize="md">
+      Welcome to Saas UI, in the next steps we will walk you through all the
+      basic features of Saas UI.
+    </Text>
+  </CardBody>
+  <CardFooter>
+    <Button variant="solid" colorScheme="gray">
+      Continue
+    </Button>
+    <Button>Dismiss</Button>
+  </CardFooter>
+</Card>
+```
+
+### Card header
+
+```jsx
+<Card>
+  <CardHeader
+    title={<CardTitle fontSize="xl">Getting started</CardTitle>}
+    action={<IconButton icon={<CloseIcon />} aria-label="close" />}
+  />
+  <CardBody>
+    <Text fontSize="md">
+      Welcome to Saas UI, in the next steps we will walk you through all the
+      basic features of Saas UI.
+    </Text>
+  </CardBody>
+  <CardFooter>
+    <Button variant="solid" colorScheme="gray">
+      Continue
+    </Button>
+    <Button>Dismiss</Button>
+  </CardFooter>
+</Card>
+```
+
+### Card media
+
+```jsx
+<Card maxW="400px">
+  <CardHeader
+    title="Eelco Wiersma"
+    subtitle="Algarve, Portugal"
+    avatar={<Avatar name="Eelco Wiersma" />}
+    action={<IconButton icon={<HamburgerIcon />} aria-label="More" />}
+  />
+  <CardMedia height="256px" bgImage="/img/portugal.jpg" />
+  <CardBody>
+    <Text textStyle="secondary">
+      Currently building amazing things in the sunny Algarve.
+    </Text>
+  </CardBody>
+  <CardFooter>
+    <Button variant="subtle" colorScheme="primary">
+      Contact
+    </Button>
+    <Spacer />
+    <IconButton icon={<FaTwitter />} aria-label="Twitter" />
+  </CardFooter>
+</Card>
+```
+
+### Clickable card
+
+```jsx
+<Card
+  title={<LinkOverlay href="#">Chakra UI</LinkOverlay>}
+  as={LinkBox}
+  width="200px"
+  align="center"
+  bg="gray.700"
+  _hover={{ bg: 'gray.600' }}
+>
+  <CardMedia p="10">
+    <Img src="/chakra-ui-logomark-colored.svg" />
+  </CardMedia>
+</Card>
+```
+
+### Variants
+
+```jsx
+<Stack direction="row">
+  <Card title="Github" variant="outline" avatar={<FaGithub />} minW="300px">
+    <CardBody py={2}>Link pull requests</CardBody>
+    <CardFooter spacing={4}>
+      <Button variant="outline" colorScheme="green">
+        Enabled
+      </Button>
+      <Button as={Link} variant="link" isExternal>
+        Learn more
+      </Button>
+    </CardFooter>
+  </Card>
+  <Card title="Slack" variant="outline" avatar={<FaSlack />} minW="300px">
+    <CardBody py={2}>Send push notifications</CardBody>
+    <CardFooter spacing={4}>
+      <Button colorScheme="gray" variant="solid">
+        Enable
+      </Button>
+      <Button as={Link} variant="link" isExternal>
+        Learn more
+      </Button>
+    </CardFooter>
+  </Card>
+</Stack>
+```

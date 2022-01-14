@@ -1,10 +1,11 @@
 import { RouteItem } from '@/docs/utils/get-route-context'
 
-export default {
+const sidebar = {
   routes: [
     {
       title: 'Getting Started',
       heading: true,
+      open: true,
       routes: [
         {
           title: 'Introduction',
@@ -19,14 +20,55 @@ export default {
           path: '/docs/principles',
         },
         {
-          title: 'Changelog',
-          path: '/changelog',
+          title: 'Theming',
+          path: '/docs/theming',
+          open: true,
+          routes: [
+            {
+              title: 'Default Theme',
+              path: '/docs/theming/theme',
+            },
+            {
+              title: 'Saas UI Theme',
+              path: '/docs/theming/saas-ui-theme',
+            },
+            {
+              title: 'Palette',
+              path: '/docs/theming/palette',
+            },
+          ],
         },
+      ],
+    },
+    {
+      title: 'Components',
+      heading: true,
+      open: true,
+      routes: [
         {
           title: 'Layout',
           path: '/docs/layout',
           open: true,
           routes: [
+            {
+              title: 'Card',
+              path: '/docs/layout/card',
+            },
+            {
+              title: 'PageShell',
+              // path: '/docs/layout/page',
+              soon: true,
+            },
+            {
+              title: 'Sidebar',
+              // path: '/docs/layout/page',
+              soon: true,
+            },
+            {
+              title: 'Navbar',
+              // path: '/docs/layout/page',
+              soon: true,
+            },
             {
               title: 'Page',
               // path: '/docs/layout/page',
@@ -38,37 +80,83 @@ export default {
               soon: true,
             },
             {
-              title: 'Card',
-              // path: '/docs/layout/card',
+              title: 'ResizeBox',
+              // path: '/docs/layout/section',
               soon: true,
             },
           ],
         },
-
         {
-          title: 'Theming',
-          path: '/docs/theming',
+          title: 'Navigation',
+          path: '/docs/navigation',
           open: true,
+          sort: true,
           routes: [
             {
-              title: 'Default Theme',
-              path: '/docs/theming/theme',
+              title: 'Hotkeys',
+              path: '/docs/navigation/hotkeys',
             },
             {
-              title: 'Palette',
-              path: '/docs/theming/palette',
+              title: 'CommandMenu',
+              // path: '/docs/navigation/hotkeys',
+              soon: true,
             },
           ],
         },
         {
           title: 'Forms',
           path: '/docs/form',
-          sort: true,
+          sort: false,
           open: true,
           routes: [
             {
               title: 'Form',
+              path: '/docs/forms/form',
+            },
+            {
+              title: 'StepForm',
+              // path: '/docs/forms/step-form',
               soon: true,
+            },
+            {
+              title: 'FormLayout',
+              path: '/docs/forms/form-layout',
+            },
+            {
+              title: 'AutoForm',
+              path: '/docs/forms/auto-form',
+            },
+            {
+              title: 'Field',
+              path: '/docs/forms/field',
+            },
+            {
+              title: 'ArrayField',
+              path: '/docs/forms/array-field',
+            },
+            {
+              title: 'ObjectField',
+              path: '/docs/forms/object-field',
+            },
+            {
+              title: 'Select',
+              path: '/docs/forms/select',
+            },
+            {
+              title: 'PasswordInput',
+              path: '/docs/forms/password-input',
+            },
+            {
+              title: 'SearchInput',
+              path: '/docs/forms/search-input',
+            },
+            {
+              title: 'ChipSelect',
+              soon: true,
+            },
+            {
+              title: 'Button',
+              path: '/docs/forms/button',
             },
           ],
         },
@@ -83,20 +171,92 @@ export default {
               soon: true,
             },
             {
-              title: 'Property',
+              title: 'Chip',
               soon: true,
+            },
+            {
+              title: 'Divider',
+              soon: true,
+            },
+            {
+              title: 'HoverCard',
+              soon: true,
+            },
+            {
+              title: 'DataList',
+              // path: '/docs/data-display/data-list',
+              soon: true,
+            },
+            {
+              title: 'Property',
+              path: '/docs/data-display/property',
+            },
+            {
+              title: 'Persona',
+              path: '/docs/data-display/persona',
             },
           ],
         },
         {
-          title: 'Feedback & Engagement',
+          title: 'Feedback',
           path: '/docs/feedback',
           open: true,
           sort: true,
           routes: [
             {
+              title: 'NProgress',
+              path: '/docs/feedback/nprogress',
+            },
+            {
               title: 'Snackbar',
+              path: '/docs/feedback/snackbar',
+            },
+            {
+              title: 'Loading',
+              // path: '/docs/feedback/loading',
+              soon: true,
+            },
+            {
+              title: 'AppLoader',
+              // path: '/docs/feedback/app-loader',
+              soon: true,
+            },
+          ],
+        },
+        {
+          title: 'Engagement',
+          path: '/docs/engagement',
+          open: true,
+          sort: true,
+          routes: [
+            {
+              title: 'Onboarding',
+              // path: '/docs/feedback/nprogress',
+              soon: true,
+            },
+            {
+              title: 'Tour',
               // path: '/docs/feedback/snackbar',
+              soon: true,
+            },
+            {
+              title: 'InlineTip',
+              // path: '/docs/feedback/loading',
+              soon: true,
+            },
+            {
+              title: 'Feedback',
+              // path: '/docs/feedback/app-loader',
+              soon: true,
+            },
+            {
+              title: 'Changelog',
+              // path: '/docs/feedback/app-loader',
+              soon: true,
+            },
+            {
+              title: 'NotifyCenter',
+              // path: '/docs/feedback/app-loader',
               soon: true,
             },
           ],
@@ -107,14 +267,16 @@ export default {
           open: true,
           routes: [
             {
-              title: 'Text',
-              // path: '/docs/typography/text',
-              soon: true,
+              title: 'Heading',
+              path: '/docs/typography/heading',
             },
             {
-              title: 'Heading',
-              // path: '/docs/typography/heading',
-              soon: true,
+              title: 'Text',
+              path: '/docs/typography/text',
+            },
+            {
+              title: 'Br',
+              path: '/docs/typography/br',
             },
           ],
         },
@@ -129,56 +291,9 @@ export default {
               // path: '/docs/overlay/confirm-dialog',
               soon: true,
             },
-          ],
-        },
-        {
-          title: 'Navigation',
-          path: '/docs/navigation',
-          open: true,
-          sort: true,
-          routes: [
             {
-              title: 'Breadcrumb',
-              // path: '/docs/navigation/breadcrumb',
-              soon: true,
-            },
-            {
-              title: 'Link',
-              // path: '/docs/navigation/link',
-              soon: true,
-            },
-            {
-              title: 'Hotkeys',
-              soon: true,
-            },
-          ],
-        },
-        {
-          title: 'Media and icons',
-          path: '/docs/media-and-icons',
-          sort: true,
-          open: true,
-          routes: [
-            {
-              title: 'Avatar',
-              soon: true,
-            },
-            {
-              title: 'Persona',
-              // path: '/docs/media-and-icons/person',
-              soon: true,
-            },
-          ],
-        },
-        {
-          title: 'Others',
-          path: '/docs/components',
-          open: true,
-          sort: true,
-          routes: [
-            {
-              title: 'Transitions',
-              // path: '/docs/components/transitions',
+              title: 'ModalForm',
+              // path: '/docs/overlay/confirm-dialog',
               soon: true,
             },
           ],
@@ -190,9 +305,12 @@ export default {
           sort: true,
           routes: [
             {
-              title: 'useLink',
-              // path: '/docs/hooks/use-boolean',
-              soon: true,
+              title: 'useCollapse',
+              path: '/docs/hooks/use-collapse',
+            },
+            {
+              title: 'useLocalStorage',
+              path: '/docs/hooks/use-local-storage',
             },
           ],
         },
@@ -200,3 +318,5 @@ export default {
     },
   ] as RouteItem[],
 }
+
+export default sidebar

@@ -8,7 +8,12 @@ import {
 
 export const Em: React.FC<HTMLChakraProps<'em'>> = ({ children, ...props }) => {
   return (
-    <Text color={useColorModeValue('black', 'white')} as="em" {...props}>
+    <Text
+      color={useColorModeValue('black', 'white')}
+      as="em"
+      fontStyle="normal"
+      {...props}
+    >
       {children}
     </Text>
   )

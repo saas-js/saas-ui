@@ -29,6 +29,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     doc._id.endsWith(`${params.join('/')}.mdx`)
   )
   return {
-    props: { doc, header: { position: 'sticky', borderBottomWidth: '1px' } },
+    props: {
+      doc,
+      header: { position: 'sticky', borderBottomWidth: '1px' },
+      footer: false,
+    },
   }
 }

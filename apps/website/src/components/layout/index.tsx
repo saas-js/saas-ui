@@ -15,7 +15,7 @@ const Layout = ({ children, header, footer }: LayoutProps) => {
     <Box>
       <Header {...header} />
       <Box as="main">{children}</Box>
-      {footer || <Footer />}
+      {footer}
     </Box>
   )
 }

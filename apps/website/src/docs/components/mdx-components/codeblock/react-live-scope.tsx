@@ -2,8 +2,10 @@ import React from 'react'
 import * as Chakra from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
-// import * as Formik from 'formik'
-// import * as ReactTable from 'react-table'
+import * as SaasUI from '@saas-ui/react'
+import * as Yup from 'yup'
+// import * as FormHooks from 'react-hook-form'
+
 import FocusLock from 'react-focus-lock'
 import {
   MdSettings,
@@ -17,10 +19,7 @@ import {
   MdArrowDropDown,
 } from 'react-icons/md'
 import { AiOutlineUser } from 'react-icons/ai'
-import { FaFacebook, FaTwitter } from 'react-icons/fa'
-// import Lorem from 'react-lorem-component'
-// import * as Loaders from 'react-spinners'
-// import CircleIcon from '../../docs/icon'
+import { FaFacebook, FaTwitter, FaGithub, FaSlack } from 'react-icons/fa'
 
 const reactIcons = {
   MdSettings,
@@ -35,6 +34,8 @@ const reactIcons = {
   AiOutlineUser,
   FaFacebook,
   FaTwitter,
+  FaGithub,
+  FaSlack,
 }
 
 const StarIcon = (props) => (
@@ -43,17 +44,25 @@ const StarIcon = (props) => (
   </chakra.svg>
 )
 
+const saveHandler = (params) => {
+  console.log(params)
+  return new Promise((resolve) => {
+    setTimeout(resolve, 1000)
+  })
+}
+
 const ReactLiveScope = {
   React,
   ...React,
   ...Chakra,
-  // ...Formik,
-  // ...ReactTable,
+  ...SaasUI,
   ...Icons,
+  Yup,
   // ...Loaders,
   ...reactIcons,
   StarIcon,
   FocusLock,
+  saveHandler,
   // Lorem,
   // CircleIcon,
 }

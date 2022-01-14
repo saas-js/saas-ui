@@ -1,0 +1,107 @@
+---
+title: FormLayout
+description: Arrange fields in a form with consistant spacing and positioning.
+---
+
+The `FormLayout` stacks fields vertically by default, but also supports horizontal forms.
+
+<ComponentLinks
+  github={{ package: 'forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+```ts
+import { FormLayout } from '@saas-ui/react'
+```
+
+## Best practises
+
+<BestPractises
+  does={['Use horizontal layouts for values that are commonly used together.']}
+  donts={['Use more then 4 fields in row.']}
+/>
+
+## Usage
+
+### Default
+
+The default layout stacks fields vertically.
+
+```jsx
+<Form>
+  <FormLayout>
+    <Field name="name" label="Name" />
+    <Field name="description" label="Description" />
+  </FormLayout>
+</Form>
+```
+
+### Custom spacing
+
+The spacing defaults to `4`, you can either change this per component instance or in the `FormLayout` theme config.
+
+<Info>
+  Keep spacing consistant across your application by overriding the default
+  value in your custom theme config.
+</Info>
+
+```jsx
+<Form>
+  <FormLayout spacing={8}>
+    <Field name="name" label="Name" />
+    <Field name="description" label="Description" />
+  </FormLayout>
+</Form>
+```
+
+### Horizontal
+
+The `FormLayout` acts as a `SimpleGrid`, which makes it easy to configure the amount of field columns you require.
+Fields are distributed evenly by default, use `templateColumns` to customize the field widths.
+
+Alternatively you can also set `minChildWidth`, any fields that don't fit will wrap to the next line.
+
+<Info>
+  It is recommended not to over use horizontal forms, as they are hard to scan
+  by people. Only use them for related fields like names or address information.
+</Info>
+
+```jsx
+<Form>
+  <FormLayout>
+    <FormLayout>
+      <Field
+        name="gender"
+        options={[{ value: 'Male' }, { value: 'Female' }, { value: 'Other' }]}
+        type="select"
+        label="Gender"
+        width="100px"
+      />
+    </FormLayout>
+    <FormLayout columns={2}>
+      <Field name="firstName" label="Name" />
+      <Field name="lastName" label="Last name" />
+    </FormLayout>
+    <FormLayout templateColumns="auto 25%">
+      <Field name="address" label="Address" />
+      <Field name="housenumber" label="Number" />
+    </FormLayout>
+  </FormLayout>
+</Form>
+```
+
+### Responsive
+
+The `columns` and `templateColumns` properties accept responsive values,
+this allows you to keep the forms readable on any screen size.
+
+```jsx
+<Form>
+  <FormLayout columns={[1, null, 2]}>
+    <Field name="firstName" label="Name" />
+    <Field name="lastName" label="Last name" />
+  </FormLayout>
+</Form>
+```

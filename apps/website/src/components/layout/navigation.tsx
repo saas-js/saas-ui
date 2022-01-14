@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { HStack } from '@chakra-ui/layout'
+import { HStack, IconButton, Link } from '@chakra-ui/react'
+import { FaGithub } from 'react-icons/fa'
+
 import { useRouter } from 'next/router'
 
 import headerNav from '@/data/header-nav'
@@ -11,6 +13,8 @@ import { useScrollSpy } from '@/hooks/use-scrollspy'
 import { MobileNavButton } from '@/docs/components/mobile-nav'
 import { MobileNavContent } from '@/docs/components/mobile-nav'
 import { useDisclosure, useUpdateEffect } from '@chakra-ui/react'
+
+import ThemeToggle from './theme-toggle'
 
 const Header = () => {
   const mobileNav = useDisclosure()
@@ -43,6 +47,17 @@ const Header = () => {
           </NavLink>
         )
       })}
+
+      <IconButton
+        variant="ghost"
+        aria-label="github"
+        icon={<FaGithub size="14" />}
+        borderRadius="md"
+        as={Link}
+        href="https://github.com/AppulseSoftware/saas-ui"
+      />
+
+      <ThemeToggle />
 
       <MobileNavButton
         ref={mobileNavBtnRef}

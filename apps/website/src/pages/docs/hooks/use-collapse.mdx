@@ -1,0 +1,84 @@
+---
+title: useCollapse
+package: '@saas-ui/collapse'
+description: 'React hook that helps creating accesssible Collapse components.'
+---
+
+`useCollapse` works similar to `useDisclosure`, but adds a few extra options
+specifically for the `Collapse` component.
+
+`getCollapseProps` returns an `in` prop instead of `hidden` and setting `isCollapsible` to false
+will omit the aria tags and click handler for the toggle element.
+
+## Import
+
+```js
+import { useCollapse } from '@saas-ui/react'
+```
+
+## Parameters
+
+| Name            | Type         | Description                                         |
+| --------------- | ------------ | --------------------------------------------------- |
+| `defaultIsOpen` | `boolean`    | Set the collapse to open by default.                |
+| `onOpen`        | `() => void` | Callback function, called when the collapse opens.  |
+| `onClose`       | `() => void` | Callback function, called when the collapse closes. |
+| `isCollapsible` | `boolean`    | Set this to false to disable the collapse.          |
+
+## Return value
+
+The `useCollapse` hook returns the `isOpen` state and two prop getter functions.
+
+| Name               | Type                | Description                                               |
+| ------------------ | ------------------- | --------------------------------------------------------- |
+| `isOpen`           | `boolean`           | Boolean that indicates if the collapse is open or closed. |
+| `getToggleProps`   | `(props) => Object` | Returns properties for the toggle element.                |
+| `getCollapseProps` | `(props) => Object` | Returns properties for the collapse element.              |
+| `onOpen`           | `() => void`        | Open the collapse.                                        |
+| `onClose`          | `() => void`        | Close the collapse.                                       |
+| `onToggle`         | `() => void`        | Toggle the collapse.                                      |
+
+## Accessibility
+
+Adds `aria-expanded` and `aria-controls` tags to the toggle component and a unique id `collapse-[n]` to the collapse.
+
+## Usage
+
+### Basic usage
+
+```jsx
+function NavGroup({
+  defaultIsOpen = true,
+  title = 'Nav group',
+  children = (
+    <>
+      <Link>Home</Link>
+    </>
+  ),
+}) {
+  const { isOpen, getToggleProps, getCollapseProps } = useCollapse({
+    defaultIsOpen,
+  })
+
+  const headingStyles = {
+    cursor: 'pointer',
+    borderRadius: 'md',
+    userSelect: 'none',
+    p: 2,
+    _hover: {
+      bg: 'gray.600',
+    },
+  }
+
+  return (
+    <Box p="8">
+      <Heading sx={headingStyles} size="md" {...getToggleProps()}>
+        {title}
+      </Heading>
+      <Collapse {...getCollapseProps()}>
+        <Box p={2}>{children}</Box>
+      </Collapse>
+    </Box>
+  )
+}
+```

@@ -5,7 +5,7 @@ description: How to get up and running quickly with Saas UI.
 
 Saas UI is build on top of Chakra UI, before you continue it's recommended to have a basic understanding of how Chakra UI works. You can find the documentation on the [Chakra UI website](https://www.chakra-ui.com/docs).
 
-## Using the starter repository
+## Installation
 
 ### Install in an existing project
 
@@ -22,23 +22,69 @@ yarn add @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 
 
 ### Set up Provider
 
-For Chakra UI to work correctly, you need to set up the `ChakraProvider` at the
+For Saas UI to work correctly, you need to set up the `SaasProvider` at the
 root of your application.
+
+The `SaasProvider` will handle the basic Chakra UI setup for you. It configures the color mode manager,
+add the Saas UI base theme, css reset and global styles.
+
+#### Direct integration
 
 Go to the root of your application and do this:
 
 ```jsx live=false
 import * as React from 'react'
 
-// 1. import `ChakraProvider` component
-import { ChakraProvider } from '@chakra-ui/react'
+// 1. import `SaasProvider` component
+import { SaasProvider } from '@saas-ui/react'
 
 function App({ Component }) {
   // 2. Use at the root of your app
   return (
-    <ChakraProvider>
+    <SaasProvider>
       <Component />
-    </ChakraProvider>
+    </SaasProvider>
   )
 }
+```
+
+#### NextJS
+
+Open `pages/_app.tsx` and add the following:
+
+```jsx live=false
+import * as React from 'react'
+import { AppProps } from 'next/app'
+import Link, { LinkProps } from 'next/link'
+
+// 1. import `SaasProvider` component
+import { SaasProvider } from '@saas-ui/react'
+
+// 2. Create a link wrapper, this way Saas UI components will use the Next router.
+const NextLink: React.FC<LinkProps> = (props) => <Link passHref {...props} />
+
+function MyApp({ Component, pageProps }: AppProps) {
+  // 3. Use at the root of your app
+  return (
+    <SaasProvider cookies={pageProps.cookies} linkComponent={NextLink}>
+      <Component {...pageProps} />
+    </SaasProvider>
+  )
+}
+
+export default MyApp
+```
+
+### Under the hood
+
+Besides setting up the Saas UI specific context, this is how the basic Chakra setup looks like internally.
+
+```jsx live=false
+<ChakraProvider colorModeManager={colorModeManager}>
+  <ThemeProvider theme={theme || defaultTheme}>
+    <CSSReset />
+    <GlobalStyle />
+    {children}
+  </ThemeProvider>
+</ChakraProvider>
 ```

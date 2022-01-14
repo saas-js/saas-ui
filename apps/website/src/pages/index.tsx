@@ -13,7 +13,10 @@ import {
   Avatar,
   VisuallyHidden,
   useTheme,
+  Img,
 } from '@chakra-ui/react'
+
+import Footer from '@/components/footer'
 
 import Hero from '@/components/marketing/hero'
 import Features from '@/components/marketing/features'
@@ -55,7 +58,7 @@ const BackgroundBox = ({ animate, ...props }: any) => {
 
   let gradientOverlay = `linear-gradient(0deg, var(--chakra-colors-${useColorModeValue(
     'white',
-    'gray-800'
+    'gray-900'
   )}) 60%, rgba(0, 0, 0, 0) 100%);`
 
   return (
@@ -96,54 +99,66 @@ const Home = () => {
       />
       <BackgroundBox />
       <Box mb={8} w="full">
-        <Container maxW="4xl">
-          <Hero
-            id="home"
-            justifyContent="flex-start"
-            title={
+        <Box>
+          <Container maxW="4xl" py="40">
+            <Hero
+              id="home"
+              justifyContent="flex-start"
+              title={
+                <FallInPlace>
+                  The <Br display={{ sm: 'inline', lg: 'none' }} /> frontend
+                  stack for SaaS companies
+                </FallInPlace>
+              }
+              description={
+                <FallInPlace>
+                  Saas UI is an <Em>advanced component library</Em> that helps
+                  you build essential functionality{' '}
+                  <Em>in hours instead of weeks</Em>.
+                </FallInPlace>
+              }
+            >
               <FallInPlace>
-                The <Br display={{ sm: 'inline', lg: 'none' }} /> frontend stack
-                for SaaS companies
-              </FallInPlace>
-            }
-            description={
-              <FallInPlace>
-                Saas UI is an <Em>advanced component library</Em> that helps you
-                build essential functionality <Em>in hours instead of weeks</Em>
-                .
-              </FallInPlace>
-            }
-          >
-            <FallInPlace>
-              <Text pt="4" pb="8" color="gray.500">
-                Build with Next.js, React and Chakra UI
-              </Text>
+                <Text pt="4" pb="8" color="gray.500">
+                  Build with Next.js, React and Chakra UI
+                </Text>
 
-              <Stack direction={['column', 'row']} spacing={4}>
-                <Button
-                  colorScheme="primary"
-                  onClick={() => {
-                    document
-                      .getElementById('request-access')
-                      .scrollIntoView({ behavior: 'smooth' })
-                  }}
-                >
-                  Request early access
-                </Button>
-                <Button
-                  variant="ghost"
-                  onClick={() => {
-                    document
-                      .getElementById('features')
-                      .scrollIntoView({ behavior: 'smooth' })
-                  }}
-                >
-                  What&apos;s included?
-                </Button>
-              </Stack>
-            </FallInPlace>
-          </Hero>
-        </Container>
+                <Stack direction={['column', 'row']} spacing={4}>
+                  <Button
+                    colorScheme="primary"
+                    onClick={() => {
+                      document
+                        .getElementById('request-access')
+                        .scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  >
+                    Request early access
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      document
+                        .getElementById('features')
+                        .scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  >
+                    What&apos;s included?
+                  </Button>
+                </Stack>
+              </FallInPlace>
+            </Hero>
+          </Container>
+          <Box
+            height="480px"
+            position="relative"
+            overflow="hidden"
+            width="80vw"
+            maxW="1400px"
+            margin="0 auto"
+          >
+            <Img src="/app.png" position="absolute" width="100%" top="0" />
+          </Box>
+        </Box>
         <Features
           id="features"
           title="The SaaS SDK"
@@ -215,7 +230,7 @@ const Home = () => {
         />
         <Section innerWidth={['100%', null, 'xl']}>
           <ScaleInView>
-            <SectionTitle title="Building SaaS products that work great and look amazing is hard" />
+            <SectionTitle title="Building SaaS products that work great and look amazing is tough" />
           </ScaleInView>
           <ScaleInView>
             <VStack
@@ -231,7 +246,7 @@ const Home = () => {
               </Text>
               <Text>
                 SaaS UI tries to fill this gap by giving developers an extensive
-                set of beautifully designed components build on{' '}
+                set of beautifully crafted components build on{' '}
                 <Em>best in class tools</Em>. While on the same time serve as a{' '}
                 <Em>great foundation</Em> for designers to create their brand.
               </Text>

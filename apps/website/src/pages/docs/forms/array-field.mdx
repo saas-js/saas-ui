@@ -1,0 +1,227 @@
+---
+title: ArrayField
+description: Form field component to handle array type values.
+---
+
+The `ArrayField` helps you to create complex forms with ease.
+It uses React Hook Forms `useFieldArray` internally.
+
+<ComponentLinks
+  github={{ package: 'forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `ArrayField`: The wrapper component that composes the default ArrayField functionality.
+- `ArrayFieldContainer`: The container component provides context and state management.
+- `ArrayFieldRows`: Render prop component, to get access to the internal fields state. Must be a child of `ArrayFieldContainer`.
+- `ArrayFieldRowContainer`: The row container component providers row context.
+- `ArrayFieldRowFields`: Add the name prefix to the fields and acts as a horizontal form layout by default.
+- `ArrayFieldAddButton`: The default add button.
+- `ArrayFieldRemoveButton`: The default remove button.
+- `useArrayFieldContext`: A hook that returns the `ArrayField` internal state.
+- `useArrayFieldRowContext`: A hook that returns the `ArrayFieldRowContainer` state.
+- `useArrayFieldAddButton`: A hook that can be used to create a custom add button.
+- `useArrayFieldRemoveButton`: A hook that can be used to create a custom remove button.
+
+```ts
+import {
+  ArrayField,
+  ArrayFieldContainer,
+  ArrayFieldRows,
+  ArrayFieldRowContainer,
+  ArrayFieldRowFields,
+  ArrayFieldAddButton,
+  ArrayFieldRemoveButton,
+  useArrayFieldContext,
+  useArrayFieldRowContext,
+  useArrayFieldAddButton,
+  useArrayFieldRemoveButton,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Usage with `AutoForm`
+
+Simple array of string values.
+
+```jsx
+function CreateTodoItem() {
+  const schema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+    todos: Yup.array().min(1).of(Yup.string().min(2)),
+  })
+
+  return (
+    <AutoForm
+      defaultValues={{
+        title: '',
+        todos: [],
+      }}
+      schema={schema}
+      onSubmit={() => null}
+    />
+  )
+}
+```
+
+### Usage with `Form`
+
+Basic object array. The `ArrayField` component will automatically prefix all sub fields.
+Eg: `issues.0.title`, `issues.1.title` etc.
+
+Please note that this only works if the fields are a direct child.
+Read further to see how to create more complex array fields.
+
+```jsx
+function CreateIssue() {
+  const issueSchema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+  })
+
+  const schema = issueSchema.concat(
+    Yup.object().shape({
+      issues: Yup.array().min(1).max(4).of(issueSchema),
+    })
+  )
+
+  return (
+    <Form
+      defaultValues={{
+        title: '',
+        issues: [{ title: '' }],
+      }}
+      schema={schema}
+      onSubmit={() => null}
+    >
+      <FormLayout>
+        <Field name="title" label="Title" />
+
+        <ArrayField name="issues" label="Sub-issues">
+          <Field name="title" placeholder="Sub-issue title" />
+        </ArrayField>
+
+        <SubmitButton>Create todo</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Complex array field
+
+The array field can be fully composed to fit your specific use case.
+
+```jsx
+function CustomArrayField() {
+  const usersSchema = Yup.object().shape({
+    id: Yup.string().required().label('Id'),
+    name: Yup.string().required().label('Name'),
+    lastName: Yup.string().required().label('Last name'),
+  })
+
+  const schema = Yup.object().shape({
+    users: Yup.array().min(1).max(4).of(usersSchema),
+  })
+
+  return (
+    <Form
+      defaultValues={{
+        users: [
+          {
+            id: '123',
+            name: 'Eelco',
+            lastName: 'Wiersma',
+          },
+        ],
+      }}
+      schema={schema}
+      onSubmit={() => Promise.resolve()}
+    >
+      <FormLayout>
+        <ArrayFieldContainer
+          name="users"
+          label="Users"
+          defaultValue={{}}
+          keyName="key"
+          min={2}
+          max={4}
+        >
+          <ArrayFieldRows>
+            {(fields) => (
+              <>
+                {fields.map((field, i) => {
+                  return (
+                    <ArrayFieldRowContainer key={field.key} index={i}>
+                      <ArrayFieldRowFields columns={3} spacing={1}>
+                        <Field name="id" placeholder="Id" />
+                        <Field name="name" placeholder="Name" />
+                        <Box>
+                          <Field
+                            name={`users.${i}.lastName`}
+                            placeholder="Last name"
+                          />
+                        </Box>
+                      </ArrayFieldRowFields>
+                      <ArrayFieldRemoveButton />
+                    </ArrayFieldRowContainer>
+                  )
+                })}
+              </>
+            )}
+          </ArrayFieldRows>
+          <ArrayFieldAddButton />
+        </ArrayFieldContainer>
+
+        <SubmitButton label="Submit" />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Custom buttons
+
+Use the `useArrayFieldContext` and `useArrayFieldRowContext` hooks to interact with the ArrayFieldContainer and create advanced custom components.
+
+The `useArrayFieldAddButton` and `useArrayFieldRemoveButton` hooks can be used to create custom buttons.
+
+```jsx live=false
+const SimpleAddButton = () => {
+  return <Button {...useArrayFieldAddButton()}>Add record</Button>
+}
+
+const CustomAddButton = () => {
+  const { append, defaultValue, max, fields } = useArrayFieldContext()
+
+  const isDisabled = !!(max && fields.length >= max)
+
+  return (
+    <Button
+      onClick={() =>
+        append(defaultValue, {
+          shouldFocus: true,
+          focusName: `arrayField.${fields.length}.id`,
+        })
+      }
+      isDisabled={isDisabled}
+    >
+      Add record
+    </Button>
+  )
+}
+
+const RemoveButton = () => {
+  return (
+    <Button variant="ghost" {...useArrayFieldRemoveButton()}>
+      Remove
+    </Button>
+  )
+}
+```
+
+## Props
+
+### ArrayField Props

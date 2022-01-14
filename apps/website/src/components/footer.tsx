@@ -14,7 +14,6 @@ const CustomFooter = () => {
       <HStack justify="flex-end" spacing="4">
         <FooterLink href="mailto:hello@saas-ui.dev">Contact</FooterLink>
         <FooterLink href="/privacy">Privacy</FooterLink>
-        <ThemeToggle />
       </HStack>
     </Footer>
   )

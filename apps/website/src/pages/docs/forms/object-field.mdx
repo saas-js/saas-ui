@@ -1,0 +1,104 @@
+---
+title: ObjectField
+description: Form field component to handle object type values.
+---
+
+The `ObjectField` is mainly used by `AutoForm` to support complex data structures,
+but can be used to structure your custom forms as well.
+
+<ComponentLinks
+  github={{ package: 'forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `ObjectField`: The object field component.
+
+```ts
+import { ObjectField } from '@saas-ui/react'
+```
+
+## Usage
+
+### Usage with `AutoForm`
+
+Basic schema with AutoForm
+
+```jsx
+function CreatePost() {
+  const schema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+    author: Yup.object()
+      .shape({
+        name: Yup.string().required().label('Name'),
+      })
+      .label('Author')
+      .meta({ hideLabel: true }),
+  })
+
+  return (
+    <AutoForm
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+        },
+      }}
+      schema={schema}
+      onSubmit={() => null}
+    />
+  )
+}
+```
+
+### Usage with `Form`
+
+The `ObjectField` component will automatically prefix all sub fields and supports nesting.
+Eg: `author.name` or `author.location.address`.
+
+<Info>
+  Please note that auto prefixing only works if the fields are a direct child of
+  ObjectField.
+</Info>
+
+```jsx
+function CreatePost() {
+  const schema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+    author: Yup.object().shape({
+      name: Yup.string().required().label('Author name'),
+      email: Yup.string().required().email().label('Email address'),
+    }),
+  })
+
+  return (
+    <Form
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+          email: '',
+        },
+      }}
+      schema={schema}
+      onSubmit={() => null}
+    >
+      <FormLayout>
+        <Field name="title" label="Title" />
+
+        <ObjectField name="author" label="Author">
+          <Field name="name" placeholder="Name" />
+          <Field name="email" placeholder="Email" />
+        </ObjectField>
+
+        <SubmitButton>Create post</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+## Props
+
+### ObjectField Props

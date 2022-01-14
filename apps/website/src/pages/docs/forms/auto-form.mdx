@@ -1,0 +1,70 @@
+---
+title: AutoForm
+description: Automatically render forms based on a schema.
+---
+
+The Form component is an abstraction around React Hook Form and
+follows the [WAI specifications ](https://www.w3.org/WAI/tutorials/forms/) for forms.
+
+AutoForm can be used to quickly generate forms for prototyping or forms that don't require any customization.
+
+<ComponentLinks
+  github={{ package: 'forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `AutoForm`: The wrapper component that manages context and state.
+
+```ts
+import { AutoForm, Fields } from '@saas-ui/react'
+```
+
+## Usage
+
+Generate forms based on a schema.
+
+```jsx
+function Post() {
+  const schema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+    description: Yup.string().label('Description').meta({ type: 'textarea' }),
+  })
+
+  return (
+    <AutoForm
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      schema={schema}
+      onSubmit={() => null}
+      submitLabel="Save post"
+    />
+  )
+}
+```
+
+### No submit button
+
+```jsx
+function Post() {
+  const schema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+    description: Yup.string().label('Description').meta({ type: 'textarea' }),
+  })
+
+  return (
+    <AutoForm
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      schema={schema}
+      onSubmit={(params) => alert(params)}
+      submitLabel={false}
+    />
+  )
+}
+```

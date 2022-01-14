@@ -26,6 +26,8 @@ function TableOfContent(props: TableOfContentProps) {
   )
   const linkColor = useColorModeValue('gray.600', 'whiteAlpha.600')
   const linkHoverColor = useColorModeValue('gray.900', 'white')
+  const borderColor = useColorModeValue('gray.300', 'gray.600')
+  const borderActiveColor = useColorModeValue('black', 'white')
   return (
     <Box
       as="nav"
@@ -48,7 +50,6 @@ function TableOfContent(props: TableOfContentProps) {
       <Text
         as="h2"
         id="toc-title"
-        textTransform="uppercase"
         fontWeight="bold"
         fontSize="xs"
         color={useColorModeValue('gray.700', 'gray.400')}
@@ -56,12 +57,19 @@ function TableOfContent(props: TableOfContentProps) {
       >
         {t('component.table-of-content.on-this-page') || 'On this page'}
       </Text>
-      <OrderedList spacing={1} ml="0" mt="4" styleType="none">
+      <OrderedList spacing={0} ml="0" mt="4" styleType="none">
         {headings.map(({ id, text, level }) => (
-          <ListItem key={id} title={text} ml={level === 'h3' ? '4' : undefined}>
+          <ListItem
+            key={id}
+            title={text}
+            borderLeftWidth={id === activeId ? 2 : 1}
+            borderColor={id === activeId ? borderActiveColor : borderColor}
+            pl={4}
+          >
             <chakra.a
               py="1"
               display="block"
+              ml={level === 'h3' ? '2' : undefined}
               fontWeight={id === activeId ? 'bold' : 'medium'}
               href={`#${id}`}
               aria-current={id === activeId ? 'location' : undefined}

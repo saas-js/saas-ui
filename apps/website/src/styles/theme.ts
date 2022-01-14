@@ -1,4 +1,6 @@
-import { theme as baseTheme, extendTheme } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
+
+import { theme as baseTheme } from '@saas-ui/theme'
 
 import { createBreakpoints, mode, transparentize } from '@chakra-ui/theme-tools'
 
@@ -54,12 +56,6 @@ const textStyles = {
   },
 }
 
-const shadows = {
-  outline: `0 0 0 2px ${transparentize(colors.primary[500], 0.6)(baseTheme)}`,
-}
-
-const focusBorderColor = 'primary.500'
-
 const breakpoints = {
   sm: '30em',
   md: '48em',
@@ -68,151 +64,82 @@ const breakpoints = {
   '2xl': '96em',
 }
 
-const theme = extendTheme({
-  config: {
-    initialColorMode: 'dark',
-  },
-  breakpoints: createBreakpoints(breakpoints),
-  colors,
-  styles,
-  textStyles,
-  fonts: {
-    ...baseTheme.fonts,
-    body: 'InterVariable, sans-serif',
-    heading: 'InterVariable, sans-serif',
-  },
-  shadows,
-  sizes: {
-    ...baseTheme.sizes,
-    container: breakpoints,
-  },
-  headers: {},
-  mdx,
-  components: {
-    FormLabel: {
-      baseStyle: {
-        fontSize: 'sm',
-      },
+const theme = extendTheme(
+  {
+    config: {
+      initialColorMode: 'dark',
     },
-    Input: {
-      defaultProps: {
-        focusBorderColor,
-        size: 'md',
-      },
-      sizes: {
-        md: {
-          field: {
-            px: 3,
-            h: 9,
-          },
-          addon: {
-            px: 3,
-            h: 9,
-          },
+    breakpoints: createBreakpoints(breakpoints),
+    colors,
+    styles,
+    textStyles,
+    fonts: {
+      ...baseTheme.fonts,
+      body: 'InterVariable, sans-serif',
+      heading: 'InterVariable, sans-serif',
+    },
+    sizes: {
+      ...baseTheme.sizes,
+      container: breakpoints,
+    },
+    mdx,
+    components: {
+      Container: {
+        baseStyle: {
+          maxW: 'container.lg',
         },
       },
-    },
-    NumberInput: {
-      defaultProps: {
-        focusBorderColor,
-        size: 'md',
-      },
-      sizes: {
-        md: {
-          field: {
-            px: 3,
-            h: 9,
-          },
-          addon: {
-            px: 3,
-            h: 9,
+      NavLink: {
+        ...baseTheme.components.Button,
+        variants: {
+          ...Button.variants,
+          link: (props: any) => {
+            const { isActive } = props
+            const hoverColor = mode('gray.900', 'white')(props)
+            return {
+              fontWeight: '500',
+              color: isActive
+                ? hoverColor
+                : mode('gray.700', 'whiteAlpha.700')(props),
+              transition: 'color .2s ease-in',
+              _hover: {
+                textDecoration: 'none',
+                color: hoverColor,
+              },
+            }
           },
         },
-      },
-    },
-    Textarea: {
-      defaultProps: {
-        focusBorderColor,
-        size: 'md',
-      },
-    },
-    Select: {
-      defaultProps: {
-        focusBorderColor,
-        size: 'md',
-      },
-    },
-    PinInput: {
-      defaultProps: {
-        focusBorderColor,
-        size: 'md',
-      },
-    },
-    Button,
-    Container: {
-      baseStyle: {
-        maxW: 'container.lg',
-      },
-    },
-    Heading: {
-      baseStyle: {
-        // fontWeight: '900'
-      },
-    },
-    NavLink: {
-      ...baseTheme.components.Button,
-      variants: {
-        ...Button.variants,
-        link: (props: any) => {
-          const { isActive } = props
-          const hoverColor = mode('gray.900', 'white')(props)
-          return {
-            fontWeight: '500',
-            color: isActive
-              ? hoverColor
-              : mode('gray.700', 'whiteAlpha.700')(props),
-            transition: 'color .2s ease-in',
-            _hover: {
-              textDecoration: 'none',
-              color: hoverColor,
-            },
-          }
+        sizes: deepmerge(baseTheme.components.Button.sizes, {
+          sm: {
+            lineHeight: '2rem',
+          },
+          md: {
+            lineHeight: '2.5rem',
+          },
+          lg: {
+            lineHeight: '3rem',
+          },
+        }),
+        defaultProps: {
+          variant: 'link',
+          size: 'sm',
         },
       },
-      sizes: deepmerge(baseTheme.components.Button.sizes, {
-        sm: {
-          lineHeight: '2rem',
-        },
-        md: {
-          lineHeight: '2.5rem',
-        },
-        lg: {
-          lineHeight: '3rem',
-        },
-      }),
-      defaultProps: {
-        variant: 'link',
-        size: 'sm',
+      CTA,
+      Section,
+      SectionTitle,
+      Features,
+      Feature,
+      Modal: {
+        baseStyle: (props: any) => ({
+          container: {
+            bg: mode('white', 'gray.800'),
+          },
+        }),
       },
-    },
-    CTA,
-    Section,
-    SectionTitle,
-    Features,
-    Feature,
-    // Link: {
-    //   baseStyle: {
-    //     textDecoration: 'underline',
-    //   },
-    // },
-    Modal: {
-      baseStyle: (props: any) => ({
-        container: {
-          bg: mode('white', 'gray.800'),
-        },
-      }),
     },
   },
-})
-// console.log(theme.components.NavLink)
+  baseTheme
+)
+
 export default theme

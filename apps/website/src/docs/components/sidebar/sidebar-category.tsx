@@ -1,4 +1,4 @@
-import { BoxProps, chakra, useColorModeValue } from '@chakra-ui/react'
+import { BoxProps, chakra, useColorModeValue, Collapse } from '@chakra-ui/react'
 import { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 
 interface SidebarCategoryProps extends BoxProps {
@@ -49,22 +49,22 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef])
 
   return (
-    <chakra.div mt='8' ref={ref} {...rest}>
+    <chakra.div mt="8" sx={{ '&:first-child': { mt: 2 } }} ref={ref} {...rest}>
       <chakra.p
-        width='full'
-        textTransform='uppercase'
-        letterSpacing='wider'
-        fontSize='xs'
-        fontWeight='bold'
-        display='flex'
-        alignItems='center'
-        justifyContent='space-between'
-        userSelect='none'
-        color={useColorModeValue('gray.500', 'inherit')}
+        className="sidebar-category-header"
+        width="full"
+        letterSpacing="wider"
+        fontSize="xs"
+        fontWeight="bold"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        userSelect="none"
+        color={useColorModeValue('gray.500', 'gray.500')}
       >
         {title}
       </chakra.p>
-      <chakra.div role='group' hidden={!toggle} mt='16px' mx='-3'>
+      <chakra.div role="group" hidden={!toggle} mt="2" mx="-3">
         {children}
       </chakra.div>
     </chakra.div>

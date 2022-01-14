@@ -1,0 +1,193 @@
+---
+title: Form
+description: Create fully functional React forms with just a few lines of code.
+---
+
+The Form component is an abstraction around React Hook Form and
+follows the [WAI specifications ](https://www.w3.org/WAI/tutorials/forms/) for forms.
+
+<ComponentLinks
+  github={{ package: 'forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `Form`: The wrapper component provides context, state, and focus management.
+- `FormLayout`: Create consistent field spacing and positioning.
+- `Field`: Renders a fully functional form control, supports [multiple types](/docs/forms/field). Must be a child of `Form`.
+- `SubmitButton`: A button with type `submit` and default color scheme `primary` and `isLoading` state when the form is submitting.
+
+```ts
+import { Form, FormLayout, Field, SubmitButton } from '@saas-ui/react'
+```
+
+## Best practises
+
+<BestPractises
+  does={[
+    'Keep optional fields to a minimum.',
+    'Make it clear which fields are required or optional.',
+    'Group related information in sections to make forms easier to scan.',
+    'Consider splitting up long forms into multiple steps.',
+    'Position the submit button consistenly throughout all forms.',
+  ]}
+  donts={[
+    'Use too many ungrouped fields on a single page.',
+    'Use tabs inside forms.',
+  ]}
+/>
+
+## Usage
+
+### Basic form
+
+```jsx
+function BasicForm() {
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      defaultValues={{
+        name: 'Saas UI',
+        description: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="name"
+          label="Name"
+          type="text"
+          help="Choose a name for this project"
+          rules={{ required: true }}
+        />
+
+        <Field
+          name="description"
+          type="textarea"
+          label="Description"
+          placeholder="Optional description"
+        />
+
+        <SubmitButton>Create Project</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### With a schema
+
+Supports Yup schemas out of the box.
+
+```jsx
+function CreateProject() {
+  const schema = Yup.object().shape({
+    name: Yup.string().required().label('Name'),
+    description: Yup.string().label('Description').min(50),
+  })
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      defaultValues={{
+        name: '',
+        description: '',
+      }}
+      schema={schema}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="name"
+          label="Name"
+          type="text"
+          help="Choose a title for this project."
+        />
+
+        <Field
+          name="description"
+          type="textarea"
+          label="Description"
+          help="Minimum 50 characters."
+        />
+
+        <SubmitButton>Create Project</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Use your own submit button
+
+```jsx
+<Form>
+  <FormLayout>
+    <Field name="title" label="Title" />
+
+    <Button type="submit" colorScheme="teal">
+      Submit
+    </Button>
+  </FormLayout>
+</Form>
+```
+
+### Group related fields
+
+```jsx
+<Form>
+  <FormLayout>
+    <Heading size="md">Personal information</Heading>
+    <FormLayout columns="2">
+      <Field name="firstname" label="Name" />
+      <Field name="lastname" label="Last name" />
+    </FormLayout>
+
+    <Field name="email" label="Email address" />
+
+    <Heading size="md" mt="4">
+      Address
+    </Heading>
+    <FormLayout>
+      <Field name="address" label="Address" />
+      <Field name="city" label="City" />
+    </FormLayout>
+
+    <Heading size="md" mt="4">
+      Billing information
+    </Heading>
+    <FormLayout columns="2">
+      <Field name="card" label="Card number" />
+      <FormLayout columns="2">
+        <Field name="exp" label="Expiration date" />
+        <Field name="cvc" label="CVC" />
+      </FormLayout>
+    </FormLayout>
+
+    <SubmitButton>Complete order</SubmitButton>
+  </FormLayout>
+</Form>
+```
+
+## Accessibility
+
+The `Form` component wraps the children in a HTML `<form>` element.
+
+### Keyboard Interaction
+
+| Key     | Action          |
+| ------- | --------------- |
+| `Enter` | Submit the form |

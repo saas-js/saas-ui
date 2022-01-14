@@ -2,7 +2,7 @@ import * as React from 'react'
 
 const { createContext, useState, useContext, useEffect, useCallback } = React
 
-import { usePromise } from '@saas-ui/system'
+import { usePromise } from '@saas-ui/hooks'
 
 export interface AuthParams {
   email?: string
@@ -43,21 +43,21 @@ export interface AuthProviderProps {
    */
   onSignup?: (
     params: AuthParams,
-    options?: AuthOptions,
+    options?: AuthOptions
   ) => Promise<User | undefined | null>
   /**
    * The login method
    */
   onLogin?: (
     params: AuthParams,
-    options?: AuthOptions,
+    options?: AuthOptions
   ) => Promise<User | undefined | null>
   /**
    * Verify an one time password (2fa)
    */
   onVerify?: (
     params: AuthParams,
-    options?: AuthOptions,
+    options?: AuthOptions
   ) => Promise<boolean | undefined | null>
   /**
    * The logout method
@@ -76,7 +76,7 @@ export interface AuthProviderProps {
 
 export type AuthFunction = (
   params: AuthParams,
-  options?: AuthOptions,
+  options?: AuthOptions
 ) => Promise<any>
 
 export interface AuthContextValue {
@@ -158,7 +158,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
       const result = await onSignup(params, options)
       return result
     },
-    [onSignup],
+    [onSignup]
   )
 
   const verify = useCallback(
@@ -166,7 +166,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
       const result = await onVerify(params, options)
       return result
     },
-    [onSignup],
+    [onSignup]
   )
 
   const login = useCallback(
@@ -177,7 +177,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
       }
       return result
     },
-    [onLogin],
+    [onLogin]
   )
 
   const logout = useCallback(() => {

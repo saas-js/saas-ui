@@ -11,6 +11,7 @@
     },
     "./services/supabase": {
       "require": "./dist/services/supabase.js",
+      "development": "./src/services/supabase.ts",
       "default": "./dist/services/supabase.modern.js"
     }
   },
@@ -62,6 +63,7 @@
   "dependencies": {
     "@saas-ui/button": "workspace:*",
     "@saas-ui/forms": "workspace:*",
+    "@saas-ui/hooks": "workspace:*",
     "@saas-ui/system": "workspace:*"
   },
   "peerDependencies": {

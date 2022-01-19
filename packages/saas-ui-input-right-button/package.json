@@ -55,8 +55,5 @@
   "peerDependencies": {
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
-  },
-  "devDependencies": {
-    "react-icons": "^4.3.1"
   }
 }

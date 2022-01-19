@@ -56,8 +56,5 @@
     "@chakra-ui/react": ">=1.7.1",
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
-  },
-  "devDependencies": {
-    "react-icons": "^4.3.1"
   }
 }

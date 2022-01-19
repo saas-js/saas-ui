@@ -4976,6 +4976,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/env@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/env@npm:12.0.8"
+  checksum: 2ef94e2a248ea39d770f3a7aaae629bdeb46c8e694a01353888c146459d2cffb81394240071faca13cf6c155a404e5110517bb5aa654dcfda3d77b907db33bcf
+  languageName: node
+  linkType: hard
+
 "@next/eslint-plugin-next@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/eslint-plugin-next@npm:12.0.7"
@@ -5031,9 +5038,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/react-refresh-utils@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/react-refresh-utils@npm:12.0.8"
+  peerDependencies:
+    react-refresh: 0.8.3
+    webpack: ^4 || ^5
+  peerDependenciesMeta:
+    webpack:
+      optional: true
+  checksum: 11232c954026c0cc03bad2cd556f89e0bb99e9a4ad67e1058f3107da829c33f2540865a29dbc99412246701de1e3f3b39d5d715490c1b4c4632d5a5aaf61ac84
+  languageName: node
+  linkType: hard
+
 "@next/swc-android-arm64@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/swc-android-arm64@npm:12.0.7"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@next/swc-android-arm64@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-android-arm64@npm:12.0.8"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -5045,9 +5072,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/swc-darwin-arm64@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-darwin-arm64@npm:12.0.8"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@next/swc-darwin-x64@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/swc-darwin-x64@npm:12.0.7"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@next/swc-darwin-x64@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-darwin-x64@npm:12.0.8"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -5059,9 +5100,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/swc-linux-arm-gnueabihf@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-linux-arm-gnueabihf@npm:12.0.8"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@next/swc-linux-arm64-gnu@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/swc-linux-arm64-gnu@npm:12.0.7"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@next/swc-linux-arm64-gnu@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-linux-arm64-gnu@npm:12.0.8"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
@@ -5073,9 +5128,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/swc-linux-arm64-musl@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-linux-arm64-musl@npm:12.0.8"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@next/swc-linux-x64-gnu@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/swc-linux-x64-gnu@npm:12.0.7"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@next/swc-linux-x64-gnu@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-linux-x64-gnu@npm:12.0.8"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
@@ -5087,9 +5156,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/swc-linux-x64-musl@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-linux-x64-musl@npm:12.0.8"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@next/swc-win32-arm64-msvc@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/swc-win32-arm64-msvc@npm:12.0.7"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@next/swc-win32-arm64-msvc@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-win32-arm64-msvc@npm:12.0.8"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -5101,9 +5184,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/swc-win32-ia32-msvc@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-win32-ia32-msvc@npm:12.0.8"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@next/swc-win32-x64-msvc@npm:12.0.7":
   version: 12.0.7
   resolution: "@next/swc-win32-x64-msvc@npm:12.0.7"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@next/swc-win32-x64-msvc@npm:12.0.8":
+  version: 12.0.8
+  resolution: "@next/swc-win32-x64-msvc@npm:12.0.8"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -5564,6 +5661,7 @@ __metadata:
   dependencies:
     "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
+    "@saas-ui/hooks": "workspace:*"
     "@saas-ui/system": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.7.0"
@@ -5590,7 +5688,6 @@ __metadata:
   dependencies:
     "@saas-ui/button": "workspace:*"
     "@saas-ui/system": "workspace:*"
-    react-icons: ^4.3.1
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -5667,7 +5764,6 @@ __metadata:
   dependencies:
     "@chakra-ui/input": ^1.3.2
     "@saas-ui/button": "workspace:*"
-    react-icons: ^4.3.1
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -5700,10 +5796,14 @@ __metadata:
   dependencies:
     "@saas-ui/system": "workspace:*"
     "@tanem/react-nprogress": ^4.0.1
+    next: ">=12"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
     react-dom: ">=16.8.6"
+  dependenciesMeta:
+    next:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -5734,7 +5834,6 @@ __metadata:
   dependencies:
     "@chakra-ui/icons": ^1.1.1
     "@saas-ui/input-right-button": "workspace:*"
-    react-icons: ^4.3.1
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -5747,7 +5846,6 @@ __metadata:
   dependencies:
     "@chakra-ui/avatar": ^1.3.1
     "@saas-ui/system": "workspace:*"
-    react-icons: ^4.3.1
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -5833,7 +5931,6 @@ __metadata:
   resolution: "@saas-ui/search-input@workspace:packages/saas-ui-search-input"
   dependencies:
     "@chakra-ui/icons": ^1.1.1
-    react-icons: ^4.3.1
   peerDependencies:
     "@chakra-ui/react": ">=1.7.1"
     "@chakra-ui/system": ">=1.0.0"
@@ -9601,6 +9698,13 @@ __metadata:
   version: 1.0.30001286
   resolution: "caniuse-lite@npm:1.0.30001286"
   checksum: 04de4742552d4aeb713677b40693d9ac1fbd259573e0ff739565278bcecb6f398f3227546a4e930f4d5cf95b61458f4a53c9c1f90f5b0c4f6063b32e4c54b89e
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001283":
+  version: 1.0.30001300
+  resolution: "caniuse-lite@npm:1.0.30001300"
+  checksum: f8c981c0658e2ea67b5e106538a9f3b15d528a6679f2b6e7cb3f508a99e4f9f3f69c73d1b243c77e5ccb3bcef964a801a26a2ba6a13416b42baf314577e3172a
   languageName: node
   linkType: hard
 
@@ -17807,6 +17911,74 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next@npm:>=12":
+  version: 12.0.8
+  resolution: "next@npm:12.0.8"
+  dependencies:
+    "@next/env": 12.0.8
+    "@next/react-refresh-utils": 12.0.8
+    "@next/swc-android-arm64": 12.0.8
+    "@next/swc-darwin-arm64": 12.0.8
+    "@next/swc-darwin-x64": 12.0.8
+    "@next/swc-linux-arm-gnueabihf": 12.0.8
+    "@next/swc-linux-arm64-gnu": 12.0.8
+    "@next/swc-linux-arm64-musl": 12.0.8
+    "@next/swc-linux-x64-gnu": 12.0.8
+    "@next/swc-linux-x64-musl": 12.0.8
+    "@next/swc-win32-arm64-msvc": 12.0.8
+    "@next/swc-win32-ia32-msvc": 12.0.8
+    "@next/swc-win32-x64-msvc": 12.0.8
+    caniuse-lite: ^1.0.30001283
+    jest-worker: 27.0.0-next.5
+    node-fetch: 2.6.1
+    postcss: 8.2.15
+    react-is: 17.0.2
+    react-refresh: 0.8.3
+    stream-browserify: 3.0.0
+    styled-jsx: 5.0.0-beta.6
+    use-subscription: 1.5.1
+  peerDependencies:
+    fibers: ">= 3.1.0"
+    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0
+    react: ^17.0.2 || ^18.0.0-0
+    react-dom: ^17.0.2 || ^18.0.0-0
+    sass: ^1.3.0
+  dependenciesMeta:
+    "@next/swc-android-arm64":
+      optional: true
+    "@next/swc-darwin-arm64":
+      optional: true
+    "@next/swc-darwin-x64":
+      optional: true
+    "@next/swc-linux-arm-gnueabihf":
+      optional: true
+    "@next/swc-linux-arm64-gnu":
+      optional: true
+    "@next/swc-linux-arm64-musl":
+      optional: true
+    "@next/swc-linux-x64-gnu":
+      optional: true
+    "@next/swc-linux-x64-musl":
+      optional: true
+    "@next/swc-win32-arm64-msvc":
+      optional: true
+    "@next/swc-win32-ia32-msvc":
+      optional: true
+    "@next/swc-win32-x64-msvc":
+      optional: true
+  peerDependenciesMeta:
+    fibers:
+      optional: true
+    node-sass:
+      optional: true
+    sass:
+      optional: true
+  bin:
+    next: dist/bin/next
+  checksum: 947f0295aad98eba7593e022bbea72adea32a170feba6f5e7370886356d2944ac1f1260836a17d190717ac2fdf2ad0f45264262016b7e19a95a144216f2309c5
+  languageName: node
+  linkType: hard
+
 "nice-try@npm:^1.0.4":
   version: 1.0.5
   resolution: "nice-try@npm:1.0.5"
@@ -20519,6 +20691,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"reading-time@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "reading-time@npm:1.5.0"
+  checksum: e27bc5a70ba0f4ac337896b18531b914d38f4bee67cbad48029d0c11dd0a7a847b2a6bba895ab7ce2ad3e7ecb86912bdc477d8fa2d48405a3deda964be54d09b
+  languageName: node
+  linkType: hard
+
 "recursive-readdir@npm:2.2.2":
   version: 2.2.2
   resolution: "recursive-readdir@npm:2.2.2"
@@ -21214,9 +21393,9 @@ __metadata:
     react-dom: ^17.0.2
     react-icons: ^4.3.1
     react-is: ^17.0.2
+    rimraf: ^3.0.2
     storybook-addon-performance: ^0.16.1
     turbo: ^1.0.23
-    turborepo: ^0.0.1
     typescript: ^4.5.4
   languageName: unknown
   linkType: soft
@@ -22453,6 +22632,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"styled-jsx@npm:5.0.0-beta.6":
+  version: 5.0.0-beta.6
+  resolution: "styled-jsx@npm:5.0.0-beta.6"
+  dependencies:
+    "@babel/plugin-syntax-jsx": 7.14.5
+    "@babel/types": 7.15.0
+    convert-source-map: 1.7.0
+    loader-utils: 1.2.3
+    source-map: 0.7.3
+    string-hash: 1.1.3
+    stylis: 3.5.4
+    stylis-rule-sheet: 0.0.10
+  peerDependencies:
+    react: ">= 16.8.0 || 17.x.x || 18.x.x"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+  checksum: 94c44e8e4d475f8d99459d8c5c619ff1d21d84058e3cda0226fdc02f407ba07d83e37f0a9e236eb34564376128325f2bfcbc1bcfe0de623bd8db4eb9774a0fc3
+  languageName: node
+  linkType: hard
+
 "stylehacks@npm:^5.0.1":
   version: 5.0.1
   resolution: "stylehacks@npm:5.0.1"
@@ -23256,13 +23456,6 @@ __metadata:
   bin:
     turbo: bin/turbo
   checksum: b19054a406108212b50db9d439100358f5b05e7fe333bb41196435d49e3f7d15034e9cbcb5b8eb1fc7ed0c7fe6591a3bd225bacdd4f60d689d06ba2896cfda22
-  languageName: node
-  linkType: hard
-
-"turborepo@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "turborepo@npm:0.0.1"
-  checksum: 4975a23063185a87729f5de4fdb42c2118b52d88263128fa1416fe651798725a8d9f3e8a10a099d1188bd5ae04a39a93fe39810ced7e9187230ae9aa3ba645cf
   languageName: node
   linkType: hard
 
@@ -24373,6 +24566,7 @@ __metadata:
     react-intersection-observer: ^8.32.0
     react-live: ^2.3.0
     react-transition-group: ^4.4.2
+    reading-time: ^1.5.0
     remark-code-titles: ^0.1.2
     remark-emoji: ^3.0.2
     remark-gfm: ^3.0.1

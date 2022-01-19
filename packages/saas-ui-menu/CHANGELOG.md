@@ -1,6 +1,6 @@
-# @saas-ui/snackbar
+# @saas-ui/menu
 
-## null
+## 0.1.0
 
 ### Minor Changes
 
@@ -9,4 +9,5 @@
 ### Patch Changes
 
 - Updated dependencies
+  - @saas-ui/button@0.1.0
   - @saas-ui/system@0.2.0

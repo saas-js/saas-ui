@@ -1,6 +1,6 @@
-# @saas-ui/snackbar
+# @saas-ui/theme
 
-## null
+## 0.1.0
 
 ### Minor Changes
 

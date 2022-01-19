@@ -1,6 +1,6 @@
-# @saas-ui/snackbar
+# @saas-ui/nprogress
 
-## null
+## 0.1.0
 
 ### Minor Changes
 

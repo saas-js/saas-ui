@@ -1,6 +1,6 @@
-# @saas-ui/snackbar
+# @saas-ui/provider
 
-## null
+## 1.1.0
 
 ### Minor Changes
 
@@ -9,4 +9,4 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @saas-ui/system@0.2.0
+  - @saas-ui/theme@0.1.0

@@ -31,13 +31,18 @@
   "scripts": {
     "w": "yarn workspace",
     "version": "changeset version",
+    "publish": "changeset publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepare": "husky install",
     "clean": "turbo run clean",
     "lint": "turbo run lint",
     "lint:staged": "turbo run lint:staged --concurrency=1",
-    "create:pkg": "hygen package react-component"
+    "create:pkg": "hygen package react-component",
+    "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
+    "build:packages": "turbo run build  --scope='@saas-ui/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
+    "clean:packages": "turbo run clean",
+    "build:prop-docs": "yarn pkg props-docs build"
   },
   "workspaces": [
     "packages/*",

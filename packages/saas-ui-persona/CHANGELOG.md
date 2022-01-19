@@ -1,5 +1,13 @@
 # @saas-ui/persona
 
+## 0.2.1
+
+### Patch Changes
+
+- Fix version mismatch
+- Updated dependencies
+  - @saas-ui/system@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

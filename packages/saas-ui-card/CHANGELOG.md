@@ -1,5 +1,14 @@
 # @saas-ui/card
 
+## 1.1.1
+
+### Patch Changes
+
+- Fix version mismatch
+- Updated dependencies
+  - @saas-ui/button@0.1.1
+  - @saas-ui/system@0.2.1
+
 ## 1.1.0
 
 ### Minor Changes

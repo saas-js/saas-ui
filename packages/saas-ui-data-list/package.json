@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/data-list",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "List Component",
   "source": "src/index.ts",
   "exports": {

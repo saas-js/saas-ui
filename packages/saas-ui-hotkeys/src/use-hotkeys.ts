@@ -131,7 +131,7 @@ export const useHotkeys = (
 
     const key = getKeyFromEvent(event)
     pressedKeys.add(key)
-    console.log(key)
+
     if (keysMatch(pressedKeys, targetKeys)) {
       // execute on next tick to make sure the last keyup doesn't trigger in any focused field
       setTimeout(() => memoizedCallback(event), 0)

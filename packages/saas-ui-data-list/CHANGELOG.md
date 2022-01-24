@@ -1,5 +1,23 @@
 # @saas-ui/data-list
 
+## 0.1.4
+
+### Patch Changes
+
+- Bump version
+
+## 0.1.3
+
+### Patch Changes
+
+- Improved exports configuration
+
+## 0.1.2
+
+### Patch Changes
+
+- Republish with correct deps
+
 ## 0.1.1
 
 ### Patch Changes

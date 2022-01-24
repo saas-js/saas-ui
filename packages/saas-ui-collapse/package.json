@@ -1,12 +1,16 @@
 {
   "name": "@saas-ui/collapse",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "Collapse Component",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "development": "./src/index.ts",
-    "default": "./dist/index.modern.js"
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.modern.js",
@@ -47,8 +51,11 @@
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
+  "dependencies": {
+    "@chakra-ui/react-utils": "^1.2.1"
+  },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/react": ">=1.7.0",
     "react": ">=16.8.6"
   }
 }

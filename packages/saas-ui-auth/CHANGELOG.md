@@ -1,5 +1,54 @@
 # @saas-ui/auth
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/system@0.2.5
+  - @saas-ui/button@0.1.6
+  - @saas-ui/forms@0.1.6
+
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/system@0.2.4
+  - @saas-ui/forms@0.1.5
+  - @saas-ui/button@0.1.5
+
+## 0.1.4
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/button@0.1.4
+  - @saas-ui/forms@0.1.4
+
+## 0.1.3
+
+### Patch Changes
+
+- Improved exports configuration
+- Updated dependencies
+  - @saas-ui/button@0.1.3
+  - @saas-ui/forms@0.1.3
+  - @saas-ui/hooks@0.1.3
+  - @saas-ui/system@0.2.3
+
+## 0.1.2
+
+### Patch Changes
+
+- Republish with correct deps
+- Updated dependencies
+  - @saas-ui/button@0.1.2
+  - @saas-ui/forms@0.1.2
+  - @saas-ui/hooks@0.1.2
+  - @saas-ui/system@0.2.2
+
 ## 0.1.1
 
 ### Patch Changes

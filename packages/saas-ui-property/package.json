@@ -1,12 +1,16 @@
 {
   "name": "@saas-ui/property",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Property Component",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "development": "./src/index.ts",
-    "default": "./dist/index.modern.js"
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.modern.js",
@@ -50,8 +54,5 @@
   "peerDependencies": {
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
-  },
-  "devDependencies": {
-    "@saas-ui/select": "workspace:*"
   }
 }

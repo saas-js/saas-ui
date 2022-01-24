@@ -1,5 +1,17 @@
 # @saas-ui/search-input
 
+## 0.2.3
+
+### Patch Changes
+
+- Improved exports configuration
+
+## 0.2.2
+
+### Patch Changes
+
+- Republish with correct deps
+
 ## 0.2.1
 
 ### Patch Changes

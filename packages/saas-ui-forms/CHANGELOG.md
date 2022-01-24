@@ -1,5 +1,60 @@
 # @saas-ui/forms
 
+## 0.1.6
+
+### Patch Changes
+
+- @saas-ui/button@0.1.6
+- @saas-ui/input-right-button@0.1.6
+- @saas-ui/password-input@0.1.6
+
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/select@0.1.4
+  - @saas-ui/button@0.1.5
+  - @saas-ui/input-right-button@0.1.5
+  - @saas-ui/password-input@0.1.5
+
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/button@0.1.4
+  - @saas-ui/input-right-button@0.1.4
+  - @saas-ui/password-input@0.1.4
+
+## 0.1.3
+
+### Patch Changes
+
+- Improved exports configuration
+- Updated dependencies
+  - @saas-ui/button@0.1.3
+  - @saas-ui/input-right-button@0.1.3
+  - @saas-ui/number-input@0.1.3
+  - @saas-ui/password-input@0.1.3
+  - @saas-ui/pin-input@0.1.3
+  - @saas-ui/radio@0.1.3
+  - @saas-ui/select@0.1.3
+
+## 0.1.2
+
+### Patch Changes
+
+- Republish with correct deps
+- Updated dependencies
+  - @saas-ui/button@0.1.2
+  - @saas-ui/input-right-button@0.1.2
+  - @saas-ui/number-input@0.1.2
+  - @saas-ui/password-input@0.1.2
+  - @saas-ui/pin-input@0.1.2
+  - @saas-ui/radio@0.1.2
+  - @saas-ui/select@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes

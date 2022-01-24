@@ -1,19 +1,23 @@
 {
   "name": "@saas-ui/system",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "description": "Saas UI system utilities",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "development": "./src/index.ts",
-    "default": "./dist/index.modern.js"
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.module.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress --define process.env.NODE_ENV=production",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

@@ -1,5 +1,17 @@
 # @saas-ui/property
 
+## 0.1.3
+
+### Patch Changes
+
+- Improved exports configuration
+
+## 0.1.2
+
+### Patch Changes
+
+- Republish with correct deps
+
 ## 0.1.1
 
 ### Patch Changes

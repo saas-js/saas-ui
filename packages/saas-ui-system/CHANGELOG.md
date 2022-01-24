@@ -1,5 +1,29 @@
 # @saas-ui/system
 
+## 0.2.5
+
+### Patch Changes
+
+- Update card dependencies
+
+## 0.2.4
+
+### Patch Changes
+
+- Make sure process doesn't get referenced in bundles
+
+## 0.2.3
+
+### Patch Changes
+
+- Improved exports configuration
+
+## 0.2.2
+
+### Patch Changes
+
+- Republish with correct deps
+
 ## 0.2.1
 
 ### Patch Changes

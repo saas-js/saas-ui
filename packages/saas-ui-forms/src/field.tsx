@@ -142,7 +142,6 @@ const createField = (
       isInvalid,
       isReadOnly,
       isRequired,
-      isOptional,
       variant,
       ...inputProps
     } = props
@@ -151,11 +150,10 @@ const createField = (
       <BaseField
         label={label}
         hideLabel={hideLabel}
-        isDiabled={isDisabled}
+        isDisabled={isDisabled}
         isInvalid={isInvalid}
         isReadOnly={isReadOnly}
         isRequired={isRequired}
-        isOptional={isOptional}
         variant={variant}
       >
         <InputComponent ref={ref} label={label} {...inputProps} />

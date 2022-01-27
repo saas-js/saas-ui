@@ -1,12 +1,16 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "default": "./dist/index.modern.js"
+    },
+    "./resolvers/yup": {
+      "require": "./dist/resolvers/yup.js",
+      "default": "./dist/resolvers/yup.modern.js"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -58,6 +62,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/react-utils": "^1.2.1",
     "@hookform/resolvers": "^2.8.3",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
@@ -71,9 +77,7 @@
   "peerDependencies": {
     "@chakra-ui/react": ">=1.7.0",
     "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6"
-  },
-  "optionalDependencies": {
+    "react": ">=16.8.6",
     "yup": "^0.32.11"
   }
 }

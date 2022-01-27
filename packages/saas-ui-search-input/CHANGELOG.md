@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 0.2.4
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.2.3
 
 ### Patch Changes

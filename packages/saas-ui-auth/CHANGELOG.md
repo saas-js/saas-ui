@@ -1,5 +1,27 @@
 # @saas-ui/auth
 
+## 0.1.9
+
+### Patch Changes
+
+- Removed unused isOptional option
+- Updated dependencies
+  - @saas-ui/forms@0.1.9
+
+## 0.1.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.1.8
+
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.1.7
+
 ## 0.1.6
 
 ### Patch Changes

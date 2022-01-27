@@ -1,5 +1,17 @@
 # @saas-ui/radio
 
+## 0.1.5
+
+### Patch Changes
+
+- Update radio dependencies
+
+## 0.1.4
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.1.3
 
 ### Patch Changes

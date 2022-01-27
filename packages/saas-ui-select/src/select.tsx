@@ -8,19 +8,15 @@ import {
   MenuButton,
   MenuList,
   MenuItemOption,
-  MenuItemOptionProps,
   MenuOptionGroup,
   MenuOptionGroupProps,
   Button,
   ButtonProps,
+  omitThemingProps,
+  useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import {
-  chakra,
-  omitThemingProps,
-  useMultiStyleConfig,
-} from '@chakra-ui/system'
 
 interface Option {
   value: string

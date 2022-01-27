@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 import { NProgress } from './nprogress'
 
-export const NProgressNextRouter = () => {
-  const router = useRouter()
-
+export const NProgressNextRouter = ({ router }: any) => {
   const [state, setState] = useState({
     isRouteChanging: false,
     loadingKey: 0,

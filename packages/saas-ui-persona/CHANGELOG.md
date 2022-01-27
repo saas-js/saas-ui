@@ -1,5 +1,11 @@
 # @saas-ui/persona
 
+## 0.2.6
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.2.5
 
 ### Patch Changes

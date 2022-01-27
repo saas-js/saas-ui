@@ -1,5 +1,11 @@
 # @saas-ui/select
 
+## 0.1.5
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.1.4
 
 ### Patch Changes

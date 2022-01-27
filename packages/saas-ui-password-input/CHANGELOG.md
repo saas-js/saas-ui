@@ -1,5 +1,11 @@
 # @saas-ui/password-input
 
+## 0.1.7
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.1.6
 
 ### Patch Changes

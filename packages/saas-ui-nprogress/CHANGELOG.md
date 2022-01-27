@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 0.1.6
+
+### Patch Changes
+
+- Remove Next dependency
+
 ## 0.1.5
 
 ### Patch Changes

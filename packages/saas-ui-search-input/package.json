@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/search-input",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A search input for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -32,7 +32,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AppulseSoftware/saas-ui",
-    "directory": "packages/search"
+    "directory": "packages/saas-ui-search-input"
   },
   "keywords": [
     "react",
@@ -58,7 +58,6 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.7.1",
-    "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
   }
 }

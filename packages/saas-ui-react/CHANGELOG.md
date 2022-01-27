@@ -1,5 +1,48 @@
 # @saas-ui/react
 
+## 0.1.16
+
+### Patch Changes
+
+- Remove Next dependency
+- Updated dependencies
+  - @saas-ui/nprogress@0.1.6
+
+## 0.1.15
+
+### Patch Changes
+
+- Removed unused isOptional option
+- Updated dependencies
+  - @saas-ui/auth@0.1.9
+  - @saas-ui/forms@0.1.9
+
+## 0.1.14
+
+### Patch Changes
+
+- Update radio dependencies
+- Updated dependencies
+  - @saas-ui/forms@0.1.8
+  - @saas-ui/radio@0.1.5
+  - @saas-ui/auth@0.1.8
+
+## 0.1.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.1.7
+  - @saas-ui/number-input@0.1.4
+  - @saas-ui/password-input@0.1.7
+  - @saas-ui/persona@0.2.6
+  - @saas-ui/pin-input@0.1.4
+  - @saas-ui/radio@0.1.4
+  - @saas-ui/search-input@0.2.4
+  - @saas-ui/select@0.1.5
+  - @saas-ui/auth@0.1.7
+  - @saas-ui/hotkeys@0.2.6
+
 ## 0.1.12
 
 ### Patch Changes

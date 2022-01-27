@@ -1,5 +1,31 @@
 # @saas-ui/forms
 
+## 0.1.9
+
+### Patch Changes
+
+- Removed unused isOptional option
+
+## 0.1.8
+
+### Patch Changes
+
+- Update radio dependencies
+- Updated dependencies
+  - @saas-ui/radio@0.1.5
+
+## 0.1.7
+
+### Patch Changes
+
+- Update dependencies
+- Updated dependencies
+  - @saas-ui/number-input@0.1.4
+  - @saas-ui/password-input@0.1.7
+  - @saas-ui/pin-input@0.1.4
+  - @saas-ui/radio@0.1.4
+  - @saas-ui/select@0.1.5
+
 ## 0.1.6
 
 ### Patch Changes

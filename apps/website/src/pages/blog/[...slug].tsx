@@ -12,7 +12,7 @@ export default function Page({ blog }: { blog: Blog }) {
   const Component = useMDXComponent(blog.body.code)
 
   return (
-    <Layout frontMatter={blog.frontMatter} p="0">
+    <Layout frontMatter={blog.frontMatter}>
       <Component components={MDXComponents} />
     </Layout>
   )

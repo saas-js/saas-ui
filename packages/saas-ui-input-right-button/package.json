@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/input-right-button",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "A input right button for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -53,7 +53,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/input": "^1.3.2",
+    "@chakra-ui/input": "^1.3.3",
     "@saas-ui/button": "workspace:*"
   },
   "peerDependencies": {

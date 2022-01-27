@@ -1,5 +1,15 @@
 # @saas-ui/collapse
 
+## 0.2.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
+### Patch Changes
+
+- Fix dependencies
+
 ## 0.1.5
 
 ### Patch Changes

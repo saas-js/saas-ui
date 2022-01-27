@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/menu",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Menu Component",
   "source": "src/index.ts",
   "exports": {
@@ -53,10 +53,11 @@
   },
   "dependencies": {
     "@saas-ui/button": "workspace:*",
-    "@saas-ui/system": "workspace:*"
+    "@saas-ui/system": "workspace:*",
+    "@saas-ui/provider": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
     "framer-motion": ">=5.5.0",
     "react": ">=16.8.6"

@@ -1,5 +1,17 @@
 # @saas-ui/theme
 
+## 0.2.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/palette@0.4.0
+  - @saas-ui/system@0.3.0
+
 ## 0.1.6
 
 ### Patch Changes

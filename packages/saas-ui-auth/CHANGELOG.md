@@ -1,5 +1,19 @@
 # @saas-ui/auth
 
+## 0.2.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.2.0
+  - @saas-ui/button@0.2.0
+  - @saas-ui/hooks@0.2.0
+  - @saas-ui/system@0.3.0
+
 ## 0.1.9
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @saas-ui/provider
 
+## 0.2.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
+### Patch Changes
+
+- Make providers properties optional
+- Updated dependencies
+  - @saas-ui/theme@0.2.0
+
 ## 0.1.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/provider",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {
@@ -54,7 +54,7 @@
     "@saas-ui/theme": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
   }

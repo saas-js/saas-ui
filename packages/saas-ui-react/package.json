@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "0.1.16",
+  "version": "0.2.0",
   "description": "Saas UI - The frontend stack for SaaS companies.",
   "source": "src/index.ts",
   "exports": {
@@ -76,7 +76,7 @@
     "@saas-ui/theme": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
     "framer-motion": ">=5.5.0",
     "react": ">=16.8.6",

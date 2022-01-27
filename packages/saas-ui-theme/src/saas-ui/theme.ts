@@ -1,7 +1,7 @@
 import {
   extendTheme,
   withDefaultColorScheme,
-  withDefaultProps,
+  ChakraTheme,
 } from '@chakra-ui/react'
 
 import styles from './styles'
@@ -12,7 +12,7 @@ import shadows from './foundations/shadows'
 import components from './components'
 
 const config = {
-  useSystemColorMode: true,
+  useSystemColorMode: false,
 }
 
 export const theme = extendTheme(
@@ -31,4 +31,4 @@ export const theme = extendTheme(
     colorScheme: 'primary',
     components: ['Radio', 'Switch', 'Checkbox'],
   })
-)
+) as ChakraTheme

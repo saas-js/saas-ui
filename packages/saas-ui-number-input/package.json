@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/number-input",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Number Input Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -53,7 +53,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/react": ">=1.8.0",
     "react": ">=16.8.6"
   }
 }

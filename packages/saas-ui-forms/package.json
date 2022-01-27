@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {
@@ -75,7 +75,7 @@
     "react-hook-form": "^7.22.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6",
     "yup": "^0.32.11"

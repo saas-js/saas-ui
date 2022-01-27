@@ -1,7 +1,7 @@
 {
   "name": "@saas-ui/palette",
   "description": "Color palette generator for Chakra UI",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "source": "src/index.ts",
   "exports": {
     ".": {
@@ -50,7 +50,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/theme": "^1.10.4",
+    "@chakra-ui/theme": "^1.13.0",
     "chroma-js": "^2.1.2"
   },
   "devDependencies": {

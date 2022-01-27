@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/theme",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Theme Component",
   "source": "src/index.ts",
   "exports": {
@@ -52,12 +52,12 @@
   },
   "dependencies": {
     "@chakra-ui/anatomy": "^1.2.1",
-    "@chakra-ui/theme-tools": ">=1.3.1",
+    "@chakra-ui/theme-tools": "^1.3.1",
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/system": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.7.0",
+    "@chakra-ui/react": ">=1.8.0",
     "react": ">=16.8.6"
   }
 }

@@ -1,5 +1,11 @@
 # 0.2.0
 
+## 0.4.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
 ## 0.3.2
 
 ### Patch Changes

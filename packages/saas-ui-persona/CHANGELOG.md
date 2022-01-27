@@ -1,5 +1,16 @@
 # @saas-ui/persona
 
+## 0.3.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/system@0.3.0
+
 ## 0.2.6
 
 ### Patch Changes

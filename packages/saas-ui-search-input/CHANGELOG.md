@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 0.3.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
 ## 0.2.4
 
 ### Patch Changes

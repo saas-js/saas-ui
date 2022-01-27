@@ -19,9 +19,9 @@ export interface SaasContextValue {
 export const SaasContext = React.createContext<SaasContextValue>({})
 
 interface SaasProviderProps {
-  theme: any
+  theme?: any
   linkComponent?: React.ReactNode
-  cookies: any
+  cookies?: any
   children: React.ReactNode
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }

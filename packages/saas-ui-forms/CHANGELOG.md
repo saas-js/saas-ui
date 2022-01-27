@@ -1,5 +1,22 @@
 # @saas-ui/forms
 
+## 0.2.0
+
+### Minor Changes
+
+- Upgrade to Chakra UI 1.8.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/input-right-button@0.2.0
+  - @saas-ui/number-input@0.2.0
+  - @saas-ui/pin-input@0.2.0
+  - @saas-ui/radio@0.2.0
+  - @saas-ui/select@0.2.0
+  - @saas-ui/button@0.2.0
+  - @saas-ui/password-input@0.2.0
+
 ## 0.1.9
 
 ### Patch Changes

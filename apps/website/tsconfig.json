@@ -17,6 +17,7 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/data/*": ["src/data/*"],
+      "@/utils/*": ["src/utils/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/lib/*": ["src/lib/*"],
       "@/docs/*": ["src/docs/*"],

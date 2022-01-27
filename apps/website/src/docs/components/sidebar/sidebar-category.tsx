@@ -49,7 +49,12 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef])
 
   return (
-    <chakra.div mt="8" sx={{ '&:first-child': { mt: 2 } }} ref={ref} {...rest}>
+    <chakra.div
+      mt="8"
+      sx={{ '&:first-of-type': { mt: 2 } }}
+      ref={ref}
+      {...rest}
+    >
       <chakra.p
         className="sidebar-category-header"
         width="full"

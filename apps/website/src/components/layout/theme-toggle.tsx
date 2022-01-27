@@ -4,7 +4,6 @@ import { FiMoon, FiSun } from 'react-icons/fi'
 
 const ThemeToggle = () => {
   const { colorMode, toggleColorMode } = useColorMode()
-
   return (
     <IconButton
       variant="ghost"

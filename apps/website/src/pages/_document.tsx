@@ -1,4 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ColorModeScript } from '@chakra-ui/react'
+
+import theme from '../styles/theme'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -19,7 +22,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <script
             dangerouslySetInnerHTML={{
               __html: `!function(){var t,o,c,e=window,n=document,r=arguments,a="script",i=["call","cancelAction","config","identify","push","track","trackClick","trackForm","update","visit"],s=function(){var t,o=this,c=function(t){o[t]=function(){return o._e.push([t].concat(Array.prototype.slice.call(arguments,0))),o}};for(o._e=[],t=0;t<i.length;t++)c(i[t])};for(e.__woo=e.__woo||{},t=0;t<r.length;t++)e.__woo[r[t]]=e[r[t]]=e[r[t]]||new s;(o=n.createElement(a)).async=1,o.src="https://static.woopra.com/js/w.js",(c=n.getElementsByTagName(a)[0]).parentNode.insertBefore(o,c)}("woopra");

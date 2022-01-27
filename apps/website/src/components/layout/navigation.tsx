@@ -40,7 +40,10 @@ const Header = () => {
             display={['none', null, 'block']}
             href={href || `/#${id}`}
             key={i}
-            isActive={activeId === id || router.asPath === href}
+            isActive={
+              (id && activeId === id) ||
+              (href && !!router.asPath.match(new RegExp(href)))
+            }
             {...props}
           >
             {title}
@@ -54,7 +57,7 @@ const Header = () => {
         icon={<FaGithub size="14" />}
         borderRadius="md"
         as={Link}
-        href="https://github.com/AppulseSoftware/saas-ui"
+        href="https://github.com/saas-js/saas-ui"
       />
 
       <ThemeToggle />

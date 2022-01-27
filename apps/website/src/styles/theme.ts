@@ -68,6 +68,7 @@ const theme = extendTheme(
   {
     config: {
       initialColorMode: 'dark',
+      useSystemColorMode: false,
     },
     breakpoints: createBreakpoints(breakpoints),
     colors,

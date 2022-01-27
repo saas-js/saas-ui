@@ -26,6 +26,7 @@ import SectionTitle from '@/components/marketing/section-title'
 
 import ScaleInView from '@/components/motion/scale-in-view'
 
+import RedwoodJS from '/public/frameworks/redwood.svg'
 import NextJS from '/public/frameworks/nextjs.svg'
 import Blitz from '/public/frameworks/blitz.svg'
 import Supabase from '/public/frameworks/supabase.svg'
@@ -120,7 +121,7 @@ const Home = () => {
             >
               <FallInPlace>
                 <Text pt="4" pb="8" color="gray.500">
-                  Build with Next.js, React and Chakra UI
+                  Build with React and Chakra UI
                 </Text>
 
                 <Stack direction={['column', 'row']} spacing={4}>
@@ -134,15 +135,8 @@ const Home = () => {
                   >
                     Request early access
                   </Button>
-                  <Button
-                    variant="ghost"
-                    onClick={() => {
-                      document
-                        .getElementById('features')
-                        .scrollIntoView({ behavior: 'smooth' })
-                    }}
-                  >
-                    What&apos;s included?
+                  <Button variant="ghost" as={Link} href="/docs/introduction">
+                    View documentation
                   </Button>
                 </Stack>
               </FallInPlace>
@@ -288,8 +282,25 @@ const Home = () => {
           >
             <ScaleInView>
               <Link
+                href="https://redwoodjs.com"
+                p="8"
+                h="100%"
+                d="flex"
+                sx={{
+                  path: {
+                    fill: useColorModeValue('#000', '#fff'),
+                  },
+                }}
+              >
+                <RedwoodJS alt="RedwoodJS logo" />
+                <VisuallyHidden>RedwoodJS</VisuallyHidden>
+              </Link>
+            </ScaleInView>
+            <ScaleInView>
+              <Link
                 href="https://nextjs.com"
                 p="8"
+                h="100%"
                 d="flex"
                 sx={{
                   path: {
@@ -302,7 +313,7 @@ const Home = () => {
               </Link>
             </ScaleInView>
             <ScaleInView>
-              <Link href="https://blitzjs.com" p="8" d="flex">
+              <Link href="https://blitzjs.com" p="8" h="100%" d="flex">
                 <Blitz alt="Blitz.js logo" />
                 <VisuallyHidden>Blitz.js</VisuallyHidden>
               </Link>
@@ -311,6 +322,7 @@ const Home = () => {
               <Link
                 href="https://supabase.com"
                 p="8"
+                h="100%"
                 d="flex"
                 sx={{
                   'path.supabase_svg__wordmark': {
@@ -325,12 +337,6 @@ const Home = () => {
                 <VisuallyHidden>Supabase</VisuallyHidden>
               </Link>
             </ScaleInView>
-            <ScaleInView>
-              <Link href="https://bedrock.mxstbr.com" p="8" d="flex">
-                <Bedrock alt="Bedrock logo" />
-                <VisuallyHidden>Bedrock</VisuallyHidden>
-              </Link>
-            </ScaleInView>
           </SimpleGrid>
 
           <Text
@@ -340,9 +346,9 @@ const Home = () => {
             m="0 auto"
             mt="10"
           >
-            Technologies included: Nextjs, React, Chakra UI, Typescript, Styled
-            Components, Emotion, React Hook Form, Turborepo, Prettier,
-            Storybook, Jest, Testing Library, Hygen and more...
+            Technologies included: RedwoodJS, Next.js, Electron, React, Chakra
+            UI, Typescript, Styled Components, Emotion, React Hook Form,
+            Turborepo, Prettier, Storybook, Jest, Testing Library and more...
           </Text>
         </Section>
 

@@ -61,7 +61,7 @@ function ComponentLinks(props: ComponentLinksProps) {
   const { theme, github, npm, storybook, video, ...rest } = props
   const iconColor = useColorModeValue('gray.600', 'inherit')
 
-  const githubRepoUrl = 'https://github.com/AppulseSoftware/saas-ui'
+  const githubRepoUrl = 'https://github.com/saas-js/saas-ui'
 
   const githubLink = (github?.url || github?.package) && (
     <WrapItem>

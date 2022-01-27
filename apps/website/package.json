@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -14,31 +14,19 @@
     "gen:contentlayer": "contentlayer build --config ./contentlayer.config.ts --verbose",
     "typecheck": "tsc --noEmit"
   },
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          ".next/**"
-        ]
-      }
-    }
-  },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
-    "@chakra-ui/props-docs": "^1.0.40",
-    "@chakra-ui/react": "^1.7.3",
+    "@chakra-ui/props-docs": "^1.0.45",
+    "@chakra-ui/react": "^1.8.1",
     "@chakra-ui/skip-nav": "^1.2.1",
-    "@chakra-ui/system": "^1.8.3",
+    "@chakra-ui/system": "^1.10.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/inter": "^4.4.5",
     "@mapbox/rehype-prism": "^0.7.0",
     "@mdx-js/loader": "^1.6.22",
     "@next/bundle-analyzer": "^12.0.7",
-    "@saas-ui/palette": "workspace:^",
+    "@saas-ui/palette": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "contentlayer": "^0.0.33",
     "date-fns": "^2.27.0",
@@ -56,10 +44,12 @@
     "react-intersection-observer": "^8.32.0",
     "react-live": "^2.3.0",
     "react-transition-group": "^4.4.2",
+    "reading-time": "^1.5.0",
     "remark-code-titles": "^0.1.2",
     "remark-emoji": "^3.0.2",
     "remark-gfm": "^3.0.1",
-    "remark-slug": "^7.0.1"
+    "remark-slug": "^7.0.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.0.0",

@@ -23,11 +23,15 @@ const computedFields: ComputedFields = {
 
 const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: 'blogs/**/*.mdx',
+  filePathPattern: 'blog/**/*.mdx',
   bodyType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    description: { type: 'string', required: true },
+    description: { type: 'string' },
+    date: { type: 'date', required: true },
+    author: { type: 'string' },
+    avatar: { type: 'string' },
+    status: { type: 'string' },
   },
   computedFields: {
     ...computedFields,
@@ -36,6 +40,9 @@ const Blog = defineDocumentType(() => ({
       resolve: (doc) => ({
         title: doc.title,
         description: doc.description,
+        date: doc.date,
+        author: doc.author,
+        avatar: doc.avatar,
         slug: `/${doc._raw.flattenedPath}`,
         headings: getTableOfContents(doc.body.raw),
       }),

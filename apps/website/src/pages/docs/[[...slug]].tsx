@@ -1,9 +1,12 @@
+import fs from 'fs'
 import { allDocs } from '.contentlayer/data'
 import type { Doc } from '.contentlayer/types'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Layout from 'src/layouts/'
+
+import generateRss from '@/utils/generate-rss'
 
 export default function Page({ doc }: { doc: Doc }) {
   const Component = useMDXComponent(doc.body.code)
@@ -28,6 +31,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const doc = allDocs.find((doc: Doc) =>
     doc._id.endsWith(`${params.join('/')}.mdx`)
   )
+
+  const rss = generateRss(allDocs, 'docs.xml')
+  fs.writeFileSync('./public/docs.xml', rss)
+
   return {
     props: {
       doc,

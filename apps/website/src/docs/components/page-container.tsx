@@ -1,6 +1,14 @@
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import { Container, Badge, Box, chakra, Flex } from '@chakra-ui/react'
+import {
+  Container,
+  Badge,
+  Box,
+  chakra,
+  Flex,
+  Avatar,
+  Spacer,
+} from '@chakra-ui/react'
 import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 import EditPageLink from '@/docs/components/edit-page-button'
 import SEO from '@/components/seo'
@@ -8,6 +16,8 @@ import TableOfContent from '@/docs/components/table-of-content'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
 import PageTransition from './page-transition'
 import { t } from '@/docs/utils/i18n'
+
+import { formatRelative, subDays } from 'date-fns'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()
@@ -30,6 +40,13 @@ export interface Heading {
   id: string
 }
 
+interface Stats {
+  text: string
+  minutes: number
+  time: number
+  words: number
+}
+
 interface PageContainerProps {
   frontmatter: {
     slug?: string
@@ -38,6 +55,10 @@ interface PageContainerProps {
     editUrl?: string
     version?: string
     headings?: Heading[]
+    stats?: Stats
+    author?: string
+    avatar?: string
+    date?: Date
   }
   children: React.ReactNode
   sidebar?: any
@@ -50,7 +71,17 @@ function PageContainer(props: PageContainerProps) {
 
   if (!frontmatter) return <></>
 
-  const { title, description, editUrl, version, headings = [] } = frontmatter
+  const {
+    title,
+    description,
+    editUrl,
+    version,
+    headings = [],
+    stats,
+    author,
+    avatar,
+    date,
+  } = frontmatter
 
   return (
     <>
@@ -58,8 +89,6 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      {/* <AdBanner /> */}
-      {/* <Header /> */}
       <Container as="main" className="main-content" maxW="container.2xl">
         <Box display={{ md: 'flex' }}>
           {sidebar || null}
@@ -73,15 +102,46 @@ function PageContainer(props: PageContainerProps) {
                   px={{ base: '4', sm: '6', xl: '8' }}
                   pt="10"
                 >
-                  <PageTransition style={{ maxWidth: '48rem' }}>
+                  <PageTransition
+                    style={{
+                      maxWidth: '48rem',
+                      margin: sidebar ? '0' : '0 auto',
+                    }}
+                  >
                     <chakra.h1 tabIndex={-1} outline={0} apply="mdx.h1">
                       {convertBackticksToInlineCode(title)}
                     </chakra.h1>
-                    <chakra.p apply="mdx.description">{description}</chakra.p>
+                    {description && (
+                      <chakra.p apply="mdx.description">{description}</chakra.p>
+                    )}
                     {version && (
                       <Badge colorScheme="teal" letterSpacing="wider">
                         v{version}
                       </Badge>
+                    )}
+                    {(author || stats || date) && (
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        fontSize="sm"
+                        apply="mdx.description"
+                        mt="4"
+                      >
+                        {author && (
+                          <>
+                            <Avatar
+                              name={author}
+                              src={avatar}
+                              size="xs"
+                              me="2"
+                            />{' '}
+                            {author} /{' '}
+                          </>
+                        )}
+                        {date && formatRelative(new Date(date), new Date())}{' '}
+                        <Spacer />
+                        {stats.text}
+                      </Box>
                     )}
                     {children}
                     <Box mt="40px">

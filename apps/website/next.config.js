@@ -1,5 +1,6 @@
 const path = require('path')
 const { withContentlayer } = require('next-contentlayer')
+const webpack = require('webpack')
 
 let config = {
   swcMinify: false,
@@ -29,21 +30,45 @@ let config = {
 
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
-
-    config.module = {
-      ...config.module,
-      rules: [
-        ...config.module.rules,
+      use: [
         {
-          test: /\.(js|jsx|ts|tsx)$/,
-          include: [path.join(__dirname, '../../packages')],
-          exclude: /node_modules/,
-          use: defaultLoaders.babel,
+          loader: '@svgr/webpack',
+          options: {
+            svgoConfig: {
+              plugins: {
+                removeViewBox: false,
+              },
+            },
+          },
         },
       ],
+    })
+
+    config.resolve = {
+      ...config.resolve,
     }
+
+    // config.module = {
+    //   ...config.module,
+    //   rules: [
+    //     ...config.module.rules,
+    //     {
+    //       test: /\.(js|jsx|ts|tsx)$/,
+    //       include: [path.join(__dirname, '../../packages')],
+    //       exclude: /node_modules/,
+    //       use: defaultLoaders.babel,
+    //     },
+    //   ],
+    // }
+
+    config.plugins = config.plugins.concat([
+      new webpack.NormalModuleReplacementPlugin(
+        /\@saas-ui\/[a-z-]+$/,
+        (resource) => {
+          resource.request = resource.request + '/src'
+        }
+      ),
+    ])
 
     return config
   },

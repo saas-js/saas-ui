@@ -1,4 +1,4 @@
-const baseUrl = 'https://github.com/AppulseSoftware/saas-ui'
+const baseUrl = 'https://github.com/saas-js/saas-ui'
 
 const siteConfig = {
   copyright: `Copyright © ${new Date().getFullYear()} Appulse Software B.V. All Rights Reserved.`,

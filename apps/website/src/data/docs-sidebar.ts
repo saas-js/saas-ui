@@ -104,6 +104,24 @@ const sidebar = {
           ],
         },
         {
+          title: 'Web3',
+          path: '/docs/web3',
+          open: true,
+          sort: true,
+          routes: [
+            {
+              title: 'WalletModal',
+              // path: '/docs/navigation/wallet-modal',
+              soon: true,
+            },
+            {
+              title: 'Address',
+              // path: '/docs/navigation/hotkeys',
+              soon: true,
+            },
+          ],
+        },
+        {
           title: 'Forms',
           path: '/docs/form',
           sort: false,

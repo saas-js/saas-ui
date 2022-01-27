@@ -1,7 +1,7 @@
 import { SchemaOf, AnySchema, reach } from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { FieldProps } from '../Field'
+import { FieldProps } from '../field'
 
 export const resolver = yupResolver
 

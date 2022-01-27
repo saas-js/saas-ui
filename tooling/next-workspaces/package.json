@@ -7,7 +7,7 @@
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AppulseSoftware/saas-ui",
+    "url": "https://github.com/saas-js/saas-ui",
     "directory": "tooling/next-workspaces"
   },
   "keywords": [

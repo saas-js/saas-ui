@@ -1,6 +1,6 @@
 {
   "name": "palette-docs",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.10",
+    "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@saas-ui/palette": "workspace:*",

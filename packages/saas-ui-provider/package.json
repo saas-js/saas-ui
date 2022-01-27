@@ -31,7 +31,7 @@
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AppulseSoftware/saas-ui-pro",
+    "url": "https://github.com/saas-js/saas-ui-pro",
     "directory": "libs/provider"
   },
   "keywords": [

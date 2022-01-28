@@ -4456,12 +4456,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/functions@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "@netlify/functions@npm:0.10.0"
+"@netlify/functions@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@netlify/functions@npm:0.11.0"
   dependencies:
     is-promise: ^4.0.0
-  checksum: 9bfa6e4326e7af19ee22dfd38065d2734e08a00618603808ee6fa8e2f84ba342d42ffee8630af1611b40a27bb3e87c213183cfb24a4de871a3cab979d4b5211a
+  checksum: 87bb43fb5f5e893e3495842384086b2565f24c5872ae38f5afc4756314b2aa58cc937b442e51264cf2c17735700c53676e3ebc2861cdb9eec78a89ffa6cc3ef5
   languageName: node
   linkType: hard
 
@@ -4491,13 +4491,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/plugin-nextjs@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@netlify/plugin-nextjs@npm:4.0.0"
+"@netlify/plugin-nextjs@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@netlify/plugin-nextjs@npm:4.2.1"
   dependencies:
-    "@netlify/functions": ^0.10.0
+    "@netlify/functions": ^0.11.0
     "@netlify/ipx": ^0.0.8
-    "@vercel/node": ^1.11.2-canary.4
+    "@vercel/node-bridge": ^2.1.0
     chalk: ^4.1.2
     fs-extra: ^10.0.0
     globby: ^11.0.4
@@ -4511,7 +4511,7 @@ __metadata:
     semver: ^7.3.5
     slash: ^3.0.0
     tiny-glob: ^0.2.9
-  checksum: 37d7dcd0dce3c7e6f5db7c98ba42ed2df13519c4fb95e1bbc44369447e7c0658de5fef1b6751cf1bca346b175ec1379107aaf2d5df0fade974f2f44c38bb671d
+  checksum: 66edab3e0913ec07ce8f2e7adf9834bf1b83a33bfb92976dc2c47f204bb49ff5b7f3661b3ea6b6ebfee010c8380c7feec258a0f9a2e3e8c60acd4e12bd91fd32
   languageName: node
   linkType: hard
 
@@ -5167,6 +5167,8 @@ __metadata:
 "@saas-ui/data-list@workspace:packages/saas-ui-data-list":
   version: 0.0.0-use.local
   resolution: "@saas-ui/data-list@workspace:packages/saas-ui-data-list"
+  dependencies:
+    "@saas-ui/system": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -5235,6 +5237,7 @@ __metadata:
   resolution: "@saas-ui/menu@workspace:packages/saas-ui-menu"
   dependencies:
     "@saas-ui/button": "workspace:*"
+    "@saas-ui/provider": "workspace:*"
     "@saas-ui/system": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
@@ -7345,14 +7348,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/node@npm:^1.11.2-canary.4":
-  version: 1.12.1
-  resolution: "@vercel/node@npm:1.12.1"
-  dependencies:
-    "@types/node": "*"
-    ts-node: 8.9.1
-    typescript: 4.3.4
-  checksum: 15a0bae4af01e4eb96dfc4b097db70125a2945c606ab1290b4644484a242ddd262705bf4745cec016f2ca62649f8eb7079025f39027210d3aa0d7739d7509255
+"@vercel/node-bridge@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@vercel/node-bridge@npm:2.1.0"
+  checksum: 69434944de938f88b8e0e92ce1f2c5eeed138e9222297d523f42ea5de6f423d6ddf61a90063b731d523eaa505427153b67d0931ff8186225ef0c7f23c9f139f4
   languageName: node
   linkType: hard
 
@@ -7929,13 +7928,6 @@ __metadata:
     delegates: ^1.0.0
     readable-stream: ^2.0.6
   checksum: 70d251719c969b2745bfe5ddf3ebaefa846a636e90a6d5212573676af5d6670e15457761d4725731e19cbebdce42c4ab0cbedf23ab047f2a08274985aa10a3c7
-  languageName: node
-  linkType: hard
-
-"arg@npm:^4.1.0":
-  version: 4.1.3
-  resolution: "arg@npm:4.1.3"
-  checksum: 544af8dd3f60546d3e4aff084d451b96961d2267d668670199692f8d054f0415d86fc5497d0e641e91546f0aa920e7c29e5250e99fc89f5552a34b5d93b77f43
   languageName: node
   linkType: hard
 
@@ -10892,13 +10884,6 @@ __metadata:
   version: 27.4.0
   resolution: "diff-sequences@npm:27.4.0"
   checksum: 66d04033e8632eeacdd029b4ecaf87d233d475e4b0cd1cee035eda99e70e1a7f803507d72f2677990ef526f28a2f6e5709af8d94dcdc0682b8884a3a646190a1
-  languageName: node
-  linkType: hard
-
-"diff@npm:^4.0.1":
-  version: 4.0.2
-  resolution: "diff@npm:4.0.2"
-  checksum: f2c09b0ce4e6b301c221addd83bf3f454c0bc00caa3dd837cf6c127d6edf7223aa2bbe3b688feea110b7f262adbfc845b757c44c8a9f8c0c5b15d8fa9ce9d20d
   languageName: node
   linkType: hard
 
@@ -15744,13 +15729,6 @@ __metadata:
   dependencies:
     semver: ^6.0.0
   checksum: 484200020ab5a1fdf12f393fe5f385fc8e4378824c940fba1729dcd198ae4ff24867bc7a5646331e50cead8abff5d9270c456314386e629acec6dff4b8016b78
-  languageName: node
-  linkType: hard
-
-"make-error@npm:^1.1.1":
-  version: 1.3.6
-  resolution: "make-error@npm:1.3.6"
-  checksum: b86e5e0e25f7f777b77fabd8e2cbf15737972869d852a22b7e73c17623928fccb826d8e46b9951501d3f20e51ad74ba8c59ed584f610526a48f8ccf88aaec402
   languageName: node
   linkType: hard
 
@@ -20760,6 +20738,7 @@ __metadata:
     "@babel/preset-react": ^7.16.5
     "@babel/preset-typescript": ^7.16.5
     "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/react": ^1.8.1
     "@changesets/cli": ^2.19.0
     "@emotion/react": ^11
     "@emotion/styled": ^11
@@ -21379,7 +21358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.21, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
+"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.21, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -22568,26 +22547,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:8.9.1":
-  version: 8.9.1
-  resolution: "ts-node@npm:8.9.1"
-  dependencies:
-    arg: ^4.1.0
-    diff: ^4.0.1
-    make-error: ^1.1.1
-    source-map-support: ^0.5.17
-    yn: 3.1.1
-  peerDependencies:
-    typescript: ">=2.7"
-  bin:
-    ts-node: dist/bin.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: 59997e32cfb84323317f9fd33ff62d025b467ff36c296c3ad1ee54f08fd355c58fab37e096e2a63fd01fced929384b16b9d74bf324713a21844e527ddd5f6c17
-  languageName: node
-  linkType: hard
-
 "ts-pattern@npm:^3.3.3":
   version: 3.3.3
   resolution: "ts-pattern@npm:3.3.3"
@@ -22918,16 +22877,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.3.4":
-  version: 4.3.4
-  resolution: "typescript@npm:4.3.4"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 75e1f2769c7ff38c718523d05eaf1c2611dbf92c0ab0f85f603ead9bb23416af2009a5dac46e76ef6a207a8508fa53f51b43a41f2a91b1241b53cd744c16128c
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@*#~builtin<compat/typescript>, typescript@patch:typescript@4.5.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.1.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>":
   version: 4.5.4
   resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"
@@ -22935,16 +22884,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 2e488dde7d2c4a2fa2e79cf2470600f8ce81bc0563c276b72df8ff412d74456ae532ba824650ae936ce207440c79720ddcfaa25e3cb4477572b8534fa4e34d49
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@4.3.4#~builtin<compat/typescript>":
-  version: 4.3.4
-  resolution: "typescript@patch:typescript@npm%3A4.3.4#~builtin<compat/typescript>::version=4.3.4&hash=493e53"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 49f3e6734d6f27c1931d3a665439350d9015b28eee87ba26ebcae0ba35fc609962ad8eb0b09f0324366497d65260c4222b8735098325bba46d508b5cab7b4640
   languageName: node
   linkType: hard
 
@@ -23908,7 +23847,7 @@ __metadata:
     "@fontsource/inter": ^4.4.5
     "@mapbox/rehype-prism": ^0.7.0
     "@mdx-js/loader": ^1.6.22
-    "@netlify/plugin-nextjs": ^4.0.0
+    "@netlify/plugin-nextjs": ^4.2.1
     "@next/bundle-analyzer": ^12.0.7
     "@saas-ui/palette": "workspace:*"
     "@svgr/webpack": ^5.5.0
@@ -24297,13 +24236,6 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: b14afbb51e3251a204d81937c86a7e9d4bdbf9a2bcee38226c900d00f522969ab675703bee2a6f99f8e20103f608382936034e64d921b74df82b63c07c5e8f59
-  languageName: node
-  linkType: hard
-
-"yn@npm:3.1.1":
-  version: 3.1.1
-  resolution: "yn@npm:3.1.1"
-  checksum: 2c487b0e149e746ef48cda9f8bad10fc83693cd69d7f9dcd8be4214e985de33a29c9e24f3c0d6bcf2288427040a8947406ab27f7af67ee9456e6b84854f02dd6
   languageName: node
   linkType: hard
 

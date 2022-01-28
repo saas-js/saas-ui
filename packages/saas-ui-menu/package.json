@@ -53,8 +53,8 @@
   },
   "dependencies": {
     "@saas-ui/button": "workspace:*",
-    "@saas-ui/system": "workspace:*",
-    "@saas-ui/provider": "workspace:*"
+    "@saas-ui/provider": "workspace:*",
+    "@saas-ui/system": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",

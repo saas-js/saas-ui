@@ -4,6 +4,7 @@ import Card from './card'
 import Form from './form'
 import Heading from './heading'
 import Kbd from './kbd'
+import Link from './link'
 import Menu from './menu'
 import NProgress from './nprogress'
 import Progress from './progress'
@@ -16,6 +17,7 @@ export default {
   Card,
   Heading,
   Kbd,
+  Link,
   Menu,
   NProgress,
   Progress,

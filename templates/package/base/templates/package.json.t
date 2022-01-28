@@ -30,7 +30,7 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AppulseSoftware/saas-ui",
+    "url": "https://github.com/saas-js/saas-ui",
     "directory": "<%= h.packageDir(org, name) %>"
   },
   "keywords": [

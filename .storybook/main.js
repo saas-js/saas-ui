@@ -10,8 +10,37 @@ module.exports = {
     '@storybook/addon-toolbars',
     '@storybook/addon-storysource',
   ],
+  staticDirs: ['./static'],
   typescript: {
     reactDocgen: false,
+  },
+  refs: (config, { configType }) => {
+    const refs = {
+      '@chakra-ui/react': {
+        disable: true, // Make sure Chakra gets loaded last
+      },
+      chakra: {
+        title: 'Chakra UI',
+        url: 'https://storybook.chakra-ui.com',
+      },
+    }
+
+    if (configType === 'DEVELOPMENT') {
+      return {
+        '@saas-ui/pro': {
+          title: 'Saas UI Pro',
+          url: 'http://localhost:6007',
+        },
+        ...refs,
+      }
+    }
+    return {
+      '@saas-ui/pro': {
+        title: 'Saas UI Pro',
+        url: 'https://pro-storybook.saas-ui.dev',
+      },
+      ...refs,
+    }
   },
   webpackFinal: async (config) => {
     return {
@@ -26,7 +55,7 @@ module.exports = {
       },
       plugins: config.plugins.concat([
         new webpack.NormalModuleReplacementPlugin(
-          /\@saas-ui\/[a-z]+$/,
+          /\@saas-ui\/[a-z-]+$/,
           (resource) => {
             resource.request = resource.request + '/src/index'
           }

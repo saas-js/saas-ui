@@ -4,6 +4,8 @@ import {
   ChakraTheme,
 } from '@chakra-ui/react'
 
+import { baseTheme } from '../base/theme'
+
 import styles from './styles'
 import colors from './foundations/colors'
 import { fonts, fontSizes, textStyles } from './foundations/typography'
@@ -30,5 +32,6 @@ export const theme = extendTheme(
   withDefaultColorScheme({
     colorScheme: 'primary',
     components: ['Radio', 'Switch', 'Checkbox'],
-  })
+  }),
+  baseTheme
 ) as ChakraTheme

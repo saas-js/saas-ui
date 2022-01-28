@@ -31,20 +31,23 @@ export interface PresenceOptions {
 /**
  * Default presence values: online, offline, busy, dnd, away
  *
- * You can overwrite colors in the theme color tokens.
- * theme.colors.presence.online = 'cyan.500'
+ * You can overwrite colors in the theme semantic tokens.
+ * theme.semanticTokens.colors['presence.online'] = 'cyan.500'
  *
  * Or add a custom presence value
- * theme.colors.presence.vacay = 'blue.500'
+ * theme.semanticTokens.colors['presence.vacay'] = 'blue.500'
  */
 export const Presence: PresenceOptions = {
-  online: 'online',
-  offline: 'offline',
-  busy: 'busy',
-  dnd: 'dnd',
-  away: 'away',
+  online: 'presence.online',
+  offline: 'presence.offline',
+  busy: 'presence.busy',
+  dnd: 'presence.dnd',
+  away: 'presence.away',
 }
 
+/**
+ * Fallback when theme tokens aren't configured
+ */
 export const defaultPresenceTokens = {
   online: 'green.500',
   offline: 'gray.400',
@@ -145,8 +148,10 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     const theme = useTheme()
 
     const colors = theme.colors?.presence || defaultPresenceTokens
+    const semantic = theme.semanticTokens?.colors?.['presence.online']
 
     if (presence) {
+      const color = semantic ? `presence.${presence}` : colors[presence]
       if (isOutOfOffice) {
         badgeProps.sx = {
           _before: {
@@ -157,14 +162,14 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
             top: 0,
             left: 0,
             border: '0.2em solid',
-            borderColor: colors[presence],
+            borderColor: color,
             borderRadius: '50%',
           },
         }
         badgeProps.borderWidth = '0.15em'
         badgeProps.bg = useColorModeValue('white', 'gray.800')
       } else {
-        badgeProps.bg = colors[presence]
+        badgeProps.bg = color
       }
 
       badge = (

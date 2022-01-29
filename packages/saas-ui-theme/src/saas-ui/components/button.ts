@@ -17,14 +17,16 @@ type AccessibleColor = {
 const accessibleColorMap: { [key: string]: AccessibleColor } = {
   yellow: {
     bg: 'yellow.400',
+    hoverBg: 'yellow.500',
+    activeBg: 'yellow.600',
     color: 'black',
   },
 
-  pink: {
-    bg: 'pink.400',
+  cyan: {
+    bg: 'cyan.400',
     color: 'black',
-    hoverBg: 'pink.500',
-    activeBg: 'pink.600',
+    hoverBg: 'cyan.500',
+    activeBg: 'cyan.600',
   },
 }
 
@@ -51,7 +53,7 @@ const variantSolid: SystemStyleFunction = (props) => {
   const { base, hover, active } = getStateColors(props)
 
   const {
-    color = mode('black', 'white')(props),
+    color = c === 'gray' ? mode('black', 'white')(props) : 'white',
     bg = base,
     hoverBg = hover,
     activeBg = active,

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.2.1
+
+### Patch Changes
+
+- 9673005: Improved typescript support and fixed issue with invalid states
+
 ## 0.2.0
 
 ### Minor Changes

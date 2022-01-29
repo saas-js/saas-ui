@@ -1,5 +1,14 @@
 # @saas-ui/provider
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [7141944]
+- Updated dependencies [e448f31]
+- Updated dependencies [6c55bef]
+  - @saas-ui/theme@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

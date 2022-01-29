@@ -1,5 +1,13 @@
 # @saas-ui/theme
 
+## 0.2.1
+
+### Patch Changes
+
+- 7141944: Improve button color accesibility
+- e448f31: Saas UI theme now longer shows outlines when buttons/links are focused with a mouse click
+- 6c55bef: Now using semantic tokens for presence colors
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/persona
 
+## 0.3.1
+
+### Patch Changes
+
+- 6c55bef: Now using semantic tokens for presence colors
+
 ## 0.3.0
 
 ### Minor Changes

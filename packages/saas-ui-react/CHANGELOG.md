@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 0.2.1
+
+### Patch Changes
+
+- 7141944: Improve button color accesibility
+- e448f31: Saas UI theme now longer shows outlines when buttons/links are focused with a mouse click
+- 6c55bef: Now using semantic tokens for presence colors
+- 9673005: Improved typescript support and fixed issue with invalid states
+- Updated dependencies [7141944]
+- Updated dependencies [e448f31]
+- Updated dependencies [6c55bef]
+- Updated dependencies [9673005]
+  - @saas-ui/theme@0.2.1
+  - @saas-ui/persona@0.3.1
+  - @saas-ui/forms@0.2.1
+  - @saas-ui/provider@0.2.1
+  - @saas-ui/auth@0.2.1
+  - @saas-ui/menu@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

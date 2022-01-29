@@ -19,7 +19,6 @@ import Section from '@/components/marketing/section-wrapper'
 import Link from '@/components/link'
 
 const Post = (props) => {
-  console.log(props)
   const { title, description, slug, status } = props
 
   return (

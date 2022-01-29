@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { HStack, IconButton, Link } from '@chakra-ui/react'
-import { FaGithub } from 'react-icons/fa'
+import { FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { useRouter } from 'next/router'
 
@@ -50,6 +50,15 @@ const Header = () => {
           </NavLink>
         )
       })}
+
+      <IconButton
+        variant="ghost"
+        aria-label="twitter"
+        icon={<FaTwitter size="14" />}
+        borderRadius="md"
+        as={Link}
+        href="https://twitter.com/saas_js"
+      />
 
       <IconButton
         variant="ghost"

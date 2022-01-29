@@ -1,4 +1,3 @@
-import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
 import Layout from '@/components/layout'
 
@@ -16,7 +15,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   return (
     <SaasProvider theme={theme} cookies={pageProps.cookies}>
-      {/* <ChakraProvider theme={theme}> */}
       <Layout
         header={pageProps.header}
         footer={pageProps.footer !== false ? <Footer /> : null}
@@ -24,7 +22,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <NProgressNextRouter router={router} />
         <Component {...pageProps} />
       </Layout>
-      {/* </ChakraProvider> */}
     </SaasProvider>
   )
 }

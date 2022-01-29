@@ -1,5 +1,15 @@
 import * as React from 'react'
-import { useFormContext, FormState, Controller, get } from 'react-hook-form'
+import {
+  useFormContext,
+  FormState,
+  Controller,
+  get,
+  RegisterOptions,
+  FieldValues,
+  FieldName,
+  FieldPath,
+  FieldPathValue,
+} from 'react-hook-form'
 
 import {
   forwardRef,
@@ -22,11 +32,32 @@ import { RadioInput } from '@saas-ui/radio'
 import { PinInput } from '@saas-ui/pin-input'
 import { Select, NativeSelect } from '@saas-ui/select'
 
-export interface FieldProps extends Omit<FormControlProps, 'label'> {
+export type FieldRules = Pick<
+  RegisterOptions,
+  'required' | 'min' | 'max' | 'maxLength' | 'minLength' | 'pattern'
+>
+
+export type FieldTypes =
+  | 'text'
+  | 'number'
+  | 'password'
+  | 'textarea'
+  | 'select'
+  | 'native-select'
+  | 'checkbox'
+  | 'radio'
+  | 'switch'
+  | 'pin'
+  | string
+
+export interface FieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> extends Omit<FormControlProps, 'label' | 'type'> {
   /**
    * The field name
    */
-  name: string
+  name: TName
   /**
    * The field label
    */
@@ -42,7 +73,10 @@ export interface FieldProps extends Omit<FormControlProps, 'label'> {
   /**
    * React hook form rules
    */
-  rules?: any
+  rules?: Omit<
+    RegisterOptions<TFieldValues, TName>,
+    'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+  >
   /**
    * Options used for selects and radio fields
    */
@@ -55,7 +89,7 @@ export interface FieldProps extends Omit<FormControlProps, 'label'> {
    * - password
    * - textarea
    * - select
-   * - nativeselect
+   * - native-select
    * - checkbox
    * - radio
    * - switch
@@ -64,14 +98,14 @@ export interface FieldProps extends Omit<FormControlProps, 'label'> {
    * Will default to a text field if there is no matching type.
    * @default 'text'
    */
-  type?: string
+  type?: FieldTypes
   /**
    * The input placeholder
    */
   placeholder?: string
 }
 
-const inputTypes: Record<string, any> = {}
+const inputTypes: Record<FieldTypes, any> = {}
 
 const defaultInputType = 'text'
 
@@ -99,7 +133,7 @@ export const BaseField: React.FC<FieldProps> = (props) => {
   const error = getError(name, formState)
 
   return (
-    <FormControl isInvalid={!!error} variant={variant} {...controlProps}>
+    <FormControl variant={variant} {...controlProps} isInvalid={!!error}>
       {label && !hideLabel ? (
         <FormLabel variant={variant}>{label}</FormLabel>
       ) : null}
@@ -137,6 +171,7 @@ const createField = (
 ) => {
   const Field = forwardRef<FieldProps, typeof FormControl>((props, ref) => {
     const {
+      name,
       label,
       isDisabled,
       isInvalid,
@@ -148,6 +183,7 @@ const createField = (
 
     return (
       <BaseField
+        name={name}
         label={label}
         hideLabel={hideLabel}
         isDisabled={isDisabled}
@@ -156,7 +192,7 @@ const createField = (
         isRequired={isRequired}
         variant={variant}
       >
-        <InputComponent ref={ref} label={label} {...inputProps} />
+        <InputComponent ref={ref} name={name} label={label} {...inputProps} />
       </BaseField>
     )
   })
@@ -166,40 +202,44 @@ const createField = (
 }
 
 export const withControlledInput = (InputComponent: any) => {
-  return forwardRef(({ name, rules, ...inputProps }, ref) => {
-    const { control } = useFormContext()
+  return forwardRef<FieldProps, typeof InputComponent>(
+    ({ name, rules, ...inputProps }, ref) => {
+      const { control } = useFormContext()
 
-    return (
-      <Controller
-        name={name}
-        control={control}
-        rules={rules}
-        render={({ field: { ref: _ref, ...field } }) => (
-          <InputComponent
-            {...field}
-            {...inputProps}
-            ref={useMergeRefs(ref, _ref)}
-          />
-        )}
-      />
-    )
-  })
+      return (
+        <Controller
+          name={name}
+          control={control}
+          rules={rules}
+          render={({ field: { ref: _ref, ...field } }) => (
+            <InputComponent
+              {...field}
+              {...inputProps}
+              ref={useMergeRefs(ref, _ref)}
+            />
+          )}
+        />
+      )
+    }
+  )
 }
 
 export const withUncontrolledInput = (InputComponent: any) => {
-  return forwardRef(({ name, rules, ...inputProps }, ref) => {
-    const { register } = useFormContext()
+  return forwardRef<FieldProps, typeof InputComponent>(
+    ({ name, rules, ...inputProps }, ref) => {
+      const { register } = useFormContext()
 
-    const { ref: _ref, ...field } = register(name, rules)
+      const { ref: _ref, ...field } = register(name, rules)
 
-    return (
-      <InputComponent
-        {...field}
-        {...inputProps}
-        ref={useMergeRefs(ref, _ref)}
-      />
-    )
-  })
+      return (
+        <InputComponent
+          {...field}
+          {...inputProps}
+          ref={useMergeRefs(ref, _ref)}
+        />
+      )
+    }
+  )
 }
 
 export interface RegisterFieldTypeOptions {
@@ -218,7 +258,7 @@ export interface RegisterFieldTypeOptions {
  */
 export const registerFieldType = (
   type: string,
-  component: any,
+  component: React.FC<any>,
   options?: RegisterFieldTypeOptions
 ) => {
   let InputComponent

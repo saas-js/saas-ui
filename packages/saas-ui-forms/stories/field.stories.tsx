@@ -71,6 +71,42 @@ export const basic = () => (
   </Form>
 )
 
+type FormInputs = {
+  text: string
+  pattern: string
+}
+
+export const rules = () => {
+  return (
+    <Form<FormInputs>
+      defaultValues={{
+        text: '',
+        pattern: '',
+      }}
+      onSubmit={handleSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="text"
+          label="Text"
+          rules={{ required: 'Text is required' }}
+        />
+        <Field
+          name="pattern"
+          label="Pattern"
+          rules={{
+            pattern: {
+              value: /@/,
+              message: 'Should include a @',
+            },
+          }}
+        />
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
 export const noLabel = () => {
   return (
     <Form
@@ -78,6 +114,7 @@ export const noLabel = () => {
         text: '',
       }}
       onSubmit={handleSubmit}
+      onError={(err) => console.error(err)}
     >
       <FormLayout>
         <Field name="text" placeholder="Placeholder" />

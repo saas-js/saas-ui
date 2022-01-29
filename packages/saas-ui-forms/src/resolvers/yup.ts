@@ -1,9 +1,7 @@
 import { SchemaOf, AnySchema, reach } from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
+export { yupResolver } from '@hookform/resolvers/yup'
 
 import { FieldProps } from '../field'
-
-export const resolver = yupResolver
 
 // @TODO get proper typings for the schema fields
 

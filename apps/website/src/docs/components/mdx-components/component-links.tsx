@@ -51,7 +51,7 @@ function ComponentLink(props: ComponentLinkProps) {
 }
 
 export type ComponentLinksProps = {
-  theme?: { componentName: string }
+  theme?: { componentName: string; theme?: string }
   github?: { url?: string; package?: string }
   npm?: { package: string }
   storybook?: { url: string }
@@ -120,7 +120,9 @@ function ComponentLinks(props: ComponentLinksProps) {
   const themeComponentLink = theme && (
     <WrapItem>
       <ComponentLink
-        url={`${githubRepoUrl}/tree/master/packages/theme/src/components/${theme.componentName}.ts`}
+        url={`${githubRepoUrl}/tree/main/packages/saas-ui-theme/src/${
+          theme.theme || 'base'
+        }/components/${theme.componentName}.ts`}
         icon={FaGithub}
         iconColor={iconColor}
         iconSize="1rem"

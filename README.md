@@ -22,6 +22,29 @@ You can find the documentation on our website:
 
 https://www.saas-ui.dev/docs/introduction
 
+## Roadmap
+
+Saas UI core is currently is beta, the first release candidate as well as Saas UI Pro is expected in Q1 2022.
+
+### Core
+- [ ] Finish all v1 core components and hooks
+- [ ] Full test coverage
+
+### Pro
+- [ ] Example Saas metrics dashboard app (NextJS)
+- [ ] RedwoodJS app
+- [ ] Electron app
+- [ ] User profiles
+- [ ] Example pages (Todo, inbox, etc)
+- [ ] Settings pages
+- [ ] Feature flags
+- [ ] Onboarding flows
+- [ ] Upselling flows (Trials, upgrades, etc)
+- [ ] Billing/subscription management
+- [ ] CRUD scaffolds
+- [ ] Saas UI themes
+- [ ] File uploads
+ 
 ## Features
 
 ### Core

@@ -4,8 +4,13 @@
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.cjs",
-    "default": "./dist/index.esm.js"
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",

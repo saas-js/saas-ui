@@ -29,7 +29,7 @@ interface ModalOptions
     },
     'onClose' | 'isOpen' | 'children'
   > {
-  onClose?: () => void
+  onClose?: (args: { force?: boolean }) => Promise<boolean | undefined> | void
   children?: React.ReactNode
 }
 
@@ -170,11 +170,18 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     })
   }
 
-  const close = (id?: ModalId | null) => {
+  const close = async (id?: ModalId | null, force?: boolean) => {
     const modals = [..._instances]
     const modal = modals.filter((modal) => modal.id === id)[0]
 
-    modal.props?.onClose?.()
+    if (!modal) {
+      return
+    }
+
+    const shouldClose = await modal.props?.onClose?.({ force })
+    if (shouldClose === false) {
+      return
+    }
 
     _instances.delete(modal)
 
@@ -191,7 +198,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   }
 
   const closeAll = () => {
-    _instances.forEach((modal) => modal.props?.onClose?.())
+    _instances.forEach((modal) => modal.props?.onClose?.({ force: true }))
     _instances.clear()
 
     setActiveModal(initialModalState)

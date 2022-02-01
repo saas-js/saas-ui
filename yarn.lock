@@ -5247,6 +5247,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/modals@workspace:packages/saas-ui-modals":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/modals@workspace:packages/saas-ui-modals"
+  dependencies:
+    "@saas-ui/button": "workspace:*"
+  peerDependencies:
+    "@chakra-ui/react": ">=1.8.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui/next-workspaces@workspace:tooling/next-workspaces":
   version: 0.0.0-use.local
   resolution: "@saas-ui/next-workspaces@workspace:tooling/next-workspaces"
@@ -5445,6 +5456,15 @@ __metadata:
     "@saas-ui/system": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/web3@workspace:packages/saas-ui-web3":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/web3@workspace:packages/saas-ui-web3"
+  peerDependencies:
+    "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -6968,13 +6988,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:17.0.5":
-  version: 17.0.5
-  resolution: "@types/node@npm:17.0.5"
-  checksum: 105535e78722515c26cfdc1b0cbf1b19f55fe53b814e2e90d8b1e653bc63136d4760c7efc102eca111c6d124a291e37d60d761d569a3f4afb3fba05bad5d9ade
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0":
   version: 16.11.13
   resolution: "@types/node@npm:16.11.13"
@@ -7092,17 +7105,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: e68b0d59aa69577fc6a6d654b25d5d8408625498f4c483f160b557fac21e840f6e8807cbde93e9f039949b6d624a019b1990d18499c1d65aecf3605c25e30242
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:17.0.38":
-  version: 17.0.38
-  resolution: "@types/react@npm:17.0.38"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 4079f4f959cd4a4bfaeda8b89fe8a1b1f8bdc9d87acfdc5f74a0b39cec9ec6a470724357c62778c0f063180b360c250e920c5a142f1dbcda67d9cc25a6d43a85
   languageName: node
   linkType: hard
 
@@ -10510,26 +10512,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dashboard@workspace:apps/dashboard":
-  version: 0.0.0-use.local
-  resolution: "dashboard@workspace:apps/dashboard"
-  dependencies:
-    "@chakra-ui/react": ^1.8.1
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
-    "@saas-ui/persona": "workspace:*"
-    "@types/node": 17.0.5
-    "@types/react": 17.0.38
-    eslint: 8.5.0
-    eslint-config-next: 12.0.7
-    framer-motion: ^5
-    next: 12.0.7
-    react: 17.0.2
-    react-dom: 17.0.2
-    typescript: 4.5.4
-  languageName: unknown
-  linkType: soft
-
 "data-uri-to-buffer@npm:3.0.1":
   version: 3.0.1
   resolution: "data-uri-to-buffer@npm:3.0.1"
@@ -11661,7 +11643,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:12.0.7, eslint-config-next@npm:^12.0.7":
+"eslint-config-next@npm:^12.0.7":
   version: 12.0.7
   resolution: "eslint-config-next@npm:12.0.7"
   dependencies:
@@ -11866,7 +11848,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.5.0, eslint@npm:^8.5.0":
+"eslint@npm:^8.5.0":
   version: 8.5.0
   resolution: "eslint@npm:8.5.0"
   dependencies:
@@ -12704,7 +12686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:*, framer-motion@npm:^5":
+"framer-motion@npm:*":
   version: 5.5.5
   resolution: "framer-motion@npm:5.5.5"
   dependencies:
@@ -17240,7 +17222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:12.0.7, next@npm:^12.0.7":
+"next@npm:^12.0.7":
   version: 12.0.7
   resolution: "next@npm:12.0.7"
   dependencies:
@@ -19958,7 +19940,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*, react@npm:17.0.2, react@npm:^17.0.2":
+"react@npm:*, react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -22867,7 +22849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:*, typescript@npm:4.5.4, typescript@npm:^4.1.3, typescript@npm:^4.4.4, typescript@npm:^4.5.4":
+"typescript@npm:*, typescript@npm:^4.1.3, typescript@npm:^4.4.4, typescript@npm:^4.5.4":
   version: 4.5.4
   resolution: "typescript@npm:4.5.4"
   bin:
@@ -22877,7 +22859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@*#~builtin<compat/typescript>, typescript@patch:typescript@4.5.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.1.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@*#~builtin<compat/typescript>, typescript@patch:typescript@^4.1.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>":
   version: 4.5.4
   resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"
   bin:

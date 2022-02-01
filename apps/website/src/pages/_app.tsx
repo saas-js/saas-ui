@@ -5,7 +5,7 @@ import '@fontsource/inter/variable.css'
 
 import theme from '../styles/theme'
 
-import { SaasProvider } from '@saas-ui/react'
+import { SaasProvider, ModalsProvider } from '@saas-ui/react'
 import { NProgressNextRouter } from '@saas-ui/nprogress'
 
 import Footer from '@/components/footer'
@@ -15,13 +15,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   return (
     <SaasProvider theme={theme} cookies={pageProps.cookies}>
-      <Layout
-        header={pageProps.header}
-        footer={pageProps.footer !== false ? <Footer /> : null}
-      >
-        <NProgressNextRouter router={router} />
-        <Component {...pageProps} />
-      </Layout>
+      <ModalsProvider>
+        <Layout
+          header={pageProps.header}
+          footer={pageProps.footer !== false ? <Footer /> : null}
+        >
+          <NProgressNextRouter router={router} />
+          <Component {...pageProps} />
+        </Layout>
+      </ModalsProvider>
     </SaasProvider>
   )
 }

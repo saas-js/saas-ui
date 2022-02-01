@@ -302,15 +302,19 @@ const sidebar = {
           title: 'Overlay',
           path: '/docs/overlay',
           open: true,
-          sort: true,
+          sort: false,
           routes: [
             {
-              title: 'Confirm Dialog',
+              title: 'Modals manager',
+              path: '/docs/overlay/modals-manager',
+            },
+            {
+              title: 'ModalForm',
               // path: '/docs/overlay/confirm-dialog',
               soon: true,
             },
             {
-              title: 'ModalForm',
+              title: 'ModalMenu',
               // path: '/docs/overlay/confirm-dialog',
               soon: true,
             },

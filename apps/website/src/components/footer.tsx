@@ -12,7 +12,10 @@ const CustomFooter = () => {
         </Copyright>
       </Box>
       <HStack justify="flex-end" spacing="4">
+        <FooterLink href="/blog">Blog</FooterLink>
         <FooterLink href="mailto:hello@saas-ui.dev">Contact</FooterLink>
+        <FooterLink href="/license">License</FooterLink>
+        <FooterLink href="/terms">Terms</FooterLink>
         <FooterLink href="/privacy">Privacy</FooterLink>
       </HStack>
     </Footer>

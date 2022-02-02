@@ -29,13 +29,14 @@ const Logo = ({ href = '/', onClick }: LogoProps) => {
   }
 
   return (
-    <Flex h="8">
+    <Flex h="8" alignItems="flex-start">
       <AccessibleLink
         href={href}
         display="flex"
         p="1"
         borderRadius="sm"
         onClick={onClick}
+        height="32px"
       >
         {logo}
         <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>

@@ -33,7 +33,7 @@ const Header = () => {
   }, [mobileNav.isOpen])
 
   return (
-    <HStack spacing="2">
+    <HStack spacing="2" flexShrink={0}>
       {headerNav.map(({ href, id, title, ...props }, i) => {
         return (
           <NavLink

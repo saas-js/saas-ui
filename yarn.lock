@@ -5247,7 +5247,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/modals@workspace:packages/saas-ui-modals":
+"@saas-ui/modals@workspace:*, @saas-ui/modals@workspace:packages/saas-ui-modals":
   version: 0.0.0-use.local
   resolution: "@saas-ui/modals@workspace:packages/saas-ui-modals"
   dependencies:
@@ -5378,6 +5378,7 @@ __metadata:
     "@saas-ui/hotkeys": "workspace:*"
     "@saas-ui/input-right-button": "workspace:*"
     "@saas-ui/menu": "workspace:*"
+    "@saas-ui/modals": "workspace:*"
     "@saas-ui/nprogress": "workspace:*"
     "@saas-ui/number-input": "workspace:*"
     "@saas-ui/palette": "workspace:*"
@@ -19212,6 +19213,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prop-types@npm:^15.0.0, prop-types@npm:^15.8.1":
+  version: 15.8.1
+  resolution: "prop-types@npm:15.8.1"
+  dependencies:
+    loose-envify: ^1.4.0
+    object-assign: ^4.1.1
+    react-is: ^16.13.1
+  checksum: c056d3f1c057cb7ff8344c645450e14f088a915d078dcda795041765047fa080d38e5d626560ccaac94a4e16e3aa15f3557c1a9a8d1174530955e992c675e459
+  languageName: node
+  linkType: hard
+
 "prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
@@ -19220,17 +19232,6 @@ __metadata:
     object-assign: ^4.1.1
     react-is: ^16.8.1
   checksum: 5eef82fdda64252c7e75aa5c8cc28a24bbdece0f540adb60ce67c205cf978a5bd56b83e4f269f91c6e4dcfd80b36f2a2dec24d362e278913db2086ca9c6f9430
-  languageName: node
-  linkType: hard
-
-"prop-types@npm:^15.8.1":
-  version: 15.8.1
-  resolution: "prop-types@npm:15.8.1"
-  dependencies:
-    loose-envify: ^1.4.0
-    object-assign: ^4.1.1
-    react-is: ^16.13.1
-  checksum: c056d3f1c057cb7ff8344c645450e14f088a915d078dcda795041765047fa080d38e5d626560ccaac94a4e16e3aa15f3557c1a9a8d1174530955e992c675e459
   languageName: node
   linkType: hard
 
@@ -19709,7 +19710,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:17.0.2, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
+"react-is@npm:17.0.2, react-is@npm:^17.0.0, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
@@ -19736,6 +19737,31 @@ __metadata:
     react-simple-code-editor: ^0.11.0
     unescape: ^1.0.1
   checksum: f85fe4df12ee89aa3f6cb664507faed53b31825376b6ce4f299cb7c0e977962078e13d181ae5639eee87b70b1d1c9e1c4e4b822a32cd0b8b08982a6fdc37e53a
+  languageName: node
+  linkType: hard
+
+"react-markdown@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "react-markdown@npm:8.0.0"
+  dependencies:
+    "@types/hast": ^2.0.0
+    "@types/unist": ^2.0.0
+    comma-separated-tokens: ^2.0.0
+    hast-util-whitespace: ^2.0.0
+    prop-types: ^15.0.0
+    property-information: ^6.0.0
+    react-is: ^17.0.0
+    remark-parse: ^10.0.0
+    remark-rehype: ^10.0.0
+    space-separated-tokens: ^2.0.0
+    style-to-object: ^0.3.0
+    unified: ^10.0.0
+    unist-util-visit: ^4.0.0
+    vfile: ^5.0.0
+  peerDependencies:
+    "@types/react": ">=16"
+    react: ">=16"
+  checksum: 61412ecd18443e6f074932d7f2b142d20fc27d1c2042793fce65c28d2d18968419e85700b8f4a3c5f1819d8ac95cca1ee2959b8ca3c18dd8544130fdc1f28bdb
   languageName: node
   linkType: hard
 
@@ -20330,7 +20356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-rehype@npm:^10.0.1":
+"remark-rehype@npm:^10.0.0, remark-rehype@npm:^10.0.1":
   version: 10.1.0
   resolution: "remark-rehype@npm:10.1.0"
   dependencies:
@@ -23853,6 +23879,7 @@ __metadata:
     react-icons: ^4.2.0
     react-intersection-observer: ^8.32.0
     react-live: ^2.3.0
+    react-markdown: ^8.0.0
     react-transition-group: ^4.4.2
     reading-time: ^1.5.0
     remark-code-titles: ^0.1.2

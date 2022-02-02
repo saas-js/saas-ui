@@ -60,6 +60,7 @@
     "@saas-ui/hotkeys": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
     "@saas-ui/menu": "workspace:*",
+    "@saas-ui/modals": "workspace:*",
     "@saas-ui/nprogress": "workspace:*",
     "@saas-ui/number-input": "workspace:*",
     "@saas-ui/palette": "workspace:*",

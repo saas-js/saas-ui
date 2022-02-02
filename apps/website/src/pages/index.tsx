@@ -442,7 +442,7 @@ const RequestAccess = () => {
           description={
             <>
               <p>
-                Saas UI is currently in private beta, be the first to try it
+                Saas UI Pro is currently in private beta, be the first to try it
                 out.
               </p>
             </>
@@ -542,9 +542,9 @@ const Pricing = () => {
                     fontSize="sm"
                     color="gray.400"
                   >
-                    €599,-
+                    €799,-
                   </Text>
-                  <Text>€299,-</Text>
+                  <Text>€399,-</Text>
                 </HStack>
               }
               description="Extended license for growing teams."

@@ -211,6 +211,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/blog//docs/overlay/modals-manager</guid>
+    <title>Modals manager</title>
+    <link>https://saas-ui.dev/blog//docs/overlay/modals-manager</link>
+    <description>undefined</description>
+    <pubDate>Invalid Date</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    undefined
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/blog//docs/principles</guid>
     <title>Design Principles</title>
     <link>https://saas-ui.dev/blog//docs/principles</link>
@@ -284,16 +294,6 @@
     <guid>https://saas-ui.dev/blog//docs/typography/text</guid>
     <title>Text</title>
     <link>https://saas-ui.dev/blog//docs/typography/text</link>
-    <description>undefined</description>
-    <pubDate>Invalid Date</pubDate>
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    undefined
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/blog//docs/overlay/modals-manager</guid>
-    <title>Modals manager</title>
-    <link>https://saas-ui.dev/blog//docs/overlay/modals-manager</link>
     <description>undefined</description>
     <pubDate>Invalid Date</pubDate>
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>

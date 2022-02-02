@@ -5461,15 +5461,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/web3@workspace:packages/saas-ui-web3":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/web3@workspace:packages/saas-ui-web3"
-  peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
-    react: ">=16.8.6"
-  languageName: unknown
-  linkType: soft
-
 "@sindresorhus/is@npm:^4.0.0":
   version: 4.2.0
   resolution: "@sindresorhus/is@npm:4.2.0"

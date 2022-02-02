@@ -346,9 +346,9 @@ const Home = () => {
             m="0 auto"
             mt="10"
           >
-            Technologies included: RedwoodJS, Next.js, Electron, React, Chakra
-            UI, Typescript, Styled Components, Emotion, React Hook Form,
-            Turborepo, Prettier, Storybook, Jest, Testing Library and more...
+            Technologies included: Next.js, Electron, React, Chakra UI,
+            Typescript, Styled Components, Emotion, React Hook Form, Turborepo,
+            Prettier, Storybook, Jest, Testing Library and more...
           </Text>
         </Section>
 
@@ -366,10 +366,10 @@ const Home = () => {
               question="How many products can I use Saas UI for?"
               answer={
                 <>
-                  The standard license can be used for one commercial
-                  application or SaaS product and unlimited internal tools. You
-                  can buy as many licenses are you need. <br /> The extended
-                  license does not have any restrictions.
+                  The single license can be used for one commercial application
+                  or SaaS product and unlimited internal tools. You can buy as
+                  many licenses are you need. <br /> The unlimited license does
+                  not have any restrictions.
                 </>
               }
             />
@@ -481,15 +481,16 @@ const Pricing = () => {
           <SimpleGrid columns={[1, null, 3]} spacing={4}>
             <PricingBox
               title="Open Source"
-              description="Basic components, perfect for personal projects."
+              description="Basic components, perfect to get started."
               price="Free"
             >
               <PricingFeatures>
                 <PricingFeature title="MIT License" />
                 <PricingFeature title="Authentication (supabase/passport.js)" />
                 <PricingFeature title="Forms (react-hook-form)" />
+                <PricingFeature title="Modals manager" />
                 <PricingFeature title="Hotkeys" />
-                <PricingFeature title="Cards" />
+                <PricingFeature title="Web3 components" />
                 <Text fontSize="sm">And much more...</Text>
               </PricingFeatures>
               <ButtonLink href="/docs/introduction" variant="outline" mt="10">
@@ -510,7 +511,7 @@ const Pricing = () => {
                   <Text>€99,-</Text>
                 </HStack>
               }
-              description="Complete frontend stack for bootstrappers."
+              description="Complete frontend stack for bootstrappers and small teams."
               borderColor="primary.500"
               boxShadow="md"
             >
@@ -547,7 +548,7 @@ const Pricing = () => {
                   <Text>€399,-</Text>
                 </HStack>
               }
-              description="Extended license for growing teams."
+              description="Unlimited license for growing teams."
             >
               <PricingFeatures>
                 <PricingFeature title="Unlimited projects" />

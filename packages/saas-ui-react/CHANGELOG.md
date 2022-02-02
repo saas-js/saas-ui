@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 0.3.0
+
+### Minor Changes
+
+- Initial release of modals manager
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/modals@0.1.0
+
 ## 0.2.1
 
 ### Patch Changes

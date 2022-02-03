@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.4.1
+
+### Patch Changes
+
+- Fix modals build script
+- Updated dependencies
+  - @saas-ui/modals@0.1.1
+
 ## 0.4.0
 
 ### Minor Changes

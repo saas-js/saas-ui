@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.3.0
+
+### Minor Changes
+
+- Release list component
+
 ## 0.2.1
 
 ### Patch Changes

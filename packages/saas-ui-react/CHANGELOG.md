@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 0.4.0
+
+### Minor Changes
+
+- Release list component
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/list@0.3.0
+  - @saas-ui/theme@0.3.0
+  - @saas-ui/provider@0.2.2
+  - @saas-ui/menu@0.2.2
+
 ## 0.3.0
 
 ### Minor Changes

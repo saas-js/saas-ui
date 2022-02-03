@@ -1,5 +1,11 @@
 # @saas-ui/data-list
 
+## 0.3.0
+
+### Minor Changes
+
+- Release list component
+
 ## 0.2.0
 
 ### Minor Changes

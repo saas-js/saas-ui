@@ -11,6 +11,16 @@
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
+    <guid>https://saas-ui.dev/blog//docs/data-display/list</guid>
+    <title>List</title>
+    <link>https://saas-ui.dev/blog//docs/data-display/list</link>
+    <description>undefined</description>
+    <pubDate>Invalid Date</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    undefined
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/blog//docs/data-display/persona</guid>
     <title>Persona</title>
     <link>https://saas-ui.dev/blog//docs/data-display/persona</link>

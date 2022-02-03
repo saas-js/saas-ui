@@ -169,7 +169,7 @@ const sidebar = {
               path: '/docs/forms/search-input',
             },
             {
-              title: 'ChipSelect',
+              title: 'Chips',
               soon: true,
             },
             {
@@ -201,9 +201,8 @@ const sidebar = {
               soon: true,
             },
             {
-              title: 'DataList',
-              // path: '/docs/data-display/data-list',
-              soon: true,
+              title: 'List',
+              path: '/docs/data-display/list',
             },
             {
               title: 'Property',

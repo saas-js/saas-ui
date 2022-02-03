@@ -7,31 +7,13 @@ import * as Yup from 'yup'
 // import * as FormHooks from 'react-hook-form'
 
 import FocusLock from 'react-focus-lock'
-import {
-  MdSettings,
-  MdReceipt,
-  MdGroupWork,
-  MdCheckCircle,
-  MdGraphicEq,
-  MdBuild,
-  MdCall,
-  MdPhone,
-  MdArrowDropDown,
-} from 'react-icons/md'
-import { AiOutlineUser } from 'react-icons/ai'
+import { FiHome, FiInbox } from 'react-icons/fi'
+
 import { FaFacebook, FaTwitter, FaGithub, FaSlack } from 'react-icons/fa'
 
 const reactIcons = {
-  MdSettings,
-  MdReceipt,
-  MdGroupWork,
-  MdCheckCircle,
-  MdGraphicEq,
-  MdBuild,
-  MdCall,
-  MdPhone,
-  MdArrowDropDown,
-  AiOutlineUser,
+  FiHome,
+  FiInbox,
   FaFacebook,
   FaTwitter,
   FaGithub,

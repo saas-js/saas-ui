@@ -1,11 +1,11 @@
-# @saas-ui/list 
+# @saas-ui/list
 
 Description
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/list 
+$ yarn add @saas-ui/list
 
 #or
 

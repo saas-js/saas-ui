@@ -1,0 +1,154 @@
+---
+title: List
+description: A component used to display collections of data in a consistent manner.
+---
+
+A `List` can be used to list more complex types of data than the standard Chakra UI List component.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-list' }}
+  npm={{ package: '@saas-ui/list' }}
+/>
+
+## Import
+
+- `List`: The wrapper component that handles default composition.
+- `ListHeader`: A title to indicate a group of items.
+- `ListItem`: The list item container.
+- `ListItemIcon`: The list item icon.
+- `ListItemButton`: Component used for clickable items.
+- `ListItemLabel`: Component that displays the item primary and secondary text.
+- `ListItemTertiary`: Extra data displayed next to the item label.
+- `ListItemAction`: The secondary item action.
+
+```ts
+import {
+  List,
+  ListHeader,
+  ListItem,
+  ListItemIcon,
+  ListItemButton,
+  ListItemLabel,
+  ListItemTertiary,
+  ListItemAction,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic List
+
+```jsx
+<List
+  items={[
+    {
+      primary: 'Elliot Alderson',
+      secondary: 'Hacker',
+      tertiary: <Tag>admin</Tag>,
+    },
+    {
+      primary: 'Martin Wallström',
+      secondary: 'CEO',
+      tertiary: <Tag>owner</Tag>,
+    },
+  ]}
+/>
+```
+
+### Clickable with action
+
+```jsx
+<List
+  items={[
+    {
+      href: '#',
+      icon: <Avatar name="Elliot Alderson" size="sm" />,
+      primary: 'Elliot Alderson',
+      secondary: 'Hacker',
+      tertiary: <Tag>admin</Tag>,
+      action: <IconButton icon={<SettingsIcon />} />,
+    },
+    {
+      href: '#',
+      icon: <Avatar name="Martin Wallström" size="sm" />,
+      primary: 'Martin Wallström',
+      secondary: 'CEO',
+      tertiary: <Tag>owner</Tag>,
+      action: <IconButton icon={<SettingsIcon />} />,
+    },
+  ]}
+/>
+```
+
+### Composed
+
+```jsx
+<Card width="100%" maxW="320px">
+  <Box as="nav">
+    <List>
+      <ListItem as="a" href="#home">
+        <ListItemIcon as={FiHome} />
+        <ListItemLabel primary="Home" />
+      </ListItem>
+      <ListItem as="a" href="#inbox">
+        <ListItemIcon as={FiInbox} />
+        <ListItemLabel primary="Inbox" />
+        <ListItemTertiary>
+          <Badge borderRadius="full">20</Badge>
+        </ListItemTertiary>
+      </ListItem>
+    </List>
+  </Box>
+  <Divider />
+  <Box as="nav">
+    <List>
+      <ListItem as="a" href="#spam">
+        <ListItemLabel>Spam</ListItemLabel>
+      </ListItem>
+      <ListItem as="a" href="#trash">
+        <ListItemLabel>Trash</ListItemLabel>
+      </ListItem>
+    </List>
+  </Box>
+</Card>
+```
+
+### Nested
+
+```jsx
+function NestedNav() {
+  const { isOpen, getToggleProps, getCollapseProps } = useCollapse()
+  return (
+    <Card width="100%" maxW="320px">
+      <Box as="nav">
+        <List>
+          <ListItem as="a" href="#home">
+            <ListItemIcon as={FiHome} />
+            <ListItemLabel primary="Home" />
+          </ListItem>
+          <ListItem as="a" href="#inbox" {...getToggleProps()}>
+            <ListItemIcon as={FiInbox} />
+            <ListItemLabel primary="Inbox" />
+            <ListItemTertiary>
+              <Badge borderRadius="full">20</Badge>
+              {isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
+            </ListItemTertiary>
+          </ListItem>
+          <Collapse {...getCollapseProps()}>
+            <List>
+              <ListItem as="a" href="#spam">
+                <ListItemLabel ps={12}>Spam</ListItemLabel>
+              </ListItem>
+              <ListItem as="a" href="#trash">
+                <ListItemLabel ps={12}>Trash</ListItemLabel>
+              </ListItem>
+            </List>
+          </Collapse>
+        </List>
+      </Box>
+    </Card>
+  )
+}
+```
+
+### List Props

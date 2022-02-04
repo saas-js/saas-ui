@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { Stack, Container } from '@chakra-ui/react'
+import { Stack, Container, MenuItem } from '@chakra-ui/react'
 import { ModalsProvider, useModals } from '../src/provider'
+
+import { MenuDialogList } from '../src/menu'
 
 import { Button } from '@saas-ui/button'
 
@@ -112,6 +114,21 @@ export const basic = () => {
         }
       >
         Open drawer
+      </Button>
+      <Button
+        onClick={() =>
+          modals.menu({
+            title: 'Menu',
+            body: (
+              <MenuDialogList>
+                <MenuItem>Item 1</MenuItem>
+                <MenuItem>Item 1</MenuItem>
+              </MenuDialogList>
+            ),
+          })
+        }
+      >
+        Open menu
       </Button>
     </Stack>
   )

@@ -1,14 +1,16 @@
 import * as React from 'react'
 
-import { Modal, ModalProps } from './modal'
+import { Modal, BaseModalProps } from './modal'
 import { Drawer, DrawerProps } from './drawer'
 import { ConfirmDialog, ConfirmDialogProps } from './dialog'
+import { MenuDialog, MenuDialogProps } from './menu'
 
 export interface ModalsContextValue {
   open?: (options: OpenOptions) => ModalId
   drawer?: (options: ModalOptions) => ModalId
   alert?: (options: ModalOptions) => ModalId
   confirm?: (options: ModalOptions) => ModalId
+  menu?: (options: ModalOptions) => ModalId
   close?: (id: ModalId) => void
   closeAll?: () => void
 }
@@ -24,7 +26,7 @@ export type ModalId = string | number
 
 interface ModalOptions
   extends Omit<
-    (ModalProps & DrawerProps & ConfirmDialogProps) & {
+    (BaseModalProps & DrawerProps & ConfirmDialogProps) & {
       body?: React.ReactNode
     },
     'onClose' | 'isOpen' | 'children'
@@ -40,7 +42,7 @@ export interface OpenOptions extends ModalOptions {
 
 export type ModalScopes = 'modal' | 'alert'
 
-export type ModalTypes = 'modal' | 'drawer' | 'alert' | 'confirm'
+export type ModalTypes = 'modal' | 'drawer' | 'alert' | 'confirm' | 'menu'
 
 export interface ModalConfig {
   /**
@@ -78,6 +80,7 @@ const defaultModals = {
   confirm: ConfirmDialog,
   drawer: Drawer,
   modal: Modal,
+  menu: MenuDialog,
 }
 
 export function ModalsProvider({ children, modals }: ModalsProviderProps) {
@@ -170,6 +173,13 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     })
   }
 
+  const menu = (options: ModalOptions): ModalId => {
+    return open({
+      ...options,
+      type: 'menu',
+    })
+  }
+
   const close = async (id?: ModalId | null, force?: boolean) => {
     const modals = [..._instances]
     const modal = modals.filter((modal) => modal.id === id)[0]
@@ -209,6 +219,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     drawer,
     alert,
     confirm,
+    menu,
     close,
     closeAll,
   }

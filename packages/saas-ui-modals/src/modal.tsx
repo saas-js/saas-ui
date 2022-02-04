@@ -15,7 +15,11 @@ export interface BaseModalProps extends ChakraModalProps {
   /**
    * The modal title
    */
-  title: React.ReactNode
+  title?: React.ReactNode
+  /**
+   * The modal footer
+   */
+  footer?: React.ReactNode
   /**
    * Hide the close button
    */
@@ -29,6 +33,7 @@ export interface BaseModalProps extends ChakraModalProps {
 export const BaseModal: React.FC<BaseModalProps> = (props) => {
   const {
     title,
+    footer,
     children,
     isOpen,
     onClose,
@@ -40,28 +45,20 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
     <ChakraModal isOpen={isOpen} onClose={onClose} {...rest}>
       {!hideOverlay && <ModalOverlay />}
       <ModalContent>
-        <ModalHeader>{title}</ModalHeader>
+        {title && <ModalHeader>{title}</ModalHeader>}
         {!hideCloseButton && <ModalCloseButton />}
         {children}
+        {footer && <ModalFooter>{footer}</ModalFooter>}
       </ModalContent>
     </ChakraModal>
   )
 }
 
-export interface ModalProps extends BaseModalProps {
-  /**
-   * The modal footer, wrapped with `ModalFooter`
-   */
-  footer?: React.ReactNode
-}
-
-export const Modal: React.FC<ModalProps> = (props) => {
+export const Modal: React.FC<BaseModalProps> = (props) => {
   const { children, footer, ...rest } = props
   return (
     <BaseModal {...rest}>
       <ModalBody>{children}</ModalBody>
-
-      {footer && <ModalFooter>{footer}</ModalFooter>}
     </BaseModal>
   )
 }

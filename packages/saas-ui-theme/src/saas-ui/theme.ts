@@ -11,6 +11,7 @@ import colors from './foundations/colors'
 import { fonts, fontSizes, textStyles } from './foundations/typography'
 import sizes from './foundations/sizes'
 import shadows from './foundations/shadows'
+import semanticTokens from './foundations/semantic-tokens'
 import components from './components'
 
 const config = {
@@ -28,6 +29,7 @@ export const theme = extendTheme(
     styles,
     components,
     shadows,
+    semanticTokens,
   },
   withDefaultColorScheme({
     colorScheme: 'primary',

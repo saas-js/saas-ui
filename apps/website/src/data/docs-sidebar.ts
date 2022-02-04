@@ -308,12 +308,11 @@ const sidebar = {
               path: '/docs/overlay/modals-manager',
             },
             {
-              title: 'ModalForm',
-              // path: '/docs/overlay/confirm-dialog',
-              soon: true,
+              title: 'MenuDialog',
+              path: '/docs/overlay/menu-dialog',
             },
             {
-              title: 'ModalMenu',
+              title: 'FormDialog',
               // path: '/docs/overlay/confirm-dialog',
               soon: true,
             },

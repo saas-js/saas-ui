@@ -1,4 +1,5 @@
 export * from './dialog'
 export * from './drawer'
 export * from './modal'
+export * from './menu'
 export * from './provider'

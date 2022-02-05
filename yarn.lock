@@ -5221,6 +5221,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/layout@workspace:*, @saas-ui/layout@workspace:packages/saas-ui-layout":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/layout@workspace:packages/saas-ui-layout"
+  peerDependencies:
+    "@chakra-ui/react": ">=1.8.0"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui/list@workspace:*, @saas-ui/list@workspace:packages/saas-ui-list":
   version: 0.0.0-use.local
   resolution: "@saas-ui/list@workspace:packages/saas-ui-list"
@@ -5379,6 +5387,7 @@ __metadata:
     "@saas-ui/hooks": "workspace:*"
     "@saas-ui/hotkeys": "workspace:*"
     "@saas-ui/input-right-button": "workspace:*"
+    "@saas-ui/layout": "workspace:*"
     "@saas-ui/list": "workspace:*"
     "@saas-ui/menu": "workspace:*"
     "@saas-ui/modals": "workspace:*"

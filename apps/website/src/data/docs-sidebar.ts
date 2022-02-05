@@ -185,16 +185,12 @@ const sidebar = {
           sort: true,
           routes: [
             {
-              title: 'EmptyState',
-              soon: true,
-            },
-            {
-              title: 'Chip',
-              soon: true,
-            },
-            {
               title: 'Divider',
-              soon: true,
+              path: '/docs/data-display/divider',
+            },
+            {
+              title: 'EmptyState',
+              path: '/docs/data-display/empty-state',
             },
             {
               title: 'HoverCard',
@@ -230,8 +226,7 @@ const sidebar = {
             },
             {
               title: 'Loading',
-              // path: '/docs/feedback/loading',
-              soon: true,
+              path: '/docs/feedback/loading',
             },
             {
               title: 'AppLoader',

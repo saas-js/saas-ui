@@ -2,6 +2,7 @@ import Alert from './alert'
 import Button from './button'
 import Card from './card'
 import CloseButton from './close-button'
+import EmptyState from './empty-state'
 import Form from './form'
 import Heading from './heading'
 import Kbd from './kbd'
@@ -18,6 +19,7 @@ export default {
   Button,
   Card,
   CloseButton,
+  EmptyState,
   Heading,
   Kbd,
   Link,

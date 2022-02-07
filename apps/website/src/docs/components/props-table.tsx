@@ -179,7 +179,7 @@ function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
 
       return true
     })
-    .map(([name, { defaultValue, description, required, type }]) => {
+    .map(([name, { defaultValue, description, required, type }]: any) => {
       const prop = {
         name,
         defaultValue: defaultValue?.value,

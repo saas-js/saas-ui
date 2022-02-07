@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.2.2
+
+### Patch Changes
+
+- Set default value on FormProps generic type
+
 ## 0.2.1
 
 ### Patch Changes

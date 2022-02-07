@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 0.5.1
+
+### Patch Changes
+
+- Set default value on FormProps generic type
+- Updated dependencies
+  - @saas-ui/forms@0.2.2
+  - @saas-ui/auth@0.2.2
+
 ## 0.5.0
 
 ### Minor Changes

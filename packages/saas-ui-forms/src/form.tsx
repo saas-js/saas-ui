@@ -19,7 +19,7 @@ interface FormOptions {
   onError?: (errors: FieldErrors) => void
 }
 
-export interface FormProps<TFieldValues extends FieldValues>
+export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseFormProps<TFieldValues>,
     Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
     FormOptions {}
@@ -29,7 +29,7 @@ export interface FormProps<TFieldValues extends FieldValues>
  * if at all possible.
  */
 export const Form = forwardRef(
-  <TFieldValues extends FieldValues>(
+  <TFieldValues extends FieldValues = FieldValues>(
     props: FormProps<TFieldValues>,
     ref: React.ForwardedRef<HTMLFormElement>
   ) => {

@@ -7,7 +7,7 @@ import {
   StylesProvider,
   useStyles,
   omitThemingProps,
-  ResponsiveValue,
+  SystemProps,
   ThemeTypings,
 } from '@chakra-ui/system'
 
@@ -19,11 +19,35 @@ import defaultStyleConfig from './styles'
 type Variants = 'plain' | 'outline' | 'solid'
 
 interface CardOptions {
+  /**
+   * This will render the `CardHeader` with the title.
+   * @type React.ReactNode
+   */
   title?: React.ReactNode
+  /**
+   * This will render the `CardHeader` with the sub title.
+   * @type React.ReactNode
+   */
   subtitle?: React.ReactNode
+  /**
+   * The header action
+   * @type React.ReactNode
+   */
   action?: React.ReactNode
+  /**
+   * The card avatar
+   * @type React.ReactNode
+   */
   avatar?: React.ReactNode
+  /**
+   * The card footer actions, will be wrapped in a `ButtonGroup`
+   * @type React.ReactNode
+   */
   actions?: React.ReactNode
+  /**
+   * @type "plain" | "outline" | "solid"
+   * @default "plain"
+   */
   variant?: 'Card' extends keyof ThemeTypings['components'] /* @ts-ignore */
     ? ThemeTypings['components']['Card']['variants']
     : Variants
@@ -72,22 +96,42 @@ export const CardContainer = forwardRef<CardContainerProps, 'div'>(
         </chakra.div>
       </StylesProvider>
     )
-  },
+  }
 )
 
 export interface CardHeaderProps
   extends Omit<HTMLChakraProps<'header'>, 'title'> {
+  /**
+   * The title
+   * @type React.ReactNode
+   */
   title?: React.ReactNode
+  /**
+   * The sub title
+   * @type React.ReactNode
+   */
   subtitle?: React.ReactNode
+  /**
+   * The header action
+   * @type React.ReactNode
+   */
   action?: React.ReactNode
+  /**
+   * The card avatar
+   * @type React.ReactNode
+   */
   avatar?: React.ReactNode
-  spacing?: ResponsiveValue<'margin'>
+  /**
+   * The spacing between the avatar and title
+   * @type SystemProps["margin"]
+   */
+  spacing?: SystemProps['margin']
 }
 
 export const CardHeader = forwardRef<CardHeaderProps, 'header'>(
   (
     { title, subtitle, action, avatar, spacing = 4, children, ...props },
-    ref,
+    ref
   ) => {
     const styles = useStyles()
 
@@ -141,7 +185,7 @@ export const CardHeader = forwardRef<CardHeaderProps, 'header'>(
         </chakra.div>
       </chakra.header>
     )
-  },
+  }
 )
 
 export interface CardHeaderActionProps extends HTMLChakraProps<'div'> {}
@@ -154,7 +198,7 @@ export const CardHeaderAction = forwardRef<CardHeaderActionProps, 'div'>(
         {children}
       </chakra.div>
     )
-  },
+  }
 )
 
 export interface CardTitleProps extends HTMLChakraProps<'h2'> {}
@@ -167,7 +211,7 @@ export const CardTitle = forwardRef<CardTitleProps, 'h2'>(
         {children}
       </chakra.h2>
     )
-  },
+  }
 )
 
 export interface CardSubtitleProps extends HTMLChakraProps<'p'> {}
@@ -180,7 +224,7 @@ export const CardSubtitle = forwardRef<CardSubtitleProps, 'p'>(
         {children}
       </chakra.p>
     )
-  },
+  }
 )
 
 export interface CardActionProps extends HTMLChakraProps<'div'> {}
@@ -193,7 +237,7 @@ export const CardAction = forwardRef<CardTitleProps, 'div'>(
         {children}
       </chakra.div>
     )
-  },
+  }
 )
 
 export interface CardMediaProps extends HTMLChakraProps<'div'> {}
@@ -212,7 +256,7 @@ export const CardMedia = forwardRef<CardMediaProps, 'div'>(
         {children}
       </chakra.div>
     )
-  },
+  }
 )
 
 export interface CardBodyProps extends HTMLChakraProps<'div'> {}
@@ -225,12 +269,27 @@ export const CardBody = forwardRef<CardBodyProps, 'div'>(
         {children}
       </chakra.div>
     )
-  },
+  }
 )
 
 export interface CardFooterProps
   extends HTMLChakraProps<'footer'>,
-    Pick<ButtonGroupProps, 'variant' | 'spacing'> {}
+    Pick<ButtonGroupProps, 'variant' | 'spacing'> {
+  /**
+   * The default button variant
+   * @default "ghost"
+   */
+  variant?: 'Button' extends keyof ThemeTypings['components'] /* @ts-ignore */
+    ? ThemeTypings['components']['Button']['variants']
+    : Variants
+
+  /**
+   * The spacing between buttons
+   * @type SystemProps['margin']
+   * @default 2
+   */
+  spacing?: SystemProps['margin']
+}
 
 export const CardFooter = forwardRef<CardFooterProps, 'footer'>(
   ({ children, ...props }, ref) => {
@@ -254,5 +313,5 @@ export const CardFooter = forwardRef<CardFooterProps, 'footer'>(
         </ButtonGroup>
       </chakra.footer>
     )
-  },
+  }
 )

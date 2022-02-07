@@ -1,4 +1,5 @@
-import * as ComponentProps from '@chakra-ui/props-docs'
+import * as ChakraComponentProps from '@chakra-ui/props-docs'
+import * as ComponentProps from '@saas-ui/props-docs'
 import { chakra, Code, Flex, HStack, Stack, theme } from '@chakra-ui/react'
 import Link from 'next/link'
 import * as React from 'react'
@@ -144,7 +145,7 @@ interface MakePropsTableOptions extends PropsTableProps {}
 const TYPE_GENERIC_THEMABLE = '(string & {})'
 
 function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
-  const props = ComponentProps[of]?.props
+  const props = ComponentProps[of]?.props || ChakraComponentProps[of]?.props
 
   const themeKey = themeComponentKeyAliases[of] ?? of
   const componentTheme = theme.components[themeKey]

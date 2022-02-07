@@ -5,6 +5,7 @@ import {
   Spinner as ChakraSpinner,
   SpinnerProps,
   ThemingProps,
+  ThemeTypings,
   useStyleConfig,
 } from '@chakra-ui/react'
 
@@ -13,13 +14,23 @@ export const Spinner: React.FC<SpinnerProps> = (props) => {
   return <ChakraSpinner {...props} />
 }
 
+type Variants = 'fill' | 'overlay'
+
 export interface LoadingProps
   extends Omit<CenterProps, 'color'>,
     ThemingProps<'Loading'>,
     Pick<
       SpinnerProps,
       'emptyColor' | 'color' | 'thickness' | 'speed' | 'label'
-    > {}
+    > {
+  /**
+   * @type "fill" | "overlay"
+   * @default "fill"
+   */
+  variant?: 'Loading' extends keyof ThemeTypings['components'] /* @ts-ignore */
+    ? ThemeTypings['components']['Loading']['variants']
+    : Variants
+}
 
 export const Loading: React.FC<LoadingProps> = (props) => {
   const styles = useStyleConfig('Loading', props)

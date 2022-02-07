@@ -1,5 +1,12 @@
 # @saas-ui/menu
 
+## 0.2.3
+
+### Patch Changes
+
+- 76f5e46: Fall back to children if no label is set
+  - @saas-ui/provider@0.2.3
+
 ## 0.2.2
 
 ### Patch Changes

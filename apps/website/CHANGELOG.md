@@ -1,5 +1,12 @@
 # website
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/props-docs@0.1.0
+
 ## 0.1.4
 
 ### Patch Changes

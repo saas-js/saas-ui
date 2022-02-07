@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/props-docs",
-  "version": "1.0.47",
+  "version": "0.1.0",
   "description": "Extracts prop types for documentation purposes",
   "keywords": [
     "docs",
@@ -8,7 +8,7 @@
   ],
   "sideEffects": false,
   "author": "Tim Kolberger <tim@kolberger.eu>",
-  "homepage": "https://github.com/chakra-ui/chakra-ui#readme",
+  "homepage": "https://github.com/saas-js/saas-ui#readme",
   "license": "MIT",
   "main": "dist/saas-ui-props-docs.cjs.js",
   "module": "dist/saas-ui-props-docs.esm.js",

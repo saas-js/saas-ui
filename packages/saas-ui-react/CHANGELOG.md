@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 0.5.0
+
+### Minor Changes
+
+- 638a054: Added new layout package with EmptyState and Loading components
+- 4733b8f: Added new MenuDialog component
+
+### Patch Changes
+
+- Updated dependencies [638a054]
+- Updated dependencies [76f5e46]
+- Updated dependencies [4733b8f]
+  - @saas-ui/theme@0.4.0
+  - @saas-ui/layout@0.1.0
+  - @saas-ui/menu@0.2.3
+  - @saas-ui/modals@0.2.0
+  - @saas-ui/provider@0.2.3
+
 ## 0.4.1
 
 ### Patch Changes

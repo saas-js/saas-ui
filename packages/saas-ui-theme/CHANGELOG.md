@@ -1,5 +1,12 @@
 # @saas-ui/theme
 
+## 0.4.0
+
+### Minor Changes
+
+- 638a054: Added new layout package with EmptyState and Loading components
+- 4733b8f: Added new MenuDialog component
+
 ## 0.3.0
 
 ### Minor Changes

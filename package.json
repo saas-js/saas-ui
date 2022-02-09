@@ -1,6 +1,5 @@
 {
   "name": "saas-ui",
-  "version": "1.0.0-beta",
   "description": "The frontend stack for SaaS companies",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
@@ -21,8 +20,7 @@
     "accessible",
     "components",
     "emotion",
-    "library",
-    "design-system"
+    "library"
   ],
   "storybook": {
     "title": "Saas UI",
@@ -30,8 +28,10 @@
   },
   "scripts": {
     "w": "yarn workspace",
+    "changeset:next": "yarn changeset pre enter next",
     "version": "changeset version",
-    "release": "yarn workspaces foreach -p --from '@saas-ui/*' yarn npm publish --access public && yarn changeset tag",
+    "publish:next": "yarn workspaces foreach --from '@saas-ui/*' npm publish --access public --tag next",
+    "publish": "yarn workspaces foreach -p --from '@saas-ui/*' npm publish --access public && yarn changeset tag",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepare": "husky install",

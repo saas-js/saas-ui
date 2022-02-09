@@ -225,4 +225,5 @@ export const SignupForm: React.FC<AuthFormProps> = (props) => {
 
 SignupForm.defaultProps = {
   title: 'Sign up',
+  submitLabel: 'Sign up',
 }

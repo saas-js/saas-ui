@@ -31,7 +31,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "services"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -56,7 +57,6 @@
     "components",
     "emotion",
     "library",
-    "design-system",
     "authentication",
     "supabase"
   ],

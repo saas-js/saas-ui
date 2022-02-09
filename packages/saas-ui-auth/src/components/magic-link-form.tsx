@@ -38,8 +38,8 @@ export function MagicLinkSuccess({ email }: any) {
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   schema,
   action = 'login',
-  onSuccess = () => {},
-  onError = () => {},
+  onSuccess = () => null,
+  onError = () => null,
   onValidationError,
   submitLabel = 'Continue with Email',
   defaultValues,
@@ -47,7 +47,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   children,
   ...formProps
 }) => {
-  const [{ isLoading, data }, submit] = useLogin({
+  const [{ isLoading, isResolved, data }, submit] = useLogin({
     action,
   })
 
@@ -55,7 +55,9 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
     return submit({ email }).then(onSuccess).catch(onError)
   }
 
-  if (data) {
+  // Succesful magic link login might not always return data
+  // so we check if the action resolved without errors
+  if (isResolved) {
     return renderSuccess(data)
   }
 

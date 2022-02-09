@@ -27,8 +27,8 @@ export interface PasswordFormProps {
 export const PasswordForm: React.FC<PasswordFormProps> = ({
   action = 'login',
   schema,
-  onSuccess = () => {},
-  onError = () => {},
+  onSuccess = () => null,
+  onError = () => null,
   onValidationError,
   submitLabel = 'Sign in',
   defaultValues,
@@ -47,6 +47,8 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
     return submit(params).then(onSuccess).catch(onError)
   }
 
+  // password login and signup returns a `User` object if succesful.
+  // Show a default success message on signup.
   if (data && action === 'signup') {
     return renderSuccess(data)
   }

@@ -26,8 +26,8 @@ export interface OtpFormProps {
 
 export const OtpForm: React.FC<OtpFormProps> = ({
   schema,
-  onSuccess = () => {},
-  onError = () => {},
+  onSuccess = () => null,
+  onError = () => null,
   onValidationError,
   submitLabel = 'Verify',
   label,

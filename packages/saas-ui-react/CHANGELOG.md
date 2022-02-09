@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 0.6.0
+
+### Minor Changes
+
+- 07d67a6: Finalized the authentication api
+
+### Patch Changes
+
+- Updated dependencies [07d67a6]
+  - @saas-ui/auth@0.4.0
+
 ## 0.5.3
 
 ### Patch Changes

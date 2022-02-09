@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.4.0
+
+### Minor Changes
+
+- 07d67a6: Finalized the authentication api
+
 ## 0.3.0
 
 ### Minor Changes

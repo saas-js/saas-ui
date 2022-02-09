@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useLogin } from '../provider'
+import { useLogin, AuthActionEnum } from '../provider'
 
 import { Form, FormLayout, Field } from '@saas-ui/forms'
 import { LoginButton } from './login-button'
@@ -8,7 +8,7 @@ import { AuthFormSuccess } from './success'
 
 export interface MagicLinkFormProps {
   schema?: any
-  action?: 'login' | 'signup'
+  action?: AuthActionEnum
   onSuccess?: (error: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: any) => void
@@ -37,7 +37,7 @@ export function MagicLinkSuccess({ email }: any) {
 
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   schema,
-  action = 'login',
+  action = 'logIn',
   onSuccess = () => null,
   onError = () => null,
   onValidationError,

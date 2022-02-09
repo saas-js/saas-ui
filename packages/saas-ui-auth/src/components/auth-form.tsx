@@ -16,16 +16,13 @@ import { useMultiStyleConfig } from '@saas-ui/system'
 import { MagicLinkForm } from './magic-link-form'
 import { PasswordForm } from './password-form'
 import { Providers, AvailableProviders } from './providers'
-
-export type AuthTypeEnum = 'magiclink' | 'password'
-
-export type AuthActionEnum = 'login' | 'signup'
+import { AuthTypeEnum, AuthActionEnum } from '../provider'
 
 export interface AuthFormProps
   extends Omit<FormProps, 'defaultValues' | 'onSubmit' | 'onError' | 'title'>,
     ThemingProps<'AuthForm'> {
   /**
-   * The authentication type, magiclink or password
+   * The authentication type, `magiclink` or `password`
    */
   type?: AuthTypeEnum
   /**
@@ -33,7 +30,7 @@ export interface AuthFormProps
    */
   providers?: AvailableProviders
   /**
-   * The submit action, login or signup
+   * The submit action, `logIn` or `signUp`
    */
   action?: AuthActionEnum
   /**
@@ -41,7 +38,7 @@ export interface AuthFormProps
    */
   schema?: any
   /**
-   * The form title, string or Component
+   * The form title
    */
   title?: React.ReactNode
   /**
@@ -212,15 +209,16 @@ export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
 }
 
 export const LoginForm: React.FC<AuthFormProps> = (props) => {
-  return <AuthForm action="login" {...props} />
+  return <AuthForm action="logIn" {...props} />
 }
 
 LoginForm.defaultProps = {
   title: 'Log in',
+  submitLabel: 'Log in',
 }
 
 export const SignupForm: React.FC<AuthFormProps> = (props) => {
-  return <AuthForm action="signup" {...props} />
+  return <AuthForm action="signUp" {...props} />
 }
 
 SignupForm.defaultProps = {

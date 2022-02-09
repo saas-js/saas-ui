@@ -40,7 +40,7 @@ export const createAuthService = (supabase: any): AuthProviderProps => {
     }
   }
 
-  const onVerify = async (params: AuthParams) => {
+  const onVerifyOtp = async (params: AuthParams) => {
     const { session, error } = await supabase.auth.verifyOTP(params)
 
     if (session) {
@@ -65,20 +65,21 @@ export const createAuthService = (supabase: any): AuthProviderProps => {
   }
 
   const onLoadUser = async () => {
-    return supabase.auth.user()
+    return await supabase.auth.user()
   }
 
-  const onCheckAuth = async () => {
-    return !!supabase.auth.session()
+  const onGetToken = async () => {
+    const session = supabase.auth.session()
+    return session?.access_token || null
   }
 
   return {
     onLogin,
     onSignup,
-    onVerify,
+    onVerifyOtp,
     onLogout,
     onAuthStateChange,
     onLoadUser,
-    onCheckAuth,
+    onGetToken,
   }
 }

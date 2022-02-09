@@ -1,4 +1,4 @@
-import { AuthParams, User, AuthProviderProps } from '../'
+import { AuthParams, User, AuthProviderProps, AuthToken } from '../'
 
 /**
  * MagicLink auth service
@@ -10,7 +10,7 @@ import { AuthParams, User, AuthProviderProps } from '../'
  * @returns {AuthProviderProps}
  */
 export const createAuthService = (client: any): AuthProviderProps => {
-  let token: string | null
+  let token: AuthToken
   let expireTime = 0
 
   const onLogin = async (params: AuthParams): Promise<User | undefined> => {
@@ -23,33 +23,25 @@ export const createAuthService = (client: any): AuthProviderProps => {
     return await client.auth.signOut()
   }
 
-  // This will return the using meta data with the token id.
-  // @todo, refactor the AuthProvider to support auth tokens.
   const onLoadUser = async () => {
     if (await client.user.isLoggedIn()) {
-      const meta = await client.user.getMetadata()
-
-      return {
-        token,
-        ...meta,
-      }
+      return await client.user.getMetadata()
     }
   }
 
-  const onCheckAuth = async () => {
+  const onGetToken = async () => {
     if (!token || Date.now() <= expireTime) {
       expireTime = Date.now() + 600 // now + 10 min
       token = await client.user.getIdToken()
-      return true
-    } else {
-      return true
     }
+
+    return token
   }
 
   return {
     onLogin,
     onLogout,
     onLoadUser,
-    onCheckAuth,
+    onGetToken,
   }
 }

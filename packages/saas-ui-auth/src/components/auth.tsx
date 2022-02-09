@@ -3,9 +3,10 @@ import * as React from 'react'
 import { Box, Link } from '@chakra-ui/react'
 
 import { LoginForm, SignupForm, AuthFormProps } from './auth-form'
+import { OtpForm } from './otp-form'
 import { AvailableProviders } from '.'
 
-const ACTIONS: ActionsMap = {
+export const VIEWS = {
   LOGIN: 'login',
   SIGNUP: 'signup',
   FORGOTTEN_PASSWORD: 'forgot_password',
@@ -13,60 +14,72 @@ const ACTIONS: ActionsMap = {
   OTP: 'otp',
 }
 
-interface ActionsMap {
-  [key: string]: ActionType
-}
-
-type ActionType =
+type ViewType =
   | 'login'
   | 'signup'
   | 'forgot_password'
   | 'update_password'
   | 'otp'
 
-interface AuthProps
+export interface AuthProps
   extends Omit<AuthFormProps, 'action' | 'defaultValues' | 'onSubmit'> {
-  action?: ActionType
+  /**
+   * Sets the visible authentication form.
+   * Supported views are:
+   * - login
+   * - signup
+   * - forgot_password (not implemented yet)
+   * - update_password (not implemented yet)
+   * - otp
+   */
+  view?: ViewType
+  /**
+   * The OAuth providers that are supported.
+   */
   providers?: AvailableProviders
+  /**
+   * Customize the signup link under the log in form.
+   */
   signupLink?: React.ReactNode
+  /**
+   * Customize the login link under the sign up form.
+   */
   loginLink?: React.ReactNode
 }
 
 export const Auth: React.FC<AuthProps> = ({
-  action = ACTIONS.LOGIN,
+  view = VIEWS.LOGIN,
   providers,
   signupLink,
   loginLink,
   ...rest
 }) => {
-  const [authAction, setAuthAction] = React.useState(action)
+  const [authView, setAuthView] = React.useState(view)
 
   React.useEffect(() => {
-    setAuthAction(action)
-  }, [action])
+    setAuthView(view)
+  }, [view])
 
-  switch (authAction) {
-    case ACTIONS.LOGIN:
+  switch (authView) {
+    case VIEWS.LOGIN:
       return (
         <LoginForm providers={providers} {...rest}>
           <AuthLink
-            onClick={() => setAuthAction(ACTIONS.SIGNUP)}
+            onClick={() => setAuthView(VIEWS.SIGNUP)}
             link={signupLink}
           />
         </LoginForm>
       )
-    case ACTIONS.SIGNUP:
+    case VIEWS.SIGNUP:
       return (
         <SignupForm providers={providers} {...rest}>
-          <AuthLink
-            onClick={() => setAuthAction(ACTIONS.LOGIN)}
-            link={loginLink}
-          />
+          <AuthLink onClick={() => setAuthView(VIEWS.LOGIN)} link={loginLink} />
         </SignupForm>
       )
-    case ACTIONS.FORGOTTEN_PASSWORD:
-    case ACTIONS.UPDATE_PASSWORD:
-    case ACTIONS.OTP:
+    case VIEWS.FORGOTTEN_PASSWORD:
+    case VIEWS.UPDATE_PASSWORD:
+    case VIEWS.OTP:
+      return <OtpForm />
   }
 
   return null

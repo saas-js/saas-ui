@@ -97,6 +97,6 @@ export const otp = () => (
 
 export const signup = () => (
   <Stack width="md">
-    <Auth providers={availableProviders} type="password" action="signup" />
+    <Auth providers={availableProviders} type="password" view="signup" />
   </Stack>
 )

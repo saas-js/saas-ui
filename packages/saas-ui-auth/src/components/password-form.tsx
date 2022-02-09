@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Form, FormLayout, Field } from '@saas-ui/forms'
 
-import { useLogin } from '../provider'
+import { useLogin, AuthActionEnum } from '../provider'
 
 import { LoginButton } from './login-button'
 
@@ -15,7 +15,7 @@ interface SubmitParams {
 
 export interface PasswordFormProps {
   schema?: any
-  action?: 'login' | 'signup'
+  action?: AuthActionEnum
   onSuccess?: (error: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: any) => void
@@ -25,7 +25,7 @@ export interface PasswordFormProps {
 }
 
 export const PasswordForm: React.FC<PasswordFormProps> = ({
-  action = 'login',
+  action = 'logIn',
   schema,
   onSuccess = () => null,
   onError = () => null,
@@ -49,7 +49,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
 
   // password login and signup returns a `User` object if succesful.
   // Show a default success message on signup.
-  if (data && action === 'signup') {
+  if (data && action === 'signUp') {
     return renderSuccess(data)
   }
 

@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 0.5.3
+
+### Patch Changes
+
+- Update dependencies
+- Updated dependencies [d3edc56]
+- Updated dependencies [60173ca]
+  - @saas-ui/theme@0.4.2
+  - @saas-ui/auth@0.3.0
+  - @saas-ui/provider@0.2.5
+  - @saas-ui/menu@0.2.5
+
 ## 0.5.2
 
 ### Patch Changes

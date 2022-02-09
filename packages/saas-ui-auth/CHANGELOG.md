@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.3.0
+
+### Minor Changes
+
+- 60173ca: Implement Supabase signup, add Magic.link and minor bugfixes
+
 ## 0.2.3
 
 ### Patch Changes

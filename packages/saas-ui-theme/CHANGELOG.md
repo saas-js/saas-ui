@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.4.2
+
+### Patch Changes
+
+- d3edc56: Remove unused color tokens
+
 ## 0.4.1
 
 ### Patch Changes

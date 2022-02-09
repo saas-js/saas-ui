@@ -1,0 +1,110 @@
+---
+title: Auth
+package: '@saas-ui/auth'
+description: Ready to use authentication forms.
+---
+
+<ComponentLinks
+  theme={{ componentName: 'auth' }}
+  github={{
+    package: 'saas-ui-auth',
+  }}
+  npm={{ package: '@saas-ui/auth' }}
+/>
+
+## Import
+
+- `Auth`: Higher order component responsible for rendering all specific auth forms.
+- `AuthForm`: Composes login and signup forms with a title and oauth providers.
+- `LoginForm`: AuthForm with defaults for login.
+- `SignupForm`: AuthForm with defaults for signup.
+- `MagicLoginForm`: Basic magic link login form.
+- `PasswordForm`: Basic email and password form.
+- `OtpForm`: Basic one time password form.
+- `Providers`: Oauth provider login buttons.
+
+```js
+import {
+  Auth,
+  AuthForm,
+  LoginForm,
+  SignupForm,
+  MagicLinkForm,
+  PasswordForm,
+  OtpForm,
+  Providers,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+`Auth` is an higher order component that handles the rendering of all the specific authentication forms.
+If you need more flexiblity it's possible to use these components directly.
+
+`Auth` depends on context provided by `AuthProvider`, if you haven't done so already, first [add it to your App root](/docs/auth/auth-provider).
+
+### Basic usage
+
+The default authentication strategy is `magiclink`.
+
+```jsx
+<Stack maxW="400px">
+  <Auth />
+</Stack>
+```
+
+### Password login
+
+```jsx
+<Stack maxW="400px">
+  <Auth type="password" />
+</Stack>
+```
+
+### Social login
+
+```jsx
+<Stack maxW="400px">
+  <Auth
+    providers={{
+      google: {
+        icon: FaGithub,
+        name: 'Github',
+      },
+    }}
+  />
+</Stack>
+```
+
+### Sign up
+
+```jsx
+<Stack maxW="400px">
+  <Auth view="signup" />
+</Stack>
+```
+
+### One time password
+
+```jsx
+<Stack maxW="400px">
+  <Auth view="otp" />
+</Stack>
+```
+
+### Custom links
+
+```jsx
+<Stack maxW="400px" alignSelf="center">
+  <Auth
+    signupLink={<Link href="/signup">Don't have an account yet? Sign up.</Link>}
+    loginLink={<Link href="/login">Already have an account? Log in.</Link>}
+  />
+</Stack>
+```
+
+## Props
+
+### Auth Props
+
+<PropsTable of="Auth" />

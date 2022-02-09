@@ -46,6 +46,21 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'Authentication',
+          path: '/docs/auth',
+          open: true,
+          routes: [
+            {
+              title: 'AuthProvider',
+              path: '/docs/auth/auth-provider',
+            },
+            {
+              title: 'Auth',
+              path: '/docs/auth/auth',
+            },
+          ],
+        },
+        {
           title: 'Layout',
           path: '/docs/layout',
           open: true,

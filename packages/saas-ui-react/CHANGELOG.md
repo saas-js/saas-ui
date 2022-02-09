@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 0.5.2
+
+### Patch Changes
+
+- Add supabase service to package entries
+- Bump version
+- Updated dependencies
+- Updated dependencies
+  - @saas-ui/auth@0.2.3
+  - @saas-ui/layout@0.1.1
+  - @saas-ui/forms@0.2.3
+  - @saas-ui/list@0.3.1
+  - @saas-ui/menu@0.2.4
+  - @saas-ui/modals@0.2.1
+  - @saas-ui/provider@0.2.4
+  - @saas-ui/theme@0.4.1
+
 ## 0.5.1
 
 ### Patch Changes

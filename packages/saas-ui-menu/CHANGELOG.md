@@ -1,5 +1,13 @@
 # @saas-ui/menu
 
+## 0.2.4
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/provider@0.2.4
+
 ## 0.2.3
 
 ### Patch Changes

@@ -4,6 +4,7 @@ import {
   CenterProps,
   Spinner as ChakraSpinner,
   SpinnerProps,
+  VisuallyHidden,
   ThemingProps,
   ThemeTypings,
   useStyleConfig,
@@ -16,13 +17,15 @@ export const Spinner: React.FC<SpinnerProps> = (props) => {
 
 type Variants = 'fill' | 'overlay'
 
+type SpinnerOptions = Pick<
+  SpinnerProps,
+  'emptyColor' | 'color' | 'thickness' | 'speed' | 'label'
+>
+
 export interface LoadingProps
   extends Omit<CenterProps, 'color'>,
     ThemingProps<'Loading'>,
-    Pick<
-      SpinnerProps,
-      'emptyColor' | 'color' | 'thickness' | 'speed' | 'label'
-    > {
+    SpinnerOptions {
   /**
    * @type "fill" | "overlay"
    * @default "fill"

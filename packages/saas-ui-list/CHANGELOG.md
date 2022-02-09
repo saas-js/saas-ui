@@ -1,5 +1,11 @@
 # @saas-ui/data-list
 
+## 0.3.1
+
+### Patch Changes
+
+- Bump version
+
 ## 0.3.0
 
 ### Minor Changes

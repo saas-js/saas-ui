@@ -1,5 +1,13 @@
 # @saas-ui/auth
 
+## 0.2.3
+
+### Patch Changes
+
+- Add supabase service to package entries
+- Updated dependencies
+  - @saas-ui/forms@0.2.3
+
 ## 0.2.2
 
 ### Patch Changes

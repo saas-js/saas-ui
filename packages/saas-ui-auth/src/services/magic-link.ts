@@ -23,7 +23,7 @@ export const createAuthService = (client: any): AuthProviderProps => {
     return await client.auth.signOut()
   }
 
-  // This will return the using meta data with the token id.
+  // This will return the user meta data with the token id.
   // @todo, refactor the AuthProvider to support auth tokens.
   const onLoadUser = async () => {
     if (await client.user.isLoggedIn()) {

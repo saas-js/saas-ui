@@ -22,6 +22,14 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",

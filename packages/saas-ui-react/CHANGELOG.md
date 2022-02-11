@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.7.1
+
+### Patch Changes
+
+- Add Magic.link auth service to exports
+- Updated dependencies
+  - @saas-ui/auth@0.4.2
+
 ## 0.7.0
 
 ### Minor Changes

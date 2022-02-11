@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.4.2
+
+### Patch Changes
+
+- Add Magic.link auth service to exports
+
 ## 0.4.1
 
 ### Patch Changes

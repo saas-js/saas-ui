@@ -59,6 +59,7 @@
     "@saas-ui/button": "workspace:*",
     "@saas-ui/card": "workspace:*",
     "@saas-ui/collapse": "workspace:*",
+    "@saas-ui/data-table": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/hotkeys": "workspace:*",

@@ -6025,6 +6025,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/data-table@workspace:*, @saas-ui/data-table@workspace:packages/saas-ui-data-table":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/data-table@workspace:packages/saas-ui-data-table"
+  dependencies:
+    "@chakra-ui/icons": ^1.1.1
+    "@saas-ui/layout": "workspace:*"
+    "@types/react-table": ^7.7.9
+    react-table: ^7.7.0
+  peerDependencies:
+    "@chakra-ui/react": ">=1.8.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
@@ -6085,6 +6099,8 @@ __metadata:
 "@saas-ui/layout@workspace:*, @saas-ui/layout@workspace:packages/saas-ui-layout":
   version: 0.0.0-use.local
   resolution: "@saas-ui/layout@workspace:packages/saas-ui-layout"
+  dependencies:
+    "@saas-ui/provider": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
   languageName: unknown
@@ -6259,6 +6275,7 @@ __metadata:
     "@saas-ui/button": "workspace:*"
     "@saas-ui/card": "workspace:*"
     "@saas-ui/collapse": "workspace:*"
+    "@saas-ui/data-table": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
     "@saas-ui/hotkeys": "workspace:*"
@@ -8091,6 +8108,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 8f4dce3eb5c70178c5ec2f7434983d632d02a0371a80c31ea012e37a2b8b2174bee482c3b85764333cbe3bcba9132b95307e23ac56d05d490e485e371bdcea46
+  languageName: node
+  linkType: hard
+
+"@types/react-table@npm:^7.7.9":
+  version: 7.7.9
+  resolution: "@types/react-table@npm:7.7.9"
+  dependencies:
+    "@types/react": "*"
+  checksum: 3f6c847c8e904479875bb249af02b70e271c5480d0f8b94f7da96eb3980a83cf011d7e558e885259851e3af8defb6493deb147227242766ebca37c9cb630c306
   languageName: node
   linkType: hard
 
@@ -21063,6 +21089,15 @@ __metadata:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: fa03880a887bc0c79c0be25fc35924980d75f684f8d05620272bdfcbb9f119f45bb7f8ddd92b9e944103964a4e094b99750d0b19c992fd86f2ce0b70266e89c3
+  languageName: node
+  linkType: hard
+
+"react-table@npm:^7.7.0":
+  version: 7.7.0
+  resolution: "react-table@npm:7.7.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17.0.0-0
+  checksum: a679edecc76d3e51311b095528395b38ac85a1ffa371716bea01559a5fdc75af9a6abb9bb907c63190c8e77da22b11f7b05065b3a45d190d8f43cb83e4366206
   languageName: node
   linkType: hard
 

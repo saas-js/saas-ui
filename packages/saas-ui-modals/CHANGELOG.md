@@ -1,5 +1,13 @@
 # @saas-ui/modals
 
+## 0.2.2
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/button@0.2.1
+
 ## 0.2.1
 
 ### Patch Changes

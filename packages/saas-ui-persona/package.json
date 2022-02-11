@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/persona",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A persona component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

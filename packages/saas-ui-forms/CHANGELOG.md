@@ -1,5 +1,19 @@
 # @saas-ui/forms
 
+## 0.2.4
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/button@0.2.1
+  - @saas-ui/input-right-button@0.2.1
+  - @saas-ui/number-input@0.2.1
+  - @saas-ui/password-input@0.2.1
+  - @saas-ui/pin-input@0.2.1
+  - @saas-ui/radio@0.2.1
+  - @saas-ui/select@0.2.1
+
 ## 0.2.3
 
 ### Patch Changes

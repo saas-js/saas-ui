@@ -1,5 +1,16 @@
 # @saas-ui/menu
 
+## 0.2.6
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+- Updated dependencies [2df4438]
+  - @saas-ui/button@0.2.1
+  - @saas-ui/provider@0.2.6
+  - @saas-ui/system@0.3.1
+
 ## 0.2.5
 
 ### Patch Changes

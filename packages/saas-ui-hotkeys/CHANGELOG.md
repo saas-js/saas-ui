@@ -1,5 +1,14 @@
 # @saas-ui/hotkeys
 
+## 0.3.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/search-input@0.3.1
+  - @saas-ui/system@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes

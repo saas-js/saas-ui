@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 0.3.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+
 ## 0.3.0
 
 ### Minor Changes

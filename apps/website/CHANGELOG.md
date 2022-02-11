@@ -1,5 +1,12 @@
 # website
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [b3159a7]
+  - @saas-ui/palette@0.4.1
+
 ## 0.1.5
 
 ### Patch Changes

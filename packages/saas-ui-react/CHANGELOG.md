@@ -1,5 +1,47 @@
 # @saas-ui/react
 
+## 0.7.0
+
+### Minor Changes
+
+- 94a4bd6: Added new DataTable component
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- 2df4438: Add Link component
+- Updated dependencies [94a4bd6]
+- Updated dependencies [b3159a7]
+- Updated dependencies [5e49802]
+- Updated dependencies [2df4438]
+  - @saas-ui/data-table@0.1.0
+  - @saas-ui/auth@0.4.1
+  - @saas-ui/button@0.2.1
+  - @saas-ui/card@0.2.1
+  - @saas-ui/collapse@0.2.1
+  - @saas-ui/forms@0.2.4
+  - @saas-ui/hooks@0.2.1
+  - @saas-ui/hotkeys@0.3.1
+  - @saas-ui/input-right-button@0.2.1
+  - @saas-ui/layout@0.1.2
+  - @saas-ui/list@0.3.2
+  - @saas-ui/menu@0.2.6
+  - @saas-ui/modals@0.2.2
+  - @saas-ui/nprogress@0.2.1
+  - @saas-ui/number-input@0.2.1
+  - @saas-ui/palette@0.4.1
+  - @saas-ui/password-input@0.2.1
+  - @saas-ui/persona@0.3.2
+  - @saas-ui/pin-input@0.2.1
+  - @saas-ui/property@0.2.1
+  - @saas-ui/provider@0.2.6
+  - @saas-ui/radio@0.2.1
+  - @saas-ui/search-input@0.3.1
+  - @saas-ui/select@0.2.1
+  - @saas-ui/snackbar@0.2.1
+  - @saas-ui/system@0.3.1
+  - @saas-ui/theme@0.4.3
+
 ## 0.6.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @saas-ui/provider
 
+## 0.2.6
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- 2df4438: Add Link component
+- Updated dependencies [b3159a7]
+  - @saas-ui/theme@0.4.3
+
 ## 0.2.5
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @saas-ui/theme
 
+## 0.4.3
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/palette@0.4.1
+  - @saas-ui/system@0.3.1
+
 ## 0.4.2
 
 ### Patch Changes

@@ -4,8 +4,13 @@
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "default": "./dist/index.modern.js"
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.modern.js",

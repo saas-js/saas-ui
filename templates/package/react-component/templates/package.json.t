@@ -22,7 +22,7 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   },
   "files": [
     "dist",
-    "src",
+    "src"
   ],
   "sideEffects": false,
   "publishConfig": {

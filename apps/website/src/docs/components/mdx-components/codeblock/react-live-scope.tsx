@@ -6,6 +6,8 @@ import * as SaasUI from '@saas-ui/react'
 import * as Yup from 'yup'
 // import * as FormHooks from 'react-hook-form'
 
+import * as sampleData from '@/data/sample-data'
+
 import FocusLock from 'react-focus-lock'
 import {
   FiHome,
@@ -56,6 +58,7 @@ const ReactLiveScope = {
   StarIcon,
   FocusLock,
   saveHandler,
+  ...sampleData,
   // Lorem,
   // CircleIcon,
 }

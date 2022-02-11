@@ -31,8 +31,18 @@ export type { Row, Column } from 'react-table'
 
 export interface DataTableProps<Data extends object>
   extends TableOptions<Data> {
+  /**
+   * Enable sorting on all columns
+   */
   isSortable?: boolean
+  /**
+   * Enable row selection
+   */
   isSelectable?: boolean
+  /**
+   * Triggers whenever the row selection changes.
+   * @returns {string[]}
+   */
   onSelectedRowsChange?: (rows: IdType<Data>[]) => void
 }
 

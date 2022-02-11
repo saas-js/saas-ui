@@ -200,6 +200,10 @@ const sidebar = {
           sort: true,
           routes: [
             {
+              title: 'DataTable',
+              path: '/docs/data-display/data-table',
+            },
+            {
               title: 'Divider',
               path: '/docs/data-display/divider',
             },

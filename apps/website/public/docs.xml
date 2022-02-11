@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 11 Feb 2022 15:53:52 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 11 Feb 2022 16:34:21 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -25,6 +25,16 @@
     <title>Auth</title>
     <link>https://saas-ui.dev/docs/auth/auth</link>
     <description>Ready to use authentication forms.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
+    <title>DataTable</title>
+    <link>https://saas-ui.dev/docs/data-display/data-table</link>
+    <description>A basic data table component that supports sorting and selections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -365,16 +375,6 @@
     <title>Text</title>
     <link>https://saas-ui.dev/docs/typography/text</link>
     <description>Text is the used to render text and paragraphs within an interface.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
-    <title>DataTable</title>
-    <link>https://saas-ui.dev/docs/data-display/data-table</link>
-    <description>A basic data table component that supports sorting and selections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

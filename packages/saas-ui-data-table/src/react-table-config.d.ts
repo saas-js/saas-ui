@@ -11,6 +11,11 @@ import {
   UseRowSelectRowProps,
 } from 'react-table'
 
+interface DataTableColumn {
+  isNumeric?: boolean
+  href?: string | ((originalRow: Record<string, any>) => string)
+}
+
 declare module 'react-table' {
   export interface TableOptions<
     D extends Record<string, unknown>
@@ -37,17 +42,13 @@ declare module 'react-table' {
 
   export interface ColumnInterface<
     D extends Record<string, unknown> = Record<string, unknown>
-  > extends UseSortByColumnOptions<D> {
-    isNumeric?: boolean
-    href?: string | ((originalRow: Record<string, any>) => string)
-  }
+  > extends UseSortByColumnOptions<D>,
+      DataTableColumn {}
 
   export interface ColumnInstance<
     D extends Record<string, unknown> = Record<string, unknown>
-  > extends UseSortByColumnProps<D> {
-    isNumeric?: boolean
-    href?: string | ((originalRow: Record<string, any>) => string)
-  }
+  > extends UseSortByColumnProps<D>,
+      DataTableColumn {}
 
   export interface Cell<
     D extends Record<string, unknown> = Record<string, unknown>,

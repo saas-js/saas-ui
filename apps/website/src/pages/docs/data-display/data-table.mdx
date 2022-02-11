@@ -76,6 +76,17 @@ function TableState() {
 
 ### Typescript
 
+<Info>
+  If you run into type errors, you might need to add `react-table-config.d.ts`
+  to your `src`. To use the default DataTable config you can simply re-export
+  the config from `@saas-ui/data-table`.
+</Info>
+
+```ts
+// Copy to: src/types/react-table-config.d.ts
+export * from '@saas-ui/data-table/src/react-table-config.d'
+```
+
 ```tsx
 interface ExampleData {
   id: string

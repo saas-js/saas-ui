@@ -133,6 +133,7 @@ export const DataTable = React.forwardRef(
                     <Td
                       {...cell.getCellProps()}
                       isNumeric={cell.column.isNumeric}
+                      isTruncated
                     >
                       {cell.render('Cell')}
                     </Td>
@@ -161,8 +162,17 @@ export const DataTableSort = <Data extends object>(
 
   const styles = useStyles()
 
+  const sorterStyles = {
+    ms: 2,
+    ...styles.sorter,
+  }
+
+  if (column.id === 'selection') {
+    return null
+  }
+
   return (
-    <chakra.span __css={styles.sorter} {...rest}>
+    <chakra.span __css={sorterStyles} {...rest}>
       {column.isSorted ? (
         column.isSortedDesc ? (
           <TriangleDownIcon aria-label="sorted descending" />

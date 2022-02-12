@@ -1,3 +1,5 @@
+import { transparentize, mode } from '@chakra-ui/theme-tools'
+
 const Features = {
   parts: ['container', 'title', 'description', 'icon'],
   baseStyle: {
@@ -47,7 +49,7 @@ const Features = {
 
 export const Feature = {
   parts: ['container', 'title', 'description', 'icon'],
-  baseStyle: ({ colorMode }: any) => ({
+  baseStyle: (props: any) => ({
     container: {
       alignItems: 'flex-start',
       flexDirection: 'column',
@@ -61,14 +63,17 @@ export const Feature = {
     description: {
       fontSize: 'lg',
       fontWeight: 'normal',
-      color: colorMode === 'dark' ? 'gray.400' : 'gray.500',
+      color: mode('gray.500', 'gray.400')(props),
     },
     icon: {
       mb: 4,
       mr: 4,
       p: 2,
-      bg: 'primary.400',
-      color: 'white',
+      bg: mode(
+        'primary.100',
+        transparentize('primary.500', 0.2)(props.theme)
+      )(props),
+      color: mode('primary.700', 'primary.400')(props),
       float: 'left',
     },
   }),
@@ -101,6 +106,9 @@ export const Feature = {
       },
       description: {
         display: 'inline',
+      },
+      icon: {
+        mt: 4,
       },
     },
     light: ({ colorMode }: any) => ({

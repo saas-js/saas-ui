@@ -11,7 +11,7 @@ const headerNav: NavLinkProps[] = [
   { id: 'faq', title: 'FAQ', ...hideMobile },
   { href: '/docs/introduction', title: 'Documentation', ...hideMobile },
   {
-    id: 'request-access',
+    id: 'pricing',
     title: 'Request access',
     variant: 'solid',
     colorScheme: 'primary',

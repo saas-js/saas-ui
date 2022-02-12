@@ -1,7 +1,11 @@
 import MotionBox, { MotionBoxProps } from './box'
 import React from 'react'
 
-export const FallInPlace = ({ children, ...rest }: MotionBoxProps) => {
+export const FallInPlace = ({
+  children,
+  delay = 0.2,
+  ...rest
+}: MotionBoxProps & { delay?: number }) => {
   return (
     <MotionBox
       initial={{ scale: 1, opacity: 0, translateY: '20px' }}
@@ -10,7 +14,7 @@ export const FallInPlace = ({ children, ...rest }: MotionBoxProps) => {
         type: 'tween',
         ease: 'easeOut',
         duration: 2,
-        delay: 0.2,
+        delay,
       }}
       {...rest}
     >

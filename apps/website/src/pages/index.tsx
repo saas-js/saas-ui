@@ -72,14 +72,14 @@ const Home = () => {
                 </FallInPlace>
               }
               description={
-                <FallInPlace>
+                <FallInPlace delay={0.4}>
                   Saas UI is an <Em>advanced component library</Em> and{' '}
                   <Em>starter pack</Em> that helps you build essential SaaS
                   functionality <Em>in hours instead of weeks</Em>.
                 </FallInPlace>
               }
             >
-              <FallInPlace>
+              <FallInPlace delay={0.8}>
                 <Text pt="4" pb="8" color="gray.500">
                   Build with React and Chakra UI
                 </Text>
@@ -110,7 +110,7 @@ const Home = () => {
             maxW="1400px"
             margin="0 auto"
           >
-            <FallInPlace>
+            <FallInPlace delay={1}>
               <Img src="/app.png" position="absolute" width="100%" top="0" />
             </FallInPlace>
           </Box>

@@ -1,4 +1,4 @@
-import { Column } from '@saas-ui/data-table'
+import { Column } from 'react-table'
 
 interface ExampleData {
   name: string

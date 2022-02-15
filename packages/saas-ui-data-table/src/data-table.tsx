@@ -27,6 +27,8 @@ import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
 
 import { Link } from '@saas-ui/layout'
 
+export type { Column, TableInstance } from 'react-table'
+
 export interface DataTableProps<Data extends object>
   extends TableOptions<Data> {
   /**

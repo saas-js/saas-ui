@@ -3,8 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { Container, Stack, Button } from '@chakra-ui/react'
 
-import { DataTable } from '../src'
-import { TableInstance, Column } from 'react-table'
+import { DataTable, TableInstance, Column } from '../src'
 
 export default {
   title: 'Components/Data Display/DataTable',

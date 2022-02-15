@@ -1,5 +1,12 @@
 # @saas-ui/collapse
 
+## 0.2.3
+
+### Patch Changes
+
+- cedd489: Fixed typing error
+- b57b40b: Fixed package depedencies and bundle size
+
 ## 0.2.2
 
 ### Patch Changes

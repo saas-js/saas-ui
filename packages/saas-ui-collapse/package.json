@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/collapse",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Collapse Component",
   "source": "src/index.ts",
   "exports": {

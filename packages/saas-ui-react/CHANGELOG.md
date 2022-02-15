@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 0.7.4
+
+### Patch Changes
+
+- Updated dependencies [cedd489]
+- Updated dependencies [b57b40b]
+  - @saas-ui/collapse@0.2.3
+  - @saas-ui/layout@0.1.4
+  - @saas-ui/data-table@0.1.3
+
 ## 0.7.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/layout
 
+## 0.1.4
+
+### Patch Changes
+
+- b57b40b: Fixed package depedencies and bundle size
+
 ## 0.1.3
 
 ### Patch Changes

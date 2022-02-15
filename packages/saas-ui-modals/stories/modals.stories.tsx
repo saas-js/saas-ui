@@ -140,6 +140,7 @@ export const basic = () => {
                 <Field name="title" label="Title" />
               </FormLayout>
             ),
+            onSubmit: () => Promise.resolve(),
           })
         }
       >

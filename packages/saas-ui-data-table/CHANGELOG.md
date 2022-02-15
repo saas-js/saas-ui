@@ -1,5 +1,11 @@
 # @saas-ui/data-table
 
+## 0.1.2
+
+### Patch Changes
+
+- a7fc88b: Reexport Column and DataInstance from react-table
+
 ## 0.1.1
 
 ### Patch Changes

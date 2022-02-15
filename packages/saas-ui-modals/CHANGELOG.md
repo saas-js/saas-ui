@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 0.2.4
+
+### Patch Changes
+
+- 0456a9f: Improved modals typings
+
 ## 0.2.3
 
 ### Patch Changes

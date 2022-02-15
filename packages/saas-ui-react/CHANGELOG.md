@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 0.7.3
+
+### Patch Changes
+
+- Updated dependencies [a7fc88b]
+- Updated dependencies [0456a9f]
+  - @saas-ui/data-table@0.1.2
+  - @saas-ui/modals@0.2.4
+
 ## 0.7.2
 
 ### Patch Changes

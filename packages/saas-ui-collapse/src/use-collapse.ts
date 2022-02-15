@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createContext, PropGetter } from '@chakra-ui/react-utils'
-import { useDisclosure, useId } from '@chakra-ui/react'
+import { useDisclosure, useId, CollapseProps } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
 export const [CollapseProvider, useCollapseContext] =
@@ -39,8 +39,8 @@ export const useCollapse = (props: UseCollapse = {}) => {
     [isCollapsible, isOpen]
   )
 
-  const getCollapseProps: PropGetter = React.useCallback(
-    (props = {}) => {
+  const getCollapseProps = React.useCallback(
+    (props: CollapseProps = {}) => {
       return {
         id,
         in: isOpen,

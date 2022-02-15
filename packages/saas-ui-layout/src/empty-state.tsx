@@ -122,7 +122,7 @@ export const EmptyStateDescription: React.FC<TextProps> = (props) => {
 
   const descriptionStyles: SystemStyleObject = {
     color: 'muted',
-    fontSize: 'mb',
+    fontSize: 'md',
     ...styles.description,
   }
 

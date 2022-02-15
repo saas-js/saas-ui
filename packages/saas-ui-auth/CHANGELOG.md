@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.4.3
+
+### Patch Changes
+
+- @saas-ui/forms@0.2.5
+
 ## 0.4.2
 
 ### Patch Changes

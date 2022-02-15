@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 0.2.5
+
+### Patch Changes
+
+- Updated dependencies [46dd92b]
+  - @saas-ui/number-input@0.2.2
+
 ## 0.2.4
 
 ### Patch Changes

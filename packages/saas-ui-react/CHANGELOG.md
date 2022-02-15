@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 0.7.2
+
+### Patch Changes
+
+- 65cd402: Added new FormDialog component
+- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and return isCollapsible param.
+- 46dd92b: NumberInput stepper can now be hidden and supports custom icons.
+- Updated dependencies [65cd402]
+- Updated dependencies [4b8a1cb]
+- Updated dependencies [44e024f]
+- Updated dependencies [46dd92b]
+  - @saas-ui/modals@0.2.3
+  - @saas-ui/collapse@0.2.2
+  - @saas-ui/layout@0.1.3
+  - @saas-ui/number-input@0.2.2
+  - @saas-ui/data-table@0.1.1
+  - @saas-ui/forms@0.2.5
+  - @saas-ui/auth@0.4.3
+
 ## 0.7.1
 
 ### Patch Changes

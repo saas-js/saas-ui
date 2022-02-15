@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 0.2.3
+
+### Patch Changes
+
+- 65cd402: Added new FormDialog component
+  - @saas-ui/forms@0.2.5
+
 ## 0.2.2
 
 ### Patch Changes

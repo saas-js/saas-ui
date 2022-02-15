@@ -1,5 +1,11 @@
 # @saas-ui/layout
 
+## 0.1.3
+
+### Patch Changes
+
+- 44e024f: Fixed typo in the description fontSize
+
 ## 0.1.2
 
 ### Patch Changes

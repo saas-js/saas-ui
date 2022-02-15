@@ -1,5 +1,11 @@
 # @saas-ui/collapse
 
+## 0.2.2
+
+### Patch Changes
+
+- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and return isCollapsible param.
+
 ## 0.2.1
 
 ### Patch Changes

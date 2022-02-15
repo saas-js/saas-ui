@@ -231,6 +231,11 @@ const sidebar = {
           sort: true,
           routes: [
             {
+              title: 'Banner',
+              // path: '/docs/feedback/nprogress',
+              soon: true,
+            },
+            {
               title: 'NProgress',
               path: '/docs/feedback/nprogress',
             },

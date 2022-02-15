@@ -75,27 +75,12 @@ const sidebar = {
               soon: true,
             },
             {
-              title: 'Sidebar',
-              // path: '/docs/layout/page',
-              soon: true,
-            },
-            {
-              title: 'Navbar',
-              // path: '/docs/layout/page',
-              soon: true,
-            },
-            {
               title: 'Page',
               // path: '/docs/layout/page',
               soon: true,
             },
             {
               title: 'Section',
-              // path: '/docs/layout/section',
-              soon: true,
-            },
-            {
-              title: 'ResizeBox',
               // path: '/docs/layout/section',
               soon: true,
             },
@@ -114,6 +99,16 @@ const sidebar = {
             {
               title: 'CommandMenu',
               // path: '/docs/navigation/hotkeys',
+              soon: true,
+            },
+            {
+              title: 'Sidebar',
+              // path: '/docs/layout/page',
+              soon: true,
+            },
+            {
+              title: 'Navbar',
+              // path: '/docs/layout/page',
               soon: true,
             },
           ],
@@ -255,6 +250,26 @@ const sidebar = {
           ],
         },
         {
+          title: 'Overlay',
+          path: '/docs/overlay',
+          open: true,
+          sort: false,
+          routes: [
+            {
+              title: 'Modals manager',
+              path: '/docs/overlay/modals-manager',
+            },
+            {
+              title: 'MenuDialog',
+              path: '/docs/overlay/menu-dialog',
+            },
+            {
+              title: 'FormDialog',
+              path: '/docs/overlay/form-dialog',
+            },
+          ],
+        },
+        {
           title: 'Engagement',
           path: '/docs/engagement',
           open: true,
@@ -312,22 +327,14 @@ const sidebar = {
           ],
         },
         {
-          title: 'Overlay',
-          path: '/docs/overlay',
+          title: 'Misc',
+          path: '/docs/misc',
           open: true,
-          sort: false,
           routes: [
             {
-              title: 'Modals manager',
-              path: '/docs/overlay/modals-manager',
-            },
-            {
-              title: 'MenuDialog',
-              path: '/docs/overlay/menu-dialog',
-            },
-            {
-              title: 'FormDialog',
-              path: '/docs/overlay/form-dialog',
+              title: 'ResizeBox',
+              // path: '/docs/layout/section',
+              soon: true,
             },
           ],
         },

@@ -28,7 +28,7 @@ export const basic = () => {
   const disclosure = useDisclosure()
 
   return (
-    <Stack>
+    <Stack alignItems="center">
       <Button
         onClick={() => {
           disclosure.onOpen()
@@ -52,7 +52,7 @@ export const iconAndCommand = () => {
   const disclosure = useDisclosure()
 
   return (
-    <Stack>
+    <Stack alignItems="center">
       <Button
         onClick={() => {
           disclosure.onOpen()
@@ -82,7 +82,7 @@ export const menuGroup = () => {
   const disclosure = useDisclosure()
 
   return (
-    <Stack>
+    <Stack alignItems="center">
       <Button
         onClick={() => {
           disclosure.onOpen()
@@ -122,7 +122,7 @@ export const overflow = () => {
   }
 
   return (
-    <Stack>
+    <Stack alignItems="center">
       <Button
         onClick={() => {
           disclosure.onOpen()

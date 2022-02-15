@@ -4,6 +4,7 @@ import { Modal, BaseModalProps } from './modal'
 import { Drawer, DrawerProps } from './drawer'
 import { ConfirmDialog, ConfirmDialogProps } from './dialog'
 import { MenuDialog, MenuDialogProps } from './menu'
+import { FormDialog } from './form'
 
 export interface ModalsContextValue {
   open?: (options: OpenOptions) => ModalId
@@ -11,6 +12,7 @@ export interface ModalsContextValue {
   alert?: (options: ModalOptions) => ModalId
   confirm?: (options: ModalOptions) => ModalId
   menu?: (options: ModalOptions) => ModalId
+  form?: (options: ModalOptions) => ModalId
   close?: (id: ModalId) => void
   closeAll?: () => void
 }
@@ -81,6 +83,7 @@ const defaultModals = {
   drawer: Drawer,
   modal: Modal,
   menu: MenuDialog,
+  form: FormDialog,
 }
 
 export function ModalsProvider({ children, modals }: ModalsProviderProps) {
@@ -180,6 +183,13 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     })
   }
 
+  const form = (options: ModalOptions): ModalId => {
+    return open({
+      ...options,
+      type: 'form',
+    })
+  }
+
   const close = async (id?: ModalId | null, force?: boolean) => {
     const modals = [..._instances]
     const modal = modals.filter((modal) => modal.id === id)[0]
@@ -220,6 +230,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     alert,
     confirm,
     menu,
+    form,
     close,
     closeAll,
   }

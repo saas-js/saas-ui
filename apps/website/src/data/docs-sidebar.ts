@@ -327,8 +327,7 @@ const sidebar = {
             },
             {
               title: 'FormDialog',
-              // path: '/docs/overlay/confirm-dialog',
-              soon: true,
+              path: '/docs/overlay/form-dialog',
             },
           ],
         },

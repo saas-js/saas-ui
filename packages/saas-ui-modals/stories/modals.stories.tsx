@@ -5,6 +5,7 @@ import { ModalsProvider, useModals } from '../src/provider'
 import { MenuDialogList } from '../src/menu'
 
 import { Button } from '@saas-ui/button'
+import { Field, FormLayout } from '@saas-ui/forms'
 
 const CustomModal: React.FC<{ title: string }> = ({ title, children }) => (
   <div>
@@ -33,7 +34,7 @@ export const basic = () => {
   const modals = useModals()
 
   return (
-    <Stack>
+    <Stack alignItems="center">
       <Button
         onClick={() => {
           const id = modals.open({
@@ -128,7 +129,21 @@ export const basic = () => {
           })
         }
       >
-        Open menu
+        Open menu dialog
+      </Button>
+      <Button
+        onClick={() =>
+          modals.form({
+            title: 'Form',
+            body: (
+              <FormLayout>
+                <Field name="title" label="Title" />
+              </FormLayout>
+            ),
+          })
+        }
+      >
+        Open form dialog
       </Button>
     </Stack>
   )

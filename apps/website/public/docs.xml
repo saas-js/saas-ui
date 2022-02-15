@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sat, 12 Feb 2022 13:31:02 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 15 Feb 2022 11:07:08 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -275,6 +275,16 @@
     <title>Hotkeys</title>
     <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
     <description>Keyboard shortcuts for modern apps</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/overlay/form-dialog</guid>
+    <title>Form Dialog</title>
+    <link>https://saas-ui.dev/docs/overlay/form-dialog</link>
+    <description>A modal dialog that renders a form.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

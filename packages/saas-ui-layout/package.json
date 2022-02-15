@@ -58,6 +58,7 @@
     "@saas-ui/provider": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ">=1.8.0",
+    "react": ">=16.8.6"
   }
 }

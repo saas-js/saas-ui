@@ -1,12 +1,7 @@
 import * as React from 'react'
-import { createContext } from '@chakra-ui/react-utils'
-import { useDisclosure, useId, HTMLChakraProps } from '@chakra-ui/react'
-
-export interface UseCollapseReturn {
-  getToggleProps: (props: HTMLChakraProps<any>) => HTMLChakraProps<any>
-  getCollapseProps: (props: HTMLChakraProps<any>) => HTMLChakraProps<any>
-  isOpen: boolean
-}
+import { createContext, PropGetter } from '@chakra-ui/react-utils'
+import { useDisclosure, useId } from '@chakra-ui/react'
+import { cx } from '@chakra-ui/utils'
 
 export const [CollapseProvider, useCollapseContext] =
   createContext<UseCollapseReturn>({
@@ -27,15 +22,16 @@ export const useCollapse = (props: UseCollapse = {}) => {
 
   const { isOpen, onToggle, onOpen, onClose } = useDisclosure(rest)
 
-  const getToggleProps = React.useCallback(
+  const getToggleProps: PropGetter = React.useCallback(
     (props = {}) => {
+      const { className, ...rest } = props
       if (isCollapsible) {
         return {
-          className: 'sui-collapse-toggle',
+          className: cx('sui-collapse-toggle', className),
           onClick: () => onToggle(),
           'aria-expanded': isOpen.toString(),
           'aria-controls': id,
-          ...props,
+          ...rest,
         }
       }
       return {}
@@ -43,7 +39,7 @@ export const useCollapse = (props: UseCollapse = {}) => {
     [isCollapsible, isOpen]
   )
 
-  const getCollapseProps = React.useCallback(
+  const getCollapseProps: PropGetter = React.useCallback(
     (props = {}) => {
       return {
         id,
@@ -55,6 +51,7 @@ export const useCollapse = (props: UseCollapse = {}) => {
   )
 
   return {
+    isCollapsible,
     isOpen,
     getToggleProps,
     getCollapseProps,
@@ -63,3 +60,5 @@ export const useCollapse = (props: UseCollapse = {}) => {
     onClose,
   }
 }
+
+export interface UseCollapseReturn extends ReturnType<typeof useCollapse> {}

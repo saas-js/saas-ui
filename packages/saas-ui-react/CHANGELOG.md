@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.7.5
+
+### Patch Changes
+
+- AuthProvider now checks if a user is authenticated when logIn or signUp are succesful.
+- Updated dependencies
+  - @saas-ui/auth@0.4.4
+
 ## 0.7.4
 
 ### Patch Changes

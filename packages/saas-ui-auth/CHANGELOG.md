@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.4.4
+
+### Patch Changes
+
+- AuthProvider now checks if a user is authenticated when logIn or signUp are succesful.
+
 ## 0.4.3
 
 ### Patch Changes

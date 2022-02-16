@@ -165,6 +165,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   const signUp = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {
       const result = await onSignup(params, options)
+      checkAuth() // In case the auth service authenticates the user directly.
       return result
     },
     [onSignup]
@@ -173,17 +174,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   const logIn = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {
       const result = await onLogin(params, options)
-      if (result) {
-        setUser(result)
-      }
+      checkAuth() // In case the auth service authenticates the user directly.
       return result
     },
     [onLogin]
   )
 
-  const logOut = useCallback(() => {
+  const logOut = useCallback(async () => {
+    await onLogout()
     setUser(null)
-    return onLogout()
+    setAuthenticated(false)
   }, [onLogout])
 
   const verifyOtp = useCallback(

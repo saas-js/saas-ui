@@ -21,7 +21,8 @@ import {
   ButtonGroupProps,
 } from '@chakra-ui/react'
 
-export interface EmptyStateProps extends EmptyStateContainerProps {
+export interface EmptyStateProps
+  extends Omit<EmptyStateContainerProps, 'title'> {
   title: React.ReactNode
   description?: React.ReactNode
   icon?: As<any>
@@ -62,7 +63,9 @@ export const EmptyState: React.FC<EmptyStateProps> = (props) => {
   )
 }
 
-export interface EmptyStateContainerProps extends ThemingProps<'EmptyState'> {
+export interface EmptyStateContainerProps
+  extends HTMLChakraProps<'div'>,
+    ThemingProps<'EmptyState'> {
   children?: React.ReactNode
   spacing?: SystemProps['margin']
 }

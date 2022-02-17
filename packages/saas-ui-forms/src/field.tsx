@@ -191,9 +191,15 @@ const createField = (
       isInvalid,
       isReadOnly,
       isRequired,
+      rules,
       variant,
       ...inputProps
     } = props
+
+    const inputRules = {
+      required: isRequired,
+      ...rules,
+    }
 
     return (
       <BaseField
@@ -203,10 +209,16 @@ const createField = (
         isDisabled={isDisabled}
         isInvalid={isInvalid}
         isReadOnly={isReadOnly}
-        isRequired={isRequired}
+        isRequired={inputRules.required}
         variant={variant}
       >
-        <InputComponent ref={ref} name={name} label={label} {...inputProps} />
+        <InputComponent
+          ref={ref}
+          name={name}
+          label={label}
+          rules={inputRules}
+          {...inputProps}
+        />
       </BaseField>
     )
   })

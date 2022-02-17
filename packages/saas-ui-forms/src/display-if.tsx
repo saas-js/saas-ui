@@ -12,7 +12,7 @@ export interface DisplayIfProps<TFieldValues> {
   defaultValue?: unknown
   isDisabled?: boolean
   isExact?: boolean
-  condition: (value: unknown, context: UseFormReturn<TFieldValues>) => boolean
+  condition?: (value: unknown, context: UseFormReturn<TFieldValues>) => boolean
 }
 
 export const DisplayIf = <TFieldValues extends FieldValues = FieldValues>({
@@ -21,7 +21,7 @@ export const DisplayIf = <TFieldValues extends FieldValues = FieldValues>({
   defaultValue,
   isDisabled,
   isExact,
-  condition,
+  condition = (value) => !!value,
 }: DisplayIfProps<TFieldValues>) => {
   const value = useWatch({
     name,

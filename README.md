@@ -4,6 +4,9 @@
   <a href="https://www.npmjs.com/package/@saas-ui/react">
     <img src="https://img.shields.io/npm/v/@saas-ui/react" alt="NPM">
   </a>
+  <a href="https://www.npmjs.com/package/@saas-ui/react">
+    <img src="https://img.shields.io/npm/dm/@saas-ui/react.svg" alt="npm downloads">
+  </a>
   <img alt="MIT License" src="https://img.shields.io/github/license/saas-js/saas-ui"/>
   <a href="https://twitter.com/intent/follow?screen_name=saas_js">
     <img src="https://img.shields.io/twitter/follow/saas_js?style=social&logo=twitter" alt="follow on Twitter">
@@ -27,10 +30,12 @@ https://www.saas-ui.dev/docs/introduction
 Saas UI core is currently is beta, the first release candidate as well as Saas UI Pro is expected in Q1 2022.
 
 ### Core
+
 - [ ] Finish all v1 core components and hooks
 - [ ] Full test coverage
 
 ### Pro
+
 - [ ] Example Saas metrics dashboard app (NextJS)
 - [ ] RedwoodJS app
 - [ ] Electron app
@@ -44,7 +49,7 @@ Saas UI core is currently is beta, the first release candidate as well as Saas U
 - [ ] CRUD scaffolds
 - [ ] Saas UI themes
 - [ ] File uploads
- 
+
 ## Features
 
 ### Core

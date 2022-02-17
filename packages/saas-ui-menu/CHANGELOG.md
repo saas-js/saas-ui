@@ -1,5 +1,11 @@
 # @saas-ui/menu
 
+## 0.3.1
+
+### Patch Changes
+
+- 7b87e43: Use currentColor on stroke
+
 ## 0.3.0
 
 ### Minor Changes

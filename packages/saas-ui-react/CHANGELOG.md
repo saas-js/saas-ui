@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies [7b87e43]
+  - @saas-ui/menu@0.3.1
+
 ## 0.8.0
 
 ### Minor Changes

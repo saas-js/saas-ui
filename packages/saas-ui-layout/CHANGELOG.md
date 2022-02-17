@@ -1,5 +1,11 @@
 # @saas-ui/layout
 
+## 0.1.5
+
+### Patch Changes
+
+- 5fbdefc: Now accepting styling props
+
 ## 0.1.4
 
 ### Patch Changes

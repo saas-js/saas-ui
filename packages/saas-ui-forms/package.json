@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {

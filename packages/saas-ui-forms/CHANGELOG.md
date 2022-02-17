@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.3.0
+
+### Minor Changes
+
+- 385b760: Improved Typescript support for forms, conditionally render form fields with DisplayIf
+
 ## 0.2.5
 
 ### Patch Changes

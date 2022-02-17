@@ -1,11 +1,18 @@
-import { Container, Stack, Box } from '@chakra-ui/layout'
+import { Container, Stack, HStack, Text } from '@chakra-ui/layout'
 import * as React from 'react'
 
 import * as Yup from 'yup'
 
 import { UseFormReturn } from 'react-hook-form'
 
-import { Form, AutoForm, FormLayout, Field, SubmitButton } from '../src'
+import {
+  Form,
+  AutoForm,
+  FormLayout,
+  Field,
+  DisplayIf,
+  SubmitButton,
+} from '../src'
 
 import { Button } from '@saas-ui/button'
 
@@ -147,5 +154,41 @@ export const WithTypescript = () => {
         </FormLayout>
       </Form>
     </Stack>
+  )
+}
+
+type FormInputs = {
+  firstName: string
+  lastName: string
+}
+
+export const TypescriptWithRef = () => {
+  const ref = React.useRef<UseFormReturn<FormInputs>>(null)
+
+  return (
+    <Form<FormInputs>
+      ref={ref}
+      defaultValues={{
+        firstName: '',
+        lastName: '',
+      }}
+      onSubmit={() => Promise.resolve()}
+    >
+      <FormLayout>
+        <Field<FormInputs>
+          name="firstName"
+          label="First name"
+          rules={{ required: 'Please enter your first name' }}
+        />
+        <Field<FormInputs> name="lastName" label="Last name" />
+        <DisplayIf name="firstName" condition={(value) => !!value}>
+          <Button onClick={() => ref.current?.reset()}>Reset</Button>
+        </DisplayIf>
+
+        <SubmitButton disableIfUntouched disableIfInvalid>
+          Save
+        </SubmitButton>
+      </FormLayout>
+    </Form>
   )
 }

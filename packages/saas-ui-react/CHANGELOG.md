@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 0.8.0
+
+### Minor Changes
+
+- 385b760: Improved Typescript support for forms, conditionally render form fields with DisplayIf
+- f88d99a: Added new OverflowMenu component
+
+### Patch Changes
+
+- Updated dependencies [c7c77c5]
+- Updated dependencies [5fbdefc]
+- Updated dependencies [385b760]
+- Updated dependencies [f88d99a]
+  - @saas-ui/menu@0.3.0
+  - @saas-ui/layout@0.1.5
+  - @saas-ui/forms@0.3.0
+  - @saas-ui/data-table@0.1.4
+  - @saas-ui/auth@0.4.5
+  - @saas-ui/modals@0.2.5
+
 ## 0.7.5
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @saas-ui/menu
 
+## 0.3.0
+
+### Minor Changes
+
+- f88d99a: Added new OverflowMenu component
+
+### Patch Changes
+
+- c7c77c5: Added missing dependency
+
 ## 0.2.6
 
 ### Patch Changes

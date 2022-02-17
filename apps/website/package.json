@@ -30,6 +30,7 @@
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/props-docs": "workspace:^",
     "@svgr/webpack": "^5.5.0",
+    "canvas-confetti": "^1.5.1",
     "contentlayer": "^0.0.33",
     "date-fns": "^2.27.0",
     "framer-motion": "^4",

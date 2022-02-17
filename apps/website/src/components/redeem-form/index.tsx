@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { Stack, Heading, Text, Spinner, Center } from '@chakra-ui/react'
+import { chakra, Stack, Heading, Text, Spinner, Center } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
 import { ButtonLink } from '@/components/link'
@@ -19,6 +19,8 @@ import {
 
 import { FaGithub, FaDiscord } from 'react-icons/fa'
 
+import confetti from 'canvas-confetti'
+
 export function RedeemForm(props) {
   const router = useRouter()
   const snackbar = useSnackbar()
@@ -28,6 +30,14 @@ export function RedeemForm(props) {
   const [licenseKey, setLicenseKey] = useState<string>('')
 
   const [loading, setLoading] = useState<boolean>(true)
+
+  const celebrate = () => {
+    confetti({
+      zIndex: 999,
+      particleCount: 100,
+      spread: 100,
+    })
+  }
 
   useEffect(() => {
     if (router.query.sale_id) {
@@ -55,7 +65,7 @@ export function RedeemForm(props) {
     }
   }, [router.query, router.isReady])
 
-  const handleSubmit = ({ licenseKey, githubAccount }) => {
+  const handleSubmit = async ({ licenseKey, githubAccount }) => {
     /* @ts-ignore */
     window?.woopra.track('Redeem Submitted')
 
@@ -73,6 +83,7 @@ export function RedeemForm(props) {
           return snackbar.error(response.error)
         } else {
           snackbar.success('Your license has been activated!')
+          celebrate()
         }
         setData({
           licenseKey,
@@ -100,7 +111,10 @@ export function RedeemForm(props) {
     content = (
       <Stack spacing="4">
         <Heading size="md" color="white">
-          Welcome on board 😎
+          Welcome on board{' '}
+          <chakra.span onClick={celebrate} cursor="pointer">
+            🥳
+          </chakra.span>
         </Heading>
         <Text>
           {data.githubInvited || !router.query.sale_id ? (
@@ -148,7 +162,8 @@ export function RedeemForm(props) {
           />
           <Field
             name="githubAccount"
-            label="Github account"
+            label="Github username"
+            placeholder="@"
             rules={{ required: true }}
           />
 

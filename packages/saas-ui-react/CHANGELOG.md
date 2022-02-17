@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [e691413]
+  - @saas-ui/forms@0.3.1
+  - @saas-ui/auth@0.4.6
+  - @saas-ui/modals@0.2.6
+
 ## 0.8.1
 
 ### Patch Changes

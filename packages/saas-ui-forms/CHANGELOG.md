@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.3.1
+
+### Patch Changes
+
+- e691413: DisplayIf now check if value is set by default, set isRequired on fields when required = true
+
 ## 0.3.0
 
 ### Minor Changes

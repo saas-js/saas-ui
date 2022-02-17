@@ -1,4 +1,5 @@
 export * from './menu'
+export * from './overflow-menu'
 export {
   Menu,
   MenuList,

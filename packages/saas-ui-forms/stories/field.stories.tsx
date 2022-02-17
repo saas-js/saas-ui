@@ -19,7 +19,7 @@ const helpSchema = Yup.object().shape({
   email: Yup.string().email().required().label('Email'),
 })
 
-import { handleSubmit } from './helpers'
+import { onSubmit } from './helpers'
 
 export const basic = () => (
   <Form
@@ -83,7 +83,7 @@ export const rules = () => {
         text: '',
         pattern: '',
       }}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
     >
       <FormLayout>
         <Field
@@ -113,7 +113,7 @@ export const noLabel = () => {
       defaultValues={{
         text: '',
       }}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       onError={(err) => console.error(err)}
     >
       <FormLayout>
@@ -132,7 +132,7 @@ export const helpText = () => {
         email: '',
       }}
       schema={helpSchema}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
     >
       <FormLayout>
         <Field

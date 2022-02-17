@@ -23,7 +23,7 @@ import {
 
 import { Button } from '@saas-ui/button'
 
-import { handleSubmit } from './helpers'
+import { onSubmit } from './helpers'
 
 export default {
   title: 'Components/Forms/ArrayField',
@@ -57,7 +57,7 @@ export const autoArrayField = () => {
           ],
         }}
         schema={arraySchema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       />
     </>
   )
@@ -74,7 +74,7 @@ export const arrayField = () => (
         ],
       }}
       schema={arraySchema}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
     >
       <FormLayout>
         <ArrayField name="arrayField" label="Array field" defaultValue={{}}>
@@ -129,7 +129,7 @@ export const customArrayField = () => (
         ],
       }}
       schema={arraySchema}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
     >
       <FormLayout>
         <ArrayFieldContainer
@@ -182,7 +182,7 @@ export const minMaxNoSchema = () => (
           },
         ],
       }}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
     >
       <FormLayout>
         <ArrayField

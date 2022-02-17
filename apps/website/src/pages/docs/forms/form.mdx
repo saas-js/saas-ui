@@ -16,10 +16,17 @@ follows the [WAI specifications ](https://www.w3.org/WAI/tutorials/forms/) for f
 - `Form`: The wrapper component provides context, state, and focus management.
 - `FormLayout`: Create consistent field spacing and positioning.
 - `Field`: Renders a fully functional form control, supports [multiple types](/docs/forms/field). Must be a child of `Form`.
+- `DisplayIf`: Conditionally render parts of a form.
 - `SubmitButton`: A button with type `submit` and default color scheme `primary` and `isLoading` state when the form is submitting.
 
 ```ts
-import { Form, FormLayout, Field, SubmitButton } from '@saas-ui/react'
+import {
+  Form,
+  FormLayout,
+  Field,
+  DisplayIf,
+  SubmitButton,
+} from '@saas-ui/react'
 ```
 
 ## Best practises
@@ -131,10 +138,47 @@ function CreateProject() {
 }
 ```
 
-### Use your own submit button
+### Disable the submit button when untouched
 
 ```jsx
 <Form>
+  <FormLayout>
+    <Field
+      name="title"
+      label="Title"
+      rules={{ required: 'Title is required' }}
+    />
+    <Field name="description" type="textarea" label="Description" />
+    <SubmitButton disableIfUntouched />
+  </FormLayout>
+</Form>
+```
+
+### Disable the submit button when invalid
+
+```jsx
+<Form onSubmit={saveHandler}>
+  <FormLayout>
+    <Field
+      name="email"
+      label="Email"
+      rules={{ required: true, type: 'email' }}
+    />
+    <Field
+      name="terms"
+      type="checkbox"
+      label="I accept the terms & conditions."
+      rules={{ required: true }}
+    />
+    <SubmitButton disableIfInvalid />
+  </FormLayout>
+</Form>
+```
+
+### Use your own submit button
+
+```jsx
+<Form onSubmit={saveHandler}>
   <FormLayout>
     <Field name="title" label="Title" />
 
@@ -148,7 +192,7 @@ function CreateProject() {
 ### Group related fields
 
 ```jsx
-<Form>
+<Form onSubmit={saveHandler}>
   <FormLayout>
     <Heading size="md">Personal information</Heading>
     <FormLayout columns="2">
@@ -180,6 +224,80 @@ function CreateProject() {
     <SubmitButton>Complete order</SubmitButton>
   </FormLayout>
 </Form>
+```
+
+### Conditionally show fields
+
+```jsx
+<Form onSubmit={saveHandler}>
+  <FormLayout>
+    <Heading size="md">Personal information</Heading>
+    <FormLayout columns="2">
+      <Field name="firstname" label="Name" />
+      <Field name="lastname" label="Last name" />
+    </FormLayout>
+
+    <Field name="email" label="Email address" />
+
+    <Field
+      name="ship"
+      type="checkbox"
+      value={true}
+      label="Ship to my home address"
+    />
+
+    <DisplayIf name="ship" condition={(ship) => !!ship}>
+      <FormLayout>
+        <Heading size="md" mt="4">
+          Address
+        </Heading>
+        <FormLayout>
+          <Field name="address" label="Address" />
+          <Field name="city" label="City" />
+        </FormLayout>
+
+        <Heading size="md" mt="4">
+          Billing information
+        </Heading>
+        <FormLayout columns="2">
+          <Field name="card" label="Card number" />
+          <FormLayout columns="2">
+            <Field name="exp" label="Expiration date" />
+            <Field name="cvc" label="CVC" />
+          </FormLayout>
+        </FormLayout>
+      </FormLayout>
+    </DisplayIf>
+
+    <SubmitButton>Complete order</SubmitButton>
+  </FormLayout>
+</Form>
+```
+
+### Typescript support
+
+```tsx
+type PostInputs = {
+  firstName: string
+  lastName: string
+}
+
+export const TypescriptForm = () => {
+  return (
+    <Form<PostInputs>
+      defaultValues={{
+        firstName: 'Eelco',
+        lastName: 'Wiersma',
+      }}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field<PostInputs> name="firstName" label="First name" />
+        <Field<PostInputs> name="lastName" label="Last name" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ## Accessibility

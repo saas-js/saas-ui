@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FieldValues } from 'react-hook-form'
+import { FieldValues, UseFormReturn } from 'react-hook-form'
 import { forwardRef } from '@chakra-ui/react'
 
 import { Form, FormProps } from './form'
@@ -20,9 +20,9 @@ export interface AutoFormProps<TFieldValues extends FieldValues>
 export const AutoForm = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: AutoFormProps<TFieldValues>,
-    ref: React.ForwardedRef<HTMLFormElement>
+    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
   ) => {
-    const { schema, submitLabel, ...rest } = props
+    const { schema, submitLabel = 'Submit', ...rest } = props
     return (
       <Form {...rest} schema={schema} ref={ref}>
         <FormLayout>
@@ -32,8 +32,8 @@ export const AutoForm = forwardRef(
       </Form>
     )
   }
-)
-
-AutoForm.defaultProps = {
-  submitLabel: 'Submit',
-}
+) as <TFieldValues extends FieldValues>(
+  props: AutoFormProps<TFieldValues> & {
+    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  }
+) => React.ReactElement

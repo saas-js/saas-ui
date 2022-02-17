@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/layout'
+import { Container } from '@chakra-ui/layout'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -8,17 +8,11 @@ import {
   AutoForm,
   FormLayout,
   Field,
-  ArrayField,
-  ArrayFieldContainer,
-  ArrayFieldRows,
-  ArrayFieldRow,
-  ArrayFieldAddButton,
-  useArrayFieldContext,
   ObjectField,
   SubmitButton,
 } from '../src'
 
-import { handleSubmit } from './helpers'
+import { onSubmit } from './helpers'
 
 export default {
   title: 'Components/Forms/ObjectField',
@@ -48,7 +42,7 @@ export const autoObjectField = () => {
           post: {},
         }}
         schema={objectSchema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       />
     </>
   )
@@ -62,7 +56,7 @@ export const objectField = () => {
           post: {},
         }}
         schema={objectSchema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       >
         <FormLayout>
           <ObjectField name="post">
@@ -98,7 +92,7 @@ export const nestedObjectField = () => {
           post: {},
         }}
         schema={nestedSchema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       >
         <FormLayout>
           <ObjectField name="post">

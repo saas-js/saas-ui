@@ -40,7 +40,7 @@
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package react-component",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
-    "build:packages": "turbo run build  --scope='@saas-ui/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
+    "build:packages": "turbo run build  --scope='@saas-ui/*' --ignore='@saas-ui/props-docs' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
     "build:prop-docs": "yarn pkg props-docs build"
   },

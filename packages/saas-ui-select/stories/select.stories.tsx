@@ -19,23 +19,17 @@ export default {
   ],
 }
 
-const options = [
-  {
-    value: '1',
-    label: 'Option 1',
-  },
-  {
-    value: '2',
-    label: 'Option 2',
-  },
-]
+const options = Array.from({ length: 100 }).map((_node, index) => ({
+  value: String(index),
+  label: `Option ${index + 1}`,
+}))
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
 
 export const basic = Template.bind({})
 basic.args = {
   /**
-   * Descripitioin
+   * Description
    */
   name: 'select',
   options,

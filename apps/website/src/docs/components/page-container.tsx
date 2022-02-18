@@ -16,6 +16,7 @@ import TableOfContent from '@/docs/components/table-of-content'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
 import PageTransition from './page-transition'
 import { t } from '@/docs/utils/i18n'
+import { BackgroundGradient } from '@/components/background-gradient'
 
 import { formatRelative, subDays } from 'date-fns'
 
@@ -89,7 +90,14 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <Container as="main" className="main-content" maxW="container.2xl">
+      <BackgroundGradient animate={false} height="100vh" opacity={0.3} />
+      <Container
+        as="main"
+        className="main-content"
+        maxW="container.2xl"
+        position="relative"
+        zIndex="2"
+      >
         <Box display={{ md: 'flex' }}>
           {sidebar || null}
           <Box flex="1" minW="0">

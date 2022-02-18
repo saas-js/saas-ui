@@ -2,7 +2,12 @@ import { extendTheme } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui/theme'
 
-import { createBreakpoints, mode, transparentize } from '@chakra-ui/theme-tools'
+import {
+  createBreakpoints,
+  mode,
+  transparentize,
+  blacken,
+} from '@chakra-ui/theme-tools'
 
 import deepmerge from 'deepmerge'
 
@@ -72,6 +77,14 @@ const theme = extendTheme(
     },
     breakpoints: createBreakpoints(breakpoints),
     colors,
+    semanticTokens: {
+      colors: {
+        codeBackground: {
+          default: blacken('purple.600', 70)(baseTheme),
+          _dark: 'gray.800',
+        },
+      },
+    },
     styles,
     textStyles,
     fonts: {
@@ -137,6 +150,11 @@ const theme = extendTheme(
             bg: mode('white', 'gray.800'),
           },
         }),
+      },
+      Code: {
+        defaultProps: {
+          variant: 'solid',
+        },
       },
     },
   },

@@ -1,6 +1,6 @@
-import { Box, useBoolean } from '@chakra-ui/react'
+import { Box, useBoolean, useColorModeValue } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import theme from 'prism-react-renderer/themes/duotoneDark'
+import prismTheme from 'prism-react-renderer/themes/shadesOfPurple'
 import React, { useEffect } from 'react'
 import CodeContainer from './code-container'
 import CopyButton from './copy-button'
@@ -32,6 +32,14 @@ function CodeBlock(props) {
 
   const language = className?.replace(/language-/, '')
   const rawCode = children.trim()
+
+  const theme = {
+    ...prismTheme,
+    plain: {
+      backgroundColor: 'codeBackground',
+      color: prismTheme.plain.color,
+    },
+  }
 
   const reactLiveBlockProps = {
     rawCode,

@@ -53,6 +53,7 @@ function ReactLiveBlock({ editable, rawCode, theme, ...rest }) {
   const liveProviderProps = {
     code: editorCode,
     scope,
+    theme,
     ...rest,
   }
   return (
@@ -65,7 +66,7 @@ function ReactLiveBlock({ editable, rawCode, theme, ...rest }) {
           </CodeContainer>
         )}
         <CopyButton code={editorCode} />
-        {editable && <EditableNotice />}
+        {editable && <EditableNotice bg={theme.plain.backgroundColor} />}
       </Box>
       {editable && <LiveError style={liveErrorStyle} />}
     </LiveProvider>

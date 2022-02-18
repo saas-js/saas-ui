@@ -12,6 +12,7 @@ const Header = (props: HeaderProps) => {
       w="full"
       backdropFilter="blur(5px)"
       zIndex="sticky"
+      borderColor="whiteAlpha.100"
       {...props}
     >
       <Container maxW="container.2xl" px="8" py="4">

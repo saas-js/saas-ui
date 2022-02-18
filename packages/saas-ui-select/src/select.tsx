@@ -7,6 +7,7 @@ import {
   MenuProps,
   MenuButton,
   MenuList,
+  MenuListProps,
   MenuItemOption,
   MenuOptionGroup,
   MenuOptionGroupProps,
@@ -26,10 +27,18 @@ interface Option {
 interface SelectOptions {
   /**
    * An array of options
-   * If you leave this empty the children prop will be rendered
+   * If you leave this empty the children prop will be rendered.
    */
   options?: Option[]
-  children?: React.ReactNode
+  /**
+   * Props passed to the MenuList.
+   */
+  menuListProps?: MenuListProps
+  /**
+   * Customize how the value is rendered.
+   * @type (value?: string[]) => React.ReactElement
+   */
+  renderValue?: (value?: string[]) => React.ReactElement
 }
 
 export interface SelectProps
@@ -41,6 +50,8 @@ export interface SelectProps
 const SelectButton = forwardRef((props, ref) => {
   const styles = useMultiStyleConfig('Input', props)
 
+  const height = styles.field.h || styles.field.height
+
   const buttonStyles = {
     fontWeight: 'normal',
     textAlign: 'left',
@@ -48,10 +59,12 @@ const SelectButton = forwardRef((props, ref) => {
     _active: {
       bg: 'transparent',
     },
+    minH: height,
     ...styles.field,
+    h: 'auto',
   }
 
-  // Using a Button as, so we can simply use leftIcon and rightIcon
+  // Using a Button, so we can simply use leftIcon and rightIcon
   return <Button {...props} ref={ref} sx={buttonStyles} />
 })
 
@@ -69,6 +82,8 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     multiple,
     size,
     variant,
+    menuListProps,
+    renderValue = (value) => value?.join(', '),
     ...rest
   } = props
   const menuProps = omitThemingProps(rest)
@@ -77,7 +92,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
 
   const handleChange = (value: string | string[]) => {
     setCurrentValue(value)
-    onChange && onChange(value)
+    onChange?.(value)
   }
 
   const buttonProps = {
@@ -105,18 +120,18 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     [options]
   )
 
-  const displayValue = (
-    Array.isArray(currentValue) ? currentValue : [currentValue]
-  )
-    .map(getDisplayValue)
-    .join(', ')
+  const displayValue = currentValue
+    ? (Array.isArray(currentValue) ? currentValue : [currentValue]).map(
+        getDisplayValue
+      )
+    : []
 
   return (
     <Menu {...menuProps} closeOnSelect={!multiple}>
       <MenuButton as={SelectButton} ref={ref} {...buttonProps}>
-        {displayValue || placeholder}
+        {renderValue(displayValue) || placeholder}
       </MenuButton>
-      <MenuList maxH="200" overflowY="auto">
+      <MenuList maxH="60vh" overflowY="auto" {...menuListProps}>
         <MenuOptionGroup
           defaultValue={
             (defaultValue || value) as string | string[] | undefined

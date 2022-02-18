@@ -116,7 +116,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
       <MenuButton as={SelectButton} ref={ref} {...buttonProps}>
         {displayValue || placeholder}
       </MenuButton>
-      <MenuList>
+      <MenuList maxH="200" overflowY="auto">
         <MenuOptionGroup
           defaultValue={
             (defaultValue || value) as string | string[] | undefined

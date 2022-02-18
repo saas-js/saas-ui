@@ -1,5 +1,11 @@
 # @saas-ui/menu
 
+## 0.3.2
+
+### Patch Changes
+
+- 676eefa: Add menuListProps
+
 ## 0.3.1
 
 ### Patch Changes

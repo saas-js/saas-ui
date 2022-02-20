@@ -1,5 +1,17 @@
 # @saas-ui/card
 
+## 0.2.3
+
+### Patch Changes
+
+- Removed build in styles
+
+## 0.2.2
+
+### Patch Changes
+
+- afc15d8: Improved Card styling
+
 ## 0.2.1
 
 ### Patch Changes

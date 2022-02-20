@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 0.2.8
+
+### Patch Changes
+
+- bae6cf9: Fixed bug where body wouldn't render
+
 ## 0.2.7
 
 ### Patch Changes

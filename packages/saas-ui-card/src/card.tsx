@@ -9,12 +9,10 @@ import {
   omitThemingProps,
   SystemProps,
   ThemeTypings,
+  useMultiStyleConfig,
 } from '@chakra-ui/system'
 
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
-import { useMultiStyleConfig } from '@saas-ui/system'
-
-import defaultStyleConfig from './styles'
 
 type Variants = 'plain' | 'outline' | 'solid'
 
@@ -85,7 +83,7 @@ export interface CardContainerProps
 
 export const CardContainer = forwardRef<CardContainerProps, 'div'>(
   (props, ref) => {
-    const styles = useMultiStyleConfig('Card', props, { defaultStyleConfig })
+    const styles = useMultiStyleConfig('Card', props)
 
     const { children, ...rest } = omitThemingProps(props)
 

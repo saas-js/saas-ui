@@ -1,5 +1,42 @@
 # @saas-ui/react
 
+## 0.8.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/card@0.2.3
+  - @saas-ui/theme@0.4.6
+  - @saas-ui/provider@0.2.9
+  - @saas-ui/layout@0.1.8
+  - @saas-ui/menu@0.3.5
+  - @saas-ui/data-table@0.1.7
+
+## 0.8.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/theme@0.4.5
+  - @saas-ui/provider@0.2.8
+  - @saas-ui/layout@0.1.7
+  - @saas-ui/menu@0.3.4
+  - @saas-ui/data-table@0.1.6
+
+## 0.8.4
+
+### Patch Changes
+
+- Updated dependencies [bae6cf9]
+- Updated dependencies [afc15d8]
+  - @saas-ui/modals@0.2.8
+  - @saas-ui/card@0.2.2
+  - @saas-ui/theme@0.4.4
+  - @saas-ui/provider@0.2.7
+  - @saas-ui/layout@0.1.6
+  - @saas-ui/menu@0.3.3
+  - @saas-ui/data-table@0.1.5
+
 ## 0.8.3
 
 ### Patch Changes

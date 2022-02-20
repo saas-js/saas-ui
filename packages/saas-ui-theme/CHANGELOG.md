@@ -1,5 +1,23 @@
 # @saas-ui/theme
 
+## 0.4.6
+
+### Patch Changes
+
+- Removed build in styles
+
+## 0.4.5
+
+### Patch Changes
+
+- Bump version
+
+## 0.4.4
+
+### Patch Changes
+
+- afc15d8: Improved Card styling
+
 ## 0.4.3
 
 ### Patch Changes

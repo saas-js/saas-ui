@@ -40,7 +40,7 @@ const variantOutline: SystemStyleFunction = (props) => {
     container: {
       bg: 'transparent',
       boxShadow: 'none',
-      border: '1px',
+      borderWidth: '1px',
       borderColor: borderColor,
     },
   }

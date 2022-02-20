@@ -250,13 +250,13 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   const content = Object.entries(activeModals).map(([scope, config]) => {
     const Component = getModalComponent(config.type)
 
-    const { title, children, ...props } = config.props || {}
+    const { title, body, children, ...props } = config.props || {}
 
     return (
       <Component
         key={scope}
         title={title}
-        children={children}
+        children={body || children}
         {...props}
         isOpen={!!(config.id && _instances.size)}
         onClose={() => close(config.id)}

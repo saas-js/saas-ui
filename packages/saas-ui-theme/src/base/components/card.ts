@@ -6,7 +6,7 @@ const baseStyle: SystemStyleFunction = (props) => {
       rounded: 'lg',
       bg: mode('white', 'whiteAlpha.100')(props),
       boxShadow: 'sm',
-      border: mode('1px', 0)(props),
+      borderWidth: '1px',
       borderColor: mode('blackAlpha.200', 'whiteAlpha.300')(props),
     },
     header: {
@@ -23,8 +23,7 @@ const baseStyle: SystemStyleFunction = (props) => {
       color: mode('gray.400', 'gray.300')(props),
     },
     body: {
-      px: 4,
-      py: 2,
+      p: 4,
     },
     footer: {
       p: 4,

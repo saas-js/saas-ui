@@ -14,8 +14,8 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       rounded: 'lg',
       bg: mode('white', 'whiteAlpha.100')(props),
       boxShadow: 'sm',
-      border: mode(1, 0)(props),
-      borderColor: mode('blackAlpha.200', 'whiteAlpha.300')(props),
+      borderWidth: '1px',
+      borderColor: mode('blackAlpha.200', 'whiteAlpha.50')(props),
     },
     header: {
       p: 4,
@@ -32,8 +32,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       p: 4,
     },
     footer: {
-      px: 4,
-      pb: 4,
+      p: 4,
     },
   }
 }

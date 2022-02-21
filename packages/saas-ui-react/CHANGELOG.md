@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 0.8.7
+
+### Patch Changes
+
+- Updated dependencies [4eba003]
+  - @saas-ui/theme@0.4.7
+  - @saas-ui/provider@0.2.10
+  - @saas-ui/layout@0.1.9
+  - @saas-ui/menu@0.3.6
+  - @saas-ui/data-table@0.1.8
+
 ## 0.8.6
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.4.7
+
+### Patch Changes
+
+- 4eba003: Improved Button colors in lightmode
+
 ## 0.4.6
 
 ### Patch Changes

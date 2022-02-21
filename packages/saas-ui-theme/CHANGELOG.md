@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.4.8
+
+### Patch Changes
+
+- be249e2: Improved ghost variant in lightmode
+
 ## 0.4.7
 
 ### Patch Changes

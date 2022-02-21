@@ -1,5 +1,12 @@
 # @saas-ui/layout
 
+## 0.1.10
+
+### Patch Changes
+
+- 7e316aa: Forward ref on Link component
+  - @saas-ui/provider@0.2.11
+
 ## 0.1.9
 
 ### Patch Changes

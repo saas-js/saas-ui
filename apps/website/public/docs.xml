@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 22 Feb 2022 16:24:11 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 22 Feb 2022 18:09:16 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -321,6 +321,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/theming/chakra-ui-theme</guid>
+    <title>Chakra UI Theme</title>
+    <link>https://saas-ui.dev/docs/theming/chakra-ui-theme</link>
+    <description>The Chakra UI theme tokens</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/theming/palette</guid>
     <title>Palette</title>
     <link>https://saas-ui.dev/docs/theming/palette</link>
@@ -375,16 +385,6 @@
     <title>Text</title>
     <link>https://saas-ui.dev/docs/typography/text</link>
     <description>Text is the used to render text and paragraphs within an interface.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/theming/chakra-ui-theme</guid>
-    <title>Chakra UI Theme</title>
-    <link>https://saas-ui.dev/docs/theming/chakra-ui-theme</link>
-    <description>The Chakra UI theme tokens</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

@@ -58,7 +58,7 @@ const Home = () => {
         description="The frontend stack for SaaS companies"
         titleTemplate="%s - The frontend stack for SaaS companies"
       />
-      <BackgroundGradient animate={true} />
+      <BackgroundGradient animate={false} />
       <Box mb={8} w="full">
         <Box>
           <Container maxW="4xl" py="40">

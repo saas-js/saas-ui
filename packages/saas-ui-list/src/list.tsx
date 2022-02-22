@@ -26,13 +26,13 @@ interface ListOptions {
 
 export interface ListProps
   extends ListOptions,
-    HTMLChakraProps<'div'>,
+    HTMLChakraProps<'ul'>,
     ThemingProps<'List'> {}
 
 /**
  * React component to render lists of data
  */
-export const List = forwardRef<ListProps, 'div'>((props, ref) => {
+export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
   const { items, children, ...rest } = props
 
   const styles = useMultiStyleConfig('List', rest)
@@ -56,14 +56,14 @@ export const List = forwardRef<ListProps, 'div'>((props, ref) => {
 
   return (
     <StylesProvider value={styles}>
-      <chakra.div
+      <chakra.ul
         ref={ref}
         __css={listStyles}
         className="sui-data-list"
         {...listProps}
       >
         {content}
-      </chakra.div>
+      </chakra.ul>
     </StylesProvider>
   )
 })
@@ -106,7 +106,7 @@ export const ListHeader: React.FC<ListHeaderProps> = ({
   )
 }
 
-export interface ListItemProps extends HTMLChakraProps<'div'> {
+export interface ListItemProps extends HTMLChakraProps<'li'> {
   icon?: any
   primary?: React.ReactNode
   secondary?: React.ReactNode
@@ -119,7 +119,7 @@ export interface ListItemProps extends HTMLChakraProps<'div'> {
 /**
  * Adding `onClick` or `href` props will wrap the content in a `ListButton`
  */
-export const ListItem = forwardRef<ListItemProps, 'div'>((props, ref) => {
+export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
   const {
     icon,
     primary,
@@ -171,10 +171,10 @@ export const ListItem = forwardRef<ListItemProps, 'div'>((props, ref) => {
     )
 
   return (
-    <chakra.div ref={ref} __css={itemStyles} {...rest}>
+    <chakra.li ref={ref} __css={itemStyles} {...rest}>
       {content}
       {action && <ListItemAction>{action}</ListItemAction>}
-    </chakra.div>
+    </chakra.li>
   )
 })
 
@@ -207,15 +207,6 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
       userSelect: 'none',
       py: 2,
       px: 4,
-      _hover: {
-        bg: useColorModeValue('blackAlpha.100', 'whiteAlpha.200'),
-      },
-      _focus: {
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      },
-      _active: {
-        bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.300'),
-      },
       ...styles.button,
     }
 

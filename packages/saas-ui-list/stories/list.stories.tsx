@@ -54,9 +54,7 @@ export default {
   ],
 } as Meta
 
-const Template: Story = (args) => (
-  <List bg={useColorModeValue('gray.200', 'gray.700')} {...args} />
-)
+const Template: Story = (args) => <List {...args} />
 
 const users = [
   {
@@ -97,11 +95,7 @@ withIcons.args = {
 
 export const composed = () => {
   return (
-    <Box
-      bg={useColorModeValue('gray.200', 'gray.700')}
-      width="100%"
-      maxW="320px"
-    >
+    <Box width="100%" maxW="320px">
       <Box as="nav">
         <List>
           <ListItem as="a" href="#home">
@@ -139,11 +133,7 @@ export const nested = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box
-      bg={useColorModeValue('gray.200', 'gray.700')}
-      width="100%"
-      maxW="320px"
-    >
+    <Box width="100%" maxW="320px">
       <Box as="nav">
         <List>
           <ListItem as="a" href="#home">
@@ -179,12 +169,10 @@ export const customStyles = () => {
 
   const theme = useTheme()
 
+  const bg = useColorModeValue('teal.200', 'teal.500')
+
   return (
-    <Box
-      bg={useColorModeValue('gray.200', 'gray.700')}
-      width="100%"
-      maxW="320px"
-    >
+    <Box width="100%" maxW="320px">
       <Box as="nav" p="2" role="navigation">
         <List p="0">
           <ListItem p="2px">
@@ -192,9 +180,9 @@ export const customStyles = () => {
               py="1"
               px="4"
               borderRadius="md"
-              color="teal.300"
-              bg={transparentize('teal.500', 0.3)(theme)}
-              _hover={{ bg: transparentize('teal.500', 0.3)(theme) }}
+              color={useColorModeValue('teal.500', 'teal.300')}
+              bg={transparentize(bg, 0.3)(theme)}
+              _hover={{ bg: transparentize(bg, 0.3)(theme) }}
               href="#"
             >
               <ListItemIcon size="16px" as={FiHome} />
@@ -255,11 +243,7 @@ export const customStyles = () => {
 
 export const withSwitch = () => {
   return (
-    <Box
-      bg={useColorModeValue('gray.200', 'gray.700')}
-      width="100%"
-      maxW="320px"
-    >
+    <Box width="100%" maxW="320px">
       <List>
         <ListHeader>Notifications</ListHeader>
         <ListItem action={<Switch />}>

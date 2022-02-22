@@ -4164,7 +4164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/toast@npm:1.5.2, @chakra-ui/toast@npm:^1.5.2":
+"@chakra-ui/toast@npm:1.5.2":
   version: 1.5.2
   resolution: "@chakra-ui/toast@npm:1.5.2"
   dependencies:
@@ -6468,9 +6468,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/snackbar@workspace:packages/saas-ui-snackbar"
   dependencies:
-    "@chakra-ui/toast": ^1.5.2
     "@saas-ui/system": "workspace:*"
   peerDependencies:
+    "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"

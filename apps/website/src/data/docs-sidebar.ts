@@ -25,12 +25,12 @@ const sidebar = {
           open: true,
           routes: [
             {
-              title: 'Default Theme',
-              path: '/docs/theming/theme',
-            },
-            {
               title: 'Saas UI Theme',
               path: '/docs/theming/saas-ui-theme',
+            },
+            {
+              title: 'Chakra UI Theme',
+              path: '/docs/theming/chakra-ui-theme',
             },
             {
               title: 'Palette',

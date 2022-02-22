@@ -187,6 +187,7 @@ const createField = (
     const {
       name,
       label,
+      help,
       isDisabled,
       isInvalid,
       isReadOnly,
@@ -205,11 +206,12 @@ const createField = (
       <BaseField
         name={name}
         label={label}
+        help={help}
         hideLabel={hideLabel}
         isDisabled={isDisabled}
         isInvalid={isInvalid}
         isReadOnly={isReadOnly}
-        isRequired={inputRules.required}
+        isRequired={isRequired}
         variant={variant}
       >
         <InputComponent

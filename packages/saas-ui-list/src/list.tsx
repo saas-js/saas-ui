@@ -208,13 +208,13 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
       py: 2,
       px: 4,
       _hover: {
-        bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.200'),
+        bg: useColorModeValue('blackAlpha.100', 'whiteAlpha.200'),
       },
       _focus: {
-        bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.200'),
+        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
       },
       _active: {
-        bg: useColorModeValue('blackAlpha.400', 'whiteAlpha.300'),
+        bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.300'),
       },
       ...styles.button,
     }

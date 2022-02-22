@@ -25,16 +25,44 @@ export default {
   ],
 }
 
-const postSchema = Yup.object().shape({
-  title: Yup.string().required().meta({ placeholder: 'Title' }).label('Title'),
-  description: Yup.string().meta({ type: 'textarea' }).label('Description'),
-})
+const postSchema = Yup.object()
+  .shape({
+    title: Yup.string()
+      .required()
+      .meta({ placeholder: 'Title' })
+      .label('Title'),
+    description: Yup.string().meta({ type: 'textarea' }).label('Description'),
+  })
+  .label('Post')
 
 const objectSchema = Yup.object().shape({
   post: postSchema,
 })
 
-export const autoObjectField = () => {
+export const Basic = () => {
+  return (
+    <>
+      <Form
+        defaultValues={{
+          post: {},
+        }}
+        schema={objectSchema}
+        onSubmit={onSubmit}
+      >
+        <FormLayout>
+          <ObjectField name="post" label="Post">
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" />
+          </ObjectField>
+
+          <SubmitButton label="Save post" />
+        </FormLayout>
+      </Form>
+    </>
+  )
+}
+
+export const AutoObjectField = () => {
   return (
     <>
       <AutoForm
@@ -48,7 +76,7 @@ export const autoObjectField = () => {
   )
 }
 
-export const objectField = () => {
+export const HideLabel = () => {
   return (
     <>
       <Form
@@ -59,7 +87,7 @@ export const objectField = () => {
         onSubmit={onSubmit}
       >
         <FormLayout>
-          <ObjectField name="post">
+          <ObjectField name="post" label="Post" hideLabel>
             <Field name="title" label="Title" />
             <Field name="description" label="Description" />
           </ObjectField>
@@ -84,7 +112,7 @@ const nestedSchema = Yup.object().shape({
   }),
 })
 
-export const nestedObjectField = () => {
+export const NestedObjectField = () => {
   return (
     <>
       <Form
@@ -95,7 +123,7 @@ export const nestedObjectField = () => {
         onSubmit={onSubmit}
       >
         <FormLayout>
-          <ObjectField name="post">
+          <ObjectField name="post" label="Post">
             <Field name="title" label="Title" />
             <Field name="description" label="Description" />
             <ObjectField name="meta">

@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/list@0.3.4
+  - @saas-ui/theme@0.4.10
+  - @saas-ui/provider@0.2.13
+  - @saas-ui/layout@0.1.12
+  - @saas-ui/menu@0.3.9
+  - @saas-ui/data-table@0.1.11
+
 ## 0.9.0
 
 ### Minor Changes

@@ -151,14 +151,18 @@ export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
     ...styles.item,
   }
 
+  const wrapperProps = isButton
+    ? {
+        paddingEnd: action ? 16 : undefined,
+        onClick,
+        href,
+        as,
+      }
+    : {}
+
   const content =
     isButton || isComposed ? (
-      <ContentWrapper
-        paddingEnd={action ? 16 : undefined}
-        onClick={onClick}
-        href={href}
-        as={as}
-      >
+      <ContentWrapper {...wrapperProps}>
         {icon && <ListItemIcon>{icon}</ListItemIcon>}
         {(primary || secondary) && (
           <ListItemLabel primary={primary} secondary={secondary} />
@@ -211,7 +215,13 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
     }
 
     return (
-      <chakra.div ref={ref} __css={buttonStyles} {...rest}>
+      <chakra.div
+        ref={ref}
+        __css={buttonStyles}
+        role="button"
+        tabindex="0"
+        {...rest}
+      >
         {children}
       </chakra.div>
     )

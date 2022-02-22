@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.4.10
+
+### Patch Changes
+
+- Improved List a11y
+
 ## 0.4.9
 
 ### Patch Changes

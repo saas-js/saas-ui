@@ -1,5 +1,11 @@
 # @saas-ui/data-list
 
+## 0.3.4
+
+### Patch Changes
+
+- Improved List a11y
+
 ## 0.3.3
 
 ### Patch Changes

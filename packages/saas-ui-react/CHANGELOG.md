@@ -1,5 +1,31 @@
 # @saas-ui/react
 
+## 0.9.0
+
+### Minor Changes
+
+- a467d50: Added Forgot- and UpdatePassword views and i11y improvements.
+
+### Patch Changes
+
+- 1ce9ba9: Improved ObjectField semantics and styles
+- Updated dependencies [a6842fd]
+- Updated dependencies [d3da8ef]
+- Updated dependencies [a467d50]
+- Updated dependencies [1190a53]
+- Updated dependencies [52688c1]
+- Updated dependencies [1ce9ba9]
+  - @saas-ui/forms@0.3.3
+  - @saas-ui/auth@0.5.0
+  - @saas-ui/snackbar@0.2.2
+  - @saas-ui/list@0.3.3
+  - @saas-ui/theme@0.4.9
+  - @saas-ui/modals@0.2.9
+  - @saas-ui/provider@0.2.12
+  - @saas-ui/layout@0.1.11
+  - @saas-ui/menu@0.3.8
+  - @saas-ui/data-table@0.1.10
+
 ## 0.8.8
 
 ### Patch Changes

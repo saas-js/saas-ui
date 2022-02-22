@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 0.3.3
+
+### Patch Changes
+
+- a6842fd: Re-export UseFormReturn
+- d3da8ef: Don't set isRequired when required is true
+- 1ce9ba9: Improved ObjectField semantics and styles
+
 ## 0.3.2
 
 ### Patch Changes

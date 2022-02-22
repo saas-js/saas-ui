@@ -1,5 +1,12 @@
 # @saas-ui/theme
 
+## 0.4.9
+
+### Patch Changes
+
+- 52688c1: Improved List semantics and styling
+- 1ce9ba9: Improved ObjectField semantics and styles
+
 ## 0.4.8
 
 ### Patch Changes

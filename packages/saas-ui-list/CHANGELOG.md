@@ -1,5 +1,11 @@
 # @saas-ui/data-list
 
+## 0.3.3
+
+### Patch Changes
+
+- 52688c1: Improved List semantics and styling
+
 ## 0.3.2
 
 ### Patch Changes

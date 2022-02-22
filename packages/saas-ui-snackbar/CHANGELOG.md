@@ -1,5 +1,11 @@
 # @saas-ui/snackbar
 
+## 0.2.2
+
+### Patch Changes
+
+- 1190a53: Fixed dependencies
+
 ## 0.2.1
 
 ### Patch Changes

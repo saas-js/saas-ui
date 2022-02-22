@@ -1,5 +1,18 @@
 # @saas-ui/auth
 
+## 0.5.0
+
+### Minor Changes
+
+- a467d50: Added Forgot- and UpdatePassword views and i11y improvements.
+
+### Patch Changes
+
+- Updated dependencies [a6842fd]
+- Updated dependencies [d3da8ef]
+- Updated dependencies [1ce9ba9]
+  - @saas-ui/forms@0.3.3
+
 ## 0.4.7
 
 ### Patch Changes

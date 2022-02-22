@@ -14,6 +14,8 @@ import {
 
 import { yupResolver } from './resolvers/yup'
 
+export type { UseFormReturn }
+
 interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
    * The form schema, currently supports Yup schema only.

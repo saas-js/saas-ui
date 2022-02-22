@@ -15,8 +15,11 @@ import { useMultiStyleConfig } from '@saas-ui/system'
 
 import { MagicLinkForm } from './magic-link-form'
 import { PasswordForm } from './password-form'
+import { OtpForm } from './otp-form'
 import { Providers, AvailableProviders } from './providers'
 import { AuthTypeEnum, AuthActionEnum } from '../provider'
+import { ForgotPasswordForm } from './forgot-password-form'
+import { UpdatePasswordForm } from './update-password-form'
 
 export interface AuthFormProps
   extends Omit<FormProps, 'defaultValues' | 'onSubmit' | 'onError' | 'title'>,
@@ -57,6 +60,14 @@ export interface AuthFormProps
    */
   dividerLabel?: string
   /**
+   * Children are passed down to the underlying form
+   */
+  children?: React.ReactNode
+  /**
+   * Render custom elements under the submit button
+   */
+  footer?: React.ReactNode
+  /**
    * Callback executed after succesful login or signup
    */
   onSuccess?: () => void
@@ -77,7 +88,7 @@ export const AuthForm: React.FC<AuthFormProps> = (props) => {
     title,
     providerLabel,
     dividerLabel,
-    children,
+    footer,
     ...formProps
   } = props
 
@@ -104,7 +115,7 @@ export const AuthForm: React.FC<AuthFormProps> = (props) => {
 
       {form}
 
-      {children}
+      {footer}
     </AuthFormContainer>
   )
 }
@@ -119,7 +130,7 @@ export interface AuthFormContainerProps
   extends HTMLChakraProps<'div'>,
     ThemingProps<'AuthForm'> {}
 
-const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
+export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
   const { children } = props
 
   const styles = useMultiStyleConfig('AuthForm', props)
@@ -208,20 +219,80 @@ export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
   )
 }
 
-export const LoginForm: React.FC<AuthFormProps> = (props) => {
+export const LoginView: React.FC<AuthFormProps> = (props) => {
   return <AuthForm action="logIn" {...props} />
 }
 
-LoginForm.defaultProps = {
+LoginView.defaultProps = {
   title: 'Log in',
   submitLabel: 'Log in',
 }
 
-export const SignupForm: React.FC<AuthFormProps> = (props) => {
+export const SignupView: React.FC<AuthFormProps> = (props) => {
   return <AuthForm action="signUp" {...props} />
 }
 
-SignupForm.defaultProps = {
+SignupView.defaultProps = {
   title: 'Sign up',
   submitLabel: 'Sign up',
+}
+
+export const OtpView: React.FC<AuthFormProps> = (props) => {
+  const { title, footer, ...rest } = props
+  return (
+    <AuthFormContainer>
+      {typeof title === 'string' ? (
+        <AuthFormTitle>{title}</AuthFormTitle>
+      ) : (
+        title
+      )}
+      <OtpForm {...rest} />
+
+      {footer}
+    </AuthFormContainer>
+  )
+}
+
+OtpView.defaultProps = {
+  title: 'One-time password',
+}
+
+export const ForgotPasswordView: React.FC<AuthFormProps> = (props) => {
+  const { title, footer, ...rest } = props
+  return (
+    <AuthFormContainer>
+      {typeof title === 'string' ? (
+        <AuthFormTitle>{title}</AuthFormTitle>
+      ) : (
+        title
+      )}
+      <ForgotPasswordForm {...rest} />
+
+      {footer}
+    </AuthFormContainer>
+  )
+}
+
+ForgotPasswordView.defaultProps = {
+  title: 'Forgot password',
+}
+
+export const UpdatePasswordView: React.FC<AuthFormProps> = (props) => {
+  const { title, footer, ...rest } = props
+  return (
+    <AuthFormContainer>
+      {typeof title === 'string' ? (
+        <AuthFormTitle>{title}</AuthFormTitle>
+      ) : (
+        title
+      )}
+      <UpdatePasswordForm {...rest} />
+
+      {footer}
+    </AuthFormContainer>
+  )
+}
+
+UpdatePasswordView.defaultProps = {
+  title: 'Choose a new password',
 }

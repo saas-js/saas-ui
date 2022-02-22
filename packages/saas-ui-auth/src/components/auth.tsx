@@ -2,14 +2,21 @@ import * as React from 'react'
 
 import { Box, Link } from '@chakra-ui/react'
 
-import { LoginForm, SignupForm, AuthFormProps } from './auth-form'
-import { OtpForm } from './otp-form'
+import {
+  LoginView,
+  SignupView,
+  OtpView,
+  ForgotPasswordView,
+  UpdatePasswordView,
+  AuthFormProps,
+} from './auth-form'
+
 import { AvailableProviders } from '.'
 
 export const VIEWS = {
   LOGIN: 'login',
   SIGNUP: 'signup',
-  FORGOTTEN_PASSWORD: 'forgot_password',
+  FORGOT_PASSWORD: 'forgot_password',
   UPDATE_PASSWORD: 'update_password',
   OTP: 'otp',
 }
@@ -45,15 +52,26 @@ export interface AuthProps
    * Customize the login link under the sign up form.
    */
   loginLink?: React.ReactNode
+  forgotLink?: React.ReactNode
+
+  noAccount?: React.ReactNode
+  haveAccount?: React.ReactNode
 }
 
-export const Auth: React.FC<AuthProps> = ({
-  view = VIEWS.LOGIN,
-  providers,
-  signupLink,
-  loginLink,
-  ...rest
-}) => {
+export const Auth: React.FC<AuthProps> = (props) => {
+  const {
+    view = VIEWS.LOGIN,
+    providers,
+    signupLink,
+    loginLink,
+    forgotLink,
+    noAccount,
+    haveAccount,
+    ...rest
+  } = props
+
+  const { type } = rest
+
   const [authView, setAuthView] = React.useState(view)
 
   React.useEffect(() => {
@@ -63,42 +81,86 @@ export const Auth: React.FC<AuthProps> = ({
   switch (authView) {
     case VIEWS.LOGIN:
       return (
-        <LoginForm providers={providers} {...rest}>
-          <AuthLink
-            onClick={() => setAuthView(VIEWS.SIGNUP)}
-            link={signupLink}
-          />
-        </LoginForm>
+        <LoginView
+          providers={providers}
+          footer={
+            <AuthLink
+              onClick={() => setAuthView(VIEWS.SIGNUP)}
+              label={noAccount}
+              link={signupLink}
+            />
+          }
+          {...rest}
+        >
+          {type === 'password' &&
+            (typeof forgotLink === 'string' ? (
+              <Link
+                fontSize="md"
+                color="muted"
+                float="right"
+                onClick={() => setAuthView(VIEWS.FORGOT_PASSWORD)}
+              >
+                {forgotLink}
+              </Link>
+            ) : (
+              forgotLink
+            ))}
+        </LoginView>
       )
     case VIEWS.SIGNUP:
       return (
-        <SignupForm providers={providers} {...rest}>
-          <AuthLink onClick={() => setAuthView(VIEWS.LOGIN)} link={loginLink} />
-        </SignupForm>
+        <SignupView
+          providers={providers}
+          footer={
+            <AuthLink
+              onClick={() => setAuthView(VIEWS.LOGIN)}
+              label={haveAccount}
+              link={loginLink}
+            />
+          }
+          {...rest}
+        ></SignupView>
       )
-    case VIEWS.FORGOTTEN_PASSWORD:
+    case VIEWS.FORGOT_PASSWORD:
+      return (
+        <ForgotPasswordView
+          footer={
+            <AuthLink
+              onClick={() => setAuthView(VIEWS.LOGIN)}
+              link={loginLink}
+            />
+          }
+          {...rest}
+        />
+      )
     case VIEWS.UPDATE_PASSWORD:
+      return <UpdatePasswordView {...rest} />
     case VIEWS.OTP:
-      return <OtpForm />
+      return <OtpView {...rest} />
   }
 
   return null
 }
 
-export interface AuthLinkProps {
+interface AuthLinkProps {
+  label?: React.ReactNode
   link: React.ReactNode
   onClick: (e: React.MouseEvent) => void
 }
 
-export const AuthLink = ({ link, onClick }: AuthLinkProps) => {
+const AuthLink = ({ label, link, onClick }: AuthLinkProps) => {
   return (
-    <Box align="center" py="8">
+    <Box align="center" py="8" fontSize="md">
+      {label}{' '}
       {typeof link === 'string' ? <Link onClick={onClick}>{link}</Link> : link}
     </Box>
   )
 }
 
 Auth.defaultProps = {
-  signupLink: "Don't have an account yet? Sign up.",
-  loginLink: 'Already have an account? Log in.',
+  noAccount: 'No account yet?',
+  haveAccount: 'Already have an account?',
+  signupLink: 'Sign up',
+  loginLink: 'Log in',
+  forgotLink: 'Forgot password?',
 }

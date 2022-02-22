@@ -6,6 +6,23 @@ import {
   AuthProviderProps,
 } from '../'
 
+interface RecoveryParams {
+  access_token?: string
+  refresh_token?: string
+  expires_in?: string
+  token_type?: string
+  type?: string
+}
+
+const getParams = (): RecoveryParams => {
+  const hash = window.location.hash.replace('#', '')
+  return hash.split('&').reduce((memo, part) => {
+    const [key, value] = part.split('=')
+    memo[key] = value
+    return memo
+  }, {})
+}
+
 export const createAuthService = (supabase: any): AuthProviderProps => {
   const onLogin = async (params: AuthParams, options?: AuthOptions) => {
     const { user, error } = await supabase.auth.signIn(
@@ -73,6 +90,20 @@ export const createAuthService = (supabase: any): AuthProviderProps => {
     return session?.access_token || null
   }
 
+  const onResetPassword = async ({ email }: AuthParams) => {
+    return await supabase.auth.api.resetPasswordForEmail(email)
+  }
+
+  const onUpdatePassword = async ({ password }: AuthParams) => {
+    const params = getParams()
+
+    if (params?.type === 'recovery') {
+      return await supabase.auth.api.updateUser(params.access_token, {
+        password,
+      })
+    }
+  }
+
   return {
     onLogin,
     onSignup,
@@ -81,5 +112,7 @@ export const createAuthService = (supabase: any): AuthProviderProps => {
     onAuthStateChange,
     onLoadUser,
     onGetToken,
+    onResetPassword,
+    onUpdatePassword,
   }
 }

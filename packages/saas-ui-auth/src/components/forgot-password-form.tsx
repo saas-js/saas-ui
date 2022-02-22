@@ -2,21 +2,20 @@ import * as React from 'react'
 
 import { Form, FormLayout, Field } from '@saas-ui/forms'
 
-import { useOtp } from '../provider'
+import { useResetPassword } from '../provider'
 
 import { LoginButton } from './login-button'
 
 import { AuthFormSuccess } from './success'
 
 interface SubmitParams {
-  otp: string
+  email: string
 }
 
-export interface OtpFormProps {
+export interface ForgotPasswordFormProps {
   schema?: any
   label?: string
   helpText?: string
-  pinLength?: number
   onSuccess?: (error: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: any) => void
@@ -24,22 +23,24 @@ export interface OtpFormProps {
   renderSuccess?: (data: any) => React.ReactElement
 }
 
-export const OtpForm: React.FC<OtpFormProps> = ({
+export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   schema,
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
-  submitLabel = 'Verify',
+  submitLabel,
   label,
   helpText,
-  pinLength = 4,
   children,
   renderSuccess = () => (
-    <AuthFormSuccess title="Success!" description="You are now logged in." />
+    <AuthFormSuccess
+      title="Success!"
+      description="Please check your email for instructions to reset your password."
+    />
   ),
   ...formProps
 }) => {
-  const [{ isLoading, data }, submit] = useOtp()
+  const [{ isLoading, data }, submit] = useResetPassword()
 
   const handleSubmit = (params: SubmitParams) => {
     return submit(params).then(onSuccess).catch(onError)
@@ -54,16 +55,14 @@ export const OtpForm: React.FC<OtpFormProps> = ({
       schema={schema}
       onSubmit={handleSubmit}
       onError={onValidationError}
-      defaultValues={{ otp: '' }}
+      defaultValues={{ email: '' }}
       {...formProps}
     >
       <FormLayout>
         <Field
-          name="otp"
+          name="email"
           label={label}
-          help={helpText}
-          type="pin"
-          pinLength={pinLength}
+          type="email"
           rules={{ required: true }}
         />
 
@@ -77,9 +76,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
   )
 }
 
-OtpForm.defaultProps = {
-  helpText:
-    'You can find your one-time password in the Google Authenticator or Authy app.',
-  submitLabel: 'Verify',
-  label: 'Your verification code',
+ForgotPasswordForm.defaultProps = {
+  submitLabel: 'Reset password',
+  label: 'Your email address',
 }

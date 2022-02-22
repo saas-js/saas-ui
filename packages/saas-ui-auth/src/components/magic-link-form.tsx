@@ -72,7 +72,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          placeholder="Email address"
+          label="Email"
           type="email"
           rules={{ required: true }}
         />

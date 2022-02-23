@@ -56,12 +56,7 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
 
   return (
     <StylesProvider value={styles}>
-      <chakra.ul
-        ref={ref}
-        __css={listStyles}
-        className="sui-data-list"
-        {...listProps}
-      >
+      <chakra.ul ref={ref} __css={listStyles} {...listProps}>
         {content}
       </chakra.ul>
     </StylesProvider>
@@ -69,7 +64,7 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
 })
 
 List.defaultProps = {
-  variant: 'data-list',
+  variant: 'structured-list',
 }
 
 export interface ListHeaderProps extends HTMLChakraProps<'div'> {

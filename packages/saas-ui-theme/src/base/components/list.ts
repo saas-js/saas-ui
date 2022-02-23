@@ -37,7 +37,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
 export default {
   baseStyle: baseStyle,
   variants: {
-    'data-list': {
+    'structured-list': {
       icon: {
         marginEnd: 4,
       },

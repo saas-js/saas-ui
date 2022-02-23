@@ -8,6 +8,7 @@ export * from './submit-button'
 export * from './array-field'
 export * from './use-array-field'
 export * from './object-field'
+export * from './display-if'
 
 export * from '@saas-ui/input-right-button'
 

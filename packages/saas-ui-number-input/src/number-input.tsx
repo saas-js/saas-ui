@@ -11,7 +11,18 @@ import {
 } from '@chakra-ui/react'
 
 interface NumberInputOptions {
+  /**
+   * Hide the stepper.
+   */
   hideStepper?: boolean
+  /**
+   * Render a custom increment icon.
+   */
+  incrementIcon?: React.ReactNode
+  /**
+   * Render a custom decrement icon.
+   */
+  decrementIcon?: React.ReactNode
 }
 
 export interface NumberInputProps
@@ -19,14 +30,22 @@ export interface NumberInputProps
     NumberInputOptions {}
 
 export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
+  const { hideStepper, incrementIcon, decrementIcon, ...rest } = props
+
   return (
-    <ChakraNumberInput {...props} ref={ref}>
+    <ChakraNumberInput {...rest} ref={ref}>
       <NumberInputField />
 
-      <NumberInputStepper>
-        <NumberIncrementStepper />
-        <NumberDecrementStepper />
-      </NumberInputStepper>
+      {!hideStepper && (
+        <NumberInputStepper>
+          <NumberIncrementStepper children={incrementIcon} />
+          <NumberDecrementStepper children={decrementIcon} />
+        </NumberInputStepper>
+      )}
     </ChakraNumberInput>
   )
 })
+
+NumberInput.defaultProps = {
+  hideStepper: false,
+}

@@ -1,5 +1,106 @@
 # @saas-ui/auth
 
+## 0.5.2
+
+### Patch Changes
+
+- 09ef6fb: Fixed not being able to go back to login on the forgot password view
+
+## 0.5.1
+
+### Patch Changes
+
+- @saas-ui/forms@0.3.4
+
+## 0.5.0
+
+### Minor Changes
+
+- a467d50: Added Forgot- and UpdatePassword views and i11y improvements.
+
+### Patch Changes
+
+- Updated dependencies [a6842fd]
+- Updated dependencies [d3da8ef]
+- Updated dependencies [1ce9ba9]
+  - @saas-ui/forms@0.3.3
+
+## 0.4.7
+
+### Patch Changes
+
+- @saas-ui/forms@0.3.2
+
+## 0.4.6
+
+### Patch Changes
+
+- Updated dependencies [e691413]
+  - @saas-ui/forms@0.3.1
+
+## 0.4.5
+
+### Patch Changes
+
+- Updated dependencies [385b760]
+  - @saas-ui/forms@0.3.0
+
+## 0.4.4
+
+### Patch Changes
+
+- AuthProvider now checks if a user is authenticated when logIn or signUp are succesful.
+
+## 0.4.3
+
+### Patch Changes
+
+- @saas-ui/forms@0.2.5
+
+## 0.4.2
+
+### Patch Changes
+
+- Add Magic.link auth service to exports
+
+## 0.4.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/button@0.2.1
+  - @saas-ui/forms@0.2.4
+  - @saas-ui/hooks@0.2.1
+  - @saas-ui/system@0.3.1
+
+## 0.4.0
+
+### Minor Changes
+
+- 07d67a6: Finalized the authentication api
+
+## 0.3.0
+
+### Minor Changes
+
+- 60173ca: Implement Supabase signup, add Magic.link and minor bugfixes
+
+## 0.2.3
+
+### Patch Changes
+
+- Add supabase service to package entries
+- Updated dependencies
+  - @saas-ui/forms@0.2.3
+
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes

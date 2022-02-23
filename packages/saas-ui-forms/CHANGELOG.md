@@ -1,5 +1,72 @@
 # @saas-ui/forms
 
+## 0.3.4
+
+### Patch Changes
+
+- Updated dependencies [16c82e6]
+  - @saas-ui/password-input@0.2.2
+
+## 0.3.3
+
+### Patch Changes
+
+- a6842fd: Re-export UseFormReturn
+- d3da8ef: Don't set isRequired when required is true
+- 1ce9ba9: Improved ObjectField semantics and styles
+
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies [676eefa]
+  - @saas-ui/select@0.2.2
+
+## 0.3.1
+
+### Patch Changes
+
+- e691413: DisplayIf now check if value is set by default, set isRequired on fields when required = true
+
+## 0.3.0
+
+### Minor Changes
+
+- 385b760: Improved Typescript support for forms, conditionally render form fields with DisplayIf
+
+## 0.2.5
+
+### Patch Changes
+
+- Updated dependencies [46dd92b]
+  - @saas-ui/number-input@0.2.2
+
+## 0.2.4
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/button@0.2.1
+  - @saas-ui/input-right-button@0.2.1
+  - @saas-ui/number-input@0.2.1
+  - @saas-ui/password-input@0.2.1
+  - @saas-ui/pin-input@0.2.1
+  - @saas-ui/radio@0.2.1
+  - @saas-ui/select@0.2.1
+
+## 0.2.3
+
+### Patch Changes
+
+- Bump version
+
+## 0.2.2
+
+### Patch Changes
+
+- Set default value on FormProps generic type
+
 ## 0.2.1
 
 ### Patch Changes

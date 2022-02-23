@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useLogin } from '../provider'
+import { useLogin, AuthActionEnum } from '../provider'
 
 import { Form, FormLayout, Field } from '@saas-ui/forms'
 import { LoginButton } from './login-button'
@@ -8,7 +8,7 @@ import { AuthFormSuccess } from './success'
 
 export interface MagicLinkFormProps {
   schema?: any
-  action?: 'login' | 'signup'
+  action?: AuthActionEnum
   onSuccess?: (error: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: any) => void
@@ -37,9 +37,9 @@ export function MagicLinkSuccess({ email }: any) {
 
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   schema,
-  action = 'login',
-  onSuccess = () => {},
-  onError = () => {},
+  action = 'logIn',
+  onSuccess = () => null,
+  onError = () => null,
   onValidationError,
   submitLabel = 'Continue with Email',
   defaultValues,
@@ -47,7 +47,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   children,
   ...formProps
 }) => {
-  const [{ isLoading, data }, submit] = useLogin({
+  const [{ isLoading, isResolved, data }, submit] = useLogin({
     action,
   })
 
@@ -55,7 +55,9 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
     return submit({ email }).then(onSuccess).catch(onError)
   }
 
-  if (data) {
+  // Succesful magic link login might not always return data
+  // so we check if the action resolved without errors
+  if (isResolved) {
     return renderSuccess(data)
   }
 
@@ -70,7 +72,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          placeholder="Email address"
+          label="Email"
           type="email"
           rules={{ required: true }}
         />

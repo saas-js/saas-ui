@@ -14,6 +14,7 @@ import {
   ResponsiveValue,
   useMultiStyleConfig,
   ThemingProps,
+  SystemProps,
 } from '@chakra-ui/react'
 import SectionWrapper, { SectionProps } from '../section-wrapper'
 import SectionTitle, { SectionTitleProps } from '../section-title'
@@ -28,6 +29,7 @@ export interface FeaturesProps extends ThemingProps<'Features'> {
   spacing?: string | number
   aside?: React.ReactChild
   reveal?: boolean
+  iconSize?: SystemProps['boxSize']
 }
 
 export interface FeatureProps {
@@ -35,7 +37,7 @@ export interface FeatureProps {
   description: React.ReactNode
   icon?: any
   iconPosition?: 'left' | 'top'
-  iconSize?: number | string
+  iconSize?: SystemProps['boxSize']
   ip?: 'left' | 'top'
   variant?: string
 }
@@ -76,6 +78,7 @@ export default function Features({
   columns = [1, 2, 3],
   spacing = 8,
   align = 'center',
+  iconSize = 8,
   aside,
   reveal,
   ...props
@@ -105,7 +108,7 @@ export default function Features({
             {features.map((feature, i) => {
               return (
                 <Wrap key={i}>
-                  <Feature {...feature} ip={ip} />
+                  <Feature iconSize={iconSize} {...feature} ip={ip} />
                 </Wrap>
               )
             })}

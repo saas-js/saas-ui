@@ -6,9 +6,9 @@ export const getStateColors = (props: Dict) => {
   const { colorScheme: c } = props
   if (c === 'gray') {
     return {
-      base: mode('gray.300', 'whiteAlpha.300')(props),
-      hover: mode('gray.400', 'whiteAlpha.400')(props),
-      active: mode('gray.500', 'whiteAlpha.500')(props),
+      base: mode('gray.100', 'whiteAlpha.300')(props),
+      hover: mode('gray.200', 'whiteAlpha.400')(props),
+      active: mode('gray.300', 'whiteAlpha.500')(props),
     }
   }
 

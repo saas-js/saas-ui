@@ -6,32 +6,27 @@ import * as SaasUI from '@saas-ui/react'
 import * as Yup from 'yup'
 // import * as FormHooks from 'react-hook-form'
 
+import * as sampleData from '@/data/sample-data'
+
 import FocusLock from 'react-focus-lock'
 import {
-  MdSettings,
-  MdReceipt,
-  MdGroupWork,
-  MdCheckCircle,
-  MdGraphicEq,
-  MdBuild,
-  MdCall,
-  MdPhone,
-  MdArrowDropDown,
-} from 'react-icons/md'
-import { AiOutlineUser } from 'react-icons/ai'
+  FiHome,
+  FiInbox,
+  FiUsers,
+  FiSettings,
+  FiTag,
+  FiArchive,
+} from 'react-icons/fi'
+
 import { FaFacebook, FaTwitter, FaGithub, FaSlack } from 'react-icons/fa'
 
 const reactIcons = {
-  MdSettings,
-  MdReceipt,
-  MdGroupWork,
-  MdCheckCircle,
-  MdGraphicEq,
-  MdBuild,
-  MdCall,
-  MdPhone,
-  MdArrowDropDown,
-  AiOutlineUser,
+  FiHome,
+  FiInbox,
+  FiUsers,
+  FiSettings,
+  FiTag,
+  FiArchive,
   FaFacebook,
   FaTwitter,
   FaGithub,
@@ -63,6 +58,7 @@ const ReactLiveScope = {
   StarIcon,
   FocusLock,
   saveHandler,
+  ...sampleData,
   // Lorem,
   // CircleIcon,
 }

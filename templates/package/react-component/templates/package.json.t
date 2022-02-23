@@ -7,19 +7,23 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "description": "<%= h.inflection.camelize(name) %> Component",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.cjs",
-    "default": "./dist/index.esm.js"
+    "require": "./dist/index.js",
+    "default": "./dist/index.modern.js"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.esm.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
+    "clean": "rimraf --no-glob ./dist",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -42,8 +46,7 @@ to: "<%= h.packageDir(org, name) %>/package.json"
     "accessible",
     "components",
     "emotion",
-    "library",
-    "design-system"
+    "library"
   ],
   "storybook": {
     "title": "Saas UI",

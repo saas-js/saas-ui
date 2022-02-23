@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Form, FormLayout, Field } from '@saas-ui/forms'
 
-import { useLogin } from '../provider'
+import { useLogin, AuthActionEnum } from '../provider'
 
 import { LoginButton } from './login-button'
 
@@ -11,11 +11,12 @@ import { AuthFormSuccess } from './success'
 interface SubmitParams {
   email: string
   password: string
+  rememberMe?: boolean
 }
 
 export interface PasswordFormProps {
   schema?: any
-  action?: 'login' | 'signup'
+  action?: AuthActionEnum
   onSuccess?: (error: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: any) => void
@@ -25,12 +26,12 @@ export interface PasswordFormProps {
 }
 
 export const PasswordForm: React.FC<PasswordFormProps> = ({
-  action = 'login',
+  action = 'logIn',
   schema,
-  onSuccess = () => {},
-  onError = () => {},
+  onSuccess = () => null,
+  onError = () => null,
   onValidationError,
-  submitLabel = 'Sign in',
+  submitLabel = 'Log in',
   defaultValues,
   children,
   renderSuccess = () => (
@@ -41,13 +42,14 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   ),
   ...formProps
 }) => {
-  const [{ isLoading, data }, submit] = useLogin({ action })
+  const [{ isLoading, isResolved, data }, submit] = useLogin({ action })
 
   const handleSubmit = (params: SubmitParams) => {
     return submit(params).then(onSuccess).catch(onError)
   }
 
-  if (data && action === 'signup') {
+  // Show a default success message on signup.
+  if (isResolved && action === 'signUp') {
     return renderSuccess(data)
   }
 
@@ -62,13 +64,13 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          placeholder="Email address"
+          label="Email"
           type="email"
           rules={{ required: true }}
         />
         <Field
           name="password"
-          placeholder="Password"
+          label="Password"
           type="password"
           rules={{ required: true }}
         />

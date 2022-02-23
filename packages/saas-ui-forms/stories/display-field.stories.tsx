@@ -14,10 +14,10 @@ export default {
   ],
 }
 
-import { handleSubmit } from './helpers'
+import { onSubmit } from './helpers'
 
 export const basic = () => (
-  <Form defaultValues={{ title: 'Display field' }} onSubmit={handleSubmit}>
+  <Form defaultValues={{ title: 'Display field' }} onSubmit={onSubmit}>
     <DisplayField name="title" label="Title" />
   </Form>
 )

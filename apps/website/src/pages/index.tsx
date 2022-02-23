@@ -12,11 +12,8 @@ import {
   chakra,
   Avatar,
   VisuallyHidden,
-  useTheme,
   Img,
 } from '@chakra-ui/react'
-
-import Footer from '@/components/footer'
 
 import Hero from '@/components/marketing/hero'
 import Features from '@/components/marketing/features'
@@ -30,65 +27,28 @@ import RedwoodJS from '/public/frameworks/redwood.svg'
 import NextJS from '/public/frameworks/nextjs.svg'
 import Blitz from '/public/frameworks/blitz.svg'
 import Supabase from '/public/frameworks/supabase.svg'
-import Bedrock from '/public/frameworks/bedrock.svg'
 
 import { SignupForm } from '@/components/signup-form'
 import { Em, Br } from '@/components/typography'
 
 import { FallInPlace } from '@/components/motion/fall-in-place'
 
-import { MovingGradients } from '@/components/motion/moving-gradients'
-
 import SEO from '@/components/seo'
 import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
+import { BackgroundGradient } from '@/components/background-gradient'
 
-const BackgroundBox = ({ animate, ...props }: any) => {
-  const theme = useTheme()
-  const colors = [
-    theme.colors.primary['800'],
-    theme.colors.secondary['500'],
-    theme.colors.cyan['500'],
-    theme.colors.teal['500'],
-  ]
-
-  let gradient = animate && <MovingGradients colors={colors} animate={true} />
-
-  let fallbackBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 60%), radial-gradient(at bottom left, var(--chakra-colors-cyan-500) 0%, transparent 50%),
-        radial-gradient(at top right, ${colors[3]}, transparent), radial-gradient(at bottom right, ${colors[0]} 0%, transparent 50%);`
-
-  let gradientOverlay = `linear-gradient(0deg, var(--chakra-colors-${useColorModeValue(
-    'white',
-    'gray-900'
-  )}) 60%, rgba(0, 0, 0, 0) 100%);`
-
-  return (
-    <Box
-      backgroundImage={fallbackBackground}
-      backgroundBlendMode="saturation"
-      position="absolute"
-      top="0"
-      left="0"
-      zIndex="0"
-      opacity="0.5"
-      height="100vh"
-      width="100%"
-      overflow="hidden"
-      {...props}
-    >
-      {gradient}
-      <Box
-        backgroundImage={gradientOverlay}
-        position="absolute"
-        top="0"
-        right="0"
-        bottom="0"
-        left="0"
-        zIndex="1"
-      ></Box>
-    </Box>
-  )
-}
+import {
+  FiBox,
+  FiCode,
+  FiFlag,
+  FiLock,
+  FiSearch,
+  FiTerminal,
+  FiToggleLeft,
+  FiTrendingUp,
+  FiUserPlus,
+} from 'react-icons/fi'
 
 const Home = () => {
   return (
@@ -98,7 +58,7 @@ const Home = () => {
         description="The frontend stack for SaaS companies"
         titleTemplate="%s - The frontend stack for SaaS companies"
       />
-      <BackgroundBox />
+      <BackgroundGradient animate={false} />
       <Box mb={8} w="full">
         <Box>
           <Container maxW="4xl" py="40">
@@ -112,14 +72,14 @@ const Home = () => {
                 </FallInPlace>
               }
               description={
-                <FallInPlace>
-                  Saas UI is an <Em>advanced component library</Em> that helps
-                  you build essential functionality{' '}
-                  <Em>in hours instead of weeks</Em>.
+                <FallInPlace delay={0.4}>
+                  Saas UI is an <Em>advanced component library</Em> and{' '}
+                  <Em>starter pack</Em> that helps you build essential SaaS
+                  functionality <Em>in hours instead of weeks</Em>.
                 </FallInPlace>
               }
             >
-              <FallInPlace>
+              <FallInPlace delay={0.8}>
                 <Text pt="4" pb="8" color="gray.500">
                   Build with React and Chakra UI
                 </Text>
@@ -129,7 +89,7 @@ const Home = () => {
                     colorScheme="primary"
                     onClick={() => {
                       document
-                        .getElementById('request-access')
+                        .getElementById('pricing')
                         .scrollIntoView({ behavior: 'smooth' })
                     }}
                   >
@@ -150,7 +110,9 @@ const Home = () => {
             maxW="1400px"
             margin="0 auto"
           >
-            <Img src="/app.png" position="absolute" width="100%" top="0" />
+            <FallInPlace delay={1}>
+              <Img src="/app.png" position="absolute" width="100%" top="0" />
+            </FallInPlace>
           </Box>
         </Box>
         <Features
@@ -159,51 +121,60 @@ const Home = () => {
           description="A set of components, patterns and tools designed with productivity and scalability in mind."
           variant="alternate"
           columns={[1, null, 3]}
+          iconSize={4}
           features={[
             {
               title: 'Components.',
+              icon: FiBox,
               description:
                 'Themable, composable and accessible UI components, including forms, pages, lists, settings, modals and much more.',
               variant: 'inline',
             },
             {
               title: 'Authentication.',
+              icon: FiLock,
               description:
-                'Authentication screens with passwords, magic links, oauth, OTP and password reset functionality. Build-in support for Passport.js and Supabase.',
+                'Authentication screens with passwords, magic links, oauth, OTP and password reset functionality. Build-in support for Supabase, Magic.link and others.',
               variant: 'inline',
             },
             {
               title: 'Onboarding.',
+              icon: FiUserPlus,
               description:
                 'Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.',
               variant: 'inline',
             },
             {
               title: 'Feature flags.',
+              icon: FiFlag,
               description:
                 "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
               variant: 'inline',
             },
             {
               title: 'Upselling.',
+              icon: FiTrendingUp,
               description:
                 'Components and hooks for upgrade flows designed to make upgrading inside your app frictionless.',
               variant: 'inline',
             },
             {
               title: 'Themes.',
+              icon: FiToggleLeft,
               description:
                 'Includes multiple themes with darkmode support, always have the perfect starting point for your next project.',
               variant: 'inline',
             },
             {
               title: 'Generators.',
+              icon: FiTerminal,
               description:
                 'Extend your design system while maintaininig code quality and consistency with build-in generators.',
               variant: 'inline',
             },
             {
               title: 'Monorepo.',
+              icon: FiCode,
               description: (
                 <>
                   All code is available as packages in a high-performance{' '}
@@ -215,6 +186,7 @@ const Home = () => {
             },
             {
               title: 'Documentation.',
+              icon: FiSearch,
               description:
                 'Extensively documented, including storybooks, best practices, use-cases and examples.',
               variant: 'inline',
@@ -346,9 +318,10 @@ const Home = () => {
             m="0 auto"
             mt="10"
           >
-            Technologies included: RedwoodJS, Next.js, Electron, React, Chakra
-            UI, Typescript, Styled Components, Emotion, React Hook Form,
-            Turborepo, Prettier, Storybook, Jest, Testing Library and more...
+            Technologies included: Next.js, Electron, React, Chakra UI,
+            Typescript, Styled Components, Emotion, React Hook Form, React
+            Query, Turborepo, Prettier, Storybook, Jest, Testing Library and
+            more...
           </Text>
         </Section>
 
@@ -363,22 +336,22 @@ const Home = () => {
 
           <SimpleGrid columns={[1, null, 2]} spacing={10}>
             <FaqItem
-              question="How many products can I use Saas UI for?"
+              question="How many products can I use Saas UI Pro for?"
               answer={
                 <>
-                  The standard license can be used for one commercial
-                  application or SaaS product and unlimited internal tools. You
-                  can buy as many licenses are you need. <br /> The extended
-                  license does not have any restrictions.
+                  The single license can be used for one commercial application
+                  or SaaS product and unlimited internal tools. You can buy as
+                  many licenses as you need. <br /> The unlimited license does
+                  not have any restrictions.
                 </>
               }
             />
             <FaqItem
-              question="Can I use Saas UI for client work?"
+              question="Can I use Saas UI Pro for client work?"
               answer="Yes, that's totally up to you, as long as it fits the license you purchase."
             />
             <FaqItem
-              question="Can I use Saas UI for Open Source projects?"
+              question="Can I use Saas UI Pro for Open Source projects?"
               answer="No currently not. A large part of Saas UI is already released under MIT license. We try to give back to the community as much as possible."
             />
             <FaqItem
@@ -391,7 +364,7 @@ const Home = () => {
             />
             <FaqItem
               question="What does 'lifetime access' mean?"
-              answer="Saas UI is a one-time purchase, with no recurring subscription. You will have access to all assets of the Saas UI library forever."
+              answer="Saas UI Pro is a one-time purchase, with no recurring subscription. You will have access to all assets of the Saas UI library forever."
             />
             <FaqItem
               question="What does 'free updates' include?"
@@ -409,7 +382,7 @@ const Home = () => {
             />
             <FaqItem
               question="I'm not satisfied, can I get my money back?"
-              answer="Yeah, no hard feelings. Saas UI is opinionated and might not suit your style, let us know within 30 days of your purchase and we'll refurn your money."
+              answer="Yeah, no hard feelings. Saas UI is opinionated and might not suit your style, let us know within 14 days of your purchase and we'll refurn your money."
             />
             <FaqItem
               question="Do you offer technical support?"
@@ -439,11 +412,12 @@ const RequestAccess = () => {
         <CTA
           id="request-access"
           title="Get early access"
+          py="14"
           description={
             <>
               <p>
-                Saas UI Pro is currently in private beta, be the first to try it
-                out.
+                Not ready to pre-order yet? No worries, we will notify you when
+                we launch.
               </p>
             </>
           }
@@ -468,7 +442,7 @@ const RequestAccess = () => {
 const Pricing = () => {
   return (
     <Section id="pricing" pos="relative">
-      <BackgroundBox animate={false} height="100%" />
+      <BackgroundGradient animate={false} height="100%" />
       <Box zIndex="2" pos="relative">
         <ScaleInView>
           <SectionTitle
@@ -481,15 +455,16 @@ const Pricing = () => {
           <SimpleGrid columns={[1, null, 3]} spacing={4}>
             <PricingBox
               title="Open Source"
-              description="Basic components, perfect for personal projects."
+              description="Basic components, perfect to get started."
               price="Free"
             >
               <PricingFeatures>
                 <PricingFeature title="MIT License" />
                 <PricingFeature title="Authentication (supabase/passport.js)" />
                 <PricingFeature title="Forms (react-hook-form)" />
+                <PricingFeature title="Modals manager" />
                 <PricingFeature title="Hotkeys" />
-                <PricingFeature title="Cards" />
+                <PricingFeature title="Web3 components" />
                 <Text fontSize="sm">And much more...</Text>
               </PricingFeatures>
               <ButtonLink href="/docs/introduction" variant="outline" mt="10">
@@ -510,7 +485,7 @@ const Pricing = () => {
                   <Text>€99,-</Text>
                 </HStack>
               }
-              description="Complete frontend stack for bootstrappers."
+              description="Complete frontend stack for bootstrappers and small teams."
               borderColor="primary.500"
               boxShadow="md"
             >
@@ -521,16 +496,22 @@ const Pricing = () => {
                 <PricingFeature title="Multiple themes" />
                 <PricingFeature title="Next.js and Electron boilerplates" />
                 <PricingFeature title="Free updates" />
+                <br />
+                <PricingFeature
+                  title="Private beta access"
+                  iconColor="green.500"
+                />
               </PricingFeatures>
               <ButtonLink
                 colorScheme="primary"
-                href="#request-access"
+                href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license"
+                className="gumroad-button"
                 onClick={() =>
                   /* @ts-ignore */
                   window?.woopra.track('Order Bootstrap')
                 }
               >
-                Request access
+                Pre-order
               </ButtonLink>
             </PricingBox>
             <PricingBox
@@ -542,27 +523,33 @@ const Pricing = () => {
                     fontSize="sm"
                     color="gray.400"
                   >
-                    €799,-
+                    €999,-
                   </Text>
-                  <Text>€399,-</Text>
+                  <Text>€499,-</Text>
                 </HStack>
               }
-              description="Extended license for growing teams."
+              description="Unlimited license for growing teams."
             >
               <PricingFeatures>
                 <PricingFeature title="Unlimited projects" />
                 <PricingFeature title="Unlimited developers" />
                 <PricingFeature title="Everything from Bootstrap" />
+                <br />
+                <PricingFeature
+                  title="Private beta access"
+                  iconColor="green.500"
+                />
               </PricingFeatures>
               <ButtonLink
                 colorScheme="primary"
-                href="#request-access"
+                href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license"
+                className="gumroad-button"
                 onClick={() =>
                   /* @ts-ignore */
                   window?.woopra.track('Order Startup')
                 }
               >
-                Request access
+                Pre-order
               </ButtonLink>
             </PricingBox>
           </SimpleGrid>
@@ -572,7 +559,7 @@ const Pricing = () => {
             textAlign="center"
             color={useColorModeValue('gray.500', 'gray.400')}
           >
-            All prices are excluding 21% VAT.
+            VAT may be applicable depending on your location.
           </Text>
         </ScaleInView>
       </Box>
@@ -594,10 +581,10 @@ const PricingFeatures = ({ children }) => {
   )
 }
 
-const PricingFeature = ({ title }) => {
+const PricingFeature = ({ title, iconColor = 'primary.500' }) => {
   return (
     <HStack>
-      <CheckIcon color="primary.500" />{' '}
+      <CheckIcon color={iconColor} />{' '}
       <Text flex="1" fontSize="sm">
         {title}
       </Text>

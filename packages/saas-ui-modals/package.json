@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals",
-  "version": "0.1.0",
+  "version": "0.2.10",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -12,16 +12,20 @@
       "default": "./src/index.ts"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.esm.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
+    "clean": "rimraf dist",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -52,7 +56,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@saas-ui/button": "workspace:*"
+    "@saas-ui/button": "workspace:*",
+    "@saas-ui/forms": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",

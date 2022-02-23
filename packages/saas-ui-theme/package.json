@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/theme",
-  "version": "0.2.1",
+  "version": "0.4.11",
   "description": "Theme Component",
   "source": "src/index.ts",
   "exports": {
@@ -22,6 +22,10 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"

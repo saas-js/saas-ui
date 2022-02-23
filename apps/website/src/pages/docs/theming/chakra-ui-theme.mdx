@@ -1,0 +1,50 @@
+---
+title: Chakra UI Theme
+description: The Chakra UI theme tokens
+---
+
+`SaasProvider` uses the Saas UI theme by default, if you want to use the
+default Chakra UI theme instead follow the instructions below.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-theme' }}
+  npm={{ package: '@saas-ui/theme' }}
+/>
+
+## Setup your theme
+
+To make sure all Saas UI components are styled correctly, you will need to load
+the Saas UI base theme.
+
+```jsx live=false
+// 1. Import the base theme
+import { baseTheme } from '@saas-ui/react'
+
+// 2. Pass the theme to SaasProvider
+function App() {
+  return <SaasProvider theme={baseTheme}>{children}</SaasProvider>
+}
+```
+
+If you already have a custom theme, you can pass `baseTheme` as the base theme in `extendTheme`.
+
+```jsx live=false
+import { extendTheme } from '@chakra-ui/react'
+// 1. Import the base theme
+import { baseTheme } from '@saas-ui/react'
+
+// 2. Extend your theme
+const theme = extendTheme(
+  {
+    // your custom theme
+  },
+  baseTheme
+)
+
+// 3. Pass the custom theme to SaasProvider
+function App() {
+  return <SaasProvider theme={theme}>{children}</SaasProvider>
+}
+```
+
+You can read more about customizing your theme on [the Chakra UI website](https://chakra-ui.com/docs/theming/customize-theme).

@@ -1,7 +1,7 @@
 {
   "name": "@saas-ui/palette",
   "description": "Color palette generator for Chakra UI",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "source": "src/index.ts",
   "exports": {
     ".": {
@@ -21,6 +21,14 @@
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

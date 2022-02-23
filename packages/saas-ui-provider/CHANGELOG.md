@@ -1,5 +1,101 @@
 # @saas-ui/provider
 
+## 0.2.14
+
+### Patch Changes
+
+- Updated dependencies [09d4167]
+  - @saas-ui/theme@0.4.11
+
+## 0.2.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/theme@0.4.10
+
+## 0.2.12
+
+### Patch Changes
+
+- Updated dependencies [52688c1]
+- Updated dependencies [1ce9ba9]
+  - @saas-ui/theme@0.4.9
+
+## 0.2.11
+
+### Patch Changes
+
+- Updated dependencies [be249e2]
+  - @saas-ui/theme@0.4.8
+
+## 0.2.10
+
+### Patch Changes
+
+- Updated dependencies [4eba003]
+  - @saas-ui/theme@0.4.7
+
+## 0.2.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/theme@0.4.6
+
+## 0.2.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/theme@0.4.5
+
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [afc15d8]
+  - @saas-ui/theme@0.4.4
+
+## 0.2.6
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- 2df4438: Add Link component
+- Updated dependencies [b3159a7]
+  - @saas-ui/theme@0.4.3
+
+## 0.2.5
+
+### Patch Changes
+
+- Updated dependencies [d3edc56]
+  - @saas-ui/theme@0.4.2
+
+## 0.2.4
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/theme@0.4.1
+
+## 0.2.3
+
+### Patch Changes
+
+- Updated dependencies [638a054]
+- Updated dependencies [4733b8f]
+  - @saas-ui/theme@0.4.0
+
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/theme@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes

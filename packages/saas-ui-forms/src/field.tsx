@@ -6,9 +6,7 @@ import {
   get,
   RegisterOptions,
   FieldValues,
-  FieldName,
   FieldPath,
-  FieldPathValue,
 } from 'react-hook-form'
 
 import {
@@ -31,6 +29,12 @@ import { PasswordInput } from '@saas-ui/password-input'
 import { RadioInput } from '@saas-ui/radio'
 import { PinInput } from '@saas-ui/pin-input'
 import { Select, NativeSelect } from '@saas-ui/select'
+
+export interface Option {
+  value: string
+  label?: string
+  [key: string]: unknown
+}
 
 export type FieldRules = Pick<
   RegisterOptions,
@@ -80,7 +84,7 @@ export interface FieldProps<
   /**
    * Options used for selects and radio fields
    */
-  options?: any
+  options?: Option[]
   /**
    * The field type
    * Build-in types:
@@ -149,15 +153,25 @@ export const BaseField: React.FC<FieldProps> = (props) => {
     </FormControl>
   )
 }
-
-export const Field = forwardRef<FieldProps, typeof FormControl>(
-  (props, ref) => {
+export const Field = forwardRef(
+  <TFieldValues extends FieldValues = FieldValues>(
+    props: FieldProps<TFieldValues> & {
+      [key: string]: unknown // Make sure attributes of custom components work. Need to change this to a global typedef at some point.
+    },
+    ref: React.ForwardedRef<typeof FormControl>
+  ) => {
     const { type = defaultInputType } = props
     const InputComponent = getInput(type)
 
     return <InputComponent ref={ref} {...props} />
   }
-)
+) as <TFieldValues extends FieldValues>(
+  props: FieldProps<TFieldValues> & {
+    [key: string]: unknown
+  } & {
+    ref?: React.ForwardedRef<typeof FormControl>
+  }
+) => React.ReactElement
 
 interface CreateFieldProps {
   displayName: string
@@ -173,18 +187,26 @@ const createField = (
     const {
       name,
       label,
+      help,
       isDisabled,
       isInvalid,
       isReadOnly,
       isRequired,
+      rules,
       variant,
       ...inputProps
     } = props
+
+    const inputRules = {
+      required: isRequired,
+      ...rules,
+    }
 
     return (
       <BaseField
         name={name}
         label={label}
+        help={help}
         hideLabel={hideLabel}
         isDisabled={isDisabled}
         isInvalid={isInvalid}
@@ -192,7 +214,13 @@ const createField = (
         isRequired={isRequired}
         variant={variant}
       >
-        <InputComponent ref={ref} name={name} label={label} {...inputProps} />
+        <InputComponent
+          ref={ref}
+          name={name}
+          label={label}
+          rules={inputRules}
+          {...inputProps}
+        />
       </BaseField>
     )
   })

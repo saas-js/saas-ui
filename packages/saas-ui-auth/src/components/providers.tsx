@@ -37,7 +37,7 @@ export const Providers: React.FC<ProviderProps> = ({
   label = 'Continue with',
   ...rest
 }) => {
-  const { login } = useAuth()
+  const { logIn } = useAuth()
 
   if (!providers) {
     return null
@@ -45,11 +45,11 @@ export const Providers: React.FC<ProviderProps> = ({
 
   const signInWith = (provider: string) => {
     return async () => {
-      await login(
+      await logIn(
         { provider },
         {
           redirectTo,
-        },
+        }
       )
     }
   }

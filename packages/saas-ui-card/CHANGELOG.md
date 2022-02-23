@@ -1,5 +1,26 @@
 # @saas-ui/card
 
+## 0.2.3
+
+### Patch Changes
+
+- Removed build in styles
+
+## 0.2.2
+
+### Patch Changes
+
+- afc15d8: Improved Card styling
+
+## 0.2.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/button@0.2.1
+  - @saas-ui/system@0.3.1
+
 ## 0.2.0
 
 ### Minor Changes

@@ -9,6 +9,7 @@ import {
   FormLabel,
   Input,
 } from '@chakra-ui/react'
+import { FormLayout } from '@saas-ui/forms'
 
 function encode(data: Record<string, any>) {
   return Object.keys(data)
@@ -77,7 +78,7 @@ export function SignupForm({ isOpen, onClose }: any) {
     )
   } else {
     content = (
-      <>
+      <FormLayout>
         <FormControl>
           <FormLabel>Name</FormLabel>
           <Input
@@ -87,7 +88,7 @@ export function SignupForm({ isOpen, onClose }: any) {
           />
         </FormControl>
 
-        <FormControl mt={4} isRequired isInvalid={!!error}>
+        <FormControl isRequired isInvalid={!!error}>
           <FormLabel>Email address</FormLabel>
           <Input
             name="email"
@@ -95,7 +96,12 @@ export function SignupForm({ isOpen, onClose }: any) {
             onChange={({ target }) => setEmail(target.value)}
           />
         </FormControl>
-      </>
+
+        <Text
+          fontSize="sm"
+          color="muted"
+        >{`Don't worry, we hate spam too. We'll send you one follow-up email and will notify you when Saas UI Pro is launched.`}</Text>
+      </FormLayout>
     )
   }
 
@@ -116,7 +122,7 @@ export function SignupForm({ isOpen, onClose }: any) {
           size="md"
           isLoading={loading}
         >
-          Request access
+          Get notified
         </Button>
       </Flex>
     )

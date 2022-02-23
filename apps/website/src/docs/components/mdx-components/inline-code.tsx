@@ -3,8 +3,8 @@ import React from 'react'
 
 export const InlineCode = (props: any) => (
   <chakra.code
-    apply='mdx.code'
-    color={useColorModeValue('purple.500', 'purple.200')}
+    apply="mdx.code"
+    color={useColorModeValue('purple.500', 'purple.400')}
     {...props}
   />
 )

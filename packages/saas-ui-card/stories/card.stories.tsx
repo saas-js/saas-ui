@@ -120,7 +120,7 @@ export const solid = () => (
         </Text>
       </CardBody>
       <CardFooter>
-        <Button variant="solid" colorScheme="gray">
+        <Button variant="subtle" colorScheme="white">
           Continue
         </Button>
         <Button>Dismiss</Button>

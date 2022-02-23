@@ -12,6 +12,12 @@ const FormLayoutItem: React.FC<FormLayoutItemProps> = ({ children }) => {
   return <chakra.div>{children}</chakra.div>
 }
 
+/**
+ * FormLayout
+ *
+ * Renders form items in a `SimpleGrid`
+ * @see https://chakra-ui.com/docs/layout/simple-grid
+ */
 export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
   const theme = useTheme()
 

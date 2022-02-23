@@ -26,8 +26,8 @@ export interface OtpFormProps {
 
 export const OtpForm: React.FC<OtpFormProps> = ({
   schema,
-  onSuccess = () => {},
-  onError = () => {},
+  onSuccess = () => null,
+  onError = () => null,
   onValidationError,
   submitLabel = 'Verify',
   label,
@@ -79,7 +79,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 
 OtpForm.defaultProps = {
   helpText:
-    'You can find your one-time password in Google Authenticator or Authy app.',
+    'You can find your one-time password in the Google Authenticator or Authy app.',
   submitLabel: 'Verify',
   label: 'Your verification code',
 }

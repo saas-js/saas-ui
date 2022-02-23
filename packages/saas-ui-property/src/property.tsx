@@ -13,6 +13,8 @@ import {
   omitThemingProps,
 } from '@chakra-ui/system'
 
+import { List, ListProps } from '@saas-ui/list'
+
 interface PropertyOptions {
   label?: React.ReactNode
   value?: React.ReactNode
@@ -107,3 +109,25 @@ export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
     )
   }
 )
+
+export interface PropertyListProps extends Omit<ListProps, 'items'> {}
+
+/**
+ * Render a list of properties.
+ * Will set the `as` prop of it's children to `div`,
+ * in order to render a semantically correct `dl` list.
+ */
+export const PropertyList: React.FC<PropertyListProps> = (props) => {
+  const { children, ...rest } = props
+  return (
+    <List as="dl" {...rest}>
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child)
+          ? React.cloneElement(child, {
+              as: 'div',
+            })
+          : child
+      )}
+    </List>
+  )
+}

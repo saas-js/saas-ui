@@ -1,5 +1,19 @@
 # @saas-ui/property
 
+## 0.2.2
+
+### Patch Changes
+
+- 09d4167: Added PropertyList component and improved a11y
+- Updated dependencies [09d4167]
+  - @saas-ui/list@0.3.5
+
+## 0.2.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+
 ## 0.2.0
 
 ### Minor Changes

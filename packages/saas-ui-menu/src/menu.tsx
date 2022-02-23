@@ -13,12 +13,12 @@ export interface MenuItemProps extends ChakraMenuItemProps {
 }
 
 export const MenuItem = forwardRef<MenuItemProps, typeof ChakraMenuItem>(
-  ({ label, href, ...props }, ref) => {
+  ({ label, href, children, ...props }, ref) => {
     const LinkWrapper = useLink()
 
     const item = (
       <ChakraMenuItem ref={ref} {...props}>
-        {label}
+        {label || children}
       </ChakraMenuItem>
     )
 

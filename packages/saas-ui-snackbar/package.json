@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/snackbar",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "A snackbar component Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -22,6 +22,10 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -51,10 +55,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/toast": "^1.5.2",
     "@saas-ui/system": "workspace:*"
   },
   "peerDependencies": {
+    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
     "framer-motion": ">=5.5.0",
     "react": ">=16.8.6",

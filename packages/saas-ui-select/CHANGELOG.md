@@ -1,5 +1,17 @@
 # @saas-ui/select
 
+## 0.2.2
+
+### Patch Changes
+
+- 676eefa: Add menuListProps
+
+## 0.2.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+
 ## 0.2.0
 
 ### Minor Changes

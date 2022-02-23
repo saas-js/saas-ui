@@ -13,6 +13,7 @@ const StyledLink = React.forwardRef(function StyledLink(
 
   return (
     <chakra.a
+      outline="none"
       aria-current={isActive ? 'page' : undefined}
       aria-disabled={isDisabled ? 'true' : undefined}
       width="100%"
@@ -27,6 +28,12 @@ const StyledLink = React.forwardRef(function StyledLink(
       _hover={{
         color: useColorModeValue('black', 'white'),
         bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+      }}
+      _focus={{
+        color: useColorModeValue('black', 'white'),
+        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+        boxShadow: 'outline',
+        '&:not(:focus-visible)': { boxShadow: 'none' },
       }}
       _activeLink={{
         bg: useColorModeValue('primary.50', transparentize('primary.500', 0.2)),

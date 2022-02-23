@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/provider",
-  "version": "0.2.1",
+  "version": "0.2.14",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {
@@ -22,6 +22,10 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -43,8 +47,7 @@
     "accessible",
     "components",
     "emotion",
-    "library",
-    "design-system"
+    "library"
   ],
   "storybook": {
     "title": "Saas UI",

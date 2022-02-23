@@ -23,8 +23,8 @@
     "incremental": true,
     "declarationMap": true
   },
-  "include": ["packages", "scripts"],
-  "exclude": ["node_modules"],
+  "include": ["packages", "scripts", "tooling"],
+  "exclude": ["node_modules", "**/node_modules"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",

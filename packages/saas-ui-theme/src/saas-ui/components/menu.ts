@@ -1,6 +1,7 @@
-import { mode, SystemStyleFunction } from '@chakra-ui/theme-tools'
+import { menuAnatomy as parts } from '@chakra-ui/anatomy'
+import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
-const baseStyle: SystemStyleFunction = (props) => {
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   return {
     list: {
       borderWidth: mode(1, 0)(props),
@@ -16,6 +17,21 @@ const baseStyle: SystemStyleFunction = (props) => {
   }
 }
 
+const variantDialog: PartsStyleFunction<typeof parts> = () => {
+  return {
+    item: {
+      px: 6,
+    },
+    groupTitle: {
+      color: 'muted',
+      px: 3,
+    },
+  }
+}
+
 export default {
   baseStyle,
+  variants: {
+    dialog: variantDialog,
+  },
 }

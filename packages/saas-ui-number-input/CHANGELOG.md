@@ -1,5 +1,17 @@
 # @saas-ui/number-input
 
+## 0.2.2
+
+### Patch Changes
+
+- 46dd92b: NumberInput stepper can now be hidden and supports custom icons.
+
+## 0.2.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,113 @@
 # @saas-ui/menu
 
+## 0.3.10
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.14
+
+## 0.3.9
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.13
+
+## 0.3.8
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.12
+
+## 0.3.7
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.11
+
+## 0.3.6
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.10
+
+## 0.3.5
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.9
+
+## 0.3.4
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.8
+
+## 0.3.3
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.7
+
+## 0.3.2
+
+### Patch Changes
+
+- 676eefa: Add menuListProps
+
+## 0.3.1
+
+### Patch Changes
+
+- 7b87e43: Use currentColor on stroke
+
+## 0.3.0
+
+### Minor Changes
+
+- f88d99a: Added new OverflowMenu component
+
+### Patch Changes
+
+- c7c77c5: Added missing dependency
+
+## 0.2.6
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+- Updated dependencies [2df4438]
+  - @saas-ui/button@0.2.1
+  - @saas-ui/provider@0.2.6
+  - @saas-ui/system@0.3.1
+
+## 0.2.5
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.5
+
+## 0.2.4
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/provider@0.2.4
+
+## 0.2.3
+
+### Patch Changes
+
+- 76f5e46: Fall back to children if no label is set
+  - @saas-ui/provider@0.2.3
+
+## 0.2.2
+
+### Patch Changes
+
+- @saas-ui/provider@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes

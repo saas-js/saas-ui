@@ -1,5 +1,19 @@
 # @saas-ui/snackbar
 
+## 0.2.2
+
+### Patch Changes
+
+- 1190a53: Fixed dependencies
+
+## 0.2.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/system@0.3.1
+
 ## 0.2.0
 
 ### Minor Changes

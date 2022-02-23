@@ -1,91 +1,191 @@
 import * as React from 'react'
 
-import { Box, Link } from '@chakra-ui/react'
+import { chakra, Link } from '@chakra-ui/react'
 
-import { LoginForm, SignupForm, AuthFormProps } from './auth-form'
+import {
+  LoginView,
+  SignupView,
+  OtpView,
+  ForgotPasswordView,
+  UpdatePasswordView,
+  AuthFormProps,
+} from './auth-form'
+
 import { AvailableProviders } from '.'
 
-const ACTIONS: ActionsMap = {
+export const VIEWS = {
   LOGIN: 'login',
   SIGNUP: 'signup',
-  FORGOTTEN_PASSWORD: 'forgot_password',
+  FORGOT_PASSWORD: 'forgot_password',
   UPDATE_PASSWORD: 'update_password',
   OTP: 'otp',
 }
 
-interface ActionsMap {
-  [key: string]: ActionType
-}
-
-type ActionType =
+type ViewType =
   | 'login'
   | 'signup'
   | 'forgot_password'
   | 'update_password'
   | 'otp'
 
-interface AuthProps
+export interface AuthProps
   extends Omit<AuthFormProps, 'action' | 'defaultValues' | 'onSubmit'> {
-  action?: ActionType
+  /**
+   * Sets the visible authentication form.
+   * Supported views are:
+   * - login
+   * - signup
+   * - forgot_password
+   * - update_password
+   * - otp
+   */
+  view?: ViewType
+  /**
+   * The OAuth providers that are supported.
+   */
   providers?: AvailableProviders
+  /**
+   * Customize the signup link under the log in form.
+   * @default "Sign up"
+   */
   signupLink?: React.ReactNode
+  /**
+   * Customize the login link under the sign up form.
+   * @default "Log in"
+   */
   loginLink?: React.ReactNode
+  /**
+   * The forgot password link
+   * @default "Forgot password?"
+   */
+  forgotLink?: React.ReactNode
+  /**
+   * Back to log in link
+   * @default "Back to log in"
+   */
+  backLink?: React.ReactNode
+  /**
+   * Text shown before the signupLink
+   * @default "No account?"
+   */
+  noAccount?: React.ReactNode
+  /**
+   * Text shown before the loginLink
+   * @default "Already have an account?"
+   */
+  haveAccount?: React.ReactNode
 }
 
-export const Auth: React.FC<AuthProps> = ({
-  action = ACTIONS.LOGIN,
-  providers,
-  signupLink,
-  loginLink,
-  ...rest
-}) => {
-  const [authAction, setAuthAction] = React.useState(action)
+export const Auth: React.FC<AuthProps> = (props) => {
+  const {
+    view = VIEWS.LOGIN,
+    providers,
+    signupLink,
+    loginLink,
+    forgotLink,
+    backLink,
+    noAccount,
+    haveAccount,
+    ...rest
+  } = props
+
+  const { type } = rest
+
+  const [authView, setAuthView] = React.useState(view)
 
   React.useEffect(() => {
-    setAuthAction(action)
-  }, [action])
+    setAuthView(view)
+  }, [view])
 
-  switch (authAction) {
-    case ACTIONS.LOGIN:
+  switch (authView) {
+    case VIEWS.LOGIN:
       return (
-        <LoginForm providers={providers} {...rest}>
-          <AuthLink
-            onClick={() => setAuthAction(ACTIONS.SIGNUP)}
-            link={signupLink}
-          />
-        </LoginForm>
+        <LoginView
+          providers={providers}
+          footer={
+            <AuthLink
+              onClick={() => setAuthView(VIEWS.SIGNUP)}
+              label={noAccount}
+              link={signupLink}
+            />
+          }
+          {...rest}
+        >
+          {type === 'password' &&
+            (typeof forgotLink === 'string' ? (
+              <Link
+                fontSize="md"
+                color="muted"
+                float="right"
+                onClick={() => setAuthView(VIEWS.FORGOT_PASSWORD)}
+              >
+                {forgotLink}
+              </Link>
+            ) : (
+              forgotLink
+            ))}
+        </LoginView>
       )
-    case ACTIONS.SIGNUP:
+    case VIEWS.SIGNUP:
       return (
-        <SignupForm providers={providers} {...rest}>
-          <AuthLink
-            onClick={() => setAuthAction(ACTIONS.LOGIN)}
-            link={loginLink}
-          />
-        </SignupForm>
+        <SignupView
+          providers={providers}
+          footer={
+            <AuthLink
+              onClick={() => setAuthView(VIEWS.LOGIN)}
+              label={haveAccount}
+              link={loginLink}
+            />
+          }
+          {...rest}
+        ></SignupView>
       )
-    case ACTIONS.FORGOTTEN_PASSWORD:
-    case ACTIONS.UPDATE_PASSWORD:
-    case ACTIONS.OTP:
+    case VIEWS.FORGOT_PASSWORD:
+      return (
+        <ForgotPasswordView
+          footer={
+            <AuthLink
+              onClick={() => setAuthView(VIEWS.LOGIN)}
+              link={backLink}
+            />
+          }
+          {...rest}
+        />
+      )
+    case VIEWS.UPDATE_PASSWORD:
+      return <UpdatePasswordView {...rest} />
+    case VIEWS.OTP:
+      return <OtpView {...rest} />
   }
 
   return null
 }
 
-export interface AuthLinkProps {
+interface AuthLinkProps {
+  label?: React.ReactNode
   link: React.ReactNode
   onClick: (e: React.MouseEvent) => void
 }
 
-export const AuthLink = ({ link, onClick }: AuthLinkProps) => {
+const AuthLink = ({ label, link, onClick }: AuthLinkProps) => {
+  const styles = {
+    textAlign: 'center',
+    py: 8,
+    fontSize: 'md',
+  }
   return (
-    <Box align="center" py="8">
+    <chakra.div __css={styles}>
+      {label && <chakra.span color="muted">{label}</chakra.span>}{' '}
       {typeof link === 'string' ? <Link onClick={onClick}>{link}</Link> : link}
-    </Box>
+    </chakra.div>
   )
 }
 
 Auth.defaultProps = {
-  signupLink: "Don't have an account yet? Sign up.",
-  loginLink: 'Already have an account? Log in.',
+  noAccount: 'No account yet?',
+  haveAccount: 'Already have an account?',
+  signupLink: 'Sign up',
+  loginLink: 'Log in',
+  forgotLink: 'Forgot password?',
+  backLink: 'Back to log in',
 }

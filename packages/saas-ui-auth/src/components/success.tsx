@@ -25,7 +25,6 @@ export const AuthFormSuccess: React.FC<AuthFormSuccessProps> = ({
       alignItems="center"
       justifyContent="center"
       textAlign="center"
-      height="200px"
       {...rest}
     >
       <AlertIcon boxSize="40px" mr={0} />

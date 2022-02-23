@@ -1,5 +1,24 @@
 # @saas-ui/collapse
 
+## 0.2.3
+
+### Patch Changes
+
+- cedd489: Fixed typing error
+- b57b40b: Fixed package depedencies and bundle size
+
+## 0.2.2
+
+### Patch Changes
+
+- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and return isCollapsible param.
+
+## 0.2.1
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+
 ## 0.2.0
 
 ### Minor Changes

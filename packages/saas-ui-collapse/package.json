@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/collapse",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "Collapse Component",
   "source": "src/index.ts",
   "exports": {
@@ -22,6 +22,10 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -52,7 +56,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/react-utils": "^1.2.1"
+    "@chakra-ui/react-utils": "^1.2.1",
+    "@chakra-ui/utils": "^1.10.2"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",

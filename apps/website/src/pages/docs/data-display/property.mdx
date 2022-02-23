@@ -13,12 +13,18 @@ It can be used in cards, lists, etc.
 
 ## Import
 
+- `PropertyList`: Render a list of properties.
 - `Property`: The wrapper component that handles default composition.
 - `PropertyLabel`: The property label.
-- `PropertyValue`: The property value
+- `PropertyValue`: The property value.
 
 ```ts
-import { Property, PropertyLabel, PropertyValue } from '@saas-ui/react'
+import {
+  PropertyList,
+  Property,
+  PropertyLabel,
+  PropertyValue,
+} from '@saas-ui/react'
 ```
 
 ## Usage
@@ -46,9 +52,9 @@ Label text will be truncated if it doesnt fit.
 ### Property list
 
 ```jsx
-<List>
+<PropertyList>
   <Property label="Name" value="Elliot Alderson" />
-</List>
+</PropertyList>
 ```
 
 ### Property card
@@ -63,27 +69,29 @@ Label text will be truncated if it doesnt fit.
   }
 >
   <CardBody>
-    <Property
-      label="Billing plan"
-      value={<Text fontWeight="bold">Professional</Text>}
-    />
-    <Property label="Billing period" value="Yearly" />
-    <Property label="Renewal date" value="01-01-2023" />
-    <Property
-      label="Users"
-      value={
-        <Box flex="1">
-          <Text fontSize="sm">20/100</Text>{' '}
-          <Progress
-            value="20"
-            size="xs"
-            colorScheme="primary"
-            borderRadius="full"
-          />
-        </Box>
-      }
-    />
-    <Property label="Price" value="€1250,-" />
+    <PropertyList>
+      <Property
+        label="Billing plan"
+        value={<Text fontWeight="bold">Professional</Text>}
+      />
+      <Property label="Billing period" value="Yearly" />
+      <Property label="Renewal date" value="01-01-2023" />
+      <Property
+        label="Users"
+        value={
+          <Box flex="1">
+            <Text fontSize="sm">20/100</Text>{' '}
+            <Progress
+              value="20"
+              size="xs"
+              colorScheme="primary"
+              borderRadius="full"
+            />
+          </Box>
+        }
+      />
+      <Property label="Price" value="€1250,-" />
+    </PropertyList>
   </CardBody>
 </Card>
 ```
@@ -91,7 +99,7 @@ Label text will be truncated if it doesnt fit.
 ### Editable property
 
 ```jsx
-<Stack spacing="2">
+<PropertyList>
   <Property
     label="Name"
     value={
@@ -110,9 +118,13 @@ Label text will be truncated if it doesnt fit.
       </Select>
     }
   />
-</Stack>
+</PropertyList>
 ```
 
 ## Props
 
-### Property Props
+`PropertyList`, `Property`, `PropertyLabel` and `PropertyValue` accept all `Box` properties.
+
+<PropsTable of="PropertyList" />
+
+<PropsTable of="Property" />

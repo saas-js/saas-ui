@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/auth",
-  "version": "0.2.1",
+  "version": "0.5.2",
   "description": "Authentication provider and components for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -9,13 +9,20 @@
       "default": "./dist/index.modern.js"
     },
     "./services/supabase": {
-      "require": "./dist/services/supabase.js",
-      "default": "./dist/services/supabase.modern.js"
+      "require": "./dist/supabase.js",
+      "default": "./dist/supabase.modern.js"
+    },
+    "./services/magic-link": {
+      "require": "./dist/magic-link.js",
+      "default": "./dist/magic-link.modern.js"
     },
     "./src": {
       "default": "./src/index.ts"
     },
     "./src/services/supabase": {
+      "default": "./src/services/supabase.ts"
+    },
+    "./src/services/magic-link": {
       "default": "./src/services/supabase.ts"
     }
   },
@@ -24,14 +31,15 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle src/**/*.ts --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "services"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -56,7 +64,6 @@
     "components",
     "emotion",
     "library",
-    "design-system",
     "authentication",
     "supabase"
   ],

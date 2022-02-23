@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "0.3.0",
+  "version": "0.9.3",
   "description": "Saas UI - The frontend stack for SaaS companies.",
   "source": "src/index.ts",
   "exports": {
@@ -22,6 +22,10 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -55,10 +59,13 @@
     "@saas-ui/button": "workspace:*",
     "@saas-ui/card": "workspace:*",
     "@saas-ui/collapse": "workspace:*",
+    "@saas-ui/data-table": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/hotkeys": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
+    "@saas-ui/layout": "workspace:*",
+    "@saas-ui/list": "workspace:*",
     "@saas-ui/menu": "workspace:*",
     "@saas-ui/modals": "workspace:*",
     "@saas-ui/nprogress": "workspace:*",

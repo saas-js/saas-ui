@@ -1,5 +1,88 @@
 # @saas-ui/theme
 
+## 0.4.11
+
+### Patch Changes
+
+- 09d4167: Added PropertyList component and improved a11y
+
+## 0.4.10
+
+### Patch Changes
+
+- Improved List a11y
+
+## 0.4.9
+
+### Patch Changes
+
+- 52688c1: Improved List semantics and styling
+- 1ce9ba9: Improved ObjectField semantics and styles
+
+## 0.4.8
+
+### Patch Changes
+
+- be249e2: Improved ghost variant in lightmode
+
+## 0.4.7
+
+### Patch Changes
+
+- 4eba003: Improved Button colors in lightmode
+
+## 0.4.6
+
+### Patch Changes
+
+- Removed build in styles
+
+## 0.4.5
+
+### Patch Changes
+
+- Bump version
+
+## 0.4.4
+
+### Patch Changes
+
+- afc15d8: Improved Card styling
+
+## 0.4.3
+
+### Patch Changes
+
+- b3159a7: Only publish dist and src files
+- Updated dependencies [b3159a7]
+  - @saas-ui/palette@0.4.1
+  - @saas-ui/system@0.3.1
+
+## 0.4.2
+
+### Patch Changes
+
+- d3edc56: Remove unused color tokens
+
+## 0.4.1
+
+### Patch Changes
+
+- Bump version
+
+## 0.4.0
+
+### Minor Changes
+
+- 638a054: Added new layout package with EmptyState and Loading components
+- 4733b8f: Added new MenuDialog component
+
+## 0.3.0
+
+### Minor Changes
+
+- Release list component
+
 ## 0.2.1
 
 ### Patch Changes

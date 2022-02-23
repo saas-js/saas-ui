@@ -1,4 +1,10 @@
 export default {
+  baseStyle: {
+    legend: {
+      fontWeight: 'semibold',
+      mb: 4,
+    },
+  },
   variants: {
     horizontal: {
       container: {

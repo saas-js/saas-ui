@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/layout'
+import { Container } from '@chakra-ui/layout'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -8,17 +8,11 @@ import {
   AutoForm,
   FormLayout,
   Field,
-  ArrayField,
-  ArrayFieldContainer,
-  ArrayFieldRows,
-  ArrayFieldRow,
-  ArrayFieldAddButton,
-  useArrayFieldContext,
   ObjectField,
   SubmitButton,
 } from '../src'
 
-import { handleSubmit } from './helpers'
+import { onSubmit } from './helpers'
 
 export default {
   title: 'Components/Forms/ObjectField',
@@ -31,30 +25,21 @@ export default {
   ],
 }
 
-const postSchema = Yup.object().shape({
-  title: Yup.string().required().meta({ placeholder: 'Title' }).label('Title'),
-  description: Yup.string().meta({ type: 'textarea' }).label('Description'),
-})
+const postSchema = Yup.object()
+  .shape({
+    title: Yup.string()
+      .required()
+      .meta({ placeholder: 'Title' })
+      .label('Title'),
+    description: Yup.string().meta({ type: 'textarea' }).label('Description'),
+  })
+  .label('Post')
 
 const objectSchema = Yup.object().shape({
   post: postSchema,
 })
 
-export const autoObjectField = () => {
-  return (
-    <>
-      <AutoForm
-        defaultValues={{
-          post: {},
-        }}
-        schema={objectSchema}
-        onSubmit={handleSubmit}
-      />
-    </>
-  )
-}
-
-export const objectField = () => {
+export const Basic = () => {
   return (
     <>
       <Form
@@ -62,10 +47,47 @@ export const objectField = () => {
           post: {},
         }}
         schema={objectSchema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       >
         <FormLayout>
-          <ObjectField name="post">
+          <ObjectField name="post" label="Post">
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" />
+          </ObjectField>
+
+          <SubmitButton label="Save post" />
+        </FormLayout>
+      </Form>
+    </>
+  )
+}
+
+export const AutoObjectField = () => {
+  return (
+    <>
+      <AutoForm
+        defaultValues={{
+          post: {},
+        }}
+        schema={objectSchema}
+        onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+
+export const HideLabel = () => {
+  return (
+    <>
+      <Form
+        defaultValues={{
+          post: {},
+        }}
+        schema={objectSchema}
+        onSubmit={onSubmit}
+      >
+        <FormLayout>
+          <ObjectField name="post" label="Post" hideLabel>
             <Field name="title" label="Title" />
             <Field name="description" label="Description" />
           </ObjectField>
@@ -90,7 +112,7 @@ const nestedSchema = Yup.object().shape({
   }),
 })
 
-export const nestedObjectField = () => {
+export const NestedObjectField = () => {
   return (
     <>
       <Form
@@ -98,10 +120,10 @@ export const nestedObjectField = () => {
           post: {},
         }}
         schema={nestedSchema}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       >
         <FormLayout>
-          <ObjectField name="post">
+          <ObjectField name="post" label="Post">
             <Field name="title" label="Title" />
             <Field name="description" label="Description" />
             <ObjectField name="meta">

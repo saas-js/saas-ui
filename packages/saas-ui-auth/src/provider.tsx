@@ -4,6 +4,12 @@ const { createContext, useState, useContext, useEffect, useCallback } = React
 
 import { usePromise } from '@saas-ui/hooks'
 
+export type AuthTypeEnum = 'magiclink' | 'password'
+
+export type AuthActionEnum = 'logIn' | 'signUp'
+
+export type AuthToken = 'string' | null | undefined
+
 export interface AuthParams {
   email?: string
   password?: string
@@ -53,9 +59,23 @@ export interface AuthProviderProps {
     options?: AuthOptions
   ) => Promise<User | undefined | null>
   /**
+   * Request to reset a password.
+   */
+  onResetPassword?: (
+    params: Pick<AuthParams, 'email'>,
+    options?: AuthOptions
+  ) => Promise<void>
+  /**
+   * Update the password.
+   */
+  onUpdatePassword?: (
+    params: Pick<AuthParams, 'password'>,
+    options?: AuthOptions
+  ) => Promise<void>
+  /**
    * Verify an one time password (2fa)
    */
-  onVerify?: (
+  onVerifyOtp?: (
     params: AuthParams,
     options?: AuthOptions
   ) => Promise<boolean | undefined | null>
@@ -68,10 +88,9 @@ export interface AuthProviderProps {
    */
   onAuthStateChange?: (callback: AuthStateChangeCallback) => UnsubscribeHandler
   /**
-   * Check if the user is still authenticated
-   * Called on page load and window focus
+   * Return the session token
    */
-  onCheckAuth?: () => Promise<boolean>
+  onGetToken?: () => Promise<AuthToken>
 }
 
 export type AuthFunction = (
@@ -84,12 +103,14 @@ export interface AuthContextValue {
   isLoggingIn: boolean
   isLoading: boolean
   user?: User | null
-  signup: AuthFunction
-  login: AuthFunction
-  verify: AuthFunction
-  logout: (options?: AuthOptions) => Promise<unknown>
+  signUp: AuthFunction
+  logIn: AuthFunction
+  verifyOtp: AuthFunction
+  resetPassword: AuthFunction
+  updatePassword: AuthFunction
+  logOut: (options?: AuthOptions) => Promise<unknown>
   loadUser: () => void
-  checkAuth: () => void
+  getToken: () => Promise<AuthToken>
 }
 
 const AuthContext = createContext<any>(null)
@@ -98,10 +119,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   onLoadUser = () => Promise.resolve(),
   onSignup = () => Promise.resolve(),
   onLogin = () => Promise.resolve(),
-  onVerify = () => Promise.resolve(),
+  onVerifyOtp = () => Promise.resolve(),
   onLogout = () => Promise.resolve(),
   onAuthStateChange,
-  onCheckAuth,
+  onGetToken,
+  onResetPassword,
+  onUpdatePassword,
   children,
 }) => {
   const [isAuthenticated, setAuthenticated] = useState(false)
@@ -124,10 +147,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   }, [isAuthenticated])
 
   const checkAuth = useCallback(async () => {
-    if (onCheckAuth) {
-      setAuthenticated(await onCheckAuth())
+    try {
+      if (onGetToken) {
+        setAuthenticated(!!(await onGetToken()))
+      }
+    } catch (e) {
+      setAuthenticated(false)
     }
-  }, [onCheckAuth])
+  }, [onGetToken])
 
   useEffect(() => {
     window.addEventListener('focus', checkAuth)
@@ -153,49 +180,69 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
     setLoading(false)
   }, [onLoadUser, isAuthenticated])
 
-  const signup = useCallback(
+  const signUp = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {
       const result = await onSignup(params, options)
+      checkAuth() // In case the auth service authenticates the user directly.
       return result
     },
     [onSignup]
   )
 
-  const verify = useCallback(
-    async (params: AuthParams, options?: AuthOptions) => {
-      const result = await onVerify(params, options)
-      return result
-    },
-    [onSignup]
-  )
-
-  const login = useCallback(
+  const logIn = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {
       const result = await onLogin(params, options)
-      if (result) {
-        setUser(result)
-      }
+      checkAuth() // In case the auth service authenticates the user directly.
       return result
     },
     [onLogin]
   )
 
-  const logout = useCallback(() => {
+  const logOut = useCallback(async () => {
+    await onLogout()
     setUser(null)
-    return onLogout()
+    setAuthenticated(false)
   }, [onLogout])
+
+  const verifyOtp = useCallback(
+    async (params: AuthParams, options?: AuthOptions) => {
+      const result = await onVerifyOtp(params, options)
+      return result
+    },
+    [onVerifyOtp]
+  )
+
+  const resetPassword = useCallback(
+    async (params: Pick<AuthParams, 'email'>, options?: AuthOptions) => {
+      await onResetPassword?.(params, options)
+    },
+    [onResetPassword]
+  )
+
+  const updatePassword = useCallback(
+    async (params: Pick<AuthParams, 'password'>, options?: AuthOptions) => {
+      await onUpdatePassword?.(params, options)
+    },
+    [onUpdatePassword]
+  )
+
+  const getToken = useCallback(async () => {
+    return onGetToken?.()
+  }, [onGetToken])
 
   const value: AuthContextValue = {
     isAuthenticated,
     isLoggingIn: isAuthenticated && !user,
     isLoading,
     user,
-    signup,
-    login,
-    logout,
-    verify,
+    signUp,
+    logIn,
+    logOut,
+    verifyOtp,
     loadUser,
-    checkAuth,
+    getToken,
+    resetPassword,
+    updatePassword,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
@@ -207,20 +254,36 @@ export const useCurrentUser = (): User | null | undefined => {
   return useAuth().user
 }
 
-export const useLogin = ({ action = 'login' }) => {
+export interface UseLoginProps {
+  action?: AuthActionEnum
+}
+
+export const useLogin = ({ action = 'logIn' }: UseLoginProps = {}) => {
   const auth = useAuth()
 
   return usePromise<AuthFunction>((args: AuthParams) => auth[action]?.(args))
 }
 
-export const useSignup = () => {
-  const { signup } = useAuth()
+export const useSignUp = () => {
+  const { signUp } = useAuth()
 
-  return usePromise<AuthFunction>((args: AuthParams) => signup(args))
+  return usePromise<AuthFunction>((args: AuthParams) => signUp(args))
 }
 
 export const useOtp = () => {
-  const { verify } = useAuth()
+  const { verifyOtp } = useAuth()
 
-  return usePromise<AuthFunction>((args: AuthParams) => verify(args))
+  return usePromise<AuthFunction>((args: AuthParams) => verifyOtp(args))
+}
+
+export const useResetPassword = () => {
+  const { resetPassword } = useAuth()
+
+  return usePromise<AuthFunction>((args: AuthParams) => resetPassword(args))
+}
+
+export const useUpdatePassword = () => {
+  const { updatePassword } = useAuth()
+
+  return usePromise<AuthFunction>((args: AuthParams) => updatePassword(args))
 }

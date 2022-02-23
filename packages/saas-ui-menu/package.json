@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/menu",
-  "version": "0.2.1",
+  "version": "0.3.10",
   "description": "Menu Component",
   "source": "src/index.ts",
   "exports": {
@@ -22,6 +22,10 @@
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -52,6 +56,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/provider": "workspace:*",
     "@saas-ui/system": "workspace:*"

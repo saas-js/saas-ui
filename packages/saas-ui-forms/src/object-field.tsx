@@ -1,8 +1,14 @@
 import * as React from 'react'
-import { ResponsiveValue } from '@chakra-ui/system'
+import {
+  FormControl,
+  FormLabel,
+  FormLabelProps,
+  ResponsiveValue,
+  useStyles,
+} from '@chakra-ui/react'
 
 import { FormLayout } from './layout'
-import { BaseField, FieldProps } from './field'
+import { FieldProps } from './field'
 
 import { mapNestedFields } from './utils'
 
@@ -13,13 +19,21 @@ export interface ObjectFieldProps extends FieldProps {
   spacing?: ResponsiveValue<string | number>
 }
 
+export const FormLegend = (props: FormLabelProps) => {
+  const styles = useStyles()
+  return <FormLabel as="legend" sx={styles.legend} {...props} />
+}
+
 export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
-  const { name, children, columns, spacing, ...fieldProps } = props
+  const { name, label, hideLabel, children, columns, spacing, ...fieldProps } =
+    props
+
   return (
-    <BaseField name={name} {...fieldProps}>
+    <FormControl name={name} as="fieldset" {...fieldProps}>
+      <FormLegend display={hideLabel ? 'none' : 'block'}>{label}</FormLegend>
       <FormLayout columns={columns} gridGap={spacing}>
         {mapNestedFields(name, children)}
       </FormLayout>
-    </BaseField>
+    </FormControl>
   )
 }

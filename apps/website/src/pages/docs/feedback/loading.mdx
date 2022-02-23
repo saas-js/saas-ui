@@ -1,0 +1,72 @@
+---
+title: Loading
+description: A loading indicator that fills it's parent.
+---
+
+The `Loading` loading component will try to fill up it's parent element and
+renders a `Spinner` in the center.
+
+<ComponentLinks
+  theme={{ componentName: 'layout' }}
+  github={{
+    url: 'https://github.com/saas-ui/saas-ui/blob/main/packages/saas-ui-layout/src/loading.tsx',
+  }}
+  npm={{ package: '@saas-ui/layout' }}
+/>
+
+## Import
+
+```ts
+import { Loading } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+<Loading />
+```
+
+### Variants
+
+#### Fill
+
+The default variant is `fill`, this will fill it's parent element with `flex="1"` and `height="100%"`.
+
+```jsx
+<Card title="Users">
+  <CardBody>
+    <Loading />
+  </CardBody>
+</Card>
+```
+
+#### Overlay
+
+The `overlay` variant will position the loader `absolute`, on top of it's parent element.
+When using overlay be sure to add `position="relative"` to the parent element to position it correctly.
+
+```jsx
+<Card height="100px" title="Users" position="relative">
+  <CardBody>
+    <Loading variant="overlay" />
+  </CardBody>
+</Card>
+```
+
+### Customize spinner
+
+```jsx
+<Loading size="lg" color="primary.500" thickness="4px" />
+```
+
+## Accessiblity
+
+Add a `label` describing the type of content being loaded to notify screen readers.
+
+## Props
+
+Support all [Spinner](https://chakra-ui.com/docs/feedback/spinner) options
+
+<PropsTable of="Loading" omit={null} />

@@ -1,4 +1,5 @@
-import * as ComponentProps from '@chakra-ui/props-docs'
+import * as ChakraComponentProps from '@chakra-ui/props-docs'
+import * as ComponentProps from '@saas-ui/props-docs'
 import { chakra, Code, Flex, HStack, Stack, theme } from '@chakra-ui/react'
 import Link from 'next/link'
 import * as React from 'react'
@@ -51,7 +52,7 @@ const PropsTable = ({
 
   if (!propList.length) {
     // this error breaks the build to notify you when there would be an empty table
-    throw new Error(
+    console.warn(
       `No props left to render for component ${of}.
 Remove the use of <PropsTable of="${of}" /> for this component in the docs.`
     )
@@ -144,7 +145,7 @@ interface MakePropsTableOptions extends PropsTableProps {}
 const TYPE_GENERIC_THEMABLE = '(string & {})'
 
 function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
-  const props = ComponentProps[of]?.props
+  const props = ComponentProps[of]?.props || ChakraComponentProps[of]?.props
 
   const themeKey = themeComponentKeyAliases[of] ?? of
   const componentTheme = theme.components[themeKey]
@@ -178,7 +179,7 @@ function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
 
       return true
     })
-    .map(([name, { defaultValue, description, required, type }]) => {
+    .map(([name, { defaultValue, description, required, type }]: any) => {
       const prop = {
         name,
         defaultValue: defaultValue?.value,

@@ -6,20 +6,49 @@ import { Button, ButtonProps } from '@saas-ui/button'
 
 import { forwardRef } from '@chakra-ui/system'
 
-export const SubmitButton = forwardRef<ButtonProps, 'button'>(
-  ({ children, ...props }, ref) => {
-    const data = useFormContext()
+export interface SubmitButtonProps extends ButtonProps {
+  /**
+   * Disable the submit button if the form is untouched.
+   *
+   * Change the default behavior by updating
+   * `SubmitButton.defaultProps.disableIfUntouched`
+   */
+  disableIfUntouched?: boolean
+  /**
+   * Disable the submit button if the form is invalid.
+   *
+   * Change the default behavior by updating
+   * `SubmitButton.defaultProps.disableIfInvalid`
+   */
+  disableIfInvalid?: boolean
+}
+
+export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
+  (props, ref) => {
+    const { children, disableIfUntouched, disableIfInvalid, ...rest } = props
+    const { formState } = useFormContext()
+
+    const isDisabled =
+      (disableIfUntouched && !formState.isDirty) ||
+      (disableIfInvalid && !formState.isValid)
 
     return (
       <Button
         type="submit"
-        isLoading={data.formState.isSubmitting}
+        isLoading={formState.isSubmitting}
         isPrimary
         ref={ref}
-        {...props}
+        isDisabled={isDisabled}
+        {...rest}
       >
         {children}
       </Button>
     )
   }
 )
+
+SubmitButton.defaultProps = {
+  label: 'Submit',
+  disableIfUntouched: false,
+  disableIfInvalid: false,
+}

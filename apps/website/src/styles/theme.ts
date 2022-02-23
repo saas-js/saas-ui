@@ -2,7 +2,12 @@ import { extendTheme } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui/theme'
 
-import { createBreakpoints, mode, transparentize } from '@chakra-ui/theme-tools'
+import {
+  createBreakpoints,
+  mode,
+  transparentize,
+  blacken,
+} from '@chakra-ui/theme-tools'
 
 import deepmerge from 'deepmerge'
 
@@ -72,6 +77,14 @@ const theme = extendTheme(
     },
     breakpoints: createBreakpoints(breakpoints),
     colors,
+    semanticTokens: {
+      colors: {
+        codeBackground: {
+          default: blacken('purple.600', 70)(baseTheme),
+          _dark: 'gray.800',
+        },
+      },
+    },
     styles,
     textStyles,
     fonts: {
@@ -90,42 +103,7 @@ const theme = extendTheme(
           maxW: 'container.lg',
         },
       },
-      NavLink: {
-        ...baseTheme.components.Button,
-        variants: {
-          ...Button.variants,
-          link: (props: any) => {
-            const { isActive } = props
-            const hoverColor = mode('gray.900', 'white')(props)
-            return {
-              fontWeight: '500',
-              color: isActive
-                ? hoverColor
-                : mode('gray.700', 'whiteAlpha.700')(props),
-              transition: 'color .2s ease-in',
-              _hover: {
-                textDecoration: 'none',
-                color: hoverColor,
-              },
-            }
-          },
-        },
-        sizes: deepmerge(baseTheme.components.Button.sizes, {
-          sm: {
-            lineHeight: '2rem',
-          },
-          md: {
-            lineHeight: '2.5rem',
-          },
-          lg: {
-            lineHeight: '3rem',
-          },
-        }),
-        defaultProps: {
-          variant: 'link',
-          size: 'sm',
-        },
-      },
+      Button,
       CTA,
       Section,
       SectionTitle,
@@ -137,6 +115,11 @@ const theme = extendTheme(
             bg: mode('white', 'gray.800'),
           },
         }),
+      },
+      Code: {
+        defaultProps: {
+          variant: 'solid',
+        },
       },
     },
   },

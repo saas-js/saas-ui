@@ -25,12 +25,12 @@ const sidebar = {
           open: true,
           routes: [
             {
-              title: 'Default Theme',
-              path: '/docs/theming/theme',
-            },
-            {
               title: 'Saas UI Theme',
               path: '/docs/theming/saas-ui-theme',
+            },
+            {
+              title: 'Chakra UI Theme',
+              path: '/docs/theming/chakra-ui-theme',
             },
             {
               title: 'Palette',
@@ -46,6 +46,21 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'Authentication',
+          path: '/docs/auth',
+          open: true,
+          routes: [
+            {
+              title: 'AuthProvider',
+              path: '/docs/auth/auth-provider',
+            },
+            {
+              title: 'Auth',
+              path: '/docs/auth/auth',
+            },
+          ],
+        },
+        {
           title: 'Layout',
           path: '/docs/layout',
           open: true,
@@ -60,27 +75,12 @@ const sidebar = {
               soon: true,
             },
             {
-              title: 'Sidebar',
-              // path: '/docs/layout/page',
-              soon: true,
-            },
-            {
-              title: 'Navbar',
-              // path: '/docs/layout/page',
-              soon: true,
-            },
-            {
               title: 'Page',
               // path: '/docs/layout/page',
               soon: true,
             },
             {
               title: 'Section',
-              // path: '/docs/layout/section',
-              soon: true,
-            },
-            {
-              title: 'ResizeBox',
               // path: '/docs/layout/section',
               soon: true,
             },
@@ -99,6 +99,16 @@ const sidebar = {
             {
               title: 'CommandMenu',
               // path: '/docs/navigation/hotkeys',
+              soon: true,
+            },
+            {
+              title: 'Sidebar',
+              // path: '/docs/layout/page',
+              soon: true,
+            },
+            {
+              title: 'Navbar',
+              // path: '/docs/layout/page',
               soon: true,
             },
           ],
@@ -169,7 +179,7 @@ const sidebar = {
               path: '/docs/forms/search-input',
             },
             {
-              title: 'ChipSelect',
+              title: 'Chips',
               soon: true,
             },
             {
@@ -185,25 +195,24 @@ const sidebar = {
           sort: true,
           routes: [
             {
-              title: 'EmptyState',
-              soon: true,
-            },
-            {
-              title: 'Chip',
-              soon: true,
+              title: 'DataTable',
+              path: '/docs/data-display/data-table',
             },
             {
               title: 'Divider',
-              soon: true,
+              path: '/docs/data-display/divider',
+            },
+            {
+              title: 'EmptyState',
+              path: '/docs/data-display/empty-state',
             },
             {
               title: 'HoverCard',
               soon: true,
             },
             {
-              title: 'DataList',
-              // path: '/docs/data-display/data-list',
-              soon: true,
+              title: 'List',
+              path: '/docs/data-display/list',
             },
             {
               title: 'Property',
@@ -222,6 +231,11 @@ const sidebar = {
           sort: true,
           routes: [
             {
+              title: 'Banner',
+              // path: '/docs/feedback/nprogress',
+              soon: true,
+            },
+            {
               title: 'NProgress',
               path: '/docs/feedback/nprogress',
             },
@@ -231,13 +245,32 @@ const sidebar = {
             },
             {
               title: 'Loading',
-              // path: '/docs/feedback/loading',
-              soon: true,
+              path: '/docs/feedback/loading',
             },
             {
               title: 'AppLoader',
               // path: '/docs/feedback/app-loader',
               soon: true,
+            },
+          ],
+        },
+        {
+          title: 'Overlay',
+          path: '/docs/overlay',
+          open: true,
+          sort: false,
+          routes: [
+            {
+              title: 'Modals manager',
+              path: '/docs/overlay/modals-manager',
+            },
+            {
+              title: 'MenuDialog',
+              path: '/docs/overlay/menu-dialog',
+            },
+            {
+              title: 'FormDialog',
+              path: '/docs/overlay/form-dialog',
             },
           ],
         },
@@ -299,23 +332,13 @@ const sidebar = {
           ],
         },
         {
-          title: 'Overlay',
-          path: '/docs/overlay',
+          title: 'Misc',
+          path: '/docs/misc',
           open: true,
-          sort: false,
           routes: [
             {
-              title: 'Modals manager',
-              path: '/docs/overlay/modals-manager',
-            },
-            {
-              title: 'ModalForm',
-              // path: '/docs/overlay/confirm-dialog',
-              soon: true,
-            },
-            {
-              title: 'ModalMenu',
-              // path: '/docs/overlay/confirm-dialog',
+              title: 'ResizeBox',
+              // path: '/docs/layout/section',
               soon: true,
             },
           ],

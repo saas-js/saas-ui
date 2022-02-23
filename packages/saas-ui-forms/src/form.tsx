@@ -6,32 +6,48 @@ import {
   useForm,
   FormProvider,
   UseFormProps,
-  FieldErrors,
+  UseFormReturn,
   FieldValues,
+  SubmitHandler,
+  SubmitErrorHandler,
 } from 'react-hook-form'
 
 import { yupResolver } from './resolvers/yup'
 
-interface FormOptions {
+export type { UseFormReturn }
+
+interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
+  /**
+   * The form schema, currently supports Yup schema only.
+   */
   schema?: any
-  submitLabel?: false | string
-  onSubmit: (arg: any) => Promise<any> | void
-  onError?: (errors: FieldErrors) => void
+  /**
+   * The submit handler.
+   */
+  onSubmit: SubmitHandler<TFieldValues>
+  /**
+   * Triggers when there are validation errors.
+   */
+  onError?: SubmitErrorHandler<TFieldValues>
+  /**
+   * Ref on the HTMLFormElement.
+   */
+  formRef?: React.MutableRefObject<HTMLFormElement>
 }
 
-export interface FormProps<TFieldValues extends FieldValues>
+export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseFormProps<TFieldValues>,
     Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
-    FormOptions {}
+    FormOptions<TFieldValues> {}
 
 /**
  * @todo Figure out how to pass down FieldValues to all Field components,
  * if at all possible.
  */
 export const Form = forwardRef(
-  <TFieldValues extends FieldValues>(
+  <TFieldValues extends FieldValues = FieldValues>(
     props: FormProps<TFieldValues>,
-    ref: React.ForwardedRef<HTMLFormElement>
+    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
   ) => {
     const {
       mode = 'all',
@@ -46,6 +62,7 @@ export const Form = forwardRef(
       defaultValues,
       onSubmit,
       onError,
+      formRef,
       children,
       ...rest
     } = props
@@ -70,10 +87,13 @@ export const Form = forwardRef(
     const methods = useForm<TFieldValues>(form)
     const { handleSubmit } = methods
 
+    // This exposes the useForm api through the forwareded ref
+    React.useImperativeHandle(ref, () => methods, [ref, methods])
+
     return (
       <FormProvider {...methods}>
         <chakra.form
-          ref={ref}
+          ref={formRef}
           onSubmit={handleSubmit(onSubmit, onError)}
           {...rest}
         >
@@ -83,5 +103,7 @@ export const Form = forwardRef(
     )
   }
 ) as <TFieldValues extends FieldValues>(
-  props: FormProps<TFieldValues> & { ref?: React.ForwardedRef<HTMLFormElement> }
+  props: FormProps<TFieldValues> & {
+    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  }
 ) => React.ReactElement

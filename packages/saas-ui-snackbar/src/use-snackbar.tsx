@@ -1,16 +1,21 @@
 import * as React from 'react'
-import { chakra, useStyles, useTheme } from '@chakra-ui/system'
-import { useToast, UseToastOptions, ToastId } from '@chakra-ui/toast'
+
 import {
+  chakra,
+  useStyles,
+  useTheme,
+  useToast,
+  UseToastOptions,
+  ToastId,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
   AlertIconProps,
-} from '@chakra-ui/alert'
-import { CloseButton } from '@chakra-ui/close-button'
-import { ButtonGroup } from '@chakra-ui/button'
-import { Spinner } from '@chakra-ui/spinner'
+  CloseButton,
+  ButtonGroup,
+  Spinner,
+} from '@chakra-ui/react'
 
 const AlertSpinner: React.FC<AlertIconProps> = (props) => {
   const styles = useStyles()

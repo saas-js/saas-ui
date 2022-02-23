@@ -6360,6 +6360,8 @@ __metadata:
 "@saas-ui/property@workspace:*, @saas-ui/property@workspace:packages/saas-ui-property":
   version: 0.0.0-use.local
   resolution: "@saas-ui/property@workspace:packages/saas-ui-property"
+  dependencies:
+    "@saas-ui/list": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"

@@ -91,7 +91,7 @@ export const useContextMenu = (props: UseContextMenuProps) => {
 
 export interface ContextMenuProps extends MenuProps {}
 export const ContextMenu: React.FC<ContextMenuProps> = (props) => {
-  const { children } = props
+  const { children, closeOnSelect } = props
   const ctx = useContextMenu(props)
 
   const context = React.useMemo(() => ctx, [ctx])
@@ -102,8 +102,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = (props) => {
     <Menu
       isOpen={isDeferredOpen}
       gutter={0}
-      autoSelect={false}
       onClose={onClose}
+      closeOnSelect={closeOnSelect}
     >
       <ContextMenuProvider value={context}>{children}</ContextMenuProvider>
     </Menu>

@@ -31,7 +31,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
-  submitLabel = 'Sign in',
+  submitLabel = 'Log in',
   defaultValues,
   children,
   renderSuccess = () => (

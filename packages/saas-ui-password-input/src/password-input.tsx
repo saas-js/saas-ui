@@ -15,7 +15,7 @@ interface PasswordOptions {
 export interface PasswordInputProps extends InputProps, PasswordOptions {}
 
 export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
-  ({ viewIcon, viewOffIcon, ...props }, ref) => {
+  ({ viewIcon, viewOffIcon, autoComplete, ...props }, ref) => {
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
 
@@ -34,7 +34,7 @@ export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
           {...props}
           ref={ref}
           type={show ? 'text' : 'password'}
-          autoComplete={show ? 'off' : ''}
+          autoComplete={show ? 'off' : autoComplete}
         />
 
         <InputRightButton

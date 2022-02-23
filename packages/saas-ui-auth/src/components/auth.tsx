@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, Link } from '@chakra-ui/react'
+import { chakra, Link } from '@chakra-ui/react'
 
 import {
   LoginView,
@@ -35,8 +35,8 @@ export interface AuthProps
    * Supported views are:
    * - login
    * - signup
-   * - forgot_password (not implemented yet)
-   * - update_password (not implemented yet)
+   * - forgot_password
+   * - update_password
    * - otp
    */
   view?: ViewType
@@ -46,15 +46,33 @@ export interface AuthProps
   providers?: AvailableProviders
   /**
    * Customize the signup link under the log in form.
+   * @default "Sign up"
    */
   signupLink?: React.ReactNode
   /**
    * Customize the login link under the sign up form.
+   * @default "Log in"
    */
   loginLink?: React.ReactNode
+  /**
+   * The forgot password link
+   * @default "Forgot password?"
+   */
   forgotLink?: React.ReactNode
-
+  /**
+   * Back to log in link
+   * @default "Back to log in"
+   */
+  backLink?: React.ReactNode
+  /**
+   * Text shown before the signupLink
+   * @default "No account?"
+   */
   noAccount?: React.ReactNode
+  /**
+   * Text shown before the loginLink
+   * @default "Already have an account?"
+   */
   haveAccount?: React.ReactNode
 }
 
@@ -65,6 +83,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
     signupLink,
     loginLink,
     forgotLink,
+    backLink,
     noAccount,
     haveAccount,
     ...rest
@@ -127,7 +146,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
-              link={loginLink}
+              link={backLink}
             />
           }
           {...rest}
@@ -149,11 +168,16 @@ interface AuthLinkProps {
 }
 
 const AuthLink = ({ label, link, onClick }: AuthLinkProps) => {
+  const styles = {
+    textAlign: 'center',
+    py: 8,
+    fontSize: 'md',
+  }
   return (
-    <Box align="center" py="8" fontSize="md">
-      {label}{' '}
+    <chakra.div __css={styles}>
+      {label && <chakra.span color="muted">{label}</chakra.span>}{' '}
       {typeof link === 'string' ? <Link onClick={onClick}>{link}</Link> : link}
-    </Box>
+    </chakra.div>
   )
 }
 
@@ -163,4 +187,5 @@ Auth.defaultProps = {
   signupLink: 'Sign up',
   loginLink: 'Log in',
   forgotLink: 'Forgot password?',
+  backLink: 'Back to log in',
 }

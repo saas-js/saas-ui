@@ -120,14 +120,8 @@ const sidebar = {
           sort: true,
           routes: [
             {
-              title: 'WalletModal',
-              // path: '/docs/navigation/wallet-modal',
-              soon: true,
-            },
-            {
               title: 'Address',
-              // path: '/docs/navigation/hotkeys',
-              soon: true,
+              path: '/docs/web3/address',
             },
           ],
         },

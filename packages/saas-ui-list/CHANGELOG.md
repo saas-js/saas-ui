@@ -1,5 +1,11 @@
 # @saas-ui/data-list
 
+## 0.3.5
+
+### Patch Changes
+
+- 09d4167: Added PropertyList component and improved a11y
+
 ## 0.3.4
 
 ### Patch Changes

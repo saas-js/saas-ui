@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 0.3.4
+
+### Patch Changes
+
+- Updated dependencies [16c82e6]
+  - @saas-ui/password-input@0.2.2
+
 ## 0.3.3
 
 ### Patch Changes

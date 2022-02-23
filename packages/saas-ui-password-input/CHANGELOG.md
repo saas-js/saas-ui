@@ -1,5 +1,11 @@
 # @saas-ui/password-input
 
+## 0.2.2
+
+### Patch Changes
+
+- 16c82e6: Dont override autoComplete when in password mode
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.4.11
+
+### Patch Changes
+
+- 09d4167: Added PropertyList component and improved a11y
+
 ## 0.4.10
 
 ### Patch Changes

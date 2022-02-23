@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 0.9.2
+
+### Patch Changes
+
+- 09d4167: Added PropertyList component and improved a11y
+- 16c82e6: Dont override autoComplete when in password mode
+- Updated dependencies [09d4167]
+- Updated dependencies [16c82e6]
+  - @saas-ui/list@0.3.5
+  - @saas-ui/property@0.2.2
+  - @saas-ui/theme@0.4.11
+  - @saas-ui/password-input@0.2.2
+  - @saas-ui/provider@0.2.14
+  - @saas-ui/forms@0.3.4
+  - @saas-ui/layout@0.1.13
+  - @saas-ui/menu@0.3.10
+  - @saas-ui/auth@0.5.1
+  - @saas-ui/modals@0.2.10
+  - @saas-ui/data-table@0.1.12
+
 ## 0.9.1
 
 ### Patch Changes

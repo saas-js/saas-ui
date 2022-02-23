@@ -1,9 +1,11 @@
-import { render } from '@chakra-ui/test-utils'
+import { render } from '@saas-ui/test-utils'
 
-import { Web3 } from '../src'
+import { Web3Address } from '../src'
 
-test('renders Web3 component with title', () => {
-  const { getByText } = render(<Web3 title="Web3" />)
-  const title = getByText(/Web3/)
-  expect(title).toBeInTheDocument()
+const address = '0x71C7656EC7ab88b098defB751B7401B5f6d8976F'
+
+test('renders Web3Address component with truncated address', () => {
+  const { getByText } = render(<Web3Address address={address} />)
+  const addr = getByText(/0x71C7\.\.\.976F/)
+  expect(addr).toBeInTheDocument()
 })

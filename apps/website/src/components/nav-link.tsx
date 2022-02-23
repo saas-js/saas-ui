@@ -1,31 +1,29 @@
-import {
-  forwardRef,
-  chakra,
-  useStyleConfig,
-  omitThemingProps,
-  HTMLChakraProps,
-  ThemingProps,
-} from '@chakra-ui/react'
+import { forwardRef } from '@chakra-ui/react'
+
+import { Button, ButtonProps } from '@saas-ui/react'
 
 import Link from 'next/link'
 
-export interface NavLinkProps
-  extends HTMLChakraProps<'a'>,
-    ThemingProps<'NavLink'> {
+export interface NavLinkProps extends ButtonProps {
   isActive?: boolean
+  href?: string
 }
 
 const NavLink = forwardRef((props: NavLinkProps, ref) => {
   const { href, children, type, isActive, ...rest } = props
-  const styles = useStyleConfig('NavLink', props)
-
-  const ownProps = omitThemingProps(rest)
 
   return (
     <Link href={href as string} passHref>
-      <chakra.a __css={styles} ref={ref} {...ownProps}>
+      <Button
+        as="a"
+        ref={ref}
+        variant="nav-link"
+        lineHeight="2rem"
+        isActive={isActive}
+        {...rest}
+      >
         {children}
-      </chakra.a>
+      </Button>
     </Link>
   )
 })

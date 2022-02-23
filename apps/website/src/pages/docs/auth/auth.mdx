@@ -16,10 +16,10 @@ description: Ready to use authentication forms.
 
 - `Auth`: Higher order component responsible for rendering all specific auth forms.
 - `AuthForm`: Composes login and signup forms with a title and oauth providers.
-- `LoginForm`: AuthForm with defaults for login.
-- `SignupForm`: AuthForm with defaults for signup.
 - `MagicLoginForm`: Basic magic link login form.
 - `PasswordForm`: Basic email and password form.
+- `ForgotPasswordForm`: Basic forgot password form.
+- `UpdatePasswordForm`: Basic update password form.
 - `OtpForm`: Basic one time password form.
 - `Providers`: Oauth provider login buttons.
 
@@ -27,10 +27,10 @@ description: Ready to use authentication forms.
 import {
   Auth,
   AuthForm,
-  LoginForm,
-  SignupForm,
   MagicLinkForm,
   PasswordForm,
+  ForgotPasswordForm,
+  UpdatePasswordForm,
   OtpForm,
   Providers,
 } from '@saas-ui/react'
@@ -97,10 +97,44 @@ The default authentication strategy is `magiclink`.
 ```jsx
 <Stack maxW="400px" alignSelf="center">
   <Auth
-    signupLink={<Link href="/signup">Don't have an account yet? Sign up.</Link>}
-    loginLink={<Link href="/login">Already have an account? Log in.</Link>}
+    signupLink={<Link href="/signup">Sign up</Link>}
+    loginLink={<Link href="/login">Log in</Link>}
   />
 </Stack>
+```
+
+### Custom log in page
+
+```jsx
+function LoginPage() {
+  return (
+    <Card title="Welcome to Saas UI">
+      <CardBody>
+        <PasswordForm action="logIn" submitLabel="Log in" />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+### Custom sign up page
+
+```jsx
+function SignUpPage() {
+  return (
+    <Card title="Sign up for free">
+      <CardBody>
+        <PasswordForm action="signUp" submitLabel="Sign up">
+          <FormLayout columns={2}>
+            <Field name="firstName" label="First name" />
+            <Field name="lastName" label="Last name" />
+          </FormLayout>
+          <Field name="company" label="Company" />
+        </PasswordForm>
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ## Props

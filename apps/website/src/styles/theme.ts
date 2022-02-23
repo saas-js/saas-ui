@@ -103,42 +103,7 @@ const theme = extendTheme(
           maxW: 'container.lg',
         },
       },
-      NavLink: {
-        ...baseTheme.components.Button,
-        variants: {
-          ...Button.variants,
-          link: (props: any) => {
-            const { isActive } = props
-            const hoverColor = mode('gray.900', 'white')(props)
-            return {
-              fontWeight: '500',
-              color: isActive
-                ? hoverColor
-                : mode('gray.700', 'whiteAlpha.700')(props),
-              transition: 'color .2s ease-in',
-              _hover: {
-                textDecoration: 'none',
-                color: hoverColor,
-              },
-            }
-          },
-        },
-        sizes: deepmerge(baseTheme.components.Button.sizes, {
-          sm: {
-            lineHeight: '2rem',
-          },
-          md: {
-            lineHeight: '2.5rem',
-          },
-          lg: {
-            lineHeight: '3rem',
-          },
-        }),
-        defaultProps: {
-          variant: 'link',
-          size: 'sm',
-        },
-      },
+      Button,
       CTA,
       Section,
       SectionTitle,

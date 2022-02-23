@@ -1,5 +1,12 @@
 # website
 
+## 0.1.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/web3@0.1.0
+
 ## 0.1.7
 
 ### Patch Changes

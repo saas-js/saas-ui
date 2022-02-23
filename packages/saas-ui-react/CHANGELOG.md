@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 0.9.3
+
+### Patch Changes
+
+- Updated dependencies [09ef6fb]
+  - @saas-ui/auth@0.5.2
+
 ## 0.9.2
 
 ### Patch Changes

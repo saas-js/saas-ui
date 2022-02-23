@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.5.2
+
+### Patch Changes
+
+- 09ef6fb: Fixed not being able to go back to login on the forgot password view
+
 ## 0.5.1
 
 ### Patch Changes

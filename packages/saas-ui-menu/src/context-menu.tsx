@@ -22,7 +22,6 @@ export interface UseContextMenuReturn {
   isDeferredOpen: boolean
   position: Position
   triggerRef: React.RefObject<HTMLSpanElement>
-  menuRef: React.RefObject<HTMLDivElement>
   onClose: () => void
   onOpen: (event: React.MouseEvent) => void
 }
@@ -43,7 +42,6 @@ export const useContextMenu = (props: UseContextMenuProps) => {
   const [isDeferredOpen, setIsDeferredOpen] = useState(false)
   const [position, setPosition] = useState<Position>([0, 0])
   const triggerRef = useRef<HTMLSpanElement>(null)
-  const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (isOpen) {
@@ -86,7 +84,6 @@ export const useContextMenu = (props: UseContextMenuProps) => {
     isDeferredOpen,
     position,
     triggerRef,
-    menuRef,
     onClose,
     onOpen,
   }

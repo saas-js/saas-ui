@@ -1,5 +1,22 @@
 # @saas-ui/forms
 
+## 0.4.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
+### Patch Changes
+
+- Updated dependencies [e511ffd]
+  - @saas-ui/button@0.3.0
+  - @saas-ui/number-input@0.3.0
+  - @saas-ui/pin-input@0.3.0
+  - @saas-ui/radio@0.3.0
+  - @saas-ui/select@0.3.0
+  - @saas-ui/input-right-button@0.3.0
+  - @saas-ui/password-input@0.3.0
+
 ## 0.3.4
 
 ### Patch Changes

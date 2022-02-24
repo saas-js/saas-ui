@@ -1,5 +1,19 @@
 # @saas-ui/auth
 
+## 0.6.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
+### Patch Changes
+
+- Updated dependencies [e511ffd]
+  - @saas-ui/button@0.3.0
+  - @saas-ui/forms@0.4.0
+  - @saas-ui/hooks@0.3.0
+  - @saas-ui/system@0.4.0
+
 ## 0.5.2
 
 ### Patch Changes

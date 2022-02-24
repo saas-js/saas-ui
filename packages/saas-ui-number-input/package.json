@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/number-input",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Number Input Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

@@ -1,5 +1,17 @@
 # @saas-ui/modals
 
+## 0.3.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
+### Patch Changes
+
+- Updated dependencies [e511ffd]
+  - @saas-ui/button@0.3.0
+  - @saas-ui/forms@0.4.0
+
 ## 0.2.10
 
 ### Patch Changes

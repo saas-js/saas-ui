@@ -1,5 +1,43 @@
 # @saas-ui/react
 
+## 0.10.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
+### Patch Changes
+
+- d66f8ce: Added ContextMenu component
+- Updated dependencies [e511ffd]
+- Updated dependencies [d66f8ce]
+  - @saas-ui/auth@0.6.0
+  - @saas-ui/button@0.3.0
+  - @saas-ui/card@0.3.0
+  - @saas-ui/data-table@0.2.0
+  - @saas-ui/layout@0.2.0
+  - @saas-ui/list@0.4.0
+  - @saas-ui/menu@0.4.0
+  - @saas-ui/modals@0.3.0
+  - @saas-ui/nprogress@0.3.0
+  - @saas-ui/number-input@0.3.0
+  - @saas-ui/pin-input@0.3.0
+  - @saas-ui/property@0.3.0
+  - @saas-ui/radio@0.3.0
+  - @saas-ui/search-input@0.4.0
+  - @saas-ui/select@0.3.0
+  - @saas-ui/collapse@0.3.0
+  - @saas-ui/forms@0.4.0
+  - @saas-ui/hooks@0.3.0
+  - @saas-ui/hotkeys@0.4.0
+  - @saas-ui/input-right-button@0.3.0
+  - @saas-ui/password-input@0.3.0
+  - @saas-ui/persona@0.4.0
+  - @saas-ui/provider@0.3.0
+  - @saas-ui/snackbar@0.3.0
+  - @saas-ui/system@0.4.0
+  - @saas-ui/theme@0.5.0
+
 ## 0.9.3
 
 ### Patch Changes

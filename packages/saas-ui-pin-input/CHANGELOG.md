@@ -1,5 +1,11 @@
 # @saas-ui/pin-input
 
+## 0.3.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/nprogress",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Nprogress Component",
   "source": "src/index.ts",
   "exports": {

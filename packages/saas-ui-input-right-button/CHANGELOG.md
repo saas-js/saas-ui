@@ -1,5 +1,16 @@
 # @saas-ui/input-right-button
 
+## 0.3.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
+### Patch Changes
+
+- Updated dependencies [e511ffd]
+  - @saas-ui/button@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes

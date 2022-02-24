@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 0.4.0
+
+### Minor Changes
+
+- e511ffd: Added a11y testing to all packages
+
 ## 0.3.1
 
 ### Patch Changes

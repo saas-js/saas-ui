@@ -15,8 +15,8 @@ const Template: Story = ({ address, ...args }) => (
   <Web3Address address={address} {...args} />
 )
 
-export const Default = Template.bind({})
-Default.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   address,
 }
 

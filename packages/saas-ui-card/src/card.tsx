@@ -97,8 +97,7 @@ export const CardContainer = forwardRef<CardContainerProps, 'div'>(
   }
 )
 
-export interface CardHeaderProps
-  extends Omit<HTMLChakraProps<'header'>, 'title'> {
+export interface CardHeaderProps extends Omit<HTMLChakraProps<'div'>, 'title'> {
   /**
    * The title
    * @type React.ReactNode
@@ -126,7 +125,7 @@ export interface CardHeaderProps
   spacing?: SystemProps['margin']
 }
 
-export const CardHeader = forwardRef<CardHeaderProps, 'header'>(
+export const CardHeader = forwardRef<CardHeaderProps, 'div'>(
   (
     { title, subtitle, action, avatar, spacing = 4, children, ...props },
     ref
@@ -177,11 +176,11 @@ export const CardHeader = forwardRef<CardHeaderProps, 'header'>(
     }
 
     return (
-      <chakra.header __css={styles.header} ref={ref} {...props}>
+      <chakra.div __css={styles.header} ref={ref} {...props}>
         <chakra.div __css={innerStyle}>
           {wrappedAvatar} {wrappedTitle} {children} {wrappedAction}
         </chakra.div>
-      </chakra.header>
+      </chakra.div>
     )
   }
 )
@@ -271,7 +270,7 @@ export const CardBody = forwardRef<CardBodyProps, 'div'>(
 )
 
 export interface CardFooterProps
-  extends HTMLChakraProps<'footer'>,
+  extends HTMLChakraProps<'div'>,
     Pick<ButtonGroupProps, 'variant' | 'spacing'> {
   /**
    * The default button variant
@@ -289,7 +288,7 @@ export interface CardFooterProps
   spacing?: SystemProps['margin']
 }
 
-export const CardFooter = forwardRef<CardFooterProps, 'footer'>(
+export const CardFooter = forwardRef<CardFooterProps, 'div'>(
   ({ children, ...props }, ref) => {
     const styles = useStyles()
 
@@ -305,11 +304,11 @@ export const CardFooter = forwardRef<CardFooterProps, 'footer'>(
     }
 
     return (
-      <chakra.footer __css={footerStyles} ref={ref} {...rest}>
+      <chakra.div __css={footerStyles} ref={ref} {...rest}>
         <ButtonGroup variant={variant} spacing={spacing}>
           {children}
         </ButtonGroup>
-      </chakra.footer>
+      </chakra.div>
     )
   }
 )

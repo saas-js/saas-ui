@@ -12,7 +12,9 @@
 !.yarn/versions
 
 # testing
-/coverage
+coverage
+# Not checking in snapshots for the moment
+__snapshots__
 
 # next.js
 .next/

@@ -14,9 +14,9 @@ import {
 
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
 
-interface SearchInputProps
-  extends Omit<InputProps, 'size' | 'variant'>,
-    ThemingProps<'SearchInput'> {
+export interface SearchInputProps
+  extends ThemingProps<'SearchInput'>,
+    Omit<InputProps, 'size' | 'variant'> {
   /**
    * The placeholder text for the input
    * @type string

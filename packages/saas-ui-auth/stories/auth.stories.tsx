@@ -1,6 +1,8 @@
 import { Container, Stack, Text, useTheme } from '@chakra-ui/react'
 import * as React from 'react'
 
+import { Story } from '@storybook/react'
+
 import {
   AuthProvider,
   Auth,
@@ -66,7 +68,7 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-const Template = (args) => <Auth {...args} />
+const Template: Story = (args) => <Auth {...args} />
 
 export const Basic = Template.bind({})
 

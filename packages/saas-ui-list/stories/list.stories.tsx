@@ -96,7 +96,7 @@ withIcons.args = {
 export const composed = () => {
   return (
     <Box width="100%" maxW="320px">
-      <Box as="nav">
+      <Box as="nav" aria-label="Main navigation">
         <List>
           <ListItem as="a" href="#home">
             <ListItemIcon as={FiHome} />
@@ -113,7 +113,7 @@ export const composed = () => {
         </List>
       </Box>
       <Divider />
-      <Box as="nav">
+      <Box as="nav" aria-label="Tag navigation">
         <List>
           <ListItem as="a" href="#spam">
             <ListItemLabel>Spam</ListItemLabel>
@@ -173,7 +173,7 @@ export const customStyles = () => {
 
   return (
     <Box width="100%" maxW="320px">
-      <Box as="nav" p="2" role="navigation">
+      <Box as="nav" p="2" role="navigation" aria-label="Main navigation">
         <List p="0">
           <ListItem p="2px">
             <ListItemButton
@@ -200,41 +200,48 @@ export const customStyles = () => {
           </ListItem>
         </List>
       </Box>
-      <Box as="nav" p="2" role="navigation">
+      <Box as="nav" p="2" role="navigation" aria-label="Teams navigation">
         <List p="0">
-          <ListHeader
-            as={ListItemButton}
-            borderRadius="md"
-            py="1"
-            action={isOpen ? <FiChevronDown /> : <FiChevronRight />}
-            {...getToggleProps()}
-          >
-            Teams
-          </ListHeader>
-          <Collapse {...getCollapseProps()}>
-            <ListItem p="2px">
-              <ListItemButton
-                py="1"
-                px="4"
-                borderRadius="md"
-                as="a"
-                href="#sales"
-              >
-                <ListItemLabel>Sales</ListItemLabel>
-              </ListItemButton>
-            </ListItem>
-            <ListItem p="2px">
-              <ListItemButton
-                py="1"
-                px="4"
-                borderRadius="md"
-                as="a"
-                href="#support"
-              >
-                <ListItemLabel>Support</ListItemLabel>
-              </ListItemButton>
-            </ListItem>
-          </Collapse>
+          <ListItem>
+            <ListHeader
+              as={ListItemButton}
+              borderRadius="md"
+              py="1"
+              action={isOpen ? <FiChevronDown /> : <FiChevronRight />}
+              {...getToggleProps()}
+              level={1}
+            >
+              Teams
+            </ListHeader>
+          </ListItem>
+          <ListItem>
+            <List flex="1" p="0">
+              <Collapse {...getCollapseProps()}>
+                <ListItem p="2px">
+                  <ListItemButton
+                    py="1"
+                    px="4"
+                    borderRadius="md"
+                    as="a"
+                    href="#sales"
+                  >
+                    <ListItemLabel>Sales</ListItemLabel>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem p="2px">
+                  <ListItemButton
+                    py="1"
+                    px="4"
+                    borderRadius="md"
+                    as="a"
+                    href="#support"
+                  >
+                    <ListItemLabel>Support</ListItemLabel>
+                  </ListItemButton>
+                </ListItem>
+              </Collapse>
+            </List>
+          </ListItem>
         </List>
       </Box>
     </Box>
@@ -246,11 +253,11 @@ export const withSwitch = () => {
     <Box width="100%" maxW="320px">
       <List>
         <ListHeader>Notifications</ListHeader>
-        <ListItem action={<Switch />}>
+        <ListItem action={<Switch aria-label="Email" />}>
           <ListItemIcon as={FiMail} />
           <ListItemLabel>Email</ListItemLabel>
         </ListItem>
-        <ListItem action={<Switch />}>
+        <ListItem action={<Switch aria-label="Chat" />}>
           <ListItemIcon as={FiMessageSquare} />
           <ListItemLabel>Chat</ListItemLabel>
         </ListItem>

@@ -26,6 +26,8 @@
   "dependencies": {
     "@chakra-ui/react": "1.8.3",
     "@emotion/jest": "^11.6.0",
+    "@saas-ui/react": "workspace:*",
+    "@storybook/testing-react": "^1.2.3",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "7.0.2",

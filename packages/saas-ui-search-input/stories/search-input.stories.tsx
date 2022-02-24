@@ -1,5 +1,6 @@
 import { Container, Stack, Icon } from '@chakra-ui/react'
 import React, { useState } from 'react'
+import { Story } from '@storybook/react'
 
 import { FiSearch, FiX } from 'react-icons/fi'
 
@@ -16,7 +17,7 @@ export default {
   ],
 }
 
-const Template = (props: any) => {
+const Template: Story = (props: any) => {
   const [value, setValue] = useState('')
 
   return (
@@ -29,9 +30,9 @@ const Template = (props: any) => {
   )
 }
 
-export const basic = () => <Template />
+export const Basic = Template.bind({})
 
-export const sizes = () => {
+export const Sizes = () => {
   return (
     <Stack>
       <Template size="lg" />
@@ -41,6 +42,6 @@ export const sizes = () => {
   )
 }
 
-export const featherIcons = () => (
+export const FeatherIcons = () => (
   <Template icon={<Icon as={FiSearch} />} resetIcon={<Icon as={FiX} />} />
 )

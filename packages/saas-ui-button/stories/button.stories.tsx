@@ -21,7 +21,7 @@ export default {
   ],
 }
 
-export const basic = () => (
+export const Basic = () => (
   <Stack align="start">
     <Button colorScheme="gray">Button</Button>
     <Button colorScheme="red">Button</Button>
@@ -36,7 +36,7 @@ export const basic = () => (
   </Stack>
 )
 
-export const outlines = () => (
+export const Outlines = () => (
   <Stack align="start">
     <Button variant="outline" colorScheme="red">
       Button
@@ -68,7 +68,7 @@ export const outlines = () => (
   </Stack>
 )
 
-export const withVariants = () => (
+export const WithVariants = () => (
   <HStack spacing="24px">
     <Button colorScheme="teal" variant="solid">
       Button
@@ -88,7 +88,7 @@ export const withVariants = () => (
   </HStack>
 )
 
-export const primarySecondary = () => (
+export const PrimarySecondary = () => (
   <Stack align="start">
     <HStack>
       <Button isPrimary>Primary</Button>
@@ -121,7 +121,7 @@ export const primarySecondary = () => (
   </Stack>
 )
 
-export const withSizes = () => (
+export const WithSizes = () => (
   <HStack>
     <Button colorScheme="blue" size="xs">
       Button
@@ -196,7 +196,7 @@ export const WithLoadingSpinnerPlacement = () => (
       loadingText="Loading"
       colorScheme="teal"
       variant="outline"
-      spinnerPosition="start"
+      spinnerPlacement="start"
     >
       Submit
     </Button>
@@ -212,7 +212,7 @@ export const WithLoadingSpinnerPlacement = () => (
   </Stack>
 )
 
-export const withDisabled = () => (
+export const WithDisabled = () => (
   <HStack spacing="24px">
     <Button isDisabled colorScheme="teal" variant="solid">
       Button
@@ -229,7 +229,7 @@ export const withDisabled = () => (
   </HStack>
 )
 
-export const customComposition = () => (
+export const CustomComposition = () => (
   <Button
     size="md"
     height="48px"
@@ -241,7 +241,7 @@ export const customComposition = () => (
   </Button>
 )
 
-export const iconButton = () => (
+export const WithIconButton = () => (
   <Stack direction="row">
     <IconButton aria-label="Search database" icon={<SearchIcon />} />
 
@@ -264,7 +264,7 @@ export const WithButtonGroup = () => (
   </ButtonGroup>
 )
 
-export const attachedButtons = () => (
+export const AttachedButtons = () => (
   <ButtonGroup size="sm" isAttached variant="outline">
     <Button marginEnd="-px">Save</Button>
     <IconButton

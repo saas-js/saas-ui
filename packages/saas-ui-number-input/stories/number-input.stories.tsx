@@ -15,7 +15,7 @@ export default {
   ],
 } as Meta
 
-const Template: Story = (args) => <NumberInput {...args} />
+const Template: Story = (args) => <NumberInput aria-label="Number" {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {}

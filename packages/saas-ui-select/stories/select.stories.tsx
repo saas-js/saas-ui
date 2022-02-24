@@ -34,7 +34,9 @@ const getOptions = (length = 6) =>
 
 const options = getOptions()
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+const Template: ComponentStory<typeof Select> = (args) => (
+  <Select placeholder="Select an option..." {...args} />
+)
 
 export const Basic = Template.bind({})
 Basic.args = {
@@ -68,7 +70,7 @@ export const Multi = Template.bind({})
 Multi.args = {
   name: 'select',
   options,
-  placeholder: 'Disabled.',
+  placeholder: 'Multiple.',
   multiple: true,
 }
 
@@ -76,7 +78,7 @@ export const MultiWithDefaultValue = Template.bind({})
 MultiWithDefaultValue.args = {
   name: 'select',
   options,
-  placeholder: 'Disabled.',
+  placeholder: 'Select an option...',
   multiple: true,
   defaultValue: ['1'],
 }
@@ -85,17 +87,21 @@ export const MultiWithTags = Template.bind({})
 MultiWithTags.args = {
   name: 'select',
   options,
-  placeholder: 'Disabled.',
+  placeholder: 'Select options...',
   multiple: true,
-  renderValue: (selected) => (
-    <Wrap py="1">
-      {selected.map((value) => (
-        <WrapItem>
-          <Tag>{value}</Tag>
-        </WrapItem>
-      ))}
-    </Wrap>
-  ),
+  renderValue: (selected) => {
+    if (selected?.length) {
+      return (
+        <Wrap py="1">
+          {selected.map((value) => (
+            <WrapItem>
+              <Tag>{value}</Tag>
+            </WrapItem>
+          ))}
+        </Wrap>
+      )
+    }
+  },
 }
 
 export const WithIcons = Template.bind({})
@@ -131,8 +137,8 @@ export const WithEmptyOption = () => {
   )
 }
 
-export const nativeSelect = () => (
+export const WithNativeSelect = () => (
   <>
-    <NativeSelect name="select" options={options} />
+    <NativeSelect name="select" options={options} aria-label="Select" />
   </>
 )

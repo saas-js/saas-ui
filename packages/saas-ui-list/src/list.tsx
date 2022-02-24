@@ -67,16 +67,26 @@ List.defaultProps = {
   variant: 'structured-list',
 }
 
-export interface ListHeaderProps extends HTMLChakraProps<'div'> {
+export interface ListHeaderProps extends HTMLChakraProps<'li'> {
+  /**
+   * Action rendered next to the title
+   */
   action?: React.ReactNode
+  /**
+   * The aria-level
+   */
+  level?: number
 }
 
-export const ListHeader: React.FC<ListHeaderProps> = ({
-  children,
-  onClick,
-  action,
-  ...rest
-}) => {
+export const ListHeader: React.FC<ListHeaderProps> = (props) => {
+  const {
+    children,
+    onClick,
+    action,
+    role = 'heading',
+    level = 1,
+    ...rest
+  } = props
   const styles = useStyles()
 
   const headerStyles = {
@@ -92,12 +102,12 @@ export const ListHeader: React.FC<ListHeaderProps> = ({
   }
 
   return (
-    <chakra.div __css={headerStyles} onClick={onClick} role="heading" {...rest}>
-      <chakra.span flex="1" userSelect="none">
+    <chakra.li __css={headerStyles} onClick={onClick} {...rest}>
+      <chakra.span flex="1" userSelect="none" role={role} aria-level={level}>
         {children}
       </chakra.span>
       {action}
-    </chakra.div>
+    </chakra.li>
   )
 }
 
@@ -214,7 +224,7 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
         ref={ref}
         __css={buttonStyles}
         role="button"
-        tabindex="0"
+        tabIndex={0}
         {...rest}
       >
         {children}

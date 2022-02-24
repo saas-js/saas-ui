@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  collectCoverageFrom: ['packages/**/*.{ts,tsx}'],
+  collectCoverageFrom: ['packages/tests/**/*.{ts,tsx}'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   modulePathIgnorePatterns: ['<rootDir>/examples'],
   transform: {

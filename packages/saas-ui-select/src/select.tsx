@@ -38,7 +38,7 @@ interface SelectOptions {
    * Customize how the value is rendered.
    * @type (value?: string[]) => React.ReactElement
    */
-  renderValue?: (value?: string[]) => React.ReactElement
+  renderValue?: (value?: string[]) => React.ReactElement | undefined
 }
 
 export interface SelectProps

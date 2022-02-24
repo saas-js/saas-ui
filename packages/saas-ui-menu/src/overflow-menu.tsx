@@ -54,7 +54,7 @@ export const OverflowMenu: React.FC<OverflowMenuProps> = (props) => {
       <MenuButton
         as={IconButton}
         icon={icon}
-        label={label}
+        aria-label={label}
         variant={variant}
         size={size}
       ></MenuButton>

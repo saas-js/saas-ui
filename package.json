@@ -41,7 +41,7 @@
     "test:ci": "jest --color --runInBand --ci",
     "lint": "turbo run lint",
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
-    "create:pkg": "hygen package react-component",
+    "create:pkg": "hygen package chakra-component",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
     "build:packages": "turbo run build  --scope='@saas-ui/*' --ignore='@saas-ui/props-docs' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",

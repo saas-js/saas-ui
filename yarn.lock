@@ -3041,6 +3041,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/close-button@npm:^1.2.7":
+  version: 1.2.7
+  resolution: "@chakra-ui/close-button@npm:1.2.7"
+  dependencies:
+    "@chakra-ui/icon": 2.0.5
+    "@chakra-ui/utils": 1.10.4
+  peerDependencies:
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  checksum: b7cc9f4c1c7d449974208d83b68adf1a273c6c625b35ce904d7c86d1eb217afe9a13869ac7744facce643f5a62a9a2122ac1fc6beec46498bc3ee1f2f88a8d88
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/color-mode@npm:1.3.2":
   version: 1.3.2
   resolution: "@chakra-ui/color-mode@npm:1.3.2"
@@ -3294,6 +3307,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/hooks@npm:^1.8.4":
+  version: 1.8.4
+  resolution: "@chakra-ui/hooks@npm:1.8.4"
+  dependencies:
+    "@chakra-ui/react-utils": 1.2.3
+    "@chakra-ui/utils": 1.10.4
+    compute-scroll-into-view: 1.0.14
+    copy-to-clipboard: 3.3.1
+  peerDependencies:
+    react: ">=16.8.6"
+  checksum: aeff3250b4aacba6dd27e0875e2b2c30d5a7914ad0f908bdd4a3bf28310252b63d4bbae8199f384e70dcf2a51fb6090d3e8c35edabd76e2d0dddf11034acb55c
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/icon@npm:2.0.1, @chakra-ui/icon@npm:^2.0.0":
   version: 2.0.1
   resolution: "@chakra-ui/icon@npm:2.0.1"
@@ -3315,6 +3342,18 @@ __metadata:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
   checksum: 8110264f4fb7a33863389956a091654b87494454604b3fe6f73d4c822c15992cc8ca9b7381ad71897e0c2bf118d3190c66fa1d6c9fe49ed17481d9ade3a72c21
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/icon@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@chakra-ui/icon@npm:2.0.5"
+  dependencies:
+    "@chakra-ui/utils": 1.10.4
+  peerDependencies:
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  checksum: 92ea1f695b5dab49d27d6d8ac4267ae47df3cb099c077cc49a99b29b064bba3693e2fda0f7f0bfec79d7f73a493da1607a45596c67ffc9e19284c1d021bcfe66
   languageName: node
   linkType: hard
 
@@ -3857,6 +3896,17 @@ __metadata:
   peerDependencies:
     react: ">=16.8.6"
   checksum: a505cee4704c4893411411265874a32eaf574a54a3c3c85b43b3a9e41f09439144b00876826e4eabf2336ddf0a61c05341c9fffcdfd3683c5d853ed05c46ae58
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/react-utils@npm:1.2.3":
+  version: 1.2.3
+  resolution: "@chakra-ui/react-utils@npm:1.2.3"
+  dependencies:
+    "@chakra-ui/utils": ^1.10.4
+  peerDependencies:
+    react: ">=16.8.6"
+  checksum: 3ebf400422d4c76bd81da75815eeb86908c155602c781f27ced781e4335313c0d8c7804a7a81b40810ee5f4d296ce447247629524236e050a1adfaf7feb8e0b7
   languageName: node
   linkType: hard
 
@@ -4526,6 +4576,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/transition@npm:^1.4.7":
+  version: 1.4.7
+  resolution: "@chakra-ui/transition@npm:1.4.7"
+  dependencies:
+    "@chakra-ui/utils": 1.10.4
+  peerDependencies:
+    framer-motion: 3.x || 4.x || 5.x || 6.x
+    react: ">=16.8.6"
+  checksum: 3c692870e6e6362d3c248402a0f085b451251691fc22c64b6cc23d91746d3365595806fff43562f600d37b9728169d96ecb7e0790bb5fb95b758af71dea77948
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/utils@npm:1.10.0":
   version: 1.10.0
   resolution: "@chakra-ui/utils@npm:1.10.0"
@@ -4547,6 +4609,18 @@ __metadata:
     framesync: 5.3.0
     lodash.mergewith: 4.6.2
   checksum: dba6963bd048bb145da003f71747e11f2e8d8da52a262da1ae86ea3445678055152b6bdb6986635a1fb608e4fcd03e3247f040e8f27de066c85ded7f6f7e3bd3
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/utils@npm:1.10.4, @chakra-ui/utils@npm:^1.10.4":
+  version: 1.10.4
+  resolution: "@chakra-ui/utils@npm:1.10.4"
+  dependencies:
+    "@types/lodash.mergewith": 4.6.6
+    css-box-model: 1.2.1
+    framesync: 5.3.0
+    lodash.mergewith: 4.6.2
+  checksum: a97bf839b6569c1b420825fcab4a0b9d599d0c3752839cd01d72f4b8c2191e32da72a10727a84f5b13784ee1985083412c98855c25a42427dfb28290f37e8214
   languageName: node
   linkType: hard
 
@@ -6774,6 +6848,23 @@ __metadata:
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/banner@workspace:packages/saas-ui-banner":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/banner@workspace:packages/saas-ui-banner"
+  dependencies:
+    "@chakra-ui/close-button": ^1.2.7
+    "@chakra-ui/hooks": ^1.8.4
+    "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/transition": ^1.4.7
+    "@chakra-ui/utils": ^1.10.4
+    "@saas-ui/button": "workspace:*"
+  peerDependencies:
+    "@chakra-ui/system": ">=1.0.0"
+    framer-motion: ">=6"
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft

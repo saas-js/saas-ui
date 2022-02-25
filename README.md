@@ -17,7 +17,7 @@ Saas UI is an advanced component library that helps you build essential SaaS fun
 
 It's build on top of Chakra UI and fully written in Typescript.
 
-This repository contains all [open source components](/packages), aswell as the [documentation](apps/website/pages/docs).
+This repository contains all [open source components](/packages), aswell as the [documentation website](apps/website/pages/docs).
 
 ## Documentation
 
@@ -25,45 +25,45 @@ You can find the documentation on our website:
 
 https://www.saas-ui.dev/docs/introduction
 
+## Contributing & Support
+
+Want to help? Great! Saas UI Core is getting close to a release candidate, but we need more feedback to fine tune the final release.
+
+If you like the support the project financially consider [Pre-ordering Saas UI Pro](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the development version and our private discord server. As an early adopter you will get 50% discount on the final price, life-time access, free updates and a lot of love ❤️.
+
+The first beta version is expected end of Q1 2022.
+
 ## Roadmap
 
 Saas UI core is currently is beta, the first release candidate as well as Saas UI Pro is expected in Q1 2022.
 
 ### Core
 
-- [ ] Finish all v1 core components and hooks
-- [ ] Full test coverage
+A set of essential open source components build on top of Chakra UI.
+Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
+
+- [ ] Finish all v1 core components and hooks - 90%
+- [ ] Full test coverage - 20%
 
 ### Pro
 
-- [ ] Example Saas metrics dashboard app (NextJS)
-- [ ] RedwoodJS app
+A premium starter pack designed for SaaS products.
+Complete source code available in a monorepo that can serve as a starting point for your project.
+
+- [ ] Example SaaS app (NextJS)
 - [ ] Electron app
+- [ ] Authentication
 - [ ] User profiles
-- [ ] Example pages (Todo, inbox, etc)
+- [ ] Example pages (CRM, Inbox, CRUD)
+- [ ] Charts / Sparlines
 - [ ] Settings pages
 - [ ] Feature flags
 - [ ] Onboarding flows
 - [ ] Upselling flows (Trials, upgrades, etc)
 - [ ] Billing/subscription management
-- [ ] CRUD scaffolds
 - [ ] Saas UI themes
+- [ ] Custom color schemes
 - [ ] File uploads
-
-## Features
-
-### Core
-
-A set of essential open source components build on top of Chakra UI.
-Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
-
-### Pro
-
-A premium starter pack designed for SaaS products.
-
-- Multiple themes, page layouts, navigations, feature flags, subscription management, and much more.
-- Complete source code available in a monorepo that can serve as a starting point for your project.
-- Example apps with RedwoodJS, Next.js and Electron.
 
 ## Storybook
 
@@ -78,5 +78,5 @@ yarn storybook
 ## Build
 
 ```bash
-yarn turbo run build
+yarn build:packages
 ```

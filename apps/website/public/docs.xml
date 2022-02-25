@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 25 Feb 2022 18:45:47 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 25 Feb 2022 18:52:56 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -85,6 +85,16 @@
     <title>Property</title>
     <link>https://saas-ui.dev/docs/data-display/property</link>
     <description>A component used to show key/value data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -395,16 +405,6 @@
     <title>Web3Address</title>
     <link>https://saas-ui.dev/docs/web3/address</link>
     <description>Display Web3 addresses in a more readable format.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/feedback/banner</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

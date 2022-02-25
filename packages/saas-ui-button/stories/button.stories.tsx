@@ -33,6 +33,7 @@ export const Basic = () => (
     <Button colorScheme="cyan">Button</Button>
     <Button colorScheme="orange">Button</Button>
     <Button colorScheme="yellow">Button</Button>
+    <Button colorScheme="white">Button</Button>
   </Stack>
 )
 
@@ -63,6 +64,9 @@ export const Outlines = () => (
       Button
     </Button>
     <Button variant="outline" colorScheme="yellow">
+      Button
+    </Button>
+    <Button variant="outline" colorScheme="white">
       Button
     </Button>
   </Stack>

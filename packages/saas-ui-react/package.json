@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@saas-ui/auth": "workspace:*",
+    "@saas-ui/banner": "workspace:*",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/card": "workspace:*",
     "@saas-ui/collapse": "workspace:*",

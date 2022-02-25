@@ -51,7 +51,9 @@ interface BannerOptions {
    */
   onClose?: () => void
   /**
-   * Customize the close animation
+   * Customize the close animation.
+   * @default 'slideOutTop'
+   * @type 'slideOutTop', 'slideOutBottom', 'fade', 'scale', 'none'
    */
   motionPreset?: BannerMotion
 }
@@ -105,6 +107,8 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
     isOpen,
   }
 
+  const role = ['warning', 'error'].includes(status) ? 'alert' : 'status'
+
   const animate = isOpen ? 'enter' : 'exit'
 
   return (
@@ -113,7 +117,8 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
         <AnimatePresence>
           {isOpen && (
             <BannerTransition
-              role="status"
+              id={context.id}
+              role={role}
               ref={ref}
               motionPreset={motionPreset}
               animate={animate}

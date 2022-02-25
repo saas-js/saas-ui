@@ -55,7 +55,7 @@ Complete source code available in a monorepo that can serve as a starting point 
 - [ ] Authentication
 - [ ] User profiles
 - [ ] Example pages (CRM, Inbox, CRUD)
-- [ ] Charts / Sparlines
+- [ ] Charts / Sparklines
 - [ ] Settings pages
 - [ ] Feature flags
 - [ ] Onboarding flows

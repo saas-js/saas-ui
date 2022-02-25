@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.10.1
+
+### Patch Changes
+
+- ce66628: Added Banner component
+- Updated dependencies [ce66628]
+  - @saas-ui/banner@0.0.1
+
 ## 0.10.0
 
 ### Minor Changes

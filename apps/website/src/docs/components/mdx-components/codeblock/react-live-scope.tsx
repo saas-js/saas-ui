@@ -17,9 +17,16 @@ import {
   FiSettings,
   FiTag,
   FiArchive,
+  FiTruck,
 } from 'react-icons/fi'
 
-import { FaFacebook, FaTwitter, FaGithub, FaSlack } from 'react-icons/fa'
+import {
+  FaFacebook,
+  FaTwitter,
+  FaGithub,
+  FaSlack,
+  FaCookie,
+} from 'react-icons/fa'
 
 const reactIcons = {
   FiHome,
@@ -28,10 +35,12 @@ const reactIcons = {
   FiSettings,
   FiTag,
   FiArchive,
+  FiTruck,
   FaFacebook,
   FaTwitter,
   FaGithub,
   FaSlack,
+  FaCookie,
 }
 
 const StarIcon = (props) => (

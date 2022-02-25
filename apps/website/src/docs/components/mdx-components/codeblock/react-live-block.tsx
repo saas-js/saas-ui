@@ -1,9 +1,5 @@
 // doesn't support React 17 yet
 
-// export default function ReactLiveBLock(props: any) {
-//   return null
-// }
-
 import { Box, BoxProps, chakra } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'

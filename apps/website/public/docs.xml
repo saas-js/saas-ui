@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 23 Feb 2022 12:59:40 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 25 Feb 2022 18:45:47 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -395,6 +395,16 @@
     <title>Web3Address</title>
     <link>https://saas-ui.dev/docs/web3/address</link>
     <description>Display Web3 addresses in a more readable format.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

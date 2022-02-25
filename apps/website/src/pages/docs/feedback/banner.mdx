@@ -1,0 +1,250 @@
+---
+title: Banner
+package: '@saas-ui/banner'
+description: Banners are used to communicate accouncements and important information.
+---
+
+Banners are generally shown at the top of an app, or above the main content.
+
+<ComponentLinks
+  theme={{ componentName: 'banner' }}
+  github={{ package: 'saas-ui-banner' }}
+  npm={{ package: '@saas-ui/banner' }}
+/>
+
+## Import
+
+- `Banner`: The container, manages the banner state and visibility.
+- `BannerIcon`: The visual icon for the banner.
+- `BannerContent`: The wrapper for the banner title and description.
+- `BannerTitle`: The title of the banner to be announced by screen readers.
+- `BannerDescription`: The description of the banner to be announced by screen
+  readers.
+- `BannerActions`: The banner actions, renders a `ButtonGroup`.
+- `BannerCloseButton`: The close button.
+
+```js
+import {
+  Banner,
+  BannerIcon,
+  BannerContent,
+  BannerTitle,
+  BannerDescription,
+  BannerActions,
+  BannerCloseButton,
+} from '@chakra-ui/react'
+```
+
+## Usage
+
+```jsx
+<Banner>
+  <BannerIcon />
+  <BannerContent>
+    <BannerTitle>Update available.</BannerTitle>
+    <BannerDescription>
+      We've just released a new update, refresh to update.
+    </BannerDescription>
+  </BannerContent>
+  <BannerActions>
+    <Button colorScheme="white" variant="solid">
+      Refresh
+    </Button>
+  </BannerActions>
+  <BannerCloseButton />
+</Banner>
+```
+
+### Status
+
+Change the status of the banners by passing the `status` prop. This affects the
+color scheme and icon used. Banner supports `error`, `success`, `warning`, and
+`info` statuses.
+
+```jsx
+<Stack spacing={3}>
+  <Banner status="error">
+    <BannerIcon />
+    <BannerTitle>There was an error processing your payment.</BannerTitle>
+  </Banner>
+
+  <Banner status="success">
+    <BannerIcon />
+    <BannerTitle>You have 3 days left until your trial ends.</BannerTitle>
+  </Banner>
+
+  <Banner status="warning">
+    <BannerIcon />
+    <BannerTitle>Your trial ends tomorrow, upgrade now.</BannerTitle>
+  </Banner>
+
+  <Banner status="info">
+    <BannerIcon />
+    <BannerTitle>Pre-order Saas UI Pro now to get 50% discount.</BannerTitle>
+  </Banner>
+</Stack>
+```
+
+### Variant
+
+`Banner` has 2 variant styles you can use. Pass the `variant` prop and use either
+`subtle`, `solid`.
+
+```jsx
+<Stack spacing={3}>
+  <Banner status="success" variant="subtle">
+    <BannerIcon />
+    <BannerTitle>You have 3 days left untll your trial ends.</BannerTitle>
+  </Banner>
+
+  <Banner status="success" variant="solid">
+    <BannerIcon />
+    <BannerTitle>You have 3 days left untll your trial ends.</BannerTitle>
+  </Banner>
+</Stack>
+```
+
+### Custom icon
+
+Use the `icon` prop to render custom icons.
+
+```jsx
+<Stack spacing={3}>
+  <Banner status="success" py="2">
+    <BannerIcon
+      icon={FiTruck}
+      p="2"
+      boxSize="8"
+      bg="whiteAlpha.200"
+      borderRadius="md"
+    />
+    <BannerTitle p="2">Your order has been shipped.</BannerTitle>
+  </Banner>
+</Stack>
+```
+
+### Composition
+
+`Banner` ships with smaller components to allow for flexibility in creating all
+kinds of layouts. Here's an example of a custom banner style and layout:
+
+```jsx
+<LinkBox
+  as={Banner}
+  variant="subtle"
+  colorScheme="primary"
+  borderRadius="full"
+  justifyContent="center"
+  py="2"
+  px="3"
+  cursor="pointer"
+  _hover={{ bg: 'rgba(211, 190, 244, 0.2)' }}
+>
+  <BannerIcon boxSize="14px" />
+  <BannerContent flex="inherit">
+    <BannerTitle fontSize="sm">
+      <LinkOverlay href="#">Application submitted!</LinkOverlay>
+    </BannerTitle>
+    <BannerDescription fontSize="sm">
+      Our team will get back to you soon.
+    </BannerDescription>
+  </BannerContent>
+  <BannerCloseButton position="absolute" top="2" right="4" />
+</LinkBox>
+```
+
+### Transitions
+
+`Banner` has build-in motion controls for showing/hiding banners and can be used together with `useDisclosure`.
+The default transition is `slideOutTop`.
+
+Available motion presets are:
+
+```tsx
+export type BannerMotion =
+  | 'slideOutTop'
+  | 'slideOutBottom'
+  | 'fade'
+  | 'scale'
+  | 'none'
+```
+
+```jsx
+function Page() {
+  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
+
+  return (
+    <Banner
+      isOpen={isOpen}
+      onClose={onClose}
+      motionPreset="slideOutBottom"
+      colorScheme="gray"
+    >
+      <BannerIcon icon={FaCookie} />
+      <BannerContent>
+        <BannerTitle>This website uses cookies.</BannerTitle>
+        <BannerDescription>
+          <Link href="#">Privacy Policy</Link>
+        </BannerDescription>
+      </BannerContent>
+      <BannerActions>
+        <Button onClick={onClose} colorScheme="white">
+          Accept all
+        </Button>
+      </BannerActions>
+      <BannerCloseButton />
+    </Banner>
+  )
+}
+```
+
+## Accessibility
+
+A `Banner` with status `info` or `success` will have `role` of `status`.
+Status `error` or `warning` will set the `role` to `alert`.
+
+Overrule the default role by setting the `role` property.
+
+```jsx
+<Banner role="alert" colorScheme="red">
+  You have outstanding balance
+</Banner>
+```
+
+## Props
+
+### Banner Props
+
+`Banner` composes a `Flex` component.
+
+<PropsTable
+  of="Banner"
+  only={[
+    'status',
+    'isOpen',
+    'onClose',
+    'motionPreset',
+    'variant',
+    'colorScheme',
+  ]}
+/>
+
+### BannerIcon Props
+
+`BannerIcon` composes `Icon` and accepts a custom icon or displays an icon based on the `status` prop.
+
+### BannerContent Props
+
+`BannerContent` composes a `Flex` component.
+
+### BannerTitle Props
+
+`BannerTitle` composes a `Box` component.
+
+### BannerDescription Props
+
+`BannerDescription` composes a `Box` component.
+
+### BannerActions Props
+
+`BannerDescription` composes a `ButtonGroup` component and accepts `variant` and `colorScheme` props.

@@ -226,8 +226,7 @@ const sidebar = {
           routes: [
             {
               title: 'Banner',
-              // path: '/docs/feedback/nprogress',
-              soon: true,
+              path: '/docs/feedback/banner',
             },
             {
               title: 'NProgress',

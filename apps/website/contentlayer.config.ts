@@ -6,7 +6,7 @@ import {
 import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
 import remarkSlug from 'remark-slug'
-import siteConfig from './src/data/site-config'
+import docsConfig from './src/data/docs-config'
 import { getTableOfContents } from './src/docs/utils/mdx-utils'
 import { rehypeMdxCodeMeta } from './src/docs/utils/rehype-code-meta'
 
@@ -17,7 +17,7 @@ const computedFields: ComputedFields = {
   },
   editUrl: {
     type: 'string',
-    resolve: (doc) => `${siteConfig.repo.editUrl}/${doc._id}`,
+    resolve: (doc) => `${docsConfig.repo.editUrl}/${doc._id}`,
   },
 }
 

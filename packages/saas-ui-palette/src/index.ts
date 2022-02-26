@@ -1,6 +1,6 @@
 import chroma, { Color } from 'chroma-js'
 
-import { theme, Colors } from '@chakra-ui/theme'
+import { theme, Colors } from '@chakra-ui/react'
 
 const names: Record<number, string> = {
   0: 'red',
@@ -24,13 +24,13 @@ export interface PaletteColors {
   [index: string]: string
 }
 
-const getLumsFromThemeColors = (name: string, colors: PaletteColors) => {
+const getLumsFromThemeColors = (name: string) => {
   const themeColors: Record<string, any> = theme.colors
   const lums = []
   let color = themeColors[name]
 
   if (!color) {
-    color = colors.red // fallback lums from red
+    color = themeColors.red // fallback lums from red, @todo select lums based on hue range.
   }
 
   for (const lum in color) {
@@ -76,9 +76,6 @@ const createShades = (hex: string, lums: Array<number>) => {
 
 const getColorName = (hex: Color) => {
   const [hue, sat] = chroma(hex).hsl()
-  if (sat < 0.5) {
-    return 'gray'
-  }
   const name = hueName(hue)
   return name
 }
@@ -121,25 +118,34 @@ export const createPalette = (hex: string, options: PaletteOptions = {}) => {
   const gray = desat(1 / 8)(colors.gray || color.hex())
 
   palette.black = createBlack(gray, options.blackLuminance)
-  palette.gray = mapValues(
-    createShades(gray, getLumsFromThemeColors('gray', colors))
-  )
+  palette.gray = mapValues(createShades(gray, getLumsFromThemeColors('gray')))
 
   hues.forEach((h) => {
     let c = chroma.hsl(h, sat, lte)
     const name = getColorName(c)
+
     if (!name) {
       return
     }
 
-    // override the hex value if we include a custom color
+    // override the hex value if this color has a custom value.
     if (colors[name]) {
       c = chroma.hex(colors[name])
     }
 
     palette[name] = mapValues(
-      createShades('' + c.hex(), getLumsFromThemeColors(name, colors))
+      createShades(c.hex(), getLumsFromThemeColors(name))
     )
+  })
+
+  // Create shades for custom colors.
+  Object.entries(colors).forEach(([name, value]) => {
+    if (!palette[name]) {
+      const c = chroma(value)
+      palette[name] = mapValues(
+        createShades(c.hex(), getLumsFromThemeColors(name))
+      )
+    }
   })
 
   return Object.assign(palette)

@@ -41,7 +41,8 @@ export default theme
 const colors = createPalette('#6d28d9', {
   blackLuminance: 0.005, // defaults to 0
   colors: {
-    red: '#d00b00', // override individual colors
+    red: '#d00b00', // override default colors
+    indigo: '#4B0082', // add custom colors
   },
 })
 ```

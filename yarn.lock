@@ -4448,7 +4448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/theme@npm:1.13.0, @chakra-ui/theme@npm:^1.13.0":
+"@chakra-ui/theme@npm:1.13.0":
   version: 1.13.0
   resolution: "@chakra-ui/theme@npm:1.13.0"
   dependencies:
@@ -6852,7 +6852,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/banner@workspace:packages/saas-ui-banner":
+"@saas-ui/banner@workspace:*, @saas-ui/banner@workspace:packages/saas-ui-banner":
   version: 0.0.0-use.local
   resolution: "@saas-ui/banner@workspace:packages/saas-ui-banner"
   dependencies:
@@ -7029,7 +7029,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/next-workspaces@workspace:tooling/next-workspaces":
+"@saas-ui/next-workspaces@workspace:*, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
   version: 0.0.0-use.local
   resolution: "@saas-ui/next-workspaces@workspace:tooling/next-workspaces"
   languageName: unknown
@@ -7062,11 +7062,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/palette@workspace:packages/saas-ui-palette"
   dependencies:
-    "@chakra-ui/theme": ^1.13.0
     "@types/chroma-js": ^2.1.3
     chroma-js: ^2.1.2
   peerDependencies:
-    "@chakra-ui/system": ^1.8.3
+    "@chakra-ui/react": ">=1.8.0"
   languageName: unknown
   linkType: soft
 
@@ -7158,6 +7157,7 @@ __metadata:
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
     "@saas-ui/auth": "workspace:*"
+    "@saas-ui/banner": "workspace:*"
     "@saas-ui/button": "workspace:*"
     "@saas-ui/card": "workspace:*"
     "@saas-ui/collapse": "workspace:*"
@@ -21392,7 +21392,9 @@ __metadata:
     "@chakra-ui/react": ^1.8.1
     "@emotion/react": ^11.5.0
     "@emotion/styled": ^11.3.0
+    "@saas-ui/next-workspaces": "workspace:*"
     "@saas-ui/palette": "workspace:*"
+    "@saas-ui/react": "workspace:*"
     "@svgr/webpack": ^6.1.1
     "@types/lodash.debounce": ^4.0.6
     "@types/react": ^17.0.30

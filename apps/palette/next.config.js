@@ -6,6 +6,11 @@ module.exports = withWorkspaces({
   workspaces: ['packages'],
 })({
   reactStrictMode: true,
+  experimental: {
+    optimizeFonts: true,
+    modern: true,
+    externalDir: true,
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

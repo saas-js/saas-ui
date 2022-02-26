@@ -5446,6 +5446,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/inter@npm:^4.5.4":
+  version: 4.5.4
+  resolution: "@fontsource/inter@npm:4.5.4"
+  checksum: 72a82add6e385bff3e13ef962a8f4ef5a37e3843d4841d47d46de4d32caab6fed140897edd39613afaa55c765b0ad8c0ce5cf0fa434a24954e48c780fbf00dff
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.2
   resolution: "@gar/promisify@npm:1.1.2"
@@ -21392,6 +21399,7 @@ __metadata:
     "@chakra-ui/react": ^1.8.1
     "@emotion/react": ^11.5.0
     "@emotion/styled": ^11.3.0
+    "@fontsource/inter": ^4.5.4
     "@saas-ui/next-workspaces": "workspace:*"
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/react": "workspace:*"

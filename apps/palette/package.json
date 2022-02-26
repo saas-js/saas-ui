@@ -14,7 +14,9 @@
     "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@saas-ui/next-workspaces": "workspace:*",
     "@saas-ui/palette": "workspace:*",
+    "@saas-ui/react": "workspace:*",
     "@svgr/webpack": "^6.1.1",
     "@types/lodash.debounce": "^4.0.6",
     "framer-motion": "^4.1.17",
@@ -22,7 +24,8 @@
     "next": "^12.0.7",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "@fontsource/inter": "^4.5.4"
   },
   "devDependencies": {
     "@types/react": "^17.0.30",

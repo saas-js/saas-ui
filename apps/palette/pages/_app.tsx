@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import * as React from 'react'
 import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 import PaletteProvider, { usePalette } from '@/providers/palette'
+import { SaasProvider, theme as baseTheme } from '@saas-ui/react'
+
+import '@fontsource/inter/variable.css'
 
 interface ThemeProviderProps {
   children: React.ReactNode
@@ -11,20 +13,16 @@ interface ThemeProviderProps {
 function ThemeProvider({ children }: ThemeProviderProps) {
   const [{ colors }] = usePalette()
 
-  const [theme, setTheme] = useState(
-    extendTheme({
-      colors,
-    })
-  )
-
-  useEffect(() => {
-    setTheme(
-      extendTheme({
+  const theme = React.useMemo(() => {
+    return extendTheme(
+      {
         colors,
-      })
+      },
+      baseTheme
     )
   }, [colors])
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>
+
+  return <SaasProvider theme={theme}>{children}</SaasProvider>
 }
 
 function MyApp({ Component, pageProps }: AppProps) {

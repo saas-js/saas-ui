@@ -3,6 +3,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  FormHelperText,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -16,6 +17,10 @@ import {
   Tab,
   TabPanel,
   Code,
+  Text,
+  Link,
+  IconButton,
+  Button,
 } from '@chakra-ui/react'
 import debounce from 'lodash.debounce'
 import { ColorWrapper, ColorPalette, ColorPalettes } from '@/components/palette'
@@ -23,6 +28,8 @@ import Page from '@/components/page'
 import Section from '@/components/section'
 
 import { usePalette } from '@/providers/palette'
+
+import { FaTwitter, FaGithub } from 'react-icons/fa'
 
 const baseColor = '#6d28d9'
 const grayColor = '#1f2937'
@@ -50,6 +57,7 @@ export default function ColorsPage() {
     updatePalette(color, {
       colors: {
         gray,
+        indigo: '#4B0082',
       },
       blackLuminance,
     })
@@ -70,11 +78,54 @@ export default function ColorsPage() {
     }
   }, [updatePalette])
 
+  const nav = (
+    <>
+      <Button
+        as="a"
+        href="https://saas-ui.dev/docs/introduction"
+        variant="ghost"
+      >
+        Documentation
+      </Button>
+
+      <IconButton
+        as="a"
+        href="https://twitter.com/intent/tweet?text=Check%20out%20this%20color%20palette%20generator%20for%20%40chakra_ui.%20Build%20by%20%40saas_js%0Ahttps%3A//palette.saas-ui.dev"
+        icon={<FaTwitter />}
+        variant="ghost"
+        aria-label="Share on Twitter"
+      />
+
+      <IconButton
+        as="a"
+        href="https://github.com/saas-js/saas-ui"
+        icon={<FaGithub />}
+        variant="ghost"
+        aria-label="Star on Github"
+      />
+    </>
+  )
+
   return (
     <Page
-      title="Palette Generator"
-      description="A color palette generator for Chakra UI"
+      title="Color Palette Generator"
+      description="Quickly generate custom color palettes for Chakra UI."
+      nav={nav}
     >
+      <Section title="Usage">
+        <Text>
+          Configure your colors below and copy the generated{' '}
+          <Code colorScheme="purple">code</Code>
+          or <Code colorScheme="purple">JSON</Code> to your project.
+        </Text>
+        <Text>
+          More information about customizing your theme can be found on the
+          <Link href="https://chakra-ui.com/docs/theming/customize-theme">
+            Chakra UI website
+          </Link>
+          .
+        </Text>
+      </Section>
       <Section title="Configuration">
         <VStack spacing={4}>
           <FormControl>
@@ -93,6 +144,10 @@ export default function ColorsPage() {
                 value={color}
               />
             </HStack>
+            <FormHelperText>
+              Select your brand primary color here, all other colors will be
+              generated based of this.
+            </FormHelperText>
           </FormControl>
           <FormControl>
             <FormLabel>Gray color</FormLabel>
@@ -106,6 +161,10 @@ export default function ColorsPage() {
               />
               <Input type="text" onChange={handleChange('gray')} value={gray} />
             </HStack>
+            <FormHelperText>
+              Choose a gray tint that compliments your base color to make your
+              theme pop.
+            </FormHelperText>
           </FormControl>
           <FormControl>
             <FormLabel>Black luminance</FormLabel>
@@ -127,10 +186,13 @@ export default function ColorsPage() {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
+            <FormHelperText>
+              Slightly increase the luminance to make your blacks more organic.
+            </FormHelperText>
           </FormControl>
         </VStack>
       </Section>
-      <Tabs>
+      <Tabs colorScheme="purple">
         <TabList mb="4">
           <Tab>Colors</Tab>
           <Tab>Code</Tab>

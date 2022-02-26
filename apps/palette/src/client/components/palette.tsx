@@ -14,6 +14,7 @@ export const ColorPalette = (props: ColorPaletteProps) => {
   const { color, name, ...rest } = props
 
   const theme = useTheme()
+
   let colorCode = color
   const [shade, hue] = color.split('.')
 

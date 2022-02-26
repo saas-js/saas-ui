@@ -10,15 +10,15 @@ const PaletteProvider = ({
 }: any) => {
   const [colors, setColors] = useState({})
 
-  const setPalette = (color: string, options: any) => {
+  const setPalette = React.useCallback((color: string, options: any) => {
     setColors(createPalette(color, options))
-  }
+  }, [])
 
   useEffect(() => {
     if (color) {
       setPalette(color, options)
     }
-  }, [color, options])
+  }, [color, options, setPalette])
 
   const value = [{ color, options, colors }, setPalette]
 

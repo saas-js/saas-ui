@@ -7,16 +7,19 @@ import {
   HStack,
   Container,
   Spinner,
+  Link,
   useColorMode,
+  Stack,
 } from '@chakra-ui/react'
 
-import Logo from '/public/saasui.svg'
-import LogoDark from '/public/saasui-dark.svg'
 import { ColorModeToggle } from './color-mode-toggle'
+import SEO from '@/components/seo'
+
+import Logo from './saas-ui'
 
 export interface PageProps {
-  title?: React.ReactNode
-  description?: React.ReactNode
+  title?: string
+  description?: string
   nav?: React.ReactNode
   children?: React.ReactNode
   isLoading?: boolean
@@ -45,27 +48,34 @@ export default function Page({
   }
 
   return (
-    <Flex direction="column" flex="1" minH="0">
-      <Flex py="2" px="4" borderBottomWidth="1px" align="center">
-        <Box width="100px" mr="8" pos="absolute">
-          {colorMode === 'dark' ? <Logo /> : <LogoDark />}
-        </Box>
-        <Box flex="1" p="2"></Box>
-        <HStack>
-          {nav}
-
-          <ColorModeToggle />
-        </HStack>
-      </Flex>
-      <Box flex="1" overflow="auto">
-        <Container maxW={containerWidth} p="0" pr="4" pt="8">
-          <Box mb="16">
-            <Heading size="lg">{title}</Heading>
-            <Text opacity="0.6">{description}</Text>
+    <>
+      <SEO title={title} description={description}></SEO>
+      <Flex direction="column" flex="1" minH="0">
+        <Flex py="4" px="6" borderBottomWidth="1px" align="center">
+          <Box width="100px" mr="8" pos="absolute">
+            <Link href="https://saas-ui.dev">
+              <Logo />
+            </Link>
           </Box>
-          <Box>{content}</Box>
-        </Container>
-      </Box>
-    </Flex>
+          <Box flex="1" p="2"></Box>
+          <HStack spacing="2">
+            {nav}
+
+            <ColorModeToggle />
+          </HStack>
+        </Flex>
+        <Box flex="1" overflow="auto">
+          <Container maxW={containerWidth} p="0" pr="4" pt="8">
+            <Stack mb="16">
+              <Heading size="xl">{title}</Heading>
+              <Text opacity="0.6" fontSize="xl">
+                {description}
+              </Text>
+            </Stack>
+            <Box>{content}</Box>
+          </Container>
+        </Box>
+      </Flex>
+    </>
   )
 }

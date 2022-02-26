@@ -1,5 +1,11 @@
 # @saas-ui/menu
 
+## 0.4.1
+
+### Patch Changes
+
+- @saas-ui/provider@0.3.1
+
 ## 0.4.0
 
 ### Minor Changes

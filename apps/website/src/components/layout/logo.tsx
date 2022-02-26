@@ -8,18 +8,14 @@ export interface LogoProps {
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-import LogoLight from '/public/saasui.svg'
-import LogoDark from '/public/saasui-dark.svg'
-
 import siteConfig from '@/data/site-config'
 
 const Logo = ({ href = '/', onClick }: LogoProps) => {
   const { colorMode } = useColorMode()
 
-  let logo = colorMode === 'dark' ? LogoLight : LogoDark
-
-  if (logo) {
-    logo = <Box as={logo} />
+  let logo
+  if (siteConfig.logo) {
+    logo = <Box as={siteConfig.logo} />
   } else {
     logo = (
       <Heading as="h1" size="md">

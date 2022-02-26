@@ -8,7 +8,7 @@ const SEO = ({ title, description, ...props }: SEOProps) => (
   <NextSeo
     title={title}
     description={description}
-    openGraph={{ title, description }}
+    openGraph={{ ...siteConfig.seo.openGraph, title, description }}
     titleTemplate={siteConfig.seo.titleTemplate}
     {...props}
   />

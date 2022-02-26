@@ -1,6 +1,8 @@
+import Logo from '../components/saas-ui'
 const baseUrl = 'https://github.com/saas-js/saas-ui'
 
 const siteConfig = {
+  logo: Logo,
   copyright: `Copyright © ${new Date().getFullYear()} Appulse Software B.V. All Rights Reserved.`,
   author: {
     name: 'Eelco Wiersma',
@@ -33,20 +35,20 @@ const siteConfig = {
       locale: 'en_US',
       url: 'https://saas-ui.dev',
       title: 'Saas UI',
-      description: 'Advanced UI components for SaaS products.',
-      site_name: 'Saas UI: Advanced UI components for SaaS products.',
+      description: 'An advanced component library for SaaS companies.',
+      site_name: 'Saas UI: An advanced component library for SaaS companies.',
       images: [
         {
-          url: 'https://chakra-ui.com/og-image.png',
-          width: 1240,
-          height: 480,
-          alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+          url: 'https://saas-ui.dev/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Saas UI: An advanced component library for SaaS companies.',
         },
         {
-          url: 'https://chakra-ui.com/twitter-og-image.png',
+          url: 'https://saas-ui.dev/twitter-og-image.jpg',
           width: 1012,
           height: 506,
-          alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+          alt: 'Saas UI: An advanced component library for SaaS companies.',
         },
       ],
     },

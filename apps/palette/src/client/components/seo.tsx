@@ -18,7 +18,7 @@ const openGraph = {
       alt: 'Saas UI: Color Palette Generator for Chakra UI.',
     },
     {
-      url: 'https://palette.saas-ui.com/twitter-og-image.jpg',
+      url: 'https://palette.saas-ui.dev/twitter-og-image.jpg',
       width: 1012,
       height: 506,
       alt: 'Saas UI: Color Palette Generator for Chakra UI.',

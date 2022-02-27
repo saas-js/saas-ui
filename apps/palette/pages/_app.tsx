@@ -1,8 +1,8 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, theme as baseTheme } from '@chakra-ui/react'
 import PaletteProvider, { usePalette } from '@/providers/palette'
-import { SaasProvider, theme as baseTheme } from '@saas-ui/react'
+import { SaasProvider } from '@saas-ui/react'
 
 import '@fontsource/inter/variable.css'
 
@@ -17,6 +17,13 @@ function ThemeProvider({ children }: ThemeProviderProps) {
     return extendTheme(
       {
         colors,
+        components: {
+          Button: {
+            defaultProps: {
+              size: 'sm',
+            },
+          },
+        },
       },
       baseTheme
     )

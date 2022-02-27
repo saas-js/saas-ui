@@ -1,5 +1,11 @@
 # 0.2.0
 
+## 0.5.0
+
+### Minor Changes
+
+- 4aef278: Support custom colors and fixed an issue where gray color would get generated incorrectly
+
 ## 0.4.1
 
 ### Patch Changes

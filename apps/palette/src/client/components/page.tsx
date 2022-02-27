@@ -66,13 +66,13 @@ export default function Page({
         </Flex>
         <Box flex="1" overflow="auto">
           <Container maxW={containerWidth} p="0" pr="4" pt="8">
-            <Stack mb="16">
+            <Stack mb="6">
               <Heading size="xl">{title}</Heading>
               <Text opacity="0.6" fontSize="xl">
                 {description}
               </Text>
             </Stack>
-            <Box>{content}</Box>
+            <Box py="10">{content}</Box>
           </Container>
         </Box>
       </Flex>

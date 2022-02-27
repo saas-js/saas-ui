@@ -21402,7 +21402,6 @@ __metadata:
     "@fontsource/inter": ^4.5.4
     "@saas-ui/next-workspaces": "workspace:*"
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/react": "workspace:*"
     "@svgr/webpack": ^6.1.1
     "@types/lodash.debounce": ^4.0.6
     "@types/react": ^17.0.30

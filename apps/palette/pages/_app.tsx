@@ -1,8 +1,7 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
-import { extendTheme, theme as baseTheme } from '@chakra-ui/react'
+import { extendTheme, ChakraProvider } from '@chakra-ui/react'
 import PaletteProvider, { usePalette } from '@/providers/palette'
-import { SaasProvider } from '@saas-ui/react'
 
 import '@fontsource/inter/variable.css'
 
@@ -14,22 +13,19 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   const [{ colors }] = usePalette()
 
   const theme = React.useMemo(() => {
-    return extendTheme(
-      {
-        colors,
-        components: {
-          Button: {
-            defaultProps: {
-              size: 'sm',
-            },
+    return extendTheme({
+      colors,
+      components: {
+        Button: {
+          defaultProps: {
+            size: 'sm',
           },
         },
       },
-      baseTheme
-    )
+    })
   }, [colors])
 
-  return <SaasProvider theme={theme}>{children}</SaasProvider>
+  return <ChakraProvider theme={theme}>{children}</ChakraProvider>
 }
 
 function MyApp({ Component, pageProps }: AppProps) {

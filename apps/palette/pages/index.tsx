@@ -21,6 +21,10 @@ import {
   Link,
   IconButton,
   Button,
+  useColorModeValue,
+  Badge,
+  Spinner,
+  SpinnerProps,
 } from '@chakra-ui/react'
 import debounce from 'lodash.debounce'
 import { ColorWrapper, ColorPalette, ColorPalettes } from '@/components/palette'
@@ -30,6 +34,7 @@ import Section from '@/components/section'
 import { usePalette } from '@/providers/palette'
 
 import { FaTwitter, FaGithub } from 'react-icons/fa'
+import CopyButton from '@/components/copy-button'
 
 const baseColor = '#6d28d9'
 const grayColor = '#1f2937'
@@ -57,7 +62,7 @@ export default function ColorsPage() {
     updatePalette(color, {
       colors: {
         gray,
-        indigo: '#4B0082',
+        primary: color,
       },
       blackLuminance,
     })
@@ -106,6 +111,23 @@ export default function ColorsPage() {
     </>
   )
 
+  const code = exampleCode({ color, gray, blackLuminance })
+
+  const json = JSON.stringify(palette, undefined, 2)
+
+  const colors = [
+    'gray',
+    'red',
+    'green',
+    'blue',
+    'teal',
+    'pink',
+    'purple',
+    'cyan',
+    'orange',
+    'yellow',
+  ]
+
   return (
     <Page
       title="Color Palette Generator"
@@ -113,14 +135,17 @@ export default function ColorsPage() {
       nav={nav}
     >
       <Section title="Usage">
-        <Text>
-          Configure your colors below and copy the generated{' '}
-          <Code colorScheme="purple">code</Code>
-          or <Code colorScheme="purple">JSON</Code> to your project.
+        <Text mb="2">
+          Configure your base colors below and copy the generated{' '}
+          <Code colorScheme="primary">code</Code>
+          or <Code colorScheme="primary">JSON</Code> to your project.
         </Text>
         <Text>
-          More information about customizing your theme can be found on the
-          <Link href="https://chakra-ui.com/docs/theming/customize-theme">
+          More information about customizing your theme can be found on the{' '}
+          <Link
+            href="https://chakra-ui.com/docs/theming/customize-theme"
+            color={useColorModeValue('primary.500', 'primary.200')}
+          >
             Chakra UI website
           </Link>
           .
@@ -192,9 +217,10 @@ export default function ColorsPage() {
           </FormControl>
         </VStack>
       </Section>
-      <Tabs colorScheme="purple">
+      <Tabs colorScheme="primary">
         <TabList mb="4">
           <Tab>Colors</Tab>
+          <Tab>Components</Tab>
           <Tab>Code</Tab>
           <Tab>JSON</Tab>
         </TabList>
@@ -258,19 +284,97 @@ export default function ColorsPage() {
             </Section>
           </TabPanel>
           <TabPanel>
-            <Code w="100%" p={4}>
-              <pre>{exampleCode({ color, gray, blackLuminance })}</pre>
-            </Code>
+            <VStack spacing="8" alignItems="stretch">
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <Button
+                    key={colorScheme}
+                    colorScheme={colorScheme}
+                    variant="solid"
+                  >
+                    {colorScheme}
+                  </Button>
+                ))}
+              </HStack>
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <Button
+                    key={colorScheme}
+                    colorScheme={colorScheme}
+                    variant="outline"
+                  >
+                    {colorScheme}
+                  </Button>
+                ))}
+              </HStack>
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <Button
+                    key={colorScheme}
+                    colorScheme={colorScheme}
+                    variant="subtle"
+                  >
+                    {colorScheme}
+                  </Button>
+                ))}
+              </HStack>
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <Badge
+                    key={colorScheme}
+                    colorScheme={colorScheme}
+                    variant="solid"
+                  >
+                    {colorScheme}
+                  </Badge>
+                ))}
+              </HStack>
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <Badge key={colorScheme} colorScheme={colorScheme} mr={2}>
+                    {colorScheme}
+                  </Badge>
+                ))}
+              </HStack>
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <Badge
+                    key={colorScheme}
+                    colorScheme={colorScheme}
+                    variant="outline"
+                  >
+                    {colorScheme}
+                  </Badge>
+                ))}
+              </HStack>
+              <HStack>
+                {colors.map((colorScheme) => (
+                  <StyledSpinner key={colorScheme} colorScheme={colorScheme} />
+                ))}
+              </HStack>
+            </VStack>
           </TabPanel>
-          <TabPanel>
+          <TabPanel position="relative">
             <Code w="100%" p={4}>
-              <pre>{JSON.stringify(palette, undefined, 2)}</pre>
+              <pre>{code}</pre>
             </Code>
+            <CopyButton code={code} pos="absolute" top="8" right="8" />
+          </TabPanel>
+          <TabPanel position="relative">
+            <Code w="100%" p={4}>
+              <pre>{json}</pre>
+            </Code>
+            <CopyButton code={json} pos="absolute" top="8" right="8" />
           </TabPanel>
         </TabPanels>
       </Tabs>
     </Page>
   )
+}
+
+const StyledSpinner = ({ colorScheme }: SpinnerProps) => {
+  const color = useColorModeValue(`${colorScheme}.500`, `${colorScheme}.200`)
+  return <Spinner color={color} />
 }
 
 const exampleCode = ({ color, gray, blackLuminance }: any) => `

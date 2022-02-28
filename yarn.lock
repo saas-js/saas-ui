@@ -6871,7 +6871,7 @@ __metadata:
     "@saas-ui/button": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
-    framer-motion: ">=6"
+    framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft

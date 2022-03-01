@@ -1,5 +1,12 @@
 # @saas-ui/layout
 
+## 0.2.2
+
+### Patch Changes
+
+- 87b29a8: Renamed Loading to Loader. Loading will be removed in 1.0
+  - @saas-ui/provider@0.3.2
+
 ## 0.2.1
 
 ### Patch Changes

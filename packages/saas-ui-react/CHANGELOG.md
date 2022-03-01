@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 0.10.3
+
+### Patch Changes
+
+- 87b29a8: Renamed Loading to Loader. Loading will be removed in 1.0
+- Updated dependencies [87b29a8]
+  - @saas-ui/layout@0.2.2
+  - @saas-ui/theme@0.5.2
+  - @saas-ui/data-table@0.2.2
+  - @saas-ui/provider@0.3.2
+  - @saas-ui/menu@0.4.2
+
 ## 0.10.2
 
 ### Patch Changes

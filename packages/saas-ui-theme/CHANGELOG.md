@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.5.2
+
+### Patch Changes
+
+- 87b29a8: Renamed Loading to Loader. Loading will be removed in 1.0
+
 ## 0.5.1
 
 ### Patch Changes

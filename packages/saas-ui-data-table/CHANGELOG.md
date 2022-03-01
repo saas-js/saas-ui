@@ -1,5 +1,12 @@
 # @saas-ui/data-table
 
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [87b29a8]
+  - @saas-ui/layout@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes

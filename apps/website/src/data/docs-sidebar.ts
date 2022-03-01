@@ -240,11 +240,6 @@ const sidebar = {
               title: 'Loader',
               path: '/docs/feedback/loader',
             },
-            {
-              title: 'AppLoader',
-              // path: '/docs/feedback/app-loader',
-              soon: true,
-            },
           ],
         },
         {

@@ -1,4 +1,4 @@
 export * from './divider'
 export * from './empty-state'
-export * from './loading'
+export * from './loader'
 export * from './link'

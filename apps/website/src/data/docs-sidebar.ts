@@ -237,8 +237,8 @@ const sidebar = {
               path: '/docs/feedback/snackbar',
             },
             {
-              title: 'Loading',
-              path: '/docs/feedback/loading',
+              title: 'Loader',
+              path: '/docs/feedback/loader',
             },
             {
               title: 'AppLoader',

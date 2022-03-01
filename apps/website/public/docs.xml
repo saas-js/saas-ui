@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sat, 26 Feb 2022 17:14:40 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 01 Mar 2022 19:54:41 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -101,9 +101,9 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/loading</guid>
-    <title>Loading</title>
-    <link>https://saas-ui.dev/docs/feedback/loading</link>
+    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
+    <title>Loader</title>
+    <link>https://saas-ui.dev/docs/feedback/loader</link>
     <description>A loading indicator that fills it's parent.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>

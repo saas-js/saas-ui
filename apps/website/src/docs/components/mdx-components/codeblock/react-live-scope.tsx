@@ -5,8 +5,8 @@ import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
 import * as Web3 from '@saas-ui/web3'
 import * as Yup from 'yup'
-// import * as FormHooks from 'react-hook-form'
-
+import SaasUILogo from '@/components/saas-ui'
+import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
 
 import FocusLock from 'react-focus-lock'
@@ -56,6 +56,8 @@ const saveHandler = (params) => {
   })
 }
 
+const SaasSpinner = () => <SaasUIGlyph width="48px" height="48px" isAnimating />
+
 const ReactLiveScope = {
   React,
   ...React,
@@ -70,8 +72,9 @@ const ReactLiveScope = {
   FocusLock,
   saveHandler,
   ...sampleData,
-  // Lorem,
-  // CircleIcon,
+  SaasUILogo,
+  SaasUIGlyph,
+  SaasSpinner,
 }
 
 export default ReactLiveScope

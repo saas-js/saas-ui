@@ -5,7 +5,7 @@ import FormLayout from './form-layout'
 import Form from './form'
 import Hotkeys from './hotkeys'
 import List from './list'
-import Loading from './loading'
+import Loader from './loader'
 import NProgress from './nprogress'
 import SearchInput from './search-input'
 
@@ -17,7 +17,7 @@ export default {
   Form,
   Hotkeys,
   List,
-  Loading,
+  Loader,
   NProgress,
   SearchInput,
 }

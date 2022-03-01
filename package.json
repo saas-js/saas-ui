@@ -104,6 +104,7 @@
     "@storybook/testing-react": "^1.2.3",
     "@swc-node/jest": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",

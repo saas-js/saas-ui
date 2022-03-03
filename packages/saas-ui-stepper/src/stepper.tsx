@@ -128,11 +128,11 @@ export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
   const completed = getChildOfType(children, StepperCompleted)
 
   const content =
-    activeIndex >= steps.length
-      ? completed
-      : !isVertical
-      ? steps[activeIndex]?.props?.children
-      : null
+    activeIndex >= steps.length ? (
+      completed
+    ) : !isVertical ? (
+      <StepperContent>{steps[activeIndex]?.props?.children}</StepperContent>
+    ) : null
 
   return (
     <>
@@ -143,7 +143,7 @@ export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
       >
         {elements}
       </chakra.div>
-      {content && <StepperContent>{content}</StepperContent>}
+      {content}
     </>
   )
 }

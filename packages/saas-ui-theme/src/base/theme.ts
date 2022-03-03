@@ -1,8 +1,11 @@
-import { extendTheme, ChakraTheme } from '@chakra-ui/react'
+import { theme, extendTheme, ChakraTheme } from '@chakra-ui/react'
 
 import components from './components'
 
 export const baseTheme = extendTheme({
+  colors: {
+    primary: theme.colors.blue,
+  },
   semanticTokens: {
     colors: {
       'presence.online': 'green.500',

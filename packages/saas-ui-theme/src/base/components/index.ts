@@ -8,6 +8,7 @@ import List from './list'
 import Loader from './loader'
 import NProgress from './nprogress'
 import SearchInput from './search-input'
+import Stepper from './stepper'
 
 export default {
   Banner,
@@ -20,4 +21,5 @@ export default {
   Loader,
   NProgress,
   SearchInput,
+  Stepper,
 }

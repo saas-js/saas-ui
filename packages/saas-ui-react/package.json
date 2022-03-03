@@ -81,6 +81,7 @@
     "@saas-ui/search-input": "workspace:*",
     "@saas-ui/select": "workspace:*",
     "@saas-ui/snackbar": "workspace:*",
+    "@saas-ui/stepper": "workspace:*",
     "@saas-ui/system": "workspace:*",
     "@saas-ui/theme": "workspace:*"
   },

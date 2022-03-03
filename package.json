@@ -111,6 +111,7 @@
     "eslint-plugin-import": "^2.25.3",
     "framer-motion": "^4",
     "husky": "^7.0.0",
+    "hygen": "^6.2.0",
     "jest": "^27.5.1",
     "jest-environment-jsdom": "^27.5.1",
     "jest-watch-typeahead": "^1.0.0",

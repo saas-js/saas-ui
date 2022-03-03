@@ -1,16 +1,12 @@
 {
-  "name": "@saas-ui/forms",
-  "version": "0.4.0",
-  "description": "Theme and components agnostic SaasProvider",
+  "name": "@saas-ui/stepper",
+  "version": "0.0.0",
+  "description": "A Stepper component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "default": "./dist/index.modern.js"
-    },
-    "./resolvers/yup": {
-      "require": "./dist/resolvers/yup.js",
-      "default": "./dist/resolvers/yup.modern.js"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -40,7 +36,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/saas-js/saas-ui",
-    "directory": "packages/saas-ui-forms"
+    "directory": "packages/saas-ui-stepper"
   },
   "keywords": [
     "react",
@@ -52,10 +48,7 @@
     "accessible",
     "components",
     "emotion",
-    "library",
-    "design-system",
-    "forms",
-    "react-hook-form"
+    "library"
   ],
   "storybook": {
     "title": "Saas UI",
@@ -63,22 +56,13 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
-    "@chakra-ui/react-utils": "^1.2.1",
-    "@hookform/resolvers": "^2.8.3",
-    "@saas-ui/button": "workspace:*",
-    "@saas-ui/input-right-button": "workspace:*",
-    "@saas-ui/number-input": "workspace:*",
-    "@saas-ui/password-input": "workspace:*",
-    "@saas-ui/pin-input": "workspace:*",
-    "@saas-ui/radio": "workspace:*",
-    "@saas-ui/react-utils": "workspace:*",
-    "@saas-ui/select": "workspace:*",
-    "react-hook-form": "^7.22.0"
+    "@chakra-ui/react-utils": "^1.2.3",
+    "@chakra-ui/utils": "^1.10.4",
+    "@saas-ui/collapse": "workspace:*",
+    "@saas-ui/react-utils": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6",
-    "yup": "^0.32.11"
+    "react": ">=16.8.6"
   }
 }

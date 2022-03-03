@@ -20,12 +20,17 @@ export const DisplayField: React.FC<DisplayFieldProps> = ({
   placeholder,
   ...props
 }) => {
-  const { getValues } = useFormContext()
-
   return (
     <FormControl {...props}>
       {label ? <FormLabel htmlFor={name}>{label}</FormLabel> : null}
-      <Text fontSize="md">{getValues(name)}</Text>
+      <Text fontSize="md">
+        <FormValue name={name} />
+      </Text>
     </FormControl>
   )
+}
+
+export const FormValue: React.FC<{ name: string }> = ({ name }) => {
+  const { getValues } = useFormContext()
+  return getValues(name) || null
 }

@@ -13,6 +13,7 @@ import NProgress from './nprogress'
 import Progress from './progress'
 import Toaster from './toaster'
 import Text from './text'
+import Stepper from './stepper'
 
 export default {
   Alert,
@@ -29,5 +30,6 @@ export default {
   Progress,
   Toaster,
   Text,
+  Stepper,
   ...Form,
 }

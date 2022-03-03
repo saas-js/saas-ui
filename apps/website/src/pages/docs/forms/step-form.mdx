@@ -276,8 +276,10 @@ function CreateProject() {
                 placeholder="hello@saas-ui.dev, etc"
                 autoFocus
               />
-              <NextButton />
-              <PrevButton variant="ghost" />
+              <ButtonGroup>
+                <NextButton />
+                <PrevButton variant="ghost" />
+              </ButtonGroup>
             </FormLayout>
           </FormStep>
           <FormStep name="confirm" title="Confirm">
@@ -290,7 +292,10 @@ function CreateProject() {
                   value={<FormValue name="description" />}
                 />
               </PropertyList>
-              <NextButton />
+              <ButtonGroup>
+                <NextButton />
+                <PrevButton variant="ghost" />
+              </ButtonGroup>
             </FormLayout>
           </FormStep>
 

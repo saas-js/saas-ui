@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Thu, 03 Mar 2022 15:09:02 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 03 Mar 2022 15:35:37 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -231,6 +231,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/forms/step-form</guid>
+    <title>StepForm</title>
+    <link>https://saas-ui.dev/docs/forms/step-form</link>
+    <description>Create multi-step React forms with just a few lines of code.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/getting-started</guid>
     <title>Getting Started</title>
     <link>https://saas-ui.dev/docs/getting-started</link>
@@ -285,6 +295,16 @@
     <title>Hotkeys</title>
     <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
     <description>Keyboard shortcuts for modern apps</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/navigation/stepper</guid>
+    <title>Stepper</title>
+    <link>https://saas-ui.dev/docs/navigation/stepper</link>
+    <description>Indicate progress through numbered steps in multi-step workflows.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -405,16 +425,6 @@
     <title>Web3Address</title>
     <link>https://saas-ui.dev/docs/web3/address</link>
     <description>Display Web3 addresses in a more readable format.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/forms/step-form</guid>
-    <title>StepForm</title>
-    <link>https://saas-ui.dev/docs/forms/step-form</link>
-    <description>Create multi-step React forms with just a few lines of code.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

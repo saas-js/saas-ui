@@ -90,11 +90,15 @@ const sidebar = {
           title: 'Navigation',
           path: '/docs/navigation',
           open: true,
-          sort: true,
+          // sort: true,
           routes: [
             {
               title: 'Hotkeys',
               path: '/docs/navigation/hotkeys',
+            },
+            {
+              title: 'Stepper',
+              path: '/docs/navigation/stepper',
             },
             {
               title: 'CommandMenu',

@@ -18,6 +18,8 @@ import {
   FiTag,
   FiArchive,
   FiTruck,
+  FiLock,
+  FiCheck,
 } from 'react-icons/fi'
 
 import {
@@ -36,6 +38,8 @@ const reactIcons = {
   FiTag,
   FiArchive,
   FiTruck,
+  FiLock,
+  FiCheck,
   FaFacebook,
   FaTwitter,
   FaGithub,

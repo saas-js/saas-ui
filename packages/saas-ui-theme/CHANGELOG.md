@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.6.0
+
+### Minor Changes
+
+- 9d11ba5: Added StepForm and Stepper components
+
 ## 0.5.2
 
 ### Patch Changes

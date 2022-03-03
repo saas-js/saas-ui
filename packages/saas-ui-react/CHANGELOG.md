@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 0.11.0
+
+### Minor Changes
+
+- 9d11ba5: Added StepForm and Stepper components
+
+### Patch Changes
+
+- Updated dependencies [9d11ba5]
+  - @saas-ui/forms@0.5.0
+  - @saas-ui/stepper@0.1.0
+  - @saas-ui/theme@0.6.0
+  - @saas-ui/auth@0.6.1
+  - @saas-ui/modals@0.3.1
+  - @saas-ui/provider@0.3.3
+  - @saas-ui/layout@0.2.3
+  - @saas-ui/menu@0.4.3
+  - @saas-ui/data-table@0.2.3
+
 ## 0.10.3
 
 ### Patch Changes

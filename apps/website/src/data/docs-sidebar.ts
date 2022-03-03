@@ -137,8 +137,7 @@ const sidebar = {
             },
             {
               title: 'StepForm',
-              // path: '/docs/forms/step-form',
-              soon: true,
+              path: '/docs/forms/step-form',
             },
             {
               title: 'FormLayout',

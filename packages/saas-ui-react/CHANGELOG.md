@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.11.1
+
+### Patch Changes
+
+- 6513d26: No longer rendering StepperCompleted in StepperContent
+- Updated dependencies [6513d26]
+  - @saas-ui/stepper@0.1.1
+
 ## 0.11.0
 
 ### Minor Changes

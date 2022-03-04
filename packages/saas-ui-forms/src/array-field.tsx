@@ -20,6 +20,7 @@ import {
   useArrayFieldRowContext,
   useArrayFieldRemoveButton,
   useArrayFieldAddButton,
+  UseArrayFieldReturn,
 } from './use-array-field'
 
 interface ArrayField {
@@ -137,26 +138,28 @@ export interface ArrayFieldProps
   extends ArrayFieldOptions,
     Omit<FieldProps, 'defaultValue'> {}
 
-export const ArrayField: React.FC<ArrayFieldProps> = (props) => {
-  const { children, ...containerProps } = props
+export const ArrayField = React.forwardRef(
+  (props: ArrayFieldProps, ref: React.ForwardedRef<UseArrayFieldReturn>) => {
+    const { children, ...containerProps } = props
 
-  return (
-    <ArrayFieldContainer {...containerProps}>
-      <ArrayFieldRows>
-        {(fields: ArrayField[]) => (
-          <>
-            {fields.map(({ id }, index: number) => (
-              <ArrayFieldRow key={id} index={index}>
-                {children}
-              </ArrayFieldRow>
-            ))}
-          </>
-        )}
-      </ArrayFieldRows>
-      <ArrayFieldAddButton />
-    </ArrayFieldContainer>
-  )
-}
+    return (
+      <ArrayFieldContainer ref={ref} {...containerProps}>
+        <ArrayFieldRows>
+          {(fields: ArrayField[]) => (
+            <>
+              {fields.map(({ id }, index: number) => (
+                <ArrayFieldRow key={id} index={index}>
+                  {children}
+                </ArrayFieldRow>
+              ))}
+            </>
+          )}
+        </ArrayFieldRows>
+        <ArrayFieldAddButton />
+      </ArrayFieldContainer>
+    )
+  }
+)
 
 export interface ArrayFieldRowsProps {
   children: (fields: ArrayField[]) => React.ReactElement | null
@@ -169,28 +172,36 @@ export const ArrayFieldRows = ({
   return children(fields)
 }
 
-export const ArrayFieldContainer: React.FC<ArrayFieldProps> = ({
-  name,
-  defaultValue,
-  keyName,
-  min,
-  max,
-  children,
-  ...fieldProps
-}) => {
-  const context = useArrayField({
-    name,
-    defaultValue,
-    keyName,
-    min,
-    max,
-  })
+export const ArrayFieldContainer = React.forwardRef(
+  (
+    {
+      name,
+      defaultValue,
+      keyName,
+      min,
+      max,
+      children,
+      ...fieldProps
+    }: ArrayFieldProps,
+    ref: React.ForwardedRef<UseArrayFieldReturn>
+  ) => {
+    const context = useArrayField({
+      name,
+      defaultValue,
+      keyName,
+      min,
+      max,
+    })
 
-  return (
-    <ArrayFieldProvider value={context}>
-      <BaseField name={name} {...fieldProps}>
-        {children}
-      </BaseField>
-    </ArrayFieldProvider>
-  )
-}
+    // This exposes the useArrayField api through the forwarded ref
+    React.useImperativeHandle(ref, () => context, [ref, context])
+
+    return (
+      <ArrayFieldProvider value={context}>
+        <BaseField name={name} {...fieldProps}>
+          {children}
+        </BaseField>
+      </ArrayFieldProvider>
+    )
+  }
+)

@@ -3,6 +3,8 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 
+import { useFormContext, useWatch } from 'react-hook-form'
+
 import {
   Form,
   AutoForm,
@@ -201,3 +203,57 @@ export const minMaxNoSchema = () => (
     </Form>
   </>
 )
+
+const MyArrayField = () => {
+  const formState = useFormContext()
+
+  const watch = useWatch({
+    name: 'arrayField',
+  })
+
+  const [prevState, setPrevState] = React.useState(
+    formState.getValues('arrayField')
+  )
+
+  React.useEffect(() => {
+    console.log(prevState, watch)
+
+    setPrevState(watch)
+  }, [watch])
+
+  return (
+    <ArrayField
+      name="arrayField"
+      label="Array field"
+      keyName="_id"
+      defaultValue={{}}
+    >
+      <Field name="title" placeholder="Title" />
+      <Field name="description" type="textarea" />
+    </ArrayField>
+  )
+}
+
+export const WatchArrayField = () => {
+  return (
+    <Form
+      defaultValues={{
+        arrayField: [
+          {
+            id: 1,
+            title: 'Test',
+            description: '',
+          },
+        ],
+      }}
+      schema={arraySchema}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <MyArrayField />
+
+        <SubmitButton label="Submit" />
+      </FormLayout>
+    </Form>
+  )
+}

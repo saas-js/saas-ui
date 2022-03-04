@@ -87,7 +87,7 @@ export const Form = forwardRef(
     const methods = useForm<TFieldValues>(form)
     const { handleSubmit } = methods
 
-    // This exposes the useForm api through the forwareded ref
+    // This exposes the useForm api through the forwarded ref
     React.useImperativeHandle(ref, () => methods, [ref, methods])
 
     return (

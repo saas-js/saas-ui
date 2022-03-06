@@ -110,7 +110,7 @@ export function RedeemForm(props) {
   } else if (data) {
     content = (
       <Stack spacing="4">
-        <Heading size="md" color="white">
+        <Heading size="md">
           Welcome on board{' '}
           <chakra.span onClick={celebrate} cursor="pointer">
             🥳

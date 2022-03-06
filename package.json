@@ -43,7 +43,7 @@
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
-    "build:packages": "turbo run build  --scope='@saas-ui/*' --ignore='@saas-ui/props-docs' --concurrency=5 --no-deps --continue && yarn build:tokens",
+    "build:packages": "turbo run build  --scope='@saas-ui/*' --ignore='tooling/**/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
     "build:prop-docs": "yarn pkg props-docs build"
   },
@@ -90,6 +90,7 @@
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
+    "@chakra-ui/cli": "^1.9.0",
     "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.8.1",
     "@changesets/cli": "^2.19.0",

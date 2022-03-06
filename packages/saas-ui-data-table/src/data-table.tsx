@@ -69,7 +69,7 @@ export const DataTable = React.forwardRef(
       ...rest
     } = props
 
-    const instance = useTable(
+    const instance = useTable<Data>(
       {
         columns: React.useMemo(() => {
           return columns?.map((column: any) => {

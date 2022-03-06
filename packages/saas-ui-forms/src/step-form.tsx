@@ -20,7 +20,8 @@ import {
 } from '@saas-ui/stepper'
 import { Button, ButtonProps } from '@saas-ui/button'
 
-import { Form, FormProps, SubmitButton } from '.'
+import { Form, FormProps } from './form'
+import { SubmitButton } from './submit-button'
 
 import {
   useStepForm,

@@ -113,6 +113,6 @@ export function useFormStep(props: UseFormStepProps): StepState {
 
   return {
     ...step,
-    ...(steps[name] || {}),
+    ...(steps[name] || { name, schema }),
   }
 }

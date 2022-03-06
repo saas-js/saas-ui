@@ -12,7 +12,7 @@ import {
 import { theme as defaultTheme } from '@saas-ui/theme'
 
 export interface SaasContextValue {
-  linkComponent?: React.ReactNode
+  linkComponent?: React.ElementType<any>
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
@@ -20,7 +20,7 @@ export const SaasContext = React.createContext<SaasContextValue>({})
 
 interface SaasProviderProps {
   theme?: any
-  linkComponent?: React.ReactNode
+  linkComponent?: React.ElementType<any>
   cookies?: any
   children: React.ReactNode
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void

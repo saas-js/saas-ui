@@ -86,9 +86,9 @@ function CreateProject() {
       name: Yup.string().required().label('Name'),
       description: Yup.string().label('Description'),
     }),
-    members: {
+    members: Yup.object().shape({
       members: Yup.string().label('Members'),
-    },
+    }),
   }
 
   const onSubmit = (params) => {
@@ -144,9 +144,9 @@ function CreateProject() {
       name: Yup.string().required().label('Name'),
       description: Yup.string().label('Description'),
     }),
-    members: {
+    members: Yup.object().shape({
       members: Yup.string().label('Members'),
-    },
+    }),
   }
 
   const onSubmit = (params) => {
@@ -229,9 +229,9 @@ function CreateProject() {
       name: Yup.string().required().label('Name'),
       description: Yup.string().label('Description'),
     }),
-    members: {
+    members: Yup.object().shape({
       members: Yup.string().label('Members'),
-    },
+    }),
   }
 
   const onSubmit = (params) => {

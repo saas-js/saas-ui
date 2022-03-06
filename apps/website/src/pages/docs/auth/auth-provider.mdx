@@ -56,8 +56,10 @@ import { createAuthService } from '@saas-ui/auth/services/supabase'
 function App({ children }) {
   return (
     // ...
-    <SaasProvider {...createAuthService(supabaseClient)}>
-      <AuthProvider>{children}</AuthProvider>
+    <SaasProvider>
+      <AuthProvider {...createAuthService(supabaseClient)}>
+        {children}
+      </AuthProvider>
     </SaasProvider>
     // ...
   )

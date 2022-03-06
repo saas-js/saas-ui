@@ -203,7 +203,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   }
 
   const close = async (id?: ModalId | null, force?: boolean) => {
-    const modals = [..._instances]
+    const modals = [...Array.from(_instances)]
     const modal = modals.filter((modal) => modal.id === id)[0]
 
     if (!modal) {

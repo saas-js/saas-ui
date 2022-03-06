@@ -11,7 +11,7 @@ export interface NavLinkProps extends ButtonProps {
 }
 
 const NavLink = forwardRef((props: NavLinkProps, ref) => {
-  const { href, children, type, isActive, ...rest } = props
+  const { href, type, isActive, ...rest } = props
 
   return (
     <Link href={href as string} passHref>
@@ -22,9 +22,7 @@ const NavLink = forwardRef((props: NavLinkProps, ref) => {
         lineHeight="2rem"
         isActive={isActive}
         {...rest}
-      >
-        {children}
-      </Button>
+      />
     </Link>
   )
 })

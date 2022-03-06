@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <HStack spacing="2" flexShrink={0}>
-      {headerNav.map(({ href, id, title, ...props }, i) => {
+      {headerNav.map(({ href, id, ...props }, i) => {
         return (
           <NavLink
             display={['none', null, 'block']}
@@ -45,9 +45,7 @@ const Header = () => {
               (href && !!router.asPath.match(new RegExp(href)))
             }
             {...props}
-          >
-            {title}
-          </NavLink>
+          />
         )
       })}
 

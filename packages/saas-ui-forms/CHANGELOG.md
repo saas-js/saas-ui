@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 0.5.1
+
+### Patch Changes
+
+- c610881: Fixed a type error
+- a26aa7c: ArrayField context can now be accessed using ref.
+
 ## 0.5.0
 
 ### Minor Changes

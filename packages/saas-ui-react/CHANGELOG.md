@@ -1,5 +1,26 @@
 # @saas-ui/react
 
+## 0.11.2
+
+### Patch Changes
+
+- 2fd9917: Fixed a type issue
+- 4606dd5: useLink now uses correct type and improved performance.
+- df5cd27: Pass down the inferred type to useTable
+- a26aa7c: ArrayField context can now be accessed using ref.
+- Updated dependencies [c610881]
+- Updated dependencies [2fd9917]
+- Updated dependencies [4606dd5]
+- Updated dependencies [df5cd27]
+- Updated dependencies [a26aa7c]
+  - @saas-ui/forms@0.5.1
+  - @saas-ui/modals@0.3.2
+  - @saas-ui/provider@0.3.4
+  - @saas-ui/data-table@0.2.4
+  - @saas-ui/auth@0.6.2
+  - @saas-ui/layout@0.2.4
+  - @saas-ui/menu@0.4.4
+
 ## 0.11.1
 
 ### Patch Changes

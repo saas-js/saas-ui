@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 0.3.0
+
+### Minor Changes
+
+- Bump version
+
 ## 0.2.0
 
 ### Minor Changes

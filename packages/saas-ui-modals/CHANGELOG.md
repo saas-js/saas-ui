@@ -1,5 +1,14 @@
 # @saas-ui/modals
 
+## 0.3.2
+
+### Patch Changes
+
+- 2fd9917: Fixed a type issue
+- Updated dependencies [c610881]
+- Updated dependencies [a26aa7c]
+  - @saas-ui/forms@0.5.1
+
 ## 0.3.1
 
 ### Patch Changes

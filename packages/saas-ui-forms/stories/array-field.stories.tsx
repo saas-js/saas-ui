@@ -20,6 +20,7 @@ import {
   useArrayFieldRowContext,
   useArrayFieldAddButton,
   useArrayFieldRemoveButton,
+  UseArrayFieldReturn,
   SubmitButton,
 } from '../src'
 
@@ -243,6 +244,36 @@ export const WatchArrayField = () => {
             id: 1,
             title: 'Test',
             description: '',
+          },
+        ],
+      }}
+      schema={arraySchema}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <MyArrayField />
+
+        <SubmitButton label="Submit" />
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const ArrayFieldRef = () => {
+  const ref = React.useRef<UseArrayFieldReturn>(null)
+
+  React.useLayoutEffect(() => {
+    console.log(ref.current)
+    ref.current.append({ title: 'Appended using the ref api' })
+  }, [ref])
+
+  return (
+    <Form
+      defaultValues={{
+        arrayField: [
+          {
+            id: 1,
+            title: 'Test',
           },
         ],
       }}

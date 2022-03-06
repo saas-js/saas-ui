@@ -163,7 +163,6 @@ export function RedeemForm(props) {
           <Field
             name="githubAccount"
             label="Github username"
-            placeholder="@"
             rules={{ required: true }}
           />
 

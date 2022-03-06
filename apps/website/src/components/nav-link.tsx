@@ -7,6 +7,7 @@ import Link from 'next/link'
 export interface NavLinkProps extends ButtonProps {
   isActive?: boolean
   href?: string
+  id?: string
 }
 
 const NavLink = forwardRef((props: NavLinkProps, ref) => {

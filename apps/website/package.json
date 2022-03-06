@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -28,7 +28,7 @@
     "@next/bundle-analyzer": "^12.0.7",
     "@octokit/rest": "^18.12.0",
     "@saas-ui/palette": "workspace:*",
-    "@saas-ui/props-docs": "workspace:^",
+    "@saas-ui/props-docs": "^0.3.0",
     "@saas-ui/web3": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "canvas-confetti": "^1.5.1",

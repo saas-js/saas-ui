@@ -1,5 +1,11 @@
 # @saas-ui/provider
 
+## 0.3.4
+
+### Patch Changes
+
+- 4606dd5: useLink now uses correct type and improved performance.
+
 ## 0.3.3
 
 ### Patch Changes

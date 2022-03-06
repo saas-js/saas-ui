@@ -21,7 +21,8 @@
       "@/layouts/*": ["src/layouts/*"],
       "@/lib/*": ["src/lib/*"],
       "@/docs/*": ["src/docs/*"],
-      "@/hooks/*": ["src/hooks/*"]
+      "@/hooks/*": ["src/hooks/*"],
+      "@saas-ui/react": ["../../packages/saas-ui-react/src"]
     },
     "incremental": true
   },

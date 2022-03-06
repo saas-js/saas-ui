@@ -1,5 +1,12 @@
 # @saas-ui/data-table
 
+## 0.2.4
+
+### Patch Changes
+
+- df5cd27: Pass down the inferred type to useTable
+  - @saas-ui/layout@0.2.4
+
 ## 0.2.3
 
 ### Patch Changes

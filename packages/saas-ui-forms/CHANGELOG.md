@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.5.2
+
+### Patch Changes
+
+- 0f67f76: Fixed circular dependency
+
 ## 0.5.1
 
 ### Patch Changes

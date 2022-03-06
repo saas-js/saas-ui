@@ -1,5 +1,12 @@
 # @saas-ui/auth
 
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies [0f67f76]
+  - @saas-ui/forms@0.5.2
+
 ## 0.6.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 0.3.1
+
+### Patch Changes
+
+- 8b731d8: usePromise errors are now re-thrown
+
 ## 0.3.0
 
 ### Minor Changes

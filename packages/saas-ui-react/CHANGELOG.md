@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 0.11.4
+
+### Patch Changes
+
+- 8b731d8: usePromise errors are now re-thrown
+- Updated dependencies [8b731d8]
+  - @saas-ui/hooks@0.3.1
+  - @saas-ui/auth@0.6.4
+
 ## 0.11.3
 
 ### Patch Changes

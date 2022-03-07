@@ -1,5 +1,12 @@
 # @saas-ui/auth
 
+## 0.6.4
+
+### Patch Changes
+
+- Updated dependencies [8b731d8]
+  - @saas-ui/hooks@0.3.1
+
 ## 0.6.3
 
 ### Patch Changes

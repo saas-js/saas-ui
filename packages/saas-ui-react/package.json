@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "0.11.4",
+  "version": "0.11.5",
   "description": "Saas UI - The frontend stack for SaaS companies.",
   "source": "src/index.ts",
   "exports": {

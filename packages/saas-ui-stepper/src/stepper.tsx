@@ -110,7 +110,7 @@ export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
 
     if (orientation === 'vertical') {
       memo.push(
-        <StepperContent isOpen={activeIndex === i}>
+        <StepperContent key={`content-${i}`} isOpen={activeIndex === i}>
           {step.props.children}
         </StepperContent>
       )

@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 0.11.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/stepper@0.1.2
+
 ## 0.11.4
 
 ### Patch Changes

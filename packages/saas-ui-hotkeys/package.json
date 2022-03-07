@@ -58,8 +58,8 @@
   },
   "dependencies": {
     "@chakra-ui/layout": "^1.7.0",
-    "@saas-ui/search-input": "workspace:*",
-    "@saas-ui/system": "workspace:*"
+    "@chakra-ui/react-utils": "^1.2.3",
+    "@saas-ui/search-input": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=1.0.0",

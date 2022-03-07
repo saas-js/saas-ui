@@ -8,10 +8,10 @@ import {
   ThemingProps,
   omitThemingProps,
   useColorModeValue,
+  useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { FormProps, FieldErrors } from '@saas-ui/forms'
-import { useMultiStyleConfig } from '@saas-ui/system'
 
 import { MagicLinkForm } from './magic-link-form'
 import { PasswordForm } from './password-form'

@@ -28,6 +28,7 @@
     "@emotion/jest": "^11.6.0",
     "@saas-ui/react": "workspace:*",
     "@storybook/testing-react": "^1.2.3",
+    "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "7.0.2",
@@ -37,7 +38,17 @@
     "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
-    "react": ">=16.8.6"
+    "@chakra-ui/system": ">=1.0.0",
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11",
+    "@storybook/addon-a11y": ">=6",
+    "@storybook/addons": ">=6",
+    "@storybook/client-api": ">=6",
+    "@storybook/preview-web": ">=6",
+    "@storybook/react": ">=6",
+    "framer-motion": ">=5.5.0",
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
   },
   "devDependencies": {
     "react": "^17.0.1"

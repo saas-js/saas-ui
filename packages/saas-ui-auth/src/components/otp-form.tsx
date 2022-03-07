@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field } from '@saas-ui/forms'
+import {
+  Form,
+  FormLayout,
+  Field,
+  FormProps,
+  SubmitHandler,
+} from '@saas-ui/forms'
 
 import { useOtp } from '../provider'
 
@@ -10,10 +16,11 @@ import { AuthFormSuccess } from './success'
 
 interface SubmitParams {
   otp: string
+  [key: string]: any
 }
 
-export interface OtpFormProps {
-  schema?: any
+export interface OtpFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   label?: string
   helpText?: string
   pinLength?: number
@@ -25,7 +32,6 @@ export interface OtpFormProps {
 }
 
 export const OtpForm: React.FC<OtpFormProps> = ({
-  schema,
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
@@ -41,7 +47,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 }) => {
   const [{ isLoading, data }, submit] = useOtp()
 
-  const handleSubmit = (params: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = (params) => {
     return submit(params).then(onSuccess).catch(onError)
   }
 
@@ -51,7 +57,6 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 
   return (
     <Form
-      schema={schema}
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ otp: '' }}

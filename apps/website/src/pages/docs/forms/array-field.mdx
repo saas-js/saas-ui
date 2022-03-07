@@ -49,10 +49,26 @@ Simple array of string values.
 
 ```jsx
 function CreateTodoItem() {
-  const schema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
-    todos: Yup.array().min(1).of(Yup.string().min(2)),
-  })
+  const schema = {
+    title: {
+      label: 'Title',
+      rules: {
+        required: true,
+      },
+    },
+    todos: {
+      type: 'array',
+      min: 1,
+      items: {
+        type: 'object',
+        properties: {
+          todo: {
+            label: 'Todo',
+          },
+        },
+      },
+    },
+  }
 
   return (
     <AutoForm
@@ -93,7 +109,7 @@ function CreateIssue() {
         title: '',
         issues: [{ title: '' }],
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={() => null}
     >
       <FormLayout>
@@ -137,7 +153,7 @@ function CustomArrayField() {
           },
         ],
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={() => Promise.resolve()}
     >
       <FormLayout>
@@ -218,6 +234,52 @@ const RemoveButton = () => {
     <Button variant="ghost" {...useArrayFieldRemoveButton()}>
       Remove
     </Button>
+  )
+}
+```
+
+### Accessing the ArrayField context
+
+You can access the ArrayField context by using a ref, or using `useArrayFieldContext`
+
+```jsx
+function CreateIssue() {
+  const ref = React.useRef(null)
+
+  React.useLayoutEffect(() => {
+    console.log(ref.current)
+    ref.current.append({ title: 'Appended using the ref api' })
+  }, [ref])
+
+  const issueSchema = Yup.object().shape({
+    title: Yup.string().required().label('Title'),
+  })
+
+  const schema = issueSchema.concat(
+    Yup.object().shape({
+      issues: Yup.array().min(1).max(4).of(issueSchema),
+    })
+  )
+
+  return (
+    <Form
+      defaultValues={{
+        title: '',
+        issues: [{ title: '' }],
+      }}
+      resolver={yupResolver(schema)}
+      onSubmit={() => null}
+    >
+      <FormLayout>
+        <Field name="title" label="Title" />
+
+        <ArrayField name="issues" label="Sub-issues" ref={ref}>
+          <Field name="title" placeholder="Sub-issue title" />
+        </ArrayField>
+
+        <SubmitButton>Create todo</SubmitButton>
+      </FormLayout>
+    </Form>
   )
 }
 ```

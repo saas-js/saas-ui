@@ -8,12 +8,15 @@
       "require": "./dist/index.js",
       "default": "./dist/index.modern.js"
     },
-    "./resolvers/yup": {
-      "require": "./dist/resolvers/yup.js",
-      "default": "./dist/resolvers/yup.modern.js"
-    },
     "./src": {
       "default": "./src/index.ts"
+    },
+    "./yup": {
+      "require": "./yup/dist/index.js",
+      "default": "./yup/dist/index.modern.js"
+    },
+    "./yup/src": {
+      "default": "./yup/src/index.ts"
     }
   },
   "main": "./dist/index.js",
@@ -21,14 +24,19 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "yarn build:package && yarn build:yup",
+    "build:package": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build:yup": "cross-env NODE_ENV=production microbundle --cwd yup --tsconfig ./yup/tsconfig.json -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "yup/package.json",
+    "yup/src",
+    "yup/dist"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -79,7 +87,6 @@
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6",
-    "yup": "^0.32.11"
+    "react": ">=16.8.6"
   }
 }

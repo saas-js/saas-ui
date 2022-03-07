@@ -12,9 +12,7 @@ import {
   SubmitErrorHandler,
 } from 'react-hook-form'
 
-import { yupResolver } from './resolvers/yup'
-
-export type { UseFormReturn }
+export type { UseFormReturn, SubmitHandler }
 
 interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
@@ -35,15 +33,15 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   formRef?: React.MutableRefObject<HTMLFormElement>
 }
 
+/**
+ * @todo Figure out how to pass down FieldValues to all Field components,
+ * if at all possible.
+ */
 export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseFormProps<TFieldValues>,
     Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
     FormOptions<TFieldValues> {}
 
-/**
- * @todo Figure out how to pass down FieldValues to all Field components,
- * if at all possible.
- */
 export const Form = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FormProps<TFieldValues>,
@@ -77,11 +75,6 @@ export const Form = forwardRef(
       shouldUseNativeValidation,
       criteriaMode,
       delayError,
-    }
-
-    // @todo remove yup dependency and just use resolver prop?
-    if (schema) {
-      form.resolver = yupResolver(schema)
     }
 
     const methods = useForm<TFieldValues>(form)

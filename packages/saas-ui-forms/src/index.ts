@@ -11,7 +11,7 @@ export * from './object-field'
 export * from './display-if'
 export * from './step-form'
 export * from './use-step-form'
-
+export * from './field-resolver'
 export * from '@saas-ui/input-right-button'
 
 export type { FieldErrors } from 'react-hook-form'

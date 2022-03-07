@@ -38,7 +38,7 @@ function Post() {
         title: '',
         description: '',
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={() => null}
       submitLabel="Save post"
     />
@@ -61,7 +61,7 @@ function Post() {
         title: '',
         description: '',
       }}
-      schema={schema}
+      resolve={yupResolver(schema)}
       onSubmit={(params) => alert(params)}
       submitLabel={false}
     />

@@ -5,6 +5,8 @@ import * as Yup from 'yup'
 
 import { useFormContext, useWatch } from 'react-hook-form'
 
+import { yupForm } from '@saas-ui/forms/yup'
+
 import {
   Form,
   AutoForm,
@@ -27,6 +29,7 @@ import {
 import { Button } from '@saas-ui/button'
 
 import { onSubmit } from './helpers'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export default {
   title: 'Components/Forms/ArrayField',
@@ -48,7 +51,7 @@ const arraySchema = Yup.object().shape({
   arrayField: Yup.array().min(2).max(4).of(subSchema).label('Array field'),
 })
 
-export const autoArrayField = () => {
+export const AutoArrayField = () => {
   return (
     <>
       <AutoForm
@@ -59,8 +62,43 @@ export const autoArrayField = () => {
             },
           ],
         }}
-        schema={arraySchema}
+        schema={{
+          arrayField: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                title: {
+                  label: 'Title',
+                  rules: { required: true },
+                },
+                description: {
+                  label: 'Description',
+                  type: 'textarea',
+                },
+              },
+            },
+          },
+        }}
         onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+
+export const AutoYupArrayField = () => {
+  return (
+    <>
+      <AutoForm
+        defaultValues={{
+          arrayField: [
+            {
+              title: 'Test',
+            },
+          ],
+        }}
+        onSubmit={onSubmit}
+        {...yupForm(arraySchema)}
       />
     </>
   )
@@ -76,7 +114,7 @@ export const arrayField = () => (
           },
         ],
       }}
-      schema={arraySchema}
+      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
@@ -131,7 +169,7 @@ export const customArrayField = () => (
           },
         ],
       }}
-      schema={arraySchema}
+      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
@@ -247,7 +285,7 @@ export const WatchArrayField = () => {
           },
         ],
       }}
-      schema={arraySchema}
+      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
@@ -277,7 +315,7 @@ export const ArrayFieldRef = () => {
           },
         ],
       }}
-      schema={arraySchema}
+      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>

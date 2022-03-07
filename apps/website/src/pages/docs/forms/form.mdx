@@ -113,7 +113,7 @@ function CreateProject() {
         name: '',
         description: '',
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={onSubmit}
     >
       <FormLayout>

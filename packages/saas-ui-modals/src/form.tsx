@@ -2,7 +2,13 @@ import * as React from 'react'
 
 import { ModalBody, ModalFooter } from '@chakra-ui/react'
 
-import { Form, Fields, SubmitButton, FormProps } from '@saas-ui/forms'
+import {
+  Form,
+  Fields,
+  SubmitButton,
+  FormProps,
+  FieldResolver,
+} from '@saas-ui/forms'
 import { Button } from '@saas-ui/button'
 
 import { BaseModal, BaseModalProps } from './modal'
@@ -42,12 +48,18 @@ export interface FormDialogProps
    * If no children are passed, this will auto render fields based on the supplied schema.
    */
   children?: React.ReactNode
+  /**
+   * A schema field resolver used to auto generate form fields.
+   */
+  fieldResolver?: FieldResolver
 }
 
 export const FormDialog: React.FC<FormDialogProps> = (props) => {
   const {
     children,
     schema,
+    resolver,
+    fieldResolver,
     defaultValues,
     onSubmit,
     reValidateMode,
@@ -66,6 +78,7 @@ export const FormDialog: React.FC<FormDialogProps> = (props) => {
 
   const formProps = {
     schema,
+    resolver,
     defaultValues,
     onSubmit,
     reValidateMode,
@@ -86,7 +99,9 @@ export const FormDialog: React.FC<FormDialogProps> = (props) => {
       {...rest}
     >
       <Form {...formProps}>
-        <ModalBody>{children || <Fields schema={schema} />}</ModalBody>
+        <ModalBody>
+          {children || <Fields schema={schema} fieldResolver={fieldResolver} />}
+        </ModalBody>
 
         {footer || (
           <ModalFooter>

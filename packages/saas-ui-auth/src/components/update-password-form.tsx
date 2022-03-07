@@ -1,6 +1,13 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field, UseFormReturn } from '@saas-ui/forms'
+import {
+  Form,
+  FormProps,
+  FormLayout,
+  Field,
+  UseFormReturn,
+  SubmitHandler,
+} from '@saas-ui/forms'
 
 import { useUpdatePassword } from '../provider'
 
@@ -9,10 +16,11 @@ import { LoginButton } from './login-button'
 interface SubmitParams {
   password: string
   confirmPassword: string
+  [key: string]: any
 }
 
-export interface UpdatePasswordFormProps {
-  schema?: any
+export interface UpdatePasswordFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   label?: string
   confirmLabel?: string
   helpText?: string
@@ -24,7 +32,6 @@ export interface UpdatePasswordFormProps {
 }
 
 export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
-  schema,
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
@@ -39,7 +46,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
 
   const formRef = React.useRef<UseFormReturn<SubmitParams>>(null)
 
-  const handleSubmit = ({ password }: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = ({ password }) => {
     return submit({ password }).then(onSuccess).catch(onError)
   }
 
@@ -50,7 +57,6 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
 
   return (
     <Form
-      schema={schema}
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ password: '', confirmPassword: '' }}

@@ -1,7 +1,7 @@
-import { SchemaOf, AnySchema, reach } from 'yup'
-export { yupResolver } from '@hookform/resolvers/yup'
+import { reach, AnyObjectSchema } from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import { FieldProps } from '../field'
+import { FieldProps } from '../../src/field'
 
 // @TODO get proper typings for the schema fields
 
@@ -42,9 +42,7 @@ const getArrayOption = (field: any, name: string) => {
  * @param schema The Yup schema
  * @returns {FieldProps[]}
  */
-export const getFieldsFromSchema = (
-  schema: SchemaOf<AnySchema>
-): FieldProps[] => {
+export const getFieldsFromSchema = (schema: AnyObjectSchema): FieldProps[] => {
   const fields = []
 
   let schemaFields: Record<string, any> = {}
@@ -54,7 +52,7 @@ export const getFieldsFromSchema = (
   } else {
     schemaFields = schema.fields
   }
-
+  console.log(schemaFields)
   for (const name in schemaFields) {
     const field = schemaFields[name]
 
@@ -74,6 +72,29 @@ export const getFieldsFromSchema = (
   return fields
 }
 
-export const getNestedSchema = (schema: SchemaOf<AnySchema>, path: string) => {
+export const getNestedSchema = (schema: AnyObjectSchema, path: string) => {
   return reach(schema, path)
+}
+
+export const fieldResolver = (schema: AnyObjectSchema) => {
+  return {
+    getFields() {
+      return getFieldsFromSchema(schema)
+    },
+    getNestedFields(name: string) {
+      return getFieldsFromSchema(getNestedSchema(schema, name))
+    },
+  }
+}
+
+export const yupForm = (
+  schema: AnyObjectSchema,
+  schemaOptions = {},
+  resolverOptions = {}
+) => {
+  return {
+    schema,
+    resolver: yupResolver(schema, schemaOptions, resolverOptions),
+    fieldResolver: fieldResolver(schema),
+  }
 }

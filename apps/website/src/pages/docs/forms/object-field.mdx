@@ -45,7 +45,7 @@ function CreatePost() {
           name: '',
         },
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={() => null}
     />
   )
@@ -81,7 +81,7 @@ function CreatePost() {
           email: '',
         },
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={() => null}
     >
       <FormLayout>

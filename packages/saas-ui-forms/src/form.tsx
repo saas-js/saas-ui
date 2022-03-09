@@ -14,7 +14,7 @@ import {
 
 import { yupResolver } from './resolvers/yup'
 
-export type { UseFormReturn }
+export type { UseFormReturn, FieldValues }
 
 interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**

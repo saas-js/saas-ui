@@ -29,6 +29,7 @@ import { PasswordInput } from '@saas-ui/password-input'
 import { RadioInput } from '@saas-ui/radio'
 import { PinInput } from '@saas-ui/pin-input'
 import { Select, NativeSelect } from '@saas-ui/select'
+import { FocusableElement } from '@chakra-ui/utils'
 
 export interface Option {
   value: string
@@ -158,7 +159,7 @@ export const Field = forwardRef(
     props: FieldProps<TFieldValues> & {
       [key: string]: unknown // Make sure attributes of custom components work. Need to change this to a global typedef at some point.
     },
-    ref: React.ForwardedRef<typeof FormControl>
+    ref: React.ForwardedRef<FocusableElement>
   ) => {
     const { type = defaultInputType } = props
     const InputComponent = getInput(type)
@@ -169,7 +170,7 @@ export const Field = forwardRef(
   props: FieldProps<TFieldValues> & {
     [key: string]: unknown
   } & {
-    ref?: React.ForwardedRef<typeof FormControl>
+    ref?: React.ForwardedRef<FocusableElement>
   }
 ) => React.ReactElement
 

@@ -1,5 +1,14 @@
 # @saas-ui/modals
 
+## 0.3.4
+
+### Patch Changes
+
+- 70340f0: useModal now has the correct types
+- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context ref
+- Updated dependencies [9245460]
+  - @saas-ui/forms@0.5.3
+
 ## 0.3.3
 
 ### Patch Changes

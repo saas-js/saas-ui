@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 0.11.6
+
+### Patch Changes
+
+- 70340f0: useModal now has the correct types
+- 9245460: Make sure Field ref is focusable
+- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context ref
+- Updated dependencies [70340f0]
+- Updated dependencies [9245460]
+- Updated dependencies [6c78c30]
+  - @saas-ui/modals@0.3.4
+  - @saas-ui/forms@0.5.3
+  - @saas-ui/auth@0.6.5
+
 ## 0.11.5
 
 ### Patch Changes

@@ -19,6 +19,14 @@ import { Field } from '@saas-ui/react'
 
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
+import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+const passwordSchema = Yup.object({
+  email: Yup.string().email('Invalid email address').required().label('Email'),
+  password: Yup.string().min(4).required().label('Password'),
+})
+
 const authProvider = {
   onLogin: async (params: AuthParams) => {
     console.log('onLogin', params)
@@ -96,6 +104,7 @@ export const ButtonColor = () => {
 export const Password = Template.bind({})
 Password.args = {
   type: 'password',
+  resolver: yupResolver(passwordSchema),
 }
 
 export const PasswordWithCustomFields = () => {

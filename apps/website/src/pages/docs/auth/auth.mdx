@@ -137,6 +137,27 @@ function SignUpPage() {
 }
 ```
 
+### Schema validation
+
+```jsx
+function LoginPage() {
+  const schema = Yup.object({
+    email: Yup.string()
+      .email('Invalid email address')
+      .required()
+      .label('Email'),
+    password: Yup.string().min(4).required().label('Password'),
+  })
+  return (
+    <PasswordForm
+      action="logIn"
+      submitLabel="Log in"
+      resolver={yupResolver(schema)}
+    />
+  )
+}
+```
+
 ## Props
 
 ### Auth Props

@@ -7,17 +7,19 @@ import { MenuDialog, MenuDialogProps } from './menu'
 import { FormDialog, FormDialogProps } from './form'
 
 export interface ModalsContextValue {
-  open?: (options: OpenOptions) => ModalId
-  drawer?: (options: DrawerOptions) => ModalId
-  alert?: (options: ConfirmDialogOptions) => ModalId
-  confirm?: (options: ConfirmDialogOptions) => ModalId
-  menu?: (options: MenuDialogOptions) => ModalId
-  form?: (options: FormDialogOptions) => ModalId
-  close?: (id: ModalId) => void
-  closeAll?: () => void
+  open: (options: OpenOptions) => ModalId
+  drawer: (options: DrawerOptions) => ModalId
+  alert: (options: ConfirmDialogOptions) => ModalId
+  confirm: (options: ConfirmDialogOptions) => ModalId
+  menu: (options: MenuDialogOptions) => ModalId
+  form: (options: FormDialogOptions) => ModalId
+  close: (id: ModalId) => void
+  closeAll: () => void
 }
 
-export const ModalsContext = React.createContext<ModalsContextValue>({})
+export const ModalsContext = React.createContext<ModalsContextValue | null>(
+  null
+)
 
 interface ModalsProviderProps {
   children: React.ReactNode
@@ -272,8 +274,8 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   )
 }
 
-export const useModalsContext = (): ModalsContextValue =>
-  React.useContext(ModalsContext)
+export const useModalsContext = () =>
+  React.useContext(ModalsContext) as ModalsContextValue
 
 export const useModals = () => {
   return useModalsContext()

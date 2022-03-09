@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 0.3.5
+
+### Patch Changes
+
+- 99f3e33: Custom modal components can now be directly passed to modals.open
+
 ## 0.3.4
 
 ### Patch Changes

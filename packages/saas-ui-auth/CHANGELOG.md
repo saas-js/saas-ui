@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.6.6
+
+### Patch Changes
+
+- a268365: Fixed AuthToken type
+
 ## 0.6.5
 
 ### Patch Changes

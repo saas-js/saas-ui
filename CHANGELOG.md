@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-11-2022
+
+`@saas-ui/react@0.11.8`
+
+- Fixed AuthToken type
+
 # @saas-ui/react
 
 ## 0.11.7

@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.11.8
+
+### Patch Changes
+
+- a268365: Fixed AuthToken type
+- Updated dependencies [a268365]
+  - @saas-ui/auth@0.6.6
+
 ## 0.11.7
 
 ### Patch Changes

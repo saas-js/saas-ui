@@ -13374,6 +13374,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.28.0":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
+  languageName: node
+  linkType: hard
+
 "deasync@npm:^0.1.0":
   version: 0.1.24
   resolution: "deasync@npm:0.1.24"
@@ -25168,6 +25175,7 @@ __metadata:
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@jest/types": ^27.5.1
+    "@manypkg/get-packages": ^1.1.3
     "@storybook/addon-a11y": ^6.4.9
     "@storybook/addon-storysource": ^6.4.9
     "@storybook/addon-toolbars": ^6.4.9
@@ -25176,6 +25184,7 @@ __metadata:
     "@swc-node/jest": ^1.4.3
     "@typescript-eslint/eslint-plugin": ^5.7.0
     cross-env: ^7.0.3
+    date-fns: ^2.28.0
     eslint: ^8.5.0
     eslint-config-prettier: ^8.3.0
     eslint-import-resolver-typescript: ^2.5.0
@@ -25187,6 +25196,7 @@ __metadata:
     jest-environment-jsdom: ^27.5.1
     jest-watch-typeahead: ^1.0.0
     lint-staged: ^12.1.3
+    lodash: ^4.17.21
     microbundle: ^0.14.2
     prettier: ^2.5.1
     react: ^17.0.2
@@ -25196,6 +25206,7 @@ __metadata:
     react-test-renderer: ^17.0.2
     rimraf: ^3.0.2
     storybook-addon-performance: ^0.16.1
+    ts-node: ^10.7.0
     turbo: ^1.1.5
     typescript: ^4.5.4
   languageName: unknown
@@ -27217,6 +27228,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-node@npm:^10.7.0":
+  version: 10.7.0
+  resolution: "ts-node@npm:10.7.0"
+  dependencies:
+    "@cspotcode/source-map-support": 0.7.0
+    "@tsconfig/node10": ^1.0.7
+    "@tsconfig/node12": ^1.0.7
+    "@tsconfig/node14": ^1.0.0
+    "@tsconfig/node16": ^1.0.2
+    acorn: ^8.4.1
+    acorn-walk: ^8.1.1
+    arg: ^4.1.0
+    create-require: ^1.1.0
+    diff: ^4.0.1
+    make-error: ^1.1.1
+    v8-compile-cache-lib: ^3.0.0
+    yn: 3.1.1
+  peerDependencies:
+    "@swc/core": ">=1.2.50"
+    "@swc/wasm": ">=1.2.50"
+    "@types/node": "*"
+    typescript: ">=2.7"
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    "@swc/wasm":
+      optional: true
+  bin:
+    ts-node: dist/bin.js
+    ts-node-cwd: dist/bin-cwd.js
+    ts-node-esm: dist/bin-esm.js
+    ts-node-script: dist/bin-script.js
+    ts-node-transpile-only: dist/bin-transpile.js
+    ts-script: dist/bin-script-deprecated.js
+  checksum: 2a379e43f7478d0b79e1e63af91fe222d83857727957df4bd3bdf3c0a884de5097b12feb9bbf530074526b8874c0338b0e6328cf334f3a5e2c49c71e837273f7
+  languageName: node
+  linkType: hard
+
 "ts-pattern@npm:^3.3.3":
   version: 3.3.3
   resolution: "ts-pattern@npm:3.3.3"
@@ -28295,6 +28344,13 @@ __metadata:
   bin:
     uvu: bin.js
   checksum: 369135a16dc454121681a83fbfe0a5d7733d3758403e921f4911eab8355235a1a5aeb59046f842046fbd4695d5267c463ca2b0ceb6787d6772d67e2f377bcf1f
+  languageName: node
+  linkType: hard
+
+"v8-compile-cache-lib@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "v8-compile-cache-lib@npm:3.0.0"
+  checksum: 674e312bbca796584b61dc915f33c7e7dc4e06d196e0048cb772c8964493a1ec723f1dd014d9419fd55c24a6eae148f60769da23f622e05cd13268063fa1ed6b
   languageName: node
   linkType: hard
 

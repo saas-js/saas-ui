@@ -17,7 +17,6 @@ export function getRoutes(slug: string) {
   const configMap = {
     '/resources': docsSidebar,
     '/changelog': docsSidebar,
-    // '/guides': guidesSidebar,
     '/docs': docsSidebar,
   }
 

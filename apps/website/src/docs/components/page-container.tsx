@@ -147,8 +147,8 @@ function PageContainer(props: PageContainerProps) {
                           </>
                         )}
                         {date && formatRelative(new Date(date), new Date())}{' '}
-                        <Spacer />
-                        {stats.text}
+                        {stats && <Spacer />}
+                        {stats?.text}
                       </Box>
                     )}
                     {children}

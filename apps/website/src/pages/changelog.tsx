@@ -1,23 +1,19 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import {
-  Box,
-  Heading,
-  Text,
-  Stack,
-  Container,
-  LinkBox,
-  LinkOverlay,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import fs from 'fs'
+import { Box, Heading, Stack } from '@chakra-ui/react'
 
 import SEO from '@/components/seo'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { allChangelogs } from '.contentlayer/data'
 // import type { Changelog } from '.contentlayer/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import generateRss from '@/utils/generate-rss'
+
 import Layout from '../layouts'
 
 import Link from '@/components/link'
+
+import { compareDesc } from 'date-fns'
 
 const Post = (props) => {
   const { title, body, frontMatter } = props
@@ -56,7 +52,13 @@ const Changelog = ({ changelogs }) => {
 export default Changelog
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const changelogs = allChangelogs || []
+  const changelogs =
+    allChangelogs.sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date))
+    }) || []
+
+  const rss = generateRss(allChangelogs, 'changelog.xml')
+  fs.writeFileSync('./public/changelog.xml', rss)
 
   return {
     props: {

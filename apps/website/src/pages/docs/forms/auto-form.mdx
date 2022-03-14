@@ -23,7 +23,66 @@ import { AutoForm, Fields } from '@saas-ui/react'
 
 ## Usage
 
-Generate forms based on a schema.
+Generate forms based on a schema, currently only acceps a basic object schema and `Yup` schemas.
+
+## Object schema
+
+The object schema is a simple object with field props.
+
+```jsx
+function Task() {
+  const schema = {
+    title: {
+      label: 'Title',
+      rules: {
+        required: true,
+      },
+    },
+    todos: {
+      type: 'array',
+      min: 1,
+      items: {
+        type: 'object',
+        properties: {
+          todo: {
+            label: 'Todo',
+          },
+        },
+      },
+    },
+    author: {
+      type: 'object',
+      label: 'Author',
+      properties: {
+        name: {
+          label: 'Name',
+        },
+      },
+    },
+  }
+
+  return (
+    <AutoForm
+      defaultValues={{
+        title: '',
+        todos: [{ todo: '' }],
+        author: {
+          name: 'Elliot',
+        },
+      }}
+      onSubmit={() => null}
+      submitLabel="Save task"
+      schema={schema}
+    />
+  )
+}
+```
+
+## Yup schema
+
+```ts
+import { yupForm } from '@saas-ui/forms/yup'
+```
 
 ```jsx
 function Post() {
@@ -38,9 +97,9 @@ function Post() {
         title: '',
         description: '',
       }}
-      resolver={yupResolver(schema)}
       onSubmit={() => null}
       submitLabel="Save post"
+      {...yupForm(schema)}
     />
   )
 }
@@ -61,9 +120,9 @@ function Post() {
         title: '',
         description: '',
       }}
-      resolve={yupResolver(schema)}
       onSubmit={(params) => alert(params)}
       submitLabel={false}
+      {...yupForm(schema)}
     />
   )
 }

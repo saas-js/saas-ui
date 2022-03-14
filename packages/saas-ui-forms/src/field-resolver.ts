@@ -28,10 +28,10 @@ export const defaultFieldResolver = (schema: FormSchema): FieldResolver => {
     if (!field) return []
 
     if (field.items?.type === 'object') {
-      console.log('object', name, mapFields(field.items.properties))
       return mapFields(field.items.properties)
+    } else if (field.type === 'object') {
+      return mapFields(field.properties)
     }
-    console.log('nested', name, [field.items])
     return [field.items]
   }
 

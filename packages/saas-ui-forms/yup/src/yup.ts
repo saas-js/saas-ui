@@ -52,7 +52,7 @@ export const getFieldsFromSchema = (schema: AnyObjectSchema): FieldProps[] => {
   } else {
     schemaFields = schema.fields
   }
-  console.log(schemaFields)
+
   for (const name in schemaFields) {
     const field = schemaFields[name]
 

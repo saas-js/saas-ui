@@ -6,6 +6,7 @@ import { Form, FormProps } from './form'
 import { FormLayout } from './layout'
 import { Fields } from './fields'
 import { SubmitButton } from './submit-button'
+import { FieldResolver } from '.'
 
 interface AutoFormOptions {
   submitLabel?: false | string
@@ -25,7 +26,7 @@ export const AutoForm = forwardRef(
     const { schema, submitLabel = 'Submit', fieldResolver, ...rest } = props
 
     return (
-      <Form {...rest} ref={ref}>
+      <Form {...rest} schema={schema} ref={ref}>
         <FormLayout>
           {<Fields schema={schema} fieldResolver={fieldResolver} />}
           {submitLabel && <SubmitButton label={submitLabel} />}
@@ -33,8 +34,8 @@ export const AutoForm = forwardRef(
       </Form>
     )
   }
-) as <TFieldValues extends FieldValues>(
+) as (<TFieldValues extends FieldValues>(
   props: AutoFormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
-) => React.ReactElement
+) => React.ReactElement) & { getFieldResolver?: (schema: any) => FieldResolver }

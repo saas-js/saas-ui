@@ -12,11 +12,8 @@
       "default": "./src/index.ts"
     },
     "./yup": {
-      "require": "./yup/dist/index.js",
-      "default": "./yup/dist/index.modern.js"
-    },
-    "./yup/src": {
-      "default": "./yup/src/index.ts"
+      "require": "./dist/yup/index.js",
+      "default": "./dist/yup/index.modern.js"
     }
   },
   "main": "./dist/index.js",
@@ -35,8 +32,7 @@
     "dist",
     "src",
     "yup/package.json",
-    "yup/src",
-    "yup/dist"
+    "yup/src"
   ],
   "sideEffects": false,
   "publishConfig": {

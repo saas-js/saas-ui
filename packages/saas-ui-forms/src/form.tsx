@@ -10,7 +10,11 @@ import {
   FieldValues,
   SubmitHandler,
   SubmitErrorHandler,
+  UnpackNestedValue,
+  ResolverOptions,
+  ResolverResult,
 } from 'react-hook-form'
+import { defaultFieldResolver, FieldResolver } from './field-resolver'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
@@ -77,6 +81,10 @@ export const Form = forwardRef(
       delayError,
     }
 
+    if (schema && !resolver) {
+      form.resolver = Form.getResolver?.(schema)
+    }
+
     const methods = useForm<TFieldValues>(form)
     const { handleSubmit } = methods
 
@@ -95,8 +103,23 @@ export const Form = forwardRef(
       </FormProvider>
     )
   }
-) as <TFieldValues extends FieldValues>(
+) as (<TFieldValues extends FieldValues>(
   props: FormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
-) => React.ReactElement
+) => React.ReactElement) & {
+  getResolver?: GetResolver
+  getFieldResolver: GetFieldResolver
+}
+
+Form.getFieldResolver = defaultFieldResolver
+
+export type GetResolver = (
+  schema: any
+) => <TFieldValues extends FieldValues, TContext>(
+  values: UnpackNestedValue<TFieldValues>,
+  context: TContext | undefined,
+  options: ResolverOptions<TFieldValues>
+) => Promise<ResolverResult<TFieldValues>>
+
+export type GetFieldResolver = (schema: any) => FieldResolver

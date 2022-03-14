@@ -1,12 +1,12 @@
 import * as React from 'react'
 
+import { Form } from './form'
 import { FormLayout } from './layout'
 import { Field, FieldProps } from './field'
 
 import { ArrayField } from './array-field'
 import { ObjectField } from './object-field'
 import { FieldResolver } from './field-resolver'
-import { defaultFieldResolver } from './field-resolver'
 
 export interface FieldsProps {
   schema: any
@@ -29,7 +29,7 @@ export const Fields: React.FC<FieldsProps> = ({
   ...props
 }) => {
   const resolver = React.useMemo(
-    () => fieldResolver || defaultFieldResolver(schema),
+    () => fieldResolver || Form.getFieldResolver(schema),
     [schema, fieldResolver]
   )
 

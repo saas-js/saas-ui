@@ -3,8 +3,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { FieldProps } from '../../src/field'
 
-// @TODO get proper typings for the schema fields
+export { yupResolver }
 
+// @TODO get proper typings for the schema fields
 const getType = (field: any) => {
   if (field.spec.meta?.type) {
     return field.spec.meta.type
@@ -76,7 +77,7 @@ export const getNestedSchema = (schema: AnyObjectSchema, path: string) => {
   return reach(schema, path)
 }
 
-export const fieldResolver = (schema: AnyObjectSchema) => {
+export const yupFieldResolver = (schema: AnyObjectSchema) => {
   return {
     getFields() {
       return getFieldsFromSchema(schema)
@@ -95,6 +96,6 @@ export const yupForm = (
   return {
     schema,
     resolver: yupResolver(schema, schemaOptions, resolverOptions),
-    fieldResolver: fieldResolver(schema),
+    fieldResolver: yupFieldResolver(schema),
   }
 }

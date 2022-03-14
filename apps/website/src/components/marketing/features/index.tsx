@@ -30,6 +30,7 @@ export interface FeaturesProps extends ThemingProps<'Features'> {
   aside?: React.ReactChild
   reveal?: boolean
   iconSize?: SystemProps['boxSize']
+  innerWidth?: SystemProps['maxW']
 }
 
 export interface FeatureProps {
@@ -57,7 +58,7 @@ export function Feature({
   const direction = pos === 'left' ? 'row' : 'column'
 
   return (
-    <Stack sx={styles.container}>
+    <Stack sx={styles.container} direction={direction}>
       {icon && (
         <Circle sx={styles.icon}>
           <Icon as={icon} boxSize={iconSize} />

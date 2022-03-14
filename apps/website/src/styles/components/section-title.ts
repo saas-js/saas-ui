@@ -8,10 +8,10 @@ const SectionTitle = {
       mb: '10',
     },
     title: {
-      size: 'xl',
+      size: '2xl',
     },
     description: {
-      fontSize: 'lg',
+      fontSize: 'xl',
       fontWeight: 'medium',
     },
   },

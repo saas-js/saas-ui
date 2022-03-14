@@ -48,22 +48,14 @@ let config = {
       ...config.resolve,
     }
 
-    // config.module = {
-    //   ...config.module,
-    //   rules: [
-    //     ...config.module.rules,
-    //     {
-    //       test: /\.(js|jsx|ts|tsx)$/,
-    //       include: [path.join(__dirname, '../../packages')],
-    //       exclude: /node_modules/,
-    //       use: defaultLoaders.babel,
-    //     },
-    //   ],
-    // }
+    config.module.rules.push({
+      test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding)\/.*\.tsx?/,
+      use: [defaultLoaders.babel],
+    })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui\/(?!props-docs)([a-z0-9-]+)$/,
+        /\@saas-ui\/(?!props-docs)(?!pro|charts|billing|features|onboarding)([a-z0-9-]+)$/,
         (resource) => {
           resource.request = resource.request + '/src'
         }

@@ -58,3 +58,5 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
+
+.changelogrc

@@ -8,7 +8,7 @@ export type AuthTypeEnum = 'magiclink' | 'password'
 
 export type AuthActionEnum = 'logIn' | 'signUp'
 
-export type AuthToken = 'string' | null | undefined
+export type AuthToken = string | null | undefined
 
 export interface AuthParams {
   email?: string

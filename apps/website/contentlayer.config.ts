@@ -84,17 +84,19 @@ const Changelog = defineDocumentType(() => ({
   bodyType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    description: { type: 'string', required: true },
-    slug: { type: 'string' },
+    date: { type: 'date', required: true },
   },
   computedFields: {
+    ...computedFields,
     frontMatter: {
       type: 'json',
-      resolve: (doc) => ({
-        title: doc.title,
-        description: doc.description,
-        slug: '/changelog',
-      }),
+      resolve: (doc) => {
+        console.log('doc', doc)
+        return {
+          title: doc.title,
+          slug: `/${doc._raw.flattenedPath}`,
+        }
+      },
     },
   },
 }))

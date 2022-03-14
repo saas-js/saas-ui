@@ -1,5 +1,11 @@
 # @saas-ui/stepper
 
+## 0.1.2
+
+### Patch Changes
+
+- Add key prop to stepper content
+
 ## 0.1.1
 
 ### Patch Changes

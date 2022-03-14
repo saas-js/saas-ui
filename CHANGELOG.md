@@ -1,12 +1,20 @@
+---
+title: Changelog
+description: All updates and improvements to Saas UI
+slug: '/changelog'
+---
+
+Stay up to date about all changes we've made to Saas UI Core & Pro.
+
+<!-- CHANGELOG:INSERT -->
+
+## 03-11-2022
+
+`@saas-ui/react@0.11.8`
+
+- Fixed AuthToken type
+
 # @saas-ui/react
-
-## 0.11.8
-
-### Patch Changes
-
-- a268365: Fixed AuthToken type
-- Updated dependencies [a268365]
-  - @saas-ui/auth@0.6.6
 
 ## 0.11.7
 

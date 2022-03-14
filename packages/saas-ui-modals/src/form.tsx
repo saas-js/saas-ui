@@ -1,25 +1,28 @@
 import * as React from 'react'
 
-import { ModalBody, ModalFooter } from '@chakra-ui/react'
+import { ModalBody, ModalFooter, forwardRef } from '@chakra-ui/react'
 
 import {
   Form,
   Fields,
   SubmitButton,
   FormProps,
+  FieldValues,
   FieldResolver,
+  UseFormReturn,
 } from '@saas-ui/forms'
 import { Button } from '@saas-ui/button'
 
 import { BaseModal, BaseModalProps } from './modal'
 
-export interface FormDialogProps
+export interface FormDialogProps<TFieldValues extends FieldValues = FieldValues>
   extends Omit<BaseModalProps, 'children'>,
     Pick<
-      FormProps,
+      FormProps<TFieldValues>,
       | 'schema'
       | 'defaultValues'
       | 'onSubmit'
+      | 'onError'
       | 'resolver'
       | 'mode'
       | 'reValidateMode'
@@ -54,66 +57,79 @@ export interface FormDialogProps
   fieldResolver?: FieldResolver
 }
 
-export const FormDialog: React.FC<FormDialogProps> = (props) => {
-  const {
-    children,
-    schema,
-    resolver,
-    fieldResolver,
-    defaultValues,
-    onSubmit,
-    reValidateMode,
-    shouldFocusError = true,
-    shouldUnregister,
-    shouldUseNativeValidation,
-    criteriaMode,
-    delayError,
-    cancelLabel,
-    submitLabel,
-    footer,
-    isOpen,
-    onClose,
-    ...rest
-  } = props
+export const FormDialog = forwardRef(
+  <TFieldValues extends FieldValues = FieldValues>(
+    props: FormDialogProps<TFieldValues>,
+    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  ) => {
+    const {
+      children,
+      schema,
+      resolver,
+      fieldResolver,
+      defaultValues,
+      onSubmit,
+      onError,
+      reValidateMode,
+      shouldFocusError = true,
+      shouldUnregister,
+      shouldUseNativeValidation,
+      criteriaMode,
+      delayError,
+      cancelLabel,
+      submitLabel,
+      footer,
+      isOpen,
+      onClose,
+      ...rest
+    } = props
 
-  const formProps = {
-    schema,
-    resolver,
-    defaultValues,
-    onSubmit,
-    reValidateMode,
-    shouldFocusError,
-    shouldUnregister,
-    shouldUseNativeValidation,
-    criteriaMode,
-    delayError,
+    const formProps = {
+      ref,
+      schema,
+      defaultValues,
+      onSubmit,
+      onError,
+      reValidateMode,
+      shouldFocusError,
+      shouldUnregister,
+      shouldUseNativeValidation,
+      criteriaMode,
+      delayError,
+    }
+
+    const initialRef = React.useRef<HTMLButtonElement | null>(null)
+
+    return (
+      <BaseModal
+        isOpen={isOpen}
+        onClose={onClose}
+        initialFocusRef={initialRef}
+        {...rest}
+      >
+        <Form {...formProps}>
+          <ModalBody>
+            {children || (
+              <Fields schema={schema} fieldResolver={fieldResolver} />
+            )}
+          </ModalBody>
+
+          {footer || (
+            <ModalFooter>
+              <Button variant="ghost" mr={3} onClick={onClose}>
+                {cancelLabel || 'Cancel'}
+              </Button>
+              <SubmitButton ref={initialRef}>
+                {submitLabel || 'Submit'}
+              </SubmitButton>
+            </ModalFooter>
+          )}
+        </Form>
+      </BaseModal>
+    )
   }
-
-  const initialRef = React.useRef<HTMLButtonElement | null>(null)
-
-  return (
-    <BaseModal
-      isOpen={isOpen}
-      onClose={onClose}
-      initialFocusRef={initialRef}
-      {...rest}
-    >
-      <Form {...formProps}>
-        <ModalBody>
-          {children || <Fields schema={schema} fieldResolver={fieldResolver} />}
-        </ModalBody>
-
-        {footer || (
-          <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose}>
-              {cancelLabel || 'Cancel'}
-            </Button>
-            <SubmitButton ref={initialRef}>
-              {submitLabel || 'Submit'}
-            </SubmitButton>
-          </ModalFooter>
-        )}
-      </Form>
-    </BaseModal>
-  )
-}
+) as <TFieldValues extends FieldValues>(
+  props: FormDialogProps<TFieldValues> & {
+    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  }
+) => React.ReactElement

@@ -6,11 +6,11 @@ import * as SaasUI from '@saas-ui/react'
 
 import * as Web3 from '@saas-ui/web3'
 import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { yupForm } from '@saas-ui/forms/yup'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { yupForm } from '@saas-ui/forms/yup'
 import FocusLock from 'react-focus-lock'
 import {
   FiHome,
@@ -72,6 +72,8 @@ const ReactLiveScope = {
   ...Web3,
   ...Icons,
   Yup,
+  yupResolver,
+  yupForm,
   // ...Loaders,
   ...reactIcons,
   StarIcon,
@@ -81,8 +83,6 @@ const ReactLiveScope = {
   SaasUILogo,
   SaasUIGlyph,
   SaasSpinner,
-  yupForm,
-  yupResolver,
 }
 
 export default ReactLiveScope

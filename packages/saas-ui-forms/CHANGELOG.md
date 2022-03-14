@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.5.3
+
+### Patch Changes
+
+- 9245460: Make sure Field ref is focusable
+
 ## 0.5.2
 
 ### Patch Changes

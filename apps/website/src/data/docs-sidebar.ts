@@ -20,6 +20,10 @@ const sidebar = {
           path: '/docs/principles',
         },
         {
+          title: 'Changelog',
+          path: '/changelog',
+        },
+        {
           title: 'Theming',
           path: '/docs/theming',
           open: true,

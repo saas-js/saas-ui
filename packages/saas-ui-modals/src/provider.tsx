@@ -7,17 +7,19 @@ import { MenuDialog, MenuDialogProps } from './menu'
 import { FormDialog, FormDialogProps } from './form'
 
 export interface ModalsContextValue {
-  open?: (options: OpenOptions) => ModalId
-  drawer?: (options: DrawerOptions) => ModalId
-  alert?: (options: ConfirmDialogOptions) => ModalId
-  confirm?: (options: ConfirmDialogOptions) => ModalId
-  menu?: (options: MenuDialogOptions) => ModalId
-  form?: (options: FormDialogOptions) => ModalId
-  close?: (id: ModalId) => void
-  closeAll?: () => void
+  open: (options: OpenOptions) => ModalId
+  drawer: (options: DrawerOptions) => ModalId
+  alert: (options: ConfirmDialogOptions) => ModalId
+  confirm: (options: ConfirmDialogOptions) => ModalId
+  menu: (options: MenuDialogOptions) => ModalId
+  form: (options: FormDialogOptions) => ModalId
+  close: (id: ModalId) => void
+  closeAll: () => void
 }
 
-export const ModalsContext = React.createContext<ModalsContextValue>({})
+export const ModalsContext = React.createContext<ModalsContextValue | null>(
+  null
+)
 
 interface ModalsProviderProps {
   children: React.ReactNode
@@ -51,13 +53,19 @@ export interface FormDialogOptions
     Omit<FormDialogProps, 'onClose' | 'isOpen' | 'children'> {}
 
 export interface OpenOptions extends ModalOptions {
-  type?: ModalTypes | string
+  type?: ModalTypes
   scope?: ModalScopes
 }
 
 export type ModalScopes = 'modal' | 'alert'
 
-export type ModalTypes = 'modal' | 'drawer' | 'alert' | 'confirm' | 'menu'
+export type ModalTypes =
+  | 'modal'
+  | 'drawer'
+  | 'alert'
+  | 'confirm'
+  | 'menu'
+  | string
 
 export interface ModalConfig<
   TModalOptions extends ModalOptions = ModalOptions
@@ -83,7 +91,12 @@ export interface ModalConfig<
    *
    * Custom types can be configured using the `modals` prop of `ModalProvider`
    */
-  type?: ModalTypes | string
+  type?: ModalTypes
+  /**
+   * Render a custom modal component.
+   * This will ignore the `type` param.
+   */
+  component?: React.FC<BaseModalProps>
 }
 
 const initialModalState: ModalConfig = {
@@ -118,7 +131,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       ...modals,
     }
 
-    return (type = 'modal') => {
+    return (type: ModalTypes = 'modal') => {
       const component = _modals[type] || _modals.modal
 
       return component
@@ -137,11 +150,21 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     }))
   }
 
-  const open = <T extends ModalOptions>(options: T): ModalId => {
+  const open = <T extends ModalOptions>(
+    options: T | React.FC<BaseModalProps>
+  ): ModalId => {
+    if (typeof options === 'function') {
+      const component: React.FC<BaseModalProps> = options
+      options = {
+        component,
+      } as unknown as T
+    }
+
     const {
       id = _instances.size + 1,
       type = 'modal',
       scope = 'modal',
+      component,
       ...props
     } = options
 
@@ -150,6 +173,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       props: props as T,
       type,
       scope,
+      component,
     }
 
     _instances.add(modal)
@@ -248,7 +272,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   }
 
   const content = Object.entries(activeModals).map(([scope, config]) => {
-    const Component = getModalComponent(config.type)
+    const Component = config.component || getModalComponent(config.type)
 
     const { title, body, children, ...props } = config.props || {}
 
@@ -272,8 +296,8 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   )
 }
 
-export const useModalsContext = (): ModalsContextValue =>
-  React.useContext(ModalsContext)
+export const useModalsContext = () =>
+  React.useContext(ModalsContext) as ModalsContextValue
 
 export const useModals = () => {
   return useModalsContext()

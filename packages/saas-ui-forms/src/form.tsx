@@ -12,7 +12,7 @@ import {
   SubmitErrorHandler,
 } from 'react-hook-form'
 
-export type { UseFormReturn, SubmitHandler }
+export type { UseFormReturn, FieldValues, SubmitHandler }
 
 interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**

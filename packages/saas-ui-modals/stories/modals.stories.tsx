@@ -1,16 +1,23 @@
 import * as React from 'react'
-import { Stack, Container, MenuItem } from '@chakra-ui/react'
+import { Stack, Container, MenuItem, ModalProps } from '@chakra-ui/react'
 import { ModalsProvider, useModals } from '../src/provider'
 
 import { MenuDialogList } from '../src/menu'
 
 import { Button } from '@saas-ui/button'
 import { Field, FormLayout } from '@saas-ui/forms'
+import { BaseModalProps, Modal } from '../src/modal'
 
-const CustomModal: React.FC<{ title: string }> = ({ title, children }) => (
-  <div>
-    {title} - {children}
-  </div>
+interface CustomModalProps extends BaseModalProps {}
+
+const CustomModal: React.FC<CustomModalProps> = ({
+  title = 'Custom modal',
+  children = 'Modal body',
+  ...props
+}) => (
+  <Modal title={title} {...props}>
+    {children}
+  </Modal>
 )
 
 const modals = {
@@ -166,6 +173,12 @@ export const custom = () => {
       Open modal
     </Button>
   )
+}
+
+export const customAsComponent = () => {
+  const modals = useModals()
+
+  return <Button onClick={() => modals.open(CustomModal)}>Open modal</Button>
 }
 
 export const onClose = () => {

@@ -22,7 +22,8 @@
       "@/lib/*": ["src/lib/*"],
       "@/docs/*": ["src/docs/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@saas-ui/react": ["../../packages/saas-ui-react/src"]
+      "@saas-ui/react": ["../../packages/saas-ui-react/src"],
+      "@saas-ui/forms/yup": ["../../packages/saas-ui-forms/yup/src"]
     },
     "incremental": true
   },

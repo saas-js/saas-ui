@@ -11,8 +11,9 @@ import {
   SystemProps,
   As,
   useColorModeValue,
+  useMultiStyleConfig,
 } from '@chakra-ui/system'
-import { useMultiStyleConfig } from '@saas-ui/system'
+
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
 import { Icon } from '@chakra-ui/icon'

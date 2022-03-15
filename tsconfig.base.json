@@ -24,7 +24,6 @@
     "incremental": true,
     "declarationMap": true
   },
-  "include": ["packages", "scripts", "tooling"],
   "exclude": ["node_modules", "**/node_modules"],
   "ts-node": {
     "compilerOptions": {

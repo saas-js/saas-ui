@@ -108,13 +108,13 @@ function CreateProject() {
       onSubmit={onSubmit}
     >
       <FormLayout>
-        <FormStep name="project" schema={schemas.project}>
+        <FormStep name="project" resolver={yupResolver(schemas.project)}>
           <FormLayout>
             <Field name="name" isRequired label="Name" />
             <Field name="description" label="Description" />
           </FormLayout>
         </FormStep>
-        <FormStep name="members" schema={schemas.members}>
+        <FormStep name="members" resolver={yupResolver(schemas.members)}>
           <FormLayout>
             <Field
               name="members"
@@ -170,7 +170,7 @@ function CreateProject() {
           <FormStep
             name="project"
             title="Project details"
-            schema={schemas.project}
+            resolver={yupResolver(schemas.project)}
           >
             <FormLayout>
               <Field name="name" isRequired label="Name" />
@@ -180,7 +180,7 @@ function CreateProject() {
           <FormStep
             name="members"
             title="Invite your team"
-            schema={schemas.members}
+            resolver={yupResolver(schemas.members)}
           >
             <FormLayout>
               <Field
@@ -255,7 +255,7 @@ function CreateProject() {
           <FormStep
             name="project"
             title="Project details"
-            schema={schemas.project}
+            resolver={yupResolver(schemas.project)}
           >
             <FormLayout>
               <Field name="name" isRequired label="Name" />
@@ -266,7 +266,7 @@ function CreateProject() {
           <FormStep
             name="members"
             title="Invite your team"
-            schema={schemas.members}
+            resolver={yupResolver(schemas.members)}
           >
             <FormLayout>
               <Field

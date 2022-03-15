@@ -72,6 +72,10 @@ export interface FormStepOptions {
    * Schema
    */
   schema?: any
+  /**
+   * Hook Form Resolver
+   */
+  resolver?: any
 }
 
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
@@ -109,8 +113,8 @@ export interface FormStepProps
     HTMLChakraProps<'div'> {}
 
 export const FormStep: React.FC<FormStepProps> = (props) => {
-  const { name, schema, children, className, ...rest } = props
-  const step = useFormStep({ name, schema })
+  const { name, schema, resolver, children, className, ...rest } = props
+  const step = useFormStep({ name, schema, resolver })
 
   const { isActive } = step
 

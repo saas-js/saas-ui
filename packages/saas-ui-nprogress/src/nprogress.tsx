@@ -6,11 +6,9 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
+  useColorModeValue,
+  useMultiStyleConfig,
 } from '@chakra-ui/system'
-
-import { mode } from '@chakra-ui/theme-tools'
-
-import { useMultiStyleConfig } from '@saas-ui/system'
 
 import { useNProgress } from '@tanem/react-nprogress'
 
@@ -27,22 +25,9 @@ export interface NProgressProps
     ThemingProps<'NProgress'> {}
 
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('NProgress', props, {
-    defaultStyleConfig: {
-      parts: ['container', 'bar'],
-      defaultProps: {
-        colorScheme: 'teal',
-      },
-      baseStyle: (props: any) => {
-        const { colorScheme: c } = props
-        return {
-          bar: {
-            bg: mode(`${c}.500`, `${c}.300`)(props),
-          },
-        }
-      },
-    },
-  })
+  const styles = useMultiStyleConfig('NProgress', props)
+
+  const { colorScheme: c } = props
 
   const { children, isAnimating, ...containerProps } = omitThemingProps(props)
 
@@ -53,6 +38,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
   const barStyles = {
     width: '100%',
     height: '2px',
+    bg: useColorModeValue(`${c}.500`, `${c}.300`),
     ...styles.bar,
   }
 

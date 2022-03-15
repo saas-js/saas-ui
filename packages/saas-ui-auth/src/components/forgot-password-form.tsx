@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field } from '@saas-ui/forms'
+import {
+  Form,
+  FormLayout,
+  Field,
+  FormProps,
+  SubmitHandler,
+} from '@saas-ui/forms'
 
 import { useResetPassword } from '../provider'
 
@@ -10,13 +16,14 @@ import { AuthFormSuccess } from './success'
 
 interface SubmitParams {
   email: string
+  [key: string]: any
 }
 
-export interface ForgotPasswordFormProps {
-  schema?: any
+export interface ForgotPasswordFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   label?: string
   helpText?: string
-  onSuccess?: (error: any) => void
+  onSuccess?: () => void
   onError?: (error: any) => void
   onValidationError?: (error: any) => void
   submitLabel?: string
@@ -24,7 +31,6 @@ export interface ForgotPasswordFormProps {
 }
 
 export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
-  schema,
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
@@ -42,7 +48,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 }) => {
   const [{ isLoading, data }, submit] = useResetPassword()
 
-  const handleSubmit = (params: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = (params) => {
     return submit(params).then(onSuccess).catch(onError)
   }
 
@@ -52,7 +58,6 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 
   return (
     <Form
-      schema={schema}
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '' }}

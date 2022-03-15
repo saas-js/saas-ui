@@ -89,9 +89,9 @@ function BasicForm() {
 }
 ```
 
-### With a schema
+### Schema resolvers
 
-Supports Yup schemas out of the box.
+`Form` supports all React Hook Form [resolvers](https://react-hook-form.com/api/useform/#resolver) out of the box.
 
 ```jsx
 function CreateProject() {
@@ -113,7 +113,7 @@ function CreateProject() {
         name: '',
         description: '',
       }}
-      schema={schema}
+      resolver={yupResolver(schema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
@@ -272,6 +272,27 @@ function CreateProject() {
     <SubmitButton>Complete order</SubmitButton>
   </FormLayout>
 </Form>
+```
+
+### Configure a default resolver
+
+In case you are using schemas in all your forms it's possible to configure a default resolver,
+this way you can simply pass schemas directly to your forms and save a few lines of boilerplate code.
+
+```tsx
+// Add this somewhere in the root of your project.
+import { Form } from '@saas-ui/react'
+import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup'
+import { AnyObjectSchema } from 'yup'
+
+Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers
+Form.getFieldResolver = (schema: AnyObjectSchema) => yupFieldResolver(schema) // AutoForm field resolver
+
+// You no longer need to set a resolver on each form, so you can do
+<Form schema={schema} />
+
+// instead  of
+<Form resolver={yupResolver(schema)} />
 ```
 
 ### Typescript support

@@ -11,6 +11,7 @@ import {
 export interface StepState {
   name: string
   schema?: any
+  resolver?: any
   isActive?: boolean
   isCompleted?: boolean
 }
@@ -69,6 +70,7 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
       return {
         onSubmit: onSubmitStep,
         schema: step?.schema,
+        resolver: step?.resolver,
       }
     },
     [steps, onSubmitStep, activeStep]
@@ -99,16 +101,17 @@ export type UseStepFormReturn = ReturnType<typeof useStepForm>
 export interface UseFormStepProps {
   name: string
   schema?: any
+  resolver?: any
 }
 
 export function useFormStep(props: UseFormStepProps): StepState {
-  const { name, schema } = props
+  const { name, schema, resolver } = props
   const step = useStep({ name })
 
   const { steps, updateStep } = useStepFormContext()
 
   React.useEffect(() => {
-    updateStep({ name, schema })
+    updateStep({ name, schema, resolver })
   }, [name, schema])
 
   return {

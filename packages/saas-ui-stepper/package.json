@@ -62,6 +62,7 @@
     "@saas-ui/react-utils": "workspace:*"
   },
   "peerDependencies": {
+    "@chakra-ui/react": ">=1.8.0",
     "@chakra-ui/system": ">=1.0.0",
     "react": ">=16.8.6"
   }

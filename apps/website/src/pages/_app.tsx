@@ -5,22 +5,11 @@ import '@fontsource/inter/variable.css'
 
 import theme from '../styles/theme'
 
-import {
-  SaasProvider,
-  ModalsProvider,
-  AuthProvider,
-  Form,
-} from '@saas-ui/react'
+import { SaasProvider, ModalsProvider, AuthProvider } from '@saas-ui/react'
 import { NProgressNextRouter } from '@saas-ui/nprogress'
 
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
-
-import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup'
-import { AnyObjectSchema } from 'yup'
-
-Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema)
-Form.getFieldResolver = (schema: AnyObjectSchema) => yupFieldResolver(schema)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()

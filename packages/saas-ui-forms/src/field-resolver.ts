@@ -7,18 +7,23 @@ export type FieldResolver = {
   getNestedFields(name: string): FieldProps[]
 }
 
-// @todo finalize this
-export type FormSchema = Record<string, any>
+interface SchemaField extends FieldProps {
+  items?: SchemaField[]
+  properties?: Record<string, SchemaField>
+}
 
-const mapFields = (schema: FormSchema) =>
+export type ObjectSchema = Record<string, SchemaField>
+
+const mapFields = (schema: ObjectSchema) =>
+  schema &&
   Object.entries(schema).map(([name, field]) => {
     return {
-      name,
       ...field,
+      name,
     }
   })
 
-export const defaultFieldResolver = (schema: FormSchema): FieldResolver => {
+export const objectFieldResolver = (schema: ObjectSchema): FieldResolver => {
   const getFields = () => {
     return mapFields(schema)
   }

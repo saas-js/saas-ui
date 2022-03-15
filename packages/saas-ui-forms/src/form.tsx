@@ -14,7 +14,7 @@ import {
   ResolverOptions,
   ResolverResult,
 } from 'react-hook-form'
-import { defaultFieldResolver, FieldResolver } from './field-resolver'
+import { objectFieldResolver, FieldResolver } from './field-resolver'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
@@ -112,7 +112,7 @@ export const Form = forwardRef(
   getFieldResolver: GetFieldResolver
 }
 
-Form.getFieldResolver = defaultFieldResolver
+Form.getFieldResolver = objectFieldResolver
 
 export type GetResolver = (
   schema: any

@@ -6,6 +6,7 @@ import {
   Field,
   FormProps,
   SubmitHandler,
+  FieldErrors,
 } from '@saas-ui/forms'
 
 import { useResetPassword } from '../provider'
@@ -23,9 +24,9 @@ export interface ForgotPasswordFormProps
   extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   label?: string
   helpText?: string
-  onSuccess?: () => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   renderSuccess?: (data: any) => React.ReactElement
 }

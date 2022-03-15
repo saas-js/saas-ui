@@ -6,6 +6,7 @@ import {
   FormLayout,
   Field,
   SubmitHandler,
+  FieldErrors,
 } from '@saas-ui/forms'
 
 import { useLogin, AuthActionEnum } from '../provider'
@@ -25,9 +26,9 @@ export interface PasswordFormProps
   extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   schema?: any
   action?: AuthActionEnum
-  onSuccess?: (error: any) => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement

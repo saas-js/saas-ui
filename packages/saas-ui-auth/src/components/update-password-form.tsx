@@ -7,6 +7,7 @@ import {
   Field,
   UseFormReturn,
   SubmitHandler,
+  FieldErrors,
 } from '@saas-ui/forms'
 
 import { useUpdatePassword } from '../provider'
@@ -24,9 +25,9 @@ export interface UpdatePasswordFormProps
   label?: string
   confirmLabel?: string
   helpText?: string
-  onSuccess?: (error: any) => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   renderSuccess?: (data: any) => React.ReactElement
 }

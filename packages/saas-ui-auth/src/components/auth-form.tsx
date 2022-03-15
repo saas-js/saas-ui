@@ -69,7 +69,7 @@ export interface AuthFormProps
   /**
    * Callback executed after succesful login or signup
    */
-  onSuccess?: () => void
+  onSuccess?: (data: any) => void
   /**
    * Error handler if login or signup fails
    */

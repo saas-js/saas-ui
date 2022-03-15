@@ -7,6 +7,7 @@ import {
   Field,
   FormProps,
   SubmitHandler,
+  FieldErrors,
 } from '@saas-ui/forms'
 import { LoginButton } from './login-button'
 
@@ -15,9 +16,9 @@ import { AuthFormSuccess } from './success'
 export interface MagicLinkFormProps
   extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   action?: AuthActionEnum
-  onSuccess?: (error: any) => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement

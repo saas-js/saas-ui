@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/props-docs",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Extracts prop types for documentation purposes",
   "keywords": [
     "docs",

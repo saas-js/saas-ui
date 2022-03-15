@@ -21,22 +21,4 @@
 '@saas-ui/props-docs': minor
 ---
 
-BREAKING: Removed yup dependency from forms and fixed peer dependency issues.
-
-<Form> doesn't accept a Yup `schema` any more by default.
-
-Use a schema resolver to use schema support. All hookform resolvers are supported.
-
-```
-import {yupResolver} from '@hookform/resolvers/yup'
-
-<Form resolver={yupResolver(schema)} />
-```
-
-AutoForm only supports Yup for now and has a new API.
-
-```
-import { yupForm } from '@saas-ui/forms/yup'
-
-<AutoForm {...yupForm(schema)} />
-```
+Fixed peer dependency issues.

@@ -1,5 +1,20 @@
 # @saas-ui/auth
 
+## 0.7.0
+
+### Minor Changes
+
+- 9391c44: Fixed peer dependency issues.
+
+### Patch Changes
+
+- bf66fdf: Improved Auth forms types
+- Updated dependencies [0e81abd]
+- Updated dependencies [9391c44]
+  - @saas-ui/forms@0.6.0
+  - @saas-ui/button@0.4.0
+  - @saas-ui/hooks@0.4.0
+
 ## 0.6.6
 
 ### Patch Changes

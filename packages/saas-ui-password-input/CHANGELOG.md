@@ -1,5 +1,11 @@
 # @saas-ui/password-input
 
+## 0.3.1
+
+### Patch Changes
+
+- @saas-ui/input-right-button@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes

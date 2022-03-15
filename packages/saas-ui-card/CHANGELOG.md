@@ -1,5 +1,16 @@
 # @saas-ui/card
 
+## 0.4.0
+
+### Minor Changes
+
+- 9391c44: Fixed peer dependency issues.
+
+### Patch Changes
+
+- Updated dependencies [9391c44]
+  - @saas-ui/button@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes

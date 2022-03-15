@@ -1,5 +1,51 @@
 # @saas-ui/forms
 
+## 0.6.0
+
+### Minor Changes
+
+- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default Form resolvers
+
+  <Form> no longer accepts a Yup `schema` by default.
+
+  Use a schema resolver to use schema support. All hookform resolvers are supported.
+
+  ```ts
+  import { yupResolver } from '@hookform/resolvers/yup'
+
+  const form = <Form resolver={yupResolver(schema)} />
+  ```
+
+  AutoForm only supports Yup for now and has a new API.
+
+  ```ts
+  import { yupForm } from '@saas-ui/forms/yup'
+
+  const form = <AutoForm {...yupForm(schema)} />
+  ```
+
+  Alternatively you can configure a default resolver for all forms.
+  Add this somewhere in the root of your project.
+
+  ```ts
+  import { Form } from '@saas-ui/react'
+  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  import { AnyObjectSchema } from 'yup'
+
+  Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers
+  Form.getFieldResolver = (schema: AnyObjectSchema) => yupFieldResolver(schema) // AutoForm field resolver
+  ```
+
+- 9391c44: Fixed peer dependency issues.
+
+### Patch Changes
+
+- Updated dependencies [9391c44]
+  - @saas-ui/button@0.4.0
+  - @saas-ui/select@0.4.0
+  - @saas-ui/input-right-button@0.3.1
+  - @saas-ui/password-input@0.3.1
+
 ## 0.5.3
 
 ### Patch Changes

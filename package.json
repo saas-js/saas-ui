@@ -53,8 +53,7 @@
   "workspaces": [
     "packages/*",
     "apps/*",
-    "tooling/test-utils",
-    "tooling/props-docs"
+    "tooling/test-utils"
   ],
   "devDependencies": {
     "@babel/core": "^7.16.5",

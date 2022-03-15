@@ -91,7 +91,6 @@ const Changelog = defineDocumentType(() => ({
     frontMatter: {
       type: 'json',
       resolve: (doc) => {
-        console.log('doc', doc)
         return {
           title: doc.title,
           slug: `/${doc._raw.flattenedPath}`,

@@ -70,7 +70,7 @@ const IconsList = () => {
     <Grid
       mt={7}
       gap={5}
-      templateColumns='repeat( auto-fit, minmax(150px, 1fr) )'
+      templateColumns="repeat( auto-fit, minmax(150px, 1fr) )"
     >
       {Object.keys(iconList).map((key, i) => {
         const Icon = iconList[key]
@@ -94,18 +94,18 @@ const IconsList = () => {
             pb={9}
             onClick={() => onCopyIcon()}
             key={i}
-            align='center'
-            variant='outline'
-            flexDir='column'
-            justify='center'
+            alignItems="center"
+            variant="outline"
+            flexDir="column"
+            justifyContent="center"
           >
             <Icon />
             <Text
-              as='span'
+              as="span"
               mt={3}
-              fontSize='sm'
-              fontWeight='normal'
-              textAlign='center'
+              fontSize="sm"
+              fontWeight="normal"
+              textAlign="center"
             >
               {key}
             </Text>

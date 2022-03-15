@@ -27,7 +27,7 @@ export default function SectionTitle({
         {title}
       </Heading>
       {description && (
-        <Box sx={styles.description} align={align}>
+        <Box sx={styles.description} textAlign={align}>
           {description}
         </Box>
       )}

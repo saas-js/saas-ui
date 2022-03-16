@@ -1,5 +1,12 @@
 # @saas-ui/input-right-button
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [9391c44]
+  - @saas-ui/button@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes

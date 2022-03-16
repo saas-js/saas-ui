@@ -21,8 +21,10 @@ import SectionTitle, { SectionTitleProps } from '../section-title'
 
 import ScaleInView from '@/components/motion/scale-in-view'
 
-export interface FeaturesProps extends ThemingProps<'Features'> {
-  title: React.ReactNode
+export interface FeaturesProps
+  extends Omit<SectionTitleProps, 'title'>,
+    ThemingProps<'Features'> {
+  title?: React.ReactNode
   description?: React.ReactNode
   features: Array<FeatureProps>
   columns?: ResponsiveValue<number>
@@ -34,8 +36,8 @@ export interface FeaturesProps extends ThemingProps<'Features'> {
 }
 
 export interface FeatureProps {
-  title: React.ReactNode
-  description: React.ReactNode
+  title?: React.ReactNode
+  description?: React.ReactNode
   icon?: any
   iconPosition?: 'left' | 'top'
   iconSize?: SystemProps['boxSize']
@@ -83,7 +85,7 @@ export default function Features({
   aside,
   reveal,
   ...props
-}: FeaturesProps & SectionTitleProps) {
+}: FeaturesProps) {
   if (!!aside) {
     align = 'left'
   }
@@ -98,13 +100,15 @@ export default function Features({
     <SectionWrapper {...props}>
       <Stack direction="row" height="full" align="flex-start">
         <VStack flex="1" spacing={[4, null, 8]} alignItems="stretch">
-          <Wrap>
-            <SectionTitle
-              title={title}
-              description={description}
-              align={align}
-            />
-          </Wrap>
+          {(title || description) && (
+            <Wrap>
+              <SectionTitle
+                title={title}
+                description={description}
+                align={align}
+              />
+            </Wrap>
+          )}
           <SimpleGrid columns={columns} spacing={spacing}>
             {features.map((feature, i) => {
               return (

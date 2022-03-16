@@ -1,5 +1,15 @@
 # @saas-ui/layout
 
+## 0.3.0
+
+### Minor Changes
+
+- 9391c44: Fixed peer dependency issues.
+
+### Patch Changes
+
+- @saas-ui/provider@0.3.5
+
 ## 0.2.4
 
 ### Patch Changes

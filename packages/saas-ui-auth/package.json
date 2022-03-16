@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/auth",
-  "version": "0.6.6",
+  "version": "0.7.0",
   "description": "Authentication provider and components for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -74,8 +74,7 @@
   "dependencies": {
     "@saas-ui/button": "workspace:*",
     "@saas-ui/forms": "workspace:*",
-    "@saas-ui/hooks": "workspace:*",
-    "@saas-ui/system": "workspace:*"
+    "@saas-ui/hooks": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",

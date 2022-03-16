@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "0.11.8",
+  "version": "0.12.0",
   "description": "Saas UI - The frontend stack for SaaS companies.",
   "source": "src/index.ts",
   "exports": {
@@ -82,7 +82,6 @@
     "@saas-ui/select": "workspace:*",
     "@saas-ui/snackbar": "workspace:*",
     "@saas-ui/stepper": "workspace:*",
-    "@saas-ui/system": "workspace:*",
     "@saas-ui/theme": "workspace:*"
   },
   "peerDependencies": {

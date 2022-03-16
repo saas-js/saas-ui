@@ -1,5 +1,11 @@
 # @saas-ui/stepper
 
+## 0.2.0
+
+### Minor Changes
+
+- 9391c44: Fixed peer dependency issues.
+
 ## 0.1.2
 
 ### Patch Changes

@@ -4,6 +4,8 @@ import * as Yup from 'yup'
 
 import { Form, FormLayout, Field, SubmitButton } from '../src'
 
+import { yupResolver } from '@hookform/resolvers/yup'
+
 export default {
   title: 'Components/Forms/Field',
   decorators: [
@@ -131,7 +133,7 @@ export const helpText = () => {
       defaultValues={{
         email: '',
       }}
-      schema={helpSchema}
+      resolver={yupResolver(helpSchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>

@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/layout'
+import { yupResolver } from '@hookform/resolvers/yup'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -31,7 +32,7 @@ export const Basic = () => {
           title: '',
           description: '',
         }}
-        schema={postSchema}
+        resolver={yupResolver(postSchema)}
         onSubmit={onSubmit}
       >
         <FormLayout>

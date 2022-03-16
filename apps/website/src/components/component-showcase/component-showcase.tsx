@@ -43,12 +43,10 @@ import { useHotkeys } from '@saas-ui/hotkeys'
 import { FaGithub } from 'react-icons/fa'
 import { DataTable, Column } from '@saas-ui/data-table'
 
-import { DataGrid } from '@saas-ui/pro'
-
 interface Data {
   id: string
+  amount: string
   name: string
-  email: string
 }
 
 export const ComponentShowcase = () => {
@@ -64,23 +62,36 @@ export const ComponentShowcase = () => {
     zIndex: 2,
   }
 
+  const cardStyles = {
+    borderWidth: useColorModeValue(0, '1px'),
+    fontSize: 'md',
+  }
+
   const columns: Column<Data>[] = [
+    {
+      accessor: 'amount',
+      width: '10%',
+      Header: 'Amount',
+    },
     {
       accessor: 'name',
       Header: 'Name',
     },
     {
-      accessor: 'email',
-      Header: 'Email',
-    },
-    {
       id: 'actions',
-      width: 10,
+      width: '10%',
       disableSortBy: true,
       Header: '',
       Cell: () => {
+        const menuStyles = {
+          bg: useColorModeValue('whiteAlpha.600', 'blackAlpha.500'),
+          borderWidth: '1px',
+          backdropFilter: 'blur(5px)',
+          fontSize: 'md',
+          zIndex: 2,
+        }
         return (
-          <OverflowMenu menuListProps={menuStyles}>
+          <OverflowMenu menuListProps={menuStyles} flip={false}>
             <MenuItem command="D" icon={<FiCopy />}>
               Duplicate
             </MenuItem>
@@ -100,8 +111,8 @@ export const ComponentShowcase = () => {
   const data: Data[] = [
     {
       id: '1',
-      name: 'Eelco',
-      email: 'hello@saas-ui.dev',
+      amount: '30+',
+      name: 'Open Source Components',
     },
   ]
 
@@ -114,7 +125,7 @@ export const ComponentShowcase = () => {
     >
       <BackgroundGradient
         height="2000px"
-        opacity={useColorModeValue(0.4, 0.2)}
+        opacity={useColorModeValue(0.2, 0.2)}
       />
       <HStack position="relative">
         <Float
@@ -124,8 +135,8 @@ export const ComponentShowcase = () => {
           steps={[2, 8, -4]}
           zIndex="2"
         >
-          <Card fontSize="md">
-            <DataGrid<Data>
+          <Card {...cardStyles}>
+            <DataTable<Data>
               columns={columns}
               data={data}
               isSelectable
@@ -156,25 +167,25 @@ export const ComponentShowcase = () => {
           left="20px"
         >
           <Persona
-            name="Eelco Wiersma"
+            name="Renata Alink"
             presence="online"
             secondaryLabel="Founder"
-            tertiaryLabel="Out for lunch"
+            src="/showcase-avatar.jpg"
           />
         </Float>
 
-        <Float delay={0} position="absolute" left="200px" top="30px">
+        <Float delay={0} position="absolute" left="180px" top="30px">
           <SearchInput
             ref={searchRef}
             width="260px"
             borderColor={useColorModeValue('whiteAlpha.700', 'whiteAlpha.400')}
             color="white"
+            bg={useColorModeValue('white', 'whiteAlpha.50')}
             rightElement={
               <Kbd
                 fontSize="lg"
                 fontWeight="bold"
-                bg={useColorModeValue('whiteAlpha.100', 'blackAlpha.300')}
-                color="white"
+                bg={useColorModeValue('blackAlpha.50', 'blackAlpha.300')}
               >
                 /
               </Kbd>
@@ -191,7 +202,7 @@ export const ComponentShowcase = () => {
         >
           <Button
             variant="outline"
-            colorScheme={useColorModeValue('white', 'cyan')}
+            colorScheme={useColorModeValue('purple', 'cyan')}
           >
             <Web3Address address="0x881306428e1bB358d2EdC68bE7008331A01D90A6" />
           </Button>
@@ -204,7 +215,7 @@ export const ComponentShowcase = () => {
           top="-50px"
           steps={[-5, 10, -10]}
         >
-          <Card width="320px">
+          <Card width="320px" {...cardStyles}>
             <CardBody>
               <StepForm onSubmit={async () => null}>
                 <FormStepper orientation="vertical">
@@ -223,7 +234,7 @@ export const ComponentShowcase = () => {
         </Float>
 
         <Float delay={2} position="absolute" left="860px" top="30px">
-          <Card width="320px">
+          <Card width="320px" {...cardStyles}>
             <Tabs colorScheme="purple">
               <TabList>
                 <Tab>Details</Tab>
@@ -248,6 +259,7 @@ export const ComponentShowcase = () => {
                           menuListProps={menuStyles}
                           size="sm"
                           isOpen
+                          flip={false}
                         >
                           <MenuItemOption value="Open">Open</MenuItemOption>
                           <MenuItemOption value="Closed">Closed</MenuItemOption>
@@ -271,11 +283,12 @@ export const ComponentShowcase = () => {
                 <Button variant="subtle" colorScheme="green">
                   Enabled
                 </Button>
-                <OverflowMenu menuListProps={menuStyles}>
+                <OverflowMenu menuListProps={menuStyles} flip={false}>
                   <MenuItem>Settings</MenuItem>
                 </OverflowMenu>
               </>
             }
+            {...cardStyles}
           ></Card>
         </Float>
       </HStack>

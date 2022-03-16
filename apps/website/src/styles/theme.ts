@@ -38,7 +38,7 @@ const styles = {
 
 const textStyles = {
   h1: {
-    fontSize: ['4xl', null, '6xl'],
+    fontSize: { base: '4xl', sm: '6xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',
@@ -56,7 +56,7 @@ const textStyles = {
     letterSpacing: '-1%',
   },
   subtitle: {
-    fontSize: ['lg', null, '2xl'],
+    fontSize: { base: 'xl', sm: '2xl' },
     fontWeight: 'normal',
   },
 }
@@ -82,6 +82,10 @@ const theme = extendTheme(
         codeBackground: {
           default: blacken('purple.600', 70)(baseTheme),
           _dark: 'gray.800',
+        },
+        muted: {
+          default: 'gray.600',
+          _dark: 'gray.400',
         },
       },
     },

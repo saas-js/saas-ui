@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.7.0
+
+### Minor Changes
+
+- 9391c44: Fixed peer dependency issues.
+
 ## 0.6.0
 
 ### Minor Changes

@@ -28,6 +28,7 @@ import { PropertyList, Property } from '@saas-ui/property'
 
 import { onSubmit } from './helpers'
 import { StepperCompleted } from '@saas-ui/stepper'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export default {
   title: 'Components/Forms/StepForm',
@@ -96,13 +97,13 @@ export const WithSchema = () => (
     >
       {({ isCompleted }) => (
         <FormLayout>
-          <FormStep name="profile" schema={schemas.profile}>
+          <FormStep name="profile" resolver={yupResolver(schemas.profile)}>
             <FormLayout>
               <Field name="name" label="Name" />
               <Field name="email" label="Email" />
             </FormLayout>
           </FormStep>
-          <FormStep name="password" schema={schemas.password}>
+          <FormStep name="password" resolver={yupResolver(schemas.password)}>
             <FormLayout>
               <Field name="password" label="Password" />
             </FormLayout>

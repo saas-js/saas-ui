@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/data-table",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {
@@ -61,6 +61,8 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",
+    "@chakra-ui/system": ">=1.0.0",
+    "framer-motion": ">=5.5.0",
     "react": ">=16.8.6"
   },
   "devDependencies": {

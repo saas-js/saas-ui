@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/layout'
+import { yupResolver } from '@hookform/resolvers/yup'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -11,6 +12,8 @@ import {
   ObjectField,
   SubmitButton,
 } from '../src'
+
+import { yupForm } from '@saas-ui/forms/yup'
 
 import { onSubmit } from './helpers'
 
@@ -46,7 +49,7 @@ export const Basic = () => {
         defaultValues={{
           post: {},
         }}
-        schema={objectSchema}
+        resolver={yupResolver(objectSchema)}
         onSubmit={onSubmit}
       >
         <FormLayout>
@@ -69,8 +72,8 @@ export const AutoObjectField = () => {
         defaultValues={{
           post: {},
         }}
-        schema={objectSchema}
         onSubmit={onSubmit}
+        {...yupForm(objectSchema)}
       />
     </>
   )
@@ -83,7 +86,7 @@ export const HideLabel = () => {
         defaultValues={{
           post: {},
         }}
-        schema={objectSchema}
+        resolver={yupResolver(objectSchema)}
         onSubmit={onSubmit}
       >
         <FormLayout>
@@ -119,7 +122,7 @@ export const NestedObjectField = () => {
         defaultValues={{
           post: {},
         }}
-        schema={nestedSchema}
+        resolver={yupResolver(nestedSchema)}
         onSubmit={onSubmit}
       >
         <FormLayout>

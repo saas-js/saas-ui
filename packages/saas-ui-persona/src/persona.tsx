@@ -18,11 +18,8 @@ import {
   SystemProps,
   useColorModeValue,
   useTheme,
+  useMultiStyleConfig,
 } from '@chakra-ui/system'
-
-import { useMultiStyleConfig } from '@saas-ui/system'
-
-import { PersonaStyles } from './theme'
 
 export interface PresenceOptions {
   [presence: string]: string
@@ -63,9 +60,7 @@ export interface PersonaContainerProps
 export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   (props, ref) => {
     const { children } = props
-    const styles = useMultiStyleConfig('Persona', props, {
-      defaultStyleConfig: PersonaStyles,
-    })
+    const styles = useMultiStyleConfig('Persona', props)
 
     const baseStyle: SystemStyleObject = {
       display: 'flex',

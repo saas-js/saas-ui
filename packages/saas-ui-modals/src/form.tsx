@@ -8,6 +8,7 @@ import {
   SubmitButton,
   FormProps,
   FieldValues,
+  FieldResolver,
   UseFormReturn,
 } from '@saas-ui/forms'
 import { Button } from '@saas-ui/button'
@@ -50,6 +51,10 @@ export interface FormDialogProps<TFieldValues extends FieldValues = FieldValues>
    * If no children are passed, this will auto render fields based on the supplied schema.
    */
   children?: React.ReactNode
+  /**
+   * A schema field resolver used to auto generate form fields.
+   */
+  fieldResolver?: FieldResolver
 }
 
 export const FormDialog = forwardRef(
@@ -60,6 +65,8 @@ export const FormDialog = forwardRef(
     const {
       children,
       schema,
+      resolver,
+      fieldResolver,
       defaultValues,
       onSubmit,
       onError,
@@ -101,7 +108,11 @@ export const FormDialog = forwardRef(
         {...rest}
       >
         <Form {...formProps}>
-          <ModalBody>{children || <Fields schema={schema} />}</ModalBody>
+          <ModalBody>
+            {children || (
+              <Fields schema={schema} fieldResolver={fieldResolver} />
+            )}
+          </ModalBody>
 
           {footer || (
             <ModalFooter>

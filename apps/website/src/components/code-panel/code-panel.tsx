@@ -23,7 +23,7 @@ const CodePanel: React.FC<CodePanelProps> = ({
   }
 
   return (
-    <Box {...props}>
+    <Box {...props} overflow="auto">
       <Highlight theme={theme} codeString={children} language={language} />
     </Box>
   )

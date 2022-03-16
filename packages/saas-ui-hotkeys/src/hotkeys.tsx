@@ -7,13 +7,12 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
+  useMultiStyleConfig,
 } from '@chakra-ui/system'
 
 import { createContext } from '@chakra-ui/react-utils'
 
 import { Kbd } from '@chakra-ui/layout'
-
-import { useMultiStyleConfig } from '@saas-ui/system'
 
 import { SearchInput } from '@saas-ui/search-input'
 
@@ -24,8 +23,6 @@ function escapeRegExp(value: string) {
 }
 
 import { splitKeys } from './use-hotkeys'
-
-import { HotkeysStyles } from './theme'
 
 export interface HotkeysItemOptions {
   /**
@@ -99,9 +96,7 @@ export interface HotkeysListProps
 
 export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
   ({ children, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Hotkeys', props, {
-      defaultStyleConfig: HotkeysStyles,
-    })
+    const styles = useMultiStyleConfig('Hotkeys', props)
     const ownProps = omitThemingProps(props)
 
     const context = useHotkeysList(ownProps)
@@ -120,18 +115,25 @@ export const useHotkeysSearch = () => {
   return useHotkeysListContext()
 }
 
-export const HotkeysSearch = forwardRef((props, ref) => {
-  const { query, setQuery } = useHotkeysSearch()
-  return (
-    <SearchInput
-      ref={ref}
-      value={query}
-      onChange={({ target }) => setQuery(target.value)}
-      onReset={() => setQuery('')}
-      {...props}
-    />
-  )
-})
+// @TODO infer types from SearchInputProps
+interface HotkeysSearchProps
+  extends Omit<HTMLChakraProps<'input'>, 'onReset' | 'size'> {}
+
+export const HotkeysSearch = forwardRef<HotkeysSearchProps, typeof SearchInput>(
+  (props, ref) => {
+    const { query, setQuery } = useHotkeysSearch()
+
+    return (
+      <SearchInput
+        ref={ref}
+        value={query}
+        onChange={({ target }) => setQuery(target.value)}
+        onReset={() => setQuery('')}
+        {...props}
+      />
+    )
+  }
+)
 
 const filterHotkeys = (
   hotkeys: HotkeysGroupListOptions,
@@ -157,49 +159,61 @@ const filterHotkeys = (
   return results
 }
 
-export const HotkeysListItems = forwardRef((props, ref) => {
-  const { hotkeys, query } = useHotkeysListContext()
-  return (
-    <chakra.div {...props} ref={ref}>
-      {Object.values(hotkeys).map((group, i) => {
-        const results = filterHotkeys(group.hotkeys, query)
+export const HotkeysListItems = forwardRef<HTMLChakraProps<'div'>, 'div'>(
+  (props, ref) => {
+    const { hotkeys, query } = useHotkeysListContext()
+    return (
+      <chakra.div {...props} ref={ref}>
+        {Object.values(hotkeys).map((group, i) => {
+          const results = filterHotkeys(group.hotkeys, query)
 
-        if (!results?.length) {
-          return null
-        }
+          if (!results?.length) {
+            return null
+          }
 
-        return (
-          <HotkeysGroup title={group.title} key={i}>
-            {results.map(({ label, command }: HotkeysItemOptions) => {
-              return (
-                <HotkeysItem command={command} key={command}>
-                  {label}
-                </HotkeysItem>
-              )
-            })}
-          </HotkeysGroup>
-        )
-      })}
-    </chakra.div>
-  )
-})
+          return (
+            <HotkeysGroup title={group.title} key={i}>
+              {results.map(({ label, command }: HotkeysItemOptions) => {
+                return (
+                  <HotkeysItem command={command} key={command}>
+                    {label}
+                  </HotkeysItem>
+                )
+              })}
+            </HotkeysGroup>
+          )
+        })}
+      </chakra.div>
+    )
+  }
+)
 
-export const HotkeysGroup = ({ title, children }: HotkeysGroupProps) => {
+export const HotkeysGroup: React.FC<HotkeysGroupProps> = (props) => {
+  const { title, children, ...rest } = props
   const styles = useStyles()
 
+  const groupStyles = {
+    my: 2,
+    py: 2,
+    ...styles.group,
+  }
+
+  const titleStyles = {
+    py: 2,
+    fontWeight: 'semibold',
+    ...styles.groupTitle,
+  }
+
   return (
-    <chakra.div __css={styles.group}>
-      {title && <chakra.p __css={styles.groupTitle}>{title}</chakra.p>}
+    <chakra.div {...rest} __css={groupStyles}>
+      {title && <chakra.p __css={titleStyles}>{title}</chakra.p>}
       {children}
     </chakra.div>
   )
 }
 
-export interface HotkeysCommandProps {
-  children: React.ReactNode
-}
-
-export const HotkeysCommand = ({ children, ...props }: HotkeysCommandProps) => {
+export const HotkeysCommand: React.FC<HTMLChakraProps<'span'>> = (props) => {
+  const { children, ...rest } = props
   const styles = useStyles()
 
   let keys
@@ -210,22 +224,35 @@ export const HotkeysCommand = ({ children, ...props }: HotkeysCommandProps) => {
   }
 
   return (
-    <chakra.span {...props} __css={styles.command}>
+    <chakra.span {...rest} __css={styles.command}>
       {keys || children}
     </chakra.span>
   )
 }
 
-export interface HotkeysItemProps {
+export interface HotkeysItemProps extends HTMLChakraProps<'div'> {
   command: string
-  children: React.ReactNode
 }
 
-export const HotkeysItem = ({ command, children }: HotkeysItemProps) => {
+export const HotkeysItem: React.FC<HotkeysItemProps> = ({
+  command,
+  children,
+}) => {
   const styles = useStyles()
+
+  const itemStyles = {
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'start',
+    flex: '0 0 auto',
+    py: 2,
+    fontSize: 'lg',
+    ...styles.item,
+  }
+
   return (
-    <chakra.div __css={styles.item}>
-      <span style={{ flex: 1 }}>{children}</span>
+    <chakra.div __css={itemStyles}>
+      <chakra.span flex="1">{children}</chakra.span>
       <HotkeysCommand>{command}</HotkeysCommand>
     </chakra.div>
   )

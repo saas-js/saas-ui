@@ -1,17 +1,24 @@
 import * as React from 'react'
 import { useLogin, AuthActionEnum } from '../provider'
 
-import { Form, FormLayout, Field } from '@saas-ui/forms'
+import {
+  Form,
+  FormLayout,
+  Field,
+  FormProps,
+  SubmitHandler,
+  FieldErrors,
+} from '@saas-ui/forms'
 import { LoginButton } from './login-button'
 
 import { AuthFormSuccess } from './success'
 
-export interface MagicLinkFormProps {
-  schema?: any
+export interface MagicLinkFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   action?: AuthActionEnum
-  onSuccess?: (error: any) => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
@@ -36,7 +43,6 @@ export function MagicLinkSuccess({ email }: any) {
 }
 
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
-  schema,
   action = 'logIn',
   onSuccess = () => null,
   onError = () => null,
@@ -51,7 +57,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
     action,
   })
 
-  const handleSubmit = ({ email }: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = ({ email }) => {
     return submit({ email }).then(onSuccess).catch(onError)
   }
 
@@ -63,7 +69,6 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
 
   return (
     <Form
-      schema={schema}
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '', ...defaultValues }}

@@ -29,7 +29,7 @@ export const BackgroundGradient = ({ animate, ...props }: any) => {
       top="0"
       left="0"
       zIndex="0"
-      opacity="0.5"
+      opacity={useColorModeValue('0.3', '0.5')}
       height="100vh"
       width="100%"
       overflow="hidden"

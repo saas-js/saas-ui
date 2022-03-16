@@ -1,5 +1,12 @@
 # website
 
+## 0.1.12
+
+### Patch Changes
+
+- Updated dependencies [9391c44]
+  - @saas-ui/props-docs@0.4.0
+
 ## 0.1.11
 
 ### Patch Changes

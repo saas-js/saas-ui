@@ -1,5 +1,16 @@
 # @saas-ui/data-table
 
+## 0.3.0
+
+### Minor Changes
+
+- 9391c44: Fixed peer dependency issues.
+
+### Patch Changes
+
+- Updated dependencies [9391c44]
+  - @saas-ui/layout@0.3.0
+
 ## 0.2.4
 
 ### Patch Changes

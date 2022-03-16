@@ -8,10 +8,10 @@ import {
   ThemingProps,
   omitThemingProps,
   useColorModeValue,
+  useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { FormProps, FieldErrors } from '@saas-ui/forms'
-import { useMultiStyleConfig } from '@saas-ui/system'
 
 import { MagicLinkForm } from './magic-link-form'
 import { PasswordForm } from './password-form'
@@ -22,7 +22,10 @@ import { ForgotPasswordForm } from './forgot-password-form'
 import { UpdatePasswordForm } from './update-password-form'
 
 export interface AuthFormProps
-  extends Omit<FormProps, 'defaultValues' | 'onSubmit' | 'onError' | 'title'>,
+  extends Omit<
+      FormProps<any>,
+      'defaultValues' | 'onSubmit' | 'onError' | 'title'
+    >,
     ThemingProps<'AuthForm'> {
   /**
    * The authentication type, `magiclink` or `password`
@@ -36,10 +39,6 @@ export interface AuthFormProps
    * The submit action, `logIn` or `signUp`
    */
   action?: AuthActionEnum
-  /**
-   * React-hook-form schema
-   */
-  schema?: any
   /**
    * The form title
    */
@@ -70,7 +69,7 @@ export interface AuthFormProps
   /**
    * Callback executed after succesful login or signup
    */
-  onSuccess?: () => void
+  onSuccess?: (data: any) => void
   /**
    * Error handler if login or signup fails
    */

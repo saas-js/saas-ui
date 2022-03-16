@@ -10,11 +10,13 @@ import {
   FieldValues,
   SubmitHandler,
   SubmitErrorHandler,
+  UnpackNestedValue,
+  ResolverOptions,
+  ResolverResult,
 } from 'react-hook-form'
+import { objectFieldResolver, FieldResolver } from './field-resolver'
 
-import { yupResolver } from './resolvers/yup'
-
-export type { UseFormReturn, FieldValues }
+export type { UseFormReturn, FieldValues, SubmitHandler }
 
 interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
@@ -35,15 +37,15 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   formRef?: React.MutableRefObject<HTMLFormElement>
 }
 
+/**
+ * @todo Figure out how to pass down FieldValues to all Field components,
+ * if at all possible.
+ */
 export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseFormProps<TFieldValues>,
     Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
     FormOptions<TFieldValues> {}
 
-/**
- * @todo Figure out how to pass down FieldValues to all Field components,
- * if at all possible.
- */
 export const Form = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FormProps<TFieldValues>,
@@ -79,9 +81,8 @@ export const Form = forwardRef(
       delayError,
     }
 
-    // @todo remove yup dependency and just use resolver prop?
-    if (schema) {
-      form.resolver = yupResolver(schema)
+    if (schema && !resolver) {
+      form.resolver = Form.getResolver?.(schema)
     }
 
     const methods = useForm<TFieldValues>(form)
@@ -102,8 +103,23 @@ export const Form = forwardRef(
       </FormProvider>
     )
   }
-) as <TFieldValues extends FieldValues>(
+) as (<TFieldValues extends FieldValues>(
   props: FormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
-) => React.ReactElement
+) => React.ReactElement) & {
+  getResolver?: GetResolver
+  getFieldResolver: GetFieldResolver
+}
+
+Form.getFieldResolver = objectFieldResolver
+
+export type GetResolver = (
+  schema: any
+) => <TFieldValues extends FieldValues, TContext>(
+  values: UnpackNestedValue<TFieldValues>,
+  context: TContext | undefined,
+  options: ResolverOptions<TFieldValues>
+) => Promise<ResolverResult<TFieldValues>>
+
+export type GetFieldResolver = (schema: any) => FieldResolver

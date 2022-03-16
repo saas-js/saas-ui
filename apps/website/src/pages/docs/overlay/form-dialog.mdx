@@ -122,7 +122,7 @@ function Page() {
           title: '',
           description: '',
         }}
-        schema={schema}
+        resolver={yupResolver(schema)}
         onSubmit={onSubmit}
         initialFocusRef={initialRef}
       />

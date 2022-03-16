@@ -21,6 +21,7 @@ const NavLink = forwardRef((props: NavLinkProps, ref) => {
         variant="nav-link"
         lineHeight="2rem"
         isActive={isActive}
+        fontWeight="medium"
         {...rest}
       />
     </Link>

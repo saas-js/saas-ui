@@ -56,7 +56,7 @@ export function useStepper(props: UseStepperProps) {
     setIndex(activeIndex - 1)
   }
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (typeof step === 'string') {
       setStep(step)
     } else if (typeof step === 'number') {

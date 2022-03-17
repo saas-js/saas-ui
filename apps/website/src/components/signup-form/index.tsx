@@ -105,28 +105,13 @@ export function SignupForm({ isOpen, onClose }: any) {
     )
   }
 
-  let footer
-
-  if (result) {
-    // footer = (
-    //   <Button colorScheme="primary" onClick={onClose}>
-    //     Close
-    //   </Button>
-    // )
-  } else {
-    footer = (
-      <Flex justify="flex-end" pt="8">
-        <Button
-          colorScheme="primary"
-          type="submit"
-          size="md"
-          isLoading={loading}
-        >
-          Get notified
-        </Button>
-      </Flex>
-    )
-  }
+  const footer = (
+    <Flex justify="flex-start" pt="8">
+      <Button colorScheme="primary" type="submit" size="md" isLoading={loading}>
+        Get notified
+      </Button>
+    </Flex>
+  )
 
   return (
     <Box

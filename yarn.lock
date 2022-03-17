@@ -7256,9 +7256,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/pro@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@saas-ui/pro@npm:0.1.0"
+"@saas-ui/pro@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@saas-ui/pro@npm:0.2.0"
   dependencies:
     "@saas-ui/billing": 0.1.0
     "@saas-ui/charts": 0.0.0
@@ -7266,10 +7266,11 @@ __metadata:
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
-    "@saas-ui/react": ">=0.7.0"
+    "@saas-ui/react": ">=0.12.0"
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
-  checksum: d48b4257b8d85dc1a728178b6700e8fb78d59b1fadff31f6d7a0ab9e6a30f889b9239a9e66740c8f93a765432339a457341113b1edc0863381f069c1fe34d4cb
+    react-dom: ">=16.8.6"
+  checksum: af351c61e894d5bbffe946072d28d02b4f0e9aca415cd848c071d79e73fc3df27df9c14acb42b35bb1c1be16971f9c4bb89755122277ebe5d6fab7eabe4d0381
   languageName: node
   linkType: hard
 
@@ -28891,7 +28892,7 @@ __metadata:
     "@next/bundle-analyzer": ^12.0.7
     "@octokit/rest": ^18.12.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/pro": ^0.1.0
+    "@saas-ui/pro": ^0.2.0
     "@saas-ui/props-docs": ^0.4.1
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^5.5.0

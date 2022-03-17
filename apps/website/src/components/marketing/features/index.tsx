@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {
   Box,
   BoxProps,
@@ -30,7 +30,7 @@ export interface FeaturesProps
   columns?: ResponsiveValue<number>
   spacing?: string | number
   aside?: React.ReactChild
-  reveal?: boolean
+  reveal?: boolean | React.FC<any>
   iconSize?: SystemProps['boxSize']
   innerWidth?: SystemProps['maxW']
 }
@@ -43,6 +43,7 @@ export interface FeatureProps {
   iconSize?: SystemProps['boxSize']
   ip?: 'left' | 'top'
   variant?: string
+  delay?: number
 }
 
 export function Feature({
@@ -91,9 +92,11 @@ export default function Features({
   }
   const ip = align === 'left' ? 'left' : 'top'
 
-  let Wrap: React.FunctionComponent = Fragment
-  if (reveal) {
+  let Wrap: React.FC<any> = Box
+  if (reveal === true) {
     Wrap = ScaleInView
+  } else if (reveal) {
+    Wrap = reveal
   }
 
   return (
@@ -112,7 +115,7 @@ export default function Features({
           <SimpleGrid columns={columns} spacing={spacing}>
             {features.map((feature, i) => {
               return (
-                <Wrap key={i}>
+                <Wrap key={i} delay={feature.delay}>
                   <Feature iconSize={iconSize} {...feature} ip={ip} />
                 </Wrap>
               )

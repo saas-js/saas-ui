@@ -28,6 +28,7 @@ import {
   useTheme,
   Tag,
   Wrap,
+  Spacer,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -98,7 +99,7 @@ const Home = () => {
       />
       <BackgroundGradient animate={false} />
       <Box mb={8} w="full" position="relative" overflow="hidden">
-        <Box>
+        <Box pos="relative">
           <Container maxW="container.xl" py="40">
             <Stack direction={['column', 'row']}>
               <Hero
@@ -178,7 +179,7 @@ const Home = () => {
             columns={[1, 2, 4]}
             iconSize={4}
             innerWidth="container.xl"
-            pt="0"
+            pt="20"
             features={[
               {
                 title: 'Accessible',
@@ -186,6 +187,7 @@ const Home = () => {
                 description:
                   'All components strictly follow WAI-ARIA standards.',
                 iconPosition: 'left',
+                delay: 0.6,
               },
               {
                 title: 'Themable',
@@ -193,6 +195,7 @@ const Home = () => {
                 description:
                   'Fully customize all components to your brand with theme support and style props.',
                 iconPosition: 'left',
+                delay: 0.8,
               },
               {
                 title: 'Composable',
@@ -200,6 +203,7 @@ const Home = () => {
                 description:
                   'Compose components to fit your needs and mix them together to create new ones.',
                 iconPosition: 'left',
+                delay: 1,
               },
               {
                 title: 'Productive',
@@ -207,8 +211,10 @@ const Home = () => {
                 description:
                   'Designed to reduce boilerplate and fully typed, build your product at speed.',
                 iconPosition: 'left',
+                delay: 1.1,
               },
             ]}
+            reveal={FallInPlace}
           />
         </Box>
 
@@ -857,12 +863,11 @@ const Highlights = () => {
   return (
     <Section innerWidth="container.xl" position="relative" overflow="hidden">
       <Grid
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(3, 1fr)"
+        templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
         gap={8}
         position="relative"
       >
-        <GridItem colSpan={2} as={HighlightBox}>
+        <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">Core components</Heading>
           <Text color="muted" fontSize="xl">
             Get started for free with <Em>30+ open source components</Em>.
@@ -938,7 +943,7 @@ const Highlights = () => {
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem colSpan={2} as={HighlightBox}>
+        <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">
             Start your next idea two steps ahead
           </Heading>

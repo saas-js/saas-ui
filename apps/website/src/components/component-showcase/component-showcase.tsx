@@ -42,6 +42,7 @@ import { Float } from '../motion/float'
 import { useHotkeys } from '@saas-ui/hotkeys'
 import { FaGithub } from 'react-icons/fa'
 import { DataTable, Column } from '@saas-ui/data-table'
+import { useScrollSpy } from '@/hooks/use-scrollspy'
 
 interface Data {
   id: string
@@ -53,6 +54,9 @@ export const ComponentShowcase = () => {
   const searchRef = React.useRef<HTMLInputElement>(null)
 
   useHotkeys('/', () => searchRef.current?.focus())
+
+  // make sure the menu doesnt steel focus on load
+  const isOpen = !!useScrollSpy(['#showcase-property-list'])
 
   const menuStyles = {
     bg: useColorModeValue('whiteAlpha.600', 'blackAlpha.500'),
@@ -234,7 +238,7 @@ export const ComponentShowcase = () => {
         </Float>
 
         <Float delay={2} position="absolute" left="860px" top="30px">
-          <Card width="320px" {...cardStyles}>
+          <Card width="320px" {...cardStyles} id="showcase-property-list">
             <Tabs colorScheme="purple">
               <TabList>
                 <Tab>Details</Tab>
@@ -258,8 +262,10 @@ export const ComponentShowcase = () => {
                           value="Open"
                           menuListProps={menuStyles}
                           size="sm"
-                          isOpen
+                          defaultIsOpen
+                          isOpen={isOpen}
                           flip={false}
+                          autoSelect={false}
                         >
                           <MenuItemOption value="Open">Open</MenuItemOption>
                           <MenuItemOption value="Closed">Closed</MenuItemOption>

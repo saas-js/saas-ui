@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 0.4.1
+
+### Patch Changes
+
+- Fixed issue where the ModalFooter would not render.
+
 ## 0.4.0
 
 ### Minor Changes

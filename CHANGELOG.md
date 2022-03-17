@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-17-2022
+
+`@saas-ui/react@0.12.1`
+
+- Fixed issue where the ModalFooter would not render.
+
+**Modals** `v0.4.1`
+
+- Fixed issue where the ModalFooter would not render.
+
 ## 03-15-2022
 
 `@saas-ui/react@0.12.0`

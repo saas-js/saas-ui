@@ -7,9 +7,26 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 15 Mar 2022 13:38:00 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 17 Mar 2022 10:10:55 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/03-17-2022</guid>
+    <title>Updates for Mar 17, 2022</title>
+    <link>https://saas-ui.dev/changelog/03-17-2022</link>
+    <description>
+## 03-17-2022
+
+`@saas-ui/react@0.12.1`
+
+- Fixed issue where the ModalFooter would not render.
+
+**Mo...</description>
+    <pubDate>Thu, 17 Mar 2022 10:10:55 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/03-15-2022</guid>
     <title>Updates for Mar 15, 2022</title>

@@ -27,8 +27,8 @@ function Page() {
     <>
       <Button onClick={() => disclosure.onOpen()}>Open menu</Button>
 
-      <MenuDialog title="Commands" {...disclosure}>
-        <MenuDialogList>
+      <MenuDialog {...disclosure}>
+        <MenuDialogList title="Commands">
           <MenuItem icon={<FiUsers />} command="A">
             Assign
           </MenuItem>
@@ -55,8 +55,8 @@ function Page() {
     <>
       <Button onClick={() => disclosure.onOpen()}>Open menu</Button>
 
-      <MenuDialog title="Commands" {...disclosure}>
-        <MenuDialogList>
+      <MenuDialog {...disclosure}>
+        <MenuDialogList title="Commands">
           <MenuGroup title="Message">
             <MenuItem icon={<FiUsers />} command="A">
               Assign

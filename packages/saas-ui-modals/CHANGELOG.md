@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 0.5.0
+
+### Minor Changes
+
+- 29a7479: Improved the MenuDialog api to be more consistant with Menu
+
 ## 0.4.1
 
 ### Patch Changes

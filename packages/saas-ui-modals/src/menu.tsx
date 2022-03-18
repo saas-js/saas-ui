@@ -12,7 +12,7 @@ import {
   Menu,
 } from '@chakra-ui/react'
 
-import { BaseModal, BaseModalProps } from '@saas-ui/modals'
+import { BaseModal, BaseModalProps } from './modal'
 
 export interface MenuDialogProps extends BaseModalProps {
   /**

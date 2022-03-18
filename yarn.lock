@@ -4997,6 +4997,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clerk/clerk-react@npm:^2.12.6":
+  version: 2.12.6
+  resolution: "@clerk/clerk-react@npm:2.12.6"
+  dependencies:
+    "@clerk/types": ^1.29.2
+    tslib: ^2.3.1
+  peerDependencies:
+    react: ">=16"
+  checksum: b79b50296d9cba18c8ee9729d2e5a950007136af0820b85ffa3783a5c1d6ba0f3b4c59a6a81dd00eaa42b0d018ab7e19355d5e04b31d3fe5599e11a20e8da465
+  languageName: node
+  linkType: hard
+
+"@clerk/types@npm:^1.29.2":
+  version: 1.29.2
+  resolution: "@clerk/types@npm:1.29.2"
+  checksum: 04767097150c3c01bf25ba934f8020e918ff7cba9c30e5e89fcfbc1457bad6cc3bc38dfe238017908786677308d8c7ba2357cd4c68739221131a6a2c064ff704
+  languageName: node
+  linkType: hard
+
 "@contentlayer/cli@npm:0.0.33":
   version: 0.0.33
   resolution: "@contentlayer/cli@npm:0.0.33"
@@ -7027,6 +7046,20 @@ __metadata:
   checksum: a5cf877c6b5bce53f0525f973bb12c207b8f310b756d8ebf38bc72eb7b90d2ebcf9c3b4a646390001f2109810e96441d9537c1d3e750fe9a491d82c1c82ccd8b
   languageName: node
   linkType: hard
+
+"@saas-ui/clerk@workspace:packages/saas-ui-clerk":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/clerk@workspace:packages/saas-ui-clerk"
+  dependencies:
+    "@clerk/clerk-react": ^2.12.6
+    "@clerk/types": ^1.29.2
+    "@saas-ui/auth": "workspace:*"
+  peerDependencies:
+    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/system": ">=1.0.0"
+    react: ">=16.8.6"
+  languageName: unknown
+  linkType: soft
 
 "@saas-ui/collapse@workspace:*, @saas-ui/collapse@workspace:packages/saas-ui-collapse":
   version: 0.0.0-use.local
@@ -27488,7 +27521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9

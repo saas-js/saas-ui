@@ -8,6 +8,28 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-18-2022
+
+**Theme** `v0.7.1`
+
+- Improved Input fields outline variant contrast for better a11y
+
+**Auth** `v0.7.1`
+
+- Check if AuthStateChange unsubscribe callback is returned.
+
+**Stepper** `v0.2.1`
+
+- No longer use useLayoutEffect, since it causes SSR issues.
+
+**Clerk** `v0.0.1`
+
+- Added Clerk authentication service
+
+**Modals** `v0.5.0`
+
+- Improved the MenuDialog api to be more consistant with Menu
+
 ## 03-17-2022
 
 `@saas-ui/react@0.12.1`

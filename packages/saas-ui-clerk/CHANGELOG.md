@@ -1,5 +1,11 @@
 # @saas-ui/clerk
 
+## 0.1.0
+
+### Minor Changes
+
+- Added clerk-react to peer deps
+
 ## 0.0.1
 
 ### Patch Changes

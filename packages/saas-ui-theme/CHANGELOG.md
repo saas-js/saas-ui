@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.7.1
+
+### Patch Changes
+
+- 0024834: Improved Input fields outline variant contrast for better a11y
+
 ## 0.7.0
 
 ### Minor Changes

@@ -1,0 +1,9 @@
+# @saas-ui/clerk
+
+## 0.0.1
+
+### Patch Changes
+
+- bc41a19: Added Clerk authentication service
+- Updated dependencies [4939649]
+  - @saas-ui/auth@0.7.1

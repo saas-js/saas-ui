@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 0.7.1
+
+### Patch Changes
+
+- 4939649: Check if AuthStateChange unsubscribe callback is return.
+
 ## 0.7.0
 
 ### Minor Changes

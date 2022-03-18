@@ -1,5 +1,11 @@
 # @saas-ui/stepper
 
+## 0.2.1
+
+### Patch Changes
+
+- a36ac06: No longer use useLayoutEffect, since it causes SSR issues.
+
 ## 0.2.0
 
 ### Minor Changes

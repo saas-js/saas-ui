@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 0.12.2
+
+### Patch Changes
+
+- Updated dependencies [0024834]
+- Updated dependencies [4939649]
+- Updated dependencies [a36ac06]
+- Updated dependencies [29a7479]
+  - @saas-ui/theme@0.7.1
+  - @saas-ui/auth@0.7.1
+  - @saas-ui/stepper@0.2.1
+  - @saas-ui/modals@0.5.0
+  - @saas-ui/provider@0.3.6
+  - @saas-ui/layout@0.3.1
+  - @saas-ui/menu@0.5.1
+  - @saas-ui/data-table@0.3.1
+
 ## 0.12.1
 
 ### Patch Changes

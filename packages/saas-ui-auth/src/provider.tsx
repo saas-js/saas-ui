@@ -137,7 +137,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
         setAuthenticated(!!user)
       })
       return () => {
-        unsubscribe()
+        unsubscribe?.()
       }
     }
   }, [])

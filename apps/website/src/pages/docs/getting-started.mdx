@@ -71,7 +71,7 @@ const NextLink: React.FC<LinkProps> = (props) => <Link passHref {...props} />
 function MyApp({ Component, pageProps }: AppProps) {
   // 3. Use at the root of your app
   return (
-    <SaasProvider cookies={pageProps.cookies} linkComponent={NextLink}>
+    <SaasProvider linkComponent={NextLink}>
       <Component {...pageProps} />
     </SaasProvider>
   )
@@ -84,12 +84,34 @@ export default MyApp
 
 Besides setting up the Saas UI specific context, this is how the basic Chakra setup looks like internally.
 
-```jsx live=false
-<ChakraProvider colorModeManager={colorModeManager}>
-  <ThemeProvider theme={theme || defaultTheme}>
-    <CSSReset />
-    <GlobalStyle />
-    {children}
-  </ThemeProvider>
-</ChakraProvider>
+```tsx
+export function SaasProvider({
+  theme,
+  linkComponent,
+  cookies,
+  onError,
+  children,
+}: SaasProviderProps) {
+  const colorModeManager =
+    typeof cookies === 'string'
+      ? cookieStorageManager(cookies)
+      : localStorageManager
+
+  const context = {
+    linkComponent,
+    onError,
+  }
+
+  return (
+    <SaasContext.Provider value={context}>
+      <ChakraProvider colorModeManager={colorModeManager}>
+        <ThemeProvider theme={theme || defaultTheme}>
+          <CSSReset />
+          <GlobalStyle />
+          {children}
+        </ThemeProvider>
+      </ChakraProvider>
+    </SaasContext.Provider>
+  )
+}
 ```

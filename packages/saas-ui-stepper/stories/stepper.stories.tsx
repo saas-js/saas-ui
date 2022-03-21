@@ -1,7 +1,14 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Box, ButtonGroup, Container, Spacer, Stack } from '@chakra-ui/react'
+import {
+  Box,
+  ButtonGroup,
+  Container,
+  Spacer,
+  Stack,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 
 import {
   Stepper,
@@ -218,6 +225,39 @@ export const UnControlled = () => {
           colorScheme="primary"
         />
       </ButtonGroup>
+    </>
+  )
+}
+
+export const Responsive = () => {
+  const steps = [
+    {
+      name: 'step 1',
+      title: 'First step',
+      children: <ControlledStep>Content step 1</ControlledStep>,
+    },
+    {
+      name: 'step 2',
+      title: 'Second step',
+      children: <ControlledStep>Content step 2</ControlledStep>,
+    },
+    {
+      name: 'step 3',
+      title: 'Third step',
+      children: <ControlledStep>Content step 3</ControlledStep>,
+    },
+  ]
+
+  return (
+    <>
+      <Stepper
+        orientation={useBreakpointValue({ base: 'vertical', sm: 'horizontal' })}
+      >
+        {steps.map((args, i) => (
+          <StepperStep key={i} {...args} />
+        ))}
+        <StepperCompleted>Completed</StepperCompleted>
+      </Stepper>
     </>
   )
 }

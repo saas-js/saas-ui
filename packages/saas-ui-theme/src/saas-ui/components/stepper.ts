@@ -8,15 +8,20 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
     icon: {
       bg: mode(`gray.500`, `gray.600`)(props),
       color: 'white',
-      '[data-active=true] &': {
+      '[data-active] &': {
         bg: `${c}.500`,
       },
-      '[data-completed=true] &': {
+      '[data-completed] &': {
         bg: `${c}.500`,
       },
     },
     separator: {
-      '&[data-active=true]': {
+      '&[data-active]': {
+        borderColor: `${c}.500`,
+      },
+    },
+    step: {
+      '&[data-active]:before, &[data-completed]': {
         borderColor: `${c}.500`,
       },
     },
@@ -29,19 +34,24 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
     icon: {
       bg: mode(`gray.500`, `gray.600`)(props),
       color: 'white',
-      '[data-active=true] &': {
+      '[data-active] &': {
         bg: `${c}.500`,
         outlineColor: `${c}.500`,
         outlineWidth: '1px',
         outlineStyle: 'solid',
         outlineOffset: '2px',
       },
-      '[data-completed=true] &': {
+      '[data-completed] &': {
         bg: `${c}.500`,
       },
     },
     separator: {
-      '&[data-active=true]': {
+      '&[data-active]': {
+        borderColor: `${c}.500`,
+      },
+    },
+    step: {
+      '&[data-active]:before, &[data-completed]': {
         borderColor: `${c}.500`,
       },
     },

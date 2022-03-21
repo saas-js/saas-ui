@@ -88,6 +88,26 @@ import {
 </Stepper>
 ```
 
+### Responsive Mobile stepper
+
+Horizontal steppers will position titles below the step icon on smaller screens.
+If you have more then 3 steps it's recommended to use a vertical stepper instead.
+
+```jsx
+function ResponsiveStepper() {
+  return (
+    <Stepper
+      step={1}
+      orientation={useBreakpointValue({ base: 'vertical', md: 'horizontal' })}
+    >
+      <StepperStep title="Personal information" />
+      <StepperStep title="Account" />
+      <StepperStep title="Confirmation" />
+    </Stepper>
+  )
+}
+```
+
 ### With content
 
 ```jsx

@@ -58,10 +58,10 @@ const SectionTitle = {
         spacing: [2, null, 3],
       },
       title: {
-        fontSize: '4xl',
+        fontSize: { base: '2xl', lg: '4xl' },
       },
       description: {
-        fontSize: '2xl',
+        fontSize: { base: 'xl', lg: '2xl' },
       },
     },
   },

@@ -1,5 +1,11 @@
 # @saas-ui/persona
 
+## 0.5.1
+
+### Patch Changes
+
+- c1c556c: PersonaContainer now accepts size and box props.
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.7.2
+
+### Patch Changes
+
+- a396394: Improved Stepper styling on small screens.
+
 ## 0.7.1
 
 ### Patch Changes

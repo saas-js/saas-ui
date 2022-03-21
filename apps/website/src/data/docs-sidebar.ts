@@ -42,6 +42,25 @@ const sidebar = {
             },
           ],
         },
+        {
+          title: 'Integrations',
+          path: '/docs/integrations',
+          open: true,
+          routes: [
+            {
+              title: 'Clerk',
+              path: '/docs/integrations/clerk',
+            },
+            {
+              title: 'Supabase',
+              path: '/docs/integrations/supabase',
+            },
+            {
+              title: 'Magic.link',
+              path: '/docs/integrations/magic',
+            },
+          ],
+        },
       ],
     },
     {

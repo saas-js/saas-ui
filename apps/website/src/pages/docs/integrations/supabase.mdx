@@ -1,0 +1,59 @@
+---
+title: Supabase
+package: '@saas-ui/auth'
+description: Integrating Supabase authentication with Saas UI.
+---
+
+<ComponentLinks
+  github={{
+    package: 'saas-ui-auth',
+  }}
+  npm={{ package: '@saas-ui/auth' }}
+/>
+
+This integration allows you to connect Supabase with the Saas UI auth screens and provider.
+
+Supported authentication strategies are:
+
+- Magic link
+- Password
+- Social login (Oauth)
+
+## Import
+
+```js
+import { createAuthService } from '@saas-ui/auth/supabase'
+```
+
+## Usage
+
+If you haven't done so already install `@supabase/supabase-js`.
+
+```bash
+yarn add @supabase/supabase-js
+```
+
+### Setup AuthProvider
+
+```tsx
+import { createClient } from '@supabase/supabase-js'
+import { AuthProvider } from '@saas-ui/react'
+import { createAuthService } from '@saas-ui/auth/supabase'
+
+const supabaseClient = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+)
+
+function App({ children }) {
+  return (
+    <SaasProvider>
+      <AuthProvider {...createAuthService(supabaseClient)}>
+        {children}
+      </AuthProvider>
+    </SaasProvider>
+  )
+}
+```
+
+That's it! Check the [Auth documentation](/docs/auth/auth) to see how to add authentication screens to your app.

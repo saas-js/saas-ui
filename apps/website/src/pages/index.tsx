@@ -127,13 +127,14 @@ const Home = () => {
                   </HStack>
 
                   <ButtonGroup
-                    flexDirection={['column', 'row']}
-                    spacing={4}
+                    flexDirection={['column', null, 'row']}
+                    spacing={[0, null, 8]}
                     alignItems="center"
                   >
                     <Button
                       colorScheme="primary"
                       size="lg"
+                      mb={[8, null, 0]}
                       onClick={() => {
                         document
                           .getElementById('pricing')
@@ -236,7 +237,7 @@ const Home = () => {
           <Box position="relative">
             <Heading
               fontWeight="bold"
-              fontSize="4xl"
+              fontSize={['2xl', null, '4xl']}
               lineHeight="lg"
               color={useColorModeValue('black', 'white')}
               width={{ base: 'full', lg: '50%' }}
@@ -255,7 +256,7 @@ const Home = () => {
               direction={{ base: 'column', lg: 'row' }}
             >
               <VStack spacing="8" alignItems="flex-start">
-                <Text fontSize="2xl">
+                <Text fontSize={['xl', null, '2xl']}>
                   SaaS UI tries to fill this gap by giving developers an
                   extensive set of beautifully crafted components build on{' '}
                   <Em>best in class tools</Em>. While on the same time serve as
@@ -264,7 +265,7 @@ const Home = () => {
                 </Text>
               </VStack>
               <VStack spacing="8" alignItems="flex-start">
-                <Text fontSize="2xl">
+                <Text fontSize={['xl', null, '2xl']}>
                   With SaaS UI you&apos;ll <Em>save hundreds of hours</Em>{' '}
                   building essential functionaly for your product. Time that you
                   can use to validate new ideas, find your perfect product
@@ -503,7 +504,7 @@ const Pricing = () => {
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (Supabase/Magic.link)" />
+              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
               <PricingFeature title="Forms (react-hook-form)" />
               <PricingFeature title="Modals manager" />
               <PricingFeature title="Hotkeys" />
@@ -690,7 +691,7 @@ const BoilerplateCode = () => {
             <Br /> build with speed.
           </Heading>
           <VStack spacing="4" alignItems="flex-start">
-            <Text fontSize="2xl" color="muted">
+            <Text fontSize={['xl', null, '2xl']} color="muted">
               Saas UI ships with an extensive set of foundational and advanced
               components that cover a wide range of use-cases. Carefully crafted
               to reduce boilerplate code without sacrificing flexibility.
@@ -731,7 +732,7 @@ const BoilerplateCode = () => {
           bg="codeBackground"
           borderRadius="2xl"
         >
-          <Box width="90%">
+          <Box width="90%" overflowX="auto">
             <CodePanel language="typescript">{codeExamples.form}</CodePanel>
           </Box>
         </Box>
@@ -748,7 +749,7 @@ const Themable = () => {
           Make it yours.
         </Heading>
         <VStack spacing="4" alignItems="flex-start">
-          <Text fontSize="2xl" color="muted">
+          <Text fontSize={['xl', null, '2xl']} color="muted">
             Saas UI is build on top of <Em>Chakra UI</Em>, all components are
             build with the same excellent design principles. Effortlessly
             compose and customize components directly through CSS-in-JS style
@@ -787,7 +788,7 @@ const Themable = () => {
         <Box
           display="flex"
           flex="1"
-          p="10"
+          p={[0, null, 10]}
           alignItems="center"
           justifyContent="center"
           borderRadius="2xl"
@@ -871,8 +872,9 @@ const Highlights = () => {
           <Heading fontSize="1.4em">Core components</Heading>
           <Text color="muted" fontSize="xl">
             Get started for free with <Em>30+ open source components</Em>.
-            Including authentication screens with Supabase and Magic.link. Fully
-            functional forms with React Hook Form. Data tables with React Table.
+            Including authentication screens with Clerk, Supabase and Magic.
+            Fully functional forms with React Hook Form. Data tables with React
+            Table.
           </Text>
           <Button
             colorScheme="black"
@@ -1105,13 +1107,18 @@ const ProFeatures = () => {
     <Features
       id="pro-features"
       title={
-        <Heading lineHeight="short" size="2xl" textAlign="left" as="p">
+        <Heading
+          lineHeight="short"
+          fontSize={['2xl', null, '4xl']}
+          textAlign="left"
+          as="p"
+        >
           Not your standard
           <Br /> dashboard template.
         </Heading>
       }
       description={
-        <Text fontSize="2xl">
+        <Text fontSize={['xl', null, '2xl']}>
           Saas UI Pro includes everything you need to build frontends that
           scale.
           <Br />
@@ -1121,7 +1128,7 @@ const ProFeatures = () => {
       }
       align="left"
       variant="alternate"
-      columns={[2, null, 3]}
+      columns={[1, 2, 3]}
       iconSize={4}
       features={[
         {

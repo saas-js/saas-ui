@@ -36,7 +36,7 @@
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -p --from '@saas-ui/*' npm publish --access public && yarn changeset tag",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook && sb extract",
+    "build:storybook": "build-storybook && sb extract",
     "prepare": "husky install",
     "clean": "turbo run clean",
     "test": "jest --maxWorkers=50%",
@@ -53,7 +53,7 @@
   "workspaces": [
     "packages/*",
     "apps/*",
-    "tooling/test-utils"
+    "tooling/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.16.5",

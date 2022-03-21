@@ -17,6 +17,7 @@ import * as React from 'react'
 // import { FaMoon, FaSun } from 'react-icons/fa'
 import { FiMoon, FiSun } from 'react-icons/fi'
 import { withPerformance } from 'storybook-addon-performance'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 import { baseTheme, theme } from '@saas-ui/theme'
 
@@ -32,6 +33,12 @@ export const globalTypes = {
       icon: 'globe',
       items: ['LTR', 'RTL'],
     },
+  },
+}
+
+export const parameters = {
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
   },
 }
 

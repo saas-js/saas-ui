@@ -11,6 +11,7 @@ import {
 import * as React from 'react'
 
 import * as Yup from 'yup'
+import * as z from 'zod'
 
 import { FormLayout, Field, FormValue } from '../src'
 
@@ -29,6 +30,7 @@ import { PropertyList, Property } from '@saas-ui/property'
 import { onSubmit } from './helpers'
 import { StepperCompleted } from '@saas-ui/stepper'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export default {
   title: 'Components/Forms/StepForm',
@@ -43,12 +45,27 @@ export default {
 
 const schemas = {
   profile: Yup.object().shape({
-    name: Yup.string().min(2, 'Too short').max(25, 'Too long').required(),
+    name: Yup.string()
+      .min(2, 'Minimal 2 characters')
+      .max(25, 'Maximum 25 characters')
+      .required(),
     email: Yup.string().required().email(),
   }),
-
   password: Yup.object().shape({
-    password: Yup.string().min(5, 'Too short').required(),
+    password: Yup.string().min(5, 'Minimal 5 characters').required(),
+  }),
+}
+
+const zodSchemas = {
+  project: z.object({
+    name: z
+      .string()
+      .min(2, { message: 'Minimal 2 characters' })
+      .max(25, 'Maximum 25 characters'),
+    description: z.string(),
+  }),
+  members: z.object({
+    members: z.string(),
   }),
 }
 
@@ -85,7 +102,7 @@ export const Basic = () => (
   </>
 )
 
-export const WithSchema = () => (
+export const WithYupSchema = () => (
   <>
     <StepForm
       defaultValues={{
@@ -106,6 +123,43 @@ export const WithSchema = () => (
           <FormStep name="password" resolver={yupResolver(schemas.password)}>
             <FormLayout>
               <Field name="password" label="Password" />
+            </FormLayout>
+          </FormStep>
+          {isCompleted ? (
+            <Text>Completed</Text>
+          ) : (
+            <ButtonGroup>
+              <PrevButton />
+              <NextButton />
+            </ButtonGroup>
+          )}
+        </FormLayout>
+      )}
+    </StepForm>
+  </>
+)
+
+export const WithZodSchema = () => (
+  <>
+    <StepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ isCompleted }) => (
+        <FormLayout>
+          <FormStep name="project" resolver={zodResolver(zodSchemas.project)}>
+            <FormLayout>
+              <Field name="name" label="Name" />
+              <Field name="description" label="Description" />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="members" resolver={zodResolver(zodSchemas.members)}>
+            <FormLayout>
+              <Field name="members" label="Members" type="textarea" />
             </FormLayout>
           </FormStep>
           {isCompleted ? (

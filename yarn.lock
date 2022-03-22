@@ -5273,10 +5273,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clerk/clerk-react@npm:^2.12.7":
+  version: 2.12.7
+  resolution: "@clerk/clerk-react@npm:2.12.7"
+  dependencies:
+    "@clerk/types": ^1.29.3
+    tslib: ^2.3.1
+  peerDependencies:
+    react: ">=16"
+  checksum: b54e33dc7b4215e486907ae6fe83df22fe43d27997ab8894871f23b46c0fa263a2f74193ee36a62c603aee22cf9cd4878bc2e4f2572844a9277f80918511128d
+  languageName: node
+  linkType: hard
+
 "@clerk/types@npm:^1.29.2":
   version: 1.29.2
   resolution: "@clerk/types@npm:1.29.2"
   checksum: 04767097150c3c01bf25ba934f8020e918ff7cba9c30e5e89fcfbc1457bad6cc3bc38dfe238017908786677308d8c7ba2357cd4c68739221131a6a2c064ff704
+  languageName: node
+  linkType: hard
+
+"@clerk/types@npm:^1.29.3":
+  version: 1.29.3
+  resolution: "@clerk/types@npm:1.29.3"
+  checksum: 18440a26dfd820f65d824892e0f4602b2e21a0c7df081f63876621d9bb9c44bc5b6d57f8725c72022a14535c9b8be7f767911700c437bd4cda98cdcd4e39ecae
   languageName: node
   linkType: hard
 
@@ -26004,6 +26023,7 @@ __metadata:
     "@chakra-ui/icons": ^1.1.1
     "@chakra-ui/react": ^1.8.6
     "@changesets/cli": ^2.19.0
+    "@clerk/clerk-react": ^2.12.7
     "@emotion/jest": ^11.8.0
     "@emotion/react": ^11
     "@emotion/styled": ^11
@@ -26049,6 +26069,8 @@ __metadata:
     ts-node: ^10.7.0
     turbo: ^1.1.5
     typescript: ^4.5.4
+    yup: ^0.32.11
+    zod: ^3.14.2
   languageName: unknown
   linkType: soft
 
@@ -28070,7 +28092,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
@@ -29985,6 +30007,13 @@ __metadata:
     property-expr: ^2.0.4
     toposort: ^2.0.2
   checksum: 43a16786b47cc910fed4891cebdd89df6d6e31702e9462e8f969c73eac88551ce750732608012201ea6b93802c8847cb0aa27b5d57370640f4ecf30f9f97d4b0
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.14.2":
+  version: 3.14.2
+  resolution: "zod@npm:3.14.2"
+  checksum: 397c300f0957126519c6d9fa95b8ea08f8dc2d0692e8c40be78d070a69e88cacec9d7b960c33f61382b7c1647c0850bea5c299bcdfbe7a671a8bf0fb3e6923cf
   languageName: node
   linkType: hard
 

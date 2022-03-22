@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.6.1
+
+### Patch Changes
+
+- Release an updated build
+
 ## 0.6.0
 
 ### Minor Changes

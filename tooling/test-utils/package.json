@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/test-utils",
-  "version": "1.2.17",
+  "version": "1.2.18",
   "private": true,
   "description": "Testing utilities for Chakra UI's components",
   "keywords": [

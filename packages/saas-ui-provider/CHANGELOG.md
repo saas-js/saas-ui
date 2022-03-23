@@ -1,5 +1,11 @@
 # @saas-ui/provider
 
+## 0.3.8
+
+### Patch Changes
+
+- 42f4655: Fixed useActivePath SSR issue.
+
 ## 0.3.7
 
 ### Patch Changes

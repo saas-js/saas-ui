@@ -8,6 +8,20 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-21-2022
+
+**Stepper** `v0.2.2`
+
+- Improved Stepper styling on small screens.
+
+**Theme** `v0.7.2`
+
+- Improved Stepper styling on small screens.
+
+**Persona** `v0.5.1`
+
+- PersonaContainer now accepts size and box props.
+
 ## 03-18-2022
 
 **Theme** `v0.7.1`

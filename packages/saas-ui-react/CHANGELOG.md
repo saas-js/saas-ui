@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 0.12.5
+
+### Patch Changes
+
+- e7375a9: Moved @chakra-ui/system to dependencies
+- Updated dependencies [42f4655]
+  - @saas-ui/provider@0.3.8
+  - @saas-ui/layout@0.3.3
+  - @saas-ui/menu@0.5.3
+  - @saas-ui/data-table@0.3.3
+
 ## 0.12.4
 
 ### Patch Changes

@@ -1,15 +1,20 @@
-const path = require('path')
 const { withContentlayer } = require('next-contentlayer')
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const webpack = require('webpack')
 
 let config = {
-  swcMinify: false,
+  reactStrictMode: true,
   experimental: {
     optimizeFonts: true,
     modern: true,
     externalDir: true,
   },
-  webpack: (config, { dev, isServer, defaultLoaders }) => {
+  compiler: {},
+  webpack: (config, { defaultLoaders }) => {
     const fileLoaderRule = config.module.rules.find(
       (rule) => rule.test && rule.test.test('.svg')
     )
@@ -72,4 +77,4 @@ if (isNextDev) {
   config = withContentlayer()(config)
 }
 
-module.exports = config
+module.exports = withBundleAnalyzer(config)

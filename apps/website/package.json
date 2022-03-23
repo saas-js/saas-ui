@@ -15,7 +15,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/props-docs": "^1.0.45",
     "@chakra-ui/react": "^1.8.6",
     "@chakra-ui/skip-nav": "^1.2.1",
@@ -29,6 +28,7 @@
     "@octokit/rest": "^18.12.0",
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/props-docs": "^0.4.1",
+    "@saas-ui/react": "workspace:*",
     "@saas-ui/web3": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "canvas-confetti": "^1.5.1",
@@ -67,6 +67,6 @@
     "typescript": "^4.5.4"
   },
   "optionalDependencies": {
-    "@saas-ui/pro": "^0.2.1"
+    "@saas-ui/pro": "^0.2.5"
   }
 }

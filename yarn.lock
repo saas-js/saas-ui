@@ -4658,7 +4658,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:1.11.2, @chakra-ui/system@npm:^1.11.2":
+"@chakra-ui/system@npm:1.11.2, @chakra-ui/system@npm:>=1.0.0, @chakra-ui/system@npm:^1.11.2":
   version: 1.11.2
   resolution: "@chakra-ui/system@npm:1.11.2"
   dependencies:
@@ -7290,16 +7290,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/billing@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@saas-ui/billing@npm:0.1.0"
+"@saas-ui/billing@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@saas-ui/billing@npm:0.1.1"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
     "@saas-ui/react": ">=0.7.0"
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
-  checksum: 563d078093889e166a03aaae8410d4c59a1e41ae278fd6164b4a2ffde00953e1c9b2bf7004b00b66088220b2cd22a05a7f54f7df14a491ac91a5ff545aa336d1
+  checksum: 9c6d816a7772a4e0637d2157cedd641da8b6625f5f062b741ac637587ed275c588a6c56b3ff3251ede75b348da846e4ada4a51fa726e34e4f211bcbdf156f61e
   languageName: node
   linkType: hard
 
@@ -7325,15 +7324,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/charts@npm:0.0.0":
-  version: 0.0.0
-  resolution: "@saas-ui/charts@npm:0.0.0"
+"@saas-ui/charts@npm:0.0.1":
+  version: 0.0.1
+  resolution: "@saas-ui/charts@npm:0.0.1"
   dependencies:
     recharts: ^2.1.9
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     react: ">=16.8.6"
-  checksum: a5cf877c6b5bce53f0525f973bb12c207b8f310b756d8ebf38bc72eb7b90d2ebcf9c3b4a646390001f2109810e96441d9537c1d3e750fe9a491d82c1c82ccd8b
+    react-dom: ">=16.8.6"
+  checksum: 5d58f082b22b9210be1ec2ba21d601a68ab7ba702cec13c0ff2412d19763f77555f17ff27749b633d7b66d228bf5bd37d4982a280fc1419f5f4f12975b8c7ed1
   languageName: node
   linkType: hard
 
@@ -7518,18 +7518,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/onboarding@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@saas-ui/onboarding@npm:0.1.0"
+"@saas-ui/onboarding@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@saas-ui/onboarding@npm:0.1.1"
   dependencies:
     react-joyride: ^2.3.2
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
     "@saas-ui/react": ">=0.7.0"
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
-  checksum: 6b65ffb564ecb218f37ff9ef7d8d82a95b68ffebd383b197928a0ee0ddb86cf2496fcc07ea2699b98ff78d8c6b44e2b6e044eb9c2f4ce996b75e7ebfddded938
+    react-dom: ">=16.8.6"
+  checksum: 0d4a1025fbcb2c14a969d52c4b4213b8f4a9e1f34a7539bdf46d932ce7b9b937a462101f0fc50e987362e5cdc37d59ae2e35cbd2aa4268396254f693238a42c7
   languageName: node
   linkType: hard
 
@@ -7578,21 +7578,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/pro@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@saas-ui/pro@npm:0.2.1"
+"@saas-ui/pro@npm:^0.2.5":
+  version: 0.2.5
+  resolution: "@saas-ui/pro@npm:0.2.5"
   dependencies:
-    "@saas-ui/billing": 0.1.0
-    "@saas-ui/charts": 0.0.0
-    "@saas-ui/onboarding": 0.1.0
+    "@saas-ui/billing": 0.1.1
+    "@saas-ui/charts": 0.0.1
+    "@saas-ui/onboarding": 0.1.1
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
     "@saas-ui/react": ">=0.12.0"
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
     react-dom: ">=16.8.6"
-  checksum: 4d40f2cb8ef5fafd79ca14eee6156cace90499d2930608ddf90c28cb5be554d374358b2029f094c5adb30fb2aa3229d109c29a35b069e4fd377758317e0a7211
+  checksum: aa3d0f59fbbef6c946094aa77e2bc11fce2cb2cc916e97f3b2f3cb8b63cfa4e473380122ea6257fcd1d1f5d944f9db518d1c2118926d6bdfc9b1e5f5a9ec3b0e
   languageName: node
   linkType: hard
 
@@ -7663,6 +7662,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
+    "@chakra-ui/system": ">=1.0.0"
     "@saas-ui/auth": "workspace:*"
     "@saas-ui/banner": "workspace:*"
     "@saas-ui/button": "workspace:*"
@@ -7693,7 +7693,8 @@ __metadata:
     "@saas-ui/theme": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
     react-dom: ">=16.8.6"
@@ -26020,7 +26021,6 @@ __metadata:
     "@babel/preset-react": ^7.16.5
     "@babel/preset-typescript": ^7.16.5
     "@chakra-ui/cli": ^1.9.0
-    "@chakra-ui/icons": ^1.1.1
     "@chakra-ui/react": ^1.8.6
     "@changesets/cli": ^2.19.0
     "@clerk/clerk-react": ^2.12.7
@@ -29482,7 +29482,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:apps/website"
   dependencies:
-    "@chakra-ui/icons": ^1.1.1
     "@chakra-ui/props-docs": ^1.0.45
     "@chakra-ui/react": ^1.8.6
     "@chakra-ui/skip-nav": ^1.2.1
@@ -29496,8 +29495,9 @@ __metadata:
     "@next/bundle-analyzer": ^12.0.7
     "@octokit/rest": ^18.12.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/pro": ^0.2.1
+    "@saas-ui/pro": ^0.2.5
     "@saas-ui/props-docs": ^0.4.1
+    "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^5.5.0
     "@types/node": ^17.0.0

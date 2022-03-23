@@ -18,7 +18,7 @@ import PageTransition from './page-transition'
 import { t } from '@/docs/utils/i18n'
 import { BackgroundGradient } from '@/components/background-gradient'
 
-import { formatRelative, subDays } from 'date-fns'
+import { formatRelative } from 'date-fns'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()

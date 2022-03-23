@@ -1,4 +1,7 @@
 import * as React from 'react'
+
+import dynamic from 'next/dynamic'
+
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
   Container,
@@ -28,7 +31,6 @@ import {
   useTheme,
   Tag,
   Wrap,
-  Spacer,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -73,9 +75,6 @@ import {
   FiArrowRight,
   FiUserPlus,
 } from 'react-icons/fi'
-
-import CodePanel from '@/components/code-panel/code-panel'
-import { ComponentShowcase } from '@/components/component-showcase'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
 import { Card, CardBody } from '@saas-ui/card'
@@ -87,7 +86,13 @@ import {
   BannerIcon,
   BannerTitle,
 } from '@saas-ui/banner'
+
 import { transparentize } from '@chakra-ui/theme/node_modules/@chakra-ui/theme-tools'
+
+const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
+const ComponentShowcase = dynamic(() =>
+  import('@/components/component-showcase').then((mod) => mod.ComponentShowcase)
+)
 
 const Home = () => {
   return (

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import * as Chakra from '@chakra-ui/react'
 import {
   ColorPalette,
@@ -12,10 +13,11 @@ import { Table, TData, THead } from '@/docs/components/mdx-components/table'
 import { FrameworkLinks } from '@/docs/components/framework-link'
 import { VideoPlayer } from '@/docs/components/mdx-components/video-player'
 import * as React from 'react'
-import PropsTable from '../props-table'
 import CodeBlock from './codeblock/codeblock'
 import ComponentLinks from './component-links'
 import IconsList from './icons-list'
+
+const PropsTable = dynamic(() => import('../props-table'))
 
 const {
   Alert,

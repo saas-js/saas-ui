@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.6.2
+
+### Patch Changes
+
+- 6696203: Fixed Yup resolver types
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # palette
 
+## 0.1.23
+
+### Patch Changes
+
+- @saas-ui/react@0.12.6
+
 ## 0.1.22
 
 ### Patch Changes

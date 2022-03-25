@@ -2,17 +2,17 @@ import * as React from 'react'
 
 import {
   ModalFooter,
-  MenuListProps,
-  useMenuList,
   chakra,
   StylesProvider,
   useStyles,
   forwardRef,
   useMenuContext,
-  Menu,
+  useMenuList,
 } from '@chakra-ui/react'
 
 import { BaseModal, BaseModalProps } from './modal'
+
+import { Menu, MenuListProps } from '@saas-ui/menu'
 
 export interface MenuDialogProps extends BaseModalProps {
   /**

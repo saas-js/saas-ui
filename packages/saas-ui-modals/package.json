@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -57,7 +57,8 @@
   },
   "dependencies": {
     "@saas-ui/button": "workspace:*",
-    "@saas-ui/forms": "workspace:*"
+    "@saas-ui/forms": "workspace:*",
+    "@saas-ui/menu": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",

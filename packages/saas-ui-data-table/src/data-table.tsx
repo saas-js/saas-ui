@@ -41,7 +41,7 @@ export interface DataTableProps<Data extends object>
   isSelectable?: boolean
   /**
    * Triggers whenever the row selection changes.
-   * @returns {string[]}
+   * @params rows The selected row id's
    */
   onSelectedRowsChange?: (rows: IdType<Data>[]) => void
 }

@@ -1,1 +1,1 @@
-export * from './yup'
+export * from './yup-resolver'

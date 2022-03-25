@@ -1,9 +1,14 @@
 import { reach, AnyObjectSchema } from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { FieldProps } from '../../src/field'
+import { FieldProps } from '@saas-ui/forms'
 
 export { yupResolver }
+
+export type Options = {
+  min?: number
+  max?: number
+}
 
 // @TODO get proper typings for the schema fields
 const getType = (field: any) => {
@@ -24,11 +29,6 @@ const getType = (field: any) => {
     default:
       return 'text'
   }
-}
-
-type Options = {
-  min?: number
-  max?: number
 }
 
 const getArrayOption = (field: any, name: string) => {

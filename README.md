@@ -80,3 +80,27 @@ yarn storybook
 ```bash
 yarn build:packages
 ```
+
+## Website
+
+Before running the website you need to build the props-docs by running this.
+
+```bash
+yarn build:props-docs
+```
+
+After that run the website with this command.
+
+```bash
+yarn w website dev
+```
+
+or
+
+```bash
+cd apps/website && yarn dev
+```
+
+## License
+
+All code in this repository, accept for the Saas UI branding assets are licensed under MIT.

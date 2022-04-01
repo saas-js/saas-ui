@@ -48,7 +48,7 @@
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
     "build:packages": "turbo run build --scope='@saas-ui/*' --scope='!@saas-ui/props-docs' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
-    "build:prop-docs": "yarn pkg props-docs build"
+    "build:props-docs": "yarn w @saas-ui/props-docs build"
   },
   "workspaces": [
     "packages/*",

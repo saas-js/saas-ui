@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 0.6.0
+
+### Minor Changes
+
+- 44c4dd3: Added support for key sequences.
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 0.12.7
+
+### Patch Changes
+
+- Updated dependencies [44c4dd3]
+  - @saas-ui/hotkeys@0.6.0
+
 ## 0.12.6
 
 ### Patch Changes

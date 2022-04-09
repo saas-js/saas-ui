@@ -193,6 +193,27 @@ function Dialog() {
 }
 ```
 
+### Key sequences
+
+```jsx
+function Dialog() {
+  const [isLoading, setLoading] = useState()
+
+  const key = useHotkeys('A then S', () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label={key} openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
 ## Props
 
 ### useHotkeys Params

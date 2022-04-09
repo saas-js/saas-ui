@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-09-2022
+
+**Hotkeys** `v0.6.0`
+
+- Added support for key sequences.
+
 ## 03-21-2022
 
 **Stepper** `v0.2.2`

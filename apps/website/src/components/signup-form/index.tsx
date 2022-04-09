@@ -78,40 +78,43 @@ export function SignupForm({ isOpen, onClose }: any) {
     )
   } else {
     content = (
-      <FormLayout>
-        <FormControl>
-          <FormLabel>Name</FormLabel>
-          <Input
-            name="name"
-            ref={initialRef}
-            onChange={({ target }) => setName(target.value)}
-          />
-        </FormControl>
+      <>
+        <FormLayout>
+          <FormControl>
+            <FormLabel>Name</FormLabel>
+            <Input
+              name="name"
+              ref={initialRef}
+              onChange={({ target }) => setName(target.value)}
+            />
+          </FormControl>
 
-        <FormControl isRequired isInvalid={!!error}>
-          <FormLabel>Email address</FormLabel>
-          <Input
-            name="email"
-            type="email"
-            onChange={({ target }) => setEmail(target.value)}
-          />
-        </FormControl>
+          <FormControl isRequired isInvalid={!!error}>
+            <FormLabel>Email address</FormLabel>
+            <Input
+              name="email"
+              type="email"
+              onChange={({ target }) => setEmail(target.value)}
+            />
+          </FormControl>
 
-        <Text
-          fontSize="sm"
-          color="muted"
-        >{`Don't worry, we hate spam too. We'll send you one follow-up email and will notify you when Saas UI Pro is launched.`}</Text>
-      </FormLayout>
+          <Text
+            fontSize="sm"
+            color="muted"
+          >{`Don't worry, we hate spam too. We'll send you one follow-up email and will notify you when Saas UI Pro is launched.`}</Text>
+
+          <Button
+            colorScheme="primary"
+            type="submit"
+            size="md"
+            isLoading={loading}
+          >
+            Get notified
+          </Button>
+        </FormLayout>
+      </>
     )
   }
-
-  const footer = (
-    <Flex justify="flex-start" pt="8">
-      <Button colorScheme="primary" type="submit" size="md" isLoading={loading}>
-        Get notified
-      </Button>
-    </Flex>
-  )
 
   return (
     <Box
@@ -121,7 +124,6 @@ export function SignupForm({ isOpen, onClose }: any) {
       name="early-access"
     >
       <Box>{content}</Box>
-      {footer}
     </Box>
   )
 }

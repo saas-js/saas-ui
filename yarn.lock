@@ -3231,18 +3231,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/button@npm:^1.5.2":
-  version: 1.5.3
-  resolution: "@chakra-ui/button@npm:1.5.3"
+"@chakra-ui/button@npm:^1.5.8":
+  version: 1.5.9
+  resolution: "@chakra-ui/button@npm:1.5.9"
   dependencies:
-    "@chakra-ui/hooks": 1.8.0
-    "@chakra-ui/react-utils": 1.2.1
-    "@chakra-ui/spinner": 1.2.2
-    "@chakra-ui/utils": 1.10.0
+    "@chakra-ui/hooks": 1.9.0
+    "@chakra-ui/react-utils": 1.2.3
+    "@chakra-ui/spinner": 1.2.6
+    "@chakra-ui/utils": 1.10.4
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
-  checksum: cc8e5ac5375701c9baac5bd84d79bb29dffccce90b28a932605a406310734d6fbee422a37128b6a80411ceec55a9817269d18781034b163f48b500bbb242471e
+  checksum: b14610d09fd749c22bbdabfcdc99423428f0515915964bebe0ade3a13f56e0c816df382f950ad32c3a9442eb372b6befefd7e697336fdbd3e88cbcdfe2b4efbf
   languageName: node
   linkType: hard
 
@@ -3630,6 +3630,20 @@ __metadata:
   peerDependencies:
     react: ">=16.8.6"
   checksum: 872a5fa0e8c8a968a6e359cc06430382d79751beffbf2a5a7e25681791782f35d9b16afc7a41c9c0206c7d38f2d2685ed40608a3954e76e364bae8bacddb1e07
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/hooks@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@chakra-ui/hooks@npm:1.9.0"
+  dependencies:
+    "@chakra-ui/react-utils": 1.2.3
+    "@chakra-ui/utils": 1.10.4
+    compute-scroll-into-view: 1.0.14
+    copy-to-clipboard: 3.3.1
+  peerDependencies:
+    react: ">=16.8.6"
+  checksum: 1eacaabda6db644d96d38bdec7e574b252350e073152ef088d8023261acf6455bfce7ecbf8025ed08bf1352d625c8121f8a0fdcda9a6b12fb228af5b34101218
   languageName: node
   linkType: hard
 
@@ -4499,19 +4513,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/spinner@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@chakra-ui/spinner@npm:1.2.2"
-  dependencies:
-    "@chakra-ui/utils": 1.10.0
-    "@chakra-ui/visually-hidden": 1.1.2
-  peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
-    react: ">=16.8.6"
-  checksum: e2681062ef6903956b5b92ebcfccaa7a8fb3f08960805120bb58995bfacc5d5003aa87a5665fadaa51c3fe30586994b5905995c8cb9d436d95e87b06c22d7189
-  languageName: node
-  linkType: hard
-
 "@chakra-ui/spinner@npm:1.2.4":
   version: 1.2.4
   resolution: "@chakra-ui/spinner@npm:1.2.4"
@@ -5017,18 +5018,6 @@ __metadata:
     framesync: 5.3.0
     lodash.mergewith: 4.6.2
   checksum: 6de3d4463cbff11f3c039514cda327bfc3f4b3700c77c13d0f5cc575d608de25ba84b316072f72c97b1e450020f8d3940f96997726110fc5f8784aabb878cc2f
-  languageName: node
-  linkType: hard
-
-"@chakra-ui/visually-hidden@npm:1.1.2":
-  version: 1.1.2
-  resolution: "@chakra-ui/visually-hidden@npm:1.1.2"
-  dependencies:
-    "@chakra-ui/utils": 1.10.0
-  peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
-    react: ">=16.8.6"
-  checksum: 3d776df29f6156deb71a63fc8de1fafe8bb544d9a38a694093d890f215b4e97272a6965e9c8dfe66210d69c3eef5cc11b38061c70a7e1a1ac7514149628de813
   languageName: node
   linkType: hard
 
@@ -7306,7 +7295,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/button@workspace:packages/saas-ui-button"
   dependencies:
-    "@chakra-ui/button": ^1.5.2
+    "@chakra-ui/button": ^1.5.8
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -7484,6 +7473,7 @@ __metadata:
   dependencies:
     "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
+    "@saas-ui/menu": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"

@@ -6,6 +6,7 @@
   "source": "./src/index.ts",
   "exports": {
     ".": {
+      "development": "./src/index.ts",
       "require": "./../dist/yup/index.js",
       "types": "./../dist/yup/src/index.d.ts",
       "default": "./../dist/yup/index.modern.js"

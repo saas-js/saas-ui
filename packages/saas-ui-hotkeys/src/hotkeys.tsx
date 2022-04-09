@@ -219,7 +219,14 @@ export const HotkeysCommand: React.FC<HTMLChakraProps<'span'>> = (props) => {
   let keys
   if (typeof children === 'string') {
     keys = splitKeys(children).map((key, i) => {
-      return <Kbd key={i}>{key}</Kbd>
+      if (key === 'then') {
+        return (
+          <chakra.span key={key} __css={styles.then}>
+            {key}
+          </chakra.span>
+        )
+      }
+      return <Kbd key={key}>{key}</Kbd>
     })
   }
 

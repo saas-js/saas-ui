@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useMemo } from 'react'
+import React, { useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Works best with US or UK keyboards
 const shiftedKeys: Record<string, string> = {
@@ -63,7 +63,7 @@ const parseKeys = (keys: string | string[]) => {
           }
           if (modifiers[key]) {
             keys.push(modifiers[key])
-          } else {
+          } else if (key !== 'then') {
             keys.push(key)
           }
           return keys
@@ -122,7 +122,10 @@ export const useHotkeys = (
     () => parseKeys(keys).map((k) => new Set(k)),
     []
   )
+
   const pressedKeys: Set<string> = useMemo(() => new Set(), [])
+  const bufferKeys: Set<string> = useMemo(() => new Set(), [])
+  const bufferTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   function onKeyDown(event: KeyboardEvent): void {
     if (isInputEvent(event)) {
@@ -131,8 +134,21 @@ export const useHotkeys = (
 
     const key = getKeyFromEvent(event)
     pressedKeys.add(key)
+    bufferKeys.add(key)
 
-    if (keysMatch(pressedKeys, targetKeys)) {
+    if (bufferTimeout.current) {
+      clearTimeout(bufferTimeout.current)
+      bufferTimeout.current = null
+    }
+    bufferTimeout.current = setTimeout(() => {
+      bufferKeys.clear()
+    }, 400)
+
+    if (
+      keysMatch(pressedKeys, targetKeys) ||
+      (bufferKeys.size > 1 && keysMatch(bufferKeys, targetKeys))
+    ) {
+      bufferKeys.clear() // make sure the buffer gets cleared
       // execute on next tick to make sure the last keyup doesn't trigger in any focused field
       setTimeout(() => memoizedCallback(event), 0)
     }

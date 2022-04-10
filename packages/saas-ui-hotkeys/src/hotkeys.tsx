@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import {
   chakra,
   forwardRef,
@@ -78,7 +78,7 @@ const [HotkeysListProvider, useHotkeysListContext] =
   })
 
 const useHotkeysList = (props: HotkeysListProps) => {
-  const [query, setQuery] = useState<string>('')
+  const [query, setQuery] = React.useState<string>('')
 
   const { hotkeys } = props
 

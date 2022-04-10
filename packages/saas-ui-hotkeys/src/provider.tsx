@@ -1,6 +1,8 @@
-import React, { createContext, useContext } from 'react'
+import * as React from 'react'
 
 import { HotkeysListOptions, HotkeysOptions } from './hotkeys'
+
+const { createContext, useContext } = React
 
 interface HotkeysContextValues {
   hotkeys: HotkeysListOptions

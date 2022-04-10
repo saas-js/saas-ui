@@ -1,4 +1,6 @@
-import React, { useEffect, useCallback, useMemo, useRef } from 'react'
+import * as React from 'react'
+
+const { useEffect, useCallback, useMemo, useRef } = React
 
 // Works best with US or UK keyboards
 const shiftedKeys: Record<string, string> = {
@@ -107,6 +109,11 @@ const isInputEvent = (event: KeyboardEvent) => {
 
 /**
  * useHotKeys React Hook
+ *
+ * Supports shifted keys like ?, =, >.
+ *
+ * ⌥ ⇧ ⌃ ⌘ shorthands are supported.
+ *
  * @param keys The keys that trigger this hotkey
  * @param callback The function to execute when the keys are pressed
  * @param deps Deps for the callback function

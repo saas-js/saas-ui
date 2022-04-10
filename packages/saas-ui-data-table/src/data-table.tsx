@@ -23,6 +23,8 @@ import {
   useStyles,
 } from '@chakra-ui/react'
 
+import { cx, __DEV__ } from '@chakra-ui/utils'
+
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
 
 import { Link } from '@saas-ui/layout'
@@ -119,6 +121,7 @@ export const DataTable = React.forwardRef(
         {...getTableProps()}
         sx={{ 'tr:last-child td': { border: 0 } }}
         {...rest}
+        className={cx('saas-data-table', props.className)}
       >
         <Thead>
           {headerGroups.map((headerGroup) => (
@@ -156,11 +159,15 @@ export const DataTable = React.forwardRef(
       </Table>
     )
   }
-) as <Data extends object>(
+) as (<Data extends object>(
   props: DataTableProps<Data> & {
     ref?: React.ForwardedRef<TableInstance<Data>>
   }
-) => React.ReactElement
+) => React.ReactElement) & { displayName?: string }
+
+if (__DEV__) {
+  DataTable.displayName = 'DataTable'
+}
 
 export interface DataTableSortProps<Data extends object> {
   column: HeaderGroup<Data>
@@ -196,6 +203,10 @@ export const DataTableSort = <Data extends object>(
   )
 }
 
+if (__DEV__) {
+  DataTableSort.displayName = 'DataTableSort'
+}
+
 export interface DataTableHeaderProps<Data extends object> {
   column: HeaderGroup<Data>
   isSortable?: boolean
@@ -228,6 +239,10 @@ export const DataTableHeader = <Data extends object>(
   )
 }
 
+if (__DEV__) {
+  DataTableHeader.displayName = 'DataTableHeader'
+}
+
 const getResult = (fn: any, params: any) => {
   if (typeof fn === 'function') {
     return fn(params)
@@ -247,6 +262,10 @@ export const DataTableCell = <Data extends object>({
   return value || null
 }
 
+if (__DEV__) {
+  DataTableCell.displayName = 'DataTableCell'
+}
+
 const DataTableCheckbox = forwardRef((props, ref) => {
   const { checked, indeterminate, ...rest } = props
 
@@ -261,6 +280,10 @@ const DataTableCheckbox = forwardRef((props, ref) => {
     </chakra.div>
   )
 })
+
+if (__DEV__) {
+  DataTableCheckbox.displayName = 'DataTableCheckbox'
+}
 
 const useCheckboxColumn = <Data extends object>(enabled?: boolean) => {
   return (hooks: Hooks<Data>) => {

@@ -14,6 +14,8 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/system'
 
+import { cx, __DEV__ } from '@chakra-ui/utils'
+
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
 import { Icon } from '@chakra-ui/icon'
@@ -57,7 +59,12 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
 
   return (
     <StylesProvider value={styles}>
-      <chakra.ul ref={ref} __css={listStyles} {...listProps}>
+      <chakra.ul
+        ref={ref}
+        __css={listStyles}
+        {...listProps}
+        className={cx('saas-list', props.className)}
+      >
         {content}
       </chakra.ul>
     </StylesProvider>
@@ -66,6 +73,10 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
 
 List.defaultProps = {
   variant: 'structured-list',
+}
+
+if (__DEV__) {
+  List.displayName = 'List'
 }
 
 export interface ListHeaderProps extends HTMLChakraProps<'li'> {
@@ -103,13 +114,22 @@ export const ListHeader: React.FC<ListHeaderProps> = (props) => {
   }
 
   return (
-    <chakra.li __css={headerStyles} onClick={onClick} {...rest}>
+    <chakra.li
+      __css={headerStyles}
+      onClick={onClick}
+      {...rest}
+      className={cx('saas-list__header', props.className)}
+    >
       <chakra.span flex="1" userSelect="none" role={role} aria-level={level}>
         {children}
       </chakra.span>
       {action}
     </chakra.li>
   )
+}
+
+if (__DEV__) {
+  ListHeader.displayName = 'ListHeader'
 }
 
 export interface ListItemProps extends HTMLChakraProps<'li'> {
@@ -181,12 +201,21 @@ export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
     )
 
   return (
-    <chakra.li ref={ref} __css={itemStyles} {...rest}>
+    <chakra.li
+      ref={ref}
+      __css={itemStyles}
+      {...rest}
+      className={cx('saas-list__item', props.className)}
+    >
       {content}
       {action && <ListItemAction>{action}</ListItemAction>}
     </chakra.li>
   )
 })
+
+if (__DEV__) {
+  ListItem.displayName = 'ListItem'
+}
 
 export interface ListItemButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
@@ -227,12 +256,17 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
         role="button"
         tabIndex={0}
         {...rest}
+        className={cx('saas-list__item-button', props.className)}
       >
         {children}
       </chakra.div>
     )
   }
 )
+
+if (__DEV__) {
+  ListItemButton.displayName = 'ListItemButton'
+}
 
 export interface ListItemIconProps extends HTMLChakraProps<'div'> {
   /**
@@ -267,10 +301,18 @@ export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
   }
 
   return (
-    <chakra.div __css={iconStyles} {...rest}>
+    <chakra.div
+      __css={iconStyles}
+      {...rest}
+      className={cx('saas-list__item-icon', props.className)}
+    >
       {_icon}
     </chakra.div>
   )
+}
+
+if (__DEV__) {
+  ListItemIcon.displayName = 'ListItemIcon'
 }
 
 export interface ListItemLabelProps extends HTMLChakraProps<'div'> {
@@ -301,7 +343,11 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
   }
 
   return (
-    <chakra.div __css={labelStyles} {...rest}>
+    <chakra.div
+      __css={labelStyles}
+      {...rest}
+      className={cx('saas-list__item-label', props.className)}
+    >
       {primary && (
         <chakra.span isTruncated __css={primaryStyles}>
           {primary}
@@ -315,6 +361,10 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
       {children}
     </chakra.div>
   )
+}
+
+if (__DEV__) {
+  ListItemLabel.displayName = 'ListItemLabel'
 }
 
 export interface ListItemTertiaryProps extends HTMLChakraProps<'div'> {
@@ -342,10 +392,18 @@ export const ListItemTertiary: React.FC<ListItemTertiaryProps> = ({
   }
 
   return (
-    <chakra.div __css={tertiaryStyles} {...rest}>
+    <chakra.div
+      __css={tertiaryStyles}
+      {...rest}
+      className={cx('saas-list__item-tertiary', rest.className)}
+    >
       {children}
     </chakra.div>
   )
+}
+
+if (__DEV__) {
+  ListItemTertiary.displayName = 'ListItemTertiary'
 }
 
 /**
@@ -364,8 +422,13 @@ export const ListItemAction: React.FC<ButtonGroupProps> = ({
       position="absolute"
       right={4}
       {...rest}
+      className={cx('saas-list__item-action', rest.className)}
     >
       {children}
     </ButtonGroup>
   )
+}
+
+if (__DEV__) {
+  ListItemAction.displayName = 'ListItemAction'
 }

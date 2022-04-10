@@ -10,6 +10,8 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/system'
 
+import { cx, __DEV__ } from '@chakra-ui/utils'
+
 import { useNProgress } from '@tanem/react-nprogress'
 
 interface NProgressOptions {
@@ -54,6 +56,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
       zIndex="overlay"
       transition={`opacity ${animationDuration}ms linear`}
       {...containerProps}
+      className={cx('saas-nprogress', props.className)}
     >
       <chakra.div
         __css={barStyles}
@@ -63,3 +66,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
     </chakra.div>
   )
 })
+
+if (__DEV__) {
+  NProgress.displayName = 'NProgress'
+}

@@ -11,7 +11,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-
+import { __DEV__ } from '@chakra-ui/utils'
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
 
 export interface SearchInputProps
@@ -97,4 +97,8 @@ export const SearchInput = forwardRef<SearchInputProps, 'div'>((props, ref) => {
 
 SearchInput.defaultProps = {
   placeholder: 'Search',
+}
+
+if (__DEV__) {
+  SearchInput.displayName = 'SearchInput'
 }

@@ -5,6 +5,7 @@ import {
   Divider as ChakraDivider,
   DividerProps as ChakraDividerProps,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 export interface DividerProps extends ChakraDividerProps {
   label?: string
@@ -76,4 +77,8 @@ export const Divider: React.FC<DividerProps> = (props) => {
       )}
     </ChakraDivider>
   )
+}
+
+if (__DEV__) {
+  Divider.displayName = 'Divider'
 }

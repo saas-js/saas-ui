@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { useState } from 'react'
 import {
   forwardRef,
   Menu,
@@ -16,8 +15,8 @@ import {
   omitThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-
 import { ChevronDownIcon } from '@chakra-ui/icons'
+import { __DEV__ } from '@chakra-ui/utils'
 
 interface Option {
   value: string
@@ -68,6 +67,10 @@ const SelectButton = forwardRef((props, ref) => {
   return <Button {...props} ref={ref} sx={buttonStyles} />
 })
 
+if (__DEV__) {
+  SelectButton.displayName = 'SelectButton'
+}
+
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const {
     options,
@@ -88,7 +91,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   } = props
   const menuProps = omitThemingProps(rest)
 
-  const [currentValue, setCurrentValue] = useState(value || defaultValue)
+  const [currentValue, setCurrentValue] = React.useState(value || defaultValue)
 
   const handleChange = (value: string | string[]) => {
     setCurrentValue(value)
@@ -151,3 +154,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     </Menu>
   )
 })
+
+if (__DEV__) {
+  Select.displayName = 'Select'
+}

@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/utils": "^1.10.4",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/provider": "workspace:*"
   },

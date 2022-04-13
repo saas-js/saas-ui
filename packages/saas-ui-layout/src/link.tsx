@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link as ChakraLink, LinkProps, forwardRef } from '@chakra-ui/react'
-
+import { __DEV__ } from '@chakra-ui/utils'
 import { useLink } from '@saas-ui/provider'
 
 export type { LinkProps }
@@ -24,3 +24,7 @@ export const Link = forwardRef<LinkProps, 'a'>((props, ref) => {
 
   return link
 })
+
+if (__DEV__) {
+  Link.displayName = 'Link'
+}

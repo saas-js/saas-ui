@@ -10,6 +10,7 @@ import {
   SystemProps,
   StackDirection,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 interface Option extends ChakraRadioProps {
   value: string
@@ -49,3 +50,7 @@ export const RadioInput = forwardRef<RadioProps, 'div'>(
     )
   }
 )
+
+if (__DEV__) {
+  RadioInput.displayName = 'RadioInput'
+}

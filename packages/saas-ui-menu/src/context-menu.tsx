@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 
 import { createContext } from '@chakra-ui/react-utils'
+import { __DEV__ } from '@chakra-ui/utils'
 
 type Position = [number, number]
 
@@ -110,6 +111,10 @@ export const ContextMenu: React.FC<ContextMenuProps> = (props) => {
   )
 }
 
+if (__DEV__) {
+  ContextMenu.displayName = 'ContextMenu'
+}
+
 export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {}
 
 export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
@@ -139,6 +144,10 @@ export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
   )
 }
 
+if (__DEV__) {
+  ContextMenuTrigger.displayName = 'ContextMenuTrigger'
+}
+
 export interface ContextMenuListProps extends MenuListProps {}
 
 export const ContextMenuList: React.FC<ContextMenuListProps> = (props) => {
@@ -159,4 +168,8 @@ export const ContextMenuList: React.FC<ContextMenuListProps> = (props) => {
       </MenuList>
     </Portal>
   ) : null
+}
+
+if (__DEV__) {
+  ContextMenuList.displayName = 'ContextMenuList'
 }

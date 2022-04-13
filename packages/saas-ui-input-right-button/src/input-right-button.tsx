@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { forwardRef } from '@chakra-ui/system'
+import { __DEV__ } from '@chakra-ui/utils'
 import { InputRightElement } from '@chakra-ui/input'
 import { Button, ButtonProps } from '@saas-ui/button'
 
@@ -13,3 +14,7 @@ export const InputRightButton = forwardRef<ButtonProps, 'div'>((props, ref) => {
 })
 
 InputRightButton.id = 'InputRightElement'
+
+if (__DEV__) {
+  InputRightButton.displayName = 'InputRightButton'
+}

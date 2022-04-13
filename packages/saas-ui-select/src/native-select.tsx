@@ -5,6 +5,7 @@ import {
   Select as ChakraSelect,
   SelectProps as ChakraSelectProps,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 interface Option {
   value: string
@@ -34,3 +35,7 @@ export const NativeSelect = forwardRef<NativeSelectProps, 'select'>(
     )
   }
 )
+
+if (__DEV__) {
+  NativeSelect.displayName = 'NativeSelect'
+}

@@ -3,7 +3,7 @@ import {
   Button as ChakraButton,
   ButtonProps as ChakraButtonProps,
 } from '@chakra-ui/button'
-
+import { __DEV__ } from '@chakra-ui/utils'
 import { forwardRef } from '@chakra-ui/system'
 
 export interface ButtonProps extends ChakraButtonProps {
@@ -26,5 +26,9 @@ export const Button = forwardRef<ButtonProps, typeof ChakraButton>(
         {label || children}
       </ChakraButton>
     )
-  },
+  }
 )
+
+if (__DEV__) {
+  Button.displayName = 'Button'
+}

@@ -104,7 +104,7 @@ export const AutoYupArrayField = () => {
   )
 }
 
-export const arrayField = () => (
+export const WithResolver = () => (
   <>
     <Form
       defaultValues={{
@@ -119,8 +119,8 @@ export const arrayField = () => (
     >
       <FormLayout>
         <ArrayField name="arrayField" label="Array field" defaultValue={{}}>
-          <Field name="title" placeholder="Title" />
-          <Field name="description" type="textarea" />
+          <Field name="title" label="Title" />
+          <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
         <SubmitButton label="Submit" />

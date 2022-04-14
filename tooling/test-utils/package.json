@@ -35,6 +35,7 @@
     "@testing-library/user-event": "13.5.0",
     "@types/jest-axe": "3.5.3",
     "jest-axe": "5.0.1",
+    "jest-matchmedia-mock": "^1.1.0",
     "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {

@@ -3231,18 +3231,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/button@npm:^1.5.8":
-  version: 1.5.9
-  resolution: "@chakra-ui/button@npm:1.5.9"
+"@chakra-ui/button@npm:^1.5.10":
+  version: 1.5.10
+  resolution: "@chakra-ui/button@npm:1.5.10"
   dependencies:
-    "@chakra-ui/hooks": 1.9.0
+    "@chakra-ui/hooks": 1.9.1
     "@chakra-ui/react-utils": 1.2.3
     "@chakra-ui/spinner": 1.2.6
     "@chakra-ui/utils": 1.10.4
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
-  checksum: b14610d09fd749c22bbdabfcdc99423428f0515915964bebe0ade3a13f56e0c816df382f950ad32c3a9442eb372b6befefd7e697336fdbd3e88cbcdfe2b4efbf
+  checksum: c7eeaf50284fb9c524208eeb272baeb726766e45fc310d7ebcfdcd310d256ae39338a885c7f0635ef7b68a05839496bdcc78f46e4a10b7f5c31b7a38539e1edc
   languageName: node
   linkType: hard
 
@@ -3633,9 +3633,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/hooks@npm:1.9.0":
-  version: 1.9.0
-  resolution: "@chakra-ui/hooks@npm:1.9.0"
+"@chakra-ui/hooks@npm:1.9.1, @chakra-ui/hooks@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "@chakra-ui/hooks@npm:1.9.1"
   dependencies:
     "@chakra-ui/react-utils": 1.2.3
     "@chakra-ui/utils": 1.10.4
@@ -3643,21 +3643,7 @@ __metadata:
     copy-to-clipboard: 3.3.1
   peerDependencies:
     react: ">=16.8.6"
-  checksum: 1eacaabda6db644d96d38bdec7e574b252350e073152ef088d8023261acf6455bfce7ecbf8025ed08bf1352d625c8121f8a0fdcda9a6b12fb228af5b34101218
-  languageName: node
-  linkType: hard
-
-"@chakra-ui/hooks@npm:^1.8.4":
-  version: 1.8.4
-  resolution: "@chakra-ui/hooks@npm:1.8.4"
-  dependencies:
-    "@chakra-ui/react-utils": 1.2.3
-    "@chakra-ui/utils": 1.10.4
-    compute-scroll-into-view: 1.0.14
-    copy-to-clipboard: 3.3.1
-  peerDependencies:
-    react: ">=16.8.6"
-  checksum: aeff3250b4aacba6dd27e0875e2b2c30d5a7914ad0f908bdd4a3bf28310252b63d4bbae8199f384e70dcf2a51fb6090d3e8c35edabd76e2d0dddf11034acb55c
+  checksum: 78bb7cd37cd3987b7a745d6d156a64970e6ddbaa443a51d95c6f9b252774ca53b59a716bc1851adb6f6b5ad8584dcee979e39ff1bc1c9a67af7b1a68da7fb33d
   languageName: node
   linkType: hard
 
@@ -4961,7 +4947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/transition@npm:1.4.7, @chakra-ui/transition@npm:^1.4.7":
+"@chakra-ui/transition@npm:1.4.7":
   version: 1.4.7
   resolution: "@chakra-ui/transition@npm:1.4.7"
   dependencies:
@@ -4970,6 +4956,18 @@ __metadata:
     framer-motion: 3.x || 4.x || 5.x || 6.x
     react: ">=16.8.6"
   checksum: 3c692870e6e6362d3c248402a0f085b451251691fc22c64b6cc23d91746d3365595806fff43562f600d37b9728169d96ecb7e0790bb5fb95b758af71dea77948
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/transition@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "@chakra-ui/transition@npm:1.4.8"
+  dependencies:
+    "@chakra-ui/utils": 1.10.4
+  peerDependencies:
+    framer-motion: 3.x || 4.x || 5.x || 6.x
+    react: ">=16.8.6"
+  checksum: 8478781ed94ad92b177bdc04ce9537b8eb87e6215c09eaabca6aeae958c6be3824c37d1b4e3e218527621d3ecf340b4734bca986a7568e2fe6850cc97cad1c41
   languageName: node
   linkType: hard
 
@@ -5262,7 +5260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@clerk/clerk-react@npm:^2.12.7":
+"@clerk/clerk-react@npm:^2.12.0, @clerk/clerk-react@npm:^2.12.7":
   version: 2.12.7
   resolution: "@clerk/clerk-react@npm:2.12.7"
   dependencies:
@@ -7267,9 +7265,9 @@ __metadata:
   resolution: "@saas-ui/banner@workspace:packages/saas-ui-banner"
   dependencies:
     "@chakra-ui/close-button": ^1.2.7
-    "@chakra-ui/hooks": ^1.8.4
+    "@chakra-ui/hooks": ^1.9.1
     "@chakra-ui/icons": ^1.1.1
-    "@chakra-ui/transition": ^1.4.7
+    "@chakra-ui/transition": ^1.4.8
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
@@ -7295,7 +7293,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/button@workspace:packages/saas-ui-button"
   dependencies:
-    "@chakra-ui/button": ^1.5.8
+    "@chakra-ui/button": ^1.5.10
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -7306,6 +7305,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/card@workspace:packages/saas-ui-card"
   dependencies:
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
@@ -7330,6 +7330,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/clerk@workspace:packages/saas-ui-clerk"
   dependencies:
+    "@clerk/clerk-react": ^2.12.0
     "@clerk/types": ^1.29.2
     "@saas-ui/auth": "workspace:*"
   peerDependencies:
@@ -7357,6 +7358,7 @@ __metadata:
   resolution: "@saas-ui/data-table@workspace:packages/saas-ui-data-table"
   dependencies:
     "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/layout": "workspace:*"
     "@types/react-table": ^7.7.9
     react-table: ^7.7.0
@@ -7407,6 +7409,7 @@ __metadata:
   dependencies:
     "@chakra-ui/layout": ^1.7.0
     "@chakra-ui/react-utils": ^1.2.3
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/search-input": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
@@ -7420,6 +7423,7 @@ __metadata:
   resolution: "@saas-ui/input-right-button@workspace:packages/saas-ui-input-right-button"
   dependencies:
     "@chakra-ui/input": ^1.3.3
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
@@ -7431,6 +7435,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/layout@workspace:packages/saas-ui-layout"
   dependencies:
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/provider": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
@@ -7445,6 +7450,7 @@ __metadata:
   resolution: "@saas-ui/list@workspace:packages/saas-ui-list"
   dependencies:
     "@chakra-ui/icon": ^2.0.0
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
@@ -7457,6 +7463,7 @@ __metadata:
   resolution: "@saas-ui/menu@workspace:packages/saas-ui-menu"
   dependencies:
     "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
     "@saas-ui/provider": "workspace:*"
   peerDependencies:
@@ -7491,6 +7498,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/nprogress@workspace:packages/saas-ui-nprogress"
   dependencies:
+    "@chakra-ui/utils": ^1.10.4
     "@tanem/react-nprogress": ^4.0.1
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
@@ -7502,6 +7510,8 @@ __metadata:
 "@saas-ui/number-input@workspace:*, @saas-ui/number-input@workspace:packages/saas-ui-number-input":
   version: 0.0.0-use.local
   resolution: "@saas-ui/number-input@workspace:packages/saas-ui-number-input"
+  dependencies:
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     react: ">=16.8.6"
@@ -7539,9 +7549,10 @@ __metadata:
   resolution: "@saas-ui/password-input@workspace:packages/saas-ui-password-input"
   dependencies:
     "@chakra-ui/icons": ^1.1.1
-    "@chakra-ui/input": ^1.3.3
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/input-right-button": "workspace:*"
   peerDependencies:
+    "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -7552,7 +7563,7 @@ __metadata:
   resolution: "@saas-ui/persona@workspace:packages/saas-ui-persona"
   dependencies:
     "@chakra-ui/avatar": ^1.3.2
-    "@chakra-ui/utils": ^1.9.1
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -7562,6 +7573,8 @@ __metadata:
 "@saas-ui/pin-input@workspace:*, @saas-ui/pin-input@workspace:packages/saas-ui-pin-input":
   version: 0.0.0-use.local
   resolution: "@saas-ui/pin-input@workspace:packages/saas-ui-pin-input"
+  dependencies:
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     react: ">=16.8.6"
@@ -7589,6 +7602,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/property@workspace:packages/saas-ui-property"
   dependencies:
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/list": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
@@ -7634,6 +7648,8 @@ __metadata:
 "@saas-ui/radio@workspace:*, @saas-ui/radio@workspace:packages/saas-ui-radio":
   version: 0.0.0-use.local
   resolution: "@saas-ui/radio@workspace:packages/saas-ui-radio"
+  dependencies:
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     react: ">=16.8.6"
@@ -7696,6 +7712,7 @@ __metadata:
   resolution: "@saas-ui/search-input@workspace:packages/saas-ui-search-input"
   dependencies:
     "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
@@ -7708,6 +7725,7 @@ __metadata:
   resolution: "@saas-ui/select@workspace:packages/saas-ui-select"
   dependencies:
     "@chakra-ui/icons": ^1.1.1
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
@@ -7767,6 +7785,7 @@ __metadata:
     "@testing-library/user-event": 13.5.0
     "@types/jest-axe": 3.5.3
     jest-axe: 5.0.1
+    jest-matchmedia-mock: ^1.1.0
     react: ^17.0.1
     react-test-renderer: ^17.0.2
   peerDependencies:
@@ -7801,6 +7820,8 @@ __metadata:
 "@saas-ui/web3@workspace:*, @saas-ui/web3@workspace:packages/saas-ui-web3":
   version: 0.0.0-use.local
   resolution: "@saas-ui/web3@workspace:packages/saas-ui-web3"
+  dependencies:
+    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -19410,6 +19431,15 @@ __metadata:
     jest-get-type: ^27.5.1
     pretty-format: ^27.5.1
   checksum: bb2135fc48889ff3fe73888f6cc7168ddab9de28b51b3148f820c89fdfd2effdcad005f18be67d0b9be80eda208ad47290f62f03d0a33f848db2dd0273c8217a
+  languageName: node
+  linkType: hard
+
+"jest-matchmedia-mock@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "jest-matchmedia-mock@npm:1.1.0"
+  peerDependencies:
+    jest: ">=13"
+  checksum: e812b9dce5a3b55057ec0db47fe07737d24f248d0ee5eb41754244ecb8ea9b906581af2c1ae434b4db8a037ce3e437af6c53075ac86538a56ce55e2645ea0138
   languageName: node
   linkType: hard
 

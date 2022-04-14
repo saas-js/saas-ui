@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-import { forwardRef } from '@chakra-ui/system'
-import { InputGroup, Input, InputProps } from '@chakra-ui/input'
+import { forwardRef, InputGroup, Input, InputProps } from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 

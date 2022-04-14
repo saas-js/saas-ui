@@ -61,7 +61,7 @@ module.exports = {
       },
       plugins: config.plugins.concat([
         new webpack.NormalModuleReplacementPlugin(
-          /\@saas-ui\/[a-z-]+$/,
+          /\@saas-ui\/[a-z-\/]+$/,
           (resource) => {
             resource.request = resource.request + '/src/index'
           }

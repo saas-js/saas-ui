@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [bab579f]
+  - @saas-ui/forms@0.7.0
+
 ## 0.5.2
 
 ### Patch Changes

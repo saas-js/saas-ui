@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 0.6.1
+
+### Patch Changes
+
+- 96336cd: Added modifier shorthands to jsdocs for easy access.
+
 ## 0.6.0
 
 ### Minor Changes

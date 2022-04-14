@@ -8,6 +8,22 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-14-2022
+
+`@saas-ui/react@0.12.8`
+
+**Password Input** `v0.3.2`
+
+- Fixed label not rendering correctly in some cases.
+
+**Hotkeys** `v0.6.1`
+
+- Added modifier shorthands to jsdocs for easy access.
+
+**Forms** `v0.7.0`
+
+- Added Zod resolver for AutoForm
+
 ## 04-09-2022
 
 **Hotkeys** `v0.6.0`

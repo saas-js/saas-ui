@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 0.7.0
+
+### Minor Changes
+
+- bab579f: Added Zod resolver for AutoForm
+
+### Patch Changes
+
+- Updated dependencies [f6269cb]
+  - @saas-ui/password-input@0.3.2
+
 ## 0.6.2
 
 ### Patch Changes

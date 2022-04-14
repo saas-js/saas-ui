@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 0.12.8
+
+### Patch Changes
+
+- Updated dependencies [f6269cb]
+- Updated dependencies [96336cd]
+- Updated dependencies [bab579f]
+  - @saas-ui/password-input@0.3.2
+  - @saas-ui/hotkeys@0.6.1
+  - @saas-ui/forms@0.7.0
+  - @saas-ui/auth@0.7.4
+  - @saas-ui/modals@0.5.3
+
 ## 0.12.7
 
 ### Patch Changes

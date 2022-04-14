@@ -1,5 +1,11 @@
 # @saas-ui/password-input
 
+## 0.3.2
+
+### Patch Changes
+
+- f6269cb: Fixed label not rendering correctly in some cases.
+
 ## 0.3.1
 
 ### Patch Changes

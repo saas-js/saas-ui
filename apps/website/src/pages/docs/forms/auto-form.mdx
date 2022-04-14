@@ -23,7 +23,7 @@ import { AutoForm, Fields } from '@saas-ui/react'
 
 ## Usage
 
-Generate forms based on a schema, currently only acceps a basic object schema and `Yup` schemas.
+Generate forms based on a schema, currently only acceps a basic object schema, `Yup` and `Zod` schemas.
 
 ## Object schema
 
@@ -100,6 +100,38 @@ function Post() {
       onSubmit={() => null}
       submitLabel="Save post"
       {...yupForm(schema)}
+    />
+  )
+}
+```
+
+## Zod schema
+
+Zod currently does not support adding meta data to the schema, to work around this
+you can use the `zodMeta` function to add JSON meta data in the field description.
+
+```ts
+import { zodForm, zodMeta } from '@saas-ui/forms/zod'
+```
+
+```tsx
+function Post() {
+  const schema = z.object({
+    title: z.string().min(1).describe('Title'),
+    description: z
+      .string()
+      .describe(zodMeta({ label: 'description', type: 'textarea' })),
+  })
+
+  return (
+    <AutoForm
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      onSubmit={() => null}
+      submitLabel="Save post"
+      {...zodForm(schema)}
     />
   )
 }

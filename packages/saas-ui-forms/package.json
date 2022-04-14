@@ -17,6 +17,13 @@
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
+    },
+    "./zod": {
+      "require": "./dist/zod/index.js",
+      "default": "./dist/zod/index.modern.js"
+    },
+    "./zod/src": {
+      "default": "./zod/src/index.ts"
     }
   },
   "main": "./dist/index.js",

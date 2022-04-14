@@ -1,0 +1,28 @@
+{
+  "name": "zod",
+  "description": "Saas UI Forms field resolver: zod",
+  "version": "1.0.0",
+  "private": true,
+  "source": "./src/index.ts",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "require": "./../dist/zod/index.js",
+      "types": "./../dist/zod/src/index.d.ts",
+      "default": "./../dist/zod/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
+  "main": "../dist/zod/index.js",
+  "module": "../dist/zod/index.modern.js",
+  "types": "../dist/zod/index.d.ts",
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@hookform/resolvers": "^2.8.3",
+    "react-hook-form": "^7.22.0",
+    "zod": "^3.14.4"
+  }
+}

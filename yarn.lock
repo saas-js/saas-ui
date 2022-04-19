@@ -7250,12 +7250,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
+    "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
+    "@saas-ui/layout": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
+    framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7337,6 +7340,7 @@ __metadata:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
     "@clerk/clerk-react": ^2.12.0
+    framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7386,6 +7390,7 @@ __metadata:
     "@saas-ui/radio": "workspace:*"
     "@saas-ui/react-utils": "workspace:*"
     "@saas-ui/select": "workspace:*"
+    "@saas-ui/stepper": "workspace:*"
     react-hook-form: ^7.22.0
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
@@ -7484,6 +7489,7 @@ __metadata:
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
+    framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft

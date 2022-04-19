@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 import { forwardRef } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 import { Form, FormProps } from './form'
 import { FormLayout } from './layout'
@@ -38,4 +39,11 @@ export const AutoForm = forwardRef(
   props: AutoFormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
-) => React.ReactElement) & { getFieldResolver?: (schema: any) => FieldResolver }
+) => React.ReactElement) & {
+  displayName?: string
+  getFieldResolver?: (schema: any) => FieldResolver
+}
+
+if (__DEV__) {
+  AutoForm.displayName = 'AutoForm'
+}

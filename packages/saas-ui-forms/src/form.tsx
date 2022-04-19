@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import {
   useForm,
@@ -15,6 +16,7 @@ import {
   ResolverResult,
 } from 'react-hook-form'
 import { objectFieldResolver, FieldResolver } from './field-resolver'
+import { css } from '@emotion/react'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
@@ -97,6 +99,7 @@ export const Form = forwardRef(
           ref={formRef}
           onSubmit={handleSubmit(onSubmit, onError)}
           {...rest}
+          className={cx('saas-form', props.className)}
         >
           {children}
         </chakra.form>
@@ -108,11 +111,16 @@ export const Form = forwardRef(
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
 ) => React.ReactElement) & {
+  displayName?: string
   getResolver?: GetResolver
   getFieldResolver: GetFieldResolver
 }
 
 Form.getFieldResolver = objectFieldResolver
+
+if (__DEV__) {
+  Form.displayName = 'Form'
+}
 
 export type GetResolver = (
   schema: any

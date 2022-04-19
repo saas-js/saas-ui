@@ -23,6 +23,7 @@ import {
   Switch,
   useMergeRefs,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 import { NumberInput } from '@saas-ui/number-input'
 import { PasswordInput } from '@saas-ui/password-input'
@@ -154,6 +155,11 @@ export const BaseField: React.FC<FieldProps> = (props) => {
     </FormControl>
   )
 }
+
+if (__DEV__) {
+  BaseField.displayName = 'BaseField'
+}
+
 export const Field = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FieldProps<TFieldValues> & {

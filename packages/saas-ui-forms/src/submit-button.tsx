@@ -5,6 +5,7 @@ import { useFormContext } from 'react-hook-form'
 import { Button, ButtonProps } from '@saas-ui/button'
 
 import { forwardRef } from '@chakra-ui/system'
+import { __DEV__ } from '@chakra-ui/utils'
 
 export interface SubmitButtonProps extends ButtonProps {
   /**
@@ -51,4 +52,8 @@ SubmitButton.defaultProps = {
   label: 'Submit',
   disableIfUntouched: false,
   disableIfInvalid: false,
+}
+
+if (__DEV__) {
+  SubmitButton.displayName = 'SubmitButton'
 }

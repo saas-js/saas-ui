@@ -91,6 +91,7 @@
     "@saas-ui/radio": "workspace:*",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/select": "workspace:*",
+    "@saas-ui/stepper": "workspace:*",
     "react-hook-form": "^7.22.0"
   },
   "peerDependencies": {

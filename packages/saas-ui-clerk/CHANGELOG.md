@@ -1,5 +1,29 @@
 # @saas-ui/clerk
 
+## 0.1.7
+
+### Patch Changes
+
+- @saas-ui/auth@0.7.8
+
+## 0.1.6
+
+### Patch Changes
+
+- @saas-ui/auth@0.7.7
+
+## 0.1.5
+
+### Patch Changes
+
+- @saas-ui/auth@0.7.6
+
+## 0.1.4
+
+### Patch Changes
+
+- @saas-ui/auth@0.7.5
+
 ## 0.1.3
 
 ### Patch Changes

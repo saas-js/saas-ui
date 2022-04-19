@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.7.0",
+  "version": "0.7.4",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {
@@ -31,9 +31,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup",
+    "build": "yarn build:package && yarn build:yup && yarn build:zod",
     "build:package": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "build:yup": "cross-env NODE_ENV=production microbundle --cwd yup --tsconfig ./yup/tsconfig.json -f cjs,modern --compress",
+    "build:zod": "cross-env NODE_ENV=production microbundle --cwd zod --tsconfig ./zod/tsconfig.json -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -42,7 +43,9 @@
     "dist",
     "src",
     "yup/package.json",
-    "yup/src"
+    "yup/src",
+    "zod/package.json",
+    "zod/src"
   ],
   "sideEffects": false,
   "publishConfig": {

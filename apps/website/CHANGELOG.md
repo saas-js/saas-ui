@@ -1,5 +1,30 @@
 # website
 
+## 0.1.20
+
+### Patch Changes
+
+- @saas-ui/react@0.12.12
+
+## 0.1.19
+
+### Patch Changes
+
+- @saas-ui/react@0.12.11
+
+## 0.1.18
+
+### Patch Changes
+
+- @saas-ui/react@0.12.10
+
+## 0.1.17
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@0.12.9
+
 ## 0.1.16
 
 ### Patch Changes

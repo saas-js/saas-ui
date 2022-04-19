@@ -1,5 +1,29 @@
 # @saas-ui/forms
 
+## 0.7.4
+
+### Patch Changes
+
+- Fixed npm publish
+
+## 0.7.2
+
+### Patch Changes
+
+- Publish resolver files to npm
+
+## 0.7.2
+
+### Patch Changes
+
+- Fixed typings
+
+## 0.7.1
+
+### Patch Changes
+
+- Added Zod field resolver for AutoForm
+
 ## 0.7.0
 
 ### Minor Changes

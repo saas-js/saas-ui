@@ -1,5 +1,42 @@
 # @saas-ui/react
 
+## 0.12.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.4
+  - @saas-ui/auth@0.7.8
+  - @saas-ui/modals@0.5.7
+
+## 0.12.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.2
+  - @saas-ui/auth@0.7.7
+  - @saas-ui/modals@0.5.6
+
+## 0.12.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.2
+  - @saas-ui/auth@0.7.6
+  - @saas-ui/modals@0.5.5
+
+## 0.12.9
+
+### Patch Changes
+
+- Added Zod field resolver for AutoForm
+- Updated dependencies
+  - @saas-ui/forms@0.7.1
+  - @saas-ui/auth@0.7.5
+  - @saas-ui/modals@0.5.4
+
 ## 0.12.8
 
 ### Patch Changes

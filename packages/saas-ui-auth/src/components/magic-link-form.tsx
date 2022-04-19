@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { useLogin, AuthActionEnum } from '../provider'
+
+import { __DEV__ } from '@chakra-ui/utils'
 
 import {
   Form,
@@ -12,6 +13,8 @@ import {
 import { LoginButton } from './login-button'
 
 import { AuthFormSuccess } from './success'
+
+import { useLogin, AuthActionEnum } from '../provider'
 
 export interface MagicLinkFormProps
   extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
@@ -40,6 +43,10 @@ export function MagicLinkSuccess({ email }: any) {
   return (
     <AuthFormSuccess title="Check your mailbox!" description={description} />
   )
+}
+
+if (__DEV__) {
+  MagicLinkSuccess.displayName = 'MagicLinkSuccess'
 }
 
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
@@ -93,4 +100,8 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
       </FormLayout>
     </Form>
   )
+}
+
+if (__DEV__) {
+  MagicLinkForm.displayName = 'MagicLinkForm'
 }

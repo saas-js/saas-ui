@@ -1,10 +1,12 @@
 import * as React from 'react'
 
 import { useTheme } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 import { Button, ButtonProps } from '@saas-ui/button'
 
-export function ProviderButton({ children, ...rest }: ButtonProps) {
+export const ProviderButton: React.FC<ButtonProps> = (props) => {
+  const { children, ...rest } = props
   const theme = useTheme()
 
   const defaultProps = {
@@ -18,4 +20,8 @@ export function ProviderButton({ children, ...rest }: ButtonProps) {
       {children}
     </Button>
   )
+}
+
+if (__DEV__) {
+  ProviderButton.displayName = 'ProviderButton'
 }

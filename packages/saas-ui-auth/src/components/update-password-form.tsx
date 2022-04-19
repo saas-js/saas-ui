@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormProps,
@@ -93,4 +95,8 @@ UpdatePasswordForm.defaultProps = {
   submitLabel: 'Update password',
   label: 'New password',
   confirmLabel: 'Confirm password',
+}
+
+if (__DEV__) {
+  UpdatePasswordForm.displayName = 'UpdatePasswordForm'
 }

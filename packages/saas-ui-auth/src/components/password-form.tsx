@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormProps,
@@ -90,4 +92,8 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
       </FormLayout>
     </Form>
   )
+}
+
+if (__DEV__) {
+  PasswordForm.displayName = 'PasswordForm'
 }

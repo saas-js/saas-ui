@@ -6,6 +6,7 @@ import {
   AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 export interface AuthFormSuccessProps {
   title: React.ReactNode
@@ -34,4 +35,8 @@ export const AuthFormSuccess: React.FC<AuthFormSuccessProps> = ({
       <AlertDescription maxWidth="sm">{description}</AlertDescription>
     </Alert>
   )
+}
+
+if (__DEV__) {
+  AuthFormSuccess.displayName = 'AuthFormSuccess'
 }

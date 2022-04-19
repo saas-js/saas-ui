@@ -31,7 +31,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle src/**/*.ts --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle src/**/*.ts --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress --external @chakra-ui/*",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -74,7 +74,8 @@
   "dependencies": {
     "@saas-ui/button": "workspace:*",
     "@saas-ui/forms": "workspace:*",
-    "@saas-ui/hooks": "workspace:*"
+    "@saas-ui/hooks": "workspace:*",
+    "@saas-ui/layout": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.8.0",

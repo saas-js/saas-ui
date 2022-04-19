@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormLayout,
@@ -85,4 +87,8 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 ForgotPasswordForm.defaultProps = {
   submitLabel: 'Reset password',
   label: 'Your email address',
+}
+
+if (__DEV__) {
+  ForgotPasswordForm.displayName = 'ForgotPasswordForm'
 }

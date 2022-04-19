@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormLayout,
@@ -87,4 +89,8 @@ OtpForm.defaultProps = {
     'You can find your one-time password in the Google Authenticator or Authy app.',
   submitLabel: 'Verify',
   label: 'Your verification code',
+}
+
+if (__DEV__) {
+  OtpForm.displayName = 'OtpForm'
 }

@@ -7,11 +7,12 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
-  useColorModeValue,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { FormProps, FieldErrors } from '@saas-ui/forms'
+import { Divider } from '@saas-ui/layout'
 
 import { MagicLinkForm } from './magic-link-form'
 import { PasswordForm } from './password-form'
@@ -108,7 +109,7 @@ export const AuthForm: React.FC<AuthFormProps> = (props) => {
       {providers && (
         <>
           <Providers providers={providers} label={providerLabel} />
-          <AuthFormDivider label={dividerLabel}></AuthFormDivider>
+          <AuthFormDivider label={dividerLabel} />
         </>
       )}
 
@@ -123,6 +124,10 @@ AuthForm.defaultProps = {
   type: 'magiclink',
   providerLabel: 'Continue with',
   dividerLabel: 'or continue with',
+}
+
+if (__DEV__) {
+  AuthForm.displayName = 'AuthForm'
 }
 
 export interface AuthFormContainerProps
@@ -146,55 +151,34 @@ export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
 
   return (
     <StylesProvider value={styles}>
-      <chakra.div __css={containerStyles} {...containerProps}>
+      <chakra.div
+        __css={containerStyles}
+        {...containerProps}
+        className={cx('saas-auth-form', props.className)}
+      >
         {children}
       </chakra.div>
     </StylesProvider>
   )
 }
 
+if (__DEV__) {
+  AuthFormContainer.displayName = 'AuthFormContainer'
+}
+
 export interface AuthFormDividerProps {
   label?: string
 }
 
-export const AuthFormDivider: React.FC<AuthFormDividerProps> = ({
-  label,
-  ...rest
-}) => {
+export const AuthFormDivider: React.FC<AuthFormDividerProps> = (props) => {
   const styles = useStyles()
 
-  const line = {
-    borderBottomWidth: '1px',
-    content: '""',
-    position: 'relative',
-    display: 'inline-block',
-    width: '50%',
-    top: '50%',
-  }
-
   const dividerStyles = {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    whiteSpace: 'nowrap',
-    py: 8,
-    color: useColorModeValue('gray.400', 'whiteAlpha.300'),
-    _before: line,
-    _after: line,
+    my: 4,
     ...styles.divider,
   }
 
-  const labelStyles = {
-    display: 'inline-block',
-    flexShrink: 0,
-    mx: 2,
-  }
-
-  return (
-    <chakra.div __css={dividerStyles} {...rest}>
-      {label && <chakra.span __css={labelStyles}>{label}</chakra.span>}
-    </chakra.div>
-  )
+  return <Divider {...props} sx={dividerStyles} />
 }
 
 export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
@@ -212,10 +196,18 @@ export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
   }
 
   return (
-    <chakra.h2 __css={titleStyles} {...rest}>
+    <chakra.h2
+      __css={titleStyles}
+      {...rest}
+      className={cx('saas-auth-form__title', rest.className)}
+    >
       {children}
     </chakra.h2>
   )
+}
+
+if (__DEV__) {
+  AuthFormTitle.displayName = 'AuthFormTitle'
 }
 
 export const LoginView: React.FC<AuthFormProps> = (props) => {
@@ -227,6 +219,10 @@ LoginView.defaultProps = {
   submitLabel: 'Log in',
 }
 
+if (__DEV__) {
+  LoginView.displayName = 'LoginView'
+}
+
 export const SignupView: React.FC<AuthFormProps> = (props) => {
   return <AuthForm action="signUp" {...props} />
 }
@@ -234,6 +230,10 @@ export const SignupView: React.FC<AuthFormProps> = (props) => {
 SignupView.defaultProps = {
   title: 'Sign up',
   submitLabel: 'Sign up',
+}
+
+if (__DEV__) {
+  SignupView.displayName = 'SignupView'
 }
 
 export const OtpView: React.FC<AuthFormProps> = (props) => {
@@ -256,6 +256,10 @@ OtpView.defaultProps = {
   title: 'One-time password',
 }
 
+if (__DEV__) {
+  OtpView.displayName = 'OtpView'
+}
+
 export const ForgotPasswordView: React.FC<AuthFormProps> = (props) => {
   const { title, footer, ...rest } = props
   return (
@@ -276,6 +280,10 @@ ForgotPasswordView.defaultProps = {
   title: 'Forgot password',
 }
 
+if (__DEV__) {
+  ForgotPasswordView.displayName = 'ForgotPasswordView'
+}
+
 export const UpdatePasswordView: React.FC<AuthFormProps> = (props) => {
   const { title, footer, ...rest } = props
   return (
@@ -294,4 +302,8 @@ export const UpdatePasswordView: React.FC<AuthFormProps> = (props) => {
 
 UpdatePasswordView.defaultProps = {
   title: 'Choose a new password',
+}
+
+if (__DEV__) {
+  UpdatePasswordView.displayName = 'UpdatePasswordView'
 }

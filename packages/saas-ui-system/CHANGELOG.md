@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 0.4.1
+
+### Patch Changes
+
+- 9abc079: Added missing peer dependencies
+
 ## 0.4.0
 
 ### Minor Changes

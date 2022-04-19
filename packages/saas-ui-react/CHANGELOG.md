@@ -1,5 +1,36 @@
 # @saas-ui/react
 
+## 0.13.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.6
+  - @saas-ui/auth@0.7.10
+  - @saas-ui/modals@0.5.9
+
+## 0.13.0
+
+### Minor Changes
+
+- 9abc079: Saas UI theme colors no longer generated on the fly.
+
+### Patch Changes
+
+- Updated dependencies [77b2860]
+- Updated dependencies [22a30dc]
+- Updated dependencies [77b2860]
+- Updated dependencies [9abc079]
+- Updated dependencies [a76c184]
+  - @saas-ui/auth@0.7.9
+  - @saas-ui/forms@0.7.5
+  - @saas-ui/theme@0.8.0
+  - @saas-ui/modals@0.5.8
+  - @saas-ui/provider@0.3.9
+  - @saas-ui/layout@0.3.4
+  - @saas-ui/menu@0.5.4
+  - @saas-ui/data-table@0.3.4
+
 ## 0.12.12
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.8.0
+
+### Minor Changes
+
+- 9abc079: Saas UI theme colors no longer generated on the fly.
+
 ## 0.7.2
 
 ### Patch Changes

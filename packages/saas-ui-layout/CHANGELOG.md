@@ -1,5 +1,11 @@
 # @saas-ui/layout
 
+## 0.3.4
+
+### Patch Changes
+
+- @saas-ui/provider@0.3.9
+
 ## 0.3.3
 
 ### Patch Changes

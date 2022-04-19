@@ -1,5 +1,18 @@
 # @saas-ui/forms
 
+## 0.7.6
+
+### Patch Changes
+
+- Fix zod resolver build
+
+## 0.7.5
+
+### Patch Changes
+
+- 22a30dc: Added displayName to form components
+- a76c184: Fixed FormStepper default styles.
+
 ## 0.7.4
 
 ### Patch Changes

@@ -8,6 +8,30 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-19-2022
+
+`@saas-ui/react@0.13.0`
+
+- Saas UI theme colors no longer generated on the fly.
+
+**Auth** `v0.7.9`
+
+- AuthFormDivider now using Divider component
+- Added displayName to all components and improved inconsistencies.
+
+**Forms** `v0.7.5`
+
+- Added displayName to form components
+- Fixed FormStepper default styles.
+
+**Theme** `v0.8.0`
+
+- Saas UI theme colors no longer generated on the fly.
+
+**System** `v0.4.1`
+
+- Added missing peer dependencies
+
 ## 04-14-2022
 
 `@saas-ui/react@0.12.8`

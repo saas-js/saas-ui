@@ -1,5 +1,23 @@
 # @saas-ui/auth
 
+## 0.7.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.6
+
+## 0.7.9
+
+### Patch Changes
+
+- 77b2860: AuthFormDivider now using Divider component
+- 77b2860: Added displayName to all components and improved inconsistencies.
+- Updated dependencies [22a30dc]
+- Updated dependencies [a76c184]
+  - @saas-ui/forms@0.7.5
+  - @saas-ui/layout@0.3.4
+
 ## 0.7.8
 
 ### Patch Changes

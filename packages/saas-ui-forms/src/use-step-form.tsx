@@ -35,9 +35,21 @@ export interface UseStepFormProps<
 > extends UseStepperProps,
     FormProps<TFieldValues> {}
 
+export interface UseStepFormReturn<
+  TFieldValues extends FieldValues = FieldValues
+> extends UseStepperReturn {
+  getFormProps(): {
+    onSubmit: SubmitHandler<TFieldValues>
+    schema?: any
+    resolver?: any
+  }
+  updateStep(step: any): void
+  steps: Record<string, any>
+}
+
 export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
   props: UseStepFormProps<TFieldValues>
-) {
+): UseStepFormReturn<TFieldValues> {
   const stepper = useStepper(props)
 
   const { activeStep, isLastStep, nextStep } = stepper
@@ -64,17 +76,14 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
     [activeStep, isLastStep]
   )
 
-  const getFormProps = React.useCallback(
-    (props) => {
-      const step = steps[activeStep]
-      return {
-        onSubmit: onSubmitStep,
-        schema: step?.schema,
-        resolver: step?.resolver,
-      }
-    },
-    [steps, onSubmitStep, activeStep]
-  )
+  const getFormProps = React.useCallback(() => {
+    const step = steps[activeStep]
+    return {
+      onSubmit: onSubmitStep,
+      schema: step?.schema,
+      resolver: step?.resolver,
+    }
+  }, [steps, onSubmitStep, activeStep])
 
   const updateStep = React.useCallback(
     (step) => {
@@ -95,8 +104,6 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
     ...stepper,
   }
 }
-
-export type UseStepFormReturn = ReturnType<typeof useStepForm>
 
 export interface UseFormStepProps {
   name: string

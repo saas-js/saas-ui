@@ -28,11 +28,16 @@ import {
   useFormStep,
   StepFormProvider,
   UseStepFormProps,
+  UseStepFormReturn,
 } from './use-step-form'
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseStepFormProps<TFieldValues>,
-    FormProps<TFieldValues> {}
+    FormProps<TFieldValues> {
+  children:
+    | React.ReactNode
+    | ((stepper: UseStepFormReturn<TFieldValues>) => React.ReactElement)
+}
 
 export const StepForm = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
@@ -50,7 +55,7 @@ export const StepForm = React.forwardRef(
     return (
       <StepperProvider value={context}>
         <StepFormProvider value={context}>
-          <Form ref={ref} {...rest} {...getFormProps(props)}>
+          <Form ref={ref} {...rest} {...getFormProps()}>
             {runIfFn(children, stepper)}
           </Form>
         </StepFormProvider>

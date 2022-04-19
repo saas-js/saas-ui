@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.7.7
+
+### Patch Changes
+
+- c0b3dc9: Improved StepForm typings
+
 ## 0.7.6
 
 ### Patch Changes

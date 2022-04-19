@@ -65,7 +65,7 @@ const variants = {
 
 const defaultProps = {
   variant: 'outline',
-  colorScheme: 'purple',
+  colorScheme: 'primary',
   size: 'md',
 }
 

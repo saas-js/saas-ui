@@ -255,7 +255,7 @@ export interface StepperStepProps
  * Displays the icon and step title.
  */
 export const StepperStep: React.FC<StepperStepProps> = (props) => {
-  const { title, icon, isActive, isCompleted, ...rest } = props
+  const { name, title, icon, isActive, isCompleted, ...rest } = props
   const step = useStep(props)
   const styles = useStyles()
 

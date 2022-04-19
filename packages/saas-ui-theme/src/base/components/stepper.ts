@@ -221,6 +221,7 @@ const sizes = {
 const defaultProps = {
   variant: 'solid',
   colorScheme: 'blue',
+  orientation: 'horizontal',
   size: 'lg',
 }
 

@@ -2,9 +2,9 @@
   "extends": "../../../tsconfig.base.json",
   "include": ["./src"],
   "compilerOptions": {
-    "baseUrl": "."
-  },
-  "paths": {
-    "@saas-ui/forms": ["../"]
+    "baseUrl": ".",
+    "paths": {
+      "@saas-ui/forms": ["../"]
+    }
   }
 }

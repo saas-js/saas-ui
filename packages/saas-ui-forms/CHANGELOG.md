@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 0.7.8
+
+### Patch Changes
+
+- 391e21a: Field id now passed down to the internal FormControl for better a11y.
+
 ## 0.7.7
 
 ### Patch Changes

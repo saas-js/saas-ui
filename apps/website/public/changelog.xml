@@ -7,9 +7,26 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Thu, 14 Apr 2022 11:48:53 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 19 Apr 2022 15:54:10 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/04-19-2022</guid>
+    <title>Updates for Apr 19, 2022</title>
+    <link>https://saas-ui.dev/changelog/04-19-2022</link>
+    <description>
+## 04-19-2022
+
+`@saas-ui/react@0.13.0`
+
+- Saas UI theme colors no longer generated on the fly.
+
+**A...</description>
+    <pubDate>Tue, 19 Apr 2022 15:54:10 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/04-14-2022</guid>
     <title>Updates for Apr 14, 2022</title>

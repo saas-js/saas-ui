@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-23-2022
+
+**Forms** `v0.7.8`
+
+- Field id now passed down to the internal FormControl for better a11y.
+
 ## 04-19-2022
 
 `@saas-ui/react@0.13.0`

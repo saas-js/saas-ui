@@ -4583,6 +4583,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/styled-system@npm:^1.19.0":
+  version: 1.19.0
+  resolution: "@chakra-ui/styled-system@npm:1.19.0"
+  dependencies:
+    "@chakra-ui/utils": 1.10.4
+    csstype: 3.0.9
+  checksum: 7acbce48d121743b6f7c830b376ed9f78f0c65ea0f1df2d22f3af780660edc6bfdaead5e55d75735de9524fed0f9bab2afa7d4da4fa3ced1d3e75045241df007
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/switch@npm:1.3.5":
   version: 1.3.5
   resolution: "@chakra-ui/switch@npm:1.3.5"
@@ -7770,6 +7780,10 @@ __metadata:
 "@saas-ui/system@workspace:packages/saas-ui-system":
   version: 0.0.0-use.local
   resolution: "@saas-ui/system@workspace:packages/saas-ui-system"
+  dependencies:
+    "@chakra-ui/styled-system": ^1.19.0
+    "@chakra-ui/utils": ^1.10.4
+    react-fast-compare: ^3.2.0
   peerDependencies:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
@@ -7815,7 +7829,6 @@ __metadata:
   dependencies:
     "@chakra-ui/anatomy": ^1.2.1
     "@chakra-ui/theme-tools": ^1.3.1
-    "@saas-ui/palette": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=1.8.0"
     "@chakra-ui/system": ">=1.0.0"
@@ -14046,6 +14059,13 @@ __metadata:
   dependencies:
     cssom: ~0.3.6
   checksum: 5f05e6fd2e3df0b44695c2f08b9ef38b011862b274e320665176467c0725e44a53e341bc4959a41176e83b66064ab786262e7380fd1cabeae6efee0d255bb4e3
+  languageName: node
+  linkType: hard
+
+"csstype@npm:3.0.9":
+  version: 3.0.9
+  resolution: "csstype@npm:3.0.9"
+  checksum: 199f9af7e673f9f188525c3102a329d637ff46c52f6385a4427ff5cb17adcb736189150170a7af7c5701d18d7704bdad130273f4aa7e44c6c4f9967e6115dc93
   languageName: node
   linkType: hard
 

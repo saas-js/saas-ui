@@ -1,5 +1,11 @@
 # website
 
+## 0.1.24
+
+### Patch Changes
+
+- @saas-ui/react@0.13.3
+
 ## 0.1.23
 
 ### Patch Changes

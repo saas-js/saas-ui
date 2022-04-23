@@ -23,7 +23,7 @@ const helpSchema = Yup.object().shape({
 
 import { onSubmit } from './helpers'
 
-export const basic = () => (
+export const Basic = () => (
   <Form
     defaultValues={{
       text: 'Text field',
@@ -78,7 +78,7 @@ type FormInputs = {
   pattern: string
 }
 
-export const rules = () => {
+export const Rules = () => {
   return (
     <Form<FormInputs>
       defaultValues={{
@@ -109,7 +109,7 @@ export const rules = () => {
   )
 }
 
-export const noLabel = () => {
+export const NoLabel = () => {
   return (
     <Form
       defaultValues={{
@@ -127,7 +127,7 @@ export const noLabel = () => {
   )
 }
 
-export const helpText = () => {
+export const HelpText = () => {
   return (
     <Form
       defaultValues={{
@@ -142,6 +142,24 @@ export const helpText = () => {
           label="Email"
           help="We'll never share your email."
         />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithId = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field id="email" name="email" label="Email" />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>

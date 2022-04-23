@@ -192,6 +192,7 @@ const createField = (
 ) => {
   const Field = forwardRef<FieldProps, typeof FormControl>((props, ref) => {
     const {
+      id,
       name,
       label,
       help,
@@ -211,6 +212,7 @@ const createField = (
 
     return (
       <BaseField
+        id={id}
         name={name}
         label={label}
         help={help}
@@ -223,6 +225,7 @@ const createField = (
       >
         <InputComponent
           ref={ref}
+          id={id}
           name={name}
           label={label}
           rules={inputRules}

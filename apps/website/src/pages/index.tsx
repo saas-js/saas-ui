@@ -87,7 +87,7 @@ import {
   BannerTitle,
 } from '@saas-ui/banner'
 
-import { transparentize } from '@chakra-ui/theme/node_modules/@chakra-ui/theme-tools'
+import { transparentize } from '@chakra-ui/theme-tools'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>

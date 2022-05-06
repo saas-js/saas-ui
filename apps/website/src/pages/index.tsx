@@ -544,7 +544,7 @@ const Pricing = () => {
               <PricingFeature title="Advanced components" />
               <PricingFeature title="Multiple themes" />
               <PricingFeature title="Next.js and Electron boilerplates" />
-              <PricingFeature title="Free updates" />
+              <PricingFeature title="Private discord community" />
               <br />
               <PricingFeature
                 title="Private beta access"
@@ -602,6 +602,49 @@ const Pricing = () => {
             </ButtonLink>
           </PricingBox>
         </SimpleGrid>
+
+        <PricingBox
+          width="480px"
+          margin="80px auto 0 auto"
+          title={
+            <HStack>
+              <Text>Elite membership</Text>
+            </HStack>
+          }
+          description="Limited access membership for teams that want to get moving fast."
+          price={
+            <Stack spacing="0">
+              <Text fontSize="sm" color="gray.400" fontWeight="medium">
+                Starting at
+              </Text>
+              <HStack>
+                <Text>€2000,-</Text>
+                <Text fontSize="sm" color="gray.400">
+                  / month
+                </Text>
+              </HStack>
+            </Stack>
+          }
+        >
+          <PricingFeatures>
+            <PricingFeature
+              title="Custom component development"
+              iconColor="cyan.500"
+            />
+            <PricingFeature
+              title="Help with implementation"
+              iconColor="cyan.500"
+            />
+            <PricingFeature title="Project setup" iconColor="cyan.500" />
+            <PricingFeature title="Hands-on support" iconColor="cyan.500" />
+          </PricingFeatures>
+          <ButtonLink
+            href="mailto:hello@saas-ui.dev?subject=Elite membership"
+            colorScheme="cyan"
+          >
+            Get in touch
+          </ButtonLink>
+        </PricingBox>
 
         <Text
           p="8"

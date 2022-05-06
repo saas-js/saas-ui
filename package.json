@@ -62,7 +62,7 @@
     "@babel/preset-react": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
     "@chakra-ui/cli": "^1.9.0",
-    "@chakra-ui/react": "^1.8.6",
+    "@chakra-ui/react": "^1.8.8",
     "@changesets/cli": "^2.19.0",
     "@clerk/clerk-react": "^2.12.7",
     "@emotion/jest": "^11.8.0",

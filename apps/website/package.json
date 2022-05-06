@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@chakra-ui/props-docs": "^1.0.45",
-    "@chakra-ui/react": "^1.8.6",
+    "@chakra-ui/react": "^1.8.8",
     "@chakra-ui/skip-nav": "^1.2.1",
-    "@chakra-ui/system": "^1.11.2",
+    "@chakra-ui/system": "^1.12.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/inter": "^4.4.5",
@@ -67,6 +67,6 @@
     "typescript": "^4.5.4"
   },
   "optionalDependencies": {
-    "@saas-ui/pro": "^0.2.5"
+    "@saas-ui/pro": "^0.3.7"
   }
 }

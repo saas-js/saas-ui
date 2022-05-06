@@ -44,56 +44,58 @@ export interface SearchInputProps
   onReset?: () => void
 }
 
-export const SearchInput = forwardRef<SearchInputProps, 'div'>((props, ref) => {
-  const {
-    value,
-    size,
-    variant,
-    icon,
-    resetIcon,
-    rightElement,
-    onReset,
-    ...inputProps
-  } = props
-  const styles = useMultiStyleConfig('SearchInput', props)
+export const SearchInput = forwardRef<SearchInputProps, 'input'>(
+  (props, ref) => {
+    const {
+      value,
+      size,
+      variant,
+      icon,
+      resetIcon,
+      rightElement,
+      onReset,
+      ...inputProps
+    } = props
+    const styles = useMultiStyleConfig('SearchInput', props)
 
-  const onKeyDown = React.useCallback(
-    (event: React.KeyboardEvent) => {
-      if (event.key === 'Escape' && onReset) {
-        onReset()
-      }
-    },
-    [onReset]
-  )
+    const onKeyDown = React.useCallback(
+      (event: React.KeyboardEvent) => {
+        if (event.key === 'Escape' && onReset) {
+          onReset()
+        }
+      },
+      [onReset]
+    )
 
-  return (
-    <InputGroup size={size}>
-      <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
-      <Input
-        type="text"
-        size={size}
-        value={value}
-        ref={ref}
-        sx={styles.input}
-        onKeyDown={onKeyDown}
-        {...inputProps}
-      />
-      <InputRightElement>
-        {value ? (
-          <IconButton
-            onClick={onReset}
-            size="xs"
-            variant="ghost"
-            aria-label="Reset search"
-            icon={resetIcon || <CloseIcon />}
-          />
-        ) : (
-          rightElement
-        )}
-      </InputRightElement>
-    </InputGroup>
-  )
-})
+    return (
+      <InputGroup size={size}>
+        <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
+        <Input
+          type="text"
+          size={size}
+          value={value}
+          ref={ref}
+          sx={styles.input}
+          onKeyDown={onKeyDown}
+          {...inputProps}
+        />
+        <InputRightElement>
+          {value ? (
+            <IconButton
+              onClick={onReset}
+              size="xs"
+              variant="ghost"
+              aria-label="Reset search"
+              icon={resetIcon || <CloseIcon />}
+            />
+          ) : (
+            rightElement
+          )}
+        </InputRightElement>
+      </InputGroup>
+    )
+  }
+)
 
 SearchInput.defaultProps = {
   placeholder: 'Search',

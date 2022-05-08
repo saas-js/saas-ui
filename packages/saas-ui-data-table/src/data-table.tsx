@@ -146,7 +146,6 @@ export const DataTable = React.forwardRef(
                     <Td
                       {...cell.getCellProps()}
                       isNumeric={cell.column.isNumeric}
-                      isTruncated
                     >
                       {cell.render('Cell')}
                     </Td>

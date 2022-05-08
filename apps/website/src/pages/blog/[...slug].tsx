@@ -1,6 +1,5 @@
 import fs from 'fs'
-import { allBlogs } from '.contentlayer/data'
-import type { Blog } from '.contentlayer/types'
+import { allBlogs, Blog } from '.contentlayer/generated'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'

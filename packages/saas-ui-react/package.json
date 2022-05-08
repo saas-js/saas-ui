@@ -86,11 +86,11 @@
     "@saas-ui/theme": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
+    "@chakra-ui/react": ">=2.0.0-next.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": ">=5.5.0",
-    "react": ">=16.8.6",
-    "react-dom": ">=16.8.6"
+    "react": ">=18",
+    "react-dom": ">=18"
   }
 }

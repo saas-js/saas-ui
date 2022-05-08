@@ -1,5 +1,5 @@
 const { withContentlayer } = require('next-contentlayer')
-
+console.log(withContentlayer)
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -74,7 +74,7 @@ let config = {
 const isNextDev = process.argv.includes('dev')
 
 if (isNextDev) {
-  config = withContentlayer()(config)
+  config = withContentlayer(config)
 }
 
 module.exports = withBundleAnalyzer(config)

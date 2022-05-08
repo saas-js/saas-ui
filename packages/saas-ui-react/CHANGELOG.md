@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 0.13.4
+
+### Patch Changes
+
+- Updated dependencies [8f68188]
+  - @saas-ui/search-input@0.5.1
+  - @saas-ui/hotkeys@0.6.2
+
 ## 0.13.3
 
 ### Patch Changes

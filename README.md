@@ -31,8 +31,6 @@ Want to help? Great! Saas UI Core is getting close to a release candidate, but w
 
 If you like to support the project financially consider [Pre-ordering Saas UI Pro](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the development version and our private Discord server. As an early adopter you will get 50% discount on the final price, life-time access, free updates and a lot of love ❤️.
 
-The first beta version is expected end of Q1 2022.
-
 ## Roadmap
 
 Saas UI core is currently is beta, the first release candidate will be released soon.

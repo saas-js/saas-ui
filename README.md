@@ -44,7 +44,7 @@ Saas UI pro is in private beta. [Pre-order](https://appulse.gumroad.com/l/saas-u
 A set of essential open source components build on top of Chakra UI.
 Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
 
-- [x] Finish all v1 core components and hooks - 90%
+- [x] Finish all v1 core components and hooks
 - [ ] Full test coverage - 20%
 - [ ] React 18 support
 

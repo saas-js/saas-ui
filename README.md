@@ -35,29 +35,32 @@ The first beta version is expected end of Q1 2022.
 
 ## Roadmap
 
-Saas UI core is currently is beta, the first release candidate as well as Saas UI Pro is expected in Q1 2022.
+Saas UI core is currently is beta, the first release candidate will be released soon.
+
+Saas UI pro is in private beta. [Pre-order](https://appulse.gumroad.com/l/saas-ui-pro-pre-order) to get early access.
 
 ### Core
 
 A set of essential open source components build on top of Chakra UI.
 Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
 
-- [ ] Finish all v1 core components and hooks - 90%
+- [x] Finish all v1 core components and hooks - 90%
 - [ ] Full test coverage - 20%
+- [ ] React 18 support
 
 ### Pro
 
 A premium starter pack designed for SaaS products.
 Complete source code available in a monorepo that can serve as a starting point for your project.
 
-- [ ] Example SaaS app (NextJS)
-- [ ] Electron app
-- [ ] Authentication
-- [ ] User profiles
+- [x] Example SaaS app (NextJS)
+- [x] Electron app
+- [x] Authentication
+- [x] User profiles
 - [ ] Example pages (CRM, Inbox, CRUD)
 - [ ] Charts / Sparklines
-- [ ] Settings pages
-- [ ] Feature flags
+- [x] Settings pages
+- [x] Feature flags
 - [ ] Onboarding flows
 - [ ] Upselling flows (Trials, upgrades, etc)
 - [ ] Billing/subscription management

@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 0.5.12
+
+### Patch Changes
+
+- f14fa4e: Fixed issue where the resolver was not passed down to the Form.
+
 ## 0.5.11
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 1.2.31
+
+### Patch Changes
+
+- Updated dependencies [f14fa4e]
+  - @saas-ui/react@0.13.5
+
 ## 1.2.30
 
 ### Patch Changes

@@ -87,6 +87,7 @@ export const FormDialog = forwardRef(
     const formProps = {
       ref,
       schema,
+      resolver,
       defaultValues,
       onSubmit,
       onError,

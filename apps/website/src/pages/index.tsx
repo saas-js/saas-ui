@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import dynamic from 'next/dynamic'
+import Script from 'next/script'
 
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
@@ -101,6 +102,13 @@ const Home = () => {
         title="Saas UI"
         description="The frontend stack for SaaS companies"
         titleTemplate="%s - The frontend stack for SaaS companies"
+      />
+      <Script
+        id="crisp-js"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
+        }}
       />
       <BackgroundGradient animate={false} />
       <Box mb={8} w="full" position="relative" overflow="hidden">
@@ -317,7 +325,7 @@ const Home = () => {
               href="https://redwoodjs.com"
               p="8"
               h="100%"
-              d="flex"
+              display="flex"
               sx={{
                 path: {
                   fill: useColorModeValue('#000', '#fff'),
@@ -332,7 +340,7 @@ const Home = () => {
               href="https://nextjs.com"
               p="8"
               h="100%"
-              d="flex"
+              display="flex"
               sx={{
                 path: {
                   fill: useColorModeValue('#000', '#fff'),
@@ -343,7 +351,7 @@ const Home = () => {
               <VisuallyHidden>Next.js</VisuallyHidden>
             </Link>
 
-            <Link href="https://blitzjs.com" p="8" h="100%" d="flex">
+            <Link href="https://blitzjs.com" p="8" h="100%" display="flex">
               <Blitz alt="Blitz.js logo" />
               <VisuallyHidden>Blitz.js</VisuallyHidden>
             </Link>
@@ -352,7 +360,7 @@ const Home = () => {
               href="https://supabase.com"
               p="8"
               h="100%"
-              d="flex"
+              display="flex"
               sx={{
                 'path.supabase_svg__wordmark': {
                   fill: useColorModeValue('#1F1F1F', '#FFF'),
@@ -603,49 +611,6 @@ const Pricing = () => {
           </PricingBox>
         </SimpleGrid>
 
-        <PricingBox
-          width="480px"
-          margin="80px auto 0 auto"
-          title={
-            <HStack>
-              <Text>Elite membership</Text>
-            </HStack>
-          }
-          description="Limited access membership for teams that want to get moving fast."
-          price={
-            <Stack spacing="0">
-              <Text fontSize="sm" color="gray.400" fontWeight="medium">
-                Starting at
-              </Text>
-              <HStack>
-                <Text>€2000,-</Text>
-                <Text fontSize="sm" color="gray.400">
-                  / month
-                </Text>
-              </HStack>
-            </Stack>
-          }
-        >
-          <PricingFeatures>
-            <PricingFeature
-              title="Custom component development"
-              iconColor="cyan.500"
-            />
-            <PricingFeature
-              title="Help with implementation"
-              iconColor="cyan.500"
-            />
-            <PricingFeature title="Project setup" iconColor="cyan.500" />
-            <PricingFeature title="Hands-on support" iconColor="cyan.500" />
-          </PricingFeatures>
-          <ButtonLink
-            href="mailto:hello@saas-ui.dev?subject=Elite membership"
-            colorScheme="cyan"
-          >
-            Get in touch
-          </ButtonLink>
-        </PricingBox>
-
         <Text
           p="8"
           textAlign="center"
@@ -707,6 +672,50 @@ const PricingBox = ({ title, description, price, children, ...props }) => {
         {children}
       </VStack>
     </VStack>
+  )
+}
+
+const MemberShip = () => {
+  return (
+    <PricingBox
+      width="480px"
+      margin="80px auto 0 auto"
+      title={
+        <HStack>
+          <Text>Elite membership</Text>
+        </HStack>
+      }
+      description="Limited access membership for teams that want to get moving fast."
+      price={
+        <Stack spacing="0">
+          <Text fontSize="sm" color="gray.400" fontWeight="medium">
+            Starting at
+          </Text>
+          <HStack>
+            <Text>€2000,-</Text>
+            <Text fontSize="sm" color="gray.400">
+              / month
+            </Text>
+          </HStack>
+        </Stack>
+      }
+    >
+      <PricingFeatures>
+        <PricingFeature
+          title="Custom component development"
+          iconColor="cyan.500"
+        />
+        <PricingFeature title="Help with implementation" iconColor="cyan.500" />
+        <PricingFeature title="Project setup" iconColor="cyan.500" />
+        <PricingFeature title="Hands-on support" iconColor="cyan.500" />
+      </PricingFeatures>
+      <ButtonLink
+        href="mailto:hello@saas-ui.dev?subject=Elite membership"
+        colorScheme="cyan"
+      >
+        Get in touch
+      </ButtonLink>
+    </PricingBox>
   )
 }
 

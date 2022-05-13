@@ -10,6 +10,7 @@ import generateRss from '@/utils/generate-rss'
 
 export default function Page({ doc }: { doc: Doc }) {
   const Component = useMDXComponent(doc.body.code)
+
   return (
     <Layout frontMatter={doc.frontMatter}>
       <Component components={MDXComponents} />
@@ -32,8 +33,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     doc._id.endsWith(`${params.join('/')}.mdx`)
   )
 
-  const rss = generateRss(allDocs, 'docs.xml')
-  fs.writeFileSync('./public/docs.xml', rss)
+  if (process.env.NODE_ENV === 'production') {
+    const rss = generateRss(allDocs, 'docs.xml')
+    fs.writeFileSync('./public/docs.xml', rss)
+  }
 
   return {
     props: {

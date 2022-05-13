@@ -163,7 +163,7 @@ export const CardHeader = forwardRef<CardHeaderProps, 'div'>((props, ref) => {
     wrappedAvatar = (
       <chakra.div
         display="flex"
-        flexShrink="0"
+        flexShrink={0}
         justifyContent="stretch"
         marginEnd={spacing}
       >

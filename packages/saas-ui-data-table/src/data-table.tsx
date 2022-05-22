@@ -147,7 +147,7 @@ export const DataTable = React.forwardRef(
                       {...cell.getCellProps()}
                       isNumeric={cell.column.isNumeric}
                     >
-                      {cell.render('Cell')}
+                      {cell.render('Cell') as React.ReactNode}
                     </Td>
                   )
                 })}
@@ -232,7 +232,7 @@ export const DataTableHeader = <Data extends object>(
       isNumeric={column.isNumeric}
       {...rest}
     >
-      {column.render('Header')}
+      {column.render('Header') as React.ReactNode}
       {isSortable && <DataTableSort column={column} />}
     </Th>
   )

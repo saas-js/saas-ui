@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react'
 
 import { createContext } from '@chakra-ui/react-utils'
-import { __DEV__ } from '@chakra-ui/utils'
+import { runIfFn, __DEV__ } from '@chakra-ui/utils'
 
 type Position = [number, number]
 
@@ -30,6 +30,7 @@ export interface UseContextMenuReturn {
 export const [ContextMenuProvider, useContextMenuContext] =
   createContext<UseContextMenuReturn>({
     name: 'UseContextMenuContext',
+    strict: false,
   })
 
 export interface UseContextMenuProps extends ContextMenuProps {
@@ -69,7 +70,7 @@ export const useContextMenu = (props: UseContextMenuProps) => {
     }
   })
 
-  const onOpen = useCallback((event) => {
+  const onOpen = useCallback((event: React.MouseEvent) => {
     setIsOpen(true)
     setPosition([event.pageX, event.pageY])
   }, [])
@@ -106,7 +107,11 @@ export const ContextMenu: React.FC<ContextMenuProps> = (props) => {
       onClose={onClose}
       closeOnSelect={closeOnSelect}
     >
-      <ContextMenuProvider value={context}>{children}</ContextMenuProvider>
+      {(fnProps) => (
+        <ContextMenuProvider value={context}>
+          {runIfFn(children, fnProps)}
+        </ContextMenuProvider>
+      )}
     </Menu>
   )
 }

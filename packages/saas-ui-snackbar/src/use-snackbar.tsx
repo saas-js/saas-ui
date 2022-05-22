@@ -112,7 +112,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
   const toast = useToast(defaultOptions)
 
   const parseOptions = React.useCallback(
-    (options: SnackbarOptions): UseToastOptions => {
+    (options: SnackbarOptions): UseSnackbarOptions => {
       if (typeof options === 'string') {
         return {
           title: options,
@@ -179,7 +179,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
           }
         })
         .catch((error) => {
-          const options: UseToastOptions = {
+          const options: UseSnackbarOptions = {
             title: error.name,
             description: error.description,
             status: 'error',

@@ -15,6 +15,7 @@ import {
   useMultiStyleConfig,
   ThemingProps,
   SystemProps,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 import SectionWrapper, { SectionProps } from '../section-wrapper'
 import SectionTitle, { SectionTitleProps } from '../section-title'
@@ -22,7 +23,7 @@ import SectionTitle, { SectionTitleProps } from '../section-title'
 import ScaleInView from '@/components/motion/scale-in-view'
 
 export interface FeaturesProps
-  extends Omit<SectionTitleProps, 'title'>,
+  extends Omit<SectionTitleProps, 'title' | 'variant'>,
     ThemingProps<'Features'> {
   title?: React.ReactNode
   description?: React.ReactNode
@@ -55,7 +56,10 @@ export function Feature({
   ip,
   variant,
 }: FeatureProps) {
-  const styles = useMultiStyleConfig('Feature', { variant })
+  const styles = useMultiStyleConfig('Feature', { variant }) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const pos = iconPosition || ip
   const direction = pos === 'left' ? 'row' : 'column'

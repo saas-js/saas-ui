@@ -37,10 +37,10 @@ decrease in size for smaller screens.
 
 ```jsx
 <Stack spacing={6}>
-  <Heading as="h1" size="4xl" isTruncated>
+  <Heading as="h1" size="4xl" noOfLines={1}>
     (4xl) In love with React & Next
   </Heading>
-  <Heading as="h2" size="3xl" isTruncated>
+  <Heading as="h2" size="3xl" noOfLines={1}>
     (3xl) In love with React & Next
   </Heading>
   <Heading as="h2" size="2xl">
@@ -66,11 +66,11 @@ decrease in size for smaller screens.
 
 ### Truncate heading
 
-Pass the `isTruncated` prop to render an ellipsis when the heading exceeds the
+Pass the `noOfLines={1}` prop to render an ellipsis when the heading exceeds the
 width of the viewport or `maxWidth` prop.
 
 ```jsx
-<Heading isTruncated>
+<Heading noOfLines={1}>
   Basic text writing, including headings, body text, lists, and more.
 </Heading>
 ```

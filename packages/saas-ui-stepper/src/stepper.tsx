@@ -9,6 +9,7 @@ import {
   omitThemingProps,
   useStyles,
   StylesProvider,
+  SystemStyleObject,
 } from '@chakra-ui/system'
 
 import { CheckIcon, Icon } from '@chakra-ui/icons'
@@ -40,12 +41,15 @@ export interface StepperProps
 export const Stepper = forwardRef<StepperProps, 'div'>((props, ref) => {
   const { children, orientation = 'horizontal', step, ...rest } = props
 
-  const styles = useMultiStyleConfig('Stepper', { ...rest, orientation })
+  const styles = useMultiStyleConfig('Stepper', {
+    ...rest,
+    orientation,
+  }) as Record<string, SystemStyleObject>
   const containerProps = omitThemingProps(rest)
 
   const context = useStepper(props)
 
-  const containerStyles = {
+  const containerStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'column',
     ...styles.container,
@@ -85,7 +89,7 @@ export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
 
   const { activeIndex } = useStepperContext()
 
-  const stepperStyles = {
+  const stepperStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -196,7 +200,7 @@ export const StepperIcon: React.FC<StepperIconProps> = (props) => {
 
   const styles = useStyles()
 
-  const iconStyles = {
+  const iconStyles: SystemStyleObject = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -259,7 +263,7 @@ export const StepperStep: React.FC<StepperStepProps> = (props) => {
   const step = useStep(props)
   const styles = useStyles()
 
-  const stepStyles = {
+  const stepStyles: SystemStyleObject = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
@@ -295,7 +299,7 @@ export const StepperSeparator: React.FC<StepperSeparatorProps> = (props) => {
   const { isActive, ...rest } = props
   const styles = useStyles()
 
-  const separatorStyles = {
+  const separatorStyles: SystemStyleObject = {
     flex: 1,
     mx: 2,
     ...styles.separator,

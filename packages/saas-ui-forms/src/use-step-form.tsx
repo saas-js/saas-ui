@@ -33,7 +33,11 @@ import { FormProps } from './form'
 export interface UseStepFormProps<
   TFieldValues extends FieldValues = FieldValues
 > extends UseStepperProps,
-    FormProps<TFieldValues> {}
+    Omit<FormProps<TFieldValues>, 'children'> {
+  children:
+    | React.ReactNode
+    | ((stepper: UseStepFormReturn<TFieldValues>) => React.ReactElement)
+}
 
 export interface UseStepFormReturn<
   TFieldValues extends FieldValues = FieldValues
@@ -54,7 +58,7 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
 
   const { activeStep, isLastStep, nextStep } = stepper
 
-  const [steps, updateSteps] = React.useState({})
+  const [steps, updateSteps] = React.useState<Record<string, StepState>>({})
 
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
@@ -86,7 +90,7 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
   }, [steps, onSubmitStep, activeStep])
 
   const updateStep = React.useCallback(
-    (step) => {
+    (step: StepState) => {
       updateSteps((steps) => {
         return {
           ...steps,

@@ -25,7 +25,7 @@ interface SubmitParams {
 }
 
 export interface PasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   schema?: any
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
@@ -86,7 +86,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>

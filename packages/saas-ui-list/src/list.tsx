@@ -9,6 +9,7 @@ import {
   ThemingProps,
   omitThemingProps,
   SystemProps,
+  SystemStyleObject,
   As,
   useColorModeValue,
   useMultiStyleConfig,
@@ -38,7 +39,10 @@ export interface ListProps
 export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
   const { items, children, ...rest } = props
 
-  const styles = useMultiStyleConfig('List', rest)
+  const styles = useMultiStyleConfig('List', rest) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const listProps = omitThemingProps(rest)
 
@@ -51,7 +55,7 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
     content = children
   }
 
-  const listStyles = {
+  const listStyles: SystemStyleObject = {
     py: 2,
     position: 'relative',
     ...styles.list,
@@ -167,7 +171,7 @@ export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
   const isComposed = !!(icon || primary || secondary || tertiary || action)
   const disablePadding = !isComposed || isButton
 
-  const itemStyles = {
+  const itemStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -237,7 +241,7 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
     const { children, ...rest } = props
     const styles = useStyles()
 
-    const buttonStyles = {
+    const buttonStyles: SystemStyleObject = {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -284,7 +288,7 @@ export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
   const { children, spacing, size = 5, as, ...rest } = props
   const styles = useStyles()
 
-  const iconStyles = {
+  const iconStyles: SystemStyleObject = {
     ...styles.icon,
     display: 'flex',
     flexShrink: 0,
@@ -324,7 +328,7 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
   const { primary, secondary, children, ...rest } = props
   const styles = useStyles()
 
-  const labelStyles = {
+  const labelStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
@@ -349,12 +353,12 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
       className={cx('saas-list__item-label', props.className)}
     >
       {primary && (
-        <chakra.span isTruncated __css={primaryStyles}>
+        <chakra.span noOfLines={1} __css={primaryStyles}>
           {primary}
         </chakra.span>
       )}
       {secondary && (
-        <chakra.span isTruncated __css={secondaryStyles}>
+        <chakra.span noOfLines={1} __css={secondaryStyles}>
           {secondary}
         </chakra.span>
       )}
@@ -385,7 +389,7 @@ export const ListItemTertiary: React.FC<ListItemTertiaryProps> = ({
 }) => {
   const styles = useStyles()
 
-  const tertiaryStyles = {
+  const tertiaryStyles: SystemStyleObject = {
     display: 'flex',
     '& > *:not(style) ~ *:not(style)': { marginStart: spacing },
     ...styles.tertiary,

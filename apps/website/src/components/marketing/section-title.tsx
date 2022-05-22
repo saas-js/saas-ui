@@ -1,5 +1,5 @@
 import { VStack, Heading, Box, StackProps } from '@chakra-ui/layout'
-import { useMultiStyleConfig, useStyles } from '@chakra-ui/react'
+import { useMultiStyleConfig, SystemStyleObject } from '@chakra-ui/react'
 
 export interface SectionTitleProps extends Omit<StackProps, 'title'> {
   title: React.ReactNode
@@ -15,7 +15,10 @@ export default function SectionTitle({
   variant,
   ...props
 }: SectionTitleProps) {
-  const styles = useMultiStyleConfig('SectionTitle', { variant })
+  const styles = useMultiStyleConfig('SectionTitle', { variant }) as Record<
+    string,
+    SystemStyleObject
+  >
 
   return (
     <VStack

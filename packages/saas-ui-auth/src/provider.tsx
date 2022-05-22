@@ -91,6 +91,8 @@ export interface AuthProviderProps {
    * Return the session token
    */
   onGetToken?: () => Promise<AuthToken>
+
+  children?: React.ReactNode
 }
 
 export type AuthFunction = (

@@ -8,6 +8,7 @@ import {
   ThemingProps,
   omitThemingProps,
   useMultiStyleConfig,
+  SystemStyleObject,
 } from '@chakra-ui/system'
 import { cx, __DEV__ } from '@chakra-ui/utils'
 import { createContext } from '@chakra-ui/react-utils'
@@ -91,7 +92,10 @@ export interface HotkeysListProps
 
 export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
   ({ children, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Hotkeys', props)
+    const styles = useMultiStyleConfig('Hotkeys', props) as Record<
+      string,
+      SystemStyleObject
+    >
     const ownProps = omitThemingProps(props)
 
     const context = useHotkeysList(ownProps)

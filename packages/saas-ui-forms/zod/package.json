@@ -10,7 +10,7 @@
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",
   "peerDependencies": {
-    "@chakra-ui/utils": "^1.10.4",
+    "@chakra-ui/utils": "^2.0.0",
     "@hookform/resolvers": "^2.8.3",
     "react-hook-form": "^7.22.0",
     "zod": "^3.14.4"

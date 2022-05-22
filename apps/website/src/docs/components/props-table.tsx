@@ -35,14 +35,7 @@ export type PropsTableProps = {
 
 const PropsTable = ({
   of,
-  omit = [
-    'isTruncated',
-    'layerStyle',
-    'noOfLines',
-    'textStyle',
-    'orientation',
-    'styleConfig',
-  ],
+  omit = ['layerStyle', 'noOfLines', 'textStyle', 'orientation', 'styleConfig'],
   only,
 }: PropsTableProps) => {
   const propList = React.useMemo(

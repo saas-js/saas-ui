@@ -10,6 +10,7 @@ import {
   HTMLChakraProps,
   ThemingProps,
   SystemProps,
+  SystemStyleObject,
   omitThemingProps,
 } from '@chakra-ui/system'
 
@@ -30,12 +31,15 @@ export interface PropertyProps
     ThemingProps<'Property'> {}
 
 export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
-  const styles = useMultiStyleConfig('Property', props)
+  const styles = useMultiStyleConfig('Property', props) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const { children, label, value, labelWidth, spacing, ...rest } =
     omitThemingProps(props)
 
-  const propertyStyles = {
+  const propertyStyles: SystemStyleObject = {
     minW: 0,
     display: 'flex',
     flexDirection: 'row',
@@ -95,7 +99,7 @@ export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
       {...rest}
       className={cx('saas-property__label', props.className)}
     >
-      <chakra.span flex="1" isTruncated>
+      <chakra.span flex="1" noOfLines={1}>
         {children}
       </chakra.span>
     </chakra.dt>

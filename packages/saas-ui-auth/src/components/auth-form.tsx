@@ -8,6 +8,7 @@ import {
   ThemingProps,
   omitThemingProps,
   useMultiStyleConfig,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -137,11 +138,14 @@ export interface AuthFormContainerProps
 export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
   const { children } = props
 
-  const styles = useMultiStyleConfig('AuthForm', props)
+  const styles = useMultiStyleConfig('AuthForm', props) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const containerProps = omitThemingProps(props)
 
-  const containerStyles = {
+  const containerStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',
@@ -187,7 +191,7 @@ export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
 }) => {
   const styles = useStyles()
 
-  const titleStyles = {
+  const titleStyles: SystemStyleObject = {
     fontSize: '2xl',
     fontWeight: 'bold',
     textAlign: 'center',

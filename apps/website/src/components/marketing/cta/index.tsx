@@ -5,6 +5,7 @@ import {
   Button,
   StylesProvider,
   omitThemingProps,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 import SectionWrapper, { SectionProps } from '../section-wrapper'
 import SectionTitle, { SectionTitleProps } from '../section-title'
@@ -44,7 +45,10 @@ export default function CTASection(props: CTAProps) {
   // const ip = !!aside ? 'left' : 'top'
   // console.log(ip)
 
-  const styles = useMultiStyleConfig('CTA', props)
+  const styles = useMultiStyleConfig('CTA', props) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const ownProps = omitThemingProps(props)
 

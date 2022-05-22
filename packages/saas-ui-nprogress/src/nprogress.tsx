@@ -8,6 +8,7 @@ import {
   omitThemingProps,
   useColorModeValue,
   useMultiStyleConfig,
+  SystemStyleObject,
 } from '@chakra-ui/system'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
@@ -27,7 +28,10 @@ export interface NProgressProps
     ThemingProps<'NProgress'> {}
 
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('NProgress', props)
+  const styles = useMultiStyleConfig('NProgress', props) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const { colorScheme: c } = props
 
@@ -37,7 +41,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
     isAnimating,
   })
 
-  const barStyles = {
+  const barStyles: SystemStyleObject = {
     width: '100%',
     height: '2px',
     bg: useColorModeValue(`${c}.500`, `${c}.300`),

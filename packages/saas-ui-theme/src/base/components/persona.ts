@@ -3,10 +3,12 @@ import {
   mode,
   SystemStyleFunction,
   PartsStyleFunction,
+  PartsStyleObject,
 } from '@chakra-ui/theme-tools'
 
 export const parts = anatomy('persona').parts(
   'container',
+  'details',
   'avatar',
   'label',
   'secondaryLabel',
@@ -16,39 +18,42 @@ export const parts = anatomy('persona').parts(
 const baseStyleLabel: SystemStyleFunction = (props) => {
   return {
     color: mode('gray.500', 'whiteAlpha.600')(props),
+    overflow: 'hidden',
   }
 }
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => {
   return {
+    container: {},
+    avatar: {},
     label: {},
     secondaryLabel: baseStyleLabel(props),
     tertiaryLabel: baseStyleLabel(props),
   }
 }
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   '2xs': {
     details: { ms: 2 },
     label: {
       fontSize: 'xs',
     },
-    secondaryLabel: { display: 'none' },
-    tertiaryLabel: { display: 'none' },
+    secondaryLabel: { visibility: 'hidden', height: 0 },
+    tertiaryLabel: { visibility: 'hidden', height: 0 },
   },
   xs: {
     details: { ms: 2 },
     label: {
       fontSize: 'md',
     },
-    secondaryLabel: { display: 'none' },
-    tertiaryLabel: { display: 'none' },
+    secondaryLabel: { visibility: 'hidden', height: 0 },
+    tertiaryLabel: { visibility: 'hidden', height: 0 },
   },
   sm: {
     details: { ms: 2 },
     label: { fontSize: 'md' },
     secondaryLabel: { fontSize: 'sm' },
-    tertiaryLabel: { display: 'none' },
+    tertiaryLabel: { visibility: 'hidden', height: 0 },
   },
   md: {
     details: { ms: 2 },
@@ -58,7 +63,7 @@ const sizes = {
     secondaryLabel: {
       fontSize: 'sm',
     },
-    tertiaryLabel: { display: 'none' },
+    tertiaryLabel: { visibility: 'hidden', height: 0 },
   },
   lg: {
     details: { ms: 3 },

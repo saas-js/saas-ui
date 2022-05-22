@@ -1,4 +1,8 @@
-import { LoadedClerk, AuthenticateWithRedirectParams } from '@clerk/types'
+import {
+  LoadedClerk,
+  AuthenticateWithRedirectParams,
+  SignInCreateParams,
+} from '@clerk/types'
 import {
   AuthParams,
   AuthOptions,
@@ -42,12 +46,19 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
       return
     }
 
-    const clerkParams: ClerkParams = {
-      identifier: params.email,
-    }
+    let clerkParams: SignInCreateParams
 
-    if (params.password) {
-      clerkParams.password = params.password
+    if (!params.email) {
+      return
+    } else if (params.password) {
+      clerkParams = {
+        identifier: params.email,
+        password: params.password,
+      }
+    } else {
+      clerkParams = {
+        identifier: params.email,
+      }
     }
 
     const signIn = await client.signIn.create(clerkParams)
@@ -58,17 +69,15 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
       return onLoadUser()
     }
 
-    const res = signIn.supportedFirstFactors.find(
-      (ff) =>
-        ff.strategy === 'email_link' && ff.safe_identifier === params.email
+    /* @ts-ignore */
+    const { emailAddressId } = signIn.supportedFirstFactors.find(
+      (ff) => ff.strategy === 'email_link' && ff.safeIdentifier === params.email
     )
-
-    const { email_address_id } = res as any // Types are incorrect?
 
     const { startMagicLinkFlow } = client.signIn.createMagicLinkFlow()
 
     startMagicLinkFlow({
-      emailAddressId: email_address_id,
+      emailAddressId: emailAddressId,
       redirectUrl: window.location.href + '/#ml_callback',
     }).then(async (result) => {
       if (result.status === 'complete') {
@@ -103,7 +112,7 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
 
       const result = await signUpAttempt.prepareEmailAddressVerification({
         strategy: 'email_link',
-        redirect_url: options?.redirectTo || window.location.href,
+        redirectUrl: options?.redirectTo || window.location.href,
       })
 
       return result

@@ -8,6 +8,7 @@ import {
   useStyles,
   omitThemingProps,
   SystemProps,
+  SystemStyleObject,
   ThemeTypings,
   useMultiStyleConfig,
 } from '@chakra-ui/system'
@@ -89,7 +90,10 @@ export interface CardContainerProps
 
 export const CardContainer = forwardRef<CardContainerProps, 'div'>(
   (props, ref) => {
-    const styles = useMultiStyleConfig('Card', props)
+    const styles = useMultiStyleConfig('Card', props) as Record<
+      string,
+      SystemStyleObject
+    >
 
     const { children, ...rest } = omitThemingProps(props)
 
@@ -152,7 +156,7 @@ export const CardHeader = forwardRef<CardHeaderProps, 'div'>((props, ref) => {
   } = props
   const styles = useStyles()
 
-  const innerStyle = {
+  const innerStyle: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -307,7 +311,7 @@ export const CardMedia = forwardRef<CardMediaProps, 'div'>(
   ({ children, ...rest }, ref) => {
     const styles = useStyles()
 
-    const mediaStyles = {
+    const mediaStyles: SystemStyleObject = {
       bgSize: 'cover',
       ...styles.media,
     }
@@ -375,7 +379,7 @@ export const CardFooter = forwardRef<CardFooterProps, 'div'>((props, ref) => {
 
   const { children, variant = 'ghost', spacing = 2, ...rest } = props
 
-  const footerStyles = {
+  const footerStyles: SystemStyleObject = {
     display: 'flex',
     alignItems: 'center',
     '& > div': {

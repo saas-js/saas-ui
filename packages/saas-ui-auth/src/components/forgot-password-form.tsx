@@ -23,7 +23,7 @@ interface SubmitParams {
 }
 
 export interface ForgotPasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   label?: string
   helpText?: string
   onSuccess?: (data: any) => void
@@ -76,7 +76,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>

@@ -14,6 +14,7 @@ import {
   ButtonProps,
   omitThemingProps,
   useMultiStyleConfig,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { __DEV__ } from '@chakra-ui/utils'
@@ -47,7 +48,10 @@ export interface SelectProps
     SelectOptions {}
 
 const SelectButton = forwardRef((props, ref) => {
-  const styles = useMultiStyleConfig('Input', props)
+  const styles = useMultiStyleConfig('Input', props) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const height = styles.field.h || styles.field.height
 
@@ -107,7 +111,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   }
 
   const getDisplayValue = React.useCallback(
-    (value) => {
+    (value: string) => {
       if (!options) {
         return value
       }

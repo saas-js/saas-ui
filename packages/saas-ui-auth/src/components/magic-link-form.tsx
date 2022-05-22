@@ -17,7 +17,7 @@ import { AuthFormSuccess } from './success'
 import { useLogin, AuthActionEnum } from '../provider'
 
 export interface MagicLinkFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
   onError?: (error: any) => void
@@ -94,7 +94,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
         <LoginButton
           type="submit"
           isLoading={isLoading}
-          isFullWidth
+          width="full"
           label={submitLabel}
         />
       </FormLayout>

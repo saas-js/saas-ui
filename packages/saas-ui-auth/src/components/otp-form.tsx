@@ -22,7 +22,7 @@ interface SubmitParams {
 }
 
 export interface OtpFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   label?: string
   helpText?: string
   pinLength?: number
@@ -76,7 +76,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>

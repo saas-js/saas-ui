@@ -7,6 +7,7 @@ import {
   HTMLChakraProps,
   useMultiStyleConfig,
   StylesProvider,
+  SystemStyleObject,
 } from '@chakra-ui/system'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
@@ -32,19 +33,14 @@ import {
 } from './use-step-form'
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
-  extends UseStepFormProps<TFieldValues>,
-    FormProps<TFieldValues> {
-  children:
-    | React.ReactNode
-    | ((stepper: UseStepFormReturn<TFieldValues>) => React.ReactElement)
-}
+  extends UseStepFormProps<TFieldValues> {}
 
 export const StepForm = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: StepFormProps<TFieldValues>,
     ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
   ) => {
-    const { children, onSubmit, ...rest } = props
+    const { children, ...rest } = props
 
     const stepper = useStepForm<TFieldValues>(props)
 
@@ -84,7 +80,10 @@ export interface FormStepOptions {
 }
 
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
-  const styles = useMultiStyleConfig('Stepper', props)
+  const styles = useMultiStyleConfig('Stepper', props) as Record<
+    string,
+    SystemStyleObject
+  >
 
   const { children } = props
 

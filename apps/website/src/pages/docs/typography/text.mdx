@@ -44,11 +44,11 @@ To increase the font size of the text, you can pass the `fontSize` prop.
 
 ### Truncate text
 
-Pass the `isTruncated` prop to render an ellipsis when the text exceeds the
+Pass the `noOfLines={1}` prop to render an ellipsis when the text exceeds the
 width of the viewport or `maxWidth` prop.
 
 ```jsx
-<Text color="gray.500" isTruncated>
+<Text color="gray.500" noOfLines={1}>
   Lorem ipsum is placeholder text commonly used in the graphic, print, and
   publishing industries for previewing layouts and visual mockups.
 </Text>

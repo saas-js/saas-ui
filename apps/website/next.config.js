@@ -1,5 +1,5 @@
 const { withContentlayer } = require('next-contentlayer')
-console.log(withContentlayer)
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -38,13 +38,6 @@ let config = {
       use: [
         {
           loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: {
-                removeViewBox: false,
-              },
-            },
-          },
         },
       ],
     })

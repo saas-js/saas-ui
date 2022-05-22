@@ -45,6 +45,8 @@ export interface LoaderProps
   variant?: 'Loader' extends keyof ThemeTypings['components'] /* @ts-ignore */
     ? ThemeTypings['components']['Loader']['variants']
     : Variants
+
+  children?: React.ReactNode
 }
 
 import { AnimatePresence, motion, MotionProps } from 'framer-motion'

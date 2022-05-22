@@ -181,7 +181,10 @@ export interface PersonaContainerProps
 export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   (props, ref) => {
     const { children, ...rest } = props
-    const styles = useMultiStyleConfig('Persona', props)
+    const styles = useMultiStyleConfig('Persona', props) as Record<
+      string,
+      SystemStyleObject
+    >
 
     const containerProps = omitThemingProps(rest)
 
@@ -191,7 +194,7 @@ export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
       alignItems: 'center',
     }
 
-    const containerStyles = {
+    const containerStyles: SystemStyleObject = {
       ...baseStyle,
       ...styles.container,
     }
@@ -368,7 +371,7 @@ export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
     return (
       <chakra.span
         ref={ref}
-        isTruncated
+        noOfLines={1}
         {...props}
         __css={styles.label}
         className={cx('saas-persona__label', props.className)}
@@ -389,7 +392,7 @@ export const PersonaSecondaryLabel = forwardRef<
   return (
     <chakra.span
       ref={ref}
-      isTruncated
+      noOfLines={1}
       {...props}
       __css={styles.secondaryLabel}
       className={cx('saas-persona__secondary-label', props.className)}
@@ -404,10 +407,11 @@ if (__DEV__) {
 export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   (props, ref) => {
     const styles = useStyles()
+
     return (
       <chakra.span
         ref={ref}
-        isTruncated
+        noOfLines={1}
         {...props}
         __css={styles.tertiaryLabel}
         className={cx('saas-persona__tertiary-label', props.className)}

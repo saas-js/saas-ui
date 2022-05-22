@@ -41,6 +41,8 @@ interface ArrayFieldRowProps {
    * The array index
    */
   index: number
+
+  children: React.ReactNode
 }
 
 export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
@@ -72,6 +74,8 @@ export interface ArrayFieldRowFieldsProps {
    * Spacing between fields
    */
   spacing?: ResponsiveValue<string | number>
+
+  children: React.ReactNode
 }
 
 export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({

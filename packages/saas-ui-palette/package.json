@@ -58,7 +58,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "chroma-js": "^2.1.2"
+    "chroma-js": "^2.4.2"
   },
   "devDependencies": {
     "@types/chroma-js": "^2.1.3"

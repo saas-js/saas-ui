@@ -56,8 +56,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/button": "^1.5.10",
-    "@chakra-ui/utils": "^1.10.4"
+    "@chakra-ui/button": "^2.0.0",
+    "@chakra-ui/utils": "^2.0.0"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=1.0.0",

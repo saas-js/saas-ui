@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 0.5.1
+
+### Patch Changes
+
+- 8f68188: Now using the correct ref type.
+
 ## 0.5.0
 
 ### Minor Changes

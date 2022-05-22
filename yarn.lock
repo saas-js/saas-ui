@@ -7168,29 +7168,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-hookz/deep-equal@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@react-hookz/deep-equal@npm:1.0.1"
-  checksum: 23394b28357b87650aed9fbc425d53824acd64ee3c8c5800273271410c93fe51712c6935c1f632c0c53eeb5f8afd813d544713ba4cda86b2681b18dad3d31d2a
-  languageName: node
-  linkType: hard
-
-"@react-hookz/web@npm:^13.1.0":
-  version: 13.3.0
-  resolution: "@react-hookz/web@npm:13.3.0"
-  dependencies:
-    "@react-hookz/deep-equal": ^1.0.1
-  peerDependencies:
-    js-cookie: ^3.0.1
-    react: ^16.8 || ^17 || ^18
-    react-dom: ^16.8 || ^17 || ^18
-  peerDependenciesMeta:
-    js-cookie:
-      optional: true
-  checksum: 82112dd80b3e3eb2cc752d76f5f060b202836667659afc6733a1043b349bacb8d93321b7099bfcb88f8b285c3040ac0d4c248221e8fc14de883c1eaf7974e06f
-  languageName: node
-  linkType: hard
-
 "@react-spring/animated@npm:~9.4.5":
   version: 9.4.5
   resolution: "@react-spring/animated@npm:9.4.5"
@@ -7714,22 +7691,6 @@ __metadata:
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
-
-"@saas-ui/pro@npm:^0.3.10":
-  version: 0.3.10
-  resolution: "@saas-ui/pro@npm:0.3.10"
-  dependencies:
-    "@react-hookz/web": ^13.1.0
-    date-fns: ^2.28.0
-  peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@saas-ui/react": ">=0.12.0"
-    framer-motion: ">=5.5.0"
-    react: ">=16.8.6"
-    react-dom: ">=16.8.6"
-  checksum: 09957193af1fe3c2a2fa157080020882030963980a7d3fb365b005452910ff5994d56a81ce6301a0f225b0a027674033bae7655e0fb57686d2fafe79259c9cb6
-  languageName: node
-  linkType: hard
 
 "@saas-ui/property@workspace:*, @saas-ui/property@workspace:packages/saas-ui-property":
   version: 0.0.0-use.local
@@ -30927,7 +30888,6 @@ __metadata:
     "@next/bundle-analyzer": ^12.1.6
     "@octokit/rest": ^18.12.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/pro": ^0.3.10
     "@saas-ui/props-docs": ^0.4.1
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
@@ -30963,9 +30923,6 @@ __metadata:
     remark-slug: ^7.0.1
     typescript: ^4.6.4
     yup: ^0.32.11
-  dependenciesMeta:
-    "@saas-ui/pro":
-      optional: true
   languageName: unknown
   linkType: soft
 

@@ -1,0 +1,8 @@
+[build]
+  command = "yarn build:storybook"
+  publish = "storybook-static"
+
+[[headers]]
+   for = "/*"
+   [headers.values]
+      Access-Control-Allow-Origin = "*"

@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 0.13.5
+
+### Patch Changes
+
+- f14fa4e: Fixed issue where the resolver was not passed down to the Form.
+- Updated dependencies [f14fa4e]
+  - @saas-ui/modals@0.5.12
+
+## 0.13.4
+
+### Patch Changes
+
+- Updated dependencies [8f68188]
+  - @saas-ui/search-input@0.5.1
+  - @saas-ui/hotkeys@0.6.2
+
 ## 0.13.3
 
 ### Patch Changes

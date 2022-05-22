@@ -1,5 +1,12 @@
 # @saas-ui/hotkeys
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [8f68188]
+  - @saas-ui/search-input@0.5.1
+
 ## 0.6.1
 
 ### Patch Changes

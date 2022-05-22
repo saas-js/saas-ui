@@ -59,7 +59,7 @@
     "@chakra-ui/system": ">=1.0.0",
     "@clerk/clerk-react": "^2.12.0",
     "framer-motion": ">=5.5.0",
-    "react": ">=16.8.6"
+    "react": ">=18.0.0"
   },
   "devDependencies": {
     "@clerk/clerk-react": "^2.12.0"

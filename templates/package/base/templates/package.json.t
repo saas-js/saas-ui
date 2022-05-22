@@ -54,6 +54,6 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6"
+    "react": ">=18.0.0"
   }
 }

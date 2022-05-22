@@ -48,8 +48,8 @@
     "@storybook/preview-web": ">=6",
     "@storybook/react": ">=6",
     "framer-motion": ">=5.5.0",
-    "react": ">=16.8.6",
-    "react-dom": ">=16.8.6"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "react": "^17.0.1"

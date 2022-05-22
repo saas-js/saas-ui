@@ -55,6 +55,6 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "react": ">=16.8.6"
+    "react": ">=18.0.0"
   }
 }

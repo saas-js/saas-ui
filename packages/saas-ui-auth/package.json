@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.js"
+      "default": "./dist/index.modern.mjs"
     },
     "./services/supabase": {
       "require": "./dist/supabase.js",
@@ -27,7 +27,7 @@
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",

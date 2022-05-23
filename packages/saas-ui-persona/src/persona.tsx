@@ -371,7 +371,6 @@ export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
     return (
       <chakra.span
         ref={ref}
-        noOfLines={1}
         {...props}
         __css={styles.label}
         className={cx('saas-persona__label', props.className)}
@@ -392,7 +391,6 @@ export const PersonaSecondaryLabel = forwardRef<
   return (
     <chakra.span
       ref={ref}
-      noOfLines={1}
       {...props}
       __css={styles.secondaryLabel}
       className={cx('saas-persona__secondary-label', props.className)}
@@ -407,11 +405,10 @@ if (__DEV__) {
 export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   (props, ref) => {
     const styles = useStyles()
-
+    console.log(styles)
     return (
       <chakra.span
         ref={ref}
-        noOfLines={1}
         {...props}
         __css={styles.tertiaryLabel}
         className={cx('saas-persona__tertiary-label', props.className)}

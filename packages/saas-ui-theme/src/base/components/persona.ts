@@ -19,10 +19,12 @@ const baseStyleLabel: SystemStyleFunction = (props) => {
   return {
     color: mode('gray.500', 'whiteAlpha.600')(props),
     overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
   }
 }
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => {
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   return {
     container: {},
     avatar: {},
@@ -38,22 +40,22 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
     label: {
       fontSize: 'xs',
     },
-    secondaryLabel: { visibility: 'hidden', height: 0 },
-    tertiaryLabel: { visibility: 'hidden', height: 0 },
+    secondaryLabel: { display: 'none' },
+    tertiaryLabel: { display: 'none' },
   },
   xs: {
     details: { ms: 2 },
     label: {
       fontSize: 'md',
     },
-    secondaryLabel: { visibility: 'hidden', height: 0 },
-    tertiaryLabel: { visibility: 'hidden', height: 0 },
+    secondaryLabel: { display: 'none' },
+    tertiaryLabel: { display: 'none' },
   },
   sm: {
     details: { ms: 2 },
     label: { fontSize: 'md' },
     secondaryLabel: { fontSize: 'sm' },
-    tertiaryLabel: { visibility: 'hidden', height: 0 },
+    tertiaryLabel: { display: 'none' },
   },
   md: {
     details: { ms: 2 },
@@ -63,7 +65,7 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
     secondaryLabel: {
       fontSize: 'sm',
     },
-    tertiaryLabel: { visibility: 'hidden', height: 0 },
+    tertiaryLabel: { display: 'none' },
   },
   lg: {
     details: { ms: 3 },

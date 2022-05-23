@@ -145,6 +145,9 @@ export const DataTable = React.forwardRef(
                   return (
                     <Td
                       {...cell.getCellProps()}
+                      overflow="hidden"
+                      whiteSpace="nowrap"
+                      textOverflow="ellipsis"
                       isNumeric={cell.column.isNumeric}
                     >
                       {cell.render('Cell') as React.ReactNode}

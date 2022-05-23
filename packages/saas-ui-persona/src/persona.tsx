@@ -405,7 +405,7 @@ if (__DEV__) {
 export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   (props, ref) => {
     const styles = useStyles()
-    console.log(styles)
+
     return (
       <chakra.span
         ref={ref}

@@ -73,9 +73,10 @@ export const Divider: React.FC<DividerProps> = (props) => {
   return (
     <ChakraDivider
       as={label ? 'div' : 'hr'}
-      __css={dividerStyles}
       orientation={orientation}
+      role="separator"
       {...rest}
+      __css={dividerStyles}
     >
       {label && <chakra.span __css={labelStyles}>{label}</chakra.span>}
     </ChakraDivider>

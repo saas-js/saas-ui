@@ -14,7 +14,7 @@ import { useRouter } from 'next/router'
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   return (
-    <SaasProvider theme={theme} cookies={pageProps.cookies}>
+    <SaasProvider theme={theme}>
       <AuthProvider>
         <ModalsProvider>
           <Layout

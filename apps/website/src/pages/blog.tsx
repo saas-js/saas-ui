@@ -12,8 +12,7 @@ import {
 
 import SEO from '@/components/seo'
 
-import { allBlogs } from '.contentlayer/data'
-import type { Blog } from '.contentlayer/types'
+import { allBlogs } from '.contentlayer/generated'
 
 import Link from '@/components/link'
 import { compareDesc } from 'date-fns'
@@ -35,7 +34,7 @@ const Post = (props) => {
   )
 }
 
-const Blog = ({ blogs }) => {
+const BlogPage = ({ blogs }) => {
   return (
     <Box py={20}>
       <SEO
@@ -58,7 +57,7 @@ const Blog = ({ blogs }) => {
   )
 }
 
-export default Blog
+export default BlogPage
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const blogs =

@@ -299,96 +299,6 @@ const Home = () => {
 
         <ProFeatures />
 
-        <Section>
-          <SectionTitle
-            title="Plays well with others"
-            description={
-              <>
-                Saas UI is backend agnostic and works with the framework
-                <Br /> or starter pack that you love.
-              </>
-            }
-          />
-
-          <SimpleGrid
-            columns={[2, null, 4]}
-            columnGap={8}
-            sx={{
-              svg: {
-                width: '80%',
-                height: 'auto',
-                maxHeight: '40px',
-              },
-            }}
-          >
-            <Link
-              href="https://redwoodjs.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                path: {
-                  fill: useColorModeValue('#000', '#fff'),
-                },
-              }}
-            >
-              <RedwoodJS alt="RedwoodJS logo" />
-              <VisuallyHidden>RedwoodJS</VisuallyHidden>
-            </Link>
-
-            <Link
-              href="https://nextjs.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                path: {
-                  fill: useColorModeValue('#000', '#fff'),
-                },
-              }}
-            >
-              <NextJS alt="Next.JS logo" />
-              <VisuallyHidden>Next.js</VisuallyHidden>
-            </Link>
-
-            <Link href="https://blitzjs.com" p="8" h="100%" display="flex">
-              <Blitz alt="Blitz.js logo" />
-              <VisuallyHidden>Blitz.js</VisuallyHidden>
-            </Link>
-
-            <Link
-              href="https://supabase.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                'path.supabase_svg__wordmark': {
-                  fill: useColorModeValue('#1F1F1F', '#FFF'),
-                },
-              }}
-            >
-              <Supabase
-                alt="Supabase logo"
-                viewBox="0 0 581 113" // somehow this gets removed when importing
-              />
-              <VisuallyHidden>Supabase</VisuallyHidden>
-            </Link>
-          </SimpleGrid>
-
-          <Text
-            fontSize="sm"
-            opacity="0.4"
-            width={['100%', null, '50%']}
-            m="0 auto"
-            mt="10"
-          >
-            Technologies included: Next.js, Electron, React, Chakra UI,
-            Typescript, Styled Components, Emotion, React Hook Form, React
-            Query, Turborepo, Prettier, Storybook, Jest, Testing Library and
-            more...
-          </Text>
-        </Section>
-
         <Pricing />
 
         <RequestAccess />
@@ -472,13 +382,13 @@ const RequestAccess = () => {
     <>
       <CTA
         id="request-access"
-        title="Get early access"
+        title="Stay up to date"
         py="14"
         description={
           <>
             <p>
-              Not ready to pre-order yet? No worries, we will notify you when we
-              launch.
+              Not ready to pre-order yet? Leave your details and we&apos;ll keep
+              you informed.
             </p>
           </>
         }
@@ -975,32 +885,33 @@ const Highlights = () => {
         </GridItem>
         <GridItem
           as={HighlightBox}
-          bgGradient={`linear(to-r, ${transparentize(
-            'purple.500',
-            0.3
-          )(theme)}, ${transparentize('cyan.500', 0.3)(theme)})`}
+          bgGradient={`linear(to-br, ${transparentize(
+            'green.500',
+            0.8
+          )(theme)}, ${transparentize('yellow.500', 0.8)(theme)})`}
           justifyContent="center"
         >
-          <Card
-            avatar={
-              <Avatar name="Tien Tienth" src="/testimonials/turbothinh.png" />
+          <Testimonial
+            avatar="/testimonials/turbothinh.png"
+            name="Tien Thinh"
+            description={
+              <Text color="whiteAlpha.700" as="span">
+                @turbothinh
+              </Text>
             }
-            title="Tien Thinh"
-            subtitle="@turbothinh"
             border="0"
             bg="transparent"
             boxShadow="none"
+            color="white"
             sx={{
               '& p': {
                 color: useColorModeValue('blackAlpha.600', 'whiteAlpha.500'),
               },
             }}
           >
-            <CardBody>
-              Saas UI is the ONLY template out there that does the code
-              structure that I think can scale 😄
-            </CardBody>
-          </Card>
+            Saas UI is the ONLY template out there that does the code structure
+            that I think can scale 😄
+          </Testimonial>
         </GridItem>
         <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">
@@ -1035,6 +946,112 @@ const Highlights = () => {
               </Tag>
             ))}
           </Wrap>
+        </GridItem>
+        <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
+          <Heading fontSize="1.4em">Plays well with others</Heading>
+          <Text color="muted" fontSize="lg">
+            <>
+              Saas UI is backend agnostic and works with the framework
+              <Br /> or starter pack that you love.
+            </>
+          </Text>
+          <SimpleGrid
+            columns={[2, null, 4]}
+            columnGap={8}
+            sx={{
+              svg: {
+                width: '80%',
+                height: 'auto',
+                maxHeight: '40px',
+              },
+            }}
+          >
+            <Link
+              href="https://redwoodjs.com"
+              p="8"
+              h="100%"
+              display="flex"
+              sx={{
+                path: {
+                  fill: useColorModeValue('#000', '#fff'),
+                },
+              }}
+            >
+              <RedwoodJS alt="RedwoodJS logo" />
+              <VisuallyHidden>RedwoodJS</VisuallyHidden>
+            </Link>
+
+            <Link
+              href="https://nextjs.com"
+              p="8"
+              h="100%"
+              display="flex"
+              sx={{
+                path: {
+                  fill: useColorModeValue('#000', '#fff'),
+                },
+              }}
+            >
+              <NextJS alt="Next.JS logo" />
+              <VisuallyHidden>Next.js</VisuallyHidden>
+            </Link>
+
+            <Link href="https://blitzjs.com" p="8" h="100%" display="flex">
+              <Blitz alt="Blitz.js logo" />
+              <VisuallyHidden>Blitz.js</VisuallyHidden>
+            </Link>
+
+            <Link
+              href="https://supabase.com"
+              p="8"
+              h="100%"
+              display="flex"
+              sx={{
+                'path.supabase_svg__wordmark': {
+                  fill: useColorModeValue('#1F1F1F', '#FFF'),
+                },
+              }}
+            >
+              <Supabase
+                alt="Supabase logo"
+                viewBox="0 0 581 113" // somehow this gets removed when importing
+              />
+              <VisuallyHidden>Supabase</VisuallyHidden>
+            </Link>
+          </SimpleGrid>
+        </GridItem>
+        <GridItem
+          as={HighlightBox}
+          bgGradient={`linear(to-br, ${transparentize(
+            'indigo.500',
+            0.8
+          )(theme)}, ${transparentize('green.500', 0.8)(theme)})`}
+          justifyContent="center"
+        >
+          <Testimonial
+            name="Sukhpal Saini"
+            description={
+              <Text color="whiteAlpha.700" as="span">
+                <Link href="https://saasbase.dev" target="_blank">
+                  saasbase.dev
+                </Link>{' '}
+                (Ex-IBM)
+              </Text>
+            }
+            avatar="/testimonials/sukh.jpeg"
+            border="0"
+            bg="transparent"
+            boxShadow="none"
+            color="white"
+          >
+            <Text fontSize="sm">
+              As a Frontend dev, I&apos;ve spent countless hours creating the
+              same UI components over and over again for numerous products. Saas
+              UI finally put an end to that with a component library that is
+              ready to be integrated into a world-class SaaS app on Day 1.
+              Highly recommended for any new product you&apos;re building!
+            </Text>
+          </Testimonial>
         </GridItem>
       </Grid>
     </Section>
@@ -1261,17 +1278,15 @@ const ProFeatures = () => {
   )
 }
 
-const Testimonial = ({ name, avatar, testimonial }) => {
+const Testimonial = ({ name, description, avatar, children, ...rest }) => {
   return (
     <Card
-      avatar={<Avatar name="Tien Tienth" src="/testimonials/turbothinh.png" />}
-      title="Tien Thinh"
-      subtitle="@turbothinh"
+      avatar={<Avatar name="Tien Tienth" src={avatar} />}
+      title={name}
+      subtitle={description}
+      {...rest}
     >
-      <CardBody>
-        Saas UI is the ONLY template out there that does the code structure that
-        I think can scale 😄
-      </CardBody>
+      <CardBody>{children}</CardBody>
     </Card>
   )
 }

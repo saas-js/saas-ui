@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { renderHook, invoke } from '@saas-ui/test-utils'
+import { hooks } from '@saas-ui/test-utils'
 
 import {
   AuthProvider,
@@ -59,13 +59,13 @@ const createAuthService = (): AuthProviderProps => {
 }
 
 test('should set isAuthenticated to false', async () => {
-  const { result } = renderHook(() => useAuth(), {
+  const { result } = hooks.render(() => useAuth(), {
     wrapper: ({ children }) => (
       <AuthProvider {...createAuthService()}>{children}</AuthProvider>
     ),
   })
 
-  await invoke(async () => {
+  await hooks.act(async () => {
     return result.current.logIn({}).catch(() => null)
   })
 
@@ -73,13 +73,13 @@ test('should set isAuthenticated to false', async () => {
 })
 
 test('should set isAuthenticated to true', async () => {
-  const { result } = renderHook(() => useAuth(), {
+  const { result } = hooks.render(() => useAuth(), {
     wrapper: ({ children }) => (
       <AuthProvider {...createAuthService()}>{children}</AuthProvider>
     ),
   })
 
-  await invoke(async () => {
+  await hooks.act(async () => {
     return result.current.logIn({
       email: 'hello@saas-ui.dev',
       password: 'test123',
@@ -90,13 +90,13 @@ test('should set isAuthenticated to true', async () => {
 })
 
 test('should set isAuthenticated to false after log out', async () => {
-  const { result } = renderHook(() => useAuth(), {
+  const { result } = hooks.render(() => useAuth(), {
     wrapper: ({ children }) => (
       <AuthProvider {...createAuthService()}>{children}</AuthProvider>
     ),
   })
 
-  await invoke(async () => {
+  await hooks.act(async () => {
     result.current.logIn({
       email: 'hello@saas-ui.dev',
       password: 'test123',
@@ -105,7 +105,7 @@ test('should set isAuthenticated to false after log out', async () => {
 
   expect(result.current.isAuthenticated).toBe(true)
 
-  await invoke(async () => {
+  await hooks.act(async () => {
     result.current.logOut()
   })
 

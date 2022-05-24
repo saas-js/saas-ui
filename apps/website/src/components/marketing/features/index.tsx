@@ -56,10 +56,7 @@ export function Feature({
   ip,
   variant,
 }: FeatureProps) {
-  const styles = useMultiStyleConfig('Feature', { variant }) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('Feature', { variant })
 
   const pos = iconPosition || ip
   const direction = pos === 'left' ? 'row' : 'column'

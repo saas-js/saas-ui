@@ -31,10 +31,7 @@ export interface PropertyProps
     ThemingProps<'Property'> {}
 
 export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
-  const styles = useMultiStyleConfig('Property', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('Property', props)
 
   const { children, label, value, labelWidth, spacing, ...rest } =
     omitThemingProps(props)

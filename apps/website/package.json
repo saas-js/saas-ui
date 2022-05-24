@@ -15,10 +15,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/props-docs": "^2.0.3",
-    "@chakra-ui/react": "^2.1.0",
+    "@chakra-ui/props-docs": "^2.0.5",
+    "@chakra-ui/react": "^2.1.2",
     "@chakra-ui/skip-nav": "^2.0.0",
-    "@chakra-ui/system": "^2.1.0",
+    "@chakra-ui/system": "^2.1.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@fontsource/inter": "^4.5.10",

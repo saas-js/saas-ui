@@ -28,10 +28,7 @@ export interface NProgressProps
     ThemingProps<'NProgress'> {}
 
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('NProgress', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('NProgress', props)
 
   const { colorScheme: c } = props
 

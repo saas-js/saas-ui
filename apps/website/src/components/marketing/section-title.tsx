@@ -15,10 +15,7 @@ export default function SectionTitle({
   variant,
   ...props
 }: SectionTitleProps) {
-  const styles = useMultiStyleConfig('SectionTitle', { variant }) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('SectionTitle', { variant })
 
   return (
     <VStack

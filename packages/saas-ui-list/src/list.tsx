@@ -39,10 +39,7 @@ export interface ListProps
 export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
   const { items, children, ...rest } = props
 
-  const styles = useMultiStyleConfig('List', rest) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('List', rest)
 
   const listProps = omitThemingProps(rest)
 

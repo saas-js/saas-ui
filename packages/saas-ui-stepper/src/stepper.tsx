@@ -44,7 +44,7 @@ export const Stepper = forwardRef<StepperProps, 'div'>((props, ref) => {
   const styles = useMultiStyleConfig('Stepper', {
     ...rest,
     orientation,
-  }) as Record<string, SystemStyleObject>
+  })
   const containerProps = omitThemingProps(rest)
 
   const context = useStepper(props)

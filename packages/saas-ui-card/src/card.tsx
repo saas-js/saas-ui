@@ -90,10 +90,7 @@ export interface CardContainerProps
 
 export const CardContainer = forwardRef<CardContainerProps, 'div'>(
   (props, ref) => {
-    const styles = useMultiStyleConfig('Card', props) as Record<
-      string,
-      SystemStyleObject
-    >
+    const styles = useMultiStyleConfig('Card', props)
 
     const { children, ...rest } = omitThemingProps(props)
 

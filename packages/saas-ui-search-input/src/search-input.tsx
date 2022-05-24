@@ -57,10 +57,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
       onReset,
       ...inputProps
     } = props
-    const styles = useMultiStyleConfig('SearchInput', props) as Record<
-      string,
-      SystemStyleObject
-    >
+    const styles = useMultiStyleConfig('SearchInput', props)
 
     const onKeyDown = React.useCallback(
       (event: React.KeyboardEvent) => {

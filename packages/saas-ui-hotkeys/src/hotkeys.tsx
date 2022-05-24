@@ -92,10 +92,7 @@ export interface HotkeysListProps
 
 export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
   ({ children, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Hotkeys', props) as Record<
-      string,
-      SystemStyleObject
-    >
+    const styles = useMultiStyleConfig('Hotkeys', props)
     const ownProps = omitThemingProps(props)
 
     const context = useHotkeysList(ownProps)

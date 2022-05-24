@@ -48,10 +48,7 @@ export interface SelectProps
     SelectOptions {}
 
 const SelectButton = forwardRef((props, ref) => {
-  const styles = useMultiStyleConfig('Input', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('Input', props)
 
   const height = styles.field.h || styles.field.height
 

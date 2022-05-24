@@ -138,10 +138,7 @@ export interface AuthFormContainerProps
 export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
   const { children } = props
 
-  const styles = useMultiStyleConfig('AuthForm', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('AuthForm', props)
 
   const containerProps = omitThemingProps(props)
 

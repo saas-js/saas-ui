@@ -181,10 +181,7 @@ export interface PersonaContainerProps
 export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   (props, ref) => {
     const { children, ...rest } = props
-    const styles = useMultiStyleConfig('Persona', props) as Record<
-      string,
-      SystemStyleObject
-    >
+    const styles = useMultiStyleConfig('Persona', props)
 
     const containerProps = omitThemingProps(rest)
 

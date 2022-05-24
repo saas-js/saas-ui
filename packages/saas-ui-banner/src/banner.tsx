@@ -92,7 +92,7 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   const styles = useMultiStyleConfig('Banner', {
     ...props,
     colorScheme,
-  }) as Record<string, SystemStyleObject>
+  })
 
   const containerStyles: SystemStyleObject = {
     width: '100%',

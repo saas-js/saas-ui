@@ -80,10 +80,7 @@ export interface FormStepOptions {
 }
 
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
-  const styles = useMultiStyleConfig('Stepper', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('Stepper', props)
 
   const { children } = props
 

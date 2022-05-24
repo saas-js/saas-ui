@@ -45,10 +45,7 @@ export default function CTASection(props: CTAProps) {
   // const ip = !!aside ? 'left' : 'top'
   // console.log(ip)
 
-  const styles = useMultiStyleConfig('CTA', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('CTA', props)
 
   const ownProps = omitThemingProps(props)
 

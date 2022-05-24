@@ -80,10 +80,7 @@ export const EmptyStateContainer: React.FC<EmptyStateContainerProps> = (
   props
 ) => {
   const { children, spacing, ...rest } = props
-  const styles = useMultiStyleConfig('EmptyState', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('EmptyState', props)
 
   const containerProps = omitThemingProps(rest)
 

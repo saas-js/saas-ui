@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 0.13.6
+
+### Patch Changes
+
+- 94c217d: Added appropriate autoComplete values to Auth forms.
+- 0dbec1a: #36 Fixed issue where SubmitButton label would always render Submit
+- Updated dependencies [94c217d]
+- Updated dependencies [0dbec1a]
+  - @saas-ui/auth@0.7.13
+  - @saas-ui/button@0.4.1
+  - @saas-ui/banner@0.0.3
+  - @saas-ui/card@0.4.1
+  - @saas-ui/forms@0.7.9
+  - @saas-ui/input-right-button@0.3.2
+  - @saas-ui/list@0.5.1
+  - @saas-ui/menu@0.5.5
+  - @saas-ui/modals@0.5.13
+  - @saas-ui/password-input@0.3.3
+  - @saas-ui/property@0.3.2
+
 ## 0.13.5
 
 ### Patch Changes

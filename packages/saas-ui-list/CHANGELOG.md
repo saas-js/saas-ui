@@ -1,5 +1,12 @@
 # @saas-ui/data-list
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [0dbec1a]
+  - @saas-ui/button@0.4.1
+
 ## 0.5.0
 
 ### Minor Changes

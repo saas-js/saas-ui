@@ -1,5 +1,11 @@
 # @saas-ui/button
 
+## 0.4.1
+
+### Patch Changes
+
+- 0dbec1a: #36 Fixed issue where SubmitButton label would always render Submit
+
 ## 0.4.0
 
 ### Minor Changes

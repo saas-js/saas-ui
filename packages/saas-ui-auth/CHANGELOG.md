@@ -1,5 +1,14 @@
 # @saas-ui/auth
 
+## 0.7.13
+
+### Patch Changes
+
+- 94c217d: Added appropriate autoComplete values to Auth forms.
+- Updated dependencies [0dbec1a]
+  - @saas-ui/button@0.4.1
+  - @saas-ui/forms@0.7.9
+
 ## 0.7.12
 
 ### Patch Changes

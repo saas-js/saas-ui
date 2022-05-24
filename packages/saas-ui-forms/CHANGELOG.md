@@ -1,5 +1,14 @@
 # @saas-ui/forms
 
+## 0.7.9
+
+### Patch Changes
+
+- Updated dependencies [0dbec1a]
+  - @saas-ui/button@0.4.1
+  - @saas-ui/input-right-button@0.3.2
+  - @saas-ui/password-input@0.3.3
+
 ## 0.7.8
 
 ### Patch Changes

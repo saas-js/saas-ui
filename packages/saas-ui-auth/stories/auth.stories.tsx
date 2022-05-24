@@ -109,7 +109,7 @@ Password.args = {
 
 export const PasswordWithCustomFields = () => {
   return (
-    <AuthForm action="logIn">
+    <AuthForm action="logIn" type="password">
       <Field
         name="rememberMe"
         type="checkbox"
@@ -119,6 +119,7 @@ export const PasswordWithCustomFields = () => {
     </AuthForm>
   )
 }
+PasswordWithCustomFields.args = {}
 
 export const Otp = Template.bind({})
 Otp.args = {

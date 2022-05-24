@@ -2,7 +2,7 @@ import { renderHook, invoke } from '@saas-ui/test-utils'
 
 import { usePromise } from '../src'
 
-const TestFn = (shouldReject) => {
+const TestFn = (shouldReject: boolean) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => (shouldReject ? reject() : resolve(true)))
   })

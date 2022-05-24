@@ -76,12 +76,14 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
           label="Email"
           type="email"
           rules={{ required: true }}
+          autoComplete="email"
         />
         <Field
           name="password"
           label="Password"
           type="password"
           rules={{ required: true }}
+          autoComplete="current-password"
         />
 
         {children}

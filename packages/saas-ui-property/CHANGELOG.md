@@ -1,5 +1,11 @@
 # @saas-ui/property
 
+## 0.3.2
+
+### Patch Changes
+
+- @saas-ui/list@0.5.1
+
 ## 0.3.1
 
 ### Patch Changes

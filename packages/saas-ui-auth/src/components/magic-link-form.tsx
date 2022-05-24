@@ -87,6 +87,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
           label="Email"
           type="email"
           rules={{ required: true }}
+          autoComplete="email"
         />
 
         {children}

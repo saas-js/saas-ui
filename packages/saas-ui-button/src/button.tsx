@@ -7,8 +7,18 @@ import { __DEV__ } from '@chakra-ui/utils'
 import { forwardRef } from '@chakra-ui/system'
 
 export interface ButtonProps extends ChakraButtonProps {
+  /**
+   * The button label, can be used as alternative to children.
+   * Children always take precedence.
+   */
   label?: React.ReactNode
+  /**
+   * Alias for colorScheme="primary"
+   */
   isPrimary?: boolean
+  /**
+   * Alias for colorScheme="secondary"
+   */
   isSecondary?: boolean
 }
 
@@ -23,7 +33,7 @@ export const Button = forwardRef<ButtonProps, typeof ChakraButton>(
     }
     return (
       <ChakraButton ref={ref} colorScheme={colorScheme} {...props}>
-        {label || children}
+        {children || label}
       </ChakraButton>
     )
   }

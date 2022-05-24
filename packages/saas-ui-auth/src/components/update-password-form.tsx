@@ -72,6 +72,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
           label={label}
           type="password"
           rules={{ required: true }}
+          autoComplete="current-password"
         />
 
         <Field
@@ -79,6 +80,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
           label={confirmLabel}
           type="password"
           rules={{ validate: validatePassword }}
+          autoComplete="new-password"
         />
 
         {children}

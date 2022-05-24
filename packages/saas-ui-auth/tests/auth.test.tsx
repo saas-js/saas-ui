@@ -55,10 +55,10 @@ test('opens sign up action', async () => {
   expect(getByRole('button', { name: 'Sign up' })).toBeVisible()
 })
 
-test('shows signup action', () => {
-  const { getByText } = render(<Basic action="signup" />)
+test('shows signup view', () => {
+  const { getByRole } = render(<Basic view="signup" />)
 
-  expect(getByText('Sign up')).toBeInTheDocument()
+  expect(getByRole('button', { name: 'Sign up' })).toBeInTheDocument()
 })
 
 test('shows password form', () => {

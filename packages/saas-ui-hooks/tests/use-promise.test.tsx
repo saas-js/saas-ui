@@ -1,4 +1,4 @@
-import { renderHook, invoke } from '@saas-ui/test-utils'
+import { hooks } from '@saas-ui/test-utils'
 
 import { usePromise } from '../src'
 
@@ -10,7 +10,7 @@ const TestFn = (shouldReject: boolean) => {
 
 describe('usePromise', () => {
   test('it should return', () => {
-    const { result } = renderHook(() => usePromise(TestFn))
+    const { result } = hooks.render(() => usePromise(TestFn))
 
     expect(result.current).toBeInstanceOf(Array)
 
@@ -26,11 +26,11 @@ describe('usePromise', () => {
   })
 
   test('it should update isLoading', async () => {
-    const { result } = renderHook(() => usePromise(TestFn))
+    const { result } = hooks.render(() => usePromise(TestFn))
 
     expect(result.current[0].isLoading).toBeFalsy()
 
-    const promise = invoke(() => result.current[1]())
+    const promise = hooks.act(() => result.current[1]())
 
     expect(result.current[0].isLoading).toBeTruthy()
 
@@ -40,9 +40,9 @@ describe('usePromise', () => {
   })
 
   test('it should resolve', async () => {
-    const { result } = renderHook(() => usePromise(TestFn))
+    const { result } = hooks.render(() => usePromise(TestFn))
 
-    await invoke(() => result.current[1]())
+    await hooks.act(() => result.current[1]())
 
     expect(result.current[0].data).toBeTruthy()
 
@@ -50,10 +50,10 @@ describe('usePromise', () => {
   })
 
   test('it should reject', async () => {
-    const { result } = renderHook(() => usePromise(TestFn))
+    const { result } = hooks.render(() => usePromise(TestFn))
 
     try {
-      await invoke(() => result.current[1](true))
+      await hooks.act(() => result.current[1](true))
     } catch (e) {
       expect(e).toBeFalsy()
     }
@@ -62,21 +62,21 @@ describe('usePromise', () => {
   })
 
   test('it should trigger onSuccess', async () => {
-    const { result } = renderHook(() => usePromise(TestFn))
+    const { result } = hooks.render(() => usePromise(TestFn))
 
     const onSuccess = jest.fn((result) => expect(result).toBeTruthy())
 
-    await invoke(() => result.current[1]().then(onSuccess))
+    await hooks.act(() => result.current[1]().then(onSuccess))
 
     expect(onSuccess).toBeCalled()
   })
 
   test('it should trigger onError', async () => {
-    const { result } = renderHook(() => usePromise(TestFn))
+    const { result } = hooks.render(() => usePromise(TestFn))
 
     const onError = jest.fn(() => null)
 
-    await invoke(() => result.current[1](true).catch(onError))
+    await hooks.act(() => result.current[1](true).catch(onError))
 
     expect(onError).toBeCalled()
   })

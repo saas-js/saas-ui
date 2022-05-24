@@ -101,7 +101,7 @@ export function SignupForm({ isOpen, onClose }: any) {
           <Text
             fontSize="sm"
             color="muted"
-          >{`Don't worry, we hate spam too. We'll send you one follow-up email and will notify you when Saas UI Pro is launched.`}</Text>
+          >{`Don't worry, we hate spam too. We'll send you one follow-up email and will notify when there are important updates.`}</Text>
 
           <Button
             colorScheme="primary"

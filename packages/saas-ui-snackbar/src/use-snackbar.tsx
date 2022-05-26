@@ -15,6 +15,7 @@ import {
   CloseButton,
   ButtonGroup,
   Spinner,
+  useColorModeValue,
 } from '@chakra-ui/react'
 
 const AlertSpinner: React.FC<AlertIconProps> = (props) => {
@@ -162,7 +163,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
         toastId = snackbar({
           status: 'info',
           duration: null,
-          icon: <AlertSpinner color="white" />,
+          icon: <AlertSpinner />,
           ...options,
         })
       }

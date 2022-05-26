@@ -1,5 +1,11 @@
 # @saas-ui/snackbar
 
+## 0.4.3
+
+### Patch Changes
+
+- 7e9e6dc: Fixed issue where the Snackbar spinner would always be white.
+
 ## 0.4.2
 
 ### Patch Changes

@@ -13,7 +13,7 @@
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.module.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",

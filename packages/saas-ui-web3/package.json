@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/web3",
-  "version": "0.2.1",
+  "version": "1.0.0-rc.0",
   "description": "Web3 components for Chakra UI",
   "source": "src/index.ts",
   "exports": {

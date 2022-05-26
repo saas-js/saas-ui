@@ -41,5 +41,11 @@
     "@saas-ui/props-docs": "0.4.1",
     "@saas-ui/test-utils": "1.2.35"
   },
-  "changesets": []
+  "changesets": [
+    "calm-wasps-brake",
+    "gorgeous-emus-grow",
+    "odd-squids-type",
+    "seven-squids-yawn",
+    "wicked-icons-invite"
+  ]
 }

@@ -1,5 +1,53 @@
 # @saas-ui/react
 
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [a8fa78a]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/auth@1.0.0-rc.0
+  - @saas-ui/banner@1.0.0-rc.0
+  - @saas-ui/button@1.0.0-rc.0
+  - @saas-ui/card@1.0.0-rc.0
+  - @saas-ui/collapse@1.0.0-rc.0
+  - @saas-ui/data-table@1.0.0-rc.0
+  - @saas-ui/forms@1.0.0-rc.0
+  - @saas-ui/hooks@1.0.0-rc.0
+  - @saas-ui/hotkeys@1.0.0-rc.0
+  - @saas-ui/input-right-button@1.0.0-rc.0
+  - @saas-ui/layout@1.0.0-rc.0
+  - @saas-ui/list@1.0.0-rc.0
+  - @saas-ui/menu@1.0.0-rc.0
+  - @saas-ui/modals@1.0.0-rc.0
+  - @saas-ui/nprogress@1.0.0-rc.0
+  - @saas-ui/number-input@1.0.0-rc.0
+  - @saas-ui/palette@1.0.0-rc.0
+  - @saas-ui/password-input@1.0.0-rc.0
+  - @saas-ui/persona@1.0.0-rc.0
+  - @saas-ui/pin-input@1.0.0-rc.0
+  - @saas-ui/property@1.0.0-rc.0
+  - @saas-ui/provider@1.0.0-rc.0
+  - @saas-ui/radio@1.0.0-rc.0
+  - @saas-ui/search-input@1.0.0-rc.0
+  - @saas-ui/select@1.0.0-rc.0
+  - @saas-ui/snackbar@1.0.0-rc.0
+  - @saas-ui/stepper@1.0.0-rc.0
+  - @saas-ui/theme@1.0.0-rc.0
+
 ## 0.13.9
 
 ### Patch Changes

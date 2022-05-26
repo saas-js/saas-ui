@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/select",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Select Component",
   "source": "src/index.ts",
   "exports": {
@@ -61,8 +61,8 @@
     "@chakra-ui/utils": "^1.10.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/web3",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Web3 components for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -59,7 +59,7 @@
     "@chakra-ui/utils": "^1.10.4"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

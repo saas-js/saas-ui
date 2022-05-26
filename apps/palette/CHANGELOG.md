@@ -1,5 +1,21 @@
 # palette
 
+## 0.1.38
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/palette@0.5.1
+  - @saas-ui/react@0.13.8
+
+## 0.1.37
+
+### Patch Changes
+
+- Updated dependencies [0930600]
+- Updated dependencies [0930600]
+  - @saas-ui/react@0.13.7
+
 ## 0.1.36
 
 ### Patch Changes

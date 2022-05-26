@@ -1,5 +1,15 @@
 # @saas-ui/modals
 
+## 0.5.14
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/button@0.4.2
+  - @saas-ui/forms@0.7.10
+  - @saas-ui/menu@0.5.6
+
 ## 0.5.13
 
 ### Patch Changes

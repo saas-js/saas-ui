@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/stepper",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A Stepper component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -62,8 +62,8 @@
     "@saas-ui/react-utils": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

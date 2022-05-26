@@ -1,5 +1,21 @@
 # @saas-ui/test-utils
 
+## 1.2.34
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/react@0.13.8
+
+## 1.2.33
+
+### Patch Changes
+
+- Updated dependencies [0930600]
+- Updated dependencies [0930600]
+  - @saas-ui/react@0.13.7
+
 ## 1.2.32
 
 ### Patch Changes

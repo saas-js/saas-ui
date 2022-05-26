@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
@@ -95,8 +95,8 @@
     "react-hook-form": "^7.22.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

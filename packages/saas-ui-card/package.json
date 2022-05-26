@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/card",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Card component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -59,7 +59,7 @@
     "@saas-ui/button": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

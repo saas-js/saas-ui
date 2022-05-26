@@ -1,5 +1,13 @@
 # @saas-ui/banner
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/button@0.4.2
+
 ## 0.0.3
 
 ### Patch Changes

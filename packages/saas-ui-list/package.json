@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/list",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "List Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -60,7 +60,7 @@
     "@saas-ui/button": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

@@ -1,5 +1,20 @@
 # @saas-ui/forms
 
+## 0.7.10
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/button@0.4.2
+  - @saas-ui/input-right-button@0.3.3
+  - @saas-ui/number-input@0.3.1
+  - @saas-ui/password-input@0.3.4
+  - @saas-ui/pin-input@0.3.1
+  - @saas-ui/radio@0.3.1
+  - @saas-ui/select@0.4.1
+  - @saas-ui/stepper@0.2.3
+
 ## 0.7.9
 
 ### Patch Changes

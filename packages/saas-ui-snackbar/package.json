@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/snackbar",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "A snackbar component Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -55,8 +55,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/system": "^1.12.1",
     "framer-motion": ">=5.5.0",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6"

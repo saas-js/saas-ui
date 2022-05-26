@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/hooks",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Saas UI react hooks",
   "source": "src/index.ts",
   "exports": {
@@ -56,7 +56,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6"
   }
 }

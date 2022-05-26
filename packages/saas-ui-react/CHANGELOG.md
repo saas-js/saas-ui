@@ -1,5 +1,50 @@
 # @saas-ui/react
 
+## 0.13.8
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/auth@0.7.14
+  - @saas-ui/banner@0.0.4
+  - @saas-ui/button@0.4.2
+  - @saas-ui/card@0.4.2
+  - @saas-ui/collapse@0.3.1
+  - @saas-ui/data-table@0.3.5
+  - @saas-ui/forms@0.7.10
+  - @saas-ui/hooks@0.4.1
+  - @saas-ui/hotkeys@0.6.3
+  - @saas-ui/input-right-button@0.3.3
+  - @saas-ui/layout@0.3.5
+  - @saas-ui/list@0.5.2
+  - @saas-ui/menu@0.5.6
+  - @saas-ui/modals@0.5.14
+  - @saas-ui/nprogress@0.4.1
+  - @saas-ui/number-input@0.3.1
+  - @saas-ui/palette@0.5.1
+  - @saas-ui/password-input@0.3.4
+  - @saas-ui/persona@0.5.2
+  - @saas-ui/pin-input@0.3.1
+  - @saas-ui/property@0.3.3
+  - @saas-ui/provider@0.3.10
+  - @saas-ui/radio@0.3.1
+  - @saas-ui/search-input@0.5.2
+  - @saas-ui/select@0.4.1
+  - @saas-ui/snackbar@0.4.2
+  - @saas-ui/stepper@0.2.3
+  - @saas-ui/theme@0.8.1
+
+## 0.13.7
+
+### Patch Changes
+
+- 0930600: Snackbar promise error options are now passed down correctly.
+- 0930600: Snackbar.promise now returns the promise and re-throws errors.
+- Updated dependencies [0930600]
+- Updated dependencies [0930600]
+  - @saas-ui/snackbar@0.4.1
+
 ## 0.13.6
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @saas-ui/provider
 
+## 0.3.10
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/theme@0.8.1
+
 ## 0.3.9
 
 ### Patch Changes

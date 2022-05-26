@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/nprogress",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Nprogress Component",
   "source": "src/index.ts",
   "exports": {
@@ -60,7 +60,7 @@
     "@tanem/react-nprogress": "^4.0.1"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": "^1.12.1",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6"
   }

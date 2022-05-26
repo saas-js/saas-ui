@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/pin-input",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Pin Input component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -59,7 +59,7 @@
     "@chakra-ui/utils": "^1.10.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
+    "@chakra-ui/react": "^1.8.8",
     "react": ">=16.8.6"
   }
 }

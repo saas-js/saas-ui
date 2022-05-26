@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/banner",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A banner component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -63,7 +63,7 @@
     "@saas-ui/button": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": "^1.12.1",
     "framer-motion": ">=5.5.0",
     "react": ">=16.8.6"
   }

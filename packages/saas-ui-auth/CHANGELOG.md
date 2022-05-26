@@ -1,5 +1,16 @@
 # @saas-ui/auth
 
+## 0.7.14
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/button@0.4.2
+  - @saas-ui/forms@0.7.10
+  - @saas-ui/hooks@0.4.1
+  - @saas-ui/layout@0.3.5
+
 ## 0.7.13
 
 ### Patch Changes

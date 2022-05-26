@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/clerk",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Clerk Authentication Service for Saas UI",
   "source": "src/index.ts",
   "exports": {
@@ -55,8 +55,8 @@
     "@saas-ui/auth": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/system": "^1.12.1",
     "@clerk/clerk-react": "^2.12.0",
     "framer-motion": ">=5.5.0",
     "react": ">=16.8.6"

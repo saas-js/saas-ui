@@ -1,5 +1,18 @@
 # @saas-ui/snackbar
 
+## 0.4.2
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+
+## 0.4.1
+
+### Patch Changes
+
+- 0930600: Snackbar promise error options are now passed down correctly.
+- 0930600: Snackbar.promise now returns the promise and re-throws errors.
+
 ## 0.4.0
 
 ### Minor Changes

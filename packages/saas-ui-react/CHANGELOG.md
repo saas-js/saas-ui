@@ -1,5 +1,20 @@
 # @saas-ui/react
 
+## 0.13.9
+
+### Patch Changes
+
+- 7e9e6dc: Fixed issue where the Snackbar spinner would always be white.
+- Updated dependencies [7e9e6dc]
+  - @saas-ui/snackbar@0.4.3
+  - @saas-ui/theme@0.8.2
+  - @saas-ui/provider@0.3.11
+  - @saas-ui/layout@0.3.6
+  - @saas-ui/menu@0.5.7
+  - @saas-ui/auth@0.7.15
+  - @saas-ui/data-table@0.3.6
+  - @saas-ui/modals@0.5.15
+
 ## 0.13.8
 
 ### Patch Changes

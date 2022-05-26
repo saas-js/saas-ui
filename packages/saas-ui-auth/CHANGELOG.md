@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- 9043639: Fixed new .mjs exports.
+
 ## 1.0.0-rc.0
 
 ### Major Changes

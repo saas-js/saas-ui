@@ -4382,7 +4382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:1.11.2, @chakra-ui/system@npm:>=1.0.0":
+"@chakra-ui/system@npm:1.11.2":
   version: 1.11.2
   resolution: "@chakra-ui/system@npm:1.11.2"
   dependencies:
@@ -6942,8 +6942,8 @@ __metadata:
     "@saas-ui/hooks": "workspace:*"
     "@saas-ui/layout": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -6960,7 +6960,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -6973,7 +6973,7 @@ __metadata:
     "@chakra-ui/button": ^1.5.10
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -6985,7 +6985,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -6998,8 +6998,8 @@ __metadata:
     "@clerk/types": ^1.29.2
     "@saas-ui/auth": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     "@clerk/clerk-react": ^2.12.0
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
@@ -7013,7 +7013,7 @@ __metadata:
     "@chakra-ui/react-utils": ^1.2.1
     "@chakra-ui/utils": ^1.10.2
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ^1.8.8
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7028,8 +7028,8 @@ __metadata:
     "@types/react-table": ^7.7.9
     react-table: ^7.7.0
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -7054,8 +7054,8 @@ __metadata:
     "@saas-ui/stepper": "workspace:*"
     react-hook-form: ^7.22.0
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7064,7 +7064,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/hooks@workspace:packages/saas-ui-hooks"
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7078,8 +7078,8 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/search-input": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7092,7 +7092,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7104,8 +7104,8 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/provider": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -7119,7 +7119,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7133,8 +7133,8 @@ __metadata:
     "@saas-ui/button": "workspace:*"
     "@saas-ui/provider": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -7148,8 +7148,8 @@ __metadata:
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/menu": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
   languageName: unknown
@@ -7168,7 +7168,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@tanem/react-nprogress": ^4.0.1
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
     react-dom: ">=16.8.6"
   languageName: unknown
@@ -7180,7 +7180,7 @@ __metadata:
   dependencies:
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ^1.8.8
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7192,7 +7192,7 @@ __metadata:
     "@types/chroma-js": ^2.1.3
     chroma-js: ^2.1.2
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ^1.8.8
   languageName: unknown
   linkType: soft
 
@@ -7204,8 +7204,8 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/input-right-button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7217,7 +7217,7 @@ __metadata:
     "@chakra-ui/avatar": ^1.3.2
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7228,7 +7228,7 @@ __metadata:
   dependencies:
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ^1.8.8
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7240,7 +7240,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/list": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7274,8 +7274,8 @@ __metadata:
   dependencies:
     "@saas-ui/theme": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7286,7 +7286,7 @@ __metadata:
   dependencies:
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ^1.8.8
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7303,7 +7303,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     "@saas-ui/auth": "workspace:*"
     "@saas-ui/banner": "workspace:*"
     "@saas-ui/button": "workspace:*"
@@ -7333,7 +7333,7 @@ __metadata:
     "@saas-ui/stepper": "workspace:*"
     "@saas-ui/theme": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
+    "@chakra-ui/react": ^1.8.8
     "@emotion/react": ^11
     "@emotion/styled": ^11
     framer-motion: ">=5.5.0"
@@ -7349,8 +7349,8 @@ __metadata:
     "@chakra-ui/icons": ^1.1.1
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7362,8 +7362,8 @@ __metadata:
     "@chakra-ui/icons": ^1.1.1
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7372,8 +7372,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/snackbar@workspace:packages/saas-ui-snackbar"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     framer-motion: ">=5.5.0"
     react: ">=16.8.6"
     react-dom: ">=16.8.6"
@@ -7390,8 +7390,8 @@ __metadata:
     "@saas-ui/collapse": "workspace:*"
     "@saas-ui/react-utils": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7404,7 +7404,7 @@ __metadata:
     "@chakra-ui/utils": ^1.10.4
     react-fast-compare: ^3.2.0
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7449,8 +7449,8 @@ __metadata:
     "@chakra-ui/anatomy": ^1.2.1
     "@chakra-ui/theme-tools": ^1.3.1
   peerDependencies:
-    "@chakra-ui/react": ">=1.8.0"
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/react": ^1.8.8
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft
@@ -7461,7 +7461,7 @@ __metadata:
   dependencies:
     "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
+    "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/search-input",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A search input for Chakra UI",
   "source": "src/index.ts",
   "exports": {

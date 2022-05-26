@@ -153,7 +153,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
       })
 
     snackbar.promise = async (
-      promise: Promise<any>,
+      promise: Promise<unknown>,
       { loading, success, error }: SnackbarPromiseOptions
     ) => {
       let toastId: ToastId | undefined
@@ -166,29 +166,34 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
           ...options,
         })
       }
-      promise
-        .then(() => {
-          const options = parseOptions(success)
-          if (toastId) {
-            snackbar.update(toastId, {
-              status: 'success',
-              ...options,
-            })
-          } else {
-            snackbar(options)
-          }
-        })
-        .catch((error) => {
+      return promise
+        .then((result) => {
           const options: UseSnackbarOptions = {
-            title: error.name,
-            description: error.description,
-            status: 'error',
+            status: 'success',
+            ...parseOptions(success),
           }
           if (toastId) {
             snackbar.update(toastId, options)
           } else {
             snackbar(options)
           }
+          return result
+        })
+        .catch((e) => {
+          const options: UseSnackbarOptions = {
+            title: e.name,
+            description: e.description,
+            status: 'error',
+            ...parseOptions(error),
+          }
+
+          if (toastId) {
+            snackbar.update(toastId, options)
+          } else {
+            snackbar(options)
+          }
+
+          throw e
         })
     }
 

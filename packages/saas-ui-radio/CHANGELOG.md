@@ -1,5 +1,11 @@
 # @saas-ui/radio
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+
 ## 0.3.0
 
 ### Minor Changes

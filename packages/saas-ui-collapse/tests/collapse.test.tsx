@@ -9,7 +9,7 @@
  */
 
 import * as React from 'react'
-import { renderHook } from '@saas-ui/test-utils'
+import { hooks } from '@saas-ui/test-utils'
 
 import { useCollapse } from '../src'
 

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 0.8.1
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+
 ## 0.8.0
 
 ### Minor Changes

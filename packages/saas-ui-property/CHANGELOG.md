@@ -1,5 +1,13 @@
 # @saas-ui/property
 
+## 0.3.3
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/list@0.5.2
+
 ## 0.3.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @saas-ui/hotkeys
 
+## 0.6.3
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/search-input@0.5.2
+
 ## 0.6.2
 
 ### Patch Changes

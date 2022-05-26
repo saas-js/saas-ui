@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/card",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Card component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

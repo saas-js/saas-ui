@@ -1,5 +1,11 @@
 # @saas-ui/web3
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+
 ## 0.2.0
 
 ### Minor Changes

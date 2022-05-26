@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+
 ## 0.5.1
 
 ### Patch Changes

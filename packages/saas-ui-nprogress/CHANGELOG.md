@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+
 ## 0.4.0
 
 ### Minor Changes

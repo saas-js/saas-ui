@@ -1,5 +1,22 @@
 # website
 
+## 0.1.29
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/palette@0.5.1
+  - @saas-ui/react@0.13.8
+  - @saas-ui/web3@0.2.1
+
+## 0.1.28
+
+### Patch Changes
+
+- Updated dependencies [0930600]
+- Updated dependencies [0930600]
+  - @saas-ui/react@0.13.7
+
 ## 0.1.27
 
 ### Patch Changes

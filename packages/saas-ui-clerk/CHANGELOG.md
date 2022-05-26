@@ -1,5 +1,13 @@
 # @saas-ui/clerk
 
+## 0.1.13
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/auth@0.7.14
+
 ## 0.1.12
 
 ### Patch Changes

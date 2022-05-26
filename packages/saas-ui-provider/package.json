@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/provider",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {

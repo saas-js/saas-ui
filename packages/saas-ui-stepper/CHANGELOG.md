@@ -1,5 +1,13 @@
 # @saas-ui/stepper
 
+## 0.2.3
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/collapse@0.3.1
+
 ## 0.2.2
 
 ### Patch Changes

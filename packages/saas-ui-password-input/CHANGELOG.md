@@ -1,5 +1,13 @@
 # @saas-ui/password-input
 
+## 0.3.4
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/input-right-button@0.3.3
+
 ## 0.3.3
 
 ### Patch Changes

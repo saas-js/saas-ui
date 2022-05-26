@@ -1,5 +1,13 @@
 # @saas-ui/data-table
 
+## 0.3.5
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/layout@0.3.5
+
 ## 0.3.4
 
 ### Patch Changes

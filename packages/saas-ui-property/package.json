@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/property",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Property Component",
   "source": "src/index.ts",
   "exports": {

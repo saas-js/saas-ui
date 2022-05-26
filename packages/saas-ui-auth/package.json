@@ -10,11 +10,11 @@
     },
     "./services/supabase": {
       "require": "./dist/supabase.js",
-      "default": "./dist/supabase.modern.js"
+      "default": "./dist/supabase.modern.mjs"
     },
     "./services/magic-link": {
       "require": "./dist/magic-link.js",
-      "default": "./dist/magic-link.modern.js"
+      "default": "./dist/magic-link.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

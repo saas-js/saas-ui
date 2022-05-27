@@ -1007,7 +1007,7 @@ const Highlights = () => {
               h="100%"
               display="flex"
               sx={{
-                'path.supabase_svg__wordmark': {
+                'path.wordmark': {
                   fill: useColorModeValue('#1F1F1F', '#FFF'),
                 },
               }}

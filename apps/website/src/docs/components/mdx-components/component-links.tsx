@@ -5,11 +5,13 @@ import {
   HStack,
   Wrap,
   Link,
+  Button,
   useColorModeValue,
   LinkProps,
   WrapItem,
 } from '@chakra-ui/react'
 import { FaNpm, FaGithub, FaYoutube } from 'react-icons/fa'
+import { FiLock } from 'react-icons/fi'
 import StorybookIcon from '../storybook-icon'
 import { t } from '@/docs/utils/i18n'
 
@@ -41,7 +43,7 @@ function ComponentLink(props: ComponentLinkProps) {
       {...rest}
     >
       <HStack>
-        <Icon fontSize={iconSize} as={icon} color={iconColor} />
+        {icon && <Icon fontSize={iconSize} as={icon} color={iconColor} />}
         <Text fontSize="sm" lineHeight="short">
           {children}
         </Text>
@@ -56,9 +58,10 @@ export type ComponentLinksProps = {
   npm?: { package: string }
   storybook?: { url: string }
   video?: { url: string }
+  pro?: { gumroad: boolean }
 }
 function ComponentLinks(props: ComponentLinksProps) {
-  const { theme, github, npm, storybook, video, ...rest } = props
+  const { theme, github, npm, storybook, video, pro, ...rest } = props
   const iconColor = useColorModeValue('gray.600', 'inherit')
 
   const githubRepoUrl = 'https://github.com/saas-js/saas-ui'
@@ -132,13 +135,28 @@ function ComponentLinks(props: ComponentLinksProps) {
     </WrapItem>
   )
 
-  return (
-    <Wrap className="component-links" mt="2rem" spacing="4" {...rest}>
+  const gumroadLink = pro?.gumroad && (
+    <WrapItem>
+      <ComponentLink
+        url={`https://appulse.gumroad.com/l/saas-ui-pro-pre-order`}
+        iconColor={iconColor}
+        iconSize="1rem"
+        icon={FiLock}
+        colorScheme="primary"
+      >
+        {t('component.mdx-components.component-links.buy-pro')}
+      </ComponentLink>
+    </WrapItem>
+  )
+
+  https: return (
+    <Wrap className="component-links" mt="2rem" spacing="4" pt="2" {...rest}>
       {githubLink}
       {themeComponentLink}
       {npmLink}
       {storybookLink}
       {videoLink}
+      {gumroadLink}
     </Wrap>
   )
 }

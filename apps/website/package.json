@@ -27,6 +27,7 @@
     "@next/bundle-analyzer": "^12.1.6",
     "@octokit/rest": "^18.12.0",
     "@saas-ui/palette": "workspace:*",
+    "@saas-ui/pro": "^0.3.13",
     "@saas-ui/props-docs": "^0.4.1",
     "@saas-ui/react": "workspace:*",
     "@saas-ui/web3": "workspace:*",

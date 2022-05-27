@@ -149,7 +149,8 @@
         "view-source": "View source",
         "view-storybook": "View storybook",
         "view-theme-source": "View theme source",
-        "view-video": "Watch video"
+        "view-video": "Watch video",
+        "buy-pro": "Get Pro"
       }
     },
     "algolia-search": {

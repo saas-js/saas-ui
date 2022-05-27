@@ -93,19 +93,16 @@ const sidebar = {
               path: '/docs/layout/card',
             },
             {
-              title: 'PageShell',
-              // path: '/docs/layout/page',
-              soon: true,
+              title: 'UIShell',
+              path: '/docs/layout/ui-shell',
             },
             {
               title: 'Page',
-              // path: '/docs/layout/page',
-              soon: true,
+              path: '/docs/layout/page',
             },
             {
               title: 'Section',
-              // path: '/docs/layout/section',
-              soon: true,
+              path: '/docs/layout/section',
             },
           ],
         },

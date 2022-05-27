@@ -3,6 +3,7 @@ import * as Chakra from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
+import * as SaasUIPro from '@saas-ui/pro'
 
 import * as Web3 from '@saas-ui/web3'
 import * as Yup from 'yup'
@@ -69,6 +70,7 @@ const ReactLiveScope = {
   ...React,
   ...Chakra,
   ...SaasUI,
+  ...SaasUIPro,
   ...Web3,
   ...Icons,
   Yup,

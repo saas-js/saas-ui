@@ -35,7 +35,7 @@ export default {
   ],
 }
 
-export const basic = () => (
+export const Basic = () => (
   <>
     <Card title="Basic card">
       <CardBody>Card body</CardBody>
@@ -43,7 +43,7 @@ export const basic = () => (
   </>
 )
 
-export const actions = () => (
+export const Actions = () => (
   <>
     <Card title="Card with actions">
       <CardBody>Card body</CardBody>
@@ -55,7 +55,7 @@ export const actions = () => (
   </>
 )
 
-export const header = () => (
+export const Header = () => (
   <>
     <Card>
       <CardHeader
@@ -79,7 +79,7 @@ export const header = () => (
   </>
 )
 
-export const outline = () => (
+export const Outline = () => (
   <Stack direction="row">
     <Card title="Github" variant="outline" avatar={<FaGithub />} minW="300px">
       <CardBody py={2}>Link pull requests</CardBody>
@@ -106,7 +106,7 @@ export const outline = () => (
   </Stack>
 )
 
-export const solid = () => (
+export const Solid = () => (
   <Stack>
     <Card variant="solid" colorScheme="purple">
       <CardHeader
@@ -129,7 +129,7 @@ export const solid = () => (
   </Stack>
 )
 
-export const shadow = () => (
+export const Shadow = () => (
   <Stack direction="row" spacing={8}>
     <Card title="Card" shadow="sm" flex="1">
       <CardBody>Shadow sm</CardBody>
@@ -143,7 +143,7 @@ export const shadow = () => (
   </Stack>
 )
 
-export const link = () => (
+export const Clickable = () => (
   <Stack>
     <Card title={<LinkOverlay href="#">Link</LinkOverlay>} as={LinkBox}>
       <CardBody>Solid card</CardBody>

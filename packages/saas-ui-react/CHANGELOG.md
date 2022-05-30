@@ -1,5 +1,28 @@
 # @saas-ui/react
 
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 3dee538: Spacing between pin inputs can now be configured.
+- 07491fd: ContextMenu now passing down all props to the internal Menu.
+- Updated dependencies [4bb613c]
+- Updated dependencies [4fc04d7]
+- Updated dependencies [8f3f948]
+- Updated dependencies [3dee538]
+- Updated dependencies [07491fd]
+  - @saas-ui/provider@1.0.0-rc.1
+  - @saas-ui/persona@1.0.0-rc.1
+  - @saas-ui/pin-input@1.0.0-rc.1
+  - @saas-ui/menu@1.0.0-rc.1
+  - @saas-ui/layout@1.0.0-rc.1
+  - @saas-ui/forms@1.0.0-rc.1
+  - @saas-ui/modals@1.0.0-rc.1
+  - @saas-ui/auth@1.0.0-rc.2
+  - @saas-ui/data-table@1.0.0-rc.1
+
 ## 1.0.0-rc.1
 
 ### Patch Changes

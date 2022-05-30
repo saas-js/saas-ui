@@ -1,5 +1,13 @@
 # @saas-ui/layout
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- Updated dependencies [4bb613c]
+- Updated dependencies [8f3f948]
+  - @saas-ui/provider@1.0.0-rc.1
+
 ## 1.0.0-rc.0
 
 ### Major Changes

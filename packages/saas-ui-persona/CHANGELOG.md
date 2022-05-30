@@ -1,5 +1,11 @@
 # @saas-ui/persona
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- 4fc04d7: Persona presence status is now displayed with a Tooltip.
+
 ## 1.0.0-rc.0
 
 ### Major Changes

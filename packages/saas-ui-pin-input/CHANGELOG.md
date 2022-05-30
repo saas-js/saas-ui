@@ -1,5 +1,11 @@
 # @saas-ui/pin-input
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- 3dee538: Spacing between pin inputs can now be configured.
+
 ## 1.0.0-rc.0
 
 ### Major Changes

@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- Updated dependencies [3dee538]
+  - @saas-ui/pin-input@1.0.0-rc.1
+
 ## 1.0.0-rc.0
 
 ### Major Changes

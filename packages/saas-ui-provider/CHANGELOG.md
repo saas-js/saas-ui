@@ -1,5 +1,12 @@
 # @saas-ui/provider
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+
 ## 1.0.0-rc.0
 
 ### Major Changes

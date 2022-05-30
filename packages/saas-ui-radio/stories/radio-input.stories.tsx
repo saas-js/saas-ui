@@ -31,8 +31,8 @@ const Template: ComponentStory<typeof RadioInput> = (args) => (
   <RadioInput {...args} />
 )
 
-export const basic = Template.bind({})
-basic.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   /**
    * Description
    */

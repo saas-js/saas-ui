@@ -1,5 +1,21 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/button@1.0.0-rc.1
+  - @saas-ui/input-right-button@1.0.0-rc.1
+  - @saas-ui/number-input@1.0.0-rc.1
+  - @saas-ui/password-input@1.0.0-rc.1
+  - @saas-ui/pin-input@1.0.0-rc.2
+  - @saas-ui/radio@1.0.0-rc.1
+  - @saas-ui/react-utils@1.0.0-rc.1
+  - @saas-ui/select@1.0.0-rc.1
+  - @saas-ui/stepper@1.0.0-rc.1
+
 ## 1.0.0-rc.1
 
 ### Patch Changes

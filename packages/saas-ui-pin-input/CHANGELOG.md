@@ -1,5 +1,11 @@
 # @saas-ui/pin-input
 
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- Re-publish.
+
 ## 1.0.0-rc.1
 
 ### Patch Changes

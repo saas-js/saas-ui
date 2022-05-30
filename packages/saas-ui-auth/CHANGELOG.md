@@ -1,5 +1,16 @@
 # @saas-ui/auth
 
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/button@1.0.0-rc.1
+  - @saas-ui/forms@1.0.0-rc.2
+  - @saas-ui/hooks@1.0.0-rc.1
+  - @saas-ui/layout@1.0.0-rc.2
+
 ## 1.0.0-rc.2
 
 ### Patch Changes

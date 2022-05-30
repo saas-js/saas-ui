@@ -1,5 +1,15 @@
 # website
 
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/palette@1.0.0-rc.1
+  - @saas-ui/react@1.0.0-rc.3
+  - @saas-ui/web3@1.0.0-rc.1
+  - @saas-ui/props-docs@1.0.0-rc.1
+
 ## 1.0.0-rc.2
 
 ### Patch Changes

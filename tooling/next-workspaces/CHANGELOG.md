@@ -1,5 +1,11 @@
 # @saas-ui/next-workspaces
 
+## 0.1.2-rc.1
+
+### Patch Changes
+
+- Re-publish.
+
 ## 0.1.2-rc.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/system",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.1",
   "description": "Saas UI system utilities",
   "source": "src/index.ts",
   "exports": {

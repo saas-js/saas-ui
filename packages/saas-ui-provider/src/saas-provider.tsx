@@ -2,9 +2,6 @@ import * as React from 'react'
 
 import {
   ChakraProvider,
-  ThemeProvider,
-  CSSReset,
-  GlobalStyle,
   cookieStorageManager,
   localStorageManager,
 } from '@chakra-ui/react'
@@ -45,12 +42,11 @@ export function SaasProvider({
 
   return (
     <SaasContext.Provider value={context}>
-      <ChakraProvider colorModeManager={colorModeManager}>
-        <ThemeProvider theme={theme || defaultTheme}>
-          <CSSReset />
-          <GlobalStyle />
-          {children}
-        </ThemeProvider>
+      <ChakraProvider
+        colorModeManager={colorModeManager}
+        theme={theme || defaultTheme}
+      >
+        {children}
       </ChakraProvider>
     </SaasContext.Provider>
   )

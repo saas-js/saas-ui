@@ -5,14 +5,14 @@ import {
   Stack,
   RadioGroup,
   RadioGroupProps,
-  Radio as ChakraRadio,
-  RadioProps as ChakraRadioProps,
+  Radio,
+  RadioProps,
   SystemProps,
   StackDirection,
 } from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
 
-interface Option extends ChakraRadioProps {
+interface Option extends RadioProps {
   value: string
   label: string
 }
@@ -23,9 +23,9 @@ interface RadioInputOptions {
   direction?: StackDirection
 }
 
-export interface RadioProps extends RadioGroupProps, RadioInputOptions {}
+export interface RadioInputProps extends RadioGroupProps, RadioInputOptions {}
 
-export const RadioInput = forwardRef<RadioProps, 'div'>(
+export const RadioInput = forwardRef<RadioInputProps, 'div'>(
   ({ options, spacing, direction, ...props }, ref) => {
     const { onBlur, onChange, ...groupProps } = props
 
@@ -34,7 +34,7 @@ export const RadioInput = forwardRef<RadioProps, 'div'>(
         <Stack spacing={spacing} direction={direction}>
           {options.map(({ value, label, ...radioProps }, i) => {
             return (
-              <ChakraRadio
+              <Radio
                 key={i}
                 onBlur={onBlur}
                 value={value}
@@ -42,7 +42,7 @@ export const RadioInput = forwardRef<RadioProps, 'div'>(
                 {...radioProps}
               >
                 {label || value}
-              </ChakraRadio>
+              </Radio>
             )
           })}
         </Stack>

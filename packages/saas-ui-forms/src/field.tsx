@@ -320,27 +320,40 @@ export const registerFieldType = (
   return Field
 }
 
-export const InputField = registerFieldType('text', Input)
+export const InputField = registerFieldType(
+  'text',
+  forwardRef(({ type = 'text', ...rest }, ref) => {
+    return <Input type={type} {...rest} ref={ref} />
+  })
+)
 export const NumberInputField = registerFieldType('number', NumberInput, {
   isControlled: true,
 })
 export const PasswordInputFIeld = registerFieldType('password', PasswordInput)
 export const TextareaField = registerFieldType('textarea', Textarea)
-export const SwitchField = registerFieldType('switch', Switch, {
-  isControlled: true,
-})
+export const SwitchField = registerFieldType(
+  'switch',
+  forwardRef(({ type, ...rest }, ref) => {
+    return <Switch {...rest} ref={ref} />
+  }),
+  {
+    isControlled: true,
+  }
+)
 export const SelectField = registerFieldType('select', Select, {
   isControlled: true,
 })
 export const CheckboxField = registerFieldType(
   'checkbox',
-  forwardRef(({ label, ...props }: { label?: string }, ref) => {
-    return (
-      <Checkbox ref={ref} {...props}>
-        {label}
-      </Checkbox>
-    )
-  }),
+  forwardRef(
+    ({ label, type, ...props }: { label?: string; type: string }, ref) => {
+      return (
+        <Checkbox ref={ref} {...props}>
+          {label}
+        </Checkbox>
+      )
+    }
+  ),
   {
     hideLabel: true,
   }

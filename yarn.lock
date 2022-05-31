@@ -4968,7 +4968,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/next-workspaces@^0.1.1, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
+"@saas-ui/next-workspaces@^0.1.2-rc.0, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
   version: 0.0.0-use.local
   resolution: "@saas-ui/next-workspaces@workspace:tooling/next-workspaces"
   languageName: unknown
@@ -5055,7 +5055,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@^0.4.1, @saas-ui/props-docs@workspace:tooling/props-docs":
+"@saas-ui/props-docs@^1.0.0-rc.0, @saas-ui/props-docs@workspace:tooling/props-docs":
   version: 0.0.0-use.local
   resolution: "@saas-ui/props-docs@workspace:tooling/props-docs"
   dependencies:
@@ -20188,7 +20188,7 @@ __metadata:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@fontsource/inter": ^4.5.10
-    "@saas-ui/next-workspaces": ^0.1.1
+    "@saas-ui/next-workspaces": ^0.1.2-rc.0
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/react": "workspace:*"
     "@svgr/webpack": ^6.2.1
@@ -26766,7 +26766,7 @@ __metadata:
     "@next/bundle-analyzer": ^12.1.6
     "@octokit/rest": ^18.12.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/props-docs": ^0.4.1
+    "@saas-ui/props-docs": ^1.0.0-rc.0
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/menu",
-  "version": "0.5.7",
+  "version": "1.0.0-rc.2",
   "description": "Menu Component",
   "source": "src/index.ts",
   "exports": {

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/banner",
-  "version": "0.0.4",
+  "version": "1.0.0-rc.1",
   "description": "A banner component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

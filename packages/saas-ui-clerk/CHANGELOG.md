@@ -1,5 +1,46 @@
 # @saas-ui/clerk
 
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/auth@1.0.0-rc.3
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- @saas-ui/auth@1.0.0-rc.2
+
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- Updated dependencies [9043639]
+  - @saas-ui/auth@1.0.0-rc.1
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/auth@1.0.0-rc.0
+
 ## 0.1.14
 
 ### Patch Changes

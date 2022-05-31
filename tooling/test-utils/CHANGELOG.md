@@ -1,5 +1,49 @@
 # @saas-ui/test-utils
 
+## 2.0.0-rc.3
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/react@1.0.0-rc.3
+
+## 2.0.0-rc.2
+
+### Patch Changes
+
+- Updated dependencies [4bb613c]
+- Updated dependencies [8f3f948]
+- Updated dependencies [3dee538]
+- Updated dependencies [07491fd]
+  - @saas-ui/react@1.0.0-rc.2
+
+## 2.0.0-rc.1
+
+### Patch Changes
+
+- @saas-ui/react@1.0.0-rc.1
+
+## 2.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/react@1.0.0-rc.0
+
 ## 1.2.35
 
 ### Patch Changes

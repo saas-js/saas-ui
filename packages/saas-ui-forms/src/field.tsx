@@ -227,7 +227,7 @@ const createField = (
           ref={ref}
           id={id}
           name={name}
-          label={label}
+          label={hideLabel ? label : undefined} // Only pass down the label when it should be inline.
           rules={inputRules}
           {...inputProps}
         />
@@ -292,7 +292,7 @@ export interface RegisterFieldTypeOptions {
  * @param component The React component
  * @param options
  * @param options.isControlled Set this to true if this is a controlled field.
- * @param options.hideLabel Hide the field label, for example for checkbox or switch field.
+ * @param options.hideLabel Hide the field label, for example for the checkbox field.
  */
 export const registerFieldType = (
   type: string,
@@ -320,28 +320,15 @@ export const registerFieldType = (
   return Field
 }
 
-// @todo Consider not registering all fields by default to lower the package size and computations.
-// Not all types may be required in a project.
 export const InputField = registerFieldType('text', Input)
 export const NumberInputField = registerFieldType('number', NumberInput, {
   isControlled: true,
 })
 export const PasswordInputFIeld = registerFieldType('password', PasswordInput)
 export const TextareaField = registerFieldType('textarea', Textarea)
-export const SwitchField = registerFieldType(
-  'switch',
-  forwardRef(({ label, ...props }: { label?: string }, ref) => {
-    return (
-      <Switch ref={ref} {...props}>
-        {label}
-      </Switch>
-    )
-  }),
-  {
-    isControlled: true,
-    hideLabel: true,
-  }
-)
+export const SwitchField = registerFieldType('switch', Switch, {
+  isControlled: true,
+})
 export const SelectField = registerFieldType('select', Select, {
   isControlled: true,
 })

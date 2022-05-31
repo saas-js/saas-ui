@@ -9,6 +9,7 @@ import {
   HeaderGroup,
   Hooks,
   IdType,
+  SortingRule,
 } from 'react-table'
 import {
   chakra,
@@ -46,6 +47,11 @@ export interface DataTableProps<Data extends object>
    * @params rows The selected row id's
    */
   onSelectedRowsChange?: (rows: IdType<Data>[]) => void
+  /**
+   * Triggers when sort changed.
+   * Use incombination with `manualSortBy` to enable remote sorting.
+   */
+  onSortChange?: (columns: SortingRule<Data>[]) => void
 }
 
 export const DataTable = React.forwardRef(
@@ -68,6 +74,12 @@ export const DataTable = React.forwardRef(
       isSortable,
       isSelectable,
       onSelectedRowsChange,
+      onSortChange,
+      colorScheme,
+      size,
+      variant,
+      className,
+      children,
       ...rest
     } = props
 
@@ -94,6 +106,7 @@ export const DataTable = React.forwardRef(
         getRowId,
         manualRowSelectKey,
         autoResetSelectedRow,
+        ...rest,
       },
       useSortBy,
       useRowSelect,
@@ -116,12 +129,18 @@ export const DataTable = React.forwardRef(
       onSelectedRowsChange?.(Object.keys(state.selectedRowIds))
     }, [onSelectedRowsChange, state.selectedRowIds])
 
+    React.useEffect(() => {
+      onSortChange?.(state.sortBy)
+    }, [onSortChange, state.sortBy])
+
     return (
       <Table
         {...getTableProps()}
         sx={{ 'tr:last-child td': { border: 0 } }}
-        {...rest}
-        className={cx('saas-data-table', props.className)}
+        className={cx('saas-data-table', className)}
+        colorScheme={colorScheme}
+        size={size}
+        variant={variant}
       >
         <Thead>
           {headerGroups.map((headerGroup) => (

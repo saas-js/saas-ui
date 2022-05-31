@@ -54,6 +54,12 @@ export interface HotkeysGroupOptions {
   hotkeys: HotkeysGroupListOptions
 }
 
+/**
+ * The hotkeys configuration.
+ * Supports shorthands: ⌥ ⇧ ⌃ ⌘
+ *
+ * Shifted keys like ? and + are handled automatically
+ */
 export interface HotkeysListOptions {
   [group: string]: HotkeysGroupOptions
 }

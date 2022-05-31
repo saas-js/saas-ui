@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { useFormContext, useWatch } from 'react-hook-form'
 
-import { yupForm } from '@saas-ui/forms/yup'
+import { yupForm, yupResolver } from '../yup/src'
 
 import {
   Form,
@@ -29,7 +29,6 @@ import {
 import { Button } from '@saas-ui/button'
 
 import { onSubmit } from './helpers'
-import { yupResolver } from '../yup'
 
 export default {
   title: 'Components/Forms/ArrayField',

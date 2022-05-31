@@ -130,14 +130,14 @@ function Post() {
         description: '',
       }}
       onSubmit={() => null}
-      submitLabel="Save post"
+      submitProps="Save post"
       {...zodForm(schema)}
     />
   )
 }
 ```
 
-### No submit button
+### Custom submit button
 
 ```jsx
 function Post() {
@@ -153,9 +153,11 @@ function Post() {
         description: '',
       }}
       onSubmit={(params) => alert(params)}
-      submitLabel={false}
+      submitLabel={null}
       {...yupForm(schema)}
-    />
+    >
+      <SubmitButton colorScheme="secondary">Save</SubmitButton>
+    </AutoForm>
   )
 }
 ```

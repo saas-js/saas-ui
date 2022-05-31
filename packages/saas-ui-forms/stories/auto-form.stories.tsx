@@ -3,12 +3,12 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 
-import { yupForm } from '../yup'
+import { yupForm } from '../yup/src'
 
 import * as z from 'zod'
-import { zodForm, zodMeta } from '../zod'
+import { zodForm, zodMeta } from '../zod/src'
 
-import { AutoForm } from '../src'
+import { AutoForm, SubmitButton } from '../src'
 
 import { onSubmit } from './helpers'
 
@@ -121,6 +121,27 @@ export const SubmitLabel = () => (
       submitLabel={'Save'}
       onSubmit={onSubmit}
     />
+  </>
+)
+
+export const CustomSubmit = () => (
+  <>
+    <AutoForm
+      defaultValues={{
+        firstName: '',
+        lastName: '',
+        emails: [
+          {
+            address: '',
+          },
+        ],
+      }}
+      schema={basicSchema}
+      submitLabel={null}
+      onSubmit={onSubmit}
+    >
+      <SubmitButton colorScheme="secondary">Save</SubmitButton>
+    </AutoForm>
   </>
 )
 

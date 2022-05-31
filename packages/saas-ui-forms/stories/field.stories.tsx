@@ -55,7 +55,7 @@ export const Basic = () => (
       <Field
         name="native-select"
         label="Native Select"
-        type="nativeselect"
+        type="native-select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
       />
       <Field name="password" label="Password" type="password" />

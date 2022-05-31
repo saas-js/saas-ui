@@ -31,7 +31,7 @@ test('can accept success handler', async () => {
   expect(allByTitle).toHaveLength(1)
 })
 
-test('can accept errpr handler', async () => {
+test('can accept error handler', async () => {
   const title = 'Error'
 
   const { result } = hooks.render(() => useSnackbar())

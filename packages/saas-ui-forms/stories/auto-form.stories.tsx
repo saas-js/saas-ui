@@ -3,10 +3,10 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 
-import { yupForm } from '@saas-ui/forms/yup'
+import { yupForm } from '../yup'
 
 import * as z from 'zod'
-import { zodForm, zodMeta } from '@saas-ui/forms/zod'
+import { zodForm, zodMeta } from '../zod'
 
 import { AutoForm } from '../src'
 
@@ -35,10 +35,15 @@ const basicSchema = {
     type: 'text',
     label: 'Last name',
   },
-  items: {
+  emails: {
     type: 'array',
     items: {
-      type: 'text',
+      type: 'object',
+      properties: {
+        address: {
+          label: 'Email address',
+        },
+      },
     },
   },
 }
@@ -54,6 +59,13 @@ const schema = Yup.object().shape({
     .max(25, 'Too long')
     .required()
     .label('Last name'),
+  emails: Yup.array()
+    .of(
+      Yup.object().shape({
+        address: Yup.string().label('Email address'),
+      })
+    )
+    .label('Email addresses'),
 })
 
 const zodSchema = z.object({
@@ -67,6 +79,12 @@ const zodSchema = z.object({
     .min(2, 'Too short')
     .max(25, 'Too long')
     .describe('Last name'),
+  emails: z
+    .object({
+      address: z.string().describe('Email address'),
+    })
+    .array()
+    .describe('Email addresses'),
 })
 
 export const Basic = () => (
@@ -75,6 +93,11 @@ export const Basic = () => (
       defaultValues={{
         firstName: '',
         lastName: '',
+        emails: [
+          {
+            address: '',
+          },
+        ],
       }}
       schema={basicSchema}
       onSubmit={onSubmit}
@@ -88,6 +111,11 @@ export const SubmitLabel = () => (
       defaultValues={{
         firstName: '',
         lastName: '',
+        emails: [
+          {
+            address: '',
+          },
+        ],
       }}
       schema={basicSchema}
       submitLabel={'Save'}
@@ -102,6 +130,11 @@ export const YupSchema = () => (
       defaultValues={{
         firstName: '',
         lastName: '',
+        emails: [
+          {
+            address: '',
+          },
+        ],
       }}
       onSubmit={onSubmit}
       {...yupForm(schema)}
@@ -115,6 +148,11 @@ export const ZodSchema = () => (
       defaultValues={{
         firstName: '',
         lastName: '',
+        emails: [
+          {
+            address: '',
+          },
+        ],
       }}
       onSubmit={onSubmit}
       {...zodForm(zodSchema)}

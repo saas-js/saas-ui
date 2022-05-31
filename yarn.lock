@@ -3127,20 +3127,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/avatar@npm:^1.3.2":
-  version: 1.3.4
-  resolution: "@chakra-ui/avatar@npm:1.3.4"
-  dependencies:
-    "@chakra-ui/image": 1.1.3
-    "@chakra-ui/react-utils": 1.2.1
-    "@chakra-ui/utils": 1.10.0
-  peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
-    react: ">=16.8.6"
-  checksum: dd1218b0aa1d8dce95a2147cd80b28d7a3fd6b32b114449a8c54d3c9c0ba61fe269ba056d36af00e05e471a6b48691f3a34ea9b20e6b87437f14b1f9efe7da7d
-  languageName: node
-  linkType: hard
-
 "@chakra-ui/breadcrumb@npm:1.3.6":
   version: 1.3.6
   resolution: "@chakra-ui/breadcrumb@npm:1.3.6"
@@ -3549,19 +3535,6 @@ __metadata:
     "@chakra-ui/system": ">=1.0.0"
     react: ">=16.8.6"
   checksum: 7f0dcc9dbc63ffd40a33000c9ebd8fc1e3faa30e783ee84991c65c5c9ae726ee7e213b6ae6dc1e70daa8c088bc14a32b6bcff510591e172c8a7e060a10365f7e
-  languageName: node
-  linkType: hard
-
-"@chakra-ui/image@npm:1.1.3":
-  version: 1.1.3
-  resolution: "@chakra-ui/image@npm:1.1.3"
-  dependencies:
-    "@chakra-ui/hooks": 1.8.0
-    "@chakra-ui/utils": 1.10.0
-  peerDependencies:
-    "@chakra-ui/system": ">=1.0.0"
-    react: ">=16.8.6"
-  checksum: ceb673a415774f8b85d58a08a17cd9777eb99135bde3aa1f35c7173bad976f7d87735937889d007e360ccaba17fca3289f677597751f52c94d1a3f1e238378ff
   languageName: node
   linkType: hard
 
@@ -7091,6 +7064,7 @@ __metadata:
     "@chakra-ui/input": ^1.3.3
     "@chakra-ui/utils": ^1.10.4
     "@saas-ui/button": "workspace:*"
+    react-icons: ^4.3.1
   peerDependencies:
     "@chakra-ui/system": ^1.12.1
     react: ">=16.8.6"
@@ -7213,11 +7187,8 @@ __metadata:
 "@saas-ui/persona@workspace:*, @saas-ui/persona@workspace:packages/saas-ui-persona":
   version: 0.0.0-use.local
   resolution: "@saas-ui/persona@workspace:packages/saas-ui-persona"
-  dependencies:
-    "@chakra-ui/avatar": ^1.3.2
-    "@chakra-ui/utils": ^1.10.4
   peerDependencies:
-    "@chakra-ui/system": ^1.12.1
+    "@chakra-ui/react": ^1.8.8
     react: ">=16.8.6"
   languageName: unknown
   linkType: soft

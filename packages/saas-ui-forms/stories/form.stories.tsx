@@ -7,7 +7,14 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { UseFormReturn } from 'react-hook-form'
 
-import { Form, FormLayout, Field, DisplayIf, SubmitButton } from '../src'
+import {
+  Form,
+  FormLayout,
+  Field,
+  DisplayIf,
+  SubmitButton,
+  FormProps,
+} from '../src'
 
 import { Button } from '@saas-ui/button'
 
@@ -57,6 +64,34 @@ export const Basic = () => (
       <FormLayout>
         <Field name="title" label="Title" />
         <Field name="description" label="Description" />
+
+        <SubmitButton />
+      </FormLayout>
+    </Form>
+  </>
+)
+
+export const WithValidationRules = (props: FormProps) => (
+  <>
+    <Form
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      onSubmit={onSubmit}
+      {...props}
+    >
+      <FormLayout>
+        <Field
+          name="title"
+          label="Title"
+          rules={{ required: 'Title is required' }}
+        />
+        <Field
+          name="description"
+          label="Description"
+          rules={{ required: 'Description is required' }}
+        />
 
         <SubmitButton />
       </FormLayout>

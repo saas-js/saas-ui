@@ -16,6 +16,8 @@ import {
   omitThemingProps,
   useMultiStyleConfig,
   SystemStyleObject,
+  useFormControl,
+  HTMLChakraProps,
 } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { cx, __DEV__ } from '@chakra-ui/utils'
@@ -75,6 +77,7 @@ if (__DEV__) {
 
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const {
+    name,
     options,
     children,
     onChange,
@@ -94,6 +97,8 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const menuProps = omitThemingProps(rest)
 
   const [currentValue, setCurrentValue] = React.useState(value || defaultValue)
+
+  const controlProps = useFormControl({ name } as HTMLChakraProps<'input'>)
 
   const handleChange = (value: string | string[]) => {
     setCurrentValue(value)
@@ -155,6 +160,8 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
           </MenuOptionGroup>
         </MenuList>
         <chakra.input
+          {...controlProps}
+          name={name}
           type="hidden"
           value={currentValue}
           className="saas-select__input"

@@ -339,12 +339,13 @@ const Home = () => {
               answer="Saas UI Pro is a one-time purchase, with no recurring subscription. You will have access to all assets of the Saas UI library forever."
             />
             <FaqItem
-              question="What does 'free updates' include?"
+              question="What does '1 year of updates' include?"
               answer={
                 <>
                   We&apos;ll add new components and improvements to the library
-                  as we get new ideas and feedback, these updates will always be
-                  free for all customers that sign-up for the early access.{' '}
+                  as we get new ideas and feedback, you will receive these
+                  updates during the first year. After that you can renew your
+                  license for a reduced fee.
                   <br />
                   <br />
                   We might release different stacks, for example for Vue and
@@ -463,6 +464,7 @@ const Pricing = () => {
               <PricingFeature title="Multiple themes" />
               <PricingFeature title="Next.js and Electron boilerplates" />
               <PricingFeature title="Private discord community" />
+              <PricingFeature title="1 year of updates" />
               <br />
               <PricingFeature
                 title="Private beta access"
@@ -500,6 +502,7 @@ const Pricing = () => {
             <PricingFeatures>
               <PricingFeature title="Unlimited projects" />
               <PricingFeature title="Unlimited developers" />
+              <PricingFeature title="1 year of updates" />
               <PricingFeature title="Everything from Bootstrap" />
               <br />
               <PricingFeature

@@ -7,9 +7,39 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 08 May 2022 10:13:55 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 01 Jun 2022 13:40:08 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/docs/getting-started</guid>
+    <title>Getting Started</title>
+    <link>https://saas-ui.dev/docs/getting-started</link>
+    <description>How to get up and running quickly with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/introduction</guid>
+    <title>Introduction</title>
+    <link>https://saas-ui.dev/docs/introduction</link>
+    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/principles</guid>
+    <title>Design Principles</title>
+    <link>https://saas-ui.dev/docs/principles</link>
+    <description>Principles that keep your code and UX consistent</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/docs/auth/auth-provider</guid>
     <title>AuthProvider</title>
@@ -131,6 +161,56 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/integrations/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/integrations/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/integrations/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/forms/array-field</guid>
     <title>ArrayField</title>
     <link>https://saas-ui.dev/docs/forms/array-field</link>
@@ -241,76 +321,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/getting-started</guid>
-    <title>Getting Started</title>
-    <link>https://saas-ui.dev/docs/getting-started</link>
-    <description>How to get up and running quickly with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
-    <title>Clerk</title>
-    <link>https://saas-ui.dev/docs/integrations/clerk</link>
-    <description>Integrating Clerk authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
-    <title>Magic</title>
-    <link>https://saas-ui.dev/docs/integrations/magic</link>
-    <description>Integrating Magic authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
-    <title>Supabase</title>
-    <link>https://saas-ui.dev/docs/integrations/supabase</link>
-    <description>Integrating Supabase authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/introduction</guid>
-    <title>Introduction</title>
-    <link>https://saas-ui.dev/docs/introduction</link>
-    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/layout/card</guid>
     <title>Card</title>
     <link>https://saas-ui.dev/docs/layout/card</link>
@@ -365,16 +375,6 @@
     <title>Modals manager</title>
     <link>https://saas-ui.dev/docs/overlay/modals-manager</link>
     <description>Manage different types of modals with a single easy to use hook.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/principles</guid>
-    <title>Design Principles</title>
-    <link>https://saas-ui.dev/docs/principles</link>
-    <description>Principles that keep your code and UX consistent</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

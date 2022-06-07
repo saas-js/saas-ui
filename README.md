@@ -1,6 +1,9 @@
-# Saas UI - The frontend stack for SaaS companies
 
-<p>
+<h1 align='center'>Saas UI</h1>
+
+<p align='center'>The React component library for Startups</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/@saas-ui/react">
     <img src="https://img.shields.io/npm/v/@saas-ui/react" alt="NPM">
   </a>
@@ -12,6 +15,8 @@
     <img src="https://img.shields.io/twitter/follow/saas_js?style=social&logo=twitter" alt="follow on Twitter">
   </a>
 </p>
+
+<hr />
 
 Saas UI is an advanced component library that helps you build essential SaaS functionality in hours instead of weeks.
 
@@ -39,7 +44,7 @@ Saas UI pro is in private beta. [Pre-order](https://appulse.gumroad.com/l/saas-u
 
 ### Core
 
-A set of essential open source components build on top of Chakra UI.
+30+ essential open source components build on top of Chakra UI.
 Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
 
 - [x] Finish all v1 core components and hooks
@@ -51,24 +56,30 @@ Including fully functional auth screens, forms (with react-hook-form), modal man
 A premium starter pack designed for SaaS products.
 Complete source code available in a monorepo that can serve as a starting point for your project.
 
-- [x] Example SaaS app (NextJS)
-- [x] Electron app
-- [x] Authentication
+![theme-tokens](https://user-images.githubusercontent.com/32583/172424112-72bacfdd-17df-4024-81db-690dc47d0c81.png)
+
+- [x] Example SaaS app (NextJS & Electron)
+- [x] Authentication screens (Supabase/Magic/Clerk/Custom)
+- [x] App layout
+- [x] DataGrid with filtering/pagination
 - [x] User profiles
-- [ ] Example pages (CRM, Inbox, CRUD)
 - [x] Charts / Sparklines
 - [x] Settings pages
 - [x] Feature flags
+- [x] Billing/subscription management (Paddle)
+- [x] Mock graph api (MSW)
+
+#### In progress
+- [ ] Example pages (CRM, Inbox, CRUD)
 - [ ] Onboarding flows
 - [ ] Upselling flows (Trials, upgrades, etc)
-- [x] Billing/subscription management
 - [ ] Saas UI themes
 - [ ] Custom color schemes
 - [ ] File uploads
 
 ## Storybook
 
-https://storybook.saas-ui.dev
+https://storybook.saas-ui.pro
 
 Or run locally:
 

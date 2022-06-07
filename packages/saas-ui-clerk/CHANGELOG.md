@@ -1,5 +1,20 @@
 # @saas-ui/clerk
 
+## 1.0.0-rc.4
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [532a7d4]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [532a7d4]
+  - @saas-ui/auth@1.0.0-rc.4
+
 ## 1.0.0-rc.3
 
 ### Patch Changes

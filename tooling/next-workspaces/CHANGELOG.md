@@ -1,5 +1,15 @@
 # @saas-ui/next-workspaces
 
+## 0.2.0-rc.2
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+
 ## 0.1.2-rc.1
 
 ### Patch Changes

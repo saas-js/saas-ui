@@ -1,5 +1,17 @@
 # @saas-ui/select
 
+## 1.0.0-rc.2
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- 532a7d4: Fixed all theme onconsistencies.
+
 ## 1.0.0-rc.1
 
 ### Patch Changes

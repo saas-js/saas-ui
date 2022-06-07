@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/next-workspaces",
-  "version": "0.1.2-rc.1",
+  "version": "0.2.0-rc.2",
   "main": "index.js",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

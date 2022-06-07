@@ -1,5 +1,34 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.3
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 6133901: No longer passing down label to input fields.
+- ddec417: ArrayField no longer passing down items to the container element.
+- 5f80cea: AutoForm now renders children.
+- 532a7d4: Fixed all theme onconsistencies.
+- 1c247cb: InputField now has type="text" by default.
+- d1fb472: Select now renders a hidden input with the current value.
+- Updated dependencies [c8621b8]
+- Updated dependencies [532a7d4]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [532a7d4]
+  - @saas-ui/select@1.0.0-rc.2
+  - @saas-ui/button@1.0.0-rc.2
+  - @saas-ui/input-right-button@1.0.0-rc.2
+  - @saas-ui/number-input@1.0.0-rc.2
+  - @saas-ui/password-input@1.0.0-rc.2
+  - @saas-ui/pin-input@1.0.0-rc.3
+  - @saas-ui/radio@1.0.0-rc.2
+  - @saas-ui/react-utils@1.0.0-rc.2
+  - @saas-ui/stepper@1.0.0-rc.2
+
 ## 1.0.0-rc.2
 
 ### Patch Changes

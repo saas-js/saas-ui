@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/button",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "Button Component",
   "source": "src/index.ts",
   "exports": {

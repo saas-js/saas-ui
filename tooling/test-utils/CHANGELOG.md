@@ -1,5 +1,26 @@
 # @saas-ui/test-utils
 
+## 2.0.0-rc.4
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [c8621b8]
+- Updated dependencies [532a7d4]
+- Updated dependencies [6133901]
+- Updated dependencies [ddec417]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+  - @saas-ui/react@1.0.0-rc.4
+
 ## 2.0.0-rc.3
 
 ### Patch Changes

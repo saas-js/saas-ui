@@ -1,5 +1,59 @@
 # @saas-ui/react
 
+## 1.0.0-rc.4
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- 6133901: No longer passing down label to input fields.
+- ddec417: ArrayField no longer passing down items to the container element.
+- 5f80cea: AutoForm now renders children.
+- 532a7d4: Fixed all theme onconsistencies.
+- 1c247cb: InputField now has type="text" by default.
+- d1fb472: Select now renders a hidden input with the current value.
+- Updated dependencies [c8621b8]
+- Updated dependencies [532a7d4]
+- Updated dependencies [6133901]
+- Updated dependencies [ddec417]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+  - @saas-ui/select@1.0.0-rc.2
+  - @saas-ui/auth@1.0.0-rc.4
+  - @saas-ui/banner@1.0.0-rc.2
+  - @saas-ui/button@1.0.0-rc.2
+  - @saas-ui/card@1.0.0-rc.2
+  - @saas-ui/collapse@1.0.0-rc.2
+  - @saas-ui/data-table@1.0.0-rc.3
+  - @saas-ui/forms@1.0.0-rc.3
+  - @saas-ui/hooks@1.0.0-rc.2
+  - @saas-ui/hotkeys@1.0.0-rc.2
+  - @saas-ui/input-right-button@1.0.0-rc.2
+  - @saas-ui/layout@1.0.0-rc.3
+  - @saas-ui/list@1.0.0-rc.2
+  - @saas-ui/menu@1.0.0-rc.3
+  - @saas-ui/modals@1.0.0-rc.3
+  - @saas-ui/nprogress@1.0.0-rc.2
+  - @saas-ui/number-input@1.0.0-rc.2
+  - @saas-ui/palette@1.0.0-rc.2
+  - @saas-ui/password-input@1.0.0-rc.2
+  - @saas-ui/persona@1.0.0-rc.3
+  - @saas-ui/pin-input@1.0.0-rc.3
+  - @saas-ui/property@1.0.0-rc.2
+  - @saas-ui/provider@1.0.0-rc.3
+  - @saas-ui/radio@1.0.0-rc.2
+  - @saas-ui/search-input@1.0.0-rc.2
+  - @saas-ui/snackbar@1.0.0-rc.2
+  - @saas-ui/stepper@1.0.0-rc.2
+  - @saas-ui/theme@1.0.0-rc.2
+
 ## 1.0.0-rc.3
 
 ### Patch Changes

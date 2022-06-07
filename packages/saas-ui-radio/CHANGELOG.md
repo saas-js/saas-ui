@@ -1,5 +1,16 @@
 # @saas-ui/radio
 
+## 1.0.0-rc.2
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+
 ## 1.0.0-rc.1
 
 ### Patch Changes

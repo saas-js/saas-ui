@@ -1,5 +1,20 @@
 # @saas-ui/data-list
 
+## 1.0.0-rc.2
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [532a7d4]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [532a7d4]
+  - @saas-ui/button@1.0.0-rc.2
+
 ## 1.0.0-rc.1
 
 ### Patch Changes

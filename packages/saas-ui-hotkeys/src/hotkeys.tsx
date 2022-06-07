@@ -2,13 +2,11 @@ import * as React from 'react'
 import {
   chakra,
   forwardRef,
-  StylesProvider,
-  useStyles,
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
   useMultiStyleConfig,
-  SystemStyleObject,
+  createStylesContext,
 } from '@chakra-ui/system'
 import { cx, __DEV__ } from '@chakra-ui/utils'
 import { createContext } from '@chakra-ui/react-utils'
@@ -16,6 +14,8 @@ import { createContext } from '@chakra-ui/react-utils'
 import { Kbd } from '@chakra-ui/layout'
 
 import { SearchInput } from '@saas-ui/search-input'
+
+const [StylesProvider, useStyles] = createStylesContext('Hotkeys')
 
 const regExpSyntaxCharacter = /[.*+?^${}()|[\]\\]/g
 

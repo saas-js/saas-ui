@@ -7,9 +7,8 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
-  useStyles,
-  StylesProvider,
   SystemStyleObject,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { CheckIcon, Icon } from '@chakra-ui/icons'
@@ -25,6 +24,8 @@ import {
   useStepperContext,
   UseStepperProps,
 } from './use-stepper'
+
+const [StylesProvider, useStyles] = createStylesContext('Stepper')
 
 export interface StepperProps
   extends UseStepperProps,

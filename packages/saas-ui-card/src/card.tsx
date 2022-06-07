@@ -4,18 +4,19 @@ import {
   forwardRef,
   HTMLChakraProps,
   ThemingProps,
-  StylesProvider,
-  useStyles,
   omitThemingProps,
   SystemProps,
   SystemStyleObject,
   ThemeTypings,
   useMultiStyleConfig,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
+
+const [StylesProvider, useStyles] = createStylesContext('Card')
 
 type Variants = 'plain' | 'outline' | 'solid'
 

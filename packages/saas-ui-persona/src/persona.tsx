@@ -8,8 +8,6 @@ import {
   Tooltip,
   chakra,
   forwardRef,
-  useStyles,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   SystemStyleObject,
@@ -18,9 +16,12 @@ import {
   useTheme,
   useMultiStyleConfig,
   omitThemingProps,
+  createStylesContext,
 } from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
+
+const [StylesProvider, useStyles] = createStylesContext('Persona')
 
 export interface PresenceOptions {
   [presence: string]: {

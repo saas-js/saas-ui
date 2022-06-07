@@ -7,10 +7,8 @@ import {
   chakra,
   As,
   ThemingProps,
-  StylesProvider,
   omitThemingProps,
   useMultiStyleConfig,
-  useStyles,
   ButtonGroup,
   IconProps,
   SystemProps,
@@ -19,9 +17,12 @@ import {
   HeadingProps,
   TextProps,
   ButtonGroupProps,
+  createStylesContext,
 } from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
+
+const [StylesProvider, useStyles] = createStylesContext('EmptyState')
 
 export interface EmptyStateProps
   extends Omit<EmptyStateContainerProps, 'title'> {

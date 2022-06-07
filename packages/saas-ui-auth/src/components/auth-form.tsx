@@ -2,13 +2,12 @@ import * as React from 'react'
 
 import {
   chakra,
-  useStyles,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
   useMultiStyleConfig,
   SystemStyleObject,
+  createStylesContext,
 } from '@chakra-ui/react'
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -22,6 +21,8 @@ import { Providers, AvailableProviders } from './providers'
 import { AuthTypeEnum, AuthActionEnum } from '../provider'
 import { ForgotPasswordForm } from './forgot-password-form'
 import { UpdatePasswordForm } from './update-password-form'
+
+const [StylesProvider, useStyles] = createStylesContext('AutoForm')
 
 export interface AuthFormProps
   extends Omit<

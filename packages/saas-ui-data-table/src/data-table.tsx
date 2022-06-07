@@ -21,7 +21,6 @@ import {
   Th,
   Td,
   Checkbox,
-  useStyles,
 } from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
@@ -198,11 +197,8 @@ export const DataTableSort = <Data extends object>(
 ) => {
   const { column, ...rest } = props
 
-  const styles = useStyles()
-
   const sorterStyles = {
     ms: 2,
-    ...styles.sorter,
   }
 
   if (column.id === 'selection') {

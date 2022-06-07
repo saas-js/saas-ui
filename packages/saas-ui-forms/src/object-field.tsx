@@ -4,7 +4,7 @@ import {
   FormLabel,
   FormLabelProps,
   ResponsiveValue,
-  useStyles,
+  useStyleConfig,
 } from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
 
@@ -21,8 +21,8 @@ export interface ObjectFieldProps extends FieldProps {
 }
 
 export const FormLegend = (props: FormLabelProps) => {
-  const styles = useStyles()
-  return <FormLabel as="legend" sx={styles.legend} {...props} />
+  const styles = useStyleConfig('FormLegend')
+  return <FormLabel as="legend" sx={styles} {...props} />
 }
 
 export const ObjectField: React.FC<ObjectFieldProps> = (props) => {

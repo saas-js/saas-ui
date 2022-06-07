@@ -3,16 +3,18 @@ import * as React from 'react'
 import {
   ModalFooter,
   chakra,
-  StylesProvider,
-  useStyles,
   forwardRef,
   useMenuContext,
   useMenuList,
+  createStylesContext,
+  useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { BaseModal, BaseModalProps } from './modal'
 
 import { Menu, MenuListProps } from '@saas-ui/menu'
+
+const [StylesProvider, useStyles] = createStylesContext('MenuDialog')
 
 export interface MenuDialogProps extends BaseModalProps {
   /**
@@ -48,7 +50,7 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
 
     const ownProps = useMenuList(rest, ref)
 
-    const styles = useStyles()
+    const styles = useMultiStyleConfig('Menu', props)
 
     return (
       <BaseModal

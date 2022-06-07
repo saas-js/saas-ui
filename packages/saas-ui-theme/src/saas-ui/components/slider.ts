@@ -1,4 +1,4 @@
-import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 export default {
   defaultProps: {
@@ -7,9 +7,6 @@ export default {
   baseStyle: (props: StyleFunctionProps) => {
     const { colorScheme } = props
     return {
-      track: {
-        borderRadius: 'md',
-      },
       filledTrack: {
         bg: `${colorScheme}.500`,
       },

@@ -56,8 +56,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.0.0",
-    "@chakra-ui/utils": "^2.0.0",
+    "@chakra-ui/styled-system": "^2.2.0",
+    "@chakra-ui/utils": "^2.0.2",
     "react-fast-compare": "^3.2.0"
   },
   "peerDependencies": {

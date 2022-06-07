@@ -80,6 +80,9 @@ export const WithVariants = () => (
     <Button colorScheme="teal" variant="outline">
       Button
     </Button>
+    <Button colorScheme="teal" variant="subtle">
+      Button
+    </Button>
     <Button colorScheme="teal" variant="ghost">
       Button
     </Button>

@@ -11,6 +11,7 @@ import Menu from './menu'
 import Modal from './modal'
 import NProgress from './nprogress'
 import Progress from './progress'
+import Property from './property'
 import Toaster from './toaster'
 import Text from './text'
 import Stepper from './stepper'
@@ -28,6 +29,7 @@ export default {
   Modal,
   NProgress,
   Progress,
+  Property,
   Toaster,
   Text,
   Stepper,

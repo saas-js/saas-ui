@@ -51,7 +51,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@clerk/types": "^2.14.0",
+    "@clerk/types": "^2.15.0",
     "@saas-ui/auth": "workspace:*"
   },
   "peerDependencies": {
@@ -62,6 +62,6 @@
     "react": ">=18.0.0"
   },
   "devDependencies": {
-    "@clerk/clerk-react": "^3.2.18"
+    "@clerk/clerk-react": "^3.3.0"
   }
 }

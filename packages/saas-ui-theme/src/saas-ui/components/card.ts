@@ -4,6 +4,7 @@ const parts = anatomy('card').parts(
   'container',
   'header',
   'title',
+  'subtitle',
   'body',
   'footer'
 )
@@ -25,7 +26,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       fontWeight: 'semibold',
     },
     subtitle: {
-      color: mode('gray.400', 'gray.300')(props),
+      color: 'muted',
       fontSize: 'md',
     },
     body: {

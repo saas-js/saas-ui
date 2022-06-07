@@ -37,10 +37,10 @@ module.exports = {
       }
     }
     return {
-      // '@saas-ui/pro': {
-      //   title: 'Saas UI Pro',
-      //   url: 'https://pro-storybook.saas-ui.dev',
-      // },
+      '@saas-ui/pro': {
+        title: 'Saas UI Pro',
+        url: 'https://pro-storybook.saas-ui.dev',
+      },
       ...refs,
     }
   },

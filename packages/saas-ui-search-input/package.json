@@ -58,8 +58,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.0",
-    "@chakra-ui/utils": "^2.0.0"
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/utils": "^2.0.2"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",

@@ -188,13 +188,6 @@ export default {
   defaultProps: {
     size: 'sm',
   },
-  baseStyle: {
-    _focus: {
-      '&:not(:focus-visible)': {
-        boxShadow: 'none',
-      },
-    },
-  },
   variants: {
     solid: variantSolid,
     ghost: variantGhost,

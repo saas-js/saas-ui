@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- Updated dependencies [9e9c601]
+  - @saas-ui/stepper@1.0.0-rc.3
+
 ## 1.0.0-rc.3
 
 ### Minor Changes

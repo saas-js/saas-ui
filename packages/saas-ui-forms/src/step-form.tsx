@@ -103,7 +103,7 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
     return child
   })
 
-  const onChange = React.useCallback((name: string, i: number) => {
+  const onChange = React.useCallback((i: number) => {
     setIndex(i)
   }, [])
 

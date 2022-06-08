@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- 9e9c601: Stepper now accepts an onChange handler.
+- Updated dependencies [9e9c601]
+  - @saas-ui/stepper@1.0.0-rc.3
+  - @saas-ui/forms@1.0.0-rc.4
+  - @saas-ui/auth@1.0.0-rc.5
+  - @saas-ui/modals@1.0.0-rc.4
+
 ## 1.0.0-rc.4
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/stepper
 
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- 9e9c601: Stepper now accepts an onChange handler.
+
 ## 1.0.0-rc.2
 
 ### Minor Changes

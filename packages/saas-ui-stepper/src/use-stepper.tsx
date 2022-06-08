@@ -12,7 +12,7 @@ export const [StepperProvider, useStepperContext] =
 export interface UseStepperProps {
   step?: number | string
   isCompleted?: boolean
-  onChange?(name: string, index: number): void
+  onChange?(index: number): void
 }
 
 export function useStepper(props: UseStepperProps) {
@@ -68,7 +68,7 @@ export function useStepper(props: UseStepperProps) {
   }, [step])
 
   React.useEffect(() => {
-    onChange?.(stepsRef.current[activeIndex], activeIndex)
+    onChange?.(activeIndex)
   }, [activeIndex, onChange])
 
   const context = {

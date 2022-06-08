@@ -38,6 +38,18 @@ const PaletteConfiguration = () => {
     [setState]
   )
 
+  const onReset = useCallback(() => {
+    setState((state) => {
+      // @todo get these values from the default themes
+      return {
+        ...state,
+        color: '#6d28d9',
+        gray: '#1f2937',
+        blackLuminance: 0.005,
+      }
+    })
+  }, [setState])
+
   return (
     <Box
       width="30%"
@@ -88,7 +100,7 @@ const PaletteConfiguration = () => {
               </FormHelperText>
             </FormControl>
             <FormControl>
-              <FormLabel>Gray color</FormLabel>
+              <FormLabel>Gray tint</FormLabel>
               <HStack>
                 <Input
                   type="color"
@@ -147,7 +159,7 @@ const PaletteConfiguration = () => {
                 Share on Twitter
               </Button>
 
-              <Button>Reset</Button>
+              <Button onClick={onReset}>Reset</Button>
             </ButtonGroup>
           </VStack>
         </Section>

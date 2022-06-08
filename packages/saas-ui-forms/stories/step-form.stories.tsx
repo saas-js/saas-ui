@@ -218,8 +218,8 @@ export const WithStepper = () => {
                   autoFocus
                   autoComplete="off"
                 />
+                <StepperNav />
               </FormLayout>
-              <StepperNav />
             </FormStep>
 
             <FormStep name="confirmation" title="Confirmation">

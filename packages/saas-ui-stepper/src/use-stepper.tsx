@@ -11,10 +11,12 @@ export const [StepperProvider, useStepperContext] =
 
 export interface UseStepperProps {
   step?: number | string
+  isCompleted?: boolean
+  onChange?(name: string, index: number): void
 }
 
 export function useStepper(props: UseStepperProps) {
-  const { step } = props
+  const { step, onChange } = props
 
   const [activeIndex, setIndex] = React.useState(-1) // Set to -1 by default to prevent any initial transitions.
 
@@ -42,7 +44,6 @@ export function useStepper(props: UseStepperProps) {
 
   const setStep = (name: string) => {
     const i = stepsRef.current.indexOf(name)
-
     if (i !== -1) {
       setIndex(i)
     }
@@ -65,6 +66,10 @@ export function useStepper(props: UseStepperProps) {
       setIndex(0) // initiate the stepper by activating the first step
     }
   }, [step])
+
+  React.useEffect(() => {
+    onChange?.(stepsRef.current[activeIndex], activeIndex)
+  }, [activeIndex, onChange])
 
   const context = {
     stepsRef,

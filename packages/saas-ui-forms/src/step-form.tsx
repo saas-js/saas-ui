@@ -6,8 +6,8 @@ import {
   chakra,
   HTMLChakraProps,
   useMultiStyleConfig,
-  StylesProvider,
   SystemStyleObject,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
@@ -18,6 +18,7 @@ import {
   StepperStepsProps,
   StepperStep,
   useStepperContext,
+  StepperContainer,
 } from '@saas-ui/stepper'
 import { Button, ButtonProps } from '@saas-ui/button'
 
@@ -31,6 +32,8 @@ import {
   UseStepFormProps,
   UseStepFormReturn,
 } from './use-step-form'
+
+const [StylesProvider, useStyles] = createStylesContext('StepForm')
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseStepFormProps<TFieldValues> {}
@@ -80,7 +83,7 @@ export interface FormStepOptions {
 }
 
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
-  const styles = useMultiStyleConfig('Stepper', props)
+  const { activeIndex, setIndex } = useStepperContext()
 
   const { children } = props
 
@@ -100,12 +103,16 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
     return child
   })
 
+  const onChange = React.useCallback((name: string, i: number) => {
+    setIndex(i)
+  }, [])
+
   return (
-    <StylesProvider value={styles}>
+    <StepperContainer step={activeIndex} onChange={onChange}>
       <StepperSteps mb="4" {...props}>
         {elements}
       </StepperSteps>
-    </StylesProvider>
+    </StepperContainer>
   )
 }
 

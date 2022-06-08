@@ -2,13 +2,7 @@ import * as React from 'react'
 
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 
-import {
-  chakra,
-  HTMLChakraProps,
-  useMultiStyleConfig,
-  SystemStyleObject,
-  createStylesContext,
-} from '@chakra-ui/system'
+import { chakra, HTMLChakraProps } from '@chakra-ui/system'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -30,10 +24,7 @@ import {
   useFormStep,
   StepFormProvider,
   UseStepFormProps,
-  UseStepFormReturn,
 } from './use-step-form'
-
-const [StylesProvider, useStyles] = createStylesContext('StepForm')
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseStepFormProps<TFieldValues> {}

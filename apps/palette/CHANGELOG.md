@@ -1,5 +1,12 @@
 # palette
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- Updated dependencies [9e9c601]
+  - @saas-ui/react@1.0.0-rc.5
+
 ## 1.0.0-rc.4
 
 ### Minor Changes

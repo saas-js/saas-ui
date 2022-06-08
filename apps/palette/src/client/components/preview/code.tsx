@@ -43,7 +43,7 @@ export default theme
 
 export const exampleCodeSaas = ({ colors }: any) => `
 import { extendTheme } from '@chakra-ui/react'
-import { theme: baseTheme } from '@saas-ui/react'
+import { theme as baseTheme } from '@saas-ui/react'
 
 const colors = ${JSON.stringify(colors, null, 2)}
 

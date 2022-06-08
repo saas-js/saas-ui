@@ -7,6 +7,8 @@ import Page from '@/components/page'
 import { Preview } from '@/components/preview'
 import { EditorProvider, useEditor, UseEditorReturn } from '@/providers/editor'
 import PaletteConfiguration from '@/components/configuration'
+import { Button } from '@saas-ui/react'
+import { FaTwitter } from 'react-icons/fa'
 
 export default function ColorsPage() {
   const [state, setState] = useEditor()
@@ -22,7 +24,7 @@ export default function ColorsPage() {
         <HStack alignItems="flex-start">
           <Page
             title="Color palette generator"
-            description="Quickly generate custom Chakra UI color palettes."
+            description="Quickly generate custom color palettes for Chakra UI."
           >
             <Preview />
           </Page>

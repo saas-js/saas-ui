@@ -31,10 +31,11 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup && yarn build:zod",
+    "build": "yarn build:package && yarn build:yup && yarn build:zod && yarn build:ajv",
     "build:package": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "build:yup": "cross-env NODE_ENV=production microbundle --cwd yup --tsconfig ./yup/tsconfig.json -f cjs,modern --compress",
     "build:zod": "cross-env NODE_ENV=production microbundle --cwd zod --tsconfig ./zod/tsconfig.json -f cjs,modern --compress",
+    "build:ajv": "cross-env NODE_ENV=production microbundle --cwd ajv --tsconfig ./ajv/tsconfig.json -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -45,7 +46,9 @@
     "yup/package.json",
     "yup/src",
     "zod/package.json",
-    "zod/src"
+    "zod/src",
+    "ajv/package.json",
+    "ajv/src"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -98,5 +101,10 @@
     "@chakra-ui/react": ">=2.1.0",
     "@chakra-ui/system": ">=2.1.0",
     "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.11.0",
+    "yup": "^0.32.11",
+    "zod": "^3.17.3"
   }
 }

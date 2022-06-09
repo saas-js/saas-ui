@@ -5011,7 +5011,10 @@ __metadata:
     "@saas-ui/react-utils": "workspace:*"
     "@saas-ui/select": "workspace:*"
     "@saas-ui/stepper": "workspace:*"
+    ajv: ^8.11.0
     react-hook-form: ^7.31.3
+    yup: ^0.32.11
+    zod: ^3.17.3
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
     "@chakra-ui/system": ">=2.1.0"
@@ -5115,7 +5118,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/next-workspaces@^0.1.2-rc.1, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
+"@saas-ui/next-workspaces@^0.2.0-rc.2, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
   version: 0.0.0-use.local
   resolution: "@saas-ui/next-workspaces@workspace:tooling/next-workspaces"
   languageName: unknown
@@ -5202,7 +5205,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@^1.0.0-rc.1, @saas-ui/props-docs@workspace:tooling/props-docs":
+"@saas-ui/props-docs@^1.0.0-rc.2, @saas-ui/props-docs@workspace:tooling/props-docs":
   version: 0.0.0-use.local
   resolution: "@saas-ui/props-docs@workspace:tooling/props-docs"
   dependencies:
@@ -8516,6 +8519,18 @@ __metadata:
     json-schema-traverse: ^0.4.1
     uri-js: ^4.2.2
   checksum: 874972efe5c4202ab0a68379481fbd3d1b5d0a7bd6d3cc21d40d3536ebff3352a2a1fabb632d4fd2cc7fe4cbdcd5ed6782084c9bbf7f32a1536d18f9da5007d4
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^8.11.0":
+  version: 8.11.0
+  resolution: "ajv@npm:8.11.0"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    json-schema-traverse: ^1.0.0
+    require-from-string: ^2.0.2
+    uri-js: ^4.2.2
+  checksum: 5e0ff226806763be73e93dd7805b634f6f5921e3e90ca04acdf8db81eed9d8d3f0d4c5f1213047f45ebbf8047ffe0c840fa1ef2ec42c3a644899f69aa72b5bef
   languageName: node
   linkType: hard
 
@@ -17430,6 +17445,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-schema-traverse@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "json-schema-traverse@npm:1.0.0"
+  checksum: 02f2f466cdb0362558b2f1fd5e15cce82ef55d60cd7f8fa828cf35ba74330f8d767fcae5c5c2adb7851fa811766c694b9405810879bc4e1ddd78a7c0e03658ad
+  languageName: node
+  linkType: hard
+
 "json-stable-stringify-without-jsonify@npm:^1.0.1":
   version: 1.0.1
   resolution: "json-stable-stringify-without-jsonify@npm:1.0.1"
@@ -20642,7 +20664,7 @@ __metadata:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@fontsource/inter": ^4.5.11
-    "@saas-ui/next-workspaces": ^0.1.2-rc.1
+    "@saas-ui/next-workspaces": ^0.2.0-rc.2
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/react": "workspace:*"
     "@svgr/webpack": ^6.2.1
@@ -23210,6 +23232,13 @@ __metadata:
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1"
   checksum: fb47e70bf0001fdeabdc0429d431863e9475e7e43ea5f94ad86503d918423c1543361cc5166d713eaa7029dd7a3d34775af04764bebff99ef413111a5af18c80
+  languageName: node
+  linkType: hard
+
+"require-from-string@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "require-from-string@npm:2.0.2"
+  checksum: a03ef6895445f33a4015300c426699bc66b2b044ba7b670aa238610381b56d3f07c686251740d575e22f4c87531ba662d06937508f0f3c0f1ddc04db3130560b
   languageName: node
   linkType: hard
 
@@ -27290,7 +27319,7 @@ __metadata:
     "@next/bundle-analyzer": ^12.1.6
     "@octokit/rest": ^18.12.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/props-docs": ^1.0.0-rc.1
+    "@saas-ui/props-docs": ^1.0.0-rc.2
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

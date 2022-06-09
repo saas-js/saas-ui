@@ -1,5 +1,17 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Add exports entry for ajv
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- fca06e4: Added Json Schema (ajv) support for AutoForm.
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

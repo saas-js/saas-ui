@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Add exports entry for ajv
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.6
+  - @saas-ui/auth@1.0.0-rc.7
+  - @saas-ui/modals@1.0.0-rc.6
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- fca06e4: Added Json Schema (ajv) support for AutoForm.
+- Updated dependencies [fca06e4]
+  - @saas-ui/forms@1.0.0-rc.5
+  - @saas-ui/auth@1.0.0-rc.6
+  - @saas-ui/modals@1.0.0-rc.5
+
 ## 1.0.0-rc.5
 
 ### Patch Changes

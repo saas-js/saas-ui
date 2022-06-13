@@ -133,7 +133,7 @@ function ComponentLinks(props: ComponentLinksProps) {
   )
 
   return (
-    <Wrap className="component-links" mt="2rem" spacing="4" {...rest}>
+    <Wrap className="component-links" pt="2rem" spacing="4" {...rest}>
       {githubLink}
       {themeComponentLink}
       {npmLink}

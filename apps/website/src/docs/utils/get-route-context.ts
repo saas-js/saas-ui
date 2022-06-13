@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface RouteItem {
   title: string
   path?: string
@@ -7,6 +9,7 @@ export interface RouteItem {
   routes?: RouteItem[]
   new?: true
   soon?: true
+  icon?: any
 }
 
 export interface Routes {

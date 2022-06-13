@@ -1,0 +1,51 @@
+---
+title: Customize theme
+description: How to modify Saas UI's default theme.
+---
+
+All Saas UI components are themable and can be customed using component styles and theme tokens.
+
+Read more about [Chakra UI theming](https://chakra-ui.com/docs/styled-system/theming/customize-theme).
+
+<ComponentLinks
+  github={{ package: 'saas-ui' }}
+  npm={{ package: '@saas-ui/theme' }}
+/>
+
+## Colors
+
+To create custom colors for your theme you can use the Saas UI [Palette generator](https://palette.saas-ui.dev), [Themera](https://themera.vercel.app/) or if you want to go a bit more scientific [Colorbox](https://colorbox.io/).
+
+## Customizing theme tokens
+
+To extend or override a token in the default theme, import the extendTheme function and add the keys you'd like to override. You can also add new values to the theme.
+
+For example, if you'd like to update the colors in the theme to include your brand colors, here's what you'll do:
+
+```jsx live=false
+// 1. Import the extendTheme function
+import { extendTheme } from '@chakra-ui/react'
+
+// 2. Import the Saas UI theme
+import { SaasProvider, theme as baseTheme } from '@saas-ui/react'
+
+// 3. Extend the theme to include custom colors, fonts, etc
+const colors = {
+  brand: {
+    900: '#1a365d',
+    800: '#153e75',
+    700: '#2a69ac',
+  },
+}
+
+const theme = extendTheme({ colors }, baseTheme)
+
+// 3. Pass the `theme` prop to the `SaasProvider`
+function App() {
+  return (
+    <SaasProvider theme={theme}>
+      <App />
+    </SaasProvider>
+  )
+}
+```

@@ -9,6 +9,7 @@ import {
   useColorModeValue,
   Kbd,
   Collapse,
+  Icon,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -35,12 +36,14 @@ function SidebarHeader({ color, isOpen, children, ...props }: any) {
         color={color}
         display="flex"
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="flex-start"
         userSelect="none"
         cursor="pointer"
         className="sidebar-group-header"
       >
-        {children}
+        <chakra.span flex="1" display="inline-flex" alignItems="center">
+          {children}
+        </chakra.span>
         <chakra.span
           color={useColorModeValue('gray.500', 'gray.500')}
           transition="color .2s ease-in"
@@ -62,6 +65,7 @@ function SidebarHeader({ color, isOpen, children, ...props }: any) {
 
 function SidebarGroup({
   title,
+  icon,
   routes,
   heading,
   pathname,
@@ -86,6 +90,7 @@ function SidebarGroup({
     <Box {...props}>
       {heading && (
         <SidebarHeader isOpen={isOpen} {...getToggleProps()}>
+          {icon && <Icon as={icon} me="2" />}
           {title}
         </SidebarHeader>
       )}

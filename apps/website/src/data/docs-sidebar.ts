@@ -1,9 +1,12 @@
 import { RouteItem } from '@/docs/utils/get-route-context'
 
+import { FiBox, FiHelpCircle } from 'react-icons/fi'
+
 const sidebar = {
   routes: [
     {
       title: 'Getting Started',
+      icon: FiHelpCircle,
       heading: true,
       open: true,
       routes: [
@@ -12,16 +15,47 @@ const sidebar = {
           path: '/docs/introduction',
         },
         {
-          title: 'Installation',
-          path: '/docs/getting-started',
-        },
-        {
           title: 'Design Principles',
           path: '/docs/principles',
         },
         {
           title: 'Changelog',
           path: '/changelog',
+        },
+        {
+          title: 'Installation',
+          path: '/docs/getting-started',
+          open: true,
+          routes: [
+            {
+              title: 'Overview',
+              path: '/docs/getting-started',
+            },
+            {
+              title: 'Create React App',
+              path: '/docs/installation/cra-guide',
+            },
+            {
+              title: 'Next JS',
+              path: '/docs/installation/nextjs-guide',
+            },
+            {
+              title: 'Blitz JS',
+              path: '/docs/installation/blitzjs-guide',
+            },
+            {
+              title: 'RedwoodJS',
+              path: '/docs/installation/redwoodjs-guide',
+            },
+            {
+              title: 'Remix',
+              path: '/docs/installation/remix-guide',
+            },
+            {
+              title: 'Vite',
+              path: '/docs/installation/vite-guide',
+            },
+          ],
         },
         {
           title: 'Theming',
@@ -37,8 +71,8 @@ const sidebar = {
               path: '/docs/theming/chakra-ui-theme',
             },
             {
-              title: 'Palette',
-              path: '/docs/theming/palette',
+              title: 'Customize Theme',
+              path: '/docs/theming/customize-theme',
             },
           ],
         },
@@ -65,6 +99,7 @@ const sidebar = {
     },
     {
       title: 'Components',
+      icon: FiBox,
       heading: true,
       open: true,
       routes: [

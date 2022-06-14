@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- Fix vertical orientation for FormStepper.
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.7
+  - @saas-ui/auth@1.0.0-rc.8
+  - @saas-ui/modals@1.0.0-rc.7
+
 ## 1.0.0-rc.7
 
 ### Patch Changes

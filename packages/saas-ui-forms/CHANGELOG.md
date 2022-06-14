@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Fix vertical orientation for FormStepper.
+
 ## 1.0.0-rc.6
 
 ### Patch Changes

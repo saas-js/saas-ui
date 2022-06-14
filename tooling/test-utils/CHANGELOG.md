@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 2.0.0-rc.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@1.0.0-rc.8
+
 ## 2.0.0-rc.7
 
 ### Patch Changes

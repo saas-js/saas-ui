@@ -76,7 +76,7 @@ export interface FormStepOptions {
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
   const { activeIndex, setIndex } = useStepperContext()
 
-  const { children } = props
+  const { children, orientation } = props
 
   const elements = React.Children.map(children, (child) => {
     if (React.isValidElement(child) && child?.type === FormStep) {
@@ -99,7 +99,11 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
   }, [])
 
   return (
-    <StepperContainer step={activeIndex} onChange={onChange}>
+    <StepperContainer
+      orientation={orientation}
+      step={activeIndex}
+      onChange={onChange}
+    >
       <StepperSteps mb="4" {...props}>
         {elements}
       </StepperSteps>

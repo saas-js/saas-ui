@@ -1,12 +1,12 @@
 import { RouteItem } from '@/docs/utils/get-route-context'
 
-import { FiBox, FiHelpCircle } from 'react-icons/fi'
+import { FiBox, FiHelpCircle, FiBookOpen } from 'react-icons/fi'
 
 const sidebar = {
   routes: [
     {
       title: 'Getting Started',
-      icon: FiHelpCircle,
+      icon: FiBookOpen,
       heading: true,
       open: true,
       routes: [
@@ -23,7 +23,7 @@ const sidebar = {
           path: '/changelog',
         },
         {
-          title: 'Installation',
+          title: 'Quickstarts',
           path: '/docs/getting-started',
           open: true,
           routes: [
@@ -130,17 +130,17 @@ const sidebar = {
             {
               title: 'PageShell',
               // path: '/docs/layout/page',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Page',
               // path: '/docs/layout/page',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Section',
               // path: '/docs/layout/section',
-              soon: true,
+              pro: true,
             },
           ],
         },
@@ -161,17 +161,17 @@ const sidebar = {
             {
               title: 'CommandMenu',
               // path: '/docs/navigation/hotkeys',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Sidebar',
               // path: '/docs/layout/page',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Navbar',
               // path: '/docs/layout/page',
-              soon: true,
+              pro: true,
             },
           ],
         },
@@ -332,32 +332,32 @@ const sidebar = {
             {
               title: 'Onboarding',
               // path: '/docs/feedback/nprogress',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Tour',
               // path: '/docs/feedback/snackbar',
-              soon: true,
+              pro: true,
             },
             {
               title: 'InlineTip',
               // path: '/docs/feedback/loading',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Feedback',
               // path: '/docs/feedback/app-loader',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Changelog',
               // path: '/docs/feedback/app-loader',
-              soon: true,
+              pro: true,
             },
             {
               title: 'NotifyCenter',
               // path: '/docs/feedback/app-loader',
-              soon: true,
+              pro: true,
             },
           ],
         },
@@ -388,7 +388,7 @@ const sidebar = {
             {
               title: 'ResizeBox',
               // path: '/docs/layout/section',
-              soon: true,
+              pro: true,
             },
           ],
         },

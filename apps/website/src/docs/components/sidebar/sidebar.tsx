@@ -152,6 +152,17 @@ function SidebarGroup({
                           Soon
                         </Badge>
                       )}
+                      {lvl3.pro && (
+                        <Badge
+                          ml="2"
+                          lineHeight="tall"
+                          fontSize="10px"
+                          variant="solid"
+                          colorScheme="purple"
+                        >
+                          Pro
+                        </Badge>
+                      )}
                     </SidebarLink>
                   ))}
                 </Stack>

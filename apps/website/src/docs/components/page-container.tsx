@@ -90,7 +90,7 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <BackgroundGradient animate={false} height="100vh" opacity={0.3} />
+      <BackgroundGradient animate={false} height="30vh" opacity={0.2} />
       <Container
         as="main"
         className="main-content"

@@ -2,9 +2,13 @@ import {
   Box,
   Center,
   Link as ChakraLink,
+  LinkBox,
+  LinkOverlay,
   SimpleGrid,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react'
+import { Card } from '@saas-ui/react'
 import Link from 'next/link'
 import React from 'react'
 import {
@@ -15,38 +19,31 @@ import {
   RemixSvg,
   ViteSvg,
 } from './framework-svg'
+import { LinkCard } from './link-card'
 
 const FrameworkLink = (props) => {
-  const { accentColor, href, children, name } = props
+  const { href, children, name } = props
   return (
-    <Link passHref href={href}>
-      <ChakraLink
-        textDecoration="none"
-        _hover={{ textDecoration: 'none', transform: 'scale(1.1)' }}
-      >
-        <Box boxShadow="md" bg="white" borderRadius="lg" pt="4">
-          {children}
+    <LinkCard href={href}>
+      {children}
 
-          <Center
-            bg={accentColor}
-            borderBottomStartRadius="lg"
-            borderBottomEndRadius="lg"
-            height="30px"
-            mt="4"
-          >
-            <Text color="white" fontSize="sm" fontWeight="bold">
-              {name}
-            </Text>
-          </Center>
-        </Box>
-      </ChakraLink>
-    </Link>
+      <Center
+        borderBottomStartRadius="lg"
+        borderBottomEndRadius="lg"
+        height="30px"
+        mt="4"
+      >
+        <Text fontSize="sm" fontWeight="bold">
+          {name}
+        </Text>
+      </Center>
+    </LinkCard>
   )
 }
 
 export const FrameworkLinks = () => {
   return (
-    <SimpleGrid mt="12" minChildWidth="160px" spacing="40px" fontSize="6xl">
+    <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
       <FrameworkLink
         href="/docs/installation/cra-guide"
         accentColor="#0AC09D"

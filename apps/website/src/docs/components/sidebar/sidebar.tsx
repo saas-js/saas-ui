@@ -10,6 +10,7 @@ import {
   Kbd,
   Collapse,
   Icon,
+  Flex,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -27,7 +28,7 @@ export type SidebarContentProps = Routes & {
 
 function SidebarHeader({ color, isOpen, children, ...props }: any) {
   return (
-    <chakra.div mt="8" px="4" {...props}>
+    <chakra.div px="4" {...props}>
       <chakra.h4
         fontSize="sm"
         fontWeight="bold"
@@ -215,8 +216,8 @@ export function SidebarContent(props: SidebarContentProps) {
   }, [routes, query, filterRoutes])
 
   return (
-    <>
-      <Box>
+    <Flex flexDirection="column" height="100%">
+      <Box px="2" pb="2">
         <SearchInput
           ref={searchRef}
           placeholder="Search docs..."
@@ -232,17 +233,19 @@ export function SidebarContent(props: SidebarContentProps) {
           }
         />
       </Box>
-      {filteredRoutes.map((lvl1, idx) => {
-        return (
-          <SidebarGroup
-            key={idx}
-            contentRef={contentRef}
-            pathname={pathname}
-            {...lvl1}
-          />
-        )
-      })}
-    </>
+      <Box flex="1" overflowY="auto" minH="0" py="4">
+        {filteredRoutes.map((lvl1, idx) => {
+          return (
+            <SidebarGroup
+              key={idx}
+              contentRef={contentRef}
+              pathname={pathname}
+              {...lvl1}
+            />
+          )
+        })}
+      </Box>
+    </Flex>
   )
 }
 
@@ -259,12 +262,10 @@ const Sidebar = ({ routes }) => {
       overscrollBehavior="contain"
       w="280px"
       top="72px"
-      height="calc(100vh - 80px)"
+      height="calc(100vh - 72px)"
       pr="4"
-      pb="6"
       pl="2"
       pt="16"
-      overflowY="auto"
       className="sidebar-content"
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}

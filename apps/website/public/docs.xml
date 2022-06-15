@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 14 Jun 2022 17:53:22 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 15 Jun 2022 15:29:29 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -61,60 +61,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
-    <title>DataTable</title>
-    <link>https://saas-ui.dev/docs/data-display/data-table</link>
-    <description>A basic data table component that supports sorting and selections.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/data-display/divider</guid>
-    <title>Divider</title>
-    <link>https://saas-ui.dev/docs/data-display/divider</link>
-    <description>Dividers are used to visually separate content in a list or group.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/empty-state</guid>
-    <title>EmptyState</title>
-    <link>https://saas-ui.dev/docs/data-display/empty-state</link>
-    <description>Display actionable feedback when no data is available.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/list</guid>
-    <title>List</title>
-    <link>https://saas-ui.dev/docs/data-display/list</link>
-    <description>A component used to display collections of data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/persona</guid>
-    <title>Persona</title>
-    <link>https://saas-ui.dev/docs/data-display/persona</link>
-    <description>A component that represents a person and their status.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/property</guid>
-    <title>Property</title>
-    <link>https://saas-ui.dev/docs/data-display/property</link>
-    <description>A component used to show key/value data in a consistent manner.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -271,20 +231,60 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
+    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
+    <title>DataTable</title>
+    <link>https://saas-ui.dev/docs/data-display/data-table</link>
+    <description>A basic data table component that supports sorting and selections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
+    <guid>https://saas-ui.dev/docs/data-display/divider</guid>
+    <title>Divider</title>
+    <link>https://saas-ui.dev/docs/data-display/divider</link>
+    <description>Dividers are used to visually separate content in a list or group.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/empty-state</guid>
+    <title>EmptyState</title>
+    <link>https://saas-ui.dev/docs/data-display/empty-state</link>
+    <description>Display actionable feedback when no data is available.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/list</guid>
+    <title>List</title>
+    <link>https://saas-ui.dev/docs/data-display/list</link>
+    <description>A component used to display collections of data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/persona</guid>
+    <title>Persona</title>
+    <link>https://saas-ui.dev/docs/data-display/persona</link>
+    <description>A component that represents a person and their status.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/property</guid>
+    <title>Property</title>
+    <link>https://saas-ui.dev/docs/data-display/property</link>
+    <description>A component used to show key/value data in a consistent manner.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

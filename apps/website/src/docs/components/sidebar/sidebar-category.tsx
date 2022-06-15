@@ -72,6 +72,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
         justifyContent="space-between"
         userSelect="none"
         color={useColorModeValue('gray.500', 'gray.500')}
+        ps="5"
       >
         {title}
       </chakra.p>

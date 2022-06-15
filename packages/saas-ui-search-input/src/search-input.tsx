@@ -68,6 +68,8 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
       [onReset]
     )
 
+    const btnSize = size === 'lg' ? 'sm' : 'xs'
+
     return (
       <InputGroup size={size}>
         <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
@@ -84,10 +86,11 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
           {value ? (
             <IconButton
               onClick={onReset}
-              size="xs"
+              size={btnSize}
               variant="ghost"
               aria-label="Reset search"
               icon={resetIcon || <CloseIcon />}
+              sx={styles.reset}
             />
           ) : (
             rightElement

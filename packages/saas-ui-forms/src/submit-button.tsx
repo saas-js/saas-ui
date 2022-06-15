@@ -37,7 +37,7 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
       <Button
         type="submit"
         isLoading={formState.isSubmitting}
-        isPrimary
+        colorScheme="primary"
         ref={ref}
         isDisabled={isDisabled}
         {...rest}

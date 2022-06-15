@@ -100,8 +100,8 @@ const Home = () => {
     <Box>
       <SEO
         title="Saas UI"
-        description="The frontend stack for SaaS companies"
-        titleTemplate="%s - The frontend stack for SaaS companies"
+        description="The React component library for Startups"
+        titleTemplate="%s - The React component library for Startups"
       />
       <Script
         id="crisp-js"
@@ -122,15 +122,15 @@ const Home = () => {
                 title={
                   <FallInPlace>
                     Build beautiful
-                    <Br /> software faster
+                    <Br /> React frontends
+                    <Br /> that scale
                   </FallInPlace>
                 }
                 description={
                   <FallInPlace delay={0.4} fontWeight="medium">
-                    Saas UI is an <Em>advanced component library</Em>
-                    <Br /> that helps you build essential Software-as-a-Service
-                    <Br />
-                    functionality in hours instead of weeks.
+                    Saas UI is a <Em>React component library</Em>
+                    <Br /> that doesn&apos;t get in your way and helps you{' '}
+                    <Br /> build intuitive SaaS products with speed.
                   </FallInPlace>
                 }
               >

@@ -1,5 +1,14 @@
 # @saas-ui/hotkeys
 
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [de0dce2]
+- Updated dependencies [dc6376f]
+  - @saas-ui/search-input@1.0.0-rc.3
+
 ## 1.0.0-rc.2
 
 ### Minor Changes

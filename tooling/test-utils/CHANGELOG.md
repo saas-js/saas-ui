@@ -1,5 +1,15 @@
 # @saas-ui/test-utils
 
+## 2.0.0-rc.9
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [de0dce2]
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/react@1.0.0-rc.9
+
 ## 2.0.0-rc.8
 
 ### Patch Changes

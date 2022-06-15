@@ -1,5 +1,17 @@
 # @saas-ui/auth
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0-rc.3
+  - @saas-ui/forms@1.0.0-rc.8
+  - @saas-ui/hooks@1.0.0-rc.3
+  - @saas-ui/layout@1.0.0-rc.4
+
 ## 1.0.0-rc.8
 
 ### Patch Changes

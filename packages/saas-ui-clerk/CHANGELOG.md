@@ -1,5 +1,13 @@
 # @saas-ui/clerk
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [dc6376f]
+  - @saas-ui/auth@1.0.0-rc.9
+
 ## 1.0.0-rc.8
 
 ### Patch Changes

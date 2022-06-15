@@ -1,5 +1,12 @@
 # @saas-ui/search-input
 
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- de0dce2: Scale reset button icon based on the input size.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+
 ## 1.0.0-rc.2
 
 ### Minor Changes

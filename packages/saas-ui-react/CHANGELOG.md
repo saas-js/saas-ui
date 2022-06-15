@@ -1,5 +1,44 @@
 # @saas-ui/react
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- de0dce2: Scale reset button icon based on the input size.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- Updated dependencies [de0dce2]
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/search-input@1.0.0-rc.3
+  - @saas-ui/auth@1.0.0-rc.9
+  - @saas-ui/banner@1.0.0-rc.3
+  - @saas-ui/button@1.0.0-rc.3
+  - @saas-ui/card@1.0.0-rc.3
+  - @saas-ui/collapse@1.0.0-rc.3
+  - @saas-ui/data-table@1.0.0-rc.4
+  - @saas-ui/forms@1.0.0-rc.8
+  - @saas-ui/hooks@1.0.0-rc.3
+  - @saas-ui/hotkeys@1.0.0-rc.3
+  - @saas-ui/input-right-button@1.0.0-rc.3
+  - @saas-ui/layout@1.0.0-rc.4
+  - @saas-ui/list@1.0.0-rc.3
+  - @saas-ui/menu@1.0.0-rc.4
+  - @saas-ui/modals@1.0.0-rc.8
+  - @saas-ui/nprogress@1.0.0-rc.3
+  - @saas-ui/number-input@1.0.0-rc.3
+  - @saas-ui/palette@1.0.0-rc.3
+  - @saas-ui/password-input@1.0.0-rc.3
+  - @saas-ui/persona@1.0.0-rc.4
+  - @saas-ui/pin-input@1.0.0-rc.4
+  - @saas-ui/property@1.0.0-rc.3
+  - @saas-ui/provider@1.0.0-rc.4
+  - @saas-ui/radio@1.0.0-rc.3
+  - @saas-ui/select@1.0.0-rc.3
+  - @saas-ui/snackbar@1.0.0-rc.3
+  - @saas-ui/stepper@1.0.0-rc.4
+  - @saas-ui/theme@1.0.0-rc.3
+
 ## 1.0.0-rc.8
 
 ### Patch Changes

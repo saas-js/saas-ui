@@ -4,13 +4,6 @@ A Snackbar component for Chakra UI.
 
 Snackbar wraps @chakra-ui/toast with a bunch of convenience methods.
 
-## Todo
-
-This package is still in development and might not work 100% as expected.
-If you find any issues, please open an issues here on Github.
-
-- [ ] Add tests
-
 ## Installation
 
 ```sh
@@ -36,6 +29,14 @@ export default const App = () => {
   )
 }
 ```
+
+## Docs
+
+https://www.saas-ui.dev/docs/feedback/snackbar
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-snackbar
 
 ## License
 

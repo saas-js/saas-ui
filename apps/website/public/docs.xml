@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 14 Jun 2022 08:22:54 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 14 Jun 2022 17:53:22 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -115,6 +115,46 @@
     <title>Property</title>
     <link>https://saas-ui.dev/docs/data-display/property</link>
     <description>A component used to show key/value data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
+    <title>Loader</title>
+    <link>https://saas-ui.dev/docs/feedback/loader</link>
+    <description>A loading indicator that fills it's parent.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -281,40 +321,60 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/feedback/banner</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
+    <guid>https://saas-ui.dev/docs/installation/blitzjs-guide</guid>
+    <title>Blitz JS</title>
+    <link>https://saas-ui.dev/docs/installation/blitzjs-guide</link>
+    <description>A guide for installing Saas UI with blitzjs projects</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
-    <title>Loader</title>
-    <link>https://saas-ui.dev/docs/feedback/loader</link>
-    <description>A loading indicator that fills it's parent.</description>
+    <guid>https://saas-ui.dev/docs/installation/cra-guide</guid>
+    <title>Create React App</title>
+    <link>https://saas-ui.dev/docs/installation/cra-guide</link>
+    <description>A guide for installing Saas UI with create-react-app projects</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
+    <guid>https://saas-ui.dev/docs/installation/nextjs-guide</guid>
+    <title>Getting Started with Nextjs</title>
+    <link>https://saas-ui.dev/docs/installation/nextjs-guide</link>
+    <description>A guide for installing Saas UI with Nextjs projects</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
+    <guid>https://saas-ui.dev/docs/installation/redwoodjs-guide</guid>
+    <title>RedwoodJS</title>
+    <link>https://saas-ui.dev/docs/installation/redwoodjs-guide</link>
+    <description>A guide for installing Saas UI with redwoodjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/remix-guide</guid>
+    <title>Remix</title>
+    <link>https://saas-ui.dev/docs/installation/remix-guide</link>
+    <description>A guide for installing Saas UI with Remix projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/vite-guide</guid>
+    <title>Vite</title>
+    <link>https://saas-ui.dev/docs/installation/vite-guide</link>
+    <description>A guide for installing Saas UI with vitejs projects</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -375,66 +435,6 @@
     <title>Modals manager</title>
     <link>https://saas-ui.dev/docs/overlay/modals-manager</link>
     <description>Manage different types of modals with a single easy to use hook.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/installation/blitzjs-guide</guid>
-    <title>Blitz JS</title>
-    <link>https://saas-ui.dev/docs/installation/blitzjs-guide</link>
-    <description>A guide for installing Saas UI with blitzjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/installation/cra-guide</guid>
-    <title>Create React App</title>
-    <link>https://saas-ui.dev/docs/installation/cra-guide</link>
-    <description>A guide for installing Saas UI with create-react-app projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/installation/nextjs-guide</guid>
-    <title>Getting Started with Nextjs</title>
-    <link>https://saas-ui.dev/docs/installation/nextjs-guide</link>
-    <description>A guide for installing Saas UI with Nextjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/installation/redwoodjs-guide</guid>
-    <title>RedwoodJS</title>
-    <link>https://saas-ui.dev/docs/installation/redwoodjs-guide</link>
-    <description>A guide for installing Saas UI with redwoodjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/installation/remix-guide</guid>
-    <title>Remix</title>
-    <link>https://saas-ui.dev/docs/installation/remix-guide</link>
-    <description>A guide for installing Saas UI with Remix projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/installation/vite-guide</guid>
-    <title>Vite</title>
-    <link>https://saas-ui.dev/docs/installation/vite-guide</link>
-    <description>A guide for installing Saas UI with vitejs projects</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

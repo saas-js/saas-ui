@@ -1,6 +1,6 @@
 # @saas-ui/stepper
 
-Description
+A Chakra UI Stepper Component.
 
 ## Installation
 
@@ -12,7 +12,13 @@ $ yarn add @saas-ui/stepper
 $ npm i @saas-ui/stepper  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/navigation/stepper
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-stepper
 
 ## License
 

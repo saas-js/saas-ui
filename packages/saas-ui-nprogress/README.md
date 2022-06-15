@@ -1,18 +1,24 @@
-# @saas-ui/nprogress 
+# @saas-ui/nprogress
 
-Description
+Chakra UI NProgress component
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/nprogress 
+$ yarn add @saas-ui/nprogress
 
 #or
 
 $ npm i @saas-ui/nprogress  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/feedback/nprogress
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-nprogress
 
 ## License
 

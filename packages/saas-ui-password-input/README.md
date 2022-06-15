@@ -1,47 +1,24 @@
-# @saas-ui/search-input
+# @saas-ui/password-input
 
-A Search Input component for Chakra UI
-
-## Todo
-
-This package is still in development and might not work 100% as expected.
-If you find any issues, please open an issues here on Github.
-
-- [ ] Add tests
+Chakra UI Password Input with show/hide functionality.
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/search-input
+$ yarn add @saas-ui/password-input
 
 #or
 
-$ npm i @saas-ui/search-input --save
+$ npm i @saas-ui/password-input  --save
 ```
 
-## Usage
+## Docs
 
-```tsx
-import { SearchInput } from '@saas-ui/search-input'
+https://www.saas-ui.dev/docs/forms/password-input
 
-export default const App = () => {
-  const [value, setValue] = useState(null)
+## Source
 
-  const onChange = (e) => {
-    setValue(e.target.value)
-  }
-
-  const onReset = () => {
-    setValue(null)
-  }
-
-  return (
-    <Box>
-      <SearchInput onChange={onChange} onReset={onReset} value={value} />
-    </Box>
-  )
-}
-```
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-password-input
 
 ## License
 

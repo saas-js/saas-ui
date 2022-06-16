@@ -179,7 +179,7 @@ const Home = () => {
               >
                 <FallInPlace delay={1}>
                   <Img
-                    src="/app.png"
+                    src="/screenshots/list.png"
                     position="absolute"
                     width="100%"
                     top="0"

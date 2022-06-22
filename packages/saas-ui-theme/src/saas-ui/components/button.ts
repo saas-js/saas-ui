@@ -184,6 +184,22 @@ const variantLink: SystemStyleFunction = (props) => {
   }
 }
 
+const variantPrimary: SystemStyleFunction = (props) => {
+  return variantSolid({
+    ...props,
+    variant: 'solid',
+    colorScheme: 'primary',
+  })
+}
+
+const variantSecondary: SystemStyleFunction = (props) => {
+  return variantOutline({
+    ...props,
+    variant: 'outline',
+    colorScheme: 'secondary',
+  })
+}
+
 export default {
   defaultProps: {
     size: 'sm',
@@ -195,5 +211,7 @@ export default {
     subtle: variantSubtle,
     elevated: variantElevated,
     link: variantLink,
+    primary: variantPrimary,
+    secondary: variantSecondary,
   },
 }

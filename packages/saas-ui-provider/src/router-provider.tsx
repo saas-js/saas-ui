@@ -1,5 +1,3 @@
-import { ParsedUrlQuery } from 'querystring'
-
 import * as React from 'react'
 
 interface NavigateOptions {
@@ -15,7 +13,7 @@ interface RouterLocation {
 export interface RouterContextValue {
   navigate: (path: string, options?: NavigateOptions) => void
   back: () => void
-  params?: ParsedUrlQuery
+  params?: URLSearchParams
   location?: RouterLocation
 }
 

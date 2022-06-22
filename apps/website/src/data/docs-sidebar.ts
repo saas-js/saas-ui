@@ -128,8 +128,8 @@ const sidebar = {
               path: '/docs/layout/card',
             },
             {
-              title: 'UIShell',
-              path: '/docs/layout/ui-shell',
+              title: 'App Shell',
+              path: '/docs/layout/app-shell',
             },
             {
               title: 'Page',
@@ -163,11 +163,6 @@ const sidebar = {
             },
             {
               title: 'Sidebar',
-              // path: '/docs/layout/page',
-              pro: true,
-            },
-            {
-              title: 'Navbar',
               // path: '/docs/layout/page',
               pro: true,
             },

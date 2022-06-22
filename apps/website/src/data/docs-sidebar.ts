@@ -134,6 +134,7 @@ const sidebar = {
             {
               title: 'Page',
               path: '/docs/layout/page',
+              pro: true,
             },
             {
               title: 'Section',

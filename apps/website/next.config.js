@@ -66,13 +66,13 @@ let config = {
     }
 
     config.module.rules.push({
-      test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding)\/.*\.tsx?/,
+      test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding|router)\/.*\.tsx?/,
       use: [defaultLoaders.babel],
     })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui\/(?!props-docs|pro)([a-z0-9-\/]+)$/,
+        /\@saas-ui\/(?!props-docs|pro|router)([a-z0-9-\/]+)$/,
         (resource) => {
           resource.request = resource.request + '/src'
         }

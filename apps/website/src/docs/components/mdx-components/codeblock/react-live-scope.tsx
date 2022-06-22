@@ -24,6 +24,7 @@ import {
   FiLock,
   FiCheck,
   FiArrowRight,
+  FiAlertTriangle,
 } from 'react-icons/fi'
 
 import {
@@ -45,6 +46,7 @@ const reactIcons = {
   FiLock,
   FiCheck,
   FiArrowRight,
+  FiAlertTriangle,
   FaFacebook,
   FaTwitter,
   FaGithub,
@@ -67,6 +69,10 @@ const saveHandler = (params) => {
 
 const SaasSpinner = () => <SaasUIGlyph width="48px" height="48px" isAnimating />
 
+const ThrowSomeError = () => {
+  throw new Error()
+}
+
 const ReactLiveScope = {
   React,
   ...React,
@@ -87,6 +93,7 @@ const ReactLiveScope = {
   SaasUILogo,
   SaasUIGlyph,
   SaasSpinner,
+  ThrowSomeError,
 }
 
 export default ReactLiveScope

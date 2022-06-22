@@ -47,6 +47,16 @@ let config = {
       use: [
         {
           loader: '@svgr/webpack',
+          options: {
+            svgoConfig: {
+              plugins: [
+                {
+                  name: 'removeViewBox',
+                  active: false,
+                },
+              ],
+            },
+          },
         },
       ],
     })

@@ -7,9 +7,39 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 08 May 2022 10:13:55 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 22 Jun 2022 08:00:27 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/docs/getting-started</guid>
+    <title>Getting Started</title>
+    <link>https://saas-ui.dev/docs/getting-started</link>
+    <description>How to get up and running quickly with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/introduction</guid>
+    <title>Introduction</title>
+    <link>https://saas-ui.dev/docs/introduction</link>
+    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/principles</guid>
+    <title>Design Principles</title>
+    <link>https://saas-ui.dev/docs/principles</link>
+    <description>Principles that keep your code and UX consistent</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/docs/auth/auth-provider</guid>
     <title>AuthProvider</title>
@@ -25,106 +55,6 @@
     <title>Auth</title>
     <link>https://saas-ui.dev/docs/auth/auth</link>
     <description>Ready to use authentication forms.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
-    <title>DataTable</title>
-    <link>https://saas-ui.dev/docs/data-display/data-table</link>
-    <description>A basic data table component that supports sorting and selections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/divider</guid>
-    <title>Divider</title>
-    <link>https://saas-ui.dev/docs/data-display/divider</link>
-    <description>Dividers are used to visually separate content in a list or group.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/empty-state</guid>
-    <title>EmptyState</title>
-    <link>https://saas-ui.dev/docs/data-display/empty-state</link>
-    <description>Display actionable feedback when no data is available.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/list</guid>
-    <title>List</title>
-    <link>https://saas-ui.dev/docs/data-display/list</link>
-    <description>A component used to display collections of data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/persona</guid>
-    <title>Persona</title>
-    <link>https://saas-ui.dev/docs/data-display/persona</link>
-    <description>A component that represents a person and their status.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/property</guid>
-    <title>Property</title>
-    <link>https://saas-ui.dev/docs/data-display/property</link>
-    <description>A component used to show key/value data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/feedback/banner</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
-    <title>Loader</title>
-    <link>https://saas-ui.dev/docs/feedback/loader</link>
-    <description>A loading indicator that fills it's parent.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -241,16 +171,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/getting-started</guid>
-    <title>Getting Started</title>
-    <link>https://saas-ui.dev/docs/getting-started</link>
-    <description>How to get up and running quickly with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
     <title>useCollapse</title>
     <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
@@ -271,40 +191,100 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
-    <title>Clerk</title>
-    <link>https://saas-ui.dev/docs/integrations/clerk</link>
-    <description>Integrating Clerk authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
+    <title>DataTable</title>
+    <link>https://saas-ui.dev/docs/data-display/data-table</link>
+    <description>A basic data table component that supports sorting and selections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
-    <title>Magic</title>
-    <link>https://saas-ui.dev/docs/integrations/magic</link>
-    <description>Integrating Magic authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/data-display/divider</guid>
+    <title>Divider</title>
+    <link>https://saas-ui.dev/docs/data-display/divider</link>
+    <description>Dividers are used to visually separate content in a list or group.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
-    <title>Supabase</title>
-    <link>https://saas-ui.dev/docs/integrations/supabase</link>
-    <description>Integrating Supabase authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/data-display/empty-state</guid>
+    <title>EmptyState</title>
+    <link>https://saas-ui.dev/docs/data-display/empty-state</link>
+    <description>Display actionable feedback when no data is available.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/introduction</guid>
-    <title>Introduction</title>
-    <link>https://saas-ui.dev/docs/introduction</link>
-    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
+    <guid>https://saas-ui.dev/docs/data-display/list</guid>
+    <title>List</title>
+    <link>https://saas-ui.dev/docs/data-display/list</link>
+    <description>A component used to display collections of data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/persona</guid>
+    <title>Persona</title>
+    <link>https://saas-ui.dev/docs/data-display/persona</link>
+    <description>A component that represents a person and their status.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/property</guid>
+    <title>Property</title>
+    <link>https://saas-ui.dev/docs/data-display/property</link>
+    <description>A component used to show key/value data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
+    <title>Loader</title>
+    <link>https://saas-ui.dev/docs/feedback/loader</link>
+    <description>A loading indicator that fills it's parent.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -341,6 +321,96 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/integrations/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/integrations/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/integrations/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/blitzjs-guide</guid>
+    <title>Blitz JS</title>
+    <link>https://saas-ui.dev/docs/installation/blitzjs-guide</link>
+    <description>A guide for installing Saas UI with blitzjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/cra-guide</guid>
+    <title>Create React App</title>
+    <link>https://saas-ui.dev/docs/installation/cra-guide</link>
+    <description>A guide for installing Saas UI with create-react-app projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/nextjs-guide</guid>
+    <title>Getting Started with Nextjs</title>
+    <link>https://saas-ui.dev/docs/installation/nextjs-guide</link>
+    <description>A guide for installing Saas UI with Nextjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/redwoodjs-guide</guid>
+    <title>RedwoodJS</title>
+    <link>https://saas-ui.dev/docs/installation/redwoodjs-guide</link>
+    <description>A guide for installing Saas UI with redwoodjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/remix-guide</guid>
+    <title>Remix</title>
+    <link>https://saas-ui.dev/docs/installation/remix-guide</link>
+    <description>A guide for installing Saas UI with Remix projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/installation/vite-guide</guid>
+    <title>Vite</title>
+    <link>https://saas-ui.dev/docs/installation/vite-guide</link>
+    <description>A guide for installing Saas UI with vitejs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/overlay/form-dialog</guid>
     <title>Form Dialog</title>
     <link>https://saas-ui.dev/docs/overlay/form-dialog</link>
@@ -371,16 +441,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/principles</guid>
-    <title>Design Principles</title>
-    <link>https://saas-ui.dev/docs/principles</link>
-    <description>Principles that keep your code and UX consistent</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/theming/chakra-ui-theme</guid>
     <title>Chakra UI Theme</title>
     <link>https://saas-ui.dev/docs/theming/chakra-ui-theme</link>
@@ -391,10 +451,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/theming/palette</guid>
-    <title>Palette</title>
-    <link>https://saas-ui.dev/docs/theming/palette</link>
-    <description>A utility to generate a color palette for your custom theme.</description>
+    <guid>https://saas-ui.dev/docs/theming/customize-theme</guid>
+    <title>Customize theme</title>
+    <link>https://saas-ui.dev/docs/theming/customize-theme</link>
+    <description>How to modify Saas UI's default theme.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

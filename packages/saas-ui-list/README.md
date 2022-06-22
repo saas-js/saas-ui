@@ -1,6 +1,6 @@
 # @saas-ui/list
 
-Description
+A List component that supports more complex types of data than the standard Chakra UI List component.
 
 ## Installation
 
@@ -12,7 +12,13 @@ $ yarn add @saas-ui/list
 $ npm i @saas-ui/list  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/data-display/list
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-list
 
 ## License
 

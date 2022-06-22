@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/property",
-  "version": "0.3.3",
+  "version": "1.0.0-rc.3",
   "description": "Property Component",
   "source": "src/index.ts",
   "exports": {
@@ -55,7 +55,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.0",
+    "@chakra-ui/utils": "^2.0.2",
     "@saas-ui/list": "workspace:*"
   },
   "peerDependencies": {

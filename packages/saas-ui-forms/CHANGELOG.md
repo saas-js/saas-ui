@@ -1,5 +1,128 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0-rc.3
+  - @saas-ui/input-right-button@1.0.0-rc.3
+  - @saas-ui/number-input@1.0.0-rc.3
+  - @saas-ui/password-input@1.0.0-rc.3
+  - @saas-ui/pin-input@1.0.0-rc.4
+  - @saas-ui/radio@1.0.0-rc.3
+  - @saas-ui/react-utils@1.0.0-rc.3
+  - @saas-ui/select@1.0.0-rc.3
+  - @saas-ui/stepper@1.0.0-rc.4
+
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Fix vertical orientation for FormStepper.
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Add exports entry for ajv
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- fca06e4: Added Json Schema (ajv) support for AutoForm.
+
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- Updated dependencies [9e9c601]
+  - @saas-ui/stepper@1.0.0-rc.3
+
+## 1.0.0-rc.3
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 6133901: No longer passing down label to input fields.
+- ddec417: ArrayField no longer passing down items to the container element.
+- 5f80cea: AutoForm now renders children.
+- 532a7d4: Fixed all theme onconsistencies.
+- 1c247cb: InputField now has type="text" by default.
+- d1fb472: Select now renders a hidden input with the current value.
+- Updated dependencies [c8621b8]
+- Updated dependencies [532a7d4]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [532a7d4]
+  - @saas-ui/select@1.0.0-rc.2
+  - @saas-ui/button@1.0.0-rc.2
+  - @saas-ui/input-right-button@1.0.0-rc.2
+  - @saas-ui/number-input@1.0.0-rc.2
+  - @saas-ui/password-input@1.0.0-rc.2
+  - @saas-ui/pin-input@1.0.0-rc.3
+  - @saas-ui/radio@1.0.0-rc.2
+  - @saas-ui/react-utils@1.0.0-rc.2
+  - @saas-ui/stepper@1.0.0-rc.2
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/button@1.0.0-rc.1
+  - @saas-ui/input-right-button@1.0.0-rc.1
+  - @saas-ui/number-input@1.0.0-rc.1
+  - @saas-ui/password-input@1.0.0-rc.1
+  - @saas-ui/pin-input@1.0.0-rc.2
+  - @saas-ui/radio@1.0.0-rc.1
+  - @saas-ui/react-utils@1.0.0-rc.1
+  - @saas-ui/select@1.0.0-rc.1
+  - @saas-ui/stepper@1.0.0-rc.1
+
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- Updated dependencies [3dee538]
+  - @saas-ui/pin-input@1.0.0-rc.1
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/button@1.0.0-rc.0
+  - @saas-ui/input-right-button@1.0.0-rc.0
+  - @saas-ui/number-input@1.0.0-rc.0
+  - @saas-ui/password-input@1.0.0-rc.0
+  - @saas-ui/pin-input@1.0.0-rc.0
+  - @saas-ui/radio@1.0.0-rc.0
+  - @saas-ui/react-utils@1.0.0-rc.0
+  - @saas-ui/select@1.0.0-rc.0
+  - @saas-ui/stepper@1.0.0-rc.0
+
 ## 0.7.10
 
 ### Patch Changes

@@ -29,9 +29,6 @@ const outlineVariant: PartsStyleFunction<typeof inputAnatomy> = (props) => {
       _hover: {
         borderColor: mode('blackAlpha.400', 'whiteAlpha.400')(props),
       },
-      '&::placeholder': {
-        color: mode('gray.500', 'whiteAlpha.600')(props),
-      },
     },
   }
 }

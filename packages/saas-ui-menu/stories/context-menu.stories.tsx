@@ -4,6 +4,7 @@ import {
   MenuOptionGroup,
   MenuItemOption,
   MenuDivider,
+  Stack,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -27,19 +28,18 @@ export default {
   ],
 }
 
-export const Basic = () => {
+export const Basic = (props) => {
   return (
-    <ContextMenu>
+    <ContextMenu {...props}>
       <ContextMenuTrigger>
         <Center height="200px" borderWidth="1px">
           Right click here
         </Center>
       </ContextMenuTrigger>
       <ContextMenuList>
-        <MenuItem>Item</MenuItem>
-        <MenuItem>Item</MenuItem>
-        <MenuItem>Item</MenuItem>
-        <MenuItem>Item</MenuItem>
+        <MenuItem>Edit</MenuItem>
+        <MenuItem>Copy</MenuItem>
+        <MenuItem>Delete</MenuItem>
       </ContextMenuList>
     </ContextMenu>
   )
@@ -55,10 +55,9 @@ export const OnClose = () => {
         </Center>
       </ContextMenuTrigger>
       <ContextMenuList>
-        <MenuItem>Item</MenuItem>
-        <MenuItem>Item</MenuItem>
-        <MenuItem>Item</MenuItem>
-        <MenuItem>Item</MenuItem>
+        <MenuItem>Edit</MenuItem>
+        <MenuItem>Copy</MenuItem>
+        <MenuItem>Delete</MenuItem>
       </ContextMenuList>
     </ContextMenu>
   )
@@ -85,5 +84,53 @@ export const MenuOptionGroups = () => {
         </MenuOptionGroup>
       </ContextMenuList>
     </ContextMenu>
+  )
+}
+
+export const WithLazyRender = (props) => {
+  return (
+    <ContextMenu isLazy {...props}>
+      <ContextMenuTrigger>
+        <Center height="200px" borderWidth="1px">
+          Right click here
+        </Center>
+      </ContextMenuTrigger>
+      <ContextMenuList>
+        <MenuItem>Edit</MenuItem>
+        <MenuItem>Copy</MenuItem>
+        <MenuItem>Delete</MenuItem>
+      </ContextMenuList>
+    </ContextMenu>
+  )
+}
+
+export const WithMultipleMenus = (props) => {
+  return (
+    <Stack>
+      <ContextMenu {...props}>
+        <ContextMenuTrigger>
+          <Center height="200px" borderWidth="1px">
+            Right click here
+          </Center>
+        </ContextMenuTrigger>
+        <ContextMenuList>
+          <MenuItem>Edit</MenuItem>
+          <MenuItem>Copy</MenuItem>
+          <MenuItem>Delete</MenuItem>
+        </ContextMenuList>
+      </ContextMenu>
+      <ContextMenu {...props}>
+        <ContextMenuTrigger>
+          <Center height="200px" borderWidth="1px">
+            Right click here
+          </Center>
+        </ContextMenuTrigger>
+        <ContextMenuList>
+          <MenuItem>Edit 2</MenuItem>
+          <MenuItem>Copy 2</MenuItem>
+          <MenuItem>Delete 2</MenuItem>
+        </ContextMenuList>
+      </ContextMenu>
+    </Stack>
   )
 }

@@ -69,8 +69,8 @@ const users = [
   },
 ]
 
-export const basic = Template.bind({})
-basic.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   items: users.map(({ name, position, role }) => ({
     icon: <Avatar name={name} size="sm" />,
     primary: name,
@@ -81,8 +81,8 @@ basic.args = {
   })),
 }
 
-export const withIcons = Template.bind({})
-withIcons.args = {
+export const WithIcons = Template.bind({})
+WithIcons.args = {
   items: users.map(({ name, position, role }) => ({
     icon: <Icon as={FiUser} />,
     primary: name,
@@ -93,7 +93,7 @@ withIcons.args = {
   })),
 }
 
-export const composed = () => {
+export const Composed = () => {
   return (
     <Box width="100%" maxW="320px">
       <Box as="nav" aria-label="Main navigation">
@@ -129,7 +129,7 @@ export const composed = () => {
   )
 }
 
-export const nested = () => {
+export const Nested = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -164,7 +164,7 @@ export const nested = () => {
   )
 }
 
-export const customStyles = () => {
+export const CustomStyles = () => {
   const { isOpen, getToggleProps, getCollapseProps } = useCollapse()
 
   const theme = useTheme()
@@ -183,7 +183,6 @@ export const customStyles = () => {
               color={useColorModeValue('teal.500', 'teal.300')}
               bg={transparentize(bg, 0.3)(theme)}
               _hover={{ bg: transparentize(bg, 0.3)(theme) }}
-              href="#"
             >
               <ListItemIcon size="16px" as={FiHome} />
               <ListItemLabel fontWeight="bold">Home</ListItemLabel>
@@ -248,7 +247,7 @@ export const customStyles = () => {
   )
 }
 
-export const withSwitch = () => {
+export const WithSwitch = () => {
   return (
     <Box width="100%" maxW="320px">
       <List>

@@ -13,7 +13,7 @@ interface Option {
 }
 
 interface NativeSelectOptions {
-  options: Option[]
+  options?: Option[]
 }
 
 export interface NativeSelectProps
@@ -21,16 +21,17 @@ export interface NativeSelectProps
     NativeSelectOptions {}
 
 export const NativeSelect = forwardRef<NativeSelectProps, 'select'>(
-  ({ options, ...props }, ref) => {
+  ({ options, children, ...props }, ref) => {
     return (
       <ChakraSelect ref={ref} {...props}>
-        {options.map(({ value, label }) => {
-          return (
-            <option key={value} value={value}>
-              {label || value}
-            </option>
-          )
-        })}
+        {children ||
+          options?.map(({ value, label }) => {
+            return (
+              <option key={value} value={value}>
+                {label || value}
+              </option>
+            )
+          })}
       </ChakraSelect>
     )
   }

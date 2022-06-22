@@ -26,17 +26,17 @@ export interface SearchInputProps
   placeholder?: string
   /**
    * The icon to render before the input text
-   * @type React.ReactNode
+   * @type React.ReactElement
    */
-  icon?: React.ReactNode
+  icon?: React.ReactElement
   /**
    * The icon to render in the reset button
-   * @type React.ReactNode
+   * @type React.ReactElement
    */
   resetIcon?: React.ReactElement
   /**
    * Right element rendered when the value is empty
-   * @type React.ReactNode
+   * @type React.ReactElement
    */
   rightElement?: React.ReactElement
   /**
@@ -68,6 +68,8 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
       [onReset]
     )
 
+    const btnSize = size === 'lg' ? 'sm' : 'xs'
+
     return (
       <InputGroup size={size}>
         <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
@@ -84,10 +86,11 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
           {value ? (
             <IconButton
               onClick={onReset}
-              size="xs"
+              size={btnSize}
               variant="ghost"
               aria-label="Reset search"
               icon={resetIcon || <CloseIcon />}
+              sx={styles.reset}
             />
           ) : (
             rightElement

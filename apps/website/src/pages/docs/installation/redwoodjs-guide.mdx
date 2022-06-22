@@ -1,0 +1,154 @@
+---
+title: RedwoodJS
+description: A guide for installing Saas UI with redwoodjs projects
+tags: ['redwoodjs']
+---
+
+## Installation
+
+### Automatic
+
+RedwoodJS provides a convenient setup script via its [CLI tool](https://redwoodjs.com/docs/cli-commands#setup-ui)
+to enable Chakra UI in your project with a single command. In your project folder, simply enter:
+
+```bash
+yarn redwood setup ui chakra-ui
+```
+
+This will make the necessary modifications to your `App.tsx` (or `App.js`, respectively)
+which are basically the same as outlined in manual installation steps below.
+
+After this you can install Saas UI.
+
+```bash
+yarn add @saas-ui/react
+```
+
+See [additional setup](#additional-setup) (such as including
+theme customizations and Storybook integration) below.
+
+### Manual
+
+1. Inside your `Redwoodjs` project , cd into `web`, then, install Chakra UI by
+   running either of the following:
+
+```bash
+npm i @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```
+
+```bash
+yarn add @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```
+
+2. After installing Saas UI, you need to set up the `SaasProvider` at the root
+   of your application. Go to `App.js` and add the `SaasProvider` like this:
+
+```jsx live=false
+import { ColorModeScript } from '@chakra-ui/react'
+import { SaasProvider } from '@saas-ui/react'
+
+const App = () => (
+  <FatalErrorBoundary page={FatalErrorPage}>
+    <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+      <ColorModeScript />
+      <SaasProvider>
+        <RedwoodApolloProvider>
+          <Routes />
+        </RedwoodApolloProvider>
+      </SaasProvider>
+    </RedwoodProvider>
+  </FatalErrorBoundary>
+)
+
+export default App
+```
+
+## Additional setup
+
+### Customize Theme
+
+If you intend to [customize the default theme](/docs/styled-system/theming/customize-theme),
+you will need to pass your extended theme object as a prop
+to `ChakraProvider` as follows:
+
+```jsx live=false
+// 1. Import the extendTheme function
+import { extendTheme } from '@chakra-ui/react'
+
+// 2. Import the Saas UI theme
+import { theme as baseTheme } from '@saas-ui/react'
+
+// 3. Extend the theme to include custom colors, fonts, etc
+const colors = {
+  brand: {
+    900: '#1a365d',
+    800: '#153e75',
+    700: '#2a69ac',
+  },
+}
+
+const theme = extendTheme({ colors }, baseTheme)
+
+// 3. Pass the `theme` prop to the `ChakraProvider`
+const App = () => (
+  <FatalErrorBoundary page={FatalErrorPage}>
+    <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+      <ColorModeScript />
+      <SaasProvider theme={theme}>
+        <RedwoodApolloProvider>
+          <Routes />
+        </RedwoodApolloProvider>
+      </SaasProvider>
+    </RedwoodProvider>
+  </FatalErrorBoundary>
+)
+```
+
+### Storybook Integration
+
+RedwoodJS ships with Storybook included. To automatically wrap your
+your stories with the `<ChakraProvider />` and add a color mode toggle, follow
+the steps below.
+
+> The steps outlined here are semantically identical to
+> our [Storybook integration Guide](/guides/integrations/with-storybook),
+> only the install commands and file locations differ.
+
+1. Install the official Storybook Addon for Chakra UI:
+   ```bash
+   yarn workspace web add -D @chakra-ui/storybook-addon
+   yarn workspace web add @chakra-ui/icons
+   ```
+2. Add the addon to your configuration in `web/config/storybook.config.js`:
+
+   ```jsx live=false
+   module.exports = {
+     addons: [
+       // ...
+       '@chakra-ui/storybook-addon',
+     ],
+   }
+   ```
+
+3. Additional configuration:  
+    In case you are using any [Theme customizations](/docs/styled-system/theming/customize-theme),
+   you will want to see them applied in Storybook as well.
+   Enable them in `web/config/storybook.preview.js` like this:
+
+   ```jsx live=false
+   const theme = require('../path/to/your/theme')
+
+   export const parameters = {
+     // ...
+     chakra: {
+       theme,
+     },
+   }
+   ```
+
+   The `chakra` object accepts the same [props](#chakraprovider-props) as `ChakraProvider` (without `children`).
+
+### Notes on TypeScript 🚨
+
+Please note that when adding Chakra UI to a TypeScript project, a minimum
+TypeScript version of `4.1.0` is required.

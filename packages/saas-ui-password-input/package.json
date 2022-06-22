@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/password-input",
-  "version": "0.3.4",
+  "version": "1.0.0-rc.3",
   "description": "A password input for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -57,8 +57,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.0",
-    "@chakra-ui/utils": "^2.0.0",
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/utils": "^2.0.2",
     "@saas-ui/input-right-button": "workspace:*"
   },
   "peerDependencies": {

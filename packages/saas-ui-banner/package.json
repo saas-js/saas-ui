@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/banner",
-  "version": "0.0.4",
+  "version": "1.0.0-rc.3",
   "description": "A banner component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -55,11 +55,11 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/close-button": "^2.0.0",
-    "@chakra-ui/hooks": "^2.0.0",
-    "@chakra-ui/icons": "^2.0.0",
-    "@chakra-ui/transition": "^2.0.0",
-    "@chakra-ui/utils": "^2.0.0",
+    "@chakra-ui/close-button": "^2.0.2",
+    "@chakra-ui/hooks": "^2.0.2",
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/transition": "^2.0.2",
+    "@chakra-ui/utils": "^2.0.2",
     "@saas-ui/button": "workspace:*"
   },
   "peerDependencies": {

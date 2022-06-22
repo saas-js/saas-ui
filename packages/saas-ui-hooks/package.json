@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/hooks",
-  "version": "0.4.1",
+  "version": "1.0.0-rc.3",
   "description": "Saas UI react hooks",
   "source": "src/index.ts",
   "exports": {

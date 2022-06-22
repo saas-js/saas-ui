@@ -1,6 +1,6 @@
 # @saas-ui/button
 
-Description
+Chakra UI Button component.
 
 ## Installation
 
@@ -12,7 +12,13 @@ $ yarn add @saas-ui/button
 $ npm i @saas-ui/button  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/forms/button
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-button
 
 ## License
 

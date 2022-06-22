@@ -19,6 +19,7 @@ const StyledLink = React.forwardRef(function StyledLink(
       width="100%"
       px="3"
       py="1"
+      ps="8"
       rounded="md"
       ref={ref}
       fontSize="sm"
@@ -27,11 +28,11 @@ const StyledLink = React.forwardRef(function StyledLink(
       transition="all 0.2s"
       _hover={{
         color: useColorModeValue('black', 'white'),
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+        bg: useColorModeValue('blackAlpha.100', 'whiteAlpha.200'),
       }}
       _focus={{
         color: useColorModeValue('black', 'white'),
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+        bg: useColorModeValue('blackAlpha.100', 'whiteAlpha.200'),
         boxShadow: 'outline',
         '&:not(:focus-visible)': { boxShadow: 'none' },
       }}

@@ -29,11 +29,12 @@ import { t } from '@/docs/utils/i18n'
 import headerNav from '@/data/header-nav'
 
 interface NavLinkProps extends CenterProps {
+  label: string
   href?: string
   isActive?: boolean
 }
 
-function NavLink({ href, children, isActive, ...rest }: NavLinkProps) {
+function NavLink({ href, children, label, isActive, ...rest }: NavLinkProps) {
   const { pathname } = useRouter()
   const bgActiveHoverColor = useColorModeValue('gray.100', 'whiteAlpha.100')
 
@@ -57,7 +58,7 @@ function NavLink({ href, children, isActive, ...rest }: NavLinkProps) {
         }}
         {...rest}
       >
-        {children}
+        {label}
       </Center>
     </GridItem>
   )
@@ -117,8 +118,9 @@ export function MobileNavContent(props: MobileNavContentProps) {
               pos="absolute"
               top="0"
               left="0"
-              zIndex={20}
+              zIndex="modal"
               pb="8"
+              backdropFilter="blur(5px)"
             >
               <Box>
                 <Flex justify="space-between" px="8" pt="4" pb="4">
@@ -209,3 +211,5 @@ export const MobileNavButton = React.forwardRef(
     )
   }
 )
+
+MobileNavButton.displayName = 'MobileNavButton'

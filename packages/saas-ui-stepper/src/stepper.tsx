@@ -7,9 +7,8 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
-  useStyles,
-  StylesProvider,
   SystemStyleObject,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { CheckIcon, Icon } from '@chakra-ui/icons'
@@ -26,9 +25,11 @@ import {
   UseStepperProps,
 } from './use-stepper'
 
+const [StylesProvider, useStyles] = createStylesContext('Stepper')
+
 export interface StepperProps
   extends UseStepperProps,
-    HTMLChakraProps<'div'>,
+    Omit<HTMLChakraProps<'div'>, 'onChange'>,
     ThemingProps<'Stepper'> {
   orientation?: 'horizontal' | 'vertical'
 }
@@ -39,40 +40,61 @@ export interface StepperProps
  * Can be controlled or uncontrolled.
  */
 export const Stepper = forwardRef<StepperProps, 'div'>((props, ref) => {
-  const { children, orientation = 'horizontal', step, ...rest } = props
-
-  const styles = useMultiStyleConfig('Stepper', {
-    ...rest,
-    orientation,
-  })
-  const containerProps = omitThemingProps(rest)
-
-  const context = useStepper(props)
-
-  const containerStyles: SystemStyleObject = {
-    display: 'flex',
-    flexDirection: 'column',
-    ...styles.container,
-  }
-
+  const { orientation, children, ...containerProps } = props
   return (
-    <StylesProvider value={styles}>
-      <StepperProvider value={context}>
-        <chakra.div
-          ref={ref}
-          __css={containerStyles}
-          {...containerProps}
-          className={cx('saas-stepper', props.className)}
-        >
-          <StepperSteps orientation={orientation}>{children}</StepperSteps>
-        </chakra.div>
-      </StepperProvider>
-    </StylesProvider>
+    <StepperContainer ref={ref} orientation={orientation} {...containerProps}>
+      <StepperSteps orientation={orientation}>{children}</StepperSteps>
+    </StepperContainer>
   )
 })
 
 if (__DEV__) {
   Stepper.displayName = 'Stepper'
+}
+
+export const StepperContainer = forwardRef<StepperProps, 'div'>(
+  (props, ref) => {
+    const {
+      children,
+      orientation = 'horizontal',
+      step,
+      onChange,
+      ...rest
+    } = props
+
+    const styles = useMultiStyleConfig('Stepper', {
+      ...rest,
+      orientation,
+    })
+    const containerProps = omitThemingProps(rest)
+
+    const context = useStepper(props)
+
+    const containerStyles: SystemStyleObject = {
+      display: 'flex',
+      flexDirection: 'column',
+      ...styles.container,
+    }
+
+    return (
+      <StylesProvider value={styles}>
+        <StepperProvider value={context}>
+          <chakra.div
+            ref={ref}
+            __css={containerStyles}
+            {...containerProps}
+            className={cx('saas-stepper', props.className)}
+          >
+            {children}
+          </chakra.div>
+        </StepperProvider>
+      </StylesProvider>
+    )
+  }
+)
+
+if (__DEV__) {
+  StepperContainer.displayName = 'StepperContainer'
 }
 
 export interface StepperStepsProps extends HTMLChakraProps<'div'> {

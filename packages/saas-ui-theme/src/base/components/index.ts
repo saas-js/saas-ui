@@ -3,6 +3,7 @@ import Card from './card'
 import EmptyState from './empty-state'
 import FormLayout from './form-layout'
 import Form from './form'
+import FormLegend from './form'
 import Hotkeys from './hotkeys'
 import List from './list'
 import Loader from './loader'
@@ -17,6 +18,7 @@ export default {
   EmptyState,
   FormLayout,
   Form,
+  FormLegend,
   Hotkeys,
   List,
   Loader,

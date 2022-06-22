@@ -1,5 +1,114 @@
 # @saas-ui/auth
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0-rc.3
+  - @saas-ui/forms@1.0.0-rc.8
+  - @saas-ui/hooks@1.0.0-rc.3
+  - @saas-ui/layout@1.0.0-rc.4
+
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.7
+
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.6
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Updated dependencies [fca06e4]
+  - @saas-ui/forms@1.0.0-rc.5
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- @saas-ui/forms@1.0.0-rc.4
+
+## 1.0.0-rc.4
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [532a7d4]
+- Updated dependencies [6133901]
+- Updated dependencies [ddec417]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+  - @saas-ui/button@1.0.0-rc.2
+  - @saas-ui/forms@1.0.0-rc.3
+  - @saas-ui/hooks@1.0.0-rc.2
+  - @saas-ui/layout@1.0.0-rc.3
+
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/button@1.0.0-rc.1
+  - @saas-ui/forms@1.0.0-rc.2
+  - @saas-ui/hooks@1.0.0-rc.1
+  - @saas-ui/layout@1.0.0-rc.2
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- @saas-ui/layout@1.0.0-rc.1
+- @saas-ui/forms@1.0.0-rc.1
+
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- 9043639: Fixed new .mjs exports.
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/button@1.0.0-rc.0
+  - @saas-ui/forms@1.0.0-rc.0
+  - @saas-ui/hooks@1.0.0-rc.0
+  - @saas-ui/layout@1.0.0-rc.0
+
 ## 0.7.15
 
 ### Patch Changes

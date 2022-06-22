@@ -4,22 +4,27 @@ import {
   forwardRef,
   HTMLChakraProps,
   ThemingProps,
-  StylesProvider,
-  useStyles,
   omitThemingProps,
   SystemProps,
   SystemStyleObject,
   ThemeTypings,
   useMultiStyleConfig,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
+const [StylesProvider, useStyles] = createStylesContext('Card')
+
 type Variants = 'plain' | 'outline' | 'solid'
 
 interface CardOptions {
+  /**
+   * Show hover styles when the mouse hovers the card.
+   */
+  isHoverable?: boolean
   /**
    * This will render the `CardHeader` with the title.
    * @type React.ReactNode
@@ -86,13 +91,15 @@ if (__DEV__) {
 
 export interface CardContainerProps
   extends HTMLChakraProps<'div'>,
-    Omit<ThemingProps<'Card'>, 'variant'> {}
+    Omit<ThemingProps<'Card'>, 'variant'> {
+  isHoverable?: boolean
+}
 
 export const CardContainer = forwardRef<CardContainerProps, 'div'>(
   (props, ref) => {
     const styles = useMultiStyleConfig('Card', props)
 
-    const { children, ...rest } = omitThemingProps(props)
+    const { children, isHoverable, ...rest } = omitThemingProps(props)
 
     return (
       <StylesProvider value={styles}>

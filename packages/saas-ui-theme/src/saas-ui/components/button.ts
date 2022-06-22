@@ -82,11 +82,15 @@ const variantElevated: SystemStyleFunction = (props) => {
 }
 
 const variantOutline: SystemStyleFunction = (props) => {
-  const { base } = getStateColors(props)
+  const { colorScheme: c } = props
+  const { base, hover, active } = getStateColors(props)
   return {
-    borderColor: base,
+    borderColor: c === 'gray' ? hover : base,
     color: base,
     ...variantGhost(props),
+    _hover: {
+      borderColor: c === 'gray' ? active : hover,
+    },
   }
 }
 
@@ -183,13 +187,6 @@ const variantLink: SystemStyleFunction = (props) => {
 export default {
   defaultProps: {
     size: 'sm',
-  },
-  baseStyle: {
-    _focus: {
-      '&:not(:focus-visible)': {
-        boxShadow: 'none',
-      },
-    },
   },
   variants: {
     solid: variantSolid,

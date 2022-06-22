@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.7.10",
+  "version": "1.0.0-rc.8",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
@@ -24,6 +24,13 @@
     },
     "./zod/src": {
       "default": "./zod/src/index.ts"
+    },
+    "./ajv": {
+      "require": "./dist/ajv/index.js",
+      "default": "./dist/ajv/index.modern.mjs"
+    },
+    "./ajv/src": {
+      "default": "./ajv/src/index.ts"
     }
   },
   "main": "./dist/index.js",
@@ -31,10 +38,11 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup && yarn build:zod",
+    "build": "yarn build:package && yarn build:yup && yarn build:zod && yarn build:ajv",
     "build:package": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "build:yup": "cross-env NODE_ENV=production microbundle --cwd yup --tsconfig ./yup/tsconfig.json -f cjs,modern --compress",
     "build:zod": "cross-env NODE_ENV=production microbundle --cwd zod --tsconfig ./zod/tsconfig.json -f cjs,modern --compress",
+    "build:ajv": "cross-env NODE_ENV=production microbundle --cwd ajv --tsconfig ./ajv/tsconfig.json -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -45,7 +53,9 @@
     "yup/package.json",
     "yup/src",
     "zod/package.json",
-    "zod/src"
+    "zod/src",
+    "ajv/package.json",
+    "ajv/src"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -79,10 +89,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.0",
-    "@chakra-ui/react-utils": "^2.0.0",
-    "@chakra-ui/utils": "^2.0.0",
-    "@hookform/resolvers": "^2.8.10",
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/react-utils": "^2.0.1",
+    "@chakra-ui/utils": "^2.0.2",
+    "@hookform/resolvers": "^2.9.0",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
     "@saas-ui/number-input": "workspace:*",
@@ -92,11 +102,16 @@
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/select": "workspace:*",
     "@saas-ui/stepper": "workspace:*",
-    "react-hook-form": "^7.31.2"
+    "react-hook-form": "^7.31.3"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",
     "@chakra-ui/system": ">=2.1.0",
     "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.11.0",
+    "yup": "^0.32.11",
+    "zod": "^3.17.3"
   }
 }

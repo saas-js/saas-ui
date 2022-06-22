@@ -61,8 +61,8 @@ export const getFieldsFromSchema = (schema: z.ZodTypeAny): FieldProps[] => {
 
     fields.push({
       name,
-      label: meta.label || field.description || name,
-      type: meta.type || getType(field),
+      label: meta?.label || field.description || name,
+      type: meta?.type || getType(field),
       ...options,
     })
   }

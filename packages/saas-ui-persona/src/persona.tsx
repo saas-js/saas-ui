@@ -5,13 +5,9 @@ import {
   AvatarBadge,
   AvatarProps,
   AvatarBadgeProps,
-} from '@chakra-ui/avatar'
-
-import {
+  Tooltip,
   chakra,
   forwardRef,
-  useStyles,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   SystemStyleObject,
@@ -20,12 +16,18 @@ import {
   useTheme,
   useMultiStyleConfig,
   omitThemingProps,
-} from '@chakra-ui/system'
+  createStylesContext,
+} from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
+const [StylesProvider, useStyles] = createStylesContext('Persona')
+
 export interface PresenceOptions {
-  [presence: string]: string
+  [presence: string]: {
+    label: string
+    color: string
+  }
 }
 
 /**
@@ -38,11 +40,26 @@ export interface PresenceOptions {
  * theme.semanticTokens.colors['presence.vacay'] = 'blue.500'
  */
 export const Presence: PresenceOptions = {
-  online: 'presence.online',
-  offline: 'presence.offline',
-  busy: 'presence.busy',
-  dnd: 'presence.dnd',
-  away: 'presence.away',
+  online: {
+    label: 'Online',
+    color: 'presence.online',
+  },
+  offline: {
+    label: 'Offline',
+    color: 'presence.offline',
+  },
+  busy: {
+    label: 'Busy',
+    color: 'presence.busy',
+  },
+  dnd: {
+    label: 'Do-not-disturb',
+    color: 'presence.dnd',
+  },
+  away: {
+    label: 'Away',
+    color: 'presence.away',
+  },
 }
 
 /**
@@ -236,6 +253,11 @@ interface PresenceAvatarOptions {
    */
   presence?: string
   /**
+   * The textual presence status of the person.
+   * Online, Offline, Busy, Do-not-disturb or Away
+   */
+  presenceLabel?: string
+  /**
    * The icon shown in the AvatarBadge
    */
   presenceIcon?: React.ReactNode
@@ -256,6 +278,7 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     const {
       name,
       presence,
+      presenceLabel,
       presenceIcon,
       isOutOfOffice,
       badgeSize = '1em',
@@ -276,10 +299,13 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     const theme = useTheme()
 
     const colors = theme.colors?.presence || defaultPresenceTokens
-    const semantic = theme.semanticTokens?.colors?.['presence.online']
+    const semantic = !!theme.semanticTokens?.colors?.['presence.online']
 
     if (presence) {
-      const color = semantic ? `presence.${presence}` : colors[presence]
+      const label = presenceLabel || Presence[presence].label
+      const color = semantic
+        ? Presence[presence].color || `presence.${presence}`
+        : colors[presence]
       if (isOutOfOffice) {
         badgeProps.sx = {
           _before: {
@@ -305,6 +331,10 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
           {presenceIcon}
         </AvatarBadge>
       )
+
+      if (label) {
+        badge = <Tooltip label={label}>{badge}</Tooltip>
+      }
     }
 
     return (

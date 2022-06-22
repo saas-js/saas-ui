@@ -13,7 +13,7 @@ import * as React from 'react'
 import * as Yup from 'yup'
 import * as z from 'zod'
 
-import { FormLayout, Field, FormValue } from '../src'
+import { FormLayout, Field, FormValue, StepFormProps } from '../src'
 
 import {
   StepForm,
@@ -69,7 +69,10 @@ const zodSchemas = {
   }),
 }
 
-export const Basic = () => (
+export const Basic = ({
+  onSubmit: onSubmitProp = onSubmit,
+  ...rest
+}: StepFormProps) => (
   <>
     <StepForm
       defaultValues={{
@@ -77,7 +80,8 @@ export const Basic = () => (
         email: '',
         password: '',
       }}
-      onSubmit={onSubmit}
+      onSubmit={onSubmitProp}
+      {...rest}
     >
       <FormLayout>
         <FormStep name="profile">
@@ -214,8 +218,8 @@ export const WithStepper = () => {
                   autoFocus
                   autoComplete="off"
                 />
+                <StepperNav />
               </FormLayout>
-              <StepperNav />
             </FormStep>
 
             <FormStep name="confirmation" title="Confirmation">

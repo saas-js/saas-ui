@@ -1,4 +1,4 @@
-# Saas UI - The frontend stack for SaaS companies
+# Saas UI - The React component library for startups
 
 Saas UI is an advanced component library that helps you build essential SaaS functionality in hours instead of weeks.
 

@@ -12,7 +12,7 @@ const headerNav: NavLinkProps[] = [
   { href: '/docs/introduction', label: 'Documentation', ...hideMobile },
   {
     id: 'pricing',
-    label: 'Early access',
+    label: 'Buy Pro',
     variant: 'solid',
     colorScheme: 'primary',
   },

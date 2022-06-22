@@ -1,8 +1,6 @@
 # @saas-ui/select
 
-## Todo
-
-- [ ] Add input group support
+A Chakra UI Select Component
 
 ## Installation
 
@@ -14,7 +12,13 @@ $ yarn add @saas-ui/select
 $ npm i @saas-ui/select  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/forms/select
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-select
 
 ## License
 

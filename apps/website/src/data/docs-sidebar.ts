@@ -1,9 +1,12 @@
 import { RouteItem } from '@/docs/utils/get-route-context'
 
+import { FiBox, FiHelpCircle, FiBookOpen } from 'react-icons/fi'
+
 const sidebar = {
   routes: [
     {
       title: 'Getting Started',
+      icon: FiBookOpen,
       heading: true,
       open: true,
       routes: [
@@ -12,16 +15,47 @@ const sidebar = {
           path: '/docs/introduction',
         },
         {
-          title: 'Installation',
-          path: '/docs/getting-started',
-        },
-        {
           title: 'Design Principles',
           path: '/docs/principles',
         },
         {
           title: 'Changelog',
           path: '/changelog',
+        },
+        {
+          title: 'Quickstarts',
+          path: '/docs/getting-started',
+          open: true,
+          routes: [
+            {
+              title: 'Overview',
+              path: '/docs/getting-started',
+            },
+            {
+              title: 'Create React App',
+              path: '/docs/installation/cra-guide',
+            },
+            {
+              title: 'Next JS',
+              path: '/docs/installation/nextjs-guide',
+            },
+            {
+              title: 'Blitz JS',
+              path: '/docs/installation/blitzjs-guide',
+            },
+            {
+              title: 'RedwoodJS',
+              path: '/docs/installation/redwoodjs-guide',
+            },
+            {
+              title: 'Remix',
+              path: '/docs/installation/remix-guide',
+            },
+            {
+              title: 'Vite',
+              path: '/docs/installation/vite-guide',
+            },
+          ],
         },
         {
           title: 'Theming',
@@ -37,8 +71,8 @@ const sidebar = {
               path: '/docs/theming/chakra-ui-theme',
             },
             {
-              title: 'Palette',
-              path: '/docs/theming/palette',
+              title: 'Customize Theme',
+              path: '/docs/theming/customize-theme',
             },
           ],
         },
@@ -65,6 +99,7 @@ const sidebar = {
     },
     {
       title: 'Components',
+      icon: FiBox,
       heading: true,
       open: true,
       routes: [
@@ -123,17 +158,17 @@ const sidebar = {
             {
               title: 'CommandMenu',
               // path: '/docs/navigation/hotkeys',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Sidebar',
               // path: '/docs/layout/page',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Navbar',
               // path: '/docs/layout/page',
-              soon: true,
+              pro: true,
             },
           ],
         },
@@ -294,32 +329,32 @@ const sidebar = {
             {
               title: 'Onboarding',
               // path: '/docs/feedback/nprogress',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Tour',
               // path: '/docs/feedback/snackbar',
-              soon: true,
+              pro: true,
             },
             {
               title: 'InlineTip',
               // path: '/docs/feedback/loading',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Feedback',
               // path: '/docs/feedback/app-loader',
-              soon: true,
+              pro: true,
             },
             {
               title: 'Changelog',
               // path: '/docs/feedback/app-loader',
-              soon: true,
+              pro: true,
             },
             {
               title: 'NotifyCenter',
               // path: '/docs/feedback/app-loader',
-              soon: true,
+              pro: true,
             },
           ],
         },
@@ -350,7 +385,7 @@ const sidebar = {
             {
               title: 'ResizeBox',
               // path: '/docs/layout/section',
-              soon: true,
+              pro: true,
             },
           ],
         },

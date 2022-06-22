@@ -3,8 +3,6 @@ import * as React from 'react'
 import {
   chakra,
   forwardRef,
-  useStyles,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
@@ -13,6 +11,7 @@ import {
   As,
   useColorModeValue,
   useMultiStyleConfig,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
@@ -20,6 +19,8 @@ import { cx, __DEV__ } from '@chakra-ui/utils'
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
 import { Icon } from '@chakra-ui/icon'
+
+const [StylesProvider, useStyles] = createStylesContext('List')
 
 interface ListOptions {
   /**

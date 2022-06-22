@@ -150,7 +150,7 @@ function ComponentLinks(props: ComponentLinksProps) {
   )
 
   https: return (
-    <Wrap className="component-links" mt="2rem" spacing="4" pt="2" {...rest}>
+    <Wrap className="component-links" pt="2rem" spacing="4" {...rest}>
       {githubLink}
       {themeComponentLink}
       {npmLink}

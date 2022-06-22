@@ -1,6 +1,6 @@
 # @saas-ui/banner
 
-Description
+Chakra UI Banner component.
 
 ## Installation
 
@@ -12,7 +12,13 @@ $ yarn add @saas-ui/banner
 $ npm i @saas-ui/banner  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/feedback/banner
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-banner
 
 ## License
 

@@ -41,8 +41,8 @@ const getChildren = ({
   </>
 )
 
-export const Default = Template.bind({})
-Default.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   children: getChildren(),
 }
 

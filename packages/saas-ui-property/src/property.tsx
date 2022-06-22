@@ -4,19 +4,20 @@ import {
   chakra,
   forwardRef,
   useMultiStyleConfig,
-  useStyles,
   useColorModeValue,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   SystemProps,
   SystemStyleObject,
   omitThemingProps,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { List, ListProps } from '@saas-ui/list'
+
+const [StylesProvider, useStyles] = createStylesContext('Property')
 
 interface PropertyOptions {
   label?: React.ReactNode

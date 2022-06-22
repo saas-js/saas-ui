@@ -8,6 +8,165 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 06-15-2022
+
+`@saas-ui/react@1.0.0-rc.9`
+
+- Scale reset button icon based on the input size.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Search Input** `v1.0.0-rc.3`
+
+- Scale reset button icon based on the input size.
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Palette Docs** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Website** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Auth** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Banner** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Button** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Card** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Clerk** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Collapse** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Data Table** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Forms** `v1.0.0-rc.8`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Hooks** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Hotkeys** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Input Right Button** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Layout** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**List** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Menu** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Modals** `v1.0.0-rc.8`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Nprogress** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Number Input** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Palette** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Password Input** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Persona** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Pin Input** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Property** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Provider** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Radio** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**React Utils** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Select** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Snackbar** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Stepper** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**System** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Theme** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Web 3** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Next Workspaces** `v0.2.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Props Docs** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Test Utils** `v2.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
 ## 04-23-2022
 
 **Forms** `v0.7.8`

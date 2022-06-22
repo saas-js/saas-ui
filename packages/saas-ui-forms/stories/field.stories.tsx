@@ -31,6 +31,7 @@ export const Basic = () => (
       textarea: 'Lorem ipsum',
       switch: true,
       select: 'Select 2',
+      multipleselect: ['Select 1', 'Select 2'],
       nativeselect: 'Select 1',
       password: 'Password123',
       checkbox: true,
@@ -53,9 +54,16 @@ export const Basic = () => (
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
       />
       <Field
+        name="multipleselect"
+        label="Multiple Select"
+        type="select"
+        options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+        multiple={true}
+      />
+      <Field
         name="native-select"
         label="Native Select"
-        type="nativeselect"
+        type="native-select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
       />
       <Field name="password" label="Password" type="password" />

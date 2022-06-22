@@ -27,23 +27,31 @@ import { testA11y } from './accessibility'
  *  await testA11Y(container, options);
  * });
  */
-export const testStories = <T extends StoryFile = StoryFile>(stories: T) => {
+export const testStories = <T extends StoryFile = StoryFile>(
+  stories: T,
+  { snapshots = true, a11y = true } = {}
+) => {
   const composedStories = composeStories<T>(stories)
 
   const testCases = Object.values<any>(composedStories).map((Story) => [
     Story.storyName,
     Story,
   ])
+
   // Batch snapshot testing
-  test.each(testCases)('Renders %s story', async (_storyName, Story) => {
-    const tree = await render(<Story />)
-    expect(tree.baseElement).not.toBeNull()
-  })
+  if (snapshots) {
+    test.each(testCases)('Renders %s story', async (_storyName, Story) => {
+      const tree = await render(<Story />)
+      expect(tree.baseElement).not.toBeNull()
+    })
+  }
 
   // Batch a11y testing
-  test.each(testCases)('Story %s passes a11y', async (_storyName, Story) => {
-    await testA11y(<Story />)
-  })
+  if (a11y) {
+    test.each(testCases)('Story %s passes a11y', async (_storyName, Story) => {
+      await testA11y(<Story />)
+    })
+  }
 
   return composedStories
 }

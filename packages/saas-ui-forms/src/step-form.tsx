@@ -2,13 +2,7 @@ import * as React from 'react'
 
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 
-import {
-  chakra,
-  HTMLChakraProps,
-  useMultiStyleConfig,
-  StylesProvider,
-  SystemStyleObject,
-} from '@chakra-ui/system'
+import { chakra, HTMLChakraProps } from '@chakra-ui/system'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -18,6 +12,7 @@ import {
   StepperStepsProps,
   StepperStep,
   useStepperContext,
+  StepperContainer,
 } from '@saas-ui/stepper'
 import { Button, ButtonProps } from '@saas-ui/button'
 
@@ -29,7 +24,6 @@ import {
   useFormStep,
   StepFormProvider,
   UseStepFormProps,
-  UseStepFormReturn,
 } from './use-step-form'
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
@@ -80,9 +74,9 @@ export interface FormStepOptions {
 }
 
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
-  const styles = useMultiStyleConfig('Stepper', props)
+  const { activeIndex, setIndex } = useStepperContext()
 
-  const { children } = props
+  const { children, orientation } = props
 
   const elements = React.Children.map(children, (child) => {
     if (React.isValidElement(child) && child?.type === FormStep) {
@@ -100,12 +94,20 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
     return child
   })
 
+  const onChange = React.useCallback((i: number) => {
+    setIndex(i)
+  }, [])
+
   return (
-    <StylesProvider value={styles}>
+    <StepperContainer
+      orientation={orientation}
+      step={activeIndex}
+      onChange={onChange}
+    >
       <StepperSteps mb="4" {...props}>
         {elements}
       </StepperSteps>
-    </StylesProvider>
+    </StepperContainer>
   )
 }
 

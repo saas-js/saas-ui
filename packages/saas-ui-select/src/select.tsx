@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import {
+  chakra,
   forwardRef,
   Menu,
   MenuProps,
@@ -15,9 +16,11 @@ import {
   omitThemingProps,
   useMultiStyleConfig,
   SystemStyleObject,
+  useFormControl,
+  HTMLChakraProps,
 } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import { __DEV__ } from '@chakra-ui/utils'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 interface Option {
   value: string
@@ -52,7 +55,7 @@ const SelectButton = forwardRef((props, ref) => {
 
   const height = styles.field.h || styles.field.height
 
-  const buttonStyles = {
+  const buttonStyles: SystemStyleObject = {
     fontWeight: 'normal',
     textAlign: 'left',
     color: 'inherit',
@@ -65,7 +68,7 @@ const SelectButton = forwardRef((props, ref) => {
   }
 
   // Using a Button, so we can simply use leftIcon and rightIcon
-  return <Button {...props} ref={ref} sx={buttonStyles} />
+  return <MenuButton as={Button} {...props} ref={ref} sx={buttonStyles} />
 })
 
 if (__DEV__) {
@@ -74,6 +77,7 @@ if (__DEV__) {
 
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const {
+    name,
     options,
     children,
     onChange,
@@ -93,6 +97,8 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const menuProps = omitThemingProps(rest)
 
   const [currentValue, setCurrentValue] = React.useState(value || defaultValue)
+
+  const controlProps = useFormControl({ name } as HTMLChakraProps<'input'>)
 
   const handleChange = (value: string | string[]) => {
     setCurrentValue(value)
@@ -132,26 +138,35 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
 
   return (
     <Menu {...menuProps} closeOnSelect={!multiple}>
-      <MenuButton as={SelectButton} ref={ref} {...buttonProps}>
-        {renderValue(displayValue) || placeholder}
-      </MenuButton>
-      <MenuList maxH="60vh" overflowY="auto" {...menuListProps}>
-        <MenuOptionGroup
-          defaultValue={
-            (defaultValue || value) as string | string[] | undefined
-          }
-          onChange={handleChange}
-          type={multiple ? 'checkbox' : 'radio'}
-        >
-          {options
-            ? options.map(({ value, label, ...rest }, i) => (
-                <MenuItemOption key={i} value={value} {...rest}>
-                  {label || value}
-                </MenuItemOption>
-              ))
-            : children}
-        </MenuOptionGroup>
-      </MenuList>
+      <chakra.div className={cx('saas-select')}>
+        <SelectButton ref={ref} {...buttonProps}>
+          {renderValue(displayValue) || placeholder}
+        </SelectButton>
+        <MenuList maxH="60vh" overflowY="auto" {...menuListProps}>
+          <MenuOptionGroup
+            defaultValue={
+              (defaultValue || value) as string | string[] | undefined
+            }
+            onChange={handleChange}
+            type={multiple ? 'checkbox' : 'radio'}
+          >
+            {options
+              ? options.map(({ value, label, ...rest }, i) => (
+                  <MenuItemOption key={i} value={value} {...rest}>
+                    {label || value}
+                  </MenuItemOption>
+                ))
+              : children}
+          </MenuOptionGroup>
+        </MenuList>
+        <chakra.input
+          {...controlProps}
+          name={name}
+          type="hidden"
+          value={currentValue}
+          className="saas-select__input"
+        />
+      </chakra.div>
     </Menu>
   )
 })

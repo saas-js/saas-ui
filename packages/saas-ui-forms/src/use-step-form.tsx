@@ -32,7 +32,7 @@ import { FormProps } from './form'
 
 export interface UseStepFormProps<
   TFieldValues extends FieldValues = FieldValues
-> extends UseStepperProps,
+> extends Omit<UseStepperProps, 'onChange'>,
     Omit<FormProps<TFieldValues>, 'children'> {
   children:
     | React.ReactNode
@@ -54,7 +54,8 @@ export interface UseStepFormReturn<
 export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
   props: UseStepFormProps<TFieldValues>
 ): UseStepFormReturn<TFieldValues> {
-  const stepper = useStepper(props)
+  const { onChange, ...rest } = props
+  const stepper = useStepper(rest)
 
   const { activeStep, isLastStep, nextStep } = stepper
 

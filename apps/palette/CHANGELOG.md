@@ -1,5 +1,112 @@
 # palette
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [de0dce2]
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/react@1.0.0-rc.9
+  - @saas-ui/palette@1.0.0-rc.3
+  - @saas-ui/next-workspaces@0.2.0-rc.3
+
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@1.0.0-rc.8
+
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@1.0.0-rc.7
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Updated dependencies [fca06e4]
+  - @saas-ui/react@1.0.0-rc.6
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- Updated dependencies [9e9c601]
+  - @saas-ui/react@1.0.0-rc.5
+
+## 1.0.0-rc.4
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [c8621b8]
+- Updated dependencies [532a7d4]
+- Updated dependencies [6133901]
+- Updated dependencies [ddec417]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+  - @saas-ui/react@1.0.0-rc.4
+  - @saas-ui/palette@1.0.0-rc.2
+  - @saas-ui/next-workspaces@0.2.0-rc.2
+
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/palette@1.0.0-rc.1
+  - @saas-ui/react@1.0.0-rc.3
+  - @saas-ui/next-workspaces@0.1.2-rc.1
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- Updated dependencies [4bb613c]
+- Updated dependencies [8f3f948]
+- Updated dependencies [3dee538]
+- Updated dependencies [07491fd]
+  - @saas-ui/react@1.0.0-rc.2
+
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- @saas-ui/react@1.0.0-rc.1
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/palette@1.0.0-rc.0
+  - @saas-ui/react@1.0.0-rc.0
+  - @saas-ui/next-workspaces@0.1.2-rc.0
+
 ## 0.1.39
 
 ### Patch Changes

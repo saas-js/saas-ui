@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { useFormContext, useWatch } from 'react-hook-form'
 
-import { yupForm } from '@saas-ui/forms/yup'
+import { yupForm, yupResolver } from '../yup/src'
 
 import {
   Form,
@@ -29,7 +29,6 @@ import {
 import { Button } from '@saas-ui/button'
 
 import { onSubmit } from './helpers'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 export default {
   title: 'Components/Forms/ArrayField',
@@ -157,7 +156,7 @@ const RemoveButton = () => {
   )
 }
 
-export const customArrayField = () => (
+export const CustomArrayField = () => (
   <>
     <Form
       defaultValues={{
@@ -213,7 +212,7 @@ export const customArrayField = () => (
   </>
 )
 
-export const minMaxNoSchema = () => (
+export const MinMaxNoSchema = () => (
   <>
     <Form
       defaultValues={{
@@ -233,8 +232,8 @@ export const minMaxNoSchema = () => (
           min={1}
           max={3}
         >
-          <Field name="title" placeholder="Title" rules={{ required: true }} />
-          <Field name="description" type="textarea" />
+          <Field name="title" label="Title" rules={{ required: true }} />
+          <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
         <SubmitButton label="Submit" />
@@ -267,8 +266,8 @@ const MyArrayField = () => {
       keyName="_id"
       defaultValue={{}}
     >
-      <Field name="title" placeholder="Title" />
-      <Field name="description" type="textarea" />
+      <Field name="title" label="Title" />
+      <Field name="description" label="Description" type="textarea" />
     </ArrayField>
   )
 }

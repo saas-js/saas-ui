@@ -12,27 +12,12 @@ export interface ButtonProps extends ChakraButtonProps {
    * Children always take precedence.
    */
   label?: React.ReactNode
-  /**
-   * Alias for colorScheme="primary"
-   */
-  isPrimary?: boolean
-  /**
-   * Alias for colorScheme="secondary"
-   */
-  isSecondary?: boolean
 }
 
 export const Button = forwardRef<ButtonProps, typeof ChakraButton>(
-  ({ label, isPrimary, isSecondary, children, ...props }, ref) => {
-    let colorScheme
-    if (isPrimary) {
-      colorScheme = 'primary'
-    }
-    if (isSecondary) {
-      colorScheme = 'secondary'
-    }
+  ({ label, children, ...props }, ref) => {
     return (
-      <ChakraButton ref={ref} colorScheme={colorScheme} {...props}>
+      <ChakraButton ref={ref} {...props}>
         {children || label}
       </ChakraButton>
     )

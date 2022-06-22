@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import {
   chakra,
-  useStyles,
   useTheme,
   useToast,
   UseToastOptions,
@@ -15,16 +14,16 @@ import {
   CloseButton,
   ButtonGroup,
   Spinner,
-  useColorModeValue,
+  useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 const AlertSpinner: React.FC<AlertIconProps> = (props) => {
-  const styles = useStyles()
+  const styles = useMultiStyleConfig('Alert', props)
   return (
     <chakra.span
       display="inherit"
-      {...props}
       alignItems="center"
+      {...props}
       __css={styles.icon}
     >
       <Spinner size="sm" />

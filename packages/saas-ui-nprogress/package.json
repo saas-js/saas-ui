@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/nprogress",
-  "version": "0.4.1",
+  "version": "1.0.0-rc.3",
   "description": "Nprogress Component",
   "source": "src/index.ts",
   "exports": {
@@ -56,8 +56,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.0",
-    "@tanem/react-nprogress": "^5.0.0"
+    "@chakra-ui/utils": "^2.0.2",
+    "@tanem/react-nprogress": "^5.0.1"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.1.0",

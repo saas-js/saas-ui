@@ -2,7 +2,7 @@ import { Box, useTheme, useColorModeValue } from '@chakra-ui/react'
 
 import { MovingGradients } from '@/components/motion/moving-gradients'
 
-export const BackgroundGradient = ({ animate, ...props }: any) => {
+export const BackgroundGradient = ({ animate, hideOverlay, ...props }: any) => {
   const theme = useTheme()
   const colors = [
     theme.colors.primary['800'],
@@ -37,7 +37,7 @@ export const BackgroundGradient = ({ animate, ...props }: any) => {
     >
       {gradient}
       <Box
-        backgroundImage={gradientOverlay}
+        backgroundImage={!hideOverlay && gradientOverlay}
         position="absolute"
         top="0"
         right="0"

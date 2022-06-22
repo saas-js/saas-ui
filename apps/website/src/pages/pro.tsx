@@ -32,8 +32,6 @@ import {
   useTheme,
   Tag,
   Wrap,
-  Image,
-  Icon,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -78,7 +76,6 @@ import {
   FiArrowRight,
   FiUserPlus,
 } from 'react-icons/fi'
-import { FaGithub } from 'react-icons/fa'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
 import { Card, CardBody } from '@saas-ui/card'
@@ -92,9 +89,6 @@ import {
 } from '@saas-ui/banner'
 
 import { transparentize } from '@chakra-ui/theme-tools'
-import CTASection from '@/components/marketing/cta'
-import { Testimonial, Testimonials } from '@/components/testimonials'
-import { Faq } from '@/components/faq'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -145,37 +139,32 @@ const Home = () => {
                     <ReactLogo height="28px" /> <ChakraLogo height="20px" />
                   </HStack>
 
-                  <ButtonGroup spacing={4} alignItems="center">
+                  <ButtonGroup
+                    flexDirection={['column', null, 'row']}
+                    spacing={[0, null, 8]}
+                    alignItems="center"
+                  >
                     <Button
                       colorScheme="primary"
                       size="lg"
+                      mb={[8, null, 0]}
                       onClick={() => {
                         document
                           .getElementById('pricing')
                           .scrollIntoView({ behavior: 'smooth' })
                       }}
                     >
-                      Buy Pro
+                      Get early access
                     </Button>
-                    <ButtonLink
-                      size="lg"
+                    <Button
+                      colorScheme="black"
+                      variant="link"
+                      as={Link}
                       href="/docs/introduction"
-                      variant="outline"
-                      rightIcon={
-                        <Icon
-                          as={FiArrowRight}
-                          sx={{
-                            transitionProperty: 'common',
-                            transitionDuration: 'normal',
-                            '.chakra-button:hover &': {
-                              transform: 'translate(5px)',
-                            },
-                          }}
-                        />
-                      }
+                      rightIcon={<FiArrowRight />}
                     >
                       Read documentation
-                    </ButtonLink>
+                    </Button>
                   </ButtonGroup>
                 </FallInPlace>
               </Hero>
@@ -253,113 +242,139 @@ const Home = () => {
           <Highlights />
         </Box>
 
-        <Founder />
+        <Section
+          innerWidth={['100%', null, 'container.xl']}
+          position="relative"
+          overflow="hidden"
+        >
+          <Box position="relative">
+            <Heading
+              fontWeight="bold"
+              fontSize={['2xl', null, '4xl']}
+              lineHeight="lg"
+              color={useColorModeValue('black', 'white')}
+              width={{ base: 'full', lg: '50%' }}
+              mb="8"
+            >
+              Building SaaS products requires you to be a generalist on many
+              fronts. However many developers aren&apos;t very design savvy and
+              vice versa.
+            </Heading>
+
+            <Stack
+              fontSize="lg"
+              spacing="16"
+              alignItems="flex-start"
+              color="muted"
+              direction={{ base: 'column', lg: 'row' }}
+            >
+              <VStack spacing="8" alignItems="flex-start">
+                <Text fontSize={['xl', null, '2xl']}>
+                  SaaS UI tries to fill this gap by giving developers an
+                  extensive set of beautifully crafted components build on{' '}
+                  <Em>best in class tools</Em>. While on the same time serve as
+                  a <Em>great foundation</Em> for designers to create their
+                  brand.
+                </Text>
+              </VStack>
+              <VStack spacing="8" alignItems="flex-start">
+                <Text fontSize={['xl', null, '2xl']}>
+                  With SaaS UI you&apos;ll <Em>save hundreds of hours</Em>{' '}
+                  building essential functionaly for your product. Time that you
+                  can use to validate new ideas, find your perfect product
+                  market fit and build functionality that makes your product
+                  unique.
+                </Text>
+                <Stack direction="row" align="center">
+                  <Avatar src="/eelco128.jpg" mr="2" size="md" />
+                  <VStack align="flex-start" spacing="0">
+                    <Em>Eelco Wiersma</Em>
+                    <Text fontSize="sm">Founder Saas UI</Text>
+                  </VStack>
+                </Stack>
+              </VStack>
+            </Stack>
+          </Box>
+        </Section>
 
         <ProFeatures />
-
-        <Screenshots />
-
-        <Testimonials />
 
         <Pricing />
 
         <RequestAccess />
 
-        <Faq />
+        <Section id="faq">
+          <SectionTitle title="Frequently asked questions" />
+
+          <SimpleGrid columns={[1, null, 2]} spacing={10}>
+            <FaqItem
+              question="How many products can I use Saas UI Pro for?"
+              answer={
+                <>
+                  The single license can be used for one commercial application
+                  or SaaS product and unlimited internal tools. You can buy as
+                  many licenses as you need. <br /> The unlimited license does
+                  not have any restrictions.
+                </>
+              }
+            />
+            <FaqItem
+              question="Can I use Saas UI Pro for client work?"
+              answer="Yes, that's totally up to you, as long as it fits the license you purchase."
+            />
+            <FaqItem
+              question="Can I use Saas UI Pro for Open Source projects?"
+              answer="No currently not. A large part of Saas UI is already released under MIT license. We try to give back to the community as much as possible."
+            />
+            <FaqItem
+              question="Does Saas UI include Figma, Sketch or other design files?"
+              answer="No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks."
+            />
+            <FaqItem
+              question="Does Saas UI have a Javascript version?"
+              answer="No, we believe Typescript is the way to go in order to produce highly productive and qualitative code that scales."
+            />
+            <FaqItem
+              question="What does 'lifetime access' mean?"
+              answer="Saas UI Pro is a one-time purchase, with no recurring subscription. You will have access to all assets of the Saas UI library forever."
+            />
+            <FaqItem
+              question="What does '1 year of updates' include?"
+              answer={
+                <>
+                  We&apos;ll add new components and improvements to the library
+                  as we get new ideas and feedback, you will receive these
+                  updates during the first year. After that you can renew your
+                  license for a reduced fee.
+                  <br />
+                  <br />
+                  We might release different stacks, for example for Vue and
+                  backends, these will be sold seperately.
+                </>
+              }
+            />
+            <FaqItem
+              question="I'm not satisfied, can I get my money back?"
+              answer="Yeah, no hard feelings. Saas UI is opinionated and might not suit your style, let us know within 14 days of your purchase and we'll refund your money."
+            />
+            <FaqItem
+              question="Do you offer technical support?"
+              answer={
+                <>
+                  Once you sign up you get access to our Discord community,
+                  where you can ask questions, report bugs or feature requests
+                  and get help from other customers. <br />
+                  <br />
+                  If you require more specialised support or consultancy contact
+                  us at{' '}
+                  <Link href="mailto:hello@saas-ui.dev">hello@saas-ui.dev</Link>
+                </>
+              }
+            />
+          </SimpleGrid>
+        </Section>
       </Box>
     </Box>
-  )
-}
-
-const Screenshots = () => {
-  return (
-    <Section innerWidth="container.xl" variant="alternate" pt="0">
-      <Box
-        position="relative"
-        height={['320px', null, '640px']}
-        overflow="hidden"
-        borderRadius="2xl"
-        borderColor="whiteAlpha.200"
-        borderWidth="1px"
-      >
-        <BackgroundGradient
-          hideOverlay
-          filter={useColorModeValue('none', 'blur(50px)')}
-          opacity={useColorModeValue(0.9, 0.4)}
-        />
-
-        <Image
-          alt="Image showing the Saas UI dashboard"
-          src="/screenshots/dashboard.png?q=75"
-          position="absolute"
-          top="60px"
-          left="160px"
-        />
-        <Image
-          alt="Image showing the Saas UI billing settings"
-          src="/screenshots/billing.png?q=75"
-          position="absolute"
-          top={['120px', null, '280px']}
-          left="60px"
-        />
-      </Box>
-    </Section>
-  )
-}
-
-const Founder = () => {
-  return (
-    <Section
-      innerWidth={['100%', null, 'container.xl']}
-      position="relative"
-      overflow="hidden"
-    >
-      <Box position="relative">
-        <Heading
-          fontWeight="bold"
-          fontSize={['2xl', null, '4xl']}
-          lineHeight="lg"
-          color={useColorModeValue('black', 'white')}
-          width={{ base: 'full', lg: '50%' }}
-          mb="8"
-        >
-          Building SaaS products requires you to be a generalist on many fronts.
-          However many developers aren&apos;t very design savvy and vice versa.
-        </Heading>
-
-        <Stack
-          fontSize="lg"
-          spacing="16"
-          alignItems="flex-start"
-          color="muted"
-          direction={{ base: 'column', lg: 'row' }}
-        >
-          <VStack spacing="8" alignItems="flex-start">
-            <Text fontSize={['xl', null, '2xl']}>
-              SaaS UI tries to fill this gap by giving developers an extensive
-              set of beautifully crafted components build on{' '}
-              <Em>best in class tools</Em>. While on the same time serve as a{' '}
-              <Em>great foundation</Em> for designers to create their brand.
-            </Text>
-          </VStack>
-          <VStack spacing="8" alignItems="flex-start">
-            <Text fontSize={['xl', null, '2xl']}>
-              With SaaS UI you&apos;ll <Em>save hundreds of hours</Em> building
-              essential functionaly for your product. Time that you can use to
-              validate new ideas, find your perfect product market fit and build
-              functionality that makes your product unique.
-            </Text>
-            <Stack direction="row" align="center">
-              <Avatar src="/eelco128.jpg" mr="2" size="md" />
-              <VStack align="flex-start" spacing="0">
-                <Em>Eelco Wiersma</Em>
-                <Text fontSize="sm">Founder Saas UI</Text>
-              </VStack>
-            </Stack>
-          </VStack>
-        </Stack>
-      </Box>
-    </Section>
   )
 }
 
@@ -402,7 +417,7 @@ const Pricing = () => {
       <Box zIndex="2" pos="relative">
         <SectionTitle
           title="Pricing for every stage"
-          description="Pay once and get life-time access to our high quality components."
+          description="Pay once and get life-time access and free updates to our high quality components."
         ></SectionTitle>
 
         <SimpleGrid columns={[1, null, 3]} spacing={4}>
@@ -797,8 +812,7 @@ const Themable = () => {
 const HighlightBox = (props) => {
   const { children, ...rest } = props
   return (
-    <Card
-      as={VStack}
+    <VStack
       bgColor={useColorModeValue('gray.100', 'gray.800')}
       borderRadius="md"
       p="8"
@@ -810,7 +824,7 @@ const HighlightBox = (props) => {
       {...rest}
     >
       {children}
-    </Card>
+    </VStack>
   )
 }
 
@@ -874,21 +888,12 @@ const Highlights = () => {
         </GridItem>
         <GridItem
           as={HighlightBox}
-          // borderWidth="0"
+          bgGradient={`linear(to-br, ${transparentize(
+            'green.500',
+            0.8
+          )(theme)}, ${transparentize('yellow.500', 0.8)(theme)})`}
           justifyContent="center"
-          position="relative"
-          borderColor="whiteAlpha.300"
         >
-          <Box
-            bgGradient={`linear(to-br, ${transparentize(
-              'green.500',
-              0.8
-            )(theme)}, ${transparentize('yellow.500', 0.8)(theme)})`}
-            opacity={useColorModeValue(1, '0.5')}
-            filter={useColorModeValue('none', 'blur(50px)')}
-            position="absolute"
-            inset="0px"
-          />
           <Testimonial
             avatar="/testimonials/turbothinh.png"
             name="Tien Thinh"
@@ -906,7 +911,6 @@ const Highlights = () => {
                 color: useColorModeValue('blackAlpha.600', 'whiteAlpha.500'),
               },
             }}
-            position="relative"
           >
             Saas UI is the ONLY template out there that does the code structure
             that I think can scale 😄
@@ -1021,21 +1025,12 @@ const Highlights = () => {
         </GridItem>
         <GridItem
           as={HighlightBox}
+          bgGradient={`linear(to-br, ${transparentize(
+            'indigo.500',
+            0.8
+          )(theme)}, ${transparentize('green.500', 0.8)(theme)})`}
           justifyContent="center"
-          borderColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.300')}
         >
-          <Box
-            bgGradient={`linear(to-br, ${transparentize(
-              'indigo.500',
-              0.8
-            )(theme)}, ${transparentize('green.500', 0.8)(theme)})`}
-            opacity={useColorModeValue(1, '0.5')}
-            filter={useColorModeValue('none', 'blur(50px)')}
-            position="absolute"
-            inset="0px"
-            pointerEvents="none"
-            zIndex="0"
-          />
           <Testimonial
             name="Sukhpal Saini"
             description={
@@ -1051,7 +1046,6 @@ const Highlights = () => {
             bg="transparent"
             boxShadow="none"
             color="white"
-            position="relative"
           >
             <Text fontSize="sm">
               As a Frontend dev, I&apos;ve spent countless hours creating the
@@ -1225,7 +1219,7 @@ const ProFeatures = () => {
           title: 'Starterkits.',
           icon: FiLock,
           description:
-            'Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.',
+            'Example apps in Next.JS, Electron and Vite. Including authentication, billing, example pages, everything you need to get started FAST.',
           variant: 'inline',
         },
         {
@@ -1284,6 +1278,19 @@ const ProFeatures = () => {
         },
       ]}
     />
+  )
+}
+
+const Testimonial = ({ name, description, avatar, children, ...rest }) => {
+  return (
+    <Card
+      avatar={<Avatar name="Tien Tienth" src={avatar} />}
+      title={name}
+      subtitle={description}
+      {...rest}
+    >
+      <CardBody>{children}</CardBody>
+    </Card>
   )
 }
 

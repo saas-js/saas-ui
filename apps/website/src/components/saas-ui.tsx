@@ -1,12 +1,16 @@
-import { useColorModeValue } from '@chakra-ui/react'
+import { chakra, useColorModeValue } from '@chakra-ui/react'
 
-const Logo = () => {
+const Logo = (props) => {
   const color = useColorModeValue('#231f20', '#fff')
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381.25 91.08">
+    <chakra.svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 381.25 91.08"
+      {...props}
+    >
       <defs>
         <linearGradient
-          id="linear-gradient"
+          id="saas-ui-logo-gradient"
           x1="290.17"
           y1="45.54"
           x2="381.25"
@@ -31,9 +35,9 @@ const Logo = () => {
         fill="none"
         strokeMiterlimit="10"
         strokeWidth="4"
-        stroke="url(#linear-gradient)"
+        stroke="url(#saas-ui-logo-gradient)"
       />
-    </svg>
+    </chakra.svg>
   )
 }
 

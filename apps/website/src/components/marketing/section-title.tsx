@@ -21,6 +21,7 @@ export default function SectionTitle({
     <VStack
       sx={styles.wrapper}
       alignItems={align === 'left' ? 'flex-start' : 'center'}
+      spacing={4}
       {...props}
     >
       <Heading sx={styles.title} as="h2">

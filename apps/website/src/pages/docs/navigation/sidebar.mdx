@@ -1,0 +1,42 @@
+---
+title: Sidebar
+description: Commonly used as the primary navigation.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `Sidebar`: The container component that manages composition.
+- `SidebarContainer`: The bare container component.
+- `SidebarNav`: A button with an arrow icon used for navigating to the previous page.
+- `SidebarNavGroup`: A button with an arrow icon used for navigating to the previous page.
+- `SidebarLink`: The header component with navigation, title, toolbar and tabbar.
+- `SidebarOverflow`: The page content.
+
+```ts
+import {
+  Sidebar,
+  SidebarContainer,
+  SidebarNav,
+  SidebarNavGroup,
+  SidebarLink,
+  SidebarOverflow,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+<Sidebar height="200px" />
+```
+
+## Props
+
+The `Sidebar` component and all sub components accept all `Box` properties.
+
+### Sidebar Props
+
+<PropsTable of="Sidebar" />

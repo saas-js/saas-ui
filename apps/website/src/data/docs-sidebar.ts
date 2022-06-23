@@ -130,6 +130,7 @@ const sidebar = {
             {
               title: 'App Shell',
               path: '/docs/layout/app-shell',
+              pro: true,
             },
             {
               title: 'Page',
@@ -139,6 +140,7 @@ const sidebar = {
             {
               title: 'Section',
               path: '/docs/layout/section',
+              pro: true,
             },
           ],
         },
@@ -157,13 +159,8 @@ const sidebar = {
               path: '/docs/navigation/stepper',
             },
             {
-              title: 'CommandMenu',
-              // path: '/docs/navigation/hotkeys',
-              pro: true,
-            },
-            {
               title: 'Sidebar',
-              // path: '/docs/layout/page',
+              path: '/docs/navigation/sidebar',
               pro: true,
             },
           ],
@@ -226,21 +223,12 @@ const sidebar = {
               title: 'SearchInput',
               path: '/docs/forms/search-input',
             },
-            {
-              title: 'Chips',
-              soon: true,
-            },
-            {
-              title: 'Button',
-              path: '/docs/forms/button',
-            },
           ],
         },
         {
           title: 'Data Display',
           path: '/docs/data-display',
           open: true,
-          sort: true,
           routes: [
             {
               title: 'DataTable',
@@ -255,10 +243,6 @@ const sidebar = {
               path: '/docs/data-display/empty-state',
             },
             {
-              title: 'HoverCard',
-              soon: true,
-            },
-            {
               title: 'List',
               path: '/docs/data-display/list',
             },
@@ -269,6 +253,24 @@ const sidebar = {
             {
               title: 'Persona',
               path: '/docs/data-display/persona',
+            },
+          ],
+        },
+        {
+          title: 'Advanced Data',
+          path: '/docs/advanced-data',
+          open: true,
+          sort: true,
+          routes: [
+            {
+              title: 'DataGrid',
+              path: '/docs/advanced-data/data-grid',
+              pro: true,
+            },
+            {
+              title: 'Filters',
+              path: '/docs/advanced-data/filters',
+              pro: true,
             },
           ],
         },
@@ -320,67 +322,32 @@ const sidebar = {
           title: 'Engagement',
           path: '/docs/engagement',
           open: true,
-          sort: true,
           routes: [
             {
-              title: 'Onboarding',
-              // path: '/docs/feedback/nprogress',
+              title: 'Benefits Modal',
+              path: '/docs/engagement/benefits-modal',
               pro: true,
             },
             {
               title: 'Tour',
-              // path: '/docs/feedback/snackbar',
-              pro: true,
-            },
-            {
-              title: 'InlineTip',
-              // path: '/docs/feedback/loading',
-              pro: true,
-            },
-            {
-              title: 'Feedback',
-              // path: '/docs/feedback/app-loader',
-              pro: true,
-            },
-            {
-              title: 'Changelog',
-              // path: '/docs/feedback/app-loader',
-              pro: true,
-            },
-            {
-              title: 'NotifyCenter',
-              // path: '/docs/feedback/app-loader',
+              path: '/docs/engagement/tour',
               pro: true,
             },
           ],
         },
         {
-          title: 'Typography',
-          path: '/docs/typography',
+          title: 'Utilities',
+          path: '/docs/utilities',
           open: true,
           routes: [
             {
-              title: 'Heading',
-              path: '/docs/typography/heading',
+              title: 'Feature Flags',
+              path: '/docs/utils/feature-flags',
+              pro: true,
             },
-            {
-              title: 'Text',
-              path: '/docs/typography/text',
-            },
-            {
-              title: 'Br',
-              path: '/docs/typography/br',
-            },
-          ],
-        },
-        {
-          title: 'Misc',
-          path: '/docs/misc',
-          open: true,
-          routes: [
             {
               title: 'ResizeBox',
-              // path: '/docs/layout/section',
+              path: '/docs/utils/resize-box',
               pro: true,
             },
           ],

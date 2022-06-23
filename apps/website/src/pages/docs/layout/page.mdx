@@ -5,9 +5,6 @@ description: Page makes it easy to implement consistent page layouts throughout 
 
 <ComponentLinks pro={{ gumroad: true }} />
 
-A Page is usually located in the main content of your layout, under the Navbar and next to the Sidebar.
-It can include navigation (back button), a title, toolbar and tabs.
-
 ## Import
 
 - `Page`: The container component that manages composition.
@@ -28,7 +25,10 @@ import {
 
 ## Usage
 
-`Page` manages composition for you and comes with a handful of helpful features to make creating pages fast and consistent.
+A Page is usually located in the main content of your layout, under the Navbar and next to the Sidebar.
+It can include navigation (back button), a title, toolbar and tabs.
+
+The `Page` component manages composition for you and comes with a handful of helpful features to make creating pages fast and consistent.
 All sub components are wrapped in an `ErrorBoundary`, so your apps navigation will always be available to users in case of any unforseen errors.
 
 To have more control over composition, use the low level `PageContainer` instead.

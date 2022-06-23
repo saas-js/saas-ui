@@ -1,0 +1,132 @@
+---
+title: DataGrid
+description: A basic data table component that supports sorting and selections.
+---
+
+Data tables are used to organize lists of high density data.
+It uses `react-table` to manage internal state.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-data-table' }}
+  npm={{ package: '@saas-ui/data-table' }}
+/>
+
+## Import
+
+```ts
+import { DataTable } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic DataTable
+
+```jsx
+<Box overflowX="auto">
+  <DataTable columns={dataTable.columns} data={dataTable.data} />
+</Box>
+```
+
+### Sortable
+
+```jsx
+<Box overflowX="auto">
+  <DataTable columns={dataTable.columns} data={dataTable.data} isSortable />
+</Box>
+```
+
+### Selectable
+
+```jsx
+<Box overflowX="auto">
+  <DataTable
+    columns={dataTable.columns}
+    data={dataTable.data}
+    isSelectable
+    onSelectedRowsChange={(selected) => console.log(selected)}
+  />
+</Box>
+```
+
+### Access internal state
+
+You can access the react-table `TableInstance` by passing a ref to `DataTable`.
+Check out the [react-table documentation](https://react-table.tanstack.com/docs/api/useTable#instance-properties) for all properties.
+
+```jsx
+function TableState() {
+  const tableRef = useRef(null)
+
+  return (
+    <Box overflowX="auto">
+      <Button
+        onClick={() => tableRef.current.toggleAllRowsSelected()}
+        label="Select all rows"
+      />
+      <DataTable
+        ref={tableRef}
+        columns={dataTable.columns}
+        data={dataTable.data}
+        isSelectable
+      />
+    </Box>
+  )
+}
+```
+
+### Typescript
+
+<Info>
+  If you run into type errors, you might need to add `react-table-config.d.ts`
+  to your `src`. To use the default DataTable config you can simply re-export
+  the config from `@saas-ui/data-table`.
+</Info>
+
+```ts
+// Copy to: src/types/react-table-config.d.ts
+export * from '@saas-ui/data-table/src/react-table-config.d'
+```
+
+```tsx
+interface ExampleData {
+  id: string
+  name: string
+  email: string
+}
+
+const columns: Column<ExampleData>[] = [
+  {
+    accessor: 'id',
+    Header: 'Id',
+  },
+  {
+    accessor: 'name',
+    Header: 'Name',
+  },
+  {
+    accessor: 'email',
+    Header: 'Email',
+  },
+]
+
+const data: ExampleData[] = [{
+  {
+    id: 1,
+    name: 'TaShya Charles',
+    email: 'urna.nec.luctus@icloud.couk'
+  },
+  {
+    id: 2,
+    name: 'Donovan Mosley',
+    email: 'lacinia.mattis.integer@icloud.couk',
+  },
+}]
+
+<DataTable<ExampleData> columns={columns} data={data} />
+```
+
+## Props
+
+### DataTable Props
+
+<PropsTable of="DataTable" />

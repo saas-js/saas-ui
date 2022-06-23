@@ -1,0 +1,235 @@
+---
+title: Feature Flags
+package: '@saas-ui/features'
+description: Expose features to your users using feature flags.
+---
+
+Feature flags allow you to toggle functionality on/off during runtime and give people access to certain features based on their attributes, like their role or the current billing plan.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `FeaturesProvider`: The context provider that manages state.
+- `Has`: Conditionally render components.
+- `useFlag`: Hook that returns a flag value.
+- `useFeatures`: Returns the features context.
+- `useHasFeature`: Hook used to check if user has one or more features.
+
+```js
+import { FeaturesProvider, Has, useFlag } from '@saas-ui/pro'
+```
+
+## Setup
+
+Add `FeaturesProvider` in the root of you application, to make sure the features context is available throughout your app.
+The options can either be hardcoded or preferably loaded from your database, so it can be updated on the fly.
+
+The provider options contain `segments` with attributes (`attr`) that can be matched against the identify user, more on this below.
+A user can match multiple segments, and segments can have multiple `features`. A feature can be either a `string` or `Feature` object with a `id` and `value`.
+Strings will be parsed as booleans, while feature objects support custom values.
+
+### Configuration
+
+Here is an example config.
+
+```tsx
+const options: FeaturesOptions = {
+  segments: [
+    {
+      id: 'admin',
+      attr: [
+        {
+          key: 'role',
+          value: 'admin',
+        },
+      ],
+      features: ['settings', { id: 'value-feature', value: 'enabled' }],
+    },
+    {
+      id: 'proPlan',
+      attr: [
+        {
+          key: 'plan',
+          value: 'pro',
+        },
+      ],
+      features: ['inbox'],
+    },
+  ],
+}
+
+function App({ children }) {
+  return <FeaturesProvider value={options}>{chilren}</FeaturesProvider>
+}
+```
+
+### Identify a user
+
+Identifying a user will match their attributes against the configured segments.
+
+Use the `useFeatures` hook to get access to the features context and create a hook to identify the user.
+The user object is typically accessible through your `AuthProvider` using the `useAuth` hook.
+If you need additional attributes you can add those as well.
+
+Then add a `useEffect` hook to call `identify` like to example below.
+
+```tsx
+function Layout({ children }) {
+  const features = useFeatures()
+  const { user } = useAuth()
+
+  // const user = {
+  //   id: 1,
+  //   plan: 'pro',
+  //   role: 'admin'
+  // }
+
+  React.useEffect(() => {
+    if (features.isReady && user) {
+      features.identify(user)
+    }
+  }, [features.isReady, user])
+
+  return <>{children}</>
+}
+```
+
+## Usage
+
+### Basic example
+
+```jsx
+function App() {
+  const features = useFeatures()
+
+  const [plan, setPlan] = React.useState('basic')
+
+  const user = React.useMemo(() => {
+    return {
+      id: 1,
+      role: 'admin',
+      plan,
+    }
+  }, [plan])
+
+  const upgrade = () => {
+    setPlan('pro')
+  }
+
+  const downgrade = () => {
+    setPlan('basic')
+  }
+
+  React.useEffect(() => {
+    if (features.isReady) {
+      features.identify(user)
+    }
+  }, [features.isReady, user])
+
+  return (
+    <Stack>
+      {plan === 'pro' ? (
+        <Button onClick={downgrade}>Downgrade</Button>
+      ) : (
+        <Button onClick={upgrade}>Upgrade</Button>
+      )}
+
+      <Text>Features: {Object.keys(features.flags).join(', ')}</Text>
+    </Stack>
+  )
+}
+```
+
+### Has
+
+```jsx
+<Has flag="settings">
+  <Button colorScheme="green">Settings Enabled</Button>
+</Has>
+```
+
+### Has with fallback
+
+```jsx
+<Has
+  flag="beta-feature"
+  fallback={<Button colorScheme="red">Enable beta features</Button>}
+>
+  <Button colorScheme="green">Disable beta features</Button>
+</Has>
+```
+
+### Has with multiple features
+
+```jsx
+<Has
+  flag={['settings', 'enterprise-feature']}
+  fallback={<Button colorScheme="red">Feature Disabled</Button>}
+>
+  <Button colorScheme="green">Feature Enabled</Button>
+</Has>
+```
+
+### Has with exact features
+
+```jsx
+<Has
+  flag={['settings', 'beta']}
+  exact={false}
+  fallback={<Button colorScheme="red">Feature Disabled</Button>}
+>
+  <Button colorScheme="green">Feature Enabled</Button>
+</Has>
+```
+
+### Has with value
+
+```jsx
+<Has flag="value-feature" value="enabled">
+  <Button colorScheme="green">Feature Enabled</Button>
+</Has>
+```
+
+### Has with multiple values
+
+```jsx
+<Has
+  flag={['settings', 'value-feature']}
+  value="enabled"
+  fallback={<Button colorScheme="red">Feature Disabled</Button>}
+>
+  <Button colorScheme="green">Feature Enabled</Button>
+</Has>
+```
+
+### Has with render prop
+
+```jsx
+<Has flag={['settings']}>
+  {({ flags }) => {
+    const features = Object.keys(flags)
+    return <Button colorScheme="green">Feature Enabled: {features[0]}</Button>
+  }}
+</Has>
+```
+
+### useFlag
+
+```jsx
+function Settings() {
+  return (
+    <Card px="4">
+      <PropertyList>
+        <Property label="settings" value={String(useFlag('settings'))} />
+        <Property label="beta" value={String(useFlag('beta'))} />
+        <Property label="inbox" value={String(useFlag('inbox'))} />
+        <Property
+          label="value-feature"
+          value={String(useFlag('value-feature'))}
+        />
+      </PropertyList>
+    </Card>
+  )
+}
+```

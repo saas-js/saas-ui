@@ -1,0 +1,58 @@
+---
+title: Tour
+package: '@saas-ui/pro'
+description: Introduce people to new features using multi-step tours.
+---
+
+Onboarding tours
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `TourManager`: Context provider that manages the tour state.
+- `TourSpotlight`: Spotlight focuses people to a specific UI element.
+- `TourDialog`: The header with a consise title describing the feature.
+- `TourDialog`: The body with the main message.
+- `BenefitsModalFooter`: The footer with actions.
+
+```js
+import {
+  BenefitsModal,
+  BenefitsModalMedia,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+```jsx
+function BasicUsage() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Button onClick={onOpen}>Open Modal</Button>
+
+      <BenefitsModal isOpen={isOpen} onClose={onClose}>
+        <BenefitsModalMedia
+          src="/onboarding/undraw_building_blocks_re_5ahy.svg"
+          mx="16"
+          my="8"
+        />
+        <BenefitsModalHeader>Check out this new feature</BenefitsModalHeader>
+        <BenefitsModalBody>
+          Benefits modals can be used to highlight new features and their
+          benefits in your app. Embed illustrations or videos to make ideas more
+          accessible.
+        </BenefitsModalBody>
+        <BenefitsModalFooter>
+          <Button onClick={onClose}>Dismiss</Button>
+          <Button variant="primary">Get started</Button>
+        </BenefitsModalFooter>
+      </BenefitsModal>
+    </>
+  )
+}
+```

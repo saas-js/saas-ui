@@ -32,7 +32,7 @@
     "changelog:write": "ts-node scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
     "changeset:next": "yarn changeset pre enter next",
-    "version": "changeset version",
+    "version": "yarn changelog:gen && changeset version",
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -p --from '@saas-ui/*' npm publish --access public && yarn changeset tag",
     "storybook": "start-storybook -p 6006",

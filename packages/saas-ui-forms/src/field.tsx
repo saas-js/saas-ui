@@ -323,14 +323,14 @@ export const registerFieldType = <T extends object>(
       .join('')}Field`,
     hideLabel: options?.hideLabel,
     BaseField: options?.BaseField || BaseField,
-  })
+  }) as React.FC<T & FieldProps>
 
   inputTypes[type] = Field
 
-  return Field as React.FC<T & FieldProps>
+  return Field
 }
 
-interface InputFieldProps {
+interface InputFieldProps extends InputProps {
   leftAddon: React.ReactNode
   rightAddon: React.ReactNode
 }

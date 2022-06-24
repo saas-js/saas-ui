@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext, MaybeRenderProp } from '@chakra-ui/react-utils'
 import {
   useStepper,
   useStep,
@@ -34,9 +34,7 @@ export interface UseStepFormProps<
   TFieldValues extends FieldValues = FieldValues
 > extends Omit<UseStepperProps, 'onChange'>,
     Omit<FormProps<TFieldValues>, 'children'> {
-  children:
-    | React.ReactNode
-    | ((stepper: UseStepFormReturn<TFieldValues>) => React.ReactElement)
+  children: MaybeRenderProp<UseStepFormReturn<TFieldValues>>
 }
 
 export interface UseStepFormReturn<

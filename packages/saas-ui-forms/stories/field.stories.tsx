@@ -57,7 +57,7 @@ export const Basic = () => (
     }}
   >
     <FormLayout>
-      <Field name="text" label="Text" />
+      <Field name="text" label="Text" type="text" />
       <Field name="number" label="Number" type="number" />
       <Field name="textarea" label="Textarea" type="textarea" />
       <Field name="switch" label="Switch" type="switch" />
@@ -162,6 +162,7 @@ export const HelpText = () => {
         <Field
           name="email"
           label="Email"
+          type="email"
           help="We'll never share your email."
         />
 
@@ -181,7 +182,7 @@ export const WithId = () => {
       onSubmit={onSubmit}
     >
       <FormLayout>
-        <Field id="email" name="email" label="Email" />
+        <Field id="email" name="email" label="Email" type="" />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>

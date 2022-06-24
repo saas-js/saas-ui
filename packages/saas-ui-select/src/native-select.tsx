@@ -9,7 +9,7 @@ import { __DEV__ } from '@chakra-ui/utils'
 
 interface Option {
   value: string
-  label: string
+  label?: string
 }
 
 interface NativeSelectOptions {

@@ -55,19 +55,6 @@ export type FieldRules = Pick<
   'required' | 'min' | 'max' | 'maxLength' | 'minLength' | 'pattern'
 >
 
-export type FieldTypes =
-  | 'text'
-  | 'number'
-  | 'password'
-  | 'textarea'
-  | 'select'
-  | 'native-select'
-  | 'checkbox'
-  | 'radio'
-  | 'switch'
-  | 'pin'
-  | string
-
 export interface FieldProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
@@ -112,20 +99,14 @@ export interface FieldProps<
    * Will default to a text field if there is no matching type.
    * @default 'text'
    */
-  type?: FieldTypes
+  type?: keyof FieldTypes | string
   /**
    * The input placeholder
    */
   placeholder?: string
 }
 
-type TFieldProps<
-  T extends object = any,
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = T & FieldProps<TFieldValues, TName>
-
-const inputTypes: Record<FieldTypes, React.FC<any>> = {}
+const inputTypes: Record<string, React.FC<any>> = {}
 
 const defaultInputType = 'text'
 
@@ -174,11 +155,15 @@ if (__DEV__) {
   BaseField.displayName = 'BaseField'
 }
 
+export type As<Props = any> = React.ElementType<Props>
+
+export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+  type?: FieldTypes
+}
+
 export const Field = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
-    props: FieldProps<TFieldValues> & {
-      [key: string]: unknown // Make sure attributes of custom components work. Need to change this to a global typedef at some point.
-    },
+    props: FieldProps<TFieldValues> & FieldTypeProps,
     ref: React.ForwardedRef<FocusableElement>
   ) => {
     const { type = defaultInputType } = props
@@ -330,9 +315,10 @@ export const registerFieldType = <T extends object>(
   return Field
 }
 
-interface InputFieldProps extends InputProps {
-  leftAddon: React.ReactNode
-  rightAddon: React.ReactNode
+export interface InputFieldProps extends InputProps {
+  type?: string
+  leftAddon?: React.ReactNode
+  rightAddon?: React.ReactNode
 }
 
 export const InputField = registerFieldType<InputFieldProps>(
@@ -352,14 +338,18 @@ export const InputField = registerFieldType<InputFieldProps>(
   })
 )
 
-export const NumberInputField = registerFieldType<NumberInputProps>(
+export interface NumberInputFieldProps extends NumberInputProps {
+  type: 'number'
+}
+
+export const NumberInputField = registerFieldType<NumberInputFieldProps>(
   'number',
   NumberInput,
   {
     isControlled: true,
   }
 )
-export const PasswordInputFIeld = registerFieldType<PasswordInputProps>(
+export const PasswordInputField = registerFieldType<PasswordInputProps>(
   'password',
   PasswordInput
 )
@@ -408,3 +398,28 @@ export const NativeSelectField = registerFieldType<NativeSelectProps>(
   NativeSelect,
   { isControlled: true }
 )
+
+const fieldTypes = {
+  text: InputField,
+  email: InputField,
+  url: InputField,
+  number: NumberInputField,
+  password: PasswordInputField,
+  textarea: TextareaField,
+  switch: SwitchField,
+  checkbox: CheckboxField,
+  radio: RadioField,
+  pin: PinField,
+  select: SelectField,
+  'native-select': NativeSelectField,
+}
+
+type FieldTypes = typeof fieldTypes
+
+type FieldTypeProps =
+  | {
+      [Property in keyof FieldTypes]: PropsOf<FieldTypes[Property]> & {
+        type: Property
+      }
+    }[keyof FieldTypes]
+  | { type?: string }

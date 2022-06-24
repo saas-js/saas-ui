@@ -1,8 +1,21 @@
-import { Container } from '@chakra-ui/react'
+import {
+  Container,
+  InputLeftAddon,
+  InputLeftElement,
+  InputRightAddon,
+  InputRightElement,
+} from '@chakra-ui/react'
 import * as React from 'react'
 import * as Yup from 'yup'
 
-import { Form, FormLayout, Field, SubmitButton } from '../src'
+import {
+  Form,
+  FormLayout,
+  Field,
+  SubmitButton,
+  InputField,
+  RadioField,
+} from '../src'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -22,6 +35,7 @@ const helpSchema = Yup.object().shape({
 })
 
 import { onSubmit } from './helpers'
+import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
 
 export const Basic = () => (
   <Form
@@ -168,6 +182,48 @@ export const WithId = () => {
     >
       <FormLayout>
         <Field id="email" name="email" label="Email" />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithAddons = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="url"
+          label="Url"
+          leftAddon={<InputLeftAddon>https://</InputLeftAddon>}
+        />
+
+        <Field
+          name="email"
+          label="Email"
+          rightAddon={<InputRightAddon>@saas-ui.dev</InputRightAddon>}
+        />
+
+        <Field
+          name="phone"
+          leftAddon={
+            <InputLeftElement>
+              <PhoneIcon />
+            </InputLeftElement>
+          }
+          rightAddon={
+            <InputRightElement>
+              <CheckIcon />
+            </InputRightElement>
+          }
+        />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>

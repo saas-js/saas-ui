@@ -161,7 +161,7 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
   type?: FieldTypes
 }
 
-export const Field = forwardRef(
+export const Field = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FieldProps<TFieldValues> & FieldTypeProps,
     ref: React.ForwardedRef<FocusableElement>
@@ -171,7 +171,14 @@ export const Field = forwardRef(
 
     return <InputComponent ref={ref} {...props} />
   }
-)
+) as (<TFieldValues extends FieldValues>(
+  props: FieldProps<TFieldValues> &
+    FieldTypeProps & {
+      ref?: React.ForwardedRef<FocusableElement>
+    }
+) => React.ReactElement) & {
+  displayName?: string
+}
 
 interface CreateFieldProps {
   displayName: string

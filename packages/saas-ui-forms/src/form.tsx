@@ -16,7 +16,6 @@ import {
   ResolverResult,
 } from 'react-hook-form'
 import { objectFieldResolver, FieldResolver } from './field-resolver'
-import { css } from '@emotion/react'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 

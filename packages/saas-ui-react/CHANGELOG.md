@@ -1,5 +1,37 @@
 # @saas-ui/react
 
+## 1.0.0-rc.10
+
+### Patch Changes
+
+- 68c7b62: Card now has a isHoverable property to support hover styles.
+- 43dff99: Option labels are now optional.
+- d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
+- 43dff99: Field is now correctly typed based on the field type.
+- 38f7171: #50 - Fixed StepForm render prop types.
+- 870db1f: New primary and secondary Button variant.
+- Updated dependencies [68c7b62]
+- Updated dependencies [43dff99]
+- Updated dependencies [87d3fdc]
+- Updated dependencies [d4afda3]
+- Updated dependencies [43dff99]
+- Updated dependencies [38f7171]
+- Updated dependencies [870db1f]
+  - @saas-ui/card@1.0.0-rc.4
+  - @saas-ui/forms@1.0.0-rc.9
+  - @saas-ui/provider@1.0.0-rc.5
+  - @saas-ui/button@1.0.0-rc.4
+  - @saas-ui/auth@1.0.0-rc.10
+  - @saas-ui/modals@1.0.0-rc.9
+  - @saas-ui/layout@1.0.0-rc.5
+  - @saas-ui/menu@1.0.0-rc.5
+  - @saas-ui/banner@1.0.0-rc.4
+  - @saas-ui/input-right-button@1.0.0-rc.4
+  - @saas-ui/list@1.0.0-rc.4
+  - @saas-ui/data-table@1.0.0-rc.5
+  - @saas-ui/password-input@1.0.0-rc.4
+  - @saas-ui/property@1.0.0-rc.4
+
 ## 1.0.0-rc.9
 
 ### Patch Changes

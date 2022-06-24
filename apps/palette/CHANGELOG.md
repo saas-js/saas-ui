@@ -1,5 +1,17 @@
 # palette
 
+## 1.0.0-rc.10
+
+### Patch Changes
+
+- Updated dependencies [68c7b62]
+- Updated dependencies [43dff99]
+- Updated dependencies [d4afda3]
+- Updated dependencies [43dff99]
+- Updated dependencies [38f7171]
+- Updated dependencies [870db1f]
+  - @saas-ui/react@1.0.0-rc.10
+
 ## 1.0.0-rc.9
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/password-input",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "A password input for Chakra UI",
   "source": "src/index.ts",
   "exports": {

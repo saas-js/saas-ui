@@ -1,5 +1,14 @@
 # @saas-ui/menu
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- Updated dependencies [87d3fdc]
+- Updated dependencies [870db1f]
+  - @saas-ui/provider@1.0.0-rc.5
+  - @saas-ui/button@1.0.0-rc.4
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

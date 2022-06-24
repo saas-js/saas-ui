@@ -1,5 +1,11 @@
 # @saas-ui/button
 
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- 870db1f: New primary and secondary Button variant.
+
 ## 1.0.0-rc.3
 
 ### Patch Changes

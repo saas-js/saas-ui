@@ -24,18 +24,22 @@ import {
   useMergeRefs,
   InputGroup,
   InputProps,
-  NumberInputProps,
   TextareaProps,
   SwitchProps,
   CheckboxProps,
   PinInputProps,
+  PinInputField,
+  HStack,
+  PinInput,
+  UsePinInputProps,
+  SystemProps,
 } from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
 
-import { NumberInput } from '@saas-ui/number-input'
+import { NumberInput, NumberInputProps } from '@saas-ui/number-input'
 import { PasswordInput, PasswordInputProps } from '@saas-ui/password-input'
 import { RadioInput, RadioInputProps } from '@saas-ui/radio'
-import { PinInput } from '@saas-ui/pin-input'
+
 import {
   Select,
   SelectProps,
@@ -83,7 +87,6 @@ export interface FieldProps<
     'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
   >
   /**
-   * The field type
    * Build-in types:
    * - text
    * - number
@@ -97,9 +100,8 @@ export interface FieldProps<
    * - pin
    *
    * Will default to a text field if there is no matching type.
-   * @default 'text'
    */
-  type?: keyof FieldTypes | string
+  type?: string
   /**
    * The input placeholder
    */
@@ -161,9 +163,24 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
   type?: FieldTypes
 }
 
+/**
+ * Build-in types:
+ * - text
+ * - number
+ * - password
+ * - textarea
+ * - select
+ * - native-select
+ * - checkbox
+ * - radio
+ * - switch
+ * - pin
+ *
+ * Will default to a text field if there is no matching type.
+ */
 export const Field = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
-    props: FieldProps<TFieldValues> & FieldTypeProps,
+    props: FieldProps<TFieldValues> | FieldTypeProps,
     ref: React.ForwardedRef<FocusableElement>
   ) => {
     const { type = defaultInputType } = props
@@ -356,14 +373,17 @@ export const NumberInputField = registerFieldType<NumberInputFieldProps>(
     isControlled: true,
   }
 )
+
 export const PasswordInputField = registerFieldType<PasswordInputProps>(
   'password',
-  PasswordInput
+  forwardRef((props, ref) => <PasswordInput ref={ref} {...props} />)
 )
+
 export const TextareaField = registerFieldType<TextareaProps>(
   'textarea',
   Textarea
 )
+
 export const SwitchField = registerFieldType<SwitchProps>(
   'switch',
   forwardRef(({ type, ...rest }, ref) => {
@@ -373,6 +393,7 @@ export const SwitchField = registerFieldType<SwitchProps>(
     isControlled: true,
   }
 )
+
 export const SelectField = registerFieldType<SelectProps>('select', Select, {
   isControlled: true,
 })
@@ -390,6 +411,7 @@ export const CheckboxField = registerFieldType<CheckboxProps>(
     hideLabel: true,
   }
 )
+
 export const RadioField = registerFieldType<RadioInputProps>(
   'radio',
   RadioInput,
@@ -397,19 +419,47 @@ export const RadioField = registerFieldType<RadioInputProps>(
     isControlled: true,
   }
 )
-export const PinField = registerFieldType<PinInputProps>('pin', PinInput, {
-  isControlled: true,
-})
+
 export const NativeSelectField = registerFieldType<NativeSelectProps>(
   'native-select',
   NativeSelect,
   { isControlled: true }
 )
 
+export interface PinFieldProps extends Omit<UsePinInputProps, 'type'> {
+  pinLength?: number
+  pinType?: 'alphanumeric' | 'number'
+  spacing?: SystemProps['margin']
+}
+
+export const PinField = registerFieldType<PinFieldProps>(
+  'pin',
+  forwardRef((props, ref) => {
+    const { pinLength = 4, pinType, spacing, ...inputProps } = props
+
+    const inputs: React.ReactNode[] = []
+    for (let i = 0; i < pinLength; i++) {
+      inputs.push(<PinInputField key={i} ref={ref} />)
+    }
+
+    return (
+      <HStack spacing={spacing}>
+        <PinInput {...inputProps} type={pinType}>
+          {inputs}
+        </PinInput>
+      </HStack>
+    )
+  }),
+  {
+    isControlled: true,
+  }
+)
+
 const fieldTypes = {
   text: InputField,
   email: InputField,
   url: InputField,
+  phone: InputField,
   number: NumberInputField,
   password: PasswordInputField,
   textarea: TextareaField,
@@ -423,10 +473,14 @@ const fieldTypes = {
 
 type FieldTypes = typeof fieldTypes
 
+type FieldType<Props = any> = React.ElementType<Props>
+
+type TypeProps<P extends FieldType, T> = React.ComponentPropsWithoutRef<P> & {
+  type: T
+}
+
 type FieldTypeProps =
   | {
-      [Property in keyof FieldTypes]: PropsOf<FieldTypes[Property]> & {
-        type: Property
-      }
+      [Property in keyof FieldTypes]: TypeProps<FieldTypes[Property], Property>
     }[keyof FieldTypes]
   | { type?: string }

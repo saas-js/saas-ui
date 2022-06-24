@@ -2,7 +2,7 @@ import * as React from 'react'
 import {
   forwardRef,
   PinInput as ChakraPinInput,
-  PinInputProps as ChakraPinInputProps,
+  UsePinInputProps,
   PinInputField,
   HStack,
   SystemProps,
@@ -21,8 +21,11 @@ interface PinInputOptions {
   spacing?: SystemProps['margin']
 }
 
-export interface PinInputProps extends ChakraPinInputProps, PinInputOptions {}
+export interface PinInputProps extends UsePinInputProps, PinInputOptions {}
 
+/**
+ * @deprecated
+ */
 export const PinInput = forwardRef<PinInputProps, 'div'>((props, ref) => {
   const { pinLength = 4, spacing, ...inputProps } = props
 

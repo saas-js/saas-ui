@@ -42,6 +42,10 @@ interface SelectOptions {
    * @type (value?: string[]) => React.ReactElement
    */
   renderValue?: (value?: string[]) => React.ReactElement | undefined
+  /**
+   * Enable multiple select.
+   */
+  multiple?: boolean
 }
 
 export interface SelectProps

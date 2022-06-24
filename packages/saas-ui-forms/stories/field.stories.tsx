@@ -8,14 +8,7 @@ import {
 import * as React from 'react'
 import * as Yup from 'yup'
 
-import {
-  Form,
-  FormLayout,
-  Field,
-  SubmitButton,
-  InputField,
-  RadioField,
-} from '../src'
+import { Form, FormLayout, Field, SubmitButton } from '../src'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -58,7 +51,7 @@ export const Basic = () => (
   >
     <FormLayout>
       <Field name="text" label="Text" type="text" />
-      <Field name="number" label="Number" type="number" />
+      <Field name="number" label="Number" type="number" hideStepper />
       <Field name="textarea" label="Textarea" type="textarea" />
       <Field name="switch" label="Switch" type="switch" />
       <Field
@@ -72,10 +65,10 @@ export const Basic = () => (
         label="Multiple Select"
         type="select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
-        multiple={true}
+        multiple
       />
       <Field
-        name="native-select"
+        name="nativeselect"
         label="Native Select"
         type="native-select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
@@ -88,7 +81,7 @@ export const Basic = () => (
         type="radio"
         options={[{ value: 'Radio 1' }, { value: 'Radio 2' }]}
       />
-      <Field name="pin" label="Pin" type="pin" />
+      <Field name="pin" label="Pin" type="pin" pinLength={4} />
 
       <SubmitButton>Submit</SubmitButton>
     </FormLayout>
@@ -182,7 +175,7 @@ export const WithId = () => {
       onSubmit={onSubmit}
     >
       <FormLayout>
-        <Field id="email" name="email" label="Email" type="" />
+        <Field id="email" name="email" label="Email" type="email" />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>
@@ -202,18 +195,21 @@ export const WithAddons = () => {
       <FormLayout>
         <Field
           name="url"
+          type="url"
           label="Url"
           leftAddon={<InputLeftAddon>https://</InputLeftAddon>}
         />
 
         <Field
           name="email"
+          type="email"
           label="Email"
           rightAddon={<InputRightAddon>@saas-ui.dev</InputRightAddon>}
         />
 
         <Field
           name="phone"
+          type="phone"
           leftAddon={
             <InputLeftElement>
               <PhoneIcon />

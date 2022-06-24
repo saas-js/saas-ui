@@ -8,6 +8,36 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 06-24-2022
+
+`@saas-ui/react@1.0.0-rc.10`
+
+- Card now has a isHoverable property to support hover styles.
+- Option labels are now optional.
+- ArrayFieldRowFields now accepts all FormLayout props (#48).
+- Field is now correctly typed based on the field type.
+- #50 - Fixed StepForm render prop types.
+- New primary and secondary Button variant.
+
+**Card** `v1.0.0-rc.4`
+
+- Card now has a isHoverable property to support hover styles.
+
+**Forms** `v1.0.0-rc.9`
+
+- Option labels are now optional.
+- ArrayFieldRowFields now accepts all FormLayout props (#48).
+- Field is now correctly typed based on the field type.
+- #50 - Fixed StepForm render prop types.
+
+**Provider** `v1.0.0-rc.5`
+
+- Removed dependency on querystring.
+
+**Button** `v1.0.0-rc.4`
+
+- New primary and secondary Button variant.
+
 ## 06-15-2022
 
 `@saas-ui/react@1.0.0-rc.9`

@@ -16,7 +16,7 @@ import {
 } from '@saas-ui/stepper'
 import { Button, ButtonProps } from '@saas-ui/button'
 
-import { Form, FormProps } from './form'
+import { Form } from './form'
 import { SubmitButton } from './submit-button'
 
 import {
@@ -24,6 +24,7 @@ import {
   useFormStep,
   StepFormProvider,
   UseStepFormProps,
+  FormStepSubmitHandler,
 } from './use-step-form'
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
@@ -113,11 +114,14 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
 
 export interface FormStepProps
   extends FormStepOptions,
-    HTMLChakraProps<'div'> {}
+    Omit<HTMLChakraProps<'div'>, 'onSubmit'> {
+  onSubmit?: FormStepSubmitHandler
+}
 
 export const FormStep: React.FC<FormStepProps> = (props) => {
-  const { name, schema, resolver, children, className, ...rest } = props
-  const step = useFormStep({ name, schema, resolver })
+  const { name, schema, resolver, children, className, onSubmit, ...rest } =
+    props
+  const step = useFormStep({ name, schema, resolver, onSubmit })
 
   const { isActive } = step
 

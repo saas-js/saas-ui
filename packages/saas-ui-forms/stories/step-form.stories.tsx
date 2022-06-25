@@ -13,7 +13,15 @@ import * as React from 'react'
 import * as Yup from 'yup'
 import * as z from 'zod'
 
-import { FormLayout, Field, FormValue, StepFormProps } from '../src'
+import {
+  FormLayout,
+  Field,
+  FormValue,
+  StepFormProps,
+  useStepFormContext,
+  FormStepSubmitHandler,
+  FormStepProps,
+} from '../src'
 
 import {
   StepForm,
@@ -31,6 +39,12 @@ import { onSubmit } from './helpers'
 import { StepperCompleted } from '@saas-ui/stepper'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { zodResolver } from '@hookform/resolvers/zod'
+import {
+  FormState,
+  useFormContext,
+  UseFormReturn,
+  useWatch,
+} from 'react-hook-form'
 
 export default {
   title: 'Components/Forms/StepForm',
@@ -180,13 +194,17 @@ export const WithZodSchema = () => (
   </>
 )
 
-const StepperNav = () => (
-  <ButtonGroup w="full">
-    <PrevButton variant="ghost" />
-    <Spacer />
-    <NextButton submitLabel="Confirm" />
-  </ButtonGroup>
-)
+const StepperNav = () => {
+  const { isFirstStep } = useStepFormContext()
+
+  return (
+    <ButtonGroup w="full">
+      {!isFirstStep && <PrevButton variant="ghost" />}
+      <Spacer />
+      <NextButton submitLabel="Confirm" />
+    </ButtonGroup>
+  )
+}
 
 export const WithStepper = () => {
   return (
@@ -232,6 +250,119 @@ export const WithStepper = () => {
                 <StepperNav />
               </FormLayout>
             </FormStep>
+
+            <StepperCompleted>
+              <Alert status="success">
+                <AlertIcon />
+                <Box>
+                  <AlertTitle>Thanks for signing up</AlertTitle>
+                  <AlertDescription width="full">
+                    Check your inbox to confirm your email address.
+                  </AlertDescription>
+                </Box>
+              </Alert>
+            </StepperCompleted>
+          </FormStepper>
+        </FormLayout>
+      </StepForm>
+    </>
+  )
+}
+
+export const WithState = () => {
+  const formRef = React.useRef<UseFormReturn>(null)
+
+  const steps = React.useMemo<(FormStepProps & { step: () => JSX.Element })[]>(
+    () => [
+      {
+        name: 'profile',
+        title: 'Profile',
+        onSubmit: async (data, stepper) => {
+          // check email validity
+          console.log(data, stepper)
+
+          if (data.email === 'exists@saas-ui.dev') {
+            formRef.current.setError('email', {
+              message: 'This email address is already registered.',
+            })
+
+            throw new Error('Email exists already')
+          }
+        },
+        step: () => {
+          const watch = useWatch()
+
+          console.log(watch)
+          return (
+            <FormLayout>
+              <Field name="name" label="Name" />
+              <Field name="email" label="Email" autoComplete="off" />
+              <StepperNav />
+            </FormLayout>
+          )
+        },
+      },
+      {
+        name: 'password',
+        title: 'Password',
+        step: () => {
+          const form = useFormContext()
+
+          console.log(form.getValues('email'))
+
+          return (
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                type="password"
+                autoFocus
+                autoComplete="off"
+              />
+              <StepperNav />
+            </FormLayout>
+          )
+        },
+      },
+
+      {
+        name: 'confirmation',
+        title: 'Confirmation',
+        step: () => {
+          return (
+            <FormLayout>
+              <Text>Please confirm that your information is correct.</Text>
+              <PropertyList>
+                <Property label="Name" value={<FormValue name="name" />} />
+                <Property label="Email" value={<FormValue name="email" />} />
+              </PropertyList>
+              <StepperNav />
+            </FormLayout>
+          )
+        },
+      },
+    ],
+    []
+  )
+
+  return (
+    <>
+      <StepForm
+        ref={formRef}
+        defaultValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        onSubmit={onSubmit}
+      >
+        <FormLayout>
+          <FormStepper>
+            {steps.map(({ step: Step, name, ...rest }) => (
+              <FormStep key={name} name={name} {...rest}>
+                <Step />
+              </FormStep>
+            ))}
 
             <StepperCompleted>
               <Alert status="success">

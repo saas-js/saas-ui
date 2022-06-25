@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
+import { FieldValues, SubmitHandler, UnpackNestedValue } from 'react-hook-form'
 import { createContext, MaybeRenderProp } from '@chakra-ui/react-utils'
 import {
   useStepper,
@@ -14,7 +14,15 @@ export interface StepState {
   resolver?: any
   isActive?: boolean
   isCompleted?: boolean
+  onSubmit?: FormStepSubmitHandler
 }
+
+export type FormStepSubmitHandler<
+  TFieldValues extends FieldValues = FieldValues
+> = (
+  data: UnpackNestedValue<TFieldValues>,
+  stepper: UseStepperReturn
+) => Promise<void>
 
 export interface StepFormContext extends UseStepperReturn {
   updateStep(state: StepState): void
@@ -61,11 +69,12 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
 
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
+      const step = steps[activeStep]
+
       if (isLastStep) {
         return props
           .onSubmit?.(data)
           .then(() => {
-            const step = steps[activeStep]
             updateStep({
               ...step,
               isCompleted: true,
@@ -74,9 +83,15 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
           .then(nextStep) // Show completed step
       }
 
-      nextStep()
+      try {
+        await step.onSubmit?.(data, stepper)
+
+        nextStep()
+      } catch (e) {
+        // Step submission failed.
+      }
     },
-    [activeStep, isLastStep]
+    [steps, activeStep, isLastStep]
   )
 
   const getFormProps = React.useCallback(() => {
@@ -112,16 +127,17 @@ export interface UseFormStepProps {
   name: string
   schema?: any
   resolver?: any
+  onSubmit?: FormStepSubmitHandler
 }
 
 export function useFormStep(props: UseFormStepProps): StepState {
-  const { name, schema, resolver } = props
+  const { name, schema, resolver, onSubmit } = props
   const step = useStep({ name })
 
   const { steps, updateStep } = useStepFormContext()
 
   React.useEffect(() => {
-    updateStep({ name, schema, resolver })
+    updateStep({ name, schema, resolver, onSubmit })
   }, [name, schema])
 
   return {

@@ -22,7 +22,7 @@ Supported authentication strategies are:
 ## Import
 
 ```js
-import { createAuthService } from '@saas-ui/auth/supabase'
+import { createAuthService } from '@saas-ui/auth/services/supabase'
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ yarn add @supabase/supabase-js
 ```tsx
 import { createClient } from '@supabase/supabase-js'
 import { AuthProvider } from '@saas-ui/react'
-import { createAuthService } from '@saas-ui/auth/supabase'
+import { createAuthService } from '@saas-ui/auth/services/supabase'
 
 const supabaseClient = createClient(
   process.env.SUPABASE_URL,

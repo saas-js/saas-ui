@@ -24,6 +24,7 @@ import {
   useArrayFieldRemoveButton,
   UseArrayFieldReturn,
   SubmitButton,
+  ArrayFieldProps,
 } from '../src'
 
 import { Button } from '@saas-ui/button'
@@ -242,7 +243,7 @@ export const MinMaxNoSchema = () => (
   </>
 )
 
-const MyArrayField = () => {
+const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
   const formState = useFormContext()
 
   const watch = useWatch({
@@ -265,12 +266,13 @@ const MyArrayField = () => {
       label="Array field"
       keyName="_id"
       defaultValue={{}}
+      ref={ref}
     >
       <Field name="title" label="Title" />
       <Field name="description" label="Description" type="textarea" />
     </ArrayField>
   )
-}
+})
 
 export const WatchArrayField = () => {
   return (
@@ -318,7 +320,7 @@ export const ArrayFieldRef = () => {
       onSubmit={onSubmit}
     >
       <FormLayout>
-        <MyArrayField />
+        <MyArrayField ref={ref} />
 
         <SubmitButton label="Submit" />
       </FormLayout>

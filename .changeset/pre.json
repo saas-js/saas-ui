@@ -39,9 +39,11 @@
     "@saas-ui/web3": "0.2.1",
     "@saas-ui/next-workspaces": "0.1.1",
     "@saas-ui/props-docs": "0.4.1",
-    "@saas-ui/test-utils": "1.2.35"
+    "@saas-ui/test-utils": "1.2.35",
+    "chakra-nextjs-ts": "1.0.0"
   },
   "changesets": [
+    "breezy-humans-compare",
     "calm-wasps-brake",
     "calm-zebras-play",
     "dull-yaks-laugh",
@@ -52,14 +54,19 @@
     "gorgeous-cars-doubt",
     "gorgeous-emus-grow",
     "gorgeous-poems-invite",
+    "green-experts-enjoy",
+    "heavy-socks-retire",
     "lemon-ears-flash",
+    "metal-guests-fail",
     "mighty-swans-check",
     "moody-camels-sniff",
     "odd-squids-type",
     "quiet-gifts-fix",
+    "quiet-poems-taste",
     "serious-bees-mate",
     "seven-squids-yawn",
     "short-tomatoes-kick",
+    "shy-melons-marry",
     "smart-lizards-remain",
     "smooth-hounds-drop",
     "soft-carrots-clean",
@@ -68,6 +75,7 @@
     "stupid-pandas-switch",
     "sweet-queens-smoke",
     "tasty-avocados-roll",
+    "twenty-houses-matter",
     "wicked-icons-invite",
     "yellow-spies-poke"
   ]

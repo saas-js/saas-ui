@@ -1,4 +1,10 @@
-import { Container } from '@chakra-ui/react'
+import {
+  Container,
+  InputLeftAddon,
+  InputLeftElement,
+  InputRightAddon,
+  InputRightElement,
+} from '@chakra-ui/react'
 import * as React from 'react'
 import * as Yup from 'yup'
 
@@ -22,6 +28,7 @@ const helpSchema = Yup.object().shape({
 })
 
 import { onSubmit } from './helpers'
+import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
 
 export const Basic = () => (
   <Form
@@ -43,8 +50,8 @@ export const Basic = () => (
     }}
   >
     <FormLayout>
-      <Field name="text" label="Text" />
-      <Field name="number" label="Number" type="number" />
+      <Field name="text" label="Text" type="text" />
+      <Field name="number" label="Number" type="number" hideStepper />
       <Field name="textarea" label="Textarea" type="textarea" />
       <Field name="switch" label="Switch" type="switch" />
       <Field
@@ -58,10 +65,10 @@ export const Basic = () => (
         label="Multiple Select"
         type="select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
-        multiple={true}
+        multiple
       />
       <Field
-        name="native-select"
+        name="nativeselect"
         label="Native Select"
         type="native-select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
@@ -74,7 +81,7 @@ export const Basic = () => (
         type="radio"
         options={[{ value: 'Radio 1' }, { value: 'Radio 2' }]}
       />
-      <Field name="pin" label="Pin" type="pin" />
+      <Field name="pin" label="Pin" type="pin" pinLength={4} />
 
       <SubmitButton>Submit</SubmitButton>
     </FormLayout>
@@ -148,6 +155,7 @@ export const HelpText = () => {
         <Field
           name="email"
           label="Email"
+          type="email"
           help="We'll never share your email."
         />
 
@@ -167,7 +175,52 @@ export const WithId = () => {
       onSubmit={onSubmit}
     >
       <FormLayout>
-        <Field id="email" name="email" label="Email" />
+        <Field id="email" name="email" label="Email" type="email" />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithAddons = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="url"
+          type="url"
+          label="Url"
+          leftAddon={<InputLeftAddon>https://</InputLeftAddon>}
+        />
+
+        <Field
+          name="email"
+          type="email"
+          label="Email"
+          rightAddon={<InputRightAddon>@saas-ui.dev</InputRightAddon>}
+        />
+
+        <Field
+          name="phone"
+          type="phone"
+          leftAddon={
+            <InputLeftElement>
+              <PhoneIcon />
+            </InputLeftElement>
+          }
+          rightAddon={
+            <InputRightElement>
+              <CheckIcon />
+            </InputRightElement>
+          }
+        />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>

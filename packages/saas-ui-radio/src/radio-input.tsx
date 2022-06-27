@@ -14,7 +14,7 @@ import { __DEV__ } from '@chakra-ui/utils'
 
 interface Option extends RadioProps {
   value: string
-  label: string
+  label?: string
 }
 
 interface RadioInputOptions {
@@ -23,7 +23,9 @@ interface RadioInputOptions {
   direction?: StackDirection
 }
 
-export interface RadioInputProps extends RadioGroupProps, RadioInputOptions {}
+export interface RadioInputProps
+  extends Omit<RadioGroupProps, 'children'>,
+    RadioInputOptions {}
 
 export const RadioInput = forwardRef<RadioInputProps, 'div'>(
   ({ options, spacing, direction, ...props }, ref) => {

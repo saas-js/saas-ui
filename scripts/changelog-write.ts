@@ -6,7 +6,7 @@ const cwd = process.cwd()
 function getFrontmatter() {
   const date = format(new Date(), 'PP')
   return `---
-title: Updates for ${date}
+title: ${date}
 date: '${new Date().toString()}'
 ---`
 }

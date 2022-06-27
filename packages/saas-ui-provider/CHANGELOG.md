@@ -1,5 +1,11 @@
 # @saas-ui/provider
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- 87d3fdc: Removed dependency on querystring.
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

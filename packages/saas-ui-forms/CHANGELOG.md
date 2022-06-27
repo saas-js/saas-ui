@@ -1,5 +1,18 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- 43dff99: Option labels are now optional.
+- d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
+- 43dff99: Field is now correctly typed based on the field type.
+- 38f7171: #50 - Fixed StepForm render prop types.
+- Updated dependencies [870db1f]
+  - @saas-ui/button@1.0.0-rc.4
+  - @saas-ui/input-right-button@1.0.0-rc.4
+  - @saas-ui/password-input@1.0.0-rc.4
+
 ## 1.0.0-rc.8
 
 ### Patch Changes

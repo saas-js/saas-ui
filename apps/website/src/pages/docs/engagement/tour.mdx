@@ -36,7 +36,9 @@ function BasicUsage() {
             Add user
           </Button>
         </ButtonGroup>
-        <Button onClick={onOpen}>Start example tour</Button>
+        <Button onClick={onOpen} variant="primary">
+          Start example tour
+        </Button>
       </Stack>
 
       <Tour isActive={isOpen} onComplete={onClose}>
@@ -65,18 +67,29 @@ function BasicUsage() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Stack spacing="40" alignItems="center">
-        <Button id="tour-1">Create</Button>
-        <Form onSubmit={() => null}>
-          <Field name="title" label="Title" id="tour-2" />
-        </Form>
-        <Card id="tour-3">
-          <CardBody>Another feature</CardBody>
-        </Card>
+      <Stack spacing="8" alignItems="center">
+        <ButtonGroup>
+          <Button leftIcon={<FiUsers />} data-tour="add-users2">
+            Add user
+          </Button>
+          <IconButton
+            icon={<FiTag />}
+            aria-label="Tag users"
+            data-tour="tag-users"
+          />
+          <IconButton
+            icon={<FiLock />}
+            aria-label="Lock users"
+            data-tour="lock-users"
+          />
+        </ButtonGroup>
+        <Button onClick={onOpen} variant="primary">
+          Start example tour
+        </Button>
       </Stack>
 
-      <Tour>
-        <TourDialog data-target="#tour-1">
+      <Tour isActive={isOpen} onComplete={onClose}>
+        <TourDialog data-target="[data-tour=add-users2]">
           <TourDialogCloseButton />
           <TourDialogHeader>Check out this new feature</TourDialogHeader>
           <TourDialogBody>Start the tour to see how it works.</TourDialogBody>
@@ -89,7 +102,7 @@ function BasicUsage() {
           </TourDialogFooter>
         </TourDialog>
 
-        <TourDialog data-target="#tour-2">
+        <TourDialog data-target="[data-tour=tag-users]">
           <TourDialogCloseButton />
           <TourDialogHeader>Step 2</TourDialogHeader>
           <TourDialogBody>Tour step 2.</TourDialogBody>
@@ -101,7 +114,7 @@ function BasicUsage() {
           </TourDialogFooter>
         </TourDialog>
 
-        <TourDialog data-target="#tour-3">
+        <TourDialog data-target="[data-tour=lock-users]">
           <TourDialogCloseButton />
           <TourDialogHeader>Step 3</TourDialogHeader>
           <TourDialogBody>Tour step 3.</TourDialogBody>
@@ -112,6 +125,8 @@ function BasicUsage() {
             </TourDialogActions>
           </TourDialogFooter>
         </TourDialog>
+
+        <TourSpotlight />
       </Tour>
     </>
   )

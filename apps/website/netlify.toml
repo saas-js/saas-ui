@@ -112,6 +112,60 @@
     "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
     "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
     "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+    "!../../node_modules/sharp/**/*",
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".env.production.local",
+    "./public/locales/**",
+    "./next-i18next.config.js",
+    ".next/server/**",
+    ".next/serverless/**",
+    ".next/*.json",
+    ".next/BUILD_ID",
+    ".next/static/chunks/webpack-middleware*.js",
+    "!.next/server/**/*.js.nft.json",
+    "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+    "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+    "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+    "!../../node_modules/sharp/**/*",
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".env.production.local",
+    "./public/locales/**",
+    "./next-i18next.config.js",
+    ".next/server/**",
+    ".next/serverless/**",
+    ".next/*.json",
+    ".next/BUILD_ID",
+    ".next/static/chunks/webpack-middleware*.js",
+    "!.next/server/**/*.js.nft.json",
+    "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+    "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+    "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+    "!../../node_modules/sharp/**/*",
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".env.production.local",
+    "./public/locales/**",
+    "./next-i18next.config.js",
+    ".next/server/**",
+    ".next/serverless/**",
+    ".next/*.json",
+    ".next/BUILD_ID",
+    ".next/static/chunks/webpack-middleware*.js",
+    "!.next/server/**/*.js.nft.json",
+    "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+    "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+    "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
     "!../../node_modules/sharp/**/*"
   ]
   external_node_modules = []
@@ -119,6 +173,60 @@
 
   [functions.___netlify-odb-handler]
   included_files = [
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".env.production.local",
+    "./public/locales/**",
+    "./next-i18next.config.js",
+    ".next/server/**",
+    ".next/serverless/**",
+    ".next/*.json",
+    ".next/BUILD_ID",
+    ".next/static/chunks/webpack-middleware*.js",
+    "!.next/server/**/*.js.nft.json",
+    "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+    "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+    "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+    "!../../node_modules/sharp/**/*",
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".env.production.local",
+    "./public/locales/**",
+    "./next-i18next.config.js",
+    ".next/server/**",
+    ".next/serverless/**",
+    ".next/*.json",
+    ".next/BUILD_ID",
+    ".next/static/chunks/webpack-middleware*.js",
+    "!.next/server/**/*.js.nft.json",
+    "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+    "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+    "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+    "!../../node_modules/sharp/**/*",
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".env.production.local",
+    "./public/locales/**",
+    "./next-i18next.config.js",
+    ".next/server/**",
+    ".next/serverless/**",
+    ".next/*.json",
+    ".next/BUILD_ID",
+    ".next/static/chunks/webpack-middleware*.js",
+    "!.next/server/**/*.js.nft.json",
+    "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+    "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+    "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+    "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+    "!../../node_modules/sharp/**/*",
     ".env",
     ".env.local",
     ".env.production",
@@ -438,6 +546,126 @@ status = 200
 
 [[redirects]]
 from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/404.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/license.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/privacy.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/terms.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/blog/:slug/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/changelog/:slug/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs.json"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/404.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/license.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/privacy.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/terms.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/blog/:slug/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/changelog/:slug/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/docs.json"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/jLq3M2STHLivei4NybEg9/docs/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/404.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/license.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/privacy.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/terms.json"
+to = "/.netlify/functions/___netlify-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/blog/:slug/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/changelog/:slug/*"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/docs.json"
+to = "/.netlify/builders/___netlify-odb-handler"
+status = 200
+
+[[redirects]]
+from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/docs/*"
 to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
@@ -907,7 +1135,7 @@ force = true
   ]
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/404.json"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/404.json"
 to = "/.netlify/functions/___netlify-handler"
 status = 200
 
@@ -917,7 +1145,7 @@ to = "/.netlify/functions/___netlify-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/license.json"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/license.json"
 to = "/.netlify/functions/___netlify-handler"
 status = 200
 
@@ -927,7 +1155,7 @@ to = "/.netlify/functions/___netlify-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/privacy.json"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/privacy.json"
 to = "/.netlify/functions/___netlify-handler"
 status = 200
 
@@ -937,7 +1165,7 @@ to = "/.netlify/functions/___netlify-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/terms.json"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/terms.json"
 to = "/.netlify/functions/___netlify-handler"
 status = 200
 
@@ -947,7 +1175,7 @@ to = "/.netlify/functions/___netlify-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/blog/:slug/*"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/blog/:slug/*"
 to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
@@ -957,7 +1185,7 @@ to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/changelog/:slug/*"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/changelog/:slug/*"
 to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
@@ -967,12 +1195,12 @@ to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs.json"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/docs.json"
 to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
 [[redirects]]
-from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs/*"
+from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/docs/*"
 to = "/.netlify/builders/___netlify-odb-handler"
 status = 200
 
@@ -1002,6 +1230,60 @@ status = 200
 
       [context.production.functions.___netlify-handler]
       included_files = [
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
         ".env",
         ".env.local",
         ".env.production",
@@ -1223,6 +1505,60 @@ status = 200
         "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
         "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
         "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
         "!../../node_modules/sharp/**/*"
       ]
       external_node_modules = []
@@ -1389,6 +1725,126 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/404.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/license.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/privacy.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/terms.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/blog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/changelog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs.json"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/404.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/license.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/privacy.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/terms.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/blog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/changelog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs.json"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/404.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/license.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/privacy.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/terms.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/blog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/changelog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/docs.json"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/docs/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.production.redirects]]
     from = "/_next/static/*"
     to = "/static/:splat"
     status = 200
@@ -1688,17 +2144,6 @@ status = 200
       ]
 
     [[context.production.redirects]]
-    from = "/img/portugal.jpg"
-    to = "/img/portugal.jpg"
-    status = 200
-
-      [context.production.redirects.conditions]
-      Cookie = [
-        "__prerender_bypass",
-        "__next_preview_data"
-      ]
-
-    [[context.production.redirects]]
     from = "/frameworks/bedrock.svg"
     to = "/frameworks/bedrock.svg"
     status = 200
@@ -1787,6 +2232,17 @@ status = 200
       ]
 
     [[context.production.redirects]]
+    from = "/img/portugal.jpg"
+    to = "/img/portugal.jpg"
+    status = 200
+
+      [context.production.redirects.conditions]
+      Cookie = [
+        "__prerender_bypass",
+        "__next_preview_data"
+      ]
+
+    [[context.production.redirects]]
     from = "/screenshots/billing.png"
     to = "/screenshots/billing.png"
     status = 200
@@ -1854,7 +2310,7 @@ status = 200
       ]
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/404.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/404.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -1864,7 +2320,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/license.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/license.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -1874,7 +2330,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/privacy.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/privacy.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -1884,7 +2340,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/terms.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/terms.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -1894,7 +2350,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/blog/:slug/*"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/blog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -1904,7 +2360,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/changelog/:slug/*"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/changelog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -1914,12 +2370,12 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/docs.json"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs/*"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/docs/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -2404,7 +2860,7 @@ status = 200
       ]
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/404.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/404.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -2414,7 +2870,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/license.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/license.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -2424,7 +2880,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/privacy.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/privacy.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -2434,7 +2890,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/terms.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/terms.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -2444,7 +2900,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/blog/:slug/*"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/blog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -2454,7 +2910,7 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/changelog/:slug/*"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/changelog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -2464,12 +2920,12 @@ status = 200
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/docs.json"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
     [[context.production.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs/*"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/docs/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -2497,6 +2953,60 @@ status = 200
 
       [context.next.functions.___netlify-handler]
       included_files = [
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
         ".env",
         ".env.local",
         ".env.production",
@@ -2718,6 +3228,60 @@ status = 200
         "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
         "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
         "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
+        "!../../node_modules/sharp/**/*",
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.production.local",
+        "./public/locales/**",
+        "./next-i18next.config.js",
+        ".next/server/**",
+        ".next/serverless/**",
+        ".next/*.json",
+        ".next/BUILD_ID",
+        ".next/static/chunks/webpack-middleware*.js",
+        "!.next/server/**/*.js.nft.json",
+        "!../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*",
+        "!../../node_modules/next/dist/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/next-server/server/lib/squoosh/**/*.wasm",
+        "!../../node_modules/next/dist/compiled/webpack/bundle4.js",
+        "!../../node_modules/next/dist/compiled/webpack/bundle5.js",
         "!../../node_modules/sharp/**/*"
       ]
       external_node_modules = []
@@ -2880,6 +3444,126 @@ status = 200
 
     [[context.next.redirects]]
     from = "/_next/data/J1TP90C8ta9Ya1T0wSGny/docs/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/404.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/license.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/privacy.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/terms.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/blog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/changelog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs.json"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/404.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/license.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/privacy.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/terms.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/blog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/changelog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs.json"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/404.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/license.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/privacy.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/terms.json"
+    to = "/.netlify/functions/___netlify-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/blog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/changelog/:slug/*"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/docs.json"
+    to = "/.netlify/builders/___netlify-odb-handler"
+    status = 200
+
+    [[context.next.redirects]]
+    from = "/_next/data/jLq3M2STHLivei4NybEg9/docs/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -3183,17 +3867,6 @@ status = 200
       ]
 
     [[context.next.redirects]]
-    from = "/img/portugal.jpg"
-    to = "/img/portugal.jpg"
-    status = 200
-
-      [context.next.redirects.conditions]
-      Cookie = [
-        "__prerender_bypass",
-        "__next_preview_data"
-      ]
-
-    [[context.next.redirects]]
     from = "/frameworks/bedrock.svg"
     to = "/frameworks/bedrock.svg"
     status = 200
@@ -3282,6 +3955,17 @@ status = 200
       ]
 
     [[context.next.redirects]]
+    from = "/img/portugal.jpg"
+    to = "/img/portugal.jpg"
+    status = 200
+
+      [context.next.redirects.conditions]
+      Cookie = [
+        "__prerender_bypass",
+        "__next_preview_data"
+      ]
+
+    [[context.next.redirects]]
     from = "/screenshots/billing.png"
     to = "/screenshots/billing.png"
     status = 200
@@ -3349,7 +4033,7 @@ status = 200
       ]
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/404.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/404.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3359,7 +4043,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/license.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/license.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3369,7 +4053,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/privacy.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/privacy.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3379,7 +4063,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/terms.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/terms.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3389,7 +4073,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/blog/:slug/*"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/blog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -3399,7 +4083,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/changelog/:slug/*"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/changelog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -3409,12 +4093,12 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs.json"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/docs.json"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/_Eiel2y1vqqS_KBMVjemZ/docs/*"
+    from = "/_next/data/KTdyzkFw1FbbmWsuuekBG/docs/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -3899,7 +4583,7 @@ status = 200
       ]
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/404.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/404.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3909,7 +4593,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/license.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/license.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3919,7 +4603,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/privacy.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/privacy.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3929,7 +4613,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/terms.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/terms.json"
     to = "/.netlify/functions/___netlify-handler"
     status = 200
 
@@ -3939,7 +4623,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/blog/:slug/*"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/blog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -3949,7 +4633,7 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/changelog/:slug/*"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/changelog/:slug/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
@@ -3959,12 +4643,12 @@ status = 200
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs.json"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/docs.json"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 
     [[context.next.redirects]]
-    from = "/_next/data/tuuZ3F-xRDwaB1OAqG09f/docs/*"
+    from = "/_next/data/ZMzP4eSQ6pVSgYL-Nw8hb/docs/*"
     to = "/.netlify/builders/___netlify-odb-handler"
     status = 200
 

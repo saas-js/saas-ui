@@ -1,0 +1,115 @@
+---
+title: Toolbar
+description: A container for grouping a set of controls, like buttons, toggles or menus.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `Toolbar`: The container component.
+- `ToolbarButton`: Either a regular or icon button.
+- `ToolbarGroup`: Component for grouping buttons.
+- `ToolbarToggleGroup`: A set of toggle buttons with on/off state.
+- `ToolbarToggleButton`: A button that can be toggled on or off.
+- `ToolbarDivider`: A divider component.
+
+```ts
+import {
+  Toolbar,
+  ToolbarButton,
+  ToolbarGroup,
+  ToolbarToggleGroup,
+  ToolbarToggleButton,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+The Toolbar can be used in combination with the `Page` component or standalone in other parts of your app that requires a group of controls or actions.
+
+### Basic
+
+```jsx
+<Toolbar>
+  <ToolbarToggleGroup spacing="1" defaultValue="left" onChange={console.log}>
+    <ToolbarToggleButton
+      icon={<FiAlignLeft />}
+      label="Align left"
+      value="left"
+    />
+    <ToolbarToggleButton
+      icon={<FiAlignCenter />}
+      label="Align center"
+      value="center"
+    />
+    <ToolbarToggleButton
+      icon={<FiAlignRight />}
+      label="Align right"
+      value="right"
+    />
+  </ToolbarToggleGroup>
+  <ToolbarDivider />
+  <ToolbarToggleGroup spacing="1" type="checkbox">
+    <ToolbarToggleButton icon={<FiBold />} label="Bold" value="bold" />
+    <ToolbarToggleButton icon={<FiItalic />} label="Italic" value="italic" />
+    <ToolbarToggleButton
+      icon={<FiUnderline />}
+      label="Underline"
+      value="underline"
+    />
+  </ToolbarToggleGroup>
+  <ToolbarDivider />
+  <ToolbarButton icon={<FiLink />} label="Create link" />
+  <Spacer />
+  <ToolbarButton label="Save" variant="solid" colorScheme="primary" />
+</Toolbar>
+```
+
+### Sizes
+
+Toolbar supports the following sizes, `xs`, `sm`, `md`, `lg`.
+
+```jsx
+<Toolbar size="xs">
+  <ToolbarToggleGroup spacing="1" defaultValue="left" onChange={console.log}>
+    <ToolbarToggleButton
+      icon={<FiAlignLeft />}
+      label="Align left"
+      value="left"
+    />
+    <ToolbarToggleButton
+      icon={<FiAlignCenter />}
+      label="Align center"
+      value="center"
+    />
+    <ToolbarToggleButton
+      icon={<FiAlignRight />}
+      label="Align right"
+      value="right"
+    />
+  </ToolbarToggleGroup>
+  <ToolbarDivider />
+  <ToolbarToggleGroup spacing="1" type="checkbox">
+    <ToolbarToggleButton icon={<FiBold />} label="Bold" value="bold" />
+    <ToolbarToggleButton icon={<FiItalic />} label="Italic" value="italic" />
+    <ToolbarToggleButton
+      icon={<FiUnderline />}
+      label="Underline"
+      value="underline"
+    />
+  </ToolbarToggleGroup>
+  <ToolbarDivider />
+  <ToolbarButton icon={<FiLink />} label="Create link" />
+  <Spacer />
+  <ToolbarButton label="Save" variant="solid" colorScheme="primary" />
+</Toolbar>
+```
+
+## Props
+
+The `Toolbar` component and all sub components accept all `Box` properties.
+
+### Toolbar Props
+
+<PropsTable of="Toolbar" />

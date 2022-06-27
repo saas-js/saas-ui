@@ -142,13 +142,17 @@ const sidebar = {
               path: '/docs/layout/section',
               pro: true,
             },
+            {
+              title: 'Toolbar',
+              path: '/docs/layout/toolbar',
+              pro: true,
+            },
           ],
         },
         {
           title: 'Navigation',
           path: '/docs/navigation',
           open: true,
-          // sort: true,
           routes: [
             {
               title: 'Hotkeys',
@@ -254,17 +258,26 @@ const sidebar = {
               title: 'Persona',
               path: '/docs/data-display/persona',
             },
+            {
+              title: 'Command',
+              path: '/docs/data-display/command',
+              pro: true,
+            },
           ],
         },
         {
           title: 'Advanced Data',
           path: '/docs/advanced-data',
           open: true,
-          sort: true,
           routes: [
             {
               title: 'DataGrid',
               path: '/docs/advanced-data/data-grid',
+              pro: true,
+            },
+            {
+              title: 'BulkActions',
+              path: '/docs/advanced-data/bulk-actions',
               pro: true,
             },
             {
@@ -316,6 +329,11 @@ const sidebar = {
               title: 'FormDialog',
               path: '/docs/overlay/form-dialog',
             },
+            {
+              title: 'ResponsiveMenu',
+              path: '/docs/overlay/responsive-menu',
+              pro: true,
+            },
           ],
         },
         {
@@ -340,6 +358,10 @@ const sidebar = {
           path: '/docs/utilities',
           open: true,
           routes: [
+            {
+              title: 'ErrorBoundary',
+              path: '/docs/utils/error-boundary',
+            },
             {
               title: 'Feature Flags',
               path: '/docs/utils/feature-flags',

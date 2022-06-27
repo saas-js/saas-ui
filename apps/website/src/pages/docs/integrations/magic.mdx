@@ -20,7 +20,7 @@ Supported authentication strategies are:
 ## Import
 
 ```js
-import { createAuthService } from '@saas-ui/auth/magic'
+import { createAuthService } from '@saas-ui/auth/services/magic'
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ yarn add magic-sdk
 ```tsx
 import { Magic } from 'magic-sdk'
 import { AuthProvider } from '@saas-ui/react'
-import { createAuthService } from '@saas-ui/auth/magic'
+import { createAuthService } from '@saas-ui/auth/services/magic'
 
 const magic = new Magic(process.env.MAGIC_API_KEY)
 

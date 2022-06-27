@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 22 Jun 2022 08:00:27 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 26 Jun 2022 10:37:33 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -55,6 +55,86 @@
     <title>Auth</title>
     <link>https://saas-ui.dev/docs/auth/auth</link>
     <description>Ready to use authentication forms.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
+    <title>DataTable</title>
+    <link>https://saas-ui.dev/docs/data-display/data-table</link>
+    <description>A basic data table component that supports sorting and selections.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/divider</guid>
+    <title>Divider</title>
+    <link>https://saas-ui.dev/docs/data-display/divider</link>
+    <description>Dividers are used to visually separate content in a list or group.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/empty-state</guid>
+    <title>EmptyState</title>
+    <link>https://saas-ui.dev/docs/data-display/empty-state</link>
+    <description>Display actionable feedback when no data is available.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/list</guid>
+    <title>List</title>
+    <link>https://saas-ui.dev/docs/data-display/list</link>
+    <description>A component used to display collections of data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/persona</guid>
+    <title>Persona</title>
+    <link>https://saas-ui.dev/docs/data-display/persona</link>
+    <description>A component that represents a person and their status.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/property</guid>
+    <title>Property</title>
+    <link>https://saas-ui.dev/docs/data-display/property</link>
+    <description>A component used to show key/value data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -171,156 +251,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/data-table</guid>
-    <title>DataTable</title>
-    <link>https://saas-ui.dev/docs/data-display/data-table</link>
-    <description>A basic data table component that supports sorting and selections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/divider</guid>
-    <title>Divider</title>
-    <link>https://saas-ui.dev/docs/data-display/divider</link>
-    <description>Dividers are used to visually separate content in a list or group.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/empty-state</guid>
-    <title>EmptyState</title>
-    <link>https://saas-ui.dev/docs/data-display/empty-state</link>
-    <description>Display actionable feedback when no data is available.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/list</guid>
-    <title>List</title>
-    <link>https://saas-ui.dev/docs/data-display/list</link>
-    <description>A component used to display collections of data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/persona</guid>
-    <title>Persona</title>
-    <link>https://saas-ui.dev/docs/data-display/persona</link>
-    <description>A component that represents a person and their status.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/data-display/property</guid>
-    <title>Property</title>
-    <link>https://saas-ui.dev/docs/data-display/property</link>
-    <description>A component used to show key/value data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/feedback/banner</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
-    <title>Loader</title>
-    <link>https://saas-ui.dev/docs/feedback/loader</link>
-    <description>A loading indicator that fills it's parent.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/layout/card</guid>
-    <title>Card</title>
-    <link>https://saas-ui.dev/docs/layout/card</link>
-    <description>Cards can be used to provide easy scannable information and details.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/navigation/hotkeys</guid>
-    <title>Hotkeys</title>
-    <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
-    <description>Keyboard shortcuts for modern apps</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/navigation/stepper</guid>
-    <title>Stepper</title>
-    <link>https://saas-ui.dev/docs/navigation/stepper</link>
-    <description>Indicate progress through numbered steps in multi-step workflows.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
     <title>Clerk</title>
     <link>https://saas-ui.dev/docs/integrations/clerk</link>
@@ -411,6 +341,66 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
+    <title>Loader</title>
+    <link>https://saas-ui.dev/docs/feedback/loader</link>
+    <description>A loading indicator that fills it's parent.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/navigation/hotkeys</guid>
+    <title>Hotkeys</title>
+    <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
+    <description>Keyboard shortcuts for modern apps</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/navigation/stepper</guid>
+    <title>Stepper</title>
+    <link>https://saas-ui.dev/docs/navigation/stepper</link>
+    <description>Indicate progress through numbered steps in multi-step workflows.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/overlay/form-dialog</guid>
     <title>Form Dialog</title>
     <link>https://saas-ui.dev/docs/overlay/form-dialog</link>
@@ -435,6 +425,16 @@
     <title>Modals manager</title>
     <link>https://saas-ui.dev/docs/overlay/modals-manager</link>
     <description>Manage different types of modals with a single easy to use hook.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/layout/card</guid>
+    <title>Card</title>
+    <link>https://saas-ui.dev/docs/layout/card</link>
+    <description>Cards can be used to provide easy scannable information and details.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

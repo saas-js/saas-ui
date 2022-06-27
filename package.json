@@ -54,7 +54,8 @@
     "packages/*",
     "apps/*",
     "examples/*",
-    "tooling/*"
+    "tooling/next-workspaces",
+    "tooling/test-utils"
   ],
   "devDependencies": {
     "@babel/core": "^7.18.2",

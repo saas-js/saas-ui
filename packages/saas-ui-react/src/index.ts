@@ -1,5 +1,5 @@
 export * from './typography'
-
+export * from './error-boundary'
 export * from '@saas-ui/auth'
 export * from '@saas-ui/banner'
 export * from '@saas-ui/button'

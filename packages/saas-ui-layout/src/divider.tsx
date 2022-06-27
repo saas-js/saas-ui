@@ -72,7 +72,7 @@ export const Divider: React.FC<DividerProps> = (props) => {
 
   return (
     <ChakraDivider
-      as={label ? 'div' : 'hr'}
+      as={label || orientation === 'vertical' ? 'div' : 'hr'}
       orientation={orientation}
       role="separator"
       {...rest}

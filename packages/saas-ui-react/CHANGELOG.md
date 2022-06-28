@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 1.0.0-rc.11
+
+### Patch Changes
+
+- da3c4e4: Added ErrorBoundary component.
+- bd3438d: FormStep now supports an onSubmit handler.
+- 2ec8c91: Fixed vertical divider rendering incorrectly.
+- Updated dependencies [bd3438d]
+- Updated dependencies [ae47cbd]
+  - @saas-ui/forms@1.0.0-rc.10
+  - @saas-ui/property@1.0.0-rc.5
+  - @saas-ui/provider@1.0.0-rc.6
+  - @saas-ui/auth@1.0.0-rc.11
+  - @saas-ui/modals@1.0.0-rc.10
+  - @saas-ui/layout@1.0.0-rc.6
+  - @saas-ui/menu@1.0.0-rc.6
+  - @saas-ui/data-table@1.0.0-rc.6
+
 ## 1.0.0-rc.10
 
 ### Patch Changes

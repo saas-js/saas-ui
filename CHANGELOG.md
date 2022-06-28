@@ -8,6 +8,26 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 06-28-2022
+
+`@saas-ui/react@1.0.0-rc.11`
+
+- Added ErrorBoundary component.
+- FormStep now supports an onSubmit handler.
+- Fixed vertical divider rendering incorrectly.
+
+**Forms** `v1.0.0-rc.10`
+
+- FormStep now supports an onSubmit handler.
+
+**Property** `v1.0.0-rc.5`
+
+- Bump version
+
+**Provider** `v1.0.0-rc.6`
+
+- Bump version
+
 ## 06-24-2022
 
 `@saas-ui/react@1.0.0-rc.10`

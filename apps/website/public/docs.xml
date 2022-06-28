@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 26 Jun 2022 10:37:33 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 28 Jun 2022 07:31:23 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -41,20 +41,40 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/auth/auth-provider</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/auth/auth-provider</link>
-    <description>Authentication state management and hooks.</description>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/auth/auth</guid>
-    <title>Auth</title>
-    <link>https://saas-ui.dev/docs/auth/auth</link>
-    <description>Ready to use authentication forms.</description>
+    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
+    <title>Loader</title>
+    <link>https://saas-ui.dev/docs/feedback/loader</link>
+    <description>A loading indicator that fills it's parent.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -121,20 +141,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
+    <guid>https://saas-ui.dev/docs/auth/auth-provider</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/auth/auth-provider</link>
+    <description>Authentication state management and hooks.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
+    <guid>https://saas-ui.dev/docs/auth/auth</guid>
+    <title>Auth</title>
+    <link>https://saas-ui.dev/docs/auth/auth</link>
+    <description>Ready to use authentication forms.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -251,30 +271,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
-    <title>Clerk</title>
-    <link>https://saas-ui.dev/docs/integrations/clerk</link>
-    <description>Integrating Clerk authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
-    <title>Magic</title>
-    <link>https://saas-ui.dev/docs/integrations/magic</link>
-    <description>Integrating Magic authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
-    <title>Supabase</title>
-    <link>https://saas-ui.dev/docs/integrations/supabase</link>
-    <description>Integrating Supabase authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -341,40 +351,40 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/feedback/banner</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
+    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/integrations/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
-    <title>Loader</title>
-    <link>https://saas-ui.dev/docs/feedback/loader</link>
-    <description>A loading indicator that fills it's parent.</description>
+    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/integrations/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
+    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/integrations/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
+    <guid>https://saas-ui.dev/docs/layout/card</guid>
+    <title>Card</title>
+    <link>https://saas-ui.dev/docs/layout/card</link>
+    <description>Cards can be used to provide easy scannable information and details.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -425,16 +435,6 @@
     <title>Modals manager</title>
     <link>https://saas-ui.dev/docs/overlay/modals-manager</link>
     <description>Manage different types of modals with a single easy to use hook.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/layout/card</guid>
-    <title>Card</title>
-    <link>https://saas-ui.dev/docs/layout/card</link>
-    <description>Cards can be used to provide easy scannable information and details.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

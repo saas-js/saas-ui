@@ -1,5 +1,11 @@
 # @saas-ui/property
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- ae47cbd: Bump version
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

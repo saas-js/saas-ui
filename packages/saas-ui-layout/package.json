@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/layout",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0-rc.6",
   "description": "Saas UI Layout components for Chakra UI",
   "source": "src/index.ts",
   "exports": {

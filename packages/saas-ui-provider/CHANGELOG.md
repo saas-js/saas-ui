@@ -1,5 +1,11 @@
 # @saas-ui/provider
 
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- ae47cbd: Bump version
+
 ## 1.0.0-rc.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.10
+
+### Patch Changes
+
+- bd3438d: FormStep now supports an onSubmit handler.
+
 ## 1.0.0-rc.9
 
 ### Patch Changes

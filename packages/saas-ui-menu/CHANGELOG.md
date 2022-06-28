@@ -1,5 +1,12 @@
 # @saas-ui/menu
 
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Updated dependencies [ae47cbd]
+  - @saas-ui/provider@1.0.0-rc.6
+
 ## 1.0.0-rc.5
 
 ### Patch Changes

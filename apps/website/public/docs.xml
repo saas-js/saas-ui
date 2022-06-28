@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 28 Jun 2022 07:31:23 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 28 Jun 2022 08:42:31 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -41,40 +41,90 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/feedback/banner</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
+    <guid>https://saas-ui.dev/docs/advanced-data/bulk-actions</guid>
+    <title>BulkActions</title>
+    <link>https://saas-ui.dev/docs/advanced-data/bulk-actions</link>
+    <description>A set of actions to perform on one or more selected items.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
-    <title>Loader</title>
-    <link>https://saas-ui.dev/docs/feedback/loader</link>
-    <description>A loading indicator that fills it's parent.</description>
+    <guid>https://saas-ui.dev/docs/advanced-data/data-grid</guid>
+    <title>DataGrid</title>
+    <link>https://saas-ui.dev/docs/advanced-data/data-grid</link>
+    <description>A basic data table component that supports sorting and selections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
+    <guid>https://saas-ui.dev/docs/advanced-data/filters</guid>
+    <title>Filters</title>
+    <link>https://saas-ui.dev/docs/advanced-data/filters</link>
+    <description>Intuitive data filtering components.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
+    <guid>https://saas-ui.dev/docs/engagement/benefits-modal</guid>
+    <title>Benefits Modal</title>
+    <link>https://saas-ui.dev/docs/engagement/benefits-modal</link>
+    <description>A benefits modal is used to show case important features or product updates.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/engagement/tour-dialog</guid>
+    <title>Tour Dialog</title>
+    <link>https://saas-ui.dev/docs/engagement/tour-dialog</link>
+    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/engagement/tour</guid>
+    <title>Tour</title>
+    <link>https://saas-ui.dev/docs/engagement/tour</link>
+    <description>Introduce people to new features using multi-step tours.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/auth/auth-provider</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/auth/auth-provider</link>
+    <description>Authentication state management and hooks.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/auth/auth</guid>
+    <title>Auth</title>
+    <link>https://saas-ui.dev/docs/auth/auth</link>
+    <description>Ready to use authentication forms.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/data-display/command</guid>
+    <title>Command</title>
+    <link>https://saas-ui.dev/docs/data-display/command</link>
+    <description>A command is used to show which key or combination of keys performs a given action.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -141,20 +191,40 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/auth/auth-provider</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/auth/auth-provider</link>
-    <description>Authentication state management and hooks.</description>
+    <guid>https://saas-ui.dev/docs/feedback/banner</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/feedback/banner</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/auth/auth</guid>
-    <title>Auth</title>
-    <link>https://saas-ui.dev/docs/auth/auth</link>
-    <description>Ready to use authentication forms.</description>
+    <guid>https://saas-ui.dev/docs/feedback/loader</guid>
+    <title>Loader</title>
+    <link>https://saas-ui.dev/docs/feedback/loader</link>
+    <description>A loading indicator that fills it's parent.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/nprogress</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/feedback/nprogress</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/feedback/snackbar</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/feedback/snackbar</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -381,6 +451,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/layout/app-shell</guid>
+    <title>App Shell</title>
+    <link>https://saas-ui.dev/docs/layout/app-shell</link>
+    <description>The App Shell defines the main structure of your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/layout/card</guid>
     <title>Card</title>
     <link>https://saas-ui.dev/docs/layout/card</link>
@@ -391,10 +471,50 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/layout/page</guid>
+    <title>Page</title>
+    <link>https://saas-ui.dev/docs/layout/page</link>
+    <description>Page makes it easy to implement consistent page layouts throughout your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/layout/section</guid>
+    <title>Section</title>
+    <link>https://saas-ui.dev/docs/layout/section</link>
+    <description>Split content into multiple easily scannable sections.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/layout/toolbar</guid>
+    <title>Toolbar</title>
+    <link>https://saas-ui.dev/docs/layout/toolbar</link>
+    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/navigation/hotkeys</guid>
     <title>Hotkeys</title>
     <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
     <description>Keyboard shortcuts for modern apps</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/navigation/sidebar</guid>
+    <title>Sidebar</title>
+    <link>https://saas-ui.dev/docs/navigation/sidebar</link>
+    <description>Commonly used as the primary navigation.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -435,6 +555,16 @@
     <title>Modals manager</title>
     <link>https://saas-ui.dev/docs/overlay/modals-manager</link>
     <description>Manage different types of modals with a single easy to use hook.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/overlay/responsive-menu</guid>
+    <title>ResponsiveMenu</title>
+    <link>https://saas-ui.dev/docs/overlay/responsive-menu</link>
+    <description>A mobile friendly Menu component.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -505,6 +635,36 @@
     <title>Text</title>
     <link>https://saas-ui.dev/docs/typography/text</link>
     <description>Text is the used to render text and paragraphs within an interface.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/utils/error-boundary</guid>
+    <title>ErrorBoundary</title>
+    <link>https://saas-ui.dev/docs/utils/error-boundary</link>
+    <description>A container component that catches errors and displays a fallback UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/utils/feature-flags</guid>
+    <title>Feature Flags</title>
+    <link>https://saas-ui.dev/docs/utils/feature-flags</link>
+    <description>Expose features to your users using feature flags.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/utils/resize-box</guid>
+    <title>ResizeBox</title>
+    <link>https://saas-ui.dev/docs/utils/resize-box</link>
+    <description>Utility hook and component to create resizable panels.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

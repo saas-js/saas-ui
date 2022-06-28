@@ -72,9 +72,15 @@ let config = {
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui\/(?!props-docs|pro|router|onboarding|features)([a-z0-9-\/]+)$/,
+        /\@saas-ui\/([a-z0-9-\/]+)$/,
         (resource) => {
-          resource.request = resource.request + '/src'
+          if (
+            !resource.request.match(
+              /^@saas-ui\/(props-docs|pro|router|onboarding|features|pro\/theme)$/
+            )
+          ) {
+            resource.request = resource.request + '/src'
+          }
         }
       ),
     ])

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import NextLink from 'next/link'
 import * as React from 'react'
 import sortBy from 'lodash/sortBy'
 import {
@@ -11,6 +12,7 @@ import {
   Collapse,
   Icon,
   Flex,
+  Center,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -26,7 +28,9 @@ export type SidebarContentProps = Routes & {
   contentRef?: any
 }
 
-function SidebarHeader({ color, isOpen, children, ...props }: any) {
+function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
+  const color = useColorModeValue('gray.900', 'whiteAlpha.900')
+
   return (
     <chakra.div px="4" {...props}>
       <chakra.h4
@@ -34,13 +38,14 @@ function SidebarHeader({ color, isOpen, children, ...props }: any) {
         fontWeight="bold"
         my="1.25rem"
         letterSpacing="wider"
-        color={color}
+        color={isActive ? color : 'muted'}
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
         userSelect="none"
         cursor="pointer"
         className="sidebar-group-header"
+        _hover={{ color }}
       >
         <chakra.span flex="1" display="inline-flex" alignItems="center">
           {children}
@@ -69,109 +74,120 @@ function SidebarGroup({
   icon,
   routes,
   heading,
+  path,
   pathname,
   open,
   contentRef,
   ...props
 }: any) {
+  const { asPath } = useRouter()
+  const isActive = isMainNavLinkActive(path, asPath)
+
   const { isOpen, getToggleProps, getCollapseProps, onOpen, onClose } =
     useCollapse({
-      defaultIsOpen: open,
+      defaultIsOpen: isActive || open,
     })
-
-  React.useEffect(() => {
-    if (open) {
-      onOpen()
-    } else {
-      onClose()
-    }
-  }, [routes, open, onOpen, onClose])
 
   return (
     <Box {...props}>
-      {heading && (
-        <SidebarHeader isOpen={isOpen} {...getToggleProps()}>
+      {heading && routes.length ? (
+        <SidebarHeader
+          isOpen={isOpen}
+          isActive={isActive}
+          {...getToggleProps()}
+        >
           {icon && <Icon as={icon} me="2" />}
           {title}
         </SidebarHeader>
+      ) : (
+        <MainNavLink href={path}>
+          {icon && <Icon as={icon} me="2" />}
+          {title}
+        </MainNavLink>
       )}
 
-      <Collapse {...getCollapseProps()}>
-        <Box px="4" overflow="hidden">
-          {routes.map((lvl2, index) => {
-            if (!lvl2.routes) {
+      {routes && (
+        <Collapse {...getCollapseProps()}>
+          <Box px="4" overflow="hidden">
+            {routes?.map((lvl2, index) => {
+              if (!lvl2.routes) {
+                return (
+                  <SidebarLink
+                    ml="-3"
+                    mb="2"
+                    key={lvl2.path || index}
+                    href={lvl2.path}
+                  >
+                    {lvl2.title}
+                  </SidebarLink>
+                )
+              }
+
+              const selected = pathname.startsWith(lvl2.path)
+              const opened = selected || lvl2.open
+
+              const sortedRoutes = lvl2.sort
+                ? sortBy(lvl2.routes, (i) => i.title)
+                : lvl2.routes
+
               return (
-                <SidebarLink
-                  ml="-3"
-                  mb="2"
-                  key={lvl2.path || index}
-                  href={lvl2.path}
+                <SidebarCategory
+                  contentRef={contentRef}
+                  key={lvl2.path + index}
+                  title={lvl2.title}
+                  selected={selected}
+                  opened={opened}
                 >
-                  {lvl2.title}
-                </SidebarLink>
+                  <Stack as="ul" spacing="1">
+                    {sortedRoutes.map((lvl3, i) => (
+                      <SidebarLink
+                        as="li"
+                        key={lvl3.path || i}
+                        href={lvl3.path}
+                      >
+                        <span>{convertBackticksToInlineCode(lvl3.title)}</span>
+                        {lvl3.new && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="solid"
+                            colorScheme="primary"
+                          >
+                            New
+                          </Badge>
+                        )}
+                        {lvl3.soon && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="solid"
+                            colorScheme="gray"
+                          >
+                            Soon
+                          </Badge>
+                        )}
+                        {lvl3.pro && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="solid"
+                            colorScheme="purple"
+                          >
+                            Pro
+                          </Badge>
+                        )}
+                      </SidebarLink>
+                    ))}
+                  </Stack>
+                </SidebarCategory>
               )
-            }
-
-            const selected = pathname.startsWith(lvl2.path)
-            const opened = selected || lvl2.open
-
-            const sortedRoutes = lvl2.sort
-              ? sortBy(lvl2.routes, (i) => i.title)
-              : lvl2.routes
-
-            return (
-              <SidebarCategory
-                contentRef={contentRef}
-                key={lvl2.path + index}
-                title={lvl2.title}
-                selected={selected}
-                opened={opened}
-              >
-                <Stack as="ul" spacing="1">
-                  {sortedRoutes.map((lvl3, i) => (
-                    <SidebarLink as="li" key={lvl3.path || i} href={lvl3.path}>
-                      <span>{convertBackticksToInlineCode(lvl3.title)}</span>
-                      {lvl3.new && (
-                        <Badge
-                          ml="2"
-                          lineHeight="tall"
-                          fontSize="10px"
-                          variant="solid"
-                          colorScheme="primary"
-                        >
-                          New
-                        </Badge>
-                      )}
-                      {lvl3.soon && (
-                        <Badge
-                          ml="2"
-                          lineHeight="tall"
-                          fontSize="10px"
-                          variant="solid"
-                          colorScheme="gray"
-                        >
-                          Soon
-                        </Badge>
-                      )}
-                      {lvl3.pro && (
-                        <Badge
-                          ml="2"
-                          lineHeight="tall"
-                          fontSize="10px"
-                          variant="solid"
-                          colorScheme="purple"
-                        >
-                          Pro
-                        </Badge>
-                      )}
-                    </SidebarLink>
-                  ))}
-                </Stack>
-              </SidebarCategory>
-            )
-          })}
-        </Box>
-      </Collapse>
+            })}
+          </Box>
+        </Collapse>
+      )}
     </Box>
   )
 }
@@ -272,6 +288,46 @@ const Sidebar = ({ routes }) => {
     >
       <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
     </Box>
+  )
+}
+
+type MainNavLinkProps = {
+  href: string
+  children: React.ReactNode
+  label?: string
+}
+
+export const isMainNavLinkActive = (href: string, path: string) => {
+  const [, group, category] = href.split('/')
+
+  return path.includes(
+    href.split('/').length >= 3 ? `${group}/${category}` : group
+  )
+}
+
+const MainNavLink = ({ href, children }: MainNavLinkProps) => {
+  const { asPath } = useRouter()
+  const active = isMainNavLinkActive(href, asPath)
+  const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
+
+  return (
+    <NextLink href={href} passHref>
+      <Flex
+        as="a"
+        py="1"
+        px="4"
+        mb="2"
+        align="center"
+        fontSize="sm"
+        fontWeight="semibold"
+        transitionProperty="colors"
+        transitionDuration="200ms"
+        color={active ? linkColor : 'muted'}
+        _hover={{ color: linkColor }}
+      >
+        {children}
+      </Flex>
+    </NextLink>
   )
 }
 

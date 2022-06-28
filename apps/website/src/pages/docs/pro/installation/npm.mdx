@@ -1,0 +1,73 @@
+---
+title: Private NPM
+description: Install Saas UI Pro components from a private NPM registry.
+---
+
+In the next steps we'll show you how to install `@saas-ui/pro`.
+
+You'll need a valid license to install `@saas-ui/pro`, you can order one at [saas-ui.dev](https://saas-ui.dev/#pricing).
+
+Before continuing [follow these steps](https://www.saas-ui.dev/docs/getting-started) to set up `@saas-ui/react` and `@chakra-ui/react` in your project, if you haven't done so already.
+
+## Configuration
+
+All pro packages can be installed from our private NPM registry at https://npm.saas-ui.dev.
+After [redeeming](https://saas-ui.dev/redeem) your license, an account will be automatically created.
+
+Your NPM account is a combination of the Github username you used to redeem your license and the license code (`username:licenseKey`).
+
+### Yarn
+
+In the root of your project edit `.yarnrc.yml` and add the following lines.
+
+```yml
+npmScopes:
+  saas-ui:
+    npmRegistryServer: 'https://npm.saas-ui.dev'
+npmRegistries:
+  //npm.saas-ui.dev:
+    npmAuthIdent: '${SAAS_UI_TOKEN:-}'
+    npmAlwaysAuth: true
+```
+
+To set it up on your dev machine add this to `~/.profile`.
+
+```bash
+export SAAS_UI_TOKEN="GithubUsername:licenseKey"
+```
+
+The same configuration can be used for CI and deployments.
+
+### NPM & PNPM
+
+On your development machine you can run this and enter your Github username as user and license key as password.
+
+```bash
+pnpm login --registry=https://npm.saas-ui.dev/
+```
+
+#### Manual & CI configuration.
+
+Add your auth token to `~/.profile`
+
+```bash
+export SAAS_UI_TOKEN="GithubUsername:licenseKey"
+```
+
+Then edit `.npmrc` in the root of your project and add the following lines.
+
+```
+@saas-ui:registry=https://npm.saas-ui.dev
+//npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
+//npm.saas-ui.dev/:always-auth=true
+```
+
+##### PNPM
+
+PNPM expects auth to be base64 encoded, so make sure `SAAS_UI_TOKEN` is encoded.
+
+```bash
+echo -n 'GithubUsername:licenseKey' | base64
+```
+
+If you're having troubles generating a working base64 encoded string, try [this website](https://www.base64encode.org/).

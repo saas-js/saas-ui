@@ -47,7 +47,7 @@ export interface RouteContext {
 export const getAllRoutes = (routes: any) => {
   const allRoutes = []
 
-  routes[0].routes.forEach((route: RouteItem) => {
+  routes[0].routes?.forEach((route: RouteItem) => {
     if (route.routes) {
       route.routes.forEach((item) => {
         allRoutes.push(item)

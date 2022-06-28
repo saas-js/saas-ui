@@ -1,90 +1,399 @@
 ---
 title: DataGrid
-description: A basic data table component that supports sorting and selections.
+description: A advanced data table component that supports sorting, selections, filters and pagination.
 ---
 
 Data tables are used to organize lists of high density data.
 It uses `react-table` to manage internal state.
 
-<ComponentLinks
-  github={{ package: 'saas-ui-data-table' }}
-  npm={{ package: '@saas-ui/data-table' }}
-/>
+<ComponentLinks pro={{ gumroad: true }} />
 
 ## Import
 
 ```ts
-import { DataTable } from '@saas-ui/react'
+import { DataGrid } from '@saas-ui/pro'
 ```
 
 ## Usage
 
-### Basic DataTable
+To make sure types are working correctly [follow these steps first](#typescript).
+
+DataGrid uses `react-table` v7 internally, and supports all `useTable` props, you can [find the docs here](https://react-table-v7.tanstack.com/).
+
+### Basic DataGrid
 
 ```jsx
-<Box overflowX="auto">
-  <DataTable columns={dataTable.columns} data={dataTable.data} />
-</Box>
+function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessor: 'name',
+        Header: 'Name',
+        width: '200px',
+      },
+      {
+        accessor: 'email',
+        Header: 'Email',
+      },
+      {
+        accessor: 'company',
+        Header: 'Company',
+      },
+      {
+        accessor: 'country',
+        Header: 'Country',
+      },
+      {
+        accessor: 'employees',
+        Header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        Header: '',
+        Cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+  return (
+    <Page title="Customers" height="400px">
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        isSortable
+        isSelectable
+        isHoverable
+      >
+        <DataGridPagination />
+      </DataGrid>
+    </Page>
+  )
+}
 ```
 
-### Sortable
+### With BulkActions
 
 ```jsx
-<Box overflowX="auto">
-  <DataTable columns={dataTable.columns} data={dataTable.data} isSortable />
-</Box>
+function ListPage() {
+  const [selections, setSelections] = React.useState([])
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessor: 'name',
+        Header: 'Name',
+        width: '200px',
+      },
+      {
+        accessor: 'email',
+        Header: 'Email',
+      },
+      {
+        accessor: 'company',
+        Header: 'Company',
+      },
+      {
+        accessor: 'country',
+        Header: 'Country',
+      },
+      {
+        accessor: 'employees',
+        Header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        Header: '',
+        Cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+  return (
+    <Page
+      title="Customers"
+      height="400px"
+      position="relative"
+      overflow="hidden"
+    >
+      <BulkActions
+        selections={selections}
+        actions={
+          <>
+            <Button colorScheme="white" variant="subtle">
+              Delete
+            </Button>
+          </>
+        }
+      ></BulkActions>
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        isSortable
+        isSelectable
+        isHoverable
+        onSelectedRowsChange={setSelections}
+      >
+        <DataGridPagination />
+      </DataGrid>
+    </Page>
+  )
+}
 ```
 
-### Selectable
+### Clickable rows
+
+Cells with a `href` property will render the cell value in an `a`.
+Using the DataGrid `onRowClick` handler you can trigger a click event on the link whenever the row is clicked.
 
 ```jsx
-<Box overflowX="auto">
-  <DataTable
-    columns={dataTable.columns}
-    data={dataTable.data}
-    isSelectable
-    onSelectedRowsChange={(selected) => console.log(selected)}
-  />
-</Box>
+function ListPage() {
+  const [selections, setSelections] = React.useState([])
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessor: 'name',
+        Header: 'Name',
+        width: '200px',
+        href: ({ id }) => `#customers/${id}`,
+      },
+      {
+        accessor: 'email',
+        Header: 'Email',
+      },
+      {
+        accessor: 'company',
+        Header: 'Company',
+      },
+      {
+        accessor: 'country',
+        Header: 'Country',
+      },
+      {
+        accessor: 'employees',
+        Header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        Header: '',
+        Cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+  return (
+    <Page
+      title="Customers"
+      height="400px"
+      position="relative"
+      overflow="hidden"
+      sx={{
+        '& tbody tr:hover': {
+          cursor: 'pointer',
+        },
+      }}
+    >
+      <BulkActions
+        selections={selections}
+        actions={
+          <>
+            <Button colorScheme="white" variant="subtle">
+              Delete
+            </Button>
+          </>
+        }
+      ></BulkActions>
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        isSortable
+        isSelectable
+        isHoverable
+        onSelectedRowsChange={setSelections}
+        onRowClick={(row, e) => {
+          // Find the first A and trigger a click.
+          const link = e.currentTarget.querySelector('td a')
+          link && link.click()
+        }}
+      >
+        <DataGridPagination />
+      </DataGrid>
+    </Page>
+  )
+}
+```
+
+### Remote data
+
+By default all sorting, filtering and pagination is handled locally by `react-table` to work with remote data use this example as a reference.
+
+```tsx
+function ListPage() {
+  const [selections, setSelections] = React.useState([])
+  const [sort, setSort] = React.useState<SortingRule<ExampleData>[]>([])
+  const [page, setPage] = React.useState(0)
+
+  const { data } = useQuery(['customers', sort, page], () => {
+    // fetch...
+  })
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessor: 'name',
+        Header: 'Name',
+        width: '200px',
+        href: ({ id }) => `#customers/${id}`,
+      },
+      {
+        accessor: 'email',
+        Header: 'Email',
+      },
+      {
+        accessor: 'company',
+        Header: 'Company',
+      },
+      {
+        accessor: 'country',
+        Header: 'Country',
+      },
+      {
+        accessor: 'employees',
+        Header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        Header: '',
+        Cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+  return (
+    <Page
+      title="Customers"
+      height="400px"
+      position="relative"
+      overflow="hidden"
+      sx={{
+        '& tbody tr:hover': {
+          cursor: 'pointer',
+        },
+      }}
+    >
+      <BulkActions
+        selections={selections}
+        actions={
+          <>
+            <Button colorScheme="white" variant="subtle">
+              Delete
+            </Button>
+          </>
+        }
+      />
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        isSortable
+        isSelectable
+        isHoverable
+        onSelectedRowsChange={setSelections}
+        onRowClick={(row, e) => {
+          // Find the first A and trigger a click.
+          const link = e.currentTarget.querySelector('td a')
+          link && link.click()
+        }}
+        manualSortBy
+        onSortchange={setSort}
+        pageCount={data.total}
+        initialState={{
+          pageSize: 1,
+        }}
+      >
+        <DataGridPagination onChange={({ pageIndex }) => setPage(pageIndex)} />
+      </DataGrid>
+    </Page>
+  )
+}
 ```
 
 ### Access internal state
 
 You can access the react-table `TableInstance` by passing a ref to `DataTable`.
-Check out the [react-table documentation](https://react-table.tanstack.com/docs/api/useTable#instance-properties) for all properties.
+Check out the [react-table documentation](https://react-table-v7.tanstack.com/docs/api/useTable#instance-properties) for all properties.
 
 ```jsx
 function TableState() {
   const tableRef = useRef(null)
 
   return (
-    <Box overflowX="auto">
-      <Button
-        onClick={() => tableRef.current.toggleAllRowsSelected()}
-        label="Select all rows"
-      />
-      <DataTable
+    <Page
+      title="Customers"
+      height="400px"
+      toolbar={
+        <Toolbar>
+          <ToolbarButton
+            onClick={() => {
+              tableRef.current.toggleAllRowsSelected(
+                !tableRef.current.isAllRowsSelected
+              )
+            }}
+            label="Select all rows"
+            variant="primary"
+          />
+        </Toolbar>
+      }
+    >
+      <DataGrid
         ref={tableRef}
-        columns={dataTable.columns}
-        data={dataTable.data}
+        columns={dataTable.columns.concat()}
+        data={dataTable.data.concat()}
         isSelectable
       />
-    </Box>
+    </Page>
   )
 }
 ```
 
-### Typescript
+## Typescript
 
 <Info>
-  If you run into type errors, you might need to add `react-table-config.d.ts`
-  to your `src`. To use the default DataTable config you can simply re-export
-  the config from `@saas-ui/data-table`.
+  If you run into type errors, you need to add `react-table-config.d.ts` to your
+  `src`. To use the default DataGrid config you can simply re-export the config
+  from `@saas-ui/pro`.
 </Info>
 
 ```ts
 // Copy to: src/types/react-table-config.d.ts
-export * from '@saas-ui/data-table/src/react-table-config.d'
+export * from '@saas-ui/pro/src/data-grid/react-table-config.d'
 ```
 
 ```tsx
@@ -122,11 +431,11 @@ const data: ExampleData[] = [{
   },
 }]
 
-<DataTable<ExampleData> columns={columns} data={data} />
+<DataGrid<ExampleData> columns={columns} data={data} />
 ```
 
 ## Props
 
-### DataTable Props
+### DataGrid Props
 
-<PropsTable of="DataTable" />
+<PropsTable of="DataGrid" />

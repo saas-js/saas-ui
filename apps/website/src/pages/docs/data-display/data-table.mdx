@@ -51,7 +51,7 @@ import { DataTable } from '@saas-ui/react'
 ### Access internal state
 
 You can access the react-table `TableInstance` by passing a ref to `DataTable`.
-Check out the [react-table documentation](https://react-table.tanstack.com/docs/api/useTable#instance-properties) for all properties.
+Check out the [react-table documentation](https://react-table-v7.tanstack.com/docs/api/useTable#instance-properties) for all properties.
 
 ```jsx
 function TableState() {
@@ -60,7 +60,11 @@ function TableState() {
   return (
     <Box overflowX="auto">
       <Button
-        onClick={() => tableRef.current.toggleAllRowsSelected()}
+        onClick={() =>
+          tableRef.current.toggleAllRowsSelected(
+            !tableRef.current.isAllRowsSelected
+          )
+        }
         label="Select all rows"
       />
       <DataTable

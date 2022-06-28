@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Chakra from '@chakra-ui/react'
-import { chakra } from '@chakra-ui/react'
+import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
 import * as SaasUIPro from '@saas-ui/pro'
@@ -18,6 +18,9 @@ import {
   FiHome,
   FiInbox,
   FiUsers,
+  FiUser,
+  FiFilter,
+  FiCircle,
   FiSettings,
   FiTag,
   FiArchive,
@@ -48,6 +51,9 @@ const reactIcons = {
   FiHome,
   FiInbox,
   FiUsers,
+  FiUser,
+  FiFilter,
+  FiCircle,
   FiSettings,
   FiTag,
   FiArchive,
@@ -84,6 +90,10 @@ const saveHandler = (params) => {
   })
 }
 
+const StatusBadge = (props: BadgeProps) => (
+  <Badge boxSize="8px" mx="2px" borderRadius="full" {...props} />
+)
+
 const SaasSpinner = () => <SaasUIGlyph width="48px" height="48px" isAnimating />
 
 const ThrowSomeError = () => {
@@ -110,6 +120,7 @@ const ReactLiveScope = {
   ...sampleData,
   SaasUILogo,
   SaasUIGlyph,
+  StatusBadge,
   SaasSpinner,
   ThrowSomeError,
 }

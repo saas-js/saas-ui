@@ -28,7 +28,7 @@
     "@octokit/rest": "^18.12.0",
     "@saas-ui/features": "^0.4.0-next.3",
     "@saas-ui/palette": "workspace:*",
-    "@saas-ui/pro": "^0.5.0-next.6",
+    "@saas-ui/pro": "^0.5.0-next.7",
     "@saas-ui/props-docs": "^1.0.0-rc.3",
     "@saas-ui/react": "workspace:*",
     "@saas-ui/web3": "workspace:*",

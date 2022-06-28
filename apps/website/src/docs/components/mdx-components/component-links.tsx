@@ -9,6 +9,7 @@ import {
   useColorModeValue,
   LinkProps,
   WrapItem,
+  Spacer,
 } from '@chakra-ui/react'
 import { FaNpm, FaGithub, FaYoutube } from 'react-icons/fa'
 import { FiLock } from 'react-icons/fi'

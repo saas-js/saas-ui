@@ -144,7 +144,7 @@ function App() {
 ### Has
 
 ```jsx
-<Has flag="settings">
+<Has feature="settings">
   <Button colorScheme="green">Settings Enabled</Button>
 </Has>
 ```
@@ -153,7 +153,7 @@ function App() {
 
 ```jsx
 <Has
-  flag="beta-feature"
+  feature="beta-feature"
   fallback={<Button colorScheme="red">Enable beta features</Button>}
 >
   <Button colorScheme="green">Disable beta features</Button>
@@ -164,7 +164,7 @@ function App() {
 
 ```jsx
 <Has
-  flag={['settings', 'enterprise-feature']}
+  feature={['settings', 'enterprise-feature']}
   fallback={<Button colorScheme="red">Feature Disabled</Button>}
 >
   <Button colorScheme="green">Feature Enabled</Button>
@@ -175,7 +175,7 @@ function App() {
 
 ```jsx
 <Has
-  flag={['settings', 'beta']}
+  feature={['settings', 'beta']}
   exact={false}
   fallback={<Button colorScheme="red">Feature Disabled</Button>}
 >
@@ -186,7 +186,7 @@ function App() {
 ### Has with value
 
 ```jsx
-<Has flag="value-feature" value="enabled">
+<Has feature="value-feature" value="enabled">
   <Button colorScheme="green">Feature Enabled</Button>
 </Has>
 ```
@@ -195,7 +195,7 @@ function App() {
 
 ```jsx
 <Has
-  flag={['settings', 'value-feature']}
+  feature={['settings', 'value-feature']}
   value="enabled"
   fallback={<Button colorScheme="red">Feature Disabled</Button>}
 >
@@ -206,7 +206,7 @@ function App() {
 ### Has with render prop
 
 ```jsx
-<Has flag={['settings']}>
+<Has feature={['settings']}>
   {({ flags }) => {
     const features = Object.keys(flags)
     return <Button colorScheme="green">Feature Enabled: {features[0]}</Button>
@@ -231,5 +231,33 @@ function Settings() {
       </PropertyList>
     </Card>
   )
+}
+```
+
+### useHasFeature
+
+```jsx
+function Settings() {
+  const enabled = useHasFeature('settings')
+
+  if (!enabled) {
+    return <EmptyState title="No access" />
+  }
+
+  return <Box>Settings</Box>
+}
+```
+
+#### Multiple features
+
+```jsx
+function Settings() {
+  const enabled = useHasFeature(['settings', 'beta'])
+
+  if (!enabled) {
+    return <EmptyState title="No access" />
+  }
+
+  return <Box>Settings</Box>
 }
 ```

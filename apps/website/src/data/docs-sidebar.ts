@@ -7,6 +7,7 @@ import {
   FiCircle,
   FiClock,
   FiStar,
+  FiAnchor,
 } from 'react-icons/fi'
 
 const sidebar = {
@@ -92,20 +93,20 @@ const sidebar = {
         },
         {
           title: 'Integrations',
-          path: '/docs/integrations',
+          path: '/docs/core/integrations',
           open: true,
           routes: [
             {
               title: 'Clerk',
-              path: '/docs/integrations/clerk',
+              path: '/docs/core/integrations/clerk',
             },
             {
               title: 'Supabase',
-              path: '/docs/integrations/supabase',
+              path: '/docs/core/integrations/supabase',
             },
             {
               title: 'Magic.link',
-              path: '/docs/integrations/magic',
+              path: '/docs/core/integrations/magic',
             },
           ],
         },
@@ -435,21 +436,21 @@ const sidebar = {
             },
           ],
         },
+      ],
+    },
+    {
+      title: 'Hooks',
+      path: '/docs/hooks',
+      icon: FiAnchor,
+      heading: true,
+      routes: [
         {
-          title: 'Hooks',
-          path: '/docs/hooks',
-          open: true,
-          sort: true,
-          routes: [
-            {
-              title: 'useCollapse',
-              path: '/docs/hooks/use-collapse',
-            },
-            {
-              title: 'useLocalStorage',
-              path: '/docs/hooks/use-local-storage',
-            },
-          ],
+          title: 'useCollapse',
+          path: '/docs/hooks/use-collapse',
+        },
+        {
+          title: 'useLocalStorage',
+          path: '/docs/hooks/use-local-storage',
         },
       ],
     },

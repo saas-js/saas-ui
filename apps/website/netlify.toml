@@ -69,10 +69,12 @@
   to = "/docs/core/installation/:splat"
   status = 301
 
-  
 [[redirects]]
   from = "/docs/theming/*"
   to = "/docs/core/theming/:splat"
   status = 301
 
-  
+[[redirects]]
+  from = "/docs/integrations/*"
+  to = "/docs/core/integrations/:splat"
+  status = 301

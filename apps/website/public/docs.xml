@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Mon, 27 Jun 2022 19:59:15 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 28 Jun 2022 07:31:23 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -135,26 +135,6 @@
     <title>Property</title>
     <link>https://saas-ui.dev/docs/data-display/property</link>
     <description>A component used to show key/value data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -291,60 +271,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/layout/card</guid>
-    <title>Card</title>
-    <link>https://saas-ui.dev/docs/layout/card</link>
-    <description>Cards can be used to provide easy scannable information and details.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/navigation/hotkeys</guid>
-    <title>Hotkeys</title>
-    <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
-    <description>Keyboard shortcuts for modern apps</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/navigation/stepper</guid>
-    <title>Stepper</title>
-    <link>https://saas-ui.dev/docs/navigation/stepper</link>
-    <description>Indicate progress through numbered steps in multi-step workflows.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
-    <title>Clerk</title>
-    <link>https://saas-ui.dev/docs/integrations/clerk</link>
-    <description>Integrating Clerk authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
-    <title>Magic</title>
-    <link>https://saas-ui.dev/docs/integrations/magic</link>
-    <description>Integrating Magic authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
-    <title>Supabase</title>
-    <link>https://saas-ui.dev/docs/integrations/supabase</link>
-    <description>Integrating Supabase authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -405,6 +345,66 @@
     <title>Vite</title>
     <link>https://saas-ui.dev/docs/installation/vite-guide</link>
     <description>A guide for installing Saas UI with vitejs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/integrations/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/integrations/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/integrations/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/integrations/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/layout/card</guid>
+    <title>Card</title>
+    <link>https://saas-ui.dev/docs/layout/card</link>
+    <description>Cards can be used to provide easy scannable information and details.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/navigation/hotkeys</guid>
+    <title>Hotkeys</title>
+    <link>https://saas-ui.dev/docs/navigation/hotkeys</link>
+    <description>Keyboard shortcuts for modern apps</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/navigation/stepper</guid>
+    <title>Stepper</title>
+    <link>https://saas-ui.dev/docs/navigation/stepper</link>
+    <description>Indicate progress through numbered steps in multi-step workflows.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

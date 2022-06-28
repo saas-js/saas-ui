@@ -141,7 +141,10 @@ export function RedeemForm(props) {
           <ButtonLink href={data.discordInvite} leftIcon={<FaDiscord />}>
             Discord
           </ButtonLink>
-          <ButtonLink href="/docs/pro">Documentation</ButtonLink>
+          <ButtonLink href="/docs/introduction">Documentation</ButtonLink>
+          <ButtonLink href="https://storybook.saas-ui.pro/">
+            Storybook
+          </ButtonLink>
         </ButtonGroup>
       </Stack>
     )

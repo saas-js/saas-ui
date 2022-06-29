@@ -117,7 +117,8 @@
     "zod": "^3.17.3"
   },
   "resolutions": {
-    "@chakra-ui/system": "^2.2.0"
+    "@chakra-ui/system": "^2.2.0",
+    "@saas-ui/props-docs": "1.0.0-rc.3"
   },
   "packageManager": "yarn@3.1.1"
 }

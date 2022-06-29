@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- Fixed components exports.
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

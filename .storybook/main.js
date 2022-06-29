@@ -6,7 +6,6 @@ module.exports = {
   stories: ['../packages/**/stories/*.stories.tsx'],
   addons: [
     // 'storybook-addon-swc',
-    'storybook-addon-performance/register',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
     '@storybook/addon-storysource',

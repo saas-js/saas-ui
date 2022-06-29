@@ -1,5 +1,17 @@
 # @saas-ui/persona
 
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- Added missing dependency.
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

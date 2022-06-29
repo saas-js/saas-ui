@@ -1,5 +1,15 @@
 # @saas-ui/stepper
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+- Updated dependencies [1744543]
+  - @saas-ui/collapse@1.0.0-rc.4
+  - @saas-ui/react-utils@1.0.0-rc.4
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

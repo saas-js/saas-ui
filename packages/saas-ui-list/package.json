@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/list",
-  "version": "1.0.0-rc.4",
+  "version": "1.0.0-rc.5",
   "description": "List Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

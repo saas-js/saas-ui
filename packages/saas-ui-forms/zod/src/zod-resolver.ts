@@ -1,7 +1,7 @@
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { get } from '@chakra-ui/utils'
-import { FieldProps, FieldTypes } from '@saas-ui/forms'
+import { FieldProps } from '@saas-ui/forms'
 
 export { zodResolver }
 
@@ -98,7 +98,7 @@ export const zodForm = <T extends z.ZodTypeAny>(
 
 export interface ZodMeta {
   label: string
-  type?: FieldTypes
+  type?: string
 }
 
 export const zodMeta = (meta: ZodMeta) => {

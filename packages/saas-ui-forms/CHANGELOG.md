@@ -1,5 +1,21 @@
 # @saas-ui/forms
 
+## 1.0.0-rc.11
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/button@1.0.0-rc.5
+  - @saas-ui/input-right-button@1.0.0-rc.5
+  - @saas-ui/number-input@1.0.0-rc.4
+  - @saas-ui/password-input@1.0.0-rc.5
+  - @saas-ui/pin-input@1.0.0-rc.5
+  - @saas-ui/radio@1.0.0-rc.4
+  - @saas-ui/react-utils@1.0.0-rc.4
+  - @saas-ui/select@1.0.0-rc.4
+  - @saas-ui/stepper@1.0.0-rc.5
+
 ## 1.0.0-rc.10
 
 ### Patch Changes

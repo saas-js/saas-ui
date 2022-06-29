@@ -10,7 +10,6 @@ import {
   InputProps,
   ThemingProps,
   useMultiStyleConfig,
-  SystemStyleObject,
 } from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons'

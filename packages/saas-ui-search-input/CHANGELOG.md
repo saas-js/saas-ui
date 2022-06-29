@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+
 ## 1.0.0-rc.3
 
 ### Patch Changes

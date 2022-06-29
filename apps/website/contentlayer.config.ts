@@ -62,6 +62,7 @@ const Doc = defineDocumentType(() => ({
     description: { type: 'string', required: true },
     image: { type: 'string' },
     version: { type: 'string' },
+    tags: { type: 'list', of: { type: 'string' } },
   },
   computedFields: {
     ...computedFields,

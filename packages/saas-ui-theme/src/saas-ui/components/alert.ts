@@ -1,5 +1,9 @@
 import { alertAnatomy as parts } from '@chakra-ui/anatomy'
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import {
+  mode,
+  PartsStyleFunction,
+  PartsStyleObject,
+} from '@chakra-ui/theme-tools'
 
 const variantSnackbar: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
@@ -17,48 +21,19 @@ const variantSnackbar: PartsStyleFunction<typeof parts> = (props) => {
   }
 }
 
+const baseStyle: PartsStyleObject<typeof parts> = {
+  container: {
+    borderRadius: 'md',
+  },
+}
+
 export default {
+  parts: parts.keys,
   defaultProps: {
     size: 'sm',
   },
-  baseStyle: {
-    container: {
-      borderRadius: 'md',
-    },
-  },
+  baseStyle,
   variants: {
     snackbar: variantSnackbar,
-  },
-  sizes: {
-    sm: {
-      container: {
-        py: 2,
-        px: 3,
-      },
-      icon: {
-        w: 4,
-        h: 4,
-        mt: 1,
-      },
-      title: {
-        fontSize: 'sm',
-      },
-      description: {
-        fontSize: 'sm',
-      },
-    },
-    md: {
-      container: {
-        py: 3,
-        px: 4,
-      },
-      icon: {},
-      title: {
-        fontSize: 'md',
-      },
-      description: {
-        fontSize: 'md',
-      },
-    },
   },
 }

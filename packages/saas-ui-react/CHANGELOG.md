@@ -1,5 +1,49 @@
 # @saas-ui/react
 
+## 1.0.0-rc.13
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+- Updated dependencies [1744543]
+  - @saas-ui/auth@1.0.0-rc.12
+  - @saas-ui/banner@1.0.0-rc.5
+  - @saas-ui/button@1.0.0-rc.5
+  - @saas-ui/card@1.0.0-rc.5
+  - @saas-ui/collapse@1.0.0-rc.4
+  - @saas-ui/data-table@1.0.0-rc.7
+  - @saas-ui/forms@1.0.0-rc.11
+  - @saas-ui/hooks@1.0.0-rc.4
+  - @saas-ui/hotkeys@1.0.0-rc.4
+  - @saas-ui/input-right-button@1.0.0-rc.5
+  - @saas-ui/layout@1.0.0-rc.7
+  - @saas-ui/list@1.0.0-rc.5
+  - @saas-ui/menu@1.0.0-rc.7
+  - @saas-ui/modals@1.0.0-rc.11
+  - @saas-ui/nprogress@1.0.0-rc.4
+  - @saas-ui/number-input@1.0.0-rc.4
+  - @saas-ui/palette@1.0.0-rc.4
+  - @saas-ui/password-input@1.0.0-rc.5
+  - @saas-ui/persona@1.0.0-rc.6
+  - @saas-ui/pin-input@1.0.0-rc.5
+  - @saas-ui/property@1.0.0-rc.6
+  - @saas-ui/provider@1.0.0-rc.7
+  - @saas-ui/radio@1.0.0-rc.4
+  - @saas-ui/search-input@1.0.0-rc.4
+  - @saas-ui/select@1.0.0-rc.4
+  - @saas-ui/snackbar@1.0.0-rc.4
+  - @saas-ui/stepper@1.0.0-rc.5
+  - @saas-ui/theme@1.0.0-rc.4
+
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- Added missing dependency.
+- Updated dependencies
+  - @saas-ui/persona@1.0.0-rc.5
+
 ## 1.0.0-rc.11
 
 ### Patch Changes

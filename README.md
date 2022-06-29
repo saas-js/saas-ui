@@ -53,7 +53,7 @@ Including fully functional auth screens, forms (with react-hook-form), modal man
 
 ### Pro
 
-A premium starter pack designed for SaaS products.
+A premium frontend starter pack designed for SaaS products.
 Complete source code available in a monorepo that can serve as a starting point for your project.
 
 ![theme-tokens](https://user-images.githubusercontent.com/32583/172424112-72bacfdd-17df-4024-81db-690dc47d0c81.png)
@@ -68,13 +68,13 @@ Complete source code available in a monorepo that can serve as a starting point 
 - [x] Feature flags
 - [x] Billing/subscription management (Paddle)
 - [x] Mock graph api (MSW)
+- [x] Custom color schemes
 
 #### In progress
 - [ ] Example pages (CRM, Inbox, CRUD)
 - [ ] Onboarding flows
 - [ ] Upselling flows (Trials, upgrades, etc)
 - [ ] Saas UI themes
-- [ ] Custom color schemes
 - [ ] File uploads
 
 ## Storybook

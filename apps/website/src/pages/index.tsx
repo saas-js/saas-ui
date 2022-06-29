@@ -129,8 +129,7 @@ const Home = () => {
                 title={
                   <FallInPlace>
                     Build beautiful
-                    <Br /> React frontends
-                    <Br /> that scale
+                    <Br /> software faster
                   </FallInPlace>
                 }
                 description={

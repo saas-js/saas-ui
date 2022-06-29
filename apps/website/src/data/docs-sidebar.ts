@@ -123,6 +123,10 @@ const sidebar = {
           path: '/docs/pro/overview',
         },
         {
+          title: 'Project structure',
+          path: '/docs/pro/project-structure',
+        },
+        {
           title: 'Quickstarts',
           path: '/docs/pro/installation',
           open: true,
@@ -146,6 +150,17 @@ const sidebar = {
           ],
         },
         {
+          title: 'Configuration',
+          path: '/docs/pro/configuration',
+          open: true,
+          routes: [
+            {
+              title: 'Authentication',
+              path: '/docs/pro/configuration/authentication',
+            },
+          ],
+        },
+        {
           title: 'Theming',
           path: '/docs/pro/theming',
           open: true,
@@ -153,6 +168,10 @@ const sidebar = {
             {
               title: 'Configuration',
               path: '/docs/pro/theming/configuration',
+            },
+            {
+              title: 'Color schemes',
+              path: '/docs/pro/theming/color-schemes',
             },
           ],
         },

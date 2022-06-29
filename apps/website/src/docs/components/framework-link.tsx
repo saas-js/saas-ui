@@ -45,19 +45,19 @@ export const FrameworkLinks = () => {
   return (
     <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
       <FrameworkLink
-        href="/docs/installation/cra-guide"
-        accentColor="#0AC09D"
-        name="Create React App"
-      >
-        <CreateReactAppSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
         href="/docs/installation/nextjs-guide"
         accentColor="black"
         name="Next.js"
       >
         <NextjsSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/installation/vite-guide"
+        accentColor="#C07600"
+        name="Vite"
+      >
+        <ViteSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
 
       <FrameworkLink
@@ -85,11 +85,33 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/vite-guide"
-        accentColor="#C07600"
-        name="Vite"
+        href="/docs/installation/cra-guide"
+        accentColor="#0AC09D"
+        name="Create React App"
       >
-        <ViteSvg style={{ margin: 'auto' }} />
+        <CreateReactAppSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+    </SimpleGrid>
+  )
+}
+
+export const FrameworkLinksPro = () => {
+  return (
+    <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
+      <FrameworkLink
+        href="/docs/installation/nextjs-guide"
+        accentColor="black"
+        name="Next.js"
+      >
+        <NextjsSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/installation/cra-guide"
+        accentColor="#0AC09D"
+        name="Create React App"
+      >
+        <CreateReactAppSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
     </SimpleGrid>
   )

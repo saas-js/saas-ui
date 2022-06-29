@@ -10,6 +10,7 @@ import {
   LinkProps,
   WrapItem,
   Spacer,
+  Box,
 } from '@chakra-ui/react'
 import { FaNpm, FaGithub, FaYoutube } from 'react-icons/fa'
 import { FiLock } from 'react-icons/fi'
@@ -17,7 +18,7 @@ import StorybookIcon from '../storybook-icon'
 import { t } from '@/docs/utils/i18n'
 
 type ComponentLinkProps = LinkProps & {
-  icon: React.ElementType
+  icon?: React.ElementType
   url: string
   iconSize?: string
   iconColor?: string
@@ -140,13 +141,32 @@ function ComponentLinks(props: ComponentLinksProps) {
     <WrapItem>
       <ComponentLink
         url={`https://appulse.gumroad.com/l/saas-ui-pro-pre-order`}
-        iconColor={iconColor}
+        iconColor="primary.500"
         iconSize="1rem"
         icon={FiLock}
-        colorScheme="primary"
+        borderColor="primary.500"
+        color="primary.500"
+        fontWeight="semibold"
       >
         {t('component.mdx-components.component-links.buy-pro')}
       </ComponentLink>
+    </WrapItem>
+  )
+
+  const beta = pro && (
+    <WrapItem>
+      <Box
+        px="12px"
+        display="flex"
+        alignItems="center"
+        minH="32px"
+        borderWidth="1px"
+        borderRadius="md"
+        fontSize="sm"
+        _hover={{}}
+      >
+        {t('component.mdx-components.component-links.beta')}
+      </Box>
     </WrapItem>
   )
 
@@ -158,6 +178,7 @@ function ComponentLinks(props: ComponentLinksProps) {
       {storybookLink}
       {videoLink}
       {gumroadLink}
+      {beta}
     </Wrap>
   )
 }

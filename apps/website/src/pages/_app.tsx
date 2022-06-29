@@ -18,6 +18,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <AuthProvider>
         <ModalsProvider>
           <Layout
+            announcement={pageProps.announcement}
             header={pageProps.header}
             footer={pageProps.footer !== false ? <Footer /> : null}
           >

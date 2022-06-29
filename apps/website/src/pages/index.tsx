@@ -1292,8 +1292,12 @@ export default Home
 export async function getStaticProps() {
   return {
     props: {
+      announcement: {
+        title: '@saas-ui/react v1 is out! 🚀',
+        href: '/changelog',
+      },
       header: {
-        position: 'fixed',
+        position: 'sticky',
         variant: 'dark',
       },
     },

@@ -116,5 +116,8 @@
     "yup": "^0.32.11",
     "zod": "^3.17.3"
   },
+  "resolutions": {
+    "@chakra-ui/system": "^2.2.0"
+  },
   "packageManager": "yarn@3.1.1"
 }

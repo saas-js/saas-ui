@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- Added missing dependency.
+- Updated dependencies
+  - @saas-ui/persona@1.0.0-rc.5
+
 ## 1.0.0-rc.11
 
 ### Patch Changes

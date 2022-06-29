@@ -198,6 +198,7 @@ const Home = () => {
                       height="1021px"
                       alt="Screenshot of a ListPage in Saas UI Pro"
                       quality="75"
+                      priority
                     />
                   </Box>
                 </FallInPlace>

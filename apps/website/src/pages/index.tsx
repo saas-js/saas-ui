@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
+import Image from 'next/image'
 
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
@@ -32,8 +33,8 @@ import {
   useTheme,
   Tag,
   Wrap,
-  Image,
   Icon,
+  Center,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -189,12 +190,16 @@ const Home = () => {
                 margin="0 auto"
               >
                 <FallInPlace delay={1}>
-                  <Img
-                    src="/screenshots/list.png"
-                    position="absolute"
-                    width="100%"
-                    top="0"
-                  />
+                  <Box overflow="hidden" height="100%" display="flex">
+                    <Image
+                      src="/screenshots/list.png"
+                      layout="intrinsic"
+                      width="1607px"
+                      height="1021px"
+                      alt="Screenshot of a ListPage in Saas UI Pro"
+                      quality="75"
+                    />
+                  </Box>
                 </FallInPlace>
               </Box>
             </Stack>
@@ -288,20 +293,31 @@ const Screenshots = () => {
           opacity={useColorModeValue(0.9, 0.4)}
         />
 
-        <Image
-          alt="Image showing the Saas UI dashboard"
-          src="/screenshots/dashboard.png?q=75"
-          position="absolute"
-          top="60px"
-          left="160px"
-        />
-        <Image
-          alt="Image showing the Saas UI billing settings"
-          src="/screenshots/billing.png?q=75"
+        <Center position="absolute" top="60px" left="160px" width="100%">
+          <Image
+            alt="Image showing the Saas UI dashboard"
+            src="/screenshots/dashboard.png"
+            quality="75"
+            layout="intrinsic"
+            width="1607px"
+            height="1021px"
+          />
+        </Center>
+        <Center
           position="absolute"
           top={['120px', null, '280px']}
           left="60px"
-        />
+          width="100%"
+        >
+          <Image
+            alt="Image showing the Saas UI billing settings"
+            src="/screenshots/billing.png"
+            quality="75"
+            layout="intrinsic"
+            width="1607px"
+            height="1021px"
+          />
+        </Center>
       </Box>
     </Section>
   )

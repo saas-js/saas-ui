@@ -1,5 +1,11 @@
 # @saas-ui/data-table
 
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- @saas-ui/layout@1.0.0-rc.8
+
 ## 1.0.0-rc.7
 
 ### Patch Changes

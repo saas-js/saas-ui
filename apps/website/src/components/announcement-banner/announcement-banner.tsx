@@ -73,14 +73,16 @@ export const AnnouncementBanner = (props: AnnouncementBannerProps) => {
           >
             <HStack zIndex="2">
               <BannerTitle fontWeight="semibold">{title}</BannerTitle>
-              <BannerDescription display={{ base: 'none', md: 'block' }}>
+              <BannerDescription
+                as={LinkOverlay}
+                href={href}
+                display={{ base: 'none', md: 'block' }}
+              >
                 {description}
               </BannerDescription>
 
               <BannerActions>
                 <Button
-                  as={LinkOverlay}
-                  href={href}
                   size="xs"
                   variant="link"
                   color="muted"

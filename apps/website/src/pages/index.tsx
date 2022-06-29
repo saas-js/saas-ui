@@ -366,7 +366,12 @@ const Founder = () => {
               functionality that makes your product unique.
             </Text>
             <Stack direction="row" align="center">
-              <Avatar src="/eelco128.jpg" mr="2" size="md" />
+              <Avatar
+                src="/eelco128.jpg"
+                mr="2"
+                size="md"
+                name="Eelco Wiersma"
+              />
               <VStack align="flex-start" spacing="0">
                 <Em>Eelco Wiersma</Em>
                 <Text fontSize="sm">Founder Saas UI</Text>

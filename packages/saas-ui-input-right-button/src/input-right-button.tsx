@@ -1,9 +1,13 @@
 import * as React from 'react'
 
-import { forwardRef } from '@chakra-ui/system'
+import {
+  forwardRef,
+  InputRightElement,
+  Button,
+  ButtonProps,
+} from '@chakra-ui/react'
+
 import { __DEV__ } from '@chakra-ui/utils'
-import { InputRightElement } from '@chakra-ui/input'
-import { Button, ButtonProps } from '@saas-ui/button'
 
 export type InputRightButtonProps = ButtonProps
 

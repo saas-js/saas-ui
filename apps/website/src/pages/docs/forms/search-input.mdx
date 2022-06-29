@@ -1,6 +1,6 @@
 ---
 title: SearchInput
-description: A search input type component
+description: A search input type component.
 ---
 
 <ComponentLinks
@@ -20,6 +20,23 @@ import { SearchInput } from '@saas-ui/react'
 
 ```jsx
 <SearchInput placeholder="Search" />
+```
+
+### Controlled
+
+```jsx
+function Search() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <SearchInput
+      placeholder="Search"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onReset={() => setValue('')}
+    />
+  )
+}
 ```
 
 ## Props

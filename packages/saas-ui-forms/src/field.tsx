@@ -27,14 +27,13 @@ import {
   TextareaProps,
   SwitchProps,
   CheckboxProps,
-  PinInputProps,
   PinInputField,
   HStack,
   PinInput,
   UsePinInputProps,
   SystemProps,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+import { __DEV__, FocusableElement } from '@chakra-ui/utils'
 
 import { NumberInput, NumberInputProps } from '@saas-ui/number-input'
 import { PasswordInput, PasswordInputProps } from '@saas-ui/password-input'
@@ -46,7 +45,6 @@ import {
   NativeSelect,
   NativeSelectProps,
 } from '@saas-ui/select'
-import { FocusableElement } from '@chakra-ui/utils'
 
 export interface Option {
   value: string
@@ -217,7 +215,6 @@ const createField = (
       isInvalid,
       isReadOnly,
       isRequired,
-      isOptional,
       rules,
       variant,
       ...inputProps
@@ -239,7 +236,6 @@ const createField = (
         isInvalid={isInvalid}
         isReadOnly={isReadOnly}
         isRequired={isRequired}
-        isOptional={isOptional}
         variant={variant}
       >
         <InputComponent

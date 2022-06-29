@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createContext, PropGetter } from '@chakra-ui/react-utils'
-import { useDisclosure, useId, CollapseProps } from '@chakra-ui/react'
+import { useDisclosure, useId } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
 export const [CollapseProvider, useCollapseContext] =
@@ -27,7 +27,7 @@ export const useCollapse = (props: UseCollapse = {}) => {
       const { className, ...rest } = props
       if (isCollapsible) {
         return {
-          className: cx('sui-collapse-toggle', className),
+          className: cx('saas-collapse-toggle', className),
           onClick: () => onToggle(),
           'aria-expanded': isOpen.toString(),
           'aria-controls': id,
@@ -39,8 +39,8 @@ export const useCollapse = (props: UseCollapse = {}) => {
     [isCollapsible, isOpen]
   )
 
-  const getCollapseProps = React.useCallback(
-    (props: CollapseProps = {}) => {
+  const getCollapseProps: PropGetter = React.useCallback(
+    (props) => {
       return {
         id,
         in: isOpen,

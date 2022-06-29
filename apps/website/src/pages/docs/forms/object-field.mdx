@@ -45,8 +45,8 @@ function CreatePost() {
           name: '',
         },
       }}
-      resolver={yupResolver(schema)}
       onSubmit={() => null}
+      {...yupForm(schema)}
     />
   )
 }

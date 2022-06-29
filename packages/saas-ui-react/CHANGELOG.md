@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 1.0.0-rc.14
+
+### Patch Changes
+
+- Updated dependencies [a134a6f]
+- Updated dependencies [a134a6f]
+  - @saas-ui/hotkeys@1.0.0-rc.5
+  - @saas-ui/collapse@1.0.0-rc.5
+  - @saas-ui/stepper@1.0.0-rc.6
+  - @saas-ui/forms@1.0.0-rc.12
+  - @saas-ui/auth@1.0.0-rc.13
+  - @saas-ui/modals@1.0.0-rc.12
+
 ## 1.0.0-rc.13
 
 ### Patch Changes

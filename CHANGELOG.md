@@ -8,6 +8,156 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 06-29-2022
+
+**Hotkeys** `v1.0.0-rc.5`
+
+- HotkeysSearch now accepts SearchInputProps
+
+**Collapse** `v1.0.0-rc.5`
+
+- Fixed type issue
+
+## 06-29-2022
+
+`@saas-ui/react@1.0.0-rc.13`
+
+- Updated dependencies.
+
+**Auth** `v1.0.0-rc.12`
+
+- Updated dependencies.
+
+**Banner** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Button** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Card** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Clerk** `v1.0.0-rc.12`
+
+- Updated dependencies.
+- Updated to Clerk React 3.4.1
+
+**Collapse** `v1.0.0-rc.4`
+
+- Updated dependencies.
+- Updated classname prefix to saas-
+
+**Data Table** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**Forms** `v1.0.0-rc.11`
+
+- Updated dependencies.
+
+**Hooks** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Hotkeys** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Input Right Button** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Layout** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**List** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Menu** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**Modals** `v1.0.0-rc.11`
+
+- Updated dependencies.
+
+**Nprogress** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Number Input** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Palette** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Password Input** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Persona** `v1.0.0-rc.6`
+
+- Updated dependencies.
+
+**Pin Input** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Property** `v1.0.0-rc.6`
+
+- Updated dependencies.
+
+**Provider** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**Radio** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**React Utils** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Search Input** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Select** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Snackbar** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Stepper** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**System** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Theme** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Web 3** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Props Docs** `v1.0.0-rc.4`
+
+- Updated props.
+
 ## 06-28-2022
 
 `@saas-ui/react@1.0.0-rc.11`

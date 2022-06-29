@@ -5999,7 +5999,6 @@ __metadata:
     "@chakra-ui/utils": ^2.0.2
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
-    framer-motion: ">=5.5.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft

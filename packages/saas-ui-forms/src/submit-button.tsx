@@ -4,7 +4,6 @@ import { useFormContext } from 'react-hook-form'
 
 import { Button, ButtonProps } from '@saas-ui/button'
 
-import { forwardRef } from '@chakra-ui/system'
 import { __DEV__ } from '@chakra-ui/utils'
 
 export interface SubmitButtonProps extends ButtonProps {
@@ -24,29 +23,38 @@ export interface SubmitButtonProps extends ButtonProps {
   disableIfInvalid?: boolean
 }
 
-export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
-  (props, ref) => {
-    const { children, disableIfUntouched, disableIfInvalid, ...rest } = props
-    const { formState } = useFormContext()
+export const SubmitButton = React.forwardRef<
+  HTMLButtonElement,
+  SubmitButtonProps
+>((props, ref) => {
+  const {
+    children,
+    disableIfUntouched,
+    disableIfInvalid,
+    isDisabled: isDisabledProp,
+    isLoading,
+    ...rest
+  } = props
+  const { formState } = useFormContext()
 
-    const isDisabled =
-      (disableIfUntouched && !formState.isDirty) ||
-      (disableIfInvalid && !formState.isValid)
+  const isDisabled =
+    (disableIfUntouched && !formState.isDirty) ||
+    (disableIfInvalid && !formState.isValid) ||
+    isDisabledProp
 
-    return (
-      <Button
-        type="submit"
-        isLoading={formState.isSubmitting}
-        colorScheme="primary"
-        ref={ref}
-        isDisabled={isDisabled}
-        {...rest}
-      >
-        {children}
-      </Button>
-    )
-  }
-)
+  return (
+    <Button
+      {...rest}
+      ref={ref}
+      variant="primary"
+      type="submit"
+      isLoading={formState.isSubmitting || isLoading}
+      isDisabled={isDisabled}
+    >
+      {children}
+    </Button>
+  )
+})
 
 SubmitButton.defaultProps = {
   label: 'Submit',

@@ -14,7 +14,7 @@ export interface ButtonProps extends ChakraButtonProps {
   label?: React.ReactNode
 }
 
-export const Button = forwardRef<ButtonProps, typeof ChakraButton>(
+export const Button = forwardRef<ButtonProps, 'button'>(
   ({ label, children, ...props }, ref) => {
     return (
       <ChakraButton ref={ref} {...props}>

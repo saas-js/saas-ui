@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { ModalBody, ModalFooter, forwardRef } from '@chakra-ui/react'
+import { ModalBody, ModalFooter, Button, forwardRef } from '@chakra-ui/react'
 
 import {
   Form,
@@ -11,7 +11,6 @@ import {
   FieldResolver,
   UseFormReturn,
 } from '@saas-ui/forms'
-import { Button } from '@saas-ui/button'
 
 import { BaseModal, BaseModalProps } from './modal'
 

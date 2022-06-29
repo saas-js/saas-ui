@@ -12,7 +12,7 @@ import { fonts, fontSizes, textStyles } from './foundations/typography'
 import sizes from './foundations/sizes'
 import shadows from './foundations/shadows'
 import semanticTokens from './foundations/semantic-tokens'
-import components from './components'
+import * as components from './components'
 
 const config = {
   useSystemColorMode: false,

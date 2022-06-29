@@ -164,11 +164,12 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
 
   return (
     <SubmitButton
-      isDisabled={isCompleted}
-      label={isLastStep || isCompleted ? submitLabel : label}
       {...rest}
+      isDisabled={isCompleted}
       className={cx('saas-form__next-button', props.className)}
-    />
+    >
+      {isLastStep || isCompleted ? submitLabel : label}
+    </SubmitButton>
   )
 }
 

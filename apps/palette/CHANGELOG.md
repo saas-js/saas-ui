@@ -1,5 +1,13 @@
 # palette
 
+## 1.0.0-rc.13
+
+### Patch Changes
+
+- Updated dependencies [1744543]
+  - @saas-ui/palette@1.0.0-rc.4
+  - @saas-ui/react@1.0.0-rc.13
+
 ## 1.0.0-rc.12
 
 ### Patch Changes

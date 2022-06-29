@@ -1,5 +1,13 @@
 # @saas-ui/provider
 
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/theme@1.0.0-rc.4
+
 ## 1.0.0-rc.6
 
 ### Patch Changes

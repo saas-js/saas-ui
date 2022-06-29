@@ -1,5 +1,16 @@
 # @saas-ui/auth
 
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/button@1.0.0-rc.5
+  - @saas-ui/forms@1.0.0-rc.11
+  - @saas-ui/hooks@1.0.0-rc.4
+  - @saas-ui/layout@1.0.0-rc.7
+
 ## 1.0.0-rc.11
 
 ### Patch Changes

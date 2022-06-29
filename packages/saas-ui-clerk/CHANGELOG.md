@@ -1,5 +1,14 @@
 # @saas-ui/clerk
 
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- 7d8ce57: Updated to Clerk React 3.4.1
+- Updated dependencies [1744543]
+  - @saas-ui/auth@1.0.0-rc.12
+
 ## 1.0.0-rc.11
 
 ### Patch Changes

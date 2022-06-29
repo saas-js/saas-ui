@@ -1,5 +1,14 @@
 # @saas-ui/menu
 
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/button@1.0.0-rc.5
+  - @saas-ui/provider@1.0.0-rc.7
+
 ## 1.0.0-rc.6
 
 ### Patch Changes

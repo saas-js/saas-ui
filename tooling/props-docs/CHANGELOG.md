@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- 1744543: Updated props.
+
 ## 1.0.0-rc.3
 
 ### Patch Changes

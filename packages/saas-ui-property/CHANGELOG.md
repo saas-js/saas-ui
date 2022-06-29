@@ -1,5 +1,13 @@
 # @saas-ui/property
 
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/list@1.0.0-rc.5
+
 ## 1.0.0-rc.5
 
 ### Patch Changes

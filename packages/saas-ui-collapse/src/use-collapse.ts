@@ -39,8 +39,8 @@ export const useCollapse = (props: UseCollapse = {}) => {
     [isCollapsible, isOpen]
   )
 
-  const getCollapseProps: PropGetter = React.useCallback(
-    (props) => {
+  const getCollapseProps = React.useCallback(
+    (props: any = {}) => {
       return {
         id,
         in: isOpen,

@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- a134a6f: HotkeysSearch now accepts SearchInputProps
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

@@ -6057,7 +6057,7 @@ __metadata:
     "@saas-ui/button": "workspace:*"
     react-icons: ^4.4.0
   peerDependencies:
-    "@chakra-ui/react": ">=2.1.0"
+    "@chakra-ui/system": ">=2.1.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
@@ -6209,7 +6209,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@^1.0.0-rc.3, @saas-ui/props-docs@workspace:tooling/props-docs":
+"@saas-ui/props-docs@^1.0.0-rc.4, @saas-ui/props-docs@workspace:tooling/props-docs":
   version: 0.0.0-use.local
   resolution: "@saas-ui/props-docs@workspace:tooling/props-docs"
   dependencies:
@@ -28116,7 +28116,7 @@ __metadata:
     "@next/bundle-analyzer": ^12.2.0
     "@octokit/rest": ^18.12.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/props-docs": ^1.0.0-rc.3
+    "@saas-ui/props-docs": ^1.0.0-rc.4
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

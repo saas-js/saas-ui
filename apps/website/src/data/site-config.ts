@@ -26,8 +26,8 @@ const siteConfig = {
     description: 'Advanced UI components for SaaS products.',
     siteUrl: 'https://saas-ui.dev',
     twitter: {
-      handle: '@SaasUI_Dev-uidev',
-      site: '@SaasUI_Dev',
+      handle: '@Pagebakers',
+      site: '@saas_js',
       cardType: 'summary_large_image',
     },
     openGraph: {
@@ -39,7 +39,7 @@ const siteConfig = {
       site_name: 'Saas UI: An advanced component library for SaaS companies.',
       images: [
         {
-          url: 'https://saas-ui.dev/og-image.png',
+          url: 'https://saas-ui.dev/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'Saas UI: An advanced component library for SaaS companies.',

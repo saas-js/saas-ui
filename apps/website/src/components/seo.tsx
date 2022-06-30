@@ -10,6 +10,7 @@ const SEO = ({ title, description, ...props }: SEOProps) => (
     description={description}
     openGraph={{ ...siteConfig.seo.openGraph, title, description }}
     titleTemplate={siteConfig.seo.titleTemplate}
+    twitter={siteConfig.seo.twitter}
     {...props}
   />
 )

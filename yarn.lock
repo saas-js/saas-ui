@@ -6265,9 +6265,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@npm:1.0.0-rc.5":
-  version: 1.0.0-rc.5
-  resolution: "@saas-ui/props-docs@npm:1.0.0-rc.5"
+"@saas-ui/props-docs@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@saas-ui/props-docs@npm:1.0.0"
   dependencies:
     "@chakra-ui/react": ^2.2.1
     "@chakra-ui/styled-system": ^2.2.1
@@ -6283,7 +6283,7 @@ __metadata:
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
     typescript: ">=4.5.0"
-  checksum: 2450a0a74f4e695ac140ca295113f37ac5692825c62917894409e76c2e2200807c29cbcd90634b1d4c17a505568da0c507c5bd27702661ba95af5b3c6b5dfd49
+  checksum: 9b7a525fea54304b6e9756d52e4bc4bfa79942c84eb2b1358d19527fe33de99d2c8b9e15dd6684ef92bcaee4ed672cc5be8d8e615828956594ac8b7b541c7a16
   languageName: node
   linkType: hard
 
@@ -28185,7 +28185,7 @@ __metadata:
     "@saas-ui/features": ^0.4.0-next.3
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/pro": ^0.5.0-next.8
-    "@saas-ui/props-docs": ^1.0.0-rc.5
+    "@saas-ui/props-docs": ^1.0.0
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

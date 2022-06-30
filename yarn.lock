@@ -3472,7 +3472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/styled-system@npm:2.2.1, @chakra-ui/styled-system@npm:^2.2.0, @chakra-ui/styled-system@npm:^2.2.1":
+"@chakra-ui/styled-system@npm:2.2.1, @chakra-ui/styled-system@npm:^2.2.1":
   version: 2.2.1
   resolution: "@chakra-ui/styled-system@npm:2.2.1"
   dependencies:
@@ -6265,12 +6265,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@npm:1.0.0-rc.3":
-  version: 1.0.0-rc.3
-  resolution: "@saas-ui/props-docs@npm:1.0.0-rc.3"
+"@saas-ui/props-docs@npm:1.0.0-rc.5":
+  version: 1.0.0-rc.5
+  resolution: "@saas-ui/props-docs@npm:1.0.0-rc.5"
   dependencies:
     "@chakra-ui/react": ^2.2.1
-    "@chakra-ui/styled-system": ^2.2.0
+    "@chakra-ui/styled-system": ^2.2.1
     glob: ^8.0.3
     mkdirp: ^1.0.4
     react-docgen-typescript: ^2.2.2
@@ -6283,7 +6283,7 @@ __metadata:
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
     typescript: ">=4.5.0"
-  checksum: dc01f5aedff2deb1942ee3cb7173af514e9d57afdcc49274780d5212fa94346ef8227b373c221c4fa1873b77f7aa1e7c2269aa92e3291b51d9e1a70d614112d7
+  checksum: 2450a0a74f4e695ac140ca295113f37ac5692825c62917894409e76c2e2200807c29cbcd90634b1d4c17a505568da0c507c5bd27702661ba95af5b3c6b5dfd49
   languageName: node
   linkType: hard
 
@@ -28185,7 +28185,7 @@ __metadata:
     "@saas-ui/features": ^0.4.0-next.3
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/pro": ^0.5.0-next.8
-    "@saas-ui/props-docs": ^1.0.0
+    "@saas-ui/props-docs": ^1.0.0-rc.5
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

@@ -45,7 +45,7 @@ export const FrameworkLinks = () => {
   return (
     <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
       <FrameworkLink
-        href="/docs/installation/nextjs-guide"
+        href="/docs/core/installation/nextjs-guide"
         accentColor="black"
         name="Next.js"
       >
@@ -53,7 +53,7 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/vite-guide"
+        href="/docs/core/installation/vite-guide"
         accentColor="#C07600"
         name="Vite"
       >
@@ -61,7 +61,7 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/blitzjs-guide"
+        href="/docs/core/installation/blitzjs-guide"
         accentColor="#6700EB"
         name="BlitzJS"
       >
@@ -69,7 +69,7 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/redwoodjs-guide"
+        href="/docs/core/installation/redwoodjs-guide"
         accentColor="#BF4722"
         name="RedwoodJS"
       >
@@ -77,7 +77,7 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/remix-guide"
+        href="/docs/core/installation/remix-guide"
         accentColor="#121212"
         name="Remix"
       >
@@ -85,7 +85,7 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/cra-guide"
+        href="/docs/core/installation/cra-guide"
         accentColor="#0AC09D"
         name="Create React App"
       >

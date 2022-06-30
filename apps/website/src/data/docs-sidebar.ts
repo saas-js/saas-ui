@@ -47,12 +47,12 @@ const sidebar = {
               path: '/docs/core/getting-started',
             },
             {
-              title: 'Create React App',
-              path: '/docs/core/installation/cra-guide',
-            },
-            {
               title: 'Next JS',
               path: '/docs/core/installation/nextjs-guide',
+            },
+            {
+              title: 'Vite',
+              path: '/docs/core/installation/vite-guide',
             },
             {
               title: 'Blitz JS',
@@ -66,9 +66,10 @@ const sidebar = {
               title: 'Remix',
               path: '/docs/core/installation/remix-guide',
             },
+
             {
-              title: 'Vite',
-              path: '/docs/core/installation/vite-guide',
+              title: 'Create React App',
+              path: '/docs/core/installation/cra-guide',
             },
           ],
         },

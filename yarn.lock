@@ -6128,7 +6128,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/next-workspaces@^0.2.0-rc.3, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
+"@saas-ui/next-workspaces@^0.2.0, @saas-ui/next-workspaces@workspace:tooling/next-workspaces":
   version: 0.0.0-use.local
   resolution: "@saas-ui/next-workspaces@workspace:tooling/next-workspaces"
   languageName: unknown
@@ -21561,7 +21561,7 @@ __metadata:
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@fontsource/inter": ^4.5.11
-    "@saas-ui/next-workspaces": ^0.2.0-rc.3
+    "@saas-ui/next-workspaces": ^0.2.0
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/react": "workspace:*"
     "@svgr/webpack": ^6.2.1
@@ -28185,7 +28185,7 @@ __metadata:
     "@saas-ui/features": ^0.4.0-next.3
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/pro": ^0.5.0-next.8
-    "@saas-ui/props-docs": ^1.0.0-rc.3
+    "@saas-ui/props-docs": ^1.0.0
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

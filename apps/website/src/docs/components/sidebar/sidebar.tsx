@@ -88,6 +88,12 @@ function SidebarGroup({
       defaultIsOpen: isActive || open,
     })
 
+  React.useEffect(() => {
+    if (isActive) {
+      onOpen()
+    }
+  }, [isActive, onOpen])
+
   return (
     <Box {...props}>
       {heading && routes.length ? (

@@ -5991,9 +5991,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/features@npm:^0.4.0-next.3":
-  version: 0.4.0-next.3
-  resolution: "@saas-ui/features@npm:0.4.0-next.3"
+"@saas-ui/features@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@saas-ui/features@npm:0.4.0"
   dependencies:
     zustand: ^3.7.2
   peerDependencies:
@@ -6001,7 +6001,7 @@ __metadata:
     "@saas-ui/react": ">=1"
     framer-motion: ">=5.5.0"
     react: ">=18"
-  checksum: 316d9c843d4312a2d34c7773e9bcd7a949e080f321f325aab369067d4584423bbb4324d3307efc406e04fd998f59511b0a220fdb7eadcc78b2ffbcad04df3306
+  checksum: 768b6d72c802940129072e3d6bf7b7852bcd62972d398dd3e377066506b606ee61fa02676505893e6b1ef81113fbf1e6562f7b8a0313b18076eac6813b816525
   languageName: node
   linkType: hard
 
@@ -6158,16 +6158,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/onboarding@npm:0.3.0-next.8":
-  version: 0.3.0-next.8
-  resolution: "@saas-ui/onboarding@npm:0.3.0-next.8"
+"@saas-ui/onboarding@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@saas-ui/onboarding@npm:0.3.0"
   dependencies:
     "@chakra-ui/anatomy": ^2.0.1
     "@chakra-ui/react-utils": ^2.0.1
     "@chakra-ui/system": ^2.1.3
     "@chakra-ui/utils": ^2.0.2
-    "@saas-ui/pro": 0.5.0-next.8
-    "@saas-ui/react-utils": ^1.0.0-rc.4
+    "@saas-ui/pro": 0.5.0
+    "@saas-ui/react-utils": ^1.0.0
   peerDependencies:
     "@chakra-ui/react": ">=2.1"
     "@emotion/react": ">=11"
@@ -6176,7 +6176,7 @@ __metadata:
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: d3fa2c132e20c942baa98753d5f5cbd94a47d8078b4424ff33fc26bfab5c7655848e86556a76b783a63f04a3ec718265c96a639cbd1dcefa6e2e2d90684f1f8b
+  checksum: d4abfdd1b208a4f478a649041549910858ece9ac19222c01ec9b9989ad6b84115ef0bb75ed698f4d326ea973c34a9bbf0fd64a1db1ef28fd7b8e7be7b48eda3d
   languageName: node
   linkType: hard
 
@@ -6227,9 +6227,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/pro@npm:0.5.0-next.8, @saas-ui/pro@npm:^0.5.0-next.8":
-  version: 0.5.0-next.8
-  resolution: "@saas-ui/pro@npm:0.5.0-next.8"
+"@saas-ui/pro@npm:0.5.0, @saas-ui/pro@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@saas-ui/pro@npm:0.5.0"
   dependencies:
     "@chakra-ui/clickable": ^2.0.2
     "@chakra-ui/react-utils": ^2.0.1
@@ -6237,8 +6237,8 @@ __metadata:
     "@chakra-ui/theme-tools": ^2.0.2
     "@chakra-ui/utils": ^2.0.2
     "@react-hookz/web": ^13.3.0
-    "@saas-ui/onboarding": 0.3.0-next.8
-    "@saas-ui/router": 0.2.0-next.2
+    "@saas-ui/onboarding": 0.3.0
+    "@saas-ui/router": 0.2.0
     date-fns: ^2.28.0
     polished: ^4.2.2
   peerDependencies:
@@ -6249,7 +6249,7 @@ __metadata:
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: d89cf670bf152f6092ac0670b7268ff95dddde8beeaa509dd850a108ec582538a4e17140b20d99427e5b89ba867a7766c109e2345a9b11a00346f642dd22ed9b
+  checksum: 8500b3b801ef7822791511786d79b12e7cfc19bbd968e52a215e2f7a268b2385204ea7e4f34afc05edd270b59607e2899d350f418b9f75596ccca7861453bb57
   languageName: node
   linkType: hard
 
@@ -6310,7 +6310,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react-utils@^1.0.0-rc.4, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
+"@saas-ui/react-utils@^1.0.0, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react-utils@workspace:packages/saas-ui-react-utils"
   peerDependencies:
@@ -6361,15 +6361,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/router@npm:0.2.0-next.2":
-  version: 0.2.0-next.2
-  resolution: "@saas-ui/router@npm:0.2.0-next.2"
+"@saas-ui/router@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@saas-ui/router@npm:0.2.0"
   dependencies:
     querystring: ^0.2.1
   peerDependencies:
     react: ">=18"
     react-dom: ">=18"
-  checksum: 59a427a7b8624792c0c35cebac99f65dcd3298ca42ec1644368293f835d6b7e57221a4011b923f6b65b82ff93f656502966669966da012c78fcb3bc837d955d6
+  checksum: f48dc713837c21f4b4b277d5e3d4a87518cefe012f7379ecaf26e23cf7dc3e121473785f6e76dd2264198a3e2b0eca3698bfd48b3f7c68f82bb98ef82587c396
   languageName: node
   linkType: hard
 
@@ -28182,9 +28182,9 @@ __metadata:
     "@netlify/plugin-nextjs": ^4.9.3
     "@next/bundle-analyzer": ^12.2.0
     "@octokit/rest": ^18.12.0
-    "@saas-ui/features": ^0.4.0-next.3
+    "@saas-ui/features": ^0.4.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/pro": ^0.5.0-next.8
+    "@saas-ui/pro": ^0.5.0
     "@saas-ui/props-docs": ^1.0.0
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"

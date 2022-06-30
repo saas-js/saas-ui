@@ -33,7 +33,7 @@ export const AnnouncementBanner = (props: AnnouncementBannerProps) => {
   }
 
   return (
-    <Flex>
+    <Flex position={['absolute', null, 'static']} top="100px" width="100%">
       <Container maxW="container.2xl" px="8">
         <NextLink href={href}>
           <Banner
@@ -44,7 +44,8 @@ export const AnnouncementBanner = (props: AnnouncementBannerProps) => {
             justifyContent="center"
             colorScheme="purple"
             backgroundClip="padding-box"
-            borderBottomRadius="2xl"
+            borderRadius={['full', null, 0]}
+            borderBottomRadius={[null, null, '2xl']}
             borderWidth="2px"
             borderTopWidth="0"
             borderColor="transparent"

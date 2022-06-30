@@ -1,5 +1,62 @@
 # website
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [68c7b62]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [c8621b8]
+- Updated dependencies [fca06e4]
+- Updated dependencies [da3c4e4]
+- Updated dependencies [de0dce2]
+- Updated dependencies [6cc9343]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [bd3438d]
+- Updated dependencies [6133901]
+- Updated dependencies [dc6376f]
+- Updated dependencies [43dff99]
+- Updated dependencies [4bb613c]
+- Updated dependencies [d4afda3]
+- Updated dependencies [9e9c601]
+- Updated dependencies [ddec417]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [43dff99]
+- Updated dependencies [5a1b92b]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [38f7171]
+- Updated dependencies [2ec8c91]
+- Updated dependencies [8f3f948]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [42beaa4]
+- Updated dependencies [3dee538]
+- Updated dependencies [1c247cb]
+- Updated dependencies [1744543]
+- Updated dependencies [07491fd]
+- Updated dependencies [d1fb472]
+- Updated dependencies [870db1f]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/react@1.0.0
+  - @saas-ui/palette@1.0.0
+  - @saas-ui/web3@1.0.0
+  - @saas-ui/props-docs@1.0.0
+
 ## 1.0.0-rc.15
 
 ### Patch Changes

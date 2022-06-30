@@ -1,5 +1,43 @@
 # @saas-ui/provider
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- a8fa78a: SaasProvider now accepts all ChakraProvider props.
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 87d3fdc: Removed dependency on querystring.
+- ae47cbd: Bump version
+- 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [dc6376f]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [532a7d4]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [4fd1fb3]
+  - @saas-ui/theme@1.0.0
+
 ## 1.0.0-rc.8
 
 ### Patch Changes

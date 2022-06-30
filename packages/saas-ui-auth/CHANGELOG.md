@@ -1,5 +1,56 @@
 # @saas-ui/auth
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 9043639: Fixed new .mjs exports.
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [fca06e4]
+- Updated dependencies [6cc9343]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [bd3438d]
+- Updated dependencies [6133901]
+- Updated dependencies [dc6376f]
+- Updated dependencies [43dff99]
+- Updated dependencies [d4afda3]
+- Updated dependencies [ddec417]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [43dff99]
+- Updated dependencies [5a1b92b]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [38f7171]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+- Updated dependencies [870db1f]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0
+  - @saas-ui/forms@1.0.0
+  - @saas-ui/hooks@1.0.0
+  - @saas-ui/layout@1.0.0
+
 ## 1.0.0-rc.14
 
 ### Patch Changes

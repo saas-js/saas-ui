@@ -7,9 +7,39 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 28 Jun 2022 07:30:28 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 30 Jun 2022 08:25:13 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/06-30-2022</guid>
+    <title>Jun 30, 2022</title>
+    <link>https://saas-ui.dev/changelog/06-30-2022</link>
+    <description>
+## 06-30-2022
+
+`@saas-ui/react@1.0.0`
+
+- Card now has a isHoverable property to support hover style...</description>
+    <pubDate>Thu, 30 Jun 2022 08:25:13 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/06-29-2022</guid>
+    <title>Jun 29, 2022</title>
+    <link>https://saas-ui.dev/changelog/06-29-2022</link>
+    <description>
+`@saas-ui/react@1.0.0-rc.14`
+
+**Hotkeys** `v1.0.0-rc.5`
+
+- HotkeysSearch now accepts SearchInputPro...</description>
+    <pubDate>Wed, 29 Jun 2022 16:20:16 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/06-28-2022</guid>
     <title>Jun 28, 2022</title>

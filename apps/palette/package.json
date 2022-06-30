@@ -1,6 +1,6 @@
 {
   "name": "palette-docs",
-  "version": "1.0.0-rc.15",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,7 +16,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@fontsource/inter": "^4.5.11",
-    "@saas-ui/next-workspaces": "^0.2.0-rc.3",
+    "@saas-ui/next-workspaces": "^0.2.0",
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/react": "workspace:*",
     "@svgr/webpack": "^6.2.1",

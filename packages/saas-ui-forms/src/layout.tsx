@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { chakra, SimpleGrid, SimpleGridProps, useTheme } from '@chakra-ui/react'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 export type FormLayoutProps = SimpleGridProps
 
@@ -10,6 +11,10 @@ interface FormLayoutItemProps {
 
 const FormLayoutItem: React.FC<FormLayoutItemProps> = ({ children }) => {
   return <chakra.div>{children}</chakra.div>
+}
+
+if (__DEV__) {
+  FormLayoutItem.displayName = 'FormLayoutItem'
 }
 
 /**
@@ -31,7 +36,10 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
   }
 
   return (
-    <SimpleGrid {...gridProps}>
+    <SimpleGrid
+      {...gridProps}
+      className={cx('saas-form__layout', props.className)}
+    >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return <FormLayoutItem>{child}</FormLayoutItem>
@@ -40,4 +48,8 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
       })}
     </SimpleGrid>
   )
+}
+
+if (__DEV__) {
+  FormLayout.displayName = 'FormLayout'
 }

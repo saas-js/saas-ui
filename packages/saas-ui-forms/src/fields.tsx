@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 import { Form } from './form'
 import { FormLayout } from './layout'
@@ -63,4 +64,8 @@ export const Fields: React.FC<FieldsProps> = ({
         )}
     </FormLayout>
   )
+}
+
+if (__DEV__) {
+  Fields.displayName = 'Fields'
 }

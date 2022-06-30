@@ -1,62 +1,55 @@
 import * as React from 'react'
 
-interface Dict {
-  [key: string]: any
+interface NavigateOptions {
+  replace?: boolean
 }
 
-export interface Router {
-  push: (path: string, options: Dict) => void
-  replace: (path: string, options: Dict) => void
-  goBack: () => void
-  [key: string]: any
+interface RouterLocation {
+  pathname: string
+  hash?: string
+  search?: string
 }
 
 export interface RouterContextValue {
-  useRouter?: () => Router
-  linkComponent?: React.ReactNode
+  navigate: (path: string, options?: NavigateOptions) => void
+  back: () => void
+  params?: URLSearchParams
+  location?: RouterLocation
 }
 
-export const RouterContext = React.createContext<RouterContextValue>({})
+export const RouterContext = React.createContext<RouterContextValue | null>(
+  null
+)
 
-interface RouterProviderProps {
-  useRouter: () => Router
-  linkComponent?: React.ReactNode
-  children: React.ReactNode
-}
+/**
+ * A simple to wrapper to abstract basic router functionality
+ */
+export const RouterProvider = RouterContext.Provider
 
-export function RouterProvider({
-  useRouter,
-  linkComponent,
-  children,
-}: RouterProviderProps) {
-  const context = {
-    useRouter,
-    linkComponent,
-  }
+export const useRouterContext = () =>
+  React.useContext(RouterContext) as RouterContextValue
 
-  return (
-    <RouterContext.Provider value={context}>{children}</RouterContext.Provider>
-  )
-}
-
-export const useRouterContext = (): RouterContextValue =>
-  React.useContext(RouterContext)
-
-export const useRouter = () => {
+export const useNavigate = () => {
   const context = useRouterContext()
-  return context.useRouter?.()
+  return context?.navigate
 }
 
 export const useParams = () => {
   const context = useRouterContext()
-  const router = context.useRouter?.()
-  return router?.query
+  return context?.params
 }
 
-// export function useLink(): any {
-//   const context = useRouterContext()
-//   if (context.linkComponent) {
-//     return context.linkComponent
-//   }
-//   return ({ children }: React.PropsWithChildren<null>) => <>{children}</>
-// }
+export const useLocation = () => {
+  const context = useRouterContext()
+  if (context) {
+    return context.location
+  } else if (typeof window !== 'undefined') {
+    return window.location
+  }
+  return null
+}
+
+export function useActivePath(path: string) {
+  const location = useLocation()
+  return location?.pathname === path
+}

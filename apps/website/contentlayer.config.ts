@@ -25,6 +25,7 @@ const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'blog/**/*.mdx',
   bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string' },
@@ -54,12 +55,14 @@ const Doc = defineDocumentType(() => ({
   name: 'Doc',
   filePathPattern: 'docs/**/*.mdx',
   bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     package: { type: 'string' },
     description: { type: 'string', required: true },
     image: { type: 'string' },
     version: { type: 'string' },
+    tags: { type: 'list', of: { type: 'string' } },
   },
   computedFields: {
     ...computedFields,
@@ -82,6 +85,7 @@ const Changelog = defineDocumentType(() => ({
   name: 'Changelog',
   filePathPattern: 'changelog/*.mdx',
   bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },

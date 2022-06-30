@@ -1,20 +1,24 @@
-# @saas-ui/select
+# @saas-ui/pin-input
 
-## Todo
-
-- [ ] Add input group support
+Chakra UI Pin Input
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/select
+$ yarn add @saas-ui/pin-input
 
 #or
 
-$ npm i @saas-ui/select  --save
+$ npm i @saas-ui/pin-input  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/forms/field
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-forms
 
 ## License
 

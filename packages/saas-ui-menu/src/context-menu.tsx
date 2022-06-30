@@ -13,13 +13,12 @@ import {
 } from '@chakra-ui/react'
 
 import { createContext } from '@chakra-ui/react-utils'
+import { runIfFn, __DEV__ } from '@chakra-ui/utils'
 
 type Position = [number, number]
 
 export interface UseContextMenuReturn {
   isOpen: boolean
-  isRendered: boolean
-  isDeferredOpen: boolean
   position: Position
   triggerRef: React.RefObject<HTMLSpanElement>
   onClose: () => void
@@ -29,6 +28,7 @@ export interface UseContextMenuReturn {
 export const [ContextMenuProvider, useContextMenuContext] =
   createContext<UseContextMenuReturn>({
     name: 'UseContextMenuContext',
+    strict: false,
   })
 
 export interface UseContextMenuProps extends ContextMenuProps {
@@ -36,27 +36,9 @@ export interface UseContextMenuProps extends ContextMenuProps {
 }
 
 export const useContextMenu = (props: UseContextMenuProps) => {
-  const { isLazy = false } = props
   const [isOpen, setIsOpen] = useState(false)
-  const [isRendered, setIsRendered] = useState(!isLazy)
-  const [isDeferredOpen, setIsDeferredOpen] = useState(false)
   const [position, setPosition] = useState<Position>([0, 0])
   const triggerRef = useRef<HTMLSpanElement>(null)
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsRendered(true)
-      setTimeout(() => {
-        setIsDeferredOpen(true)
-      })
-    } else {
-      setIsDeferredOpen(false)
-      const timeout = setTimeout(() => {
-        setIsRendered(isOpen || !isLazy)
-      }, 1000)
-      return () => clearTimeout(timeout)
-    }
-  }, [isOpen])
 
   // useOutsideClick off menu doesn't catch contextmenu
   useEventListener('contextmenu', (e) => {
@@ -68,7 +50,7 @@ export const useContextMenu = (props: UseContextMenuProps) => {
     }
   })
 
-  const onOpen = useCallback((event) => {
+  const onOpen = useCallback((event: React.MouseEvent) => {
     setIsOpen(true)
     setPosition([event.pageX, event.pageY])
   }, [])
@@ -80,8 +62,6 @@ export const useContextMenu = (props: UseContextMenuProps) => {
 
   return {
     isOpen,
-    isRendered,
-    isDeferredOpen,
     position,
     triggerRef,
     onClose,
@@ -91,23 +71,26 @@ export const useContextMenu = (props: UseContextMenuProps) => {
 
 export interface ContextMenuProps extends MenuProps {}
 export const ContextMenu: React.FC<ContextMenuProps> = (props) => {
-  const { children, closeOnSelect } = props
+  const { children, ...rest } = props
   const ctx = useContextMenu(props)
 
   const context = React.useMemo(() => ctx, [ctx])
 
-  const { isDeferredOpen, onClose } = context
+  const { isOpen, onClose } = context
 
   return (
-    <Menu
-      isOpen={isDeferredOpen}
-      gutter={0}
-      onClose={onClose}
-      closeOnSelect={closeOnSelect}
-    >
-      <ContextMenuProvider value={context}>{children}</ContextMenuProvider>
+    <Menu gutter={0} {...rest} isOpen={isOpen} onClose={onClose}>
+      {(fnProps) => (
+        <ContextMenuProvider value={context}>
+          {runIfFn(children, fnProps)}
+        </ContextMenuProvider>
+      )}
     </Menu>
   )
+}
+
+if (__DEV__) {
+  ContextMenu.displayName = 'ContextMenu'
 }
 
 export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {}
@@ -139,13 +122,17 @@ export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
   )
 }
 
+if (__DEV__) {
+  ContextMenuTrigger.displayName = 'ContextMenuTrigger'
+}
+
 export interface ContextMenuListProps extends MenuListProps {}
 
 export const ContextMenuList: React.FC<ContextMenuListProps> = (props) => {
   const { children, ...rest } = props
-  const { isRendered, position } = useContextMenuContext()
+  const { position } = useContextMenuContext()
 
-  return isRendered ? (
+  return (
     <Portal>
       <MenuList
         {...rest}
@@ -158,5 +145,9 @@ export const ContextMenuList: React.FC<ContextMenuListProps> = (props) => {
         {children}
       </MenuList>
     </Portal>
-  ) : null
+  )
+}
+
+if (__DEV__) {
+  ContextMenuList.displayName = 'ContextMenuList'
 }

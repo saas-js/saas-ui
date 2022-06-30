@@ -2,14 +2,6 @@
 
 Easy manageable keyboard shortcuts for Chakra UI
 
-## Todo
-
-This package is still in development and might not work 100% as expected.
-If you find any issues, please open an issues here on Github.
-
-- [ ] Add tests
-- [ ] Test compatibility with all Chakra UI components, like Menu's
-
 ## How it works
 
 Create a config object containing all the keyboard shortcuts in your app. The keys in the config can be used as shortcuts with the included hook throughout your app. Comes with an HotkeysList component to list all available key combinations for your users.

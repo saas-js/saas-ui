@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormLayout,
@@ -20,7 +22,7 @@ interface SubmitParams {
 }
 
 export interface OtpFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   label?: string
   helpText?: string
   pinLength?: number
@@ -74,7 +76,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>
@@ -87,4 +89,8 @@ OtpForm.defaultProps = {
     'You can find your one-time password in the Google Authenticator or Authy app.',
   submitLabel: 'Verify',
   label: 'Your verification code',
+}
+
+if (__DEV__) {
+  OtpForm.displayName = 'OtpForm'
 }

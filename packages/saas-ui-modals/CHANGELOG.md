@@ -1,5 +1,320 @@
 # @saas-ui/modals
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [fca06e4]
+- Updated dependencies [6cc9343]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [bd3438d]
+- Updated dependencies [6133901]
+- Updated dependencies [dc6376f]
+- Updated dependencies [43dff99]
+- Updated dependencies [d4afda3]
+- Updated dependencies [ddec417]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [43dff99]
+- Updated dependencies [5a1b92b]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [38f7171]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [07491fd]
+- Updated dependencies [d1fb472]
+- Updated dependencies [870db1f]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0
+  - @saas-ui/forms@1.0.0
+  - @saas-ui/menu@1.0.0
+
+## 1.0.0-rc.13
+
+### Patch Changes
+
+- @saas-ui/menu@1.0.0-rc.8
+
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- @saas-ui/forms@1.0.0-rc.12
+
+## 1.0.0-rc.11
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/button@1.0.0-rc.5
+  - @saas-ui/forms@1.0.0-rc.11
+  - @saas-ui/menu@1.0.0-rc.7
+
+## 1.0.0-rc.10
+
+### Patch Changes
+
+- Updated dependencies [bd3438d]
+  - @saas-ui/forms@1.0.0-rc.10
+  - @saas-ui/menu@1.0.0-rc.6
+
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- Updated dependencies [43dff99]
+- Updated dependencies [d4afda3]
+- Updated dependencies [43dff99]
+- Updated dependencies [38f7171]
+- Updated dependencies [870db1f]
+  - @saas-ui/forms@1.0.0-rc.9
+  - @saas-ui/button@1.0.0-rc.4
+  - @saas-ui/menu@1.0.0-rc.5
+
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0-rc.3
+  - @saas-ui/forms@1.0.0-rc.8
+  - @saas-ui/menu@1.0.0-rc.4
+
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.7
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.6
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- Updated dependencies [fca06e4]
+  - @saas-ui/forms@1.0.0-rc.5
+
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- @saas-ui/forms@1.0.0-rc.4
+
+## 1.0.0-rc.3
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [532a7d4]
+- Updated dependencies [6133901]
+- Updated dependencies [ddec417]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+  - @saas-ui/button@1.0.0-rc.2
+  - @saas-ui/forms@1.0.0-rc.3
+  - @saas-ui/menu@1.0.0-rc.3
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/button@1.0.0-rc.1
+  - @saas-ui/forms@1.0.0-rc.2
+  - @saas-ui/menu@1.0.0-rc.2
+
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- Updated dependencies [07491fd]
+  - @saas-ui/menu@1.0.0-rc.1
+  - @saas-ui/forms@1.0.0-rc.1
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/button@1.0.0-rc.0
+  - @saas-ui/forms@1.0.0-rc.0
+  - @saas-ui/menu@1.0.0-rc.0
+
+## 0.5.15
+
+### Patch Changes
+
+- @saas-ui/menu@0.5.7
+
+## 0.5.14
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/button@0.4.2
+  - @saas-ui/forms@0.7.10
+  - @saas-ui/menu@0.5.6
+
+## 0.5.13
+
+### Patch Changes
+
+- Updated dependencies [0dbec1a]
+  - @saas-ui/button@0.4.1
+  - @saas-ui/forms@0.7.9
+  - @saas-ui/menu@0.5.5
+
+## 0.5.12
+
+### Patch Changes
+
+- f14fa4e: Fixed issue where the resolver was not passed down to the Form.
+
+## 0.5.11
+
+### Patch Changes
+
+- Updated dependencies [391e21a]
+  - @saas-ui/forms@0.7.8
+
+## 0.5.10
+
+### Patch Changes
+
+- Updated dependencies [c0b3dc9]
+  - @saas-ui/forms@0.7.7
+
+## 0.5.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.6
+
+## 0.5.8
+
+### Patch Changes
+
+- Updated dependencies [22a30dc]
+- Updated dependencies [a76c184]
+  - @saas-ui/forms@0.7.5
+  - @saas-ui/menu@0.5.4
+
+## 0.5.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.4
+
+## 0.5.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.2
+
+## 0.5.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.2
+
+## 0.5.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.1
+
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [bab579f]
+  - @saas-ui/forms@0.7.0
+
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [6696203]
+  - @saas-ui/forms@0.6.2
+
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.6.1
+
+## 0.5.0
+
+### Minor Changes
+
+- 29a7479: Improved the MenuDialog api to be more consistant with Menu
+
+## 0.4.1
+
+### Patch Changes
+
+- Fixed issue where the ModalFooter would not render.
+
 ## 0.4.0
 
 ### Minor Changes

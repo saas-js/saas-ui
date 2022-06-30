@@ -1,5 +1,4 @@
-import { allChangelogs } from '.contentlayer/data'
-import { Changelog } from '.contentlayer/types'
+import { allChangelogs, Changelog } from '.contentlayer/generated'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import Layout from 'src/layouts'
 import { GetStaticPaths, GetStaticProps } from 'next'

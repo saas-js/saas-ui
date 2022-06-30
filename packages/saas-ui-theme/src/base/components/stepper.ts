@@ -1,4 +1,10 @@
-import { anatomy, getColor, mode, transparentize } from '@chakra-ui/theme-tools'
+import {
+  anatomy,
+  getColor,
+  mode,
+  orient,
+  transparentize,
+} from '@chakra-ui/theme-tools'
 import type {
   PartsStyleFunction,
   StyleFunctionProps,
@@ -16,50 +22,113 @@ export const parts = anatomy('stepper').parts(
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   const { orientation, size } = props
 
-  const isVertical = orientation === 'vertical'
-
   const borderWidth = size === 'lg' ? 2 : 1
 
-  const separator = isVertical
-    ? {
-        minHeight: 4,
-        borderLeftWidth: borderWidth,
-        borderTopWidth: 0,
-        mx: 4,
-      }
-    : {
-        borderTopWidth: borderWidth,
-        mx: 3,
-      }
+  const content = orient({
+    orientation,
+    vertical: {
+      borderLeftWidth: borderWidth,
+      ms: size === 'lg' ? 4 : 3,
+      ps: 5,
+    },
+    horizontal: {},
+  })
 
-  const content = isVertical
-    ? {
-        borderLeftWidth: borderWidth,
-        ms: size === 'lg' ? 4 : 3,
-        ps: 5,
-      }
-    : {}
+  const steps = orient({
+    orientation,
+    vertical: {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+    },
+    horizontal: {
+      flexDirection: 'row',
+      alignItems: { base: 'flex-start', sm: 'center' },
+      position: 'relative',
+    },
+  })
+
+  const step = orient({
+    orientation,
+    vertical: {
+      flexDirection: 'row',
+    },
+    horizontal: {
+      flexDirection: { base: 'column', sm: 'row' },
+      flex: { base: '1 1', sm: 'inherit' },
+      position: 'relative',
+      _before: {
+        content: '""',
+        transitionProperty: 'common',
+        transitionDuration: 'normal',
+        borderTopWidth: borderWidth,
+        borderColor: 'inherit',
+        display: 'block',
+        position: { base: 'absolute', sm: 'static' },
+
+        left: { base: 'calc(-50% + 24px)', sm: 0 },
+        right: { base: 'calc(50% + 24px)', sm: 0 },
+        top: 6,
+      },
+      '&:first-of-type:before': {
+        display: 'none',
+      },
+    },
+  })
+
+  const title = orient({
+    orientation,
+    vertical: {},
+    horizontal: {
+      mt: { base: 2, sm: 0 },
+      textAlign: 'center',
+    },
+  })
+
+  const separator = orient({
+    orientation,
+    vertical: {
+      minHeight: 4,
+      borderLeftWidth: borderWidth,
+      borderTopWidth: 0,
+      mx: size === 'lg' ? 4 : 3,
+    },
+    horizontal: {
+      borderTopWidth: borderWidth,
+      mx: { base: 0, sm: 3 },
+      mt: { base: 5, sm: 0 },
+      alignSelf: { base: 'flex-start', sm: 'center' },
+      flex: { base: 'inherit', sm: 1 },
+    },
+  })
+
+  const icon = orient({
+    orientation,
+    vertical: { me: 2 },
+    horizontal: {
+      me: { base: 0, sm: 2 },
+    },
+  })
 
   return {
     container: {
       flexDirection: 'column',
     },
-    steps: {
-      flexDirection: isVertical ? 'column' : 'row',
-      alignItems: isVertical ? 'stretch' : 'center',
-    },
+    steps,
     step: {
-      flexDirection: 'row',
+      ...step,
       py: 2,
     },
+    title,
     separator: {
       ...separator,
       transitionProperty: 'common',
       transitionDuration: 'normal',
     },
     icon: {
+      ...icon,
       bg: 'whiteAlpha.400',
       lineHeight: 1,
+      flexShrink: 0,
       transitionProperty: 'common',
       transitionDuration: 'normal',
     },
@@ -80,11 +149,11 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
     icon: {
       bg: mode('blackAlpha.300', 'whiteAlpha.200')(props),
       color: mode('blackAlpha.600', 'whiteAlpha.600')(props),
-      '[data-active=true] &': {
+      '[data-active] &': {
         bg: getBg(props),
         color: mode(`${c}.500`, `${c}.200`)(props),
       },
-      '[data-completed=true] &': {
+      '[data-completed] &': {
         bg: getBg(props),
         color: mode(`${c}.500`, `${c}.200`)(props),
       },
@@ -94,19 +163,25 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
 
 const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
+
   return {
     icon: {
       bg: `gray.500`,
       color: mode('white', 'gray.800')(props),
-      '[data-active=true] &': {
+      '[data-active] &': {
         bg: mode(`${c}.500`, `${c}.200`)(props),
       },
-      '[data-completed=true] &': {
+      '[data-completed] &': {
         bg: mode(`${c}.500`, `${c}.200`)(props),
       },
     },
     separator: {
-      '&[data-active=true]': {
+      '&[data-active]': {
+        borderColor: mode(`${c}.500`, `${c}.200`)(props),
+      },
+    },
+    step: {
+      '&[data-active]:before, &[data-completed]:before': {
         borderColor: mode(`${c}.500`, `${c}.200`)(props),
       },
     },
@@ -127,25 +202,26 @@ const sizes = {
     title: {
       fontSize: 'md',
     },
-    separator: {
-      mx: 3,
+    step: {
+      _before: {
+        top: 5,
+      },
     },
   },
   lg: {
     icon: {
       boxSize: 8,
-      me: 2,
     },
     title: {
       fontSize: 'lg',
     },
-    separator: {},
   },
 }
 
 const defaultProps = {
   variant: 'solid',
   colorScheme: 'blue',
+  orientation: 'horizontal',
   size: 'lg',
 }
 

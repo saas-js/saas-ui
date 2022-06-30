@@ -9,6 +9,7 @@ import {
   HeaderGroup,
   Hooks,
   IdType,
+  SortingRule,
 } from 'react-table'
 import {
   chakra,
@@ -20,8 +21,9 @@ import {
   Th,
   Td,
   Checkbox,
-  useStyles,
 } from '@chakra-ui/react'
+
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
 
@@ -41,9 +43,14 @@ export interface DataTableProps<Data extends object>
   isSelectable?: boolean
   /**
    * Triggers whenever the row selection changes.
-   * @returns {string[]}
+   * @params rows The selected row id's
    */
   onSelectedRowsChange?: (rows: IdType<Data>[]) => void
+  /**
+   * Triggers when sort changed.
+   * Use incombination with `manualSortBy` to enable remote sorting.
+   */
+  onSortChange?: (columns: SortingRule<Data>[]) => void
 }
 
 export const DataTable = React.forwardRef(
@@ -66,6 +73,12 @@ export const DataTable = React.forwardRef(
       isSortable,
       isSelectable,
       onSelectedRowsChange,
+      onSortChange,
+      colorScheme,
+      size,
+      variant,
+      className,
+      children,
       ...rest
     } = props
 
@@ -92,6 +105,7 @@ export const DataTable = React.forwardRef(
         getRowId,
         manualRowSelectKey,
         autoResetSelectedRow,
+        ...rest,
       },
       useSortBy,
       useRowSelect,
@@ -114,11 +128,18 @@ export const DataTable = React.forwardRef(
       onSelectedRowsChange?.(Object.keys(state.selectedRowIds))
     }, [onSelectedRowsChange, state.selectedRowIds])
 
+    React.useEffect(() => {
+      onSortChange?.(state.sortBy)
+    }, [onSortChange, state.sortBy])
+
     return (
       <Table
         {...getTableProps()}
         sx={{ 'tr:last-child td': { border: 0 } }}
-        {...rest}
+        className={cx('saas-data-table', className)}
+        colorScheme={colorScheme}
+        size={size}
+        variant={variant}
       >
         <Thead>
           {headerGroups.map((headerGroup) => (
@@ -142,10 +163,12 @@ export const DataTable = React.forwardRef(
                   return (
                     <Td
                       {...cell.getCellProps()}
+                      overflow="hidden"
+                      whiteSpace="nowrap"
+                      textOverflow="ellipsis"
                       isNumeric={cell.column.isNumeric}
-                      isTruncated
                     >
-                      {cell.render('Cell')}
+                      {cell.render('Cell') as React.ReactNode}
                     </Td>
                   )
                 })}
@@ -156,11 +179,15 @@ export const DataTable = React.forwardRef(
       </Table>
     )
   }
-) as <Data extends object>(
+) as (<Data extends object>(
   props: DataTableProps<Data> & {
     ref?: React.ForwardedRef<TableInstance<Data>>
   }
-) => React.ReactElement
+) => React.ReactElement) & { displayName?: string }
+
+if (__DEV__) {
+  DataTable.displayName = 'DataTable'
+}
 
 export interface DataTableSortProps<Data extends object> {
   column: HeaderGroup<Data>
@@ -170,11 +197,8 @@ export const DataTableSort = <Data extends object>(
 ) => {
   const { column, ...rest } = props
 
-  const styles = useStyles()
-
   const sorterStyles = {
     ms: 2,
-    ...styles.sorter,
   }
 
   if (column.id === 'selection') {
@@ -194,6 +218,10 @@ export const DataTableSort = <Data extends object>(
       )}
     </chakra.span>
   )
+}
+
+if (__DEV__) {
+  DataTableSort.displayName = 'DataTableSort'
 }
 
 export interface DataTableHeaderProps<Data extends object> {
@@ -222,10 +250,14 @@ export const DataTableHeader = <Data extends object>(
       isNumeric={column.isNumeric}
       {...rest}
     >
-      {column.render('Header')}
+      {column.render('Header') as React.ReactNode}
       {isSortable && <DataTableSort column={column} />}
     </Th>
   )
+}
+
+if (__DEV__) {
+  DataTableHeader.displayName = 'DataTableHeader'
 }
 
 const getResult = (fn: any, params: any) => {
@@ -247,6 +279,10 @@ export const DataTableCell = <Data extends object>({
   return value || null
 }
 
+if (__DEV__) {
+  DataTableCell.displayName = 'DataTableCell'
+}
+
 const DataTableCheckbox = forwardRef((props, ref) => {
   const { checked, indeterminate, ...rest } = props
 
@@ -261,6 +297,10 @@ const DataTableCheckbox = forwardRef((props, ref) => {
     </chakra.div>
   )
 })
+
+if (__DEV__) {
+  DataTableCheckbox.displayName = 'DataTableCheckbox'
+}
 
 const useCheckboxColumn = <Data extends object>(enabled?: boolean) => {
   return (hooks: Hooks<Data>) => {

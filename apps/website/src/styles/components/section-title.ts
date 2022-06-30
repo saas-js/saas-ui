@@ -6,13 +6,13 @@ const SectionTitle = {
     wrapper: {
       spacing: [2, null, 3],
       mb: '10',
+      textAlign: ['left', null, 'center'],
     },
     title: {
-      size: 'xl',
+      width: '100%',
     },
     description: {
-      fontSize: 'lg',
-      fontWeight: 'medium',
+      fontWeight: 'normal',
     },
   },
   variants: {
@@ -41,6 +41,29 @@ const SectionTitle = {
   },
   defaultProps: {
     variant: 'default',
+    size: 'xl',
+  },
+  sizes: {
+    lg: {
+      title: {
+        size: '2xl',
+      },
+      description: {
+        fontSize: 'xl',
+      },
+    },
+    xl: {
+      wrapper: {
+        mb: 14,
+        spacing: [2, null, 3],
+      },
+      title: {
+        fontSize: { base: '2xl', lg: '4xl' },
+      },
+      description: {
+        fontSize: { base: 'xl', lg: '2xl' },
+      },
+    },
   },
 }
 

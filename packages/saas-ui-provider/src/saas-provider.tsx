@@ -1,13 +1,6 @@
 import * as React from 'react'
 
-import {
-  ChakraProvider,
-  ThemeProvider,
-  CSSReset,
-  GlobalStyle,
-  cookieStorageManager,
-  localStorageManager,
-} from '@chakra-ui/react'
+import { ChakraProvider, ChakraProviderProps } from '@chakra-ui/react'
 
 import { theme as defaultTheme } from '@saas-ui/theme'
 
@@ -18,10 +11,9 @@ export interface SaasContextValue {
 
 export const SaasContext = React.createContext<SaasContextValue>({})
 
-interface SaasProviderProps {
+interface SaasProviderProps extends ChakraProviderProps {
   theme?: any
   linkComponent?: React.ElementType<any>
-  cookies?: any
   children: React.ReactNode
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
@@ -29,15 +21,10 @@ interface SaasProviderProps {
 export function SaasProvider({
   theme,
   linkComponent,
-  cookies,
   onError,
   children,
+  ...rest
 }: SaasProviderProps) {
-  const colorModeManager =
-    typeof cookies === 'string'
-      ? cookieStorageManager(cookies)
-      : localStorageManager
-
   const context = {
     linkComponent,
     onError,
@@ -45,12 +32,8 @@ export function SaasProvider({
 
   return (
     <SaasContext.Provider value={context}>
-      <ChakraProvider colorModeManager={colorModeManager}>
-        <ThemeProvider theme={theme || defaultTheme}>
-          <CSSReset />
-          <GlobalStyle />
-          {children}
-        </ThemeProvider>
+      <ChakraProvider {...rest} theme={theme || defaultTheme}>
+        {children}
       </ChakraProvider>
     </SaasContext.Provider>
   )

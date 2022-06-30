@@ -1,7 +1,6 @@
-import { VStack, Text } from '@chakra-ui/layout'
-import { useColorModeValue } from '@chakra-ui/react'
+import { VStack, Text, StackProps, useColorModeValue } from '@chakra-ui/react'
 
-export interface PageTitleProps {
+export interface PageTitleProps extends Omit<StackProps, 'title'> {
   title: string | React.ReactNode
   description?: string | React.ReactNode
 }

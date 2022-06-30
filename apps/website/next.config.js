@@ -1,15 +1,29 @@
-const path = require('path')
 const { withContentlayer } = require('next-contentlayer')
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const webpack = require('webpack')
 
 let config = {
-  swcMinify: false,
+  reactStrictMode: true,
   experimental: {
     optimizeFonts: true,
     modern: true,
     externalDir: true,
   },
-  webpack: (config, { dev, isServer, defaultLoaders }) => {
+  compiler: {},
+  async redirects() {
+    return [
+      {
+        source: '/docs',
+        destination: '/docs/introduction',
+        permanent: false,
+      },
+    ]
+  },
+  webpack: (config, { defaultLoaders }) => {
     const fileLoaderRule = config.module.rules.find(
       (rule) => rule.test && rule.test.test('.svg')
     )
@@ -35,9 +49,12 @@ let config = {
           loader: '@svgr/webpack',
           options: {
             svgoConfig: {
-              plugins: {
-                removeViewBox: false,
-              },
+              plugins: [
+                {
+                  name: 'removeViewBox',
+                  active: false,
+                },
+              ],
             },
           },
         },
@@ -48,24 +65,22 @@ let config = {
       ...config.resolve,
     }
 
-    // config.module = {
-    //   ...config.module,
-    //   rules: [
-    //     ...config.module.rules,
-    //     {
-    //       test: /\.(js|jsx|ts|tsx)$/,
-    //       include: [path.join(__dirname, '../../packages')],
-    //       exclude: /node_modules/,
-    //       use: defaultLoaders.babel,
-    //     },
-    //   ],
-    // }
+    config.module.rules.push({
+      test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding|router)\/.*\.tsx?/,
+      use: [defaultLoaders.babel],
+    })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui\/(?!props-docs)([a-z0-9-]+)$/,
+        /\@saas-ui\/([a-z0-9-\/]+)$/,
         (resource) => {
-          resource.request = resource.request + '/src'
+          if (
+            !resource.request.match(
+              /^@saas-ui\/(props-docs|pro|router|onboarding|features|pro\/theme)$/
+            )
+          ) {
+            resource.request = resource.request + '/src'
+          }
         }
       ),
     ])
@@ -77,7 +92,7 @@ let config = {
 const isNextDev = process.argv.includes('dev')
 
 if (isNextDev) {
-  config = withContentlayer()(config)
+  config = withContentlayer(config)
 }
 
-module.exports = config
+module.exports = withBundleAnalyzer(config)

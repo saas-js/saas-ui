@@ -20,16 +20,16 @@ const Template: ComponentStory<typeof PinInput> = (args) => (
   <PinInput {...args} />
 )
 
-export const basic = Template.bind({})
-basic.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   /**
    * Description
    */
   name: 'pin-input',
 }
 
-export const pinLength = Template.bind({})
-pinLength.args = {
+export const PinLength = Template.bind({})
+PinLength.args = {
   /**
    * Description
    */

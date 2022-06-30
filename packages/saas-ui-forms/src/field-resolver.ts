@@ -14,9 +14,9 @@ interface SchemaField extends FieldProps {
 
 export type ObjectSchema = Record<string, SchemaField>
 
-const mapFields = (schema: ObjectSchema) =>
+const mapFields = (schema: ObjectSchema): FieldProps[] =>
   schema &&
-  Object.entries(schema).map(([name, field]) => {
+  Object.entries(schema).map(([name, { items, ...field }]) => {
     return {
       ...field,
       name,

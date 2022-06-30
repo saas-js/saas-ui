@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  collectCoverageFrom: ['packages/tests/**/*.{ts,tsx}'],
+  collectCoverageFrom: ['packages/**/*.{ts,tsx}'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   modulePathIgnorePatterns: ['<rootDir>/examples'],
   transform: {
@@ -20,4 +20,5 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
+  resolver: '<rootDir>/.jest/resolver.js',
 }

@@ -9,12 +9,13 @@ import {
   SystemProps,
   useStyleConfig,
 } from '@chakra-ui/react'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 type Variants = 'fill' | 'overlay' | 'fullscreen'
 
 type SpinnerOptions = Pick<
   SpinnerProps,
-  'emptyColor' | 'color' | 'thickness' | 'speed' | 'label'
+  'emptyColor' | 'color' | 'thickness' | 'speed' | 'label' | 'className'
 >
 
 export interface LoaderProps
@@ -44,6 +45,8 @@ export interface LoaderProps
   variant?: 'Loader' extends keyof ThemeTypings['components'] /* @ts-ignore */
     ? ThemeTypings['components']['Loader']['variants']
     : Variants
+
+  children?: React.ReactNode
 }
 
 import { AnimatePresence, motion, MotionProps } from 'framer-motion'
@@ -107,6 +110,7 @@ export const Loader: React.FC<LoaderProps> = (props) => {
           exit={{ opacity: 0 }}
           {...rest}
           __css={loaderStyles}
+          className={cx('saas-loader', props.className)}
         >
           {spinner || <Spinner {...spinnerProps} />}
           {content}
@@ -114,6 +118,10 @@ export const Loader: React.FC<LoaderProps> = (props) => {
       )}
     </AnimatePresence>
   )
+}
+
+if (__DEV__) {
+  Loader.displayName = 'Loader'
 }
 
 /**

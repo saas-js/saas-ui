@@ -3,20 +3,24 @@ import * as React from 'react'
 import {
   chakra,
   forwardRef,
-  useStyles,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
   SystemProps,
+  SystemStyleObject,
   As,
   useColorModeValue,
   useMultiStyleConfig,
+  createStylesContext,
 } from '@chakra-ui/system'
+
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
 import { Icon } from '@chakra-ui/icon'
+
+const [StylesProvider, useStyles] = createStylesContext('List')
 
 interface ListOptions {
   /**
@@ -49,7 +53,7 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
     content = children
   }
 
-  const listStyles = {
+  const listStyles: SystemStyleObject = {
     py: 2,
     position: 'relative',
     ...styles.list,
@@ -57,7 +61,12 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
 
   return (
     <StylesProvider value={styles}>
-      <chakra.ul ref={ref} __css={listStyles} {...listProps}>
+      <chakra.ul
+        ref={ref}
+        __css={listStyles}
+        {...listProps}
+        className={cx('saas-list', props.className)}
+      >
         {content}
       </chakra.ul>
     </StylesProvider>
@@ -66,6 +75,10 @@ export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
 
 List.defaultProps = {
   variant: 'structured-list',
+}
+
+if (__DEV__) {
+  List.displayName = 'List'
 }
 
 export interface ListHeaderProps extends HTMLChakraProps<'li'> {
@@ -103,13 +116,22 @@ export const ListHeader: React.FC<ListHeaderProps> = (props) => {
   }
 
   return (
-    <chakra.li __css={headerStyles} onClick={onClick} {...rest}>
+    <chakra.li
+      __css={headerStyles}
+      onClick={onClick}
+      {...rest}
+      className={cx('saas-list__header', props.className)}
+    >
       <chakra.span flex="1" userSelect="none" role={role} aria-level={level}>
         {children}
       </chakra.span>
       {action}
     </chakra.li>
   )
+}
+
+if (__DEV__) {
+  ListHeader.displayName = 'ListHeader'
 }
 
 export interface ListItemProps extends HTMLChakraProps<'li'> {
@@ -147,7 +169,7 @@ export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
   const isComposed = !!(icon || primary || secondary || tertiary || action)
   const disablePadding = !isComposed || isButton
 
-  const itemStyles = {
+  const itemStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -181,12 +203,21 @@ export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
     )
 
   return (
-    <chakra.li ref={ref} __css={itemStyles} {...rest}>
+    <chakra.li
+      ref={ref}
+      __css={itemStyles}
+      {...rest}
+      className={cx('saas-list__item', props.className)}
+    >
       {content}
       {action && <ListItemAction>{action}</ListItemAction>}
     </chakra.li>
   )
 })
+
+if (__DEV__) {
+  ListItem.displayName = 'ListItem'
+}
 
 export interface ListItemButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
@@ -208,7 +239,7 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
     const { children, ...rest } = props
     const styles = useStyles()
 
-    const buttonStyles = {
+    const buttonStyles: SystemStyleObject = {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -227,12 +258,17 @@ export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
         role="button"
         tabIndex={0}
         {...rest}
+        className={cx('saas-list__item-button', props.className)}
       >
         {children}
       </chakra.div>
     )
   }
 )
+
+if (__DEV__) {
+  ListItemButton.displayName = 'ListItemButton'
+}
 
 export interface ListItemIconProps extends HTMLChakraProps<'div'> {
   /**
@@ -250,7 +286,7 @@ export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
   const { children, spacing, size = 5, as, ...rest } = props
   const styles = useStyles()
 
-  const iconStyles = {
+  const iconStyles: SystemStyleObject = {
     ...styles.icon,
     display: 'flex',
     flexShrink: 0,
@@ -267,10 +303,18 @@ export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
   }
 
   return (
-    <chakra.div __css={iconStyles} {...rest}>
+    <chakra.div
+      __css={iconStyles}
+      {...rest}
+      className={cx('saas-list__item-icon', props.className)}
+    >
       {_icon}
     </chakra.div>
   )
+}
+
+if (__DEV__) {
+  ListItemIcon.displayName = 'ListItemIcon'
 }
 
 export interface ListItemLabelProps extends HTMLChakraProps<'div'> {
@@ -282,7 +326,7 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
   const { primary, secondary, children, ...rest } = props
   const styles = useStyles()
 
-  const labelStyles = {
+  const labelStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
@@ -301,20 +345,28 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
   }
 
   return (
-    <chakra.div __css={labelStyles} {...rest}>
+    <chakra.div
+      __css={labelStyles}
+      {...rest}
+      className={cx('saas-list__item-label', props.className)}
+    >
       {primary && (
-        <chakra.span isTruncated __css={primaryStyles}>
+        <chakra.span noOfLines={1} __css={primaryStyles}>
           {primary}
         </chakra.span>
       )}
       {secondary && (
-        <chakra.span isTruncated __css={secondaryStyles}>
+        <chakra.span noOfLines={1} __css={secondaryStyles}>
           {secondary}
         </chakra.span>
       )}
       {children}
     </chakra.div>
   )
+}
+
+if (__DEV__) {
+  ListItemLabel.displayName = 'ListItemLabel'
 }
 
 export interface ListItemTertiaryProps extends HTMLChakraProps<'div'> {
@@ -335,17 +387,25 @@ export const ListItemTertiary: React.FC<ListItemTertiaryProps> = ({
 }) => {
   const styles = useStyles()
 
-  const tertiaryStyles = {
+  const tertiaryStyles: SystemStyleObject = {
     display: 'flex',
     '& > *:not(style) ~ *:not(style)': { marginStart: spacing },
     ...styles.tertiary,
   }
 
   return (
-    <chakra.div __css={tertiaryStyles} {...rest}>
+    <chakra.div
+      __css={tertiaryStyles}
+      {...rest}
+      className={cx('saas-list__item-tertiary', rest.className)}
+    >
       {children}
     </chakra.div>
   )
+}
+
+if (__DEV__) {
+  ListItemTertiary.displayName = 'ListItemTertiary'
 }
 
 /**
@@ -364,8 +424,13 @@ export const ListItemAction: React.FC<ButtonGroupProps> = ({
       position="absolute"
       right={4}
       {...rest}
+      className={cx('saas-list__item-action', rest.className)}
     >
       {children}
     </ButtonGroup>
   )
+}
+
+if (__DEV__) {
+  ListItemAction.displayName = 'ListItemAction'
 }

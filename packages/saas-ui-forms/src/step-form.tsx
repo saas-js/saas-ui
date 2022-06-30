@@ -2,12 +2,7 @@ import * as React from 'react'
 
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 
-import {
-  chakra,
-  HTMLChakraProps,
-  useMultiStyleConfig,
-  StylesProvider,
-} from '@chakra-ui/system'
+import { chakra, HTMLChakraProps } from '@chakra-ui/system'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -17,10 +12,11 @@ import {
   StepperStepsProps,
   StepperStep,
   useStepperContext,
+  StepperContainer,
 } from '@saas-ui/stepper'
 import { Button, ButtonProps } from '@saas-ui/button'
 
-import { Form, FormProps } from './form'
+import { Form } from './form'
 import { SubmitButton } from './submit-button'
 
 import {
@@ -28,18 +24,18 @@ import {
   useFormStep,
   StepFormProvider,
   UseStepFormProps,
+  FormStepSubmitHandler,
 } from './use-step-form'
 
 export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
-  extends UseStepFormProps<TFieldValues>,
-    FormProps<TFieldValues> {}
+  extends UseStepFormProps<TFieldValues> {}
 
 export const StepForm = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: StepFormProps<TFieldValues>,
     ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
   ) => {
-    const { children, onSubmit, ...rest } = props
+    const { children, ...rest } = props
 
     const stepper = useStepForm<TFieldValues>(props)
 
@@ -50,7 +46,7 @@ export const StepForm = React.forwardRef(
     return (
       <StepperProvider value={context}>
         <StepFormProvider value={context}>
-          <Form ref={ref} {...rest} {...getFormProps(props)}>
+          <Form ref={ref} {...rest} {...getFormProps()}>
             {runIfFn(children, stepper)}
           </Form>
         </StepFormProvider>
@@ -58,7 +54,7 @@ export const StepForm = React.forwardRef(
     )
   }
 ) as <TFieldValues extends FieldValues>(
-  props: FormProps<TFieldValues> & {
+  props: StepFormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
 ) => React.ReactElement
@@ -79,9 +75,9 @@ export interface FormStepOptions {
 }
 
 export const FormStepper: React.FC<StepperStepsProps> = (props) => {
-  const styles = useMultiStyleConfig('Stepper', props)
+  const { activeIndex, setIndex } = useStepperContext()
 
-  const { children } = props
+  const { children, orientation } = props
 
   const elements = React.Children.map(children, (child) => {
     if (React.isValidElement(child) && child?.type === FormStep) {
@@ -99,22 +95,33 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
     return child
   })
 
+  const onChange = React.useCallback((i: number) => {
+    setIndex(i)
+  }, [])
+
   return (
-    <StylesProvider value={styles}>
+    <StepperContainer
+      orientation={orientation}
+      step={activeIndex}
+      onChange={onChange}
+    >
       <StepperSteps mb="4" {...props}>
         {elements}
       </StepperSteps>
-    </StylesProvider>
+    </StepperContainer>
   )
 }
 
 export interface FormStepProps
   extends FormStepOptions,
-    HTMLChakraProps<'div'> {}
+    Omit<HTMLChakraProps<'div'>, 'onSubmit'> {
+  onSubmit?: FormStepSubmitHandler
+}
 
 export const FormStep: React.FC<FormStepProps> = (props) => {
-  const { name, schema, resolver, children, className, ...rest } = props
-  const step = useFormStep({ name, schema, resolver })
+  const { name, schema, resolver, children, className, onSubmit, ...rest } =
+    props
+  const step = useFormStep({ name, schema, resolver, onSubmit })
 
   const { isActive } = step
 
@@ -157,11 +164,12 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
 
   return (
     <SubmitButton
-      isDisabled={isCompleted}
-      label={isLastStep || isCompleted ? submitLabel : label}
       {...rest}
+      isDisabled={isCompleted}
       className={cx('saas-form__next-button', props.className)}
-    />
+    >
+      {isLastStep || isCompleted ? submitLabel : label}
+    </SubmitButton>
   )
 }
 

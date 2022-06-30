@@ -8,6 +8,1007 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 06-30-2022
+
+`@saas-ui/react@1.0.0`
+
+- Card now has a isHoverable property to support hover styles.
+- breaking: Updated to Chakra UI 2.1
+- NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- Added Json Schema (ajv) support for AutoForm.
+- Added ErrorBoundary component.
+- Scale reset button icon based on the input size.
+- Add exports entry for ajv
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- FormStep now supports an onSubmit handler.
+- No longer passing down label to input fields.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Option labels are now optional.
+- Added new RouterProvider and useActivePath now uses Router context.
+- ArrayFieldRowFields now accepts all FormLayout props (#48).
+- Stepper now accepts an onChange handler.
+- ArrayField no longer passing down items to the container element.
+- Initial release candidate
+- Field is now correctly typed based on the field type.
+- Fix vertical orientation for FormStepper.
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- #50 - Fixed StepForm render prop types.
+- Fixed vertical divider rendering incorrectly.
+- Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- AutoForm now renders children.
+- Fixed all theme onconsistencies.
+- Added missing dependency.
+- Spacing between pin inputs can now be configured.
+- InputField now has type="text" by default.
+- ContextMenu now passing down all props to the internal Menu.
+- Select now renders a hidden input with the current value.
+- New primary and secondary Button variant.
+- breaking: React 18 support.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Card** `v1.0.0`
+
+- Card now has a isHoverable property to support hover styles.
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Palette Docs** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Updated to Chakra UI 2.2.1
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- breaking: React 18 support.
+
+**Website** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Updated to Chakra UI 2.2.1
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- breaking: React 18 support.
+
+**Auth** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed new .mjs exports.
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Banner** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Button** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- New primary and secondary Button variant.
+- breaking: React 18 support.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Clerk** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Updated to Clerk React 3.4.1
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Collapse** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated classname prefix to saas-
+- Updated to Chakra UI 2.2.1
+- Fixed type issue
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Data Table** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Forms** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Added Json Schema (ajv) support for AutoForm.
+- Add exports entry for ajv
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- FormStep now supports an onSubmit handler.
+- No longer passing down label to input fields.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Option labels are now optional.
+- ArrayFieldRowFields now accepts all FormLayout props (#48).
+- ArrayField no longer passing down items to the container element.
+- Initial release candidate
+- Field is now correctly typed based on the field type.
+- Fix vertical orientation for FormStepper.
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- #50 - Fixed StepForm render prop types.
+- AutoForm now renders children.
+- Fixed all theme onconsistencies.
+- InputField now has type="text" by default.
+- Select now renders a hidden input with the current value.
+- breaking: React 18 support.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Hooks** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Hotkeys** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- HotkeysSearch now accepts SearchInputProps
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Input Right Button** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Layout** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**List** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Menu** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- ContextMenu now passing down all props to the internal Menu.
+- breaking: React 18 support.
+
+**Modals** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Nprogress** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Number Input** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Palette** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Password Input** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Persona** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Persona presence status is now displayed with a Tooltip.
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- Added missing dependency.
+- breaking: React 18 support.
+
+**Pin Input** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- Spacing between pin inputs can now be configured.
+- breaking: React 18 support.
+
+**Property** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Bump version
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Provider** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- SaasProvider now accepts all ChakraProvider props.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed dependency on querystring.
+- Bump version
+- Added new RouterProvider and useActivePath now uses Router context.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Radio** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**React Utils** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Search Input** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Scale reset button icon based on the input size.
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Select** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Snackbar** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Stepper** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Stepper now accepts an onChange handler.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**System** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Theme** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+- Fixed components exports.
+
+**Web 3** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated dependencies.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Props Docs** `v1.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- Updated props.
+- breaking: React 18 support.
+
+**Test Utils** `v2.0.0`
+
+- breaking: Updated to Chakra UI 2.1
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Initial release candidate
+- Modern bundles now use .mjs extension.
+- Updated to Chakra UI 2.2.1
+- Fixed all theme onconsistencies.
+- breaking: React 18 support.
+
+**Next Workspaces** `v0.2.0`
+
+- Re-publish.
+- Updated to Chakra UI 2.2.1
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Modern bundles now use .mjs extension.
+- Fixed all theme onconsistencies.
+
+## 06-30-2022
+
+## 06-29-2022
+
+**Hotkeys** `v1.0.0-rc.5`
+
+- HotkeysSearch now accepts SearchInputProps
+
+**Collapse** `v1.0.0-rc.5`
+
+- Fixed type issue
+
+## 06-29-2022
+
+`@saas-ui/react@1.0.0-rc.13`
+
+- Updated dependencies.
+
+**Auth** `v1.0.0-rc.12`
+
+- Updated dependencies.
+
+**Banner** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Button** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Card** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Clerk** `v1.0.0-rc.12`
+
+- Updated dependencies.
+- Updated to Clerk React 3.4.1
+
+**Collapse** `v1.0.0-rc.4`
+
+- Updated dependencies.
+- Updated classname prefix to saas-
+
+**Data Table** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**Forms** `v1.0.0-rc.11`
+
+- Updated dependencies.
+
+**Hooks** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Hotkeys** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Input Right Button** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Layout** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**List** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Menu** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**Modals** `v1.0.0-rc.11`
+
+- Updated dependencies.
+
+**Nprogress** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Number Input** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Palette** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Password Input** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Persona** `v1.0.0-rc.6`
+
+- Updated dependencies.
+
+**Pin Input** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**Property** `v1.0.0-rc.6`
+
+- Updated dependencies.
+
+**Provider** `v1.0.0-rc.7`
+
+- Updated dependencies.
+
+**Radio** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**React Utils** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Search Input** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Select** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Snackbar** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Stepper** `v1.0.0-rc.5`
+
+- Updated dependencies.
+
+**System** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Theme** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Web 3** `v1.0.0-rc.4`
+
+- Updated dependencies.
+
+**Props Docs** `v1.0.0-rc.4`
+
+- Updated props.
+
+## 06-28-2022
+
+`@saas-ui/react@1.0.0-rc.11`
+
+- Added ErrorBoundary component.
+- FormStep now supports an onSubmit handler.
+- Fixed vertical divider rendering incorrectly.
+
+**Forms** `v1.0.0-rc.10`
+
+- FormStep now supports an onSubmit handler.
+
+**Property** `v1.0.0-rc.5`
+
+- Bump version
+
+**Provider** `v1.0.0-rc.6`
+
+- Bump version
+
+## 06-24-2022
+
+`@saas-ui/react@1.0.0-rc.10`
+
+- Card now has a isHoverable property to support hover styles.
+- Option labels are now optional.
+- ArrayFieldRowFields now accepts all FormLayout props (#48).
+- Field is now correctly typed based on the field type.
+- #50 - Fixed StepForm render prop types.
+- New primary and secondary Button variant.
+
+**Card** `v1.0.0-rc.4`
+
+- Card now has a isHoverable property to support hover styles.
+
+**Forms** `v1.0.0-rc.9`
+
+- Option labels are now optional.
+- ArrayFieldRowFields now accepts all FormLayout props (#48).
+- Field is now correctly typed based on the field type.
+- #50 - Fixed StepForm render prop types.
+
+**Provider** `v1.0.0-rc.5`
+
+- Removed dependency on querystring.
+
+**Button** `v1.0.0-rc.4`
+
+- New primary and secondary Button variant.
+
+## 06-15-2022
+
+`@saas-ui/react@1.0.0-rc.9`
+
+- Scale reset button icon based on the input size.
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Search Input** `v1.0.0-rc.3`
+
+- Scale reset button icon based on the input size.
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Palette Docs** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Website** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Auth** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Banner** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Button** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Card** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Clerk** `v1.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Collapse** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Data Table** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Forms** `v1.0.0-rc.8`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+- Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+
+**Hooks** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Hotkeys** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Input Right Button** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Layout** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**List** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Menu** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Modals** `v1.0.0-rc.8`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Nprogress** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Number Input** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Palette** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Password Input** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Persona** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Pin Input** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Property** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Provider** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Radio** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**React Utils** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Select** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Snackbar** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Stepper** `v1.0.0-rc.4`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**System** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Theme** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Web 3** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Next Workspaces** `v0.2.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Props Docs** `v1.0.0-rc.3`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+**Test Utils** `v2.0.0-rc.9`
+
+- Updated all readme files, added better descriptions and links to docs and source code.
+
+## 04-23-2022
+
+**Forms** `v0.7.8`
+
+- Field id now passed down to the internal FormControl for better a11y.
+
+## 04-19-2022
+
+`@saas-ui/react@0.13.0`
+
+- Saas UI theme colors no longer generated on the fly.
+
+**Auth** `v0.7.9`
+
+- AuthFormDivider now using Divider component
+- Added displayName to all components and improved inconsistencies.
+
+**Forms** `v0.7.5`
+
+- Added displayName to form components
+- Fixed FormStepper default styles.
+
+**Theme** `v0.8.0`
+
+- Saas UI theme colors no longer generated on the fly.
+
+**System** `v0.4.1`
+
+- Added missing peer dependencies
+
+## 04-14-2022
+
+`@saas-ui/react@0.12.8`
+
+**Password Input** `v0.3.2`
+
+- Fixed label not rendering correctly in some cases.
+
+**Hotkeys** `v0.6.1`
+
+- Added modifier shorthands to jsdocs for easy access.
+
+**Forms** `v0.7.0`
+
+- Added Zod resolver for AutoForm
+
+## 04-09-2022
+
+**Hotkeys** `v0.6.0`
+
+- Added support for key sequences.
+
+## 03-21-2022
+
+**Stepper** `v0.2.2`
+
+- Improved Stepper styling on small screens.
+
+**Theme** `v0.7.2`
+
+- Improved Stepper styling on small screens.
+
+**Persona** `v0.5.1`
+
+- PersonaContainer now accepts size and box props.
+
+## 03-18-2022
+
+**Theme** `v0.7.1`
+
+- Improved Input fields outline variant contrast for better a11y
+
+**Auth** `v0.7.1`
+
+- Check if AuthStateChange unsubscribe callback is returned.
+
+**Stepper** `v0.2.1`
+
+- No longer use useLayoutEffect, since it causes SSR issues.
+
+**Clerk** `v0.0.1`
+
+- Added Clerk authentication service
+
+**Modals** `v0.5.0`
+
+- Improved the MenuDialog api to be more consistant with Menu
+
+## 03-17-2022
+
+`@saas-ui/react@0.12.1`
+
+- Fixed issue where the ModalFooter would not render.
+
+**Modals** `v0.4.1`
+
+- Fixed issue where the ModalFooter would not render.
+
 ## 03-15-2022
 
 `@saas-ui/react@0.12.0`

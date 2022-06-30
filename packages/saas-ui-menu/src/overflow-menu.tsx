@@ -9,7 +9,7 @@ import {
   ThemeTypings,
   SystemProps,
 } from '@chakra-ui/react'
-
+import { __DEV__ } from '@chakra-ui/utils'
 import { MoreIcon } from './icons'
 
 export interface OverflowMenuProps extends MenuProps {
@@ -37,6 +37,8 @@ export interface OverflowMenuProps extends MenuProps {
    * Render a custom icon.
    */
   icon?: React.ReactNode
+
+  children: React.ReactNode
 }
 
 export const OverflowMenu: React.FC<OverflowMenuProps> = (props) => {
@@ -61,4 +63,8 @@ export const OverflowMenu: React.FC<OverflowMenuProps> = (props) => {
       <MenuList {...menuListProps}>{children}</MenuList>
     </Menu>
   )
+}
+
+if (__DEV__) {
+  OverflowMenu.displayName = 'OverflowMenu'
 }

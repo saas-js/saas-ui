@@ -16,7 +16,7 @@ interface RecoveryParams {
 
 const getParams = (): RecoveryParams => {
   const hash = window.location.hash.replace('#', '')
-  return hash.split('&').reduce((memo, part) => {
+  return hash.split('&').reduce<any>((memo, part) => {
     const [key, value] = part.split('=')
     memo[key] = value
     return memo

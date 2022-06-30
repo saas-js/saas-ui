@@ -4,16 +4,20 @@ import {
   chakra,
   forwardRef,
   useMultiStyleConfig,
-  useStyles,
   useColorModeValue,
-  StylesProvider,
   HTMLChakraProps,
   ThemingProps,
   SystemProps,
+  SystemStyleObject,
   omitThemingProps,
+  createStylesContext,
 } from '@chakra-ui/system'
 
+import { cx, __DEV__ } from '@chakra-ui/utils'
+
 import { List, ListProps } from '@saas-ui/list'
+
+const [StylesProvider, useStyles] = createStylesContext('Property')
 
 interface PropertyOptions {
   label?: React.ReactNode
@@ -33,7 +37,7 @@ export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
   const { children, label, value, labelWidth, spacing, ...rest } =
     omitThemingProps(props)
 
-  const propertyStyles = {
+  const propertyStyles: SystemStyleObject = {
     minW: 0,
     display: 'flex',
     flexDirection: 'row',
@@ -43,7 +47,12 @@ export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
 
   return (
     <StylesProvider value={styles}>
-      <chakra.dl ref={ref} __css={propertyStyles} {...rest}>
+      <chakra.dl
+        ref={ref}
+        __css={propertyStyles}
+        {...rest}
+        className={cx('saas-property', props.className)}
+      >
         {label && (
           <PropertyLabel
             width={labelWidth}
@@ -59,6 +68,10 @@ export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
     </StylesProvider>
   )
 })
+
+if (__DEV__) {
+  Property.displayName = 'Property'
+}
 
 export interface PropertyLabelProps extends HTMLChakraProps<'dt'> {}
 
@@ -78,13 +91,22 @@ export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
   }
 
   return (
-    <chakra.dt ref={ref} __css={labelStyles} {...rest}>
-      <chakra.span flex="1" isTruncated>
+    <chakra.dt
+      ref={ref}
+      __css={labelStyles}
+      {...rest}
+      className={cx('saas-property__label', props.className)}
+    >
+      <chakra.span flex="1" noOfLines={1}>
         {children}
       </chakra.span>
     </chakra.dt>
   )
 })
+
+if (__DEV__) {
+  PropertyLabel.displayName = 'PropertyLabel'
+}
 
 export interface PropertyValueProps extends HTMLChakraProps<'dd'> {}
 
@@ -103,12 +125,21 @@ export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
     }
 
     return (
-      <chakra.dd ref={ref} __css={valueStyles} {...rest}>
+      <chakra.dd
+        ref={ref}
+        __css={valueStyles}
+        {...rest}
+        className={cx('saas-property__value', props.className)}
+      >
         {children}
       </chakra.dd>
     )
   }
 )
+
+if (__DEV__) {
+  PropertyValue.displayName = 'PropertyValue'
+}
 
 export interface PropertyListProps extends Omit<ListProps, 'items'> {}
 
@@ -120,7 +151,11 @@ export interface PropertyListProps extends Omit<ListProps, 'items'> {}
 export const PropertyList: React.FC<PropertyListProps> = (props) => {
   const { children, ...rest } = props
   return (
-    <List as="dl" {...rest}>
+    <List
+      as="dl"
+      {...rest}
+      className={cx('saas-property-list', props.className)}
+    >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(child, {
@@ -130,4 +165,8 @@ export const PropertyList: React.FC<PropertyListProps> = (props) => {
       )}
     </List>
   )
+}
+
+if (__DEV__) {
+  PropertyList.displayName = 'PropertyList'
 }

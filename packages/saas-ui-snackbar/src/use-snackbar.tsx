@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import {
   chakra,
-  useStyles,
   useTheme,
   useToast,
   UseToastOptions,
@@ -15,15 +14,16 @@ import {
   CloseButton,
   ButtonGroup,
   Spinner,
+  useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 const AlertSpinner: React.FC<AlertIconProps> = (props) => {
-  const styles = useStyles()
+  const styles = useMultiStyleConfig('Alert', props)
   return (
     <chakra.span
       display="inherit"
-      {...props}
       alignItems="center"
+      {...props}
       __css={styles.icon}
     >
       <Spinner size="sm" />
@@ -112,7 +112,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
   const toast = useToast(defaultOptions)
 
   const parseOptions = React.useCallback(
-    (options: SnackbarOptions): UseToastOptions => {
+    (options: SnackbarOptions): UseSnackbarOptions => {
       if (typeof options === 'string') {
         return {
           title: options,
@@ -153,7 +153,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
       })
 
     snackbar.promise = async (
-      promise: Promise<any>,
+      promise: Promise<unknown>,
       { loading, success, error }: SnackbarPromiseOptions
     ) => {
       let toastId: ToastId | undefined
@@ -162,33 +162,38 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
         toastId = snackbar({
           status: 'info',
           duration: null,
-          icon: <AlertSpinner color="white" />,
+          icon: <AlertSpinner />,
           ...options,
         })
       }
-      promise
-        .then(() => {
-          const options = parseOptions(success)
-          if (toastId) {
-            snackbar.update(toastId, {
-              status: 'success',
-              ...options,
-            })
-          } else {
-            snackbar(options)
-          }
-        })
-        .catch((error) => {
-          const options: UseToastOptions = {
-            title: error.name,
-            description: error.description,
-            status: 'error',
+      return promise
+        .then((result) => {
+          const options: UseSnackbarOptions = {
+            status: 'success',
+            ...parseOptions(success),
           }
           if (toastId) {
             snackbar.update(toastId, options)
           } else {
             snackbar(options)
           }
+          return result
+        })
+        .catch((e) => {
+          const options: UseSnackbarOptions = {
+            title: e.name,
+            description: e.description,
+            status: 'error',
+            ...parseOptions(error),
+          }
+
+          if (toastId) {
+            snackbar.update(toastId, options)
+          } else {
+            snackbar(options)
+          }
+
+          throw e
         })
     }
 

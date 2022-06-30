@@ -1,0 +1,44 @@
+---
+title: SearchInput
+description: A search input type component.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+```ts
+import { SearchInput } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+<SearchInput placeholder="Search" />
+```
+
+### Controlled
+
+```jsx
+function Search() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <SearchInput
+      placeholder="Search"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onReset={() => setValue('')}
+    />
+  )
+}
+```
+
+## Props
+
+<PropsTable of="SearchInput" />

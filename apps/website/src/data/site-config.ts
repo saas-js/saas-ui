@@ -39,15 +39,9 @@ const siteConfig = {
       site_name: 'Saas UI: An advanced component library for SaaS companies.',
       images: [
         {
-          url: 'https://saas-ui.dev/og-image.jpg',
+          url: 'https://saas-ui.dev/og-image.png',
           width: 1200,
           height: 630,
-          alt: 'Saas UI: An advanced component library for SaaS companies.',
-        },
-        {
-          url: 'https://saas-ui.dev/twitter-og-image.jpg',
-          width: 1012,
-          height: 506,
           alt: 'Saas UI: An advanced component library for SaaS companies.',
         },
       ],

@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface RouteItem {
   title: string
   path?: string
@@ -5,8 +7,10 @@ export interface RouteItem {
   heading?: boolean
   sort?: boolean
   routes?: RouteItem[]
-  new?: true
-  soon?: true
+  new?: boolean
+  soon?: boolean
+  pro?: boolean
+  icon?: any
 }
 
 export interface Routes {
@@ -43,7 +47,7 @@ export interface RouteContext {
 export const getAllRoutes = (routes: any) => {
   const allRoutes = []
 
-  routes[0].routes.forEach((route: RouteItem) => {
+  routes[0].routes?.forEach((route: RouteItem) => {
     if (route.routes) {
       route.routes.forEach((item) => {
         allRoutes.push(item)

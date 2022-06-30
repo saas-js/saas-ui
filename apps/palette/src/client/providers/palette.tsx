@@ -5,20 +5,22 @@ export const PaletteContext: any = React.createContext({})
 
 const PaletteProvider = ({
   color = '#6d28d9',
-  options = {},
+  options: optionsProp = {},
   children,
 }: any) => {
   const [colors, setColors] = useState({})
+  const [options, setOptions] = useState(optionsProp)
 
   const setPalette = React.useCallback((color: string, options: any) => {
     setColors(createPalette(color, options))
+    setOptions(options)
   }, [])
 
   useEffect(() => {
     if (color) {
-      setPalette(color, options)
+      setPalette(color, optionsProp)
     }
-  }, [color, options, setPalette])
+  }, [color, optionsProp, setPalette])
 
   const value = [{ color, options, colors }, setPalette]
 

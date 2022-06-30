@@ -13,6 +13,7 @@ import {
   AuthParams,
   ForgotPasswordView,
   UpdatePasswordView,
+  AuthProps,
 } from '../src'
 
 import { Field } from '@saas-ui/react'
@@ -76,7 +77,7 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-const Template: Story = (args) => <Auth {...args} />
+const Template: Story<AuthProps> = (args) => <Auth {...args} />
 
 export const Basic = Template.bind({})
 
@@ -109,7 +110,7 @@ Password.args = {
 
 export const PasswordWithCustomFields = () => {
   return (
-    <AuthForm action="logIn">
+    <AuthForm action="logIn" type="password">
       <Field
         name="rememberMe"
         type="checkbox"
@@ -119,6 +120,7 @@ export const PasswordWithCustomFields = () => {
     </AuthForm>
   )
 }
+PasswordWithCustomFields.args = {}
 
 export const Otp = Template.bind({})
 Otp.args = {

@@ -1,1 +1,1 @@
-export * from './use-style-config'
+export default {}

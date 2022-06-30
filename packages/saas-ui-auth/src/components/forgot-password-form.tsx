@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormLayout,
@@ -21,7 +23,7 @@ interface SubmitParams {
 }
 
 export interface ForgotPasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   label?: string
   helpText?: string
   onSuccess?: (data: any) => void
@@ -70,11 +72,12 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
           label={label}
           type="email"
           rules={{ required: true }}
+          autoComplete="email"
         />
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>
@@ -85,4 +88,8 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 ForgotPasswordForm.defaultProps = {
   submitLabel: 'Reset password',
   label: 'Your email address',
+}
+
+if (__DEV__) {
+  ForgotPasswordForm.displayName = 'ForgotPasswordForm'
 }

@@ -55,7 +55,7 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
 }
 
 export const Modal: React.FC<BaseModalProps> = (props) => {
-  const { children, footer, ...rest } = props
+  const { children, ...rest } = props
   return (
     <BaseModal {...rest}>
       <ModalBody>{children}</ModalBody>

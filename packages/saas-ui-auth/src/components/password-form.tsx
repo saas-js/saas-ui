@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormProps,
@@ -23,7 +25,7 @@ interface SubmitParams {
 }
 
 export interface PasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   schema?: any
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
@@ -74,20 +76,26 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
           label="Email"
           type="email"
           rules={{ required: true }}
+          autoComplete="email"
         />
         <Field
           name="password"
           label="Password"
           type="password"
           rules={{ required: true }}
+          autoComplete="current-password"
         />
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>
     </Form>
   )
+}
+
+if (__DEV__) {
+  PasswordForm.displayName = 'PasswordForm'
 }

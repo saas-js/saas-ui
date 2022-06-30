@@ -1,19 +1,19 @@
 {
   "name": "@saas-ui/banner",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A banner component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.js"
+      "default": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -55,16 +55,16 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/close-button": "^1.2.7",
-    "@chakra-ui/hooks": "^1.8.4",
-    "@chakra-ui/icons": "^1.1.1",
-    "@chakra-ui/transition": "^1.4.7",
-    "@chakra-ui/utils": "^1.10.4",
+    "@chakra-ui/close-button": "^2.0.2",
+    "@chakra-ui/hooks": "^2.0.2",
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/transition": "^2.0.2",
+    "@chakra-ui/utils": "^2.0.2",
     "@saas-ui/button": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
+    "@chakra-ui/system": ">=2.1.0",
     "framer-motion": ">=5.5.0",
-    "react": ">=16.8.6"
+    "react": ">=18.0.0"
   }
 }

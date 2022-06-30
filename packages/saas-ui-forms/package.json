@@ -1,32 +1,48 @@
 {
   "name": "@saas-ui/forms",
-  "version": "0.6.0",
-  "description": "Theme and components agnostic SaasProvider",
+  "version": "1.0.0",
+  "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.js"
+      "default": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     },
     "./yup": {
       "require": "./dist/yup/index.js",
-      "default": "./dist/yup/index.modern.js"
+      "default": "./dist/yup/index.modern.mjs"
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
+    },
+    "./zod": {
+      "require": "./dist/zod/index.js",
+      "default": "./dist/zod/index.modern.mjs"
+    },
+    "./zod/src": {
+      "default": "./zod/src/index.ts"
+    },
+    "./ajv": {
+      "require": "./dist/ajv/index.js",
+      "default": "./dist/ajv/index.modern.mjs"
+    },
+    "./ajv/src": {
+      "default": "./ajv/src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup",
+    "build": "yarn build:package && yarn build:yup && yarn build:zod && yarn build:ajv",
     "build:package": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "build:yup": "cross-env NODE_ENV=production microbundle --cwd yup --tsconfig ./yup/tsconfig.json -f cjs,modern --compress",
+    "build:zod": "cross-env NODE_ENV=production microbundle --cwd zod --tsconfig ./zod/tsconfig.json -f cjs,modern --compress",
+    "build:ajv": "cross-env NODE_ENV=production microbundle --cwd ajv --tsconfig ./ajv/tsconfig.json -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -35,7 +51,11 @@
     "dist",
     "src",
     "yup/package.json",
-    "yup/src"
+    "yup/src",
+    "zod/package.json",
+    "zod/src",
+    "ajv/package.json",
+    "ajv/src"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -69,10 +89,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.1.1",
-    "@chakra-ui/react-utils": "^1.2.1",
-    "@chakra-ui/utils": "^1.10.4",
-    "@hookform/resolvers": "^2.8.3",
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/react-utils": "^2.0.1",
+    "@chakra-ui/utils": "^2.0.2",
+    "@hookform/resolvers": "^2.9.0",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
     "@saas-ui/number-input": "workspace:*",
@@ -81,11 +101,17 @@
     "@saas-ui/radio": "workspace:*",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/select": "workspace:*",
-    "react-hook-form": "^7.22.0"
+    "@saas-ui/stepper": "workspace:*",
+    "react-hook-form": "^7.31.3"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6"
+    "@chakra-ui/react": ">=2.1.0",
+    "@chakra-ui/system": ">=2.1.0",
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.11.0",
+    "yup": "^0.32.11",
+    "zod": "^3.17.3"
   }
 }

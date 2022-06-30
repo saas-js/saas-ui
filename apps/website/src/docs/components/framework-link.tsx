@@ -2,94 +2,116 @@ import {
   Box,
   Center,
   Link as ChakraLink,
+  LinkBox,
+  LinkOverlay,
   SimpleGrid,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react'
+import { Card } from '@saas-ui/react'
 import Link from 'next/link'
 import React from 'react'
 import {
   BlitzSvg,
   CreateReactAppSvg,
-  GatsbySvg,
   NextjsSvg,
   RedwoodSvg,
   RemixSvg,
+  ViteSvg,
 } from './framework-svg'
+import { LinkCard } from './link-card'
 
 const FrameworkLink = (props) => {
-  const { accentColor, href, children, name } = props
+  const { href, children, name } = props
   return (
-    <Link passHref href={href}>
-      <ChakraLink textDecoration='none' _hover={{ textDecoration: 'none' }}>
-        <Box boxShadow='md' bg='white' borderRadius='lg' pt='4'>
-          {children}
+    <LinkCard href={href}>
+      {children}
 
-          <Center
-            bg={accentColor}
-            borderBottomStartRadius='lg'
-            borderBottomEndRadius='lg'
-            height='30px'
-            mt='4'
-          >
-            <Text color='white' fontSize='sm' fontWeight='bold'>
-              {name}
-            </Text>
-          </Center>
-        </Box>
-      </ChakraLink>
-    </Link>
+      <Center
+        borderBottomStartRadius="lg"
+        borderBottomEndRadius="lg"
+        height="30px"
+        mt="4"
+      >
+        <Text fontSize="sm" fontWeight="bold">
+          {name}
+        </Text>
+      </Center>
+    </LinkCard>
   )
 }
 
 export const FrameworkLinks = () => {
   return (
-    <SimpleGrid mt='12' minChildWidth='160px' spacing='40px' fontSize='6xl'>
+    <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
       <FrameworkLink
-        href='/guides/getting-started/cra-guide'
-        accentColor='#0AC09D'
-        name='Create React App'
-      >
-        <CreateReactAppSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
-        href='/guides/getting-started/nextjs-guide'
-        accentColor='black'
-        name='Next.js'
+        href="/docs/core/installation/nextjs-guide"
+        accentColor="black"
+        name="Next.js"
       >
         <NextjsSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
 
       <FrameworkLink
-        href='/guides/getting-started/gatsby-guide'
-        accentColor='#663399'
-        name='Gatsby'
+        href="/docs/core/installation/vite-guide"
+        accentColor="#C07600"
+        name="Vite"
       >
-        <GatsbySvg style={{ margin: 'auto' }} />
+        <ViteSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
 
       <FrameworkLink
-        href='/guides/getting-started/blitzjs-guide'
-        accentColor='#6700EB'
-        name='BlitzJS'
+        href="/docs/core/installation/blitzjs-guide"
+        accentColor="#6700EB"
+        name="BlitzJS"
       >
         <BlitzSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
 
       <FrameworkLink
-        href='/guides/getting-started/redwoodjs-guide'
-        accentColor='#BF4722'
-        name='RedwoodJS'
+        href="/docs/core/installation/redwoodjs-guide"
+        accentColor="#BF4722"
+        name="RedwoodJS"
       >
         <RedwoodSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
 
       <FrameworkLink
-        href='/guides/getting-started/remix-guide'
-        accentColor='#121212'
-        name='Remix'
+        href="/docs/core/installation/remix-guide"
+        accentColor="#121212"
+        name="Remix"
       >
         <RemixSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/core/installation/cra-guide"
+        accentColor="#0AC09D"
+        name="Create React App"
+      >
+        <CreateReactAppSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+    </SimpleGrid>
+  )
+}
+
+export const FrameworkLinksPro = () => {
+  return (
+    <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
+      <FrameworkLink
+        href="/docs/installation/nextjs-guide"
+        accentColor="black"
+        name="Next.js"
+      >
+        <NextjsSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/installation/cra-guide"
+        accentColor="#0AC09D"
+        name="Create React App"
+      >
+        <CreateReactAppSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
     </SimpleGrid>
   )

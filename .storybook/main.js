@@ -5,10 +5,11 @@ const toPath = (_path) => path.join(process.cwd(), _path)
 module.exports = {
   stories: ['../packages/**/stories/*.stories.tsx'],
   addons: [
-    'storybook-addon-performance/register',
+    // 'storybook-addon-swc',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
     '@storybook/addon-storysource',
+    '@storybook/addon-viewport',
   ],
   staticDirs: ['./static'],
   typescript: {
@@ -35,17 +36,17 @@ module.exports = {
       }
     }
     return {
-      // '@saas-ui/pro': {
-      //   title: 'Saas UI Pro',
-      //   url: 'https://pro-storybook.saas-ui.dev',
-      // },
+      '@saas-ui/pro': {
+        title: 'Saas UI Pro',
+        url: 'https://pro-storybook.saas-ui.dev',
+      },
       ...refs,
     }
   },
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.mjs$/,
-      include: /node_modules/,
+      include: /node_modules|packages/,
       type: 'javascript/auto',
     })
     return {
@@ -60,7 +61,7 @@ module.exports = {
       },
       plugins: config.plugins.concat([
         new webpack.NormalModuleReplacementPlugin(
-          /\@saas-ui\/[a-z-]+$/,
+          /\@saas-ui\/[a-z-\/]+$/,
           (resource) => {
             resource.request = resource.request + '/src/index'
           }

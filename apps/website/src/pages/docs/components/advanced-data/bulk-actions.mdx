@@ -1,0 +1,139 @@
+---
+title: BulkActions
+description: A set of actions to perform on one or more selected items.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `BulkActions`: The container component, manages state and composition.
+
+```ts
+import { BulkActions } from '@saas-ui/pro'
+```
+
+## Usage
+
+BulkActions will be visible when there are one or more `selections`.
+The BulkActions component is best used in combination with DataGrid.
+
+### Basic
+
+```jsx
+<Box position="relative" height="100px">
+  <BulkActions
+    selections={['1']}
+    actions={
+      <>
+        <Button>Delete</Button>
+      </>
+    }
+  />
+</Box>
+```
+
+### Customize title
+
+The title can be customized for localization or specifying what is selected.
+
+```jsx
+<Box position="relative" height="100px">
+  <BulkActions
+    title=":selections email(s) selected"
+    selections={['1']}
+    actions={
+      <>
+        <Button>Delete</Button>
+      </>
+    }
+  />
+</Box>
+```
+
+### Multiple actions
+
+```jsx
+<Box position="relative" height="100px">
+  <BulkActions
+    selections={['1']}
+    actions={
+      <>
+        <Menu>
+          <MenuButton as={Button}>Move to</MenuButton>
+          <Portal>
+            <MenuList>
+              <MenuItem>Inbox</MenuItem>
+              <MenuItem>Spam</MenuItem>
+            </MenuList>
+          </Portal>
+        </Menu>
+        <Button>Delete</Button>
+      </>
+    }
+  />
+</Box>
+```
+
+### Position & transtion
+
+```jsx
+function Position() {
+  const [state, setState] = useState(['1'])
+  return (
+    <Box position="relative" height="100px">
+      <Button onClick={() => setState(['1'])}>Select</Button>
+      <BulkActions
+        selections={state}
+        actions={
+          <>
+            <Button onClick={() => setState([])}>Delete</Button>
+          </>
+        }
+        top="auto"
+        bottom="0"
+        motionPreset="slideOutBottom"
+      />
+    </Box>
+  )
+}
+```
+
+### Custom styles
+
+```jsx
+function CustomStyles() {
+  const [state, setState] = useState(['1'])
+  return (
+    <Box position="relative" height="100px">
+      <Button onClick={() => setState(['1'])}>Select</Button>
+      <BulkActions
+        selections={state}
+        actions={
+          <>
+            <Button onClick={() => setState([])}>Delete</Button>
+          </>
+        }
+        colorScheme="gray"
+        motionPreset="slideOutBottom"
+        sx={{
+          bottom: '40px',
+          top: 'auto',
+          right: 'auto',
+          borderRadius: 'lg',
+          boxShadow: 'md',
+          maxW: 'container.lg',
+        }}
+      />
+    </Box>
+  )
+}
+```
+
+## Props
+
+The `BulkActions` component accepts all `Banner` properties.
+
+### Toolbar Props
+
+<PropsTable of="BulkActions" />

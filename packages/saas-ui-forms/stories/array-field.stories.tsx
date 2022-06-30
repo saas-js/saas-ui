@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { useFormContext, useWatch } from 'react-hook-form'
 
-import { yupForm } from '@saas-ui/forms/yup'
+import { yupForm, yupResolver } from '../yup/src'
 
 import {
   Form,
@@ -24,12 +24,12 @@ import {
   useArrayFieldRemoveButton,
   UseArrayFieldReturn,
   SubmitButton,
+  ArrayFieldProps,
 } from '../src'
 
 import { Button } from '@saas-ui/button'
 
 import { onSubmit } from './helpers'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 export default {
   title: 'Components/Forms/ArrayField',
@@ -104,7 +104,7 @@ export const AutoYupArrayField = () => {
   )
 }
 
-export const arrayField = () => (
+export const WithResolver = () => (
   <>
     <Form
       defaultValues={{
@@ -119,8 +119,8 @@ export const arrayField = () => (
     >
       <FormLayout>
         <ArrayField name="arrayField" label="Array field" defaultValue={{}}>
-          <Field name="title" placeholder="Title" />
-          <Field name="description" type="textarea" />
+          <Field name="title" label="Title" />
+          <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
         <SubmitButton label="Submit" />
@@ -157,7 +157,7 @@ const RemoveButton = () => {
   )
 }
 
-export const customArrayField = () => (
+export const CustomArrayField = () => (
   <>
     <Form
       defaultValues={{
@@ -213,7 +213,7 @@ export const customArrayField = () => (
   </>
 )
 
-export const minMaxNoSchema = () => (
+export const MinMaxNoSchema = () => (
   <>
     <Form
       defaultValues={{
@@ -233,8 +233,8 @@ export const minMaxNoSchema = () => (
           min={1}
           max={3}
         >
-          <Field name="title" placeholder="Title" rules={{ required: true }} />
-          <Field name="description" type="textarea" />
+          <Field name="title" label="Title" rules={{ required: true }} />
+          <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
         <SubmitButton label="Submit" />
@@ -243,7 +243,7 @@ export const minMaxNoSchema = () => (
   </>
 )
 
-const MyArrayField = () => {
+const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
   const formState = useFormContext()
 
   const watch = useWatch({
@@ -266,12 +266,13 @@ const MyArrayField = () => {
       label="Array field"
       keyName="_id"
       defaultValue={{}}
+      ref={ref}
     >
-      <Field name="title" placeholder="Title" />
-      <Field name="description" type="textarea" />
+      <Field name="title" label="Title" />
+      <Field name="description" label="Description" type="textarea" />
     </ArrayField>
   )
-}
+})
 
 export const WatchArrayField = () => {
   return (
@@ -319,7 +320,7 @@ export const ArrayFieldRef = () => {
       onSubmit={onSubmit}
     >
       <FormLayout>
-        <MyArrayField />
+        <MyArrayField ref={ref} />
 
         <SubmitButton label="Submit" />
       </FormLayout>

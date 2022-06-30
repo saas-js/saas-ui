@@ -1,0 +1,282 @@
+---
+title: Remix
+description: A guide for installing Saas UI with Remix projects
+tags: ['remix']
+---
+
+### 1. Installation
+
+Inside your `Remix` project root directory, install Saas UI by running either
+of the following:
+
+```bash
+npm i @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 @emotion/server@^11
+```
+
+```bash
+yarn add @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 @emotion/server@^11
+```
+
+### 2. Provider Setup
+
+To prevent loss of styles we need to do some changes on the server-side and
+client-side.
+
+We’ll create a `context.tsx` in the `app` folder.
+
+```jsx live=false
+// context.tsx
+import React, { createContext } from 'react'
+
+export interface ServerStyleContextData {
+  key: string
+  ids: Array<string>
+  css: string
+}
+
+export const ServerStyleContext = createContext<ServerStyleContextData[] | null>(null)
+
+export interface ClientStyleContextData {
+  reset: () => void
+}
+
+export const ClientStyleContext = createContext<ClientStyleContextData | null>(null)
+```
+
+Next on the agenda is to create the emotion cache file. To do that, create a new
+`createEmotionCache.ts` file in the `app` folder.
+
+```jsx live=false
+// createEmotionCache.ts
+import createCache from '@emotion/cache'
+
+export default function createEmotionCache() {
+  return createCache({ key: 'css' })
+}
+```
+
+After creating the emotion cache, we need to modify the entry files for both the
+client and the server. We'll use our createEmotionCache function here.
+
+```jsx live=false
+// entry.client.tsx
+import React, { useState } from 'react'
+import { hydrate } from 'react-dom'
+import { CacheProvider } from '@emotion/react'
+import { RemixBrowser } from '@remix-run/react'
+
+import { ClientStyleContext } from './context'
+import createEmotionCache from './createEmotionCache'
+
+interface ClientCacheProviderProps {
+  children: React.ReactNode;
+}
+
+function ClientCacheProvider({ children }: ClientCacheProviderProps) {
+  const [cache, setCache] = useState(createEmotionCache())
+
+  function reset() {
+    setCache(createEmotionCache())
+  }
+
+  return (
+    <ClientStyleContext.Provider value={{ reset }}>
+      <CacheProvider value={cache}>{children}</CacheProvider>
+    </ClientStyleContext.Provider>
+  )
+}
+
+hydrate(
+  <ClientCacheProvider>
+    <RemixBrowser />
+  </ClientCacheProvider>,
+  document
+)
+```
+
+```jsx live=false
+// entry.server.tsx
+import { renderToString } from 'react-dom/server'
+import { CacheProvider } from '@emotion/react'
+import createEmotionServer from '@emotion/server/create-instance'
+import { RemixServer } from '@remix-run/react'
+import type { EntryContext } from '@remix-run/node' // Depends on the runtime you choose
+
+import { ServerStyleContext } from './context'
+import createEmotionCache from './createEmotionCache'
+
+export default function handleRequest(
+  request: Request,
+  responseStatusCode: number,
+  responseHeaders: Headers,
+  remixContext: EntryContext
+) {
+  const cache = createEmotionCache()
+  const { extractCriticalToChunks } = createEmotionServer(cache)
+
+  const html = renderToString(
+    <ServerStyleContext.Provider value={null}>
+      <CacheProvider value={cache}>
+        <RemixServer context={remixContext} url={request.url} />
+      </CacheProvider>
+    </ServerStyleContext.Provider>
+  )
+
+  const chunks = extractCriticalToChunks(html)
+
+  const markup = renderToString(
+    <ServerStyleContext.Provider value={chunks.styles}>
+      <CacheProvider value={cache}>
+        <RemixServer context={remixContext} url={request.url} />
+      </CacheProvider>
+    </ServerStyleContext.Provider>
+  )
+
+  responseHeaders.set('Content-Type', 'text/html')
+
+  return new Response(`<!DOCTYPE html>${markup}`, {
+    status: responseStatusCode,
+    headers: responseHeaders,
+  })
+}
+```
+
+Inside our `root.tsx` file we'll create a `Document` wrapper and then we'll wrap
+our `App` with the Document.
+
+```jsx live=false
+// root.tsx
+import React, { useContext, useEffect } from 'react'
+import { withEmotionCache } from '@emotion/react'
+import { SaasProvider } from '@saas-ui/react'
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from '@remix-run/react'
+import { MetaFunction, LinksFunction } from '@remix-run/node' // Depends on the runtime you choose
+
+import { ServerStyleContext, ClientStyleContext } from './context'
+
+export const meta: MetaFunction = () => ({
+  charset: 'utf-8',
+  title: 'New Remix App',
+  viewport: 'width=device-width,initial-scale=1',
+});
+
+export let links: LinksFunction = () => {
+  return [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'
+    },
+  ]
+}
+
+interface DocumentProps {
+  children: React.ReactNode;
+}
+
+const Document = withEmotionCache(
+  ({ children }: DocumentProps, emotionCache) => {
+    const serverStyleData = useContext(ServerStyleContext);
+    const clientStyleData = useContext(ClientStyleContext);
+
+    // Only executed on client
+    useEffect(() => {
+      // re-link sheet container
+      emotionCache.sheet.container = document.head;
+      // re-inject tags
+      const tags = emotionCache.sheet.tags;
+      emotionCache.sheet.flush();
+      tags.forEach((tag) => {
+        (emotionCache.sheet as any)._insertTag(tag);
+      });
+      // reset cache to reapply global styles
+      clientStyleData?.reset();
+    }, []);
+
+    return (
+      <html lang="en">
+        <head>
+          <Meta />
+          <Links />
+          {serverStyleData?.map(({ key, ids, css }) => (
+            <style
+              key={key}
+              data-emotion={`${key} ${ids.join(' ')}`}
+              dangerouslySetInnerHTML={{ __html: css }}
+            />
+          ))}
+        </head>
+        <body>
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </body>
+      </html>
+    );
+  }
+);
+```
+
+And then we'll wrap the App just like so:
+
+```jsx live=false
+export default function App() {
+  return (
+    <Document>
+      <SaasProvider>
+        <Outlet />
+      </SaasProvider>
+    </Document>
+  )
+}
+```
+
+### 3. Customizing Theme
+
+If you intend to customise the default theme object to match your design
+requirements, you can extend the `theme` from `@chakra-ui/react`.
+
+Chakra UI provides an `extendTheme` function that deep merges the default theme
+with your customizations.
+
+```jsx live=false
+// 1. Import the extendTheme function
+import { extendTheme } from '@chakra-ui/react'
+
+// 2. Import the Saas UI theme
+import { SaasProvider, theme } from '@saas-ui/react'
+
+// 2. Extend the theme to include custom colors, fonts, etc
+const colors = {
+  brand: {
+    900: '#1a365d',
+    800: '#153e75',
+    700: '#2a69ac',
+  },
+}
+
+const theme = extendTheme({ colors }, theme)
+
+// 3. Pass the `theme` prop to the `SaasProvider`
+function App() {
+  return (
+    <SaasProvider theme={theme}>
+      <App />
+    </SaasProvider>
+  )
+}
+```
+
+#### Notes on TypeScript 🚨
+
+Please note that when adding Chakra UI to a TypeScript project, a minimum
+TypeScript version of `4.1.0` is required.

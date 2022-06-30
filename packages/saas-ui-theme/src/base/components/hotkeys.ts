@@ -1,6 +1,9 @@
 export default {
-  parts: ['container', 'group', 'groupTitle', 'item', 'command'],
+  parts: ['container', 'group', 'groupTitle', 'item', 'command', 'then'],
   baseStyle: {
+    container: {
+      fontSize: 'md',
+    },
     group: {
       my: 2,
       py: 2,
@@ -12,6 +15,11 @@ export default {
       textAlign: 'start',
       flex: '0 0 auto',
       py: 2,
+    },
+    then: {
+      mr: 1,
+      fontSize: 'sm',
+      color: 'muted',
     },
   },
 }

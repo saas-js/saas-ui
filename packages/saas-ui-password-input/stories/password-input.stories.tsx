@@ -1,4 +1,4 @@
-import { Container, Icon } from '@chakra-ui/react'
+import { Container, FormControl, FormLabel, Icon } from '@chakra-ui/react'
 import * as React from 'react'
 
 import { FiEye, FiEyeOff } from 'react-icons/fi'
@@ -16,13 +16,14 @@ export default {
   ],
 }
 
-export const basic = () => (
-  <>
+export const Basic = () => (
+  <FormControl>
+    <FormLabel>Password</FormLabel>
     <PasswordInput name="password" placeholder="Password" />
-  </>
+  </FormControl>
 )
 
-export const reactIcons = () => (
+export const ReactIcons = () => (
   <>
     <PasswordInput
       name="password"

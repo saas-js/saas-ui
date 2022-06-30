@@ -1,0 +1,123 @@
+---
+title: Section
+description: Split content into multiple easily scannable sections.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `Section`: The container component that manages composition.
+- `SectionContainer`: The bare container component.
+- `SectionHeader`: The header component with title and description.
+- `SectionBody`: The section content.
+
+```ts
+import {
+  Section,
+  SectionContainer,
+  SectionHeader,
+  SectionBody,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+Sections can be used to split long content like forms into multiple smaller sections with a title and an optional description.
+
+### Basic section
+
+```jsx
+<Section title="Section" description="This is a basic section" />
+```
+
+### Annotated variant
+
+The annotated variant is typically used together with the `Card` component to create well structed forms.
+
+```jsx
+<Section
+  title="Section"
+  description="This is a basic section."
+  variant="annotated"
+>
+  <Card>
+    <CardBody>
+      <Form>
+        <FormLayout>
+          <Field name="title" label="Title" />
+          <Field name="description" label="Description" type="textarea" />
+        </FormLayout>
+      </Form>
+    </CardBody>
+  </Card>
+</Section>
+```
+
+### Multiple sections with divider
+
+The annotated variant is typically used together with the `Card` component to create well structed forms.
+
+```jsx
+<VStack divider={<StackDivider />} align="stretch" spacing={8} pb="16">
+  <Section
+    title="Create workspace"
+    description="Workspaces contain all assets shared across your team."
+    variant="annotated"
+  >
+    <Card>
+      <CardBody>
+        <Form>
+          <FormLayout>
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" type="textarea" />
+          </FormLayout>
+        </Form>
+      </CardBody>
+    </Card>
+  </Section>
+  <Section
+    title="Teams"
+    description="Select which teams have access to this workspace."
+    variant="annotated"
+  >
+    <Card>
+      <CardBody>
+        <Form>
+          <FormLayout>
+            <Field
+              name="teams"
+              label="Teams"
+              type="select"
+              multiple
+              options={[{ value: 'Frontend' }, { value: 'Backend' }]}
+            />
+          </FormLayout>
+        </Form>
+      </CardBody>
+    </Card>
+  </Section>
+</VStack>
+```
+
+### Composed
+
+```jsx
+<SectionContainer>
+  <SectionHeading mb={4}>
+    <SectionTitle>Composed section</SectionTitle>
+    <SectionDescription>
+      Sections can be fully composed to give you full control.
+    </SectionDescription>
+  </SectionHeading>
+  <SectionBody>Section body</SectionBody>
+</SectionContainer>
+```
+
+## Props
+
+The `Section` component and all sub components accept all `Box` properties.
+
+### Section Props
+
+<PropsTable of="Section" />

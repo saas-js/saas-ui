@@ -1,4 +1,10 @@
-import { Container } from '@chakra-ui/react'
+import {
+  Container,
+  InputLeftAddon,
+  InputLeftElement,
+  InputRightAddon,
+  InputRightElement,
+} from '@chakra-ui/react'
 import * as React from 'react'
 import * as Yup from 'yup'
 
@@ -22,8 +28,9 @@ const helpSchema = Yup.object().shape({
 })
 
 import { onSubmit } from './helpers'
+import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
 
-export const basic = () => (
+export const Basic = () => (
   <Form
     defaultValues={{
       text: 'Text field',
@@ -31,6 +38,7 @@ export const basic = () => (
       textarea: 'Lorem ipsum',
       switch: true,
       select: 'Select 2',
+      multipleselect: ['Select 1', 'Select 2'],
       nativeselect: 'Select 1',
       password: 'Password123',
       checkbox: true,
@@ -42,8 +50,8 @@ export const basic = () => (
     }}
   >
     <FormLayout>
-      <Field name="text" label="Text" />
-      <Field name="number" label="Number" type="number" />
+      <Field name="text" label="Text" type="text" />
+      <Field name="number" label="Number" type="number" hideStepper />
       <Field name="textarea" label="Textarea" type="textarea" />
       <Field name="switch" label="Switch" type="switch" />
       <Field
@@ -53,9 +61,16 @@ export const basic = () => (
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
       />
       <Field
-        name="native-select"
+        name="multipleselect"
+        label="Multiple Select"
+        type="select"
+        options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+        multiple
+      />
+      <Field
+        name="nativeselect"
         label="Native Select"
-        type="nativeselect"
+        type="native-select"
         options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
       />
       <Field name="password" label="Password" type="password" />
@@ -66,7 +81,7 @@ export const basic = () => (
         type="radio"
         options={[{ value: 'Radio 1' }, { value: 'Radio 2' }]}
       />
-      <Field name="pin" label="Pin" type="pin" />
+      <Field name="pin" label="Pin" type="pin" pinLength={4} />
 
       <SubmitButton>Submit</SubmitButton>
     </FormLayout>
@@ -78,7 +93,7 @@ type FormInputs = {
   pattern: string
 }
 
-export const rules = () => {
+export const Rules = () => {
   return (
     <Form<FormInputs>
       defaultValues={{
@@ -109,7 +124,7 @@ export const rules = () => {
   )
 }
 
-export const noLabel = () => {
+export const NoLabel = () => {
   return (
     <Form
       defaultValues={{
@@ -127,7 +142,7 @@ export const noLabel = () => {
   )
 }
 
-export const helpText = () => {
+export const HelpText = () => {
   return (
     <Form
       defaultValues={{
@@ -140,7 +155,71 @@ export const helpText = () => {
         <Field
           name="email"
           label="Email"
+          type="email"
           help="We'll never share your email."
+        />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithId = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field id="email" name="email" label="Email" type="email" />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithAddons = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="url"
+          type="url"
+          label="Url"
+          leftAddon={<InputLeftAddon>https://</InputLeftAddon>}
+        />
+
+        <Field
+          name="email"
+          type="email"
+          label="Email"
+          rightAddon={<InputRightAddon>@saas-ui.dev</InputRightAddon>}
+        />
+
+        <Field
+          name="phone"
+          type="phone"
+          leftAddon={
+            <InputLeftElement>
+              <PhoneIcon />
+            </InputLeftElement>
+          }
+          rightAddon={
+            <InputRightElement>
+              <CheckIcon />
+            </InputRightElement>
+          }
         />
 
         <SubmitButton>Submit</SubmitButton>

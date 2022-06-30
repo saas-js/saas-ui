@@ -4,7 +4,7 @@ import { Box, Heading, Stack } from '@chakra-ui/react'
 
 import SEO from '@/components/seo'
 import { MDXComponents } from '@/docs/components/mdx-components'
-import { allChangelogs } from '.contentlayer/data'
+import { allChangelogs } from '.contentlayer/generated'
 // import type { Changelog } from '.contentlayer/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import generateRss from '@/utils/generate-rss'

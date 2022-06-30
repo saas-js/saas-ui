@@ -1,5 +1,3 @@
-import * as ChakraComponentProps from '@chakra-ui/props-docs'
-import * as ComponentProps from '@saas-ui/props-docs'
 import { chakra, Code, Flex, HStack, Stack, theme } from '@chakra-ui/react'
 import Link from 'next/link'
 import * as React from 'react'
@@ -7,6 +5,8 @@ import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-
 import { InlineCode } from '@/docs/components/mdx-components/inline-code'
 import { Anchor } from '@/docs/components/mdx-components/anchor'
 import { t } from '@/docs/utils/i18n'
+
+import * as ComponentProps from '@saas-ui/props-docs'
 
 /**
  * A map of components that use foreign theme key.
@@ -35,14 +35,7 @@ export type PropsTableProps = {
 
 const PropsTable = ({
   of,
-  omit = [
-    'isTruncated',
-    'layerStyle',
-    'noOfLines',
-    'textStyle',
-    'orientation',
-    'styleConfig',
-  ],
+  omit = ['layerStyle', 'noOfLines', 'textStyle', 'orientation', 'styleConfig'],
   only,
 }: PropsTableProps) => {
   const propList = React.useMemo(
@@ -145,7 +138,7 @@ interface MakePropsTableOptions extends PropsTableProps {}
 const TYPE_GENERIC_THEMABLE = '(string & {})'
 
 function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
-  const props = ComponentProps[of]?.props || ChakraComponentProps[of]?.props
+  const props = ComponentProps[of]?.props
 
   const themeKey = themeComponentKeyAliases[of] ?? of
   const componentTheme = theme.components[themeKey]

@@ -1,11 +1,11 @@
 import * as React from 'react'
 
-import { chakra, ResponsiveValue } from '@chakra-ui/system'
-
+import { chakra, ResponsiveValue, forwardRef } from '@chakra-ui/system'
+import { __DEV__ } from '@chakra-ui/utils'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import { IconButton, ButtonProps } from '@saas-ui/button'
 
-import { FormLayout } from './layout'
+import { FormLayout, FormLayoutProps } from './layout'
 import { BaseField, FieldProps } from './field'
 
 import { mapNestedFields } from './utils'
@@ -28,7 +28,7 @@ interface ArrayField {
   [key: string]: unknown
 }
 
-interface ArrayFieldRowProps {
+interface ArrayFieldRowProps extends FormLayoutProps {
   /**
    * Amount of field columns
    */
@@ -41,25 +41,30 @@ interface ArrayFieldRowProps {
    * The array index
    */
   index: number
+  /**
+   * The fields
+   */
+  children: React.ReactNode
 }
 
 export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
   children,
-  columns,
-  spacing,
   index,
+  ...rowFieldsProps
 }) => {
   return (
     <ArrayFieldRowContainer index={index}>
-      <ArrayFieldRowFields columns={columns} spacing={spacing}>
-        {children}
-      </ArrayFieldRowFields>
+      <ArrayFieldRowFields {...rowFieldsProps}>{children}</ArrayFieldRowFields>
       <ArrayFieldRemoveButton />
     </ArrayFieldRowContainer>
   )
 }
 
-export interface ArrayFieldRowFieldsProps {
+if (__DEV__) {
+  ArrayFieldRow.displayName = 'ArrayFieldRow'
+}
+
+export interface ArrayFieldRowFieldsProps extends FormLayoutProps {
   /**
    * Amount of field columns
    */
@@ -68,26 +73,26 @@ export interface ArrayFieldRowFieldsProps {
    * Spacing between fields
    */
   spacing?: ResponsiveValue<string | number>
+  /**
+   * The fields
+   */
+  children: React.ReactNode
 }
 
 export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({
   children,
-  columns,
-  spacing,
   ...layoutProps
 }) => {
   const { name } = useArrayFieldRowContext()
   return (
-    <FormLayout
-      flex="1"
-      columns={columns}
-      gridGap={spacing}
-      mr="2"
-      {...layoutProps}
-    >
+    <FormLayout flex="1" mr="2" {...layoutProps}>
       {mapNestedFields(name, children)}
     </FormLayout>
   )
+}
+
+if (__DEV__) {
+  ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
 }
 
 export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
@@ -111,6 +116,10 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
   )
 }
 
+if (__DEV__) {
+  ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
+}
+
 export const ArrayFieldRemoveButton: React.FC<ButtonProps> = (props) => {
   return (
     <IconButton
@@ -120,6 +129,10 @@ export const ArrayFieldRemoveButton: React.FC<ButtonProps> = (props) => {
       {...props}
     />
   )
+}
+
+if (__DEV__) {
+  ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
 }
 
 export const ArrayFieldAddButton: React.FC<ButtonProps> = (props) => {
@@ -134,11 +147,15 @@ export const ArrayFieldAddButton: React.FC<ButtonProps> = (props) => {
   )
 }
 
+if (__DEV__) {
+  ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
+}
+
 export interface ArrayFieldProps
   extends ArrayFieldOptions,
     Omit<FieldProps, 'defaultValue'> {}
 
-export const ArrayField = React.forwardRef(
+export const ArrayField = forwardRef(
   (props: ArrayFieldProps, ref: React.ForwardedRef<UseArrayFieldReturn>) => {
     const { children, ...containerProps } = props
 
@@ -159,7 +176,17 @@ export const ArrayField = React.forwardRef(
       </ArrayFieldContainer>
     )
   }
-)
+) as ((
+  props: ArrayFieldProps & {
+    ref?: React.ForwardedRef<UseArrayFieldReturn>
+  }
+) => React.ReactElement) & {
+  displayName: string
+}
+
+if (__DEV__) {
+  ArrayField.displayName = 'ArrayField'
+}
 
 export interface ArrayFieldRowsProps {
   children: (fields: ArrayField[]) => React.ReactElement | null
@@ -170,6 +197,10 @@ export const ArrayFieldRows = ({
 }: ArrayFieldRowsProps): React.ReactElement | null => {
   const { fields } = useArrayFieldContext()
   return children(fields)
+}
+
+if (__DEV__) {
+  ArrayFieldRows.displayName = 'ArrayFieldRows'
 }
 
 export const ArrayFieldContainer = React.forwardRef(
@@ -205,3 +236,7 @@ export const ArrayFieldContainer = React.forwardRef(
     )
   }
 )
+
+if (__DEV__) {
+  ArrayFieldContainer.displayName = 'ArrayFieldContainer'
+}

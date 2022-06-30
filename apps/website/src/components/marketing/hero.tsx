@@ -17,7 +17,7 @@ export default function Hero({
   ...rest
 }: HeroProps) {
   return (
-    <Flex p={[0, null, 20]} alignItems="center" {...rest}>
+    <Flex py="20" alignItems="center" {...rest}>
       <Container>
         <PageTitle title={title} description={description} />
         {children}

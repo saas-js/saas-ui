@@ -18,7 +18,7 @@ import PageTransition from './page-transition'
 import { t } from '@/docs/utils/i18n'
 import { BackgroundGradient } from '@/components/background-gradient'
 
-import { formatRelative, subDays } from 'date-fns'
+import { formatRelative } from 'date-fns'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()
@@ -90,7 +90,7 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <BackgroundGradient animate={false} height="100vh" opacity={0.3} />
+      <BackgroundGradient animate={false} height="30vh" opacity={0.2} />
       <Container
         as="main"
         className="main-content"

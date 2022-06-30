@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   Form,
   FormProps,
@@ -21,7 +23,7 @@ interface SubmitParams {
 }
 
 export interface UpdatePasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   label?: string
   confirmLabel?: string
   helpText?: string
@@ -51,7 +53,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
     return submit({ password }).then(onSuccess).catch(onError)
   }
 
-  const validatePassword = React.useCallback((confirmPassword) => {
+  const validatePassword = React.useCallback((confirmPassword: string) => {
     const password = formRef.current?.getValues('password')
     return confirmPassword === password
   }, [])
@@ -70,6 +72,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
           label={label}
           type="password"
           rules={{ required: true }}
+          autoComplete="current-password"
         />
 
         <Field
@@ -77,11 +80,12 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
           label={confirmLabel}
           type="password"
           rules={{ validate: validatePassword }}
+          autoComplete="new-password"
         />
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>
@@ -93,4 +97,8 @@ UpdatePasswordForm.defaultProps = {
   submitLabel: 'Update password',
   label: 'New password',
   confirmLabel: 'Confirm password',
+}
+
+if (__DEV__) {
+  UpdatePasswordForm.displayName = 'UpdatePasswordForm'
 }

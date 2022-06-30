@@ -4,18 +4,15 @@ const parts = anatomy('card').parts(
   'container',
   'header',
   'title',
+  'subtitle',
   'body',
   'footer'
 )
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle: PartsStyleFunction<typeof parts> = () => {
   return {
     container: {
       rounded: 'lg',
-      bg: mode('white', 'whiteAlpha.100')(props),
-      boxShadow: 'sm',
-      borderWidth: '1px',
-      borderColor: mode('blackAlpha.200', 'whiteAlpha.50')(props),
     },
     header: {
       p: 4,
@@ -25,7 +22,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       fontWeight: 'semibold',
     },
     subtitle: {
-      color: mode('gray.400', 'gray.300')(props),
+      color: 'muted',
       fontSize: 'md',
     },
     body: {
@@ -37,12 +34,28 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   }
 }
 
+const variantShadow: PartsStyleFunction<typeof parts> = (props) => {
+  const { isHoverable } = props
+  return {
+    container: {
+      borderColor: mode('blackAlpha.200', 'whiteAlpha.50')(props),
+      _hover: {
+        borderColor:
+          isHoverable && mode('blackAlpha.300', 'whiteAlpha.300')(props),
+      },
+    },
+  }
+}
+
 const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c, isHoverable } = props
 
   const bg = c
     ? mode(`${c}.500`, `${c}.500`)(props)
     : mode('blackAlpha.100', 'whiteAlpha.100')(props)
+  const hoverBg = c
+    ? mode(`${c}.600`, `${c}.600`)(props)
+    : mode('blackAlpha.200', 'whiteAlpha.200')(props)
 
   const color = c ? 'white' : 'inherit'
 
@@ -52,16 +65,23 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
       boxShadow: 'none',
       bg,
       color,
+      _hover: {
+        bg: isHoverable && hoverBg,
+      },
     },
   }
 }
 
 const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c, isHoverable } = props
 
   const borderColor = c
     ? mode(`${c}.500`, `${c}.500`)(props)
     : mode('blackAlpha.200', 'whiteAlpha.300')(props)
+
+  const hoverColor = c
+    ? mode(`${c}.600`, `${c}.600`)(props)
+    : mode('blackAlpha.300', 'whiteAlpha.400')(props)
 
   return {
     container: {
@@ -69,6 +89,9 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
       boxShadow: 'none',
       borderWidth: '1px',
       borderColor: borderColor,
+      _hover: {
+        borderColor: isHoverable && hoverColor,
+      },
     },
   }
 }
@@ -76,10 +99,11 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
 export default {
   parts: parts.keys,
   defaultProps: {
-    size: 'md',
+    variant: 'shadow',
   },
   baseStyle,
   variants: {
+    shadow: variantShadow,
     outline: variantOutline,
     solid: variantSolid,
   },

@@ -2,6 +2,7 @@ const Section = {
   baseStyle: {
     pt: 28,
     pb: 28,
+    px: [4, null],
   },
   variants: {
     subtle: {},

@@ -1,19 +1,19 @@
 {
   "name": "@saas-ui/number-input",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Number Input Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.js"
+      "default": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -56,8 +56,11 @@
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
+  "dependencies": {
+    "@chakra-ui/utils": "^2.0.2"
+  },
   "peerDependencies": {
-    "@chakra-ui/react": ">=1.8.0",
-    "react": ">=16.8.6"
+    "@chakra-ui/react": ">=2.1.0",
+    "react": ">=18.0.0"
   }
 }

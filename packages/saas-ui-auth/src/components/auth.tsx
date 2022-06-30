@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import { chakra, Link } from '@chakra-ui/react'
 
+import { __DEV__ } from '@chakra-ui/utils'
+
 import {
   LoginView,
   SignupView,
@@ -188,4 +190,8 @@ Auth.defaultProps = {
   loginLink: 'Log in',
   forgotLink: 'Forgot password?',
   backLink: 'Back to log in',
+}
+
+if (__DEV__) {
+  Auth.displayName = 'Auth'
 }

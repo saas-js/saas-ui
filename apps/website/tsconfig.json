@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "downlevelIteration": true,
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/data/*": ["src/data/*"],
@@ -22,7 +23,8 @@
       "@/lib/*": ["src/lib/*"],
       "@/docs/*": ["src/docs/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@saas-ui/react": ["../../packages/saas-ui-react/src"]
+      "@saas-ui/react": ["../../packages/saas-ui-react/src"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "incremental": true
   },

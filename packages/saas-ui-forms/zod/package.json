@@ -1,0 +1,18 @@
+{
+  "name": "zod",
+  "description": "Saas UI Forms field resolver: zod",
+  "version": "1.0.0",
+  "private": true,
+  "source": "./src/index.ts",
+  "main": "../dist/zod/index.js",
+  "module": "../dist/zod/index.modern.mjs",
+  "types": "../dist/zod/index.d.ts",
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@chakra-ui/utils": "^2.0.2",
+    "@hookform/resolvers": "^2.9.0",
+    "react-hook-form": "^7.31.3",
+    "zod": "^3.17.3"
+  }
+}

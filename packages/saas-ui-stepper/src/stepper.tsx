@@ -7,15 +7,15 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
-  useStyles,
-  StylesProvider,
+  SystemStyleObject,
+  createStylesContext,
 } from '@chakra-ui/system'
 
 import { CheckIcon, Icon } from '@chakra-ui/icons'
 import { Collapse } from '@saas-ui/collapse'
 
 import { getChildOfType, getChildrenOfType } from '@saas-ui/react-utils'
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx, dataAttr, __DEV__ } from '@chakra-ui/utils'
 
 import {
   StepperProvider,
@@ -25,9 +25,11 @@ import {
   UseStepperProps,
 } from './use-stepper'
 
+const [StylesProvider, useStyles] = createStylesContext('Stepper')
+
 export interface StepperProps
   extends UseStepperProps,
-    HTMLChakraProps<'div'>,
+    Omit<HTMLChakraProps<'div'>, 'onChange'>,
     ThemingProps<'Stepper'> {
   orientation?: 'horizontal' | 'vertical'
 }
@@ -38,36 +40,61 @@ export interface StepperProps
  * Can be controlled or uncontrolled.
  */
 export const Stepper = forwardRef<StepperProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('Stepper', props)
-
-  const { children, orientation, ...rest } = omitThemingProps(props)
-
-  const context = useStepper(props)
-
-  const containerStyles = {
-    display: 'flex',
-    flexDirection: 'column',
-    ...styles.container,
-  }
-
+  const { orientation, children, ...containerProps } = props
   return (
-    <StylesProvider value={styles}>
-      <StepperProvider value={context}>
-        <chakra.div
-          ref={ref}
-          __css={containerStyles}
-          {...rest}
-          className={cx('saas-stepper__container', props.className)}
-        >
-          <StepperSteps orientation={orientation}>{children}</StepperSteps>
-        </chakra.div>
-      </StepperProvider>
-    </StylesProvider>
+    <StepperContainer ref={ref} orientation={orientation} {...containerProps}>
+      <StepperSteps orientation={orientation}>{children}</StepperSteps>
+    </StepperContainer>
   )
 })
 
 if (__DEV__) {
   Stepper.displayName = 'Stepper'
+}
+
+export const StepperContainer = forwardRef<StepperProps, 'div'>(
+  (props, ref) => {
+    const {
+      children,
+      orientation = 'horizontal',
+      step,
+      onChange,
+      ...rest
+    } = props
+
+    const styles = useMultiStyleConfig('Stepper', {
+      ...rest,
+      orientation,
+    })
+    const containerProps = omitThemingProps(rest)
+
+    const context = useStepper(props)
+
+    const containerStyles: SystemStyleObject = {
+      display: 'flex',
+      flexDirection: 'column',
+      ...styles.container,
+    }
+
+    return (
+      <StylesProvider value={styles}>
+        <StepperProvider value={context}>
+          <chakra.div
+            ref={ref}
+            __css={containerStyles}
+            {...containerProps}
+            className={cx('saas-stepper', props.className)}
+          >
+            {children}
+          </chakra.div>
+        </StepperProvider>
+      </StylesProvider>
+    )
+  }
+)
+
+if (__DEV__) {
+  StepperContainer.displayName = 'StepperContainer'
 }
 
 export interface StepperStepsProps extends HTMLChakraProps<'div'> {
@@ -79,12 +106,12 @@ export interface StepperStepsProps extends HTMLChakraProps<'div'> {
  * Wrapper element containing the steps.
  */
 export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
-  const { children, orientation, stepComponent, ...rest } = props
+  const { children, orientation = 'horizontal', stepComponent, ...rest } = props
   const styles = useStyles()
 
   const { activeIndex } = useStepperContext()
 
-  const stepperStyles = {
+  const stepperStyles: SystemStyleObject = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -108,7 +135,7 @@ export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
       />
     )
 
-    if (orientation === 'vertical') {
+    if (isVertical) {
       memo.push(
         <StepperContent key={`content-${i}`} isOpen={activeIndex === i}>
           {step.props.children}
@@ -195,13 +222,12 @@ export const StepperIcon: React.FC<StepperIconProps> = (props) => {
 
   const styles = useStyles()
 
-  const iconStyles = {
+  const iconStyles: SystemStyleObject = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 'full',
     fontSize: '1em',
-    me: 2,
     ...styles.icon,
   }
 
@@ -255,11 +281,11 @@ export interface StepperStepProps
  * Displays the icon and step title.
  */
 export const StepperStep: React.FC<StepperStepProps> = (props) => {
-  const { title, icon, isActive, isCompleted, ...rest } = props
+  const { name, title, icon, isActive, isCompleted, ...rest } = props
   const step = useStep(props)
   const styles = useStyles()
 
-  const stepStyles = {
+  const stepStyles: SystemStyleObject = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
@@ -268,10 +294,10 @@ export const StepperStep: React.FC<StepperStepProps> = (props) => {
 
   return (
     <chakra.div
-      __css={stepStyles}
-      data-active={step.isActive}
-      data-completed={step.isCompleted}
       {...rest}
+      __css={stepStyles}
+      data-active={dataAttr(step.isActive)}
+      data-completed={dataAttr(step.isCompleted)}
       className={cx('saas-stepper__step', props.className)}
     >
       <StepperIcon icon={icon} isActive={isActive} isCompleted={isCompleted} />
@@ -295,17 +321,16 @@ export const StepperSeparator: React.FC<StepperSeparatorProps> = (props) => {
   const { isActive, ...rest } = props
   const styles = useStyles()
 
-  const separatorStyles = {
+  const separatorStyles: SystemStyleObject = {
     flex: 1,
-    borderTopWidth: '1px',
     mx: 2,
     ...styles.separator,
   }
 
   return (
     <chakra.div
-      data-active={isActive}
       {...rest}
+      data-active={dataAttr(isActive)}
       className={cx('saas-stepper__separator', props.className)}
       __css={separatorStyles}
     />

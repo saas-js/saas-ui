@@ -80,6 +80,9 @@ export const WithVariants = () => (
     <Button colorScheme="teal" variant="outline">
       Button
     </Button>
+    <Button colorScheme="teal" variant="subtle">
+      Button
+    </Button>
     <Button colorScheme="teal" variant="ghost">
       Button
     </Button>
@@ -95,32 +98,8 @@ export const WithVariants = () => (
 export const PrimarySecondary = () => (
   <Stack align="start">
     <HStack>
-      <Button isPrimary>Primary</Button>
-      <Button isSecondary>Secondary</Button>
-    </HStack>
-    <HStack>
-      <Button isPrimary variant="outline">
-        Primary
-      </Button>
-      <Button isSecondary variant="outline">
-        Secondary
-      </Button>
-    </HStack>
-    <HStack>
-      <Button isPrimary variant="ghost">
-        Primary
-      </Button>
-      <Button isSecondary variant="ghost">
-        Secondary
-      </Button>
-    </HStack>
-    <HStack>
-      <Button isPrimary variant="link">
-        Primary
-      </Button>
-      <Button isSecondary variant="link">
-        Secondary
-      </Button>
+      <Button colorScheme="primary">Primary</Button>
+      <Button colorScheme="secondary">Secondary</Button>
     </HStack>
   </Stack>
 )

@@ -1,8 +1,10 @@
 import React from 'react'
 import * as Chakra from '@chakra-ui/react'
-import { chakra } from '@chakra-ui/react'
+import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
+import * as SaasUIPro from '@saas-ui/pro'
+import * as SaasUIFeatures from '@saas-ui/features'
 
 import * as Web3 from '@saas-ui/web3'
 import * as Yup from 'yup'
@@ -16,12 +18,25 @@ import {
   FiHome,
   FiInbox,
   FiUsers,
+  FiUser,
+  FiFilter,
+  FiCircle,
   FiSettings,
   FiTag,
   FiArchive,
   FiTruck,
   FiLock,
   FiCheck,
+  FiArrowRight,
+  FiAlertTriangle,
+  FiHelpCircle,
+  FiAlignLeft,
+  FiAlignRight,
+  FiAlignCenter,
+  FiBold,
+  FiItalic,
+  FiUnderline,
+  FiLink,
 } from 'react-icons/fi'
 
 import {
@@ -36,12 +51,25 @@ const reactIcons = {
   FiHome,
   FiInbox,
   FiUsers,
+  FiUser,
+  FiFilter,
+  FiCircle,
   FiSettings,
   FiTag,
   FiArchive,
   FiTruck,
   FiLock,
   FiCheck,
+  FiArrowRight,
+  FiAlertTriangle,
+  FiHelpCircle,
+  FiAlignLeft,
+  FiAlignRight,
+  FiAlignCenter,
+  FiBold,
+  FiItalic,
+  FiUnderline,
+  FiLink,
   FaFacebook,
   FaTwitter,
   FaGithub,
@@ -62,13 +90,23 @@ const saveHandler = (params) => {
   })
 }
 
+const StatusBadge = (props: BadgeProps) => (
+  <Badge boxSize="8px" mx="2px" borderRadius="full" {...props} />
+)
+
 const SaasSpinner = () => <SaasUIGlyph width="48px" height="48px" isAnimating />
+
+const ThrowSomeError = () => {
+  throw new Error()
+}
 
 const ReactLiveScope = {
   React,
   ...React,
   ...Chakra,
   ...SaasUI,
+  ...SaasUIPro,
+  ...SaasUIFeatures,
   ...Web3,
   ...Icons,
   Yup,
@@ -82,7 +120,9 @@ const ReactLiveScope = {
   ...sampleData,
   SaasUILogo,
   SaasUIGlyph,
+  StatusBadge,
   SaasSpinner,
+  ThrowSomeError,
 }
 
 export default ReactLiveScope

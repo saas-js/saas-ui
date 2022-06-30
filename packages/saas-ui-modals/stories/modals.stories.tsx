@@ -12,10 +12,11 @@ interface CustomModalProps extends BaseModalProps {}
 
 const CustomModal: React.FC<CustomModalProps> = ({
   title = 'Custom modal',
+  footer = 'Custom footer',
   children = 'Modal body',
   ...props
 }) => (
-  <Modal title={title} {...props}>
+  <Modal title={title} footer={footer} {...props}>
     {children}
   </Modal>
 )

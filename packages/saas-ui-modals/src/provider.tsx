@@ -126,7 +126,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   })
 
   const getModalComponent = React.useMemo(() => {
-    const _modals = {
+    const _modals: Record<string, React.FC<any>> = {
       ...defaultModals,
       ...modals,
     }

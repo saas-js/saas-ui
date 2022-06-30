@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { createContext } from '@chakra-ui/react-utils'
+import { FieldValues, SubmitHandler, UnpackNestedValue } from 'react-hook-form'
+import { createContext, MaybeRenderProp } from '@chakra-ui/react-utils'
 import {
   useStepper,
   useStep,
@@ -14,7 +14,15 @@ export interface StepState {
   resolver?: any
   isActive?: boolean
   isCompleted?: boolean
+  onSubmit?: FormStepSubmitHandler
 }
+
+export type FormStepSubmitHandler<
+  TFieldValues extends FieldValues = FieldValues
+> = (
+  data: UnpackNestedValue<TFieldValues>,
+  stepper: UseStepperReturn
+) => Promise<void>
 
 export interface StepFormContext extends UseStepperReturn {
   updateStep(state: StepState): void
@@ -32,25 +40,41 @@ import { FormProps } from './form'
 
 export interface UseStepFormProps<
   TFieldValues extends FieldValues = FieldValues
-> extends UseStepperProps,
-    FormProps<TFieldValues> {}
+> extends Omit<UseStepperProps, 'onChange'>,
+    Omit<FormProps<TFieldValues>, 'children'> {
+  children: MaybeRenderProp<UseStepFormReturn<TFieldValues>>
+}
+
+export interface UseStepFormReturn<
+  TFieldValues extends FieldValues = FieldValues
+> extends UseStepperReturn {
+  getFormProps(): {
+    onSubmit: SubmitHandler<TFieldValues>
+    schema?: any
+    resolver?: any
+  }
+  updateStep(step: any): void
+  steps: Record<string, any>
+}
 
 export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
   props: UseStepFormProps<TFieldValues>
-) {
-  const stepper = useStepper(props)
+): UseStepFormReturn<TFieldValues> {
+  const { onChange, ...rest } = props
+  const stepper = useStepper(rest)
 
   const { activeStep, isLastStep, nextStep } = stepper
 
-  const [steps, updateSteps] = React.useState({})
+  const [steps, updateSteps] = React.useState<Record<string, StepState>>({})
 
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
+      const step = steps[activeStep]
+
       if (isLastStep) {
         return props
           .onSubmit?.(data)
           .then(() => {
-            const step = steps[activeStep]
             updateStep({
               ...step,
               isCompleted: true,
@@ -59,25 +83,28 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
           .then(nextStep) // Show completed step
       }
 
-      nextStep()
-    },
-    [activeStep, isLastStep]
-  )
+      try {
+        await step.onSubmit?.(data, stepper)
 
-  const getFormProps = React.useCallback(
-    (props) => {
-      const step = steps[activeStep]
-      return {
-        onSubmit: onSubmitStep,
-        schema: step?.schema,
-        resolver: step?.resolver,
+        nextStep()
+      } catch (e) {
+        // Step submission failed.
       }
     },
-    [steps, onSubmitStep, activeStep]
+    [steps, activeStep, isLastStep]
   )
 
+  const getFormProps = React.useCallback(() => {
+    const step = steps[activeStep]
+    return {
+      onSubmit: onSubmitStep,
+      schema: step?.schema,
+      resolver: step?.resolver,
+    }
+  }, [steps, onSubmitStep, activeStep])
+
   const updateStep = React.useCallback(
-    (step) => {
+    (step: StepState) => {
       updateSteps((steps) => {
         return {
           ...steps,
@@ -96,22 +123,21 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
   }
 }
 
-export type UseStepFormReturn = ReturnType<typeof useStepForm>
-
 export interface UseFormStepProps {
   name: string
   schema?: any
   resolver?: any
+  onSubmit?: FormStepSubmitHandler
 }
 
 export function useFormStep(props: UseFormStepProps): StepState {
-  const { name, schema, resolver } = props
+  const { name, schema, resolver, onSubmit } = props
   const step = useStep({ name })
 
   const { steps, updateStep } = useStepFormContext()
 
   React.useEffect(() => {
-    updateStep({ name, schema, resolver })
+    updateStep({ name, schema, resolver, onSubmit })
   }, [name, schema])
 
   return {

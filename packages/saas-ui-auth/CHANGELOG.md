@@ -1,5 +1,322 @@
 # @saas-ui/auth
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 9043639: Fixed new .mjs exports.
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [fca06e4]
+- Updated dependencies [6cc9343]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [bd3438d]
+- Updated dependencies [6133901]
+- Updated dependencies [dc6376f]
+- Updated dependencies [43dff99]
+- Updated dependencies [d4afda3]
+- Updated dependencies [ddec417]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [43dff99]
+- Updated dependencies [5a1b92b]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [38f7171]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+- Updated dependencies [870db1f]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0
+  - @saas-ui/forms@1.0.0
+  - @saas-ui/hooks@1.0.0
+  - @saas-ui/layout@1.0.0
+
+## 1.0.0-rc.14
+
+### Patch Changes
+
+- @saas-ui/layout@1.0.0-rc.8
+
+## 1.0.0-rc.13
+
+### Patch Changes
+
+- @saas-ui/forms@1.0.0-rc.12
+
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- 1744543: Updated dependencies.
+- Updated dependencies [1744543]
+  - @saas-ui/button@1.0.0-rc.5
+  - @saas-ui/forms@1.0.0-rc.11
+  - @saas-ui/hooks@1.0.0-rc.4
+  - @saas-ui/layout@1.0.0-rc.7
+
+## 1.0.0-rc.11
+
+### Patch Changes
+
+- Updated dependencies [bd3438d]
+  - @saas-ui/forms@1.0.0-rc.10
+  - @saas-ui/layout@1.0.0-rc.6
+
+## 1.0.0-rc.10
+
+### Patch Changes
+
+- Updated dependencies [43dff99]
+- Updated dependencies [d4afda3]
+- Updated dependencies [43dff99]
+- Updated dependencies [38f7171]
+- Updated dependencies [870db1f]
+  - @saas-ui/forms@1.0.0-rc.9
+  - @saas-ui/button@1.0.0-rc.4
+  - @saas-ui/layout@1.0.0-rc.5
+
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- Updated dependencies [dc6376f]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0-rc.3
+  - @saas-ui/forms@1.0.0-rc.8
+  - @saas-ui/hooks@1.0.0-rc.3
+  - @saas-ui/layout@1.0.0-rc.4
+
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.7
+
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@1.0.0-rc.6
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Updated dependencies [fca06e4]
+  - @saas-ui/forms@1.0.0-rc.5
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- @saas-ui/forms@1.0.0-rc.4
+
+## 1.0.0-rc.4
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [532a7d4]
+- Updated dependencies [6133901]
+- Updated dependencies [ddec417]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1c247cb]
+- Updated dependencies [d1fb472]
+  - @saas-ui/button@1.0.0-rc.2
+  - @saas-ui/forms@1.0.0-rc.3
+  - @saas-ui/hooks@1.0.0-rc.2
+  - @saas-ui/layout@1.0.0-rc.3
+
+## 1.0.0-rc.3
+
+### Patch Changes
+
+- Re-publish.
+- Updated dependencies
+  - @saas-ui/button@1.0.0-rc.1
+  - @saas-ui/forms@1.0.0-rc.2
+  - @saas-ui/hooks@1.0.0-rc.1
+  - @saas-ui/layout@1.0.0-rc.2
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- @saas-ui/layout@1.0.0-rc.1
+- @saas-ui/forms@1.0.0-rc.1
+
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- 9043639: Fixed new .mjs exports.
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 1fdf52a: Modern bundles now use .mjs extension.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/button@1.0.0-rc.0
+  - @saas-ui/forms@1.0.0-rc.0
+  - @saas-ui/hooks@1.0.0-rc.0
+  - @saas-ui/layout@1.0.0-rc.0
+
+## 0.7.15
+
+### Patch Changes
+
+- @saas-ui/layout@0.3.6
+
+## 0.7.14
+
+### Patch Changes
+
+- Updated Chakra UI version range not to include 2.x
+- Updated dependencies
+  - @saas-ui/button@0.4.2
+  - @saas-ui/forms@0.7.10
+  - @saas-ui/hooks@0.4.1
+  - @saas-ui/layout@0.3.5
+
+## 0.7.13
+
+### Patch Changes
+
+- 94c217d: Added appropriate autoComplete values to Auth forms.
+- Updated dependencies [0dbec1a]
+  - @saas-ui/button@0.4.1
+  - @saas-ui/forms@0.7.9
+
+## 0.7.12
+
+### Patch Changes
+
+- Updated dependencies [391e21a]
+  - @saas-ui/forms@0.7.8
+
+## 0.7.11
+
+### Patch Changes
+
+- Updated dependencies [c0b3dc9]
+  - @saas-ui/forms@0.7.7
+
+## 0.7.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.6
+
+## 0.7.9
+
+### Patch Changes
+
+- 77b2860: AuthFormDivider now using Divider component
+- 77b2860: Added displayName to all components and improved inconsistencies.
+- Updated dependencies [22a30dc]
+- Updated dependencies [a76c184]
+  - @saas-ui/forms@0.7.5
+  - @saas-ui/layout@0.3.4
+
+## 0.7.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.4
+
+## 0.7.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.2
+
+## 0.7.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.2
+
+## 0.7.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.7.1
+
+## 0.7.4
+
+### Patch Changes
+
+- Updated dependencies [bab579f]
+  - @saas-ui/forms@0.7.0
+
+## 0.7.3
+
+### Patch Changes
+
+- Updated dependencies [6696203]
+  - @saas-ui/forms@0.6.2
+
+## 0.7.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@0.6.1
+
+## 0.7.1
+
+### Patch Changes
+
+- 4939649: Check if AuthStateChange unsubscribe callback is return.
+
 ## 0.7.0
 
 ### Minor Changes

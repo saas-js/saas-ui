@@ -23,9 +23,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       _focus: {
         boxShadow: 'outline',
         bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
-        '&:not(:focus-visible)': {
-          boxShadow: 'none',
-        },
       },
       _active: {
         bg: mode('blackAlpha.300', 'whiteAlpha.400')(props),

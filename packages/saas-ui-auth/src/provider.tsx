@@ -91,6 +91,8 @@ export interface AuthProviderProps {
    * Return the session token
    */
   onGetToken?: () => Promise<AuthToken>
+
+  children?: React.ReactNode
 }
 
 export type AuthFunction = (
@@ -137,7 +139,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
         setAuthenticated(!!user)
       })
       return () => {
-        unsubscribe()
+        unsubscribe?.()
       }
     }
   }, [])

@@ -1,0 +1,71 @@
+---
+title: Clerk
+package: '@saas-ui/clerk'
+description: Integrating Clerk authentication with Saas UI.
+---
+
+<ComponentLinks
+  github={{
+    package: 'saas-ui-clerk',
+  }}
+  npm={{ package: '@saas-ui/clerk' }}
+/>
+
+This integration allows you to connect the Clerk API with the Saas UI auth screens and provider.
+
+Supported authentication strategies are:
+
+- Magic link
+- Password
+- Social login (Oauth)
+
+## Import
+
+```js
+import { ClerkAuthProvider } from '@saas-ui/clerk'
+```
+
+## Usage
+
+If you haven't done so already install `@clerk/clerk-react`.
+
+```bash
+yarn add @clerk/clerk-react
+```
+
+### Setup AuthProvider
+
+Add `ClerkAuthProvider` to the root of your app and configure the auth service.
+
+<Info>
+  ClerkAuthProvider will add `ClerkProvider` for you, so you can use all
+  build-in Clerk hooks and components in your app.
+</Info>
+
+```tsx
+import { AuthProvider } from '@saas-ui/react'
+import { ClerkAuthProvider } from '@saas-ui/clerk'
+
+// You can find the frontend api key in the Clerk dashboard.
+const frontendApi = 'clerk.x.x.lcl.dev'
+
+function App({ children }) {
+  return (
+    <ClerkAuthProvider frontendApi={frontendApi}>
+      {({ authService }) => (
+        <SaasProvider>
+          <AuthProvider {...authService}>{children}</AuthProvider>
+        </SaasProvider>
+      )}
+    </ClerkAuthProvider>
+  )
+}
+```
+
+That's it! Check the [Auth documentation](/docs/auth/auth) to see how to add authentication screens to your app.
+
+## Props
+
+### ClerkAuthProvider Props
+
+<PropsTable of="ClerkAuthProvider" />

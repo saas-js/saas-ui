@@ -1,19 +1,19 @@
 {
   "name": "@saas-ui/system",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Saas UI system utilities",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.js"
+      "default": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.module.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -55,8 +55,13 @@
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
+  "dependencies": {
+    "@chakra-ui/styled-system": "^2.2.1",
+    "@chakra-ui/utils": "^2.0.2",
+    "react-fast-compare": "^3.2.0"
+  },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6"
+    "@chakra-ui/system": ">=2.1.0",
+    "react": ">=18.0.0"
   }
 }

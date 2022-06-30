@@ -7,10 +7,8 @@ import {
   chakra,
   As,
   ThemingProps,
-  StylesProvider,
   omitThemingProps,
   useMultiStyleConfig,
-  useStyles,
   ButtonGroup,
   IconProps,
   SystemProps,
@@ -19,11 +17,16 @@ import {
   HeadingProps,
   TextProps,
   ButtonGroupProps,
+  createStylesContext,
 } from '@chakra-ui/react'
+
+import { cx, __DEV__ } from '@chakra-ui/utils'
+
+const [StylesProvider, useStyles] = createStylesContext('EmptyState')
 
 export interface EmptyStateProps
   extends Omit<EmptyStateContainerProps, 'title'> {
-  title: React.ReactNode
+  title?: React.ReactNode
   description?: React.ReactNode
   icon?: As<any>
   actions?: React.ReactNode
@@ -49,7 +52,7 @@ export const EmptyState: React.FC<EmptyStateProps> = (props) => {
       <EmptyStateBody spacing={spacing}>
         {icon && <EmptyStateIcon as={icon} />}
         <chakra.div>
-          <EmptyStateTitle>{title}</EmptyStateTitle>
+          {title && <EmptyStateTitle>{title}</EmptyStateTitle>}
           {description && (
             <EmptyStateDescription>{description}</EmptyStateDescription>
           )}
@@ -61,6 +64,10 @@ export const EmptyState: React.FC<EmptyStateProps> = (props) => {
       </EmptyStateBody>
     </EmptyStateContainer>
   )
+}
+
+if (__DEV__) {
+  EmptyState.displayName = 'EmptyState'
 }
 
 export interface EmptyStateContainerProps
@@ -89,11 +96,19 @@ export const EmptyStateContainer: React.FC<EmptyStateContainerProps> = (
 
   return (
     <StylesProvider value={styles}>
-      <chakra.div {...containerProps} __css={containerStyles}>
+      <chakra.div
+        {...containerProps}
+        __css={containerStyles}
+        className={cx('saas-empty-state', props.className)}
+      >
         {children}
       </chakra.div>
     </StylesProvider>
   )
+}
+
+if (__DEV__) {
+  EmptyStateContainer.displayName = 'EmptyStateContainer'
 }
 
 export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
@@ -105,9 +120,21 @@ export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
       ...styles.icon,
     }
 
-    return <Icon ref={ref} role="presentation" sx={iconStyles} {...props} />
+    return (
+      <Icon
+        ref={ref}
+        role="presentation"
+        sx={iconStyles}
+        {...props}
+        className={cx('saas-empty-state__icon', props.className)}
+      />
+    )
   }
 )
+
+if (__DEV__) {
+  EmptyStateIcon.displayName = 'EmptyStateIcon'
+}
 
 export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
   const styles = useStyles()
@@ -117,7 +144,18 @@ export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
     ...styles.title,
   }
 
-  return <Heading sx={titleStyles} size="md" {...props} />
+  return (
+    <Heading
+      sx={titleStyles}
+      size="md"
+      {...props}
+      className={cx('saas-empty-state__title', props.className)}
+    />
+  )
+}
+
+if (__DEV__) {
+  EmptyStateTitle.displayName = 'EmptyStateTitle'
 }
 
 export const EmptyStateDescription: React.FC<TextProps> = (props) => {
@@ -129,7 +167,17 @@ export const EmptyStateDescription: React.FC<TextProps> = (props) => {
     ...styles.description,
   }
 
-  return <Text sx={descriptionStyles} {...props} />
+  return (
+    <Text
+      sx={descriptionStyles}
+      {...props}
+      className={cx('saas-empty-state__description', props.className)}
+    />
+  )
+}
+
+if (__DEV__) {
+  EmptyStateDescription.displayName = 'EmptyStateDescription'
 }
 
 interface EmptyStateBodyProps extends HTMLChakraProps<'div'> {
@@ -144,17 +192,47 @@ export const EmptyStateBody: React.FC<EmptyStateBodyProps> = (props) => {
     ...styles.body,
   }
 
-  return <chakra.div __css={bodyStyles} {...rest} />
+  return (
+    <chakra.div
+      __css={bodyStyles}
+      {...rest}
+      className={cx('saas-empty-state__body', props.className)}
+    />
+  )
+}
+
+if (__DEV__) {
+  EmptyStateBody.displayName = 'EmptyStateBody'
 }
 
 export const EmptyStateActions: React.FC<ButtonGroupProps> = (props) => {
   const styles = useStyles()
-  return <ButtonGroup sx={styles.actions} {...props} />
+  return (
+    <ButtonGroup
+      sx={styles.actions}
+      {...props}
+      className={cx('saas-empty-state__actions', props.className)}
+    />
+  )
+}
+
+if (__DEV__) {
+  EmptyStateActions.displayName = 'EmptyStateActions'
 }
 
 export const EmptyStateFooter: React.FC<HTMLChakraProps<'footer'>> = (
   props
 ) => {
   const styles = useStyles()
-  return <chakra.footer __css={styles.footer} {...props} />
+  return (
+    <chakra.footer
+      __css={styles.footer}
+      {...props}
+      className={cx('saas-empty-state__footer', props.className)}
+    />
+  )
+}
+
+if (__DEV__) {
+  EmptyStateFooter.displayName = 'EmptyStateFooter'
 }

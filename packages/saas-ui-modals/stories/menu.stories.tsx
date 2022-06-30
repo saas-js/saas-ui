@@ -37,8 +37,8 @@ export const basic = () => {
         Open menu
       </Button>
 
-      <MenuDialog title="Menu" {...disclosure}>
-        <MenuDialogList>
+      <MenuDialog {...disclosure}>
+        <MenuDialogList title="Menu">
           <MenuItem>Item 1</MenuItem>
           <MenuItem>Item 2</MenuItem>
           <MenuItem>Item 3</MenuItem>
@@ -61,8 +61,8 @@ export const iconAndCommand = () => {
         Open menu
       </Button>
 
-      <MenuDialog title="Commands" {...disclosure}>
-        <MenuDialogList>
+      <MenuDialog {...disclosure}>
+        <MenuDialogList title="Commands">
           <MenuItem icon={<FiUsers />} command="A">
             Assign
           </MenuItem>
@@ -91,8 +91,8 @@ export const menuGroup = () => {
         Open menu
       </Button>
 
-      <MenuDialog title="Commands" {...disclosure}>
-        <MenuDialogList>
+      <MenuDialog {...disclosure}>
+        <MenuDialogList title="Groups">
           <MenuGroup title="Message">
             <MenuItem icon={<FiUsers />} command="A">
               Assign
@@ -131,8 +131,8 @@ export const overflow = () => {
         Open menu
       </Button>
 
-      <MenuDialog title="Menu" {...disclosure}>
-        <MenuDialogList>{items}</MenuDialogList>
+      <MenuDialog {...disclosure}>
+        <MenuDialogList title="Overflow">{items}</MenuDialogList>
       </MenuDialog>
     </Stack>
   )

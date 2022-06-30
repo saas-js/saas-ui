@@ -192,9 +192,9 @@ const Home = () => {
                   <Box overflow="hidden" height="100%" display="flex">
                     <Image
                       src="/screenshots/list.png"
-                      layout="intrinsic"
-                      width="1607px"
-                      height="1021px"
+                      layout="fixed"
+                      width="1100px"
+                      height="698px"
                       alt="Screenshot of a ListPage in Saas UI Pro"
                       quality="75"
                       priority
@@ -293,27 +293,36 @@ const Screenshots = () => {
           opacity={useColorModeValue(0.9, 0.4)}
         />
 
-        <Center position="absolute" top="60px" left="160px" width="100%">
+        <Center
+          position="absolute"
+          top="0"
+          left="160px"
+          width="1528px"
+          height="1060px"
+          transform="scale(0.9)"
+        >
           <Image
             alt="Image showing the Saas UI dashboard"
             src="/screenshots/dashboard.png"
             quality="75"
-            layout="intrinsic"
-            width="1607px"
-            height="1021px"
+            layout="fixed"
+            width="1528px"
+            height="1060px"
           />
         </Center>
         <Center
           position="absolute"
-          top={['120px', null, '280px']}
-          left="60px"
-          width="100%"
+          top={['70px', null, '280px']}
+          left="0"
+          width="1607px"
+          height="1021px"
+          transform="scale(0.9)"
         >
           <Image
             alt="Image showing the Saas UI billing settings"
             src="/screenshots/billing.png"
             quality="75"
-            layout="intrinsic"
+            layout="fixed"
             width="1607px"
             height="1021px"
           />

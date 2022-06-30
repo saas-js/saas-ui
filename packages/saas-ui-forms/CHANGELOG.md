@@ -1,5 +1,64 @@
 # @saas-ui/forms
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- fca06e4: Added Json Schema (ajv) support for AutoForm.
+- 6cc9343: Add exports entry for ajv
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- bd3438d: FormStep now supports an onSubmit handler.
+- 6133901: No longer passing down label to input fields.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 43dff99: Option labels are now optional.
+- d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
+- ddec417: ArrayField no longer passing down items to the container element.
+- 43dff99: Field is now correctly typed based on the field type.
+- 5a1b92b: Fix vertical orientation for FormStepper.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 38f7171: #50 - Fixed StepForm render prop types.
+- 5f80cea: AutoForm now renders children.
+- 532a7d4: Fixed all theme onconsistencies.
+- 1c247cb: InputField now has type="text" by default.
+- d1fb472: Select now renders a hidden input with the current value.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [c8621b8]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [dc6376f]
+- Updated dependencies [9e9c601]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [532a7d4]
+- Updated dependencies [3dee538]
+- Updated dependencies [870db1f]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/button@1.0.0
+  - @saas-ui/input-right-button@1.0.0
+  - @saas-ui/number-input@1.0.0
+  - @saas-ui/password-input@1.0.0
+  - @saas-ui/pin-input@1.0.0
+  - @saas-ui/radio@1.0.0
+  - @saas-ui/react-utils@1.0.0
+  - @saas-ui/select@1.0.0
+  - @saas-ui/stepper@1.0.0
+
 ## 1.0.0-rc.12
 
 ### Patch Changes

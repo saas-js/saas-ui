@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
+import Image from 'next/image'
 
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
@@ -32,8 +33,8 @@ import {
   useTheme,
   Tag,
   Wrap,
-  Image,
   Icon,
+  Center,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -109,13 +110,6 @@ const Home = () => {
         description="The React component library for Startups"
         titleTemplate="%s - The React component library for Startups"
       />
-      <Script
-        id="crisp-js"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
-        }}
-      />
       <BackgroundGradient animate={false} />
       <Box mb={8} w="full" position="relative" overflow="hidden">
         <Box pos="relative">
@@ -128,8 +122,7 @@ const Home = () => {
                 title={
                   <FallInPlace>
                     Build beautiful
-                    <Br /> React frontends
-                    <Br /> that scale
+                    <Br /> software faster
                   </FallInPlace>
                 }
                 description={
@@ -189,12 +182,17 @@ const Home = () => {
                 margin="0 auto"
               >
                 <FallInPlace delay={1}>
-                  <Img
-                    src="/screenshots/list.png"
-                    position="absolute"
-                    width="100%"
-                    top="0"
-                  />
+                  <Box overflow="hidden" height="100%" display="flex">
+                    <Image
+                      src="/screenshots/list.png"
+                      layout="fixed"
+                      width="1100px"
+                      height="698px"
+                      alt="Screenshot of a ListPage in Saas UI Pro"
+                      quality="75"
+                      priority
+                    />
+                  </Box>
                 </FallInPlace>
               </Box>
             </Stack>
@@ -288,20 +286,40 @@ const Screenshots = () => {
           opacity={useColorModeValue(0.9, 0.4)}
         />
 
-        <Image
-          alt="Image showing the Saas UI dashboard"
-          src="/screenshots/dashboard.png?q=75"
+        <Center
           position="absolute"
-          top="60px"
+          top="0"
           left="160px"
-        />
-        <Image
-          alt="Image showing the Saas UI billing settings"
-          src="/screenshots/billing.png?q=75"
+          width="1528px"
+          height="1060px"
+          transform="scale(0.9)"
+        >
+          <Image
+            alt="Image showing the Saas UI dashboard"
+            src="/screenshots/dashboard.png"
+            quality="75"
+            layout="fixed"
+            width="1528px"
+            height="1060px"
+          />
+        </Center>
+        <Center
           position="absolute"
-          top={['120px', null, '280px']}
-          left="60px"
-        />
+          top={['70px', null, '280px']}
+          left="0"
+          width="1607px"
+          height="1021px"
+          transform="scale(0.9)"
+        >
+          <Image
+            alt="Image showing the Saas UI billing settings"
+            src="/screenshots/billing.png"
+            quality="75"
+            layout="fixed"
+            width="1607px"
+            height="1021px"
+          />
+        </Center>
       </Box>
     </Section>
   )
@@ -350,7 +368,12 @@ const Founder = () => {
               functionality that makes your product unique.
             </Text>
             <Stack direction="row" align="center">
-              <Avatar src="/eelco128.jpg" mr="2" size="md" />
+              <Avatar
+                src="/eelco128.jpg"
+                mr="2"
+                size="md"
+                name="Eelco Wiersma"
+              />
               <VStack align="flex-start" spacing="0">
                 <Em>Eelco Wiersma</Em>
                 <Text fontSize="sm">Founder Saas UI</Text>
@@ -1292,8 +1315,12 @@ export default Home
 export async function getStaticProps() {
   return {
     props: {
+      announcement: {
+        title: '@saas-ui/react v1 is out! 🚀',
+        href: '/changelog',
+      },
       header: {
-        position: 'fixed',
+        position: 'sticky',
         variant: 'dark',
       },
     },

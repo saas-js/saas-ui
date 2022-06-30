@@ -1,5 +1,48 @@
 # @saas-ui/stepper
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 9e9c601: Stepper now accepts an onChange handler.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 532a7d4: Fixed all theme onconsistencies.
+- Updated dependencies [3ae6be1]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [dc6376f]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [1744543]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [a134a6f]
+- Updated dependencies [532a7d4]
+- Updated dependencies [3ae6be1]
+  - @saas-ui/collapse@1.0.0
+  - @saas-ui/react-utils@1.0.0
+
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- Updated dependencies [a134a6f]
+  - @saas-ui/collapse@1.0.0-rc.5
+
 ## 1.0.0-rc.5
 
 ### Patch Changes

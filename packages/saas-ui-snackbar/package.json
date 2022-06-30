@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/snackbar",
-  "version": "1.0.0-rc.4",
+  "version": "1.0.0",
   "description": "A snackbar component Chakra UI",
   "source": "src/index.ts",
   "exports": {

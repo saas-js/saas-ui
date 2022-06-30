@@ -12,9 +12,7 @@ interface ThemeProviderProps {
 
 function ThemeProvider({ children }: ThemeProviderProps) {
   const [{ colors, options }] = usePalette()
-  console.log(options)
   const theme = React.useMemo(() => {
-    console.log('options', options.theme)
     return extendTheme(
       {
         colors,

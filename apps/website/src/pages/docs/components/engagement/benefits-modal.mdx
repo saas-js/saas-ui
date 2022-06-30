@@ -1,0 +1,98 @@
+---
+title: Benefits Modal
+package: '@saas-ui/pro'
+description: A benefits modal is used to show case important features or product updates.
+---
+
+Use benefits modals whenever you release a new important feature or when onboarding new users. The benefits modal can be an entry point for a `Tour`.
+It's recommended to add an illustration to make complex ideas more accesible, if you don't have suitable illustrations use a `TourDialog` instead.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `BenefitsModal`: The wrapper that provides context for its children.
+- `BenefitsModalMedia`: An image or video supporting the title and description.
+- `BenefitsModalHeader`: The header with a consise title describing the feature.
+- `BenefitsModalBody`: The body with the main message.
+- `BenefitsModalFooter`: The footer with actions.
+
+```js
+import {
+  BenefitsModal,
+  BenefitsModalMedia,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+### Default modal
+
+```jsx
+function BasicUsage() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Button onClick={onOpen}>Show benefits</Button>
+
+      <BenefitsModal isOpen={isOpen} onClose={onClose}>
+        <BenefitsModalMedia
+          src="/onboarding/undraw_building_blocks_re_5ahy.svg"
+          mx="16"
+          my="8"
+        />
+        <BenefitsModalHeader>Check out this new feature</BenefitsModalHeader>
+        <BenefitsModalBody>
+          Benefits modals can be used to highlight new features and their
+          benefits in your app. Embed illustrations or videos to make ideas more
+          accessible.
+        </BenefitsModalBody>
+        <BenefitsModalFooter>
+          <BenefitsModalActions>
+            <Button onClick={onClose}>Dismiss</Button>
+            <Button variant="primary">Get started</Button>
+          </BenefitsModalActions>
+        </BenefitsModalFooter>
+      </BenefitsModal>
+    </>
+  )
+}
+```
+
+### Centered content
+
+```jsx
+function BasicUsage() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Button onClick={onOpen}>Show benefits</Button>
+
+      <BenefitsModal isOpen={isOpen} onClose={onClose}>
+        <BenefitsModalMedia
+          src="/onboarding/undraw_building_blocks_re_5ahy.svg"
+          mx="16"
+          my="8"
+        />
+        <BenefitsModalHeader textAlign="center">
+          Check out this new feature
+        </BenefitsModalHeader>
+        <BenefitsModalBody textAlign="center">
+          Benefits modals can be used to highlight new features and their
+          benefits in your app. Embed illustrations or videos to make ideas more
+          accessible.
+        </BenefitsModalBody>
+        <BenefitsModalFooter>
+          <BenefitsModalActions justifyContent="center">
+            <Button onClick={onClose}>Dismiss</Button>
+            <Button variant="primary">Get started</Button>
+          </BenefitsModalActions>
+        </BenefitsModalFooter>
+      </BenefitsModal>
+    </>
+  )
+}
+```

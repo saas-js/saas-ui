@@ -1,21 +1,35 @@
-import { chakra, HTMLChakraProps, keyframes } from '@chakra-ui/react'
+import * as React from 'react'
+import {
+  chakra,
+  HTMLChakraProps,
+  keyframes,
+  useColorModeValue,
+} from '@chakra-ui/react'
 
 const dash = keyframes`
   from {
     stroke-dashoffset: 0;
   }
   to {
-    stroke-dashoffset: -220%;
+    stroke-dashoffset: 220%;
   }
-
 `
 
 interface LogoGlyph extends HTMLChakraProps<'svg'> {
   isAnimating?: boolean
+  variant?: 'solid' | 'gradient'
+  color?: string
 }
 
-const LogoGlyph: React.FC<LogoGlyph> = (props) => {
-  const { isAnimating, ...rest } = props
+const SaasUIGlyph: React.FC<LogoGlyph> = (props) => {
+  const { isAnimating, variant = 'gradient', ...rest } = props
+
+  let color = useColorModeValue('black', 'white')
+
+  if (props.color) {
+    color = props.color
+  }
+
   return (
     <chakra.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +50,7 @@ const LogoGlyph: React.FC<LogoGlyph> = (props) => {
         </linearGradient>
       </defs>
       <path
-        fill="currentColor"
+        fill={color}
         d="M22.61 62.24q-4.76-4.78-4.75-13.69V25.41h7.62v22.85q0 12.07 10.43 12.07t10.37-12.07V25.41h7.5v23.14q0 8.91-4.71 13.69t-13.22 4.77q-8.49 0-13.24-4.77ZM64.45 25.41h7.61v41h-7.61Z"
       />
       <chakra.rect
@@ -49,11 +63,11 @@ const LogoGlyph: React.FC<LogoGlyph> = (props) => {
         strokeMiterlimit="10"
         strokeWidth="4"
         strokeDasharray={isAnimating ? '100' : '0'}
-        stroke="url(#saas-ui-logo-gradient)"
+        stroke={variant === 'solid' ? color : 'url(#saas-ui-logo-gradient)'}
         animation={isAnimating ? `${dash} 1s infinite linear` : ''}
       />
     </chakra.svg>
   )
 }
 
-export default LogoGlyph
+export default SaasUIGlyph

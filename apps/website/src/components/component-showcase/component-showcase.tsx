@@ -253,6 +253,7 @@ export const ComponentShowcase = () => {
                           name="password"
                           label="Password"
                           type="password"
+                          autoComplete="off"
                         />
                         <NextButton />
                       </FormLayout>

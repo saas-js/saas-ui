@@ -1,0 +1,124 @@
+---
+title: App Shell
+description: The App Shell defines the main structure of your app.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content and footer.
+
+## Import
+
+- `AppShell`: The container component that manages composition.
+
+```ts
+import { AppShell } from '@saas-ui/pro'
+```
+
+## Usage
+
+### Basic shell
+
+AppShell behaves like a regular Box component, it's height will scale together with the height of the child components.
+When using a fixed height, be sure to add proper overflow styles to the sidebar and main content to make sure all content overflows correctly.
+
+```jsx
+<AppShell
+  minH="200px"
+  navbar={
+    <Box height="16" borderBottomWidth="1px">
+      Navbar
+    </Box>
+  }
+  sidebar={
+    <Box width="30%" borderRightWidth="1px">
+      Sidebar
+    </Box>
+  }
+  footer={
+    <Box height="16" borderTopWidth="1px">
+      Footer
+    </Box>
+  }
+>
+  <Box as="main">Main content</Box>
+</AppShell>
+```
+
+### Full screen
+
+The fullscreen variant can be used to create fullscreen apps, that fill up the viewport. It will position the container `absolute` with `inset: 0`.
+
+```jsx
+<Box height="200px" position="relative">
+  <AppShell
+    variant="fullscreen"
+    navbar={
+      <Box height="16" borderBottomWidth="1px">
+        Navbar
+      </Box>
+    }
+    sidebar={
+      <Box width="30%" borderRightWidth="1px">
+        Sidebar
+      </Box>
+    }
+    footer={
+      <Box height="16" borderTopWidth="1px">
+        Footer
+      </Box>
+    }
+  >
+    <Box as="main">Main content</Box>
+  </AppShell>
+</Box>
+```
+
+### Example layout
+
+```jsx
+<AppShell
+  minH="400px"
+  sidebar={
+    <Sidebar width="30%">
+      <SidebarNav direction="row">
+        <SaasUIGlyph width="24px" />
+        <Spacer />
+        <SidebarMenu icon={<PersonaAvatar presence="online" size="xs" />}>
+          <MenuItem>Sign out</MenuItem>
+        </SidebarMenu>
+      </SidebarNav>
+      <SidebarOverflow>
+        <SidebarNav>
+          <SidebarLink label="Home" icon={<FiHome />} />
+          <SidebarLink label="Contacts" icon={<FiUsers />} />
+        </SidebarNav>
+      </SidebarOverflow>
+    </Sidebar>
+  }
+>
+  <Page title="Page" height="400px" contentWidth="full">
+    <DataGrid
+      isHoverable
+      isSelectable
+      isSortable
+      columns={[
+        { id: 'name', Header: 'Name' },
+        { id: 'role', Header: 'Role' },
+        { id: 'actions', width: '100px', Cell: () => <Button>Edit</Button> },
+      ]}
+      data={[{ name: 'Renata Alink', role: 'Founder' }]}
+    >
+      <DataGridPagination />
+    </DataGrid>
+  </Page>
+</AppShell>
+```
+
+## Props
+
+The `AppShell` component and all sub components accept all `Box` properties.
+
+### Card Props
+
+<PropsTable of="AppShell" />

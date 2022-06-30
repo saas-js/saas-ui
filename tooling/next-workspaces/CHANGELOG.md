@@ -1,5 +1,18 @@
 # @saas-ui/next-workspaces
 
+## 0.2.0
+
+### Minor Changes
+
+- 532a7d4: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 532a7d4: Fixed all theme onconsistencies.
+
 ## 0.2.0-rc.3
 
 ### Patch Changes

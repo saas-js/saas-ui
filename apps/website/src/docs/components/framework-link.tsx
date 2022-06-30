@@ -45,13 +45,59 @@ export const FrameworkLinks = () => {
   return (
     <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
       <FrameworkLink
-        href="/docs/installation/cra-guide"
+        href="/docs/core/installation/nextjs-guide"
+        accentColor="black"
+        name="Next.js"
+      >
+        <NextjsSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/core/installation/vite-guide"
+        accentColor="#C07600"
+        name="Vite"
+      >
+        <ViteSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/core/installation/blitzjs-guide"
+        accentColor="#6700EB"
+        name="BlitzJS"
+      >
+        <BlitzSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/core/installation/redwoodjs-guide"
+        accentColor="#BF4722"
+        name="RedwoodJS"
+      >
+        <RedwoodSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/core/installation/remix-guide"
+        accentColor="#121212"
+        name="Remix"
+      >
+        <RemixSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
+        href="/docs/core/installation/cra-guide"
         accentColor="#0AC09D"
         name="Create React App"
       >
         <CreateReactAppSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
+    </SimpleGrid>
+  )
+}
 
+export const FrameworkLinksPro = () => {
+  return (
+    <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
       <FrameworkLink
         href="/docs/installation/nextjs-guide"
         accentColor="black"
@@ -61,35 +107,11 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/installation/blitzjs-guide"
-        accentColor="#6700EB"
-        name="BlitzJS"
+        href="/docs/installation/cra-guide"
+        accentColor="#0AC09D"
+        name="Create React App"
       >
-        <BlitzSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
-        href="/docs/installation/redwoodjs-guide"
-        accentColor="#BF4722"
-        name="RedwoodJS"
-      >
-        <RedwoodSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
-        href="/docs/installation/remix-guide"
-        accentColor="#121212"
-        name="Remix"
-      >
-        <RemixSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
-        href="/docs/installation/vite-guide"
-        accentColor="#C07600"
-        name="Vite"
-      >
-        <ViteSvg style={{ margin: 'auto' }} />
+        <CreateReactAppSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
     </SimpleGrid>
   )

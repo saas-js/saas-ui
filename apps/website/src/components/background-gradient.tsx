@@ -33,11 +33,12 @@ export const BackgroundGradient = ({ animate, hideOverlay, ...props }: any) => {
       height="100vh"
       width="100%"
       overflow="hidden"
+      pointerEvents="none"
       {...props}
     >
       {gradient}
       <Box
-        backgroundImage={!hideOverlay && gradientOverlay}
+        backgroundImage={!hideOverlay ? gradientOverlay : undefined}
         position="absolute"
         top="0"
         right="0"

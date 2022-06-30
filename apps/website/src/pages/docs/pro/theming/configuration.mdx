@@ -1,0 +1,33 @@
+---
+title: Setting the Saas UI Pro theme
+description: How to setup the Saas UI Pro theme in your project.
+---
+
+## Configure your theme
+
+You can find you base theme in `packages/ui-theme`, this is where you can customize your theme.
+Read more about theme customization on the [Chakra UI website](https://chakra-ui.com/docs/styled-system/customize-theme).
+
+## Add to existing project
+
+If you installed Saas UI Pro into an existing project follow these steps to make sure all Pro components are styled correctly.
+
+```ts
+import { extendTheme } from '@chakra-ui/react'
+
+// 1. Import the pro theme
+import { theme as proTheme } from '@saas-ui/pro'
+
+// 2. Extend your theme
+const theme = extendTheme(
+  {
+    // your custom theme
+  },
+  proTheme
+)
+
+// 3. Pass the custom theme to SaasProvider
+function App() {
+  return <SaasProvider theme={theme}>{children}</SaasProvider>
+}
+```

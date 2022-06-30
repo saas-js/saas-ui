@@ -1,4 +1,3 @@
-
 <h1 align='center'>Saas UI</h1>
 
 <p align='center'>The React component library for Startups</p>
@@ -71,6 +70,7 @@ Complete source code available in a monorepo that can serve as a starting point 
 - [x] Custom color schemes
 
 #### In progress
+
 - [ ] Example pages (CRM, Inbox, CRUD)
 - [ ] Onboarding flows
 - [ ] Upselling flows (Trials, upgrades, etc)

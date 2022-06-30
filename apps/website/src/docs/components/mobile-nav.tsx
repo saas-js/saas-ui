@@ -1,6 +1,7 @@
 import {
   Box,
   BoxProps,
+  Button,
   Center,
   CenterProps,
   CloseButton,
@@ -137,17 +138,19 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   templateColumns="repeat(2, 1fr)"
                   gap="2"
                 >
-                  {headerNav.map(({ href, id, title, ...props }, i) => {
-                    return (
-                      <NavLink
-                        href={href || `/#${id}`}
-                        key={i}
-                        {...(props as any)}
-                      >
-                        {title}
-                      </NavLink>
-                    )
-                  })}
+                  {headerNav.map(
+                    ({ href, id, title, colorScheme, ...props }, i) => {
+                      return (
+                        <NavLink
+                          href={href || `/#${id}`}
+                          key={i}
+                          {...(props as any)}
+                        >
+                          {title}
+                        </NavLink>
+                      )
+                    }
+                  )}
                 </Grid>
               </Box>
 

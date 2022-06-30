@@ -54,7 +54,8 @@
     "packages/*",
     "apps/*",
     "examples/*",
-    "tooling/*"
+    "tooling/next-workspaces",
+    "tooling/test-utils"
   ],
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -114,6 +115,10 @@
     "typescript": "^4.7.3",
     "yup": "^0.32.11",
     "zod": "^3.17.3"
+  },
+  "resolutions": {
+    "@chakra-ui/system": "^2.2.0",
+    "@saas-ui/props-docs": "1.0.0-rc.5"
   },
   "packageManager": "yarn@3.1.1"
 }

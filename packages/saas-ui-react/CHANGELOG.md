@@ -1,5 +1,144 @@
 # @saas-ui/react
 
+## 1.0.0
+
+### Major Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 3ae6be1: breaking: React 18 support.
+- 532a7d4: Updated to Chakra UI 2.2.1
+
+### Patch Changes
+
+- 68c7b62: Card now has a isHoverable property to support hover styles.
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- fca06e4: Added Json Schema (ajv) support for AutoForm.
+- da3c4e4: Added ErrorBoundary component.
+- de0dce2: Scale reset button icon based on the input size.
+- 6cc9343: Add exports entry for ajv
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- bd3438d: FormStep now supports an onSubmit handler.
+- 6133901: No longer passing down label to input fields.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 43dff99: Option labels are now optional.
+- 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
+- d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
+- 9e9c601: Stepper now accepts an onChange handler.
+- ddec417: ArrayField no longer passing down items to the container element.
+- 43dff99: Field is now correctly typed based on the field type.
+- 5a1b92b: Fix vertical orientation for FormStepper.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 38f7171: #50 - Fixed StepForm render prop types.
+- 2ec8c91: Fixed vertical divider rendering incorrectly.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 5f80cea: AutoForm now renders children.
+- 532a7d4: Fixed all theme onconsistencies.
+- 42beaa4: Added missing dependency.
+- 3dee538: Spacing between pin inputs can now be configured.
+- 1c247cb: InputField now has type="text" by default.
+- 07491fd: ContextMenu now passing down all props to the internal Menu.
+- d1fb472: Select now renders a hidden input with the current value.
+- 870db1f: New primary and secondary Button variant.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
+- Updated dependencies [68c7b62]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [c8621b8]
+- Updated dependencies [fca06e4]
+- Updated dependencies [de0dce2]
+- Updated dependencies [6cc9343]
+- Updated dependencies [15c3960]
+- Updated dependencies [532a7d4]
+- Updated dependencies [1744543]
+- Updated dependencies [bd3438d]
+- Updated dependencies [6133901]
+- Updated dependencies [a8fa78a]
+- Updated dependencies [dc6376f]
+- Updated dependencies [43dff99]
+- Updated dependencies [87d3fdc]
+- Updated dependencies [ae47cbd]
+- Updated dependencies [4bb613c]
+- Updated dependencies [d4afda3]
+- Updated dependencies [9e9c601]
+- Updated dependencies [ddec417]
+- Updated dependencies [a134a6f]
+- Updated dependencies [1db5bf9]
+- Updated dependencies [4fc04d7]
+- Updated dependencies [43dff99]
+- Updated dependencies [5a1b92b]
+- Updated dependencies [1fdf52a]
+- Updated dependencies [1744543]
+- Updated dependencies [7a16ef7]
+- Updated dependencies [38f7171]
+- Updated dependencies [a134a6f]
+- Updated dependencies [9043639]
+- Updated dependencies [8f3f948]
+- Updated dependencies [5f80cea]
+- Updated dependencies [532a7d4]
+- Updated dependencies [42beaa4]
+- Updated dependencies [3dee538]
+- Updated dependencies [1c247cb]
+- Updated dependencies [07491fd]
+- Updated dependencies [d1fb472]
+- Updated dependencies [870db1f]
+- Updated dependencies [3ae6be1]
+- Updated dependencies [4fd1fb3]
+- Updated dependencies [68f5d3b]
+  - @saas-ui/card@1.0.0
+  - @saas-ui/auth@1.0.0
+  - @saas-ui/banner@1.0.0
+  - @saas-ui/button@1.0.0
+  - @saas-ui/collapse@1.0.0
+  - @saas-ui/data-table@1.0.0
+  - @saas-ui/forms@1.0.0
+  - @saas-ui/hooks@1.0.0
+  - @saas-ui/hotkeys@1.0.0
+  - @saas-ui/input-right-button@1.0.0
+  - @saas-ui/layout@1.0.0
+  - @saas-ui/list@1.0.0
+  - @saas-ui/menu@1.0.0
+  - @saas-ui/modals@1.0.0
+  - @saas-ui/nprogress@1.0.0
+  - @saas-ui/number-input@1.0.0
+  - @saas-ui/palette@1.0.0
+  - @saas-ui/password-input@1.0.0
+  - @saas-ui/persona@1.0.0
+  - @saas-ui/pin-input@1.0.0
+  - @saas-ui/property@1.0.0
+  - @saas-ui/provider@1.0.0
+  - @saas-ui/radio@1.0.0
+  - @saas-ui/search-input@1.0.0
+  - @saas-ui/select@1.0.0
+  - @saas-ui/snackbar@1.0.0
+  - @saas-ui/stepper@1.0.0
+  - @saas-ui/theme@1.0.0
+
+## 1.0.0-rc.15
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/theme@1.0.0-rc.5
+  - @saas-ui/provider@1.0.0-rc.8
+  - @saas-ui/layout@1.0.0-rc.8
+  - @saas-ui/menu@1.0.0-rc.8
+  - @saas-ui/auth@1.0.0-rc.14
+  - @saas-ui/data-table@1.0.0-rc.8
+  - @saas-ui/modals@1.0.0-rc.13
+
+## 1.0.0-rc.14
+
+### Patch Changes
+
+- Updated dependencies [a134a6f]
+- Updated dependencies [a134a6f]
+  - @saas-ui/hotkeys@1.0.0-rc.5
+  - @saas-ui/collapse@1.0.0-rc.5
+  - @saas-ui/stepper@1.0.0-rc.6
+  - @saas-ui/forms@1.0.0-rc.12
+  - @saas-ui/auth@1.0.0-rc.13
+  - @saas-ui/modals@1.0.0-rc.12
+
 ## 1.0.0-rc.13
 
 ### Patch Changes
@@ -100,7 +239,7 @@
 
 - de0dce2: Scale reset button icon based on the input size.
 - dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
 - Updated dependencies [de0dce2]
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]

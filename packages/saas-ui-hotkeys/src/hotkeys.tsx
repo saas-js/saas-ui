@@ -13,7 +13,7 @@ import { createContext } from '@chakra-ui/react-utils'
 
 import { Kbd } from '@chakra-ui/layout'
 
-import { SearchInput } from '@saas-ui/search-input'
+import { SearchInput, SearchInputProps } from '@saas-ui/search-input'
 
 const [StylesProvider, useStyles] = createStylesContext('Hotkeys')
 
@@ -126,21 +126,17 @@ export const useHotkeysSearch = () => {
   return useHotkeysListContext()
 }
 
-// @TODO infer types from SearchInputProps
-interface HotkeysSearchProps
-  extends Omit<HTMLChakraProps<'input'>, 'onReset' | 'size'> {}
-
-export const HotkeysSearch = forwardRef<HotkeysSearchProps, typeof SearchInput>(
+export const HotkeysSearch = forwardRef<Omit<SearchInputProps, 'as'>, 'input'>(
   (props, ref) => {
     const { query, setQuery } = useHotkeysSearch()
 
     return (
       <SearchInput
+        {...props}
         ref={ref}
         value={query}
         onChange={({ target }) => setQuery(target.value)}
         onReset={() => setQuery('')}
-        {...props}
       />
     )
   }

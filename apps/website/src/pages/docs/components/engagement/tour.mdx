@@ -1,0 +1,134 @@
+---
+title: Tour
+package: '@saas-ui/pro'
+description: Introduce people to new features using multi-step tours.
+---
+
+Onboarding tours can be used to introduce people that are new to your app or when introducing new features to your customers.
+It supports the build BenefitsModal and TourDialog components, as well as any other disclosure component that supports `isOpen` and `onClose` props.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `Tour`: Context provider that manages the tour state.
+- `TourSpotlight`: Spotlight focuses people to a specific UI element.
+
+```js
+import { Tour, TourSpotlight } from '@saas-ui/pro'
+```
+
+## Usage
+
+### Basic usage
+
+Each tour step should have a `data-target` attribute with a CSS selector of the component that should be highlighted.
+Any component that accepts `isOpen` and `onClose` can be part of a tour.
+
+```jsx
+function BasicUsage() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Stack spacing="8" alignItems="center">
+        <ButtonGroup>
+          <Button leftIcon={<FiUsers />} data-tour="add-users">
+            Add user
+          </Button>
+        </ButtonGroup>
+        <Button onClick={onOpen} variant="primary">
+          Start example tour
+        </Button>
+      </Stack>
+
+      <Tour isActive={isOpen} onComplete={onClose}>
+        <TourDialog data-target="[data-tour=add-users]">
+          <TourDialogCloseButton />
+          <TourDialogHeader>Check out this new feature</TourDialogHeader>
+          <TourDialogBody>
+            The tour allows you to highlight important new features.
+          </TourDialogBody>
+          <TourDialogFooter>
+            <TourDialogActions>
+              <TourNextButton label="OK" />
+            </TourDialogActions>
+          </TourDialogFooter>
+        </TourDialog>
+
+        <TourSpotlight />
+      </Tour>
+    </>
+  )
+}
+```
+
+```jsx
+function BasicUsage() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Stack spacing="8" alignItems="center">
+        <ButtonGroup>
+          <Button leftIcon={<FiUsers />} data-tour="add-users2">
+            Add user
+          </Button>
+          <IconButton
+            icon={<FiTag />}
+            aria-label="Tag users"
+            data-tour="tag-users"
+          />
+          <IconButton
+            icon={<FiLock />}
+            aria-label="Lock users"
+            data-tour="lock-users"
+          />
+        </ButtonGroup>
+        <Button onClick={onOpen} variant="primary">
+          Start example tour
+        </Button>
+      </Stack>
+
+      <Tour isActive={isOpen} onComplete={onClose}>
+        <TourDialog data-target="[data-tour=add-users2]">
+          <TourDialogCloseButton />
+          <TourDialogHeader>Check out this new feature</TourDialogHeader>
+          <TourDialogBody>Start the tour to see how it works.</TourDialogBody>
+          <TourDialogFooter>
+            <Text>Step 1 of 3</Text>
+            <TourDialogActions>
+              <TourDismissButton />
+              <TourNextButton label="Start" />
+            </TourDialogActions>
+          </TourDialogFooter>
+        </TourDialog>
+
+        <TourDialog data-target="[data-tour=tag-users]">
+          <TourDialogCloseButton />
+          <TourDialogHeader>Step 2</TourDialogHeader>
+          <TourDialogBody>Tour step 2.</TourDialogBody>
+          <TourDialogFooter>
+            <Text>Step 2 of 3</Text>
+            <TourDialogActions>
+              <TourNextButton />
+            </TourDialogActions>
+          </TourDialogFooter>
+        </TourDialog>
+
+        <TourDialog data-target="[data-tour=lock-users]">
+          <TourDialogCloseButton />
+          <TourDialogHeader>Step 3</TourDialogHeader>
+          <TourDialogBody>Tour step 3.</TourDialogBody>
+          <TourDialogFooter>
+            <Text>Step 3 of 3</Text>
+            <TourDialogActions>
+              <TourNextButton label="Finish" />
+            </TourDialogActions>
+          </TourDialogFooter>
+        </TourDialog>
+
+        <TourSpotlight />
+      </Tour>
+    </>
+  )
+}
+```

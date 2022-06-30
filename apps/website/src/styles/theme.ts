@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 
-import { theme as baseTheme } from '@saas-ui/theme'
+import { theme as baseTheme } from '@saas-ui/pro/theme'
 
 import {
   createBreakpoints,
@@ -29,6 +29,7 @@ const styles = {
       color: mode('gray.900', 'white')(props),
       bg: mode('white', 'gray.900')(props),
       minHeight: 'auto',
+      fontSize: 'lg',
     },
     'div#__next, div#__next > div': {
       height: '100%',
@@ -45,12 +46,6 @@ const textStyles = {
   },
   h2: {
     fontSize: ['36px', '48px'],
-    fontWeight: '900',
-    lineHeight: '110%',
-    letterSpacing: '-1%',
-  },
-  h3: {
-    fontSize: ['lg', 'xl'],
     fontWeight: '900',
     lineHeight: '110%',
     letterSpacing: '-1%',

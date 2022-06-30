@@ -1,5 +1,34 @@
 # @saas-ui/collapse
 
+## 1.0.0
+
+### Major Changes
+
+- 1db5bf9: Initial release candidate
+
+### Minor Changes
+
+- 3ae6be1: breaking: Updated to Chakra UI 2.1
+- 532a7d4: Updated to Chakra UI 2.2.1
+- 7a16ef7: Updated to Chakra UI 2.2.1
+- 3ae6be1: breaking: React 18 support.
+
+### Patch Changes
+
+- 15c3960: Re-publish.
+- 1744543: Updated dependencies.
+- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- 1fdf52a: Modern bundles now use .mjs extension.
+- 1744543: Updated classname prefix to saas-
+- a134a6f: Fixed type issue
+- 532a7d4: Fixed all theme onconsistencies.
+
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- a134a6f: Fixed type issue
+
 ## 1.0.0-rc.4
 
 ### Patch Changes

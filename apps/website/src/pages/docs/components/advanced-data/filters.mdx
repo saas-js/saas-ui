@@ -1,0 +1,389 @@
+---
+title: Filters
+description: Intuitive data filtering components.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `FiltersProvider`: Context provider that manages active filters.
+- `FiltersAddButton`: Menu with available filters.
+- `ActiveFilter`: Active filter component.
+- `ActiveFiltersList`: A list of active filters.
+- `NoFilteredResults`: EmptyState used incombination with DataGrid.
+- `useDataGridFilter`: Hook to enable DataGrid filtering.
+
+```ts
+import {
+  FilterMenu,
+  ActiveFilter,
+  ActiveFilters,
+  FiltersProvider,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+The FiltersProvider can be used together with `DataGrid` to create intuitive data heavy list pages.
+
+### Basic
+
+```jsx
+function ListPage() {
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'status',
+        label: 'Status',
+        icon: <FiCircle />,
+        items: [
+          {
+            id: 'new',
+            label: 'New',
+            icon: <StatusBadge bg="blue.400" />,
+          },
+          {
+            id: 'active',
+            label: 'Active',
+            icon: <StatusBadge bg="green.400" />,
+          },
+        ],
+      },
+    ],
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters}>
+      <Page
+        title="Contacts"
+        toolbar={
+          <Toolbar variant="outline">
+            <FiltersAddButton />
+            <Spacer />
+          </Toolbar>
+        }
+      >
+        <ActiveFiltersList />
+        <PageBody fullWidth></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+## Usage with DataGrid
+
+```jsx
+function ListPage() {
+  const gridRef = useRef()
+
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'status',
+        label: 'Status',
+        icon: <FiCircle />,
+        items: [
+          {
+            id: 'new',
+            label: 'New',
+            icon: <StatusBadge bg="blue.400" />,
+          },
+          {
+            id: 'active',
+            label: 'Active',
+            icon: <StatusBadge bg="green.400" />,
+          },
+        ],
+      },
+      {
+        id: 'isLead',
+        label: 'Is lead',
+        type: 'boolean',
+        icon: <FiUser />,
+        value: true,
+      },
+    ],
+    []
+  )
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessor: 'name',
+        Header: 'Name',
+        width: '200px',
+        href: ({ id }) => `#customers/${id}`,
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'email',
+        Header: 'Email',
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'company',
+        Header: 'Company',
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'status',
+        Header: 'Status',
+        Cell: (cell) => {
+          return (
+            <Tag
+              colorScheme={cell.value === 'new' ? 'orange' : 'green'}
+              size="sm"
+            >
+              {cell.value}
+            </Tag>
+          )
+        },
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'isLead',
+        Header: 'Lead',
+        hidden: true,
+        filter: useDataGridFilter('boolean'),
+      },
+      {
+        accessor: 'employees',
+        Header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        Header: '',
+        Cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+
+  const onFilter = React.useCallback((filters) => {
+    gridRef.current.setAllFilters(
+      filters.map((filter) => {
+        return {
+          id: filter.id,
+          value: {
+            value: filter.value,
+            operator: filter.operator,
+          },
+        }
+      })
+    )
+  }, [])
+
+  const data = React.useMemo(
+    () =>
+      dataTable.data.map((item) => {
+        return {
+          ...item,
+          status: 'new',
+          isLead: true,
+        }
+      }),
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters} onChange={onFilter}>
+      <Page
+        title="Contacts"
+        height="400px"
+        toolbar={
+          <Toolbar variant="outline">
+            <FiltersAddButton />
+            <Spacer />
+          </Toolbar>
+        }
+      >
+        <ActiveFiltersList />
+        <PageBody fullWidth>
+          <DataGrid
+            ref={gridRef}
+            columns={columns}
+            data={data}
+            noResults={NoFilteredResults}
+            initialState={{ hiddenColumns: ['isLead'] }}
+          />
+        </PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+### DataGrid with default filters
+
+```jsx
+function ListPage() {
+  const gridRef = useRef()
+
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'status',
+        label: 'Status',
+        icon: <FiCircle />,
+        items: [
+          {
+            id: 'new',
+            label: 'New',
+            icon: <StatusBadge bg="blue.400" />,
+          },
+          {
+            id: 'active',
+            label: 'Active',
+            icon: <StatusBadge bg="green.400" />,
+          },
+        ],
+      },
+      {
+        id: 'isLead',
+        label: 'Is lead',
+        type: 'boolean',
+        icon: <FiUser />,
+        value: true,
+      },
+    ],
+    []
+  )
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessor: 'name',
+        Header: 'Name',
+        width: '200px',
+        href: ({ id }) => `#customers/${id}`,
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'email',
+        Header: 'Email',
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'company',
+        Header: 'Company',
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'status',
+        Header: 'Status',
+        Cell: (cell) => {
+          return (
+            <Tag
+              colorScheme={cell.value === 'new' ? 'orange' : 'green'}
+              size="sm"
+            >
+              {cell.value}
+            </Tag>
+          )
+        },
+        filter: useDataGridFilter('string'),
+      },
+      {
+        accessor: 'isLead',
+        Header: 'Lead',
+        hidden: true,
+        filter: useDataGridFilter('boolean'),
+      },
+      {
+        accessor: 'employees',
+        Header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        Header: '',
+        Cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+
+  const onFilter = React.useCallback((filters) => {
+    gridRef.current.setAllFilters(
+      filters.map((filter) => {
+        return {
+          id: filter.id,
+          value: {
+            value: filter.value,
+            operator: filter.operator,
+          },
+        }
+      })
+    )
+  }, [])
+
+  const data = React.useMemo(
+    () =>
+      dataTable.data.map((item) => {
+        return {
+          ...item,
+          status: 'new',
+          isLead: true,
+        }
+      }),
+    []
+  )
+
+  const defaultFilters = [{ id: 'status', operator: 'isNot', value: 'new' }]
+
+  return (
+    <FiltersProvider
+      filters={filters}
+      onChange={onFilter}
+      defaultFilters={defaultFilters}
+    >
+      <Page
+        title="Contacts"
+        height="400px"
+        toolbar={
+          <Toolbar variant="outline">
+            <FiltersAddButton />
+            <Spacer />
+          </Toolbar>
+        }
+      >
+        <ActiveFiltersList />
+        <PageBody fullWidth>
+          <DataGrid
+            ref={gridRef}
+            columns={columns}
+            data={data}
+            noResults={NoFilteredResults}
+            initialState={{
+              hiddenColumns: ['isLead'],
+              filters: defaultFilters.map(({ id, value, operator }) => ({
+                id,
+                value: {
+                  value,
+                  operator,
+                },
+              })),
+            }}
+          />
+        </PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```

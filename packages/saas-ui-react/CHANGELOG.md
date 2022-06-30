@@ -40,7 +40,7 @@
 - 07491fd: ContextMenu now passing down all props to the internal Menu.
 - d1fb472: Select now renders a hidden input with the current value.
 - 870db1f: New primary and secondary Button variant.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
 - Updated dependencies [68c7b62]
 - Updated dependencies [3ae6be1]
 - Updated dependencies [c8621b8]
@@ -239,7 +239,7 @@
 
 - de0dce2: Scale reset button icon based on the input size.
 - dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
 - Updated dependencies [de0dce2]
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]

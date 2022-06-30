@@ -110,13 +110,6 @@ const Home = () => {
         description="The React component library for Startups"
         titleTemplate="%s - The React component library for Startups"
       />
-      <Script
-        id="crisp-js"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
-        }}
-      />
       <BackgroundGradient animate={false} />
       <Box mb={8} w="full" position="relative" overflow="hidden">
         <Box pos="relative">

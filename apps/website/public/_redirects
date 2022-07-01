@@ -1,4 +1,4 @@
-/docs/auth/* /docs/compononents/auth/:splat
+/docs/auth/* /docs/components/auth/:splat
 /docs/data-display/* /docs/components/data-display/:splat
 /docs/engagement/* /docs/components/engagement/:splat
 /docs/feedback/* /docs/components/feedback/:splat

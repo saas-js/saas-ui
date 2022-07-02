@@ -23,7 +23,7 @@ const Header = (props: HeaderProps) => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])
 
-  const bg = useColorModeValue('whiteAlpha.700', 'transparent')
+  const bg = useColorModeValue('whiteAlpha.700', 'rgba(29, 32, 37, 0.7)')
 
   return (
     <Box

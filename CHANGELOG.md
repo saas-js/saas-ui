@@ -8,6 +8,29 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 07-02-2022
+
+`@saas-ui/react@1.0.1`
+
+- BannerContent flexDirection set to column on small screens.
+- Support JSONSchema title in field resolvers
+- Select field focus styles now consistent with Input fields.
+- Fixed @chakra-ui/system dependency version.
+
+**Banner** `v1.0.1`
+
+- BannerContent flexDirection set to column on small screens.
+
+**Forms** `v1.0.1`
+
+- Support JSONSchema title in field resolvers
+- Select field focus styles now consistent with Input fields.
+- FormDialog with AutoForm now sets focus on first field by default.
+
+**Modals** `v1.0.1`
+
+- FormDialog with AutoForm now sets focus on first field by default.
+
 ## 06-30-2022
 
 `@saas-ui/react@1.0.0`

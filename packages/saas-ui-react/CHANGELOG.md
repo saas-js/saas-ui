@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 1.0.1
+
+### Patch Changes
+
+- fe10fc8: BannerContent flexDirection set to column on small screens.
+- 3ce1dee: Support JSONSchema title in field resolvers
+- 150efb2: Select field focus styles now consistent with Input fields.
+- 4a37ca7: Fixed @chakra-ui/system dependency version.
+- Updated dependencies [fe10fc8]
+- Updated dependencies [3ce1dee]
+- Updated dependencies [150efb2]
+- Updated dependencies [3f928c2]
+  - @saas-ui/banner@1.0.1
+  - @saas-ui/forms@1.0.1
+  - @saas-ui/modals@1.0.1
+  - @saas-ui/auth@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

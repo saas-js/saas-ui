@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 1.0.1
+
+### Patch Changes
+
+- 3ce1dee: Support JSONSchema title in field resolvers
+- 150efb2: Select field focus styles now consistent with Input fields.
+- 3f928c2: FormDialog with AutoForm now sets focus on first field by default.
+
 ## 1.0.0
 
 ### Major Changes

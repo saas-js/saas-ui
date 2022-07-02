@@ -1,5 +1,15 @@
 # @saas-ui/modals
 
+## 1.0.1
+
+### Patch Changes
+
+- 3f928c2: FormDialog with AutoForm now sets focus on first field by default.
+- Updated dependencies [3ce1dee]
+- Updated dependencies [150efb2]
+- Updated dependencies [3f928c2]
+  - @saas-ui/forms@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,15 @@
 # palette
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [fe10fc8]
+- Updated dependencies [3ce1dee]
+- Updated dependencies [150efb2]
+- Updated dependencies [4a37ca7]
+  - @saas-ui/react@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

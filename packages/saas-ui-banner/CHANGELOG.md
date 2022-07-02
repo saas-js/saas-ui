@@ -1,5 +1,11 @@
 # @saas-ui/banner
 
+## 1.0.1
+
+### Patch Changes
+
+- fe10fc8: BannerContent flexDirection set to column on small screens.
+
 ## 1.0.0
 
 ### Major Changes

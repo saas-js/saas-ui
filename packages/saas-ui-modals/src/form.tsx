@@ -98,19 +98,16 @@ export const FormDialog = forwardRef(
       delayError,
     }
 
-    const initialRef = React.useRef<HTMLButtonElement | null>(null)
-
     return (
-      <BaseModal
-        isOpen={isOpen}
-        onClose={onClose}
-        initialFocusRef={initialRef}
-        {...rest}
-      >
+      <BaseModal isOpen={isOpen} onClose={onClose} {...rest}>
         <Form {...formProps}>
           <ModalBody>
             {children || (
-              <Fields schema={schema} fieldResolver={fieldResolver} />
+              <Fields
+                schema={schema}
+                fieldResolver={fieldResolver}
+                focusFirstField
+              />
             )}
           </ModalBody>
 
@@ -119,9 +116,7 @@ export const FormDialog = forwardRef(
               <Button variant="ghost" mr={3} onClick={onClose}>
                 {cancelLabel || 'Cancel'}
               </Button>
-              <SubmitButton ref={initialRef}>
-                {submitLabel || 'Submit'}
-              </SubmitButton>
+              <SubmitButton>{submitLabel || 'Submit'}</SubmitButton>
             </ModalFooter>
           )}
         </Form>

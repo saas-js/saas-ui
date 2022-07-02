@@ -19,7 +19,10 @@ import { FormDialog } from '@saas-ui/modals'
 ## Best practises
 
 <BestPractises
-  does={['Use FormDialog for simple forms to increase productivity.']}
+  does={[
+    'Use FormDialog for simple forms to increase productivity.',
+    'Set focus on the first field.',
+  ]}
   donts={['Use more than 4/5 fields in a dialog.']}
 />
 
@@ -37,12 +40,19 @@ function Page() {
     <>
       <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
 
-      <FormDialog title="New post" {...disclosure} onSubmit={onSubmit}>
+      <FormDialog
+        title="New post"
+        defaultValues={{ title: '' }}
+        {...disclosure}
+        onSubmit={onSubmit}
+      >
         <FormLayout>
           <Field
             name="title"
             label="Title"
+            type="text"
             rules={{ required: 'Title is required' }}
+            autoFocus
           />
           <Field name="description" type="textarea" label="Description" />
         </FormLayout>
@@ -54,8 +64,7 @@ function Page() {
 
 ### Focus first field
 
-By default the submit button is focused when the dialog opens.
-You can change this behaviour with the `initialFocusRef` prop.
+Use `initialFocusRef` for fields that don't support `autoFocus`.
 
 ```jsx
 function Page() {
@@ -73,16 +82,28 @@ function Page() {
 
       <FormDialog
         title="New post"
+        defaultValues={{ title: '' }}
         {...disclosure}
         onSubmit={onSubmit}
         initialFocusRef={initialRef}
       >
         <FormLayout>
           <Field
+            name="category"
+            label="Category"
+            type="select"
+            options={[
+              {
+                value: 'general',
+                label: 'General',
+              },
+            ]}
+            ref={initialRef}
+          />
+          <Field
             name="title"
             label="Title"
             rules={{ required: 'Title is required' }}
-            ref={initialRef}
           />
           <Field name="description" type="textarea" label="Description" />
         </FormLayout>
@@ -99,8 +120,6 @@ When you don't pass any children and supply a schema, the fields will be auto re
 ```jsx
 function Page() {
   const disclosure = useDisclosure()
-
-  const initialRef = useRef()
 
   const schema = Yup.object().shape({
     title: Yup.string().required().label('Title'),
@@ -123,7 +142,6 @@ function Page() {
           description: '',
         }}
         onSubmit={onSubmit}
-        initialFocusRef={initialRef}
         {...yupForm(schema)}
       />
     </>

@@ -35,7 +35,7 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
    * Ref on the HTMLFormElement.
    */
-  formRef?: React.MutableRefObject<HTMLFormElement>
+  formRef?: React.RefObject<HTMLFormElement>
 }
 
 /**

@@ -80,7 +80,7 @@ Remove the use of <PropsTable of="${of}" /> for this component in the docs.`
             <chakra.h3
               css={{
                 fontSize: '0.8em',
-                paddingBottom: 16,
+                paddingBottom: 8,
                 marginBottom: 16,
                 borderBottomWidth: 1,
               }}

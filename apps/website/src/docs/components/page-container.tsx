@@ -102,7 +102,7 @@ function PageContainer(props: PageContainerProps) {
           {sidebar || null}
           <Box flex="1" minW="0">
             <SkipNavContent />
-            <Box id="content" px={5} mx="auto" minH="76vh">
+            <Box id="content" mx="auto" minH="76vh">
               <Flex>
                 <Box
                   minW="0"

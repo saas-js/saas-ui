@@ -43,7 +43,7 @@ const FrameworkLink = (props) => {
 
 export const FrameworkLinks = () => {
   return (
-    <SimpleGrid mt="12" columns={3} spacing="40px" fontSize="6xl">
+    <SimpleGrid mt="12" columns={[2, null, 3]} spacing="40px" fontSize="6xl">
       <FrameworkLink
         href="/docs/core/installation/nextjs-guide"
         accentColor="black"

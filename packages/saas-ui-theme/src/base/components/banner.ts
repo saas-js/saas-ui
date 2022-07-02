@@ -23,6 +23,7 @@ const baseStyle: PartsStyleObject<typeof parts> = {
   content: {
     display: 'flex',
     flex: 1,
+    flexDirection: ['column', null, 'row'],
   },
   title: {
     fontWeight: 'bold',

@@ -16,10 +16,11 @@ export type ObjectSchema = Record<string, SchemaField>
 
 const mapFields = (schema: ObjectSchema): FieldProps[] =>
   schema &&
-  Object.entries(schema).map(([name, { items, ...field }]) => {
+  Object.entries(schema).map(([name, { items, label, title, ...field }]) => {
     return {
       ...field,
       name,
+      label: label || title, // json schema compatibility
     }
   })
 

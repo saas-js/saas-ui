@@ -57,6 +57,9 @@ export interface SelectProps
 const SelectButton = forwardRef((props, ref) => {
   const styles = useMultiStyleConfig('Input', props)
 
+  /* @ts-ignore */
+  const focusStyles = styles.field._focusVisible
+
   const height = styles.field.h || styles.field.height
 
   const buttonStyles: SystemStyleObject = {
@@ -67,6 +70,8 @@ const SelectButton = forwardRef((props, ref) => {
       bg: 'transparent',
     },
     minH: height,
+    _focus: focusStyles,
+    _expanded: focusStyles,
     ...styles.field,
     h: 'auto',
   }

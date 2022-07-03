@@ -10,8 +10,8 @@
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",
   "peerDependencies": {
-    "@hookform/resolvers": "^2.9.0",
-    "react-hook-form": "^7.31.3",
+    "@hookform/resolvers": "^2.9.3",
+    "react-hook-form": "^7.33.1",
     "yup": "^0.32.11"
   }
 }

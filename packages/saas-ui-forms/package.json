@@ -102,7 +102,7 @@
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/select": "workspace:*",
     "@saas-ui/stepper": "workspace:*",
-    "react-hook-form": "^7.31.3"
+    "react-hook-form": "^7.33.1"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",

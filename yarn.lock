@@ -6023,7 +6023,7 @@ __metadata:
     "@saas-ui/select": "workspace:*"
     "@saas-ui/stepper": "workspace:*"
     ajv: ^8.11.0
-    react-hook-form: ^7.31.3
+    react-hook-form: ^7.33.1
     yup: ^0.32.11
     zod: ^3.17.3
   peerDependencies:
@@ -6066,6 +6066,7 @@ __metadata:
     react-icons: ^4.4.0
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
+    "@chakra-ui/system": ">=2.1.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
@@ -6322,7 +6323,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
-    "@chakra-ui/system": ^2.2.0
+    "@chakra-ui/system": ^2.1.3
     "@saas-ui/auth": "workspace:*"
     "@saas-ui/banner": "workspace:*"
     "@saas-ui/button": "workspace:*"
@@ -23258,12 +23259,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:^7.31.3":
-  version: 7.31.3
-  resolution: "react-hook-form@npm:7.31.3"
+"react-hook-form@npm:^7.33.1":
+  version: 7.33.1
+  resolution: "react-hook-form@npm:7.33.1"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
-  checksum: 01601c904c39dea8f617d0fc35ff62ab6e8c4968b2007990ce88952f1c24063c025eb169703edcf596dc38439669268175b9f5fb7a5d553e46fdc8bb7523ed63
+  checksum: ec8f938b5af32148956edc9a87b6a0a99cc305617925608961cf4352ad1a786daea9fdc4d15106aea2821937d27367a69ab525882f07c0bb7ea45fba5dbf8ff2
   languageName: node
   linkType: hard
 

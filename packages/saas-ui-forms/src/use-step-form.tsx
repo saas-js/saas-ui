@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FieldValues, SubmitHandler, UnpackNestedValue } from 'react-hook-form'
+import { FieldValues, SubmitHandler } from 'react-hook-form'
 import { createContext, MaybeRenderProp } from '@chakra-ui/react-utils'
 import {
   useStepper,
@@ -19,10 +19,7 @@ export interface StepState {
 
 export type FormStepSubmitHandler<
   TFieldValues extends FieldValues = FieldValues
-> = (
-  data: UnpackNestedValue<TFieldValues>,
-  stepper: UseStepperReturn
-) => Promise<void>
+> = (data: TFieldValues, stepper: UseStepperReturn) => Promise<void>
 
 export interface StepFormContext extends UseStepperReturn {
   updateStep(state: StepState): void

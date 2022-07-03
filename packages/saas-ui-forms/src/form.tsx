@@ -11,7 +11,6 @@ import {
   FieldValues,
   SubmitHandler,
   SubmitErrorHandler,
-  UnpackNestedValue,
   ResolverOptions,
   ResolverResult,
 } from 'react-hook-form'
@@ -124,7 +123,7 @@ if (__DEV__) {
 export type GetResolver = (
   schema: any
 ) => <TFieldValues extends FieldValues, TContext>(
-  values: UnpackNestedValue<TFieldValues>,
+  values: TFieldValues,
   context: TContext | undefined,
   options: ResolverOptions<TFieldValues>
 ) => Promise<ResolverResult<TFieldValues>>

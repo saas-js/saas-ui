@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 07-03-2022
+
+**Forms** `v1.0.2`
+
+- Fixed Hook Form 7.33 compatibility.
+
+**Input Right Button** `v1.0.1`
+
+- Fixed peer dependency issue.
+
 ## 07-02-2022
 
 `@saas-ui/react@1.0.1`

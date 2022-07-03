@@ -1,5 +1,14 @@
 # @saas-ui/forms
 
+## 1.0.2
+
+### Patch Changes
+
+- fe754e6: Fixed Hook Form 7.33 compatibility.
+- Updated dependencies [fe1e333]
+  - @saas-ui/input-right-button@1.0.1
+  - @saas-ui/password-input@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

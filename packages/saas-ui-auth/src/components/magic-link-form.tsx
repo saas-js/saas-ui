@@ -29,6 +29,7 @@ export interface MagicLinkFormProps
 
 interface SubmitParams {
   email: string
+  [key: string]: any
 }
 
 export function MagicLinkSuccess({ email }: any) {
@@ -75,7 +76,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   }
 
   return (
-    <Form
+    <Form<SubmitParams>
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '', ...defaultValues }}

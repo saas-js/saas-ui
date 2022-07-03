@@ -60,7 +60,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   }
 
   return (
-    <Form
+    <Form<SubmitParams>
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '' }}

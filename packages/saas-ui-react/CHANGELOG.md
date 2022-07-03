@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [fe754e6]
+- Updated dependencies [fe1e333]
+  - @saas-ui/forms@1.0.2
+  - @saas-ui/input-right-button@1.0.1
+  - @saas-ui/auth@1.0.2
+  - @saas-ui/modals@1.0.2
+  - @saas-ui/password-input@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/password-input
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [fe1e333]
+  - @saas-ui/input-right-button@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

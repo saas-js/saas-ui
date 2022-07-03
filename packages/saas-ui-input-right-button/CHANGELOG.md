@@ -1,5 +1,11 @@
 # @saas-ui/input-right-button
 
+## 1.0.1
+
+### Patch Changes
+
+- fe1e333: Fixed peer dependency issue.
+
 ## 1.0.0
 
 ### Major Changes

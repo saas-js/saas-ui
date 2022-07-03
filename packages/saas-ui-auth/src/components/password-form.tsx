@@ -64,7 +64,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   }
 
   return (
-    <Form
+    <Form<SubmitParams>
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '', password: '', ...defaultValues }}

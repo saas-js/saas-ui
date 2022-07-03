@@ -61,6 +61,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",
+    "@chakra-ui/system": ">=2.1.0",
     "react": ">=18.0.0"
   },
   "devDependencies": {

@@ -2,14 +2,14 @@ import { extendTheme } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui/pro/theme'
 
+import '@fontsource/inter/variable.css'
+
 import {
   createBreakpoints,
   mode,
   transparentize,
   blacken,
 } from '@chakra-ui/theme-tools'
-
-import deepmerge from 'deepmerge'
 
 import Button from './components/button'
 import CTA from './components/cta'

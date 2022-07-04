@@ -2,8 +2,6 @@ import { AppProps } from 'next/app'
 import Script from 'next/script'
 import Layout from '@/components/layout'
 
-import '@fontsource/inter/variable.css'
-
 import theme from '../styles/theme'
 
 import { SaasProvider, ModalsProvider, AuthProvider } from '@saas-ui/react'

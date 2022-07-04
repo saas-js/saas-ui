@@ -7,9 +7,41 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Thu, 30 Jun 2022 08:25:13 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 03 Jul 2022 09:47:32 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/07-03-2022</guid>
+    <title>Jul 3, 2022</title>
+    <link>https://saas-ui.dev/changelog/07-03-2022</link>
+    <description>
+## 07-03-2022
+
+**Forms** `v1.0.2`
+
+- fix: Fixed Hook Form 7.33 compatibility.
+
+**Input Right Button...</description>
+    <pubDate>Sun, 03 Jul 2022 09:47:32 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/07-02-2022</guid>
+    <title>Jul 2, 2022</title>
+    <link>https://saas-ui.dev/changelog/07-02-2022</link>
+    <description>
+## 07-02-2022
+
+`@saas-ui/react@1.0.1`
+
+- BannerContent flexDirection set to column on small screens...</description>
+    <pubDate>Sat, 02 Jul 2022 09:10:47 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/06-30-2022</guid>
     <title>Jun 30, 2022</title>

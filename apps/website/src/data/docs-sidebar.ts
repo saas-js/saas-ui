@@ -90,6 +90,10 @@ const sidebar = {
               title: 'Customize Theme',
               path: '/docs/core/theming/customize-theme',
             },
+            {
+              title: 'Fonts',
+              path: '/docs/core/theming/fonts',
+            },
           ],
         },
         {
@@ -173,6 +177,10 @@ const sidebar = {
             {
               title: 'Color schemes',
               path: '/docs/pro/theming/color-schemes',
+            },
+            {
+              title: 'Fonts',
+              path: '/docs/pro/theming/fonts',
             },
           ],
         },

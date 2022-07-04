@@ -31,24 +31,14 @@ https://www.saas-ui.dev/docs/introduction
 
 ## Contributing & Support
 
-Want to help? Great! Saas UI Core is almost ready, but we need more feedback to fine tune the final release.
+Want to help? Great! Feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
 
-If you like to support the project financially consider [Pre-ordering Saas UI Pro](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the development version and our private Discord server. As an early adopter you will get 50% discount on the final price, life-time access, free updates and a lot of love ❤️.
-
-## Roadmap
-
-Saas UI core v1.0 will be released in June.
-
-Saas UI pro is in private beta. [Pre-order](https://appulse.gumroad.com/l/saas-ui-pro-pre-order) to get early access.
+If you like to support the project financially you can [Sponsor](https://github.com/sponsors/saas-js) Saas UI, or consider [Pre-ordering Saas UI Pro](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the development version and our private Discord server. As an early adopter you will get 50% discount on the final price, life-time access, free updates and a lot of love ❤️.
 
 ### Core
 
 30+ essential open source components build on top of Chakra UI.
 Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
-
-- [x] Finish all v1 core components and hooks
-- [x] Full test coverage
-- [x] React 18 support
 
 ### Pro
 
@@ -76,6 +66,11 @@ Complete source code available in a monorepo that can serve as a starting point 
 - [ ] Upselling flows (Trials, upgrades, etc)
 - [ ] Saas UI themes
 - [ ] File uploads
+
+## Using this repo
+
+The docs website depends on packages hosted on a private NPM registry, so installing won't work without a valid Pro license key.
+To circumvent this, remove `@saas-ui/pro` and `@saas-ui/features` from `apps/website/package.json` and run install.
 
 ## Storybook
 

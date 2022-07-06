@@ -355,7 +355,7 @@ const Founder = () => {
           <VStack spacing="8" alignItems="flex-start">
             <Text fontSize={['xl', null, '2xl']}>
               SaaS UI tries to fill this gap by giving developers an extensive
-              set of beautifully crafted components build on{' '}
+              set of beautifully crafted components built on{' '}
               <Em>best in class tools</Em>. While on the same time serve as a{' '}
               <Em>great foundation</Em> for designers to create their brand.
             </Text>
@@ -728,8 +728,8 @@ const Themable = () => {
         </Heading>
         <VStack spacing="4" alignItems="flex-start">
           <Text fontSize={['xl', null, '2xl']} color="muted">
-            Saas UI is build on top of <Em>Chakra UI</Em>, all components are
-            build with the same excellent design principles. Effortlessly
+            Saas UI is built on top of <Em>Chakra UI</Em>, all components are
+            built with the same excellent design principles. Effortlessly
             compose and customize components directly through CSS-in-JS style
             props or by creating a custom theme.
           </Text>
@@ -889,7 +889,7 @@ const Highlights = () => {
           <Text color="muted" fontSize="lg">
             We don&apos;t like to re-invent the wheel, neither should you. We
             selected the most productive and established tools in the scene and
-            build Saas UI on top of it. <Br />
+            built Saas UI on top of it. <Br />
             <Br />
             Including Chakra UI, React Hook Form, React Table, React Query,
             Recharts, and more...

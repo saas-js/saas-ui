@@ -16,7 +16,7 @@ const CustomFooter = () => {
           </Text>
         </Stack>
         <Copyright>
-          Build by{' '}
+          Built by{' '}
           <FooterLink href="https://twitter.com/Pagebakers">
             Eelco Wiersma
           </FooterLink>

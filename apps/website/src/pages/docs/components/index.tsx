@@ -36,7 +36,7 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
       frontMatter={{
         title: 'Components',
         seo: {
-          title: 'Expertly crafted Chakra UI components',
+          title: 'Professionally crafted Chakra UI components',
         },
         slug: '/docs/components',
         headings,

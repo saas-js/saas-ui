@@ -43,7 +43,11 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
       }}
     >
       <VStack w="full" mt={5} alignItems="stretch" spacing={12}>
-        <Text lineHeight={1.7} color="whiteAlpha.800">
+        <Text
+          lineHeight={1.7}
+          color="blackAlpha.800"
+          _dark={{ color: 'whiteAlpha.800' }}
+        >
           Professionally crafted Chakra UI components that help you build
           intuitive React apps with speed.
         </Text>

@@ -13,7 +13,7 @@ export const QuickLink = (props) => {
   } = props
 
   return (
-    <LinkCard href={href} mt="8" {...rest}>
+    <LinkCard href={href} mt="0" {...rest}>
       <Text fontWeight="bold" mb="2">
         {title}
       </Text>

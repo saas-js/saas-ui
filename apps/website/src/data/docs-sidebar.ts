@@ -191,8 +191,11 @@ const sidebar = {
       path: '/docs/components',
       icon: FiBox,
       heading: true,
-      open: false,
       routes: [
+        {
+          title: 'Overview',
+          path: '/docs/components',
+        },
         {
           title: 'Authentication',
           path: '/docs/components/auth',

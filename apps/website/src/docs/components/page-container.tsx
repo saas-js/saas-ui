@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 import EditPageLink from '@/docs/components/edit-page-button'
-import SEO from '@/components/seo'
+import SEO, { SEOProps } from '@/components/seo'
 import TableOfContent from '@/docs/components/table-of-content'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
 import PageTransition from './page-transition'
@@ -60,6 +60,7 @@ interface PageContainerProps {
     author?: string
     avatar?: string
     date?: Date
+    seo?: SEOProps
   }
   children: React.ReactNode
   sidebar?: any
@@ -82,11 +83,12 @@ function PageContainer(props: PageContainerProps) {
     author,
     avatar,
     date,
+    seo,
   } = frontmatter
 
   return (
     <>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} {...seo} />
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
@@ -99,7 +101,7 @@ function PageContainer(props: PageContainerProps) {
         zIndex="2"
       >
         <Box display={{ md: 'flex' }}>
-          {sidebar || null}
+          <React.Suspense>{sidebar || null}</React.Suspense>
           <Box flex="1" minW="0">
             <SkipNavContent />
             <Box id="content" mx="auto" minH="76vh">

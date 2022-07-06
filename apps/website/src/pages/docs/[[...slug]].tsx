@@ -33,7 +33,17 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   )
 
   if (process.env.NODE_ENV === 'production') {
-    const rss = generateRss(allDocs, 'docs.xml')
+    const rss = generateRss(
+      [
+        {
+          slug: '/docs/components',
+          description:
+            'Professionally crafted Chakra UI components that help you build intuitive React apps with speed.',
+          title: 'Professionally crafted Chakra UI components',
+        },
+      ].concat(allDocs),
+      'docs.xml'
+    )
     fs.writeFileSync('./public/docs.xml', rss)
   }
 

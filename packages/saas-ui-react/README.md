@@ -1,8 +1,8 @@
 # Saas UI - The React component library for startups
 
-Saas UI is an advanced component library that helps you build essential SaaS functionality in hours instead of weeks.
+Saas UI is an advanced component library that helps you build intuitive React apps with speed.
 
-It's build on top of Chakra UI and fully written in Typescript.
+It's built on top of Chakra UI and fully written in Typescript.
 
 <p>
   <a href="https://www.npmjs.com/package/@saas-ui/react">

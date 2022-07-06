@@ -19,7 +19,7 @@
 
 Saas UI is an advanced component library that helps you build essential SaaS functionality in hours instead of weeks.
 
-It's build on top of Chakra UI and fully written in Typescript.
+It's built on top of Chakra UI and fully written in Typescript.
 
 This repository contains all [open source components](/packages), aswell as the [documentation website](apps/website/pages/docs).
 
@@ -37,7 +37,7 @@ If you like to support the project financially you can [Sponsor](https://github.
 
 ### Core
 
-30+ essential open source components build on top of Chakra UI.
+30+ essential open source components built on top of Chakra UI.
 Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
 
 ### Pro

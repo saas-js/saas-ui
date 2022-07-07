@@ -93,7 +93,6 @@ import {
 } from '@saas-ui/banner'
 
 import { transparentize } from '@chakra-ui/theme-tools'
-import CTASection from '@/components/marketing/cta'
 import { Testimonial, Testimonials } from '@/components/testimonials'
 import { Faq } from '@/components/faq'
 
@@ -637,17 +636,6 @@ const MemberShip = () => {
         Get in touch
       </ButtonLink>
     </PricingBox>
-  )
-}
-
-const FaqItem = ({ question, answer }: any) => {
-  return (
-    <chakra.dl>
-      <chakra.dt fontWeight="semibold">{question}</chakra.dt>
-      <chakra.dd color={useColorModeValue('gray.500', 'gray.400')}>
-        {answer}
-      </chakra.dd>
-    </chakra.dl>
   )
 }
 

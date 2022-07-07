@@ -40,13 +40,13 @@ export const Testimonials = () => {
 
         <Stack spacing="8">
           <Testimonial
-            name="@moshyfarn"
+            name="@moshyfawn"
             description="Software Engineer - React Hook Form"
             avatar="https://pbs.twimg.com/profile_images/1518679972281466888/6iy5ls8Q_normal.png"
             fontSize="md"
             href="https://twitter.com/moshyfawn/status/1542477407675883520"
           >
-            “Imaging a well thought out SaaS UI with super cool integrations
+            “Imagine a well thought out SaaS UI with super cool integrations
             like @HookForm @chakra_ui and @date_fns that power the whole thing!
             Like WAT?!”
           </Testimonial>

@@ -6,9 +6,22 @@ import { Testimonial } from './testimonial'
 
 export const Testimonials = () => {
   return (
-    <Section>
+    <Section innerWidth="container.xl">
       <SectionTitle title="Loved by developers and designers" />
-      <SimpleGrid columns={[1, null, 2]} spacing="8">
+      <SimpleGrid columns={[1, 2, 3]} spacing="8">
+        <Stack spacing="8">
+          <Testimonial
+            name="Makenna Smutz"
+            description="Founder - Heron"
+            avatar="https://pbs.twimg.com/profile_images/1484504135189909506/qYryiQ-S_normal.jpg"
+            fontSize="md"
+            href="https://twitter.com/KenzSmutz/status/1531625230011088898"
+          >
+            “Amazingly well thought-out set of components. I snagged them and
+            have been able to create beautiful and functional UI super quick!
+            This filter UI is some of my favorite 🤤”
+          </Testimonial>
+        </Stack>
         <Stack spacing="8">
           <Testimonial
             name="Milan van Schaik"
@@ -24,17 +37,18 @@ export const Testimonials = () => {
             almost weekly new useful features for us!”
           </Testimonial>
         </Stack>
+
         <Stack spacing="8">
           <Testimonial
-            name="Makenna Smutz"
-            description="Founder - Heron"
-            avatar="https://pbs.twimg.com/profile_images/1484504135189909506/qYryiQ-S_normal.jpg"
+            name="@moshyfarn"
+            description="Software Engineer - React Hook Form"
+            avatar="https://pbs.twimg.com/profile_images/1518679972281466888/6iy5ls8Q_normal.png"
             fontSize="md"
-            href="https://twitter.com/KenzSmutz/status/1531625230011088898"
+            href="https://twitter.com/moshyfawn/status/1542477407675883520"
           >
-            “Amazingly well thought-out set of components. I snagged them and
-            have been able to create beautiful and functional UI super quick!
-            This filter UI is some of my favorite 🤤”
+            “Imaging a well thought out SaaS UI with super cool integrations
+            like @HookForm @chakra_ui and @date_fns that power the whole thing!
+            Like WAT?!”
           </Testimonial>
         </Stack>
       </SimpleGrid>

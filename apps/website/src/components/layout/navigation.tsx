@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { HStack, IconButton, Link } from '@chakra-ui/react'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { useRouter } from 'next/router'
 
@@ -48,6 +48,15 @@ const Header = () => {
           />
         )
       })}
+
+      <IconButton
+        variant="ghost"
+        aria-label="discord"
+        icon={<FaDiscord size="14" />}
+        borderRadius="md"
+        as={Link}
+        href="https://discord.gg/4PmJGFcAjX"
+      />
 
       <IconButton
         variant="ghost"

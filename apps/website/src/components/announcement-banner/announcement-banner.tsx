@@ -23,17 +23,20 @@ export interface AnnouncementBannerProps {
   title: string
   description: string
   href: string
+  action?: string
 }
 
-export const AnnouncementBanner = (props: AnnouncementBannerProps) => {
-  const { title, description, href } = props
+export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
+  props
+) => {
+  const { title, description, href, action } = props
   const bg = useColorModeValue('white', 'gray.900')
   if (!title) {
     return null
   }
 
   return (
-    <Flex position={['absolute', null, 'static']} top="100px" width="100%">
+    <Flex position="absolute" top="100px" width="100%">
       <Container maxW="container.2xl" px="8">
         <NextLink href={href}>
           <Banner
@@ -44,8 +47,9 @@ export const AnnouncementBanner = (props: AnnouncementBannerProps) => {
             justifyContent="center"
             colorScheme="purple"
             backgroundClip="padding-box"
-            borderRadius={['full', null, 0]}
-            borderBottomRadius={[null, null, '2xl']}
+            borderRadius="full"
+            maxW="400px"
+            margin="0 auto"
             borderWidth="2px"
             borderTopWidth="0"
             borderColor="transparent"
@@ -78,30 +82,31 @@ export const AnnouncementBanner = (props: AnnouncementBannerProps) => {
                 as={LinkOverlay}
                 href={href}
                 display={{ base: 'none', md: 'block' }}
-              >
-                {description}
-              </BannerDescription>
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
 
-              <BannerActions>
-                <Button
-                  size="xs"
-                  variant="link"
-                  color="muted"
-                  _hover={{
-                    textDecoration: 'none',
-                  }}
-                  rightIcon={
-                    <Icon
-                      as={FiArrowRight}
-                      transform="translate(-5px)"
-                      transitionProperty="common"
-                      transitionDuration="normal"
-                    />
-                  }
-                >
-                  Read more
-                </Button>
-              </BannerActions>
+              {action && (
+                <BannerActions>
+                  <Button
+                    size="xs"
+                    variant="link"
+                    color="muted"
+                    _hover={{
+                      textDecoration: 'none',
+                    }}
+                    rightIcon={
+                      <Icon
+                        as={FiArrowRight}
+                        transform="translate(-5px)"
+                        transitionProperty="common"
+                        transitionDuration="normal"
+                      />
+                    }
+                  >
+                    Read more
+                  </Button>
+                </BannerActions>
+              )}
             </HStack>
           </Banner>
         </NextLink>

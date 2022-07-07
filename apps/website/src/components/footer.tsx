@@ -1,4 +1,6 @@
-import { Flex, HStack, Stack, Text } from '@chakra-ui/react'
+import { Flex, HStack, IconButton, Stack, Text } from '@chakra-ui/react'
+import { Link } from '@saas-ui/react'
+import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
 import Footer, { Copyright, FooterLink } from './layout/footer'
 
 import Logo from './saas-ui'
@@ -28,6 +30,33 @@ const CustomFooter = () => {
         <FooterLink href="/license">License</FooterLink>
         <FooterLink href="/terms">Terms</FooterLink>
         <FooterLink href="/privacy">Privacy</FooterLink>
+
+        <IconButton
+          variant="ghost"
+          aria-label="discord"
+          icon={<FaDiscord size="14" />}
+          borderRadius="md"
+          as={Link}
+          href="https://discord.gg/4PmJGFcAjX"
+        />
+
+        <IconButton
+          variant="ghost"
+          aria-label="twitter"
+          icon={<FaTwitter size="14" />}
+          borderRadius="md"
+          as={Link}
+          href="https://twitter.com/saas_js"
+        />
+
+        <IconButton
+          variant="ghost"
+          aria-label="github"
+          icon={<FaGithub size="14" />}
+          borderRadius="md"
+          as={Link}
+          href="https://github.com/saas-js/saas-ui"
+        />
       </HStack>
     </Footer>
   )

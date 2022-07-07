@@ -10,7 +10,7 @@ export const Testimonial = ({
 }) => {
   return (
     <Card
-      avatar={<Avatar name={name} src={avatar} />}
+      avatar={<Avatar name={name} src={avatar} bg="transparent" />}
       title={name}
       subtitle={description}
       {...rest}

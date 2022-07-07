@@ -80,7 +80,9 @@ export const Faq = () => {
 const FaqItem = ({ question, answer }: any) => {
   return (
     <chakra.dl>
-      <chakra.dt fontWeight="semibold">{question}</chakra.dt>
+      <chakra.dt fontWeight="semibold" mb="2">
+        {question}
+      </chakra.dt>
       <chakra.dd color={useColorModeValue('gray.500', 'gray.400')}>
         {answer}
       </chakra.dd>

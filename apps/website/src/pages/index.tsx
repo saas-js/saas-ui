@@ -897,10 +897,10 @@ const Highlights = () => {
         </GridItem>
         <GridItem
           as={HighlightBox}
-          // borderWidth="0"
           justifyContent="center"
           position="relative"
           borderColor="whiteAlpha.300"
+          spacing="0"
         >
           <Box
             bgGradient={`linear(to-br, ${transparentize(
@@ -940,7 +940,6 @@ const Highlights = () => {
             Start your next idea two steps ahead
           </Heading>
           <Text color="muted" fontSize="lg">
-            There are a million things to think about when you start your SaaS.
             We take care of all your basic frontend needs, so you can start
             building functionality that makes your product unique.
           </Text>
@@ -952,18 +951,25 @@ const Highlights = () => {
               'settings',
               'multi-tenancy',
               'layouts',
-              'page layouts',
               'billing',
               'a11y testing',
               'server-side rendering',
               'documentation',
               'onboarding',
+              'storybooks',
               'theming',
               'upselling',
               'unit testing',
+              'feature flags',
               'responsiveness',
             ].map((value) => (
-              <Tag key={value} variant="subtle" colorScheme="purple">
+              <Tag
+                key={value}
+                variant="subtle"
+                colorScheme="purple"
+                rounded="full"
+                px="3"
+              >
                 {value}
               </Tag>
             ))}
@@ -989,21 +995,6 @@ const Highlights = () => {
             }}
           >
             <Link
-              href="https://redwoodjs.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                path: {
-                  fill: useColorModeValue('#000', '#fff'),
-                },
-              }}
-            >
-              <RedwoodJS alt="RedwoodJS logo" />
-              <VisuallyHidden>RedwoodJS</VisuallyHidden>
-            </Link>
-
-            <Link
               href="https://nextjs.com"
               p="8"
               h="100%"
@@ -1021,6 +1012,21 @@ const Highlights = () => {
             <Link href="https://blitzjs.com" p="8" h="100%" display="flex">
               <Blitz alt="Blitz.js logo" />
               <VisuallyHidden>Blitz.js</VisuallyHidden>
+            </Link>
+
+            <Link
+              href="https://redwoodjs.com"
+              p="8"
+              h="100%"
+              display="flex"
+              sx={{
+                path: {
+                  fill: useColorModeValue('#000', '#fff'),
+                },
+              }}
+            >
+              <RedwoodJS alt="RedwoodJS logo" />
+              <VisuallyHidden>RedwoodJS</VisuallyHidden>
             </Link>
 
             <Link
@@ -1046,6 +1052,7 @@ const Highlights = () => {
           as={HighlightBox}
           justifyContent="center"
           borderColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.300')}
+          spacing="0"
         >
           <Box
             bgGradient={`linear(to-br, ${transparentize(
@@ -1316,8 +1323,11 @@ export async function getStaticProps() {
   return {
     props: {
       announcement: {
-        title: '@saas-ui/react v1 is out! 🚀',
-        href: '/changelog',
+        title: 'Support us by becoming a stargazer! 🚀 ',
+        description:
+          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star&maxAge=2592000" />',
+        href: 'https://github.com/saas-js/saas-ui',
+        action: false,
       },
       header: {
         position: 'sticky',

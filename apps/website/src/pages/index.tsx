@@ -35,6 +35,7 @@ import {
   Wrap,
   Icon,
   Center,
+  Tooltip,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -419,7 +420,7 @@ const RequestAccess = () => {
 
 const Pricing = () => {
   return (
-    <Section id="pricing" pos="relative">
+    <Section id="pricing" pos="relative" innerWidth="container.xl">
       <BackgroundGradient animate={false} height="100%" />
       <Box zIndex="2" pos="relative">
         <SectionTitle
@@ -427,11 +428,11 @@ const Pricing = () => {
           description="Pay once and get life-time access to our high quality components."
         ></SectionTitle>
 
-        <SimpleGrid columns={[1, null, 3]} spacing={4}>
+        <SimpleGrid columns={[1, null, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
             description="Basic components, perfect to get started."
-            price="Free"
+            price="Free forever"
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
@@ -465,8 +466,14 @@ const Pricing = () => {
             boxShadow="md"
           >
             <PricingFeatures>
-              <PricingFeature title="One project" />
-              <PricingFeature title="One developer" />
+              <PricingFeature
+                title="One developer"
+                help="One developer per license, you can buy as many licenses as you need. Licenses can be transfered."
+              />
+              <PricingFeature
+                title={<>Unlimited projects</>}
+                help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
+              />
               <PricingFeature title="Advanced components" />
               <PricingFeature title="Multiple themes" />
               <PricingFeature title="Next.js and Electron boilerplates" />
@@ -487,7 +494,7 @@ const Pricing = () => {
                 window?.woopra.track('Order Bootstrap')
               }
             >
-              Pre-order
+              Early access
             </ButtonLink>
           </PricingBox>
           <PricingBox
@@ -507,10 +514,16 @@ const Pricing = () => {
             description="Unlimited license for growing teams."
           >
             <PricingFeatures>
-              <PricingFeature title="Unlimited projects" />
-              <PricingFeature title="Unlimited developers" />
-              <PricingFeature title="1 year of updates" />
+              <PricingFeature
+                title="Unlimited developers"
+                help="A developer can be either an employee or a contracted freelancer."
+              />
+              <PricingFeature
+                title="Unlimited projects"
+                help="No restrictions on commercial projects or client work."
+              />
               <PricingFeature title="Everything from Bootstrap" />
+              <PricingFeature title="1 year of updates" />
               <br />
               <PricingFeature
                 title="Private beta access"
@@ -526,9 +539,10 @@ const Pricing = () => {
                 window?.woopra.track('Order Startup')
               }
             >
-              Pre-order
+              Early access
             </ButtonLink>
           </PricingBox>
+          <MemberShip />
         </SimpleGrid>
 
         <Text
@@ -557,13 +571,22 @@ const PricingFeatures = ({ children }) => {
   )
 }
 
-const PricingFeature = ({ title, iconColor = 'primary.500' }) => {
+const PricingFeature = ({ title, iconColor = 'primary.500', help = '' }) => {
   return (
     <HStack>
       <CheckIcon color={iconColor} />{' '}
-      <Text flex="1" fontSize="sm">
-        {title}
-      </Text>
+      <Tooltip label={help}>
+        <Text flex="1" fontSize="sm" cursor="default">
+          <Text
+            as="span"
+            borderStyle="dotted"
+            borderBottomWidth={help ? '1px' : 'none'}
+            borderColor="currentColor"
+          >
+            {title}
+          </Text>
+        </Text>
+      </Tooltip>
     </HStack>
   )
 }
@@ -584,7 +607,9 @@ const PricingBox = ({ title, description, price, children, ...props }) => {
       <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
         {title}
       </Heading>
-      <Box color={useColorModeValue('gray.500', 'gray.400')}>{description}</Box>
+      <Box color={useColorModeValue('gray.500', 'gray.400')} fontSize="md">
+        {description}
+      </Box>
       <Box fontSize="2xl" fontWeight="bold" py="4">
         {price}
       </Box>
@@ -598,11 +623,9 @@ const PricingBox = ({ title, description, price, children, ...props }) => {
 const MemberShip = () => {
   return (
     <PricingBox
-      width="480px"
-      margin="80px auto 0 auto"
       title={
         <HStack>
-          <Text>Elite membership</Text>
+          <Text>Membership</Text>
         </HStack>
       }
       description="Limited access membership for teams that want to get moving fast."

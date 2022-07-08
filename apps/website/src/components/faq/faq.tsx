@@ -13,10 +13,10 @@ export const Faq = () => {
           question="How many products can I use Saas UI Pro for?"
           answer={
             <>
-              The single license can be used for one commercial application or
-              SaaS product and unlimited internal tools. You can buy as many
-              licenses as you need. <br /> The unlimited license does not have
-              any restrictions.
+              The single license can be used for unlimited self hosted SaaS
+              products or internal tools and maximum one client project. You can
+              buy as many licenses as you need. <br /> The unlimited license
+              does not have any restrictions.
             </>
           }
         />

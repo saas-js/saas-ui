@@ -67,7 +67,7 @@ const PricingPage = () => {
 
 const Pricing = () => {
   return (
-    <Section id="pricing" pos="relative">
+    <Section id="pricing" pos="relative" innerWidth="container.2xl">
       <BackgroundGradient animate={false} height="100%" />
       <Box zIndex="2" pos="relative">
         <PageTitle
@@ -77,7 +77,7 @@ const Pricing = () => {
           alignItems="center"
         ></PageTitle>
 
-        <SimpleGrid columns={[1, null, 3]} spacing={4}>
+        <SimpleGrid columns={[1, null, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
             description="Basic components, perfect to get started."
@@ -179,6 +179,7 @@ const Pricing = () => {
               Pre-order
             </ButtonLink>
           </PricingBox>
+          <MemberShip />
         </SimpleGrid>
 
         <Text

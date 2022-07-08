@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.1.0
+
+### Minor Changes
+
+- 2c058b4: The Saas UI theme now uses InterVariable instead of Inter by default.
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 1.0.1
+
+### Patch Changes
+
+- cf99f38: Removed dependency
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 1.1.0
+
+### Minor Changes
+
+- 2c058b4: The Saas UI theme now uses InterVariable instead of Inter by default.
+
+### Patch Changes
+
+- Updated dependencies [2c058b4]
+- Updated dependencies [cf99f38]
+  - @saas-ui/theme@1.1.0
+  - @saas-ui/hotkeys@1.0.1
+  - @saas-ui/provider@1.0.1
+  - @saas-ui/layout@1.0.1
+  - @saas-ui/menu@1.0.1
+  - @saas-ui/auth@1.0.3
+  - @saas-ui/data-table@1.0.1
+  - @saas-ui/modals@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

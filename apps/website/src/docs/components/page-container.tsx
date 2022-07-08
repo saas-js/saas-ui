@@ -19,6 +19,7 @@ import { t } from '@/docs/utils/i18n'
 import { BackgroundGradient } from '@/components/background-gradient'
 
 import { formatRelative } from 'date-fns'
+import { DocsFeedback } from './docs-feedback'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()
@@ -154,6 +155,8 @@ function PageContainer(props: PageContainerProps) {
                       </Box>
                     )}
                     {children}
+
+                    <DocsFeedback />
                     <Box mt="40px">
                       <Box>{editUrl && <EditPageLink href={editUrl} />}</Box>
                       {pagination || null}

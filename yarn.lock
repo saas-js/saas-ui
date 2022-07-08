@@ -3579,6 +3579,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/theme-tools@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@chakra-ui/theme-tools@npm:2.0.3"
+  dependencies:
+    "@chakra-ui/utils": 2.0.2
+    "@ctrl/tinycolor": ^3.4.0
+  peerDependencies:
+    "@chakra-ui/system": ">=2.0.0-next.0"
+  checksum: 296bd8d149d71128c6e9b82193499ee813f84df590edb02ed0d3f52260902c714966efeef1a4157edce8df2492216c98ff19425fb7fe8db1f338b9d04b3fe7f6
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/theme@npm:2.1.0":
   version: 2.1.0
   resolution: "@chakra-ui/theme@npm:2.1.0"
@@ -6159,15 +6171,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/onboarding@npm:0.3.0":
-  version: 0.3.0
-  resolution: "@saas-ui/onboarding@npm:0.3.0"
+"@saas-ui/onboarding@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@saas-ui/onboarding@npm:0.3.2"
   dependencies:
     "@chakra-ui/anatomy": ^2.0.1
     "@chakra-ui/react-utils": ^2.0.1
     "@chakra-ui/system": ^2.1.3
     "@chakra-ui/utils": ^2.0.2
-    "@saas-ui/pro": 0.5.0
+    "@saas-ui/pro": 0.5.2
     "@saas-ui/react-utils": ^1.0.0
   peerDependencies:
     "@chakra-ui/react": ">=2.1"
@@ -6177,7 +6189,7 @@ __metadata:
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: d4abfdd1b208a4f478a649041549910858ece9ac19222c01ec9b9989ad6b84115ef0bb75ed698f4d326ea973c34a9bbf0fd64a1db1ef28fd7b8e7be7b48eda3d
+  checksum: 8309d4528befbb66377f4955152e938b1527ddbdda0f6b49f5af46250a2fb1246a8d18c99b4495728eca7336fb1a1b279b90aa13fe6f5b289360e1fbf6dc259b
   languageName: node
   linkType: hard
 
@@ -6228,17 +6240,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/pro@npm:0.5.0, @saas-ui/pro@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@saas-ui/pro@npm:0.5.0"
+"@saas-ui/pro@npm:0.5.2, @saas-ui/pro@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "@saas-ui/pro@npm:0.5.2"
   dependencies:
     "@chakra-ui/clickable": ^2.0.2
     "@chakra-ui/react-utils": ^2.0.1
     "@chakra-ui/system": ^2.1.3
-    "@chakra-ui/theme-tools": ^2.0.2
+    "@chakra-ui/theme-tools": ^2.0.3
     "@chakra-ui/utils": ^2.0.2
     "@react-hookz/web": ^13.3.0
-    "@saas-ui/onboarding": 0.3.0
+    "@saas-ui/onboarding": 0.3.2
     "@saas-ui/router": 0.2.0
     date-fns: ^2.28.0
     polished: ^4.2.2
@@ -6250,7 +6262,7 @@ __metadata:
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 8500b3b801ef7822791511786d79b12e7cfc19bbd968e52a215e2f7a268b2385204ea7e4f34afc05edd270b59607e2899d350f418b9f75596ccca7861453bb57
+  checksum: 801608d1565a8d8dea72b455fa3034405096839e7def2028b175696a1d8024724b0512b308752d4ebbb9664055654257c5c20ba83122639d5837563e0ad54a99
   languageName: node
   linkType: hard
 
@@ -28185,7 +28197,7 @@ __metadata:
     "@octokit/rest": ^18.12.0
     "@saas-ui/features": ^0.4.0
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/pro": ^0.5.0
+    "@saas-ui/pro": ^0.5.2
     "@saas-ui/props-docs": ^1.0.0
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"

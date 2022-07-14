@@ -22,6 +22,20 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 - Removed dependency
 
+## 07-08-2022
+
+`@saas-ui/react@1.1.0`
+
+- The Saas UI theme now uses InterVariable instead of Inter by default.
+
+**Theme** `v1.1.0`
+
+- The Saas UI theme now uses InterVariable instead of Inter by default.
+
+**Hotkeys** `v1.0.1`
+
+- Removed dependency
+
 ## 07-03-2022
 
 **Forms** `v1.0.2`

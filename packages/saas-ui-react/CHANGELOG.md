@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 1.1.1
+
+### Patch Changes
+
+- 7298059: Added new useSteps hook.
+- Updated dependencies [7298059]
+  - @saas-ui/hooks@1.0.1
+  - @saas-ui/auth@1.0.4
+
 ## 1.1.0
 
 ### Minor Changes

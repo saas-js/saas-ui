@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 1.0.1
+
+### Patch Changes
+
+- 7298059: Added new useSteps hook.
+
 ## 1.0.0
 
 ### Major Changes

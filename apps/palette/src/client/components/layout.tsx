@@ -39,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
         justifyContent="center"
       >
         <BannerDescription fontSize="sm">
-          Build modern React apps with Saas UI Pro 🚀
+          Build intuitive SaaS apps with speed 🚀
         </BannerDescription>
 
         <BannerActions>

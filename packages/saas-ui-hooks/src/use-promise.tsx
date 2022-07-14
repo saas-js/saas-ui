@@ -11,7 +11,7 @@ export interface UsePromise {
 type CallbackFn = (...args: any[]) => Promise<any>
 
 export function usePromise<C extends CallbackFn>(
-  fn: CallbackFn,
+  fn: CallbackFn
 ): [UsePromise, C] {
   const [isLoading, setLoading] = React.useState(false)
   const [isResolved, setResolved] = React.useState(false)
@@ -27,11 +27,15 @@ export function usePromise<C extends CallbackFn>(
         setData(data)
         setResolved(true)
         setLoading(false)
+
+        return data
       })
       .catch((err) => {
         setError(err)
         setRejected(true)
         setLoading(false)
+
+        throw err
       })
   }
 

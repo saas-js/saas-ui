@@ -69,7 +69,7 @@ export interface ArrayFieldOptions {
    */
   defaultValue?: Record<string, any>
   /**
-   * Default key name for rows, change this if your data uses 'id'
+   * Default key name for rows, change this if your data uses a different 'id' field
    * @default "id"
    */
   keyName?: string

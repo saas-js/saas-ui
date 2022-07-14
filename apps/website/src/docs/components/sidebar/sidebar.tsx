@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import NextLink from 'next/link'
 import * as React from 'react'
 import sortBy from 'lodash/sortBy'
 import {
@@ -9,6 +10,9 @@ import {
   useColorModeValue,
   Kbd,
   Collapse,
+  Icon,
+  Flex,
+  Center,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -24,23 +28,28 @@ export type SidebarContentProps = Routes & {
   contentRef?: any
 }
 
-function SidebarHeader({ color, isOpen, children, ...props }: any) {
+function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
+  const color = useColorModeValue('gray.900', 'whiteAlpha.900')
+
   return (
-    <chakra.div mt="8" px="4" {...props}>
+    <chakra.div px="4" {...props}>
       <chakra.h4
         fontSize="sm"
         fontWeight="bold"
         my="1.25rem"
         letterSpacing="wider"
-        color={color}
+        color={isActive ? color : 'muted'}
         display="flex"
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="flex-start"
         userSelect="none"
         cursor="pointer"
         className="sidebar-group-header"
+        _hover={{ color }}
       >
-        {children}
+        <chakra.span flex="1" display="inline-flex" alignItems="center">
+          {children}
+        </chakra.span>
         <chakra.span
           color={useColorModeValue('gray.500', 'gray.500')}
           transition="color .2s ease-in"
@@ -62,99 +71,129 @@ function SidebarHeader({ color, isOpen, children, ...props }: any) {
 
 function SidebarGroup({
   title,
+  icon,
   routes,
   heading,
+  path,
   pathname,
   open,
   contentRef,
   ...props
 }: any) {
+  const { asPath } = useRouter()
+  const isActive = isMainNavLinkActive(path, asPath)
+
   const { isOpen, getToggleProps, getCollapseProps, onOpen, onClose } =
     useCollapse({
-      defaultIsOpen: open,
+      defaultIsOpen: isActive || open,
     })
 
   React.useEffect(() => {
-    if (open) {
+    if (isActive) {
       onOpen()
-    } else {
-      onClose()
     }
-  }, [routes, open, onOpen, onClose])
+  }, [isActive, onOpen])
 
   return (
     <Box {...props}>
-      {heading && (
-        <SidebarHeader isOpen={isOpen} {...getToggleProps()}>
+      {heading && routes.length ? (
+        <SidebarHeader
+          isOpen={isOpen}
+          isActive={isActive}
+          {...getToggleProps()}
+        >
+          {icon && <Icon as={icon} me="2" />}
           {title}
         </SidebarHeader>
+      ) : (
+        <MainNavLink href={path}>
+          {icon && <Icon as={icon} me="2" />}
+          {title}
+        </MainNavLink>
       )}
 
-      <Collapse {...getCollapseProps()}>
-        <Box px="4" overflow="hidden">
-          {routes.map((lvl2, index) => {
-            if (!lvl2.routes) {
+      {routes && (
+        <Collapse {...getCollapseProps()}>
+          <Box px="4" overflow="hidden">
+            {routes?.map((lvl2, index) => {
+              if (!lvl2.routes) {
+                return (
+                  <SidebarLink
+                    ml="-3"
+                    mb="2"
+                    key={lvl2.path || index}
+                    href={lvl2.path}
+                  >
+                    {lvl2.title}
+                  </SidebarLink>
+                )
+              }
+
+              const selected = pathname.startsWith(lvl2.path)
+              const opened = selected || lvl2.open
+
+              const sortedRoutes = lvl2.sort
+                ? sortBy(lvl2.routes, (i) => i.title)
+                : lvl2.routes
+
               return (
-                <SidebarLink
-                  ml="-3"
-                  mb="2"
-                  key={lvl2.path || index}
-                  href={lvl2.path}
+                <SidebarCategory
+                  contentRef={contentRef}
+                  key={lvl2.path + index}
+                  title={lvl2.title}
+                  selected={selected}
+                  opened={opened}
                 >
-                  {lvl2.title}
-                </SidebarLink>
+                  <Stack as="ul" spacing="1">
+                    {sortedRoutes.map((lvl3, i) => (
+                      <SidebarLink
+                        as="li"
+                        key={lvl3.path || i}
+                        href={lvl3.path}
+                      >
+                        <span>{convertBackticksToInlineCode(lvl3.title)}</span>
+                        {lvl3.new && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="solid"
+                            colorScheme="primary"
+                          >
+                            New
+                          </Badge>
+                        )}
+                        {lvl3.soon && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="solid"
+                            colorScheme="gray"
+                          >
+                            Soon
+                          </Badge>
+                        )}
+                        {lvl3.pro && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="solid"
+                            colorScheme="purple"
+                          >
+                            Pro
+                          </Badge>
+                        )}
+                      </SidebarLink>
+                    ))}
+                  </Stack>
+                </SidebarCategory>
               )
-            }
-
-            const selected = pathname.startsWith(lvl2.path)
-            const opened = selected || lvl2.open
-
-            const sortedRoutes = lvl2.sort
-              ? sortBy(lvl2.routes, (i) => i.title)
-              : lvl2.routes
-
-            return (
-              <SidebarCategory
-                contentRef={contentRef}
-                key={lvl2.path + index}
-                title={lvl2.title}
-                selected={selected}
-                opened={opened}
-              >
-                <Stack as="ul" spacing="1">
-                  {sortedRoutes.map((lvl3, i) => (
-                    <SidebarLink as="li" key={lvl3.path || i} href={lvl3.path}>
-                      <span>{convertBackticksToInlineCode(lvl3.title)}</span>
-                      {lvl3.new && (
-                        <Badge
-                          ml="2"
-                          lineHeight="tall"
-                          fontSize="10px"
-                          variant="solid"
-                          colorScheme="primary"
-                        >
-                          New
-                        </Badge>
-                      )}
-                      {lvl3.soon && (
-                        <Badge
-                          ml="2"
-                          lineHeight="tall"
-                          fontSize="10px"
-                          variant="solid"
-                          colorScheme="gray"
-                        >
-                          Soon
-                        </Badge>
-                      )}
-                    </SidebarLink>
-                  ))}
-                </Stack>
-              </SidebarCategory>
-            )
-          })}
-        </Box>
-      </Collapse>
+            })}
+          </Box>
+        </Collapse>
+      )}
     </Box>
   )
 }
@@ -199,8 +238,8 @@ export function SidebarContent(props: SidebarContentProps) {
   }, [routes, query, filterRoutes])
 
   return (
-    <>
-      <Box>
+    <Flex flexDirection="column" height="100%">
+      <Box px="2" pb="2">
         <SearchInput
           ref={searchRef}
           placeholder="Search docs..."
@@ -216,17 +255,19 @@ export function SidebarContent(props: SidebarContentProps) {
           }
         />
       </Box>
-      {filteredRoutes.map((lvl1, idx) => {
-        return (
-          <SidebarGroup
-            key={idx}
-            contentRef={contentRef}
-            pathname={pathname}
-            {...lvl1}
-          />
-        )
-      })}
-    </>
+      <Box flex="1" overflowY="auto" minH="0" py="4">
+        {filteredRoutes.map((lvl1, idx) => {
+          return (
+            <SidebarGroup
+              key={idx}
+              contentRef={contentRef}
+              pathname={pathname}
+              {...lvl1}
+            />
+          )
+        })}
+      </Box>
+    </Flex>
   )
 }
 
@@ -243,18 +284,56 @@ const Sidebar = ({ routes }) => {
       overscrollBehavior="contain"
       w="280px"
       top="72px"
-      height="calc(100vh - 80px)"
+      height="calc(100vh - 72px)"
       pr="4"
-      pb="6"
       pl="2"
       pt="16"
-      overflowY="auto"
       className="sidebar-content"
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}
     >
       <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
     </Box>
+  )
+}
+
+type MainNavLinkProps = {
+  href: string
+  children: React.ReactNode
+  label?: string
+}
+
+export const isMainNavLinkActive = (href: string, path: string) => {
+  const [, group, category] = href.split('/')
+
+  return path.includes(
+    href.split('/').length >= 3 ? `${group}/${category}` : group
+  )
+}
+
+const MainNavLink = ({ href, children }: MainNavLinkProps) => {
+  const { asPath } = useRouter()
+  const active = isMainNavLinkActive(href, asPath)
+  const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
+
+  return (
+    <NextLink href={href} passHref>
+      <Flex
+        as="a"
+        py="1"
+        px="4"
+        mb="2"
+        align="center"
+        fontSize="sm"
+        fontWeight="semibold"
+        transitionProperty="colors"
+        transitionDuration="200ms"
+        color={active ? linkColor : 'muted'}
+        _hover={{ color: linkColor }}
+      >
+        {children}
+      </Flex>
+    </NextLink>
   )
 }
 

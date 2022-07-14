@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import {
   useForm,
@@ -10,11 +11,12 @@ import {
   FieldValues,
   SubmitHandler,
   SubmitErrorHandler,
+  ResolverOptions,
+  ResolverResult,
 } from 'react-hook-form'
+import { objectFieldResolver, FieldResolver } from './field-resolver'
 
-import { yupResolver } from './resolvers/yup'
-
-export type { UseFormReturn }
+export type { UseFormReturn, FieldValues, SubmitHandler }
 
 interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
@@ -32,18 +34,18 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
    * Ref on the HTMLFormElement.
    */
-  formRef?: React.MutableRefObject<HTMLFormElement>
+  formRef?: React.RefObject<HTMLFormElement>
 }
-
-export interface FormProps<TFieldValues extends FieldValues = FieldValues>
-  extends UseFormProps<TFieldValues>,
-    Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
-    FormOptions<TFieldValues> {}
 
 /**
  * @todo Figure out how to pass down FieldValues to all Field components,
  * if at all possible.
  */
+export interface FormProps<TFieldValues extends FieldValues = FieldValues>
+  extends UseFormProps<TFieldValues>,
+    Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
+    FormOptions<TFieldValues> {}
+
 export const Form = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FormProps<TFieldValues>,
@@ -79,15 +81,14 @@ export const Form = forwardRef(
       delayError,
     }
 
-    // @todo remove yup dependency and just use resolver prop?
-    if (schema) {
-      form.resolver = yupResolver(schema)
+    if (schema && !resolver) {
+      form.resolver = Form.getResolver?.(schema)
     }
 
     const methods = useForm<TFieldValues>(form)
     const { handleSubmit } = methods
 
-    // This exposes the useForm api through the forwareded ref
+    // This exposes the useForm api through the forwarded ref
     React.useImperativeHandle(ref, () => methods, [ref, methods])
 
     return (
@@ -96,14 +97,35 @@ export const Form = forwardRef(
           ref={formRef}
           onSubmit={handleSubmit(onSubmit, onError)}
           {...rest}
+          className={cx('saas-form', props.className)}
         >
           {children}
         </chakra.form>
       </FormProvider>
     )
   }
-) as <TFieldValues extends FieldValues>(
+) as (<TFieldValues extends FieldValues>(
   props: FormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
-) => React.ReactElement
+) => React.ReactElement) & {
+  displayName?: string
+  getResolver?: GetResolver
+  getFieldResolver: GetFieldResolver
+}
+
+Form.getFieldResolver = objectFieldResolver
+
+if (__DEV__) {
+  Form.displayName = 'Form'
+}
+
+export type GetResolver = (
+  schema: any
+) => <TFieldValues extends FieldValues, TContext>(
+  values: TFieldValues,
+  context: TContext | undefined,
+  options: ResolverOptions<TFieldValues>
+) => Promise<ResolverResult<TFieldValues>>
+
+export type GetFieldResolver = (schema: any) => FieldResolver

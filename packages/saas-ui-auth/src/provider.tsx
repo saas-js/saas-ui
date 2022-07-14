@@ -8,7 +8,7 @@ export type AuthTypeEnum = 'magiclink' | 'password'
 
 export type AuthActionEnum = 'logIn' | 'signUp'
 
-export type AuthToken = 'string' | null | undefined
+export type AuthToken = string | null | undefined
 
 export interface AuthParams {
   email?: string
@@ -91,6 +91,8 @@ export interface AuthProviderProps {
    * Return the session token
    */
   onGetToken?: () => Promise<AuthToken>
+
+  children?: React.ReactNode
 }
 
 export type AuthFunction = (
@@ -137,7 +139,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
         setAuthenticated(!!user)
       })
       return () => {
-        unsubscribe()
+        unsubscribe?.()
       }
     }
   }, [])

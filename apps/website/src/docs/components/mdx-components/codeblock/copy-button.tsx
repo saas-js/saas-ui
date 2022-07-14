@@ -32,7 +32,8 @@ function CopyButton({ code, ...props }: CopyButtonProps) {
         zIndex="1"
         right="1.25em"
         variant="ghost"
-        _hover={{ bg: 'none' }}
+        bg="codeBackground"
+        _hover={{ bg: 'codeBackground' }}
         {...props}
         aria-label="copy"
         onClick={onCopy}

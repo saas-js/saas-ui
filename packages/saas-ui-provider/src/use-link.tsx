@@ -1,10 +1,12 @@
 import React from 'react'
 import { useSaas } from './saas-provider'
 
-export function useLink(): any {
+const Link: React.FC<any> = ({ children }) => <>{children}</>
+
+export function useLink(): React.ElementType<any> {
   const context = useSaas()
   if (context?.linkComponent) {
     return context.linkComponent
   }
-  return ({ children }: React.PropsWithChildren<null>) => <>{children}</>
+  return Link
 }

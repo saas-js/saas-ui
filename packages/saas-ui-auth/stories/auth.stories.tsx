@@ -13,11 +13,20 @@ import {
   AuthParams,
   ForgotPasswordView,
   UpdatePasswordView,
+  AuthProps,
 } from '../src'
 
 import { Field } from '@saas-ui/react'
 
 import { FaGoogle, FaGithub } from 'react-icons/fa'
+
+import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+const passwordSchema = Yup.object({
+  email: Yup.string().email('Invalid email address').required().label('Email'),
+  password: Yup.string().min(4).required().label('Password'),
+})
 
 const authProvider = {
   onLogin: async (params: AuthParams) => {
@@ -68,7 +77,7 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-const Template: Story = (args) => <Auth {...args} />
+const Template: Story<AuthProps> = (args) => <Auth {...args} />
 
 export const Basic = Template.bind({})
 
@@ -96,11 +105,12 @@ export const ButtonColor = () => {
 export const Password = Template.bind({})
 Password.args = {
   type: 'password',
+  resolver: yupResolver(passwordSchema),
 }
 
 export const PasswordWithCustomFields = () => {
   return (
-    <AuthForm action="logIn">
+    <AuthForm action="logIn" type="password">
       <Field
         name="rememberMe"
         type="checkbox"
@@ -110,6 +120,7 @@ export const PasswordWithCustomFields = () => {
     </AuthForm>
   )
 }
+PasswordWithCustomFields.args = {}
 
 export const Otp = Template.bind({})
 Otp.args = {

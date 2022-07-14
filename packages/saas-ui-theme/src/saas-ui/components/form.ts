@@ -1,3 +1,6 @@
+import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { inputAnatomy } from '@chakra-ui/anatomy'
+
 const inputSizes = {
   sm: {
     field: {
@@ -19,6 +22,27 @@ const inputSizes = {
   },
 }
 
+const outlineVariant: PartsStyleFunction<typeof inputAnatomy> = (props) => {
+  return {
+    field: {
+      borderColor: mode('blackAlpha.300', 'whiteAlpha.300')(props),
+      _hover: {
+        borderColor: mode('blackAlpha.400', 'whiteAlpha.400')(props),
+      },
+    },
+  }
+}
+
+const Input = {
+  defaultProps: {
+    focusBorderColor: 'primary.500',
+  },
+  variants: {
+    outline: outlineVariant,
+  },
+  sizes: inputSizes,
+}
+
 export default {
   FormLabel: {
     variants: {
@@ -28,34 +52,9 @@ export default {
       },
     },
   },
-  Input: {
-    defaultProps: {
-      focusBorderColor: 'primary.500',
-    },
-    sizes: inputSizes,
-  },
-  NumberInput: {
-    defaultProps: {
-      focusBorderColor: 'primary.500',
-    },
-    sizes: inputSizes,
-  },
-  PinInput: {
-    defaultProps: {
-      focusBorderColor: 'primary.500',
-    },
-    sizes: inputSizes,
-  },
-  Textarea: {
-    defaultProps: {
-      focusBorderColor: 'primary.500',
-    },
-    sizes: inputSizes,
-  },
-  Select: {
-    defaultProps: {
-      focusBorderColor: 'primary.500',
-    },
-    sizes: inputSizes,
-  },
+  Input,
+  NumberInput: Input,
+  PinInput: Input,
+  Textarea: Input,
+  Select: Input,
 }

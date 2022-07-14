@@ -1,6 +1,7 @@
 // doesn't support React 17 yet
 
 import { Box, BoxProps, chakra } from '@chakra-ui/react'
+import { FeaturesOptions, FeaturesProvider } from '@saas-ui/features'
 import React, { useState } from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 import CodeContainer from './code-container'
@@ -9,6 +10,31 @@ import scope from './react-live-scope'
 import { liveEditorStyle, liveErrorStyle } from './styles'
 // import { t } from 'utils/i18n'
 
+const features: FeaturesOptions = {
+  segments: [
+    {
+      id: 'admin',
+      attr: [
+        {
+          key: 'role',
+          value: 'admin',
+        },
+      ],
+      features: ['settings', { id: 'value-feature', value: 'enabled' }],
+    },
+    {
+      id: 'proPlan',
+      attr: [
+        {
+          key: 'plan',
+          value: 'pro',
+        },
+      ],
+      features: ['inbox'],
+    },
+  ],
+}
+
 const LiveCodePreview = chakra(LivePreview, {
   baseStyle: {
     fontFamily: 'body',
@@ -16,6 +42,7 @@ const LiveCodePreview = chakra(LivePreview, {
     p: 3,
     borderWidth: 1,
     borderRadius: '12px',
+    fontSize: 'md',
   },
 })
 
@@ -53,19 +80,21 @@ function ReactLiveBlock({ editable, rawCode, theme, ...rest }) {
     ...rest,
   }
   return (
-    <LiveProvider {...liveProviderProps}>
-      <LiveCodePreview zIndex="1" />
-      <Box position="relative" zIndex="0">
-        {editable && (
-          <CodeContainer bg={theme.plain.backgroundColor}>
-            <LiveEditor onChange={onChange} style={liveEditorStyle} />
-          </CodeContainer>
-        )}
-        <CopyButton code={editorCode} />
-        {editable && <EditableNotice bg={theme.plain.backgroundColor} />}
-      </Box>
-      {editable && <LiveError style={liveErrorStyle} />}
-    </LiveProvider>
+    <FeaturesProvider value={features}>
+      <LiveProvider {...liveProviderProps}>
+        <LiveCodePreview zIndex="1" />
+        <Box position="relative" zIndex="0">
+          {editable && (
+            <CodeContainer bg={theme.plain.backgroundColor}>
+              <LiveEditor onChange={onChange} style={liveEditorStyle} />
+            </CodeContainer>
+          )}
+          <CopyButton code={editorCode} />
+          {editable && <EditableNotice bg={theme.plain.backgroundColor} />}
+        </Box>
+        {editable && <LiveError style={liveErrorStyle} />}
+      </LiveProvider>
+    </FeaturesProvider>
   )
 }
 

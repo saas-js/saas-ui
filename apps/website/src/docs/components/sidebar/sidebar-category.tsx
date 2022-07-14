@@ -1,4 +1,10 @@
-import { BoxProps, chakra, useColorModeValue, Collapse } from '@chakra-ui/react'
+import {
+  BoxProps,
+  chakra,
+  useColorModeValue,
+  Collapse,
+  Icon,
+} from '@chakra-ui/react'
 import { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 
 interface SidebarCategoryProps extends BoxProps {
@@ -66,6 +72,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
         justifyContent="space-between"
         userSelect="none"
         color={useColorModeValue('gray.500', 'gray.500')}
+        ps="5"
       >
         {title}
       </chakra.p>

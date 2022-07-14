@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { Container, Stack, Button } from '@chakra-ui/react'
 
-import { DataTable, TableInstance, Column } from '../src'
+import { DataTable, DataTableProps, TableInstance, Column } from '../src'
 
 export default {
   title: 'Components/Data Display/DataTable',
@@ -17,7 +17,12 @@ export default {
   ],
 } as Meta
 
-const Template: Story = ({ data, columns, initialState, ...args }) => (
+const Template: Story<DataTableProps<ExampleData>> = ({
+  data,
+  columns,
+  initialState,
+  ...args
+}) => (
   <DataTable<ExampleData>
     data={data}
     columns={columns}

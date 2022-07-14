@@ -11,13 +11,12 @@ import {
 import { getRouteContext } from '@/docs/utils/get-route-context'
 
 export function getRoutes(slug: string) {
-  // for home page, use docs sidebat
+  // for home page, use docs sidebar
   if (slug === '/') return docsSidebar.routes
 
   const configMap = {
     '/resources': docsSidebar,
     '/changelog': docsSidebar,
-    // '/guides': guidesSidebar,
     '/docs': docsSidebar,
   }
 

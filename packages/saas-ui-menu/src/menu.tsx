@@ -4,11 +4,18 @@ import {
   MenuItem as ChakraMenuItem,
   MenuItemProps as ChakraMenuItemProps,
 } from '@chakra-ui/react'
-
+import { __DEV__ } from '@chakra-ui/utils'
 import { useLink } from '@saas-ui/provider'
 
 export interface MenuItemProps extends ChakraMenuItemProps {
-  label?: string
+  /**
+   * MenuItem label
+   * Children always takes precedence over this prop.
+   */
+  label?: React.ReactNode
+  /**
+   * Wraps the item with the link wrapper configured in SaasProvider.
+   */
   href?: string
 }
 
@@ -18,7 +25,7 @@ export const MenuItem = forwardRef<MenuItemProps, typeof ChakraMenuItem>(
 
     const item = (
       <ChakraMenuItem ref={ref} {...props}>
-        {label || children}
+        {children || label}
       </ChakraMenuItem>
     )
 
@@ -29,3 +36,7 @@ export const MenuItem = forwardRef<MenuItemProps, typeof ChakraMenuItem>(
     return item
   }
 )
+
+if (__DEV__) {
+  MenuItem.displayName = 'MenuItem'
+}

@@ -1,6 +1,6 @@
 import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
-import { parts } from '../../base/components/empty-state'
+import { emptyStateParts as parts } from '../../base/components/empty-state'
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props

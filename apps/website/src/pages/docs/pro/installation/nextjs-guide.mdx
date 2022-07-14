@@ -1,0 +1,32 @@
+---
+title: Setting up Next.js with Saas UI Pro
+description: This guide will show you how to configure Next.js with Saas UI Pro.
+---
+
+The Pro packages are published in Typescript, this might not work out of the box with your app.
+You'll need to configure your bundler to transpile the Pro packages to plain Javascript.
+
+- `@saas-ui/pro`
+- `@saas-ui/billing`
+- `@saas-ui/charts`
+- `@saas-ui/date-picker`
+- `@saas-ui/features`
+- `@saas-ui/onboarding`
+- `@saas-ui/router`
+
+#### Next.js
+
+Edit `next.config.js` and add a custom webpack config.
+This will work for both Babel and SWC transpilers.
+
+```js
+module.exports = {
+  webpack: (config, { defaultLoaders }) => {
+    config.module.rules.push({
+      test: /node_modules\/@saas-ui\/(pro|billing|charts|date-picker|features|onboarding|router)\/.*\.tsx?/,
+      use: [defaultLoaders.babel],
+    })
+    return config
+  },
+}
+```

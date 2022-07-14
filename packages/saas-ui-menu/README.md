@@ -1,6 +1,9 @@
 # @saas-ui/menu
 
-Description
+Chakra UI Menu extensions.
+
+- ContextMenu
+- OverflowMenu
 
 ## Installation
 
@@ -12,7 +15,13 @@ $ yarn add @saas-ui/menu
 $ npm i @saas-ui/menu  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-menu
 
 ## License
 

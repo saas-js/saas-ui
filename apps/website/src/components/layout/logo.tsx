@@ -15,7 +15,7 @@ const Logo = ({ href = '/', onClick }: LogoProps) => {
 
   let logo
   if (siteConfig.logo) {
-    logo = <Box as={siteConfig.logo} />
+    logo = <Box as={siteConfig.logo} height="32px" mt="-4px" />
   } else {
     logo = (
       <Heading as="h1" size="md">
@@ -25,14 +25,13 @@ const Logo = ({ href = '/', onClick }: LogoProps) => {
   }
 
   return (
-    <Flex h="8" alignItems="flex-start">
+    <Flex h="8" flexShrink="0" alignItems="flex-start">
       <AccessibleLink
         href={href}
         display="flex"
         p="1"
         borderRadius="sm"
         onClick={onClick}
-        height="32px"
       >
         {logo}
         <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>

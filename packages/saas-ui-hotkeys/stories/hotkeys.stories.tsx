@@ -40,6 +40,12 @@ const hotkeys: HotkeysListOptions = {
       search: { label: 'Search', command: '⌘ K' },
     },
   },
+  navigation: {
+    title: 'Navigation',
+    hotkeys: {
+      inbox: { label: 'Inbox', command: 'N then I' },
+    },
+  },
   markdown: {
     title: 'Markdown',
     hotkeys: {
@@ -198,6 +204,38 @@ export const ignoreKeyInsideInput = () => {
   return (
     <Box>
       <Input placeholder={`Type ${key}`} ref={ref} />
+    </Box>
+  )
+}
+
+export const KeySequence = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+  const key = useHotkeysShortcut('A then B', () => {
+    ref.current.focus()
+  })
+
+  return (
+    <Box>
+      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+    </Box>
+  )
+}
+
+export const SingleAndKeySequence = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  const key = useHotkeysShortcut('A', () => {
+    ref.current.focus()
+  })
+
+  useHotkeysShortcut('A then B', () => {
+    // this shouldn't trigger
+    alert('A then B pressed')
+  })
+
+  return (
+    <Box>
+      <Input placeholder={`Press ${key} to focus`} ref={ref} />
     </Box>
   )
 }

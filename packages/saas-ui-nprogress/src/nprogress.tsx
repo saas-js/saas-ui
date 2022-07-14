@@ -6,11 +6,12 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
+  useColorModeValue,
+  useMultiStyleConfig,
+  SystemStyleObject,
 } from '@chakra-ui/system'
 
-import { mode } from '@chakra-ui/theme-tools'
-
-import { useMultiStyleConfig } from '@saas-ui/system'
+import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { useNProgress } from '@tanem/react-nprogress'
 
@@ -27,22 +28,9 @@ export interface NProgressProps
     ThemingProps<'NProgress'> {}
 
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('NProgress', props, {
-    defaultStyleConfig: {
-      parts: ['container', 'bar'],
-      defaultProps: {
-        colorScheme: 'teal',
-      },
-      baseStyle: (props: any) => {
-        const { colorScheme: c } = props
-        return {
-          bar: {
-            bg: mode(`${c}.500`, `${c}.300`)(props),
-          },
-        }
-      },
-    },
-  })
+  const styles = useMultiStyleConfig('NProgress', props)
+
+  const { colorScheme: c } = props
 
   const { children, isAnimating, ...containerProps } = omitThemingProps(props)
 
@@ -50,9 +38,10 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
     isAnimating,
   })
 
-  const barStyles = {
+  const barStyles: SystemStyleObject = {
     width: '100%',
     height: '2px',
+    bg: useColorModeValue(`${c}.500`, `${c}.300`),
     ...styles.bar,
   }
 
@@ -68,6 +57,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
       zIndex="overlay"
       transition={`opacity ${animationDuration}ms linear`}
       {...containerProps}
+      className={cx('saas-nprogress', props.className)}
     >
       <chakra.div
         __css={barStyles}
@@ -77,3 +67,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
     </chakra.div>
   )
 })
+
+if (__DEV__) {
+  NProgress.displayName = 'NProgress'
+}

@@ -7,11 +7,14 @@ import { useHotkeys } from './use-hotkeys'
  * Accepts one key combination or a shortcut
  *
  * Shortcuts refer to a predefined hotkeys configuration.
- * More info see:
- * @type Hotkeys
+ * @see https://www.saas-ui.dev/docs/navigation/hotkeys
  *
  * For example:
  * ctrl+f or general.search
+ *
+ * Supports shifted keys like ?, =, >.
+ *
+ * ⌥ ⇧ ⌃ ⌘ shorthands are supported.
  *
  * @param keyOrShortcut Key combinations or a hotkeys shortcut
  * @param callback The function to execute when the keys are pressed

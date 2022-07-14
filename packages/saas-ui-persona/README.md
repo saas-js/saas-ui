@@ -2,13 +2,6 @@
 
 A Persona component for Chakra UI
 
-## Todo
-
-This package is still in development and might not work 100% as expected.
-If you find any issues, please open an issues here on Github.
-
-- [ ] Add tests
-
 ## Installation
 
 ```sh
@@ -38,6 +31,14 @@ export default const App = () => {
   )
 }
 ```
+
+## Docs
+
+https://www.saas-ui.dev/docs/data-display/persona
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-persona
 
 ## License
 

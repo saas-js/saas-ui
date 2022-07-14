@@ -16,9 +16,10 @@ import { StoryContext } from '@storybook/react'
 import * as React from 'react'
 // import { FaMoon, FaSun } from 'react-icons/fa'
 import { FiMoon, FiSun } from 'react-icons/fi'
-import { withPerformance } from 'storybook-addon-performance'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 import { baseTheme, theme } from '@saas-ui/theme'
+import { useLocalStorage } from '@saas-ui/react'
 
 /**
  * Add global context for RTL-LTR switching
@@ -32,6 +33,12 @@ export const globalTypes = {
       icon: 'globe',
       items: ['LTR', 'RTL'],
     },
+  },
+}
+
+export const parameters = {
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
   },
 }
 
@@ -70,9 +77,8 @@ const ColorModeToggle = () => {
 }
 
 const withChakra = (StoryFn: Function, context: StoryContext) => {
-  const [themeId, setTheme] = React.useState(
-    localStorage.getItem('storybook.theme') || '0'
-  )
+  const [themeId, setTheme] = useLocalStorage('storybook.theme', '0')
+
   const { direction } = context.globals
   const dir = direction.toLowerCase()
 
@@ -91,7 +97,6 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
             value={themeId}
             onChange={(id) => {
               setTheme(id)
-              localStorage.setItem('storybook.theme', id)
             }}
           />
           <ColorModeToggle />
@@ -102,4 +107,4 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
   )
 }
 
-export const decorators = [withChakra, withPerformance]
+export const decorators = [withChakra]

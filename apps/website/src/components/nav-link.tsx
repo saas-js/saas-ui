@@ -7,10 +7,11 @@ import Link from 'next/link'
 export interface NavLinkProps extends ButtonProps {
   isActive?: boolean
   href?: string
+  id?: string
 }
 
 const NavLink = forwardRef((props: NavLinkProps, ref) => {
-  const { href, children, type, isActive, ...rest } = props
+  const { href, type, isActive, ...rest } = props
 
   return (
     <Link href={href as string} passHref>
@@ -20,10 +21,9 @@ const NavLink = forwardRef((props: NavLinkProps, ref) => {
         variant="nav-link"
         lineHeight="2rem"
         isActive={isActive}
+        fontWeight="medium"
         {...rest}
-      >
-        {children}
-      </Button>
+      />
     </Link>
   )
 })

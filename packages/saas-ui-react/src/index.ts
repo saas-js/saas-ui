@@ -1,5 +1,5 @@
 export * from './typography'
-
+export * from './error-boundary'
 export * from '@saas-ui/auth'
 export * from '@saas-ui/banner'
 export * from '@saas-ui/button'
@@ -26,5 +26,5 @@ export * from '@saas-ui/radio'
 export * from '@saas-ui/search-input'
 export * from '@saas-ui/select'
 export * from '@saas-ui/snackbar'
-export * from '@saas-ui/system'
+export * from '@saas-ui/stepper'
 export * from '@saas-ui/theme'

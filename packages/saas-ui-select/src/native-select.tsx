@@ -5,14 +5,15 @@ import {
   Select as ChakraSelect,
   SelectProps as ChakraSelectProps,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 interface Option {
   value: string
-  label: string
+  label?: string
 }
 
 interface NativeSelectOptions {
-  options: Option[]
+  options?: Option[]
 }
 
 export interface NativeSelectProps
@@ -20,17 +21,22 @@ export interface NativeSelectProps
     NativeSelectOptions {}
 
 export const NativeSelect = forwardRef<NativeSelectProps, 'select'>(
-  ({ options, ...props }, ref) => {
+  ({ options, children, ...props }, ref) => {
     return (
       <ChakraSelect ref={ref} {...props}>
-        {options.map(({ value, label }) => {
-          return (
-            <option key={value} value={value}>
-              {label || value}
-            </option>
-          )
-        })}
+        {children ||
+          options?.map(({ value, label }) => {
+            return (
+              <option key={value} value={value}>
+                {label || value}
+              </option>
+            )
+          })}
       </ChakraSelect>
     )
   }
 )
+
+if (__DEV__) {
+  NativeSelect.displayName = 'NativeSelect'
+}

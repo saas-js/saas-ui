@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { __DEV__ } from '@chakra-ui/utils'
 import { useFormContext } from 'react-hook-form'
 
 import {
@@ -20,12 +21,25 @@ export const DisplayField: React.FC<DisplayFieldProps> = ({
   placeholder,
   ...props
 }) => {
-  const { getValues } = useFormContext()
-
   return (
     <FormControl {...props}>
       {label ? <FormLabel htmlFor={name}>{label}</FormLabel> : null}
-      <Text fontSize="md">{getValues(name)}</Text>
+      <Text fontSize="md">
+        <FormValue name={name} />
+      </Text>
     </FormControl>
   )
+}
+
+if (__DEV__) {
+  DisplayField.displayName = 'DisplayField'
+}
+
+export const FormValue: React.FC<{ name: string }> = ({ name }) => {
+  const { getValues } = useFormContext()
+  return getValues(name) || null
+}
+
+if (__DEV__) {
+  FormValue.displayName = 'FormValue'
 }

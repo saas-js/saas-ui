@@ -10,12 +10,6 @@
     "strict": true,
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noImplicitAny": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
     "jsx": "react",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -24,13 +18,13 @@
     "incremental": true,
     "declarationMap": true
   },
-  "include": ["packages", "scripts", "tooling"],
   "exclude": ["node_modules", "**/node_modules"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
       "resolveJsonModule": true,
       "noImplicitAny": false
-    }
+    },
+    "swc": true
   }
 }

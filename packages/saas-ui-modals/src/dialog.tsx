@@ -116,7 +116,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
                   closeOnCancel && onClose()
                 }}
               >
-                Cancel
+                {cancelLabel}
               </Button>
               <Button
                 ref={confirmRef}
@@ -127,7 +127,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
                   closeOnConfirm && onClose()
                 }}
               >
-                Confirm
+                {confirmLabel}
               </Button>
             </ButtonGroup>
           </AlertDialogFooter>

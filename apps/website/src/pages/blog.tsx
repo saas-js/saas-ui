@@ -12,11 +12,10 @@ import {
 
 import SEO from '@/components/seo'
 
-import { allBlogs } from '.contentlayer/data'
-import type { Blog } from '.contentlayer/types'
+import { allBlogs } from '.contentlayer/generated'
 
-import Section from '@/components/marketing/section-wrapper'
 import Link from '@/components/link'
+import { compareDesc } from 'date-fns'
 
 const Post = (props) => {
   const { title, description, slug, status } = props
@@ -35,7 +34,7 @@ const Post = (props) => {
   )
 }
 
-const Blog = ({ blogs }) => {
+const BlogPage = ({ blogs }) => {
   return (
     <Box py={20}>
       <SEO
@@ -58,14 +57,18 @@ const Blog = ({ blogs }) => {
   )
 }
 
-export default Blog
+export default BlogPage
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const blogs =
-    allBlogs.filter(
-      (blog) =>
-        process.env.NODE_ENV === 'development' || blog.status !== 'draft'
-    ) || []
+    allBlogs
+      .filter(
+        (blog) =>
+          process.env.NODE_ENV === 'development' || blog.status !== 'draft'
+      )
+      .sort((a, b) => {
+        return compareDesc(new Date(a.date), new Date(b.date))
+      }) || []
 
   return {
     props: {

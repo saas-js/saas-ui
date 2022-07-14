@@ -1,5 +1,5 @@
 import { VStack, Heading, Box, StackProps } from '@chakra-ui/layout'
-import { useMultiStyleConfig, useStyles } from '@chakra-ui/react'
+import { useMultiStyleConfig, SystemStyleObject } from '@chakra-ui/react'
 
 export interface SectionTitleProps extends Omit<StackProps, 'title'> {
   title: React.ReactNode
@@ -21,13 +21,14 @@ export default function SectionTitle({
     <VStack
       sx={styles.wrapper}
       alignItems={align === 'left' ? 'flex-start' : 'center'}
+      spacing={4}
       {...props}
     >
       <Heading sx={styles.title} as="h2">
         {title}
       </Heading>
       {description && (
-        <Box sx={styles.description} align={align}>
+        <Box sx={styles.description} textAlign={align}>
           {description}
         </Box>
       )}

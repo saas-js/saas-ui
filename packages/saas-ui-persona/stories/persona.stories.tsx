@@ -56,9 +56,7 @@ export const basic = () => (
 export const composed = () => (
   <>
     <PersonaContainer>
-      <Avatar name={persona.name}>
-        <AvatarBadge boxSize="1em" bg={Presence.online} />
-      </Avatar>
+      <PersonaAvatar name={persona.name} presence="away" />
       <PersonaDetails>
         <PersonaLabel>{persona.name}</PersonaLabel>
         <PersonaSecondaryLabel>{persona.secondaryLabel}</PersonaSecondaryLabel>

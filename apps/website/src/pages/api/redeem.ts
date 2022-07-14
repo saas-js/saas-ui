@@ -7,7 +7,57 @@ const sendDiscordNotification = async ({
   product,
   githubAccount,
   githubInvited,
+  npmAccount,
 }) => {
+  const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK
+  try {
+    if (DISCORD_WEBHOOK) {
+      const body = JSON.stringify({
+        content: `A license has been activated 🚀`,
+        embeds: [
+          {
+            fields: [
+              {
+                name: 'License key',
+                value: licenseKey,
+              },
+              {
+                name: 'Product',
+                value: product,
+              },
+              {
+                name: 'Github',
+                value: githubAccount,
+              },
+              {
+                name: 'Github Invited',
+                value: githubInvited || 'Failed',
+              },
+              {
+                name: 'Npm account',
+                value: npmAccount?.id || npmAccount?.message || 'Failed',
+              },
+            ],
+          },
+        ],
+      })
+
+      const result = await fetch(DISCORD_WEBHOOK, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body,
+      })
+
+      return result
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+const sendDiscordError = async ({ licenseKey, githubAccount, error }) => {
   const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK
   try {
     if (DISCORD_WEBHOOK) {
@@ -17,7 +67,7 @@ const sendDiscordNotification = async ({
         },
         method: 'POST',
         body: JSON.stringify({
-          content: `A license has been activated 🚀`,
+          content: `Redeem failed 🤯`,
           embeds: [
             {
               fields: [
@@ -26,16 +76,12 @@ const sendDiscordNotification = async ({
                   value: licenseKey,
                 },
                 {
-                  name: 'Product',
-                  value: product,
-                },
-                {
                   name: 'Github',
                   value: githubAccount,
                 },
                 {
-                  name: 'Invited',
-                  value: githubInvited,
+                  name: 'Error',
+                  value: error.toString(),
                 },
               ],
             },
@@ -80,50 +126,103 @@ const addGithubCollaborator = async (username) => {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const API_KEY = process.env.GUMROAD_API_KEY
-  const PRODUCT = process.env.GUMROAD_PRODUCT_PERMALINK
-  const DISCORD_INVITE = process.env.DISCORD_INVITE
+  try {
+    const API_KEY = process.env.GUMROAD_API_KEY
+    const PRODUCT = process.env.GUMROAD_PRODUCT_PERMALINK
+    const DISCORD_INVITE = process.env.DISCORD_INVITE
+    const TEST_LICENSE = process.env.GUMROAD_TEST_LICENSE
 
-  const response = await fetch(`https://api.gumroad.com/v2/licenses/verify`, {
-    headers: {
-      Authorization: `Bearer ${API_KEY}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    method: 'POST',
-    body: `accessToken=${API_KEY}&product_permalink=${PRODUCT}&license_key=${req.body.licenseKey}`,
-  })
+    const isTest = req.body.licenseKey === TEST_LICENSE
 
-  const result = await response.json()
+    const response = await fetch(`https://api.gumroad.com/v2/licenses/verify`, {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      method: 'POST',
+      body: `accessToken=${API_KEY}&product_permalink=${PRODUCT}&license_key=${req.body.licenseKey}`,
+    })
 
-  let error
-  if (response.status === 404) {
-    error = 'Invalid license key'
-  } else if (response.status !== 200) {
-    error = 'Failed to activate your license key'
-  } else if (result.uses > 2 || result.uses > result.purchase.quantity) {
-    error = 'This license key has already been activated'
+    const result = await response.json()
+
+    let error
+    if (response.status === 404) {
+      error = 'Invalid license key'
+    } else if (response.status !== 200) {
+      error = 'Failed to activate your license key'
+    } else if (result.uses > 2 || result.uses > result.purchase.quantity) {
+      error = 'This license key has already been activated'
+    }
+
+    if (!isTest && (!result.success || error)) {
+      sendDiscordError({
+        licenseKey: req.body.licenseKey,
+        githubAccount: req.body.githubAccount,
+        error,
+      })
+      return res
+        .status(200)
+        .json({ success: false, error: result.message || error })
+    }
+
+    const githubInvited = await addGithubCollaborator(req.body.githubAccount)
+
+    const npmAccount = await addNpmAccount(
+      req.body.githubAccount,
+      req.body.licenseKey,
+      result.purchase.email
+    )
+
+    await sendDiscordNotification({
+      licenseKey: req.body.licenseKey,
+      githubAccount: req.body.githubAccount,
+      product: result.purchase.product_name,
+      githubInvited,
+      npmAccount,
+    })
+
+    res.status(200).json({
+      success: true,
+      discordInvite: DISCORD_INVITE,
+      githubInvited,
+    })
+  } catch (error) {
+    sendDiscordError({
+      licenseKey: req.body.licenseKey,
+      githubAccount: req.body.githubAccount,
+      error,
+    })
+    return res.status(200).json({ success: false, error: error.toString() })
   }
+}
 
-  if (!result.success || error) {
-    return res
-      .status(200)
-      .json({ success: false, error: result.message || error })
+const addNpmAccount = async (username, key, email) => {
+  try {
+    if (!process.env.CLOUDRON_URL) {
+      return
+    }
+
+    const response = await fetch(`${process.env.CLOUDRON_URL}/api/v1/users`, {
+      headers: {
+        Authorization: 'Bearer ' + process.env.CLOUDRON_ACCESS_TOKEN,
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        username,
+        displayName: username,
+        password: key,
+        admin: false,
+      }),
+    })
+
+    const result = await response.json()
+
+    return result
+  } catch (err) {
+    console.error(err)
   }
-
-  const githubInvited = await addGithubCollaborator(req.body.githubAccount)
-
-  await sendDiscordNotification({
-    licenseKey: req.body.licenseKey,
-    githubAccount: req.body.githubAccount,
-    product: result.purchase.product_name,
-    githubInvited,
-  })
-
-  res.status(200).json({
-    success: true,
-    discordInvite: DISCORD_INVITE,
-    githubInvited,
-  })
 }
 
 export default handler

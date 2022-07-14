@@ -1,18 +1,24 @@
-# @saas-ui/collapse 
+# @saas-ui/collapse
 
-Description
+Chakra UI useCollapse hook.
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/collapse 
+$ yarn add @saas-ui/collapse
 
 #or
 
 $ npm i @saas-ui/collapse  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/hooks/use-collapse
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-collapse
 
 ## License
 

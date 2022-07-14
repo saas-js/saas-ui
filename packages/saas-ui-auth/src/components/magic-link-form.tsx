@@ -1,17 +1,27 @@
 import * as React from 'react'
-import { useLogin, AuthActionEnum } from '../provider'
 
-import { Form, FormLayout, Field } from '@saas-ui/forms'
+import { __DEV__ } from '@chakra-ui/utils'
+
+import {
+  Form,
+  FormLayout,
+  Field,
+  FormProps,
+  SubmitHandler,
+  FieldErrors,
+} from '@saas-ui/forms'
 import { LoginButton } from './login-button'
 
 import { AuthFormSuccess } from './success'
 
-export interface MagicLinkFormProps {
-  schema?: any
+import { useLogin, AuthActionEnum } from '../provider'
+
+export interface MagicLinkFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   action?: AuthActionEnum
-  onSuccess?: (error: any) => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
@@ -19,6 +29,7 @@ export interface MagicLinkFormProps {
 
 interface SubmitParams {
   email: string
+  [key: string]: any
 }
 
 export function MagicLinkSuccess({ email }: any) {
@@ -35,8 +46,11 @@ export function MagicLinkSuccess({ email }: any) {
   )
 }
 
+if (__DEV__) {
+  MagicLinkSuccess.displayName = 'MagicLinkSuccess'
+}
+
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
-  schema,
   action = 'logIn',
   onSuccess = () => null,
   onError = () => null,
@@ -51,7 +65,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
     action,
   })
 
-  const handleSubmit = ({ email }: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = ({ email }) => {
     return submit({ email }).then(onSuccess).catch(onError)
   }
 
@@ -62,8 +76,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   }
 
   return (
-    <Form
-      schema={schema}
+    <Form<SubmitParams>
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '', ...defaultValues }}
@@ -75,6 +88,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
           label="Email"
           type="email"
           rules={{ required: true }}
+          autoComplete="email"
         />
 
         {children}
@@ -82,10 +96,14 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
         <LoginButton
           type="submit"
           isLoading={isLoading}
-          isFullWidth
+          width="full"
           label={submitLabel}
         />
       </FormLayout>
     </Form>
   )
+}
+
+if (__DEV__) {
+  MagicLinkForm.displayName = 'MagicLinkForm'
 }

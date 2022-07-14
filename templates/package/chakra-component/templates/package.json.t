@@ -8,10 +8,10 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "source": "src/index.ts",
   "exports": {
     "require": "./dist/index.js",
-    "default": "./dist/index.modern.js"
+    "default": "./dist/index.modern.mjs"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -55,7 +55,7 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "dependencies": {
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=1.0.0",
-    "react": ">=16.8.6"
+    "@chakra-ui/system": ">=2.0.0",
+    "react": ">=18.0.0"
   }
 }

@@ -1,6 +1,15 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field } from '@saas-ui/forms'
+import { __DEV__ } from '@chakra-ui/utils'
+
+import {
+  Form,
+  FormProps,
+  FormLayout,
+  Field,
+  SubmitHandler,
+  FieldErrors,
+} from '@saas-ui/forms'
 
 import { useLogin, AuthActionEnum } from '../provider'
 
@@ -12,14 +21,16 @@ interface SubmitParams {
   email: string
   password: string
   rememberMe?: boolean
+  [key: string]: any
 }
 
-export interface PasswordFormProps {
+export interface PasswordFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   schema?: any
   action?: AuthActionEnum
-  onSuccess?: (error: any) => void
+  onSuccess?: (data: any) => void
   onError?: (error: any) => void
-  onValidationError?: (error: any) => void
+  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
@@ -27,7 +38,6 @@ export interface PasswordFormProps {
 
 export const PasswordForm: React.FC<PasswordFormProps> = ({
   action = 'logIn',
-  schema,
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
@@ -44,7 +54,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
 }) => {
   const [{ isLoading, isResolved, data }, submit] = useLogin({ action })
 
-  const handleSubmit = (params: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = (params) => {
     return submit(params).then(onSuccess).catch(onError)
   }
 
@@ -54,8 +64,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   }
 
   return (
-    <Form
-      schema={schema}
+    <Form<SubmitParams>
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ email: '', password: '', ...defaultValues }}
@@ -67,20 +76,26 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
           label="Email"
           type="email"
           rules={{ required: true }}
+          autoComplete="email"
         />
         <Field
           name="password"
           label="Password"
           type="password"
           rules={{ required: true }}
+          autoComplete="current-password"
         />
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>
     </Form>
   )
+}
+
+if (__DEV__) {
+  PasswordForm.displayName = 'PasswordForm'
 }

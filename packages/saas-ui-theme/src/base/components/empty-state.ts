@@ -1,6 +1,6 @@
 import { anatomy, mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
-export const parts = anatomy('emptystate').parts(
+const parts = anatomy('emptystate').parts(
   'container',
   'body',
   'icon',
@@ -36,6 +36,8 @@ const variantCentered: PartsStyleFunction<typeof parts> = (props) => {
     },
   }
 }
+
+export const emptyStateParts = parts
 
 export default {
   parts: parts.keys,

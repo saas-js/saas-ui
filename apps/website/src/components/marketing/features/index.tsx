@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {
   Box,
   BoxProps,
@@ -15,31 +15,36 @@ import {
   useMultiStyleConfig,
   ThemingProps,
   SystemProps,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 import SectionWrapper, { SectionProps } from '../section-wrapper'
 import SectionTitle, { SectionTitleProps } from '../section-title'
 
 import ScaleInView from '@/components/motion/scale-in-view'
 
-export interface FeaturesProps extends ThemingProps<'Features'> {
-  title: React.ReactNode
+export interface FeaturesProps
+  extends Omit<SectionTitleProps, 'title' | 'variant'>,
+    ThemingProps<'Features'> {
+  title?: React.ReactNode
   description?: React.ReactNode
   features: Array<FeatureProps>
   columns?: ResponsiveValue<number>
   spacing?: string | number
   aside?: React.ReactChild
-  reveal?: boolean
+  reveal?: boolean | React.FC<any>
   iconSize?: SystemProps['boxSize']
+  innerWidth?: SystemProps['maxW']
 }
 
 export interface FeatureProps {
-  title: React.ReactNode
-  description: React.ReactNode
+  title?: React.ReactNode
+  description?: React.ReactNode
   icon?: any
   iconPosition?: 'left' | 'top'
   iconSize?: SystemProps['boxSize']
   ip?: 'left' | 'top'
   variant?: string
+  delay?: number
 }
 
 export function Feature({
@@ -57,7 +62,7 @@ export function Feature({
   const direction = pos === 'left' ? 'row' : 'column'
 
   return (
-    <Stack sx={styles.container}>
+    <Stack sx={styles.container} direction={direction}>
       {icon && (
         <Circle sx={styles.icon}>
           <Icon as={icon} boxSize={iconSize} />
@@ -82,32 +87,36 @@ export default function Features({
   aside,
   reveal,
   ...props
-}: FeaturesProps & SectionTitleProps) {
+}: FeaturesProps) {
   if (!!aside) {
     align = 'left'
   }
   const ip = align === 'left' ? 'left' : 'top'
 
-  let Wrap: React.FunctionComponent = Fragment
-  if (reveal) {
+  let Wrap: React.FC<any> = Box
+  if (reveal === true) {
     Wrap = ScaleInView
+  } else if (reveal) {
+    Wrap = reveal
   }
 
   return (
     <SectionWrapper {...props}>
       <Stack direction="row" height="full" align="flex-start">
         <VStack flex="1" spacing={[4, null, 8]} alignItems="stretch">
-          <Wrap>
-            <SectionTitle
-              title={title}
-              description={description}
-              align={align}
-            />
-          </Wrap>
+          {(title || description) && (
+            <Wrap>
+              <SectionTitle
+                title={title}
+                description={description}
+                align={align}
+              />
+            </Wrap>
+          )}
           <SimpleGrid columns={columns} spacing={spacing}>
             {features.map((feature, i) => {
               return (
-                <Wrap key={i}>
+                <Wrap key={i} delay={feature.delay}>
                   <Feature iconSize={iconSize} {...feature} ip={ip} />
                 </Wrap>
               )

@@ -110,7 +110,7 @@ export function RedeemForm(props) {
   } else if (data) {
     content = (
       <Stack spacing="4">
-        <Heading size="md" color="white">
+        <Heading size="md">
           Welcome on board{' '}
           <chakra.span onClick={celebrate} cursor="pointer">
             🥳
@@ -141,7 +141,10 @@ export function RedeemForm(props) {
           <ButtonLink href={data.discordInvite} leftIcon={<FaDiscord />}>
             Discord
           </ButtonLink>
-          <ButtonLink href="/docs/pro">Documentation</ButtonLink>
+          <ButtonLink href="/docs/introduction">Documentation</ButtonLink>
+          <ButtonLink href="https://storybook.saas-ui.pro/">
+            Storybook
+          </ButtonLink>
         </ButtonGroup>
       </Stack>
     )
@@ -163,7 +166,6 @@ export function RedeemForm(props) {
           <Field
             name="githubAccount"
             label="Github username"
-            placeholder="@"
             rules={{ required: true }}
           />
 

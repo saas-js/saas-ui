@@ -5,6 +5,7 @@ import {
   Button,
   StylesProvider,
   omitThemingProps,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 import SectionWrapper, { SectionProps } from '../section-wrapper'
 import SectionTitle, { SectionTitleProps } from '../section-title'

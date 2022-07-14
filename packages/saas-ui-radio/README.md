@@ -1,20 +1,24 @@
-# @saas-ui/select
+# @saas-ui/radio
 
-## Todo
-
-- [ ] Add input group support
+Chakra UI Radio Input
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/select
+$ yarn add @saas-ui/radio
 
 #or
 
-$ npm i @saas-ui/select  --save
+$ npm i @saas-ui/radio  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/forms
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-radio
 
 ## License
 

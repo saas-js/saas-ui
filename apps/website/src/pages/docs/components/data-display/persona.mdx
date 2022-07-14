@@ -1,0 +1,216 @@
+---
+title: Persona
+description: A component that represents a person and their status.
+---
+
+A `Persona` is a visual representation of a person inside your app.
+The component consists of an avatar, online status (presence), a name and status messages.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-persona' }}
+  npm={{ package: '@saas-ui/persona' }}
+/>
+
+## Import
+
+- `Persona`: The wrapper component that handles default composition.
+- `PersonaContainer`: The container component that provides context and styles.
+- `PersonaAvatar`: An avatar with optional status badge.
+- `PersonaDetails`: Wrapper component for the labels.
+- `PersonaLabel`: The main label, usually a name.
+- `PersonaSecondaryLabel`: The secondary label, usually the role of a person.
+- `PersonaTertiaryLabel`: The tertiary label, typically a status message.
+- `Presence`: The presence configuration object.
+
+```ts
+import {
+  Persona,
+  PersonaContainer,
+  PersonaAvatar,
+  PersonaDetails,
+  PersonaLabel,
+  PersonaSecondaryLabel,
+  PersonaTertiaryLabel,
+  Presence,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic persona
+
+```jsx
+<Persona name="Eelco Wiersma" secondaryLabel="Founder" presence="online" />
+```
+
+### Out of office
+
+Shows an alternative status badge to indicate that the person is out of office.
+
+```jsx
+<Persona
+  name="Eelco Wiersma"
+  secondaryLabel="Gone fishing"
+  presence="dnd"
+  isOutOfOffice
+/>
+```
+
+### Persona sizes
+
+```jsx
+<Stack spacing={8}>
+  <Persona
+    name="Eelco Wiersma"
+    secondaryLabel="Founder"
+    tertiaryLabel="Available"
+    presence="online"
+    size="2xs"
+  />
+
+  <Persona
+    name="Eelco Wiersma"
+    secondaryLabel="Founder"
+    tertiaryLabel="Available"
+    presence="online"
+    size="xs"
+  />
+
+  <Persona
+    name="Eelco Wiersma"
+    secondaryLabel="Founder"
+    tertiaryLabel="Available"
+    presence="online"
+    size="sm"
+  />
+
+  <Persona
+    name="Eelco Wiersma"
+    secondaryLabel="Founder"
+    tertiaryLabel="Available"
+    presence="online"
+    size="md"
+  />
+
+  <Persona
+    name="Eelco Wiersma"
+    secondaryLabel="Founder"
+    tertiaryLabel="In a meeting"
+    presence="dnd"
+    size="lg"
+  />
+
+  <Persona
+    name="Eelco Wiersma"
+    secondaryLabel="Founder"
+    tertiaryLabel="In a meeting"
+    presence="dnd"
+    size="xl"
+  />
+</Stack>
+```
+
+### Hide details
+
+```jsx
+<Persona
+  name="Eelco Wiersma"
+  secondaryLabel="Founder"
+  presence="online"
+  hideDetails
+/>
+```
+
+### Presence
+
+```jsx
+<Stack>
+  <HStack>
+    <Persona name="Eelco Wiersma" presence="online" hideDetails size="sm" />
+    <Persona name="Eelco Wiersma" presence="offline" hideDetails size="sm" />
+    <Persona name="Eelco Wiersma" presence="busy" hideDetails size="sm" />
+    <Persona name="Eelco Wiersma" presence="dnd" hideDetails size="sm" />
+    <Persona name="Eelco Wiersma" presence="away" hideDetails size="sm" />
+  </HStack>
+  <HStack>
+    <Persona
+      name="Eelco Wiersma"
+      presence="online"
+      hideDetails
+      isOutOfOffice
+      size="sm"
+    />
+    <Persona
+      name="Eelco Wiersma"
+      presence="offline"
+      hideDetails
+      isOutOfOffice
+      size="sm"
+    />
+    <Persona
+      name="Eelco Wiersma"
+      presence="busy"
+      hideDetails
+      isOutOfOffice
+      size="sm"
+    />
+    <Persona
+      name="Eelco Wiersma"
+      presence="dnd"
+      hideDetails
+      isOutOfOffice
+      size="sm"
+    />
+    <Persona
+      name="Eelco Wiersma"
+      presence="away"
+      hideDetails
+      isOutOfOffice
+      size="sm"
+    />
+  </HStack>
+</Stack>
+```
+
+### Custom persona
+
+```jsx
+function CustomPersona({
+  name = 'Eelco Wiersma',
+  status = 'Away',
+  message = 'Back tomorrow',
+}) {
+  return (
+    <PersonaContainer size="lg">
+      <Avatar name={name}>
+        <AvatarBadge boxSize="1em" bg="presence.away">
+          <TimeIcon />
+        </AvatarBadge>
+      </Avatar>
+      <PersonaDetails>
+        <PersonaLabel>{name}</PersonaLabel>
+        <PersonaSecondaryLabel>{status}</PersonaSecondaryLabel>
+        <PersonaTertiaryLabel>{message}</PersonaTertiaryLabel>
+      </PersonaDetails>
+    </PersonaContainer>
+  )
+}
+```
+
+### Status icon
+
+```jsx
+<Persona
+  name="Eelco Wiersma"
+  presence="busy"
+  secondaryLabel={
+    <>
+      <PhoneIcon /> On a call
+    </>
+  }
+/>
+```
+
+## Props
+
+`Persona` and all sub components accept `Box` props.

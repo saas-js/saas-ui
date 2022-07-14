@@ -1,0 +1,109 @@
+---
+title: Loader
+description: A loading indicator that fills it's parent.
+---
+
+The `Loader` component will try to fill up it's parent element and
+renders a `Spinner` in the center.
+
+<ComponentLinks
+  theme={{ componentName: 'layout' }}
+  github={{
+    url: 'https://github.com/saas-ui/saas-ui/blob/main/packages/saas-ui-layout/src/loader.tsx',
+  }}
+  npm={{ package: '@saas-ui/layout' }}
+/>
+
+## Import
+
+```ts
+import { Loader } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+<Loader />
+```
+
+### Variants
+
+#### Fill
+
+The default variant is `fill`, this will fill it's parent element with `flex="1"` and `height="100%"`.
+
+```jsx
+<Card title="Users">
+  <CardBody>
+    <Loader />
+  </CardBody>
+</Card>
+```
+
+#### Overlay
+
+The `overlay` variant will position the loader `absolute`, on top of it's parent element.
+When using overlay be sure to add `position="relative"` to the parent element to position it correctly.
+
+```jsx
+<Card height="100px" title="Users" position="relative">
+  <CardBody>
+    <Loader variant="overlay" />
+  </CardBody>
+</Card>
+```
+
+#### Fullscreen
+
+The `fullscreen` variant will position the loader `fixed`, on top of your app.
+
+```jsx
+function MyApp() {
+  const [isLoading, setLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000)
+    }
+  }, [isLoading])
+
+  return (
+    <Box height="200px" pos="relative" p="4">
+      <Button onClick={() => setLoading(true)}>Show loader</Button>
+      <Loader variant="fullscreen" isLoading={isLoading} />
+    </Box>
+  )
+}
+```
+
+### Customize spinner
+
+```jsx
+<Loader size="lg" color="primary.500" thickness="4px" />
+```
+
+### Custom spinner
+
+```jsx
+<Loader spinner={<SaasSpinner />} />
+```
+
+### With text
+
+```jsx
+<Loader spinner={<SaasSpinner />}>Loading...</Loader>
+```
+
+## Accessiblity
+
+Add a `label` describing the type of content being loaded to notify screen readers.
+
+## Props
+
+Support all [Spinner](https://chakra-ui.com/docs/feedback/spinner) options
+
+<PropsTable of="Loader" omit={null} />

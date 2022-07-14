@@ -1,0 +1,17 @@
+{
+  "name": "yup",
+  "description": "Saas UI Forms field resolver: yup",
+  "version": "1.0.0",
+  "private": true,
+  "source": "./src/index.ts",
+  "main": "../dist/yup/index.js",
+  "module": "../dist/yup/index.modern.mjs",
+  "types": "../dist/yup/index.d.ts",
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@hookform/resolvers": "^2.9.3",
+    "react-hook-form": "^7.33.1",
+    "yup": "^0.32.11"
+  }
+}

@@ -1,0 +1,16 @@
+/docs/auth/* /docs/components/auth/:splat
+/docs/data-display/* /docs/components/data-display/:splat
+/docs/engagement/* /docs/components/engagement/:splat
+/docs/feedback/* /docs/components/feedback/:splat
+/docs/forms/* /docs/components/forms/:splat
+/docs/layout/* /docs/components/layout/:splat
+/docs/navigation/* /docs/components/navigation/:splat
+/docs/overlay/* /docs/components/overlay/:splat
+/docs/typography/* /docs/components/typography/:splat
+/docs/utils/* /docs/components/utils/:splat
+/docs/web3/* /docs/components/web3/:splat
+/docs/getting-started /docs/core/getting-started
+/docs/getting-started/* /docs/core/getting-started/:splat
+/docs/installation/* /docs/core/installation/:splat
+/docs/theming/* /docs/core/theming/:splat
+/docs/integrations/* /docs/core/integrations/:splat

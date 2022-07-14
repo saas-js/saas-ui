@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { HStack, IconButton, Link } from '@chakra-ui/react'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { useRouter } from 'next/router'
 
@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <HStack spacing="2" flexShrink={0}>
-      {headerNav.map(({ href, id, title, ...props }, i) => {
+      {headerNav.map(({ href, id, ...props }, i) => {
         return (
           <NavLink
             display={['none', null, 'block']}
@@ -45,11 +45,18 @@ const Header = () => {
               (href && !!router.asPath.match(new RegExp(href)))
             }
             {...props}
-          >
-            {title}
-          </NavLink>
+          />
         )
       })}
+
+      <IconButton
+        variant="ghost"
+        aria-label="discord"
+        icon={<FaDiscord size="14" />}
+        borderRadius="md"
+        as={Link}
+        href="https://discord.gg/4PmJGFcAjX"
+      />
 
       <IconButton
         variant="ghost"

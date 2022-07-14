@@ -1,16 +1,30 @@
 import * as React from 'react'
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 import { forwardRef } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 import { Form, FormProps } from './form'
-
 import { FormLayout } from './layout'
 import { Fields } from './fields'
 import { SubmitButton } from './submit-button'
+import { FieldResolver } from '.'
 
 interface AutoFormOptions {
+  /**
+   * The submit button label.
+   * Pass `null` to render no submit button.
+   */
+  submitLabel?: React.ReactNode
+  /**
+   * The schema.
+   * Supports object schema, Yup or Zod.
+   * @see https://www.saas-ui.dev/docs/forms/auto-form
+   */
   schema: any
-  submitLabel?: false | string
+  /**
+   * The field resolver.
+   */
+  fieldResolver?: any
 }
 
 export interface AutoFormProps<TFieldValues extends FieldValues>
@@ -22,18 +36,33 @@ export const AutoForm = forwardRef(
     props: AutoFormProps<TFieldValues>,
     ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
   ) => {
-    const { schema, submitLabel = 'Submit', ...rest } = props
+    const {
+      schema,
+      submitLabel = 'Submit',
+      fieldResolver,
+      children,
+      ...rest
+    } = props
+
     return (
       <Form {...rest} schema={schema} ref={ref}>
         <FormLayout>
-          {<Fields schema={schema} />}
-          {submitLabel && <SubmitButton label={submitLabel} />}
+          {<Fields schema={schema} fieldResolver={fieldResolver} />}
+          {submitLabel && <SubmitButton>{submitLabel}</SubmitButton>}
+          {children}
         </FormLayout>
       </Form>
     )
   }
-) as <TFieldValues extends FieldValues>(
+) as (<TFieldValues extends FieldValues>(
   props: AutoFormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
-) => React.ReactElement
+) => React.ReactElement) & {
+  displayName?: string
+  getFieldResolver?: (schema: any) => FieldResolver
+}
+
+if (__DEV__) {
+  AutoForm.displayName = 'AutoForm'
+}

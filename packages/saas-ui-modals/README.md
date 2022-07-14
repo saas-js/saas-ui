@@ -1,6 +1,15 @@
 # @saas-ui/modal
 
-A modal manager for Chakra UI
+Chakra UI modals manager.
+
+Build in modal types:
+
+- Modal
+- Drawer
+- Form
+- Dialog
+- ConfirmDialog
+- MenuDialog
 
 ## Installation
 
@@ -73,6 +82,14 @@ function MyComponent() {
   })
 }
 ```
+
+## Docs
+
+https://www.saas-ui.dev/docs/overlay/modals-manager
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-modals
 
 ## License
 

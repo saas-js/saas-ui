@@ -1,6 +1,6 @@
 # @saas-ui/web3
 
-Description
+Chakra UI Web3 Components.
 
 ## Installation
 
@@ -12,7 +12,13 @@ $ yarn add @saas-ui/web3
 $ npm i @saas-ui/web3  --save
 ```
 
-## Usage
+## Docs
+
+https://www.saas-ui.dev/docs/web3/address
+
+## Source
+
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-web3
 
 ## License
 

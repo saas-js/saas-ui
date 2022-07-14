@@ -9,6 +9,7 @@ import {
   NumberDecrementStepper,
   NumberInputProps as ChakraNumberInputProps,
 } from '@chakra-ui/react'
+import { __DEV__ } from '@chakra-ui/utils'
 
 interface NumberInputOptions {
   /**
@@ -48,4 +49,8 @@ export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
 
 NumberInput.defaultProps = {
   hideStepper: false,
+}
+
+if (__DEV__) {
+  NumberInput.displayName = 'NumberInput'
 }

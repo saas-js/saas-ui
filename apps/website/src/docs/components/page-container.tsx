@@ -11,14 +11,15 @@ import {
 } from '@chakra-ui/react'
 import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 import EditPageLink from '@/docs/components/edit-page-button'
-import SEO from '@/components/seo'
+import SEO, { SEOProps } from '@/components/seo'
 import TableOfContent from '@/docs/components/table-of-content'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
 import PageTransition from './page-transition'
 import { t } from '@/docs/utils/i18n'
 import { BackgroundGradient } from '@/components/background-gradient'
 
-import { formatRelative, subDays } from 'date-fns'
+import { formatRelative } from 'date-fns'
+import { DocsFeedback } from './docs-feedback'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()
@@ -60,6 +61,7 @@ interface PageContainerProps {
     author?: string
     avatar?: string
     date?: Date
+    seo?: SEOProps
   }
   children: React.ReactNode
   sidebar?: any
@@ -82,15 +84,16 @@ function PageContainer(props: PageContainerProps) {
     author,
     avatar,
     date,
+    seo,
   } = frontmatter
 
   return (
     <>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} {...seo} />
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <BackgroundGradient animate={false} height="100vh" opacity={0.3} />
+      <BackgroundGradient animate={false} height="30vh" opacity={0.2} />
       <Container
         as="main"
         className="main-content"
@@ -99,10 +102,10 @@ function PageContainer(props: PageContainerProps) {
         zIndex="2"
       >
         <Box display={{ md: 'flex' }}>
-          {sidebar || null}
+          <React.Suspense>{sidebar || null}</React.Suspense>
           <Box flex="1" minW="0">
             <SkipNavContent />
-            <Box id="content" px={5} mx="auto" minH="76vh">
+            <Box id="content" mx="auto" minH="76vh">
               <Flex>
                 <Box
                   minW="0"
@@ -147,11 +150,13 @@ function PageContainer(props: PageContainerProps) {
                           </>
                         )}
                         {date && formatRelative(new Date(date), new Date())}{' '}
-                        <Spacer />
-                        {stats.text}
+                        {stats && <Spacer />}
+                        {stats?.text}
                       </Box>
                     )}
                     {children}
+
+                    <DocsFeedback />
                     <Box mt="40px">
                       <Box>{editUrl && <EditPageLink href={editUrl} />}</Box>
                       {pagination || null}

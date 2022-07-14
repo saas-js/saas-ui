@@ -1,6 +1,14 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field } from '@saas-ui/forms'
+import { __DEV__ } from '@chakra-ui/utils'
+
+import {
+  Form,
+  FormLayout,
+  Field,
+  FormProps,
+  SubmitHandler,
+} from '@saas-ui/forms'
 
 import { useOtp } from '../provider'
 
@@ -10,10 +18,11 @@ import { AuthFormSuccess } from './success'
 
 interface SubmitParams {
   otp: string
+  [key: string]: any
 }
 
-export interface OtpFormProps {
-  schema?: any
+export interface OtpFormProps
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
   label?: string
   helpText?: string
   pinLength?: number
@@ -25,7 +34,6 @@ export interface OtpFormProps {
 }
 
 export const OtpForm: React.FC<OtpFormProps> = ({
-  schema,
   onSuccess = () => null,
   onError = () => null,
   onValidationError,
@@ -41,7 +49,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 }) => {
   const [{ isLoading, data }, submit] = useOtp()
 
-  const handleSubmit = (params: SubmitParams) => {
+  const handleSubmit: SubmitHandler<SubmitParams> = (params) => {
     return submit(params).then(onSuccess).catch(onError)
   }
 
@@ -51,7 +59,6 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 
   return (
     <Form
-      schema={schema}
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ otp: '' }}
@@ -69,7 +76,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
 
         {children}
 
-        <LoginButton type="submit" isFullWidth isLoading={isLoading}>
+        <LoginButton type="submit" width="full" isLoading={isLoading}>
           {submitLabel}
         </LoginButton>
       </FormLayout>
@@ -82,4 +89,8 @@ OtpForm.defaultProps = {
     'You can find your one-time password in the Google Authenticator or Authy app.',
   submitLabel: 'Verify',
   label: 'Your verification code',
+}
+
+if (__DEV__) {
+  OtpForm.displayName = 'OtpForm'
 }

@@ -1,15 +1,15 @@
-# @saas-ui/system 
+# @saas-ui/hooks
 
 Description
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/system 
+$ yarn add @saas-ui/hooks
 
 #or
 
-$ npm i @saas-ui/system  --save
+$ npm i @saas-ui/hooks  --save
 ```
 
 ## Usage

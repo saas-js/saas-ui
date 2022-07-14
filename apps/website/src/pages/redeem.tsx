@@ -31,12 +31,7 @@ const Redeem = () => {
               </ScaleInView>
 
               <ScaleInView>
-                <VStack
-                  fontSize="lg"
-                  spacing="8"
-                  alignItems="stretch"
-                  color={useColorModeValue('gray.500', 'gray.400')}
-                >
+                <VStack fontSize="lg" spacing="8" alignItems="stretch">
                   <Text>
                     {router.query.sale_id
                       ? 'Thanks for your purchase! Activate your license below.'

@@ -3,15 +3,17 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 
+import { yupResolver } from '@hookform/resolvers/yup'
+
 import { UseFormReturn } from 'react-hook-form'
 
 import {
   Form,
-  AutoForm,
   FormLayout,
   Field,
   DisplayIf,
   SubmitButton,
+  FormProps,
 } from '../src'
 
 import { Button } from '@saas-ui/button'
@@ -30,16 +32,16 @@ export default {
 }
 
 const schema = Yup.object().shape({
-  firstName: Yup.string()
+  title: Yup.string()
     .min(2, 'Too short')
     .max(25, 'Too long')
     .required()
-    .label('First name'),
-  lastName: Yup.string()
+    .label('Title'),
+  description: Yup.string()
     .min(2, 'Too short')
     .max(25, 'Too long')
     .required()
-    .label('Last name'),
+    .label('Description'),
 })
 
 const loginSchema = Yup.object().shape({
@@ -62,35 +64,58 @@ export const Basic = () => (
       <FormLayout>
         <Field name="title" label="Title" />
         <Field name="description" label="Description" />
+
+        <SubmitButton />
       </FormLayout>
     </Form>
   </>
 )
 
-export const Auto_Form = () => (
+export const WithValidationRules = (props: FormProps) => (
   <>
-    <AutoForm
+    <Form
       defaultValues={{
-        firstName: '',
-        lastName: '',
+        title: '',
+        description: '',
       }}
-      schema={schema}
       onSubmit={onSubmit}
-    />
+      {...props}
+    >
+      <FormLayout>
+        <Field
+          name="title"
+          label="Title"
+          rules={{ required: 'Title is required' }}
+        />
+        <Field
+          name="description"
+          label="Description"
+          rules={{ required: 'Description is required' }}
+        />
+
+        <SubmitButton />
+      </FormLayout>
+    </Form>
   </>
 )
 
-export const SubmitLabel = () => (
+export const WithYupSchema = () => (
   <>
-    <AutoForm
+    <Form
       defaultValues={{
-        email: '',
-        password: '',
+        title: '',
+        description: '',
       }}
-      schema={loginSchema}
-      submitLabel={'Log in'}
       onSubmit={onSubmit}
-    />
+      resolver={yupResolver(schema)}
+    >
+      <FormLayout>
+        <Field name="title" label="Title" />
+        <Field name="description" label="Description" />
+
+        <SubmitButton />
+      </FormLayout>
+    </Form>
   </>
 )
 

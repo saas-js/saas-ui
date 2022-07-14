@@ -3,6 +3,10 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 
+import { useFormContext, useWatch } from 'react-hook-form'
+
+import { yupForm, yupResolver } from '../yup/src'
+
 import {
   Form,
   AutoForm,
@@ -18,7 +22,9 @@ import {
   useArrayFieldRowContext,
   useArrayFieldAddButton,
   useArrayFieldRemoveButton,
+  UseArrayFieldReturn,
   SubmitButton,
+  ArrayFieldProps,
 } from '../src'
 
 import { Button } from '@saas-ui/button'
@@ -45,7 +51,7 @@ const arraySchema = Yup.object().shape({
   arrayField: Yup.array().min(2).max(4).of(subSchema).label('Array field'),
 })
 
-export const autoArrayField = () => {
+export const AutoArrayField = () => {
   return (
     <>
       <AutoForm
@@ -56,14 +62,49 @@ export const autoArrayField = () => {
             },
           ],
         }}
-        schema={arraySchema}
+        schema={{
+          arrayField: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                title: {
+                  label: 'Title',
+                  rules: { required: true },
+                },
+                description: {
+                  label: 'Description',
+                  type: 'textarea',
+                },
+              },
+            },
+          },
+        }}
         onSubmit={onSubmit}
       />
     </>
   )
 }
 
-export const arrayField = () => (
+export const AutoYupArrayField = () => {
+  return (
+    <>
+      <AutoForm
+        defaultValues={{
+          arrayField: [
+            {
+              title: 'Test',
+            },
+          ],
+        }}
+        onSubmit={onSubmit}
+        {...yupForm(arraySchema)}
+      />
+    </>
+  )
+}
+
+export const WithResolver = () => (
   <>
     <Form
       defaultValues={{
@@ -73,13 +114,13 @@ export const arrayField = () => (
           },
         ],
       }}
-      schema={arraySchema}
+      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
         <ArrayField name="arrayField" label="Array field" defaultValue={{}}>
-          <Field name="title" placeholder="Title" />
-          <Field name="description" type="textarea" />
+          <Field name="title" label="Title" />
+          <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
         <SubmitButton label="Submit" />
@@ -116,7 +157,7 @@ const RemoveButton = () => {
   )
 }
 
-export const customArrayField = () => (
+export const CustomArrayField = () => (
   <>
     <Form
       defaultValues={{
@@ -128,7 +169,7 @@ export const customArrayField = () => (
           },
         ],
       }}
-      schema={arraySchema}
+      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
@@ -172,7 +213,7 @@ export const customArrayField = () => (
   </>
 )
 
-export const minMaxNoSchema = () => (
+export const MinMaxNoSchema = () => (
   <>
     <Form
       defaultValues={{
@@ -192,8 +233,8 @@ export const minMaxNoSchema = () => (
           min={1}
           max={3}
         >
-          <Field name="title" placeholder="Title" rules={{ required: true }} />
-          <Field name="description" type="textarea" />
+          <Field name="title" label="Title" rules={{ required: true }} />
+          <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
         <SubmitButton label="Submit" />
@@ -201,3 +242,88 @@ export const minMaxNoSchema = () => (
     </Form>
   </>
 )
+
+const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
+  const formState = useFormContext()
+
+  const watch = useWatch({
+    name: 'arrayField',
+  })
+
+  const [prevState, setPrevState] = React.useState(
+    formState.getValues('arrayField')
+  )
+
+  React.useEffect(() => {
+    console.log(prevState, watch)
+
+    setPrevState(watch)
+  }, [watch])
+
+  return (
+    <ArrayField
+      name="arrayField"
+      label="Array field"
+      keyName="_id"
+      defaultValue={{}}
+      ref={ref}
+    >
+      <Field name="title" label="Title" />
+      <Field name="description" label="Description" type="textarea" />
+    </ArrayField>
+  )
+})
+
+export const WatchArrayField = () => {
+  return (
+    <Form
+      defaultValues={{
+        arrayField: [
+          {
+            id: 1,
+            title: 'Test',
+            description: '',
+          },
+        ],
+      }}
+      resolver={yupResolver(arraySchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <MyArrayField />
+
+        <SubmitButton label="Submit" />
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const ArrayFieldRef = () => {
+  const ref = React.useRef<UseArrayFieldReturn>(null)
+
+  React.useLayoutEffect(() => {
+    console.log(ref.current)
+    ref.current.append({ title: 'Appended using the ref api' })
+  }, [ref])
+
+  return (
+    <Form
+      defaultValues={{
+        arrayField: [
+          {
+            id: 1,
+            title: 'Test',
+          },
+        ],
+      }}
+      resolver={yupResolver(arraySchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <MyArrayField ref={ref} />
+
+        <SubmitButton label="Submit" />
+      </FormLayout>
+    </Form>
+  )
+}

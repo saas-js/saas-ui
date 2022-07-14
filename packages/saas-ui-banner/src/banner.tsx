@@ -3,13 +3,12 @@ import {
   chakra,
   forwardRef,
   omitThemingProps,
-  StylesProvider,
   SystemStyleObject,
   ThemingProps,
   useMultiStyleConfig,
-  useStyles,
   HTMLChakraProps,
   As,
+  createStylesContext,
 } from '@chakra-ui/system'
 import { callAllHandlers, cx, __DEV__ } from '@chakra-ui/utils'
 import { useId } from '@chakra-ui/hooks'
@@ -27,6 +26,8 @@ import {
   BannerTransitionProps,
   BannerMotion,
 } from './banner-transition'
+
+const [StylesProvider, useStyles] = createStylesContext('Banner')
 
 const STATUSES = {
   info: { icon: InfoIcon, colorScheme: 'blue' },
@@ -89,7 +90,10 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   } = omitThemingProps(props)
   const colorScheme = props.colorScheme ?? STATUSES[status].colorScheme
 
-  const styles = useMultiStyleConfig('Banner', { ...props, colorScheme })
+  const styles = useMultiStyleConfig('Banner', {
+    ...props,
+    colorScheme,
+  })
 
   const containerStyles: SystemStyleObject = {
     width: '100%',

@@ -22,7 +22,11 @@ const JsonPreview = () => {
   const json = JSON.stringify(colors, undefined, 2)
   return (
     <Stack>
-      <HStack alignItems="flex-start" spacing="8">
+      <HStack
+        alignItems="flex-start"
+        spacing="8"
+        flexDirection={{ base: 'column', lg: 'row' }}
+      >
         <Stack spacing="8">
           <Text fontSize="xl">
             With Supa Palette you can easily create beautiful, harmonious and
@@ -60,7 +64,13 @@ const JsonPreview = () => {
             </NextLink>
           </ButtonGroup>
         </Stack>
-        <Stack position="relative" width="360px" height="573px" flexShrink="0">
+        <Stack
+          position="relative"
+          width={{ sm: '180px', xl: '360px' }}
+          height={{ sm: '285px', xl: '573px' }}
+          flexShrink="0"
+          display={{ base: 'none', lg: 'flex' }}
+        >
           <Image
             src="/screen-1-dark.webp"
             alt="SupaPalette interface"

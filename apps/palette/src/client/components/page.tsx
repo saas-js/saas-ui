@@ -44,14 +44,14 @@ export default function Page({
       <SEO title={title} description={description}></SEO>
       <Flex direction="column" flex="1" minH="0">
         <Box flex="1" overflow="auto">
-          <Container maxW={containerWidth} p="0" pr="4" pt="8">
+          <Container maxW={containerWidth} pt="8">
             <Stack mb="6">
               <Heading size="xl">{title}</Heading>
-              <Text opacity="0.6" fontSize="1.4em">
+              <Text opacity="0.6" fontSize="1.2em">
                 {description}
               </Text>
             </Stack>
-            <Box py="10">{content}</Box>
+            <Box py={{ base: 4, lg: 10 }}>{content}</Box>
           </Container>
         </Box>
       </Flex>

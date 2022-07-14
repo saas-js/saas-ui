@@ -50,6 +50,7 @@
     "react-intersection-observer": "^9.3.4",
     "react-live": "^2.4.1",
     "react-markdown": "^8.0.3",
+    "react-table": "^7.8.0",
     "reading-time": "^1.5.0",
     "remark-code-titles": "^0.1.2",
     "remark-emoji": "^3.0.2",

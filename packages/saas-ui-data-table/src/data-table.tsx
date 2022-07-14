@@ -1,16 +1,16 @@
 import * as React from 'react'
 import {
-  useTable,
-  useSortBy,
-  useRowSelect,
-  TableInstance,
+  useReactTable,
+  getCoreRowModel,
+  getSortedRowModel,
+  Table as TableInstance,
+  flexRender,
+  ColumnDef,
+  ColumnSort,
   TableOptions,
-  CellProps,
-  HeaderGroup,
-  Hooks,
-  IdType,
-  SortingRule,
-} from 'react-table'
+  Header,
+  Cell,
+} from '@tanstack/react-table'
 import {
   chakra,
   forwardRef,
@@ -21,6 +21,7 @@ import {
   Th,
   Td,
   Checkbox,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
@@ -29,10 +30,11 @@ import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
 
 import { Link } from '@saas-ui/layout'
 
-export type { Column, TableInstance } from 'react-table'
+export type { TableInstance, ColumnDef }
 
 export interface DataTableProps<Data extends object>
-  extends TableOptions<Data> {
+  extends Omit<TableOptions<Data>, 'getCoreRowModel'>,
+    ThemingProps<'Table'> {
   /**
    * Enable sorting on all columns
    */
@@ -45,12 +47,16 @@ export interface DataTableProps<Data extends object>
    * Triggers whenever the row selection changes.
    * @params rows The selected row id's
    */
-  onSelectedRowsChange?: (rows: IdType<Data>[]) => void
+  onSelectedRowsChange?: (rows: Array<string>) => void
   /**
    * Triggers when sort changed.
    * Use incombination with `manualSortBy` to enable remote sorting.
    */
-  onSortChange?: (columns: SortingRule<Data>[]) => void
+  onSortChange?: (columns: ColumnSort[]) => void
+  /**
+   * The table class name attribute
+   */
+  className?: string
 }
 
 export const DataTable = React.forwardRef(
@@ -60,16 +66,6 @@ export const DataTable = React.forwardRef(
   ) => {
     const {
       columns,
-      data,
-      initialState,
-      autoResetHiddenColumns,
-      stateReducer,
-      useControlledState,
-      getSubRows,
-      defaultColumn,
-      getRowId,
-      manualRowSelectKey,
-      autoResetSelectedRow,
       isSortable,
       isSelectable,
       onSelectedRowsChange,
@@ -78,63 +74,49 @@ export const DataTable = React.forwardRef(
       size,
       variant,
       className,
-      children,
       ...rest
     } = props
 
-    const instance = useTable<Data>(
-      {
-        columns: React.useMemo(() => {
-          return columns?.map((column: any) => {
-            if (!column.accessor) {
-              column.accessor = column.id
+    const instance = useReactTable<Data>({
+      columns: React.useMemo(() => {
+        return getSelectionColumn<Data>(isSelectable).concat(
+          columns?.map((column: any) => {
+            if (!column.accessorKey) {
+              column.accessorKey = column.accessor || column.id
             }
-            if (!column.Cell) {
-              column.Cell = DataTableCell
+            if (!column.header && column.Header) {
+              column.header = column.Header
+            }
+            if (!column.cell && column.Cell) {
+              column.cell = column.Cell
+            } else if (!column.cell) {
+              column.cell = DataTableCell
             }
             return column
           })
-        }, []),
-        data,
-        initialState,
-        autoResetHiddenColumns,
-        stateReducer,
-        useControlledState,
-        defaultColumn,
-        getSubRows,
-        getRowId,
-        manualRowSelectKey,
-        autoResetSelectedRow,
-        ...rest,
-      },
-      useSortBy,
-      useRowSelect,
-      useCheckboxColumn(isSelectable)
-    )
+        )
+      }, []),
+      enableRowSelection: isSelectable,
+      getSortedRowModel: isSortable ? getSortedRowModel() : undefined,
+      ...rest,
+      getCoreRowModel: getCoreRowModel(),
+    })
 
     // This exposes the useTable api through the forwareded ref
     React.useImperativeHandle(ref, () => instance, [ref])
 
-    const {
-      getTableProps,
-      getTableBodyProps,
-      headerGroups,
-      rows,
-      prepareRow,
-      state,
-    } = instance
+    const state = instance.getState()
 
     React.useEffect(() => {
-      onSelectedRowsChange?.(Object.keys(state.selectedRowIds))
-    }, [onSelectedRowsChange, state.selectedRowIds])
+      onSelectedRowsChange?.(Object.keys(state.rowSelection))
+    }, [onSelectedRowsChange, state.rowSelection, instance])
 
     React.useEffect(() => {
-      onSortChange?.(state.sortBy)
-    }, [onSortChange, state.sortBy])
+      onSortChange?.(state.sorting)
+    }, [onSortChange, state.sorting])
 
     return (
       <Table
-        {...getTableProps()}
         sx={{ 'tr:last-child td': { border: 0 } }}
         className={cx('saas-data-table', className)}
         colorScheme={colorScheme}
@@ -142,33 +124,36 @@ export const DataTable = React.forwardRef(
         variant={variant}
       >
         <Thead>
-          {headerGroups.map((headerGroup) => (
-            <Tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
+          {instance.getHeaderGroups().map((headerGroup) => (
+            <Tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
                 <DataTableHeader
-                  key={column.id}
-                  column={column}
+                  key={header.id}
+                  header={header}
                   isSortable={isSortable}
                 />
               ))}
             </Tr>
           ))}
         </Thead>
-        <Tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
-            prepareRow(row)
+        <Tbody>
+          {instance.getRowModel().rows.map((row) => {
             return (
-              <Tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
+              <Tr key={row.id}>
+                {row.getVisibleCells().map((cell) => {
+                  const meta = (cell.column.columnDef.meta || {}) as any
                   return (
                     <Td
-                      {...cell.getCellProps()}
+                      key={cell.id}
                       overflow="hidden"
                       whiteSpace="nowrap"
                       textOverflow="ellipsis"
-                      isNumeric={cell.column.isNumeric}
+                      isNumeric={meta.isNumeric}
                     >
-                      {cell.render('Cell') as React.ReactNode}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </Td>
                   )
                 })}
@@ -189,26 +174,28 @@ if (__DEV__) {
   DataTable.displayName = 'DataTable'
 }
 
-export interface DataTableSortProps<Data extends object> {
-  column: HeaderGroup<Data>
+export interface DataTableSortProps<Data extends object, TValue> {
+  header: Header<Data, TValue>
 }
-export const DataTableSort = <Data extends object>(
-  props: DataTableSortProps<Data>
+export const DataTableSort = <Data extends object, TValue>(
+  props: DataTableSortProps<Data, TValue>
 ) => {
-  const { column, ...rest } = props
+  const { header, ...rest } = props
 
   const sorterStyles = {
     ms: 2,
   }
 
-  if (column.id === 'selection') {
+  if (header.id === 'selection') {
     return null
   }
 
+  const sorted = header.column.getIsSorted()
+
   return (
     <chakra.span __css={sorterStyles} {...rest}>
-      {column.isSorted ? (
-        column.isSortedDesc ? (
+      {sorted ? (
+        sorted === 'desc' ? (
           <TriangleDownIcon aria-label="sorted descending" />
         ) : (
           <TriangleUpIcon aria-label="sorted ascending" />
@@ -224,34 +211,39 @@ if (__DEV__) {
   DataTableSort.displayName = 'DataTableSort'
 }
 
-export interface DataTableHeaderProps<Data extends object> {
-  column: HeaderGroup<Data>
+export interface DataTableHeaderProps<Data extends object, TValue> {
+  header: Header<Data, TValue>
   isSortable?: boolean
 }
-export const DataTableHeader = <Data extends object>(
-  props: DataTableHeaderProps<Data>
+export const DataTableHeader = <Data extends object, TValue>(
+  props: DataTableHeaderProps<Data, TValue>
 ) => {
-  const { column, isSortable, ...rest } = props
+  const { header, isSortable, ...rest } = props
 
   let headerProps = {}
 
-  if (isSortable) {
+  if (isSortable && header.column.getCanSort()) {
     headerProps = {
-      ...column.getSortByToggleProps(),
-      className: 'chakra-table-sortable',
+      className: 'saas-data-table__sortable',
+      userSelect: 'none',
+      cursor: 'pointer',
+      onClick: header.column.getToggleSortingHandler(),
     }
   }
 
+  const meta = (header.column.columnDef.meta || {}) as any
+  const size = header.column.columnDef.size
   return (
     <Th
-      {...column.getHeaderProps(headerProps)}
+      colSpan={header.colSpan}
       textTransform="none"
-      width={column.width}
-      isNumeric={column.isNumeric}
+      width={size && `${size}px`}
+      isNumeric={meta.isNumeric}
+      {...headerProps}
       {...rest}
     >
-      {column.render('Header') as React.ReactNode}
-      {isSortable && <DataTableSort column={column} />}
+      {flexRender(header.column.columnDef.header, header.getContext())}
+      {isSortable && <DataTableSort header={header} />}
     </Th>
   )
 }
@@ -260,23 +252,28 @@ if (__DEV__) {
   DataTableHeader.displayName = 'DataTableHeader'
 }
 
-const getResult = (fn: any, params: any) => {
+const getResult = <Data extends object>(
+  fn: (row: Data) => string,
+  params: Data
+): string => {
   if (typeof fn === 'function') {
     return fn(params)
   }
   return fn
 }
 
-export const DataTableCell = <Data extends object>({
-  value,
-  column,
-  row,
-}: CellProps<Data>) => {
-  if (column.href) {
-    const href = getResult(column.href, row.original) as string
-    return <Link href={href}>{value}</Link>
+export const DataTableCell = <Data extends object, TValue>(
+  props: Cell<Data, TValue>
+) => {
+  const { column, row, getValue } = props
+
+  const meta = (column.columnDef.meta || {}) as any
+
+  if (meta.href) {
+    const href = getResult(meta.href, row.original)
+    return <Link href={href}>{getValue()}</Link>
   }
-  return value || null
+  return getValue() || null
 }
 
 if (__DEV__) {
@@ -284,16 +281,9 @@ if (__DEV__) {
 }
 
 const DataTableCheckbox = forwardRef((props, ref) => {
-  const { checked, indeterminate, ...rest } = props
-
   return (
     <chakra.div>
-      <Checkbox
-        ref={ref}
-        isChecked={checked}
-        isIndeterminate={indeterminate}
-        {...rest}
-      />
+      <Checkbox ref={ref} {...props} />
     </chakra.div>
   )
 })
@@ -302,21 +292,33 @@ if (__DEV__) {
   DataTableCheckbox.displayName = 'DataTableCheckbox'
 }
 
-const useCheckboxColumn = <Data extends object>(enabled?: boolean) => {
-  return (hooks: Hooks<Data>) => {
-    enabled &&
-      hooks.visibleColumns.push((columns) => [
+const getSelectionColumn = <Data extends object>(enabled?: boolean) => {
+  return enabled
+    ? [
         {
           id: 'selection',
-          width: '1%',
-          Header: ({ getToggleAllRowsSelectedProps }) => (
-            <DataTableCheckbox {...getToggleAllRowsSelectedProps()} />
+          size: 1,
+          header: ({ table }) => (
+            <DataTableCheckbox
+              isChecked={table.getIsAllRowsSelected()}
+              isIndeterminate={table.getIsSomeRowsSelected()}
+              onChange={table.getToggleAllRowsSelectedHandler()}
+              aria-label={
+                table.getIsAllRowsSelected()
+                  ? 'Deselect all rows'
+                  : 'Select all rows'
+              }
+            />
           ),
-          Cell: ({ row }: CellProps<Data>) => (
-            <DataTableCheckbox {...row.getToggleRowSelectedProps()} />
+          cell: ({ row }) => (
+            <DataTableCheckbox
+              isChecked={row.getIsSelected()}
+              isIndeterminate={row.getIsSomeSelected()}
+              onChange={row.getToggleSelectedHandler()}
+              aria-label={row.getIsSelected() ? 'Deselect row' : 'Select row'}
+            />
           ),
-        },
-        ...columns,
-      ])
-  }
+        } as ColumnDef<Data>,
+      ]
+    : []
 }

@@ -5132,6 +5132,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngneat/falso@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "@ngneat/falso@npm:6.0.3"
+  dependencies:
+    seedrandom: 3.0.5
+    uuid: 8.3.2
+  checksum: 7c4fb20af9bcdc04d9e722c5ac1a65d520135fdb7f4a3745e3696ec8e26d0adb708113b223f96058e5e4767c9fa79343ee6b44c6c9b1d716cac5aea782f92518
+  languageName: node
+  linkType: hard
+
 "@node-rs/xxhash-android-arm-eabi@npm:1.2.1":
   version: 1.2.1
   resolution: "@node-rs/xxhash-android-arm-eabi@npm:1.2.1"
@@ -5978,9 +5988,9 @@ __metadata:
   dependencies:
     "@chakra-ui/icons": ^2.0.2
     "@chakra-ui/utils": ^2.0.2
+    "@ngneat/falso": ^6.0.3
     "@saas-ui/layout": "workspace:*"
-    "@types/react-table": ^7.7.12
-    react-table: ^7.8.0
+    "@tanstack/react-table": ^8.2.6
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
     "@chakra-ui/system": ">=2.1.0"
@@ -7888,6 +7898,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/react-table@npm:^8.2.6":
+  version: 8.2.6
+  resolution: "@tanstack/react-table@npm:8.2.6"
+  dependencies:
+    "@tanstack/table-core": 8.2.6
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: f8e7e8713f3851c9553beacf3ee1e5493b3a6fb6b3f300ef694967ab7c4e118749ea6024393fe85c3bef3949901df8a600a2a6829c36b139a577f3674f86f99d
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.2.6":
+  version: 8.2.6
+  resolution: "@tanstack/table-core@npm:8.2.6"
+  checksum: dd0f48ba9bb91eaabb17e5d14d8961d4e17fa75809d9a152b74c1dceb21b0ed5263bcb3df518877246fe5e18a4bbb88ecfebf06d99394a2eeedc3a0592d67d29
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:^8.14.0":
   version: 8.14.0
   resolution: "@testing-library/dom@npm:8.14.0"
@@ -8499,15 +8528,6 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 8f4dce3eb5c70178c5ec2f7434983d632d02a0371a80c31ea012e37a2b8b2174bee482c3b85764333cbe3bcba9132b95307e23ac56d05d490e485e371bdcea46
-  languageName: node
-  linkType: hard
-
-"@types/react-table@npm:^7.7.12":
-  version: 7.7.12
-  resolution: "@types/react-table@npm:7.7.12"
-  dependencies:
-    "@types/react": "*"
-  checksum: 287ea68e75b56c2e70e6d6491cd172348c7302b032789047eb2dca1b25b240684e48a60f58140575828b790f95724b9f3ec4d3adce82fc1c05d994def1449009
   languageName: node
   linkType: hard
 
@@ -24670,6 +24690,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"seedrandom@npm:3.0.5":
+  version: 3.0.5
+  resolution: "seedrandom@npm:3.0.5"
+  checksum: 728b56bc3bc1b9ddeabd381e449b51cb31bdc0aa86e27fcd0190cea8c44613d5bcb2f6bb63ed79f78180cbe791c20b8ec31a9627f7b7fc7f476fd2bdb7e2da9f
+  languageName: node
+  linkType: hard
+
 "selfsigned@npm:^2.0.1":
   version: 2.0.1
   resolution: "selfsigned@npm:2.0.1"
@@ -27702,21 +27729,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uuid@npm:8.3.2, uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
 "uuid@npm:^3.3.2":
   version: 3.4.0
   resolution: "uuid@npm:3.4.0"
   bin:
     uuid: ./bin/uuid
   checksum: 58de2feed61c59060b40f8203c0e4ed7fd6f99d42534a499f1741218a1dd0c129f4aa1de797bcf822c8ea5da7e4137aa3673431a96dae729047f7aca7b27866f
-  languageName: node
-  linkType: hard
-
-"uuid@npm:^8.3.2":
-  version: 8.3.2
-  resolution: "uuid@npm:8.3.2"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 
@@ -28208,6 +28235,7 @@ __metadata:
     react-intersection-observer: ^9.3.4
     react-live: ^2.4.1
     react-markdown: ^8.0.3
+    react-table: ^7.8.0
     reading-time: ^1.5.0
     remark-code-titles: ^0.1.2
     remark-emoji: ^3.0.2

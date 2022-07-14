@@ -7,8 +7,6 @@ import Page from '@/components/page'
 import { Preview } from '@/components/preview'
 import { EditorProvider, useEditor, UseEditorReturn } from '@/providers/editor'
 import PaletteConfiguration from '@/components/configuration'
-import { Button } from '@saas-ui/react'
-import { FaTwitter } from 'react-icons/fa'
 
 export default function ColorsPage() {
   const [state, setState] = useEditor()

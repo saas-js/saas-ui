@@ -1,10 +1,18 @@
-import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react'
+import {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Badge,
+} from '@chakra-ui/react'
 
 import PalettePreview from './palette'
 import ComponentPreview from './components'
 
 import CodePreview from './code'
 import JsonPreview from './json'
+import FigmaPreview from './figma'
 
 export const Preview = () => {
   return (
@@ -14,6 +22,12 @@ export const Preview = () => {
         <Tab>Components</Tab>
         <Tab>Code</Tab>
         <Tab>JSON</Tab>
+        <Tab>
+          Figma{' '}
+          <Badge bg="primary.500" fontSize="xs" ms="2">
+            new
+          </Badge>
+        </Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
@@ -27,6 +41,9 @@ export const Preview = () => {
         </TabPanel>
         <TabPanel position="relative">
           <JsonPreview />
+        </TabPanel>
+        <TabPanel>
+          <FigmaPreview />
         </TabPanel>
       </TabPanels>
     </Tabs>

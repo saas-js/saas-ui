@@ -51,7 +51,7 @@ export const Basic = () => (
   >
     <FormLayout>
       <Field name="text" label="Text" type="text" />
-      <Field name="number" label="Number" type="number" hideStepper />
+      <Field name="number" label="Number" type="number" min={1} max={10} />
       <Field name="textarea" label="Textarea" type="textarea" />
       <Field name="switch" label="Switch" type="switch" />
       <Field

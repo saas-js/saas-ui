@@ -8,6 +8,20 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 07-17-2022
+
+`@saas-ui/react@1.1.2`
+
+**Provider** `v1.0.2`
+
+- Use correct params type
+
+## 07-14-2022
+
+`@saas-ui/react@1.1.1`
+
+- Added new useSteps hook.
+
 ## 07-08-2022
 
 `@saas-ui/react@1.1.0`

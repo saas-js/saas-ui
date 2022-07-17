@@ -1,5 +1,11 @@
 # @saas-ui/provider
 
+## 1.0.2
+
+### Patch Changes
+
+- 7bb5d3f: Use correct params type
+
 ## 1.0.1
 
 ### Patch Changes

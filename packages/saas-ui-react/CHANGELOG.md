@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [7bb5d3f]
+  - @saas-ui/provider@1.0.2
+  - @saas-ui/layout@1.0.2
+  - @saas-ui/menu@1.0.2
+  - @saas-ui/auth@1.0.5
+  - @saas-ui/data-table@1.0.2
+  - @saas-ui/modals@1.0.4
+
 ## 1.1.1
 
 ### Patch Changes

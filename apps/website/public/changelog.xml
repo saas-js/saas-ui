@@ -7,9 +7,55 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 03 Jul 2022 09:47:32 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 17 Jul 2022 14:41:05 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/07-17-2022</guid>
+    <title>Jul 17, 2022</title>
+    <link>https://saas-ui.dev/changelog/07-17-2022</link>
+    <description>
+## 07-17-2022
+
+**Provider** `v1.0.2`
+
+- Use correct params type
+...</description>
+    <pubDate>Sun, 17 Jul 2022 14:41:05 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/07-14-2022</guid>
+    <title>Jul 14, 2022</title>
+    <link>https://saas-ui.dev/changelog/07-14-2022</link>
+    <description>
+## 07-08-2022
+
+`@saas-ui/react@1.1.0`
+
+- The Saas UI theme now uses InterVariable instead of Inter ...</description>
+    <pubDate>Thu, 14 Jul 2022 15:08:58 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/07-08-2022</guid>
+    <title>Jul 8, 2022</title>
+    <link>https://saas-ui.dev/changelog/07-08-2022</link>
+    <description>
+## 07-08-2022
+
+`@saas-ui/react@1.1.0`
+
+- The Saas UI theme now uses InterVariable instead of Inter ...</description>
+    <pubDate>Fri, 08 Jul 2022 11:47:45 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/07-03-2022</guid>
     <title>Jul 3, 2022</title>

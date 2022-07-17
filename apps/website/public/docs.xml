@@ -7,14 +7,24 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 29 Jun 2022 19:09:53 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 17 Jul 2022 18:06:37 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/docs/components</guid>
+    <title>Professionally crafted Chakra UI components</title>
+    <link>https://saas-ui.dev/docs/components</link>
+    <description>Professionally crafted Chakra UI components that help you build intuitive React apps with speed.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/docs/introduction</guid>
     <title>Introduction</title>
     <link>https://saas-ui.dev/docs/introduction</link>
-    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
+    <description>An advanced component library built with Chakra UI for building high quality SaaS products at speed.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -34,7 +44,7 @@
     <guid>https://saas-ui.dev/docs/core/overview</guid>
     <title>Core overview</title>
     <link>https://saas-ui.dev/docs/core/overview</link>
-    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
+    <description>An advanced component library built on Chakra UI for building high quality SaaS products at speed.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -45,26 +55,6 @@
     <title>Design Principles</title>
     <link>https://saas-ui.dev/docs/core/principles</link>
     <description>Principles that keep your code and UX consistent</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/overview</guid>
-    <title>Pro</title>
-    <link>https://saas-ui.dev/docs/pro/overview</link>
-    <description>An advanced component library build on Chakra UI for building high quality SaaS products at speed.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/project-structure</guid>
-    <title>Project structure</title>
-    <link>https://saas-ui.dev/docs/pro/project-structure</link>
-    <description>How to find your way in the project.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -85,6 +75,26 @@
     <title>useLocalStorage</title>
     <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
     <description>React hook to manage localStorage</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/overview</guid>
+    <title>Pro</title>
+    <link>https://saas-ui.dev/docs/pro/overview</link>
+    <description>A modern clean dashboard ui that your customers will love.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/project-structure</guid>
+    <title>Project structure</title>
+    <link>https://saas-ui.dev/docs/pro/project-structure</link>
+    <description>How to find your way in the project.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -281,6 +291,56 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/layout/app-shell</guid>
+    <title>App Shell</title>
+    <link>https://saas-ui.dev/docs/components/layout/app-shell</link>
+    <description>The App Shell defines the main structure of your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/card</guid>
+    <title>Card</title>
+    <link>https://saas-ui.dev/docs/components/layout/card</link>
+    <description>Cards can be used to provide easy scannable information and details.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/page</guid>
+    <title>Page</title>
+    <link>https://saas-ui.dev/docs/components/layout/page</link>
+    <description>Page makes it easy to implement consistent page layouts throughout your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/section</guid>
+    <title>Section</title>
+    <link>https://saas-ui.dev/docs/components/layout/section</link>
+    <description>Split content into multiple easily scannable sections.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/toolbar</guid>
+    <title>Toolbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/toolbar</link>
+    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/forms/array-field</guid>
     <title>ArrayField</title>
     <link>https://saas-ui.dev/docs/components/forms/array-field</link>
@@ -385,56 +445,6 @@
     <title>StepForm</title>
     <link>https://saas-ui.dev/docs/components/forms/step-form</link>
     <description>Create multi-step React forms with just a few lines of code.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/app-shell</guid>
-    <title>App Shell</title>
-    <link>https://saas-ui.dev/docs/components/layout/app-shell</link>
-    <description>The App Shell defines the main structure of your app.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/card</guid>
-    <title>Card</title>
-    <link>https://saas-ui.dev/docs/components/layout/card</link>
-    <description>Cards can be used to provide easy scannable information and details.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/page</guid>
-    <title>Page</title>
-    <link>https://saas-ui.dev/docs/components/layout/page</link>
-    <description>Page makes it easy to implement consistent page layouts throughout your app.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section</guid>
-    <title>Section</title>
-    <link>https://saas-ui.dev/docs/components/layout/section</link>
-    <description>Split content into multiple easily scannable sections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/toolbar</guid>
-    <title>Toolbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/toolbar</link>
-    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -701,6 +711,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/core/theming/fonts</guid>
+    <title>Fonts</title>
+    <link>https://saas-ui.dev/docs/core/theming/fonts</link>
+    <description>Settings up fonts in your theme.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/core/theming/saas-ui-theme</guid>
     <title>Saas UI Theme</title>
     <link>https://saas-ui.dev/docs/core/theming/saas-ui-theme</link>
@@ -775,6 +795,16 @@
     <title>Setting the Saas UI Pro theme</title>
     <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
     <description>How to setup the Saas UI Pro theme in your project.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/fonts</guid>
+    <title>Fonts</title>
+    <link>https://saas-ui.dev/docs/pro/theming/fonts</link>
+    <description>Settings up fonts in your theme.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

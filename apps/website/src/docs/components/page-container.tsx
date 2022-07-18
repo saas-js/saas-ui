@@ -126,7 +126,7 @@ function PageContainer(props: PageContainerProps) {
                       <chakra.p apply="mdx.description">{description}</chakra.p>
                     )}
                     {version && (
-                      <Badge colorScheme="teal" letterSpacing="wider">
+                      <Badge colorScheme="purple" letterSpacing="wider">
                         v{version}
                       </Badge>
                     )}

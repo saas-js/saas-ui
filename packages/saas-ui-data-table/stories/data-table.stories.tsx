@@ -3,7 +3,11 @@ import { Story, Meta } from '@storybook/react'
 
 import { Container, Stack, Button } from '@chakra-ui/react'
 
-import { DataTable, DataTableProps, TableInstance, Column } from '../src'
+import { DataTable, DataTableProps, TableInstance, ColumnDef } from '../src'
+
+import { randUser } from '@ngneat/falso'
+
+import { getPaginationRowModel } from '@tanstack/react-table'
 
 export default {
   title: 'Components/Data Display/DataTable',
@@ -32,92 +36,37 @@ const Template: Story<DataTableProps<ExampleData>> = ({
 )
 
 interface ExampleData {
-  name: string
+  id: string
+  username: string
+  firstName: string
+  lastName: string
   phone: string
   email: string
-  company: string
-  country: string
-  employees: number
 }
 
-const columns: Column<ExampleData>[] = [
+const columns: ColumnDef<ExampleData>[] = [
   {
-    accessor: 'name',
-    Header: 'Name',
+    accessorKey: 'username',
+    header: 'Username',
   },
   {
-    accessor: 'phone',
-    Header: 'Phone',
+    accessorKey: 'firstName',
+    header: 'First name',
   },
   {
-    accessor: 'email',
-    Header: 'Email',
+    accessorKey: 'phone',
+    header: 'Phone',
   },
   {
-    accessor: 'company',
-    Header: 'Company',
-  },
-  {
-    accessor: 'country',
-    Header: 'Country',
-  },
-  {
-    accessor: 'employees',
-    Header: 'Employees',
-    isNumeric: true,
+    accessorKey: 'email',
+    header: 'Email',
   },
 ]
 
-const data = [
-  {
-    id: 1,
-    name: 'TaShya Charles',
-    phone: '(651) 467-2240',
-    email: 'urna.nec.luctus@icloud.couk',
-    company: 'Luctus Et Industries',
-    country: 'China',
-    employees: 139,
-  },
-  {
-    id: 2,
-    name: 'Donovan Mosley',
-    phone: '(154) 698-4775',
-    email: 'lacinia.mattis.integer@icloud.couk',
-    company: 'Nunc Ullamcorper Industries',
-    country: 'Sweden',
-    employees: 234,
-  },
-  {
-    id: 3,
-    name: 'Quynn Moore',
-    phone: '1-362-643-1030',
-    email: 'ipsum.primis@aol.couk',
-    company: 'Venenatis Lacus LLC',
-    country: 'Italy',
-    employees: 32,
-  },
-  {
-    id: 4,
-    name: 'Hashim Huff',
-    phone: '(202) 481-9204',
-    email: 'pede.ultrices.a@icloud.couk',
-    company: 'Maecenas Ornare Incorporated',
-    country: 'China',
-    employees: 1322,
-  },
-  {
-    id: 5,
-    name: 'Fuller Mcleod',
-    phone: '1-186-271-2202',
-    email: 'auctor.velit@hotmail.com',
-    company: 'Hendrerit Consectetuer Associates',
-    country: 'Peru',
-    employees: 4,
-  },
-]
+const data = randUser({ length: 20 })
 
 const initialState = {
-  hiddenColumns: ['phone', 'employees'],
+  columnVisibility: { phone: false },
 }
 
 export const Default = Template.bind({})
@@ -149,7 +98,7 @@ InitialSelected.args = {
   data,
   initialState: {
     ...initialState,
-    selectedRowIds: { 1: true },
+    rowSelection: { 1: true },
   },
   isSelectable: true,
 }
@@ -176,25 +125,28 @@ export const Numeric = Template.bind({})
 Numeric.args = {
   columns,
   data,
-  initialState: {
-    hiddenColumns: ['phone'],
-  },
+  initialState,
 }
+
+const withLinks = (columns.concat() as any).map((column: any) => {
+  if (column.accessorKey === 'username') {
+    return Object.assign({}, column, {
+      meta: {
+        href: (row: any) => {
+          return `/customers/${row.id}`
+        },
+        ...column.meta,
+      },
+    })
+  }
+  return column
+})
 
 export const WithLink = Template.bind({})
 WithLink.args = {
-  columns: Object.assign(columns).map((column) => {
-    if (column.accessor === 'name') {
-      return Object.assign({}, column, {
-        href: (row) => `/customers/${row.id}`,
-      })
-    }
-    return column
-  }),
+  columns: withLinks,
   data,
-  initialState: {
-    hiddenColumns: ['phone'],
-  },
+  initialState,
 }
 
 export const TableInstanceRef = () => {

@@ -4,7 +4,6 @@ description: A basic data table component that supports sorting and selections.
 ---
 
 Data tables are used to organize lists of high density data.
-It uses `react-table` to manage internal state.
 
 <ComponentLinks
   github={{ package: 'saas-ui-data-table' }}
@@ -18,6 +17,8 @@ import { DataTable } from '@saas-ui/react'
 ```
 
 ## Usage
+
+DataTable uses `@tanstack/react-table` internally and supports all TableOptions which allows you to extend the DataTable with pagination, column resizing, filtering and more, see the [TanStack table documentation](https://tanstack.com/table/v8/docs/api/core/table) for more information.
 
 ### Basic DataTable
 
@@ -51,7 +52,7 @@ import { DataTable } from '@saas-ui/react'
 ### Access internal state
 
 You can access the react-table `TableInstance` by passing a ref to `DataTable`.
-Check out the [react-table documentation](https://react-table-v7.tanstack.com/docs/api/useTable#instance-properties) for all properties.
+Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
 
 ```jsx
 function TableState() {
@@ -62,7 +63,7 @@ function TableState() {
       <Button
         onClick={() =>
           tableRef.current.toggleAllRowsSelected(
-            !tableRef.current.isAllRowsSelected
+            !tableRef.current.getIsAllRowsSelected()
           )
         }
         label="Select all rows"
@@ -92,24 +93,26 @@ export * from '@saas-ui/data-table/src/react-table-config.d'
 ```
 
 ```tsx
+import { ColumnDef } from '@saas-ui/react'
+
 interface ExampleData {
   id: string
   name: string
   email: string
 }
 
-const columns: Column<ExampleData>[] = [
+const columns: ColumnDef<ExampleData>[] = [
   {
-    accessor: 'id',
-    Header: 'Id',
+    accessorKey: 'id',
+    header: 'Id',
   },
   {
-    accessor: 'name',
-    Header: 'Name',
+    accessorKey: 'name',
+    header: 'Name',
   },
   {
-    accessor: 'email',
-    Header: 'Email',
+    accessorKey: 'email',
+    header: 'Email',
   },
 ]
 

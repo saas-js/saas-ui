@@ -22,7 +22,7 @@ import { AuthTypeEnum, AuthActionEnum } from '../provider'
 import { ForgotPasswordForm } from './forgot-password-form'
 import { UpdatePasswordForm } from './update-password-form'
 
-const [StylesProvider, useStyles] = createStylesContext('AutoForm')
+const [StylesProvider, useStyles] = createStylesContext('AuthForm')
 
 export interface AuthFormProps
   extends Omit<

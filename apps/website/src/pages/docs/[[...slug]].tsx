@@ -48,6 +48,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     fs.writeFileSync('./public/docs.xml', rss)
   }
 
+  if (!doc) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       doc,

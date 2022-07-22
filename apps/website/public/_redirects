@@ -12,5 +12,6 @@
 /docs/getting-started /docs/core/getting-started
 /docs/getting-started/* /docs/core/getting-started/:splat
 /docs/installation/* /docs/core/installation/:splat
+/docs/theming/theme /docs/core/theming/saas-ui-theme
 /docs/theming/* /docs/core/theming/:splat
 /docs/integrations/* /docs/core/integrations/:splat

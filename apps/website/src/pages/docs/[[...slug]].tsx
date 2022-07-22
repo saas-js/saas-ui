@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { allDocs, Doc } from '.contentlayer/generated'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -32,7 +33,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     doc._id.endsWith(`${params.join('/')}.mdx`)
   )
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {
     const rss = generateRss(
       [
         {

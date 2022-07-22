@@ -24,6 +24,10 @@ interface SubmitParams {
 
 export interface ForgotPasswordFormProps
   extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  /**
+   * @deprecated use emailLabel instead
+   */
+  label?: string
   emailLabel?: string
   helpText?: string
   onSuccess?: (data: any) => void
@@ -39,6 +43,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   onValidationError,
   submitLabel,
   emailLabel,
+  label,
   helpText,
   children,
   renderSuccess = () => (
@@ -69,7 +74,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label={emailLabel}
+          label={emailLabel ?? label}
           type="email"
           rules={{ required: true }}
           autoComplete="email"

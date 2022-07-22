@@ -16,9 +16,7 @@ import { DataGrid } from '@saas-ui/pro'
 
 ## Usage
 
-To make sure types are working correctly [follow these steps first](#typescript).
-
-DataGrid uses `react-table` v7 internally, and supports all `useTable` props, you can [find the docs here](https://react-table-v7.tanstack.com/).
+DataTable uses `@tanstack/react-table` internally and supports all TableOptions which allows you to extend the DataTable with pagination, column resizing, filtering and more, see the [TanStack table documentation](https://tanstack.com/table/v8/docs/api/core/table) for more information.
 
 ### Basic DataGrid
 
@@ -27,33 +25,35 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
-        width: '200px',
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
-        isNumeric: true,
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -87,33 +87,33 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
+        accessorKey: 'name',
+        header: 'Name',
         width: '200px',
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -156,7 +156,7 @@ function ListPage() {
 
 ### Clickable rows
 
-Cells with a `href` property will render the cell value in an `a`.
+cells with a `href` property will render the cell value in an `a`.
 Using the DataGrid `onRowClick` handler you can trigger a click event on the link whenever the row is clicked.
 
 ```jsx
@@ -166,34 +166,36 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
+        accessorKey: 'name',
+        header: 'Name',
         width: '200px',
-        href: ({ id }) => `#customers/${id}`,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -261,34 +263,34 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
-        width: '200px',
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
         href: ({ id }) => `#customers/${id}`,
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -363,7 +365,7 @@ function TableState() {
           <ToolbarButton
             onClick={() => {
               tableRef.current.toggleAllRowsSelected(
-                !tableRef.current.isAllRowsSelected
+                !tableRef.current.getIsAllRowsSelected()
               )
             }}
             label="Select all rows"
@@ -373,7 +375,7 @@ function TableState() {
       }
     >
       <DataGrid
-        ref={tableRef}
+        instanceRef={tableRef}
         columns={dataTable.columns.concat()}
         data={dataTable.data.concat()}
         isSelectable
@@ -405,16 +407,16 @@ interface ExampleData {
 
 const columns: Column<ExampleData>[] = [
   {
-    accessor: 'id',
-    Header: 'Id',
+    accessorKey: 'id',
+    header: 'Id',
   },
   {
-    accessor: 'name',
-    Header: 'Name',
+    accessorKey: 'name',
+    header: 'Name',
   },
   {
-    accessor: 'email',
-    Header: 'Email',
+    accessorKey: 'email',
+    header: 'Email',
   },
 ]
 

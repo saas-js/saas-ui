@@ -1,4 +1,4 @@
-import { Column } from 'react-table'
+import { ColumnDef } from '@tanstack/react-table'
 
 interface ExampleData {
   name: string
@@ -9,31 +9,33 @@ interface ExampleData {
   employees: number
 }
 
-const columns: Column<ExampleData>[] = [
+const columns: ColumnDef<ExampleData>[] = [
   {
-    accessor: 'name',
-    Header: 'Name',
+    accessorKey: 'name',
+    header: 'Name',
   },
   {
-    accessor: 'phone',
-    Header: 'Phone',
+    accessorKey: 'phone',
+    header: 'Phone',
   },
   {
-    accessor: 'email',
-    Header: 'Email',
+    accessorKey: 'email',
+    header: 'Email',
   },
   {
-    accessor: 'company',
-    Header: 'Company',
+    accessorKey: 'company',
+    header: 'Company',
   },
   {
-    accessor: 'country',
-    Header: 'Country',
+    accessorKey: 'country',
+    header: 'Country',
   },
   {
-    accessor: 'employees',
-    Header: 'Employees',
-    isNumeric: true,
+    accessorKey: 'employees',
+    header: 'Employees',
+    meta: {
+      isNumeric: true,
+    },
   },
 ]
 

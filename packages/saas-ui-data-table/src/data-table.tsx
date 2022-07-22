@@ -36,6 +36,10 @@ export interface DataTableProps<Data extends object>
   extends Omit<TableOptions<Data>, 'getCoreRowModel'>,
     ThemingProps<'Table'> {
   /**
+   * The TableInstance reference
+   */
+  instanceRef?: React.Ref<TableInstance<Data>>
+  /**
    * Enable sorting on all columns
    */
   isSortable?: boolean
@@ -62,9 +66,10 @@ export interface DataTableProps<Data extends object>
 export const DataTable = React.forwardRef(
   <Data extends object>(
     props: DataTableProps<Data>,
-    ref: React.ForwardedRef<TableInstance<Data>>
+    ref: React.ForwardedRef<HTMLTableElement>
   ) => {
     const {
+      instanceRef,
       columns,
       isSortable,
       isSelectable,
@@ -102,8 +107,8 @@ export const DataTable = React.forwardRef(
       getCoreRowModel: getCoreRowModel(),
     })
 
-    // This exposes the useTable api through the forwareded ref
-    React.useImperativeHandle(ref, () => instance, [ref])
+    // This exposes the useTable api through the instanceRef
+    React.useImperativeHandle(instanceRef, () => instance, [instanceRef])
 
     const state = instance.getState()
 
@@ -117,6 +122,7 @@ export const DataTable = React.forwardRef(
 
     return (
       <Table
+        ref={ref}
         sx={{ 'tr:last-child td': { border: 0 } }}
         className={cx('saas-data-table', className)}
         colorScheme={colorScheme}
@@ -166,7 +172,7 @@ export const DataTable = React.forwardRef(
   }
 ) as (<Data extends object>(
   props: DataTableProps<Data> & {
-    ref?: React.ForwardedRef<TableInstance<Data>>
+    ref?: React.ForwardedRef<HTMLTableElement>
   }
 ) => React.ReactElement) & { displayName?: string }
 

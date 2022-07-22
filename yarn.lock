@@ -6259,9 +6259,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/pro@npm:^0.6.0-next.2":
-  version: 0.6.0-next.2
-  resolution: "@saas-ui/pro@npm:0.6.0-next.2"
+"@saas-ui/pro@npm:^0.6.0-next.3":
+  version: 0.6.0-next.3
+  resolution: "@saas-ui/pro@npm:0.6.0-next.3"
   dependencies:
     "@chakra-ui/anatomy": ^2.0.1
     "@chakra-ui/clickable": ^2.0.4
@@ -6285,7 +6285,7 @@ __metadata:
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 098f791d64f374f4cc8a4f00660ecc7ea9923847f668b0352e7e1da1681cf6b955fc82e6deb03f4669b7adba9621c7773a13aab74eba106279c3781993704883
+  checksum: e448ac02432f57e06142bcc1cf3d4e9c0371deaaad11bdfb2829919f78f09c6ef2df299605a85b235656f63835cbd0a94b04b09989af644817cfb3fd9b76b2cf
   languageName: node
   linkType: hard
 
@@ -28235,7 +28235,7 @@ __metadata:
     "@octokit/rest": ^18.12.0
     "@saas-ui/features": ^0.5.0-next.1
     "@saas-ui/palette": "workspace:*"
-    "@saas-ui/pro": ^0.6.0-next.2
+    "@saas-ui/pro": ^0.6.0-next.3
     "@saas-ui/props-docs": ^1.0.0
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"

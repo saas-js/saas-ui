@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 1.0.3
+
+### Patch Changes
+
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- Updated dependencies [8d03628]
+  - @saas-ui/password-input@1.0.2
+
 ## 1.0.2
 
 ### Patch Changes

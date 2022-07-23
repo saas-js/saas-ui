@@ -1,5 +1,17 @@
 # @saas-ui/auth
 
+## 1.1.0
+
+### Minor Changes
+
+- 1ff5f3a: Auth forms field labels can now be customized, thanks to @nadiles.
+
+### Patch Changes
+
+- 273c10d: Fixed a typo in the AuthForm styles provider.
+- Updated dependencies [e14c2e1]
+  - @saas-ui/forms@1.0.3
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/password-input
 
+## 1.0.2
+
+### Patch Changes
+
+- 8d03628: PasswordInput width now applied to the FormGroup element.
+
 ## 1.0.1
 
 ### Patch Changes

@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@chakra-ui/props-docs": "^2.0.7",
-    "@chakra-ui/react": "^2.2.1",
+    "@chakra-ui/react": "^2.2.4",
     "@chakra-ui/skip-nav": "^2.0.2",
-    "@chakra-ui/system": "^2.2.0",
+    "@chakra-ui/system": "^2.2.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@fontsource/inter": "^4.5.11",

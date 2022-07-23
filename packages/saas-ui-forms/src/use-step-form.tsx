@@ -66,21 +66,21 @@ export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
 
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
-      const step = steps[activeStep]
-
-      if (isLastStep) {
-        return props
-          .onSubmit?.(data)
-          .then(() => {
-            updateStep({
-              ...step,
-              isCompleted: true,
-            })
-          })
-          .then(nextStep) // Show completed step
-      }
-
       try {
+        const step = steps[activeStep]
+
+        if (isLastStep) {
+          await props.onSubmit?.(data)
+
+          updateStep({
+            ...step,
+            isCompleted: true,
+          })
+
+          nextStep() // show completed step
+          return
+        }
+
         await step.onSubmit?.(data, stepper)
 
         nextStep()

@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 17 Jul 2022 18:06:37 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 22 Jul 2022 16:00:58 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -291,56 +291,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/app-shell</guid>
-    <title>App Shell</title>
-    <link>https://saas-ui.dev/docs/components/layout/app-shell</link>
-    <description>The App Shell defines the main structure of your app.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/card</guid>
-    <title>Card</title>
-    <link>https://saas-ui.dev/docs/components/layout/card</link>
-    <description>Cards can be used to provide easy scannable information and details.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/page</guid>
-    <title>Page</title>
-    <link>https://saas-ui.dev/docs/components/layout/page</link>
-    <description>Page makes it easy to implement consistent page layouts throughout your app.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section</guid>
-    <title>Section</title>
-    <link>https://saas-ui.dev/docs/components/layout/section</link>
-    <description>Split content into multiple easily scannable sections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/toolbar</guid>
-    <title>Toolbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/toolbar</link>
-    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/forms/array-field</guid>
     <title>ArrayField</title>
     <link>https://saas-ui.dev/docs/components/forms/array-field</link>
@@ -445,6 +395,56 @@
     <title>StepForm</title>
     <link>https://saas-ui.dev/docs/components/forms/step-form</link>
     <description>Create multi-step React forms with just a few lines of code.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/app-shell</guid>
+    <title>App Shell</title>
+    <link>https://saas-ui.dev/docs/components/layout/app-shell</link>
+    <description>The App Shell defines the main structure of your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/card</guid>
+    <title>Card</title>
+    <link>https://saas-ui.dev/docs/components/layout/card</link>
+    <description>Cards can be used to provide easy scannable information and details.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/page</guid>
+    <title>Page</title>
+    <link>https://saas-ui.dev/docs/components/layout/page</link>
+    <description>Page makes it easy to implement consistent page layouts throughout your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/section</guid>
+    <title>Section</title>
+    <link>https://saas-ui.dev/docs/components/layout/section</link>
+    <description>Split content into multiple easily scannable sections.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/toolbar</guid>
+    <title>Toolbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/toolbar</link>
+    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

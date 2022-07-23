@@ -8,6 +8,28 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 07-23-2022
+
+`@saas-ui/react@1.2.0`
+
+- Auth forms field labels can now be customized, thanks to @nadiles.
+- Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- Fixed a typo in the AuthForm styles provider.
+- PasswordInput width now applied to the FormGroup element.
+
+**Auth** `v1.1.0`
+
+- Auth forms field labels can now be customized, thanks to @nadiles.
+- Fixed a typo in the AuthForm styles provider.
+
+**Forms** `v1.0.3`
+
+- Make sure FormStep onSubmit does not throw an error when no promise is returned.
+
+**Password Input** `v1.0.2`
+
+- PasswordInput width now applied to the FormGroup element.
+
 ## 07-17-2022
 
 `@saas-ui/react@1.1.2`

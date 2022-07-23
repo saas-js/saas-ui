@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 1.2.0
+
+### Minor Changes
+
+- 1ff5f3a: Auth forms field labels can now be customized, thanks to @nadiles.
+
+### Patch Changes
+
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- 273c10d: Fixed a typo in the AuthForm styles provider.
+- 8d03628: PasswordInput width now applied to the FormGroup element.
+- Updated dependencies [1ff5f3a]
+- Updated dependencies [e14c2e1]
+- Updated dependencies [273c10d]
+- Updated dependencies [8d03628]
+  - @saas-ui/auth@1.1.0
+  - @saas-ui/forms@1.0.3
+  - @saas-ui/password-input@1.0.2
+  - @saas-ui/modals@1.0.5
+
 ## 1.1.2
 
 ### Patch Changes

@@ -74,7 +74,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label={emailLabel ?? label}
+          label={label ?? emailLabel}
           type="email"
           rules={{ required: true }}
           autoComplete="email"

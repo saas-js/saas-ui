@@ -24,7 +24,11 @@ interface SubmitParams {
 
 export interface UpdatePasswordFormProps
   extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  /**
+   * @deprecated use passwordLabel instead
+   */
   label?: string
+  passwordLabel?: string
   confirmLabel?: string
   helpText?: string
   onSuccess?: (data: any) => void
@@ -39,6 +43,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
   onError = () => null,
   onValidationError,
   submitLabel,
+  passwordLabel,
   label,
   confirmLabel,
   helpText,
@@ -69,7 +74,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
       <FormLayout>
         <Field
           name="password"
-          label={label}
+          label={passwordLabel ?? label}
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"
@@ -95,7 +100,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
 
 UpdatePasswordForm.defaultProps = {
   submitLabel: 'Update password',
-  label: 'New password',
+  passwordLabel: 'New password',
   confirmLabel: 'Confirm password',
 }
 

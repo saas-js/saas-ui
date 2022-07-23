@@ -32,6 +32,8 @@ export interface PasswordFormProps
   onError?: (error: any) => void
   onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
+  emailLabel?: string
+  passwordLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
 }
@@ -42,6 +44,8 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   onError = () => null,
   onValidationError,
   submitLabel = 'Log in',
+  emailLabel = 'Email',
+  passwordLabel = 'Password',
   defaultValues,
   children,
   renderSuccess = () => (
@@ -73,14 +77,14 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label="Email"
+          label={emailLabel}
           type="email"
           rules={{ required: true }}
           autoComplete="email"
         />
         <Field
           name="password"
-          label="Password"
+          label={passwordLabel}
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"

@@ -23,6 +23,7 @@ export interface MagicLinkFormProps
   onError?: (error: any) => void
   onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
+  emailLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
 }
@@ -56,6 +57,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   onError = () => null,
   onValidationError,
   submitLabel = 'Continue with Email',
+  emailLabel = 'Email',
   defaultValues,
   renderSuccess = (data) => <MagicLinkSuccess email={data?.email} />,
   children,
@@ -85,7 +87,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label="Email"
+          label={emailLabel}
           type="email"
           rules={{ required: true }}
           autoComplete="email"

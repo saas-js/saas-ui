@@ -4810,17 +4810,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@datepicker-react/hooks@npm:^2.8.4":
-  version: 2.8.4
-  resolution: "@datepicker-react/hooks@npm:2.8.4"
-  dependencies:
-    date-fns: ^2.14.0
-  peerDependencies:
-    react: ">= 16.8.5"
-  checksum: 79a1c98702bef8818d388d9d78bba66133cafdb4098ca4506ba521b42dd1162f077e273e61477cdc0124d9d34ad369c6adfa6db9d436f6ccccc702c55484d3c1
-  languageName: node
-  linkType: hard
-
 "@discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
@@ -6737,23 +6726,6 @@ __metadata:
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
-
-"@saas-ui/date-picker@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@saas-ui/date-picker@npm:0.2.1"
-  dependencies:
-    "@chakra-ui/react-utils": ^2.0.1
-    "@chakra-ui/utils": ^2.0.2
-    "@datepicker-react/hooks": ^2.8.4
-    date-fns: ^2.28.0
-  peerDependencies:
-    "@chakra-ui/react": ">=2.0.0"
-    "@saas-ui/react": ">=1"
-    framer-motion: ">=5.5.0"
-    react: ">=18"
-  checksum: a62d7c8b4c8b551f9b10fa2b6684507fdafced30a53d19c744ea2e7db835022c7c5f57e4669e0eac094c9f6b962c679549e2103ea1f8dc35bfa9913734900213
-  languageName: node
-  linkType: hard
 
 "@saas-ui/features@npm:^0.4.0":
   version: 0.4.0
@@ -13291,13 +13263,6 @@ __metadata:
   version: 2.28.0
   resolution: "date-fns@npm:2.28.0"
   checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:^2.14.0":
-  version: 2.29.1
-  resolution: "date-fns@npm:2.29.1"
-  checksum: 9d07f77dffc1eb8c213391bde39f2963ffe7c0019d9edde14487882d627224f3a39b963e6e99d0cc58afff220a6a1a7e8864d2789958f4eaa77714de94d4d076
   languageName: node
   linkType: hard
 
@@ -28953,7 +28918,6 @@ __metadata:
     "@netlify/plugin-nextjs": ^4.9.3
     "@next/bundle-analyzer": ^12.2.0
     "@octokit/rest": ^18.12.0
-    "@saas-ui/date-picker": ^0.2.1
     "@saas-ui/features": ^0.4.0
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/pro": ^0.5.2

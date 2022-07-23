@@ -74,7 +74,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
       <FormLayout>
         <Field
           name="password"
-          label={passwordLabel ?? label}
+          label={label ?? passwordLabel}
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"

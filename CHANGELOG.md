@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 07-24-2022
+
+`@saas-ui/react@1.2.1`
+
+- Fall back to label prop in password forms
+
+**Auth** `v1.1.1`
+
+- Fall back to label prop in password forms
+
 ## 07-23-2022
 
 `@saas-ui/react@1.2.0`

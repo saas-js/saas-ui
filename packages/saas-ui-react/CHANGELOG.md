@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 1.2.1
+
+### Patch Changes
+
+- Fall back to label prop in password forms
+- Updated dependencies
+  - @saas-ui/auth@1.1.1
+
 ## 1.2.0
 
 ### Minor Changes

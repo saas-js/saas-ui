@@ -78,8 +78,8 @@ export const WithValidationRules = (props: FormProps) => (
         title: '',
         description: '',
       }}
-      onSubmit={onSubmit}
       {...props}
+      onSubmit={onSubmit}
     >
       <FormLayout>
         <Field
@@ -135,7 +135,7 @@ export const FormState = () => {
     // ref.current?.handleSubmit(onSubmit)()
 
     return () => {
-      sub.unsubscribe()
+      sub?.unsubscribe()
     }
   }, [ref.current])
 

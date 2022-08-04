@@ -1,34 +1,78 @@
 import { useState, useEffect } from 'react'
+const isBrowser = typeof window !== 'undefined'
+
+function setItem(key: string, value: string) {
+  if (isBrowser && 'localStorage' in window) {
+    return value === undefined
+      ? localStorage.removeItem(key)
+      : localStorage.setItem(key, value)
+  }
+}
 
 function getItem(key: string) {
-  const item = localStorage.getItem(key)
-
-  try {
-    return item && JSON.parse(item)
-  } catch (e) {
-    return item
+  if (isBrowser && 'localStorage' in window) {
+    return localStorage.getItem(key)
   }
 }
 
-function getStorageValue(key: string, defaultValue: any) {
+const serializeJSON = <T>(value: T) => {
   try {
-    if (typeof window !== 'undefined') {
-      const value = getItem(key)
-      return value || defaultValue
-    }
+    return JSON.stringify(value)
   } catch (e) {
-    return defaultValue
+    throw new Error('useLocalStorage: failed to serialize the value to JSON')
   }
 }
 
-export const useLocalStorage = (key: string, defaultValue: any) => {
+const deserializeJSON = (value?: string) => {
+  try {
+    return value && JSON.parse(value)
+  } catch (e) {
+    return value
+  }
+}
+
+export interface UseLocalStorageOptions<T> {
+  serialize?<T>(value: T): string
+  deserialize?(value?: string): T
+}
+
+/**
+ * Works like useState but stores the value as JSON in localStorage.
+ * Updates work across multiple tabs using StorageEvent.
+ *
+ * Setting undefined will remote the localStorage item.
+ */
+export const useLocalStorage = <T = string>(
+  key: string,
+  defaultValue: T,
+  options: UseLocalStorageOptions<T> = {}
+) => {
+  const { serialize = serializeJSON, deserialize = deserializeJSON } = options
+
   const [value, setValue] = useState(() => {
-    return getStorageValue(key, defaultValue)
+    return isBrowser ? deserialize(getItem(key) ?? undefined) : defaultValue
   })
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value))
+    const handler = (event: StorageEvent) => {
+      if (event.storageArea === window.localStorage && event.key === key) {
+        setValue(deserialize(event.newValue ?? undefined))
+      }
+    }
+
+    if (isBrowser) {
+      window.addEventListener('storage', handler)
+    }
+    return () => {
+      if (isBrowser) {
+        window.removeEventListener('storage', handler)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    setItem(key, serialize(value))
   }, [key, value])
 
-  return [value, setValue]
+  return [value === undefined ? defaultValue : value, setValue] as const
 }

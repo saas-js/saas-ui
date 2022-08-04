@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [d88b04d]
+  - @saas-ui/hooks@1.0.2
+  - @saas-ui/auth@1.1.2
+
 ## 1.2.1
 
 ### Patch Changes

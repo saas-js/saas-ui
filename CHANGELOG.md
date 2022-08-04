@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 08-04-2022
+
+**Hooks** `v1.0.2`
+
+- useLocalStorage now returns the defaultValue if no value is available and is updated across tabs.
+
 ## 07-24-2022
 
 `@saas-ui/react@1.2.1`

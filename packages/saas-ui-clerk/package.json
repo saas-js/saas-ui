@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/clerk",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Clerk Authentication Service for Saas UI",
   "source": "src/index.ts",
   "exports": {

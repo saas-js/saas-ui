@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 1.0.2
+
+### Patch Changes
+
+- d88b04d: useLocalStorage now returns the defaultValue if no value is available and is updated across tabs.
+
 ## 1.0.1
 
 ### Patch Changes

@@ -144,8 +144,9 @@ const Home = () => {
                   >
                     Saas UI is a <Em>React component library</Em> and{' '}
                     <Em>starterkit</Em>
-                    <Br /> that doesn&apos;t get in your way and helps you{' '}
-                    <Br /> build intuitive SaaS products with speed.
+                    <Br display={{ base: 'none', md: 'inline' }} /> that
+                    doesn&apos;t get in your way and helps you <Br /> build
+                    intuitive SaaS products with speed.
                   </FallInPlace>
                 }
               >

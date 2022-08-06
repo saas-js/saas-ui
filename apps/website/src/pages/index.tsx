@@ -36,6 +36,7 @@ import {
   Icon,
   Center,
   Tooltip,
+  AspectRatio,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -96,6 +97,7 @@ import {
 import { transparentize } from '@chakra-ui/theme-tools'
 import { Testimonial, Testimonials } from '@/components/testimonials'
 import { Faq } from '@/components/faq'
+import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -110,34 +112,53 @@ const Home = () => {
         description="The React component library for Startups"
         titleTemplate="%s - The React component library for Startups"
       />
-      <BackgroundGradient animate={false} />
+
       <Box mb={8} w="full" position="relative" overflow="hidden">
-        <Box pos="relative">
-          <Container maxW="container.xl" py="40">
-            <Stack direction={['column', 'row']}>
+        <Box _dark={{ bg: 'black' }}>
+          <Container
+            maxW="container.xl"
+            py={{ base: 10, lg: 20, xl: 40 }}
+            position="relative"
+          >
+            <Stack
+              direction="column"
+              alignItems="center"
+              position="relative"
+              zIndex="2"
+            >
               <Hero
+                as={Stack}
                 id="home"
-                justifyContent="flex-start"
-                px="0"
+                alignItems="center"
+                textAlign="center"
                 title={
-                  <FallInPlace>
-                    Build beautiful
-                    <Br /> software faster
+                  <FallInPlace textAlign="center">
+                    Build intuitive apps that your customers will love
                   </FallInPlace>
                 }
                 description={
-                  <FallInPlace delay={0.4} fontWeight="medium">
-                    Saas UI is a <Em>React component library</Em>
+                  <FallInPlace
+                    delay={0.4}
+                    fontWeight="medium"
+                    textAlign="center"
+                  >
+                    Saas UI is a <Em>React component library</Em> and{' '}
+                    <Em>starterkit</Em>
                     <Br /> that doesn&apos;t get in your way and helps you{' '}
                     <Br /> build intuitive SaaS products with speed.
                   </FallInPlace>
                 }
               >
-                <FallInPlace delay={0.8}>
-                  <HStack pt="4" pb="12" spacing="8">
-                    <ReactLogo height="28px" /> <ChakraLogo height="20px" />
+                <FallInPlace delay={0.6}>
+                  <HStack pt="12" pb="12" spacing="8" justifyContent="center">
+                    <HStack>
+                      <ReactLogo height="24px" />
+                      <Text fontWeight="medium">React</Text>
+                    </HStack>
+                    <ChakraLogo height="24px" />
                   </HStack>
-
+                </FallInPlace>
+                <FallInPlace delay={0.8}>
                   <ButtonGroup spacing={4} alignItems="center">
                     <Button
                       colorScheme="primary"
@@ -154,6 +175,9 @@ const Home = () => {
                       size="lg"
                       href="/docs/introduction"
                       variant="outline"
+                      _hover={{
+                        bg: 'whiteAlpha.200',
+                      }}
                       rightIcon={
                         <Icon
                           as={FiArrowRight}
@@ -173,29 +197,29 @@ const Home = () => {
                 </FallInPlace>
               </Hero>
               <Box
-                height="600px"
-                position="absolute"
-                display={{ base: 'none', lg: 'block' }}
-                left={{ lg: '60%', xl: '55%' }}
                 width="80vw"
                 maxW="1100px"
                 margin="0 auto"
+                alignItems="center"
+                position="relative"
+                zIndex="2"
               >
                 <FallInPlace delay={1}>
-                  <Box overflow="hidden" height="100%" display="flex">
+                  <AspectRatio ratio={1100 / 698}>
                     <Image
                       src="/screenshots/list.png"
-                      layout="fixed"
+                      layout="fill"
                       width="1100px"
                       height="698px"
                       alt="Screenshot of a ListPage in Saas UI Pro"
                       quality="75"
                       priority
                     />
-                  </Box>
+                  </AspectRatio>
                 </FallInPlace>
               </Box>
             </Stack>
+            <BackgroundGradientRadial bottom="0" />
           </Container>
           <Features
             id="benefits"
@@ -833,7 +857,11 @@ const HighlightBox = (props) => {
   return (
     <Card
       as={VStack}
-      bgColor={useColorModeValue('gray.100', 'gray.800')}
+      bg={useColorModeValue('gray.100', 'gray.800')}
+      bgGradient="linear(to-bl,white, gray.50)"
+      _dark={{
+        bgGradient: 'linear(to-bl, whiteAlpha.50, transparent)',
+      }}
       borderRadius="md"
       p="8"
       flex="1 0"

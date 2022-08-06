@@ -19,7 +19,11 @@ export default function Hero({
   return (
     <Flex py="20" alignItems="center" {...rest}>
       <Container>
-        <PageTitle title={title} description={description} />
+        <PageTitle
+          title={title}
+          description={description}
+          alignItems="center"
+        />
         {children}
       </Container>
     </Flex>

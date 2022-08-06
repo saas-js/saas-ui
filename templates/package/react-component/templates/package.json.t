@@ -8,10 +8,10 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "source": "src/index.ts",
   "exports": {
     "require": "./dist/index.js",
-    "import": "./dist/index.modern.mjs"
+    "import": "./dist/index.modern.js"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",

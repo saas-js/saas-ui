@@ -1,11 +1,20 @@
 {
-  "name": "ajv",
+  "name": "ajv-resolver",
   "description": "Saas UI Forms field resolver: ajv",
   "version": "1.0.0",
   "private": true,
+  "exports": {
+    ".": {
+      "require": "./../dist/ajv/index.js",
+      "import": "./../dist/ajv/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
   "source": "./src/index.ts",
   "main": "../dist/ajv/index.js",
-  "module": "../dist/ajv/index.modern.mjs",
+  "module": "../dist/ajv/index.modern.js",
   "types": "../dist/ajv/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

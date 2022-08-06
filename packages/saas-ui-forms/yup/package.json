@@ -1,11 +1,20 @@
 {
-  "name": "yup",
+  "name": "yup-resolver",
   "description": "Saas UI Forms field resolver: yup",
   "version": "1.0.0",
   "private": true,
+  "exports": {
+    ".": {
+      "require": "./../dist/yup/index.js",
+      "import": "./../dist/yup/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
   "source": "./src/index.ts",
   "main": "../dist/yup/index.js",
-  "module": "../dist/yup/index.modern.mjs",
+  "module": "../dist/yup/index.modern.js",
   "types": "../dist/yup/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

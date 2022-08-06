@@ -6,15 +6,15 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.modern.js"
     },
     "./services/supabase": {
       "require": "./dist/supabase.js",
-      "import": "./dist/supabase.modern.mjs"
+      "import": "./dist/supabase.modern.js"
     },
     "./services/magic-link": {
       "require": "./dist/magic-link.js",
-      "import": "./dist/magic-link.modern.mjs"
+      "import": "./dist/magic-link.modern.js"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -27,7 +27,7 @@
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",

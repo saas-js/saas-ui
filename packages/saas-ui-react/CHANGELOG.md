@@ -1,5 +1,51 @@
 # @saas-ui/react
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/card@1.2.0
+
+## 1.3.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- be064d7: Only show list item outline when it is focused with keyboard nav
+- Updated dependencies [f6ec7dc]
+- Updated dependencies [be064d7]
+  - @saas-ui/auth@1.2.0
+  - @saas-ui/banner@1.1.0
+  - @saas-ui/button@1.1.0
+  - @saas-ui/card@1.1.0
+  - @saas-ui/data-table@1.1.0
+  - @saas-ui/forms@1.1.0
+  - @saas-ui/hooks@1.1.0
+  - @saas-ui/hotkeys@1.1.0
+  - @saas-ui/input-right-button@1.1.0
+  - @saas-ui/layout@1.1.0
+  - @saas-ui/list@1.1.0
+  - @saas-ui/menu@1.1.0
+  - @saas-ui/modals@1.1.0
+  - @saas-ui/nprogress@1.1.0
+  - @saas-ui/number-input@1.1.0
+  - @saas-ui/palette@1.1.0
+  - @saas-ui/password-input@1.1.0
+  - @saas-ui/persona@1.1.0
+  - @saas-ui/pin-input@1.1.0
+  - @saas-ui/property@1.1.0
+  - @saas-ui/provider@1.1.0
+  - @saas-ui/radio@1.1.0
+  - @saas-ui/search-input@1.1.0
+  - @saas-ui/select@1.1.0
+  - @saas-ui/snackbar@1.1.0
+  - @saas-ui/stepper@1.1.0
+  - @saas-ui/theme@1.2.0
+
 ## 1.2.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/react-utils
 
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 1.0.0
 
 ### Major Changes

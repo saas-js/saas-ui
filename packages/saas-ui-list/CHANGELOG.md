@@ -1,5 +1,17 @@
 # @saas-ui/data-list
 
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- be064d7: Only show list item outline when it is focused with keyboard nav
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/button@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

@@ -8,6 +8,142 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 08-06-2022
+
+`@saas-ui/react@1.3.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- Only show list item outline when it is focused with keyboard nav
+
+**Auth** `v1.2.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Banner** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Button** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Card** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Clerk** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Data Table** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Forms** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Hooks** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Hotkeys** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Input Right Button** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Layout** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**List** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- Only show list item outline when it is focused with keyboard nav
+
+**Menu** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Modals** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Nprogress** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Number Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Palette** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Password Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Persona** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Pin Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Property** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Provider** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Radio** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**React Utils** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Search Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Select** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Snackbar** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Stepper** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**System** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Theme** `v1.2.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Web 3** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Next Workspaces** `v0.3.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 08-04-2022
 
 **Hooks** `v1.0.2`

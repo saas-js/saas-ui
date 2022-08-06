@@ -1,5 +1,24 @@
 # @saas-ui/forms
 
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/button@1.1.0
+  - @saas-ui/input-right-button@1.1.0
+  - @saas-ui/number-input@1.1.0
+  - @saas-ui/password-input@1.1.0
+  - @saas-ui/pin-input@1.1.0
+  - @saas-ui/radio@1.1.0
+  - @saas-ui/react-utils@1.1.0
+  - @saas-ui/select@1.1.0
+  - @saas-ui/stepper@1.1.0
+
 ## 1.0.3
 
 ### Patch Changes

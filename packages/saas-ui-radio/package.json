@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/radio",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Radio component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

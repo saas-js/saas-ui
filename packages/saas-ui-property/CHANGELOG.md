@@ -1,5 +1,17 @@
 # @saas-ui/property
 
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+- Updated dependencies [be064d7]
+  - @saas-ui/list@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

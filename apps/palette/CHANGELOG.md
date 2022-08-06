@@ -1,5 +1,21 @@
 # palette
 
+## 1.0.10
+
+### Patch Changes
+
+- @saas-ui/react@1.3.1
+
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+- Updated dependencies [be064d7]
+  - @saas-ui/palette@1.1.0
+  - @saas-ui/react@1.3.0
+  - @saas-ui/next-workspaces@0.3.0
+
 ## 1.0.8
 
 ### Patch Changes

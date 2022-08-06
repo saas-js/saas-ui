@@ -20,12 +20,14 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       _hover: {
         bg: mode('blackAlpha.100', 'whiteAlpha.200')(props),
       },
-      _focus: {
+      _focusVisible: {
         boxShadow: 'outline',
-        bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
+      },
+      _focus: {
+        bg: mode('blackAlpha.100', 'whiteAlpha.200')(props),
       },
       _active: {
-        bg: mode('blackAlpha.300', 'whiteAlpha.400')(props),
+        bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
       },
     },
   }

@@ -6,28 +6,28 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.mjs"
+      "import": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     },
     "./yup": {
       "require": "./dist/yup/index.js",
-      "default": "./dist/yup/index.modern.mjs"
+      "import": "./dist/yup/index.modern.mjs"
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
     },
     "./zod": {
       "require": "./dist/zod/index.js",
-      "default": "./dist/zod/index.modern.mjs"
+      "import": "./dist/zod/index.modern.mjs"
     },
     "./zod/src": {
       "default": "./zod/src/index.ts"
     },
     "./ajv": {
       "require": "./dist/ajv/index.js",
-      "default": "./dist/ajv/index.modern.mjs"
+      "import": "./dist/ajv/index.modern.mjs"
     },
     "./ajv/src": {
       "default": "./ajv/src/index.ts"

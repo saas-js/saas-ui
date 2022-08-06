@@ -8,7 +8,7 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "source": "src/index.ts",
   "exports": {
     "require": "./dist/index.js",
-    "default": "./dist/index.modern.mjs"
+    "import": "./dist/index.modern.mjs"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.modern.mjs",

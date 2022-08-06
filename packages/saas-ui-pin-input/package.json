@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.mjs"
+      "import": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

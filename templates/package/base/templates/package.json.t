@@ -9,14 +9,14 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "type": "module",
   "exports": {
     "require": "./dist/index.cjs",
-    "default": "./dist/index.esm.js"
+    "import": "./dist/index.modern.mjs"
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,es --compress",
+    "build": "microbundle --tsconfig ./tsconfig.json -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

@@ -6,15 +6,15 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.mjs"
+      "import": "./dist/index.modern.mjs"
     },
     "./services/supabase": {
       "require": "./dist/supabase.js",
-      "default": "./dist/supabase.modern.mjs"
+      "import": "./dist/supabase.modern.mjs"
     },
     "./services/magic-link": {
       "require": "./dist/magic-link.js",
-      "default": "./dist/magic-link.modern.mjs"
+      "import": "./dist/magic-link.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

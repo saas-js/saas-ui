@@ -105,6 +105,7 @@ const ComponentShowcase = dynamic(() =>
 )
 
 const Home = () => {
+  const [animateGlow, setAnimate] = React.useState()
   return (
     <Box>
       <SEO
@@ -114,7 +115,7 @@ const Home = () => {
       />
 
       <Box mb={8} w="full" position="relative" overflow="hidden">
-        <Box _dark={{ bg: 'black' }}>
+        <Box _dark={{ bg: 'black' }} pt="16">
           <Container
             maxW="container.xl"
             py={{ base: 10, lg: 20, xl: 40 }}
@@ -132,7 +133,7 @@ const Home = () => {
                 alignItems="center"
                 textAlign="center"
                 title={
-                  <FallInPlace textAlign="center">
+                  <FallInPlace textAlign="center" initialInView>
                     Build intuitive apps that your customers will love
                   </FallInPlace>
                 }
@@ -141,6 +142,7 @@ const Home = () => {
                     delay={0.4}
                     fontWeight="medium"
                     textAlign="center"
+                    initialInView
                   >
                     Saas UI is a <Em>React component library</Em> and{' '}
                     <Em>starterkit</Em>
@@ -150,7 +152,7 @@ const Home = () => {
                   </FallInPlace>
                 }
               >
-                <FallInPlace delay={0.6}>
+                <FallInPlace delay={0.8} initialInView>
                   <HStack pt="12" pb="12" spacing="8" justifyContent="center">
                     <HStack>
                       <ReactLogo height="24px" />
@@ -159,7 +161,7 @@ const Home = () => {
                     <ChakraLogo height="24px" />
                   </HStack>
                 </FallInPlace>
-                <FallInPlace delay={0.8}>
+                <FallInPlace delay={1} initialInView>
                   <ButtonGroup spacing={4} alignItems="center">
                     <Button
                       colorScheme="primary"
@@ -205,7 +207,10 @@ const Home = () => {
                 position="relative"
                 zIndex="2"
               >
-                <FallInPlace delay={1}>
+                <FallInPlace
+                  delay={1.4}
+                  onChange={(inView) => setAnimate(inView)}
+                >
                   <AspectRatio ratio={1100 / 698}>
                     <Image
                       src="/screenshots/list.png"
@@ -220,7 +225,7 @@ const Home = () => {
                 </FallInPlace>
               </Box>
             </Stack>
-            <BackgroundGradientRadial bottom="0" />
+            <BackgroundGradientRadial bottom="0" animate={animateGlow} />
           </Container>
           <Features
             id="benefits"
@@ -1370,7 +1375,7 @@ export async function getStaticProps() {
         action: false,
       },
       header: {
-        position: 'sticky',
+        position: 'fixed',
         variant: 'dark',
       },
     },

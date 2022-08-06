@@ -44,7 +44,7 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
       width="100%"
     >
       <Container maxW="container.2xl" px="8">
-        <FallInPlace>
+        <FallInPlace initialInView delay={1.4} translateY="-10px">
           <NextLink href={href}>
             <Banner
               as={LinkBox}

@@ -6,16 +6,21 @@ import {
   keyframes,
 } from '@chakra-ui/react'
 
+import { useInView } from 'react-intersection-observer'
+
 const glow = keyframes`
 0% {
     opacity: 0;
+    transform: scale(0.2);
     animation-timing-function: cubic-bezier(.74,.25,.76,1);
 }
 10% {
     opacity: 1;
+    transform: scale(1);
     animation-timing-function: cubic-bezier(.12,.01,.08,.99);
 }
 100% {
+    transform: scale(1);
     opacity: 0.8;
 }`
 
@@ -25,6 +30,7 @@ export const BackgroundGradientRadial = ({
   ...props
 }: any) => {
   const theme = useTheme()
+
   const colors = [
     theme.colors.primary['800'],
     theme.colors.secondary['500'],
@@ -41,7 +47,7 @@ export const BackgroundGradientRadial = ({
       width="100%"
       zIndex="1"
       opacity="0"
-      animation={`${glow} 4s ease-out .9s`}
+      animation={animate && `${glow} 4s ease-out 0.2s`}
       sx={{ animationFillMode: 'forwards' }}
       {...props}
     >

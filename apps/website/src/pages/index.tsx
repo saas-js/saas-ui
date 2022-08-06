@@ -209,6 +209,7 @@ const Home = () => {
               >
                 <FallInPlace
                   delay={1.4}
+                  threshold={0.2}
                   onChange={(inView) => setAnimate(inView)}
                 >
                   <AspectRatio ratio={1100 / 698}>

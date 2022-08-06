@@ -7,17 +7,20 @@ export const FallInPlace = ({
   delay = 0.2,
   translateY = '20px',
   initialInView,
+  threshold,
   onChange,
   ...rest
 }: MotionBoxProps & {
   delay?: number
   initialInView?: boolean
+  threshold?: number
   translateY?: string
   onChange?: IntersectionOptions['onChange']
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     initialInView,
+    threshold,
     onChange,
   })
 

@@ -47,7 +47,7 @@ export const BackgroundGradientRadial = ({
       width="100%"
       zIndex="1"
       opacity="0"
-      animation={animate && `${glow} 4s ease-out 0.2s`}
+      animation={animate && `${glow} 4s ease-out`}
       sx={{ animationFillMode: 'forwards' }}
       {...props}
     >

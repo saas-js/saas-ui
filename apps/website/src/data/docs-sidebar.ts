@@ -223,7 +223,6 @@ const sidebar = {
             {
               title: 'App Shell',
               path: '/docs/components/layout/app-shell',
-              pro: true,
             },
             {
               title: 'Page',

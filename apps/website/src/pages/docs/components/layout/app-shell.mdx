@@ -3,9 +3,12 @@ title: App Shell
 description: The App Shell defines the main structure of your app.
 ---
 
-<ComponentLinks pro={{ gumroad: true }} />
+<ComponentLinks
+  github={{ package: 'saas-ui-app-shell' }}
+  npm={{ package: '@saas-ui/app-shell' }}
+/>
 
-A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content and footer.
+A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content aside, and footer.
 
 ## Import
 
@@ -19,68 +22,64 @@ import { AppShell } from '@saas-ui/pro'
 
 ### Basic shell
 
-AppShell behaves like a regular Box component, it's height will scale together with the height of the child components.
-When using a fixed height, be sure to add proper overflow styles to the sidebar and main content to make sure all content overflows correctly.
+AppShell will try to fit it's parent with position `absolute` and `inset: 0` by default. You may need to set `height: 100%` on the html and body, or alternatively set `height: 100vh` on the AppShell to make it fit the entire browser viewport.
 
 ```jsx
 <AppShell
-  minH="200px"
   navbar={
-    <Box height="16" borderBottomWidth="1px">
-      Navbar
+    <Box as="header" borderBottomWidth="1px" py="2" px="4">
+      <SaasUILogo width="100px" />
     </Box>
   }
   sidebar={
-    <Box width="30%" borderRightWidth="1px">
-      Sidebar
-    </Box>
-  }
-  footer={
-    <Box height="16" borderTopWidth="1px">
-      Footer
-    </Box>
+    <Sidebar height="200px">
+      <SidebarNav>
+        <SidebarLink label="Home" />
+        <SidebarLink label="Settings" />
+      </SidebarNav>
+    </Sidebar>
   }
 >
-  <Box as="main">Main content</Box>
+  <Box as="main" flex="1" py="2" px="4" overflowY="auto">
+    Your application content
+  </Box>
 </AppShell>
 ```
 
-### Full screen
+### Variants
 
-The fullscreen variant can be used to create fullscreen apps, that fill up the viewport. It will position the container `absolute` with `inset: 0`.
+The default variant is `fullscreen`, using the `static` variant the AppShell will behave like a regular flex box.
 
 ```jsx
-<Box height="200px" position="relative">
-  <AppShell
-    variant="fullscreen"
-    navbar={
-      <Box height="16" borderBottomWidth="1px">
-        Navbar
-      </Box>
-    }
-    sidebar={
-      <Box width="30%" borderRightWidth="1px">
-        Sidebar
-      </Box>
-    }
-    footer={
-      <Box height="16" borderTopWidth="1px">
-        Footer
-      </Box>
-    }
-  >
-    <Box as="main">Main content</Box>
-  </AppShell>
-</Box>
+<AppShell
+  variant="static"
+  height="240px"
+  navbar={
+    <Box as="header" borderBottomWidth="1px" py="2" px="4">
+      <SaasUILogo width="100px" />
+    </Box>
+  }
+  sidebar={
+    <Sidebar>
+      <SidebarNav>
+        <SidebarLink label="Home" />
+        <SidebarLink label="Settings" />
+      </SidebarNav>
+    </Sidebar>
+  }
+>
+  <Box as="main" flex="1" py="2" px="4" overflowY="auto">
+    Your application content
+  </Box>
+</AppShell>
 ```
 
 ### Example layout
 
 ```jsx
 <AppShell
-  minH="400px"
   sidebar={
-    <Sidebar width="30%">
+    <Sidebar width="30%" height="400px">
       <SidebarNav direction="row">
         <SaasUIGlyph width="24px" />
         <Spacer />
@@ -97,7 +96,7 @@ The fullscreen variant can be used to create fullscreen apps, that fill up the v
     </Sidebar>
   }
 >
-  <Page title="Page" height="400px" contentWidth="full">
+  <Page title="Page" contentWidth="full">
     <DataGrid
       isHoverable
       isSelectable
@@ -118,7 +117,5 @@ The fullscreen variant can be used to create fullscreen apps, that fill up the v
 ## Props
 
 The `AppShell` component and all sub components accept all `Box` properties.
-
-### Card Props
 
 <PropsTable of="AppShell" />

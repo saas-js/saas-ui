@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 1.3.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/collapse@1.1.0
+  - @saas-ui/stepper@1.1.1
+  - @saas-ui/forms@1.1.1
+  - @saas-ui/auth@1.2.1
+  - @saas-ui/modals@1.1.1
+
 ## 1.3.1
 
 ### Patch Changes

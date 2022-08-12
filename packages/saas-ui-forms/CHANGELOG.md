@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 1.1.1
+
+### Patch Changes
+
+- @saas-ui/stepper@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes

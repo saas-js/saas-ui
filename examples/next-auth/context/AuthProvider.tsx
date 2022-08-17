@@ -31,6 +31,8 @@ const createAuthService = (session: Session | null): AuthProviderProps => {
     onLogout: () => signOut(),
     onLoadUser: async () => (session?.user as User) || null,
     onGetToken: async () => {
+      // we don't have access to any token, so just returning the user email here.
+      //
       return session?.user?.email
     },
   }
@@ -38,7 +40,7 @@ const createAuthService = (session: Session | null): AuthProviderProps => {
 
 export interface NextAuthProviderProps {
   /**
-   * Get this with getInitialProps or getServerSideProps
+   * Optionally get this with getInitialProps or getServerSideProps
    */
   session: Session
   children: React.ReactNode
@@ -54,7 +56,7 @@ export const NextAuthProvider: React.FC<NextAuthProviderProps> = (props) => {
 }
 
 /**
- * Wrap the AuthProvider here so we can get access to the NextAuth session
+ * Wrap the AuthProvider here so we can get access to the NextAuth context
  */
 const Provider: React.FC<React.PropsWithChildren> = (props) => {
   const { data } = useSession()

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 1.1.2
+
+### Patch Changes
+
+- bef671d: Field variant now passed down to the internal Input.
+
 ## 1.1.1
 
 ### Patch Changes

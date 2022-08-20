@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 1.1.1
+
+### Patch Changes
+
+- b7f169b: Removed fontSize from HotkeysListItem base styles.
+
 ## 1.1.0
 
 ### Minor Changes

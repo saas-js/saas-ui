@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 1.3.3
+
+### Patch Changes
+
+- b7f169b: Removed fontSize from HotkeysListItem base styles.
+- 935a47c: useLocalStorage now returns the correct type.
+- bef671d: Field variant now passed down to the internal Input.
+- Updated dependencies [b7f169b]
+- Updated dependencies [935a47c]
+- Updated dependencies [bef671d]
+  - @saas-ui/hotkeys@1.1.1
+  - @saas-ui/hooks@1.1.1
+  - @saas-ui/forms@1.1.2
+  - @saas-ui/auth@1.2.2
+  - @saas-ui/modals@1.1.2
+
 ## 1.3.2
 
 ### Patch Changes

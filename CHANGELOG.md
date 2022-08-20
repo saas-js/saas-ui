@@ -16,6 +16,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 ## 08-06-2022
 
+**Card** `v1.1.1`
+
+- Bump card version
+
+## 08-06-2022
+
 `@saas-ui/react@1.3.0`
 
 - Fixed issue where Next.js would not resolve Chakra UI components correctly.

@@ -67,7 +67,7 @@ export function RedeemForm(props) {
 
   const handleSubmit = async ({ licenseKey, githubAccount }) => {
     /* @ts-ignore */
-    window?.woopra.track('Redeem Submitted')
+    window?.plausible('Redeem Submitted')
 
     return fetch('/api/redeem', {
       method: 'POST',
@@ -95,7 +95,7 @@ export function RedeemForm(props) {
       .catch((error) => {
         console.error(error)
         /* @ts-ignore */
-        window?.woopra.track('Redeem Failed')
+        window?.plausible('Redeem Failed')
       })
   }
 

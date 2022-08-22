@@ -38,7 +38,7 @@ export function SignupForm({ isOpen, onClose }: any) {
     setLoading(true)
 
     /* @ts-ignore */
-    window?.woopra.track('Signup Submitted')
+    window?.plausible('Signup Submitted')
 
     fetch('/', {
       method: 'POST',
@@ -59,7 +59,7 @@ export function SignupForm({ isOpen, onClose }: any) {
       .catch((error) => {
         console.error(error)
         /* @ts-ignore */
-        window?.woopra.track('Signup Failed')
+        window?.plausible('Signup Failed')
         setResult(false)
       })
       .finally(() => setLoading(false))

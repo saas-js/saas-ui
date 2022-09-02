@@ -11,6 +11,8 @@ import Persona from './persona'
 import NProgress from './nprogress'
 import SearchInput from './search-input'
 import Stepper from './stepper'
+import Sidebar from './sidebar'
+import SidebarItem from './sidebar-item'
 
 export default {
   Banner,
@@ -26,4 +28,6 @@ export default {
   NProgress,
   SearchInput,
   Stepper,
+  Sidebar,
+  SidebarItem,
 }

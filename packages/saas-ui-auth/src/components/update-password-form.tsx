@@ -23,7 +23,7 @@ interface SubmitParams {
 }
 
 export interface UpdatePasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   /**
    * @deprecated use passwordLabel instead
    */
@@ -36,6 +36,7 @@ export interface UpdatePasswordFormProps
   onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({

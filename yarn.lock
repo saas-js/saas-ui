@@ -7920,6 +7920,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/modals@workspace:packages/saas-ui-modals"
   dependencies:
+    "@chakra-ui/utils": ^2.0.2
     "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/menu": "workspace:*"

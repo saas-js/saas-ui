@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { ModalBody, ModalFooter, Button, forwardRef } from '@chakra-ui/react'
+import { runIfFn } from '@chakra-ui/utils'
 
 import {
   Form,
@@ -20,6 +21,7 @@ export interface FormDialogProps<TFieldValues extends FieldValues = FieldValues>
       FormProps<TFieldValues>,
       | 'schema'
       | 'defaultValues'
+      | 'onChange'
       | 'onSubmit'
       | 'onError'
       | 'resolver'
@@ -101,23 +103,27 @@ export const FormDialog = forwardRef(
     return (
       <BaseModal isOpen={isOpen} onClose={onClose} {...rest}>
         <Form {...formProps}>
-          <ModalBody>
-            {children || (
-              <Fields
-                schema={schema}
-                fieldResolver={fieldResolver}
-                focusFirstField
-              />
-            )}
-          </ModalBody>
+          {(form) => (
+            <>
+              <ModalBody>
+                {runIfFn(children, form) || (
+                  <Fields
+                    schema={schema}
+                    fieldResolver={fieldResolver}
+                    focusFirstField
+                  />
+                )}
+              </ModalBody>
 
-          {footer || (
-            <ModalFooter>
-              <Button variant="ghost" mr={3} onClick={onClose}>
-                {cancelLabel || 'Cancel'}
-              </Button>
-              <SubmitButton>{submitLabel || 'Submit'}</SubmitButton>
-            </ModalFooter>
+              {footer || (
+                <ModalFooter>
+                  <Button variant="ghost" mr={3} onClick={onClose}>
+                    {cancelLabel || 'Cancel'}
+                  </Button>
+                  <SubmitButton>{submitLabel || 'Submit'}</SubmitButton>
+                </ModalFooter>
+              )}
+            </>
           )}
         </Form>
       </BaseModal>

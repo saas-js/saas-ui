@@ -8069,9 +8069,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@saas-ui/props-docs@npm:1.0.0"
+"@saas-ui/props-docs@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@saas-ui/props-docs@npm:1.4.0"
   dependencies:
     "@chakra-ui/react": ^2.2.1
     "@chakra-ui/styled-system": ^2.2.1
@@ -8087,7 +8087,7 @@ __metadata:
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
     typescript: ">=4.5.0"
-  checksum: 9b7a525fea54304b6e9756d52e4bc4bfa79942c84eb2b1358d19527fe33de99d2c8b9e15dd6684ef92bcaee4ed672cc5be8d8e615828956594ac8b7b541c7a16
+  checksum: ec9a4806da704c23ade27b19614140dad39d99d03f7a5f21f86286fc78a782b81ca036128dbfa6c2d6a15f3e5e0c5ee1fcb2eccaa4d9c7c0df22b99605f05f37
   languageName: node
   linkType: hard
 

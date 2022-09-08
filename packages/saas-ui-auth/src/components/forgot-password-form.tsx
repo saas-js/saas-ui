@@ -23,7 +23,7 @@ interface SubmitParams {
 }
 
 export interface ForgotPasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   /**
    * @deprecated use emailLabel instead
    */
@@ -35,6 +35,7 @@ export interface ForgotPasswordFormProps
   onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({

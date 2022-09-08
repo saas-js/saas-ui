@@ -22,7 +22,7 @@ interface SubmitParams {
 }
 
 export interface OtpFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   label?: string
   helpText?: string
   pinLength?: number
@@ -31,6 +31,7 @@ export interface OtpFormProps
   onValidationError?: (error: any) => void
   submitLabel?: string
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 export const OtpForm: React.FC<OtpFormProps> = ({

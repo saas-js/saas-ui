@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 import {
+  Badge,
   Box,
   BoxProps,
   Button,
@@ -17,29 +18,27 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 
-import { FiHome, FiUsers, FiSettings, FiHash } from 'react-icons/fi'
+import { FiHome, FiUsers, FiSettings, FiHash, FiStar } from 'react-icons/fi'
 
 import { FaHome, FaUsers, FaCog, FaHashtag } from 'react-icons/fa'
-
-// import { AppShell } from '@saas-ui/app-shell'
 
 import {
   Sidebar,
   SidebarProps,
   SidebarDivider,
-  SidebarNav,
-  SidebarNavGroup,
+  Nav,
+  NavGroup,
+  NavItem,
   SidebarOverflow,
   SidebarToggleButton,
   SidebarOverlay,
 } from '../src'
 import { MenuItem, PersonaAvatar } from '@saas-ui/react'
-import { SidebarItem } from '../src'
 
 import { Logo } from './saas-ui'
 
 export default {
-  title: 'Components/Navigation/Sidebar',
+  title: 'Components/Layout/Sidebar',
   parameters: { layout: 'fullscreen' },
   decorators: [
     (Story) => (
@@ -65,11 +64,11 @@ WithLinks.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarNav>
-        <SidebarItem label="Home" />
-        <SidebarItem label="Users" />
-        <SidebarItem label="Settings" />
-      </SidebarNav>
+      <SidebarOverflow>
+        <NavItem label="Home" />
+        <NavItem label="Users" />
+        <NavItem label="Settings" />
+      </SidebarOverflow>
     </>
   ),
 }
@@ -79,11 +78,11 @@ WithFeatherIcons.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarNav>
-        <SidebarItem label="Home" icon={<FiHome />} />
-        <SidebarItem label="Users" icon={<FiUsers />} />
-        <SidebarItem label="Settings" icon={<FiSettings />} />
-      </SidebarNav>
+      <SidebarOverflow>
+        <NavItem label="Home" icon={<FiHome />} />
+        <NavItem label="Users" icon={<FiUsers />} />
+        <NavItem label="Settings" icon={<FiSettings />} />
+      </SidebarOverflow>
     </>
   ),
 }
@@ -93,11 +92,11 @@ WithFaIcons.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarNav>
-        <SidebarItem label="Home" icon={<FaHome />} />
-        <SidebarItem label="Users" icon={<FaUsers />} />
-        <SidebarItem label="Settings" icon={<FaCog />} />
-      </SidebarNav>
+      <SidebarOverflow>
+        <NavItem label="Home" icon={<FaHome />} />
+        <NavItem label="Users" icon={<FaUsers />} />
+        <NavItem label="Settings" icon={<FaCog />} />
+      </SidebarOverflow>
     </>
   ),
 }
@@ -107,7 +106,7 @@ WithHorizontalNav.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarNav direction="row" ps="6">
+      <HStack ps="6" pe="4">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -118,12 +117,12 @@ WithHorizontalNav.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </SidebarNav>
-      <SidebarNav>
-        <SidebarItem label="Home" icon={<FiHome />} />
-        <SidebarItem label="Users" icon={<FiUsers />} />
-        <SidebarItem label="Settings" icon={<FiSettings />} />
-      </SidebarNav>
+      </HStack>
+      <SidebarOverflow>
+        <NavItem label="Home" icon={<FiHome />} />
+        <NavItem label="Users" icon={<FiUsers />} />
+        <NavItem label="Settings" icon={<FiSettings />} />
+      </SidebarOverflow>
     </>
   ),
 }
@@ -133,7 +132,7 @@ WithCollapsibleGroup.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarNav direction="row" ps="6">
+      <HStack ps="6" pe="4">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -144,22 +143,135 @@ WithCollapsibleGroup.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </SidebarNav>
+      </HStack>
       <SidebarOverflow>
-        <SidebarNav>
-          <SidebarNavGroup>
-            <SidebarItem label="Home" icon={<FiHome />} isActive />
-            <SidebarItem label="Users" icon={<FiUsers />} />
-            <SidebarItem label="Settings" icon={<FiSettings />} />
-          </SidebarNavGroup>
+        <NavGroup>
+          <NavItem label="Home" icon={<FiHome />} isActive />
+          <NavItem label="Users" icon={<FiUsers />} />
+          <NavItem label="Settings" icon={<FiSettings />} />
+        </NavGroup>
 
-          <SidebarNavGroup title="Tags" isCollapsible>
-            <SidebarItem label="Design system" icon={<FiHash />} />
-            <SidebarItem label="Framework" icon={<FiHash />} />
-            <SidebarItem label="Chakra UI" inset={5} icon={<FiHash />} />
-            <SidebarItem label="React" inset={5} icon={<FiHash />} />
-          </SidebarNavGroup>
-        </SidebarNav>
+        <NavGroup title="Tags" isCollapsible>
+          <NavItem label="Design system" icon={<FiHash />} />
+          <NavItem label="Framework" icon={<FiHash />} />
+          <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
+          <NavItem label="React" inset={5} icon={<FiHash />} />
+        </NavGroup>
+      </SidebarOverflow>
+    </>
+  ),
+}
+
+const NavItemBadge = (props) => (
+  <Badge bg="whiteAlpha.200" fontWeight="normal" rounded="md" {...props} />
+)
+
+export const WithBadge = Template.bind({})
+WithBadge.args = {
+  children: (
+    <>
+      <SidebarToggleButton />
+      <HStack ps="6" pe="4">
+        <Logo width="24px" />
+        <Spacer />
+        <Menu>
+          <MenuButton as={IconButton} variant="ghost">
+            <PersonaAvatar presence="online" size="xs" />
+          </MenuButton>
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
+      </HStack>
+      <SidebarOverflow>
+        <NavGroup>
+          <NavItem label="Home" icon={<FiHome />} isActive />
+          <NavItem label="Users" icon={<FiUsers />} />
+          <NavItem label="Settings" icon={<FiSettings />} />
+        </NavGroup>
+
+        <NavGroup title="Tags" isCollapsible>
+          <NavItem label="Design system" icon={<FiHash />}>
+            <NavItemBadge>1</NavItemBadge>
+          </NavItem>
+          <NavItem label="Framework" icon={<FiHash />} />
+          <NavItem label="Chakra UI" inset={5} icon={<FiHash />}>
+            <NavItemBadge>32</NavItemBadge>
+          </NavItem>
+          <NavItem label="React" inset={5} icon={<FiHash />}>
+            <NavItemBadge>100</NavItemBadge>
+          </NavItem>
+        </NavGroup>
+      </SidebarOverflow>
+    </>
+  ),
+}
+
+export const WithSubtleLinks = Template.bind({})
+WithSubtleLinks.args = {
+  children: (
+    <>
+      <SidebarToggleButton />
+      <HStack ps="6" pe="4">
+        <Logo width="24px" />
+        <Spacer />
+        <Menu>
+          <MenuButton as={IconButton} variant="ghost">
+            <PersonaAvatar presence="online" size="xs" />
+          </MenuButton>
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
+      </HStack>
+      <SidebarOverflow>
+        <NavGroup>
+          <NavItem label="Home" variant="subtle" icon={<FiHome />} isActive />
+          <NavItem label="Users" variant="subtle" icon={<FiUsers />} />
+          <NavItem label="Settings" variant="subtle" icon={<FiSettings />} />
+        </NavGroup>
+
+        <NavGroup title="Tags" isCollapsible>
+          <NavItem label="Design system" icon={<FiHash />} />
+          <NavItem label="Framework" icon={<FiHash />} />
+          <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
+          <NavItem label="React" inset={5} icon={<FiHash />} />
+        </NavGroup>
+      </SidebarOverflow>
+    </>
+  ),
+}
+
+export const WithSolidLinks = Template.bind({})
+WithSolidLinks.args = {
+  children: (
+    <>
+      <SidebarToggleButton />
+      <HStack ps="6" pe="4">
+        <Logo width="24px" />
+        <Spacer />
+        <Menu>
+          <MenuButton as={IconButton} variant="ghost">
+            <PersonaAvatar presence="online" size="xs" />
+          </MenuButton>
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
+      </HStack>
+      <SidebarOverflow>
+        <NavGroup>
+          <NavItem label="Home" variant="solid" icon={<FiHome />} isActive />
+          <NavItem label="Users" variant="solid" icon={<FiUsers />} />
+          <NavItem label="Settings" variant="solid" icon={<FiSettings />} />
+        </NavGroup>
+
+        <NavGroup title="Tags" isCollapsible>
+          <NavItem label="Design system" icon={<FiHash />} />
+          <NavItem label="Framework" icon={<FiHash />} />
+          <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
+          <NavItem label="React" inset={5} icon={<FiHash />} />
+        </NavGroup>
       </SidebarOverflow>
     </>
   ),
@@ -170,23 +282,23 @@ VariantCondensed.args = {
   variant: 'condensed',
   children: (
     <>
-      <SidebarNav>
+      <Nav>
         <Logo width="24px" color="primary.500" />
-      </SidebarNav>
-      <SidebarNav>
-        <SidebarItem
+      </Nav>
+      <Nav>
+        <NavItem
           label="Home"
           icon={<FiHome size="1.2em" />}
           size="md"
           isActive
         />
-        <SidebarItem label="Users" icon={<FiUsers size="1.2em" />} size="md" />
-        <SidebarItem
+        <NavItem label="Users" icon={<FiUsers size="1.2em" />} size="md" />
+        <NavItem
           label="Settings"
           icon={<FiSettings size="1.2em" />}
           size="md"
         />
-      </SidebarNav>
+      </Nav>
     </>
   ),
 }
@@ -197,27 +309,25 @@ VariantCondensedColor.args = {
   colorScheme: 'purple',
   children: (
     <>
-      <SidebarNav>
-        <Logo width="24px" color="white" />
-      </SidebarNav>
-      <SidebarNav>
-        <SidebarItem
+      <Logo width="24px" color="white" />
+      <NavGroup>
+        <NavItem
           label="Home"
           icon={<FiHome size="1.2em" color="white" />}
           size="md"
           isActive
         />
-        <SidebarItem
+        <NavItem
           label="Users"
           icon={<FiUsers size="1.2em" color="white" />}
           size="md"
         />
-        <SidebarItem
+        <NavItem
           label="Settings"
           icon={<FiSettings size="1.2em" color="white" />}
           size="md"
         />
-      </SidebarNav>
+      </NavGroup>
     </>
   ),
 }
@@ -234,43 +344,40 @@ export const DoubleSidebar = () => {
         zIndex="3"
         position="relative"
       >
-        <SidebarNav py="1">
-          <Logo width="24px" color="white" />
-        </SidebarNav>
-        <SidebarOverflow>
-          <SidebarNav>
-            <SidebarItem
-              label="Users"
-              icon={<FiUsers size="1.2em" color="white" />}
-              size="md"
-              isActive
-              onClick={(e) => {
-                e.preventDefault()
-                disclosure.onToggle()
-              }}
-            />
-            <SidebarItem
-              label="Settings"
-              icon={<FiSettings size="1.2em" color="white" />}
-              size="md"
-              onClick={(e) => {
-                e.preventDefault()
-                disclosure.onClose()
-              }}
-            />
-          </SidebarNav>
-        </SidebarOverflow>
+        <Logo width="24px" color="white" />
+
+        <NavGroup>
+          <NavItem
+            label="Users"
+            icon={<FiUsers size="1.2em" color="white" />}
+            size="md"
+            isActive
+            onClick={(e) => {
+              e.preventDefault()
+              disclosure.onToggle()
+            }}
+          />
+          <NavItem
+            label="Settings"
+            icon={<FiSettings size="1.2em" color="white" />}
+            size="md"
+            onClick={(e) => {
+              e.preventDefault()
+              disclosure.onClose()
+            }}
+          />
+        </NavGroup>
+
         <Spacer />
-        <SidebarNav>
-          <Menu>
-            <MenuButton as={Button} variant="ghost">
-              <PersonaAvatar presence="online" size="xs" />
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Sign out</MenuItem>
-            </MenuList>
-          </Menu>
-        </SidebarNav>
+
+        <Menu>
+          <MenuButton as={Button} variant="ghost">
+            <PersonaAvatar presence="online" size="xs" />
+          </MenuButton>
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
       </Sidebar>
       <Sidebar
         isOpen={disclosure.isOpen}
@@ -279,25 +386,24 @@ export const DoubleSidebar = () => {
         zIndex={2}
         marginLeft={[16, 0]}
       >
-        <SidebarNav direction="row">
+        <HStack px="4">
           <Heading size="sm" py="2">
             Users
           </Heading>
           <Spacer />
-        </SidebarNav>
-        <SidebarOverflow>
-          <SidebarNav>
-            <SidebarNavGroup>
-              <SidebarItem label="Overview" icon={<FiUsers />} isActive />
-            </SidebarNavGroup>
+        </HStack>
 
-            <SidebarNavGroup title="Tags" isCollapsible>
-              <SidebarItem label="Design system" icon={<FiHash />} />
-              <SidebarItem label="Framework" icon={<FiHash />} />
-              <SidebarItem label="Chakra UI" inset={5} icon={<FiHash />} />
-              <SidebarItem label="React" inset={5} icon={<FiHash />} />
-            </SidebarNavGroup>
-          </SidebarNav>
+        <SidebarOverflow>
+          <NavGroup>
+            <NavItem label="All users" icon={<FiHome />} isActive />
+            <NavItem label="Favourite users" icon={<FiStar />} />
+          </NavGroup>
+          <NavGroup title="Tags" isCollapsible>
+            <NavItem label="Design system" icon={<FiHash />} />
+            <NavItem label="Framework" icon={<FiHash />} />
+            <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
+            <NavItem label="React" inset={5} icon={<FiHash />} />
+          </NavGroup>
         </SidebarOverflow>
         <SidebarOverlay zIndex="1" />
       </Sidebar>

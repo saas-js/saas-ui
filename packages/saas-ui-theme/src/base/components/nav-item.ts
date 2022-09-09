@@ -6,23 +6,18 @@ import {
 } from '@chakra-ui/theme-tools'
 import { theme as baseTheme } from '@chakra-ui/react'
 
-const parts = anatomy('sidebar-item').parts(
-  'container',
+const parts = anatomy('nav-item').parts(
+  'item',
   'link',
   'inner',
   'icon',
-  'label',
-  'meta'
+  'label'
 )
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
-  const { isActive } = props
   return {
-    container: {
-      margin: '1px',
-      '.saas-sidebar__condensed &': {
-        px: 0,
-      },
+    item: {
+      my: '2px',
     },
     link: {
       display: 'flex',
@@ -35,14 +30,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       _hover: {
         textDecoration: 'none',
       },
-      _focus: {
-        outline: 0,
+      _focusVisible: {
         boxShadow: 'outline',
-        '&:not(:focus-visible)': {
-          boxShadow: 'none',
-        },
       },
-      '.saas-sidebar__condensed &': {
+      '[data-condensed] &': {
         padding: 0,
         justifyContent: 'center',
       },
@@ -55,16 +46,15 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
     },
     label: {
       flex: 1,
-      '.saas-sidebar__condensed &': {
+      '[data-condensed] &': {
         display: 'none',
       },
     },
     icon: {
       display: 'flex',
-      color: 'sidebar-muted',
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      '.saas-sidebar__condensed &': {
+      '[data-condensed] &': {
         me: 0,
         alignItems: 'center',
         justifyContent: 'center',

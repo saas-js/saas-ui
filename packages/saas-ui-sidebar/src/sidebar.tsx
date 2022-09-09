@@ -2,8 +2,6 @@ import * as React from 'react'
 
 import {
   chakra,
-  StackProps,
-  Collapse,
   omitThemingProps,
   HTMLChakraProps,
   ChakraProps,
@@ -14,21 +12,15 @@ import {
   SystemStyleObject,
   IconButton,
   IconButtonProps,
-  createStylesContext,
   useDisclosure,
   Portal,
 } from '@chakra-ui/react'
-
-import { cx, __DEV__, runIfFn, dataAttr } from '@chakra-ui/utils'
+import { keyframes } from '@chakra-ui/system'
+import { cx, dataAttr } from '@chakra-ui/utils'
 
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
 
-import {
-  CollapseProvider,
-  useCollapseContext,
-  useCollapse,
-  Divider,
-} from '@saas-ui/react'
+import { Divider } from '@saas-ui/react'
 
 export {
   MenuGroup as SidebarMenuGroup,
@@ -37,14 +29,9 @@ export {
 
 import { SidebarProvider, useSidebarContext } from './use-sidebar'
 
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
-import {
-  ChevronDownIcon,
-  ChevronRightIcon,
-  HamburgerIcon,
-} from '@chakra-ui/icons'
-
-const [StylesProvider, useStyles] = createStylesContext('Sidebar')
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
+import { Nav } from './nav'
 
 export interface SidebarProps
   extends Omit<HTMLMotionProps<'div'>, 'color' | 'transition'>,
@@ -68,21 +55,10 @@ export interface SidebarProps
   onClose?: () => void
 }
 
-const MotionBox = chakra(motion.div)
+const MotionBox = chakra(motion.nav)
 
 export const Sidebar: React.FC<SidebarProps> = (props) => {
-  return <SidebarContainer {...props} />
-}
-
-if (__DEV__) {
-  Sidebar.displayName = 'Sidebar'
-}
-
-export const SidebarContainer: React.FC<SidebarProps> = (props) => {
-  const styles = useMultiStyleConfig('Sidebar', props) as Record<
-    string,
-    SystemStyleObject
-  >
+  const styles = useMultiStyleConfig('Sidebar', props)
 
   const { variant, size } = props
 
@@ -124,6 +100,11 @@ export const SidebarContainer: React.FC<SidebarProps> = (props) => {
   }, [isInitial, isCondensed, isMobile])
 
   const containerStyles: SystemStyleObject = {
+    '& > *:not(style) ~ *:not(style)': {
+      marginTop: spacing,
+    },
+    display: 'flex',
+    flexDirection: 'column',
     ...(isCollapsible
       ? {
           position: 'absolute',
@@ -137,15 +118,6 @@ export const SidebarContainer: React.FC<SidebarProps> = (props) => {
         }),
   }
 
-  const innerStyles: SystemStyleObject = {
-    '& > *:not(style) ~ *:not(style)': {
-      marginTop: spacing,
-    },
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-  }
-
   const context = {
     ...disclosure,
     isMobile,
@@ -155,7 +127,7 @@ export const SidebarContainer: React.FC<SidebarProps> = (props) => {
 
   return (
     <SidebarProvider value={context}>
-      <StylesProvider value={styles}>
+      <SidebarStylesProvider value={styles}>
         <MotionBox
           initial={false}
           animate={!isInitial && (!isCollapsible || isOpen ? 'enter' : 'exit')}
@@ -174,22 +146,17 @@ export const SidebarContainer: React.FC<SidebarProps> = (props) => {
           }}
           {...containerProps}
           id={disclosure.getDisclosureProps().id}
-          className={cx(
-            'saas-sidebar',
-            isCondensed && 'saas-sidebar__condensed',
-            className
-          )}
+          className={cx('saas-sidebar', className)}
+          data-condensed={dataAttr(isCondensed)}
         >
-          <chakra.div __css={innerStyles}>{children}</chakra.div>
+          {children}
         </MotionBox>
-      </StylesProvider>
+      </SidebarStylesProvider>
     </SidebarProvider>
   )
 }
 
-if (__DEV__) {
-  SidebarContainer.displayName = 'SidebarContainer'
-}
+Sidebar.displayName = 'Sidebar'
 
 export interface SidebarToggleButtonProps
   extends Omit<IconButtonProps, 'aria-label'> {}
@@ -199,7 +166,7 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
 ) => {
   const sidebar = useSidebarContext()
 
-  const styles = useStyles()
+  const styles = useSidebarStyles()
 
   const buttonStyles = {
     position: 'fixed',
@@ -227,7 +194,7 @@ export interface SidebarOverlayProps extends ChakraProps {}
 export const SidebarOverlay: React.FC<SidebarOverlayProps> = (props) => {
   const { onClose, isOpen, isMobile } = useSidebarContext()
 
-  const styles = useStyles()
+  const styles = useSidebarStyles()
 
   return (
     <Portal>
@@ -256,14 +223,12 @@ export const SidebarOverlay: React.FC<SidebarOverlayProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  SidebarToggleButton.displayName = 'SidebarToggleButton'
-}
+SidebarToggleButton.displayName = 'SidebarToggleButton'
 
 export const SidebarDivider = Divider
 
 export const SidebarOverflow: React.FC<HTMLChakraProps<'div'>> = (props) => {
-  const styles = useStyles()
+  const styles = useSidebarStyles()
   const overflowStyles = {
     overflow: 'auto',
     flex: 1,
@@ -274,134 +239,4 @@ export const SidebarOverflow: React.FC<HTMLChakraProps<'div'>> = (props) => {
   return <chakra.div __css={overflowStyles} {...props} />
 }
 
-if (__DEV__) {
-  SidebarOverflow.displayName = 'SidebarOverflow'
-}
-
-export const SidebarNav: React.FC<StackProps> = (props) => {
-  const styles = useStyles()
-
-  const { children, spacing, direction, ...rest } = props
-
-  return (
-    <chakra.nav
-      __css={styles.nav}
-      flexDirection={direction}
-      {...rest}
-      role="navigation"
-    >
-      {children}
-    </chakra.nav>
-  )
-}
-
-SidebarNav.defaultProps = {
-  spacing: 2,
-  direction: 'column',
-}
-
-if (__DEV__) {
-  SidebarNav.displayName = 'SidebarNav'
-}
-
-export interface SidebarNavGroupTitleProps extends HTMLChakraProps<'div'> {
-  leftIcon?: React.ReactElement
-  collapseIcon?: MaybeRenderProp<{ isOpen: boolean }>
-  isCollapsible?: boolean
-}
-
-export const SidebarNavGroupTitle: React.FC<SidebarNavGroupTitleProps> = (
-  props
-) => {
-  const {
-    leftIcon,
-    collapseIcon = ({ isOpen }) =>
-      isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />,
-    children,
-    ...rest
-  } = props
-  const styles = useStyles()
-
-  const { getToggleProps, isOpen, isCollapsible } = useCollapseContext()
-
-  const iconStyles = { display: 'inline-flex', marginEnd: 2 }
-
-  return (
-    <chakra.div {...getToggleProps(rest)} __css={styles.groupTitle}>
-      {leftIcon && (
-        <chakra.span __css={{ ...iconStyles, ...styles.groupIcon }}>
-          {leftIcon}
-        </chakra.span>
-      )}
-      <chakra.span flex="1">{runIfFn(children, { isOpen })}</chakra.span>
-      {isCollapsible && runIfFn(collapseIcon, { isOpen })}
-    </chakra.div>
-  )
-}
-
-if (__DEV__) {
-  SidebarNavGroupTitle.displayName = 'SidebarNavGroupTitle'
-}
-
-export interface SidebarNavGroupProps
-  extends Omit<HTMLChakraProps<'div'>, 'title'> {
-  title?: React.ReactNode
-  isCollapsible?: boolean
-  defaultIsOpen?: boolean
-  onOpen?: () => void
-  onClose?: () => void
-  icon?: React.ReactElement
-}
-
-export const SidebarNavGroup: React.FC<SidebarNavGroupProps> = (props) => {
-  const {
-    title,
-    icon,
-    isCollapsible,
-    defaultIsOpen,
-    onOpen,
-    onClose,
-    children,
-    ...rest
-  } = props
-  const styles = useStyles()
-
-  const collapse = useCollapse(props)
-
-  const { getCollapseProps } = collapse
-
-  const header = title && (
-    <SidebarNavGroupTitle leftIcon={icon}>{title}</SidebarNavGroupTitle>
-  )
-
-  let content = <chakra.div>{children}</chakra.div>
-
-  if (isCollapsible) {
-    content = <Collapse {...(getCollapseProps() as any)}>{content}</Collapse>
-  }
-
-  return (
-    <CollapseProvider value={collapse}>
-      <chakra.div
-        __css={{
-          userSelect: 'none',
-          ...styles.group,
-        }}
-        {...rest}
-        role="group"
-      >
-        {header}
-        {content}
-      </chakra.div>
-    </CollapseProvider>
-  )
-}
-
-if (__DEV__) {
-  SidebarNavGroup.displayName = 'SidebarNavGroup'
-}
-
-SidebarNavGroup.defaultProps = {
-  defaultIsOpen: true,
-  isCollapsible: false,
-}
+SidebarOverflow.displayName = 'SidebarOverflow'

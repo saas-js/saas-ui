@@ -4,24 +4,24 @@ import { Badge, Center, Stack } from '@chakra-ui/react'
 
 import { FiHome } from 'react-icons/fi'
 
-import { Sidebar, SidebarLink, SidebarLinkProps, SidebarNav } from '..'
+import { Sidebar, NavItem, NavItemProps, Nav } from '../src'
 
 export default {
-  title: 'Components/Navigation/SidebarLink',
+  title: 'Components/Navigation/NavItem',
   decorators: [
     (Story: any) => (
       <Center height="100%">
         <Sidebar border="0">
-          <SidebarNav>
+          <Nav>
             <Story />
-          </SidebarNav>
+          </Nav>
         </Sidebar>
       </Center>
     ),
   ],
 } as Meta
 
-const Template: Story<SidebarLinkProps> = (args) => <SidebarLink {...args} />
+const Template: Story<NavItemProps> = (args) => <NavItem {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {

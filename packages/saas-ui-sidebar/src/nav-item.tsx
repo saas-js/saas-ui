@@ -9,24 +9,22 @@ import {
   SystemProps,
   useMultiStyleConfig,
   Tooltip,
-  SystemStyleObject,
-  createStylesContext,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__, dataAttr } from '@chakra-ui/utils'
+import { cx, dataAttr } from '@chakra-ui/utils'
 
 import { useLink } from '@saas-ui/react'
 import { useSidebarContext } from './use-sidebar'
 
-const [StylesProvider, useStyles] = createStylesContext('SidebarItem')
+import { NavItemStylesProvider, useNavItemStyles } from './nav-context'
 
-export interface SidebarItemLabelProps
+export interface NavItemLabelProps
   extends HTMLChakraProps<'div'>,
     ThemingProps<'NavLink'> {}
 
-export const SidebarItemLabel = forwardRef<SidebarItemLabelProps, 'div'>(
+export const NavItemLabel = forwardRef<NavItemLabelProps, 'div'>(
   ({ children, ...props }, ref) => {
-    const styles = useStyles()
+    const styles = useNavItemStyles()
     return (
       <chakra.div ref={ref} __css={styles.label} {...props}>
         {children}
@@ -35,12 +33,10 @@ export const SidebarItemLabel = forwardRef<SidebarItemLabelProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  SidebarItemLabel.displayName = 'SidebSidebarItemLabelarMenu'
-}
+NavItemLabel.displayName = 'NavItemLabel'
 
-const SidebarItemIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
-  const styles = useStyles()
+const NavItemIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
+  const styles = useNavItemStyles()
 
   const { className, children, ...rest } = props
 
@@ -66,13 +62,11 @@ const SidebarItemIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
   )
 }
 
-if (__DEV__) {
-  SidebarItemIcon.displayName = 'SidebarItemIcon'
-}
+NavItemIcon.displayName = 'NavItemIcon'
 
-export interface SidebarItemProps
+export interface NavItemProps
   extends HTMLChakraProps<'a'>,
-    ThemingProps<'SidebarItem'> {
+    ThemingProps<'NavItem'> {
   href?: string
   label: string
   icon?: React.ReactElement
@@ -81,7 +75,7 @@ export interface SidebarItemProps
   isActive?: boolean
 }
 
-export const SidebarItem = forwardRef<SidebarItemProps, 'a'>((props, ref) => {
+export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const {
     href = '#',
     label,
@@ -94,22 +88,17 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'a'>((props, ref) => {
     ...rest
   } = omitThemingProps(props)
   const RouterLink = useLink()
-  const { onClose, variant } = useSidebarContext()
+  const { onClose, variant: sidebarVariant } = useSidebarContext() || {}
+  const isCondensed = sidebarVariant === 'condensed'
 
-  const isCondensed = variant === 'condensed'
-
-  const styles = useMultiStyleConfig('SidebarItem', {
-    isActive,
-    isCondensed,
-    ...props,
-  }) as Record<string, SystemStyleObject>
+  const styles = useMultiStyleConfig('NavItem', props)
 
   let link = (
     <chakra.a
       {...rest}
       ref={ref}
       href={href}
-      className={cx('saas-sidebar-link', className)}
+      className={cx('nav-item', className)}
       data-active={dataAttr(isActive)}
       __css={styles.link}
     >
@@ -119,8 +108,8 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'a'>((props, ref) => {
           pl: inset,
         }}
       >
-        {icon && <SidebarItemIcon>{icon}</SidebarItemIcon>}
-        <SidebarItemLabel>{label}</SidebarItemLabel>
+        {icon && <NavItemIcon>{icon}</NavItemIcon>}
+        <NavItemLabel>{label}</NavItemLabel>
         {children}
       </chakra.span>
     </chakra.a>
@@ -133,16 +122,14 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'a'>((props, ref) => {
   const tooltipLabel = isCondensed && !tooltip ? label : tooltip
 
   return (
-    <StylesProvider value={styles}>
+    <NavItemStylesProvider value={styles}>
       <Tooltip label={tooltipLabel} placement="right" openDelay={400}>
-        <chakra.div __css={styles.container} onClick={onClose}>
+        <chakra.div __css={styles.item} onClick={onClose}>
           {link}
         </chakra.div>
       </Tooltip>
-    </StylesProvider>
+    </NavItemStylesProvider>
   )
 })
 
-if (__DEV__) {
-  SidebarItem.displayName = 'SidebarItem'
-}
+NavItem.displayName = 'NavItem'

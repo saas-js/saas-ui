@@ -1,3 +1,4 @@
+import AppShell from './app-shell'
 import Banner from './banner'
 import Card from './card'
 import EmptyState from './empty-state'
@@ -13,6 +14,7 @@ import SearchInput from './search-input'
 import Stepper from './stepper'
 
 export default {
+  AppShell,
   Banner,
   Card,
   EmptyState,

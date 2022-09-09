@@ -1,5 +1,18 @@
 # @saas-ui/modals
 
+## 1.2.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+  - @saas-ui/forms@1.2.0
+
 ## 1.1.2
 
 ### Patch Changes

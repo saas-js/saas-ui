@@ -1,3 +1,4 @@
+import AppShell from './app-shell'
 import Banner from './banner'
 import Card from './card'
 import EmptyState from './empty-state'
@@ -15,6 +16,7 @@ import Sidebar from './sidebar'
 import SidebarItem from './sidebar-item'
 
 export default {
+  AppShell,
   Banner,
   Card,
   EmptyState,

@@ -8,6 +8,28 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 09-08-2022
+
+`@saas-ui/react@1.4.0`
+
+- Form now accepts a render function with form state props.
+- Re-export all React Hook Form types and hooks
+- New onChange prop for Form that triggers when the form state is changed.
+
+**Auth** `v1.3.0`
+
+- Form now accepts a render function with form state props.
+
+**Forms** `v1.2.0`
+
+- Form now accepts a render function with form state props.
+- Re-export all React Hook Form types and hooks
+- New onChange prop for Form that triggers when the form state is changed.
+
+**Modals** `v1.2.0`
+
+- Form now accepts a render function with form state props.
+
 ## 08-06-2022
 
 **Card** `v1.1.1`

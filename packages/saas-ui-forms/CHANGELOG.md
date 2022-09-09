@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 1.2.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+- d003608: Re-export all React Hook Form types and hooks
+- d003608: New onChange prop for Form that triggers when the form state is changed.
+
 ## 1.1.2
 
 ### Patch Changes

@@ -25,7 +25,7 @@ interface SubmitParams {
 }
 
 export interface PasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   schema?: any
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
@@ -36,6 +36,7 @@ export interface PasswordFormProps
   passwordLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 export const PasswordForm: React.FC<PasswordFormProps> = ({

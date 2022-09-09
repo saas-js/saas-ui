@@ -1,11 +1,16 @@
 {
-  "name": "@saas-ui/clerk",
-  "version": "1.1.3",
-  "description": "Clerk Authentication Service for Saas UI",
+  "name": "@saas-ui/app-shell",
+  "version": "1.0.0",
+  "description": "App Shell component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.modern.js"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.modern.js",
@@ -31,7 +36,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/saas-js/saas-ui",
-    "directory": "packages/saas-ui-clerk"
+    "directory": "packages/saas-ui-app-shell"
   },
   "keywords": [
     "react",
@@ -43,25 +48,17 @@
     "accessible",
     "components",
     "emotion",
-    "library",
-    "authentication"
+    "library"
   ],
   "storybook": {
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@clerk/types": "^2.17.0",
-    "@saas-ui/auth": "workspace:*"
+    "@chakra-ui/utils": "^2.0.2"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.1.0",
-    "@chakra-ui/system": ">=2.1.0",
-    "@clerk/clerk-react": "^2.12.0",
-    "framer-motion": ">=5.5.0",
+    "@chakra-ui/react": ">=2.0.0",
     "react": ">=18.0.0"
-  },
-  "devDependencies": {
-    "@clerk/clerk-react": "^3.4.1"
   }
 }

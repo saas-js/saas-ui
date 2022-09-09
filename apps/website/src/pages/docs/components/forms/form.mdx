@@ -274,6 +274,51 @@ function CreateProject() {
 </Form>
 ```
 
+### Access the form context
+
+You can get access to the form context using a render prop, the `useFormContext` hook or the form ref.
+
+#### Render prop
+
+```jsx
+<Form onSubmit={saveHandler}>
+  {(form) => (
+    <FormLayout>
+      <Field name="title" label="Title" />
+      <SubmitButton>Submit</SubmitButton>
+    </FormLayout>
+  )}
+</Form>
+```
+
+#### useFormContext
+
+```jsx
+function ResetButton() {
+  const form = useFormContext()
+
+  return <Button onClick={() => form.reset()}>Reset</Button>
+}
+```
+
+#### Form ref
+
+```jsx
+function MyForm() {
+  const formRef = useRef(null)
+
+  return (
+    <Form ref={formRef} onSubmit={saveHandler}>
+      <FormLayout>
+        <Field name="title" label="Title" />
+        <SubmitButton>Submit</SubmitButton>
+        <Button onClick={() => formRef.current.reset()}>Reset</Button>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
 ### Configure a default resolver
 
 In case you are using schemas in all your forms it's possible to configure a default resolver,

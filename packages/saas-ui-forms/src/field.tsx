@@ -126,18 +126,15 @@ const isTouched = (
 }
 
 export const BaseField: React.FC<FieldProps> = (props) => {
-  const { name, label, help, variant, hideLabel, children, ...controlProps } =
-    props
+  const { name, label, help, hideLabel, children, ...controlProps } = props
 
   const { formState } = useFormContext()
 
   const error = getError(name, formState)
 
   return (
-    <FormControl variant={variant} {...controlProps} isInvalid={!!error}>
-      {label && !hideLabel ? (
-        <FormLabel variant={variant}>{label}</FormLabel>
-      ) : null}
+    <FormControl {...controlProps} isInvalid={!!error}>
+      {label && !hideLabel ? <FormLabel>{label}</FormLabel> : null}
       <Box>
         {children}
         {help && !error?.message ? (
@@ -216,7 +213,6 @@ const createField = (
       isReadOnly,
       isRequired,
       rules,
-      variant,
       ...inputProps
     } = props
 
@@ -236,7 +232,6 @@ const createField = (
         isInvalid={isInvalid}
         isReadOnly={isReadOnly}
         isRequired={isRequired}
-        variant={variant}
       >
         <InputComponent
           ref={ref}

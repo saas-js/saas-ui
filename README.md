@@ -110,4 +110,4 @@ cd apps/website && yarn dev
 
 ## License
 
-All code in this repository, accept for the Saas UI branding assets are licensed under MIT.
+All code in this repository, except for the Saas UI branding assets are licensed under MIT.

@@ -134,7 +134,7 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 /* @ts-ignore */
-                window?.woopra.track('Order Bootstrap')
+                window?.plausible('Order Bootstrap')
               }
             >
               Pre-order
@@ -173,7 +173,7 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 /* @ts-ignore */
-                window?.woopra.track('Order Startup')
+                window?.plausible('Order Startup')
               }
             >
               Pre-order

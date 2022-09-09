@@ -1,5 +1,11 @@
 # @saas-ui/collapse
 
+## 1.1.0
+
+### Minor Changes
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 1.0.0
 
 ### Major Changes

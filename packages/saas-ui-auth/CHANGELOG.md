@@ -1,5 +1,33 @@
 # @saas-ui/auth
 
+## 1.3.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+  - @saas-ui/forms@1.2.0
+
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [935a47c]
+- Updated dependencies [bef671d]
+  - @saas-ui/hooks@1.1.1
+  - @saas-ui/forms@1.1.2
+
+## 1.2.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.1.1
+
 ## 1.2.0
 
 ### Minor Changes

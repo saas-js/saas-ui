@@ -217,3 +217,48 @@ export const TypescriptWithRef = () => {
     </Form>
   )
 }
+
+export const WithOnChange = () => {
+  return (
+    <Stack>
+      <Form<PostInputs>
+        defaultValues={{
+          firstName: 'Eelco',
+          lastName: 'Wiersma',
+        }}
+        onSubmit={onSubmit}
+        onChange={(e) => console.log('change', e)}
+      >
+        <FormLayout>
+          <Field<PostInputs> name="firstName" label="First name" />
+          <Field<PostInputs> name="lastName" label="Last name" />
+        </FormLayout>
+      </Form>
+    </Stack>
+  )
+}
+
+export const WithRenderProp = () => {
+  return (
+    <Stack>
+      <Form<PostInputs>
+        defaultValues={{
+          firstName: 'Eelco',
+          lastName: 'Wiersma',
+        }}
+        onSubmit={onSubmit}
+        onChange={(e) => console.log('change', e)}
+      >
+        {(form) => {
+          console.log(form)
+          return (
+            <FormLayout>
+              <Field<PostInputs> name="firstName" label="First name" />
+              <Field<PostInputs> name="lastName" label="Last name" />
+            </FormLayout>
+          )
+        }}
+      </Form>
+    </Stack>
+  )
+}

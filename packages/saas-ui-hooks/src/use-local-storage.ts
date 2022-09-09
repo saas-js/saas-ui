@@ -49,7 +49,7 @@ export const useLocalStorage = <T = string>(
 ) => {
   const { serialize = serializeJSON, deserialize = deserializeJSON } = options
 
-  const [value, setValue] = useState(() => {
+  const [value, setValue] = useState<T>(() => {
     return isBrowser ? deserialize(getItem(key) ?? undefined) : defaultValue
   })
 

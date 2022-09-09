@@ -17,7 +17,7 @@ import { AuthFormSuccess } from './success'
 import { useLogin, AuthActionEnum } from '../provider'
 
 export interface MagicLinkFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
   onError?: (error: any) => void
@@ -26,6 +26,7 @@ export interface MagicLinkFormProps
   emailLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 interface SubmitParams {

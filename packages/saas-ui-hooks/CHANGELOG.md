@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 1.1.1
+
+### Patch Changes
+
+- 935a47c: useLocalStorage now returns the correct type.
+
 ## 1.1.0
 
 ### Minor Changes

@@ -133,37 +133,35 @@ import {
     </Menu>
   </SidebarSection>
   <SidebarSection flex="1" overflowY="auto">
-    <SidebarSection aria-label="Main">
-      <NavGroup>
-        <NavItem label="Home" icon={<FiHome />} isActive />
-        <NavItem label="Users" icon={<FiUsers />} />
-        <NavItem label="Settings" icon={<FiSettings />} />
-      </NavGroup>
+    <NavGroup>
+      <NavItem label="Home" icon={<FiHome />} isActive />
+      <NavItem label="Users" icon={<FiUsers />} />
+      <NavItem label="Settings" icon={<FiSettings />} />
+    </NavGroup>
 
-      <NavGroup title="Teams" isCollapsible>
-        <NavItem label="Sales" />
-        <NavItem label="Support" />
-      </NavGroup>
+    <NavGroup title="Teams" isCollapsible>
+      <NavItem label="Sales" />
+      <NavItem label="Support" />
+    </NavGroup>
 
-      <NavGroup title="Tags" isCollapsible>
-        <NavItem
-          label="Lead"
-          icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
-        >
-          <Badge opacity="0.6" borderRadius="full">
-            83
-          </Badge>
-        </NavItem>
-        <NavItem
-          label="Customer"
-          icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
-        >
-          <Badge opacity="0.6" borderRadius="full">
-            210
-          </Badge>
-        </NavItem>
-      </NavGroup>
-    </SidebarSection>
+    <NavGroup title="Tags" isCollapsible>
+      <NavItem
+        label="Lead"
+        icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
+      >
+        <Badge opacity="0.6" borderRadius="full">
+          83
+        </Badge>
+      </NavItem>
+      <NavItem
+        label="Customer"
+        icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
+      >
+        <Badge opacity="0.6" borderRadius="full">
+          210
+        </Badge>
+      </NavItem>
+    </NavGroup>
   </SidebarSection>
   <SidebarSection>
     <NavItem label="Documentation" icon={<FiHelpCircle />} />
@@ -177,7 +175,7 @@ The condensed variant can be used as a collapsed state on smaller screens, or as
 NavItem labels will be rendered as tooltips.
 
 ```jsx
-<Sidebar variant="condensed" height="400px">
+<Sidebar variant="condensed" height="400px" width="64px">
   <SidebarSection>
     <SaasUIGlyph width="24px" />
   </SidebarSection>
@@ -231,35 +229,33 @@ You can stack multiple sidebars together to create a double sidebar layout.
       </Heading>
     </SidebarSection>
     <SidebarSection flex="1" overflowY="auto">
-      <SidebarSection aria-label="Main">
-        <NavGroup>
-          <NavItem label="Overview" icon={<FiUsers />} isActive />
-        </NavGroup>
+      <NavGroup>
+        <NavItem label="Overview" icon={<FiUsers />} isActive />
+      </NavGroup>
 
-        <NavGroup title="Teams" isCollapsible>
-          <NavItem label="Sales" />
-          <NavItem label="Support" />
-        </NavGroup>
+      <NavGroup title="Teams" isCollapsible>
+        <NavItem label="Sales" />
+        <NavItem label="Support" />
+      </NavGroup>
 
-        <NavGroup title="Tags" isCollapsible>
-          <NavItem
-            label="Lead"
-            icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
-          >
-            <Badge opacity="0.6" borderRadius="full">
-              83
-            </Badge>
-          </NavItem>
-          <NavItem
-            label="Customer"
-            icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
-          >
-            <Badge opacity="0.6" borderRadius="full">
-              210
-            </Badge>
-          </NavItem>
-        </NavGroup>
-      </SidebarSection>
+      <NavGroup title="Tags" isCollapsible>
+        <NavItem
+          label="Lead"
+          icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
+        >
+          <Badge opacity="0.6" borderRadius="full">
+            83
+          </Badge>
+        </NavItem>
+        <NavItem
+          label="Customer"
+          icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
+        >
+          <Badge opacity="0.6" borderRadius="full">
+            210
+          </Badge>
+        </NavItem>
+      </NavGroup>
     </SidebarSection>
     <SidebarSection>
       <NavItem label="Documentation" icon={<FiHelpCircle />} />

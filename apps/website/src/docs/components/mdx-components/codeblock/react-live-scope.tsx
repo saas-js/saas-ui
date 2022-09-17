@@ -3,6 +3,8 @@ import * as Chakra from '@chakra-ui/react'
 import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
+import * as AppShell from '@saas-ui/app-shell'
+import * as Sidebar from '@saas-ui/sidebar'
 import * as SaasUIPro from '@saas-ui/pro'
 import * as SaasUIFeatures from '@saas-ui/features'
 
@@ -108,6 +110,8 @@ const ReactLiveScope = {
   ...SaasUIPro,
   ...SaasUI,
   ...SaasUIFeatures,
+  ...AppShell,
+  ...Sidebar,
   ...Web3,
   ...Icons,
   Yup,

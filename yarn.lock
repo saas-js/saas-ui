@@ -7824,7 +7824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saas-ui/app-shell@workspace:*, @saas-ui/app-shell@workspace:packages/saas-ui-app-shell":
+"@saas-ui/app-shell@workspace:packages/saas-ui-app-shell":
   version: 0.0.0-use.local
   resolution: "@saas-ui/app-shell@workspace:packages/saas-ui-app-shell"
   dependencies:
@@ -8271,7 +8271,6 @@ __metadata:
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
     "@chakra-ui/system": ^2.1.3
-    "@saas-ui/app-shell": "workspace:*"
     "@saas-ui/auth": "workspace:*"
     "@saas-ui/banner": "workspace:*"
     "@saas-ui/button": "workspace:*"
@@ -8370,7 +8369,6 @@ __metadata:
     "@saas-ui/react-utils": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
-    "@chakra-ui/system": ">=2.1.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft

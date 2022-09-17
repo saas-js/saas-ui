@@ -12,10 +12,9 @@ import {
 } from '@chakra-ui/react'
 
 import { cx, dataAttr } from '@chakra-ui/utils'
+import { useLink } from '@saas-ui/provider'
 
-import { useLink } from '@saas-ui/react'
 import { useSidebarContext } from './use-sidebar'
-
 import { NavItemStylesProvider, useNavItemStyles } from './nav-context'
 
 export interface NavItemLabelProps

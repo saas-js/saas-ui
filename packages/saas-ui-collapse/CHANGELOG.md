@@ -1,5 +1,11 @@
 # @saas-ui/collapse
 
+## 1.1.1
+
+### Patch Changes
+
+- 40a9465: useCollapse can now be fully controlled
+
 ## 1.1.0
 
 ### Minor Changes

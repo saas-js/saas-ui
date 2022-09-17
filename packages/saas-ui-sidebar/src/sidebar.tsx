@@ -14,22 +14,13 @@ import {
   IconButtonProps,
   useDisclosure,
   Portal,
+  ResponsiveValue,
 } from '@chakra-ui/react'
-import { ResponsiveValue } from '@chakra-ui/system'
 import { cx, dataAttr } from '@chakra-ui/utils'
-
+import { HamburgerIcon } from '@chakra-ui/icons'
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
 
-import { Divider } from '@saas-ui/react'
-
-export {
-  MenuGroup as SidebarMenuGroup,
-  MenuDivider as SidebarMenuDivider,
-} from '@chakra-ui/react'
-
 import { SidebarProvider, useSidebarContext } from './use-sidebar'
-
-import { HamburgerIcon } from '@chakra-ui/icons'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
 
 export interface SidebarProps
@@ -223,8 +214,6 @@ export const SidebarOverlay: React.FC<SidebarOverlayProps> = (props) => {
 }
 
 SidebarToggleButton.displayName = 'SidebarToggleButton'
-
-export const SidebarDivider = Divider
 
 export interface SidebarSectionProps extends HTMLChakraProps<'div'> {
   direction?: ResponsiveValue<'row' | 'column'>

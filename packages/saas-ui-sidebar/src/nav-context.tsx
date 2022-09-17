@@ -1,5 +1,5 @@
 import { createContext } from '@chakra-ui/react-utils'
-import { SystemStyleObject } from '@chakra-ui/system'
+import { SystemStyleObject } from '@chakra-ui/react'
 
 export const [NavGroupStylesProvider, useNavGroupStyles] = createContext<
   Record<string, SystemStyleObject>

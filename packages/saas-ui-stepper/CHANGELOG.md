@@ -1,5 +1,12 @@
 # @saas-ui/stepper
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [40a9465]
+  - @saas-ui/collapse@1.1.1
+
 ## 1.1.1
 
 ### Patch Changes

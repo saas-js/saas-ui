@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 1.2.1
+
+### Patch Changes
+
+- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+  - @saas-ui/stepper@1.1.2
+
 ## 1.2.0
 
 ### Minor Changes

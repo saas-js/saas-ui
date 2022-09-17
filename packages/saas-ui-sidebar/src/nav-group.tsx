@@ -8,15 +8,15 @@ import {
 } from '@chakra-ui/react'
 
 import { runIfFn, cx } from '@chakra-ui/utils'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 import {
   CollapseProvider,
   useCollapseContext,
   useCollapse,
-} from '@saas-ui/react'
+} from '@saas-ui/collapse'
 
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
-import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { NavGroupStylesProvider, useNavGroupStyles } from './nav-context'
 
 export interface NavGroupTitleProps extends HTMLChakraProps<'div'> {

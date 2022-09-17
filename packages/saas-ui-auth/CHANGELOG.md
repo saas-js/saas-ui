@@ -1,5 +1,13 @@
 # @saas-ui/auth
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [dfd61ed]
+  - @saas-ui/forms@1.2.1
+  - @saas-ui/layout@1.1.1
+
 ## 1.3.0
 
 ### Minor Changes

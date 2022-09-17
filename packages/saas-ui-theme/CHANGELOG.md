@@ -1,5 +1,12 @@
 # @saas-ui/theme
 
+## 1.3.0
+
+### Minor Changes
+
+- 0d83ca5: Added AppShell component to core
+- 40a9465: Added Sidebar component to core
+
 ## 1.2.0
 
 ### Minor Changes

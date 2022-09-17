@@ -1,5 +1,13 @@
 # @saas-ui/modals
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [dfd61ed]
+  - @saas-ui/forms@1.2.1
+  - @saas-ui/menu@1.1.1
+
 ## 1.2.0
 
 ### Minor Changes

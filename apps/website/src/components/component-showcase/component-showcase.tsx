@@ -94,7 +94,7 @@ export const ComponentShowcase = () => {
     {
       id: 'actions',
       width: '10%',
-      disableSortBy: true,
+      // disableSortBy: true,
       Header: '',
       Cell: () => {
         const menuStyles = {

@@ -11,6 +11,7 @@ import {
   blacken,
 } from '@chakra-ui/theme-tools'
 
+import Badge from './components/badge'
 import Button from './components/button'
 import CTA from './components/cta'
 import Features, { Feature } from './components/features'
@@ -102,6 +103,7 @@ const theme = extendTheme(
           maxW: 'container.lg',
         },
       },
+      Badge,
       Button,
       CTA,
       Section,

@@ -92,7 +92,14 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
   return (
     <ChakraProvider theme={extendTheme({ ...getTheme(), direction: dir })}>
       <div dir={dir} id="story-wrapper" style={{ minHeight: '100vh' }}>
-        <Flex justify="flex-end" mb={4}>
+        <Flex
+          justify="flex-end"
+          mb={4}
+          position="absolute"
+          top="4"
+          right="4"
+          fontSize="sm"
+        >
           <ThemeSelect
             value={themeId}
             onChange={(id) => {

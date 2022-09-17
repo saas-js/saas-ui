@@ -223,6 +223,12 @@ const sidebar = {
             {
               title: 'App Shell',
               path: '/docs/components/layout/app-shell',
+              beta: true,
+            },
+            {
+              title: 'Sidebar',
+              path: '/docs/components/layout/sidebar',
+              beta: true,
             },
             {
               title: 'Page',
@@ -253,11 +259,6 @@ const sidebar = {
             {
               title: 'Stepper',
               path: '/docs/components/navigation/stepper',
-            },
-            {
-              title: 'Sidebar',
-              path: '/docs/components/navigation/sidebar',
-              pro: true,
             },
           ],
         },

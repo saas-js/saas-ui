@@ -156,20 +156,20 @@ export const ComponentShowcase = () => {
                 data={data}
                 isSelectable
                 isSortable
-                initialState={{
-                  selectedRowIds: { '0': true },
-                }}
-                sx={{
-                  th: {
-                    borderBottomColor: useColorModeValue(
-                      'blackAlpha.200',
-                      'whiteAlpha.300'
-                    ),
-                  },
-                  td: {
-                    borderBottom: 0,
-                  },
-                }}
+                // initialState={{
+                //   selectedRowIds: [0],
+                // }}
+                // sx={{
+                //   th: {
+                //     borderBottomColor: useColorModeValue(
+                //       'blackAlpha.200',
+                //       'whiteAlpha.300'
+                //     ),
+                //   },
+                //   td: {
+                //     borderBottom: 0,
+                //   },
+                // }}
               />
             </Card>
           </Float>

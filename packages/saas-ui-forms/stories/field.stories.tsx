@@ -240,3 +240,28 @@ export const WithAddons = () => {
     </Form>
   )
 }
+
+export const WithEventHandlers = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          id="email"
+          name="email"
+          label="Email"
+          type="email"
+          onChange={(e) => console.log(e)}
+          onBlur={(e) => console.log(e)}
+        />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}

@@ -15,6 +15,7 @@ import {
   useDisclosure,
   Portal,
   ResponsiveValue,
+  forwardRef,
 } from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
 import { HamburgerIcon } from '@chakra-ui/icons'
@@ -47,7 +48,7 @@ export interface SidebarProps
 
 const MotionBox = chakra(motion.nav)
 
-export const Sidebar: React.FC<SidebarProps> = (props) => {
+export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
 
   const { variant, size } = props
@@ -119,6 +120,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
     <SidebarProvider value={context}>
       <SidebarStylesProvider value={styles}>
         <MotionBox
+          ref={ref}
           initial={false}
           animate={!isInitial && (!isCollapsible || isOpen ? 'enter' : 'exit')}
           variants={{
@@ -144,7 +146,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
       </SidebarStylesProvider>
     </SidebarProvider>
   )
-}
+})
 
 Sidebar.displayName = 'Sidebar'
 

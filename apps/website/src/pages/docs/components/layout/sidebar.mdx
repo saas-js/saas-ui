@@ -1,0 +1,317 @@
+---
+title: Sidebar
+description: Commonly used as the primary navigation.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-sidebar' }}
+  npm={{ package: '@saas-ui/sidebar' }}
+  beta
+/>
+
+## Import
+
+- `Sidebar`: The container component that manages state.
+- `SidebarSection`: A sidebar section.
+- `SidebarToggleButton`: Button to toggle the sidebar visibility.
+- `SidebarOverlay`: Background overlay visible when the sidebar is open on mobile.
+- `NavGroup`: A group of navigation items.
+- `NavItem`: A navigation item.
+
+```ts
+import {
+  Sidebar,
+  SidebarSection,
+  SidebarToggleButton,
+  SidebarOverlay,
+  NavGroup,
+  NavItem,
+} from '@saas-ui/sidebar'
+```
+
+## Usage
+
+<Info>
+  The Sidebar is currently in beta, we'd love to hear your feedback while we
+  finalize the API. Please note that you need to import the components from
+  `@saas-ui/sidebar` instead of `@saas-ui/react` while in beta.
+</Info>
+
+### Basic
+
+```jsx
+<Sidebar height="400px">
+  <SidebarSection direction="row">
+    <SaasUIGlyph width="24px" />
+    <Spacer />
+    <Menu>
+      <MenuButton
+        as={IconButton}
+        icon={
+          <PersonaAvatar
+            presence="online"
+            size="xs"
+            src="/showcase-avatar.jpg"
+          />
+        }
+        variant="ghost"
+      />
+      <MenuList>
+        <MenuItem>Sign out</MenuItem>
+      </MenuList>
+    </Menu>
+  </SidebarSection>
+  <SidebarSection aria-label="Main">
+    <NavItem label="Home" icon={<FiHome />} isActive />
+    <NavItem label="Users" icon={<FiUsers />} />
+    <NavItem label="Settings" icon={<FiSettings />} />
+  </SidebarSection>
+</Sidebar>
+```
+
+### Grouped items
+
+```jsx
+<Sidebar height="400px">
+  <SidebarSection direction="row">
+    <SaasUIGlyph width="24px" />
+    <Spacer />
+    <Menu>
+      <MenuButton
+        as={IconButton}
+        icon={
+          <PersonaAvatar
+            presence="online"
+            size="xs"
+            src="/showcase-avatar.jpg"
+          />
+        }
+        variant="ghost"
+      />
+      <MenuList>
+        <MenuItem>Sign out</MenuItem>
+      </MenuList>
+    </Menu>
+  </SidebarSection>
+  <SidebarSection aria-label="Main">
+    <NavGroup>
+      <NavItem label="Home" icon={<FiHome />} isActive />
+      <NavItem label="Users" icon={<FiUsers />} />
+      <NavItem label="Settings" icon={<FiSettings />} />
+    </NavGroup>
+
+    <NavGroup title="Teams" isCollapsible>
+      <NavItem label="Sales" />
+      <NavItem label="Support" />
+    </NavGroup>
+  </SidebarSection>
+</Sidebar>
+```
+
+### Scroll
+
+```jsx
+<Sidebar height="400px">
+  <SidebarSection direction="row">
+    <SaasUIGlyph width="24px" />
+    <Spacer />
+    <Menu>
+      <MenuButton
+        as={IconButton}
+        icon={
+          <PersonaAvatar
+            presence="online"
+            size="xs"
+            src="/showcase-avatar.jpg"
+          />
+        }
+        variant="ghost"
+      />
+      <MenuList>
+        <MenuItem>Sign out</MenuItem>
+      </MenuList>
+    </Menu>
+  </SidebarSection>
+  <SidebarSection flex="1" overflowY="auto">
+    <SidebarSection aria-label="Main">
+      <NavGroup>
+        <NavItem label="Home" icon={<FiHome />} isActive />
+        <NavItem label="Users" icon={<FiUsers />} />
+        <NavItem label="Settings" icon={<FiSettings />} />
+      </NavGroup>
+
+      <NavGroup title="Teams" isCollapsible>
+        <NavItem label="Sales" />
+        <NavItem label="Support" />
+      </NavGroup>
+
+      <NavGroup title="Tags" isCollapsible>
+        <NavItem
+          label="Lead"
+          icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
+        >
+          <Badge opacity="0.6" borderRadius="full">
+            83
+          </Badge>
+        </NavItem>
+        <NavItem
+          label="Customer"
+          icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
+        >
+          <Badge opacity="0.6" borderRadius="full">
+            210
+          </Badge>
+        </NavItem>
+      </NavGroup>
+    </SidebarSection>
+  </SidebarSection>
+  <SidebarSection>
+    <NavItem label="Documentation" icon={<FiHelpCircle />} />
+  </SidebarSection>
+</Sidebar>
+```
+
+### Condensed variant
+
+The condensed variant can be used as a collapsed state on smaller screens, or as the primary navigation in a double sidebar layout, see below.
+NavItem labels will be rendered as tooltips.
+
+```jsx
+<Sidebar variant="condensed" height="400px">
+  <SidebarSection>
+    <SaasUIGlyph width="24px" />
+  </SidebarSection>
+  <SidebarSection>
+    <NavItem label="Home" icon={<FiHome size="1.2em" />} size="md" />
+    <NavItem label="Users" icon={<FiUsers size="1.2em" />} size="md" />
+    <NavItem label="Settings" icon={<FiSettings size="1.2em" />} size="md" />
+  </SidebarSection>
+</Sidebar>
+```
+
+### Double sidebar
+
+You can stack multiple sidebars together to create a double sidebar layout.
+
+```jsx
+<HStack>
+  <Sidebar
+    variant="condensed"
+    height="400px"
+    bg="purple.500"
+    borderWidth="0"
+    width="12"
+  >
+    <SidebarSection>
+      <SaasUIGlyph width="24px" variant="solid" color="white" />
+    </SidebarSection>
+    <SidebarSection>
+      <NavItem label="Home" icon={<FiHome size="1.2em" color="white" />} />
+      <NavItem
+        label="Users"
+        icon={<FiUsers size="1.2em" color="white" />}
+        isActive
+      />
+      <NavItem
+        label="Settings"
+        icon={<FiSettings size="1.2em" color="white" />}
+      />
+    </SidebarSection>
+  </Sidebar>
+  <Sidebar
+    height="400px"
+    isResizable
+    width="280px"
+    minWidth="220px"
+    maxWidth="320px"
+  >
+    <SidebarSection direction="row">
+      <Heading size="sm" fontWeight="semibold">
+        Users
+      </Heading>
+    </SidebarSection>
+    <SidebarSection flex="1" overflowY="auto">
+      <SidebarSection aria-label="Main">
+        <NavGroup>
+          <NavItem label="Overview" icon={<FiUsers />} isActive />
+        </NavGroup>
+
+        <NavGroup title="Teams" isCollapsible>
+          <NavItem label="Sales" />
+          <NavItem label="Support" />
+        </NavGroup>
+
+        <NavGroup title="Tags" isCollapsible>
+          <NavItem
+            label="Lead"
+            icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
+          >
+            <Badge opacity="0.6" borderRadius="full">
+              83
+            </Badge>
+          </NavItem>
+          <NavItem
+            label="Customer"
+            icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
+          >
+            <Badge opacity="0.6" borderRadius="full">
+              210
+            </Badge>
+          </NavItem>
+        </NavGroup>
+      </SidebarSection>
+    </SidebarSection>
+    <SidebarSection>
+      <NavItem label="Documentation" icon={<FiHelpCircle />} />
+    </SidebarSection>
+  </Sidebar>
+</HStack>
+```
+
+### Responsive sidebar
+
+```tsx
+<AppShell
+  height="400px"
+  position="relative"
+  sidebar={
+    <Sidebar breakpoints={{ sm: true }}>
+      <SidebarToggleButton />
+      <SidebarSection direction="row">
+        <SaasUIGlyph width="24px" />
+        <Spacer />
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            icon={
+              <PersonaAvatar
+                presence="online"
+                size="xs"
+                src="/showcase-avatar.jpg"
+              />
+            }
+            variant="ghost"
+          />
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
+      </SidebarSection>
+      <SidebarSection aria-label="Main">
+        <NavItem label="Home" icon={<FiHome />} isActive />
+        <NavItem label="Users" icon={<FiUsers />} />
+        <NavItem label="Settings" icon={<FiSettings />} />
+      </SidebarSection>
+      <SidebarOverlay />
+    </Sidebar>
+  }
+/>
+```
+
+## Props
+
+The `Sidebar` component and all sub components accept all `Box` properties.
+
+### Sidebar Props
+
+<PropsTable of="Sidebar" />

@@ -2,19 +2,15 @@ import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 import {
   Badge,
-  Box,
-  BoxProps,
   Button,
   Flex,
   Heading,
   HStack,
-  Icon,
   IconButton,
   Menu,
   MenuButton,
   MenuList,
   Spacer,
-  Text,
   useDisclosure,
 } from '@chakra-ui/react'
 
@@ -25,11 +21,10 @@ import { FaHome, FaUsers, FaCog, FaHashtag } from 'react-icons/fa'
 import {
   Sidebar,
   SidebarProps,
-  SidebarDivider,
   Nav,
   NavGroup,
   NavItem,
-  SidebarOverflow,
+  SidebarSection,
   SidebarToggleButton,
   SidebarOverlay,
 } from '../src'
@@ -64,11 +59,11 @@ WithLinks.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarOverflow>
+      <SidebarSection flex="1" overflowY="auto">
         <NavItem label="Home" />
         <NavItem label="Users" />
         <NavItem label="Settings" />
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -78,11 +73,11 @@ WithFeatherIcons.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarOverflow>
+      <SidebarSection flex="1" overflowY="auto">
         <NavItem label="Home" icon={<FiHome />} />
         <NavItem label="Users" icon={<FiUsers />} />
         <NavItem label="Settings" icon={<FiSettings />} />
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -92,11 +87,11 @@ WithFaIcons.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarOverflow>
+      <SidebarSection flex="1" overflowY="auto">
         <NavItem label="Home" icon={<FaHome />} />
         <NavItem label="Users" icon={<FaUsers />} />
         <NavItem label="Settings" icon={<FaCog />} />
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -106,7 +101,7 @@ WithHorizontalNav.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <HStack ps="6" pe="4">
+      <SidebarSection ps="6" pe="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -117,12 +112,12 @@ WithHorizontalNav.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </HStack>
-      <SidebarOverflow>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
         <NavItem label="Home" icon={<FiHome />} />
         <NavItem label="Users" icon={<FiUsers />} />
         <NavItem label="Settings" icon={<FiSettings />} />
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -132,7 +127,7 @@ WithCollapsibleGroup.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <HStack ps="6" pe="4">
+      <SidebarSection ps="6" pe="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -143,8 +138,8 @@ WithCollapsibleGroup.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </HStack>
-      <SidebarOverflow>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
           <NavItem label="Home" icon={<FiHome />} isActive />
           <NavItem label="Users" icon={<FiUsers />} />
@@ -157,7 +152,7 @@ WithCollapsibleGroup.args = {
           <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
           <NavItem label="React" inset={5} icon={<FiHash />} />
         </NavGroup>
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -171,7 +166,7 @@ WithBadge.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <HStack ps="6" pe="4">
+      <SidebarSection ps="6" pe="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -182,8 +177,8 @@ WithBadge.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </HStack>
-      <SidebarOverflow>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
           <NavItem label="Home" icon={<FiHome />} isActive />
           <NavItem label="Users" icon={<FiUsers />} />
@@ -202,7 +197,7 @@ WithBadge.args = {
             <NavItemBadge>100</NavItemBadge>
           </NavItem>
         </NavGroup>
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -212,7 +207,7 @@ WithSubtleLinks.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <HStack ps="6" pe="4">
+      <SidebarSection ps="6" pe="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -223,8 +218,8 @@ WithSubtleLinks.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </HStack>
-      <SidebarOverflow>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
           <NavItem label="Home" variant="subtle" icon={<FiHome />} isActive />
           <NavItem label="Users" variant="subtle" icon={<FiUsers />} />
@@ -237,7 +232,7 @@ WithSubtleLinks.args = {
           <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
           <NavItem label="React" inset={5} icon={<FiHash />} />
         </NavGroup>
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -247,7 +242,7 @@ WithSolidLinks.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <HStack ps="6" pe="4">
+      <SidebarSection ps="6" pe="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -258,8 +253,8 @@ WithSolidLinks.args = {
             <MenuItem>Sign out</MenuItem>
           </MenuList>
         </Menu>
-      </HStack>
-      <SidebarOverflow>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
           <NavItem label="Home" variant="solid" icon={<FiHome />} isActive />
           <NavItem label="Users" variant="solid" icon={<FiUsers />} />
@@ -272,7 +267,7 @@ WithSolidLinks.args = {
           <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
           <NavItem label="React" inset={5} icon={<FiHash />} />
         </NavGroup>
-      </SidebarOverflow>
+      </SidebarSection>
     </>
   ),
 }
@@ -386,14 +381,14 @@ export const DoubleSidebar = () => {
         zIndex={2}
         marginLeft={[16, 0]}
       >
-        <HStack px="4">
+        <SidebarSection ps="6" pe="4" direction="row">
           <Heading size="sm" py="2">
             Users
           </Heading>
           <Spacer />
-        </HStack>
+        </SidebarSection>
 
-        <SidebarOverflow>
+        <SidebarSection flex="1" overflowY="auto">
           <NavGroup>
             <NavItem label="All users" icon={<FiHome />} isActive />
             <NavItem label="Favourite users" icon={<FiStar />} />
@@ -404,7 +399,7 @@ export const DoubleSidebar = () => {
             <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
             <NavItem label="React" inset={5} icon={<FiHash />} />
           </NavGroup>
-        </SidebarOverflow>
+        </SidebarSection>
         <SidebarOverlay zIndex="1" />
       </Sidebar>
     </Flex>

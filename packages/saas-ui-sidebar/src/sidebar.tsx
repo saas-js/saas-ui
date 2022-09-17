@@ -15,7 +15,7 @@ import {
   useDisclosure,
   Portal,
 } from '@chakra-ui/react'
-import { keyframes } from '@chakra-ui/system'
+import { ResponsiveValue } from '@chakra-ui/system'
 import { cx, dataAttr } from '@chakra-ui/utils'
 
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
@@ -31,7 +31,6 @@ import { SidebarProvider, useSidebarContext } from './use-sidebar'
 
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
-import { Nav } from './nav'
 
 export interface SidebarProps
   extends Omit<HTMLMotionProps<'div'>, 'color' | 'transition'>,
@@ -100,7 +99,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
   }, [isInitial, isCondensed, isMobile])
 
   const containerStyles: SystemStyleObject = {
-    '& > *:not(style) ~ *:not(style)': {
+    '& > *:not(style) ~ *:not(style, .saas-resize-handle)': {
       marginTop: spacing,
     },
     display: 'flex',
@@ -227,16 +226,26 @@ SidebarToggleButton.displayName = 'SidebarToggleButton'
 
 export const SidebarDivider = Divider
 
-export const SidebarOverflow: React.FC<HTMLChakraProps<'div'>> = (props) => {
-  const styles = useSidebarStyles()
-  const overflowStyles = {
-    overflow: 'auto',
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    ...styles.overflow,
-  }
-  return <chakra.div __css={overflowStyles} {...props} />
+export interface SidebarSectionProps extends HTMLChakraProps<'div'> {
+  direction?: ResponsiveValue<'row' | 'column'>
 }
 
-SidebarOverflow.displayName = 'SidebarOverflow'
+export const SidebarSection: React.FC<SidebarSectionProps> = (props) => {
+  const { direction = 'column', ...rest } = props
+  const styles = useSidebarStyles()
+  const sectionStyles = {
+    display: 'flex',
+    flexDirection: direction,
+    ...styles.section,
+  }
+
+  return (
+    <chakra.div
+      __css={sectionStyles}
+      {...rest}
+      className={cx('saas-sidebar__section', props.className)}
+    />
+  )
+}
+
+SidebarSection.displayName = 'SidebarSection'

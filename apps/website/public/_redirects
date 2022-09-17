@@ -15,3 +15,4 @@
 /docs/theming/theme /docs/core/theming/saas-ui-theme
 /docs/theming/* /docs/core/theming/:splat
 /docs/integrations/* /docs/core/integrations/:splat
+/docs/components/navigation/sidebar /docs/components/layout/sidebar

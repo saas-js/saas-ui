@@ -61,9 +61,10 @@ export type ComponentLinksProps = {
   storybook?: { url: string }
   video?: { url: string }
   pro?: { gumroad: boolean }
+  beta?: boolean
 }
 function ComponentLinks(props: ComponentLinksProps) {
-  const { theme, github, npm, storybook, video, pro, ...rest } = props
+  const { theme, github, npm, storybook, video, pro, beta, ...rest } = props
   const iconColor = useColorModeValue('gray.600', 'inherit')
 
   const githubRepoUrl = 'https://github.com/saas-js/saas-ui'
@@ -153,7 +154,7 @@ function ComponentLinks(props: ComponentLinksProps) {
     </WrapItem>
   )
 
-  const beta = pro && (
+  const isBeta = (beta || pro) && (
     <WrapItem>
       <Box
         px="12px"
@@ -164,6 +165,10 @@ function ComponentLinks(props: ComponentLinksProps) {
         borderRadius="md"
         fontSize="sm"
         _hover={{}}
+        borderColor="green.400"
+        color="green.400"
+        textTransform="uppercase"
+        fontWeight="medium"
       >
         {t('component.mdx-components.component-links.beta')}
       </Box>
@@ -172,13 +177,13 @@ function ComponentLinks(props: ComponentLinksProps) {
 
   https: return (
     <Wrap className="component-links" pt="2rem" spacing="4" {...rest}>
+      {isBeta}
       {githubLink}
       {themeComponentLink}
       {npmLink}
       {storybookLink}
       {videoLink}
       {gumroadLink}
-      {beta}
     </Wrap>
   )
 }

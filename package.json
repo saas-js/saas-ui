@@ -28,6 +28,8 @@
   },
   "scripts": {
     "w": "yarn workspace",
+    "dev:web": "yarn w website dev",
+    "dev:palette": "yarn w palette-docs dev",
     "changelog:gen": "ts-node scripts/changelog-generate.ts",
     "changelog:write": "ts-node scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",

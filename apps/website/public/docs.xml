@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 18 Sep 2022 12:07:31 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 18 Sep 2022 12:24:41 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -131,6 +131,26 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/auth/auth-provider</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/components/auth/auth-provider</link>
+    <description>Authentication state management and hooks.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/auth/auth</guid>
+    <title>Auth</title>
+    <link>https://saas-ui.dev/docs/components/auth/auth</link>
+    <description>Ready to use authentication forms.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/command</guid>
     <title>Command</title>
     <link>https://saas-ui.dev/docs/components/data-display/command</link>
@@ -195,26 +215,6 @@
     <title>Property</title>
     <link>https://saas-ui.dev/docs/components/data-display/property</link>
     <description>A component used to show key/value data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/auth/auth-provider</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/components/auth/auth-provider</link>
-    <description>Authentication state management and hooks.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/auth/auth</guid>
-    <title>Auth</title>
-    <link>https://saas-ui.dev/docs/components/auth/auth</link>
-    <description>Ready to use authentication forms.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

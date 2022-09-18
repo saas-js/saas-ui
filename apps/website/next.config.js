@@ -8,6 +8,10 @@ const webpack = require('webpack')
 
 let config = {
   reactStrictMode: true,
+  typescript: {
+    // turn of untill v2
+    ignoreBuildErrors: true,
+  },
   experimental: {
     optimizeFonts: true,
     modern: true,

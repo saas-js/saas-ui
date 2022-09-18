@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 1.2.2
+
+### Patch Changes
+
+- b88c087: Added missing onChange handler on FormDialog, thanks to @eliandersoh
+
 ## 1.2.1
 
 ### Patch Changes

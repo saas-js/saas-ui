@@ -10,6 +10,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 ## 09-17-2022
 
+**Sidebar** `v0.1.1`
+
+- Forward ref to Sidebar container
+
+## 09-17-2022
+
 `@saas-ui/react@1.4.1`
 
 - Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.

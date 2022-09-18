@@ -1,5 +1,12 @@
 # @saas-ui/auth
 
+## 1.3.2
+
+### Patch Changes
+
+- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support custom user types.
+- 62f3d4c: User.email now is optional
+
 ## 1.3.1
 
 ### Patch Changes

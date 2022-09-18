@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 1.4.2
+
+### Patch Changes
+
+- b88c087: Added missing onChange handler on FormDialog, thanks to @eliandersoh
+- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support custom user types.
+- 62f3d4c: User.email now is optional
+- Updated dependencies [b88c087]
+- Updated dependencies [62f3d4c]
+- Updated dependencies [62f3d4c]
+  - @saas-ui/modals@1.2.2
+  - @saas-ui/auth@1.3.2
+
 ## 1.4.1
 
 ### Patch Changes

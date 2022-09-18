@@ -1,0 +1,3 @@
+[submodule "packages/saas-ui-pro"]
+	path = packages/pro
+	url = git@github.com:saas-js/saas-ui-pro.git

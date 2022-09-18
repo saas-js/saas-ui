@@ -16,7 +16,7 @@ A shell is a collection of components shared throughout your app and can consist
 - `AppShell`: The container component that manages composition.
 
 ```ts
-import { AppShell } from '@saas-ui/pro'
+import { AppShell } from '@saas-ui/app-shell'
 ```
 
 ## Usage
@@ -33,6 +33,7 @@ AppShell will try to fit it's parent with position `absolute` and `inset: 0` by 
 
 ```jsx
 <AppShell
+  variant="static"
   navbar={
     <Box as="header" borderBottomWidth="1px" py="2" px="4">
       <SaasUILogo width="100px" />
@@ -40,10 +41,10 @@ AppShell will try to fit it's parent with position `absolute` and `inset: 0` by 
   }
   sidebar={
     <Sidebar height="200px">
-      <SidebarNav>
-        <SidebarLink label="Home" />
-        <SidebarLink label="Settings" />
-      </SidebarNav>
+      <SidebarSection>
+        <NavItem label="Home" />
+        <NavItem label="Settings" />
+      </SidebarSection>
     </Sidebar>
   }
 >
@@ -68,10 +69,10 @@ The default variant is `fullscreen`, using the `static` variant the AppShell wil
   }
   sidebar={
     <Sidebar>
-      <SidebarNav>
-        <SidebarLink label="Home" />
-        <SidebarLink label="Settings" />
-      </SidebarNav>
+      <SidebarSection>
+        <NavItem label="Home" />
+        <NavItem label="Settings" />
+      </SidebarSection>
     </Sidebar>
   }
 >
@@ -85,21 +86,33 @@ The default variant is `fullscreen`, using the `static` variant the AppShell wil
 
 ```jsx
 <AppShell
+  variant="static"
   sidebar={
     <Sidebar width="30%" height="400px">
-      <SidebarNav direction="row">
+      <SidebarSection direction="row">
         <SaasUIGlyph width="24px" />
         <Spacer />
-        <SidebarMenu icon={<PersonaAvatar presence="online" size="xs" />}>
-          <MenuItem>Sign out</MenuItem>
-        </SidebarMenu>
-      </SidebarNav>
-      <SidebarOverflow>
-        <SidebarNav>
-          <SidebarLink label="Home" icon={<FiHome />} />
-          <SidebarLink label="Contacts" icon={<FiUsers />} />
-        </SidebarNav>
-      </SidebarOverflow>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            icon={
+              <PersonaAvatar
+                presence="online"
+                size="xs"
+                src="/showcase-avatar.jpg"
+              />
+            }
+            variant="ghost"
+          />
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
+        <NavItem label="Home" icon={<FiHome />} />
+        <NavItem label="Contacts" icon={<FiUsers />} />
+      </SidebarSection>
     </Sidebar>
   }
 >

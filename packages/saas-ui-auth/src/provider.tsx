@@ -27,37 +27,39 @@ export interface AuthOptions {
 }
 
 /**
- * The user object, id and email are required values
+ * The user object, id is required.
  */
 export interface User {
   id: string
-  email: string
+  email?: string
   [key: string]: any
 }
 
 type UnsubscribeHandler = () => void
 
-export type AuthStateChangeCallback = (user?: User | null) => void
+export type AuthStateChangeCallback<TUser extends User = User> = (
+  user?: TUser | null
+) => void
 
-export interface AuthProviderProps {
+export interface AuthProviderProps<TUser extends User = User> {
   /**
    * Loads user data after authentication
    */
-  onLoadUser?: () => Promise<User | null>
+  onLoadUser?: () => Promise<TUser | null>
   /**
    * The signup method
    */
   onSignup?: (
     params: AuthParams,
     options?: AuthOptions
-  ) => Promise<User | undefined | null>
+  ) => Promise<TUser | undefined | null>
   /**
    * The login method
    */
   onLogin?: (
     params: AuthParams,
     options?: AuthOptions
-  ) => Promise<User | undefined | null>
+  ) => Promise<TUser | undefined | null>
   /**
    * Request to reset a password.
    */
@@ -86,7 +88,9 @@ export interface AuthProviderProps {
   /**
    * Should trigger whenever the authentication state changes
    */
-  onAuthStateChange?: (callback: AuthStateChangeCallback) => UnsubscribeHandler
+  onAuthStateChange?: (
+    callback: AuthStateChangeCallback<TUser>
+  ) => UnsubscribeHandler
   /**
    * Return the session token
    */
@@ -100,11 +104,11 @@ export type AuthFunction = (
   options?: AuthOptions
 ) => Promise<any>
 
-export interface AuthContextValue {
+export interface AuthContextValue<TUser extends User = User> {
   isAuthenticated: boolean
   isLoggingIn: boolean
   isLoading: boolean
-  user?: User | null
+  user?: TUser | null
   signUp: AuthFunction
   logIn: AuthFunction
   verifyOtp: AuthFunction
@@ -115,22 +119,26 @@ export interface AuthContextValue {
   getToken: () => Promise<AuthToken>
 }
 
-const AuthContext = createContext<any>(null)
+const createAuthContext = <TUser extends User = User>() => {
+  return createContext<AuthContextValue<TUser> | null>(null)
+}
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({
-  onLoadUser = () => Promise.resolve(),
-  onSignup = () => Promise.resolve(),
-  onLogin = () => Promise.resolve(),
-  onVerifyOtp = () => Promise.resolve(),
+export const AuthContext = createAuthContext()
+
+export const AuthProvider = <TUser extends User = User>({
+  onLoadUser = () => Promise.resolve(null),
+  onSignup = () => Promise.resolve(null),
+  onLogin = () => Promise.resolve(null),
+  onVerifyOtp = () => Promise.resolve(null),
   onLogout = () => Promise.resolve(),
   onAuthStateChange,
   onGetToken,
   onResetPassword,
   onUpdatePassword,
   children,
-}) => {
+}: AuthProviderProps<TUser>) => {
   const [isAuthenticated, setAuthenticated] = useState(false)
-  const [user, setUser] = useState<User | null>()
+  const [user, setUser] = useState<TUser | null>()
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -232,7 +240,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
     return onGetToken?.()
   }, [onGetToken])
 
-  const value: AuthContextValue = {
+  const value: AuthContextValue<TUser> = {
     isAuthenticated,
     isLoggingIn: isAuthenticated && !user,
     isLoading,
@@ -250,10 +258,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
-export const useAuth = (): AuthContextValue => useContext(AuthContext)
+export const useAuth = <
+  TUser extends User = User
+>(): AuthContextValue<TUser> => {
+  const context = useContext(AuthContext)
+  if (context === null) {
+    throw new Error(
+      'Auth context missing, did you forget to wrap your app in AuthProvider?'
+    )
+  }
 
-export const useCurrentUser = (): User | null | undefined => {
-  return useAuth().user
+  return context as AuthContextValue<TUser>
+}
+
+export const useCurrentUser = <TUser extends User = User>():
+  | TUser
+  | null
+  | undefined => {
+  return useAuth<TUser>().user
 }
 
 export interface UseLoginProps {

@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sat, 17 Sep 2022 14:07:56 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 18 Sep 2022 12:07:31 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -61,26 +61,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/overview</guid>
-    <title>Pro</title>
-    <link>https://saas-ui.dev/docs/pro/overview</link>
-    <description>A modern clean dashboard ui that your customers will love.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/project-structure</guid>
-    <title>Project structure</title>
-    <link>https://saas-ui.dev/docs/pro/project-structure</link>
-    <description>How to find your way in the project.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
     <title>useCollapse</title>
     <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
@@ -95,6 +75,26 @@
     <title>useLocalStorage</title>
     <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
     <description>React hook to manage localStorage</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/overview</guid>
+    <title>Pro</title>
+    <link>https://saas-ui.dev/docs/pro/overview</link>
+    <description>A modern clean dashboard ui that your customers will love.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/project-structure</guid>
+    <title>Project structure</title>
+    <link>https://saas-ui.dev/docs/pro/project-structure</link>
+    <description>How to find your way in the project.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -125,26 +125,6 @@
     <title>Filters</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/filters</link>
     <description>Intuitive data filtering components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/auth/auth-provider</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/components/auth/auth-provider</link>
-    <description>Authentication state management and hooks.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/auth/auth</guid>
-    <title>Auth</title>
-    <link>https://saas-ui.dev/docs/components/auth/auth</link>
-    <description>Ready to use authentication forms.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -215,6 +195,26 @@
     <title>Property</title>
     <link>https://saas-ui.dev/docs/components/data-display/property</link>
     <description>A component used to show key/value data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/auth/auth-provider</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/components/auth/auth-provider</link>
+    <description>Authentication state management and hooks.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/auth/auth</guid>
+    <title>Auth</title>
+    <link>https://saas-ui.dev/docs/components/auth/auth</link>
+    <description>Ready to use authentication forms.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

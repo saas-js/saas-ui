@@ -1,5 +1,3 @@
-import { Column } from 'react-table'
-
 interface ExampleData {
   name: string
   phone: string
@@ -9,7 +7,7 @@ interface ExampleData {
   employees: number
 }
 
-const columns: Column<ExampleData>[] = [
+const columns = [
   {
     accessor: 'name',
     Header: 'Name',

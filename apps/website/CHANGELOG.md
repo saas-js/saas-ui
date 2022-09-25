@@ -1,5 +1,12 @@
 # website
 
+## 1.0.16
+
+### Patch Changes
+
+- Updated dependencies [1195fc2]
+  - @saas-ui/react@1.4.3
+
 ## 1.0.15
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/sidebar
 
+## 0.1.2
+
+### Patch Changes
+
+- 5ebf39f: useSidebarContext no longer throws an error when no context is available.
+- 5ebf39f: SidebarToggleButton icon now supports a renderProp
+
 ## 0.1.1
 
 ### Patch Changes

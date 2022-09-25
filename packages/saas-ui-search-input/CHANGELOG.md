@@ -1,5 +1,11 @@
 # @saas-ui/search-input
 
+## 1.1.1
+
+### Patch Changes
+
+- 1195fc2: SearchInput reset button is now working when uncontrolled.
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 1.4.3
+
+### Patch Changes
+
+- 1195fc2: SearchInput reset button is now working when uncontrolled.
+- Updated dependencies [1195fc2]
+  - @saas-ui/search-input@1.1.1
+  - @saas-ui/hotkeys@1.1.2
+
 ## 1.4.2
 
 ### Patch Changes

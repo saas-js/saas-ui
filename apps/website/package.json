@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -26,9 +26,7 @@
     "@mdx-js/loader": "^2.1.2",
     "@next/bundle-analyzer": "^12.2.0",
     "@octokit/rest": "^18.12.0",
-    "@saas-ui/features": "workspace:*",
     "@saas-ui/palette": "workspace:*",
-    "@saas-ui/pro": "workspace:*",
     "@saas-ui/props-docs": "^1.0.0",
     "@saas-ui/react": "workspace:*",
     "@saas-ui/web3": "workspace:*",
@@ -64,5 +62,9 @@
     "eslint": "^8.18.0",
     "eslint-config-next": "^12.2.0",
     "typescript": "^4.7.3"
+  },
+  "optionalDependencies": {
+    "@saas-ui/features": "*",
+    "@saas-ui/pro": "*"
   }
 }

@@ -36,7 +36,7 @@
     "changeset:next": "yarn changeset pre enter next",
     "version": "yarn changelog:gen && changeset version",
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' npm publish --access public --tag next",
-    "publish": "yarn workspaces foreach -p --from '@saas-ui/*' npm publish --access public && yarn changeset tag",
+    "publish": "yarn workspaces foreach -p --from '@saas-ui/*' --exclude '@saas-ui/pro' npm publish && yarn changeset tag",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook && sb extract",
     "prepare": "husky install",

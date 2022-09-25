@@ -10,8 +10,9 @@ import {
   InputProps,
   ThemingProps,
   useMultiStyleConfig,
+  useControllableState,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+import { callAllHandlers, EventHandler, __DEV__ } from '@chakra-ui/utils'
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
 
 export interface SearchInputProps
@@ -47,24 +48,39 @@ export interface SearchInputProps
 export const SearchInput = forwardRef<SearchInputProps, 'input'>(
   (props, ref) => {
     const {
-      value,
+      value: valueProp,
       size,
       variant,
       icon,
       resetIcon,
       rightElement,
+      onChange: onChangeProp,
       onReset,
+      onKeyDown: onKeyDownProp,
       ...inputProps
     } = props
     const styles = useMultiStyleConfig('SearchInput', props)
 
+    const [value, setValue] = useControllableState({
+      value: valueProp,
+      defaultValue: '',
+    })
+
+    const onChange = React.useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value)
+      },
+      [setValue]
+    )
+
     const onKeyDown = React.useCallback(
       (event: React.KeyboardEvent) => {
-        if (event.key === 'Escape' && onReset) {
-          onReset()
+        if (event.key === 'Escape') {
+          setValue('')
+          onReset?.()
         }
       },
-      [onReset]
+      [onReset, setValue]
     )
 
     const btnSize = size === 'lg' ? 'sm' : 'xs'
@@ -78,7 +94,8 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
           value={value}
           ref={ref}
           sx={styles.input}
-          onKeyDown={onKeyDown}
+          onChange={callAllHandlers(onChange, onChangeProp)}
+          onKeyDown={callAllHandlers(onKeyDown, onKeyDownProp)}
           {...inputProps}
         />
         <InputRightElement>

@@ -18,16 +18,7 @@ export default {
 }
 
 const Template: Story = (props: any) => {
-  const [value, setValue] = useState('')
-
-  return (
-    <SearchInput
-      value={value}
-      onChange={({ target }) => setValue(target.value)}
-      onReset={() => setValue('')}
-      {...props}
-    />
-  )
+  return <SearchInput {...props} />
 }
 
 export const Basic = Template.bind({})
@@ -45,3 +36,15 @@ export const Sizes = () => {
 export const FeatherIcons = () => (
   <Template icon={<Icon as={FiSearch} />} resetIcon={<Icon as={FiX} />} />
 )
+
+export const Controlled: Story = (props: any) => {
+  const [value, setValue] = useState('')
+  return (
+    <SearchInput
+      value={value}
+      onChange={({ target }) => setValue(target.value)}
+      onReset={() => setValue('')}
+      {...props}
+    />
+  )
+}

@@ -16,6 +16,7 @@ import { FaNpm, FaGithub, FaYoutube } from 'react-icons/fa'
 import { FiLock } from 'react-icons/fi'
 import StorybookIcon from '../storybook-icon'
 import { t } from '@/docs/utils/i18n'
+import { Version } from '@/components/version'
 
 type ComponentLinkProps = LinkProps & {
   icon?: React.ElementType
@@ -62,6 +63,7 @@ export type ComponentLinksProps = {
   video?: { url: string }
   pro?: { gumroad: boolean }
   beta?: boolean
+  version?: string | boolean
 }
 function ComponentLinks(props: ComponentLinksProps) {
   const { theme, github, npm, storybook, video, pro, beta, ...rest } = props
@@ -123,12 +125,17 @@ function ComponentLinks(props: ComponentLinksProps) {
     </WrapItem>
   )
 
+  const themeUrl =
+    theme?.theme === 'chakra'
+      ? 'https://github.com/chakra-ui/chakra-ui/tree/main/packages/components/theme/src/components/'
+      : `${githubRepoUrl}/tree/main/packages/saas-ui-theme/src/${
+          theme?.theme || 'base'
+        }/components/`
+
   const themeComponentLink = theme && (
     <WrapItem>
       <ComponentLink
-        url={`${githubRepoUrl}/tree/main/packages/saas-ui-theme/src/${
-          theme.theme || 'base'
-        }/components/${theme.componentName}.ts`}
+        url={`${themeUrl}${theme.componentName}.ts`}
         icon={FaGithub}
         iconColor={iconColor}
         iconSize="1rem"
@@ -175,8 +182,17 @@ function ComponentLinks(props: ComponentLinksProps) {
     </WrapItem>
   )
 
-  https: return (
-    <Wrap className="component-links" pt="2rem" spacing="4" {...rest}>
+  const version = (!!pro || !!npm || props.version) && (
+    <WrapItem>
+      <Version
+        version={typeof props.version === 'boolean' ? undefined : props.version}
+        pro={!!pro}
+      />
+    </WrapItem>
+  )
+
+  return (
+    <Wrap className="component-links" pt="2rem" spacing="2" {...rest}>
       {isBeta}
       {githubLink}
       {themeComponentLink}

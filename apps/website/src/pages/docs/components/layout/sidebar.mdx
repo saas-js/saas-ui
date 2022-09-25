@@ -6,6 +6,7 @@ description: Commonly used as the primary navigation.
 <ComponentLinks
   github={{ package: 'saas-ui-sidebar' }}
   npm={{ package: '@saas-ui/sidebar' }}
+  theme={{ componentName: 'sidebar' }}
   beta
 />
 
@@ -269,7 +270,7 @@ You can stack multiple sidebars together to create a double sidebar layout.
 ```tsx
 <AppShell
   height="400px"
-  position="relative"
+  variant="static"
   sidebar={
     <Sidebar breakpoints={{ sm: true }}>
       <SidebarToggleButton />

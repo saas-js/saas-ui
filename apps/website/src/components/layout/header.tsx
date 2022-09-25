@@ -4,7 +4,7 @@ import {
   Box,
   BoxProps,
   Container,
-  Flex,
+  HStack,
   useColorModeValue,
 } from '@chakra-ui/react'
 import Navigation from './navigation'
@@ -42,7 +42,7 @@ const Header = (props: HeaderProps) => {
       {...props}
     >
       <Container maxW="container.2xl" px="8" py="4">
-        <Flex width="full" align="center" justify="space-between">
+        <HStack width="full" align="center">
           <Logo
             onClick={(e) => {
               if (window.location.pathname === '/') {
@@ -56,7 +56,7 @@ const Header = (props: HeaderProps) => {
             }}
           />
           <Navigation />
-        </Flex>
+        </HStack>
       </Container>
     </Box>
   )

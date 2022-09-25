@@ -1,10 +1,9 @@
 ---
 title: DataGrid
-description: A advanced data table component that supports sorting, selections, filters and pagination.
+description: Data grids are used to organize lists of high density data.
 ---
 
-Data tables are used to organize lists of high density data.
-It uses `react-table` to manage internal state.
+A advanced data grid component that supports sorting, selections, filters and pagination.
 
 <ComponentLinks pro={{ gumroad: true }} />
 
@@ -16,9 +15,7 @@ import { DataGrid } from '@saas-ui/pro'
 
 ## Usage
 
-To make sure types are working correctly [follow these steps first](#typescript).
-
-DataGrid uses `react-table` v7 internally, and supports all `useTable` props, you can [find the docs here](https://react-table-v7.tanstack.com/).
+DataGrid uses `@tanstack/react-table` v8 internally, and supports all `useTable` props, you can [find the docs here](https://tanstack.com/table/v8).
 
 ### Basic DataGrid
 
@@ -27,33 +24,33 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
+        accessorKey: 'name',
+        header: 'Name',
         width: '200px',
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -87,33 +84,33 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
+        accessorKey: 'name',
+        header: 'Name',
         width: '200px',
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -166,34 +163,34 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
+        accessorKey: 'name',
+        header: 'Name',
         width: '200px',
         href: ({ id }) => `#customers/${id}`,
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -261,34 +258,34 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
+        accessorKey: 'name',
+        header: 'Name',
         width: '200px',
         href: ({ id }) => `#customers/${id}`,
       },
       {
-        accessor: 'email',
-        Header: 'Email',
+        accessorKey: 'email',
+        header: 'Email',
       },
       {
-        accessor: 'company',
-        Header: 'Company',
+        accessorKey: 'company',
+        header: 'Company',
       },
       {
-        accessor: 'country',
-        Header: 'Country',
+        accessorKey: 'country',
+        header: 'Country',
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
+        accessorKey: 'employees',
+        header: 'Employees',
         isNumeric: true,
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
@@ -347,12 +344,12 @@ function ListPage() {
 
 ### Access internal state
 
-You can access the react-table `TableInstance` by passing a ref to `DataTable`.
-Check out the [react-table documentation](https://react-table-v7.tanstack.com/docs/api/useTable#instance-properties) for all properties.
+You can access the react-table `TableInstance` by passing a ref to `DataGrid`.
+Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
 
 ```jsx
-function TableState() {
-  const tableRef = useRef(null)
+function InternalState() {
+  const gridRef = useRef(null)
 
   return (
     <Page
@@ -362,9 +359,7 @@ function TableState() {
         <Toolbar>
           <ToolbarButton
             onClick={() => {
-              tableRef.current.toggleAllRowsSelected(
-                !tableRef.current.isAllRowsSelected
-              )
+              gridRef.current.toggleAllRowsSelected()
             }}
             label="Select all rows"
             variant="primary"
@@ -373,9 +368,9 @@ function TableState() {
       }
     >
       <DataGrid
-        ref={tableRef}
-        columns={dataTable.columns.concat()}
-        data={dataTable.data.concat()}
+        instanceRef={gridRef}
+        columns={dataGrid.columns.concat()}
+        data={dataGrid.data.concat()}
         isSelectable
       />
     </Page>
@@ -386,9 +381,9 @@ function TableState() {
 ## Typescript
 
 <Info>
-  If you run into type errors, you need to add `react-table-config.d.ts` to your
-  `src`. To use the default DataGrid config you can simply re-export the config
-  from `@saas-ui/pro`.
+  To add typesafety for the meta properties, you need to add
+  `react-table-config.d.ts` to your `src`. To use the default DataGrid config
+  you can simply re-export the config from `@saas-ui/pro`.
 </Info>
 
 ```ts
@@ -405,16 +400,16 @@ interface ExampleData {
 
 const columns: Column<ExampleData>[] = [
   {
-    accessor: 'id',
-    Header: 'Id',
+    accessorKey: 'id',
+    header: 'Id',
   },
   {
-    accessor: 'name',
-    Header: 'Name',
+    accessorKey: 'name',
+    header: 'Name',
   },
   {
-    accessor: 'email',
-    Header: 'Email',
+    accessorKey: 'email',
+    header: 'Email',
   },
 ]
 

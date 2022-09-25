@@ -35,6 +35,36 @@ const columns = [
   },
 ]
 
+const gridColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'phone',
+    header: 'Phone',
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+  {
+    accessorKey: 'company',
+    header: 'Company',
+  },
+  {
+    accessorKey: 'country',
+    header: 'Country',
+  },
+  {
+    accessorKey: 'employees',
+    header: 'Employees',
+    meta: {
+      isNumeric: true,
+    },
+  },
+]
+
 const data = [
   {
     id: 1,
@@ -84,3 +114,5 @@ const data = [
 ]
 
 export const dataTable = { columns, data }
+
+export const dataGrid = { columns: gridColumns, data }

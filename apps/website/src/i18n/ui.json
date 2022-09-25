@@ -16,9 +16,9 @@
         "editable-example": "Editable Example"
       },
       "component-links": {
-        "view-source": "View source",
+        "view-source": "Source",
         "view-storybook": "View storybook",
-        "view-theme-source": "View theme source",
+        "view-theme-source": "Theme source",
         "view-video": "Watch video",
         "buy-pro": "Get Pro",
         "beta": "Beta"

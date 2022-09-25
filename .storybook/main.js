@@ -3,9 +3,9 @@ const webpack = require('webpack')
 const toPath = (_path) => path.join(process.cwd(), _path)
 
 module.exports = {
-  stories: ['../packages/**/stories/*.stories.tsx'],
+  stories: ['../packages/saas-ui-*/stories/*.stories.tsx'],
   addons: [
-    // 'storybook-addon-swc',
+    'storybook-addon-swc',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
     '@storybook/addon-storysource',
@@ -59,14 +59,17 @@ module.exports = {
           'emotion-theming': toPath('node_modules/@emotion/react'),
         },
       },
-      plugins: config.plugins.concat([
-        new webpack.NormalModuleReplacementPlugin(
-          /\@saas-ui\/[a-z-\/]+$/,
-          (resource) => {
-            resource.request = resource.request + '/src/index'
-          }
-        ),
-      ]),
+      // plugins: config.plugins.concat([
+      //   new webpack.NormalModuleReplacementPlugin(
+      //     /\@saas-ui\/[a-z-\/]+$/,
+      //     (resource) => {
+      //       resource.request = resource.request + '/src/index'
+      //     }
+      //   ),
+      // ]),
     }
+  },
+  core: {
+    builder: 'webpack5',
   },
 }

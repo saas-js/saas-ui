@@ -17,12 +17,13 @@ import {
   ResponsiveValue,
   forwardRef,
 } from '@chakra-ui/react'
-import { cx, dataAttr } from '@chakra-ui/utils'
+import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
 
 import { SidebarProvider, useSidebarContext } from './use-sidebar'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export interface SidebarProps
   extends Omit<HTMLMotionProps<'div'>, 'color' | 'transition'>,
@@ -151,11 +152,14 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
 Sidebar.displayName = 'Sidebar'
 
 export interface SidebarToggleButtonProps
-  extends Omit<IconButtonProps, 'aria-label'> {}
+  extends Omit<IconButtonProps, 'aria-label' | 'icon'> {
+  icon?: MaybeRenderProp<{ isOpen: boolean }>
+}
 
 export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   props
 ) => {
+  const { sx, ...rest } = props
   const sidebar = useSidebarContext()
 
   const styles = useSidebarStyles()
@@ -165,17 +169,26 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     top: 3,
     left: 4,
     ...styles.toggle,
+    ...sx,
   }
+
+  const icon = props.icon ? (
+    runIfFn(props.icon, {
+      isOpen: sidebar.isOpen,
+    })
+  ) : (
+    <HamburgerIcon />
+  )
 
   return sidebar.isMobile ? (
     <chakra.div height="8">
       <IconButton
         variant="ghost"
-        icon={<HamburgerIcon />}
-        {...sidebar.getButtonProps(props)}
-        {...props}
-        aria-label="Toggle sidebar"
         sx={buttonStyles}
+        aria-label="Toggle sidebar"
+        {...sidebar.getButtonProps(props)}
+        {...rest}
+        icon={icon}
       />
     </chakra.div>
   ) : null

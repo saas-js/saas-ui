@@ -521,8 +521,10 @@ const Pricing = () => {
               href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license"
               className="gumroad-button"
               onClick={() =>
-                /* @ts-ignore */
-                window?.plausible('Order Bootstrap')
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.plausible('Order Bootstrap')
+                })
               }
             >
               Early access
@@ -566,8 +568,10 @@ const Pricing = () => {
               href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license"
               className="gumroad-button"
               onClick={() =>
-                /* @ts-ignore */
-                window?.plausible('Order Startup')
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.plausible('Order Bootstrap')
+                })
               }
             >
               Early access

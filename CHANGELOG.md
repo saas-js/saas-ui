@@ -8,6 +8,17 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 09-25-2022
+
+**@saas-ui/react** `v1.4.3`
+
+### Patch Changes
+
+- 1195fc2: SearchInput reset button is now working when uncontrolled.
+- Updated dependencies [1195fc2]
+  - @saas-ui/search-input@1.1.1
+  - @saas-ui/hotkeys@1.1.2
+
 ## 09-17-2022
 
 **Sidebar** `v0.1.1`

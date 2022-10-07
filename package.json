@@ -99,7 +99,7 @@
     "eslint-plugin-storybook": "^0.5.13",
     "framer-motion": "^6.3.16",
     "husky": "^8.0.1",
-    "hygen": "^6.2.7",
+    "hygen": "^6.2.11",
     "jest": "^28.1.2",
     "jest-environment-jsdom": "^28.1.2",
     "jest-watch-typeahead": "^1.1.0",

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 1.2.2
+
+### Patch Changes
+
+- ad47180: FormStepper now supports theming props.
+
 ## 1.2.1
 
 ### Patch Changes

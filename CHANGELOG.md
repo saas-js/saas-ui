@@ -8,6 +8,21 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 10-08-2022
+
+`@saas-ui/react@1.4.4`
+
+- Export all Snackbar types. (#88)
+- FormStepper now supports theming props.
+
+**Snackbar** `v1.1.1`
+
+- Export all Snackbar types. (#88)
+
+**Forms** `v1.2.2`
+
+- FormStepper now supports theming props.
+
 ## 09-25-2022
 
 **@saas-ui/react** `v1.4.3`

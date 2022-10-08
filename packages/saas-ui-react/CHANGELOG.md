@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 1.4.4
+
+### Patch Changes
+
+- d690b18: Export all Snackbar types. (#88)
+- ad47180: FormStepper now supports theming props.
+- Updated dependencies [d690b18]
+- Updated dependencies [ad47180]
+  - @saas-ui/snackbar@1.1.1
+  - @saas-ui/forms@1.2.2
+  - @saas-ui/auth@1.3.3
+  - @saas-ui/modals@1.2.3
+
 ## 1.4.3
 
 ### Patch Changes

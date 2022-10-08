@@ -1,5 +1,11 @@
 # @saas-ui/snackbar
 
+## 1.1.1
+
+### Patch Changes
+
+- d690b18: Export all Snackbar types. (#88)
+
 ## 1.1.0
 
 ### Minor Changes

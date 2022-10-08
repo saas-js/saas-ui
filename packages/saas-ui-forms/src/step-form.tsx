@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 
-import { chakra, HTMLChakraProps } from '@chakra-ui/system'
+import { chakra, HTMLChakraProps, ThemingProps } from '@chakra-ui/system'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -13,6 +13,7 @@ import {
   StepperStep,
   useStepperContext,
   StepperContainer,
+  StepperProps,
 } from '@saas-ui/stepper'
 import { Button, ButtonProps } from '@saas-ui/button'
 
@@ -74,10 +75,14 @@ export interface FormStepOptions {
   resolver?: any
 }
 
-export const FormStepper: React.FC<StepperStepsProps> = (props) => {
+export interface FormStepperProps
+  extends StepperStepsProps,
+    ThemingProps<'Stepper'> {}
+
+export const FormStepper: React.FC<FormStepperProps> = (props) => {
   const { activeIndex, setIndex } = useStepperContext()
 
-  const { children, orientation } = props
+  const { children, orientation, variant, colorScheme, size, ...rest } = props
 
   const elements = React.Children.map(children, (child) => {
     if (React.isValidElement(child) && child?.type === FormStep) {
@@ -87,6 +92,7 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
           name={child.props.name}
           title={child.props.title}
           isCompleted={isCompleted}
+          {...rest}
         >
           {child.props.children}
         </StepperStep>
@@ -103,6 +109,9 @@ export const FormStepper: React.FC<StepperStepsProps> = (props) => {
     <StepperContainer
       orientation={orientation}
       step={activeIndex}
+      variant={variant}
+      colorScheme={colorScheme}
+      size={size}
       onChange={onChange}
     >
       <StepperSteps mb="4" {...props}>

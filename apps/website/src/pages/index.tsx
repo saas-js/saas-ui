@@ -523,7 +523,7 @@ const Pricing = () => {
               onClick={() =>
                 setTimeout(() => {
                   /* @ts-ignore */
-                  window?.plausible('Order Bootstrap')
+                  window?.plausible?.('Order Bootstrap')
                 })
               }
             >
@@ -570,7 +570,7 @@ const Pricing = () => {
               onClick={() =>
                 setTimeout(() => {
                   /* @ts-ignore */
-                  window?.plausible('Order Bootstrap')
+                  window?.plausible?.('Order Bootstrap')
                 })
               }
             >

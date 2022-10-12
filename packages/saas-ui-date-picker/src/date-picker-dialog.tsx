@@ -27,6 +27,8 @@ export const DatePickerDialog: React.FC<DatePickerDialogProps> = (props) => {
     <PopoverContent
       {...rest}
       {...dialogProps}
+      width="auto"
+      minW="xs"
       className={cx('saas-date-picker__dialog', props.className)}
     >
       {!hideArrow && <PopoverArrow />}

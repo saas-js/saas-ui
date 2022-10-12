@@ -22,7 +22,7 @@ export interface DateInputProps extends DatePickerContainerProps {}
 
 export const DateInput: React.FC<DateInputProps> = (props) => {
   return (
-    <DatePicker {...props}>
+    <DatePicker placement="bottom-end" {...props}>
       <DatePickerInput />
       <DatePickerDialog>
         <DatePickerCalendar />
@@ -33,7 +33,7 @@ export const DateInput: React.FC<DateInputProps> = (props) => {
 
 export const DateTimeInput: React.FC<DateInputProps> = (props) => {
   return (
-    <DatePicker {...props}>
+    <DatePicker placement="bottom-end" {...props}>
       <DatePickerInput />
       <DatePickerDialog>
         <DatePickerCalendar />
@@ -54,11 +54,9 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = (props) => {
 
   return (
     <InputGroup {...rest} {...groupProps} ref={datePickerRef}>
-      <DatePickerAnchor>
-        <SegmentedInput pr="3rem">
-          <DateField {...fieldProps} />
-        </SegmentedInput>
-      </DatePickerAnchor>
+      <SegmentedInput pr="3rem">
+        <DateField {...fieldProps} />
+      </SegmentedInput>
       <InputRightElement>
         <DatePickerTrigger>
           <FieldButton {...buttonProps} isActive={state.isOpen}>

@@ -1,8 +1,12 @@
 import * as React from 'react'
-import { FieldButton } from './Button'
+import { FieldButton } from './button'
 import { DateRangePickerCalendar } from './date-range-calendar'
 import { DateField, SegmentedInput, TimeField } from './date-field'
-import { DatePickerDialog } from './date-picker-dialog'
+import {
+  DatePickerAnchor,
+  DatePickerDialog,
+  DatePickerTrigger,
+} from './date-picker-dialog'
 import { CalendarIcon } from '@chakra-ui/icons'
 import { InputGroup, Box, InputRightElement } from '@chakra-ui/react'
 import { useDatePickerContext } from './date-picker-context'
@@ -15,7 +19,7 @@ export interface DateRangeInputProps extends DateRangePickerContainerProps {}
 
 export const DateRangeInput: React.FC<DateRangeInputProps> = (props) => {
   return (
-    <DateRangePicker {...props}>
+    <DateRangePicker placement="bottom-start" {...props}>
       <DateRangePickerInput />
       <DatePickerDialog>
         <DateRangePickerCalendar />
@@ -40,20 +44,24 @@ const DateRangePickerInput = () => {
       width="auto"
       display="inline-flex"
     >
-      <SegmentedInput pr="5.5rem">
-        <DateField {...startFieldProps} />
-        <Box as="span" aria-hidden="true" paddingX="2">
-          –
-        </Box>
-        <DateField {...endFieldProps} />
-        {/* {state.validationState === 'invalid' && (
+      <DatePickerAnchor>
+        <SegmentedInput pr="5.5rem">
+          <DateField {...startFieldProps} />
+          <Box as="span" aria-hidden="true" paddingX="2">
+            –
+          </Box>
+          <DateField {...endFieldProps} />
+          {/* {state.validationState === 'invalid' && (
           <NotAllowedIcon color="red.600" position="absolute" right="12" />
         )} */}
-      </SegmentedInput>
+        </SegmentedInput>
+      </DatePickerAnchor>
       <InputRightElement>
-        <FieldButton {...buttonProps} isPressed={state.isOpen}>
-          <CalendarIcon />
-        </FieldButton>
+        <DatePickerTrigger>
+          <FieldButton {...buttonProps} isPressed={state.isOpen}>
+            <CalendarIcon />
+          </FieldButton>
+        </DatePickerTrigger>
       </InputRightElement>
     </InputGroup>
   )

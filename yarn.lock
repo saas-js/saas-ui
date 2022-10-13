@@ -8815,12 +8815,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@saas-ui/props-docs@npm:1.4.0"
+"@saas-ui/props-docs@1.4.0, @saas-ui/props-docs@workspace:tooling/props-docs":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/props-docs@workspace:tooling/props-docs"
   dependencies:
     "@chakra-ui/react": ^2.2.1
     "@chakra-ui/styled-system": ^2.2.1
+    "@types/glob": ^7.2.0
+    "@types/mkdirp": ^1.0.2
     glob: ^8.0.3
     mkdirp: ^1.0.4
     react-docgen-typescript: ^2.2.2
@@ -8833,9 +8835,8 @@ __metadata:
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
     typescript: ">=4.5.0"
-  checksum: ec9a4806da704c23ade27b19614140dad39d99d03f7a5f21f86286fc78a782b81ca036128dbfa6c2d6a15f3e5e0c5ee1fcb2eccaa4d9c7c0df22b99605f05f37
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
 "@saas-ui/provider@workspace:*, @saas-ui/provider@workspace:packages/saas-ui-provider":
   version: 0.0.0-use.local
@@ -11154,7 +11155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/glob@npm:*, @types/glob@npm:^7.1.1":
+"@types/glob@npm:*, @types/glob@npm:^7.1.1, @types/glob@npm:^7.2.0":
   version: 7.2.0
   resolution: "@types/glob@npm:7.2.0"
   dependencies:
@@ -11371,6 +11372,15 @@ __metadata:
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
   checksum: b8da83c66eb4aac0440e64674b19564d9d86c80ae273144db9681e5eeff66f238ade9515f5006ffbfa955ceff8b89ad2bd8ec577d7caee74ba101431fb07045d
+  languageName: node
+  linkType: hard
+
+"@types/mkdirp@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@types/mkdirp@npm:1.0.2"
+  dependencies:
+    "@types/node": "*"
+  checksum: 72dedfb2d250f0e44ec964ac68ff6a4a03d7d9d6e83ae1d5ba6d212791af69cf051a5fac59846826242d099de56a18c8e0581861792fae8b845b3c9ad67ecdeb
   languageName: node
   linkType: hard
 

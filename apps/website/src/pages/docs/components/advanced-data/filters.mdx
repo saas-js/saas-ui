@@ -112,65 +112,67 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
-        width: '200px',
-        href: ({ id }) => `#customers/${id}`,
-        filter: useDataGridFilter('string'),
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'email',
-        Header: 'Email',
-        filter: useDataGridFilter('string'),
+        accessorKey: 'email',
+        header: 'Email',
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'company',
-        Header: 'Company',
-        filter: useDataGridFilter('string'),
+        accessorKey: 'company',
+        header: 'Company',
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'status',
-        Header: 'Status',
-        Cell: (cell) => {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: (cell) => {
+          const value = cell.getValue()
           return (
-            <Tag
-              colorScheme={cell.value === 'new' ? 'orange' : 'green'}
-              size="sm"
-            >
-              {cell.value}
+            <Tag colorScheme={value === 'new' ? 'orange' : 'green'} size="sm">
+              {value}
             </Tag>
           )
         },
-        filter: useDataGridFilter('string'),
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'isLead',
-        Header: 'Lead',
+        accessorKey: 'isLead',
+        header: 'Lead',
         hidden: true,
-        filter: useDataGridFilter('boolean'),
+        filterFn: useDataGridFilter('boolean'),
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
-        isNumeric: true,
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
         ),
-        width: '100px',
+        size: 100,
       },
     ]
   }, [])
 
   const onFilter = React.useCallback((filters) => {
-    gridRef.current.setAllFilters(
+    gridRef.current.setColumnFilters(
       filters.map((filter) => {
         return {
           id: filter.id,
@@ -210,11 +212,15 @@ function ListPage() {
         <ActiveFiltersList />
         <PageBody fullWidth>
           <DataGrid
-            ref={gridRef}
+            instanceRef={gridRef}
             columns={columns}
             data={data}
             noResults={NoFilteredResults}
-            initialState={{ hiddenColumns: ['isLead'] }}
+            initialState={{
+              columnVisibility: {
+                isLead: false,
+              },
+            }}
           />
         </PageBody>
       </Page>
@@ -262,65 +268,67 @@ function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
-        accessor: 'name',
-        Header: 'Name',
-        width: '200px',
-        href: ({ id }) => `#customers/${id}`,
-        filter: useDataGridFilter('string'),
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'email',
-        Header: 'Email',
-        filter: useDataGridFilter('string'),
+        accessorKey: 'email',
+        header: 'Email',
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'company',
-        Header: 'Company',
-        filter: useDataGridFilter('string'),
+        accessorKey: 'company',
+        header: 'Company',
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'status',
-        Header: 'Status',
-        Cell: (cell) => {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: (cell) => {
+          const value = cell.getValue()
           return (
-            <Tag
-              colorScheme={cell.value === 'new' ? 'orange' : 'green'}
-              size="sm"
-            >
-              {cell.value}
+            <Tag colorScheme={value === 'new' ? 'orange' : 'green'} size="sm">
+              {value}
             </Tag>
           )
         },
-        filter: useDataGridFilter('string'),
+        filterFn: useDataGridFilter('string'),
       },
       {
-        accessor: 'isLead',
-        Header: 'Lead',
+        accessorKey: 'isLead',
+        header: 'Lead',
         hidden: true,
-        filter: useDataGridFilter('boolean'),
+        filterFn: useDataGridFilter('boolean'),
       },
       {
-        accessor: 'employees',
-        Header: 'Employees',
-        isNumeric: true,
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
       },
       {
         id: 'action',
         disableSortBy: true,
         disableGlobaFilter: true,
-        Header: '',
-        Cell: () => (
+        header: '',
+        cell: () => (
           <>
             <Button size="xs">Edit</Button>
           </>
         ),
-        width: '100px',
+        size: 100,
       },
     ]
   }, [])
 
   const onFilter = React.useCallback((filters) => {
-    gridRef.current.setAllFilters(
+    gridRef.current.setColumnFilters(
       filters.map((filter) => {
         return {
           id: filter.id,
@@ -366,12 +374,14 @@ function ListPage() {
         <ActiveFiltersList />
         <PageBody fullWidth>
           <DataGrid
-            ref={gridRef}
+            instanceRef={gridRef}
             columns={columns}
             data={data}
             noResults={NoFilteredResults}
             initialState={{
-              hiddenColumns: ['isLead'],
+              columnVisibility: {
+                isLead: false,
+              },
               filters: defaultFilters.map(({ id, value, operator }) => ({
                 id,
                 value: {

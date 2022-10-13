@@ -26,7 +26,7 @@ function ListPage() {
       {
         accessorKey: 'name',
         header: 'Name',
-        width: '200px',
+        size: 200,
       },
       {
         accessorKey: 'email',
@@ -55,7 +55,7 @@ function ListPage() {
             <Button size="xs">Edit</Button>
           </>
         ),
-        width: '100px',
+        size: 100,
       },
     ]
   }, [])
@@ -86,7 +86,7 @@ function ListPage() {
       {
         accessorKey: 'name',
         header: 'Name',
-        width: '200px',
+        size: 200,
       },
       {
         accessorKey: 'email',
@@ -115,7 +115,7 @@ function ListPage() {
             <Button size="xs">Edit</Button>
           </>
         ),
-        width: '100px',
+        size: 100,
       },
     ]
   }, [])
@@ -165,8 +165,10 @@ function ListPage() {
       {
         accessorKey: 'name',
         header: 'Name',
-        width: '200px',
-        href: ({ id }) => `#customers/${id}`,
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
       },
       {
         accessorKey: 'email',
@@ -183,7 +185,9 @@ function ListPage() {
       {
         accessorKey: 'employees',
         header: 'Employees',
-        isNumeric: true,
+        meta: {
+          isNumeric: true,
+        },
       },
       {
         id: 'action',
@@ -195,7 +199,7 @@ function ListPage() {
             <Button size="xs">Edit</Button>
           </>
         ),
-        width: '100px',
+        size: 200,
       },
     ]
   }, [])
@@ -260,8 +264,10 @@ function ListPage() {
       {
         accessorKey: 'name',
         header: 'Name',
-        width: '200px',
-        href: ({ id }) => `#customers/${id}`,
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
       },
       {
         accessorKey: 'email',
@@ -278,7 +284,9 @@ function ListPage() {
       {
         accessorKey: 'employees',
         header: 'Employees',
-        isNumeric: true,
+        meta: {
+          isNumeric: true,
+        },
       },
       {
         id: 'action',
@@ -433,4 +441,12 @@ const data: ExampleData[] = [{
 
 ### DataGrid Props
 
+Accepts all `Box` properties.
+
 <PropsTable of="DataGrid" />
+
+### DataGridPagination Props
+
+Accepts `Box` properties.
+
+<PropsTable of="DataGridPagination" />

@@ -28,9 +28,9 @@ const excludedPropNames = propNames.concat([
 
 const rootDir = path.join(__dirname, '..', '..', '..')
 const sourcePath = path.join(rootDir, 'packages')
-const outputPath = path.join(__dirname, '..', 'dist', 'components')
+const outputPath = path.join(__dirname, '..', 'lib', 'components')
 
-const basePath = path.join(__dirname, '..', 'dist')
+const basePath = path.join(__dirname, '..', 'lib')
 
 const cjsIndexFilePath = path.join(basePath, 'saas-ui-props-docs.cjs.js')
 const esmIndexFilePath = path.join(basePath, 'saas-ui-props-docs.esm.js')

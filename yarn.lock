@@ -8815,7 +8815,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/props-docs@1.4.0, @saas-ui/props-docs@workspace:tooling/props-docs":
+"@saas-ui/props-docs@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@saas-ui/props-docs@npm:1.4.0"
+  dependencies:
+    "@chakra-ui/react": ^2.2.1
+    "@chakra-ui/styled-system": ^2.2.1
+    glob: ^8.0.3
+    mkdirp: ^1.0.4
+    react-docgen-typescript: ^2.2.2
+    regenerator-runtime: ^0.13.9
+  peerDependencies:
+    "@chakra-ui/system": ">=2.1.0"
+    "@emotion/react": ">=11"
+    "@emotion/styled": ">=11"
+    framer-motion: ">=5.5.0"
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+    typescript: ">=4.5.0"
+  checksum: ec9a4806da704c23ade27b19614140dad39d99d03f7a5f21f86286fc78a782b81ca036128dbfa6c2d6a15f3e5e0c5ee1fcb2eccaa4d9c7c0df22b99605f05f37
+  languageName: node
+  linkType: hard
+
+"@saas-ui/props-docs@workspace:tooling/props-docs":
   version: 0.0.0-use.local
   resolution: "@saas-ui/props-docs@workspace:tooling/props-docs"
   dependencies:
@@ -32521,7 +32543,7 @@ __metadata:
     "@saas-ui/features": "*"
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/pro": "*"
-    "@saas-ui/props-docs": ^1.0.0
+    "@saas-ui/props-docs": "workspace:*"
     "@saas-ui/react": "workspace:*"
     "@saas-ui/web3": "workspace:*"
     "@svgr/webpack": ^6.2.1

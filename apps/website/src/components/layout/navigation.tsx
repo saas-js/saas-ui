@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { HStack, IconButton, Link } from '@chakra-ui/react'
+import { HStack, IconButton, Link, Tooltip } from '@chakra-ui/react'
 import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { useRouter } from 'next/router'
@@ -15,6 +15,7 @@ import { MobileNavContent } from '@/docs/components/mobile-nav'
 import { useDisclosure, useUpdateEffect } from '@chakra-ui/react'
 
 import ThemeToggle from './theme-toggle'
+import { ProductLaneLogo } from '../logos/productlane'
 
 const Header = () => {
   const mobileNav = useDisclosure()
@@ -49,32 +50,49 @@ const Header = () => {
         )
       })}
 
-      <IconButton
-        variant="ghost"
-        aria-label="discord"
-        icon={<FaDiscord size="14" />}
-        borderRadius="md"
-        as={Link}
-        href="https://discord.gg/4PmJGFcAjX"
-      />
+      <Tooltip label="Feedback &amp; Roadmap">
+        <IconButton
+          variant="ghost"
+          aria-label="roadmap"
+          icon={<ProductLaneLogo boxSize="3" />}
+          borderRadius="md"
+          as={Link}
+          href="https://roadmap.saas-ui.dev"
+        />
+      </Tooltip>
 
-      <IconButton
-        variant="ghost"
-        aria-label="twitter"
-        icon={<FaTwitter size="14" />}
-        borderRadius="md"
-        as={Link}
-        href="https://twitter.com/saas_js"
-      />
+      <Tooltip label="Discord community">
+        <IconButton
+          variant="ghost"
+          aria-label="discord"
+          icon={<FaDiscord size="14" />}
+          borderRadius="md"
+          as={Link}
+          href="https://discord.gg/4PmJGFcAjX"
+        />
+      </Tooltip>
 
-      <IconButton
-        variant="ghost"
-        aria-label="github"
-        icon={<FaGithub size="14" />}
-        borderRadius="md"
-        as={Link}
-        href="https://github.com/saas-js/saas-ui"
-      />
+      <Tooltip label="Twitter">
+        <IconButton
+          variant="ghost"
+          aria-label="twitter"
+          icon={<FaTwitter size="14" />}
+          borderRadius="md"
+          as={Link}
+          href="https://twitter.com/saas_js"
+        />
+      </Tooltip>
+
+      <Tooltip label="Github">
+        <IconButton
+          variant="ghost"
+          aria-label="github"
+          icon={<FaGithub size="14" />}
+          borderRadius="md"
+          as={Link}
+          href="https://github.com/saas-js/saas-ui"
+        />
+      </Tooltip>
 
       <ThemeToggle />
 

@@ -2,27 +2,40 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 import fetch from 'node-fetch'
 
-const sendDiscordNotification = async ({ page, rating }) => {
+const sendDiscordNotification = async ({ page, rating, feedback }) => {
   const DISCORD_WEBHOOK = process.env.DISCORD_FEEDBACK
   try {
     if (DISCORD_WEBHOOK) {
-      const body = JSON.stringify({
-        content: `New documentation feedback.`,
-        embeds: [
-          {
-            fields: [
+      const body = !feedback
+        ? JSON.stringify({
+            content: `New documentation feedback.`,
+            embeds: [
               {
-                name: 'Page',
-                value: page,
-              },
-              {
-                name: 'Rating',
-                value: rating,
+                fields: [
+                  {
+                    name: 'Page',
+                    value: page,
+                  },
+                  {
+                    name: 'Rating',
+                    value: rating,
+                  },
+                ],
               },
             ],
-          },
-        ],
-      })
+          })
+        : JSON.stringify({
+            embeds: [
+              {
+                fields: [
+                  {
+                    name: 'Feedback',
+                    value: feedback,
+                  },
+                ],
+              },
+            ],
+          })
 
       const result = await fetch(DISCORD_WEBHOOK, {
         headers: {
@@ -51,6 +64,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await sendDiscordNotification({
       page: req.body.page,
       rating: req.body.rating,
+      feedback: req.body.feedback,
     })
 
     res.status(200).json({

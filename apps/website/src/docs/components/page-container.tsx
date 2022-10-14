@@ -115,8 +115,8 @@ function PageContainer(props: PageContainerProps) {
                 >
                   <PageTransition
                     style={{
-                      maxWidth: '48rem',
-                      margin: sidebar ? '0' : '0 auto',
+                      maxWidth: '52rem',
+                      margin: '0 auto',
                     }}
                   >
                     <chakra.h1 tabIndex={-1} outline={0} apply="mdx.h1">

@@ -184,6 +184,17 @@ const sidebar = {
             },
           ],
         },
+        {
+          title: 'Deployments',
+          path: '/docs/pro/deployments',
+          open: true,
+          routes: [
+            {
+              title: 'Vercel',
+              path: '/docs/pro/deployments/vercel',
+            },
+          ],
+        },
       ],
     },
     {

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/props-docs",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Extracts prop types for documentation purposes",
   "keywords": [
     "docs",
@@ -10,11 +10,11 @@
   "author": "Tim Kolberger <tim@kolberger.eu>",
   "homepage": "https://github.com/saas-js/saas-ui#readme",
   "license": "MIT",
-  "main": "dist/saas-ui-props-docs.cjs.js",
-  "module": "dist/saas-ui-props-docs.esm.js",
-  "types": "dist/saas-ui-props-docs.cjs.d.ts",
+  "main": "lib/saas-ui-props-docs.cjs.js",
+  "module": "lib/saas-ui-props-docs.esm.js",
+  "types": "lib/saas-ui-props-docs.cjs.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "publishConfig": {
     "access": "public"

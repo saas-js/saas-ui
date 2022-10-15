@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 1.5.0
+
+### Minor Changes
+
+- 5893276: Added Sidebar and AppShell props
+
 ## 1.0.0
 
 ### Major Changes

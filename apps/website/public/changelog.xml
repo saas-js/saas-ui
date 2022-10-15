@@ -7,9 +7,25 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 18 Sep 2022 10:55:12 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 08 Oct 2022 08:36:53 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/10-08-2022</guid>
+    <title>Oct 8, 2022</title>
+    <link>https://saas-ui.dev/changelog/10-08-2022</link>
+    <description>
+## 10-08-2022
+
+`@saas-ui/react@1.4.4`
+
+- Export all Snackbar types. (#88)
+- FormStepper now support...</description>
+    <pubDate>Sat, 08 Oct 2022 08:36:53 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/09-18-2022</guid>
     <title>Sep 18, 2022</title>

@@ -59,7 +59,8 @@
     "apps/*",
     "examples/*",
     "tooling/next-workspaces",
-    "tooling/test-utils"
+    "tooling/test-utils",
+    "tooling/props-docs"
   ],
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -122,7 +123,6 @@
   },
   "resolutions": {
     "@chakra-ui/system": "^2.2.0",
-    "@saas-ui/props-docs": "1.4.0",
     "unist-util-visit": "4.0.0"
   },
   "packageManager": "yarn@3.1.1"

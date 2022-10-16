@@ -1,4 +1,8 @@
-import { parseAbsolute, getLocalTimeZone } from '@internationalized/date'
+import {
+  parseAbsolute,
+  getLocalTimeZone,
+  DateValue,
+} from '@internationalized/date'
 
 export const parseDate = (
   date: Date | number | string,
@@ -15,6 +19,10 @@ export const parseDate = (
   }
 
   return parseAbsolute(parsedDate, tz)
+}
+
+export const formatDate = (value: DateValue | null) => {
+  return value ? value.toDate('UTC') : null
 }
 
 export type RangeValue = {

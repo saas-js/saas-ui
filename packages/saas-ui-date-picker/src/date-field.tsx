@@ -106,6 +106,10 @@ export const TimeField: React.FC<TimeFieldProps> = (props) => {
   const { locale } = useLocale()
   const state = useTimeFieldState({
     ...props,
+    onChange: (value) => {
+      console.log('onChange2', value)
+      onChange?.(value)
+    },
     locale,
   })
 
@@ -129,7 +133,15 @@ export const DatePickerTimeField = () => {
     state: { timeValue, setTimeValue },
   } = useDatePickerContext()
 
-  return <TimeField value={timeValue} onChange={setTimeValue} />
+  return (
+    <TimeField
+      value={timeValue}
+      onChange={(value) => {
+        console.log('time', value)
+        setTimeValue(value)
+      }}
+    />
+  )
 }
 
 export const DatePickerStartTimeField = () => {

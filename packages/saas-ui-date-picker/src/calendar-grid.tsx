@@ -34,9 +34,9 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale)
 
   return (
-    <table {...gridProps}>
-      <thead {...headerProps}>
-        <tr>
+    <chakra.table {...gridProps}>
+      <chakra.thead {...headerProps}>
+        <chakra.tr>
           {weekDays.map((day, index) => (
             <th key={index}>
               <chakra.div fontWeight="normal" color="muted" fontSize="sm">
@@ -44,11 +44,11 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
               </chakra.div>
             </th>
           ))}
-        </tr>
-      </thead>
-      <tbody>
+        </chakra.tr>
+      </chakra.thead>
+      <chakra.tbody>
         {[...new Array(weeksInMonth).keys()].map((weekIndex) => (
-          <tr key={weekIndex}>
+          <chakra.tr key={weekIndex}>
             {state
               .getDatesInWeek(weekIndex, startDate)
               .map((date, i) =>
@@ -60,12 +60,12 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
                     currentMonth={startDate}
                   />
                 ) : (
-                  <td key={i} />
+                  <chakra.td key={i} __css={{ padding: 0 }} />
                 )
               )}
-          </tr>
+          </chakra.tr>
         ))}
-      </tbody>
-    </table>
+      </chakra.tbody>
+    </chakra.table>
   )
 }

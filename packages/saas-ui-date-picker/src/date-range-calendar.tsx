@@ -45,10 +45,10 @@ export const DateRangePickerCalendar: React.FC<RangeCalendarProps> = (
           icon={<ChevronRightIcon w={6} h={6} />}
         />
       </Box>
-      <Box display="flex" gap="8">
+      <chakra.div display="flex" alignItems="flex-start" gap="8">
         <CalendarGrid state={state} />
         <CalendarGrid state={state} offset={{ months: 1 }} />
-      </Box>
+      </chakra.div>
     </chakra.div>
   )
 }

@@ -33,7 +33,7 @@ export const DateInput: React.FC<DateInputProps> = (props) => {
 
 export const DateTimeInput: React.FC<DateInputProps> = (props) => {
   return (
-    <DatePicker placement="bottom-end" {...props}>
+    <DatePicker placement="bottom-end" granularity="minute" {...props}>
       <DatePickerInput />
       <DatePickerDialog>
         <DatePickerCalendar />

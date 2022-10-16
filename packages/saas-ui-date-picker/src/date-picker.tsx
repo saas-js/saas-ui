@@ -6,7 +6,6 @@ import {
   DatePickerState,
 } from '@react-stately/datepicker'
 import { useDatePicker } from '@react-aria/datepicker'
-
 import {
   ThemingProps,
   PopoverProps,
@@ -18,35 +17,60 @@ import {
   DatePickerProvider,
   DatePickerStylesProvider,
 } from './date-picker-context'
-import { parseDate } from './date'
+import { formatDate, parseDate } from './date'
 
 type DateValue = DatePickerState['dateValue']
 
 export interface DatePickerContainerProps
   extends ThemingProps<'DatePicker'>,
     Omit<PopoverProps, 'variant' | 'size'>,
-    Omit<DatePickerStateOptions, 'value' | 'defaultValue' | 'onChange'> {
+    Omit<
+      DatePickerStateOptions,
+      'value' | 'defaultValue' | 'minValue' | 'maxValue' | 'onChange'
+    > {
   value?: Date | number | string
+  minValue?: Date | number | string
+  maxValue?: Date | number | string
   defaultValue?: Date | number | string
-  onChange?(value: Date): void
+  onChange?(value: Date | null): void
+  parseDate?(date: Date | number | string, tz?: string): DateValue
+  formatDate?(date: DateValue): DateValue | Date | number | string
 }
 
 export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
   props
 ) => {
-  const { value: valueProp, defaultValue, onChange, ...rest } = props
+  const {
+    value: valueProp,
+    minValue: minValueProp,
+    maxValue: maxValueProp,
+    defaultValue: defaultValueProp,
+    onChange,
+    parseDate: parseDateProp = parseDate,
+    formatDate: formatDateProp = formatDate,
+    ...rest
+  } = props
   const styles = useMultiStyleConfig('DatePicker', props)
 
-  const [value, setValue] = useControllableState<DateValue>({
-    defaultValue: defaultValue ? parseDate(defaultValue) : undefined,
-    value: valueProp ? parseDate(valueProp) : undefined,
-    onChange: (value) => onChange?.(value.toDate('UTC')),
+  const defaultValue = defaultValueProp
+    ? parseDateProp(defaultValueProp)
+    : undefined
+  const minValue = minValueProp ? parseDateProp(minValueProp) : undefined
+  const maxValue = maxValueProp ? parseDateProp(maxValueProp) : undefined
+
+  const [value, setValue] = useControllableState<DateValue | null>({
+    defaultValue,
+    value: valueProp ? parseDateProp(valueProp) : null,
+    onChange: (value) => onChange?.(formatDateProp(value)),
   })
 
   const state = useDatePickerState({
     value,
+    minValue,
+    maxValue,
+    defaultValue,
     onChange: setValue,
-    shouldCloseOnSelect: false,
+    ...rest,
   })
 
   const datePickerRef = useRef<HTMLDivElement>(null)
@@ -57,10 +81,16 @@ export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
     fieldProps,
     buttonProps,
     dialogProps,
+    descriptionProps,
+    errorMessageProps,
     calendarProps,
   } = useDatePicker(
     {
       ['aria-label']: 'Date Picker',
+      value,
+      minValue,
+      maxValue,
+      onChange: setValue,
       ...rest,
     },
     state,
@@ -75,6 +105,8 @@ export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
     buttonProps,
     dialogProps,
     calendarProps,
+    descriptionProps,
+    errorMessageProps,
     datePickerRef,
   }
 

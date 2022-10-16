@@ -1,5 +1,9 @@
+import * as React from 'react'
 import { createContext } from '@chakra-ui/react-utils'
 import { SystemStyleObject } from '@chakra-ui/system'
+
+import { DatePickerState } from '@react-stately/datepicker'
+import { DatePickerAria } from '@react-aria/datepicker'
 
 export const [DatePickerStylesProvider, useDatePickerStyles] = createContext<
   Record<string, SystemStyleObject>
@@ -7,6 +11,12 @@ export const [DatePickerStylesProvider, useDatePickerStyles] = createContext<
   name: 'DatePickerStylesContext',
 })
 
-export const [DatePickerProvider, useDatePickerContext] = createContext<any>({
-  name: 'DatePickerProvider',
-})
+export interface DatePickerProviderValue extends DatePickerAria {
+  state: DatePickerState
+  datePickerRef: React.RefObject<HTMLDivElement>
+}
+
+export const [DatePickerProvider, useDatePickerContext] =
+  createContext<DatePickerProviderValue>({
+    name: 'DatePickerProvider',
+  })

@@ -5,15 +5,26 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-export default function handler(req: NextRequest) {
+const font = fetch(
+  new URL('../../../public/fonts/Inter-Regular.ttf', import.meta.url)
+).then((res) => res.arrayBuffer())
+const fontBold = fetch(
+  new URL('../../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
+).then((res) => res.arrayBuffer())
+
+export default async function handler(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url)
-
+    const fontData = await font
+    const fontDataBold = await fontBold
     // ?title=<title>
     const hasTitle = searchParams.has('title')
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
-      : 'My default title'
+      : 'The React component library for startups'
+    const description = hasTitle
+      ? searchParams.get('description')?.slice(0, 200)
+      : undefined
 
     return new ImageResponse(
       (
@@ -30,6 +41,21 @@ export default function handler(req: NextRequest) {
             flexWrap: 'nowrap',
           }}
         >
+          <img
+            src="http://localhost:3020/img/og-background.png"
+            width="100%"
+            height="100%"
+          />
+          <div
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)',
+              height: '100%',
+              width: '100%',
+              position: 'absolute',
+              top: '0',
+            }}
+          />
           <div
             style={{
               display: 'flex',
@@ -39,6 +65,7 @@ export default function handler(req: NextRequest) {
               position: 'absolute',
               top: '60px',
               left: '60px',
+              zIndex: 10,
             }}
           >
             <img
@@ -51,24 +78,66 @@ export default function handler(req: NextRequest) {
           </div>
           <div
             style={{
+              display: 'flex',
+              flexDirection: 'column',
               fontSize: 60,
               fontStyle: 'normal',
+
               letterSpacing: '-0.025em',
-              fontWeight: 'bold',
-              color: 'white',
-              marginTop: 30,
-              padding: '0 120px',
+              marginTop: 40,
               lineHeight: 1.4,
               whiteSpace: 'pre-wrap',
+              textAlign: 'left',
+              position: 'absolute',
+              left: '100px',
+              right: '100px',
+              zIndex: 10,
             }}
           >
-            {title}
+            <div
+              style={{
+                fontFamily: 'InterBold',
+                fontWeight: 700,
+                color: 'white',
+                marginBottom: 20,
+              }}
+            >
+              {title}
+            </div>
+
+            {description && (
+              <div
+                style={{
+                  fontFamily: 'Inter',
+                  display: 'flex',
+                  fontSize: 30,
+                  fontWeight: 400,
+                  color: 'rgba(255,255,255,0.5)',
+                }}
+              >
+                {description}
+              </div>
+            )}
           </div>
         </div>
       ),
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: 'Inter',
+            data: fontData,
+            style: 'normal',
+            weight: 400,
+          },
+          {
+            name: 'InterBold',
+            data: fontDataBold,
+            style: 'normal',
+            weight: 700,
+          },
+        ],
       }
     )
   } catch (e: any) {

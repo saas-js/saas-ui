@@ -14,8 +14,6 @@ let config = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    optimizeFonts: true,
-    modern: true,
     externalDir: true,
   },
   compiler: {},

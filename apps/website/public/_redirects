@@ -16,3 +16,8 @@
 /docs/theming/* /docs/core/theming/:splat
 /docs/integrations/* /docs/core/integrations/:splat
 /docs/components/navigation/sidebar /docs/components/layout/sidebar
+
+https://saas-js.dev https://saas-ui.dev
+https://www.saas-js.dev https://saas-ui.dev
+https://saas-js.dev/* https://saas-ui.dev/:splat
+https://www.saas-js.dev/* https://saas-ui.dev/:splat

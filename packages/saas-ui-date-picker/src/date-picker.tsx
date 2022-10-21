@@ -3,23 +3,26 @@ import { useRef } from 'react'
 import {
   useDatePickerState,
   DatePickerStateOptions,
-  DatePickerState,
 } from '@react-stately/datepicker'
 import { useDatePicker } from '@react-aria/datepicker'
+import { useLocale } from '@react-aria/i18n'
 import {
   ThemingProps,
   PopoverProps,
   useMultiStyleConfig,
   Popover,
   useControllableState,
+  useTheme,
 } from '@chakra-ui/react'
 import {
   DatePickerProvider,
   DatePickerStylesProvider,
 } from './date-picker-context'
-import { formatDate, parseDate } from './date'
 
-type DateValue = DatePickerState['dateValue']
+import { DateValue, FormattedValue } from './types'
+
+import { datePickerStyleConfig } from './date-picker-styles'
+import { getLocalTimeZone } from '@internationalized/date'
 
 export interface DatePickerContainerProps
   extends ThemingProps<'DatePicker'>,
@@ -28,44 +31,46 @@ export interface DatePickerContainerProps
       DatePickerStateOptions,
       'value' | 'defaultValue' | 'minValue' | 'maxValue' | 'onChange'
     > {
-  value?: Date | number | string
-  minValue?: Date | number | string
-  maxValue?: Date | number | string
-  defaultValue?: Date | number | string
-  onChange?(value: Date | null): void
-  parseDate?(date: Date | number | string, tz?: string): DateValue
-  formatDate?(date: DateValue): DateValue | Date | number | string
+  value?: DateValue | null
+  minValue?: DateValue
+  maxValue?: DateValue
+  defaultValue?: DateValue
+  onChange?(value: DateValue | null): void
+  locale?: string
+  timeZone?: string
 }
 
-export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
-  props
-) => {
+export const DatePickerContainer = (props: DatePickerContainerProps) => {
   const {
     value: valueProp,
-    minValue: minValueProp,
-    maxValue: maxValueProp,
-    defaultValue: defaultValueProp,
+    minValue,
+    maxValue,
+    defaultValue,
     onChange,
-    parseDate: parseDateProp = parseDate,
-    formatDate: formatDateProp = formatDate,
     ...rest
   } = props
-  const styles = useMultiStyleConfig('DatePicker', props)
 
-  const defaultValue = defaultValueProp
-    ? parseDateProp(defaultValueProp)
-    : undefined
-  const minValue = minValueProp ? parseDateProp(minValueProp) : undefined
-  const maxValue = maxValueProp ? parseDateProp(maxValueProp) : undefined
+  const {
+    locale: localeProp,
+    timeZone = getLocalTimeZone(),
+    hourCycle = 12,
+  } = props
+
+  const { locale } = useLocale()
+
+  const styles = useMultiStyleConfig('DatePicker', {
+    styleConfig: datePickerStyleConfig,
+    ...props,
+  })
 
   const [value, setValue] = useControllableState<DateValue | null>({
     defaultValue,
-    value: valueProp ? parseDateProp(valueProp) : null,
-    onChange: (value) => onChange?.(formatDateProp(value)),
+    value: valueProp ? valueProp : null,
+    onChange,
   })
 
   const state = useDatePickerState({
-    value,
+    value: value ? value : undefined,
     minValue,
     maxValue,
     defaultValue,
@@ -87,7 +92,7 @@ export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
   } = useDatePicker(
     {
       ['aria-label']: 'Date Picker',
-      value,
+      value: value ? value : undefined,
       minValue,
       maxValue,
       onChange: setValue,
@@ -98,7 +103,10 @@ export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
   )
 
   const context = {
+    locale: localeProp || locale,
     state,
+    hourCycle,
+    timeZone,
     groupProps,
     labelProps,
     fieldProps,
@@ -123,9 +131,16 @@ export const DatePickerContainer: React.FC<DatePickerContainerProps> = (
   )
 }
 
-export interface DatePickerProps extends DatePickerContainerProps {}
+export interface DatePickerProps<
+  TDateValue = DateValue,
+  TFormattedValue = FormattedValue
+> extends DatePickerContainerProps {}
 
-export const DatePicker: React.FC<DatePickerProps> = (props) => {
-  const { children, ...rest } = props
-  return <DatePickerContainer {...rest}>{children}</DatePickerContainer>
-}
+/**
+ * DatePicker
+ *
+ * Allow users to select a date and time value.
+ *
+ * @see Docs https://saas-ui.dev/docs/date-time/date-picker
+ */
+export const DatePicker = DatePickerContainer

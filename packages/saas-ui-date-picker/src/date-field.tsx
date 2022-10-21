@@ -22,53 +22,60 @@ import {
   omitThemingProps,
   ThemingProps,
   useFormControl,
+  useMergeRefs,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import {
   useDatePickerContext,
   useDatePickerStyles,
+  useDateRangePickerContext,
 } from './date-picker-context'
+import { dataAttr } from '@chakra-ui/utils'
 
 export interface DateFieldProps
   extends Omit<DateFieldStateOptions, 'locale' | 'createCalendar'> {}
 
-export const DateField: React.FC<DateFieldProps> = (props) => {
-  const { locale } = useLocale()
-  const state = useDateFieldState({
-    ...props,
-    locale,
-    createCalendar,
-  })
+export const DateField = forwardRef<DateFieldProps, 'div'>(
+  (props, forwardedRef) => {
+    const { locale } = useLocale()
+    const state = useDateFieldState({
+      ...props,
+      locale,
+      createCalendar,
+    })
 
-  const ref = React.useRef<HTMLDivElement>(null)
+    const ref = React.useRef<HTMLDivElement>(null)
 
-  const {
-    fieldProps: { id, ...fieldProps },
-  } = useDateField(props, state, ref)
+    const {
+      fieldProps: { id, ...fieldProps },
+    } = useDateField(props, state, ref)
 
-  const inputProps = useFormControl<HTMLInputElement>(fieldProps)
+    const inputProps = useFormControl<HTMLInputElement>(fieldProps)
 
-  const styles = useDatePickerStyles()
+    const styles = useDatePickerStyles()
 
-  const dateFieldStyles = {
-    display: 'flex',
-    width: 'full',
-    ...styles.dateField,
+    const dateFieldStyles = {
+      display: 'flex',
+      width: 'full',
+      ...styles.dateField,
+    }
+
+    return (
+      <chakra.div
+        {...inputProps}
+        aria-labelledby={`${inputProps.id}-label`}
+        ref={useMergeRefs(ref, forwardedRef)}
+        __css={dateFieldStyles}
+      >
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
+      </chakra.div>
+    )
   }
+)
 
-  return (
-    <chakra.div
-      {...inputProps}
-      aria-labelledby={`${inputProps.id}-label`}
-      ref={ref}
-      __css={dateFieldStyles}
-    >
-      {state.segments.map((segment, i) => (
-        <DateSegment key={i} segment={segment} state={state} />
-      ))}
-    </chakra.div>
-  )
-}
+DateField.displayName = 'DateField'
 
 export interface TimeFieldProps
   extends Omit<TimeFieldStateOptions, 'locale'>,
@@ -91,25 +98,25 @@ export const TimeField: React.FC<TimeFieldProps> = (props) => {
     onFocus,
     onKeyDown,
     onKeyUp,
+    hourCycle,
     ...rest
   } = props
 
   const timeFieldProps = {
+    label,
     defaultValue,
     onChange,
     onBlur,
     onFocus,
     onKeyDown,
     onKeyUp,
+    hourCycle,
   }
 
   const { locale } = useLocale()
   const state = useTimeFieldState({
     ...props,
-    onChange: (value) => {
-      console.log('onChange2', value)
-      onChange?.(value)
-    },
+    onChange,
     locale,
   })
 
@@ -128,37 +135,89 @@ export const TimeField: React.FC<TimeFieldProps> = (props) => {
   )
 }
 
-export const DatePickerTimeField = () => {
+TimeField.displayName = 'TimeField'
+
+/**
+ * DatePickerTimeField
+ *
+ * A Date form input with Calendar popover to allow users to enter or select a date and time value.
+ *
+ * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
+ */
+export const DatePickerTimeField: React.FC<TimeFieldProps> = (props) => {
   const {
     state: { timeValue, setTimeValue },
+    hourCycle,
   } = useDatePickerContext()
-
   return (
     <TimeField
+      {...props}
+      hourCycle={hourCycle}
       value={timeValue}
       onChange={(value) => {
-        console.log('time', value)
         setTimeValue(value)
       }}
     />
   )
 }
 
-export const DatePickerStartTimeField = () => {
-  const {
-    state: { timeValue, setTimeValue },
-  } = useDatePickerContext()
+DatePickerTimeField.displayName = 'DatePickerTimeField'
 
-  return <TimeField value={timeValue} onChange={setTimeValue} />
+export const DatePickerStartTimeField: React.FC<TimeFieldProps> = (props) => {
+  const {
+    state: { timeRange, setTime },
+    hourCycle,
+  } = useDateRangePickerContext()
+
+  return (
+    <TimeField
+      {...props}
+      value={timeRange?.start}
+      onChange={(v) => setTime('start', v)}
+      hourCycle={hourCycle}
+    />
+  )
 }
 
-export const DatePickerEndTimeField = () => {
-  const {
-    state: { timeValue, setTimeValue },
-  } = useDatePickerContext()
+DatePickerStartTimeField.displayName = 'DatePickerStartTimeField'
 
-  return <TimeField value={timeValue} onChange={setTimeValue} />
+export const DatePickerEndTimeField: React.FC<TimeFieldProps> = (props) => {
+  const {
+    state: { timeRange, setTime },
+    hourCycle,
+  } = useDateRangePickerContext()
+
+  return (
+    <TimeField
+      {...props}
+      value={timeRange?.end}
+      onChange={(v) => setTime('end', v)}
+      hourCycle={hourCycle}
+    />
+  )
 }
+
+DatePickerEndTimeField.displayName = 'DatePickerEndTimeField'
+
+export interface DateRangeTimeFieldProps extends HTMLChakraProps<'div'> {
+  startLabel?: string
+  endLabel?: string
+}
+
+export const DateRangePickerTimeField: React.FC<DateRangeTimeFieldProps> = (
+  props
+) => {
+  const { startLabel = 'Start time', endLabel = 'End time', ...rest } = props
+
+  return (
+    <chakra.div display="flex" gap="2" {...rest}>
+      <DatePickerStartTimeField label={startLabel} />
+      <DatePickerEndTimeField label={endLabel} />
+    </chakra.div>
+  )
+}
+
+DateRangePickerTimeField.displayName = 'DateRangePickerTimeField'
 
 export interface SegmentedInputProps
   extends HTMLChakraProps<'div'>,
@@ -185,6 +244,8 @@ export const SegmentedInput = forwardRef<SegmentedInputProps, 'div'>(
   }
 )
 
+SegmentedInput.displayName = 'SegmentedInput'
+
 interface DateSegmentProps extends HTMLChakraProps<'div'> {
   segment: any
   state: DateFieldState
@@ -194,37 +255,33 @@ const DateSegment: React.FC<DateSegmentProps> = ({ segment, state }) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 
+  const styles = useDatePickerStyles()
+
+  const segmentStyles = {
+    boxSizing: 'content-box',
+    fontVariantNumeric: 'tabular-nums',
+    minWidth:
+      segment.maxValue != null
+        ? String(segment.maxValue).length + 'ch'
+        : 'auto',
+    ...segmentProps.style,
+    ...styles.segment,
+  }
+
+  const isLiteral = segment.type === 'literal'
+
   return (
     <chakra.div
       {...segmentProps}
       ref={ref}
-      style={{
-        ...segmentProps.style,
-        fontVariantNumeric: 'tabular-nums',
-        boxSizing: 'content-box',
-      }}
-      minWidth={
-        segment.maxValue != null
-          ? String(segment.maxValue).length + 'ch'
-          : 'auto'
-      }
-      paddingX="0.5"
-      textAlign="end"
-      outline="none"
-      rounded="md"
-      color={
-        segment.isPlaceholder
-          ? 'gray.500'
-          : !segment.isEditable
-          ? 'gray.600'
-          : 'black'
-      }
-      _focus={{
-        background: 'primary.500',
-        color: 'white',
-      }}
+      data-literal={dataAttr(isLiteral)}
+      data-placeholder={dataAttr(segment.isPlaceholder)}
+      data-read-only={dataAttr(!segment.isEditable)}
+      __css={segmentStyles}
     >
       {segment.text}
     </chakra.div>
   )
 }
+
+DateSegment.displayName = 'DateSegment'

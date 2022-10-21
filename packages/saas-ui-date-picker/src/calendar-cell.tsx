@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { useRef } from 'react'
-import { useCalendarCell } from '@react-aria/calendar'
 import { isSameMonth, CalendarDate } from '@internationalized/date'
-import { chakra, Button } from '@chakra-ui/react'
+import { chakra } from '@chakra-ui/react'
 import { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 import { dataAttr } from '@chakra-ui/utils'
+import { useDatePickerStyles, useCalendarCell } from './date-picker-context'
 
 interface CalendarCellProps {
   state: CalendarState | RangeCalendarState
@@ -18,49 +18,42 @@ export const CalendarCell: React.FC<CalendarCellProps> = ({
   currentMonth,
 }) => {
   const ref = useRef<HTMLButtonElement>(null)
-  const { cellProps, buttonProps, isSelected, isInvalid, formattedDate } =
-    useCalendarCell({ date }, state, ref)
+
+  const { cellProps, buttonProps, formattedDate } = useCalendarCell(
+    {
+      date,
+      currentMonth,
+    },
+    state,
+    ref
+  )
 
   const isOutsideMonth = !isSameMonth(currentMonth, date)
 
-  const styles = {
-    _selected: {},
+  const styles = useDatePickerStyles()
+
+  const cellStyles = {
+    textAlign: 'center',
+    padding: 0,
+    ...styles.day,
+  }
+
+  const buttonStyles = {
+    ...styles.dayButton,
   }
 
   return (
-    <chakra.td
-      as="td"
-      {...cellProps}
-      data-selected={dataAttr(isSelected)}
-      __css={{ textAlign: 'center', padding: 0 }}
-    >
-      <Button
+    <chakra.td as="td" {...cellProps} __css={cellStyles}>
+      <chakra.button
         {...buttonProps}
+        type="button"
         ref={ref}
         hidden={isOutsideMonth}
-        size="sm"
-        colorScheme={isInvalid ? 'red' : isSelected ? 'primary' : 'gray'}
-        variant={isSelected ? 'solid' : 'ghost'}
-        fontWeight="normal"
         width="100%"
-        sx={
-          {
-            // ['[data-selected] &']: {
-            //   bg: 'primary.200',
-            //   borderRadius: 'none',
-            //   color: 'black',
-            // },
-            // '[data-selected]:first-of-type &': {
-            //   borderStartRadius: 'md',
-            // },
-            // '[data-selected]:last-of-type &': {
-            //   borderEndRadius: 'md',
-            // },
-          }
-        }
+        __css={buttonStyles}
       >
-        {formattedDate}
-      </Button>
+        <chakra.span __css={styles.dayLabel}>{formattedDate}</chakra.span>
+      </chakra.button>
     </chakra.td>
   )
 }

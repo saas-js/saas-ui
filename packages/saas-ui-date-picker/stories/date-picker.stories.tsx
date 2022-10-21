@@ -1,22 +1,29 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { DatePicker, DateValue } from '../src'
-import { Button, Container } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DateValue,
+  getLocalTimeZone,
+  isWeekend,
+  today,
+} from '../src'
+import { Button, Container, Portal, VStack } from '@chakra-ui/react'
 import { DatePickerDialog, DatePickerTrigger } from '../src/date-picker-dialog'
 import { DatePickerCalendar } from '../src/calendar'
 
-import { addDays, format, isAfter, isBefore, subDays } from 'date-fns'
 import { DatePickerTimeField } from '../src/date-field'
 
 export default {
-  title: 'Components/DatePicker/DatePicker',
+  title: 'Components/DateTime/DatePicker',
   component: DatePicker,
   decorators: [
     (Story) => {
       return (
         <Container>
-          <Story />
+          <VStack>
+            <Story />
+          </VStack>
         </Container>
       )
     },
@@ -25,23 +32,25 @@ export default {
 
 const Template: Story = (args) => {
   const { children, ...rest } = args
-  const [value, setValue] = React.useState<Date | undefined>()
+  const [value, setValue] = React.useState<DateValue | null>(null)
 
   return (
     <DatePicker {...rest} value={value} onChange={setValue}>
       <DatePickerTrigger>
-        <Button>{value ? format(value, 'P') : 'Open DatePicker'}</Button>
+        <Button>{value ? value.toString() : 'Open DatePicker'}</Button>
       </DatePickerTrigger>
-      <DatePickerDialog>
-        <DatePickerCalendar />
-        {children}
-      </DatePickerDialog>
+      <Portal>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          {children}
+        </DatePickerDialog>
+      </Portal>
     </DatePicker>
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Basic = Template.bind({})
+Basic.args = {}
 
 export const WithTime = Template.bind({})
 WithTime.args = {
@@ -54,6 +63,30 @@ WithTime24H.args = {
   children: <DatePickerTimeField />,
 }
 
+const now = today(getLocalTimeZone())
+const disabledRanges = [
+  [now, now.add({ days: 5 })],
+  [now.add({ days: 14 }), now.add({ days: 16 })],
+  [now.add({ days: 23 }), now.add({ days: 24 })],
+]
+
+const isDateUnavailable = (date) =>
+  disabledRanges.some(
+    (interval) =>
+      date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0
+  )
+
+// storybook doesn't like the DateValue of react-aria on args, so we wrap the Template instead.
+export const UnavailableDates = () => {
+  const props = {
+    minValue: now.subtract({ days: 7 }),
+    maxValue: now.add({ days: 30 }),
+    isDateUnavailable,
+  }
+  return <Template {...props} />
+}
+
+/* date-fns
 const now = new Date()
 const disabledRanges = [
   [now, addDays(now, 5)],
@@ -68,9 +101,4 @@ const isDateUnavailable = (value: DateValue) => {
   )
 }
 
-export const UnavailableDates = Template.bind({})
-UnavailableDates.args = {
-  minValue: subDays(now, 7),
-  maxValue: addDays(now, 30),
-  isDateUnavailable,
-}
+*/

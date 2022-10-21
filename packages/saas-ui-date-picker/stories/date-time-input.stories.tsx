@@ -2,16 +2,18 @@ import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { DateInput, DateTimeInput } from '../src'
-import { Container } from '@chakra-ui/react'
+import { Container, VStack } from '@chakra-ui/react'
 
 export default {
-  title: 'Components/DatePicker/DateTimeInput',
+  title: 'Components/DateTime/DateTimeInput',
   component: DateInput,
   decorators: [
     (Story) => {
       return (
         <Container>
-          <Story />
+          <VStack>
+            <Story />
+          </VStack>
         </Container>
       )
     },
@@ -20,5 +22,5 @@ export default {
 
 const Template: Story = (args) => <DateTimeInput {...args} />
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Basic = Template.bind({})
+Basic.args = {}

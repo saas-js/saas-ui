@@ -2,7 +2,6 @@ import * as React from 'react'
 import {
   DateRangePickerStateOptions,
   useDateRangePickerState,
-  DateRangePickerState,
 } from '@react-stately/datepicker'
 import { useDateRangePicker } from '@react-aria/datepicker'
 import {
@@ -16,44 +15,47 @@ import {
   DatePickerProvider,
   DatePickerStylesProvider,
 } from './date-picker-context'
-import { parseRange } from './date'
 
-export type RangeValue = DateRangePickerState['dateRange']
-export type TimeRangeValue = DateRangePickerState['timeRange']
+import { useLocale } from '@react-aria/i18n'
+
+import { DateRangeValue } from './types'
+import { getLocalTimeZone } from '@internationalized/date'
+import { datePickerStyleConfig } from './date-picker-styles'
 
 export interface DateRangePickerContainerProps
   extends ThemingProps<'DatePicker'>,
     Omit<PopoverProps, 'variant' | 'size'>,
-    Omit<DateRangePickerStateOptions, 'value' | 'defaultValue' | 'onChange'> {
-  value?: {
-    start: Date | number | string
-    end: Date | number | string
-  }
-  defaultValue?: {
-    start: Date | number | string
-    end: Date | number | string
-  }
-  onChange?(value: { start: Date; end: Date }): void
+    DateRangePickerStateOptions {
+  locale?: string
+  hourCycle?: 12 | 24
+  timeZone?: string
 }
 
 export const DateRangePickerContainer: React.FC<
   DateRangePickerContainerProps
 > = (props) => {
   const { value: valueProp, defaultValue, onChange, ...rest } = props
-  const styles = useMultiStyleConfig('DatePicker', props)
+  const {
+    locale: localeProp,
+    hourCycle = 12,
+    timeZone = getLocalTimeZone(),
+  } = props
 
-  const [value, setValue] = useControllableState<RangeValue>({
-    defaultValue: defaultValue ? parseRange(defaultValue) : undefined,
-    value: valueProp ? parseRange(valueProp) : undefined,
-    onChange: (value) =>
-      onChange?.({
-        start: value.start.toDate('UTC'),
-        end: value.end.toDate('UTC'),
-      }),
+  const { locale } = useLocale()
+
+  const styles = useMultiStyleConfig('DatePicker', {
+    styleConfig: datePickerStyleConfig,
+    ...props,
+  })
+
+  const [value, setValue] = useControllableState<DateRangeValue>({
+    defaultValue,
+    value: valueProp ?? undefined,
+    onChange,
   })
 
   const state = useDateRangePickerState({
-    value,
+    value: value ?? undefined,
     onChange: setValue,
     shouldCloseOnSelect: false,
   })
@@ -68,6 +70,8 @@ export const DateRangePickerContainer: React.FC<
     buttonProps,
     dialogProps,
     calendarProps,
+    descriptionProps,
+    errorMessageProps,
   } = useDateRangePicker(
     {
       ['aria-label']: 'Date Range Picker',
@@ -79,6 +83,9 @@ export const DateRangePickerContainer: React.FC<
 
   const context = {
     state,
+    locale: localeProp || locale,
+    hourCycle,
+    timeZone,
     groupProps,
     labelProps,
     startFieldProps,
@@ -86,6 +93,8 @@ export const DateRangePickerContainer: React.FC<
     buttonProps,
     dialogProps,
     calendarProps,
+    descriptionProps,
+    errorMessageProps,
     datePickerRef,
   }
 
@@ -102,8 +111,8 @@ export const DateRangePickerContainer: React.FC<
   )
 }
 
-export const DateRangePicker: React.FC<DateRangePickerContainerProps> = (
-  props
-) => {
+export interface DateRangePickerProps extends DateRangePickerContainerProps {}
+
+export const DateRangePicker: React.FC<DateRangePickerProps> = (props) => {
   return <DateRangePickerContainer {...props} />
 }

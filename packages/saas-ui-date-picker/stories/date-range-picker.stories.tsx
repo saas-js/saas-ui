@@ -1,21 +1,25 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { DateRangePicker } from '../src'
-import { Button, Container } from '@chakra-ui/react'
+import {
+  DateRangePicker,
+  DateRangePickerTimeField,
+  DateRangeValue,
+} from '../src'
+import { Button, Container, Portal, VStack } from '@chakra-ui/react'
 import { DatePickerDialog, DatePickerTrigger } from '../src/date-picker-dialog'
 import { DateRangePickerCalendar } from '../src/date-range-calendar'
 
-import { format } from 'date-fns'
-
 export default {
-  title: 'Components/DatePicker/DateRangePicker',
+  title: 'Components/DateTime/DateRangePicker',
   component: DateRangePicker,
   decorators: [
     (Story) => {
       return (
         <Container>
-          <Story />
+          <VStack>
+            <Story />
+          </VStack>
         </Container>
       )
     },
@@ -23,24 +27,37 @@ export default {
 } as Meta
 
 const Template: Story = (args) => {
-  const [value, setValue] = React.useState<
-    { start: Date; end: Date } | undefined
-  >()
+  const { children, ...rest } = args
+  const [value, setValue] = React.useState<DateRangeValue>()
   return (
-    <DateRangePicker onChange={setValue} {...args}>
+    <DateRangePicker onChange={setValue} {...rest}>
       <DatePickerTrigger>
         <Button>
           {value
-            ? `${format(value.start, 'P')} - ${format(value.end, 'P')}`
+            ? `${value.start.toString()} - ${value.end.toString()}`
             : 'Open DatePicker'}
         </Button>
       </DatePickerTrigger>
-      <DatePickerDialog>
-        <DateRangePickerCalendar />
-      </DatePickerDialog>
+      <Portal>
+        <DatePickerDialog>
+          <DateRangePickerCalendar />
+          {children}
+        </DatePickerDialog>
+      </Portal>
     </DateRangePicker>
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Basic = Template.bind({})
+Basic.args = {}
+
+export const WithTime = Template.bind({})
+WithTime.args = {
+  children: <DateRangePickerTimeField />,
+}
+
+export const WithTime24H = Template.bind({})
+WithTime24H.args = {
+  hourCycle: 24,
+  children: <DateRangePickerTimeField />,
+}

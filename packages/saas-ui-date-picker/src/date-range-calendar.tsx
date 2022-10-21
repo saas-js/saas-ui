@@ -1,22 +1,21 @@
 import * as React from 'react'
 import { useRangeCalendarState } from '@react-stately/calendar'
 import { useRangeCalendar } from '@react-aria/calendar'
-import { useLocale } from '@react-aria/i18n'
 import { createCalendar } from '@internationalized/date'
 import { NavButton } from './button'
 import { CalendarGrid } from './calendar-grid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { chakra, Box, Heading } from '@chakra-ui/react'
-import { useDatePickerContext } from './date-picker-context'
+import { chakra, Box, Heading, HTMLChakraProps } from '@chakra-ui/react'
+import { useDateRangePickerContext } from './date-picker-context'
 
-interface RangeCalendarProps {}
+interface RangeCalendarProps extends HTMLChakraProps<'div'> {}
 
 export const DateRangePickerCalendar: React.FC<RangeCalendarProps> = (
   props
 ) => {
-  const { calendarProps: contextCalendarProps } = useDatePickerContext()
+  const { locale, calendarProps: contextCalendarProps } =
+    useDateRangePickerContext()
 
-  const { locale } = useLocale()
   const state = useRangeCalendarState({
     ...contextCalendarProps,
     visibleDuration: { months: 2 },
@@ -26,10 +25,10 @@ export const DateRangePickerCalendar: React.FC<RangeCalendarProps> = (
 
   const ref = React.useRef<HTMLDivElement>(null)
   const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useRangeCalendar(props, state, ref)
+    useRangeCalendar({}, state, ref)
 
   return (
-    <chakra.div {...calendarProps} ref={ref}>
+    <chakra.div {...calendarProps} {...props} ref={ref}>
       <Box display="flex" alignItems="center" paddingBottom="4">
         <NavButton
           aria-label="Previous month"

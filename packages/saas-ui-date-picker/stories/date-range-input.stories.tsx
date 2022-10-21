@@ -1,19 +1,19 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { DateRangeInput } from '../src'
-import { Container, FormControl, FormLabel } from '@chakra-ui/react'
-
-import { format } from 'date-fns'
+import { DateRangeInput, DateRangeValue, parseAbsoluteToLocal } from '../src'
+import { Container, FormControl, FormLabel, VStack } from '@chakra-ui/react'
 
 export default {
-  title: 'Components/DatePicker/DateRangeInput',
+  title: 'Components/DateTime/DateRangeInput',
   component: DateRangeInput,
   decorators: [
     (Story) => {
       return (
         <Container>
-          <Story />
+          <VStack>
+            <Story />
+          </VStack>
         </Container>
       )
     },
@@ -21,9 +21,7 @@ export default {
 } as Meta
 
 const Template: Story = (args) => {
-  const [value, setValue] = React.useState<
-    { start: Date; end: Date } | undefined
-  >()
+  const [value, setValue] = React.useState<DateRangeValue>()
   return (
     <FormControl>
       <FormLabel>Date range</FormLabel>
@@ -32,5 +30,22 @@ const Template: Story = (args) => {
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Basic = Template.bind({})
+Basic.args = {}
+
+export const DateTime = () => {
+  return <Template granularity="minute" />
+}
+
+export const DateTimeNoTimezone = () => {
+  return (
+    <Template
+      defaultValue={{
+        start: parseAbsoluteToLocal(new Date().toISOString()),
+        end: null,
+      }}
+      granularity="minute"
+      hideTimeZone
+    />
+  )
+}

@@ -8,8 +8,13 @@ import {
   DatePickerTrigger,
 } from './date-picker-dialog'
 import { CalendarIcon } from '@chakra-ui/icons'
-import { InputGroup, Box, InputRightElement } from '@chakra-ui/react'
-import { useDatePickerContext } from './date-picker-context'
+import {
+  chakra,
+  InputGroup,
+  InputRightElement,
+  HTMLChakraProps,
+} from '@chakra-ui/react'
+import { useDateRangePickerContext } from './date-picker-context'
 import {
   DateRangePicker,
   DateRangePickerContainerProps,
@@ -36,7 +41,7 @@ const DateRangePickerInput = () => {
     endFieldProps,
     buttonProps,
     datePickerRef,
-  } = useDatePickerContext()
+  } = useDateRangePickerContext()
   return (
     <InputGroup
       {...groupProps}
@@ -45,42 +50,21 @@ const DateRangePickerInput = () => {
       display="inline-flex"
     >
       <DatePickerAnchor>
-        <SegmentedInput pr="5.5rem">
+        <SegmentedInput pr="3rem">
           <DateField {...startFieldProps} />
-          <Box as="span" aria-hidden="true" paddingX="2">
+          <chakra.span aria-hidden="true" paddingX="1">
             –
-          </Box>
+          </chakra.span>
           <DateField {...endFieldProps} />
-          {/* {state.validationState === 'invalid' && (
-          <NotAllowedIcon color="red.600" position="absolute" right="12" />
-        )} */}
         </SegmentedInput>
       </DatePickerAnchor>
       <InputRightElement>
         <DatePickerTrigger>
-          <FieldButton {...buttonProps} isPressed={state.isOpen}>
+          <FieldButton {...buttonProps} isActive={state.isOpen}>
             <CalendarIcon />
           </FieldButton>
         </DatePickerTrigger>
       </InputRightElement>
     </InputGroup>
-  )
-}
-
-const DateRangeTimeInput = () => {
-  const { state } = useDatePickerContext()
-  return (
-    <Box display="flex" gap="2">
-      <TimeField
-        label="Start time"
-        value={state.timeRange?.start || null}
-        onChange={(v) => state.setTime('start', v)}
-      />
-      <TimeField
-        label="End time"
-        value={state.timeRange?.end || null}
-        onChange={(v) => state.setTime('end', v)}
-      />
-    </Box>
   )
 }

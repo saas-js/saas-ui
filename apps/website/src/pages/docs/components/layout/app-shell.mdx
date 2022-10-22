@@ -30,18 +30,25 @@ import { AppShell } from '@saas-ui/app-shell'
 
 ### Basic shell
 
-AppShell will try to fit it's parent with position `absolute` and `inset: 0` by default. You may need to set `height: 100%` on the html and body, or alternatively set `height: 100vh` on the AppShell to make it fit the entire browser viewport.
+AppShell will try to fit it's parent with position `absolute` and `inset: 0` by default.
+
+<Info>
+  You may need to set `height: 100%` on the html and body, or alternatively set
+  `height: 100vh` on the AppShell to make sure it fits the entire browser
+  viewport.
+</Info>
 
 ```jsx
 <AppShell
   variant="static"
+  height="400px"
   navbar={
     <Box as="header" borderBottomWidth="1px" py="2" px="4">
       <SaasUILogo width="100px" />
     </Box>
   }
   sidebar={
-    <Sidebar height="200px">
+    <Sidebar>
       <SidebarSection>
         <NavItem label="Home" />
         <NavItem label="Settings" />
@@ -62,7 +69,7 @@ The default variant is `fullscreen`, using the `static` variant the AppShell wil
 ```jsx
 <AppShell
   variant="static"
-  height="240px"
+  height="400px"
   navbar={
     <Box as="header" borderBottomWidth="1px" py="2" px="4">
       <SaasUILogo width="100px" />
@@ -85,13 +92,16 @@ The default variant is `fullscreen`, using the `static` variant the AppShell wil
 
 ### Example layout
 
+Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGrid <Badge bg="primary.500" >Pro</Badge>
+
 ```jsx
 <AppShell
   variant="static"
+  height="400px"
   sidebar={
-    <Sidebar width="30%" height="400px">
+    <Sidebar width="30%">
       <SidebarSection direction="row">
-        <SaasUIGlyph width="24px" />
+        <SaasUILogo width="100px" />
         <Spacer />
         <Menu>
           <MenuButton

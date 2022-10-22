@@ -98,7 +98,7 @@ export const FormWithDateField = () => {
       onSubmit={(data) => console.log('onSubmit', data)}
     >
       <FormLayout>
-        <DateField name="date" />
+        <DateField label="Birthday" name="date" />
         <SubmitButton />
       </FormLayout>
     </Form>

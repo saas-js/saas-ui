@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.3.1
+
+### Patch Changes
+
+- fd41596: Clean up AppShell theme
+
 ## 1.3.0
 
 ### Minor Changes

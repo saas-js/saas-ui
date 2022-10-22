@@ -1,5 +1,15 @@
 # @saas-ui/sidebar
 
+## 0.2.0
+
+### Minor Changes
+
+- 7f8798b: Add new motionPreset property, sidebar animation can be disabled with motionPreset="none"
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.2
+
 ## 0.1.2
 
 ### Patch Changes

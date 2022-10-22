@@ -59,14 +59,14 @@ module.exports = {
           'emotion-theming': toPath('node_modules/@emotion/react'),
         },
       },
-      // plugins: config.plugins.concat([
-      //   new webpack.NormalModuleReplacementPlugin(
-      //     /\@saas-ui\/[a-z-\/]+$/,
-      //     (resource) => {
-      //       resource.request = resource.request + '/src/index'
-      //     }
-      //   ),
-      // ]),
+      plugins: config.plugins.concat([
+        new webpack.NormalModuleReplacementPlugin(
+          /\@saas-ui\/[a-z-\/]+$/,
+          (resource) => {
+            resource.request = resource.request + '/src'
+          }
+        ),
+      ]),
     }
   },
   core: {

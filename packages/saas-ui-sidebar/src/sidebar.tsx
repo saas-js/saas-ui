@@ -17,7 +17,7 @@ import {
   ResponsiveValue,
   forwardRef,
 } from '@chakra-ui/react'
-import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
+import { cx, dataAttr, mapResponsive, runIfFn } from '@chakra-ui/utils'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
 
@@ -25,10 +25,7 @@ import { SidebarProvider, useSidebarContext } from './use-sidebar'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
 import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
-export interface SidebarProps
-  extends Omit<HTMLMotionProps<'div'>, 'color' | 'transition'>,
-    Omit<ChakraProps, 'css'>,
-    ThemingProps<'Sidebar'> {
+export interface SidebarOptions {
   /**
    * Spacing between child elements.
    */
@@ -45,9 +42,36 @@ export interface SidebarProps
   onOpen?: () => void
 
   onClose?: () => void
+
+  motionPreset?: 'slideInOut' | 'none'
 }
 
+export interface SidebarProps
+  extends SidebarOptions,
+    Pick<
+      HTMLMotionProps<'div'>,
+      'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
+    >,
+    Omit<
+      HTMLChakraProps<'div'>,
+      'css' | 'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
+    >,
+    ThemingProps<'Sidebar'> {}
+
 const MotionBox = chakra(motion.nav)
+
+const motionPresets = {
+  slideInOut: {
+    enter: {
+      left: 0,
+      transition: { type: 'spring', duration: 0.6, bounce: 0.15 },
+    },
+    exit: {
+      left: '-100%',
+    },
+  },
+  none: {},
+}
 
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
@@ -61,6 +85,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
     children,
     breakpoints = { base: true, lg: false },
     className,
+    motionPreset = 'slideInOut',
     isOpen: isOpenProp,
     onOpen: onOpenProp,
     onClose: onCloseProp,
@@ -117,6 +142,8 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
     size,
   }
 
+  const variants = motionPresets[motionPreset || 'none']
+
   return (
     <SidebarProvider value={context}>
       <SidebarStylesProvider value={styles}>
@@ -124,15 +151,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
           ref={ref}
           initial={false}
           animate={!isInitial && (!isCollapsible || isOpen ? 'enter' : 'exit')}
-          variants={{
-            enter: {
-              left: 0,
-              transition: { type: 'spring', duration: 0.6, bounce: 0.15 },
-            },
-            exit: {
-              left: '-100%',
-            },
-          }}
+          variants={variants}
           __css={{
             ...containerStyles,
             ...styles.container,

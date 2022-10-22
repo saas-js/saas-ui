@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 1.4.5
+
+### Patch Changes
+
+- Updated dependencies [fd41596]
+  - @saas-ui/theme@1.3.1
+  - @saas-ui/provider@1.1.2
+  - @saas-ui/layout@1.1.2
+  - @saas-ui/menu@1.1.2
+  - @saas-ui/auth@1.3.4
+  - @saas-ui/data-table@1.1.2
+  - @saas-ui/modals@1.2.4
+
 ## 1.4.4
 
 ### Patch Changes

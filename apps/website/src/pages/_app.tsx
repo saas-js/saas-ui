@@ -35,6 +35,18 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
               }}
             />
             <Script
+              id="pirschjs"
+              strategy="afterInteractive"
+              src="https://api.pirsch.io/pirsch.js"
+              data-code="6VI7VAQoe3eG33JAw0giyqequwucCiou"
+            />
+            <Script
+              id="pirscheventsjs"
+              strategy="afterInteractive"
+              src="https://api.pirsch.io/pirsch-events.js"
+              data-code="6VI7VAQoe3eG33JAw0giyqequwucCiou"
+            />
+            <Script
               id="crisp-js"
               strategy="afterInteractive"
               dangerouslySetInnerHTML={{

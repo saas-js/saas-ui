@@ -69,6 +69,8 @@ export function RedeemForm(props) {
     setTimeout(() => {
       /* @ts-ignore */
       window?.plausible?.('Redeem Submitted')
+      /* @ts-ignore */
+      window?.pirsch?.('Redeem Submitted')
     })
     return fetch('/api/redeem', {
       method: 'POST',
@@ -97,6 +99,8 @@ export function RedeemForm(props) {
         console.error(error)
         /* @ts-ignore */
         window?.plausible?.('Redeem Failed')
+        /* @ts-ignore */
+        window?.pirsch?.('Redeem Failed')
       })
   }
 

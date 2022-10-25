@@ -26,7 +26,9 @@ export default async function handler(req: NextRequest) {
       ? searchParams.get('description')?.slice(0, 200)
       : undefined
 
-    const host = process.env.VERCEL_URL || 'http://localhost:3000'
+    const host = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000'
 
     return new ImageResponse(
       (

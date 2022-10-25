@@ -57,7 +57,6 @@
     "packages/saas-ui-*",
     "packages/pro/saas-ui/*",
     "apps/*",
-    "examples/*",
     "tooling/next-workspaces",
     "tooling/test-utils",
     "tooling/props-docs"

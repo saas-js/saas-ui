@@ -28,7 +28,7 @@ export default async function handler(req: NextRequest) {
 
     const host = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
-      : 'http://localhost:3000'
+      : 'http://localhost:3020'
 
     return new ImageResponse(
       (

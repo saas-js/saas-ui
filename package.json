@@ -118,6 +118,7 @@
     "ts-node": "^10.8.1",
     "turbo": "^1.5.3",
     "typescript": "^4.7.3",
+    "vercel-submodules": "^1.0.6",
     "yup": "^0.32.11",
     "zod": "^3.17.3"
   },

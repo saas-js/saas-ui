@@ -26,6 +26,8 @@ export default async function handler(req: NextRequest) {
       ? searchParams.get('description')?.slice(0, 200)
       : undefined
 
+    const host = process.env.VERCEL_URL || 'http://localhost:3000'
+
     return new ImageResponse(
       (
         <div
@@ -42,7 +44,7 @@ export default async function handler(req: NextRequest) {
           }}
         >
           <img
-            src="http://localhost:3020/img/og-background.png"
+            src={`${host}/img/og-background.png`}
             width="100%"
             height="100%"
           />

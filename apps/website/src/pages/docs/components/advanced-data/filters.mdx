@@ -37,6 +37,7 @@ function ListPage() {
         id: 'status',
         label: 'Status',
         icon: <FiCircle />,
+        type: 'enum',
         items: [
           {
             id: 'new',
@@ -85,6 +86,7 @@ function ListPage() {
         id: 'status',
         label: 'Status',
         icon: <FiCircle />,
+        type: 'enum',
         items: [
           {
             id: 'new',
@@ -178,7 +180,7 @@ function ListPage() {
           id: filter.id,
           value: {
             value: filter.value,
-            operator: filter.operator,
+            operator: filter.operator || 'is',
           },
         }
       })
@@ -241,6 +243,7 @@ function ListPage() {
         id: 'status',
         label: 'Status',
         icon: <FiCircle />,
+        type: 'enum',
         items: [
           {
             id: 'new',
@@ -334,7 +337,7 @@ function ListPage() {
           id: filter.id,
           value: {
             value: filter.value,
-            operator: filter.operator,
+            operator: filter.operator || 'is',
           },
         }
       })

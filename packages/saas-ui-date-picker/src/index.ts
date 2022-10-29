@@ -1,4 +1,8 @@
-export { DatePicker, DatePickerContainer } from './date-picker'
+export {
+  DatePicker,
+  DatePickerContainer,
+  DatePickerStatic,
+} from './date-picker'
 
 export type { DatePickerProps, DatePickerContainerProps } from './date-picker'
 
@@ -22,6 +26,12 @@ export {
   DatePickerTimeField,
   DateRangePickerTimeField,
 } from './date-field'
+
+export { SegmentedInput, InputSegment } from './segmented-input'
+export type { SegmentedInputProps, InputSegmentProps } from './segmented-input'
+
+export { DatePickerModal } from './date-picker-modal'
+export type { DatePickerModalProps } from './date-picker-modal'
 
 export type { DateValue, DateRangeValue, TimeRangeValue } from './types'
 

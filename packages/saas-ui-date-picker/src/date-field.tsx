@@ -19,18 +19,16 @@ import {
   FormLabel,
   forwardRef,
   HTMLChakraProps,
-  omitThemingProps,
-  ThemingProps,
   useFormControl,
   useMergeRefs,
-  useMultiStyleConfig,
 } from '@chakra-ui/react'
 import {
   useDatePickerContext,
   useDatePickerStyles,
   useDateRangePickerContext,
 } from './date-picker-context'
-import { dataAttr } from '@chakra-ui/utils'
+
+import { InputSegment, SegmentedInput } from './segmented-input'
 
 export interface DateFieldProps
   extends Omit<DateFieldStateOptions, 'locale' | 'createCalendar'> {}
@@ -219,33 +217,6 @@ export const DateRangePickerTimeField: React.FC<DateRangeTimeFieldProps> = (
 
 DateRangePickerTimeField.displayName = 'DateRangePickerTimeField'
 
-export interface SegmentedInputProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'Input'> {}
-
-export const SegmentedInput = forwardRef<SegmentedInputProps, 'div'>(
-  ({ children, ...rest }, ref) => {
-    const styles = useMultiStyleConfig('Input', rest)
-    const ownProps = omitThemingProps(rest)
-
-    const inputStyles = {
-      display: 'flex',
-      alignItems: 'center',
-      /* @ts-ignore */
-      _focusWithin: styles.field._focusVisible,
-      ...styles.field,
-    }
-
-    return (
-      <chakra.div {...ownProps} __css={inputStyles} ref={ref}>
-        {children}
-      </chakra.div>
-    )
-  }
-)
-
-SegmentedInput.displayName = 'SegmentedInput'
-
 interface DateSegmentProps extends HTMLChakraProps<'div'> {
   segment: any
   state: DateFieldState
@@ -253,35 +224,13 @@ interface DateSegmentProps extends HTMLChakraProps<'div'> {
 
 const DateSegment: React.FC<DateSegmentProps> = ({ segment, state }) => {
   const ref = React.useRef<HTMLDivElement>(null)
-  const { segmentProps } = useDateSegment(segment, state, ref)
-
-  const styles = useDatePickerStyles()
-
-  const segmentStyles = {
-    boxSizing: 'content-box',
-    fontVariantNumeric: 'tabular-nums',
-    minWidth:
-      segment.maxValue != null
-        ? String(segment.maxValue).length + 'ch'
-        : 'auto',
-    ...segmentProps.style,
-    ...styles.segment,
-  }
-
-  const isLiteral = segment.type === 'literal'
+  const {
+    segmentProps: { style, ...segmentProps },
+  } = useDateSegment(segment, state, ref)
 
   return (
-    <chakra.div
-      {...segmentProps}
-      ref={ref}
-      data-literal={dataAttr(isLiteral)}
-      data-placeholder={dataAttr(segment.isPlaceholder)}
-      data-read-only={dataAttr(!segment.isEditable)}
-      __css={segmentStyles}
-    >
+    <InputSegment ref={ref} sx={style} {...segment} {...segmentProps}>
       {segment.text}
-    </chakra.div>
+    </InputSegment>
   )
 }
-
-DateSegment.displayName = 'DateSegment'

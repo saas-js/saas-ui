@@ -10,7 +10,7 @@ import {
   PopoverTrigger,
   Portal,
 } from '@chakra-ui/react'
-import { useDatePickerDialog } from './date-picker-context'
+import { useDatePickerDialog, useDatePickerStyles } from './date-picker-context'
 
 export const DatePickerTrigger = PopoverTrigger
 export const DatePickerAnchor = PopoverAnchor
@@ -23,13 +23,15 @@ export const DatePickerDialog: React.FC<DatePickerDialogProps> = (props) => {
   const { children, hideArrow, ...rest } = props
 
   const { dialogProps } = useDatePickerDialog()
+  const styles = useDatePickerStyles()
 
   return (
     <PopoverContent
       {...rest}
       {...dialogProps}
       width="auto"
-      minW="xs"
+      minW="300px"
+      sx={styles.dialog}
       className={cx('saas-date-picker__dialog', props.className)}
     >
       {!hideArrow && <PopoverArrow />}

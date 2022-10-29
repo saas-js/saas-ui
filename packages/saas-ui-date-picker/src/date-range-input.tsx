@@ -1,33 +1,33 @@
 import * as React from 'react'
 import { FieldButton } from './button'
 import { DateRangePickerCalendar } from './date-range-calendar'
-import { DateField, SegmentedInput, TimeField } from './date-field'
+import { DateField, TimeField } from './date-field'
 import {
   DatePickerAnchor,
   DatePickerDialog,
   DatePickerTrigger,
 } from './date-picker-dialog'
 import { CalendarIcon } from '@chakra-ui/icons'
-import {
-  chakra,
-  InputGroup,
-  InputRightElement,
-  HTMLChakraProps,
-} from '@chakra-ui/react'
+import { chakra, InputGroup, InputRightElement } from '@chakra-ui/react'
 import { useDateRangePickerContext } from './date-picker-context'
 import {
   DateRangePicker,
   DateRangePickerContainerProps,
 } from './date-range-picker'
+import { SegmentedInput } from './segmented-input'
 
 export interface DateRangeInputProps extends DateRangePickerContainerProps {}
 
 export const DateRangeInput: React.FC<DateRangeInputProps> = (props) => {
+  const { children, ...rest } = props
   return (
-    <DateRangePicker placement="bottom-start" {...props}>
+    <DateRangePicker placement="bottom-start" {...rest}>
       <DateRangePickerInput />
       <DatePickerDialog>
-        <DateRangePickerCalendar />
+        <>
+          <DateRangePickerCalendar />
+          {children}
+        </>
       </DatePickerDialog>
     </DateRangePicker>
   )
@@ -50,7 +50,7 @@ const DateRangePickerInput = () => {
       display="inline-flex"
     >
       <DatePickerAnchor>
-        <SegmentedInput pr="3rem">
+        <SegmentedInput>
           <DateField {...startFieldProps} />
           <chakra.span aria-hidden="true" paddingX="1">
             –

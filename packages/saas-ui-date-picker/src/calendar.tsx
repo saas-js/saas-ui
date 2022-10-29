@@ -1,58 +1,129 @@
 import * as React from 'react'
-import { useRef } from 'react'
-import { chakra } from '@chakra-ui/react'
-import { useCalendarState } from '@react-stately/calendar'
-import { useCalendar } from '@react-aria/calendar'
-import { useLocale } from '@react-aria/i18n'
-import { createCalendar } from '@internationalized/date'
-import { NavButton } from './button'
+import { chakra, forwardRef, HTMLChakraProps } from '@chakra-ui/react'
+import { NavButton, NavButtonProps } from './button'
 import { CalendarGrid } from './calendar-grid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { Heading } from '@chakra-ui/react'
-import { useDatePickerContext } from './date-picker-context'
+import { useDatePickerStyles } from './date-picker-context'
+import { CalendarProvider, useCalendarContext } from './calendar-context'
+import { useCalendar } from './use-calendar'
+import { CalendarYearGrid } from './calendar-years'
 
-export interface DatePickerCalendarProps {}
+export interface CalendarProps
+  extends Omit<HTMLChakraProps<'div'>, 'defaultValue' | 'onChange'> {}
 
-export const DatePickerCalendar: React.FC<DatePickerCalendarProps> = (
-  props
-) => {
-  const { locale } = useLocale()
+export const DatePickerCalendar: React.FC<CalendarProps> = (props) => {
+  return (
+    <CalendarContainer {...props}>
+      <CalendarHeader>
+        <CalendarTitle />
+        <CalendarPrevious />
+        <CalendarNext />
+      </CalendarHeader>
+      <CalendarGrid />
+    </CalendarContainer>
+  )
+}
 
-  const { calendarProps: contextCalendarProps } = useDatePickerContext()
+export const CalendarContainer: React.FC<CalendarProps> = (props) => {
+  const { children, ...rest } = props
 
-  const state = useCalendarState({
-    ...contextCalendarProps,
-    locale,
-    createCalendar,
-  })
+  const styles = useDatePickerStyles()
 
-  const ref = useRef<HTMLDivElement>(null)
-  const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useCalendar(props, state)
+  const calendarStyles = {
+    ...styles.calendar,
+  }
 
-  const calendarStyles = {}
+  const context = useCalendar(props)
 
-  const leftIcon = <ChevronLeftIcon />
-  const rightIcon = <ChevronRightIcon />
+  const { calendarProps, ref } = context
 
   return (
-    <chakra.div {...calendarProps} ref={ref}>
-      <chakra.div display="flex" alignItems="center" paddingBottom="4">
-        <NavButton
-          {...prevButtonProps}
-          aria-label="Previous month"
-          icon={leftIcon}
-        />
-        <Heading as="h2" size="sm" flex="1" textAlign="center">
-          {title}
-        </Heading>
-        <NavButton
-          {...nextButtonProps}
-          aria-label="Next month"
-          icon={rightIcon}
-        />
+    <CalendarProvider value={context}>
+      <chakra.div {...calendarProps} ref={ref} __css={calendarStyles}>
+        {children}
       </chakra.div>
-      <CalendarGrid state={state} />
+    </CalendarProvider>
+  )
+}
+
+interface CalendarContentProps {}
+
+const CalendarContent: React.FC<CalendarContentProps> = (props) => {
+  const { action } = useCalendarContext()
+  return action === 'calendar' ? <CalendarGrid /> : <CalendarYearGrid />
+}
+
+export interface CalendarHeaderProps extends HTMLChakraProps<'div'> {}
+
+export const CalendarHeader: React.FC<CalendarHeaderProps> = (props) => {
+  const { children, ...rest } = props
+  const styles = useDatePickerStyles()
+
+  const headerStyles = {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    pb: 4,
+    ...styles.header,
+  }
+
+  return (
+    <chakra.div {...rest} __css={headerStyles}>
+      {children}
     </chakra.div>
   )
 }
+
+export interface CalendarTitleProps extends HTMLChakraProps<'h5'> {}
+
+export const CalendarTitle: React.FC<CalendarTitleProps> = (props) => {
+  const { title } = useCalendarContext()
+
+  const styles = useDatePickerStyles()
+
+  const titleStyles = {
+    ...styles.title,
+  }
+
+  return (
+    <chakra.h5 {...props} __css={titleStyles}>
+      {title}
+    </chakra.h5>
+  )
+}
+
+export interface CalendarNextProps extends Omit<NavButtonProps, 'aria-label'> {}
+
+export const CalendarNext = forwardRef<CalendarNextProps, 'button'>(
+  (props, ref) => {
+    const { icon = <ChevronRightIcon boxSize={5} />, ...rest } = props
+    const { nextButtonProps } = useCalendarContext()
+    return (
+      <NavButton
+        ref={ref}
+        aria-label="Next"
+        {...nextButtonProps}
+        icon={icon}
+        {...rest}
+      />
+    )
+  }
+)
+
+export interface CalendarNextProps extends Omit<NavButtonProps, 'aria-label'> {}
+
+export const CalendarPrevious = forwardRef<CalendarNextProps, 'button'>(
+  (props, ref) => {
+    const { icon = <ChevronLeftIcon boxSize={5} />, ...rest } = props
+    const { prevButtonProps } = useCalendarContext()
+    return (
+      <NavButton
+        ref={ref}
+        aria-label="Previous"
+        {...prevButtonProps}
+        icon={icon}
+        {...rest}
+      />
+    )
+  }
+)

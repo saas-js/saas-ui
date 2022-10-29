@@ -1,10 +1,22 @@
 import {
   mode,
   PartsStyleFunction,
+  anatomy,
   transparentize,
 } from '@chakra-ui/theme-tools'
 
-const baseStyle: PartsStyleFunction = (props) => {
+const parts = anatomy('date-picker').parts(
+  'dialog',
+  'calendar',
+  'header',
+  'title',
+  'weekday',
+  'day',
+  'dayButton',
+  'dayLabel'
+)
+
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
 
   const selected = {
@@ -17,25 +29,22 @@ const baseStyle: PartsStyleFunction = (props) => {
   }
 
   return {
-    segment: {
-      px: '0.5',
-      textAlign: 'end',
-      outline: 'none',
-      rounded: 'md',
-      ['&[data-placeholder]']: {
-        color: 'muted',
-      },
-      ['&[data-placeholder]+[data-literal]']: {
-        color: 'muted',
-      },
-      _focus: {
-        background: 'primary.500',
-        color: 'white',
-      },
-      '&[data-read-only]': {
-        bg: 'transparent',
-        color: 'muted',
-      },
+    dialog: {},
+    calendar: {},
+    header: {
+      alignItems: 'center',
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: 'sm',
+      flex: 1,
+      px: 3,
+    },
+    weekday: {
+      fontWeight: 'normal',
+      color: 'muted',
+      fontSize: 'sm',
+      h: 10,
     },
     day: {
       py: '1px',
@@ -56,7 +65,7 @@ const baseStyle: PartsStyleFunction = (props) => {
         borderRadius: 'md',
       },
       '&[data-today]': {
-        bg: mode('blackAlpha.100', 'whiteAlpha.100')(props),
+        bg: mode('blackAlpha.50', 'whiteAlpha.50')(props),
       },
       _hover: {
         bg: mode('blackAlpha.100', 'whiteAlpha.100')(props),
@@ -102,6 +111,10 @@ const baseStyle: PartsStyleFunction = (props) => {
       },
       _disabled: {
         color: 'muted',
+        cursor: 'not-allowed',
+        _hover: {
+          bg: 'transparent',
+        },
       },
       '&[data-week-start], &[data-month-start]': { borderStartRadius: 'md' },
       '&[data-week-end], &[data-month-end]': {
@@ -111,6 +124,14 @@ const baseStyle: PartsStyleFunction = (props) => {
     dayLabel: {
       position: 'relative',
       zIndex: 1,
+    },
+    year: {
+      py: 2,
+      px: 3,
+      fontSize: 'sm',
+      borderRadius: 'md',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
     },
   }
 }

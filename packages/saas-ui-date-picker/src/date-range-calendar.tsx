@@ -1,53 +1,56 @@
 import * as React from 'react'
-import { useRangeCalendarState } from '@react-stately/calendar'
-import { useRangeCalendar } from '@react-aria/calendar'
-import { createCalendar } from '@internationalized/date'
-import { NavButton } from './button'
+import { chakra, HTMLChakraProps } from '@chakra-ui/react'
+import { useDatePickerStyles } from './date-picker-context'
+import { CalendarProvider } from './calendar-context'
+import {
+  CalendarHeader,
+  CalendarNext,
+  CalendarPrevious,
+  CalendarTitle,
+} from './calendar'
 import { CalendarGrid } from './calendar-grid'
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { chakra, Box, Heading, HTMLChakraProps } from '@chakra-ui/react'
-import { useDateRangePickerContext } from './date-picker-context'
+import { useRangeCalendar } from './use-range-calendar'
 
-interface RangeCalendarProps extends HTMLChakraProps<'div'> {}
+interface RangeCalendarProps
+  extends Omit<HTMLChakraProps<'div'>, 'value' | 'defaultValue' | 'onChange'> {}
 
 export const DateRangePickerCalendar: React.FC<RangeCalendarProps> = (
   props
 ) => {
-  const { locale, calendarProps: contextCalendarProps } =
-    useDateRangePickerContext()
+  return (
+    <RangeCalendarContainer {...props}>
+      <CalendarHeader>
+        <CalendarTitle />
+        <CalendarPrevious />
+        <CalendarNext />
+      </CalendarHeader>
 
-  const state = useRangeCalendarState({
-    ...contextCalendarProps,
-    visibleDuration: { months: 2 },
-    locale,
-    createCalendar,
-  })
+      <chakra.div display="flex" alignItems="flex-start" gap="8">
+        <CalendarGrid />
+        <CalendarGrid offset={{ months: 1 }} />
+      </chakra.div>
+    </RangeCalendarContainer>
+  )
+}
 
-  const ref = React.useRef<HTMLDivElement>(null)
-  const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useRangeCalendar({}, state, ref)
+export const RangeCalendarContainer: React.FC<RangeCalendarProps> = (props) => {
+  const { children, ...rest } = props
+
+  const styles = useDatePickerStyles()
+
+  const calendarStyles = {
+    ...styles.calendar,
+  }
+
+  const context = useRangeCalendar(rest)
+
+  const { calendarProps, ref } = context
 
   return (
-    <chakra.div {...calendarProps} {...props} ref={ref}>
-      <Box display="flex" alignItems="center" paddingBottom="4">
-        <NavButton
-          aria-label="Previous month"
-          {...prevButtonProps}
-          icon={<ChevronLeftIcon w={6} h={6} />}
-        />
-        <Heading as="h2" size="sm" flex="1" textAlign="center">
-          {title}
-        </Heading>
-        <NavButton
-          aria-label="Next month"
-          {...nextButtonProps}
-          icon={<ChevronRightIcon w={6} h={6} />}
-        />
-      </Box>
-      <chakra.div display="flex" alignItems="flex-start" gap="8">
-        <CalendarGrid state={state} />
-        <CalendarGrid state={state} offset={{ months: 1 }} />
+    <CalendarProvider value={context}>
+      <chakra.div {...calendarProps} ref={ref} __css={calendarStyles}>
+        {children}
       </chakra.div>
-    </chakra.div>
+    </CalendarProvider>
   )
 }

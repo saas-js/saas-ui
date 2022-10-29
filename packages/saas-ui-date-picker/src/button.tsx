@@ -30,7 +30,7 @@ export const FieldButton = forwardRef<FieldButtonProps, 'button'>(
   }
 )
 
-interface NavButtonProps extends IconButtonProps {
+export interface NavButtonProps extends IconButtonProps {
   onPress?(e: any): void
 }
 
@@ -38,7 +38,7 @@ export const NavButton = forwardRef<NavButtonProps, 'button'>((props, ref) => {
   const { onPress: onClick, ...rest } = props
 
   return (
-    <IconButton ref={ref} size="sm" onClick={onClick} {...rest}>
+    <IconButton ref={ref} size="sm" variant="ghost" onClick={onClick} {...rest}>
       {props.children}
     </IconButton>
   )

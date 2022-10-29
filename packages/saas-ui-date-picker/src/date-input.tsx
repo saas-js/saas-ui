@@ -10,12 +10,13 @@ import {
 
 import { FieldButton } from './button'
 import { DatePickerCalendar } from './calendar'
-import { DateField, SegmentedInput, DatePickerTimeField } from './date-field'
+import { DateField, DatePickerTimeField } from './date-field'
 import { DatePickerDialog, DatePickerTrigger } from './date-picker-dialog'
-import { DatePicker, DatePickerContainerProps } from './date-picker'
+import { DatePicker, DatePickerProps } from './date-picker'
 import { useDatePickerContext } from './date-picker-context'
+import { SegmentedInput } from './segmented-input'
 
-export interface DateInputProps extends DatePickerContainerProps {
+export interface DateInputProps extends DatePickerProps {
   calendarIcon?: React.ReactNode
 }
 
@@ -27,12 +28,20 @@ export interface DateInputProps extends DatePickerContainerProps {
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
-  const { calendarIcon, ...rest } = props
+  const { children, calendarIcon, size, variant, ...rest } = props
   return (
     <DatePicker placement="bottom-end" granularity="day" {...rest}>
-      <DatePickerInput calendarIcon={calendarIcon} ref={ref} />
+      <DatePickerInput
+        calendarIcon={calendarIcon}
+        size={size}
+        variant={variant}
+        ref={ref}
+      />
       <DatePickerDialog>
-        <DatePickerCalendar />
+        <>
+          <DatePickerCalendar />
+          {children}
+        </>
       </DatePickerDialog>
     </DatePicker>
   )
@@ -48,15 +57,14 @@ DateInput.displayName = 'DateInput'
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 export const DateTimeInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
-  const { calendarIcon, ...rest } = props
+  const { children, ...rest } = props
   return (
-    <DatePicker placement="bottom-end" granularity="minute" {...rest}>
-      <DatePickerInput calendarIcon={calendarIcon} ref={ref} />
-      <DatePickerDialog>
-        <DatePickerCalendar />
+    <DateInput granularity="minute" {...rest}>
+      <>
         <DatePickerTimeField />
-      </DatePickerDialog>
-    </DatePicker>
+        {children}
+      </>
+    </DateInput>
   )
 })
 
@@ -75,18 +83,26 @@ interface DatePickerInputProps extends InputGroupProps {
  */
 export const DatePickerInput = forwardRef<DatePickerInputProps, 'div'>(
   (props, ref) => {
-    const { calendarIcon, ...rest } = props
+    const { calendarIcon, size, variant, ...rest } = props
     const { state, groupProps, fieldProps, buttonProps, datePickerRef } =
       useDatePickerContext()
 
+    const themeProps = { size, variant }
+
     return (
-      <InputGroup {...rest} {...groupProps} ref={datePickerRef}>
-        <SegmentedInput pr="3rem">
+      <InputGroup {...rest} {...groupProps} {...themeProps} ref={datePickerRef}>
+        <SegmentedInput {...themeProps}>
           <DateField {...fieldProps} ref={ref} />
         </SegmentedInput>
-        <InputRightElement>
+        <InputRightElement py="1">
           <DatePickerTrigger>
-            <FieldButton {...buttonProps} isActive={state.isOpen}>
+            <FieldButton
+              variant="ghost"
+              flex="1"
+              height="100%"
+              {...buttonProps}
+              isActive={state.isOpen}
+            >
               {calendarIcon || <CalendarIcon />}
             </FieldButton>
           </DatePickerTrigger>

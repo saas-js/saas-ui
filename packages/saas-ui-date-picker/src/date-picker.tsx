@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import {
   useDatePickerState,
   DatePickerStateOptions,
+  DatePickerState,
 } from '@react-stately/datepicker'
 import { useDatePicker } from '@react-aria/datepicker'
 import { useLocale } from '@react-aria/i18n'
@@ -12,7 +13,6 @@ import {
   useMultiStyleConfig,
   Popover,
   useControllableState,
-  useTheme,
 } from '@chakra-ui/react'
 import {
   DatePickerProvider,
@@ -23,10 +23,10 @@ import { DateValue, FormattedValue } from './types'
 
 import { datePickerStyleConfig } from './date-picker-styles'
 import { getLocalTimeZone } from '@internationalized/date'
+import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
 
 export interface DatePickerContainerProps
   extends ThemingProps<'DatePicker'>,
-    Omit<PopoverProps, 'variant' | 'size'>,
     Omit<
       DatePickerStateOptions,
       'value' | 'defaultValue' | 'minValue' | 'maxValue' | 'onChange'
@@ -38,10 +38,12 @@ export interface DatePickerContainerProps
   onChange?(value: DateValue | null): void
   locale?: string
   timeZone?: string
+  children: MaybeFunction<React.ReactNode, [DatePickerState]>
 }
 
 export const DatePickerContainer = (props: DatePickerContainerProps) => {
   const {
+    children,
     value: valueProp,
     minValue,
     maxValue,
@@ -121,11 +123,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
   return (
     <DatePickerProvider value={context}>
       <DatePickerStylesProvider value={styles}>
-        <Popover
-          {...props}
-          onOpen={() => state.setOpen(true)}
-          onClose={() => state.setOpen(false)}
-        />
+        {runIfFn(children, state)}
       </DatePickerStylesProvider>
     </DatePickerProvider>
   )
@@ -134,7 +132,8 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
 export interface DatePickerProps<
   TDateValue = DateValue,
   TFormattedValue = FormattedValue
-> extends DatePickerContainerProps {}
+> extends Omit<DatePickerContainerProps, 'children'>,
+    Omit<PopoverProps, 'variant' | 'size'> {}
 
 /**
  * DatePicker
@@ -143,4 +142,92 @@ export interface DatePickerProps<
  *
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker
  */
-export const DatePicker = DatePickerContainer
+export const DatePicker: React.FC<DatePickerProps> = (props) => {
+  const {
+    children,
+    arrowPadding,
+    arrowShadowColor,
+    arrowSize,
+    autoFocus,
+    boundary,
+    closeDelay,
+    closeOnBlur,
+    closeOnEsc,
+    computePositionOnMount,
+    defaultIsOpen,
+    direction,
+    eventListeners,
+    flip,
+    gutter,
+    initialFocusRef,
+    isLazy,
+    lazyBehavior,
+    modifiers,
+    offset,
+    openDelay,
+    placement,
+    preventOverflow,
+    returnFocusOnClose,
+    strategy,
+    trigger,
+    ...containerProps
+  } = props
+
+  const popoverProps = {
+    arrowPadding,
+    arrowShadowColor,
+    arrowSize,
+    autoFocus,
+    boundary,
+    closeDelay,
+    closeOnBlur,
+    closeOnEsc,
+    computePositionOnMount,
+    defaultIsOpen,
+    direction,
+    eventListeners,
+    flip,
+    gutter,
+    initialFocusRef,
+    isLazy,
+    lazyBehavior,
+    modifiers,
+    offset,
+    openDelay,
+    placement,
+    preventOverflow,
+    returnFocusOnClose,
+    strategy,
+    trigger,
+  }
+
+  return (
+    <DatePickerContainer {...containerProps}>
+      {(state) => {
+        return (
+          <Popover
+            {...popoverProps}
+            onOpen={() => state.setOpen(true)}
+            onClose={() => state.setOpen(false)}
+          >
+            {children}
+          </Popover>
+        )
+      }}
+    </DatePickerContainer>
+  )
+}
+
+/**
+ * DatePickerStatic
+ *
+ * Allow users to select a date and time value.
+ *
+ * @see Docs https://saas-ui.dev/docs/date-time/date-picker
+ */
+export interface DatePickerStaticProps extends DatePickerContainerProps {}
+
+export const DatePickerStatic: React.FC<DatePickerStaticProps> = (props) => {
+  const { children, ...rest } = props
+  return <DatePickerContainer {...rest}>{children}</DatePickerContainer>
+}

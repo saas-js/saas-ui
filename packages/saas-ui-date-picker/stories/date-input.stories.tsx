@@ -9,6 +9,7 @@ import {
   DateValue,
 } from '../src'
 import {
+  Box,
   Container,
   FormControl,
   FormLabel,
@@ -102,5 +103,21 @@ export const FormWithDateField = () => {
         <SubmitButton />
       </FormLayout>
     </Form>
+  )
+}
+
+export const Sizes = () => {
+  return (
+    <VStack spacing="8" alignItems="flex-start">
+      <Box>
+        <DateInput label="Birthday" size="sm" />
+      </Box>
+      <Box>
+        <DateInput label="Birthday" size="md" />
+      </Box>
+      <Box>
+        <DateInput label="Birthday" size="lg" />
+      </Box>
+    </VStack>
   )
 }

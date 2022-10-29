@@ -7332,7 +7332,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
+    "@chakra-ui/icons": ^2.0.2
     "@chakra-ui/react-utils": ^2.0.3
+    "@chakra-ui/theme-tools": ^2.0.5
     "@chakra-ui/utils": ^2.0.2
     "@internationalized/date": ^3.0.1
     "@react-aria/calendar": ^3.0.3
@@ -7341,9 +7343,12 @@ __metadata:
     "@react-stately/calendar": ^3.0.3
     "@react-stately/datepicker": ^3.1.0
     "@react-types/datepicker": ^3.1.2
+    "@saas-ui/card": "workspace:*"
     "@saas-ui/forms": "workspace:*"
+    "@saas-ui/modals": "workspace:*"
     date-fns: ^2.28.0
   peerDependencies:
+    "@chakra-ui/react": ">=2.1.0"
     "@chakra-ui/system": ">=2.0.0"
     react: ">=18.0.0"
   languageName: unknown

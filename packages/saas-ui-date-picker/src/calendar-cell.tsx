@@ -3,7 +3,6 @@ import { useRef } from 'react'
 import { isSameMonth, CalendarDate } from '@internationalized/date'
 import { chakra } from '@chakra-ui/react'
 import { CalendarState, RangeCalendarState } from '@react-stately/calendar'
-import { dataAttr } from '@chakra-ui/utils'
 import { useDatePickerStyles, useCalendarCell } from './date-picker-context'
 
 interface CalendarCellProps {

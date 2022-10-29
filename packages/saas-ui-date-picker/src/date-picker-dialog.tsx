@@ -8,7 +8,6 @@ import {
   PopoverContent,
   PopoverContentProps,
   PopoverTrigger,
-  Portal,
 } from '@chakra-ui/react'
 import { useDatePickerDialog, useDatePickerStyles } from './date-picker-context'
 

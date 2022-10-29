@@ -16,7 +16,7 @@ const parts = anatomy('date-picker').parts(
   'dayLabel'
 )
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => {
   const { colorScheme: c } = props
 
   const selected = {

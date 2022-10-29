@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 import { VStack } from '@chakra-ui/react'
-import { Modal, BaseModalProps, Button, ButtonGroup } from '@saas-ui/react'
-
+import { Modal, BaseModalProps } from '@saas-ui/modals'
+import { Button, ButtonGroup } from '@chakra-ui/react'
 import { DatePickerStatic, DatePickerStaticProps } from './date-picker'
 import { useDatePickerModal } from './use-date-picker-modal'
 import { DatePickerCalendar } from './calendar'
@@ -22,8 +22,12 @@ export const DatePickerModal: React.FC<DatePickerModalProps> = (props) => {
 
   const footer = (
     <ButtonGroup>
-      <Button label="Cancel" variant="ghost" onClick={onClose} />
-      <Button label="Submit" colorScheme="primary" onClick={onSubmit} />
+      <Button variant="ghost" onClick={onClose}>
+        Cancel
+      </Button>
+      <Button colorScheme="primary" onClick={onSubmit}>
+        Submit
+      </Button>
     </ButtonGroup>
   )
 

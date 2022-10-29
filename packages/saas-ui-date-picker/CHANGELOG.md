@@ -1,7 +1,7 @@
 # @saas-ui/date-picker
 
-## 0.1.0
+## 0.6.0
 
 ### Minor Changes
 
-- Initial release
+- Complete rewrite using React Aria.

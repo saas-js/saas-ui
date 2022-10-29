@@ -20,14 +20,6 @@ import {
   now,
 } from '@internationalized/date'
 import { isDateInRange } from './date'
-import {
-  useControllableState,
-  UseControllableStateProps,
-  useDisclosure,
-  UseDisclosureProps,
-} from '@chakra-ui/react'
-import { DateValue } from './types'
-import { DatePickerProps, DatePickerStaticProps } from './date-picker'
 
 export const [DatePickerStylesProvider, useDatePickerStyles] = createContext<
   Record<string, SystemStyleObject>
@@ -36,6 +28,7 @@ export const [DatePickerStylesProvider, useDatePickerStyles] = createContext<
 })
 
 interface BaseContextValue {
+  action?: 'date' | 'year'
   datePickerRef: React.RefObject<HTMLDivElement>
   locale: string
   hourCycle: 12 | 24
@@ -133,62 +126,5 @@ export const useCalendarCell = (
     isSelected,
     isInvalid,
     formattedDate,
-  }
-}
-
-export interface UseDatePickerModalProps
-  extends UseControllableStateProps<DateValue | null>,
-    UseDisclosureProps {
-  onSubmit?(value: DateValue | null): void
-}
-
-export const useDatePickerModal = (props: UseDatePickerModalProps) => {
-  const {
-    defaultIsOpen,
-    isOpen: isOpenProp,
-    onOpen: onOpenProp,
-    onClose: onCloseProp,
-    onSubmit: onSubmitProp,
-    defaultValue = null,
-    value: valueProp,
-    onChange,
-  } = props
-
-  const [value, setValue] = useControllableState<DateValue | null>({
-    defaultValue,
-    value: valueProp,
-    onChange,
-  })
-
-  const { onClose, onOpen, isOpen } = useDisclosure({
-    defaultIsOpen,
-    isOpen: isOpenProp,
-    onOpen: onOpenProp,
-    onClose: onCloseProp,
-  })
-
-  const onSubmit = () => {
-    onSubmitProp?.(value)
-    onClose()
-  }
-
-  const modalProps = {
-    isOpen,
-    onClose,
-    onOpen,
-  }
-
-  const datePickerProps: DatePickerProps = {
-    value,
-    onChange(value) {
-      setValue(value)
-    },
-  }
-
-  return {
-    onClose,
-    onSubmit,
-    modalProps,
-    datePickerProps,
   }
 }

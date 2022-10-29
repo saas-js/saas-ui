@@ -14,9 +14,7 @@ export default {
     variant: 'fullscreen',
   },
   variants: {
-    static: {
-      minHeight: '100%',
-    },
+    static: {},
     fullscreen: {
       container: {
         position: 'absolute',

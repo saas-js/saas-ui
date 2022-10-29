@@ -524,6 +524,8 @@ const Pricing = () => {
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.plausible?.('Order Bootstrap')
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Bootstrap')
                 })
               }
             >
@@ -570,7 +572,9 @@ const Pricing = () => {
               onClick={() =>
                 setTimeout(() => {
                   /* @ts-ignore */
-                  window?.plausible?.('Order Bootstrap')
+                  window?.plausible?.('Order Startup')
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Startup')
                 })
               }
             >
@@ -688,8 +692,14 @@ const MemberShip = () => {
         <PricingFeature title="Hands-on support" iconColor="cyan.500" />
       </PricingFeatures>
       <ButtonLink
-        href="mailto:hello@saas-ui.dev?subject=Elite membership"
+        href="mailto:hello@saas-ui.dev?subject=Membership"
         colorScheme="cyan"
+        onClick={() => {
+          setTimeout(() => {
+            /* @ts-ignore */
+            window?.pirsch?.('Membership')
+          })
+        }}
       >
         Get in touch
       </ButtonLink>

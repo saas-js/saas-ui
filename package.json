@@ -57,7 +57,6 @@
     "packages/saas-ui-*",
     "packages/pro/saas-ui/*",
     "apps/*",
-    "examples/*",
     "tooling/next-workspaces",
     "tooling/test-utils",
     "tooling/props-docs"
@@ -69,7 +68,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@chakra-ui/cli": "^2.1.1",
-    "@chakra-ui/react": "^2.2.1",
+    "@chakra-ui/react": "^2.2.4",
     "@changesets/cli": "^2.23.0",
     "@clerk/clerk-react": "^3.3.0",
     "@emotion/jest": "^11.9.3",
@@ -118,10 +117,12 @@
     "ts-node": "^10.8.1",
     "turbo": "^1.5.3",
     "typescript": "^4.7.3",
+    "vercel-submodules": "^1.0.6",
     "yup": "^0.32.11",
     "zod": "^3.17.3"
   },
   "resolutions": {
+    "@chakra-ui/react": "2.2.4",
     "@chakra-ui/system": "^2.2.0",
     "unist-util-visit": "4.0.0"
   },

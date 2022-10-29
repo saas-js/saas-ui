@@ -8,17 +8,16 @@ export default {
   title: 'Components/Layout/AppShell',
   parameters: {
     docs: {},
+    layout: 'fullscreen',
   },
 } as Meta
 
 const Template: Story = ({ children, ...args }) => (
-  <AppShell borderWidth="1px" {...args}>
-    {children}
-  </AppShell>
+  <AppShell {...args}>{children}</AppShell>
 )
 
-export const Basic = Template.bind({})
-Basic.args = {
+export const FullscreenVariant = Template.bind({})
+FullscreenVariant.args = {
   navbar: (
     <Box height="16" borderBottomWidth="1px">
       Navbar
@@ -29,7 +28,39 @@ Basic.args = {
       Sidebar
     </Box>
   ),
-  children: <Box as="main">Main content</Box>,
+  children: (
+    <Box as="main" overflow="auto">
+      <Box height="4000px">Main content</Box>
+    </Box>
+  ),
+  footer: (
+    <Box height="16" borderTopWidth="1px">
+      Footer
+    </Box>
+  ),
+}
+
+export const AbsoluteVariant = Template.bind({})
+AbsoluteVariant.args = {
+  variant: 'static',
+  height: '100vh',
+  navbar: (
+    <Box height="16" borderBottomWidth="1px">
+      Navbar
+    </Box>
+  ),
+  sidebar: (
+    <Box width="300px" borderRightWidth="1px">
+      Sidebar
+    </Box>
+  ),
+  children: (
+    <Box as="main" p="8">
+      The absolut variant is absolute positioned with `inset: 0`. To make it
+      fill the entire viewport add 100% to html, body and any wrapping elements.
+      Or set height of AppShell to 100vh.
+    </Box>
+  ),
   footer: (
     <Box height="16" borderTopWidth="1px">
       Footer
@@ -41,19 +72,34 @@ export const StaticVariant = Template.bind({})
 StaticVariant.args = {
   variant: 'static',
   navbar: (
-    <Box height="16" borderBottomWidth="1px">
+    <Box
+      height="48px"
+      borderBottomWidth="1px"
+      position="sticky"
+      top="0"
+      bg="white"
+      _dark={{
+        bg: 'gray.800',
+      }}
+    >
       Navbar
     </Box>
   ),
   sidebar: (
-    <Box width="300px" borderRightWidth="1px">
+    <Box
+      width="300px"
+      height="calc(100vh - 48px)"
+      borderRightWidth="1px"
+      position="sticky"
+      top="48px"
+      p="8"
+    >
       Sidebar
     </Box>
   ),
-  children: <Box as="main">Main content</Box>,
-  footer: (
-    <Box height="16" borderTopWidth="1px">
-      Footer
+  children: (
+    <Box as="main" height="4000px" p="8">
+      Main content
     </Box>
   ),
 }

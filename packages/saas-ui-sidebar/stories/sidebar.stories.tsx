@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 import {
   Badge,
+  BadgeProps,
   Button,
   Flex,
   Heading,
@@ -157,7 +158,7 @@ WithCollapsibleGroup.args = {
   ),
 }
 
-const NavItemBadge = (props) => (
+const NavItemBadge = (props: BadgeProps) => (
   <Badge bg="whiteAlpha.200" fontWeight="normal" rounded="md" {...props} />
 )
 
@@ -275,6 +276,7 @@ WithSolidLinks.args = {
 export const VariantCondensed = Template.bind({})
 VariantCondensed.args = {
   variant: 'condensed',
+  width: '64px',
   children: (
     <>
       <Nav>
@@ -302,6 +304,7 @@ export const VariantCondensedColor = Template.bind({})
 VariantCondensedColor.args = {
   variant: 'condensed',
   colorScheme: 'purple',
+  width: '64px',
   children: (
     <>
       <Logo width="24px" color="white" />
@@ -339,13 +342,12 @@ export const DoubleSidebar = () => {
         zIndex="3"
         position="relative"
       >
-        <Logo width="24px" color="white" />
+        <Logo width="24px" color="white" mb="1" />
 
         <NavGroup>
           <NavItem
             label="Users"
             icon={<FiUsers size="1.2em" color="white" />}
-            size="md"
             isActive
             onClick={(e) => {
               e.preventDefault()
@@ -355,7 +357,6 @@ export const DoubleSidebar = () => {
           <NavItem
             label="Settings"
             icon={<FiSettings size="1.2em" color="white" />}
-            size="md"
             onClick={(e) => {
               e.preventDefault()
               disclosure.onClose()

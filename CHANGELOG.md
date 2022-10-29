@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 10-22-2022
+
+**Sidebar** `v0.2.0`
+
+- Add new motionPreset property, sidebar animation can be disabled with motionPreset="none"
+
+**Theme** `v1.3.1`
+
+- Clean up AppShell theme
+
 ## 10-08-2022
 
 `@saas-ui/react@1.4.4`

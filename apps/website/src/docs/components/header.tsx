@@ -13,7 +13,7 @@ import {
   useUpdateEffect,
 } from '@chakra-ui/react'
 import siteConfig from '@/data/site-config'
-import { useViewportScroll } from 'framer-motion'
+import { useScroll } from 'framer-motion'
 import NextLink from 'next/link'
 import React from 'react'
 import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
@@ -131,7 +131,7 @@ function Header(props: HTMLChakraProps<'header'>) {
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
 
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   React.useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])

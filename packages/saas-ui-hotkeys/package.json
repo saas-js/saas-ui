@@ -57,8 +57,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/react-utils": "^2.0.1",
-    "@chakra-ui/utils": "^2.0.2",
+    "@chakra-ui/react-utils": "^2.0.8",
+    "@chakra-ui/utils": "^2.0.11",
     "@saas-ui/search-input": "workspace:*"
   },
   "peerDependencies": {

@@ -7120,9 +7120,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker-legacy@workspace:packages/pro/saas-ui/date-picker-legacy":
+"@saas-ui/date-picker@workspace:packages/pro/saas-ui/date-picker":
   version: 0.0.0-use.local
-  resolution: "@saas-ui/date-picker-legacy@workspace:packages/pro/saas-ui/date-picker-legacy"
+  resolution: "@saas-ui/date-picker@workspace:packages/pro/saas-ui/date-picker"
   dependencies:
     "@chakra-ui/icons": ^2.0.11
     "@chakra-ui/react-utils": ^2.0.8

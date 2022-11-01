@@ -1,5 +1,41 @@
 # @saas-ui/react
 
+## 1.5.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/auth@1.4.0
+  - @saas-ui/banner@1.2.0
+  - @saas-ui/button@1.2.0
+  - @saas-ui/card@1.3.0
+  - @saas-ui/collapse@1.2.0
+  - @saas-ui/data-table@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/hotkeys@1.2.0
+  - @saas-ui/input-right-button@1.2.0
+  - @saas-ui/layout@1.2.0
+  - @saas-ui/list@1.2.0
+  - @saas-ui/menu@1.2.0
+  - @saas-ui/modals@1.3.0
+  - @saas-ui/nprogress@1.2.0
+  - @saas-ui/number-input@1.2.0
+  - @saas-ui/palette@1.2.0
+  - @saas-ui/password-input@1.2.0
+  - @saas-ui/persona@1.2.0
+  - @saas-ui/pin-input@1.2.0
+  - @saas-ui/property@1.2.0
+  - @saas-ui/radio@1.2.0
+  - @saas-ui/search-input@1.2.0
+  - @saas-ui/select@1.2.0
+  - @saas-ui/stepper@1.2.0
+  - @saas-ui/theme@1.4.0
+  - @saas-ui/provider@1.1.3
+
 ## 1.4.5
 
 ### Patch Changes

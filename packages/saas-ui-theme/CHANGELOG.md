@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.4.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
 ## 1.3.1
 
 ### Patch Changes

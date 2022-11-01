@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 1.6.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
 ## 1.5.0
 
 ### Minor Changes

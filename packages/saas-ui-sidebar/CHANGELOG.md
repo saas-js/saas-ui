@@ -1,5 +1,12 @@
 # @saas-ui/sidebar
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/provider@1.1.4
+
 ## 0.3.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/provider
 
+## 1.1.4
+
+### Patch Changes
+
+- 065e94d: Added new route value to Router context.
+
 ## 1.1.3
 
 ### Patch Changes

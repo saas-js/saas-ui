@@ -1,5 +1,17 @@
 # @saas-ui/auth
 
+## 1.5.0
+
+### Minor Changes
+
+- 065e94d: Supabase auth service updated to v2, thanks to @KeKs0r
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/hooks@1.1.2
+  - @saas-ui/layout@1.2.1
+
 ## 1.4.0
 
 ### Minor Changes

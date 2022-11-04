@@ -1,5 +1,12 @@
 # @saas-ui/menu
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/provider@1.1.4
+
 ## 1.2.0
 
 ### Minor Changes

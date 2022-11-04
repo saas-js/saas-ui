@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 1.1.2
+
+### Patch Changes
+
+- 065e94d: Improved usePromise type signature.
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 1.6.0
+
+### Minor Changes
+
+- 065e94d: Supabase auth service updated to v2, thanks to @KeKs0r
+
+### Patch Changes
+
+- 065e94d: Improved usePromise type signature.
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+  - @saas-ui/hooks@1.1.2
+  - @saas-ui/auth@1.5.0
+  - @saas-ui/provider@1.1.4
+  - @saas-ui/layout@1.2.1
+  - @saas-ui/menu@1.2.1
+  - @saas-ui/data-table@1.2.1
+  - @saas-ui/modals@1.3.1
+
 ## 1.5.0
 
 ### Minor Changes

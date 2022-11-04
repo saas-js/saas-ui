@@ -11,6 +11,7 @@ import type {
   OAuthResponse,
   Provider,
   Session,
+  User,
   SupabaseClient,
   VerifyEmailOtpParams,
   VerifyMobileOtpParams,
@@ -24,6 +25,10 @@ interface RecoveryParams {
   type?: string
 }
 
+interface OtpParams extends AuthParams {
+  otp: string
+}
+
 const getParams = (): RecoveryParams => {
   const hash = window.location.hash.replace('#', '')
   return hash.split('&').reduce<any>((memo, part) => {
@@ -35,18 +40,18 @@ const getParams = (): RecoveryParams => {
 
 export const createAuthService = (
   supabase: SupabaseClient<any, 'public', any>
-): AuthProviderProps => {
-  const onLogin = async (params: AuthParams, options?: AuthOptions) => {
+): AuthProviderProps<User> => {
+  const onLogin = async (
+    params: AuthParams,
+    options?: AuthOptions<{ data?: object; captchaToken?: string }>
+  ) => {
     function authenticate() {
       const { email, password, provider, phone } = params
       if (email && password) {
         return supabase.auth.signInWithPassword({
           email,
           password,
-          options: {
-            captchaToken: options?.captchaToken,
-            data: options?.data,
-          },
+          options,
         })
       } else if (email) {
         return supabase.auth.signInWithOtp({ email })
@@ -76,45 +81,56 @@ export const createAuthService = (
     return resp.data.user
   }
 
-  const onSignup = async (params: AuthParams, options?: AuthOptions) => {
-    const { email, password, phone } = params
-    if (!password) {
-      throw new Error('Need to provide password to signUp')
+  const onSignup = async (
+    params: AuthParams,
+    options?: AuthOptions<{
+      captchaToken?: string
+      emailRedirectTo?: string
+      data?: object
+    }>
+  ) => {
+    if (!params.password) {
+      throw new Error('Password is required')
     }
 
-    const resp = await supabase.auth.signUp({
-      email,
-      password,
-      phone,
-      options: {
-        captchaToken: options?.captchaToken,
-        emailRedirectTo: options?.redirectTo,
-        data: options?.data,
-      },
-    })
+    let resp
+    if (params.email) {
+      const { email, password } = params
 
-    if (resp.error) {
+      resp = await supabase.auth.signUp({
+        email,
+        password,
+        options,
+      })
+    } else if (params.phone) {
+      const { phone, password } = params
+
+      resp = await supabase.auth.signUp({
+        phone,
+        password,
+        options,
+      })
+    }
+
+    if (resp?.error) {
       throw resp.error
     }
-    return resp.data.user
+
+    return resp?.data.user
   }
 
-  const onVerifyOtp = async (params: AuthParams, options?: AuthOptions) => {
-    // redirectTo & captcha are part of the options, but not for AuthParams, maybe add there?
-    const { email, phone, otp, type, redirectTo, captchaToken } = params
-    if (!otp) {
-      throw new Error(`Need otp to verify`)
-    }
+  const onVerifyOtp = async (
+    params: OtpParams,
+    options?: AuthOptions<{ captchaToken?: string }>
+  ) => {
+    const { email, phone, otp, type } = params
 
     if (email) {
       const verify: VerifyEmailOtpParams = {
         email,
         token: otp,
         type: type || 'signup',
-        options: {
-          captchaToken: options?.captchaToken,
-          redirectTo: options?.redirectTo,
-        },
+        options,
       }
       const resp = await supabase.auth.verifyOtp(verify)
       if (resp.error) {
@@ -147,7 +163,7 @@ export const createAuthService = (
     return await supabase.auth.signOut()
   }
 
-  const onAuthStateChange = (callback: AuthStateChangeCallback) => {
+  const onAuthStateChange = (callback: AuthStateChangeCallback<User>) => {
     const { data } = supabase.auth.onAuthStateChange(
       (event: AuthChangeEvent, session: Session | null) => {
         callback(session?.user)
@@ -173,24 +189,28 @@ export const createAuthService = (
     return data.session?.access_token || null
   }
 
-  const onResetPassword = async ({ email }: AuthParams) => {
-    if (!email) {
-      throw new Error('Need to provide email')
-    }
-    const { error } = await supabase.auth.resetPasswordForEmail(email)
+  const onResetPassword = async (
+    { email }: Required<Pick<AuthParams, 'email'>>,
+    options?: AuthOptions
+  ) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, options)
     if (error) {
       throw error
     }
   }
 
-  const onUpdatePassword = async ({ password }: AuthParams) => {
+  const onUpdatePassword = async ({
+    password,
+  }: Required<Pick<AuthParams, 'password'>>) => {
     const params = getParams()
 
     if (params?.type === 'recovery') {
-      // I just changed to fit the Types, but the logic might be wrong
-      await supabase.auth.updateUser({
+      const { error } = await supabase.auth.updateUser({
         password,
       })
+      if (error) {
+        throw error
+      }
     }
   }
 

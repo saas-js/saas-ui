@@ -3,6 +3,7 @@ import * as React from 'react'
 const { createContext, useState, useContext, useEffect, useCallback } = React
 
 import { usePromise } from '@saas-ui/hooks'
+import { SignUpWithPasswordCredentials } from '@supabase/supabase-js'
 
 export type AuthTypeEnum = 'magiclink' | 'password'
 
@@ -24,6 +25,8 @@ export interface AuthOptions {
    * The url to redirect to after social or magic link login.
    */
   redirectTo?: string
+  data?: any
+  captchaToken?: string
 }
 
 /**
@@ -104,6 +107,10 @@ export type AuthFunction = (
   options?: AuthOptions
 ) => Promise<any>
 
+interface ResetParams {
+  email: string
+}
+
 export interface AuthContextValue<TUser extends User = User> {
   isAuthenticated: boolean
   isLoggingIn: boolean
@@ -112,7 +119,7 @@ export interface AuthContextValue<TUser extends User = User> {
   signUp: AuthFunction
   logIn: AuthFunction
   verifyOtp: AuthFunction
-  resetPassword: AuthFunction
+  resetPassword: (params: ResetParams) => Promise<void>
   updatePassword: AuthFunction
   logOut: (options?: AuthOptions) => Promise<unknown>
   loadUser: () => void

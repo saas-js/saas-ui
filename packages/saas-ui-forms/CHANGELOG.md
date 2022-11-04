@@ -1,5 +1,23 @@
 # @saas-ui/forms
 
+## 1.3.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/input-right-button@1.2.0
+  - @saas-ui/number-input@1.2.0
+  - @saas-ui/password-input@1.2.0
+  - @saas-ui/pin-input@1.2.0
+  - @saas-ui/radio@1.2.0
+  - @saas-ui/select@1.2.0
+  - @saas-ui/stepper@1.2.0
+
 ## 1.2.2
 
 ### Patch Changes

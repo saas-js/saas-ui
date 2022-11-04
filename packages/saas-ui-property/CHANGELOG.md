@@ -1,5 +1,16 @@
 # @saas-ui/property
 
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/list@1.2.0
+
 ## 1.1.0
 
 ### Minor Changes

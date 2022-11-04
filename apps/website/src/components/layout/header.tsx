@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react'
 import Navigation from './navigation'
 import Logo from './logo'
-import { useViewportScroll } from 'framer-motion'
+import { useScroll } from 'framer-motion'
 
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
@@ -18,7 +18,7 @@ const Header = (props: HeaderProps) => {
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
 
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   React.useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])

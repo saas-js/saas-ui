@@ -1,5 +1,24 @@
 # @saas-ui/menu
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/provider@1.1.4
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/provider@1.1.3
+
 ## 1.1.2
 
 ### Patch Changes

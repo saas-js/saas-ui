@@ -163,28 +163,28 @@ export default {
   baseStyle,
   sizes: {
     xs: {
-      link: baseTheme.components.Button.sizes.xs,
+      link: baseTheme.components.Button.sizes?.xs,
       icon: {
         me: 2,
         fontSize: 'xs',
       },
     },
     sm: {
-      link: baseTheme.components.Button.sizes.sm,
+      link: baseTheme.components.Button.sizes?.sm,
       icon: {
         me: 2,
         fontSize: 'sm',
       },
     },
     md: {
-      link: baseTheme.components.Button.sizes.md,
+      link: baseTheme.components.Button.sizes?.md,
       icon: {
         me: 2,
         fontSize: 'md',
       },
     },
     lg: {
-      link: baseTheme.components.Button.sizes.lg,
+      link: baseTheme.components.Button.sizes?.lg,
       icon: {
         me: 2,
         fontSize: 'lg',

@@ -4,12 +4,7 @@ import { theme as baseTheme } from '@saas-ui/pro'
 
 import '@fontsource/inter/variable.css'
 
-import {
-  createBreakpoints,
-  mode,
-  transparentize,
-  blacken,
-} from '@chakra-ui/theme-tools'
+import { mode, transparentize, blacken } from '@chakra-ui/theme-tools'
 
 import Badge from './components/badge'
 import Button from './components/button'
@@ -71,7 +66,7 @@ const theme = extendTheme(
       initialColorMode: 'dark',
       useSystemColorMode: false,
     },
-    breakpoints: createBreakpoints(breakpoints),
+    breakpoints,
     colors,
     semanticTokens: {
       colors: {

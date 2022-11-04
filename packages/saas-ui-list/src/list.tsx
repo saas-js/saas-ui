@@ -12,6 +12,7 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
   createStylesContext,
+  ResponsiveValue,
 } from '@chakra-ui/system'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
@@ -272,10 +273,10 @@ if (__DEV__) {
 
 export interface ListItemIconProps extends HTMLChakraProps<'div'> {
   /**
-   * The icon size, based on fontSize
-   * @default 'xl'
+   * The icon size
+   * @default 5
    */
-  size?: SystemProps['fontSize']
+  size?: SystemProps['boxSize']
   /**
    * The icon spacing, ltr supported
    */
@@ -297,7 +298,7 @@ export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
   if (!_icon && as) {
     _icon = <Icon as={as} role="presentation" boxSize={size} />
   } else if (React.isValidElement(_icon) && _icon.type === Icon) {
-    _icon = React.cloneElement(_icon, {
+    _icon = React.cloneElement<any>(_icon, {
       boxSize: size,
     })
   }

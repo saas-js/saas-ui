@@ -1,5 +1,30 @@
 # @saas-ui/auth
 
+## 1.5.0
+
+### Minor Changes
+
+- 065e94d: Supabase auth service updated to v2, thanks to @KeKs0r
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/hooks@1.1.2
+  - @saas-ui/layout@1.2.1
+
+## 1.4.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/layout@1.2.0
+
 ## 1.3.4
 
 ### Patch Changes

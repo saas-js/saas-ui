@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/auth",
-  "version": "1.3.4",
+  "version": "1.5.0",
   "description": "Authentication provider and components for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -72,7 +72,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.2",
+    "@chakra-ui/utils": "^2.0.11",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
@@ -81,7 +81,11 @@
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",
     "@chakra-ui/system": ">=2.1.0",
+    "@supabase/supabase-js": "2.0.5",
     "framer-motion": ">=5.5.0",
     "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.0.5"
   }
 }

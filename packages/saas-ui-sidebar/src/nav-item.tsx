@@ -41,7 +41,7 @@ const NavItemIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
 
   const child = React.Children.only(children)
 
-  const clone = React.isValidElement(child)
+  const clone = React.isValidElement<HTMLChakraProps<any>>(child)
     ? React.cloneElement(child, {
         focusable: 'false',
         'aria-hidden': true,

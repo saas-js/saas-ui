@@ -1,5 +1,25 @@
 # palette
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+  - @saas-ui/react@1.6.0
+
+## 1.1.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/palette@1.2.0
+  - @saas-ui/react@1.5.0
+
 ## 1.0.18
 
 ### Patch Changes

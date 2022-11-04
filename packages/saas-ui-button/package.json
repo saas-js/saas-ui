@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/button",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Button Component",
   "source": "src/index.ts",
   "exports": {
@@ -56,8 +56,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/button": "^2.0.2",
-    "@chakra-ui/utils": "^2.0.2"
+    "@chakra-ui/button": "^2.0.11",
+    "@chakra-ui/utils": "^2.0.11"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.1.0",

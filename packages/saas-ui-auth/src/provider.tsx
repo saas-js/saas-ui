@@ -19,12 +19,13 @@ export interface AuthParams {
   [key: string]: any
 }
 
-export interface AuthOptions {
+export type ExtraAuthOptions = Record<string, unknown>
+export type AuthOptions<ExtraOptions extends object = ExtraAuthOptions> = {
   /**
    * The url to redirect to after social or magic link login.
    */
   redirectTo?: string
-}
+} & ExtraOptions
 
 /**
  * The user object, id is required.
@@ -64,21 +65,21 @@ export interface AuthProviderProps<TUser extends User = User> {
    * Request to reset a password.
    */
   onResetPassword?: (
-    params: Pick<AuthParams, 'email'>,
+    params: Required<Pick<AuthParams, 'email'>>,
     options?: AuthOptions
   ) => Promise<void>
   /**
    * Update the password.
    */
   onUpdatePassword?: (
-    params: Pick<AuthParams, 'password'>,
+    params: Required<Pick<AuthParams, 'password'>>,
     options?: AuthOptions
   ) => Promise<void>
   /**
    * Verify an one time password (2fa)
    */
   onVerifyOtp?: (
-    params: AuthParams,
+    params: OtpParams,
     options?: AuthOptions
   ) => Promise<boolean | undefined | null>
   /**
@@ -99,10 +100,17 @@ export interface AuthProviderProps<TUser extends User = User> {
   children?: React.ReactNode
 }
 
-export type AuthFunction = (
-  params: AuthParams,
-  options?: AuthOptions
-) => Promise<any>
+export type AuthFunction<
+  TParams = AuthParams,
+  TExtraOptions extends object = Record<string, unknown>
+> = (params: TParams, options?: AuthOptions<TExtraOptions>) => Promise<any>
+
+interface OtpParams extends AuthParams {
+  otp: string
+}
+
+type ResetPasswordParams = Required<Pick<AuthParams, 'email'>>
+type UpdatePasswordParams = Required<Pick<AuthParams, 'password'>>
 
 export interface AuthContextValue<TUser extends User = User> {
   isAuthenticated: boolean
@@ -111,9 +119,9 @@ export interface AuthContextValue<TUser extends User = User> {
   user?: TUser | null
   signUp: AuthFunction
   logIn: AuthFunction
-  verifyOtp: AuthFunction
-  resetPassword: AuthFunction
-  updatePassword: AuthFunction
+  verifyOtp: AuthFunction<OtpParams>
+  resetPassword: AuthFunction<ResetPasswordParams>
+  updatePassword: AuthFunction<UpdatePasswordParams>
   logOut: (options?: AuthOptions) => Promise<unknown>
   loadUser: () => void
   getToken: () => Promise<AuthToken>
@@ -215,7 +223,7 @@ export const AuthProvider = <TUser extends User = User>({
   }, [onLogout])
 
   const verifyOtp = useCallback(
-    async (params: AuthParams, options?: AuthOptions) => {
+    async (params: OtpParams, options?: AuthOptions) => {
       const result = await onVerifyOtp(params, options)
       return result
     },
@@ -223,14 +231,20 @@ export const AuthProvider = <TUser extends User = User>({
   )
 
   const resetPassword = useCallback(
-    async (params: Pick<AuthParams, 'email'>, options?: AuthOptions) => {
+    async (
+      params: Required<Pick<AuthParams, 'email'>>,
+      options?: AuthOptions
+    ) => {
       await onResetPassword?.(params, options)
     },
     [onResetPassword]
   )
 
   const updatePassword = useCallback(
-    async (params: Pick<AuthParams, 'password'>, options?: AuthOptions) => {
+    async (
+      params: Required<Pick<AuthParams, 'password'>>,
+      options?: AuthOptions
+    ) => {
       await onUpdatePassword?.(params, options)
     },
     [onUpdatePassword]
@@ -284,30 +298,26 @@ export interface UseLoginProps {
 
 export const useLogin = ({ action = 'logIn' }: UseLoginProps = {}) => {
   const auth = useAuth()
-
-  return usePromise<AuthFunction>((args: AuthParams) => auth[action]?.(args))
+  const fn = auth[action] || auth['logIn']
+  return usePromise<AuthFunction>(fn)
 }
 
 export const useSignUp = () => {
   const { signUp } = useAuth()
-
-  return usePromise<AuthFunction>((args: AuthParams) => signUp(args))
+  return usePromise(signUp)
 }
 
 export const useOtp = () => {
   const { verifyOtp } = useAuth()
-
-  return usePromise<AuthFunction>((args: AuthParams) => verifyOtp(args))
+  return usePromise(verifyOtp)
 }
 
 export const useResetPassword = () => {
   const { resetPassword } = useAuth()
-
-  return usePromise<AuthFunction>((args: AuthParams) => resetPassword(args))
+  return usePromise(resetPassword)
 }
 
 export const useUpdatePassword = () => {
   const { updatePassword } = useAuth()
-
-  return usePromise<AuthFunction>((args: AuthParams) => updatePassword(args))
+  return usePromise(updatePassword)
 }

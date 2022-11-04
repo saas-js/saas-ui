@@ -8,6 +8,25 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 11-04-2022
+
+`@saas-ui/react@1.6.0`
+
+- Improved usePromise type signature.
+- Supabase auth service updated to v2
+
+**Hooks** `v1.1.2`
+
+- Improved usePromise type signature.
+
+**Auth** `v1.5.0`
+
+- Supabase auth service updated to v2
+
+**Provider** `v1.1.4`
+
+- Added new route value to Router context.
+
 ## 10-22-2022
 
 **Sidebar** `v0.2.0`

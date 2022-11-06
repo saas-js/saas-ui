@@ -12,6 +12,12 @@ description: The App Shell defines the main structure of your app.
 
 A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content aside, and footer.
 
+<Info>
+  The AppShell is currently in beta, we'd love to hear your feedback while we
+  finalize the API. Please note that you need to import the components from
+  `@saas-ui/app-shell` instead of `@saas-ui/react` while in beta.
+</Info>
+
 ## Import
 
 - `AppShell`: The container component that manages composition.
@@ -22,26 +28,38 @@ import { AppShell } from '@saas-ui/app-shell'
 
 ## Usage
 
-<Info>
-  The AppShell is currently in beta, we'd love to hear your feedback while we
-  finalize the API. Please note that you need to import the components from
-  `@saas-ui/app-shell` instead of `@saas-ui/react` while in beta.
+<Info status="info">
+  To make sure AppShell fills up the entire viewport height, you need to add
+  `height="100%"` to html, body and any parent divs.
 </Info>
+
+You can add global css styles to your theme as follows.
+
+```tsx
+import { theme as baseTheme } from '@saas-ui/react'
+
+// Your custom theme
+export const theme = extendTheme(
+  {
+    global: () => ({
+      'html, body': {
+        height: '100%',
+      },
+    }),
+  },
+  baseTheme
+)
+```
+
+Alternatively you can set `height="100vh"` on AppShell, but this is less
+reliable across browsers, especially Mobile Safari.
 
 ### Basic shell
 
 AppShell will try to fit it's parent with position `absolute` and `inset: 0` by default.
 
-<Info>
-  You may need to set `height: 100%` on the html and body, or alternatively set
-  `height: 100vh` on the AppShell to make sure it fits the entire browser
-  viewport.
-</Info>
-
-```jsx
+```jsx height=400px
 <AppShell
-  variant="static"
-  height="400px"
   navbar={
     <Box as="header" borderBottomWidth="1px" py="2" px="4">
       <SaasUILogo width="100px" />
@@ -65,18 +83,26 @@ AppShell will try to fit it's parent with position `absolute` and `inset: 0` by 
 ### Variants
 
 The default variant is `fullscreen`, using the `static` variant the AppShell will behave like a regular flex box.
+Use the static variant when the AppShell needs a fixed height, or when using a sticky header / sidebar.
 
-```jsx
+```jsx height=400px
 <AppShell
   variant="static"
-  height="400px"
+  minH="100%"
   navbar={
-    <Box as="header" borderBottomWidth="1px" py="2" px="4">
+    <Box
+      as="header"
+      borderBottomWidth="1px"
+      py="2"
+      px="4"
+      position="sticky"
+      top="0"
+    >
       <SaasUILogo width="100px" />
     </Box>
   }
   sidebar={
-    <Sidebar>
+    <Sidebar position="sticky" top="40px">
       <SidebarSection>
         <NavItem label="Home" />
         <NavItem label="Settings" />
@@ -84,7 +110,7 @@ The default variant is `fullscreen`, using the `static` variant the AppShell wil
     </Sidebar>
   }
 >
-  <Box as="main" flex="1" py="2" px="4" overflowY="auto">
+  <Box as="main" flex="1" py="2" px="4">
     Your application content
   </Box>
 </AppShell>
@@ -94,10 +120,8 @@ The default variant is `fullscreen`, using the `static` variant the AppShell wil
 
 Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGrid <Badge bg="primary.500" >Pro</Badge>
 
-```jsx
+```jsx height=400px
 <AppShell
-  variant="static"
-  height="400px"
   sidebar={
     <Sidebar width="30%">
       <SidebarSection direction="row">

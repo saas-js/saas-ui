@@ -26,6 +26,7 @@ function CodeBlock(props) {
     viewlines,
     ln,
     mountStylesheet = false,
+    height,
   } = props.children.props
 
   const _live = live === 'true' || live === true
@@ -47,6 +48,7 @@ function CodeBlock(props) {
     theme,
     noInline: manual,
     mountStylesheet,
+    height,
   }
 
   if (isMounted && language === 'jsx' && _live === true) {

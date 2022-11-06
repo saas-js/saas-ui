@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.6.3
+
+### Patch Changes
+
+- 4b71ff7: Export missing components
+
 ## 0.6.2
 
 ### Patch Changes

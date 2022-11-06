@@ -3,18 +3,27 @@ export {
   DatePickerContainer,
   DatePickerStatic,
 } from './date-picker'
-
 export type { DatePickerProps, DatePickerContainerProps } from './date-picker'
 
-export { DateRangePicker, DateRangePickerContainer } from './date-range-picker'
+export {
+  DatePickerDialog,
+  DatePickerAnchor,
+  DatePickerTrigger,
+} from './date-picker-dialog'
+export type { DatePickerDialogProps } from './date-picker-dialog'
 
+export { DatePickerCalendar } from './calendar'
+export type { DatePickerCalendarProps } from './calendar'
+
+export { DateRangePicker, DateRangePickerContainer } from './date-range-picker'
 export type {
   DateRangePickerProps,
   DateRangePickerContainerProps,
 } from './date-range-picker'
 
-export { DateInput, DateTimeInput, DatePickerInput } from './date-input'
+export { DateRangePickerCalendar } from './date-range-calendar'
 
+export { DateInput, DateTimeInput, DatePickerInput } from './date-input'
 export type { DateInputProps } from './date-input'
 
 export { DateRangeInput } from './date-range-input'

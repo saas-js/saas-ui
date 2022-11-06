@@ -7,12 +7,12 @@ import {
   getLocalTimeZone,
   isWeekend,
   today,
+  DatePickerDialog,
+  DatePickerTrigger,
+  DatePickerCalendar,
+  DatePickerTimeField,
 } from '../src'
 import { Button, Container, Portal, VStack } from '@chakra-ui/react'
-import { DatePickerDialog, DatePickerTrigger } from '../src/date-picker-dialog'
-import { DatePickerCalendar } from '../src/calendar'
-
-import { DatePickerTimeField } from '../src/date-field'
 
 export default {
   title: 'Components/DateTime/DatePicker',

@@ -8,10 +8,12 @@ import { CalendarProvider, useCalendarContext } from './calendar-context'
 import { useCalendar } from './use-calendar'
 import { CalendarYearGrid } from './calendar-years'
 
-export interface CalendarProps
+export interface DatePickerCalendarProps
   extends Omit<HTMLChakraProps<'div'>, 'defaultValue' | 'onChange'> {}
 
-export const DatePickerCalendar: React.FC<CalendarProps> = (props) => {
+export const DatePickerCalendar: React.FC<DatePickerCalendarProps> = (
+  props
+) => {
   return (
     <CalendarContainer {...props}>
       <CalendarHeader>
@@ -24,7 +26,7 @@ export const DatePickerCalendar: React.FC<CalendarProps> = (props) => {
   )
 }
 
-export const CalendarContainer: React.FC<CalendarProps> = (props) => {
+export const CalendarContainer: React.FC<DatePickerCalendarProps> = (props) => {
   const { children, ...rest } = props
 
   const styles = useDatePickerStyles()
@@ -39,7 +41,7 @@ export const CalendarContainer: React.FC<CalendarProps> = (props) => {
 
   return (
     <CalendarProvider value={context}>
-      <chakra.div {...calendarProps} ref={ref} __css={calendarStyles}>
+      <chakra.div {...rest} {...calendarProps} ref={ref} __css={calendarStyles}>
         {children}
       </chakra.div>
     </CalendarProvider>

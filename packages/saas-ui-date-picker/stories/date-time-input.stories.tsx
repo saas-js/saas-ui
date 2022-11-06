@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { Container, VStack } from '@chakra-ui/react'
 
 import { DateInput, DateTimeInput } from '../src'
-import { Container, VStack } from '@chakra-ui/react'
 
 export default {
   title: 'Components/DateTime/DateTimeInput',

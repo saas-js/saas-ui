@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
+import { Button, Container, Portal, VStack } from '@chakra-ui/react'
+
 import {
   DateRangePicker,
   DateRangePickerTimeField,
   DateRangeValue,
+  DateRangePickerCalendar,
+  DatePickerDialog,
+  DatePickerTrigger,
 } from '../src'
-import { Button, Container, Portal, VStack } from '@chakra-ui/react'
-import { DatePickerDialog, DatePickerTrigger } from '../src/date-picker-dialog'
-import { DateRangePickerCalendar } from '../src/date-range-calendar'
 
 export default {
   title: 'Components/DateTime/DateRangePicker',

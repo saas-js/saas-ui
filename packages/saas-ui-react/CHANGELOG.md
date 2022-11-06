@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 1.6.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.3.1
+- @saas-ui/stepper@1.2.1
+- @saas-ui/auth@1.5.1
+- @saas-ui/modals@1.3.2
+
 ## 1.6.0
 
 ### Minor Changes

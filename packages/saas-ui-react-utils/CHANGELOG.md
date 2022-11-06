@@ -1,5 +1,11 @@
 # @saas-ui/react-utils
 
+## 1.1.1
+
+### Patch Changes
+
+- 92f3e73: Sidebar now supports responsive variant value
+
 ## 1.1.0
 
 ### Minor Changes

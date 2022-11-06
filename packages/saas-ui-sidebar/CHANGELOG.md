@@ -1,5 +1,13 @@
 # @saas-ui/sidebar
 
+## 0.3.2
+
+### Patch Changes
+
+- 92f3e73: Sidebar now supports responsive variant value
+- Updated dependencies [92f3e73]
+  - @saas-ui/react-utils@1.1.1
+
 ## 0.3.1
 
 ### Patch Changes

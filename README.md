@@ -31,7 +31,7 @@ https://www.saas-ui.dev/docs/introduction
 
 ## Contributing & Support
 
-Want to help? Great! Feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
+Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md) andfFeel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
 
 If you like to support the project financially you can [Sponsor](https://github.com/sponsors/saas-js) Saas UI, or consider [Pre-ordering Saas UI Pro](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the development version and our private Discord server. As an early adopter you will get 50% discount on the final price, life-time access, free updates and a lot of love ❤️.
 
@@ -69,8 +69,9 @@ Complete source code available in a monorepo that can serve as a starting point 
 
 ## Using this repo
 
-The docs website depends on packages hosted on a private NPM registry, so installing won't work without a valid Pro license key.
-To circumvent this, remove `@saas-ui/pro` and `@saas-ui/features` from `apps/website/package.json` and run install.
+The docs website depends on private packages (`@saas-ui/pro`). If you don't have access to the Pro repository,
+remove `"apps/*",` from `workspaces` in `package.json` before running `yarn`. This will allow you to install all dependencies,
+and run Storybooks for local development.
 
 ## Storybook
 

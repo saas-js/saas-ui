@@ -220,6 +220,56 @@ NavItem labels will be rendered as tooltips.
 />
 ```
 
+### Toggle variant
+
+```jsx height=400px
+function ToggleVariant() {
+  const { isOpen, onToggle } = useDisclosure({
+    defaultIsOpen: true,
+  })
+
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar
+          breakpoints={{ base: false }}
+          variant={isOpen ? 'default' : 'condensed'}
+          transition="width"
+          transitionDuration="normal"
+          width={isOpen ? '280px' : '48px'}
+          minWidth="auto"
+        >
+          <SidebarSection direction={isOpen ? 'row' : 'column'}>
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="7"
+              mb="1"
+              display={isOpen ? 'block' : 'none'}
+            />
+            <Spacer />
+            <IconButton
+              onClick={onToggle}
+              variant="ghost"
+              size="sm"
+              icon={isOpen ? <FiChevronsLeft /> : <FiChevronsRight />}
+              aria-label="Toggle Sidebar"
+            />
+          </SidebarSection>
+
+          <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
+            <NavGroup>
+              <NavItem label="All users" icon={<FiHome />} isActive />
+              <NavItem label="Favourite users" icon={<StarIcon />} />
+            </NavGroup>
+          </SidebarSection>
+          <SidebarOverlay zIndex="1" />
+        </Sidebar>
+      }
+    />
+  )
+}
+```
+
 ### Double sidebar
 
 You can stack multiple sidebars together to create a double sidebar layout.
@@ -311,7 +361,7 @@ The sidebar will automatically close on small screens. You can change this behav
 Default breakpoints.
 
 ```tsx
-<Sidebar breakpoints={{ base: false, lg: true }} />
+<Sidebar breakpoints={{ base: true, lg: false }} />
 ```
 
 Disabling closing the sidebar on small screens.
@@ -319,7 +369,7 @@ Disabling closing the sidebar on small screens.
 ```tsx
 <AppShell
   sidebar={
-    <Sidebar breakpoints={{ base: true }}>
+    <Sidebar breakpoints={{ base: false }}>
       <SidebarToggleButton />
       <SidebarSection direction="row">
         <Image

@@ -16,14 +16,17 @@ import {
   Portal,
   ResponsiveValue,
   forwardRef,
+  useTheme,
 } from '@chakra-ui/react'
-import { cx, dataAttr, mapResponsive, runIfFn } from '@chakra-ui/utils'
+import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
 
+import { useResponsiveValue } from '@saas-ui/react-utils'
+
 import { SidebarProvider, useSidebarContext } from './use-sidebar'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export interface SidebarOptions {
   /**
@@ -76,7 +79,14 @@ const motionPresets = {
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
 
-  const { variant, size } = props
+  const theme = useTheme()
+  const defaultProps = theme.components['Sidebar'].defaultProps
+  const variant = useResponsiveValue(props.variant ?? defaultProps.variant, {
+    ssr: false,
+  })
+  const size = useResponsiveValue(props.size ?? defaultProps.size, {
+    ssr: false,
+  })
 
   const isCondensed = variant === 'condensed'
 
@@ -93,14 +103,16 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   } = omitThemingProps(props)
 
   const isMobile = useBreakpointValue(breakpoints, {
+    ssr: false,
     fallback: undefined,
   })
 
   const isInitial = typeof isMobile === 'undefined'
   const isCollapsible = isMobile && !isCondensed
+  const isControlled = typeof isOpenProp !== 'undefined'
 
   const disclosure = useDisclosure({
-    defaultIsOpen: !isCollapsible,
+    defaultIsOpen: isControlled ? isOpenProp : !isCollapsible,
     isOpen: isOpenProp,
     onOpen: onOpenProp,
     onClose: onCloseProp,
@@ -109,7 +121,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const { isOpen, onClose, onOpen } = disclosure
 
   React.useEffect(() => {
-    if (isInitial || isCondensed) {
+    if (isInitial || isCondensed || isControlled) {
       // make sure we do not show an initial animation or when this is a condensed sidebar
       return
     }

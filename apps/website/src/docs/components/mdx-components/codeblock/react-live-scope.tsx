@@ -40,6 +40,8 @@ import {
   FiItalic,
   FiUnderline,
   FiLink,
+  FiChevronsLeft,
+  FiChevronsRight,
 } from 'react-icons/fi'
 
 import {
@@ -78,6 +80,8 @@ const reactIcons = {
   FaGithub,
   FaSlack,
   FaCookie,
+  FiChevronsLeft,
+  FiChevronsRight,
 }
 
 const StarIcon = (props) => (

@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import {
   Badge,
   BadgeProps,
+  Box,
   Button,
   Flex,
   Heading,
@@ -15,7 +16,15 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 
-import { FiHome, FiUsers, FiSettings, FiHash, FiStar } from 'react-icons/fi'
+import {
+  FiHome,
+  FiUsers,
+  FiSettings,
+  FiHash,
+  FiStar,
+  FiChevronsLeft,
+  FiChevronsRight,
+} from 'react-icons/fi'
 
 import { FaHome, FaUsers, FaCog, FaHashtag } from 'react-icons/fa'
 
@@ -330,6 +339,43 @@ VariantCondensedColor.args = {
   ),
 }
 
+export const VariantCondensedResponsive = Template.bind({})
+VariantCondensedResponsive.args = {
+  variant: { base: 'condensed', lg: 'default' },
+  breakpoints: { base: false },
+  colorScheme: 'purple',
+  children: (
+    <>
+      <SidebarSection>
+        <Logo width="24px" color="white" />
+      </SidebarSection>
+      <SidebarSection>
+        <NavGroup>
+          <NavItem
+            label="Home"
+            icon={<FiHome size="1.2em" color="whiteAlpha.800" />}
+            color="white"
+            size="sm"
+            isActive
+          />
+          <NavItem
+            label="Users"
+            icon={<FiUsers size="1.2em" color="whiteAlpha.800" />}
+            color="white"
+            size="sm"
+          />
+          <NavItem
+            label="Settings"
+            icon={<FiSettings size="1.2em" color="whiteAlpha.800" />}
+            color="white"
+            size="sm"
+          />
+        </NavGroup>
+      </SidebarSection>
+    </>
+  ),
+}
+
 export const DoubleSidebar = () => {
   const disclosure = useDisclosure()
 
@@ -404,5 +450,93 @@ export const DoubleSidebar = () => {
         <SidebarOverlay zIndex="1" />
       </Sidebar>
     </Flex>
+  )
+}
+
+export function ToggleSidebar() {
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure({
+    defaultIsOpen: true,
+  })
+
+  return (
+    <>
+      <Sidebar
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        breakpoints={{ base: true }}
+      >
+        <Box h="8">
+          <Button onClick={onToggle} position="fixed" left="4" zIndex="modal">
+            {isOpen ? 'Close' : 'Open'}
+          </Button>
+        </Box>
+
+        <SidebarSection ps="6" pe="4" direction="row">
+          <Heading size="sm" py="2">
+            Users
+          </Heading>
+          <Spacer />
+        </SidebarSection>
+
+        <SidebarSection flex="1" overflowY="auto">
+          <NavGroup>
+            <NavItem label="All users" icon={<FiHome />} isActive />
+            <NavItem label="Favourite users" icon={<FiStar />} />
+          </NavGroup>
+          <NavGroup title="Tags" isCollapsible>
+            <NavItem label="Design system" icon={<FiHash />} />
+            <NavItem label="Framework" icon={<FiHash />} />
+            <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
+            <NavItem label="React" inset={5} icon={<FiHash />} />
+          </NavGroup>
+        </SidebarSection>
+        <SidebarOverlay zIndex="1" />
+      </Sidebar>
+    </>
+  )
+}
+
+export function ToggleVariant() {
+  const { isOpen, onToggle } = useDisclosure({
+    defaultIsOpen: true,
+  })
+
+  return (
+    <>
+      <Sidebar
+        breakpoints={{ base: false }}
+        variant={isOpen ? 'default' : 'condensed'}
+        transition="width"
+        transitionDuration="normal"
+        width={isOpen ? '280px' : '48px'}
+        minWidth="auto"
+      >
+        <SidebarSection direction={isOpen ? 'row' : 'column'}>
+          <Logo
+            width="24px"
+            color="white"
+            mb="1"
+            display={isOpen ? 'block' : 'none'}
+          />
+          <Spacer />
+          <IconButton
+            onClick={onToggle}
+            variant="ghost"
+            size="sm"
+            icon={isOpen ? <FiChevronsLeft /> : <FiChevronsRight />}
+            aria-label="Toggle Sidebar"
+          />
+        </SidebarSection>
+
+        <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
+          <NavGroup>
+            <NavItem label="All users" icon={<FiHome />} isActive />
+            <NavItem label="Favourite users" icon={<FiStar />} />
+          </NavGroup>
+        </SidebarSection>
+        <SidebarOverlay zIndex="1" />
+      </Sidebar>
+    </>
   )
 }

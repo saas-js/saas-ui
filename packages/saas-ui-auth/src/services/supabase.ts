@@ -199,8 +199,7 @@ export const createAuthService = (
         type: type || 'sms',
         options: {
           ...serviceOptions?.verifyOptions,
-          captchaToken: options?.captchaToken,
-          redirectTo: options?.redirectTo,
+          ...options,
         },
       }
       const resp = await supabase.auth.verifyOtp(verify)

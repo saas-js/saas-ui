@@ -1,0 +1,1 @@
+{"tags":{},"filePath":"/Users/eelco/Development/appulse/saas-ui/packages/saas-ui-stepper/src/use-stepper.tsx","description":"Returns props for a Prev Button","displayName":"usePrev","methods":[],"props":{"label":{"defaultValue":{"value":"Back"},"description":"","name":"label","required":false,"type":{"name":"string"}}}}

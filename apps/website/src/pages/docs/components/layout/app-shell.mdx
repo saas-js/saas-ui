@@ -58,7 +58,7 @@ reliable across browsers, especially Mobile Safari.
 
 AppShell will try to fit it's parent with position `absolute` and `inset: 0` by default.
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   navbar={
     <Box as="header" borderBottomWidth="1px" py="2" px="4">
@@ -85,7 +85,7 @@ AppShell will try to fit it's parent with position `absolute` and `inset: 0` by 
 The default variant is `fullscreen`, using the `static` variant the AppShell will behave like a regular flex box.
 Use the static variant when the AppShell needs a fixed height, or when using a sticky header / sidebar.
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   variant="static"
   minH="100%"
@@ -120,7 +120,7 @@ Use the static variant when the AppShell needs a fixed height, or when using a s
 
 Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGrid <Badge bg="primary.500" >Pro</Badge>
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
     <Sidebar width="30%">

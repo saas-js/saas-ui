@@ -5,6 +5,7 @@ import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
 import * as AppShell from '@saas-ui/app-shell'
 import * as Sidebar from '@saas-ui/sidebar'
+import * as DatePicker from '@saas-ui/date-picker'
 import * as SaasUIPro from '@saas-ui/pro'
 import * as SaasUIFeatures from '@saas-ui/features'
 
@@ -116,6 +117,7 @@ const ReactLiveScope = {
   ...SaasUIFeatures,
   ...AppShell,
   ...Sidebar,
+  ...DatePicker,
   ...Web3,
   ...Icons,
   Yup,

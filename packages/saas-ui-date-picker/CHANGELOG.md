@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.6.4
+
+### Patch Changes
+
+- edf9eed: Fix DateRangeInput styles
+
 ## 0.6.3
 
 ### Patch Changes

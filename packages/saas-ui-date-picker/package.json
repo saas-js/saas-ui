@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/date-picker",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Chakra UI - Date Picker Component",
   "source": "src/index.ts",
   "exports": {

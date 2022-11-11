@@ -7,6 +7,7 @@ import {
   getLocalTimeZone,
   isWeekend,
   today,
+  now,
   DatePickerDialog,
   DatePickerTrigger,
   DatePickerCalendar,
@@ -32,7 +33,9 @@ export default {
 
 const Template: Story = (args) => {
   const { children, ...rest } = args
-  const [value, setValue] = React.useState<DateValue | null>(null)
+  const [value, setValue] = React.useState<DateValue | null>(
+    now(getLocalTimeZone())
+  )
 
   return (
     <DatePicker {...rest} value={value} onChange={setValue}>
@@ -63,21 +66,25 @@ WithTime24H.args = {
   children: <DatePickerTimeField />,
 }
 
-const now = today(getLocalTimeZone())
-const disabledRanges = [
-  [now, now.add({ days: 5 })],
-  [now.add({ days: 14 }), now.add({ days: 16 })],
-  [now.add({ days: 23 }), now.add({ days: 24 })],
-]
+const getRange = () => {
+  const now = today(getLocalTimeZone())
+  const disabledRanges = [
+    [now, now.add({ days: 5 })],
+    [now.add({ days: 14 }), now.add({ days: 16 })],
+    [now.add({ days: 23 }), now.add({ days: 24 })],
+  ]
+  const isDateUnavailable = (date) =>
+    disabledRanges.some(
+      (interval) =>
+        date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0
+    )
 
-const isDateUnavailable = (date) =>
-  disabledRanges.some(
-    (interval) =>
-      date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0
-  )
+  return { now, isDateUnavailable }
+}
 
 // storybook doesn't like the DateValue of react-aria on args, so we wrap the Template instead.
 export const UnavailableDates = () => {
+  const { now, isDateUnavailable } = React.useMemo(() => getRange(), [])
   const props = {
     minValue: now.subtract({ days: 7 }),
     maxValue: now.add({ days: 30 }),

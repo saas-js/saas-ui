@@ -58,23 +58,6 @@ module.exports[
   'createAuthService'
 ] = require('./components/createAuthService.json')
 module.exports[
-  'DatePickerProvider'
-] = require('./components/DatePickerProvider.json')
-module.exports[
-  'DatePickerDialog'
-] = require('./components/DatePickerDialog.json')
-module.exports[
-  'DatePickerProvider'
-] = require('./components/DatePickerProvider1.json')
-module.exports[
-  'DatePickerDialog'
-] = require('./components/DatePickerDialog1.json')
-module.exports[
-  'useDatePickerModal'
-] = require('./components/useDatePickerModal.json')
-module.exports['useDatePicker'] = require('./components/useDatePicker.json')
-module.exports['useYear'] = require('./components/useYear.json')
-module.exports[
   'TourDialogPrimaryAction'
 ] = require('./components/TourDialogPrimaryAction.json')
 module.exports[
@@ -480,23 +463,6 @@ module.exports['useLogin'] = require('./components/useLogin4.json')
 module.exports[
   'createAuthService'
 ] = require('./components/createAuthService1.json')
-module.exports[
-  'DatePickerProvider'
-] = require('./components/DatePickerProvider2.json')
-module.exports[
-  'DatePickerDialog'
-] = require('./components/DatePickerDialog2.json')
-module.exports[
-  'DatePickerProvider'
-] = require('./components/DatePickerProvider3.json')
-module.exports[
-  'DatePickerDialog'
-] = require('./components/DatePickerDialog3.json')
-module.exports[
-  'useDatePickerModal'
-] = require('./components/useDatePickerModal1.json')
-module.exports['useDatePicker'] = require('./components/useDatePicker1.json')
-module.exports['useYear'] = require('./components/useYear1.json')
 module.exports[
   'TourDialogPrimaryAction'
 ] = require('./components/TourDialogPrimaryAction3.json')
@@ -1233,53 +1199,6 @@ module.exports['Sparklines'] = require('./components/Sparklines.json')
 module.exports['LineChart'] = require('./components/LineChart.json')
 module.exports['LineChart'] = require('./components/LineChart1.json')
 module.exports['Sparklines'] = require('./components/Sparklines1.json')
-module.exports['ActionButton'] = require('./components/ActionButton.json')
-module.exports['Day'] = require('./components/Day.json')
-module.exports['ActionButton'] = require('./components/ActionButton1.json')
-module.exports['Day'] = require('./components/Day1.json')
-module.exports['Input'] = require('./components/Input.json')
-module.exports['Month'] = require('./components/Month.json')
-module.exports['Input'] = require('./components/Input1.json')
-module.exports['Month'] = require('./components/Month1.json')
-module.exports['DateInput'] = require('./components/DateInput.json')
-module.exports['DatePickerModal'] = require('./components/DatePickerModal.json')
-module.exports[
-  'DatePickerProvider'
-] = require('./components/DatePickerProvider4.json')
-module.exports[
-  'DatePickerContainer'
-] = require('./components/DatePickerContainer.json')
-module.exports['DatePicker'] = require('./components/DatePicker.json')
-module.exports[
-  'DatePickerDialog'
-] = require('./components/DatePickerDialog4.json')
-module.exports[
-  'DatePickerStatic'
-] = require('./components/DatePickerStatic.json')
-module.exports['DateRangeInput'] = require('./components/DateRangeInput.json')
-module.exports[
-  'DatePickerProvider'
-] = require('./components/DatePickerProvider5.json')
-module.exports[
-  'DatePickerContainer'
-] = require('./components/DatePickerContainer1.json')
-module.exports['DatePicker'] = require('./components/DatePicker1.json')
-module.exports[
-  'DatePickerDialog'
-] = require('./components/DatePickerDialog5.json')
-module.exports[
-  'DatePickerStatic'
-] = require('./components/DatePickerStatic1.json')
-module.exports[
-  'DatePickerModal'
-] = require('./components/DatePickerModal1.json')
-module.exports['DateRangeInput'] = require('./components/DateRangeInput1.json')
-module.exports['DateInput'] = require('./components/DateInput1.json')
-module.exports[
-  'useDatePickerModal'
-] = require('./components/useDatePickerModal2.json')
-module.exports['useDatePicker'] = require('./components/useDatePicker2.json')
-module.exports['useYear'] = require('./components/useYear2.json')
 module.exports['Has'] = require('./components/Has.json')
 module.exports['Has'] = require('./components/Has1.json')
 module.exports[
@@ -1797,60 +1716,58 @@ module.exports['CalendarNext'] = require('./components/CalendarNext.json')
 module.exports[
   'CalendarPrevious'
 ] = require('./components/CalendarPrevious.json')
-module.exports['DateInput'] = require('./components/DateInput2.json')
+module.exports['DateInput'] = require('./components/DateInput.json')
 module.exports['useCalendarCell'] = require('./components/useCalendarCell.json')
 module.exports[
   'DatePickerDialog'
-] = require('./components/DatePickerDialog6.json')
-module.exports[
-  'DatePickerModal'
-] = require('./components/DatePickerModal2.json')
+] = require('./components/DatePickerDialog.json')
+module.exports['DatePickerModal'] = require('./components/DatePickerModal.json')
 module.exports[
   'DatePickerContainer'
-] = require('./components/DatePickerContainer2.json')
-module.exports['DatePicker'] = require('./components/DatePicker2.json')
+] = require('./components/DatePickerContainer.json')
+module.exports['DatePicker'] = require('./components/DatePicker.json')
 module.exports[
   'DatePickerStatic'
-] = require('./components/DatePickerStatic2.json')
-module.exports['DateRangeInput'] = require('./components/DateRangeInput2.json')
+] = require('./components/DatePickerStatic.json')
+module.exports['DateRangeInput'] = require('./components/DateRangeInput.json')
 module.exports[
   'DateRangePickerContainer'
 ] = require('./components/DateRangePickerContainer.json')
 module.exports['DateRangePicker'] = require('./components/DateRangePicker.json')
-module.exports['DatePicker'] = require('./components/DatePicker3.json')
+module.exports['DatePicker'] = require('./components/DatePicker1.json')
 module.exports[
   'DatePickerContainer'
-] = require('./components/DatePickerContainer3.json')
+] = require('./components/DatePickerContainer1.json')
 module.exports[
   'DatePickerStatic'
-] = require('./components/DatePickerStatic3.json')
+] = require('./components/DatePickerStatic1.json')
 module.exports[
   'DatePickerDialog'
-] = require('./components/DatePickerDialog7.json')
+] = require('./components/DatePickerDialog1.json')
 module.exports[
   'DateRangePicker'
 ] = require('./components/DateRangePicker1.json')
 module.exports[
   'DateRangePickerContainer'
 ] = require('./components/DateRangePickerContainer1.json')
-module.exports['DateRangeInput'] = require('./components/DateRangeInput3.json')
+module.exports['DateRangeInput'] = require('./components/DateRangeInput1.json')
 module.exports[
   'DateRangePickerTimeField'
 ] = require('./components/DateRangePickerTimeField.json')
 module.exports[
   'DatePickerModal'
-] = require('./components/DatePickerModal3.json')
+] = require('./components/DatePickerModal1.json')
 module.exports['startOfMonth'] = require('./components/startOfMonth.json')
 module.exports['startOfYear'] = require('./components/startOfYear.json')
 module.exports['endOfMonth'] = require('./components/endOfMonth.json')
 module.exports['endOfYear'] = require('./components/endOfYear.json')
 module.exports['toTime'] = require('./components/toTime.json')
 module.exports['toLocalTimeZone'] = require('./components/toLocalTimeZone.json')
-module.exports['useYear'] = require('./components/useYear3.json')
+module.exports['useYear'] = require('./components/useYear.json')
 module.exports['useCalendar'] = require('./components/useCalendar.json')
 module.exports[
   'useDatePickerModal'
-] = require('./components/useDatePickerModal3.json')
+] = require('./components/useDatePickerModal.json')
 module.exports[
   'useRangeCalendar'
 ] = require('./components/useRangeCalendar.json')

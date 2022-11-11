@@ -39,13 +39,6 @@ import PasswordForm2Import from './components/PasswordForm2.json'
 import OtpForm2Import from './components/OtpForm2.json'
 import useLogin1Import from './components/useLogin1.json'
 import createAuthServiceImport from './components/createAuthService.json'
-import DatePickerProviderImport from './components/DatePickerProvider.json'
-import DatePickerDialogImport from './components/DatePickerDialog.json'
-import DatePickerProvider1Import from './components/DatePickerProvider1.json'
-import DatePickerDialog1Import from './components/DatePickerDialog1.json'
-import useDatePickerModalImport from './components/useDatePickerModal.json'
-import useDatePickerImport from './components/useDatePicker.json'
-import useYearImport from './components/useYear.json'
 import TourDialogPrimaryActionImport from './components/TourDialogPrimaryAction.json'
 import TourDialogSecondaryActionImport from './components/TourDialogSecondaryAction.json'
 import TourNextButtonImport from './components/TourNextButton.json'
@@ -312,13 +305,6 @@ import PasswordForm6Import from './components/PasswordForm6.json'
 import OtpForm6Import from './components/OtpForm6.json'
 import useLogin4Import from './components/useLogin4.json'
 import createAuthService1Import from './components/createAuthService1.json'
-import DatePickerProvider2Import from './components/DatePickerProvider2.json'
-import DatePickerDialog2Import from './components/DatePickerDialog2.json'
-import DatePickerProvider3Import from './components/DatePickerProvider3.json'
-import DatePickerDialog3Import from './components/DatePickerDialog3.json'
-import useDatePickerModal1Import from './components/useDatePickerModal1.json'
-import useDatePicker1Import from './components/useDatePicker1.json'
-import useYear1Import from './components/useYear1.json'
 import TourDialogPrimaryAction3Import from './components/TourDialogPrimaryAction3.json'
 import TourDialogSecondaryAction3Import from './components/TourDialogSecondaryAction3.json'
 import TourNextButton3Import from './components/TourNextButton3.json'
@@ -783,33 +769,6 @@ import SparklinesImport from './components/Sparklines.json'
 import LineChartImport from './components/LineChart.json'
 import LineChart1Import from './components/LineChart1.json'
 import Sparklines1Import from './components/Sparklines1.json'
-import ActionButtonImport from './components/ActionButton.json'
-import DayImport from './components/Day.json'
-import ActionButton1Import from './components/ActionButton1.json'
-import Day1Import from './components/Day1.json'
-import InputImport from './components/Input.json'
-import MonthImport from './components/Month.json'
-import Input1Import from './components/Input1.json'
-import Month1Import from './components/Month1.json'
-import DateInputImport from './components/DateInput.json'
-import DatePickerModalImport from './components/DatePickerModal.json'
-import DatePickerProvider4Import from './components/DatePickerProvider4.json'
-import DatePickerContainerImport from './components/DatePickerContainer.json'
-import DatePickerImport from './components/DatePicker.json'
-import DatePickerDialog4Import from './components/DatePickerDialog4.json'
-import DatePickerStaticImport from './components/DatePickerStatic.json'
-import DateRangeInputImport from './components/DateRangeInput.json'
-import DatePickerProvider5Import from './components/DatePickerProvider5.json'
-import DatePickerContainer1Import from './components/DatePickerContainer1.json'
-import DatePicker1Import from './components/DatePicker1.json'
-import DatePickerDialog5Import from './components/DatePickerDialog5.json'
-import DatePickerStatic1Import from './components/DatePickerStatic1.json'
-import DatePickerModal1Import from './components/DatePickerModal1.json'
-import DateRangeInput1Import from './components/DateRangeInput1.json'
-import DateInput1Import from './components/DateInput1.json'
-import useDatePickerModal2Import from './components/useDatePickerModal2.json'
-import useDatePicker2Import from './components/useDatePicker2.json'
-import useYear2Import from './components/useYear2.json'
 import HasImport from './components/Has.json'
 import Has1Import from './components/Has1.json'
 import FeaturesProviderImport from './components/FeaturesProvider.json'
@@ -1111,34 +1070,34 @@ import CalendarCellImport from './components/CalendarCell.json'
 import CalendarGridImport from './components/CalendarGrid.json'
 import CalendarNextImport from './components/CalendarNext.json'
 import CalendarPreviousImport from './components/CalendarPrevious.json'
-import DateInput2Import from './components/DateInput2.json'
+import DateInputImport from './components/DateInput.json'
 import useCalendarCellImport from './components/useCalendarCell.json'
-import DatePickerDialog6Import from './components/DatePickerDialog6.json'
-import DatePickerModal2Import from './components/DatePickerModal2.json'
-import DatePickerContainer2Import from './components/DatePickerContainer2.json'
-import DatePicker2Import from './components/DatePicker2.json'
-import DatePickerStatic2Import from './components/DatePickerStatic2.json'
-import DateRangeInput2Import from './components/DateRangeInput2.json'
+import DatePickerDialogImport from './components/DatePickerDialog.json'
+import DatePickerModalImport from './components/DatePickerModal.json'
+import DatePickerContainerImport from './components/DatePickerContainer.json'
+import DatePickerImport from './components/DatePicker.json'
+import DatePickerStaticImport from './components/DatePickerStatic.json'
+import DateRangeInputImport from './components/DateRangeInput.json'
 import DateRangePickerContainerImport from './components/DateRangePickerContainer.json'
 import DateRangePickerImport from './components/DateRangePicker.json'
-import DatePicker3Import from './components/DatePicker3.json'
-import DatePickerContainer3Import from './components/DatePickerContainer3.json'
-import DatePickerStatic3Import from './components/DatePickerStatic3.json'
-import DatePickerDialog7Import from './components/DatePickerDialog7.json'
+import DatePicker1Import from './components/DatePicker1.json'
+import DatePickerContainer1Import from './components/DatePickerContainer1.json'
+import DatePickerStatic1Import from './components/DatePickerStatic1.json'
+import DatePickerDialog1Import from './components/DatePickerDialog1.json'
 import DateRangePicker1Import from './components/DateRangePicker1.json'
 import DateRangePickerContainer1Import from './components/DateRangePickerContainer1.json'
-import DateRangeInput3Import from './components/DateRangeInput3.json'
+import DateRangeInput1Import from './components/DateRangeInput1.json'
 import DateRangePickerTimeFieldImport from './components/DateRangePickerTimeField.json'
-import DatePickerModal3Import from './components/DatePickerModal3.json'
+import DatePickerModal1Import from './components/DatePickerModal1.json'
 import startOfMonthImport from './components/startOfMonth.json'
 import startOfYearImport from './components/startOfYear.json'
 import endOfMonthImport from './components/endOfMonth.json'
 import endOfYearImport from './components/endOfYear.json'
 import toTimeImport from './components/toTime.json'
 import toLocalTimeZoneImport from './components/toLocalTimeZone.json'
-import useYear3Import from './components/useYear3.json'
+import useYearImport from './components/useYear.json'
 import useCalendarImport from './components/useCalendar.json'
-import useDatePickerModal3Import from './components/useDatePickerModal3.json'
+import useDatePickerModalImport from './components/useDatePickerModal.json'
 import useRangeCalendarImport from './components/useRangeCalendar.json'
 import jsonSchemaFormImport from './components/jsonSchemaForm.json'
 import jsonSchemaForm1Import from './components/jsonSchemaForm1.json'
@@ -1535,13 +1494,6 @@ export const PasswordForm2 = PasswordForm2Import
 export const OtpForm2 = OtpForm2Import
 export const useLogin1 = useLogin1Import
 export const createAuthService = createAuthServiceImport
-export const DatePickerProvider = DatePickerProviderImport
-export const DatePickerDialog = DatePickerDialogImport
-export const DatePickerProvider1 = DatePickerProvider1Import
-export const DatePickerDialog1 = DatePickerDialog1Import
-export const useDatePickerModal = useDatePickerModalImport
-export const useDatePicker = useDatePickerImport
-export const useYear = useYearImport
 export const TourDialogPrimaryAction = TourDialogPrimaryActionImport
 export const TourDialogSecondaryAction = TourDialogSecondaryActionImport
 export const TourNextButton = TourNextButtonImport
@@ -1808,13 +1760,6 @@ export const PasswordForm6 = PasswordForm6Import
 export const OtpForm6 = OtpForm6Import
 export const useLogin4 = useLogin4Import
 export const createAuthService1 = createAuthService1Import
-export const DatePickerProvider2 = DatePickerProvider2Import
-export const DatePickerDialog2 = DatePickerDialog2Import
-export const DatePickerProvider3 = DatePickerProvider3Import
-export const DatePickerDialog3 = DatePickerDialog3Import
-export const useDatePickerModal1 = useDatePickerModal1Import
-export const useDatePicker1 = useDatePicker1Import
-export const useYear1 = useYear1Import
 export const TourDialogPrimaryAction3 = TourDialogPrimaryAction3Import
 export const TourDialogSecondaryAction3 = TourDialogSecondaryAction3Import
 export const TourNextButton3 = TourNextButton3Import
@@ -2281,33 +2226,6 @@ export const Sparklines = SparklinesImport
 export const LineChart = LineChartImport
 export const LineChart1 = LineChart1Import
 export const Sparklines1 = Sparklines1Import
-export const ActionButton = ActionButtonImport
-export const Day = DayImport
-export const ActionButton1 = ActionButton1Import
-export const Day1 = Day1Import
-export const Input = InputImport
-export const Month = MonthImport
-export const Input1 = Input1Import
-export const Month1 = Month1Import
-export const DateInput = DateInputImport
-export const DatePickerModal = DatePickerModalImport
-export const DatePickerProvider4 = DatePickerProvider4Import
-export const DatePickerContainer = DatePickerContainerImport
-export const DatePicker = DatePickerImport
-export const DatePickerDialog4 = DatePickerDialog4Import
-export const DatePickerStatic = DatePickerStaticImport
-export const DateRangeInput = DateRangeInputImport
-export const DatePickerProvider5 = DatePickerProvider5Import
-export const DatePickerContainer1 = DatePickerContainer1Import
-export const DatePicker1 = DatePicker1Import
-export const DatePickerDialog5 = DatePickerDialog5Import
-export const DatePickerStatic1 = DatePickerStatic1Import
-export const DatePickerModal1 = DatePickerModal1Import
-export const DateRangeInput1 = DateRangeInput1Import
-export const DateInput1 = DateInput1Import
-export const useDatePickerModal2 = useDatePickerModal2Import
-export const useDatePicker2 = useDatePicker2Import
-export const useYear2 = useYear2Import
 export const Has = HasImport
 export const Has1 = Has1Import
 export const FeaturesProvider = FeaturesProviderImport
@@ -2609,34 +2527,34 @@ export const CalendarCell = CalendarCellImport
 export const CalendarGrid = CalendarGridImport
 export const CalendarNext = CalendarNextImport
 export const CalendarPrevious = CalendarPreviousImport
-export const DateInput2 = DateInput2Import
+export const DateInput = DateInputImport
 export const useCalendarCell = useCalendarCellImport
-export const DatePickerDialog6 = DatePickerDialog6Import
-export const DatePickerModal2 = DatePickerModal2Import
-export const DatePickerContainer2 = DatePickerContainer2Import
-export const DatePicker2 = DatePicker2Import
-export const DatePickerStatic2 = DatePickerStatic2Import
-export const DateRangeInput2 = DateRangeInput2Import
+export const DatePickerDialog = DatePickerDialogImport
+export const DatePickerModal = DatePickerModalImport
+export const DatePickerContainer = DatePickerContainerImport
+export const DatePicker = DatePickerImport
+export const DatePickerStatic = DatePickerStaticImport
+export const DateRangeInput = DateRangeInputImport
 export const DateRangePickerContainer = DateRangePickerContainerImport
 export const DateRangePicker = DateRangePickerImport
-export const DatePicker3 = DatePicker3Import
-export const DatePickerContainer3 = DatePickerContainer3Import
-export const DatePickerStatic3 = DatePickerStatic3Import
-export const DatePickerDialog7 = DatePickerDialog7Import
+export const DatePicker1 = DatePicker1Import
+export const DatePickerContainer1 = DatePickerContainer1Import
+export const DatePickerStatic1 = DatePickerStatic1Import
+export const DatePickerDialog1 = DatePickerDialog1Import
 export const DateRangePicker1 = DateRangePicker1Import
 export const DateRangePickerContainer1 = DateRangePickerContainer1Import
-export const DateRangeInput3 = DateRangeInput3Import
+export const DateRangeInput1 = DateRangeInput1Import
 export const DateRangePickerTimeField = DateRangePickerTimeFieldImport
-export const DatePickerModal3 = DatePickerModal3Import
+export const DatePickerModal1 = DatePickerModal1Import
 export const startOfMonth = startOfMonthImport
 export const startOfYear = startOfYearImport
 export const endOfMonth = endOfMonthImport
 export const endOfYear = endOfYearImport
 export const toTime = toTimeImport
 export const toLocalTimeZone = toLocalTimeZoneImport
-export const useYear3 = useYear3Import
+export const useYear = useYearImport
 export const useCalendar = useCalendarImport
-export const useDatePickerModal3 = useDatePickerModal3Import
+export const useDatePickerModal = useDatePickerModalImport
 export const useRangeCalendar = useRangeCalendarImport
 export const jsonSchemaForm = jsonSchemaFormImport
 export const jsonSchemaForm1 = jsonSchemaForm1Import

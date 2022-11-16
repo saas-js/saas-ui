@@ -68,9 +68,11 @@ import {
         </Menu>
       </SidebarSection>
       <SidebarSection aria-label="Main">
-        <NavItem label="Home" icon={<FiHome />} isActive />
-        <NavItem label="Users" icon={<FiUsers />} />
-        <NavItem label="Settings" icon={<FiSettings />} />
+        <NavItem icon={<FiHome />} isActive>
+          Home
+        </NavItem>
+        <NavItem icon={<FiUsers />}>Users</NavItem>
+        <NavItem icon={<FiSettings />}>Settings</NavItem>
       </SidebarSection>
     </Sidebar>
   }
@@ -108,14 +110,16 @@ import {
       </SidebarSection>
       <SidebarSection aria-label="Main">
         <NavGroup>
-          <NavItem label="Home" icon={<FiHome />} isActive />
-          <NavItem label="Users" icon={<FiUsers />} />
-          <NavItem label="Settings" icon={<FiSettings />} />
+          <NavItem icon={<FiHome />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers />}>Users</NavItem>
+          <NavItem icon={<FiSettings />}>Settings</NavItem>
         </NavGroup>
 
         <NavGroup title="Teams" isCollapsible>
-          <NavItem label="Sales" />
-          <NavItem label="Support" />
+          <NavItem>Sales</NavItem>
+          <NavItem>Support</NavItem>
         </NavGroup>
       </SidebarSection>
     </Sidebar>
@@ -154,14 +158,16 @@ import {
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
-          <NavItem label="Home" icon={<FiHome />} isActive />
-          <NavItem label="Users" icon={<FiUsers />} />
-          <NavItem label="Settings" icon={<FiSettings />} />
+          <NavItem icon={<FiHome />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers />}>Users</NavItem>
+          <NavItem icon={<FiSettings />}>Settings</NavItem>
         </NavGroup>
 
         <NavGroup title="Teams" isCollapsible>
-          <NavItem label="Sales" />
-          <NavItem label="Support" />
+          <NavItem>Sales</NavItem>
+          <NavItem>Support</NavItem>
         </NavGroup>
 
         <NavGroup title="Tags" isCollapsible>
@@ -169,22 +175,25 @@ import {
             label="Lead"
             icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
           >
-            <Badge opacity="0.6" borderRadius="full">
+            <Text>Lead</Text>
+            <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
               83
             </Badge>
           </NavItem>
           <NavItem
-            label="Customer"
             icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
           >
-            <Badge opacity="0.6" borderRadius="full">
+            <Text>Customer</Text>
+            <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
               210
             </Badge>
           </NavItem>
         </NavGroup>
       </SidebarSection>
       <SidebarSection>
-        <NavItem label="Documentation" icon={<FiHelpCircle />} />
+        <NavItem label="Documentation" icon={<FiHelpCircle />}>
+          Documentation
+        </NavItem>
       </SidebarSection>
     </Sidebar>
   }
@@ -207,13 +216,15 @@ NavItem labels will be rendered as tooltips.
         />
       </SidebarSection>
       <SidebarSection>
-        <NavItem label="Home" icon={<FiHome size="1.2em" />} size="md" />
-        <NavItem label="Users" icon={<FiUsers size="1.2em" />} size="md" />
-        <NavItem
-          label="Settings"
-          icon={<FiSettings size="1.2em" />}
-          size="md"
-        />
+        <NavItem label="Home" icon={<FiHome size="1.2em" />} size="md">
+          Home
+        </NavItem>
+        <NavItem label="Users" icon={<FiUsers size="1.2em" />} size="md">
+          Users
+        </NavItem>
+        <NavItem label="Settings" icon={<FiSettings size="1.2em" />} size="md">
+          Settings
+        </NavItem>
       </SidebarSection>
     </Sidebar>
   }
@@ -258,8 +269,12 @@ function ToggleVariant() {
 
           <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
             <NavGroup>
-              <NavItem label="All users" icon={<FiHome />} isActive />
-              <NavItem label="Favourite users" icon={<StarIcon />} />
+              <NavItem label="All users" icon={<FiHome />} isActive>
+                All users
+              </NavItem>
+              <NavItem label="Favourite users" icon={<StarIcon />}>
+                Favourite users
+              </NavItem>
             </NavGroup>
           </SidebarSection>
           <SidebarOverlay zIndex="1" />
@@ -277,7 +292,7 @@ You can stack multiple sidebars together to create a double sidebar layout.
 ```jsx height=400px
 <AppShell
   sidebar={
-    <HStack>
+    <HStack spacing="0">
       <Sidebar
         variant="condensed"
         height="400px"
@@ -292,16 +307,13 @@ You can stack multiple sidebars together to create a double sidebar layout.
           />
         </SidebarSection>
         <SidebarSection>
-          <NavItem label="Home" icon={<FiHome size="1.2em" color="white" />} />
-          <NavItem
-            label="Users"
-            icon={<FiUsers size="1.2em" color="white" />}
-            isActive
-          />
-          <NavItem
-            label="Settings"
-            icon={<FiSettings size="1.2em" color="white" />}
-          />
+          <NavItem icon={<FiHome size="1.2em" color="white" />}>Home</NavItem>
+          <NavItem icon={<FiUsers size="1.2em" color="white" />} isActive>
+            Users
+          </NavItem>
+          <NavItem icon={<FiSettings size="1.2em" color="white" />}>
+            Settings
+          </NavItem>
         </SidebarSection>
       </Sidebar>
       <Sidebar
@@ -318,12 +330,14 @@ You can stack multiple sidebars together to create a double sidebar layout.
         </SidebarSection>
         <SidebarSection flex="1" overflowY="auto">
           <NavGroup>
-            <NavItem label="Overview" icon={<FiUsers />} isActive />
+            <NavItem icon={<FiUsers />} isActive>
+              Overview
+            </NavItem>
           </NavGroup>
 
           <NavGroup title="Teams" isCollapsible>
-            <NavItem label="Sales" />
-            <NavItem label="Support" />
+            <NavItem>Sales</NavItem>
+            <NavItem>Support</NavItem>
           </NavGroup>
 
           <NavGroup title="Tags" isCollapsible>
@@ -331,22 +345,23 @@ You can stack multiple sidebars together to create a double sidebar layout.
               label="Lead"
               icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
             >
-              <Badge opacity="0.6" borderRadius="full" bg="none">
+              <Text>Lead</Text>
+              <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
                 83
               </Badge>
             </NavItem>
             <NavItem
-              label="Customer"
               icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
             >
-              <Badge opacity="0.6" borderRadius="full" bg="none">
+              <Text>Customer</Text>
+              <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
                 210
               </Badge>
             </NavItem>
           </NavGroup>
         </SidebarSection>
         <SidebarSection>
-          <NavItem label="Documentation" icon={<FiHelpCircle />} />
+          <NavItem icon={<FiHelpCircle />}>Documentation</NavItem>
         </SidebarSection>
       </Sidebar>
     </HStack>

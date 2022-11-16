@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.6.5
+
+### Patch Changes
+
+- 6bd7694: Locale prop is now supported on all DatePicker components.
+
 ## 0.6.4
 
 ### Patch Changes

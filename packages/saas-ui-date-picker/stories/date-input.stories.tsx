@@ -50,6 +50,11 @@ const Template: Story<DateInputProps> = (args) => (
 export const Basic = Template.bind({})
 Basic.args = {}
 
+export const Locale = Template.bind({})
+Locale.args = {
+  locale: 'nl-NL',
+}
+
 export const DefaultValue = () => {
   return <Template defaultValue={parseDate('2022-01-01')} />
 }

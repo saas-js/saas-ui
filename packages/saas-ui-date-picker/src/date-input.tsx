@@ -84,15 +84,21 @@ interface DatePickerInputProps extends InputGroupProps {
 export const DatePickerInput = forwardRef<DatePickerInputProps, 'div'>(
   (props, ref) => {
     const { calendarIcon, size, variant, ...rest } = props
-    const { state, groupProps, fieldProps, buttonProps, datePickerRef } =
-      useDatePickerContext()
+    const {
+      locale,
+      state,
+      groupProps,
+      fieldProps,
+      buttonProps,
+      datePickerRef,
+    } = useDatePickerContext()
 
     const themeProps = { size, variant }
 
     return (
       <InputGroup {...rest} {...groupProps} {...themeProps} ref={datePickerRef}>
         <SegmentedInput {...themeProps}>
-          <DateField {...fieldProps} ref={ref} />
+          <DateField locale={locale} {...fieldProps} ref={ref} />
         </SegmentedInput>
         <InputRightElement py="1">
           <DatePickerTrigger>

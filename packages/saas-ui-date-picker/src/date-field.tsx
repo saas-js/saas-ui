@@ -7,6 +7,7 @@ import {
   DateFieldStateOptions,
   TimeFieldStateOptions,
   DateFieldState,
+  DateSegment,
 } from '@react-stately/datepicker'
 import {
   useDateField,
@@ -31,14 +32,12 @@ import {
 import { InputSegment, SegmentedInput } from './segmented-input'
 
 export interface DateFieldProps
-  extends Omit<DateFieldStateOptions, 'locale' | 'createCalendar'> {}
+  extends Omit<DateFieldStateOptions, 'createCalendar'> {}
 
 export const DateField = forwardRef<DateFieldProps, 'div'>(
   (props, forwardedRef) => {
-    const { locale } = useLocale()
     const state = useDateFieldState({
       ...props,
-      locale,
       createCalendar,
     })
 
@@ -76,7 +75,7 @@ export const DateField = forwardRef<DateFieldProps, 'div'>(
 DateField.displayName = 'DateField'
 
 export interface TimeFieldProps
-  extends Omit<TimeFieldStateOptions, 'locale'>,
+  extends TimeFieldStateOptions,
     Omit<
       HTMLChakraProps<'div'>,
       | 'defaultValue'
@@ -111,11 +110,9 @@ export const TimeField: React.FC<TimeFieldProps> = (props) => {
     hourCycle,
   }
 
-  const { locale } = useLocale()
   const state = useTimeFieldState({
     ...props,
     onChange,
-    locale,
   })
 
   const ref = React.useRef<HTMLDivElement>(null)
@@ -135,6 +132,11 @@ export const TimeField: React.FC<TimeFieldProps> = (props) => {
 
 TimeField.displayName = 'TimeField'
 
+export interface DatePickerTimeFieldProps
+  extends Omit<TimeFieldProps, 'locale'> {
+  locale?: string
+}
+
 /**
  * DatePickerTimeField
  *
@@ -142,14 +144,18 @@ TimeField.displayName = 'TimeField'
  *
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
-export const DatePickerTimeField: React.FC<TimeFieldProps> = (props) => {
+export const DatePickerTimeField: React.FC<DatePickerTimeFieldProps> = (
+  props
+) => {
   const {
+    locale,
     state: { timeValue, setTimeValue },
     hourCycle,
   } = useDatePickerContext()
   return (
     <TimeField
       {...props}
+      locale={props.locale || locale}
       hourCycle={hourCycle}
       value={timeValue}
       onChange={(value) => {
@@ -161,8 +167,11 @@ export const DatePickerTimeField: React.FC<TimeFieldProps> = (props) => {
 
 DatePickerTimeField.displayName = 'DatePickerTimeField'
 
-export const DatePickerStartTimeField: React.FC<TimeFieldProps> = (props) => {
+export const DatePickerStartTimeField: React.FC<DatePickerTimeFieldProps> = (
+  props
+) => {
   const {
+    locale,
     state: { timeRange, setTime },
     hourCycle,
   } = useDateRangePickerContext()
@@ -170,6 +179,7 @@ export const DatePickerStartTimeField: React.FC<TimeFieldProps> = (props) => {
   return (
     <TimeField
       {...props}
+      locale={props.locale || locale}
       value={timeRange?.start}
       onChange={(v) => setTime('start', v)}
       hourCycle={hourCycle}
@@ -179,8 +189,11 @@ export const DatePickerStartTimeField: React.FC<TimeFieldProps> = (props) => {
 
 DatePickerStartTimeField.displayName = 'DatePickerStartTimeField'
 
-export const DatePickerEndTimeField: React.FC<TimeFieldProps> = (props) => {
+export const DatePickerEndTimeField: React.FC<DatePickerTimeFieldProps> = (
+  props
+) => {
   const {
+    locale,
     state: { timeRange, setTime },
     hourCycle,
   } = useDateRangePickerContext()
@@ -188,6 +201,7 @@ export const DatePickerEndTimeField: React.FC<TimeFieldProps> = (props) => {
   return (
     <TimeField
       {...props}
+      locale={props.locale || locale}
       value={timeRange?.end}
       onChange={(v) => setTime('end', v)}
       hourCycle={hourCycle}
@@ -218,7 +232,7 @@ export const DateRangePickerTimeField: React.FC<DateRangeTimeFieldProps> = (
 DateRangePickerTimeField.displayName = 'DateRangePickerTimeField'
 
 interface DateSegmentProps extends HTMLChakraProps<'div'> {
-  segment: any
+  segment: DateSegment
   state: DateFieldState
 }
 

@@ -5,14 +5,17 @@ import {
   BadgeProps,
   Box,
   Button,
+  DarkMode,
   Flex,
   Heading,
   HStack,
   IconButton,
+  LightMode,
   Menu,
   MenuButton,
   MenuList,
   Spacer,
+  Text,
   useDisclosure,
 } from '@chakra-ui/react'
 
@@ -168,7 +171,7 @@ WithCollapsibleGroup.args = {
 }
 
 const NavItemBadge = (props: BadgeProps) => (
-  <Badge bg="whiteAlpha.200" fontWeight="normal" rounded="md" {...props} />
+  <Badge bg="none" fontWeight="normal" rounded="md" ms="auto" {...props} />
 )
 
 export const WithBadge = Template.bind({})
@@ -196,14 +199,17 @@ WithBadge.args = {
         </NavGroup>
 
         <NavGroup title="Tags" isCollapsible>
-          <NavItem label="Design system" icon={<FiHash />}>
+          <NavItem icon={<FiHash />}>
+            <Text>Design System</Text>
             <NavItemBadge>1</NavItemBadge>
           </NavItem>
-          <NavItem label="Framework" icon={<FiHash />} />
-          <NavItem label="Chakra UI" inset={5} icon={<FiHash />}>
+          <NavItem icon={<FiHash />}>Framework</NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            <Text>Chakra UI</Text>
             <NavItemBadge>32</NavItemBadge>
           </NavItem>
-          <NavItem label="React" inset={5} icon={<FiHash />}>
+          <NavItem inset={5} icon={<FiHash />}>
+            <Text>React</Text>
             <NavItemBadge>100</NavItemBadge>
           </NavItem>
         </NavGroup>
@@ -381,46 +387,48 @@ export const DoubleSidebar = () => {
 
   return (
     <Flex alignItems="stretch" overflow="hidden">
-      <Sidebar
-        variant="condensed"
-        colorScheme="purple"
-        border="0"
-        zIndex="3"
-        position="relative"
-      >
-        <Logo width="24px" color="white" mb="1" />
+      <DarkMode>
+        <Sidebar
+          variant="condensed"
+          colorScheme="purple"
+          border="0"
+          zIndex="3"
+          position="relative"
+        >
+          <Logo width="24px" color="white" mb="1" />
 
-        <NavGroup>
-          <NavItem
-            label="Users"
-            icon={<FiUsers size="1.2em" color="white" />}
-            isActive
-            onClick={(e) => {
-              e.preventDefault()
-              disclosure.onToggle()
-            }}
-          />
-          <NavItem
-            label="Settings"
-            icon={<FiSettings size="1.2em" color="white" />}
-            onClick={(e) => {
-              e.preventDefault()
-              disclosure.onClose()
-            }}
-          />
-        </NavGroup>
+          <NavGroup>
+            <NavItem
+              label="Users"
+              icon={<FiUsers size="1.2em" />}
+              isActive
+              onClick={(e) => {
+                e.preventDefault()
+                disclosure.onToggle()
+              }}
+            />
+            <NavItem
+              label="Settings"
+              icon={<FiSettings size="1.2em" />}
+              onClick={(e) => {
+                e.preventDefault()
+                disclosure.onClose()
+              }}
+            />
+          </NavGroup>
 
-        <Spacer />
+          <Spacer />
 
-        <Menu>
-          <MenuButton as={Button} variant="ghost">
-            <PersonaAvatar presence="online" size="xs" />
-          </MenuButton>
-          <MenuList>
-            <MenuItem>Sign out</MenuItem>
-          </MenuList>
-        </Menu>
-      </Sidebar>
+          <Menu>
+            <MenuButton as={Button} variant="ghost">
+              <PersonaAvatar presence="online" size="xs" />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Sign out</MenuItem>
+            </MenuList>
+          </Menu>
+        </Sidebar>
+      </DarkMode>
       <Sidebar
         isOpen={disclosure.isOpen}
         onClose={disclosure.onClose}

@@ -302,7 +302,7 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     const semantic = !!theme.semanticTokens?.colors?.['presence.online']
 
     if (presence) {
-      const label = presenceLabel || Presence[presence].label
+      const label = presenceLabel || Presence[presence]?.label
       const color = semantic
         ? Presence[presence].color || `presence.${presence}`
         : colors[presence]

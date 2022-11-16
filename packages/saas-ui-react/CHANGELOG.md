@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 1.6.2
+
+### Patch Changes
+
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+- Updated dependencies [7b426e8]
+- Updated dependencies [0a77fc0]
+- Updated dependencies [bc1f403]
+  - @saas-ui/persona@1.2.1
+  - @saas-ui/theme@1.5.0
+  - @saas-ui/provider@1.1.5
+  - @saas-ui/layout@1.2.2
+  - @saas-ui/menu@1.2.2
+  - @saas-ui/auth@1.5.2
+  - @saas-ui/data-table@1.2.2
+  - @saas-ui/modals@1.3.3
+
 ## 1.6.1
 
 ### Patch Changes

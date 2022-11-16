@@ -1,5 +1,11 @@
 # @saas-ui/persona
 
+## 1.2.1
+
+### Patch Changes
+
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
 ## 1.2.0
 
 ### Minor Changes

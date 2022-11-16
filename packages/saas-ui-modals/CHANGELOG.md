@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 1.3.3
+
+### Patch Changes
+
+- @saas-ui/menu@1.2.2
+
 ## 1.3.2
 
 ### Patch Changes

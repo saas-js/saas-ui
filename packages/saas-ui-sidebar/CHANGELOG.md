@@ -1,5 +1,16 @@
 # @saas-ui/sidebar
 
+## 0.4.0
+
+### Minor Changes
+
+- 0a77fc0: Cleaned up NavItem theme.
+- 0a77fc0: Added classNames to all NavItem components.
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.5
+
 ## 0.3.2
 
 ### Patch Changes

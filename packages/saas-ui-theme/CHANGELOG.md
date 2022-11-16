@@ -1,5 +1,15 @@
 # @saas-ui/theme
 
+## 1.5.0
+
+### Minor Changes
+
+- bc1f403: Improved Tooltip styles for Saas UI theme.
+
+### Patch Changes
+
+- 0a77fc0: Cleaned up NavItem theme.
+
 ## 1.4.0
 
 ### Minor Changes

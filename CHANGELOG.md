@@ -8,6 +8,26 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 11-16-2022
+
+`@saas-ui/react@1.6.2`
+
+- Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+**Persona** `v1.2.1`
+
+- Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+**Sidebar** `v0.4.0`
+
+- Cleaned up NavItem theme.
+- Added classNames to all NavItem components.
+
+**Theme** `v1.5.0`
+
+- Cleaned up NavItem theme.
+- Improved Tooltip styles for Saas UI theme.
+
 ## 11-04-2022
 
 `@saas-ui/react@1.6.0`

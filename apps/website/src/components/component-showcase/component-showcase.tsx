@@ -295,8 +295,24 @@ export const ComponentShowcase = () => {
                             flip={false}
                             autoSelect={false}
                           >
-                            <MenuItemOption value="Open">Open</MenuItemOption>
-                            <MenuItemOption value="Closed">
+                            <MenuItemOption
+                              value="Open"
+                              bg="transparent"
+                              _hover={{
+                                bg: 'blackAlpha.50',
+                                _dark: { bg: 'whiteAlpha.50' },
+                              }}
+                            >
+                              Open
+                            </MenuItemOption>
+                            <MenuItemOption
+                              value="Closed"
+                              bg="transparent"
+                              _hover={{
+                                bg: 'blackAlpha.50',
+                                _dark: { bg: 'whiteAlpha.50' },
+                              }}
+                            >
                               Closed
                             </MenuItemOption>
                           </Select>

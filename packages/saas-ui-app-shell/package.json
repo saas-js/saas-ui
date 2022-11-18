@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/app-shell",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "App Shell component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

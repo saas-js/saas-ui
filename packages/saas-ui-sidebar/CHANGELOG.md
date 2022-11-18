@@ -1,5 +1,17 @@
 # @saas-ui/sidebar
 
+## 0.5.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/collapse@1.3.0
+  - @saas-ui/provider@1.1.6
+
 ## 0.4.0
 
 ### Minor Changes

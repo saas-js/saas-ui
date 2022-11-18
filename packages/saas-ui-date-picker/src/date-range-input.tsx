@@ -61,6 +61,7 @@ const DateRangePickerInput: React.FC<DatePickerInputProps> = (props) => {
 
   const {
     state,
+    locale,
     groupProps,
     startFieldProps,
     endFieldProps,
@@ -81,11 +82,11 @@ const DateRangePickerInput: React.FC<DatePickerInputProps> = (props) => {
     >
       <DatePickerAnchor>
         <SegmentedInput {...themeProps}>
-          <DateField {...startFieldProps} />
+          <DateField locale={locale} {...startFieldProps} />
           <chakra.span aria-hidden="true" paddingX="1">
             –
           </chakra.span>
-          <DateField {...endFieldProps} />
+          <DateField locale={locale} {...endFieldProps} />
         </SegmentedInput>
       </DatePickerAnchor>
       <InputRightElement py="1">

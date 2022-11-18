@@ -57,6 +57,7 @@
   "dependencies": {
     "@chakra-ui/system": "^2.3.3",
     "@saas-ui/auth": "workspace:*",
+    "@saas-ui/app-shell": "workspace:*",
     "@saas-ui/banner": "workspace:*",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/card": "workspace:*",

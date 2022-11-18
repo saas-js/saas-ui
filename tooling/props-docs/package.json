@@ -31,12 +31,12 @@
     "build": "ts-node -T src/build.ts"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.3.6",
-    "@chakra-ui/styled-system": "^2.3.4",
+    "@chakra-ui/react": "^2.4.1",
+    "@chakra-ui/styled-system": "^2.3.5",
     "glob": "^8.0.3",
     "mkdirp": "^1.0.4",
     "react-docgen-typescript": "^2.2.2",
-    "regenerator-runtime": "^0.13.10"
+    "regenerator-runtime": "^0.13.11"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.1.0",

@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef, useState } from 'react'
-import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export interface ScaleInViewProps {
   children?: React.ReactNode
@@ -29,7 +29,7 @@ export default function ScaleInView({ children }: ScaleInViewProps) {
   const start = offset - innerHeight
   const end = start + height
 
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const scale = useTransform(scrollY, [start, end], [0.8, 1])
   const opacity = useTransform(scrollY, [start, end], [0.25, 1])
 

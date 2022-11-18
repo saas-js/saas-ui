@@ -8,6 +8,6 @@ export type MotionBoxProps = Merge<
   HTMLMotionProps<'div'>
 >
 
-const MotionBox: React.FC<MotionBoxProps> = motion(chakra.div)
+const MotionBox = motion(chakra.div)
 
 export default MotionBox

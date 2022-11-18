@@ -1,55 +1,33 @@
 import * as React from 'react'
-import { render, act, hooks, screen, waitFor } from '@saas-ui/test-utils'
+import { render, screen } from '@saas-ui/test-utils'
 
 import { useSnackbar } from '../src'
 
 test('can accept shorthand options', async () => {
   const title = 'Info'
 
-  const { result } = hooks.render(() => useSnackbar())
+  const TestComponent = () => {
+    const snackbar = useSnackbar()
 
-  hooks.act(() => {
-    result.current.info(title)
+    return <button onClick={() => snackbar.info(title)}>Snackbar</button>
+  }
+
+  const { user } = render(<TestComponent />)
+
+  const button = await screen.findByText('Snackbar')
+  await user.click(button)
+
+  const toast = await screen.findByRole('alert', {
+    name: title,
   })
-
-  const allByTitle = await screen.findAllByRole('alert', { name: title })
-
-  expect(allByTitle).toHaveLength(1)
-})
-
-test('can accept success handler', async () => {
-  const title = 'Success'
-
-  const { result } = hooks.render(() => useSnackbar())
-
-  hooks.act(() => {
-    result.current.success(title)
-  })
-
-  const allByTitle = await screen.findAllByRole('alert', { name: title })
-
-  expect(allByTitle).toHaveLength(1)
-})
-
-test('can accept error handler', async () => {
-  const title = 'Error'
-
-  const { result } = hooks.render(() => useSnackbar())
-
-  hooks.act(() => {
-    result.current.error(title)
-  })
-
-  const allByTitle = await screen.findAllByRole('alert', { name: title })
-
-  expect(allByTitle).toHaveLength(1)
+  expect(toast).toBeInTheDocument()
 })
 
 it('should allow promise toast chainings', async () => {
   const loadingTitle = 'Toast is loading'
   const successTitle = 'Promise resolved'
   const errorTitle = 'Error occurred'
-  const sleepTime = 200
+  const sleepTime = 500
   const dummyPromise = new Promise<{ payload: string }>((r) =>
     setTimeout(r, sleepTime, { payload: successTitle })
   )

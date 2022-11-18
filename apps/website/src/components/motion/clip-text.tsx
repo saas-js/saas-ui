@@ -1,4 +1,4 @@
-import { useViewportScroll, useTransform } from 'framer-motion'
+import { useScroll, useTransform } from 'framer-motion'
 import MotionBox from './box'
 
 export interface ClipTextProps {
@@ -20,7 +20,7 @@ const ClipText = ({
 }: ClipTextProps) => {
   let style
 
-  const { scrollYProgress } = useViewportScroll()
+  const { scrollYProgress } = useScroll()
   const pos = useTransform(scrollYProgress, [0, 0.1], ['0%', '100%'])
 
   if (animate) {

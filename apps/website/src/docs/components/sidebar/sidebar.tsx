@@ -185,6 +185,17 @@ function SidebarGroup({
                             Pro
                           </Badge>
                         )}
+                        {lvl3.beta && (
+                          <Badge
+                            ml="2"
+                            lineHeight="tall"
+                            fontSize="10px"
+                            variant="outline"
+                            colorScheme="green"
+                          >
+                            Beta
+                          </Badge>
+                        )}
                       </SidebarLink>
                     ))}
                   </Stack>

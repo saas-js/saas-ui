@@ -22,6 +22,7 @@ import IconsList from './icons-list'
 import { LinkCard } from '../link-card'
 import { QuickLink } from '../quick-link'
 import { FiArrowRight } from 'react-icons/fi'
+import { VStack } from '@chakra-ui/react'
 
 const PropsTable = dynamic(() => import('../props-table'))
 
@@ -139,10 +140,11 @@ export const MDXComponents = {
       as="blockquote"
       rounded="4px"
       my="1.5rem"
+      alignItems="flex-start"
       {...props}
     >
       <AlertIcon />
-      {children}
+      <Box>{children}</Box>
     </Alert>
   ),
   Do,

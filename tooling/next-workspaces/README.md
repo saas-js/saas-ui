@@ -40,7 +40,7 @@ Assuming you are using Typescript, it will look something like this:
   "exports": {
     "require": "./dist/index.cjs",
     "development": "./src/index.ts", // This tells webpack to import the source files
-    "default": "./dist/index.esm.js"
+    "import": "./dist/index.esm.mjs"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",

@@ -1,16 +1,12 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, ThemeTypings } from '@chakra-ui/react'
 
-import { theme as baseTheme } from '@saas-ui/pro/theme'
+import { theme as baseTheme } from '@saas-ui/pro'
 
 import '@fontsource/inter/variable.css'
 
-import {
-  createBreakpoints,
-  mode,
-  transparentize,
-  blacken,
-} from '@chakra-ui/theme-tools'
+import { mode, transparentize, blacken } from '@chakra-ui/theme-tools'
 
+import Badge from './components/badge'
 import Button from './components/button'
 import CTA from './components/cta'
 import Features, { Feature } from './components/features'
@@ -70,7 +66,7 @@ const theme = extendTheme(
       initialColorMode: 'dark',
       useSystemColorMode: false,
     },
-    breakpoints: createBreakpoints(breakpoints),
+    breakpoints,
     colors,
     semanticTokens: {
       colors: {
@@ -102,6 +98,7 @@ const theme = extendTheme(
           maxW: 'container.lg',
         },
       },
+      Badge,
       Button,
       CTA,
       Section,

@@ -1,5 +1,11 @@
 # @saas-ui/next-workspaces
 
+## 0.3.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 0.2.0
 
 ### Minor Changes

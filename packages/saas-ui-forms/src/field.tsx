@@ -33,7 +33,7 @@ import {
   UsePinInputProps,
   SystemProps,
 } from '@chakra-ui/react'
-import { __DEV__, FocusableElement } from '@chakra-ui/utils'
+import { __DEV__, FocusableElement, callAllHandlers } from '@chakra-ui/utils'
 
 import { NumberInput, NumberInputProps } from '@saas-ui/number-input'
 import { PasswordInput, PasswordInputProps } from '@saas-ui/password-input'
@@ -126,18 +126,15 @@ const isTouched = (
 }
 
 export const BaseField: React.FC<FieldProps> = (props) => {
-  const { name, label, help, variant, hideLabel, children, ...controlProps } =
-    props
+  const { name, label, help, hideLabel, children, ...controlProps } = props
 
   const { formState } = useFormContext()
 
   const error = getError(name, formState)
 
   return (
-    <FormControl variant={variant} {...controlProps} isInvalid={!!error}>
-      {label && !hideLabel ? (
-        <FormLabel variant={variant}>{label}</FormLabel>
-      ) : null}
+    <FormControl {...controlProps} isInvalid={!!error}>
+      {label && !hideLabel ? <FormLabel>{label}</FormLabel> : null}
       <Box>
         {children}
         {help && !error?.message ? (
@@ -216,7 +213,6 @@ const createField = (
       isReadOnly,
       isRequired,
       rules,
-      variant,
       ...inputProps
     } = props
 
@@ -236,7 +232,6 @@ const createField = (
         isInvalid={isInvalid}
         isReadOnly={isReadOnly}
         isRequired={isRequired}
-        variant={variant}
       >
         <InputComponent
           ref={ref}
@@ -268,6 +263,8 @@ export const withControlledInput = (InputComponent: React.FC<any>) => {
             <InputComponent
               {...field}
               {...inputProps}
+              onChange={callAllHandlers(inputProps.onChange, field.onChange)}
+              onBlur={callAllHandlers(inputProps.onBlur, field.onBlur)}
               ref={useMergeRefs(ref, _ref)}
             />
           )}
@@ -288,6 +285,8 @@ export const withUncontrolledInput = (InputComponent: React.FC<any>) => {
         <InputComponent
           {...field}
           {...inputProps}
+          onChange={callAllHandlers(inputProps.onChange, field.onChange)}
+          onBlur={callAllHandlers(inputProps.onBlur, field.onBlur)}
           ref={useMergeRefs(ref, _ref)}
         />
       )

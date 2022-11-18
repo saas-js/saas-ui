@@ -5,7 +5,7 @@ description: 'React hook to manage localStorage'
 ---
 
 `useLocalStorage` is a custom hook used to get and set values in localStorage.
-The value is stored as JSON.
+The value is stored as JSON. The state will be updated across browser tabs, thanks to Window: [storage event](https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event).
 
 ## Import
 
@@ -19,6 +19,7 @@ import { useLocalStorage } from '@saas-ui/react'
 | ------------ | ------------------------------------------------ | ------------------------------- |
 | key          | string                                           | The local storage key.          |
 | defaultValue | Object, string, number, boolean, null, undefined | The default value for this key. |
+| options      | serializer and deserializer                      | Use a custom serializer         |
 
 ## Usage
 

@@ -1,11 +1,20 @@
 {
-  "name": "zod",
+  "name": "zod-resolver",
   "description": "Saas UI Forms field resolver: zod",
   "version": "1.0.0",
   "private": true,
+  "exports": {
+    ".": {
+      "require": "./../dist/zod/index.js",
+      "import": "./../dist/zod/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
   "source": "./src/index.ts",
   "main": "../dist/zod/index.js",
-  "module": "../dist/zod/index.modern.mjs",
+  "module": "../dist/zod/index.modern.js",
   "types": "../dist/zod/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

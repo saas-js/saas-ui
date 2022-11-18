@@ -3,101 +3,155 @@ title: App Shell
 description: The App Shell defines the main structure of your app.
 ---
 
-<ComponentLinks pro={{ gumroad: true }} />
+<ComponentLinks
+  beta
+  github={{ package: 'saas-ui-app-shell' }}
+  npm={{ package: '@saas-ui/app-shell' }}
+  theme={{ componentName: 'app-shell' }}
+/>
 
-A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content and footer.
+A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content aside, and footer.
+
+<Info>
+  The AppShell is currently in beta, we'd love to hear your feedback while we
+  finalize the API. Please note that you need to import the components from
+  `@saas-ui/app-shell` instead of `@saas-ui/react` while in beta.
+</Info>
 
 ## Import
 
 - `AppShell`: The container component that manages composition.
 
 ```ts
-import { AppShell } from '@saas-ui/pro'
+import { AppShell } from '@saas-ui/app-shell'
 ```
 
 ## Usage
 
+<Info status="info">
+  To make sure AppShell fills up the entire viewport height, you need to add
+  `height="100%"` to html, body and any parent divs.
+</Info>
+
+You can add global css styles to your theme as follows.
+
+```tsx
+import { theme as baseTheme } from '@saas-ui/react'
+
+// Your custom theme
+export const theme = extendTheme(
+  {
+    global: () => ({
+      'html, body': {
+        height: '100%',
+      },
+    }),
+  },
+  baseTheme
+)
+```
+
+Alternatively you can set `height="100vh"` on AppShell, but this is less
+reliable across browsers, especially Mobile Safari.
+
 ### Basic shell
 
-AppShell behaves like a regular Box component, it's height will scale together with the height of the child components.
-When using a fixed height, be sure to add proper overflow styles to the sidebar and main content to make sure all content overflows correctly.
+AppShell will try to fit it's parent with position `absolute` and `inset: 0` by default.
 
-```jsx
+```jsx height=400px overflow=hidden
 <AppShell
-  minH="200px"
   navbar={
-    <Box height="16" borderBottomWidth="1px">
-      Navbar
+    <Box as="header" borderBottomWidth="1px" py="2" px="4">
+      <SaasUILogo width="100px" />
     </Box>
   }
   sidebar={
-    <Box width="30%" borderRightWidth="1px">
-      Sidebar
-    </Box>
-  }
-  footer={
-    <Box height="16" borderTopWidth="1px">
-      Footer
-    </Box>
+    <Sidebar>
+      <SidebarSection>
+        <NavItem label="Home" />
+        <NavItem label="Settings" />
+      </SidebarSection>
+    </Sidebar>
   }
 >
-  <Box as="main">Main content</Box>
+  <Box as="main" flex="1" py="2" px="4" overflowY="auto">
+    Your application content
+  </Box>
 </AppShell>
 ```
 
-### Full screen
+### Variants
 
-The fullscreen variant can be used to create fullscreen apps, that fill up the viewport. It will position the container `absolute` with `inset: 0`.
+The default variant is `fullscreen`, using the `static` variant the AppShell will behave like a regular flex box.
+Use the static variant when the AppShell needs a fixed height, or when using a sticky header / sidebar.
 
-```jsx
-<Box height="200px" position="relative">
-  <AppShell
-    variant="fullscreen"
-    navbar={
-      <Box height="16" borderBottomWidth="1px">
-        Navbar
-      </Box>
-    }
-    sidebar={
-      <Box width="30%" borderRightWidth="1px">
-        Sidebar
-      </Box>
-    }
-    footer={
-      <Box height="16" borderTopWidth="1px">
-        Footer
-      </Box>
-    }
-  >
-    <Box as="main">Main content</Box>
-  </AppShell>
-</Box>
+```jsx height=400px overflow=hidden
+<AppShell
+  variant="static"
+  minH="100%"
+  navbar={
+    <Box
+      as="header"
+      borderBottomWidth="1px"
+      py="2"
+      px="4"
+      position="sticky"
+      top="0"
+    >
+      <SaasUILogo width="100px" />
+    </Box>
+  }
+  sidebar={
+    <Sidebar position="sticky" top="40px">
+      <SidebarSection>
+        <NavItem label="Home" />
+        <NavItem label="Settings" />
+      </SidebarSection>
+    </Sidebar>
+  }
+>
+  <Box as="main" flex="1" py="2" px="4">
+    Your application content
+  </Box>
+</AppShell>
 ```
 
 ### Example layout
 
-```jsx
+Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGrid <Badge bg="primary.500" >Pro</Badge>
+
+```jsx height=400px overflow=hidden
 <AppShell
-  minH="400px"
   sidebar={
     <Sidebar width="30%">
-      <SidebarNav direction="row">
-        <SaasUIGlyph width="24px" />
+      <SidebarSection direction="row">
+        <SaasUILogo width="100px" />
         <Spacer />
-        <SidebarMenu icon={<PersonaAvatar presence="online" size="xs" />}>
-          <MenuItem>Sign out</MenuItem>
-        </SidebarMenu>
-      </SidebarNav>
-      <SidebarOverflow>
-        <SidebarNav>
-          <SidebarLink label="Home" icon={<FiHome />} />
-          <SidebarLink label="Contacts" icon={<FiUsers />} />
-        </SidebarNav>
-      </SidebarOverflow>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            icon={
+              <PersonaAvatar
+                presence="online"
+                size="xs"
+                src="/showcase-avatar.jpg"
+              />
+            }
+            variant="ghost"
+          />
+          <MenuList>
+            <MenuItem>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
+      </SidebarSection>
+      <SidebarSection flex="1" overflowY="auto">
+        <NavItem label="Home" icon={<FiHome />} />
+        <NavItem label="Contacts" icon={<FiUsers />} />
+      </SidebarSection>
     </Sidebar>
   }
 >
-  <Page title="Page" height="400px" contentWidth="full">
+  <Page title="Page" contentWidth="full">
     <DataGrid
       isHoverable
       isSelectable
@@ -118,7 +172,5 @@ The fullscreen variant can be used to create fullscreen apps, that fill up the v
 ## Props
 
 The `AppShell` component and all sub components accept all `Box` properties.
-
-### Card Props
 
 <PropsTable of="AppShell" />

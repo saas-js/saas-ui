@@ -16,7 +16,7 @@ import {
   AuthProps,
 } from '../src'
 
-import { Field } from '@saas-ui/react'
+import { Field, useAuth } from '@saas-ui/react'
 
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
@@ -150,4 +150,13 @@ ForgotPassword.args = {
 export const UpdatePassword = Template.bind({})
 UpdatePassword.args = {
   view: 'update_password',
+}
+
+interface MyUser extends User {
+  extraField: 'foobar'
+}
+
+export const UseAuth = () => {
+  const auth = useAuth<MyUser>()
+  return <>{auth.user?.extraField}</>
 }

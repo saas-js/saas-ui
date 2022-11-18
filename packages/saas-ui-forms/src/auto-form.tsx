@@ -17,7 +17,7 @@ interface AutoFormOptions {
   submitLabel?: React.ReactNode
   /**
    * The schema.
-   * Supports object schema, Yup or Zod.
+   * Supports object schema, Zod, Yup or Ajv (JSON Schema).
    * @see https://www.saas-ui.dev/docs/forms/auto-form
    */
   schema: any
@@ -28,8 +28,10 @@ interface AutoFormOptions {
 }
 
 export interface AutoFormProps<TFieldValues extends FieldValues>
-  extends Omit<FormProps<TFieldValues>, 'schema'>,
-    AutoFormOptions {}
+  extends Omit<FormProps<TFieldValues>, 'schema' | 'children'>,
+    AutoFormOptions {
+  children?: React.ReactNode
+}
 
 export const AutoForm = forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(

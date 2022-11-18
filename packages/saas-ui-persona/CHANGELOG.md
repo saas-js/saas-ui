@@ -1,5 +1,23 @@
 # @saas-ui/persona
 
+## 1.2.1
+
+### Patch Changes
+
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 1.0.0
 
 ### Major Changes

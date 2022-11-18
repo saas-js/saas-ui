@@ -1,5 +1,91 @@
 # @saas-ui/forms
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [92f3e73]
+  - @saas-ui/react-utils@1.1.1
+  - @saas-ui/stepper@1.2.1
+
+## 1.3.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/input-right-button@1.2.0
+  - @saas-ui/number-input@1.2.0
+  - @saas-ui/password-input@1.2.0
+  - @saas-ui/pin-input@1.2.0
+  - @saas-ui/radio@1.2.0
+  - @saas-ui/select@1.2.0
+  - @saas-ui/stepper@1.2.0
+
+## 1.2.2
+
+### Patch Changes
+
+- ad47180: FormStepper now supports theming props.
+
+## 1.2.1
+
+### Patch Changes
+
+- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+  - @saas-ui/stepper@1.1.2
+
+## 1.2.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+- d003608: Re-export all React Hook Form types and hooks
+- d003608: New onChange prop for Form that triggers when the form state is changed.
+
+## 1.1.2
+
+### Patch Changes
+
+- bef671d: Field variant now passed down to the internal Input.
+
+## 1.1.1
+
+### Patch Changes
+
+- @saas-ui/stepper@1.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/button@1.1.0
+  - @saas-ui/input-right-button@1.1.0
+  - @saas-ui/number-input@1.1.0
+  - @saas-ui/password-input@1.1.0
+  - @saas-ui/pin-input@1.1.0
+  - @saas-ui/radio@1.1.0
+  - @saas-ui/react-utils@1.1.0
+  - @saas-ui/select@1.1.0
+  - @saas-ui/stepper@1.1.0
+
+## 1.0.3
+
+### Patch Changes
+
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- Updated dependencies [8d03628]
+  - @saas-ui/password-input@1.0.2
+
 ## 1.0.2
 
 ### Patch Changes

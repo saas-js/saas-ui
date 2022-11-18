@@ -142,6 +142,19 @@ export const NoLabel = () => {
   )
 }
 
+export const Variants = () => {
+  return (
+    <Form onSubmit={onSubmit} onError={(err) => console.error(err)}>
+      <FormLayout>
+        <Field name="outline" label="Outline" variant="outline" />
+        <Field name="filled" label="Filled" variant="filled" />
+        <Field name="flushed" label="Flushed" variant="flushed" />
+        <Field name="unstyled" label="Unstyled" variant="unstyled" />
+      </FormLayout>
+    </Form>
+  )
+}
+
 export const HelpText = () => {
   return (
     <Form
@@ -220,6 +233,31 @@ export const WithAddons = () => {
               <CheckIcon />
             </InputRightElement>
           }
+        />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithEventHandlers = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          id="email"
+          name="email"
+          label="Email"
+          type="email"
+          onChange={(e) => console.log(e)}
+          onBlur={(e) => console.log(e)}
         />
 
         <SubmitButton>Submit</SubmitButton>

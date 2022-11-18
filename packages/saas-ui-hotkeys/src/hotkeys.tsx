@@ -289,8 +289,6 @@ export const HotkeysItem: React.FC<HotkeysItemProps> = (props) => {
     alignItems: 'center',
     textAlign: 'start',
     flex: '0 0 auto',
-    py: 2,
-    fontSize: 'lg',
     ...styles.item,
   }
 

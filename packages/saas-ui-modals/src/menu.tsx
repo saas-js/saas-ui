@@ -35,7 +35,7 @@ export interface MenuDialogListProps
     Omit<MenuListProps, 'title'> {}
 
 export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
-  (props, ref) => {
+  (props, forwardedRef) => {
     const {
       rootProps,
       title,
@@ -48,7 +48,7 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
 
     const { isOpen, onClose, menuRef } = useMenuContext()
 
-    const ownProps = useMenuList(rest, ref)
+    const { ref, ...ownProps } = useMenuList(rest, forwardedRef)
 
     const styles = useMultiStyleConfig('Menu', props)
 
@@ -65,6 +65,7 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
         <StylesProvider value={styles}>
           <chakra.div
             {...ownProps}
+            ref={ref as React.Ref<HTMLDivElement>}
             __css={{
               outline: 0,
               maxHeight: '80vh', // can override this in theme

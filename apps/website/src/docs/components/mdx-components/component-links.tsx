@@ -16,6 +16,7 @@ import { FaNpm, FaGithub, FaYoutube } from 'react-icons/fa'
 import { FiLock } from 'react-icons/fi'
 import StorybookIcon from '../storybook-icon'
 import { t } from '@/docs/utils/i18n'
+import { Version } from '@/components/version'
 
 type ComponentLinkProps = LinkProps & {
   icon?: React.ElementType
@@ -61,9 +62,11 @@ export type ComponentLinksProps = {
   storybook?: { url: string }
   video?: { url: string }
   pro?: { gumroad: boolean }
+  beta?: boolean
+  version?: string | boolean
 }
 function ComponentLinks(props: ComponentLinksProps) {
-  const { theme, github, npm, storybook, video, pro, ...rest } = props
+  const { theme, github, npm, storybook, video, pro, beta, ...rest } = props
   const iconColor = useColorModeValue('gray.600', 'inherit')
 
   const githubRepoUrl = 'https://github.com/saas-js/saas-ui'
@@ -122,12 +125,17 @@ function ComponentLinks(props: ComponentLinksProps) {
     </WrapItem>
   )
 
+  const themeUrl =
+    theme?.theme === 'chakra'
+      ? 'https://github.com/chakra-ui/chakra-ui/tree/main/packages/components/theme/src/components/'
+      : `${githubRepoUrl}/tree/main/packages/saas-ui-theme/src/${
+          theme?.theme || 'base'
+        }/components/`
+
   const themeComponentLink = theme && (
     <WrapItem>
       <ComponentLink
-        url={`${githubRepoUrl}/tree/main/packages/saas-ui-theme/src/${
-          theme.theme || 'base'
-        }/components/${theme.componentName}.ts`}
+        url={`${themeUrl}${theme.componentName}.ts`}
         icon={FaGithub}
         iconColor={iconColor}
         iconSize="1rem"
@@ -153,7 +161,7 @@ function ComponentLinks(props: ComponentLinksProps) {
     </WrapItem>
   )
 
-  const beta = pro && (
+  const isBeta = (beta || pro) && (
     <WrapItem>
       <Box
         px="12px"
@@ -164,21 +172,34 @@ function ComponentLinks(props: ComponentLinksProps) {
         borderRadius="md"
         fontSize="sm"
         _hover={{}}
+        borderColor="green.400"
+        color="green.400"
+        textTransform="uppercase"
+        fontWeight="medium"
       >
         {t('component.mdx-components.component-links.beta')}
       </Box>
     </WrapItem>
   )
 
-  https: return (
-    <Wrap className="component-links" pt="2rem" spacing="4" {...rest}>
+  const version = (!!pro || !!npm || props.version) && (
+    <WrapItem>
+      <Version
+        version={typeof props.version === 'boolean' ? undefined : props.version}
+        pro={!!pro}
+      />
+    </WrapItem>
+  )
+
+  return (
+    <Wrap className="component-links" pt="2rem" spacing="2" {...rest}>
+      {isBeta}
       {githubLink}
       {themeComponentLink}
       {npmLink}
       {storybookLink}
       {videoLink}
       {gumroadLink}
-      {beta}
     </Wrap>
   )
 }

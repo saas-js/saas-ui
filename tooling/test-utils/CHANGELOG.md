@@ -1,5 +1,135 @@
 # @saas-ui/test-utils
 
+## 2.1.3
+
+### Patch Changes
+
+- Updated dependencies [7b426e8]
+  - @saas-ui/react@1.6.2
+
+## 2.1.2
+
+### Patch Changes
+
+- @saas-ui/react@1.6.1
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+  - @saas-ui/react@1.6.0
+
+## 2.1.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/react@1.5.0
+
+## 2.0.18
+
+### Patch Changes
+
+- @saas-ui/react@1.4.5
+
+## 2.0.17
+
+### Patch Changes
+
+- Updated dependencies [d690b18]
+- Updated dependencies [ad47180]
+  - @saas-ui/react@1.4.4
+
+## 2.0.16
+
+### Patch Changes
+
+- Updated dependencies [1195fc2]
+  - @saas-ui/react@1.4.3
+
+## 2.0.15
+
+### Patch Changes
+
+- Updated dependencies [b88c087]
+- Updated dependencies [62f3d4c]
+- Updated dependencies [62f3d4c]
+  - @saas-ui/react@1.4.2
+
+## 2.0.14
+
+### Patch Changes
+
+- Updated dependencies [dfd61ed]
+  - @saas-ui/react@1.4.1
+
+## 2.0.13
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+  - @saas-ui/react@1.4.0
+
+## 2.0.12
+
+### Patch Changes
+
+- Updated dependencies [b7f169b]
+- Updated dependencies [935a47c]
+- Updated dependencies [bef671d]
+  - @saas-ui/react@1.3.3
+
+## 2.0.11
+
+### Patch Changes
+
+- @saas-ui/react@1.3.2
+
+## 2.0.10
+
+### Patch Changes
+
+- @saas-ui/react@1.3.1
+
+## 2.0.9
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+- Updated dependencies [be064d7]
+  - @saas-ui/react@1.3.0
+
+## 2.0.8
+
+### Patch Changes
+
+- @saas-ui/react@1.2.2
+
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@1.2.1
+
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies [1ff5f3a]
+- Updated dependencies [e14c2e1]
+- Updated dependencies [273c10d]
+- Updated dependencies [8d03628]
+  - @saas-ui/react@1.2.0
+
 ## 2.0.5
 
 ### Patch Changes

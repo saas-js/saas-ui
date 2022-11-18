@@ -17,14 +17,16 @@ import { AuthFormSuccess } from './success'
 import { useLogin, AuthActionEnum } from '../provider'
 
 export interface MagicLinkFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
+  emailLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 interface SubmitParams {
@@ -56,6 +58,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   onError = () => null,
   onValidationError,
   submitLabel = 'Continue with Email',
+  emailLabel = 'Email',
   defaultValues,
   renderSuccess = (data) => <MagicLinkSuccess email={data?.email} />,
   children,
@@ -85,7 +88,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label="Email"
+          label={emailLabel}
           type="email"
           rules={{ required: true }}
           autoComplete="email"

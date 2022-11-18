@@ -1,5 +1,40 @@
 # @saas-ui/hotkeys
 
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/search-input@1.2.0
+
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [1195fc2]
+  - @saas-ui/search-input@1.1.1
+
+## 1.1.1
+
+### Patch Changes
+
+- b7f169b: Removed fontSize from HotkeysListItem base styles.
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/search-input@1.1.0
+
 ## 1.0.1
 
 ### Patch Changes

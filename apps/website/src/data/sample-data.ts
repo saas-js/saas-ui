@@ -1,5 +1,3 @@
-import { ColumnDef } from '@tanstack/react-table'
-
 interface ExampleData {
   name: string
   phone: string
@@ -9,7 +7,37 @@ interface ExampleData {
   employees: number
 }
 
-const columns: ColumnDef<ExampleData>[] = [
+const columns = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'phone',
+    header: 'Phone',
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+  {
+    accessorKey: 'company',
+    header: 'Company',
+  },
+  {
+    accessorKey: 'country',
+    header: 'Country',
+  },
+  {
+    accessorKey: 'employees',
+    header: 'Employees',
+    meta: {
+      isNumeric: true,
+    },
+  },
+]
+
+const gridColumns = [
   {
     accessorKey: 'name',
     header: 'Name',
@@ -88,3 +116,5 @@ const data = [
 ]
 
 export const dataTable = { columns, data }
+
+export const dataGrid = { columns: gridColumns, data }

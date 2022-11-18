@@ -33,3 +33,17 @@ export const ReactIcons = () => (
     />
   </>
 )
+
+export const Variant = () => (
+  <FormControl>
+    <FormLabel>Password</FormLabel>
+    <PasswordInput name="password" variant="flushed" />
+  </FormControl>
+)
+
+export const CustomWidth = () => (
+  <FormControl>
+    <FormLabel>Password</FormLabel>
+    <PasswordInput name="password" width="200px" />
+  </FormControl>
+)

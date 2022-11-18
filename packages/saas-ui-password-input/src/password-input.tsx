@@ -14,7 +14,17 @@ interface PasswordOptions {
 export interface PasswordInputProps extends InputProps, PasswordOptions {}
 
 export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
-  ({ viewIcon, viewOffIcon, autoComplete, ...props }, ref) => {
+  (props, ref) => {
+    const {
+      viewIcon,
+      viewOffIcon,
+      autoComplete,
+      w,
+      width,
+      size,
+      variant,
+      ...inputProps
+    } = props
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
 
@@ -27,10 +37,16 @@ export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
       icon = viewOffIcon || <ViewOffIcon />
     }
 
+    const groupProps = {
+      width: w || width,
+      size,
+      variant,
+    }
+
     return (
-      <InputGroup>
+      <InputGroup {...groupProps}>
         <Input
-          {...props}
+          {...inputProps}
           ref={ref}
           type={show ? 'text' : 'password'}
           autoComplete={show ? 'off' : autoComplete}

@@ -1,5 +1,40 @@
 # @saas-ui/theme
 
+## 1.5.0
+
+### Minor Changes
+
+- bc1f403: Improved Tooltip styles for Saas UI theme.
+
+### Patch Changes
+
+- 0a77fc0: Cleaned up NavItem theme.
+
+## 1.4.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+## 1.3.1
+
+### Patch Changes
+
+- fd41596: Clean up AppShell theme
+
+## 1.3.0
+
+### Minor Changes
+
+- 0d83ca5: Added AppShell component to core
+- 40a9465: Added Sidebar component to core
+
+## 1.2.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 1.1.0
 
 ### Minor Changes

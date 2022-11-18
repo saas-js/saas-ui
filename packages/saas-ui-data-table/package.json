@@ -1,19 +1,19 @@
 {
   "name": "@saas-ui/data-table",
-  "version": "1.0.2",
+  "version": "1.2.2",
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.mjs"
+      "import": "./dist/index.modern.js"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -55,8 +55,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.2",
-    "@chakra-ui/utils": "^2.0.2",
+    "@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/utils": "^2.0.11",
     "@saas-ui/layout": "workspace:*",
     "@tanstack/react-table": "^8.2.6"
   },

@@ -1,5 +1,54 @@
 # @saas-ui/menu
 
+## 1.2.2
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.5
+
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/provider@1.1.4
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/provider@1.1.3
+
+## 1.1.2
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.2
+
+## 1.1.1
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/button@1.1.0
+  - @saas-ui/provider@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes

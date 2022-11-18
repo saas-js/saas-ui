@@ -10,6 +10,7 @@ export const [CollapseProvider, useCollapseContext] =
 
 export interface UseCollapse {
   defaultIsOpen?: boolean
+  isOpen?: boolean
   onOpen?: () => void
   onClose?: () => void
   isCollapsible?: boolean

@@ -4,12 +4,12 @@ import {
   Box,
   BoxProps,
   Container,
-  Flex,
+  HStack,
   useColorModeValue,
 } from '@chakra-ui/react'
 import Navigation from './navigation'
 import Logo from './logo'
-import { useViewportScroll } from 'framer-motion'
+import { useScroll } from 'framer-motion'
 
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
@@ -18,12 +18,12 @@ const Header = (props: HeaderProps) => {
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
 
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   React.useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()))
   }, [scrollY])
 
-  const bg = useColorModeValue('whiteAlpha.700', 'rgba(29, 32, 37, 0.7)')
+  const bg = useColorModeValue('whiteAlpha.700', 'hsl(210 11% 10% / 85%)')
 
   return (
     <Box
@@ -31,18 +31,18 @@ const Header = (props: HeaderProps) => {
       as="header"
       top="0"
       w="full"
-      backdropFilter="blur(5px)"
+      backdropFilter="blur(16px)"
       zIndex="sticky"
       borderColor="whiteAlpha.100"
       transitionProperty="common"
-      transitionDuration="normal"
-      bg={y > height ? bg : ''}
+      transitionDuration="slow"
+      bg={y > height ? bg : 'transparent'}
       boxShadow={y > height ? 'md' : ''}
-      borderBottomWidth={y > height ? '1px' : ''}
+      borderBottomWidth="1px"
       {...props}
     >
       <Container maxW="container.2xl" px="8" py="4">
-        <Flex width="full" align="center" justify="space-between">
+        <HStack width="full" align="center">
           <Logo
             onClick={(e) => {
               if (window.location.pathname === '/') {
@@ -56,7 +56,7 @@ const Header = (props: HeaderProps) => {
             }}
           />
           <Navigation />
-        </Flex>
+        </HStack>
       </Container>
     </Box>
   )

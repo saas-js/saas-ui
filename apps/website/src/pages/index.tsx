@@ -1383,10 +1383,8 @@ export async function getStaticProps() {
   return {
     props: {
       announcement: {
-        title: 'Support us by becoming a stargazer! 🚀 ',
-        description:
-          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: 'https://github.com/saas-js/saas-ui',
+        title: 'Get 50% discount on Pro licenses untill December 1st',
+        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order',
         action: false,
       },
       header: {

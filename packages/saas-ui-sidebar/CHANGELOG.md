@@ -1,5 +1,11 @@
 # @saas-ui/sidebar
 
+## 0.5.2
+
+### Patch Changes
+
+- Fix SSR variant value.
+
 ## 0.5.1
 
 ### Patch Changes

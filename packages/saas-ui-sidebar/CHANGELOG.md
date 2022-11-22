@@ -1,5 +1,11 @@
 # @saas-ui/sidebar
 
+## 0.5.1
+
+### Patch Changes
+
+- ddb0019: Fix React hydration error with condensed variant
+
 ## 0.5.0
 
 ### Minor Changes

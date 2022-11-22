@@ -78,12 +78,14 @@ const motionPresets = {
 
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
-
   const theme = useTheme()
   const defaultProps = theme.components['Sidebar'].defaultProps
+  console.log(props.variant, defaultProps.variant)
   const variant = useResponsiveValue(props.variant ?? defaultProps.variant, {
+    fallback: defaultProps.variant,
     ssr: false,
   })
+  console.log('variant', variant)
   const size = useResponsiveValue(props.size ?? defaultProps.size, {
     ssr: false,
   })

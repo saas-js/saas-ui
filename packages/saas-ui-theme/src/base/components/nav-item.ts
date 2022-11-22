@@ -50,6 +50,11 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
         justifyContent: 'center',
       },
     },
+    label: {
+      '[data-condensed] &': {
+        display: 'none',
+      },
+    },
     icon: {
       display: 'flex',
       transitionProperty: 'common',

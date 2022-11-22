@@ -21,18 +21,18 @@ export interface NavItemLabelProps
   extends HTMLChakraProps<'div'>,
     ThemingProps<'NavLink'> {}
 
-export const NavItemLabel = forwardRef<NavItemLabelProps, 'div'>(
+export const NavItemLabel = forwardRef<NavItemLabelProps, 'span'>(
   ({ children, ...props }, ref) => {
     const styles = useNavItemStyles()
     return (
-      <chakra.div
+      <chakra.span
         ref={ref}
         __css={styles.label}
         {...props}
         className={cx('saas-nav-item__label', props.className)}
       >
         {children}
-      </chakra.div>
+      </chakra.span>
     )
   }
 )
@@ -101,7 +101,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
 
   let label = children || labelProp
   if (typeof label === 'string') {
-    label = <NavItemLabel>{label}</NavItemLabel>
+    label = <NavItemLabel hidden={isCondensed}>{label}</NavItemLabel>
   }
 
   let link = (
@@ -121,7 +121,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
         className="saas-nav-item__inner"
       >
         {icon && <NavItemIcon>{icon}</NavItemIcon>}
-        {!isCondensed && label}
+        {label}
       </chakra.span>
     </chakra.a>
   )

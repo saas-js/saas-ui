@@ -56,14 +56,14 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.12",
-    "@chakra-ui/react-utils": "^2.0.9",
+    "@chakra-ui/react-context": "^2.0.5",
     "@chakra-ui/utils": "^2.0.12",
     "@saas-ui/collapse": "workspace:*",
     "@saas-ui/provider": "workspace:*",
     "@saas-ui/react-utils": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.1.0",
+    "@chakra-ui/react": ">=2.4.0",
     "framer-motion": ">=4.0.0",
     "react": ">=18.0.0"
   }

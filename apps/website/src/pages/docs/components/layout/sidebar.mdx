@@ -172,7 +172,6 @@ import {
 
         <NavGroup title="Tags" isCollapsible>
           <NavItem
-            label="Lead"
             icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
           >
             <Text>Lead</Text>
@@ -191,9 +190,7 @@ import {
         </NavGroup>
       </SidebarSection>
       <SidebarSection>
-        <NavItem label="Documentation" icon={<FiHelpCircle />}>
-          Documentation
-        </NavItem>
+        <NavItem icon={<FiHelpCircle />}>Documentation</NavItem>
       </SidebarSection>
     </Sidebar>
   }
@@ -216,13 +213,13 @@ NavItem labels will be rendered as tooltips.
         />
       </SidebarSection>
       <SidebarSection>
-        <NavItem label="Home" icon={<FiHome size="1.2em" />} size="md">
+        <NavItem icon={<FiHome size="1.2em" />} size="md">
           Home
         </NavItem>
-        <NavItem label="Users" icon={<FiUsers size="1.2em" />} size="md">
+        <NavItem icon={<FiUsers size="1.2em" />} size="md">
           Users
         </NavItem>
-        <NavItem label="Settings" icon={<FiSettings size="1.2em" />} size="md">
+        <NavItem icon={<FiSettings size="1.2em" />} size="md">
           Settings
         </NavItem>
       </SidebarSection>
@@ -269,12 +266,10 @@ function ToggleVariant() {
 
           <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
             <NavGroup>
-              <NavItem label="All users" icon={<FiHome />} isActive>
+              <NavItem icon={<FiHome />} isActive>
                 All users
               </NavItem>
-              <NavItem label="Favourite users" icon={<StarIcon />}>
-                Favourite users
-              </NavItem>
+              <NavItem icon={<StarIcon />}>Favourite users</NavItem>
             </NavGroup>
           </SidebarSection>
           <SidebarOverlay zIndex="1" />
@@ -342,7 +337,6 @@ You can stack multiple sidebars together to create a double sidebar layout.
 
           <NavGroup title="Tags" isCollapsible>
             <NavItem
-              label="Lead"
               icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
             >
               <Text>Lead</Text>
@@ -410,9 +404,11 @@ Disabling closing the sidebar on small screens.
         </Menu>
       </SidebarSection>
       <SidebarSection aria-label="Main">
-        <NavItem label="Home" icon={<FiHome />} isActive />
-        <NavItem label="Users" icon={<FiUsers />} />
-        <NavItem label="Settings" icon={<FiSettings />} />
+        <NavItem icon={<FiHome />} isActive>
+          Home
+        </NavItem>
+        <NavItem icon={<FiUsers />}>Users</NavItem>
+        <NavItem icon={<FiSettings />}>Settings</NavItem>
       </SidebarSection>
       <SidebarOverlay />
     </Sidebar>

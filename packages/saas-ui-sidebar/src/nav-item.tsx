@@ -100,7 +100,11 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const styles = useMultiStyleConfig('NavItem', props)
 
   let label = children || labelProp
+  let tooltipLabel = tooltip
   if (typeof label === 'string') {
+    if (!tooltipLabel) {
+      tooltipLabel = label
+    }
     label = <NavItemLabel hidden={isCondensed}>{label}</NavItemLabel>
   }
 
@@ -129,8 +133,6 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   if (href && href !== '#') {
     link = <RouterLink href={href}>{link}</RouterLink>
   }
-
-  const tooltipLabel = isCondensed && !tooltip ? label : tooltip
 
   return (
     <NavItemStylesProvider value={styles}>

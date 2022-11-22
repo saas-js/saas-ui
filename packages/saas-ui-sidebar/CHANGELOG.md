@@ -1,5 +1,11 @@
 # @saas-ui/sidebar
 
+## 0.5.3
+
+### Patch Changes
+
+- Only set tooltip label if children is a string.
+
 ## 0.5.2
 
 ### Patch Changes

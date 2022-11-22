@@ -150,7 +150,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
     size,
   }
 
-  const variants = motionPresets[motionPreset || 'none']
+  const variants = motionPresets[isCondensed ? 'none' : motionPreset || 'none']
 
   return (
     <SidebarProvider value={context}>

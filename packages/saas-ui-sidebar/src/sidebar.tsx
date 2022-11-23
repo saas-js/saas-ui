@@ -81,8 +81,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const theme = useTheme()
   const defaultProps = theme.components['Sidebar'].defaultProps
 
-  const variant = useResponsiveValue(props.variant ?? defaultProps.variant)
-  const size = useResponsiveValue(props.size ?? defaultProps.size)
+  const variant = useResponsiveValue(props.variant ?? defaultProps.variant, {
+    fallback: 'base',
+  })
+  const size = useResponsiveValue(props.size ?? defaultProps.size, {
+    fallback: 'base',
+  })
 
   const isCondensed = variant === 'condensed'
 
@@ -145,6 +149,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
 
   const context = {
     ...disclosure,
+    breakpoints,
     isMobile,
     variant,
     size,
@@ -168,6 +173,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
           id={disclosure.getDisclosureProps().id}
           className={cx('saas-sidebar', className)}
           data-condensed={dataAttr(isCondensed)}
+          data-collapsible={dataAttr(isCollapsible)}
         >
           {children}
         </MotionBox>
@@ -191,6 +197,12 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
 
   const styles = useSidebarStyles()
 
+  const wrapperStyles = {
+    display: sidebar?.isMobile ? 'block' : 'none',
+    height: 8,
+    ...styles.toggleWrapper,
+  }
+
   const buttonStyles = {
     position: 'fixed',
     top: 3,
@@ -207,8 +219,8 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     <HamburgerIcon />
   )
 
-  return sidebar.isMobile ? (
-    <chakra.div height="8">
+  return (
+    <chakra.div __css={wrapperStyles}>
       <IconButton
         variant="ghost"
         sx={buttonStyles}
@@ -218,7 +230,7 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
         icon={icon}
       />
     </chakra.div>
-  ) : null
+  )
 }
 
 export interface SidebarOverlayProps extends ChakraProps {}

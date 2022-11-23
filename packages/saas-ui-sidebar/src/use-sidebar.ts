@@ -1,10 +1,15 @@
 import { createContext } from '@chakra-ui/react-utils'
-import { ThemeTypings, UseDisclosureReturn } from '@chakra-ui/react'
+import {
+  ResponsiveValue,
+  ThemeTypings,
+  UseDisclosureReturn,
+} from '@chakra-ui/react'
 
 type Variants = 'condensed' | 'default'
 
 export interface UseSidebarReturn extends UseDisclosureReturn {
   isMobile?: boolean
+  breakpoints?: ResponsiveValue<boolean>
   variant?: 'Sidebar' extends keyof ThemeTypings['components'] /* @ts-ignore */
     ? ThemeTypings['components']['Sidebar']['variants']
     : Variants

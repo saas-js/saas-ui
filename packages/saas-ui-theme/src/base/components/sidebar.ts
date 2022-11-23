@@ -1,6 +1,12 @@
 import { anatomy, mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
-const parts = anatomy('sidebar').parts('container', 'overlay', 'section')
+const parts = anatomy('sidebar').parts(
+  'container',
+  'overlay',
+  'section',
+  'toggleWrapper',
+  'toggle'
+)
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
@@ -34,6 +40,9 @@ const variantDefault: PartsStyleFunction<typeof parts> = (props) => {
     section: {
       px: 4,
     },
+    toggleWrapper: {
+      h: 8,
+    },
   }
 }
 
@@ -42,6 +51,9 @@ const variantCondensed: PartsStyleFunction<typeof parts> = (props) => {
     container: {
       width: '12',
       py: 3,
+    },
+    toggleWrapper: {
+      display: 'none',
     },
   }
 }

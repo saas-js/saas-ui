@@ -17,11 +17,6 @@ export const useResponsiveValue = (
   options?: UseBreakpointOptions
 ) => {
   const theme = useTheme()
-  return useBreakpointValue(
-    normalize(value, theme.__breakpoints?.toArrayValue),
-    {
-      fallback: value,
-      ...options,
-    }
-  )
+  const normalized = normalize(value, theme.__breakpoints?.toArrayValue)
+  return useBreakpointValue(normalized, options)
 }

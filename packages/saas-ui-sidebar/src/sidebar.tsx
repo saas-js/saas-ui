@@ -103,12 +103,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   } = omitThemingProps(props)
 
   const isMobile = useBreakpointValue(breakpoints, {
-    ssr: false,
     fallback: undefined,
   })
-
+  // we check this twice to avoid SSR issues.
+  const isMobileInitial = useBreakpointValue(breakpoints)
   const isInitial = typeof isMobile === 'undefined'
-  const isCollapsible = isMobile && !isCondensed
+  const isCollapsible = isMobileInitial && !isCondensed
   const isControlled = typeof isOpenProp !== 'undefined'
 
   const disclosure = useDisclosure({
@@ -121,12 +121,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const { isOpen, onClose, onOpen } = disclosure
 
   React.useEffect(() => {
-    if (isInitial || isCondensed || isControlled) {
+    if ((isInitial && isMobileInitial) || isCondensed || isControlled) {
       // make sure we do not show an initial animation or when this is a condensed sidebar
       return
     }
-    isMobile ? onClose() : onOpen()
-  }, [isInitial, isCondensed, isMobile])
+    isMobileInitial ? onClose() : onOpen()
+  }, [isInitial, isCondensed, isMobileInitial])
 
   const containerStyles: SystemStyleObject = {
     '& > *:not(style) ~ *:not(style, .saas-resize-handle)': {

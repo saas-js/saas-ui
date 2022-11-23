@@ -1,5 +1,11 @@
 # @saas-ui/sidebar
 
+## 0.5.5
+
+### Patch Changes
+
+- Fixed issue where SSR on mobile devices would not render properly.
+
 ## 0.5.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/react-utils
 
+## 1.1.2
+
+### Patch Changes
+
+- 7cf5223: useResponsive value now uses correct fallback value.
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @saas-ui/sidebar
 
+## 0.5.4
+
+### Patch Changes
+
+- 7cf5223: Improved toggle button rendering and behavior with ssr / mobile screens.
+- Updated dependencies [7cf5223]
+  - @saas-ui/react-utils@1.1.2
+  - @saas-ui/provider@1.1.7
+
 ## 0.5.3
 
 ### Patch Changes

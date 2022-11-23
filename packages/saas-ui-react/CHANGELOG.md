@@ -1,5 +1,20 @@
 # @saas-ui/react
 
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [7cf5223]
+  - @saas-ui/theme@1.6.1
+  - @saas-ui/forms@1.4.1
+  - @saas-ui/stepper@1.3.1
+  - @saas-ui/provider@1.1.7
+  - @saas-ui/auth@1.6.1
+  - @saas-ui/modals@1.4.1
+  - @saas-ui/layout@1.3.1
+  - @saas-ui/menu@1.3.1
+  - @saas-ui/data-table@1.3.1
+
 ## 1.7.0
 
 ### Minor Changes

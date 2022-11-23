@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 1.4.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.4.1
+- @saas-ui/menu@1.3.1
+
 ## 1.4.0
 
 ### Minor Changes

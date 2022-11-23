@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.6.1
+
+### Patch Changes
+
+- 7cf5223: Improved Sidebar theme added toggle and toggleWrapper parts.
+
 ## 1.6.0
 
 ### Minor Changes

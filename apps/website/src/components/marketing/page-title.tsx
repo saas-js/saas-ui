@@ -5,7 +5,6 @@ export interface PageTitleProps extends Omit<StackProps, 'title'> {
   description?: string | React.ReactNode
 }
 
-// @todo add to theme
 export default function PageTitle({
   title,
   description,
@@ -13,7 +12,7 @@ export default function PageTitle({
 }: PageTitleProps) {
   return (
     <VStack spacing={[4, null, 8]} alignItems="flex-start" {...props}>
-      <Text as="h1" textStyle="h1" textAlign="left">
+      <Text as="h1" textStyle="pageTitle" textAlign="left">
         {title}
       </Text>
       <Text

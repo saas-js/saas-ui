@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import dynamic from 'next/dynamic'
-import Script from 'next/script'
 import Image from 'next/image'
 
 import { Box, SimpleGrid } from '@chakra-ui/layout'
@@ -46,7 +45,6 @@ import Hero from '@/components/marketing/hero'
 import Features from '@/components/marketing/features'
 import CTA from '@/components/marketing/cta'
 import Section from '@/components/marketing/section-wrapper'
-import SectionTitle from '@/components/marketing/section-title'
 
 import RedwoodJS from '/public/frameworks/redwood.svg'
 import NextJS from '/public/frameworks/nextjs.svg'
@@ -59,7 +57,6 @@ import { Em, Br } from '@/components/typography'
 import { FallInPlace } from '@/components/motion/fall-in-place'
 
 import SEO from '@/components/seo'
-import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
 import { BackgroundGradient } from '@/components/background-gradient'
 
@@ -102,7 +99,6 @@ import { transparentize } from '@chakra-ui/theme-tools'
 import { Testimonial, Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { SectionHeading } from '@saas-ui/pro'
 import { Polypane } from '@/components/logos/customers/polypane'
 import { YouGotBud } from '@/components/logos/customers/you-got-bud'
 import { Startec } from '@/components/logos/customers/startec'

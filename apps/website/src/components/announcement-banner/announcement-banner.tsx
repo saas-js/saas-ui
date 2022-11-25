@@ -40,7 +40,7 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
     <Flex
       position="absolute"
       zIndex="10"
-      top={{ base: '100px', lg: '200px' }}
+      top={{ base: '100px', xl: '200px' }}
       width="100%"
     >
       <Container maxW="container.2xl" px="8">

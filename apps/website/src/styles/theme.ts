@@ -34,8 +34,8 @@ const styles = {
 }
 
 const textStyles = {
-  h1: {
-    fontSize: { base: '4xl', sm: '6xl' },
+  pageTitle: {
+    fontSize: { base: '2xl', sm: '4xl', md: '6xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',

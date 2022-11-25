@@ -87,7 +87,9 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
               }}
             >
               <HStack zIndex="2">
-                <BannerTitle fontWeight="semibold">{title}</BannerTitle>
+                <BannerTitle fontWeight="semibold" noOfLines={1}>
+                  {title}
+                </BannerTitle>
                 <BannerDescription
                   as={LinkOverlay}
                   href={href}

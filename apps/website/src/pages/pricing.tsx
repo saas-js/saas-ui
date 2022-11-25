@@ -4,41 +4,31 @@ import Script from 'next/script'
 
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 import {
-  Container,
   Heading,
   Text,
   HStack,
   VStack,
   Stack,
-  ButtonGroup,
   useColorModeValue,
   Avatar,
-  Img,
+  Tooltip,
 } from '@chakra-ui/react'
-
-import Hero from '@/components/marketing/hero'
 
 import Section from '@/components/marketing/section-wrapper'
 import SectionTitle from '@/components/marketing/section-title'
 
-import { Em, Br } from '@/components/typography'
-
-import { FallInPlace } from '@/components/motion/fall-in-place'
-
 import SEO from '@/components/seo'
 import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
-import { BackgroundGradient } from '@/components/background-gradient'
-
-import { ReactLogo } from '@/components/logos/react'
-import { ChakraLogo } from '@/components/logos/chakra'
-
-import { FaGithub } from 'react-icons/fa'
 
 import { Card, CardBody } from '@saas-ui/card'
 
 import { Faq } from '@/components/faq'
-import PageTitle from '@/components/marketing/page-title'
+
+import { Testimonials } from '@/components/testimonials'
+
+import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
+import { Br } from '@saas-ui/react'
 
 const PricingPage = () => {
   return (
@@ -55,11 +45,18 @@ const PricingPage = () => {
           __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
         }}
       />
-      <BackgroundGradient animate={false} />
+      <BackgroundGradientRadial
+        top="-30%"
+        bottom="auto"
+        opacity="0.3"
+        _dark={{ opacity: 0.5 }}
+      />
       <Box mb={8} w="full" position="relative" overflow="hidden">
         <Pricing />
 
         <Faq />
+
+        <Testimonials />
       </Box>
     </Box>
   )
@@ -67,21 +64,26 @@ const PricingPage = () => {
 
 const Pricing = () => {
   return (
-    <Section id="pricing" pos="relative" innerWidth="container.2xl">
-      <BackgroundGradient animate={false} height="100%" />
+    <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
-        <PageTitle
+        <SectionTitle
           title="Pricing for every stage"
-          description="Pay once and get life-time access to our high quality components."
-          py="20"
-          alignItems="center"
-        ></PageTitle>
+          description={
+            <Text>
+              Get started for free with 40+ open source components. Upgrade to
+              Pro <Br display={{ sm: 'none', lg: 'inline' }} />
+              to get all components and features with a license for you or your
+              team.
+            </Text>
+          }
+          py={{ base: '8', lg: '20' }}
+        />
 
         <SimpleGrid columns={[1, null, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
             description="Basic components, perfect to get started."
-            price="Free"
+            price="Free forever"
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
@@ -111,12 +113,17 @@ const Pricing = () => {
               </HStack>
             }
             description="Complete frontend stack for bootstrappers and small teams."
-            borderColor="primary.500"
-            boxShadow="md"
+            highlight="primary.500"
           >
             <PricingFeatures>
-              <PricingFeature title="One project" />
-              <PricingFeature title="One developer" />
+              <PricingFeature
+                title="One developer"
+                help="One developer per license, you can buy as many licenses as you need. Licenses can be transfered."
+              />
+              <PricingFeature
+                title={<>Unlimited projects</>}
+                help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
+              />
               <PricingFeature title="Advanced components" />
               <PricingFeature title="Multiple themes" />
               <PricingFeature title="Next.js and Electron boilerplates" />
@@ -133,11 +140,15 @@ const Pricing = () => {
               href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license"
               className="gumroad-button"
               onClick={() =>
-                /* @ts-ignore */
-                window?.plausible('Order Bootstrap')
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.plausible?.('Order Bootstrap')
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Bootstrap')
+                })
               }
             >
-              Pre-order
+              Early access
             </ButtonLink>
           </PricingBox>
           <PricingBox
@@ -157,10 +168,16 @@ const Pricing = () => {
             description="Unlimited license for growing teams."
           >
             <PricingFeatures>
-              <PricingFeature title="Unlimited projects" />
-              <PricingFeature title="Unlimited developers" />
-              <PricingFeature title="1 year of updates" />
+              <PricingFeature
+                title="Unlimited developers"
+                help="A developer can be either an employee or a contracted freelancer."
+              />
+              <PricingFeature
+                title="Unlimited projects"
+                help="No restrictions on commercial projects or client work."
+              />
               <PricingFeature title="Everything from Bootstrap" />
+              <PricingFeature title="1 year of updates" />
               <br />
               <PricingFeature
                 title="Private beta access"
@@ -172,11 +189,15 @@ const Pricing = () => {
               href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license"
               className="gumroad-button"
               onClick={() =>
-                /* @ts-ignore */
-                window?.plausible('Order Startup')
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.plausible?.('Order Startup')
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Startup')
+                })
               }
             >
-              Pre-order
+              Early access
             </ButtonLink>
           </PricingBox>
           <MemberShip />
@@ -208,34 +229,73 @@ const PricingFeatures = ({ children }) => {
   )
 }
 
-const PricingFeature = ({ title, iconColor = 'primary.500' }) => {
+const PricingFeature = ({ title, iconColor = 'primary.500', help = '' }) => {
   return (
     <HStack>
       <CheckIcon color={iconColor} />{' '}
-      <Text flex="1" fontSize="sm">
-        {title}
-      </Text>
+      <Tooltip label={help}>
+        <Text flex="1" fontSize="sm" cursor="default">
+          <Text
+            as="span"
+            borderStyle="dotted"
+            borderBottomWidth={help ? '1px' : 'none'}
+            borderColor="currentColor"
+          >
+            {title}
+          </Text>
+        </Text>
+      </Tooltip>
     </HStack>
   )
 }
 
-const PricingBox = ({ title, description, price, children, ...props }) => {
+const PricingBox = ({
+  title,
+  description,
+  price,
+  highlight = undefined,
+  children,
+  ...props
+}) => {
   return (
     <VStack
       zIndex="2"
-      bg={useColorModeValue('whiteAlpha.600', 'blackAlpha.300')}
-      borderRadius="md"
+      backdropFilter="blur(100px)"
+      borderRadius="lg"
       p="8"
       flex="1 0"
       alignItems="stretch"
-      border="1px solid"
-      borderColor={useColorModeValue('gray.400', 'gray.800')}
+      position="relative"
+      _before={{
+        content: '""',
+        display: 'block',
+        pointerEvents: 'none',
+        userSelect: 'none',
+        position: 'absolute',
+        inset: '0px',
+        borderRadius: 'inherit',
+        padding: '1px',
+        bgGradient: highlight
+          ? `linear(to-b, ${highlight}, transparent)`
+          : 'linear(to-b, blackAlpha.200, transparent)',
+        _dark: {
+          bgGradient: highlight
+            ? `linear(to-b, ${highlight}, transparent)`
+            : 'linear(to-b, whiteAlpha.300, transparent)',
+        },
+
+        '-webkit-mask':
+          'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+        '-webkit-mask-composite': 'xor',
+      }}
       {...props}
     >
       <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
         {title}
       </Heading>
-      <Box color={useColorModeValue('gray.500', 'gray.400')}>{description}</Box>
+      <Box color={useColorModeValue('gray.500', 'gray.400')} fontSize="md">
+        {description}
+      </Box>
       <Box fontSize="2xl" fontWeight="bold" py="4">
         {price}
       </Box>
@@ -249,11 +309,9 @@ const PricingBox = ({ title, description, price, children, ...props }) => {
 const MemberShip = () => {
   return (
     <PricingBox
-      width="480px"
-      margin="80px auto 0 auto"
       title={
         <HStack>
-          <Text>Elite membership</Text>
+          <Text>Membership</Text>
         </HStack>
       }
       description="Limited access membership for teams that want to get moving fast."
@@ -281,8 +339,14 @@ const MemberShip = () => {
         <PricingFeature title="Hands-on support" iconColor="cyan.500" />
       </PricingFeatures>
       <ButtonLink
-        href="mailto:hello@saas-ui.dev?subject=Elite membership"
+        href="mailto:hello@saas-ui.dev?subject=Membership"
         colorScheme="cyan"
+        onClick={() => {
+          setTimeout(() => {
+            /* @ts-ignore */
+            window?.pirsch?.('Membership')
+          })
+        }}
       >
         Get in touch
       </ButtonLink>

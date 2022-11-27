@@ -26,6 +26,7 @@
     "@mdx-js/loader": "^2.1.5",
     "@next/bundle-analyzer": "^12.3.3",
     "@octokit/rest": "^18.12.0",
+    "@saas-ui/command-bar": "workspace:^",
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/props-docs": "workspace:*",
     "@saas-ui/react": "workspace:*",

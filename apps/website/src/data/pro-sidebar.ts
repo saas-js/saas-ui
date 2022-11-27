@@ -14,6 +14,7 @@ const sidebar = {
       title: 'Quickstarts',
       path: '/docs/pro/installation',
       open: true,
+      heading: true,
       routes: [
         {
           title: 'Overview',
@@ -36,6 +37,7 @@ const sidebar = {
     {
       title: 'Configuration',
       path: '/docs/pro/configuration',
+      heading: true,
       open: true,
       routes: [
         {
@@ -47,6 +49,7 @@ const sidebar = {
     {
       title: 'Theming',
       path: '/docs/pro/theming',
+      heading: true,
       open: true,
       routes: [
         {
@@ -66,6 +69,7 @@ const sidebar = {
     {
       title: 'Deployments',
       path: '/docs/pro/deployments',
+      heading: true,
       open: true,
       routes: [
         {

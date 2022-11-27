@@ -13,9 +13,14 @@ const sidebar = {
 
     {
       title: 'Quickstarts',
-      path: '/docs/core/getting-started',
+      path: '/docs/core/installation',
+      heading: true,
       open: true,
       routes: [
+        {
+          title: 'Overview',
+          path: '/docs/core/getting-started',
+        },
         {
           title: 'Next JS',
           path: '/docs/core/installation/nextjs-guide',
@@ -47,6 +52,7 @@ const sidebar = {
       title: 'Theming',
       path: '/docs/core/theming',
       open: true,
+      heading: true,
       routes: [
         {
           title: 'Saas UI Theme',
@@ -70,6 +76,7 @@ const sidebar = {
       title: 'Integrations',
       path: '/docs/core/integrations',
       open: true,
+      heading: true,
       routes: [
         {
           title: 'Clerk',

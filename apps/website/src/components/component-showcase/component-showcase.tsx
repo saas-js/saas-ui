@@ -63,7 +63,7 @@ interface Data {
 export const ComponentShowcase = () => {
   const searchRef = React.useRef<HTMLInputElement>(null)
 
-  useHotkeys('/', () => searchRef.current?.focus())
+  // useHotkeys('/', () => searchRef.current?.focus())
 
   // make sure the menu doesnt steel focus on load
   const isOpen = !!useScrollSpy(['#showcase-property-list'])

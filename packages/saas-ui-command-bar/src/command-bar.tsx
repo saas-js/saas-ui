@@ -147,12 +147,15 @@ export const CommandBarInput = forwardRef<CommandBarInputProps, 'input'>(
 CommandBarInput.displayName = 'CommandBarInput'
 
 export interface CommandBarItemProps
-  extends Omit<HTMLChakraProps<'div'>, 'onSelect'> {
+  extends Omit<HTMLChakraProps<'div'>, 'onSelect' | 'value'> {
   onSelect?(value: string): void
+  isDisabled?: boolean
+  value?: string
 }
 
 export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
   (props, ref) => {
+    const { onSelect, value, isDisabled, ...rest } = props
     const styles = useCommandBarStyles()
 
     const itemStyles = {

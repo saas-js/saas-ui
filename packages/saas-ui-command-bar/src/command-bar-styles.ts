@@ -27,7 +27,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       maxH: scrollBehavior === 'inside' ? 'calc(100% - 7.5rem)' : undefined,
     },
     input: {
-      fontSize: 'lg',
       px: 4,
       py: 2,
       mb: 2,
@@ -73,6 +72,15 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       color: 'muted',
       fontSize: 'md',
       h: 16,
+    },
+    loading: {
+      display: 'flex',
+      alignItems: 'center',
+      color: 'muted',
+      fontSize: 'md',
+      px: 4,
+      py: 2,
+      h: 12,
     },
   }
 }

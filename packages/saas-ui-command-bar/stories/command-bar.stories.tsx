@@ -1,6 +1,13 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
-
+import {
+  FiUser,
+  FiCircle,
+  FiUserCheck,
+  FiTag,
+  FiBarChart,
+  FiCalendar,
+} from 'react-icons/fi'
 import {
   CommandBar,
   CommandBarContent,
@@ -14,7 +21,14 @@ import {
   CommandBarProps,
   CommandBarSeparator,
 } from '../src'
-import { Button, Container, useDisclosure } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Container,
+  Kbd,
+  Spinner,
+  useDisclosure,
+} from '@chakra-ui/react'
 
 export default {
   title: 'Components/Navigation/CommandBar',
@@ -29,6 +43,44 @@ export default {
     },
   ],
 } as Meta
+
+const items = [
+  {
+    icon: <FiUserCheck />,
+    label: 'Assign to...',
+    shortcut: ['A'],
+  },
+  {
+    icon: <FiUser />,
+    label: 'Assign to me',
+    shortcut: ['I'],
+  },
+  {
+    icon: <FiCircle />,
+    label: 'Change status...',
+    shortcut: ['S'],
+  },
+  {
+    icon: <FiBarChart />,
+    label: 'Change priority...',
+    shortcut: ['P'],
+  },
+  {
+    icon: <FiTag />,
+    label: 'Change labels...',
+    shortcut: ['L'],
+  },
+  {
+    icon: <FiTag />,
+    label: 'Remove label...',
+    shortcut: ['⇧', 'L'],
+  },
+  {
+    icon: <FiCalendar />,
+    label: 'Set due date...',
+    shortcut: ['⇧', 'D'],
+  },
+]
 
 const Template: Story<CommandBarProps> = (args) => {
   const [isLoading, setLoading] = React.useState(false)
@@ -85,17 +137,19 @@ const DialogTemplate: Story<CommandBarProps> = (args) => {
 
               <CommandBarEmpty>No results found.</CommandBarEmpty>
 
-              <CommandBarGroup heading="Fruits">
-                <CommandBarItem onSelect={(value) => console.log(value)}>
-                  Apple
-                </CommandBarItem>
-                <CommandBarItem>Orange</CommandBarItem>
-                <CommandBarSeparator />
-                <CommandBarItem>Pear</CommandBarItem>
-                <CommandBarItem>Blueberry</CommandBarItem>
-              </CommandBarGroup>
-
-              <CommandBarItem>Fish</CommandBarItem>
+              {items.map(({ icon, label, shortcut }) => {
+                return (
+                  <CommandBarItem key={label} value={label}>
+                    {icon}
+                    {label}
+                    <Box ms="auto">
+                      {shortcut.map((key) => {
+                        return <Kbd key={key}>{key}</Kbd>
+                      })}
+                    </Box>
+                  </CommandBarItem>
+                )
+              })}
             </CommandBarList>
           </CommandBarContent>
         </CommandBarDialog>
@@ -117,7 +171,7 @@ export const Loading = () => {
         <CommandBarInput placeholder="Type a command or search..." />
 
         <CommandBarList>
-          <CommandBarLoading>Hang on…</CommandBarLoading>
+          <CommandBarLoading>Loading...</CommandBarLoading>
 
           <CommandBarEmpty>No results found.</CommandBarEmpty>
 

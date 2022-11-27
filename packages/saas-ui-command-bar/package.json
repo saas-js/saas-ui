@@ -58,5 +58,8 @@
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",
     "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "react-icons": "^4.6.0"
   }
 }

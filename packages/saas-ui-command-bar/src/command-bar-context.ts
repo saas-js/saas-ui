@@ -28,7 +28,7 @@ export type CommandBarContext = ReturnType<typeof useCommandBar>
 
 export const useCommandBar = (props: CommandBarOptions) => {
   const {
-    shouldFilter = false,
+    shouldFilter = true,
     onFilter,
     value,
     onValueChange,
@@ -42,7 +42,7 @@ export const useCommandBar = (props: CommandBarOptions) => {
     isOpen: isOpenProp,
     onClose: onCloseProp,
   })
-  console.log(isOpenProp, isOpen)
+
   const getCommandProps = useCallback(
     (props: any) => {
       return {

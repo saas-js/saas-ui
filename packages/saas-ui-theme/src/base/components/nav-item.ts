@@ -18,6 +18,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   return {
     item: {
       my: '2px',
+      color: 'gray.900',
+      _dark: {
+        color: 'whiteAlpha.900',
+      },
     },
     link: {
       display: 'flex',
@@ -27,10 +31,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       textDecoration: 'none',
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      color: 'gray.900',
-      _dark: {
-        color: 'whiteAlpha.900',
-      },
       _hover: {
         textDecoration: 'none',
       },
@@ -59,10 +59,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       display: 'flex',
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      color: 'gray.900',
-      _dark: {
-        color: 'whiteAlpha.900',
-      },
       '[data-condensed] &': {
         me: 0,
         alignItems: 'center',
@@ -111,11 +107,8 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
       _active: {
         bg: activeBg,
         fontWeight: 'semibold',
+        color: mode(`${c}.600`, `${c}.100`)(props),
       },
-      color,
-    },
-    icon: {
-      color,
     },
   }
 }

@@ -13,7 +13,6 @@ import {
   removeFromLast,
 } from '@/docs/utils/find-route-by-path'
 import { getRouteContext } from '@/docs/utils/get-route-context'
-import { SecondaryNav } from '@/docs/components/secondary-nav/secondary-nav'
 
 export function getRoutes(slug: string) {
   // for home page, use docs sidebar

@@ -76,6 +76,7 @@ function SidebarGroup({
   icon,
   routes,
   heading,
+  sort,
   path,
   pathname,
   open,
@@ -95,7 +96,7 @@ function SidebarGroup({
       onOpen()
     }
   }, [isActive, onOpen])
-  console.log(heading, routes?.length)
+
   return (
     <Box {...props}>
       {heading && routes.length ? (

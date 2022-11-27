@@ -21,7 +21,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
   let link = (
     <NavItem
       isActive={isActive}
-      isDisabled={isDisabled}
+      // isDisabled={isDisabled}
       variant="subtle"
       mb="2"
       {...rest}

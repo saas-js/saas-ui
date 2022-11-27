@@ -1,4 +1,4 @@
-import { Box, Kbd, useDisclosure } from '@chakra-ui/react'
+import { Box, Kbd } from '@chakra-ui/react'
 import {
   CommandBar,
   CommandBarContent,
@@ -10,7 +10,6 @@ import {
   CommandBarList,
   useCommandState,
 } from '@saas-ui/command-bar'
-import { useHotkeys } from '@saas-ui/react'
 
 import coreSidebar from '@/data/core-sidebar'
 import componentsSidebar from '@/data/components-sidebar'

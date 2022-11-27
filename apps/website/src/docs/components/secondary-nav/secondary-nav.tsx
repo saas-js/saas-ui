@@ -92,7 +92,7 @@ export const SecondaryNav = (props) => {
       position="sticky"
       left="0"
       w="full"
-      zIndex="sticky"
+      zIndex="100"
       borderColor="whiteAlpha.100"
       transitionProperty="common"
       transitionDuration="slow"
@@ -107,10 +107,10 @@ export const SecondaryNav = (props) => {
         position: 'absolute',
         zIndex: -1,
         inset: 0,
-        bottom: '-30px',
+        bottom: '-10px',
         backdropFilter: 'blur(16px)',
         mask: 'linear-gradient(to-b, black, transparent)',
-        '-webkit-mask': 'linear-gradient(to bottom, black 60px, transparent)',
+        WebkitMask: 'linear-gradient(to bottom, black 48px, transparent)',
       }}
     >
       <Box zIndex="1" position="relative" borderBottomWidth="1px">

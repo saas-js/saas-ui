@@ -95,7 +95,7 @@ function PageContainer(props: PageContainerProps) {
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
       <SecondaryNav />
-      <BackgroundGradient animate={false} height="30vh" opacity={0.2} />
+      <BackgroundGradient animate={false} height="80px" opacity={0.2} />
       <Container
         as="main"
         className="main-content"

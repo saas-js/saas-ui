@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "1.6.2",
+  "version": "1.7.1",
   "description": "Saas UI - The frontend stack for SaaS companies.",
   "source": "src/index.ts",
   "exports": {
@@ -55,7 +55,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/system": "^2.3.0",
+    "@chakra-ui/system": "^2.3.3",
+    "@saas-ui/app-shell": "workspace:*",
     "@saas-ui/auth": "workspace:*",
     "@saas-ui/banner": "workspace:*",
     "@saas-ui/button": "workspace:*",

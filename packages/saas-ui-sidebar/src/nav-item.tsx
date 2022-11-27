@@ -21,18 +21,18 @@ export interface NavItemLabelProps
   extends HTMLChakraProps<'div'>,
     ThemingProps<'NavLink'> {}
 
-export const NavItemLabel = forwardRef<NavItemLabelProps, 'div'>(
+export const NavItemLabel = forwardRef<NavItemLabelProps, 'span'>(
   ({ children, ...props }, ref) => {
     const styles = useNavItemStyles()
     return (
-      <chakra.div
+      <chakra.span
         ref={ref}
         __css={styles.label}
         {...props}
         className={cx('saas-nav-item__label', props.className)}
       >
         {children}
-      </chakra.div>
+      </chakra.span>
     )
   }
 )
@@ -100,8 +100,12 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const styles = useMultiStyleConfig('NavItem', props)
 
   let label = children || labelProp
+  let tooltipLabel = tooltip
   if (typeof label === 'string') {
-    label = <NavItemLabel>{label}</NavItemLabel>
+    if (!tooltipLabel && isCondensed) {
+      tooltipLabel = label
+    }
+    label = <NavItemLabel hidden={isCondensed}>{label}</NavItemLabel>
   }
 
   let link = (
@@ -121,7 +125,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
         className="saas-nav-item__inner"
       >
         {icon && <NavItemIcon>{icon}</NavItemIcon>}
-        {!isCondensed && label}
+        {label}
       </chakra.span>
     </chakra.a>
   )
@@ -129,8 +133,6 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   if (href && href !== '#') {
     link = <RouterLink href={href}>{link}</RouterLink>
   }
-
-  const tooltipLabel = isCondensed && !tooltip ? label : tooltip
 
   return (
     <NavItemStylesProvider value={styles}>

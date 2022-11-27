@@ -78,14 +78,14 @@ const motionPresets = {
 
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
-
   const theme = useTheme()
   const defaultProps = theme.components['Sidebar'].defaultProps
+
   const variant = useResponsiveValue(props.variant ?? defaultProps.variant, {
-    ssr: false,
+    fallback: 'base',
   })
   const size = useResponsiveValue(props.size ?? defaultProps.size, {
-    ssr: false,
+    fallback: 'base',
   })
 
   const isCondensed = variant === 'condensed'
@@ -103,12 +103,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   } = omitThemingProps(props)
 
   const isMobile = useBreakpointValue(breakpoints, {
-    ssr: false,
     fallback: undefined,
   })
-
+  // we check this twice to avoid SSR issues.
+  const isMobileInitial = useBreakpointValue(breakpoints)
   const isInitial = typeof isMobile === 'undefined'
-  const isCollapsible = isMobile && !isCondensed
+  const isCollapsible = isMobileInitial && !isCondensed
   const isControlled = typeof isOpenProp !== 'undefined'
 
   const disclosure = useDisclosure({
@@ -121,12 +121,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const { isOpen, onClose, onOpen } = disclosure
 
   React.useEffect(() => {
-    if (isInitial || isCondensed || isControlled) {
+    if ((isInitial && isMobileInitial) || isCondensed || isControlled) {
       // make sure we do not show an initial animation or when this is a condensed sidebar
       return
     }
-    isMobile ? onClose() : onOpen()
-  }, [isInitial, isCondensed, isMobile])
+    isMobileInitial ? onClose() : onOpen()
+  }, [isInitial, isCondensed, isMobileInitial])
 
   const containerStyles: SystemStyleObject = {
     '& > *:not(style) ~ *:not(style, .saas-resize-handle)': {
@@ -149,12 +149,13 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
 
   const context = {
     ...disclosure,
+    breakpoints,
     isMobile,
     variant,
     size,
   }
 
-  const variants = motionPresets[motionPreset || 'none']
+  const variants = motionPresets[isCondensed ? 'none' : motionPreset || 'none']
 
   return (
     <SidebarProvider value={context}>
@@ -172,6 +173,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
           id={disclosure.getDisclosureProps().id}
           className={cx('saas-sidebar', className)}
           data-condensed={dataAttr(isCondensed)}
+          data-collapsible={dataAttr(isCollapsible)}
         >
           {children}
         </MotionBox>
@@ -195,6 +197,12 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
 
   const styles = useSidebarStyles()
 
+  const wrapperStyles = {
+    display: sidebar?.isMobile ? 'block' : 'none',
+    height: 8,
+    ...styles.toggleWrapper,
+  }
+
   const buttonStyles = {
     position: 'fixed',
     top: 3,
@@ -211,8 +219,8 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     <HamburgerIcon />
   )
 
-  return sidebar.isMobile ? (
-    <chakra.div height="8">
+  return (
+    <chakra.div __css={wrapperStyles}>
       <IconButton
         variant="ghost"
         sx={buttonStyles}
@@ -222,7 +230,7 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
         icon={icon}
       />
     </chakra.div>
-  ) : null
+  )
 }
 
 export interface SidebarOverlayProps extends ChakraProps {}

@@ -6,8 +6,6 @@ import {
   keyframes,
 } from '@chakra-ui/react'
 
-import { useInView } from 'react-intersection-observer'
-
 const glow = keyframes`
 0% {
     opacity: 0;

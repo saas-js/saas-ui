@@ -8,6 +8,20 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 11-23-2022
+
+**React Utils** `v1.1.2`
+
+- useResponsive value now uses correct fallback value.
+
+**Theme** `v1.6.1`
+
+- Improved Sidebar theme added toggle and toggleWrapper parts.
+
+**Sidebar** `v0.5.4`
+
+- Improved toggle button rendering and behavior with ssr / mobile screens.
+
 ## 11-16-2022
 
 `@saas-ui/react@1.6.2`

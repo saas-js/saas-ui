@@ -1,10 +1,12 @@
 import { Box, Heading, VStack } from '@chakra-ui/layout'
 
 import Section from '@/components/marketing/section-wrapper'
+import SEO from '@/components/seo'
 
 const PrivacyPolicy = () => {
   return (
     <Box py={20}>
+      <SEO title="Privacy Policy" titleTemplate="%s - Saas UI" />
       <Heading textAlign="center">Privacy Policy</Heading>
 
       <Section innerWidth="xl">

@@ -1,5 +1,23 @@
 # @saas-ui/stepper
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [7cf5223]
+  - @saas-ui/react-utils@1.1.2
+
+## 1.3.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/collapse@1.3.0
+
 ## 1.2.1
 
 ### Patch Changes

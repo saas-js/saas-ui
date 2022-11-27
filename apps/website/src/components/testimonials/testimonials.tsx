@@ -13,7 +13,7 @@ export const Testimonials = () => {
           <Testimonial
             name="Makenna Smutz"
             description="Founder - Heron"
-            avatar="https://pbs.twimg.com/profile_images/1484504135189909506/qYryiQ-S_normal.jpg"
+            avatar="https://pbs.twimg.com/profile_images/1580198717109551104/tPsHzf7X_normal.jpg"
             fontSize="md"
             href="https://twitter.com/KenzSmutz/status/1531625230011088898"
           >

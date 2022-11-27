@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react-utils",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React utilities and helpers for Chakra UI",
   "source": "src/index.ts",
   "exports": {

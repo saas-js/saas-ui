@@ -23,7 +23,7 @@ const styles = {
       webkitFontSmoothing: 'antialiased',
       textRendering: 'optimizeLegibility',
       color: mode('gray.900', 'white')(props),
-      bg: mode('white', 'gray.900')(props),
+      bg: mode('white', 'black')(props),
       minHeight: 'auto',
       fontSize: 'lg',
     },
@@ -34,8 +34,8 @@ const styles = {
 }
 
 const textStyles = {
-  h1: {
-    fontSize: { base: '4xl', sm: '6xl' },
+  pageTitle: {
+    fontSize: { base: '2xl', sm: '4xl', md: '6xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',
@@ -72,7 +72,7 @@ const theme = extendTheme(
       colors: {
         codeBackground: {
           default: blacken('purple.600', 70)(baseTheme),
-          _dark: 'gray.800',
+          _dark: 'gray.900',
         },
         muted: {
           default: 'gray.600',

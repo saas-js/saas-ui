@@ -73,7 +73,7 @@ interface MobileNavContentProps {
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose } = props
   const closeBtnRef = React.useRef<HTMLButtonElement>()
-  const { pathname } = useRouter()
+  const { pathname, asPath } = useRouter()
   const bgColor = useColorModeValue('whiteAlpha.900', 'blackAlpha.900')
 
   useRouteChanged(onClose)
@@ -116,10 +116,10 @@ export function MobileNavContent(props: MobileNavContentProps) {
               bg={bgColor}
               h="100vh"
               overflow="auto"
-              pos="absolute"
+              position="fixed"
               top="0"
               left="0"
-              zIndex="modal"
+              zIndex="sticky"
               pb="8"
               backdropFilter="blur(5px)"
             >
@@ -161,7 +161,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
               >
                 <SidebarContent
                   pathname={pathname}
-                  routes={getRoutes(pathname)}
+                  routes={getRoutes(asPath)}
                 />
               </ScrollView>
             </Flex>

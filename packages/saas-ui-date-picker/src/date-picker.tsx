@@ -28,7 +28,7 @@ import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
 export interface DatePickerContainerProps
   extends ThemingProps<'DatePicker'>,
     Omit<
-      DatePickerStateOptions,
+      DatePickerStateOptions<DateValue>,
       'value' | 'defaultValue' | 'minValue' | 'maxValue' | 'onChange'
     > {
   value?: DateValue | null

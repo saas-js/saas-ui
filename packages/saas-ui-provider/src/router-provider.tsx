@@ -16,6 +16,7 @@ export interface RouterContextValue {
   back: () => void
   params?: ParsedUrlQuery
   location?: RouterLocation
+  route?: string
 }
 
 export const RouterContext = React.createContext<RouterContextValue | null>(

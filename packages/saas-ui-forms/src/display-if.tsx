@@ -7,7 +7,9 @@ import {
   UseFormReturn,
 } from 'react-hook-form'
 
-export interface DisplayIfProps<TFieldValues> {
+export interface DisplayIfProps<
+  TFieldValues extends FieldValues = FieldValues
+> {
   children: React.ReactElement
   name: string
   defaultValue?: unknown

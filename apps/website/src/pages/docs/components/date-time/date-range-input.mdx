@@ -1,0 +1,115 @@
+---
+title: DateRangeInput
+description: Allow users to enter or select a Date and Time range.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DateRangeInput is currently in beta, we'd love to hear your feedback while
+  we finalize the API.
+</Info>
+
+## Import
+
+- `DateRangeInput`: A date range form input.
+
+```ts
+import { DateRangeInput, DateRangeTimeInput } from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+<FormControl>
+  <FormLabel>Dates</FormLabel>
+  <DateRangeInput />
+</FormControl>
+```
+
+### DateTime
+
+```jsx center=true
+<FormControl>
+  <FormLabel>Dates and time</FormLabel>
+  <DateRangeInput granularity="minute" />
+</FormControl>
+```
+
+### With 24 hour time
+
+```jsx center=true
+<FormControl>
+  <FormLabel>Dates and time</FormLabel>
+  <DateRangeInput granularity="minute" hourCycle="24" />
+</FormControl>
+```
+
+### Controlled
+
+```jsx
+function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: today(getLocalTimeZone()),
+    end: null,
+  })
+
+  return <DateRangeInput value={value} onChange={setValue} />
+}
+```
+
+### Time zone
+
+```jsx
+function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: now(getLocalTimeZone()),
+    end: null,
+  })
+
+  return (
+    <DateRangeInput value={value} onChange={setValue} granularity="minute" />
+  )
+}
+```
+
+### Hide time zone
+
+```jsx
+function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: now(getLocalTimeZone()),
+    end: null,
+  })
+
+  return (
+    <DateRangeInput
+      value={value}
+      onChange={setValue}
+      granularity="minute"
+      hideTimeZone
+    />
+  )
+}
+```
+
+## Props
+
+### DateRangeInput Props
+
+<PropsTable of="DateRangeInput" />

@@ -1,5 +1,33 @@
 # @saas-ui/theme
 
+## 1.6.1
+
+### Patch Changes
+
+- 7cf5223: Improved Sidebar theme added toggle and toggleWrapper parts.
+
+## 1.6.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+## 1.5.0
+
+### Minor Changes
+
+- bc1f403: Improved Tooltip styles for Saas UI theme.
+
+### Patch Changes
+
+- 0a77fc0: Cleaned up NavItem theme.
+
+## 1.4.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
 ## 1.3.1
 
 ### Patch Changes

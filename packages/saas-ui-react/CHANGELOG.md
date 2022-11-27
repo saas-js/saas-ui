@@ -1,5 +1,140 @@
 # @saas-ui/react
 
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [7cf5223]
+  - @saas-ui/theme@1.6.1
+  - @saas-ui/forms@1.4.1
+  - @saas-ui/stepper@1.3.1
+  - @saas-ui/provider@1.1.7
+  - @saas-ui/auth@1.6.1
+  - @saas-ui/modals@1.4.1
+  - @saas-ui/layout@1.3.1
+  - @saas-ui/menu@1.3.1
+  - @saas-ui/data-table@1.3.1
+
+## 1.7.0
+
+### Minor Changes
+
+- e670761: AppShell is out of beta and now part of the core.
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+- Updated dependencies [e670761]
+  - @saas-ui/app-shell@1.0.0
+  - @saas-ui/auth@1.6.0
+  - @saas-ui/banner@1.3.0
+  - @saas-ui/button@1.3.0
+  - @saas-ui/card@1.4.0
+  - @saas-ui/collapse@1.3.0
+  - @saas-ui/data-table@1.3.0
+  - @saas-ui/forms@1.4.0
+  - @saas-ui/hotkeys@1.3.0
+  - @saas-ui/input-right-button@1.3.0
+  - @saas-ui/layout@1.3.0
+  - @saas-ui/list@1.3.0
+  - @saas-ui/menu@1.3.0
+  - @saas-ui/modals@1.4.0
+  - @saas-ui/nprogress@1.3.0
+  - @saas-ui/number-input@1.3.0
+  - @saas-ui/password-input@1.3.0
+  - @saas-ui/persona@1.3.0
+  - @saas-ui/pin-input@1.3.0
+  - @saas-ui/property@1.3.0
+  - @saas-ui/radio@1.3.0
+  - @saas-ui/search-input@1.3.0
+  - @saas-ui/select@1.3.0
+  - @saas-ui/stepper@1.3.0
+  - @saas-ui/theme@1.6.0
+  - @saas-ui/provider@1.1.6
+
+## 1.6.2
+
+### Patch Changes
+
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+- Updated dependencies [7b426e8]
+- Updated dependencies [0a77fc0]
+- Updated dependencies [bc1f403]
+  - @saas-ui/persona@1.2.1
+  - @saas-ui/theme@1.5.0
+  - @saas-ui/provider@1.1.5
+  - @saas-ui/layout@1.2.2
+  - @saas-ui/menu@1.2.2
+  - @saas-ui/auth@1.5.2
+  - @saas-ui/data-table@1.2.2
+  - @saas-ui/modals@1.3.3
+
+## 1.6.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.3.1
+- @saas-ui/stepper@1.2.1
+- @saas-ui/auth@1.5.1
+- @saas-ui/modals@1.3.2
+
+## 1.6.0
+
+### Minor Changes
+
+- 065e94d: Supabase auth service updated to v2, thanks to @KeKs0r
+
+### Patch Changes
+
+- 065e94d: Improved usePromise type signature.
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+  - @saas-ui/hooks@1.1.2
+  - @saas-ui/auth@1.5.0
+  - @saas-ui/provider@1.1.4
+  - @saas-ui/layout@1.2.1
+  - @saas-ui/menu@1.2.1
+  - @saas-ui/data-table@1.2.1
+  - @saas-ui/modals@1.3.1
+
+## 1.5.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/auth@1.4.0
+  - @saas-ui/banner@1.2.0
+  - @saas-ui/button@1.2.0
+  - @saas-ui/card@1.3.0
+  - @saas-ui/collapse@1.2.0
+  - @saas-ui/data-table@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/hotkeys@1.2.0
+  - @saas-ui/input-right-button@1.2.0
+  - @saas-ui/layout@1.2.0
+  - @saas-ui/list@1.2.0
+  - @saas-ui/menu@1.2.0
+  - @saas-ui/modals@1.3.0
+  - @saas-ui/nprogress@1.2.0
+  - @saas-ui/number-input@1.2.0
+  - @saas-ui/palette@1.2.0
+  - @saas-ui/password-input@1.2.0
+  - @saas-ui/persona@1.2.0
+  - @saas-ui/pin-input@1.2.0
+  - @saas-ui/property@1.2.0
+  - @saas-ui/radio@1.2.0
+  - @saas-ui/search-input@1.2.0
+  - @saas-ui/select@1.2.0
+  - @saas-ui/stepper@1.2.0
+  - @saas-ui/theme@1.4.0
+  - @saas-ui/provider@1.1.3
+
 ## 1.4.5
 
 ### Patch Changes

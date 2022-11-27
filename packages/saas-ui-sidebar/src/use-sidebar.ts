@@ -1,10 +1,21 @@
 import { createContext } from '@chakra-ui/react-utils'
-import { ResponsiveValue, UseDisclosureReturn } from '@chakra-ui/react'
+import {
+  ResponsiveValue,
+  ThemeTypings,
+  UseDisclosureReturn,
+} from '@chakra-ui/react'
+
+type Variants = 'condensed' | 'default'
 
 export interface UseSidebarReturn extends UseDisclosureReturn {
   isMobile?: boolean
-  variant?: ResponsiveValue<string>
-  size?: ResponsiveValue<string>
+  breakpoints?: ResponsiveValue<boolean>
+  variant?: 'Sidebar' extends keyof ThemeTypings['components'] /* @ts-ignore */
+    ? ThemeTypings['components']['Sidebar']['variants']
+    : Variants
+  size?: 'Sidebar' extends keyof ThemeTypings['components'] /* @ts-ignore */
+    ? ThemeTypings['components']['Sidebar']['sizes']
+    : string
 }
 
 export const [SidebarProvider, useSidebarContext] =

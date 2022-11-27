@@ -38,7 +38,7 @@ module.exports = {
     return {
       '@saas-ui/pro': {
         title: 'Saas UI Pro',
-        url: 'https://pro-storybook.saas-ui.dev',
+        url: 'https://storybook.saas-ui.pro',
       },
       ...refs,
     }

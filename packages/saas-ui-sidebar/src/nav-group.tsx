@@ -25,6 +25,31 @@ export interface NavGroupTitleProps extends HTMLChakraProps<'div'> {
   isCollapsible?: boolean
 }
 
+const NavGroupIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
+  const { children, className, ...rest } = props
+
+  const _children = React.isValidElement<any>(children)
+    ? React.cloneElement(children, {
+        'aria-hidden': true,
+        focusable: false,
+      })
+    : children
+
+  const _className = cx('saas-nav-group__icon', className)
+
+  return (
+    <chakra.span
+      display="inline-flex"
+      alignSelf="center"
+      flexShrink={0}
+      {...rest}
+      className={_className}
+    >
+      {_children}
+    </chakra.span>
+  )
+}
+
 export const NavGroupTitle: React.FC<NavGroupTitleProps> = (props) => {
   const {
     leftIcon,
@@ -37,7 +62,7 @@ export const NavGroupTitle: React.FC<NavGroupTitleProps> = (props) => {
 
   const { getToggleProps, isOpen, isCollapsible } = useCollapseContext()
 
-  const iconStyles = { display: 'inline-flex', marginEnd: 2 }
+  const iconStyles = { marginEnd: 2, ...styles.icon }
 
   const toggleProps = getToggleProps(rest)
 
@@ -51,13 +76,11 @@ export const NavGroupTitle: React.FC<NavGroupTitleProps> = (props) => {
         toggleProps.className
       )}
     >
-      {leftIcon && (
-        <chakra.span __css={{ ...iconStyles, ...styles.icon }}>
-          {leftIcon}
-        </chakra.span>
-      )}
+      {leftIcon && <NavGroupIcon __css={iconStyles}>{leftIcon}</NavGroupIcon>}
       <chakra.span flex="1">{runIfFn(children, { isOpen })}</chakra.span>
-      {isCollapsible && runIfFn(collapseIcon, { isOpen })}
+      {isCollapsible && (
+        <NavGroupIcon>{runIfFn(collapseIcon, { isOpen })}</NavGroupIcon>
+      )}
     </chakra.div>
   )
 }

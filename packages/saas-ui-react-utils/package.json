@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react-utils",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "React utilities and helpers for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -55,6 +55,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
+    "@chakra-ui/react": ">=2.1.0",
     "react": ">=18.0.0"
   }
 }

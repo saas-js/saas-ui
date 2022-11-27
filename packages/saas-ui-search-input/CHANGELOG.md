@@ -1,5 +1,17 @@
 # @saas-ui/search-input
 
+## 1.3.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
 ## 1.1.1
 
 ### Patch Changes

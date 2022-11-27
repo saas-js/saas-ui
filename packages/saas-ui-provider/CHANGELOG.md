@@ -1,5 +1,40 @@
 # @saas-ui/provider
 
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [7cf5223]
+  - @saas-ui/theme@1.6.1
+
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/theme@1.6.0
+
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [0a77fc0]
+- Updated dependencies [bc1f403]
+  - @saas-ui/theme@1.5.0
+
+## 1.1.4
+
+### Patch Changes
+
+- 065e94d: Added new route value to Router context.
+
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/theme@1.4.0
+
 ## 1.1.2
 
 ### Patch Changes

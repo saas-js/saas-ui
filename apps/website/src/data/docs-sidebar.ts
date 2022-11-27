@@ -234,7 +234,6 @@ const sidebar = {
             {
               title: 'App Shell',
               path: '/docs/components/layout/app-shell',
-              beta: true,
             },
             {
               title: 'Sidebar',
@@ -330,6 +329,43 @@ const sidebar = {
             {
               title: 'SearchInput',
               path: '/docs/components/forms/search-input',
+            },
+          ],
+        },
+        {
+          title: 'Date & Time',
+          path: '/docs/components/date-time',
+          open: true,
+          routes: [
+            {
+              title: 'DatePicker',
+              path: '/docs/components/date-time/date-picker',
+              beta: true,
+            },
+            {
+              title: 'DateRangePicker',
+              path: '/docs/components/date-time/date-range-picker',
+              beta: true,
+            },
+            {
+              title: 'DateInput',
+              path: '/docs/components/date-time/date-input',
+              beta: true,
+            },
+            {
+              title: 'DateRangeInput',
+              path: '/docs/components/date-time/date-range-input',
+              beta: true,
+            },
+            {
+              title: 'DatePickerStatic',
+              path: '/docs/components/date-time/date-picker-static',
+              beta: true,
+            },
+            {
+              title: 'DatePickerModal',
+              path: '/docs/components/date-time/date-picker-modal',
+              beta: true,
             },
           ],
         },

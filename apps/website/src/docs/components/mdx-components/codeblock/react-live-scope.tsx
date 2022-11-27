@@ -5,6 +5,7 @@ import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
 import * as AppShell from '@saas-ui/app-shell'
 import * as Sidebar from '@saas-ui/sidebar'
+import * as DatePicker from '@saas-ui/date-picker'
 import * as SaasUIPro from '@saas-ui/pro'
 import * as SaasUIFeatures from '@saas-ui/features'
 
@@ -40,6 +41,8 @@ import {
   FiItalic,
   FiUnderline,
   FiLink,
+  FiChevronsLeft,
+  FiChevronsRight,
 } from 'react-icons/fi'
 
 import {
@@ -78,6 +81,8 @@ const reactIcons = {
   FaGithub,
   FaSlack,
   FaCookie,
+  FiChevronsLeft,
+  FiChevronsRight,
 }
 
 const StarIcon = (props) => (
@@ -112,6 +117,7 @@ const ReactLiveScope = {
   ...SaasUIFeatures,
   ...AppShell,
   ...Sidebar,
+  ...DatePicker,
   ...Web3,
   ...Icons,
   Yup,

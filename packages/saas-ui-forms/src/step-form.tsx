@@ -85,7 +85,10 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
   const { children, orientation, variant, colorScheme, size, ...rest } = props
 
   const elements = React.Children.map(children, (child) => {
-    if (React.isValidElement(child) && child?.type === FormStep) {
+    if (
+      React.isValidElement<FormStepProps>(child) &&
+      child?.type === FormStep
+    ) {
       const { isCompleted } = useFormStep(child.props) // Register this step
       return (
         <StepperStep

@@ -1,5 +1,56 @@
 # @saas-ui/modals
 
+## 1.4.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.4.1
+- @saas-ui/menu@1.3.1
+
+## 1.4.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/button@1.3.0
+  - @saas-ui/forms@1.4.0
+  - @saas-ui/menu@1.3.0
+
+## 1.3.3
+
+### Patch Changes
+
+- @saas-ui/menu@1.2.2
+
+## 1.3.2
+
+### Patch Changes
+
+- @saas-ui/forms@1.3.1
+
+## 1.3.1
+
+### Patch Changes
+
+- @saas-ui/menu@1.2.1
+
+## 1.3.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/menu@1.2.0
+
 ## 1.2.4
 
 ### Patch Changes

@@ -8,6 +8,59 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 11-23-2022
+
+**React Utils** `v1.1.2`
+
+- useResponsive value now uses correct fallback value.
+
+**Theme** `v1.6.1`
+
+- Improved Sidebar theme added toggle and toggleWrapper parts.
+
+**Sidebar** `v0.5.4`
+
+- Improved toggle button rendering and behavior with ssr / mobile screens.
+
+## 11-16-2022
+
+`@saas-ui/react@1.6.2`
+
+- Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+**Persona** `v1.2.1`
+
+- Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+**Sidebar** `v0.4.0`
+
+- Cleaned up NavItem theme.
+- Added classNames to all NavItem components.
+
+**Theme** `v1.5.0`
+
+- Cleaned up NavItem theme.
+- Improved Tooltip styles for Saas UI theme.
+
+## 11-04-2022
+
+`@saas-ui/react@1.6.0`
+
+- Improved usePromise type signature.
+- Supabase auth service updated to v2
+
+**Hooks** `v1.1.2`
+
+- Improved usePromise type signature.
+
+**Auth** `v1.5.0`
+
+- Supabase auth service updated to v2
+
+**Provider** `v1.1.4`
+
+- Added new route value to Router context.
+
 ## 10-22-2022
 
 **Sidebar** `v0.2.0`

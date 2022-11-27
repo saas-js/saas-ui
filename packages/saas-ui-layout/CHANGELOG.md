@@ -1,5 +1,44 @@
 # @saas-ui/layout
 
+## 1.3.1
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.7
+
+## 1.3.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.6
+
+## 1.2.2
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.5
+
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/provider@1.1.4
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- @saas-ui/provider@1.1.3
+
 ## 1.1.2
 
 ### Patch Changes

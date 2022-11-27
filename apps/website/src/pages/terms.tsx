@@ -3,10 +3,12 @@ import { Box, Heading, VStack } from '@chakra-ui/layout'
 import Section from '@/components/marketing/section-wrapper'
 
 import ReactMarkdown from 'react-markdown'
+import SEO from '@/components/seo'
 
 const License = () => {
   return (
     <Box py={20}>
+      <SEO title="Terms of service" titleTemplate="%s - Saas UI" />
       <Heading textAlign="center">Terms of service</Heading>
 
       <Section innerWidth="xl">

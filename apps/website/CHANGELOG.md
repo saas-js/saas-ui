@@ -1,5 +1,60 @@
 # website
 
+## 1.2.1
+
+### Patch Changes
+
+- @saas-ui/react@1.7.1
+
+## 1.2.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [e670761]
+- Updated dependencies [d92f516]
+  - @saas-ui/react@1.7.0
+  - @saas-ui/web3@1.3.0
+  - @saas-ui/props-docs@1.7.0
+
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [7b426e8]
+  - @saas-ui/react@1.6.2
+
+## 1.1.2
+
+### Patch Changes
+
+- @saas-ui/react@1.6.1
+
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+  - @saas-ui/react@1.6.0
+
+## 1.1.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/palette@1.2.0
+  - @saas-ui/react@1.5.0
+  - @saas-ui/web3@1.2.0
+  - @saas-ui/props-docs@1.6.0
+
 ## 1.0.18
 
 ### Patch Changes

@@ -16,14 +16,17 @@ import {
   Portal,
   ResponsiveValue,
   forwardRef,
+  useTheme,
 } from '@chakra-ui/react'
-import { cx, dataAttr, mapResponsive, runIfFn } from '@chakra-ui/utils'
+import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
 
+import { useResponsiveValue } from '@saas-ui/react-utils'
+
 import { SidebarProvider, useSidebarContext } from './use-sidebar'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export interface SidebarOptions {
   /**
@@ -75,8 +78,15 @@ const motionPresets = {
 
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
+  const theme = useTheme()
+  const defaultProps = theme.components['Sidebar'].defaultProps
 
-  const { variant, size } = props
+  const variant = useResponsiveValue(props.variant ?? defaultProps.variant, {
+    fallback: 'base',
+  })
+  const size = useResponsiveValue(props.size ?? defaultProps.size, {
+    fallback: 'base',
+  })
 
   const isCondensed = variant === 'condensed'
 
@@ -95,12 +105,14 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const isMobile = useBreakpointValue(breakpoints, {
     fallback: undefined,
   })
-
+  // we check this twice to avoid SSR issues.
+  const isMobileInitial = useBreakpointValue(breakpoints)
   const isInitial = typeof isMobile === 'undefined'
-  const isCollapsible = isMobile && !isCondensed
+  const isCollapsible = isMobileInitial && !isCondensed
+  const isControlled = typeof isOpenProp !== 'undefined'
 
   const disclosure = useDisclosure({
-    defaultIsOpen: !isCollapsible,
+    defaultIsOpen: isControlled ? isOpenProp : !isCollapsible,
     isOpen: isOpenProp,
     onOpen: onOpenProp,
     onClose: onCloseProp,
@@ -109,12 +121,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const { isOpen, onClose, onOpen } = disclosure
 
   React.useEffect(() => {
-    if (isInitial || isCondensed) {
+    if ((isInitial && isMobileInitial) || isCondensed || isControlled) {
       // make sure we do not show an initial animation or when this is a condensed sidebar
       return
     }
-    isMobile ? onClose() : onOpen()
-  }, [isInitial, isCondensed, isMobile])
+    isMobileInitial ? onClose() : onOpen()
+  }, [isInitial, isCondensed, isMobileInitial])
 
   const containerStyles: SystemStyleObject = {
     '& > *:not(style) ~ *:not(style, .saas-resize-handle)': {
@@ -137,12 +149,13 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
 
   const context = {
     ...disclosure,
+    breakpoints,
     isMobile,
     variant,
     size,
   }
 
-  const variants = motionPresets[motionPreset || 'none']
+  const variants = motionPresets[isCondensed ? 'none' : motionPreset || 'none']
 
   return (
     <SidebarProvider value={context}>
@@ -160,6 +173,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
           id={disclosure.getDisclosureProps().id}
           className={cx('saas-sidebar', className)}
           data-condensed={dataAttr(isCondensed)}
+          data-collapsible={dataAttr(isCollapsible)}
         >
           {children}
         </MotionBox>
@@ -183,6 +197,12 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
 
   const styles = useSidebarStyles()
 
+  const wrapperStyles = {
+    display: sidebar?.isMobile ? 'block' : 'none',
+    height: 8,
+    ...styles.toggleWrapper,
+  }
+
   const buttonStyles = {
     position: 'fixed',
     top: 3,
@@ -199,8 +219,8 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     <HamburgerIcon />
   )
 
-  return sidebar.isMobile ? (
-    <chakra.div height="8">
+  return (
+    <chakra.div __css={wrapperStyles}>
       <IconButton
         variant="ghost"
         sx={buttonStyles}
@@ -210,7 +230,7 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
         icon={icon}
       />
     </chakra.div>
-  ) : null
+  )
 }
 
 export interface SidebarOverlayProps extends ChakraProps {}

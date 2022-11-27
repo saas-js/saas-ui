@@ -157,7 +157,7 @@ export const PropertyList: React.FC<PropertyListProps> = (props) => {
       className={cx('saas-property-list', props.className)}
     >
       {React.Children.map(children, (child) =>
-        React.isValidElement(child)
+        React.isValidElement<PropertyProps>(child)
           ? React.cloneElement(child, {
               as: 'div',
             })

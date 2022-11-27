@@ -18,7 +18,7 @@ import {
   useCommandBarContext,
   useCommandBarStyles,
 } from './command-bar-context'
-import { cx } from '@chakra-ui/utils'
+import { cx, dataAttr } from '@chakra-ui/utils'
 import { useCommandBar, CommandBarOptions } from './command-bar-context'
 
 import { Command as CommandPrimitive } from 'cmdk'
@@ -169,6 +169,7 @@ export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
         ref={ref}
         {...getItemProps(props)}
         __css={itemStyles}
+        data-disabled={dataAttr(isDisabled)}
         className={cx('saas-command-bar__item', props.className)}
       />
     )
@@ -189,7 +190,7 @@ export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
     const { getDialogProps } = useCommandBarContext()
 
     return (
-      <Modal {...getDialogProps(rest)}>
+      <Modal {...getDialogProps(rest)} scrollBehavior="inside">
         <ModalContent ref={ref} bg="transparent">
           {children}
         </ModalContent>

@@ -13,18 +13,19 @@ const parts = anatomy('command-bar').parts(
 )
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
-  const { scrollBehavior } = props
-
   const bg = mode('white', 'gray.700')(props)
 
   return {
     container: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: 1,
       borderRadius: 'md',
       bg,
       color: 'inherit',
       py: 2,
       zIndex: 'modal',
-      maxH: scrollBehavior === 'inside' ? 'calc(100% - 7.5rem)' : undefined,
+      flex: 1,
     },
     input: {
       px: 4,
@@ -36,6 +37,9 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
     },
     list: {
       borderTopWidth: '1px',
+      overflow: 'auto',
+      overscrollBehavior: 'contain',
+      flex: 1,
     },
     group: {
       '& > [cmdk-group-heading]': {
@@ -62,6 +66,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       },
       _active: {
         bg: mode('gray.50', 'whiteAlpha.50')(props),
+      },
+      _disabled: {
+        bg: 'transparent',
+        cursor: 'inherit',
       },
     },
     empty: {

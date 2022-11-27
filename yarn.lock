@@ -8162,7 +8162,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/command-bar@workspace:packages/saas-ui-command-bar":
+"@saas-ui/command-bar@workspace:^, @saas-ui/command-bar@workspace:packages/saas-ui-command-bar":
   version: 0.0.0-use.local
   resolution: "@saas-ui/command-bar@workspace:packages/saas-ui-command-bar"
   dependencies:
@@ -32754,6 +32754,7 @@ __metadata:
     "@netlify/plugin-nextjs": ^4.29.1
     "@next/bundle-analyzer": ^12.3.3
     "@octokit/rest": ^18.12.0
+    "@saas-ui/command-bar": "workspace:^"
     "@saas-ui/features": "*"
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/pro": "*"

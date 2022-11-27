@@ -29,3 +29,5 @@ export type {
   CommandBarContext,
   CommandBarOptions,
 } from './command-bar-context'
+
+export { useCommandState } from 'cmdk'

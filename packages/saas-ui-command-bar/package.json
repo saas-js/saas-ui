@@ -4,8 +4,13 @@
   "description": "Chakra UI CommandBar Component",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.modern.js"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.modern.js",

@@ -102,7 +102,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   let label = children || labelProp
   let tooltipLabel = tooltip
   if (typeof label === 'string') {
-    if (!tooltipLabel) {
+    if (!tooltipLabel && isCondensed) {
       tooltipLabel = label
     }
     label = <NavItemLabel hidden={isCondensed}>{label}</NavItemLabel>

@@ -13,6 +13,7 @@ import {
   Icon,
   Flex,
   Center,
+  Container,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -22,6 +23,7 @@ import SidebarLink from './sidebar-link'
 import { SearchInput, useHotkeys, useCollapse } from '@saas-ui/react'
 
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { NavItem } from '@saas-ui/sidebar'
 
 export type SidebarContentProps = Routes & {
   pathname?: string
@@ -32,11 +34,11 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
   const color = useColorModeValue('gray.900', 'whiteAlpha.900')
 
   return (
-    <chakra.div px="4" {...props}>
+    <chakra.div px="3" {...props}>
       <chakra.h4
         fontSize="sm"
         fontWeight="bold"
-        my="1.25rem"
+        my="1rem"
         letterSpacing="wider"
         color={isActive ? color : 'muted'}
         display="flex"
@@ -93,7 +95,7 @@ function SidebarGroup({
       onOpen()
     }
   }, [isActive, onOpen])
-
+  console.log(heading, routes?.length)
   return (
     <Box {...props}>
       {heading && routes.length ? (
@@ -106,25 +108,70 @@ function SidebarGroup({
           {title}
         </SidebarHeader>
       ) : (
-        <MainNavLink href={path}>
+        <SidebarLink href={path}>
           {icon && <Icon as={icon} me="2" />}
           {title}
-        </MainNavLink>
+        </SidebarLink>
       )}
 
       {routes && (
         <Collapse {...getCollapseProps()}>
-          <Box px="4" overflow="hidden">
+          <Box overflow="hidden">
             {routes?.map((lvl2, index) => {
               if (!lvl2.routes) {
                 return (
                   <SidebarLink
-                    ml="-3"
-                    mb="2"
+                    mb="1"
+                    ml="4"
+                    color="muted"
                     key={lvl2.path || index}
                     href={lvl2.path}
                   >
-                    {lvl2.title}
+                    <span>{convertBackticksToInlineCode(lvl2.title)}</span>
+                    {lvl2.new && (
+                      <Badge
+                        ml="2"
+                        lineHeight="tall"
+                        fontSize="10px"
+                        variant="solid"
+                        colorScheme="primary"
+                      >
+                        New
+                      </Badge>
+                    )}
+                    {lvl2.soon && (
+                      <Badge
+                        ml="2"
+                        lineHeight="tall"
+                        fontSize="10px"
+                        variant="solid"
+                        colorScheme="gray"
+                      >
+                        Soon
+                      </Badge>
+                    )}
+                    {lvl2.pro && (
+                      <Badge
+                        ml="2"
+                        lineHeight="tall"
+                        fontSize="10px"
+                        variant="solid"
+                        colorScheme="purple"
+                      >
+                        Pro
+                      </Badge>
+                    )}
+                    {lvl2.beta && (
+                      <Badge
+                        ml="2"
+                        lineHeight="tall"
+                        fontSize="10px"
+                        variant="outline"
+                        colorScheme="green"
+                      >
+                        Beta
+                      </Badge>
+                    )}
                   </SidebarLink>
                 )
               }
@@ -250,22 +297,6 @@ export function SidebarContent(props: SidebarContentProps) {
 
   return (
     <Flex flexDirection="column" height="100%">
-      <Box px="2" pb="2">
-        <SearchInput
-          ref={searchRef}
-          placeholder="Search docs..."
-          size="sm"
-          borderRadius="md"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onReset={() => setQuery(null)}
-          rightElement={
-            <Kbd bg="none" fontSize="lg" fontWeight="bold">
-              /
-            </Kbd>
-          }
-        />
-      </Box>
       <Box flex="1" overflowY="auto" minH="0" py="4">
         {filteredRoutes.map((lvl1, idx) => {
           return (
@@ -283,8 +314,17 @@ export function SidebarContent(props: SidebarContentProps) {
 }
 
 const Sidebar = ({ routes }) => {
-  const { pathname } = useRouter()
+  const { pathname, asPath, isReady } = useRouter()
   const ref = React.useRef<HTMLDivElement>(null)
+  const [isInitial, setInitial] = React.useState(true)
+
+  React.useEffect(() => {
+    if (ref.current && isReady && isInitial) {
+      const el = ref.current.querySelector(`a[href="${asPath}"]`)
+      el?.scrollIntoView({ behavior: 'auto' })
+      setInitial(false)
+    }
+  }, [asPath, isReady, isInitial])
 
   return (
     <Box
@@ -294,11 +334,11 @@ const Sidebar = ({ routes }) => {
       pos="sticky"
       overscrollBehavior="contain"
       w="280px"
-      top="72px"
-      height="calc(100vh - 72px)"
+      top="100px"
+      height="calc(100vh - 100px)"
       pr="4"
       pl="2"
-      pt="16"
+      pt="4"
       className="sidebar-content"
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}
@@ -308,11 +348,7 @@ const Sidebar = ({ routes }) => {
   )
 }
 
-type MainNavLinkProps = {
-  href: string
-  children: React.ReactNode
-  label?: string
-}
+export default Sidebar
 
 export const isMainNavLinkActive = (href: string, path: string) => {
   const [, group, category] = href.split('/')
@@ -321,31 +357,3 @@ export const isMainNavLinkActive = (href: string, path: string) => {
     href.split('/').length >= 3 ? `${group}/${category}` : group
   )
 }
-
-const MainNavLink = ({ href, children }: MainNavLinkProps) => {
-  const { asPath } = useRouter()
-  const active = isMainNavLinkActive(href, asPath)
-  const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
-
-  return (
-    <NextLink href={href} passHref>
-      <Flex
-        as="a"
-        py="1"
-        px="4"
-        mb="2"
-        align="center"
-        fontSize="sm"
-        fontWeight="semibold"
-        transitionProperty="colors"
-        transitionDuration="200ms"
-        color={active ? linkColor : 'muted'}
-        _hover={{ color: linkColor }}
-      >
-        {children}
-      </Flex>
-    </NextLink>
-  )
-}
-
-export default Sidebar

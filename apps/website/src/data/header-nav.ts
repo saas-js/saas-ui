@@ -14,6 +14,7 @@ const headerNav: NavLinkProps[] = [
     label: 'Buy Pro',
     variant: 'solid',
     colorScheme: 'primary',
+    fontSize: 'sm',
   },
 ]
 

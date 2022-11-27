@@ -20,6 +20,7 @@ import { BackgroundGradient } from '@/components/background-gradient'
 
 import { formatRelative } from 'date-fns'
 import { DocsFeedback } from './docs-feedback'
+import { SecondaryNav } from './secondary-nav/secondary-nav'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()
@@ -93,6 +94,7 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
+      <SecondaryNav />
       <BackgroundGradient animate={false} height="30vh" opacity={0.2} />
       <Container
         as="main"

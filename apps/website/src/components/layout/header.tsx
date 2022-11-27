@@ -36,7 +36,7 @@ const Header = (props: HeaderProps) => {
         content: '""',
         position: 'absolute',
         inset: 0,
-        bottom: '-30px',
+        bottom: '-20px',
         backdropFilter: 'blur(16px)',
         mask: 'linear-gradient(to-b, black, transparent)',
         '-webkit-mask': 'linear-gradient(to bottom, black 60px, transparent)',
@@ -44,7 +44,7 @@ const Header = (props: HeaderProps) => {
       {...props}
     >
       <Box zIndex="1" position="relative" borderBottomWidth="1px">
-        <Container maxW="container.2xl" px="8" py="4">
+        <Container maxW="container.2xl" px="8" py="3">
           <HStack width="full" align="center">
             <Logo
               onClick={(e) => {

@@ -33,10 +33,13 @@ import {
   useTheme,
   Tag,
   Wrap,
+  WrapItem,
   Icon,
   Center,
   Tooltip,
   AspectRatio,
+  Badge,
+  DarkMode,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -80,11 +83,12 @@ import {
   FiTrendingUp,
   FiArrowRight,
   FiUserPlus,
+  FiChevronRight,
 } from 'react-icons/fi'
 import { FaGithub } from 'react-icons/fa'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
-import { Card, CardBody } from '@saas-ui/card'
+import { Card } from '@saas-ui/card'
 import {
   Banner,
   BannerCloseButton,
@@ -96,8 +100,14 @@ import {
 
 import { transparentize } from '@chakra-ui/theme-tools'
 import { Testimonial, Testimonials } from '@/components/testimonials'
-import { Faq } from '@/components/faq'
+
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
+import { SectionHeading } from '@saas-ui/pro'
+import { Polypane } from '@/components/logos/customers/polypane'
+import { YouGotBud } from '@/components/logos/customers/you-got-bud'
+import { Startec } from '@/components/logos/customers/startec'
+import { Eqtble } from '@/components/logos/customers/eqtble'
+import { Farmo } from '@/components/logos/customers/farmo'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -115,6 +125,12 @@ const Home = () => {
       />
 
       <Box mb={8} w="full" position="relative" overflow="hidden">
+        <BackgroundGradientRadial
+          top="-1000px"
+          opacity="0.3"
+          _dark={{ opacity: 0.6 }}
+          height="500px"
+        />
         <Box _dark={{ bg: 'black' }} pt="16">
           <Container
             maxW="container.xl"
@@ -228,53 +244,15 @@ const Home = () => {
             </Stack>
             <BackgroundGradientRadial bottom="0" animate={animateGlow} />
           </Container>
-          <Features
-            id="benefits"
-            columns={[1, 2, 4]}
-            iconSize={4}
-            innerWidth="container.xl"
-            pt="20"
-            features={[
-              {
-                title: 'Accessible',
-                icon: FiSmile,
-                description:
-                  'All components strictly follow WAI-ARIA standards.',
-                iconPosition: 'left',
-                delay: 0.6,
-              },
-              {
-                title: 'Themable',
-                icon: FiSliders,
-                description:
-                  'Fully customize all components to your brand with theme support and style props.',
-                iconPosition: 'left',
-                delay: 0.8,
-              },
-              {
-                title: 'Composable',
-                icon: FiGrid,
-                description:
-                  'Compose components to fit your needs and mix them together to create new ones.',
-                iconPosition: 'left',
-                delay: 1,
-              },
-              {
-                title: 'Productive',
-                icon: FiThumbsUp,
-                description:
-                  'Designed to reduce boilerplate and fully typed, build your product at speed.',
-                iconPosition: 'left',
-                delay: 1.1,
-              },
-            ]}
-            reveal={FallInPlace}
-          />
+
+          <UsedBy />
         </Box>
 
         <ComponentShowcase />
 
         <Box id="features">
+          <Benefits />
+
           <BoilerplateCode />
 
           <Themable />
@@ -284,19 +262,96 @@ const Home = () => {
 
         <Founder />
 
-        <ProFeatures />
-
-        <Screenshots />
-
         <Testimonials />
 
-        <Pricing />
+        <DarkMode>
+          <Box bg="black" color="white" overflow="hidden" position="relative">
+            <BackgroundGradientRadial opacity="0.6" top="-50%" />
+            <ProFeatures />
 
-        <RequestAccess />
-
-        <Faq />
+            <Screenshots />
+          </Box>
+        </DarkMode>
       </Box>
     </Box>
+  )
+}
+
+const UsedBy = () => {
+  return (
+    <Section>
+      <Heading size="md" fontWeight="medium" textAlign="center" mb="12">
+        Used by indie founders and startups worldwide
+      </Heading>
+      <Wrap spacing="12" userSelect="none" justify="center">
+        <WrapItem alignItems="center" gap="2">
+          <Polypane height="30px" />
+          <Text fontWeight="bold" fontSize="xl">
+            Polypane
+          </Text>
+        </WrapItem>
+        <WrapItem alignItems="center" gap="2">
+          <YouGotBud height="30px" />
+          <Text fontWeight="bold" fontSize="xl">
+            You Got Bud
+          </Text>
+        </WrapItem>
+        <WrapItem alignItems="center">
+          <Startec height="30px" />
+        </WrapItem>
+        <WrapItem alignItems="center">
+          <Eqtble height="24px" />
+        </WrapItem>
+        <WrapItem alignItems="center">
+          <Farmo height="20px" />
+        </WrapItem>
+      </Wrap>
+    </Section>
+  )
+}
+
+const Benefits = () => {
+  return (
+    <Features
+      id="benefits"
+      columns={[1, 2, 4]}
+      iconSize={4}
+      innerWidth="container.xl"
+      pt="20"
+      features={[
+        {
+          title: 'Accessible',
+          icon: FiSmile,
+          description: 'All components strictly follow WAI-ARIA standards.',
+          iconPosition: 'left',
+          delay: 0.6,
+        },
+        {
+          title: 'Themable',
+          icon: FiSliders,
+          description:
+            'Fully customize all components to your brand with theme support and style props.',
+          iconPosition: 'left',
+          delay: 0.8,
+        },
+        {
+          title: 'Composable',
+          icon: FiGrid,
+          description:
+            'Compose components to fit your needs and mix them together to create new ones.',
+          iconPosition: 'left',
+          delay: 1,
+        },
+        {
+          title: 'Productive',
+          icon: FiThumbsUp,
+          description:
+            'Designed to reduce boilerplate and fully typed, build your product at speed.',
+          iconPosition: 'left',
+          delay: 1.1,
+        },
+      ]}
+    />
   )
 }
 
@@ -449,264 +504,6 @@ const RequestAccess = () => {
   )
 }
 
-const Pricing = () => {
-  return (
-    <Section id="pricing" pos="relative" innerWidth="container.xl">
-      <BackgroundGradient animate={false} height="100%" />
-      <Box zIndex="2" pos="relative">
-        <SectionTitle
-          title="Pricing for every stage"
-          description="Pay once and get life-time access to our high quality components."
-        ></SectionTitle>
-
-        <SimpleGrid columns={[1, null, 4]} spacing={4}>
-          <PricingBox
-            title="Open Source"
-            description="Basic components, perfect to get started."
-            price="Free forever"
-          >
-            <PricingFeatures>
-              <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
-              <PricingFeature title="Forms (react-hook-form)" />
-              <PricingFeature title="Modals manager" />
-              <PricingFeature title="Hotkeys" />
-              <PricingFeature title="Web3 components" />
-              <Text fontSize="sm">And much more...</Text>
-            </PricingFeatures>
-            <ButtonLink href="/docs/introduction" variant="outline" mt="10">
-              View documentation
-            </ButtonLink>
-          </PricingBox>
-          <PricingBox
-            title="Bootstrap"
-            price={
-              <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €199,-
-                </Text>
-                <Text>€99,-</Text>
-              </HStack>
-            }
-            description="Complete frontend stack for bootstrappers and small teams."
-            borderColor="primary.500"
-            boxShadow="md"
-          >
-            <PricingFeatures>
-              <PricingFeature
-                title="One developer"
-                help="One developer per license, you can buy as many licenses as you need. Licenses can be transfered."
-              />
-              <PricingFeature
-                title={<>Unlimited projects</>}
-                help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
-              />
-              <PricingFeature title="Advanced components" />
-              <PricingFeature title="Multiple themes" />
-              <PricingFeature title="Next.js and Electron boilerplates" />
-              <PricingFeature title="Private discord community" />
-              <PricingFeature title="1 year of updates" />
-              <br />
-              <PricingFeature
-                title="Private beta access"
-                iconColor="green.500"
-              />
-            </PricingFeatures>
-            <ButtonLink
-              colorScheme="primary"
-              href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license"
-              className="gumroad-button"
-              onClick={() =>
-                setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.plausible?.('Order Bootstrap')
-                  /* @ts-ignore */
-                  window?.pirsch?.('Order Bootstrap')
-                })
-              }
-            >
-              Early access
-            </ButtonLink>
-          </PricingBox>
-          <PricingBox
-            title="Startup"
-            price={
-              <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €999,-
-                </Text>
-                <Text>€499,-</Text>
-              </HStack>
-            }
-            description="Unlimited license for growing teams."
-          >
-            <PricingFeatures>
-              <PricingFeature
-                title="Unlimited developers"
-                help="A developer can be either an employee or a contracted freelancer."
-              />
-              <PricingFeature
-                title="Unlimited projects"
-                help="No restrictions on commercial projects or client work."
-              />
-              <PricingFeature title="Everything from Bootstrap" />
-              <PricingFeature title="1 year of updates" />
-              <br />
-              <PricingFeature
-                title="Private beta access"
-                iconColor="green.500"
-              />
-            </PricingFeatures>
-            <ButtonLink
-              colorScheme="primary"
-              href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license"
-              className="gumroad-button"
-              onClick={() =>
-                setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.plausible?.('Order Startup')
-                  /* @ts-ignore */
-                  window?.pirsch?.('Order Startup')
-                })
-              }
-            >
-              Early access
-            </ButtonLink>
-          </PricingBox>
-          <MemberShip />
-        </SimpleGrid>
-
-        <Text
-          p="8"
-          textAlign="center"
-          color={useColorModeValue('gray.500', 'gray.400')}
-        >
-          VAT may be applicable depending on your location.
-        </Text>
-      </Box>
-    </Section>
-  )
-}
-
-const PricingFeatures = ({ children }) => {
-  return (
-    <VStack
-      align="stretch"
-      justifyContent="stretch"
-      spacing="4"
-      mb="8"
-      flex="1"
-    >
-      {children}
-    </VStack>
-  )
-}
-
-const PricingFeature = ({ title, iconColor = 'primary.500', help = '' }) => {
-  return (
-    <HStack>
-      <CheckIcon color={iconColor} />{' '}
-      <Tooltip label={help}>
-        <Text flex="1" fontSize="sm" cursor="default">
-          <Text
-            as="span"
-            borderStyle="dotted"
-            borderBottomWidth={help ? '1px' : 'none'}
-            borderColor="currentColor"
-          >
-            {title}
-          </Text>
-        </Text>
-      </Tooltip>
-    </HStack>
-  )
-}
-
-const PricingBox = ({ title, description, price, children, ...props }) => {
-  return (
-    <VStack
-      zIndex="2"
-      bg={useColorModeValue('whiteAlpha.600', 'blackAlpha.300')}
-      borderRadius="md"
-      p="8"
-      flex="1 0"
-      alignItems="stretch"
-      border="1px solid"
-      borderColor={useColorModeValue('gray.400', 'gray.800')}
-      {...props}
-    >
-      <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
-        {title}
-      </Heading>
-      <Box color={useColorModeValue('gray.500', 'gray.400')} fontSize="md">
-        {description}
-      </Box>
-      <Box fontSize="2xl" fontWeight="bold" py="4">
-        {price}
-      </Box>
-      <VStack align="stretch" justifyContent="stretch" spacing="4" flex="1">
-        {children}
-      </VStack>
-    </VStack>
-  )
-}
-
-const MemberShip = () => {
-  return (
-    <PricingBox
-      title={
-        <HStack>
-          <Text>Membership</Text>
-        </HStack>
-      }
-      description="Limited access membership for teams that want to get moving fast."
-      price={
-        <Stack spacing="0">
-          <Text fontSize="sm" color="gray.400" fontWeight="medium">
-            Starting at
-          </Text>
-          <HStack>
-            <Text>€2000,-</Text>
-            <Text fontSize="sm" color="gray.400">
-              / month
-            </Text>
-          </HStack>
-        </Stack>
-      }
-    >
-      <PricingFeatures>
-        <PricingFeature
-          title="Custom component development"
-          iconColor="cyan.500"
-        />
-        <PricingFeature title="Help with implementation" iconColor="cyan.500" />
-        <PricingFeature title="Project setup" iconColor="cyan.500" />
-        <PricingFeature title="Hands-on support" iconColor="cyan.500" />
-      </PricingFeatures>
-      <ButtonLink
-        href="mailto:hello@saas-ui.dev?subject=Membership"
-        colorScheme="cyan"
-        onClick={() => {
-          setTimeout(() => {
-            /* @ts-ignore */
-            window?.pirsch?.('Membership')
-          })
-        }}
-      >
-        Get in touch
-      </ButtonLink>
-    </PricingBox>
-  )
-}
-
 const BoilerplateCode = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const fieldRef = React.useRef()
@@ -763,8 +560,28 @@ const BoilerplateCode = () => {
           py="10"
           alignItems="center"
           justifyContent="center"
-          bg="codeBackground"
           borderRadius="2xl"
+          position="relative"
+          bg="codeBackground"
+          _dark={{
+            bg: 'transparent',
+            bgGradient: 'linear(to-b, codeBackground, transparent)',
+          }}
+          _before={{
+            content: '""',
+            display: 'block',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            position: 'absolute',
+            inset: '0px',
+            borderRadius: 'inherit',
+            padding: '1px',
+            bgGradient: `linear(to-b, whiteAlpha.300, transparent)`,
+
+            '-webkit-mask':
+              'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+            '-webkit-mask-composite': 'xor',
+          }}
         >
           <Box width="90%" overflowX="auto">
             <CodePanel language="typescript">{codeExamples.form}</CodePanel>
@@ -797,8 +614,28 @@ const Themable = () => {
           flex="1"
           alignItems="center"
           justifyContent="center"
-          bg="codeBackground"
           borderRadius="2xl"
+          position="relative"
+          bg="codeBackground"
+          _dark={{
+            bg: 'transparent',
+            bgGradient: 'linear(to-b, codeBackground, transparent)',
+          }}
+          _before={{
+            content: '""',
+            display: 'block',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            position: 'absolute',
+            inset: '0px',
+            borderRadius: 'inherit',
+            padding: '1px',
+            bgGradient: `linear(to-b, whiteAlpha.300, transparent)`,
+
+            '-webkit-mask':
+              'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+            '-webkit-mask-composite': 'xor',
+          }}
         >
           <Tabs width="100%" colorScheme="white">
             <TabList borderColor="whiteAlpha.200" color="white">
@@ -878,12 +715,12 @@ const HighlightBox = (props) => {
   return (
     <Card
       as={VStack}
-      bg={useColorModeValue('gray.100', 'gray.800')}
+      bg={useColorModeValue('gray.100', 'gray.900')}
       bgGradient="linear(to-bl,white, gray.50)"
       _dark={{
         bgGradient: 'linear(to-bl, whiteAlpha.50, transparent)',
       }}
-      borderRadius="md"
+      borderRadius="lg"
       p="8"
       flex="1 0"
       alignItems="flex-start"
@@ -1003,7 +840,33 @@ const Highlights = () => {
             We take care of all your basic frontend needs, so you can start
             building functionality that makes your product unique.
           </Text>
-          <Wrap>
+          <Wrap
+            position="relative"
+            _before={{
+              content: `""`,
+              position: 'absolute',
+              inset: 0,
+              left: '-30px',
+              right: '70%',
+              bgGradient: 'linear(to-r, white, transparent)',
+            }}
+            _after={{
+              content: `""`,
+              position: 'absolute',
+              inset: 0,
+              right: '-30px',
+              left: '70%',
+              bgGradient: 'linear(to-r, transparent, white)',
+            }}
+            _dark={{
+              _before: {
+                bgGradient: 'linear(to-r, gray.900, transparent)',
+              },
+              _after: {
+                bgGradient: 'linear(to-r, transparent, gray.800)',
+              },
+            }}
+          >
             {[
               'authentication',
               'navigation',
@@ -1021,14 +884,22 @@ const Highlights = () => {
               'upselling',
               'unit testing',
               'feature flags',
-              'responsiveness',
+              'mobile',
+              'user-profiles',
+              'data-fetching',
+              'ssr',
+              'subscriptions',
             ].map((value) => (
               <Tag
                 key={value}
-                variant="subtle"
-                colorScheme="purple"
                 rounded="full"
                 px="3"
+                borderWidth="1px"
+                bg="blackAlpha.50"
+                _dark={{
+                  bg: 'whiteAlpha.200',
+                  color: 'whiteAlpha.800',
+                }}
               >
                 {value}
               </Tag>
@@ -1279,25 +1150,72 @@ const ProFeatures = () => {
   return (
     <Features
       id="pro-features"
+      position="relative"
+      zIndex="1"
       title={
-        <Heading
-          lineHeight="short"
-          fontSize={['2xl', null, '4xl']}
-          textAlign="left"
-          as="p"
-        >
-          Not your standard
-          <Br /> dashboard template.
-        </Heading>
+        <Stack alignItems="flex-start">
+          <Badge
+            colorScheme="primary"
+            variant="outline"
+            border="1px"
+            rounded="full"
+            px="2"
+            fontWeight="medium"
+            textTransform="inherit"
+            fontSize="md"
+          >
+            Pro license
+          </Badge>
+          <Heading
+            lineHeight="short"
+            fontSize={['2xl', null, '4xl']}
+            textAlign="left"
+            as="p"
+            color="inherit"
+          >
+            Not your standard
+            <Br /> dashboard template.
+          </Heading>
+        </Stack>
       }
       description={
-        <Text fontSize={['xl', null, '2xl']}>
-          Saas UI Pro includes everything you need to build frontends that
-          scale.
-          <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
-        </Text>
+        <Stack alignItems="flex-start" spacing="8">
+          <Text fontSize={['xl', null, 'xl']}>
+            Saas UI Pro includes everything you need to build frontends that
+            scale.
+            <Br />
+            Use it as a template for your next product or foundation for your
+            design system.
+          </Text>
+          <ButtonGroup>
+            <ButtonLink href="/pricing" size="lg" variant="primary">
+              Buy Pro
+            </ButtonLink>
+            <ButtonLink
+              size="lg"
+              href="https://demo.saas-ui.dev"
+              target="_blank"
+              variant="outline"
+              _hover={{
+                bg: 'whiteAlpha.200',
+              }}
+              rightIcon={
+                <Icon
+                  as={FiArrowRight}
+                  sx={{
+                    transitionProperty: 'common',
+                    transitionDuration: 'normal',
+                    '.chakra-button:hover &': {
+                      transform: 'translate(5px)',
+                    },
+                  }}
+                />
+              }
+            >
+              Explore Demo
+            </ButtonLink>
+          </ButtonGroup>
+        </Stack>
       }
       align="left"
       variant="alternate"

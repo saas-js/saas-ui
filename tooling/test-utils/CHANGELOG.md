@@ -1,5 +1,11 @@
 # @saas-ui/test-utils
 
+## 2.2.2
+
+### Patch Changes
+
+- @saas-ui/react@1.7.2
+
 ## 2.2.1
 
 ### Patch Changes

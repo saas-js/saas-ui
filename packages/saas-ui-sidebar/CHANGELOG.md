@@ -1,5 +1,16 @@
 # @saas-ui/sidebar
 
+## 0.6.0
+
+### Minor Changes
+
+- 4b388f8: Fixed toggle button spacing.
+
+### Patch Changes
+
+- 54a38a4: Do not render tooltip for regular sidebar items, unless the tooltip prop is added.
+  - @saas-ui/provider@1.1.8
+
 ## 0.5.5
 
 ### Patch Changes

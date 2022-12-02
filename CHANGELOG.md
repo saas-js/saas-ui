@@ -8,6 +8,21 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 12-02-2022
+
+**Theme** `v1.6.2`
+
+- Moved NavItem font color to root of the theme.
+
+**Sidebar** `v0.6.0`
+
+- Do not render tooltip for regular sidebar items, unless the tooltip prop is added.
+- Fixed toggle button spacing.
+
+**Auth** `v1.6.2`
+
+- Now possible to set default options for Supabase authentication methods. Thanks to @KeKs0r
+
 ## 11-23-2022
 
 **React Utils** `v1.1.2`

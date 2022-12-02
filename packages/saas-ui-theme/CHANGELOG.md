@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.6.2
+
+### Patch Changes
+
+- 69d328f: Moved NavItem font color to root of the theme.
+
 ## 1.6.1
 
 ### Patch Changes

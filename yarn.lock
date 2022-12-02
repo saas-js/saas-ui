@@ -8797,6 +8797,7 @@ __metadata:
     "@chakra-ui/anatomy": ^2.1.0
     "@chakra-ui/styled-system": ^2.3.5
     "@chakra-ui/theme-tools": ^2.0.13
+    react-icons: ^4.7.1
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
     "@chakra-ui/system": ">=2.1.0"
@@ -27413,6 +27414,15 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: a08375d4563e381e156d826a8d551dd26c1bf7c424a79139173bf4c8df71e884badd7d4f5fe9faa0d73d18ace265bcc89891b65fd8f808812b1011b612ebbc53
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.7.1":
+  version: 4.7.1
+  resolution: "react-icons@npm:4.7.1"
+  peerDependencies:
+    react: "*"
+  checksum: ed3cbdc5fc0c4d7d2debf78fdc8c4c80aeacf85a506a9a3c11b1d5922de393ac0a6542012b7fb81761e9280c54d0f26827d50a92b54ec8f0c8e52364d89970b5
   languageName: node
   linkType: hard
 

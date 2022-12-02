@@ -477,7 +477,7 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 /* @ts-ignore */
-                window?.plausible('Order Bootstrap')
+                window?.pirsch?.('Order Bootstrap')
               }
             >
               Pre-order
@@ -516,7 +516,7 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 /* @ts-ignore */
-                window?.plausible('Order Startup')
+                window?.pirsch?.('Order Startup')
               }
             >
               Pre-order

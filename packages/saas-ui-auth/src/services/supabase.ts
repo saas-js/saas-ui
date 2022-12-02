@@ -38,8 +38,49 @@ const getParams = (): RecoveryParams => {
   }, {})
 }
 
+interface SupabaseServiceAuthOptions {
+  loginOptions?: {
+    data?: object
+    /** A URL to send the user to after they are confirmed. */
+    redirectTo?: string
+    /** A space-separated list of scopes granted to the OAuth application. */
+    scopes?: string
+    /** An object of query params */
+    queryParams?: { [key: string]: string }
+
+    /** Verification token received when the user completes the captcha on the site. */
+    captchaToken?: string
+    /** The redirect url embedded in the email link */
+    emailRedirectTo?: string
+    /** If set to false, this method will not create a new user. Defaults to true. */
+    shouldCreateUser?: boolean
+  }
+  signupOptions?: {
+    emailRedirectTo?: string
+    /**
+     * A custom data object to store the user's metadata. This maps to the `auth.users.user_metadata` column.
+     *
+     * The `data` should be a JSON object that includes user-specific info, such as their first and last name.
+     */
+    data?: object
+    /** Verification token received when the user completes the captcha on the site. */
+    captchaToken?: string
+  }
+  verifyOptions?: {
+    /** A URL to send the user to after they are confirmed. */
+    redirectTo?: string
+    /** Verification token received when the user completes the captcha on the site. */
+    captchaToken?: string
+  }
+  resetPasswordOptions?: {
+    redirectTo?: string
+    captchaToken?: string
+  }
+}
+
 export const createAuthService = (
-  supabase: SupabaseClient<any, 'public', any>
+  supabase: SupabaseClient<any, 'public', any>,
+  serviceOptions?: SupabaseServiceAuthOptions
 ): AuthProviderProps<User> => {
   const onLogin = async (
     params: AuthParams,
@@ -51,7 +92,10 @@ export const createAuthService = (
         return supabase.auth.signInWithPassword({
           email,
           password,
-          options,
+          options: {
+            ...serviceOptions?.loginOptions,
+            ...options,
+          },
         })
       } else if (email) {
         return supabase.auth.signInWithOtp({ email })
@@ -100,7 +144,10 @@ export const createAuthService = (
       resp = await supabase.auth.signUp({
         email,
         password,
-        options,
+        options: {
+          ...serviceOptions?.signupOptions,
+          ...options,
+        },
       })
     } else if (params.phone) {
       const { phone, password } = params
@@ -108,7 +155,10 @@ export const createAuthService = (
       resp = await supabase.auth.signUp({
         phone,
         password,
-        options,
+        options: {
+          ...serviceOptions?.signupOptions,
+          ...options,
+        },
       })
     }
 
@@ -130,7 +180,10 @@ export const createAuthService = (
         email,
         token: otp,
         type: type || 'signup',
-        options,
+        options: {
+          ...serviceOptions?.verifyOptions,
+          ...options,
+        },
       }
       const resp = await supabase.auth.verifyOtp(verify)
       if (resp.error) {
@@ -145,8 +198,8 @@ export const createAuthService = (
         token: otp,
         type: type || 'sms',
         options: {
-          captchaToken: options?.captchaToken,
-          redirectTo: options?.redirectTo,
+          ...serviceOptions?.verifyOptions,
+          ...options,
         },
       }
       const resp = await supabase.auth.verifyOtp(verify)
@@ -193,7 +246,10 @@ export const createAuthService = (
     { email }: Required<Pick<AuthParams, 'email'>>,
     options?: AuthOptions
   ) => {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, options)
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      ...serviceOptions?.resetPasswordOptions,
+      ...options,
+    })
     if (error) {
       throw error
     }

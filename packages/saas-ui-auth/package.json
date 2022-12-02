@@ -81,7 +81,6 @@
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",
     "@chakra-ui/system": ">=2.1.0",
-    "@supabase/supabase-js": "2.0.5",
     "framer-motion": ">=5.5.0",
     "react": ">=18.0.0"
   },

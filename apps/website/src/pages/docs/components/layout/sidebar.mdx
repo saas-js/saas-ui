@@ -40,10 +40,11 @@ import {
 
 ### Basic
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
     <Sidebar>
+      <SidebarToggleButton />
       <SidebarSection direction="row">
         <Image
           src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -81,10 +82,11 @@ import {
 
 ### Grouped items
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
     <Sidebar>
+      <SidebarToggleButton />
       <SidebarSection direction="row">
         <Image
           src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -129,10 +131,11 @@ import {
 
 ### Scroll
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
-    <Sidebar height="400px">
+    <Sidebar>
+      <SidebarToggleButton />
       <SidebarSection direction="row">
         <Image
           src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -202,10 +205,11 @@ import {
 The condensed variant can be used as a collapsed state on smaller screens, or as the primary navigation in a double sidebar layout, see below.
 NavItem labels will be rendered as tooltips.
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
-    <Sidebar variant="condensed" height="400px" width="64px">
+    <Sidebar variant="condensed" width="64px">
+      <SidebarToggleButton />
       <SidebarSection>
         <Image
           src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -230,7 +234,7 @@ NavItem labels will be rendered as tooltips.
 
 ### Toggle variant
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 function ToggleVariant() {
   const { isOpen, onToggle } = useDisclosure({
     defaultIsOpen: true,
@@ -284,7 +288,7 @@ function ToggleVariant() {
 
 You can stack multiple sidebars together to create a double sidebar layout.
 
-```jsx height=400px
+```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
     <HStack spacing="0">

@@ -87,7 +87,7 @@ export default {
   },
 } as Meta
 
-export const Basic: Story = () => {
+export const Glass: Story = () => {
   const snackbar = useSnackbar()
 
   const { onCopy } = useClipboard('npm i @saas-ui/theme-glass')

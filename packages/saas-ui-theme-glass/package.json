@@ -1,0 +1,71 @@
+{
+  "name": "@saas-ui/theme-glass",
+  "version": "0.0.0",
+  "description": "A Linear inspired Chakra UI theme",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.modern.js"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saas-js/saas-ui",
+    "directory": "packages/saas-ui-theme-glass"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "theme"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.pro"
+  },
+  "dependencies": {
+    "@chakra-ui/anatomy": "^2.1.0",
+    "@chakra-ui/styled-system": "^2.3.5",
+    "@chakra-ui/theme-tools": "^2.0.13"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=2.1.0",
+    "@chakra-ui/system": ">=2.1.0",
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "react-icons": "^4.7.1"
+  }
+}

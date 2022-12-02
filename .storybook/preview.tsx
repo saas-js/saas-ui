@@ -17,7 +17,7 @@ import * as React from 'react'
 // import { FaMoon, FaSun } from 'react-icons/fa'
 import { FiMoon, FiSun } from 'react-icons/fi'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-
+import { SaasProvider } from '@saas-ui/react'
 import { baseTheme, theme } from '@saas-ui/theme'
 import { useLocalStorage } from '@saas-ui/react'
 
@@ -89,8 +89,10 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
     return baseTheme
   }, [themeId])
 
+  const theme = context.parameters.theme || getTheme()
+  const themeOverride = !!context.parameters.theme
   return (
-    <ChakraProvider theme={extendTheme({ ...getTheme(), direction: dir })}>
+    <SaasProvider theme={extendTheme({ ...theme, direction: dir })}>
       <div dir={dir} id="story-wrapper" style={{ minHeight: '100vh' }}>
         <Flex
           justify="flex-end"
@@ -99,18 +101,22 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
           top="4"
           right="4"
           fontSize="sm"
+          zIndex="sticky"
         >
-          <ThemeSelect
-            value={themeId}
-            onChange={(id) => {
-              setTheme(id)
-            }}
-          />
+          {!themeOverride && (
+            <ThemeSelect
+              value={themeId}
+              onChange={(id) => {
+                setTheme(id)
+              }}
+            />
+          )}
           <ColorModeToggle />
         </Flex>
+
         <StoryFn />
       </div>
-    </ChakraProvider>
+    </SaasProvider>
   )
 }
 

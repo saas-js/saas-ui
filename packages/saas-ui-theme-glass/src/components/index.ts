@@ -44,7 +44,6 @@ export default {
   Modal,
   Progress,
   Toaster,
-  Text,
   Radio,
   Slider,
   Switch,

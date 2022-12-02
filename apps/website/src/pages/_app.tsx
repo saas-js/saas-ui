@@ -10,7 +10,7 @@ import { NProgressNextRouter } from '@saas-ui/nprogress'
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   const router = useRouter()
   return (
     <SaasProvider theme={theme}>
@@ -21,19 +21,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             header={pageProps.header}
             footer={pageProps.footer !== false ? <Footer /> : null}
           >
-            <Script
-              id="plausible"
-              strategy="afterInteractive"
-              data-domain="saas-ui.dev"
-              src="https://plausible.io/js/plausible.js"
-            />
-            <Script
-              id="plausible-snippet"
-              dangerouslySetInnerHTML={{
-                __html:
-                  'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }',
-              }}
-            />
             <Script
               id="pirschjs"
               strategy="afterInteractive"

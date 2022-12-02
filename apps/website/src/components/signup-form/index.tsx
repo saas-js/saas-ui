@@ -38,7 +38,7 @@ export function SignupForm({ isOpen, onClose }: any) {
     setLoading(true)
 
     /* @ts-ignore */
-    window?.plausible('Signup Submitted')
+    window?.pirsch?.('Signup Submitted')
 
     fetch('/', {
       method: 'POST',
@@ -59,7 +59,7 @@ export function SignupForm({ isOpen, onClose }: any) {
       .catch((error) => {
         console.error(error)
         /* @ts-ignore */
-        window?.plausible('Signup Failed')
+        window?.pirsch?.('Signup Failed')
         setResult(false)
       })
       .finally(() => setLoading(false))

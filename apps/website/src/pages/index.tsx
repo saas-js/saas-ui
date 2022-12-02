@@ -1185,7 +1185,7 @@ const ProFeatures = () => {
           </Text>
           <ButtonGroup>
             <ButtonLink href="/pricing" size="lg" variant="primary">
-              Buy Pro
+              Early access
             </ButtonLink>
             <ButtonLink
               size="lg"

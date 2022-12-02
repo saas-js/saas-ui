@@ -68,8 +68,6 @@ export function RedeemForm(props) {
   const handleSubmit = async ({ licenseKey, githubAccount }) => {
     setTimeout(() => {
       /* @ts-ignore */
-      window?.plausible?.('Redeem Submitted')
-      /* @ts-ignore */
       window?.pirsch?.('Redeem Submitted')
     })
     return fetch('/api/redeem', {
@@ -97,8 +95,6 @@ export function RedeemForm(props) {
       })
       .catch((error) => {
         console.error(error)
-        /* @ts-ignore */
-        window?.plausible?.('Redeem Failed')
         /* @ts-ignore */
         window?.pirsch?.('Redeem Failed')
       })

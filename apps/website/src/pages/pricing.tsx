@@ -109,7 +109,7 @@ const Pricing = () => {
                 >
                   €199,-
                 </Text>
-                <Text>€99,-</Text>
+                <Text>€149,-</Text>
               </HStack>
             }
             description="Complete frontend stack for bootstrappers and small teams."
@@ -141,8 +141,6 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.plausible?.('Order Bootstrap')
                   /* @ts-ignore */
                   window?.pirsch?.('Order Bootstrap')
                 })
@@ -190,8 +188,6 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.plausible?.('Order Startup')
                   /* @ts-ignore */
                   window?.pirsch?.('Order Startup')
                 })

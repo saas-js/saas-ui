@@ -297,6 +297,11 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'Beacon',
+          path: '/docs/components/engagement/beacon',
+          pro: true,
+        },
+        {
           title: 'Benefits Modal',
           path: '/docs/components/engagement/benefits-modal',
           pro: true,

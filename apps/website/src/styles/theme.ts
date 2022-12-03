@@ -81,7 +81,7 @@ const theme = extendTheme(
         },
         'chakra-body-text': {
           default: 'gray.900',
-          _darkL: 'white',
+          _dark: 'white',
         },
         'app-background': {
           default: 'white',

@@ -22,8 +22,6 @@ const styles = {
     body: {
       webkitFontSmoothing: 'antialiased',
       textRendering: 'optimizeLegibility',
-      color: mode('gray.900', 'white')(props),
-      bg: mode('white', 'black')(props),
       minHeight: 'auto',
       fontSize: 'lg',
     },
@@ -77,6 +75,17 @@ const theme = extendTheme(
         muted: {
           default: 'gray.600',
           _dark: 'gray.400',
+        },
+        'chakra-body-bg': {
+          default: 'app-background',
+        },
+        'chakra-body-text': {
+          default: 'gray.900',
+          _darkL: 'white',
+        },
+        'app-background': {
+          default: 'white',
+          _dark: 'black',
         },
       },
     },

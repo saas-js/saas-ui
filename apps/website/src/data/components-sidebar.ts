@@ -205,6 +205,11 @@ const sidebar = {
           path: '/docs/components/data-display/persona',
         },
         {
+          title: 'Timeline',
+          path: '/docs/components/data-display/timeline',
+          pro: true,
+        },
+        {
           title: 'Command',
           path: '/docs/components/data-display/command',
           pro: true,

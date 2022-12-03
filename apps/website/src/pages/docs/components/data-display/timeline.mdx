@@ -1,0 +1,210 @@
+---
+title: Timeline
+description: Display a list of events in chronological order.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+```ts
+import {
+  Timeline,
+  TimelineProps,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineIcon,
+  TimelineTrack,
+  TimelineContent,
+} from '@saas-ui/pro'
+```
+
+## Usage
+
+### Basic Timeline
+
+```jsx
+<Timeline>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon />
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Validate</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon />
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Build</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon />
+    </TimelineSeparator>
+    <TimelineContent>Iterate</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+### With colored icons
+
+```jsx
+<Timeline>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="primary.500" />
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Validate</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="cyan.500" />
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Build</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="green.500" />
+    </TimelineSeparator>
+    <TimelineContent>Iterate</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+### Outline variant
+
+```jsx
+<Timeline variant="outline">
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="primary.500" />
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Validate</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="cyan.500" />
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Build</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="green.500" />
+    </TimelineSeparator>
+    <TimelineContent>Iterate</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+### Custom icons
+
+```jsx
+<Timeline>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="gray.800" _dark={{ color: 'white' }}>
+        <FiUserCheck />
+      </TimelineIcon>
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Validate</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="gray.800" _dark={{ color: 'white' }}>
+        <FiCode />
+      </TimelineIcon>
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>Build</TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineIcon color="gray.800" _dark={{ color: 'white' }}>
+        <FiRefreshCw />
+      </TimelineIcon>
+    </TimelineSeparator>
+    <TimelineContent>Iterate</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+### Custom timeline
+
+```jsx
+<Timeline>
+  <TimelineItem minH="38px">
+    <TimelineSeparator>
+      <TimelineIcon mt="-6px">
+        <PersonaAvatar
+          src="/showcase-avatar.jpg"
+          colorScheme="purple.300"
+          name="Renata Alink"
+          size="xs"
+          bg="purple.200"
+          presence="online"
+        />
+      </TimelineIcon>
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>
+      <Text color="muted">
+        <Link color="black" _dark={{ color: 'white' }}>
+          Renata
+        </Link>{' '}
+        created the issue.
+      </Text>
+    </TimelineContent>
+  </TimelineItem>
+  <TimelineItem minH="38px">
+    <TimelineSeparator>
+      <TimelineIcon>
+        <Badge
+          rounded="full"
+          borderWidth="2px"
+          borderColor="green.300"
+          bg="none"
+          boxSize="13px"
+        />
+      </TimelineIcon>
+      <TimelineTrack />
+    </TimelineSeparator>
+    <TimelineContent>
+      <Text color="muted">John changed status to pending.</Text>
+    </TimelineContent>
+  </TimelineItem>
+  <TimelineItem minH="38px">
+    <TimelineSeparator>
+      <TimelineIcon mt="-6px">
+        <PersonaAvatar
+          src="/showcase-avatar.jpg"
+          name="Renata Alink"
+          size="xs"
+          bg="purple.200"
+          presence="online"
+        />
+      </TimelineIcon>
+    </TimelineSeparator>
+    <TimelineContent>
+      <Text color="muted">
+        <Link color="black" _dark={{ color: 'white' }}>
+          Renata
+        </Link>{' '}
+        completed the issue.
+      </Text>
+    </TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+## Props
+
+### Timeline Props
+
+<PropsTable of="Timeline" />

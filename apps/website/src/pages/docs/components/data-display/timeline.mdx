@@ -21,7 +21,11 @@ import {
 
 ## Usage
 
+The Timeline component allows you to display a list of events in chronological order, from a simple list of events to a complex timeline with custom content.
+
 ### Basic Timeline
+
+A basic timeline showing a simple list of events.
 
 ```jsx
 <Timeline>
@@ -50,6 +54,8 @@ import {
 
 ### With colored icons
 
+The `TimelineIcon` supports a `color` prop that can be used to change the color of the icon.
+
 ```jsx
 <Timeline>
   <TimelineItem>
@@ -77,6 +83,8 @@ import {
 
 ### Outline variant
 
+The `Timeline` supports 2 variants, `solid` and `outline`.
+
 ```jsx
 <Timeline variant="outline">
   <TimelineItem>
@@ -103,6 +111,8 @@ import {
 ```
 
 ### Custom icons
+
+The `TimelineIcon` renders a dot by default, but it also supports custom icons.
 
 ```jsx
 <Timeline>
@@ -136,6 +146,8 @@ import {
 ```
 
 ### Custom timeline
+
+Here's a more advanced example show a list of user actions.
 
 ```jsx
 <Timeline>

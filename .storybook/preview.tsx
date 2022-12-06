@@ -18,7 +18,7 @@ import * as React from 'react'
 import { FiMoon, FiSun } from 'react-icons/fi'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { SaasProvider } from '@saas-ui/react'
-import { baseTheme, theme } from '@saas-ui/theme'
+import { baseTheme, theme as suiTheme } from '@saas-ui/theme'
 import { useLocalStorage } from '@saas-ui/react'
 
 /**
@@ -84,7 +84,7 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
 
   const getTheme = React.useCallback(() => {
     if (themeId === '1') {
-      return theme
+      return suiTheme
     }
     return baseTheme
   }, [themeId])

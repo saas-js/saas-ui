@@ -25,7 +25,9 @@ import { datePickerStyleConfig } from './date-picker-styles'
 export interface DateRangePickerContainerProps
   extends ThemingProps<'DatePicker'>,
     Omit<PopoverProps, 'variant' | 'size'>,
-    DateRangePickerStateOptions {
+    Omit<DateRangePickerStateOptions, 'value' | 'onChange'> {
+  value?: DateRangeValue
+  onChange(value?: DateRangeValue): void
   locale?: string
   hourCycle?: 12 | 24
   timeZone?: string
@@ -48,14 +50,15 @@ export const DateRangePickerContainer: React.FC<
     ...props,
   })
 
-  const [value, setValue] = useControllableState<DateRangeValue>({
+  const [value, setValue] = useControllableState<DateRangeValue | undefined>({
     defaultValue,
-    value: valueProp ?? undefined,
+    value: valueProp,
     onChange,
   })
 
   const state = useDateRangePickerState({
-    value: value ?? undefined,
+    /* @ts-ignore doesn't accept null in strict mode, but it's supported */
+    value,
     onChange: setValue,
     shouldCloseOnSelect: false,
   })

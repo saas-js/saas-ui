@@ -10,16 +10,21 @@ import {
 } from '../src'
 import {
   Box,
+  Button,
   Container,
+  Flex,
   FormControl,
   FormLabel,
   forwardRef,
+  IconButton,
+  InputGroup,
   VStack,
 } from '@chakra-ui/react'
 
 import {
   Form,
   FormLayout,
+  InputRightButton,
   registerFieldType,
   SubmitButton,
 } from '@saas-ui/forms'
@@ -83,9 +88,9 @@ const DateField = registerFieldType(
   forwardRef((props, ref) => {
     const { value: valueProp, onChange: onChangeProp, ...rest } = props
 
-    const value = parseDate(valueProp)
-    const onChange = (value: DateValue) => {
-      onChangeProp(value.toString())
+    const value = valueProp && parseDate(valueProp)
+    const onChange = (value: DateValue | null) => {
+      onChangeProp(value?.toString() || '')
     }
 
     return <DateInput ref={ref} value={value} onChange={onChange} {...rest} />
@@ -99,7 +104,7 @@ export const FormWithDateField = () => {
   return (
     <Form
       defaultValues={{
-        date: '2021-01-01',
+        date: '',
       }}
       onSubmit={(data) => console.log('onSubmit', data)}
     >
@@ -126,3 +131,40 @@ export const Sizes = () => {
     </VStack>
   )
 }
+
+// const ForwardedDateTimeInput = forwardRef<
+//   HTMLDivElement,
+//   Omit<ComponentProps<typeof SaasUiDateTimeInput>, 'value'> & { value: string }
+// >(({ value, onChange, ...props }, ref) => {
+//   const parsedValue = value ? parseDateTime(value) : null
+
+//   return (
+//     <Flex gap="2" alignItems="center">
+//       <SaasUiDateTimeInput
+//         ref={ref}
+//         value={parsedValue}
+//         onChange={(value) => {
+//           onChange(value ? value.toString() : null)
+//         }}
+//         {...props}
+//       />
+//       <Button
+//         onClick={() => {
+//           onChange(null)
+//         }}
+//       >
+//         Clear
+//       </Button>
+//     </Flex>
+//   )
+// })
+
+// ForwardedDateTimeInput.displayName = 'ForwardedDateTimeInput'
+
+// export const DateTimeInput = registerFieldType(
+//   'custom-date-time-input',
+//   ForwardedDateTimeInput,
+//   {
+//     isControlled: true,
+//   }
+// )

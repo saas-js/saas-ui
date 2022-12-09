@@ -39,11 +39,9 @@ const PricingPage = () => {
         titleTemplate="%s - Pricing"
       />
       <Script
-        id="crisp-js"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
-        }}
+        id="paritydeals-js"
+        strategy="afterInteractive"
+        src="https://cdn.paritydeals.com/banner.js"
       />
       <BackgroundGradientRadial
         top="-30%"
@@ -280,9 +278,9 @@ const PricingBox = ({
             : 'linear(to-b, whiteAlpha.300, transparent)',
         },
 
-        '-webkit-mask':
+        WebkitMask:
           'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-        '-webkit-mask-composite': 'xor',
+        WebkitMaskComposite: 'xor',
       }}
       {...props}
     >

@@ -566,9 +566,9 @@ const BoilerplateCode = () => {
             padding: '1px',
             bgGradient: `linear(to-b, whiteAlpha.300, transparent)`,
 
-            '-webkit-mask':
+            WebkitMask:
               'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-            '-webkit-mask-composite': 'xor',
+            WebkitMaskComposite: 'xor',
           }}
         >
           <Box width="90%" overflowX="auto">
@@ -620,9 +620,9 @@ const Themable = () => {
             padding: '1px',
             bgGradient: `linear(to-b, whiteAlpha.300, transparent)`,
 
-            '-webkit-mask':
+            WebkitMask:
               'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-            '-webkit-mask-composite': 'xor',
+            WebkitMaskComposite: 'xor',
           }}
         >
           <Tabs width="100%" colorScheme="white">

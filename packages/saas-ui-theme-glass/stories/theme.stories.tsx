@@ -180,7 +180,7 @@ export const Glass: Story = () => {
               <VStack alignItems="flex-end">
                 <Switch defaultChecked />
 
-                <Menu defaultIsOpen placement="bottom-start">
+                <Menu defaultIsOpen placement="bottom-start" flip={false}>
                   <MenuButton
                     as={Button}
                     variant="secondary"

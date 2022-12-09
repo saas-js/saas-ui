@@ -99,174 +99,181 @@ export const Glass: Story = () => {
       position="relative"
       background="radial-gradient(ellipse 80% 50% at 50% -15%,rgba(110,114,180,0.25),transparent)"
     >
-      <Stack
-        spacing="4"
-        justifySelf="flex-start"
-        alignSelf="flex-start"
-        width="400px"
-        alignItems="flex-start"
-        position="absolute"
-        zIndex="2"
-      >
-        <Stack spacing="1">
-          <Heading>Glass Theme</Heading>
-          <Text color="muted" fontSize="lg">
-            A Linear inspired Chakra UI theme
-          </Text>
+      <Box width="container.xl" margin="0 auto">
+        <Stack
+          spacing="4"
+          justifySelf="flex-start"
+          alignSelf="flex-start"
+          width="400px"
+          alignItems="flex-start"
+          position="absolute"
+          zIndex="2"
+        >
+          <Stack spacing="1">
+            <Heading>Glass Theme</Heading>
+            <Text color="muted" fontSize="lg">
+              A Linear inspired Chakra UI theme
+            </Text>
+          </Stack>
+
+          <ButtonGroup>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => {
+                onCopy()
+
+                snackbar.success('Copied to clipboard')
+              }}
+            >
+              npm i @saas-ui/theme-glass
+            </Button>
+            <Button
+              variant="ghost"
+              leftIcon={<FaGithub />}
+              size="lg"
+              as="a"
+              href="https://github.com/saas-js/saas-ui/tree/main/packages/saas-ui-theme-glass"
+            >
+              Source
+            </Button>
+          </ButtonGroup>
         </Stack>
+        <Stack spacing="4" position="absolute" top="20">
+          <VStack alignItems="flex-end" spacing="4">
+            <HStack spacing="4" alignItems="flex-end">
+              <VStack alignItems="flex-end" spacing="4">
+                <Checkbox isChecked />
+                <HStack>
+                  <Button variant="primary">Primary</Button>
+                </HStack>
+                <HStack>
+                  <Button variant="tertiary">Tertiary</Button>
+                  <Button variant="secondary">Secondary</Button>
+                </HStack>
+              </VStack>
 
-        <ButtonGroup>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => {
-              onCopy()
-
-              snackbar.success('Copied to clipboard')
-            }}
-          >
-            npm i @saas-ui/theme-glass
-          </Button>
-          <Button
-            variant="ghost"
-            leftIcon={<FaGithub />}
-            size="lg"
-            as="a"
-            href="https://github.com/saas-js/saas-ui/tree/main/packages/saas-ui-theme-glass"
-          >
-            Source
-          </Button>
-        </ButtonGroup>
-      </Stack>
-      <Stack spacing="4" position="absolute" top="20">
-        <VStack alignItems="flex-end" spacing="4">
-          <HStack spacing="4" alignItems="flex-end">
-            <VStack alignItems="flex-end" spacing="4">
-              <Checkbox isChecked />
-              <HStack>
-                <Button variant="primary">Primary</Button>
-              </HStack>
-              <HStack>
-                <Button variant="tertiary">Tertiary</Button>
-                <Button variant="secondary">Secondary</Button>
-              </HStack>
-            </VStack>
-
-            <Card width="240px" position="relative" overflow="hidden">
-              <Image src="/mountains.jpg" objectFit="cover" mb="0" />
-              <CardFooter
-                position="absolute"
-                bottom="0"
-                width="100%"
-                bgGradient="linear(to-t, blackAlpha.900, transparent)"
-                py="2"
-                px="2"
-                color="white"
-                height="76px"
-                alignItems="flex-end"
-              >
-                <Text flex="1" fontSize="md">
-                  South Tirol
-                </Text>
-                <Button variant="primary" size="xs">
-                  Book now
-                </Button>
-              </CardFooter>
-            </Card>
-          </HStack>
-
-          <HStack alignItems="flex-end" spacing="4">
-            <VStack alignItems="flex-end">
-              <Switch defaultChecked />
-
-              <Menu defaultIsOpen>
-                <MenuButton
-                  as={Button}
-                  variant="secondary"
-                  rightIcon={<FiChevronDown />}
+              <Card width="240px" position="relative" overflow="hidden">
+                <Image src="/mountains.jpg" objectFit="cover" mb="0" />
+                <CardFooter
+                  position="absolute"
+                  bottom="0"
+                  width="100%"
+                  bgGradient="linear(to-t, blackAlpha.900, transparent)"
+                  py="2"
+                  px="2"
+                  color="white"
+                  height="76px"
+                  alignItems="flex-end"
                 >
-                  Filter
-                </MenuButton>
-                <Portal>
-                  <MenuList>
-                    {/* <MenuListFilter
+                  <Text flex="1" fontSize="md">
+                    South Tirol
+                  </Text>
+                  <Button variant="primary" size="xs">
+                    Book now
+                  </Button>
+                </CardFooter>
+              </Card>
+            </HStack>
+
+            <HStack alignItems="flex-end" spacing="4">
+              <VStack alignItems="flex-end">
+                <Switch defaultChecked />
+
+                <Menu defaultIsOpen placement="bottom-start">
+                  <MenuButton
+                    as={Button}
+                    variant="secondary"
+                    rightIcon={<FiChevronDown />}
+                  >
+                    Filter
+                  </MenuButton>
+                  <Portal>
+                    <MenuList>
+                      {/* <MenuListFilter
                       placeholder="Filter by..."
                       groupProps={{ pb: 1, mb: 1 }}
                     /> */}
-                    <MenuItem>Status</MenuItem>
-                    <MenuItem>Created at</MenuItem>
-                  </MenuList>
-                </Portal>
-              </Menu>
-            </VStack>
-            <Upgrade />
-          </HStack>
-        </VStack>
-        <Slider
-          aria-label="slider-ex-1"
-          defaultValue={30}
-          width="570px"
-          ms="auto"
-          alignSelf="flex-end"
-        >
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
-        <VStack alignItems="flex-end">
-          <HStack alignItems="flex-end" spacing="4">
-            <VStack alignItems="flex-end" spacing="4">
-              <Radio isChecked />
-              <HStack spacing="0.5">
-                <Kbd>⌘</Kbd>
-                <Kbd>K</Kbd>
-              </HStack>
-              <ButtonGroup isAttached size="md" variant="tertiary">
-                <Button>All</Button>
-                <Button>Leads</Button>
-                <Button>Customers</Button>
-              </ButtonGroup>
-              <Profile />
-            </VStack>
-            <Members />
-          </HStack>
-        </VStack>
-        <VStack alignItems="flex-end">
-          <HStack spacing="4" alignItems="flex-start">
-            <Progress colorScheme="green" size="xs" value={80} width="300px" />
-            <Card px="1" py="1">
-              <ButtonGroup size="md" variant="ghost">
-                <ButtonGroup spacing="1" variant="ghost">
-                  <IconButton
-                    icon={<FiAlignLeft />}
-                    aria-label="Align left"
-                    isActive
-                  />
-                  <IconButton
-                    icon={<FiAlignCenter />}
-                    aria-label="Align center"
-                  />
-                  <IconButton
-                    icon={<FiAlignRight />}
-                    aria-label="Align right"
-                  />
+                      <MenuItem>Status</MenuItem>
+                      <MenuItem>Created at</MenuItem>
+                    </MenuList>
+                  </Portal>
+                </Menu>
+              </VStack>
+              <Upgrade />
+            </HStack>
+          </VStack>
+          <Slider
+            aria-label="slider-ex-1"
+            defaultValue={30}
+            width="570px"
+            ms="auto"
+            alignSelf="flex-end"
+          >
+            <SliderTrack>
+              <SliderFilledTrack />
+            </SliderTrack>
+            <SliderThumb />
+          </Slider>
+          <VStack alignItems="flex-end">
+            <HStack alignItems="flex-end" spacing="4">
+              <VStack alignItems="flex-end" spacing="4">
+                <Radio isChecked />
+                <HStack spacing="0.5">
+                  <Kbd>⌘</Kbd>
+                  <Kbd>K</Kbd>
+                </HStack>
+                <ButtonGroup isAttached size="md" variant="tertiary">
+                  <Button>All</Button>
+                  <Button>Leads</Button>
+                  <Button>Customers</Button>
                 </ButtonGroup>
-                <Divider orientation="vertical" />
-                <ButtonGroup spacing="1" variant="ghost">
-                  <IconButton icon={<FiBold />} aria-label="Bold" />
-                  <IconButton icon={<FiItalic />} aria-label="Italic" />
-                  <IconButton icon={<FiUnderline />} aria-label="Underline" />
+                <Profile />
+              </VStack>
+              <Members />
+            </HStack>
+          </VStack>
+          <VStack alignItems="flex-end">
+            <HStack spacing="4" alignItems="flex-start">
+              <Progress
+                colorScheme="green"
+                size="xs"
+                value={80}
+                width="300px"
+              />
+              <Card px="1" py="1">
+                <ButtonGroup size="md" variant="ghost">
+                  <ButtonGroup spacing="1" variant="ghost">
+                    <IconButton
+                      icon={<FiAlignLeft />}
+                      aria-label="Align left"
+                      isActive
+                    />
+                    <IconButton
+                      icon={<FiAlignCenter />}
+                      aria-label="Align center"
+                    />
+                    <IconButton
+                      icon={<FiAlignRight />}
+                      aria-label="Align right"
+                    />
+                  </ButtonGroup>
+                  <Divider orientation="vertical" />
+                  <ButtonGroup spacing="1" variant="ghost">
+                    <IconButton icon={<FiBold />} aria-label="Bold" />
+                    <IconButton icon={<FiItalic />} aria-label="Italic" />
+                    <IconButton icon={<FiUnderline />} aria-label="Underline" />
+                  </ButtonGroup>
+                  <Divider orientation="vertical" />
+                  <IconButton icon={<FiLink />} aria-label="Create link" />
+                  <Spacer />
+                  <Button variant="primary">Save</Button>
                 </ButtonGroup>
-                <Divider orientation="vertical" />
-                <IconButton icon={<FiLink />} aria-label="Create link" />
-                <Spacer />
-                <Button variant="primary">Save</Button>
-              </ButtonGroup>
-            </Card>
-          </HStack>
-        </VStack>
-      </Stack>
+              </Card>
+            </HStack>
+          </VStack>
+        </Stack>
+      </Box>
     </Box>
   )
 }

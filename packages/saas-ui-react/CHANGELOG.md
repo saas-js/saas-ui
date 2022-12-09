@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 1.7.3
+
+### Patch Changes
+
+- Updated dependencies [91fbab7]
+  - @saas-ui/auth@1.6.3
+
 ## 1.7.2
 
 ### Patch Changes

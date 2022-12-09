@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 1.6.3
+
+### Patch Changes
+
+- 91fbab7: Allow sign-up with otp
+
 ## 1.6.2
 
 ### Patch Changes

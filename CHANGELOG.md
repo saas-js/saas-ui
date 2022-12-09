@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 12-09-2022
+
+**Date Picker** `v0.7.3`
+
+- Allow null values, fixes uncontrolled to controlled warnings and allows for resetting the field values.
+
+**Auth** `v1.6.3`
+
+- Allow sign-up with otp
+
 ## 12-02-2022
 
 **Theme** `v1.6.2`

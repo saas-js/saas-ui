@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import { Box } from '@chakra-ui/layout'
-import { Stack, Flex } from '@chakra-ui/react'
+import { Stack, Flex, Box, Text } from '@chakra-ui/react'
 
 import SEO from '@/components/seo'
 
@@ -11,6 +10,7 @@ import Hero from '@/components/marketing/hero'
 import { FallInPlace } from '@/components/motion/fall-in-place'
 
 import { Br } from '@saas-ui/react'
+import SectionTitle from '@/components/marketing/section-title'
 
 const ThemesPage = () => {
   return (
@@ -28,25 +28,24 @@ const ThemesPage = () => {
       />
       <Box mb={8} w="full" position="relative" overflow="hidden" zIndex="1">
         <Section id="pricing" pos="relative" innerWidth="container.xl" pb="10">
-          <Hero
-            as={Stack}
-            id="home"
+          <SectionTitle
             alignItems="center"
             textAlign="center"
+            py="20"
             title={
-              <FallInPlace textAlign="center" initialInView>
+              <Text lineHeight="short">
                 Professionally crafted <Br /> Chakra UI themes
-              </FallInPlace>
+              </Text>
             }
             description={
-              <FallInPlace
-                delay={0.4}
-                fontWeight="medium"
-                textAlign="center"
-                initialInView
-              >
-                Designed to be compatible with Chakra UI &amp; Saas UI projects.
-              </FallInPlace>
+              <Box>
+                <Text fontSize="xl" fontWeight="normal" maxW="container.sm">
+                  A collection of clean and modern Chakra UI themes
+                  <Br />
+                  that help you build modern and visually pleasing interfaces.{' '}
+                  <Br /> Compatible with Chakra UI &amp; Saas UI projects.
+                </Text>
+              </Box>
             }
           />
         </Section>

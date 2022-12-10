@@ -67,7 +67,7 @@ const Pricing = () => {
         <SectionTitle
           title="Pricing for every stage"
           description={
-            <Text>
+            <Text fontSize="xl">
               Get started for free with 40+ open source components. Upgrade to
               Pro <Br display={{ sm: 'none', lg: 'inline' }} />
               to get all components and features with a license for you or your

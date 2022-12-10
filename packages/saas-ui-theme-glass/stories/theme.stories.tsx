@@ -82,7 +82,13 @@ export default {
   title: 'Themes/Glass',
   decorators: [(Story: any) => <Story />],
   parameters: {
-    theme,
+    theme: {
+      ...theme,
+      config: {
+        ...theme.config,
+        initialColorMode: 'dark',
+      },
+    },
     layout: 'fullscreen',
   },
 } as Meta
@@ -154,7 +160,12 @@ export const Glass: Story = () => {
               </VStack>
 
               <Card width="240px" position="relative" overflow="hidden">
-                <Image src="/mountains.jpg" objectFit="cover" mb="0" />
+                <Image
+                  src="/mountains.jpg"
+                  objectFit="cover"
+                  mb="0"
+                  height="155px"
+                />
                 <CardFooter
                   position="absolute"
                   bottom="0"

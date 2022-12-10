@@ -1,5 +1,11 @@
 # @saas-ui/sidebar
 
+## 0.6.1
+
+### Patch Changes
+
+- 5dd6af5: Fix issue where component would be in error state when no Sidebar theme is configured.
+
 ## 0.6.0
 
 ### Minor Changes

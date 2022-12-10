@@ -45,8 +45,7 @@ const ThemesPage = () => {
                 textAlign="center"
                 initialInView
               >
-                Compatible with every Chakra UI project, but work <Br />{' '}
-                especially well in combination with Saas UI.
+                Designed to be compatible with Chakra UI &amp; Saas UI projects.
               </FallInPlace>
             }
           />

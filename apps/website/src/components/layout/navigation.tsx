@@ -45,7 +45,7 @@ const Header = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  useHotkeys(['/'], () => {
+  useHotkeys(['/', 'CMD+K'], () => {
     onOpen()
   })
 

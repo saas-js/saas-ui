@@ -20,7 +20,7 @@ import {
   Field,
   InputField,
   TextareaField,
-  NumberField,
+  NumberInputField,
   SelectField,
   RadioField,
   CheckboxField,
@@ -68,7 +68,7 @@ Any other type will fallback to a regular HTML `input` element. Eg: `email` will
 ```jsx
 <Form>
   <Field type="number" name="amount" label="Amount" value="10" />
-  {/* or: <NumberField name="amount" label="Amount" /> */}
+  {/* or: <NumberInputField type='number' name="amount" label="Amount" /> */}
 </Form>
 ```
 

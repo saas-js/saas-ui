@@ -1,4 +1,4 @@
-import { Box, BoxProps, SimpleGrid, Container, Text } from '@chakra-ui/layout'
+import { Box, BoxProps, SimpleGrid, Container, Text } from '@chakra-ui/react'
 
 import Link, { LinkProps } from '@/components/link'
 

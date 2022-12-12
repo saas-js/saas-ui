@@ -29,7 +29,7 @@ const styles = {
       height: '100%',
     },
     '.parity-banner': {
-      position: 'sticky',
+      position: 'relative',
       top: '60px',
     },
   }),

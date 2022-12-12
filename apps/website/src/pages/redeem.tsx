@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/layout'
+import { Box } from '@chakra-ui/react'
 import { Container, Text, VStack, useColorModeValue } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'

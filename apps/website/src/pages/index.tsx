@@ -3,7 +3,7 @@ import * as React from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 
-import { Box, SimpleGrid } from '@chakra-ui/layout'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import {
   Container,
   Heading,

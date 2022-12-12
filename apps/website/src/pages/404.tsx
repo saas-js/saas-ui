@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/button'
 import { useColorMode } from '@chakra-ui/color-mode'
-import { Box, Heading, Text } from '@chakra-ui/layout'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 

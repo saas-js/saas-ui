@@ -1,4 +1,4 @@
-import { Box, Stack, VStack } from '@chakra-ui/layout'
+import { Box, Stack, VStack } from '@chakra-ui/react'
 import {
   ButtonProps as ChakraButtonProps,
   useMultiStyleConfig,

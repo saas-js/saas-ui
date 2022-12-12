@@ -1,10 +1,18 @@
 import { DateRangeValue, DateValue } from './types'
 
-export const isDateInRange = (date: DateValue, range: DateRangeValue) => {
+export const isDateInRange = (
+  date: DateValue | null,
+  range: DateRangeValue
+) => {
   if (!date || !range) {
     return false
   }
-  return date.compare(range?.start) >= 0 && date.compare(range?.end) <= 0
+  return !!(
+    range?.start &&
+    date.compare(range.start) >= 0 &&
+    range?.end &&
+    date.compare(range.end) <= 0
+  )
 }
 
 // export const parseDate = <TDateValue = DateValue>(

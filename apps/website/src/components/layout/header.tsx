@@ -32,35 +32,40 @@ const Header = (props: HeaderProps) => {
       _dark={{
         bg: 'transparent',
       }}
-      _before={{
-        content: '""',
-        position: 'absolute',
-        inset: 0,
-        bottom: '-20px',
-        backdropFilter: 'blur(16px)',
-        mask: 'linear-gradient(to-b, black, transparent)',
-        WebkitMask: 'linear-gradient(to bottom, black 60px, transparent)',
-      }}
       {...props}
     >
-      <Box zIndex="1" position="relative" borderBottomWidth="1px">
-        <Container maxW="container.2xl" px="8" py="3">
-          <HStack width="full" align="center">
-            <Logo
-              onClick={(e) => {
-                if (window.location.pathname === '/') {
-                  e.preventDefault()
+      <Box
+        zIndex="1"
+        position="relative"
+        _before={{
+          content: '""',
+          position: 'absolute',
+          inset: 0,
+          bottom: '-20px',
+          backdropFilter: 'blur(16px)',
+          mask: 'linear-gradient(to-b, black, transparent)',
+          WebkitMask: 'linear-gradient(to bottom, black 60px, transparent)',
+        }}
+      >
+        <Box borderBottomWidth="1px" position="relative" zIndex="1">
+          <Container maxW="container.2xl" px="8" py="3">
+            <HStack width="full" align="center">
+              <Logo
+                onClick={(e) => {
+                  if (window.location.pathname === '/') {
+                    e.preventDefault()
 
-                  window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth',
-                  })
-                }
-              }}
-            />
-            <Navigation />
-          </HStack>
-        </Container>
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth',
+                    })
+                  }
+                }}
+              />
+              <Navigation />
+            </HStack>
+          </Container>
+        </Box>
       </Box>
     </Box>
   )

@@ -282,7 +282,7 @@ export const WithState = () => {
           console.log(data, stepper)
 
           if (data.email === 'exists@saas-ui.dev') {
-            formRef.current.setError('email', {
+            formRef.current?.setError('email', {
               message: 'This email address is already registered.',
             })
 

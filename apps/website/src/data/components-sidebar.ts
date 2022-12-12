@@ -205,6 +205,11 @@ const sidebar = {
           path: '/docs/components/data-display/persona',
         },
         {
+          title: 'Timeline',
+          path: '/docs/components/data-display/timeline',
+          pro: true,
+        },
+        {
           title: 'Command',
           path: '/docs/components/data-display/command',
           pro: true,
@@ -291,6 +296,11 @@ const sidebar = {
       heading: true,
       open: true,
       routes: [
+        {
+          title: 'Beacon',
+          path: '/docs/components/engagement/beacon',
+          pro: true,
+        },
         {
           title: 'Benefits Modal',
           path: '/docs/components/engagement/benefits-modal',

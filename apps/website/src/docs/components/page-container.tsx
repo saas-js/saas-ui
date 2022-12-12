@@ -88,9 +88,26 @@ function PageContainer(props: PageContainerProps) {
     seo,
   } = frontmatter
 
+  const basePath =
+    process.env.NODE_ENV !== 'production' ? '' : 'https://saas-ui.dev'
+
   return (
     <>
-      <SEO title={title} description={description} {...seo} />
+      <SEO
+        title={title}
+        description={description}
+        {...seo}
+        openGraph={{
+          images: [
+            {
+              url: `${basePath}/api/og?title=${title}`,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ],
+        }}
+      />
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>

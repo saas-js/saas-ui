@@ -84,29 +84,31 @@ export const createAuthService = (
 ): AuthProviderProps<User> => {
   const onLogin = async (
     params: AuthParams,
-    options?: AuthOptions<{ data?: object; captchaToken?: string }>
+    authOptions?: AuthOptions<{ data?: object; captchaToken?: string }>
   ) => {
+    const options = {
+      ...serviceOptions?.loginOptions,
+      ...authOptions,
+    }
     function authenticate() {
       const { email, password, provider, phone } = params
       if (email && password) {
         return supabase.auth.signInWithPassword({
           email,
           password,
-          options: {
-            ...serviceOptions?.loginOptions,
-            ...options,
-          },
+          options,
         })
       } else if (email) {
-        return supabase.auth.signInWithOtp({ email })
+        return supabase.auth.signInWithOtp({ email, options })
       } else if (provider) {
         return supabase.auth.signInWithOAuth({
           provider: provider as Provider,
+          options,
         })
       } else if (phone && password) {
-        return supabase.auth.signInWithPassword({ phone, password })
+        return supabase.auth.signInWithPassword({ phone, password, options })
       } else if (phone) {
-        return supabase.auth.signInWithOtp({ phone })
+        return supabase.auth.signInWithOtp({ phone, options })
       }
       throw new Error('Could not find correct authentication method')
     }
@@ -127,40 +129,38 @@ export const createAuthService = (
 
   const onSignup = async (
     params: AuthParams,
-    options?: AuthOptions<{
+    authOptions?: AuthOptions<{
       captchaToken?: string
       emailRedirectTo?: string
       data?: object
     }>
   ) => {
-    if (!params.password) {
-      throw new Error('Password is required')
+    async function signup() {
+      const { email, phone, password } = params
+      const options = {
+        ...serviceOptions?.signupOptions,
+        ...authOptions,
+      }
+      if (email && password) {
+        return await supabase.auth.signUp({
+          email,
+          password,
+          options,
+        })
+      } else if (phone && password) {
+        return await supabase.auth.signUp({
+          phone,
+          password,
+          options,
+        })
+      } else if (email) {
+        return supabase.auth.signInWithOtp({ email, options })
+      } else if (phone) {
+        return supabase.auth.signInWithOtp({ phone, options })
+      }
     }
 
-    let resp
-    if (params.email) {
-      const { email, password } = params
-
-      resp = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          ...serviceOptions?.signupOptions,
-          ...options,
-        },
-      })
-    } else if (params.phone) {
-      const { phone, password } = params
-
-      resp = await supabase.auth.signUp({
-        phone,
-        password,
-        options: {
-          ...serviceOptions?.signupOptions,
-          ...options,
-        },
-      })
-    }
+    const resp = await signup()
 
     if (resp?.error) {
       throw resp.error

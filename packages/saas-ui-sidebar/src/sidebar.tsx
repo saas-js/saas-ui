@@ -79,12 +79,12 @@ const motionPresets = {
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
   const theme = useTheme()
-  const defaultProps = theme.components['Sidebar'].defaultProps
+  const defaultProps = theme.components['Sidebar']?.defaultProps
 
-  const variant = useResponsiveValue(props.variant ?? defaultProps.variant, {
+  const variant = useResponsiveValue(props.variant ?? defaultProps?.variant, {
     fallback: 'base',
   })
-  const size = useResponsiveValue(props.size ?? defaultProps.size, {
+  const size = useResponsiveValue(props.size ?? defaultProps?.size, {
     fallback: 'base',
   })
 
@@ -129,9 +129,10 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   }, [isInitial, isCondensed, isMobileInitial])
 
   const containerStyles: SystemStyleObject = {
-    '& > *:not(style) ~ *:not(style, .saas-resize-handle)': {
-      marginTop: spacing,
-    },
+    '& > *:not(style) ~ *:not(style, .saas-resize-handle, .saas-sidebar__toggle-button + *)':
+      {
+        marginTop: spacing,
+      },
     display: 'flex',
     flexDirection: 'column',
     ...(isCollapsible
@@ -182,17 +183,22 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   )
 })
 
+Sidebar.defaultProps = {
+  variant: 'default',
+}
+
 Sidebar.displayName = 'Sidebar'
 
 export interface SidebarToggleButtonProps
   extends Omit<IconButtonProps, 'aria-label' | 'icon'> {
   icon?: MaybeRenderProp<{ isOpen: boolean }>
+  wrapperProps?: HTMLChakraProps<'div'>
 }
 
 export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   props
 ) => {
-  const { sx, ...rest } = props
+  const { sx, wrapperProps, ...rest } = props
   const sidebar = useSidebarContext()
 
   const styles = useSidebarStyles()
@@ -220,7 +226,11 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   )
 
   return (
-    <chakra.div __css={wrapperStyles}>
+    <chakra.div
+      {...wrapperProps}
+      __css={wrapperStyles}
+      className={cx('saas-sidebar__toggle-button', wrapperProps?.className)}
+    >
       <IconButton
         variant="ghost"
         sx={buttonStyles}

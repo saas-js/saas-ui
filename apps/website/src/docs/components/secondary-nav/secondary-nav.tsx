@@ -37,7 +37,7 @@ const SecondaryNavLink = ({
   )
 }
 
-export const mainNavLinks = [
+export const docsNav = [
   {
     href: '/docs/introduction',
     label: 'Introduction',
@@ -76,16 +76,24 @@ export const mainNavLinks = [
     match: (asPath: string, href: string) =>
       href.startsWith('/changelog') && asPath.startsWith('/changelog'),
   },
-  // {
-  //   href: '/blog',
-  //   label: 'Blog',
-  //   match: (asPath: string, href: string) =>
-  //     href.startsWith('/blog') && asPath.startsWith('/blog'),
-  // },
+]
+
+const blogLinks = [
+  {
+    href: '/blog',
+    label: 'Blog',
+    match: (asPath: string, href: string) =>
+      href.startsWith('/blog') && asPath.startsWith('/blog'),
+  },
 ]
 
 export const SecondaryNav = (props) => {
   const router = useRouter()
+
+  const isBlog = router.asPath.match(/\/blog/)
+
+  const links = isBlog ? blogLinks : docsNav
+
   return (
     <Box
       top="60px"
@@ -116,7 +124,7 @@ export const SecondaryNav = (props) => {
       <Box zIndex="1" position="relative" borderBottomWidth="1px">
         <Container maxW="container.2xl" px="6" py="1">
           <Stack spacing="2" direction="row" {...props}>
-            {mainNavLinks.map((item) => (
+            {links.map((item) => (
               <SecondaryNavLink
                 key={item.href}
                 href={item.href}

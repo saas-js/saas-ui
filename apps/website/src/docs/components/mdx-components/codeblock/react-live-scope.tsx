@@ -43,6 +43,9 @@ import {
   FiLink,
   FiChevronsLeft,
   FiChevronsRight,
+  FiUserCheck,
+  FiCode,
+  FiRefreshCw,
 } from 'react-icons/fi'
 
 import {
@@ -83,6 +86,9 @@ const reactIcons = {
   FaCookie,
   FiChevronsLeft,
   FiChevronsRight,
+  FiUserCheck,
+  FiCode,
+  FiRefreshCw,
 }
 
 const StarIcon = (props) => (

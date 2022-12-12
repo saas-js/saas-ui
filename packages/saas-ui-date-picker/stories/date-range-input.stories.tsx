@@ -1,7 +1,12 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { DateRangeInput, DateRangeValue, parseAbsoluteToLocal } from '../src'
+import {
+  DateRangeInput,
+  DateRangePickerTimeField,
+  DateRangeValue,
+  parseAbsoluteToLocal,
+} from '../src'
 import { Container, FormControl, FormLabel, VStack } from '@chakra-ui/react'
 
 export default {
@@ -34,7 +39,11 @@ export const Basic = Template.bind({})
 Basic.args = {}
 
 export const DateTime = () => {
-  return <Template granularity="minute" />
+  return (
+    <Template granularity="minute">
+      <DateRangePickerTimeField />
+    </Template>
+  )
 }
 
 export const DateTimeNoTimezone = () => {
@@ -46,6 +55,8 @@ export const DateTimeNoTimezone = () => {
       }}
       granularity="minute"
       hideTimeZone
-    />
+    >
+      <DateRangePickerTimeField />
+    </Template>
   )
 }

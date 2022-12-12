@@ -71,8 +71,9 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     onChange,
   })
 
-  const state = useDatePickerState({
-    value: value ? value : undefined,
+  /* @ts-ignore: null is needed to reset the field, but gets a ts error in strict mode */
+  const state = useDatePickerState<DateValue | null>({
+    value,
     minValue,
     maxValue,
     defaultValue,

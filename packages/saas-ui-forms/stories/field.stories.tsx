@@ -7,10 +7,12 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import * as Yup from 'yup'
+import { z } from 'zod'
 
-import { Form, FormLayout, Field, SubmitButton } from '../src'
+import { Form, FormLayout, Field, SubmitButton, FormProps } from '../src'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export default {
   title: 'Components/Forms/Field',
@@ -30,7 +32,7 @@ const helpSchema = Yup.object().shape({
 import { onSubmit } from './helpers'
 import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
 
-export const Basic = () => (
+export const Basic = (props: Omit<FormProps, 'onSubmit'>) => (
   <Form
     defaultValues={{
       text: 'Text field',
@@ -45,6 +47,7 @@ export const Basic = () => (
       radio: 'Radio 1',
       pin: '',
     }}
+    {...props}
     onSubmit={(values) => {
       console.log(values)
     }}
@@ -87,6 +90,50 @@ export const Basic = () => (
     </FormLayout>
   </Form>
 )
+
+export const WithZodSchema = () => {
+  return (
+    <Basic
+      resolver={zodResolver(
+        z.object({
+          text: z.string(),
+          number: z.preprocess(Number, z.number()),
+          textarea: z.string(),
+          switch: z.boolean(),
+          select: z.string(),
+          multipleselect: z.array(z.string()),
+          nativeselect: z.string(),
+          password: z.string(),
+          checkbox: z.boolean(),
+          radio: z.string(),
+          pin: z.string(),
+        })
+      )}
+    />
+  )
+}
+
+export const WithYupSchema = () => {
+  return (
+    <Basic
+      resolver={yupResolver(
+        Yup.object().shape({
+          text: Yup.string().required(),
+          number: Yup.number().required(),
+          textarea: Yup.string().required(),
+          switch: Yup.boolean().required(),
+          select: Yup.string().required(),
+          multipleselect: Yup.array().of(Yup.string()).required(),
+          nativeselect: Yup.string().required(),
+          password: Yup.string().required(),
+          checkbox: Yup.boolean().required(),
+          radio: Yup.string().required(),
+          pin: Yup.string().required(),
+        })
+      )}
+    />
+  )
+}
 
 type FormInputs = {
   text: string

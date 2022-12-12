@@ -30,13 +30,16 @@ export default {
 
 const Template: Story = (args) => {
   const { children, ...rest } = args
-  const [value, setValue] = React.useState<DateRangeValue>()
+  const [value, setValue] = React.useState<DateRangeValue | undefined>({
+    start: null,
+    end: null,
+  })
   return (
     <DateRangePicker onChange={setValue} {...rest}>
       <DatePickerTrigger>
         <Button>
           {value
-            ? `${value.start.toString()} - ${value.end.toString()}`
+            ? `${value?.start?.toString()} - ${value?.end?.toString()}`
             : 'Open DatePicker'}
         </Button>
       </DatePickerTrigger>

@@ -1,5 +1,18 @@
 # @saas-ui/auth
 
+## 1.6.3
+
+### Patch Changes
+
+- 91fbab7: Allow sign-up with otp
+
+## 1.6.2
+
+### Patch Changes
+
+- 2b14fa2: Now possible to set default options for Supabase authentication methods. Thanks to @KeKs0r
+  - @saas-ui/layout@1.3.2
+
 ## 1.6.1
 
 ### Patch Changes

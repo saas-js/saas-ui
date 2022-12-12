@@ -16,6 +16,7 @@ import componentsSidebar from '@/data/components-sidebar'
 import hookSidebar from '@/data/hooks-sidebar'
 import proSidebar from '@/data/pro-sidebar'
 import { useRouter } from 'next/router'
+import { Fragment } from 'react'
 
 const items = [
   {
@@ -68,9 +69,8 @@ export const GlobalSearch = (props) => {
                       routes,
                     }: any) => {
                       return (
-                        <>
+                        <Fragment key={path + title}>
                           <CommandBarItem
-                            key={path || title}
                             value={path}
                             isDisabled={heading}
                             _disabled={{
@@ -101,10 +101,10 @@ export const GlobalSearch = (props) => {
                             )}
                           </CommandBarItem>
 
-                          {routes?.map(({ title, path, action }: any) => {
+                          {routes?.map(({ title, path, action }: any, i) => {
                             return (
                               <CommandBarItem
-                                key={path}
+                                key={i}
                                 value={path}
                                 borderRadius="md"
                                 onSelect={() => {
@@ -120,7 +120,7 @@ export const GlobalSearch = (props) => {
                               </CommandBarItem>
                             )
                           })}
-                        </>
+                        </Fragment>
                       )
                     }
                   )}

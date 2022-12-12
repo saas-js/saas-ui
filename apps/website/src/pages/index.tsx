@@ -175,17 +175,9 @@ const Home = () => {
                 </FallInPlace>
                 <FallInPlace delay={1} initialInView>
                   <ButtonGroup spacing={4} alignItems="center">
-                    <Button
-                      colorScheme="primary"
-                      size="lg"
-                      onClick={() => {
-                        document
-                          .getElementById('pricing')
-                          .scrollIntoView({ behavior: 'smooth' })
-                      }}
-                    >
+                    <ButtonLink colorScheme="primary" size="lg" href="/pricing">
                       Buy Pro
-                    </Button>
+                    </ButtonLink>
                     <ButtonLink
                       size="lg"
                       href="/docs/introduction"
@@ -574,9 +566,9 @@ const BoilerplateCode = () => {
             padding: '1px',
             bgGradient: `linear(to-b, whiteAlpha.300, transparent)`,
 
-            '-webkit-mask':
+            WebkitMask:
               'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-            '-webkit-mask-composite': 'xor',
+            WebkitMaskComposite: 'xor',
           }}
         >
           <Box width="90%" overflowX="auto">
@@ -628,9 +620,9 @@ const Themable = () => {
             padding: '1px',
             bgGradient: `linear(to-b, whiteAlpha.300, transparent)`,
 
-            '-webkit-mask':
+            WebkitMask:
               'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-            '-webkit-mask-composite': 'xor',
+            WebkitMaskComposite: 'xor',
           }}
         >
           <Tabs width="100%" colorScheme="white">

@@ -39,5 +39,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   blog.frontMatter.stats = readingTime(blog.body.raw)
 
-  return { props: { blog } }
+  return {
+    props: {
+      blog,
+      header: { position: 'sticky', borderBottomWidth: '1px' },
+      footer: false,
+    },
+  }
 }

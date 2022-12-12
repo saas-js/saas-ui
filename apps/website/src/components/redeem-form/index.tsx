@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 
-import { chakra, Stack, Heading, Text, Spinner, Center } from '@chakra-ui/react'
+import {
+  chakra,
+  Stack,
+  Heading,
+  Text,
+  Spinner,
+  Center,
+  IconButton,
+} from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
 import { ButtonLink } from '@/components/link'
 
 import {
   useLocalStorage,
+  Link,
   Form,
   FormLayout,
   Field,
@@ -110,7 +119,7 @@ export function RedeemForm(props) {
     )
   } else if (data) {
     content = (
-      <Stack spacing="4">
+      <Stack spacing="4" fontSize="md">
         <Heading size="md">
           Welcome on board{' '}
           <chakra.span onClick={celebrate} cursor="pointer">
@@ -121,30 +130,53 @@ export function RedeemForm(props) {
           {data.githubInvited || !router.query.sale_id ? (
             <Text>
               Your Github account <strong>{data.githubAccount}</strong> has been
-              added to our Github repo.
+              added to the private{' '}
+              <Link
+                href="https://github.com/saas-js/saas-ui-pro"
+                target="_blank"
+              >
+                Github repo
+              </Link>
+              .
             </Text>
           ) : (
-            'We will send you a Github invite shortly, depending on the timezone you are in.'
+            'You will receive a Github invite shortly, depending on the timezone you are in.'
           )}
         </Text>
 
         <Text>
-          Get help, share ideas and feedback at our Discord community.
+          As an early adopter your opinion is very important to me, please
+          don&apos;t hestitate to reach out when you have any questions or
+          feedback, especially if you don&apos;t like something :)
         </Text>
 
+        <Text>Here are some links to get your started.</Text>
+
         <ButtonGroup>
+          <ButtonLink href="/docs/pro/overview">Documentation</ButtonLink>
           <ButtonLink
+            href={data.discordInvite}
+            leftIcon={<FaDiscord />}
+            target="_blank"
+          >
+            Discord
+          </ButtonLink>
+
+          <ButtonLink
+            variant="ghost"
             href="https://github.com/saas-js/saas-ui-pro"
             leftIcon={<FaGithub />}
+            target="_blank"
           >
             Github
           </ButtonLink>
-          <ButtonLink href={data.discordInvite} leftIcon={<FaDiscord />}>
-            Discord
-          </ButtonLink>
-          <ButtonLink href="/docs/introduction">Documentation</ButtonLink>
-          <ButtonLink href="https://storybook.saas-ui.pro/">
-            Storybook
+
+          <ButtonLink
+            href="https://roadmap.saas-ui.dev"
+            variant="ghost"
+            target="_blank"
+          >
+            Roadmap
           </ButtonLink>
         </ButtonGroup>
       </Stack>

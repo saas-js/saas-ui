@@ -86,7 +86,7 @@ export const Polypane = (props: any) => (
         <path
           id="rect4188-6"
           d="M 684.57157,59.272892 H 964.19339 V 1021.4514 H 684.57157 Z m -314.2222,0 H 633.22688 V 777.39677 H 370.34937 Z m -320.257092,0 H 319.00458 V 613.34214 H 50.092278 Z"
-          clip-path="url(#clipPath4922-9-8)"
+          clipPath="url(#clipPath4922-9-8)"
           transform="matrix(0.87799772,0,0,0.87799772,62.831176,65.925397)"
           fill="white"
         ></path>

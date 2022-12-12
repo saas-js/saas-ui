@@ -28,6 +28,10 @@ const styles = {
     'div#__next, div#__next > div': {
       height: '100%',
     },
+    '.parity-banner': {
+      position: 'sticky',
+      top: '60px',
+    },
   }),
 }
 

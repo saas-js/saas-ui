@@ -31,6 +31,7 @@ const styles = {
     '.parity-banner': {
       position: 'relative',
       top: '60px',
+      zIndex: 10,
     },
   }),
 }

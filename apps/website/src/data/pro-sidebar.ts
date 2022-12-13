@@ -24,14 +24,6 @@ const sidebar = {
           title: 'NPM registry',
           path: '/docs/pro/installation/npm',
         },
-        {
-          title: 'Next.js',
-          path: '/docs/pro/installation/nextjs-guide',
-        },
-        {
-          title: 'CRA',
-          path: '/docs/pro/installation/cra-guide',
-        },
       ],
     },
     {

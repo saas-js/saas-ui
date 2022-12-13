@@ -56,7 +56,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
 
   return (
     <chakra.div
-      mt="8"
+      // mt="8"
       sx={{ '&:first-of-type': { mt: 2 } }}
       ref={ref}
       {...rest}
@@ -72,11 +72,12 @@ function SidebarCategory(props: SidebarCategoryProps) {
         justifyContent="space-between"
         userSelect="none"
         color={useColorModeValue('gray.500', 'gray.500')}
-        ps="5"
+        ps="7"
+        py="2"
       >
         {title}
       </chakra.p>
-      <chakra.div role="group" hidden={!toggle} mt="2" mx="-3">
+      <chakra.div role="group" hidden={!toggle} mt="2" mx="-3" ps="10" pe="3">
         {children}
       </chakra.div>
     </chakra.div>

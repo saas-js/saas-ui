@@ -11,7 +11,7 @@ const sidebar = {
       path: '/docs/pro/project-structure',
     },
     {
-      title: 'Quickstarts',
+      title: 'Installation',
       path: '/docs/pro/installation',
       open: true,
       heading: true,
@@ -23,6 +23,22 @@ const sidebar = {
         {
           title: 'NPM registry',
           path: '/docs/pro/installation/npm',
+          heading: true,
+          open: true,
+          routes: [
+            {
+              title: 'NPM',
+              path: '/docs/pro/installation/npm',
+            },
+            {
+              title: 'Yarn',
+              path: '/docs/pro/installation/yarn',
+            },
+            {
+              title: 'Pnpm',
+              path: '/docs/pro/installation/pnpm',
+            },
+          ],
         },
       ],
     },

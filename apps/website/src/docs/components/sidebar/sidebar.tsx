@@ -192,61 +192,61 @@ function SidebarGroup({
                   selected={selected}
                   opened={opened}
                 >
-                  <Stack as="ul" spacing="1">
-                    {sortedRoutes.map((lvl3, i) => (
-                      <SidebarLink
-                        as="li"
-                        key={lvl3.path || i}
-                        href={lvl3.path}
-                      >
-                        <span>{convertBackticksToInlineCode(lvl3.title)}</span>
-                        {lvl3.new && (
-                          <Badge
-                            ml="2"
-                            lineHeight="tall"
-                            fontSize="10px"
-                            variant="solid"
-                            colorScheme="primary"
-                          >
-                            New
-                          </Badge>
-                        )}
-                        {lvl3.soon && (
-                          <Badge
-                            ml="2"
-                            lineHeight="tall"
-                            fontSize="10px"
-                            variant="solid"
-                            colorScheme="gray"
-                          >
-                            Soon
-                          </Badge>
-                        )}
-                        {lvl3.pro && (
-                          <Badge
-                            ml="2"
-                            lineHeight="tall"
-                            fontSize="10px"
-                            variant="solid"
-                            colorScheme="purple"
-                          >
-                            Pro
-                          </Badge>
-                        )}
-                        {lvl3.beta && (
-                          <Badge
-                            ml="2"
-                            lineHeight="tall"
-                            fontSize="10px"
-                            variant="outline"
-                            colorScheme="green"
-                          >
-                            Beta
-                          </Badge>
-                        )}
-                      </SidebarLink>
-                    ))}
-                  </Stack>
+                  {/* <Stack spacing="1"> */}
+                  {sortedRoutes.map((lvl3, i) => (
+                    <SidebarLink
+                      key={lvl3.path || i}
+                      href={lvl3.path}
+                      color="muted"
+                    >
+                      <span>{convertBackticksToInlineCode(lvl3.title)}</span>
+                      {lvl3.new && (
+                        <Badge
+                          ml="2"
+                          lineHeight="tall"
+                          fontSize="10px"
+                          variant="solid"
+                          colorScheme="primary"
+                        >
+                          New
+                        </Badge>
+                      )}
+                      {lvl3.soon && (
+                        <Badge
+                          ml="2"
+                          lineHeight="tall"
+                          fontSize="10px"
+                          variant="solid"
+                          colorScheme="gray"
+                        >
+                          Soon
+                        </Badge>
+                      )}
+                      {lvl3.pro && (
+                        <Badge
+                          ml="2"
+                          lineHeight="tall"
+                          fontSize="10px"
+                          variant="solid"
+                          colorScheme="purple"
+                        >
+                          Pro
+                        </Badge>
+                      )}
+                      {lvl3.beta && (
+                        <Badge
+                          ml="2"
+                          lineHeight="tall"
+                          fontSize="10px"
+                          variant="outline"
+                          colorScheme="green"
+                        >
+                          Beta
+                        </Badge>
+                      )}
+                    </SidebarLink>
+                  ))}
+                  {/* </Stack> */}
                 </SidebarCategory>
               )
             })}

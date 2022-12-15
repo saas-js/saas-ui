@@ -6810,7 +6810,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -23465,6 +23465,7 @@ __metadata:
     "@saas-ui/next-workspaces": ^0.3.0
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/react": "workspace:*"
+    "@saas-ui/theme-glass": "workspace:*"
     "@svgr/webpack": ^6.5.1
     "@types/lodash.debounce": ^4.0.7
     "@types/react": ^18.0.25

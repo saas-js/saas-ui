@@ -64,6 +64,7 @@ const PaletteConfiguration = () => {
                 setState((state) => ({ ...state, theme: theme as string }))
               }
             >
+              <MenuItemOption value="Glass">Glass</MenuItemOption>
               <MenuItemOption value="Chakra UI">Chakra UI</MenuItemOption>
               <MenuItemOption value="Saas UI">Saas UI</MenuItemOption>
             </Select>

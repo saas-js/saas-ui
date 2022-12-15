@@ -43,7 +43,7 @@ export default function Layout({ children }: LayoutProps) {
         </BannerDescription>
 
         <BannerActions>
-          <Button as="a" href="https://saas-ui.dev" size="xs">
+          <Button as="a" href="https://saas-ui.dev" size="xs" variant="outline">
             Learn more
           </Button>
         </BannerActions>

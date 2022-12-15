@@ -19,6 +19,7 @@
     "@saas-ui/next-workspaces": "^0.3.0",
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/react": "workspace:*",
+    "@saas-ui/theme-glass": "workspace:*",
     "@svgr/webpack": "^6.5.1",
     "@types/lodash.debounce": "^4.0.7",
     "framer-motion": "^6.5.1",

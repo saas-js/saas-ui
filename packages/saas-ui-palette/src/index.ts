@@ -115,7 +115,7 @@ export const createPalette = (hex: string, options: PaletteOptions = {}) => {
 
   const hues = createHues(36)(hue) // 36 so we have steps of 10
 
-  const gray = desat(1 / 8)(colors.gray || color.hex())
+  const gray = colors.gray || color.hex()
 
   palette.black = createBlack(gray, options.blackLuminance)
   palette.gray = mapValues(createShades(gray, getLumsFromThemeColors('gray')))

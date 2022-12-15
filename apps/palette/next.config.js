@@ -6,6 +6,10 @@ module.exports = withWorkspaces({
   workspaces: ['packages'],
 })({
   reactStrictMode: true,
+  typescript: {
+    // turn of untill v2
+    ignoreBuildErrors: true,
+  },
   experimental: {
     optimizeFonts: true,
     modern: true,

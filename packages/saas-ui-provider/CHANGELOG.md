@@ -1,5 +1,79 @@
 # @saas-ui/provider
 
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [69d328f]
+  - @saas-ui/theme@1.6.2
+
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [7cf5223]
+  - @saas-ui/theme@1.6.1
+
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/theme@1.6.0
+
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [0a77fc0]
+- Updated dependencies [bc1f403]
+  - @saas-ui/theme@1.5.0
+
+## 1.1.4
+
+### Patch Changes
+
+- 065e94d: Added new route value to Router context.
+
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/theme@1.4.0
+
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [fd41596]
+  - @saas-ui/theme@1.3.1
+
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [0d83ca5]
+- Updated dependencies [40a9465]
+  - @saas-ui/theme@1.3.0
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/theme@1.2.0
+
+## 1.0.2
+
+### Patch Changes
+
+- 7bb5d3f: Use correct params type
+
 ## 1.0.1
 
 ### Patch Changes

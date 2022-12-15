@@ -184,6 +184,17 @@ const sidebar = {
             },
           ],
         },
+        {
+          title: 'Deployments',
+          path: '/docs/pro/deployments',
+          open: true,
+          routes: [
+            {
+              title: 'Vercel',
+              path: '/docs/pro/deployments/vercel',
+            },
+          ],
+        },
       ],
     },
     {
@@ -223,7 +234,11 @@ const sidebar = {
             {
               title: 'App Shell',
               path: '/docs/components/layout/app-shell',
-              pro: true,
+            },
+            {
+              title: 'Sidebar',
+              path: '/docs/components/layout/sidebar',
+              beta: true,
             },
             {
               title: 'Page',
@@ -254,11 +269,6 @@ const sidebar = {
             {
               title: 'Stepper',
               path: '/docs/components/navigation/stepper',
-            },
-            {
-              title: 'Sidebar',
-              path: '/docs/components/navigation/sidebar',
-              pro: true,
             },
           ],
         },
@@ -319,6 +329,43 @@ const sidebar = {
             {
               title: 'SearchInput',
               path: '/docs/components/forms/search-input',
+            },
+          ],
+        },
+        {
+          title: 'Date & Time',
+          path: '/docs/components/date-time',
+          open: true,
+          routes: [
+            {
+              title: 'DatePicker',
+              path: '/docs/components/date-time/date-picker',
+              beta: true,
+            },
+            {
+              title: 'DateRangePicker',
+              path: '/docs/components/date-time/date-range-picker',
+              beta: true,
+            },
+            {
+              title: 'DateInput',
+              path: '/docs/components/date-time/date-input',
+              beta: true,
+            },
+            {
+              title: 'DateRangeInput',
+              path: '/docs/components/date-time/date-range-input',
+              beta: true,
+            },
+            {
+              title: 'DatePickerStatic',
+              path: '/docs/components/date-time/date-picker-static',
+              beta: true,
+            },
+            {
+              title: 'DatePickerModal',
+              path: '/docs/components/date-time/date-picker-modal',
+              beta: true,
             },
           ],
         },

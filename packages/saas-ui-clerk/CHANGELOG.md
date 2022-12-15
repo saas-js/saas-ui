@@ -1,5 +1,151 @@
 # @saas-ui/clerk
 
+## 1.2.7
+
+### Patch Changes
+
+- Updated dependencies [91fbab7]
+  - @saas-ui/auth@1.6.3
+
+## 1.2.6
+
+### Patch Changes
+
+- Updated dependencies [2b14fa2]
+  - @saas-ui/auth@1.6.2
+
+## 1.2.5
+
+### Patch Changes
+
+- @saas-ui/auth@1.6.1
+
+## 1.2.4
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/auth@1.6.0
+
+## 1.2.3
+
+### Patch Changes
+
+- @saas-ui/auth@1.5.2
+
+## 1.2.2
+
+### Patch Changes
+
+- @saas-ui/auth@1.5.1
+
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/auth@1.5.0
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/auth@1.4.0
+
+## 1.1.7
+
+### Patch Changes
+
+- @saas-ui/auth@1.3.4
+
+## 1.1.6
+
+### Patch Changes
+
+- @saas-ui/auth@1.3.3
+
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [62f3d4c]
+- Updated dependencies [62f3d4c]
+  - @saas-ui/auth@1.3.2
+
+## 1.1.4
+
+### Patch Changes
+
+- @saas-ui/auth@1.3.1
+
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+  - @saas-ui/auth@1.3.0
+
+## 1.1.2
+
+### Patch Changes
+
+- @saas-ui/auth@1.2.2
+
+## 1.1.1
+
+### Patch Changes
+
+- @saas-ui/auth@1.2.1
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/auth@1.2.0
+
+## 1.0.8
+
+### Patch Changes
+
+- @saas-ui/auth@1.1.2
+
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/auth@1.1.1
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [1ff5f3a]
+- Updated dependencies [273c10d]
+  - @saas-ui/auth@1.1.0
+
+## 1.0.5
+
+### Patch Changes
+
+- @saas-ui/auth@1.0.5
+
+## 1.0.4
+
+### Patch Changes
+
+- @saas-ui/auth@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

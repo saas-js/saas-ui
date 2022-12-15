@@ -1,5 +1,9 @@
-import { Container, Flex } from '@chakra-ui/layout'
-import { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
+import {
+  Container,
+  Flex,
+  HTMLChakraProps,
+  ThemingProps,
+} from '@chakra-ui/react'
 import PageTitle from './page-title'
 
 interface HeroProps
@@ -19,7 +23,11 @@ export default function Hero({
   return (
     <Flex py="20" alignItems="center" {...rest}>
       <Container>
-        <PageTitle title={title} description={description} />
+        <PageTitle
+          title={title}
+          description={description}
+          alignItems="center"
+        />
         {children}
       </Container>
     </Flex>

@@ -7,10 +7,12 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import * as Yup from 'yup'
+import { z } from 'zod'
 
-import { Form, FormLayout, Field, SubmitButton } from '../src'
+import { Form, FormLayout, Field, SubmitButton, FormProps } from '../src'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export default {
   title: 'Components/Forms/Field',
@@ -30,7 +32,7 @@ const helpSchema = Yup.object().shape({
 import { onSubmit } from './helpers'
 import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
 
-export const Basic = () => (
+export const Basic = (props: Omit<FormProps, 'onSubmit'>) => (
   <Form
     defaultValues={{
       text: 'Text field',
@@ -45,13 +47,14 @@ export const Basic = () => (
       radio: 'Radio 1',
       pin: '',
     }}
+    {...props}
     onSubmit={(values) => {
       console.log(values)
     }}
   >
     <FormLayout>
       <Field name="text" label="Text" type="text" />
-      <Field name="number" label="Number" type="number" hideStepper />
+      <Field name="number" label="Number" type="number" min={1} max={10} />
       <Field name="textarea" label="Textarea" type="textarea" />
       <Field name="switch" label="Switch" type="switch" />
       <Field
@@ -87,6 +90,50 @@ export const Basic = () => (
     </FormLayout>
   </Form>
 )
+
+export const WithZodSchema = () => {
+  return (
+    <Basic
+      resolver={zodResolver(
+        z.object({
+          text: z.string(),
+          number: z.preprocess(Number, z.number()),
+          textarea: z.string(),
+          switch: z.boolean(),
+          select: z.string(),
+          multipleselect: z.array(z.string()),
+          nativeselect: z.string(),
+          password: z.string(),
+          checkbox: z.boolean(),
+          radio: z.string(),
+          pin: z.string(),
+        })
+      )}
+    />
+  )
+}
+
+export const WithYupSchema = () => {
+  return (
+    <Basic
+      resolver={yupResolver(
+        Yup.object().shape({
+          text: Yup.string().required(),
+          number: Yup.number().required(),
+          textarea: Yup.string().required(),
+          switch: Yup.boolean().required(),
+          select: Yup.string().required(),
+          multipleselect: Yup.array().of(Yup.string()).required(),
+          nativeselect: Yup.string().required(),
+          password: Yup.string().required(),
+          checkbox: Yup.boolean().required(),
+          radio: Yup.string().required(),
+          pin: Yup.string().required(),
+        })
+      )}
+    />
+  )
+}
 
 type FormInputs = {
   text: string
@@ -137,6 +184,19 @@ export const NoLabel = () => {
         <Field name="text" placeholder="Placeholder" />
 
         <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const Variants = () => {
+  return (
+    <Form onSubmit={onSubmit} onError={(err) => console.error(err)}>
+      <FormLayout>
+        <Field name="outline" label="Outline" variant="outline" />
+        <Field name="filled" label="Filled" variant="filled" />
+        <Field name="flushed" label="Flushed" variant="flushed" />
+        <Field name="unstyled" label="Unstyled" variant="unstyled" />
       </FormLayout>
     </Form>
   )
@@ -220,6 +280,31 @@ export const WithAddons = () => {
               <CheckIcon />
             </InputRightElement>
           }
+        />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+
+export const WithEventHandlers = () => {
+  return (
+    <Form
+      defaultValues={{
+        email: '',
+      }}
+      resolver={yupResolver(helpSchema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          id="email"
+          name="email"
+          label="Email"
+          type="email"
+          onChange={(e) => console.log(e)}
+          onBlur={(e) => console.log(e)}
         />
 
         <SubmitButton>Submit</SubmitButton>

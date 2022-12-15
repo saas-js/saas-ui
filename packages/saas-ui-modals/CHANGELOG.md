@@ -1,5 +1,141 @@
 # @saas-ui/modals
 
+## 1.4.2
+
+### Patch Changes
+
+- @saas-ui/menu@1.3.2
+
+## 1.4.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.4.1
+- @saas-ui/menu@1.3.1
+
+## 1.4.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/button@1.3.0
+  - @saas-ui/forms@1.4.0
+  - @saas-ui/menu@1.3.0
+
+## 1.3.3
+
+### Patch Changes
+
+- @saas-ui/menu@1.2.2
+
+## 1.3.2
+
+### Patch Changes
+
+- @saas-ui/forms@1.3.1
+
+## 1.3.1
+
+### Patch Changes
+
+- @saas-ui/menu@1.2.1
+
+## 1.3.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/menu@1.2.0
+
+## 1.2.4
+
+### Patch Changes
+
+- @saas-ui/menu@1.1.2
+
+## 1.2.3
+
+### Patch Changes
+
+- Updated dependencies [ad47180]
+  - @saas-ui/forms@1.2.2
+
+## 1.2.2
+
+### Patch Changes
+
+- b88c087: Added missing onChange handler on FormDialog, thanks to @eliandersoh
+
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [dfd61ed]
+  - @saas-ui/forms@1.2.1
+  - @saas-ui/menu@1.1.1
+
+## 1.2.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+  - @saas-ui/forms@1.2.0
+
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [bef671d]
+  - @saas-ui/forms@1.1.2
+
+## 1.1.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/button@1.1.0
+  - @saas-ui/forms@1.1.0
+  - @saas-ui/menu@1.1.0
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [e14c2e1]
+  - @saas-ui/forms@1.0.3
+
+## 1.0.4
+
+### Patch Changes
+
+- @saas-ui/menu@1.0.2
+
 ## 1.0.3
 
 ### Patch Changes

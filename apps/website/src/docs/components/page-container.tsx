@@ -20,6 +20,7 @@ import { BackgroundGradient } from '@/components/background-gradient'
 
 import { formatRelative } from 'date-fns'
 import { DocsFeedback } from './docs-feedback'
+import { SecondaryNav } from './secondary-nav/secondary-nav'
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter()
@@ -87,13 +88,31 @@ function PageContainer(props: PageContainerProps) {
     seo,
   } = frontmatter
 
+  const basePath =
+    process.env.NODE_ENV !== 'production' ? '' : 'https://saas-ui.dev'
+
   return (
     <>
-      <SEO title={title} description={description} {...seo} />
+      <SEO
+        title={title}
+        description={description}
+        {...seo}
+        openGraph={{
+          images: [
+            {
+              url: `${basePath}/api/og?title=${title}`,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ],
+        }}
+      />
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <BackgroundGradient animate={false} height="30vh" opacity={0.2} />
+      <SecondaryNav />
+      <BackgroundGradient animate={false} height="80px" opacity={0.2} />
       <Container
         as="main"
         className="main-content"
@@ -115,8 +134,8 @@ function PageContainer(props: PageContainerProps) {
                 >
                   <PageTransition
                     style={{
-                      maxWidth: '48rem',
-                      margin: sidebar ? '0' : '0 auto',
+                      maxWidth: '52rem',
+                      margin: '0 auto',
                     }}
                   >
                     <chakra.h1 tabIndex={-1} outline={0} apply="mdx.h1">
@@ -126,7 +145,7 @@ function PageContainer(props: PageContainerProps) {
                       <chakra.p apply="mdx.description">{description}</chakra.p>
                     )}
                     {version && (
-                      <Badge colorScheme="teal" letterSpacing="wider">
+                      <Badge colorScheme="purple" letterSpacing="wider">
                         v{version}
                       </Badge>
                     )}

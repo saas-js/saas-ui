@@ -1,5 +1,35 @@
 # @saas-ui/system
 
+## 1.1.2
+
+### Patch Changes
+
+- 065e94d: Improved usePromise type signature.
+
+## 1.1.1
+
+### Patch Changes
+
+- 935a47c: useLocalStorage now returns the correct type.
+
+## 1.1.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+## 1.0.2
+
+### Patch Changes
+
+- d88b04d: useLocalStorage now returns the defaultValue if no value is available and is updated across tabs.
+
+## 1.0.1
+
+### Patch Changes
+
+- 7298059: Added new useSteps hook.
+
 ## 1.0.0
 
 ### Major Changes

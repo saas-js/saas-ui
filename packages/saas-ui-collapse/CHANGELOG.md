@@ -1,5 +1,29 @@
 # @saas-ui/collapse
 
+## 1.3.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+## 1.2.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+## 1.1.1
+
+### Patch Changes
+
+- 40a9465: useCollapse can now be fully controlled
+
+## 1.1.0
+
+### Minor Changes
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
 ## 1.0.0
 
 ### Major Changes

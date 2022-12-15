@@ -25,17 +25,15 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import {
-  AppShell,
   Page,
   Section,
   Toolbar,
   ToolbarButton,
-  Sidebar,
-  SidebarNav,
-  SidebarLink,
   Command,
   ActiveFilter,
 } from '@saas-ui/pro'
+import { AppShell } from '@saas-ui/app-shell'
+import { Sidebar, NavGroup, NavItem, SidebarSection } from '@saas-ui/sidebar'
 import {
   Card,
   Divider,
@@ -103,6 +101,7 @@ const componentIllustrations = {
   ),
   'app-shell': (
     <AppShell
+      variant="static"
       height="80%"
       width="80%"
       borderWidth="1px"
@@ -110,7 +109,9 @@ const componentIllustrations = {
       overflow="hidden"
       navbar={<Box bg="primary.500" height="20px" />}
       sidebar={<Box borderRightWidth="2px" width="30%" />}
-    />
+    >
+      <div />
+    </AppShell>
   ),
   page: (
     <Page
@@ -144,10 +145,10 @@ const componentIllustrations = {
   ),
   sidebar: (
     <Sidebar width="80%" borderRadius="md">
-      <SidebarNav>
-        <SidebarLink label="Dashboard" icon={<FiHome />} />
-        <SidebarLink label="Contacts" icon={<FiUsers />} />
-      </SidebarNav>
+      <SidebarSection>
+        <NavItem label="Dashboard" icon={<FiHome />} isActive />
+        <NavItem label="Contacts" icon={<FiUsers />} />
+      </SidebarSection>
     </Sidebar>
   ),
   address: (

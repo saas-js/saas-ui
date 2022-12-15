@@ -1,5 +1,183 @@
 # @saas-ui/auth
 
+## 1.6.3
+
+### Patch Changes
+
+- 91fbab7: Allow sign-up with otp
+
+## 1.6.2
+
+### Patch Changes
+
+- 2b14fa2: Now possible to set default options for Supabase authentication methods. Thanks to @KeKs0r
+  - @saas-ui/layout@1.3.2
+
+## 1.6.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.4.1
+- @saas-ui/layout@1.3.1
+
+## 1.6.0
+
+### Minor Changes
+
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+  - @saas-ui/button@1.3.0
+  - @saas-ui/forms@1.4.0
+  - @saas-ui/layout@1.3.0
+
+## 1.5.2
+
+### Patch Changes
+
+- @saas-ui/layout@1.2.2
+
+## 1.5.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.3.1
+
+## 1.5.0
+
+### Minor Changes
+
+- 065e94d: Supabase auth service updated to v2, thanks to @KeKs0r
+
+### Patch Changes
+
+- Updated dependencies [065e94d]
+  - @saas-ui/hooks@1.1.2
+  - @saas-ui/layout@1.2.1
+
+## 1.4.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/button@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/layout@1.2.0
+
+## 1.3.4
+
+### Patch Changes
+
+- @saas-ui/layout@1.1.2
+
+## 1.3.3
+
+### Patch Changes
+
+- Updated dependencies [ad47180]
+  - @saas-ui/forms@1.2.2
+
+## 1.3.2
+
+### Patch Changes
+
+- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support custom user types.
+- 62f3d4c: User.email now is optional
+
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [dfd61ed]
+  - @saas-ui/forms@1.2.1
+  - @saas-ui/layout@1.1.1
+
+## 1.3.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+  - @saas-ui/forms@1.2.0
+
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [935a47c]
+- Updated dependencies [bef671d]
+  - @saas-ui/hooks@1.1.1
+  - @saas-ui/forms@1.1.2
+
+## 1.2.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.1.1
+
+## 1.2.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- Updated dependencies [f6ec7dc]
+  - @saas-ui/button@1.1.0
+  - @saas-ui/forms@1.1.0
+  - @saas-ui/hooks@1.1.0
+  - @saas-ui/layout@1.1.0
+
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [d88b04d]
+  - @saas-ui/hooks@1.0.2
+
+## 1.1.1
+
+### Patch Changes
+
+- Fall back to label prop in password forms
+
+## 1.1.0
+
+### Minor Changes
+
+- 1ff5f3a: Auth forms field labels can now be customized, thanks to @nadiles.
+
+### Patch Changes
+
+- 273c10d: Fixed a typo in the AuthForm styles provider.
+- Updated dependencies [e14c2e1]
+  - @saas-ui/forms@1.0.3
+
+## 1.0.5
+
+### Patch Changes
+
+- @saas-ui/layout@1.0.2
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [7298059]
+  - @saas-ui/hooks@1.0.1
+
 ## 1.0.3
 
 ### Patch Changes

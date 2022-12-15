@@ -28,9 +28,9 @@ const excludedPropNames = propNames.concat([
 
 const rootDir = path.join(__dirname, '..', '..', '..')
 const sourcePath = path.join(rootDir, 'packages')
-const outputPath = path.join(__dirname, '..', 'dist', 'components')
+const outputPath = path.join(__dirname, '..', 'lib', 'components')
 
-const basePath = path.join(__dirname, '..', 'dist')
+const basePath = path.join(__dirname, '..', 'lib')
 
 const cjsIndexFilePath = path.join(basePath, 'saas-ui-props-docs.cjs.js')
 const esmIndexFilePath = path.join(basePath, 'saas-ui-props-docs.esm.js')
@@ -74,7 +74,7 @@ async function findComponentFiles() {
   const tsFiles = await globAsync('**/src/**/*.@(ts|tsx)', {
     cwd: sourcePath,
   })
-  return tsFiles.filter((f) => !f.includes('stories'))
+  return tsFiles.filter((f) => !f.includes('stories') && !f.includes('legacy'))
 }
 
 /**
@@ -84,6 +84,7 @@ function parseInfo(filePaths: string[]) {
   const { parse } = docgen.withCustomConfig(tsConfigPath, {
     shouldRemoveUndefinedFromOptional: true,
     propFilter: (prop, component) => {
+      const isAria = prop.name.includes('aria-')
       const isStyledSystemProp = excludedPropNames.includes(prop.name)
       const isHTMLElementProp =
         prop.parent?.fileName.includes('node_modules') ?? false
@@ -93,7 +94,7 @@ function parseInfo(filePaths: string[]) {
 
       return (
         (isHook && !isTypeScriptNative) ||
-        !(isStyledSystemProp || isHTMLElementProp)
+        !(isStyledSystemProp || isHTMLElementProp || isAria)
       )
     },
   })

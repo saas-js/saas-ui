@@ -1,0 +1,50 @@
+---
+title: Private NPM using PNPM
+description: Install Saas UI Pro components from a private NPM registry.
+---
+
+<Info>
+  Configuration is slightly different for each package manager, so it's
+  important to follow the steps for the package manager you are using in your
+  project.
+</Info>
+
+### PNPM
+
+In your project root folder you can run this and enter your Github username as user and license key as password.
+
+```bash
+pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
+```
+
+#### Manual & CI configuration.
+
+<Info>
+  PNPM expects auth to be base64 encoded, so make sure `SAAS_UI_TOKEN` is
+  encoded.
+</Info>
+
+```bash
+echo -n 'GithubUsername:licenseKey' | base64
+```
+
+Add your auth token to `~/.profile` or your CI configuration.
+
+```bash
+export SAAS_UI_TOKEN="base64 encoded token"
+```
+
+<Info>
+  If you're having troubles generating a working base64 encoded string, try
+  [this website](https://www.base64encode.org/).
+</Info>
+
+Then edit `.npmrc` in the root of your project and add the following lines.
+
+```
+@saas-ui:registry=https://npm.saas-ui.dev
+//npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
+//npm.saas-ui.dev/:always-auth=true
+```
+
+Now run `pnpm i @saas-ui/pro` to check if the configuration was succesful.

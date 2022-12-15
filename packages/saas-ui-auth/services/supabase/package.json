@@ -1,4 +1,4 @@
 {
   "main": "dist/supabase.js",
-  "module": "dist/supabase.modern.mjs"
+  "module": "dist/supabase.modern.js"
 }

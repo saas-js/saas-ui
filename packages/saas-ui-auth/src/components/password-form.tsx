@@ -25,15 +25,18 @@ interface SubmitParams {
 }
 
 export interface PasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver' | 'children'> {
+  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
   schema?: any
   action?: AuthActionEnum
   onSuccess?: (data: any) => void
   onError?: (error: any) => void
   onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
+  emailLabel?: string
+  passwordLabel?: string
   defaultValues?: Record<string, any>
   renderSuccess?: (data: any) => React.ReactElement
+  children?: React.ReactNode
 }
 
 export const PasswordForm: React.FC<PasswordFormProps> = ({
@@ -42,6 +45,8 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   onError = () => null,
   onValidationError,
   submitLabel = 'Log in',
+  emailLabel = 'Email',
+  passwordLabel = 'Password',
   defaultValues,
   children,
   renderSuccess = () => (
@@ -73,14 +78,14 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label="Email"
+          label={emailLabel}
           type="email"
           rules={{ required: true }}
           autoComplete="email"
         />
         <Field
           name="password"
-          label="Password"
+          label={passwordLabel}
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"

@@ -1,0 +1,36 @@
+---
+title: Private NPM using Yarn
+description: Install Saas UI Pro components from a private NPM registry.
+---
+
+<Info>
+  Configuration is slightly different for each package manager, so it's
+  important to follow the steps for the package manager you are using in your
+  project.
+</Info>
+
+### Yarn
+
+This configuration is for **Yarn 3**, if you are still using Yarn 1.2 it's highly recommended to upgrade.
+
+In the root of your project edit `.yarnrc.yml` and add the following lines.
+
+```yml
+npmScopes:
+  saas-ui:
+    npmRegistryServer: 'https://npm.saas-ui.dev'
+npmRegistries:
+  //npm.saas-ui.dev:
+    npmAuthIdent: '${SAAS_UI_TOKEN:-}'
+    npmAlwaysAuth: true
+```
+
+To set it up on your dev machine add this to `~/.profile` or your CI configuration.
+
+```bash
+export SAAS_UI_TOKEN="GithubUsername:licenseKey"
+```
+
+The same configuration can be used for CI and deployments.
+
+Yarn run `yarn add @saas-ui/pro` to see if the configuration was succesful.

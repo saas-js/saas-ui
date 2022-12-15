@@ -63,7 +63,7 @@ interface Data {
 export const ComponentShowcase = () => {
   const searchRef = React.useRef<HTMLInputElement>(null)
 
-  useHotkeys('/', () => searchRef.current?.focus())
+  // useHotkeys('/', () => searchRef.current?.focus())
 
   // make sure the menu doesnt steel focus on load
   const isOpen = !!useScrollSpy(['#showcase-property-list'])
@@ -94,7 +94,7 @@ export const ComponentShowcase = () => {
     {
       id: 'actions',
       width: '10%',
-      disableSortBy: true,
+      // disableSortBy: true,
       Header: '',
       Cell: () => {
         const menuStyles = {
@@ -156,20 +156,20 @@ export const ComponentShowcase = () => {
                 data={data}
                 isSelectable
                 isSortable
-                initialState={{
-                  selectedRowIds: { '0': true },
-                }}
-                sx={{
-                  th: {
-                    borderBottomColor: useColorModeValue(
-                      'blackAlpha.200',
-                      'whiteAlpha.300'
-                    ),
-                  },
-                  td: {
-                    borderBottom: 0,
-                  },
-                }}
+                // initialState={{
+                //   selectedRowIds: [0],
+                // }}
+                // sx={{
+                //   th: {
+                //     borderBottomColor: useColorModeValue(
+                //       'blackAlpha.200',
+                //       'whiteAlpha.300'
+                //     ),
+                //   },
+                //   td: {
+                //     borderBottom: 0,
+                //   },
+                // }}
               />
             </Card>
           </Float>
@@ -295,8 +295,24 @@ export const ComponentShowcase = () => {
                             flip={false}
                             autoSelect={false}
                           >
-                            <MenuItemOption value="Open">Open</MenuItemOption>
-                            <MenuItemOption value="Closed">
+                            <MenuItemOption
+                              value="Open"
+                              bg="transparent"
+                              _hover={{
+                                bg: 'blackAlpha.50',
+                                _dark: { bg: 'whiteAlpha.50' },
+                              }}
+                            >
+                              Open
+                            </MenuItemOption>
+                            <MenuItemOption
+                              value="Closed"
+                              bg="transparent"
+                              _hover={{
+                                bg: 'blackAlpha.50',
+                                _dark: { bg: 'whiteAlpha.50' },
+                              }}
+                            >
                               Closed
                             </MenuItemOption>
                           </Select>

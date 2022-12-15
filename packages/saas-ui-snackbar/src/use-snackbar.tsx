@@ -31,7 +31,7 @@ const AlertSpinner: React.FC<AlertIconProps> = (props) => {
   )
 }
 
-const Snackbar: React.FC<any> = (props) => {
+export const Snackbar: React.FC<any> = (props) => {
   const {
     status,
     variant,
@@ -83,7 +83,7 @@ const Snackbar: React.FC<any> = (props) => {
   )
 }
 
-interface UseSnackbarOptions extends UseToastOptions {
+export interface UseSnackbarOptions extends UseToastOptions {
   icon?: React.ReactNode
   action?: React.ReactNode
   variant?:
@@ -95,7 +95,7 @@ interface UseSnackbarOptions extends UseToastOptions {
     | string
 }
 
-type SnackbarOptions = UseSnackbarOptions | string
+export type SnackbarOptions = UseSnackbarOptions | string
 
 export interface SnackbarPromiseOptions {
   loading?: SnackbarOptions
@@ -212,3 +212,5 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
     return snackbar
   }, [toast, defaultOptions])
 }
+
+export type UseSnackbarReturn = ReturnType<typeof useSnackbar>

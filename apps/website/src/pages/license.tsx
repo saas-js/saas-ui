@@ -1,12 +1,18 @@
-import { Box, Heading, VStack } from '@chakra-ui/layout'
+import { Box, Heading, VStack } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
 
 import ReactMarkdown from 'react-markdown'
+import SEO from '@/components/seo'
 
 const License = () => {
   return (
     <Box py={20}>
+      <SEO
+        title="License"
+        titleTemplate="%s - Saas UI"
+        description="Read the Saas UI License Agreement"
+      />
       <Heading textAlign="center">License Agreement</Heading>
 
       <Section innerWidth="xl">

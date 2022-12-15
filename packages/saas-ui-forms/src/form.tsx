@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx, MaybeFunction, runIfFn, __DEV__ } from '@chakra-ui/utils'
 
 import {
   useForm,
@@ -13,8 +13,11 @@ import {
   SubmitErrorHandler,
   ResolverOptions,
   ResolverResult,
+  ChangeHandler,
+  WatchObserver,
 } from 'react-hook-form'
 import { objectFieldResolver, FieldResolver } from './field-resolver'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
@@ -23,6 +26,10 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
    * The form schema, currently supports Yup schema only.
    */
   schema?: any
+  /**
+   * Triggers when any of the field change.
+   */
+  onChange?: WatchObserver<TFieldValues>
   /**
    * The submit handler.
    */
@@ -35,15 +42,20 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
    * Ref on the HTMLFormElement.
    */
   formRef?: React.RefObject<HTMLFormElement>
+  /**
+   * The form children, can be a render prop or a ReactNode.
+   */
+  children?: MaybeRenderProp<UseFormReturn<TFieldValues>>
 }
 
-/**
- * @todo Figure out how to pass down FieldValues to all Field components,
- * if at all possible.
- */
+// @todo Figure out how to pass down FieldValues to all Field components, if at all possible.
+
 export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   extends UseFormProps<TFieldValues>,
-    Omit<HTMLChakraProps<'form'>, 'onSubmit' | 'onError'>,
+    Omit<
+      HTMLChakraProps<'form'>,
+      'children' | 'onChange' | 'onSubmit' | 'onError'
+    >,
     FormOptions<TFieldValues> {}
 
 export const Form = forwardRef(
@@ -62,6 +74,7 @@ export const Form = forwardRef(
       delayError,
       schema,
       defaultValues,
+      onChange,
       onSubmit,
       onError,
       formRef,
@@ -91,6 +104,14 @@ export const Form = forwardRef(
     // This exposes the useForm api through the forwarded ref
     React.useImperativeHandle(ref, () => methods, [ref, methods])
 
+    React.useEffect(() => {
+      let subscription: any
+      if (onChange) {
+        subscription = methods.watch(onChange)
+      }
+      return () => subscription?.unsubscribe()
+    }, [methods, onChange])
+
     return (
       <FormProvider {...methods}>
         <chakra.form
@@ -99,7 +120,7 @@ export const Form = forwardRef(
           {...rest}
           className={cx('saas-form', props.className)}
         >
-          {children}
+          {runIfFn(children, methods)}
         </chakra.form>
       </FormProvider>
     )

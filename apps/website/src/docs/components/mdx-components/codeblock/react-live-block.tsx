@@ -70,7 +70,15 @@ const EditableNotice = (props: BoxProps) => {
   )
 }
 
-function ReactLiveBlock({ editable, rawCode, theme, ...rest }) {
+function ReactLiveBlock({
+  editable,
+  rawCode,
+  theme,
+  height,
+  overflow,
+  center,
+  ...rest
+}) {
   const [editorCode, setEditorCode] = useState(rawCode.trim())
   const onChange = (newCode) => setEditorCode(newCode.trim())
   const liveProviderProps = {
@@ -79,10 +87,28 @@ function ReactLiveBlock({ editable, rawCode, theme, ...rest }) {
     theme,
     ...rest,
   }
+
+  let sx: object = {
+    overflow,
+  }
+
+  if (center) {
+    sx = {
+      display: 'flex',
+      justifyContent: 'center',
+      ...sx,
+    }
+  }
+
   return (
     <FeaturesProvider value={features}>
       <LiveProvider {...liveProviderProps}>
-        <LiveCodePreview zIndex="1" />
+        <LiveCodePreview
+          zIndex="1"
+          height={height}
+          position="relative"
+          sx={sx}
+        />
         <Box position="relative" zIndex="0">
           {editable && (
             <CodeContainer bg={theme.plain.backgroundColor}>

@@ -2,6 +2,10 @@ import PageContainer from '@/docs/components/page-container'
 import Pagination from '@/docs/components/pagination'
 import Sidebar from '@/docs/components/sidebar/sidebar'
 import docsSidebar from '@/data/docs-sidebar'
+import coreSidebar from '@/data/core-sidebar'
+import componentsSidebar from '@/data/components-sidebar'
+import hooksSidebar from '@/data/hooks-sidebar'
+import proSidebar from '@/data/pro-sidebar'
 // import guidesSidebar from 'configs/guides-sidebar.json'
 import * as React from 'react'
 import {
@@ -15,9 +19,13 @@ export function getRoutes(slug: string) {
   if (slug === '/') return docsSidebar.routes
 
   const configMap = {
-    '/resources': docsSidebar,
-    '/changelog': docsSidebar,
-    '/docs': docsSidebar,
+    '/docs/introduction': { routes: [] },
+    '/docs/core': coreSidebar,
+    '/docs/components': componentsSidebar,
+    '/docs/hooks': hooksSidebar,
+    '/docs/pro': proSidebar,
+    '/changelog': { routes: [] },
+    '/blog': { routes: [] },
   }
 
   const [, sidebar] =

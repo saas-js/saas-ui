@@ -1,5 +1,3 @@
-import { Column } from 'react-table'
-
 interface ExampleData {
   name: string
   phone: string
@@ -9,7 +7,7 @@ interface ExampleData {
   employees: number
 }
 
-const columns: Column<ExampleData>[] = [
+const columns = [
   {
     accessor: 'name',
     Header: 'Name',
@@ -34,6 +32,36 @@ const columns: Column<ExampleData>[] = [
     accessor: 'employees',
     Header: 'Employees',
     isNumeric: true,
+  },
+]
+
+const gridColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'phone',
+    header: 'Phone',
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+  {
+    accessorKey: 'company',
+    header: 'Company',
+  },
+  {
+    accessorKey: 'country',
+    header: 'Country',
+  },
+  {
+    accessorKey: 'employees',
+    header: 'Employees',
+    meta: {
+      isNumeric: true,
+    },
   },
 ]
 
@@ -86,3 +114,5 @@ const data = [
 ]
 
 export const dataTable = { columns, data }
+
+export const dataGrid = { columns: gridColumns, data }

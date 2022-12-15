@@ -19,6 +19,7 @@ import Radio from './radio'
 import Stepper from './stepper'
 import Slider from './slider'
 import Switch from './switch'
+import Tooltip from './tooltip'
 
 export { default as Alert } from './alert'
 export { default as Button } from './button'
@@ -41,6 +42,7 @@ export { default as Radio } from './radio'
 export { default as Stepper } from './stepper'
 export { default as Slider } from './slider'
 export { default as Switch } from './switch'
+export { default as Tooltip } from './tooltip'
 
 export default {
   Alert,
@@ -63,5 +65,6 @@ export default {
   Slider,
   Stepper,
   Switch,
+  Tooltip,
   ...Form,
 }

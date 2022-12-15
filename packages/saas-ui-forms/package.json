@@ -1,40 +1,40 @@
 {
   "name": "@saas-ui/forms",
-  "version": "1.0.2",
+  "version": "1.4.1",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "default": "./dist/index.modern.mjs"
+      "import": "./dist/index.modern.js"
     },
     "./src": {
       "default": "./src/index.ts"
     },
     "./yup": {
       "require": "./dist/yup/index.js",
-      "default": "./dist/yup/index.modern.mjs"
+      "import": "./dist/yup/index.modern.js"
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
     },
     "./zod": {
       "require": "./dist/zod/index.js",
-      "default": "./dist/zod/index.modern.mjs"
+      "import": "./dist/zod/index.modern.js"
     },
     "./zod/src": {
       "default": "./zod/src/index.ts"
     },
     "./ajv": {
       "require": "./dist/ajv/index.js",
-      "default": "./dist/ajv/index.modern.mjs"
+      "import": "./dist/ajv/index.modern.js"
     },
     "./ajv/src": {
       "default": "./ajv/src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -89,10 +89,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.2",
-    "@chakra-ui/react-utils": "^2.0.1",
-    "@chakra-ui/utils": "^2.0.2",
-    "@hookform/resolvers": "^2.9.0",
+    "@chakra-ui/icons": "^2.0.12",
+    "@chakra-ui/react-utils": "^2.0.9",
+    "@chakra-ui/utils": "^2.0.12",
+    "@hookform/resolvers": "^2.9.10",
     "@saas-ui/button": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
     "@saas-ui/number-input": "workspace:*",
@@ -102,7 +102,7 @@
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/select": "workspace:*",
     "@saas-ui/stepper": "workspace:*",
-    "react-hook-form": "^7.33.1"
+    "react-hook-form": "^7.39.4"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.1.0",
@@ -110,8 +110,8 @@
     "react": ">=18.0.0"
   },
   "devDependencies": {
-    "ajv": "^8.11.0",
+    "ajv": "^8.11.2",
     "yup": "^0.32.11",
-    "zod": "^3.17.3"
+    "zod": "^3.19.1"
   }
 }

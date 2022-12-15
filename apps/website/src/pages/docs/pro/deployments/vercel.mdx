@@ -1,0 +1,53 @@
+---
+title: Deploy to Vercel
+description: This guide will show you how to deploy Saas UI Pro to Vercel
+---
+
+## New or existing projects
+
+The following steps apply to projects that use the private NPM registry to install the Pro components.
+
+<Info>
+  If you use the monorepo, follow the [monorepo deployment
+  guide](#deploying-the-monorepo) below.
+</Info>
+
+1. Make sure you have [configured the private NPM registry](/docs/pro/installation/npm) in your package manager.
+
+2. If you made changes to the package manager config, make sure to commit the changes and push them your repository.
+
+3. Copy the `SAAS_UI_TOKEN` from step 1 and add it to your Vercel project's environment variables.
+
+<Image
+  src="/img/docs/vercel-environment-variables.png"
+  alt="Vercel environment variables"
+/>
+
+4. You can now deploy your project and it will use the private NPM registry.
+
+## Deploying the monorepo
+
+If you forked or created a new repository from the Pro template repository,
+follow these steps to deploy the monorepo to Vercel.
+
+1. Create a new project on Vercel.
+2. Connect your GitHub account.
+3. Find the repository you want to deploy and click `import`.
+4. Select `apps/web` as the root directory.
+5. Override the build command with;
+
+```bash
+cd ../.. && yarn generate && yarn workspace web run build
+```
+
+6. Override the install command with;
+
+```bash
+cd ../.. && yarn install
+```
+
+7. Click deploy and celebrate 🎉
+
+For reference, here is a screenshot of the deployment settings.
+
+<Image src="/img/docs/deploy-to-vercel.png" alt="Deploy to Vercel" />

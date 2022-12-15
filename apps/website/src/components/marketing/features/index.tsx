@@ -7,7 +7,7 @@ import {
   SimpleGrid,
   Heading,
   Text,
-} from '@chakra-ui/layout'
+} from '@chakra-ui/react'
 import {
   Icon,
   Circle,

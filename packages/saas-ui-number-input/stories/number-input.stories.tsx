@@ -24,3 +24,10 @@ export const HideStepper = Template.bind({})
 HideStepper.args = {
   hideStepper: true,
 }
+
+export const MinMax = Template.bind({})
+MinMax.args = {
+  defaultValue: 5,
+  min: 0,
+  max: 10,
+}

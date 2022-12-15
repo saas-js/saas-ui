@@ -3,9 +3,9 @@ const webpack = require('webpack')
 const toPath = (_path) => path.join(process.cwd(), _path)
 
 module.exports = {
-  stories: ['../packages/**/stories/*.stories.tsx'],
+  stories: ['../packages/saas-ui-*/stories/*.stories.tsx'],
   addons: [
-    // 'storybook-addon-swc',
+    'storybook-addon-swc',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
     '@storybook/addon-storysource',
@@ -38,7 +38,7 @@ module.exports = {
     return {
       '@saas-ui/pro': {
         title: 'Saas UI Pro',
-        url: 'https://pro-storybook.saas-ui.dev',
+        url: 'https://storybook.saas-ui.pro',
       },
       ...refs,
     }
@@ -63,10 +63,13 @@ module.exports = {
         new webpack.NormalModuleReplacementPlugin(
           /\@saas-ui\/[a-z-\/]+$/,
           (resource) => {
-            resource.request = resource.request + '/src/index'
+            resource.request = resource.request + '/src'
           }
         ),
       ]),
     }
+  },
+  core: {
+    builder: 'webpack5',
   },
 }

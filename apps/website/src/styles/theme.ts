@@ -1,16 +1,12 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, ThemeTypings } from '@chakra-ui/react'
 
-import { theme as baseTheme } from '@saas-ui/pro/theme'
+import { theme as baseTheme } from '@saas-ui/pro'
 
 import '@fontsource/inter/variable.css'
 
-import {
-  createBreakpoints,
-  mode,
-  transparentize,
-  blacken,
-} from '@chakra-ui/theme-tools'
+import { mode, transparentize, blacken } from '@chakra-ui/theme-tools'
 
+import Badge from './components/badge'
 import Button from './components/button'
 import CTA from './components/cta'
 import Features, { Feature } from './components/features'
@@ -26,20 +22,23 @@ const styles = {
     body: {
       webkitFontSmoothing: 'antialiased',
       textRendering: 'optimizeLegibility',
-      color: mode('gray.900', 'white')(props),
-      bg: mode('white', 'gray.900')(props),
       minHeight: 'auto',
       fontSize: 'lg',
     },
     'div#__next, div#__next > div': {
       height: '100%',
     },
+    '.parity-banner': {
+      position: 'relative',
+      top: '60px',
+      zIndex: 10,
+    },
   }),
 }
 
 const textStyles = {
-  h1: {
-    fontSize: { base: '4xl', sm: '6xl' },
+  pageTitle: {
+    fontSize: { base: '2xl', sm: '4xl', md: '6xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',
@@ -70,17 +69,28 @@ const theme = extendTheme(
       initialColorMode: 'dark',
       useSystemColorMode: false,
     },
-    breakpoints: createBreakpoints(breakpoints),
+    breakpoints,
     colors,
     semanticTokens: {
       colors: {
         codeBackground: {
           default: blacken('purple.600', 70)(baseTheme),
-          _dark: 'gray.800',
+          _dark: 'gray.900',
         },
         muted: {
           default: 'gray.600',
           _dark: 'gray.400',
+        },
+        'chakra-body-bg': {
+          default: 'app-background',
+        },
+        'chakra-body-text': {
+          default: 'gray.900',
+          _dark: 'white',
+        },
+        'app-background': {
+          default: 'white',
+          _dark: 'black',
         },
       },
     },
@@ -102,6 +112,7 @@ const theme = extendTheme(
           maxW: 'container.lg',
         },
       },
+      Badge,
       Button,
       CTA,
       Section,

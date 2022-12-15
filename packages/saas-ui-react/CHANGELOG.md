@@ -1,5 +1,376 @@
 # @saas-ui/react
 
+## 1.7.3
+
+### Patch Changes
+
+- Updated dependencies [91fbab7]
+  - @saas-ui/auth@1.6.3
+
+## 1.7.2
+
+### Patch Changes
+
+- Updated dependencies [69d328f]
+- Updated dependencies [2b14fa2]
+  - @saas-ui/theme@1.6.2
+  - @saas-ui/auth@1.6.2
+  - @saas-ui/provider@1.1.8
+  - @saas-ui/layout@1.3.2
+  - @saas-ui/menu@1.3.2
+  - @saas-ui/data-table@1.3.2
+  - @saas-ui/modals@1.4.2
+
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [7cf5223]
+  - @saas-ui/theme@1.6.1
+  - @saas-ui/forms@1.4.1
+  - @saas-ui/stepper@1.3.1
+  - @saas-ui/provider@1.1.7
+  - @saas-ui/auth@1.6.1
+  - @saas-ui/modals@1.4.1
+  - @saas-ui/layout@1.3.1
+  - @saas-ui/menu@1.3.1
+  - @saas-ui/data-table@1.3.1
+
+## 1.7.0
+
+### Minor Changes
+
+- e670761: AppShell is out of beta and now part of the core.
+- d92f516: Updated to Chakra UI 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [d92f516]
+- Updated dependencies [e670761]
+  - @saas-ui/app-shell@1.0.0
+  - @saas-ui/auth@1.6.0
+  - @saas-ui/banner@1.3.0
+  - @saas-ui/button@1.3.0
+  - @saas-ui/card@1.4.0
+  - @saas-ui/collapse@1.3.0
+  - @saas-ui/data-table@1.3.0
+  - @saas-ui/forms@1.4.0
+  - @saas-ui/hotkeys@1.3.0
+  - @saas-ui/input-right-button@1.3.0
+  - @saas-ui/layout@1.3.0
+  - @saas-ui/list@1.3.0
+  - @saas-ui/menu@1.3.0
+  - @saas-ui/modals@1.4.0
+  - @saas-ui/nprogress@1.3.0
+  - @saas-ui/number-input@1.3.0
+  - @saas-ui/password-input@1.3.0
+  - @saas-ui/persona@1.3.0
+  - @saas-ui/pin-input@1.3.0
+  - @saas-ui/property@1.3.0
+  - @saas-ui/radio@1.3.0
+  - @saas-ui/search-input@1.3.0
+  - @saas-ui/select@1.3.0
+  - @saas-ui/stepper@1.3.0
+  - @saas-ui/theme@1.6.0
+  - @saas-ui/provider@1.1.6
+
+## 1.6.2
+
+### Patch Changes
+
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+- Updated dependencies [7b426e8]
+- Updated dependencies [0a77fc0]
+- Updated dependencies [bc1f403]
+  - @saas-ui/persona@1.2.1
+  - @saas-ui/theme@1.5.0
+  - @saas-ui/provider@1.1.5
+  - @saas-ui/layout@1.2.2
+  - @saas-ui/menu@1.2.2
+  - @saas-ui/auth@1.5.2
+  - @saas-ui/data-table@1.2.2
+  - @saas-ui/modals@1.3.3
+
+## 1.6.1
+
+### Patch Changes
+
+- @saas-ui/forms@1.3.1
+- @saas-ui/stepper@1.2.1
+- @saas-ui/auth@1.5.1
+- @saas-ui/modals@1.3.2
+
+## 1.6.0
+
+### Minor Changes
+
+- 065e94d: Supabase auth service updated to v2, thanks to @KeKs0r
+
+### Patch Changes
+
+- 065e94d: Improved usePromise type signature.
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+- Updated dependencies [065e94d]
+  - @saas-ui/hooks@1.1.2
+  - @saas-ui/auth@1.5.0
+  - @saas-ui/provider@1.1.4
+  - @saas-ui/layout@1.2.1
+  - @saas-ui/menu@1.2.1
+  - @saas-ui/data-table@1.2.1
+  - @saas-ui/modals@1.3.1
+
+## 1.5.0
+
+### Minor Changes
+
+- 466b3ca: Updated to Chakra UI 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [466b3ca]
+  - @saas-ui/auth@1.4.0
+  - @saas-ui/banner@1.2.0
+  - @saas-ui/button@1.2.0
+  - @saas-ui/card@1.3.0
+  - @saas-ui/collapse@1.2.0
+  - @saas-ui/data-table@1.2.0
+  - @saas-ui/forms@1.3.0
+  - @saas-ui/hotkeys@1.2.0
+  - @saas-ui/input-right-button@1.2.0
+  - @saas-ui/layout@1.2.0
+  - @saas-ui/list@1.2.0
+  - @saas-ui/menu@1.2.0
+  - @saas-ui/modals@1.3.0
+  - @saas-ui/nprogress@1.2.0
+  - @saas-ui/number-input@1.2.0
+  - @saas-ui/palette@1.2.0
+  - @saas-ui/password-input@1.2.0
+  - @saas-ui/persona@1.2.0
+  - @saas-ui/pin-input@1.2.0
+  - @saas-ui/property@1.2.0
+  - @saas-ui/radio@1.2.0
+  - @saas-ui/search-input@1.2.0
+  - @saas-ui/select@1.2.0
+  - @saas-ui/stepper@1.2.0
+  - @saas-ui/theme@1.4.0
+  - @saas-ui/provider@1.1.3
+
+## 1.4.5
+
+### Patch Changes
+
+- Updated dependencies [fd41596]
+  - @saas-ui/theme@1.3.1
+  - @saas-ui/provider@1.1.2
+  - @saas-ui/layout@1.1.2
+  - @saas-ui/menu@1.1.2
+  - @saas-ui/auth@1.3.4
+  - @saas-ui/data-table@1.1.2
+  - @saas-ui/modals@1.2.4
+
+## 1.4.4
+
+### Patch Changes
+
+- d690b18: Export all Snackbar types. (#88)
+- ad47180: FormStepper now supports theming props.
+- Updated dependencies [d690b18]
+- Updated dependencies [ad47180]
+  - @saas-ui/snackbar@1.1.1
+  - @saas-ui/forms@1.2.2
+  - @saas-ui/auth@1.3.3
+  - @saas-ui/modals@1.2.3
+
+## 1.4.3
+
+### Patch Changes
+
+- 1195fc2: SearchInput reset button is now working when uncontrolled.
+- Updated dependencies [1195fc2]
+  - @saas-ui/search-input@1.1.1
+  - @saas-ui/hotkeys@1.1.2
+
+## 1.4.2
+
+### Patch Changes
+
+- b88c087: Added missing onChange handler on FormDialog, thanks to @eliandersoh
+- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support custom user types.
+- 62f3d4c: User.email now is optional
+- Updated dependencies [b88c087]
+- Updated dependencies [62f3d4c]
+- Updated dependencies [62f3d4c]
+  - @saas-ui/modals@1.2.2
+  - @saas-ui/auth@1.3.2
+
+## 1.4.1
+
+### Patch Changes
+
+- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+- Updated dependencies [dfd61ed]
+- Updated dependencies [0d83ca5]
+- Updated dependencies [40a9465]
+- Updated dependencies [40a9465]
+  - @saas-ui/forms@1.2.1
+  - @saas-ui/theme@1.3.0
+  - @saas-ui/collapse@1.1.1
+  - @saas-ui/auth@1.3.1
+  - @saas-ui/modals@1.2.1
+  - @saas-ui/provider@1.1.1
+  - @saas-ui/stepper@1.1.2
+  - @saas-ui/layout@1.1.1
+  - @saas-ui/menu@1.1.1
+  - @saas-ui/data-table@1.1.1
+
+## 1.4.0
+
+### Minor Changes
+
+- d003608: Form now accepts a render function with form state props.
+- d003608: Re-export all React Hook Form types and hooks
+- d003608: New onChange prop for Form that triggers when the form state is changed.
+
+### Patch Changes
+
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+- Updated dependencies [d003608]
+  - @saas-ui/auth@1.3.0
+  - @saas-ui/forms@1.2.0
+  - @saas-ui/modals@1.2.0
+
+## 1.3.3
+
+### Patch Changes
+
+- b7f169b: Removed fontSize from HotkeysListItem base styles.
+- 935a47c: useLocalStorage now returns the correct type.
+- bef671d: Field variant now passed down to the internal Input.
+- Updated dependencies [b7f169b]
+- Updated dependencies [935a47c]
+- Updated dependencies [bef671d]
+  - @saas-ui/hotkeys@1.1.1
+  - @saas-ui/hooks@1.1.1
+  - @saas-ui/forms@1.1.2
+  - @saas-ui/auth@1.2.2
+  - @saas-ui/modals@1.1.2
+
+## 1.3.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/collapse@1.1.0
+  - @saas-ui/stepper@1.1.1
+  - @saas-ui/forms@1.1.1
+  - @saas-ui/auth@1.2.1
+  - @saas-ui/modals@1.1.1
+
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/card@1.2.0
+
+## 1.3.0
+
+### Minor Changes
+
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+### Patch Changes
+
+- be064d7: Only show list item outline when it is focused with keyboard nav
+- Updated dependencies [f6ec7dc]
+- Updated dependencies [be064d7]
+  - @saas-ui/auth@1.2.0
+  - @saas-ui/banner@1.1.0
+  - @saas-ui/button@1.1.0
+  - @saas-ui/card@1.1.0
+  - @saas-ui/data-table@1.1.0
+  - @saas-ui/forms@1.1.0
+  - @saas-ui/hooks@1.1.0
+  - @saas-ui/hotkeys@1.1.0
+  - @saas-ui/input-right-button@1.1.0
+  - @saas-ui/layout@1.1.0
+  - @saas-ui/list@1.1.0
+  - @saas-ui/menu@1.1.0
+  - @saas-ui/modals@1.1.0
+  - @saas-ui/nprogress@1.1.0
+  - @saas-ui/number-input@1.1.0
+  - @saas-ui/palette@1.1.0
+  - @saas-ui/password-input@1.1.0
+  - @saas-ui/persona@1.1.0
+  - @saas-ui/pin-input@1.1.0
+  - @saas-ui/property@1.1.0
+  - @saas-ui/provider@1.1.0
+  - @saas-ui/radio@1.1.0
+  - @saas-ui/search-input@1.1.0
+  - @saas-ui/select@1.1.0
+  - @saas-ui/snackbar@1.1.0
+  - @saas-ui/stepper@1.1.0
+  - @saas-ui/theme@1.2.0
+
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [d88b04d]
+  - @saas-ui/hooks@1.0.2
+  - @saas-ui/auth@1.1.2
+
+## 1.2.1
+
+### Patch Changes
+
+- Fall back to label prop in password forms
+- Updated dependencies
+  - @saas-ui/auth@1.1.1
+
+## 1.2.0
+
+### Minor Changes
+
+- 1ff5f3a: Auth forms field labels can now be customized, thanks to @nadiles.
+
+### Patch Changes
+
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- 273c10d: Fixed a typo in the AuthForm styles provider.
+- 8d03628: PasswordInput width now applied to the FormGroup element.
+- Updated dependencies [1ff5f3a]
+- Updated dependencies [e14c2e1]
+- Updated dependencies [273c10d]
+- Updated dependencies [8d03628]
+  - @saas-ui/auth@1.1.0
+  - @saas-ui/forms@1.0.3
+  - @saas-ui/password-input@1.0.2
+  - @saas-ui/modals@1.0.5
+
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [7bb5d3f]
+  - @saas-ui/provider@1.0.2
+  - @saas-ui/layout@1.0.2
+  - @saas-ui/menu@1.0.2
+  - @saas-ui/auth@1.0.5
+  - @saas-ui/data-table@1.0.2
+  - @saas-ui/modals@1.0.4
+
+## 1.1.1
+
+### Patch Changes
+
+- 7298059: Added new useSteps hook.
+- Updated dependencies [7298059]
+  - @saas-ui/hooks@1.0.1
+  - @saas-ui/auth@1.0.4
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,7 +1,6 @@
 import siteMetadata from '@/data/site-config'
 
 const generateRssItem = (post) => {
-  console.log(post)
   if (post.slug.match(/\.draft/)) return ''
 
   let description = post.description

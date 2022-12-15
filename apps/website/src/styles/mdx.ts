@@ -34,7 +34,7 @@ const mdx = {
   },
   description: {
     color: 'gray.500',
-    fontSize: '1.2rem',
+    fontSize: 'xl',
     mb: '0.5rem',
   },
   a: {

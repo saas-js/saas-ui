@@ -13,6 +13,7 @@ import { GetStaticProps } from 'next'
 import OverviewItem from '@/components/overview/item'
 import docsSidebar from '@/data/docs-sidebar'
 import Layout from '@/layouts/index'
+import { Link } from '@saas-ui/react'
 
 type Component = {
   title: string
@@ -37,19 +38,25 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
         title: 'Components',
         seo: {
           title: 'Professionally crafted Chakra UI components',
+          description:
+            'Saas UI comes with 60+ React components built with Chakra UI and are designed to help you build intuitive React apps with speed.',
         },
         slug: '/docs/components',
         headings,
       }}
     >
       <VStack w="full" mt={5} alignItems="stretch" spacing={12}>
-        <Text
-          lineHeight={1.7}
-          color="blackAlpha.800"
-          _dark={{ color: 'whiteAlpha.800' }}
-        >
+        <Text apply="mdx.description">
           Professionally crafted Chakra UI components that help you build
           intuitive React apps with speed.
+        </Text>
+
+        <Text>
+          These components go hand in hand with{' '}
+          <Link href="https://chakra-ui.com/docs/components">
+            Chakra UI&apos;s core components
+          </Link>{' '}
+          and help you create visual and functional consistency in your apps.
         </Text>
         <List w="full" spacing={12}>
           {categories.map(({ title, components }) => {
@@ -64,6 +71,7 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
                 <Heading as="h2" size="md" id={slug} scrollMarginTop={24}>
                   {title}
                 </Heading>
+
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={2}>
                   {components.map(
                     ({ title: componentTitle, description, url }) => {

@@ -8,6 +8,395 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 12-09-2022
+
+**Date Picker** `v0.7.3`
+
+- Allow null values, fixes uncontrolled to controlled warnings and allows for resetting the field values.
+
+**Auth** `v1.6.3`
+
+- Allow sign-up with otp
+
+## 12-02-2022
+
+**Theme** `v1.6.2`
+
+- Moved NavItem font color to root of the theme.
+
+**Sidebar** `v0.6.0`
+
+- Do not render tooltip for regular sidebar items, unless the tooltip prop is added.
+- Fixed toggle button spacing.
+
+**Auth** `v1.6.2`
+
+- Now possible to set default options for Supabase authentication methods. Thanks to @KeKs0r
+
+## 11-23-2022
+
+**React Utils** `v1.1.2`
+
+- useResponsive value now uses correct fallback value.
+
+**Theme** `v1.6.1`
+
+- Improved Sidebar theme added toggle and toggleWrapper parts.
+
+**Sidebar** `v0.5.4`
+
+- Improved toggle button rendering and behavior with ssr / mobile screens.
+
+## 11-16-2022
+
+`@saas-ui/react@1.6.2`
+
+- Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+**Persona** `v1.2.1`
+
+- Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+
+**Sidebar** `v0.4.0`
+
+- Cleaned up NavItem theme.
+- Added classNames to all NavItem components.
+
+**Theme** `v1.5.0`
+
+- Cleaned up NavItem theme.
+- Improved Tooltip styles for Saas UI theme.
+
+## 11-04-2022
+
+`@saas-ui/react@1.6.0`
+
+- Improved usePromise type signature.
+- Supabase auth service updated to v2
+
+**Hooks** `v1.1.2`
+
+- Improved usePromise type signature.
+
+**Auth** `v1.5.0`
+
+- Supabase auth service updated to v2
+
+**Provider** `v1.1.4`
+
+- Added new route value to Router context.
+
+## 10-22-2022
+
+**Sidebar** `v0.2.0`
+
+- Add new motionPreset property, sidebar animation can be disabled with motionPreset="none"
+
+**Theme** `v1.3.1`
+
+- Clean up AppShell theme
+
+## 10-08-2022
+
+`@saas-ui/react@1.4.4`
+
+- Export all Snackbar types. (#88)
+- FormStepper now supports theming props.
+
+**Snackbar** `v1.1.1`
+
+- Export all Snackbar types. (#88)
+
+**Forms** `v1.2.2`
+
+- FormStepper now supports theming props.
+
+## 09-25-2022
+
+**@saas-ui/react** `v1.4.3`
+
+### Patch Changes
+
+- 1195fc2: SearchInput reset button is now working when uncontrolled.
+- Updated dependencies [1195fc2]
+  - @saas-ui/search-input@1.1.1
+  - @saas-ui/hotkeys@1.1.2
+
+## 09-17-2022
+
+**Sidebar** `v0.1.1`
+
+- Forward ref to Sidebar container
+
+## 09-17-2022
+
+**Sidebar** `v0.1.1`
+
+- Forward ref to Sidebar container
+
+## 09-17-2022
+
+`@saas-ui/react@1.4.1`
+
+- Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+
+**Forms** `v1.2.1`
+
+- Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+
+**App Shell** `v1.1.0`
+
+- Added AppShell component to core
+
+**Theme** `v1.3.0`
+
+- Added AppShell component to core
+- Added Sidebar component to core
+
+**Collapse** `v1.1.1`
+
+- useCollapse can now be fully controlled
+
+**Sidebar** `v0.1.0`
+
+- Added Sidebar component to core
+
+## 09-08-2022
+
+`@saas-ui/react@1.4.0`
+
+- Form now accepts a render function with form state props.
+- Re-export all React Hook Form types and hooks
+- New onChange prop for Form that triggers when the form state is changed.
+
+**Auth** `v1.3.0`
+
+- Form now accepts a render function with form state props.
+
+**Forms** `v1.2.0`
+
+- Form now accepts a render function with form state props.
+- Re-export all React Hook Form types and hooks
+- New onChange prop for Form that triggers when the form state is changed.
+
+**Modals** `v1.2.0`
+
+- Form now accepts a render function with form state props.
+
+## 08-06-2022
+
+**Card** `v1.1.1`
+
+- Bump card version
+
+## 08-06-2022
+
+**Card** `v1.1.1`
+
+- Bump card version
+
+## 08-06-2022
+
+`@saas-ui/react@1.3.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- Only show list item outline when it is focused with keyboard nav
+
+**Auth** `v1.2.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Banner** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Button** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Card** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Clerk** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Data Table** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Forms** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Hooks** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Hotkeys** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Input Right Button** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Layout** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**List** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- Only show list item outline when it is focused with keyboard nav
+
+**Menu** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Modals** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Nprogress** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Number Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Palette** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Password Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Persona** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Pin Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Property** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Provider** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Radio** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**React Utils** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Search Input** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Select** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Snackbar** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Stepper** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**System** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Theme** `v1.2.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Web 3** `v1.1.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+**Next Workspaces** `v0.3.0`
+
+- Fixed issue where Next.js would not resolve Chakra UI components correctly.
+
+## 08-04-2022
+
+**Hooks** `v1.0.2`
+
+- useLocalStorage now returns the defaultValue if no value is available and is updated across tabs.
+
+## 07-24-2022
+
+`@saas-ui/react@1.2.1`
+
+- Fall back to label prop in password forms
+
+**Auth** `v1.1.1`
+
+- Fall back to label prop in password forms
+
+## 07-23-2022
+
+`@saas-ui/react@1.2.0`
+
+- Auth forms field labels can now be customized, thanks to @nadiles.
+- Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- Fixed a typo in the AuthForm styles provider.
+- PasswordInput width now applied to the FormGroup element.
+
+**Auth** `v1.1.0`
+
+- Auth forms field labels can now be customized, thanks to @nadiles.
+- Fixed a typo in the AuthForm styles provider.
+
+**Forms** `v1.0.3`
+
+- Make sure FormStep onSubmit does not throw an error when no promise is returned.
+
+**Password Input** `v1.0.2`
+
+- PasswordInput width now applied to the FormGroup element.
+
+## 07-17-2022
+
+`@saas-ui/react@1.1.2`
+
+**Provider** `v1.0.2`
+
+- Use correct params type
+
+## 07-14-2022
+
+`@saas-ui/react@1.1.1`
+
+- Added new useSteps hook.
+
+## 07-08-2022
+
+`@saas-ui/react@1.1.0`
+
+- The Saas UI theme now uses InterVariable instead of Inter by default.
+
+**Theme** `v1.1.0`
+
+- The Saas UI theme now uses InterVariable instead of Inter by default.
+
+**Hotkeys** `v1.0.1`
+
+- Removed dependency
+
 ## 07-08-2022
 
 `@saas-ui/react@1.1.0`

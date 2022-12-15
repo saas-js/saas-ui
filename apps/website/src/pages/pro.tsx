@@ -3,7 +3,7 @@ import * as React from 'react'
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 
-import { Box, SimpleGrid } from '@chakra-ui/layout'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import {
   Container,
   Heading,
@@ -477,7 +477,7 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 /* @ts-ignore */
-                window?.woopra.track('Order Bootstrap')
+                window?.pirsch?.('Order Bootstrap')
               }
             >
               Pre-order
@@ -516,7 +516,7 @@ const Pricing = () => {
               className="gumroad-button"
               onClick={() =>
                 /* @ts-ignore */
-                window?.woopra.track('Order Startup')
+                window?.pirsch?.('Order Startup')
               }
             >
               Pre-order

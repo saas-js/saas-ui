@@ -292,13 +292,7 @@ You can stack multiple sidebars together to create a double sidebar layout.
 <AppShell
   sidebar={
     <HStack spacing="0">
-      <Sidebar
-        variant="condensed"
-        height="400px"
-        bg="purple.500"
-        borderWidth="0"
-        width="12"
-      >
+      <Sidebar variant="condensed" bg="purple.500" borderWidth="0" width="12">
         <SidebarSection>
           <Image
             src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -315,13 +309,7 @@ You can stack multiple sidebars together to create a double sidebar layout.
           </NavItem>
         </SidebarSection>
       </Sidebar>
-      <Sidebar
-        height="400px"
-        isResizable
-        width="280px"
-        minWidth="220px"
-        maxWidth="320px"
-      >
+      <Sidebar isResizable width="280px" minWidth="220px" maxWidth="320px">
         <SidebarSection direction="row">
           <Heading size="sm" fontWeight="semibold">
             Users

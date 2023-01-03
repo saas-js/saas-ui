@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/layout'
+import { Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import { Form, FormLayout, Field, SubmitButton } from '../src'

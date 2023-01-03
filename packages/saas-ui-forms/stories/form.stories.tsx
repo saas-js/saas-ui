@@ -1,4 +1,4 @@
-import { Container, Stack, HStack, Text } from '@chakra-ui/layout'
+import { Container, Stack, HStack, Text } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'

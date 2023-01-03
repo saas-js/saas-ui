@@ -31,3 +31,9 @@ MinMax.args = {
   min: 0,
   max: 10,
 }
+
+export const WithFormatter = Template.bind({})
+WithFormatter.args = {
+  format: (value) => `$${value}`, // use any currency formatter here
+  parse: (value) => value.replace('$', ''),
+}

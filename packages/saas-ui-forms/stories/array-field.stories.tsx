@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/layout'
+import { Box, Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -303,7 +303,7 @@ export const ArrayFieldRef = () => {
 
   React.useLayoutEffect(() => {
     console.log(ref.current)
-    ref.current.append({ title: 'Appended using the ref api' })
+    ref.current?.append({ title: 'Appended using the ref api' })
   }, [ref])
 
   return (

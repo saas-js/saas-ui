@@ -4,6 +4,18 @@ description: A guide for installing Saas UI with Nextjs projects
 tags: ['nextjs']
 ---
 
+<Info>
+Server components in the new app directory are currently not supported due to a limitation of Emotion.js.
+
+<Link
+  href="https://github.com/emotion-js/emotion/issues/2928"
+  fontWeight="bold"
+>
+  More information
+</Link>
+
+</Info>
+
 ### 1. Installation
 
 In your Next.js project, install Saas UI by running either of the following:
@@ -39,7 +51,30 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 ```
 
-### 3. Customizing Theme
+### 3. Link Component
+
+Configure a `linkComponent` to make the Saas UI `Link` work with the Next.js router.
+
+```tsx
+import NextLink from 'next/link'
+import { SaasProvider, LinkProps } from '@saas-ui/react'
+
+const Link: React.FC<LinkProps> = (props) => {
+  return <NextLink {...props} legacyBehavior />
+}
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <SaasProvider linkComponent={Link}>
+      <Component {...pageProps} />
+    </SaasProvider>
+  )
+}
+```
+
+The `legacyBehavior` is only required for Next.js 13+.
+
+### 4. Customizing Theme
 
 If you intend to customise the default theme object to match your design
 requirements, you can extend the `theme` from `@chakra-ui/react`.
@@ -66,10 +101,10 @@ const colors = {
 const theme = extendTheme({ colors }, baseTheme)
 
 // 3. Pass the `theme` prop to the `SaasProvider`
-function App() {
+function MyApp({ Component, pageProps }) {
   return (
     <SaasProvider theme={theme}>
-      <App />
+      <Component {...pageProps} />
     </SaasProvider>
   )
 }
@@ -78,7 +113,7 @@ function App() {
 > To further customize components or build your own design system, the
 > `theme-tools` package includes useful utilities.
 
-### Color Mode Script
+### 6. Color Mode Script
 
 The color mode script needs to be added before the content inside the `body` tag
 for local storage syncing to work correctly.

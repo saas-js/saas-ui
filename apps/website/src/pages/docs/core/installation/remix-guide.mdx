@@ -267,11 +267,13 @@ const colors = {
 const theme = extendTheme({ colors }, theme)
 
 // 3. Pass the `theme` prop to the `SaasProvider`
-function App() {
+export default function App() {
   return (
-    <SaasProvider theme={theme}>
-      <App />
-    </SaasProvider>
+    <Document>
+      <SaasProvider theme={theme}>
+        <Outlet />
+      </SaasProvider>
+    </Document>
   )
 }
 ```

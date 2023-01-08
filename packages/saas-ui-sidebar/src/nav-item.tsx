@@ -9,6 +9,7 @@ import {
   SystemProps,
   useMultiStyleConfig,
   Tooltip,
+  TooltipProps,
 } from '@chakra-ui/react'
 
 import { cx, dataAttr } from '@chakra-ui/utils'
@@ -73,11 +74,17 @@ export interface NavItemProps
   extends HTMLChakraProps<'a'>,
     ThemingProps<'NavItem'> {
   href?: string
-  /* @deprecated use children instead */
+  /**
+   * @deprecated use children instead
+   */
   label?: string
   icon?: React.ReactElement
   inset?: SystemProps['paddingLeft']
+  /**
+   * @deprecated use tooltipProps to pass a custom tooltip label
+   */
   tooltip?: React.ReactNode
+  tooltipProps?: TooltipProps
   isActive?: boolean
 }
 
@@ -89,6 +96,10 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
     inset,
     className,
     tooltip,
+    tooltipProps = {
+      placement: 'right',
+      openDelay: 400,
+    },
     isActive,
     children,
     ...rest
@@ -136,7 +147,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
 
   return (
     <NavItemStylesProvider value={styles}>
-      <Tooltip label={tooltipLabel} placement="right" openDelay={400}>
+      <Tooltip label={tooltipLabel} {...tooltipProps}>
         <chakra.div
           __css={styles.item}
           onClick={onClose}

@@ -73,9 +73,9 @@ WithLinks.args = {
     <>
       <SidebarToggleButton />
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem label="Home" />
-        <NavItem label="Users" />
-        <NavItem label="Settings" />
+        <NavItem>Home</NavItem>
+        <NavItem>Users</NavItem>
+        <NavItem>Settings</NavItem>
       </SidebarSection>
     </>
   ),
@@ -87,9 +87,9 @@ WithFeatherIcons.args = {
     <>
       <SidebarToggleButton />
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem label="Home" icon={<FiHome />} />
-        <NavItem label="Users" icon={<FiUsers />} />
-        <NavItem label="Settings" icon={<FiSettings />} />
+        <NavItem icon={<FiHome />}>Home</NavItem>
+        <NavItem icon={<FiUsers />}>Users</NavItem>
+        <NavItem icon={<FiSettings />}>Settings</NavItem>
       </SidebarSection>
     </>
   ),
@@ -101,9 +101,9 @@ WithFaIcons.args = {
     <>
       <SidebarToggleButton />
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem label="Home" icon={<FaHome />} />
-        <NavItem label="Users" icon={<FaUsers />} />
-        <NavItem label="Settings" icon={<FaCog />} />
+        <NavItem icon={<FaHome />}>Home</NavItem>
+        <NavItem icon={<FaUsers />}>Users</NavItem>
+        <NavItem icon={<FaCog />}>Settings</NavItem>
       </SidebarSection>
     </>
   ),
@@ -127,9 +127,9 @@ WithHorizontalNav.args = {
         </Menu>
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem label="Home" icon={<FiHome />} />
-        <NavItem label="Users" icon={<FiUsers />} />
-        <NavItem label="Settings" icon={<FiSettings />} />
+        <NavItem icon={<FiHome />}>Home</NavItem>
+        <NavItem icon={<FiUsers />}>Users</NavItem>
+        <NavItem icon={<FiSettings />}>Settings</NavItem>
       </SidebarSection>
     </>
   ),
@@ -154,16 +154,22 @@ WithCollapsibleGroup.args = {
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
-          <NavItem label="Home" icon={<FiHome />} isActive />
-          <NavItem label="Users" icon={<FiUsers />} />
-          <NavItem label="Settings" icon={<FiSettings />} />
+          <NavItem icon={<FiHome />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers />}>Users</NavItem>
+          <NavItem icon={<FiSettings />}>Settings</NavItem>
         </NavGroup>
 
         <NavGroup title="Tags" isCollapsible>
-          <NavItem label="Design system" icon={<FiHash />} />
-          <NavItem label="Framework" icon={<FiHash />} />
-          <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
-          <NavItem label="React" inset={5} icon={<FiHash />} />
+          <NavItem icon={<FiHash />}>Design system</NavItem>
+          <NavItem icon={<FiHash />}>Framework</NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            Chakra UI
+          </NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            React
+          </NavItem>
         </NavGroup>
       </SidebarSection>
     </>
@@ -193,9 +199,11 @@ WithBadge.args = {
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
-          <NavItem label="Home" icon={<FiHome />} isActive />
-          <NavItem label="Users" icon={<FiUsers />} />
-          <NavItem label="Settings" icon={<FiSettings />} />
+          <NavItem icon={<FiHome />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers />}>Users</NavItem>
+          <NavItem icon={<FiSettings />}>Settings</NavItem>
         </NavGroup>
 
         <NavGroup title="Tags" isCollapsible>
@@ -237,16 +245,26 @@ WithSubtleLinks.args = {
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
-          <NavItem label="Home" variant="subtle" icon={<FiHome />} isActive />
-          <NavItem label="Users" variant="subtle" icon={<FiUsers />} />
-          <NavItem label="Settings" variant="subtle" icon={<FiSettings />} />
+          <NavItem variant="subtle" icon={<FiHome />} isActive>
+            Home
+          </NavItem>
+          <NavItem variant="subtle" icon={<FiUsers />}>
+            Users
+          </NavItem>
+          <NavItem variant="subtle" icon={<FiSettings />}>
+            Settings
+          </NavItem>
         </NavGroup>
 
         <NavGroup title="Tags" isCollapsible>
-          <NavItem label="Design system" icon={<FiHash />} />
-          <NavItem label="Framework" icon={<FiHash />} />
-          <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
-          <NavItem label="React" inset={5} icon={<FiHash />} />
+          <NavItem icon={<FiHash />}>Design system</NavItem>
+          <NavItem icon={<FiHash />}>Framework</NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            Chakra UI
+          </NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            React
+          </NavItem>
         </NavGroup>
       </SidebarSection>
     </>
@@ -272,16 +290,22 @@ WithSolidLinks.args = {
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
         <NavGroup>
-          <NavItem label="Home" variant="solid" icon={<FiHome />} isActive />
-          <NavItem label="Users" variant="solid" icon={<FiUsers />} />
-          <NavItem label="Settings" variant="solid" icon={<FiSettings />} />
+          <NavItem icon={<FiHome />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers />}>Users</NavItem>
+          <NavItem icon={<FiSettings />}>Settings</NavItem>
         </NavGroup>
 
         <NavGroup title="Tags" isCollapsible>
-          <NavItem label="Design system" icon={<FiHash />} />
-          <NavItem label="Framework" icon={<FiHash />} />
-          <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
-          <NavItem label="React" inset={5} icon={<FiHash />} />
+          <NavItem icon={<FiHash />}>Design system</NavItem>
+          <NavItem icon={<FiHash />}>Framework</NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            Chakra UI
+          </NavItem>
+          <NavItem inset={5} icon={<FiHash />}>
+            React
+          </NavItem>
         </NavGroup>
       </SidebarSection>
     </>
@@ -298,18 +322,13 @@ VariantCondensed.args = {
         <Logo width="24px" color="primary.500" />
       </Nav>
       <Nav>
-        <NavItem
-          label="Home"
-          icon={<FiHome size="1.2em" />}
-          size="md"
-          isActive
-        />
-        <NavItem label="Users" icon={<FiUsers size="1.2em" />} size="md" />
-        <NavItem
-          label="Settings"
-          icon={<FiSettings size="1.2em" />}
-          size="md"
-        />
+        <NavItem icon={<FiHome size="1.2em" />} size="md" isActive>
+          Home
+        </NavItem>
+        <NavItem>Users</NavItem>
+        <NavItem icon={<FiSettings size="1.2em" />} size="md">
+          Settings
+        </NavItem>
       </Nav>
     </>
   ),
@@ -325,21 +344,18 @@ VariantCondensedColor.args = {
       <Logo width="24px" color="white" />
       <NavGroup>
         <NavItem
-          label="Home"
           icon={<FiHome size="1.2em" color="white" />}
           size="md"
           isActive
-        />
-        <NavItem
-          label="Users"
-          icon={<FiUsers size="1.2em" color="white" />}
-          size="md"
-        />
-        <NavItem
-          label="Settings"
-          icon={<FiSettings size="1.2em" color="white" />}
-          size="md"
-        />
+        >
+          Home
+        </NavItem>
+        <NavItem icon={<FiUsers size="1.2em" color="white" />} size="md">
+          Users
+        </NavItem>
+        <NavItem icon={<FiSettings size="1.2em" color="white" />} size="md">
+          Settings
+        </NavItem>
       </NavGroup>
     </>
   ),
@@ -358,24 +374,27 @@ VariantCondensedResponsive.args = {
       <SidebarSection>
         <NavGroup>
           <NavItem
-            label="Home"
             icon={<FiHome size="1.2em" color="whiteAlpha.800" />}
             color="white"
             size="sm"
             isActive
-          />
+          >
+            Home
+          </NavItem>
           <NavItem
-            label="Users"
             icon={<FiUsers size="1.2em" color="whiteAlpha.800" />}
             color="white"
             size="sm"
-          />
+          >
+            Users
+          </NavItem>
           <NavItem
-            label="Settings"
             icon={<FiSettings size="1.2em" color="whiteAlpha.800" />}
             color="white"
             size="sm"
-          />
+          >
+            Settings
+          </NavItem>
         </NavGroup>
       </SidebarSection>
     </>
@@ -399,22 +418,24 @@ export const DoubleSidebar = () => {
 
           <NavGroup>
             <NavItem
-              label="Users"
               icon={<FiUsers size="1.2em" />}
               isActive
               onClick={(e) => {
                 e.preventDefault()
                 disclosure.onToggle()
               }}
-            />
+            >
+              Users
+            </NavItem>
             <NavItem
-              label="Settings"
               icon={<FiSettings size="1.2em" />}
               onClick={(e) => {
                 e.preventDefault()
                 disclosure.onClose()
               }}
-            />
+            >
+              Settings
+            </NavItem>
           </NavGroup>
 
           <Spacer />
@@ -445,14 +466,20 @@ export const DoubleSidebar = () => {
 
         <SidebarSection flex="1" overflowY="auto">
           <NavGroup>
-            <NavItem label="All users" icon={<FiHome />} isActive />
-            <NavItem label="Favourite users" icon={<FiStar />} />
+            <NavItem icon={<FiHome />} isActive>
+              All users
+            </NavItem>
+            <NavItem icon={<FiStar />}>Favourite users</NavItem>
           </NavGroup>
           <NavGroup title="Tags" isCollapsible>
-            <NavItem label="Design system" icon={<FiHash />} />
-            <NavItem label="Framework" icon={<FiHash />} />
-            <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
-            <NavItem label="React" inset={5} icon={<FiHash />} />
+            <NavItem icon={<FiHash />}>Design system</NavItem>
+            <NavItem icon={<FiHash />}>Framework</NavItem>
+            <NavItem inset={5} icon={<FiHash />}>
+              Chakra UI
+            </NavItem>
+            <NavItem inset={5} icon={<FiHash />}>
+              React
+            </NavItem>
           </NavGroup>
         </SidebarSection>
         <SidebarOverlay zIndex="1" />
@@ -489,14 +516,20 @@ export function ToggleSidebar() {
 
         <SidebarSection flex="1" overflowY="auto">
           <NavGroup>
-            <NavItem label="All users" icon={<FiHome />} isActive />
-            <NavItem label="Favourite users" icon={<FiStar />} />
+            <NavItem icon={<FiHome />} isActive>
+              All users
+            </NavItem>
+            <NavItem icon={<FiStar />}>Favourite users</NavItem>
           </NavGroup>
           <NavGroup title="Tags" isCollapsible>
-            <NavItem label="Design system" icon={<FiHash />} />
-            <NavItem label="Framework" icon={<FiHash />} />
-            <NavItem label="Chakra UI" inset={5} icon={<FiHash />} />
-            <NavItem label="React" inset={5} icon={<FiHash />} />
+            <NavItem icon={<FiHash />}>Design system</NavItem>
+            <NavItem icon={<FiHash />}>Framework</NavItem>
+            <NavItem inset={5} icon={<FiHash />}>
+              Chakra UI
+            </NavItem>
+            <NavItem inset={5} icon={<FiHash />}>
+              React
+            </NavItem>
           </NavGroup>
         </SidebarSection>
         <SidebarOverlay zIndex="1" />
@@ -539,8 +572,10 @@ export function ToggleVariant() {
 
         <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
           <NavGroup>
-            <NavItem label="All users" icon={<FiHome />} isActive />
-            <NavItem label="Favourite users" icon={<FiStar />} />
+            <NavItem icon={<FiHome />} isActive>
+              All users
+            </NavItem>
+            <NavItem icon={<FiStar />}>Favourite users</NavItem>
           </NavGroup>
         </SidebarSection>
         <SidebarOverlay zIndex="1" />

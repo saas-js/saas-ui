@@ -8,6 +8,35 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 01-08-2023
+
+`@saas-ui/react@1.7.4`
+
+- Fixed default value for Switch fields.
+- Support disable sorting on individual columns in DataTable
+- Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+
+**Theme Glass** `v0.2.0`
+
+- Improved glass effect on light mode.
+- Added Drawer and Popover themes.
+
+**Sidebar** `v0.7.0`
+
+- NavItem now supports tooltipProps to customize all tooltip props.
+
+**Forms** `v1.4.2`
+
+- Fixed default value for Switch fields.
+
+**Data Table** `v1.3.3`
+
+- Support disable sorting on individual columns in DataTable
+
+**Modals** `v1.4.3`
+
+- Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+
 ## 12-09-2022
 
 **Date Picker** `v0.7.3`

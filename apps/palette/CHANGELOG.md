@@ -1,5 +1,17 @@
 # palette
 
+## 1.2.4
+
+### Patch Changes
+
+- Updated dependencies [8ddaf64]
+- Updated dependencies [523b5ca]
+- Updated dependencies [8ddaf64]
+- Updated dependencies [a050ea1]
+- Updated dependencies [c8f7b32]
+  - @saas-ui/theme-glass@0.2.0
+  - @saas-ui/react@1.7.4
+
 ## 1.2.3
 
 ### Patch Changes

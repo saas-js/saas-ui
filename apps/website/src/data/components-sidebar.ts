@@ -72,6 +72,10 @@ const sidebar = {
           title: 'Stepper',
           path: '/docs/components/navigation/stepper',
         },
+        {
+          title: 'ToggleButton',
+          path: '/docs/components/navigation/toggle-button',
+        },
       ],
     },
     {

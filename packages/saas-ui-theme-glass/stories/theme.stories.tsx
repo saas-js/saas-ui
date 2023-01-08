@@ -60,9 +60,7 @@ import {
   ListItemAction,
   SearchInput,
   Divider,
-  Link,
   useSnackbar,
-  useModals,
   ModalsProvider,
 } from '@saas-ui/react'
 import {
@@ -105,13 +103,6 @@ export const Glass: Story = () => {
   const snackbar = useSnackbar()
 
   const { onCopy } = useClipboard('npm i @saas-ui/theme-glass')
-  const modals = useModals()
-
-  React.useEffect(() => {
-    modals?.drawer({
-      title: 'Drawer',
-    })
-  }, [])
 
   return (
     <Box
@@ -249,7 +240,7 @@ export const Glass: Story = () => {
                   <Kbd>⌘</Kbd>
                   <Kbd>K</Kbd>
                 </HStack>
-                <ButtonGroup isAttached size="md" variant="tertiary">
+                <ButtonGroup isAttached size="md" variant="outline">
                   <Button isActive>All</Button>
                   <Button>Leads</Button>
                   <Button>Customers</Button>

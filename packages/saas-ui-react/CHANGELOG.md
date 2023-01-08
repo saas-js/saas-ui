@@ -1,5 +1,20 @@
 # @saas-ui/react
 
+## 1.7.4
+
+### Patch Changes
+
+- 523b5ca: Fixed default value for Switch fields.
+- a050ea1: Support disable sorting on individual columns in DataTable
+- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+- Updated dependencies [523b5ca]
+- Updated dependencies [a050ea1]
+- Updated dependencies [c8f7b32]
+  - @saas-ui/forms@1.4.2
+  - @saas-ui/data-table@1.3.3
+  - @saas-ui/modals@1.4.3
+  - @saas-ui/auth@1.6.4
+
 ## 1.7.3
 
 ### Patch Changes

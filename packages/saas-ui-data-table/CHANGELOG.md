@@ -1,5 +1,11 @@
 # @saas-ui/data-table
 
+## 1.3.3
+
+### Patch Changes
+
+- a050ea1: Support disable sorting on individual columns in DataTable
+
 ## 1.3.2
 
 ### Patch Changes

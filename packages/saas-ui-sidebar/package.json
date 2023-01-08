@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/sidebar",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Sidebar component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

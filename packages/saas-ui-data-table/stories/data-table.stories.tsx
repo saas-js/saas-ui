@@ -64,6 +64,7 @@ const columns: Column<ExampleData>[] = [
   {
     accessor: 'employees',
     Header: 'Employees',
+    disableSortBy: true,
     isNumeric: true,
   },
 ]

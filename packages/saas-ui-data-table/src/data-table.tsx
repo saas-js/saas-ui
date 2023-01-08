@@ -235,7 +235,9 @@ export const DataTableHeader = <Data extends object>(
 
   let headerProps = {}
 
-  if (isSortable) {
+  const enabled = column.disableSortBy ? false : isSortable
+
+  if (enabled) {
     headerProps = {
       ...column.getSortByToggleProps(),
       className: 'chakra-table-sortable',
@@ -251,7 +253,7 @@ export const DataTableHeader = <Data extends object>(
       {...rest}
     >
       {column.render('Header') as React.ReactNode}
-      {isSortable && <DataTableSort column={column} />}
+      {enabled && <DataTableSort column={column} />}
     </Th>
   )
 }

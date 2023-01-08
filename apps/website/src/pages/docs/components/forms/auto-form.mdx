@@ -27,7 +27,7 @@ Generate forms based on a schema, currently only acceps a basic object schema, `
 
 ## Object schema
 
-The object schema is a simple object with field props.
+The object schema is a simple object with field props. This is an Object representation of the props on the component.
 
 ```jsx
 function Task() {
@@ -38,6 +38,18 @@ function Task() {
         required: true,
       },
     },
+    assignee: {
+			type: "select",
+			label: "Assignee",
+			multiple: true,
+			options: [
+				{ label: "George", value: "63647b0b-9beb-41b1-9945-e465727f8e2d" },
+				{ label: "Haley", value: "e124505a-1f94-4142-b03f-16bfdffa0371" },
+			],
+			rules: {
+				required: "An assignee is required",
+			},
+		},
     todos: {
       type: 'array',
       min: 1,
@@ -66,6 +78,7 @@ function Task() {
       defaultValues={{
         title: '',
         todos: [{ todo: '' }],
+        assignees: ["63647b0b-9beb-41b1-9945-e465727f8e2d"],
         author: {
           name: 'Elliot',
         },

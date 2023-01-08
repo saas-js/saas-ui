@@ -4,7 +4,6 @@ import {
   cssVar,
   defineStyle,
 } from '@chakra-ui/styled-system'
-import { transparentize } from '@chakra-ui/theme-tools'
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
@@ -13,18 +12,19 @@ const $bg = cssVar('menu-bg')
 const $shadow = cssVar('menu-shadow')
 
 const baseStyleList = defineStyle({
-  [$bg.variable]: 'colors.white',
+  [$bg.variable]: 'colors.whiteAlpha.500',
   [$shadow.variable]: 'shadows.lg',
+  backdropFilter: 'blur(10px) contrast(100%) saturate(190%)',
   _dark: {
     [$bg.variable]: 'colors.grayAlpha.700',
     [$shadow.variable]: 'shadows.dark-lg',
+    backdropFilter: 'blur(10px) saturate(190%) contrast(70%) brightness(80%)',
   },
   py: '1',
   borderRadius: 'md',
   borderWidth: '1px',
   bg: $bg.reference,
   boxShadow: $shadow.reference,
-  backdropFilter: 'blur(10px) saturate(190%) contrast(70%) brightness(80%)',
 })
 
 const baseStyleItem = defineStyle({
@@ -38,15 +38,19 @@ const baseStyleItem = defineStyle({
   bg: 'transparent',
   _hover: {
     bg: $bg.reference,
+    [$bg.variable]: 'colors.grayAlpha.300',
   },
   _focus: {
     bg: $bg.reference,
+    [$bg.variable]: 'colors.grayAlpha.300',
   },
   _active: {
     bg: $bg.reference,
+    [$bg.variable]: 'colors.grayAlpha.300',
   },
   _expanded: {
     bg: $bg.reference,
+    [$bg.variable]: 'colors.grayAlpha.300',
   },
 })
 

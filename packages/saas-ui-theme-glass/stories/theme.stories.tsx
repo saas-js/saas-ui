@@ -62,6 +62,8 @@ import {
   Divider,
   Link,
   useSnackbar,
+  useModals,
+  ModalsProvider,
 } from '@saas-ui/react'
 import {
   FiAlignCenter,
@@ -80,7 +82,13 @@ import { FaGithub } from 'react-icons/fa'
 
 export default {
   title: 'Themes/Glass',
-  decorators: [(Story: any) => <Story />],
+  decorators: [
+    (Story: any) => (
+      <ModalsProvider>
+        <Story />
+      </ModalsProvider>
+    ),
+  ],
   parameters: {
     theme: {
       ...theme,
@@ -97,6 +105,13 @@ export const Glass: Story = () => {
   const snackbar = useSnackbar()
 
   const { onCopy } = useClipboard('npm i @saas-ui/theme-glass')
+  const modals = useModals()
+
+  React.useEffect(() => {
+    modals?.drawer({
+      title: 'Drawer',
+    })
+  }, [])
 
   return (
     <Box
@@ -235,7 +250,7 @@ export const Glass: Story = () => {
                   <Kbd>K</Kbd>
                 </HStack>
                 <ButtonGroup isAttached size="md" variant="tertiary">
-                  <Button>All</Button>
+                  <Button isActive>All</Button>
                   <Button>Leads</Button>
                   <Button>Customers</Button>
                 </ButtonGroup>
@@ -395,6 +410,7 @@ const Members = () => {
       <List>
         {members.map((member) => (
           <ListItem
+            key={member.name}
             px="4"
             py="2"
             pe="14"

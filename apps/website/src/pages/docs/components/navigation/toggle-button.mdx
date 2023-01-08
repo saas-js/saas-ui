@@ -32,6 +32,7 @@ import {
 	<ToggleButton value='3'>Customers</ToggleButton>
 </ToggleButtonGroup>
 ```
+
 ### Radio
 
 ```tsx
@@ -45,7 +46,26 @@ import {
 	<ToggleButton value='3'>Customers</ToggleButton>
 </ToggleButtonGroup>
 ```
+### Colorscheme
 
+A `colorScheme` can be passed to `ToggleButtonGroup` to modify the theme of all of the children `ToggleButton`s.
+
+```tsx
+<ToggleButtonGroup
+	type='checkbox'
+	colorScheme='primary'
+	defaultValue={["1", "2"]}
+	onChange={(e) => console.log(e)}
+>
+	<ToggleButton value='1'>All</ToggleButton>
+	<ToggleButton value='2'>Leads</ToggleButton>
+	<ToggleButton value='3'>Customers</ToggleButton>
+</ToggleButtonGroup>
+```
+
+### Variants
+
+Variants for `ToggleButton` are not currently implemented. The default and only variant that will display appropriately is `outline`.
 
 
 ## Props

@@ -3,6 +3,7 @@ import * as React from 'react'
 import {
   ModalFooter,
   chakra,
+  forwardRef,
   useMenuContext,
   useMenuList,
   createStylesContext,
@@ -11,14 +12,11 @@ import {
   MenuListProps,
 } from '@chakra-ui/react'
 
-import { forwardRef } from '@chakra-ui/system'
+import {} from '@chakra-ui/system'
 
 import { BaseModal, BaseModalProps } from './modal'
-import { callAllHandlers } from '@chakra-ui/utils'
 
-// import { Menu } from '@saas-ui/menu'
-
-const [StylesProvider, useStyles] = createStylesContext('MenuDialog')
+const [StylesProvider] = createStylesContext('MenuDialog')
 
 export interface MenuDialogProps extends BaseModalProps {
   /**

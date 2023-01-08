@@ -39,17 +39,17 @@ function Task() {
       },
     },
     assignee: {
-			type: "select",
-			label: "Assignee",
-			multiple: true,
-			options: [
-				{ label: "George", value: "63647b0b-9beb-41b1-9945-e465727f8e2d" },
-				{ label: "Haley", value: "e124505a-1f94-4142-b03f-16bfdffa0371" },
-			],
-			rules: {
-				required: "An assignee is required",
-			},
-		},
+      type: 'select',
+      label: 'Assignee',
+      multiple: true,
+      options: [
+        { label: 'George', value: '63647b0b-9beb-41b1-9945-e465727f8e2d' },
+        { label: 'Haley', value: 'e124505a-1f94-4142-b03f-16bfdffa0371' },
+      ],
+      rules: {
+        required: 'An assignee is required',
+      },
+    },
     todos: {
       type: 'array',
       min: 1,
@@ -78,7 +78,7 @@ function Task() {
       defaultValues={{
         title: '',
         todos: [{ todo: '' }],
-        assignees: ["63647b0b-9beb-41b1-9945-e465727f8e2d"],
+        assignees: ['63647b0b-9beb-41b1-9945-e465727f8e2d'],
         author: {
           name: 'Elliot',
         },

@@ -1,9 +1,14 @@
 import * as React from 'react'
 
-import { chakra, ResponsiveValue, forwardRef } from '@chakra-ui/system'
+import {
+  chakra,
+  ResponsiveValue,
+  forwardRef,
+  Button,
+  ButtonProps,
+} from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-import { IconButton, ButtonProps } from '@saas-ui/button'
 
 import { FormLayout, FormLayoutProps } from './layout'
 import { BaseField, FieldProps } from './field'
@@ -22,6 +27,8 @@ import {
   useArrayFieldAddButton,
   UseArrayFieldReturn,
 } from './use-array-field'
+
+export interface ArrayFieldButtonProps extends ButtonProps {}
 
 interface ArrayField {
   id: string
@@ -120,14 +127,13 @@ if (__DEV__) {
   ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
 }
 
-export const ArrayFieldRemoveButton: React.FC<ButtonProps> = (props) => {
+export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
+  props
+) => {
   return (
-    <IconButton
-      icon={<MinusIcon />}
-      aria-label="Remove row"
-      {...useArrayFieldRemoveButton()}
-      {...props}
-    />
+    <Button aria-label="Remove row" {...useArrayFieldRemoveButton()} {...props}>
+      {props.children || <MinusIcon />}
+    </Button>
   )
 }
 
@@ -135,15 +141,16 @@ if (__DEV__) {
   ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
 }
 
-export const ArrayFieldAddButton: React.FC<ButtonProps> = (props) => {
+export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
   return (
-    <IconButton
-      icon={<AddIcon />}
+    <Button
       aria-label="Add row"
       float="right"
       {...useArrayFieldAddButton()}
       {...props}
-    />
+    >
+      {props.children || <AddIcon />}
+    </Button>
   )
 }
 

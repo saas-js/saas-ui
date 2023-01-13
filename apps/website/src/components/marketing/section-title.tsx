@@ -1,4 +1,4 @@
-import { VStack, Heading, Box, StackProps } from '@chakra-ui/layout'
+import { VStack, Heading, Box, StackProps } from '@chakra-ui/react'
 import { useMultiStyleConfig, SystemStyleObject } from '@chakra-ui/react'
 
 export interface SectionTitleProps extends Omit<StackProps, 'title'> {

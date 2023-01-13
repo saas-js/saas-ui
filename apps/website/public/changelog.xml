@@ -7,9 +7,41 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 23 Nov 2022 09:06:43 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 09 Dec 2022 10:45:13 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/12-09-2022</guid>
+    <title>Dec 9, 2022</title>
+    <link>https://saas-ui.dev/changelog/12-09-2022</link>
+    <description>
+## 12-09-2022
+
+**Date Picker** `v0.7.3`
+
+- Allow null values, fixes uncontrolled to controlled warn...</description>
+    <pubDate>Fri, 09 Dec 2022 10:45:13 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/12-02-2022</guid>
+    <title>Dec 2, 2022</title>
+    <link>https://saas-ui.dev/changelog/12-02-2022</link>
+    <description>
+## 12-02-2022
+
+**Theme** `v1.6.2`
+
+- Moved NavItem font color to root of the theme.
+
+**Sidebar** `v...</description>
+    <pubDate>Fri, 02 Dec 2022 14:46:36 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/11-23-2022</guid>
     <title>Nov 23, 2022</title>

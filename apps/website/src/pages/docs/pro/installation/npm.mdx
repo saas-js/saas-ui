@@ -6,7 +6,11 @@ description: Install Saas UI Pro components from a private NPM registry.
 In the next steps we'll show you how to install `@saas-ui/pro` in new or existing projects.
 You'll need a valid license to install Pro, you can order one at [here](/#pricing).
 
-Before continuing [follow these steps](/docs/core/getting-started) to set up `@saas-ui/react` and `@chakra-ui/react` in your project, if you haven't done so already.
+<Info>
+  Before continuing [follow these steps](/docs/core/getting-started) to set up
+  `@saas-ui/react` and `@chakra-ui/react` in your project, if you haven't done
+  so already.
+</Info>
 
 ## Configuration
 
@@ -21,74 +25,12 @@ Your NPM account is a combination of the Github username you used to redeem your
   project.
 </Info>
 
-### Yarn
-
-This configuration is for **Yarn 3**, if you are still using Yarn 1.2 it's highly recommended to upgrade.
-
-In the root of your project edit `.yarnrc.yml` and add the following lines.
-
-```yml
-npmScopes:
-  saas-ui:
-    npmRegistryServer: 'https://npm.saas-ui.dev'
-npmRegistries:
-  //npm.saas-ui.dev:
-    npmAuthIdent: '${SAAS_UI_TOKEN:-}'
-    npmAlwaysAuth: true
-```
-
-To set it up on your dev machine add this to `~/.profile` or your CI configuration.
-
-```bash
-export SAAS_UI_TOKEN="GithubUsername:licenseKey"
-```
-
-The same configuration can be used for CI and deployments.
-
-### PNPM
-
-In your project root folder you can run this and enter your Github username as user and license key as password.
-
-```bash
-pnpm login --registry=https://npm.saas-ui.dev/
-```
-
-#### Manual & CI configuration.
-
-<Info>
-  PNPM expects auth to be base64 encoded, so make sure `SAAS_UI_TOKEN` is
-  encoded.
-</Info>
-
-```bash
-echo -n 'GithubUsername:licenseKey' | base64
-```
-
-Add your auth token to `~/.profile` or your CI configuration.
-
-```bash
-export SAAS_UI_TOKEN="base64 encoded token"
-```
-
-<Info>
-  If you're having troubles generating a working base64 encoded string, try
-  [this website](https://www.base64encode.org/).
-</Info>
-
-Then edit `.npmrc` in the root of your project and add the following lines.
-
-```
-@saas-ui:registry=https://npm.saas-ui.dev
-//npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
-//npm.saas-ui.dev/:always-auth=true
-```
-
 ### NPM
 
 In your project root folder you can run this and enter your Github username as user and license key as password.
 
 ```bash
-npm login --registry=https://npm.saas-ui.dev/
+npm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
 ```
 
 #### Manual & CI configuration.
@@ -106,3 +48,5 @@ Then edit `.npmrc` in the root of your project and add the following lines.
 //npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
 //npm.saas-ui.dev/:always-auth=true
 ```
+
+Now run `npm i @saas-ui/pro`, if all went well it will now install the pro components.

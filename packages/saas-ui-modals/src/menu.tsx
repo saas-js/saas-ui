@@ -8,13 +8,15 @@ import {
   useMenuList,
   createStylesContext,
   useMultiStyleConfig,
+  Menu,
+  MenuListProps,
 } from '@chakra-ui/react'
+
+import {} from '@chakra-ui/system'
 
 import { BaseModal, BaseModalProps } from './modal'
 
-import { Menu, MenuListProps } from '@saas-ui/menu'
-
-const [StylesProvider, useStyles] = createStylesContext('MenuDialog')
+const [StylesProvider] = createStylesContext('MenuDialog')
 
 export interface MenuDialogProps extends BaseModalProps {
   /**
@@ -24,7 +26,20 @@ export interface MenuDialogProps extends BaseModalProps {
 }
 
 export const MenuDialog: React.FC<MenuDialogProps> = (props) => {
-  return <Menu variant="dialog" {...props} />
+  const { onClose, onCloseComplete, ...rest } = props
+
+  return (
+    <Menu
+      variant="dialog"
+      onClose={() => {
+        onClose?.()
+        // Not supported in Menu, so we call it here instead
+        // @todo Refactor this in v2?
+        onCloseComplete?.()
+      }}
+      {...rest}
+    />
+  )
 }
 
 export interface MenuDialogListProps

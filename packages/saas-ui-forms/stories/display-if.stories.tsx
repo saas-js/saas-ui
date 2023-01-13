@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/layout'
+import { Container } from '@chakra-ui/react'
 import { yupResolver } from '../yup/src'
 import * as React from 'react'
 

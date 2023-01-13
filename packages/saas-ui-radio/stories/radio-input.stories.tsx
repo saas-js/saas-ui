@@ -33,9 +33,13 @@ const Template: ComponentStory<typeof RadioInput> = (args) => (
 
 export const Basic = Template.bind({})
 Basic.args = {
-  /**
-   * Description
-   */
   name: 'radio',
+  options,
+}
+
+export const Direction = Template.bind({})
+Direction.args = {
+  name: 'radio',
+  direction: 'row',
   options,
 }

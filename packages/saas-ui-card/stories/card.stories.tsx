@@ -7,9 +7,11 @@ import {
   Text,
   LinkBox,
   LinkOverlay,
+  Container,
+  Stack,
+  Spacer,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import { Container, Stack, Spacer } from '@chakra-ui/layout'
 
 import { FaGithub, FaSlack } from 'react-icons/fa'
 

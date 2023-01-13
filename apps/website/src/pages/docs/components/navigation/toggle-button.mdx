@@ -1,0 +1,88 @@
+---
+title: ToggleButton
+description: Toggle between different states in your app with either a checkbox or radio mode.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `ToggleButton`: A button extended with an `isChecked` state to show on/off.
+- `ToggleButtonGroup`: Used to group toggle buttons whose actions are related, that also flushes them together.
+
+```ts
+import { ToggleButton, ToggleButtonGroup } from '@saas-ui/pro'
+```
+
+## Usage
+
+### Checkbox group
+
+```jsx
+<ToggleButtonGroup
+  type="checkbox"
+  defaultValue={['1', '2']}
+  onChange={(e) => console.log(e)}
+>
+  <ToggleButton value="2">Leads</ToggleButton>
+  <ToggleButton value="3">Customers</ToggleButton>
+</ToggleButtonGroup>
+```
+
+### Radio
+
+```jsx
+<ToggleButtonGroup
+  type="radio"
+  defaultValue="1"
+  onChange={(e) => console.log(e)}
+>
+  <ToggleButton value="1">All</ToggleButton>
+  <ToggleButton value="2">Leads</ToggleButton>
+  <ToggleButton value="3">Customers</ToggleButton>
+</ToggleButtonGroup>
+```
+
+### Colorscheme
+
+A `colorScheme` can be passed to `ToggleButtonGroup` to modify the theme of all of the child buttons.
+
+```jsx
+<ToggleButtonGroup
+  type="checkbox"
+  colorScheme="cyan"
+  defaultValue={['1', '2']}
+  onChange={(e) => console.log(e)}
+>
+  <ToggleButton value="1">All</ToggleButton>
+  <ToggleButton value="2">Leads</ToggleButton>
+  <ToggleButton value="3">Customers</ToggleButton>
+</ToggleButtonGroup>
+```
+
+### Variants
+
+Supported variants are `outline` (default) and `ghost`.
+
+```jsx
+<ToggleButtonGroup
+  type="checkbox"
+  variant="ghost"
+  defaultValue={['1', '2']}
+  onChange={(e) => console.log(e)}
+>
+  <ToggleButton value="1">All</ToggleButton>
+  <ToggleButton value="2">Leads</ToggleButton>
+  <ToggleButton value="3">Customers</ToggleButton>
+</ToggleButtonGroup>
+```
+
+## Props
+
+### ToggleButton props
+
+<PropsTable of="ToggleButton" />
+
+### ToggleButtonGroup props
+
+<PropsTable of="ToggleButtonGroup" />

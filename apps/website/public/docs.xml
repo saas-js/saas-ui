@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sun, 18 Sep 2022 12:24:41 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 12 Dec 2022 19:57:16 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -114,7 +114,7 @@
     <guid>https://saas-ui.dev/docs/components/advanced-data/data-grid</guid>
     <title>DataGrid</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/data-grid</link>
-    <description>A advanced data table component that supports sorting, selections, filters and pagination.</description>
+    <description>Data grids are used to organize lists of high density data.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -221,30 +221,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal</guid>
-    <title>Benefits Modal</title>
-    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal</link>
-    <description>A benefits modal is used to show case important features or product updates.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog</guid>
-    <title>Tour Dialog</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog</link>
-    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour</guid>
-    <title>Tour</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour</link>
-    <description>Introduce people to new features using multi-step tours.</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/timeline</guid>
+    <title>Timeline</title>
+    <link>https://saas-ui.dev/docs/components/data-display/timeline</link>
+    <description>Display a list of events in chronological order.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -285,6 +265,106 @@
     <title>Snackbar</title>
     <link>https://saas-ui.dev/docs/components/feedback/snackbar</link>
     <description>The snackbar component is used to give feedback after certain actions.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/beacon</guid>
+    <title>Beacon</title>
+    <link>https://saas-ui.dev/docs/components/engagement/beacon</link>
+    <description>A pulsating beacon that attracts attention</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal</guid>
+    <title>Benefits Modal</title>
+    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal</link>
+    <description>A benefits modal is used to show case important features or product updates.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog</guid>
+    <title>Tour Dialog</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog</link>
+    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour</guid>
+    <title>Tour</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour</link>
+    <description>Introduce people to new features using multi-step tours.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-input</guid>
+    <title>DateInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-input</link>
+    <description>Allow users to enter or select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-modal</guid>
+    <title>DatePickerModal</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-picker-modal</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-static</guid>
+    <title>DatePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-picker-static</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-picker</guid>
+    <title>DatePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-picker</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input</guid>
+    <title>DateRangeInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-input</link>
+    <description>Allow users to enter or select a Date and Time range.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker</guid>
+    <title>DateRangePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker</link>
+    <description>Allow users to select a Date and Time value.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -561,6 +641,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/web3/address</guid>
+    <title>Web3Address</title>
+    <link>https://saas-ui.dev/docs/components/web3/address</link>
+    <description>Display Web3 addresses in a more readable format.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/utils/error-boundary</guid>
     <title>ErrorBoundary</title>
     <link>https://saas-ui.dev/docs/components/utils/error-boundary</link>
@@ -585,16 +675,6 @@
     <title>ResizeBox</title>
     <link>https://saas-ui.dev/docs/components/utils/resize-box</link>
     <description>Utility hook and component to create resizable panels.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/web3/address</guid>
-    <title>Web3Address</title>
-    <link>https://saas-ui.dev/docs/components/web3/address</link>
-    <description>Display Web3 addresses in a more readable format.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -741,6 +821,46 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/color-schemes</guid>
+    <title>Color schemes</title>
+    <link>https://saas-ui.dev/docs/pro/theming/color-schemes</link>
+    <description>Use the build in color schemes.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/configuration</guid>
+    <title>Setting the Saas UI Pro theme</title>
+    <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
+    <description>How to setup the Saas UI Pro theme in your project.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/fonts</guid>
+    <title>Fonts</title>
+    <link>https://saas-ui.dev/docs/pro/theming/fonts</link>
+    <description>Settings up fonts in your theme.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/deployments/vercel</guid>
+    <title>Deploy to Vercel</title>
+    <link>https://saas-ui.dev/docs/pro/deployments/vercel</link>
+    <description>This guide will show you how to deploy Saas UI Pro to Vercel</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/pro/installation/cra-guide</guid>
     <title>Setting up CRA with Saas UI Pro</title>
     <link>https://saas-ui.dev/docs/pro/installation/cra-guide</link>
@@ -775,36 +895,6 @@
     <title>Quickstart</title>
     <link>https://saas-ui.dev/docs/pro/installation/overview</link>
     <description>Getting started quickly with Saas UI Pro.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/color-schemes</guid>
-    <title>Color schemes</title>
-    <link>https://saas-ui.dev/docs/pro/theming/color-schemes</link>
-    <description>Use the build in color schemes.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/configuration</guid>
-    <title>Setting the Saas UI Pro theme</title>
-    <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
-    <description>How to setup the Saas UI Pro theme in your project.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/fonts</guid>
-    <title>Fonts</title>
-    <link>https://saas-ui.dev/docs/pro/theming/fonts</link>
-    <description>Settings up fonts in your theme.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Script from 'next/script'
 
-import { Box, SimpleGrid } from '@chakra-ui/layout'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import {
   Heading,
   Text,

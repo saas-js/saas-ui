@@ -1,4 +1,4 @@
-import { Box, Heading, VStack } from '@chakra-ui/layout'
+import { Box, Heading, VStack } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
 import SEO from '@/components/seo'

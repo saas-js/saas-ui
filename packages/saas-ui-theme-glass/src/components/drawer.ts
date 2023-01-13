@@ -1,6 +1,7 @@
-import { modalAnatomy as parts } from '@chakra-ui/anatomy'
+import { drawerAnatomy as parts } from '@chakra-ui/anatomy'
 import {
   createMultiStyleConfigHelpers,
+  cssVar,
   defineStyle,
 } from '@chakra-ui/styled-system'
 
@@ -9,19 +10,24 @@ import { runIfFn } from '@chakra-ui/utils'
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
 
+const $bg = cssVar('drawer-bg')
+
 const baseStyleOverlay = defineStyle({
   bg: 'blackAlpha.50',
 })
 
 const baseStyleDialog = defineStyle((props) => {
   return {
-    bg: 'whiteAlpha.800',
+    borderRadius: 'md',
+    margin: '8px',
+    borderWidth: '1px',
+    borderColor: 'chakra-border-color',
     backdropFilter: 'blur(10px) contrast(100%) saturate(100%) brightness(200%)',
+    [$bg.variable]: 'colors.whiteAlpha.800',
     fontSize: 'md',
     _dark: {
-      bg: 'grayAlpha.700',
-      boxShadow: 'dark-lg',
       backdropFilter: 'blur(10px) saturate(190%) contrast(70%) brightness(80%)',
+      [$bg.variable]: 'colors.grayAlpha.700',
     },
   }
 })
@@ -62,7 +68,6 @@ const baseStyle = definePartsStyle((props) => ({
 
 export const modalTheme = defineMultiStyleConfig({
   baseStyle,
-  defaultProps: { size: 'md' },
 })
 
 export default modalTheme

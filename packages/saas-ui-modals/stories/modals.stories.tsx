@@ -26,7 +26,7 @@ const modals = {
 }
 
 export default {
-  title: 'Components/Overlay/Modals',
+  title: 'Components/Overlay/Modals Manager',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -38,7 +38,7 @@ export default {
   ],
 }
 
-export const basic = () => {
+export const Basic = () => {
   const modals = useModals()
 
   return (
@@ -126,6 +126,17 @@ export const basic = () => {
       </Button>
       <Button
         onClick={() =>
+          modals.drawer({
+            title: 'My drawer',
+            body: 'My drawer',
+            placement: 'left',
+          })
+        }
+      >
+        Open left drawer
+      </Button>
+      <Button
+        onClick={() =>
           modals.menu({
             title: 'Menu',
             body: (
@@ -158,7 +169,7 @@ export const basic = () => {
   )
 }
 
-export const custom = () => {
+export const Custom = () => {
   const modals = useModals()
 
   return (
@@ -176,13 +187,13 @@ export const custom = () => {
   )
 }
 
-export const customAsComponent = () => {
+export const CustomAsComponent = () => {
   const modals = useModals()
 
   return <Button onClick={() => modals.open(CustomModal)}>Open modal</Button>
 }
 
-export const onClose = () => {
+export const OnClose = () => {
   const modals = useModals()
 
   return (

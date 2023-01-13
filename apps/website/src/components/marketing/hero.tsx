@@ -1,5 +1,9 @@
-import { Container, Flex } from '@chakra-ui/layout'
-import { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
+import {
+  Container,
+  Flex,
+  HTMLChakraProps,
+  ThemingProps,
+} from '@chakra-ui/react'
 import PageTitle from './page-title'
 
 interface HeroProps

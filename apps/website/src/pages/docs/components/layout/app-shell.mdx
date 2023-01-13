@@ -34,11 +34,13 @@ import { theme as baseTheme } from '@saas-ui/react'
 // Your custom theme
 export const theme = extendTheme(
   {
-    global: () => ({
-      'html, body': {
-        height: '100%',
+    styles: {
+      global: {
+        'html, body': {
+          height: '100%',
+        },
       },
-    }),
+    },
   },
   baseTheme
 )

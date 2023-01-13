@@ -3,11 +3,18 @@ import type { AppProps } from 'next/app'
 import { extendTheme } from '@chakra-ui/react'
 import PaletteProvider, { usePalette } from '@/providers/palette'
 import { SaasProvider, baseTheme, theme as saasTheme } from '@saas-ui/react'
+import { theme as glassTheme } from '@saas-ui/theme-glass'
 
 import '@fontsource/inter/variable.css'
 
 interface ThemeProviderProps {
   children: React.ReactNode
+}
+
+const themes: Record<string, any> = {
+  'Chakra UI': baseTheme,
+  'Saas UI': saasTheme,
+  Glass: glassTheme,
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {
@@ -17,7 +24,7 @@ function ThemeProvider({ children }: ThemeProviderProps) {
       {
         colors,
       },
-      options.theme === 'Chakra UI' ? baseTheme : saasTheme
+      themes[options.theme]
     )
   }, [colors, options.theme])
 

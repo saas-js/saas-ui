@@ -7,25 +7,25 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Thu, 27 Jan 2022 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 12 Dec 2022 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/blog.xml" rel="self" type="application/rss+xml"/>
       
-  <item>
-    <guid>https://saas-ui.dev/blog/introduction</guid>
-    <title>Say hello to Saas UI</title>
-    <link>https://saas-ui.dev/blog/introduction</link>
-    <description>I'm proud to introduce you to Saas UI, an advanced component library built on top of Chakra UI.</description>
-    <pubDate>Thu, 27 Jan 2022 00:00:00 GMT</pubDate>
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
   <item>
     <guid>https://saas-ui.dev/blog/introducing-glass-theme-for-chakra-ui</guid>
     <title>Introducing the new Glass theme for Chakra UI</title>
     <link>https://saas-ui.dev/blog/introducing-glass-theme-for-chakra-ui</link>
     <description>Today I'm happy to announce that the new Glass theme for Chakra UI I've been working on is now available for download.</description>
     <pubDate>Mon, 12 Dec 2022 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/blog/introduction</guid>
+    <title>Say hello to Saas UI</title>
+    <link>https://saas-ui.dev/blog/introduction</link>
+    <description>I'm proud to introduce you to Saas UI, an advanced component library built on top of Chakra UI.</description>
+    <pubDate>Thu, 27 Jan 2022 00:00:00 GMT</pubDate>
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>

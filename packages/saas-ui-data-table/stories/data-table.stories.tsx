@@ -160,7 +160,7 @@ export const TableInstanceRef = () => {
         </Button>
       </Stack>
       <DataTable<ExampleData>
-        ref={ref}
+        instanceRef={ref}
         columns={columns}
         data={data}
         isSelectable

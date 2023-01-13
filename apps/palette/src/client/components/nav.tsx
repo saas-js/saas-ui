@@ -1,3 +1,4 @@
+import { Badge, Box, HStack, Text } from '@chakra-ui/react'
 import { Button, IconButton } from '@saas-ui/react'
 
 import { FaTwitter, FaGithub } from 'react-icons/fa'
@@ -5,6 +6,23 @@ import { FaTwitter, FaGithub } from 'react-icons/fa'
 export const Nav = () => {
   return (
     <>
+      <Button as="a" href="https://saas-ui.dev/themes" variant="ghost">
+        <HStack justifyContent="center">
+          <Text>Themes</Text>
+          <Box lineHeight={1.4}>
+            <Badge
+              variant="solid"
+              colorScheme="primary"
+              rounded="full"
+              px="2"
+              fontWeight="medium"
+            >
+              New!
+            </Badge>
+          </Box>
+        </HStack>
+      </Button>
+
       <Button
         as="a"
         href="https://saas-ui.dev/docs/introduction"

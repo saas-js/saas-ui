@@ -1,5 +1,11 @@
 # @saas-ui/sidebar
 
+## 0.7.0
+
+### Minor Changes
+
+- ec868e2: NavItem now supports tooltipProps to customize all tooltip props.
+
 ## 0.6.1
 
 ### Patch Changes

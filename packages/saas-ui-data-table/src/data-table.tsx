@@ -228,7 +228,9 @@ export const DataTableHeader = <Data extends object, TValue>(
 
   let headerProps = {}
 
-  if (isSortable && header.column.getCanSort()) {
+  const enabled = header.column.getCanSort() ? false : isSortable
+
+  if (enabled) {
     headerProps = {
       className: 'saas-data-table__sortable',
       userSelect: 'none',
@@ -249,7 +251,7 @@ export const DataTableHeader = <Data extends object, TValue>(
       {...rest}
     >
       {flexRender(header.column.columnDef.header, header.getContext())}
-      {isSortable && <DataTableSort header={header} />}
+      {enabled && <DataTableSort header={header} />}
     </Th>
   )
 }

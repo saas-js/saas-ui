@@ -1,4 +1,4 @@
-import { Container, HStack, Stack } from '@chakra-ui/layout'
+import { Container, HStack, Stack } from '@chakra-ui/react'
 import * as React from 'react'
 
 import { OverflowMenu, MenuItem, MenuDivider } from '../src'

@@ -1,5 +1,13 @@
 # @saas-ui/modals
 
+## 1.4.3
+
+### Patch Changes
+
+- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+- Updated dependencies [523b5ca]
+  - @saas-ui/forms@1.4.2
+
 ## 1.4.2
 
 ### Patch Changes

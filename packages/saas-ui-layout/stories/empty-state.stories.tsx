@@ -1,4 +1,4 @@
-import { Container, Stack } from '@chakra-ui/layout'
+import { Container, Stack } from '@chakra-ui/react'
 import * as React from 'react'
 
 import { EmailIcon, WarningIcon } from '@chakra-ui/icons'

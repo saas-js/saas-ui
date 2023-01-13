@@ -5,10 +5,15 @@ import {
   PhoneIcon,
   SearchIcon,
 } from '@chakra-ui/icons'
-import { Container, HStack, Stack } from '@chakra-ui/react'
+import {
+  Container,
+  HStack,
+  Stack,
+  Button,
+  IconButton,
+  ButtonGroup,
+} from '@chakra-ui/react'
 import * as React from 'react'
-
-import { Button, IconButton, ButtonGroup } from '../src'
 
 export default {
   title: 'Components/Forms/Button',
@@ -136,29 +141,10 @@ export const WithIcon = () => (
   </Stack>
 )
 
-// export const withReactIcons = () => (
-//   <Stack direction="row" spacing={4} align="center">
-//     <Button leftIcon={<MdBuild />} colorScheme="pink" variant="solid">
-//       Settings
-//     </Button>
-//     <Button rightIcon={<MdCall />} colorScheme="blue" variant="outline">
-//       Call us
-//     </Button>
-//   </Stack>
-// )
-
 export const WithLoading = () => (
   <Stack direction="row" spacing={4} align="center">
     <Button size="lg" isLoading colorScheme="teal">
       Email
-    </Button>
-
-    <Button
-      isLoading
-      colorScheme="blue"
-      // spinner={<BeatLoader size={8} color="white" />}
-    >
-      Click me
     </Button>
 
     <Button
@@ -257,14 +243,3 @@ export const AttachedButtons = () => (
     />
   </ButtonGroup>
 )
-
-// export const socialButton = () => (
-//   <Stack direction="row">
-//     <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
-//       Facebook
-//     </Button>
-//     <Button colorScheme="twitter" leftIcon={<FaTwitter />}>
-//       Twitter
-//     </Button>
-//   </Stack>
-// )

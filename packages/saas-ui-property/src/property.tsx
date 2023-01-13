@@ -1,6 +1,8 @@
 import * as React from 'react'
 
 import {
+  List,
+  ListProps,
   chakra,
   forwardRef,
   useMultiStyleConfig,
@@ -11,11 +13,9 @@ import {
   SystemStyleObject,
   omitThemingProps,
   createStylesContext,
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
-
-import { List, ListProps } from '@saas-ui/list'
 
 const [StylesProvider, useStyles] = createStylesContext('Property')
 

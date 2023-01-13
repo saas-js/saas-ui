@@ -1770,7 +1770,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/close-button@npm:2.0.12, @chakra-ui/close-button@npm:^2.0.12":
+"@chakra-ui/close-button@npm:2.0.12":
   version: 2.0.12
   resolution: "@chakra-ui/close-button@npm:2.0.12"
   dependencies:
@@ -1898,7 +1898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/hooks@npm:2.1.2, @chakra-ui/hooks@npm:^2.1.2":
+"@chakra-ui/hooks@npm:2.1.2":
   version: 2.1.2
   resolution: "@chakra-ui/hooks@npm:2.1.2"
   dependencies:
@@ -1924,27 +1924,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/icon@npm:3.0.13":
-  version: 3.0.13
-  resolution: "@chakra-ui/icon@npm:3.0.13"
+"@chakra-ui/icon@npm:3.0.16":
+  version: 3.0.16
+  resolution: "@chakra-ui/icon@npm:3.0.16"
   dependencies:
-    "@chakra-ui/shared-utils": 2.0.3
+    "@chakra-ui/shared-utils": 2.0.5
   peerDependencies:
     "@chakra-ui/system": ">=2.0.0"
     react: ">=18"
-  checksum: 29bb5a0d037a754ea341887e3b1c0699c5168ed50f5a99bc85ce11ecb11990547a582637acf2520f9ea22c2c4c959e777312491f6864aff6dc45555438bc7d33
+  checksum: c0ac66946fe8950e7daaa2462f00f2f7d4ce41878b9f26451c0c94c75887f4ae49f86883c4d7c2728243e5c182b9530e752ec9817c7672e0f852bde8353b2039
   languageName: node
   linkType: hard
 
-"@chakra-ui/icons@npm:^2.0.12, @chakra-ui/icons@npm:^2.0.13":
-  version: 2.0.13
-  resolution: "@chakra-ui/icons@npm:2.0.13"
+"@chakra-ui/icons@npm:^2.0.12, @chakra-ui/icons@npm:^2.0.13, @chakra-ui/icons@npm:^2.0.16":
+  version: 2.0.17
+  resolution: "@chakra-ui/icons@npm:2.0.17"
   dependencies:
-    "@chakra-ui/icon": 3.0.13
+    "@chakra-ui/icon": 3.0.16
   peerDependencies:
     "@chakra-ui/system": ">=2.0.0"
     react: ">=18"
-  checksum: 91d346004c24533d4dde48f654cb40f4b2a65bd4084a537fe110949d554788b74c80ee3f362150a541cda64fc506d1e3f8d2a152b8c0e48880cfd988c643c522
+  checksum: cb0d6f431d162f7d8d50ee33b887bb64f490109cc077bf176bea17ddca32c926b0caaab1013f05186be52ee42f261ff9d4e7af50744a03d51de356b4470e0ee2
   languageName: node
   linkType: hard
 
@@ -2538,6 +2538,13 @@ __metadata:
   version: 2.0.3
   resolution: "@chakra-ui/shared-utils@npm:2.0.3"
   checksum: 08462ef9c92bdc4587efae654a531318d6d57c3f525da06f58fea71c4d21386eda9802fac7ade5cc1bd8dce86804d2658046506e4d8cd336b246bcb4803fae61
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/shared-utils@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@chakra-ui/shared-utils@npm:2.0.5"
+  checksum: 7274b168bf188d1dc098d1f73a60676c6702454bd4dd9919f9b8447205bc1053b4faab6e38702f33cc25694f18bb598c39777f70b44dba221c078c839f42f2bd
   languageName: node
   linkType: hard
 
@@ -6090,13 +6097,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/banner@workspace:packages/saas-ui-banner"
   dependencies:
-    "@chakra-ui/close-button": ^2.0.12
-    "@chakra-ui/hooks": ^2.1.2
-    "@chakra-ui/icons": ^2.0.12
+    "@chakra-ui/icons": ^2.0.16
     "@chakra-ui/transition": ^2.0.12
     "@chakra-ui/utils": ^2.0.12
   peerDependencies:
-    "@chakra-ui/system": ">=2.1.0"
+    "@chakra-ui/react": ">=2.1.0"
     framer-motion: ">=5.5.0"
     react: ">=18.0.0"
   languageName: unknown
@@ -6198,6 +6203,7 @@ __metadata:
     "@chakra-ui/system": ">=2.1.0"
     framer-motion: ">=5.5.0"
     react: ">=18.0.0"
+    react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
 
@@ -6548,7 +6554,7 @@ __metadata:
     "@chakra-ui/utils": ^2.0.12
     "@saas-ui/list": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=2.1.0"
+    "@chakra-ui/react": ">=2.1.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
@@ -9036,19 +9042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:^8.2.6":
-  version: 8.2.6
-  resolution: "@tanstack/react-table@npm:8.2.6"
-  dependencies:
-    "@tanstack/table-core": 8.2.6
-  peerDependencies:
-    react: ">=16"
-    react-dom: ">=16"
-  checksum: f8e7e8713f3851c9553beacf3ee1e5493b3a6fb6b3f300ef694967ab7c4e118749ea6024393fe85c3bef3949901df8a600a2a6829c36b139a577f3674f86f99d
-  languageName: node
-  linkType: hard
-
-"@tanstack/react-table@npm:^8.7.0":
+"@tanstack/react-table@npm:^8.2.6, @tanstack/react-table@npm:^8.7.0":
   version: 8.7.0
   resolution: "@tanstack/react-table@npm:8.7.0"
   dependencies:
@@ -9057,13 +9051,6 @@ __metadata:
     react: ">=16"
     react-dom: ">=16"
   checksum: 5f739f619dacfd134449bc8cff819d7e1b9549b8c8b20c293f2c786098a53d20fe5755727d8abb6fa56a64583792bbc89d8b1c7cd24ac3497495d2c20bac9e77
-  languageName: node
-  linkType: hard
-
-"@tanstack/table-core@npm:8.2.6":
-  version: 8.2.6
-  resolution: "@tanstack/table-core@npm:8.2.6"
-  checksum: dd0f48ba9bb91eaabb17e5d14d8961d4e17fa75809d9a152b74c1dceb21b0ed5263bcb3df518877246fe5e18a4bbb88ecfebf06d99394a2eeedc3a0592d67d29
   languageName: node
   linkType: hard
 

@@ -1,5 +1,7 @@
 import * as React from 'react'
 import {
+  CloseButton,
+  CloseButtonProps,
   chakra,
   forwardRef,
   omitThemingProps,
@@ -11,12 +13,13 @@ import {
   HTMLChakraProps,
   As,
   createStylesContext,
+  useId,
+  ComponentWithAs,
 } from '@chakra-ui/react'
 import { callAllHandlers, cx, __DEV__ } from '@chakra-ui/utils'
-import { useId } from '@chakra-ui/hooks'
+
 import { createContext } from '@chakra-ui/react-utils'
 
-import { CloseButton, CloseButtonProps } from '@chakra-ui/close-button'
 import { Icon, InfoIcon, WarningIcon, CheckIcon } from '@chakra-ui/icons'
 
 import { AnimatePresence } from 'framer-motion'
@@ -29,7 +32,10 @@ import {
 
 const [StylesProvider, useStyles] = createStylesContext('Banner')
 
-const STATUSES = {
+const STATUSES: Record<
+  string,
+  { icon: ComponentWithAs<'svg'>; colorScheme: string }
+> = {
   info: { icon: InfoIcon, colorScheme: 'blue' },
   warning: { icon: WarningIcon, colorScheme: 'orange' },
   success: { icon: CheckIcon, colorScheme: 'green' },

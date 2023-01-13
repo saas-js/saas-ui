@@ -96,12 +96,9 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
 
         {children}
 
-        <LoginButton
-          type="submit"
-          isLoading={isLoading}
-          width="full"
-          label={submitLabel}
-        />
+        <LoginButton type="submit" isLoading={isLoading} width="full">
+          {submitLabel}
+        </LoginButton>
       </FormLayout>
     </Form>
   )

@@ -6,7 +6,7 @@ import FormLayout from './form-layout'
 import Form from './form'
 import FormLegend from './form'
 import Hotkeys from './hotkeys'
-import List from './list'
+import StructuredList from './list'
 import Loader from './loader'
 import NavGroup from './nav-group'
 import NavItem from './nav-item'
@@ -25,7 +25,7 @@ export default {
   Form,
   FormLegend,
   Hotkeys,
-  List,
+  StructuredList,
   Loader,
   NavGroup,
   NavItem,

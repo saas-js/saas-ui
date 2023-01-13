@@ -1,46 +1,46 @@
 ---
-title: List
+title: StructuredList
 description: A component used to display collections of data in a consistent manner.
 ---
 
-A `List` can be used to list more complex types of data than the standard Chakra UI List component.
+A `StructuredList` can be used to list more complex types of data than the standard Chakra UI StructuredList component.
 
 <ComponentLinks
   github={{ package: 'saas-ui-list' }}
   npm={{ package: '@saas-ui/list' }}
-  theme={{ componentName: 'list' }}
+  theme={{ componentName: 'structured-list' }}
 />
 
 ## Import
 
-- `List`: The wrapper component that handles default composition.
-- `ListHeader`: A title to indicate a group of items.
-- `ListItem`: The list item container.
-- `ListItemIcon`: The list item icon.
-- `ListItemButton`: Component used for clickable items.
-- `ListItemLabel`: Component that displays the item primary and secondary text.
-- `ListItemTertiary`: Extra data displayed next to the item label.
-- `ListItemAction`: The secondary item action.
+- `StructuredList`: The wrapper component that handles default composition.
+- `StructuredListHeader`: A title to indicate a group of items.
+- `StructuredListItem`: The list item container.
+- `StructuredListItemIcon`: The list item icon.
+- `StructuredListItemButton`: Component used for clickable items.
+- `StructuredListItemLabel`: Component that displays the item primary and secondary text.
+- `StructuredListItemTertiary`: Extra data displayed next to the item label.
+- `StructuredListItemAction`: The secondary item action.
 
 ```ts
 import {
-  List,
-  ListHeader,
-  ListItem,
-  ListItemIcon,
-  ListItemButton,
-  ListItemLabel,
-  ListItemTertiary,
-  ListItemAction,
+  StructuredList,
+  StructuredListHeader,
+  StructuredListItem,
+  StructuredListItemIcon,
+  StructuredListItemButton,
+  StructuredListItemLabel,
+  StructuredListItemTertiary,
+  StructuredListItemAction,
 } from '@saas-ui/react'
 ```
 
 ## Usage
 
-### Basic List
+### Basic StructuredList
 
 ```jsx
-<List
+<StructuredList
   items={[
     {
       primary: 'Elliot Alderson',
@@ -59,7 +59,7 @@ import {
 ### Clickable with action
 
 ```jsx
-<List
+<StructuredList
   items={[
     {
       href: '#',
@@ -86,30 +86,30 @@ import {
 ```jsx
 <Card width="100%" maxW="320px">
   <Box as="nav">
-    <List>
-      <ListItem as="a" href="#home">
-        <ListItemIcon as={FiHome} />
-        <ListItemLabel primary="Home" />
-      </ListItem>
-      <ListItem as="a" href="#inbox">
-        <ListItemIcon as={FiInbox} />
-        <ListItemLabel primary="Inbox" />
-        <ListItemTertiary>
+    <StructuredList>
+      <StructuredListItem as="a" href="#home">
+        <StructuredListItemIcon as={FiHome} />
+        <StructuredListItemLabel primary="Home" />
+      </StructuredListItem>
+      <StructuredListItem as="a" href="#inbox">
+        <StructuredListItemIcon as={FiInbox} />
+        <StructuredListItemLabel primary="Inbox" />
+        <StructuredListItemTertiary>
           <Badge borderRadius="full">20</Badge>
-        </ListItemTertiary>
-      </ListItem>
-    </List>
+        </StructuredListItemTertiary>
+      </StructuredListItem>
+    </StructuredList>
   </Box>
   <Divider />
   <Box as="nav">
-    <List>
-      <ListItem as="a" href="#spam">
-        <ListItemLabel>Spam</ListItemLabel>
-      </ListItem>
-      <ListItem as="a" href="#trash">
-        <ListItemLabel>Trash</ListItemLabel>
-      </ListItem>
-    </List>
+    <StructuredList>
+      <StructuredListItem as="a" href="#spam">
+        <StructuredListItemLabel>Spam</StructuredListItemLabel>
+      </StructuredListItem>
+      <StructuredListItem as="a" href="#trash">
+        <StructuredListItemLabel>Trash</StructuredListItemLabel>
+      </StructuredListItem>
+    </StructuredList>
   </Box>
 </Card>
 ```
@@ -122,30 +122,30 @@ function NestedNav() {
   return (
     <Card width="100%" maxW="320px">
       <Box as="nav">
-        <List>
-          <ListItem as="a" href="#home">
-            <ListItemIcon as={FiHome} />
-            <ListItemLabel primary="Home" />
-          </ListItem>
-          <ListItem as="a" href="#inbox" {...getToggleProps()}>
-            <ListItemIcon as={FiInbox} />
-            <ListItemLabel primary="Inbox" />
-            <ListItemTertiary>
+        <StructuredList>
+          <StructuredListItem as="a" href="#home">
+            <StructuredListItemIcon as={FiHome} />
+            <StructuredListItemLabel primary="Home" />
+          </StructuredListItem>
+          <StructuredListItem as="a" href="#inbox" {...getToggleProps()}>
+            <StructuredListItemIcon as={FiInbox} />
+            <StructuredListItemLabel primary="Inbox" />
+            <StructuredListItemTertiary>
               <Badge borderRadius="full">20</Badge>
               {isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
-            </ListItemTertiary>
-          </ListItem>
+            </StructuredListItemTertiary>
+          </StructuredListItem>
           <Collapse {...getCollapseProps()}>
-            <List>
-              <ListItem as="a" href="#spam">
-                <ListItemLabel ps={12}>Spam</ListItemLabel>
-              </ListItem>
-              <ListItem as="a" href="#trash">
-                <ListItemLabel ps={12}>Trash</ListItemLabel>
-              </ListItem>
-            </List>
+            <StructuredList>
+              <StructuredListItem as="a" href="#spam">
+                <StructuredListItemLabel ps={12}>Spam</StructuredListItemLabel>
+              </StructuredListItem>
+              <StructuredListItem as="a" href="#trash">
+                <StructuredListItemLabel ps={12}>Trash</StructuredListItemLabel>
+              </StructuredListItem>
+            </StructuredList>
           </Collapse>
-        </List>
+        </StructuredList>
       </Box>
     </Card>
   )
@@ -154,22 +154,22 @@ function NestedNav() {
 
 ## Props
 
-### List Props
+### StructuredList Props
 
-<PropsTable of="List" />
+<PropsTable of="StructuredList" />
 
-### ListItem Props
+### StructuredListItem Props
 
-<PropsTable of="ListItem" />
+<PropsTable of="StructuredListItem" />
 
-### ListItemIcon Props
+### StructuredListItemIcon Props
 
-<PropsTable of="ListItemIcon" />
+<PropsTable of="StructuredListItemIcon" />
 
-### ListItemLabel Props
+### StructuredListItemLabel Props
 
-<PropsTable of="ListItemLabel" />
+<PropsTable of="StructuredListItemLabel" />
 
-### ListItemTertiary Props
+### StructuredListItemTertiary Props
 
-<PropsTable of="ListItemTertiary" />
+<PropsTable of="StructuredListItemTertiary" />

@@ -1,6 +1,6 @@
 import { anatomy, mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
-const parts = anatomy('list').parts(
+const parts = anatomy('structured-list').parts(
   'list',
   'item',
   'button',

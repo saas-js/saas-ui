@@ -30,21 +30,21 @@ import {
 } from 'react-icons/fi'
 
 import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemLabel,
-  ListItemTertiary,
-  ListItemAction,
-  ListHeader,
+  StructuredList,
+  StructuredListItem,
+  StructuredListItemButton,
+  StructuredListItemIcon,
+  StructuredListItemLabel,
+  StructuredListItemTertiary,
+  StructuredListItemAction,
+  StructuredListHeader,
 } from '../src'
 
 import { Collapse, useCollapse } from '@saas-ui/collapse'
 
 export default {
-  title: 'Components/Data display/List',
-  component: List,
+  title: 'Components/Data display/StructuredList',
+  component: StructuredList,
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -54,7 +54,7 @@ export default {
   ],
 } as Meta
 
-const Template: Story = (args) => <List {...args} />
+const Template: Story = (args) => <StructuredList {...args} />
 
 const users = [
   {
@@ -97,33 +97,33 @@ export const Composed = () => {
   return (
     <Box width="100%" maxW="320px">
       <Box as="nav" aria-label="Main navigation">
-        <List>
-          <ListItem as="a" href="#home">
-            <ListItemIcon as={FiHome} />
-            <ListItemLabel>Home</ListItemLabel>
-          </ListItem>
-          <ListItem as="a" href="#inbox">
-            <ListItemIcon as={FiInbox} />
-            <ListItemLabel>Inbox</ListItemLabel>
-            <ListItemTertiary>
+        <StructuredList>
+          <StructuredListItem as="a" href="#home">
+            <StructuredListItemIcon as={FiHome} />
+            <StructuredListItemLabel>Home</StructuredListItemLabel>
+          </StructuredListItem>
+          <StructuredListItem as="a" href="#inbox">
+            <StructuredListItemIcon as={FiInbox} />
+            <StructuredListItemLabel>Inbox</StructuredListItemLabel>
+            <StructuredListItemTertiary>
               <Badge borderRadius="full">20</Badge>
-            </ListItemTertiary>
-            <ListItemAction></ListItemAction>
-          </ListItem>
-        </List>
+            </StructuredListItemTertiary>
+            <StructuredListItemAction></StructuredListItemAction>
+          </StructuredListItem>
+        </StructuredList>
       </Box>
       <Divider />
       <Box as="nav" aria-label="Tag navigation">
-        <List>
-          <ListItem as="a" href="#spam">
-            <ListItemLabel>Spam</ListItemLabel>
-            <ListItemAction></ListItemAction>
-          </ListItem>
-          <ListItem as="a" href="#trash">
-            <ListItemLabel>Trash</ListItemLabel>
-            <ListItemAction></ListItemAction>
-          </ListItem>
-        </List>
+        <StructuredList>
+          <StructuredListItem as="a" href="#spam">
+            <StructuredListItemLabel>Spam</StructuredListItemLabel>
+            <StructuredListItemAction></StructuredListItemAction>
+          </StructuredListItem>
+          <StructuredListItem as="a" href="#trash">
+            <StructuredListItemLabel>Trash</StructuredListItemLabel>
+            <StructuredListItemAction></StructuredListItemAction>
+          </StructuredListItem>
+        </StructuredList>
       </Box>
     </Box>
   )
@@ -135,30 +135,34 @@ export const Nested = () => {
   return (
     <Box width="100%" maxW="320px">
       <Box as="nav">
-        <List>
-          <ListItem as="a" href="#home">
-            <ListItemIcon as={FiHome} />
-            <ListItemLabel>Home</ListItemLabel>
-          </ListItem>
-          <ListItem onClick={onToggle}>
-            <ListItemIcon as={FiInbox} />
-            <ListItemLabel>Inbox</ListItemLabel>
-            <ListItemTertiary>
+        <StructuredList>
+          <StructuredListItem as="a" href="#home">
+            <StructuredListItemIcon as={FiHome} />
+            <StructuredListItemLabel>Home</StructuredListItemLabel>
+          </StructuredListItem>
+          <StructuredListItem onClick={onToggle}>
+            <StructuredListItemIcon as={FiInbox} />
+            <StructuredListItemLabel>Inbox</StructuredListItemLabel>
+            <StructuredListItemTertiary>
               <Badge borderRadius="full">20</Badge>
               {isOpen ? <FiChevronDown /> : <FiChevronRight />}
-            </ListItemTertiary>
-          </ListItem>
+            </StructuredListItemTertiary>
+          </StructuredListItem>
           <Collapse in={isOpen}>
-            <List>
-              <ListItem as="a" href="#inbox/all">
-                <ListItemLabel ps="12">All messages</ListItemLabel>
-              </ListItem>
-              <ListItem as="a" href="#inbox/me">
-                <ListItemLabel ps="12">My messages</ListItemLabel>
-              </ListItem>
-            </List>
+            <StructuredList>
+              <StructuredListItem as="a" href="#inbox/all">
+                <StructuredListItemLabel ps="12">
+                  All messages
+                </StructuredListItemLabel>
+              </StructuredListItem>
+              <StructuredListItem as="a" href="#inbox/me">
+                <StructuredListItemLabel ps="12">
+                  My messages
+                </StructuredListItemLabel>
+              </StructuredListItem>
+            </StructuredList>
           </Collapse>
-        </List>
+        </StructuredList>
       </Box>
     </Box>
   )
@@ -174,9 +178,9 @@ export const CustomStyles = () => {
   return (
     <Box width="100%" maxW="320px">
       <Box as="nav" p="2" role="navigation" aria-label="Main navigation">
-        <List p="0">
-          <ListItem p="2px">
-            <ListItemButton
+        <StructuredList p="0">
+          <StructuredListItem p="2px">
+            <StructuredListItemButton
               py="1"
               px="4"
               borderRadius="md"
@@ -184,26 +188,28 @@ export const CustomStyles = () => {
               bg={transparentize(bg, 0.3)(theme)}
               _hover={{ bg: transparentize(bg, 0.3)(theme) }}
             >
-              <ListItemIcon size="16px" as={FiHome} />
-              <ListItemLabel fontWeight="bold">Home</ListItemLabel>
-            </ListItemButton>
-          </ListItem>
-          <ListItem p="2px">
-            <ListItemButton py="1" px="4" borderRadius="md">
-              <ListItemIcon size="16px" as={FiInbox} />
-              <ListItemLabel>Inbox</ListItemLabel>
-              <ListItemTertiary>
+              <StructuredListItemIcon size="16px" as={FiHome} />
+              <StructuredListItemLabel fontWeight="bold">
+                Home
+              </StructuredListItemLabel>
+            </StructuredListItemButton>
+          </StructuredListItem>
+          <StructuredListItem p="2px">
+            <StructuredListItemButton py="1" px="4" borderRadius="md">
+              <StructuredListItemIcon size="16px" as={FiInbox} />
+              <StructuredListItemLabel>Inbox</StructuredListItemLabel>
+              <StructuredListItemTertiary>
                 <Badge borderRadius="full">20</Badge>
-              </ListItemTertiary>
-            </ListItemButton>
-          </ListItem>
-        </List>
+              </StructuredListItemTertiary>
+            </StructuredListItemButton>
+          </StructuredListItem>
+        </StructuredList>
       </Box>
       <Box as="nav" p="2" role="navigation" aria-label="Teams navigation">
-        <List p="0">
-          <ListItem>
-            <ListHeader
-              as={ListItemButton}
+        <StructuredList p="0">
+          <StructuredListItem>
+            <StructuredListHeader
+              as={StructuredListItemButton}
               borderRadius="md"
               py="1"
               action={isOpen ? <FiChevronDown /> : <FiChevronRight />}
@@ -211,37 +217,37 @@ export const CustomStyles = () => {
               level={1}
             >
               Teams
-            </ListHeader>
-          </ListItem>
-          <ListItem>
-            <List flex="1" p="0">
+            </StructuredListHeader>
+          </StructuredListItem>
+          <StructuredListItem>
+            <StructuredList flex="1" p="0">
               <Collapse {...getCollapseProps()}>
-                <ListItem p="2px">
-                  <ListItemButton
+                <StructuredListItem p="2px">
+                  <StructuredListItemButton
                     py="1"
                     px="4"
                     borderRadius="md"
                     as="a"
                     href="#sales"
                   >
-                    <ListItemLabel>Sales</ListItemLabel>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem p="2px">
-                  <ListItemButton
+                    <StructuredListItemLabel>Sales</StructuredListItemLabel>
+                  </StructuredListItemButton>
+                </StructuredListItem>
+                <StructuredListItem p="2px">
+                  <StructuredListItemButton
                     py="1"
                     px="4"
                     borderRadius="md"
                     as="a"
                     href="#support"
                   >
-                    <ListItemLabel>Support</ListItemLabel>
-                  </ListItemButton>
-                </ListItem>
+                    <StructuredListItemLabel>Support</StructuredListItemLabel>
+                  </StructuredListItemButton>
+                </StructuredListItem>
               </Collapse>
-            </List>
-          </ListItem>
-        </List>
+            </StructuredList>
+          </StructuredListItem>
+        </StructuredList>
       </Box>
     </Box>
   )
@@ -250,17 +256,17 @@ export const CustomStyles = () => {
 export const WithSwitch = () => {
   return (
     <Box width="100%" maxW="320px">
-      <List>
-        <ListHeader>Notifications</ListHeader>
-        <ListItem action={<Switch aria-label="Email" />}>
-          <ListItemIcon as={FiMail} />
-          <ListItemLabel>Email</ListItemLabel>
-        </ListItem>
-        <ListItem action={<Switch aria-label="Chat" />}>
-          <ListItemIcon as={FiMessageSquare} />
-          <ListItemLabel>Chat</ListItemLabel>
-        </ListItem>
-      </List>
+      <StructuredList>
+        <StructuredListHeader>Notifications</StructuredListHeader>
+        <StructuredListItem action={<Switch aria-label="Email" />}>
+          <StructuredListItemIcon as={FiMail} />
+          <StructuredListItemLabel>Email</StructuredListItemLabel>
+        </StructuredListItem>
+        <StructuredListItem action={<Switch aria-label="Chat" />}>
+          <StructuredListItemIcon as={FiMessageSquare} />
+          <StructuredListItemLabel>Chat</StructuredListItemLabel>
+        </StructuredListItem>
+      </StructuredList>
     </Box>
   )
 }

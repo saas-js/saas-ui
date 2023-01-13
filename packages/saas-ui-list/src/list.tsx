@@ -21,68 +21,70 @@ import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
 import { Icon } from '@chakra-ui/icon'
 
-const [StylesProvider, useStyles] = createStylesContext('List')
+const [StylesProvider, useStyles] = createStylesContext('StructuredList')
 
-interface ListOptions {
+interface StructuredListOptions {
   /**
    * An array of list items
    */
-  items?: Array<ListItemProps>
+  items?: Array<StructuredListItemProps>
 }
 
-export interface ListProps
-  extends ListOptions,
+export interface StructuredListProps
+  extends StructuredListOptions,
     HTMLChakraProps<'ul'>,
-    ThemingProps<'List'> {}
+    ThemingProps<'StructuredList'> {}
 
 /**
  * React component to render lists of data
  */
-export const List = forwardRef<ListProps, 'ul'>((props, ref) => {
-  const { items, children, ...rest } = props
+export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
+  (props, ref) => {
+    const { items, children, ...rest } = props
 
-  const styles = useMultiStyleConfig('List', rest)
+    const styles = useMultiStyleConfig('StructuredList', rest)
 
-  const listProps = omitThemingProps(rest)
+    const listProps = omitThemingProps(rest)
 
-  let content
-  if (items) {
-    content = items.map((item: any, i: number) => {
-      return <ListItem {...item} key={item.id || i} />
-    })
-  } else {
-    content = children
+    let content
+    if (items) {
+      content = items.map((item: any, i: number) => {
+        return <StructuredListItem {...item} key={item.id || i} />
+      })
+    } else {
+      content = children
+    }
+
+    const listStyles: SystemStyleObject = {
+      py: 2,
+      position: 'relative',
+      ...styles.list,
+    }
+
+    return (
+      <StylesProvider value={styles}>
+        <chakra.ul
+          ref={ref}
+          __css={listStyles}
+          {...listProps}
+          className={cx('saas-list', props.className)}
+        >
+          {content}
+        </chakra.ul>
+      </StylesProvider>
+    )
   }
+)
 
-  const listStyles: SystemStyleObject = {
-    py: 2,
-    position: 'relative',
-    ...styles.list,
-  }
-
-  return (
-    <StylesProvider value={styles}>
-      <chakra.ul
-        ref={ref}
-        __css={listStyles}
-        {...listProps}
-        className={cx('saas-list', props.className)}
-      >
-        {content}
-      </chakra.ul>
-    </StylesProvider>
-  )
-})
-
-List.defaultProps = {
+StructuredList.defaultProps = {
   variant: 'structured-list',
 }
 
 if (__DEV__) {
-  List.displayName = 'List'
+  StructuredList.displayName = 'StructuredList'
 }
 
-export interface ListHeaderProps extends HTMLChakraProps<'li'> {
+export interface StructuredListHeaderProps extends HTMLChakraProps<'li'> {
   /**
    * Action rendered next to the title
    */
@@ -93,7 +95,9 @@ export interface ListHeaderProps extends HTMLChakraProps<'li'> {
   level?: number
 }
 
-export const ListHeader: React.FC<ListHeaderProps> = (props) => {
+export const StructuredListHeader: React.FC<StructuredListHeaderProps> = (
+  props
+) => {
   const {
     children,
     onClick,
@@ -132,10 +136,10 @@ export const ListHeader: React.FC<ListHeaderProps> = (props) => {
 }
 
 if (__DEV__) {
-  ListHeader.displayName = 'ListHeader'
+  StructuredListHeader.displayName = 'StructuredListHeader'
 }
 
-export interface ListItemProps extends HTMLChakraProps<'li'> {
+export interface StructuredListItemProps extends HTMLChakraProps<'li'> {
   icon?: any
   primary?: React.ReactNode
   secondary?: React.ReactNode
@@ -146,81 +150,87 @@ export interface ListItemProps extends HTMLChakraProps<'li'> {
 }
 
 /**
- * Adding `onClick` or `href` props will wrap the content in a `ListButton`
+ * Adding `onClick` or `href` props will wrap the content in a `StructuredListButton`
  */
-export const ListItem = forwardRef<ListItemProps, 'li'>((props, ref) => {
-  const {
-    icon,
-    primary,
-    secondary,
-    tertiary,
-    action,
-    onClick,
-    href,
-    as,
-    children,
-    ...rest
-  } = props
+export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
+  (props, ref) => {
+    const {
+      icon,
+      primary,
+      secondary,
+      tertiary,
+      action,
+      onClick,
+      href,
+      as,
+      children,
+      ...rest
+    } = props
 
-  const styles = useStyles()
+    const styles = useStyles()
 
-  const isButton = onClick || href
+    const isButton = onClick || href
 
-  const ContentWrapper = isButton ? ListItemButton : React.Fragment
-  const isComposed = !!(icon || primary || secondary || tertiary || action)
-  const disablePadding = !isComposed || isButton
+    const ContentWrapper = isButton ? StructuredListItemButton : React.Fragment
+    const isComposed = !!(icon || primary || secondary || tertiary || action)
+    const disablePadding = !isComposed || isButton
 
-  const itemStyles: SystemStyleObject = {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    fontSize: 'md',
-    py: disablePadding ? 0 : 2,
-    px: disablePadding ? 0 : 4,
-    ...styles.item,
-  }
+    const itemStyles: SystemStyleObject = {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      fontSize: 'md',
+      py: disablePadding ? 0 : 2,
+      px: disablePadding ? 0 : 4,
+      ...styles.item,
+    }
 
-  const wrapperProps = isButton
-    ? {
-        paddingEnd: action ? 16 : undefined,
-        onClick,
-        href,
-        as,
-      }
-    : {}
+    const wrapperProps = isButton
+      ? {
+          paddingEnd: action ? 16 : undefined,
+          onClick,
+          href,
+          as,
+        }
+      : {}
 
-  const content =
-    isButton || isComposed ? (
-      <ContentWrapper {...wrapperProps}>
-        {icon && <ListItemIcon>{icon}</ListItemIcon>}
-        {(primary || secondary) && (
-          <ListItemLabel primary={primary} secondary={secondary} />
+    const content =
+      isButton || isComposed ? (
+        <ContentWrapper {...wrapperProps}>
+          {icon && <StructuredListItemIcon>{icon}</StructuredListItemIcon>}
+          {(primary || secondary) && (
+            <StructuredListItemLabel primary={primary} secondary={secondary} />
+          )}
+          {tertiary && (
+            <StructuredListItemTertiary>{tertiary}</StructuredListItemTertiary>
+          )}
+          {children}
+        </ContentWrapper>
+      ) : (
+        children
+      )
+
+    return (
+      <chakra.li
+        ref={ref}
+        __css={itemStyles}
+        {...rest}
+        className={cx('saas-list__item', props.className)}
+      >
+        {content}
+        {action && (
+          <StructuredListItemAction>{action}</StructuredListItemAction>
         )}
-        {tertiary && <ListItemTertiary>{tertiary}</ListItemTertiary>}
-        {children}
-      </ContentWrapper>
-    ) : (
-      children
+      </chakra.li>
     )
-
-  return (
-    <chakra.li
-      ref={ref}
-      __css={itemStyles}
-      {...rest}
-      className={cx('saas-list__item', props.className)}
-    >
-      {content}
-      {action && <ListItemAction>{action}</ListItemAction>}
-    </chakra.li>
-  )
-})
+  }
+)
 
 if (__DEV__) {
-  ListItem.displayName = 'ListItem'
+  StructuredListItem.displayName = 'StructuredListItem'
 }
 
-export interface ListItemButtonProps extends HTMLChakraProps<'div'> {
+export interface StructuredListItemButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
   as?: As
 }
@@ -229,49 +239,50 @@ export interface ListItemButtonProps extends HTMLChakraProps<'div'> {
  * Behaves like a button by default.
  * Use the 'as' prop to render a link.
  *
- * <ListItemButton as="a" href="/page" />
+ * <StructuredListItemButton as="a" href="/page" />
  *
  * or
  *
- * <ListItemButton as={Link} href={{path: '/page}} />
+ * <StructuredListItemButton as={Link} href={{path: '/page}} />
  */
-export const ListItemButton = forwardRef<ListItemButtonProps, 'div'>(
-  (props, ref) => {
-    const { children, ...rest } = props
-    const styles = useStyles()
+export const StructuredListItemButton = forwardRef<
+  StructuredListItemButtonProps,
+  'div'
+>((props, ref) => {
+  const { children, ...rest } = props
+  const styles = useStyles()
 
-    const buttonStyles: SystemStyleObject = {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      flex: 1,
-      cursor: 'pointer',
-      userSelect: 'none',
-      py: 2,
-      px: 4,
-      ...styles.button,
-    }
-
-    return (
-      <chakra.div
-        ref={ref}
-        __css={buttonStyles}
-        role="button"
-        tabIndex={0}
-        {...rest}
-        className={cx('saas-list__item-button', props.className)}
-      >
-        {children}
-      </chakra.div>
-    )
+  const buttonStyles: SystemStyleObject = {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    cursor: 'pointer',
+    userSelect: 'none',
+    py: 2,
+    px: 4,
+    ...styles.button,
   }
-)
+
+  return (
+    <chakra.div
+      ref={ref}
+      __css={buttonStyles}
+      role="button"
+      tabIndex={0}
+      {...rest}
+      className={cx('saas-list__item-button', props.className)}
+    >
+      {children}
+    </chakra.div>
+  )
+})
 
 if (__DEV__) {
-  ListItemButton.displayName = 'ListItemButton'
+  StructuredListItemButton.displayName = 'StructuredListItemButton'
 }
 
-export interface ListItemIconProps extends HTMLChakraProps<'div'> {
+export interface StructuredListItemIconProps extends HTMLChakraProps<'div'> {
   /**
    * The icon size
    * @default 5
@@ -283,7 +294,9 @@ export interface ListItemIconProps extends HTMLChakraProps<'div'> {
   spacing?: SystemProps['margin']
 }
 
-export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
+export const StructuredListItemIcon: React.FC<StructuredListItemIconProps> = (
+  props
+) => {
   const { children, spacing, size = 5, as, ...rest } = props
   const styles = useStyles()
 
@@ -315,15 +328,17 @@ export const ListItemIcon: React.FC<ListItemIconProps> = (props) => {
 }
 
 if (__DEV__) {
-  ListItemIcon.displayName = 'ListItemIcon'
+  StructuredListItemIcon.displayName = 'StructuredListItemIcon'
 }
 
-export interface ListItemLabelProps extends HTMLChakraProps<'div'> {
+export interface StructuredListItemLabelProps extends HTMLChakraProps<'div'> {
   primary?: React.ReactNode
   secondary?: React.ReactNode
 }
 
-export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
+export const StructuredListItemLabel: React.FC<StructuredListItemLabelProps> = (
+  props
+) => {
   const { primary, secondary, children, ...rest } = props
   const styles = useStyles()
 
@@ -367,10 +382,11 @@ export const ListItemLabel: React.FC<ListItemLabelProps> = (props) => {
 }
 
 if (__DEV__) {
-  ListItemLabel.displayName = 'ListItemLabel'
+  StructuredListItemLabel.displayName = 'StructuredListItemLabel'
 }
 
-export interface ListItemTertiaryProps extends HTMLChakraProps<'div'> {
+export interface StructuredListItemTertiaryProps
+  extends HTMLChakraProps<'div'> {
   /**
    * Spacing between items
    * @default 2
@@ -381,11 +397,9 @@ export interface ListItemTertiaryProps extends HTMLChakraProps<'div'> {
 /**
  * Tertiary item position between the item label and action
  */
-export const ListItemTertiary: React.FC<ListItemTertiaryProps> = ({
-  children,
-  spacing = 2,
-  ...rest
-}) => {
+export const StructuredListItemTertiary: React.FC<
+  StructuredListItemTertiaryProps
+> = ({ children, spacing = 2, ...rest }) => {
   const styles = useStyles()
 
   const tertiaryStyles: SystemStyleObject = {
@@ -406,13 +420,13 @@ export const ListItemTertiary: React.FC<ListItemTertiaryProps> = ({
 }
 
 if (__DEV__) {
-  ListItemTertiary.displayName = 'ListItemTertiary'
+  StructuredListItemTertiary.displayName = 'StructuredListItemTertiary'
 }
 
 /**
  * Data list action component, behaves like a button group
  */
-export const ListItemAction: React.FC<ButtonGroupProps> = ({
+export const StructuredListItemAction: React.FC<ButtonGroupProps> = ({
   children,
   ...rest
 }) => {
@@ -433,5 +447,5 @@ export const ListItemAction: React.FC<ButtonGroupProps> = ({
 }
 
 if (__DEV__) {
-  ListItemAction.displayName = 'ListItemAction'
+  StructuredListItemAction.displayName = 'StructuredListItemAction'
 }

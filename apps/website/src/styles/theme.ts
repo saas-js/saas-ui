@@ -38,21 +38,21 @@ const styles = {
 
 const textStyles = {
   pageTitle: {
-    fontSize: { base: '2xl', sm: '4xl', md: '6xl' },
+    fontSize: { base: '3xl', sm: '5xl', md: '7xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',
   },
-  h2: {
-    fontSize: ['36px', '48px'],
-    fontWeight: '900',
-    lineHeight: '110%',
-    letterSpacing: '-1%',
-  },
-  subtitle: {
-    fontSize: { base: 'xl', sm: '2xl' },
-    fontWeight: 'normal',
-  },
+  // h2: {
+  //   fontSize: ['36px', '48px'],
+  //   fontWeight: '900',
+  //   lineHeight: '110%',
+  //   letterSpacing: '-1%',
+  // },
+  // subtitle: {
+  //   fontSize: { base: 'xl', sm: '2xl' },
+  //   fontWeight: 'normal',
+  // },
 }
 
 const breakpoints = {

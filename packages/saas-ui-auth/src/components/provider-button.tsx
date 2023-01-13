@@ -1,9 +1,7 @@
 import * as React from 'react'
 
-import { useTheme } from '@chakra-ui/react'
+import { Button, ButtonProps, useTheme } from '@chakra-ui/react'
 import { __DEV__ } from '@chakra-ui/utils'
-
-import { Button, ButtonProps } from '@saas-ui/button'
 
 export const ProviderButton: React.FC<ButtonProps> = (props) => {
   const { children, ...rest } = props

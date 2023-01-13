@@ -31,7 +31,7 @@ import {
   NextButton,
 } from '../src/step-form'
 
-import { ButtonGroup } from '@saas-ui/button'
+import { ButtonGroup } from '@chakra-ui/react'
 
 import { PropertyList, Property } from '@saas-ui/property'
 

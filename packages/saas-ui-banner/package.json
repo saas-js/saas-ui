@@ -59,8 +59,7 @@
     "@chakra-ui/hooks": "^2.1.2",
     "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/transition": "^2.0.12",
-    "@chakra-ui/utils": "^2.0.12",
-    "@saas-ui/button": "workspace:*"
+    "@chakra-ui/utils": "^2.0.12"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.1.0",

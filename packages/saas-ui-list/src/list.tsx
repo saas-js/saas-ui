@@ -1,6 +1,8 @@
 import * as React from 'react'
 
 import {
+  ButtonGroup,
+  ButtonGroupProps,
   chakra,
   forwardRef,
   HTMLChakraProps,
@@ -12,14 +14,10 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
   createStylesContext,
-  ResponsiveValue,
-} from '@chakra-ui/system'
+  Icon,
+} from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
-
-import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
-
-import { Icon } from '@chakra-ui/icon'
 
 const [StylesProvider, useStyles] = createStylesContext('StructuredList')
 

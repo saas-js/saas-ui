@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { Stack, Container, MenuItem, ModalProps } from '@chakra-ui/react'
+import { Button, Stack, Container, MenuItem } from '@chakra-ui/react'
 import { ModalsProvider, useModals } from '../src/provider'
 
 import { MenuDialogList } from '../src/menu'
 
-import { Button } from '@saas-ui/button'
 import { Field, FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
 
@@ -48,7 +47,7 @@ export const Basic = () => {
           const id = modals.open({
             title: 'My Modal',
             body: <>My modal</>,
-            footer: <Button onClick={() => modals.close(id)} label="Close" />,
+            footer: <Button onClick={() => modals.close(id)}>Close</Button>,
           })
         }}
       >
@@ -71,7 +70,7 @@ export const Basic = () => {
             body: 'Are you sure you want to delete this user?',
             confirmProps: {
               colorScheme: 'red',
-              label: 'Delete',
+              children: 'Delete',
             },
           })
         }
@@ -91,7 +90,7 @@ export const Basic = () => {
                       body: 'Are you sure you want to delete this user?',
                       confirmProps: {
                         colorScheme: 'red',
-                        label: 'Delete',
+                        children: 'Delete',
                       },
                     })
                   }
@@ -104,10 +103,7 @@ export const Basic = () => {
                       title: 'Subdrawer',
                       body: (
                         <>
-                          <Button
-                            onClick={() => modals.closeAll()}
-                            label="Close all"
-                          >
+                          <Button onClick={() => modals.closeAll()}>
                             Close all
                           </Button>
                         </>

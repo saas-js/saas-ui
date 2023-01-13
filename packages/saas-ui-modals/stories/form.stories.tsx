@@ -1,7 +1,12 @@
 import * as React from 'react'
-import { Stack, Container, useDisclosure, ModalFooter } from '@chakra-ui/react'
+import {
+  Stack,
+  Button,
+  Container,
+  useDisclosure,
+  ModalFooter,
+} from '@chakra-ui/react'
 
-import { Button } from '@saas-ui/button'
 import { FormLayout, Field, SubmitButton } from '@saas-ui/forms'
 
 import { FormDialog } from '../src/form'
@@ -63,7 +68,7 @@ export const basic = () => {
 export const focusFirstInput = () => {
   const disclosure = useDisclosure()
 
-  const initialRef = React.useRef<HTMLInputElement>()
+  const initialRef = React.useRef<HTMLInputElement>(null)
 
   return (
     <Stack alignItems="center">
@@ -98,11 +103,11 @@ export const focusFirstInput = () => {
 export const customFooter = () => {
   const disclosure = useDisclosure()
 
-  const initialRef = React.useRef<HTMLInputElement>()
+  const initialRef = React.useRef<HTMLInputElement>(null)
 
   const footer = (
     <ModalFooter>
-      <SubmitButton label="Save post" />
+      <SubmitButton>Save post</SubmitButton>
     </ModalFooter>
   )
 

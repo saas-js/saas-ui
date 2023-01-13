@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import {
+  Button,
+  ButtonProps,
   Box,
   ButtonGroup,
   Container,
@@ -17,7 +19,6 @@ import {
   usePrev,
   useNext,
 } from '../src'
-import { Button, ButtonProps } from '@saas-ui/button'
 
 export default {
   title: 'Components/Navigation/Stepper',
@@ -211,19 +212,13 @@ export const UnControlled = () => {
         <StepperCompleted py="4">Completed</StepperCompleted>
       </Stepper>
       <ButtonGroup width="100%">
-        <Button
-          label="Back"
-          onClick={back}
-          isDisabled={step === 0}
-          variant="ghost"
-        />
+        <Button onClick={back} isDisabled={step === 0} variant="ghost">
+          Back
+        </Button>
         <Spacer />
-        <Button
-          label="Next"
-          onClick={next}
-          isDisabled={step >= 3}
-          colorScheme="primary"
-        />
+        <Button onClick={next} isDisabled={step >= 3} colorScheme="primary">
+          Next
+        </Button>
       </ButtonGroup>
     </>
   )

@@ -8,14 +8,11 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   AlertDialogProps,
-} from '@chakra-ui/react'
-
-import {
   ButtonGroup,
   ButtonGroupProps,
   Button,
   ButtonProps,
-} from '@saas-ui/button'
+} from '@chakra-ui/react'
 
 export interface ConfirmDialogProps
   extends Omit<AlertDialogProps, 'leastDestructiveRef'> {

@@ -1687,7 +1687,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/button@npm:2.0.12, @chakra-ui/button@npm:^2.0.12":
+"@chakra-ui/button@npm:2.0.12":
   version: 2.0.12
   resolution: "@chakra-ui/button@npm:2.0.12"
   dependencies:
@@ -1924,7 +1924,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/icon@npm:3.0.13, @chakra-ui/icon@npm:^3.0.12":
+"@chakra-ui/icon@npm:3.0.13":
   version: 3.0.13
   resolution: "@chakra-ui/icon@npm:3.0.13"
   dependencies:
@@ -6074,7 +6074,6 @@ __metadata:
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
     "@saas-ui/layout": "workspace:*"
@@ -6096,7 +6095,6 @@ __metadata:
     "@chakra-ui/icons": ^2.0.12
     "@chakra-ui/transition": ^2.0.12
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
   peerDependencies:
     "@chakra-ui/system": ">=2.1.0"
     framer-motion: ">=5.5.0"
@@ -6115,26 +6113,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/button@workspace:*, @saas-ui/button@workspace:packages/saas-ui-button":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/button@workspace:packages/saas-ui-button"
-  dependencies:
-    "@chakra-ui/button": ^2.0.12
-    "@chakra-ui/utils": ^2.0.12
-  peerDependencies:
-    "@chakra-ui/system": ">=2.1.0"
-    react: ">=18.0.0"
-  languageName: unknown
-  linkType: soft
-
 "@saas-ui/card@workspace:*, @saas-ui/card@workspace:packages/saas-ui-card":
   version: 0.0.0-use.local
   resolution: "@saas-ui/card@workspace:packages/saas-ui-card"
   dependencies:
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=2.1.0"
+    "@chakra-ui/react": ">=2.1.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
@@ -6290,7 +6275,6 @@ __metadata:
     "@chakra-ui/react-utils": ^2.0.9
     "@chakra-ui/utils": ^2.0.12
     "@hookform/resolvers": ^2.9.10
-    "@saas-ui/button": "workspace:*"
     "@saas-ui/input-right-button": "workspace:*"
     "@saas-ui/number-input": "workspace:*"
     "@saas-ui/password-input": "workspace:*"
@@ -6338,7 +6322,6 @@ __metadata:
   resolution: "@saas-ui/input-right-button@workspace:packages/saas-ui-input-right-button"
   dependencies:
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
     react-icons: ^4.6.0
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
@@ -6365,11 +6348,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/list@workspace:packages/saas-ui-list"
   dependencies:
-    "@chakra-ui/icon": ^3.0.12
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
   peerDependencies:
-    "@chakra-ui/system": ">=2.1.0"
+    "@chakra-ui/react": ">=2.1.0"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft
@@ -6380,7 +6361,6 @@ __metadata:
   dependencies:
     "@chakra-ui/icons": ^2.0.12
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
     "@saas-ui/provider": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=2.1.0"
@@ -6395,7 +6375,6 @@ __metadata:
   resolution: "@saas-ui/modals@workspace:packages/saas-ui-modals"
   dependencies:
     "@chakra-ui/utils": ^2.0.12
-    "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/menu": "workspace:*"
   peerDependencies:
@@ -6637,7 +6616,6 @@ __metadata:
     "@saas-ui/app-shell": "workspace:*"
     "@saas-ui/auth": "workspace:*"
     "@saas-ui/banner": "workspace:*"
-    "@saas-ui/button": "workspace:*"
     "@saas-ui/card": "workspace:*"
     "@saas-ui/collapse": "workspace:*"
     "@saas-ui/data-table": "workspace:*"

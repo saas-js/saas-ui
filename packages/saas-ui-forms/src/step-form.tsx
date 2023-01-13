@@ -2,7 +2,13 @@ import * as React from 'react'
 
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 
-import { chakra, HTMLChakraProps, ThemingProps } from '@chakra-ui/system'
+import {
+  chakra,
+  Button,
+  ButtonProps,
+  HTMLChakraProps,
+  ThemingProps,
+} from '@chakra-ui/react'
 
 import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
 
@@ -15,7 +21,6 @@ import {
   StepperContainer,
   StepperProps,
 } from '@saas-ui/stepper'
-import { Button, ButtonProps } from '@saas-ui/button'
 
 import { Form } from './form'
 import { SubmitButton } from './submit-button'
@@ -166,8 +171,9 @@ if (__DEV__) {
   PrevButton.displayName = 'PrevButton'
 }
 
-export interface NextButtonProps extends ButtonProps {
+export interface NextButtonProps extends Omit<ButtonProps, 'children'> {
   submitLabel?: string
+  label?: string
 }
 
 export const NextButton: React.FC<NextButtonProps> = (props) => {

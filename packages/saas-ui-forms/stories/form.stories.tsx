@@ -1,4 +1,4 @@
-import { Container, Stack, HStack, Text } from '@chakra-ui/react'
+import { Container, Stack, Button } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -15,8 +15,6 @@ import {
   SubmitButton,
   FormProps,
 } from '../src'
-
-import { Button } from '@saas-ui/button'
 
 import { onSubmit } from './helpers'
 

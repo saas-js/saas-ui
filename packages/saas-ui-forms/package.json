@@ -93,7 +93,6 @@
     "@chakra-ui/react-utils": "^2.0.9",
     "@chakra-ui/utils": "^2.0.12",
     "@hookform/resolvers": "^2.9.10",
-    "@saas-ui/button": "workspace:*",
     "@saas-ui/input-right-button": "workspace:*",
     "@saas-ui/number-input": "workspace:*",
     "@saas-ui/password-input": "workspace:*",

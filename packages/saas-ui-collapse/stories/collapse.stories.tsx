@@ -3,9 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { Collapse, useCollapse } from '../src'
 
-import { Container, Box } from '@chakra-ui/react'
-
-import { Button } from '@saas-ui/button'
+import { Container, Box, Button } from '@chakra-ui/react'
 
 export default {
   title: 'Hooks/useCollapse',

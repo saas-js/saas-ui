@@ -2,6 +2,8 @@ import * as React from 'react'
 import {
   chakra,
   forwardRef,
+  ButtonGroup,
+  ButtonGroupProps,
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps,
@@ -10,11 +12,9 @@ import {
   ThemeTypings,
   useMultiStyleConfig,
   createStylesContext,
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
-
-import { ButtonGroup, ButtonGroupProps } from '@saas-ui/button'
 
 const [StylesProvider, useStyles] = createStylesContext('Card')
 

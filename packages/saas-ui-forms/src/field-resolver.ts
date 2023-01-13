@@ -20,7 +20,7 @@ const mapFields = (schema: ObjectSchema): FieldProps[] =>
     return {
       ...field,
       name,
-      label: label || title, // json schema compatibility
+      label: label || title || name, // json schema compatibility
     }
   })
 

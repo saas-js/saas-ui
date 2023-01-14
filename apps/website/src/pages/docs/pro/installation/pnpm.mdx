@@ -17,7 +17,11 @@ In your project root folder you can run this and enter your Github username as u
 pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
 ```
 
+Now run `npm i @saas-ui/pro` to install the Pro components.
+
 #### Manual & CI configuration.
+
+The following steps are required to deploy your project or run it on CI.
 
 <Info>
   PNPM expects auth to be base64 encoded, so make sure `SAAS_UI_TOKEN` is
@@ -28,11 +32,14 @@ pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
 echo -n 'GithubUsername:licenseKey' | base64
 ```
 
-Add your auth token to `~/.profile` or your CI configuration.
+Add your auth token to shell profile `~/.bash_profile` and add it to environment variables of your deployment or CI.
 
 ```bash
 export SAAS_UI_TOKEN="base64 encoded token"
 ```
+
+If you configure this on your local machine, make sure the restart your terminal
+or run `source ~/.bash_profile`, to make sure the token is loaded.
 
 <Info>
   If you're having troubles generating a working base64 encoded string, try

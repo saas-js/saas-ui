@@ -1,5 +1,18 @@
 # palette
 
+## 1.3.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/palette@1.3.0
+  - @saas-ui/react@1.8.0
+  - @saas-ui/theme-glass@0.3.0
+
 ## 1.2.4
 
 ### Patch Changes

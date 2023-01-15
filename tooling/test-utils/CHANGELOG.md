@@ -1,5 +1,16 @@
 # @saas-ui/test-utils
 
+## 2.3.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/react@1.8.0
+
 ## 2.2.4
 
 ### Patch Changes

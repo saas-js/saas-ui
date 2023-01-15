@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./../dist/ajv/index.js",
-      "import": "./../dist/ajv/index.modern.js"
+      "import": "./../dist/ajv/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -14,7 +14,7 @@
   },
   "source": "./src/index.ts",
   "main": "../dist/ajv/index.js",
-  "module": "../dist/ajv/index.modern.js",
+  "module": "../dist/ajv/index.modern.mjs",
   "types": "../dist/ajv/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

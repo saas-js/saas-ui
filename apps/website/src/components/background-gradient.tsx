@@ -1,7 +1,5 @@
 import { Box, useTheme, useColorModeValue } from '@chakra-ui/react'
 
-import { MovingGradients } from '@/components/motion/moving-gradients'
-
 export const BackgroundGradient = ({ animate, hideOverlay, ...props }: any) => {
   const theme = useTheme()
   const colors = [
@@ -11,7 +9,7 @@ export const BackgroundGradient = ({ animate, hideOverlay, ...props }: any) => {
     theme.colors.teal['500'],
   ]
 
-  let gradient = animate && <MovingGradients colors={colors} animate={true} />
+  let gradient
 
   let fallbackBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 60%), radial-gradient(at bottom left, var(--chakra-colors-cyan-500) 0%, transparent 50%),
         radial-gradient(at top right, ${colors[3]}, transparent), radial-gradient(at bottom right, ${colors[0]} 0%, transparent 50%);`

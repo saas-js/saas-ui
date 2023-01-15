@@ -6,14 +6,14 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.js"
+      "import": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -55,14 +55,14 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/react-utils": "^2.0.1",
-    "@chakra-ui/styled-system": "^2.4.0",
-    "@chakra-ui/theme-tools": "^2.0.2",
-    "@chakra-ui/utils": "^2.0.4",
+    "@chakra-ui/react-utils": "^2.0.11",
+    "@chakra-ui/styled-system": "^2.5.1",
+    "@chakra-ui/theme-tools": "^2.0.16",
+    "@chakra-ui/utils": "^2.0.14",
     "cmdk": "^0.1.20"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.1.0",
+    "@chakra-ui/react": ">=2.4.6",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },

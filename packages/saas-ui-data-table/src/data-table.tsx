@@ -279,7 +279,7 @@ export const DataTableCell = <Data extends object, TValue>(
 
   if (meta.href) {
     const href = getResult(meta.href, row.original)
-    return <Link href={href}>{getValue()}</Link>
+    return <Link href={href}>{getValue<string>()}</Link>
   }
   return getValue() || null
 }

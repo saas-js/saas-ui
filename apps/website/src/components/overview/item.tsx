@@ -44,10 +44,10 @@ import {
   Stepper,
   StepperStep,
   EmptyState,
-  List,
-  ListItem,
-  ListItemLabel,
-  ListItemIcon,
+  StructuredList,
+  StructuredListItem,
+  StructuredListItemLabel,
+  StructuredListItemIcon,
   Property,
   PropertyList,
   Persona,
@@ -270,19 +270,19 @@ const componentIllustrations = {
     />
   ),
   list: (
-    <List width="80%">
-      <ListItem>
-        <ListItemIcon>
+    <StructuredList width="80%">
+      <StructuredListItem>
+        <StructuredListItemIcon>
           <Avatar src="/showcase-avatar.jpg" size="sm" />
-        </ListItemIcon>
-        <ListItemLabel>
+        </StructuredListItemIcon>
+        <StructuredListItemLabel>
           <Text noOfLines={1}>Renata - Love your product.</Text>
           <Text noOfLines={2} color="muted" fontSize="xs">
             We just launched our first product build with Saas UI.
           </Text>
-        </ListItemLabel>
-      </ListItem>
-    </List>
+        </StructuredListItemLabel>
+      </StructuredListItem>
+    </StructuredList>
   ),
   property: (
     <PropertyList fontSize="sm">

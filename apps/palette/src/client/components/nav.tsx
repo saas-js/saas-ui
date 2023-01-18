@@ -1,5 +1,4 @@
-import { Badge, Box, HStack, Text } from '@chakra-ui/react'
-import { Button, IconButton } from '@saas-ui/react'
+import { Badge, Box, HStack, Text, Button, IconButton } from '@chakra-ui/react'
 
 import { FaTwitter, FaGithub } from 'react-icons/fa'
 

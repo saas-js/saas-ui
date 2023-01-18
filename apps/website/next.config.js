@@ -9,10 +9,6 @@ const webpack = require('webpack')
 let config = {
   optimizeFonts: true,
   reactStrictMode: true,
-  typescript: {
-    // turn of untill v2
-    ignoreBuildErrors: true,
-  },
   experimental: {
     externalDir: true,
   },

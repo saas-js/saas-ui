@@ -22,7 +22,6 @@ import IconsList from './icons-list'
 import { LinkCard } from '../link-card'
 import { QuickLink } from '../quick-link'
 import { FiArrowRight } from 'react-icons/fi'
-import { VStack } from '@chakra-ui/react'
 
 const PropsTable = dynamic(() => import('../props-table'))
 

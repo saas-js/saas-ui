@@ -12,6 +12,7 @@ export default function Page({ blog }: { blog: Blog }) {
 
   return (
     <Layout frontMatter={blog.frontMatter}>
+      {/* @ts-ignore */}
       <Component components={MDXComponents} />
     </Layout>
   )

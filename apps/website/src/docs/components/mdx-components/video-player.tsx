@@ -5,4 +5,4 @@ import React from 'react'
 //   <ReactPlayer {...props} />
 // )
 
-export const VideoPlayer = () => {}
+export const VideoPlayer = () => null

@@ -8,6 +8,7 @@ import {
   LinkBox,
   LinkOverlay,
   useColorModeValue,
+  Button,
 } from '@chakra-ui/react'
 import {
   Banner,
@@ -15,7 +16,6 @@ import {
   BannerContent,
   BannerDescription,
   BannerTitle,
-  Button,
 } from '@saas-ui/react'
 import { FiArrowRight } from 'react-icons/fi'
 import { FallInPlace } from '../motion/fall-in-place'

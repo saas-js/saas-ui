@@ -10,6 +10,7 @@ import {
   Link,
   useColorMode,
   Stack,
+  Button,
 } from '@chakra-ui/react'
 
 import { ColorModeToggle } from './color-mode-toggle'
@@ -21,7 +22,6 @@ import {
   BannerActions,
   BannerContent,
   BannerDescription,
-  Button,
 } from '@saas-ui/react'
 import { Nav } from './nav'
 

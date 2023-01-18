@@ -7,9 +7,23 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 09 Dec 2022 10:45:13 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 08 Jan 2023 13:42:43 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/01-08-2023</guid>
+    <title>Jan 8, 2023</title>
+    <link>https://saas-ui.dev/changelog/01-08-2023</link>
+    <description>
+`@saas-ui/react@1.7.4`
+
+- Fixed default value for Switch fields.
+- Support disable sorting on indiv...</description>
+    <pubDate>Sun, 08 Jan 2023 13:42:43 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/12-09-2022</guid>
     <title>Dec 9, 2022</title>

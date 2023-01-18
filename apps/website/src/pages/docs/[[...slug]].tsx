@@ -13,6 +13,7 @@ export default function Page({ doc }: { doc: Doc }) {
 
   return (
     <Layout frontMatter={doc.frontMatter}>
+      {/* @ts-ignore */}
       <Component components={MDXComponents} />
     </Layout>
   )

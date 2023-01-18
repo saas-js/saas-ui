@@ -40,7 +40,7 @@ import Section from '../marketing/section-wrapper'
 import { Float } from '../motion/float'
 import { useHotkeys } from '@saas-ui/hotkeys'
 import { FaGithub } from 'react-icons/fa'
-import { DataTable, Column } from '@saas-ui/data-table'
+import { DataTable } from '@saas-ui/data-table'
 import { useScrollSpy } from '@/hooks/use-scrollspy'
 import { StepperCompleted } from '@saas-ui/react'
 
@@ -81,24 +81,27 @@ export const ComponentShowcase = () => {
     fontSize: 'md',
   }
 
-  const columns: Column<Data>[] = [
+  const columns: any[] = [
     {
-      accessor: 'amount',
+      accessorKey: 'amount',
       width: '10%',
-      Header: 'Amount',
+      header: 'Amount',
     },
     {
-      accessor: 'name',
-      Header: 'Name',
+      accessorKey: 'name',
+      header: 'Name',
     },
     {
       id: 'actions',
       width: '10%',
-      // disableSortBy: true,
-      Header: '',
-      Cell: () => {
+      disableSortBy: true,
+      header: '',
+      cell: () => {
         const menuStyles = {
-          bg: useColorModeValue('whiteAlpha.600', 'blackAlpha.500'),
+          bg: 'whiteAlpha.600',
+          _dark: {
+            bg: 'blackAlpha.500',
+          },
           borderWidth: '1px',
           backdropFilter: 'blur(5px)',
           fontSize: 'md',
@@ -151,7 +154,8 @@ export const ComponentShowcase = () => {
             zIndex="2"
           >
             <Card {...cardStyles}>
-              <DataTable<Data>
+              <DataTable
+                /* @ts-ignore */
                 columns={columns}
                 data={data}
                 isSelectable

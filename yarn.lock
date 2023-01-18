@@ -1648,7 +1648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/anatomy@npm:2.1.2, @chakra-ui/anatomy@npm:^2.1.1":
+"@chakra-ui/anatomy@npm:2.1.2, @chakra-ui/anatomy@npm:^2.1.0, @chakra-ui/anatomy@npm:^2.1.1":
   version: 2.1.2
   resolution: "@chakra-ui/anatomy@npm:2.1.2"
   checksum: 87519672ae028ef3af44ecc7d87fa18dc7ec8d46958a3490cb312ebc6b857bc227e908ffe0b12eb1e2a11c860656c38c3160ebc20bf1e9522b0ae0ef7b31e28d
@@ -1765,7 +1765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/clickable@npm:2.0.13, @chakra-ui/clickable@npm:^2.0.12":
+"@chakra-ui/clickable@npm:2.0.13":
   version: 2.0.13
   resolution: "@chakra-ui/clickable@npm:2.0.13"
   dependencies:
@@ -1774,6 +1774,18 @@ __metadata:
   peerDependencies:
     react: ">=18"
   checksum: 96c1f46f2dff1cfbd8add006d0395b235aaeb4e7609c343c06172fdffd8626a2081ce5e8bf97ee63c24e351829e907911f0c208059e8b2c9d4844083c1f9d054
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/clickable@npm:^2.0.11":
+  version: 2.0.14
+  resolution: "@chakra-ui/clickable@npm:2.0.14"
+  dependencies:
+    "@chakra-ui/react-use-merge-refs": 2.0.7
+    "@chakra-ui/shared-utils": 2.0.5
+  peerDependencies:
+    react: ">=18"
+  checksum: bbb3314de60720102a664a64fdb3c898f4c2185beaf5547e3aef59dceca721e1f409605a208327331a4d06306f8985ece8e387df2de704947b6b9f9c269300df
   languageName: node
   linkType: hard
 
@@ -1933,7 +1945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/icons@npm:^2.0.16":
+"@chakra-ui/icons@npm:^2.0.13, @chakra-ui/icons@npm:^2.0.16":
   version: 2.0.17
   resolution: "@chakra-ui/icons@npm:2.0.17"
   dependencies:
@@ -2447,7 +2459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react-utils@npm:2.0.12, @chakra-ui/react-utils@npm:^2.0.11":
+"@chakra-ui/react-utils@npm:2.0.12, @chakra-ui/react-utils@npm:^2.0.11, @chakra-ui/react-utils@npm:^2.0.9":
   version: 2.0.12
   resolution: "@chakra-ui/react-utils@npm:2.0.12"
   dependencies:
@@ -2613,7 +2625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/styled-system@npm:2.5.2, @chakra-ui/styled-system@npm:^2.5.1":
+"@chakra-ui/styled-system@npm:2.5.2, @chakra-ui/styled-system@npm:^2.3.5, @chakra-ui/styled-system@npm:^2.4.0, @chakra-ui/styled-system@npm:^2.5.1":
   version: 2.5.2
   resolution: "@chakra-ui/styled-system@npm:2.5.2"
   dependencies:
@@ -2638,7 +2650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:2.4.0, @chakra-ui/system@npm:^2.3.8":
+"@chakra-ui/system@npm:2.4.0, @chakra-ui/system@npm:^2.3.4, @chakra-ui/system@npm:^2.3.8":
   version: 2.4.0
   resolution: "@chakra-ui/system@npm:2.4.0"
   dependencies:
@@ -2716,7 +2728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/theme-tools@npm:2.0.17, @chakra-ui/theme-tools@npm:^2.0.16":
+"@chakra-ui/theme-tools@npm:2.0.17, @chakra-ui/theme-tools@npm:^2.0.13, @chakra-ui/theme-tools@npm:^2.0.14, @chakra-ui/theme-tools@npm:^2.0.16":
   version: 2.0.17
   resolution: "@chakra-ui/theme-tools@npm:2.0.17"
   dependencies:
@@ -2808,7 +2820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/utils@npm:2.0.15, @chakra-ui/utils@npm:^2.0.14":
+"@chakra-ui/utils@npm:2.0.15, @chakra-ui/utils@npm:^2.0.12, @chakra-ui/utils@npm:^2.0.14":
   version: 2.0.15
   resolution: "@chakra-ui/utils@npm:2.0.15"
   dependencies:
@@ -3511,6 +3523,13 @@ __metadata:
   version: 0.15.9
   resolution: "@esbuild/android-arm@npm:0.15.9"
   conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-loong64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "@esbuild/linux-loong64@npm:0.14.54"
+  conditions: os=linux & cpu=loong64
   languageName: node
   linkType: hard
 
@@ -6094,7 +6113,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/charts@workspace:packages/pro/saas-ui/charts"
   dependencies:
-    "@chakra-ui/styled-system": ^2.5.1
+    "@chakra-ui/styled-system": ^2.4.0
     prop-types: ^15.8.1
     recharts: ^2.1.16
     tsup: ^6.5.0
@@ -6172,9 +6191,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker-legacy@workspace:packages/pro/saas-ui/date-picker-legacy"
   dependencies:
-    "@chakra-ui/icons": ^2.0.16
-    "@chakra-ui/react-utils": ^2.0.11
-    "@chakra-ui/utils": ^2.0.14
+    "@chakra-ui/icons": ^2.0.13
+    "@chakra-ui/react-utils": ^2.0.9
+    "@chakra-ui/utils": ^2.0.12
     "@datepicker-react/hooks": ^2.8.4
     date-fns: ^2.29.3
     tsup: ^6.5.0
@@ -6183,7 +6202,7 @@ __metadata:
     "@chakra-ui/system": ">=2"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=1.8.0"
+    "@saas-ui/react": ">=1"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -6224,11 +6243,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/features@workspace:packages/pro/saas-ui/features"
   dependencies:
-    tsup: ^6.5.0
-    zustand: ^3.7.2
+    tsup: 6.2.1
+    zustand: ^4.1.4
   peerDependencies:
     "@chakra-ui/react": ">=2"
-    "@saas-ui/react": ">=1.8.0"
+    "@saas-ui/react": ">=1"
     framer-motion: ">=5.5.0"
     react: ">=18"
   languageName: unknown
@@ -6392,19 +6411,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/onboarding@workspace:packages/pro/saas-ui/onboarding"
   dependencies:
-    "@chakra-ui/anatomy": ^2.1.1
-    "@chakra-ui/react-utils": ^2.0.11
-    "@chakra-ui/styled-system": ^2.5.1
-    "@chakra-ui/system": ^2.3.8
-    "@chakra-ui/theme-tools": ^2.0.16
-    "@chakra-ui/utils": ^2.0.14
-    "@saas-ui/react-utils": ^1.2.0
+    "@chakra-ui/anatomy": ^2.1.0
+    "@chakra-ui/react-utils": ^2.0.9
+    "@chakra-ui/styled-system": ^2.4.0
+    "@chakra-ui/system": ^2.3.4
+    "@chakra-ui/theme-tools": ^2.0.14
+    "@chakra-ui/utils": ^2.0.12
+    "@saas-ui/react-utils": ^1.1.2
     tsup: ^6.5.0
   peerDependencies:
     "@chakra-ui/react": ">=2.1"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=1.8.0"
+    "@saas-ui/react": ">=1.2.0"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -6415,14 +6434,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/paddle@workspace:packages/pro/saas-ui/paddle"
   dependencies:
-    "@chakra-ui/utils": ^2.0.14
+    "@chakra-ui/utils": ^2.0.12
     "@saas-ui/pro": "workspace:*"
     tsup: ^6.5.0
   peerDependencies:
     "@chakra-ui/react": ">=2"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=1.8.0"
+    "@saas-ui/react": ">=1"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -6476,22 +6495,45 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/pro-theme-glass@workspace:packages/pro/saas-ui/pro-theme-glass":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/pro-theme-glass@workspace:packages/pro/saas-ui/pro-theme-glass"
+  dependencies:
+    "@chakra-ui/anatomy": ^2.1.0
+    "@chakra-ui/styled-system": ^2.3.5
+    "@chakra-ui/theme-tools": ^2.0.13
+    "@saas-ui/pro": "workspace:*"
+    "@saas-ui/theme-glass": ^0.1.1
+    react-icons: ^4.7.1
+    tsup: ^6.5.0
+  peerDependencies:
+    "@chakra-ui/react": ">=2.1.0"
+    "@chakra-ui/system": ">=2.1.0"
+    "@emotion/react": ">=11.0.0"
+    "@emotion/styled": ">=11.0.0"
+    "@saas-ui/react": ">=1.7.0"
+    framer-motion: ">=6"
+    react: ">=18"
+    react-dom: ">=18"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui/pro@*, @saas-ui/pro@workspace:*, @saas-ui/pro@workspace:packages/pro/saas-ui/pro":
   version: 0.0.0-use.local
   resolution: "@saas-ui/pro@workspace:packages/pro/saas-ui/pro"
   dependencies:
-    "@chakra-ui/anatomy": ^2.1.1
-    "@chakra-ui/clickable": ^2.0.12
-    "@chakra-ui/react-utils": ^2.0.11
-    "@chakra-ui/styled-system": ^2.5.1
-    "@chakra-ui/system": ^2.3.8
-    "@chakra-ui/theme-tools": ^2.0.16
-    "@chakra-ui/utils": ^2.0.14
+    "@chakra-ui/anatomy": ^2.1.0
+    "@chakra-ui/clickable": ^2.0.11
+    "@chakra-ui/react-utils": ^2.0.9
+    "@chakra-ui/styled-system": ^2.4.0
+    "@chakra-ui/system": ^2.3.4
+    "@chakra-ui/theme-tools": ^2.0.14
+    "@chakra-ui/utils": ^2.0.12
     "@react-hookz/web": ^15.1.0
     "@saas-ui/onboarding": "workspace:*"
-    "@saas-ui/react-utils": ^1.2.0
+    "@saas-ui/react-utils": ^1.1.2
     "@saas-ui/router": "workspace:*"
-    "@saas-ui/theme": ^1.7.0
+    "@saas-ui/theme": ^1.6.1
     "@tanstack/react-table": ^8.7.0
     date-fns: ^2.29.3
     polished: ^4.2.2
@@ -6501,7 +6543,7 @@ __metadata:
     "@chakra-ui/react": ">=2"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=1.8.0"
+    "@saas-ui/react": ">=1"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -6566,7 +6608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react-utils@^1.2.0, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
+"@saas-ui/react-utils@^1.1.2, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react-utils@workspace:packages/saas-ui-react-utils"
   peerDependencies:
@@ -6748,6 +6790,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/theme-glass@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@saas-ui/theme-glass@npm:0.1.1"
+  dependencies:
+    "@chakra-ui/anatomy": ^2.1.0
+    "@chakra-ui/styled-system": ^2.3.5
+    "@chakra-ui/theme-tools": ^2.0.13
+  peerDependencies:
+    "@chakra-ui/react": ">=2.1.0"
+    "@chakra-ui/system": ">=2.1.0"
+    react: ">=18.0.0"
+  checksum: 93ee59c94a8180f9d1b895b9c97151e3a5a7282caa90fa434d246500402f45f5bd38b59e01f734c431d4530ae6bdf96563829e3245ce1abd0e35876a77e54d5f
+  languageName: node
+  linkType: hard
+
 "@saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
@@ -6763,7 +6820,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@^1.7.0, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@^1.6.1, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   dependencies:
@@ -11999,7 +12056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bundle-require@npm:^3.1.2":
+"bundle-require@npm:^3.0.2, bundle-require@npm:^3.1.2":
   version: 3.1.2
   resolution: "bundle-require@npm:3.1.2"
   dependencies:
@@ -14998,10 +15055,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-android-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-android-64@npm:0.14.54"
+  conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-android-64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-android-64@npm:0.15.9"
   conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-android-arm64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-android-arm64@npm:0.14.54"
+  conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -15012,10 +15083,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-darwin-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-darwin-64@npm:0.14.54"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-darwin-64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-darwin-64@npm:0.15.9"
   conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-darwin-arm64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-darwin-arm64@npm:0.14.54"
+  conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -15026,10 +15111,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-freebsd-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-freebsd-64@npm:0.14.54"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-freebsd-64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-freebsd-64@npm:0.15.9"
   conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-freebsd-arm64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-freebsd-arm64@npm:0.14.54"
+  conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -15040,10 +15139,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-32@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-32@npm:0.14.54"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-32@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-linux-32@npm:0.15.9"
   conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-64@npm:0.14.54"
+  conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
@@ -15054,10 +15167,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-arm64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-arm64@npm:0.14.54"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-arm64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-linux-arm64@npm:0.15.9"
   conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-arm@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-arm@npm:0.14.54"
+  conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
@@ -15068,10 +15195,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-mips64le@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-mips64le@npm:0.14.54"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-mips64le@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-linux-mips64le@npm:0.15.9"
   conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-ppc64le@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-ppc64le@npm:0.14.54"
+  conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
@@ -15082,10 +15223,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-riscv64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-riscv64@npm:0.14.54"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-riscv64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-linux-riscv64@npm:0.15.9"
   conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-s390x@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-linux-s390x@npm:0.14.54"
+  conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
 
@@ -15096,10 +15251,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-netbsd-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-netbsd-64@npm:0.14.54"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-netbsd-64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-netbsd-64@npm:0.15.9"
   conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-openbsd-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-openbsd-64@npm:0.14.54"
+  conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
 
@@ -15110,10 +15279,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-sunos-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-sunos-64@npm:0.14.54"
+  conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-sunos-64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-sunos-64@npm:0.15.9"
   conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-windows-32@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-windows-32@npm:0.14.54"
+  conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
@@ -15124,10 +15307,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-windows-64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-windows-64@npm:0.14.54"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-windows-64@npm:0.15.9":
   version: 0.15.9
   resolution: "esbuild-windows-64@npm:0.15.9"
   conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-windows-arm64@npm:0.14.54":
+  version: 0.14.54
+  resolution: "esbuild-windows-arm64@npm:0.14.54"
+  conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -15212,6 +15409,80 @@ __metadata:
   bin:
     esbuild: bin/esbuild
   checksum: 33da8cc0c7bd03f1acfafd51812638fd75ae01f95db3737dbc4d94a9f9e9c234df2ffc76c0fa7147f2466c342b7085f835edc93b3a3dac84aaa1cf46ed80b980
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.14.25":
+  version: 0.14.54
+  resolution: "esbuild@npm:0.14.54"
+  dependencies:
+    "@esbuild/linux-loong64": 0.14.54
+    esbuild-android-64: 0.14.54
+    esbuild-android-arm64: 0.14.54
+    esbuild-darwin-64: 0.14.54
+    esbuild-darwin-arm64: 0.14.54
+    esbuild-freebsd-64: 0.14.54
+    esbuild-freebsd-arm64: 0.14.54
+    esbuild-linux-32: 0.14.54
+    esbuild-linux-64: 0.14.54
+    esbuild-linux-arm: 0.14.54
+    esbuild-linux-arm64: 0.14.54
+    esbuild-linux-mips64le: 0.14.54
+    esbuild-linux-ppc64le: 0.14.54
+    esbuild-linux-riscv64: 0.14.54
+    esbuild-linux-s390x: 0.14.54
+    esbuild-netbsd-64: 0.14.54
+    esbuild-openbsd-64: 0.14.54
+    esbuild-sunos-64: 0.14.54
+    esbuild-windows-32: 0.14.54
+    esbuild-windows-64: 0.14.54
+    esbuild-windows-arm64: 0.14.54
+  dependenciesMeta:
+    "@esbuild/linux-loong64":
+      optional: true
+    esbuild-android-64:
+      optional: true
+    esbuild-android-arm64:
+      optional: true
+    esbuild-darwin-64:
+      optional: true
+    esbuild-darwin-arm64:
+      optional: true
+    esbuild-freebsd-64:
+      optional: true
+    esbuild-freebsd-arm64:
+      optional: true
+    esbuild-linux-32:
+      optional: true
+    esbuild-linux-64:
+      optional: true
+    esbuild-linux-arm:
+      optional: true
+    esbuild-linux-arm64:
+      optional: true
+    esbuild-linux-mips64le:
+      optional: true
+    esbuild-linux-ppc64le:
+      optional: true
+    esbuild-linux-riscv64:
+      optional: true
+    esbuild-linux-s390x:
+      optional: true
+    esbuild-netbsd-64:
+      optional: true
+    esbuild-openbsd-64:
+      optional: true
+    esbuild-sunos-64:
+      optional: true
+    esbuild-windows-32:
+      optional: true
+    esbuild-windows-64:
+      optional: true
+    esbuild-windows-arm64:
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: 49e360b1185c797f5ca3a7f5f0a75121494d97ddf691f65ed1796e6257d318f928342a97f559bb8eced6a90cf604dd22db4a30e0dbbf15edd9dbf22459b639af
   languageName: node
   linkType: hard
 
@@ -26467,6 +26738,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup@npm:^2.74.1":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
+  languageName: node
+  linkType: hard
+
 "rollup@npm:^3.2.5":
   version: 3.3.0
   resolution: "rollup@npm:3.3.0"
@@ -26559,7 +26844,7 @@ __metadata:
     "@chakra-ui/react": ">=2"
     "@chakra-ui/system": ">=2.0.0"
     "@saas-ui/pro": "workspace:*"
-    "@saas-ui/react": ">=1.8.0"
+    "@saas-ui/react": ">=1"
     framer-motion: ">=5.5.0"
     jest: ">=27.0.0"
     react: ">=18"
@@ -28791,6 +29076,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsup@npm:6.2.1":
+  version: 6.2.1
+  resolution: "tsup@npm:6.2.1"
+  dependencies:
+    bundle-require: ^3.0.2
+    cac: ^6.7.12
+    chokidar: ^3.5.1
+    debug: ^4.3.1
+    esbuild: ^0.14.25
+    execa: ^5.0.0
+    globby: ^11.0.3
+    joycon: ^3.0.1
+    postcss-load-config: ^3.0.1
+    resolve-from: ^5.0.0
+    rollup: ^2.74.1
+    source-map: 0.8.0-beta.0
+    sucrase: ^3.20.3
+    tree-kill: ^1.2.2
+  peerDependencies:
+    "@swc/core": ^1
+    postcss: ^8.4.12
+    typescript: ^4.1.0
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    postcss:
+      optional: true
+    typescript:
+      optional: true
+  bin:
+    tsup: dist/cli-default.js
+    tsup-node: dist/cli-node.js
+  checksum: 349ed42d98d4905dac14d21855cc881347383af4aecda9240178a17e2579ec51efe0ffd9dbef584819940e5215ee486bf997414729a4ff2cd3a07dfe0dca66c6
+  languageName: node
+  linkType: hard
+
 "tsup@npm:^6.5.0":
   version: 6.5.0
   resolution: "tsup@npm:6.5.0"
@@ -30878,15 +31199,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:^3.7.2":
-  version: 3.7.2
-  resolution: "zustand@npm:3.7.2"
+"zustand@npm:^4.1.4":
+  version: 4.3.2
+  resolution: "zustand@npm:4.3.2"
+  dependencies:
+    use-sync-external-store: 1.2.0
   peerDependencies:
+    immer: ">=9.0"
     react: ">=16.8"
   peerDependenciesMeta:
+    immer:
+      optional: true
     react:
       optional: true
-  checksum: 18f025b1b666a311121d3855303ff58e6a21fd107920ca474307e86984c13338d6c4cfa5cdf13382a9e0f76821f2554a12d4d200a98a66b58637e729f149797b
+  checksum: fc443abf5bc9deac0d4e375847e7914e44c7ffc9f7f09b60e466cb9bbbcf5a46706bf2f9c8b9e6e6c9a1c5aea0bd6123cbf9fbcd39788ae27d8494d505969ae8
   languageName: node
   linkType: hard
 

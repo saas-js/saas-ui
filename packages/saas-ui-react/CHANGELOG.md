@@ -1,5 +1,44 @@
 # @saas-ui/react
 
+## 1.8.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/app-shell@1.1.0
+  - @saas-ui/auth@1.7.0
+  - @saas-ui/banner@1.4.0
+  - @saas-ui/button@1.4.0
+  - @saas-ui/card@1.5.0
+  - @saas-ui/collapse@1.4.0
+  - @saas-ui/data-table@1.4.0
+  - @saas-ui/forms@1.5.0
+  - @saas-ui/hooks@1.2.0
+  - @saas-ui/hotkeys@1.4.0
+  - @saas-ui/input-right-button@1.4.0
+  - @saas-ui/layout@1.4.0
+  - @saas-ui/list@1.4.0
+  - @saas-ui/menu@1.4.0
+  - @saas-ui/modals@1.5.0
+  - @saas-ui/nprogress@1.4.0
+  - @saas-ui/number-input@1.4.0
+  - @saas-ui/palette@1.3.0
+  - @saas-ui/password-input@1.4.0
+  - @saas-ui/persona@1.4.0
+  - @saas-ui/pin-input@1.4.0
+  - @saas-ui/property@1.4.0
+  - @saas-ui/provider@1.2.0
+  - @saas-ui/radio@1.4.0
+  - @saas-ui/search-input@1.4.0
+  - @saas-ui/select@1.4.0
+  - @saas-ui/snackbar@1.2.0
+  - @saas-ui/stepper@1.4.0
+  - @saas-ui/theme@1.7.0
+
 ## 1.7.4
 
 ### Patch Changes

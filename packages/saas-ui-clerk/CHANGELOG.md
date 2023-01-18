@@ -1,5 +1,16 @@
 # @saas-ui/clerk
 
+## 1.3.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/auth@1.7.0
+
 ## 1.2.8
 
 ### Patch Changes

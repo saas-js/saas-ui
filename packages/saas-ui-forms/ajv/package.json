@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./../dist/ajv/index.js",
-      "import": "./../dist/ajv/index.modern.js"
+      "import": "./../dist/ajv/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -14,12 +14,13 @@
   },
   "source": "./src/index.ts",
   "main": "../dist/ajv/index.js",
-  "module": "../dist/ajv/index.modern.js",
+  "module": "../dist/ajv/index.modern.mjs",
   "types": "../dist/ajv/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",
   "peerDependencies": {
     "@chakra-ui/utils": "^2.0.2",
+    "@saas-ui/forms": "^1.4.2",
     "@hookform/resolvers": "^2.9.3",
     "react-hook-form": "^7.33.1",
     "ajv": "^8.11.0"

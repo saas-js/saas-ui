@@ -1,5 +1,16 @@
 # @saas-ui/date-picker
 
+## 0.8.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/modals@1.5.0
+
 ## 0.7.5
 
 ### Patch Changes

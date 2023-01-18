@@ -15,13 +15,17 @@ import {
   ResolverResult,
   ChangeHandler,
   WatchObserver,
+  UnpackNestedValue,
 } from 'react-hook-form'
 import { objectFieldResolver, FieldResolver } from './field-resolver'
 import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
-interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
+interface FormOptions<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> {
   /**
    * The form schema, currently supports Yup schema only.
    */
@@ -45,23 +49,28 @@ interface FormOptions<TFieldValues extends FieldValues = FieldValues> {
   /**
    * The form children, can be a render prop or a ReactNode.
    */
-  children?: MaybeRenderProp<UseFormReturn<TFieldValues>>
+  children?: MaybeRenderProp<UseFormReturn<TFieldValues, TContext>>
 }
 
 // @todo Figure out how to pass down FieldValues to all Field components, if at all possible.
 
-export interface FormProps<TFieldValues extends FieldValues = FieldValues>
-  extends UseFormProps<TFieldValues>,
+export interface FormProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
-    FormOptions<TFieldValues> {}
+    FormOptions<TFieldValues, TContext> {}
 
 export const Form = forwardRef(
-  <TFieldValues extends FieldValues = FieldValues>(
-    props: FormProps<TFieldValues>,
-    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  <
+    TFieldValues extends FieldValues = FieldValues,
+    TContext extends object = object
+  >(
+    props: FormProps<TFieldValues, TContext>,
+    ref: React.ForwardedRef<UseFormReturn<TFieldValues, TContext>>
   ) => {
     const {
       mode = 'all',
@@ -95,10 +104,10 @@ export const Form = forwardRef(
     }
 
     if (schema && !resolver) {
-      form.resolver = Form.getResolver?.(schema)
+      form.resolver = Form.getResolver?.<TFieldValues, TContext>(schema)
     }
 
-    const methods = useForm<TFieldValues>(form)
+    const methods = useForm<TFieldValues, TContext>(form)
     const { handleSubmit } = methods
 
     // This exposes the useForm api through the forwarded ref
@@ -125,7 +134,7 @@ export const Form = forwardRef(
       </FormProvider>
     )
   }
-) as (<TFieldValues extends FieldValues>(
+) as (<TFieldValues extends FieldValues, TContext extends object = object>(
   props: FormProps<TFieldValues> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
@@ -141,10 +150,13 @@ if (__DEV__) {
   Form.displayName = 'Form'
 }
 
-export type GetResolver = (
+export type GetResolver = <
+  TFieldValues extends FieldValues,
+  TContext extends object
+>(
   schema: any
-) => <TFieldValues extends FieldValues, TContext>(
-  values: TFieldValues,
+) => (
+  values: UnpackNestedValue<TFieldValues>,
   context: TContext | undefined,
   options: ResolverOptions<TFieldValues>
 ) => Promise<ResolverResult<TFieldValues>>

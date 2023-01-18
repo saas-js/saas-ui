@@ -9,10 +9,10 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "type": "module",
   "exports": {
     "require": "./dist/index.cjs",
-    "import": "./dist/index.modern.js"
+    "import": "./dist/index.modern.mjs"
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.modern.js",
+  "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rimraf dist",

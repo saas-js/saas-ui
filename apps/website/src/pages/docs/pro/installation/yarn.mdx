@@ -25,7 +25,7 @@ npmRegistries:
     npmAlwaysAuth: true
 ```
 
-To set it up on your dev machine add this to `~/.profile` or your CI configuration.
+To set it up on your dev machine add this to `~/.bash_profile` or your CI configuration.
 
 ```bash
 export SAAS_UI_TOKEN="GithubUsername:licenseKey"
@@ -33,4 +33,10 @@ export SAAS_UI_TOKEN="GithubUsername:licenseKey"
 
 The same configuration can be used for CI and deployments.
 
-Yarn run `yarn add @saas-ui/pro` to see if the configuration was succesful.
+Run `yarn add @saas-ui/pro` to see if the configuration was succesful.
+
+If you have issues getting this to work, try base64 encoding your auth token.
+
+```bash
+echo -n 'GithubUsername:licenseKey' | base64
+```

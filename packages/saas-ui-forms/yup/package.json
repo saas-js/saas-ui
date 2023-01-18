@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./../dist/yup/index.js",
-      "import": "./../dist/yup/index.modern.js"
+      "import": "./../dist/yup/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -14,7 +14,7 @@
   },
   "source": "./src/index.ts",
   "main": "../dist/yup/index.js",
-  "module": "../dist/yup/index.modern.js",
+  "module": "../dist/yup/index.modern.mjs",
   "types": "../dist/yup/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

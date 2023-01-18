@@ -1,7 +1,7 @@
 {
-  "name": "@saas-ui/modals",
-  "version": "1.5.0",
-  "description": "A modal manager for Chakra UI",
+  "name": "@saas-ui/button",
+  "version": "1.4.0",
+  "description": "Button Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
@@ -16,7 +16,7 @@
   "module": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf --no-glob ./dist",
     "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
@@ -36,7 +36,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/saas-js/saas-ui",
-    "directory": "packages/saas-ui-modals"
+    "directory": "packages/saas-ui-button"
   },
   "keywords": [
     "react",
@@ -49,21 +49,18 @@
     "components",
     "emotion",
     "library",
-    "modal"
+    "design-system"
   ],
   "storybook": {
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.14",
-    "@saas-ui/forms": "workspace:*",
-    "@saas-ui/menu": "workspace:*"
+    "@chakra-ui/button": "^2.0.14",
+    "@chakra-ui/utils": "^2.0.14"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
     "@chakra-ui/system": ">=2.3.8",
-    "framer-motion": ">=5.5.0",
     "react": ">=18.0.0"
   }
 }

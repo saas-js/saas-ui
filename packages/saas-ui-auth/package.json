@@ -73,7 +73,6 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^2.0.14",
-    "@saas-ui/button": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/layout": "workspace:*"

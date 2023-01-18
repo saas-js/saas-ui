@@ -1693,7 +1693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/button@npm:2.0.15, @chakra-ui/button@npm:^2.0.14":
+"@chakra-ui/button@npm:2.0.15":
   version: 2.0.15
   resolution: "@chakra-ui/button@npm:2.0.15"
   dependencies:
@@ -6048,7 +6048,6 @@ __metadata:
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
     "@chakra-ui/utils": ^2.0.14
-    "@saas-ui/button": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
     "@saas-ui/layout": "workspace:*"
@@ -6083,18 +6082,6 @@ __metadata:
     tsup: ^6.5.0
   peerDependencies:
     react: ">=18"
-  languageName: unknown
-  linkType: soft
-
-"@saas-ui/button@workspace:*, @saas-ui/button@workspace:packages/saas-ui-button":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/button@workspace:packages/saas-ui-button"
-  dependencies:
-    "@chakra-ui/button": ^2.0.14
-    "@chakra-ui/utils": ^2.0.14
-  peerDependencies:
-    "@chakra-ui/system": ">=2.3.8"
-    react: ">=18.0.0"
   languageName: unknown
   linkType: soft
 

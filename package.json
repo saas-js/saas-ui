@@ -122,7 +122,8 @@
     "zod": "^3.19.1"
   },
   "resolutions": {
-    "unist-util-visit": "4.0.0"
+    "unist-util-visit": "4.0.0",
+    "react-hook-form": "7.42.1"
   },
   "packageManager": "yarn@3.3.0"
 }

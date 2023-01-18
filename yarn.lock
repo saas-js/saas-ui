@@ -26104,7 +26104,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:^7.42.1":
+"react-hook-form@npm:7.42.1":
   version: 7.42.1
   resolution: "react-hook-form@npm:7.42.1"
   peerDependencies:

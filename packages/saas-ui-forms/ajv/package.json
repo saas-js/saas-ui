@@ -20,6 +20,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@chakra-ui/utils": "^2.0.2",
+    "@saas-ui/forms": "^1.4.2",
     "@hookform/resolvers": "^2.9.3",
     "react-hook-form": "^7.33.1",
     "ajv": "^8.11.0"

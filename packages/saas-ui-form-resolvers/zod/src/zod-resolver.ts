@@ -1,7 +1,7 @@
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { get } from '@chakra-ui/utils'
-import { FieldProps } from '@saas-ui/forms'
+import { FieldProps } from '@saas-ui/form-resolvers'
 
 export { zodResolver }
 

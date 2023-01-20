@@ -20,6 +20,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@hookform/resolvers": "^2.9.3",
+    "@saas-ui/form-resolvers": "^1.0.0",
     "react-hook-form": "^7.33.1",
     "yup": "^0.32.11"
   }

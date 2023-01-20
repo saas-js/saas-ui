@@ -119,7 +119,7 @@
     "typescript": "^4.9.3",
     "vercel-submodules": "^1.0.6",
     "yup": "^0.32.11",
-    "zod": "^3.19.1"
+    "zod": "^3.20.2"
   },
   "resolutions": {
     "unist-util-visit": "4.0.0",

@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { useFormContext, useWatch } from 'react-hook-form'
 
-import { yupForm, yupResolver } from '../yup/src'
+import { yupForm, yupResolver } from '@saas-ui/form-resolvers/yup'
 
 import {
   Form,
@@ -122,7 +122,7 @@ export const WithResolver = () => (
           <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
-        <SubmitButton label="Submit" />
+        <SubmitButton>Submit</SubmitButton>
       </FormLayout>
     </Form>
   </>
@@ -206,7 +206,7 @@ export const CustomArrayField = () => (
           <AddButton />
         </ArrayFieldContainer>
 
-        <SubmitButton label="Submit" />
+        <SubmitButton>Submit</SubmitButton>
       </FormLayout>
     </Form>
   </>
@@ -236,7 +236,7 @@ export const MinMaxNoSchema = () => (
           <Field name="description" label="Description" type="textarea" />
         </ArrayField>
 
-        <SubmitButton label="Submit" />
+        <SubmitButton>Submit</SubmitButton>
       </FormLayout>
     </Form>
   </>
@@ -291,7 +291,7 @@ export const WatchArrayField = () => {
       <FormLayout>
         <MyArrayField />
 
-        <SubmitButton label="Submit" />
+        <SubmitButton>Submit</SubmitButton>
       </FormLayout>
     </Form>
   )
@@ -321,7 +321,7 @@ export const ArrayFieldRef = () => {
       <FormLayout>
         <MyArrayField ref={ref} />
 
-        <SubmitButton label="Submit" />
+        <SubmitButton>Submit</SubmitButton>
       </FormLayout>
     </Form>
   )

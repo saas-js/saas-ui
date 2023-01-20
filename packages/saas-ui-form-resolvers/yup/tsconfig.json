@@ -2,10 +2,9 @@
   "extends": "../../../tsconfig.base.json",
   "include": ["./src"],
   "compilerOptions": {
-    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@saas-ui/forms": ["../"]
+      "@saas-ui/form-resolvers": ["../"]
     }
   }
 }

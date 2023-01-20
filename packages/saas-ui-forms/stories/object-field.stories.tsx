@@ -13,7 +13,7 @@ import {
   SubmitButton,
 } from '../src'
 
-import { yupForm } from '../yup/src'
+import { yupForm } from '@saas-ui/form-resolvers/yup'
 
 import { onSubmit } from './helpers'
 
@@ -58,7 +58,7 @@ export const Basic = () => {
             <Field name="description" label="Description" />
           </ObjectField>
 
-          <SubmitButton label="Save post" />
+          <SubmitButton>Save post</SubmitButton>
         </FormLayout>
       </Form>
     </>
@@ -95,7 +95,7 @@ export const HideLabel = () => {
             <Field name="description" label="Description" />
           </ObjectField>
 
-          <SubmitButton label="Save post" />
+          <SubmitButton>Save post</SubmitButton>
         </FormLayout>
       </Form>
     </>
@@ -137,7 +137,7 @@ export const NestedObjectField = () => {
             </ObjectField>
           </ObjectField>
 
-          <SubmitButton label="Save post" />
+          <SubmitButton>Save post</SubmitButton>
         </FormLayout>
       </Form>
     </>

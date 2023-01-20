@@ -1,5 +1,5 @@
 import { Container } from '@chakra-ui/react'
-import { yupResolver } from '../yup/src'
+import { yupResolver } from '@saas-ui/form-resolvers/yup'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -41,7 +41,7 @@ export const Basic = () => {
             <Field name="description" label="Description" />
           </DisplayIf>
 
-          <SubmitButton label="Save post" />
+          <SubmitButton>Save post</SubmitButton>
         </FormLayout>
       </Form>
     </>

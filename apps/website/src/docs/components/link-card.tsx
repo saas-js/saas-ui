@@ -1,6 +1,5 @@
-import { Box, Center, LinkBox } from '@chakra-ui/react'
+import { Box, Card, CardBody, Center, LinkBox } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
-import { Card, CardBody } from '@saas-ui/react'
 import Link from 'next/link'
 
 export const LinkCard = (props) => {

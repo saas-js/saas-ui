@@ -3,6 +3,8 @@ import {
   Avatar,
   Box,
   Button,
+  Card,
+  CardFooter,
   Checkbox,
   CloseButton,
   Code,
@@ -12,6 +14,7 @@ import {
   Heading,
   HStack,
   Icon,
+  Image,
   Input,
   LinkBox,
   LinkOverlay,
@@ -35,7 +38,6 @@ import {
 import { AppShell } from '@saas-ui/app-shell'
 import { Sidebar, NavGroup, NavItem, SidebarSection } from '@saas-ui/sidebar'
 import {
-  Card,
   Divider,
   FormLayout,
   PasswordInput,
@@ -57,8 +59,6 @@ import {
   BannerContent,
   NProgress,
   Loader,
-  CardMedia,
-  CardFooter,
 } from '@saas-ui/react'
 import { Web3Address } from '@saas-ui/web3'
 import NextLink from 'next/link'
@@ -80,25 +80,6 @@ const autoform = `z.object({
 const componentIllustrations = {
   authprovider: <Code colorScheme="primary">const auth = useAuth()</Code>,
   auth: <Button variant="primary">Log in</Button>,
-  card: (
-    <Card width="90%" height="80%" position="relative" overflow="hidden">
-      <CardMedia as="img" src="/img/mountains.jpg" objectFit="cover" />
-      <CardFooter
-        position="absolute"
-        bottom="0"
-        width="100%"
-        bgGradient="linear(to-t, blackAlpha.900, transparent)"
-        py="2"
-        px="2"
-        color="white"
-      >
-        <Text flex="1">South Tirol</Text>
-        <Button size="xs" bg="gray.800">
-          Book now
-        </Button>
-      </CardFooter>
-    </Card>
-  ),
   'app-shell': (
     <AppShell
       variant="static"
@@ -515,7 +496,7 @@ type Props = {
 
 const OverviewItem = ({ url, title, description, slug }: Props) => {
   return (
-    <Card as={LinkBox} height="full" role="group" isHoverable>
+    <Card as={LinkBox} height="full" role="group">
       <AspectRatio
         ratio={4 / 3}
         w="full"

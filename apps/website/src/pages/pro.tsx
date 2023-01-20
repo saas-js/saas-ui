@@ -32,6 +32,8 @@ import {
   useTheme,
   Tag,
   Wrap,
+  Card,
+  CardBody,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -78,7 +80,6 @@ import {
 } from 'react-icons/fi'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
-import { Card, CardBody } from '@saas-ui/card'
 import {
   Banner,
   BannerCloseButton,

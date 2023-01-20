@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Script from 'next/script'
 
-import { Box, SimpleGrid } from '@chakra-ui/react'
+import { Box, CardHeader, SimpleGrid } from '@chakra-ui/react'
 import {
   Heading,
   Text,
@@ -12,6 +12,8 @@ import {
   useColorModeValue,
   Avatar,
   Tooltip,
+  Card,
+  CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -20,8 +22,6 @@ import SectionTitle from '@/components/marketing/section-title'
 import SEO from '@/components/seo'
 import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
-
-import { Card, CardBody } from '@saas-ui/card'
 
 import { Faq } from '@/components/faq'
 
@@ -369,12 +369,16 @@ const HighlightBox = (props) => {
 
 const Testimonial = ({ name, description, avatar, children, ...rest }) => {
   return (
-    <Card
-      avatar={<Avatar name="Tien Tienth" src={avatar} />}
-      title={name}
-      subtitle={description}
-      {...rest}
-    >
+    <Card {...rest}>
+      <CardHeader>
+        <Avatar name="Tien Tienth" src={avatar} />
+        <Stack>
+          <Heading size="sm">{name}</Heading>
+          <Text color="muted" size="md">
+            {description}
+          </Text>
+        </Stack>
+      </CardHeader>
       <CardBody>{children}</CardBody>
     </Card>
   )

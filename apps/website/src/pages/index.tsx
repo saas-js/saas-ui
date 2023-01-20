@@ -39,6 +39,7 @@ import {
   AspectRatio,
   Badge,
   DarkMode,
+  Card,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -85,7 +86,6 @@ import {
 import { FaGithub } from 'react-icons/fa'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
-import { Card } from '@saas-ui/card'
 import {
   Banner,
   BannerCloseButton,

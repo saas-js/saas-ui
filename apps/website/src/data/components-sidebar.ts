@@ -29,10 +29,6 @@ const sidebar = {
       open: true,
       routes: [
         {
-          title: 'Card',
-          path: '/docs/components/layout/card',
-        },
-        {
           title: 'App Shell',
           path: '/docs/components/layout/app-shell',
         },

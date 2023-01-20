@@ -18,8 +18,10 @@ import {
   DarkMode,
   Box,
   Button,
+  Card,
+  CardBody,
+  Heading,
 } from '@chakra-ui/react'
-import { Card, CardBody } from '@saas-ui/card'
 import {
   Field,
   FormStep,
@@ -330,22 +332,20 @@ export const ComponentShowcase = () => {
           </Float>
 
           <Float position="absolute" left="1080px" top="-60px">
-            <Card
-              title="Github"
-              avatar={<FaGithub />}
-              minW="300px"
-              action={
-                <>
-                  <Button variant="subtle" colorScheme="green">
-                    Enabled
-                  </Button>
-                  <OverflowMenu menuListProps={menuStyles} flip={false}>
-                    <MenuItem>Settings</MenuItem>
-                  </OverflowMenu>
-                </>
-              }
-              {...cardStyles}
-            ></Card>
+            <Card minW="300px" {...cardStyles}>
+              <HStack py="2" px="4">
+                <FaGithub />
+                <Heading size="sm" fontWeight="medium" flex="1">
+                  Github
+                </Heading>
+                <Button variant="subtle" colorScheme="green">
+                  Enabled
+                </Button>
+                <OverflowMenu menuListProps={menuStyles} flip={false}>
+                  <MenuItem>Settings</MenuItem>
+                </OverflowMenu>
+              </HStack>
+            </Card>
           </Float>
         </HStack>
       </Box>

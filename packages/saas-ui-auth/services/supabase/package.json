@@ -1,4 +1,0 @@
-{
-  "main": "dist/supabase.js",
-  "module": "dist/supabase.modern.mjs"
-}

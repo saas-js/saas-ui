@@ -1,7 +1,7 @@
 {
-  "name": "@saas-ui/auth",
-  "version": "1.7.0",
-  "description": "Authentication provider and components for Chakra UI",
+  "name": "@saas-ui/supabase",
+  "version": "1.0.0",
+  "description": "Saas UI Supabase integration",
   "source": "src/index.ts",
   "exports": {
     ".": {
@@ -50,22 +50,17 @@
     "components",
     "emotion",
     "library",
-    "authentication"
+    "authentication",
+    "supabase"
   ],
   "storybook": {
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
-  "dependencies": {
-    "@chakra-ui/utils": "^2.0.14",
-    "@saas-ui/forms": "workspace:*",
-    "@saas-ui/hooks": "workspace:*",
-    "@saas-ui/layout": "workspace:*"
-  },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
-    "@chakra-ui/system": ">=2.3.8",
-    "framer-motion": ">=5.5.0",
-    "react": ">=18.0.0"
+    "@supabase/supabase-js": "^2.1.0"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.1.0"
   }
 }

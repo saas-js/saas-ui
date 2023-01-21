@@ -17,6 +17,7 @@ import {
   useCollapse,
 } from '@saas-ui/collapse'
 
+import { useSidebarContext } from './use-sidebar'
 import { NavGroupStylesProvider, useNavGroupStyles } from './nav-context'
 
 export interface NavGroupTitleProps extends HTMLChakraProps<'div'> {
@@ -122,8 +123,11 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
 
   const collapse = useCollapse(props)
   const { getCollapseProps } = collapse
+  
+  const { variant: sidebarVariant } = useSidebarContext() || {}
+  const isCondensed = sidebarVariant === 'condensed'
 
-  const header = title && <NavGroupTitle leftIcon={icon}>{title}</NavGroupTitle>
+  const header = title && <NavGroupTitle leftIcon={icon} hidden={isCondensed}>{title}</NavGroupTitle>
 
   let content = <NavGroupContent>{children}</NavGroupContent>
 

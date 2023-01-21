@@ -1,5 +1,12 @@
 # palette
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [2fbf13fa]
+  - @saas-ui/theme-glass@0.3.1
+
 ## 1.3.0
 
 ### Minor Changes

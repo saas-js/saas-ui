@@ -36,6 +36,8 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
     <Layout
       frontMatter={{
         title: 'Components',
+        description:
+          'Professionally crafted Chakra UI components that help you build intuitive React apps with speed.',
         seo: {
           title: 'Professionally crafted Chakra UI components',
           description:

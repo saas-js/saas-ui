@@ -13,7 +13,7 @@ export default function Page({ doc }: { doc: Doc }) {
 
   return (
     <Layout frontMatter={doc.frontMatter}>
-      <Component components={MDXComponents} />
+      <Component components={MDXComponents as any} />
     </Layout>
   )
 }

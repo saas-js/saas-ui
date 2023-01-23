@@ -25,6 +25,7 @@ export default async function handler(req: NextRequest) {
     const description = hasTitle
       ? searchParams.get('description')?.slice(0, 200)
       : undefined
+    const screenshot = searchParams.get('screenshot')
 
     const host = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
@@ -84,18 +85,19 @@ export default async function handler(req: NextRequest) {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              fontSize: 60,
+              justifyContent: 'center',
+              fontSize: screenshot ? 60 : 72,
               fontStyle: 'normal',
-
               letterSpacing: '-0.025em',
-              marginTop: 40,
               lineHeight: 1.4,
               whiteSpace: 'pre-wrap',
               textAlign: 'left',
               position: 'absolute',
               left: '100px',
-              right: '100px',
+              top: '200px',
+              bottom: '60px',
               zIndex: 10,
+              maxWidth: screenshot ? '440px' : '900px',
             }}
           >
             <div
@@ -123,6 +125,30 @@ export default async function handler(req: NextRequest) {
               </div>
             )}
           </div>
+          {screenshot && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                justifyItems: 'center',
+                position: 'absolute',
+                top: '40px',
+                right: '-400px',
+                width: '800px',
+                zIndex: 10,
+                transform: 'scale(0.8)',
+              }}
+            >
+              <img
+                alt="Saas UI Dashboard"
+                height="1021"
+                src={`${host}/screenshots/list.png`}
+                style={{ margin: '0 30px' }}
+                width="1607"
+              />
+            </div>
+          )}
         </div>
       ),
       {

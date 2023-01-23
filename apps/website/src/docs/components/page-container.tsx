@@ -100,7 +100,7 @@ function PageContainer(props: PageContainerProps) {
         openGraph={{
           images: [
             {
-              url: `${basePath}/api/og?title=${title}`,
+              url: `${basePath}/api/og?title=${title}&description=${description}`,
               width: 1200,
               height: 630,
               alt: title,

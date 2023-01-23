@@ -9,11 +9,16 @@ import { NProgressNextRouter } from '@saas-ui/nprogress'
 
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+
+const LinkComponent = (props: any) => {
+  return props.href ? <Link legacyBehavior {...props} /> : <>{props.children}</>
+}
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   const router = useRouter()
   return (
-    <SaasProvider theme={theme}>
+    <SaasProvider theme={theme} linkComponent={LinkComponent}>
       <AuthProvider>
         <ModalsProvider>
           <Layout

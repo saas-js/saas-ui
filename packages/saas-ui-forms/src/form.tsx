@@ -104,7 +104,7 @@ export const Form = forwardRef(
     }
 
     if (schema && !resolver) {
-      form.resolver = Form.getResolver?.<TFieldValues, TContext>(schema)
+      form.resolver = Form.getResolver?.(schema)
     }
 
     const methods = useForm<TFieldValues, TContext>(form)
@@ -135,7 +135,7 @@ export const Form = forwardRef(
     )
   }
 ) as (<TFieldValues extends FieldValues, TContext extends object = object>(
-  props: FormProps<TFieldValues> & {
+  props: FormProps<TFieldValues, TContext> & {
     ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
   }
 ) => React.ReactElement) & {
@@ -156,7 +156,7 @@ export type GetResolver = <
 >(
   schema: any
 ) => (
-  values: UnpackNestedValue<TFieldValues>,
+  values: TFieldValues,
   context: TContext | undefined,
   options: ResolverOptions<TFieldValues>
 ) => Promise<ResolverResult<TFieldValues>>

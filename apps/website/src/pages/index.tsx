@@ -437,7 +437,7 @@ const Founder = () => {
           <VStack spacing="8" alignItems="flex-start">
             <Text fontSize={['xl', null, '2xl']}>
               With SaaS UI you&apos;ll <Em>save hundreds of hours</Em> building
-              essential functionaly for your product. Time that you can use to
+              essential functionality for your product. Time that you can use to
               validate new ideas, find your perfect product market fit and build
               functionality that makes your product unique.
             </Text>

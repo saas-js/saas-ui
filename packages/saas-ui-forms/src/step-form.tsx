@@ -143,7 +143,7 @@ export const FormStep: React.FC<FormStepProps> = (props) => {
   const { isActive } = step
 
   return isActive ? (
-    <chakra.div {...rest} className={cx('saas-form__step', className)}>
+    <chakra.div {...rest} className={cx('sui-form__step', className)}>
       {children}
     </chakra.div>
   ) : null
@@ -161,7 +161,7 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
       isDisabled={isFirstStep || isCompleted}
       label="Back"
       {...props}
-      className={cx('saas-form__prev-button', props.className)}
+      className={cx('sui-form__prev-button', props.className)}
       onClick={callAllHandlers(props.onClick, prevStep)}
     />
   )
@@ -184,7 +184,7 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
     <SubmitButton
       {...rest}
       isDisabled={isCompleted}
-      className={cx('saas-form__next-button', props.className)}
+      className={cx('sui-form__next-button', props.className)}
     >
       {isLastStep || isCompleted ? submitLabel : label}
     </SubmitButton>

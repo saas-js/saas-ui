@@ -99,7 +99,7 @@ export const EmptyStateContainer: React.FC<EmptyStateContainerProps> = (
       <chakra.div
         {...containerProps}
         __css={containerStyles}
-        className={cx('saas-empty-state', props.className)}
+        className={cx('sui-empty-state', props.className)}
       >
         {children}
       </chakra.div>
@@ -126,7 +126,7 @@ export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
         role="presentation"
         sx={iconStyles}
         {...props}
-        className={cx('saas-empty-state__icon', props.className)}
+        className={cx('sui-empty-state__icon', props.className)}
       />
     )
   }
@@ -149,7 +149,7 @@ export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
       sx={titleStyles}
       size="md"
       {...props}
-      className={cx('saas-empty-state__title', props.className)}
+      className={cx('sui-empty-state__title', props.className)}
     />
   )
 }
@@ -171,7 +171,7 @@ export const EmptyStateDescription: React.FC<TextProps> = (props) => {
     <Text
       sx={descriptionStyles}
       {...props}
-      className={cx('saas-empty-state__description', props.className)}
+      className={cx('sui-empty-state__description', props.className)}
     />
   )
 }
@@ -196,7 +196,7 @@ export const EmptyStateBody: React.FC<EmptyStateBodyProps> = (props) => {
     <chakra.div
       __css={bodyStyles}
       {...rest}
-      className={cx('saas-empty-state__body', props.className)}
+      className={cx('sui-empty-state__body', props.className)}
     />
   )
 }
@@ -211,7 +211,7 @@ export const EmptyStateActions: React.FC<ButtonGroupProps> = (props) => {
     <ButtonGroup
       sx={styles.actions}
       {...props}
-      className={cx('saas-empty-state__actions', props.className)}
+      className={cx('sui-empty-state__actions', props.className)}
     />
   )
 }
@@ -228,7 +228,7 @@ export const EmptyStateFooter: React.FC<HTMLChakraProps<'footer'>> = (
     <chakra.footer
       __css={styles.footer}
       {...props}
-      className={cx('saas-empty-state__footer', props.className)}
+      className={cx('sui-empty-state__footer', props.className)}
     />
   )
 }

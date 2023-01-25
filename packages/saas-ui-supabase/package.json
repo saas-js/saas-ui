@@ -57,6 +57,9 @@
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
+  "dependencies": {
+    "@saas-ui/auth": "^1.7.0"
+  },
   "peerDependencies": {
     "@supabase/supabase-js": "^2.1.0"
   },

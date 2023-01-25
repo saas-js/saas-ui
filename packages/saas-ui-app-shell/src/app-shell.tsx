@@ -72,7 +72,7 @@ export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
       <Flex
         {...containerProps}
         sx={containerStyles}
-        className={cx('saas-app-shell', props.className)}
+        className={cx('sui-app-shell', props.className)}
       >
         {navbar}
         <Flex sx={innerStyles} className="saas-app-shell__inner">

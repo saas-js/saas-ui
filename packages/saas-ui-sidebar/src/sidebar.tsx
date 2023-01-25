@@ -172,7 +172,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
           }}
           {...containerProps}
           id={disclosure.getDisclosureProps().id}
-          className={cx('saas-sidebar', className)}
+          className={cx('sui-sidebar', className)}
           data-condensed={dataAttr(isCondensed)}
           data-collapsible={dataAttr(isCollapsible)}
         >
@@ -229,7 +229,7 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     <chakra.div
       {...wrapperProps}
       __css={wrapperStyles}
-      className={cx('saas-sidebar__toggle-button', wrapperProps?.className)}
+      className={cx('sui-sidebar__toggle-button', wrapperProps?.className)}
     >
       <IconButton
         variant="ghost"
@@ -296,7 +296,7 @@ export const SidebarSection: React.FC<SidebarSectionProps> = (props) => {
     <chakra.div
       __css={sectionStyles}
       {...rest}
-      className={cx('saas-sidebar__section', props.className)}
+      className={cx('sui-sidebar__section', props.className)}
     />
   )
 }

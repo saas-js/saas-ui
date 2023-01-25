@@ -65,7 +65,7 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
           ref={ref}
           __css={listStyles}
           {...listProps}
-          className={cx('saas-list', props.className)}
+          className={cx('sui-list', props.className)}
         >
           {content}
         </chakra.ul>
@@ -123,7 +123,7 @@ export const StructuredListHeader: React.FC<StructuredListHeaderProps> = (
       __css={headerStyles}
       onClick={onClick}
       {...rest}
-      className={cx('saas-list__header', props.className)}
+      className={cx('sui-list__header', props.className)}
     >
       <chakra.span flex="1" userSelect="none" role={role} aria-level={level}>
         {children}
@@ -213,7 +213,7 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
         ref={ref}
         __css={itemStyles}
         {...rest}
-        className={cx('saas-list__item', props.className)}
+        className={cx('sui-list__item', props.className)}
       >
         {content}
         {action && (
@@ -269,7 +269,7 @@ export const StructuredListItemButton = forwardRef<
       role="button"
       tabIndex={0}
       {...rest}
-      className={cx('saas-list__item-button', props.className)}
+      className={cx('sui-list__item-button', props.className)}
     >
       {children}
     </chakra.div>
@@ -318,7 +318,7 @@ export const StructuredListItemIcon: React.FC<StructuredListItemIconProps> = (
     <chakra.div
       __css={iconStyles}
       {...rest}
-      className={cx('saas-list__item-icon', props.className)}
+      className={cx('sui-list__item-icon', props.className)}
     >
       {_icon}
     </chakra.div>
@@ -362,7 +362,7 @@ export const StructuredListItemLabel: React.FC<StructuredListItemLabelProps> = (
     <chakra.div
       __css={labelStyles}
       {...rest}
-      className={cx('saas-list__item-label', props.className)}
+      className={cx('sui-list__item-label', props.className)}
     >
       {primary && (
         <chakra.span noOfLines={1} __css={primaryStyles}>
@@ -410,7 +410,7 @@ export const StructuredListItemTertiary: React.FC<
     <chakra.div
       __css={tertiaryStyles}
       {...rest}
-      className={cx('saas-list__item-tertiary', rest.className)}
+      className={cx('sui-list__item-tertiary', rest.className)}
     >
       {children}
     </chakra.div>
@@ -437,7 +437,7 @@ export const StructuredListItemAction: React.FC<ButtonGroupProps> = ({
       position="absolute"
       right={4}
       {...rest}
-      className={cx('saas-list__item-action', rest.className)}
+      className={cx('sui-list__item-action', rest.className)}
     >
       {children}
     </ButtonGroup>

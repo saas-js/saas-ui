@@ -124,7 +124,7 @@ export const DataTable = React.forwardRef(
       <Table
         ref={ref}
         sx={{ 'tr:last-child td': { border: 0 } }}
-        className={cx('saas-data-table', className)}
+        className={cx('sui-data-table', className)}
         colorScheme={colorScheme}
         size={size}
         variant={variant}

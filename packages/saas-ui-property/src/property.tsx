@@ -51,7 +51,7 @@ export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
         ref={ref}
         __css={propertyStyles}
         {...rest}
-        className={cx('saas-property', props.className)}
+        className={cx('sui-property', props.className)}
       >
         {label && (
           <PropertyLabel
@@ -95,7 +95,7 @@ export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
       ref={ref}
       __css={labelStyles}
       {...rest}
-      className={cx('saas-property__label', props.className)}
+      className={cx('sui-property__label', props.className)}
     >
       <chakra.span flex="1" noOfLines={1}>
         {children}
@@ -129,7 +129,7 @@ export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
         ref={ref}
         __css={valueStyles}
         {...rest}
-        className={cx('saas-property__value', props.className)}
+        className={cx('sui-property__value', props.className)}
       >
         {children}
       </chakra.dd>
@@ -154,7 +154,7 @@ export const PropertyList: React.FC<PropertyListProps> = (props) => {
     <List
       as="dl"
       {...rest}
-      className={cx('saas-property-list', props.className)}
+      className={cx('sui-property-list', props.className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement<PropertyProps>(child)

@@ -147,7 +147,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
 
   return (
     <Menu {...menuProps} closeOnSelect={!multiple}>
-      <chakra.div className={cx('saas-select')}>
+      <chakra.div className={cx('sui-select')}>
         <SelectButton ref={ref} {...buttonProps}>
           {renderValue(displayValue) || placeholder}
         </SelectButton>

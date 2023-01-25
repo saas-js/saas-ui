@@ -16,7 +16,7 @@ export const Web3Address: React.FC<Web3AddressProps> = (props) => {
   const end = address.slice(address.length - endLength, address.length)
 
   return (
-    <chakra.span {...rest} className={cx('saas-web3-address', props.className)}>
+    <chakra.span {...rest} className={cx('sui-web3-address', props.className)}>
       {start}...{end}
     </chakra.span>
   )

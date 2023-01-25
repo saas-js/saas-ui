@@ -31,7 +31,7 @@ export const DatePickerDialog: React.FC<DatePickerDialogProps> = (props) => {
       width="auto"
       minW="300px"
       sx={styles.dialog}
-      className={cx('saas-date-picker__dialog', props.className)}
+      className={cx('sui-date-picker__dialog', props.className)}
     >
       {!hideArrow && <PopoverArrow />}
       <PopoverBody>{children}</PopoverBody>

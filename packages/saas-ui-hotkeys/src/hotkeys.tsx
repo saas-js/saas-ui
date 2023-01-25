@@ -108,7 +108,7 @@ export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
         {...props}
         ref={ref}
         __css={styles.container}
-        className={cx('saas-hotkeys', props.className)}
+        className={cx('sui-hotkeys', props.className)}
       >
         <HotkeysListProvider value={context}>
           <StylesProvider value={styles}>{children}</StylesProvider>
@@ -177,7 +177,7 @@ export const HotkeysListItems = forwardRef<HTMLChakraProps<'div'>, 'div'>(
       <chakra.div
         {...props}
         ref={ref}
-        className={cx('saas-hotkeys__list-items', props.className)}
+        className={cx('sui-hotkeys__list-items', props.className)}
       >
         {Object.values(hotkeys).map((group, i) => {
           const results = filterHotkeys(group.hotkeys, query)
@@ -231,7 +231,7 @@ export const HotkeysGroup: React.FC<HotkeysGroupProps> = (props) => {
     <chakra.div
       {...rest}
       __css={groupStyles}
-      className={cx('saas-hotkeys__group', props.className)}
+      className={cx('sui-hotkeys__group', props.className)}
     >
       {title && <chakra.p __css={titleStyles}>{title}</chakra.p>}
       {children}
@@ -265,7 +265,7 @@ export const HotkeysCommand: React.FC<HTMLChakraProps<'span'>> = (props) => {
     <chakra.span
       {...rest}
       __css={styles.command}
-      className={cx('saas-hotkeys__command', props.className)}
+      className={cx('sui-hotkeys__command', props.className)}
     >
       {keys || children}
     </chakra.span>
@@ -295,7 +295,7 @@ export const HotkeysItem: React.FC<HotkeysItemProps> = (props) => {
   return (
     <chakra.div
       __css={itemStyles}
-      className={cx('saas-hotkeys__item', props.className)}
+      className={cx('sui-hotkeys__item', props.className)}
     >
       <chakra.span flex="1">{children}</chakra.span>
       <HotkeysCommand>{command}</HotkeysCommand>

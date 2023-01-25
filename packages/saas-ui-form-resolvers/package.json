@@ -89,8 +89,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@hookform/resolvers": "^2.9.10",
-    "@saas-ui/forms": "workspace:*"
+    "@hookform/resolvers": "^2.9.10"
   },
   "peerDependencies": {
     "react": ">=18.0.0"

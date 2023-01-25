@@ -6741,7 +6741,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@^1.7.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -6930,7 +6930,6 @@ __metadata:
   resolution: "@saas-ui/form-resolvers@workspace:packages/saas-ui-form-resolvers"
   dependencies:
     "@hookform/resolvers": ^2.9.10
-    "@saas-ui/forms": "workspace:*"
     ajv: ^8.12.0
     yup: ^0.32.11
     zod: ^3.20.2
@@ -7030,6 +7029,8 @@ __metadata:
 "@saas-ui/magic@workspace:packages/saas-ui-magic":
   version: 0.0.0-use.local
   resolution: "@saas-ui/magic@workspace:packages/saas-ui-magic"
+  dependencies:
+    "@saas-ui/auth": ^1.7.0
   languageName: unknown
   linkType: soft
 
@@ -7438,6 +7439,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
+    "@saas-ui/auth": ^1.7.0
     "@supabase/supabase-js": ^2.1.0
   peerDependencies:
     "@supabase/supabase-js": ^2.1.0
@@ -26395,15 +26397,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-table@npm:^7.8.0":
-  version: 7.8.0
-  resolution: "react-table@npm:7.8.0"
-  peerDependencies:
-    react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
-  checksum: 44ca0fb848c6869cd793cede8dc33072b38ebb8f8d2833565afe7cf3eac5d1fa455ac5fb9d06838b16fab0523d5d03e3e82f7645032f71245096e67b892313b9
-  languageName: node
-  linkType: hard
-
 "react-test-renderer@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-test-renderer@npm:18.2.0"
@@ -31376,7 +31369,6 @@ __metadata:
     react-intersection-observer: ^9.4.1
     react-live: ^2.4.1
     react-markdown: ^8.0.3
-    react-table: ^7.8.0
     reading-time: ^1.5.0
     remark-code-titles: ^0.1.2
     remark-emoji: ^3.0.2

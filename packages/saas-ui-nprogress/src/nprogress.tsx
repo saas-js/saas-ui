@@ -57,7 +57,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
       zIndex="overlay"
       transition={`opacity ${animationDuration}ms linear`}
       {...containerProps}
-      className={cx('saas-nprogress', props.className)}
+      className={cx('sui-nprogress', props.className)}
     >
       <chakra.div
         __css={barStyles}

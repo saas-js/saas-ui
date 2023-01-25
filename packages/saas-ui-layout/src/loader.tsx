@@ -110,7 +110,7 @@ export const Loader: React.FC<LoaderProps> = (props) => {
           exit={{ opacity: 0 }}
           {...rest}
           __css={loaderStyles}
-          className={cx('saas-loader', props.className)}
+          className={cx('sui-loader', props.className)}
         >
           {spinner || <Spinner {...spinnerProps} />}
           {content}

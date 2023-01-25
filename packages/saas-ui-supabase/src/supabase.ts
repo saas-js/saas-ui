@@ -1,9 +1,9 @@
-import {
+import type {
   AuthParams,
   AuthOptions,
   AuthStateChangeCallback,
   AuthProviderProps,
-} from '../'
+} from '@saas-ui/auth'
 
 import type {
   AuthChangeEvent,

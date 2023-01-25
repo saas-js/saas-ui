@@ -108,7 +108,7 @@ export const CommandBarContent = forwardRef<HTMLChakraProps<'div'>, 'div'>(
         {...props}
         {...getCommandProps(props)}
         __css={containerStyles}
-        className={cx('saas-command-bar', props.className)}
+        className={cx('sui-command-bar', props.className)}
       />
     )
   }
@@ -138,7 +138,7 @@ export const CommandBarInput = forwardRef<CommandBarInputProps, 'input'>(
         onValueChange={onChange}
         {...rest}
         __css={inputStyles}
-        className={cx('saas-command-bar__input', props.className)}
+        className={cx('sui-command-bar__input', props.className)}
       />
     )
   }
@@ -170,7 +170,7 @@ export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
         {...getItemProps(props)}
         __css={itemStyles}
         data-disabled={dataAttr(isDisabled)}
-        className={cx('saas-command-bar__item', props.className)}
+        className={cx('sui-command-bar__item', props.className)}
       />
     )
   }

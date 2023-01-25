@@ -31,7 +31,7 @@ export const Nav: React.FC<NavProps> = (props) => {
     <chakra.nav
       {...rest}
       __css={containerStyles}
-      className={cx('saas-nav', props.className)}
+      className={cx('sui-nav', props.className)}
       data-orientation={orientation}
     >
       {children}

@@ -219,7 +219,7 @@ export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
           ref={ref}
           __css={containerStyles}
           {...containerProps}
-          className={cx('saas-persona', props.className)}
+          className={cx('sui-persona', props.className)}
         >
           {children}
         </chakra.div>
@@ -381,7 +381,7 @@ export const PersonaDetails = forwardRef<PersonaProps, 'div'>((props, ref) => {
       ref={ref}
       {...rest}
       __css={detailsStyles}
-      className={cx('saas-persona__details', className)}
+      className={cx('sui-persona__details', className)}
     >
       {children}
     </chakra.div>
@@ -400,7 +400,7 @@ export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
         ref={ref}
         {...props}
         __css={styles.label}
-        className={cx('saas-persona__label', props.className)}
+        className={cx('sui-persona__label', props.className)}
       />
     )
   }
@@ -420,7 +420,7 @@ export const PersonaSecondaryLabel = forwardRef<
       ref={ref}
       {...props}
       __css={styles.secondaryLabel}
-      className={cx('saas-persona__secondary-label', props.className)}
+      className={cx('sui-persona__secondary-label', props.className)}
     />
   )
 })
@@ -438,7 +438,7 @@ export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
         ref={ref}
         {...props}
         __css={styles.tertiaryLabel}
-        className={cx('saas-persona__tertiary-label', props.className)}
+        className={cx('sui-persona__tertiary-label', props.className)}
       />
     )
   }

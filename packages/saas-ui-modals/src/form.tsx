@@ -78,8 +78,8 @@ export const FormDialog = forwardRef(
       shouldUseNativeValidation,
       criteriaMode,
       delayError,
-      cancelLabel,
-      submitLabel,
+      cancelLabel = 'Cancel',
+      submitLabel = 'Submit',
       footer,
       isOpen,
       onClose,
@@ -120,9 +120,9 @@ export const FormDialog = forwardRef(
               {footer || (
                 <ModalFooter>
                   <Button variant="ghost" mr={3} onClick={onClose}>
-                    {cancelLabel || 'Cancel'}
+                    {cancelLabel}
                   </Button>
-                  <SubmitButton>{submitLabel || 'Submit'}</SubmitButton>
+                  <SubmitButton>{submitLabel}</SubmitButton>
                 </ModalFooter>
               )}
             </>

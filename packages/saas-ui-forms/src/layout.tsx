@@ -38,7 +38,7 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
   return (
     <SimpleGrid
       {...gridProps}
-      className={cx('saas-form__layout', props.className)}
+      className={cx('sui-form__layout', props.className)}
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {

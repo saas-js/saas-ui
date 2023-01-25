@@ -1,4 +1,9 @@
-import { AuthParams, User, AuthProviderProps, AuthToken } from '../'
+import type {
+  AuthParams,
+  User,
+  AuthProviderProps,
+  AuthToken,
+} from '@saas-ui/auth'
 
 /**
  * MagicLink auth service

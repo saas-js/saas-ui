@@ -30,7 +30,7 @@ export const NavItemLabel = forwardRef<NavItemLabelProps, 'span'>(
         ref={ref}
         __css={styles.label}
         {...props}
-        className={cx('saas-nav-item__label', props.className)}
+        className={cx('sui-nav-item__label', props.className)}
       >
         {children}
       </chakra.span>
@@ -57,7 +57,7 @@ const NavItemIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
   return (
     <chakra.span
       {...rest}
-      className={cx('saas-nav-item__icon', props.className)}
+      className={cx('sui-nav-item__icon', props.className)}
       __css={{
         flexShrink: 0,
         ...styles.icon,
@@ -152,7 +152,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
           __css={styles.item}
           onClick={onClose}
           data-condensed={dataAttr(isCondensed)}
-          className={cx('saas-nav-item', className)}
+          className={cx('sui-nav-item', className)}
         >
           {link}
         </chakra.div>

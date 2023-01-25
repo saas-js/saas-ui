@@ -156,7 +156,7 @@ export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
       <chakra.div
         __css={containerStyles}
         {...containerProps}
-        className={cx('saas-auth-form', props.className)}
+        className={cx('sui-auth-form', props.className)}
       >
         {children}
       </chakra.div>
@@ -201,7 +201,7 @@ export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
     <chakra.h2
       __css={titleStyles}
       {...rest}
-      className={cx('saas-auth-form__title', rest.className)}
+      className={cx('sui-auth-form__title', rest.className)}
     >
       {children}
     </chakra.h2>

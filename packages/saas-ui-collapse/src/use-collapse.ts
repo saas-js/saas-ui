@@ -28,7 +28,7 @@ export const useCollapse = (props: UseCollapse = {}) => {
       const { className, ...rest } = props
       if (isCollapsible) {
         return {
-          className: cx('saas-collapse-toggle', className),
+          className: cx('sui-collapse-toggle', className),
           onClick: () => onToggle(),
           'aria-expanded': isOpen.toString(),
           'aria-controls': id,

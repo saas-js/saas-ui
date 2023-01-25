@@ -35,7 +35,7 @@ const NavGroupIcon: React.FC<HTMLChakraProps<'span'>> = (props) => {
       })
     : children
 
-  const _className = cx('saas-nav-group__icon', className)
+  const _className = cx('sui-nav-group__icon', className)
 
   return (
     <chakra.span
@@ -102,7 +102,7 @@ export const NavGroupContent: React.FC<HTMLChakraProps<'div'>> = (props) => {
     <chakra.div
       {...props}
       __css={styles.content}
-      className={cx('saas-nav-group__content', props.className)}
+      className={cx('sui-nav-group__content', props.className)}
     />
   )
 }
@@ -140,7 +140,7 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
             ...styles.container,
           }}
           {...rest}
-          className={cx('saas-nav-group', props.className)}
+          className={cx('sui-nav-group', props.className)}
           role="group"
         >
           {header}

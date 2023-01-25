@@ -127,7 +127,7 @@ export const Form = forwardRef(
           ref={formRef}
           onSubmit={handleSubmit(onSubmit, onError)}
           {...rest}
-          className={cx('saas-form', props.className)}
+          className={cx('sui-form', props.className)}
         >
           {runIfFn(children, methods)}
         </chakra.form>
@@ -156,7 +156,7 @@ export type GetResolver = <
 >(
   schema: any
 ) => (
-  values: UnpackNestedValue<TFieldValues>,
+  values: TFieldValues,
   context: TContext | undefined,
   options: ResolverOptions<TFieldValues>
 ) => Promise<ResolverResult<TFieldValues>>

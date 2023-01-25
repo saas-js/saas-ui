@@ -133,7 +133,7 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
               motionPreset={motionPreset}
               animate={animate}
               {...rest}
-              className={cx('saas-banner', props.className)}
+              className={cx('sui-banner', props.className)}
               __css={containerStyles}
             />
           )}
@@ -157,7 +157,7 @@ export const BannerContent = forwardRef<BannerContentProps, 'div'>(
       <chakra.div
         ref={ref}
         {...props}
-        className={cx('saas-banner__content', props.className)}
+        className={cx('sui-banner__content', props.className)}
         __css={styles.content}
       />
     )
@@ -179,7 +179,7 @@ export const BannerTitle = forwardRef<BannerTitleProps, 'div'>((props, ref) => {
     <chakra.div
       ref={ref}
       {...props}
-      className={cx('saas-banner__title', props.className)}
+      className={cx('sui-banner__title', props.className)}
       __css={styles.title}
     />
   )
@@ -203,7 +203,7 @@ export const BannerDescription = forwardRef<BannerDescriptionProps, 'div'>(
       <chakra.div
         ref={ref}
         {...props}
-        className={cx('saas-banner__desc', props.className)}
+        className={cx('sui-banner__desc', props.className)}
         __css={descriptionStyles}
       />
     )
@@ -227,7 +227,7 @@ export const BannerActions = forwardRef<BannerActionsProps, 'div'>(
       <chakra.div
         ref={ref}
         {...props}
-        className={cx('saas-banner__actions', props.className)}
+        className={cx('sui-banner__actions', props.className)}
         __css={styles.actions}
       >
         <ButtonGroup variant={variant}>{children}</ButtonGroup>
@@ -254,7 +254,7 @@ export const BannerIcon: React.FC<BannerIconProps> = (props) => {
     <chakra.span
       display="inherit"
       {...rest}
-      className={cx('saas-banner__icon', props.className)}
+      className={cx('sui-banner__icon', props.className)}
       __css={styles.icon}
     >
       <Icon as={icon || statusIcon} w="100%" h="100%" />
@@ -271,7 +271,7 @@ export const BannerCloseButton = forwardRef<CloseButtonProps, 'button'>(
     const { onClick, className, ...rest } = props
     const { onClose, isOpen, id } = useBannerContext()
 
-    const _className = cx('saas-banner__close-btn', className)
+    const _className = cx('sui-banner__close-btn', className)
 
     const styles = useStyles()
 

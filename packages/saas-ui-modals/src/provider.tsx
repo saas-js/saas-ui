@@ -97,6 +97,11 @@ export interface ModalConfig<
    * This will ignore the `type` param.
    */
   component?: React.FC<BaseModalProps>
+  /**
+   * Whether the modal is open or not.
+   * This is used internally to keep track of the modal state.
+   */
+  isOpen?: boolean
 }
 
 const initialModalState: ModalConfig = {
@@ -174,6 +179,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       type,
       scope,
       component,
+      isOpen: true,
     }
 
     _instances.add(modal)
@@ -239,18 +245,41 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       return
     }
 
+    const scoped = modals.filter(({ scope }) => scope === modal.scope)
+
+    if (scoped.length === 1) {
+      setActiveModal(
+        {
+          ...modal,
+          isOpen: false,
+        },
+        modal.scope
+      )
+    } else if (scoped.length > 1) {
+      setActiveModal(scoped[scoped.length - 2], modal.scope)
+    } else {
+      setActiveModal(
+        {
+          id: null,
+          props: null,
+          type: modal.type, // Keep type same as last modal type to make sure the animation isn't interrupted
+        },
+        modal.scope
+      )
+    }
+  }
+
+  const closeComplete = (id?: ModalId | null) => {
+    const modals = [...Array.from(_instances)]
+    const modal = modals.filter((modal) => modal.id === id)[0]
+
     _instances.delete(modal)
 
     const scoped = modals.filter(({ scope }) => scope === modal.scope)
 
-    setActiveModal(
-      scoped[scoped.length - 2] || {
-        id: null,
-        props: null,
-        type: modal.type, // Keep type same as last modal type to make sure the animation isn't interrupted
-      },
-      modal.scope
-    )
+    if (scoped.length === 1) {
+      setActiveModal(initialModalState, modal.scope)
+    }
   }
 
   const closeAll = () => {
@@ -271,22 +300,27 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     closeAll,
   }
 
-  const content = Object.entries(activeModals).map(([scope, config]) => {
-    const Component = config.component || getModalComponent(config.type)
+  const content = React.useMemo(
+    () =>
+      Object.entries(activeModals).map(([scope, config]) => {
+        const Component = config.component || getModalComponent(config.type)
 
-    const { title, body, children, ...props } = config.props || {}
+        const { title, body, children, ...props } = config.props || {}
 
-    return (
-      <Component
-        key={scope}
-        title={title}
-        children={body || children}
-        {...props}
-        isOpen={!!(config.id && _instances.size)}
-        onClose={() => close(config.id)}
-      />
-    )
-  })
+        return (
+          <Component
+            key={scope}
+            title={title}
+            children={body || children}
+            {...props}
+            isOpen={!!config.isOpen}
+            onClose={() => close(config.id)}
+            onCloseComplete={() => closeComplete(config.id)}
+          />
+        )
+      }),
+    [activeModals]
+  )
 
   return (
     <ModalsContext.Provider value={context}>

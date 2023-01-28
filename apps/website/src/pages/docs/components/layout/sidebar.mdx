@@ -205,6 +205,8 @@ import {
 The condensed variant can be used as a collapsed state on smaller screens, or as the primary navigation in a double sidebar layout, see below.
 NavItem labels will be rendered as tooltips.
 
+Use the `tooltipProps` prop to customize the tooltip.
+
 ```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
@@ -291,8 +293,14 @@ You can stack multiple sidebars together to create a double sidebar layout.
 ```jsx height=400px overflow=hidden
 <AppShell
   sidebar={
-    <HStack spacing="0">
-      <Sidebar variant="condensed" bg="purple.500" borderWidth="0" width="12">
+    <HStack spacing="0" alignItems="stretch">
+      <Sidebar
+        variant="condensed"
+        bg="purple.500"
+        borderWidth="0"
+        width="12"
+        spacing="3"
+      >
         <SidebarSection>
           <Image
             src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -309,8 +317,8 @@ You can stack multiple sidebars together to create a double sidebar layout.
           </NavItem>
         </SidebarSection>
       </Sidebar>
-      <Sidebar isResizable width="280px" minWidth="220px" maxWidth="320px">
-        <SidebarSection direction="row">
+      <Sidebar>
+        <SidebarSection direction="row" mt="2">
           <Heading size="sm" fontWeight="semibold">
             Users
           </Heading>

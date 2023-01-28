@@ -1,5 +1,26 @@
 # @saas-ui/modals
 
+## 1.5.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/button@1.4.0
+  - @saas-ui/forms@1.5.0
+  - @saas-ui/menu@1.4.0
+
+## 1.4.3
+
+### Patch Changes
+
+- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+- Updated dependencies [523b5ca]
+  - @saas-ui/forms@1.4.2
+
 ## 1.4.2
 
 ### Patch Changes

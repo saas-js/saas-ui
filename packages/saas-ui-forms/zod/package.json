@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./../dist/zod/index.js",
-      "import": "./../dist/zod/index.modern.js"
+      "import": "./../dist/zod/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -14,7 +14,7 @@
   },
   "source": "./src/index.ts",
   "main": "../dist/zod/index.js",
-  "module": "../dist/zod/index.modern.js",
+  "module": "../dist/zod/index.modern.mjs",
   "types": "../dist/zod/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",

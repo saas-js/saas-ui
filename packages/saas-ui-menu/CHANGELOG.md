@@ -1,5 +1,17 @@
 # @saas-ui/menu
 
+## 1.4.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/button@1.4.0
+  - @saas-ui/provider@1.2.0
+
 ## 1.3.2
 
 ### Patch Changes

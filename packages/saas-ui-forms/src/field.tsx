@@ -381,8 +381,8 @@ export const TextareaField = registerFieldType<TextareaProps>(
 
 export const SwitchField = registerFieldType<SwitchProps>(
   'switch',
-  forwardRef(({ type, ...rest }, ref) => {
-    return <Switch {...rest} ref={ref} />
+  forwardRef(({ type, value, ...rest }, ref) => {
+    return <Switch isChecked={!!value} {...rest} ref={ref} />
   }),
   {
     isControlled: true,

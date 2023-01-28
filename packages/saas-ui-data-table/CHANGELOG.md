@@ -1,5 +1,22 @@
 # @saas-ui/data-table
 
+## 1.4.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/layout@1.4.0
+
+## 1.3.3
+
+### Patch Changes
+
+- a050ea1: Support disable sorting on individual columns in DataTable
+
 ## 1.3.2
 
 ### Patch Changes

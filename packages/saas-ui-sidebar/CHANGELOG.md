@@ -1,5 +1,24 @@
 # @saas-ui/sidebar
 
+## 0.8.0
+
+### Minor Changes
+
+- 1f074c98: Upgrade to Chakra 2.4.8. Using .mjs for esm bundles.
+
+### Patch Changes
+
+- Updated dependencies [1f074c98]
+  - @saas-ui/collapse@1.4.0
+  - @saas-ui/provider@1.2.0
+  - @saas-ui/react-utils@1.2.0
+
+## 0.7.0
+
+### Minor Changes
+
+- ec868e2: NavItem now supports tooltipProps to customize all tooltip props.
+
 ## 0.6.1
 
 ### Patch Changes

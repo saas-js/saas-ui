@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 1.5.1
+
+### Patch Changes
+
+- bff22b0: Removed deprecated type
+
 ## 1.5.0
 
 ### Minor Changes

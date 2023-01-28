@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 1.8.1
+
+### Patch Changes
+
+- bff22b0: Removed deprecated type
+- Updated dependencies [bff22b0]
+  - @saas-ui/forms@1.5.1
+  - @saas-ui/auth@1.7.1
+  - @saas-ui/modals@1.5.1
+
 ## 1.8.0
 
 ### Minor Changes

@@ -46,7 +46,6 @@ export const SubmitButton = React.forwardRef<
     <Button
       {...rest}
       ref={ref}
-      variant="primary"
       type="submit"
       isLoading={formState.isSubmitting || isLoading}
       isDisabled={isDisabled}
@@ -57,7 +56,8 @@ export const SubmitButton = React.forwardRef<
 })
 
 SubmitButton.defaultProps = {
-  label: 'Submit',
+  variant: 'primary',
+  children: 'Submit',
   disableIfUntouched: false,
   disableIfInvalid: false,
 }

@@ -262,3 +262,22 @@ export const WithRenderProp = () => {
     </Stack>
   )
 }
+
+export const WithCustomSubmit = () => (
+  <>
+    <Form
+      defaultValues={{
+        title: 'Form',
+        description: 'A basic layout',
+      }}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field name="title" label="Title" />
+        <Field name="description" label="Description" />
+
+        <SubmitButton variant="solid" colorScheme="cyan" />
+      </FormLayout>
+    </Form>
+  </>
+)

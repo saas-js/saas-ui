@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.3.1
+
+### Patch Changes
+
+- 2fbf13fa: Added missing dependency
+
 ## 0.3.0
 
 ### Minor Changes

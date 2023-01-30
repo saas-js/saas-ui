@@ -173,6 +173,7 @@ const Pricing = () => {
                 help="No restrictions on commercial projects or client work."
               />
               <PricingFeature title="Everything from Bootstrap" />
+              <PricingFeature title="Priority support" />
               <PricingFeature title="1 year of updates" />
               <br />
               <PricingFeature

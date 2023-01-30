@@ -42,7 +42,6 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
       <Button
         {...rest}
         ref={ref}
-        variant="primary"
         type="submit"
         isLoading={formState.isSubmitting || isLoading}
         isDisabled={isDisabled}
@@ -54,6 +53,7 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
 )
 
 SubmitButton.defaultProps = {
+  variant: 'primary',
   disableIfUntouched: false,
   disableIfInvalid: false,
 }

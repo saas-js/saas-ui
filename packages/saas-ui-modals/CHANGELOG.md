@@ -1,5 +1,20 @@
 # @saas-ui/modals
 
+## 1.5.2
+
+### Patch Changes
+
+- d424898: Prevent input error in FormDialog to block cancel/close the modal.
+- Updated dependencies [335acba]
+  - @saas-ui/forms@1.5.2
+
+## 1.5.1
+
+### Patch Changes
+
+- Updated dependencies [bff22b0]
+  - @saas-ui/forms@1.5.1
+
 ## 1.5.0
 
 ### Minor Changes

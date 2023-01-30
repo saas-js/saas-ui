@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 1.8.2
+
+### Patch Changes
+
+- d424898: Prevent input error in FormDialog to block cancel/close the modal.
+- Updated dependencies [d424898]
+- Updated dependencies [335acba]
+  - @saas-ui/modals@1.5.2
+  - @saas-ui/forms@1.5.2
+  - @saas-ui/radio@1.4.1
+  - @saas-ui/auth@1.7.2
+
 ## 1.8.1
 
 ### Patch Changes

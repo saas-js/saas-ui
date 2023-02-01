@@ -16,9 +16,19 @@ let config = {
   async redirects() {
     return [
       {
-        source: '/docs',
-        destination: '/docs/introduction',
-        permanent: false,
+        source: '/docs/core/overview',
+        destination: '/docs',
+        permanent: true,
+      },
+      {
+        source: '/docs/introduction',
+        destination: '/docs',
+        permanent: true,
+      },
+      {
+        source: '/docs/core/getting-started',
+        destination: '/docs/core/quickstarts',
+        permanent: true,
       },
     ]
   },

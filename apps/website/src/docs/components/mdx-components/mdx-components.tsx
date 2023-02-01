@@ -21,7 +21,7 @@ import ComponentLinks from './component-links'
 import IconsList from './icons-list'
 import { LinkCard } from '../link-card'
 import { QuickLink } from '../quick-link'
-import { FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight, FiStar, FiZap, FiMap, FiBox } from 'react-icons/fi'
 
 const PropsTable = dynamic(() => import('../props-table'))
 
@@ -163,4 +163,8 @@ export const MDXComponents = {
   LinkCard,
   QuickLink,
   FiArrowRight,
+  FiStar,
+  FiZap,
+  FiMap,
+  FiBox,
 }

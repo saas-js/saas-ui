@@ -22,11 +22,7 @@ export const Nav = () => {
         </HStack>
       </Button>
 
-      <Button
-        as="a"
-        href="https://saas-ui.dev/docs/introduction"
-        variant="ghost"
-      >
+      <Button as="a" href="https://saas-ui.dev/docs" variant="ghost">
         Documentation
       </Button>
 

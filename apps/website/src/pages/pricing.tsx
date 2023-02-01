@@ -92,7 +92,7 @@ const Pricing = () => {
               <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
             </PricingFeatures>
-            <ButtonLink href="/docs/introduction" variant="outline" mt="10">
+            <ButtonLink href="/docs" variant="outline" mt="10">
               View documentation
             </ButtonLink>
           </PricingBox>

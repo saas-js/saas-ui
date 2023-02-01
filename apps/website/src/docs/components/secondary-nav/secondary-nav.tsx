@@ -39,17 +39,11 @@ const SecondaryNavLink = ({
 
 export const docsNav = [
   {
-    href: '/docs/introduction',
-    label: 'Introduction',
+    href: '/docs',
+    label: 'Getting started',
     match: (asPath: string, href: string) =>
-      href.startsWith('/docs/introduction') &&
-      asPath.startsWith('/docs/introduction'),
-  },
-  {
-    href: '/docs/core/overview',
-    label: 'Core',
-    match: (asPath: string, href: string) =>
-      href.startsWith('/docs/core') && asPath.startsWith('/docs/core'),
+      asPath === '/docs' ||
+      (href.startsWith('/docs/core') && asPath.startsWith('/docs/core')),
   },
   {
     href: '/docs/components',

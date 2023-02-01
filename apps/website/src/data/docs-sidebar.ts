@@ -14,7 +14,7 @@ const sidebar = {
   routes: [
     {
       title: 'Introduction',
-      path: '/docs/introduction',
+      path: '/docs',
       icon: FiBookOpen,
     },
     {
@@ -30,7 +30,7 @@ const sidebar = {
       routes: [
         {
           title: 'Overview',
-          path: '/docs/core/overview',
+          path: '/docs',
         },
         {
           title: 'Design Principles',

@@ -23,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const docs = allDocs
     .map((t: Doc) => t._raw.flattenedPath.replace('docs/', ''))
     .map((id: string) => ({ params: { slug: id.split('/') } }))
-  return { paths: docs, fallback: false }
+  return { paths: docs, fallback: true }
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     (Array.isArray(ctx.params?.slug) ? ctx.params?.slug : [ctx.params?.slug]) ??
     []
   const doc = allDocs.find((doc: Doc) =>
-    doc._id.endsWith(`${params.join('/')}.mdx`)
+    doc._id.endsWith(`${params.join('/') || 'index'}.mdx`)
   )
 
   if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {

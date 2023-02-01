@@ -4,7 +4,7 @@ const sidebar = {
   routes: [
     {
       title: 'Overview',
-      path: '/docs/core/overview',
+      path: '/docs',
     },
     {
       title: 'Design Principles',

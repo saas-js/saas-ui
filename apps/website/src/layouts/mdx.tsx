@@ -18,8 +18,9 @@ export function getRoutes(slug: string) {
   // for home page, use docs sidebar
   if (slug === '/') return docsSidebar.routes
 
+  if (slug === '/docs') return coreSidebar.routes
+
   const configMap = {
-    '/docs/introduction': { routes: [] },
     '/docs/core': coreSidebar,
     '/docs/components': componentsSidebar,
     '/docs/hooks': hooksSidebar,

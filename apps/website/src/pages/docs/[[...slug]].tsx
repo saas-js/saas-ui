@@ -8,13 +8,15 @@ import Layout from 'src/layouts/'
 
 import generateRss from '@/utils/generate-rss'
 
-export default function Page({ doc }: { doc: Doc }) {
-  const Component = useMDXComponent(doc.body.code)
+const MdxPage = ({ doc }: { doc: Doc }) => {
+  const Component = useMDXComponent(doc?.body.code)
+  return <Component components={MDXComponents as any} />
+}
 
+export default function Page({ doc }: { doc: Doc }) {
   return (
-    <Layout frontMatter={doc.frontMatter}>
-      {/* @ts-ignore */}
-      <Component components={MDXComponents} />
+    <Layout frontMatter={doc?.frontMatter}>
+      {doc && <MdxPage doc={doc} />}
     </Layout>
   )
 }

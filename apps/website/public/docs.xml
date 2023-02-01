@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 01 Feb 2023 18:23:58 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 01 Feb 2023 19:46:02 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -21,30 +21,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/introduction</guid>
-    <title>Introduction</title>
-    <link>https://saas-ui.dev/docs/introduction</link>
-    <description>An advanced component library built with Chakra UI for building high quality SaaS products at speed.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
+    <guid>https://saas-ui.dev/docs</guid>
+    <title>Core overview</title>
+    <link>https://saas-ui.dev/docs</link>
+    <description>An advanced component library built on Chakra UI for building high quality SaaS products at speed.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -71,10 +51,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/core/getting-started</guid>
-    <title>Getting Started</title>
-    <link>https://saas-ui.dev/docs/core/getting-started</link>
-    <description>How to get up and running quickly with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -82,7 +72,7 @@
 
   <item>
     <guid>https://saas-ui.dev/docs/core/overview</guid>
-    <title>Core overview</title>
+    <title>Getting started</title>
     <link>https://saas-ui.dev/docs/core/overview</link>
     <description>An advanced component library built on Chakra UI for building high quality SaaS products at speed.</description>
     
@@ -95,6 +85,16 @@
     <title>Design Principles</title>
     <link>https://saas-ui.dev/docs/core/principles</link>
     <description>Principles that keep your code and UX consistent</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/quickstarts</guid>
+    <title>Quickstarts</title>
+    <link>https://saas-ui.dev/docs/core/quickstarts</link>
+    <description>How to get up and running quickly with Saas UI.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -671,20 +671,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/web3/address</guid>
-    <title>Web3Address</title>
-    <link>https://saas-ui.dev/docs/components/web3/address</link>
-    <description>Display Web3 addresses in a more readable format.</description>
+    <guid>https://saas-ui.dev/docs/pro/configuration/authentication</guid>
+    <title>Authentication</title>
+    <link>https://saas-ui.dev/docs/pro/configuration/authentication</link>
+    <description>How to setup authentication.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/configuration/authentication</guid>
-    <title>Authentication</title>
-    <link>https://saas-ui.dev/docs/pro/configuration/authentication</link>
-    <description>How to setup authentication.</description>
+    <guid>https://saas-ui.dev/docs/components/web3/address</guid>
+    <title>Web3Address</title>
+    <link>https://saas-ui.dev/docs/components/web3/address</link>
+    <description>Display Web3 addresses in a more readable format.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

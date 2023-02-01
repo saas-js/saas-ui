@@ -66,7 +66,7 @@ export const StepForm = React.forwardRef(
   }
 ) as <TFieldValues extends FieldValues>(
   props: StepFormProps<TFieldValues> & {
-    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
+    ref?: React.ForwardedRef<HTMLFormElement>
   }
 ) => React.ReactElement
 

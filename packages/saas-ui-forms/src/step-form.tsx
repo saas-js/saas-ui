@@ -33,13 +33,18 @@ import {
   FormStepSubmitHandler,
 } from './use-step-form'
 
-export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
-  extends UseStepFormProps<TFieldValues> {}
+export interface StepFormProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> extends UseStepFormProps<TFieldValues> {}
 
 export const StepForm = React.forwardRef(
-  <TFieldValues extends FieldValues = FieldValues>(
-    props: StepFormProps<TFieldValues>,
-    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  <
+    TFieldValues extends FieldValues = FieldValues,
+    TContext extends object = object
+  >(
+    props: StepFormProps<TFieldValues, TContext>,
+    ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const { children, ...rest } = props
 

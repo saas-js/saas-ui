@@ -45,7 +45,6 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
   onValidationError,
   submitLabel,
   passwordLabel,
-  label,
   confirmLabel,
   helpText,
   children,
@@ -69,13 +68,13 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
       onSubmit={handleSubmit}
       onError={onValidationError}
       defaultValues={{ password: '', confirmPassword: '' }}
-      ref={formRef}
+      formRef={formRef}
       {...formProps}
     >
       <FormLayout>
         <Field
           name="password"
-          label={label ?? passwordLabel}
+          label={passwordLabel}
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"

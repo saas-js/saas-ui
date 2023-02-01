@@ -123,7 +123,7 @@
   },
   "resolutions": {
     "unist-util-visit": "4.0.0",
-    "react-hook-form": "7.42.1"
+    "react-hook-form": "7.43.0"
   },
   "packageManager": "yarn@3.3.0"
 }

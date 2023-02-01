@@ -1,13 +1,11 @@
 import * as React from 'react'
-import { FieldValues, UseFormReturn } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form'
 import { forwardRef } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 
 import { Form, FormProps } from './form'
 import { FormLayout } from './layout'
 import { Fields } from './fields'
 import { SubmitButton } from './submit-button'
-import { FieldResolver } from '.'
 
 interface AutoFormOptions {
   /**
@@ -27,16 +25,21 @@ interface AutoFormOptions {
   fieldResolver?: any
 }
 
-export interface AutoFormProps<TFieldValues extends FieldValues>
-  extends Omit<FormProps<TFieldValues>, 'schema' | 'children'>,
+export interface AutoFormProps<
+  TFieldValues extends FieldValues,
+  TContext extends object = object
+> extends Omit<FormProps<TFieldValues, TContext>, 'schema' | 'children'>,
     AutoFormOptions {
   children?: React.ReactNode
 }
 
 export const AutoForm = forwardRef(
-  <TFieldValues extends FieldValues = FieldValues>(
-    props: AutoFormProps<TFieldValues>,
-    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  <
+    TFieldValues extends FieldValues = FieldValues,
+    TContext extends object = object
+  >(
+    props: AutoFormProps<TFieldValues, TContext>,
+    ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const {
       schema,
@@ -56,15 +59,6 @@ export const AutoForm = forwardRef(
       </Form>
     )
   }
-) as (<TFieldValues extends FieldValues>(
-  props: AutoFormProps<TFieldValues> & {
-    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
-  }
-) => React.ReactElement) & {
-  displayName?: string
-  getFieldResolver?: (schema: any) => FieldResolver
-}
+)
 
-if (__DEV__) {
-  AutoForm.displayName = 'AutoForm'
-}
+AutoForm.displayName = 'AutoForm'

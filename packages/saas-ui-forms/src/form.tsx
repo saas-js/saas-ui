@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
-import { cx, MaybeFunction, runIfFn, __DEV__ } from '@chakra-ui/utils'
+import { cx, runIfFn, __DEV__ } from '@chakra-ui/utils'
 
 import {
   useForm,
@@ -13,7 +13,6 @@ import {
   SubmitErrorHandler,
   ResolverOptions,
   ResolverResult,
-  ChangeHandler,
   WatchObserver,
 } from 'react-hook-form'
 import { objectFieldResolver, FieldResolver } from './field-resolver'
@@ -21,14 +20,24 @@ import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
-interface FormOptions<
+import { Field as DefaultField, FieldProps } from './field'
+
+interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object
+> extends UseFormReturn<TFieldValues, TContext> {
+  Field: React.FC<FieldProps<TFieldValues>>
+}
+
+interface FormOptions<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
+  TSchema = any
 > {
   /**
-   * The form schema, currently supports Yup schema only.
+   * The form schema, supports Yup, Zod, and AJV.
    */
-  schema?: any
+  schema?: TSchema
   /**
    * Triggers when any of the field change.
    */
@@ -42,34 +51,34 @@ interface FormOptions<
    */
   onError?: SubmitErrorHandler<TFieldValues>
   /**
-   * Ref on the HTMLFormElement.
+   * The Hook Form state ref.
    */
-  formRef?: React.RefObject<HTMLFormElement>
+  formRef?: React.RefObject<UseFormReturn<TFieldValues, TContext>>
   /**
    * The form children, can be a render prop or a ReactNode.
    */
-  children?: MaybeRenderProp<UseFormReturn<TFieldValues, TContext>>
+  children?: MaybeRenderProp<FormRenderContext<TFieldValues, TContext>>
 }
-
-// @todo Figure out how to pass down FieldValues to all Field components, if at all possible.
 
 export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
+  TSchema = any
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
-    FormOptions<TFieldValues, TContext> {}
+    FormOptions<TFieldValues, TContext, TSchema> {}
 
 export const Form = forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,
-    TContext extends object = object
+    TContext extends object = object,
+    TSchema = any
   >(
-    props: FormProps<TFieldValues, TContext>,
-    ref: React.ForwardedRef<UseFormReturn<TFieldValues, TContext>>
+    props: FormProps<TFieldValues, TContext, TSchema>,
+    ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const {
       mode = 'all',
@@ -82,6 +91,9 @@ export const Form = forwardRef(
       delayError,
       schema,
       defaultValues,
+      values,
+      context,
+      resetOptions,
       onChange,
       onSubmit,
       onError,
@@ -94,12 +106,15 @@ export const Form = forwardRef(
       mode,
       resolver,
       defaultValues,
+      values,
       reValidateMode,
       shouldFocusError,
       shouldUnregister,
       shouldUseNativeValidation,
       criteriaMode,
       delayError,
+      context,
+      resetOptions,
     }
 
     if (schema && !resolver) {
@@ -110,7 +125,7 @@ export const Form = forwardRef(
     const { handleSubmit } = methods
 
     // This exposes the useForm api through the forwarded ref
-    React.useImperativeHandle(ref, () => methods, [ref, methods])
+    React.useImperativeHandle(formRef, () => methods, [formRef, methods])
 
     React.useEffect(() => {
       let subscription: any
@@ -120,22 +135,34 @@ export const Form = forwardRef(
       return () => subscription?.unsubscribe()
     }, [methods, onChange])
 
+    const Field: React.FC<FieldProps<TFieldValues>> = React.useMemo(
+      () => (props) => <DefaultField<TFieldValues> {...props} />,
+      []
+    )
+
     return (
       <FormProvider {...methods}>
         <chakra.form
-          ref={formRef}
+          ref={ref}
           onSubmit={handleSubmit(onSubmit, onError)}
           {...rest}
           className={cx('sui-form', props.className)}
         >
-          {runIfFn(children, methods)}
+          {runIfFn(children, {
+            Field,
+            ...methods,
+          })}
         </chakra.form>
       </FormProvider>
     )
   }
-) as (<TFieldValues extends FieldValues, TContext extends object = object>(
-  props: FormProps<TFieldValues> & {
-    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
+) as (<
+  TFieldValues extends FieldValues,
+  TContext extends object = object,
+  TSchema = any
+>(
+  props: FormProps<TFieldValues, TContext, TSchema> & {
+    ref?: React.ForwardedRef<HTMLFormElement>
   }
 ) => React.ReactElement) & {
   displayName?: string
@@ -145,9 +172,7 @@ export const Form = forwardRef(
 
 Form.getFieldResolver = objectFieldResolver
 
-if (__DEV__) {
-  Form.displayName = 'Form'
-}
+Form.displayName = 'Form'
 
 export type GetResolver = <
   TFieldValues extends FieldValues,
@@ -161,3 +186,22 @@ export type GetResolver = <
 ) => Promise<ResolverResult<TFieldValues>>
 
 export type GetFieldResolver = (schema: any) => FieldResolver
+
+export interface CreateFormProps {
+  resolver?: GetResolver
+}
+
+export function createForm<Schema = any>({ resolver }: CreateFormProps) {
+  const CreateForm = <
+    TFieldValues extends FieldValues,
+    TContext extends object = object,
+    TSchema extends Schema = Schema
+  >(
+    props: FormProps<TFieldValues, TContext, TSchema>
+  ) => {
+    const { schema, ...rest } = props
+    return <Form {...rest} resolver={resolver?.(props.schema)} />
+  }
+
+  return CreateForm
+}

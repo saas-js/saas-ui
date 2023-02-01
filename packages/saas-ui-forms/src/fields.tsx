@@ -77,6 +77,4 @@ export const Fields: React.FC<FieldsProps> = ({
   )
 }
 
-if (__DEV__) {
-  Fields.displayName = 'Fields'
-}
+Fields.displayName = 'Fields'

@@ -28,7 +28,7 @@ $ npm i @saas-ui/react  --save
 
 You can find the documentation on our website:
 
-https://www.saas-ui.dev/docs/introduction
+https://www.saas-ui.dev/docs
 
 ## Storybook
 

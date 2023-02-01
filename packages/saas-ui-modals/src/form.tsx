@@ -10,17 +10,20 @@ import {
   FormProps,
   FieldValues,
   FieldResolver,
-  UseFormReturn,
 } from '@saas-ui/forms'
 
 import { BaseModal, BaseModalProps } from './modal'
 
-export interface FormDialogProps<TFieldValues extends FieldValues = FieldValues>
-  extends Omit<BaseModalProps, 'children'>,
+export interface FormDialogProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> extends Omit<BaseModalProps, 'children'>,
     Pick<
-      FormProps<TFieldValues>,
+      FormProps<TFieldValues, TContext>,
       | 'schema'
       | 'defaultValues'
+      | 'values'
+      | 'context'
       | 'onChange'
       | 'onSubmit'
       | 'onError'
@@ -59,9 +62,12 @@ export interface FormDialogProps<TFieldValues extends FieldValues = FieldValues>
 }
 
 export const FormDialog = forwardRef(
-  <TFieldValues extends FieldValues = FieldValues>(
-    props: FormDialogProps<TFieldValues>,
-    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
+  <
+    TFieldValues extends FieldValues = FieldValues,
+    TContext extends object = object
+  >(
+    props: FormDialogProps<TFieldValues, TContext>,
+    ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const {
       children,
@@ -69,6 +75,8 @@ export const FormDialog = forwardRef(
       resolver,
       fieldResolver,
       defaultValues,
+      values,
+      context,
       onChange,
       onSubmit,
       onError,
@@ -92,6 +100,8 @@ export const FormDialog = forwardRef(
       schema,
       resolver,
       defaultValues,
+      values,
+      context,
       onChange,
       onSubmit,
       onError,
@@ -106,7 +116,7 @@ export const FormDialog = forwardRef(
 
     return (
       <BaseModal isOpen={isOpen} onClose={onClose} {...rest}>
-        <Form {...formProps}>
+        <Form {...formProps} ref={ref}>
           {(form) => (
             <>
               <ModalBody>
@@ -135,6 +145,6 @@ export const FormDialog = forwardRef(
   }
 ) as <TFieldValues extends FieldValues>(
   props: FormDialogProps<TFieldValues> & {
-    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
+    ref?: React.ForwardedRef<HTMLFormElement>
   }
 ) => React.ReactElement

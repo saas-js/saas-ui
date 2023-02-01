@@ -1,11 +1,19 @@
-import { Container, Stack, Button } from '@chakra-ui/react'
+import {
+  Container,
+  Stack,
+  Button,
+  FormControl,
+  Input,
+  FormLabel,
+} from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
+import { z } from 'zod'
 
 import { yupResolver } from '@hookform/resolvers/yup'
-
-import { UseFormReturn } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { FieldValues, UseFormReturn } from 'react-hook-form'
 
 import {
   Form,
@@ -14,6 +22,7 @@ import {
   DisplayIf,
   SubmitButton,
   FormProps,
+  createForm,
 } from '../src'
 
 import { onSubmit } from './helpers'
@@ -51,22 +60,22 @@ const loginSchema = Yup.object().shape({
 })
 
 export const Basic = () => (
-  <>
-    <Form
-      defaultValues={{
-        title: 'Form',
-        description: 'A basic layout',
-      }}
-      onSubmit={onSubmit}
-    >
+  <Form
+    defaultValues={{
+      title: 'Form',
+      description: 'A basic layout',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
       <FormLayout>
         <Field name="title" label="Title" />
         <Field name="description" label="Description" />
 
         <SubmitButton />
       </FormLayout>
-    </Form>
-  </>
+    )}
+  </Form>
 )
 
 export const WithValidationRules = (props: FormProps) => (
@@ -145,7 +154,7 @@ export const FormState = () => {
           description: 'A basic layout',
         }}
         onSubmit={onSubmit}
-        ref={ref}
+        formRef={ref}
       >
         <FormLayout>
           <Field name="title" label="Title" />
@@ -171,10 +180,12 @@ export const WithTypescript = () => {
         }}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <Field<PostInputs> name="firstName" label="First name" />
-          <Field<PostInputs> name="lastName" label="Last name" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="firstName" label="First name" />
+            <Field name="lastName" label="Last name" />
+          </FormLayout>
+        )}
       </Form>
     </Stack>
   )
@@ -190,28 +201,30 @@ export const TypescriptWithRef = () => {
 
   return (
     <Form<FormInputs>
-      ref={ref}
+      formRef={ref}
       defaultValues={{
         firstName: '',
         lastName: '',
       }}
       onSubmit={() => Promise.resolve()}
     >
-      <FormLayout>
-        <Field<FormInputs>
-          name="firstName"
-          label="First name"
-          rules={{ required: 'Please enter your first name' }}
-        />
-        <Field<FormInputs> name="lastName" label="Last name" />
-        <DisplayIf name="firstName" condition={(value) => !!value}>
-          <Button onClick={() => ref.current?.reset()}>Reset</Button>
-        </DisplayIf>
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="firstName"
+            label="First name"
+            rules={{ required: 'Please enter your first name' }}
+          />
+          <Field name="lastName" label="Last name" />
+          <DisplayIf name="firstName" condition={(value) => !!value}>
+            <Button onClick={() => ref.current?.reset()}>Reset</Button>
+          </DisplayIf>
 
-        <SubmitButton disableIfUntouched disableIfInvalid>
-          Save
-        </SubmitButton>
-      </FormLayout>
+          <SubmitButton disableIfUntouched disableIfInvalid>
+            Save
+          </SubmitButton>
+        </FormLayout>
+      )}
     </Form>
   )
 }
@@ -227,16 +240,18 @@ export const WithOnChange = () => {
         onSubmit={onSubmit}
         onChange={(e) => console.log('change', e)}
       >
-        <FormLayout>
-          <Field<PostInputs> name="firstName" label="First name" />
-          <Field<PostInputs> name="lastName" label="Last name" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="firstName" label="First name" />
+            <Field name="lastName" label="Last name" />
+          </FormLayout>
+        )}
       </Form>
     </Stack>
   )
 }
 
-export const WithRenderProp = () => {
+export const WithRegister = () => {
   return (
     <Stack>
       <Form<PostInputs>
@@ -247,12 +262,14 @@ export const WithRenderProp = () => {
         onSubmit={onSubmit}
         onChange={(e) => console.log('change', e)}
       >
-        {(form) => {
-          console.log(form)
+        {({ Field, register }) => {
           return (
             <FormLayout>
-              <Field<PostInputs> name="firstName" label="First name" />
-              <Field<PostInputs> name="lastName" label="Last name" />
+              <Field name="firstName" label="First name" />
+              <FormControl>
+                <FormLabel>Last name</FormLabel>
+                <Input {...register('lastName')} />
+              </FormControl>
             </FormLayout>
           )
         }}
@@ -278,4 +295,40 @@ export const WithCustomSubmit = () => (
       </FormLayout>
     </Form>
   </>
+)
+
+const createZodForm = () => {
+  return createForm<z.AnyZodObject>({
+    resolver: zodResolver,
+  }) as <
+    TSchema extends z.AnyZodObject = z.AnyZodObject,
+    TContext extends object = object
+  >(
+    props: FormProps<z.infer<TSchema>, TContext, TSchema>
+  ) => React.ReactElement
+}
+
+const MyForm = createZodForm()
+
+const zodSchema = z.object({
+  name: z.string(),
+  age: z.number(),
+})
+
+export const ZodForm = () => (
+  <MyForm
+    schema={zodSchema}
+    context={{ test: 'test' }}
+    defaultValues={{
+      name: '',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="name" type="select" label="Name" />
+        <Field name="age" label="Age" />
+      </FormLayout>
+    )}
+  </MyForm>
 )

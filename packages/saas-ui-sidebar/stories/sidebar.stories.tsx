@@ -15,6 +15,7 @@ import {
   MenuButton,
   MenuList,
   Spacer,
+  Square,
   Text,
   useDisclosure,
 } from '@chakra-ui/react'
@@ -27,6 +28,9 @@ import {
   FiStar,
   FiChevronsLeft,
   FiChevronsRight,
+  FiToggleLeft,
+  FiSidebar,
+  FiSquare,
 } from 'react-icons/fi'
 
 import { FaHome, FaUsers, FaCog, FaHashtag } from 'react-icons/fa'
@@ -65,7 +69,17 @@ export default {
 const Template: Story<SidebarProps> = (args) => <Sidebar {...args} />
 
 export const Basic = Template.bind({})
-Basic.args = {}
+Basic.args = {
+  children: (
+    <>
+      <SidebarSection flex="1" overflowY="auto">
+        <NavItem>Home</NavItem>
+        <NavItem>Users</NavItem>
+        <NavItem>Settings</NavItem>
+      </SidebarSection>
+    </>
+  ),
+}
 
 export const WithLinks = Template.bind({})
 WithLinks.args = {
@@ -140,7 +154,7 @@ WithCollapsibleGroup.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarSection ps="6" pe="4" direction="row">
+      <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -185,7 +199,7 @@ WithBadge.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarSection ps="6" pe="4" direction="row">
+      <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -231,7 +245,7 @@ WithSubtleLinks.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarSection ps="6" pe="4" direction="row">
+      <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -276,7 +290,7 @@ WithSolidLinks.args = {
   children: (
     <>
       <SidebarToggleButton />
-      <SidebarSection ps="6" pe="4" direction="row">
+      <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
         <Menu>
@@ -315,21 +329,20 @@ WithSolidLinks.args = {
 export const VariantCondensed = Template.bind({})
 VariantCondensed.args = {
   variant: 'condensed',
-  width: '64px',
   children: (
     <>
-      <Nav>
+      <SidebarSection alignItems="center">
         <Logo width="24px" color="primary.500" />
-      </Nav>
-      <Nav>
-        <NavItem icon={<FiHome size="1.2em" />} size="md" isActive>
-          Home
-        </NavItem>
-        <NavItem>Users</NavItem>
-        <NavItem icon={<FiSettings size="1.2em" />} size="md">
-          Settings
-        </NavItem>
-      </Nav>
+      </SidebarSection>
+      <SidebarSection>
+        <Nav>
+          <NavItem icon={<FiHome size="1.2em" />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers size="1.2em" />}>Users</NavItem>
+          <NavItem icon={<FiSettings size="1.2em" />}>Settings</NavItem>
+        </Nav>
+      </SidebarSection>
     </>
   ),
 }
@@ -338,41 +351,77 @@ export const VariantCondensedColor = Template.bind({})
 VariantCondensedColor.args = {
   variant: 'condensed',
   colorScheme: 'purple',
-  width: '64px',
   children: (
     <>
-      <Logo width="24px" color="white" />
-      <NavGroup>
-        <NavItem
-          icon={<FiHome size="1.2em" color="white" />}
-          size="md"
-          isActive
-        >
-          Home
-        </NavItem>
-        <NavItem icon={<FiUsers size="1.2em" color="white" />} size="md">
-          Users
-        </NavItem>
-        <NavItem icon={<FiSettings size="1.2em" color="white" />} size="md">
-          Settings
-        </NavItem>
-      </NavGroup>
+      <SidebarSection alignItems="center" px="2">
+        <Logo width="24px" color="white" />
+      </SidebarSection>
+      <SidebarSection px="3">
+        <Nav>
+          <NavItem icon={<FiHome size="1.2em" color="white" />} isActive>
+            Home
+          </NavItem>
+          <NavItem icon={<FiUsers size="1.2em" color="white" />}>Users</NavItem>
+          <NavItem icon={<FiSettings size="1.2em" color="white" />}>
+            Settings
+          </NavItem>
+        </Nav>
+      </SidebarSection>
     </>
   ),
 }
 
 export const VariantCondensedResponsive = Template.bind({})
 VariantCondensedResponsive.args = {
-  variant: { base: 'condensed', lg: 'default' },
+  variant: { base: 'condensed' },
   breakpoints: { base: false },
   colorScheme: 'purple',
   children: (
     <>
-      <SidebarSection>
+      <SidebarSection alignItems="center">
         <Logo width="24px" color="white" />
       </SidebarSection>
       <SidebarSection>
         <NavGroup>
+          <NavItem
+            icon={<FiHome size="1.2em" color="whiteAlpha.800" />}
+            color="white"
+            size="sm"
+            isActive
+          >
+            Home
+          </NavItem>
+          <NavItem
+            icon={<FiUsers size="1.2em" color="whiteAlpha.800" />}
+            color="white"
+            size="sm"
+          >
+            Users
+          </NavItem>
+          <NavItem
+            icon={<FiSettings size="1.2em" color="whiteAlpha.800" />}
+            color="white"
+            size="sm"
+          >
+            Settings
+          </NavItem>
+        </NavGroup>
+      </SidebarSection>
+    </>
+  ),
+}
+
+export const VariantCondensedNavGroup = Template.bind({})
+VariantCondensedNavGroup.args = {
+  variant: 'condensed',
+  colorScheme: 'purple',
+  children: (
+    <>
+      <SidebarSection alignItems="center">
+        <Logo width="24px" color="white" />
+      </SidebarSection>
+      <SidebarSection>
+        <NavGroup title="Users">
           <NavItem
             icon={<FiHome size="1.2em" color="whiteAlpha.800" />}
             color="white"
@@ -414,40 +463,44 @@ export const DoubleSidebar = () => {
           zIndex="3"
           position="relative"
         >
-          <Logo width="24px" color="white" mb="1" />
+          <SidebarSection alignItems="center">
+            <Logo width="24px" color="white" mb="1" />
+          </SidebarSection>
 
-          <NavGroup>
-            <NavItem
-              icon={<FiUsers size="1.2em" />}
-              isActive
-              onClick={(e) => {
-                e.preventDefault()
-                disclosure.onToggle()
-              }}
-            >
-              Users
-            </NavItem>
-            <NavItem
-              icon={<FiSettings size="1.2em" />}
-              onClick={(e) => {
-                e.preventDefault()
-                disclosure.onClose()
-              }}
-            >
-              Settings
-            </NavItem>
-          </NavGroup>
+          <SidebarSection flex="1">
+            <NavGroup>
+              <NavItem
+                icon={<FiUsers size="1.2em" />}
+                isActive
+                onClick={(e) => {
+                  e.preventDefault()
+                  disclosure.onToggle()
+                }}
+              >
+                Users
+              </NavItem>
+              <NavItem
+                icon={<FiSettings size="1.2em" />}
+                onClick={(e) => {
+                  e.preventDefault()
+                  disclosure.onClose()
+                }}
+              >
+                Settings
+              </NavItem>
+            </NavGroup>
 
-          <Spacer />
+            <Spacer />
 
-          <Menu>
-            <MenuButton as={Button} variant="ghost">
-              <PersonaAvatar presence="online" size="xs" />
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Sign out</MenuItem>
-            </MenuList>
-          </Menu>
+            <Menu>
+              <MenuButton as={Button} variant="ghost" px="0">
+                <PersonaAvatar presence="online" size="xs" />
+              </MenuButton>
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
         </Sidebar>
       </DarkMode>
       <Sidebar
@@ -455,9 +508,8 @@ export const DoubleSidebar = () => {
         onClose={disclosure.onClose}
         onOpen={disclosure.onOpen}
         zIndex={2}
-        marginLeft={[16, 0]}
       >
-        <SidebarSection ps="6" pe="4" direction="row">
+        <SidebarSection px="5" direction="row">
           <Heading size="sm" py="2">
             Users
           </Heading>
@@ -500,19 +552,18 @@ export function ToggleSidebar() {
         onOpen={onOpen}
         onClose={onClose}
         breakpoints={{ base: true }}
+        spacing="2"
       >
         <Box h="8">
-          <Button onClick={onToggle} position="fixed" left="4" zIndex="modal">
-            {isOpen ? 'Close' : 'Open'}
-          </Button>
+          <IconButton
+            onClick={onToggle}
+            position="fixed"
+            left="3"
+            zIndex="modal"
+            aria-label={isOpen ? 'Close' : 'Open'}
+            icon={isOpen ? <FiSquare /> : <FiSidebar />}
+          />
         </Box>
-
-        <SidebarSection ps="6" pe="4" direction="row">
-          <Heading size="sm" py="2">
-            Users
-          </Heading>
-          <Spacer />
-        </SidebarSection>
 
         <SidebarSection flex="1" overflowY="auto">
           <NavGroup>
@@ -550,16 +601,11 @@ export function ToggleVariant() {
         variant={isOpen ? 'default' : 'condensed'}
         transition="width"
         transitionDuration="normal"
-        width={isOpen ? '280px' : '48px'}
+        width={isOpen ? '280px' : '14'}
         minWidth="auto"
       >
-        <SidebarSection direction={isOpen ? 'row' : 'column'}>
-          <Logo
-            width="24px"
-            color="white"
-            mb="1"
-            display={isOpen ? 'block' : 'none'}
-          />
+        <SidebarSection direction={isOpen ? 'row' : 'column'} height="32px">
+          <Logo width="24px" mb="1" display={isOpen ? 'block' : 'none'} />
           <Spacer />
           <IconButton
             onClick={onToggle}
@@ -572,10 +618,10 @@ export function ToggleVariant() {
 
         <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
           <NavGroup>
-            <NavItem icon={<FiHome />} isActive>
+            <NavItem icon={<FiHome size="1.1em" />} isActive>
               All users
             </NavItem>
-            <NavItem icon={<FiStar />}>Favourite users</NavItem>
+            <NavItem icon={<FiStar size="1.1em" />}>Favourite users</NavItem>
           </NavGroup>
         </SidebarSection>
         <SidebarOverlay zIndex="1" />

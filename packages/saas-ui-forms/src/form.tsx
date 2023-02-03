@@ -118,7 +118,7 @@ export const Form = forwardRef(
     }
 
     if (schema && !resolver) {
-      form.resolver = Form.getResolver?.<TFieldValues, TContext>(schema)
+      form.resolver = Form.getResolver?.(schema)
     }
 
     const methods = useForm<TFieldValues, TContext>(form)

@@ -1,5 +1,30 @@
 # @saas-ui/react
 
+## 1.9.0
+
+### Minor Changes
+
+- aea16c7: BREAKING: Improved Sidebar behavior and theme. Remove deprecated label prop on NavItem.
+
+### Patch Changes
+
+- Updated dependencies [aea16c7]
+  - @saas-ui/theme@1.8.0
+  - @saas-ui/provider@1.2.1
+  - @saas-ui/layout@1.4.1
+  - @saas-ui/menu@1.4.1
+  - @saas-ui/auth@1.7.3
+  - @saas-ui/data-table@1.4.1
+  - @saas-ui/modals@1.5.4
+
+## 1.8.3
+
+### Patch Changes
+
+- fc2581b: Fix issue where ConfirmDialog label could not be changed.
+- Updated dependencies [fc2581b]
+  - @saas-ui/modals@1.5.3
+
 ## 1.8.2
 
 ### Patch Changes

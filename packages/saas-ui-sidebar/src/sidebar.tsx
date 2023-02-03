@@ -39,13 +39,21 @@ export interface SidebarOptions {
    * @default object { sm: true, lg: false }
    */
   breakpoints?: Record<string, boolean>
-
+  /**
+   * Control the visibility of the sidebar.
+   */
   isOpen?: boolean
-
+  /**
+   * Callback invoked when the sidebar is opened.
+   */
   onOpen?: () => void
-
+  /**
+   * Callback invoked when the sidebar is closed.
+   */
   onClose?: () => void
-
+  /**
+   * The transition used when opening and closing the sidebar.
+   */
   motionPreset?: 'slideInOut' | 'none'
 }
 
@@ -76,6 +84,11 @@ const motionPresets = {
   none: {},
 }
 
+/**
+ * Side navigation, commonly used as the primary navigation
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('Sidebar', props)
   const theme = useTheme()
@@ -108,7 +121,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   // we check this twice to avoid SSR issues.
   const isMobileInitial = useBreakpointValue(breakpoints)
   const isInitial = typeof isMobile === 'undefined'
-  const isCollapsible = isMobileInitial && !isCondensed
+  const isCollapsible = isMobile && !isCondensed
   const isControlled = typeof isOpenProp !== 'undefined'
 
   const disclosure = useDisclosure({
@@ -195,6 +208,11 @@ export interface SidebarToggleButtonProps
   wrapperProps?: HTMLChakraProps<'div'>
 }
 
+/**
+ * Button that toggles the sidebar visibility.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
 export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   props
 ) => {
@@ -204,7 +222,6 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   const styles = useSidebarStyles()
 
   const wrapperStyles = {
-    display: sidebar?.isMobile ? 'block' : 'none',
     height: 8,
     ...styles.toggleWrapper,
   }
@@ -245,6 +262,11 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
 
 export interface SidebarOverlayProps extends ChakraProps {}
 
+/**
+ * Overlay shown when sidebar is open on mobile.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
 export const SidebarOverlay: React.FC<SidebarOverlayProps> = (props) => {
   const { onClose, isOpen, isMobile } = useSidebarContext()
 
@@ -283,6 +305,11 @@ export interface SidebarSectionProps extends HTMLChakraProps<'div'> {
   direction?: ResponsiveValue<'row' | 'column'>
 }
 
+/**
+ * Sidebar section that can contain sidebar items.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
 export const SidebarSection: React.FC<SidebarSectionProps> = (props) => {
   const { direction = 'column', ...rest } = props
   const styles = useSidebarStyles()

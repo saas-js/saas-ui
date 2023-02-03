@@ -8,6 +8,20 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-03-2023
+
+`@saas-ui/react@1.9.0`
+
+- Improved Sidebar behavior and theme.
+
+**Sidebar** `v0.9.0`
+
+- Improved Sidebar behavior and theme.
+
+**Theme** `v1.8.0`
+
+- Improved Sidebar behavior and theme.
+
 ## 01-08-2023
 
 `@saas-ui/react@1.7.4`

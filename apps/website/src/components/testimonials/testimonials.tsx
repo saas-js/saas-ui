@@ -39,7 +39,7 @@ export const Testimonials = () => {
           <Testimonial
             name="Milan van Schaik"
             description="CTO - CultureKit"
-            avatar="https://pbs.twimg.com/profile_images/1485532765814669314/EGBzTkkg_normal.jpg"
+            avatar="https://pbs.twimg.com/profile_images/1608930465422970881/a8C9V6Tx_400x400.jpg"
             fontSize="md"
           >
             “In order to be able to build beautiful portals in an efficient way,

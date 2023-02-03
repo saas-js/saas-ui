@@ -19,9 +19,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       display: 'flex',
       flexDirection: 'column',
       borderRightWidth: '1px',
-      '&[data-condensed]': {
-        alignItems: 'center',
-      },
     },
     overlay: {
       bg: 'blackAlpha.200',
@@ -38,10 +35,15 @@ const variantDefault: PartsStyleFunction<typeof parts> = (props) => {
       py: 3,
     },
     section: {
-      px: 4,
+      px: 3,
     },
     toggleWrapper: {
       h: 8,
+      mb: 4,
+      display: 'none',
+      '[data-collapsible] &': {
+        display: 'block',
+      },
     },
   }
 }
@@ -49,8 +51,11 @@ const variantDefault: PartsStyleFunction<typeof parts> = (props) => {
 const variantCondensed: PartsStyleFunction<typeof parts> = (props) => {
   return {
     container: {
-      width: '12',
+      width: '14',
       py: 3,
+    },
+    section: {
+      px: 3,
     },
     toggleWrapper: {
       display: 'none',

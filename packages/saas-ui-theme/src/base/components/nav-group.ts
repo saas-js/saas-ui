@@ -41,6 +41,9 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
           },
         },
       },
+      '[data-condensed] &': {
+        opacity: 0,
+      },
     },
     content: {},
   }

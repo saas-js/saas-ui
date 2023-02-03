@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 1.9.0
+
+### Minor Changes
+
+- aea16c7: Improved Sidebar behavior and theme.
+
+### Patch Changes
+
+- Updated dependencies [aea16c7]
+  - @saas-ui/theme@1.8.0
+  - @saas-ui/provider@1.2.1
+  - @saas-ui/layout@1.4.1
+  - @saas-ui/menu@1.4.1
+  - @saas-ui/auth@1.7.3
+  - @saas-ui/data-table@1.4.1
+  - @saas-ui/modals@1.5.4
+
 ## 1.8.3
 
 ### Patch Changes

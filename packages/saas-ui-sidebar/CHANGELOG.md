@@ -1,5 +1,15 @@
 # @saas-ui/sidebar
 
+## 0.9.0
+
+### Minor Changes
+
+- aea16c7: Improved Sidebar behavior and theme.
+
+### Patch Changes
+
+- @saas-ui/provider@1.2.1
+
 ## 0.8.0
 
 ### Minor Changes

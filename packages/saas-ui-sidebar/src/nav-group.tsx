@@ -107,6 +107,11 @@ export const NavGroupContent: React.FC<HTMLChakraProps<'div'>> = (props) => {
   )
 }
 
+/**
+ * Navigation group containing nav items, used in Sidebar.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
 export const NavGroup: React.FC<NavGroupProps> = (props) => {
   const {
     title,
@@ -123,7 +128,10 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
   const collapse = useCollapse(props)
   const { getCollapseProps } = collapse
 
-  const header = title && <NavGroupTitle leftIcon={icon}>{title}</NavGroupTitle>
+  let header = title
+  if (typeof title === 'string') {
+    header = <NavGroupTitle leftIcon={icon}>{title}</NavGroupTitle>
+  }
 
   let content = <NavGroupContent>{children}</NavGroupContent>
 

@@ -73,33 +73,42 @@ NavItemIcon.displayName = 'NavItemIcon'
 export interface NavItemProps
   extends HTMLChakraProps<'a'>,
     ThemingProps<'NavItem'> {
+  /**
+   * The href attribute of the nav item,
+   * will be wrapped in a `Link`, if `linkComponent` is configured in SaasProvider.
+   */
   href?: string
   /**
-   * @deprecated use children instead
+   * Icon to be displayed in the nav item
    */
-  label?: string
   icon?: React.ReactElement
+  /**
+   * Inset of the item, used for nested items
+   */
   inset?: SystemProps['paddingLeft']
   /**
-   * @deprecated use tooltipProps to pass a custom tooltip label
+   * Props to be passed to the tooltip
+   * @see Docs https://chakra-ui.com/docs/overlay/tooltip
    */
-  tooltip?: React.ReactNode
   tooltipProps?: TooltipProps
+  /**
+   * If `true`, the nav item will be active
+   */
   isActive?: boolean
 }
 
+/**
+ * Navigation item used in the sidebar.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
 export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const {
     href = '#',
-    label: labelProp,
     icon,
     inset,
     className,
-    tooltip,
-    tooltipProps = {
-      placement: 'right',
-      openDelay: 400,
-    },
+    tooltipProps,
     isActive,
     children,
     ...rest
@@ -110,13 +119,13 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
 
   const styles = useMultiStyleConfig('NavItem', props)
 
-  let label = children || labelProp
-  let tooltipLabel = tooltip
+  let label = children
+  let tooltipLabel = tooltipProps?.label
   if (typeof label === 'string') {
     if (!tooltipLabel && isCondensed) {
       tooltipLabel = label
     }
-    label = <NavItemLabel hidden={isCondensed}>{label}</NavItemLabel>
+    label = <NavItemLabel>{label}</NavItemLabel>
   }
 
   let link = (
@@ -147,7 +156,12 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
 
   return (
     <NavItemStylesProvider value={styles}>
-      <Tooltip label={tooltipLabel} {...tooltipProps}>
+      <Tooltip
+        label={tooltipLabel}
+        placement="right"
+        openDelay={400}
+        {...tooltipProps}
+      >
         <chakra.div
           __css={styles.item}
           onClick={onClose}

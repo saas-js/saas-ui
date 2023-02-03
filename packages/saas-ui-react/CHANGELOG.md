@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- aea16c7: Improved Sidebar behavior and theme.
+- aea16c7: BREAKING: Improved Sidebar behavior and theme. Remove deprecated label prop on NavItem.
 
 ### Patch Changes
 

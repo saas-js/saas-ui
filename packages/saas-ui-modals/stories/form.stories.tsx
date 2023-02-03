@@ -63,7 +63,7 @@ export const basic = () => {
 export const focusFirstInput = () => {
   const disclosure = useDisclosure()
 
-  const initialRef = React.useRef<HTMLInputElement>()
+  const initialRef = React.useRef<HTMLInputElement>(null)
 
   return (
     <Stack alignItems="center">
@@ -98,7 +98,7 @@ export const focusFirstInput = () => {
 export const customFooter = () => {
   const disclosure = useDisclosure()
 
-  const initialRef = React.useRef<HTMLInputElement>()
+  const initialRef = React.useRef<HTMLInputElement>(null)
 
   const footer = (
     <ModalFooter>

@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 1.5.3
+
+### Patch Changes
+
+- fc2581b: Fix issue where ConfirmDialog label could not be changed.
+
 ## 1.5.2
 
 ### Patch Changes

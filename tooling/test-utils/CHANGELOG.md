@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 2.3.3
+
+### Patch Changes
+
+- Updated dependencies [fc2581b]
+  - @saas-ui/react@1.8.3
+
 ## 2.3.2
 
 ### Patch Changes

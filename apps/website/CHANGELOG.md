@@ -1,5 +1,12 @@
 # website
 
+## 1.3.3
+
+### Patch Changes
+
+- Updated dependencies [fc2581b]
+  - @saas-ui/react@1.8.3
+
 ## 1.3.2
 
 ### Patch Changes

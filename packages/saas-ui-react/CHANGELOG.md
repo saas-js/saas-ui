@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 1.8.3
+
+### Patch Changes
+
+- fc2581b: Fix issue where ConfirmDialog label could not be changed.
+- Updated dependencies [fc2581b]
+  - @saas-ui/modals@1.5.3
+
 ## 1.8.2
 
 ### Patch Changes

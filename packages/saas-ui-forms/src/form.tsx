@@ -15,7 +15,6 @@ import {
   ResolverResult,
   ChangeHandler,
   WatchObserver,
-  UnpackNestedValue,
 } from 'react-hook-form'
 import { objectFieldResolver, FieldResolver } from './field-resolver'
 import { MaybeRenderProp } from '@chakra-ui/react-utils'

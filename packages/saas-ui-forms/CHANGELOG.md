@@ -1,5 +1,19 @@
 # @saas-ui/forms
 
+## 1.5.2
+
+### Patch Changes
+
+- 335acba: Allow SubmitButton variant to be overwritten.
+- Updated dependencies [335acba]
+  - @saas-ui/radio@1.4.1
+
+## 1.5.1
+
+### Patch Changes
+
+- bff22b0: Removed deprecated type
+
 ## 1.5.0
 
 ### Minor Changes

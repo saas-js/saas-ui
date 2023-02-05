@@ -2,10 +2,10 @@ import { Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
-import { yupForm } from '@saas-ui/form-resolvers/yup'
+import { yupForm } from '@saas-ui/forms/yup'
 
 import * as z from 'zod'
-import { zodForm, zodMeta } from '@saas-ui/form-resolvers/zod'
+import { zodForm, zodMeta } from '@saas-ui/forms/zod'
 
 import { AutoForm, SubmitButton } from '../src'
 

@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { useFormContext, useWatch } from 'react-hook-form'
 
-import { yupForm, yupResolver } from '@saas-ui/form-resolvers/yup'
+import { yupForm, yupResolver } from '@saas-ui/forms/yup'
 
 import {
   Form,

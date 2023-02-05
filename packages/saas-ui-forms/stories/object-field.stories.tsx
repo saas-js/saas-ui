@@ -13,7 +13,7 @@ import {
   SubmitButton,
 } from '../src'
 
-import { yupForm } from '@saas-ui/form-resolvers/yup'
+import { yupForm } from '@saas-ui/forms/yup'
 
 import { onSubmit } from './helpers'
 

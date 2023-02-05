@@ -1,5 +1,5 @@
 import { Container } from '@chakra-ui/react'
-import { yupResolver } from '@saas-ui/form-resolvers/yup'
+import { yupResolver } from '@saas-ui/forms/yup'
 import * as React from 'react'
 
 import * as Yup from 'yup'

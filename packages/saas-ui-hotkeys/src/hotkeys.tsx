@@ -7,13 +7,13 @@ import {
   omitThemingProps,
   useMultiStyleConfig,
   createStylesContext,
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 import { cx, __DEV__ } from '@chakra-ui/utils'
 import { createContext } from '@chakra-ui/react-utils'
 
 import { Kbd } from '@chakra-ui/react'
 
-import { SearchInput, SearchInputProps } from '@saas-ui/search-input'
+import { SearchInput, SearchInputProps } from '@saas-ui/core'
 
 const [StylesProvider, useStyles] = createStylesContext('Hotkeys')
 

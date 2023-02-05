@@ -33,12 +33,12 @@ import {
 
 import { ButtonGroup } from '@chakra-ui/react'
 
-import { PropertyList, Property } from '@saas-ui/property'
+import { PropertyList, Property } from '@saas-ui/core'
 
 import { onSubmit } from './helpers'
-import { StepperCompleted } from '@saas-ui/stepper'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { StepperCompleted } from '@saas-ui/core'
+import { yupResolver } from '@saas-ui/forms/yup'
+import { zodResolver } from '@saas-ui/forms/zod'
 import {
   FormState,
   useFormContext,
@@ -348,7 +348,7 @@ export const WithState = () => {
   return (
     <>
       <StepForm
-        ref={formRef}
+        formRef={formRef}
         defaultValues={{
           name: '',
           email: '',

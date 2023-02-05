@@ -29,22 +29,25 @@ import {
   NextButton,
   FormStepper,
   FormLayout,
+  Select,
 } from '@saas-ui/forms'
-import { OverflowMenu } from '@saas-ui/menu'
-import { Persona } from '@saas-ui/persona'
-import { Property, PropertyList } from '@saas-ui/property'
-import { SearchInput } from '@saas-ui/search-input'
-import { Select } from '@saas-ui/select'
-import { Web3Address } from '@saas-ui/web3'
 import { FiCopy, FiDelete, FiPenTool } from 'react-icons/fi'
 import { BackgroundGradient } from '../background-gradient'
 import Section from '../marketing/section-wrapper'
 import { Float } from '../motion/float'
-import { useHotkeys } from '@saas-ui/hotkeys'
 import { FaGithub } from 'react-icons/fa'
-import { DataTable } from '@saas-ui/data-table'
 import { useScrollSpy } from '@/hooks/use-scrollspy'
-import { StepperCompleted } from '@saas-ui/react'
+import {
+  StepperCompleted,
+  OverflowMenu,
+  Persona,
+  Property,
+  PropertyList,
+  SearchInput,
+  Web3Address,
+  DataTable,
+  useHotkeys,
+} from '@saas-ui/react'
 
 import confetti from 'canvas-confetti'
 

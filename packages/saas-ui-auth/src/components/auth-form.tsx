@@ -12,7 +12,7 @@ import {
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { FormProps, FieldErrors } from '@saas-ui/forms'
-import { Divider } from '@saas-ui/layout'
+import { Divider } from '@saas-ui/core'
 
 import { MagicLinkForm } from './magic-link-form'
 import { PasswordForm } from './password-form'

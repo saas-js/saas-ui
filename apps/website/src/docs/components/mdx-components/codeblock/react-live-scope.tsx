@@ -3,15 +3,13 @@ import * as Chakra from '@chakra-ui/react'
 import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
-import * as AppShell from '@saas-ui/app-shell'
-import * as Sidebar from '@saas-ui/sidebar'
 import * as DatePicker from '@saas-ui/date-picker'
 import * as SaasUIPro from '@saas-ui/pro'
 import * as SaasUIFeatures from '@saas-ui/features'
 
-import * as Web3 from '@saas-ui/web3'
 import * as Yup from 'yup'
-import { yupForm, yupResolver } from '@saas-ui/form-resolvers/yup'
+import { yupForm, yupResolver } from '@saas-ui/forms/yup'
+import { zodForm, zodResolver } from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
@@ -120,10 +118,7 @@ const ReactLiveScope = {
   ...SaasUIPro,
   ...SaasUI,
   ...SaasUIFeatures,
-  ...AppShell,
-  ...Sidebar,
   ...DatePicker,
-  ...Web3,
   ...Icons,
   Yup,
   yupResolver,

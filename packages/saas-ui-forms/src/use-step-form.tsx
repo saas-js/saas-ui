@@ -6,7 +6,7 @@ import {
   useStep,
   UseStepperProps,
   UseStepperReturn,
-} from '@saas-ui/stepper'
+} from '@saas-ui/core'
 
 export interface StepState {
   name: string

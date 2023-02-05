@@ -39,12 +39,12 @@ const sidebar = {
 
         {
           title: 'Quickstarts',
-          path: '/docs/core/getting-started',
+          path: '/docs/core/quickstarts',
           open: true,
           routes: [
             {
               title: 'Overview',
-              path: '/docs/core/getting-started',
+              path: '/docs/core/quickstarts',
             },
             {
               title: 'Next JS',

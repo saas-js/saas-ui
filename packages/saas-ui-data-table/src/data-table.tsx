@@ -28,7 +28,7 @@ import { cx, __DEV__ } from '@chakra-ui/utils'
 
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
 
-import { Link } from '@saas-ui/layout'
+import { Link } from '@saas-ui/core'
 
 export type { TableInstance, ColumnDef }
 

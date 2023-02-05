@@ -30,7 +30,6 @@
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/props-docs": "workspace:*",
     "@saas-ui/react": "workspace:*",
-    "@saas-ui/web3": "workspace:*",
     "@svgr/webpack": "^6.5.1",
     "@vercel/og": "^0.0.20",
     "canvas-confetti": "^1.6.0",

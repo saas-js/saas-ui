@@ -35,16 +35,11 @@ import {
 } from '@chakra-ui/react'
 import { __DEV__, FocusableElement, callAllHandlers } from '@chakra-ui/utils'
 
-import { NumberInput, NumberInputProps } from '@saas-ui/number-input'
-import { PasswordInput, PasswordInputProps } from '@saas-ui/password-input'
-import { RadioInput, RadioInputProps } from '@saas-ui/radio'
+import { NumberInput, NumberInputProps } from './number-input'
+import { PasswordInput, PasswordInputProps } from './password-input'
+import { RadioInput, RadioInputProps } from './radio'
 
-import {
-  Select,
-  SelectProps,
-  NativeSelect,
-  NativeSelectProps,
-} from '@saas-ui/select'
+import { Select, SelectProps, NativeSelect, NativeSelectProps } from './select'
 
 export interface Option {
   value: string

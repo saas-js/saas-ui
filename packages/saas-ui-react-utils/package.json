@@ -17,7 +17,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -53,6 +53,9 @@
   "storybook": {
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@chakra-ui/utils": "^2.0.14"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.6",

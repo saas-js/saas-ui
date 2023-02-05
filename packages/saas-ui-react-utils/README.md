@@ -1,6 +1,6 @@
 # @saas-ui/react-utils
 
-Description
+Utilities and helpers for React components.
 
 ## Installation
 

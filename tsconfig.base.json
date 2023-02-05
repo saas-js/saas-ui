@@ -15,7 +15,6 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
-    "incremental": true,
     "declarationMap": true
   },
   "exclude": ["node_modules", "**/node_modules"],

@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import { NavItem } from '@saas-ui/sidebar'
+import { NavItem } from '@saas-ui/react'
 
 type SidebarLinkProps = PropsOf<typeof chakra.div> & {
   href?: string

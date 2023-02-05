@@ -15,7 +15,7 @@ import { testA11y } from './accessibility'
  *
  * @example
  * ```jsx
- * import * as stories from '../stories/button.stories)
+ * import * as stories from '../stories/button.stories'
  *
  * const { Basic } = testStories(stories)
  *

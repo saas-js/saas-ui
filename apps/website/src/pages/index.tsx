@@ -93,7 +93,7 @@ import {
   BannerDescription,
   BannerIcon,
   BannerTitle,
-} from '@saas-ui/banner'
+} from '@saas-ui/core'
 
 import { transparentize } from '@chakra-ui/theme-tools'
 import { Testimonial, Testimonials } from '@/components/testimonials'

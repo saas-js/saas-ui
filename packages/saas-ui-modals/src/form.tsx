@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { ModalBody, ModalFooter, Button, forwardRef } from '@chakra-ui/react'
-import { runIfFn } from '@chakra-ui/utils'
+import { runIfFn } from '@saas-ui/react-utils'
 
 import {
   Form,

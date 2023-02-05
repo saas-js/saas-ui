@@ -4,7 +4,8 @@ import Layout from '@/components/layout'
 
 import theme from '../styles/theme'
 
-import { SaasProvider, ModalsProvider, AuthProvider } from '@saas-ui/react'
+import { SaasProvider, ModalsProvider } from '@saas-ui/react'
+import { AuthProvider } from '@saas-ui/auth'
 import { NProgressNextRouter } from '@saas-ui/nprogress'
 
 import Footer from '@/components/footer'

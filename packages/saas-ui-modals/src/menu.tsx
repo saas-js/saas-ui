@@ -12,8 +12,6 @@ import {
   MenuListProps,
 } from '@chakra-ui/react'
 
-import {} from '@chakra-ui/system'
-
 import { BaseModal, BaseModalProps } from './modal'
 
 const [StylesProvider] = createStylesContext('MenuDialog')

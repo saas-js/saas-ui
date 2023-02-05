@@ -20,7 +20,7 @@ import {
   useStepperContext,
   StepperContainer,
   StepperProps,
-} from '@saas-ui/stepper'
+} from '@saas-ui/core'
 
 import { Form } from './form'
 import { SubmitButton } from './submit-button'

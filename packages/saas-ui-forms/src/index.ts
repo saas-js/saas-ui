@@ -15,6 +15,7 @@ export * from './field-resolver'
 export * from './watch-field'
 export * from './input-right-button'
 export * from './select'
+export * from './password-input'
 
 export type {
   BatchFieldArrayUpdate,

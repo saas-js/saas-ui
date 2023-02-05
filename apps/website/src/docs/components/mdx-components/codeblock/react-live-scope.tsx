@@ -3,6 +3,8 @@ import * as Chakra from '@chakra-ui/react'
 import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
+import * as SaasUIAuth from '@saas-ui/auth'
+import * as SaasUIForms from '@saas-ui/forms'
 import * as DatePicker from '@saas-ui/date-picker'
 import * as SaasUIPro from '@saas-ui/pro'
 import * as SaasUIFeatures from '@saas-ui/features'
@@ -117,6 +119,8 @@ const ReactLiveScope = {
   ...Chakra,
   ...SaasUIPro,
   ...SaasUI,
+  ...SaasUIAuth,
+  ...SaasUIForms,
   ...SaasUIFeatures,
   ...DatePicker,
   ...Icons,

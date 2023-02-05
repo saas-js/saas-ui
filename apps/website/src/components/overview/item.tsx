@@ -35,9 +35,8 @@ import {
   Command,
   ActiveFilter,
 } from '@saas-ui/pro'
-import { AppShell } from '@saas-ui/app-shell'
-import { Sidebar, NavGroup, NavItem, SidebarSection } from '@saas-ui/sidebar'
 import {
+  AppShell,
   Divider,
   FormLayout,
   PasswordInput,
@@ -46,6 +45,10 @@ import {
   Stepper,
   StepperStep,
   EmptyState,
+  Sidebar,
+  NavGroup,
+  NavItem,
+  SidebarSection,
   StructuredList,
   StructuredListItem,
   StructuredListItemLabel,
@@ -59,8 +62,8 @@ import {
   BannerContent,
   NProgress,
   Loader,
+  Web3Address,
 } from '@saas-ui/react'
-import { Web3Address } from '@saas-ui/web3'
 import NextLink from 'next/link'
 import {
   FiBold,
@@ -127,8 +130,10 @@ const componentIllustrations = {
   sidebar: (
     <Sidebar width="80%" borderRadius="md">
       <SidebarSection>
-        <NavItem label="Dashboard" icon={<FiHome />} isActive />
-        <NavItem label="Contacts" icon={<FiUsers />} />
+        <NavItem icon={<FiHome />} isActive>
+          Dashboard
+        </NavItem>
+        <NavItem icon={<FiUsers />}>Contacts</NavItem>
       </SidebarSection>
     </Sidebar>
   ),

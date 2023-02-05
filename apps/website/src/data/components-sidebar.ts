@@ -35,7 +35,6 @@ const sidebar = {
         {
           title: 'Sidebar',
           path: '/docs/components/layout/sidebar',
-          beta: true,
         },
         {
           title: 'Page',

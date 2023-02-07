@@ -6004,6 +6004,7 @@ __metadata:
     "@chakra-ui/react-utils": ^2.0.11
     "@chakra-ui/system": ^2.3.8
     "@chakra-ui/utils": ^2.0.14
+    "@saas-ui/react-utils": "workspace:*"
     "@saas-ui/theme": "workspace:*"
     tsup: ^6.5.0
   peerDependencies:
@@ -27018,9 +27019,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"saas-ui-storybook@workspace:packages/pro/saas-ui/storybook":
+"saas-ui-storybook-pro@workspace:packages/pro/saas-ui/storybook":
   version: 0.0.0-use.local
-  resolution: "saas-ui-storybook@workspace:packages/pro/saas-ui/storybook"
+  resolution: "saas-ui-storybook-pro@workspace:packages/pro/saas-ui/storybook"
   dependencies:
     "@babel/core": ^7.20.12
     "@fontsource/inter": ^4.5.14

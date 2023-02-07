@@ -206,7 +206,6 @@ const sidebar = {
         {
           title: 'Timeline',
           path: '/docs/components/data-display/timeline',
-          pro: true,
         },
         {
           title: 'Command',

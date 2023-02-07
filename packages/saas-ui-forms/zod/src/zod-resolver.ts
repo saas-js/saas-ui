@@ -84,18 +84,6 @@ export const zodFieldResolver = <T extends z.ZodTypeAny>(schema: T) => {
   }
 }
 
-export const zodForm = <T extends z.ZodTypeAny>(
-  schema: T,
-  schemaOptions = {},
-  resolverOptions = {}
-) => {
-  return {
-    schema,
-    resolver: zodResolver(schema, schemaOptions, resolverOptions),
-    fieldResolver: zodFieldResolver(schema),
-  }
-}
-
 export interface ZodMeta {
   label: string
   type?: string

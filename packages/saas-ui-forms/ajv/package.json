@@ -24,5 +24,8 @@
     "@hookform/resolvers": "^2.9.3",
     "react-hook-form": "^7.33.1",
     "ajv": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/json-schema": "^7.0.11"
   }
 }

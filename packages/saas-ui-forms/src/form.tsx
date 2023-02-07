@@ -200,7 +200,7 @@ export function createForm<Schema = any>({ resolver }: CreateFormProps) {
     props: FormProps<TFieldValues, TContext, TSchema>
   ) => {
     const { schema, ...rest } = props
-    return <Form {...rest} resolver={resolver?.(props.schema)} />
+    return <Form resolver={resolver?.(props.schema)} {...rest} />
   }
 
   return CreateForm

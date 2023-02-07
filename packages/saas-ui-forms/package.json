@@ -99,6 +99,7 @@
   },
   "devDependencies": {
     "@hookform/resolvers": "^2.9.3",
+    "@types/json-schema": "^7.0.11",
     "ajv": "^8.12.0",
     "yup": "^0.32.11",
     "zod": "^3.20.2"

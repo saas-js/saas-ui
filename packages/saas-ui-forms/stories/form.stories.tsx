@@ -8,12 +8,12 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 
-import * as Yup from 'yup'
+import * as yup from 'yup'
 import { z } from 'zod'
 
-import { yupResolver } from '@hookform/resolvers/yup'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { FieldValues, UseFormReturn } from 'react-hook-form'
+import { createYupForm } from '../yup/src'
+import { createZodForm } from '../zod/src'
+import { createAjvForm, JTDSchemaType } from '../ajv/src'
 
 import {
   Form,
@@ -23,9 +23,11 @@ import {
   SubmitButton,
   FormProps,
   createForm,
+  UseFormReturn,
 } from '../src'
 
 import { onSubmit } from './helpers'
+import { JSONSchemaType } from 'ajv'
 
 export default {
   title: 'Components/Forms/Form',
@@ -38,22 +40,10 @@ export default {
   ],
 }
 
-const schema = Yup.object().shape({
-  title: Yup.string()
-    .min(2, 'Too short')
-    .max(25, 'Too long')
-    .required()
-    .label('Title'),
-  description: Yup.string()
-    .min(2, 'Too short')
-    .max(25, 'Too long')
-    .required()
-    .label('Description'),
-})
-
-const loginSchema = Yup.object().shape({
-  email: Yup.string().email().required().label('Email address'),
-  password: Yup.string()
+const loginSchema = yup.object({
+  email: yup.string().email().required().label('Email address'),
+  password: yup
+    .string()
     .required()
     .label('Password')
     .meta({ type: 'password' }),
@@ -88,42 +78,123 @@ export const WithValidationRules = (props: FormProps) => (
       {...props}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <Field
-          name="title"
-          label="Title"
-          rules={{ required: 'Title is required' }}
-        />
-        <Field
-          name="description"
-          label="Description"
-          rules={{ required: 'Description is required' }}
-        />
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="title"
+            label="Title"
+            rules={{ required: 'Title is required' }}
+          />
+          <Field
+            name="description"
+            label="Description"
+            rules={{ required: 'Description is required' }}
+          />
 
-        <SubmitButton />
-      </FormLayout>
+          <SubmitButton />
+        </FormLayout>
+      )}
     </Form>
   </>
 )
 
-export const WithYupSchema = () => (
-  <>
-    <Form
-      defaultValues={{
-        title: '',
-        description: '',
-      }}
-      onSubmit={onSubmit}
-      resolver={yupResolver(schema)}
-    >
+const ZodForm = createZodForm()
+
+const zodSchema = z.object({
+  firstName: z.string(),
+  age: z.number(),
+})
+
+export const WithZodForm = () => (
+  <ZodForm
+    schema={zodSchema}
+    defaultValues={{
+      firstName: '',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
       <FormLayout>
-        <Field name="title" label="Title" />
+        <Field name="firstName" label="Name" />
+        <Field name="age" label="Age" />
+      </FormLayout>
+    )}
+  </ZodForm>
+)
+
+const YupForm = createYupForm()
+
+const yupSchema = yup.object({
+  name: yup
+    .string()
+    .min(2, 'Too short')
+    .max(25, 'Too long')
+    .required()
+    .label('Title'),
+  description: yup
+    .string()
+    .min(2, 'Too short')
+    .max(25, 'Too long')
+    .required()
+    .label('Description'),
+})
+
+export const WithYupSchema = () => (
+  <YupForm
+    defaultValues={{
+      name: '',
+      description: '',
+    }}
+    onSubmit={onSubmit}
+    schema={yupSchema}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="name" label="Title" />
         <Field name="description" label="Description" />
 
         <SubmitButton />
       </FormLayout>
-    </Form>
-  </>
+    )}
+  </YupForm>
+)
+
+const AjvForm = createAjvForm()
+
+type JSONData = {
+  firstName: string
+  age: number
+}
+
+const ajvSchema: JSONSchemaType<JSONData> = {
+  type: 'object',
+  properties: {
+    firstName: {
+      type: 'string',
+    },
+    age: {
+      type: 'integer',
+    },
+  },
+  required: ['firstName', 'age'],
+  additionalProperties: false,
+}
+
+export const WithAjvForm = () => (
+  <AjvForm<JSONData>
+    schema={ajvSchema}
+    defaultValues={{
+      firstName: '',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="firstName" label="Name" />
+        <Field name="age" label="Age" />
+      </FormLayout>
+    )}
+  </AjvForm>
 )
 
 export const FormState = () => {
@@ -156,10 +227,12 @@ export const FormState = () => {
         onSubmit={onSubmit}
         formRef={ref}
       >
-        <FormLayout>
-          <Field name="title" label="Title" />
-          <Field name="description" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" />
+          </FormLayout>
+        )}
       </Form>
     </Stack>
   )
@@ -295,40 +368,4 @@ export const WithCustomSubmit = () => (
       </FormLayout>
     </Form>
   </>
-)
-
-const createZodForm = () => {
-  return createForm<z.AnyZodObject>({
-    resolver: zodResolver,
-  }) as <
-    TSchema extends z.AnyZodObject = z.AnyZodObject,
-    TContext extends object = object
-  >(
-    props: FormProps<z.infer<TSchema>, TContext, TSchema>
-  ) => React.ReactElement
-}
-
-const MyForm = createZodForm()
-
-const zodSchema = z.object({
-  name: z.string(),
-  age: z.number(),
-})
-
-export const ZodForm = () => (
-  <MyForm
-    schema={zodSchema}
-    context={{ test: 'test' }}
-    defaultValues={{
-      name: '',
-    }}
-    onSubmit={onSubmit}
-  >
-    {({ Field }) => (
-      <FormLayout>
-        <Field name="name" type="select" label="Name" />
-        <Field name="age" label="Age" />
-      </FormLayout>
-    )}
-  </MyForm>
 )

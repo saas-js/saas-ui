@@ -6123,6 +6123,7 @@ __metadata:
     "@chakra-ui/utils": ^2.0.14
     "@hookform/resolvers": ^2.9.3
     "@saas-ui/core": "workspace:*"
+    "@types/json-schema": ^7.0.11
     ajv: ^8.12.0
     react-hook-form: ^7.43.0
     yup: ^0.32.11
@@ -10304,7 +10305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.4, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
+"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.11, @types/json-schema@npm:^7.0.4, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d

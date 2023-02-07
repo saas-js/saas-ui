@@ -14,5 +14,6 @@ export * from './search-input'
 export * from './snackbar'
 export * from './stepper'
 export * from './web3-address'
+export * from './timeline'
 
 export * from '@saas-ui/theme'

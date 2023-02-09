@@ -7184,7 +7184,7 @@ __metadata:
     "@chakra-ui/styled-system": ^2.5.2
     "@chakra-ui/theme-tools": ^2.0.17
     "@saas-ui/pro": "workspace:*"
-    "@saas-ui/theme-glass": ^0.3.0
+    "@saas-ui/theme-glass": ^0.3.1
     react-icons: ^4.7.1
     tsup: ^6.5.0
   peerDependencies:
@@ -7215,7 +7215,7 @@ __metadata:
     "@saas-ui/onboarding": "workspace:*"
     "@saas-ui/react-utils": ^1.2.0
     "@saas-ui/router": "workspace:*"
-    "@saas-ui/theme": ^1.7.0
+    "@saas-ui/theme": ^1.8.0
     "@tanstack/react-table": ^8.7.6
     date-fns: ^2.29.3
     polished: ^4.2.2
@@ -7472,7 +7472,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@^0.3.0, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@^0.3.1, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -7488,7 +7488,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@^1.7.0, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@^1.8.0, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   dependencies:

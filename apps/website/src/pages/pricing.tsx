@@ -279,8 +279,8 @@ const PricingBox = ({
             : 'linear(to-b, whiteAlpha.300, transparent)',
         },
 
-        WebkitMask:
-          'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+        mask: 'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+        maskComposite: 'exclude',
         WebkitMaskComposite: 'xor',
       }}
       {...props}

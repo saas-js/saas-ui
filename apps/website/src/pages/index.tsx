@@ -154,12 +154,14 @@ const Home = () => {
                     delay={0.4}
                     fontWeight="medium"
                     textAlign="center"
+                    fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
                     initialInView
                   >
                     Saas UI is a <Em>React component library</Em> and{' '}
                     <Em>starterkit</Em>
                     <Br display={{ base: 'none', md: 'inline' }} /> that
-                    doesn&apos;t get in your way and helps you <Br /> build
+                    doesn&apos;t get in your way and helps you{' '}
+                    <Br display={{ base: 'none', md: 'inline' }} /> build
                     intuitive SaaS products with speed.
                   </FallInPlace>
                 }

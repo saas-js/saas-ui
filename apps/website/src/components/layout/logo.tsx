@@ -16,7 +16,7 @@ export interface LogoProps {
 import siteConfig from '@/data/site-config'
 
 const Logo = ({ href = '/', onClick }: LogoProps) => {
-  const isMobile = useBreakpointValue({ base: true, md: false })
+  const isMobile = useBreakpointValue({ base: true, sm: false })
   let logo
   if (siteConfig.logo) {
     logo = (

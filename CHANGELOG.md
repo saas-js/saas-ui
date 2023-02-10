@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-10-2023
+
+`@saas-ui/react@1.9.1`
+
+- InputRightButton no longer exported from forms package to prevent conflicts.
+
+**Forms** `v1.5.3`
+
+- InputRightButton no longer exported from forms package to prevent conflicts.
+
 ## 02-03-2023
 
 `@saas-ui/react@1.9.0`

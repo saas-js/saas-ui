@@ -1,7 +1,22 @@
-import { Box, Container, Flex, Stack } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Stack,
+  useBreakpointValue,
+  Icon,
+} from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
+import Link from 'next/link'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
+import { FiChevronDown } from 'react-icons/fi'
 
 type SecondaryNavLinkProps = {
   href: string
@@ -89,10 +104,12 @@ const blogLinks = [
 
 export const SecondaryNav = (props) => {
   const router = useRouter()
-
+  const isMobile = useBreakpointValue({ base: true, md: false })
   const isBlog = router.asPath.match(/\/blog/)
 
   const links = isBlog ? blogLinks : docsNav
+
+  const activeItem = links.find((link) => link.match(router.asPath, link.href))
 
   return (
     <Box
@@ -121,19 +138,41 @@ export const SecondaryNav = (props) => {
         WebkitMask: 'linear-gradient(to bottom, black 48px, transparent)',
       }}
     >
-      <Box zIndex="1" position="relative" borderBottomWidth="1px">
+      <Box position="relative" borderBottomWidth="1px">
         <Container maxW="container.2xl" px="6" py="1">
           <Stack spacing="2" direction="row" {...props}>
-            {links.map((item) => (
-              <SecondaryNavLink
-                key={item.href}
-                href={item.href}
-                label={item.label}
-                isActive={item.match?.(router.asPath, item.href)}
-              >
-                {item.label}
-              </SecondaryNavLink>
-            ))}
+            {isMobile ? (
+              <ResponsiveMenu>
+                <MenuButton
+                  as={Button}
+                  rightIcon={<Icon as={FiChevronDown} />}
+                  py="4"
+                  variant="ghost"
+                >
+                  {activeItem?.label}
+                </MenuButton>
+                <ResponsiveMenuList>
+                  {links.map((item) => (
+                    <Link key={item.href} href={item.href} legacyBehavior>
+                      <MenuItem>{item.label}</MenuItem>
+                    </Link>
+                  ))}
+                </ResponsiveMenuList>
+              </ResponsiveMenu>
+            ) : (
+              <>
+                {links.map((item) => (
+                  <SecondaryNavLink
+                    key={item.href}
+                    href={item.href}
+                    label={item.label}
+                    isActive={item.match?.(router.asPath, item.href)}
+                  >
+                    {item.label}
+                  </SecondaryNavLink>
+                ))}
+              </>
+            )}
           </Stack>
         </Container>
       </Box>

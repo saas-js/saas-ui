@@ -77,7 +77,7 @@ const Pricing = () => {
           py={{ base: '8', lg: '20' }}
         />
 
-        <SimpleGrid columns={[1, null, 3, 4]} spacing={4}>
+        <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
             description="Basic components, perfect to get started."

@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.8.6
+
+### Patch Changes
+
+- 5026f70: Restore changes from 0.8.1
+
 ## 0.8.5
 
 ### Patch Changes

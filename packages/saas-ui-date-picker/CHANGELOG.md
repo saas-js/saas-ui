@@ -31,6 +31,8 @@
 ### Patch Changes
 
 - @saas-ui/modals@1.5.1
+- 5616dec: Fixed issue where value would not update.
+- 5616dec: Add closeOnSelect property.
 
 ## 0.8.0
 

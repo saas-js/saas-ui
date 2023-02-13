@@ -43,6 +43,15 @@ const PricingPage = () => {
         strategy="afterInteractive"
         src="https://cdn.paritydeals.com/banner.js"
       />
+      <Script
+        id="lemon-js"
+        strategy="afterInteractive"
+        src="https://app.lemonsqueezy.com/js/lemon.js"
+        onLoad={() => {
+          /* @ts-ignore */
+          window.createLemonSqueezy?.()
+        }}
+      />
       <BackgroundGradientRadial
         top="-30%"
         bottom="auto"
@@ -64,9 +73,9 @@ const paymentLinks =
   process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
     ? {
         bootstrap:
-          'https://saas-ui.lemonsqueezy.com/checkout/buy/c790bcf6-6f23-41e0-a4c9-b686da8c90d6',
+          'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
         startup:
-          'https://saas-ui.lemonsqueezy.com/checkout/buy/c790bcf6-6f23-41e0-a4c9-b686da8c90d6',
+          'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
         className: 'lemonsqueezy-button',
       }
     : {
@@ -78,6 +87,12 @@ const paymentLinks =
       }
 
 const Pricing = () => {
+  React.useEffect(() => {
+    if (process.env.NEXT_PUBLIC_PAYMENT === 'lemon') {
+      /* @ts-ignore */
+      window.createLemonSqueezy?.()
+    }
+  }, [])
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
@@ -154,12 +169,18 @@ const Pricing = () => {
               colorScheme="primary"
               href={paymentLinks.bootstrap}
               className={paymentLinks.className}
-              onClick={() =>
+              onClick={(e) => {
+                if ((window as any)?.LemonSqueezy) {
+                  e.preventDefault()
+                  ;(window as any)?.LemonSqueezy?.Url.Open(
+                    paymentLinks.bootstrap + '?embed=1'
+                  )
+                }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Bootstrap')
                 })
-              }
+              }}
             >
               Early access
             </ButtonLink>
@@ -202,12 +223,18 @@ const Pricing = () => {
               colorScheme="primary"
               href={paymentLinks.startup}
               className={paymentLinks.className}
-              onClick={() =>
+              onClick={(e) => {
+                if ((window as any)?.LemonSqueezy) {
+                  e.preventDefault()
+                  ;(window as any)?.LemonSqueezy?.Url.Open(
+                    paymentLinks.startup + '?embed=1'
+                  )
+                }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Startup')
                 })
-              }
+              }}
             >
               Early access
             </ButtonLink>

@@ -1,5 +1,17 @@
 # @saas-ui/date-picker
 
+## 0.8.6
+
+### Patch Changes
+
+- 5026f70: Restore changes from 0.8.1
+
+## 0.8.5
+
+### Patch Changes
+
+- @saas-ui/modals@1.5.5
+
 ## 0.8.4
 
 ### Patch Changes
@@ -25,6 +37,8 @@
 ### Patch Changes
 
 - @saas-ui/modals@1.5.1
+- 5616dec: Fixed issue where value would not update.
+- 5616dec: Add closeOnSelect property.
 
 ## 0.8.0
 

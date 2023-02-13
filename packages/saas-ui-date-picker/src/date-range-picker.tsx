@@ -9,7 +9,6 @@ import {
   Popover,
   ThemingProps,
   PopoverProps,
-  useControllableState,
 } from '@chakra-ui/react'
 import {
   DatePickerProvider,
@@ -25,12 +24,13 @@ import { datePickerStyleConfig } from './date-picker-styles'
 export interface DateRangePickerContainerProps
   extends ThemingProps<'DatePicker'>,
     Omit<PopoverProps, 'variant' | 'size'>,
-    Omit<DateRangePickerStateOptions, 'value' | 'onChange'> {
+    Omit<DateRangePickerStateOptions, 'value' | 'onChange' | 'closeOnSelect'> {
   value?: DateRangeValue
   onChange(value?: DateRangeValue): void
   locale?: string
   hourCycle?: 12 | 24
   timeZone?: string
+  closeOnSelect?: boolean
 }
 
 export const DateRangePickerContainer: React.FC<
@@ -40,7 +40,11 @@ export const DateRangePickerContainer: React.FC<
   const {
     locale: localeProp,
     hourCycle = 12,
+    minValue,
+    maxValue,
     timeZone = getLocalTimeZone(),
+    granularity = 'day',
+    closeOnSelect,
   } = props
 
   const { locale } = useLocale()
@@ -50,17 +54,14 @@ export const DateRangePickerContainer: React.FC<
     ...props,
   })
 
-  const [value, setValue] = useControllableState<DateRangeValue | undefined>({
-    defaultValue,
-    value: valueProp,
-    onChange,
-  })
-
   const state = useDateRangePickerState({
     /* @ts-ignore doesn't accept null in strict mode, but it's supported */
-    value,
-    onChange: setValue,
-    shouldCloseOnSelect: false,
+    value: valueProp,
+    defaultValue,
+    minValue,
+    maxValue,
+    onChange,
+    shouldCloseOnSelect: closeOnSelect || granularity === 'day',
   })
 
   const datePickerRef = React.useRef<HTMLDivElement>(null)

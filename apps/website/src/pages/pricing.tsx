@@ -290,15 +290,16 @@ const PricingBox = ({
         bgGradient: highlight
           ? `linear(to-b, ${highlight}, transparent)`
           : 'linear(to-b, blackAlpha.200, transparent)',
-        _dark: {
+        mask: 'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+        maskComposite: 'exclude',
+        WebkitMaskComposite: 'xor',
+      }}
+      _dark={{
+        _before: {
           bgGradient: highlight
             ? `linear(to-b, ${highlight}, transparent)`
             : 'linear(to-b, whiteAlpha.300, transparent)',
         },
-
-        mask: 'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-        maskComposite: 'exclude',
-        WebkitMaskComposite: 'xor',
       }}
       {...props}
     >

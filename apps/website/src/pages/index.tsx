@@ -738,7 +738,7 @@ const Highlights = () => {
         <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">Core components</Heading>
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>30+ open source components</Em>.
+            Get started for free with <Em>40+ open source components</Em>.
             Including authentication screens with Clerk, Supabase and Magic.
             Fully functional forms with React Hook Form. Data tables with React
             Table.

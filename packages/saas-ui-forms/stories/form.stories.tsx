@@ -13,7 +13,7 @@ import { z } from 'zod'
 
 import { createYupForm } from '../yup/src'
 import { createZodForm } from '../zod/src'
-import { createAjvForm, JTDSchemaType } from '../ajv/src'
+import { createAjvForm } from '../ajv/src'
 
 import {
   Form,

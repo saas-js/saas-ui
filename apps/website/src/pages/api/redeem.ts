@@ -10,6 +10,7 @@ const sendDiscordNotification = async ({
   npmAccount,
 }) => {
   const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK
+  console.log(DISCORD_WEBHOOK)
   try {
     if (DISCORD_WEBHOOK) {
       const body = JSON.stringify({
@@ -41,7 +42,7 @@ const sendDiscordNotification = async ({
           },
         ],
       })
-
+      console.log(body)
       const result = await fetch(DISCORD_WEBHOOK, {
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +50,7 @@ const sendDiscordNotification = async ({
         method: 'POST',
         body,
       })
-
+      console.log(await result.text())
       return result
     }
   } catch (err) {
@@ -125,44 +126,94 @@ const addGithubCollaborator = async (username) => {
   }
 }
 
+const isLemonLicense = (licenseKey) => {
+  return !!licenseKey.match(
+    /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
+  )
+}
+
+const redeemLemon = async (licenseKey, githubAccount) => {
+  const API_KEY = process.env.LEMON_API_KEY
+
+  const response = await fetch(
+    `https://api.lemonsqueezy.com/v1/licenses/activate`,
+    {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Accept: 'application/json',
+      },
+      method: 'POST',
+      body: `instance_name=${githubAccount}&license_key=${licenseKey}`,
+    }
+  )
+
+  const result = await response.json()
+  console.log(result)
+  return {
+    email: result.meta?.customer_email,
+    product: result.meta?.variant_name,
+    error: result.error,
+  }
+}
+
+const isGumroadLicense = (licenseKey) => {
+  return !!licenseKey.match(
+    /^[0-9A-F]{8}-[0-9A-F]{8}-[0-9A-F]{8}-[0-9A-F]{8}$/i
+  )
+}
+
+const redeemGumroad = async (licenseKey) => {
+  const API_KEY = process.env.GUMROAD_API_KEY
+  const PRODUCT = process.env.GUMROAD_PRODUCT_PERMALINK
+  const response = await fetch(`https://api.gumroad.com/v2/licenses/verify`, {
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    method: 'POST',
+    body: `accessToken=${API_KEY}&product_permalink=${PRODUCT}&license_key=${licenseKey}`,
+  })
+
+  const result = await response.json()
+
+  let error
+  if (response.status === 404) {
+    error = 'Invalid license key'
+  } else if (response.status !== 200) {
+    error = 'Failed to activate your license key'
+  } else if (result.uses > 2 || result.uses > result.purchase.quantity) {
+    error = 'This license key has already been activated'
+  }
+
+  return {
+    email: result?.purchase?.email,
+    product: result?.purchase?.product_name,
+    error,
+  }
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const API_KEY = process.env.GUMROAD_API_KEY
-    const PRODUCT = process.env.GUMROAD_PRODUCT_PERMALINK
     const DISCORD_INVITE = process.env.DISCORD_INVITE
     const TEST_LICENSE = process.env.GUMROAD_TEST_LICENSE
 
     const isTest = req.body.licenseKey === TEST_LICENSE
 
-    const response = await fetch(`https://api.gumroad.com/v2/licenses/verify`, {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
-      body: `accessToken=${API_KEY}&product_permalink=${PRODUCT}&license_key=${req.body.licenseKey}`,
-    })
-
-    const result = await response.json()
-
-    let error
-    if (response.status === 404) {
-      error = 'Invalid license key'
-    } else if (response.status !== 200) {
-      error = 'Failed to activate your license key'
-    } else if (result.uses > 2 || result.uses > result.purchase.quantity) {
-      error = 'This license key has already been activated'
+    let result
+    if (isGumroadLicense(req.body.licenseKey)) {
+      result = await redeemGumroad(req.body.licenseKey)
+    } else if (isLemonLicense(req.body.licenseKey)) {
+      result = await redeemLemon(req.body.licenseKey, req.body.githubAccount)
     }
 
-    if (!isTest && (!result.success || error)) {
+    if (!isTest && result.error) {
       sendDiscordError({
         licenseKey: req.body.licenseKey,
         githubAccount: req.body.githubAccount,
-        error,
+        error: result.error,
       })
-      return res
-        .status(200)
-        .json({ success: false, error: result.message || error })
+      return res.status(200).json({ success: false, error: result.error })
     }
 
     const githubInvited = await addGithubCollaborator(req.body.githubAccount)
@@ -170,13 +221,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const npmAccount = await addNpmAccount(
       req.body.githubAccount,
       req.body.licenseKey,
-      result.purchase.email
+      result.email
     )
 
     await sendDiscordNotification({
       licenseKey: req.body.licenseKey,
       githubAccount: req.body.githubAccount,
-      product: result.purchase.product_name,
+      product: result.product,
       githubInvited,
       npmAccount,
     })

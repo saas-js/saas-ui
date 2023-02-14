@@ -43,6 +43,15 @@ const PricingPage = () => {
         strategy="afterInteractive"
         src="https://cdn.paritydeals.com/banner.js"
       />
+      <Script
+        id="lemon-js"
+        strategy="afterInteractive"
+        src="https://app.lemonsqueezy.com/js/lemon.js"
+        onLoad={() => {
+          /* @ts-ignore */
+          window.createLemonSqueezy?.()
+        }}
+      />
       <BackgroundGradientRadial
         top="-30%"
         bottom="auto"
@@ -60,7 +69,30 @@ const PricingPage = () => {
   )
 }
 
+const paymentLinks =
+  process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
+    ? {
+        bootstrap:
+          'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
+        startup:
+          'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
+        className: 'lemonsqueezy-button',
+      }
+    : {
+        bootstrap:
+          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
+        startup:
+          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
+        className: 'gumroad-button',
+      }
+
 const Pricing = () => {
+  React.useEffect(() => {
+    if (process.env.NEXT_PUBLIC_PAYMENT === 'lemon') {
+      /* @ts-ignore */
+      window.createLemonSqueezy?.()
+    }
+  }, [])
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
@@ -135,14 +167,20 @@ const Pricing = () => {
             </PricingFeatures>
             <ButtonLink
               colorScheme="primary"
-              href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license"
-              className="gumroad-button"
-              onClick={() =>
+              href={paymentLinks.bootstrap}
+              className={paymentLinks.className}
+              onClick={(e) => {
+                if ((window as any)?.LemonSqueezy) {
+                  e.preventDefault()
+                  ;(window as any)?.LemonSqueezy?.Url.Open(
+                    paymentLinks.bootstrap + '?embed=1'
+                  )
+                }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Bootstrap')
                 })
-              }
+              }}
             >
               Early access
             </ButtonLink>
@@ -183,14 +221,20 @@ const Pricing = () => {
             </PricingFeatures>
             <ButtonLink
               colorScheme="primary"
-              href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license"
-              className="gumroad-button"
-              onClick={() =>
+              href={paymentLinks.startup}
+              className={paymentLinks.className}
+              onClick={(e) => {
+                if ((window as any)?.LemonSqueezy) {
+                  e.preventDefault()
+                  ;(window as any)?.LemonSqueezy?.Url.Open(
+                    paymentLinks.startup + '?embed=1'
+                  )
+                }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Startup')
                 })
-              }
+              }}
             >
               Early access
             </ButtonLink>

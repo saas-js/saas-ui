@@ -67,7 +67,7 @@ export interface SidebarProps
       HTMLChakraProps<'div'>,
       'css' | 'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
     >,
-    ThemingProps<'Sidebar'> {}
+    ThemingProps<'SuiSidebar'> {}
 
 const MotionBox = chakra(motion.nav)
 
@@ -90,7 +90,7 @@ const motionPresets = {
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
-  const styles = useMultiStyleConfig('Sidebar', props)
+  const styles = useMultiStyleConfig('SuiSidebar', props)
   const theme = useTheme()
   const defaultProps = theme.components['Sidebar']?.defaultProps
 

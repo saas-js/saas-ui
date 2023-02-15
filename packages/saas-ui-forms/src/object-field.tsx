@@ -21,7 +21,7 @@ export interface ObjectFieldProps extends FieldProps {
 }
 
 export const FormLegend = (props: FormLabelProps) => {
-  const styles = useStyleConfig('FormLegend')
+  const styles = useStyleConfig('SuiFormLegend')
   return <FormLabel as="legend" sx={styles} {...props} />
 }
 

@@ -15,7 +15,7 @@ import { Kbd } from '@chakra-ui/react'
 
 import { SearchInput, SearchInputProps } from '@saas-ui/core'
 
-const [StylesProvider, useStyles] = createStylesContext('Hotkeys')
+const [StylesProvider, useStyles] = createStylesContext('SuiHotkeys')
 
 const regExpSyntaxCharacter = /[.*+?^${}()|[\]\\]/g
 
@@ -94,11 +94,11 @@ const useHotkeysList = (props: HotkeysListProps) => {
 export interface HotkeysListProps
   extends HotkeysOptions,
     HTMLChakraProps<'div'>,
-    ThemingProps<'Hotkeys'> {}
+    ThemingProps<'SuiHotkeys'> {}
 
 export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
   ({ children, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Hotkeys', props)
+    const styles = useMultiStyleConfig('SuiHotkeys', props)
     const ownProps = omitThemingProps(props)
 
     const context = useHotkeysList(ownProps)

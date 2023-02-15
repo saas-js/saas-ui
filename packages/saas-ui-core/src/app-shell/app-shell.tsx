@@ -12,11 +12,11 @@ import {
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
-const [StylesProvider, useStyles] = createStylesContext('AppShell')
+const [StylesProvider, useStyles] = createStylesContext('SuiAppShell')
 
 export interface AppShellProps
   extends HTMLChakraProps<'div'>,
-    ThemingProps<'AppShell'> {
+    ThemingProps<'SuiAppShell'> {
   /**
    * The top header navigation
    */
@@ -40,7 +40,7 @@ export interface AppShellProps
 }
 
 export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
-  const styles = useMultiStyleConfig('AppShell', props) as Record<
+  const styles = useMultiStyleConfig('SuiAppShell', props) as Record<
     string,
     SystemStyleObject
   >

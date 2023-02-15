@@ -1,18 +1,12 @@
-import { anatomy, mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { cardAnatomy } from '@chakra-ui/anatomy'
 
-const parts = anatomy('card').parts(
-  'container',
-  'header',
-  'title',
-  'subtitle',
-  'body',
-  'footer'
-)
-
-const baseStyle: PartsStyleFunction<typeof parts> = () => {
+const baseStyle: PartsStyleFunction<typeof cardAnatomy> = () => {
   return {
     container: {
       rounded: 'lg',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
     },
     header: {
       p: 4,
@@ -34,10 +28,13 @@ const baseStyle: PartsStyleFunction<typeof parts> = () => {
   }
 }
 
-const variantShadow: PartsStyleFunction<typeof parts> = (props) => {
+const variantShadow: PartsStyleFunction<typeof cardAnatomy> = (props) => {
   const { isHoverable } = props
   return {
     container: {
+      bg: mode('white', 'whiteAlpha.100')(props),
+      boxShadow: 'sm',
+      borderWidth: '1px',
       borderColor: mode('blackAlpha.200', 'whiteAlpha.50')(props),
       _hover: {
         borderColor:
@@ -47,7 +44,7 @@ const variantShadow: PartsStyleFunction<typeof parts> = (props) => {
   }
 }
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
+const variantSolid: PartsStyleFunction<typeof cardAnatomy> = (props) => {
   const { colorScheme: c, isHoverable } = props
 
   const bg = c
@@ -72,7 +69,7 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   }
 }
 
-const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
+const variantOutline: PartsStyleFunction<typeof cardAnatomy> = (props) => {
   const { colorScheme: c, isHoverable } = props
 
   const borderColor = c
@@ -97,7 +94,7 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
 }
 
 export default {
-  parts: parts.keys,
+  parts: cardAnatomy,
   defaultProps: {
     variant: 'shadow',
   },

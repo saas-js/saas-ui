@@ -21,7 +21,7 @@ type SpinnerOptions = Pick<
 export interface LoaderProps
   extends Omit<MotionProps, 'transition'>,
     Omit<ChakraProps, 'color'>,
-    ThemingProps<'Loader'>,
+    ThemingProps<'SuiLoader'>,
     SpinnerOptions {
   /**
    * Show or hide the loader.
@@ -43,7 +43,7 @@ export interface LoaderProps
    * @default "fill"
    */
   variant?: 'Loader' extends keyof ThemeTypings['components'] /* @ts-ignore */
-    ? ThemeTypings['components']['Loader']['variants']
+    ? ThemeTypings['components']['SuiLoader']['variants']
     : Variants
 
   children?: React.ReactNode
@@ -57,7 +57,7 @@ const Motion = chakra(motion.div)
  * Show a fullscreen loading animation while your app is loading.
  */
 export const Loader: React.FC<LoaderProps> = (props) => {
-  const styles = useStyleConfig('Loader', props)
+  const styles = useStyleConfig('SuiLoader', props)
 
   const {
     children,

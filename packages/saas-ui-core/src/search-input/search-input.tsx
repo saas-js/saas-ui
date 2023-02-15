@@ -16,7 +16,7 @@ import { callAllHandlers, __DEV__ } from '@chakra-ui/utils'
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
 
 export interface SearchInputProps
-  extends ThemingProps<'SearchInput'>,
+  extends ThemingProps<'SuiSearchInput'>,
     Omit<InputProps, 'size' | 'variant'> {
   /**
    * The placeholder text for the input
@@ -59,7 +59,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
       onKeyDown: onKeyDownProp,
       ...inputProps
     } = props
-    const styles = useMultiStyleConfig('SearchInput', props)
+    const styles = useMultiStyleConfig('SuiSearchInput', props)
 
     const [value, setValue] = useControllableState({
       value: valueProp,

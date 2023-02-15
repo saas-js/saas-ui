@@ -67,12 +67,12 @@ export const CommandBarGroup = cmdkFactory(CommandPrimitive.Group, 'group')
 
 export interface CommandBarProps
   extends CommandBarOptions,
-    ThemingProps<'CommandBar'> {
+    ThemingProps<'SuiCommandBar'> {
   children: React.ReactNode
 }
 
 export const CommandBar: React.FC<CommandBarProps> = (props) => {
-  const styles = useMultiStyleConfig('CommandBar', {
+  const styles = useMultiStyleConfig('SuiCommandBar', {
     styleConfig,
     ...props,
   })

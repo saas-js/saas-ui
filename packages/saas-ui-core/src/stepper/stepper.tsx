@@ -26,12 +26,12 @@ import {
   UseStepperProps,
 } from './use-stepper'
 
-const [StylesProvider, useStyles] = createStylesContext('Stepper')
+const [StylesProvider, useStyles] = createStylesContext('SuiStepper')
 
 export interface StepperProps
   extends UseStepperProps,
     Omit<HTMLChakraProps<'div'>, 'onChange'>,
-    ThemingProps<'Stepper'> {
+    ThemingProps<'SuiStepper'> {
   orientation?: 'horizontal' | 'vertical'
 }
 
@@ -63,7 +63,7 @@ export const StepperContainer = forwardRef<StepperProps, 'div'>(
       ...rest
     } = props
 
-    const styles = useMultiStyleConfig('Stepper', {
+    const styles = useMultiStyleConfig('SuiStepper', {
       ...rest,
       orientation,
     })

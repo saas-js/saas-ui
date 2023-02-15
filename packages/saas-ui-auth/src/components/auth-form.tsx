@@ -22,7 +22,7 @@ import { AuthTypeEnum, AuthActionEnum } from '../provider'
 import { ForgotPasswordForm } from './forgot-password-form'
 import { UpdatePasswordForm } from './update-password-form'
 
-const [StylesProvider, useStyles] = createStylesContext('AuthForm')
+const [StylesProvider, useStyles] = createStylesContext('SuiAuthForm')
 
 export interface AuthFormProps
   extends Omit<
@@ -134,12 +134,12 @@ if (__DEV__) {
 
 export interface AuthFormContainerProps
   extends HTMLChakraProps<'div'>,
-    ThemingProps<'AuthForm'> {}
+    ThemingProps<'SuiAuthForm'> {}
 
 export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
   const { children } = props
 
-  const styles = useMultiStyleConfig('AuthForm', props)
+  const styles = useMultiStyleConfig('SuiAuthForm', props)
 
   const containerProps = omitThemingProps(props)
 

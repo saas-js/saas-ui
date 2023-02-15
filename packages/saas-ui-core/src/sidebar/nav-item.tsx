@@ -18,9 +18,7 @@ import { useLink } from '../provider'
 import { useSidebarContext } from './use-sidebar'
 import { NavItemStylesProvider, useNavItemStyles } from './nav-context'
 
-export interface NavItemLabelProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'NavLink'> {}
+export interface NavItemLabelProps extends HTMLChakraProps<'span'> {}
 
 export const NavItemLabel = forwardRef<NavItemLabelProps, 'span'>(
   ({ children, ...props }, ref) => {
@@ -72,7 +70,7 @@ NavItemIcon.displayName = 'NavItemIcon'
 
 export interface NavItemProps
   extends HTMLChakraProps<'a'>,
-    ThemingProps<'NavItem'> {
+    ThemingProps<'SuiNavItem'> {
   /**
    * The href attribute of the nav item,
    * will be wrapped in a `Link`, if `linkComponent` is configured in SaasProvider.
@@ -117,7 +115,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const { onClose, variant: sidebarVariant } = useSidebarContext() || {}
   const isCondensed = sidebarVariant === 'condensed'
 
-  const styles = useMultiStyleConfig('NavItem', props)
+  const styles = useMultiStyleConfig('SuiNavItem', props)
 
   let label = children
   let tooltipLabel = tooltipProps?.label
@@ -133,7 +131,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
       {...rest}
       ref={ref}
       href={href}
-      className="nav-item__link"
+      className="sui-nav-item__link"
       data-active={dataAttr(isActive)}
       __css={styles.link}
     >
@@ -142,7 +140,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
           ...styles.inner,
           pl: inset,
         }}
-        className="saas-nav-item__inner"
+        className="sui-nav-item__inner"
       >
         {icon && <NavItemIcon>{icon}</NavItemIcon>}
         {label}

@@ -25,10 +25,10 @@ interface NProgressOptions {
 export interface NProgressProps
   extends NProgressOptions,
     HTMLChakraProps<'div'>,
-    ThemingProps<'NProgress'> {}
+    ThemingProps<'SuiNProgress'> {}
 
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('NProgress', props)
+  const styles = useMultiStyleConfig('SuiNProgress', props)
 
   const { colorScheme: c } = props
 

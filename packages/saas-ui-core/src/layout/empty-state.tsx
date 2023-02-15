@@ -22,7 +22,7 @@ import {
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
-const [StylesProvider, useStyles] = createStylesContext('EmptyState')
+const [StylesProvider, useStyles] = createStylesContext('SuiEmptyState')
 
 export interface EmptyStateProps
   extends Omit<EmptyStateContainerProps, 'title'> {
@@ -72,7 +72,7 @@ if (__DEV__) {
 
 export interface EmptyStateContainerProps
   extends HTMLChakraProps<'div'>,
-    ThemingProps<'EmptyState'> {
+    ThemingProps<'SuiEmptyState'> {
   children?: React.ReactNode
   spacing?: SystemProps['margin']
 }
@@ -81,7 +81,7 @@ export const EmptyStateContainer: React.FC<EmptyStateContainerProps> = (
   props
 ) => {
   const { children, spacing, ...rest } = props
-  const styles = useMultiStyleConfig('EmptyState', props)
+  const styles = useMultiStyleConfig('SuiEmptyState', props)
 
   const containerProps = omitThemingProps(rest)
 

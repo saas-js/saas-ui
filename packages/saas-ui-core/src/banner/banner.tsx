@@ -30,7 +30,7 @@ import {
   BannerMotion,
 } from './banner-transition'
 
-const [StylesProvider, useStyles] = createStylesContext('Banner')
+const [StylesProvider, useStyles] = createStylesContext('SuiBanner')
 
 const STATUSES: Record<
   string,
@@ -79,7 +79,7 @@ const [BannerProvider, useBannerContext] = createContext<BannerContext>({
 export interface BannerProps
   extends Omit<BannerTransitionProps, 'motionPreset'>,
     BannerOptions,
-    ThemingProps<'Banner'> {}
+    ThemingProps<'SuiBanner'> {}
 
 /**
  * Banner is used to communicate the state or status of a
@@ -96,7 +96,7 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   } = omitThemingProps(props)
   const colorScheme = props.colorScheme ?? STATUSES[status].colorScheme
 
-  const styles = useMultiStyleConfig('Banner', {
+  const styles = useMultiStyleConfig('SuiBanner', {
     ...props,
     colorScheme,
   })

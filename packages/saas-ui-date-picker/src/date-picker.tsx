@@ -26,7 +26,7 @@ import { getLocalTimeZone } from '@internationalized/date'
 import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
 
 export interface DatePickerContainerProps
-  extends ThemingProps<'DatePicker'>,
+  extends ThemingProps<'SuiDatePicker'>,
     Omit<
       DatePickerStateOptions<DateValue>,
       'value' | 'defaultValue' | 'minValue' | 'maxValue' | 'onChange'
@@ -60,7 +60,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
 
   const { locale } = useLocale()
 
-  const styles = useMultiStyleConfig('DatePicker', {
+  const styles = useMultiStyleConfig('SuiDatePicker', {
     styleConfig: datePickerStyleConfig,
     ...props,
   })

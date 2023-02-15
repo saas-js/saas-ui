@@ -17,7 +17,7 @@ import {
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
-const [StylesProvider, useStyles] = createStylesContext('Property')
+const [StylesProvider, useStyles] = createStylesContext('SuiProperty')
 
 interface PropertyOptions {
   label?: React.ReactNode
@@ -29,10 +29,10 @@ interface PropertyOptions {
 export interface PropertyProps
   extends PropertyOptions,
     HTMLChakraProps<'dl'>,
-    ThemingProps<'Property'> {}
+    ThemingProps<'SuiProperty'> {}
 
 export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
-  const styles = useMultiStyleConfig('Property', props)
+  const styles = useMultiStyleConfig('SuiProperty', props)
 
   const { children, label, value, labelWidth, spacing, ...rest } =
     omitThemingProps(props)

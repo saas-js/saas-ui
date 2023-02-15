@@ -19,7 +19,7 @@ import {
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
-const [StylesProvider, useStyles] = createStylesContext('StructuredList')
+const [StylesProvider, useStyles] = createStylesContext('SuiStructuredList')
 
 interface StructuredListOptions {
   /**
@@ -31,7 +31,7 @@ interface StructuredListOptions {
 export interface StructuredListProps
   extends StructuredListOptions,
     HTMLChakraProps<'ul'>,
-    ThemingProps<'StructuredList'> {}
+    ThemingProps<'SuiStructuredList'> {}
 
 /**
  * React component to render lists of data
@@ -40,7 +40,7 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
   (props, ref) => {
     const { items, children, ...rest } = props
 
-    const styles = useMultiStyleConfig('StructuredList', rest)
+    const styles = useMultiStyleConfig('SuiStructuredList', rest)
 
     const listProps = omitThemingProps(rest)
 

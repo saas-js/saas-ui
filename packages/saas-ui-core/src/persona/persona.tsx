@@ -21,7 +21,7 @@ import {
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
 
-const [StylesProvider, useStyles] = createStylesContext('Persona')
+const [StylesProvider, useStyles] = createStylesContext('SuiPersona')
 
 export interface PresenceOptions {
   [presence: string]: {
@@ -122,12 +122,12 @@ interface PersonaOptions {
   /**
    * The size of the persona, from 2xs to 2xl.
    */
-  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
 export interface PersonaProps
   extends PersonaOptions,
-    Omit<PresenceAvatarProps, 'size' | 'variant'> {}
+    Omit<PresenceAvatarProps, 'size' | 'variant'>,
+    ThemingProps<'SuiPersona'> {}
 
 export const Persona: React.FC<PersonaProps> = (props) => {
   const {
@@ -192,13 +192,13 @@ if (__DEV__) {
 
 export interface PersonaContainerProps
   extends HTMLChakraProps<'div'>,
-    Omit<ThemingProps<'Persona'>, 'size'>,
+    Omit<ThemingProps<'SuiPersona'>, 'size'>,
     Pick<PersonaOptions, 'size'> {}
 
 export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   (props, ref) => {
     const { children, ...rest } = props
-    const styles = useMultiStyleConfig('Persona', props)
+    const styles = useMultiStyleConfig('SuiPersona', props)
 
     const containerProps = omitThemingProps(rest)
 

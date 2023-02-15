@@ -10,18 +10,18 @@ import {
 import { cx, dataAttr, __DEV__ } from '@chakra-ui/utils'
 import { timelineStyleConfig } from './timeline.styles'
 
-const [StylesProvider, useStyles] = createStylesContext('Timeline')
+const [StylesProvider, useStyles] = createStylesContext('SuiTimeline')
 
 export const useTimelineStyles = useStyles
 
 export interface TimelineProps
   extends HTMLChakraProps<'ul'>,
-    ThemingProps<'Timeline'> {}
+    ThemingProps<'SuiTimeline'> {}
 
 export const Timeline: React.FC<TimelineProps> = (props) => {
   const { children, ...rest } = props
 
-  const styles = useMultiStyleConfig('Timeline', {
+  const styles = useMultiStyleConfig('SuiTimeline', {
     styleConfig: timelineStyleConfig,
     ...props,
   })

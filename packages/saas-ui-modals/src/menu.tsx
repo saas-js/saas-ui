@@ -14,7 +14,7 @@ import {
 
 import { BaseModal, BaseModalProps } from './modal'
 
-const [StylesProvider] = createStylesContext('MenuDialog')
+const [StylesProvider] = createStylesContext('SuiMenuDialog')
 
 export interface MenuDialogProps extends BaseModalProps {
   /**

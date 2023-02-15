@@ -1,37 +1,35 @@
-import AppShell from './app-shell'
-import Banner from './banner'
-import Card from './card'
-import EmptyState from './empty-state'
-import FormLayout from './form-layout'
-import Form from './form'
-import FormLegend from './form'
-import Hotkeys from './hotkeys'
-import StructuredList from './list'
-import Loader from './loader'
-import NavGroup from './nav-group'
-import NavItem from './nav-item'
-import Persona from './persona'
-import NProgress from './nprogress'
-import SearchInput from './search-input'
-import Stepper from './stepper'
-import Sidebar from './sidebar'
+import SuiAppShell from './app-shell'
+import SuiBanner from './banner'
+import SuiEmptyState from './empty-state'
+import SuiFormLayout from './form-layout'
+import SuiForm from './form'
+import SuiFormLegend from './form'
+import SuiHotkeys from './hotkeys'
+import SuiStructuredList from './list'
+import SuiLoader from './loader'
+import SuiNavGroup from './nav-group'
+import SuiNavItem from './nav-item'
+import SuiPersona from './persona'
+import SuiNProgress from './nprogress'
+import SuiSearchInput from './search-input'
+import SuiStepper from './stepper'
+import SuiSidebar from './sidebar'
 
-export default {
-  AppShell,
-  Banner,
-  Card,
-  EmptyState,
-  FormLayout,
-  Form,
-  FormLegend,
-  Hotkeys,
-  StructuredList,
-  Loader,
-  NavGroup,
-  NavItem,
-  Persona,
-  NProgress,
-  SearchInput,
-  Stepper,
-  Sidebar,
+export const components = {
+  SuiAppShell,
+  SuiBanner,
+  SuiEmptyState,
+  SuiFormLayout,
+  SuiForm,
+  SuiFormLegend,
+  SuiHotkeys,
+  SuiStructuredList,
+  SuiLoader,
+  SuiNavGroup,
+  SuiNavItem,
+  SuiPersona,
+  SuiNProgress,
+  SuiSearchInput,
+  SuiStepper,
+  SuiSidebar,
 }

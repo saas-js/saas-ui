@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-16-2023
+
+**Date Picker** `v0.8.7`
+
+- Pass DateRangeInput props down to the internal Input.
+
 ## 02-10-2023
 
 `@saas-ui/react@1.9.1`

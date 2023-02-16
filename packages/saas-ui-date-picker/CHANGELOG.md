@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.8.7
+
+### Patch Changes
+
+- 83b1c22: Pass DateRangeInput props down to the internal Input.
+
 ## 0.8.6
 
 ### Patch Changes

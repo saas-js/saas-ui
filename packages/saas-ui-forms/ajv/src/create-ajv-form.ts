@@ -14,7 +14,7 @@ export interface CreateAjvFormProps extends CreateFormProps {
   resolverOptions?: ResolverArgs[2]
 }
 
-export const createAjvForm = (options?: CreateAjvFormProps) => {
+export function createAjvForm(options?: CreateAjvFormProps): any {
   return createForm({
     resolver: (schema) =>
       ajvResolver(schema, options?.schemaOptions, options?.resolverOptions),

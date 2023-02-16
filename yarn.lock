@@ -1931,7 +1931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/icons@npm:^2.0.16, @chakra-ui/icons@npm:^2.0.17":
+"@chakra-ui/icons@npm:^2.0.16":
   version: 2.0.17
   resolution: "@chakra-ui/icons@npm:2.0.17"
   dependencies:
@@ -3212,17 +3212,6 @@ __metadata:
   dependencies:
     "@jridgewell/trace-mapping": 0.3.9
   checksum: 5718f267085ed8edb3e7ef210137241775e607ee18b77d95aa5bd7514f47f5019aa2d82d96b3bf342ef7aa890a346fa1044532ff7cc3009e7d24fce3ce6200fa
-  languageName: node
-  linkType: hard
-
-"@datepicker-react/hooks@npm:^2.8.4":
-  version: 2.8.4
-  resolution: "@datepicker-react/hooks@npm:2.8.4"
-  dependencies:
-    date-fns: ^2.14.0
-  peerDependencies:
-    react: ">= 16.8.5"
-  checksum: 79a1c98702bef8818d388d9d78bba66133cafdb4098ca4506ba521b42dd1162f077e273e61477cdc0124d9d34ad369c6adfa6db9d436f6ccccc702c55484d3c1
   languageName: node
   linkType: hard
 
@@ -6045,28 +6034,6 @@ __metadata:
     framer-motion: ">=6.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
-  languageName: unknown
-  linkType: soft
-
-"@saas-ui/date-picker-legacy@workspace:packages/pro/saas-ui/date-picker-legacy":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/date-picker-legacy@workspace:packages/pro/saas-ui/date-picker-legacy"
-  dependencies:
-    "@chakra-ui/icons": ^2.0.17
-    "@chakra-ui/react-utils": ^2.0.12
-    "@chakra-ui/utils": ^2.0.15
-    "@datepicker-react/hooks": ^2.8.4
-    date-fns: ^2.29.3
-    tsup: ^6.5.0
-  peerDependencies:
-    "@chakra-ui/react": ">=2.4.8"
-    "@chakra-ui/system": ">=2"
-    "@emotion/react": ">=11"
-    "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=1.8.0"
-    framer-motion: ">=5.5.0"
-    react: ">=18"
-    react-dom: ">=18"
   languageName: unknown
   linkType: soft
 
@@ -14854,7 +14821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.14.0, date-fns@npm:^2.29.3":
+"date-fns@npm:^2.29.3":
   version: 2.29.3
   resolution: "date-fns@npm:2.29.3"
   checksum: e01cf5b62af04e05dfff921bb9c9933310ed0e1ae9a81eb8653452e64dc841acf7f6e01e1a5ae5644d0337e9a7f936175fd2cb6819dc122fdd9c5e86c56be484

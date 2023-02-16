@@ -1,8 +1,6 @@
 import * as React from 'react'
 
 import {
-  ButtonGroup,
-  ButtonGroupProps,
   chakra,
   forwardRef,
   HTMLChakraProps,
@@ -78,9 +76,7 @@ StructuredList.defaultProps = {
   variant: 'structured-list',
 }
 
-if (__DEV__) {
-  StructuredList.displayName = 'StructuredList'
-}
+StructuredList.displayName = 'StructuredList'
 
 export interface StructuredListHeaderProps extends HTMLChakraProps<'li'> {
   /**
@@ -133,16 +129,9 @@ export const StructuredListHeader: React.FC<StructuredListHeaderProps> = (
   )
 }
 
-if (__DEV__) {
-  StructuredListHeader.displayName = 'StructuredListHeader'
-}
+StructuredListHeader.displayName = 'StructuredListHeader'
 
 export interface StructuredListItemProps extends HTMLChakraProps<'li'> {
-  icon?: any
-  primary?: React.ReactNode
-  secondary?: React.ReactNode
-  tertiary?: React.ReactNode
-  action?: React.ReactNode
   onClick?: (e: React.MouseEvent) => void
   href?: string | object
 }
@@ -152,31 +141,20 @@ export interface StructuredListItemProps extends HTMLChakraProps<'li'> {
  */
 export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
   (props, ref) => {
-    const {
-      icon,
-      primary,
-      secondary,
-      tertiary,
-      action,
-      onClick,
-      href,
-      as,
-      children,
-      ...rest
-    } = props
+    const { onClick, href, as, children, ...rest } = props
 
     const styles = useStyles()
 
-    const isButton = onClick || href
+    const isButton = !!(onClick || href)
 
-    const ContentWrapper = isButton ? StructuredListItemButton : React.Fragment
-    const isComposed = !!(icon || primary || secondary || tertiary || action)
-    const disablePadding = !isComposed || isButton
+    const ContentWrapper = isButton ? StructuredListButton : React.Fragment
+    const disablePadding = !!isButton
 
     const itemStyles: SystemStyleObject = {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: 'space-between',
       fontSize: 'md',
       py: disablePadding ? 0 : 2,
       px: disablePadding ? 0 : 4,
@@ -185,28 +163,17 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
 
     const wrapperProps = isButton
       ? {
-          paddingEnd: action ? 16 : undefined,
           onClick,
           href,
           as,
         }
       : {}
 
-    const content =
-      isButton || isComposed ? (
-        <ContentWrapper {...wrapperProps}>
-          {icon && <StructuredListItemIcon>{icon}</StructuredListItemIcon>}
-          {(primary || secondary) && (
-            <StructuredListItemLabel primary={primary} secondary={secondary} />
-          )}
-          {tertiary && (
-            <StructuredListItemTertiary>{tertiary}</StructuredListItemTertiary>
-          )}
-          {children}
-        </ContentWrapper>
-      ) : (
-        children
-      )
+    const content = isButton ? (
+      <ContentWrapper {...wrapperProps}>{children}</ContentWrapper>
+    ) : (
+      children
+    )
 
     return (
       <chakra.li
@@ -216,19 +183,14 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
         className={cx('sui-list__item', props.className)}
       >
         {content}
-        {action && (
-          <StructuredListItemAction>{action}</StructuredListItemAction>
-        )}
       </chakra.li>
     )
   }
 )
 
-if (__DEV__) {
-  StructuredListItem.displayName = 'StructuredListItem'
-}
+StructuredListItem.displayName = 'StructuredListItem'
 
-export interface StructuredListItemButtonProps extends HTMLChakraProps<'div'> {
+export interface StructuredListButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
   as?: As
 }
@@ -243,8 +205,8 @@ export interface StructuredListItemButtonProps extends HTMLChakraProps<'div'> {
  *
  * <StructuredListItemButton as={Link} href={{path: '/page}} />
  */
-export const StructuredListItemButton = forwardRef<
-  StructuredListItemButtonProps,
+export const StructuredListButton = forwardRef<
+  StructuredListButtonProps,
   'div'
 >((props, ref) => {
   const { children, ...rest } = props
@@ -254,6 +216,7 @@ export const StructuredListItemButton = forwardRef<
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     flex: 1,
     cursor: 'pointer',
     userSelect: 'none',
@@ -276,11 +239,9 @@ export const StructuredListItemButton = forwardRef<
   )
 })
 
-if (__DEV__) {
-  StructuredListItemButton.displayName = 'StructuredListItemButton'
-}
+StructuredListButton.displayName = 'StructuredListButton'
 
-export interface StructuredListItemIconProps extends HTMLChakraProps<'div'> {
+export interface StructuredListIconProps extends HTMLChakraProps<'div'> {
   /**
    * The icon size
    * @default 5
@@ -292,7 +253,7 @@ export interface StructuredListItemIconProps extends HTMLChakraProps<'div'> {
   spacing?: SystemProps['margin']
 }
 
-export const StructuredListItemIcon: React.FC<StructuredListItemIconProps> = (
+export const StructuredListIcon: React.FC<StructuredListIconProps> = (
   props
 ) => {
   const { children, spacing, size = 5, as, ...rest } = props
@@ -325,125 +286,25 @@ export const StructuredListItemIcon: React.FC<StructuredListItemIconProps> = (
   )
 }
 
-if (__DEV__) {
-  StructuredListItemIcon.displayName = 'StructuredListItemIcon'
-}
+StructuredListIcon.displayName = 'StructuredListItemIcon'
 
-export interface StructuredListItemLabelProps extends HTMLChakraProps<'div'> {
-  primary?: React.ReactNode
-  secondary?: React.ReactNode
-}
+export interface StructuredListCellProps extends HTMLChakraProps<'div'> {}
 
-export const StructuredListItemLabel: React.FC<StructuredListItemLabelProps> = (
+export const StructuredListCell: React.FC<StructuredListCellProps> = (
   props
 ) => {
-  const { primary, secondary, children, ...rest } = props
+  const { children, ...rest } = props
   const styles = useStyles()
-
-  const labelStyles: SystemStyleObject = {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
-    py: 1,
-    ...styles.label,
-  }
-
-  const primaryStyles = {
-    ...styles.primary,
-  }
-
-  const secondaryStyles = {
-    fontSize: 'sm',
-    color: useColorModeValue('gray.500', 'gray.400'),
-    ...styles.secondary,
-  }
 
   return (
     <chakra.div
-      __css={labelStyles}
+      __css={styles.cell}
       {...rest}
-      className={cx('sui-list__item-label', props.className)}
-    >
-      {primary && (
-        <chakra.span noOfLines={1} __css={primaryStyles}>
-          {primary}
-        </chakra.span>
-      )}
-      {secondary && (
-        <chakra.span noOfLines={1} __css={secondaryStyles}>
-          {secondary}
-        </chakra.span>
-      )}
-      {children}
-    </chakra.div>
-  )
-}
-
-if (__DEV__) {
-  StructuredListItemLabel.displayName = 'StructuredListItemLabel'
-}
-
-export interface StructuredListItemTertiaryProps
-  extends HTMLChakraProps<'div'> {
-  /**
-   * Spacing between items
-   * @default 2
-   */
-  spacing?: SystemProps['margin']
-}
-
-/**
- * Tertiary item position between the item label and action
- */
-export const StructuredListItemTertiary: React.FC<
-  StructuredListItemTertiaryProps
-> = ({ children, spacing = 2, ...rest }) => {
-  const styles = useStyles()
-
-  const tertiaryStyles: SystemStyleObject = {
-    display: 'flex',
-    '& > *:not(style) ~ *:not(style)': { marginStart: spacing },
-    ...styles.tertiary,
-  }
-
-  return (
-    <chakra.div
-      __css={tertiaryStyles}
-      {...rest}
-      className={cx('sui-list__item-tertiary', rest.className)}
+      className={cx('sui-list__cell', props.className)}
     >
       {children}
     </chakra.div>
   )
 }
 
-if (__DEV__) {
-  StructuredListItemTertiary.displayName = 'StructuredListItemTertiary'
-}
-
-/**
- * Data list action component, behaves like a button group
- */
-export const StructuredListItemAction: React.FC<ButtonGroupProps> = ({
-  children,
-  ...rest
-}) => {
-  const styles = useStyles()
-  return (
-    <ButtonGroup
-      variant="ghost"
-      ms={2}
-      sx={styles.action}
-      position="absolute"
-      right={4}
-      {...rest}
-      className={cx('sui-list__item-action', rest.className)}
-    >
-      {children}
-    </ButtonGroup>
-  )
-}
-
-if (__DEV__) {
-  StructuredListItemAction.displayName = 'StructuredListItemAction'
-}
+StructuredListCell.displayName = 'StructuredListCell'

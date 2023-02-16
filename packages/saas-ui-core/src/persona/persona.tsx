@@ -192,8 +192,7 @@ if (__DEV__) {
 
 export interface PersonaContainerProps
   extends HTMLChakraProps<'div'>,
-    Omit<ThemingProps<'SuiPersona'>, 'size'>,
-    Pick<PersonaOptions, 'size'> {}
+    ThemingProps<'SuiPersona'> {}
 
 export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   (props, ref) => {

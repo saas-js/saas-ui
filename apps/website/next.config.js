@@ -30,6 +30,11 @@ let config = {
         destination: '/docs/core/quickstarts',
         permanent: true,
       },
+      {
+        source: '/docs/components/data-display/list',
+        destination: '/docs/components/data-display/structured-list',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {

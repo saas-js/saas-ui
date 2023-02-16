@@ -63,8 +63,8 @@ AppShell will try to fit it's parent with position `absolute` and `inset: 0` by 
   sidebar={
     <Sidebar>
       <SidebarSection>
-        <NavItem label="Home" />
-        <NavItem label="Settings" />
+        <NavItem>Home</NavItem>
+        <NavItem>Settings</NavItem>
       </SidebarSection>
     </Sidebar>
   }
@@ -99,8 +99,8 @@ Use the static variant when the AppShell needs a fixed height, or when using a s
   sidebar={
     <Sidebar position="sticky" top="40px">
       <SidebarSection>
-        <NavItem label="Home" />
-        <NavItem label="Settings" />
+        <NavItem>Home</NavItem>
+        <NavItem>Settings</NavItem>
       </SidebarSection>
     </Sidebar>
   }
@@ -140,8 +140,8 @@ Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGri
         </Menu>
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem label="Home" icon={<FiHome />} />
-        <NavItem label="Contacts" icon={<FiUsers />} />
+        <NavItem icon={<FiHome />}>Home</NavItem>
+        <NavItem icon={<FiUsers />}>Contacts</NavItem>
       </SidebarSection>
     </Sidebar>
   }

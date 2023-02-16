@@ -10,6 +10,7 @@ import {
 import { CalendarIcon } from '@chakra-ui/icons'
 import {
   chakra,
+  forwardRef,
   InputGroup,
   InputGroupProps,
   InputRightElement,
@@ -21,7 +22,9 @@ import {
 } from './date-range-picker'
 import { SegmentedInput } from './segmented-input'
 
-export interface DateRangeInputProps extends DateRangePickerContainerProps {}
+export interface DateRangeInputProps extends DateRangePickerContainerProps {
+  calendarIcon?: React.ReactNode
+}
 
 /**
  * DateRangeInput
@@ -30,20 +33,27 @@ export interface DateRangeInputProps extends DateRangePickerContainerProps {}
  *
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
-export const DateRangeInput: React.FC<DateRangeInputProps> = (props) => {
-  const { children, ...rest } = props
-  return (
-    <DateRangePicker placement="bottom-start" {...rest}>
-      <DateRangePickerInput />
-      <DatePickerDialog>
-        <>
-          <DateRangePickerCalendar />
-          {children}
-        </>
-      </DatePickerDialog>
-    </DateRangePicker>
-  )
-}
+export const DateRangeInput = forwardRef<DateRangeInputProps, 'div'>(
+  (props, ref) => {
+    const { children, size, variant, calendarIcon, ...rest } = props
+    return (
+      <DateRangePicker placement="bottom-start" {...rest}>
+        <DateRangePickerInput
+          ref={ref}
+          calendarIcon={calendarIcon}
+          size={size}
+          variant={variant}
+        />
+        <DatePickerDialog>
+          <>
+            <DateRangePickerCalendar />
+            {children}
+          </>
+        </DatePickerDialog>
+      </DateRangePicker>
+    )
+  }
+)
 
 interface DatePickerInputProps extends InputGroupProps {
   calendarIcon?: React.ReactNode
@@ -56,52 +66,54 @@ interface DatePickerInputProps extends InputGroupProps {
  *
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
-const DateRangePickerInput: React.FC<DatePickerInputProps> = (props) => {
-  const { calendarIcon, size, variant, ...rest } = props
+const DateRangePickerInput = forwardRef<DatePickerInputProps, 'div'>(
+  (props) => {
+    const { calendarIcon, size, variant, ...rest } = props
 
-  const {
-    state,
-    locale,
-    groupProps,
-    startFieldProps,
-    endFieldProps,
-    buttonProps,
-    datePickerRef,
-  } = useDateRangePickerContext()
+    const {
+      state,
+      locale,
+      groupProps,
+      startFieldProps,
+      endFieldProps,
+      buttonProps,
+      datePickerRef,
+    } = useDateRangePickerContext()
 
-  const themeProps = { size, variant }
+    const themeProps = { size, variant }
 
-  return (
-    <InputGroup
-      {...rest}
-      {...groupProps}
-      {...themeProps}
-      ref={datePickerRef}
-      width="auto"
-      display="inline-flex"
-    >
-      <DatePickerAnchor>
-        <SegmentedInput {...themeProps}>
-          <DateField locale={locale} {...startFieldProps} />
-          <chakra.span aria-hidden="true" paddingX="1">
-            –
-          </chakra.span>
-          <DateField locale={locale} {...endFieldProps} />
-        </SegmentedInput>
-      </DatePickerAnchor>
-      <InputRightElement py="1">
-        <DatePickerTrigger>
-          <FieldButton
-            variant="ghost"
-            flex="1"
-            height="100%"
-            {...buttonProps}
-            isActive={state.isOpen}
-          >
-            {calendarIcon || <CalendarIcon />}
-          </FieldButton>
-        </DatePickerTrigger>
-      </InputRightElement>
-    </InputGroup>
-  )
-}
+    return (
+      <InputGroup
+        {...rest}
+        {...groupProps}
+        {...themeProps}
+        ref={datePickerRef}
+        width="auto"
+        display="inline-flex"
+      >
+        <DatePickerAnchor>
+          <SegmentedInput {...themeProps}>
+            <DateField locale={locale} {...startFieldProps} />
+            <chakra.span aria-hidden="true" paddingX="1">
+              –
+            </chakra.span>
+            <DateField locale={locale} {...endFieldProps} />
+          </SegmentedInput>
+        </DatePickerAnchor>
+        <InputRightElement py="1">
+          <DatePickerTrigger>
+            <FieldButton
+              variant="ghost"
+              flex="1"
+              height="100%"
+              {...buttonProps}
+              isActive={state.isOpen}
+            >
+              {calendarIcon || <CalendarIcon />}
+            </FieldButton>
+          </DatePickerTrigger>
+        </InputRightElement>
+      </InputGroup>
+    )
+  }
+)

@@ -413,8 +413,11 @@ function Issues() {
         as={HStack}
         spacing="4"
         borderBottom="1px"
-        borderColor="whiteAlpha.100"
+        borderColor="gray.100"
         fontSize="sm"
+        _dark={{
+          borderColor: 'whiteAlpha.100',
+        }}
       >
         <StructuredListCell width="4" role="group">
           <Checkbox
@@ -435,9 +438,12 @@ function Issues() {
               key={label}
               bg="none"
               border="1px solid"
-              borderColor="whiteAlpha.100"
+              borderColor="blackAlpha.100"
               color="muted"
               rounded="full"
+              _dark={{
+                borderColor: 'whiteAlpha.100',
+              }}
             >
               {label}
             </Tag>
@@ -453,7 +459,8 @@ function Issues() {
       <StructuredList py="0">
         <StructuredListHeader
           fontWeight="normal"
-          bg="gray.700"
+          bg="gray.200"
+          _dark={{ bg: 'gray.700' }}
           color="app-text"
           position="sticky"
           top="0"
@@ -467,7 +474,8 @@ function Issues() {
         {inProgress.map(renderIssue)}
         <StructuredListHeader
           fontWeight="normal"
-          bg="gray.700"
+          bg="gray.200"
+          _dark={{ bg: 'gray.700' }}
           color="app-text"
           position="sticky"
           top="0"

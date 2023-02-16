@@ -170,12 +170,12 @@ const Pricing = () => {
               href={paymentLinks.bootstrap}
               className={paymentLinks.className}
               onClick={(e) => {
-                if ((window as any)?.LemonSqueezy) {
-                  e.preventDefault()
-                  ;(window as any)?.LemonSqueezy?.Url.Open(
-                    paymentLinks.bootstrap + '?embed=1'
-                  )
-                }
+                // if ((window as any)?.LemonSqueezy) {
+                //   e.preventDefault()
+                //   ;(window as any)?.LemonSqueezy?.Url.Open(
+                //     paymentLinks.bootstrap + '?embed=1'
+                //   )
+                // }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Bootstrap')
@@ -224,12 +224,12 @@ const Pricing = () => {
               href={paymentLinks.startup}
               className={paymentLinks.className}
               onClick={(e) => {
-                if ((window as any)?.LemonSqueezy) {
-                  e.preventDefault()
-                  ;(window as any)?.LemonSqueezy?.Url.Open(
-                    paymentLinks.startup + '?embed=1'
-                  )
-                }
+                // if ((window as any)?.LemonSqueezy) {
+                //   e.preventDefault()
+                //   ;(window as any)?.LemonSqueezy?.Url.Open(
+                //     paymentLinks.startup + '?embed=1'
+                //   )
+                // }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Startup')

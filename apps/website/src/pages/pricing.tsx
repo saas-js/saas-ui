@@ -166,6 +166,7 @@ const Pricing = () => {
               />
             </PricingFeatures>
             <ButtonLink
+              as="a"
               colorScheme="primary"
               href={paymentLinks.bootstrap}
               className={paymentLinks.className}
@@ -220,6 +221,7 @@ const Pricing = () => {
               />
             </PricingFeatures>
             <ButtonLink
+              as="a"
               colorScheme="primary"
               href={paymentLinks.startup}
               className={paymentLinks.className}

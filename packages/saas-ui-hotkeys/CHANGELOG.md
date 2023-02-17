@@ -1,5 +1,19 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [3a15e8c8]
+  - @saas-ui/core@2.0.0-next.0
+
 ## 1.4.0
 
 ### Minor Changes

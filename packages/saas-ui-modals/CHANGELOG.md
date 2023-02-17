@@ -1,5 +1,22 @@
 # @saas-ui/modals
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [d7c87a31]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f1e99198]
+  - @saas-ui/forms@2.0.0-next.0
+  - @saas-ui/hooks@2.0.0-next.0
+  - @saas-ui/react-utils@2.0.0-next.0
+
 ## 1.5.4
 
 ### Patch Changes

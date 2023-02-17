@@ -1,5 +1,31 @@
 # @saas-ui/data-table
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- 772c9868: Updated to Tanstack ReactTable V8
+- 8b82d945: Removed button package.
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [772c9868]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [7ce390e9]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f34de7af]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [f1e99198]
+- Updated dependencies [f3b09191]
+  - @saas-ui/react@2.0.0-next.0
+  - @saas-ui/core@2.0.0-next.0
+
 ## 1.4.1
 
 ### Patch Changes

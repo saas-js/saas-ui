@@ -1,5 +1,26 @@
 # @saas-ui/auth
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+- f34de7af: Moved Supabase and Magic auth services to separate packages.
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [d7c87a31]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [f1e99198]
+  - @saas-ui/forms@2.0.0-next.0
+  - @saas-ui/core@2.0.0-next.0
+  - @saas-ui/hooks@2.0.0-next.0
+
 ## 1.7.3
 
 ### Patch Changes

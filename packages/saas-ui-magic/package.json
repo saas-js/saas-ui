@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/magic",
-  "version": "1.0.0",
+  "version": "2.0.0-next.0",
   "description": "Saas UI Magic.link integration",
   "source": "src/index.ts",
   "exports": {
@@ -54,7 +54,7 @@
     "magic.link"
   ],
   "dependencies": {
-    "@saas-ui/auth": "^1.7.0"
+    "@saas-ui/auth": "^2.0.0-next.0"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",

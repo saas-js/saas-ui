@@ -1,5 +1,15 @@
 # @saas-ui/date-picker
 
+## 0.8.5-next.0
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- f1e99198: Restructured packages.
+- Updated dependencies [f1e99198]
+- Updated dependencies [f1e99198]
+  - @saas-ui/modals@2.0.0-next.0
+
 ## 0.8.4
 
 ### Patch Changes

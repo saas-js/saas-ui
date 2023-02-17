@@ -1,5 +1,12 @@
 # @saas-ui/theme-glass
 
+## 0.3.2-next.0
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- f1e99198: Restructured packages.
+
 ## 0.3.1
 
 ### Patch Changes

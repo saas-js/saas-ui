@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- 3a15e8c8: Improve StructuredList API.
+
+### Minor Changes
+
+- e94ca3c0: Added TimeLine to core components.
+
+### Patch Changes
+
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f1e99198]
+  - @saas-ui/react-utils@2.0.0-next.0
+  - @saas-ui/theme@2.0.0-next.0
+
 ## 1.9.0
 
 ### Minor Changes

@@ -1,5 +1,45 @@
 # @saas-ui/react
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- 772c9868: Updated to Tanstack ReactTable V8
+- d7c87a31: Moved form resolvers into a separate package.
+- f1e99198: BREAKING: createPalette no longer exported from @saas-ui/react
+- 8b82d945: Renamed List to StructuredList
+- 8b82d945: Removed button package.
+- f34de7af: Moved Supabase and Magic auth services to separate packages.
+- 3a15e8c8: Improve StructuredList API.
+- f1e99198: Restructured packages.
+- f3b09191: Removed Card component in favor of the new Chakra UI Card component.
+
+### Minor Changes
+
+- e94ca3c0: Added TimeLine to core components.
+- 7ce390e9: Added Sidebar to core packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [772c9868]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f34de7af]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [f1e99198]
+  - @saas-ui/data-table@2.0.0-next.0
+  - @saas-ui/forms@2.0.0-next.0
+  - @saas-ui/core@2.0.0-next.0
+  - @saas-ui/auth@2.0.0-next.0
+  - @saas-ui/hooks@2.0.0-next.0
+  - @saas-ui/hotkeys@2.0.0-next.0
+  - @saas-ui/modals@2.0.0-next.0
+  - @saas-ui/nprogress@2.0.0-next.0
+  - @saas-ui/theme@2.0.0-next.0
+
 ## 1.9.0
 
 ### Minor Changes

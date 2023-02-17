@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "1.3.4",
+  "version": "2.0.0-next.0",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -65,7 +65,7 @@
     "typescript": "^4.9.3"
   },
   "optionalDependencies": {
-    "@saas-ui/features": "*",
-    "@saas-ui/pro": "*"
+    "@saas-ui/features": "1.0.0-next.0",
+    "@saas-ui/pro": "1.0.0-next.0"
   }
 }

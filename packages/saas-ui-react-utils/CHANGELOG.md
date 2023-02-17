@@ -1,5 +1,15 @@
 # @saas-ui/react-utils
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+
 ## 1.2.0
 
 ### Minor Changes

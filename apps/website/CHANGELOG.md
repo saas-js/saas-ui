@@ -1,5 +1,14 @@
 # website
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [166978bd]
+  - @saas-ui/command-bar@0.1.1-next.1
+  - @saas-ui/palette@2.0.0-next.1
+  - @saas-ui/react@2.0.0-next.1
+
 ## 2.0.0-next.0
 
 ### Major Changes

@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [166978bd]
+  - @saas-ui/react-utils@2.0.0-next.1
+  - @saas-ui/theme@2.0.0-next.1
+
 ## 2.0.0-next.0
 
 ### Major Changes

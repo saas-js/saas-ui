@@ -1,5 +1,13 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [166978bd]
+  - @saas-ui/core@2.0.0-next.1
+
 ## 2.0.0-next.0
 
 ### Major Changes

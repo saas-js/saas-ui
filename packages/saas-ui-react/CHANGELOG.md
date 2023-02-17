@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [166978bd]
+  - @saas-ui/auth@2.0.0-next.1
+  - @saas-ui/core@2.0.0-next.1
+  - @saas-ui/data-table@2.0.0-next.1
+  - @saas-ui/forms@2.0.0-next.1
+  - @saas-ui/hooks@2.0.0-next.1
+  - @saas-ui/hotkeys@2.0.0-next.1
+  - @saas-ui/modals@2.0.0-next.1
+  - @saas-ui/nprogress@2.0.0-next.1
+  - @saas-ui/theme@2.0.0-next.1
+
 ## 2.0.0-next.0
 
 ### Major Changes

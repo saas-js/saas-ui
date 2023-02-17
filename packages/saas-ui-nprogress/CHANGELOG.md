@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+
 ## 2.0.0-next.0
 
 ### Major Changes

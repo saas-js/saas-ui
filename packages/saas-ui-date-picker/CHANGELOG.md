@@ -1,5 +1,13 @@
 # @saas-ui/date-picker
 
+## 0.8.5-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [166978bd]
+  - @saas-ui/modals@2.0.0-next.1
+
 ## 0.8.5-next.0
 
 ### Patch Changes

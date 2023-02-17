@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.1.1-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+
 ## 0.1.1-next.0
 
 ### Patch Changes

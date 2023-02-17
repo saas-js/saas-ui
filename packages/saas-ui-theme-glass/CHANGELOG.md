@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.3.2-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+
 ## 0.3.2-next.0
 
 ### Patch Changes

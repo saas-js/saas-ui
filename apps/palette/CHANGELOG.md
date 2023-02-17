@@ -1,5 +1,14 @@
 # palette
 
+## 1.3.6-next.1
+
+### Patch Changes
+
+- Updated dependencies [166978bd]
+  - @saas-ui/palette@2.0.0-next.1
+  - @saas-ui/react@2.0.0-next.1
+  - @saas-ui/theme-glass@0.3.2-next.1
+
 ## 1.3.6-next.0
 
 ### Patch Changes

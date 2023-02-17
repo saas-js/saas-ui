@@ -20,10 +20,9 @@ import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-
 import SidebarCategory from './sidebar-category'
 import SidebarLink from './sidebar-link'
 
-import { SearchInput, useHotkeys, useCollapse } from '@saas-ui/react'
+import { NavItem, SearchInput, useHotkeys, useCollapse } from '@saas-ui/react'
 
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { NavItem } from '@saas-ui/sidebar'
 
 export type SidebarContentProps = Routes & {
   pathname?: string

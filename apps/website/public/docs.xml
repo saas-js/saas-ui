@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 01 Feb 2023 19:46:02 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 17 Feb 2023 08:53:05 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -22,49 +22,9 @@
 
   <item>
     <guid>https://saas-ui.dev/docs</guid>
-    <title>Core overview</title>
+    <title>Getting started</title>
     <link>https://saas-ui.dev/docs</link>
     <description>An advanced component library built on Chakra UI for building high quality SaaS products at speed.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/overview</guid>
-    <title>Pro</title>
-    <link>https://saas-ui.dev/docs/pro/overview</link>
-    <description>A modern clean dashboard ui that your customers will love.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/project-structure</guid>
-    <title>Project structure</title>
-    <link>https://saas-ui.dev/docs/pro/project-structure</link>
-    <description>How to find your way in the project.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -95,6 +55,46 @@
     <title>Quickstarts</title>
     <link>https://saas-ui.dev/docs/core/quickstarts</link>
     <description>How to get up and running quickly with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/overview</guid>
+    <title>Pro</title>
+    <link>https://saas-ui.dev/docs/pro/overview</link>
+    <description>A modern clean dashboard ui that your customers will love.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/project-structure</guid>
+    <title>Project structure</title>
+    <link>https://saas-ui.dev/docs/pro/project-structure</link>
+    <description>How to find your way in the project.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -191,16 +191,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/list</guid>
-    <title>StructuredList</title>
-    <link>https://saas-ui.dev/docs/components/data-display/list</link>
-    <description>A component used to display collections of data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/persona</guid>
     <title>Persona</title>
     <link>https://saas-ui.dev/docs/components/data-display/persona</link>
@@ -221,10 +211,60 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/structured-list</guid>
+    <title>StructuredList</title>
+    <link>https://saas-ui.dev/docs/components/data-display/structured-list</link>
+    <description>A component used to display collections of data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/timeline</guid>
     <title>Timeline</title>
     <link>https://saas-ui.dev/docs/components/data-display/timeline</link>
     <description>Display a list of events in chronological order.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/beacon</guid>
+    <title>Beacon</title>
+    <link>https://saas-ui.dev/docs/components/engagement/beacon</link>
+    <description>A pulsating beacon that attracts attention</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal</guid>
+    <title>Benefits Modal</title>
+    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal</link>
+    <description>A benefits modal is used to show case important features or product updates.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog</guid>
+    <title>Tour Dialog</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog</link>
+    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour</guid>
+    <title>Tour</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour</link>
+    <description>Introduce people to new features using multi-step tours.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -285,46 +325,6 @@
     <title>DateRangePicker</title>
     <link>https://saas-ui.dev/docs/components/date-time/date-range-picker</link>
     <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/beacon</guid>
-    <title>Beacon</title>
-    <link>https://saas-ui.dev/docs/components/engagement/beacon</link>
-    <description>A pulsating beacon that attracts attention</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal</guid>
-    <title>Benefits Modal</title>
-    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal</link>
-    <description>A benefits modal is used to show case important features or product updates.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog</guid>
-    <title>Tour Dialog</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog</link>
-    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour</guid>
-    <title>Tour</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour</link>
-    <description>Introduce people to new features using multi-step tours.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -514,7 +514,7 @@
     <guid>https://saas-ui.dev/docs/components/layout/sidebar</guid>
     <title>Sidebar</title>
     <link>https://saas-ui.dev/docs/components/layout/sidebar</link>
-    <description>Commonly used as the primary navigation.</description>
+    <description>Side navigation, commonly used as the primary navigation.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -671,20 +671,150 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/configuration/authentication</guid>
-    <title>Authentication</title>
-    <link>https://saas-ui.dev/docs/pro/configuration/authentication</link>
-    <description>How to setup authentication.</description>
+    <guid>https://saas-ui.dev/docs/components/web3/address</guid>
+    <title>Web3Address</title>
+    <link>https://saas-ui.dev/docs/components/web3/address</link>
+    <description>Display Web3 addresses in a more readable format.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/web3/address</guid>
-    <title>Web3Address</title>
-    <link>https://saas-ui.dev/docs/components/web3/address</link>
-    <description>Display Web3 addresses in a more readable format.</description>
+    <guid>https://saas-ui.dev/docs/core/installation/blitzjs-guide</guid>
+    <title>Blitz JS</title>
+    <link>https://saas-ui.dev/docs/core/installation/blitzjs-guide</link>
+    <description>A guide for installing Saas UI with blitzjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>blitzjs</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/installation/cra-guide</guid>
+    <title>Create React App</title>
+    <link>https://saas-ui.dev/docs/core/installation/cra-guide</link>
+    <description>A guide for installing Saas UI with create-react-app projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>create-react-app</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/installation/nextjs-guide</guid>
+    <title>Getting Started with Nextjs</title>
+    <link>https://saas-ui.dev/docs/core/installation/nextjs-guide</link>
+    <description>A guide for installing Saas UI with Nextjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>nextjs</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/installation/redwoodjs-guide</guid>
+    <title>RedwoodJS</title>
+    <link>https://saas-ui.dev/docs/core/installation/redwoodjs-guide</link>
+    <description>A guide for installing Saas UI with redwoodjs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>redwoodjs</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/installation/remix-guide</guid>
+    <title>Remix</title>
+    <link>https://saas-ui.dev/docs/core/installation/remix-guide</link>
+    <description>A guide for installing Saas UI with Remix projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>remix</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/installation/vite-guide</guid>
+    <title>Vite</title>
+    <link>https://saas-ui.dev/docs/core/installation/vite-guide</link>
+    <description>A guide for installing Saas UI with vitejs projects</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>vite</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/integrations/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/core/integrations/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/integrations/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/core/integrations/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/integrations/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/core/integrations/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/theming/chakra-ui-theme</guid>
+    <title>Chakra UI Theme</title>
+    <link>https://saas-ui.dev/docs/core/theming/chakra-ui-theme</link>
+    <description>The Chakra UI theme tokens</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/theming/customize-theme</guid>
+    <title>Customize theme</title>
+    <link>https://saas-ui.dev/docs/core/theming/customize-theme</link>
+    <description>How to modify Saas UI's default theme.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/theming/fonts</guid>
+    <title>Fonts</title>
+    <link>https://saas-ui.dev/docs/core/theming/fonts</link>
+    <description>Settings up fonts in your theme.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/theming/saas-ui-theme</guid>
+    <title>Saas UI Theme</title>
+    <link>https://saas-ui.dev/docs/core/theming/saas-ui-theme</link>
+    <description>The default Saas UI theme tokens</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/configuration/authentication</guid>
+    <title>Authentication</title>
+    <link>https://saas-ui.dev/docs/pro/configuration/authentication</link>
+    <description>How to setup authentication.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -785,136 +915,6 @@
     <title>Fonts</title>
     <link>https://saas-ui.dev/docs/pro/theming/fonts</link>
     <description>Settings up fonts in your theme.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/integrations/clerk</guid>
-    <title>Clerk</title>
-    <link>https://saas-ui.dev/docs/core/integrations/clerk</link>
-    <description>Integrating Clerk authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/integrations/magic</guid>
-    <title>Magic</title>
-    <link>https://saas-ui.dev/docs/core/integrations/magic</link>
-    <description>Integrating Magic authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/integrations/supabase</guid>
-    <title>Supabase</title>
-    <link>https://saas-ui.dev/docs/core/integrations/supabase</link>
-    <description>Integrating Supabase authentication with Saas UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/blitzjs-guide</guid>
-    <title>Blitz JS</title>
-    <link>https://saas-ui.dev/docs/core/installation/blitzjs-guide</link>
-    <description>A guide for installing Saas UI with blitzjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>blitzjs</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/cra-guide</guid>
-    <title>Create React App</title>
-    <link>https://saas-ui.dev/docs/core/installation/cra-guide</link>
-    <description>A guide for installing Saas UI with create-react-app projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>create-react-app</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/nextjs-guide</guid>
-    <title>Getting Started with Nextjs</title>
-    <link>https://saas-ui.dev/docs/core/installation/nextjs-guide</link>
-    <description>A guide for installing Saas UI with Nextjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>nextjs</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/redwoodjs-guide</guid>
-    <title>RedwoodJS</title>
-    <link>https://saas-ui.dev/docs/core/installation/redwoodjs-guide</link>
-    <description>A guide for installing Saas UI with redwoodjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>redwoodjs</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/remix-guide</guid>
-    <title>Remix</title>
-    <link>https://saas-ui.dev/docs/core/installation/remix-guide</link>
-    <description>A guide for installing Saas UI with Remix projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>remix</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/vite-guide</guid>
-    <title>Vite</title>
-    <link>https://saas-ui.dev/docs/core/installation/vite-guide</link>
-    <description>A guide for installing Saas UI with vitejs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>vite</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/theming/chakra-ui-theme</guid>
-    <title>Chakra UI Theme</title>
-    <link>https://saas-ui.dev/docs/core/theming/chakra-ui-theme</link>
-    <description>The Chakra UI theme tokens</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/theming/customize-theme</guid>
-    <title>Customize theme</title>
-    <link>https://saas-ui.dev/docs/core/theming/customize-theme</link>
-    <description>How to modify Saas UI's default theme.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/theming/fonts</guid>
-    <title>Fonts</title>
-    <link>https://saas-ui.dev/docs/core/theming/fonts</link>
-    <description>Settings up fonts in your theme.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/theming/saas-ui-theme</guid>
-    <title>Saas UI Theme</title>
-    <link>https://saas-ui.dev/docs/core/theming/saas-ui-theme</link>
-    <description>The default Saas UI theme tokens</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

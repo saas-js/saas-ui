@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.0.0-next.2
+
+### Major Changes
+
+- 0a11d7b6: Renamed Sidebar condensed variant to compact.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+### Minor Changes
+
+- 76887bda: AppShell now controls the Sidebar disclosure state.
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+
 ## 2.0.0-next.1
 
 ### Patch Changes

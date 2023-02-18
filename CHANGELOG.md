@@ -8,6 +8,22 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-18-2023
+
+`@saas-ui/react@2.0.0-next.2`
+
+- Renamed Sidebar condensed variant to compact.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+**Core** `v2.0.0-next.2`
+
+- Renamed Sidebar condensed variant to compact.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
 ## 02-17-2023
 
 `@saas-ui/react@2.0.0-next.1`

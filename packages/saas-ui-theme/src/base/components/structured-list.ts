@@ -43,7 +43,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
 export default {
   baseStyle: baseStyle,
   sizes: {
-    condensed: {
+    compact: {
       item: {
         py: 1,
       },

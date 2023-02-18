@@ -15,7 +15,7 @@ export default function Home() {
       sidebar={
         <HStack spacing="0" height="100vh">
           {/* <Sidebar
-            variant="condensed"
+            variant="compact"
             height="100vh"
             bg="purple.500"
             borderWidth="0"

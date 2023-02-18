@@ -59,7 +59,7 @@ DateInput.displayName = 'DateInput'
 export const DateTimeInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
   const { children, ...rest } = props
   return (
-    <DateInput granularity="minute" {...rest}>
+    <DateInput ref={ref} granularity="minute" {...rest}>
       <>
         <DatePickerTimeField />
         {children}

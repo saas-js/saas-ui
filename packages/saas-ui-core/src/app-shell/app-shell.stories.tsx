@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { AppShell, AppShellProps } from '..'
 
@@ -12,7 +12,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<AppShellProps> = ({ children, ...args }) => (
+const Template: StoryFn<AppShellProps> = ({ children, ...args }) => (
   <AppShell {...args}>{children}</AppShell>
 )
 

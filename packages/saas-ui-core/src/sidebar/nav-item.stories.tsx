@@ -4,7 +4,7 @@ import { Badge, Center, Stack } from '@chakra-ui/react'
 
 import { FiHome } from 'react-icons/fi'
 
-import { Sidebar, NavItem, NavItemProps, Nav } from '../src'
+import { Sidebar, NavItem, NavItemProps, Nav } from '.'
 
 export default {
   title: 'Components/Navigation/NavItem',

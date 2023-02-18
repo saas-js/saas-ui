@@ -2,7 +2,7 @@ import { Container } from '@chakra-ui/react'
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { NumberInput } from '../src'
+import { NumberInput } from '.'
 
 export default {
   title: 'Components/Forms/NumberInput',
@@ -34,6 +34,6 @@ MinMax.args = {
 
 export const WithFormatter = Template.bind({})
 WithFormatter.args = {
-  format: (value) => `$${value}`, // use any currency formatter here
-  parse: (value) => value.replace('$', ''),
+  format: (value: any) => `$${value}`, // use any currency formatter here
+  parse: (value: any) => value.replace('$', ''),
 }

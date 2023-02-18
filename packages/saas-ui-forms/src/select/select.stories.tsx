@@ -10,8 +10,8 @@ import * as React from 'react'
 
 import { ComponentStory } from '@storybook/react'
 
-import { Select } from '../src/select'
-import { NativeSelect } from '../src/native-select'
+import { Select } from './select'
+import { NativeSelect } from './native-select'
 
 import { FiSmile } from 'react-icons/fi'
 

@@ -10,7 +10,7 @@ import * as React from 'react'
 
 import { ComponentStory } from '@storybook/react'
 
-import { InputRightButton } from '../src'
+import { InputRightButton } from './'
 
 import { FiEye } from 'react-icons/fi'
 

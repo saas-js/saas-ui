@@ -33,6 +33,9 @@ const variantDefault: PartsStyleFunction<typeof parts> = (props) => {
       maxWidth: ['100vw', '320px'],
       minWidth: '220px',
       py: 3,
+      '&[data-collapsible]': {
+        pt: 14,
+      },
     },
     section: {
       px: 3,
@@ -71,6 +74,6 @@ export default {
   baseStyle,
   variants: {
     default: variantDefault,
-    condensed: variantCondensed,
+    compact: variantCondensed,
   },
 }

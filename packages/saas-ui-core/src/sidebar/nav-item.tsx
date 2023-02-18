@@ -113,7 +113,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   } = omitThemingProps(props)
   const RouterLink = useLink()
   const { onClose, variant: sidebarVariant } = useSidebarContext() || {}
-  const isCondensed = sidebarVariant === 'condensed'
+  const isCondensed = sidebarVariant === 'compact'
 
   const styles = useMultiStyleConfig('SuiNavItem', props)
 
@@ -163,7 +163,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
         <chakra.div
           __css={styles.item}
           onClick={onClose}
-          data-condensed={dataAttr(isCondensed)}
+          data-compact={dataAttr(isCondensed)}
           className={cx('sui-nav-item', className)}
         >
           {link}

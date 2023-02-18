@@ -3,71 +3,36 @@ import * as React from 'react'
 import {
   chakra,
   omitThemingProps,
-  HTMLChakraProps,
-  ChakraProps,
-  ThemingProps,
-  SystemProps,
   useMultiStyleConfig,
   useBreakpointValue,
   SystemStyleObject,
   IconButton,
-  IconButtonProps,
+  Icon,
   useDisclosure,
   Portal,
-  ResponsiveValue,
   forwardRef,
   useTheme,
 } from '@chakra-ui/react'
 import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import { motion, HTMLMotionProps, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { useResponsiveValue } from '@saas-ui/react-utils'
 
-import { SidebarProvider, useSidebarContext } from './use-sidebar'
+import {
+  SidebarProvider,
+  useSidebarContext,
+  useSidebarToggleButton,
+} from './use-sidebar'
 import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
-
-export interface SidebarOptions {
-  /**
-   * Spacing between child elements.
-   */
-  spacing?: SystemProps['margin']
-  /**
-   * Define breakpoints for the mobile nav.
-   *
-   * @default object { sm: true, lg: false }
-   */
-  breakpoints?: Record<string, boolean>
-  /**
-   * Control the visibility of the sidebar.
-   */
-  isOpen?: boolean
-  /**
-   * Callback invoked when the sidebar is opened.
-   */
-  onOpen?: () => void
-  /**
-   * Callback invoked when the sidebar is closed.
-   */
-  onClose?: () => void
-  /**
-   * The transition used when opening and closing the sidebar.
-   */
-  motionPreset?: 'slideInOut' | 'none'
-}
-
-export interface SidebarProps
-  extends SidebarOptions,
-    Pick<
-      HTMLMotionProps<'div'>,
-      'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
-    >,
-    Omit<
-      HTMLChakraProps<'div'>,
-      'css' | 'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
-    >,
-    ThemingProps<'SuiSidebar'> {}
+import {
+  SidebarOverlayProps,
+  SidebarProps,
+  SidebarSectionProps,
+  SidebarToggleButtonProps,
+} from './sidebar-types'
+import { getBreakpoints } from './sidebar-utils'
+import { useAppShellContext } from '../app-shell/app-shell-context'
 
 const MotionBox = chakra(motion.nav)
 
@@ -101,12 +66,12 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
     fallback: 'base',
   })
 
-  const isCondensed = variant === 'condensed'
+  const isCondensed = variant === 'compact'
 
   const {
     spacing = 4,
     children,
-    breakpoints = { base: true, lg: false },
+    toggleBreakpoint,
     className,
     motionPreset = 'slideInOut',
     isOpen: isOpenProp,
@@ -115,40 +80,42 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
     ...containerProps
   } = omitThemingProps(props)
 
+  const appShell = useAppShellContext()
+  const breakpoints = getBreakpoints(toggleBreakpoint)
+
   const isMobile = useBreakpointValue(breakpoints, {
     fallback: undefined,
   })
   // we check this twice to avoid SSR issues.
   const isMobileInitial = useBreakpointValue(breakpoints)
   const isInitial = typeof isMobile === 'undefined'
-  const isCollapsible = isMobile && !isCondensed
   const isControlled = typeof isOpenProp !== 'undefined'
+  const isCollapsible = (isMobile || isControlled) && !isCondensed
 
   const disclosure = useDisclosure({
-    defaultIsOpen: isControlled ? isOpenProp : !isCollapsible,
-    isOpen: isOpenProp,
-    onOpen: onOpenProp,
-    onClose: onCloseProp,
+    isOpen: isOpenProp || appShell?.isSidebarOpen,
+    onOpen: onOpenProp || appShell?.openSidebar,
+    onClose: onCloseProp || appShell?.closeSidebar,
   })
 
   const { isOpen, onClose, onOpen } = disclosure
 
   React.useEffect(() => {
     if ((isInitial && isMobileInitial) || isCondensed || isControlled) {
-      // make sure we do not show an initial animation or when this is a condensed sidebar
+      // make sure we do not show an initial animation or when this is a compact sidebar
       return
     }
     isMobileInitial ? onClose() : onOpen()
   }, [isInitial, isCondensed, isMobileInitial])
 
   const containerStyles: SystemStyleObject = {
-    '& > *:not(style) ~ *:not(style, .saas-resize-handle, .saas-sidebar__toggle-button + *)':
+    '& > *:not(style) ~ *:not(style, .sui-resize-handle, .sui-sidebar__toggle-button + *)':
       {
         marginTop: spacing,
       },
     display: 'flex',
     flexDirection: 'column',
-    ...(isCollapsible
+    ...(isMobile && isCollapsible
       ? {
           position: 'absolute',
           zIndex: 'modal',
@@ -186,8 +153,8 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
           {...containerProps}
           id={disclosure.getDisclosureProps().id}
           className={cx('sui-sidebar', className)}
-          data-condensed={dataAttr(isCondensed)}
-          data-collapsible={dataAttr(isCollapsible)}
+          data-compact={dataAttr(isCondensed)}
+          data-collapsible={dataAttr(isMobile && isCollapsible)}
         >
           {children}
         </MotionBox>
@@ -198,15 +165,11 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
 
 Sidebar.defaultProps = {
   variant: 'default',
+  toggleBreakpoint: 'lg',
 }
 
 Sidebar.displayName = 'Sidebar'
-
-export interface SidebarToggleButtonProps
-  extends Omit<IconButtonProps, 'aria-label' | 'icon'> {
-  icon?: MaybeRenderProp<{ isOpen: boolean }>
-  wrapperProps?: HTMLChakraProps<'div'>
-}
+Sidebar.id = 'Sidebar'
 
 /**
  * Button that toggles the sidebar visibility.
@@ -217,32 +180,28 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   props
 ) => {
   const { sx, wrapperProps, ...rest } = props
-  const sidebar = useSidebarContext()
-
-  const styles = useSidebarStyles()
+  const { isOpen, isMobile, getButtonProps } = useSidebarToggleButton()
 
   const wrapperStyles = {
     height: 8,
-    ...styles.toggleWrapper,
   }
 
-  const buttonStyles = {
-    position: 'fixed',
-    top: 3,
-    left: 4,
-    ...styles.toggle,
+  const buttonStyles: SystemStyleObject = {
+    ...(isMobile
+      ? { position: 'fixed', top: 3, left: 4, zIndex: 'modal' }
+      : {}),
     ...sx,
   }
 
   const icon = props.icon ? (
     runIfFn(props.icon, {
-      isOpen: sidebar.isOpen,
+      isOpen,
     })
   ) : (
     <HamburgerIcon />
   )
 
-  return (
+  return isMobile ? (
     <chakra.div
       {...wrapperProps}
       __css={wrapperStyles}
@@ -252,15 +211,13 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
         variant="ghost"
         sx={buttonStyles}
         aria-label="Toggle sidebar"
-        {...sidebar.getButtonProps(props)}
         {...rest}
-        icon={icon}
+        {...getButtonProps(props)}
+        icon={icon as any}
       />
     </chakra.div>
-  )
+  ) : null
 }
-
-export interface SidebarOverlayProps extends ChakraProps {}
 
 /**
  * Overlay shown when sidebar is open on mobile.
@@ -300,10 +257,6 @@ export const SidebarOverlay: React.FC<SidebarOverlayProps> = (props) => {
 }
 
 SidebarToggleButton.displayName = 'SidebarToggleButton'
-
-export interface SidebarSectionProps extends HTMLChakraProps<'div'> {
-  direction?: ResponsiveValue<'row' | 'column'>
-}
 
 /**
  * Sidebar section that can contain sidebar items.

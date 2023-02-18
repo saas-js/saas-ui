@@ -25,10 +25,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       color: 'muted',
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      '&.saas-collapse-toggle .chakra-icon': {
+      '&.sui-collapse-toggle .chakra-icon': {
         opacity: 0,
       },
-      '&.saas-collapse-toggle': {
+      '&.sui-collapse-toggle': {
         cursor: 'pointer',
         borderRadius: 'md',
         _hover: {
@@ -41,7 +41,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
           },
         },
       },
-      '[data-condensed] &': {
+      '[data-compact] &': {
         opacity: 0,
       },
     },

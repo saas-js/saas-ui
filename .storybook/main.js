@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const toPath = (_path) => path.join(process.cwd(), _path)
 
 module.exports = {
-  stories: ['../packages/saas-ui-*/stories/*.stories.tsx'],
+  stories: ['../packages/saas-ui-*/**/*.stories.tsx'],
   addons: [
     'storybook-addon-swc',
     '@storybook/addon-a11y',

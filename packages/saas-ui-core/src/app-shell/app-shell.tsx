@@ -11,6 +11,12 @@ import {
 } from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
+import {
+  AppShellProvider,
+  useAppShell,
+  useAppShellContext,
+  useSidebar,
+} from './app-shell-context'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiAppShell')
 
@@ -24,7 +30,7 @@ export interface AppShellProps
   /**
    * Main sidebar, positioned on the left
    */
-  sidebar?: React.ReactNode
+  sidebar?: React.ReactElement
   /**
    * Secondary sidebar, positioned on the right
    */
@@ -67,27 +73,36 @@ export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
     ...styles.main,
   }
 
+  const isSidebar =
+    React.isValidElement(sidebar) && (sidebar as any).type.id === 'Sidebar'
+
+  const context = useAppShell({
+    toggleBreakpoint: isSidebar
+      ? (sidebar as any)?.props.toggleBreakpoint
+      : undefined,
+  })
+
   return (
-    <StylesProvider value={styles}>
-      <Flex
-        {...containerProps}
-        sx={containerStyles}
-        className={cx('sui-app-shell', props.className)}
-      >
-        {navbar}
-        <Flex sx={innerStyles} className="saas-app-shell__inner">
-          {sidebar}
-          <Flex sx={mainStyles} className="saas-app-shell__main">
-            {children}
+    <AppShellProvider value={context}>
+      <StylesProvider value={styles}>
+        <Flex
+          {...containerProps}
+          sx={containerStyles}
+          className={cx('sui-app-shell', props.className)}
+        >
+          {navbar}
+          <Flex sx={innerStyles} className="saas-app-shell__inner">
+            {sidebar}
+            <Flex sx={mainStyles} className="saas-app-shell__main">
+              {children}
+            </Flex>
+            {aside}
           </Flex>
-          {aside}
+          {footer}
         </Flex>
-        {footer}
-      </Flex>
-    </StylesProvider>
+      </StylesProvider>
+    </AppShellProvider>
   )
 }
 
-if (__DEV__) {
-  AppShell.displayName = 'AppShell'
-}
+AppShell.displayName = 'AppShell'

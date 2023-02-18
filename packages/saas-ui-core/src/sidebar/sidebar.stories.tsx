@@ -49,25 +49,20 @@ import {
 import { PersonaAvatar } from '../persona'
 
 import { Logo } from './saas-ui'
+import { AppShell } from '../app-shell'
 
 export default {
   title: 'Components/Layout/Sidebar',
   parameters: { layout: 'fullscreen' },
-  decorators: [
-    (Story) => (
-      <HStack
-        height="100vh"
-        width="100vw"
-        justifyItems="stretch"
-        alignItems="stretch"
-      >
-        <Story />
-      </HStack>
-    ),
-  ],
 } as Meta
 
-const Template: Story<SidebarProps> = (args) => <Sidebar {...args} />
+const Template: Story<SidebarProps> = (args) => (
+  <AppShell sidebar={<Sidebar {...args} />}>
+    <Box px="4" py="3">
+      <SidebarToggleButton />
+    </Box>
+  </AppShell>
+)
 
 export const Basic = Template.bind({})
 Basic.args = {
@@ -86,7 +81,6 @@ export const WithLinks = Template.bind({})
 WithLinks.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection flex="1" overflowY="auto">
         <NavItem>Home</NavItem>
         <NavItem>Users</NavItem>
@@ -100,7 +94,6 @@ export const WithFeatherIcons = Template.bind({})
 WithFeatherIcons.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection flex="1" overflowY="auto">
         <NavItem icon={<FiHome />}>Home</NavItem>
         <NavItem icon={<FiUsers />}>Users</NavItem>
@@ -114,7 +107,6 @@ export const WithFaIcons = Template.bind({})
 WithFaIcons.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection flex="1" overflowY="auto">
         <NavItem icon={<FaHome />}>Home</NavItem>
         <NavItem icon={<FaUsers />}>Users</NavItem>
@@ -128,7 +120,6 @@ export const WithHorizontalNav = Template.bind({})
 WithHorizontalNav.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection ps="6" pe="4" direction="row">
         <Logo width="24px" />
         <Spacer />
@@ -154,7 +145,6 @@ export const WithCollapsibleGroup = Template.bind({})
 WithCollapsibleGroup.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
@@ -199,7 +189,6 @@ export const WithBadge = Template.bind({})
 WithBadge.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
@@ -245,7 +234,6 @@ export const WithSubtleLinks = Template.bind({})
 WithSubtleLinks.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
@@ -290,7 +278,6 @@ export const WithSolidLinks = Template.bind({})
 WithSolidLinks.args = {
   children: (
     <>
-      <SidebarToggleButton />
       <SidebarSection px="4" direction="row">
         <Logo width="24px" />
         <Spacer />
@@ -329,7 +316,7 @@ WithSolidLinks.args = {
 
 export const VariantCondensed = Template.bind({})
 VariantCondensed.args = {
-  variant: 'condensed',
+  variant: 'compact',
   children: (
     <>
       <SidebarSection alignItems="center">
@@ -350,7 +337,7 @@ VariantCondensed.args = {
 
 export const VariantCondensedColor = Template.bind({})
 VariantCondensedColor.args = {
-  variant: 'condensed',
+  variant: 'compact',
   colorScheme: 'purple',
   children: (
     <>
@@ -374,8 +361,8 @@ VariantCondensedColor.args = {
 
 export const VariantCondensedResponsive = Template.bind({})
 VariantCondensedResponsive.args = {
-  variant: { base: 'condensed' },
-  breakpoints: { base: false },
+  variant: { base: 'compact' },
+  toggleBreakpoint: false,
   colorScheme: 'purple',
   children: (
     <>
@@ -414,7 +401,7 @@ VariantCondensedResponsive.args = {
 
 export const VariantCondensedNavGroup = Template.bind({})
 VariantCondensedNavGroup.args = {
-  variant: 'condensed',
+  variant: 'compact',
   colorScheme: 'purple',
   children: (
     <>
@@ -452,96 +439,108 @@ VariantCondensedNavGroup.args = {
 }
 
 export const DoubleSidebar = () => {
-  const disclosure = useDisclosure()
+  const disclosure = useDisclosure({
+    defaultIsOpen: true,
+  })
 
   return (
-    <Flex alignItems="stretch" overflow="hidden">
-      <DarkMode>
-        <Sidebar
-          variant="condensed"
-          colorScheme="purple"
-          border="0"
-          zIndex="3"
-          position="relative"
-        >
-          <SidebarSection alignItems="center">
-            <Logo width="24px" color="white" mb="1" />
-          </SidebarSection>
+    <AppShell
+      sidebar={
+        <Flex alignItems="stretch" overflow="hidden" height="full">
+          <DarkMode>
+            <Sidebar
+              variant="compact"
+              colorScheme="purple"
+              border="0"
+              zIndex="3"
+              position="relative"
+            >
+              <SidebarSection alignItems="center">
+                <Logo width="24px" color="white" mb="1" />
+              </SidebarSection>
 
-          <SidebarSection flex="1">
-            <NavGroup>
-              <NavItem
-                icon={<FiUsers size="1.2em" />}
-                isActive
-                onClick={(e) => {
-                  e.preventDefault()
-                  disclosure.onToggle()
-                }}
-              >
-                Users
-              </NavItem>
-              <NavItem
-                icon={<FiSettings size="1.2em" />}
-                onClick={(e) => {
-                  e.preventDefault()
-                  disclosure.onClose()
-                }}
-              >
-                Settings
-              </NavItem>
-            </NavGroup>
+              <SidebarSection flex="1">
+                <NavGroup>
+                  <NavItem
+                    icon={<FiUsers size="1.2em" />}
+                    isActive
+                    onClick={(e) => {
+                      e.preventDefault()
+                      disclosure.onToggle()
+                    }}
+                  >
+                    Users
+                  </NavItem>
+                  <NavItem
+                    icon={<FiSettings size="1.2em" />}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      disclosure.onClose()
+                    }}
+                  >
+                    Settings
+                  </NavItem>
+                </NavGroup>
 
-            <Spacer />
+                <Spacer />
 
-            <Menu>
-              <MenuButton as={Button} variant="ghost" px="0">
-                <PersonaAvatar presence="online" size="xs" />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Sign out</MenuItem>
-              </MenuList>
-            </Menu>
-          </SidebarSection>
-        </Sidebar>
-      </DarkMode>
-      <Sidebar
-        isOpen={disclosure.isOpen}
-        onClose={disclosure.onClose}
-        onOpen={disclosure.onOpen}
-        zIndex={2}
-      >
-        <SidebarSection px="5" direction="row">
-          <Heading size="sm" py="2">
-            Users
-          </Heading>
-          <Spacer />
-        </SidebarSection>
+                <Menu>
+                  <MenuButton as={Button} variant="ghost" px="0">
+                    <PersonaAvatar presence="online" size="xs" />
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>Sign out</MenuItem>
+                  </MenuList>
+                </Menu>
+              </SidebarSection>
+            </Sidebar>
+          </DarkMode>
+          <Flex position="relative">
+            <Sidebar
+              isOpen={disclosure.isOpen}
+              onClose={disclosure.onClose}
+              onOpen={disclosure.onOpen}
+              toggleBreakpoint={false}
+              zIndex={2}
+              height="100%"
+            >
+              <SidebarSection px="5" direction="row">
+                <Heading size="sm" py="2">
+                  Users
+                </Heading>
+                <Spacer />
+              </SidebarSection>
 
-        <SidebarSection flex="1" overflowY="auto">
-          <NavGroup>
-            <NavItem icon={<FiHome />} isActive>
-              All users
-            </NavItem>
-            <NavItem icon={<FiStar />}>Favourite users</NavItem>
-          </NavGroup>
-          <NavGroup title="Tags" isCollapsible>
-            <NavItem icon={<FiHash />}>Design system</NavItem>
-            <NavItem icon={<FiHash />}>Framework</NavItem>
-            <NavItem inset={5} icon={<FiHash />}>
-              Chakra UI
-            </NavItem>
-            <NavItem inset={5} icon={<FiHash />}>
-              React
-            </NavItem>
-          </NavGroup>
-        </SidebarSection>
-        <SidebarOverlay zIndex="1" />
-      </Sidebar>
-    </Flex>
+              <SidebarSection flex="1" overflowY="auto">
+                <NavGroup>
+                  <NavItem icon={<FiHome />} isActive>
+                    All users
+                  </NavItem>
+                  <NavItem icon={<FiStar />}>Favourite users</NavItem>
+                </NavGroup>
+                <NavGroup title="Tags" isCollapsible>
+                  <NavItem icon={<FiHash />}>Design system</NavItem>
+                  <NavItem icon={<FiHash />}>Framework</NavItem>
+                  <NavItem inset={5} icon={<FiHash />}>
+                    Chakra UI
+                  </NavItem>
+                  <NavItem inset={5} icon={<FiHash />}>
+                    React
+                  </NavItem>
+                </NavGroup>
+              </SidebarSection>
+              <SidebarOverlay zIndex="1" />
+            </Sidebar>
+          </Flex>
+        </Flex>
+      }
+    >
+      <Box />
+    </AppShell>
   )
 }
 
-export function ToggleSidebar() {
+export function CustomToggle() {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure({
     defaultIsOpen: true,
   })
@@ -552,19 +551,22 @@ export function ToggleSidebar() {
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
-        breakpoints={{ base: true }}
+        toggleBreakpoint={false}
         spacing="2"
+        height="100vh"
       >
-        <Box h="8">
-          <IconButton
-            onClick={onToggle}
-            position="fixed"
-            left="3"
-            zIndex="modal"
-            aria-label={isOpen ? 'Close' : 'Open'}
-            icon={isOpen ? <FiSquare /> : <FiSidebar />}
-          />
-        </Box>
+        <SidebarSection direction="row">
+          <Box h="8">
+            <IconButton
+              onClick={onToggle}
+              position="fixed"
+              left="3"
+              zIndex="modal"
+              aria-label={isOpen ? 'Close' : 'Open'}
+              icon={isOpen ? <FiSquare /> : <FiSidebar />}
+            />
+          </Box>
+        </SidebarSection>
 
         <SidebarSection flex="1" overflowY="auto">
           <NavGroup>
@@ -596,37 +598,41 @@ export function ToggleVariant() {
   })
 
   return (
-    <>
-      <Sidebar
-        breakpoints={{ base: false }}
-        variant={isOpen ? 'default' : 'condensed'}
-        transition="width"
-        transitionDuration="normal"
-        width={isOpen ? '280px' : '14'}
-        minWidth="auto"
-      >
-        <SidebarSection direction={isOpen ? 'row' : 'column'} height="32px">
-          <Logo width="24px" mb="1" display={isOpen ? 'block' : 'none'} />
-          <Spacer />
-          <IconButton
-            onClick={onToggle}
-            variant="ghost"
-            size="sm"
-            icon={isOpen ? <FiChevronsLeft /> : <FiChevronsRight />}
-            aria-label="Toggle Sidebar"
-          />
-        </SidebarSection>
+    <AppShell
+      sidebar={
+        <Sidebar
+          toggleBreakpoint={false}
+          variant={isOpen ? 'default' : 'compact'}
+          transition="width"
+          transitionDuration="normal"
+          width={isOpen ? '280px' : '14'}
+          minWidth="auto"
+        >
+          <SidebarSection direction={isOpen ? 'row' : 'column'} height="32px">
+            <Logo width="24px" mb="1" display={isOpen ? 'block' : 'none'} />
+            <Spacer />
+            <IconButton
+              onClick={onToggle}
+              variant="ghost"
+              size="sm"
+              icon={isOpen ? <FiChevronsLeft /> : <FiChevronsRight />}
+              aria-label="Toggle Sidebar"
+            />
+          </SidebarSection>
 
-        <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
-          <NavGroup>
-            <NavItem icon={<FiHome size="1.1em" />} isActive>
-              All users
-            </NavItem>
-            <NavItem icon={<FiStar size="1.1em" />}>Favourite users</NavItem>
-          </NavGroup>
-        </SidebarSection>
-        <SidebarOverlay zIndex="1" />
-      </Sidebar>
-    </>
+          <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
+            <NavGroup>
+              <NavItem icon={<FiHome size="1.1em" />} isActive>
+                All users
+              </NavItem>
+              <NavItem icon={<FiStar size="1.1em" />}>Favourite users</NavItem>
+            </NavGroup>
+          </SidebarSection>
+          <SidebarOverlay zIndex="1" />
+        </Sidebar>
+      }
+    >
+      <Box />
+    </AppShell>
   )
 }

@@ -3,10 +3,10 @@ import { Story, Meta } from '@storybook/react'
 
 import { Container, Avatar } from '@chakra-ui/react'
 
-import { PropertyList, Property, PropertyLabel, PropertyValue } from '../src'
+import { PropertyList, Property, PropertyLabel, PropertyValue } from '.'
 
-import { Persona } from '@saas-ui/persona'
-import { Select } from '@saas-ui/select'
+import { Persona } from '../persona'
+import { Select } from '@saas-ui/forms'
 
 export default {
   title: 'Components/Data Display/Property',

@@ -11,12 +11,7 @@ import {
 } from '@chakra-ui/react'
 
 import { cx, __DEV__ } from '@chakra-ui/utils'
-import {
-  AppShellProvider,
-  useAppShell,
-  useAppShellContext,
-  useSidebar,
-} from './app-shell-context'
+import { AppShellProvider, useAppShell } from './app-shell-context'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiAppShell')
 

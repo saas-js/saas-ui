@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import { Box, BoxProps, useTheme, SystemProps } from '@chakra-ui/react'
-import { transparentize } from '@chakra-ui/theme-tools'
+import { Box, BoxProps, useId, useTheme } from '@chakra-ui/react'
 
 import { AreaChart, Area, ResponsiveContainer } from 'recharts'
 import type { CurveProps } from 'recharts'
@@ -12,6 +11,7 @@ export interface SparklineProps extends BoxProps, Pick<CurveProps, 'type'> {
   color?: string
   fillColor?: string
   strokeWidth?: number
+  gradientOpacity?: number
   variant?: 'line' | 'solid' | 'gradient'
 }
 
@@ -22,6 +22,7 @@ export const Sparklines = (props: SparklineProps) => {
     color = 'blue',
     fillColor,
     strokeWidth,
+    gradientOpacity = 0.8,
     variant,
     ...rest
   } = props
@@ -29,12 +30,14 @@ export const Sparklines = (props: SparklineProps) => {
 
   const strokeColor = theme.colors[color]?.[500]
 
+  const id = useId()
+
   const fill = (() => {
     switch (variant) {
       case 'solid':
         return fillColor || strokeColor
       case 'gradient':
-        return 'url(#chart-gradient)'
+        return `url(#${id}-gradient)`
       default:
         return 'transparent'
     }
@@ -55,6 +58,16 @@ export const Sparklines = (props: SparklineProps) => {
           data={mappedData}
           margin={{ top: 2, right: 2, left: 2, bottom: 2 }}
         >
+          <defs>
+            <linearGradient id={`${id}-gradient`} x1="0" y1="0" x2="0" y2="1">
+              <stop
+                offset="5%"
+                stopColor={strokeColor}
+                stopOpacity={gradientOpacity}
+              />
+              <stop offset="95%" stopColor={strokeColor} stopOpacity={0} />
+            </linearGradient>
+          </defs>
           <Area
             dataKey="v"
             stroke={strokeColor}

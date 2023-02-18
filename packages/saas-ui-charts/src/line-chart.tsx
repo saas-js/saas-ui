@@ -4,6 +4,7 @@ import {
   Box,
   SystemProps,
   useColorModeValue,
+  useId,
   useStyleConfig,
   useTheme,
 } from '@chakra-ui/react'
@@ -35,6 +36,7 @@ export interface LineChartProps {
   color?: string
   strokeWidth?: string
   name?: string
+  gradientOpacity?: number
   tickFormatter?(value: number): string
   variant?: 'line' | 'solid' | 'gradient'
   tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
@@ -51,6 +53,7 @@ export const LineChart = (props: LineChartProps) => {
     name,
     tickFormatter,
     variant,
+    gradientOpacity = 0.8,
     tooltipContent,
     tooltipFormatter = (value: string, name: string, props: any) => {
       return props.payload.yv
@@ -58,7 +61,7 @@ export const LineChart = (props: LineChartProps) => {
   } = props
 
   const theme = useTheme()
-
+  const id = useId()
   const styles = useStyleConfig('Tooltip')
 
   const strokeColor = theme.colors[color]?.[500]
@@ -68,7 +71,7 @@ export const LineChart = (props: LineChartProps) => {
       case 'solid':
         return strokeColor
       case 'gradient':
-        return 'url(#chart-gradient)'
+        return `url(#${id}-gradient)`
       default:
         return 'transparent'
     }
@@ -95,7 +98,7 @@ export const LineChart = (props: LineChartProps) => {
               >
                 <defs>
                   <linearGradient
-                    id="chart-gradient"
+                    id={`${id}-gradient`}
                     x1="0"
                     y1="0"
                     x2="0"
@@ -104,7 +107,7 @@ export const LineChart = (props: LineChartProps) => {
                     <stop
                       offset="5%"
                       stopColor={strokeColor}
-                      stopOpacity={0.8}
+                      stopOpacity={gradientOpacity}
                     />
                     <stop
                       offset="95%"

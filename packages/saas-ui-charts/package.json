@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/charts",
-  "version": "0.7.0",
+  "version": "0.8.0-next.0",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -18,6 +18,10 @@
     "dist",
     "src"
   ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "TIMING=1 eslint src/**/*.ts* --fix",

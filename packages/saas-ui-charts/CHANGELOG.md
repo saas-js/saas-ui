@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.8.0-next.0
+
+### Minor Changes
+
+- Add gradientOpacity prop. Add gradient support for Sparklines.
+
 ## 0.7.0
 
 ### Minor Changes

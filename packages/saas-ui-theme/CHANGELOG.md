@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-next.2
+
+### Minor Changes
+
+- f79376c3: Renamed Sidebar condensed variant to compact, minor improvements.
+
 ## 2.0.0-next.1
 
 ### Patch Changes

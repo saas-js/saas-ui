@@ -1,5 +1,11 @@
 # palette
 
+## 1.3.6-next.3
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.3
+
 ## 1.3.6-next.2
 
 ### Patch Changes

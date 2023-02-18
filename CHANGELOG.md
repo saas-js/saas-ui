@@ -8,6 +8,37 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-17-2023
+
+`@saas-ui/react@2.0.0-next.1`
+
+- Fix esm bundle filename.
+
+## 02-17-2023
+
+`@saas-ui/react@2.0.0-next.0`
+
+### Major Changes
+
+- Updated to Tanstack ReactTable V8
+- Moved form resolvers into a separate package.
+- BREAKING: createPalette no longer exported from @saas-ui/react
+- Renamed List to StructuredList
+- Removed button package.
+- Moved Supabase and Magic auth services to separate packages.
+- Improve StructuredList API.
+- Restructured packages.
+- Removed Card component in favor of the new Chakra UI Card component.
+
+### Minor Changes
+
+- Added TimeLine to core components.
+- Added Sidebar to core packages.
+
+### Patch Changes
+
+- Migrated from microbundle to tsup for builds
+
 ## 02-03-2023
 
 `@saas-ui/react@1.9.0`

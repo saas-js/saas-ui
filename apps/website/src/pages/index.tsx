@@ -3,7 +3,7 @@ import * as React from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 
-import { Box, SimpleGrid, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Flex, SimpleGrid, useBreakpointValue } from '@chakra-ui/react'
 import {
   Container,
   Heading,
@@ -104,6 +104,7 @@ import { YouGotBud } from '@/components/logos/customers/you-got-bud'
 import { Startec } from '@/components/logos/customers/startec'
 import { Eqtble } from '@/components/logos/customers/eqtble'
 import { Farmo } from '@/components/logos/customers/farmo'
+import { Ownco } from '@/components/logos/customers/ownco'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -270,33 +271,41 @@ const Home = () => {
 
 const UsedBy = () => {
   return (
-    <Section>
+    <Section innerWidth="container.xl">
       <Heading size="md" fontWeight="medium" textAlign="center" mb="12">
         Used by indie founders and startups worldwide
       </Heading>
-      <Wrap spacing="12" userSelect="none" justify="center">
-        <WrapItem alignItems="center" gap="2">
+      <SimpleGrid
+        spacing="12"
+        userSelect="none"
+        columns={{ base: 2, md: 3, xl: 6 }}
+        scale={{ base: 0.4, lg: 1 }}
+      >
+        <Flex justifyContent="center" gap="2" whiteSpace="nowrap">
           <Polypane height="30px" />
           <Text fontWeight="bold" fontSize="xl">
             Polypane
           </Text>
-        </WrapItem>
-        <WrapItem alignItems="center" gap="2">
+        </Flex>
+        <Flex justifyContent="center">
+          <Ownco height="26px" />
+        </Flex>
+        <Flex justifyContent="center" gap="2">
           <YouGotBud height="30px" />
           <Text fontWeight="bold" fontSize="xl">
             You Got Bud
           </Text>
-        </WrapItem>
-        <WrapItem alignItems="center">
+        </Flex>
+        <Flex justifyContent="center">
           <Startec height="30px" />
-        </WrapItem>
-        <WrapItem alignItems="center">
+        </Flex>
+        <Flex justifyContent="center">
           <Eqtble height="24px" />
-        </WrapItem>
-        <WrapItem alignItems="center">
+        </Flex>
+        <Flex justifyContent="center">
           <Farmo height="20px" />
-        </WrapItem>
-      </Wrap>
+        </Flex>
+      </SimpleGrid>
     </Section>
   )
 }
@@ -431,7 +440,7 @@ const Founder = () => {
         >
           <VStack spacing="8" alignItems="flex-start">
             <Text fontSize={['xl', null, '2xl']}>
-              SaaS UI tries to fill this gap by giving developers an extensive
+              Saas UI tries to fill this gap by giving developers an extensive
               set of beautifully crafted components built on{' '}
               <Em>best in class tools</Em>. While on the same time serve as a{' '}
               <Em>great foundation</Em> for designers to create their brand.
@@ -439,7 +448,7 @@ const Founder = () => {
           </VStack>
           <VStack spacing="8" alignItems="flex-start">
             <Text fontSize={['xl', null, '2xl']}>
-              With SaaS UI you&apos;ll <Em>save hundreds of hours</Em> building
+              With Saas UI you&apos;ll <Em>save hundreds of hours</Em> building
               essential functionality for your product. Time that you can use to
               validate new ideas, find your perfect product market fit and build
               functionality that makes your product unique.
@@ -460,38 +469,6 @@ const Founder = () => {
         </Stack>
       </Box>
     </Section>
-  )
-}
-
-const RequestAccess = () => {
-  return (
-    <>
-      <CTA
-        id="request-access"
-        title="Stay up to date"
-        py="14"
-        description={
-          <>
-            <p>
-              Not ready to pre-order yet? Leave your details and we&apos;ll keep
-              you informed.
-            </p>
-          </>
-        }
-        variant="subtle"
-      >
-        <Container
-          borderRadius="md"
-          bg={useColorModeValue('white', 'gray.700')}
-          borderWidth="1px"
-          borderColor={useColorModeValue('gray.300', 'gray.700')}
-          p={8}
-          width={['90vw', null, 'md']}
-        >
-          <SignupForm />
-        </Container>
-      </CTA>
-    </>
   )
 }
 
@@ -736,23 +713,14 @@ const Highlights = () => {
         position="relative"
       >
         <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
-          <Heading fontSize="1.4em">Core components</Heading>
+          <Heading fontSize="1.4em">40+ open source components</Heading>
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>40+ open source components</Em>.
-            Including authentication screens with Clerk, Supabase and Magic.
-            Fully functional forms with React Hook Form. Data tables with React
-            Table.
+            Get started for free with 40+ open source components. Including
+            authentication screens with Clerk, Supabase and Magic. Fully
+            functional forms with React Hook Form. Data tables with React Table.
           </Text>
-          <Button
-            colorScheme="black"
-            variant="link"
-            as={Link}
-            href="/docs/introduction"
-            rightIcon={<FiArrowRight />}
-          >
-            Read documentation
-          </Button>
-          <HStack spacing="12">
+
+          <HStack spacing="8">
             <HStack
               py="1"
               px="2"
@@ -770,14 +738,34 @@ const Highlights = () => {
                 color="white"
               />
             </HStack>
+            <ButtonLink
+              href="/docs/introduction"
+              variant="ghost"
+              _hover={{
+                bg: 'whiteAlpha.200',
+              }}
+              rightIcon={
+                <Icon
+                  as={FiArrowRight}
+                  sx={{
+                    transitionProperty: 'common',
+                    transitionDuration: 'normal',
+                    '.chakra-button:hover &': {
+                      transform: 'translate(5px)',
+                    },
+                  }}
+                />
+              }
+            >
+              Read documentation
+            </ButtonLink>
           </HStack>
         </GridItem>
         <GridItem as={HighlightBox}>
           <Heading fontSize="1.4em">Solid foundations</Heading>
           <Text color="muted" fontSize="lg">
-            We don&apos;t like to re-invent the wheel, neither should you. We
-            selected the most productive and established tools in the scene and
-            built Saas UI on top of it. <Br />
+            Saas UI is built on top of industry leading libraries and tools.
+            <Br />
             <Br />
             Including Chakra UI, React Hook Form, React Table, React Query,
             Recharts, and more...

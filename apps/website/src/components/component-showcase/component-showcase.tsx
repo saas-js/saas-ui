@@ -17,6 +17,7 @@ import {
   useColorModeValue,
   DarkMode,
   Box,
+  Tag,
 } from '@chakra-ui/react'
 import { Button } from '@saas-ui/button'
 import { Card, CardBody } from '@saas-ui/card'
@@ -76,6 +77,14 @@ export const ComponentShowcase = () => {
     zIndex: 2,
   }
 
+  const menuItemStyles = {
+    bg: 'transparent',
+    _hover: {
+      bg: 'blackAlpha.50',
+      _dark: { bg: 'whiteAlpha.50' },
+    },
+  }
+
   const cardStyles = {
     borderWidth: useColorModeValue(0, '1px'),
     fontSize: 'md',
@@ -106,14 +115,14 @@ export const ComponentShowcase = () => {
         }
         return (
           <OverflowMenu menuListProps={menuStyles} flip={false}>
-            <MenuItem command="D" icon={<FiCopy />}>
+            <MenuItem command="D" icon={<FiCopy />} sx={menuItemStyles}>
               Duplicate
             </MenuItem>
-            <MenuItem command="R" icon={<FiPenTool />}>
+            <MenuItem command="R" icon={<FiPenTool />} sx={menuItemStyles}>
               Rename
             </MenuItem>
             <MenuDivider />
-            <MenuItem command="⌘ ⌫" icon={<FiDelete />}>
+            <MenuItem command="⌘ ⌫" icon={<FiDelete />} sx={menuItemStyles}>
               Delete
             </MenuItem>
           </OverflowMenu>
@@ -125,7 +134,7 @@ export const ComponentShowcase = () => {
   const data: Data[] = [
     {
       id: '1',
-      amount: '30+',
+      amount: '40+',
       name: 'Open Source Components',
     },
   ]
@@ -134,7 +143,7 @@ export const ComponentShowcase = () => {
     <Section
       position="relative"
       innerWidth="container.2xl"
-      height="480px"
+      height="500px"
       overflow="hidden"
     >
       <BackgroundGradient
@@ -142,7 +151,7 @@ export const ComponentShowcase = () => {
         opacity={useColorModeValue(0.2, 0.2)}
       />
       <Box position="relative" my="6">
-        <HStack position="relative">
+        <HStack position="relative" transform="translateX(50px)">
           <Float
             position="absolute"
             top="100px"
@@ -156,20 +165,10 @@ export const ComponentShowcase = () => {
                 data={data}
                 isSelectable
                 isSortable
-                // initialState={{
-                //   selectedRowIds: [0],
-                // }}
-                // sx={{
-                //   th: {
-                //     borderBottomColor: useColorModeValue(
-                //       'blackAlpha.200',
-                //       'whiteAlpha.300'
-                //     ),
-                //   },
-                //   td: {
-                //     borderBottom: 0,
-                //   },
-                // }}
+                initialState={{
+                  /* @ts-ignore */
+                  selectedRowIds: ['1'],
+                }}
               />
             </Card>
           </Float>
@@ -265,7 +264,7 @@ export const ComponentShowcase = () => {
             </Card>
           </Float>
 
-          <Float delay={2} position="absolute" left="860px" top="30px">
+          <Float delay={2} position="absolute" left="920px" top="80px">
             <Card width="320px" {...cardStyles} id="showcase-property-list">
               <Tabs colorScheme="purple">
                 <TabList>
@@ -295,24 +294,10 @@ export const ComponentShowcase = () => {
                             flip={false}
                             autoSelect={false}
                           >
-                            <MenuItemOption
-                              value="Open"
-                              bg="transparent"
-                              _hover={{
-                                bg: 'blackAlpha.50',
-                                _dark: { bg: 'whiteAlpha.50' },
-                              }}
-                            >
+                            <MenuItemOption value="Open" sx={menuItemStyles}>
                               Open
                             </MenuItemOption>
-                            <MenuItemOption
-                              value="Closed"
-                              bg="transparent"
-                              _hover={{
-                                bg: 'blackAlpha.50',
-                                _dark: { bg: 'whiteAlpha.50' },
-                              }}
-                            >
+                            <MenuItemOption value="Closed" sx={menuItemStyles}>
                               Closed
                             </MenuItemOption>
                           </Select>
@@ -328,15 +313,26 @@ export const ComponentShowcase = () => {
           <Float position="absolute" left="1080px" top="-60px">
             <Card
               title="Github"
-              avatar={<FaGithub />}
+              avatar={<FaGithub size="20" />}
               minW="300px"
               action={
                 <>
-                  <Button variant="subtle" colorScheme="green">
+                  <Tag
+                    variant="subtle"
+                    colorScheme="green"
+                    rounded="full"
+                    px="4"
+                  >
                     Enabled
-                  </Button>
-                  <OverflowMenu menuListProps={menuStyles} flip={false}>
-                    <MenuItem>Settings</MenuItem>
+                  </Tag>
+                  <OverflowMenu
+                    menuListProps={menuStyles}
+                    flip={false}
+                    placement="bottom-end"
+                  >
+                    <MenuItem sx={menuItemStyles}>Settings</MenuItem>
+                    <MenuDivider />
+                    <MenuItem sx={menuItemStyles}>Disconnect</MenuItem>
                   </OverflowMenu>
                 </>
               }

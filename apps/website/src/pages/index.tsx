@@ -3,7 +3,7 @@ import * as React from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 
-import { Box, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid, useBreakpointValue } from '@chakra-ui/react'
 import {
   Container,
   Heading,
@@ -112,6 +112,7 @@ const ComponentShowcase = dynamic(() =>
 
 const Home = () => {
   const [animateGlow, setAnimate] = React.useState()
+  const isDesktop = useBreakpointValue({ lg: true })
   return (
     <Box>
       <SEO
@@ -154,12 +155,14 @@ const Home = () => {
                     delay={0.4}
                     fontWeight="medium"
                     textAlign="center"
+                    fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
                     initialInView
                   >
                     Saas UI is a <Em>React component library</Em> and{' '}
                     <Em>starterkit</Em>
                     <Br display={{ base: 'none', md: 'inline' }} /> that
-                    doesn&apos;t get in your way and helps you <Br /> build
+                    doesn&apos;t get in your way and helps you{' '}
+                    <Br display={{ base: 'none', md: 'inline' }} /> build
                     intuitive SaaS products with speed.
                   </FallInPlace>
                 }
@@ -236,7 +239,7 @@ const Home = () => {
           <UsedBy />
         </Box>
 
-        <ComponentShowcase />
+        {isDesktop && <ComponentShowcase />}
 
         <Box id="features">
           <Benefits />
@@ -302,7 +305,7 @@ const Benefits = () => {
   return (
     <Features
       id="benefits"
-      columns={[1, 2, 4]}
+      columns={[1, 2, 2, 4]}
       iconSize={4}
       innerWidth="container.xl"
       pt="20"
@@ -498,7 +501,7 @@ const BoilerplateCode = () => {
 
   return (
     <Section innerWidth="container.xl">
-      <Stack spacing="12" direction={['column', null, 'row']}>
+      <Stack spacing="12" direction={['column', null, null, 'row']}>
         <Box py="10" flex="1">
           <Heading
             size="2xl"
@@ -583,7 +586,7 @@ const BoilerplateCode = () => {
 const Themable = () => {
   return (
     <Section innerWidth="container.xl">
-      <Box py="10" flex="1" width={['full', null, '50%']}>
+      <Box py="10" flex="1" width={['full', null, null, '50%']}>
         <Heading size="2xl" mb="8" fontWeight="extrabold">
           Make it yours.
         </Heading>
@@ -732,10 +735,10 @@ const Highlights = () => {
         gap={8}
         position="relative"
       >
-        <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
+        <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">Core components</Heading>
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>30+ open source components</Em>.
+            Get started for free with <Em>40+ open source components</Em>.
             Including authentication screens with Clerk, Supabase and Magic.
             Fully functional forms with React Hook Form. Data tables with React
             Table.
@@ -820,7 +823,7 @@ const Highlights = () => {
             that I think can scale 😄
           </Testimonial>
         </GridItem>
-        <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
+        <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">
             Start your next idea two steps ahead
           </Heading>
@@ -894,7 +897,7 @@ const Highlights = () => {
             ))}
           </Wrap>
         </GridItem>
-        <GridItem colSpan={[1, null, 2]} as={HighlightBox}>
+        <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
           <Heading fontSize="1.4em">Plays well with others</Heading>
           <Text color="muted" fontSize="lg">
             <>

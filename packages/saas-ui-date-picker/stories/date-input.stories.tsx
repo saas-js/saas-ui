@@ -24,7 +24,6 @@ import {
 import {
   Form,
   FormLayout,
-  InputRightButton,
   registerFieldType,
   SubmitButton,
 } from '@saas-ui/forms'

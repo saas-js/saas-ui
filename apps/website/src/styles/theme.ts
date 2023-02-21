@@ -38,21 +38,21 @@ const styles = {
 
 const textStyles = {
   pageTitle: {
-    fontSize: { base: '3xl', sm: '5xl', md: '7xl' },
+    fontSize: { base: '2xl', sm: '3xl', md: '5xl', lg: '6xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',
   },
-  // h2: {
-  //   fontSize: ['36px', '48px'],
-  //   fontWeight: '900',
-  //   lineHeight: '110%',
-  //   letterSpacing: '-1%',
-  // },
-  // subtitle: {
-  //   fontSize: { base: 'xl', sm: '2xl' },
-  //   fontWeight: 'normal',
-  // },
+  h2: {
+    fontSize: ['36px', '48px'],
+    fontWeight: '900',
+    lineHeight: '110%',
+    letterSpacing: '-1%',
+  },
+  subtitle: {
+    fontSize: { base: 'sm', sm: 'sm', md: '2xl' },
+    fontWeight: 'normal',
+  },
 }
 
 const breakpoints = {
@@ -66,7 +66,7 @@ const breakpoints = {
 const theme = extendTheme(
   {
     config: {
-      initialColorMode: 'system',
+      initialColorMode: 'dark',
       useSystemColorMode: false,
     },
     breakpoints,

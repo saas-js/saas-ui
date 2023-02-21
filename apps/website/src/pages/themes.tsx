@@ -18,7 +18,7 @@ const ThemesPage = () => {
       <SEO
         title="Saas UI"
         description="Professionally crafted Chakra UI themes"
-        titleTemplate="%s - Themes"
+        titleTemplate="Professionally crafted Chakra UI themes"
       />
       <BackgroundGradientRadial
         top="-1000px"
@@ -32,18 +32,21 @@ const ThemesPage = () => {
             alignItems="center"
             textAlign="center"
             py="20"
-            title={
-              <Text lineHeight="short">
-                Professionally crafted <Br /> Chakra UI themes
-              </Text>
-            }
+            title={<Text lineHeight="short">Chakra UI themes</Text>}
             description={
               <Box>
-                <Text fontSize="xl" fontWeight="normal" maxW="container.sm">
-                  A collection of clean and modern Chakra UI themes
+                <Text
+                  fontSize="xl"
+                  fontWeight="normal"
+                  maxW="container.sm"
+                  mb="4"
+                >
+                  A collection of clean and minimalist Chakra UI themes
                   <Br />
                   that help you build modern and visually pleasing interfaces.{' '}
-                  <Br /> Compatible with Chakra UI &amp; Saas UI projects.
+                </Text>
+                <Text fontSize="sm">
+                  Compatible with Chakra UI &amp; Saas UI projects.
                 </Text>
               </Box>
             }

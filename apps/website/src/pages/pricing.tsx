@@ -117,9 +117,10 @@ const Pricing = () => {
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
-              <PricingFeature title="Forms (react-hook-form)" />
+              <PricingFeature title="Auth (Clerk/Supabase/Magic)" />
+              <PricingFeature title="Forms manager" />
               <PricingFeature title="Modals manager" />
+              <PricingFeature title="Stepper" />
               <PricingFeature title="Hotkeys" />
               <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
@@ -171,12 +172,6 @@ const Pricing = () => {
               href={paymentLinks.bootstrap}
               className={paymentLinks.className}
               onClick={(e) => {
-                // if ((window as any)?.LemonSqueezy) {
-                //   e.preventDefault()
-                //   ;(window as any)?.LemonSqueezy?.Url.Open(
-                //     paymentLinks.bootstrap + '?embed=1'
-                //   )
-                // }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Bootstrap')
@@ -200,7 +195,7 @@ const Pricing = () => {
                 <Text>€499,-</Text>
               </HStack>
             }
-            description="Unlimited license for growing teams."
+            description="Unlimited license for growing teams or agencies."
           >
             <PricingFeatures>
               <PricingFeature
@@ -212,7 +207,9 @@ const Pricing = () => {
                 help="No restrictions on commercial projects or client work."
               />
               <PricingFeature title="Everything from Bootstrap" />
+              <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />
+              <PricingFeature title="Introduction call" />
               <PricingFeature title="1 year of updates" />
               <br />
               <PricingFeature
@@ -226,12 +223,6 @@ const Pricing = () => {
               href={paymentLinks.startup}
               className={paymentLinks.className}
               onClick={(e) => {
-                // if ((window as any)?.LemonSqueezy) {
-                //   e.preventDefault()
-                //   ;(window as any)?.LemonSqueezy?.Url.Open(
-                //     paymentLinks.startup + '?embed=1'
-                //   )
-                // }
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Startup')

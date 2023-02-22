@@ -152,7 +152,7 @@ const Pricing = () => {
                 help="One developer per license, you can buy as many licenses as you need. Licenses can be transfered."
               />
               <PricingFeature
-                title={<>Unlimited projects</>}
+                title={<>Unlimited projects*</>}
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
               <PricingFeature title="Advanced components" />
@@ -199,7 +199,7 @@ const Pricing = () => {
           >
             <PricingFeatures>
               <PricingFeature
-                title="Unlimited developers"
+                title="Up to 20 developers"
                 help="A developer can be either an employee or a contracted freelancer."
               />
               <PricingFeature

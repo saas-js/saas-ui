@@ -29,7 +29,7 @@ This repository contains all [open source components](/packages), aswell as the 
 
 💡  [Documentation](https://saas-ui.dev/docs/introduction)
 
-🧭  [Roadmap](https//roadmap.saas-ui.dev)
+🧭  [Roadmap](https://roadmap.saas-ui.dev)
 
 🖼  [Storybooks](https://storybook.saas-ui.pro)
 

@@ -6,7 +6,7 @@ import { ComponentStory } from '@storybook/react'
 import { RadioInput } from './'
 
 export default {
-  title: 'Components/Forms/Radio',
+  title: 'Components/Forms/RadioInput',
   decorators: [
     (Story: any) => (
       <Container mt="40px">

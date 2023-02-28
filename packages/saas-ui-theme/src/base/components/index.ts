@@ -6,7 +6,6 @@ import SuiForm from './form'
 import SuiFormLegend from './form'
 import SuiHotkeys from './hotkeys'
 import SuiStructuredList from './structured-list'
-import SuiLoader from './loader'
 import SuiNavGroup from './nav-group'
 import SuiNavItem from './nav-item'
 import SuiPersona from './persona'
@@ -14,6 +13,8 @@ import SuiNProgress from './nprogress'
 import SuiSearchInput from './search-input'
 import SuiStepper from './stepper'
 import SuiSidebar from './sidebar'
+
+import { loadingOverlayTheme as SuiLoadingOverlay } from './loading-overlay'
 
 export const components = {
   SuiAppShell,
@@ -24,7 +25,7 @@ export const components = {
   SuiFormLegend,
   SuiHotkeys,
   SuiStructuredList,
-  SuiLoader,
+  SuiLoadingOverlay,
   SuiNavGroup,
   SuiNavItem,
   SuiPersona,

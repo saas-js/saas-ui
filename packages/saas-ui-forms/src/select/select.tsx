@@ -18,21 +18,24 @@ import {
   SystemStyleObject,
   useFormControl,
   HTMLChakraProps,
+  MenuItemOptionProps,
 } from '@chakra-ui/react'
-import { ChevronDownIcon } from '@chakra-ui/icons'
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
+import { ChevronDownIcon } from '@saas-ui/core'
 
-interface Option {
-  value: string
-  label?: string
-}
+import { FieldOptions, FieldOption } from '../types'
+import { mapOptions } from '../utils'
+
+export interface SelectOption
+  extends Omit<MenuItemOptionProps, 'value'>,
+    FieldOption {}
 
 interface SelectOptions {
   /**
    * An array of options
    * If you leave this empty the children prop will be rendered.
    */
-  options?: Option[]
+  options?: FieldOptions<SelectOption>
   /**
    * Props passed to the MenuList.
    */
@@ -80,14 +83,12 @@ const SelectButton = forwardRef((props, ref) => {
   return <MenuButton as={Button} {...props} ref={ref} sx={buttonStyles} />
 })
 
-if (__DEV__) {
-  SelectButton.displayName = 'SelectButton'
-}
+SelectButton.displayName = 'SelectButton'
 
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const {
     name,
-    options,
+    options: optionsProp,
     children,
     onChange,
     defaultValue,
@@ -108,6 +109,11 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const [currentValue, setCurrentValue] = React.useState(value || defaultValue)
 
   const controlProps = useFormControl({ name } as HTMLChakraProps<'input'>)
+
+  const options = React.useMemo(
+    () => optionsProp && mapOptions(optionsProp),
+    [optionsProp]
+  )
 
   const handleChange = (value: string | string[]) => {
     setCurrentValue(value)
@@ -180,6 +186,4 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  Select.displayName = 'Select'
-}
+Select.displayName = 'Select'

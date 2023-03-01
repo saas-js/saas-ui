@@ -6085,7 +6085,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
-    "@chakra-ui/icons": ^2.0.16
     "@chakra-ui/react-utils": ^2.0.11
     "@chakra-ui/utils": ^2.0.14
     "@hookform/resolvers": ^2.9.3

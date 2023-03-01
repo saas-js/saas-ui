@@ -81,16 +81,7 @@ export interface FieldProps<
   >
   /**
    * Build-in types:
-   * - text
-   * - number
-   * - password
-   * - textarea
-   * - select
-   * - native-select
-   * - checkbox
-   * - radio
-   * - switch
-   * - pin
+   * text, number, password, textarea, select, native-select, checkbox, radio, switch, pin
    *
    * Will default to a text field if there is no matching type.
    */
@@ -145,30 +136,26 @@ export const BaseField: React.FC<FieldProps> = (props) => {
 
 BaseField.displayName = 'BaseField'
 
-export type As<Props = any> = React.ElementType<Props>
+// export type As<Props = any> = React.ElementType<Props>
 
-export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
-  type?: FieldTypes
-}
+// export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+//   type?: FieldTypes
+// }
 
 /**
  * Build-in types:
- * - text
- * - number
- * - password
- * - textarea
- * - select
- * - native-select
- * - checkbox
- * - radio
- * - switch
- * - pin
+ * text, number, password, textarea, select, native-select, checkbox, radio, switch, pin
  *
  * Will default to a text field if there is no matching type.
  */
+/**
+ * The wrapper component that controls context, state and manages rendering field types.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/field
+ */
 export const Field = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
-    props: FieldProps<TFieldValues> | FieldTypeProps,
+    props: FieldProps<TFieldValues>,
     ref: React.ForwardedRef<FocusableElement>
   ) => {
     const { type = defaultInputType } = props
@@ -177,10 +164,9 @@ export const Field = React.forwardRef(
     return <InputComponent ref={ref} {...props} />
   }
 ) as (<TFieldValues extends FieldValues>(
-  props: FieldProps<TFieldValues> &
-    FieldTypeProps & {
-      ref?: React.ForwardedRef<FocusableElement>
-    }
+  props: FieldProps<TFieldValues> & {
+    ref?: React.ForwardedRef<FocusableElement>
+  }
 ) => React.ReactElement) & {
   displayName?: string
 }
@@ -301,9 +287,9 @@ export interface RegisterFieldTypeOptions {
  * @param options.isControlled Set this to true if this is a controlled field.
  * @param options.hideLabel Hide the field label, for example for the checkbox field.
  */
-export const registerFieldType = <T extends object>(
+export const registerFieldType = <TProps extends object>(
   type: string,
-  component: React.FC<T>,
+  component: React.FC<TProps>,
   options?: RegisterFieldTypeOptions
 ) => {
   let InputComponent
@@ -320,7 +306,7 @@ export const registerFieldType = <T extends object>(
       .join('')}Field`,
     hideLabel: options?.hideLabel,
     BaseField: options?.BaseField || BaseField,
-  }) as React.FC<T & FieldProps>
+  }) as React.FC<TProps & FieldProps>
 
   inputTypes[type] = Field
 
@@ -442,33 +428,3 @@ export const PinField = registerFieldType<PinFieldProps>(
     isControlled: true,
   }
 )
-
-const fieldTypes = {
-  text: InputField,
-  email: InputField,
-  url: InputField,
-  phone: InputField,
-  number: NumberInputField,
-  password: PasswordInputField,
-  textarea: TextareaField,
-  switch: SwitchField,
-  checkbox: CheckboxField,
-  radio: RadioField,
-  pin: PinField,
-  select: SelectField,
-  'native-select': NativeSelectField,
-}
-
-type FieldTypes = typeof fieldTypes
-
-type FieldType<Props = any> = React.ElementType<Props>
-
-type TypeProps<P extends FieldType, T> = React.ComponentPropsWithoutRef<P> & {
-  type: T
-}
-
-type FieldTypeProps =
-  | {
-      [Property in keyof FieldTypes]: TypeProps<FieldTypes[Property], Property>
-    }[keyof FieldTypes]
-  | { type?: string }

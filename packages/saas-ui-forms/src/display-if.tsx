@@ -16,7 +16,11 @@ export interface DisplayIfProps<
   isExact?: boolean
   condition?: (value: unknown, context: UseFormReturn<TFieldValues>) => boolean
 }
-
+/**
+ * Conditionally render parts of a form.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
 export const DisplayIf = <TFieldValues extends FieldValues = FieldValues>({
   children,
   name,

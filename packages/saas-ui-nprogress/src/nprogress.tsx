@@ -26,7 +26,11 @@ export interface NProgressProps
   extends NProgressOptions,
     HTMLChakraProps<'div'>,
     ThemingProps<'SuiNProgress'> {}
-
+/**
+ * Show feedback when switching pages and content is loading in the background.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/nprogress
+ */
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
   const styles = useMultiStyleConfig('SuiNProgress', props)
 

@@ -52,7 +52,11 @@ interface ArrayFieldRowProps extends FormLayoutProps {
    */
   children: React.ReactNode
 }
-
+/**
+ * Render prop component, to get access to the internal fields state. Must be a child of ArrayFieldContainer.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
   children,
   index,
@@ -82,7 +86,11 @@ export interface ArrayFieldRowFieldsProps extends FormLayoutProps {
    */
   children: React.ReactNode
 }
-
+/**
+ * Add the name prefix to the fields and acts as a horizontal form layout by default.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({
   children,
   ...layoutProps
@@ -97,6 +105,11 @@ export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({
 
 ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
 
+/**
+ * The row container component providers row context.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
   children,
   index,
@@ -120,6 +133,11 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
 
 ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
 
+/**
+ * The default remove button.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
   props
 ) => {
@@ -132,6 +150,11 @@ export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
 
 ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
 
+/**
+ * The default add button.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
   return (
     <Button
@@ -150,7 +173,11 @@ ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
 export interface ArrayFieldProps
   extends ArrayFieldOptions,
     Omit<FieldProps, 'defaultValue'> {}
-
+/**
+ * The wrapper component that composes the default ArrayField functionality.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayField = forwardRef(
   (props: ArrayFieldProps, ref: React.ForwardedRef<UseArrayFieldReturn>) => {
     const { children, ...containerProps } = props
@@ -195,6 +222,11 @@ export const ArrayFieldRows = ({
 
 ArrayFieldRows.displayName = 'ArrayFieldRows'
 
+/**
+ * The container component provides context and state management.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldContainer = React.forwardRef(
   (
     {

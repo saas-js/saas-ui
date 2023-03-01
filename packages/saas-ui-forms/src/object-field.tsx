@@ -23,7 +23,11 @@ export const FormLegend = (props: FormLabelProps) => {
   const styles = useStyleConfig('SuiFormLegend')
   return <FormLabel as="legend" sx={styles} {...props} />
 }
-
+/**
+ * The object field component.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/object-field
+ */
 export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
   const { name, label, hideLabel, children, columns, spacing, ...fieldProps } =
     props

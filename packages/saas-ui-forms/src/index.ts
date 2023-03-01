@@ -17,6 +17,9 @@ export * from './input-right-button'
 export * from './select'
 export * from './password-input'
 
+export { createForm } from './create-form'
+export type { CreateFormProps } from './create-form'
+
 export type {
   BatchFieldArrayUpdate,
   ChangeHandler,

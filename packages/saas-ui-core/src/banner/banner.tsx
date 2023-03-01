@@ -84,6 +84,8 @@ export interface BannerProps
 /**
  * Banner is used to communicate the state or status of a
  * page, feature or action
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
  */
 export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   const {
@@ -147,6 +149,11 @@ Banner.displayName = 'Banner'
 
 export interface BannerContentProps extends HTMLChakraProps<'div'> {}
 
+/**
+ * The wrapper for the banner title and description.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
+ */
 export const BannerContent = forwardRef<BannerContentProps, 'div'>(
   (props, ref) => {
     const styles = useStyles()
@@ -168,6 +175,11 @@ export interface BannerDescriptionProps extends HTMLChakraProps<'div'> {}
 
 export interface BannerTitleProps extends HTMLChakraProps<'div'> {}
 
+/**
+ * The title of the banner to be announced by screen readers.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
+ */
 export const BannerTitle = forwardRef<BannerTitleProps, 'div'>((props, ref) => {
   const styles = useStyles()
 
@@ -185,6 +197,11 @@ BannerTitle.displayName = 'BannerTitle'
 
 export interface BannerDescriptionProps extends HTMLChakraProps<'div'> {}
 
+/**
+ * The description of the banner to be announced by screen readers.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
+ */
 export const BannerDescription = forwardRef<BannerDescriptionProps, 'div'>(
   (props, ref) => {
     const styles = useStyles()
@@ -210,6 +227,11 @@ export interface BannerActionsProps
   extends HTMLChakraProps<'div'>,
     ButtonGroupProps {}
 
+/**
+ * The banner actions, renders a ButtonGroup.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
+ */
 export const BannerActions = forwardRef<BannerActionsProps, 'div'>(
   (props, ref) => {
     const { children, variant } = props
@@ -234,6 +256,11 @@ export interface BannerIconProps extends HTMLChakraProps<'span'> {
   icon?: As<any>
 }
 
+/**
+ * The visual icon for the banner.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
+ */
 export const BannerIcon: React.FC<BannerIconProps> = (props) => {
   const { status } = useBannerContext()
   const { icon, ...rest } = props
@@ -254,6 +281,11 @@ export const BannerIcon: React.FC<BannerIconProps> = (props) => {
 
 BannerIcon.displayName = 'BannerIcon'
 
+/**
+ * The close button.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/banner
+ */
 export const BannerCloseButton = forwardRef<CloseButtonProps, 'button'>(
   (props, ref) => {
     const { onClick, className, ...rest } = props

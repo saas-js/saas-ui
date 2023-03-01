@@ -10,7 +10,7 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 
-import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
+import { callAllHandlers, runIfFn, cx } from '@chakra-ui/utils'
 
 import {
   StepperProvider,
@@ -37,6 +37,7 @@ export interface StepFormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object
 > extends UseStepFormProps<TFieldValues> {}
+
 /**
  * The wrapper component provides context, state, and focus management.
  *
@@ -92,6 +93,7 @@ export interface FormStepOptions {
 export interface FormStepperProps
   extends StepperStepsProps,
     ThemingProps<'Stepper'> {}
+
 /**
  * Renders a stepper that displays progress above the form.
  *
@@ -166,9 +168,8 @@ export const FormStep: React.FC<FormStepProps> = (props) => {
   ) : null
 }
 
-if (__DEV__) {
-  FormStep.displayName = 'FormStep'
-}
+FormStep.displayName = 'FormStep'
+
 /**
  * A button that this opens the previous step when clicked. Disabled on the first step.
  *
@@ -188,14 +189,13 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  PrevButton.displayName = 'PrevButton'
-}
+PrevButton.displayName = 'PrevButton'
 
 export interface NextButtonProps extends Omit<ButtonProps, 'children'> {
   submitLabel?: string
   label?: string
 }
+
 /**
  * A button that submits the active step.
  *
@@ -216,6 +216,4 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  NextButton.displayName = 'NextButton'
-}
+NextButton.displayName = 'NextButton'

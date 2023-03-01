@@ -9,7 +9,7 @@ import {
   SystemStyleObject,
   createStylesContext,
 } from '@chakra-ui/react'
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 import { FormProps, FieldErrors } from '@saas-ui/forms'
 import { Divider } from '@saas-ui/core'
@@ -128,9 +128,7 @@ AuthForm.defaultProps = {
   dividerLabel: 'or continue with',
 }
 
-if (__DEV__) {
-  AuthForm.displayName = 'AuthForm'
-}
+AuthForm.displayName = 'AuthForm'
 
 export interface AuthFormContainerProps
   extends HTMLChakraProps<'div'>,
@@ -164,9 +162,7 @@ export const AuthFormContainer: React.FC<AuthFormContainerProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  AuthFormContainer.displayName = 'AuthFormContainer'
-}
+AuthFormContainer.displayName = 'AuthFormContainer'
 
 export interface AuthFormDividerProps {
   label?: string
@@ -208,9 +204,7 @@ export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({
   )
 }
 
-if (__DEV__) {
-  AuthFormTitle.displayName = 'AuthFormTitle'
-}
+AuthFormTitle.displayName = 'AuthFormTitle'
 
 export const LoginView: React.FC<AuthFormProps> = (props) => {
   return <AuthForm action="logIn" {...props} />
@@ -221,9 +215,7 @@ LoginView.defaultProps = {
   submitLabel: 'Log in',
 }
 
-if (__DEV__) {
-  LoginView.displayName = 'LoginView'
-}
+LoginView.displayName = 'LoginView'
 
 export const SignupView: React.FC<AuthFormProps> = (props) => {
   return <AuthForm action="signUp" {...props} />
@@ -234,9 +226,7 @@ SignupView.defaultProps = {
   submitLabel: 'Sign up',
 }
 
-if (__DEV__) {
-  SignupView.displayName = 'SignupView'
-}
+SignupView.displayName = 'SignupView'
 
 export const OtpView: React.FC<AuthFormProps> = (props) => {
   const { title, footer, ...rest } = props
@@ -258,9 +248,7 @@ OtpView.defaultProps = {
   title: 'One-time password',
 }
 
-if (__DEV__) {
-  OtpView.displayName = 'OtpView'
-}
+OtpView.displayName = 'OtpView'
 
 export const ForgotPasswordView: React.FC<AuthFormProps> = (props) => {
   const { title, footer, ...rest } = props
@@ -282,9 +270,7 @@ ForgotPasswordView.defaultProps = {
   title: 'Forgot password',
 }
 
-if (__DEV__) {
-  ForgotPasswordView.displayName = 'ForgotPasswordView'
-}
+ForgotPasswordView.displayName = 'ForgotPasswordView'
 
 export const UpdatePasswordView: React.FC<AuthFormProps> = (props) => {
   const { title, footer, ...rest } = props
@@ -306,6 +292,4 @@ UpdatePasswordView.defaultProps = {
   title: 'Choose a new password',
 }
 
-if (__DEV__) {
-  UpdatePasswordView.displayName = 'UpdatePasswordView'
-}
+UpdatePasswordView.displayName = 'UpdatePasswordView'

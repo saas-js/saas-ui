@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { __DEV__ } from '@chakra-ui/utils'
 
 import { Form } from './form'
 import { FormLayout } from './layout'

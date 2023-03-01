@@ -33,7 +33,7 @@ import {
   UsePinInputProps,
   SystemProps,
 } from '@chakra-ui/react'
-import { __DEV__, FocusableElement, callAllHandlers } from '@chakra-ui/utils'
+import { FocusableElement, callAllHandlers } from '@chakra-ui/utils'
 
 import { NumberInput, NumberInputProps } from './number-input'
 import { PasswordInput, PasswordInputProps } from './password-input'
@@ -134,9 +134,7 @@ export const BaseField: React.FC<FieldProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  BaseField.displayName = 'BaseField'
-}
+BaseField.displayName = 'BaseField'
 
 // export type As<Props = any> = React.ElementType<Props>
 

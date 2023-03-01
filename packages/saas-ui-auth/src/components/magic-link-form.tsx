@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { __DEV__ } from '@chakra-ui/utils'
-
 import {
   Form,
   FormLayout,
@@ -48,9 +46,7 @@ export function MagicLinkSuccess({ email }: any) {
   )
 }
 
-if (__DEV__) {
-  MagicLinkSuccess.displayName = 'MagicLinkSuccess'
-}
+MagicLinkSuccess.displayName = 'MagicLinkSuccess'
 
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   action = 'logIn',
@@ -104,6 +100,4 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   )
 }
 
-if (__DEV__) {
-  MagicLinkForm.displayName = 'MagicLinkForm'
-}
+MagicLinkForm.displayName = 'MagicLinkForm'

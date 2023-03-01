@@ -9,7 +9,7 @@ import {
   NumberDecrementStepper,
   NumberInputProps as ChakraNumberInputProps,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+
 import { ChevronDownIcon, ChevronUpIcon } from '@saas-ui/core'
 
 interface NumberInputOptions {
@@ -57,6 +57,4 @@ NumberInput.defaultProps = {
   hideStepper: false,
 }
 
-if (__DEV__) {
-  NumberInput.displayName = 'NumberInput'
-}
+NumberInput.displayName = 'NumberInput'

@@ -19,7 +19,7 @@ import {
   createStylesContext,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiPersona')
 
@@ -32,7 +32,7 @@ export interface PresenceOptions {
 
 /**
  * The presence configuration object.
- * 
+ *
  * Default presence values: online, offline, busy, dnd, away
  *
  * You can overwrite colors in the theme semantic tokens.
@@ -194,9 +194,7 @@ export const Persona: React.FC<PersonaProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  Persona.displayName = 'Persona'
-}
+Persona.displayName = 'Persona'
 
 export interface PersonaContainerProps
   extends HTMLChakraProps<'div'>,
@@ -239,9 +237,7 @@ export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  PersonaContainer.displayName = 'PersonaContainer'
-}
+PersonaContainer.displayName = 'PersonaContainer'
 
 interface PresenceAvatarOptions {
   /**
@@ -373,9 +369,8 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
   }
 )
 
-if (__DEV__) {
-  PersonaAvatar.displayName = 'PersonaAvatar'
-}
+PersonaAvatar.displayName = 'PersonaAvatar'
+
 /**
  * Wrapper component for the labels.
  *
@@ -407,9 +402,8 @@ export const PersonaDetails = forwardRef<PersonaProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  PersonaDetails.displayName = 'PersonaDetails'
-}
+PersonaDetails.displayName = 'PersonaDetails'
+
 /**
  * The main label, usually a name.
  *
@@ -429,9 +423,8 @@ export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   }
 )
 
-if (__DEV__) {
-  PersonaLabel.displayName = 'PersonaLabel'
-}
+PersonaLabel.displayName = 'PersonaLabel'
+
 /**
  * The secondary label, usually the role of a person.
  *
@@ -452,9 +445,8 @@ export const PersonaSecondaryLabel = forwardRef<
   )
 })
 
-if (__DEV__) {
-  PersonaSecondaryLabel.displayName = 'PersonaSecondaryLabel'
-}
+PersonaSecondaryLabel.displayName = 'PersonaSecondaryLabel'
+
 /**
  * The tertiary label, typically a status message.
  *
@@ -475,6 +467,4 @@ export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   }
 )
 
-if (__DEV__) {
-  PersonaTertiaryLabel.displayName = 'PersonaTertiaryLabel'
-}
+PersonaTertiaryLabel.displayName = 'PersonaTertiaryLabel'

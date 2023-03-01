@@ -12,7 +12,7 @@ import {
   useMultiStyleConfig,
   useControllableState,
 } from '@chakra-ui/react'
-import { callAllHandlers, __DEV__ } from '@chakra-ui/utils'
+import { callAllHandlers } from '@chakra-ui/utils'
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
 
 export interface SearchInputProps
@@ -121,6 +121,4 @@ SearchInput.defaultProps = {
   placeholder: 'Search',
 }
 
-if (__DEV__) {
-  SearchInput.displayName = 'SearchInput'
-}
+SearchInput.displayName = 'SearchInput'

@@ -1,19 +1,32 @@
 {
   "name": "@saas-ui/core",
   "version": "1.9.0",
-  "description": "Saas UI - The frontend stack for SaaS companies.",
+  "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
+    },
+    "./icons": {
+      "require": "./dist/icons/index.js",
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.mjs"
     },
     "./utils": {
       "require": "./dist/utils/index.js",
+      "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
+    },
+    "./icons/src": {
+      "default": "./src/icons/index.ts"
+    },
+    "./utils/src": {
+      "default": "./src/utils/index.ts"
     }
   },
   "main": "./dist/index.js",
@@ -21,7 +34,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts src/utils/index.ts --config tsup.config.ts",
+    "build": "tsup src/index.ts src/utils/index.ts src/icons/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

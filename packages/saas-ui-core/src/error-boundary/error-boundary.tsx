@@ -11,7 +11,11 @@ export interface ErrorBoundaryState {
   error?: Error | null
   errorInfo?: any
 }
-
+/**
+ * A container component that catches errors and displays a fallback UI.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/utils/error-boundary
+ */
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   state: ErrorBoundaryState
 

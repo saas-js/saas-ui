@@ -60,7 +60,11 @@ export interface FormDialogProps<
    */
   fieldResolver?: FieldResolver
 }
-
+/**
+ * Can be used to quickly request information from people without leaving the current page.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/overlay/form-dialog
+ */
 export const FormDialog = forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,

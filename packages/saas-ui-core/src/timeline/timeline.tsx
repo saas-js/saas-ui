@@ -17,7 +17,12 @@ export const useTimelineStyles = useStyles
 export interface TimelineProps
   extends HTMLChakraProps<'ul'>,
     ThemingProps<'SuiTimeline'> {}
-
+    
+/**
+ * Display a list of events in chronological order.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/timeline
+ */
 export const Timeline: React.FC<TimelineProps> = (props) => {
   const { children, ...rest } = props
 

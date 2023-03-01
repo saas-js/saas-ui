@@ -76,6 +76,11 @@ export interface FormProps<
     >,
     FormOptions<TFieldValues, TContext, TSchema, TFieldTypes> {}
 
+/**
+ * The wrapper component provides context, state, and focus management.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
 export const Form = forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,

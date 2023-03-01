@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import { SimpleGrid, Icon } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 
 import { ProviderButton } from './provider-button'
 import { useAuth } from '../provider'
@@ -74,6 +73,4 @@ export const Providers: React.FC<ProviderProps> = ({
   )
 }
 
-if (__DEV__) {
-  Providers.displayName = 'Providers'
-}
+Providers.displayName = 'Providers'

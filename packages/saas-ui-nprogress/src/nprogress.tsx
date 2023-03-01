@@ -11,7 +11,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/system'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 import { useNProgress } from '@tanem/react-nprogress'
 
@@ -68,6 +68,4 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  NProgress.displayName = 'NProgress'
-}
+NProgress.displayName = 'NProgress'

@@ -16,7 +16,7 @@ import {
   useId,
   ComponentWithAs,
 } from '@chakra-ui/react'
-import { callAllHandlers, cx, __DEV__ } from '@chakra-ui/utils'
+import { callAllHandlers, cx } from '@chakra-ui/utils'
 
 import { createContext } from '@chakra-ui/react-utils'
 
@@ -143,9 +143,7 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  Banner.displayName = 'Banner'
-}
+Banner.displayName = 'Banner'
 
 export interface BannerContentProps extends HTMLChakraProps<'div'> {}
 
@@ -164,9 +162,7 @@ export const BannerContent = forwardRef<BannerContentProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  BannerContent.displayName = 'BannerContent'
-}
+BannerContent.displayName = 'BannerContent'
 
 export interface BannerDescriptionProps extends HTMLChakraProps<'div'> {}
 
@@ -185,9 +181,7 @@ export const BannerTitle = forwardRef<BannerTitleProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  BannerTitle.displayName = 'BannerTitle'
-}
+BannerTitle.displayName = 'BannerTitle'
 
 export interface BannerDescriptionProps extends HTMLChakraProps<'div'> {}
 
@@ -210,9 +204,7 @@ export const BannerDescription = forwardRef<BannerDescriptionProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  BannerDescription.displayName = 'BannerDescription'
-}
+BannerDescription.displayName = 'BannerDescription'
 
 export interface BannerActionsProps
   extends HTMLChakraProps<'div'>,
@@ -236,9 +228,7 @@ export const BannerActions = forwardRef<BannerActionsProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  BannerActions.displayName = 'BannerActions'
-}
+BannerActions.displayName = 'BannerActions'
 
 export interface BannerIconProps extends HTMLChakraProps<'span'> {
   icon?: As<any>
@@ -262,9 +252,7 @@ export const BannerIcon: React.FC<BannerIconProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  BannerIcon.displayName = 'BannerIcon'
-}
+BannerIcon.displayName = 'BannerIcon'
 
 export const BannerCloseButton = forwardRef<CloseButtonProps, 'button'>(
   (props, ref) => {
@@ -292,6 +280,4 @@ export const BannerCloseButton = forwardRef<CloseButtonProps, 'button'>(
   }
 )
 
-if (__DEV__) {
-  BannerCloseButton.displayName = 'BannerCloseButton'
-}
+BannerCloseButton.displayName = 'BannerCloseButton'

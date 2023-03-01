@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { forwardRef, InputGroup, Input, InputProps } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 import { InputRightButton } from '../input-right-button'
@@ -64,6 +64,4 @@ export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  PasswordInput.displayName = 'PasswordInput'
-}
+PasswordInput.displayName = 'PasswordInput'

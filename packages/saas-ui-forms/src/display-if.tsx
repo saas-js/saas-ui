@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { __DEV__ } from '@chakra-ui/utils'
 import {
   useFormContext,
   useWatch,
@@ -36,6 +35,4 @@ export const DisplayIf = <TFieldValues extends FieldValues = FieldValues>({
   return condition(value, context) ? children : null
 }
 
-if (__DEV__) {
-  DisplayIf.displayName = 'DisplayIf'
-}
+DisplayIf.displayName = 'DisplayIf'

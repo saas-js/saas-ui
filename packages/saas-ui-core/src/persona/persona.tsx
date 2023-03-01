@@ -19,7 +19,7 @@ import {
   createStylesContext,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiPersona')
 
@@ -186,9 +186,7 @@ export const Persona: React.FC<PersonaProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  Persona.displayName = 'Persona'
-}
+Persona.displayName = 'Persona'
 
 export interface PersonaContainerProps
   extends HTMLChakraProps<'div'>,
@@ -227,9 +225,7 @@ export const PersonaContainer = forwardRef<PersonaContainerProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  PersonaContainer.displayName = 'PersonaContainer'
-}
+PersonaContainer.displayName = 'PersonaContainer'
 
 interface PresenceAvatarOptions {
   /**
@@ -357,9 +353,7 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
   }
 )
 
-if (__DEV__) {
-  PersonaAvatar.displayName = 'PersonaAvatar'
-}
+PersonaAvatar.displayName = 'PersonaAvatar'
 
 export const PersonaDetails = forwardRef<PersonaProps, 'div'>((props, ref) => {
   const { children, className, ...rest } = props
@@ -387,9 +381,7 @@ export const PersonaDetails = forwardRef<PersonaProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  PersonaDetails.displayName = 'PersonaDetails'
-}
+PersonaDetails.displayName = 'PersonaDetails'
 
 export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   (props, ref) => {
@@ -405,9 +397,7 @@ export const PersonaLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   }
 )
 
-if (__DEV__) {
-  PersonaLabel.displayName = 'PersonaLabel'
-}
+PersonaLabel.displayName = 'PersonaLabel'
 
 export const PersonaSecondaryLabel = forwardRef<
   HTMLChakraProps<'span'>,
@@ -424,9 +414,7 @@ export const PersonaSecondaryLabel = forwardRef<
   )
 })
 
-if (__DEV__) {
-  PersonaSecondaryLabel.displayName = 'PersonaSecondaryLabel'
-}
+PersonaSecondaryLabel.displayName = 'PersonaSecondaryLabel'
 
 export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   (props, ref) => {
@@ -443,6 +431,4 @@ export const PersonaTertiaryLabel = forwardRef<HTMLChakraProps<'span'>, 'span'>(
   }
 )
 
-if (__DEV__) {
-  PersonaTertiaryLabel.displayName = 'PersonaTertiaryLabel'
-}
+PersonaTertiaryLabel.displayName = 'PersonaTertiaryLabel'

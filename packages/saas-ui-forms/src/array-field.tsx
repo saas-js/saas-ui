@@ -7,7 +7,6 @@ import {
   Button,
   ButtonProps,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 
 import { FormLayout, FormLayoutProps } from './layout'
@@ -67,9 +66,7 @@ export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRow.displayName = 'ArrayFieldRow'
-}
+ArrayFieldRow.displayName = 'ArrayFieldRow'
 
 export interface ArrayFieldRowFieldsProps extends FormLayoutProps {
   /**
@@ -98,9 +95,7 @@ export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
-}
+ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
 
 export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
   children,
@@ -123,9 +118,7 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
-}
+ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
 
 export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
   props
@@ -137,9 +130,7 @@ export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
-}
+ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
 
 export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
   return (
@@ -154,9 +145,7 @@ export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
-}
+ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
 
 export interface ArrayFieldProps
   extends ArrayFieldOptions,
@@ -191,9 +180,7 @@ export const ArrayField = forwardRef(
   displayName: string
 }
 
-if (__DEV__) {
-  ArrayField.displayName = 'ArrayField'
-}
+ArrayField.displayName = 'ArrayField'
 
 export interface ArrayFieldRowsProps {
   children: (fields: ArrayField[]) => React.ReactElement | null
@@ -206,9 +193,7 @@ export const ArrayFieldRows = ({
   return children(fields)
 }
 
-if (__DEV__) {
-  ArrayFieldRows.displayName = 'ArrayFieldRows'
-}
+ArrayFieldRows.displayName = 'ArrayFieldRows'
 
 export const ArrayFieldContainer = React.forwardRef(
   (
@@ -244,6 +229,4 @@ export const ArrayFieldContainer = React.forwardRef(
   }
 )
 
-if (__DEV__) {
-  ArrayFieldContainer.displayName = 'ArrayFieldContainer'
-}
+ArrayFieldContainer.displayName = 'ArrayFieldContainer'

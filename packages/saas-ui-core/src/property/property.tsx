@@ -15,7 +15,7 @@ import {
   createStylesContext,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiProperty')
 
@@ -69,9 +69,7 @@ export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  Property.displayName = 'Property'
-}
+Property.displayName = 'Property'
 
 export interface PropertyLabelProps extends HTMLChakraProps<'dt'> {}
 
@@ -104,9 +102,7 @@ export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  PropertyLabel.displayName = 'PropertyLabel'
-}
+PropertyLabel.displayName = 'PropertyLabel'
 
 export interface PropertyValueProps extends HTMLChakraProps<'dd'> {}
 
@@ -137,9 +133,7 @@ export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
   }
 )
 
-if (__DEV__) {
-  PropertyValue.displayName = 'PropertyValue'
-}
+PropertyValue.displayName = 'PropertyValue'
 
 export interface PropertyListProps extends Omit<ListProps, 'items'> {}
 
@@ -167,6 +161,4 @@ export const PropertyList: React.FC<PropertyListProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  PropertyList.displayName = 'PropertyList'
-}
+PropertyList.displayName = 'PropertyList'

@@ -7,7 +7,7 @@ import {
   useMultiStyleConfig,
   ThemingProps,
 } from '@chakra-ui/react'
-import { cx, dataAttr, __DEV__ } from '@chakra-ui/utils'
+import { cx, dataAttr } from '@chakra-ui/utils'
 import { timelineStyleConfig } from './timeline.styles'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiTimeline')

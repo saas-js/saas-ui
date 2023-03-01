@@ -6,7 +6,6 @@ import {
   ResponsiveValue,
   useStyleConfig,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 
 import { FormLayout } from './layout'
 import { FieldProps } from './field'
@@ -39,6 +38,4 @@ export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  ObjectField.displayName = 'ObjectField'
-}
+ObjectField.displayName = 'ObjectField'

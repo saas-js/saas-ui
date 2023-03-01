@@ -10,7 +10,7 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 
-import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
+import { callAllHandlers, runIfFn, cx } from '@chakra-ui/utils'
 
 import {
   StepperProvider,
@@ -154,9 +154,7 @@ export const FormStep: React.FC<FormStepProps> = (props) => {
   ) : null
 }
 
-if (__DEV__) {
-  FormStep.displayName = 'FormStep'
-}
+FormStep.displayName = 'FormStep'
 
 export const PrevButton: React.FC<ButtonProps> = (props) => {
   const { isFirstStep, isCompleted, prevStep } = useStepperContext()
@@ -172,9 +170,7 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  PrevButton.displayName = 'PrevButton'
-}
+PrevButton.displayName = 'PrevButton'
 
 export interface NextButtonProps extends Omit<ButtonProps, 'children'> {
   submitLabel?: string
@@ -196,6 +192,4 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  NextButton.displayName = 'NextButton'
-}
+NextButton.displayName = 'NextButton'

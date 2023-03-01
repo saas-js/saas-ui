@@ -34,7 +34,11 @@ export interface EmptyStateProps
   children?: React.ReactNode
   spacing?: SystemProps['margin']
 }
-
+/**
+ * Display actionable feedback when no data is available.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/empty-state
+ */
 export const EmptyState: React.FC<EmptyStateProps> = (props) => {
   const {
     children,

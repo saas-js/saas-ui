@@ -11,7 +11,11 @@ import { __DEV__ } from '@chakra-ui/utils'
 export interface DividerProps extends ChakraDividerProps {
   label?: string
 }
-
+/**
+ * Dividers are used to visually separate content in a list or group
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/divider
+ */
 export const Divider: React.FC<DividerProps> = (props) => {
   const { label, orientation, ...rest } = props
   const styles = useStyleConfig('Divider', props)

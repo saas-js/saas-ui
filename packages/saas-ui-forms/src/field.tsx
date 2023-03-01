@@ -168,6 +168,11 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
  *
  * Will default to a text field if there is no matching type.
  */
+/**
+ * The wrapper component that controls context, state and manages rendering field types.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/field
+ */
 export const Field = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FieldProps<TFieldValues> | FieldTypeProps,

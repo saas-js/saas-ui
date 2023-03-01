@@ -70,7 +70,11 @@ export interface FormProps<
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
     FormOptions<TFieldValues, TContext, TSchema> {}
-
+/**
+ * The wrapper component provides context, state, and focus management.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
 export const Form = forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,

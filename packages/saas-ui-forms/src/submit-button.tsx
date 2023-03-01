@@ -20,7 +20,11 @@ export interface SubmitButtonProps extends ButtonProps {
    */
   disableIfInvalid?: boolean
 }
-
+/**
+ * A button with type submit and default color scheme primary and isLoading state when the form is submitting.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
 export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
   (props, ref) => {
     const {

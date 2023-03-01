@@ -21,8 +21,6 @@ export interface DateInputProps extends DatePickerProps {
 }
 
 /**
- * DateInput
- *
  * A Date form input with Calendar popover to allow users to enter or select a date value.
  *
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input

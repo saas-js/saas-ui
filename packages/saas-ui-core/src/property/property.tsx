@@ -30,7 +30,11 @@ export interface PropertyProps
   extends PropertyOptions,
     HTMLChakraProps<'dl'>,
     ThemingProps<'SuiProperty'> {}
-
+/**
+ * The wrapper component that handles default composition.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
+ */
 export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
   const styles = useMultiStyleConfig('SuiProperty', props)
 
@@ -74,7 +78,11 @@ if (__DEV__) {
 }
 
 export interface PropertyLabelProps extends HTMLChakraProps<'dt'> {}
-
+/**
+ * The property label.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
+ */
 export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
   const styles = useStyles()
   const { children, ...rest } = props
@@ -109,7 +117,11 @@ if (__DEV__) {
 }
 
 export interface PropertyValueProps extends HTMLChakraProps<'dd'> {}
-
+/**
+ * The property value.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
+ */
 export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
   (props, ref) => {
     const styles = useStyles()
@@ -147,6 +159,8 @@ export interface PropertyListProps extends Omit<ListProps, 'items'> {}
  * Render a list of properties.
  * Will set the `as` prop of it's children to `div`,
  * in order to render a semantically correct `dl` list.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
  */
 export const PropertyList: React.FC<PropertyListProps> = (props) => {
   const { children, ...rest } = props

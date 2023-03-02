@@ -8,8 +8,6 @@ import {
   SystemProps,
 } from '@chakra-ui/react'
 
-import { __DEV__ } from '@chakra-ui/utils'
-
 interface PinInputOptions {
   /**
    * The pin length.
@@ -45,6 +43,4 @@ PinInput.defaultProps = {
   pinLength: 4,
 }
 
-if (__DEV__) {
-  PinInput.displayName = 'PinInput'
-}
+PinInput.displayName = 'PinInput'

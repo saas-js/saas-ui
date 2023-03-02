@@ -4,7 +4,6 @@ import {
   MenuItem as ChakraMenuItem,
   MenuItemProps as ChakraMenuItemProps,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 import { useLink } from '../provider'
 
 export interface MenuItemProps extends ChakraMenuItemProps {
@@ -37,6 +36,4 @@ export const MenuItem = forwardRef<MenuItemProps, typeof ChakraMenuItem>(
   }
 )
 
-if (__DEV__) {
-  MenuItem.displayName = 'MenuItem'
-}
+MenuItem.displayName = 'MenuItem'

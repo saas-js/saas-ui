@@ -1,8 +1,10 @@
+import SaasUIGlyph from '@/components/saas-ui-glyph'
 import Logo from '../components/saas-ui'
 const baseUrl = 'https://github.com/saas-js/saas-ui'
 
 const siteConfig = {
   logo: Logo,
+  logoIcon: SaasUIGlyph,
   copyright: `Copyright © ${new Date().getFullYear()} Appulse Software B.V. All Rights Reserved.`,
   author: {
     name: 'Eelco Wiersma',

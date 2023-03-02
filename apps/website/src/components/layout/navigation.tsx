@@ -28,7 +28,7 @@ import { GlobalSearch } from '../global-search/global-search'
 
 const Header = () => {
   const mobileNav = useDisclosure()
-  const isDesktop = useBreakpointValue({ lg: true })
+  const isDesktop = useBreakpointValue({ xl: true })
   const router = useRouter()
   const activeId = useScrollSpy(
     headerNav.filter(({ id }) => id).map(({ id }) => `[id="${id}"]`),
@@ -73,7 +73,7 @@ const Header = () => {
         {headerNav.map(({ href, id, ...props }, i) => {
           return (
             <NavLink
-              display={['none', null, 'block']}
+              display={{ base: 'none', lg: 'block' }}
               href={href || `/#${id}`}
               key={i}
               isActive={

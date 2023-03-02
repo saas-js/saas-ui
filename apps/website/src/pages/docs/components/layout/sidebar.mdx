@@ -1,6 +1,6 @@
 ---
 title: Sidebar
-description: Commonly used as the primary navigation.
+description: Side navigation, commonly used as the primary navigation.
 ---
 
 <ComponentLinks
@@ -212,7 +212,7 @@ Use the `tooltipProps` prop to customize the tooltip.
   sidebar={
     <Sidebar variant="condensed" width="64px">
       <SidebarToggleButton />
-      <SidebarSection>
+      <SidebarSection alignItems="center">
         <Image
           src="https://saas-ui.dev/favicons/favicon-96x96.png"
           boxSize="7"
@@ -250,7 +250,7 @@ function ToggleVariant() {
           variant={isOpen ? 'default' : 'condensed'}
           transition="width"
           transitionDuration="normal"
-          width={isOpen ? '280px' : '48px'}
+          width={isOpen ? '280px' : '14'}
           minWidth="auto"
         >
           <SidebarSection direction={isOpen ? 'row' : 'column'}>
@@ -294,13 +294,7 @@ You can stack multiple sidebars together to create a double sidebar layout.
 <AppShell
   sidebar={
     <HStack spacing="0" alignItems="stretch">
-      <Sidebar
-        variant="condensed"
-        bg="purple.500"
-        borderWidth="0"
-        width="12"
-        spacing="3"
-      >
+      <Sidebar variant="condensed" bg="purple.500" borderWidth="0" spacing="3">
         <SidebarSection>
           <Image
             src="https://saas-ui.dev/favicons/favicon-96x96.png"
@@ -318,7 +312,7 @@ You can stack multiple sidebars together to create a double sidebar layout.
         </SidebarSection>
       </Sidebar>
       <Sidebar>
-        <SidebarSection direction="row" mt="2">
+        <SidebarSection direction="row" mt="2" px="4">
           <Heading size="sm" fontWeight="semibold">
             Users
           </Heading>

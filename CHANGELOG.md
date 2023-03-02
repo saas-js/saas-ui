@@ -8,6 +8,36 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-16-2023
+
+**Date Picker** `v0.8.7`
+
+- Pass DateRangeInput props down to the internal Input.
+
+## 02-10-2023
+
+`@saas-ui/react@1.9.1`
+
+- InputRightButton no longer exported from forms package to prevent conflicts.
+
+**Forms** `v1.5.3`
+
+- InputRightButton no longer exported from forms package to prevent conflicts.
+
+## 02-03-2023
+
+`@saas-ui/react@1.9.0`
+
+- Improved Sidebar behavior and theme.
+
+**Sidebar** `v0.9.0`
+
+- Improved Sidebar behavior and theme.
+
+**Theme** `v1.8.0`
+
+- Improved Sidebar behavior and theme.
+
 ## 01-08-2023
 
 `@saas-ui/react@1.7.4`

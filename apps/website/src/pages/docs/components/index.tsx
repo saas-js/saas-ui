@@ -48,11 +48,6 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
       }}
     >
       <VStack w="full" mt={5} alignItems="stretch" spacing={12}>
-        <Text apply="mdx.description">
-          Professionally crafted Chakra UI components that help you build
-          intuitive React apps with speed.
-        </Text>
-
         <Text>
           These components go hand in hand with{' '}
           <Link href="https://chakra-ui.com/docs/components">

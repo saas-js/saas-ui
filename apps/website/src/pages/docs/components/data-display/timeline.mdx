@@ -147,13 +147,14 @@ The `TimelineIcon` renders a dot by default, but it also supports custom icons.
 
 ### Custom timeline
 
-Here's a more advanced example show a list of user actions.
+Here's a more advanced example that shows a list of user actions.
+Use padding on `TimelineContent` to align the content with the icon.
 
 ```jsx
 <Timeline>
-  <TimelineItem minH="38px">
+  <TimelineItem>
     <TimelineSeparator>
-      <TimelineIcon mt="-6px">
+      <TimelineIcon>
         <PersonaAvatar
           src="/showcase-avatar.jpg"
           colorScheme="purple.300"
@@ -165,7 +166,7 @@ Here's a more advanced example show a list of user actions.
       </TimelineIcon>
       <TimelineTrack />
     </TimelineSeparator>
-    <TimelineContent>
+    <TimelineContent pt="2" px="3">
       <Text color="muted">
         <Link color="black" _dark={{ color: 'white' }}>
           Renata
@@ -174,7 +175,7 @@ Here's a more advanced example show a list of user actions.
       </Text>
     </TimelineContent>
   </TimelineItem>
-  <TimelineItem minH="38px">
+  <TimelineItem>
     <TimelineSeparator>
       <TimelineIcon>
         <Badge
@@ -187,13 +188,13 @@ Here's a more advanced example show a list of user actions.
       </TimelineIcon>
       <TimelineTrack />
     </TimelineSeparator>
-    <TimelineContent>
+    <TimelineContent pt="2px" px="3">
       <Text color="muted">John changed status to pending.</Text>
     </TimelineContent>
   </TimelineItem>
-  <TimelineItem minH="38px">
+  <TimelineItem>
     <TimelineSeparator>
-      <TimelineIcon mt="-6px">
+      <TimelineIcon>
         <PersonaAvatar
           src="/showcase-avatar.jpg"
           name="Renata Alink"
@@ -203,7 +204,7 @@ Here's a more advanced example show a list of user actions.
         />
       </TimelineIcon>
     </TimelineSeparator>
-    <TimelineContent>
+    <TimelineContent pt="2" px="3">
       <Text color="muted">
         <Link color="black" _dark={{ color: 'white' }}>
           Renata

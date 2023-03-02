@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.8.0
+
+### Minor Changes
+
+- aea16c7: Improved Sidebar behavior and theme.
+
 ## 1.7.0
 
 ### Minor Changes

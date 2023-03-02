@@ -1,5 +1,40 @@
 # @saas-ui/test-utils
 
+## 2.3.5
+
+### Patch Changes
+
+- Updated dependencies [382e095]
+  - @saas-ui/react@1.9.1
+
+## 2.3.4
+
+### Patch Changes
+
+- Updated dependencies [aea16c7]
+  - @saas-ui/react@1.9.0
+
+## 2.3.3
+
+### Patch Changes
+
+- Updated dependencies [fc2581b]
+  - @saas-ui/react@1.8.3
+
+## 2.3.2
+
+### Patch Changes
+
+- Updated dependencies [d424898]
+  - @saas-ui/react@1.8.2
+
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [bff22b0]
+  - @saas-ui/react@1.8.1
+
 ## 2.3.0
 
 ### Minor Changes

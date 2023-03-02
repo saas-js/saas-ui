@@ -43,6 +43,15 @@ const PricingPage = () => {
         strategy="afterInteractive"
         src="https://cdn.paritydeals.com/banner.js"
       />
+      <Script
+        id="lemon-js"
+        strategy="afterInteractive"
+        src="https://app.lemonsqueezy.com/js/lemon.js"
+        onLoad={() => {
+          /* @ts-ignore */
+          window.createLemonSqueezy?.()
+        }}
+      />
       <BackgroundGradientRadial
         top="-30%"
         bottom="auto"
@@ -60,7 +69,30 @@ const PricingPage = () => {
   )
 }
 
+const paymentLinks =
+  process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
+    ? {
+        bootstrap:
+          'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
+        startup:
+          'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
+        className: 'lemonsqueezy-button',
+      }
+    : {
+        bootstrap:
+          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
+        startup:
+          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
+        className: 'gumroad-button',
+      }
+
 const Pricing = () => {
+  React.useEffect(() => {
+    if (process.env.NEXT_PUBLIC_PAYMENT === 'lemon') {
+      /* @ts-ignore */
+      window.createLemonSqueezy?.()
+    }
+  }, [])
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
@@ -77,7 +109,7 @@ const Pricing = () => {
           py={{ base: '8', lg: '20' }}
         />
 
-        <SimpleGrid columns={[1, null, 3, 4]} spacing={4}>
+        <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
             description="Basic components, perfect to get started."
@@ -85,9 +117,10 @@ const Pricing = () => {
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
-              <PricingFeature title="Forms (react-hook-form)" />
+              <PricingFeature title="Auth (Clerk/Supabase/Magic)" />
+              <PricingFeature title="Forms manager" />
               <PricingFeature title="Modals manager" />
+              <PricingFeature title="Stepper" />
               <PricingFeature title="Hotkeys" />
               <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
@@ -119,7 +152,7 @@ const Pricing = () => {
                 help="One developer per license, you can buy as many licenses as you need. Licenses can be transfered."
               />
               <PricingFeature
-                title={<>Unlimited projects</>}
+                title={<>Unlimited projects*</>}
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
               <PricingFeature title="Advanced components" />
@@ -134,15 +167,16 @@ const Pricing = () => {
               />
             </PricingFeatures>
             <ButtonLink
+              as="a"
               colorScheme="primary"
-              href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license"
-              className="gumroad-button"
-              onClick={() =>
+              href={paymentLinks.bootstrap}
+              className={paymentLinks.className}
+              onClick={(e) => {
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Bootstrap')
                 })
-              }
+              }}
             >
               Early access
             </ButtonLink>
@@ -161,11 +195,11 @@ const Pricing = () => {
                 <Text>€499,-</Text>
               </HStack>
             }
-            description="Unlimited license for growing teams."
+            description="Unlimited license for growing teams or agencies."
           >
             <PricingFeatures>
               <PricingFeature
-                title="Unlimited developers"
+                title="Up to 20 developers"
                 help="A developer can be either an employee or a contracted freelancer."
               />
               <PricingFeature
@@ -173,7 +207,9 @@ const Pricing = () => {
                 help="No restrictions on commercial projects or client work."
               />
               <PricingFeature title="Everything from Bootstrap" />
+              <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />
+              <PricingFeature title="Introduction call" />
               <PricingFeature title="1 year of updates" />
               <br />
               <PricingFeature
@@ -182,15 +218,16 @@ const Pricing = () => {
               />
             </PricingFeatures>
             <ButtonLink
+              as="a"
               colorScheme="primary"
-              href="https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license"
-              className="gumroad-button"
-              onClick={() =>
+              href={paymentLinks.startup}
+              className={paymentLinks.className}
+              onClick={(e) => {
                 setTimeout(() => {
                   /* @ts-ignore */
                   window?.pirsch?.('Order Startup')
                 })
-              }
+              }}
             >
               Early access
             </ButtonLink>
@@ -273,15 +310,16 @@ const PricingBox = ({
         bgGradient: highlight
           ? `linear(to-b, ${highlight}, transparent)`
           : 'linear(to-b, blackAlpha.200, transparent)',
-        _dark: {
+        mask: 'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
+        maskComposite: 'exclude',
+        WebkitMaskComposite: 'xor',
+      }}
+      _dark={{
+        _before: {
           bgGradient: highlight
             ? `linear(to-b, ${highlight}, transparent)`
             : 'linear(to-b, whiteAlpha.300, transparent)',
         },
-
-        WebkitMask:
-          'linear-gradient(black, black) content-box content-box, linear-gradient(black, black)',
-        WebkitMaskComposite: 'xor',
       }}
       {...props}
     >

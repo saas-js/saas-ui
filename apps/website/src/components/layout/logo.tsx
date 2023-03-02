@@ -1,5 +1,10 @@
-import { Box, Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
-import { useColorMode } from '@chakra-ui/color-mode'
+import {
+  Box,
+  Flex,
+  Heading,
+  useBreakpointValue,
+  VisuallyHidden,
+} from '@chakra-ui/react'
 import AccessibleLink from '@/components/link'
 import React from 'react'
 
@@ -11,11 +16,16 @@ export interface LogoProps {
 import siteConfig from '@/data/site-config'
 
 const Logo = ({ href = '/', onClick }: LogoProps) => {
-  const { colorMode } = useColorMode()
-
+  const isMobile = useBreakpointValue({ base: true, sm: false })
   let logo
   if (siteConfig.logo) {
-    logo = <Box as={siteConfig.logo} height="32px" mt="-4px" />
+    logo = (
+      <Box
+        as={isMobile ? siteConfig.logoIcon : siteConfig.logo}
+        height="32px"
+        mt="-4px"
+      />
+    )
   } else {
     logo = (
       <Heading as="h1" size="md">

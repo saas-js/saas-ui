@@ -1,9 +1,48 @@
 # @saas-ui/date-picker
 
+## 0.8.7
+
+### Patch Changes
+
+- 83b1c22: Pass DateRangeInput props down to the internal Input.
+
+## 0.8.6
+
+### Patch Changes
+
+- 5026f70: Restore changes from 0.8.1
+
+## 0.8.5
+
+### Patch Changes
+
+- @saas-ui/modals@1.5.5
+
+## 0.8.4
+
+### Patch Changes
+
+- @saas-ui/modals@1.5.4
+
+## 0.8.3
+
+### Patch Changes
+
+- Updated dependencies [fc2581b]
+  - @saas-ui/modals@1.5.3
+
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [d424898]
+  - @saas-ui/modals@1.5.2
+
 ## 0.8.1
 
 ### Patch Changes
 
+- @saas-ui/modals@1.5.1
 - 5616dec: Fixed issue where value would not update.
 - 5616dec: Add closeOnSelect property.
 

@@ -19,6 +19,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
     item: {
       my: '2px',
       color: 'gray.900',
+      minW: 1,
       _dark: {
         color: 'whiteAlpha.900',
       },
@@ -31,39 +32,34 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       textDecoration: 'none',
       transitionProperty: 'common',
       transitionDuration: 'normal',
+      minW: 1,
       _hover: {
         textDecoration: 'none',
       },
       _focusVisible: {
         boxShadow: 'outline',
       },
-      ['[data-condensed] &']: {
-        padding: 0,
-      },
     },
     inner: {
       display: 'flex',
       flex: 1,
+      w: '100%',
       alignItems: 'center',
-      justifyContent: 'stretch',
-      ['[data-condensed] &']: {
-        justifyContent: 'center',
-      },
+      minW: 1,
     },
     label: {
-      '[data-condensed] &': {
-        display: 'none',
-      },
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
     },
     icon: {
       display: 'flex',
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      '[data-condensed] &': {
-        me: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '4',
+      ml: '-0.25rem',
     },
   }
 }
@@ -93,7 +89,6 @@ const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
 const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c, theme } = props
 
-  const color = mode(`${c}.700`, `${c}.200`)(props)
   const activeBg = mode(
     transparentize(`${c}.500`, 0.3)(theme),
     transparentize(`${c}.500`, 0.3)(theme)

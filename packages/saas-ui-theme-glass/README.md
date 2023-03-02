@@ -20,7 +20,7 @@ $ npm i @saas-ui/theme-glass  --save
 import { extendTheme } from '@chakra-ui/react'
 import { theme as baseTheme } from '@saas-ui/theme-glass'
 
-const theme = extendTheme(
+export const theme = extendTheme(
   {
     // your overrides
   },
@@ -35,7 +35,7 @@ import { extendTheme } from '@chakra-ui/react'
 import { theme as baseTheme } from '@saas-ui/react'
 import { theme as glassTheme } from '@saas-ui/theme-glass'
 
-const theme = extendTheme(
+export const theme = extendTheme(
   {
     // your overrides
   },
@@ -46,7 +46,9 @@ const theme = extendTheme(
 
 ## Docs
 
-https://www.saas-ui.dev/docs/theming/saas-ui-theme
+https://chakra-ui.com/docs/styled-system/customize-theme
+
+https://saas-ui.dev/docs/core/theming/saas-ui-theme
 
 ## Source
 

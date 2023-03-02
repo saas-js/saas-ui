@@ -49,7 +49,7 @@ export default function MDXLayout(props: MDXLayoutProps) {
   return (
     <PageContainer
       frontmatter={frontmatter}
-      sidebar={<Sidebar routes={routes} />}
+      sidebar={routes?.length && <Sidebar routes={routes} />}
       pagination={
         <Pagination
           next={routeContext.nextRoute}

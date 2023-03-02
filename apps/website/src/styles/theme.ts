@@ -38,7 +38,7 @@ const styles = {
 
 const textStyles = {
   pageTitle: {
-    fontSize: { base: '2xl', sm: '4xl', md: '6xl' },
+    fontSize: { base: '2xl', sm: '3xl', md: '5xl', lg: '6xl' },
     fontWeight: 'extrabold',
     lineHeight: '1.2',
     letterSpacing: '-2%',
@@ -50,7 +50,7 @@ const textStyles = {
     letterSpacing: '-1%',
   },
   subtitle: {
-    fontSize: { base: 'xl', sm: '2xl' },
+    fontSize: { base: 'sm', sm: 'sm', md: '2xl' },
     fontWeight: 'normal',
   },
 }
@@ -66,7 +66,7 @@ const breakpoints = {
 const theme = extendTheme(
   {
     config: {
-      initialColorMode: 'system',
+      initialColorMode: 'dark',
       useSystemColorMode: false,
     },
     breakpoints,

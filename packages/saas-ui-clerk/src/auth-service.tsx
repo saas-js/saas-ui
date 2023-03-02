@@ -1,8 +1,7 @@
-import {
-  LoadedClerk,
-  AuthenticateWithRedirectParams,
-  SignInCreateParams,
-} from '@clerk/types'
+import { LoadedClerk, SignInCreateParams } from '@clerk/types'
+
+import {} from '@clerk/clerk-react'
+
 import {
   AuthParams,
   AuthOptions,
@@ -11,11 +10,21 @@ import {
   AuthStateChangeCallback,
 } from '@saas-ui/auth'
 
-interface ClerkParams {
-  identifier?: string
-  email?: string
-  password?: string
-}
+type Providers =
+  | 'facebook'
+  | 'github'
+  | 'google'
+  | 'hubspot'
+  | 'tiktok'
+  | 'gitlab'
+  | 'discord'
+  | 'twitter'
+  | 'twitch'
+  | 'linkedin'
+  | 'dropbox'
+  | 'bitbucket'
+  | 'microsoft'
+  | 'notion'
 
 /**
  * Clerk auth service
@@ -25,11 +34,11 @@ interface ClerkParams {
  * @returns {AuthProviderProps}
  */
 export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
-  const client = clerk.client
-
-  if (!client) {
+  if (!clerk?.client) {
     throw new Error('Clerk client not available.')
   }
+
+  const client = clerk.client
 
   let authCallback: AuthStateChangeCallback | null
 
@@ -39,10 +48,10 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
   ): Promise<User | null | undefined> => {
     if (params.provider) {
       await client.signIn.authenticateWithRedirect({
-        strategy: `oauth_${params.provider}`,
+        strategy: `oauth_${params.provider}` as `oauth_${Providers}`,
         redirectUrl: '/#sso_callback',
         redirectUrlComplete: options?.redirectTo || '/',
-      } as AuthenticateWithRedirectParams)
+      })
       return
     }
 
@@ -63,8 +72,10 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
 
     const signIn = await client.signIn.create(clerkParams)
 
-    if (signIn.status === 'complete') {
-      await clerk.setSession(signIn.createdSessionId)
+    if (signIn.status === 'complete' && signIn.createdSessionId) {
+      await clerk.setActive({
+        session: signIn.createdSessionId,
+      })
 
       return onLoadUser()
     }
@@ -81,7 +92,9 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
       redirectUrl: window.location.href + '/#ml_callback',
     }).then(async (result) => {
       if (result.status === 'complete') {
-        await clerk.setSession(result.createdSessionId)
+        await clerk.setActive({
+          session: result.createdSessionId,
+        })
 
         authCallback?.(await onLoadUser())
       }

@@ -19,6 +19,12 @@ Supported authentication strategies are:
 - Password
 - Social login (Oauth)
 
+<Info>
+  If you are using Clerk with Next.js, it's recommended to use their [Next.js
+  integration](https://clerk.dev/docs/nextjs/overview). It comes with extra
+  features like SSR and middlware support.
+</Info>
+
 ## Import
 
 ```js
@@ -46,12 +52,17 @@ Add `ClerkAuthProvider` to the root of your app and configure the auth service.
 import { AuthProvider } from '@saas-ui/react'
 import { ClerkAuthProvider } from '@saas-ui/clerk'
 
-// You can find the frontend api key in the Clerk dashboard.
+// You can find the publishable key in the Clerk dashboard.
+
+// Authentication with frontendApi is considered legacy.
 const frontendApi = 'clerk.x.x.lcl.dev'
 
 function App({ children }) {
   return (
-    <ClerkAuthProvider frontendApi={frontendApi}>
+    <ClerkAuthProvider
+      frontendApi={frontendApi}
+      publishableKey={process.env.CLERK_PUBLISABLE_KEY}
+    >
       {({ authService }) => (
         <SaasProvider>
           <AuthProvider {...authService}>{children}</AuthProvider>

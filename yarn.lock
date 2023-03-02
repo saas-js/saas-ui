@@ -3768,10 +3768,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clerk/clerk-react@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "@clerk/clerk-react@npm:4.12.0"
+  dependencies:
+    "@clerk/shared": ^0.12.2
+    "@clerk/types": ^3.28.4
+    swr: 1.3.0
+    tslib: 2.4.1
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: d7a2ada53a2acfc18e8d00dcf1699770db37f25432c9d2c3573b44b8a4805330deab8bf9e016298732c6f3f95bb3c4136fcffd611a97bb8506a4e9d173502567
+  languageName: node
+  linkType: hard
+
+"@clerk/shared@npm:^0.12.2":
+  version: 0.12.2
+  resolution: "@clerk/shared@npm:0.12.2"
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: c37eb4e2fd7fcf64c52fb637009038e62b9b7bd8e9cbeceadf5469ee751dd5fc61396220ebcbb701688d1e5aa3e81dcf1b06d3bb8aaad725a6dc8bb785d08dfa
+  languageName: node
+  linkType: hard
+
 "@clerk/types@npm:^2.21.0":
   version: 2.21.0
   resolution: "@clerk/types@npm:2.21.0"
   checksum: 3fab948f8a06a070e160035e83c6c1e561f111680f4dfe33c9bcee140fcbee0a049e6577c199cb38318617b9b24cf623cb6b042fe34cc3688b34303efa63bd67
+  languageName: node
+  linkType: hard
+
+"@clerk/types@npm:^3.28.4":
+  version: 3.28.4
+  resolution: "@clerk/types@npm:3.28.4"
+  dependencies:
+    csstype: 3.1.1
+  checksum: 60bf80e9c5209206cde5e7c1f3ba579fe3b9ced3244e24994ccaff813c195768d2c689e19cabf775a376952369151c85e9563236cc39f9204efd96b882387133
   languageName: node
   linkType: hard
 
@@ -6804,13 +6838,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/clerk@workspace:packages/saas-ui-clerk"
   dependencies:
-    "@clerk/clerk-react": ^3.5.1
-    "@clerk/types": ^2.21.0
+    "@clerk/clerk-react": ^4.12.0
     "@saas-ui/auth": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.6"
     "@chakra-ui/system": ">=2.3.8"
-    "@clerk/clerk-react": ^2.12.0
+    "@clerk/clerk-react": ^4.12.0
     framer-motion: ">=5.5.0"
     react: ">=18.0.0"
   languageName: unknown
@@ -15599,6 +15632,13 @@ __metadata:
   dependencies:
     cssom: ~0.3.6
   checksum: 5f05e6fd2e3df0b44695c2f08b9ef38b011862b274e320665176467c0725e44a53e341bc4959a41176e83b66064ab786262e7380fd1cabeae6efee0d255bb4e3
+  languageName: node
+  linkType: hard
+
+"csstype@npm:3.1.1":
+  version: 3.1.1
+  resolution: "csstype@npm:3.1.1"
+  checksum: 1f7b4f5fdd955b7444b18ebdddf3f5c699159f13e9cf8ac9027ae4a60ae226aef9bbb14a6e12ca7dba3358b007cee6354b116e720262867c398de6c955ea451d
   languageName: node
   linkType: hard
 
@@ -30306,7 +30346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:^1.3.0":
+"swr@npm:1.3.0, swr@npm:^1.3.0":
   version: 1.3.0
   resolution: "swr@npm:1.3.0"
   peerDependencies:
@@ -30950,17 +30990,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:2.4.1, tslib@npm:^2, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0":
+  version: 2.4.1
+  resolution: "tslib@npm:2.4.1"
+  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.13.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0":
-  version: 2.4.1
-  resolution: "tslib@npm:2.4.1"
-  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
   languageName: node
   linkType: hard
 

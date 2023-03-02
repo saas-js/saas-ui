@@ -6,6 +6,9 @@ import { FormLayout, Field, SubmitButton } from '@saas-ui/forms'
 
 import { FormDialog } from '../src/form'
 
+import { yupForm } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
 export default {
   title: 'Components/Overlay/FormDialog',
   decorators: [
@@ -29,7 +32,7 @@ const onSubmit = ({ onClose }) => {
   }
 }
 
-export const basic = () => {
+export const Basic = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -60,7 +63,7 @@ export const basic = () => {
   )
 }
 
-export const focusFirstInput = () => {
+export const FocusFirstInput = () => {
   const disclosure = useDisclosure()
 
   const initialRef = React.useRef<HTMLInputElement>(null)
@@ -95,7 +98,7 @@ export const focusFirstInput = () => {
   )
 }
 
-export const customFooter = () => {
+export const CustomFooter = () => {
   const disclosure = useDisclosure()
 
   const initialRef = React.useRef<HTMLInputElement>(null)
@@ -133,6 +136,39 @@ export const customFooter = () => {
           <Field name="description" type="textarea" label="Description" />
         </FormLayout>
       </FormDialog>
+    </Stack>
+  )
+}
+
+const yupSchema = yup.object({
+  title: yup.string().required('Title is required'),
+})
+
+export const YupSchema = () => {
+  const disclosure = useDisclosure()
+
+  const initialRef = React.useRef<HTMLInputElement>(null)
+
+  return (
+    <Stack alignItems="center">
+      <Button
+        onClick={() => {
+          disclosure.onOpen()
+        }}
+      >
+        Open form dialog
+      </Button>
+
+      <FormDialog
+        title="New post"
+        {...disclosure}
+        defaultValues={{
+          title: '',
+        }}
+        onSubmit={onSubmit(disclosure)}
+        initialFocusRef={initialRef}
+        {...yupForm(yupSchema)}
+      />
     </Stack>
   )
 }

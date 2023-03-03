@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 type ResolverArgs = Parameters<typeof zodResolver>
 
-export interface CreateZodFormProps extends CreateFormProps {
+export interface CreateZodFormProps extends CreateFormProps<any> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }

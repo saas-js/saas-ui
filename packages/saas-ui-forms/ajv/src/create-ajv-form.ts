@@ -9,7 +9,7 @@ import { JSONSchemaType } from 'ajv'
 
 type ResolverArgs = Parameters<typeof ajvResolver>
 
-export interface CreateAjvFormProps extends CreateFormProps {
+export interface CreateAjvFormProps extends CreateFormProps<any> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }

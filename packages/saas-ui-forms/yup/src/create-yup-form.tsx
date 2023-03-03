@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import React from 'react'
 type ResolverArgs = Parameters<typeof yupResolver>
 
-export interface CreateYupFormProps extends CreateFormProps {
+export interface CreateYupFormProps extends CreateFormProps<any> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }

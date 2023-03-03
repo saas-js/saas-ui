@@ -1,5 +1,15 @@
 # @saas-ui/theme
 
+## 2.0.0-next.3
+
+### Major Changes
+
+- 83f54180: Secondary button now uses solid variant and gray colorScheme.
+
+### Minor Changes
+
+- 83f54180: Added new tertiary button variant.
+
 ## 2.0.0-next.2
 
 ### Minor Changes

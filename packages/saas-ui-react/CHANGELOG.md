@@ -1,5 +1,38 @@
 # @saas-ui/react
 
+## 2.0.0-next.4
+
+### Major Changes
+
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 83f54180: Secondary button now uses solid variant and gray colorScheme.
+- 83f54180: Renamed Loader to LoadingOverlay.
+
+### Minor Changes
+
+- 83f54180: Added new tertiary button variant.
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+
+### Patch Changes
+
+- ba61612f: Fixed useSnackbar return type, always returns toastId.
+- 83f54180: Fix NavItem focus outline color.
+- Updated dependencies [83f54180]
+- Updated dependencies [ba61612f]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [27a68bca]
+  - @saas-ui/core@2.0.0-next.4
+  - @saas-ui/theme@2.0.0-next.3
+  - @saas-ui/hooks@2.0.0-next.2
+  - @saas-ui/auth@2.0.0-next.4
+  - @saas-ui/data-table@2.0.0-next.4
+  - @saas-ui/forms@2.0.0-next.4
+  - @saas-ui/hotkeys@2.0.0-next.4
+  - @saas-ui/modals@2.0.0-next.4
+
 ## 2.0.0-next.3
 
 ### Patch Changes

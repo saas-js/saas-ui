@@ -1,5 +1,18 @@
 # palette
 
+## 1.3.7-next.0
+
+### Patch Changes
+
+- Updated dependencies [83f54180]
+- Updated dependencies [ba61612f]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [27a68bca]
+  - @saas-ui/react@2.0.0-next.4
+
 ## 1.3.6
 
 ### Patch Changes

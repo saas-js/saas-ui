@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.0.0-next.2
+
+### Minor Changes
+
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+
 ## 2.0.0-next.1
 
 ### Patch Changes

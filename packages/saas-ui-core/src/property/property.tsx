@@ -15,7 +15,7 @@ import {
   createStylesContext,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiProperty')
 
@@ -30,7 +30,11 @@ export interface PropertyProps
   extends PropertyOptions,
     HTMLChakraProps<'dl'>,
     ThemingProps<'SuiProperty'> {}
-
+/**
+ * The wrapper component that handles default composition.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
+ */
 export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
   const styles = useMultiStyleConfig('SuiProperty', props)
 
@@ -69,12 +73,14 @@ export const Property = forwardRef<PropertyProps, 'dl'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  Property.displayName = 'Property'
-}
+Property.displayName = 'Property'
 
 export interface PropertyLabelProps extends HTMLChakraProps<'dt'> {}
-
+/**
+ * The property label.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
+ */
 export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
   const styles = useStyles()
   const { children, ...rest } = props
@@ -104,12 +110,14 @@ export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  PropertyLabel.displayName = 'PropertyLabel'
-}
+PropertyLabel.displayName = 'PropertyLabel'
 
 export interface PropertyValueProps extends HTMLChakraProps<'dd'> {}
-
+/**
+ * The property value.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
+ */
 export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
   (props, ref) => {
     const styles = useStyles()
@@ -137,9 +145,7 @@ export const PropertyValue = forwardRef<PropertyValueProps, 'dd'>(
   }
 )
 
-if (__DEV__) {
-  PropertyValue.displayName = 'PropertyValue'
-}
+PropertyValue.displayName = 'PropertyValue'
 
 export interface PropertyListProps extends Omit<ListProps, 'items'> {}
 
@@ -147,6 +153,8 @@ export interface PropertyListProps extends Omit<ListProps, 'items'> {}
  * Render a list of properties.
  * Will set the `as` prop of it's children to `div`,
  * in order to render a semantically correct `dl` list.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/property
  */
 export const PropertyList: React.FC<PropertyListProps> = (props) => {
   const { children, ...rest } = props
@@ -167,6 +175,4 @@ export const PropertyList: React.FC<PropertyListProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  PropertyList.displayName = 'PropertyList'
-}
+PropertyList.displayName = 'PropertyList'

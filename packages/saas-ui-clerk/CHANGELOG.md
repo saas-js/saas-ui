@@ -1,18 +1,18 @@
 # @saas-ui/clerk
 
-## 2.0.0-next.3
+## 3.0.0-next.3
 
 ### Patch Changes
 
 - @saas-ui/auth@2.0.0-next.3
 
-## 2.0.0-next.2
+## 3.0.0-next.2
 
 ### Patch Changes
 
 - @saas-ui/auth@2.0.0-next.2
 
-## 2.0.0-next.1
+## 3.0.0-next.1
 
 ### Patch Changes
 
@@ -20,7 +20,7 @@
 - Updated dependencies [166978bd]
   - @saas-ui/auth@2.0.0-next.1
 
-## 2.0.0-next.0
+## 3.0.0-next.0
 
 ### Major Changes
 
@@ -34,6 +34,18 @@
 - Updated dependencies [f34de7af]
 - Updated dependencies [f1e99198]
   - @saas-ui/auth@2.0.0-next.0
+
+## 2.0.0
+
+### Major Changes
+
+- Update to Clerk 4.x
+
+## 1.3.4
+
+### Patch Changes
+
+- @saas-ui/auth@1.7.4
 
 ## 1.3.3
 

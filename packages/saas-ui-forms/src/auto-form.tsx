@@ -32,7 +32,11 @@ export interface AutoFormProps<
     AutoFormOptions {
   children?: React.ReactNode
 }
-
+/**
+ * The wrapper component that manages context and state.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/auto-form
+ */
 export const AutoForm = forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,

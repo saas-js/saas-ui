@@ -1,50 +1,11 @@
 # palette
 
-## 1.3.6-next.3
+## 1.3.6
 
 ### Patch Changes
 
-- @saas-ui/react@2.0.0-next.3
-
-## 1.3.6-next.2
-
-### Patch Changes
-
-- Updated dependencies [0a11d7b6]
-- Updated dependencies [76887bda]
-- Updated dependencies [76887bda]
-- Updated dependencies [76887bda]
-  - @saas-ui/react@2.0.0-next.2
-
-## 1.3.6-next.1
-
-### Patch Changes
-
-- Updated dependencies [166978bd]
-  - @saas-ui/palette@2.0.0-next.1
-  - @saas-ui/react@2.0.0-next.1
-  - @saas-ui/theme-glass@0.3.2-next.1
-
-## 1.3.6-next.0
-
-### Patch Changes
-
-- f1e99198: Migrated from microbundle to tsup for builds
-- Updated dependencies [772c9868]
-- Updated dependencies [d7c87a31]
-- Updated dependencies [e94ca3c0]
-- Updated dependencies [7ce390e9]
-- Updated dependencies [f1e99198]
-- Updated dependencies [8b82d945]
-- Updated dependencies [f1e99198]
-- Updated dependencies [8b82d945]
-- Updated dependencies [f34de7af]
-- Updated dependencies [3a15e8c8]
-- Updated dependencies [f1e99198]
-- Updated dependencies [f3b09191]
-  - @saas-ui/react@2.0.0-next.0
-  - @saas-ui/palette@2.0.0-next.0
-  - @saas-ui/theme-glass@0.3.2-next.0
+- Updated dependencies [382e095]
+  - @saas-ui/react@1.9.1
 
 ## 1.3.5
 

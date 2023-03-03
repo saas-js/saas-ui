@@ -86,6 +86,7 @@ const variantOutline: SystemStyleFunction = (props) => {
   const { base, hover, active } = getStateColors(props)
   return {
     borderColor: c === 'gray' ? hover : base,
+    borderWidth: '1px',
     color: base,
     ...variantGhost(props),
     _hover: {
@@ -193,10 +194,18 @@ const variantPrimary: SystemStyleFunction = (props) => {
 }
 
 const variantSecondary: SystemStyleFunction = (props) => {
+  return variantSolid({
+    ...props,
+    variant: 'solid',
+    colorScheme: 'gray',
+  })
+}
+
+const variantTertiary: SystemStyleFunction = (props) => {
   return variantOutline({
     ...props,
     variant: 'outline',
-    colorScheme: 'secondary',
+    colorScheme: 'gray',
   })
 }
 
@@ -213,5 +222,6 @@ export default {
     link: variantLink,
     primary: variantPrimary,
     secondary: variantSecondary,
+    tertiary: variantTertiary,
   },
 }

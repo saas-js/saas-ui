@@ -53,7 +53,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 const pro = `
 # Saas UI Pro License Agreement
 
-Last updated 12th of Februari, 2022
+Last updated 22th of Februari, 2023
 
 This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Appulse Holding B.V. ("APPULSE") for the use of Saas UI Pro (the "SOFTWARE").
 
@@ -65,7 +65,7 @@ By purchasing, installing, or using Saas UI Pro, you agree to be bound by the te
 You are granted a license to use the SOFTWARE as the basis of one commercial application, unlimited internal applications and one developer, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.
 
 ### Unlimited License
-You are granted a license to use the SOFTWARE as the basis of unlimited applications and unlimited developers, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.
+You are granted a license to use the SOFTWARE as the basis of unlimited applications and up to 20 developers, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.
 
 ## Restrictions
 Unless you have been granted prior, written consent from APPULSE, you may not:

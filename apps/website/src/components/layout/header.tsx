@@ -48,7 +48,7 @@ const Header = (props: HeaderProps) => {
         }}
       >
         <Box borderBottomWidth="1px" position="relative" zIndex="1">
-          <Container maxW="container.2xl" px="8" py="3">
+          <Container maxW="container.2xl" px={{ base: 4, sm: 8 }} py="3">
             <HStack width="full" align="center">
               <Logo
                 onClick={(e) => {

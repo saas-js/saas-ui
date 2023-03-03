@@ -1,10 +1,11 @@
-# @saas-ui/forms
+# Forms Manager
 
-Chakra UI Forms.
+Powerfull forms library for Chakra UI.
+Create typesafe React forms with speed.
 
-Create fully functional React forms with just a few lines of code.
+Supports Zod, Yup and AJV for validation and form generation.
 
-Uses React Hook Form under the hood.
+- [Docs](https://www.saas-ui.dev/docs/forms/form)
 
 ## Installation
 
@@ -16,9 +17,55 @@ $ yarn add @saas-ui/forms
 $ npm i @saas-ui/forms  --save
 ```
 
-## Docs
+## Usage with Zod
 
-https://www.saas-ui.dev/docs/forms/form
+### AutoForm
+
+Generate forms from schema.
+
+```tsx
+import { createZodForm } from '@saas-ui/forms/zod'
+
+const { AutoForm } = createZodForm()
+
+const schema = z.object({
+  name: z.string(),
+})
+
+function App() {
+  const onSubmit = (data: z.infer<typeof schema>) => {}
+  return <AutoForm schema={schema} onSubmit={onSubmit} />
+}
+```
+
+### Form
+
+Create custom typesafe forms.
+
+```tsx
+import { FormLayout, createZodForm } from '@saas-ui/forms/zod'
+
+const { Form, SubmitButton } = createZodForm()
+
+const schema = z.object({
+  name: z.string()
+})
+
+function App() {
+  const onSubmit = (data: z.infer<typeof schema>) => {}
+
+  return (
+    <Form schema={schema} onSubmit={onSubmit}>
+        {({ Field }) => (
+            <FormLayout>
+                <Field name="name" type="text" />
+                <SubmitButton>Save</SubmitButton>
+            </FormLayotu>
+        )}
+    </Form>
+  )
+}
+```
 
 ## Source
 

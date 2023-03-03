@@ -94,6 +94,16 @@
   - @saas-ui/nprogress@2.0.0-next.0
   - @saas-ui/theme@2.0.0-next.0
 
+## 1.9.1
+
+### Patch Changes
+
+- 382e095: InputRightButton no longer exported from forms package to prevent conflicts.
+- Updated dependencies [382e095]
+  - @saas-ui/forms@1.5.3
+  - @saas-ui/auth@1.7.4
+  - @saas-ui/modals@1.5.5
+
 ## 1.9.0
 
 ### Minor Changes

@@ -49,6 +49,13 @@
   - @saas-ui/core@2.0.0-next.0
   - @saas-ui/hooks@2.0.0-next.0
 
+## 1.7.4
+
+### Patch Changes
+
+- Updated dependencies [382e095]
+  - @saas-ui/forms@1.5.3
+
 ## 1.7.3
 
 ### Patch Changes

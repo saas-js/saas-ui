@@ -108,6 +108,11 @@ const defaults = {
   position: 'bottom',
 } as const
 
+/**
+ * The snackbar component is used to give feedback after certain actions.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/snackbar
+ */
 export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
   const toast = useToast(defaultOptions)
 
@@ -124,7 +129,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
   )
 
   return React.useMemo(() => {
-    const snackbar = (options: SnackbarOptions): ToastId | undefined => {
+    const snackbar = (options: SnackbarOptions): ToastId => {
       const opts = parseOptions(options)
       return toast({
         render: (props) => (

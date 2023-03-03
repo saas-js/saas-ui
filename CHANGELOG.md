@@ -55,6 +55,22 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 - Migrated from microbundle to tsup for builds
 
+## 02-16-2023
+
+**Date Picker** `v0.8.7`
+
+- Pass DateRangeInput props down to the internal Input.
+
+## 02-10-2023
+
+`@saas-ui/react@1.9.1`
+
+- InputRightButton no longer exported from forms package to prevent conflicts.
+
+**Forms** `v1.5.3`
+
+- InputRightButton no longer exported from forms package to prevent conflicts.
+
 ## 02-03-2023
 
 `@saas-ui/react@1.9.0`

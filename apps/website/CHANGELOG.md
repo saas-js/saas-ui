@@ -50,6 +50,13 @@
   - @saas-ui/command-bar@0.1.1-next.0
   - @saas-ui/palette@2.0.0-next.0
 
+## 1.3.5
+
+### Patch Changes
+
+- Updated dependencies [382e095]
+  - @saas-ui/react@1.9.1
+
 ## 1.3.4
 
 ### Patch Changes

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { __DEV__ } from '@chakra-ui/utils'
 import {
   useFormContext,
   useWatch,
@@ -17,7 +16,11 @@ export interface DisplayIfProps<
   isExact?: boolean
   condition?: (value: unknown, context: UseFormReturn<TFieldValues>) => boolean
 }
-
+/**
+ * Conditionally render parts of a form.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
 export const DisplayIf = <TFieldValues extends FieldValues = FieldValues>({
   children,
   name,
@@ -36,6 +39,4 @@ export const DisplayIf = <TFieldValues extends FieldValues = FieldValues>({
   return condition(value, context) ? children : null
 }
 
-if (__DEV__) {
-  DisplayIf.displayName = 'DisplayIf'
-}
+DisplayIf.displayName = 'DisplayIf'

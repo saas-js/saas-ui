@@ -10,7 +10,7 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 
-import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
+import { callAllHandlers, runIfFn, cx } from '@chakra-ui/utils'
 
 import {
   StepperProvider,
@@ -38,6 +38,11 @@ export interface StepFormProps<
   TContext extends object = object
 > extends UseStepFormProps<TFieldValues> {}
 
+/**
+ * The wrapper component provides context, state, and focus management.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const StepForm = React.forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,
@@ -89,6 +94,11 @@ export interface FormStepperProps
   extends StepperStepsProps,
     ThemingProps<'Stepper'> {}
 
+/**
+ * Renders a stepper that displays progress above the form.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const FormStepper: React.FC<FormStepperProps> = (props) => {
   const { activeIndex, setIndex } = useStepperContext()
 
@@ -139,7 +149,11 @@ export interface FormStepProps
     Omit<HTMLChakraProps<'div'>, 'onSubmit'> {
   onSubmit?: FormStepSubmitHandler
 }
-
+/**
+ * The form step containing fields for a specific step.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const FormStep: React.FC<FormStepProps> = (props) => {
   const { name, schema, resolver, children, className, onSubmit, ...rest } =
     props
@@ -154,10 +168,13 @@ export const FormStep: React.FC<FormStepProps> = (props) => {
   ) : null
 }
 
-if (__DEV__) {
-  FormStep.displayName = 'FormStep'
-}
+FormStep.displayName = 'FormStep'
 
+/**
+ * A button that this opens the previous step when clicked. Disabled on the first step.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const PrevButton: React.FC<ButtonProps> = (props) => {
   const { isFirstStep, isCompleted, prevStep } = useStepperContext()
 
@@ -172,15 +189,18 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  PrevButton.displayName = 'PrevButton'
-}
+PrevButton.displayName = 'PrevButton'
 
 export interface NextButtonProps extends Omit<ButtonProps, 'children'> {
   submitLabel?: string
   label?: string
 }
 
+/**
+ * A button that submits the active step.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const NextButton: React.FC<NextButtonProps> = (props) => {
   const { label = 'Next', submitLabel = 'Complete', ...rest } = props
   const { isLastStep, isCompleted } = useStepperContext()
@@ -196,6 +216,4 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  NextButton.displayName = 'NextButton'
-}
+NextButton.displayName = 'NextButton'

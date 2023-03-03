@@ -20,9 +20,11 @@ import {
   createStylesContext,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiEmptyState')
+
+export const useEmptyStateStyles = useStyles
 
 export interface EmptyStateProps
   extends Omit<EmptyStateContainerProps, 'title'> {
@@ -34,7 +36,11 @@ export interface EmptyStateProps
   children?: React.ReactNode
   spacing?: SystemProps['margin']
 }
-
+/**
+ * Display actionable feedback when no data is available.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/data-display/empty-state
+ */
 export const EmptyState: React.FC<EmptyStateProps> = (props) => {
   const {
     children,
@@ -66,9 +72,7 @@ export const EmptyState: React.FC<EmptyStateProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  EmptyState.displayName = 'EmptyState'
-}
+EmptyState.displayName = 'EmptyState'
 
 export interface EmptyStateContainerProps
   extends HTMLChakraProps<'div'>,
@@ -107,9 +111,7 @@ export const EmptyStateContainer: React.FC<EmptyStateContainerProps> = (
   )
 }
 
-if (__DEV__) {
-  EmptyStateContainer.displayName = 'EmptyStateContainer'
-}
+EmptyStateContainer.displayName = 'EmptyStateContainer'
 
 export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
   (props, ref) => {
@@ -132,9 +134,7 @@ export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
   }
 )
 
-if (__DEV__) {
-  EmptyStateIcon.displayName = 'EmptyStateIcon'
-}
+EmptyStateIcon.displayName = 'EmptyStateIcon'
 
 export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
   const styles = useStyles()
@@ -154,9 +154,7 @@ export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  EmptyStateTitle.displayName = 'EmptyStateTitle'
-}
+EmptyStateTitle.displayName = 'EmptyStateTitle'
 
 export const EmptyStateDescription: React.FC<TextProps> = (props) => {
   const styles = useStyles()
@@ -176,11 +174,9 @@ export const EmptyStateDescription: React.FC<TextProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  EmptyStateDescription.displayName = 'EmptyStateDescription'
-}
+EmptyStateDescription.displayName = 'EmptyStateDescription'
 
-interface EmptyStateBodyProps extends HTMLChakraProps<'div'> {
+export interface EmptyStateBodyProps extends HTMLChakraProps<'div'> {
   spacing?: SystemProps['margin']
 }
 
@@ -201,9 +197,7 @@ export const EmptyStateBody: React.FC<EmptyStateBodyProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  EmptyStateBody.displayName = 'EmptyStateBody'
-}
+EmptyStateBody.displayName = 'EmptyStateBody'
 
 export const EmptyStateActions: React.FC<ButtonGroupProps> = (props) => {
   const styles = useStyles()
@@ -216,9 +210,7 @@ export const EmptyStateActions: React.FC<ButtonGroupProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  EmptyStateActions.displayName = 'EmptyStateActions'
-}
+EmptyStateActions.displayName = 'EmptyStateActions'
 
 export const EmptyStateFooter: React.FC<HTMLChakraProps<'footer'>> = (
   props
@@ -233,6 +225,4 @@ export const EmptyStateFooter: React.FC<HTMLChakraProps<'footer'>> = (
   )
 }
 
-if (__DEV__) {
-  EmptyStateFooter.displayName = 'EmptyStateFooter'
-}
+EmptyStateFooter.displayName = 'EmptyStateFooter'

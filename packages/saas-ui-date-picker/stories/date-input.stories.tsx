@@ -24,7 +24,6 @@ import {
 import {
   Form,
   FormLayout,
-  InputRightButton,
   registerFieldType,
   SubmitButton,
 } from '@saas-ui/forms'
@@ -83,6 +82,15 @@ export const DateTimeNoTimezone = () => {
   )
 }
 
+export const DisableCloseOnSelect = () => {
+  return (
+    <Template
+      defaultValue={parseAbsoluteToLocal(new Date().toISOString())}
+      closeOnSelect={false}
+    />
+  )
+}
+
 const DateField = registerFieldType(
   'date',
   forwardRef((props, ref) => {
@@ -104,7 +112,7 @@ export const FormWithDateField = () => {
   return (
     <Form
       defaultValues={{
-        date: '',
+        date: null,
       }}
       onSubmit={(data) => console.log('onSubmit', data)}
     >

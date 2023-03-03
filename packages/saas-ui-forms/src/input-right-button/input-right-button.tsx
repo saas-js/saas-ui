@@ -7,8 +7,6 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 
-import { __DEV__ } from '@chakra-ui/utils'
-
 export type InputRightButtonProps = ButtonProps
 
 export const InputRightButton = forwardRef<InputRightButtonProps, 'div'>(

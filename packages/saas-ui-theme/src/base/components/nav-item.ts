@@ -37,6 +37,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
         textDecoration: 'none',
       },
       _focusVisible: {
+        outline: 'none',
         boxShadow: 'outline',
       },
     },

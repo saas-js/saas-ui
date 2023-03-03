@@ -39,6 +39,13 @@
   - @saas-ui/hooks@2.0.0-next.0
   - @saas-ui/react-utils@2.0.0-next.0
 
+## 1.5.5
+
+### Patch Changes
+
+- Updated dependencies [382e095]
+  - @saas-ui/forms@1.5.3
+
 ## 1.5.4
 
 ### Patch Changes

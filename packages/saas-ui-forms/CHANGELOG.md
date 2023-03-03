@@ -39,6 +39,12 @@
 - Updated dependencies [3a15e8c8]
   - @saas-ui/core@2.0.0-next.0
 
+## 1.5.3
+
+### Patch Changes
+
+- 382e095: InputRightButton no longer exported from forms package to prevent conflicts.
+
 ## 1.5.2
 
 ### Patch Changes

@@ -10,7 +10,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 import { AppShellProvider, useAppShell } from './app-shell-context'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiAppShell')
@@ -40,6 +40,11 @@ export interface AppShellProps
   children: React.ReactNode
 }
 
+/**
+ * The App Shell defines the main structure of your app.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/app-shell
+ */
 export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
   const styles = useMultiStyleConfig('SuiAppShell', props) as Record<
     string,

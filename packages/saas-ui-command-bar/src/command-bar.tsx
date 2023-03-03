@@ -21,7 +21,16 @@ import {
 import { cx, dataAttr } from '@chakra-ui/utils'
 import { useCommandBar, CommandBarOptions } from './command-bar-context'
 
-import { Command as CommandPrimitive } from 'cmdk'
+import {
+  CommandRoot,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandLoading,
+  CommandSeparator,
+} from 'cmdk'
 
 import styleConfig from './command-bar-styles'
 
@@ -48,22 +57,16 @@ function cmdkFactory<P extends object>(
   })
 }
 
-const StyledCommand = chakra(CommandPrimitive)
-const StyledInput = chakra(CommandPrimitive.Input)
-const StyledItem = chakra(CommandPrimitive.Item)
+const StyledCommand = chakra(CommandRoot)
+const StyledInput = chakra(CommandInput)
+const StyledItem = chakra(CommandItem)
 
-export const CommandBarList = cmdkFactory(CommandPrimitive.List, 'list')
-export const CommandBarLoading = cmdkFactory(
-  CommandPrimitive.Loading,
-  'loading'
-)
-export const CommandBarEmpty = cmdkFactory(CommandPrimitive.Empty, 'empty')
+export const CommandBarList = cmdkFactory(CommandList, 'list')
+export const CommandBarLoading = cmdkFactory(CommandLoading, 'loading')
+export const CommandBarEmpty = cmdkFactory(CommandEmpty, 'empty')
 
-export const CommandBarSeparator = cmdkFactory(
-  CommandPrimitive.Separator,
-  'separator'
-)
-export const CommandBarGroup = cmdkFactory(CommandPrimitive.Group, 'group')
+export const CommandBarSeparator = cmdkFactory(CommandSeparator, 'separator')
+export const CommandBarGroup = cmdkFactory(CommandGroup, 'group')
 
 export interface CommandBarProps
   extends CommandBarOptions,

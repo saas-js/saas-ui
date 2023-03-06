@@ -120,4 +120,4 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
   )
 }
 
-export const decorators = [withChakra]
+// export const decorators = [withChakra]

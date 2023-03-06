@@ -10,6 +10,7 @@ module.exports = {
     '@storybook/addon-toolbars',
     '@storybook/addon-storysource',
     '@storybook/addon-viewport',
+    '@saas-ui/storybook-addon',
   ],
   staticDirs: ['./static'],
   typescript: {

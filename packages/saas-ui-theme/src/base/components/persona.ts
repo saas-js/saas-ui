@@ -17,7 +17,10 @@ export const parts = anatomy('persona').parts(
 
 const baseStyleLabel: SystemStyleFunction = (props) => {
   return {
-    color: mode('gray.500', 'whiteAlpha.600')(props),
+    color: `gray.500`,
+    _dark: {
+      color: `whiteAlpha.600`,
+    },
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',

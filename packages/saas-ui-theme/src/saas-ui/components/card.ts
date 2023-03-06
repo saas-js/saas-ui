@@ -32,10 +32,11 @@ const variantShadow: PartsStyleFunction<typeof cardAnatomy> = (props) => {
   const { isHoverable } = props
   return {
     container: {
-      bg: mode('white', 'whiteAlpha.100')(props),
+      bg: `white`,
       boxShadow: 'sm',
       borderWidth: '1px',
-      borderColor: mode('blackAlpha.200', 'whiteAlpha.50')(props),
+      borderColor: `blackAlpha.200`,
+      _dark: { bg: `whiteAlpha.200`, borderColor: `whiteAlpha.50` },
       _hover: {
         borderColor:
           isHoverable && mode('blackAlpha.300', 'whiteAlpha.300')(props),

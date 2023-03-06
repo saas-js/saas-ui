@@ -147,15 +147,26 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     icon: {
-      bg: mode('blackAlpha.300', 'whiteAlpha.200')(props),
-      color: mode('blackAlpha.600', 'whiteAlpha.600')(props),
+      bg: `blackAlpha.300`,
+      color: 'blackAlpha.600',
+      _dark: {
+        bg: `whiteAlpha.200`,
+        color: `whiteAplha.600`,
+      },
       '[data-active] &': {
         bg: getBg(props),
-        color: mode(`${c}.500`, `${c}.200`)(props),
+
+        color: `${c}.500`,
+        _dark: {
+          color: `${c}.200`,
+        },
       },
       '[data-completed] &': {
         bg: getBg(props),
-        color: mode(`${c}.500`, `${c}.200`)(props),
+        color: `${c}.500`,
+        _dark: {
+          color: `${c}.200`,
+        },
       },
     },
   }
@@ -167,22 +178,37 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   return {
     icon: {
       bg: `gray.500`,
-      color: mode('white', 'gray.800')(props),
+      color: `white`,
+      _dark: {
+        color: `gray.800`,
+      },
       '[data-active] &': {
-        bg: mode(`${c}.500`, `${c}.200`)(props),
+        bg: `${c}.500`,
+        _dark: {
+          bg: `${c}.200`,
+        },
       },
       '[data-completed] &': {
-        bg: mode(`${c}.500`, `${c}.200`)(props),
+        bg: `${c}.500`,
+        _dark: {
+          bg: `${c}.200`,
+        },
       },
     },
     separator: {
       '&[data-active]': {
-        borderColor: mode(`${c}.500`, `${c}.200`)(props),
+        borderColor: `${c}.500`,
+        _dark: {
+          borderColor: `${c}.200`,
+        },
       },
     },
     step: {
       '&[data-active]:before, &[data-completed]:before': {
-        borderColor: mode(`${c}.500`, `${c}.200`)(props),
+        borderColor: `${c}.500`,
+        _dark: {
+          borderColor: `${c}.200`,
+        },
       },
     },
   }

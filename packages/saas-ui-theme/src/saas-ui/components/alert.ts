@@ -9,15 +9,32 @@ const variantSnackbar: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
 
   return {
-    container: { bg: mode('white', 'black')(props), borderWidth: '1px' },
+    container: {
+      bg: `white`,
+      _dark: {
+        bg: `black`,
+      },
+      borderWidth: '1px',
+    },
     icon: {
-      color: mode(`${c}.500`, `${c}.500`)(props),
+      color: `${c}.500`,
+      _dark: {
+        color: `${c}.500`,
+      },
       '& .chakra-spinner': {
-        color: mode('black', 'white')(props),
+        color: `black`,
+        _dark: {
+          color: `white`,
+        },
       },
     },
     title: { fontWeight: 'semibold' },
-    description: { color: mode('gray.500', 'gray.400')(props) },
+    description: {
+      color: `gray.500`,
+      _dark: {
+        color: `gray.400`,
+      },
+    },
   }
 }
 

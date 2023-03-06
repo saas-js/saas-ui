@@ -4,7 +4,10 @@ const baseStyle: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props
   return {
     bar: {
-      bg: mode(`${c}.500`, `${c}.500`)(props),
+      bg: `${c}.500`,
+      _dark: {
+        bg: `${c}.500`,
+      },
     },
   }
 }

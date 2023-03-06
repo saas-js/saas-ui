@@ -7,7 +7,10 @@ const styles: Styles = {
       TextRendering: 'optimizelegibility',
     },
     '*, *::before, &::after': {
-      borderColor: mode('gray.200', 'whiteAlpha.200')(props),
+      borderColor: `gray.200`,
+      _dark: {
+        borderColor: `whiteAlpha.200`,
+      },
       wordWrap: 'break-word',
     },
   }),

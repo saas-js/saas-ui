@@ -66,16 +66,19 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
 }
 
 const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
-  const hoverBg = mode('blackAlpha.100', 'whiteAlpha.200')(props)
-  const activeBg = mode('blackAlpha.200', 'whiteAlpha.300')(props)
-
   return {
     link: {
       _hover: {
-        bg: hoverBg,
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
       },
       _active: {
-        bg: activeBg,
+        bg: 'blackAlpha.200',
+        _dark: {
+          bg: `whiteAlpha.300`,
+        },
       },
     },
     icon: {
@@ -90,20 +93,22 @@ const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
 const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c, theme } = props
 
-  const activeBg = mode(
-    transparentize(`${c}.500`, 0.3)(theme),
-    transparentize(`${c}.500`, 0.3)(theme)
-  )(props)
-
   return {
     link: {
       _hover: {
-        bg: mode('blackAlpha.100', 'whiteAlpha.200')(props),
+        bg: `blackAlpha.100`,
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
       },
       _active: {
-        bg: activeBg,
+        bg: transparentize(`${c}.500`, 0.3)(theme),
         fontWeight: 'semibold',
-        color: mode(`${c}.600`, `${c}.100`)(props),
+        color: `${c}.600`,
+        _dark: {
+          bg: transparentize(`${c}.500`, 0.3)(theme),
+          color: `${c}.100`,
+        },
       },
     },
   }
@@ -112,16 +117,16 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
 const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
 
-  const activeBg = `${c}.500`
-  const hoverBg = mode('blackAlpha.100', 'whiteAlpha.200')(props)
-
   return {
     link: {
       _hover: {
-        bg: hoverBg,
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
       },
       _active: {
-        bg: activeBg,
+        bg: `${c}.500`,
       },
       color: 'white',
     },

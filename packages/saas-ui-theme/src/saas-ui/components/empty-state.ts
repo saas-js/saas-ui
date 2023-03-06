@@ -7,7 +7,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   return {
     icon: {
       boxSize: [10, null, 12],
-      color: mode(`${c}.500`, `${c}.500`)(props),
+      color: `${c}.500`,
+      _dark: {
+        color: `${c}.500`,
+      },
     },
   }
 }

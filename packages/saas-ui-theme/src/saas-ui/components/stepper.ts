@@ -1,4 +1,5 @@
 import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { getBinaryMetadata } from '@swc/core'
 
 import { parts } from '../../base/components/stepper'
 
@@ -6,7 +7,10 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     icon: {
-      bg: mode(`gray.500`, `gray.600`)(props),
+      bg: `gray.500`,
+      _dark: {
+        bg: `gray.600`,
+      },
       color: 'white',
       '[data-active] &': {
         bg: `${c}.500`,
@@ -32,7 +36,10 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     icon: {
-      bg: mode(`gray.500`, `gray.600`)(props),
+      bg: 'gray.500',
+      _dark: {
+        bg: `gray.600`,
+      },
       color: 'white',
       '[data-active] &': {
         bg: `${c}.500`,

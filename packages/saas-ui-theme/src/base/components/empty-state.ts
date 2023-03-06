@@ -1,4 +1,4 @@
-import { anatomy, mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
 const parts = anatomy('emptystate').parts(
   'container',
@@ -15,7 +15,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
   return {
     icon: {
       boxSize: [10, null, 12],
-      color: mode(`${c}.500`, `${c}.200`)(props),
+      color: `${c}.500`,
+      _dark: {
+        color: `${c}.200`
+      }
     },
     title: {
       mt: 8,

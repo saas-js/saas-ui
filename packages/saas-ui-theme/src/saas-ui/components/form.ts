@@ -25,9 +25,15 @@ const inputSizes = {
 const outlineVariant: PartsStyleFunction<typeof inputAnatomy> = (props) => {
   return {
     field: {
-      borderColor: mode('blackAlpha.300', 'whiteAlpha.300')(props),
+      borderColor: `blackAlpha.300`,
+      _dark: {
+        borderColor: `whiteAlpha.300`,
+      },
       _hover: {
-        borderColor: mode('blackAlpha.400', 'whiteAlpha.400')(props),
+        borderColor: `blackAlpha.400`,
+        _dark: {
+          borderColor: `whiteAlpha.400`,
+        },
       },
     },
   }

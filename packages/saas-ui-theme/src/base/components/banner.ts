@@ -45,18 +45,14 @@ const baseStyle: PartsStyleObject<typeof parts> = {
   },
 }
 
-function getBg(props: StyleFunctionProps): string {
-  const { theme, colorScheme: c } = props
-  const lightBg = getColor(theme, `${c}.100`, c)
-  const darkBg = transparentize(`${c}.200`, 0.16)(theme)
-  return mode(lightBg, darkBg)(props)
-}
-
 const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
+  const { theme, colorScheme: c } = props
   return {
-    container: { bg: getBg(props) },
-    icon: { color: mode(`${c}.500`, `${c}.200`)(props) },
+    container: {
+      bg: `${c}.100`,
+      _dark: { bg: transparentize(`${c}.200`, 0.16)(theme) },
+    },
+    icon: { color: `${c}.500`, _dark: { color: `${c}.200` } },
   }
 }
 

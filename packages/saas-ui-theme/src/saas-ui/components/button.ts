@@ -38,12 +38,20 @@ const variantSolid: SystemStyleFunction = (props) => {
       bg: 'white',
       color: 'black',
       _hover: {
-        bg: mode(`whiteAlpha.900`, `whiteAlpha.900`)(props),
+        bg: `whiteAlpha.900`,
+        _dark: {
+          bg: `whiteAlpha.900`,
+        },
         _disabled: {
           bg: 'white',
         },
       },
-      _active: { bg: mode(`whiteAlpha.800`, `whiteAlpha.800`)(props) },
+      _active: {
+        bg: `whiteAlpha.800`,
+        _dark: {
+          bg: `whiteAlpha.800`,
+        },
+      },
       _disabled: {
         color: 'blackAlpha.700',
       },
@@ -100,9 +108,16 @@ const variantGhost: SystemStyleFunction = (props) => {
 
   if (c === 'gray') {
     return {
-      color: mode(`inherit`, `whiteAlpha.900`)(props),
+      color: 'inherit',
+      _dark: {
+        color: 'whiteAlpha.900',
+      },
+
       _hover: {
-        bg: mode(`blackAlpha.100`, `whiteAlpha.200`)(props),
+        bg: `blackAlpha.100`,
+        _dark: {
+          bg: 'whiteAlpha.200',
+        },
       },
       _active: { bg: mode(`blackAlpha.200`, `whiteAlpha.300`)(props) },
     }
@@ -122,13 +137,22 @@ const variantGhost: SystemStyleFunction = (props) => {
   const darkActiveBg = transparentize(`${c}.200`, 0.24)(theme)
 
   return {
-    color: mode(`${c}.600`, `${c}.200`)(props),
+    color: `${c}.600`,
+    _dark: {
+      color: `${c}.200`,
+    },
     bg: 'transparent',
     _hover: {
-      bg: mode(`${c}.50`, darkHoverBg)(props),
+      bg: `${c}.50`,
+      _dark: {
+        bg: darkHoverBg,
+      },
     },
     _active: {
-      bg: mode(`${c}.100`, darkActiveBg)(props),
+      bg: `${c}.100`,
+      _dark: {
+        bg: darkActiveBg,
+      },
     },
   }
 }
@@ -138,12 +162,25 @@ const variantSubtle: SystemStyleFunction = (props) => {
 
   if (c === 'gray') {
     return {
-      color: mode(`inherit`, `whiteAlpha.900`)(props),
-      bg: mode(`blackAlpha.100`, `whiteAlpha.100`)(props),
-      _hover: {
-        bg: mode(`blackAlpha.200`, `whiteAlpha.200`)(props),
+      color: `inherit`,
+      bg: `${c}.blackAlpha100`,
+      _dark: {
+        bg: `whiteAlpha.100`,
+        color: `whiteAlpha.900`,
       },
-      _active: { bg: mode(`blackAlpha.300`, `whiteAlpha.300`)(props) },
+      _hover: {
+        bg: `blackAlpha.200`,
+        _dark: {
+          color: `white.200`,
+        },
+      },
+
+      _active: {
+        bg: `blackAlpha.300`,
+        _dark: {
+          bg: `whiteAlpha.300`,
+        },
+      },
     }
   }
 

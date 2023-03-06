@@ -2,7 +2,10 @@ import { mode, SystemStyleFunction } from '@chakra-ui/theme-tools'
 
 const variantSolid: SystemStyleFunction = (props) => {
   return {
-    bg: mode('blackAlpha.300', 'whiteAlpha.300')(props),
+    color: `blackAlpha.300`,
+    _dark: {
+      bg: `whiteAlpha.300`,
+    },
     borderWidth: 0,
     borderBottomWidth: 0,
     padding: '1px',

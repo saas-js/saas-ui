@@ -4,7 +4,7 @@ import { Badge, Center, Stack } from '@chakra-ui/react'
 
 import { FiHome } from 'react-icons/fi'
 
-import { Sidebar, NavItem, NavItemProps, Nav } from '.'
+import { Sidebar, NavItem, NavItemProps, Nav, NavItemLabel } from '.'
 
 export default {
   title: 'Components/Navigation/NavItem',
@@ -25,27 +25,27 @@ const Template: Story<NavItemProps> = (args) => <NavItem {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {
-  label: 'Link',
+  children: 'Link',
 }
 
 export const WithActiveState = Template.bind({})
 WithActiveState.args = {
-  label: 'Link',
+  children: 'Link',
   isActive: true,
 }
 
 export const WithIcon = Template.bind({})
 WithIcon.args = {
-  label: 'Link',
+  children: 'Link',
   icon: <FiHome />,
 }
 
 export const WithBadge = Template.bind({})
 WithBadge.args = {
-  label: 'Link',
   icon: <FiHome />,
   children: (
     <>
+      <NavItemLabel flex="1">Link</NavItemLabel>
       <Badge bg="none">10</Badge>
     </>
   ),
@@ -53,7 +53,7 @@ WithBadge.args = {
 
 export const VariantSubtle = Template.bind({})
 VariantSubtle.args = {
-  label: 'Link',
+  children: 'Link',
   icon: <FiHome />,
   variant: 'subtle',
   isActive: true,
@@ -61,7 +61,7 @@ VariantSubtle.args = {
 
 export const VariantSolid = Template.bind({})
 VariantSolid.args = {
-  label: 'Link',
+  children: 'Link',
   icon: <FiHome />,
   variant: 'solid',
   isActive: true,
@@ -71,28 +71,28 @@ export const Sizes = () => {
   return (
     <Stack>
       <Template
-        label="Link xs"
+        children="Link xs"
         size="xs"
         icon={<FiHome />}
         variant="solid"
         isActive
       />
       <Template
-        label="Link sm"
+        children="Link sm"
         size="sm"
         icon={<FiHome />}
         variant="solid"
         isActive
       />
       <Template
-        label="Link md"
+        children="Link md"
         size="md"
         icon={<FiHome />}
         variant="solid"
         isActive
       />
       <Template
-        label="Link lg"
+        children="Link lg"
         size="lg"
         icon={<FiHome />}
         variant="solid"

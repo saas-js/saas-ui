@@ -1,21 +1,12 @@
 import {
-  anatomy,
-  mode,
-  SystemStyleFunction,
-  PartsStyleFunction,
-  PartsStyleObject,
-} from '@chakra-ui/theme-tools'
+  createMultiStyleConfigHelpers,
+  defineStyle,
+} from '@chakra-ui/styled-system'
+import { personaAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(personaAnatomy.keys)
 
-export const parts = anatomy('persona').parts(
-  'container',
-  'details',
-  'avatar',
-  'label',
-  'secondaryLabel',
-  'tertiaryLabel'
-)
-
-const baseStyleLabel: SystemStyleFunction = (props) => {
+const baseStyleLabel = defineStyle((props) => {
   return {
     color: `gray.500`,
     _dark: {
@@ -25,42 +16,39 @@ const baseStyleLabel: SystemStyleFunction = (props) => {
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
   }
-}
+})
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   return {
-    container: {},
-    avatar: {},
-    label: {},
     secondaryLabel: baseStyleLabel(props),
     tertiaryLabel: baseStyleLabel(props),
   }
-}
+})
 
-const sizes: Record<string, PartsStyleObject<typeof parts>> = {
-  '2xs': {
+const sizes = {
+  '2xs': definePartsStyle({
     details: { ms: 2 },
     label: {
       fontSize: 'xs',
     },
     secondaryLabel: { display: 'none' },
     tertiaryLabel: { display: 'none' },
-  },
-  xs: {
+  }),
+  xs: definePartsStyle({
     details: { ms: 2 },
     label: {
       fontSize: 'md',
     },
     secondaryLabel: { display: 'none' },
     tertiaryLabel: { display: 'none' },
-  },
-  sm: {
+  }),
+  sm: definePartsStyle({
     details: { ms: 2 },
     label: { fontSize: 'md' },
     secondaryLabel: { fontSize: 'sm' },
     tertiaryLabel: { display: 'none' },
-  },
-  md: {
+  }),
+  md: definePartsStyle({
     details: { ms: 2 },
     label: {
       fontSize: 'md',
@@ -69,8 +57,8 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
       fontSize: 'sm',
     },
     tertiaryLabel: { display: 'none' },
-  },
-  lg: {
+  }),
+  lg: definePartsStyle({
     details: { ms: 3 },
     label: {
       fontSize: 'md',
@@ -81,8 +69,8 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
     tertiaryLabel: {
       fontSize: 'sm',
     },
-  },
-  xl: {
+  }),
+  xl: definePartsStyle({
     details: { ms: 3 },
     label: {
       fontSize: 'xl',
@@ -91,8 +79,8 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
       fontSize: 'md',
     },
     tertiaryLabel: { fontSize: 'md' },
-  },
-  '2xl': {
+  }),
+  '2xl': definePartsStyle({
     details: { ms: 4 },
     label: {
       fontSize: '2xl',
@@ -101,14 +89,13 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
       fontSize: 'lg',
     },
     tertiaryLabel: { fontSize: 'lg' },
-  },
+  }),
 }
 
-export default {
-  parts: parts.keys,
+export const personaTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'md',
   },
   baseStyle,
   sizes,
-}
+})

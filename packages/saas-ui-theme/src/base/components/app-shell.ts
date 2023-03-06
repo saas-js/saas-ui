@@ -1,15 +1,16 @@
-import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { appShellAnatomy } from '../../anatomy'
 
-const parts = anatomy('app-shell').parts('container', 'inner', 'main')
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(appShellAnatomy.keys)
 
-const baseStyle: PartsStyleFunction<typeof parts> = () => {
-  return {
-    container: {},
-  }
-}
+const baseStyle = definePartsStyle({
+  container: {},
+  inner: {},
+  main: {},
+})
 
-export default {
-  parts: parts.keys,
+export const appShellTheme = defineMultiStyleConfig({
   defaultProps: {
     variant: 'fullscreen',
   },
@@ -23,4 +24,4 @@ export default {
     },
   },
   baseStyle,
-}
+})

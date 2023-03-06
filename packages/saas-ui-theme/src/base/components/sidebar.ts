@@ -1,32 +1,28 @@
-import { anatomy, mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { sidebarAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(sidebarAnatomy.keys)
 
-const parts = anatomy('sidebar').parts(
-  'container',
-  'overlay',
-  'section',
-  'toggleWrapper',
-  'toggle'
-)
-
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   const { colorScheme: c } = props
-
-  const bg = c ? `${c}.500` : mode('white', 'gray.800')(props)
 
   return {
     container: {
-      bg,
+      bg: c ? `${c}.500` : 'white',
       display: 'flex',
       flexDirection: 'column',
       borderRightWidth: '1px',
+      _dark: {
+        bg: c ? `${c}.500` : 'gray.800',
+      },
     },
     overlay: {
       bg: 'blackAlpha.200',
     },
   }
-}
+})
 
-const variantDefault: PartsStyleFunction<typeof parts> = (props) => {
+const variantDefault = definePartsStyle((props) => {
   return {
     container: {
       width: '280px',
@@ -49,9 +45,9 @@ const variantDefault: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
-const variantCondensed: PartsStyleFunction<typeof parts> = (props) => {
+const variantCondensed = definePartsStyle((props) => {
   return {
     container: {
       width: '14',
@@ -64,10 +60,9 @@ const variantCondensed: PartsStyleFunction<typeof parts> = (props) => {
       display: 'none',
     },
   }
-}
+})
 
-export default {
-  parts: parts.keys,
+export const sidebarTheme = defineMultiStyleConfig({
   defaultProps: {
     variant: 'default',
   },
@@ -76,4 +71,4 @@ export default {
     default: variantDefault,
     compact: variantCondensed,
   },
-}
+})

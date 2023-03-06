@@ -1,21 +1,11 @@
-import { anatomy, getColor, mode, transparentize } from '@chakra-ui/theme-tools'
-import type {
-  PartsStyleObject,
-  PartsStyleFunction,
-  StyleFunctionProps,
-} from '@chakra-ui/theme-tools'
+import { transparentize } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { bannerAnatomy } from '../../anatomy'
 
-const parts = anatomy('banner').parts(
-  'container',
-  'icon',
-  'content',
-  'title',
-  'description',
-  'actions',
-  'close'
-)
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(bannerAnatomy.keys)
 
-const baseStyle: PartsStyleObject<typeof parts> = {
+const baseStyle = definePartsStyle({
   container: {
     px: 4,
     py: 3,
@@ -43,9 +33,9 @@ const baseStyle: PartsStyleObject<typeof parts> = {
     w: 5,
     h: 6,
   },
-}
+})
 
-const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
+const variantSubtle = definePartsStyle((props) => {
   const { theme, colorScheme: c } = props
   return {
     container: {
@@ -54,9 +44,9 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
     },
     icon: { color: `${c}.500`, _dark: { color: `${c}.200` } },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
+const variantSolid = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     container: {
@@ -64,21 +54,16 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
       color: 'white',
     },
   }
-}
+})
 
-const variants = {
-  subtle: variantSubtle,
-  solid: variantSolid,
-}
-
-const defaultProps = {
-  variant: 'subtle',
-  colorScheme: 'blue',
-}
-
-export default {
-  parts: parts.keys,
+export const bannerTheme = defineMultiStyleConfig({
   baseStyle,
-  variants,
-  defaultProps,
-}
+  variants: {
+    subtle: variantSubtle,
+    solid: variantSolid,
+  },
+  defaultProps: {
+    variant: 'subtle',
+    colorScheme: 'blue',
+  },
+})

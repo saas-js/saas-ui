@@ -1,15 +1,9 @@
-import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { structuredListAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(structuredListAnatomy.keys)
 
-const parts = anatomy('structured-list').parts(
-  'list',
-  'item',
-  'button',
-  'header',
-  'cell',
-  'icon'
-)
-
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   return {
     button: {
       transitionProperty: 'common',
@@ -38,10 +32,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
-export default {
-  baseStyle: baseStyle,
+export const structuredListTheme = defineMultiStyleConfig({
+  baseStyle,
   sizes: {
     compact: {
       item: {
@@ -52,4 +46,4 @@ export default {
       },
     },
   },
-}
+})

@@ -1,8 +1,8 @@
 import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 
-import { emptyStateParts as parts } from '../../base/components/empty-state'
+import { emptyStateAnatomy } from '../../anatomy'
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle: PartsStyleFunction<typeof emptyStateAnatomy> = (props) => {
   const { colorScheme: c } = props
   return {
     icon: {
@@ -16,6 +16,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
 }
 
 export default {
-  parts: parts.keys,
+  parts: emptyStateAnatomy.keys,
   baseStyle,
 }

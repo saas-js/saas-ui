@@ -121,25 +121,28 @@ export function useStep(props: UseStepProps) {
 /**
  * Returns props for a Prev Button
  */
-export function usePrev({ label = 'Back' } = {}) {
+export function useStepperPrevButton({ label = 'Back' } = {}) {
   const { isFirstStep, prevStep } = useStepperContext()
 
   return {
     isDisabled: isFirstStep,
     onClick: prevStep,
-    label,
+    children: label,
   }
 }
 
 /**
  * Returns props for a Next Button
  */
-export function useNext({ label = 'Next', submitLabel = 'Submit' } = {}) {
+export function useStepperNextButton({
+  label = 'Next',
+  submitLabel = 'Submit',
+} = {}) {
   const { isLastStep, isCompleted, nextStep } = useStepperContext()
 
   return {
     isDisabled: isCompleted,
     onClick: nextStep,
-    label: isLastStep ? submitLabel : label,
+    children: isLastStep ? submitLabel : label,
   }
 }

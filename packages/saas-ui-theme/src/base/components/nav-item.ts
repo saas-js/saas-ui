@@ -1,20 +1,12 @@
-import {
-  anatomy,
-  mode,
-  transparentize,
-  PartsStyleFunction,
-} from '@chakra-ui/theme-tools'
+import { transparentize } from '@chakra-ui/theme-tools'
 import { theme as baseTheme } from '@chakra-ui/react'
 
-const parts = anatomy('nav-item').parts(
-  'item',
-  'link',
-  'inner',
-  'icon',
-  'label'
-)
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navItemAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(navItemAnatomy.keys)
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   return {
     item: {
       my: '2px',
@@ -61,11 +53,12 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       justifyContent: 'center',
       width: '4',
       ml: '-0.25rem',
+      color: 'currentColor',
     },
   }
-}
+})
 
-const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
+const variantNeutral = definePartsStyle((props) => {
   return {
     link: {
       _hover: {
@@ -88,9 +81,9 @@ const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
-const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
+const variantSubtle = definePartsStyle((props) => {
   const { colorScheme: c, theme } = props
 
   return {
@@ -112,9 +105,9 @@ const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
+const variantSolid = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
   return {
@@ -135,10 +128,9 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
     },
     label: {},
   }
-}
+})
 
-export default {
-  parts: parts.keys,
+export const navItemTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'sm',
     colorScheme: 'primary',
@@ -180,4 +172,4 @@ export default {
     subtle: variantSubtle,
     solid: variantSolid,
   },
-}
+})

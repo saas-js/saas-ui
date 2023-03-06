@@ -1,24 +1,19 @@
-import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 
-const parts = anatomy('emptystate').parts(
-  'container',
-  'body',
-  'icon',
-  'title',
-  'descripton',
-  'actions',
-  'footer'
-)
+import { emptyStateAnatomy } from '../../anatomy'
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(emptyStateAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     icon: {
       boxSize: [10, null, 12],
       color: `${c}.500`,
       _dark: {
-        color: `${c}.200`
-      }
+        color: `${c}.200`,
+      },
     },
     title: {
       mt: 8,
@@ -27,9 +22,9 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       mt: 8,
     },
   }
-}
+})
 
-const variantCentered: PartsStyleFunction<typeof parts> = (props) => {
+const variantCentered = definePartsStyle((props) => {
   return {
     body: {
       display: 'flex',
@@ -38,14 +33,11 @@ const variantCentered: PartsStyleFunction<typeof parts> = (props) => {
       alignItems: 'center',
     },
   }
-}
+})
 
-export const emptyStateParts = parts
-
-export default {
-  parts: parts.keys,
+export const emptyStateTheme = defineMultiStyleConfig({
   baseStyle,
   variants: {
     centered: variantCentered,
   },
-}
+})

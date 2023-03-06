@@ -65,9 +65,10 @@ function App() {
 ```jsx live=false
 // _app.tsx
 function App({ Component, pageProps }) {
+  const router = useRouter()
   return (
     <Layout>
-      <NProgressNextRouter />
+      <NProgressNextRouter router={router} />
 
       <Component {...pageProps} />
     </Layout>

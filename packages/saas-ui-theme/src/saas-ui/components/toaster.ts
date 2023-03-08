@@ -1,6 +1,6 @@
-import { mode, SystemStyleFunction } from '@chakra-ui/theme-tools'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system'
 
-const baseStyle: SystemStyleFunction = (props) => {
+const baseStyle = defineStyle((props) => {
   return {
     bg: `whiteAlpha.800`,
     boxShadow: 'sm',
@@ -11,8 +11,8 @@ const baseStyle: SystemStyleFunction = (props) => {
       borderColor: `gray.700`,
     },
   }
-}
+})
 
-export default {
+export const toasterTheme = defineStyleConfig({
   baseStyle,
-}
+})

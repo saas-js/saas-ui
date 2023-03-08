@@ -1,9 +1,9 @@
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
-import { getBinaryMetadata } from '@swc/core'
+import {
+  defineMultiStyleConfig,
+  definePartsStyle,
+} from '../../base/components/stepper'
 
-import { parts } from '../../base/components/stepper'
-
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
+const variantSolid = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     icon: {
@@ -30,9 +30,9 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
-const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
+const variantOutline = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     icon: {
@@ -63,20 +63,18 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
 const variants = {
   solid: variantSolid,
   outline: variantOutline,
 }
 
-const defaultProps = {
-  variant: 'outline',
-  colorScheme: 'primary',
-  size: 'md',
-}
-
-export default {
-  defaultProps,
+export const stepperTheme = defineMultiStyleConfig({
+  defaultProps: {
+    variant: 'outline',
+    colorScheme: 'primary',
+    size: 'md',
+  },
   variants,
-}
+})

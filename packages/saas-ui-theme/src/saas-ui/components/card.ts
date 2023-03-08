@@ -1,7 +1,11 @@
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { mode } from '@chakra-ui/theme-tools'
 import { cardAnatomy } from '@chakra-ui/anatomy'
 
-const baseStyle: PartsStyleFunction<typeof cardAnatomy> = () => {
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(cardAnatomy.keys)
+
+const baseStyle = definePartsStyle(() => {
   return {
     container: {
       rounded: 'lg',
@@ -11,14 +15,6 @@ const baseStyle: PartsStyleFunction<typeof cardAnatomy> = () => {
     header: {
       p: 4,
     },
-    title: {
-      fontSize: 'lg',
-      fontWeight: 'semibold',
-    },
-    subtitle: {
-      color: 'muted',
-      fontSize: 'md',
-    },
     body: {
       p: 4,
     },
@@ -26,27 +22,28 @@ const baseStyle: PartsStyleFunction<typeof cardAnatomy> = () => {
       p: 4,
     },
   }
-}
+})
 
-const variantShadow: PartsStyleFunction<typeof cardAnatomy> = (props) => {
-  const { isHoverable } = props
+const variantElevated = definePartsStyle((props) => {
   return {
     container: {
-      bg: `white`,
+      bg: 'white',
       boxShadow: 'sm',
       borderWidth: '1px',
-      borderColor: `blackAlpha.200`,
-      _dark: { bg: `whiteAlpha.200`, borderColor: `whiteAlpha.50` },
-      _hover: {
-        borderColor:
-          isHoverable && mode('blackAlpha.300', 'whiteAlpha.300')(props),
+      borderColor: 'blackAlpha.200',
+      _dark: { bg: 'whiteAlpha.200', borderColor: 'whiteAlpha.50' },
+      '&.chakra-linkbox:hover': {
+        borderColor: 'blackAlpha.300',
+        _dark: {
+          borderColor: 'whiteAlpha.300',
+        },
       },
     },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction<typeof cardAnatomy> = (props) => {
-  const { colorScheme: c, isHoverable } = props
+const variantFilled = definePartsStyle((props) => {
+  const { colorScheme: c } = props
 
   const bg = c
     ? mode(`${c}.500`, `${c}.500`)(props)
@@ -63,15 +60,15 @@ const variantSolid: PartsStyleFunction<typeof cardAnatomy> = (props) => {
       boxShadow: 'none',
       bg,
       color,
-      _hover: {
-        bg: isHoverable && hoverBg,
+      '&.chakra-linkbox:hover': {
+        bg: hoverBg,
       },
     },
   }
-}
+})
 
-const variantOutline: PartsStyleFunction<typeof cardAnatomy> = (props) => {
-  const { colorScheme: c, isHoverable } = props
+const variantOutline = definePartsStyle((props) => {
+  const { colorScheme: c } = props
 
   const borderColor = c
     ? mode(`${c}.500`, `${c}.500`)(props)
@@ -87,22 +84,21 @@ const variantOutline: PartsStyleFunction<typeof cardAnatomy> = (props) => {
       boxShadow: 'none',
       borderWidth: '1px',
       borderColor: borderColor,
-      _hover: {
-        borderColor: isHoverable && hoverColor,
+      '&.chakra-linkbox:hover': {
+        borderColor: hoverColor,
       },
     },
   }
-}
+})
 
-export default {
-  parts: cardAnatomy,
+export const cardTheme = defineMultiStyleConfig({
   defaultProps: {
-    variant: 'shadow',
+    variant: 'elevated',
   },
   baseStyle,
   variants: {
-    shadow: variantShadow,
+    elevated: variantElevated,
     outline: variantOutline,
-    solid: variantSolid,
+    filled: variantFilled,
   },
-}
+})

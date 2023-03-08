@@ -1,16 +1,19 @@
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 import { inputAnatomy } from '@chakra-ui/anatomy'
 
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(inputAnatomy.keys)
+
 const inputSizes = {
-  sm: {
+  sm: definePartsStyle({
     field: {
       borderRadius: 'md',
     },
     addon: {
       borderRadius: 'md',
     },
-  },
-  md: {
+  }),
+  md: definePartsStyle({
     field: {
       px: 3,
       h: 9,
@@ -19,10 +22,10 @@ const inputSizes = {
       px: 3,
       h: 9,
     },
-  },
+  }),
 }
 
-const outlineVariant: PartsStyleFunction<typeof inputAnatomy> = (props) => {
+const outlineVariant = definePartsStyle((props) => {
   return {
     field: {
       borderColor: `blackAlpha.300`,
@@ -37,30 +40,30 @@ const outlineVariant: PartsStyleFunction<typeof inputAnatomy> = (props) => {
       },
     },
   }
-}
+})
 
-const Input = {
+const Input = defineMultiStyleConfig({
   defaultProps: {
+    /* @ts-expect-error */
     focusBorderColor: 'primary.500',
   },
   variants: {
     outline: outlineVariant,
   },
   sizes: inputSizes,
-}
+})
 
-export default {
-  FormLabel: {
-    variants: {
-      horizontal: {
-        mb: 0,
-        marginStart: '0.5rem',
-      },
+export const formLabelTheme = {
+  variants: {
+    horizontal: {
+      mb: 0,
+      marginStart: '0.5rem',
     },
   },
-  Input,
-  NumberInput: Input,
-  PinInput: Input,
-  Textarea: Input,
-  Select: Input,
 }
+
+export const inputTheme = Input
+export const numberInputTheme = Input
+export const pinInputTheme = Input
+export const textareaTheme = Input
+export const selectTheme = Input

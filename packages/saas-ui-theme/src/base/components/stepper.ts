@@ -1,7 +1,8 @@
 import { orient, transparentize } from '@chakra-ui/theme-tools'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 import { stepperAnatomy } from '../../anatomy'
-const { definePartsStyle, defineMultiStyleConfig } =
+
+export const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(stepperAnatomy.keys)
 
 const baseStyle = definePartsStyle((props) => {

@@ -1,6 +1,9 @@
-import { mode, SystemStyleFunction } from '@chakra-ui/theme-tools'
+import {
+  defineMultiStyleConfig,
+  definePartsStyle,
+} from '../../base/components/nprogress'
 
-const baseStyle: SystemStyleFunction = (props) => {
+const baseStyle = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     bar: {
@@ -10,11 +13,11 @@ const baseStyle: SystemStyleFunction = (props) => {
       },
     },
   }
-}
+})
 
-export default {
+export const nprogressTheme = defineMultiStyleConfig({
   defaultProps: {
     colorScheme: 'primary',
   },
   baseStyle,
-}
+})

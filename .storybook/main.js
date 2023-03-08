@@ -56,8 +56,17 @@ module.exports = {
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
+          '@chakra-ui/react': toPath('node_modules/@chakra-ui/react'),
           '@emotion/core': toPath('node_modules/@emotion/react'),
-          'emotion-theming': toPath('node_modules/@emotion/react'),
+          '@emotion-theming': toPath('node_modules/@emotion/react'),
+          '@saas-ui/react': path.resolve(
+            __dirname,
+            '../packages/saas-ui-react'
+          ),
+          '@saas-ui/theme': path.resolve(
+            __dirname,
+            '../packages/saas-ui-theme'
+          ),
         },
       },
       plugins: config.plugins.concat([

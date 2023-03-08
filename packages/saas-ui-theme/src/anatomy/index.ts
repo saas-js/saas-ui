@@ -96,3 +96,9 @@ export const structuredListAnatomy = anatomy('structured-list').parts(
   'cell',
   'icon'
 )
+
+export const propertyAnatomy = anatomy('property').parts(
+  'property',
+  'label',
+  'value'
+)

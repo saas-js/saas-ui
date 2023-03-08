@@ -141,7 +141,7 @@ export const navItemTheme = defineMultiStyleConfig({
     xs: {
       link: baseTheme.components.Button.sizes?.xs,
       icon: {
-        me: 2,
+        me: 1,
         fontSize: 'xs',
       },
     },
@@ -162,7 +162,7 @@ export const navItemTheme = defineMultiStyleConfig({
     lg: {
       link: baseTheme.components.Button.sizes?.lg,
       icon: {
-        me: 2,
+        me: 3,
         fontSize: 'lg',
       },
     },

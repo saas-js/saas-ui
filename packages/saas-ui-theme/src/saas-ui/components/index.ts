@@ -1,73 +1,87 @@
 // Chakra UI Components
-import Alert from './alert'
-import Button from './button'
-import Card from './card'
-import Checkbox from './checkbox'
-import CloseButton from './close-button'
-import Form from './form'
-import Heading from './heading'
-import Kbd from './kbd'
-import Link from './link'
-import Menu from './menu'
-import Modal from './modal'
-import Progress from './progress'
-import Toaster from './toaster'
-import Text from './text'
-import Radio from './radio'
-import Slider from './slider'
-import Switch from './switch'
-import Tooltip from './tooltip'
+import { alertTheme } from './alert'
+import { buttonTheme } from './button'
+import { cardTheme } from './card'
+import { checkboxTheme } from './checkbox'
+import { closeButtonTheme } from './close-button'
+import {
+  inputTheme,
+  pinInputTheme,
+  formLabelTheme,
+  numberInputTheme,
+  selectTheme,
+  textareaTheme,
+} from './form'
+import { headingTheme } from './heading'
+import { kbdTheme } from './kbd'
+import { menuTheme } from './menu'
+import { modalTheme } from './modal'
+import { progressTheme } from './progress'
+import { toasterTheme } from './toaster'
+import { radioTheme } from './radio'
+import { sliderTheme } from './slider'
+import { switchTheme } from './switch'
+import { tooltipTheme } from './tooltip'
 
-export { default as Alert } from './alert'
-export { default as Button } from './button'
-export { default as Card } from './card'
-export { default as Checkbox } from './checkbox'
-export { default as CloseButton } from './close-button'
-export { default as Heading } from './heading'
-export { default as Kbd } from './kbd'
-export { default as Link } from './link'
-export { default as Menu } from './menu'
-export { default as Modal } from './modal'
-export { default as Progress } from './progress'
-export { default as Toaster } from './toaster'
-export { default as Text } from './text'
-export { default as Radio } from './radio'
-export { default as Slider } from './slider'
-export { default as Switch } from './switch'
-export { default as Tooltip } from './tooltip'
+export { alertTheme as Alert } from './alert'
+export { buttonTheme as Button } from './button'
+export { cardTheme as Card } from './card'
+export { checkboxTheme as Checkbox } from './checkbox'
+export { closeButtonTheme as CloseButton } from './close-button'
+export {
+  inputTheme as Input,
+  pinInputTheme as PinInput,
+  formLabelTheme as FormLabel,
+  numberInputTheme as NumberInput,
+  selectTheme as Select,
+  textareaTheme as Textarea,
+} from './form'
+export { headingTheme as Heading } from './heading'
+export { kbdTheme as Kbd } from './kbd'
+export { menuTheme as Menu } from './menu'
+export { modalTheme as Modal } from './modal'
+export { progressTheme as Progress } from './progress'
+export { toasterTheme as Toaster } from './toaster'
+export { radioTheme as Radio } from './radio'
+export { sliderTheme as Slider } from './slider'
+export { switchTheme as Switch } from './switch'
+export { tooltipTheme as Tooltip } from './tooltip'
 
 // SaaS UI Components
-import SuiEmptyState from './empty-state'
-import SuiNProgress from './nprogress'
-import SuiProperty from './property'
-import SuiStepper from './stepper'
+import { emptyStateTheme } from './empty-state'
+import { nprogressTheme } from './nprogress'
+import { propertyTheme } from './property'
+import { stepperTheme } from './stepper'
 
-export { default as SuiEmptyState } from './empty-state'
-export { default as SuiNProgress } from './nprogress'
-export { default as SuiProperty } from './property'
-export { default as SuiStepper } from './stepper'
+export { emptyStateTheme as SuiEmptyState } from './empty-state'
+export { nprogressTheme as SuiNProgress } from './nprogress'
+export { propertyTheme as SuiProperty } from './property'
+export { stepperTheme as SuiStepper } from './stepper'
 
-export default {
-  Alert,
-  Button,
-  Card,
-  Checkbox,
-  CloseButton,
-  Heading,
-  Kbd,
-  Link,
-  Menu,
-  Modal,
-  Progress,
-  Toaster,
-  Text,
-  Radio,
-  Slider,
-  Switch,
-  Tooltip,
-  ...Form,
-  SuiEmptyState,
-  SuiNProgress,
-  SuiProperty,
-  SuiStepper,
+export const components = {
+  Alert: alertTheme,
+  Button: buttonTheme,
+  Card: cardTheme,
+  Checkbox: checkboxTheme,
+  CloseButton: closeButtonTheme,
+  Heading: headingTheme,
+  Kbd: kbdTheme,
+  Menu: menuTheme,
+  Modal: modalTheme,
+  Progress: progressTheme,
+  Toaster: toasterTheme,
+  Radio: radioTheme,
+  Slider: sliderTheme,
+  Switch: switchTheme,
+  Tooltip: tooltipTheme,
+  Input: inputTheme,
+  PinInput: pinInputTheme,
+  FormLabel: formLabelTheme,
+  NumberInput: numberInputTheme,
+  Select: selectTheme,
+  Textarea: textareaTheme,
+  SuiEmptyState: emptyStateTheme,
+  SuiNProgress: nprogressTheme,
+  SuiProperty: propertyTheme,
+  SuiStepper: stepperTheme,
 }

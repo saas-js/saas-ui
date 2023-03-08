@@ -1,7 +1,11 @@
-import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { switchAnatomy } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 
-export default {
-  baseStyle: (props: StyleFunctionProps) => {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(switchAnatomy.keys)
+
+export const switchTheme = defineMultiStyleConfig({
+  baseStyle: definePartsStyle((props) => {
     const { colorScheme } = props
     return {
       track: {
@@ -10,5 +14,5 @@ export default {
         },
       },
     }
-  },
-}
+  }),
+})

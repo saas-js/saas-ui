@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Badge, Center, Stack } from '@chakra-ui/react'
+import { Badge, Box, Center, Container, HStack, Stack } from '@chakra-ui/react'
 
 import { FiHome } from 'react-icons/fi'
 
@@ -10,13 +10,13 @@ export default {
   title: 'Components/Navigation/NavItem',
   decorators: [
     (Story: any) => (
-      <Center height="100%">
-        <Sidebar border="0">
-          <Nav>
+      <Container maxW="container.sm" height="100%">
+        <Center height="100%">
+          <Box minWidth="240px">
             <Story />
-          </Nav>
-        </Sidebar>
-      </Center>
+          </Box>
+        </Center>
+      </Container>
     ),
   ],
 } as Meta
@@ -25,19 +25,7 @@ const Template: Story<NavItemProps> = (args) => <NavItem {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {
-  children: 'Link',
-}
-
-export const WithActiveState = Template.bind({})
-WithActiveState.args = {
-  children: 'Link',
-  isActive: true,
-}
-
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-  children: 'Link',
-  icon: <FiHome />,
+  children: 'Nav item',
 }
 
 export const WithBadge = Template.bind({})
@@ -45,59 +33,100 @@ WithBadge.args = {
   icon: <FiHome />,
   children: (
     <>
-      <NavItemLabel flex="1">Link</NavItemLabel>
+      <NavItemLabel flex="1">Nav item</NavItemLabel>
       <Badge bg="none">10</Badge>
     </>
   ),
 }
 
-export const VariantSubtle = Template.bind({})
-VariantSubtle.args = {
-  children: 'Link',
-  icon: <FiHome />,
-  variant: 'subtle',
-  isActive: true,
-}
-
-export const VariantSolid = Template.bind({})
-VariantSolid.args = {
-  children: 'Link',
-  icon: <FiHome />,
-  variant: 'solid',
-  isActive: true,
+export const Variants = () => {
+  return (
+    <Stack spacing="16" w="full">
+      <Stack flex="1">
+        <Template children="Neutral" icon={<FiHome />} variant="neutral" />
+        <Template
+          children="Neutral"
+          icon={<FiHome />}
+          isActive
+          variant="neutral"
+        />
+      </Stack>
+      <Stack flex="1">
+        <Template children="Solid" icon={<FiHome />} variant="solid" />
+        <Template children="Solid" icon={<FiHome />} isActive variant="solid" />
+      </Stack>
+      <Stack flex="1">
+        <Template children="Subtle" icon={<FiHome />} variant="subtle" />
+        <Template
+          children="Subtle"
+          icon={<FiHome />}
+          isActive
+          variant="subtle"
+        />
+      </Stack>
+    </Stack>
+  )
 }
 
 export const Sizes = () => {
   return (
-    <Stack>
-      <Template
-        children="Link xs"
-        size="xs"
-        icon={<FiHome />}
-        variant="solid"
-        isActive
-      />
-      <Template
-        children="Link sm"
-        size="sm"
-        icon={<FiHome />}
-        variant="solid"
-        isActive
-      />
-      <Template
-        children="Link md"
-        size="md"
-        icon={<FiHome />}
-        variant="solid"
-        isActive
-      />
-      <Template
-        children="Link lg"
-        size="lg"
-        icon={<FiHome />}
-        variant="solid"
-        isActive
-      />
-    </Stack>
+    <HStack spacing="16" w="full">
+      <Stack flex="1">
+        <Template
+          children="Link xs"
+          size="xs"
+          icon={<FiHome />}
+          variant="solid"
+        />
+        <Template
+          children="Link sm"
+          size="sm"
+          icon={<FiHome />}
+          variant="solid"
+        />
+        <Template
+          children="Link md"
+          size="md"
+          icon={<FiHome />}
+          variant="solid"
+        />
+        <Template
+          children="Link lg"
+          size="lg"
+          icon={<FiHome />}
+          variant="solid"
+        />
+      </Stack>
+      <Stack flex="1">
+        <Template
+          children="Link xs"
+          size="xs"
+          icon={<FiHome />}
+          variant="solid"
+          isActive
+        />
+        <Template
+          children="Link sm"
+          size="sm"
+          icon={<FiHome />}
+          variant="solid"
+          isActive
+        />
+        <Template
+          children="Link md"
+          size="md"
+          icon={<FiHome />}
+          variant="solid"
+          isActive
+        />
+        <Template
+          children="Link lg"
+          size="lg"
+          icon={<FiHome />}
+          variant="solid"
+          isActive
+        />
+      </Stack>
+    </HStack>
   )
 }

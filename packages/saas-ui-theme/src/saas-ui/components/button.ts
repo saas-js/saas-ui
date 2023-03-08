@@ -1,10 +1,32 @@
-import {
-  mode,
-  SystemStyleFunction,
-  transparentize,
-} from '@chakra-ui/theme-tools'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system'
+import { mode, transparentize } from '@chakra-ui/theme-tools'
 
-import { getStateColors } from '../utils'
+type Dict = Record<string, any>
+
+export const getStateColors = (props: Dict) => {
+  const { colorScheme: c } = props
+  if (c === 'gray') {
+    return {
+      base: mode('gray.100', 'whiteAlpha.300')(props),
+      hover: mode('gray.200', 'whiteAlpha.400')(props),
+      active: mode('gray.300', 'whiteAlpha.500')(props),
+    }
+  }
+
+  if (c === 'white') {
+    return {
+      base: 'whiteAlpha.900',
+      hover: 'whiteAlpha.700',
+      active: 'whiteAlpha.500',
+    }
+  }
+
+  return {
+    base: mode(`${c}.500`, `${c}.500`)(props),
+    hover: mode(`${c}.600`, `${c}.600`)(props),
+    active: mode(`${c}.700`, `${c}.700`)(props),
+  }
+}
 
 type AccessibleColor = {
   bg?: string
@@ -30,7 +52,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
   },
 }
 
-const variantSolid: SystemStyleFunction = (props) => {
+const variantSolid = defineStyle((props) => {
   const { colorScheme: c } = props
 
   if (c === 'white') {
@@ -68,8 +90,12 @@ const variantSolid: SystemStyleFunction = (props) => {
   } = accessibleColorMap[c] ?? {}
 
   return {
-    bg: bg,
+    bg,
     color,
+    _dark: {
+      bg,
+      color,
+    },
     _hover: {
       bg: hoverBg,
       _disabled: {
@@ -80,30 +106,30 @@ const variantSolid: SystemStyleFunction = (props) => {
       bg: activeBg,
     },
   }
-}
+})
 
-const variantElevated: SystemStyleFunction = (props) => {
+const variantElevated = defineStyle((props) => {
   return {
     shadow: 'md',
     ...variantSolid(props),
   }
-}
+})
 
-const variantOutline: SystemStyleFunction = (props) => {
+const variantOutline = defineStyle((props) => {
   const { colorScheme: c } = props
   const { base, hover, active } = getStateColors(props)
   return {
+    ...variantGhost(props),
     borderColor: c === 'gray' ? hover : base,
     borderWidth: '1px',
     color: base,
-    ...variantGhost(props),
     _hover: {
       borderColor: c === 'gray' ? active : hover,
     },
   }
-}
+})
 
-const variantGhost: SystemStyleFunction = (props) => {
+const variantGhost = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   if (c === 'gray') {
@@ -112,14 +138,18 @@ const variantGhost: SystemStyleFunction = (props) => {
       _dark: {
         color: 'whiteAlpha.900',
       },
-
       _hover: {
         bg: `blackAlpha.100`,
         _dark: {
           bg: 'whiteAlpha.200',
         },
       },
-      _active: { bg: mode(`blackAlpha.200`, `whiteAlpha.300`)(props) },
+      _active: {
+        bg: 'blackAlpha.200',
+        _dark: {
+          bg: 'whiteAlpha.300',
+        },
+      },
     }
   }
 
@@ -155,9 +185,9 @@ const variantGhost: SystemStyleFunction = (props) => {
       },
     },
   }
-}
+})
 
-const variantSubtle: SystemStyleFunction = (props) => {
+const variantSubtle = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   if (c === 'gray') {
@@ -174,7 +204,6 @@ const variantSubtle: SystemStyleFunction = (props) => {
           color: `white.200`,
         },
       },
-
       _active: {
         bg: `blackAlpha.300`,
         _dark: {
@@ -199,9 +228,9 @@ const variantSubtle: SystemStyleFunction = (props) => {
       bg: activeBg,
     },
   }
-}
+})
 
-const variantLink: SystemStyleFunction = (props) => {
+const variantLink = defineStyle((props) => {
   const { colorScheme: c } = props
   return {
     padding: 0,
@@ -220,33 +249,33 @@ const variantLink: SystemStyleFunction = (props) => {
         c === 'white' ? 'whiteAlpha.800' : mode(`${c}.700`, `${c}.500`)(props),
     },
   }
-}
+})
 
-const variantPrimary: SystemStyleFunction = (props) => {
+const variantPrimary = defineStyle((props) => {
   return variantSolid({
     ...props,
     variant: 'solid',
     colorScheme: 'primary',
   })
-}
+})
 
-const variantSecondary: SystemStyleFunction = (props) => {
+const variantSecondary = defineStyle((props) => {
   return variantSolid({
     ...props,
     variant: 'solid',
     colorScheme: 'gray',
   })
-}
+})
 
-const variantTertiary: SystemStyleFunction = (props) => {
+const variantTertiary = defineStyle((props) => {
   return variantOutline({
     ...props,
     variant: 'outline',
     colorScheme: 'gray',
   })
-}
+})
 
-export default {
+export const buttonTheme = defineStyleConfig({
   defaultProps: {
     size: 'sm',
   },
@@ -261,4 +290,4 @@ export default {
     secondary: variantSecondary,
     tertiary: variantTertiary,
   },
-}
+})

@@ -1,16 +1,19 @@
-import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { checkboxAnatomy } from '@chakra-ui/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(checkboxAnatomy.keys)
 
-export default {
-  baseStyle: (props: StyleFunctionProps) => {
-    const { colorScheme } = props
-    return {
-      control: {
-        _checked: {
-          borderColor: `${colorScheme}.500`,
-          bg: `${colorScheme}.500`,
-          color: 'white',
-        },
+const baseStyle = definePartsStyle((props) => {
+  const { colorScheme } = props
+  return {
+    control: {
+      _checked: {
+        borderColor: `${colorScheme}.500`,
+        bg: `${colorScheme}.500`,
+        color: 'white',
       },
-    }
-  },
-}
+    },
+  }
+})
+
+export const checkboxTheme = defineMultiStyleConfig({ baseStyle })

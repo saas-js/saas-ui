@@ -1,7 +1,7 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 import { nprogressAnatomy } from '../../anatomy'
 
-const { definePartsStyle, defineMultiStyleConfig } =
+export const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(nprogressAnatomy.keys)
 
 const baseStyle = definePartsStyle((props) => {

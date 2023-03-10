@@ -174,129 +174,159 @@ WithHeader.args = {
   ),
 }
 
-// export const Nested = () => {
-//   const { isOpen, onToggle } = useDisclosure()
+export const Nested = () => {
+  const { isOpen, onToggle } = useDisclosure()
 
-//   return (
-//     <Box width="100%" maxW="320px">
-//       <Box as="nav">
-//         <StructuredList>
-//           <StructuredListItem as="a" href="#home">
-//             <StructuredListItemIcon as={FiHome} />
-//             <StructuredListItemLabel>Home</StructuredListItemLabel>
-//           </StructuredListItem>
-//           <StructuredListItem onClick={onToggle}>
-//             <StructuredListItemIcon as={FiInbox} />
-//             <StructuredListItemLabel>Inbox</StructuredListItemLabel>
-//             <StructuredListItemTertiary>
-//               <Badge borderRadius="full">20</Badge>
-//               {isOpen ? <FiChevronDown /> : <FiChevronRight />}
-//             </StructuredListItemTertiary>
-//           </StructuredListItem>
-//           <Collapse in={isOpen}>
-//             <StructuredList>
-//               <StructuredListItem as="a" href="#inbox/all">
-//                 <StructuredListItemLabel ps="12">
-//                   All messages
-//                 </StructuredListItemLabel>
-//               </StructuredListItem>
-//               <StructuredListItem as="a" href="#inbox/me">
-//                 <StructuredListItemLabel ps="12">
-//                   My messages
-//                 </StructuredListItemLabel>
-//               </StructuredListItem>
-//             </StructuredList>
-//           </Collapse>
-//         </StructuredList>
-//       </Box>
-//     </Box>
-//   )
-// }
+  return (
+    <Card width="100%" maxW="320px">
+      <Box as="nav">
+        <StructuredList>
+          <StructuredListItem as="a" href="#home">
+            <StructuredListIcon as={FiHome} />
+            <StructuredListCell flex="1" px="3" py="2">
+              Home
+            </StructuredListCell>
+          </StructuredListItem>
+          <StructuredListItem onClick={onToggle}>
+            <StructuredListIcon as={FiInbox} />
+            <StructuredListCell flex="1" px="3" py="2">
+              Inbox
+            </StructuredListCell>
+            <StructuredListCell px="3">
+              <Badge borderRadius="full">20</Badge>
+            </StructuredListCell>
+            <StructuredListCell>
+              {isOpen ? <FiChevronDown /> : <FiChevronRight />}
+            </StructuredListCell>
+          </StructuredListItem>
+          <Collapse in={isOpen}>
+            <StructuredList>
+              <StructuredListItem as="a" href="#inbox/all">
+                <StructuredListCell ps="12" py="2">
+                  All messages
+                </StructuredListCell>
+              </StructuredListItem>
+              <StructuredListItem as="a" href="#inbox/me">
+                <StructuredListCell ps="12" py="2">
+                  My messages
+                </StructuredListCell>
+              </StructuredListItem>
+            </StructuredList>
+          </Collapse>
+        </StructuredList>
+      </Box>
+    </Card>
+  )
+}
 
-// export const CustomStyles = () => {
-//   const { isOpen, getToggleProps, getCollapseProps } = useCollapse()
+export const CustomStyles = () => {
+  const { isOpen, getToggleProps, getCollapseProps } = useCollapse()
 
-//   const theme = useTheme()
+  const theme = useTheme()
 
-//   const bg = useColorModeValue('teal.200', 'teal.500')
+  const bg = useColorModeValue('teal.200', 'teal.500')
 
-//   return (
-//     <Box width="100%" maxW="320px">
-//       <Box as="nav" p="2" role="navigation" aria-label="Main navigation">
-//         <StructuredList p="0">
-//           <StructuredListItem p="2px">
-//             <StructuredListItemButton
-//               py="1"
-//               px="4"
-//               borderRadius="md"
-//               color={useColorModeValue('teal.500', 'teal.300')}
-//               bg={transparentize(bg, 0.3)(theme)}
-//               _hover={{ bg: transparentize(bg, 0.3)(theme) }}
-//             >
-//               <StructuredListItemIcon size="16px" as={FiHome} />
-//               <StructuredListItemLabel fontWeight="bold">
-//                 Home
-//               </StructuredListItemLabel>
-//             </StructuredListItemButton>
-//           </StructuredListItem>
-//           <StructuredListItem p="2px">
-//             <StructuredListItemButton py="1" px="4" borderRadius="md">
-//               <StructuredListItemIcon size="16px" as={FiInbox} />
-//               <StructuredListItemLabel>Inbox</StructuredListItemLabel>
-//               <StructuredListItemTertiary>
-//                 <Badge borderRadius="full">20</Badge>
-//               </StructuredListItemTertiary>
-//             </StructuredListItemButton>
-//           </StructuredListItem>
-//         </StructuredList>
-//       </Box>
-//       <Box as="nav" p="2" role="navigation" aria-label="Teams navigation">
-//         <StructuredList p="0">
-//           <StructuredListItem>
-//             <StructuredListHeader
-//               as={StructuredListItemButton}
-//               borderRadius="md"
-//               py="1"
-//               action={isOpen ? <FiChevronDown /> : <FiChevronRight />}
-//               {...getToggleProps()}
-//               level={1}
-//             >
-//               Teams
-//             </StructuredListHeader>
-//           </StructuredListItem>
-//           <StructuredListItem>
-//             <StructuredList flex="1" p="0">
-//               <Collapse {...getCollapseProps()}>
-//                 <StructuredListItem p="2px">
-//                   <StructuredListItemButton
-//                     py="1"
-//                     px="4"
-//                     borderRadius="md"
-//                     as="a"
-//                     href="#sales"
-//                   >
-//                     <StructuredListItemLabel>Sales</StructuredListItemLabel>
-//                   </StructuredListItemButton>
-//                 </StructuredListItem>
-//                 <StructuredListItem p="2px">
-//                   <StructuredListItemButton
-//                     py="1"
-//                     px="4"
-//                     borderRadius="md"
-//                     as="a"
-//                     href="#support"
-//                   >
-//                     <StructuredListItemLabel>Support</StructuredListItemLabel>
-//                   </StructuredListItemButton>
-//                 </StructuredListItem>
-//               </Collapse>
-//             </StructuredList>
-//           </StructuredListItem>
-//         </StructuredList>
-//       </Box>
-//     </Box>
-//   )
-// }
+  return (
+    <Card width="100%" maxW="320px">
+      <Box as="nav" p="2" role="navigation" aria-label="Main navigation">
+        <StructuredList p="0">
+          <StructuredListItem p="2px">
+            <StructuredListButton
+              py="1"
+              px="4"
+              borderRadius="md"
+              color={useColorModeValue('teal.500', 'teal.300')}
+              bg={transparentize(bg, 0.3)(theme)}
+              _hover={{ bg: transparentize(bg, 0.3)(theme) }}
+            >
+              <StructuredListIcon size="16px" as={FiHome} />
+              <StructuredListCell fontWeight="bold" flex="1" px="3" py="2">
+                Home
+              </StructuredListCell>
+            </StructuredListButton>
+          </StructuredListItem>
+          <StructuredListItem p="2px">
+            <StructuredListButton py="1" px="4" borderRadius="md">
+              <StructuredListIcon size="16px" as={FiInbox} />
+              <StructuredListCell flex="1" px="3" py="2">
+                Inbox
+              </StructuredListCell>
+              <StructuredListCell>
+                <Badge borderRadius="full">20</Badge>
+              </StructuredListCell>
+            </StructuredListButton>
+          </StructuredListItem>
+        </StructuredList>
+      </Box>
+      <Box as="nav" role="navigation" aria-label="Teams navigation">
+        <StructuredList p="0">
+          <StructuredListItem py="1" px="2">
+            <StructuredListHeader
+              as={StructuredListButton}
+              borderRadius="md"
+              py="1"
+              action={isOpen ? <FiChevronDown /> : <FiChevronRight />}
+              {...getToggleProps()}
+              level={1}
+            >
+              Teams
+            </StructuredListHeader>
+          </StructuredListItem>
+          <StructuredListItem px="2">
+            <StructuredList flex="1" p="0">
+              <Collapse {...getCollapseProps()}>
+                <StructuredListItem py="2px" px="0">
+                  <StructuredListButton
+                    py="2"
+                    px="3"
+                    borderRadius="md"
+                    as="a"
+                    href="#sales"
+                  >
+                    <StructuredListCell>Sales</StructuredListCell>
+                  </StructuredListButton>
+                </StructuredListItem>
+                <StructuredListItem py="2px" px="0">
+                  <StructuredListButton
+                    py="2"
+                    px="3"
+                    borderRadius="md"
+                    as="a"
+                    href="#support"
+                  >
+                    <StructuredListCell>Support</StructuredListCell>
+                  </StructuredListButton>
+                </StructuredListItem>
+              </Collapse>
+            </StructuredList>
+          </StructuredListItem>
+        </StructuredList>
+      </Box>
+    </Card>
+  )
+}
+
+export function WithCheckbox() {
+  return (
+    <Card width="320px">
+      <StructuredList>
+        {['Release V2', 'Learn Saas UI'].map((todo) => {
+          const [checked, setChecked] = React.useState(false)
+          return (
+            <StructuredListItem key={todo} onClick={() => setChecked(!checked)}>
+              <StructuredListCell width="10" display="flex" alignItems="center">
+                <Checkbox isChecked={checked} />
+              </StructuredListCell>
+              <StructuredListCell flex="1">
+                <Text fontWeight="medium">{todo}</Text>
+              </StructuredListCell>
+            </StructuredListItem>
+          )
+        })}
+      </StructuredList>
+    </Card>
+  )
+}
 
 export const WithSwitch = () => {
   return (
@@ -304,14 +334,14 @@ export const WithSwitch = () => {
       <StructuredList>
         <StructuredListHeader>Notifications</StructuredListHeader>
         <StructuredListItem>
-          <StructuredListIcon as={FiMail} size="4" />
+          <StructuredListIcon width="8" as={FiMail} size="4" />
           <StructuredListCell flex="1">Email</StructuredListCell>
           <StructuredListCell>
             <Switch aria-label="Email" />
           </StructuredListCell>
         </StructuredListItem>
         <StructuredListItem>
-          <StructuredListIcon as={FiMessageSquare} size="4" />
+          <StructuredListIcon width="8" as={FiMessageSquare} size="4" />
           <StructuredListCell flex="1">Chat</StructuredListCell>
           <StructuredListCell>
             <Switch aria-label="Chat" />

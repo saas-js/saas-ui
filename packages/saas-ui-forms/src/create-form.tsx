@@ -1,59 +1,81 @@
 import React from 'react'
-import { NumberInputField, SelectField } from '@chakra-ui/react'
 import {
-  CheckboxField,
-  FieldProps,
-  InputField,
-  NativeSelectField,
-  PasswordInputField,
-  PinField,
-  RadioField,
-  SwitchField,
-  TextareaField,
+  defaultFieldTypes,
+  FieldProps as DefaultFieldProps,
+  FieldsProvider,
 } from './field'
-import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { FieldTypeProps } from './types'
+import {
+  Form,
+  FieldValues,
+  FormProps,
+  GetResolver,
+  FormRenderContext,
+} from './form'
 
-const defaultFieldTypes = {
-  text: InputField,
-  email: InputField,
-  url: InputField,
-  phone: InputField,
-  number: NumberInputField,
-  password: PasswordInputField,
-  textarea: TextareaField,
-  switch: SwitchField,
-  checkbox: CheckboxField,
-  radio: RadioField,
-  pin: PinField,
-  select: SelectField,
-  'native-select': NativeSelectField,
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { ShallowMerge, ValueOf } from './types'
+
+type DefaultFields = {
+  [K in keyof typeof defaultFieldTypes]: typeof defaultFieldTypes[K]
 }
 
-export interface CreateFormProps<TCustomFields> {
+export type FieldProps<
+  FieldDefs,
+  TFieldValues extends FieldValues = FieldValues
+> = ValueOf<{
+  [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
+    ? { type?: K } & ShallowMerge<Props, DefaultFieldProps<TFieldValues>>
+    : never
+}>
+
+export type FormChildren<
+  FieldDefs,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> = MaybeRenderProp<
+  FormRenderContext<
+    TFieldValues,
+    TContext,
+    FieldProps<
+      FieldDefs extends never
+        ? DefaultFields
+        : ShallowMerge<DefaultFields, FieldDefs>,
+      TFieldValues
+    >
+  >
+>
+
+export type WithFields<
+  TFormProps extends FormProps<any, any, any, any>,
+  FieldDefs
+> = TFormProps extends FormProps<infer TFieldValues, infer TContext>
+  ? Omit<TFormProps, 'children'> & {
+      children: FormChildren<FieldDefs, TFieldValues, TContext>
+    }
+  : never
+
+export interface CreateFormProps<FieldDefs> {
   resolver?: GetResolver
-  fields?: TCustomFields
+  fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
 }
 
-export function createForm<
-  Schema = any,
-  TCustomFields extends Record<string, React.FC<FieldProps>> = any
->({ resolver, fields }: CreateFormProps<TCustomFields>) {
-  const fieldTypes = { ...defaultFieldTypes, ...fields }
-
+export function createForm<FieldDefs, Schema = any>({
+  resolver,
+  fields,
+}: CreateFormProps<FieldDefs> = {}) {
   const CreateForm = <
     TFieldValues extends FieldValues,
     TContext extends object = object,
-    TSchema extends Schema = Schema,
-    TFieldTypes extends FieldProps<TFieldValues> = FieldTypeProps<
-      TFieldValues,
-      typeof fieldTypes
-    >
+    TSchema extends Schema = Schema
   >(
-    props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes>
+    props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs>
   ) => {
     const { schema, ...rest } = props
-    return <Form resolver={resolver?.(props.schema)} {...rest} />
+    return (
+      <FieldsProvider value={fields || {}}>
+        <Form resolver={resolver?.(props.schema)} {...rest} />
+      </FieldsProvider>
+    )
   }
 
   return CreateForm

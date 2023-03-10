@@ -24,6 +24,7 @@ import {
   FormProps,
   createForm,
   UseFormReturn,
+  createField,
 } from '../src'
 
 import { onSubmit } from './helpers'
@@ -98,7 +99,36 @@ export const WithValidationRules = (props: FormProps) => (
   </>
 )
 
-const ZodForm = createZodForm()
+const CustomField = createField((props: { customFieldProps: string }) => (
+  <div>custom</div>
+))
+
+const TypedForm = createForm({
+  fields: { custom: CustomField },
+})
+
+export const BasicTyped = () => (
+  <TypedForm
+    defaultValues={{
+      title: 'Form',
+      description: 'A basic layout',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="title" label="Title" type="text" />
+        <Field name="description" label="Description" type="textarea" />
+
+        <SubmitButton />
+      </FormLayout>
+    )}
+  </TypedForm>
+)
+
+const ZodForm = createZodForm({
+  fields: { custom: CustomField },
+})
 
 const zodSchema = z.object({
   firstName: z.string(),
@@ -116,7 +146,7 @@ export const WithZodForm = () => (
     {({ Field }) => (
       <FormLayout>
         <Field name="firstName" label="Name" />
-        <Field name="age" label="Age" />
+        <Field name="age" label="Age" type="number" />
       </FormLayout>
     )}
   </ZodForm>

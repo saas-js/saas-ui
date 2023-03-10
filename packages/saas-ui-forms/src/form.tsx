@@ -22,7 +22,7 @@ export type { UseFormReturn, FieldValues, SubmitHandler }
 
 import { Field as DefaultField, FieldProps } from './field'
 
-interface FormRenderContext<
+export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TFieldTypes extends FieldProps<TFieldValues> = any

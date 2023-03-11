@@ -1,16 +1,24 @@
-import { createForm, CreateFormProps, FormProps } from '@saas-ui/forms'
+import {
+  createForm,
+  CreateFormProps,
+  WithFields,
+  FormProps,
+} from '@saas-ui/forms'
 import { zodResolver } from './zod-resolver'
 import { z } from 'zod'
 
 type ResolverArgs = Parameters<typeof zodResolver>
 
-export interface CreateZodFormProps extends CreateFormProps {
+export interface CreateZodFormProps<FieldDefs>
+  extends CreateFormProps<FieldDefs> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }
 
-export const createZodForm = (options?: CreateZodFormProps) => {
-  return createForm<z.AnyZodObject>({
+export const createZodForm = <FieldDefs>(
+  options?: CreateZodFormProps<FieldDefs>
+) => {
+  return createForm({
     resolver: (schema) =>
       zodResolver(schema, options?.schemaOptions, options?.resolverOptions),
     ...options,
@@ -18,6 +26,6 @@ export const createZodForm = (options?: CreateZodFormProps) => {
     TSchema extends z.AnyZodObject = z.AnyZodObject,
     TContext extends object = object
   >(
-    props: FormProps<z.infer<TSchema>, TContext, TSchema>
+    props: WithFields<FormProps<z.infer<TSchema>, TContext, TSchema>, FieldDefs>
   ) => React.ReactElement
 }

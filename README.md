@@ -27,13 +27,13 @@ This repository contains all [open source components](/packages), aswell as the 
 
 ## Links
 
-💡  [Documentation](https://saas-ui.dev/docs/introduction)
+💡 [Documentation](https://saas-ui.dev/docs/introduction)
 
-🧭  [Roadmap](https://roadmap.saas-ui.dev)
+🧭 [Roadmap](https://roadmap.saas-ui.dev)
 
-🖼  [Storybooks](https://storybook.saas-ui.pro)
+🖼 [Storybooks](https://storybook.saas-ui.pro)
 
-🌟  [Saas UI Pro](https://saas-ui.dev/#pro-features)
+🌟 [Saas UI Pro](https://saas-ui.dev/#pro-features)
 
 ## Contributing & Support
 
@@ -44,7 +44,7 @@ If you like to support the project financially you can [Sponsor](https://github.
 ### Core
 
 40+ essential open source components built on top of Chakra UI.
-Everything you need to build 
+Everything you need to build
 
 - Authentication screens
 - Powerfull forms manager

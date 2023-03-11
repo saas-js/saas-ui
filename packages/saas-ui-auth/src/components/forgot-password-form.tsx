@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { __DEV__ } from '@chakra-ui/utils'
-
 import {
   Form,
   FormLayout,
@@ -96,6 +94,4 @@ ForgotPasswordForm.defaultProps = {
   emailLabel: 'Your email address',
 }
 
-if (__DEV__) {
-  ForgotPasswordForm.displayName = 'ForgotPasswordForm'
-}
+ForgotPasswordForm.displayName = 'ForgotPasswordForm'

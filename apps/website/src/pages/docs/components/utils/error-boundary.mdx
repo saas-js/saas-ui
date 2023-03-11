@@ -48,7 +48,7 @@ By default a `Something went wrong.` message will be down. Customize the error m
 function CustomComponent({ children }) {
   return (
     <ErrorBoundary
-      errorComponent={() => <EmptyState title="Oops this doesn't look good" />}
+      errorComponent={<EmptyState title="Oops this doesn't look good" />}
     >
       {children}
     </ErrorBoundary>

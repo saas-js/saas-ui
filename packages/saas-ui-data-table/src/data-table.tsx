@@ -24,7 +24,7 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
 
@@ -176,9 +176,7 @@ export const DataTable = React.forwardRef(
   }
 ) => React.ReactElement) & { displayName?: string }
 
-if (__DEV__) {
-  DataTable.displayName = 'DataTable'
-}
+DataTable.displayName = 'DataTable'
 
 export interface DataTableSortProps<Data extends object, TValue> {
   header: Header<Data, TValue>
@@ -213,9 +211,7 @@ export const DataTableSort = <Data extends object, TValue>(
   )
 }
 
-if (__DEV__) {
-  DataTableSort.displayName = 'DataTableSort'
-}
+DataTableSort.displayName = 'DataTableSort'
 
 export interface DataTableHeaderProps<Data extends object, TValue> {
   header: Header<Data, TValue>
@@ -256,9 +252,7 @@ export const DataTableHeader = <Data extends object, TValue>(
   )
 }
 
-if (__DEV__) {
-  DataTableHeader.displayName = 'DataTableHeader'
-}
+DataTableHeader.displayName = 'DataTableHeader'
 
 const getResult = <Data extends object>(
   fn: (row: Data) => string,
@@ -284,9 +278,7 @@ export const DataTableCell = <Data extends object, TValue>(
   return getValue() || null
 }
 
-if (__DEV__) {
-  DataTableCell.displayName = 'DataTableCell'
-}
+DataTableCell.displayName = 'DataTableCell'
 
 const DataTableCheckbox = forwardRef((props, ref) => {
   return (
@@ -296,9 +288,7 @@ const DataTableCheckbox = forwardRef((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  DataTableCheckbox.displayName = 'DataTableCheckbox'
-}
+DataTableCheckbox.displayName = 'DataTableCheckbox'
 
 const getSelectionColumn = <Data extends object>(enabled?: boolean) => {
   return enabled

@@ -33,13 +33,14 @@ import {
   UsePinInputProps,
   SystemProps,
 } from '@chakra-ui/react'
-import { __DEV__, FocusableElement, callAllHandlers } from '@chakra-ui/utils'
+import { FocusableElement, callAllHandlers } from '@chakra-ui/utils'
 
 import { NumberInput, NumberInputProps } from './number-input'
 import { PasswordInput, PasswordInputProps } from './password-input'
 import { RadioInput, RadioInputProps } from './radio'
 
 import { Select, SelectProps, NativeSelect, NativeSelectProps } from './select'
+import { createContext } from '@chakra-ui/react-utils'
 
 export interface Option {
   value: string
@@ -81,16 +82,7 @@ export interface FieldProps<
   >
   /**
    * Build-in types:
-   * - text
-   * - number
-   * - password
-   * - textarea
-   * - select
-   * - native-select
-   * - checkbox
-   * - radio
-   * - switch
-   * - pin
+   * text, number, password, textarea, select, native-select, checkbox, radio, switch, pin
    *
    * Will default to a text field if there is no matching type.
    */
@@ -101,13 +93,7 @@ export interface FieldProps<
   placeholder?: string
 }
 
-const inputTypes: Record<string, React.FC<any>> = {}
-
 const defaultInputType = 'text'
-
-const getInput = (type: string) => {
-  return inputTypes[type] || inputTypes[defaultInputType]
-}
 
 const getError = (name: string, formState: FormState<{ [x: string]: any }>) => {
   return get(formState.errors, name)
@@ -143,46 +129,52 @@ export const BaseField: React.FC<FieldProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  BaseField.displayName = 'BaseField'
+BaseField.displayName = 'BaseField'
+
+const FieldsContext = React.createContext<Record<string, React.FC<any>> | null>(
+  null
+)
+
+export const FieldsProvider: React.FC<{
+  value: Record<string, React.FC<any>>
+  children: React.ReactNode
+}> = (props) => {
+  const fields = { ...defaultFieldTypes, ...props.value }
+  return (
+    <FieldsContext.Provider value={fields}>
+      {props.children}
+    </FieldsContext.Provider>
+  )
 }
 
-export type As<Props = any> = React.ElementType<Props>
-
-export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
-  type?: FieldTypes
+export const useField = (type: string): React.FC<any> => {
+  const context = React.useContext(FieldsContext)
+  return context?.[type] || InputField
 }
 
 /**
+ * Form field component.
+ * 
  * Build-in types:
- * - text
- * - number
- * - password
- * - textarea
- * - select
- * - native-select
- * - checkbox
- * - radio
- * - switch
- * - pin
+ * text, number, password, textarea, select, native-select, checkbox, radio, switch, pin
  *
  * Will default to a text field if there is no matching type.
+
+ * @see Docs https://saas-ui.dev/docs/components/forms/field
  */
 export const Field = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
-    props: FieldProps<TFieldValues> | FieldTypeProps,
+    props: FieldProps<TFieldValues>,
     ref: React.ForwardedRef<FocusableElement>
   ) => {
     const { type = defaultInputType } = props
-    const InputComponent = getInput(type)
-
+    const InputComponent = useField(type)
     return <InputComponent ref={ref} {...props} />
   }
 ) as (<TFieldValues extends FieldValues>(
-  props: FieldProps<TFieldValues> &
-    FieldTypeProps & {
-      ref?: React.ForwardedRef<FocusableElement>
-    }
+  props: FieldProps<TFieldValues> & {
+    ref?: React.ForwardedRef<FocusableElement>
+  }
 ) => React.ReactElement) & {
   displayName?: string
 }
@@ -193,7 +185,7 @@ interface CreateFieldProps {
   BaseField: React.FC<any>
 }
 
-const createField = (
+const _createField = (
   InputComponent: React.FC<any>,
   { displayName, hideLabel, BaseField }: CreateFieldProps
 ) => {
@@ -244,7 +236,7 @@ const createField = (
   return Field
 }
 
-export const withControlledInput = (InputComponent: React.FC<any>) => {
+const withControlledInput = (InputComponent: React.FC<any>) => {
   return forwardRef<FieldProps, typeof InputComponent>(
     ({ name, rules, ...inputProps }, ref) => {
       const { control } = useFormContext()
@@ -269,7 +261,7 @@ export const withControlledInput = (InputComponent: React.FC<any>) => {
   )
 }
 
-export const withUncontrolledInput = (InputComponent: React.FC<any>) => {
+const withUncontrolledInput = (InputComponent: React.FC<any>) => {
   return forwardRef<FieldProps, typeof InputComponent>(
     ({ name, rules, ...inputProps }, ref) => {
       const { register } = useFormContext()
@@ -289,7 +281,7 @@ export const withUncontrolledInput = (InputComponent: React.FC<any>) => {
   )
 }
 
-export interface RegisterFieldTypeOptions {
+export interface CreateFieldOptions {
   isControlled?: boolean
   hideLabel?: boolean
   BaseField?: React.FC<any>
@@ -303,10 +295,9 @@ export interface RegisterFieldTypeOptions {
  * @param options.isControlled Set this to true if this is a controlled field.
  * @param options.hideLabel Hide the field label, for example for the checkbox field.
  */
-export const registerFieldType = <T extends object>(
-  type: string,
-  component: React.FC<T>,
-  options?: RegisterFieldTypeOptions
+export const createField = <TProps extends object>(
+  component: React.FC<TProps>,
+  options?: CreateFieldOptions
 ) => {
   let InputComponent
   if (options?.isControlled) {
@@ -315,16 +306,11 @@ export const registerFieldType = <T extends object>(
     InputComponent = withUncontrolledInput(component)
   }
 
-  const Field = createField(InputComponent, {
-    displayName: `${type
-      .split('-')
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join('')}Field`,
+  const Field = _createField(InputComponent, {
+    displayName: `${component.displayName ?? 'Custom'}Field`,
     hideLabel: options?.hideLabel,
     BaseField: options?.BaseField || BaseField,
-  }) as React.FC<T & FieldProps>
-
-  inputTypes[type] = Field
+  }) as React.FC<TProps & FieldProps>
 
   return Field
 }
@@ -335,8 +321,7 @@ export interface InputFieldProps extends InputProps {
   rightAddon?: React.ReactNode
 }
 
-export const InputField = registerFieldType<InputFieldProps>(
-  'text',
+export const InputField = createField<InputFieldProps>(
   forwardRef(({ type = 'text', leftAddon, rightAddon, size, ...rest }, ref) => {
     const input = <Input type={type} size={size} {...rest} ref={ref} />
     if (leftAddon || rightAddon) {
@@ -356,26 +341,20 @@ export interface NumberInputFieldProps extends NumberInputProps {
   type: 'number'
 }
 
-export const NumberInputField = registerFieldType<NumberInputFieldProps>(
-  'number',
+export const NumberInputField = createField<NumberInputFieldProps>(
   NumberInput,
   {
     isControlled: true,
   }
 )
 
-export const PasswordInputField = registerFieldType<PasswordInputProps>(
-  'password',
+export const PasswordInputField = createField<PasswordInputProps>(
   forwardRef((props, ref) => <PasswordInput ref={ref} {...props} />)
 )
 
-export const TextareaField = registerFieldType<TextareaProps>(
-  'textarea',
-  Textarea
-)
+export const TextareaField = createField<TextareaProps>(Textarea)
 
-export const SwitchField = registerFieldType<SwitchProps>(
-  'switch',
+export const SwitchField = createField<SwitchProps>(
   forwardRef(({ type, value, ...rest }, ref) => {
     return <Switch isChecked={!!value} {...rest} ref={ref} />
   }),
@@ -384,12 +363,11 @@ export const SwitchField = registerFieldType<SwitchProps>(
   }
 )
 
-export const SelectField = registerFieldType<SelectProps>('select', Select, {
+export const SelectField = createField<SelectProps>(Select, {
   isControlled: true,
 })
 
-export const CheckboxField = registerFieldType<CheckboxProps>(
-  'checkbox',
+export const CheckboxField = createField<CheckboxProps>(
   forwardRef(({ label, type, ...props }, ref) => {
     return (
       <Checkbox ref={ref} {...props}>
@@ -402,19 +380,13 @@ export const CheckboxField = registerFieldType<CheckboxProps>(
   }
 )
 
-export const RadioField = registerFieldType<RadioInputProps>(
-  'radio',
-  RadioInput,
-  {
-    isControlled: true,
-  }
-)
+export const RadioField = createField<RadioInputProps>(RadioInput, {
+  isControlled: true,
+})
 
-export const NativeSelectField = registerFieldType<NativeSelectProps>(
-  'native-select',
-  NativeSelect,
-  { isControlled: true }
-)
+export const NativeSelectField = createField<NativeSelectProps>(NativeSelect, {
+  isControlled: true,
+})
 
 export interface PinFieldProps extends Omit<UsePinInputProps, 'type'> {
   pinLength?: number
@@ -422,8 +394,7 @@ export interface PinFieldProps extends Omit<UsePinInputProps, 'type'> {
   spacing?: SystemProps['margin']
 }
 
-export const PinField = registerFieldType<PinFieldProps>(
-  'pin',
+export const PinField = createField<PinFieldProps>(
   forwardRef((props, ref) => {
     const { pinLength = 4, pinType, spacing, ...inputProps } = props
 
@@ -445,7 +416,7 @@ export const PinField = registerFieldType<PinFieldProps>(
   }
 )
 
-const fieldTypes = {
+export const defaultFieldTypes = {
   text: InputField,
   email: InputField,
   url: InputField,
@@ -454,23 +425,9 @@ const fieldTypes = {
   password: PasswordInputField,
   textarea: TextareaField,
   switch: SwitchField,
+  select: SelectField,
   checkbox: CheckboxField,
   radio: RadioField,
   pin: PinField,
-  select: SelectField,
   'native-select': NativeSelectField,
 }
-
-type FieldTypes = typeof fieldTypes
-
-type FieldType<Props = any> = React.ElementType<Props>
-
-type TypeProps<P extends FieldType, T> = React.ComponentPropsWithoutRef<P> & {
-  type: T
-}
-
-type FieldTypeProps =
-  | {
-      [Property in keyof FieldTypes]: TypeProps<FieldTypes[Property], Property>
-    }[keyof FieldTypes]
-  | { type?: string }

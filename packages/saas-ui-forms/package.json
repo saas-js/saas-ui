@@ -13,6 +13,7 @@
     },
     "./yup": {
       "require": "./dist/yup/index.js",
+      "types": "./dist/yup/index.d.ts",
       "import": "./dist/yup/index.mjs"
     },
     "./yup/src": {
@@ -20,6 +21,7 @@
     },
     "./zod": {
       "require": "./dist/zod/index.js",
+      "types": "./dist/zod/index.d.ts",
       "import": "./dist/zod/index.mjs"
     },
     "./zod/src": {
@@ -27,6 +29,7 @@
     },
     "./ajv": {
       "require": "./dist/ajv/index.js",
+      "types": "./dist/zod/index.d.ts",
       "import": "./dist/ajv/index.mjs"
     },
     "./ajv/src": {

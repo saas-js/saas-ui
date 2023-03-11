@@ -3,8 +3,19 @@ import { mergeConfig } from 'vite'
 const toPath = (_path) => path.join(process.cwd(), _path)
 export default {
   stories: [
-    '../../saas-ui-*/stories/*.stories.tsx',
-    '../../saas-ui-*/src/**/*.stories.tsx',
+    '../../saas-ui-auth/stories/*.stories.tsx',
+    '../../saas-ui-charts/stories/*.stories.tsx',
+    '../../saas-ui-command-bar/stories/*.stories.tsx',
+    '../../saas-ui-forms/stories/*.stories.tsx',
+    '../../saas-ui-core/src/**/*.stories.tsx',
+    '../../saas-ui-data-table/stories/*.stories.tsx',
+    '../../saas-ui-date-picker/stories/*.stories.tsx',
+    '../../saas-ui-hotkeys/stories/*.stories.tsx',
+    '../../saas-ui-hotkeys/stories/*.stories.tsx',
+    '../../saas-ui-modals/stories/*.stories.tsx',
+    '../../saas-ui-nprogress/stories/*.stories.tsx',
+    '../../saas-ui-theme/stories/*.stories.tsx',
+    '../../saas-ui-theme-glass/stories/*.stories.tsx',
   ],
   addons: [
     '@storybook/addon-a11y',
@@ -13,6 +24,9 @@ export default {
     '@storybook/addon-viewport',
     '@saas-ui/storybook-addon',
   ],
+  features: {
+    storyStoreV7: true,
+  },
   staticDirs: ['./static'],
   typescript: {
     reactDocgen: false,

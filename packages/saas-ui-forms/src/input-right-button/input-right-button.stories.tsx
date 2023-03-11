@@ -37,7 +37,7 @@ const Template: ComponentStory<typeof InputRightButton> = (args) => (
 
 export const Basic = Template.bind({})
 Basic.args = {
-  label: 'Save',
+  children: 'Save',
 }
 
 export const WithIcon = Template.bind({})

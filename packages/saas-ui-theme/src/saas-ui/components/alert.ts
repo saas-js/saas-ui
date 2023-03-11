@@ -1,34 +1,50 @@
-import { alertAnatomy as parts } from '@chakra-ui/anatomy'
-import {
-  mode,
-  PartsStyleFunction,
-  PartsStyleObject,
-} from '@chakra-ui/theme-tools'
+import { alertAnatomy } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 
-const variantSnackbar: PartsStyleFunction<typeof parts> = (props) => {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(alertAnatomy.keys)
+
+const variantSnackbar = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
   return {
-    container: { bg: mode('white', 'black')(props), borderWidth: '1px' },
+    container: {
+      bg: `white`,
+      _dark: {
+        bg: `black`,
+      },
+      borderWidth: '1px',
+    },
     icon: {
-      color: mode(`${c}.500`, `${c}.500`)(props),
+      color: `${c}.500`,
+      _dark: {
+        color: `${c}.500`,
+      },
       '& .chakra-spinner': {
-        color: mode('black', 'white')(props),
+        color: `black`,
+        _dark: {
+          color: `white`,
+        },
       },
     },
-    title: { fontWeight: 'semibold' },
-    description: { color: mode('gray.500', 'gray.400')(props) },
+    title: { fontWeight: 'semibold', fontSize: 'md' },
+    description: {
+      fontSize: 'sm',
+      color: `gray.500`,
+      _dark: {
+        color: `gray.400`,
+      },
+    },
   }
-}
+})
 
-const baseStyle: PartsStyleObject<typeof parts> = {
+const baseStyle = definePartsStyle({
   container: {
     borderRadius: 'md',
   },
-}
+})
 
-export default {
-  parts: parts.keys,
+export const alertTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'sm',
   },
@@ -36,4 +52,4 @@ export default {
   variants: {
     snackbar: variantSnackbar,
   },
-}
+})

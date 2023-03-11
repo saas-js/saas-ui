@@ -25,7 +25,7 @@ import { Field as DefaultField, FieldProps } from './field'
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes extends FieldProps<TFieldValues> = any
+  TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormReturn<TFieldValues, TContext> {
   Field: React.FC<TFieldTypes>
 }
@@ -34,7 +34,7 @@ interface FormOptions<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TSchema = any,
-  TFieldTypes extends FieldProps<TFieldValues> = FieldProps<TFieldValues>
+  TFieldTypes = FieldProps<TFieldValues>
 > {
   /**
    * The form schema, supports Yup, Zod, and AJV.
@@ -68,7 +68,7 @@ export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TSchema = any,
-  TFieldTypes extends FieldProps<TFieldValues> = FieldProps<TFieldValues>
+  TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
@@ -86,7 +86,7 @@ export const Form = forwardRef(
     TFieldValues extends FieldValues = FieldValues,
     TContext extends object = object,
     TSchema = any,
-    TFieldTypes extends FieldProps<FieldValues> = FieldProps<FieldValues>
+    TFieldTypes = FieldProps<TFieldValues>
   >(
     props: FormProps<TFieldValues, TContext, TSchema>,
     ref: React.ForwardedRef<HTMLFormElement>
@@ -146,11 +146,6 @@ export const Form = forwardRef(
       return () => subscription?.unsubscribe()
     }, [methods, onChange])
 
-    const Field: React.FC<FieldProps<TFieldValues>> = React.useMemo(
-      () => (props) => <DefaultField {...props} />,
-      []
-    )
-
     return (
       <FormProvider {...methods}>
         <chakra.form
@@ -160,7 +155,7 @@ export const Form = forwardRef(
           className={cx('sui-form', props.className)}
         >
           {runIfFn(children, {
-            Field,
+            Field: DefaultField as any,
             ...methods,
           })}
         </chakra.form>
@@ -171,7 +166,7 @@ export const Form = forwardRef(
   TFieldValues extends FieldValues,
   TContext extends object = object,
   TSchema = any,
-  TFieldTypes extends FieldProps<TFieldValues> = FieldProps<TFieldValues>
+  TFieldTypes = FieldProps<TFieldValues>
 >(
   props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes> & {
     ref?: React.ForwardedRef<HTMLFormElement>

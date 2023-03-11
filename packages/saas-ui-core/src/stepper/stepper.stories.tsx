@@ -18,8 +18,8 @@ import {
   StepperStep,
   StepperStepProps,
   StepperCompleted,
-  usePrev,
-  useNext,
+  useStepperPrevButton,
+  useStepperNextButton,
 } from './'
 
 export default {
@@ -123,7 +123,7 @@ const NextButton: React.FC<ButtonProps> = (props) => {
   return (
     <Button
       colorScheme="primary"
-      {...useNext({
+      {...useStepperNextButton({
         label: 'Next',
         submitLabel: 'Complete',
       })}
@@ -132,7 +132,7 @@ const NextButton: React.FC<ButtonProps> = (props) => {
 }
 
 const PrevButton: React.FC<ButtonProps> = (props) => {
-  return <Button variant="ghost" {...usePrev()} />
+  return <Button variant="ghost" {...useStepperPrevButton()} />
 }
 
 const ControlledStep: React.FC<React.PropsWithChildren> = ({ children }) => {

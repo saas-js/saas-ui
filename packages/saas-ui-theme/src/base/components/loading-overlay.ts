@@ -1,10 +1,5 @@
-import { anatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
-
-const loadingOverlayAnatomy = anatomy('loading-overlay').parts(
-  'overlay',
-  'text'
-)
+import { loadingOverlayAnatomy } from '../../anatomy'
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(loadingOverlayAnatomy.keys)

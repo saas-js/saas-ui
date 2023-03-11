@@ -1,8 +1,15 @@
-import { Container, FormControl, FormLabel, Icon } from '@chakra-ui/react'
+import {
+  Container,
+  FormControl,
+  FormLabel,
+  Icon,
+  InputLeftAddon,
+  InputLeftElement,
+} from '@chakra-ui/react'
 import { Story } from '@storybook/react'
 import * as React from 'react'
 
-import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { FiEye, FiEyeOff, FiLock } from 'react-icons/fi'
 
 import { PasswordInput } from './password-input'
 
@@ -46,5 +53,19 @@ export const CustomWidth: Story = () => (
   <FormControl>
     <FormLabel>Password</FormLabel>
     <PasswordInput name="password" width="200px" />
+  </FormControl>
+)
+
+export const LeftAddon: Story = () => (
+  <FormControl>
+    <FormLabel>Password</FormLabel>
+    <PasswordInput
+      name="password"
+      leftAddon={
+        <InputLeftElement>
+          <FiLock />
+        </InputLeftElement>
+      }
+    />
   </FormControl>
 )

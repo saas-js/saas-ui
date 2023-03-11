@@ -32,7 +32,7 @@ import {
   CommandSeparator,
 } from 'cmdk'
 
-import styleConfig from './command-bar-styles'
+import { commandBarTheme } from './command-bar-theme'
 
 function cmdkFactory<P extends object>(
   Component: React.ForwardRefExoticComponent<P>,
@@ -51,7 +51,7 @@ function cmdkFactory<P extends object>(
         ref={ref}
         {...props}
         __css={componentStyles}
-        className={cx(`saas-command-bar__${key}`, props.className)}
+        className={cx(`sui-command-bar__${key}`, props.className)}
       />
     )
   })
@@ -76,7 +76,7 @@ export interface CommandBarProps
 
 export const CommandBar: React.FC<CommandBarProps> = (props) => {
   const styles = useMultiStyleConfig('SuiCommandBar', {
-    styleConfig,
+    styleConfig: commandBarTheme,
     ...props,
   })
 

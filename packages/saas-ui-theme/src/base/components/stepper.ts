@@ -1,25 +1,11 @@
-import {
-  anatomy,
-  getColor,
-  mode,
-  orient,
-  transparentize,
-} from '@chakra-ui/theme-tools'
-import type {
-  PartsStyleFunction,
-  StyleFunctionProps,
-} from '@chakra-ui/theme-tools'
+import { orient, transparentize } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { stepperAnatomy } from '../../anatomy'
 
-export const parts = anatomy('stepper').parts(
-  'container',
-  'steps',
-  'icon',
-  'content',
-  'title',
-  'separator'
-)
+export const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(stepperAnatomy.keys)
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   const { orientation, size } = props
 
   const borderWidth = size === 'lg' ? 2 : 1
@@ -134,59 +120,79 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
     },
     content,
   }
-}
+})
 
-function getBg(props: StyleFunctionProps): string {
+const variantSubtle = definePartsStyle((props) => {
   const { theme, colorScheme: c } = props
-  const lightBg = getColor(theme, `${c}.100`, c)
-  const darkBg = transparentize(`${c}.200`, 0.16)(theme)
-  return mode(lightBg, darkBg)(props)
-}
-
-const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
   return {
     icon: {
-      bg: mode('blackAlpha.300', 'whiteAlpha.200')(props),
-      color: mode('blackAlpha.600', 'whiteAlpha.600')(props),
+      bg: 'blackAlpha.300',
+      color: 'blackAlpha.600',
+      _dark: {
+        bg: 'whiteAlpha.200',
+        color: 'whiteAplha.600',
+      },
       '[data-active] &': {
-        bg: getBg(props),
-        color: mode(`${c}.500`, `${c}.200`)(props),
+        bg: `${c}.100}`,
+        color: `${c}.500`,
+        _dark: {
+          bg: transparentize(`${c}.200`, 0.16)(theme),
+          color: `${c}.200`,
+        },
       },
       '[data-completed] &': {
-        bg: getBg(props),
-        color: mode(`${c}.500`, `${c}.200`)(props),
+        bg: `${c}.100`,
+        color: `${c}.500`,
+        _dark: {
+          bg: transparentize(`${c}.200`, 0.16)(theme),
+          color: `${c}.200`,
+        },
       },
     },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
+const variantSolid = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
   return {
     icon: {
       bg: `gray.500`,
-      color: mode('white', 'gray.800')(props),
+      color: `white`,
+      _dark: {
+        color: `gray.800`,
+      },
       '[data-active] &': {
-        bg: mode(`${c}.500`, `${c}.200`)(props),
+        bg: `${c}.500`,
+        _dark: {
+          bg: `${c}.200`,
+        },
       },
       '[data-completed] &': {
-        bg: mode(`${c}.500`, `${c}.200`)(props),
+        bg: `${c}.500`,
+        _dark: {
+          bg: `${c}.200`,
+        },
       },
     },
     separator: {
       '&[data-active]': {
-        borderColor: mode(`${c}.500`, `${c}.200`)(props),
+        borderColor: `${c}.500`,
+        _dark: {
+          borderColor: `${c}.200`,
+        },
       },
     },
     step: {
       '&[data-active]:before, &[data-completed]:before': {
-        borderColor: mode(`${c}.500`, `${c}.200`)(props),
+        borderColor: `${c}.500`,
+        _dark: {
+          borderColor: `${c}.200`,
+        },
       },
     },
   }
-}
+})
 
 const variants = {
   subtle: variantSubtle,
@@ -194,7 +200,7 @@ const variants = {
 }
 
 const sizes = {
-  md: {
+  md: definePartsStyle({
     icon: {
       boxSize: 6,
       fontSize: 'sm',
@@ -207,28 +213,26 @@ const sizes = {
         top: 5,
       },
     },
-  },
-  lg: {
+  }),
+  lg: definePartsStyle({
     icon: {
       boxSize: 8,
     },
     title: {
       fontSize: 'lg',
     },
+  }),
+}
+
+export const stepperTheme = defineMultiStyleConfig({
+  defaultProps: {
+    variant: 'solid',
+    colorScheme: 'blue',
+    size: 'lg',
+    /* @ts-expect-error */
+    orientation: 'horizontal',
   },
-}
-
-const defaultProps = {
-  variant: 'solid',
-  colorScheme: 'blue',
-  orientation: 'horizontal',
-  size: 'lg',
-}
-
-export default {
-  parts: parts.keys,
-  defaultProps,
   baseStyle,
   variants,
   sizes,
-}
+})

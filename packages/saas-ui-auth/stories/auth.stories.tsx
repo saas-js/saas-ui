@@ -14,9 +14,10 @@ import {
   ForgotPasswordView,
   UpdatePasswordView,
   AuthProps,
+  useAuth,
 } from '../src'
 
-import { Field, useAuth } from '@saas-ui/react'
+import { Field } from '@saas-ui/forms'
 
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
@@ -114,8 +115,8 @@ export const PasswordWithCustomFields = () => {
       <Field
         name="rememberMe"
         type="checkbox"
-        value="true"
         label="Remember me"
+        defaultChecked={true}
       />
     </AuthForm>
   )

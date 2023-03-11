@@ -15,7 +15,7 @@ export interface NavProps extends HTMLChakraProps<'nav'> {
 }
 
 export const Nav: React.FC<NavProps> = (props) => {
-  const styles = useStyleConfig('Nav', props)
+  const styles = useStyleConfig('SuiNav', props)
 
   const { children, spacing, orientation = 'vertical', ...rest } = props
 

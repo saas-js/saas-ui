@@ -9,7 +9,11 @@ export interface Web3AddressProps extends HTMLChakraProps<'span'> {
   startLength?: number
   endLength?: number
 }
-
+/**
+ * Display Web3 addresses in a more readable format.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/web3/address
+ */
 export const Web3Address: React.FC<Web3AddressProps> = (props) => {
   const { address, startLength = 6, endLength = 4, ...rest } = props
   const start = address.slice(0, startLength)

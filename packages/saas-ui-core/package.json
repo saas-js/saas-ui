@@ -1,27 +1,40 @@
 {
   "name": "@saas-ui/core",
   "version": "1.9.0",
-  "description": "Saas UI - The frontend stack for SaaS companies.",
+  "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./icons": {
+      "require": "./dist/icons/index.js",
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.mjs"
     },
     "./utils": {
       "require": "./dist/utils/index.js",
-      "import": "./dist/utils/index.modern.mjs"
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
+    },
+    "./icons/src": {
+      "default": "./src/icons/index.ts"
+    },
+    "./utils/src": {
+      "default": "./src/utils/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts src/utils/index.ts --config tsup.config.ts",
+    "build": "tsup src/index.ts src/utils/index.ts src/icons/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -61,6 +74,7 @@
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.11",
     "@chakra-ui/system": "^2.3.8",
+    "@chakra-ui/theme-tools": "^2.0.16",
     "@chakra-ui/utils": "^2.0.14",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*"

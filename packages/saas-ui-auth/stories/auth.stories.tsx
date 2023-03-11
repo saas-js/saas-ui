@@ -115,8 +115,8 @@ export const PasswordWithCustomFields = () => {
       <Field
         name="rememberMe"
         type="checkbox"
-        value="true"
         label="Remember me"
+        defaultChecked={true}
       />
     </AuthForm>
   )

@@ -1,3 +1,4 @@
+export * from './sidebar-types'
 export * from './sidebar'
 export * from './nav'
 export * from './nav-group'

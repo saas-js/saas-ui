@@ -1,5 +1,17 @@
 # @saas-ui/clerk
 
+## 2.0.0
+
+### Major Changes
+
+- Update to Clerk 4.x
+
+## 1.3.4
+
+### Patch Changes
+
+- @saas-ui/auth@1.7.4
+
 ## 1.3.3
 
 ### Patch Changes

@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { __DEV__ } from '@chakra-ui/utils'
-
 import {
   Form,
   FormLayout,
@@ -92,6 +90,4 @@ OtpForm.defaultProps = {
   label: 'Your verification code',
 }
 
-if (__DEV__) {
-  OtpForm.displayName = 'OtpForm'
-}
+OtpForm.displayName = 'OtpForm'

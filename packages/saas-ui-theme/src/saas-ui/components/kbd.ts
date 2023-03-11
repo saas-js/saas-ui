@@ -1,8 +1,11 @@
-import { mode, SystemStyleFunction } from '@chakra-ui/theme-tools'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system'
 
-const variantSolid: SystemStyleFunction = (props) => {
+const variantSolid = defineStyle((props) => {
   return {
-    bg: mode('blackAlpha.300', 'whiteAlpha.300')(props),
+    color: `blackAlpha.300`,
+    _dark: {
+      bg: `whiteAlpha.300`,
+    },
     borderWidth: 0,
     borderBottomWidth: 0,
     padding: '1px',
@@ -15,9 +18,9 @@ const variantSolid: SystemStyleFunction = (props) => {
       mr: 0,
     },
   }
-}
+})
 
-export default {
+export const kbdTheme = defineStyleConfig({
   defaultProps: {
     variant: 'solid',
   },
@@ -27,4 +30,4 @@ export default {
     },
     solid: variantSolid,
   },
-}
+})

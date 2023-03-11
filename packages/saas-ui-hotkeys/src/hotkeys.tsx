@@ -8,14 +8,14 @@ import {
   useMultiStyleConfig,
   createStylesContext,
 } from '@chakra-ui/react'
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 import { createContext } from '@chakra-ui/react-utils'
 
 import { Kbd } from '@chakra-ui/react'
 
 import { SearchInput, SearchInputProps } from '@saas-ui/core'
 
-const [StylesProvider, useStyles] = createStylesContext('Hotkeys')
+const [StylesProvider, useStyles] = createStylesContext('SuiHotkeys')
 
 const regExpSyntaxCharacter = /[.*+?^${}()|[\]\\]/g
 
@@ -94,11 +94,11 @@ const useHotkeysList = (props: HotkeysListProps) => {
 export interface HotkeysListProps
   extends HotkeysOptions,
     HTMLChakraProps<'div'>,
-    ThemingProps<'Hotkeys'> {}
+    ThemingProps<'SuiHotkeys'> {}
 
 export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
   ({ children, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Hotkeys', props)
+    const styles = useMultiStyleConfig('SuiHotkeys', props)
     const ownProps = omitThemingProps(props)
 
     const context = useHotkeysList(ownProps)
@@ -118,9 +118,7 @@ export const HotkeysList = forwardRef<HotkeysListProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  HotkeysList.displayName = 'HotkeysList'
-}
+HotkeysList.displayName = 'HotkeysList'
 
 export const useHotkeysSearch = () => {
   return useHotkeysListContext()
@@ -142,9 +140,7 @@ export const HotkeysSearch = forwardRef<Omit<SearchInputProps, 'as'>, 'input'>(
   }
 )
 
-if (__DEV__) {
-  HotkeysSearch.displayName = 'HotkeysSearch'
-}
+HotkeysSearch.displayName = 'HotkeysSearch'
 
 const filterHotkeys = (
   hotkeys: HotkeysGroupListOptions,
@@ -203,9 +199,7 @@ export const HotkeysListItems = forwardRef<HTMLChakraProps<'div'>, 'div'>(
   }
 )
 
-if (__DEV__) {
-  HotkeysListItems.displayName = 'HotkeysListItems'
-}
+HotkeysListItems.displayName = 'HotkeysListItems'
 
 export interface HotkeysGroupProps extends HTMLChakraProps<'div'> {
   title?: string
@@ -239,9 +233,7 @@ export const HotkeysGroup: React.FC<HotkeysGroupProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  HotkeysGroup.displayName = 'HotkeysGroup'
-}
+HotkeysGroup.displayName = 'HotkeysGroup'
 
 export const HotkeysCommand: React.FC<HTMLChakraProps<'span'>> = (props) => {
   const { children, ...rest } = props
@@ -272,9 +264,7 @@ export const HotkeysCommand: React.FC<HTMLChakraProps<'span'>> = (props) => {
   )
 }
 
-if (__DEV__) {
-  HotkeysCommand.displayName = 'HotkeysCommand'
-}
+HotkeysCommand.displayName = 'HotkeysCommand'
 
 export interface HotkeysItemProps extends HTMLChakraProps<'div'> {
   command: string
@@ -303,6 +293,4 @@ export const HotkeysItem: React.FC<HotkeysItemProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  HotkeysItem.displayName = 'HotkeysItem'
-}
+HotkeysItem.displayName = 'HotkeysItem'

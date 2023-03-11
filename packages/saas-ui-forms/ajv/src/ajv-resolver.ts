@@ -3,6 +3,8 @@ import { objectFieldResolver, FieldResolver } from '@saas-ui/forms'
 
 import { JSONSchemaType } from 'ajv'
 
+export { ajvResolver }
+
 const jsonSchemaFieldResolver = (schema: JSONSchemaType<unknown>) => {
   return objectFieldResolver(schema.properties)
 }

@@ -6,7 +6,6 @@ import {
   ResponsiveValue,
   useStyleConfig,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 
 import { FormLayout } from './layout'
 import { FieldProps } from './field'
@@ -21,10 +20,14 @@ export interface ObjectFieldProps extends FieldProps {
 }
 
 export const FormLegend = (props: FormLabelProps) => {
-  const styles = useStyleConfig('FormLegend')
+  const styles = useStyleConfig('SuiFormLegend')
   return <FormLabel as="legend" sx={styles} {...props} />
 }
-
+/**
+ * The object field component.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/object-field
+ */
 export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
   const { name, label, hideLabel, children, columns, spacing, ...fieldProps } =
     props
@@ -39,6 +42,4 @@ export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  ObjectField.displayName = 'ObjectField'
-}
+ObjectField.displayName = 'ObjectField'

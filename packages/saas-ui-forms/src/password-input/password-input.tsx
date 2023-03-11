@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { forwardRef, InputGroup, Input, InputProps } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 import { InputRightButton } from '../input-right-button'
@@ -9,6 +9,7 @@ import { InputRightButton } from '../input-right-button'
 interface PasswordOptions {
   viewIcon?: React.ReactNode
   viewOffIcon?: React.ReactNode
+  leftAddon?: React.ReactNode
 }
 
 export interface PasswordInputProps extends InputProps, PasswordOptions {}
@@ -23,6 +24,7 @@ export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
       width,
       size,
       variant,
+      leftAddon,
       ...inputProps
     } = props
     const [show, setShow] = useState(false)
@@ -45,13 +47,13 @@ export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
 
     return (
       <InputGroup {...groupProps}>
+        {leftAddon}
         <Input
           {...inputProps}
           ref={ref}
           type={show ? 'text' : 'password'}
           autoComplete={show ? 'off' : autoComplete}
         />
-
         <InputRightButton
           onClick={handleClick}
           aria-label={label}
@@ -64,6 +66,4 @@ export const PasswordInput = forwardRef<PasswordInputProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  PasswordInput.displayName = 'PasswordInput'
-}
+PasswordInput.displayName = 'PasswordInput'

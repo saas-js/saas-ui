@@ -4,6 +4,7 @@ import {
   chakra,
   Collapse,
   HTMLChakraProps,
+  ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
@@ -83,7 +84,9 @@ export const NavGroupTitle: React.FC<NavGroupTitleProps> = (props) => {
 
 NavGroupTitle.displayName = 'NavGroupTitle'
 
-export interface NavGroupProps extends Omit<HTMLChakraProps<'div'>, 'title'> {
+export interface NavGroupProps
+  extends Omit<HTMLChakraProps<'div'>, 'title'>,
+    ThemingProps<'SuiNavGroup'> {
   title?: React.ReactNode
   isCollapsible?: boolean
   defaultIsOpen?: boolean
@@ -119,7 +122,7 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
     children,
     ...rest
   } = props
-  const styles = useMultiStyleConfig('NavGroup', props)
+  const styles = useMultiStyleConfig('SuiNavGroup', props)
 
   const collapse = useCollapse(props)
   const { getCollapseProps } = collapse

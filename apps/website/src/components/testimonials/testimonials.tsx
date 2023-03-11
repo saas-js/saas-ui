@@ -8,7 +8,7 @@ export const Testimonials = () => {
   return (
     <Section innerWidth="container.xl">
       <SectionTitle title="Loved by developers and designers" />
-      <SimpleGrid columns={[1, 2, 3]} spacing="8">
+      <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
         <Stack spacing="8">
           <Testimonial
             name="Makenna Smutz"

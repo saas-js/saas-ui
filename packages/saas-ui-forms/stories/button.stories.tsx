@@ -77,34 +77,32 @@ export const Outlines = () => (
   </Stack>
 )
 
-export const WithVariants = () => (
-  <HStack spacing="24px">
-    <Button colorScheme="teal" variant="solid">
-      Button
-    </Button>
-    <Button colorScheme="teal" variant="outline">
-      Button
-    </Button>
-    <Button colorScheme="teal" variant="subtle">
-      Button
-    </Button>
-    <Button colorScheme="teal" variant="ghost">
-      Button
-    </Button>
-    <Button colorScheme="teal" variant="link">
-      Button
-    </Button>
-    <Button colorScheme="teal" variant="unstyled">
-      Button
-    </Button>
-  </HStack>
-)
-
-export const PrimarySecondary = () => (
+export const Variants = () => (
   <Stack align="start">
     <HStack>
-      <Button colorScheme="primary">Primary</Button>
-      <Button colorScheme="secondary">Secondary</Button>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="tertiary">Tertiary</Button>
+    </HStack>
+    <HStack spacing="24px">
+      <Button colorScheme="primary" variant="solid">
+        Solid
+      </Button>
+      <Button colorScheme="primary" variant="outline">
+        Outline
+      </Button>
+      <Button colorScheme="primary" variant="subtle">
+        Subtle
+      </Button>
+      <Button colorScheme="primary" variant="ghost">
+        Ghost
+      </Button>
+      <Button colorScheme="primary" variant="link">
+        Link
+      </Button>
+      <Button colorScheme="primary" variant="unstyled">
+        Unstyled
+      </Button>
     </HStack>
   </Stack>
 )

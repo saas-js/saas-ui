@@ -11,7 +11,7 @@ import * as SaasUIFeatures from '@saas-ui/features'
 
 import * as Yup from 'yup'
 import { yupForm, yupResolver } from '@saas-ui/forms/yup'
-import { zodForm, zodResolver } from '@saas-ui/forms/zod'
+import { zodResolver } from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
@@ -45,6 +45,8 @@ import {
   FiUserCheck,
   FiCode,
   FiRefreshCw,
+  FiMessageSquare,
+  FiMail,
 } from 'react-icons/fi'
 
 import {
@@ -88,6 +90,8 @@ const reactIcons = {
   FiUserCheck,
   FiCode,
   FiRefreshCw,
+  FiMessageSquare,
+  FiMail,
 }
 
 const StarIcon = (props) => (

@@ -51,8 +51,8 @@ import {
   SidebarSection,
   StructuredList,
   StructuredListItem,
-  StructuredListItemLabel,
-  StructuredListItemIcon,
+  StructuredListCell,
+  StructuredListIcon,
   Property,
   PropertyList,
   Persona,
@@ -256,17 +256,17 @@ const componentIllustrations = {
     />
   ),
   list: (
-    <StructuredList width="80%">
+    <StructuredList width="90%">
       <StructuredListItem>
-        <StructuredListItemIcon>
+        <StructuredListIcon>
           <Avatar src="/showcase-avatar.jpg" size="sm" />
-        </StructuredListItemIcon>
-        <StructuredListItemLabel>
-          <Text noOfLines={1}>Renata - Love your product.</Text>
+        </StructuredListIcon>
+        <StructuredListCell>
+          <Text noOfLines={1}>Love your product.</Text>
           <Text noOfLines={2} color="muted" fontSize="xs">
-            We just launched our first product build with Saas UI.
+            Renata - We just launched our first product build with Saas UI.
           </Text>
-        </StructuredListItemLabel>
+        </StructuredListCell>
       </StructuredListItem>
     </StructuredList>
   ),

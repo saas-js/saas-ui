@@ -9,7 +9,8 @@ import {
   NumberDecrementStepper,
   NumberInputProps as ChakraNumberInputProps,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+
+import { ChevronDownIcon, ChevronUpIcon } from '@saas-ui/core'
 
 interface NumberInputOptions {
   /**
@@ -31,7 +32,12 @@ export interface NumberInputProps
     NumberInputOptions {}
 
 export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
-  const { hideStepper, incrementIcon, decrementIcon, ...rest } = props
+  const {
+    hideStepper,
+    incrementIcon = <ChevronUpIcon />,
+    decrementIcon = <ChevronDownIcon />,
+    ...rest
+  } = props
 
   return (
     <ChakraNumberInput {...rest} ref={ref}>
@@ -51,6 +57,4 @@ NumberInput.defaultProps = {
   hideStepper: false,
 }
 
-if (__DEV__) {
-  NumberInput.displayName = 'NumberInput'
-}
+NumberInput.displayName = 'NumberInput'

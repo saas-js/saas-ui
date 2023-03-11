@@ -1,15 +1,16 @@
-import { modalAnatomy as parts } from '@chakra-ui/anatomy'
-import { PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { modalAnatomy } from '@chakra-ui/anatomy'
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(modalAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
   return {
     closeButton: {
       top: 4,
       insetEnd: 4,
     },
   }
-}
+})
 
-export default {
-  baseStyle,
-}
+export const modalTheme = defineMultiStyleConfig({ baseStyle })

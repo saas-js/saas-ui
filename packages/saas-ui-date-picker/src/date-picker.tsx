@@ -12,7 +12,6 @@ import {
   PopoverProps,
   useMultiStyleConfig,
   Popover,
-  useControllableState,
 } from '@chakra-ui/react'
 import {
   DatePickerProvider,
@@ -26,10 +25,15 @@ import { getLocalTimeZone } from '@internationalized/date'
 import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
 
 export interface DatePickerContainerProps
-  extends ThemingProps<'DatePicker'>,
+  extends ThemingProps<'SuiDatePicker'>,
     Omit<
       DatePickerStateOptions<DateValue>,
-      'value' | 'defaultValue' | 'minValue' | 'maxValue' | 'onChange'
+      | 'value'
+      | 'defaultValue'
+      | 'minValue'
+      | 'maxValue'
+      | 'onChange'
+      | 'shouldCloseOnSelect'
     > {
   value?: DateValue | null
   minValue?: DateValue
@@ -38,6 +42,7 @@ export interface DatePickerContainerProps
   onChange?(value: DateValue | null): void
   locale?: string
   timeZone?: string
+  closeOnSelect?: boolean
   children: MaybeFunction<React.ReactNode, [DatePickerState]>
 }
 
@@ -49,6 +54,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     maxValue,
     defaultValue,
     onChange,
+    closeOnSelect,
     ...rest
   } = props
 
@@ -60,24 +66,19 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
 
   const { locale } = useLocale()
 
-  const styles = useMultiStyleConfig('DatePicker', {
+  const styles = useMultiStyleConfig('SuiDatePicker', {
     styleConfig: datePickerStyleConfig,
     ...props,
   })
 
-  const [value, setValue] = useControllableState<DateValue | null>({
-    defaultValue,
-    value: valueProp ? valueProp : null,
-    onChange,
-  })
-
   /* @ts-ignore: null is needed to reset the field, but gets a ts error in strict mode */
   const state = useDatePickerState<DateValue | null>({
-    value,
+    value: valueProp,
     minValue,
     maxValue,
     defaultValue,
-    onChange: setValue,
+    onChange: onChange,
+    shouldCloseOnSelect: closeOnSelect,
     ...rest,
   })
 
@@ -95,10 +96,10 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
   } = useDatePicker(
     {
       ['aria-label']: 'Date Picker',
-      value: value ? value : undefined,
+      value: state.value,
       minValue,
       maxValue,
-      onChange: setValue,
+      onChange: state.setValue,
       ...rest,
     },
     state,
@@ -208,6 +209,7 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
         return (
           <Popover
             {...popoverProps}
+            isOpen={state.isOpen}
             onOpen={() => state.setOpen(true)}
             onClose={() => state.setOpen(false)}
           >

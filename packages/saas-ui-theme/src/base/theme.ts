@@ -1,6 +1,6 @@
 import { theme, extendTheme, ChakraTheme } from '@chakra-ui/react'
 
-import components from './components'
+import { components } from './components'
 
 export const baseTheme = extendTheme({
   colors: {

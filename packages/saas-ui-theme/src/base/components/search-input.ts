@@ -1,5 +1,10 @@
-export default {
-  parts: ['input', 'reset'],
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { searchInputAnatomy } from '../../anatomy'
+const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
+  searchInputAnatomy.keys
+)
+
+export const searchInputTheme = defineMultiStyleConfig({
   baseStyle: {
     input: {
       pr: 8,
@@ -17,4 +22,4 @@ export default {
       },
     },
   },
-}
+})

@@ -10,15 +10,17 @@ import {
   SystemProps,
   StackDirection,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
+import { FieldOptions, FieldOption } from '../types'
+import { mapOptions } from '../utils'
 
-interface Option extends RadioProps {
-  value: string
-  label?: string
-}
+export interface RadioOption
+  extends Omit<RadioProps, 'value' | 'label'>,
+    FieldOption {}
+
+export type RadioOptions = FieldOptions<RadioOption>
 
 interface RadioInputOptions {
-  options: Option[]
+  options: RadioOptions
   spacing?: SystemProps['margin']
   direction?: StackDirection
 }
@@ -28,8 +30,10 @@ export interface RadioInputProps
     RadioInputOptions {}
 
 export const RadioInput = forwardRef<RadioInputProps, 'div'>(
-  ({ options, spacing, direction, ...props }, ref) => {
+  ({ options: optionsProp, spacing, direction, ...props }, ref) => {
     const { onBlur, onChange, ...groupProps } = props
+
+    const options = mapOptions(optionsProp)
 
     return (
       <RadioGroup onChange={onChange} {...groupProps}>
@@ -53,6 +57,4 @@ export const RadioInput = forwardRef<RadioInputProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  RadioInput.displayName = 'RadioInput'
-}
+RadioInput.displayName = 'RadioInput'

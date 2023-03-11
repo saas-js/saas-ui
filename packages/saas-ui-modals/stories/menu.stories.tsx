@@ -23,7 +23,7 @@ export default {
   ],
 }
 
-export const basic = () => {
+export const Basic = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -47,7 +47,7 @@ export const basic = () => {
   )
 }
 
-export const iconAndCommand = () => {
+export const IconAndCommand = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -77,7 +77,7 @@ export const iconAndCommand = () => {
   )
 }
 
-export const menuGroup = () => {
+export const Group = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -112,7 +112,7 @@ export const menuGroup = () => {
   )
 }
 
-export const overflow = () => {
+export const Overflow = () => {
   const disclosure = useDisclosure()
 
   const items: React.ReactElement[] = []

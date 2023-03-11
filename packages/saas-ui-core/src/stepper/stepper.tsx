@@ -16,7 +16,7 @@ import { CheckIcon, Icon } from '@chakra-ui/icons'
 import { Collapse } from '../collapse'
 
 import { getChildOfType, getChildrenOfType } from '@saas-ui/react-utils'
-import { cx, dataAttr, __DEV__ } from '@chakra-ui/utils'
+import { cx, dataAttr } from '@chakra-ui/utils'
 
 import {
   StepperProvider,
@@ -26,12 +26,12 @@ import {
   UseStepperProps,
 } from './use-stepper'
 
-const [StylesProvider, useStyles] = createStylesContext('Stepper')
+const [StylesProvider, useStyles] = createStylesContext('SuiStepper')
 
 export interface StepperProps
   extends UseStepperProps,
     Omit<HTMLChakraProps<'div'>, 'onChange'>,
-    ThemingProps<'Stepper'> {
+    ThemingProps<'SuiStepper'> {
   orientation?: 'horizontal' | 'vertical'
 }
 
@@ -49,9 +49,7 @@ export const Stepper = forwardRef<StepperProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  Stepper.displayName = 'Stepper'
-}
+Stepper.displayName = 'Stepper'
 
 export const StepperContainer = forwardRef<StepperProps, 'div'>(
   (props, ref) => {
@@ -63,7 +61,7 @@ export const StepperContainer = forwardRef<StepperProps, 'div'>(
       ...rest
     } = props
 
-    const styles = useMultiStyleConfig('Stepper', {
+    const styles = useMultiStyleConfig('SuiStepper', {
       ...rest,
       orientation,
     })
@@ -94,9 +92,7 @@ export const StepperContainer = forwardRef<StepperProps, 'div'>(
   }
 )
 
-if (__DEV__) {
-  StepperContainer.displayName = 'StepperContainer'
-}
+StepperContainer.displayName = 'StepperContainer'
 
 export interface StepperStepsProps extends HTMLChakraProps<'div'> {
   orientation?: 'horizontal' | 'vertical'
@@ -176,9 +172,7 @@ export const StepperSteps: React.FC<StepperStepsProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperSteps.displayName = 'StepperSteps'
-}
+StepperSteps.displayName = 'StepperSteps'
 
 export interface StepperContentProps extends HTMLChakraProps<'div'> {
   /**
@@ -205,9 +199,7 @@ export const StepperContent: React.FC<StepperContentProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperContent.displayName = 'StepperContent'
-}
+StepperContent.displayName = 'StepperContent'
 
 export interface StepperIconProps extends HTMLChakraProps<'div'> {
   icon: React.ReactNode
@@ -250,9 +242,7 @@ export const StepperIcon: React.FC<StepperIconProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperIcon.displayName = 'StepperIcon'
-}
+StepperIcon.displayName = 'StepperIcon'
 
 export interface StepperStepProps
   extends Omit<HTMLChakraProps<'div'>, 'title'> {
@@ -307,9 +297,7 @@ export const StepperStep: React.FC<StepperStepProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperStep.displayName = 'StepperStep'
-}
+StepperStep.displayName = 'StepperStep'
 
 export interface StepperSeparatorProps extends HTMLChakraProps<'div'> {
   isActive?: boolean
@@ -338,9 +326,7 @@ export const StepperSeparator: React.FC<StepperSeparatorProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperSeparator.displayName = 'StepperSeparator'
-}
+StepperSeparator.displayName = 'StepperSeparator'
 
 /**
  * The step title.
@@ -356,9 +342,7 @@ export const StepperStepTitle: React.FC<HTMLChakraProps<'p'>> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperStepTitle.displayName = 'StepperStepTitle'
-}
+StepperStepTitle.displayName = 'StepperStepTitle'
 
 /**
  * Shown when all steps have completed.
@@ -374,6 +358,4 @@ export const StepperCompleted: React.FC<HTMLChakraProps<'div'>> = (props) => {
   )
 }
 
-if (__DEV__) {
-  StepperCompleted.displayName = 'StepperCompleted'
-}
+StepperCompleted.displayName = 'StepperCompleted'

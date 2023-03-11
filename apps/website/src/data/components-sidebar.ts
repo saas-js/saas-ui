@@ -192,8 +192,8 @@ const sidebar = {
           path: '/docs/components/data-display/empty-state',
         },
         {
-          title: 'List',
-          path: '/docs/components/data-display/list',
+          title: 'StructuredList',
+          path: '/docs/components/data-display/structured-list',
         },
         {
           title: 'Property',
@@ -206,7 +206,6 @@ const sidebar = {
         {
           title: 'Timeline',
           path: '/docs/components/data-display/timeline',
-          pro: true,
         },
         {
           title: 'Command',

@@ -1,40 +1,43 @@
 {
   "name": "@saas-ui/forms",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     },
     "./yup": {
       "require": "./dist/yup/index.js",
-      "import": "./dist/yup/index.modern.mjs"
+      "types": "./dist/yup/index.d.ts",
+      "import": "./dist/yup/index.mjs"
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
     },
     "./zod": {
       "require": "./dist/zod/index.js",
-      "import": "./dist/zod/index.modern.mjs"
+      "types": "./dist/zod/index.d.ts",
+      "import": "./dist/zod/index.mjs"
     },
     "./zod/src": {
       "default": "./zod/src/index.ts"
     },
     "./ajv": {
       "require": "./dist/ajv/index.js",
-      "import": "./dist/ajv/index.modern.mjs"
+      "types": "./dist/zod/index.d.ts",
+      "import": "./dist/ajv/index.mjs"
     },
     "./ajv/src": {
       "default": "./ajv/src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -83,7 +86,6 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.16",
     "@chakra-ui/react-utils": "^2.0.11",
     "@chakra-ui/utils": "^2.0.14",
     "@saas-ui/core": "workspace:*",
@@ -99,6 +101,7 @@
   },
   "devDependencies": {
     "@hookform/resolvers": "^2.9.3",
+    "@types/json-schema": "^7.0.11",
     "ajv": "^8.12.0",
     "yup": "^0.32.11",
     "zod": "^3.20.2"

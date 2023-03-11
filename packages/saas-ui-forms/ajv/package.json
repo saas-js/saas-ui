@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "require": "./../dist/ajv/index.js",
-      "import": "./../dist/ajv/index.modern.mjs"
+      "import": "./../dist/ajv/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -14,7 +14,7 @@
   },
   "source": "./src/index.ts",
   "main": "../dist/ajv/index.js",
-  "module": "../dist/ajv/index.modern.mjs",
+  "module": "../dist/ajv/index.mjs",
   "types": "../dist/ajv/index.d.ts",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",
@@ -23,6 +23,6 @@
     "@saas-ui/forms": "^1.4.2",
     "@hookform/resolvers": "^2.9.3",
     "react-hook-form": "^7.33.1",
-    "ajv": "^8.11.0"
+    "ajv": "^8.12.0"
   }
 }

@@ -74,6 +74,12 @@ export function RedeemForm(props) {
     }
   }, [router.query, router.isReady])
 
+  useEffect(() => {
+    if (router.isReady && router.query.license_key) {
+      setLicenseKey(router.query.license_key as string)
+    }
+  }, [router.query, router.isReady])
+
   const handleSubmit = async ({ licenseKey, githubAccount }) => {
     setTimeout(() => {
       /* @ts-ignore */

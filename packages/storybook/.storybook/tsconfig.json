@@ -1,0 +1,10 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@saas-ui/forms": ["../../saas-ui-forms/src"]
+    }
+  },
+  "include": ["./*.ts"]
+}

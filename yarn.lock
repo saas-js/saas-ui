@@ -7048,6 +7048,7 @@ __metadata:
     "@chakra-ui/styled-system": ^2.5.1
     "@chakra-ui/theme-tools": ^2.0.16
     "@chakra-ui/utils": ^2.0.15
+    "@saas-ui/react": "workspace:*"
     react-icons: ^4.7.1
   peerDependencies:
     "@chakra-ui/react": ">=2.4.6"
@@ -28338,7 +28339,11 @@ __metadata:
     "@babel/preset-env": ^7.20.2
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
+    "@chakra-ui/react": ^2.4.9
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
     "@saas-ui/react": "workspace:*"
+    "@saas-ui/storybook-addon": "workspace:*"
     "@storybook/addon-a11y": ^7.0.0-beta.43
     "@storybook/addon-storysource": ^7.0.0-beta.43
     "@storybook/addon-toolbars": ^7.0.0-beta.43

@@ -67,6 +67,7 @@
     "react": ">=18.0.0"
   },
   "devDependencies": {
+    "@saas-ui/react": "workspace:*",
     "react-icons": "^4.7.1"
   }
 }

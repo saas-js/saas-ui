@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react'
-import addons, { StoryContext, StoryFn } from '@storybook/addons'
+import { addons } from '@storybook/addons'
+import { StoryFn, StoryContext } from '@storybook/types'
 import { extendTheme } from '@chakra-ui/react'
-import { SaasProvider } from '@saas-ui/react'
+import { SaasProvider, useLocalStorage } from '@saas-ui/react'
 import { ColorModeSync } from '../color-mode/ColorModeSync'
 import { useDirection } from '../direction/useDirection'
 import { DIRECTION_TOOL_ID, EVENTS } from '../../constants'
 
 import { baseTheme, theme as suiTheme } from '@saas-ui/theme'
 import { theme as baseGlassTheme } from '@saas-ui/theme-glass'
-import { useLocalStorage } from '@saas-ui/react'
 
 const glassTheme = extendTheme(baseGlassTheme, suiTheme)
 

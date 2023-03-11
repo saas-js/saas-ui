@@ -1,5 +1,6 @@
 {
   "name": "saas-ui-storybook",
+  "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build && storybook extract"
@@ -10,7 +11,11 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@saas-ui/react": "workspace:*",
+    "@saas-ui/storybook-addon": "workspace:*",
     "@storybook/addon-a11y": "^7.0.0-beta.43",
     "@storybook/addon-storysource": "^7.0.0-beta.43",
     "@storybook/addon-toolbars": "^7.0.0-beta.43",

@@ -11,7 +11,6 @@ import Menu from './menu'
 import Modal from './modal'
 import Progress from './progress'
 import Popover from './popover'
-import Toaster from './toaster'
 import Radio from './radio'
 import Slider from './slider'
 import Switch from './switch'
@@ -29,7 +28,6 @@ export { default as Menu } from './menu'
 export { default as Modal } from './modal'
 export { default as Progress } from './progress'
 export { default as Popover } from './popover'
-export { default as Toaster } from './toaster'
 export { default as Radio } from './radio'
 export { default as Slider } from './slider'
 export { default as Switch } from './switch'
@@ -48,7 +46,6 @@ export default {
   Modal,
   Progress,
   Popover,
-  Toaster,
   Radio,
   Slider,
   Switch,

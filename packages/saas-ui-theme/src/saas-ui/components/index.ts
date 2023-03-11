@@ -17,7 +17,6 @@ import { kbdTheme } from './kbd'
 import { menuTheme } from './menu'
 import { modalTheme } from './modal'
 import { progressTheme } from './progress'
-import { toasterTheme } from './toaster'
 import { radioTheme } from './radio'
 import { sliderTheme } from './slider'
 import { switchTheme } from './switch'
@@ -41,7 +40,6 @@ export { kbdTheme as Kbd } from './kbd'
 export { menuTheme as Menu } from './menu'
 export { modalTheme as Modal } from './modal'
 export { progressTheme as Progress } from './progress'
-export { toasterTheme as Toaster } from './toaster'
 export { radioTheme as Radio } from './radio'
 export { sliderTheme as Slider } from './slider'
 export { switchTheme as Switch } from './switch'
@@ -69,7 +67,6 @@ export const components = {
   Menu: menuTheme,
   Modal: modalTheme,
   Progress: progressTheme,
-  Toaster: toasterTheme,
   Radio: radioTheme,
   Slider: sliderTheme,
   Switch: switchTheme,

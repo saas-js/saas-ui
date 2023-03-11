@@ -27,8 +27,9 @@ const variantSnackbar = definePartsStyle((props) => {
         },
       },
     },
-    title: { fontWeight: 'semibold' },
+    title: { fontWeight: 'semibold', fontSize: 'md' },
     description: {
+      fontSize: 'sm',
       color: `gray.500`,
       _dark: {
         color: `gray.400`,

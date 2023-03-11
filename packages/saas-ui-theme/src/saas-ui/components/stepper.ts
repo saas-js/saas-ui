@@ -14,9 +14,15 @@ const variantSolid = definePartsStyle((props) => {
       color: 'white',
       '[data-active] &': {
         bg: `${c}.500`,
+        _dark: {
+          bg: `${c}.500`,
+        },
       },
       '[data-completed] &': {
         bg: `${c}.500`,
+        _dark: {
+          bg: `${c}.500`,
+        },
       },
     },
     separator: {
@@ -34,32 +40,18 @@ const variantSolid = definePartsStyle((props) => {
 
 const variantOutline = definePartsStyle((props) => {
   const { colorScheme: c } = props
+  const styles = variantSolid(props)
+
   return {
+    ...styles,
     icon: {
-      bg: 'gray.500',
-      _dark: {
-        bg: `gray.600`,
-      },
-      color: 'white',
+      ...styles.icon,
       '[data-active] &': {
-        bg: `${c}.500`,
+        ...styles.icon['[data-active] &'],
         outlineColor: `${c}.500`,
         outlineWidth: '1px',
         outlineStyle: 'solid',
         outlineOffset: '2px',
-      },
-      '[data-completed] &': {
-        bg: `${c}.500`,
-      },
-    },
-    separator: {
-      '&[data-active]': {
-        borderColor: `${c}.500`,
-      },
-    },
-    step: {
-      '&[data-active]:before, &[data-completed]': {
-        borderColor: `${c}.500`,
       },
     },
   }

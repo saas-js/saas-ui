@@ -8,18 +8,22 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const baseStyleLabel = defineStyle((props) => {
   return {
-    color: `gray.500`,
-    _dark: {
-      color: `whiteAlpha.600`,
-    },
+    color: 'gray.500',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
+    minW: 0,
+    _dark: {
+      color: 'whiteAlpha.600',
+    },
   }
 })
 
 const baseStyle = definePartsStyle((props) => {
   return {
+    details: {
+      minW: 0,
+    },
     secondaryLabel: baseStyleLabel(props),
     tertiaryLabel: baseStyleLabel(props),
   }

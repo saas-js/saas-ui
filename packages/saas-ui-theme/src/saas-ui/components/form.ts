@@ -1,6 +1,9 @@
 import { inputAnatomy } from '@chakra-ui/anatomy'
 
-import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import {
+  createMultiStyleConfigHelpers,
+  defineStyleConfig,
+} from '@chakra-ui/styled-system'
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(inputAnatomy.keys)
 
@@ -64,6 +67,15 @@ export const formLabelTheme = {
 
 export const inputTheme = Input
 export const numberInputTheme = Input
-export const pinInputTheme = Input
+export const pinInputTheme = defineStyleConfig({
+  defaultProps: {
+    /* @ts-expect-error */
+    focusBorderColor: 'primary.500',
+  },
+  variants: {
+    outline: outlineVariant,
+  },
+  sizes: inputSizes,
+})
 export const textareaTheme = Input
 export const selectTheme = Input

@@ -61,7 +61,20 @@ export function ChakraProviderDecorator(
     : theme
   const direction = useDirection(globalDirection || chakraTheme?.direction)
   const themeWithDirectionOverride = useMemo(
-    () => extendTheme(chakraTheme),
+    () =>
+      extendTheme(
+        {
+          direction,
+          styles: {
+            global: {
+              body: {
+                minHeight: 'var(--chakra-vh)',
+              },
+            },
+          },
+        },
+        chakraTheme
+      ),
     [chakraTheme, direction]
   )
 

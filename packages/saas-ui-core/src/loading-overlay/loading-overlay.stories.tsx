@@ -1,4 +1,4 @@
-import { Container, Box, Stack, Text, Button } from '@chakra-ui/react'
+import { Container, Box, Stack, Text, Button, Card } from '@chakra-ui/react'
 import * as React from 'react'
 
 import { LoadingOverlay, LoadingSpinner, LoadingText } from './loading-overlay'
@@ -15,20 +15,20 @@ export default {
 }
 
 export const Basic = () => (
-  <Stack height="200px">
+  <Card height="200px" overflow="hidden">
     <LoadingOverlay>
       <LoadingSpinner />
     </LoadingOverlay>
-  </Stack>
+  </Card>
 )
 
 export const Overlay = () => (
-  <Box height="200px" pos="relative" p="4">
+  <Card height="200px" pos="relative" p="4">
     <Text>This content will be overlayed.</Text>
     <LoadingOverlay variant="overlay">
       <LoadingSpinner />
     </LoadingOverlay>
-  </Box>
+  </Card>
 )
 
 export const Fullscreen = () => (
@@ -38,11 +38,11 @@ export const Fullscreen = () => (
 )
 
 export const WithText = () => (
-  <Stack height="200px">
-    <LoadingOverlay>
+  <Card height="200px">
+    <LoadingOverlay borderRadius="md">
       <LoadingText>Loading...</LoadingText>
     </LoadingOverlay>
-  </Stack>
+  </Card>
 )
 
 export const ExitAnimation = () => {
@@ -57,11 +57,11 @@ export const ExitAnimation = () => {
   }, [isLoading])
 
   return (
-    <Box height="200px" pos="relative" p="4">
+    <Card height="200px" pos="relative" p="4">
       <Button onClick={() => setLoading(true)}>Show loader</Button>
-      <LoadingOverlay variant="fullscreen" isLoading={isLoading}>
+      <LoadingOverlay variant="overlay" isLoading={isLoading}>
         <LoadingSpinner />
       </LoadingOverlay>
-    </Box>
+    </Card>
   )
 }

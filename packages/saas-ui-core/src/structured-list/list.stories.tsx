@@ -18,6 +18,8 @@ import {
   Card,
   HStack,
   Checkbox,
+  Radio,
+  RadioGroup,
 } from '@chakra-ui/react'
 
 import { transparentize } from '@chakra-ui/theme-tools'
@@ -227,30 +229,26 @@ export const CustomStyles = () => {
   const bg = useColorModeValue('teal.200', 'teal.500')
 
   return (
-    <Card width="100%" maxW="320px">
+    <Card width="100%" maxW="320px" height="400px">
       <Box as="nav" p="2" role="navigation" aria-label="Main navigation">
         <StructuredList p="0">
           <StructuredListItem p="2px">
             <StructuredListButton
-              py="1"
-              px="4"
               borderRadius="md"
               color={useColorModeValue('teal.500', 'teal.300')}
               bg={transparentize(bg, 0.3)(theme)}
               _hover={{ bg: transparentize(bg, 0.3)(theme) }}
             >
               <StructuredListIcon size="16px" as={FiHome} />
-              <StructuredListCell fontWeight="bold" flex="1" px="3" py="2">
+              <StructuredListCell fontWeight="bold" flex="1">
                 Home
               </StructuredListCell>
             </StructuredListButton>
           </StructuredListItem>
           <StructuredListItem p="2px">
-            <StructuredListButton py="1" px="4" borderRadius="md">
+            <StructuredListButton borderRadius="md">
               <StructuredListIcon size="16px" as={FiInbox} />
-              <StructuredListCell flex="1" px="3" py="2">
-                Inbox
-              </StructuredListCell>
+              <StructuredListCell flex="1">Inbox</StructuredListCell>
               <StructuredListCell>
                 <Badge borderRadius="full">20</Badge>
               </StructuredListCell>
@@ -259,8 +257,8 @@ export const CustomStyles = () => {
         </StructuredList>
       </Box>
       <Box as="nav" role="navigation" aria-label="Teams navigation">
-        <StructuredList p="0">
-          <StructuredListItem py="1" px="2">
+        <StructuredList px="0">
+          <StructuredListItem py="0">
             <StructuredListHeader
               as={StructuredListButton}
               borderRadius="md"
@@ -272,7 +270,7 @@ export const CustomStyles = () => {
               Teams
             </StructuredListHeader>
           </StructuredListItem>
-          <StructuredListItem px="2">
+          <StructuredListItem px="2" py="2px">
             <StructuredList flex="1" p="0">
               <Collapse {...getCollapseProps()}>
                 <StructuredListItem py="2px" px="0">
@@ -314,7 +312,7 @@ export function WithCheckbox() {
           const [checked, setChecked] = React.useState(false)
           return (
             <StructuredListItem key={todo} onClick={() => setChecked(!checked)}>
-              <StructuredListCell width="10" display="flex" alignItems="center">
+              <StructuredListCell display="flex" alignItems="center">
                 <Checkbox isChecked={checked} />
               </StructuredListCell>
               <StructuredListCell flex="1">
@@ -328,27 +326,81 @@ export function WithCheckbox() {
   )
 }
 
+const tshirtVariants = [
+  {
+    id: 1,
+    title: 'Red T-Shirt',
+    description: 'A bright and bold red t-shirt',
+  },
+  {
+    id: 2,
+    title: 'Blue T-Shirt',
+    description: 'A cool and calming blue t-shirt',
+  },
+  {
+    id: 3,
+    title: 'Green T-Shirt',
+    description: 'A fresh and lively green t-shirt',
+  },
+]
+
+export function WithRadio() {
+  const [checked, setChecked] = React.useState(1)
+  return (
+    <Box width="400px">
+      <RadioGroup name="variant">
+        <StructuredList>
+          {tshirtVariants.map((variant) => {
+            const isChecked = checked === variant.id
+            return (
+              <StructuredListItem
+                key={variant.id}
+                onClick={() => setChecked(variant.id)}
+                borderRadius="md"
+                borderWidth="1px"
+                mb="2"
+                data-checked={isChecked ? true : undefined}
+                _checked={{
+                  borderColor: 'primary.500',
+                }}
+              >
+                <StructuredListCell flex="1">
+                  <Text fontWeight="medium">{variant.title}</Text>
+                  <Text color="muted">{variant.description}</Text>
+                </StructuredListCell>
+                <StructuredListCell alignSelf="flex-start" mt="1">
+                  <Radio isChecked={isChecked} />
+                </StructuredListCell>
+              </StructuredListItem>
+            )
+          })}
+        </StructuredList>
+      </RadioGroup>
+    </Box>
+  )
+}
+
 export const WithSwitch = () => {
   return (
-    <Box width="100%" maxW="320px">
+    <Card width="100%" maxW="320px">
       <StructuredList>
         <StructuredListHeader>Notifications</StructuredListHeader>
         <StructuredListItem>
-          <StructuredListIcon width="8" as={FiMail} size="4" />
+          <StructuredListIcon as={FiMail} size="4" />
           <StructuredListCell flex="1">Email</StructuredListCell>
           <StructuredListCell>
             <Switch aria-label="Email" />
           </StructuredListCell>
         </StructuredListItem>
         <StructuredListItem>
-          <StructuredListIcon width="8" as={FiMessageSquare} size="4" />
+          <StructuredListIcon as={FiMessageSquare} size="4" />
           <StructuredListCell flex="1">Chat</StructuredListCell>
           <StructuredListCell>
             <Switch aria-label="Chat" />
           </StructuredListCell>
         </StructuredListItem>
       </StructuredList>
-    </Box>
+    </Card>
   )
 }
 
@@ -507,8 +559,6 @@ export function StickyHeaders() {
     return (
       <StructuredListItem
         href="#"
-        as={HStack}
-        spacing="4"
         borderBottom="1px"
         borderColor="gray.100"
         fontSize="sm"
@@ -516,7 +566,7 @@ export function StickyHeaders() {
           borderColor: 'whiteAlpha.100',
         }}
       >
-        <StructuredListCell width="4" role="group">
+        <StructuredListCell width="4" role="group" px="0">
           <Checkbox
             opacity="0"
             _checked={{ opacity: 1 }}
@@ -527,7 +577,7 @@ export function StickyHeaders() {
         </StructuredListCell>
         <StructuredListCell color="muted">{issue.id}</StructuredListCell>
         <StructuredListCell flex="1">
-          <Text>{issue.title}</Text>
+          <Text noOfLines={1}>{issue.title}</Text>
         </StructuredListCell>
         <StructuredListCell color="muted" as={HStack}>
           {issue.labels.map((label) => (

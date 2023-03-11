@@ -86,6 +86,11 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
               ...styles.list,
               boxShadow: 'none',
               border: 0,
+              _dark: {
+                /* @ts-expect-error */
+                ...(styles.list._dark || {}),
+                boxShadow: 'none',
+              },
             }}
           />
         </StylesProvider>

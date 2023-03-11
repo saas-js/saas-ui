@@ -33,7 +33,7 @@ const persona = {
   tertiaryLabel: 'Away for lunch',
 }
 
-export const basic = () => (
+export const Basic = () => (
   <>
     <VStack spacing="8">
       <Persona {...persona} size="2xs" />
@@ -53,7 +53,7 @@ export const basic = () => (
   </>
 )
 
-export const composed = () => (
+export const Composed = () => (
   <>
     <PersonaContainer>
       <PersonaAvatar name={persona.name} presence="away" />
@@ -66,7 +66,7 @@ export const composed = () => (
   </>
 )
 
-export const hideDetails = () => (
+export const HideDetails = () => (
   <>
     <VStack spacing="8">
       <Persona {...persona} hideDetails presence="offline" />
@@ -74,7 +74,7 @@ export const hideDetails = () => (
   </>
 )
 
-export const badgeIcon = () => (
+export const BadgeIcon = () => (
   <>
     <VStack spacing="8">
       <PersonaContainer size="lg">
@@ -102,7 +102,7 @@ export const badgeIcon = () => (
   </>
 )
 
-export const customAvatar = () => (
+export const CustomAvatar = () => (
   <>
     <VStack spacing="8">
       <PersonaContainer size="lg">
@@ -123,7 +123,7 @@ export const customAvatar = () => (
   </>
 )
 
-export const labelWithIcon = () => (
+export const LabelWithIcon = () => (
   <>
     <VStack spacing="8">
       <Persona
@@ -139,12 +139,26 @@ export const labelWithIcon = () => (
   </>
 )
 
-export const outOfOffice = () => (
+export const OutOfOffice = () => (
   <>
     <VStack spacing="8">
       <Persona {...persona} presence="offline" size="xs" isOutOfOffice />
       <Persona {...persona} presence="online" isOutOfOffice />
       <Persona {...persona} presence="away" size="xl" isOutOfOffice />
+    </VStack>
+  </>
+)
+
+export const Overflow = () => (
+  <>
+    <VStack spacing="8">
+      <Persona
+        {...persona}
+        secondaryLabel="This is a very long text and should overflow."
+        presence="offline"
+        isOutOfOffice
+        maxW="200px"
+      />
     </VStack>
   </>
 )

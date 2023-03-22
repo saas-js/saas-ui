@@ -17,4 +17,6 @@ export * from './snackbar'
 export * from './stepper'
 export * from './web3-address'
 export * from './timeline'
+
 export * from './icons'
+export { createIcon } from './icons/create-icon'

@@ -39,6 +39,7 @@ export interface LineChartProps {
   variant?: 'line' | 'solid' | 'gradient'
   tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
   tooltipFormatter?(value: string, name: string, props: any): string
+  children?: React.ReactNode
 }
 
 export const LineChart = (props: LineChartProps) => {
@@ -55,6 +56,7 @@ export const LineChart = (props: LineChartProps) => {
     tooltipFormatter = (value: string, name: string, props: any) => {
       return props.payload.yv
     },
+    children,
   } = props
 
   const theme = useTheme()
@@ -137,6 +139,8 @@ export const LineChart = (props: LineChartProps) => {
                   wrapperClassName={css(tooltipStyles)}
                   content={tooltipContent}
                 />
+                
+                {children}
 
                 <Area
                   type="monotone"

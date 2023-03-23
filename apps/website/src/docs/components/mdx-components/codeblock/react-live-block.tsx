@@ -3,7 +3,13 @@
 import { Box, BoxProps, chakra } from '@chakra-ui/react'
 import { FeaturesOptions, FeaturesProvider } from '@saas-ui/features'
 import React, { useState } from 'react'
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
+// import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
+import {
+  LiveProvider,
+  LiveEditor,
+  LiveError,
+  LivePreview,
+} from 'react-live-runner'
 import CodeContainer from './code-container'
 import CopyButton from './copy-button'
 import scope from './react-live-scope'
@@ -70,6 +76,31 @@ const EditableNotice = (props: BoxProps) => {
   )
 }
 
+const ViewAll = (props: BoxProps) => {
+  return (
+    <Box
+      position="absolute"
+      width="full"
+      bottom="-1.25em"
+      roundedTop="8px"
+      bg="#2a2734"
+      py="2"
+      zIndex="0"
+      letterSpacing="wide"
+      color="gray.400"
+      fontSize="xs"
+      fontWeight="semibold"
+      textAlign="center"
+      textTransform="uppercase"
+      pointerEvents="none"
+      cursor="pointer"
+      {...props}
+    >
+      View all
+    </Box>
+  )
+}
+
 function ReactLiveBlock({
   editable,
   rawCode,
@@ -109,16 +140,26 @@ function ReactLiveBlock({
           position="relative"
           sx={sx}
         />
+        {editable && <LiveError style={liveErrorStyle} />}
         <Box position="relative" zIndex="0">
           {editable && (
-            <CodeContainer bg={theme.plain.backgroundColor}>
-              <LiveEditor onChange={onChange} style={liveEditorStyle} />
+            <CodeContainer
+              bg={theme.plain.backgroundColor}
+              sx={{
+                textarea: {
+                  _focus: {
+                    outline: 'none',
+                  },
+                },
+              }}
+              overflow="auto"
+            >
+              <LiveEditor style={liveEditorStyle} />
             </CodeContainer>
           )}
           <CopyButton code={editorCode} />
           {editable && <EditableNotice bg={theme.plain.backgroundColor} />}
         </Box>
-        {editable && <LiveError style={liveErrorStyle} />}
       </LiveProvider>
     </FeaturesProvider>
   )

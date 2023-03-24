@@ -18,7 +18,7 @@ interface LayoutProps {
 
 const Layout = ({ children, announcement, header, footer }: LayoutProps) => {
   return (
-    <Box>
+    <Box minH="$100vh">
       <SkipNavLink>Skip to content</SkipNavLink>
       <AnnouncementBanner {...announcement} />
       <Header {...header} />

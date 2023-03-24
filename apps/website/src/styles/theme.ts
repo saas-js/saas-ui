@@ -25,9 +25,6 @@ const styles = {
       minHeight: 'auto',
       fontSize: 'lg',
     },
-    'div#__next, div#__next > div': {
-      height: '100%',
-    },
     '.parity-banner': {
       position: 'relative',
       top: '60px',

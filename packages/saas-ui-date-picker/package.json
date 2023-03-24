@@ -55,7 +55,6 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.16",
     "@chakra-ui/react-utils": "^2.0.11",
     "@chakra-ui/styled-system": "^2.5.1",
     "@chakra-ui/theme-tools": "^2.0.16",
@@ -66,6 +65,7 @@
     "@react-aria/i18n": "^3.6.3",
     "@react-stately/calendar": "^3.0.5",
     "@react-stately/datepicker": "^3.2.1",
+    "@saas-ui/core": "workspace:*",
     "@saas-ui/modals": "workspace:*"
   },
   "peerDependencies": {

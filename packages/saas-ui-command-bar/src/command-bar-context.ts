@@ -7,7 +7,7 @@ export interface CommandBarOptions {
   shouldFilter?: boolean
   onFilter?(string: string, search: string): number
   value?: string
-  onValueChange?(search: string): void
+  onChange?(search: string): void
   onSelect?(value: string): void
   isOpen?: boolean
   onClose?(): void
@@ -31,7 +31,7 @@ export const useCommandBar = (props: CommandBarOptions) => {
     shouldFilter = true,
     onFilter,
     value,
-    onValueChange,
+    onChange,
     onSelect,
     isOpen: isOpenProp,
     onClose: onCloseProp,
@@ -47,13 +47,13 @@ export const useCommandBar = (props: CommandBarOptions) => {
     (props: any) => {
       return {
         shouldFilter,
-        onFilter,
+        filter: onFilter,
         value,
-        onValueChange,
+        onValueChange: onChange,
         ...props,
       }
     },
-    [shouldFilter, onFilter, value, onValueChange]
+    [shouldFilter, onFilter, value, onChange]
   )
 
   const getItemProps = useCallback(

@@ -1,17 +1,24 @@
-import { mode, SystemStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { nprogressAnatomy } from '../../anatomy'
 
-const baseStyle: SystemStyleFunction = (props) => {
+export const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(nprogressAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     bar: {
-      bg: mode(`${c}.500`, `${c}.300`)(props),
+      bg: `${c}.500`,
+      _dark: {
+        bg: `${c}.300`,
+      },
     },
   }
-}
+})
 
-export default {
+export const nprogressTheme = defineMultiStyleConfig({
   defaultProps: {
     colorScheme: 'teal',
   },
   baseStyle,
-}
+})

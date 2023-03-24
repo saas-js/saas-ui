@@ -18,7 +18,7 @@ export * from './select'
 export * from './password-input'
 
 export { createForm } from './create-form'
-export type { CreateFormProps } from './create-form'
+export type { CreateFormProps, WithFields } from './create-form'
 
 export type {
   BatchFieldArrayUpdate,

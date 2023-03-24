@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { CalendarIcon } from '@chakra-ui/icons'
 import {
   forwardRef,
   InputGroup,
@@ -15,6 +14,7 @@ import { DatePickerDialog, DatePickerTrigger } from './date-picker-dialog'
 import { DatePicker, DatePickerProps } from './date-picker'
 import { useDatePickerContext } from './date-picker-context'
 import { SegmentedInput } from './segmented-input'
+import { CalendarIcon } from '@saas-ui/core'
 
 export interface DateInputProps extends DatePickerProps {
   calendarIcon?: React.ReactNode

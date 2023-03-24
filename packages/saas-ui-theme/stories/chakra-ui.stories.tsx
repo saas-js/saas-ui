@@ -51,13 +51,13 @@ import {
   Select,
   PropertyList,
   Property,
-  List,
-  ListItem,
-  ListItemIcon,
+  // List,
+  // ListItem,
+  // ListItemIcon,
   PersonaAvatar,
-  ListItemLabel,
-  ListItemTertiary,
-  ListItemAction,
+  // ListItemLabel,
+  // ListItemTertiary,
+  // ListItemAction,
   SearchInput,
   Divider,
   Link,
@@ -366,7 +366,7 @@ const Members = () => {
           Invite people
         </Button>
       </ButtonGroup>
-      <List>
+      {/* <List>
         {members.map((member) => (
           <ListItem
             px="4"
@@ -407,7 +407,7 @@ const Members = () => {
             </ListItemAction>
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Card>
   )
 }

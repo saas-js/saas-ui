@@ -156,9 +156,8 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
       alignItems: 'center',
       justifyContent: 'space-between',
       fontSize: 'md',
-      py: disablePadding ? 0 : 2,
-      px: disablePadding ? 0 : 4,
       ...styles.item,
+      ...(disablePadding ? { py: 0, px: 0 } : {}),
     }
 
     const wrapperProps = isButton
@@ -220,8 +219,6 @@ export const StructuredListButton = forwardRef<
     flex: 1,
     cursor: 'pointer',
     userSelect: 'none',
-    py: 2,
-    px: 4,
     ...styles.button,
   }
 

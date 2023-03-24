@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@saas-ui/react": ["../../packages/saas-ui-react/src"],
+      "@saas-ui/theme": ["../../packages/saas-ui-theme/src"],
+      "@saas-ui/theme-glass": ["../../packages/saas-ui-theme-glass/src"]
+    }
+  },
+  "include": ["src", "stories", "index.ts"]
+}

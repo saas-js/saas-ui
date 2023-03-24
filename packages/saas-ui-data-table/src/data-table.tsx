@@ -26,9 +26,7 @@ import {
 
 import { cx } from '@chakra-ui/utils'
 
-import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
-
-import { Link } from '@saas-ui/core'
+import { ChevronDownIcon, ChevronUpIcon, Link } from '@saas-ui/core'
 
 export type { TableInstance, ColumnDef }
 
@@ -200,9 +198,9 @@ export const DataTableSort = <Data extends object, TValue>(
     <chakra.span __css={sorterStyles} {...rest}>
       {sorted ? (
         sorted === 'desc' ? (
-          <TriangleDownIcon aria-label="sorted descending" />
+          <ChevronDownIcon aria-label="sorted descending" />
         ) : (
-          <TriangleUpIcon aria-label="sorted ascending" />
+          <ChevronUpIcon aria-label="sorted ascending" />
         )
       ) : (
         ''

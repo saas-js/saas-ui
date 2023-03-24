@@ -1,7 +1,7 @@
-const defaultProps = {
-  size: 'sm',
-}
+import { defineStyleConfig } from '@chakra-ui/styled-system'
 
-export default {
-  defaultProps,
-}
+export const closeButtonTheme = defineStyleConfig({
+  defaultProps: {
+    size: 'sm',
+  },
+})

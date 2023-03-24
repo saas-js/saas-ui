@@ -52,7 +52,6 @@ export interface SidebarProps
 export interface SidebarToggleButtonProps
   extends Omit<IconButtonProps, 'aria-label' | 'icon'> {
   icon?: MaybeRenderProp<{ isOpen: boolean }>
-  wrapperProps?: HTMLChakraProps<'div'>
 }
 
 export interface SidebarSectionProps extends HTMLChakraProps<'div'> {

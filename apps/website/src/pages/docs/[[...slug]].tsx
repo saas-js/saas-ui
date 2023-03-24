@@ -5,36 +5,58 @@ import { MDXComponents } from '@/docs/components/mdx-components'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Layout from 'src/layouts/'
+import {
+  getComponentTabsData,
+  getDocByType,
+  getDocDoc,
+  TabsData,
+} from '@/docs/utils/contentlayer-utils'
+import { uniq } from '@/docs/utils/js-utils'
 
 import generateRss from '@/utils/generate-rss'
+import ComponentDocsLayout from '@/layouts/components'
 
 const MdxPage = ({ doc }: { doc: Doc }) => {
   const Component = useMDXComponent(doc?.body.code)
   return <Component components={MDXComponents as any} />
 }
 
-export default function Page({ doc }: { doc: Doc }) {
-  return (
-    <Layout frontMatter={doc?.frontMatter}>
-      {doc && <MdxPage doc={doc} />}
-    </Layout>
-  )
+export default function Page({
+  doc,
+  tabsData,
+}: {
+  doc: Doc
+  tabsData: TabsData
+}) {
+  const content = doc && <MdxPage doc={doc} />
+  if (doc?.slug.startsWith('/docs/components')) {
+    return (
+      <ComponentDocsLayout frontmatter={doc?.frontMatter} tabsData={tabsData}>
+        {content}
+      </ComponentDocsLayout>
+    )
+  }
+
+  return <Layout frontMatter={doc?.frontMatter}>{content}</Layout>
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const docs = allDocs
-    .map((t: Doc) => t._raw.flattenedPath.replace('docs/', ''))
-    .map((id: string) => ({ params: { slug: id.split('/') } }))
-  return { paths: docs, fallback: true }
+  const paths = uniq(
+    getDocByType('components').flatMap((doc) => [
+      doc.slug,
+      `/${doc._raw.sourceFileDir}`,
+    ])
+  )
+  return { paths, fallback: true }
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  const tabsData = getComponentTabsData([ctx.params.slug])
+  const doc = getDocDoc([ctx.params.slug])
+
   const params =
     (Array.isArray(ctx.params?.slug) ? ctx.params?.slug : [ctx.params?.slug]) ??
     []
-  const doc = allDocs.find((doc: Doc) =>
-    doc._id.endsWith(`${params.join('/') || 'index'}.mdx`)
-  )
 
   if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {
     const rss = generateRss(
@@ -45,7 +67,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
             'Professionally crafted Chakra UI components that help you build intuitive React apps with speed.',
           title: 'Professionally crafted Chakra UI components',
         },
-      ].concat(allDocs),
+      ].concat(allDocs as any),
       'docs.xml'
     )
     fs.writeFileSync('./public/docs.xml', rss)
@@ -60,6 +82,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       doc,
+      tabsData,
       header: { position: 'sticky', borderBottomWidth: '1px' },
       footer: false,
     },

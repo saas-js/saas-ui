@@ -1,5 +1,8 @@
 ---
+id: app-shell
 title: App Shell
+category: 'layout'
+package: '@saas-ui/core'
 description: The App Shell defines the main structure of your app.
 ---
 
@@ -8,8 +11,6 @@ description: The App Shell defines the main structure of your app.
   npm={{ package: '@saas-ui/app-shell' }}
   theme={{ componentName: 'app-shell' }}
 />
-
-A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content aside, and footer.
 
 ## Import
 
@@ -21,33 +22,12 @@ import { AppShell } from '@saas-ui/app-shell'
 
 ## Usage
 
+A shell is a collection of components shared throughout your app and can consist of a header, sidebar, content aside, and footer.
+
 <Info status="info">
-  To make sure AppShell fills up the entire viewport height, you need to add
-  `height="100%"` to html, body and any parent divs.
+  To make sure AppShell fills up the entire viewport height, you can set
+  `height="$100vh"` on the AppShell to make it fill the entire viewport height.
 </Info>
-
-You can add global css styles to your theme as follows.
-
-```tsx
-import { theme as baseTheme } from '@saas-ui/react'
-
-// Your custom theme
-export const theme = extendTheme(
-  {
-    styles: {
-      global: {
-        'html, body': {
-          height: '100%',
-        },
-      },
-    },
-  },
-  baseTheme
-)
-```
-
-Alternatively you can set `height="100vh"` on AppShell, but this is less
-reliable across browsers, especially Mobile Safari.
 
 ### Basic shell
 
@@ -163,9 +143,3 @@ Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGri
   </Page>
 </AppShell>
 ```
-
-## Props
-
-The `AppShell` component and all sub components accept all `Box` properties.
-
-<PropsTable of="AppShell" />

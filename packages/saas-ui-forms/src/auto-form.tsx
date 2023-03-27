@@ -4,7 +4,7 @@ import { forwardRef } from '@chakra-ui/react'
 
 import { Form, FormProps } from './form'
 import { FormLayout } from './layout'
-import { Fields } from './fields'
+import { AutoFields } from './fields'
 import { SubmitButton } from './submit-button'
 
 interface AutoFormOptions {
@@ -56,7 +56,7 @@ export const AutoForm = forwardRef(
     return (
       <Form {...rest} schema={schema} ref={ref}>
         <FormLayout>
-          {<Fields schema={schema} fieldResolver={fieldResolver} />}
+          {<AutoFields schema={schema} fieldResolver={fieldResolver} />}
           {submitLabel && <SubmitButton>{submitLabel}</SubmitButton>}
           {children}
         </FormLayout>

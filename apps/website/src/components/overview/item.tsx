@@ -61,7 +61,8 @@ import {
   BannerTitle,
   BannerContent,
   NProgress,
-  Loader,
+  LoadingOverlay,
+  LoadingSpinner,
   Web3Address,
 } from '@saas-ui/react'
 import NextLink from 'next/link'
@@ -200,14 +201,7 @@ const componentIllustrations = {
     </Code>
   ),
   select: (
-    <Select
-      options={[
-        { value: 'Fullstack Developer' },
-        { value: 'Frontend Engineer' },
-        { value: 'Designer' },
-      ]}
-      value="Fullstack Developer"
-    />
+    <Select options={['Fullstack Developer']} value="Fullstack Developer" />
   ),
   passwordinput: (
     <Box width="80%">
@@ -351,7 +345,11 @@ const componentIllustrations = {
       <CloseButton size="sm" />
     </HStack>
   ),
-  loader: <Loader />,
+  loader: (
+    <LoadingOverlay>
+      <LoadingSpinner />
+    </LoadingOverlay>
+  ),
   'modals-manager': (
     <Code colorScheme="primary">const modals = useModals()</Code>
   ),

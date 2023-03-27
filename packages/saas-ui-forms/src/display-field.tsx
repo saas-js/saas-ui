@@ -8,7 +8,7 @@ import {
   FormLabel,
 } from '@chakra-ui/react'
 
-import { FieldProps } from './field'
+import { FieldProps } from './types'
 
 export interface DisplayFieldProps
   extends FormControlProps,

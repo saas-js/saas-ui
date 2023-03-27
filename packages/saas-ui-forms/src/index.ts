@@ -1,6 +1,7 @@
 export * from './display-field'
 export * from './field'
 export * from './fields'
+export * from './fields-context'
 export * from './form'
 export * from './auto-form'
 export * from './layout'
@@ -16,9 +17,43 @@ export * from './watch-field'
 export * from './input-right-button'
 export * from './select'
 export * from './password-input'
+export * from './radio'
+
+export * from './base-field'
+
+export {
+  CheckboxField,
+  InputField,
+  NativeSelectField,
+  NumberInputField,
+  PasswordInputField,
+  PinField,
+  RadioField,
+  SelectField,
+  SwitchField,
+  TextareaField,
+  defaultFieldTypes,
+} from './default-fields'
+
+export type {
+  DefaultFields,
+  InputFieldProps,
+  NumberInputFieldProps,
+  PinFieldProps,
+} from './default-fields'
+
+export type {
+  FieldProps,
+  WithFields,
+  BaseFieldProps,
+  FieldOptions,
+} from './types'
 
 export { createForm } from './create-form'
-export type { CreateFormProps, WithFields } from './create-form'
+export type { CreateFormProps } from './create-form'
+
+export { createField } from './create-field'
+export type { CreateFieldOptions } from './create-field'
 
 export type {
   BatchFieldArrayUpdate,

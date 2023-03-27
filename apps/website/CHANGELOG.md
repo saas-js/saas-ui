@@ -1,5 +1,15 @@
 # website
 
+## 2.0.0-next.5
+
+### Patch Changes
+
+- Updated dependencies [a8ea24da]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [8346fd1a]
+  - @saas-ui/react@2.0.0-next.5
+  - @saas-ui/command-bar@0.2.0-next.2
+
 ## 2.0.0-next.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.2.0-next.2
+
+### Minor Changes
+
+- 8346fd1a: Update to cmdk 2.0
+
 ## 0.1.1-next.1
 
 ### Patch Changes

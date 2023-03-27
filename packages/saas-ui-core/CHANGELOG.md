@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-next.5
+
+### Major Changes
+
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+
 ## 2.0.0-next.4
 
 ### Major Changes

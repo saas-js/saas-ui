@@ -1,5 +1,14 @@
 # palette
 
+## 1.3.7-next.1
+
+### Patch Changes
+
+- Updated dependencies [a8ea24da]
+- Updated dependencies [61b27fa6]
+  - @saas-ui/react@2.0.0-next.5
+  - @saas-ui/theme-glass@0.3.2-next.1
+
 ## 1.3.7-next.0
 
 ### Patch Changes

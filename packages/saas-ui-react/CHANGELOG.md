@@ -1,5 +1,26 @@
 # @saas-ui/react
 
+## 2.0.0-next.5
+
+### Major Changes
+
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+
+### Minor Changes
+
+- a8ea24da: PasswordInput now accepts leftAddon property.
+
+### Patch Changes
+
+- Updated dependencies [a8ea24da]
+- Updated dependencies [61b27fa6]
+  - @saas-ui/forms@2.0.0-next.5
+  - @saas-ui/core@2.0.0-next.5
+  - @saas-ui/auth@2.0.0-next.5
+  - @saas-ui/modals@2.0.0-next.5
+  - @saas-ui/data-table@2.0.0-next.5
+  - @saas-ui/hotkeys@2.0.0-next.5
+
 ## 2.0.0-next.4
 
 ### Major Changes

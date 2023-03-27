@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 2.0.0-next.5
+
+### Minor Changes
+
+- a8ea24da: PasswordInput now accepts leftAddon property.
+
+### Patch Changes
+
+- Updated dependencies [61b27fa6]
+  - @saas-ui/core@2.0.0-next.5
+
 ## 2.0.0-next.4
 
 ### Patch Changes

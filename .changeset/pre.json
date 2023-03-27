@@ -35,7 +35,10 @@
     "@saas-ui/theme-glass": "0.3.1",
     "@saas-ui/next-workspaces": "0.3.0",
     "@saas-ui/props-docs": "1.8.0",
-    "@saas-ui/test-utils": "2.3.4"
+    "@saas-ui/test-utils": "2.3.4",
+    "saas-ui-templates": "0.0.0",
+    "saas-ui-storybook": "1.0.0",
+    "@saas-ui/storybook-addon": "1.0.0"
   },
   "changesets": [
     "brave-chairs-pay",
@@ -44,6 +47,7 @@
     "cold-geese-begin",
     "cyan-dragons-tan",
     "dirty-hornets-arrive",
+    "flat-buckets-drive",
     "flat-rivers-doubt",
     "great-moles-fold",
     "hungry-scissors-divide",
@@ -51,6 +55,7 @@
     "lovely-suns-type",
     "ninety-carrots-argue",
     "odd-cats-tell",
+    "polite-tomatoes-wait",
     "selfish-singers-eat",
     "shiny-llamas-deny",
     "silent-carrots-glow",
@@ -62,6 +67,7 @@
     "thin-turkeys-build",
     "tidy-coins-retire",
     "twenty-baboons-hide",
+    "two-plants-help",
     "weak-readers-fry",
     "young-flowers-relate"
   ]

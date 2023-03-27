@@ -8,11 +8,11 @@ import {
 } from '@chakra-ui/react'
 
 import { FormLayout } from './layout'
-import { FieldProps } from './field'
+import { BaseFieldProps } from './types'
 
 import { mapNestedFields } from './utils'
 
-export interface ObjectFieldProps extends FieldProps {
+export interface ObjectFieldProps extends BaseFieldProps {
   name: string
   children: React.ReactNode
   columns?: ResponsiveValue<number>

@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "sb dev -p 6006",
-    "build": "sb build --debug --loglevel verbose && storybook extract"
+    "build": "sb build --debug --loglevel verbose && sb extract"
   },
   "dependencies": {
     "@babel/core": "^7.20.2",

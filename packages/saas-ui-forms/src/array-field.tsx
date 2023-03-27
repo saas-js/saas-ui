@@ -10,7 +10,8 @@ import {
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 
 import { FormLayout, FormLayoutProps } from './layout'
-import { BaseField, FieldProps } from './field'
+import { BaseField } from './base-field'
+import { BaseFieldProps } from './types'
 
 import { mapNestedFields } from './utils'
 
@@ -113,6 +114,7 @@ ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
 export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
   children,
   index,
+  ...rest
 }) => {
   const context = useArrayFieldRow({ index })
 
@@ -126,7 +128,9 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
 
   return (
     <ArrayFieldRowProvider value={context}>
-      <chakra.div __css={styles}>{children}</chakra.div>
+      <chakra.div {...rest} __css={styles}>
+        {children}
+      </chakra.div>
     </ArrayFieldRowProvider>
   )
 }
@@ -172,7 +176,8 @@ ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
 
 export interface ArrayFieldProps
   extends ArrayFieldOptions,
-    Omit<FieldProps, 'defaultValue'> {}
+    Omit<BaseFieldProps, 'defaultValue'> {}
+
 /**
  * The wrapper component that composes the default ArrayField functionality.
  *

@@ -79,10 +79,10 @@ let config = {
       ...config.resolve,
     }
 
-    // config.module.rules.push({
-    //   test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding|router)\/.*\.tsx?/,
-    //   use: [defaultLoaders.babel],
-    // })
+    config.module.rules.push({
+      test: /node_modules\/@saas-ui\/.*\.tsx?/,
+      use: [defaultLoaders.babel],
+    })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(

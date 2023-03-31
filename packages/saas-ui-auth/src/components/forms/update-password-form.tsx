@@ -6,41 +6,26 @@ import {
   FormLayout,
   Field,
   UseFormReturn,
-  SubmitHandler,
-  FieldErrors,
 } from '@saas-ui/forms'
 
-import { useUpdatePassword } from '../provider'
+import { LoginButton } from '../login-button'
 
-import { LoginButton } from './login-button'
-
-interface SubmitParams {
+export interface UpdatePasswordSubmitParams {
   password: string
   confirmPassword: string
   [key: string]: any
 }
 
 export interface UpdatePasswordFormProps
-  extends Pick<FormProps<SubmitParams>, 'schema' | 'resolver'> {
-  /**
-   * @deprecated use passwordLabel instead
-   */
-  label?: string
+  extends Omit<FormProps<any>, 'children'> {
   passwordLabel?: string
   confirmLabel?: string
   helpText?: string
-  onSuccess?: (data: any) => void
-  onError?: (error: any) => void
-  onValidationError?: (error: FieldErrors<SubmitParams>) => void
   submitLabel?: string
-  renderSuccess?: (data: any) => React.ReactElement
   children?: React.ReactNode
 }
 
 export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
-  onSuccess = () => null,
-  onError = () => null,
-  onValidationError,
   submitLabel,
   passwordLabel,
   confirmLabel,
@@ -48,13 +33,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
   children,
   ...formProps
 }) => {
-  const [{ isLoading }, submit] = useUpdatePassword()
-
-  const formRef = React.useRef<UseFormReturn<SubmitParams>>(null)
-
-  const handleSubmit: SubmitHandler<SubmitParams> = ({ password }) => {
-    return submit({ password }).then(onSuccess).catch(onError)
-  }
+  const formRef = React.useRef<UseFormReturn<UpdatePasswordSubmitParams>>(null)
 
   const validatePassword = React.useCallback((confirmPassword: string) => {
     const password = formRef.current?.getValues('password')
@@ -62,9 +41,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
   }, [])
 
   return (
-    <Form<SubmitParams>
-      onSubmit={handleSubmit}
-      onError={onValidationError}
+    <Form<UpdatePasswordSubmitParams>
       defaultValues={{ password: '', confirmPassword: '' }}
       formRef={formRef}
       {...formProps}
@@ -88,7 +65,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
 
         {children}
 
-        <LoginButton type="submit" width="full" isLoading={isLoading}>
+        <LoginButton type="submit" width="full">
           {submitLabel}
         </LoginButton>
       </FormLayout>

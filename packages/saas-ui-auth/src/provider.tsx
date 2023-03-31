@@ -67,14 +67,14 @@ export interface AuthProviderProps<TUser extends User = User> {
   onResetPassword?: (
     params: Required<Pick<AuthParams, 'email'>>,
     options?: AuthOptions
-  ) => Promise<void>
+  ) => Promise<any>
   /**
    * Update the password.
    */
   onUpdatePassword?: (
     params: Required<Pick<AuthParams, 'password'>>,
     options?: AuthOptions
-  ) => Promise<void>
+  ) => Promise<any>
   /**
    * Verify an one time password (2fa)
    */
@@ -235,7 +235,7 @@ export const AuthProvider = <TUser extends User = User>({
       params: Required<Pick<AuthParams, 'email'>>,
       options?: AuthOptions
     ) => {
-      await onResetPassword?.(params, options)
+      return await onResetPassword?.(params, options)
     },
     [onResetPassword]
   )
@@ -245,7 +245,7 @@ export const AuthProvider = <TUser extends User = User>({
       params: Required<Pick<AuthParams, 'password'>>,
       options?: AuthOptions
     ) => {
-      await onUpdatePassword?.(params, options)
+      return await onUpdatePassword?.(params, options)
     },
     [onUpdatePassword]
   )

@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { createContext, PropGetter } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/react-utils'
 import { useBreakpointValue, useDisclosure } from '@chakra-ui/react'
-import { SidebarProps, SidebarToggleButtonProps } from '../sidebar'
 import { Breakpoints, getBreakpoints } from '../sidebar/sidebar-utils'
 
 export const [AppShellProvider, useAppShellContext] = createContext<
@@ -20,7 +19,9 @@ export const useAppShell = (props: UseAppShellProps) => {
 
   const breakpoints = getBreakpoints(props.toggleBreakpoint)
 
-  const isMobile = useBreakpointValue(breakpoints)
+  const isMobile = useBreakpointValue(breakpoints, {
+    fallback: props.toggleBreakpoint || 'lg',
+  })
 
   return {
     isSidebarOpen: disclosure.isOpen,

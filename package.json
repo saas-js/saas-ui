@@ -49,7 +49,7 @@
     "create:pkg": "hygen package chakra-component",
     "build:web": "yarn w website build",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
-    "build:packages": "turbo run build --filter='./packages/*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
+    "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
     "build:props-docs": "yarn w @saas-ui/props-docs build"
   },

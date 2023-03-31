@@ -5,7 +5,7 @@ import { runIfFn } from '@saas-ui/react-utils'
 
 import {
   Form,
-  Fields,
+  AutoFields,
   SubmitButton,
   FormProps,
   FieldValues,
@@ -125,7 +125,7 @@ export const FormDialog = forwardRef(
             <>
               <ModalBody>
                 {runIfFn(children, form) || (
-                  <Fields
+                  <AutoFields
                     schema={schema}
                     fieldResolver={fieldResolver}
                     focusFirstField

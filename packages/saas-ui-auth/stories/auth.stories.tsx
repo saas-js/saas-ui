@@ -6,13 +6,13 @@ import { StoryFn } from '@storybook/react'
 import {
   AuthProvider,
   Auth,
-  AuthForm,
   AvailableProviders,
   OtpForm,
   User,
   AuthParams,
   ForgotPasswordView,
   UpdatePasswordView,
+  AuthProviderProps,
   AuthProps,
   useAuth,
 } from '../src'
@@ -29,7 +29,7 @@ const passwordSchema = Yup.object({
   password: Yup.string().min(4).required().label('Password'),
 })
 
-const authProvider = {
+const authProvider: AuthProviderProps<any> = {
   onLogin: async (params: AuthParams) => {
     console.log('onLogin', params)
     const { email, password, provider } = params
@@ -51,7 +51,9 @@ const authProvider = {
     const { email } = params
     return { id: 1, email } as unknown as User
   },
-  onVerify: async () => true,
+  onVerifyOtp: async () => true,
+  onResetPassword: async (params: AuthParams) => true,
+  onUpdatePassword: async (params: AuthParams) => true,
 }
 
 export default {
@@ -92,7 +94,8 @@ export const ButtonColor = () => {
 
   theme.components.LoginButton = {
     defaultProps: {
-      colorScheme: 'primary',
+      variant: 'solid',
+      colorScheme: 'cyan',
     },
   }
 
@@ -106,22 +109,7 @@ export const ButtonColor = () => {
 export const Password = Template.bind({})
 Password.args = {
   type: 'password',
-  resolver: yupResolver(passwordSchema),
 }
-
-export const PasswordWithCustomFields = () => {
-  return (
-    <AuthForm action="logIn" type="password">
-      <Field
-        name="rememberMe"
-        type="checkbox"
-        label="Remember me"
-        defaultChecked={true}
-      />
-    </AuthForm>
-  )
-}
-PasswordWithCustomFields.args = {}
 
 export const Otp = Template.bind({})
 Otp.args = {
@@ -151,13 +139,4 @@ ForgotPassword.args = {
 export const UpdatePassword = Template.bind({})
 UpdatePassword.args = {
   view: 'update_password',
-}
-
-interface MyUser extends User {
-  extraField: 'foobar'
-}
-
-export const UseAuth = () => {
-  const auth = useAuth<MyUser>()
-  return <>{auth.user?.extraField}</>
 }

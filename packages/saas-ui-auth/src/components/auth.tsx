@@ -2,16 +2,13 @@ import * as React from 'react'
 
 import { chakra, Link } from '@chakra-ui/react'
 
-import {
-  LoginView,
-  SignupView,
-  OtpView,
-  ForgotPasswordView,
-  UpdatePasswordView,
-  AuthFormProps,
-} from './auth-form'
-
-import { AvailableProviders } from '.'
+import { AuthFormOptions } from './auth-form'
+import { LoginView, SignupView } from './login-view'
+import { ForgotPasswordView } from './forgot-password-view'
+import { UpdatePasswordView } from './update-password-view'
+import { OtpView } from './otp-view'
+import { AvailableProviders } from './forms/providers'
+import { FormProps } from '@saas-ui/forms'
 
 export const VIEWS = {
   LOGIN: 'login',
@@ -29,7 +26,11 @@ type ViewType =
   | 'otp'
 
 export interface AuthProps
-  extends Omit<AuthFormProps, 'action' | 'defaultValues' | 'onSubmit'> {
+  extends AuthFormOptions,
+    Omit<
+      FormProps,
+      'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
+    > {
   /**
    * Sets the visible authentication form.
    * Supported views are:
@@ -138,7 +139,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
             />
           }
           {...rest}
-        ></SignupView>
+        />
       )
     case VIEWS.FORGOT_PASSWORD:
       return (

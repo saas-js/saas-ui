@@ -35,7 +35,7 @@ export interface OverflowMenuProps extends MenuProps {
   /**
    * Render a custom icon.
    */
-  icon?: React.ReactNode
+  icon?: React.ReactElement
 
   children: React.ReactNode
 }

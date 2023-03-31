@@ -11,7 +11,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
-    "@chakra-ui/react": "^2.4.9",
+    "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@saas-ui/react": "workspace:*",

@@ -86,8 +86,8 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/react-utils": "^2.0.11",
-    "@chakra-ui/utils": "^2.0.14",
+    "@chakra-ui/react-utils": "^2.0.12",
+    "@chakra-ui/utils": "^2.0.15",
     "@saas-ui/core": "workspace:*",
     "react-hook-form": "^7.43.0"
   },

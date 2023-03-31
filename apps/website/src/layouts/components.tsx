@@ -32,7 +32,7 @@ export default function ComponentDocsLayout({
         <HStack as="ul" listStyleType="none" borderBottomWidth="1px">
           {tabsData.map((item) => (
             <Box as="li" key={item.id}>
-              <NextLink href={item.href} passHref replace>
+              <NextLink href={item.href} passHref replace legacyBehavior>
                 <Box
                   mb="-1px"
                   as="a"

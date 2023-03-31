@@ -223,9 +223,9 @@ const Home = () => {
                   <AspectRatio ratio={1100 / 698}>
                     <Image
                       src="/screenshots/list.png"
-                      layout="fill"
-                      width="1100px"
-                      height="698px"
+                      // layout="fill"
+                      width={1100}
+                      height={698}
                       alt="Screenshot of a ListPage in Saas UI Pro"
                       quality="75"
                       priority
@@ -389,9 +389,9 @@ const Screenshots = () => {
             alt="Image showing the Saas UI dashboard"
             src="/screenshots/dashboard.png"
             quality="75"
-            layout="fixed"
-            width="1528px"
-            height="1060px"
+            // layout="fixed"
+            width={1528}
+            height={1060}
           />
         </Center>
         <Center
@@ -406,9 +406,9 @@ const Screenshots = () => {
             alt="Image showing the Saas UI billing settings"
             src="/screenshots/billing.png"
             quality="75"
-            layout="fixed"
-            width="1607px"
-            height="1021px"
+            // layout="fixed"
+            width={1607}
+            height={1021}
           />
         </Center>
       </Box>

@@ -139,7 +139,7 @@ export const LineChart = (props: LineChartProps) => {
                   wrapperClassName={css(tooltipStyles)}
                   content={tooltipContent}
                 />
-                
+
                 {children}
 
                 <Area

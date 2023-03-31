@@ -1,23 +1,34 @@
-import { menuAnatomy as parts } from '@chakra-ui/anatomy'
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { menuAnatomy } from '@chakra-ui/anatomy'
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(menuAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
   return {
     list: {
-      borderWidth: mode(1, 0)(props),
-      borderColor: mode('blackAlpha.200', 'whiteAlpha.300')(props),
-      boxShadow: mode('lg', 'dark-lg')(props),
+      borderWidth: 1,
+      borderColor: `blackAlpha.200`,
+      boxShadow: `lg`,
+      _dark: {
+        borderWidth: 0,
+        borderColor: `whiteAlpha.300`,
+        boxShadow: `dark-lg`,
+      },
     },
     divider: {
-      borderColor: mode('blackAlpha.200', 'whiteAlpha.300')(props),
+      borderColor: `blackAlpha.200`,
+      _dark: {
+        borderColor: `whiteAlpha.300`,
+      },
     },
     groupTitle: {
       mx: 3,
     },
   }
-}
+})
 
-const variantDialog: PartsStyleFunction<typeof parts> = () => {
+const variantDialog = definePartsStyle(() => {
   return {
     item: {
       px: 6,
@@ -27,11 +38,11 @@ const variantDialog: PartsStyleFunction<typeof parts> = () => {
       px: 3,
     },
   }
-}
+})
 
-export default {
+export const menuTheme = defineMultiStyleConfig({
   baseStyle,
   variants: {
     dialog: variantDialog,
   },
-}
+})

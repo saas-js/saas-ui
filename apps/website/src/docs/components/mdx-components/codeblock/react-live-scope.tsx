@@ -142,6 +142,16 @@ const ReactLiveScope = {
   StatusBadge,
   SaasSpinner,
   ThrowSomeError,
+  import: {
+    '@chakra-ui/react': Chakra,
+    '@saas-ui/react': SaasUI,
+    '@saas-ui/auth': SaasUIAuth,
+    '@saas-ui/forms': SaasUIForms,
+    '@saas-ui/pro': SaasUIPro,
+    '@saas-ui/features': SaasUIFeatures,
+    '@saas-ui/date-picker': DatePicker,
+    '@chakra-ui/icons': Icons,
+  },
 }
 
 export default ReactLiveScope

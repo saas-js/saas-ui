@@ -5,6 +5,6 @@ export const [SidebarStylesProvider, useSidebarStyles] = createContext<
   Record<string, SystemStyleObject>
 >({
   name: `SidebarStylesContext`,
-  hookName: `useSidebarItemStyles`,
+  hookName: `useSidebarStyles`,
   providerName: '<Sidebar />',
 })

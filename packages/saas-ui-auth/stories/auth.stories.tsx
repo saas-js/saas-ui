@@ -1,7 +1,7 @@
 import { Container, Stack, Text, useTheme } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { Story } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 
 import {
   AuthProvider,
@@ -14,9 +14,10 @@ import {
   ForgotPasswordView,
   UpdatePasswordView,
   AuthProps,
+  useAuth,
 } from '../src'
 
-import { Field, useAuth } from '@saas-ui/react'
+import { Field } from '@saas-ui/forms'
 
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
@@ -56,10 +57,10 @@ const authProvider = {
 export default {
   title: 'Components/Auth/Auth',
   decorators: [
-    (Story: any) => (
+    (StoryFn: any) => (
       <AuthProvider {...authProvider}>
         <Container mt="40px" width="md">
-          <Story />
+          <StoryFn />
         </Container>
       </AuthProvider>
     ),
@@ -77,7 +78,7 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-const Template: Story<AuthProps> = (args) => <Auth {...args} />
+const Template: StoryFn<AuthProps> = (args) => <Auth {...args} />
 
 export const Basic = Template.bind({})
 
@@ -114,8 +115,8 @@ export const PasswordWithCustomFields = () => {
       <Field
         name="rememberMe"
         type="checkbox"
-        value="true"
         label="Remember me"
+        defaultChecked={true}
       />
     </AuthForm>
   )

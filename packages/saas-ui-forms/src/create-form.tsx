@@ -1,59 +1,30 @@
 import React from 'react'
-import { NumberInputField, SelectField } from '@chakra-ui/react'
-import {
-  CheckboxField,
-  FieldProps,
-  InputField,
-  NativeSelectField,
-  PasswordInputField,
-  PinField,
-  RadioField,
-  SwitchField,
-  TextareaField,
-} from './field'
+import { FieldsProvider } from './fields-context'
 import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { FieldTypeProps } from './types'
+import { WithFields } from './types'
 
-const defaultFieldTypes = {
-  text: InputField,
-  email: InputField,
-  url: InputField,
-  phone: InputField,
-  number: NumberInputField,
-  password: PasswordInputField,
-  textarea: TextareaField,
-  switch: SwitchField,
-  checkbox: CheckboxField,
-  radio: RadioField,
-  pin: PinField,
-  select: SelectField,
-  'native-select': NativeSelectField,
-}
-
-export interface CreateFormProps<TCustomFields> {
+export interface CreateFormProps<FieldDefs> {
   resolver?: GetResolver
-  fields?: TCustomFields
+  fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
 }
 
-export function createForm<
-  Schema = any,
-  TCustomFields extends Record<string, React.FC<FieldProps>> = any
->({ resolver, fields }: CreateFormProps<TCustomFields>) {
-  const fieldTypes = { ...defaultFieldTypes, ...fields }
-
+export function createForm<FieldDefs, Schema = any>({
+  resolver,
+  fields,
+}: CreateFormProps<FieldDefs> = {}) {
   const CreateForm = <
     TFieldValues extends FieldValues,
     TContext extends object = object,
-    TSchema extends Schema = Schema,
-    TFieldTypes extends FieldProps<TFieldValues> = FieldTypeProps<
-      TFieldValues,
-      typeof fieldTypes
-    >
+    TSchema extends Schema = Schema
   >(
-    props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes>
+    props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs>
   ) => {
     const { schema, ...rest } = props
-    return <Form resolver={resolver?.(props.schema)} {...rest} />
+    return (
+      <FieldsProvider value={fields || {}}>
+        <Form resolver={resolver?.(props.schema)} {...rest} />
+      </FieldsProvider>
+    )
   }
 
   return CreateForm

@@ -7,14 +7,14 @@ import {
   useBreakpointValue,
   SystemStyleObject,
   IconButton,
-  Icon,
   useDisclosure,
   Portal,
   forwardRef,
   useTheme,
+  useStyleConfig,
 } from '@chakra-ui/react'
 import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from '../icons'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import { useResponsiveValue } from '@saas-ui/react-utils'
@@ -179,17 +179,19 @@ Sidebar.id = 'Sidebar'
 export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   props
 ) => {
-  const { sx, wrapperProps, ...rest } = props
+  const { sx, pos, position, ...rest } = props
   const { isOpen, isMobile, getButtonProps } = useSidebarToggleButton()
+  const styles = useStyleConfig('SuiSidebarToggleButton', props)
 
-  const wrapperStyles = {
-    height: 8,
-  }
+  const p = pos ?? position ?? sx?.pos ?? sx?.position
 
   const buttonStyles: SystemStyleObject = {
     ...(isMobile
-      ? { position: 'fixed', top: 3, left: 4, zIndex: 'modal' }
-      : {}),
+      ? !p
+        ? { position: 'fixed', top: 3, left: 4, zIndex: 'modal' }
+        : {}
+      : { display: 'none' }),
+    ...styles,
     ...sx,
   }
 
@@ -201,22 +203,17 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     <HamburgerIcon />
   )
 
-  return isMobile ? (
-    <chakra.div
-      {...wrapperProps}
-      __css={wrapperStyles}
-      className={cx('sui-sidebar__toggle-button', wrapperProps?.className)}
-    >
-      <IconButton
-        variant="ghost"
-        sx={buttonStyles}
-        aria-label="Toggle sidebar"
-        {...rest}
-        {...getButtonProps(props)}
-        icon={icon as any}
-      />
-    </chakra.div>
-  ) : null
+  return (
+    <IconButton
+      variant="ghost"
+      sx={buttonStyles}
+      aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
+      {...rest}
+      {...getButtonProps(props)}
+      icon={icon as any}
+      className={cx('sui-sidebar__toggle-button', props.className)}
+    />
+  )
 }
 
 /**

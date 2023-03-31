@@ -1,5 +1,9 @@
-export default {
-  parts: ['container', 'group', 'groupTitle', 'item', 'command', 'then'],
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { hotkeysAnantomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(hotkeysAnantomy.keys)
+
+export const hotkeysTheme = defineMultiStyleConfig({
   baseStyle: {
     container: {
       fontSize: 'md',
@@ -22,4 +26,4 @@ export default {
       color: 'muted',
     },
   },
-}
+})

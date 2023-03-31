@@ -1,7 +1,10 @@
-import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { radioAnatomy } from '@chakra-ui/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(radioAnatomy.keys)
 
-export default {
-  baseStyle: (props: StyleFunctionProps) => {
+export const radioTheme = defineMultiStyleConfig({
+  baseStyle: definePartsStyle((props) => {
     const { colorScheme } = props
     return {
       control: {
@@ -12,5 +15,5 @@ export default {
         },
       },
     }
-  },
-}
+  }),
+})

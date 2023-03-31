@@ -1,4 +1,4 @@
-import { FieldProps } from './field'
+import { BaseFieldProps as FieldProps } from './types'
 
 import { get } from '@chakra-ui/utils'
 

@@ -37,8 +37,8 @@
     "version": "yarn changelog:gen && changeset version",
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -p --from '@saas-ui/*' --exclude '@saas-ui/pro' npm publish && yarn changeset tag",
-    "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook && sb extract",
+    "storybook": "yarn w saas-ui-storybook dev",
+    "build:storybook": "yarn w saas-ui-storybook build",
     "prepare": "husky install",
     "clean": "turbo run clean",
     "test": "jest --maxWorkers=50%",
@@ -49,24 +49,21 @@
     "create:pkg": "hygen package chakra-component",
     "build:web": "yarn w website build",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
-    "build:packages": "turbo run build --filter='./packages/*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
+    "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
     "build:props-docs": "yarn w @saas-ui/props-docs build"
   },
   "workspaces": [
+    "packages/storybook",
     "packages/saas-ui-*",
     "packages/pro/saas-ui/*",
     "apps/*",
     "tooling/next-workspaces",
     "tooling/test-utils",
-    "tooling/props-docs"
+    "tooling/props-docs",
+    "tooling/storybook-addon"
   ],
   "devDependencies": {
-    "@babel/core": "^7.20.2",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
     "@chakra-ui/cli": "^2.3.0",
     "@chakra-ui/react": "^2.4.9",
     "@changesets/cli": "^2.25.2",
@@ -76,17 +73,8 @@
     "@emotion/styled": "^11.10.5",
     "@jest/types": "^28.1.3",
     "@manypkg/get-packages": "^1.1.3",
-    "@storybook/addon-a11y": "^6.5.13",
-    "@storybook/addon-storysource": "^6.5.13",
-    "@storybook/addon-toolbars": "^6.5.13",
-    "@storybook/addon-viewport": "^6.5.13",
-    "@storybook/addons": "^6.5.13",
-    "@storybook/cli": "^6.5.13",
-    "@storybook/client-api": "^6.5.13",
-    "@storybook/preview-web": "^6.5.13",
-    "@storybook/react": "^6.5.13",
-    "@storybook/testing-react": "^1.3.0",
     "@swc-node/jest": "^1.5.5",
+    "@swc/core": "^1.3.42",
     "@types/node": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
@@ -112,7 +100,6 @@
     "react-is": "^18.2.0",
     "react-test-renderer": "^18.2.0",
     "rimraf": "^3.0.2",
-    "storybook-addon-swc": "^1.1.9",
     "ts-node": "^10.9.1",
     "tsup": "^6.5.0",
     "turbo": "^1.6.3",
@@ -125,8 +112,5 @@
     "unist-util-visit": "4.0.0",
     "react-hook-form": "7.43.0"
   },
-  "packageManager": "yarn@3.3.0",
-  "dependencies": {
-    "@swc/core": "^1.3.32"
-  }
+  "packageManager": "yarn@3.3.0"
 }

@@ -151,6 +151,7 @@ function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
       <Link
         href="/docs/theming/customize-theme#customizing-component-styles"
         passHref
+        legacyBehavior
       >
         <Anchor>{t('component.props-table.extend-the-theme')}</Anchor>
       </Link>{' '}

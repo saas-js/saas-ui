@@ -32,7 +32,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
 
   if (href) {
     link = (
-      <NextLink href={href} passHref>
+      <NextLink href={href} passHref legacyBehavior>
         {link}
       </NextLink>
     )

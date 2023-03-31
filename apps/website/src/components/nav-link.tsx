@@ -13,7 +13,7 @@ const NavLink = forwardRef((props: NavLinkProps, ref) => {
   const { label, href, type, isActive, ...rest } = props
 
   return (
-    <Link href={href as string} passHref>
+    <Link href={href as string} passHref legacyBehavior>
       <Button
         as="a"
         ref={ref}

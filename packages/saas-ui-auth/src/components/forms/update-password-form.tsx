@@ -8,21 +8,20 @@ import {
   UseFormReturn,
 } from '@saas-ui/forms'
 
-import { LoginButton } from './login-button'
+import { LoginButton } from '../login-button'
 
-interface SubmitParams {
+export interface UpdatePasswordSubmitParams {
   password: string
   confirmPassword: string
   [key: string]: any
 }
 
 export interface UpdatePasswordFormProps
-  extends Omit<FormProps<SubmitParams>, 'children'> {
+  extends Omit<FormProps<any>, 'children'> {
   passwordLabel?: string
   confirmLabel?: string
   helpText?: string
   submitLabel?: string
-  renderSuccess?: (data: any) => React.ReactElement
   children?: React.ReactNode
 }
 
@@ -34,7 +33,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
   children,
   ...formProps
 }) => {
-  const formRef = React.useRef<UseFormReturn<SubmitParams>>(null)
+  const formRef = React.useRef<UseFormReturn<UpdatePasswordSubmitParams>>(null)
 
   const validatePassword = React.useCallback((confirmPassword: string) => {
     const password = formRef.current?.getValues('password')
@@ -42,7 +41,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
   }, [])
 
   return (
-    <Form<SubmitParams>
+    <Form<UpdatePasswordSubmitParams>
       defaultValues={{ password: '', confirmPassword: '' }}
       formRef={formRef}
       {...formProps}

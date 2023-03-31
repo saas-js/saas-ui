@@ -1,18 +1,18 @@
 import * as React from 'react'
 
-import { Form, FormProps, FormLayout, Field } from '@saas-ui/forms'
+import { Form, FormProps, FormLayout, Field, FieldValues } from '@saas-ui/forms'
 
-import { LoginButton } from './login-button'
+import { LoginButton } from '../login-button'
+import { isFunction } from '@chakra-ui/utils'
 
-interface SubmitParams {
+export interface PasswordSubmitParams {
   email: string
   password: string
   rememberMe?: boolean
   [key: string]: any
 }
 
-export interface PasswordFormProps
-  extends Omit<FormProps<SubmitParams>, 'children'> {
+export interface PasswordFormProps extends Omit<FormProps<any>, 'children'> {
   submitLabel?: string
   emailLabel?: string
   passwordLabel?: string
@@ -28,10 +28,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
   ...formProps
 }) => {
   return (
-    <Form<SubmitParams>
-      defaultValues={{ email: '', password: '', ...defaultValues }}
-      {...formProps}
-    >
+    <Form defaultValues={{ email: '', password: '' }} {...formProps}>
       <FormLayout>
         <Field
           name="email"

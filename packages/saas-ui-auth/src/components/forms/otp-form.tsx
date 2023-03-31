@@ -1,15 +1,15 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field, FormProps } from '@saas-ui/forms'
+import { Form, FormLayout, Field, FormProps, PinField } from '@saas-ui/forms'
 
-import { LoginButton } from './login-button'
+import { LoginButton } from '../login-button'
 
-interface SubmitParams {
+export interface OtpSubmitParams {
   otp: string
   [key: string]: any
 }
 
-export interface OtpFormProps extends Omit<FormProps<SubmitParams>, 'chilren'> {
+export interface OtpFormProps extends Omit<FormProps<any>, 'chilren'> {
   otpLabel?: string
   helpText?: string
   pinLength?: number
@@ -27,9 +27,9 @@ export const OtpForm: React.FC<OtpFormProps> = ({
   ...formProps
 }) => {
   return (
-    <Form defaultValues={{ otp: '', ...defaultValues }} {...formProps}>
+    <Form defaultValues={{ otp: '' }} {...formProps}>
       <FormLayout>
-        <Field
+        <PinField
           name="otp"
           label={otpLabel}
           help={helpText}

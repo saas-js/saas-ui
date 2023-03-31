@@ -98,7 +98,7 @@ export const ComponentShowcase = () => {
   const columns: any[] = [
     {
       accessorKey: 'amount',
-      width: '10%',
+      size: 10,
       header: 'Amount',
     },
     {
@@ -107,7 +107,7 @@ export const ComponentShowcase = () => {
     },
     {
       id: 'actions',
-      width: '10%',
+      size: 10,
       disableSortBy: true,
       header: '',
       cell: () => {
@@ -169,14 +169,12 @@ export const ComponentShowcase = () => {
           >
             <Card {...cardStyles}>
               <DataTable
-                /* @ts-ignore */
                 columns={columns}
                 data={data}
                 isSelectable
                 isSortable
                 initialState={{
-                  /* @ts-ignore */
-                  selectedRowIds: ['1'],
+                  rowSelection: { 0: true },
                 }}
               />
             </Card>
@@ -261,7 +259,7 @@ export const ComponentShowcase = () => {
                           name="password"
                           label="Password"
                           type="password"
-                          autoComplete="off"
+                          // autoComplete="off"
                         />
                         <NextButton />
                       </FormLayout>

@@ -20,7 +20,9 @@ import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
-import { Field as DefaultField, FieldProps } from './field'
+import { FieldProps } from './types'
+
+import { Field as DefaultField } from './field'
 
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,

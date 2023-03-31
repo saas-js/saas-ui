@@ -357,7 +357,12 @@ const Benefits = () => {
 
 const Screenshots = () => {
   return (
-    <Section innerWidth="container.xl" variant="alternate" pt="0">
+    <Section
+      innerWidth="container.xl"
+      variant="alternate"
+      pt="0"
+      bg="transparent"
+    >
       <Box
         position="relative"
         height={['320px', null, '640px']}
@@ -1131,6 +1136,7 @@ const ProFeatures = () => {
       id="pro-features"
       position="relative"
       zIndex="1"
+      bg="transparent"
       title={
         <Stack alignItems="flex-start">
           <Badge

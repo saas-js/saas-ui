@@ -30,7 +30,7 @@ const helpSchema = Yup.object().shape({
 })
 
 import { onSubmit } from './helpers'
-import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
+import { FiCheck, FiPhone } from 'react-icons/fi'
 import { createZodForm } from '../zod/src'
 import { createYupForm } from '../yup/src'
 
@@ -399,12 +399,12 @@ export const WithAddons = () => {
             type="phone"
             leftAddon={
               <InputLeftElement>
-                <PhoneIcon />
+                <FiPhone />
               </InputLeftElement>
             }
             rightAddon={
               <InputRightElement>
-                <CheckIcon />
+                <FiCheck />
               </InputRightElement>
             }
           />

@@ -1,10 +1,10 @@
 import {
-  ArrowForwardIcon,
-  ChevronDownIcon,
-  EmailIcon,
-  PhoneIcon,
-  SearchIcon,
-} from '@chakra-ui/icons'
+  FiArrowRight,
+  FiChevronDown,
+  FiMail,
+  FiPhone,
+  FiSearch,
+} from 'react-icons/fi'
 import {
   Container,
   HStack,
@@ -126,14 +126,10 @@ export const WithSizes = () => (
 
 export const WithIcon = () => (
   <Stack direction="row" spacing={4}>
-    <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
+    <Button leftIcon={<FiMail />} colorScheme="teal" variant="solid">
       Email
     </Button>
-    <Button
-      rightIcon={<ArrowForwardIcon />}
-      colorScheme="teal"
-      variant="outline"
-    >
+    <Button rightIcon={<FiArrowRight />} colorScheme="teal" variant="outline">
       Call us
     </Button>
   </Stack>
@@ -210,16 +206,16 @@ export const CustomComposition = () => (
 
 export const WithIconButton = () => (
   <Stack direction="row">
-    <IconButton aria-label="Search database" icon={<SearchIcon />} />
+    <IconButton aria-label="Search database" icon={<FiSearch />} />
 
     <IconButton
       colorScheme="blue"
       aria-label="Search database"
-      icon={<SearchIcon />}
+      icon={<FiSearch />}
     />
 
     <IconButton colorScheme="teal" aria-label="Call Segun" size="lg">
-      <PhoneIcon />
+      <FiPhone />
     </IconButton>
   </Stack>
 )
@@ -237,7 +233,7 @@ export const AttachedButtons = () => (
     <IconButton
       fontSize="2xl"
       aria-label="Add to friends"
-      icon={<ChevronDownIcon />}
+      icon={<FiChevronDown />}
     />
   </ButtonGroup>
 )

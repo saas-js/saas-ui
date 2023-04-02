@@ -7,7 +7,7 @@ import {
   Button,
   ButtonProps,
 } from '@chakra-ui/react'
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
+import { PlusIcon, MinusIcon } from '@saas-ui/core/icons'
 
 import { FormLayout, FormLayoutProps } from './layout'
 import { BaseField } from './base-field'
@@ -167,7 +167,7 @@ export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
       {...useArrayFieldAddButton()}
       {...props}
     >
-      {props.children || <AddIcon />}
+      {props.children || <PlusIcon />}
     </Button>
   )
 }

@@ -9,9 +9,10 @@ import {
   omitThemingProps,
   SystemStyleObject,
   createStylesContext,
+  Icon,
 } from '@chakra-ui/react'
 
-import { CheckIcon, Icon } from '@chakra-ui/icons'
+import { CheckIcon } from '../icons'
 
 import { Collapse } from '../collapse'
 

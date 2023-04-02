@@ -16,11 +16,30 @@ export const [SelectProvider, useSelectContext] = createContext<
 })
 
 export interface SelectOptions {
+  /**
+   * The name of the input field in a native form.
+   */
   name: string
+  /**
+   * The value of the select field.
+   */
   value?: string | string[]
+  /**
+   * The initial value of the select field.
+   */
   defaultValue?: string | string[]
+  /**
+   * The callback invoked when the value of the select field changes.
+   * @param value The value of the select field.
+   */
   onChange?: (value: string | string[]) => void
+  /**
+   * The placeholder text when there's no value.
+   */
   placeholder?: string
+  /**
+   * If `true`, the select will be disabled.
+   */
   isDisabled?: boolean
   /**
    * An array of options
@@ -31,6 +50,11 @@ export interface SelectOptions {
    * Enable multiple select.
    */
   multiple?: boolean
+  /**
+   * The function used to render the value of the select field.
+   * @param value The value of the select field.
+   * @returns The rendered value.
+   */
   renderValue?: (value: string | string[]) => React.ReactNode
 }
 

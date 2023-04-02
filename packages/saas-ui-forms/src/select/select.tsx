@@ -17,7 +17,6 @@ import {
   SystemStyleObject,
   MenuItemOptionProps,
   useFormControlContext,
-  useFormControl,
 } from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
 import { ChevronDownIcon } from '@saas-ui/core'

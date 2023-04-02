@@ -115,7 +115,7 @@ export const WithZodSchema = () => {
         pin: '',
       }}
       schema={z.object({
-        text: z.string(),
+        text: z.string().min(3),
         number: z.preprocess(Number, z.number()),
         textarea: z.string(),
         switch: z.boolean(),

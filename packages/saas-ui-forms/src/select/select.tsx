@@ -16,8 +16,10 @@ import {
   useMultiStyleConfig,
   SystemStyleObject,
   MenuItemOptionProps,
+  useFormControlContext,
+  useFormControl,
 } from '@chakra-ui/react'
-import { cx } from '@chakra-ui/utils'
+import { cx, dataAttr } from '@chakra-ui/utils'
 import { ChevronDownIcon } from '@saas-ui/core'
 
 import { FieldOption } from '../types'
@@ -48,13 +50,32 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
   (props, ref) => {
     const styles = useMultiStyleConfig('SuiSelect', props)
 
-    const { displayValue, renderValue, placeholder, isDisabled } =
-      useSelectContext()
+    const {
+      displayValue,
+      renderValue,
+      placeholder,
+      isDisabled: isSelectDisabled,
+    } = useSelectContext()
+
+    const {
+      isInvalid,
+      isReadOnly,
+      isDisabled,
+      isFocused,
+      isRequired,
+      id,
+      onBlur,
+      onFocus,
+    } = useFormControlContext()
 
     const { rightIcon = <ChevronDownIcon />, ...rest } = props
 
     /* @ts-ignore */
     const focusStyles = styles.field?._focusVisible
+    /* @ts-ignore */
+    const readOnlyStyles = styles.field?._readOnly
+    /* @ts-ignore */
+    const invalid = styles.field?._invalid
 
     const height = styles.field?.h || styles.field?.height
 
@@ -68,6 +89,8 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       minH: height,
       _focus: focusStyles,
       _expanded: focusStyles,
+      _readOnly: readOnlyStyles,
+      _invalid: invalid,
       ...styles.field,
       h: 'auto',
     }
@@ -76,8 +99,15 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
     return (
       <MenuButton
         as={Button}
+        id={id}
         {...rest}
-        isDisabled={isDisabled}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        isDisabled={isDisabled || isSelectDisabled}
+        data-invalid={dataAttr(isInvalid)}
+        data-readOnly={dataAttr(isReadOnly)}
+        data-focus={dataAttr(isFocused)}
+        data-required={dataAttr(isRequired)}
         rightIcon={rightIcon}
         ref={ref}
         sx={buttonStyles}

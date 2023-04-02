@@ -12,6 +12,7 @@ import { nprogressTheme } from './nprogress'
 import { personaTheme } from './persona'
 import { searchInputTheme } from './search-input'
 import { sidebarTheme } from './sidebar'
+import { selectTheme } from './select'
 import { stepperTheme } from './stepper'
 import { structuredListTheme } from './structured-list'
 
@@ -28,6 +29,7 @@ export { navItemTheme as SuiNavItem } from './nav-item'
 export { personaTheme as SuiPersona } from './persona'
 export { nprogressTheme as SuiNProgress } from './nprogress'
 export { searchInputTheme as SuiSearchInput } from './search-input'
+export { selectTheme as SuiSelect } from './select'
 export { stepperTheme as SuiStepper } from './stepper'
 export { sidebarTheme as SuiSidebar } from './sidebar'
 export { structuredListTheme as SuiStructuredList } from './structured-list'
@@ -47,6 +49,7 @@ export const components = {
   SuiPersona: personaTheme,
   SuiNProgress: nprogressTheme,
   SuiSearchInput: searchInputTheme,
+  SuiSelect: selectTheme,
   SuiStepper: stepperTheme,
   SuiSidebar: sidebarTheme,
 }

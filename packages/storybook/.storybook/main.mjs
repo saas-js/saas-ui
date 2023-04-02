@@ -7,6 +7,7 @@ export default {
     '../../saas-ui-charts/stories/*.stories.tsx',
     '../../saas-ui-command-bar/stories/*.stories.tsx',
     '../../saas-ui-forms/stories/*.stories.tsx',
+    '../../saas-ui-forms/**/*.stories.tsx',
     '../../saas-ui-core/src/**/*.stories.tsx',
     '../../saas-ui-data-table/stories/*.stories.tsx',
     '../../saas-ui-date-picker/stories/*.stories.tsx',

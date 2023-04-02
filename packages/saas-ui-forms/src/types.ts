@@ -4,7 +4,7 @@ import { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { DefaultFields } from './default-fields'
 import { FormProps, FormRenderContext } from './form'
 
-export type FieldOption = { label: string; value: string }
+export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =
   | Array<string>
   | Array<TOption>

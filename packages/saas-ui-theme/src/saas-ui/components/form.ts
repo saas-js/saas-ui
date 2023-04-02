@@ -77,5 +77,6 @@ export const pinInputTheme = defineStyleConfig({
   },
   sizes: inputSizes,
 })
-export const textareaTheme = Input
-export const selectTheme = Input
+export const textareaTheme = defineStyleConfig(Input)
+export const nativeSelectTheme = defineStyleConfig(Input)
+export const selectTheme = defineStyleConfig(Input)

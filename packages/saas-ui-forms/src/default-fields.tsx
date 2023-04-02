@@ -82,9 +82,9 @@ export const SwitchField = createField<SwitchProps>(
 )
 
 export const SelectField = createField<SelectProps>(
-  forwardRef((props) => {
+  forwardRef((props, ref) => {
     return (
-      <Select {...props}>
+      <Select ref={ref} {...props}>
         <SelectButton />
         <SelectList />
       </Select>

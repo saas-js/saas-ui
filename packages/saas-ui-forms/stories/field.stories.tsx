@@ -6,13 +6,10 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 import * as React from 'react'
-import * as Yup from 'yup'
+import * as yup from 'yup'
 import { z } from 'zod'
 
-import { Form, FormLayout, Field, SubmitButton, FormProps } from '../src'
-
-import { yupResolver } from '@hookform/resolvers/yup'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { FormLayout, SubmitButton, FormProps, createForm } from '../src'
 
 export default {
   title: 'Components/Forms/Field',
@@ -25,8 +22,8 @@ export default {
   ],
 }
 
-const helpSchema = Yup.object().shape({
-  email: Yup.string().email().required().label('Email'),
+const helpSchema = yup.object({
+  email: yup.string().email().required().label('Email'),
 })
 
 import { onSubmit } from './helpers'
@@ -36,6 +33,7 @@ import { createYupForm } from '../yup/src'
 
 const ZodForm = createZodForm()
 const YupForm = createYupForm()
+const Form = createForm()
 
 export const Basic = (props: Omit<FormProps, 'onSubmit'>) => (
   <Form
@@ -106,7 +104,7 @@ export const WithZodSchema = () => {
         number: 10,
         textarea: 'Lorem ipsum',
         switch: true,
-        // select: 'Select 1',
+        select: 'Select 1',
         multipleselect: ['Select 1', 'Select 2'],
         nativeselect: 'Select 1',
         password: 'Password123',
@@ -192,18 +190,18 @@ export const WithYupSchema = () => {
         radio: 'Radio 1',
         pin: '',
       }}
-      schema={Yup.object().shape({
-        text: Yup.string().required(),
-        number: Yup.number().required(),
-        textarea: Yup.string().required(),
-        switch: Yup.boolean().required(),
-        select: Yup.string().required(),
-        multipleselect: Yup.array().of(Yup.string()).required(),
-        nativeselect: Yup.string().required(),
-        password: Yup.string().required(),
-        checkbox: Yup.boolean().required(),
-        radio: Yup.string().required(),
-        pin: Yup.string().required(),
+      schema={yup.object({
+        text: yup.string().required(),
+        number: yup.number().required(),
+        textarea: yup.string().required(),
+        switch: yup.boolean().required(),
+        select: yup.string().required(),
+        multipleselect: yup.array().of(yup.string()).required(),
+        nativeselect: yup.string().required(),
+        password: yup.string().required(),
+        checkbox: yup.boolean().required(),
+        radio: yup.string().required(),
+        pin: yup.string().required(),
       })}
       onSubmit={(values) => {
         console.log(values)
@@ -330,7 +328,6 @@ export const HelpText = () => {
       defaultValues={{
         email: '',
       }}
-      resolver={yupResolver(helpSchema)}
       onSubmit={onSubmit}
     >
       {({ Field }) => (
@@ -355,7 +352,6 @@ export const WithId = () => {
       defaultValues={{
         email: '',
       }}
-      resolver={yupResolver(helpSchema)}
       onSubmit={onSubmit}
     >
       {({ Field }) => (
@@ -369,13 +365,20 @@ export const WithId = () => {
   )
 }
 
+const addonSchema = helpSchema.concat(
+  yup.object({
+    url: yup.string().url(),
+    phone: yup.string().matches(/^\d+$/, 'Phone number is not valid'),
+  })
+)
+
 export const WithAddons = () => {
   return (
     <YupForm
       defaultValues={{
         email: '',
       }}
-      schema={helpSchema}
+      schema={addonSchema}
       onSubmit={onSubmit}
     >
       {({ Field }) => (
@@ -422,7 +425,6 @@ export const WithEventHandlers = () => {
       defaultValues={{
         email: '',
       }}
-      resolver={yupResolver(helpSchema)}
       onSubmit={onSubmit}
     >
       {({ Field }) => (

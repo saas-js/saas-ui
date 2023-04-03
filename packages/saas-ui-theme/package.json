@@ -64,6 +64,7 @@
   "dependencies": {
     "@chakra-ui/anatomy": "^2.1.1",
     "@chakra-ui/styled-system": "^2.5.1",
+    "@chakra-ui/theme": "^3.0.1",
     "@chakra-ui/theme-tools": "^2.0.16"
   },
   "peerDependencies": {

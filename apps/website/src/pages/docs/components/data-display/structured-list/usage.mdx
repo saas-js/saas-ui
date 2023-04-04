@@ -1,0 +1,502 @@
+---
+id: structured-list
+title: StructuredList
+description: A component used to display collections of data in a consistent manner.
+---
+
+A `StructuredList` can be used to group more complex types of data than the standard Chakra UI List component.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core' }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ componentName: 'structured-list' }}
+/>
+
+## Import
+
+- `StructuredList`: The wrapper component that handles default composition.
+- `StructuredListHeader`: A title to indicate a group of items.
+- `StructuredListItem`: The list item container.
+- `StructuredListIcon`: The list item icon.
+- `StructuredListButton`: Component used for interactive items.
+- `StructuredListCell`: Component that displays the item primary and secondary text.
+
+```ts
+import {
+  StructuredList,
+  StructuredListHeader,
+  StructuredListItem,
+  StructuredListIcon,
+  StructuredListButton,
+  StructuredListCell,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx center=true
+import { Box, Text, Tag } from '@chakra-ui/react'
+import {
+  StructuredList,
+  StructuredListItem,
+  StructuredListCell,
+} from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Box width="320px">
+      <StructuredList>
+        <StructuredListItem>
+          <StructuredListCell>
+            <Text fontWeight="bold">Elliot Alderson</Text>
+            <Text fontSize="sm" color="muted">
+              Hacker
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>admin</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+        <StructuredListItem>
+          <StructuredListCell>
+            <Text fontWeight="bold">Tyrell Wellick</Text>
+            <Text fontSize="sm" color="muted">
+              CEO
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>owner</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+      </StructuredList>
+    </Box>
+  )
+}
+```
+
+### Icon
+
+```jsx center=true
+function WithIcon() {
+  return (
+    <Box width="320px">
+      <StructuredList>
+        <StructuredListItem>
+          <StructuredListCell width="14">
+            <Avatar name="Elliot Alderson" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Elliot Alderson</Text>
+            <Text fontSize="sm" color="muted">
+              Hacker
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>admin</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+        <StructuredListItem>
+          <StructuredListCell width="14">
+            <Avatar name="Tyrell Wellick" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Tyrell Wellick</Text>
+            <Text fontSize="sm" color="muted">
+              CEO
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>owner</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+      </StructuredList>
+    </Box>
+  )
+}
+```
+
+### Header
+
+```jsx center=true
+function WithHeader() {
+  return (
+    <Card width="320px">
+      <StructuredList>
+        <StructuredListHeader>Users</StructuredListHeader>
+        <StructuredListItem>
+          <StructuredListCell width="14">
+            <Avatar name="Elliot Alderson" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Elliot Alderson</Text>
+            <Text fontSize="sm" color="muted">
+              Hacker
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>admin</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+        <StructuredListItem>
+          <StructuredListCell width="14">
+            <Avatar name="Tyrell Wellick" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Tyrell Wellick</Text>
+            <Text fontSize="sm" color="muted">
+              CEO
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>owner</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+      </StructuredList>
+    </Card>
+  )
+}
+```
+
+### Interactive
+
+You can make the list items interactive by adding a `href` or `onClick` prop to the `StructuredListItem`.
+
+```jsx center=true
+function WithIcon() {
+  return (
+    <Card width="320px">
+      <StructuredList>
+        <StructuredListItem href="#">
+          <StructuredListCell width="14">
+            <Avatar name="Elliot Alderson" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Elliot Alderson</Text>
+            <Text fontSize="sm" color="muted">
+              Hacker
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>admin</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+        <StructuredListItem href="#">
+          <StructuredListCell width="14">
+            <Avatar name="Tyrell Wellick" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Tyrell Wellick</Text>
+            <Text fontSize="sm" color="muted">
+              CEO
+            </Text>
+          </StructuredListCell>
+          <StructuredListCell>
+            <Tag>owner</Tag>
+          </StructuredListCell>
+        </StructuredListItem>
+      </StructuredList>
+    </Card>
+  )
+}
+```
+
+### Checkbox
+
+```jsx center=true
+function WithCheckbox() {
+  return (
+    <Card width="320px">
+      <StructuredList>
+        {['Release V2', 'Learn Saas UI'].map((todo) => {
+          const [checked, setChecked] = useState(false)
+          return (
+            <StructuredListItem key={todo} onClick={() => setChecked(!checked)}>
+              <StructuredListCell width="10" display="flex" alignItems="center">
+                <Checkbox isChecked={checked} />
+              </StructuredListCell>
+              <StructuredListCell flex="1">
+                <Text fontWeight="medium">{todo}</Text>
+              </StructuredListCell>
+            </StructuredListItem>
+          )
+        })}
+      </StructuredList>
+    </Card>
+  )
+}
+```
+
+### Switch
+
+```jsx center=true
+function WithSwitch() {
+  return (
+    <Card width="320px">
+      <StructuredList>
+        <StructuredListHeader>Notifications</StructuredListHeader>
+        <StructuredListItem>
+          <StructuredListIcon as={FiMail} size="4" />
+          <StructuredListCell flex="1">Email</StructuredListCell>
+          <StructuredListCell>
+            <Switch aria-label="Email" />
+          </StructuredListCell>
+        </StructuredListItem>
+        <StructuredListItem>
+          <StructuredListIcon as={FiMessageSquare} size="4" />
+          <StructuredListCell flex="1">Chat</StructuredListCell>
+          <StructuredListCell>
+            <Switch aria-label="Chat" />
+          </StructuredListCell>
+        </StructuredListItem>
+      </StructuredList>
+    </Card>
+  )
+}
+```
+
+### Truncated text
+
+```jsx center=true
+function Inbox() {
+  return (
+    <Card width="320px">
+      <StructuredList>
+        <StructuredListHeader>Inbox</StructuredListHeader>
+        <StructuredListItem href="#">
+          <StructuredListCell width="14">
+            <Avatar name="Elliot Alderson" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">A bug is never just a mistake.</Text>
+            <Text fontSize="sm" color="muted" noOfLines={2}>
+              <Text as="span" color="app-text">
+                Elliot Alderson
+              </Text>{' '}
+              — It represents something bigger. An error of thinking that makes
+              you who you are.
+            </Text>
+          </StructuredListCell>
+        </StructuredListItem>
+        <StructuredListItem href="#">
+          <StructuredListCell width="14">
+            <Avatar name="Tyrell Wellick" size="sm" />
+          </StructuredListCell>
+          <StructuredListCell flex="1">
+            <Text fontWeight="bold">Hi</Text>
+            <Text fontSize="sm" color="muted" noOfLines={2}>
+              <Text as="span" color="app-text">
+                Tyrell Wellick
+              </Text>{' '}
+              — Unfortunately, we’re all human. Except me, of course.
+            </Text>
+          </StructuredListCell>
+        </StructuredListItem>
+      </StructuredList>
+    </Card>
+  )
+}
+```
+
+### Sticky header
+
+```jsx center=true
+function Issues() {
+  const issues = [
+    {
+      id: 'SUI-123',
+      title: 'Research product trends',
+      date: '10 Jan',
+      labels: ['research', 'trends'],
+      status: 'in-progress',
+    },
+    {
+      id: 'SUI-133',
+      title: 'Develop user interface',
+      date: '3 Feb',
+      labels: ['UI', 'development'],
+      status: 'in-progress',
+    },
+    {
+      id: 'SUI-134',
+      title: 'Create user experience flows',
+      date: '5 Feb',
+      labels: ['UX', 'flows'],
+      status: 'in-progress',
+    },
+    {
+      id: 'SUI-135',
+      title: 'Select materials for production',
+      date: '7 Feb',
+      labels: ['materials', 'production'],
+      status: 'in-progress',
+    },
+    {
+      id: 'SUI-136',
+      title: 'Work with engineers on product specifications',
+      date: '9 Feb',
+      labels: ['engineering', 'specifications'],
+      status: 'in-progress',
+    },
+    {
+      id: 'SUI-137',
+      title: 'Conduct user research',
+      date: '11 Feb',
+      labels: ['user research', 'testing'],
+      status: 'in-progress',
+    },
+    {
+      id: 'SUI-124',
+      title: 'Brainstorm product ideas',
+      date: '12 Jan',
+      labels: ['brainstorming', 'ideas'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-125',
+      title: 'Create initial sketches',
+      date: '15 Jan',
+      labels: ['sketches', 'design'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-126',
+      title: 'Get feedback on sketches',
+      date: '17 Jan',
+      labels: ['feedback', 'design'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-127',
+      title: 'Refine and finalize design',
+      date: '20 Jan',
+      labels: ['design', 'refinement'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-128',
+      title: 'Create 3D model',
+      date: '23 Jan',
+      labels: ['3D', 'model'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-129',
+      title: 'Test and iterate prototype',
+      date: '25 Jan',
+      labels: ['testing', 'prototype'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-130',
+      title: 'Refine prototype based on feedback',
+      date: '27 Jan',
+      labels: ['feedback', 'iteration'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-131',
+      title: 'Create final product',
+      date: '30 Jan',
+      labels: ['final', 'product'],
+      status: 'todo',
+    },
+    {
+      id: 'SUI-132',
+      title: 'Test final product before launch',
+      date: '1 Feb',
+      labels: ['testing', 'final'],
+      status: 'todo',
+    },
+  ]
+
+  const inProgress = issues.filter(({ status }) => status === 'in-progress')
+  const todo = issues.filter(({ status }) => status === 'todo')
+
+  const renderIssue = (issue) => {
+    return (
+      <StructuredListItem
+        href="#"
+        as={HStack}
+        spacing="4"
+        borderBottom="1px"
+        borderColor="gray.100"
+        fontSize="sm"
+        _dark={{
+          borderColor: 'whiteAlpha.100',
+        }}
+      >
+        <StructuredListCell width="4" role="group">
+          <Checkbox
+            opacity="0"
+            _checked={{ opacity: 1 }}
+            _groupHover={{ opacity: 1 }}
+            size="md"
+            rounded="sm"
+          />
+        </StructuredListCell>
+        <StructuredListCell color="muted">{issue.id}</StructuredListCell>
+        <StructuredListCell flex="1">
+          <Text>{issue.title}</Text>
+        </StructuredListCell>
+        <StructuredListCell color="muted" as={HStack} spacing="2">
+          {issue.labels.map((label) => (
+            <Tag
+              key={label}
+              bg="none"
+              border="1px solid"
+              borderColor="blackAlpha.100"
+              color="muted"
+              rounded="full"
+              _dark={{
+                borderColor: 'whiteAlpha.100',
+              }}
+            >
+              {label}
+            </Tag>
+          ))}
+        </StructuredListCell>
+        <StructuredListCell color="muted">{issue.date}</StructuredListCell>
+      </StructuredListItem>
+    )
+  }
+
+  return (
+    <Card width="100%" overflowY="auto" maxH="240px">
+      <StructuredList py="0">
+        <StructuredListHeader
+          fontWeight="normal"
+          bg="gray.200"
+          _dark={{ bg: 'gray.700' }}
+          color="app-text"
+          position="sticky"
+          top="0"
+          zIndex="popover"
+        >
+          In Progress{' '}
+          <Text as="span" color="muted">
+            {inProgress.length}
+          </Text>
+        </StructuredListHeader>
+        {inProgress.map(renderIssue)}
+        <StructuredListHeader
+          fontWeight="normal"
+          bg="gray.200"
+          _dark={{ bg: 'gray.700' }}
+          color="app-text"
+          position="sticky"
+          top="0"
+          zIndex="popover"
+        >
+          Todo{' '}
+          <Text as="span" color="muted">
+            {todo.length}
+          </Text>
+        </StructuredListHeader>
+        {todo.map(renderIssue)}
+      </StructuredList>
+    </Card>
+  )
+}
+```

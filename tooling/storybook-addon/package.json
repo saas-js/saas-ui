@@ -73,7 +73,7 @@
   },
   "homepage": "https://github.com/saas-ui/saas-ui#readme",
   "devDependencies": {
-    "@chakra-ui/react": "^2.5.1",
+    "@chakra-ui/react": "^2.5.5",
     "@chakra-ui/system": ">=2.3.8",
     "@emotion/react": ">=11.1.5",
     "@emotion/styled": ">=11.1.5",

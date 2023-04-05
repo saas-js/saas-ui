@@ -1,0 +1,42 @@
+---
+id: banner
+scope: props
+---
+
+## Props
+
+### Banner Props
+
+`Banner` composes a `Flex` component.
+
+<PropsTable
+  of="Banner"
+  only={[
+    'status',
+    'isOpen',
+    'onClose',
+    'motionPreset',
+    'variant',
+    'colorScheme',
+  ]}
+/>
+
+### BannerIcon Props
+
+`BannerIcon` composes `Icon` and accepts a custom icon or displays an icon based on the `status` prop.
+
+### BannerContent Props
+
+`BannerContent` composes a `Flex` component.
+
+### BannerTitle Props
+
+`BannerTitle` composes a `Box` component.
+
+### BannerDescription Props
+
+`BannerDescription` composes a `Box` component.
+
+### BannerActions Props
+
+`BannerDescription` composes a `ButtonGroup` component and accepts `variant` and `colorScheme` props.

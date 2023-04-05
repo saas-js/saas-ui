@@ -5,7 +5,7 @@ import Link from 'next/link'
 export const LinkCard = (props) => {
   const { href, children, ...rest } = props
   return (
-    <Link passHref href={href}>
+    <Link passHref href={href} legacyBehavior>
       <Card
         as={LinkBox}
         _hover={{

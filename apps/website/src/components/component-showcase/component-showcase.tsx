@@ -31,6 +31,8 @@ import {
   FormStepper,
   FormLayout,
   Select,
+  SelectButton,
+  SelectList,
 } from '@saas-ui/forms'
 import { FiCopy, FiDelete, FiPenTool } from 'react-icons/fi'
 import { BackgroundGradient } from '../background-gradient'
@@ -293,20 +295,26 @@ export const ComponentShowcase = () => {
                         label="Status"
                         value={
                           <Select
+                            name="status"
                             value="Open"
-                            menuListProps={menuStyles}
                             size="sm"
                             defaultIsOpen
                             isOpen={isOpen}
                             flip={false}
                             autoSelect={false}
                           >
-                            <MenuItemOption value="Open" sx={menuItemStyles}>
-                              Open
-                            </MenuItemOption>
-                            <MenuItemOption value="Closed" sx={menuItemStyles}>
-                              Closed
-                            </MenuItemOption>
+                            <SelectButton />
+                            <SelectList>
+                              <MenuItemOption value="Open" sx={menuItemStyles}>
+                                Open
+                              </MenuItemOption>
+                              <MenuItemOption
+                                value="Closed"
+                                sx={menuItemStyles}
+                              >
+                                Closed
+                              </MenuItemOption>
+                            </SelectList>
                           </Select>
                         }
                       />

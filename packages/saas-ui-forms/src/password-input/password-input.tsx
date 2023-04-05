@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { forwardRef, InputGroup, Input, InputProps } from '@chakra-ui/react'
 
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
+import { ViewIcon, ViewOffIcon } from '@saas-ui/core/icons'
 
 import { InputRightButton } from '../input-right-button'
 

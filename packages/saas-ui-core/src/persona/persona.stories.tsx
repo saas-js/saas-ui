@@ -1,8 +1,7 @@
 import { Avatar, AvatarBadge, Container, Icon, VStack } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { FiClock } from 'react-icons/fi'
-import { MinusIcon, PhoneIcon } from '@chakra-ui/icons'
+import { FiClock, FiPhone, FiMinus } from 'react-icons/fi'
 
 import {
   Persona,
@@ -94,7 +93,7 @@ export const BadgeIcon = () => (
 
       <Persona
         {...persona}
-        presenceIcon={<MinusIcon boxSize="0.4em" />}
+        presenceIcon={<FiMinus size="0.4em" />}
         size="xl"
         presence="busy"
       />
@@ -131,7 +130,7 @@ export const LabelWithIcon = () => (
         presence="busy"
         secondaryLabel={
           <>
-            <PhoneIcon /> On a call
+            <FiPhone /> On a call
           </>
         }
       />

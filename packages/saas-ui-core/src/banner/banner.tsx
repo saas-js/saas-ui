@@ -15,12 +15,13 @@ import {
   createStylesContext,
   useId,
   ComponentWithAs,
+  Icon,
 } from '@chakra-ui/react'
 import { callAllHandlers, cx } from '@chakra-ui/utils'
 
 import { createContext } from '@chakra-ui/react-utils'
 
-import { Icon, InfoIcon, WarningIcon, CheckIcon } from '@chakra-ui/icons'
+import { InfoIcon, WarningIcon, CheckIcon } from './icons'
 
 import { AnimatePresence } from 'framer-motion'
 
@@ -32,10 +33,7 @@ import {
 
 const [StylesProvider, useStyles] = createStylesContext('SuiBanner')
 
-const STATUSES: Record<
-  string,
-  { icon: ComponentWithAs<'svg'>; colorScheme: string }
-> = {
+const STATUSES = {
   info: { icon: InfoIcon, colorScheme: 'blue' },
   warning: { icon: WarningIcon, colorScheme: 'orange' },
   success: { icon: CheckIcon, colorScheme: 'green' },

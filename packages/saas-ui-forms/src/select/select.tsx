@@ -10,180 +10,190 @@ import {
   MenuListProps,
   MenuItemOption,
   MenuOptionGroup,
-  MenuOptionGroupProps,
   Button,
   ButtonProps,
   omitThemingProps,
   useMultiStyleConfig,
   SystemStyleObject,
-  useFormControl,
-  HTMLChakraProps,
   MenuItemOptionProps,
+  useFormControlContext,
 } from '@chakra-ui/react'
-import { cx } from '@chakra-ui/utils'
+import { cx, dataAttr } from '@chakra-ui/utils'
 import { ChevronDownIcon } from '@saas-ui/core'
 
-import { FieldOptions, FieldOption } from '../types'
-import { mapOptions } from '../utils'
+import { FieldOption } from '../types'
+
+import {
+  SelectOptions,
+  SelectProvider,
+  useSelect,
+  useSelectContext,
+} from './select-context'
 
 export interface SelectOption
   extends Omit<MenuItemOptionProps, 'value'>,
     FieldOption {}
 
-interface SelectOptions {
-  /**
-   * An array of options
-   * If you leave this empty the children prop will be rendered.
-   */
-  options?: FieldOptions<SelectOption>
-  /**
-   * Props passed to the MenuList.
-   */
-  menuListProps?: MenuListProps
-  /**
-   * Customize how the value is rendered.
-   * @type (value?: string[]) => React.ReactElement
-   */
-  renderValue?: (value?: string[]) => React.ReactElement | undefined
-  /**
-   * Enable multiple select.
-   */
-  multiple?: boolean
-}
-
 export interface SelectProps
   extends Omit<MenuProps, 'children'>,
-    Pick<ButtonProps, 'isDisabled' | 'leftIcon' | 'rightIcon'>,
-    Pick<MenuOptionGroupProps, 'onChange'>,
     SelectOptions {}
 
-const SelectButton = forwardRef((props, ref) => {
-  const styles = useMultiStyleConfig('Input', props)
+export interface SelectButtonProps extends ButtonProps {}
 
-  /* @ts-ignore */
-  const focusStyles = styles.field._focusVisible
+/**
+ * Button that opens the select menu and displays the selected value.
+ *
+ * @see https://saas-ui.dev/docs/components/forms/select
+ */
+export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
+  (props, ref) => {
+    const styles = useMultiStyleConfig('SuiSelect', props)
 
-  const height = styles.field.h || styles.field.height
+    const {
+      displayValue,
+      renderValue,
+      placeholder,
+      isDisabled: isSelectDisabled,
+    } = useSelectContext()
 
-  const buttonStyles: SystemStyleObject = {
-    fontWeight: 'normal',
-    textAlign: 'left',
-    color: 'inherit',
-    _active: {
-      bg: 'transparent',
-    },
-    minH: height,
-    _focus: focusStyles,
-    _expanded: focusStyles,
-    ...styles.field,
-    h: 'auto',
+    const {
+      isInvalid,
+      isReadOnly,
+      isDisabled,
+      isFocused,
+      isRequired,
+      id,
+      onBlur,
+      onFocus,
+    } = useFormControlContext()
+
+    const { rightIcon = <ChevronDownIcon />, ...rest } = props
+
+    /* @ts-ignore */
+    const focusStyles = styles.field?._focusVisible
+    /* @ts-ignore */
+    const readOnlyStyles = styles.field?._readOnly
+    /* @ts-ignore */
+    const invalid = styles.field?._invalid
+
+    const height = styles.field?.h || styles.field?.height
+
+    const buttonStyles: SystemStyleObject = {
+      fontWeight: 'normal',
+      textAlign: 'left',
+      color: 'inherit',
+      _active: {
+        bg: 'transparent',
+      },
+      minH: height,
+      _focus: focusStyles,
+      _expanded: focusStyles,
+      _readOnly: readOnlyStyles,
+      _invalid: invalid,
+      ...styles.field,
+      h: 'auto',
+    }
+
+    // Using a Button, so we can simply use leftIcon and rightIcon
+    return (
+      <MenuButton
+        as={Button}
+        id={id}
+        {...rest}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        isDisabled={isDisabled || isSelectDisabled}
+        data-invalid={dataAttr(isInvalid)}
+        data-read-only={dataAttr(isReadOnly)}
+        data-focus={dataAttr(isFocused)}
+        data-required={dataAttr(isRequired)}
+        rightIcon={rightIcon}
+        ref={ref}
+        sx={buttonStyles}
+      >
+        {renderValue(displayValue) || placeholder}
+      </MenuButton>
+    )
   }
-
-  // Using a Button, so we can simply use leftIcon and rightIcon
-  return <MenuButton as={Button} {...props} ref={ref} sx={buttonStyles} />
-})
+)
 
 SelectButton.displayName = 'SelectButton'
 
+/**
+ * Allow users to select a value from a list of options.
+ *
+ * @see https://saas-ui.dev/docs/components/forms/select
+ */
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
-  const {
-    name,
-    options: optionsProp,
-    children,
-    onChange,
-    defaultValue,
-    value,
-    placeholder,
-    isDisabled,
-    leftIcon,
-    rightIcon = <ChevronDownIcon />,
-    multiple,
-    size,
-    variant,
-    menuListProps,
-    renderValue = (value) => value?.join(', '),
-    ...rest
-  } = props
+  const { name, children, isDisabled, multiple, ...rest } = props
+
   const menuProps = omitThemingProps(rest)
 
-  const [currentValue, setCurrentValue] = React.useState(value || defaultValue)
+  const context = useSelect(props)
 
-  const controlProps = useFormControl({ name } as HTMLChakraProps<'input'>)
-
-  const options = React.useMemo(
-    () => optionsProp && mapOptions(optionsProp),
-    [optionsProp]
-  )
-
-  const handleChange = (value: string | string[]) => {
-    setCurrentValue(value)
-    onChange?.(value)
-  }
-
-  const buttonProps = {
-    isDisabled,
-    leftIcon,
-    rightIcon,
-    size,
-    variant,
-  }
-
-  const getDisplayValue = React.useCallback(
-    (value: string) => {
-      if (!options) {
-        return value
-      }
-
-      for (const option of options) {
-        if (option.label && option.value === value) {
-          return option.label
-        }
-      }
-
-      return value
-    },
-    [options]
-  )
-
-  const displayValue = currentValue
-    ? (Array.isArray(currentValue) ? currentValue : [currentValue]).map(
-        getDisplayValue
-      )
-    : []
+  const { value, controlProps } = context
 
   return (
-    <Menu {...menuProps} closeOnSelect={!multiple}>
-      <chakra.div className={cx('sui-select')}>
-        <SelectButton ref={ref} {...buttonProps}>
-          {renderValue(displayValue) || placeholder}
-        </SelectButton>
-        <MenuList maxH="60vh" overflowY="auto" {...menuListProps}>
-          <MenuOptionGroup
-            defaultValue={
-              (defaultValue || value) as string | string[] | undefined
-            }
-            onChange={handleChange}
-            type={multiple ? 'checkbox' : 'radio'}
-          >
-            {options
-              ? options.map(({ value, label, ...rest }, i) => (
-                  <MenuItemOption key={i} value={value} {...rest}>
-                    {label || value}
-                  </MenuItemOption>
-                ))
-              : children}
-          </MenuOptionGroup>
-        </MenuList>
-        <chakra.input
-          {...controlProps}
-          name={name}
-          type="hidden"
-          value={currentValue}
-          className="saas-select__input"
-        />
-      </chakra.div>
-    </Menu>
+    <SelectProvider value={context}>
+      <Menu {...menuProps} closeOnSelect={!multiple}>
+        <chakra.div className={cx('sui-select')}>
+          {children}
+          <chakra.input
+            {...controlProps}
+            ref={ref}
+            name={name}
+            type="hidden"
+            value={value || ''}
+            className="saas-select__input"
+          />
+        </chakra.div>
+      </Menu>
+    </SelectProvider>
   )
 })
 
+export interface SelectListProps extends MenuListProps {}
+
+/**
+ * The list of options to choose from.
+ *
+ * @see https://saas-ui.dev/docs/components/forms/select
+ */
+export const SelectList: React.FC<SelectListProps> = (props) => {
+  const { defaultValue, value, options, multiple, onChange } =
+    useSelectContext()
+
+  return (
+    <MenuList maxH="100vh" overflowY="auto" {...props}>
+      <MenuOptionGroup
+        defaultValue={(defaultValue || value) as string | string[] | undefined}
+        value={value}
+        onChange={onChange}
+        type={multiple ? 'checkbox' : 'radio'}
+      >
+        {options
+          ? options.map(({ value, label, ...rest }, i) => (
+              <SelectOption key={i} value={value} {...rest}>
+                {label || value}
+              </SelectOption>
+            ))
+          : props.children}
+      </MenuOptionGroup>
+    </MenuList>
+  )
+}
+
 Select.displayName = 'Select'
+
+/**
+ * An option in a select list
+ *
+ * @see https://saas-ui.dev/docs/components/forms/select
+ */
+export const SelectOption = forwardRef<MenuItemOptionProps, 'button'>(
+  (props, ref) => {
+    return <MenuItemOption ref={ref} {...props} />
+  }
+)
+SelectOption.id = 'MenuItemOption'
+SelectOption.displayName = 'SelectOption'

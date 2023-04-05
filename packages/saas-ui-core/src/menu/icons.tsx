@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icon, IconProps } from '@chakra-ui/icons'
+import { Icon, IconProps } from '@chakra-ui/react'
 
 export const MoreIcon = (props: IconProps) => {
   return (

@@ -43,7 +43,7 @@ export default function Page({
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = uniq(
     getDocByType('components').flatMap((doc) => [
-      doc.slug,
+      doc?.slug,
       `/${doc._raw.sourceFileDir}`,
     ])
   )

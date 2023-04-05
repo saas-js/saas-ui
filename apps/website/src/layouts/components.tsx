@@ -56,9 +56,7 @@ export default function ComponentDocsLayout({
         </HStack>
       </Box>
 
-      <Box>
-        <MDXContent doc={item.doc} />
-      </Box>
+      <Box>{item && <MDXContent doc={item.doc} />}</Box>
     </MDXLayout>
   )
 }

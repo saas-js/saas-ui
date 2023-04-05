@@ -251,7 +251,7 @@ export const BannerActions = forwardRef<BannerActionsProps, 'div'>(
 BannerActions.displayName = 'BannerActions'
 
 export interface BannerIconProps extends HTMLChakraProps<'span'> {
-  icon?: As<any>
+  icon?: As
 }
 
 /**

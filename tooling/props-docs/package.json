@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.8",
-    "@chakra-ui/styled-system": "^2.5.1",
+    "@chakra-ui/styled-system": "^2.6.2",
     "glob": "^8.0.3",
     "mkdirp": "^1.0.4",
     "react-docgen-typescript": "^2.2.2",

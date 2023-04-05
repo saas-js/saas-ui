@@ -30,9 +30,11 @@ import { onSubmit } from './helpers'
 import { FiCheck, FiPhone } from 'react-icons/fi'
 import { createZodForm } from '../zod/src'
 import { createYupForm } from '../yup/src'
+import { createAjvForm } from '../ajv/src'
 
 const ZodForm = createZodForm()
 const YupForm = createYupForm()
+const AjvForm = createAjvForm()
 const Form = createForm()
 
 export const Basic = (props: Omit<FormProps, 'onSubmit'>) => (
@@ -246,6 +248,88 @@ export const WithYupSchema = () => {
         </FormLayout>
       )}
     </YupForm>
+  )
+}
+
+// JSON Type Definition
+// @see https://ajv.js.org/json-type-definition.html
+const ajvSchema = {
+  type: 'object',
+  properties: {
+    text: { type: 'string' },
+    number: { type: 'number' },
+    textarea: { type: 'string' },
+    switch: { type: 'boolean' },
+    select: { type: 'string' },
+    multipleselect: { type: 'array', items: { type: 'string' } },
+    nativeselect: { type: 'string' },
+    password: { type: 'string' },
+    checkbox: { type: 'boolean' },
+    radio: { type: 'string' },
+    pin: { type: 'string' },
+  },
+} as const // this is important
+
+export const WithAjvSchema = () => {
+  return (
+    <AjvForm
+      // defaultValues={{
+      //   text: 'Text field',
+      //   number: 10,
+      //   textarea: 'Lorem ipsum',
+      //   switch: true,
+      //   select: 'Select 2',
+      //   multipleselect: ['Select 1', 'Select 2'],
+      //   nativeselect: 'Select 1',
+      //   password: 'Password123',
+      //   checkbox: true,
+      //   radio: 'Radio 1',
+      //   pin: '',
+      // }}
+      schema={ajvSchema}
+      onSubmit={(values) => {
+        console.log(values)
+      }}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field name="text" label="Text" type="text" />
+          <Field name="number" label="Number" type="number" min={1} max={10} />
+          <Field name="textarea" label="Textarea" type="textarea" />
+          <Field name="switch" label="Switch" type="switch" />
+          <Field
+            name="select"
+            label="Select"
+            type="select"
+            options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+          />
+          <Field
+            name="multipleselect"
+            label="Multiple Select"
+            type="select"
+            options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+            multiple
+          />
+          <Field
+            name="nativeselect"
+            label="Native Select"
+            type="native-select"
+            options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+          />
+          <Field name="password" label="Password" type="password" />
+          <Field name="checkbox" label="Checkbox" type="checkbox" />
+          <Field
+            name="radio"
+            label="Radio"
+            type="radio"
+            options={[{ value: 'Radio 1' }, { value: 'Radio 2' }]}
+          />
+          <Field name="pin" label="Pin" type="pin" pinLength={4} />
+
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </AjvForm>
   )
 }
 

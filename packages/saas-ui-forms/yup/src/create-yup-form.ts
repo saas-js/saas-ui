@@ -7,13 +7,8 @@ import {
 import { yupResolver } from './yup-resolver'
 import { ObjectSchema, InferType } from 'yup'
 import React from 'react'
+import { AnyObjectSchema } from './types'
 type ResolverArgs = Parameters<typeof yupResolver>
-
-// @see https://github.com/jquense/yup/issues/1849
-type AnyObjectSchema =
-  | ObjectSchema<any, any, any, ''>
-  | ObjectSchema<any, any, any, 'd'>
-  | ObjectSchema<any, any, any, 's'>
 
 export interface CreateYupFormProps<FieldDefs>
   extends CreateFormProps<FieldDefs> {

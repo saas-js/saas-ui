@@ -201,7 +201,11 @@ const componentIllustrations = {
     </Code>
   ),
   select: (
-    <Select options={['Fullstack Developer']} value="Fullstack Developer" />
+    <Select
+      name="type"
+      options={['Fullstack Developer']}
+      value="Fullstack Developer"
+    />
   ),
   passwordinput: (
     <Box width="80%">

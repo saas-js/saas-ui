@@ -59,12 +59,12 @@
     "@chakra-ui/styled-system": "^2.8.0",
     "@chakra-ui/theme-tools": "^2.0.17",
     "@chakra-ui/utils": "^2.0.15",
-    "@internationalized/date": "^3.0.2",
-    "@react-aria/calendar": "^3.0.5",
-    "@react-aria/datepicker": "^3.2.1",
-    "@react-aria/i18n": "^3.6.3",
-    "@react-stately/calendar": "^3.0.5",
-    "@react-stately/datepicker": "^3.2.1",
+    "@internationalized/date": "^3.1.0",
+    "@react-aria/calendar": "^3.1.0",
+    "@react-aria/datepicker": "^3.3.0",
+    "@react-aria/i18n": "^3.7.0",
+    "@react-stately/calendar": "^3.1.0",
+    "@react-stately/datepicker": "^3.3.0",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/modals": "workspace:*"
   },
@@ -77,8 +77,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@react-types/datepicker": "^3.1.4",
-    "@react-types/shared": "^3.16.0",
+    "@react-types/datepicker": "^3.2.0",
+    "@react-types/shared": "^3.17.0",
     "@saas-ui/forms": "workspace:*",
     "date-fns": "^2.29.3"
   }

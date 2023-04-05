@@ -89,6 +89,6 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "tsup": "^6.5.0"
+    "tsup": "^6.7.0"
   }
 }

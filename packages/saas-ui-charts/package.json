@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^2.8.0",
-    "recharts": "^2.3.2"
+    "recharts": "^2.5.0"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.8",
@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "prop-types": "^15.8.1",
-    "tsup": "^6.5.0"
+    "tsup": "^6.7.0"
   }
 }

@@ -5,7 +5,7 @@ import React from 'react'
 
 import { NavItem } from '@saas-ui/react'
 
-type SidebarLinkProps = PropsOf<typeof chakra.div> & {
+type SidebarLinkProps = PropsOf<typeof chakra.a> & {
   href?: string
   icon?: React.ReactElement
 }

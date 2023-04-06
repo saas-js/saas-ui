@@ -2,8 +2,7 @@ export * from './display-field'
 export * from './field'
 export * from './fields'
 export * from './fields-context'
-export * from './form'
-export * from './auto-form'
+// export * from './auto-form'
 export * from './layout'
 export * from './submit-button'
 export * from './array-field'
@@ -33,13 +32,10 @@ export {
   SwitchField,
   TextareaField,
   defaultFieldTypes,
-} from './default-fields'
-
-export type {
-  DefaultFields,
-  InputFieldProps,
-  NumberInputFieldProps,
-  PinFieldProps,
+  type DefaultFields,
+  type InputFieldProps,
+  type NumberInputFieldProps,
+  type PinFieldProps,
 } from './default-fields'
 
 export type {
@@ -49,11 +45,19 @@ export type {
   FieldOptions,
 } from './types'
 
-export { createForm } from './create-form'
-export type { CreateFormProps } from './create-form'
+export { createForm, type CreateFormProps } from './create-form'
+export { createField, type CreateFieldOptions } from './create-field'
 
-export { createField } from './create-field'
-export type { CreateFieldOptions } from './create-field'
+export {
+  Form as BaseForm,
+  type FormProps,
+  type FormRenderContext,
+} from './form'
+
+export { FormProvider, useFormContext } from './form-context'
+
+import { createForm } from './create-form'
+export const Form = createForm()
 
 export type {
   BatchFieldArrayUpdate,
@@ -158,9 +162,7 @@ export {
   useController,
   useFieldArray,
   useForm,
-  useFormContext,
   useFormState,
   useWatch,
   Controller,
-  FormProvider,
 } from 'react-hook-form'

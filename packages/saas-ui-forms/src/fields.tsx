@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { Form } from './form'
 import { FormLayout } from './layout'
 import { BaseFieldProps } from './types'
 import { Field } from './field'
@@ -8,10 +7,10 @@ import { Field } from './field'
 import { ArrayField } from './array-field'
 import { ObjectField } from './object-field'
 import { FieldResolver } from './field-resolver'
-import { useFormContext } from 'react-hook-form'
+import { useFormContext } from './form-context'
 
-export interface FieldsProps {
-  schema: any
+export interface FieldsProps<TSchema = any> {
+  schema?: TSchema
   fieldResolver?: FieldResolver
   focusFirstField?: boolean
 }
@@ -35,29 +34,33 @@ const mapNestedFields = (resolver: FieldResolver, name: string) => {
 }
 
 export const AutoFields: React.FC<FieldsProps> = ({
-  schema,
-  fieldResolver,
+  schema: schemaProp,
+  fieldResolver: fieldResolverProp,
   focusFirstField,
   ...props
 }) => {
-  const resolver = React.useMemo(
-    () => fieldResolver || Form.getFieldResolver(schema),
-    [schema, fieldResolver]
-  )
+  const context = useFormContext()
+  const schema = schemaProp || context.schema
+  const fieldResolver = fieldResolverProp || context.fieldResolver
+  const resolver = React.useMemo(() => fieldResolver, [schema, fieldResolver])
 
-  const fields = React.useMemo(() => resolver.getFields(), [resolver])
+  const fields = React.useMemo(() => resolver?.getFields(), [resolver])
 
   const form = useFormContext()
 
   React.useEffect(() => {
-    if (focusFirstField && fields[0]?.name) {
+    if (focusFirstField && fields?.[0]?.name) {
       form.setFocus(fields[0].name)
     }
   }, [schema, fieldResolver, focusFirstField])
 
+  if (!resolver) {
+    return null
+  }
+
   return (
     <FormLayout {...props}>
-      {fields.map(
+      {fields?.map(
         ({
           name,
           type,

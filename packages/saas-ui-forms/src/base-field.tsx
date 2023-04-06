@@ -1,11 +1,5 @@
 import * as React from 'react'
-import {
-  useFormContext,
-  FormState,
-  get,
-  RegisterOptions,
-  FieldValues,
-} from 'react-hook-form'
+import { FormState, get } from 'react-hook-form'
 
 import {
   Box,
@@ -14,8 +8,9 @@ import {
   FormHelperText,
   FormErrorMessage,
 } from '@chakra-ui/react'
-import { FocusableElement } from '@chakra-ui/utils'
-import { useField } from './fields-context'
+
+import { useFormContext } from './form-context'
+
 import { BaseFieldProps, FieldProps } from './types'
 
 const getError = (name: string, formState: FormState<{ [x: string]: any }>) => {

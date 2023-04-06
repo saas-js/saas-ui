@@ -4,7 +4,7 @@ import {
   FormProps,
   WithFields,
 } from '@saas-ui/forms'
-import { ajvResolver } from './ajv-resolver'
+import { ajvFieldResolver, ajvResolver } from './ajv-resolver'
 import { JTDDataType } from 'ajv/dist/jtd'
 type ResolverArgs = Parameters<typeof ajvResolver>
 
@@ -26,6 +26,7 @@ export function createAjvForm<FieldDefs>(
   return createForm<any>({
     resolver: (schema) =>
       ajvResolver(schema, options?.schemaOptions, options?.resolverOptions),
+    fieldResolver: ajvFieldResolver,
     ...options,
   }) as <
     TSchema extends Record<string, any>,

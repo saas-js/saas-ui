@@ -11,9 +11,13 @@ import { FormLayout } from './layout'
 import { BaseFieldProps } from './types'
 
 import { mapNestedFields } from './utils'
+import { FieldPath, FieldValues } from 'react-hook-form'
 
-export interface ObjectFieldProps extends BaseFieldProps {
-  name: string
+export interface ObjectFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> extends BaseFieldProps {
+  name: TName
   children: React.ReactNode
   columns?: ResponsiveValue<number>
   spacing?: ResponsiveValue<string | number>

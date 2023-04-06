@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { useFormContext, Controller } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 
 import { forwardRef, useMergeRefs } from '@chakra-ui/react'
 import { callAllHandlers } from '@chakra-ui/utils'
 import { BaseFieldProps, FieldProps } from './types'
 import { BaseField } from './base-field'
+import { useFormContext } from './form-context'
 
 interface CreateFieldProps {
   displayName: string

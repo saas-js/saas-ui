@@ -5,22 +5,6 @@ import { JSONSchemaType } from 'ajv'
 
 export { ajvResolver }
 
-const jsonSchemaFieldResolver = (schema: JSONSchemaType<unknown>) => {
+export const ajvFieldResolver = (schema: JSONSchemaType<unknown>) => {
   return objectFieldResolver(schema.properties)
-}
-
-interface JsonSchemaFormReturn {
-  schema: JSONSchemaType<unknown>
-  fieldResolver: FieldResolver
-  resolver: ReturnType<typeof ajvResolver>
-}
-
-export const jsonSchemaForm = (
-  schema: JSONSchemaType<unknown>
-): JsonSchemaFormReturn => {
-  return {
-    schema,
-    fieldResolver: jsonSchemaFieldResolver(schema),
-    resolver: ajvResolver(schema),
-  }
 }

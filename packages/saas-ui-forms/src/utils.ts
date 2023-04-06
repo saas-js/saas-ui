@@ -4,9 +4,16 @@ import { FieldOption, FieldOptions } from './types'
 export const mapNestedFields = (name: string, children: React.ReactNode) => {
   return React.Children.map(children, (child) => {
     if (React.isValidElement(child) && child.props.name) {
+      let childName = child.props.name
+      if (childName.includes('.')) {
+        childName = childName.replace(/^.*\.(.*)/, '$1')
+      } else if (childName.includes('.$')) {
+        childName = childName.replace(/^.*\.\$(.*)/, '$1')
+      }
+
       return React.cloneElement(child, {
         ...child.props,
-        name: `${name}.${child.props.name}`,
+        name: `${name}.${childName}`,
       })
     }
     return child

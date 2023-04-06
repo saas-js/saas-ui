@@ -82,6 +82,7 @@ interface FormOptions<
    */
   fields?: {
     submit?: SubmitButtonProps
+    [key: string]: unknown
   }
 }
 
@@ -176,7 +177,12 @@ export const Form = forwardRef(
     }
 
     return (
-      <FormProvider {...methods} schema={schema} fieldResolver={fieldResolver}>
+      <FormProvider
+        {...methods}
+        schema={schema}
+        fieldResolver={fieldResolver}
+        fields={fields}
+      >
         <chakra.form
           ref={ref}
           onSubmit={handleSubmit(onSubmit, onError)}

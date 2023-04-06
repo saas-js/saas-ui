@@ -6,6 +6,7 @@ import {
   FieldValues,
 } from 'react-hook-form'
 import { FieldResolver } from './field-resolver'
+import { BaseFieldProps, FieldProps } from './types'
 
 export type FormContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -14,6 +15,9 @@ export type FormContextValue<
 > = {
   fieldResolver?: FieldResolver
   schema?: TSchema
+  fields?: {
+    [key: string]: unknown
+  }
 }
 
 export type FormProviderProps<
@@ -23,6 +27,9 @@ export type FormProviderProps<
 > = HookFormProviderProps<TFieldValues, TContext> & {
   fieldResolver?: FieldResolver
   schema?: TSchema
+  fields?: {
+    [key: string]: unknown
+  }
 }
 
 const FormContext = createContext<FormContextValue | null>(null)
@@ -45,6 +52,14 @@ export const useFormContext = <
   }
 }
 
+export const useFieldProps = <TFieldValues extends FieldValues = FieldValues>(
+  name: string
+): BaseFieldProps<TFieldValues> | undefined => {
+  const parsedName = name?.replace(/\.[0-9]/g, '.$')
+  const context = useFormContext()
+  return context?.fields?.[parsedName] as any
+}
+
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
@@ -58,10 +73,10 @@ export const FormProvider = <
 >(
   props: FormProviderProps<TFieldValues, TContext, TSchema>
 ) => {
-  const { children, fieldResolver, schema, ...rest } = props
+  const { children, fieldResolver, schema, fields, ...rest } = props
   return (
     <HookFormProvider {...rest}>
-      <FormContext.Provider value={{ fieldResolver, schema }}>
+      <FormContext.Provider value={{ fieldResolver, schema, fields }}>
         {children}
       </FormContext.Provider>
     </HookFormProvider>

@@ -46,7 +46,7 @@ const basicSchema = {
       },
     },
   },
-}
+} as const
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -192,7 +192,11 @@ export const ZodSchemaNested = () => (
           email: '',
         },
       }}
-      fields={{}}
+      fields={{
+        'author.email': {
+          type: 'email',
+        },
+      }}
       onSubmit={onSubmit}
     />
   </>
@@ -220,6 +224,14 @@ export const ZodSchemaArray = () => (
       defaultValues={{
         description: '',
         todos: [{ todo: '' }],
+      }}
+      fields={{
+        'todos.$.todo': {
+          type: 'textarea',
+        },
+        submit: {
+          children: 'Save',
+        },
       }}
       onSubmit={onSubmit}
     />

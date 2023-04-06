@@ -3,6 +3,7 @@ import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { DefaultFields } from './default-fields'
 import { FormProps, FormRenderContext } from './form'
+import { SubmitButtonProps } from './submit-button'
 
 export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =
@@ -109,11 +110,30 @@ export type FormChildren<
   >
 >
 
+export type FieldOverrides<
+  FieldDefs,
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  [K in FieldPathWithArray<TFieldValues, TName>]?: Omit<
+    MergeFieldProps<
+      FieldDefs extends never
+        ? DefaultFields
+        : ShallowMerge<DefaultFields, FieldDefs>,
+      TFieldValues
+    >,
+    'name'
+  >
+}
+
 export type WithFields<
   TFormProps extends FormProps<any, any, any, any>,
   FieldDefs
 > = TFormProps extends FormProps<infer TFieldValues, infer TContext>
-  ? Omit<TFormProps, 'children'> & {
+  ? Omit<TFormProps, 'children' | 'fields'> & {
       children?: FormChildren<FieldDefs, TFieldValues, TContext>
+      fields?: FieldOverrides<FieldDefs, TFieldValues> & {
+        submit?: SubmitButtonProps
+      }
     }
   : never

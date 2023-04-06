@@ -2,7 +2,7 @@ import * as zod from 'zod'
 
 import { expectType } from 'tsd'
 
-import { ArrayFieldPath } from '../src/types'
+import { ArrayFieldPath, FieldOverrides } from '../src/types'
 import { FieldPath } from 'react-hook-form'
 
 const schema = zod.object({
@@ -47,3 +47,28 @@ expectType<CombinedNames>(test<'addresses.$'>())
 expectType<CombinedNames>(test<'addresses.$.street'>())
 
 expectType<CombinedNames>(test<`addresses.${number}.city`>())
+
+type Test = FieldOverrides<
+  any,
+  {
+    a: string
+    b: {
+      test: string
+    }
+    c: [
+      {
+        test: string
+      }
+    ]
+  }
+>
+
+type Overrides = {
+  a?: any
+  b?: any
+  c?: any
+  'c.$'?: any
+  'c.$.test'?: any
+}
+
+expectType<Overrides>(test<Test>())

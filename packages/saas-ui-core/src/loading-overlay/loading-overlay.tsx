@@ -46,7 +46,8 @@ export interface LoadingOverlayProps
    * @default "fill"
    */
   variant?: 'SuiLoadingOverlay' extends keyof ThemeTypings['components']
-    ? ThemeTypings['components']['SuiLoadingOverlay']['variants']
+    ? /* @ts-ignore */
+      ThemeTypings['components']['SuiLoadingOverlay']['variants']
     : Variants
 }
 

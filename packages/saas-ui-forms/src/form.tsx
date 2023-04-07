@@ -20,12 +20,12 @@ import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
-import { FieldProps } from './types'
+import { FieldProps, DefaultFieldOverrides } from './types'
 
 import { Field as DefaultField } from './field'
 import { FormLayout } from './layout'
 import { AutoFields } from './fields'
-import { SubmitButton, SubmitButtonProps } from './submit-button'
+import { SubmitButton } from './submit-button'
 import { DisplayIf, DisplayIfProps } from './display-if'
 import { ArrayField, ArrayFieldProps } from './array-field'
 import { ObjectField, ObjectFieldProps } from './object-field'
@@ -80,10 +80,7 @@ interface FormOptions<
   /**
    * Field overrides
    */
-  fields?: {
-    submit?: SubmitButtonProps
-    [key: string]: unknown
-  }
+  fields?: DefaultFieldOverrides
 }
 
 export interface FormProps<

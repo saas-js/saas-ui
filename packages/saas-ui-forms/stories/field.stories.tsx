@@ -37,7 +37,7 @@ const YupForm = createYupForm()
 const AjvForm = createAjvForm()
 const Form = createForm()
 
-export const Basic = (props: Omit<FormProps, 'onSubmit'>) => (
+export const Basic = () => (
   <Form
     defaultValues={{
       text: 'Text field',
@@ -52,7 +52,6 @@ export const Basic = (props: Omit<FormProps, 'onSubmit'>) => (
       radio: 'Radio 1',
       pin: '',
     }}
-    {...props}
     onSubmit={(values) => {
       console.log(values)
     }}
@@ -273,19 +272,19 @@ const ajvSchema = {
 export const WithAjvSchema = () => {
   return (
     <AjvForm
-      // defaultValues={{
-      //   text: 'Text field',
-      //   number: 10,
-      //   textarea: 'Lorem ipsum',
-      //   switch: true,
-      //   select: 'Select 2',
-      //   multipleselect: ['Select 1', 'Select 2'],
-      //   nativeselect: 'Select 1',
-      //   password: 'Password123',
-      //   checkbox: true,
-      //   radio: 'Radio 1',
-      //   pin: '',
-      // }}
+      defaultValues={{
+        text: 'Text field',
+        number: 10,
+        textarea: 'Lorem ipsum',
+        switch: true,
+        select: 'Select 2',
+        multipleselect: ['Select 1', 'Select 2'],
+        nativeselect: 'Select 1',
+        password: 'Password123',
+        checkbox: true,
+        radio: 'Radio 1',
+        pin: '',
+      }}
       schema={ajvSchema}
       onSubmit={(values) => {
         console.log(values)

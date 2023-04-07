@@ -14,8 +14,16 @@ import { useDatePickerDialog, useDatePickerStyles } from './date-picker-context'
 export const DatePickerTrigger = PopoverTrigger
 export const DatePickerAnchor = PopoverAnchor
 
-export interface DatePickerDialogProps extends PopoverContentProps {
+export interface DatePickerDialogProps
+  extends Omit<PopoverContentProps, 'children'> {
+  /**
+   * Hide the arrow
+   */
   hideArrow?: boolean
+  /**
+   * The DatePickerDialog children
+   */
+  children: React.ReactNode
 }
 
 export const DatePickerDialog: React.FC<DatePickerDialogProps> = (props) => {

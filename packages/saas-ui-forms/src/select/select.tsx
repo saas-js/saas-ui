@@ -56,6 +56,8 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       isDisabled: isSelectDisabled,
     } = useSelectContext()
 
+    const context = useFormControlContext()
+
     const {
       isInvalid,
       isReadOnly,
@@ -65,7 +67,7 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       id,
       onBlur,
       onFocus,
-    } = useFormControlContext()
+    } = context || {}
 
     const { rightIcon = <ChevronDownIcon />, ...rest } = props
 
@@ -98,7 +100,7 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
     return (
       <MenuButton
         as={Button}
-        id={id}
+        id={id || React.useId()}
         {...rest}
         onFocus={onFocus}
         onBlur={onBlur}

@@ -10,7 +10,7 @@ import * as SaasUIPro from '@saas-ui/pro'
 import * as SaasUIFeatures from '@saas-ui/features'
 
 import * as Yup from 'yup'
-import { yupForm, yupResolver } from '@saas-ui/forms/yup'
+import { yupResolver } from '@saas-ui/forms/yup'
 import { zodResolver } from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
@@ -130,7 +130,6 @@ const ReactLiveScope = {
   ...Icons,
   Yup,
   yupResolver,
-  yupForm,
   // ...Loaders,
   ...reactIcons,
   StarIcon,

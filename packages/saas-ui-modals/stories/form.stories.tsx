@@ -11,7 +11,6 @@ import { FormLayout, Field, SubmitButton } from '@saas-ui/forms'
 
 import { FormDialog } from '../src/form'
 
-import { yupForm } from '@saas-ui/forms/yup'
 import * as yup from 'yup'
 
 export default {
@@ -25,8 +24,8 @@ export default {
   ],
 }
 
-const onSubmit = ({ onClose }) => {
-  return (data) => {
+const onSubmit = ({ onClose }: any) => {
+  return (data: any) => {
     return new Promise((resolve) => {
       console.log(data)
       setTimeout(() => {
@@ -172,7 +171,6 @@ export const YupSchema = () => {
         }}
         onSubmit={onSubmit(disclosure)}
         initialFocusRef={initialRef}
-        {...yupForm(yupSchema)}
       />
     </Stack>
   )

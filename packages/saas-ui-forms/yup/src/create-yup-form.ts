@@ -31,6 +31,8 @@ export const createYupForm = <FieldDefs>(
     props: WithFields<
       FormProps<InferType<TSchema>, TContext, TSchema>,
       FieldDefs
-    >
+    > & {
+      ref?: React.ForwardedRef<HTMLFormElement>
+    }
   ) => React.ReactElement
 }

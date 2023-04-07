@@ -34,6 +34,8 @@ export function createAjvForm<FieldDefs>(
     TJSONSchema = JTDDataType<TSchema>
   >(
     /** @ts-expect-error @todo properly fix these types */
-    props: WithFields<FormProps<TJSONSchema, TContext, TSchema>, FieldDefs>
+    props: WithFields<FormProps<TJSONSchema, TContext, TSchema>, FieldDefs> & {
+      ref?: React.ForwardedRef<HTMLFormElement>
+    }
   ) => React.ReactElement
 }

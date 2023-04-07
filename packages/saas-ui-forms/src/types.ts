@@ -112,7 +112,7 @@ export type FormChildren<
 
 export type DefaultFieldOverrides = {
   submit?: SubmitButtonProps
-  [key: string]: unknown
+  [key: string]: any
 }
 
 export type FieldOverrides<

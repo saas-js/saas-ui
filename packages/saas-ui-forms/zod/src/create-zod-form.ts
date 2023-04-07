@@ -27,6 +27,11 @@ export const createZodForm = <FieldDefs>(
     TSchema extends z.AnyZodObject = z.AnyZodObject,
     TContext extends object = object
   >(
-    props: WithFields<FormProps<z.infer<TSchema>, TContext, TSchema>, FieldDefs>
+    props: WithFields<
+      FormProps<z.infer<TSchema>, TContext, TSchema>,
+      FieldDefs
+    > & {
+      ref?: React.ForwardedRef<HTMLFormElement>
+    }
   ) => React.ReactElement
 }

@@ -1,5 +1,7 @@
 import { inputAnatomy } from '@chakra-ui/anatomy'
 
+import { Input as ChakraInput } from '@chakra-ui/theme/components'
+
 import {
   createMultiStyleConfigHelpers,
   defineStyle,
@@ -80,7 +82,6 @@ export const pinInputTheme = defineStyleConfig({
 })
 export const textareaTheme = defineStyleConfig({
   defaultProps: {
-    variant: 'outline',
     /* @ts-expect-error */
     focusBorderColor: 'primary.500',
   },
@@ -91,4 +92,3 @@ export const textareaTheme = defineStyleConfig({
   },
 })
 export const nativeSelectTheme = defineStyleConfig(Input)
-export const selectTheme = defineStyleConfig(Input)

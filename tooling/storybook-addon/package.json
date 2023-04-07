@@ -78,6 +78,7 @@
     "@emotion/react": ">=11.1.5",
     "@emotion/styled": ">=11.1.5",
     "@saas-ui/react": "workspace:*",
+    "@saas-ui/theme": "workspace:*",
     "@saas-ui/theme-glass": "workspace:*",
     "@storybook/addons": "^7.0.2",
     "@storybook/api": "^7.0.2",

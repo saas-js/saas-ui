@@ -110,6 +110,11 @@ export type FormChildren<
   >
 >
 
+export type DefaultFieldOverrides = {
+  submit?: SubmitButtonProps
+  [key: string]: unknown
+}
+
 export type FieldOverrides<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,

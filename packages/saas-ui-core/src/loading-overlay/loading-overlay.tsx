@@ -45,7 +45,7 @@ export interface LoadingOverlayProps
    * @type "fill" | "overlay" | "fullscreen"
    * @default "fill"
    */
-  variant?: 'LoadingOverlay' extends keyof ThemeTypings['components']
+  variant?: 'SuiLoadingOverlay' extends keyof ThemeTypings['components']
     ? ThemeTypings['components']['SuiLoadingOverlay']['variants']
     : Variants
 }

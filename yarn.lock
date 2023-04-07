@@ -1478,7 +1478,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:7.21.4":
+"@babel/preset-env@npm:^7.12.1, @babel/preset-env@npm:^7.20.2, @babel/preset-env@npm:^7.21.4, @babel/preset-env@npm:~7.21.0":
   version: 7.21.4
   resolution: "@babel/preset-env@npm:7.21.4"
   dependencies:
@@ -3043,7 +3043,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:^2.26.1":
+"@changesets/cli@npm:^2.25.2":
   version: 2.26.1
   resolution: "@changesets/cli@npm:2.26.1"
   dependencies:
@@ -4659,18 +4659,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@manypkg/find-root@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@manypkg/find-root@npm:2.1.0"
-  dependencies:
-    "@manypkg/tools": ^1.0.0
-    "@types/node": ^12.7.1
-    find-up: ^4.1.0
-    fs-extra: ^8.1.0
-  checksum: c42edcdfbbff6c3795bd9a8c487c125eb944a95ede9d61b5c4d81d987cb48cc3d35b8e9e4dd6fb1dede0b188ca23a6c8b5c646ed80ea7a38d4aef4b2c68b528e
-  languageName: node
-  linkType: hard
-
 "@manypkg/get-packages@npm:^1.1.3":
   version: 1.1.3
   resolution: "@manypkg/get-packages@npm:1.1.3"
@@ -4682,28 +4670,6 @@ __metadata:
     globby: ^11.0.0
     read-yaml-file: ^1.1.0
   checksum: f5a756e5a659e0e1c33f48852d56826d170d5b10a3cdea89ce4fcaa77678d8799aa4004b30e1985c87b73dbc390b95bb6411b78336dd1e0db87c08c74b5c0e74
-  languageName: node
-  linkType: hard
-
-"@manypkg/get-packages@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@manypkg/get-packages@npm:2.1.0"
-  dependencies:
-    "@manypkg/find-root": ^2.1.0
-    "@manypkg/tools": ^1.0.0
-  checksum: 9c6e68266524c3b7c1ea0ee4b31fa62da53e76d060e5d1fce8079c0f29829ff24d795583717948cb131e6c1988b1f01ab5a564f518da3be726fdd3fb0c0b09bb
-  languageName: node
-  linkType: hard
-
-"@manypkg/tools@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@manypkg/tools@npm:1.0.0"
-  dependencies:
-    fs-extra: ^8.1.0
-    globby: ^11.0.0
-    jju: ^1.4.0
-    read-yaml-file: ^1.1.0
-  checksum: ccbb73b8025ab696b188cf2c23ecdc3c7f19db08a545d45afc378d0dfdfff072d3de9afe248d3bfbdd35e4dfeed23b6d35d2e2f9abb0d8df3285faac04da2120
   languageName: node
   linkType: hard
 
@@ -11315,7 +11281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:4.21.5":
+"browserslist@npm:^4.14.5, browserslist@npm:^4.21.3, browserslist@npm:^4.21.5":
   version: 4.21.5
   resolution: "browserslist@npm:4.21.5"
   dependencies:
@@ -11592,10 +11558,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:1.0.30001400":
-  version: 1.0.30001400
-  resolution: "caniuse-lite@npm:1.0.30001400"
-  checksum: 984e29d3c02fd02a59cc92ef4a5e9390fce250de3791056362347cf901f0d91041246961a57cfa8fed800538d03ee341bc4f7eaed19bf7be0ef8a181d94cd848
+"caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001449":
+  version: 1.0.30001474
+  resolution: "caniuse-lite@npm:1.0.30001474"
+  checksum: c05faab958fae1bbf3c595203c96d3a2f6b4c7a0d122069addc6c386f208b4db66eed3f5e3d606b80e3b384603d353b27a306f6dcb6145642b5b97a330dba86a
   languageName: node
   linkType: hard
 
@@ -13618,10 +13584,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:1.4.251":
-  version: 1.4.251
-  resolution: "electron-to-chromium@npm:1.4.251"
-  checksum: 470a04dfe1d34814f8bc7e1dde606851b6f787a6d78655a57df063844fc71feb64ce793c52a3a130ceac1fc368b8d3e25a4c55c847a1e9c02c3090f9dcbf40ac
+"electron-to-chromium@npm:^1.4.284, electron-to-chromium@npm:^1.4.352":
+  version: 1.4.355
+  resolution: "electron-to-chromium@npm:1.4.355"
+  checksum: b3fb9df3364d6e677df0a9ae9f470fae494131d85cbba57c3d58e0619208a8b4954aea834a0c6163d63248bc86f36bb0dc7b93508b8c1ae1f2d4eb9fe6fe2c00
   languageName: node
   linkType: hard
 
@@ -18471,13 +18437,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jju@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "jju@npm:1.4.0"
-  checksum: 3790481bd2b7827dd6336e6e3dc2dcc6d425679ba7ebde7b679f61dceb4457ea0cda330972494de608571f4973c6dfb5f70fab6f3c5037dbab19ac449a60424f
-  languageName: node
-  linkType: hard
-
 "joycon@npm:^3.0.1":
   version: 3.1.1
   resolution: "joycon@npm:3.1.1"
@@ -21131,10 +21090,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-releases@npm:2.0.6":
-  version: 2.0.6
-  resolution: "node-releases@npm:2.0.6"
-  checksum: e86a926dc9fbb3b41b4c4a89d998afdf140e20a4e8dbe6c0a807f7b2948b42ea97d7fd3ad4868041487b6e9ee98409829c6e4d84a734a4215dff060a7fbeb4bf
+"node-releases@npm:^2.0.10, node-releases@npm:^2.0.8":
+  version: 2.0.10
+  resolution: "node-releases@npm:2.0.10"
+  checksum: d784ecde25696a15d449c4433077f5cce620ed30a1656c4abf31282bfc691a70d9618bae6868d247a67914d1be5cc4fde22f65a05f4398cdfb92e0fc83cadfbc
   languageName: node
   linkType: hard
 
@@ -24183,13 +24142,13 @@ __metadata:
   dependencies:
     "@chakra-ui/cli": ^2.3.1
     "@chakra-ui/react": ^2.5.5
-    "@changesets/cli": ^2.26.1
+    "@changesets/cli": ^2.25.2
     "@clerk/clerk-react": ^3.5.1
     "@emotion/jest": ^11.10.5
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
     "@jest/types": ^29.5.0
-    "@manypkg/get-packages": ^2.1.0
+    "@manypkg/get-packages": ^1.1.3
     "@swc-node/jest": ^1.6.3
     "@swc/core": ^1.3.46
     "@types/node": ^18.15.11
@@ -26783,9 +26742,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"update-browserslist-db@npm:1.0.9":
-  version: 1.0.9
-  resolution: "update-browserslist-db@npm:1.0.9"
+"update-browserslist-db@npm:^1.0.10":
+  version: 1.0.10
+  resolution: "update-browserslist-db@npm:1.0.10"
   dependencies:
     escalade: ^3.1.1
     picocolors: ^1.0.0
@@ -26793,7 +26752,7 @@ __metadata:
     browserslist: ">= 4.21.0"
   bin:
     browserslist-lint: cli.js
-  checksum: f625899b236f6a4d7f62b56be1b8da230c5563d1fef84d3ef148f2e1a3f11a5a4b3be4fd7e3703e51274c116194017775b10afb4de09eb2c0d09d36b90f1f578
+  checksum: 12db73b4f63029ac407b153732e7cd69a1ea8206c9100b482b7d12859cd3cd0bc59c602d7ae31e652706189f1acb90d42c53ab24a5ba563ed13aebdddc5561a0
   languageName: node
   linkType: hard
 

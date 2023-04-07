@@ -1,5 +1,20 @@
 # @saas-ui/auth
 
+## 2.0.0-next.6
+
+### Major Changes
+
+- 37e38165: Auth forms can now be used standalone, to build custom solutions.
+
+### Patch Changes
+
+- Updated dependencies [532011d6]
+- Updated dependencies [532011d6]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [c85541cb]
+- Updated dependencies [39e778d8]
+  - @saas-ui/forms@2.0.0-next.6
+
 ## 2.0.0-next.5
 
 ### Patch Changes

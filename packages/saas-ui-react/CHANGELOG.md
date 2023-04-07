@@ -1,5 +1,32 @@
 # @saas-ui/react
 
+## 2.0.0-next.6
+
+### Major Changes
+
+- 37e38165: Auth forms can now be used standalone, to build custom solutions.
+- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- 39e778d8: Form will now render AutoField by default when no children are passed.
+
+### Minor Changes
+
+- 532011d6: Select can now supports theming using the SuiSelect theme config.
+- 6dd737ce: Select field now renders invalid state.
+- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
+
+### Patch Changes
+
+- Updated dependencies [37e38165]
+- Updated dependencies [532011d6]
+- Updated dependencies [532011d6]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [c85541cb]
+- Updated dependencies [39e778d8]
+  - @saas-ui/auth@2.0.0-next.6
+  - @saas-ui/forms@2.0.0-next.6
+  - @saas-ui/data-table@2.0.0-next.6
+  - @saas-ui/modals@2.0.0-next.6
+
 ## 2.0.0-next.5
 
 ### Major Changes

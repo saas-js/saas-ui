@@ -3,14 +3,37 @@ import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { DefaultFields } from './default-fields'
 import { FormProps, FormRenderContext } from './form'
+import { SubmitButtonProps } from './submit-button'
 
-export type FieldOption = { label: string; value: string }
+export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =
   | Array<string>
   | Array<TOption>
 
 export type ValueOf<T> = T[keyof T]
 export type ShallowMerge<A, B> = Omit<A, keyof B> & B
+
+type Split<S extends string, D extends string> = string extends S
+  ? string[]
+  : S extends ''
+  ? []
+  : S extends `${infer T}${D}${infer U}`
+  ? [T, ...Split<U, D>]
+  : [S]
+
+type MapPath<T extends string[]> = T extends [infer U, ...infer R]
+  ? U extends string
+    ? `${U extends `${number}` ? '$' : U}${R[0] extends string
+        ? '.'
+        : ''}${R extends string[] ? MapPath<R> : ''}`
+    : ''
+  : ''
+
+type TransformPath<T extends string> = MapPath<Split<T, '.'>>
+
+export type ArrayFieldPath<Name extends string> = Name extends string
+  ? TransformPath<Name>
+  : never
 
 export interface BaseFieldProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -19,7 +42,7 @@ export interface BaseFieldProps<
   /**
    * The field name
    */
-  name: TName
+  name: TName | ArrayFieldPath<TName>
   /**
    * The field label
    */
@@ -52,12 +75,18 @@ export interface BaseFieldProps<
   placeholder?: string
 }
 
+type FieldPathWithArray<
+  TFieldValues extends FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = TName | ArrayFieldPath<TName>
+
 type MergeFieldProps<
   FieldDefs,
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = ValueOf<{
   [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
-    ? { type?: K } & ShallowMerge<Props, BaseFieldProps<TFieldValues>>
+    ? { type?: K } & ShallowMerge<Props, BaseFieldProps<TFieldValues, TName>>
     : never
 }>
 
@@ -81,11 +110,35 @@ export type FormChildren<
   >
 >
 
+export type DefaultFieldOverrides = {
+  submit?: SubmitButtonProps
+  [key: string]: any
+}
+
+export type FieldOverrides<
+  FieldDefs,
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  [K in FieldPathWithArray<TFieldValues, TName>]?: Omit<
+    MergeFieldProps<
+      FieldDefs extends never
+        ? DefaultFields
+        : ShallowMerge<DefaultFields, FieldDefs>,
+      TFieldValues
+    >,
+    'name'
+  >
+}
+
 export type WithFields<
   TFormProps extends FormProps<any, any, any, any>,
   FieldDefs
 > = TFormProps extends FormProps<infer TFieldValues, infer TContext>
-  ? Omit<TFormProps, 'children'> & {
-      children: FormChildren<FieldDefs, TFieldValues, TContext>
+  ? Omit<TFormProps, 'children' | 'fields'> & {
+      children?: FormChildren<FieldDefs, TFieldValues, TContext>
+      fields?: FieldOverrides<FieldDefs, TFieldValues> & {
+        submit?: SubmitButtonProps
+      }
     }
   : never

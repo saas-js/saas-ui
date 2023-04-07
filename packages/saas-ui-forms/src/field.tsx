@@ -4,6 +4,7 @@ import { RegisterOptions, FieldValues } from 'react-hook-form'
 import { FocusableElement } from '@chakra-ui/utils'
 import { useField } from './fields-context'
 import { FieldProps } from './types'
+import { useFieldProps } from './form-context'
 
 export interface Option {
   value: string
@@ -33,9 +34,11 @@ export const Field = React.forwardRef(
     props: FieldProps<TFieldValues>,
     ref: React.ForwardedRef<FocusableElement>
   ) => {
-    const { type = defaultInputType } = props
-    const InputComponent = useField(type)
-    return <InputComponent ref={ref} {...props} />
+    const { type = defaultInputType, name } = props
+    const overrides = useFieldProps(name)
+    const InputComponent = useField(overrides?.type || type)
+
+    return <InputComponent ref={ref} {...props} {...overrides} />
   }
 ) as (<TFieldValues extends FieldValues>(
   props: FieldProps<TFieldValues> & {

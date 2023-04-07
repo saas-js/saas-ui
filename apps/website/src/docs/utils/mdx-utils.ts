@@ -1,4 +1,6 @@
-import slugger from 'github-slugger'
+import GithubSlugger from 'github-slugger'
+
+const slugger = new GithubSlugger()
 
 //see https://github.com/hashicorp/next-mdx-remote/issues/53#issuecomment-725906664
 export function getTableOfContents(mdxContent: string) {

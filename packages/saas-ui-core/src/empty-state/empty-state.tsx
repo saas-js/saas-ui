@@ -30,7 +30,7 @@ export interface EmptyStateProps
   extends Omit<EmptyStateContainerProps, 'title'> {
   title?: React.ReactNode
   description?: React.ReactNode
-  icon?: As<any>
+  icon?: As
   actions?: React.ReactNode
   footer?: React.ReactNode
   children?: React.ReactNode

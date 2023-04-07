@@ -5,7 +5,6 @@ import { cx, runIfFn } from '@chakra-ui/utils'
 
 import {
   useForm,
-  FormProvider,
   UseFormProps,
   UseFormReturn,
   FieldValues,
@@ -15,14 +14,21 @@ import {
   ResolverResult,
   WatchObserver,
 } from 'react-hook-form'
-import { objectFieldResolver, FieldResolver } from './field-resolver'
+import { FormProvider } from './form-context'
+import { FieldResolver } from './field-resolver'
 import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 
-import { FieldProps } from './types'
+import { FieldProps, DefaultFieldOverrides } from './types'
 
 import { Field as DefaultField } from './field'
+import { FormLayout } from './layout'
+import { AutoFields } from './fields'
+import { SubmitButton } from './submit-button'
+import { DisplayIf, DisplayIfProps } from './display-if'
+import { ArrayField, ArrayFieldProps } from './array-field'
+import { ObjectField, ObjectFieldProps } from './object-field'
 
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
@@ -30,6 +36,9 @@ export interface FormRenderContext<
   TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormReturn<TFieldValues, TContext> {
   Field: React.FC<TFieldTypes>
+  DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
+  ArrayField: React.FC<ArrayFieldProps<TFieldValues>>
+  ObjectField: React.FC<ObjectFieldProps<TFieldValues>>
 }
 
 interface FormOptions<
@@ -39,7 +48,7 @@ interface FormOptions<
   TFieldTypes = FieldProps<TFieldValues>
 > {
   /**
-   * The form schema, supports Yup, Zod, and AJV.
+   * The form schema.
    */
   schema?: TSchema
   /**
@@ -64,6 +73,14 @@ interface FormOptions<
   children?: MaybeRenderProp<
     FormRenderContext<TFieldValues, TContext, TFieldTypes>
   >
+  /**
+   * The field resolver, used to resolve the fields from schemas.
+   */
+  fieldResolver?: FieldResolver
+  /**
+   * Field overrides
+   */
+  fields?: DefaultFieldOverrides
 }
 
 export interface FormProps<
@@ -90,12 +107,14 @@ export const Form = forwardRef(
     TSchema = any,
     TFieldTypes = FieldProps<TFieldValues>
   >(
-    props: FormProps<TFieldValues, TContext, TSchema>,
+    props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes>,
     ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const {
       mode = 'all',
       resolver,
+      fieldResolver,
+      fields,
       reValidateMode,
       shouldFocusError,
       shouldUnregister,
@@ -130,10 +149,6 @@ export const Form = forwardRef(
       resetOptions,
     }
 
-    if (schema && !resolver) {
-      form.resolver = Form.getResolver?.(schema)
-    }
-
     const methods = useForm<TFieldValues, TContext>(form)
     const { handleSubmit } = methods
 
@@ -148,16 +163,34 @@ export const Form = forwardRef(
       return () => subscription?.unsubscribe()
     }, [methods, onChange])
 
+    let _children = children
+    if (!_children && fieldResolver) {
+      _children = (
+        <FormLayout>
+          <AutoFields />
+          <SubmitButton {...fields?.submit} />
+        </FormLayout>
+      )
+    }
+
     return (
-      <FormProvider {...methods}>
+      <FormProvider
+        {...methods}
+        schema={schema}
+        fieldResolver={fieldResolver}
+        fields={fields}
+      >
         <chakra.form
           ref={ref}
           onSubmit={handleSubmit(onSubmit, onError)}
           {...rest}
           className={cx('sui-form', props.className)}
         >
-          {runIfFn(children, {
+          {runIfFn(_children, {
             Field: DefaultField as any,
+            DisplayIf: DisplayIf,
+            ArrayField: ArrayField as any,
+            ObjectField: ObjectField as any,
             ...methods,
           })}
         </chakra.form>
@@ -175,11 +208,7 @@ export const Form = forwardRef(
   }
 ) => React.ReactElement) & {
   displayName?: string
-  getResolver?: GetResolver
-  getFieldResolver: GetFieldResolver
 }
-
-Form.getFieldResolver = objectFieldResolver
 
 Form.displayName = 'Form'
 
@@ -193,5 +222,3 @@ export type GetResolver = <
   context: TContext | undefined,
   options: ResolverOptions<TFieldValues>
 ) => Promise<ResolverResult<TFieldValues>>
-
-export type GetFieldResolver = (schema: any) => FieldResolver

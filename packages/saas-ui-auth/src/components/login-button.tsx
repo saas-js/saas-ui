@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import { Button, ButtonProps, useTheme } from '@chakra-ui/react'
+import { useTheme } from '@chakra-ui/react'
+import { SubmitButton, SubmitButtonProps } from '@saas-ui/forms'
 
-export const LoginButton: React.FC<ButtonProps> = (props) => {
+export const LoginButton: React.FC<SubmitButtonProps> = (props) => {
   const { children, ...rest } = props
   const theme = useTheme()
 
@@ -13,9 +14,9 @@ export const LoginButton: React.FC<ButtonProps> = (props) => {
   }
 
   return (
-    <Button {...defaultProps} {...rest}>
+    <SubmitButton {...defaultProps} {...rest}>
       {children}
-    </Button>
+    </SubmitButton>
   )
 }
 

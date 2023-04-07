@@ -33,7 +33,7 @@ const SecondaryNavLink = ({
   const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <Flex
         as="a"
         py="2"

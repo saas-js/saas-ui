@@ -7,7 +7,7 @@ import {
   DatePickerDialog,
   DatePickerTrigger,
 } from './date-picker-dialog'
-import { CalendarIcon } from '@chakra-ui/icons'
+import { CalendarIcon } from './icons'
 import {
   chakra,
   forwardRef,

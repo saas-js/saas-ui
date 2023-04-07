@@ -4,9 +4,10 @@ import {
   FormProps,
   WithFields,
 } from '@saas-ui/forms'
-import { yupResolver } from './yup-resolver'
-import * as yup from 'yup'
+import { yupFieldResolver, yupResolver } from './yup-resolver'
+import { ObjectSchema, InferType } from 'yup'
 import React from 'react'
+import { AnyObjectSchema } from './types'
 type ResolverArgs = Parameters<typeof yupResolver>
 
 export interface CreateYupFormProps<FieldDefs>
@@ -21,14 +22,17 @@ export const createYupForm = <FieldDefs>(
   return createForm({
     resolver: (schema) =>
       yupResolver(schema, options?.schemaOptions, options?.resolverOptions),
+    fieldResolver: yupFieldResolver,
     ...options,
   }) as <
-    TSchema extends yup.AnyObjectSchema = yup.AnyObjectSchema,
+    TSchema extends AnyObjectSchema = AnyObjectSchema,
     TContext extends object = object
   >(
     props: WithFields<
-      FormProps<yup.InferType<TSchema>, TContext, TSchema>,
+      FormProps<InferType<TSchema>, TContext, TSchema>,
       FieldDefs
-    >
+    > & {
+      ref?: React.ForwardedRef<HTMLFormElement>
+    }
   ) => React.ReactElement
 }

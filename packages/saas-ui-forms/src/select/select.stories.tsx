@@ -8,15 +8,23 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { ComponentStory } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 
-import { Select } from './select'
+import { Select, SelectButton, SelectList, SelectOption } from './select'
 import { NativeSelect } from './native-select'
 
 import { FiSmile } from 'react-icons/fi'
 
+const Template: StoryFn<typeof Select> = (args) => (
+  <Select placeholder="Select an option..." {...args}>
+    <SelectButton />
+    <SelectList />
+  </Select>
+)
+
 export default {
   title: 'Components/Forms/Select',
+  component: Template,
   decorators: [
     (Story: any) => (
       <Container mt="40px" maxW="320px">
@@ -34,111 +42,134 @@ const getOptions = (length = 6) =>
 
 const options = getOptions()
 
-const Template: ComponentStory<typeof Select> = (args) => (
-  <Select placeholder="Select an option..." {...args} />
-)
-
-export const Basic = Template.bind({})
-Basic.args = {
-  name: 'select',
-  options,
-}
-
-export const DefaultValue = Template.bind({})
-DefaultValue.args = {
-  name: 'select',
-  options,
-  defaultValue: 1,
-}
-
-export const Placeholder = Template.bind({})
-Placeholder.args = {
-  name: 'select',
-  options,
-  placeholder: 'Select an option...',
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  name: 'select',
-  options,
-  placeholder: 'Disabled.',
-  isDisabled: true,
-}
-
-export const Multi = Template.bind({})
-Multi.args = {
-  name: 'select',
-  options,
-  placeholder: 'Multiple.',
-  multiple: true,
-}
-
-export const MultiWithDefaultValue = Template.bind({})
-MultiWithDefaultValue.args = {
-  name: 'select',
-  options,
-  placeholder: 'Select an option...',
-  multiple: true,
-  defaultValue: ['1'],
-}
-
-export const MultiWithTags = Template.bind({})
-MultiWithTags.args = {
-  name: 'select',
-  options,
-  placeholder: 'Select options...',
-  multiple: true,
-  renderValue: (selected) => {
-    if (selected?.length) {
-      return (
-        <Wrap py="1">
-          {selected.map((value) => (
-            <WrapItem>
-              <Tag>{value}</Tag>
-            </WrapItem>
-          ))}
-        </Wrap>
-      )
-    }
+export const Basic = {
+  args: {
+    name: 'select',
+    options,
   },
 }
 
-export const WithIcons = Template.bind({})
-WithIcons.args = {
-  name: 'select',
-  options,
-  value: 1,
-  leftIcon: <Icon as={FiSmile} />,
+export const DefaultValue = {
+  args: {
+    name: 'select',
+    options,
+    defaultValue: '1',
+  },
 }
 
-export const MaxHeight = Template.bind({})
-MaxHeight.args = {
-  name: 'select',
-  options: getOptions(100),
+export const Placeholder = {
+  args: {
+    name: 'select',
+    options,
+    placeholder: 'Select an option...',
+  },
+}
+export const Disabled = {
+  args: {
+    name: 'select',
+    options,
+    placeholder: 'Disabled.',
+    isDisabled: true,
+  },
 }
 
-export const WithChildren = () => {
-  return (
-    <Select name="select" value="1">
-      <MenuItemOption value="1">Option 1</MenuItemOption>
-      <MenuItemOption value="2">Option 1</MenuItemOption>
+export const Multi = {
+  args: {
+    name: 'select',
+    options,
+    placeholder: 'Multiple.',
+    multiple: true,
+  },
+}
+
+export const MultiWithDefaultValue = {
+  args: {
+    name: 'select',
+    options,
+    placeholder: 'Select an option...',
+    multiple: true,
+    defaultValue: ['1'],
+  },
+}
+
+export const MultiWithTags = {
+  args: {
+    name: 'select',
+    options,
+    placeholder: 'Select options...',
+    multiple: true,
+    renderValue: (selected) => {
+      if (selected?.length) {
+        return (
+          <Wrap py="1">
+            {selected.map((value) => (
+              <WrapItem>
+                <Tag variant="solid">{value}</Tag>
+              </WrapItem>
+            ))}
+          </Wrap>
+        )
+      }
+    },
+  },
+}
+
+export const Test = {
+  render: () => (
+    <Tag variant="outline" colorScheme="teal">
+      Test
+    </Tag>
+  ),
+}
+
+export const WithIcons = {
+  render: (args) => (
+    <Select placeholder="Select an option..." {...args}>
+      <SelectButton leftIcon={<Icon as={FiSmile} />} />
+      <SelectList />
     </Select>
-  )
+  ),
+  args: {
+    name: 'select',
+    options,
+    value: '1',
+  },
 }
 
-export const WithEmptyOption = () => {
-  return (
-    <Select name="select" value="1">
-      <MenuItemOption value="">None</MenuItemOption>
-      <MenuItemOption value="1">Option 1</MenuItemOption>
-      <MenuItemOption value="2">Option 1</MenuItemOption>
+export const MaxHeight = {
+  args: {
+    name: 'select',
+    options: getOptions(100),
+  },
+}
+
+export const WithChildren = {
+  render: () => (
+    <Select name="select" defaultValue="1">
+      <SelectButton />
+      <SelectList>
+        <SelectOption value="1">Option 1</SelectOption>
+        <SelectOption value="2">Option 2</SelectOption>
+      </SelectList>
     </Select>
-  )
+  ),
 }
 
-export const WithNativeSelect = () => (
-  <>
+export const WithEmptyOption = {
+  render: () => (
+    <Select name="select" defaultValue="1">
+      <SelectButton />
+      <SelectList>
+        <SelectOption value="">None</SelectOption>
+        <SelectOption value="1">Option 1</SelectOption>
+        <SelectOption value="2">Option 2</SelectOption>
+      </SelectList>
+    </Select>
+  ),
+}
+
+export const WithNativeSelect = {
+  render: () => (
     <NativeSelect name="select" options={options} aria-label="Select" />
-  </>
-)
+  ),
+}

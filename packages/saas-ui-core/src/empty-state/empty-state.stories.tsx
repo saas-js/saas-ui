@@ -1,7 +1,7 @@
 import { Container, Stack } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { EmailIcon, WarningIcon } from '@chakra-ui/icons'
+import { FiMail, FiAlertTriangle } from 'react-icons/fi'
 
 import {
   EmptyState,
@@ -30,7 +30,7 @@ export const Basic = () => (
   <Stack spacing="8">
     <EmptyState
       colorScheme="purple"
-      icon={EmailIcon}
+      icon={FiMail}
       title="Inbox Zero!"
       description="Your inbox is empty, go get some coffee ☕️"
       actions={
@@ -47,7 +47,7 @@ export const Center = () => (
   <Stack spacing="8">
     <EmptyState
       colorScheme="purple"
-      icon={EmailIcon}
+      icon={FiMail}
       title="Inbox Zero!"
       description="Your inbox is empty, go get some coffee ☕️"
       actions={
@@ -65,7 +65,7 @@ export const Composed = () => (
   <Stack spacing="8">
     <EmptyStateContainer colorScheme="purple">
       <EmptyStateBody>
-        <EmptyStateIcon as={WarningIcon} color="purple.500" />
+        <EmptyStateIcon as={FiAlertTriangle} color="purple.500" />
 
         <EmptyStateTitle>Whoops, something went wrong</EmptyStateTitle>
         <EmptyStateDescription>Where do you want to go?</EmptyStateDescription>

@@ -9,9 +9,10 @@ import {
   pinInputTheme,
   formLabelTheme,
   numberInputTheme,
-  selectTheme,
+  nativeSelectTheme,
   textareaTheme,
 } from './form'
+import { selectTheme } from './select'
 import { headingTheme } from './heading'
 import { kbdTheme } from './kbd'
 import { menuTheme } from './menu'
@@ -32,9 +33,10 @@ export {
   pinInputTheme as PinInput,
   formLabelTheme as FormLabel,
   numberInputTheme as NumberInput,
-  selectTheme as Select,
+  nativeSelectTheme as Select,
   textareaTheme as Textarea,
 } from './form'
+export { selectTheme as SuiSelect } from './select'
 export { headingTheme as Heading } from './heading'
 export { kbdTheme as Kbd } from './kbd'
 export { menuTheme as Menu } from './menu'
@@ -75,10 +77,11 @@ export const components = {
   PinInput: pinInputTheme,
   FormLabel: formLabelTheme,
   NumberInput: numberInputTheme,
-  Select: selectTheme,
+  Select: nativeSelectTheme,
   Textarea: textareaTheme,
   SuiEmptyState: emptyStateTheme,
   SuiNProgress: nprogressTheme,
   SuiProperty: propertyTheme,
   SuiStepper: stepperTheme,
+  SuiSelect: selectTheme,
 }

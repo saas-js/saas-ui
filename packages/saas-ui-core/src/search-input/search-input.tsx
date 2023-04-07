@@ -13,7 +13,7 @@ import {
   useControllableState,
 } from '@chakra-ui/react'
 import { callAllHandlers } from '@chakra-ui/utils'
-import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
+import { SearchIcon, CloseIcon } from '../icons'
 
 export interface SearchInputProps
   extends ThemingProps<'SuiSearchInput'>,

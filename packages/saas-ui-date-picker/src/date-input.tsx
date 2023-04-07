@@ -14,7 +14,7 @@ import { DatePickerDialog, DatePickerTrigger } from './date-picker-dialog'
 import { DatePicker, DatePickerProps } from './date-picker'
 import { useDatePickerContext } from './date-picker-context'
 import { SegmentedInput } from './segmented-input'
-import { CalendarIcon } from '@saas-ui/core'
+import { CalendarIcon } from './icons'
 
 export interface DateInputProps extends DatePickerProps {
   calendarIcon?: React.ReactNode

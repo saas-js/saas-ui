@@ -10,7 +10,7 @@ import {
 
 import { runIfFn, cx } from '@chakra-ui/utils'
 import { MaybeRenderProp } from '@chakra-ui/react-utils'
-import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, ChevronRightIcon } from '../icons'
 
 import { CollapseProvider, useCollapseContext, useCollapse } from '../collapse'
 

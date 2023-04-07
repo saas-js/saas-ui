@@ -22,7 +22,14 @@ import { NumberInput, NumberInputProps } from './number-input'
 import { PasswordInput, PasswordInputProps } from './password-input'
 import { RadioInput, RadioInputProps } from './radio'
 
-import { Select, SelectProps, NativeSelect, NativeSelectProps } from './select'
+import {
+  Select,
+  SelectButton,
+  SelectList,
+  SelectProps,
+  NativeSelect,
+  NativeSelectProps,
+} from './select'
 
 import { createField } from './create-field'
 
@@ -74,9 +81,19 @@ export const SwitchField = createField<SwitchProps>(
   }
 )
 
-export const SelectField = createField<SelectProps>(Select, {
-  isControlled: true,
-})
+export const SelectField = createField<SelectProps>(
+  forwardRef((props, ref) => {
+    return (
+      <Select ref={ref} {...props}>
+        <SelectButton />
+        <SelectList />
+      </Select>
+    )
+  }),
+  {
+    isControlled: true,
+  }
+)
 
 export const CheckboxField = createField<CheckboxProps>(
   forwardRef(({ label, type, ...props }, ref) => {

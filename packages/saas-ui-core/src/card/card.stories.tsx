@@ -21,7 +21,7 @@ import {
   ButtonGroup,
   HStack,
 } from '@chakra-ui/react'
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from '../icons'
 
 import { FaGithub, FaSlack } from 'react-icons/fa'
 

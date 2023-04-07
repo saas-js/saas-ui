@@ -102,3 +102,9 @@ export const propertyAnatomy = anatomy('property').parts(
   'label',
   'value'
 )
+
+export const selectAnatomy = anatomy('select').parts(
+  'addon',
+  'field',
+  'element'
+)

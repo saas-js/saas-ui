@@ -7,7 +7,7 @@ import {
   Button,
   ButtonProps,
 } from '@chakra-ui/react'
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
+import { PlusIcon, MinusIcon } from '@saas-ui/core/icons'
 
 import { FormLayout, FormLayoutProps } from './layout'
 import { BaseField } from './base-field'
@@ -27,6 +27,9 @@ import {
   useArrayFieldAddButton,
   UseArrayFieldReturn,
 } from './use-array-field'
+import { FieldPath, FieldValues } from 'react-hook-form'
+import { isFunction } from '@chakra-ui/utils'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export interface ArrayFieldButtonProps extends ButtonProps {}
 
@@ -167,16 +170,23 @@ export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
       {...useArrayFieldAddButton()}
       {...props}
     >
-      {props.children || <AddIcon />}
+      {props.children || <PlusIcon />}
     </Button>
   )
 }
 
 ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
 
-export interface ArrayFieldProps
-  extends ArrayFieldOptions,
-    Omit<BaseFieldProps, 'defaultValue'> {}
+export interface ArrayFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> extends ArrayFieldOptions<TFieldValues, TName>,
+    Omit<
+      BaseFieldProps<TFieldValues, TName>,
+      'name' | 'defaultValue' | 'children'
+    > {
+  children: MaybeRenderProp<ArrayField[]>
+}
 
 /**
  * The wrapper component that composes the default ArrayField functionality.
@@ -187,19 +197,21 @@ export const ArrayField = forwardRef(
   (props: ArrayFieldProps, ref: React.ForwardedRef<UseArrayFieldReturn>) => {
     const { children, ...containerProps } = props
 
+    const rowFn = isFunction(children)
+      ? children
+      : (fields: ArrayField[]) => (
+          <>
+            {fields.map(({ id }, index: number) => (
+              <ArrayFieldRow key={id} index={index}>
+                {children}
+              </ArrayFieldRow>
+            )) || null}
+          </>
+        )
+
     return (
       <ArrayFieldContainer ref={ref} {...containerProps}>
-        <ArrayFieldRows>
-          {(fields: ArrayField[]) => (
-            <>
-              {fields.map(({ id }, index: number) => (
-                <ArrayFieldRow key={id} index={index}>
-                  {children}
-                </ArrayFieldRow>
-              ))}
-            </>
-          )}
-        </ArrayFieldRows>
+        <ArrayFieldRows>{rowFn as any}</ArrayFieldRows>
         <ArrayFieldAddButton />
       </ArrayFieldContainer>
     )
@@ -227,6 +239,11 @@ export const ArrayFieldRows = ({
 
 ArrayFieldRows.displayName = 'ArrayFieldRows'
 
+export interface ArrayFieldContainerProps
+  extends Omit<ArrayFieldProps, 'children'> {
+  children: React.ReactNode
+}
+
 /**
  * The container component provides context and state management.
  *
@@ -242,7 +259,7 @@ export const ArrayFieldContainer = React.forwardRef(
       max,
       children,
       ...fieldProps
-    }: ArrayFieldProps,
+    }: ArrayFieldContainerProps,
     ref: React.ForwardedRef<UseArrayFieldReturn>
   ) => {
     const context = useArrayField({

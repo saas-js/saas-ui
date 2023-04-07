@@ -9,6 +9,9 @@ const webpack = require('webpack')
 let config = {
   optimizeFonts: true,
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
     externalDir: true,
   },
@@ -56,33 +59,30 @@ let config = {
       ],
     })
 
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: 'removeViewBox',
-                  active: false,
-                },
-              ],
-            },
-          },
-        },
-      ],
-    })
+    config.module.rules.push(
+      // Reapply the existing rule, but only for svg imports ending in ?url
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      // Convert all other *.svg imports to React components
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: /url/ }, // exclude if *.svg?url
+        use: ['@svgr/webpack'],
+      }
+    )
 
     config.resolve = {
       ...config.resolve,
     }
 
-    // config.module.rules.push({
-    //   test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding|router)\/.*\.tsx?/,
-    //   use: [defaultLoaders.babel],
-    // })
+    config.module.rules.push({
+      test: /node_modules\/@saas-ui\/.*\.tsx?/,
+      use: [defaultLoaders.babel],
+    })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(

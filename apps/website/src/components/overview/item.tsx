@@ -201,7 +201,11 @@ const componentIllustrations = {
     </Code>
   ),
   select: (
-    <Select options={['Fullstack Developer']} value="Fullstack Developer" />
+    <Select
+      name="type"
+      options={['Fullstack Developer']}
+      value="Fullstack Developer"
+    />
   ),
   passwordinput: (
     <Box width="80%">
@@ -526,7 +530,7 @@ const OverviewItem = ({ url, title, description, slug }: Props) => {
         borderTopWidth="1px"
         _dark={{ borderTopWidth: 0 }}
       >
-        <NextLink href={url} passHref>
+        <NextLink href={url} passHref legacyBehavior>
           <LinkOverlay>
             <Heading as="h3" size="sm">
               {title}

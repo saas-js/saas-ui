@@ -38,7 +38,7 @@ export const useNavigate = () => {
 
 export const useParams = () => {
   const context = useRouterContext()
-  return context?.params
+  return context?.params || {}
 }
 
 export const useLocation = () => {

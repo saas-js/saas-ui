@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-next.6
+
+### Patch Changes
+
+- 7052dad3: Fix issue where Select context is undefined
+
 ## 2.0.0-next.5
 
 ### Major Changes

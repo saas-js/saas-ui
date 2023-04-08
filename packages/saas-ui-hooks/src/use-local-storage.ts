@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 const isBrowser = typeof window !== 'undefined'
 
 function setItem(key: string, value: string) {
@@ -60,6 +60,8 @@ export const useLocalStorage = <T = string>(
 ) => {
   const { serialize = serializeJSON, deserialize = deserializeJSON } = options
 
+  const initRef = React.useRef(false)
+
   const [value, setValue] = useState<T>(() => {
     return isBrowser ? deserialize(getItem(key) ?? undefined) : defaultValue
   })
@@ -91,9 +93,15 @@ export const useLocalStorage = <T = string>(
   }, [])
 
   useEffect(() => {
+    if (!initRef.current) {
+      initRef.current = true
+      return
+    }
     const serializedValue = serialize(value)
-    setItem(key, serializedValue)
-    triggerCustomEvent({ key, newValue: serializedValue })
+    if (getItem(key) !== serializedValue) {
+      setItem(key, serializedValue)
+      triggerCustomEvent({ key, newValue: serializedValue })
+    }
   }, [value])
 
   return [value === undefined ? defaultValue : value, setValue] as const

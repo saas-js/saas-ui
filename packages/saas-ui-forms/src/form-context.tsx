@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import * as React from 'react'
 import {
   FormProvider as HookFormProvider,
   FormProviderProps as HookFormProviderProps,
@@ -32,14 +32,14 @@ export type FormProviderProps<
   }
 }
 
-const FormContext = createContext<FormContextValue | null>(null)
+const FormContext = React.createContext<FormContextValue | null>(null)
 
 export const useFormContext = <
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
   TSchema = any
 >() => {
-  const context = useContext(FormContext)
+  const context = React.useContext(FormContext)
   const hookContext = useHookFormContext()
 
   if (!context) {

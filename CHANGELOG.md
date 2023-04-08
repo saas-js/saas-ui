@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-08-2023
+
+**Forms** `v2.0.0-next.8`
+
+- Fix React import
+
 ## 02-18-2023
 
 `@saas-ui/react@2.0.0-next.2`

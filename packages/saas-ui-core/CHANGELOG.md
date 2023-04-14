@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.0.0-next.10
+
+### Patch Changes
+
+- a7ef6dd9: Fixed issue where types for exports were not detected
+- Updated dependencies [a7ef6dd9]
+  - @saas-ui/theme@2.0.0-next.6
+
 ## 2.0.0-next.9
 
 ### Patch Changes

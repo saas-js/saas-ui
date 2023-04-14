@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-next.6
+
+### Patch Changes
+
+- a7ef6dd9: Fixed issue where types for exports were not detected
+
 ## 2.0.0-next.5
 
 ### Patch Changes

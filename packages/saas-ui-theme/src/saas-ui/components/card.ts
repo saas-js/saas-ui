@@ -60,15 +60,15 @@ const variantFilled = definePartsStyle((props) => {
     container: {
       [$border.variable]: '0',
       [$shadow.variable]: 'none',
-      [$bg.variable]: c ? `${c}.500` : `blackAlpha.100`,
+      [$bg.variable]: c ? `${c}.500` : `colors.blackAlpha.100`,
       color,
       '&.chakra-linkbox:hover': {
-        [$bg.variable]: c ? `${c}.600` : `blackAlpha.200`,
+        [$bg.variable]: c ? `${c}.600` : `colors.blackAlpha.200`,
       },
       _dark: {
-        [$bg.variable]: c ? `${c}.500` : `whiteAlpha.100`,
+        [$bg.variable]: c ? `${c}.500` : `colors.whiteAlpha.100`,
         '&.chakra-linkbox:hover': {
-          [$bg.variable]: c ? `${c}.600` : `whiteAlpha.200`,
+          [$bg.variable]: c ? `${c}.600` : `colors.whiteAlpha.200`,
         },
       },
     },
@@ -82,15 +82,15 @@ const variantOutline = definePartsStyle((props) => {
     container: {
       [$border.variable]: '1px',
       [$shadow.variable]: 'none',
-      [$borderColor.variable]: c ? `${c}.500` : `blackAlpha.200`,
+      [$borderColor.variable]: c ? `${c}.500` : `colors.blackAlpha.200`,
       [$bg.variable]: 'transparent',
       '&.chakra-linkbox:hover': {
-        [$borderColor.variable]: c ? `${c}.600` : `blackAlpha.300`,
+        [$borderColor.variable]: c ? `${c}.600` : `colors.blackAlpha.300`,
       },
       _dark: {
-        [$borderColor.variable]: c ? `${c}.500` : `whiteAlpha.300`,
+        [$borderColor.variable]: c ? `${c}.500` : `colors.whiteAlpha.300`,
         '&.chakra-linkbox:hover': {
-          [$borderColor.variable]: c ? `${c}.600` : `whiteAlpha.400`,
+          [$borderColor.variable]: c ? `${c}.600` : `colors.whiteAlpha.400`,
         },
       },
     },

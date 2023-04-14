@@ -1,5 +1,27 @@
 # @saas-ui/react
 
+## 2.0.0-next.9
+
+### Minor Changes
+
+- 1177329d: Improved MenuDialog position on mobile
+- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
+
+### Patch Changes
+
+- 189190c6: Fix Card theme tokens
+- Updated dependencies [84e59fec]
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [84e59fec]
+- Updated dependencies [1177329d]
+  - @saas-ui/forms@2.0.0-next.9
+  - @saas-ui/core@2.0.0-next.7
+  - @saas-ui/modals@2.0.0-next.9
+  - @saas-ui/auth@2.0.0-next.9
+  - @saas-ui/data-table@2.0.0-next.9
+  - @saas-ui/hotkeys@2.0.0-next.7
+
 ## 2.0.0-next.8
 
 ### Patch Changes

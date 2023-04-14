@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 2.0.0-next.7
+
+### Minor Changes
+
+- 1177329d: Improved MenuDialog position on mobile
+
+### Patch Changes
+
+- 189190c6: Fix Card theme tokens
+
 ## 2.0.0-next.6
 
 ### Patch Changes

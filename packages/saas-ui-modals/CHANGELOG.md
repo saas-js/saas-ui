@@ -1,5 +1,17 @@
 # @saas-ui/modals
 
+## 2.0.0-next.9
+
+### Minor Changes
+
+- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
+- 1177329d: BaseModal now accepts header, content and footer props
+
+### Patch Changes
+
+- Updated dependencies [84e59fec]
+  - @saas-ui/forms@2.0.0-next.9
+
 ## 2.0.0-next.8
 
 ### Patch Changes

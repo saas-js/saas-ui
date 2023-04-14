@@ -1,5 +1,14 @@
 # @saas-ui/forms
 
+## 2.0.0-next.9
+
+### Patch Changes
+
+- 84e59fec: Form render prop Field now supports ref
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+  - @saas-ui/core@2.0.0-next.7
+
 ## 2.0.0-next.8
 
 ### Patch Changes

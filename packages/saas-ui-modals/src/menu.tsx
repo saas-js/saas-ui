@@ -10,6 +10,7 @@ import {
   useMultiStyleConfig,
   Menu,
   MenuListProps,
+  useBreakpointValue,
 } from '@chakra-ui/react'
 
 import { BaseModal, BaseModalProps } from './modal'
@@ -55,7 +56,8 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
       footer,
       initialFocusRef,
       hideCloseButton,
-      motionPreset,
+      motionPreset = 'slideInBottom',
+      isCentered: isCenteredProp,
       ...rest
     } = props
 
@@ -65,6 +67,8 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
 
     const styles = useMultiStyleConfig('Menu', props)
 
+    const isCentered = useBreakpointValue({ base: true, md: false })
+
     return (
       <BaseModal
         isOpen={isOpen}
@@ -73,6 +77,8 @@ export const MenuDialogList = forwardRef<MenuDialogListProps, 'div'>(
         title={title}
         hideCloseButton={hideCloseButton}
         motionPreset={motionPreset}
+        isCentered={isCenteredProp ?? isCentered}
+        contentProps={{ mx: 4 }}
       >
         {/* We forward the styles again, otherwise the modal styles will be picked up */}
         <StylesProvider value={styles}>

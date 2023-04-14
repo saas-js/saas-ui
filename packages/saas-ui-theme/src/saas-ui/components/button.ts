@@ -122,7 +122,6 @@ const variantOutline = defineStyle((props) => {
     ...variantGhost(props),
     borderColor: c === 'gray' ? hover : base,
     borderWidth: '1px',
-    color: base,
     _hover: {
       borderColor: c === 'gray' ? active : hover,
     },
@@ -193,7 +192,7 @@ const variantSubtle = defineStyle((props) => {
   if (c === 'gray') {
     return {
       color: `inherit`,
-      bg: `${c}.blackAlpha100`,
+      bg: `blackAlpha.100`,
       _dark: {
         bg: `whiteAlpha.100`,
         color: `whiteAlpha.900`,

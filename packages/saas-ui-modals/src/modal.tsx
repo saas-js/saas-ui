@@ -9,6 +9,9 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalProps as ChakraModalProps,
+  ModalContentProps,
+  ModalHeaderProps,
+  ModalFooterProps,
 } from '@chakra-ui/react'
 
 export interface BaseModalProps extends ChakraModalProps {
@@ -28,6 +31,18 @@ export interface BaseModalProps extends ChakraModalProps {
    * Hide the overlay
    */
   hideOverlay?: boolean
+  /**
+   * Props for the modal header
+   */
+  headerProps?: ModalHeaderProps
+  /**
+   * Props for the modal content
+   */
+  contentProps?: ModalContentProps
+  /**
+   * Props for the modal footer
+   */
+  footerProps?: ModalFooterProps
 }
 
 export const BaseModal: React.FC<BaseModalProps> = (props) => {
@@ -39,16 +54,19 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
     onClose,
     hideCloseButton,
     hideOverlay,
+    headerProps,
+    contentProps,
+    footerProps,
     ...rest
   } = props
   return (
     <ChakraModal isOpen={isOpen} onClose={onClose} {...rest}>
       {!hideOverlay && <ModalOverlay />}
-      <ModalContent>
-        {title && <ModalHeader>{title}</ModalHeader>}
+      <ModalContent {...contentProps}>
+        {title && <ModalHeader {...headerProps}>{title}</ModalHeader>}
         {!hideCloseButton && <ModalCloseButton />}
         {children}
-        {footer && <ModalFooter>{footer}</ModalFooter>}
+        {footer && <ModalFooter {...footerProps}>{footer}</ModalFooter>}
       </ModalContent>
     </ChakraModal>
   )

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-next.4
+
+### Patch Changes
+
+- b521ce10: Fix Card theme
+
 ## 2.0.0-next.3
 
 ### Major Changes

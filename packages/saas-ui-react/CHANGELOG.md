@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.0.0-next.10
+
+### Patch Changes
+
+- Updated dependencies [b521ce10]
+  - @saas-ui/theme@2.0.0-next.4
+  - @saas-ui/core@2.0.0-next.8
+  - @saas-ui/auth@2.0.0-next.10
+  - @saas-ui/data-table@2.0.0-next.10
+  - @saas-ui/forms@2.0.0-next.10
+  - @saas-ui/hotkeys@2.0.0-next.8
+  - @saas-ui/modals@2.0.0-next.10
+
 ## 2.0.0-next.9
 
 ### Minor Changes

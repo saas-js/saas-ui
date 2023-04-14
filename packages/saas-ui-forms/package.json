@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "2.0.0-next.10",
+  "version": "2.0.0-next.11",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
@@ -34,6 +34,19 @@
     },
     "./ajv/src": {
       "default": "./ajv/src/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "ajv": [
+        "./dist/ajv/index.d.ts"
+      ],
+      "yup": [
+        "./dist/yup/index.d.ts"
+      ],
+      "zod": [
+        "./dist/zod/index.d.ts"
+      ]
     }
   },
   "main": "./dist/index.js",

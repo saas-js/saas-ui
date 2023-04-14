@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-next.5
+
+### Patch Changes
+
+- 5b9d90e8: Fix filled and outline color tokens
+
 ## 2.0.0-next.4
 
 ### Patch Changes

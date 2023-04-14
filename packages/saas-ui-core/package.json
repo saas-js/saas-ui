@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/core",
-  "version": "2.0.0-next.8",
+  "version": "2.0.0-next.9",
   "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
   "exports": {
@@ -27,6 +27,16 @@
     },
     "./utils/src": {
       "default": "./src/utils/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "icons": [
+        "./dist/icons/index.d.ts"
+      ],
+      "utils": [
+        "./dist/utils/index.d.ts"
+      ]
     }
   },
   "main": "./dist/index.js",

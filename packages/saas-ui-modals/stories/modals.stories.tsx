@@ -8,8 +8,9 @@ import { Field, FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
 import { FormDialog } from '../src/form'
 
-interface CustomModalProps extends BaseModalProps {
+interface CustomModalProps extends Omit<BaseModalProps, 'children'> {
   customProp: 'test'
+  children?: React.ReactNode
 }
 
 const CustomModal: React.FC<CustomModalProps> = ({
@@ -182,6 +183,7 @@ export const Custom = () => {
         modals.open({
           title: 'My Modal',
           type: 'custom',
+          children: 'My modal',
           customProp: 'test',
         })
       }

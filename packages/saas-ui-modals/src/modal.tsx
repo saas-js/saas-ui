@@ -21,7 +21,10 @@ export interface BaseModalProps extends Omit<ChakraModalProps, 'children'> {
    * The modal title
    */
   title?: React.ReactNode
-  children?: MaybeRenderProp<{
+  /**
+   * The modal children
+   */
+  children: MaybeRenderProp<{
     isOpen: boolean
     onClose: () => void
   }>

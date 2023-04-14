@@ -1,14 +1,20 @@
 import { mode } from '@chakra-ui/theme-tools'
 import { cardAnatomy } from '@chakra-ui/anatomy'
 
-import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/styled-system'
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(cardAnatomy.keys)
+
+const $bg = cssVar('card-bg')
+const $padding = cssVar('card-padding')
+const $shadow = cssVar('card-shadow')
+const $radius = cssVar('card-radius')
+const $border = cssVar('card-border-width', '0')
+const $borderColor = cssVar('card-border-color')
 
 const baseStyle = definePartsStyle(() => {
   return {
     container: {
-      rounded: 'lg',
       transitionProperty: 'common',
       transitionDuration: 'normal',
     },
@@ -27,15 +33,18 @@ const baseStyle = definePartsStyle(() => {
 const variantElevated = definePartsStyle((props) => {
   return {
     container: {
-      bg: 'white',
-      boxShadow: 'sm',
-      borderWidth: '1px',
-      borderColor: 'blackAlpha.200',
-      _dark: { bg: 'whiteAlpha.200', borderColor: 'whiteAlpha.50' },
+      [$bg.variable]: 'colors.white',
+      [$borderColor.variable]: 'colors.blackAlpha.200',
+      [$border.variable]: '1px',
+      [$shadow.variable]: 'shadows.sm',
+      _dark: {
+        [$bg.variable]: 'colors.whiteAlpha.200',
+        [$borderColor.variable]: 'colors.whiteAlpha.50',
+      },
       '&.chakra-linkbox:hover': {
-        borderColor: 'blackAlpha.300',
+        [$borderColor.variable]: 'colors.blackAlpha.300',
         _dark: {
-          borderColor: 'whiteAlpha.300',
+          [$borderColor.variable]: 'colors.whiteAlpha.300',
         },
       },
     },
@@ -45,23 +54,22 @@ const variantElevated = definePartsStyle((props) => {
 const variantFilled = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
-  const bg = c
-    ? mode(`${c}.500`, `${c}.500`)(props)
-    : mode('blackAlpha.100', 'whiteAlpha.100')(props)
-  const hoverBg = c
-    ? mode(`${c}.600`, `${c}.600`)(props)
-    : mode('blackAlpha.200', 'whiteAlpha.200')(props)
-
   const color = c ? 'white' : 'inherit'
 
   return {
     container: {
-      border: 'none',
-      boxShadow: 'none',
-      bg,
+      [$border.variable]: '0',
+      [$shadow.variable]: 'none',
+      [$bg.variable]: c ? `${c}.500` : `blackAlpha.100`,
       color,
       '&.chakra-linkbox:hover': {
-        bg: hoverBg,
+        [$bg.variable]: c ? `${c}.600` : `blackAlpha.200`,
+      },
+      _dark: {
+        [$bg.variable]: c ? `${c}.500` : `whiteAlpha.100`,
+        '&.chakra-linkbox:hover': {
+          [$bg.variable]: c ? `${c}.600` : `whiteAlpha.200`,
+        },
       },
     },
   }
@@ -70,22 +78,20 @@ const variantFilled = definePartsStyle((props) => {
 const variantOutline = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
-  const borderColor = c
-    ? mode(`${c}.500`, `${c}.500`)(props)
-    : mode('blackAlpha.200', 'whiteAlpha.300')(props)
-
-  const hoverColor = c
-    ? mode(`${c}.600`, `${c}.600`)(props)
-    : mode('blackAlpha.300', 'whiteAlpha.400')(props)
-
   return {
     container: {
-      bg: 'transparent',
-      boxShadow: 'none',
-      borderWidth: '1px',
-      borderColor: borderColor,
+      [$border.variable]: '1px',
+      [$shadow.variable]: 'none',
+      [$borderColor.variable]: c ? `${c}.500` : `blackAlpha.200`,
+      [$bg.variable]: 'transparent',
       '&.chakra-linkbox:hover': {
-        borderColor: hoverColor,
+        [$borderColor.variable]: c ? `${c}.600` : `blackAlpha.300`,
+      },
+      _dark: {
+        [$borderColor.variable]: c ? `${c}.500` : `whiteAlpha.300`,
+        '&.chakra-linkbox:hover': {
+          [$borderColor.variable]: c ? `${c}.600` : `whiteAlpha.400`,
+        },
       },
     },
   }

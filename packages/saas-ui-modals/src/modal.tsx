@@ -13,12 +13,18 @@ import {
   ModalHeaderProps,
   ModalFooterProps,
 } from '@chakra-ui/react'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { runIfFn } from '@chakra-ui/utils'
 
-export interface BaseModalProps extends ChakraModalProps {
+export interface BaseModalProps extends Omit<ChakraModalProps, 'children'> {
   /**
    * The modal title
    */
   title?: React.ReactNode
+  children?: MaybeRenderProp<{
+    isOpen: boolean
+    onClose: () => void
+  }>
   /**
    * The modal footer
    */
@@ -65,7 +71,10 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
       <ModalContent {...contentProps}>
         {title && <ModalHeader {...headerProps}>{title}</ModalHeader>}
         {!hideCloseButton && <ModalCloseButton />}
-        {children}
+        {runIfFn(children, {
+          isOpen,
+          onClose,
+        })}
         {footer && <ModalFooter {...footerProps}>{footer}</ModalFooter>}
       </ModalContent>
     </ChakraModal>
@@ -73,10 +82,15 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
 }
 
 export const Modal: React.FC<BaseModalProps> = (props) => {
-  const { children, ...rest } = props
+  const { children, isOpen, onClose, ...rest } = props
   return (
-    <BaseModal {...rest}>
-      <ModalBody>{children}</ModalBody>
+    <BaseModal {...rest} isOpen={isOpen} onClose={onClose}>
+      <ModalBody>
+        {runIfFn(children, {
+          isOpen,
+          onClose,
+        })}
+      </ModalBody>
     </BaseModal>
   )
 }

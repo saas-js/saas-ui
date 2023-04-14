@@ -10,16 +10,19 @@ import {
   FormProps,
   FieldValues,
   FieldResolver,
+  FieldProps,
 } from '@saas-ui/forms'
 
 import { BaseModal, BaseModalProps } from './modal'
 
 export interface FormDialogProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
+  TSchema = any,
+  TFieldTypes = FieldProps<TFieldValues>
 > extends Omit<BaseModalProps, 'children'>,
     Pick<
-      FormProps<TFieldValues, TContext>,
+      FormProps<TFieldValues, TContext, TSchema, TFieldTypes>,
       | 'schema'
       | 'defaultValues'
       | 'values'
@@ -35,6 +38,8 @@ export interface FormDialogProps<
       | 'shouldUseNativeValidation'
       | 'criteriaMode'
       | 'delayError'
+      | 'resetOptions'
+      | 'children'
     > {
   /**
    * The modal footer, will be wrapped with `ModalFooter`.
@@ -51,10 +56,6 @@ export interface FormDialogProps<
    * @default "Submit"
    */
   submitLabel?: React.ReactNode
-  /**
-   * If no children are passed, this will auto render fields based on the supplied schema.
-   */
-  children?: React.ReactNode
   /**
    * A schema field resolver used to auto generate form fields.
    */

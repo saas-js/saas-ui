@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
-import { cx, runIfFn } from '@chakra-ui/utils'
+import { FocusableElement, cx, runIfFn } from '@chakra-ui/utils'
 
 import {
   useForm,
@@ -29,15 +29,18 @@ import { SubmitButton } from './submit-button'
 import { DisplayIf, DisplayIfProps } from './display-if'
 import { ArrayField, ArrayFieldProps } from './array-field'
 import { ObjectField, ObjectFieldProps } from './object-field'
+import { UseArrayFieldReturn } from './use-array-field'
 
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormReturn<TFieldValues, TContext> {
-  Field: React.FC<TFieldTypes>
+  Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
   DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
-  ArrayField: React.FC<ArrayFieldProps<TFieldValues>>
+  ArrayField: React.FC<
+    ArrayFieldProps<TFieldValues> & React.RefAttributes<UseArrayFieldReturn>
+  >
   ObjectField: React.FC<ObjectFieldProps<TFieldValues>>
 }
 
@@ -188,7 +191,7 @@ export const Form = forwardRef(
         >
           {runIfFn(_children, {
             Field: DefaultField as any,
-            DisplayIf: DisplayIf,
+            DisplayIf: DisplayIf as any,
             ArrayField: ArrayField as any,
             ObjectField: ObjectField as any,
             ...methods,

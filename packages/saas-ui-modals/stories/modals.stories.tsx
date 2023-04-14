@@ -1,13 +1,16 @@
 import * as React from 'react'
 import { Button, Stack, Container, MenuItem } from '@chakra-ui/react'
-import { ModalsProvider, useModals } from '../src/provider'
-
+// import { ModalsProvider, useModals } from '../src/provider'
+import { createModals } from '../src'
 import { MenuDialogList } from '../src/menu'
 
 import { Field, FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
+import { FormDialog } from '../src/form'
 
-interface CustomModalProps extends BaseModalProps {}
+interface CustomModalProps extends BaseModalProps {
+  customProp: 'test'
+}
 
 const CustomModal: React.FC<CustomModalProps> = ({
   title = 'Custom modal',
@@ -20,16 +23,18 @@ const CustomModal: React.FC<CustomModalProps> = ({
   </Modal>
 )
 
-const modals = {
-  custom: CustomModal,
-}
+const { ModalsProvider, useModals } = createModals({
+  modals: {
+    custom: CustomModal,
+  },
+})
 
 export default {
   title: 'Components/Overlay/Modals Manager',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
-        <ModalsProvider modals={modals}>
+        <ModalsProvider>
           <Story />
         </ModalsProvider>
       </Container>
@@ -150,7 +155,10 @@ export const Basic = () => {
         onClick={() =>
           modals.form({
             title: 'Form',
-            body: (
+            defaultvalues: {
+              title: 'My title',
+            },
+            children: ({ Field }) => (
               <FormLayout>
                 <Field name="title" label="Title" />
               </FormLayout>
@@ -173,8 +181,33 @@ export const Custom = () => {
       onClick={() =>
         modals.open({
           title: 'My Modal',
-          body: <>My modal</>,
           type: 'custom',
+          customProp: 'test',
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
+
+export const CustomFormDialog = () => {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open(FormDialog, {
+          title: 'My Modal',
+          children: ({ Field }) => (
+            <FormLayout>
+              <Field name="title" label="Title" />
+            </FormLayout>
+          ),
+          defaultValues: {
+            title: 'My title',
+          },
+          onSubmit: () => Promise.resolve(),
         })
       }
     >
@@ -186,7 +219,17 @@ export const Custom = () => {
 export const CustomAsComponent = () => {
   const modals = useModals()
 
-  return <Button onClick={() => modals.open(CustomModal)}>Open modal</Button>
+  return (
+    <Button
+      onClick={() =>
+        modals.open(CustomModal, {
+          customProp: 'test',
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
 }
 
 export const OnClose = () => {

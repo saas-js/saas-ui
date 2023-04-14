@@ -7,7 +7,7 @@ import {
   ModalFooter,
 } from '@chakra-ui/react'
 
-import { FormLayout, Field, SubmitButton } from '@saas-ui/forms'
+import { FormLayout, SubmitButton } from '@saas-ui/forms'
 
 import { FormDialog } from '../src/form'
 
@@ -54,14 +54,16 @@ export const Basic = () => {
         {...disclosure}
         onSubmit={onSubmit(disclosure)}
       >
-        <FormLayout>
-          <Field
-            name="title"
-            label="Title"
-            rules={{ required: 'Title is required' }}
-          />
-          <Field name="description" type="textarea" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
       </FormDialog>
     </Stack>
   )
@@ -88,15 +90,17 @@ export const FocusFirstInput = () => {
         onSubmit={onSubmit(disclosure)}
         initialFocusRef={initialRef}
       >
-        <FormLayout>
-          <Field
-            name="title"
-            label="Title"
-            rules={{ required: 'Title is required' }}
-            ref={initialRef}
-          />
-          <Field name="description" type="textarea" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+              ref={initialRef}
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
       </FormDialog>
     </Stack>
   )
@@ -125,20 +129,26 @@ export const CustomFooter = () => {
 
       <FormDialog
         title="New post"
+        defaultValues={{
+          title: 'test',
+          description: '',
+        }}
         {...disclosure}
         onSubmit={onSubmit(disclosure)}
         initialFocusRef={initialRef}
         footer={footer}
       >
-        <FormLayout>
-          <Field
-            name="title"
-            label="Title"
-            rules={{ required: 'Title is required' }}
-            ref={initialRef}
-          />
-          <Field name="description" type="textarea" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+              ref={initialRef}
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
       </FormDialog>
     </Stack>
   )

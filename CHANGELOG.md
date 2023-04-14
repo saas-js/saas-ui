@@ -8,6 +8,28 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-14-2023
+
+`@saas-ui/react@2.0.0-next.9`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+- Added new createModals method to create typesafe modals managers with support for custom modals
+
+**Forms** `v2.0.0-next.9`
+
+- Form render prop Field now supports ref
+
+**Core** `v2.0.0-next.7`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+
+**Modals** `v2.0.0-next.9`
+
+- Added new createModals method to create typesafe modals managers with support for custom modals
+- BaseModal now accepts header, content and footer props
+
 ## 04-08-2023
 
 **Forms** `v2.0.0-next.8`

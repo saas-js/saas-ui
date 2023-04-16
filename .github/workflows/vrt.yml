@@ -17,6 +17,9 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Build packages
+        run: yarn build:packages
+
       - name: Build Storybook
         run: yarn build:storybook
 

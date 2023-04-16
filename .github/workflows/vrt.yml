@@ -20,6 +20,9 @@ jobs:
       - name: Build packages
         run: yarn build:packages
 
+      - name: Build Storybook addon
+        run: yarn build:storybook-addon
+
       - name: Build tokens
         run: yarn build:tokens
 

@@ -88,6 +88,9 @@
     "react-dom": ">=18.0.0",
     "tsup": "^6.7.0"
   },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.18"
+  },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.0.0",
     "@storybook/addons": ">=7",

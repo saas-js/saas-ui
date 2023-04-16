@@ -26,7 +26,7 @@ export default {
     '@saas-ui/storybook-addon',
   ],
   features: {
-    storyStoreV7: true,
+    buildStoriesJson: true,
   },
   staticDirs: ['./static'],
   typescript: {

@@ -13,7 +13,7 @@ import { theme as baseGlassTheme } from '@saas-ui/theme-glass'
 const glassTheme = extendTheme(baseGlassTheme, suiTheme)
 
 const useThemeSync = () => {
-  const [themeId, setTheme] = useLocalStorage('storybook.theme', '0')
+  const [themeId, setTheme] = useLocalStorage('storybook.theme', '1')
 
   React.useEffect(() => {
     const channel = addons.getChannel()

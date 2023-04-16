@@ -51,6 +51,7 @@
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
+    "build:storybook-addon": "yarn w @saas-ui/storybook-addon build",
     "build:props-docs": "yarn w @saas-ui/props-docs build"
   },
   "workspaces": [

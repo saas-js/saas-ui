@@ -1,5 +1,8 @@
 import { inputAnatomy as parts } from '@chakra-ui/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import {
+  createMultiStyleConfigHelpers,
+  defineStyle,
+} from '@chakra-ui/styled-system'
 import { getColor, mode } from '@chakra-ui/theme-tools'
 
 const { definePartsStyle } = createMultiStyleConfigHelpers(parts.keys)
@@ -107,6 +110,11 @@ export default {
   Input,
   NumberInput: Input,
   PinInput: Input,
-  Textarea: Input,
+  Textarea: {
+    defaultProps: Input.defaultProps,
+    variants: {
+      outline: defineStyle((props) => variantOutline(props).field),
+    },
+  },
   Select: Input,
 }

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.18",
+    "@chakra-ui/next-js": "^2.1.2",
     "@chakra-ui/props-docs": "^2.2.1",
     "@chakra-ui/react": "^2.5.5",
     "@chakra-ui/skip-nav": "^2.0.15",

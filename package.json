@@ -55,6 +55,8 @@
     "build:props-docs": "yarn w @saas-ui/props-docs build"
   },
   "workspaces": [
+    "apps/website",
+    "packages/pro/saas-ui/*",
     "packages/storybook",
     "packages/saas-ui-*",
     "tooling/next-workspaces",
@@ -110,7 +112,8 @@
     "zod": "^3.21.4"
   },
   "resolutions": {
-    "unist-util-visit": "4.0.0"
+    "unist-util-visit": "4.0.0",
+    "next": "13.3.2-canary.11"
   },
   "packageManager": "yarn@3.3.0",
   "dependencies": {

@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
-import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
 import Link from 'next/link'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'

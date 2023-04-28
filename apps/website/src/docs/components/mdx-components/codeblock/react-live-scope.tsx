@@ -6,16 +6,18 @@ import * as SaasUI from '@saas-ui/react'
 import * as SaasUIAuth from '@saas-ui/auth'
 import * as SaasUIForms from '@saas-ui/forms'
 import * as DatePicker from '@saas-ui/date-picker'
-import * as SaasUIPro from '@saas-ui/pro'
-import * as SaasUIFeatures from '@saas-ui/features'
+import * as SaasUIPro from '@saas-ui-pro/react'
+import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
 
-import * as Yup from 'yup'
-import { yupResolver } from '@saas-ui/forms/yup'
-import { zodResolver } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+import * as yup from 'yup'
+import * as YupForm from '@saas-ui/forms/yup/src'
+import * as ZodForm from '@saas-ui/forms/zod/src'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
 import FocusLock from 'react-focus-lock'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import {
   FiHome,
@@ -47,6 +49,7 @@ import {
   FiRefreshCw,
   FiMessageSquare,
   FiMail,
+  FiStar,
 } from 'react-icons/fi'
 
 import {
@@ -92,6 +95,7 @@ const reactIcons = {
   FiRefreshCw,
   FiMessageSquare,
   FiMail,
+  FiStar,
 }
 
 const StarIcon = (props) => (
@@ -128,8 +132,8 @@ const ReactLiveScope = {
   ...SaasUIFeatures,
   ...DatePicker,
   ...Icons,
-  Yup,
-  yupResolver,
+  yup,
+  yupResolver: yupResolver,
   // ...Loaders,
   ...reactIcons,
   StarIcon,
@@ -146,10 +150,15 @@ const ReactLiveScope = {
     '@saas-ui/react': SaasUI,
     '@saas-ui/auth': SaasUIAuth,
     '@saas-ui/forms': SaasUIForms,
-    '@saas-ui/pro': SaasUIPro,
-    '@saas-ui/features': SaasUIFeatures,
+    '@saas-ui/forms/zod': ZodForm,
+    '@saas-ui/forms/yup': YupForm,
+    '@saas-ui-pro/react': SaasUIPro,
+    '@saas-ui-pro/feature-flags': SaasUIFeatures,
     '@saas-ui/date-picker': DatePicker,
     '@chakra-ui/icons': Icons,
+    'react-icons/fi': reactIcons,
+    zod: z,
+    yup: yup,
   },
 }
 

@@ -1,7 +1,7 @@
 // doesn't support React 17 yet
 
 import { Box, BoxProps, chakra } from '@chakra-ui/react'
-import { FeaturesOptions, FeaturesProvider } from '@saas-ui/features'
+import { FeaturesOptions, FeaturesProvider } from '@saas-ui-pro/feature-flags'
 import React, { useState } from 'react'
 // import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 import {

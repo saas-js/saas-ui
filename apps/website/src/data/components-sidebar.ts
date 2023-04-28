@@ -70,6 +70,7 @@ const sidebar = {
         {
           title: 'ToggleButton',
           path: '/docs/components/navigation/toggle-button',
+          pro: true,
         },
       ],
     },
@@ -81,7 +82,7 @@ const sidebar = {
       sort: true,
       routes: [
         {
-          title: 'Address',
+          title: 'Web3Address',
           path: '/docs/components/web3/address',
         },
       ],

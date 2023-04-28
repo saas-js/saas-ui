@@ -32,39 +32,62 @@ The Toolbar can be used in combination with the `Page` component or standalone i
 ### Basic
 
 ```jsx
-<Toolbar>
-  <ToolbarToggleGroup spacing="1" defaultValue="left" onChange={console.log}>
-    <ToolbarToggleButton
-      icon={<FiAlignLeft />}
-      label="Align left"
-      value="left"
-    />
-    <ToolbarToggleButton
-      icon={<FiAlignCenter />}
-      label="Align center"
-      value="center"
-    />
-    <ToolbarToggleButton
-      icon={<FiAlignRight />}
-      label="Align right"
-      value="right"
-    />
-  </ToolbarToggleGroup>
-  <ToolbarDivider />
-  <ToolbarToggleGroup spacing="1" type="checkbox">
-    <ToolbarToggleButton icon={<FiBold />} label="Bold" value="bold" />
-    <ToolbarToggleButton icon={<FiItalic />} label="Italic" value="italic" />
-    <ToolbarToggleButton
-      icon={<FiUnderline />}
-      label="Underline"
-      value="underline"
-    />
-  </ToolbarToggleGroup>
-  <ToolbarDivider />
-  <ToolbarButton icon={<FiLink />} label="Create link" />
-  <Spacer />
-  <ToolbarButton label="Save" variant="solid" colorScheme="primary" />
-</Toolbar>
+import { Spacer } from '@chakra-ui/react'
+import { FiAlignLeft, FiAlignCenter, FiAlignRight } from 'react-icons/fi'
+import { FiBold, FiItalic, FiUnderline, FiLink } from 'react-icons/fi'
+import {
+  Toolbar,
+  ToolbarButton,
+  ToolbarDivider,
+  ToolbarToggleGroup,
+  ToolbarToggleButton,
+} from '@saas-ui-pro/react'
+
+export default function BasicToolbar() {
+  return (
+    <Toolbar>
+      <ToolbarToggleGroup
+        spacing="1"
+        defaultValue="left"
+        onChange={console.log}
+      >
+        <ToolbarToggleButton
+          icon={<FiAlignLeft />}
+          label="Align left"
+          value="left"
+        />
+        <ToolbarToggleButton
+          icon={<FiAlignCenter />}
+          label="Align center"
+          value="center"
+        />
+        <ToolbarToggleButton
+          icon={<FiAlignRight />}
+          label="Align right"
+          value="right"
+        />
+      </ToolbarToggleGroup>
+      <ToolbarDivider />
+      <ToolbarToggleGroup spacing="1" type="checkbox">
+        <ToolbarToggleButton icon={<FiBold />} label="Bold" value="bold" />
+        <ToolbarToggleButton
+          icon={<FiItalic />}
+          label="Italic"
+          value="italic"
+        />
+        <ToolbarToggleButton
+          icon={<FiUnderline />}
+          label="Underline"
+          value="underline"
+        />
+      </ToolbarToggleGroup>
+      <ToolbarDivider />
+      <ToolbarButton icon={<FiLink />} label="Create link" />
+      <Spacer />
+      <ToolbarButton label="Save" variant="solid" colorScheme="primary" />
+    </Toolbar>
+  )
+}
 ```
 
 ### Sizes
@@ -72,37 +95,60 @@ The Toolbar can be used in combination with the `Page` component or standalone i
 Toolbar supports the following sizes, `xs`, `sm`, `md`, `lg`.
 
 ```jsx
-<Toolbar size="xs">
-  <ToolbarToggleGroup spacing="1" defaultValue="left" onChange={console.log}>
-    <ToolbarToggleButton
-      icon={<FiAlignLeft />}
-      label="Align left"
-      value="left"
-    />
-    <ToolbarToggleButton
-      icon={<FiAlignCenter />}
-      label="Align center"
-      value="center"
-    />
-    <ToolbarToggleButton
-      icon={<FiAlignRight />}
-      label="Align right"
-      value="right"
-    />
-  </ToolbarToggleGroup>
-  <ToolbarDivider />
-  <ToolbarToggleGroup spacing="1" type="checkbox">
-    <ToolbarToggleButton icon={<FiBold />} label="Bold" value="bold" />
-    <ToolbarToggleButton icon={<FiItalic />} label="Italic" value="italic" />
-    <ToolbarToggleButton
-      icon={<FiUnderline />}
-      label="Underline"
-      value="underline"
-    />
-  </ToolbarToggleGroup>
-  <ToolbarDivider />
-  <ToolbarButton icon={<FiLink />} label="Create link" />
-  <Spacer />
-  <ToolbarButton label="Save" variant="solid" colorScheme="primary" />
-</Toolbar>
+import { Spacer } from '@chakra-ui/react'
+import { FiAlignLeft, FiAlignCenter, FiAlignRight } from 'react-icons/fi'
+import { FiBold, FiItalic, FiUnderline, FiLink } from 'react-icons/fi'
+import {
+  Toolbar,
+  ToolbarButton,
+  ToolbarDivider,
+  ToolbarToggleGroup,
+  ToolbarToggleButton,
+} from '@saas-ui-pro/react'
+
+export default function Sizes() {
+  return (
+    <Toolbar size="xs">
+      <ToolbarToggleGroup
+        spacing="1"
+        defaultValue="left"
+        onChange={console.log}
+      >
+        <ToolbarToggleButton
+          icon={<FiAlignLeft />}
+          label="Align left"
+          value="left"
+        />
+        <ToolbarToggleButton
+          icon={<FiAlignCenter />}
+          label="Align center"
+          value="center"
+        />
+        <ToolbarToggleButton
+          icon={<FiAlignRight />}
+          label="Align right"
+          value="right"
+        />
+      </ToolbarToggleGroup>
+      <ToolbarDivider />
+      <ToolbarToggleGroup spacing="1" type="checkbox">
+        <ToolbarToggleButton icon={<FiBold />} label="Bold" value="bold" />
+        <ToolbarToggleButton
+          icon={<FiItalic />}
+          label="Italic"
+          value="italic"
+        />
+        <ToolbarToggleButton
+          icon={<FiUnderline />}
+          label="Underline"
+          value="underline"
+        />
+      </ToolbarToggleGroup>
+      <ToolbarDivider />
+      <ToolbarButton icon={<FiLink />} label="Create link" />
+      <Spacer />
+      <ToolbarButton label="Save" variant="solid" colorScheme="primary" />
+    </Toolbar>
+  )
+}
 ```

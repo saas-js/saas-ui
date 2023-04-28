@@ -1,6 +1,6 @@
 import { extendTheme, ThemeTypings } from '@chakra-ui/react'
 
-import { theme as baseTheme } from '@saas-ui/pro'
+import { theme as baseTheme } from '@saas-ui-pro/react'
 
 import '@fontsource/inter/variable.css'
 

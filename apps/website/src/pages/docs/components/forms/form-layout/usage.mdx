@@ -31,12 +31,18 @@ import { FormLayout } from '@saas-ui/react'
 The default layout stacks fields vertically.
 
 ```jsx
-<Form>
-  <FormLayout>
-    <Field name="name" label="Name" />
-    <Field name="description" label="Description" />
-  </FormLayout>
-</Form>
+import { Form, FormLayout, Field } from '@saas-ui/react'
+
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field name="name" label="Name" />
+        <Field name="description" label="Description" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Custom spacing
@@ -49,12 +55,18 @@ The spacing defaults to `4`, you can either change this per component instance o
 </Info>
 
 ```jsx
-<Form>
-  <FormLayout spacing={8}>
-    <Field name="name" label="Name" />
-    <Field name="description" label="Description" />
-  </FormLayout>
-</Form>
+import { Form, FormLayout, Field } from '@saas-ui/react'
+
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout spacing={8}>
+        <Field name="name" label="Name" />
+        <Field name="description" label="Description" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Horizontal
@@ -70,27 +82,37 @@ Alternatively you can also set `minChildWidth`, any fields that don't fit will w
 </Info>
 
 ```jsx
-<Form>
-  <FormLayout>
-    <FormLayout>
-      <Field
-        name="gender"
-        options={[{ value: 'Male' }, { value: 'Female' }, { value: 'Other' }]}
-        type="select"
-        label="Gender"
-        width="100px"
-      />
-    </FormLayout>
-    <FormLayout columns={2}>
-      <Field name="firstName" label="Name" />
-      <Field name="lastName" label="Last name" />
-    </FormLayout>
-    <FormLayout templateColumns="auto 25%">
-      <Field name="address" label="Address" />
-      <Field name="housenumber" label="Number" />
-    </FormLayout>
-  </FormLayout>
-</Form>
+import { Form, FormLayout, Field } from '@saas-ui/react'
+
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <FormLayout>
+          <Field
+            name="gender"
+            options={[
+              { value: 'Male' },
+              { value: 'Female' },
+              { value: 'Other' },
+            ]}
+            type="select"
+            label="Gender"
+            width="100px"
+          />
+        </FormLayout>
+        <FormLayout columns={2}>
+          <Field name="firstName" label="Name" />
+          <Field name="lastName" label="Last name" />
+        </FormLayout>
+        <FormLayout templateColumns="auto 25%">
+          <Field name="address" label="Address" />
+          <Field name="housenumber" label="Number" />
+        </FormLayout>
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Responsive
@@ -99,10 +121,16 @@ The `columns` and `templateColumns` properties accept responsive values,
 this allows you to keep the forms readable on any screen size.
 
 ```jsx
-<Form>
-  <FormLayout columns={[1, null, 2]}>
-    <Field name="firstName" label="Name" />
-    <Field name="lastName" label="Last name" />
-  </FormLayout>
-</Form>
+import { Form, FormLayout, Field } from '@saas-ui/react'
+
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout columns={[1, null, 2]}>
+        <Field name="firstName" label="Name" />
+        <Field name="lastName" label="Last name" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```

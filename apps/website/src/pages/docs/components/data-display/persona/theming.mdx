@@ -2,3 +2,283 @@
 id: persona
 scope: theming
 ---
+
+## Theming
+
+The `Persona` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `inner`
+- `main`
+
+### Default theme
+
+```jsx live=false
+import {
+  createMultiStyleConfigHelpers,
+  defineStyle,
+} from '@chakra-ui/styled-system'
+import { personaAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(personaAnatomy.keys)
+
+const baseStyleLabel = defineStyle((props) => {
+  return {
+    color: 'gray.500',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    minW: 0,
+    _dark: {
+      color: 'whiteAlpha.600',
+    },
+  }
+})
+
+const baseStyle = definePartsStyle((props) => {
+  return {
+    details: {
+      minW: 0,
+    },
+    secondaryLabel: baseStyleLabel(props),
+    tertiaryLabel: baseStyleLabel(props),
+  }
+})
+
+const sizes = {
+  '2xs': definePartsStyle({
+    details: { ms: 2 },
+    label: {
+      fontSize: 'xs',
+    },
+    secondaryLabel: { display: 'none' },
+    tertiaryLabel: { display: 'none' },
+  }),
+  xs: definePartsStyle({
+    details: { ms: 2 },
+    label: {
+      fontSize: 'md',
+    },
+    secondaryLabel: { display: 'none' },
+    tertiaryLabel: { display: 'none' },
+  }),
+  sm: definePartsStyle({
+    details: { ms: 2 },
+    label: { fontSize: 'md' },
+    secondaryLabel: { fontSize: 'sm' },
+    tertiaryLabel: { display: 'none' },
+  }),
+  md: definePartsStyle({
+    details: { ms: 2 },
+    label: {
+      fontSize: 'md',
+    },
+    secondaryLabel: {
+      fontSize: 'sm',
+    },
+    tertiaryLabel: { display: 'none' },
+  }),
+  lg: definePartsStyle({
+    details: { ms: 3 },
+    label: {
+      fontSize: 'md',
+    },
+    secondaryLabel: {
+      fontSize: 'sm',
+    },
+    tertiaryLabel: {
+      fontSize: 'sm',
+    },
+  }),
+  xl: definePartsStyle({
+    details: { ms: 3 },
+    label: {
+      fontSize: 'xl',
+    },
+    secondaryLabel: {
+      fontSize: 'md',
+    },
+    tertiaryLabel: { fontSize: 'md' },
+  }),
+  '2xl': definePartsStyle({
+    details: { ms: 4 },
+    label: {
+      fontSize: '2xl',
+    },
+    secondaryLabel: {
+      fontSize: 'lg',
+    },
+    tertiaryLabel: { fontSize: 'lg' },
+  }),
+}
+
+export const personaTheme = defineMultiStyleConfig({
+  defaultProps: {
+    size: 'md',
+  },
+  baseStyle,
+  sizes,
+})
+```
+
+### Theming utilities
+
+- `createMultiStyleConfigHelpers`: a function that returns a set of utilities
+  for creating style configs for a multipart component (`definePartsStyle` and
+  `defineMultiStyleConfig`).
+- `definePartsStyle`: a function used to create multipart style objects.
+- `defineMultiStyleConfig`: a function used to define the style configuration
+  for a multipart component.
+
+```jsx live=false
+import { personaAnatomy } from '@saas-ui/theme/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(personaAnatomy.keys)
+```
+
+### Customizing the default theme
+
+```jsx live=false
+import { personaAnatomy } from '@saas-ui/theme/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(personaAnatomy.keys)
+
+const baseStyle = definePartsStyle({
+  // define the part you're going to style
+  container: {
+    bg: 'red.200', // change the backgroundColor of the container
+  },
+})
+
+export const personaTheme = defineMultiStyleConfig({ baseStyle })
+```
+
+After customizing the app shell theme, we can import it in our theme file and
+add it in the `components` property:
+
+```jsx live=false
+import { extendTheme } from '@chakra-ui/react'
+import { personaAnatomy } from './components/persona'
+
+export const theme = extendTheme({
+  components: { SuiPersona: personaAnatomy },
+})
+```
+
+> Saas UI components are prefixed with `Sui` to avoid conflicts with Chakra UI.
+> This is a crucial step to make sure that any changes that we make to the
+> app shell theme are applied.
+
+### Adding a custom size
+
+Let's assume we want to include an extra large app shell icon size. Here's how
+we can do that:
+
+```jsx live=false
+import { personaAnatomy } from '@saas-ui/theme/anatomy'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(personaAnatomy.keys)
+
+const xl = definePartsStyle({
+  container: {
+    height: '1000px'
+  }
+})
+
+const sizes = {
+  xl,
+}
+
+export const app shellTheme = defineMultiStyleConfig({ sizes })
+
+// Now we can use the new `xl` size
+<Persona size="xl"> ... </Persona>
+```
+
+Every time you're adding anything new to the theme, you'd need to run the CLI
+command to get proper autocomplete in your IDE. You can learn more about the CLI
+tool [here](/docs/styled-system/cli).
+
+### Adding a custom variant
+
+Let's assume we want to include a custom pill variant. Here's how we can do
+that:
+
+```jsx live=false
+import { personaAnatomy } from '@saas-ui/theme/anatomy'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(personaAnatomy.keys)
+
+const custom = definePartsStyle({
+  container: {
+    border: '1px solid',
+    borderColor: 'gray.200',
+    background: 'gray.50',
+    borderRadius: 'full',
+
+    // Let's also provide dark mode alternatives
+    _dark: {
+      borderColor: 'gray.600',
+      background: 'gray.800',
+    },
+  },
+  main: {
+    border: '1px solid',
+    borderColor: 'gray.200',
+    background: 'gray.200',
+    color: 'gray.500',
+
+    _dark: {
+      borderColor: 'gray.600',
+      background: 'gray.600',
+      color: 'gray.400',
+    },
+  },
+})
+
+export const personaTheme = defineMultiStyleConfig({
+  variants: { custom },
+})
+
+// Now we can use the new `custom` variant
+<Persona variant="custom"> ... </Persona>
+```
+
+### Changing the default properties
+
+Let's assume we want to change the default size and variant of every app shell
+in our app. Here's how we can do that:
+
+```jsx live=false
+import { personaAnatomy } from '@saas-ui/theme/anatomy'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+
+const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
+  personaAnatomy.keys,
+)
+
+export const personaTheme = defineMultiStyleConfig({
+  defaultProps: {
+    variant: 'custom',
+  },
+})
+
+// This saves you time, instead of manually setting the size and
+// variant every time you use an app shell:
+<Persona variant="custom"> ... </Persona>
+```

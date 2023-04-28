@@ -28594,6 +28594,7 @@ __metadata:
     "@saas-ui-pro/feature-flags": "workspace:*"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/command-bar": "workspace:^"
+    "@saas-ui/forms": "workspace:*"
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/props-docs": "workspace:*"
     "@saas-ui/react": "workspace:*"
@@ -28628,6 +28629,7 @@ __metadata:
     remark-slug: ^7.0.1
     typescript: ^4.9.5
     yup: ^1.0.2
+    zod: ^3.21.4
   dependenciesMeta:
     "@saas-ui-pro/feature-flags":
       optional: true

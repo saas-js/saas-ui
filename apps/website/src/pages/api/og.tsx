@@ -8,16 +8,15 @@ export const config = {
 const font = fetch(
   new URL('../../../public/fonts/Inter-Regular.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
-const fontBold = fetch(
-  new URL('../../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
+// const fontBold = fetch(
+//   new URL('../../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
+// ).then((res) => res.arrayBuffer())
 
 export default async function handler(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url)
     const fontData = await font
-    const fontDataBold = await fontBold
-    // ?title=<title>
+    // const fontDataBold = await fontBold
     const hasTitle = searchParams.has('title')
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
@@ -161,12 +160,12 @@ export default async function handler(req: NextRequest) {
             style: 'normal',
             weight: 400,
           },
-          {
-            name: 'InterBold',
-            data: fontDataBold,
-            style: 'normal',
-            weight: 700,
-          },
+          // {
+          //   name: 'InterBold',
+          //   data: fontDataBold,
+          //   style: 'normal',
+          //   weight: 700,
+          // },
         ],
       }
     )

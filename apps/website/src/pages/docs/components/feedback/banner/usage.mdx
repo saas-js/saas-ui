@@ -9,8 +9,8 @@ Banners are generally shown at the top of an app, or above the main content.
 
 <ComponentLinks
   theme={{ componentName: 'banner' }}
-  github={{ package: 'saas-ui-banner' }}
-  npm={{ package: '@saas-ui/banner' }}
+  github={{ package: 'saas-ui-core/src/banner' }}
+  npm={{ package: '@saas-ui/core' }}
 />
 
 ## Import
@@ -33,27 +33,44 @@ import {
   BannerDescription,
   BannerActions,
   BannerCloseButton,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 ```
 
 ## Usage
 
+## Basic
+
 ```jsx
-<Banner>
-  <BannerIcon />
-  <BannerContent>
-    <BannerTitle>Update available.</BannerTitle>
-    <BannerDescription>
-      We've just released a new update, refresh to update.
-    </BannerDescription>
-  </BannerContent>
-  <BannerActions>
-    <Button colorScheme="white" variant="solid">
-      Refresh
-    </Button>
-  </BannerActions>
-  <BannerCloseButton />
-</Banner>
+import { Button } from '@chakra-ui/react'
+import {
+  Banner,
+  BannerIcon,
+  BannerContent,
+  BannerTitle,
+  BannerDescription,
+  BannerActions,
+  BannerCloseButton,
+} from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Banner>
+      <BannerIcon />
+      <BannerContent>
+        <BannerTitle>Update available.</BannerTitle>
+        <BannerDescription>
+          We've just released a new update, refresh to update.
+        </BannerDescription>
+      </BannerContent>
+      <BannerActions>
+        <Button colorScheme="white" variant="solid">
+          Refresh
+        </Button>
+      </BannerActions>
+      <BannerCloseButton />
+    </Banner>
+  )
+}
 ```
 
 ### Status
@@ -63,46 +80,62 @@ color scheme and icon used. Banner supports `error`, `success`, `warning`, and
 `info` statuses.
 
 ```jsx
-<Stack spacing={3}>
-  <Banner status="error">
-    <BannerIcon />
-    <BannerTitle>There was an error processing your payment.</BannerTitle>
-  </Banner>
+import { =Stack } from '@chakra-ui/react'
+import { Banner, BannerIcon, BannerTitle } from '@saas-ui/react'
 
-  <Banner status="success">
-    <BannerIcon />
-    <BannerTitle>You have 3 days left until your trial ends.</BannerTitle>
-  </Banner>
+export default function Status() {
+  return (
+    <Stack spacing={3}>
+      <Banner status="error">
+        <BannerIcon />
+        <BannerTitle>There was an error processing your payment.</BannerTitle>
+      </Banner>
 
-  <Banner status="warning">
-    <BannerIcon />
-    <BannerTitle>Your trial ends tomorrow, upgrade now.</BannerTitle>
-  </Banner>
+      <Banner status="success">
+        <BannerIcon />
+        <BannerTitle>You have 3 days left until your trial ends.</BannerTitle>
+      </Banner>
 
-  <Banner status="info">
-    <BannerIcon />
-    <BannerTitle>Pre-order Saas UI Pro now to get 50% discount.</BannerTitle>
-  </Banner>
-</Stack>
+      <Banner status="warning">
+        <BannerIcon />
+        <BannerTitle>Your trial ends tomorrow, upgrade now.</BannerTitle>
+      </Banner>
+
+      <Banner status="info">
+        <BannerIcon />
+        <BannerTitle>
+          Pre-order Saas UI Pro now to get 50% discount.
+        </BannerTitle>
+      </Banner>
+    </Stack>
+  )
+}
 ```
 
-### Variant
+### Variants
 
 `Banner` has 2 variant styles you can use. Pass the `variant` prop and use either
 `subtle`, `solid`.
 
 ```jsx
-<Stack spacing={3}>
-  <Banner status="success" variant="subtle">
-    <BannerIcon />
-    <BannerTitle>You have 3 days left untll your trial ends.</BannerTitle>
-  </Banner>
+import { Stack } from '@chakra-ui/react'
+import { Banner, BannerIcon, BannerTitle } from '@saas-ui/react'
 
-  <Banner status="success" variant="solid">
-    <BannerIcon />
-    <BannerTitle>You have 3 days left untll your trial ends.</BannerTitle>
-  </Banner>
-</Stack>
+export default function Variants() {
+  return (
+    <Stack spacing={3}>
+      <Banner status="success" variant="subtle">
+        <BannerIcon />
+        <BannerTitle>You have 3 days left untll your trial ends.</BannerTitle>
+      </Banner>
+
+      <Banner status="success" variant="solid">
+        <BannerIcon />
+        <BannerTitle>You have 3 days left untll your trial ends.</BannerTitle>
+      </Banner>
+    </Stack>
+  )
+}
 ```
 
 ### Custom icon
@@ -110,48 +143,69 @@ color scheme and icon used. Banner supports `error`, `success`, `warning`, and
 Use the `icon` prop to render custom icons.
 
 ```jsx
-<Stack spacing={3}>
-  <Banner status="success" py="2">
-    <BannerIcon
-      icon={FiTruck}
-      p="2"
-      boxSize="8"
-      bg="whiteAlpha.200"
-      borderRadius="md"
-    />
-    <BannerTitle p="2">Your order has been shipped.</BannerTitle>
-  </Banner>
-</Stack>
+import { Stack } from '@chakra-ui/react'
+import { Banner, BannerIcon, BannerTitle } from '@saas-ui/react'
+import { FiTruck } from 'react-icons/fi'
+
+export default function CustomIcon() {
+  return (
+    <Stack spacing={3}>
+      <Banner status="success" py="2">
+        <BannerIcon
+          icon={FiTruck}
+          p="2"
+          boxSize="8"
+          bg="whiteAlpha.200"
+          borderRadius="md"
+        />
+        <BannerTitle p="2">Your order has been shipped.</BannerTitle>
+      </Banner>
+    </Stack>
+  )
+}
 ```
 
-### Composition
+### Clickable banner
 
-`Banner` ships with smaller components to allow for flexibility in creating all
-kinds of layouts. Here's an example of a custom banner style and layout:
+Make the banner clickable by wrapping it in a `LinkBox` and passing the `as` prop.
 
 ```jsx
-<LinkBox
-  as={Banner}
-  variant="subtle"
-  colorScheme="primary"
-  borderRadius="full"
-  justifyContent="center"
-  py="2"
-  px="3"
-  cursor="pointer"
-  _hover={{ bg: 'rgba(211, 190, 244, 0.2)' }}
->
-  <BannerIcon boxSize="14px" />
-  <BannerContent flex="inherit">
-    <BannerTitle fontSize="sm">
-      <LinkOverlay href="#">Application submitted!</LinkOverlay>
-    </BannerTitle>
-    <BannerDescription fontSize="sm">
-      Our team will get back to you soon.
-    </BannerDescription>
-  </BannerContent>
-  <BannerCloseButton position="absolute" top="2" right="4" />
-</LinkBox>
+import { LinkBox, LinkOverlay } from '@chakra-ui/react'
+import {
+  Banner,
+  BannerContent,
+  BannerIcon,
+  BannerTitle,
+  BannerDescription,
+  BannerCloseButton,
+} from '@saas-ui/react'
+
+export default function Clickable() {
+  return (
+    <LinkBox
+      as={Banner}
+      variant="subtle"
+      colorScheme="primary"
+      borderRadius="full"
+      justifyContent="center"
+      py="2"
+      px="3"
+      cursor="pointer"
+      _hover={{ bg: 'rgba(211, 190, 244, 0.2)' }}
+    >
+      <BannerIcon boxSize="14px" />
+      <BannerContent flex="inherit">
+        <BannerTitle fontSize="sm">
+          <LinkOverlay href="#">Application submitted!</LinkOverlay>
+        </BannerTitle>
+        <BannerDescription fontSize="sm">
+          Our team will get back to you soon.
+        </BannerDescription>
+      </BannerContent>
+      <BannerCloseButton position="absolute" top="2" right="4" />
+    </LinkBox>
+  )
+}
 ```
 
 ### Transitions
@@ -171,7 +225,20 @@ export type BannerMotion =
 ```
 
 ```jsx
-function Page() {
+import { Button, useDisclosure } from '@chakra-ui/react'
+import {
+  Banner,
+  BannerIcon,
+  BannerContent,
+  BannerTitle,
+  BannerDescription,
+  BannerActions,
+  BannerCloseButton,
+  Link,
+} from '@saas-ui/react'
+import { FaCookie } from 'react-icons/fi'
+
+export default function Page() {
   const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
 
   return (

@@ -40,7 +40,10 @@ import { NProgress, NProgressNextRouter } from '@saas-ui/react'
 ### Trigger
 
 ```jsx
-function App() {
+import { Stack, Box, Button } from '@chakra-ui/react'
+import { NProgress } from '@saas-ui/react'
+
+export default function App() {
   const [isAnimating, setAnimating] = useState(false)
   return (
     <Stack>
@@ -61,17 +64,20 @@ function App() {
 }
 ```
 
-### Use with Next Router
+### Use with Next.js router
 
 ```jsx live=false
 // _app.tsx
-function App({ Component, pageProps }) {
-  return (
-    <Layout>
-      <NProgressNextRouter />
+import { useRouter } from 'next/router'
+import { NProgressNextRouter } from '@saas-ui/react'
 
+function App({ Component, pageProps }) {
+  const router = useRouter()
+  return (
+    <>
+      <NProgressNextRouter router={router} />
       <Component {...pageProps} />
-    </Layout>
+    </>
   )
 }
 ```

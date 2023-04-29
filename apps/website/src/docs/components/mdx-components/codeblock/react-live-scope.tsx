@@ -50,6 +50,9 @@ import {
   FiMessageSquare,
   FiMail,
   FiStar,
+  FiEye,
+  FiEyeOff,
+  FiTrash,
 } from 'react-icons/fi'
 
 import {
@@ -96,6 +99,9 @@ const reactIcons = {
   FiMessageSquare,
   FiMail,
   FiStar,
+  FiEye,
+  FiEyeOff,
+  FiTrash,
 }
 
 const StarIcon = (props) => (

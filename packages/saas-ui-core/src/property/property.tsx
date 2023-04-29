@@ -83,17 +83,17 @@ export interface PropertyLabelProps extends HTMLChakraProps<'dt'> {}
  */
 export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
   const styles = useStyles()
-  const { children, ...rest } = props
+  const { children, noOfLines = 1, width, minWidth, ...rest } = props
 
   const labelStyles = {
     display: 'flex',
     flexDirection: 'row',
-    minWidth: '100px',
-    width: '30%',
-    marginEnd: 2,
-    py: 2,
-    color: useColorModeValue('gray.500', 'gray.400'),
     ...styles.label,
+  }
+
+  if (width) {
+    labelStyles.minWidth = minWidth || 'auto'
+    labelStyles.width = width
   }
 
   return (
@@ -103,7 +103,7 @@ export const PropertyLabel = forwardRef<PropertyProps, 'dt'>((props, ref) => {
       {...rest}
       className={cx('sui-property__label', props.className)}
     >
-      <chakra.span flex="1" noOfLines={1}>
+      <chakra.span flex="1" noOfLines={noOfLines}>
         {children}
       </chakra.span>
     </chakra.dt>

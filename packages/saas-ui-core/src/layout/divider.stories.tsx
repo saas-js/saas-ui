@@ -1,7 +1,7 @@
 import { Container, Stack } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { Divider } from './divider'
+import { Divider, DividerLabel } from './divider'
 
 export default {
   title: 'Components/Layout/Divider',
@@ -18,13 +18,17 @@ export const Basic = () => (
   <Stack spacing="8">
     <Divider />
 
-    <Divider label="Divider label" />
+    <Divider>
+      <DividerLabel>Divider label</DividerLabel>
+    </Divider>
   </Stack>
 )
 
 export const Vertical = () => (
   <Stack alignItems="start" direction="row" height="200px">
     <Divider orientation="vertical" />
-    <Divider orientation="vertical" label="Divider label" />
+    <Divider orientation="vertical">
+      <DividerLabel>Divider label</DividerLabel>
+    </Divider>
   </Stack>
 )

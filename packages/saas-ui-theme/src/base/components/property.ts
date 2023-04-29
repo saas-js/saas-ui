@@ -6,9 +6,15 @@ const { definePartsStyle, defineMultiStyleConfig } =
 export const propertyTheme = defineMultiStyleConfig({
   baseStyle: {
     label: {
-      color: 'muted',
+      display: 'flex',
+      flexDirection: 'row',
+      minWidth: '100px',
+      width: '30%',
+      marginEnd: 2,
+      py: 2,
+      color: 'gray.500',
       _dark: {
-        color: 'muted',
+        color: 'gray.400',
       },
     },
   },

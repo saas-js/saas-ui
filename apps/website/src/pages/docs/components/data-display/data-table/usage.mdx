@@ -20,35 +20,75 @@ import { DataTable } from '@saas-ui/react'
 
 ## Usage
 
-DataTable uses `@tanstack/react-table` internally and supports all TableOptions which allows you to extend the DataTable with pagination, column resizing, filtering and more, see the [TanStack table documentation](https://tanstack.com/table/v8/docs/api/core/table) for more information.
+DataTable uses `@tanstack/react-table` v8 internally and supports all TableOptions which allows you to extend the DataTable with pagination, column resizing, filtering and more, see the [TanStack table documentation](https://tanstack.com/table/v8/docs/api/core/table) for more information.
 
-### Basic DataTable
+Check out the [full example](#full-example) on the bottom of this page to see how to format columns and your data.
+
+### Basic
 
 ```jsx
-<Box overflowX="auto">
-  <DataTable columns={dataTable.columns} data={dataTable.data} />
-</Box>
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={dataTable.columns} data={dataTable.data} />
+    </Box>
+  )
+}
+```
+
+### Table sizing
+
+The table component is available in 3 sizes: `sm`, `md`, `lg`. The default size is `md`.
+
+```jsx
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={dataTable.columns} data={dataTable.data} size="sm" />
+    </Box>
+  )
+}
 ```
 
 ### Sortable
 
 ```jsx
-<Box overflowX="auto">
-  <DataTable columns={dataTable.columns} data={dataTable.data} isSortable />
-</Box>
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Sortable() {
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={dataTable.columns} data={dataTable.data} isSortable />
+    </Box>
+  )
+}
 ```
 
 ### Selectable
 
 ```jsx
-<Box overflowX="auto">
-  <DataTable
-    columns={dataTable.columns}
-    data={dataTable.data}
-    isSelectable
-    onSelectedRowsChange={(selected) => console.log(selected)}
-  />
-</Box>
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Selectable() {
+  return (
+    <Box overflowX="auto">
+      <DataTable
+        columns={dataTable.columns}
+        data={dataTable.data}
+        isSelectable
+        onSelectedRowsChange={(selected) => console.log(selected)}
+      />
+    </Box>
+  )
+}
 ```
 
 ### Access internal state
@@ -57,19 +97,25 @@ You can access the react-table `TableInstance` by passing a ref to `DataTable`.
 Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
 
 ```jsx
-function TableState() {
+import { Box, Button, ButtonGroup } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function TableState() {
   const tableRef = useRef(null)
 
   return (
     <Box overflowX="auto">
-      <Button
-        onClick={() =>
-          tableRef.current.toggleAllRowsSelected(
-            !tableRef.current.getIsAllRowsSelected()
-          )
-        }
-        label="Select all rows"
-      />
+      <ButtonGroup mb="4">
+        <Button
+          onClick={() =>
+            tableRef.current.toggleAllRowsSelected(
+              !tableRef.current.getIsAllRowsSelected()
+            )
+          }
+        >
+          Select all rows
+        </Button>
+      </ButtonGroup>
       <DataTable
         instanceRef={tableRef}
         columns={dataTable.columns}
@@ -81,20 +127,9 @@ function TableState() {
 }
 ```
 
-### Typescript
+### Full example
 
-<Info>
-  If you run into type errors, you might need to add `react-table-config.d.ts`
-  to your `src`. To use the default DataTable config you can simply re-export
-  the config from `@saas-ui/data-table`.
-</Info>
-
-```ts
-// Copy to: src/types/react-table-config.d.ts
-export * from '@saas-ui/data-table/src/react-table-config.d'
-```
-
-```tsx
+```jsx
 import { ColumnDef } from '@saas-ui/react'
 
 interface ExampleData {
@@ -131,5 +166,7 @@ const data: ExampleData[] = [
   },
 ]
 
-<DataTable<ExampleData> columns={columns} data={data} />
+export default function TypeScript() {
+  return <DataTable<ExampleData> columns={columns} data={data} />
+}
 ```

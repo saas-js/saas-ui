@@ -18,7 +18,7 @@ Dividers are used to visually separate content in a list or group.
 ## Import
 
 ```js
-import { Divider } from '@saas-ui/react'
+import { Divider, DividerLabel } from '@saas-ui/react'
 ```
 
 ## Usage
@@ -26,8 +26,18 @@ import { Divider } from '@saas-ui/react'
 The `Divider` displays a thin horizontal or vertical line, and renders a `hr`
 tag.
 
+## Basic
+
 ```jsx
 <Divider />
+```
+
+## Variants
+
+The `Divider` component comes with 2 variants: `solid` and `dashed`.
+
+```jsx
+<Divider variant="dashed" />
 ```
 
 ## Label
@@ -36,12 +46,14 @@ You can add a text label that will be aligned in the center of the `Divider`,
 this will render a `div` tag.
 
 ```jsx
-<Divider label="Divider" />
+<Divider>
+  <DividerLabel>Divider</DividerLabel>
+</Divider>
 ```
 
 ### Divider Orientation
 
-Pass the `orientation` prop and set it to either `horizontal` or `vertical`.
+Pass the `orientation` prop and set it to either `horizontal` or `vertical`. The default is `horizontal`.
 
 ```jsx
 <Divider orientation="horizontal" />
@@ -51,22 +63,47 @@ If the vertical orientation is used, make sure that the parent element is
 assigned a height.
 
 ```jsx
-<Center height="50px">
-  <Divider orientation="vertical" />
-</Center>
+import { Center } from '@chakra-ui/react'
+import { Divider } from '@saas-ui/react'
+
+export default function Vertical() {
+  return (
+    <Center height="50px">
+      <Divider orientation="vertical" />
+    </Center>
+  )
+}
 ```
 
+Vertical with a label.
+
 ```jsx
-<Center height="100px">
-  <Divider orientation="vertical" label="Divider" />
-</Center>
+import { Center } from '@chakra-ui/react'
+import { Divider, DividerLabel } from '@saas-ui/react'
+
+export default function VerticalWithLabel() {
+  return (
+    <Center height="100px">
+      <Divider orientation="vertical">
+        <DividerLabel>Label</DividerLabel>
+      </Divider>
+    </Center>
+  )
+}
 ```
 
 ## Composition
 
 ```jsx
-<Stack direction="row" h="100px" p={4}>
-  <Divider orientation="vertical" />
-  <Text>Saas UI</Text>
-</Stack>
+import { Stack, Text } from '@chakra-ui/react'
+import { Divider, DividerLabel } from '@saas-ui/react'
+
+export default function Composition() {
+  return (
+    <Stack direction="row" h="100px" p={4}>
+      <Divider orientation="vertical" />
+      <Text>Saas UI</Text>
+    </Stack>
+  )
+}
 ```

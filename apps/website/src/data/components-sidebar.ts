@@ -211,7 +211,6 @@ const sidebar = {
         {
           title: 'Command',
           path: '/docs/components/data-display/command',
-          pro: true,
         },
       ],
     },
@@ -258,7 +257,7 @@ const sidebar = {
           path: '/docs/components/feedback/snackbar',
         },
         {
-          title: 'Loader',
+          title: 'LoadingOverlay',
           path: '/docs/components/feedback/loader',
         },
       ],

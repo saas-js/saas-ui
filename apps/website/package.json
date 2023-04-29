@@ -48,6 +48,7 @@
     "prism-react-renderer": "^1.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-frame-component": "^5.2.6",
     "react-icons": "^4.8.0",
     "react-intersection-observer": "^9.4.3",
     "react-live-runner": "^1.0.5",

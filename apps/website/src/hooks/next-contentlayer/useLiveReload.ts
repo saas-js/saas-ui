@@ -1,5 +1,5 @@
-import { addMessageListener } from 'next/dist/client/dev/error-overlay/websocket.js'
-import { useRouter } from 'next/router.js'
+import { addMessageListener } from 'next/dist/client/dev/error-overlay/websocket'
+import { useRouter } from 'next/router'
 // NOTE use ESM/CommonJS compat import here until resolved: https://github.com/facebook/react/issues/11503
 import React from 'react'
 
@@ -29,8 +29,12 @@ export const useLiveReload = () => {
       if (isRouteActive && e.type === 'message' && typeof e.data === 'string') {
         const data = JSON.parse(e.data)
 
-        const dataHasChanged = data.hash !== lastBuiltHash && data.hash !== undefined
-        if ((data.action === 'built' || data.action === 'sync') && dataHasChanged) {
+        const dataHasChanged =
+          data.hash !== lastBuiltHash && data.hash !== undefined
+        if (
+          (data.action === 'built' || data.action === 'sync') &&
+          dataHasChanged
+        ) {
           router.replace(routePathRef.current!, undefined, { scroll: false })
 
           lastBuiltHash = data.hash

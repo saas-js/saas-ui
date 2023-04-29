@@ -1,2 +1,2 @@
-export * from './useLiveReload.js'
-export * from './useMDXComponent.js'
+export * from './useLiveReload'
+export * from './useMDXComponent'

@@ -3,7 +3,7 @@ import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { allDocs, Doc } from '.contentlayer/generated'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from '@/hooks/next-contentlayer'
 import Layout from 'src/layouts/'
 import {
   getComponentTabsData,

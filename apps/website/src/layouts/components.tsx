@@ -1,7 +1,7 @@
 import { Box, HStack, Stack } from '@chakra-ui/react'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { Doc } from 'contentlayer/generated'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from '@/hooks/next-contentlayer'
 import NextLink from 'next/link'
 import { ReactNode } from 'react'
 import { TabsData } from '@/docs/utils/contentlayer-utils'

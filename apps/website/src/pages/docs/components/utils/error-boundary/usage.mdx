@@ -16,7 +16,7 @@ It allows your to log the errors and display a fallback UI.
 ## Import
 
 ```js
-import { ErrorBoundary } from '@saas-ui/pro'
+import { ErrorBoundary } from '@saas-ui/react'
 ```
 
 ## Usage
@@ -24,7 +24,9 @@ import { ErrorBoundary } from '@saas-ui/pro'
 ### Basic setup
 
 ```tsx
-function CustomComponent({ children }) {
+import { ErrorBoundary } from '@saas-ui/react'
+
+export default function CustomComponent({ children }) {
   return <ErrorBoundary>{children}</ErrorBoundary>
 }
 ```
@@ -32,7 +34,9 @@ function CustomComponent({ children }) {
 Errors can picked up by setting the `onError` handler of `SaasProvider`.
 
 ```tsx
-function App({ children }) {
+import { SaasProvider } from '@saas-ui/react'
+
+export default function App({ children }) {
   const onError = React.useCallback((error) => {
     console.log(error)
   }, [])
@@ -46,10 +50,12 @@ function App({ children }) {
 By default a `Something went wrong.` message will be down. Customize the error message with a custom error component.
 
 ```tsx
-function CustomComponent({ children }) {
+import { ErrorBoundary, EmptyState } from '@saas-ui/react'
+
+export default function CustomComponent({ children }) {
   return (
     <ErrorBoundary
-      errorComponent={<EmptyState title="Oops this doesn't look good" />}
+      fallback={<EmptyState title="Oops this doesn't look good" />}
     >
       {children}
     </ErrorBoundary>

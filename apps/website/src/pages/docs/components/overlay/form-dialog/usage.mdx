@@ -14,7 +14,7 @@ description: A modal dialog that renders a form.
 ## Import
 
 ```ts
-import { FormDialog } from '@saas-ui/modals'
+import { FormDialog } from '@saas-ui/react'
 ```
 
 ## Best practises
@@ -30,7 +30,11 @@ import { FormDialog } from '@saas-ui/modals'
 ## Usage
 
 ```jsx
-function Page() {
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
   const disclosure = useDisclosure()
 
   const onSubmit = async (data) => {
@@ -43,20 +47,22 @@ function Page() {
 
       <FormDialog
         title="New post"
-        defaultValues={{ title: '' }}
+        defaultValues={{ title: '', description: '' }}
         {...disclosure}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <Field
-            name="title"
-            label="Title"
-            type="text"
-            rules={{ required: 'Title is required' }}
-            autoFocus
-          />
-          <Field name="description" type="textarea" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              type="text"
+              rules={{ required: 'Title is required' }}
+              autoFocus
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
       </FormDialog>
     </>
   )
@@ -68,7 +74,11 @@ function Page() {
 Use `initialFocusRef` for fields that don't support `autoFocus`.
 
 ```jsx
-function Page() {
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
   const disclosure = useDisclosure()
 
   const initialRef = useRef()
@@ -119,13 +129,19 @@ function Page() {
 When you don't pass any children and supply a schema, the fields will be auto rendered.
 
 ```jsx
-function Page() {
-  const disclosure = useDisclosure()
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+import { yupForm } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
 
-  const schema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
-    description: Yup.string().label('Description').meta({ type: 'textarea' }),
-  })
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  description: yup.string().label('Description').meta({ type: 'textarea' }),
+})
+
+export default function Page() {
+  const disclosure = useDisclosure()
 
   const onSubmit = async (data) => {
     disclosure.onClose()
@@ -153,14 +169,18 @@ function Page() {
 ### Custom footer
 
 ```jsx
-function Page() {
+import { Button, useDisclosure, MenuItem } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
   const disclosure = useDisclosure()
 
   const initialRef = React.useRef()
 
   const footer = (
     <ModalFooter>
-      <SubmitButton label="Save post" />
+      <SubmitButton>Save post</SubmitButton>
     </ModalFooter>
   )
 
@@ -185,15 +205,17 @@ function Page() {
         initialFocusRef={initialRef}
         footer={footer}
       >
-        <FormLayout>
-          <Field
-            name="title"
-            label="Title"
-            rules={{ required: 'Title is required' }}
-            ref={initialRef}
-          />
-          <Field name="description" type="textarea" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+              ref={initialRef}
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
       </FormDialog>
     </>
   )

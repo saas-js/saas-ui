@@ -25,7 +25,7 @@ import {
   BenefitsModalHeader,
   BenefitsModalBody,
   BenefitsModalFooter,
-} from '@saas-ui/pro'
+} from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -33,29 +33,33 @@ import {
 ### Default modal
 
 ```jsx
-function BasicUsage() {
+import { Button, Icon, Text, useDisclosure } from '@chakra-ui/react'
+import {
+  BenefitsModal,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui-pro/react'
+import { FiInfo } from 'react-icons/fi'
+
+export default function Basic() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Button onClick={onOpen}>Show benefits</Button>
+      <Button onClick={onOpen}>Show BenefitsModal</Button>
 
       <BenefitsModal isOpen={isOpen} onClose={onClose}>
-        <BenefitsModalMedia
-          src="/onboarding/undraw_building_blocks_re_5ahy.svg"
-          mx="16"
-          my="8"
-        />
-        <BenefitsModalHeader>Check out this new feature</BenefitsModalHeader>
+        <BenefitsModalHeader flexDirection="column">
+          <Icon as={FiInfo} boxSize="8" mb="4" color="primary.500" />
+          <Text>Check out this new feature</Text>
+        </BenefitsModalHeader>
         <BenefitsModalBody>
           Benefits modals can be used to highlight new features and their
           benefits in your app. Embed illustrations or videos to make ideas more
           accessible.
         </BenefitsModalBody>
         <BenefitsModalFooter>
-          <BenefitsModalActions>
-            <Button onClick={onClose}>Dismiss</Button>
-            <Button variant="primary">Get started</Button>
-          </BenefitsModalActions>
+          <Button colorScheme="primary">Get started</Button>
         </BenefitsModalFooter>
       </BenefitsModal>
     </>
@@ -66,20 +70,25 @@ function BasicUsage() {
 ### Centered content
 
 ```jsx
-function BasicUsage() {
+import { Button, Icon, Text, useDisclosure } from '@chakra-ui/react'
+import {
+  BenefitsModal,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui-pro/react'
+import { FiInfo } from 'react-icons/fi'
+
+export default function Centered() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen}>Show benefits</Button>
 
       <BenefitsModal isOpen={isOpen} onClose={onClose}>
-        <BenefitsModalMedia
-          src="/onboarding/undraw_building_blocks_re_5ahy.svg"
-          mx="16"
-          my="8"
-        />
-        <BenefitsModalHeader textAlign="center">
-          Check out this new feature
+        <BenefitsModalHeader flexDirection="column" textAlign="center">
+          <Icon as={FiInfo} boxSize="8" mb="4" color="primary.500" />
+          <Text>Check out this new feature</Text>
         </BenefitsModalHeader>
         <BenefitsModalBody textAlign="center">
           Benefits modals can be used to highlight new features and their

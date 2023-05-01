@@ -8,7 +8,6 @@ description: Side navigation, commonly used as the primary navigation.
   github={{ package: 'saas-ui-core/src/sidebar' }}
   npm={{ package: '@saas-ui/core' }}
   theme={{ componentName: 'sidebar' }}
-  beta
 />
 
 ## Import
@@ -421,6 +420,9 @@ export default function Page() {
             bg="purple.500"
             borderWidth="0"
             spacing="3"
+            _dark={{
+              bg: 'purple.500',
+            }}
           >
             <SidebarSection>
               <Image

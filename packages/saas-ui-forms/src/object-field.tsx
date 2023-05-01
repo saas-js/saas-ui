@@ -12,6 +12,7 @@ import { BaseFieldProps } from './types'
 
 import { mapNestedFields } from './utils'
 import { FieldPath, FieldValues } from 'react-hook-form'
+import { useFieldProps } from './form-context'
 
 export interface ObjectFieldProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -33,13 +34,29 @@ export const FormLegend = (props: FormLabelProps) => {
  * @see Docs https://saas-ui.dev/docs/components/forms/object-field
  */
 export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
-  const { name, label, hideLabel, children, columns, spacing, ...fieldProps } =
-    props
+  const {
+    name,
+    label,
+    hideLabel: hideLabelProp,
+    children,
+    columns: columnsProp,
+    spacing: spacingProp,
+    ...fieldProps
+  } = props
+
+  const { hideLabel, columns, spacing, ...overrides } = useFieldProps(
+    name
+  ) as Omit<ObjectFieldProps, 'name'>
 
   return (
-    <FormControl name={name} as="fieldset" {...fieldProps}>
-      <FormLegend display={hideLabel ? 'none' : 'block'}>{label}</FormLegend>
-      <FormLayout columns={columns} gridGap={spacing}>
+    <FormControl name={name} as="fieldset" {...fieldProps} {...overrides}>
+      <FormLegend display={hideLabelProp || hideLabel ? 'none' : 'block'}>
+        {label}
+      </FormLegend>
+      <FormLayout
+        columns={columnsProp || columns}
+        gridGap={spacingProp || spacing}
+      >
         {mapNestedFields(name, children)}
       </FormLayout>
     </FormControl>

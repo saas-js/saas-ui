@@ -1,5 +1,15 @@
 # website
 
+## 1.3.6
+
+### Patch Changes
+
+- Updated dependencies [b2302a3]
+  - @saas-ui/command-bar@0.1.1
+  - @saas-ui/palette@1.3.1
+  - @saas-ui/react@1.9.2
+  - @saas-ui/web3@1.4.1
+
 ## 1.3.5
 
 ### Patch Changes

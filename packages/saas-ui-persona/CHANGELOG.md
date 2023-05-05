@@ -1,5 +1,12 @@
 # @saas-ui/persona
 
+## 1.4.1
+
+### Patch Changes
+
+- f9234fc: Fixed issue where error would be thrown when unsupport presence value is passed.
+- b2302a3: Add types to package.json exports
+
 ## 1.4.0
 
 ### Minor Changes

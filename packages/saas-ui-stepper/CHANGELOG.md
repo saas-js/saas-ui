@@ -1,5 +1,14 @@
 # @saas-ui/stepper
 
+## 1.4.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/collapse@1.4.1
+  - @saas-ui/react-utils@1.2.1
+
 ## 1.4.0
 
 ### Minor Changes

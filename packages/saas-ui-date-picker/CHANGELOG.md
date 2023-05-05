@@ -1,5 +1,13 @@
 # @saas-ui/date-picker
 
+## 0.8.8
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/modals@1.5.6
+
 ## 0.8.7
 
 ### Patch Changes

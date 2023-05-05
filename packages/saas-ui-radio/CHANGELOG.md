@@ -1,5 +1,11 @@
 # @saas-ui/radio
 
+## 1.4.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+
 ## 1.4.1
 
 ### Patch Changes

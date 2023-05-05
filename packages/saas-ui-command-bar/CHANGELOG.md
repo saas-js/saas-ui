@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.1.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+
 ## 0.1.0
 
 ### Minor Changes

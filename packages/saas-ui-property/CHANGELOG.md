@@ -1,5 +1,13 @@
 # @saas-ui/property
 
+## 1.4.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/list@1.4.1
+
 ## 1.4.0
 
 ### Minor Changes

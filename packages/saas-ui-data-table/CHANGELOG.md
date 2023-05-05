@@ -1,5 +1,13 @@
 # @saas-ui/data-table
 
+## 1.4.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/layout@1.4.2
+
 ## 1.4.1
 
 ### Patch Changes

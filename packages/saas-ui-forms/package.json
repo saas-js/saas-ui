@@ -6,6 +6,7 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/types.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {
@@ -13,6 +14,7 @@
     },
     "./yup": {
       "require": "./dist/yup/index.js",
+      "types": "./dist/yup/index.d.ts",
       "import": "./dist/yup/index.modern.mjs"
     },
     "./yup/src": {
@@ -20,6 +22,7 @@
     },
     "./zod": {
       "require": "./dist/zod/index.js",
+      "types": "./dist/zod/index.d.ts",
       "import": "./dist/zod/index.modern.mjs"
     },
     "./zod/src": {
@@ -27,6 +30,7 @@
     },
     "./ajv": {
       "require": "./dist/ajv/index.js",
+      "types": "./dist/ajv/index.d.ts",
       "import": "./dist/ajv/index.modern.mjs"
     },
     "./ajv/src": {

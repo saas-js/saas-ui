@@ -6,14 +6,17 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/types.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./services/supabase": {
       "require": "./dist/supabase.js",
+      "types": "./dist/services/supbase.d.ts",
       "import": "./dist/supabase.modern.mjs"
     },
     "./services/magic-link": {
       "require": "./dist/magic-link.js",
+      "types": "./dist/services/magic-link.d.ts",
       "import": "./dist/magic-link.modern.mjs"
     },
     "./src": {

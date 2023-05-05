@@ -1,5 +1,13 @@
 # @saas-ui/hotkeys
 
+## 1.4.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/search-input@1.4.2
+
 ## 1.4.1
 
 ### Patch Changes

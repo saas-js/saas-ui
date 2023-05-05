@@ -1,5 +1,16 @@
 # @saas-ui/auth
 
+## 1.7.6
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/forms@1.5.5
+  - @saas-ui/hooks@1.2.2
+  - @saas-ui/layout@1.4.3
+
 ## 1.7.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @saas-ui/provider
 
+## 1.2.3
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/theme@1.8.2
+
 ## 1.2.2
 
 ### Patch Changes

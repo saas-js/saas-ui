@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.1.2
+
+### Patch Changes
+
+- Fix types path
+
 ## 0.1.1
 
 ### Patch Changes

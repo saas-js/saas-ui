@@ -1,5 +1,11 @@
 # @saas-ui/radio
 
+## 1.4.3
+
+### Patch Changes
+
+- Fix types path
+
 ## 1.4.2
 
 ### Patch Changes

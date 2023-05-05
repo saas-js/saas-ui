@@ -1,5 +1,14 @@
 # @saas-ui/stepper
 
+## 1.4.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/collapse@1.4.2
+  - @saas-ui/react-utils@1.2.2
+
 ## 1.4.1
 
 ### Patch Changes

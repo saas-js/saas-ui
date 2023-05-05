@@ -1,5 +1,15 @@
 # @saas-ui/sidebar
 
+## 0.9.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/collapse@1.4.2
+  - @saas-ui/provider@1.2.3
+  - @saas-ui/react-utils@1.2.2
+
 ## 0.9.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @saas-ui/layout
 
+## 1.4.3
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/provider@1.2.3
+
 ## 1.4.2
 
 ### Patch Changes

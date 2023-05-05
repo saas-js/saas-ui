@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 1.2.2
+
+### Patch Changes
+
+- Fix types path
+
 ## 1.2.1
 
 ### Patch Changes

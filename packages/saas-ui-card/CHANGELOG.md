@@ -1,5 +1,13 @@
 # @saas-ui/card
 
+## 1.5.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+
 ## 1.5.1
 
 ### Patch Changes

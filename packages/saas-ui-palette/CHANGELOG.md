@@ -1,5 +1,11 @@
 # 0.2.0
 
+## 1.3.2
+
+### Patch Changes
+
+- Fix types path
+
 ## 1.3.1
 
 ### Patch Changes

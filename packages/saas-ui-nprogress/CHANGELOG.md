@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 1.4.2
+
+### Patch Changes
+
+- Fix types path
+
 ## 1.4.1
 
 ### Patch Changes

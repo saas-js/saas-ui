@@ -1,5 +1,40 @@
 # @saas-ui/react
 
+## 1.9.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/app-shell@1.1.2
+  - @saas-ui/auth@1.7.6
+  - @saas-ui/banner@1.4.2
+  - @saas-ui/button@1.4.2
+  - @saas-ui/card@1.5.2
+  - @saas-ui/collapse@1.4.2
+  - @saas-ui/data-table@1.4.3
+  - @saas-ui/forms@1.5.5
+  - @saas-ui/hooks@1.2.2
+  - @saas-ui/hotkeys@1.4.2
+  - @saas-ui/input-right-button@1.4.2
+  - @saas-ui/layout@1.4.3
+  - @saas-ui/list@1.4.2
+  - @saas-ui/menu@1.4.3
+  - @saas-ui/modals@1.5.7
+  - @saas-ui/nprogress@1.4.2
+  - @saas-ui/number-input@1.4.2
+  - @saas-ui/palette@1.3.2
+  - @saas-ui/password-input@1.4.2
+  - @saas-ui/persona@1.4.2
+  - @saas-ui/pin-input@1.4.2
+  - @saas-ui/property@1.4.2
+  - @saas-ui/provider@1.2.3
+  - @saas-ui/radio@1.4.3
+  - @saas-ui/search-input@1.4.2
+  - @saas-ui/select@1.4.2
+  - @saas-ui/snackbar@1.2.2
+  - @saas-ui/stepper@1.4.2
+  - @saas-ui/theme@1.8.2
+
 ## 1.9.2
 
 ### Patch Changes

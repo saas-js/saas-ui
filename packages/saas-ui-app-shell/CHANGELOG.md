@@ -1,5 +1,11 @@
 # @saas-ui/app-shell
 
+## 1.1.2
+
+### Patch Changes
+
+- Fix types path
+
 ## 1.1.1
 
 ### Patch Changes

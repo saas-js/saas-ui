@@ -1,5 +1,13 @@
 # @saas-ui/data-table
 
+## 1.4.3
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/layout@1.4.3
+
 ## 1.4.2
 
 ### Patch Changes

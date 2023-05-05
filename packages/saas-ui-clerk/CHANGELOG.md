@@ -1,5 +1,13 @@
 # @saas-ui/clerk
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/auth@1.7.6
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,12 +1,12 @@
 {
   "name": "@saas-ui/menu",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Menu Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "types": "./dist/types.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

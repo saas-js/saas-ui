@@ -1,5 +1,14 @@
 # @saas-ui/menu
 
+## 1.4.3
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/provider@1.2.3
+
 ## 1.4.2
 
 ### Patch Changes

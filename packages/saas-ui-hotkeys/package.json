@@ -1,12 +1,12 @@
 {
   "name": "@saas-ui/hotkeys",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Easy manageable keyboard shortcuts for Chakra UI",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "types": "./dist/types.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

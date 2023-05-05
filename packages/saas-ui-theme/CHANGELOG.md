@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 1.8.2
+
+### Patch Changes
+
+- Fix types path
+
 ## 1.8.1
 
 ### Patch Changes

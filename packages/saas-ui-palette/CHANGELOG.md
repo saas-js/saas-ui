@@ -1,5 +1,17 @@
 # 0.2.0
 
+## 1.3.2
+
+### Patch Changes
+
+- Fix types path
+
+## 1.3.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+
 ## 1.3.0
 
 ### Minor Changes

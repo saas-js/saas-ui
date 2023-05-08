@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/nprogress",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "description": "Nprogress Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

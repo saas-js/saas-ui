@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/theme",
-  "version": "1.8.0",
+  "version": "1.8.2",
   "description": "Theme Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

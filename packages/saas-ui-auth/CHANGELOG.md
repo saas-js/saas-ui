@@ -1,5 +1,27 @@
 # @saas-ui/auth
 
+## 1.7.6
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/forms@1.5.5
+  - @saas-ui/hooks@1.2.2
+  - @saas-ui/layout@1.4.3
+
+## 1.7.5
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+  - @saas-ui/forms@1.5.4
+  - @saas-ui/hooks@1.2.1
+  - @saas-ui/layout@1.4.2
+
 ## 1.7.4
 
 ### Patch Changes

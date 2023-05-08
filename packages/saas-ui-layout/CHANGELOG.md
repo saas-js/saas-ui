@@ -1,5 +1,21 @@
 # @saas-ui/layout
 
+## 1.4.3
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/provider@1.2.3
+
+## 1.4.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/provider@1.2.2
+
 ## 1.4.1
 
 ### Patch Changes

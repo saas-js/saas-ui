@@ -1,19 +1,22 @@
 {
   "name": "@saas-ui/auth",
-  "version": "1.7.4",
+  "version": "1.7.6",
   "description": "Authentication provider and components for Chakra UI",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./services/supabase": {
       "require": "./dist/supabase.js",
+      "types": "./dist/services/supbase.d.ts",
       "import": "./dist/supabase.modern.mjs"
     },
     "./services/magic-link": {
       "require": "./dist/magic-link.js",
+      "types": "./dist/services/magic-link.d.ts",
       "import": "./dist/magic-link.modern.mjs"
     },
     "./src": {

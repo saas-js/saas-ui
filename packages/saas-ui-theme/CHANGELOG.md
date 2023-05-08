@@ -1,5 +1,17 @@
 # @saas-ui/theme
 
+## 1.8.2
+
+### Patch Changes
+
+- Fix types path
+
+## 1.8.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+
 ## 1.8.0
 
 ### Minor Changes

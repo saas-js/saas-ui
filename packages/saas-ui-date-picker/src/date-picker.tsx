@@ -60,7 +60,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
 
   const {
     locale: localeProp,
-    timeZone = getLocalTimeZone(),
+    timeZone = getLocalTimeZone() || 'UTC',
     hourCycle = 12,
   } = props
 

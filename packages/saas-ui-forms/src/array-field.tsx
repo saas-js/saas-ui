@@ -30,6 +30,7 @@ import {
 import { FieldPath, FieldValues } from 'react-hook-form'
 import { isFunction } from '@chakra-ui/utils'
 import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { useFieldProps } from './form-context'
 
 export interface ArrayFieldButtonProps extends ButtonProps {}
 
@@ -262,12 +263,14 @@ export const ArrayFieldContainer = React.forwardRef(
     }: ArrayFieldContainerProps,
     ref: React.ForwardedRef<UseArrayFieldReturn>
   ) => {
+    const overrides = useFieldProps(name)
+
     const context = useArrayField({
       name,
       defaultValue,
       keyName,
-      min,
-      max,
+      min: min || (overrides as any)?.min,
+      max: max || (overrides as any)?.max,
     })
 
     // This exposes the useArrayField api through the forwarded ref
@@ -275,7 +278,7 @@ export const ArrayFieldContainer = React.forwardRef(
 
     return (
       <ArrayFieldProvider value={context}>
-        <BaseField name={name} {...fieldProps}>
+        <BaseField name={name} {...fieldProps} {...overrides}>
           {children}
         </BaseField>
       </ArrayFieldProvider>

@@ -18,7 +18,7 @@ In the root of your project edit `.yarnrc.yml` and add the following lines.
 
 ```yml
 npmScopes:
-  saas-ui:
+  saas-ui-pro:
     npmRegistryServer: 'https://npm.saas-ui.dev'
 npmRegistries:
   //npm.saas-ui.dev:
@@ -34,6 +34,6 @@ export SAAS_UI_TOKEN="github-username:license-key"
 
 The same configuration can be used for CI and deployments.
 
-Run `yarn add @saas-ui/pro` to see if the configuration was succesful.
+Run `yarn add @saas-ui-pro/react` to see if the configuration was succesful.
 
 If you have issues getting this to work, try base64 encoding your auth token. You can create and copy the encoded token above.

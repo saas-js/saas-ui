@@ -11,7 +11,7 @@ description: A set of actions to perform on one or more selected items.
 - `BulkActions`: The container component, manages state and composition.
 
 ```ts
-import { BulkActions } from '@saas-ui/pro'
+import { BulkActions } from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -21,112 +21,116 @@ The BulkActions component is best used in combination with DataGrid.
 
 ### Basic
 
-```jsx
-<Box position="relative" height="100px">
-  <BulkActions
-    selections={['1']}
-    actions={
-      <>
-        <Button>Delete</Button>
-      </>
-    }
-  />
-</Box>
+```jsx overflow=auto height=140px
+<BulkActions selections={['1']} width="400px">
+  <Button>Delete</Button>
+</BulkActions>
 ```
 
 ### Customize title
 
 The title can be customized for localization or specifying what is selected.
 
-```jsx
-<Box position="relative" height="100px">
-  <BulkActions
-    title=":selections email(s) selected"
-    selections={['1']}
-    actions={
-      <>
-        <Button>Delete</Button>
-      </>
-    }
-  />
-</Box>
+```jsx overflow=auto height=140px
+<BulkActions
+  title=":selections email(s) selected"
+  selections={['1']}
+  width="400px"
+>
+  <Button>Delete</Button>
+</BulkActions>
 ```
 
 ### Multiple actions
 
-```jsx
-<Box position="relative" height="100px">
-  <BulkActions
-    selections={['1']}
-    actions={
-      <>
-        <Menu>
-          <MenuButton as={Button}>Move to</MenuButton>
-          <Portal>
-            <MenuList>
-              <MenuItem>Inbox</MenuItem>
-              <MenuItem>Spam</MenuItem>
-            </MenuList>
-          </Portal>
-        </Menu>
-        <Button>Delete</Button>
-      </>
-    }
-  />
-</Box>
+```jsx overflow=auto height=140px
+import {
+  Button,
+  Icon,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Portal,
+} from '@chakra-ui/react'
+import { BulkActions } from '@saas-ui-pro/react'
+import { FiArchive, FiTrash } from 'react-icons/fi'
+
+export default function MultipleActions() {
+  return (
+    <BulkActions selections={['1']} width="400px">
+      <Menu>
+        <MenuButton as={Button} leftIcon={<Icon as={FiArchive} />}>
+          Move to
+        </MenuButton>
+        <Portal>
+          <MenuList>
+            <MenuItem>Inbox</MenuItem>
+            <MenuItem>Spam</MenuItem>
+          </MenuList>
+        </Portal>
+      </Menu>
+      <Button leftIcon={<Icon as={FiTrash} />}>Delete</Button>
+    </BulkActions>
+  )
+}
 ```
 
 ### Position & transtion
 
-```jsx
-function Position() {
+You can change the transition animation using `motionPreset`, supported presets are `slideOutTop`, `slideOutBottom`, `fade`, `scale`, `none`.
+
+```jsx height=140px
+import { Box, Button } from '@chakra-ui/react'
+import { BulkActions } from '@saas-ui-pro/react'
+
+export default function Position() {
   const [state, setState] = useState(['1'])
   return (
-    <Box position="relative" height="100px">
+    <>
       <Button onClick={() => setState(['1'])}>Select</Button>
       <BulkActions
         selections={state}
-        actions={
-          <>
-            <Button onClick={() => setState([])}>Delete</Button>
-          </>
-        }
-        top="auto"
-        bottom="0"
-        motionPreset="slideOutBottom"
-      />
-    </Box>
+        width="400px"
+        top="10px"
+        bottom="auto"
+        motionPreset="slideOutTop"
+      >
+        <Button onClick={() => setState([])}>Delete</Button>
+      </BulkActions>
+    </>
   )
 }
 ```
 
 ### Custom styles
 
-```jsx
-function CustomStyles() {
+```jsx overflow=hidden height=140px
+import { Box, Button } from '@chakra-ui/react'
+import { BulkActions } from '@saas-ui-pro/react'
+
+export default function CustomStyles() {
   const [state, setState] = useState(['1'])
   return (
-    <Box position="relative" height="100px">
+    <>
       <Button onClick={() => setState(['1'])}>Select</Button>
       <BulkActions
         selections={state}
-        actions={
-          <>
-            <Button onClick={() => setState([])}>Delete</Button>
-          </>
-        }
-        colorScheme="gray"
-        motionPreset="slideOutBottom"
+        colorScheme="primary"
+        motionPreset="slideOutTop"
+        variant="solid"
         sx={{
           bottom: '40px',
-          top: 'auto',
-          right: 'auto',
-          borderRadius: 'lg',
+          top: '0',
+          left: 0,
+          right: 0,
+          bottom: 'auto',
           boxShadow: 'md',
-          maxW: 'container.lg',
         }}
-      />
-    </Box>
+      >
+        <Button onClick={() => setState([])}>Delete</Button>
+      </BulkActions>
+    </>
   )
 }
 ```

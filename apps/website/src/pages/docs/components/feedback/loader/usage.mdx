@@ -1,6 +1,6 @@
 ---
 id: loader
-title: Loader
+title: LoadingOverlay
 description: A loading indicator that fills it's parent.
 ---
 
@@ -18,7 +18,7 @@ renders a `Spinner` in the center.
 ## Import
 
 ```ts
-import { Loader } from '@saas-ui/react'
+import { LoadingOverlay, LoadingSpinner, LoadingText } from '@saas-ui/react'
 ```
 
 ## Usage
@@ -26,7 +26,9 @@ import { Loader } from '@saas-ui/react'
 ### Basic
 
 ```jsx
-<Loader />
+<LoadingOverlay>
+  <LoadingSpinner />
+</LoadingOverlay>
 ```
 
 ### Variants
@@ -36,11 +38,21 @@ import { Loader } from '@saas-ui/react'
 The default variant is `fill`, this will fill it's parent element with `flex="1"` and `height="100%"`.
 
 ```jsx
-<Card title="Users">
-  <CardBody>
-    <Loader />
-  </CardBody>
-</Card>
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+
+export default function Fill() {
+  return (
+    <Card>
+      <CardHeader>Users</CardHeader>
+      <CardBody>
+        <LoadingOverlay>
+          <LoadingSpinner />
+        </LoadingOverlay>
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 #### Overlay
@@ -49,11 +61,21 @@ The `overlay` variant will position the loader `absolute`, on top of it's parent
 When using overlay be sure to add `position="relative"` to the parent element to position it correctly.
 
 ```jsx
-<Card height="100px" title="Users" position="relative">
-  <CardBody>
-    <Loader variant="overlay" />
-  </CardBody>
-</Card>
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+
+export default function Fill() {
+  return (
+    <Card position="relative" height="100px">
+      <CardHeader>Users</CardHeader>
+      <CardBody>
+        <LoadingOverlay variant="overlay">
+          <LoadingSpinner />
+        </LoadingOverlay>
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 #### Fullscreen
@@ -61,7 +83,9 @@ When using overlay be sure to add `position="relative"` to the parent element to
 The `fullscreen` variant will position the loader `fixed`, on top of your app.
 
 ```jsx
-function MyApp() {
+import { Box, Button } from '@chakra-ui/react'
+
+export default function MyApp() {
   const [isLoading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
@@ -75,7 +99,9 @@ function MyApp() {
   return (
     <Box height="200px" pos="relative" p="4">
       <Button onClick={() => setLoading(true)}>Show loader</Button>
-      <Loader variant="fullscreen" isLoading={isLoading} />
+      <LoadingOverlay variant="fullscreen" isLoading={isLoading}>
+        <LoadingSpinner />
+      </LoadingOverlay>
     </Box>
   )
 }
@@ -84,19 +110,26 @@ function MyApp() {
 ### Customize spinner
 
 ```jsx
-<Loader size="lg" color="primary.500" thickness="4px" />
+<LoadingOverlay>
+  <LoadingSpinner size="lg" color="primary.500" thickness="4px" />
+</LoadingOverlay>
 ```
 
 ### Custom spinner
 
 ```jsx
-<Loader spinner={<SaasSpinner />} />
+<LoadingOverlay>
+  <SaasSpinner />
+</LoadingOverlay>
 ```
 
 ### With text
 
 ```jsx
-<Loader spinner={<SaasSpinner />}>Loading...</Loader>
+<LoadingOverlay>
+  <SaasSpinner />
+  <LoadingText>Loading...</LoadingText>
+</LoadingOverlay>
 ```
 
 ## Accessiblity

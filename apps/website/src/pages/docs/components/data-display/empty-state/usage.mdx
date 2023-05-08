@@ -27,33 +27,58 @@ import { EmptyState } from '@saas-ui/react'
 ### Basic EmptyState
 
 ```jsx
-<EmptyState
-  colorScheme="primary"
-  icon={FiUsers}
-  title="No customers yet"
-  description="You haven't imported any customers yet."
-  actions={
-    <>
-      <Button label="Import customers" colorScheme="primary" />
-      <Button label="Create customer" />
-    </>
-  }
-/>
+import { Button } from '@chakra-ui/react'
+import { EmptyState } from '@saas-ui/react'
+import { FiUsers } from 'react-icons/fi'
+
+export default function NoCustomers() {
+  return (
+    <EmptyState
+      colorScheme="primary"
+      icon={FiUsers}
+      title="No customers yet"
+      description="You haven't imported any customers yet."
+      actions={
+        <>
+          <Button colorScheme="primary">Import customers</Button>
+          <Button>Create customer</Button>
+        </>
+      }
+    />
+  )
+}
 ```
 
 ### Composition
 
-```jsx
-<EmptyStateContainer colorScheme="purple">
-  <EmptyStateBody>
-    <EmptyStateIcon as={WarningIcon} />
+In case you want more control you can compose your own EmptyState component.
 
-    <EmptyStateTitle>Whoops, something went wrong</EmptyStateTitle>
-    <EmptyStateDescription>Where do you want to go?</EmptyStateDescription>
-    <EmptyStateActions>
-      <Button colorScheme="purple">Home</Button>
-      <Button variant="ghost">Back</Button>
-    </EmptyStateActions>
-  </EmptyStateBody>
-</EmptyStateContainer>
+```jsx
+import { Button } from '@chakra-ui/react'
+import {
+  EmptyStateContainer,
+  EmptyStateBody,
+  EmptyStateIcon,
+  EmptyStateTitle,
+  EmptyStateDescription,
+  EmptyStateActions,
+} from '@saas-ui/react'
+import { WarningIcon } from '@chakra-ui/icons'
+
+export default function CustomEmptyState() {
+  return (
+    <EmptyStateContainer colorScheme="red">
+      <EmptyStateBody>
+        <EmptyStateIcon as={WarningIcon} />
+
+        <EmptyStateTitle>Whoops, something went wrong</EmptyStateTitle>
+        <EmptyStateDescription>Where do you want to go?</EmptyStateDescription>
+        <EmptyStateActions>
+          <Button>Home</Button>
+          <Button variant="ghost">Back</Button>
+        </EmptyStateActions>
+      </EmptyStateBody>
+    </EmptyStateContainer>
+  )
+}
 ```

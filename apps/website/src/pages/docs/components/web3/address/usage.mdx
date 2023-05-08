@@ -5,14 +5,14 @@ description: Display Web3 addresses in a more readable format.
 ---
 
 <ComponentLinks
-  github={{ package: 'saas-ui-web3' }}
-  npm={{ package: '@saas-ui/web3' }}
+  github={{ package: 'saas-ui-core/src/web3-address' }}
+  npm={{ package: '@saas-ui/core' }}
 />
 
 ## Import
 
 ```ts
-import { Web3Address } from '@saas-ui/web3'
+import { Web3Address } from '@saas-ui/react'
 ```
 
 ## Usage
@@ -34,7 +34,14 @@ import { Web3Address } from '@saas-ui/web3'
 ### In a button
 
 ```jsx
-<Button>
-  <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
-</Button>
+import { Button } from '@chakra-ui/react'
+import { Web3Address } from '@saas-ui/react'
+
+export default function AddressButton() {
+  return (
+    <Button>
+      <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
+    </Button>
+  )
+}
 ```

@@ -34,7 +34,8 @@ import {
   ToolbarButton,
   Command,
   ActiveFilter,
-} from '@saas-ui/pro'
+  PageHeader,
+} from '@saas-ui-pro/react'
 import {
   AppShell,
   Divider,
@@ -99,15 +100,16 @@ const componentIllustrations = {
     </AppShell>
   ),
   page: (
-    <Page
-      title="Contacts"
-      height="100%"
-      toolbar={
-        <Toolbar>
-          <Button variant="primary">Add</Button>
-        </Toolbar>
-      }
-    ></Page>
+    <Page height="100%">
+      <PageHeader
+        title="Contacts"
+        toolbar={
+          <Toolbar>
+            <Button variant="primary">Add</Button>
+          </Toolbar>
+        }
+      />
+    </Page>
   ),
   section: (
     <Section title="Settings" description="Manage your settings">

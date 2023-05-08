@@ -22,59 +22,143 @@ import { ObjectField } from '@saas-ui/react'
 
 ## Usage
 
-### Usage with `AutoForm`
+### Basic
 
-Basic schema with AutoForm
+Auto generated form with object schema
 
 ```jsx
-function CreatePost() {
-  const schema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
-    author: Yup.object()
-      .shape({
-        name: Yup.string().required().label('Name'),
-      })
-      .label('Author')
-      .meta({ hideLabel: true }),
-  })
+import { Form } from '@saas-ui/react'
 
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: 'Please enter a title',
+    },
+  },
+  author: {
+    type: 'object',
+    label: 'Author',
+    hideLabel: true,
+    properties: {
+      name: {
+        type: 'string',
+        label: 'Name',
+        rules: {
+          required: 'Please enter a name',
+        },
+      },
+    },
+  },
+}
+
+export default function CreatePost() {
   return (
-    <AutoForm
+    <Form
+      schema={schema}
       defaultValues={{
         title: '',
         author: {
           name: '',
         },
       }}
-      onSubmit={() => null}
-      {...yupForm(schema)}
+      onSubmit={() => Promise.resolve()}
     />
   )
 }
 ```
 
-### Usage with `Form`
+### Yup form
 
-The `ObjectField` component will automatically prefix all sub fields and supports nesting.
-Eg: `author.name` or `author.location.address`.
-
-<Info>
-  Please note that auto prefixing only works if the fields are a direct child of
-  ObjectField.
-</Info>
+Auto generated form with Yup schema.
 
 ```jsx
-function CreatePost() {
-  const schema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
-    author: Yup.object().shape({
-      name: Yup.string().required().label('Author name'),
-      email: Yup.string().required().email().label('Email address'),
-    }),
-  })
+import { Form } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
 
+const schema = yup.object({
+  title: yup.string().required().label('Title'),
+  author: yup
+    .object({
+      name: yup.string().required().label('Name'),
+    })
+    .label('Author')
+    .meta({ hideLabel: true }),
+})
+
+export default function CreatePost() {
   return (
     <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+        },
+      }}
+      onSubmit={() => Promise.resolve()}
+    />
+  )
+}
+```
+
+### Zod form
+
+Auto generated form with Zod schema.
+
+```jsx
+import { Form } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+
+const schema = z.object({
+  title: z.string().nonempty().describe('Title'),
+  author: z
+    .object({
+      name: z.string().nonempty().describe('Name'),
+    })
+    .describe('Author'),
+})
+
+export default function CreatePost() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+        },
+      }}
+      fields={{
+        author: {
+          hideLabel: true,
+        },
+      }}
+      onSubmit={() => Promise.resolve()}
+    />
+  )
+}
+```
+
+### Custom defined fields
+
+```jsx
+import { Form } from '@saas-ui/forms/yup'
+import { FormLayout } from '@saas-ui/react'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  author: yup.object({
+    name: yup.string().required().label('Author name'),
+    email: yup.string().required().email().label('Email address'),
+  }),
+})
+
+export default function CreatePost() {
+  return (
+    <Form
+      schema={schema}
       defaultValues={{
         title: '',
         author: {
@@ -82,19 +166,20 @@ function CreatePost() {
           email: '',
         },
       }}
-      resolver={yupResolver(schema)}
-      onSubmit={() => null}
+      onSubmit={() => Promise.resolve()}
     >
-      <FormLayout>
-        <Field name="title" label="Title" />
+      {({ Field, ObjectField }) => (
+        <FormLayout>
+          <Field name="title" label="Title" />
 
-        <ObjectField name="author" label="Author">
-          <Field name="name" label="Name" />
-          <Field name="email" label="Email" />
-        </ObjectField>
+          <ObjectField name="author" label="Author">
+            <Field name="author.name" label="Name" />
+            <Field name="author.email" label="Email" />
+          </ObjectField>
 
-        <SubmitButton>Create post</SubmitButton>
-      </FormLayout>
+          <SubmitButton>Create post</SubmitButton>
+        </FormLayout>
+      )}
     </Form>
   )
 }

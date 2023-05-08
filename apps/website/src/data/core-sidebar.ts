@@ -7,6 +7,10 @@ const sidebar = {
       path: '/docs',
     },
     {
+      title: 'Upgrading to v2',
+      path: '/docs/core/upgrading-to-v2',
+    },
+    {
       title: 'Design Principles',
       path: '/docs/core/principles',
     },

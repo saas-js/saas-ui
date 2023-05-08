@@ -44,7 +44,7 @@ import {
 
 ## Usage
 
-### Usage with `AutoForm`
+### Auto generated form
 
 Simple array of string values.
 
@@ -72,7 +72,7 @@ function CreateTodoItem() {
   }
 
   return (
-    <AutoForm
+    <Form
       defaultValues={{
         title: '',
         todos: [],
@@ -84,44 +84,47 @@ function CreateTodoItem() {
 }
 ```
 
-### Usage with `Form`
+### Basic object array
 
-Basic object array. The `ArrayField` component will automatically prefix all sub fields.
-Eg: `issues.0.title`, `issues.1.title` etc.
-
-Please note that this only works if the fields are a direct child.
-Read further to see how to create more complex array fields.
+Field names inside an `ArrayField` need to be prefixed with `array-field-name.$`. The `$` will be replaced with the index of the array item.
 
 ```jsx
-function CreateIssue() {
-  const issueSchema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
+import { SubmitButton } from '@saas-ui/react'
+import { Form } from '@saas-ui/forms/yup'
+
+import * as yup from 'yup'
+
+const issueSchema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+})
+
+const schema = issueSchema.concat(
+  yup.object().shape({
+    issues: yup.array().min(1).max(4).of(issueSchema),
   })
+)
 
-  const schema = issueSchema.concat(
-    Yup.object().shape({
-      issues: Yup.array().min(1).max(4).of(issueSchema),
-    })
-  )
-
+export default function CreateIssue() {
   return (
     <Form
+      schema={schema}
       defaultValues={{
         title: '',
         issues: [{ title: '' }],
       }}
-      resolver={yupResolver(schema)}
-      onSubmit={() => null}
+      onSubmit={() => Promise.resolve()}
     >
-      <FormLayout>
-        <Field name="title" label="Title" />
+      {({ Field, ArrayField }) => (
+        <FormLayout>
+          <Field name="title" label="Title" />
 
-        <ArrayField name="issues" label="Sub-issues">
-          <Field name="title" placeholder="Sub-issue title" />
-        </ArrayField>
+          <ArrayField name="issues" label="Sub-issues">
+            <Field name="issues.$.title" placeholder="Sub-issue title" />
+          </ArrayField>
 
-        <SubmitButton>Create todo</SubmitButton>
-      </FormLayout>
+          <SubmitButton>Create todo</SubmitButton>
+        </FormLayout>
+      )}
     </Form>
   )
 }
@@ -132,19 +135,25 @@ function CreateIssue() {
 The array field can be fully composed to fit your specific use case.
 
 ```jsx
-function CustomArrayField() {
-  const usersSchema = Yup.object().shape({
-    id: Yup.string().required().label('Id'),
-    name: Yup.string().required().label('Name'),
-    lastName: Yup.string().required().label('Last name'),
-  })
+import { SubmitButton } from '@saas-ui/react'
+import { Form } from '@saas-ui/forms/yup'
 
-  const schema = Yup.object().shape({
-    users: Yup.array().min(1).max(4).of(usersSchema),
-  })
+import * as yup from 'yup'
 
+const usersSchema = yup.object().shape({
+  id: yup.string().required().label('Id'),
+  name: yup.string().required().label('Name'),
+  lastName: yup.string().required().label('Last name'),
+})
+
+const schema = yup.object().shape({
+  users: yup.array().min(1).max(4).of(usersSchema),
+})
+
+export default function CustomArrayField() {
   return (
     <Form
+      schema={schema}
       defaultValues={{
         users: [
           {
@@ -154,46 +163,47 @@ function CustomArrayField() {
           },
         ],
       }}
-      resolver={yupResolver(schema)}
       onSubmit={() => Promise.resolve()}
     >
-      <FormLayout>
-        <ArrayFieldContainer
-          name="users"
-          label="Users"
-          defaultValue={{}}
-          keyName="key"
-          min={2}
-          max={4}
-        >
-          <ArrayFieldRows>
-            {(fields) => (
-              <>
-                {fields.map((field, i) => {
-                  return (
-                    <ArrayFieldRowContainer key={field.key} index={i}>
-                      <ArrayFieldRowFields columns={3} spacing={1}>
-                        <Field name="id" placeholder="Id" />
-                        <Field name="name" placeholder="Name" />
-                        <Box>
-                          <Field
-                            name={`users.${i}.lastName`}
-                            placeholder="Last name"
-                          />
-                        </Box>
-                      </ArrayFieldRowFields>
-                      <ArrayFieldRemoveButton />
-                    </ArrayFieldRowContainer>
-                  )
-                })}
-              </>
-            )}
-          </ArrayFieldRows>
-          <ArrayFieldAddButton />
-        </ArrayFieldContainer>
+      {({ Field }) => (
+        <FormLayout>
+          <ArrayFieldContainer
+            name="users"
+            label="Users"
+            defaultValue={{}}
+            keyName="key"
+            min={2}
+            max={4}
+          >
+            <ArrayFieldRows>
+              {(fields) => (
+                <>
+                  {fields.map((field, i) => {
+                    return (
+                      <ArrayFieldRowContainer key={field.key} index={i}>
+                        <ArrayFieldRowFields columns={3} spacing={1}>
+                          <Field name="users.$.id" placeholder="Id" />
+                          <Field name="users.$.name" placeholder="Name" />
+                          <Box>
+                            <Field
+                              name={`users.${i}.lastName`}
+                              placeholder="Last name"
+                            />
+                          </Box>
+                        </ArrayFieldRowFields>
+                        <ArrayFieldRemoveButton />
+                      </ArrayFieldRowContainer>
+                    )
+                  })}
+                </>
+              )}
+            </ArrayFieldRows>
+            <ArrayFieldAddButton />
+          </ArrayFieldContainer>
 
-        <SubmitButton label="Submit" />
-      </FormLayout>
+          <SubmitButton label="Submit" />
+        </FormLayout>
+      )}
     </Form>
   )
 }
@@ -206,6 +216,13 @@ Use the `useArrayFieldContext` and `useArrayFieldRowContext` hooks to interact w
 The `useArrayFieldAddButton` and `useArrayFieldRemoveButton` hooks can be used to create custom buttons.
 
 ```jsx live=false
+import { Button } from '@saas-ui/react'
+import {
+  useArrayFieldContext,
+  useArrayFieldAddButton,
+  useArrayFieldRemoveButton,
+} from '@saas-ui/react'
+
 const SimpleAddButton = () => {
   return <Button {...useArrayFieldAddButton()}>Add record</Button>
 }
@@ -244,23 +261,24 @@ const RemoveButton = () => {
 You can access the ArrayField context by using a ref, or using `useArrayFieldContext`
 
 ```jsx
-function CreateIssue() {
-  const ref = React.useRef(null)
+import { Button } from '@chakra-ui/react'
+import { SubmitButton } from '@saas-ui/react'
+import { Form } from '@saas-ui/forms/yup'
 
-  React.useLayoutEffect(() => {
-    console.log(ref.current)
-    ref.current.append({ title: 'Appended using the ref api' })
-  }, [ref])
+import * as yup from 'yup'
 
-  const issueSchema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
+const issueSchema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+})
+
+const schema = issueSchema.concat(
+  yup.object().shape({
+    issues: yup.array().min(1).max(4).of(issueSchema),
   })
+)
 
-  const schema = issueSchema.concat(
-    Yup.object().shape({
-      issues: Yup.array().min(1).max(4).of(issueSchema),
-    })
-  )
+export default function CreateIssue() {
+  const ref = React.useRef(null)
 
   return (
     <Form
@@ -268,18 +286,26 @@ function CreateIssue() {
         title: '',
         issues: [{ title: '' }],
       }}
-      resolver={yupResolver(schema)}
-      onSubmit={() => null}
+      onSubmit={() => Promise.resolve()}
     >
-      <FormLayout>
-        <Field name="title" label="Title" />
+      {({ Field, ArrayField }) => (
+        <FormLayout>
+          <Field name="title" label="Title" />
 
-        <ArrayField name="issues" label="Sub-issues" ref={ref}>
-          <Field name="title" placeholder="Sub-issue title" />
-        </ArrayField>
+          <ArrayField name="issues" label="Sub-issues" ref={ref}>
+            <Field name="issues.$.title" placeholder="Sub-issue title" />
+          </ArrayField>
 
-        <SubmitButton>Create todo</SubmitButton>
-      </FormLayout>
+          <Button
+            onClick={() =>
+              ref.current.append({ title: 'Appended using the ref api' })
+            }
+          >
+            Add todo
+          </Button>
+          <SubmitButton>Create todo</SubmitButton>
+        </FormLayout>
+      )}
     </Form>
   )
 }

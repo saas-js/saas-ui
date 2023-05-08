@@ -80,7 +80,7 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
 
     const height = styles.field?.h || styles.field?.height
 
-    const buttonStyles: SystemStyleObject = {
+    const buttonStyles: any = {
       fontWeight: 'normal',
       textAlign: 'left',
       color: 'inherit',
@@ -101,6 +101,7 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       <MenuButton
         as={Button}
         id={id || React.useId()}
+        {...buttonStyles}
         {...rest}
         onFocus={onFocus}
         onBlur={onBlur}
@@ -111,7 +112,6 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
         data-required={dataAttr(isRequired)}
         rightIcon={rightIcon}
         ref={ref}
-        sx={buttonStyles}
       >
         {renderValue(displayValue) || placeholder}
       </MenuButton>

@@ -12,10 +12,10 @@ Your NPM account is a combination of the Github username (in lower case) you use
 In your project root folder you can run this and enter your Github username as user and license key as password.
 
 ```bash
-pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
+pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui-pro
 ```
 
-Now run `npm i @saas-ui/pro` to install the Pro components.
+Now run `npm i @saas-ui-pro/react` to install the Pro components.
 
 #### Manual & CI configuration.
 
@@ -42,9 +42,9 @@ or run `source ~/.bash_profile`, to make sure the token is loaded.
 Then edit `.npmrc` in the root of your project and add the following lines.
 
 ```
-@saas-ui:registry=https://npm.saas-ui.dev
+@saas-ui-pro:registry=https://npm.saas-ui.dev
 //npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
 //npm.saas-ui.dev/:always-auth=true
 ```
 
-Now run `pnpm i @saas-ui/pro` to check if the configuration was succesful.
+Now run `pnpm i @saas-ui-pro/react` to check if the configuration was succesful.

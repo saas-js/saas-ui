@@ -1,7 +1,7 @@
 ---
 id: tour
 title: Tour
-package: '@saas-ui/pro'
+package: '@saas-ui-pro/react'
 description: Introduce people to new features using multi-step tours.
 ---
 
@@ -16,7 +16,7 @@ It supports the build BenefitsModal and TourDialog components, as well as any ot
 - `TourSpotlight`: Spotlight focuses people to a specific UI element.
 
 ```js
-import { Tour, TourSpotlight } from '@saas-ui/pro'
+import { Tour, TourSpotlight } from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -27,7 +27,27 @@ Each tour step should have a `data-target` attribute with a CSS selector of the 
 Any component that accepts `isOpen` and `onClose` can be part of a tour.
 
 ```jsx
-function BasicUsage() {
+import {
+  Button,
+  ButtonGroup,
+  Stack,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react'
+import {
+  Tour,
+  TourDialog,
+  TourDialogActions,
+  TourDialogBody,
+  TourDialogCloseButton,
+  TourDialogFooter,
+  TourDialogHeader,
+  TourNextButton,
+  TourSpotlight,
+} from '@saas-ui-pro/react'
+import { FiUsers } from 'react-icons/fi'
+
+export default function Basic() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
@@ -51,7 +71,7 @@ function BasicUsage() {
           </TourDialogBody>
           <TourDialogFooter>
             <TourDialogActions>
-              <TourNextButton label="OK" />
+              <TourNextButton>OK</TourNextButton>
             </TourDialogActions>
           </TourDialogFooter>
         </TourDialog>
@@ -64,7 +84,28 @@ function BasicUsage() {
 ```
 
 ```jsx
-function BasicUsage() {
+import {
+  Button,
+  IconButton,
+  ButtonGroup,
+  Stack,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react'
+import {
+  Tour,
+  TourDialog,
+  TourDialogActions,
+  TourDialogBody,
+  TourDialogCloseButton,
+  TourDialogFooter,
+  TourDialogHeader,
+  TourNextButton,
+  TourSpotlight,
+} from '@saas-ui-pro/react'
+import { FiUsers, FiTag, FiLock } from 'react-icons/fi'
+
+export default function Basic() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
@@ -95,10 +136,10 @@ function BasicUsage() {
           <TourDialogHeader>Check out this new feature</TourDialogHeader>
           <TourDialogBody>Start the tour to see how it works.</TourDialogBody>
           <TourDialogFooter>
-            <Text>Step 1 of 3</Text>
+            <Text fontSize="sm">Step 1 of 3</Text>
             <TourDialogActions>
               <TourDismissButton />
-              <TourNextButton label="Start" />
+              <TourNextButton>Start</TourNextButton>
             </TourDialogActions>
           </TourDialogFooter>
         </TourDialog>
@@ -108,7 +149,7 @@ function BasicUsage() {
           <TourDialogHeader>Step 2</TourDialogHeader>
           <TourDialogBody>Tour step 2.</TourDialogBody>
           <TourDialogFooter>
-            <Text>Step 2 of 3</Text>
+            <Text fontSize="sm">Step 2 of 3</Text>
             <TourDialogActions>
               <TourNextButton />
             </TourDialogActions>
@@ -120,9 +161,9 @@ function BasicUsage() {
           <TourDialogHeader>Step 3</TourDialogHeader>
           <TourDialogBody>Tour step 3.</TourDialogBody>
           <TourDialogFooter>
-            <Text>Step 3 of 3</Text>
+            <Text fontSize="sm">Step 3 of 3</Text>
             <TourDialogActions>
-              <TourNextButton label="Finish" />
+              <TourNextButton>Finish</TourNextButton>
             </TourDialogActions>
           </TourDialogFooter>
         </TourDialog>

@@ -49,6 +49,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
   (props, ref) => {
     const {
       value: valueProp,
+      defaultValue: defaultValueProp,
       size,
       variant,
       icon,
@@ -63,7 +64,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
 
     const [value, setValue] = useControllableState({
       value: valueProp,
-      defaultValue: '',
+      defaultValue: defaultValueProp,
     })
 
     const onChange = React.useCallback(

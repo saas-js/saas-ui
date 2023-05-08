@@ -20,13 +20,15 @@ export interface OverflowMenuProps extends MenuProps {
    * The MenuButton variant.
    */
   variant?: 'Button' extends keyof ThemeTypings['components']
-    ? ThemeTypings['components']['Button']['variants']
+    ? /* @ts-ignore */
+      ThemeTypings['components']['Button']['variants']
     : string
   /**
    * The MenuButton size
    */
   size?: 'Button' extends keyof ThemeTypings['components']
-    ? ThemeTypings['components']['Button']['sizes']
+    ? /* @ts-ignore */
+      ThemeTypings['components']['Button']['sizes']
     : SystemProps['boxSize']
   /**
    * Props passed to the MenuList.
@@ -58,7 +60,7 @@ export const OverflowMenu: React.FC<OverflowMenuProps> = (props) => {
         aria-label={label}
         variant={variant}
         size={size}
-      ></MenuButton>
+      />
       <MenuList {...menuListProps}>{children}</MenuList>
     </Menu>
   )

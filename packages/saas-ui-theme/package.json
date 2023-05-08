@@ -7,7 +7,7 @@
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.modern.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

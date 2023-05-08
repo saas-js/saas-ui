@@ -13,6 +13,18 @@
 - f1e99198: Migrated from microbundle to tsup for builds
 - f1e99198: Restructured packages.
 
+## 0.3.3
+
+### Patch Changes
+
+- Fix types path
+
+## 0.3.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+
 ## 0.3.1
 
 ### Patch Changes

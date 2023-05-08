@@ -120,6 +120,19 @@
 - Updated dependencies [f3b09191]
   - @saas-ui/react@2.0.0-next.0
 
+## 2.3.7
+
+### Patch Changes
+
+- @saas-ui/react@1.9.3
+
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [b2302a3]
+  - @saas-ui/react@1.9.2
+
 ## 2.3.5
 
 ### Patch Changes

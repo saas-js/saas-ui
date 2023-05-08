@@ -90,6 +90,22 @@
 - Updated dependencies [f1e99198]
   - @saas-ui/auth@2.0.0-next.0
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/auth@1.7.6
+
+## 2.0.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/auth@1.7.5
+
 ## 2.0.0
 
 ### Major Changes

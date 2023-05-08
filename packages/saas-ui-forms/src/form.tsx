@@ -200,7 +200,9 @@ export const Form = forwardRef(
       </FormProvider>
     )
   }
-) as (<
+) as FormComponent
+
+export type FormComponent = (<
   TFieldValues extends FieldValues,
   TContext extends object = object,
   TSchema = any,

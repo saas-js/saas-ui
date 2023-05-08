@@ -12,7 +12,22 @@ export interface CreateFormProps<FieldDefs> {
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
 }
 
-export function createForm<FieldDefs, Schema = any>({
+export type FormType<FieldDefs, ExtraProps = object> = (<
+  TFieldValues extends FieldValues,
+  TContext extends object = object,
+  TFormProps extends FormProps<TFieldValues, TContext> = FormProps<
+    TFieldValues,
+    TContext
+  >
+>(
+  props: WithFields<TFormProps, FieldDefs> & {
+    ref?: React.ForwardedRef<HTMLFormElement>
+  } & ExtraProps
+) => React.ReactElement) & {
+  displayName?: string
+}
+
+export function createForm<FieldDefs>({
   resolver,
   fieldResolver = objectFieldResolver,
   fields,
@@ -21,7 +36,7 @@ export function createForm<FieldDefs, Schema = any>({
     <
       TFieldValues extends FieldValues,
       TContext extends object = object,
-      TSchema extends Schema = Schema
+      TSchema = any
     >(
       props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs>,
       ref: ForwardedRef<HTMLFormElement>
@@ -38,17 +53,7 @@ export function createForm<FieldDefs, Schema = any>({
         </FieldsProvider>
       )
     }
-  ) as (<
-    TFieldValues extends FieldValues,
-    TContext extends object = object,
-    TSchema extends Schema = Schema
-  >(
-    props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs> & {
-      ref?: React.ForwardedRef<HTMLFormElement>
-    }
-  ) => React.ReactElement) & {
-    displayName?: string
-  }
+  ) as FormType<FieldDefs>
 
   return CreateForm
 }

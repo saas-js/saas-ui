@@ -7,11 +7,25 @@ import {
   ModalFooter,
 } from '@chakra-ui/react'
 
-import { FormLayout, SubmitButton } from '@saas-ui/forms'
+import { FormLayout, SubmitButton, createField } from '@saas-ui/forms'
+import { createZodForm } from '@saas-ui/forms/zod'
 
-import { FormDialog } from '../src/form'
+import { FormDialog, createFormDialog } from '../src/form'
 
 import * as yup from 'yup'
+import * as zod from 'zod'
+
+const CustomField = createField((props: { customFieldProps: string }) => (
+  <div>custom</div>
+))
+
+const ZodForm = createZodForm({
+  fields: {
+    custom: CustomField,
+  },
+})
+
+const ZodFormDialog = createFormDialog(ZodForm)
 
 export default {
   title: 'Components/Overlay/FormDialog',
@@ -158,7 +172,11 @@ const yupSchema = yup.object({
   title: yup.string().required('Title is required'),
 })
 
-export const YupSchema = () => {
+const zodSchema = zod.object({
+  title: zod.string().nonempty('Title is required'),
+})
+
+export const ZodSchema = () => {
   const disclosure = useDisclosure()
 
   const initialRef = React.useRef<HTMLInputElement>(null)
@@ -173,15 +191,62 @@ export const YupSchema = () => {
         Open form dialog
       </Button>
 
-      <FormDialog
+      <ZodFormDialog
         title="New post"
+        schema={zodSchema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+        }}
+        fields={{
+          title: {
+            label: 'Title',
+            variant: 'flushed',
+          },
+          cancel: {
+            colorScheme: 'red',
+            children: 'Delete',
+            variant: 'solid',
+          },
+        }}
+        onSubmit={onSubmit(disclosure)}
+        initialFocusRef={initialRef}
+      />
+    </Stack>
+  )
+}
+
+export const ZodSchemaWithFields = () => {
+  const disclosure = useDisclosure()
+
+  const initialRef = React.useRef<HTMLInputElement>(null)
+
+  return (
+    <Stack alignItems="center">
+      <Button
+        onClick={() => {
+          disclosure.onOpen()
+        }}
+      >
+        Open form dialog
+      </Button>
+
+      <ZodFormDialog
+        title="New post"
+        schema={zodSchema}
         {...disclosure}
         defaultValues={{
           title: '',
         }}
         onSubmit={onSubmit(disclosure)}
         initialFocusRef={initialRef}
-      />
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" />
+          </FormLayout>
+        )}
+      </ZodFormDialog>
     </Stack>
   )
 }

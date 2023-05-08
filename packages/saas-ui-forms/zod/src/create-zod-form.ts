@@ -15,6 +15,18 @@ export interface CreateZodFormProps<FieldDefs>
   resolverOptions?: ResolverArgs[2]
 }
 
+export type ZodFormType<FieldDefs, ExtraProps = object> = <
+  TSchema extends z.AnyZodObject = z.AnyZodObject,
+  TContext extends object = object
+>(
+  props: WithFields<
+    FormProps<z.infer<TSchema>, TContext, TSchema>,
+    FieldDefs
+  > & {
+    ref?: React.ForwardedRef<HTMLFormElement>
+  } & ExtraProps
+) => React.ReactElement
+
 export const createZodForm = <FieldDefs>(
   options?: CreateZodFormProps<FieldDefs>
 ) => {
@@ -23,15 +35,5 @@ export const createZodForm = <FieldDefs>(
       zodResolver(schema, options?.schemaOptions, options?.resolverOptions),
     fieldResolver: zodFieldResolver,
     ...options,
-  }) as <
-    TSchema extends z.AnyZodObject = z.AnyZodObject,
-    TContext extends object = object
-  >(
-    props: WithFields<
-      FormProps<z.infer<TSchema>, TContext, TSchema>,
-      FieldDefs
-    > & {
-      ref?: React.ForwardedRef<HTMLFormElement>
-    }
-  ) => React.ReactElement
+  }) as ZodFormType<FieldDefs>
 }

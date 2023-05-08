@@ -45,14 +45,11 @@ export type {
   FieldOptions,
 } from './types'
 
-export { createForm, type CreateFormProps } from './create-form'
+export { createForm, type CreateFormProps, type FormType } from './create-form'
 export { createField, type CreateFieldOptions } from './create-field'
 
-export {
-  Form as BaseForm,
-  type FormProps,
-  type FormRenderContext,
-} from './form'
+export { Form as BaseForm } from './form'
+export type { FormProps, FormRenderContext, FormComponent } from './form'
 
 export { FormProvider, useFormContext } from './form-context'
 

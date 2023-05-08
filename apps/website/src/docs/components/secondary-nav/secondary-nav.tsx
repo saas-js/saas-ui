@@ -61,6 +61,12 @@ export const docsNav = [
       (href.startsWith('/docs/core') && asPath.startsWith('/docs/core')),
   },
   {
+    href: '/docs/guides',
+    label: 'Guides',
+    match: (asPath: string, href: string) =>
+      href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
+  },
+  {
     href: '/docs/components',
     label: 'Components',
     match: (asPath: string, href: string) =>

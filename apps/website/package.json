@@ -4,7 +4,7 @@
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
-    "dev": "next dev --port 3020",
+    "dev": "concurrently \"contentlayer dev\" \"next dev --port 3020\"",
     "build": "yarn gen:contentlayer && next build",
     "start": "next start",
     "lint": "next lint",
@@ -62,6 +62,7 @@
     "@netlify/plugin-nextjs": "^4.33.0",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.33",
+    "concurrently": "^8.0.1",
     "electron-to-chromium": "^1.4.352",
     "eslint": "^8.37.0",
     "eslint-config-next": "^13.2.4",

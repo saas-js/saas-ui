@@ -10,12 +10,11 @@ let config = {
   optimizeFonts: true,
   reactStrictMode: true,
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   experimental: {
     externalDir: true,
   },
-  compiler: {},
   async redirects() {
     return [
       {
@@ -99,10 +98,8 @@ let config = {
   },
 }
 
-const isNextDev = process.argv.includes('dev')
-
-if (isNextDev) {
-  config = withContentlayer(config)
-}
+// if (process.env.NODE_ENV !== 'production') {
+config = withContentlayer(config)
+// }
 
 module.exports = withBundleAnalyzer(config)

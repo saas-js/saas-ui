@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.9.0
+
+### Minor Changes
+
+- d750341: Update react-aria to improve esm support
+
 ## 0.8.9
 
 ### Patch Changes

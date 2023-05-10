@@ -1,5 +1,32 @@
 # website
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/command-bar@0.2.0-next.4
+  - @saas-ui/palette@2.0.0-next.3
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/react@2.0.0-next.14
+  - @saas-ui/props-docs@1.8.1-next.1
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [dc435dd5]
+- Updated dependencies [6c63217c]
+  - @saas-ui/react@2.0.0-next.13
+  - @saas-ui/command-bar@0.2.0-next.3
+  - @saas-ui/palette@2.0.0-next.2
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/props-docs@1.8.1-next.0
+
 ## 2.0.0-next.12
 
 ### Patch Changes

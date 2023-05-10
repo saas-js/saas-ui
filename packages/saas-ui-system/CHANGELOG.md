@@ -1,5 +1,17 @@
 # @saas-ui/system
 
+## 2.0.0-next.3
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 2.0.0-next.2
+
+### Patch Changes
+
+- Bump version
+
 ## 2.0.0-next.1
 
 ### Patch Changes

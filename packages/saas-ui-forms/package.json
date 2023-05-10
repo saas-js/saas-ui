@@ -1,13 +1,13 @@
 {
   "name": "@saas-ui/forms",
-  "version": "2.0.0-next.12",
+  "version": "2.0.0-next.14",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -15,7 +15,7 @@
     "./yup": {
       "require": "./dist/yup/index.js",
       "types": "./dist/yup/index.d.ts",
-      "import": "./dist/yup/index.modern.mjs"
+      "import": "./dist/yup/index.mjs"
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
@@ -23,7 +23,7 @@
     "./zod": {
       "require": "./dist/zod/index.js",
       "types": "./dist/zod/index.d.ts",
-      "import": "./dist/zod/index.modern.mjs"
+      "import": "./dist/zod/index.mjs"
     },
     "./zod/src": {
       "default": "./zod/src/index.ts"
@@ -31,7 +31,7 @@
     "./ajv": {
       "require": "./dist/ajv/index.js",
       "types": "./dist/ajv/index.d.ts",
-      "import": "./dist/ajv/index.modern.mjs"
+      "import": "./dist/ajv/index.mjs"
     },
     "./ajv/src": {
       "default": "./ajv/src/index.ts"

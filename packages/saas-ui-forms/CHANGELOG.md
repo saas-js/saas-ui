@@ -1,5 +1,22 @@
 # @saas-ui/forms
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- 6c63217c: object and array field props can now be overridden using the fields prop
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes

@@ -1,5 +1,43 @@
 # @saas-ui/react
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/data-table@2.0.0-next.14
+  - @saas-ui/nprogress@2.0.0-next.3
+  - @saas-ui/hotkeys@2.0.0-next.12
+  - @saas-ui/modals@2.0.0-next.14
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/hooks@2.0.0-next.4
+  - @saas-ui/theme@2.0.0-next.8
+  - @saas-ui/auth@2.0.0-next.14
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- Bump version
+- dc435dd5: No longer needed to use Next.js legacyBehavior for the Link component.
+- 6c63217c: object and array field props can now be overridden using the fields prop
+- Updated dependencies [1563cc9a]
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [6c63217c]
+  - @saas-ui/modals@2.0.0-next.13
+  - @saas-ui/theme@2.0.0-next.7
+  - @saas-ui/data-table@2.0.0-next.13
+  - @saas-ui/nprogress@2.0.0-next.2
+  - @saas-ui/hotkeys@2.0.0-next.11
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/hooks@2.0.0-next.3
+  - @saas-ui/auth@2.0.0-next.13
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes

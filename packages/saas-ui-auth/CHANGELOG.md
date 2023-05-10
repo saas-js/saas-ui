@@ -1,5 +1,26 @@
 # @saas-ui/auth
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/hooks@2.0.0-next.4
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+- Updated dependencies [6c63217c]
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/hooks@2.0.0-next.3
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes

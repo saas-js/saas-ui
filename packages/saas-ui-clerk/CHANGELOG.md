@@ -1,5 +1,21 @@
 # @saas-ui/clerk
 
+## 3.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-next.14
+
+## 3.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-next.13
+
 ## 3.0.0-next.12
 
 ### Patch Changes

@@ -1,13 +1,13 @@
 {
   "name": "@saas-ui/date-picker",
-  "version": "0.9.0-next.0",
+  "version": "0.9.0-next.2",
   "description": "Chakra UI - Date Picker Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

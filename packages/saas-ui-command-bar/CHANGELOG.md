@@ -1,5 +1,17 @@
 # @saas-ui/command-bar
 
+## 0.2.0-next.4
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 0.2.0-next.3
+
+### Patch Changes
+
+- Bump version
+
 ## 0.2.0-next.2
 
 ### Minor Changes

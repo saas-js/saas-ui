@@ -1,5 +1,27 @@
 # @saas-ui/modals
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-next.3
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/hooks@2.0.0-next.4
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- 1563cc9a: BaseDrawer now accepts header, content and footer props.
+- Bump version
+- Updated dependencies
+- Updated dependencies [6c63217c]
+  - @saas-ui/react-utils@2.0.0-next.2
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/hooks@2.0.0-next.3
+
 ## 2.0.0-next.12
 
 ### Patch Changes

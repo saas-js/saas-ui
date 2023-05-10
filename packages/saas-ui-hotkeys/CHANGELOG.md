@@ -1,5 +1,21 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.11
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.10
 
 ### Patch Changes

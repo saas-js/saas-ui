@@ -1,5 +1,18 @@
 # @saas-ui/theme
 
+## 2.0.0-next.8
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 2.0.0-next.7
+
+### Patch Changes
+
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- Bump version
+
 ## 2.0.0-next.6
 
 ### Patch Changes

@@ -1,13 +1,13 @@
 {
   "name": "@saas-ui/data-table",
-  "version": "2.0.0-next.12",
+  "version": "2.0.0-next.14",
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

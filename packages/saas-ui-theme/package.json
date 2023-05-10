@@ -1,13 +1,13 @@
 {
   "name": "@saas-ui/theme",
-  "version": "2.0.0-next.6",
+  "version": "2.0.0-next.8",
   "description": "Saas UI theme package",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"

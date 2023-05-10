@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-next.3
+  - @saas-ui/theme@2.0.0-next.8
+
+## 2.0.0-next.11
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-next.7
+  - @saas-ui/react-utils@2.0.0-next.2
+
 ## 2.0.0-next.10
 
 ### Patch Changes

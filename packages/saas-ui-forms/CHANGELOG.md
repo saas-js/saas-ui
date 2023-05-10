@@ -1,5 +1,22 @@
 # @saas-ui/forms
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- 6c63217c: object and array field props can now be overridden using the fields prop
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes
@@ -117,6 +134,38 @@
 - Updated dependencies [e94ca3c0]
 - Updated dependencies [3a15e8c8]
   - @saas-ui/core@2.0.0-next.0
+
+## 1.5.5
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/input-right-button@1.4.2
+  - @saas-ui/number-input@1.4.2
+  - @saas-ui/password-input@1.4.2
+  - @saas-ui/pin-input@1.4.2
+  - @saas-ui/radio@1.4.3
+  - @saas-ui/react-utils@1.2.2
+  - @saas-ui/select@1.4.2
+  - @saas-ui/stepper@1.4.2
+
+## 1.5.4
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+  - @saas-ui/input-right-button@1.4.1
+  - @saas-ui/number-input@1.4.1
+  - @saas-ui/password-input@1.4.1
+  - @saas-ui/pin-input@1.4.1
+  - @saas-ui/radio@1.4.2
+  - @saas-ui/react-utils@1.2.1
+  - @saas-ui/select@1.4.1
+  - @saas-ui/stepper@1.4.1
 
 ## 1.5.3
 

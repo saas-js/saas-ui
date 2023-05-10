@@ -1,5 +1,24 @@
 # @saas-ui/date-picker
 
+## 0.9.0-next.2
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/modals@2.0.0-next.14
+  - @saas-ui/core@2.0.0-next.12
+
+## 0.9.0-next.1
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [1563cc9a]
+- Updated dependencies
+  - @saas-ui/modals@2.0.0-next.13
+  - @saas-ui/core@2.0.0-next.11
+
 ## 0.8.8-next.12
 
 ### Patch Changes
@@ -96,6 +115,28 @@
 - Updated dependencies [f1e99198]
 - Updated dependencies [f1e99198]
   - @saas-ui/modals@2.0.0-next.0
+
+## 0.9.0
+
+### Minor Changes
+
+- d750341: Update react-aria to improve esm support
+
+## 0.8.9
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/modals@1.5.7
+
+## 0.8.8
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/modals@1.5.6
 
 ## 0.8.7
 

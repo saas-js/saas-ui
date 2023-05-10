@@ -1,5 +1,18 @@
 # @saas-ui/theme
 
+## 2.0.0-next.8
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 2.0.0-next.7
+
+### Patch Changes
+
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- Bump version
+
 ## 2.0.0-next.6
 
 ### Patch Changes
@@ -50,6 +63,18 @@
 ### Patch Changes
 
 - f1e99198: Migrated from microbundle to tsup for builds
+
+## 1.8.2
+
+### Patch Changes
+
+- Fix types path
+
+## 1.8.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
 
 ## 1.8.0
 

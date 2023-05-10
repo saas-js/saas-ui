@@ -1,5 +1,21 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.11
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.10
 
 ### Patch Changes
@@ -91,6 +107,22 @@
 - Updated dependencies [e94ca3c0]
 - Updated dependencies [3a15e8c8]
   - @saas-ui/core@2.0.0-next.0
+
+## 1.4.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/search-input@1.4.2
+
+## 1.4.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/search-input@1.4.1
 
 ## 1.4.0
 

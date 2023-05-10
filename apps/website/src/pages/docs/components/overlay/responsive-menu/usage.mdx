@@ -9,7 +9,7 @@ description: A mobile friendly Menu component.
 ## Import
 
 ```ts
-import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -17,11 +17,18 @@ import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
 ResponsiveMenu renders a `Menu` by default and switches to a `MenuDialog` on smaller screens.
 
 ```jsx
-<ResponsiveMenu>
-  <MenuButton as={Button}>Open menu</MenuButton>
-  <ResponsiveMenuList>
-    <MenuItem>Edit</MenuItem>
-    <MenuItem>Delete</MenuItem>
-  </ResponsiveMenuList>
-</ResponsiveMenu>
+import { Button, MenuItem, MenuButton } from '@chakra-ui/react'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
+
+export default function App() {
+  return (
+    <ResponsiveMenu>
+      <MenuButton as={Button}>Open menu</MenuButton>
+      <ResponsiveMenuList>
+        <MenuItem>Edit</MenuItem>
+        <MenuItem>Delete</MenuItem>
+      </ResponsiveMenuList>
+    </ResponsiveMenu>
+  )
+}
 ```

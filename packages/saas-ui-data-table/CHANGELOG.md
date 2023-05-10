@@ -1,5 +1,26 @@
 # @saas-ui/data-table
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react@2.0.0-next.14
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [dc435dd5]
+- Updated dependencies [6c63217c]
+  - @saas-ui/react@2.0.0-next.13
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes
@@ -133,6 +154,22 @@
 - Updated dependencies [f3b09191]
   - @saas-ui/react@2.0.0-next.0
   - @saas-ui/core@2.0.0-next.0
+
+## 1.4.3
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/layout@1.4.3
+
+## 1.4.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/layout@1.4.2
 
 ## 1.4.1
 

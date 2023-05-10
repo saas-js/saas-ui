@@ -70,6 +70,7 @@ const sidebar = {
         {
           title: 'ToggleButton',
           path: '/docs/components/navigation/toggle-button',
+          pro: true,
         },
       ],
     },
@@ -81,7 +82,7 @@ const sidebar = {
       sort: true,
       routes: [
         {
-          title: 'Address',
+          title: 'Web3Address',
           path: '/docs/components/web3/address',
         },
       ],
@@ -210,7 +211,6 @@ const sidebar = {
         {
           title: 'Command',
           path: '/docs/components/data-display/command',
-          pro: true,
         },
       ],
     },
@@ -257,7 +257,7 @@ const sidebar = {
           path: '/docs/components/feedback/snackbar',
         },
         {
-          title: 'Loader',
+          title: 'LoadingOverlay',
           path: '/docs/components/feedback/loader',
         },
       ],

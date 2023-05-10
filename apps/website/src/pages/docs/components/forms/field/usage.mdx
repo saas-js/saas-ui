@@ -17,19 +17,7 @@ It handles the field state, renders a label, the input, help text, error message
 - `Field`: The wrapper component that controls context, state and manages rendering field types.
 
 ```ts
-import {
-  Field,
-  InputField,
-  TextareaField,
-  NumberInputField,
-  SelectField,
-  RadioField,
-  CheckboxField,
-  SwitchField,
-  PasswordField,
-  PinField,
-  NativeSelectField,
-} from '@saas-ui/react'
+import { Field } from '@saas-ui/react'
 ```
 
 ## Usage
@@ -44,61 +32,92 @@ Any other type will fallback to a regular HTML `input` element. Eg: `email` will
 ### Text field
 
 ```jsx
-<Form>
-  <FormLayout>
-    <Field type="text" name="name" label="Name" />
-    {/* or: <InputField name="title" label="Title" /> */}
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="text" name="name" label="Name" />
 
-    <Field type="email" name="email" label="Email" />
-    {/* or: <InputField name="title" type="email" label="Title" /> */}
-  </FormLayout>
-</Form>
+        <Field type="email" name="email" label="Email" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Textarea field
 
 ```jsx
-<Form>
-  <Field type="textarea" name="description" label="Description" />
-  {/* or: <TextareaField name="description" label="Description" /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="textarea" name="description" label="Description" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Number field
 
+The number field value is always a string, you have to parse it yourself.
+
 ```jsx
-<Form>
-  <Field type="number" name="amount" label="Amount" value="10" />
-  {/* or: <NumberInputField type='number' name="amount" label="Amount" /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="number"
+          name="amount"
+          label="Amount"
+          value="10"
+          min="0"
+          max="10"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Password field
 
 ```jsx
-<Form>
-  <Field type="password" name="password" label="Password" />
-  {/* or: <PasswordField name="password" label="Password" /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="password" name="password" label="Password" />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Select field
 
 ```jsx
-<Form>
-  <Field
-    type="select"
-    name="role"
-    label="Role"
-    options={[
-      { value: 'Developer' },
-      { value: 'Designer' },
-      { value: 'Management' },
-    ]}
-    value="developer"
-  />
-  {/* or: <SelectField name="role" label="Role" options={[{value: 'Developer'}, {value: 'Designer'}, {value: 'Management'}]}  /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="select"
+          name="role"
+          label="Role"
+          options={[
+            { value: 'Developer' },
+            { value: 'Designer' },
+            { value: 'Management' },
+          ]}
+          value="Developer"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Native Select field
@@ -108,67 +127,87 @@ Any other type will fallback to a regular HTML `input` element. Eg: `email` will
 </Info>
 
 ```jsx
-<Form>
-  <Field
-    type="native-select"
-    name="role"
-    label="Role"
-    options={[
-      { value: 'Developer' },
-      { value: 'Designer' },
-      { value: 'Management' },
-    ]}
-    value="developer"
-  />
-  {/* or: <NativeSelectField name="role" label="Role" options={[{value: 'Developer'}, {value: 'Designer'}, {value: 'Management'}]}  /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="native-select"
+          name="role"
+          label="Role"
+          options={[
+            { value: 'Developer' },
+            { value: 'Designer' },
+            { value: 'Management' },
+          ]}
+          value="Developer"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Radio field
 
 ```jsx
-<Form>
-  <Field
-    type="radio"
-    name="role"
-    label="Role"
-    options={[
-      { value: 'Developer' },
-      { value: 'Designer' },
-      { value: 'Management' },
-    ]}
-    value="developer"
-  />
-  {/* or: <RadioField name="role" label="Role" options={[{value: 'Developer'}, {value: 'Designer'}, {value: 'Management'}]}  /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="radio"
+          name="role"
+          label="Role"
+          options={[
+            { value: 'Developer' },
+            { value: 'Designer' },
+            { value: 'Management' },
+          ]}
+          value="Developer"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Checkbox field
 
 ```jsx
-<Form>
-  <Field
-    type="checkbox"
-    name="terms"
-    label="I've read and agree with the terms of service."
-    value={true}
-  />
-  {/* or: <CheckboxField name="terms" label="I've read and agree with the terms of service." value={true} /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="checkbox"
+          name="terms"
+          label="I've read and agree with the terms of service."
+          value={true}
+        />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Switch field
 
 ```jsx
-<Form>
-  <Field
-    type="switch"
-    name="terms"
-    label="Receive notifications."
-    value={true}
-  />
-  {/* or: <SwitchField name="terms" label="Receive notifications." value={true} /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="switch"
+          name="terms"
+          label="Receive notifications."
+          value={true}
+        />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ### Pin field
@@ -176,24 +215,35 @@ Any other type will fallback to a regular HTML `input` element. Eg: `email` will
 The pin length defaults to `4`.
 
 ```jsx
-<Form>
-  <Field type="pin" name="pin" label="Two-factor auth" pinLength={5} />
-
-  {/* or: <PinField name="confirm" label="Confirmation code." pinLength={5} /> */}
-</Form>
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="pin" name="pin" label="Two-factor auth" pinLength={5} />
+      </FormLayout>
+    </Form>
+  )
+}
 ```
 
 ## Advanced
 
-### Creating your own field types.
+### Creating your own fields.
 
 ```jsx live=false
-import { registerFieldType } from '@saas-ui/react'
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
 
 import ReactSelect from 'react-select'
 
-const ReactSelectField = registerFieldType('react-select', ReactSelect, {
+const ReactSelectField = createField(ReactSelect, {
   isControlled: true,
+})
+
+export const Form = createForm({
+  fields: {
+    'react-select': ReactSelectField,
+  },
 })
 ```
 
@@ -202,11 +252,18 @@ const ReactSelectField = registerFieldType('react-select', ReactSelect, {
 You can override any of the build in types by registering a field on the corresponding key.
 
 ```jsx live=false
-import { registerFieldType } from '@saas-ui/react'
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
 
 import ReactSelect from 'react-select'
 
-const ReactSelectField = registerFieldType('select', ReactSelect, {
+const ReactSelectField = createField(ReactSelect, {
   isControlled: true,
+})
+
+export const Form = createForm({
+  fields: {
+    select: ReactSelectField,
+  },
 })
 ```

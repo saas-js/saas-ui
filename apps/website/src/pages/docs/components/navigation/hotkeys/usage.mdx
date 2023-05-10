@@ -47,7 +47,7 @@ The keys in the config can be used as shortcuts with the included hook throughou
 
 ```jsx live=false
 // app.tsx
-import { HotkeysProvider, HotkeysListOptions } from '@saas-ui/hotkeys'
+import { HotkeysProvider, HotkeysListOptions } from '@saas-ui/react'
 
 const hotkeys: HotkeysListOptions = {
   general: {
@@ -73,6 +73,9 @@ export default const App = () => {
 `useHotkeysShortcut` returns the command value and can be used to show the key combinations to your users.
 
 ```jsx live=false
+import { Kbd } from '@chakra-ui/react'
+import { useHotkeysShortcut } from '@saas-ui/react'
+
 export const MyComponent = () => {
   const help = useHotkeysShortcut('general.help', () => {
     onOpen()
@@ -92,8 +95,28 @@ export const MyComponent = () => {
 
 ### HotkeysList component
 
+The `HotkeysList` component can be used to list all available hotkeys in your app.
+
+Press `?` to open the modal.
+
 ```jsx
-function HotkeysListModal() {
+import {
+  Box,
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalCloseButton,
+  ModalBody,
+  Kbd,
+} from '@chakra-ui/react'
+import {
+  HotkeysList,
+  HotkeysSearch,
+  HostkeysListItems,
+  useHotkeysShortcut,
+} from '@saas-ui/react'
+
+export default function HotkeysListModal() {
   const searchRef = useRef(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -143,9 +166,14 @@ function HotkeysListModal() {
 
 `useHotkeys` can also be used standalone.
 
+Press `⌘ K` to trigger the action.
+
 ```jsx
-function Dialog() {
-  const searchRef = useRef(null)
+import { Box, Flex, Kbd } from '@chakra-ui/react'
+import { useHotkeys, SearchInput } from '@saas-ui/react'
+
+export default function Dialog() {
+  const searchRef = React.useRef(null)
 
   useHotkeys('⌘ K', () => {
     searchRef.current.focus()
@@ -176,9 +204,14 @@ function Dialog() {
 
 To target multiple platforms it's possible to pass an array of key combinations.
 
+Press `⌘ Enter` or `Ctrl+Enter` to trigger the action.
+
 ```jsx
-function Dialog() {
-  const [isLoading, setLoading] = useState()
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
 
   const key = useHotkeys(['⌘ Enter', 'Ctrl+Enter'], () => {
     setLoading(true)
@@ -197,9 +230,16 @@ function Dialog() {
 
 ### Key sequences
 
+Use the `then` keyword to create a sequence of keys.
+
+Press `A` then `S` to trigger the action.
+
 ```jsx
-function Dialog() {
-  const [isLoading, setLoading] = useState()
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
 
   const key = useHotkeys('A then S', () => {
     setLoading(true)

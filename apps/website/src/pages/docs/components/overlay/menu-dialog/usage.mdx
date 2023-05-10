@@ -15,13 +15,17 @@ It behaves exactly like a `Menu`, meaning it supports keyboard controls and lett
 ## Import
 
 ```ts
-import { MenuDialog, MenuDialogList } from '@saas-ui/modals'
+import { MenuDialog, MenuDialogList } from '@saas-ui/react'
 ```
 
 ## Usage
 
 ```jsx
-function Page() {
+import { Button, useDisclosure, MenuItem } from '@chakra-ui/react'
+import { MenuDialog, MenuDialogList } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
   const disclosure = useDisclosure()
 
   return (
@@ -49,7 +53,11 @@ function Page() {
 ### Grouped items
 
 ```jsx
-function Page() {
+import { Button, useDisclosure, MenuGroup, MenuItem } from '@chakra-ui/react'
+import { MenuDialog, MenuDialogList } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive, FiSettings } from 'react-icons/fi'
+
+export default function Page() {
   const disclosure = useDisclosure()
 
   return (

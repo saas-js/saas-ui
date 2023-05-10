@@ -9,14 +9,19 @@ itself when the close button is clicked, or after a timeout — the default is 5
 seconds.
 
 <ComponentLinks
-  github={{ package: 'saas-ui-snackbar' }}
-  npm={{ package: '@saas-ui/snackbar' }}
+  github={{ package: 'saas-ui-core/src/snackbar' }}
+  npm={{ package: '@saas-ui/core' }}
   theme={{ theme: 'saas-ui', componentName: 'toaster' }}
 />
 
 Snackbars can be configured to appear at either the top or the bottom of an
 application window, and it is possible to have more than one snackbar onscreen at a
 time.
+
+Snackbar is a wrapper around the [useToast](https://chakra-ui.com/docs/feedback/toast), with some additional features.
+
+- Convenience methods
+- Support for an action button
 
 ## Import
 
@@ -27,7 +32,10 @@ import { useSnackbar } from '@saas-ui/react'
 ## Usage
 
 ```jsx
-function SnackbarExample() {
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarExample() {
   const snackbar = useSnackbar()
   return (
     <Button
@@ -56,7 +64,10 @@ Snackbar adds a bunch of convenience methods on top of the default useToast hook
 You can either pass a snackbar options object or simply a string, which is a shorthand for `{title: '...'}`
 
 ```jsx
-function SnackbarExample() {
+import { Button, HStack } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarExample() {
   const snackbar = useSnackbar()
   return (
     <HStack spacing={4}>
@@ -95,7 +106,10 @@ function SnackbarExample() {
 ### Action
 
 ```jsx
-function SnackbarExample() {
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarExample() {
   const snackbar = useSnackbar()
   return (
     <Button
@@ -118,7 +132,10 @@ function SnackbarExample() {
 Display a custom component instead of the default Snackbar UI.
 
 ```jsx
-function CustomSnackbarExample() {
+import { Button, Box } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function CustomSnackbarExample() {
   const snackbar = useSnackbar()
   return (
     <Button
@@ -145,7 +162,10 @@ Snackbars can be closed imperatively, individually (via the `close` instance
 method) or all together (via the `closeAll` instance method).
 
 ```jsx
-function ClosingSnackbarExample() {
+import { Button, Stack } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function ClosingSnackbarExample() {
   const snackbar = useSnackbar()
   const snackbarIdRef = React.useRef()
 
@@ -190,7 +210,10 @@ Snackbars' options can be updated, by passing an `id` and the new `options` to t
 `update` instance method.
 
 ```jsx
-function UpdatingSnackbarExample() {
+import { Button, Stack } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function UpdatingSnackbarExample() {
   const snackbar = useSnackbar()
   const snackbarIdRef = React.useRef()
 
@@ -223,7 +246,10 @@ function UpdatingSnackbarExample() {
 You can use `status` to change the color of your snackbars.
 
 ```jsx
-function SnackbarStatusExample() {
+import { Button, Wrap, WrapItem } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarStatusExample() {
   const snackbar = useSnackbar()
   const statuses = ['success', 'error', 'warning', 'info']
 
@@ -257,7 +283,10 @@ You can also use variants of the
 [`Alert`](https://chakra-ui.com/docs/feedback/alert) component.
 
 ```jsx
-function SnackbarVariantsExample() {
+import { Button, Wrap, WrapItem } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarVariantsExample() {
   const snackbar = useSnackbar()
   const variants = ['snackbar', 'solid', 'subtle', 'left-accent', 'top-accent']
 
@@ -289,7 +318,10 @@ The `snackbar` function now exposes a `containerStyle` property you can use to
 override the default styles for the snackbar container.
 
 ```jsx
-function Example() {
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function Example() {
   // Via instantiation
   const snackbar = useSnackbar({
     position: 'top',
@@ -322,7 +354,10 @@ function Example() {
 Using the `position` prop you can adjust where your snackbar will be popup from.
 
 ```jsx
-function PositionExample() {
+import { Button, Wrap, WrapItem } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function PositionExample() {
   const snackbar = useSnackbar()
   const positions = [
     'top',
@@ -362,7 +397,10 @@ you need to pass an `id` and use the `snackbar.isActive` method to determine whe
 to call `snackbar(...)`.
 
 ```jsx live=false
-function PreventDuplicateExample() {
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function PreventDuplicateExample() {
   const snackbar = useSnackbar()
   const id = 'test-snackbar'
   return (

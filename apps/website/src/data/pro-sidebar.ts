@@ -7,6 +7,10 @@ const sidebar = {
       path: '/docs/pro/overview',
     },
     {
+      title: 'Upgrading to v1',
+      path: '/docs/pro/upgrading-to-v1',
+    },
+    {
       title: 'Project structure',
       path: '/docs/pro/project-structure',
     },

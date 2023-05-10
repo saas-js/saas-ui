@@ -35,8 +35,8 @@
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
     "changeset:next": "yarn changeset pre enter next",
     "version": "yarn changelog:gen && changeset version",
-    "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' npm publish --access public --tag next",
-    "publish": "yarn workspaces foreach -p --from '@saas-ui/*' --exclude '@saas-ui/pro' npm publish && yarn changeset tag",
+    "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
+    "publish": "yarn workspaces foreach -p --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
     "storybook": "yarn w saas-ui-storybook dev",
     "build:storybook": "yarn w saas-ui-storybook build",
     "prepare": "husky install",
@@ -55,6 +55,8 @@
     "build:props-docs": "yarn w @saas-ui/props-docs build"
   },
   "workspaces": [
+    "apps/website",
+    "packages/pro/saas-ui/*",
     "packages/storybook",
     "packages/saas-ui-*",
     "tooling/next-workspaces",
@@ -104,13 +106,14 @@
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
     "turbo": "^1.8.8",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.4",
     "vercel-submodules": "^1.0.10",
     "yup": "^1.0.2",
     "zod": "^3.21.4"
   },
   "resolutions": {
-    "unist-util-visit": "4.0.0"
+    "unist-util-visit": "4.0.0",
+    "next": "13.3.2-canary.11"
   },
   "packageManager": "yarn@3.3.0",
   "dependencies": {

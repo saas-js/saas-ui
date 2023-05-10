@@ -1,5 +1,26 @@
 # saas-ui-storybook
 
+## 1.0.1-next.9
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/storybook-addon@1.0.1-next.1
+  - @saas-ui/react@2.0.0-next.14
+
+## 1.0.1-next.8
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [dc435dd5]
+- Updated dependencies [6c63217c]
+  - @saas-ui/react@2.0.0-next.13
+  - @saas-ui/storybook-addon@1.0.1-next.0
+
 ## 1.0.1-next.7
 
 ### Patch Changes

@@ -42,6 +42,18 @@ import {
 ### Basic persona
 
 ```jsx
+<Persona>
+  <PersonaAvatar name="Eelco Wiersma" presence="online" />
+  <PersonaDetails>
+    <PersonaLabel>Eelco Wiersma</PersonaLabel>
+    <PersonaSecondaryLabel>Founder</PersonaSecondaryLabel>
+  </PersonaDetails>
+</Persona>
+```
+
+Or use the `Persona` shorthand props.
+
+```jsx
 <Persona name="Eelco Wiersma" secondaryLabel="Founder" presence="online" />
 ```
 
@@ -61,58 +73,67 @@ Shows an alternative status badge to indicate that the person is out of office.
 ### Persona sizes
 
 ```jsx
-<Stack spacing={8}>
-  <Persona
-    name="Eelco Wiersma"
-    secondaryLabel="Founder"
-    tertiaryLabel="Available"
-    presence="online"
-    size="2xs"
-  />
+import { Stack } from '@chakra-ui/react'
+import { Persona } from '@saas-ui/react'
 
-  <Persona
-    name="Eelco Wiersma"
-    secondaryLabel="Founder"
-    tertiaryLabel="Available"
-    presence="online"
-    size="xs"
-  />
+export default function Sizes() {
+  return (
+    <Stack spacing={8}>
+      <Persona
+        name="Eelco Wiersma"
+        secondaryLabel="Founder"
+        tertiaryLabel="Available"
+        presence="online"
+        size="2xs"
+      />
 
-  <Persona
-    name="Eelco Wiersma"
-    secondaryLabel="Founder"
-    tertiaryLabel="Available"
-    presence="online"
-    size="sm"
-  />
+      <Persona
+        name="Eelco Wiersma"
+        secondaryLabel="Founder"
+        tertiaryLabel="Available"
+        presence="online"
+        size="xs"
+      />
 
-  <Persona
-    name="Eelco Wiersma"
-    secondaryLabel="Founder"
-    tertiaryLabel="Available"
-    presence="online"
-    size="md"
-  />
+      <Persona
+        name="Eelco Wiersma"
+        secondaryLabel="Founder"
+        tertiaryLabel="Available"
+        presence="online"
+        size="sm"
+      />
 
-  <Persona
-    name="Eelco Wiersma"
-    secondaryLabel="Founder"
-    tertiaryLabel="In a meeting"
-    presence="dnd"
-    size="lg"
-  />
+      <Persona
+        name="Eelco Wiersma"
+        secondaryLabel="Founder"
+        tertiaryLabel="Available"
+        presence="online"
+        size="md"
+      />
 
-  <Persona
-    name="Eelco Wiersma"
-    secondaryLabel="Founder"
-    tertiaryLabel="In a meeting"
-    presence="dnd"
-    size="xl"
-  />
-</Stack>
+      <Persona
+        name="Eelco Wiersma"
+        secondaryLabel="Founder"
+        tertiaryLabel="In a meeting"
+        presence="dnd"
+        size="lg"
+      />
+
+      <Persona
+        name="Eelco Wiersma"
+        secondaryLabel="Founder"
+        tertiaryLabel="In a meeting"
+        presence="dnd"
+        size="xl"
+      />
+    </Stack>
+  )
+}
 ```
 
 ### Hide details
+
+Using the `hideDetails` prop will hide the labels and only render the avatar.
 
 ```jsx
 <Persona
@@ -125,59 +146,99 @@ Shows an alternative status badge to indicate that the person is out of office.
 
 ### Presence
 
+The `presence` prop accepts a `Presence` enum value.
+
+```tsx
+type Presence = 'online' | 'offline' | 'busy' | 'dnd' | 'away'
+```
+
+Each presence value has a corresponding color in the theme, defined as semantic color tokens.
+
 ```jsx
 <Stack>
-  <HStack>
-    <Persona name="Eelco Wiersma" presence="online" hideDetails size="sm" />
-    <Persona name="Eelco Wiersma" presence="offline" hideDetails size="sm" />
-    <Persona name="Eelco Wiersma" presence="busy" hideDetails size="sm" />
-    <Persona name="Eelco Wiersma" presence="dnd" hideDetails size="sm" />
-    <Persona name="Eelco Wiersma" presence="away" hideDetails size="sm" />
-  </HStack>
-  <HStack>
-    <Persona
-      name="Eelco Wiersma"
-      presence="online"
-      hideDetails
-      isOutOfOffice
-      size="sm"
-    />
-    <Persona
-      name="Eelco Wiersma"
-      presence="offline"
-      hideDetails
-      isOutOfOffice
-      size="sm"
-    />
-    <Persona
-      name="Eelco Wiersma"
-      presence="busy"
-      hideDetails
-      isOutOfOffice
-      size="sm"
-    />
-    <Persona
-      name="Eelco Wiersma"
-      presence="dnd"
-      hideDetails
-      isOutOfOffice
-      size="sm"
-    />
-    <Persona
-      name="Eelco Wiersma"
-      presence="away"
-      hideDetails
-      isOutOfOffice
-      size="sm"
-    />
-  </HStack>
+  <Text color="presence.online">Online</Text>
+  <Text color="presence.offline">Offline</Text>
+  <Text color="presence.busy">Busy</Text>
+  <Text color="presence.dnd">Do not disturb</Text>
+  <Text color="presence.away">Away</Text>
 </Stack>
+```
+
+```jsx
+import { Stack, HStack } from '@chakra-ui/react'
+import { Persona } from '@saas-ui/react'
+
+export default function Sizes() {
+  return (
+    <Stack>
+      <HStack>
+        <Persona name="Eelco Wiersma" presence="online" hideDetails size="sm" />
+        <Persona
+          name="Eelco Wiersma"
+          presence="offline"
+          hideDetails
+          size="sm"
+        />
+        <Persona name="Eelco Wiersma" presence="busy" hideDetails size="sm" />
+        <Persona name="Eelco Wiersma" presence="dnd" hideDetails size="sm" />
+        <Persona name="Eelco Wiersma" presence="away" hideDetails size="sm" />
+      </HStack>
+      <HStack>
+        <Persona
+          name="Eelco Wiersma"
+          presence="online"
+          hideDetails
+          isOutOfOffice
+          size="sm"
+        />
+        <Persona
+          name="Eelco Wiersma"
+          presence="offline"
+          hideDetails
+          isOutOfOffice
+          size="sm"
+        />
+        <Persona
+          name="Eelco Wiersma"
+          presence="busy"
+          hideDetails
+          isOutOfOffice
+          size="sm"
+        />
+        <Persona
+          name="Eelco Wiersma"
+          presence="dnd"
+          hideDetails
+          isOutOfOffice
+          size="sm"
+        />
+        <Persona
+          name="Eelco Wiersma"
+          presence="away"
+          hideDetails
+          isOutOfOffice
+          size="sm"
+        />
+      </HStack>
+    </Stack>
+  )
+}
 ```
 
 ### Custom persona
 
 ```jsx
-function CustomPersona({
+import { Avatar, AvatarBadge } from '@chakra-ui/react'
+import { TimeIcon } from '@chakra-ui/icons'
+import {
+  PersonaContainer,
+  PersonaDetails,
+  PersonaLabel,
+  PersonaSecondaryLabel,
+  PersonaTertiaryLabel,
+} from '@saas-ui/react'
+
+export default function CustomPersona({
   name = 'Eelco Wiersma',
   status = 'Away',
   message = 'Back tomorrow',
@@ -185,7 +246,7 @@ function CustomPersona({
   return (
     <PersonaContainer size="lg">
       <Avatar name={name}>
-        <AvatarBadge boxSize="1em" bg="presence.away">
+        <AvatarBadge boxSize="1em" border="0" bg="presence.away">
           <TimeIcon />
         </AvatarBadge>
       </Avatar>
@@ -202,13 +263,20 @@ function CustomPersona({
 ### Status icon
 
 ```jsx
-<Persona
-  name="Eelco Wiersma"
-  presence="busy"
-  secondaryLabel={
-    <>
-      <PhoneIcon /> On a call
-    </>
-  }
-/>
+import { PhoneIcon } from '@chakra-ui/icons'
+import { Persona } from '@saas-ui/react'
+
+export default function StatusIcon() {
+  return (
+    <Persona
+      name="Eelco Wiersma"
+      presence="busy"
+      secondaryLabel={
+        <>
+          <PhoneIcon /> On a call
+        </>
+      }
+    />
+  )
+}
 ```

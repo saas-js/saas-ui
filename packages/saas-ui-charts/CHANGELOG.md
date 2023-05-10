@@ -1,5 +1,17 @@
 # @saas-ui/charts
 
+## 0.8.0-next.2
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 0.8.0-next.1
+
+### Patch Changes
+
+- Bump version
+
 ## 0.8.0-next.0
 
 ### Minor Changes

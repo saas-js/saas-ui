@@ -57,7 +57,7 @@ export const useFieldProps = <TFieldValues extends FieldValues = FieldValues>(
 ): BaseFieldProps<TFieldValues> | undefined => {
   const parsedName = name?.replace(/\.[0-9]/g, '.$')
   const context = useFormContext()
-  return context?.fields?.[parsedName] as any
+  return (context?.fields?.[parsedName] as any) || {}
 }
 
 export type UseFormReturn<

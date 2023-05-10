@@ -1,7 +1,7 @@
 ---
 id: beacon
 title: Beacon
-package: '@saas-ui/pro'
+package: '@saas-ui-pro/react'
 description: A pulsating beacon that attracts attention
 ---
 
@@ -12,7 +12,7 @@ Beacons allows you to direct an users attention to parts of your application. Fo
 ## Import
 
 ```js
-import { Beacon } from '@saas-ui/pro'
+import { Beacon } from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -32,25 +32,38 @@ import { Beacon } from '@saas-ui/pro'
 ### Sizes
 
 ```jsx
-<Stack spacing="4">
-  <Beacon size="xs" colorScheme="primary" />
-  <Beacon size="sm" colorScheme="cyan" />
-  <Beacon size="md" colorScheme="blue" />
-  <Beacon size="lg" />
-</Stack>
+import { Stack } from '@chakra-ui/react'
+
+export default function Sizes() {
+  return (
+    <Stack spacing="4">
+      <Beacon size="xs" colorScheme="primary" />
+      <Beacon size="sm" colorScheme="cyan" />
+      <Beacon size="md" colorScheme="blue" />
+      <Beacon size="lg" />
+    </Stack>
+  )
+}
 ```
 
 ### With Button
 
 ```jsx
-<Button position="relative">
-  Changelog{' '}
-  <Beacon
-    size="sm"
-    colorScheme="primary"
-    position="absolute"
-    top="0"
-    right="0"
-  />
-</Button>
+import { Button } from '@chakra-ui/react'
+import { Beacon } from '@saas-ui-pro/react'
+
+export default function WithButton() {
+  return (
+    <Button position="relative">
+      Changelog{' '}
+      <Beacon
+        size="sm"
+        colorScheme="primary"
+        position="absolute"
+        top="0"
+        right="0"
+      />
+    </Button>
+  )
+}
 ```

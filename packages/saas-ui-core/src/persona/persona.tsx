@@ -161,34 +161,43 @@ export const Persona: React.FC<PersonaProps> = (props) => {
     ...rest
   } = props
 
+  const isComposed = !!(name || label || src || icon)
+
   return (
     <PersonaContainer size={size} {...rest}>
-      <PersonaAvatar
-        name={name}
-        presence={presence}
-        presenceIcon={presenceIcon}
-        isOutOfOffice={isOutOfOffice}
-        size={size}
-        getInitials={getInitials}
-        icon={icon}
-        iconLabel={iconLabel}
-        ignoreFallback={ignoreFallback}
-        loading={loading}
-        onError={onError}
-        src={src}
-        srcSet={srcSet}
-      />
-      {!hideDetails && (
-        <PersonaDetails>
-          <PersonaLabel>{label || name}</PersonaLabel>
-          {secondaryLabel && (
-            <PersonaSecondaryLabel>{secondaryLabel}</PersonaSecondaryLabel>
+      {isComposed ? (
+        <>
+          <PersonaAvatar
+            name={name}
+            presence={presence}
+            presenceIcon={presenceIcon}
+            isOutOfOffice={isOutOfOffice}
+            size={size}
+            getInitials={getInitials}
+            icon={icon}
+            iconLabel={iconLabel}
+            ignoreFallback={ignoreFallback}
+            loading={loading}
+            onError={onError}
+            src={src}
+            srcSet={srcSet}
+          />
+
+          {!hideDetails && (
+            <PersonaDetails>
+              <PersonaLabel>{label || name}</PersonaLabel>
+              {secondaryLabel && (
+                <PersonaSecondaryLabel>{secondaryLabel}</PersonaSecondaryLabel>
+              )}
+              {tertiaryLabel && (
+                <PersonaTertiaryLabel>{tertiaryLabel}</PersonaTertiaryLabel>
+              )}
+              {children}
+            </PersonaDetails>
           )}
-          {tertiaryLabel && (
-            <PersonaTertiaryLabel>{tertiaryLabel}</PersonaTertiaryLabel>
-          )}
-          {children}
-        </PersonaDetails>
+        </>
+      ) : (
+        children
       )}
     </PersonaContainer>
   )
@@ -315,7 +324,7 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     if (presence) {
       const label = presenceLabel || Presence[presence]?.label
       const color = semantic
-        ? Presence[presence].color || `presence.${presence}`
+        ? Presence[presence]?.color || `presence.${presence}`
         : colors[presence]
       if (isOutOfOffice) {
         badgeProps.sx = {
@@ -329,6 +338,7 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
             border: '0.2em solid',
             borderColor: color,
             borderRadius: '50%',
+            boxSizing: 'border-box',
           },
         }
         badgeProps.borderWidth = '0.15em'

@@ -7,8 +7,9 @@ import {
   ModalFooter,
 } from '@chakra-ui/react'
 
-import { FormLayout, SubmitButton, createField } from '@saas-ui/forms'
+import { Form, FormLayout, SubmitButton, createField } from '@saas-ui/forms'
 import { createZodForm } from '@saas-ui/forms/zod'
+import { createYupForm } from '@saas-ui/forms/yup'
 
 import { FormDialog, createFormDialog } from '../src/form'
 
@@ -26,6 +27,16 @@ const ZodForm = createZodForm({
 })
 
 const ZodFormDialog = createFormDialog(ZodForm)
+
+const YupForm = createYupForm({
+  fields: {
+    custom: CustomField,
+  },
+})
+
+const YupFormDialog = createFormDialog(YupForm)
+
+const TestForm = createFormDialog(Form)
 
 export default {
   title: 'Components/Overlay/FormDialog',
@@ -65,6 +76,10 @@ export const Basic = () => {
 
       <FormDialog
         title="New post"
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
         {...disclosure}
         onSubmit={onSubmit(disclosure)}
       >
@@ -100,6 +115,10 @@ export const FocusFirstInput = () => {
 
       <FormDialog
         title="New post"
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
         {...disclosure}
         onSubmit={onSubmit(disclosure)}
         initialFocusRef={initialRef}
@@ -167,10 +186,6 @@ export const CustomFooter = () => {
     </Stack>
   )
 }
-
-const yupSchema = yup.object({
-  title: yup.string().required('Title is required'),
-})
 
 const zodSchema = zod.object({
   title: zod.string().nonempty('Title is required'),
@@ -247,6 +262,85 @@ export const ZodSchemaWithFields = () => {
           </FormLayout>
         )}
       </ZodFormDialog>
+    </Stack>
+  )
+}
+
+const yupSchema = yup.object({
+  title: yup.string().required('Title is required'),
+})
+
+export const YupSchema = () => {
+  const disclosure = useDisclosure()
+
+  const initialRef = React.useRef<HTMLInputElement>(null)
+
+  return (
+    <Stack alignItems="center">
+      <Button
+        onClick={() => {
+          disclosure.onOpen()
+        }}
+      >
+        Open form dialog
+      </Button>
+
+      <YupFormDialog
+        title="New post"
+        schema={yupSchema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+        }}
+        fields={{
+          title: {
+            label: 'Title',
+            variant: 'flushed',
+          },
+          cancel: {
+            colorScheme: 'red',
+            children: 'Delete',
+            variant: 'solid',
+          },
+        }}
+        onSubmit={onSubmit(disclosure)}
+        initialFocusRef={initialRef}
+      />
+    </Stack>
+  )
+}
+
+export const YupSchemaWithFields = () => {
+  const disclosure = useDisclosure()
+
+  const initialRef = React.useRef<HTMLInputElement>(null)
+
+  return (
+    <Stack alignItems="center">
+      <Button
+        onClick={() => {
+          disclosure.onOpen()
+        }}
+      >
+        Open form dialog
+      </Button>
+
+      <YupFormDialog
+        title="New post"
+        schema={yupchema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+        }}
+        onSubmit={onSubmit(disclosure)}
+        initialFocusRef={initialRef}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" />
+          </FormLayout>
+        )}
+      </YupFormDialog>
     </Stack>
   )
 }

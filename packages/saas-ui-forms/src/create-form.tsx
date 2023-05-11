@@ -1,7 +1,7 @@
 import React, { ForwardedRef } from 'react'
 import { FieldsProvider } from './fields-context'
 import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { WithFields } from './types'
+import { DefaultFieldOverrides, WithFields } from './types'
 import { objectFieldResolver } from './field-resolver'
 import { GetFieldResolver } from './field-resolver'
 import { forwardRef } from '@chakra-ui/react'
@@ -12,19 +12,21 @@ export interface CreateFormProps<FieldDefs> {
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
 }
 
-export type FormType<FieldDefs, ExtraProps = object> = (<
+export type FormType<
+  FieldDefs,
+  ExtraProps = object,
+  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
+> = (<
   TFieldValues extends FieldValues,
   TContext extends object = object,
-  TFormProps extends FormProps<TFieldValues, TContext> = FormProps<
-    TFieldValues,
-    TContext
-  >
+  TSchema = unknown
 >(
-  props: WithFields<TFormProps, FieldDefs> & {
+  props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs> & {
     ref?: React.ForwardedRef<HTMLFormElement>
   } & ExtraProps
 ) => React.ReactElement) & {
   displayName?: string
+  id?: string
 }
 
 export function createForm<FieldDefs>({
@@ -32,7 +34,7 @@ export function createForm<FieldDefs>({
   fieldResolver = objectFieldResolver,
   fields,
 }: CreateFormProps<FieldDefs> = {}) {
-  const CreateForm = forwardRef(
+  const DefaultForm = forwardRef(
     <
       TFieldValues extends FieldValues,
       TContext extends object = object,
@@ -55,5 +57,8 @@ export function createForm<FieldDefs>({
     }
   ) as FormType<FieldDefs>
 
-  return CreateForm
+  DefaultForm.displayName = 'Form'
+  DefaultForm.id = 'Form'
+
+  return DefaultForm
 }

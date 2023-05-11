@@ -43,6 +43,7 @@ export type {
   WithFields,
   BaseFieldProps,
   FieldOptions,
+  DefaultFieldOverrides,
 } from './types'
 
 export { createForm, type CreateFormProps, type FormType } from './create-form'

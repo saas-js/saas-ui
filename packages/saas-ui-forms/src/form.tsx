@@ -47,8 +47,9 @@ export interface FormRenderContext<
 interface FormOptions<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = any,
-  TFieldTypes = FieldProps<TFieldValues>
+  TSchema = unknown,
+  TFieldTypes = FieldProps<TFieldValues>,
+  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
 > {
   /**
    * The form schema.
@@ -83,20 +84,27 @@ interface FormOptions<
   /**
    * Field overrides
    */
-  fields?: DefaultFieldOverrides
+  fields?: TFieldOverrides
 }
 
 export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = any,
-  TFieldTypes = FieldProps<TFieldValues>
+  TSchema = unknown,
+  TFieldTypes = FieldProps<TFieldValues>,
+  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
-    FormOptions<TFieldValues, TContext, TSchema, TFieldTypes> {}
+    FormOptions<
+      TFieldValues,
+      TContext,
+      TSchema,
+      TFieldTypes,
+      TFieldOverrides
+    > {}
 
 /**
  * The wrapper component provides context, state, and focus management.
@@ -205,7 +213,7 @@ export const Form = forwardRef(
 export type FormComponent = (<
   TFieldValues extends FieldValues,
   TContext extends object = object,
-  TSchema = any,
+  TSchema = unknown,
   TFieldTypes = FieldProps<TFieldValues>
 >(
   props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes> & {
@@ -221,7 +229,7 @@ export type GetResolver = <
   TFieldValues extends FieldValues,
   TContext extends object
 >(
-  schema: any
+  schema: unknown
 ) => (
   values: TFieldValues,
   context: TContext | undefined,

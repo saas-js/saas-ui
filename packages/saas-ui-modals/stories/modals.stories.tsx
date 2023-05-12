@@ -10,6 +10,8 @@ import { FormDialog, createFormDialog } from '../src/form'
 import { createField } from '@saas-ui/forms'
 import { createZodForm } from '@saas-ui/forms/zod'
 
+import * as z from 'zod'
+
 const CustomField = createField((props: { customFieldProps: string }) => (
   <div>custom</div>
 ))
@@ -171,6 +173,9 @@ export const Basic = () => {
         onClick={() =>
           modals.form({
             title: 'Form',
+            schema: z.object({
+              title: z.string(),
+            }),
             defaultvalues: {
               title: 'My title',
             },

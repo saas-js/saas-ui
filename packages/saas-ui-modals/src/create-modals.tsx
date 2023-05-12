@@ -12,7 +12,9 @@ const createModal = (Component: React.FC<any>, options: CreateModalOptions) => {
   return Component
 }
 
-export interface CreateModalsOptions<TModalDefs> {
+export interface CreateModalsOptions<
+  TModalDefs extends Record<string, React.FC<any>>
+> {
   modals: TModalDefs
 }
 

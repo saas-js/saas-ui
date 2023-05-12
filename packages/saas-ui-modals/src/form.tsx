@@ -132,7 +132,7 @@ type MergeDialogProps<T> = T extends YupFormType<
   ? YupFormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,
-      ExtraOverrides
+      ExtraOverrides & FormDialogFieldOverrides
     >
   : T extends ZodFormType<
       infer FieldDefs,
@@ -143,13 +143,13 @@ type MergeDialogProps<T> = T extends YupFormType<
   ? ZodFormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,
-      ExtraOverrides
+      ExtraOverrides & FormDialogFieldOverrides
     >
   : T extends FormType<infer FieldDefs, infer ExtraProps, infer ExtraOverrides>
   ? FormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,
-      ExtraOverrides
+      ExtraOverrides & FormDialogFieldOverrides
     >
   : never
 

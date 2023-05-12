@@ -27,13 +27,9 @@ import {
   useWatch,
 } from '../src'
 
-import {
-  StepForm,
-  FormStepper,
-  FormStep,
-  PrevButton,
-  NextButton,
-} from '../src/step-form'
+import { FormStepper, FormStep, PrevButton, NextButton } from '../src/step-form'
+
+import { StepForm } from '../src'
 
 import { ButtonGroup } from '@chakra-ui/react'
 

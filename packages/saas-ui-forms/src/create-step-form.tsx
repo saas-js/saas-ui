@@ -1,18 +1,29 @@
 import { useMemo } from 'react'
 import { forwardRef } from '@chakra-ui/react'
 import { FormType } from './create-form'
-import { Form } from './'
+import {
+  ArrayField,
+  DisplayIf,
+  FieldProps,
+  FieldValues,
+  Form,
+  ObjectField,
+} from './'
 import { Field } from './field'
 import { StepFormProps, FormStep } from './step-form'
-import { StepFormProvider, useStepForm } from './use-step-form'
+import {
+  StepFormProvider,
+  UseStepFormProps,
+  useStepForm,
+} from './use-step-form'
 import { YupFormType } from '../yup/src/create-yup-form'
 import { ZodFormType } from '../zod/src/create-zod-form'
 import { StepperProvider } from '@saas-ui/core'
 import { runIfFn } from '@chakra-ui/utils'
 
-/**
- * @todo make this dynamic to support other schema types
- */
+// /**
+//  * @todo make this dynamic to support other schema types
+//  */
 type MergeStepFormProps<T> = T extends YupFormType<
   infer FieldDefs,
   infer ExtraProps,
@@ -58,6 +69,45 @@ export type DefaultFormType<
   id?: string
 }
 
+// export function createStepForm<
+//   FieldDefs = any,
+//   ExtraProps = object,
+//   ExtraOverrides = object,
+//   TFormType extends DefaultFormType<
+//     FieldDefs,
+//     ExtraProps,
+//     ExtraOverrides
+//   > = DefaultFormType<FieldDefs, ExtraProps, ExtraOverrides>
+// >(Form: TFormType) {
+//   const StepForm = forwardRef<any, 'div'>((props, ref) => {
+//     const { children, ...rest } = props
+
+//     const stepper = useStepForm(props)
+
+//     const { getFormProps, ...ctx } = stepper
+
+//     const context = useMemo(() => ctx, [ctx])
+
+//     return (
+//       <StepperProvider value={context}>
+//         <StepFormProvider value={context}>
+//           <Form ref={ref} {...rest} {...getFormProps()}>
+//             {runIfFn(children, {
+//               ...stepper,
+//               FormStep,
+//               Field,
+//             })}
+//           </Form>
+//         </StepFormProvider>
+//       </StepperProvider>
+//     )
+//   }) as MergeStepFormProps<TFormType>
+
+//   StepForm.displayName = `Step${Form.displayName || Form.name}`
+
+//   return StepForm
+// }
+
 export function createStepForm<
   FieldDefs = any,
   ExtraProps = object,
@@ -83,18 +133,29 @@ export function createStepForm<
           <Form ref={ref} {...rest} {...getFormProps()}>
             {runIfFn(children, {
               ...stepper,
-              FormStep,
-              Field,
+              Field: Field as any,
+              DisplayIf: DisplayIf as any,
+              ArrayField: ArrayField as any,
+              ObjectField: ObjectField as any,
             })}
           </Form>
         </StepFormProvider>
       </StepperProvider>
     )
-  }) as MergeStepFormProps<TFormType>
+  }) as (<
+    TFieldValues extends FieldValues = FieldValues,
+    TContext extends object = object,
+    TFieldTypes = FieldProps<TFieldValues>
+  >(
+    props: UseStepFormProps<TFieldValues, TContext, TFieldTypes> & {
+      ref?: React.ForwardedRef<HTMLFormElement>
+    }
+  ) => React.ReactElement) & {
+    displayName?: string
+    id?: string
+  }
 
   StepForm.displayName = `Step${Form.displayName || Form.name}`
 
   return StepForm
 }
-
-export const StepForm = createStepForm(Form)

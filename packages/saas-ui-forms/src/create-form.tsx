@@ -1,7 +1,7 @@
 import React, { ForwardedRef } from 'react'
 import { FieldsProvider } from './fields-context'
 import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { WithFields } from './types'
+import { DefaultFieldOverrides, WithFields } from './types'
 import { objectFieldResolver } from './field-resolver'
 import { GetFieldResolver } from './field-resolver'
 import { forwardRef } from '@chakra-ui/react'
@@ -12,16 +12,37 @@ export interface CreateFormProps<FieldDefs> {
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
 }
 
-export function createForm<FieldDefs, Schema = any>({
+export type FormType<
+  FieldDefs,
+  ExtraProps = object,
+  ExtraOverrides = object
+> = (<
+  TFieldValues extends FieldValues,
+  TContext extends object = object,
+  TSchema = unknown
+>(
+  props: WithFields<
+    FormProps<TFieldValues, TContext, TSchema>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
+    ref?: React.ForwardedRef<HTMLFormElement>
+  } & ExtraProps
+) => React.ReactElement) & {
+  displayName?: string
+  id?: string
+}
+
+export function createForm<FieldDefs>({
   resolver,
   fieldResolver = objectFieldResolver,
   fields,
 }: CreateFormProps<FieldDefs> = {}) {
-  const CreateForm = forwardRef(
+  const DefaultForm = forwardRef(
     <
       TFieldValues extends FieldValues,
       TContext extends object = object,
-      TSchema extends Schema = Schema
+      TSchema = any
     >(
       props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs>,
       ref: ForwardedRef<HTMLFormElement>
@@ -38,17 +59,10 @@ export function createForm<FieldDefs, Schema = any>({
         </FieldsProvider>
       )
     }
-  ) as (<
-    TFieldValues extends FieldValues,
-    TContext extends object = object,
-    TSchema extends Schema = Schema
-  >(
-    props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs> & {
-      ref?: React.ForwardedRef<HTMLFormElement>
-    }
-  ) => React.ReactElement) & {
-    displayName?: string
-  }
+  ) as FormType<FieldDefs>
 
-  return CreateForm
+  DefaultForm.displayName = 'Form'
+  DefaultForm.id = 'Form'
+
+  return DefaultForm
 }

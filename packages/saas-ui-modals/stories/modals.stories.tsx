@@ -1,12 +1,26 @@
 import * as React from 'react'
 import { Button, Stack, Container, MenuItem } from '@chakra-ui/react'
-// import { ModalsProvider, useModals } from '../src/provider'
+
 import { createModals } from '../src'
 import { MenuDialogList } from '../src/menu'
 
 import { Field, FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
-import { FormDialog } from '../src/form'
+import { FormDialog, createFormDialog } from '../src/form'
+import { createField } from '@saas-ui/forms'
+import { createZodForm } from '@saas-ui/forms/zod'
+
+const CustomField = createField((props: { customFieldProps: string }) => (
+  <div>custom</div>
+))
+
+const ZodForm = createZodForm({
+  fields: {
+    custom: CustomField,
+  },
+})
+
+const ZodFormDialog = createFormDialog(ZodForm)
 
 interface CustomModalProps extends Omit<BaseModalProps, 'children'> {
   customProp: 'test'
@@ -27,6 +41,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
 const { ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
+    form: ZodFormDialog,
   },
 })
 

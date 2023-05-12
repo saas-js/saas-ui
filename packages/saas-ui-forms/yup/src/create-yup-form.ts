@@ -3,11 +3,13 @@ import {
   CreateFormProps,
   FormProps,
   WithFields,
+  FieldValues,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
-import { ObjectSchema, InferType } from 'yup'
+import { InferType } from 'yup'
 import React from 'react'
 import { AnyObjectSchema } from './types'
+
 type ResolverArgs = Parameters<typeof yupResolver>
 
 export interface CreateYupFormProps<FieldDefs>
@@ -16,23 +18,40 @@ export interface CreateYupFormProps<FieldDefs>
   resolverOptions?: ResolverArgs[2]
 }
 
+export type YupFormType<
+  FieldDefs,
+  ExtraProps = object,
+  ExtraOverrides = object,
+  Type extends 'yup' = 'yup'
+> = (<
+  TFieldValues extends FieldValues = FieldValues, // placeholder
+  TContext extends object = object,
+  TSchema extends AnyObjectSchema = AnyObjectSchema
+>(
+  props: WithFields<
+    FormProps<InferType<TSchema>, TContext, TSchema>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
+    ref?: React.ForwardedRef<HTMLFormElement>
+  } & ExtraProps
+) => React.ReactElement) & {
+  displayName?: string
+  id?: 'YupForm'
+}
+
 export const createYupForm = <FieldDefs>(
   options?: CreateYupFormProps<FieldDefs>
 ) => {
-  return createForm({
-    resolver: (schema) =>
+  const YupForm = createForm({
+    resolver: (schema: any) =>
       yupResolver(schema, options?.schemaOptions, options?.resolverOptions),
     fieldResolver: yupFieldResolver,
     ...options,
-  }) as <
-    TSchema extends AnyObjectSchema = AnyObjectSchema,
-    TContext extends object = object
-  >(
-    props: WithFields<
-      FormProps<InferType<TSchema>, TContext, TSchema>,
-      FieldDefs
-    > & {
-      ref?: React.ForwardedRef<HTMLFormElement>
-    }
-  ) => React.ReactElement
+  })
+
+  YupForm.displayName = 'YupForm'
+  YupForm.id = 'YupForm'
+
+  return YupForm as YupFormType<FieldDefs>
 }

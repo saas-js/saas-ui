@@ -47,7 +47,7 @@ export interface FormRenderContext<
 interface FormOptions<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = any,
+  TSchema = unknown,
   TFieldTypes = FieldProps<TFieldValues>
 > {
   /**
@@ -89,7 +89,7 @@ interface FormOptions<
 export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = any,
+  TSchema = unknown,
   TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
@@ -200,10 +200,12 @@ export const Form = forwardRef(
       </FormProvider>
     )
   }
-) as (<
+) as FormComponent
+
+export type FormComponent = (<
   TFieldValues extends FieldValues,
   TContext extends object = object,
-  TSchema = any,
+  TSchema = unknown,
   TFieldTypes = FieldProps<TFieldValues>
 >(
   props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes> & {
@@ -219,7 +221,7 @@ export type GetResolver = <
   TFieldValues extends FieldValues,
   TContext extends object
 >(
-  schema: any
+  schema: unknown
 ) => (
   values: TFieldValues,
   context: TContext | undefined,

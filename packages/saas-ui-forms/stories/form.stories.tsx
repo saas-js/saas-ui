@@ -178,7 +178,7 @@ export const WithYupSchema = () => (
     onSubmit={onSubmit}
     schema={yupSchema}
   >
-    {({ Field }) => (
+    {(form) => (
       <FormLayout>
         <Field name="name" label="Title" />
         <Field name="description" label="Description" />

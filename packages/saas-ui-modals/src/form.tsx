@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-import { ModalBody, ModalFooter, Button, forwardRef } from '@chakra-ui/react'
+import {
+  ModalBody,
+  ModalFooter,
+  Button,
+  forwardRef,
+  ButtonProps,
+} from '@chakra-ui/react'
 import { runIfFn } from '@saas-ui/react-utils'
 
 import {
@@ -11,9 +17,23 @@ import {
   FieldValues,
   FieldResolver,
   FieldProps,
+  FormType,
+  DefaultFieldOverrides,
+  WithFields,
 } from '@saas-ui/forms'
 
+import {
+  Form as YupForm,
+  AnyObjectSchema,
+  YupFormType,
+} from '@saas-ui/forms/yup'
+import { Form as ZodForm, ZodFormType } from '@saas-ui/forms/zod'
+
 import { BaseModal, BaseModalProps } from './modal'
+
+export type FormDialogFieldOverrides = DefaultFieldOverrides & {
+  cancel?: ButtonProps
+}
 
 export interface FormDialogProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -47,99 +67,148 @@ export interface FormDialogProps<
    */
   footer?: React.ReactNode
   /**
-   * The cancel button label
-   * @default "Cancel"
-   */
-  cancelLabel?: React.ReactNode
-  /**
-   * The submit button label
-   * @default "Submit"
-   */
-  submitLabel?: React.ReactNode
-  /**
    * A schema field resolver used to auto generate form fields.
    */
   fieldResolver?: FieldResolver
+  /**
+   * Field overrides
+   */
+  fields?: FormDialogFieldOverrides
 }
+
+const useFormProps = (props: FormDialogProps) => {
+  const {
+    schema,
+    resolver,
+    fieldResolver,
+    defaultValues,
+    values,
+    context,
+    onChange,
+    onSubmit,
+    onError,
+    mode,
+    reValidateMode,
+    shouldFocusError = true,
+    shouldUnregister,
+    shouldUseNativeValidation,
+    criteriaMode,
+    delayError = 100,
+    fields,
+    ...modalProps
+  } = props
+
+  const formProps = {
+    schema,
+    resolver,
+    defaultValues,
+    values,
+    context,
+    onChange,
+    onSubmit,
+    onError,
+    mode,
+    reValidateMode,
+    shouldFocusError,
+    shouldUnregister,
+    shouldUseNativeValidation,
+    criteriaMode,
+    delayError,
+    fields,
+  }
+
+  return { modalProps, formProps, fields }
+}
+
 /**
- * Can be used to quickly request information from people without leaving the current page.
- *
- * @see Docs https://saas-ui.dev/docs/components/overlay/form-dialog
+ * Todo make this dynamic to support other schema types
  */
-export const FormDialog = forwardRef(
-  <
-    TFieldValues extends FieldValues = FieldValues,
-    TContext extends object = object
-  >(
-    props: FormDialogProps<TFieldValues, TContext>,
-    ref: React.ForwardedRef<HTMLFormElement>
-  ) => {
-    const {
-      children,
-      schema,
-      resolver,
-      fieldResolver,
-      defaultValues,
-      values,
-      context,
-      onChange,
-      onSubmit,
-      onError,
-      mode,
-      reValidateMode,
-      shouldFocusError = true,
-      shouldUnregister,
-      shouldUseNativeValidation,
-      criteriaMode,
-      delayError = 100,
-      cancelLabel = 'Cancel',
-      submitLabel = 'Submit',
-      footer,
-      isOpen,
-      onClose,
-      ...rest
-    } = props
+type MergeDialogProps<T> = T extends YupFormType<
+  infer FieldDefs,
+  infer ExtraProps,
+  infer ExtraOverrides,
+  'yup'
+>
+  ? YupFormType<
+      FieldDefs,
+      ExtraProps & Omit<BaseModalProps, 'children'>,
+      ExtraOverrides
+    >
+  : T extends ZodFormType<
+      infer FieldDefs,
+      infer ExtraProps,
+      infer ExtraOverrides,
+      'zod'
+    >
+  ? ZodFormType<
+      FieldDefs,
+      ExtraProps & Omit<BaseModalProps, 'children'>,
+      ExtraOverrides
+    >
+  : T extends FormType<infer FieldDefs, infer ExtraProps, infer ExtraOverrides>
+  ? FormType<
+      FieldDefs,
+      ExtraProps & Omit<BaseModalProps, 'children'>,
+      ExtraOverrides
+    >
+  : never
 
-    const formProps = {
-      ref,
-      schema,
-      resolver,
-      defaultValues,
-      values,
-      context,
-      onChange,
-      onSubmit,
-      onError,
-      mode,
-      reValidateMode,
-      shouldFocusError,
-      shouldUnregister,
-      shouldUseNativeValidation,
-      criteriaMode,
-      delayError,
-    }
+type IsSchemaType<T, Schema, FieldDefs> = T extends DefaultFormType<FieldDefs>
+  ? T extends (
+      props: FormProps<infer TFieldValues, infer TContext, infer TSchema>
+    ) => any
+    ? Schema extends TSchema
+      ? true
+      : false
+    : false
+  : false
 
+export type DefaultFormType<
+  FieldDefs = any,
+  ExtraProps = object,
+  ExtraOverrides = FormDialogFieldOverrides
+> = (<
+  TFieldValues extends Record<string, any> = any,
+  TContext extends object = object,
+  TSchema = unknown
+>(
+  props: any
+) => React.ReactElement) & {
+  displayName?: string
+  id?: string
+}
+
+export function createFormDialog<
+  FieldDefs = any,
+  ExtraProps = object,
+  ExtraOverrides = FormDialogFieldOverrides,
+  TFormType extends DefaultFormType<
+    FieldDefs,
+    ExtraProps,
+    ExtraOverrides
+  > = DefaultFormType<FieldDefs, ExtraProps, ExtraOverrides>
+>(Form: TFormType) {
+  const Dialog = forwardRef<any, 'div'>((props, ref) => {
+    const { isOpen, onClose, footer, children, ...rest } = props
+    const { modalProps, formProps, fields } = useFormProps(rest)
     return (
-      <BaseModal isOpen={isOpen} onClose={onClose} {...rest}>
-        <Form {...formProps} ref={ref}>
-          {(form) => (
+      <BaseModal {...modalProps} isOpen={isOpen} onClose={onClose}>
+        <Form ref={ref} {...(formProps as any)}>
+          {(form: any) => (
             <>
-              <ModalBody>
-                {runIfFn(children, form) || (
-                  <AutoFields
-                    schema={schema}
-                    fieldResolver={fieldResolver}
-                    focusFirstField
-                  />
-                )}
-              </ModalBody>
+              <ModalBody>{runIfFn(children, form) || <AutoFields />}</ModalBody>
 
               {footer || (
                 <ModalFooter>
-                  <Button variant="ghost" mr={3} onClick={onClose}>
-                    {cancelLabel}
+                  <Button
+                    variant="ghost"
+                    mr={3}
+                    onClick={onClose}
+                    {...fields?.cancel}
+                  >
+                    {fields?.cancel?.children ?? 'Cancel'}
                   </Button>
-                  <SubmitButton>{submitLabel}</SubmitButton>
+                  <SubmitButton {...fields?.submit} />
                 </ModalFooter>
               )}
             </>
@@ -147,9 +216,16 @@ export const FormDialog = forwardRef(
         </Form>
       </BaseModal>
     )
-  }
-) as <TFieldValues extends FieldValues>(
-  props: FormDialogProps<TFieldValues> & {
-    ref?: React.ForwardedRef<HTMLFormElement>
-  }
-) => React.ReactElement
+  }) as MergeDialogProps<TFormType>
+
+  Dialog.displayName = `${Form.displayName || Form.name}Dialog`
+
+  return Dialog
+}
+
+/**
+ * Can be used to quickly request information from people without leaving the current page.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/overlay/form-dialog
+ */
+export const FormDialog = createFormDialog(Form)

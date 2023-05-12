@@ -1,8 +1,6 @@
 import * as React from 'react'
 import {
   forwardRef,
-  Heading,
-  Text,
   Icon,
   chakra,
   As,
@@ -14,7 +12,6 @@ import {
   SystemProps,
   SystemStyleObject,
   HTMLChakraProps,
-  HeadingProps,
   TextProps,
   ButtonGroupProps,
   createStylesContext,
@@ -136,7 +133,9 @@ export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
 
 EmptyStateIcon.displayName = 'EmptyStateIcon'
 
-export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
+export interface EmptyStateTitleProps extends HTMLChakraProps<'h3'> {}
+
+export const EmptyStateTitle: React.FC<EmptyStateTitleProps> = (props) => {
   const styles = useStyles()
 
   const titleStyles = {
@@ -145,9 +144,8 @@ export const EmptyStateTitle: React.FC<HeadingProps> = (props) => {
   }
 
   return (
-    <Heading
-      sx={titleStyles}
-      size="md"
+    <chakra.h3
+      __css={titleStyles}
       {...props}
       className={cx('sui-empty-state__title', props.className)}
     />
@@ -166,8 +164,8 @@ export const EmptyStateDescription: React.FC<TextProps> = (props) => {
   }
 
   return (
-    <Text
-      sx={descriptionStyles}
+    <chakra.p
+      __css={descriptionStyles}
       {...props}
       className={cx('sui-empty-state__description', props.className)}
     />

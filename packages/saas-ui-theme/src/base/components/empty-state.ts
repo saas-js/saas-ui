@@ -17,6 +17,8 @@ const baseStyle = definePartsStyle((props) => {
     },
     title: {
       mt: 8,
+      fontWeight: 'bold',
+      fontSize: 'xl',
     },
     actions: {
       mt: 8,

@@ -15,13 +15,17 @@ export interface CreateFormProps<FieldDefs> {
 export type FormType<
   FieldDefs,
   ExtraProps = object,
-  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
+  ExtraOverrides = object
 > = (<
   TFieldValues extends FieldValues,
   TContext extends object = object,
   TSchema = unknown
 >(
-  props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs> & {
+  props: WithFields<
+    FormProps<TFieldValues, TContext, TSchema>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
     ref?: React.ForwardedRef<HTMLFormElement>
   } & ExtraProps
 ) => React.ReactElement) & {

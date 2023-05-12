@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 
 import { Form, FormLayout, SubmitButton, createField } from '@saas-ui/forms'
-import { createZodForm } from '@saas-ui/forms/zod'
+import { createZodForm, Form as InteralZodForm } from '@saas-ui/forms/zod'
 import { createYupForm } from '@saas-ui/forms/yup'
 
 import { FormDialog, createFormDialog } from '../src/form'
@@ -35,8 +35,6 @@ const YupForm = createYupForm({
 })
 
 const YupFormDialog = createFormDialog(YupForm)
-
-const TestForm = createFormDialog(Form)
 
 export default {
   title: 'Components/Overlay/FormDialog',
@@ -268,6 +266,7 @@ export const ZodSchemaWithFields = () => {
 
 const yupSchema = yup.object({
   title: yup.string().required('Title is required'),
+  description: yup.string(),
 })
 
 export const YupSchema = () => {
@@ -327,7 +326,7 @@ export const YupSchemaWithFields = () => {
 
       <YupFormDialog
         title="New post"
-        schema={yupchema}
+        schema={yupSchema}
         {...disclosure}
         defaultValues={{
           title: '',

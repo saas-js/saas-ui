@@ -48,8 +48,7 @@ interface FormOptions<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TSchema = unknown,
-  TFieldTypes = FieldProps<TFieldValues>,
-  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
+  TFieldTypes = FieldProps<TFieldValues>
 > {
   /**
    * The form schema.
@@ -84,27 +83,20 @@ interface FormOptions<
   /**
    * Field overrides
    */
-  fields?: TFieldOverrides
+  fields?: DefaultFieldOverrides
 }
 
 export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TSchema = unknown,
-  TFieldTypes = FieldProps<TFieldValues>,
-  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
+  TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
-    FormOptions<
-      TFieldValues,
-      TContext,
-      TSchema,
-      TFieldTypes,
-      TFieldOverrides
-    > {}
+    FormOptions<TFieldValues, TContext, TSchema, TFieldTypes> {}
 
 /**
  * The wrapper component provides context, state, and focus management.

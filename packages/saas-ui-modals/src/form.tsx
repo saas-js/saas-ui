@@ -20,10 +20,14 @@ import {
   FormType,
   DefaultFieldOverrides,
   WithFields,
-} from '@saas-ui/forms/src'
+} from '@saas-ui/forms'
 
-import type { YupFormType } from '@saas-ui/forms/yup'
-import type { ZodFormType } from '@saas-ui/forms/zod'
+import {
+  Form as YupForm,
+  AnyObjectSchema,
+  YupFormType,
+} from '@saas-ui/forms/yup'
+import { Form as ZodForm, ZodFormType } from '@saas-ui/forms/zod'
 
 import { BaseModal, BaseModalProps } from './modal'
 
@@ -122,47 +126,67 @@ const useFormProps = (props: FormDialogProps) => {
 type MergeDialogProps<T> = T extends YupFormType<
   infer FieldDefs,
   infer ExtraProps,
-  infer FieldOverrides
+  infer ExtraOverrides,
+  'yup'
 >
   ? YupFormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,
-      FieldOverrides & FormDialogFieldOverrides
+      ExtraOverrides
     >
   : T extends ZodFormType<
       infer FieldDefs,
       infer ExtraProps,
-      infer FieldOverrides
+      infer ExtraOverrides,
+      'zod'
     >
   ? ZodFormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,
-      FieldOverrides & FormDialogFieldOverrides
+      ExtraOverrides
     >
-  : T extends FormType<infer FieldDefs, infer ExtraProps, infer FieldOverrides>
+  : T extends FormType<infer FieldDefs, infer ExtraProps, infer ExtraOverrides>
   ? FormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,
-      FieldOverrides & FormDialogFieldOverrides
+      ExtraOverrides
     >
   : never
 
-export type DefaultFormType<FieldDefs, ExtraProps = object> = (<
+type IsSchemaType<T, Schema, FieldDefs> = T extends DefaultFormType<FieldDefs>
+  ? T extends (
+      props: FormProps<infer TFieldValues, infer TContext, infer TSchema>
+    ) => any
+    ? Schema extends TSchema
+      ? true
+      : false
+    : false
+  : false
+
+export type DefaultFormType<
+  FieldDefs = any,
+  ExtraProps = object,
+  ExtraOverrides = FormDialogFieldOverrides
+> = (<
   TFieldValues extends Record<string, any> = any,
   TContext extends object = object,
   TSchema = unknown
 >(
-  props: WithFields<FormProps<any, any, any>, FieldDefs> & {
-    ref?: React.ForwardedRef<HTMLFormElement>
-  } & ExtraProps
+  props: any
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
 }
 
 export function createFormDialog<
-  FieldDefs,
-  TFormType extends DefaultFormType<FieldDefs> = DefaultFormType<FieldDefs>
+  FieldDefs = any,
+  ExtraProps = object,
+  ExtraOverrides = FormDialogFieldOverrides,
+  TFormType extends DefaultFormType<
+    FieldDefs,
+    ExtraProps,
+    ExtraOverrides
+  > = DefaultFormType<FieldDefs, ExtraProps, ExtraOverrides>
 >(Form: TFormType) {
   const Dialog = forwardRef<any, 'div'>((props, ref) => {
     const { isOpen, onClose, footer, children, ...rest } = props

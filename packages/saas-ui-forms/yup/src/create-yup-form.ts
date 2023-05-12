@@ -3,7 +3,6 @@ import {
   CreateFormProps,
   FormProps,
   WithFields,
-  DefaultFieldOverrides,
   FieldValues,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
@@ -22,14 +21,18 @@ export interface CreateYupFormProps<FieldDefs>
 export type YupFormType<
   FieldDefs,
   ExtraProps = object,
-  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides,
-  YupSchema extends AnyObjectSchema = AnyObjectSchema
+  ExtraOverrides = object,
+  Type extends 'yup' = 'yup'
 > = (<
-  TFieldValues extends FieldValues = InferType<YupSchema>, // placeholder
+  TFieldValues extends FieldValues = FieldValues, // placeholder
   TContext extends object = object,
-  TSchema extends YupSchema = YupSchema
+  TSchema extends AnyObjectSchema = AnyObjectSchema
 >(
-  props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs> & {
+  props: WithFields<
+    FormProps<InferType<TSchema>, TContext, TSchema>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
     ref?: React.ForwardedRef<HTMLFormElement>
   } & ExtraProps
 ) => React.ReactElement) & {

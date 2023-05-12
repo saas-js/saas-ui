@@ -3,7 +3,6 @@ import {
   CreateFormProps,
   WithFields,
   FormProps,
-  DefaultFieldOverrides,
   FieldValues,
 } from '@saas-ui/forms'
 import { zodFieldResolver, zodResolver } from './zod-resolver'
@@ -20,14 +19,18 @@ export interface CreateZodFormProps<FieldDefs>
 export type ZodFormType<
   FieldDefs,
   ExtraProps = object,
-  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides,
-  ZodSchema extends z.AnyZodObject = z.AnyZodObject
+  ExtraOverrides = object,
+  Type extends 'zod' = 'zod'
 > = (<
-  TFieldValues extends FieldValues = z.infer<ZodSchema>, // placeholder
+  TFieldValues extends FieldValues = FieldValues, // placeholder
   TContext extends object = object,
-  TSchema extends ZodSchema = ZodSchema
+  TSchema extends z.AnyZodObject = z.AnyZodObject
 >(
-  props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs> & {
+  props: WithFields<
+    FormProps<z.infer<TSchema>, TContext, TSchema>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
     ref?: React.ForwardedRef<HTMLFormElement>
   } & ExtraProps
 ) => React.ReactElement) & {
@@ -35,11 +38,7 @@ export type ZodFormType<
   id?: string
 }
 
-export const createZodForm = <
-  FieldDefs,
-  ExtraProps = object,
-  TFieldOverrides extends DefaultFieldOverrides = DefaultFieldOverrides
->(
+export const createZodForm = <FieldDefs>(
   options?: CreateZodFormProps<FieldDefs>
 ) => {
   const ZodForm = createForm({
@@ -52,5 +51,5 @@ export const createZodForm = <
   ZodForm.displayName = 'ZodForm'
   ZodForm.id = 'ZodForm'
 
-  return ZodForm as ZodFormType<FieldDefs, ExtraProps, TFieldOverrides>
+  return ZodForm as ZodFormType<FieldDefs>
 }

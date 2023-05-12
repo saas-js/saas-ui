@@ -34,12 +34,36 @@ export const [StepFormProvider, useStepFormContext] =
   })
 
 import { FormProps } from './form'
+import { FormStepProps } from './step-form'
+import { FieldProps } from './types'
+import { FocusableElement } from '@chakra-ui/utils'
+import { DisplayIfProps } from './display-if'
+import { ArrayFieldProps } from './array-field'
+import { UseArrayFieldReturn } from './use-array-field'
+import { ObjectFieldProps } from './object-field'
+
+interface StepFormRenderContext<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>
+> extends UseStepFormReturn<TFieldValues> {
+  Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
+  DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
+  ArrayField: React.FC<
+    ArrayFieldProps<TFieldValues> & React.RefAttributes<UseArrayFieldReturn>
+  >
+  ObjectField: React.FC<ObjectFieldProps<TFieldValues>>
+}
 
 export interface UseStepFormProps<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>
 > extends Omit<UseStepperProps, 'onChange'>,
-    Omit<FormProps<TFieldValues>, 'children'> {
-  children: MaybeRenderProp<UseStepFormReturn<TFieldValues>>
+    Omit<FormProps<TFieldValues, TContext, any, TFieldTypes>, 'children'> {
+  children: MaybeRenderProp<
+    StepFormRenderContext<TFieldValues, TContext, TFieldTypes>
+  >
 }
 
 export interface UseStepFormReturn<
@@ -54,8 +78,12 @@ export interface UseStepFormReturn<
   steps: Record<string, any>
 }
 
-export function useStepForm<TFieldValues extends FieldValues = FieldValues>(
-  props: UseStepFormProps<TFieldValues>
+export function useStepForm<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>
+>(
+  props: UseStepFormProps<TFieldValues, TContext, TFieldTypes>
 ): UseStepFormReturn<TFieldValues> {
   const { onChange, ...rest } = props
   const stepper = useStepper(rest)

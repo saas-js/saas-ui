@@ -14,8 +14,8 @@ import * as Yup from 'yup'
 import * as z from 'zod'
 
 import {
-  FormLayout,
   Field,
+  FormLayout,
   FormValue,
   StepFormProps,
   useStepFormContext,
@@ -81,10 +81,7 @@ const zodSchemas = {
   }),
 }
 
-export const Basic = ({
-  onSubmit: onSubmitProp = onSubmit,
-  ...rest
-}: StepFormProps) => (
+export const Basic = () => (
   <>
     <StepForm
       defaultValues={{
@@ -92,28 +89,30 @@ export const Basic = ({
         email: '',
         password: '',
       }}
-      onSubmit={onSubmitProp}
-      {...rest}
+      onSubmit={onSubmit}
     >
-      <FormLayout>
-        <FormStep name="profile">
-          <FormLayout>
-            <Field name="name" label="Name" rules={{ required: true }} />
-            <Field name="email" label="Email" rules={{ required: true }} />
-            <NextButton />
-          </FormLayout>
-        </FormStep>
-        <FormStep name="password">
-          <FormLayout>
-            <Field
-              name="password"
-              label="Password"
-              rules={{ required: true, minLength: 4 }}
-            />
-            <NextButton />
-          </FormLayout>
-        </FormStep>
-      </FormLayout>
+      {({ Field }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                type="password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
     </StepForm>
   </>
 )
@@ -128,7 +127,7 @@ export const WithYupSchema = () => (
       }}
       onSubmit={onSubmit}
     >
-      {({ isCompleted }) => (
+      {({ Field, isCompleted }) => (
         <FormLayout>
           <FormStep name="profile" resolver={yupResolver(schemas.profile)}>
             <FormLayout>
@@ -160,12 +159,12 @@ export const WithZodSchema = () => (
     <StepForm
       defaultValues={{
         name: '',
-        email: '',
-        password: '',
+        description: '',
+        members: '',
       }}
       onSubmit={onSubmit}
     >
-      {({ isCompleted }) => (
+      {({ Field, isCompleted }) => (
         <FormLayout>
           <FormStep name="project" resolver={zodResolver(zodSchemas.project)}>
             <FormLayout>
@@ -215,53 +214,58 @@ export const WithStepper = () => {
         }}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <FormStepper>
-            <FormStep name="profile" title="Profile">
-              <FormLayout>
-                <Field name="name" label="Name" />
-                <Field name="email" label="Email" autoComplete="off" />
-                <StepperNav />
-              </FormLayout>
-            </FormStep>
+        {({ Field }) => (
+          <FormLayout>
+            <FormStepper>
+              <FormStep name="profile" title="Profile">
+                <FormLayout>
+                  <Field name="name" label="Name" />
+                  <Field name="email" label="Email" autoComplete="off" />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
 
-            <FormStep name="password" title="Password">
-              <FormLayout>
-                <Field
-                  name="password"
-                  label="Password"
-                  type="password"
-                  autoFocus
-                  autoComplete="off"
-                />
-                <StepperNav />
-              </FormLayout>
-            </FormStep>
+              <FormStep name="password" title="Password">
+                <FormLayout>
+                  <Field
+                    name="password"
+                    label="Password"
+                    type="password"
+                    autoFocus
+                    autoComplete="off"
+                  />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
 
-            <FormStep name="confirmation" title="Confirmation">
-              <FormLayout>
-                <Text>Please confirm that your information is correct.</Text>
-                <PropertyList>
-                  <Property label="Name" value={<FormValue name="name" />} />
-                  <Property label="Email" value={<FormValue name="email" />} />
-                </PropertyList>
-                <StepperNav />
-              </FormLayout>
-            </FormStep>
+              <FormStep name="confirmation" title="Confirmation">
+                <FormLayout>
+                  <Text>Please confirm that your information is correct.</Text>
+                  <PropertyList>
+                    <Property label="Name" value={<FormValue name="name" />} />
+                    <Property
+                      label="Email"
+                      value={<FormValue name="email" />}
+                    />
+                  </PropertyList>
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
 
-            <StepperCompleted>
-              <Alert status="success">
-                <AlertIcon />
-                <Box>
-                  <AlertTitle>Thanks for signing up</AlertTitle>
-                  <AlertDescription width="full">
-                    Check your inbox to confirm your email address.
-                  </AlertDescription>
-                </Box>
-              </Alert>
-            </StepperCompleted>
-          </FormStepper>
-        </FormLayout>
+              <StepperCompleted>
+                <Alert status="success">
+                  <AlertIcon />
+                  <Box>
+                    <AlertTitle>Thanks for signing up</AlertTitle>
+                    <AlertDescription width="full">
+                      Check your inbox to confirm your email address.
+                    </AlertDescription>
+                  </Box>
+                </Alert>
+              </StepperCompleted>
+            </FormStepper>
+          </FormLayout>
+        )}
       </StepForm>
     </>
   )

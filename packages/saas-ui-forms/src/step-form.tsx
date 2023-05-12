@@ -23,6 +23,8 @@ import {
 } from '@saas-ui/core'
 
 import { Form } from './form'
+import { Field } from './field'
+
 import { SubmitButton } from './submit-button'
 
 import {
@@ -32,11 +34,16 @@ import {
   UseStepFormProps,
   FormStepSubmitHandler,
 } from './use-step-form'
+import { FieldProps } from './types'
+import { DisplayIf } from './display-if'
+import { ArrayField } from './array-field'
+import { ObjectField } from './object-field'
 
 export interface StepFormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
-> extends UseStepFormProps<TFieldValues> {}
+  TContext extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>
+> extends UseStepFormProps<TFieldValues, TContext, TFieldTypes> {}
 
 /**
  * The wrapper component provides context, state, and focus management.
@@ -46,14 +53,15 @@ export interface StepFormProps<
 export const StepForm = React.forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,
-    TContext extends object = object
+    TContext extends object = object,
+    TFieldTypes = FieldProps<TFieldValues>
   >(
-    props: StepFormProps<TFieldValues, TContext>,
+    props: StepFormProps<TFieldValues, TContext, TFieldTypes>,
     ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const { children, ...rest } = props
 
-    const stepper = useStepForm<TFieldValues>(props)
+    const stepper = useStepForm(props)
 
     const { getFormProps, ...ctx } = stepper
 
@@ -63,17 +71,35 @@ export const StepForm = React.forwardRef(
       <StepperProvider value={context}>
         <StepFormProvider value={context}>
           <Form ref={ref} {...rest} {...getFormProps()}>
-            {runIfFn(children, stepper)}
+            {runIfFn(children, {
+              ...stepper,
+              Field: Field as any,
+              DisplayIf: DisplayIf as any,
+              ArrayField: ArrayField as any,
+              ObjectField: ObjectField as any,
+            })}
           </Form>
         </StepFormProvider>
       </StepperProvider>
     )
   }
-) as <TFieldValues extends FieldValues>(
-  props: StepFormProps<TFieldValues> & {
+) as <
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>
+>(
+  props: UseStepFormProps<TFieldValues, TContext, TFieldTypes> & {
     ref?: React.ForwardedRef<HTMLFormElement>
   }
 ) => React.ReactElement
+
+const Test = () => {
+  return (
+    <StepForm onSubmit={() => Promise.resolve()}>
+      {({ Field }) => <Field name="test" />}
+    </StepForm>
+  )
+}
 
 export interface FormStepOptions {
   /**
@@ -181,7 +207,7 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
   return (
     <Button
       isDisabled={isFirstStep || isCompleted}
-      label="Back"
+      children="Back"
       {...props}
       className={cx('sui-form__prev-button', props.className)}
       onClick={callAllHandlers(props.onClick, prevStep)}

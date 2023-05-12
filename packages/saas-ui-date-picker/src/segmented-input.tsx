@@ -107,10 +107,13 @@ export const InputSegment = forwardRef<InputSegmentProps, 'div'>(
       ...rest,
     })
 
+    const minWidth =
+      type && ['day', 'month'].includes(type) ? 1 : String(maxValue).length
+
     const segmentStyles = {
       boxSizing: 'content-box',
       fontVariantNumeric: 'tabular-nums',
-      minWidth: maxValue != null ? String(maxValue).length + 'ch' : 'auto',
+      minWidth: maxValue != null ? minWidth + 'ch' : 'auto',
       ...styles,
     }
 

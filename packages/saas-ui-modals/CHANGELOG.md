@@ -1,5 +1,16 @@
 # @saas-ui/modals
 
+## 2.0.0-next.15
+
+### Minor Changes
+
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+  - @saas-ui/forms@2.0.0-next.15
+
 ## 2.0.0-next.14
 
 ### Patch Changes

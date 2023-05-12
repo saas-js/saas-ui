@@ -1,5 +1,15 @@
 # @saas-ui/date-picker
 
+## 0.9.0-next.3
+
+### Patch Changes
+
+- 633b5c63: Updated the day and month segment minimal width, so there's less spacing with single digits
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [826c561a]
+  - @saas-ui/modals@2.0.0-next.15
+  - @saas-ui/core@2.0.0-next.13
+
 ## 0.9.0-next.2
 
 ### Patch Changes

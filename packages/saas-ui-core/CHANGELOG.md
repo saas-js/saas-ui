@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-next.13
+
+### Minor Changes
+
+- 826c561a: EmptyState title and description no longer use Header and Text
+
 ## 2.0.0-next.12
 
 ### Patch Changes

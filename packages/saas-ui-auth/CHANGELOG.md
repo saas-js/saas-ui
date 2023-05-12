@@ -1,5 +1,14 @@
 # @saas-ui/auth
 
+## 2.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [826c561a]
+  - @saas-ui/forms@2.0.0-next.15
+  - @saas-ui/core@2.0.0-next.13
+
 ## 2.0.0-next.14
 
 ### Patch Changes

@@ -52,7 +52,8 @@
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "clean:packages": "turbo run clean",
     "build:storybook-addon": "yarn w @saas-ui/storybook-addon build",
-    "build:props-docs": "yarn w @saas-ui/props-docs build"
+    "build:props-docs": "yarn w @saas-ui/props-docs build",
+    "preinstall": "rm -rf node_modules/odiff-bin"
   },
   "workspaces": [
     "apps/website",

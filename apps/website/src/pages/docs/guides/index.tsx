@@ -40,7 +40,7 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<any> = async () => {
   //   const data = docsSidebar.routes
   //     .find((route) => route.path.match(/\/docs\/guides/))
   //     ?.routes.concat()

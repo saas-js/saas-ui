@@ -29,12 +29,13 @@ import {
 } from '@chakra-ui/react'
 import {
   Page,
+  PageHeader,
   Section,
+  SectionHeader,
   Toolbar,
   ToolbarButton,
   Command,
   ActiveFilter,
-  PageHeader,
 } from '@saas-ui-pro/react'
 import {
   AppShell,
@@ -65,6 +66,7 @@ import {
   LoadingOverlay,
   LoadingSpinner,
   Web3Address,
+  DividerLabel,
 } from '@saas-ui/react'
 import NextLink from 'next/link'
 import {
@@ -112,8 +114,8 @@ const componentIllustrations = {
     </Page>
   ),
   section: (
-    <Section title="Settings" description="Manage your settings">
-      <></>
+    <Section>
+      <SectionHeader title="Settings" description="Manage your settings" />
     </Section>
   ),
   toolbar: (
@@ -247,7 +249,11 @@ const componentIllustrations = {
       </Table>
     </Box>
   ),
-  divider: <Divider label="Divider" />,
+  divider: (
+    <Divider>
+      <DividerLabel>Divider</DividerLabel>
+    </Divider>
+  ),
   emptystate: (
     <EmptyState
       title="No results"

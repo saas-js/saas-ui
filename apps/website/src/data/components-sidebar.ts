@@ -42,6 +42,11 @@ const sidebar = {
           pro: true,
         },
         {
+          title: 'SplitPage',
+          path: '/docs/components/layout/split-page',
+          pro: true,
+        },
+        {
           title: 'Section',
           path: '/docs/components/layout/section',
           pro: true,

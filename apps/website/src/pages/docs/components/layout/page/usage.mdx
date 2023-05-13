@@ -30,7 +30,7 @@ To have more control over composition, use the low level `PageContainer` instead
 
 ### Basic page
 
-Page children are wrapped by PageBody automatically. PageBody handles scrolling, content positioning. Content is centered by default with a max width of `container.xl`.
+PageBody handles scrolling, content positioning. Content is centered by default with a max width of `container.xl`.
 
 ```jsx height=200px overflow=hidden
 import { Text } from '@chakra-ui/react'
@@ -149,6 +149,9 @@ export default function HeroPage() {
 
 ### Full width page
 
+Use the `contentWidth` prop to make the page content full width. This is useful for pages that contain a table or other content that needs to be full width.
+Add `p="0"` to the `PageBody` to remove the default padding.
+
 ```jsx height=400px overflow=hidden
 import { Text, ButtonGroup, Button } from '@chakra-ui/react'
 import { AppShell } from '@saas-ui/react'
@@ -159,7 +162,7 @@ export default function FullWidthPage() {
     <AppShell>
       <Page>
         <PageHeader title="Users" />
-        <PageBody maxW="full" p="0">
+        <PageBody contentWidth="full" p="0">
           <DataGrid
             isHoverable
             isSelectable

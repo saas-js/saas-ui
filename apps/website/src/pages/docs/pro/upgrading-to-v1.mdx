@@ -32,7 +32,7 @@ The `Page` component composition has been updated, it no longer renders PageHead
 ```tsx
 <Page>
   <PageHeader title="Title" />
-  <PageBody><PageBody>
+  <PageBody>Body</PageBody>
 </Page>
 ```
 
@@ -40,8 +40,10 @@ The `Page` component composition has been updated, it no longer renders PageHead
 
 The `Section` component composition has been updated, it no longer renders SectionHeader and SectionBody, they should now be added as child components.
 
+The `isAnnotated` property has been removed, instead use the `variant` property.
+
 ```tsx
-<Section>
+<Section variant="annotated">
   <SectionHeader title="Title" />
   <SectionBody><SectionBody>
 </Section>

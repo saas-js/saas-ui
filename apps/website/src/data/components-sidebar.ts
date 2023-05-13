@@ -65,6 +65,11 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'CommandBar',
+          path: '/docs/components/navigation/command-bar',
+          beta: true,
+        },
+        {
           title: 'Hotkeys',
           path: '/docs/components/navigation/hotkeys',
         },

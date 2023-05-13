@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 2.0.0-next.16
+
+### Patch Changes
+
+- b8be6d41: tooltipProps on NavItem no longer require children
+- Updated dependencies [b8be6d41]
+- Updated dependencies [cc713117]
+  - @saas-ui/core@2.0.0-next.14
+  - @saas-ui/modals@2.0.0-next.16
+  - @saas-ui/data-table@2.0.0-next.16
+  - @saas-ui/auth@2.0.0-next.16
+  - @saas-ui/forms@2.0.0-next.16
+  - @saas-ui/hotkeys@2.0.0-next.14
+
 ## 2.0.0-next.15
 
 ### Minor Changes

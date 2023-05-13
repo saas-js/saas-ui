@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 2.0.0-next.16
+
+### Patch Changes
+
+- cc713117: Fix issue where onCloseComplete would not be called
+  - @saas-ui/forms@2.0.0-next.16
+
 ## 2.0.0-next.15
 
 ### Minor Changes

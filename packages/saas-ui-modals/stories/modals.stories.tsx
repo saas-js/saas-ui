@@ -275,3 +275,40 @@ export const OnClose = () => {
     </Button>
   )
 }
+
+export const Multiple = () => {
+  const modals = useModals()
+
+  const next = () => {
+    const id = modals.open({
+      title: 'Modal step 2',
+      body: 'Step 2',
+      footer: (
+        <>
+          <Button onClick={() => modals.close(id)} mr="3">
+            Back
+          </Button>
+          <Button onClick={() => modals.closeAll()}>Done</Button>
+        </>
+      ),
+    })
+  }
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'Modal step 1',
+          body: 'Step 1',
+          footer: (
+            <>
+              <Button onClick={next}>Next</Button>
+            </>
+          ),
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}

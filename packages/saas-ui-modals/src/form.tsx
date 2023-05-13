@@ -19,15 +19,10 @@ import {
   FieldProps,
   FormType,
   DefaultFieldOverrides,
-  WithFields,
 } from '@saas-ui/forms'
 
-import {
-  Form as YupForm,
-  AnyObjectSchema,
-  YupFormType,
-} from '@saas-ui/forms/yup'
-import { Form as ZodForm, ZodFormType } from '@saas-ui/forms/zod'
+import { YupFormType } from '@saas-ui/forms/yup'
+import { ZodFormType } from '@saas-ui/forms/zod'
 
 import { BaseModal, BaseModalProps } from './modal'
 
@@ -121,7 +116,7 @@ const useFormProps = (props: FormDialogProps) => {
 }
 
 /**
- * Todo make this dynamic to support other schema types
+ * @todo make this dynamic to support other schema types
  */
 type MergeDialogProps<T> = T extends YupFormType<
   infer FieldDefs,

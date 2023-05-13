@@ -280,6 +280,8 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
         modal.scope
       )
     }
+
+    closeComplete(id)
   }
 
   const closeComplete = (id?: ModalId | null) => {

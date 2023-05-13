@@ -88,7 +88,7 @@ export interface NavItemProps
    * Props to be passed to the tooltip
    * @see Docs https://chakra-ui.com/docs/overlay/tooltip
    */
-  tooltipProps?: TooltipProps
+  tooltipProps?: Omit<TooltipProps, 'children'>
   /**
    * If `true`, the nav item will be active
    */
@@ -111,23 +111,29 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
     children,
     ...rest
   } = omitThemingProps(props)
-  const RouterLink = useLink()
+  const Link = useLink()
   const { onClose, variant: sidebarVariant } = useSidebarContext() || {}
-  const isCondensed = sidebarVariant === 'compact'
+  const isCompact = sidebarVariant === 'compact'
 
   const styles = useMultiStyleConfig('SuiNavItem', props)
 
   let label = children
   let tooltipLabel = tooltipProps?.label
   if (typeof label === 'string') {
-    if (!tooltipLabel && isCondensed) {
+    if (!tooltipLabel && isCompact) {
       tooltipLabel = label
     }
     label = <NavItemLabel>{label}</NavItemLabel>
   }
 
-  let link = (
+  let as
+  if (href && href !== '#') {
+    as = Link
+  }
+
+  const link = (
     <chakra.a
+      as={as}
       {...rest}
       ref={ref}
       href={href}
@@ -148,10 +154,6 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
     </chakra.a>
   )
 
-  if (href && href !== '#') {
-    link = <RouterLink href={href}>{link}</RouterLink>
-  }
-
   return (
     <NavItemStylesProvider value={styles}>
       <Tooltip
@@ -163,7 +165,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
         <chakra.div
           __css={styles.item}
           onClick={onClose}
-          data-compact={dataAttr(isCondensed)}
+          data-compact={dataAttr(isCompact)}
           className={cx('sui-nav-item', className)}
         >
           {link}

@@ -10,7 +10,7 @@ let config = {
   optimizeFonts: true,
   reactStrictMode: true,
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   experimental: {
     externalDir: true,

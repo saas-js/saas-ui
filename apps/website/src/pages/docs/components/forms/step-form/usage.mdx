@@ -35,7 +35,9 @@ import {
 ### Basic step form
 
 ```jsx
-function BasicStepForm() {
+import { StepForm, FormLayout, FormStep, NextButton } from '@saas-ui/react'
+
+export default function BasicStepForm() {
   const onSubmit = (params) => {
     console.log(params)
     return new Promise((resolve) => {
@@ -52,25 +54,27 @@ function BasicStepForm() {
       }}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <FormStep name="profile">
-          <FormLayout>
-            <Field name="name" label="Name" rules={{ required: true }} />
-            <Field name="email" label="Email" rules={{ required: true }} />
-            <NextButton />
-          </FormLayout>
-        </FormStep>
-        <FormStep name="password">
-          <FormLayout>
-            <Field
-              name="password"
-              label="Password"
-              rules={{ required: true, minLength: 4 }}
-            />
-            <NextButton />
-          </FormLayout>
-        </FormStep>
-      </FormLayout>
+      {({ Field }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
     </StepForm>
   )
 }
@@ -78,17 +82,28 @@ function BasicStepForm() {
 
 ### With a schema
 
-Supports Yup schemas out of the box.
+Supports yup schemas out of the box.
 
 ```jsx
-function CreateProject() {
+import { Spacer } from '@chakra-ui/react'
+import {
+  StepForm,
+  FormLayout,
+  FormStep,
+  PrevButton,
+  NextButton,
+} from '@saas-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+export default function CreateProject() {
   const schemas = {
-    project: Yup.object().shape({
-      name: Yup.string().required().label('Name'),
-      description: Yup.string().label('Description'),
+    project: yup.object().shape({
+      name: yup.string().required().label('Name'),
+      description: yup.string().label('Description'),
     }),
-    members: Yup.object().shape({
-      members: Yup.string().label('Members'),
+    members: yup.object().shape({
+      members: yup.string().label('Members'),
     }),
   }
 
@@ -108,29 +123,31 @@ function CreateProject() {
       }}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <FormStep name="project" resolver={yupResolver(schemas.project)}>
-          <FormLayout>
-            <Field name="name" isRequired label="Name" />
-            <Field name="description" label="Description" />
-          </FormLayout>
-        </FormStep>
-        <FormStep name="members" resolver={yupResolver(schemas.members)}>
-          <FormLayout>
-            <Field
-              name="members"
-              type="textarea"
-              label="Invite people"
-              placeholder="hello@saas-ui.dev, etc"
-            />
-          </FormLayout>
-        </FormStep>
-        <ButtonGroup w="full">
-          <PrevButton variant="ghost" />
-          <Spacer />
-          <NextButton />
-        </ButtonGroup>
-      </FormLayout>
+      {({ Field }) => (
+        <FormLayout>
+          <FormStep name="project" resolver={yupResolver(schemas.project)}>
+            <FormLayout>
+              <Field name="name" isRequired label="Name" />
+              <Field name="description" label="Description" />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="members" resolver={yupResolver(schemas.members)}>
+            <FormLayout>
+              <Field
+                name="members"
+                type="textarea"
+                label="Invite people"
+                placeholder="hello@saas-ui.dev, etc"
+              />
+            </FormLayout>
+          </FormStep>
+          <ButtonGroup w="full">
+            <PrevButton variant="ghost" />
+            <Spacer />
+            <NextButton />
+          </ButtonGroup>
+        </FormLayout>
+      )}
     </StepForm>
   )
 }
@@ -139,14 +156,34 @@ function CreateProject() {
 ### With a stepper
 
 ```jsx
-function CreateProject() {
+import { Text, Spacer, ButtonGroup } from '@chakra-ui/react'
+import {
+  StepForm,
+  FormLayout,
+  FormStep,
+  Field,
+  PrevButton,
+  NextButton,
+  FormStepper,
+  StepperCompleted,
+  FormValue,
+  LoadingOverlay,
+  LoadingSpinner,
+  LoadingText,
+  PropertyList,
+  Property,
+} from '@saas-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+export default function CreateProject() {
   const schemas = {
-    project: Yup.object().shape({
-      name: Yup.string().required().label('Name'),
-      description: Yup.string().label('Description'),
+    project: yup.object().shape({
+      name: yup.string().required().label('Name'),
+      description: yup.string().label('Description'),
     }),
-    members: Yup.object().shape({
-      members: Yup.string().label('Members'),
+    members: yup.object().shape({
+      members: yup.string().label('Members'),
     }),
   }
 
@@ -166,56 +203,63 @@ function CreateProject() {
       }}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <FormStepper>
-          <FormStep
-            name="project"
-            title="Project details"
-            resolver={yupResolver(schemas.project)}
-          >
-            <FormLayout>
-              <Field name="name" isRequired label="Name" />
-              <Field name="description" label="Description" />
-            </FormLayout>
-          </FormStep>
-          <FormStep
-            name="members"
-            title="Invite your team"
-            resolver={yupResolver(schemas.members)}
-          >
-            <FormLayout>
-              <Field
-                name="members"
-                type="textarea"
-                label="Invite people"
-                placeholder="hello@saas-ui.dev, etc"
-                autoFocus
-              />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="confirm" title="Confirm">
-            <FormLayout>
-              <Text>Please confirm that your information is correct.</Text>
-              <PropertyList>
-                <Property label="Name" value={<FormValue name="name" />} />
-                <Property
-                  label="Description"
-                  value={<FormValue name="description" />}
+      {({ Field }) => (
+        <FormLayout>
+          <FormStepper>
+            <FormStep
+              name="project"
+              title="Project details"
+              resolver={yupResolver(schemas.project)}
+            >
+              <FormLayout>
+                <Field name="name" isRequired label="Name" />
+                <Field name="description" label="Description" />
+              </FormLayout>
+            </FormStep>
+            <FormStep
+              name="members"
+              title="Invite your team"
+              resolver={yupResolver(schemas.members)}
+            >
+              <FormLayout>
+                <Field
+                  name="members"
+                  type="textarea"
+                  label="Invite people"
+                  placeholder="hello@saas-ui.dev, etc"
+                  autoFocus
                 />
-              </PropertyList>
-            </FormLayout>
-          </FormStep>
+              </FormLayout>
+            </FormStep>
+            <FormStep name="confirm" title="Confirm">
+              <FormLayout>
+                <Text>Please confirm that your information is correct.</Text>
+                <PropertyList>
+                  <Property label="Name" value={<FormValue name="name" />} />
+                  <Property
+                    label="Description"
+                    value={<FormValue name="description" />}
+                  />
+                </PropertyList>
+              </FormLayout>
+            </FormStep>
 
-          <StepperCompleted>
-            <Loader>We are setting up your project, just a moment...</Loader>
-          </StepperCompleted>
-        </FormStepper>
-        <ButtonGroup w="full">
-          <PrevButton variant="ghost" />
-          <Spacer />
-          <NextButton />
-        </ButtonGroup>
-      </FormLayout>
+            <StepperCompleted>
+              <LoadingOverlay>
+                <LoadingSpinner />
+                <LoadingText>
+                  We are setting up your project, just a moment...
+                </LoadingText>
+              </LoadingOverlay>
+            </StepperCompleted>
+          </FormStepper>
+          <ButtonGroup w="full">
+            <PrevButton variant="ghost" />
+            <Spacer />
+            <NextButton />
+          </ButtonGroup>
+        </FormLayout>
+      )}
     </StepForm>
   )
 }
@@ -224,14 +268,34 @@ function CreateProject() {
 ### With a vertical stepper
 
 ```jsx
-function CreateProject() {
+import { Text, Spacer, ButtonGroup } from '@chakra-ui/react'
+import {
+  StepForm,
+  FormLayout,
+  FormStep,
+  Field,
+  PrevButton,
+  NextButton,
+  FormStepper,
+  StepperCompleted,
+  FormValue,
+  LoadingOverlay,
+  LoadingSpinner,
+  LoadingText,
+  PropertyList,
+  Property,
+} from '@saas-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+export default function CreateProject() {
   const schemas = {
-    project: Yup.object().shape({
-      name: Yup.string().required().label('Name'),
-      description: Yup.string().label('Description'),
+    project: yup.object().shape({
+      name: yup.string().required().label('Name'),
+      description: yup.string().label('Description'),
     }),
-    members: Yup.object().shape({
-      members: Yup.string().label('Members'),
+    members: yup.object().shape({
+      members: yup.string().label('Members'),
     }),
   }
 
@@ -251,60 +315,67 @@ function CreateProject() {
       }}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <FormStepper orientation="vertical">
-          <FormStep
-            name="project"
-            title="Project details"
-            resolver={yupResolver(schemas.project)}
-          >
-            <FormLayout>
-              <Field name="name" isRequired label="Name" />
-              <Field name="description" label="Description" />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-          <FormStep
-            name="members"
-            title="Invite your team"
-            resolver={yupResolver(schemas.members)}
-          >
-            <FormLayout>
-              <Field
-                name="members"
-                type="textarea"
-                label="Invite people"
-                placeholder="hello@saas-ui.dev, etc"
-                autoFocus
-              />
-              <ButtonGroup>
+      {({ Field }) => (
+        <FormLayout>
+          <FormStepper orientation="vertical">
+            <FormStep
+              name="project"
+              title="Project details"
+              resolver={yupResolver(schemas.project)}
+            >
+              <FormLayout>
+                <Field name="name" isRequired label="Name" />
+                <Field name="description" label="Description" />
                 <NextButton />
-                <PrevButton variant="ghost" />
-              </ButtonGroup>
-            </FormLayout>
-          </FormStep>
-          <FormStep name="confirm" title="Confirm">
-            <FormLayout>
-              <Text>Please confirm that your information is correct.</Text>
-              <PropertyList>
-                <Property label="Name" value={<FormValue name="name" />} />
-                <Property
-                  label="Description"
-                  value={<FormValue name="description" />}
+              </FormLayout>
+            </FormStep>
+            <FormStep
+              name="members"
+              title="Invite your team"
+              resolver={yupResolver(schemas.members)}
+            >
+              <FormLayout>
+                <Field
+                  name="members"
+                  type="textarea"
+                  label="Invite people"
+                  placeholder="hello@saas-ui.dev, etc"
+                  autoFocus
                 />
-              </PropertyList>
-              <ButtonGroup>
-                <NextButton />
-                <PrevButton variant="ghost" />
-              </ButtonGroup>
-            </FormLayout>
-          </FormStep>
+                <ButtonGroup>
+                  <NextButton />
+                  <PrevButton variant="ghost" />
+                </ButtonGroup>
+              </FormLayout>
+            </FormStep>
+            <FormStep name="confirm" title="Confirm">
+              <FormLayout>
+                <Text>Please confirm that your information is correct.</Text>
+                <PropertyList>
+                  <Property label="Name" value={<FormValue name="name" />} />
+                  <Property
+                    label="Description"
+                    value={<FormValue name="description" />}
+                  />
+                </PropertyList>
+                <ButtonGroup>
+                  <NextButton />
+                  <PrevButton variant="ghost" />
+                </ButtonGroup>
+              </FormLayout>
+            </FormStep>
 
-          <StepperCompleted>
-            <Loader>We are setting up your project, just a moment...</Loader>
-          </StepperCompleted>
-        </FormStepper>
-      </FormLayout>
+            <StepperCompleted>
+              <LoadingOverlay>
+                <LoadingSpinner />
+                <LoadingText>
+                  We are setting up your project, just a moment...
+                </LoadingText>
+              </LoadingOverlay>
+            </StepperCompleted>
+          </FormStepper>
+        </FormLayout>
+      )}
     </StepForm>
   )
 }
@@ -315,7 +386,17 @@ function CreateProject() {
 You can access the form step state by using render props or the `useStepFormContext` hook.
 
 ```jsx
-function StepperState() {
+import { Text, ButtonGroup } from '@chakra-ui/react'
+import {
+  StepForm,
+  FormLayout,
+  FormStep,
+  PrevButton,
+  NextButton,
+  FormStepper,
+} from '@saas-ui/react'
+
+export default function StepperState() {
   return (
     <StepForm
       defaultValues={{
@@ -325,7 +406,14 @@ function StepperState() {
       }}
       onSubmit={saveHandler}
     >
-      {({ isFirstStep, isLastStep, isCompleted, nextStep, prevStep }) => (
+      {({
+        Field,
+        isFirstStep,
+        isLastStep,
+        isCompleted,
+        nextStep,
+        prevStep,
+      }) => (
         <FormLayout>
           <FormStep name="profile">
             <FormLayout>

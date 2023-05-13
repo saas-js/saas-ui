@@ -19,6 +19,7 @@ import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
 import FocusLock from 'react-focus-lock'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
   FiHome,
@@ -168,6 +169,8 @@ const ReactLiveScope = {
     '@saas-ui/date-picker': DatePicker,
     '@chakra-ui/icons': Icons,
     'react-icons/fi': reactIcons,
+    '@hookform/resolvers/yup': { yupResolver },
+    '@hookform/resolvers/zod': { zodResolver },
     zod: z,
     yup: yup,
   },

@@ -34,7 +34,9 @@ import { ModalsProvider, useModals } from '@saas-ui/react'
 Add `ModalsProvider` to the root of your project.
 
 ```tsx
-function App({ children }) {
+import { SaasProvider, ModalsProvider } from '@saas-ui/react'
+
+export default function App({ children }) {
   return (
     // ...
     <SaasProvider>
@@ -50,7 +52,10 @@ function App({ children }) {
 `open` acccepts all default `Modal` properties, [more information](https://chakra-ui.com/docs/overlay/modal#props).
 
 ```jsx
-function Page() {
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
   const modals = useModals()
 
   return (
@@ -74,7 +79,10 @@ function Page() {
 `drawer` acccepts all default `Drawer` properties, [more information](https://chakra-ui.com/docs/overlay/drawer#props).
 
 ```jsx
-function Page() {
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
   const modals = useModals()
 
   return (
@@ -98,7 +106,10 @@ function Page() {
 `confirm` acccepts all default `AlertDialog` properties, [more information](https://chakra-ui.com/docs/alert-dialog/modal#props).
 
 ```jsx
-function Page() {
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
   const modals = useModals()
 
   return (
@@ -166,7 +177,10 @@ other model in that scope that's currently open. When closing the last modal,
 the manager will render the previous open modal, unless you use `closeAll`.
 
 ```jsx
-function Page() {
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
   const modals = useModals()
 
   const next = () => {
@@ -175,8 +189,10 @@ function Page() {
       body: 'Step 2',
       footer: (
         <>
-          <Button onClick={() => modals.close(id)} mr="3" label="Back" />
-          <Button onClick={() => modals.closeAll()} label="Done" />
+          <Button onClick={() => modals.close(id)} mr="3">
+            Back
+          </Button>
+          <Button onClick={() => modals.closeAll()}>Done</Button>
         </>
       ),
     })
@@ -190,7 +206,7 @@ function Page() {
           body: 'Step 1',
           footer: (
             <>
-              <Button onClick={next} label="Next" />
+              <Button onClick={next}>Next</Button>
             </>
           ),
         })
@@ -211,7 +227,10 @@ Alerts and confirm dialogs can be opened on top of other modals,
 for example to warn a person that changes might be lost when closing a modal.
 
 ```jsx
-function Page() {
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
   const modals = useModals()
 
   const close = (resolve) => {
@@ -239,12 +258,13 @@ function Page() {
           ),
           footer: (
             <ButtonGroup>
-              <Button onClick={() => modals.close(id)} label="Cancel" />
+              <Button onClick={() => modals.close(id)}>Cancel</Button>
               <Button
                 onClick={() => modals.close(id, true)}
-                label="Save"
                 colorScheme="primary"
-              />
+              >
+                Save
+              </Button>
             </ButtonGroup>
           ),
           onClose: ({ force }) => force || new Promise(close),
@@ -272,13 +292,14 @@ function Page() {
           title: 'Modal',
           body: (
             <Button
-              label="Open another modal"
               onClick={() =>
                 modals.open({
                   title: 'Another modal', // this will open in the `modal` scope
                 })
               }
-            />
+            >
+              Open another modal
+            </Button>
           ),
           scope: 'myscope',
         })

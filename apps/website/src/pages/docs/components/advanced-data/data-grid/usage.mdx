@@ -73,7 +73,7 @@ export default function ListPage() {
   return (
     <Page height="400px">
       <PageHeader title="Customers" />
-      <PageBody p="0" maxW="full">
+      <PageBody p="0" contentWidth="full">
         <DataGrid
           columns={columns}
           data={dataTable.data}
@@ -145,7 +145,7 @@ export default function ListPage() {
   return (
     <Page height="400px">
       <PageHeader title="Customers" />
-      <PageBody p="0" maxW="full" position="relative">
+      <PageBody p="0" contentWidth="full" position="relative">
         <BulkActions selections={selections} maxW="400px">
           <Button colorScheme="white">Delete</Button>
         </BulkActions>
@@ -240,7 +240,7 @@ export default function ListPage() {
       }}
     >
       <PageHeader title="Customers" />
-      <PageBody p="0" maxW="full" position="relative">
+      <PageBody p="0" contentWidth="full" position="relative">
         <BulkActions selections={selections} width="400px">
           <Button colorScheme="white">Delete</Button>
         </BulkActions>
@@ -347,7 +347,7 @@ export default function ListPage() {
       }}
     >
       <PageHeader title="Customers" />
-      <PageBody p="0" maxW="full" position="relative">
+      <PageBody p="0" contentWidth="full" position="relative">
         <BulkActions selections={selections}>
           <Button colorScheme="white" variant="subtle">
             Delete
@@ -416,7 +416,7 @@ export default function InternalState() {
       }
     >
       <PageHeader title="Customers" />
-      <PageBody p="0" maxW="full" position="relative">
+      <PageBody p="0" contentWidth="full" position="relative">
         <DataGrid
           instanceRef={gridRef}
           columns={dataGrid.columns.concat()}

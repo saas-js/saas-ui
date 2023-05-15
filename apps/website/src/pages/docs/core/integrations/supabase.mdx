@@ -36,14 +36,14 @@ import { createAuthService } from '@saas-ui/supabase'
 If you haven't done so already install `@supabase/supabase-js`.
 
 ```bash
-yarn add @supabase/supabase-js
+yarn add @saas-ui/auth @saas-ui/supabase @supabase/supabase-js
 ```
 
 ### Setup AuthProvider
 
 ```tsx
 import { createClient } from '@supabase/supabase-js'
-import { AuthProvider } from '@saas-ui/react'
+import { AuthProvider } from '@saas-ui/auth'
 import { createAuthService } from '@saas-ui/supabase'
 
 const supabaseClient = createClient(

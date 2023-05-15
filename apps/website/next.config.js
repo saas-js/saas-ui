@@ -37,6 +37,16 @@ let config = {
         destination: '/docs/components/data-display/structured-list',
         permanent: true,
       },
+      {
+        source: '/docs/components/auth/',
+        destination: '/docs/components/authentication',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/auth/:path*',
+        destination: '/docs/components/authentication/:path*',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {

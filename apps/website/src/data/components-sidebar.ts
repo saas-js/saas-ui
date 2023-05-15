@@ -8,17 +8,17 @@ const sidebar = {
     },
     {
       title: 'Authentication',
-      path: '/docs/components/auth',
+      path: '/docs/components/authentication',
       heading: true,
       open: true,
       routes: [
         {
           title: 'AuthProvider',
-          path: '/docs/components/auth/auth-provider',
+          path: '/docs/components/authentication/auth-provider',
         },
         {
           title: 'Auth',
-          path: '/docs/components/auth/auth',
+          path: '/docs/components/authentication/auth',
         },
       ],
     },

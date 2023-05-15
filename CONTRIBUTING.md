@@ -6,7 +6,7 @@ prepare your contribution.
 
 ## Setup the Project
 
-The following steps will get you up and running to contribute to Chakra UI:
+The following steps will get you up and running to contribute to Saas UI:
 
 1. Fork the repo (click the <kbd>Fork</kbd> button at the top right of
    [this page](https://github.com/saas-js/saas-ui))

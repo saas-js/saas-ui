@@ -19,7 +19,7 @@ cd saas-ui
 ```
 
 3. The docs website depends on private packages, if you don't have access to the Pro repository,
-   remove `"apps/*",` from `workspace` in package.json before continuing.
+   remove `"apps/*",` from `workspaces` in package.json before continuing.
 
 4. Setup all the dependencies and packages by running `yarn`. This
    command will install dependencies.

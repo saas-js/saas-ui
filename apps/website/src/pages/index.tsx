@@ -184,7 +184,7 @@ const Home = () => {
                     </ButtonLink>
                     <ButtonLink
                       size="lg"
-                      href="/docs/introduction"
+                      href="/docs"
                       variant="outline"
                       _hover={{
                         bg: 'whiteAlpha.200',
@@ -744,7 +744,7 @@ const Highlights = () => {
               />
             </HStack>
             <ButtonLink
-              href="/docs/introduction"
+              href="/docs"
               variant="ghost"
               _hover={{
                 bg: 'whiteAlpha.200',

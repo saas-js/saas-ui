@@ -1,3 +1,4 @@
+import { dividerTheme } from './divider'
 import { appShellTheme } from './app-shell'
 import { bannerTheme } from './banner'
 import { commandTheme } from './command'
@@ -21,6 +22,7 @@ import { structuredListTheme } from './structured-list'
 export { appShellTheme as SuiAppShell } from './app-shell'
 export { bannerTheme as SuiBanner } from './banner'
 export { commandTheme as SuiCommand } from './command'
+export { dividerTheme as SuiDivider } from './divider'
 export { emptyStateTheme as SuiEmptyState } from './empty-state'
 export { formLayoutTheme as SuiFormLayout } from './form-layout'
 export { formTheme as SuiForm } from './form'
@@ -39,6 +41,7 @@ export { sidebarTheme as SuiSidebar } from './sidebar'
 export { structuredListTheme as SuiStructuredList } from './structured-list'
 
 export const components = {
+  Divider: dividerTheme,
   SuiAppShell: appShellTheme,
   SuiBanner: bannerTheme,
   SuiCommand: commandTheme,

@@ -23,6 +23,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa'
 
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useSnackbar } from '@saas-ui/core'
 
 const passwordSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required().label('Email'),
@@ -37,7 +38,10 @@ const authProvider: AuthProviderProps<any> = {
     let response = {}
     if (email && password) {
       response = { id: 1, email }
-    } else if (!email && !password && !provider) {
+    } else if (
+      (!email && !password && !provider) ||
+      email === 'error@error.com'
+    ) {
       throw new Error('Login failed')
     }
 
@@ -47,7 +51,6 @@ const authProvider: AuthProviderProps<any> = {
     } as unknown as User
   },
   onSignup: async (params: AuthParams) => {
-    console.log('onSignup', params)
     const { email } = params
     return { id: 1, email } as unknown as User
   },
@@ -139,4 +142,21 @@ ForgotPassword.args = {
 export const UpdatePassword = Template.bind({})
 UpdatePassword.args = {
   view: 'update_password',
+}
+
+export const ErrorHandler = {
+  render: () => {
+    const snackbar = useSnackbar()
+
+    return (
+      <Auth
+        title="Type error@error.com to show an error"
+        onError={(view, error) => {
+          if (view === 'login' && error) {
+            snackbar.error(error.message)
+          }
+        }}
+      />
+    )
+  },
 }

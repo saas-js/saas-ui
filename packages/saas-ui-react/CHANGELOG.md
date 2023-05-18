@@ -1,5 +1,20 @@
 # @saas-ui/react
 
+## 2.0.0-next.17
+
+### Patch Changes
+
+- a5898c44: Fix Divider label contrast
+- Updated dependencies [a5898c44]
+- Updated dependencies [8045baed]
+  - @saas-ui/theme@2.0.0-next.9
+  - @saas-ui/core@2.0.0-next.15
+  - @saas-ui/data-table@2.0.0-next.17
+  - @saas-ui/auth@2.0.0-next.17
+  - @saas-ui/forms@2.0.0-next.17
+  - @saas-ui/hotkeys@2.0.0-next.15
+  - @saas-ui/modals@2.0.0-next.17
+
 ## 2.0.0-next.16
 
 ### Patch Changes

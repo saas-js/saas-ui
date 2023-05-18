@@ -1,5 +1,12 @@
 # @saas-ui/theme
 
+## 2.0.0-next.9
+
+### Patch Changes
+
+- a5898c44: Fix Divider label contrast
+- 8045baed: Fix issue where primary variant color would always be gray
+
 ## 2.0.0-next.8
 
 ### Patch Changes

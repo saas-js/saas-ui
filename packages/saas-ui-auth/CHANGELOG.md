@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 2.0.0-next.20
+
+### Patch Changes
+
+- 0a2bb91f: The default Auth User type is now less strict.
+
 ## 2.0.0-next.19
 
 ### Minor Changes

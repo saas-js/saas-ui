@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.0.0-next.20
+
+### Patch Changes
+
+- Updated dependencies [0a2bb91f]
+  - @saas-ui/auth@2.0.0-next.20
+  - @saas-ui/data-table@2.0.0-next.20
+
 ## 2.0.0-next.19
 
 ### Patch Changes

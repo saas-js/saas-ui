@@ -1,5 +1,11 @@
 # @saas-ui/data-table
 
+## 2.0.0-next.20
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.20
+
 ## 2.0.0-next.19
 
 ### Patch Changes

@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field, FormProps, PinField } from '@saas-ui/forms'
+import {
+  Form,
+  FormLayout,
+  FormProps,
+  PinField,
+  FieldValues,
+} from '@saas-ui/forms'
 
 import { LoginButton } from '../login-button'
 
@@ -9,7 +15,8 @@ export interface OtpSubmitParams {
   [key: string]: any
 }
 
-export interface OtpFormProps extends Omit<FormProps<any>, 'chilren'> {
+export interface OtpFormProps<Params extends FieldValues = OtpSubmitParams>
+  extends Omit<FormProps<any, Params>, 'chilren'> {
   otpLabel?: string
   helpText?: string
   pinLength?: number

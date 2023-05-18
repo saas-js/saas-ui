@@ -28,7 +28,7 @@ type ViewType =
 export interface AuthProps
   extends AuthFormOptions,
     Omit<
-      FormProps,
+      FormProps<any, any>,
       'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
     > {
   /**

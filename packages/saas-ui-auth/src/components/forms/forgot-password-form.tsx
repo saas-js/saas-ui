@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field, FormProps } from '@saas-ui/forms'
+import { Form, FormLayout, Field, FormProps, FieldValues } from '@saas-ui/forms'
 
 import { LoginButton } from '../login-button'
 
@@ -9,8 +9,9 @@ export interface ForgotPasswordSubmitParams {
   [key: string]: any
 }
 
-export interface ForgotPasswordFormProps
-  extends Omit<FormProps<any>, 'children'> {
+export interface ForgotPasswordFormProps<
+  Params extends FieldValues = ForgotPasswordSubmitParams
+> extends Omit<FormProps<any, Params>, 'children'> {
   emailLabel?: string
   helpText?: string
   submitLabel?: string
@@ -25,10 +26,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   ...formProps
 }) => {
   return (
-    <Form<ForgotPasswordSubmitParams>
-      defaultValues={{ email: '' }}
-      {...formProps}
-    >
+    <Form defaultValues={{ email: '' }} {...formProps}>
       <FormLayout>
         <Field
           name="email"

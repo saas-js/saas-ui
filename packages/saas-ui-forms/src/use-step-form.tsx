@@ -60,7 +60,7 @@ export interface UseStepFormProps<
   TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 > extends Omit<UseStepperProps, 'onChange'>,
-    Omit<FormProps<TFieldValues, TContext, any, TFieldTypes>, 'children'> {
+    Omit<FormProps<any, TFieldValues, TContext, TFieldTypes>, 'children'> {
   children: MaybeRenderProp<
     StepFormRenderContext<TFieldValues, TContext, TFieldTypes>
   >

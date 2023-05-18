@@ -15,21 +15,24 @@ export interface CreateAjvFormProps<FieldDefs>
   resolverOptions?: ResolverArgs[2]
 }
 
-type ParseJsonSchema<T> = T extends JTDDataType<any> ? T : never
+type ParseJsonSchema<T> = T extends { type: 'object' }
+  ? JTDDataType<T> extends infer R
+    ? R extends object
+      ? R
+      : never
+    : never
+  : never
 
 export type AjvFormType<
   FieldDefs,
   ExtraProps = object,
   JsonSchema extends Record<string, any> = Record<string, any>
 > = (<
-  TFieldValues extends FieldValues = FieldValues, // placeholder
-  TContext extends object = object,
-  TSchema extends JsonSchema = JsonSchema
+  TSchema extends JsonSchema = JsonSchema,
+  TFieldValues extends ParseJsonSchema<TSchema> = ParseJsonSchema<TSchema>,
+  TContext extends object = object
 >(
-  props: WithFields<
-    FormProps<ParseJsonSchema<TSchema>, TContext, TSchema>,
-    FieldDefs
-  > & {
+  props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs> & {
     ref?: React.ForwardedRef<HTMLFormElement>
   } & ExtraProps
 ) => React.ReactElement) & {

@@ -1,9 +1,11 @@
 import * as React from 'react'
 
-import { Form, FormLayout, Field, FormProps } from '@saas-ui/forms'
+import { Form, FormLayout, Field, FormProps, FieldValues } from '@saas-ui/forms'
 import { LoginButton } from '../login-button'
 
-export interface MagicLinkFormProps extends Omit<FormProps<any>, 'children'> {
+export interface MagicLinkFormProps<
+  Params extends FieldValues = MagicLinkSubmitParams
+> extends Omit<FormProps<any, Params>, 'children'> {
   submitLabel?: string
   emailLabel?: string
   children?: React.ReactNode
@@ -21,7 +23,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
   ...formProps
 }) => {
   return (
-    <Form<MagicLinkSubmitParams> defaultValues={{ email: '' }} {...formProps}>
+    <Form defaultValues={{ email: '' }} {...formProps}>
       <FormLayout>
         <Field
           name="email"

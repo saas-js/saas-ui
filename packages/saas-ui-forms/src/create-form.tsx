@@ -17,12 +17,12 @@ export type FormType<
   ExtraProps = object,
   ExtraOverrides = object
 > = (<
-  TFieldValues extends FieldValues,
-  TContext extends object = object,
-  TSchema = unknown
+  TSchema = unknown,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
 >(
   props: WithFields<
-    FormProps<TFieldValues, TContext, TSchema>,
+    FormProps<TSchema, TFieldValues, TContext>,
     FieldDefs,
     ExtraOverrides
   > & {
@@ -40,11 +40,11 @@ export function createForm<FieldDefs>({
 }: CreateFormProps<FieldDefs> = {}) {
   const DefaultForm = forwardRef(
     <
-      TFieldValues extends FieldValues,
-      TContext extends object = object,
-      TSchema = any
+      TSchema = any,
+      TFieldValues extends FieldValues = FieldValues,
+      TContext extends object = object
     >(
-      props: WithFields<FormProps<TFieldValues, TContext, TSchema>, FieldDefs>,
+      props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs>,
       ref: ForwardedRef<HTMLFormElement>
     ) => {
       const { schema, ...rest } = props

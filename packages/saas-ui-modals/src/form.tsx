@@ -31,13 +31,13 @@ export type FormDialogFieldOverrides = DefaultFieldOverrides & {
 }
 
 export interface FormDialogProps<
+  TSchema = any,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = any,
   TFieldTypes = FieldProps<TFieldValues>
 > extends Omit<BaseModalProps, 'children'>,
     Pick<
-      FormProps<TFieldValues, TContext, TSchema, TFieldTypes>,
+      FormProps<TSchema, TFieldValues, TContext, TFieldTypes>,
       | 'schema'
       | 'defaultValues'
       | 'values'
@@ -150,7 +150,7 @@ type MergeDialogProps<T> = T extends YupFormType<
 
 type IsSchemaType<T, Schema, FieldDefs> = T extends DefaultFormType<FieldDefs>
   ? T extends (
-      props: FormProps<infer TFieldValues, infer TContext, infer TSchema>
+      props: FormProps<infer TSchema, infer TFieldValues, infer TContext>
     ) => any
     ? Schema extends TSchema
       ? true
@@ -163,9 +163,9 @@ export type DefaultFormType<
   ExtraProps = object,
   ExtraOverrides = FormDialogFieldOverrides
 > = (<
+  TSchema = unknown,
   TFieldValues extends Record<string, any> = any,
-  TContext extends object = object,
-  TSchema = unknown
+  TContext extends object = object
 >(
   props: any
 ) => React.ReactElement) & {
@@ -214,6 +214,7 @@ export function createFormDialog<
   }) as MergeDialogProps<TFormType>
 
   Dialog.displayName = `${Form.displayName || Form.name}Dialog`
+  Dialog.id = Form.id
 
   return Dialog
 }

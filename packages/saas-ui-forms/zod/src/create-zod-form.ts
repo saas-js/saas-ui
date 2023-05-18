@@ -22,12 +22,12 @@ export type ZodFormType<
   ExtraOverrides = object,
   Type extends 'zod' = 'zod'
 > = (<
-  TFieldValues extends FieldValues = FieldValues, // placeholder
-  TContext extends object = object,
-  TSchema extends z.AnyZodObject = z.AnyZodObject
+  TSchema extends z.AnyZodObject = z.AnyZodObject,
+  TFieldValues extends z.infer<TSchema> = z.infer<TSchema>,
+  TContext extends object = object
 >(
   props: WithFields<
-    FormProps<z.infer<TSchema>, TContext, TSchema>,
+    FormProps<TSchema, TFieldValues, TContext>,
     FieldDefs,
     ExtraOverrides
   > & {

@@ -45,9 +45,9 @@ export interface FormRenderContext<
 }
 
 interface FormOptions<
+  TSchema = unknown,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = unknown,
   TFieldTypes = FieldProps<TFieldValues>
 > {
   /**
@@ -87,16 +87,16 @@ interface FormOptions<
 }
 
 export interface FormProps<
+  TSchema = unknown,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TSchema = unknown,
   TFieldTypes = FieldProps<TFieldValues>
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
-    FormOptions<TFieldValues, TContext, TSchema, TFieldTypes> {}
+    FormOptions<TSchema, TFieldValues, TContext, TFieldTypes> {}
 
 /**
  * The wrapper component provides context, state, and focus management.
@@ -105,12 +105,12 @@ export interface FormProps<
  */
 export const Form = forwardRef(
   <
+    TSchema = any,
     TFieldValues extends FieldValues = FieldValues,
     TContext extends object = object,
-    TSchema = any,
     TFieldTypes = FieldProps<TFieldValues>
   >(
-    props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes>,
+    props: FormProps<TSchema, TFieldValues, TContext, TFieldTypes>,
     ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const {
@@ -203,12 +203,12 @@ export const Form = forwardRef(
 ) as FormComponent
 
 export type FormComponent = (<
-  TFieldValues extends FieldValues,
-  TContext extends object = object,
   TSchema = unknown,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 >(
-  props: FormProps<TFieldValues, TContext, TSchema, TFieldTypes> & {
+  props: FormProps<TSchema, TFieldValues, TContext, TFieldTypes> & {
     ref?: React.ForwardedRef<HTMLFormElement>
   }
 ) => React.ReactElement) & {

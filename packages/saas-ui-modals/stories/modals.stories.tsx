@@ -43,7 +43,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
 const { ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
-    // form: ZodFormDialog,
+    form: ZodFormDialog,
   },
 })
 
@@ -170,7 +170,7 @@ export const Basic = () => {
         Open menu dialog
       </Button>
       <Button
-        onClick={() =>
+        onClick={() => {
           modals.form({
             title: 'Form',
             schema: z.object({
@@ -180,14 +180,9 @@ export const Basic = () => {
               title: 'My title',
             },
             onError: (error) => console.log(error),
-            children: ({ Field }) => (
-              <FormLayout>
-                <Field name="title" label="Title" />
-              </FormLayout>
-            ),
-            onSubmit: () => Promise.resolve(),
+            onSubmit: ({ title }) => Promise.resolve(),
           })
-        }
+        }}
       >
         Open form dialog
       </Button>
@@ -219,15 +214,12 @@ export const Form = () => {
 
   return (
     <Button
-      onClick={() =>
-        modals.form({
+      onClick={() => {
+        const id = modals.form({
           title: 'My Modal',
-          schema: {
-            title: {
-              type: 'text',
-              label: 'Title',
-            },
-          },
+          schema: z.object({
+            title: z.string(),
+          }),
           onError: (error) => console.error('error', error),
           onChange: (values) => console.log('change', values),
           children: ({ Field }) => (
@@ -238,7 +230,43 @@ export const Form = () => {
           defaultValues: {
             title: 'My title',
           },
-          onSubmit: () =>
+          onSubmit: (data) =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve(null)
+                modals.closeAll()
+              }, 2000)
+            }),
+        })
+      }}
+    >
+      Open modal
+    </Button>
+  )
+}
+
+export const CustomForm = () => {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open(FormDialog, {
+          title: 'My Modal',
+          schema: z.object({
+            title: z.string(),
+          }),
+          onError: (error) => console.error('error', error),
+          onChange: (values) => console.log('change', values),
+          children: ({ Field }) => (
+            <FormLayout>
+              <Field name="title" label="Title" />
+            </FormLayout>
+          ),
+          defaultValues: {
+            title: 'My title',
+          },
+          onSubmit: (data) =>
             new Promise((resolve) => {
               setTimeout(() => {
                 resolve(null)

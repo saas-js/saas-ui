@@ -24,12 +24,12 @@ export type YupFormType<
   ExtraOverrides = object,
   Type extends 'yup' = 'yup'
 > = (<
-  TFieldValues extends FieldValues = FieldValues, // placeholder
-  TContext extends object = object,
-  TSchema extends AnyObjectSchema = AnyObjectSchema
+  TSchema extends AnyObjectSchema = AnyObjectSchema,
+  TFieldValues extends InferType<TSchema> = InferType<TSchema>, // placeholder
+  TContext extends object = object
 >(
   props: WithFields<
-    FormProps<InferType<TSchema>, TContext, TSchema>,
+    FormProps<TFieldValues, TContext, TSchema>,
     FieldDefs,
     ExtraOverrides
   > & {

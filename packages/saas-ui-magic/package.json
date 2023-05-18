@@ -65,6 +65,9 @@
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
+  "devDependencies": {
+    "magic-sdk": "^17.1.4"
+  },
   "storybook": {
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.0.0-next.18
+
+### Patch Changes
+
+- 01ac442f: Fixed modal form handler type inference
+
 ## 2.0.0-next.17
 
 ### Patch Changes

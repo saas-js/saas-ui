@@ -1,5 +1,13 @@
 # website
 
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [01ac442f]
+  - @saas-ui/forms@2.0.0-next.18
+  - @saas-ui/react@2.0.0-next.18
+
 ## 2.0.0-next.17
 
 ### Patch Changes

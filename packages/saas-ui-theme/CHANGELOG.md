@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-next.10
+
+### Patch Changes
+
+- aeab9b0b: Fix solid button hover colors
+
 ## 2.0.0-next.9
 
 ### Patch Changes

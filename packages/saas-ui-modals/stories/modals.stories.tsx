@@ -43,7 +43,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
 const { ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
-    form: ZodFormDialog,
+    // form: ZodFormDialog,
   },
 })
 
@@ -179,6 +179,7 @@ export const Basic = () => {
             defaultvalues: {
               title: 'My title',
             },
+            onError: (error) => console.log(error),
             children: ({ Field }) => (
               <FormLayout>
                 <Field name="title" label="Title" />
@@ -213,14 +214,22 @@ export const Custom = () => {
   )
 }
 
-export const CustomFormDialog = () => {
+export const Form = () => {
   const modals = useModals()
 
   return (
     <Button
       onClick={() =>
-        modals.open(FormDialog, {
+        modals.form({
           title: 'My Modal',
+          schema: {
+            title: {
+              type: 'text',
+              label: 'Title',
+            },
+          },
+          onError: (error) => console.error('error', error),
+          onChange: (values) => console.log('change', values),
           children: ({ Field }) => (
             <FormLayout>
               <Field name="title" label="Title" />
@@ -229,7 +238,13 @@ export const CustomFormDialog = () => {
           defaultValues: {
             title: 'My title',
           },
-          onSubmit: () => Promise.resolve(),
+          onSubmit: () =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve(null)
+                modals.closeAll()
+              }, 2000)
+            }),
         })
       }
     >

@@ -222,7 +222,9 @@ export const ZodSchema = () => {
             variant: 'solid',
           },
         }}
-        onSubmit={onSubmit(disclosure)}
+        onSubmit={({ title }) => {
+          return onSubmit(disclosure)({ title })
+        }}
         initialFocusRef={initialRef}
       />
     </Stack>
@@ -251,7 +253,9 @@ export const ZodSchemaWithFields = () => {
         defaultValues={{
           title: '',
         }}
-        onSubmit={onSubmit(disclosure)}
+        onSubmit={({ title }) => {
+          return onSubmit(disclosure)({ title })
+        }}
         initialFocusRef={initialRef}
       >
         {({ Field }) => (
@@ -302,7 +306,9 @@ export const YupSchema = () => {
             variant: 'solid',
           },
         }}
-        onSubmit={onSubmit(disclosure)}
+        onSubmit={({ title }) => {
+          return onSubmit(disclosure)({ title })
+        }}
         initialFocusRef={initialRef}
       />
     </Stack>
@@ -331,7 +337,9 @@ export const YupSchemaWithFields = () => {
         defaultValues={{
           title: '',
         }}
-        onSubmit={onSubmit(disclosure)}
+        onSubmit={({ title }) => {
+          return onSubmit(disclosure)({ title })
+        }}
         initialFocusRef={initialRef}
       >
         {({ Field }) => (

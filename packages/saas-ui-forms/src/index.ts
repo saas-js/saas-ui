@@ -57,14 +57,21 @@ export { FormProvider, useFormContext } from './form-context'
 import { createForm } from './create-form'
 import { createStepForm } from './create-step-form'
 
+/**
+ * Form component.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
 export const Form = createForm()
 
+export { createStepForm } from './create-step-form'
+
 /**
- * The wrapper component provides context, state, and focus management.
+ * Multi-step form component.
  *
  * @see Docs https://saas-ui.dev/docs/components/forms/step-form
  */
-export const StepForm = createStepForm(Form)
+export const StepForm = createStepForm()
 
 export type {
   BatchFieldArrayUpdate,

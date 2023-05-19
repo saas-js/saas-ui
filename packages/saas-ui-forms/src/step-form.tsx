@@ -40,60 +40,29 @@ import { ArrayField } from './array-field'
 import { ObjectField } from './object-field'
 import { createStepForm } from './create-step-form'
 
-export interface StepFormProps<
-  TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
-> extends UseStepFormProps<TFieldValues, TContext, TFieldTypes> {}
-
-// export const StepForm = React.forwardRef(
-//   <
-//     TFieldValues extends FieldValues = FieldValues,
-//     TContext extends object = object,
-//     TFieldTypes = FieldProps<TFieldValues>
-//   >(
-//     props: StepFormProps<TFieldValues, TContext, TFieldTypes>,
-//     ref: React.ForwardedRef<HTMLFormElement>
-//   ) => {
-//     const { children, ...rest } = props
-
-//     const stepper = useStepForm(props)
-
-//     const { getFormProps, ...ctx } = stepper
-
-//     const context = React.useMemo(() => ctx, [ctx])
-
-//     return (
-//       <StepperProvider value={context}>
-//         <StepFormProvider value={context}>
-//           <Form ref={ref} {...rest} {...getFormProps()}>
-//             {runIfFn(children, {
-//               ...stepper,
-//               Field: Field as any,
-//               DisplayIf: DisplayIf as any,
-//               ArrayField: ArrayField as any,
-//               ObjectField: ObjectField as any,
-//             })}
-//           </Form>
-//         </StepFormProvider>
-//       </StepperProvider>
-//     )
-//   }
-// ) as <
-//   TFieldValues extends FieldValues = FieldValues,
-//   TContext extends object = object,
-//   TFieldTypes = FieldProps<TFieldValues>
-// >(
-//   props: UseStepFormProps<TFieldValues, TContext, TFieldTypes> & {
-//     ref?: React.ForwardedRef<HTMLFormElement>
-//   }
-// ) => React.ReactElement
-
-export interface FormStepOptions {
+export type StepsOptions<TSchema, TName extends string = string> = {
   /**
    * The step name
    */
-  name: string
+  name: TName
+  /**
+   * Schema
+   */
+  schema?: TSchema
+}[]
+
+export interface StepFormProps<
+  TSteps extends StepsOptions<any> = StepsOptions<any>,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>
+> extends UseStepFormProps<TSteps, TFieldValues, TContext, TFieldTypes> {}
+
+export interface FormStepOptions<TName extends string = string> {
+  /**
+   * The step name
+   */
+  name: TName
   /**
    * Schema
    */
@@ -158,8 +127,8 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
   )
 }
 
-export interface FormStepProps
-  extends FormStepOptions,
+export interface FormStepProps<TName extends string = string>
+  extends FormStepOptions<TName>,
     Omit<HTMLChakraProps<'div'>, 'onSubmit'> {
   onSubmit?: FormStepSubmitHandler
 }
@@ -168,10 +137,11 @@ export interface FormStepProps
  *
  * @see Docs https://saas-ui.dev/docs/components/forms/step-form
  */
-export const FormStep: React.FC<FormStepProps> = (props) => {
-  const { name, schema, resolver, children, className, onSubmit, ...rest } =
-    props
-  const step = useFormStep({ name, schema, resolver, onSubmit })
+export const FormStep = <TName extends string = string>(
+  props: FormStepProps<TName>
+) => {
+  const { name, children, className, onSubmit, ...rest } = props
+  const step = useFormStep({ name, onSubmit })
 
   const { isActive } = step
 

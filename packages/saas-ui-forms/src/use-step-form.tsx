@@ -34,7 +34,7 @@ export const [StepFormProvider, useStepFormContext] =
   })
 
 import { FormProps } from './form'
-import { FormStepProps } from './step-form'
+import { FormStepProps, StepsOptions } from './step-form'
 import { FieldProps } from './types'
 import { FocusableElement } from '@chakra-ui/utils'
 import { DisplayIfProps } from './display-if'
@@ -42,12 +42,17 @@ import { ArrayFieldProps } from './array-field'
 import { UseArrayFieldReturn } from './use-array-field'
 import { ObjectFieldProps } from './object-field'
 
+type StepName<T extends { [k: number]: { readonly name: string } }> =
+  T[number]['name']
+
 interface StepFormRenderContext<
+  TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 > extends UseStepFormReturn<TFieldValues> {
   Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
+  FormStep: React.FC<FormStepProps<StepName<TSteps>>>
   DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
   ArrayField: React.FC<
     ArrayFieldProps<TFieldValues> & React.RefAttributes<UseArrayFieldReturn>
@@ -56,13 +61,15 @@ interface StepFormRenderContext<
 }
 
 export interface UseStepFormProps<
+  TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 > extends Omit<UseStepperProps, 'onChange'>,
     Omit<FormProps<any, TFieldValues, TContext, TFieldTypes>, 'children'> {
+  steps?: TSteps
   children: MaybeRenderProp<
-    StepFormRenderContext<TFieldValues, TContext, TFieldTypes>
+    StepFormRenderContext<TSteps, TFieldValues, TContext, TFieldTypes>
   >
 }
 
@@ -79,14 +86,17 @@ export interface UseStepFormReturn<
 }
 
 export function useStepForm<
+  TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 >(
-  props: UseStepFormProps<TFieldValues, TContext, TFieldTypes>
+  props: UseStepFormProps<TSteps, TFieldValues, TContext, TFieldTypes>
 ): UseStepFormReturn<TFieldValues> {
-  const { onChange, ...rest } = props
+  const { onChange, steps: stepsOptions, resolver, ...rest } = props
   const stepper = useStepper(rest)
+
+  const [options, setOptions] = React.useState<TSteps | undefined>(stepsOptions)
 
   const { activeStep, isLastStep, nextStep } = stepper
 
@@ -121,23 +131,30 @@ export function useStepForm<
 
   const getFormProps = React.useCallback(() => {
     const step = steps[activeStep]
+
     return {
       onSubmit: onSubmitStep,
       schema: step?.schema,
-      resolver: step?.resolver,
+      resolver: step?.schema
+        ? /* @todo fix resolver type */ (resolver as any)?.(step.schema)
+        : undefined,
     }
   }, [steps, onSubmitStep, activeStep])
 
   const updateStep = React.useCallback(
     (step: StepState) => {
+      const stepOptions = options?.find((s) => s.name === step.name)
       updateSteps((steps) => {
         return {
           ...steps,
-          [step.name]: step,
+          [step.name]: {
+            ...step,
+            schema: stepOptions?.schema,
+          },
         }
       })
     },
-    [steps]
+    [steps, options]
   )
 
   return {

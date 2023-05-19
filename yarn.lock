@@ -6913,7 +6913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@^2.0.0-next.14, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@^2.0.0-next.14, @saas-ui/auth@^2.0.0-next.20, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -7109,7 +7109,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/magic@workspace:packages/saas-ui-magic"
   dependencies:
-    "@saas-ui/auth": ^2.0.0-next.14
+    "@saas-ui/auth": ^2.0.0-next.20
     magic-sdk: ^17.1.4
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"

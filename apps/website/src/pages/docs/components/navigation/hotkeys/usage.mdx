@@ -40,10 +40,160 @@ import {
 
 ## Usage
 
+### Stand alone usage
+
+`useHotkeys` can also be used standalone.
+
+Press `⌘ K` to trigger the action.
+
+```jsx
+import { Box, Flex, Kbd } from '@chakra-ui/react'
+import { useHotkeys, SearchInput } from '@saas-ui/react'
+
+export default function Dialog() {
+  const searchRef = React.useRef(null)
+
+  useHotkeys('⌘ K', () => {
+    searchRef.current.focus()
+  })
+
+  return (
+    <Box>
+      <SearchInput
+        ref={searchRef}
+        pr="30px"
+        rightElement={
+          <Flex pos="absolute" right="4px">
+            <Kbd bg="none" fontSize="lg">
+              ⌘
+            </Kbd>
+            <Kbd bg="none" fontSize="lg">
+              K
+            </Kbd>
+          </Flex>
+        }
+      />
+    </Box>
+  )
+}
+```
+
+### Multiple key combinations
+
+To target multiple platforms it's possible to pass an array of key combinations.
+
+Press `⌘ Enter` or `Ctrl+Enter` to trigger the action.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
+
+  const key = useHotkeys(['⌘ Enter', 'Ctrl+Enter'], () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label="⌘ Enter" openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
+### Complex key combinations
+
+You can combine mutiple keys using the `+` sign or by adding a space.
+Press `cmd shift D` or `Ctrl+Shift+D` to trigger the action.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
+
+  const key = useHotkeys(['cmd shift d', 'Ctrl+Shift+D'], () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label="cmd shift d" openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
+### Prevent default
+
+To prevent the default behavior of a key combination you can set the `preventDefault` option to `true`.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys, SearchInput } from '@saas-ui/react'
+
+export default function Search() {
+  const [isLoading, setLoading] = React.useState()
+
+  const ref = React.useRef(null)
+
+  const key = useHotkeys(
+    ['ctrl+f', 'cmd f'],
+    () => {
+      ref.current.focus()
+    },
+    { preventDefault: true }
+  )
+
+  return (
+    <Box>
+      <SearchInput ref={ref} />
+    </Box>
+  )
+}
+```
+
+### Key sequences
+
+Use the `then` keyword to create a sequence of keys.
+
+Press `A` then `S` to trigger the action.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
+
+  const key = useHotkeys('A then S', () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label={key} openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
+### Hotkeys configuration
+
 Create a config object containing all the keyboard shortcuts in your app.
 The keys in the config can be used as shortcuts with the included hook throughout your app.
-
-### Configuration
 
 ```jsx live=false
 // app.tsx
@@ -157,100 +307,6 @@ export default function HotkeysListModal() {
           </ModalBody>
         </ModalContent>
       </Modal>
-    </Box>
-  )
-}
-```
-
-### Stand alone usage
-
-`useHotkeys` can also be used standalone.
-
-Press `⌘ K` to trigger the action.
-
-```jsx
-import { Box, Flex, Kbd } from '@chakra-ui/react'
-import { useHotkeys, SearchInput } from '@saas-ui/react'
-
-export default function Dialog() {
-  const searchRef = React.useRef(null)
-
-  useHotkeys('⌘ K', () => {
-    searchRef.current.focus()
-  })
-
-  return (
-    <Box>
-      <SearchInput
-        ref={searchRef}
-        pr="30px"
-        rightElement={
-          <Flex pos="absolute" right="4px">
-            <Kbd bg="none" fontSize="lg">
-              ⌘
-            </Kbd>
-            <Kbd bg="none" fontSize="lg">
-              K
-            </Kbd>
-          </Flex>
-        }
-      />
-    </Box>
-  )
-}
-```
-
-### Multiple key combinations
-
-To target multiple platforms it's possible to pass an array of key combinations.
-
-Press `⌘ Enter` or `Ctrl+Enter` to trigger the action.
-
-```jsx
-import { Box, Tooltip, Button } from '@chakra-ui/react'
-import { useHotkeys } from '@saas-ui/react'
-
-export default function Dialog() {
-  const [isLoading, setLoading] = React.useState()
-
-  const key = useHotkeys(['⌘ Enter', 'Ctrl+Enter'], () => {
-    setLoading(true)
-    setTimeout(() => setLoading(false), 2000)
-  })
-
-  return (
-    <Box>
-      <Tooltip label="⌘ Enter" openDelay={500}>
-        <Button isLoading={isLoading}>Save</Button>
-      </Tooltip>
-    </Box>
-  )
-}
-```
-
-### Key sequences
-
-Use the `then` keyword to create a sequence of keys.
-
-Press `A` then `S` to trigger the action.
-
-```jsx
-import { Box, Tooltip, Button } from '@chakra-ui/react'
-import { useHotkeys } from '@saas-ui/react'
-
-export default function Dialog() {
-  const [isLoading, setLoading] = React.useState()
-
-  const key = useHotkeys('A then S', () => {
-    setLoading(true)
-    setTimeout(() => setLoading(false), 2000)
-  })
-
-  return (
-    <Box>
-      <Tooltip label={key} openDelay={500}>
-        <Button isLoading={isLoading}>Save</Button>
-      </Tooltip>
     </Box>
   )
 }

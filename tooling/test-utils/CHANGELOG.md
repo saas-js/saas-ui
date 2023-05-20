@@ -1,5 +1,11 @@
 # @saas-ui/test-utils
 
+## 3.0.0-next.23
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.23
+
 ## 3.0.0-next.22
 
 ### Patch Changes

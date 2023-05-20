@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.0.0-next.23
+
+### Patch Changes
+
+- Updated dependencies [d236fb75]
+  - @saas-ui/hotkeys@2.0.0-next.19
+  - @saas-ui/data-table@2.0.0-next.23
+
 ## 2.0.0-next.22
 
 ### Patch Changes

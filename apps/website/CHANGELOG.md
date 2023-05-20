@@ -1,5 +1,11 @@
 # website
 
+## 2.0.0-next.23
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.23
+
 ## 2.0.0-next.22
 
 ### Patch Changes

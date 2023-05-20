@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-next.19
+
+### Patch Changes
+
+- d236fb75: useHotkeys options are now optional
+
 ## 2.0.0-next.18
 
 ### Patch Changes

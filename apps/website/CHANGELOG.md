@@ -1,5 +1,16 @@
 # website
 
+## 2.0.0-next.21
+
+### Patch Changes
+
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [2b639656]
+- Updated dependencies [ccfce5c1]
+  - @saas-ui/react@2.0.0-next.21
+  - @saas-ui/forms@2.0.0-next.20
+
 ## 2.0.0-next.20
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-next.17
+
+### Patch Changes
+
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+
 ## 2.0.0-next.16
 
 ### Patch Changes

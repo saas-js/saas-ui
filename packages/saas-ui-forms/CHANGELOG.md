@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 2.0.0-next.20
+
+### Minor Changes
+
+- a9ca90dd: Updated to Chakra UI 2.6.x
+
+### Patch Changes
+
+- Updated dependencies [2b639656]
+  - @saas-ui/core@2.0.0-next.17
+
 ## 2.0.0-next.19
 
 ### Patch Changes

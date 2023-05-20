@@ -55,7 +55,7 @@ type YupStepFormType<
 export const createYupStepForm = <FieldDefs>(
   options?: CreateYupFormProps<FieldDefs>
 ) => {
-  const YupStepForm = createStepForm<any, any, any, any>({
+  const YupStepForm = createStepForm<any, any, any>({
     resolver: (schema: any) =>
       yupResolver(schema, options?.schemaOptions, options?.resolverOptions),
     fieldResolver: yupFieldResolver,

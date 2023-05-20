@@ -1,5 +1,17 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-next.17
+
+### Minor Changes
+
+- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
+
+### Patch Changes
+
+- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- Updated dependencies [2b639656]
+  - @saas-ui/core@2.0.0-next.17
+
 ## 2.0.0-next.16
 
 ### Patch Changes

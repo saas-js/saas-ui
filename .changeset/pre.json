@@ -46,6 +46,7 @@
     "@saas-ui-pro/react": "0.20.0"
   },
   "changesets": [
+    "beige-camels-develop",
     "brave-chairs-pay",
     "brave-spiders-juggle",
     "breezy-ducks-do",
@@ -88,6 +89,7 @@
     "orange-buses-tap",
     "perfect-houses-doubt",
     "polite-tomatoes-wait",
+    "popular-boats-sniff",
     "purple-mice-fry",
     "quick-seals-guess",
     "rotten-bears-doubt",
@@ -97,8 +99,10 @@
     "silver-lemons-sniff",
     "six-swans-stare",
     "small-bananas-retire",
+    "small-pans-pull",
     "soft-emus-wash",
     "spicy-ducks-sniff",
+    "spicy-laws-yawn",
     "strange-chefs-fry",
     "tall-moose-clean",
     "thick-kiwis-kiss",

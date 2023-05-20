@@ -1,5 +1,27 @@
 # @saas-ui/react
 
+## 2.0.0-next.21
+
+### Minor Changes
+
+- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
+- a9ca90dd: Updated to Chakra UI 2.6.x
+
+### Patch Changes
+
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [2b639656]
+- Updated dependencies [ccfce5c1]
+  - @saas-ui/hotkeys@2.0.0-next.17
+  - @saas-ui/forms@2.0.0-next.20
+  - @saas-ui/core@2.0.0-next.17
+  - @saas-ui/data-table@2.0.0-next.21
+  - @saas-ui/auth@2.0.0-next.21
+  - @saas-ui/modals@2.0.0-next.20
+
 ## 2.0.0-next.20
 
 ### Patch Changes

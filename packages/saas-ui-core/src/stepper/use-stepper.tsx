@@ -18,7 +18,7 @@ export interface UseStepperProps {
 export function useStepper(props: UseStepperProps) {
   const { step, onChange } = props
 
-  const [activeIndex, setIndex] = React.useState(-1) // Set to -1 by default to prevent any initial transitions.
+  const [activeIndex, setIndex] = React.useState(0)
 
   const stepsRef = React.useRef<string[]>([])
 

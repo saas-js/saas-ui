@@ -125,10 +125,12 @@ export const Steps = forwardRef<StepsProps, 'div'>((props, ref) => {
 
   const completed = getChildOfType(children, StepsCompleted)
 
+  const hasContent = steps[activeIndex]?.props?.children
+
   const content =
     activeIndex >= steps.length ? (
       completed
-    ) : !isVertical ? (
+    ) : !isVertical && hasContent ? (
       <StepsContent orientation={orientation}>
         {steps[activeIndex]?.props?.children}
       </StepsContent>

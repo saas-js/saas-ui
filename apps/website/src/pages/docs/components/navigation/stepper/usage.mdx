@@ -223,19 +223,13 @@ function WithContent() {
         <StepsCompleted py="4">Completed</StepsCompleted>
       </Steps>
       <ButtonGroup width="100%">
-        <Button
-          label="Back"
-          onClick={back}
-          isDisabled={step === 0}
-          variant="ghost"
-        />
+        <Button onClick={back} isDisabled={step === 0} variant="ghost">
+          Back
+        </Button>
         <Spacer />
-        <Button
-          label="Next"
-          onClick={next}
-          isDisabled={step >= 3}
-          colorScheme="primary"
-        />
+        <Button onClick={next} isDisabled={step >= 3} colorScheme="primary">
+          Next
+        </Button>
       </ButtonGroup>
     </>
   )
@@ -265,11 +259,10 @@ function VerticalContent() {
           <Box py="4">Content step 1</Box>
           <ButtonGroup>
             <Button
-              label="Next"
               onClick={next}
               isDisabled={step >= 3}
               colorScheme="primary"
-            />
+            >Next</Button>
           </ButtonGroup>
         </>
       ),
@@ -282,17 +275,15 @@ function VerticalContent() {
           <Box py="4">Content step 2</Box>{' '}
           <ButtonGroup>
             <Button
-              label="Next"
               onClick={next}
               isDisabled={step >= 3}
               colorScheme="primary"
-            />
+            >Next</Button>
             <Button
-              label="Back"
               onClick={back}
               isDisabled={step === 0}
               variant="ghost"
-            />
+            >Back</Button>
           </ButtonGroup>
         </>
       ),
@@ -305,17 +296,19 @@ function VerticalContent() {
           <Box py="4">Content step 3</Box>
           <ButtonGroup>
             <Button
-              label="Next"
               onClick={next}
               isDisabled={step >= 3}
               colorScheme="primary"
-            />
+            >
+              Next
+            </Button>
             <Button
-              label="Back"
               onClick={back}
               isDisabled={step === 0}
               variant="ghost"
-            />
+            >
+              Back
+            </Button>
           </ButtonGroup>
         </>
       ),

@@ -6,6 +6,7 @@ import {
   Button,
   ButtonGroup,
   Container,
+  Stack,
   Step,
   StepDescription,
   StepIcon,
@@ -89,6 +90,60 @@ export const Default = {
           <Button onClick={goToNext}>Next</Button>
         </ButtonGroup>
       </>
+    )
+  },
+}
+
+export const Size = {
+  render: () => {
+    const { activeStep, goToNext, goToPrevious } = useSteps({
+      index: 0,
+      count: steps.length,
+    })
+
+    return (
+      <Stack spacing="10">
+        <Steps index={activeStep} size="xs">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="sm">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="md">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="lg">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="xs" orientation="vertical">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="sm" orientation="vertical">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="md" orientation="vertical">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+        <Steps index={activeStep} size="lg" orientation="vertical">
+          {steps.map((step, index) => (
+            <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+      </Stack>
     )
   },
 }
@@ -189,6 +244,40 @@ export const NamedSteps = {
         <Steps step="second" mb="8">
           {namedSteps.map((step, index) => (
             <StepsItem key={index} {...step} />
+          ))}
+        </Steps>
+      </>
+    )
+  },
+}
+
+export const NamedVertical = {
+  render: () => {
+    return (
+      <>
+        <Steps orientation="vertical" mb="8">
+          {namedSteps.map((step, index) => (
+            <StepsItem
+              key={index}
+              {...step}
+              render={() => {
+                return (
+                  <Step>
+                    <StepIndicator>
+                      <StepStatus
+                        complete={<StepIcon />}
+                        incomplete={<StepNumber />}
+                        active={<StepNumber />}
+                      />
+                    </StepIndicator>
+
+                    <StepTitle>{step.title}</StepTitle>
+
+                    <StepSeparator />
+                  </Step>
+                )
+              }}
+            />
           ))}
         </Steps>
       </>

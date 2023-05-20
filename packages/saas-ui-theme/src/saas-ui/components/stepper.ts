@@ -75,6 +75,7 @@ import { transparentize } from '@chakra-ui/theme-tools'
 
 const $size = cssVar('stepper-indicator-size')
 const $accentColor = cssVar('stepper-accent-color')
+const $verticalSeperatorOffset = cssVar('stepper-vertical-seperator-offset')
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
@@ -102,13 +103,14 @@ const baseStyle = definePartsStyle(({ colorScheme: c }) => ({
   content: {
     ['&[data-orientation=vertical]']: {
       mt: 2,
-      ms: 3,
+      ms: $verticalSeperatorOffset.reference,
       borderLeftWidth: '1px',
       ps: 6,
     },
   },
   stepper: {
     gap: '2',
+    [$verticalSeperatorOffset.variable]: `10px`,
     [$accentColor.variable]: `colors.${c}.500`,
     _dark: {
       [$accentColor.variable]: `colors.${c}.500`,
@@ -129,17 +131,12 @@ const baseStyle = definePartsStyle(({ colorScheme: c }) => ({
     ['.sui-steps__item &[data-orientation=vertical]']: {
       position: 'static',
       minH: 4,
-      ms: 3,
+      ms: $verticalSeperatorOffset.reference,
     },
   },
   step: {
     ['&[data-orientation=vertical]']: {
       alignItems: 'center',
-    },
-  },
-  indicator: {
-    ['.sui-steps__item &']: {
-      ms: '-2px',
     },
   },
 }))
@@ -219,21 +216,25 @@ export const stepperTheme = defineMultiStyleConfig({
     xs: definePartsStyle({
       stepper: {
         [$size.variable]: 'sizes.4',
+        [$verticalSeperatorOffset.variable]: `7px`,
       },
     }),
     sm: definePartsStyle({
       stepper: {
         [$size.variable]: 'sizes.6',
+        [$verticalSeperatorOffset.variable]: `11px`,
       },
     }),
     md: definePartsStyle({
       stepper: {
         [$size.variable]: 'sizes.7',
+        [$verticalSeperatorOffset.variable]: `14px`,
       },
     }),
     lg: definePartsStyle({
       stepper: {
         [$size.variable]: 'sizes.8',
+        [$verticalSeperatorOffset.variable]: `16px`,
       },
     }),
   },

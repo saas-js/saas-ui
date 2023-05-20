@@ -6272,7 +6272,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/onboarding@workspace:packages/pro/saas-ui/onboarding"
   dependencies:
-    "@chakra-ui/anatomy": ^2.1.2
+    "@chakra-ui/anatomy": ^2.1.1
     "@chakra-ui/react-utils": ^2.0.12
     "@chakra-ui/styled-system": ^2.9.0
     "@chakra-ui/system": ^2.5.7
@@ -6292,11 +6292,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.20.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.21.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
-    "@chakra-ui/anatomy": ^2.1.2
+    "@chakra-ui/anatomy": ^2.1.1
     "@chakra-ui/clickable": ^2.0.14
     "@chakra-ui/react-utils": ^2.0.12
     "@chakra-ui/styled-system": ^2.9.0
@@ -6306,8 +6306,8 @@ __metadata:
     "@ngneat/falso": ^2.27.0
     "@react-hookz/web": ^15.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/forms": ^2.0.0-next.12
-    "@saas-ui/react-utils": ^2.0.0-next.1
+    "@saas-ui/forms": ^2.0.0-next.16
+    "@saas-ui/react-utils": ^2.0.0-next.3
     "@saas-ui/theme": ^2.0.0-next.6
     "@tanstack/react-table": ^8.9.1
     date-fns: ^2.30.0
@@ -6329,7 +6329,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/theme-glass@workspace:packages/pro/saas-ui/pro-theme-glass"
   dependencies:
-    "@chakra-ui/anatomy": ^2.1.2
+    "@chakra-ui/anatomy": ^2.1.1
     "@chakra-ui/styled-system": ^2.9.0
     "@chakra-ui/theme-tools": ^2.0.17
     "@saas-ui-pro/react": "workspace:*"
@@ -6488,7 +6488,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@^2.0.0-next.12, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@^2.0.0-next.16, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -6628,7 +6628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react-utils@^2.0.0-next.1, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
+"@saas-ui/react-utils@^2.0.0-next.1, @saas-ui/react-utils@^2.0.0-next.3, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react-utils@workspace:packages/saas-ui-react-utils"
   dependencies:
@@ -6639,7 +6639,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@^2.0.0-beta.12, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@^2.0.0-beta.16, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -6656,7 +6656,7 @@ __metadata:
     "@saas-ui/nprogress": "workspace:*"
     "@saas-ui/theme": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=2.4.0"
+    "@chakra-ui/react": ">=2.6.0"
     "@emotion/react": ^11
     "@emotion/styled": ^11
     framer-motion: ">=5.5.0"
@@ -23903,8 +23903,8 @@ __metadata:
     "@dnd-kit/sortable": ^7.0.2
     "@emotion/react": ^11.11.0
     "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.20.0
-    "@saas-ui/react": ^2.0.0-beta.12
+    "@saas-ui-pro/react": ^0.21.0
+    "@saas-ui/react": ^2.0.0-beta.16
     framer-motion: ^10.12.12
     lucide-react: ^0.130.1
     react: ^18.2.0

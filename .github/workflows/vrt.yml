@@ -29,6 +29,9 @@ jobs:
       - name: Build Storybook
         run: yarn build:storybook
 
+      - name: Install Lost Pixel
+        run: yarn add lost-pixel
+
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v3.1.0
         env:

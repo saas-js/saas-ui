@@ -41,7 +41,7 @@ import { Float } from '../motion/float'
 import { FaGithub } from 'react-icons/fa'
 import { useScrollSpy } from '@/hooks/use-scrollspy'
 import {
-  StepperCompleted,
+  StepsCompleted,
   OverflowMenu,
   Persona,
   Property,
@@ -266,7 +266,7 @@ export const ComponentShowcase = () => {
                         <NextButton />
                       </FormLayout>
                     </FormStep>
-                    <StepperCompleted>Completed!</StepperCompleted>
+                    <StepsCompleted>Completed!</StepsCompleted>
                   </FormStepper>
                 </StepForm>
               </CardBody>

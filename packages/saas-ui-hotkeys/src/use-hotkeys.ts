@@ -131,7 +131,7 @@ export const useHotkeys = (
   keys: string | string[],
   callback: (event: KeyboardEvent) => void,
   options: UseHotkeysOptions | Array<any> = [],
-  deps: Array<any>
+  deps?: Array<any>
 ) => {
   let _options: UseHotkeysOptions = {}
   if (Array.isArray(options)) {

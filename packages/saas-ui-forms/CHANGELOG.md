@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.0.0-next.21
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.18
+
 ## 2.0.0-next.20
 
 ### Minor Changes

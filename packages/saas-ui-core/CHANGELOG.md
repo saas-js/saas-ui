@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [8e155c3b]
+  - @saas-ui/theme@2.0.0-next.11
+
 ## 2.0.0-next.17
 
 ### Patch Changes

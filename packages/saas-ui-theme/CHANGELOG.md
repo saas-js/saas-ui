@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-next.11
+
+### Minor Changes
+
+- 8e155c3b: Updated Stepper theme to Chakra UI 2.6
+
 ## 2.0.0-next.10
 
 ### Patch Changes

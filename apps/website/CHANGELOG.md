@@ -1,5 +1,12 @@
 # website
 
+## 2.0.0-next.22
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.22
+- @saas-ui/forms@2.0.0-next.21
+
 ## 2.0.0-next.21
 
 ### Patch Changes

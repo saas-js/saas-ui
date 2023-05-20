@@ -287,6 +287,74 @@ export const WithStepper = () => {
   )
 }
 
+export const WithStepperVariant = () => {
+  return (
+    <>
+      <StepForm
+        defaultValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <FormStepper variant="solid" colorScheme="cyan">
+              <FormStep name="profile" title="Profile">
+                <FormLayout>
+                  <Field name="name" label="Name" />
+                  <Field name="email" label="Email" autoComplete="off" />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
+
+              <FormStep name="password" title="Password">
+                <FormLayout>
+                  <Field
+                    name="password"
+                    label="Password"
+                    type="password"
+                    autoFocus
+                    autoComplete="off"
+                  />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
+
+              <FormStep name="confirmation" title="Confirmation">
+                <FormLayout>
+                  <Text>Please confirm that your information is correct.</Text>
+                  <PropertyList>
+                    <Property label="Name" value={<FormValue name="name" />} />
+                    <Property
+                      label="Email"
+                      value={<FormValue name="email" />}
+                    />
+                  </PropertyList>
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
+
+              <StepperCompleted>
+                <Alert status="success">
+                  <AlertIcon />
+                  <Box>
+                    <AlertTitle>Thanks for signing up</AlertTitle>
+                    <AlertDescription width="full">
+                      Check your inbox to confirm your email address.
+                    </AlertDescription>
+                  </Box>
+                </Alert>
+              </StepperCompleted>
+            </FormStepper>
+          </FormLayout>
+        )}
+      </StepForm>
+    </>
+  )
+}
+
 export const WithState = () => {
   const formRef = React.useRef<UseFormReturn>(null)
 

@@ -120,7 +120,7 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
       size={size}
       onChange={onChange}
     >
-      <StepperSteps mb="4" {...props}>
+      <StepperSteps mb="4" {...rest}>
         {elements}
       </StepperSteps>
     </StepperContainer>

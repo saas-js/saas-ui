@@ -16,7 +16,6 @@ import { propertyTheme } from './property'
 import { searchInputTheme } from './search-input'
 import { sidebarTheme } from './sidebar'
 import { selectTheme } from './select'
-import { stepperTheme } from './stepper'
 import { structuredListTheme } from './structured-list'
 
 export { dividerTheme as Divider } from './divider'
@@ -36,7 +35,6 @@ export { propertyTheme as SuiProperty } from './property'
 export { nprogressTheme as SuiNProgress } from './nprogress'
 export { searchInputTheme as SuiSearchInput } from './search-input'
 export { selectTheme as SuiSelect } from './select'
-export { stepperTheme as SuiStepper } from './stepper'
 export { sidebarTheme as SuiSidebar } from './sidebar'
 export { structuredListTheme as SuiStructuredList } from './structured-list'
 
@@ -59,6 +57,5 @@ export const components = {
   SuiNProgress: nprogressTheme,
   SuiSearchInput: searchInputTheme,
   SuiSelect: selectTheme,
-  SuiStepper: stepperTheme,
   SuiSidebar: sidebarTheme,
 }

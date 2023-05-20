@@ -54,7 +54,7 @@ export default function BasicStepForm() {
       }}
       onSubmit={onSubmit}
     >
-      {({ Field }) => (
+      {({ Field, FormStep }) => (
         <FormLayout>
           <FormStep name="profile">
             <FormLayout>
@@ -86,26 +86,26 @@ Supports yup schemas out of the box.
 
 ```jsx
 import { Spacer } from '@chakra-ui/react'
-import {
-  StepForm,
-  FormLayout,
-  FormStep,
-  PrevButton,
-  NextButton,
-} from '@saas-ui/react'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { FormLayout, PrevButton, NextButton } from '@saas-ui/react'
+import { StepForm } from '@saas-ui/forms/yup'
 import * as yup from 'yup'
 
 export default function CreateProject() {
-  const schemas = {
-    project: yup.object().shape({
-      name: yup.string().required().label('Name'),
-      description: yup.string().label('Description'),
-    }),
-    members: yup.object().shape({
-      members: yup.string().label('Members'),
-    }),
-  }
+  const steps = [
+    {
+      name: 'project',
+      schema: yup.object().shape({
+        name: yup.string().required().label('Name'),
+        description: yup.string().label('Description'),
+      }),
+    },
+    {
+      name: 'members',
+      schema: yup.object().shape({
+        members: yup.string().label('Members'),
+      }),
+    },
+  ]
 
   const onSubmit = (params) => {
     console.log(params)
@@ -116,6 +116,7 @@ export default function CreateProject() {
 
   return (
     <StepForm
+      steps={steps}
       defaultValues={{
         name: '',
         email: '',
@@ -123,15 +124,15 @@ export default function CreateProject() {
       }}
       onSubmit={onSubmit}
     >
-      {({ Field }) => (
+      {({ Field, FormStep }) => (
         <FormLayout>
-          <FormStep name="project" resolver={yupResolver(schemas.project)}>
+          <FormStep name="project">
             <FormLayout>
               <Field name="name" isRequired label="Name" />
               <Field name="description" label="Description" />
             </FormLayout>
           </FormStep>
-          <FormStep name="members" resolver={yupResolver(schemas.members)}>
+          <FormStep name="members">
             <FormLayout>
               <Field
                 name="members"
@@ -158,10 +159,7 @@ export default function CreateProject() {
 ```jsx
 import { Text, Spacer, ButtonGroup } from '@chakra-ui/react'
 import {
-  StepForm,
   FormLayout,
-  FormStep,
-  Field,
   PrevButton,
   NextButton,
   FormStepper,
@@ -173,19 +171,25 @@ import {
   PropertyList,
   Property,
 } from '@saas-ui/react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
+import { StepForm } from '@saas-ui/forms/zod'
+import * as zod from 'zod'
 
 export default function CreateProject() {
-  const schemas = {
-    project: yup.object().shape({
-      name: yup.string().required().label('Name'),
-      description: yup.string().label('Description'),
-    }),
-    members: yup.object().shape({
-      members: yup.string().label('Members'),
-    }),
-  }
+  const steps = [
+    {
+      name: 'project',
+      schema: zod.object({
+        name: zod.string().nonempty(),
+        description: zod.string(),
+      }),
+    },
+    {
+      name: 'members',
+      schema: zod.object().shape({
+        members: zod.string(),
+      }),
+    },
+  ]
 
   const onSubmit = (params) => {
     console.log(params)
@@ -196,6 +200,7 @@ export default function CreateProject() {
 
   return (
     <StepForm
+      steps={steps}
       defaultValues={{
         name: '',
         email: '',
@@ -203,24 +208,16 @@ export default function CreateProject() {
       }}
       onSubmit={onSubmit}
     >
-      {({ Field }) => (
+      {({ Field, FormStep }) => (
         <FormLayout>
           <FormStepper>
-            <FormStep
-              name="project"
-              title="Project details"
-              resolver={yupResolver(schemas.project)}
-            >
+            <FormStep name="project" title="Project details">
               <FormLayout>
                 <Field name="name" isRequired label="Name" />
                 <Field name="description" label="Description" />
               </FormLayout>
             </FormStep>
-            <FormStep
-              name="members"
-              title="Invite your team"
-              resolver={yupResolver(schemas.members)}
-            >
+            <FormStep name="members" title="Invite your team">
               <FormLayout>
                 <Field
                   name="members"
@@ -270,10 +267,7 @@ export default function CreateProject() {
 ```jsx
 import { Text, Spacer, ButtonGroup } from '@chakra-ui/react'
 import {
-  StepForm,
   FormLayout,
-  FormStep,
-  Field,
   PrevButton,
   NextButton,
   FormStepper,
@@ -285,19 +279,25 @@ import {
   PropertyList,
   Property,
 } from '@saas-ui/react'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { StepForm } from '@saas-ui/forms/yup'
 import * as yup from 'yup'
 
 export default function CreateProject() {
-  const schemas = {
-    project: yup.object().shape({
-      name: yup.string().required().label('Name'),
-      description: yup.string().label('Description'),
-    }),
-    members: yup.object().shape({
-      members: yup.string().label('Members'),
-    }),
-  }
+  const steps = [
+    {
+      name: 'project',
+      schema: yup.object().shape({
+        name: yup.string().required().label('Name'),
+        description: yup.string().label('Description'),
+      }),
+    },
+    {
+      name: 'members',
+      schema: yup.object().shape({
+        members: yup.string().label('Members'),
+      }),
+    },
+  ]
 
   const onSubmit = (params) => {
     console.log(params)
@@ -308,6 +308,7 @@ export default function CreateProject() {
 
   return (
     <StepForm
+      steps={steps}
       defaultValues={{
         name: '',
         email: '',
@@ -315,25 +316,17 @@ export default function CreateProject() {
       }}
       onSubmit={onSubmit}
     >
-      {({ Field }) => (
+      {({ Field, FormStep }) => (
         <FormLayout>
           <FormStepper orientation="vertical">
-            <FormStep
-              name="project"
-              title="Project details"
-              resolver={yupResolver(schemas.project)}
-            >
+            <FormStep name="project" title="Project details">
               <FormLayout>
                 <Field name="name" isRequired label="Name" />
                 <Field name="description" label="Description" />
                 <NextButton />
               </FormLayout>
             </FormStep>
-            <FormStep
-              name="members"
-              title="Invite your team"
-              resolver={yupResolver(schemas.members)}
-            >
+            <FormStep name="members" title="Invite your team">
               <FormLayout>
                 <Field
                   name="members"
@@ -383,7 +376,7 @@ export default function CreateProject() {
 
 ## Access stepper state
 
-You can access the form step state by using render props or the `useStepFormContext` hook.
+You can access the form step state by using render props or the `useStepFormContext` hook and using the render props.
 
 ```jsx
 import { Text, ButtonGroup } from '@chakra-ui/react'
@@ -408,6 +401,7 @@ export default function StepperState() {
     >
       {({
         Field,
+        FormStep,
         isFirstStep,
         isLastStep,
         isCompleted,

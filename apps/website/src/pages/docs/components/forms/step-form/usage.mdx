@@ -185,7 +185,7 @@ export default function CreateProject() {
     },
     {
       name: 'members',
-      schema: zod.object().shape({
+      schema: zod.object({
         members: zod.string(),
       }),
     },

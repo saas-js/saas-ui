@@ -103,7 +103,7 @@
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
     "@chakra-ui/utils": "^2.0.15",
-    "@hookform/resolvers": "^3.0.1",
+    "@hookform/resolvers": "^3.1.0",
     "@saas-ui/core": "workspace:*",
     "react-hook-form": "^7.43.9"
   },
@@ -119,9 +119,9 @@
     "@types/json-schema": "^7.0.11",
     "ajv": "^8.12.0",
     "ajv-errors": "^3.0.0",
-    "json-schema-to-ts": "^2.7.2",
+    "json-schema-to-ts": "^2.8.2",
     "tsd": "^0.28.1",
-    "yup": "^1.0.2",
+    "yup": "^1.1.1",
     "zod": "^3.21.4"
   },
   "tsd": {

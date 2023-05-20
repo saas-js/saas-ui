@@ -64,6 +64,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@clerk/clerk-react": "^4.14.2"
+    "@clerk/clerk-react": "^4.16.2"
   }
 }

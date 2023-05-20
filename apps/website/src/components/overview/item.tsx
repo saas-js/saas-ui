@@ -44,8 +44,6 @@ import {
   PasswordInput,
   SearchInput,
   Select,
-  Stepper,
-  StepperStep,
   EmptyState,
   Sidebar,
   NavGroup,
@@ -67,6 +65,8 @@ import {
   LoadingSpinner,
   Web3Address,
   DividerLabel,
+  Steps,
+  StepsItem,
 } from '@saas-ui/react'
 import NextLink from 'next/link'
 import {
@@ -127,10 +127,10 @@ const componentIllustrations = {
   ),
   hotkeys: <Code colorScheme="primary">{`useHotkeys('G then D')`}</Code>,
   stepper: (
-    <Stepper orientation="vertical">
-      <StepperStep title="Information" />
-      <StepperStep title="Account" />
-    </Stepper>
+    <Steps orientation="vertical">
+      <StepsItem title="Information" />
+      <StepsItem title="Account" />
+    </Steps>
   ),
   sidebar: (
     <Sidebar width="80%" borderRadius="md">
@@ -157,12 +157,12 @@ const componentIllustrations = {
     </FormLayout>
   ),
   stepform: (
-    <Stepper orientation="vertical">
-      <StepperStep title="Information">
+    <Steps orientation="vertical">
+      <StepsItem title="Information">
         <Input placeholder="Name" size="sm" />
-      </StepperStep>
-      <StepperStep title="Account" />
-    </Stepper>
+      </StepsItem>
+      <StepsItem title="Account" />
+    </Steps>
   ),
   formlayout: (
     <FormLayout>

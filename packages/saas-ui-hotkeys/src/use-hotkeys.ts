@@ -133,10 +133,12 @@ export const useHotkeys = (
   options: UseHotkeysOptions | Array<any> = [],
   deps: Array<any>
 ) => {
+  let _options: UseHotkeysOptions = {}
   if (Array.isArray(options)) {
     deps = options
-    options = {}
+    _options = {}
   } else {
+    _options = options
     deps = deps || []
   }
 
@@ -172,7 +174,7 @@ export const useHotkeys = (
       keysMatch(pressedKeys, targetKeys) ||
       (bufferKeys.size > 1 && keysMatch(bufferKeys, targetKeys))
     ) {
-      if (options.preventDefault) {
+      if (_options.preventDefault) {
         event.preventDefault()
       }
       bufferKeys.clear() // make sure the buffer gets cleared

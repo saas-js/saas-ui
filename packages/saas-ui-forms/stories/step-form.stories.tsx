@@ -36,7 +36,7 @@ import { ButtonGroup } from '@chakra-ui/react'
 import { PropertyList, Property } from '@saas-ui/core'
 
 import { onSubmit } from './helpers'
-import { StepperCompleted } from '@saas-ui/core'
+import { StepsCompleted } from '@saas-ui/core'
 import { StepForm as YupStepForm } from '@saas-ui/forms/yup'
 import { StepForm as ZodStepForm } from '@saas-ui/forms/zod'
 
@@ -235,7 +235,7 @@ export const WithStepper = () => {
             <FormStepper>
               <FormStep name="profile" title="Profile">
                 <FormLayout>
-                  <Field name="name" label="Name" />
+                  <Field name="name" label="Name" rules={{ required: true }} />
                   <Field name="email" label="Email" autoComplete="off" />
                   <StepperNav />
                 </FormLayout>
@@ -268,7 +268,7 @@ export const WithStepper = () => {
                 </FormLayout>
               </FormStep>
 
-              <StepperCompleted>
+              <StepsCompleted>
                 <Alert status="success">
                   <AlertIcon />
                   <Box>
@@ -278,7 +278,7 @@ export const WithStepper = () => {
                     </AlertDescription>
                   </Box>
                 </Alert>
-              </StepperCompleted>
+              </StepsCompleted>
             </FormStepper>
           </FormLayout>
         )}
@@ -336,7 +336,7 @@ export const WithStepperVariant = () => {
                 </FormLayout>
               </FormStep>
 
-              <StepperCompleted>
+              <StepsCompleted>
                 <Alert status="success">
                   <AlertIcon />
                   <Box>
@@ -346,7 +346,7 @@ export const WithStepperVariant = () => {
                     </AlertDescription>
                   </Box>
                 </Alert>
-              </StepperCompleted>
+              </StepsCompleted>
             </FormStepper>
           </FormLayout>
         )}
@@ -450,7 +450,7 @@ export const WithState = () => {
               </FormStep>
             ))}
 
-            <StepperCompleted>
+            <StepsCompleted>
               <Alert status="success">
                 <AlertIcon />
                 <Box>
@@ -460,7 +460,7 @@ export const WithState = () => {
                   </AlertDescription>
                 </Box>
               </Alert>
-            </StepperCompleted>
+            </StepsCompleted>
           </FormStepper>
         </FormLayout>
       </StepForm>

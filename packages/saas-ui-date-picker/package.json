@@ -56,11 +56,11 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.16",
-    "@chakra-ui/react-utils": "^2.0.11",
-    "@chakra-ui/styled-system": "^2.5.1",
-    "@chakra-ui/theme-tools": "^2.0.16",
-    "@chakra-ui/utils": "^2.0.14",
+    "@chakra-ui/icons": "^2.0.19",
+    "@chakra-ui/react-utils": "^2.0.12",
+    "@chakra-ui/styled-system": "^2.9.0",
+    "@chakra-ui/theme-tools": "^2.0.17",
+    "@chakra-ui/utils": "^2.0.15",
     "@internationalized/date": "^3.2.0",
     "@react-aria/calendar": "^3.2.0",
     "@react-aria/datepicker": "^3.4.0",
@@ -82,6 +82,6 @@
     "@react-types/datepicker": "^3.3.0",
     "@react-types/shared": "^3.18.0",
     "@saas-ui/forms": "workspace:*",
-    "date-fns": "^2.29.3"
+    "date-fns": "^2.30.0"
   }
 }

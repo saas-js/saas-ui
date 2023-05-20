@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { FieldValues, UseFormReturn } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form'
 
 import {
   chakra,
@@ -10,35 +10,24 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 
-import { callAllHandlers, runIfFn, cx } from '@chakra-ui/utils'
+import { callAllHandlers, cx } from '@chakra-ui/utils'
 
 import {
-  StepperProvider,
-  StepperSteps,
-  StepperStepsProps,
-  StepperStep,
+  Steps,
+  StepsItem,
+  StepsItemProps,
+  StepsProps,
   useStepperContext,
-  StepperContainer,
-  StepperProps,
 } from '@saas-ui/core'
-
-import { Form } from './'
-import { Field } from './field'
 
 import { SubmitButton } from './submit-button'
 
 import {
-  useStepForm,
   useFormStep,
-  StepFormProvider,
   UseStepFormProps,
   FormStepSubmitHandler,
 } from './use-step-form'
 import { FieldProps } from './types'
-import { DisplayIf } from './display-if'
-import { ArrayField } from './array-field'
-import { ObjectField } from './object-field'
-import { createStepForm } from './create-step-form'
 
 export type StepsOptions<TSchema, TName extends string = string> = {
   /**
@@ -73,9 +62,9 @@ export interface FormStepOptions<TName extends string = string> {
   resolver?: any
 }
 
-export interface FormStepperProps
-  extends StepperStepsProps,
-    ThemingProps<'Stepper'> {}
+export interface FormStepperProps extends StepsProps, ThemingProps<'Stepper'> {
+  render?: StepsItemProps['render']
+}
 
 /**
  * Renders a stepper that displays progress above the form.
@@ -85,7 +74,16 @@ export interface FormStepperProps
 export const FormStepper: React.FC<FormStepperProps> = (props) => {
   const { activeIndex, setIndex } = useStepperContext()
 
-  const { children, orientation, variant, colorScheme, size, ...rest } = props
+  const {
+    children,
+    orientation,
+    variant,
+    colorScheme,
+    size,
+    onChange: onChangeProp,
+    render,
+    ...rest
+  } = props
 
   const elements = React.Children.map(children, (child) => {
     if (
@@ -94,14 +92,15 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
     ) {
       const { isCompleted } = useFormStep(child.props) // Register this step
       return (
-        <StepperStep
+        <StepsItem
+          render={render}
           name={child.props.name}
           title={child.props.title}
           isCompleted={isCompleted}
           {...rest}
         >
           {child.props.children}
-        </StepperStep>
+        </StepsItem>
       )
     }
     return child
@@ -109,10 +108,11 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
 
   const onChange = React.useCallback((i: number) => {
     setIndex(i)
+    onChangeProp?.(i)
   }, [])
 
   return (
-    <StepperContainer
+    <Steps
       orientation={orientation}
       step={activeIndex}
       variant={variant}
@@ -120,10 +120,8 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
       size={size}
       onChange={onChange}
     >
-      <StepperSteps mb="4" {...rest}>
-        {elements}
-      </StepperSteps>
-    </StepperContainer>
+      {elements}
+    </Steps>
   )
 }
 

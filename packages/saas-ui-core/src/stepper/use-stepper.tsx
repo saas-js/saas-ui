@@ -99,6 +99,7 @@ export interface UseStepProps {
 
 export function useStep(props: UseStepProps) {
   const { name, isActive, isCompleted } = props
+
   const { registerStep, unregisterStep, activeStep } = useStepperContext()
 
   React.useEffect(() => {

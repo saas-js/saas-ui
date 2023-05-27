@@ -6108,7 +6108,7 @@ __metadata:
     zustand: ^4.3.8
   peerDependencies:
     "@chakra-ui/react": ">=2.5.0"
-    "@saas-ui/react": ">=2.0.0-next.12"
+    "@saas-ui/react": ">=2.0.0-rc.25"
     framer-motion: ">=5.5.0"
     react: ">=18"
   languageName: unknown
@@ -6124,14 +6124,14 @@ __metadata:
     "@chakra-ui/system": ^2.5.7
     "@chakra-ui/theme-tools": ^2.0.17
     "@chakra-ui/utils": ^2.0.15
-    "@saas-ui/react-utils": ^2.0.0-next.1
+    "@saas-ui/react-utils": ^2.0.0-rc.3
     react-icons: ^4.8.0
     tsup: ^6.7.0
   peerDependencies:
     "@chakra-ui/react": ">=2.1"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=2.0.0-next.12"
+    "@saas-ui/react": ">=2.0.0-rc.25"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -6152,9 +6152,9 @@ __metadata:
     "@ngneat/falso": ^2.27.0
     "@react-hookz/web": ^15.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/forms": ^2.0.0-next.16
-    "@saas-ui/react-utils": ^2.0.0-next.3
-    "@saas-ui/theme": ^2.0.0-next.6
+    "@saas-ui/forms": ^2.0.0-rc.23
+    "@saas-ui/react-utils": ^2.0.0-rc.4
+    "@saas-ui/theme": ^2.0.0-rc.13
     "@tanstack/react-table": ^8.9.1
     date-fns: ^2.30.0
     polished: ^4.2.2
@@ -6164,7 +6164,7 @@ __metadata:
     "@chakra-ui/react": ">=2.5.0"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=2.0.0-next.12"
+    "@saas-ui/react": ">=2.0.0-rc.25"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -6179,7 +6179,7 @@ __metadata:
     "@chakra-ui/styled-system": ^2.9.0
     "@chakra-ui/theme-tools": ^2.0.17
     "@saas-ui-pro/react": "workspace:*"
-    "@saas-ui/theme-glass": ^0.3.2-next.1
+    "@saas-ui/theme-glass": ^0.3.2-rc.4
     react-icons: ^4.8.0
     tsup: ^6.7.0
   peerDependencies:
@@ -6187,14 +6187,14 @@ __metadata:
     "@chakra-ui/system": ">=2.5.0"
     "@emotion/react": ">=11.0.0"
     "@emotion/styled": ">=11.0.0"
-    "@saas-ui/react": ">=2.0.0-next.12"
+    "@saas-ui/react": ">=2.0.0-rc.25"
     framer-motion: ">=6"
     react: ">=18"
     react-dom: ">=18"
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@^2.0.0-next.14, @saas-ui/auth@^2.0.0-next.20, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@^2.0.0-rc.24, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -6334,7 +6334,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@^2.0.0-next.16, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@^2.0.0-rc.23, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -6390,7 +6390,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/magic@workspace:packages/saas-ui-magic"
   dependencies:
-    "@saas-ui/auth": ^2.0.0-next.20
+    "@saas-ui/auth": ^2.0.0-rc.24
     magic-sdk: ^17.1.6
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -6475,7 +6475,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react-utils@^2.0.0-next.1, @saas-ui/react-utils@^2.0.0-next.3, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
+"@saas-ui/react-utils@^2.0.0-rc.3, @saas-ui/react-utils@^2.0.0-rc.4, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react-utils@workspace:packages/saas-ui-react-utils"
   dependencies:
@@ -6548,7 +6548,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
-    "@saas-ui/auth": ^2.0.0-next.14
+    "@saas-ui/auth": ^2.0.0-rc.24
     "@supabase/supabase-js": ^2.22.0
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -6608,7 +6608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@^0.3.2-next.1, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@^0.3.2-rc.4, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -6628,7 +6628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@^2.0.0-next.6, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@^2.0.0-rc.13, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   dependencies:
@@ -23436,7 +23436,7 @@ __metadata:
     "@chakra-ui/react": ">=2.5.0"
     "@chakra-ui/system": ">=2.5.0"
     "@saas-ui-pro/react": "workspace:*"
-    "@saas-ui/react": ">=2.0.0-next.12"
+    "@saas-ui/react": ">=2.0.0-rc.25"
     framer-motion: ">=5.5.0"
     jest: ">=27.0.0"
     react: ">=18"

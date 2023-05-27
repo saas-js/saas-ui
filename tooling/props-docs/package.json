@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/props-docs",
-  "version": "1.8.1-next.1",
+  "version": "1.8.1-rc.2",
   "description": "Extracts prop types for documentation purposes",
   "keywords": [
     "docs",
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
-    "@types/mkdirp": "^2.0.0"
+    "@types/mkdirp": "^2.0.0",
+    "ts-node": "^10.9.1"
   }
 }

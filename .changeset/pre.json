@@ -1,6 +1,6 @@
 {
   "mode": "pre",
-  "tag": "next",
+  "tag": "rc",
   "initialVersions": {
     "palette-docs": "1.3.5",
     "website": "1.3.4",
@@ -90,6 +90,7 @@
     "orange-buses-tap",
     "perfect-houses-doubt",
     "polite-tomatoes-wait",
+    "poor-ghosts-build",
     "popular-boats-sniff",
     "purple-mice-fry",
     "quick-seals-guess",
@@ -111,6 +112,7 @@
     "thick-pumas-cry",
     "thin-turkeys-build",
     "tidy-coins-retire",
+    "twenty-baboons-buy",
     "twenty-baboons-hide",
     "two-plants-help",
     "weak-countries-jog",

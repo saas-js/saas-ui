@@ -1,5 +1,19 @@
 # @saas-ui/clerk
 
+## 3.0.0-rc.24
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-rc.24
+
+## 3.0.0-rc.23
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-rc.23
+
 ## 3.0.0-next.22
 
 ### Patch Changes

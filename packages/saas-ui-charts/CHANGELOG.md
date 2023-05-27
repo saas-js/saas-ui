@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.8.0-rc.3
+
+### Patch Changes
+
+- Bump version
+
 ## 0.8.0-next.2
 
 ### Patch Changes

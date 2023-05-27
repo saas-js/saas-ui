@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 1.8.1-rc.2
+
+### Patch Changes
+
+- Bump version
+
 ## 1.8.1-next.1
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # @saas-ui/modals
 
+## 2.0.0-rc.23
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-rc.4
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/hooks@2.0.0-rc.5
+
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.22
+
 ## 2.0.0-next.21
 
 ### Patch Changes

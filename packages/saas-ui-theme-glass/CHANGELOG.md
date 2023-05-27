@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.3.2-rc.4
+
+### Patch Changes
+
+- Bump version
+
 ## 0.3.2-next.3
 
 ### Patch Changes

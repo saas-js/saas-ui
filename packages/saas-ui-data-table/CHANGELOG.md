@@ -1,5 +1,23 @@
 # @saas-ui/data-table
 
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/react@2.0.0-rc.25
+  - @saas-ui/core@2.0.0-rc.20
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/react@2.0.0-rc.24
+  - @saas-ui/core@2.0.0-rc.19
+
 ## 2.0.0-next.23
 
 ### Patch Changes

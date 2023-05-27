@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.0.0-rc.5
+
+### Patch Changes
+
+- Bump version
+
 ## 2.0.0-next.4
 
 ### Patch Changes

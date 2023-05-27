@@ -1,5 +1,24 @@
 # @saas-ui/auth
 
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/core@2.0.0-rc.20
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/hooks@2.0.0-rc.5
+
+## 2.0.0-rc.23
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/core@2.0.0-rc.19
+  - @saas-ui/forms@2.0.0-rc.22
+
 ## 2.0.0-next.22
 
 ### Patch Changes

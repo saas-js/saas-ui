@@ -1,5 +1,37 @@
 # @saas-ui/react
 
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-rc.13
+  - @saas-ui/core@2.0.0-rc.20
+  - @saas-ui/data-table@2.0.0-rc.25
+  - @saas-ui/nprogress@2.0.0-rc.4
+  - @saas-ui/hotkeys@2.0.0-rc.21
+  - @saas-ui/modals@2.0.0-rc.23
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/hooks@2.0.0-rc.5
+  - @saas-ui/auth@2.0.0-rc.24
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Updated dependencies [7027d7c1]
+  - @saas-ui/theme@2.0.0-rc.12
+  - @saas-ui/core@2.0.0-rc.19
+  - @saas-ui/data-table@2.0.0-rc.24
+  - @saas-ui/auth@2.0.0-rc.23
+  - @saas-ui/forms@2.0.0-rc.22
+  - @saas-ui/hotkeys@2.0.0-rc.20
+  - @saas-ui/modals@2.0.0-rc.22
+
 ## 2.0.0-next.23
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # 0.2.0
 
+## 2.0.0-rc.4
+
+### Patch Changes
+
+- Bump version
+
 ## 2.0.0-next.3
 
 ### Patch Changes

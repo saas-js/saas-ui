@@ -6463,6 +6463,7 @@ __metadata:
     mkdirp: ^2.1.6
     react-docgen-typescript: ^2.2.2
     regenerator-runtime: ^0.13.11
+    ts-node: ^10.9.1
   peerDependencies:
     "@chakra-ui/system": ">=2.3.8"
     "@emotion/react": ">=11"

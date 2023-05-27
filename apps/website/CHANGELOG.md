@@ -1,5 +1,25 @@
 # website
 
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/react@2.0.0-rc.25
+  - @saas-ui/command-bar@0.2.0-rc.5
+  - @saas-ui/palette@2.0.0-rc.4
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/props-docs@1.8.1-rc.2
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/react@2.0.0-rc.24
+  - @saas-ui/forms@2.0.0-rc.22
+
 ## 2.0.0-next.23
 
 ### Patch Changes

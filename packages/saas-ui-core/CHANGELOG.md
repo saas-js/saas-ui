@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 2.0.0-rc.20
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-rc.13
+  - @saas-ui/react-utils@2.0.0-rc.4
+
+## 2.0.0-rc.19
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Updated dependencies [7027d7c1]
+  - @saas-ui/theme@2.0.0-rc.12
+
 ## 2.0.0-next.18
 
 ### Patch Changes

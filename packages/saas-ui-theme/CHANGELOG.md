@@ -1,5 +1,18 @@
 # @saas-ui/theme
 
+## 2.0.0-rc.13
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Bump version
+
+## 2.0.0-rc.12
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+
 ## 2.0.0-next.11
 
 ### Minor Changes

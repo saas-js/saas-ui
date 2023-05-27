@@ -80,9 +80,9 @@ export default function BasicStepForm() {
 }
 ```
 
-### With a schema
+### With Yup schemas
 
-Supports yup schemas out of the box.
+Import `StepForm` from `@saas-ui/forms/yup` and pass an array of steps with a name and schema.
 
 ```jsx
 import { Spacer } from '@chakra-ui/react'
@@ -94,15 +94,89 @@ export default function CreateProject() {
   const steps = [
     {
       name: 'project',
-      schema: yup.object().shape({
+      schema: yup.object({
         name: yup.string().required().label('Name'),
         description: yup.string().label('Description'),
       }),
     },
     {
       name: 'members',
-      schema: yup.object().shape({
+      schema: yup.object({
         members: yup.string().label('Members'),
+      }),
+    },
+  ]
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <StepForm
+      steps={steps}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="project">
+            <FormLayout>
+              <Field name="name" isRequired label="Name" />
+              <Field name="description" label="Description" />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="members">
+            <FormLayout>
+              <Field
+                name="members"
+                type="textarea"
+                label="Invite people"
+                placeholder="hello@saas-ui.dev, etc"
+              />
+            </FormLayout>
+          </FormStep>
+          <ButtonGroup w="full">
+            <PrevButton variant="ghost" />
+            <Spacer />
+            <NextButton />
+          </ButtonGroup>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+### With Zod schemas
+
+Import `StepForm` from `@saas-ui/forms/zod` and pass an array of steps with a name and schema.
+
+```jsx
+import { Spacer } from '@chakra-ui/react'
+import { FormLayout, PrevButton, NextButton } from '@saas-ui/react'
+import { StepForm } from '@saas-ui/forms/zod'
+import * as zod from 'zod'
+
+export default function CreateProject() {
+  const steps = [
+    {
+      name: 'project',
+      schema: zod.object({
+        name: yup.string(),
+        description: yup.string().optional(),
+      }),
+    },
+    {
+      name: 'members',
+      schema: yup.object({
+        members: yup.string(),
       }),
     },
   ]
@@ -163,7 +237,7 @@ import {
   PrevButton,
   NextButton,
   FormStepper,
-  StepperCompleted,
+  StepsCompleted,
   FormValue,
   LoadingOverlay,
   LoadingSpinner,
@@ -241,14 +315,14 @@ export default function CreateProject() {
               </FormLayout>
             </FormStep>
 
-            <StepperCompleted>
+            <StepsCompleted>
               <LoadingOverlay>
                 <LoadingSpinner />
                 <LoadingText>
                   We are setting up your project, just a moment...
                 </LoadingText>
               </LoadingOverlay>
-            </StepperCompleted>
+            </StepsCompleted>
           </FormStepper>
           <ButtonGroup w="full">
             <PrevButton variant="ghost" />
@@ -271,7 +345,7 @@ import {
   PrevButton,
   NextButton,
   FormStepper,
-  StepperCompleted,
+  StepsCompleted,
   FormValue,
   LoadingOverlay,
   LoadingSpinner,
@@ -286,14 +360,14 @@ export default function CreateProject() {
   const steps = [
     {
       name: 'project',
-      schema: yup.object().shape({
+      schema: yup.object({
         name: yup.string().required().label('Name'),
         description: yup.string().label('Description'),
       }),
     },
     {
       name: 'members',
-      schema: yup.object().shape({
+      schema: yup.object({
         members: yup.string().label('Members'),
       }),
     },
@@ -358,14 +432,14 @@ export default function CreateProject() {
               </FormLayout>
             </FormStep>
 
-            <StepperCompleted>
+            <StepsCompleted>
               <LoadingOverlay>
                 <LoadingSpinner />
                 <LoadingText>
                   We are setting up your project, just a moment...
                 </LoadingText>
               </LoadingOverlay>
-            </StepperCompleted>
+            </StepsCompleted>
           </FormStepper>
         </FormLayout>
       )}

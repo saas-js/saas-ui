@@ -41,11 +41,15 @@ export default MyApp
 
 ### 3. Link Component
 
-Configure a `linkComponent` to make the Saas UI `Link` work with the Next.js router.
+Configure a `linkComponent` to make the Saas UI `Link` works with the Next.js router.
 
 ```tsx
-import { Link } from '@chakra-ui/next-js'
+import Link, { LinkProps } from 'next/link'
 import { SaasProvider } from '@saas-ui/react'
+
+const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <Link ref={ref} {...props} />
+)
 
 function MyApp({ Component, pageProps }) {
   return (

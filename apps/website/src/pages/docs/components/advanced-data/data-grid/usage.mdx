@@ -11,7 +11,11 @@ A advanced data grid component that supports sorting, selections, filters and pa
 ## Import
 
 ```ts
-import { DataGrid, DataGridPagination } from '@saas-ui-pro/react'
+import {
+  DataGrid,
+  DataGridPagination,
+  useColumnVisibility,
+} from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -394,6 +398,7 @@ import {
   PageBody,
   Toolbar,
   ToolbarButton,
+  DataGrid,
 } from '@saas-ui-pro/react'
 
 export default function InternalState() {
@@ -422,6 +427,78 @@ export default function InternalState() {
           columns={dataGrid.columns.concat()}
           data={dataGrid.data.concat()}
           isSelectable
+        />
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Toggle visible columns
+
+```jsx
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuOptionGroup,
+  MenuOptionItem,
+  Button,
+} from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  DataGrid,
+  useColumnVisibility,
+} from '@saas-ui-pro/react'
+
+export default function VisibleColumns() {
+  const allColumns = ['name', 'email', 'company', 'country', 'employees']
+  const [visibleColumns, setVisibleColumns] = React.useState([
+    'name',
+    'email',
+    'company',
+  ])
+
+  const columnVisibility = useColumnVisibility({
+    columns: dataGrid.columns,
+    visibleColumns,
+  })
+
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader
+        title="Customers"
+        toolbar={
+          <Toolbar>
+            <Menu closeOnSelect={false}>
+              <MenuButton as={Button}>View</MenuButton>
+              <MenuList>
+                <MenuOptionGroup
+                  value={visibleColumns}
+                  type="checkbox"
+                  onChange={setVisibleColumns}
+                  close
+                >
+                  {allColumns.map((c) => (
+                    <MenuItemOption value={c}>{c}</MenuItemOption>
+                  ))}
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
+          </Toolbar>
+        }
+      />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+          state={{
+            columnVisibility,
+          }}
         />
       </PageBody>
     </Page>

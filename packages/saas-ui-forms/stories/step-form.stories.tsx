@@ -113,6 +113,42 @@ export const Basic = () => (
   </>
 )
 
+export const Vertical = () => (
+  <>
+    <StepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormStepper orientation="vertical">
+          <FormStep name="profile" title="Profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password" title="Password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                type="password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormStepper>
+      )}
+    </StepForm>
+  </>
+)
+
 export const WithYupSchema = () => (
   <>
     <YupStepForm
@@ -135,17 +171,19 @@ export const WithYupSchema = () => (
     >
       {({ Field, FormStep, isCompleted }) => (
         <FormLayout>
-          <FormStep name="profile">
-            <FormLayout>
-              <Field name="name" label="Name" />
-              <Field name="email" label="Email" />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="password">
-            <FormLayout>
-              <Field name="password" label="Password" />
-            </FormLayout>
-          </FormStep>
+          <FormStepper orientation="vertical">
+            <FormStep name="profile" title="Profile">
+              <FormLayout>
+                <Field name="name" label="Name" />
+                <Field name="email" label="Email" />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="password" title="Password">
+              <FormLayout>
+                <Field name="password" label="Password" isRequired />
+              </FormLayout>
+            </FormStep>
+          </FormStepper>
           {isCompleted ? (
             <Text>Completed</Text>
           ) : (

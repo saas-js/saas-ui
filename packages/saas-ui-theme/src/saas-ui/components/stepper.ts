@@ -100,6 +100,9 @@ const baseStyle = definePartsStyle(({ colorScheme: c }) => ({
     flexDirection: 'column',
     gap: 4,
   },
+  item: {
+    w: 'full',
+  },
   content: {
     ['&[data-orientation=vertical]']: {
       mt: 2,

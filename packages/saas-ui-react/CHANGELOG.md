@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.0.0-rc.28
+
+### Minor Changes
+
+- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/core@2.0.0-rc.23
+  - @saas-ui/data-table@2.0.0-rc.28
+  - @saas-ui/auth@2.0.0-rc.27
+  - @saas-ui/forms@2.0.0-rc.26
+  - @saas-ui/hotkeys@2.0.0-rc.24
+  - @saas-ui/modals@2.0.0-rc.26
+
 ## 2.0.0-rc.27
 
 ### Minor Changes

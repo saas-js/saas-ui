@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+  - @saas-ui/core@2.0.0-rc.21
+
 ## 2.0.0-rc.23
 
 ### Patch Changes

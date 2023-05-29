@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/theme@2.0.0-rc.14
+  - @saas-ui/forms@2.0.0-rc.24
+  - @saas-ui/data-table@2.0.0-rc.26
+  - @saas-ui/core@2.0.0-rc.21
+  - @saas-ui/auth@2.0.0-rc.25
+  - @saas-ui/modals@2.0.0-rc.24
+  - @saas-ui/hotkeys@2.0.0-rc.22
+
 ## 2.0.0-rc.25
 
 ### Patch Changes

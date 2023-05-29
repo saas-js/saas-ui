@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-rc.21
+
 ## 2.0.0-rc.21
 
 ### Patch Changes

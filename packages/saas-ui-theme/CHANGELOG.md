@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-rc.14
+
+### Patch Changes
+
+- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+
 ## 2.0.0-rc.13
 
 ### Patch Changes

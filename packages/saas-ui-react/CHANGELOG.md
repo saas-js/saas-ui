@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 2.0.0-rc.27
+
+### Minor Changes
+
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+
+### Patch Changes
+
+- e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
+- Updated dependencies [e23790a8]
+- Updated dependencies [2366db6a]
+  - @saas-ui/core@2.0.0-rc.22
+  - @saas-ui/modals@2.0.0-rc.25
+  - @saas-ui/data-table@2.0.0-rc.27
+  - @saas-ui/auth@2.0.0-rc.26
+  - @saas-ui/forms@2.0.0-rc.25
+  - @saas-ui/hotkeys@2.0.0-rc.23
+
 ## 2.0.0-rc.26
 
 ### Patch Changes

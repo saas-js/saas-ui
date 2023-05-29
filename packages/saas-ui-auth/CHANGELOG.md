@@ -1,5 +1,13 @@
 # @saas-ui/auth
 
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+  - @saas-ui/core@2.0.0-rc.22
+  - @saas-ui/forms@2.0.0-rc.25
+
 ## 2.0.0-rc.25
 
 ### Patch Changes

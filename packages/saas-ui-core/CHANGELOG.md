@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
+
 ## 2.0.0-rc.21
 
 ### Patch Changes

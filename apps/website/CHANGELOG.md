@@ -1,5 +1,14 @@
 # website
 
+## 2.0.0-rc.27
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+- Updated dependencies [2366db6a]
+  - @saas-ui/react@2.0.0-rc.27
+  - @saas-ui/forms@2.0.0-rc.25
+
 ## 2.0.0-rc.26
 
 ### Patch Changes

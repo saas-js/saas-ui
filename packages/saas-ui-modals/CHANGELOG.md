@@ -1,5 +1,15 @@
 # @saas-ui/modals
 
+## 2.0.0-rc.25
+
+### Minor Changes
+
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.25
+
 ## 2.0.0-rc.24
 
 ### Patch Changes

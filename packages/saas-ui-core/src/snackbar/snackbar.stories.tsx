@@ -143,3 +143,46 @@ export const WithPromise = () => {
     </VStack>
   )
 }
+
+export const WithPromiseCustomError = () => {
+  const snackbar = useSnackbar()
+
+  return (
+    <VStack>
+      <Button
+        onClick={() =>
+          snackbar.promise(
+            new Promise((resolve) => setTimeout(resolve, 2000)),
+            {
+              loading: 'Creating your account...',
+              success: 'Your account has been created.',
+              error: "Your account couldn't be created.",
+            }
+          )
+        }
+      >
+        Success
+      </Button>
+      <Button
+        onClick={() =>
+          snackbar
+            .promise(
+              new Promise((resolve, reject) =>
+                setTimeout(() => reject(new Error('403 Error')), 2000)
+              ),
+              {
+                loading: 'Creating your account...',
+                success: 'Your account has been created.',
+                error: (err) => err.message,
+              }
+            )
+            .catch((e) => {
+              console.error(e)
+            })
+        }
+      >
+        Error
+      </Button>
+    </VStack>
+  )
+}

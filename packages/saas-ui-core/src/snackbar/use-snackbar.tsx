@@ -100,7 +100,7 @@ export type SnackbarOptions = UseSnackbarOptions | string
 export interface SnackbarPromiseOptions {
   loading?: SnackbarOptions
   success: SnackbarOptions
-  error: any
+  error: SnackbarOptions
 }
 
 const defaults = {

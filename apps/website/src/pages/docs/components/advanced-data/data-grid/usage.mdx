@@ -375,6 +375,9 @@ export default function ListPage() {
           initialState={{
             pageSize: 1,
           }}
+          state={{
+            sort,
+          }}
         >
           <DataGridPagination
             onChange={({ pageIndex }) => setPage(pageIndex)}

@@ -355,3 +355,30 @@ export const Multiple = () => {
     </Button>
   )
 }
+
+export const AsyncConfirmDialog = () => {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.confirm({
+          title: 'Delete user',
+          body: 'Are you sure you want to delete this user?',
+          confirmProps: {
+            children: 'Delete',
+            colorScheme: 'red',
+          },
+          onConfirm: () =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve()
+              }, 2000)
+            }),
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}

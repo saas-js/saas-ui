@@ -1,5 +1,116 @@
 # @saas-ui/modals
 
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.26
+
+## 2.0.0-rc.25
+
+### Minor Changes
+
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.25
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/forms@2.0.0-rc.24
+
+## 2.0.0-rc.23
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-rc.4
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/hooks@2.0.0-rc.5
+
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.22
+
+## 2.0.0-next.21
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-next.21
+
+## 2.0.0-next.20
+
+### Patch Changes
+
+- Updated dependencies [a9ca90dd]
+  - @saas-ui/forms@2.0.0-next.20
+
+## 2.0.0-next.19
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-next.19
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [01ac442f]
+  - @saas-ui/forms@2.0.0-next.18
+
+## 2.0.0-next.17
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-next.17
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- cc713117: Fix issue where onCloseComplete would not be called
+  - @saas-ui/forms@2.0.0-next.16
+
+## 2.0.0-next.15
+
+### Minor Changes
+
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+  - @saas-ui/forms@2.0.0-next.15
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-next.3
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/hooks@2.0.0-next.4
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- 1563cc9a: BaseDrawer now accepts header, content and footer props.
+- Bump version
+- Updated dependencies
+- Updated dependencies [6c63217c]
+  - @saas-ui/react-utils@2.0.0-next.2
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/hooks@2.0.0-next.3
+
 ## 2.0.0-next.12
 
 ### Patch Changes
@@ -108,6 +219,26 @@
   - @saas-ui/forms@2.0.0-next.0
   - @saas-ui/hooks@2.0.0-next.0
   - @saas-ui/react-utils@2.0.0-next.0
+
+## 1.5.7
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/forms@1.5.5
+  - @saas-ui/menu@1.4.3
+
+## 1.5.6
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+  - @saas-ui/forms@1.5.4
+  - @saas-ui/menu@1.4.2
 
 ## 1.5.5
 

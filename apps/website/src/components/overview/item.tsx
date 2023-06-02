@@ -29,12 +29,14 @@ import {
 } from '@chakra-ui/react'
 import {
   Page,
+  PageHeader,
   Section,
+  SectionHeader,
   Toolbar,
   ToolbarButton,
   Command,
   ActiveFilter,
-} from '@saas-ui/pro'
+} from '@saas-ui-pro/react'
 import {
   AppShell,
   Divider,
@@ -42,8 +44,6 @@ import {
   PasswordInput,
   SearchInput,
   Select,
-  Stepper,
-  StepperStep,
   EmptyState,
   Sidebar,
   NavGroup,
@@ -64,6 +64,9 @@ import {
   LoadingOverlay,
   LoadingSpinner,
   Web3Address,
+  DividerLabel,
+  Steps,
+  StepsItem,
 } from '@saas-ui/react'
 import NextLink from 'next/link'
 import {
@@ -99,19 +102,20 @@ const componentIllustrations = {
     </AppShell>
   ),
   page: (
-    <Page
-      title="Contacts"
-      height="100%"
-      toolbar={
-        <Toolbar>
-          <Button variant="primary">Add</Button>
-        </Toolbar>
-      }
-    ></Page>
+    <Page height="100%">
+      <PageHeader
+        title="Contacts"
+        toolbar={
+          <Toolbar>
+            <Button variant="primary">Add</Button>
+          </Toolbar>
+        }
+      />
+    </Page>
   ),
   section: (
-    <Section title="Settings" description="Manage your settings">
-      <></>
+    <Section>
+      <SectionHeader title="Settings" description="Manage your settings" />
     </Section>
   ),
   toolbar: (
@@ -123,10 +127,10 @@ const componentIllustrations = {
   ),
   hotkeys: <Code colorScheme="primary">{`useHotkeys('G then D')`}</Code>,
   stepper: (
-    <Stepper orientation="vertical">
-      <StepperStep title="Information" />
-      <StepperStep title="Account" />
-    </Stepper>
+    <Steps orientation="vertical">
+      <StepsItem title="Information" />
+      <StepsItem title="Account" />
+    </Steps>
   ),
   sidebar: (
     <Sidebar width="80%" borderRadius="md">
@@ -153,12 +157,12 @@ const componentIllustrations = {
     </FormLayout>
   ),
   stepform: (
-    <Stepper orientation="vertical">
-      <StepperStep title="Information">
+    <Steps orientation="vertical">
+      <StepsItem title="Information">
         <Input placeholder="Name" size="sm" />
-      </StepperStep>
-      <StepperStep title="Account" />
-    </Stepper>
+      </StepsItem>
+      <StepsItem title="Account" />
+    </Steps>
   ),
   formlayout: (
     <FormLayout>
@@ -245,7 +249,11 @@ const componentIllustrations = {
       </Table>
     </Box>
   ),
-  divider: <Divider label="Divider" />,
+  divider: (
+    <Divider>
+      <DividerLabel>Divider</DividerLabel>
+    </Divider>
+  ),
   emptystate: (
     <EmptyState
       title="No results"

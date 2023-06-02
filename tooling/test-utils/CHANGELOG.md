@@ -1,5 +1,125 @@
 # @saas-ui/test-utils
 
+## 3.0.0-rc.28
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/react@2.0.0-rc.28
+
+## 3.0.0-rc.27
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+- Updated dependencies [2366db6a]
+  - @saas-ui/react@2.0.0-rc.27
+
+## 3.0.0-rc.26
+
+### Patch Changes
+
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/react@2.0.0-rc.26
+
+## 3.0.0-rc.25
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/react@2.0.0-rc.25
+
+## 3.0.0-rc.24
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/react@2.0.0-rc.24
+
+## 3.0.0-next.23
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.23
+
+## 3.0.0-next.22
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.22
+
+## 3.0.0-next.21
+
+### Patch Changes
+
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [2b639656]
+- Updated dependencies [ccfce5c1]
+  - @saas-ui/react@2.0.0-next.21
+
+## 3.0.0-next.20
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.20
+
+## 3.0.0-next.19
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.19
+
+## 3.0.0-next.18
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.18
+
+## 3.0.0-next.17
+
+### Patch Changes
+
+- Updated dependencies [a5898c44]
+  - @saas-ui/react@2.0.0-next.17
+
+## 3.0.0-next.16
+
+### Patch Changes
+
+- Updated dependencies [b8be6d41]
+  - @saas-ui/react@2.0.0-next.16
+
+## 3.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [826c561a]
+  - @saas-ui/react@2.0.0-next.15
+
+## 3.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react@2.0.0-next.14
+
+## 3.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [dc435dd5]
+- Updated dependencies [6c63217c]
+  - @saas-ui/react@2.0.0-next.13
+
 ## 3.0.0-next.12
 
 ### Patch Changes
@@ -119,6 +239,19 @@
 - Updated dependencies [f1e99198]
 - Updated dependencies [f3b09191]
   - @saas-ui/react@2.0.0-next.0
+
+## 2.3.7
+
+### Patch Changes
+
+- @saas-ui/react@1.9.3
+
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [b2302a3]
+  - @saas-ui/react@1.9.2
 
 ## 2.3.5
 

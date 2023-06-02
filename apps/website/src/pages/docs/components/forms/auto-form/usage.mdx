@@ -16,66 +16,97 @@ AutoForm can be used to quickly generate forms for prototyping or forms that don
 
 ## Import
 
-- `AutoForm`: The wrapper component that manages context and state.
+- `Form`: The wrapper component that manages context and state.
 
 ```ts
-import { AutoForm, Fields } from '@saas-ui/react'
+import { Form } from '@saas-ui/react' // default form
+import { Form } from '@saas-ui/forms/zod' // zod form
+import { Form } from '@saas-ui/forms/yup' // yup form
 ```
 
 ## Usage
 
-Generate forms based on a schema, currently only acceps a basic object schema, `Yup` and `Zod` schemas.
+When you supply a schema to `Form` and don't supply any children, the form will automatically render the fields.
 
-## Object schema
+The default Form component supports the following schema format.
 
-The object schema is a simple object with field props. This is an Object representation of the props on the component.
+### Object schema
+
+The object schema is an object with field props. Array and object fields can have nested fields.
+
+```ts
+type FieldTypes =
+  | 'array'
+  | 'object'
+  | 'text'
+  | 'textarea'
+  | 'select'
+  | 'number'
+  | 'checkbox'
+  | 'radio'
+  | 'pin'
+  | 'phone'
+  | 'url'
+  | 'email'
+  | 'password'
+  | 'switch'
+  | 'native-select'
+
+type ObjectSchema = {
+  [key: FieldTypes]: FieldProps
+}
+```
 
 ```jsx
-function Task() {
-  const schema = {
-    title: {
-      label: 'Title',
-      rules: {
-        required: true,
-      },
-    },
-    assignee: {
-      type: 'select',
-      label: 'Assignee',
-      multiple: true,
-      options: [
-        { label: 'George', value: '63647b0b-9beb-41b1-9945-e465727f8e2d' },
-        { label: 'Haley', value: 'e124505a-1f94-4142-b03f-16bfdffa0371' },
-      ],
-      rules: {
-        required: 'An assignee is required',
-      },
-    },
-    todos: {
-      type: 'array',
-      min: 1,
-      items: {
-        type: 'object',
-        properties: {
-          todo: {
-            label: 'Todo',
-          },
-        },
-      },
-    },
-    author: {
-      type: 'object',
-      label: 'Author',
-      properties: {
-        name: {
-          label: 'Name',
-        },
-      },
-    },
-  }
+import { Form } from '@saas-ui/react'
 
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
+    },
+  },
+  assignee: {
+    type: 'select',
+    label: 'Assignee',
+    multiple: true,
+    options: [
+      { label: 'George', value: '63647b0b-9beb-41b1-9945-e465727f8e2d' },
+      { label: 'Haley', value: 'e124505a-1f94-4142-b03f-16bfdffa0371' },
+    ],
+    rules: {
+      required: 'An assignee is required',
+    },
+  },
+  todos: {
+    type: 'array',
+    label: 'Todos',
+    min: 1,
+    items: {
+      type: 'object',
+      properties: {
+        todo: {
+          label: 'Todo',
+        },
+      },
+    },
+  },
+  author: {
+    type: 'object',
+    label: 'Author',
+    properties: {
+      name: {
+        label: 'Name',
+      },
+    },
+  },
+}
+
+export default function Task() {
   return (
-    <AutoForm
+    <Form
+      onSubmit={() => null}
       defaultValues={{
         title: '',
         todos: [{ todo: '' }],
@@ -84,36 +115,12 @@ function Task() {
           name: 'Elliot',
         },
       }}
-      onSubmit={() => null}
-      submitLabel="Save task"
-      schema={schema}
-    />
-  )
-}
-```
-
-## Yup schema
-
-```ts
-import { yupForm } from '@saas-ui/forms/yup'
-```
-
-```jsx
-function Post() {
-  const schema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
-    description: Yup.string().label('Description').meta({ type: 'textarea' }),
-  })
-
-  return (
-    <AutoForm
-      defaultValues={{
-        title: '',
-        description: '',
+      fields={{
+        submit: {
+          children: 'Save task',
+        },
       }}
-      onSubmit={() => null}
-      submitLabel="Save post"
-      {...yupForm(schema)}
+      schema={schema}
     />
   )
 }
@@ -121,57 +128,101 @@ function Post() {
 
 ## Zod schema
 
-Zod currently does not support adding meta data to the schema, to work around this
-you can use the `zodMeta` function to add JSON meta data in the field description.
+The `describe` function can to supply a label to the field. Zod currently does not support adding meta data to the schema,
+use the `fields` prop to override properties on any of the fields.
 
-```ts
-import { zodForm, zodMeta } from '@saas-ui/forms/zod'
-```
+```jsx
+import { Form } from '@saas-ui/forms/zod'
+import * as z from 'zod'
 
-```tsx
-function Post() {
-  const schema = z.object({
-    title: z.string().min(1).describe('Title'),
-    description: z
-      .string()
-      .describe(zodMeta({ label: 'description', type: 'textarea' })),
-  })
+const schema = z.object({
+  title: z.string().min(1).describe('Title'),
+  description: z.string(),
+})
 
+export default function Post() {
   return (
-    <AutoForm
+    <Form
+      schema={schema}
       defaultValues={{
         title: '',
         description: '',
       }}
       onSubmit={() => null}
-      submitProps="Save post"
-      {...zodForm(schema)}
+      fields={{
+        description: {
+          label: 'Description',
+          type: 'textarea',
+        },
+        submit: {
+          children: 'Save post',
+        },
+      }}
     />
   )
 }
 ```
 
-### Custom submit button
+## Yup schema
+
+The `label` function can to supply a label to the field. Using the `meta` function you can configure the type of fields.
 
 ```jsx
-function Post() {
-  const schema = Yup.object().shape({
-    title: Yup.string().required().label('Title'),
-    description: Yup.string().label('Description').meta({ type: 'textarea' }),
-  })
+import { Form } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
 
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  description: yup.string().label('Description').meta({ type: 'textarea' }),
+})
+
+export default function Post() {
   return (
-    <AutoForm
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      onSubmit={() => null}
+      fields={{
+        submit: {
+          children: 'Save post',
+        },
+      }}
+    />
+  )
+}
+```
+
+### Customize submit button
+
+```jsx
+import { Form } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  description: yup.string().label('Description').meta({ type: 'textarea' }),
+})
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
       defaultValues={{
         title: '',
         description: '',
       }}
       onSubmit={(params) => alert(params)}
-      submitLabel={null}
-      {...yupForm(schema)}
-    >
-      <SubmitButton colorScheme="secondary">Save</SubmitButton>
-    </AutoForm>
+      fields={{
+        submit: {
+          children: 'Save post',
+          variant: 'outline',
+          colorScheme: 'cyan',
+        },
+      }}
+    />
   )
 }
 ```

@@ -6,6 +6,8 @@ import { ConfirmDialogProps } from './dialog'
 import { MenuDialogProps } from './menu'
 import { FormDialogProps } from './form'
 import { defaultModals } from './default-modals'
+import { FieldValues, FormType } from '@saas-ui/forms'
+import { FormDialogHandler, FormHandler } from './types'
 
 export interface ModalsContextValue<
   TModals extends Record<string, React.FC<any>> = Record<string, React.FC<any>>,
@@ -29,9 +31,7 @@ export interface ModalsContextValue<
   alert: (options: ConfirmDialogOptions) => ModalId
   confirm: (options: ConfirmDialogOptions) => ModalId
   menu: (options: MenuDialogOptions) => ModalId
-  form: <TProps extends FormDialogProps = FormDialogProps>(
-    options: WithModalOptions<TProps>
-  ) => ModalId
+  form: FormDialogHandler<TModals['form']>
   close: (id: ModalId) => void
   closeAll: () => void
 }
@@ -199,14 +199,14 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     return id
   }
 
-  const drawer = (options: DrawerOptions): ModalId => {
+  const drawer = (options: DrawerOptions) => {
     return open<DrawerOptions>({
       ...options,
       type: 'drawer',
     })
   }
 
-  const alert = (options: ConfirmDialogOptions): ModalId => {
+  const alert = (options: ConfirmDialogOptions) => {
     return open({
       ...options,
       scope: 'alert',
@@ -221,7 +221,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     })
   }
 
-  const confirm = (options: ConfirmDialogOptions): ModalId => {
+  const confirm = (options: ConfirmDialogOptions) => {
     return open<ConfirmDialogOptions>({
       ...options,
       scope: 'alert',
@@ -229,16 +229,14 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     })
   }
 
-  const menu = (options: MenuDialogOptions): ModalId => {
+  const menu = (options: MenuDialogOptions) => {
     return open<MenuDialogOptions>({
       ...options,
       type: 'menu',
     })
   }
 
-  const form = <TProps extends FormDialogProps = FormDialogProps>(
-    options: WithModalOptions<TProps>
-  ): ModalId => {
+  const form = (options: any) => {
     return open({
       ...options,
       type: 'form',
@@ -280,6 +278,8 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
         modal.scope
       )
     }
+
+    closeComplete(id)
   }
 
   const closeComplete = (id?: ModalId | null) => {

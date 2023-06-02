@@ -7,35 +7,56 @@ Authentication is mocked by default, supported authentication methods are Supaba
 
 ## Supabase
 
-1. Copy `apps/nextjs/.env.example` to `apps/nextjs/.env` and add your public Supabase URL and KEY.
+1. Install the Supabase Javascript client and the Supabase auth service in the @app/config package.
 
+```bash
+cd packages/app-config && yarn add @supabase/supabase-js @saas-ui/supabase
 ```
+
+2. Copy `apps/nextjs/.env.example` to `apps/nextjs/.env` and add your public Supabase URL and KEY.
+
+```bash
 NEXT_PUBLIC_SUPABASE_URL="https://x.supabase.co"
 NEXT_PUBLIC_SUPABASE_KEY="x"
 ```
 
-2. Edit `apps/nextjs/src/pages/_app.tsx` and update the authservice imports.
+3. Edit `packages/app-config/src/auth-service` and update the authservice imports.
 
 ```js
-import { authService } from '../lib/supabase'
-// import { authService } from '../lib/magic'
-//import { authService } from '@app/config/mock-auth-service'
+import { createClient } from '@supabase/supabase-js'
+import { createAuthService } from '@saas-ui/supabase'
+
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '',
+  process.env.NEXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
+)
+
+export const authService = createAuthService(supabase)
 ```
 
 ## Magic
 
-1. Copy `apps/nextjs/.env.example` to `apps/nextjs/.env` and add your public Magic API Key.
+1. Install the Magic Javascript client and the magic auth service in the @app/config package.
 
+```bash
+cd packages/app-config && yarn add magic-sdk @saas-ui/magic
 ```
+
+2. Copy `apps/nextjs/.env.example` to `apps/nextjs/.env` and add your public Magic API Key.
+
+```bash
 NEXT_PUBLIC_MAGIC_API_KEY="..."
 ```
 
-2. Edit `apps/nextjs/src/pages/_app.tsx` and update the authservice imports.
+3. Edit `packages/app-config/src/auth-service` and update the authservice imports.
 
 ```js
-//import { authService } from '../lib/supabase'
-import { authService } from '../lib/magic'
-//import { authService } from '@app/config/mock-auth-service'
+import { createClient } from '@supabase/supabase-js'
+import { createAuthService } from '@saas-ui/magic'
+
+export const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_API_KEY || '')
+
+export const authService = createAuthService(magic)
 ```
 
 ## Configure your auth screens

@@ -12,14 +12,12 @@ import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-const LinkComponent = (props: any) => {
-  return props.href ? <Link legacyBehavior {...props} /> : <>{props.children}</>
-}
+// import { Link } from '@chakra-ui/next-js'
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   const router = useRouter()
   return (
-    <SaasProvider theme={theme} linkComponent={LinkComponent}>
+    <SaasProvider theme={theme} linkComponent={Link}>
       <AuthProvider>
         <ModalsProvider>
           <Layout

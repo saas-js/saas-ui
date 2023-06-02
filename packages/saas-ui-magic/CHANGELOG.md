@@ -1,5 +1,40 @@
 # @saas-ui/auth
 
+## 2.0.0-rc.5
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-rc.24
+
+## 2.0.0-next.4
+
+### Minor Changes
+
+- 0a2bb91f: Updated Magic auth service to latest SDK version
+
+### Patch Changes
+
+- Updated dependencies [0a2bb91f]
+  - @saas-ui/auth@2.0.0-next.20
+
+## 2.0.0-next.3
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-next.14
+
+## 2.0.0-next.2
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-next.13
+
 ## 2.0.0-next.1
 
 ### Patch Changes

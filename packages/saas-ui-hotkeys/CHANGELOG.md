@@ -1,5 +1,108 @@
 # @saas-ui/hotkeys
 
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/core@2.0.0-rc.23
+
+## 2.0.0-rc.23
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+  - @saas-ui/core@2.0.0-rc.22
+
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-rc.21
+
+## 2.0.0-rc.21
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/core@2.0.0-rc.20
+
+## 2.0.0-rc.20
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/core@2.0.0-rc.19
+
+## 2.0.0-next.19
+
+### Patch Changes
+
+- d236fb75: useHotkeys options are now optional
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.18
+
+## 2.0.0-next.17
+
+### Minor Changes
+
+- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
+
+### Patch Changes
+
+- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- Updated dependencies [2b639656]
+  - @saas-ui/core@2.0.0-next.17
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.16
+
+## 2.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [a5898c44]
+  - @saas-ui/core@2.0.0-next.15
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Updated dependencies [b8be6d41]
+  - @saas-ui/core@2.0.0-next.14
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Updated dependencies [826c561a]
+  - @saas-ui/core@2.0.0-next.13
+
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.11
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.10
 
 ### Patch Changes
@@ -91,6 +194,22 @@
 - Updated dependencies [e94ca3c0]
 - Updated dependencies [3a15e8c8]
   - @saas-ui/core@2.0.0-next.0
+
+## 1.4.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/search-input@1.4.2
+
+## 1.4.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/search-input@1.4.1
 
 ## 1.4.0
 

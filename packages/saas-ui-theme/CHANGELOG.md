@@ -1,5 +1,56 @@
 # @saas-ui/theme
 
+## 2.0.0-rc.14
+
+### Patch Changes
+
+- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+
+## 2.0.0-rc.13
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Bump version
+
+## 2.0.0-rc.12
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+
+## 2.0.0-next.11
+
+### Minor Changes
+
+- 8e155c3b: Updated Stepper theme to Chakra UI 2.6
+
+## 2.0.0-next.10
+
+### Patch Changes
+
+- aeab9b0b: Fix solid button hover colors
+
+## 2.0.0-next.9
+
+### Patch Changes
+
+- a5898c44: Fix Divider label contrast
+- 8045baed: Fix issue where primary variant color would always be gray
+
+## 2.0.0-next.8
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 2.0.0-next.7
+
+### Patch Changes
+
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- Bump version
+
 ## 2.0.0-next.6
 
 ### Patch Changes
@@ -50,6 +101,18 @@
 ### Patch Changes
 
 - f1e99198: Migrated from microbundle to tsup for builds
+
+## 1.8.2
+
+### Patch Changes
+
+- Fix types path
+
+## 1.8.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
 
 ## 1.8.0
 

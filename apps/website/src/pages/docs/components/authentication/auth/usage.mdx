@@ -34,7 +34,7 @@ import {
   UpdatePasswordForm,
   OtpForm,
   Providers,
-} from '@saas-ui/react'
+} from '@saas-ui/auth'
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ import {
 `Auth` is an higher order component that handles the rendering of all the specific authentication forms.
 If you need more flexiblity it's possible to use these components directly.
 
-`Auth` depends on context provided by `AuthProvider`, if you haven't done so already, first [add it to your App root](/docs/auth/auth-provider).
+`Auth` depends on context provided by `AuthProvider`, if you haven't done so already, first [add it to your App root](/docs/authentication/auth-provider).
 
 ### Basic usage
 
@@ -93,6 +93,30 @@ The default authentication strategy is `magiclink`.
 </Stack>
 ```
 
+### Error handler
+
+The `Auth` component accepts an `onError` prop that can be used to handle errors.
+You can use the `useSnackbar` hook to display a message.
+
+```jsx
+import { Auth } from '@saas-ui/auth'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function ErrorHandler() {
+  const snackbar = useSnackbar()
+
+  return (
+    <Auth
+      onError={(view, error) => {
+        if (view === 'login' && error) {
+          snackbar.error(error.message)
+        }
+      }}
+    />
+  )
+}
+```
+
 ### Custom links
 
 ```jsx
@@ -121,7 +145,11 @@ function LoginPage() {
 ### Custom sign up page
 
 ```jsx
-function SignUpPage() {
+import { Card, CardBody } from '@chakra-ui/react'
+import { FormLayout, Field } from '@saas-ui/react'
+import { PasswordForm } from '@saas-ui/auth'
+
+export default function SignUpPage() {
   return (
     <Card title="Sign up for free">
       <CardBody>
@@ -141,13 +169,18 @@ function SignUpPage() {
 ### Schema validation
 
 ```jsx
-function LoginPage() {
-  const schema = Yup.object({
-    email: Yup.string()
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { PasswordForm } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const schema = yup.object({
+    email: yup
+      .string()
       .email('Invalid email address')
       .required()
       .label('Email'),
-    password: Yup.string().min(4).required().label('Password'),
+    password: yup.string().min(4).required().label('Password'),
   })
   return (
     <PasswordForm

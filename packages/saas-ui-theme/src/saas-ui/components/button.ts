@@ -92,10 +92,6 @@ const variantSolid = defineStyle((props) => {
   return {
     bg,
     color,
-    _dark: {
-      bg,
-      color,
-    },
     _hover: {
       bg: hoverBg,
       _disabled: {
@@ -251,10 +247,16 @@ const variantLink = defineStyle((props) => {
 })
 
 const variantPrimary = defineStyle((props) => {
+  let { colorScheme } = props
+
+  if (colorScheme === 'gray') {
+    colorScheme = 'primary'
+  }
+
   return variantSolid({
     ...props,
     variant: 'solid',
-    colorScheme: 'primary',
+    colorScheme,
   })
 })
 
@@ -262,7 +264,6 @@ const variantSecondary = defineStyle((props) => {
   return variantSolid({
     ...props,
     variant: 'solid',
-    colorScheme: 'gray',
   })
 })
 
@@ -270,7 +271,6 @@ const variantTertiary = defineStyle((props) => {
   return variantOutline({
     ...props,
     variant: 'outline',
-    colorScheme: 'gray',
   })
 })
 

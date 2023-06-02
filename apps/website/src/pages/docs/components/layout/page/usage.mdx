@@ -10,19 +10,12 @@ description: Page makes it easy to implement consistent page layouts throughout 
 ## Import
 
 - `Page`: The container component that manages composition.
-- `PageContainer`: The bare container component.
 - `PageHeader`: The header component with navigation, title, toolbar and tabbar.
 - `PageBody`: The page content.
 - `BackButton`: A button with an arrow icon used for navigating to the previous page.
 
 ```ts
-import {
-  Page,
-  PageContainer,
-  PageHeader,
-  PageBody,
-  BackButton,
-} from '@saas-ui/pro'
+import { Page, PageHeader, PageBody, BackButton } from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -37,65 +30,166 @@ To have more control over composition, use the low level `PageContainer` instead
 
 ### Basic page
 
-Page children are wrapped by PageBody automatically. PageBody handles scrolling, content positioning. Content is centered by default with a max width of `container.xl`.
+PageBody handles scrolling, content positioning. Content is centered by default with a max width of `container.xl`.
 
-```jsx
-<Page title="Page" height="200px" />
+```jsx height=200px overflow=hidden
+import { Text } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function BasicPage() {
+  return (
+    <AppShell>
+      <Page>
+        <PageHeader title="Basic page" />
+        <PageBody>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            malesuada, velit eget ultricies aliquam, urna velit faucibus mauris,
+            quis aliquet massa diam nec nisl. Donec euismod, nisl vitae aliquet
+            ultricies, nunc ipsum aliquam diam, quis aliquam diam diam ut nunc.
+            Donec euismod, nisl vitae aliquet ultricies, nunc ipsum aliquam
+            diam, quis aliquam diam diam ut nunc.
+          </Text>
+        </PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### Loading
 
 Use the `isLoading` prop to render a spinner in the middle of the page body.
 
-```jsx
-<Page title="Page" height="200px" isLoading />
+```jsx height=200px overflow=hidden
+import { Text } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function LoadingPage() {
+  return (
+    <AppShell>
+      <Page isLoading>
+        <PageHeader title="Loading page" />
+        <PageBody>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            malesuada, velit eget ultricies aliquam, urna velit faucibus mauris,
+            quis aliquet massa diam nec nisl. Donec euismod, nisl vitae aliquet
+            ultricies, nunc ipsum aliquam diam, quis aliquam diam diam ut nunc.
+            Donec euismod, nisl vitae aliquet ultricies, nunc ipsum aliquam
+            diam, quis aliquam diam diam ut nunc.
+          </Text>
+        </PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### Settings variant
 
 Use different page variants to make it visually clear that people are in a distinct part of your app that functions differently from the main app, like settings pages.
 
-```jsx
-<Page
-  title="Settings"
-  description="Manage your settings"
-  height="200px"
-  variant="settings"
-/>
+```jsx height=400px overflow=hidden
+import { Text } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function SettingsPage() {
+  return (
+    <AppShell>
+      <Page variant="settings">
+        <PageHeader title="Settings" description="Manage your settings" />
+        <PageBody>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            malesuada, velit eget ultricies aliquam, urna velit faucibus mauris,
+            quis aliquet massa diam nec nisl. Donec euismod, nisl vitae aliquet
+            ultricies, nunc ipsum aliquam diam, quis aliquam diam diam ut nunc.
+            Donec euismod, nisl vitae aliquet ultricies, nunc ipsum aliquam
+            diam, quis aliquam diam diam ut nunc.
+          </Text>
+        </PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### Hero variant
 
 The hero variant can be used to showcase features that haven't been activated yet or require extra setup steps.
 
-```jsx
-<Page
-  title="Inbox"
-  description="Send and receive messages"
-  height="200px"
-  variant="hero"
-  colorScheme="primary"
-/>
+```jsx height=400px overflow=hidden
+import { Text, ButtonGroup, Button } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function HeroPage() {
+  return (
+    <AppShell>
+      <Page variant="hero" colorScheme="primary">
+        <PageHeader
+          title="Inbox"
+          description="Send and receive messages"
+          toolbar={
+            <ButtonGroup>
+              <Button>Upgrade now</Button>
+            </ButtonGroup>
+          }
+        />
+        <PageBody></PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### Full width page
 
-```jsx
-<Page title="Page" height="400px" contentWidth="full">
-  <DataGrid
-    isHoverable
-    isSelectable
-    isSortable
-    columns={[
-      { id: 'name', Header: 'Name' },
-      { id: 'role', Header: 'Role' },
-      { id: 'actions', width: '100px', Cell: () => <Button>Edit</Button> },
-    ]}
-    data={[{ name: 'Renata Alink', role: 'Founder' }]}
-  >
-    <DataGridPagination />
-  </DataGrid>
-</Page>
+Use the `contentWidth` prop to make the page content full width. This is useful for pages that contain a table or other content that needs to be full width.
+Add `p="0"` to the `PageBody` to remove the default padding.
+
+```jsx height=400px overflow=hidden
+import { Text, ButtonGroup, Button } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function FullWidthPage() {
+  return (
+    <AppShell>
+      <Page>
+        <PageHeader title="Users" />
+        <PageBody contentWidth="full" p="0">
+          <DataGrid
+            isHoverable
+            isSelectable
+            isSortable
+            columns={[
+              { id: 'name', header: 'Name' },
+              { id: 'role', header: 'Role' },
+              {
+                id: 'actions',
+                header: '',
+                width: 10,
+                cell: () => (
+                  <Button variant="ghost" size="sm">
+                    Edit
+                  </Button>
+                ),
+              },
+            ]}
+            data={[{ name: 'Renata Alink', role: 'Founder' }]}
+          >
+            <DataGridPagination />
+          </DataGrid>
+        </PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### With a Toolbar
@@ -105,62 +199,99 @@ The toolbar is positioned on the right side of the page header, next to the titl
 The primary action should always be placed on the far right, use a Button with the `primary` variant.
 For other toolbar buttons it is recommended to add text labels instead of just icons when possible, this will make sure the actions are easily scannable for people.
 
-```jsx
-<Page
-  title="Page with toolbar"
-  height="200px"
-  toolbar={
-    <Toolbar>
-      <Button>Reset</Button>
-      <Button variant="primary">Save</Button>
-    </Toolbar>
-  }
-/>
+```jsx height=200px overflow=hidden
+import { Text, ButtonGroup, Button } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function WithToolbar() {
+  return (
+    <AppShell>
+      <Page>
+        <PageHeader
+          title="Page with toolbar"
+          toolbar={
+            <Toolbar>
+              <Button>Reset</Button>
+              <Button variant="primary">Save</Button>
+            </Toolbar>
+          }
+        />
+        <PageBody></PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### With a Back button
 
 Add navigation buttons to help people navigate your app, the most common use case is adding a `BackButton` to go back to the previous page.
 
-```jsx
-<Page title="Page with back button" height="200px" nav={<BackButton />} />
+```jsx height=200px overflow=hidden
+import { Text, ButtonGroup, Button } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody, BackButton } from '@saas-ui-pro/react'
+
+export default function WithBackButton() {
+  return (
+    <AppShell>
+      <Page>
+        <PageHeader title="Page with back button" nav={<BackButton />} />
+        <PageBody></PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### With a Tabs
 
-```jsx
-<Page
-  title="Page with tabs"
-  height="200px"
-  tabbar={
-    <Tabs variant="unstyled">
-      <TabList as={ButtonGroup} isAttached variant="outline">
-        <Tab
-          as={Button}
-          _light={{
-            _selected: { bg: 'blackAlpha.300' },
-          }}
-          _dark={{
-            _selected: { bg: 'whiteAlpha.300' },
-          }}
-        >
-          Overview
-        </Tab>
-        <Tab
-          as={Button}
-          _light={{
-            _selected: { bg: 'blackAlpha.300' },
-          }}
-          _dark={{
-            _selected: { bg: 'whiteAlpha.300' },
-          }}
-        >
-          Settings
-        </Tab>
-      </TabList>
-    </Tabs>
-  }
-/>
+```jsx height=200px overflow=hidden
+import { Text, Tabs, Tab, TabList, ButtonGroup, Button } from '@chakra-ui/react'
+import { AppShell } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function WithTabs() {
+  return (
+    <AppShell>
+      <Page>
+        <PageHeader
+          title="Page with tabs"
+          footer={
+            <Tabs variant="unstyled">
+              <TabList as={ButtonGroup} isAttached variant="outline">
+                <Tab
+                  as={Button}
+                  _light={{
+                    _selected: { bg: 'blackAlpha.300' },
+                  }}
+                  _dark={{
+                    _selected: { bg: 'whiteAlpha.300' },
+                  }}
+                >
+                  Overview
+                </Tab>
+                <Tab
+                  as={Button}
+                  _light={{
+                    _selected: { bg: 'blackAlpha.300' },
+                  }}
+                  _dark={{
+                    _selected: { bg: 'whiteAlpha.300' },
+                  }}
+                >
+                  Settings
+                </Tab>
+              </TabList>
+            </Tabs>
+          }
+        />
+        <PageBody></PageBody>
+      </Page>
+    </AppShell>
+  )
+}
 ```
 
 ### Custom Error Component
@@ -169,11 +300,14 @@ Page content is wrapped with an `ErrorBoundary` to make sure any errors inside y
 Use the `errorComponent` prop to render a custom error message.
 
 ```tsx
+import { Text, Button } from '@chakra-ui/react'
+import { AppShell, EmptyState } from '@saas-ui/react'
+import { Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+import { FiAlertTriangle } from 'react-icons/fi'
+
 function PageWithError() {
   return (
     <Page
-      title="Page with error"
-      height="200px"
       errorComponent={
         <EmptyState
           icon={FiAlertTriangle}
@@ -186,7 +320,16 @@ function PageWithError() {
           }
         />
       }
-    />
+    >
+      <PageHeader title="Page with error" />
+      <PageBody>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+          euismod, nisl vitae aliquet ultricies, nunc ipsum aliquam diam, quis
+          aliquam diam diam ut nunc.
+        </Text>
+      </PageBody>
+    </Page>
   )
 }
 ```

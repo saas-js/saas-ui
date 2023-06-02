@@ -1,5 +1,247 @@
 # @saas-ui/react
 
+## 2.0.0-rc.28
+
+### Minor Changes
+
+- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/core@2.0.0-rc.23
+  - @saas-ui/data-table@2.0.0-rc.28
+  - @saas-ui/auth@2.0.0-rc.27
+  - @saas-ui/forms@2.0.0-rc.26
+  - @saas-ui/hotkeys@2.0.0-rc.24
+  - @saas-ui/modals@2.0.0-rc.26
+
+## 2.0.0-rc.27
+
+### Minor Changes
+
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+
+### Patch Changes
+
+- e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
+- Updated dependencies [e23790a8]
+- Updated dependencies [2366db6a]
+  - @saas-ui/core@2.0.0-rc.22
+  - @saas-ui/modals@2.0.0-rc.25
+  - @saas-ui/data-table@2.0.0-rc.27
+  - @saas-ui/auth@2.0.0-rc.26
+  - @saas-ui/forms@2.0.0-rc.25
+  - @saas-ui/hotkeys@2.0.0-rc.23
+
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/theme@2.0.0-rc.14
+  - @saas-ui/forms@2.0.0-rc.24
+  - @saas-ui/data-table@2.0.0-rc.26
+  - @saas-ui/core@2.0.0-rc.21
+  - @saas-ui/auth@2.0.0-rc.25
+  - @saas-ui/modals@2.0.0-rc.24
+  - @saas-ui/hotkeys@2.0.0-rc.22
+
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-rc.13
+  - @saas-ui/core@2.0.0-rc.20
+  - @saas-ui/data-table@2.0.0-rc.25
+  - @saas-ui/nprogress@2.0.0-rc.4
+  - @saas-ui/hotkeys@2.0.0-rc.21
+  - @saas-ui/modals@2.0.0-rc.23
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/hooks@2.0.0-rc.5
+  - @saas-ui/auth@2.0.0-rc.24
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Updated dependencies [7027d7c1]
+  - @saas-ui/theme@2.0.0-rc.12
+  - @saas-ui/core@2.0.0-rc.19
+  - @saas-ui/data-table@2.0.0-rc.24
+  - @saas-ui/auth@2.0.0-rc.23
+  - @saas-ui/forms@2.0.0-rc.22
+  - @saas-ui/hotkeys@2.0.0-rc.20
+  - @saas-ui/modals@2.0.0-rc.22
+
+## 2.0.0-next.23
+
+### Patch Changes
+
+- Updated dependencies [d236fb75]
+  - @saas-ui/hotkeys@2.0.0-next.19
+  - @saas-ui/data-table@2.0.0-next.23
+
+## 2.0.0-next.22
+
+### Patch Changes
+
+- Updated dependencies [8e155c3b]
+  - @saas-ui/theme@2.0.0-next.11
+  - @saas-ui/core@2.0.0-next.18
+  - @saas-ui/auth@2.0.0-next.22
+  - @saas-ui/data-table@2.0.0-next.22
+  - @saas-ui/forms@2.0.0-next.21
+  - @saas-ui/hotkeys@2.0.0-next.18
+  - @saas-ui/modals@2.0.0-next.21
+
+## 2.0.0-next.21
+
+### Minor Changes
+
+- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
+- a9ca90dd: Updated to Chakra UI 2.6.x
+
+### Patch Changes
+
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [2b639656]
+- Updated dependencies [ccfce5c1]
+  - @saas-ui/hotkeys@2.0.0-next.17
+  - @saas-ui/forms@2.0.0-next.20
+  - @saas-ui/core@2.0.0-next.17
+  - @saas-ui/data-table@2.0.0-next.21
+  - @saas-ui/auth@2.0.0-next.21
+  - @saas-ui/modals@2.0.0-next.20
+
+## 2.0.0-next.20
+
+### Patch Changes
+
+- Updated dependencies [0a2bb91f]
+  - @saas-ui/auth@2.0.0-next.20
+  - @saas-ui/data-table@2.0.0-next.20
+
+## 2.0.0-next.19
+
+### Patch Changes
+
+- Updated dependencies [ffd878b6]
+- Updated dependencies [aeab9b0b]
+  - @saas-ui/auth@2.0.0-next.19
+  - @saas-ui/theme@2.0.0-next.10
+  - @saas-ui/core@2.0.0-next.16
+  - @saas-ui/data-table@2.0.0-next.19
+  - @saas-ui/forms@2.0.0-next.19
+  - @saas-ui/hotkeys@2.0.0-next.16
+  - @saas-ui/modals@2.0.0-next.19
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [01ac442f]
+  - @saas-ui/forms@2.0.0-next.18
+  - @saas-ui/auth@2.0.0-next.18
+  - @saas-ui/modals@2.0.0-next.18
+  - @saas-ui/data-table@2.0.0-next.18
+
+## 2.0.0-next.17
+
+### Patch Changes
+
+- a5898c44: Fix Divider label contrast
+- Updated dependencies [a5898c44]
+- Updated dependencies [8045baed]
+  - @saas-ui/theme@2.0.0-next.9
+  - @saas-ui/core@2.0.0-next.15
+  - @saas-ui/data-table@2.0.0-next.17
+  - @saas-ui/auth@2.0.0-next.17
+  - @saas-ui/forms@2.0.0-next.17
+  - @saas-ui/hotkeys@2.0.0-next.15
+  - @saas-ui/modals@2.0.0-next.17
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- b8be6d41: tooltipProps on NavItem no longer require children
+- Updated dependencies [b8be6d41]
+- Updated dependencies [cc713117]
+  - @saas-ui/core@2.0.0-next.14
+  - @saas-ui/modals@2.0.0-next.16
+  - @saas-ui/data-table@2.0.0-next.16
+  - @saas-ui/auth@2.0.0-next.16
+  - @saas-ui/forms@2.0.0-next.16
+  - @saas-ui/hotkeys@2.0.0-next.14
+
+## 2.0.0-next.15
+
+### Minor Changes
+
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+- 826c561a: EmptyState title and description no longer use Header and Text
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [826c561a]
+  - @saas-ui/modals@2.0.0-next.15
+  - @saas-ui/forms@2.0.0-next.15
+  - @saas-ui/core@2.0.0-next.13
+  - @saas-ui/auth@2.0.0-next.15
+  - @saas-ui/data-table@2.0.0-next.15
+  - @saas-ui/hotkeys@2.0.0-next.13
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/data-table@2.0.0-next.14
+  - @saas-ui/nprogress@2.0.0-next.3
+  - @saas-ui/hotkeys@2.0.0-next.12
+  - @saas-ui/modals@2.0.0-next.14
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/hooks@2.0.0-next.4
+  - @saas-ui/theme@2.0.0-next.8
+  - @saas-ui/auth@2.0.0-next.14
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- Bump version
+- dc435dd5: No longer needed to use Next.js legacyBehavior for the Link component.
+- 6c63217c: object and array field props can now be overridden using the fields prop
+- Updated dependencies [1563cc9a]
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [6c63217c]
+  - @saas-ui/modals@2.0.0-next.13
+  - @saas-ui/theme@2.0.0-next.7
+  - @saas-ui/data-table@2.0.0-next.13
+  - @saas-ui/nprogress@2.0.0-next.2
+  - @saas-ui/hotkeys@2.0.0-next.11
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/hooks@2.0.0-next.3
+  - @saas-ui/auth@2.0.0-next.13
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes
@@ -258,6 +500,78 @@
   - @saas-ui/modals@2.0.0-next.0
   - @saas-ui/nprogress@2.0.0-next.0
   - @saas-ui/theme@2.0.0-next.0
+
+## 1.9.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/app-shell@1.1.2
+  - @saas-ui/auth@1.7.6
+  - @saas-ui/banner@1.4.2
+  - @saas-ui/button@1.4.2
+  - @saas-ui/card@1.5.2
+  - @saas-ui/collapse@1.4.2
+  - @saas-ui/data-table@1.4.3
+  - @saas-ui/forms@1.5.5
+  - @saas-ui/hooks@1.2.2
+  - @saas-ui/hotkeys@1.4.2
+  - @saas-ui/input-right-button@1.4.2
+  - @saas-ui/layout@1.4.3
+  - @saas-ui/list@1.4.2
+  - @saas-ui/menu@1.4.3
+  - @saas-ui/modals@1.5.7
+  - @saas-ui/nprogress@1.4.2
+  - @saas-ui/number-input@1.4.2
+  - @saas-ui/palette@1.3.2
+  - @saas-ui/password-input@1.4.2
+  - @saas-ui/persona@1.4.2
+  - @saas-ui/pin-input@1.4.2
+  - @saas-ui/property@1.4.2
+  - @saas-ui/provider@1.2.3
+  - @saas-ui/radio@1.4.3
+  - @saas-ui/search-input@1.4.2
+  - @saas-ui/select@1.4.2
+  - @saas-ui/snackbar@1.2.2
+  - @saas-ui/stepper@1.4.2
+  - @saas-ui/theme@1.8.2
+
+## 1.9.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [f9234fc]
+- Updated dependencies [b2302a3]
+  - @saas-ui/persona@1.4.1
+  - @saas-ui/app-shell@1.1.1
+  - @saas-ui/auth@1.7.5
+  - @saas-ui/banner@1.4.1
+  - @saas-ui/button@1.4.1
+  - @saas-ui/card@1.5.1
+  - @saas-ui/collapse@1.4.1
+  - @saas-ui/data-table@1.4.2
+  - @saas-ui/forms@1.5.4
+  - @saas-ui/hooks@1.2.1
+  - @saas-ui/hotkeys@1.4.1
+  - @saas-ui/input-right-button@1.4.1
+  - @saas-ui/layout@1.4.2
+  - @saas-ui/list@1.4.1
+  - @saas-ui/menu@1.4.2
+  - @saas-ui/modals@1.5.6
+  - @saas-ui/nprogress@1.4.1
+  - @saas-ui/number-input@1.4.1
+  - @saas-ui/palette@1.3.1
+  - @saas-ui/password-input@1.4.1
+  - @saas-ui/pin-input@1.4.1
+  - @saas-ui/property@1.4.1
+  - @saas-ui/provider@1.2.2
+  - @saas-ui/radio@1.4.2
+  - @saas-ui/search-input@1.4.1
+  - @saas-ui/select@1.4.1
+  - @saas-ui/snackbar@1.2.1
+  - @saas-ui/stepper@1.4.1
+  - @saas-ui/theme@1.8.1
 
 ## 1.9.1
 

@@ -1,5 +1,103 @@
 # @saas-ui/react
 
+## 2.0.0-rc.23
+
+### Minor Changes
+
+- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
+
+## 2.0.0-rc.21
+
+### Patch Changes
+
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/theme@2.0.0-rc.14
+
+## 2.0.0-rc.20
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-rc.13
+  - @saas-ui/react-utils@2.0.0-rc.4
+
+## 2.0.0-rc.19
+
+### Patch Changes
+
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- Updated dependencies [7027d7c1]
+  - @saas-ui/theme@2.0.0-rc.12
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [8e155c3b]
+  - @saas-ui/theme@2.0.0-next.11
+
+## 2.0.0-next.17
+
+### Patch Changes
+
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- Updated dependencies [aeab9b0b]
+  - @saas-ui/theme@2.0.0-next.10
+
+## 2.0.0-next.15
+
+### Patch Changes
+
+- a5898c44: Fix Divider label contrast
+- Updated dependencies [a5898c44]
+- Updated dependencies [8045baed]
+  - @saas-ui/theme@2.0.0-next.9
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- b8be6d41: tooltipProps on NavItem no longer require children
+
+## 2.0.0-next.13
+
+### Minor Changes
+
+- 826c561a: EmptyState title and description no longer use Header and Text
+
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-next.3
+  - @saas-ui/theme@2.0.0-next.8
+
+## 2.0.0-next.11
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-next.7
+  - @saas-ui/react-utils@2.0.0-next.2
+
 ## 2.0.0-next.10
 
 ### Patch Changes

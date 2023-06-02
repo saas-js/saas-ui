@@ -15,7 +15,6 @@ let config = {
   experimental: {
     externalDir: true,
   },
-  compiler: {},
   async redirects() {
     return [
       {
@@ -36,6 +35,16 @@ let config = {
       {
         source: '/docs/components/data-display/list',
         destination: '/docs/components/data-display/structured-list',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/auth/',
+        destination: '/docs/components/authentication',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/auth/:path*',
+        destination: '/docs/components/authentication/:path*',
         permanent: true,
       },
     ]
@@ -80,13 +89,13 @@ let config = {
     }
 
     config.module.rules.push({
-      test: /node_modules\/@saas-ui\/.*\.tsx?/,
+      test: /node_modules\/@saas-ui(?:-pro)?\/.*\.tsx?/,
       use: [defaultLoaders.babel],
     })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui\/([a-z0-9-\/]+)$/,
+        /\@saas-ui(?:-pro)?\/([a-z0-9-\/]+)$/,
         (resource) => {
           if (!resource.request.match(/^@saas-ui\/(props-docs)$/)) {
             resource.request = resource.request + '/src'
@@ -99,10 +108,8 @@ let config = {
   },
 }
 
-const isNextDev = process.argv.includes('dev')
-
-if (isNextDev) {
-  config = withContentlayer(config)
-}
+// if (process.env.NODE_ENV !== 'production') {
+config = withContentlayer(config)
+// }
 
 module.exports = withBundleAnalyzer(config)

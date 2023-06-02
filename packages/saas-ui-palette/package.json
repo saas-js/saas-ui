@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/palette",
   "description": "Color palette generator for Chakra UI",
-  "version": "2.0.0-next.1",
+  "version": "2.0.0-rc.4",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
     "./src": {

@@ -23,7 +23,7 @@ import {
   useLogin,
   useSignUp,
   useOtp,
-} from '@saas-ui/react'
+} from '@saas-ui/auth'
 ```
 
 ## Auth context
@@ -51,8 +51,8 @@ Add `AuthProvider` to the root of your app and configure an auth service.
 In this example we are using the Supabase authentication service.
 
 ```tsx
-import { AuthProvider } from '@saas-ui/react'
-import { createAuthService } from '@saas-ui/auth/services/supabase'
+import { AuthProvider } from '@saas-ui/auth'
+import { createAuthService } from '@saas-ui/supabase'
 
 function App({ children }) {
   return (

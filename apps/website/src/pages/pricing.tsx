@@ -133,14 +133,7 @@ const Pricing = () => {
             title="Bootstrap"
             price={
               <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €199,-
-                </Text>
-                <Text>€149,-</Text>
+                <Text>€199,-</Text>
               </HStack>
             }
             description="Complete frontend stack for bootstrappers and small teams."
@@ -192,7 +185,7 @@ const Pricing = () => {
                 >
                   €999,-
                 </Text>
-                <Text>€499,-</Text>
+                <Text>€699,-</Text>
               </HStack>
             }
             description="Unlimited license for growing teams or agencies."

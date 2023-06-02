@@ -18,7 +18,7 @@ Feature flags allow you to toggle functionality on/off during runtime and give p
 - `useHasFeature`: Hook used to check if user has one or more features.
 
 ```js
-import { FeaturesProvider, Has, useFlag } from '@saas-ui/features'
+import { FeaturesProvider, Has, useFlag } from '@saas-ui-pro/feature-flags'
 ```
 
 ## Setup
@@ -35,6 +35,8 @@ Strings will be parsed as booleans, while feature objects support custom values.
 Here is an example config.
 
 ```tsx
+import { FeaturesProvider, FeaturesOptions } from '@saas-ui-pro/feature-flags'
+
 const options: FeaturesOptions = {
   segments: [
     {
@@ -60,7 +62,7 @@ const options: FeaturesOptions = {
   ],
 }
 
-function App({ children }) {
+export default function App({ children }) {
   return <FeaturesProvider value={options}>{chilren}</FeaturesProvider>
 }
 ```
@@ -76,7 +78,10 @@ If you need additional attributes you can add those as well.
 Then add a `useEffect` hook to call `identify` like to example below.
 
 ```tsx
-function Layout({ children }) {
+import { useFeatures } from '@saas-ui-pro/feature-flags'
+import { useAuth } from '@saas-ui/auth'
+
+export default function Layout({ children }) {
   const features = useFeatures()
   const { user } = useAuth()
 
@@ -101,7 +106,10 @@ function Layout({ children }) {
 ### Basic example
 
 ```jsx
-function App() {
+import { Button, Stack, Text } from '@chakra-ui/react'
+import { useFeatures } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
   const features = useFeatures()
 
   const [plan, setPlan] = React.useState('basic')
@@ -145,80 +153,135 @@ function App() {
 ### Has
 
 ```jsx
-<Has feature="settings">
-  <Button colorScheme="green">Settings Enabled</Button>
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has feature="settings">
+      <Button colorScheme="green">Settings Enabled</Button>
+    </Has>
+  )
+}
 ```
 
 ### Has with fallback
 
 ```jsx
-<Has
-  feature="beta-feature"
-  fallback={<Button colorScheme="red">Enable beta features</Button>}
->
-  <Button colorScheme="green">Disable beta features</Button>
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has
+      feature="beta-feature"
+      fallback={<Button colorScheme="red">Enable beta features</Button>}
+    >
+      <Button colorScheme="green">Disable beta features</Button>
+    </Has>
+  )
+}
 ```
 
 ### Has with multiple features
 
 ```jsx
-<Has
-  feature={['settings', 'enterprise-feature']}
-  fallback={<Button colorScheme="red">Feature Disabled</Button>}
->
-  <Button colorScheme="green">Feature Enabled</Button>
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has
+      feature={['settings', 'enterprise-feature']}
+      fallback={<Button colorScheme="red">Feature Disabled</Button>}
+    >
+      <Button colorScheme="green">Feature Enabled</Button>
+    </Has>
+  )
+}
 ```
 
 ### Has with exact features
 
 ```jsx
-<Has
-  feature={['settings', 'beta']}
-  exact={false}
-  fallback={<Button colorScheme="red">Feature Disabled</Button>}
->
-  <Button colorScheme="green">Feature Enabled</Button>
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has
+      feature={['settings', 'beta']}
+      exact={false}
+      fallback={<Button colorScheme="red">Feature Disabled</Button>}
+    >
+      <Button colorScheme="green">Feature Enabled</Button>
+    </Has>
+  )
+}
 ```
 
 ### Has with value
 
 ```jsx
-<Has feature="value-feature" value="enabled">
-  <Button colorScheme="green">Feature Enabled</Button>
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has feature="value-feature" value="enabled">
+      <Button colorScheme="green">Feature Enabled</Button>
+    </Has>
+  )
+}
 ```
 
 ### Has with multiple values
 
 ```jsx
-<Has
-  feature={['settings', 'value-feature']}
-  value="enabled"
-  fallback={<Button colorScheme="red">Feature Disabled</Button>}
->
-  <Button colorScheme="green">Feature Enabled</Button>
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has
+      feature={['settings', 'value-feature']}
+      value="enabled"
+      fallback={<Button colorScheme="red">Feature Disabled</Button>}
+    >
+      <Button colorScheme="green">Feature Enabled</Button>
+    </Has>
+  )
+}
 ```
 
 ### Has with render prop
 
 ```jsx
-<Has feature={['settings']}>
-  {({ flags }) => {
-    const features = Object.keys(flags)
-    return <Button colorScheme="green">Feature Enabled: {features[0]}</Button>
-  }}
-</Has>
+import { Button } from '@chakra-ui/react'
+import { Has } from '@saas-ui-pro/feature-flags'
+
+export default function App() {
+  return (
+    <Has feature={['settings']}>
+      {({ flags }) => {
+        const features = Object.keys(flags)
+        return (
+          <Button colorScheme="green">Feature Enabled: {features[0]}</Button>
+        )
+      }}
+    </Has>
+  )
+}
 ```
 
 ### useFlag
 
 ```jsx
-function Settings() {
+import { Card, Button } from '@chakra-ui/react'
+import { PropertyList, Property } from '@saas-ui/react'
+import { useFlag } from '@saas-ui-pro/feature-flags'
+
+export default function Settings() {
   return (
     <Card px="4">
       <PropertyList>
@@ -238,7 +301,11 @@ function Settings() {
 ### useHasFeature
 
 ```jsx
-function Settings() {
+import { Box } from '@chakra-ui/react'
+import { EmptyState } from '@saas-ui/react'
+import { useHasFeature } from '@saas-ui-pro/feature-flags'
+
+export default function Settings() {
   const enabled = useHasFeature('settings')
 
   if (!enabled) {
@@ -252,7 +319,11 @@ function Settings() {
 #### Multiple features
 
 ```jsx
-function Settings() {
+import { Box } from '@chakra-ui/react'
+import { EmptyState } from '@saas-ui/react'
+import { useHasFeature } from '@saas-ui-pro/feature-flags'
+
+export default function Settings() {
   const enabled = useHasFeature(['settings', 'beta'])
 
   if (!enabled) {

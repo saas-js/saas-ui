@@ -1,5 +1,113 @@
 # @saas-ui/forms
 
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/core@2.0.0-rc.23
+
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+  - @saas-ui/core@2.0.0-rc.22
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+  - @saas-ui/core@2.0.0-rc.21
+
+## 2.0.0-rc.23
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/core@2.0.0-rc.20
+
+## 2.0.0-rc.22
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/core@2.0.0-rc.19
+
+## 2.0.0-next.21
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.18
+
+## 2.0.0-next.20
+
+### Minor Changes
+
+- a9ca90dd: Updated to Chakra UI 2.6.x
+
+### Patch Changes
+
+- Updated dependencies [2b639656]
+  - @saas-ui/core@2.0.0-next.17
+
+## 2.0.0-next.19
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.16
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- 01ac442f: Fixed modal form handler type inference
+
+## 2.0.0-next.17
+
+### Patch Changes
+
+- Updated dependencies [a5898c44]
+  - @saas-ui/core@2.0.0-next.15
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- Updated dependencies [b8be6d41]
+  - @saas-ui/core@2.0.0-next.14
+
+## 2.0.0-next.15
+
+### Minor Changes
+
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+
+### Patch Changes
+
+- Updated dependencies [826c561a]
+  - @saas-ui/core@2.0.0-next.13
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- 6c63217c: object and array field props can now be overridden using the fields prop
+- Updated dependencies
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes
@@ -117,6 +225,38 @@
 - Updated dependencies [e94ca3c0]
 - Updated dependencies [3a15e8c8]
   - @saas-ui/core@2.0.0-next.0
+
+## 1.5.5
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/input-right-button@1.4.2
+  - @saas-ui/number-input@1.4.2
+  - @saas-ui/password-input@1.4.2
+  - @saas-ui/pin-input@1.4.2
+  - @saas-ui/radio@1.4.3
+  - @saas-ui/react-utils@1.2.2
+  - @saas-ui/select@1.4.2
+  - @saas-ui/stepper@1.4.2
+
+## 1.5.4
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+  - @saas-ui/input-right-button@1.4.1
+  - @saas-ui/number-input@1.4.1
+  - @saas-ui/password-input@1.4.1
+  - @saas-ui/pin-input@1.4.1
+  - @saas-ui/radio@1.4.2
+  - @saas-ui/react-utils@1.2.1
+  - @saas-ui/select@1.4.1
+  - @saas-ui/stepper@1.4.1
 
 ## 1.5.3
 

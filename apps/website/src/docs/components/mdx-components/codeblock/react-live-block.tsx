@@ -1,9 +1,7 @@
 // doesn't support React 17 yet
 
 import { Box, BoxProps, chakra } from '@chakra-ui/react'
-import { FeaturesOptions, FeaturesProvider } from '@saas-ui/features'
-import React, { useState } from 'react'
-// import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
+import { FeaturesOptions, FeaturesProvider } from '@saas-ui-pro/feature-flags'
 import {
   LiveProvider,
   LiveEditor,
@@ -14,7 +12,7 @@ import CodeContainer from './code-container'
 import CopyButton from './copy-button'
 import scope from './react-live-scope'
 import { liveEditorStyle, liveErrorStyle } from './styles'
-// import { t } from 'utils/i18n'
+import { useState } from 'react'
 
 const features: FeaturesOptions = {
   segments: [
@@ -138,6 +136,7 @@ function ReactLiveBlock({
           zIndex="1"
           height={height}
           position="relative"
+          fontSize="sm"
           sx={sx}
         />
         {editable && <LiveError style={liveErrorStyle} />}

@@ -85,6 +85,11 @@ export const AutoObjectField = () => {
         defaultValues={{
           post: {},
         }}
+        fields={{
+          post: {
+            hideLabel: true,
+          },
+        }}
         onSubmit={onSubmit}
       />
     </>

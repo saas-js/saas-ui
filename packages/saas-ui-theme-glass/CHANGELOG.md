@@ -1,5 +1,24 @@
 # @saas-ui/theme-glass
 
+## 0.3.2-rc.4
+
+### Patch Changes
+
+- Bump version
+
+## 0.3.2-next.3
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 0.3.2-next.2
+
+### Patch Changes
+
+- Bump version
+- 1563cc9a: Fix Textarea theme
+
 ## 0.3.2-next.1
 
 ### Patch Changes
@@ -12,6 +31,18 @@
 
 - f1e99198: Migrated from microbundle to tsup for builds
 - f1e99198: Restructured packages.
+
+## 0.3.3
+
+### Patch Changes
+
+- Fix types path
+
+## 0.3.2
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
 
 ## 0.3.1
 

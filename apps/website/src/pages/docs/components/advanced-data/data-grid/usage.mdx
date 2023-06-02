@@ -11,7 +11,11 @@ A advanced data grid component that supports sorting, selections, filters and pa
 ## Import
 
 ```ts
-import { DataGrid, DataGridPagination } from '@saas-ui/pro'
+import {
+  DataGrid,
+  DataGridPagination,
+  useColumnVisibility,
+} from '@saas-ui-pro/react'
 ```
 
 ## Usage
@@ -21,7 +25,15 @@ DataGrid uses `@tanstack/react-table` v8 internally, and supports all `useTable`
 ### Basic DataGrid
 
 ```jsx
-function ListPage() {
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+} from '@saas-ui-pro/react'
+
+export default function ListPage() {
   const columns = React.useMemo(() => {
     return [
       {
@@ -63,16 +75,19 @@ function ListPage() {
     ]
   }, [])
   return (
-    <Page title="Customers" height="400px">
-      <DataGrid
-        columns={columns}
-        data={dataTable.data}
-        isSortable
-        isSelectable
-        isHoverable
-      >
-        <DataGridPagination />
-      </DataGrid>
+    <Page height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full">
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+        >
+          <DataGridPagination />
+        </DataGrid>
+      </PageBody>
     </Page>
   )
 }
@@ -81,7 +96,16 @@ function ListPage() {
 ### With BulkActions
 
 ```jsx
-function ListPage() {
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+  BulkActions,
+} from '@saas-ui-pro/react'
+
+export default function ListPage() {
   const [selections, setSelections] = React.useState([])
 
   const columns = React.useMemo(() => {
@@ -123,32 +147,27 @@ function ListPage() {
     ]
   }, [])
   return (
-    <Page
-      title="Customers"
-      height="400px"
-      position="relative"
-      overflow="hidden"
-    >
-      <BulkActions
-        selections={selections}
-        actions={
-          <>
-            <Button colorScheme="white" variant="subtle">
-              Delete
-            </Button>
-          </>
-        }
-      ></BulkActions>
-      <DataGrid
-        columns={columns}
-        data={dataTable.data}
-        isSortable
-        isSelectable
-        isHoverable
-        onSelectedRowsChange={setSelections}
-      >
-        <DataGridPagination />
-      </DataGrid>
+    <Page height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <BulkActions selections={selections} maxW="400px">
+          <Button colorScheme="white">Delete</Button>
+        </BulkActions>
+
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+          onSelectedRowsChange={setSelections}
+          initialState={{
+            rowSelection: { 1: true },
+          }}
+        >
+          <DataGridPagination />
+        </DataGrid>
+      </PageBody>
     </Page>
   )
 }
@@ -160,7 +179,16 @@ cells with a `href` property will render the cell value in an `a`.
 Using the DataGrid `onRowClick` handler you can trigger a click event on the link whenever the row is clicked.
 
 ```jsx
-function ListPage() {
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+  BulkActions,
+} from '@saas-ui-pro/react'
+
+export default function ListPage() {
   const [selections, setSelections] = React.useState([])
 
   const columns = React.useMemo(() => {
@@ -208,41 +236,34 @@ function ListPage() {
   }, [])
   return (
     <Page
-      title="Customers"
       height="400px"
-      position="relative"
-      overflow="hidden"
       sx={{
         '& tbody tr:hover': {
           cursor: 'pointer',
         },
       }}
     >
-      <BulkActions
-        selections={selections}
-        actions={
-          <>
-            <Button colorScheme="white" variant="subtle">
-              Delete
-            </Button>
-          </>
-        }
-      ></BulkActions>
-      <DataGrid
-        columns={columns}
-        data={dataTable.data}
-        isSortable
-        isSelectable
-        isHoverable
-        onSelectedRowsChange={setSelections}
-        onRowClick={(row, e) => {
-          // Find the first A and trigger a click.
-          const link = e.currentTarget.querySelector('td a')
-          link && link.click()
-        }}
-      >
-        <DataGridPagination />
-      </DataGrid>
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <BulkActions selections={selections} width="400px">
+          <Button colorScheme="white">Delete</Button>
+        </BulkActions>
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+          onSelectedRowsChange={setSelections}
+          onRowClick={(row, e) => {
+            // Find the first A and trigger a click.
+            const link = e.currentTarget.querySelector('td a')
+            link && link.click()
+          }}
+        >
+          <DataGridPagination />
+        </DataGrid>
+      </PageBody>
     </Page>
   )
 }
@@ -252,10 +273,24 @@ function ListPage() {
 
 By default all sorting, filtering and pagination is handled locally by `react-table` to work with remote data use this example as a reference.
 
+This example uses [React Query](https://tanstack.com/query) to fetch data.
+
 ```tsx
-function ListPage() {
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+  SortingState,
+  BulkActions,
+} from '@saas-ui-pro/react'
+
+// import { useQuery } from '@tanstack/react-query'
+
+export default function ListPage() {
   const [selections, setSelections] = React.useState([])
-  const [sort, setSort] = React.useState<SortingRule<ExampleData>[]>([])
+  const [sort, setSort] = React.useState<SortingState>([])
   const [page, setPage] = React.useState(0)
 
   const { data } = useQuery(['customers', sort, page], () => {
@@ -305,49 +340,50 @@ function ListPage() {
       },
     ]
   }, [])
+
   return (
     <Page
-      title="Customers"
       height="400px"
-      position="relative"
-      overflow="hidden"
       sx={{
         '& tbody tr:hover': {
           cursor: 'pointer',
         },
       }}
     >
-      <BulkActions
-        selections={selections}
-        actions={
-          <>
-            <Button colorScheme="white" variant="subtle">
-              Delete
-            </Button>
-          </>
-        }
-      />
-      <DataGrid
-        columns={columns}
-        data={dataTable.data}
-        isSortable
-        isSelectable
-        isHoverable
-        onSelectedRowsChange={setSelections}
-        onRowClick={(row, e) => {
-          // Find the first A and trigger a click.
-          const link = e.currentTarget.querySelector('td a')
-          link && link.click()
-        }}
-        manualSortBy
-        onSortchange={setSort}
-        pageCount={data.total}
-        initialState={{
-          pageSize: 1,
-        }}
-      >
-        <DataGridPagination onChange={({ pageIndex }) => setPage(pageIndex)} />
-      </DataGrid>
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <BulkActions selections={selections}>
+          <Button colorScheme="white" variant="subtle">
+            Delete
+          </Button>
+        </BulkActions>
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+          onSelectedRowsChange={setSelections}
+          onRowClick={(row, e) => {
+            // Find the first A and trigger a click.
+            const link = e.currentTarget.querySelector('td a')
+            link && link.click()
+          }}
+          manualSortBy
+          onSortChange={setSort}
+          pageCount={data.total}
+          initialState={{
+            pageSize: 1,
+          }}
+          state={{
+            sort,
+          }}
+        >
+          <DataGridPagination
+            onChange={({ pageIndex }) => setPage(pageIndex)}
+          />
+        </DataGrid>
+      </PageBody>
     </Page>
   )
 }
@@ -359,7 +395,16 @@ You can access the react-table `TableInstance` by passing a ref to `DataGrid`.
 Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
 
 ```jsx
-function InternalState() {
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  ToolbarButton,
+  DataGrid,
+} from '@saas-ui-pro/react'
+
+export default function InternalState() {
   const gridRef = useRef(null)
 
   return (
@@ -378,12 +423,87 @@ function InternalState() {
         </Toolbar>
       }
     >
-      <DataGrid
-        instanceRef={gridRef}
-        columns={dataGrid.columns.concat()}
-        data={dataGrid.data.concat()}
-        isSelectable
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          instanceRef={gridRef}
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+        />
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Toggle visible columns
+
+```jsx
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuOptionGroup,
+  MenuOptionItem,
+  Button,
+} from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  DataGrid,
+  useColumnVisibility,
+} from '@saas-ui-pro/react'
+
+export default function VisibleColumns() {
+  const allColumns = ['name', 'email', 'company', 'country', 'employees']
+  const [visibleColumns, setVisibleColumns] = React.useState([
+    'name',
+    'email',
+    'company',
+  ])
+
+  const columnVisibility = useColumnVisibility({
+    columns: dataGrid.columns,
+    visibleColumns,
+  })
+
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader
+        title="Customers"
+        toolbar={
+          <Toolbar>
+            <Menu closeOnSelect={false}>
+              <MenuButton as={Button}>View</MenuButton>
+              <MenuList>
+                <MenuOptionGroup
+                  value={visibleColumns}
+                  type="checkbox"
+                  onChange={setVisibleColumns}
+                  close
+                >
+                  {allColumns.map((c) => (
+                    <MenuItemOption value={c}>{c}</MenuItemOption>
+                  ))}
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
+          </Toolbar>
+        }
       />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+          state={{
+            columnVisibility,
+          }}
+        />
+      </PageBody>
     </Page>
   )
 }
@@ -394,22 +514,28 @@ function InternalState() {
 <Info>
   To add typesafety for the meta properties, you need to add
   `react-table-config.d.ts` to your `src`. To use the default DataGrid config
-  you can simply re-export the config from `@saas-ui/pro`.
+  you can simply re-export the config from `@saas-ui-pro/react`.
 </Info>
 
 ```ts
 // Copy to: src/types/react-table-config.d.ts
-export * from '@saas-ui/pro/src/data-grid/react-table-config.d'
+export * from '@saas-ui-pro/react/src/data-grid/react-table-config.d'
 ```
 
 ```tsx
+import {
+  ColumnDef,
+  DataGrid,
+  DataGridPagination,
+} from '@saas-ui-pro/react'
+
 interface ExampleData {
   id: string
   name: string
   email: string
 }
 
-const columns: Column<ExampleData>[] = [
+const columns: ColumnDef<ExampleData>[] = [
   {
     accessorKey: 'id',
     header: 'Id',
@@ -439,17 +565,3 @@ const data: ExampleData[] = [{
 
 <DataGrid<ExampleData> columns={columns} data={data} />
 ```
-
-## Props
-
-### DataGrid Props
-
-Accepts all `Box` properties.
-
-<PropsTable of="DataGrid" />
-
-### DataGridPagination Props
-
-Accepts `Box` properties.
-
-<PropsTable of="DataGridPagination" />

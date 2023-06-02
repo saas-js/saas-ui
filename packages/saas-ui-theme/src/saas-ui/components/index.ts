@@ -45,13 +45,13 @@ export { progressTheme as Progress } from './progress'
 export { radioTheme as Radio } from './radio'
 export { sliderTheme as Slider } from './slider'
 export { switchTheme as Switch } from './switch'
+import { stepperTheme } from './stepper'
 export { tooltipTheme as Tooltip } from './tooltip'
 
 // SaaS UI Components
 import { emptyStateTheme } from './empty-state'
 import { nprogressTheme } from './nprogress'
 import { propertyTheme } from './property'
-import { stepperTheme } from './stepper'
 
 export { emptyStateTheme as SuiEmptyState } from './empty-state'
 export { nprogressTheme as SuiNProgress } from './nprogress'
@@ -72,6 +72,7 @@ export const components = {
   Radio: radioTheme,
   Slider: sliderTheme,
   Switch: switchTheme,
+  Stepper: stepperTheme,
   Tooltip: tooltipTheme,
   Input: inputTheme,
   PinInput: pinInputTheme,
@@ -82,6 +83,5 @@ export const components = {
   SuiEmptyState: emptyStateTheme,
   SuiNProgress: nprogressTheme,
   SuiProperty: propertyTheme,
-  SuiStepper: stepperTheme,
   SuiSelect: selectTheme,
 }

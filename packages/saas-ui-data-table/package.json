@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/data-table",
-  "version": "2.0.0-next.12",
+  "version": "2.0.0-rc.28",
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
     "./src": {
@@ -57,7 +58,7 @@
   "dependencies": {
     "@chakra-ui/utils": "^2.0.15",
     "@saas-ui/core": "workspace:*",
-    "@tanstack/react-table": "^8.8.5"
+    "@tanstack/react-table": "^8.9.1"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",

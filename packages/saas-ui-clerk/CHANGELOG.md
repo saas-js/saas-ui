@@ -1,5 +1,103 @@
 # @saas-ui/clerk
 
+## 3.0.0-rc.27
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-rc.27
+
+## 3.0.0-rc.26
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-rc.26
+
+## 3.0.0-rc.25
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-rc.25
+
+## 3.0.0-rc.24
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-rc.24
+
+## 3.0.0-rc.23
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-rc.23
+
+## 3.0.0-next.22
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-next.22
+
+## 3.0.0-next.21
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-next.21
+
+## 3.0.0-next.20
+
+### Patch Changes
+
+- Updated dependencies [0a2bb91f]
+  - @saas-ui/auth@2.0.0-next.20
+
+## 3.0.0-next.19
+
+### Patch Changes
+
+- Updated dependencies [ffd878b6]
+  - @saas-ui/auth@2.0.0-next.19
+
+## 3.0.0-next.18
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-next.18
+
+## 3.0.0-next.17
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-next.17
+
+## 3.0.0-next.16
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-next.16
+
+## 3.0.0-next.15
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.0-next.15
+
+## 3.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-next.14
+
+## 3.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @saas-ui/auth@2.0.0-next.13
+
 ## 3.0.0-next.12
 
 ### Patch Changes
@@ -89,6 +187,22 @@
 - Updated dependencies [f34de7af]
 - Updated dependencies [f1e99198]
   - @saas-ui/auth@2.0.0-next.0
+
+## 2.0.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/auth@1.7.6
+
+## 2.0.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/auth@1.7.5
 
 ## 2.0.0
 

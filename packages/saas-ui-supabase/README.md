@@ -14,7 +14,7 @@ $ npm i @saas-ui/supabase  --save
 
 ## Docs
 
-https://www.saas-ui.dev/docs/auth/auth-provider
+https://www.saas-ui.dev/docs/authentication/auth-provider
 
 ## Source
 

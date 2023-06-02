@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Form, FormProps, FormLayout, Field, FieldValues } from '@saas-ui/forms'
 
 import { LoginButton } from '../login-button'
-import { isFunction } from '@chakra-ui/utils'
 
 export interface PasswordSubmitParams {
   email: string
@@ -12,7 +11,9 @@ export interface PasswordSubmitParams {
   [key: string]: any
 }
 
-export interface PasswordFormProps extends Omit<FormProps<any>, 'children'> {
+export interface PasswordFormProps<
+  Params extends FieldValues = PasswordSubmitParams
+> extends Omit<FormProps<any, Params>, 'children'> {
   submitLabel?: string
   emailLabel?: string
   passwordLabel?: string

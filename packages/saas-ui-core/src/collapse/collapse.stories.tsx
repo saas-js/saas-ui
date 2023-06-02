@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Collapse, useCollapse } from './'
+import { useCollapse } from './'
 
-import { Container, Box, Button } from '@chakra-ui/react'
+import { Collapse, Container, Box, Button } from '@chakra-ui/react'
 
 export default {
   title: 'Hooks/useCollapse',

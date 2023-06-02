@@ -1,8 +1,12 @@
 import { useAddonState } from '@storybook/api'
-import { IconButton, WithTooltip, TooltipLinkList } from '@storybook/components'
+import {
+  IconButton,
+  WithTooltip,
+  TooltipLinkList,
+  Icons,
+} from '@storybook/components'
 import { addons } from '@storybook/addons'
 import { ADDON_ID, EVENTS } from '../../constants'
-import { ViewIcon } from '@chakra-ui/icons'
 
 const themes: Record<string, string> = {
   0: 'Chakra UI',
@@ -61,7 +65,7 @@ export const ThemeTool = () => {
       )}
     >
       <IconButton title="Select theme">
-        <ViewIcon marginEnd="4" /> {themes[theme || '1']}
+        <Icons icon="eye" /> {themes[theme || '1']}
       </IconButton>
     </WithTooltip>
   )

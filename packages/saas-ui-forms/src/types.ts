@@ -133,12 +133,17 @@ export type FieldOverrides<
 
 export type WithFields<
   TFormProps extends FormProps<any, any, any, any>,
-  FieldDefs
-> = TFormProps extends FormProps<infer TFieldValues, infer TContext>
+  FieldDefs,
+  ExtraOverrides = object
+> = TFormProps extends FormProps<
+  infer TSchema,
+  infer TFieldValues,
+  infer TContext
+>
   ? Omit<TFormProps, 'children' | 'fields'> & {
       children?: FormChildren<FieldDefs, TFieldValues, TContext>
       fields?: FieldOverrides<FieldDefs, TFieldValues> & {
         submit?: SubmitButtonProps
-      }
+      } & ExtraOverrides
     }
   : never

@@ -1,10 +1,11 @@
 {
   "name": "@saas-ui/clerk",
-  "version": "3.0.0-next.12",
+  "version": "3.0.0-rc.27",
   "description": "Clerk Authentication Service for Saas UI",
   "source": "src/index.ts",
   "exports": {
     "require": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "import": "./dist/index.mjs"
   },
   "main": "./dist/index.js",
@@ -63,6 +64,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@clerk/clerk-react": "^4.14.2"
+    "@clerk/clerk-react": "^4.16.2"
   }
 }

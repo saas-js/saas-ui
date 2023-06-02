@@ -1,6 +1,7 @@
 import {
   createForm,
   CreateFormProps,
+  FieldValues,
   FormProps,
   WithFields,
 } from '@saas-ui/forms'
@@ -14,6 +15,31 @@ export interface CreateAjvFormProps<FieldDefs>
   resolverOptions?: ResolverArgs[2]
 }
 
+type ParseJsonSchema<T> = T extends { type: 'object' }
+  ? JTDDataType<T> extends infer R
+    ? R extends object
+      ? R
+      : never
+    : never
+  : never
+
+export type AjvFormType<
+  FieldDefs,
+  ExtraProps = object,
+  JsonSchema extends Record<string, any> = Record<string, any>
+> = (<
+  TSchema extends JsonSchema = JsonSchema,
+  TFieldValues extends ParseJsonSchema<TSchema> = ParseJsonSchema<TSchema>,
+  TContext extends object = object
+>(
+  props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs> & {
+    ref?: React.ForwardedRef<HTMLFormElement>
+  } & ExtraProps
+) => React.ReactElement) & {
+  displayName?: string
+  id?: string
+}
+
 /**
  * Create a Form component with AJV validation that accepts JSON Type Definition schema
  *
@@ -23,19 +49,10 @@ export interface CreateAjvFormProps<FieldDefs>
 export function createAjvForm<FieldDefs>(
   options?: CreateAjvFormProps<FieldDefs>
 ) {
-  return createForm<any>({
-    resolver: (schema) =>
+  return createForm({
+    resolver: (schema: any) =>
       ajvResolver(schema, options?.schemaOptions, options?.resolverOptions),
     fieldResolver: ajvFieldResolver,
     ...options,
-  }) as <
-    TSchema extends Record<string, any>,
-    TContext extends object = object,
-    TJSONSchema = JTDDataType<TSchema>
-  >(
-    /** @ts-expect-error @todo properly fix these types */
-    props: WithFields<FormProps<TJSONSchema, TContext, TSchema>, FieldDefs> & {
-      ref?: React.ForwardedRef<HTMLFormElement>
-    }
-  ) => React.ReactElement
+  }) as AjvFormType<FieldDefs>
 }

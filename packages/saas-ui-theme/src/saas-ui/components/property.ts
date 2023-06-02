@@ -7,6 +7,9 @@ export const propertyTheme = defineMultiStyleConfig({
   baseStyle: {
     label: {
       color: 'muted',
+      _dark: {
+        color: 'muted',
+      },
     },
   },
 })

@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
-import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
 import Link from 'next/link'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
@@ -59,6 +59,12 @@ export const docsNav = [
     match: (asPath: string, href: string) =>
       asPath === '/docs' ||
       (href.startsWith('/docs/core') && asPath.startsWith('/docs/core')),
+  },
+  {
+    href: '/docs/guides',
+    label: 'Guides',
+    match: (asPath: string, href: string) =>
+      href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
   },
   {
     href: '/docs/components',

@@ -1,5 +1,23 @@
 # @saas-ui/command-bar
 
+## 0.2.0-rc.5
+
+### Patch Changes
+
+- Bump version
+
+## 0.2.0-next.4
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 0.2.0-next.3
+
+### Patch Changes
+
+- Bump version
+
 ## 0.2.0-next.2
 
 ### Minor Changes
@@ -18,6 +36,18 @@
 
 - f1e99198: Migrated from microbundle to tsup for builds
 - f1e99198: Restructured packages.
+
+## 0.1.2
+
+### Patch Changes
+
+- Fix types path
+
+## 0.1.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
 
 ## 0.1.0
 

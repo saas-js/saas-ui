@@ -1,2 +1,2 @@
-export * from './stepper'
+export * from './steps'
 export * from './use-stepper'

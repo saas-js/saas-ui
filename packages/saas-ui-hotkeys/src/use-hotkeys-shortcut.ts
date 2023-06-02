@@ -1,5 +1,5 @@
 import { useHotkeysContext } from './provider'
-import { useHotkeys } from './use-hotkeys'
+import { useHotkeys, UseHotkeysOptions } from './use-hotkeys'
 
 /**
  * useHotkeysShortcut React Hook
@@ -24,7 +24,8 @@ import { useHotkeys } from './use-hotkeys'
 export const useHotkeysShortcut = (
   keyOrShortcut: string,
   callback: (event: KeyboardEvent) => void,
-  deps: Array<any> = []
+  options: UseHotkeysOptions | Array<any> = [],
+  deps?: Array<any>
 ): string => {
   const { hotkeys } = useHotkeysContext()
 
@@ -39,7 +40,7 @@ export const useHotkeysShortcut = (
     keys = keyOrShortcut
   }
 
-  useHotkeys(keys, callback, deps)
+  useHotkeys(keys, callback, options, deps)
 
   return keys
 }

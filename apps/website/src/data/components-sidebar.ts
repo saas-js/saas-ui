@@ -8,17 +8,17 @@ const sidebar = {
     },
     {
       title: 'Authentication',
-      path: '/docs/components/auth',
+      path: '/docs/components/authentication',
       heading: true,
       open: true,
       routes: [
         {
           title: 'AuthProvider',
-          path: '/docs/components/auth/auth-provider',
+          path: '/docs/components/authentication/auth-provider',
         },
         {
           title: 'Auth',
-          path: '/docs/components/auth/auth',
+          path: '/docs/components/authentication/auth',
         },
       ],
     },
@@ -42,6 +42,11 @@ const sidebar = {
           pro: true,
         },
         {
+          title: 'SplitPage',
+          path: '/docs/components/layout/split-page',
+          pro: true,
+        },
+        {
           title: 'Section',
           path: '/docs/components/layout/section',
           pro: true,
@@ -60,6 +65,11 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'CommandBar',
+          path: '/docs/components/navigation/command-bar',
+          beta: true,
+        },
+        {
           title: 'Hotkeys',
           path: '/docs/components/navigation/hotkeys',
         },
@@ -70,6 +80,7 @@ const sidebar = {
         {
           title: 'ToggleButton',
           path: '/docs/components/navigation/toggle-button',
+          pro: true,
         },
       ],
     },
@@ -81,7 +92,7 @@ const sidebar = {
       sort: true,
       routes: [
         {
-          title: 'Address',
+          title: 'Web3Address',
           path: '/docs/components/web3/address',
         },
       ],
@@ -210,7 +221,6 @@ const sidebar = {
         {
           title: 'Command',
           path: '/docs/components/data-display/command',
-          pro: true,
         },
       ],
     },
@@ -257,7 +267,7 @@ const sidebar = {
           path: '/docs/components/feedback/snackbar',
         },
         {
-          title: 'Loader',
+          title: 'LoadingOverlay',
           path: '/docs/components/feedback/loader',
         },
       ],

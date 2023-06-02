@@ -1,5 +1,134 @@
 # @saas-ui/auth
 
+## 2.0.0-rc.27
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/core@2.0.0-rc.23
+  - @saas-ui/forms@2.0.0-rc.26
+
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+  - @saas-ui/core@2.0.0-rc.22
+  - @saas-ui/forms@2.0.0-rc.25
+
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/forms@2.0.0-rc.24
+  - @saas-ui/core@2.0.0-rc.21
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/core@2.0.0-rc.20
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/hooks@2.0.0-rc.5
+
+## 2.0.0-rc.23
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/core@2.0.0-rc.19
+  - @saas-ui/forms@2.0.0-rc.22
+
+## 2.0.0-next.22
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.18
+- @saas-ui/forms@2.0.0-next.21
+
+## 2.0.0-next.21
+
+### Patch Changes
+
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [2b639656]
+  - @saas-ui/forms@2.0.0-next.20
+  - @saas-ui/core@2.0.0-next.17
+
+## 2.0.0-next.20
+
+### Patch Changes
+
+- 0a2bb91f: The default Auth User type is now less strict.
+
+## 2.0.0-next.19
+
+### Minor Changes
+
+- ffd878b6: Auth now support an onError handler
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-next.16
+- @saas-ui/forms@2.0.0-next.19
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [01ac442f]
+  - @saas-ui/forms@2.0.0-next.18
+
+## 2.0.0-next.17
+
+### Patch Changes
+
+- Updated dependencies [a5898c44]
+  - @saas-ui/core@2.0.0-next.15
+  - @saas-ui/forms@2.0.0-next.17
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- Updated dependencies [b8be6d41]
+  - @saas-ui/core@2.0.0-next.14
+  - @saas-ui/forms@2.0.0-next.16
+
+## 2.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [826c561a]
+  - @saas-ui/forms@2.0.0-next.15
+  - @saas-ui/core@2.0.0-next.13
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/hooks@2.0.0-next.4
+  - @saas-ui/core@2.0.0-next.12
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+- Updated dependencies [6c63217c]
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/hooks@2.0.0-next.3
+  - @saas-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes
@@ -134,6 +263,28 @@
   - @saas-ui/forms@2.0.0-next.0
   - @saas-ui/core@2.0.0-next.0
   - @saas-ui/hooks@2.0.0-next.0
+
+## 1.7.6
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/forms@1.5.5
+  - @saas-ui/hooks@1.2.2
+  - @saas-ui/layout@1.4.3
+
+## 1.7.5
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+  - @saas-ui/forms@1.5.4
+  - @saas-ui/hooks@1.2.1
+  - @saas-ui/layout@1.4.2
 
 ## 1.7.4
 

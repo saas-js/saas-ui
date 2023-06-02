@@ -1,5 +1,23 @@
 # @saas-ui/system
 
+## 2.0.0-rc.5
+
+### Patch Changes
+
+- Bump version
+
+## 2.0.0-next.4
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 2.0.0-next.3
+
+### Patch Changes
+
+- Bump version
+
 ## 2.0.0-next.2
 
 ### Minor Changes
@@ -22,6 +40,18 @@
 ### Patch Changes
 
 - f1e99198: Migrated from microbundle to tsup for builds
+
+## 1.2.2
+
+### Patch Changes
+
+- Fix types path
+
+## 1.2.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
 
 ## 1.2.0
 

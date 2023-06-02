@@ -9,6 +9,7 @@ import { UpdatePasswordView } from './update-password-view'
 import { OtpView } from './otp-view'
 import { AvailableProviders } from './forms/providers'
 import { FormProps } from '@saas-ui/forms'
+import { error } from 'console'
 
 export const VIEWS = {
   LOGIN: 'login',
@@ -16,19 +17,15 @@ export const VIEWS = {
   FORGOT_PASSWORD: 'forgot_password',
   UPDATE_PASSWORD: 'update_password',
   OTP: 'otp',
-}
+} as const
 
-type ViewType =
-  | 'login'
-  | 'signup'
-  | 'forgot_password'
-  | 'update_password'
-  | 'otp'
+type ValueOf<T> = T[keyof T]
+type ViewType = ValueOf<typeof VIEWS>
 
 export interface AuthProps
   extends AuthFormOptions,
     Omit<
-      FormProps,
+      FormProps<any, any>,
       'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
     > {
   /**
@@ -75,6 +72,12 @@ export interface AuthProps
    * @default "Already have an account?"
    */
   haveAccount?: React.ReactNode
+  /**
+   * Called when a login or signup request fails.
+   * @param view The current active view
+   * @param error
+   */
+  onError?: (view: ViewType, error: Error) => void
 }
 
 export const Auth: React.FC<AuthProps> = (props) => {
@@ -87,6 +90,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
     backLink,
     noAccount,
     haveAccount,
+    onError,
     ...rest
   } = props
 
@@ -98,11 +102,21 @@ export const Auth: React.FC<AuthProps> = (props) => {
     setAuthView(view)
   }, [view])
 
+  const errorHandler = React.useCallback(
+    (view: ViewType) => (error: Error) => {
+      if (authView === view && onError) {
+        onError(view, error)
+      }
+    },
+    [authView]
+  )
+
   switch (authView) {
     case VIEWS.LOGIN:
       return (
         <LoginView
           providers={providers}
+          onError={errorHandler(VIEWS.LOGIN)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.SIGNUP)}
@@ -131,6 +145,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
       return (
         <SignupView
           providers={providers}
+          onError={errorHandler(VIEWS.SIGNUP)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
@@ -144,6 +159,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
     case VIEWS.FORGOT_PASSWORD:
       return (
         <ForgotPasswordView
+          onError={errorHandler(VIEWS.FORGOT_PASSWORD)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
@@ -154,9 +170,14 @@ export const Auth: React.FC<AuthProps> = (props) => {
         />
       )
     case VIEWS.UPDATE_PASSWORD:
-      return <UpdatePasswordView {...rest} />
+      return (
+        <UpdatePasswordView
+          onError={errorHandler(VIEWS.UPDATE_PASSWORD)}
+          {...rest}
+        />
+      )
     case VIEWS.OTP:
-      return <OtpView {...rest} />
+      return <OtpView onError={errorHandler(VIEWS.OTP)} {...rest} />
   }
 
   return null

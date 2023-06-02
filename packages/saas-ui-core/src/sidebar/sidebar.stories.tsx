@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import {
   Badge,
   BadgeProps,
@@ -56,7 +56,7 @@ export default {
   parameters: { layout: 'fullscreen' },
 } as Meta
 
-const Template: Story<SidebarProps> = (args) => (
+const Template: StoryFn<SidebarProps> = (args) => (
   <AppShell sidebar={<Sidebar {...args} />}>
     <Box px="4" py="3">
       <SidebarToggleButton />

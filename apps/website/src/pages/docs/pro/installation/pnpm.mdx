@@ -3,21 +3,19 @@ title: Private NPM using PNPM
 description: Install Saas UI Pro components from a private NPM registry.
 ---
 
-<Info>
-  Configuration is slightly different for each package manager, so it's
-  important to follow the steps for the package manager you are using in your
-  project.
-</Info>
-
 ### PNPM
+
+Your NPM account is a combination of the Github username (in lower case) you used to redeem your license and the license code (`username:license-key`).
+
+<NpmAuthToken />
 
 In your project root folder you can run this and enter your Github username as user and license key as password.
 
 ```bash
-pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
+pnpm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui-pro
 ```
 
-Now run `npm i @saas-ui/pro` to install the Pro components.
+Now run `npm i @saas-ui-pro/react` to install the Pro components.
 
 #### Manual & CI configuration.
 
@@ -29,7 +27,7 @@ The following steps are required to deploy your project or run it on CI.
 </Info>
 
 ```bash
-echo -n 'GithubUsername:licenseKey' | base64
+echo -n 'username:license-key' | base64
 ```
 
 Add your auth token to shell profile `~/.bash_profile` and add it to environment variables of your deployment or CI.
@@ -41,17 +39,12 @@ export SAAS_UI_TOKEN="base64 encoded token"
 If you configure this on your local machine, make sure the restart your terminal
 or run `source ~/.bash_profile`, to make sure the token is loaded.
 
-<Info>
-  If you're having troubles generating a working base64 encoded string, try
-  [this website](https://www.base64encode.org/).
-</Info>
-
 Then edit `.npmrc` in the root of your project and add the following lines.
 
 ```
-@saas-ui:registry=https://npm.saas-ui.dev
+@saas-ui-pro:registry=https://npm.saas-ui.dev
 //npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
 //npm.saas-ui.dev/:always-auth=true
 ```
 
-Now run `pnpm i @saas-ui/pro` to check if the configuration was succesful.
+Now run `pnpm i @saas-ui-pro/react` to check if the configuration was succesful.

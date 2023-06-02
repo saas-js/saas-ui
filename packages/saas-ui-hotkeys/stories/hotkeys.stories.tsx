@@ -30,6 +30,7 @@ import {
   HotkeysListOptions,
   useHotkeysShortcut,
   useHotkeysContext,
+  useHotkeys,
 } from '../src'
 
 const hotkeys: HotkeysListOptions = {
@@ -236,6 +237,38 @@ export const SingleAndKeySequence = () => {
   return (
     <Box>
       <Input placeholder={`Press ${key} to focus`} ref={ref} />
+    </Box>
+  )
+}
+
+export const MultipleKeys = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  useHotkeys('ctrl+shift+d', () => {
+    ref.current?.focus()
+  })
+
+  return (
+    <Box>
+      <Input placeholder={`Press ctrl+shift+d to focus`} ref={ref} />
+    </Box>
+  )
+}
+
+export const PreventDefault = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  useHotkeys(
+    ['ctrl+f', 'cmd+f'],
+    () => {
+      ref.current?.focus()
+    },
+    { preventDefault: true }
+  )
+
+  return (
+    <Box>
+      <Input placeholder={`Press ctrl+f or cmd+f to focus`} ref={ref} />
     </Box>
   )
 }

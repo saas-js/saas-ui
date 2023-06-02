@@ -16,6 +16,7 @@ import {
   Spinner,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { runIfFn } from '@chakra-ui/utils'
 
 const AlertSpinner: React.FC<AlertIconProps> = (props) => {
   const styles = useMultiStyleConfig('Alert', props)
@@ -100,7 +101,7 @@ export type SnackbarOptions = UseSnackbarOptions | string
 export interface SnackbarPromiseOptions {
   loading?: SnackbarOptions
   success: SnackbarOptions
-  error: any
+  error: SnackbarOptions | ((error: any) => SnackbarOptions)
 }
 
 const defaults = {
@@ -189,7 +190,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
             title: e.name,
             description: e.description,
             status: 'error',
-            ...parseOptions(error),
+            ...parseOptions(runIfFn(error, e)),
           }
 
           if (toastId) {

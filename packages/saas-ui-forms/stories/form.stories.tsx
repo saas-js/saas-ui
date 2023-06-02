@@ -13,7 +13,7 @@ import { z } from 'zod'
 
 import { createYupForm } from '../yup/src'
 import { createZodForm } from '../zod/src'
-import { createAjvForm } from '../ajv/src'
+import { JTDDataType, createAjvForm } from '../ajv/src'
 
 import {
   Form,
@@ -196,7 +196,7 @@ type JSONData = {
   age: number
 }
 
-const ajvSchema: JSONSchemaType<JSONData> = {
+const ajvSchema = {
   type: 'object',
   properties: {
     firstName: {
@@ -208,10 +208,12 @@ const ajvSchema: JSONSchemaType<JSONData> = {
   },
   required: ['firstName', 'age'],
   additionalProperties: false,
-}
+} as const
+
+type DataSchema = JTDDataType<typeof ajvSchema>
 
 export const WithAjvForm = () => (
-  <AjvForm<JSONData>
+  <AjvForm
     schema={ajvSchema}
     defaultValues={{
       firstName: '',
@@ -276,7 +278,7 @@ type PostInputs = {
 export const WithTypescript = () => {
   return (
     <Stack>
-      <Form<PostInputs>
+      <Form
         defaultValues={{
           firstName: 'Eelco',
           lastName: 'Wiersma',
@@ -300,10 +302,10 @@ type FormInputs = {
 }
 
 export const TypescriptWithRef = () => {
-  const ref = React.useRef<UseFormReturn<FormInputs>>(null)
+  const ref = React.useRef<UseFormReturn<FormInputs, object>>(null)
 
   return (
-    <Form<FormInputs>
+    <Form
       formRef={ref}
       defaultValues={{
         firstName: '',

@@ -1,12 +1,28 @@
 import * as React from 'react'
 import { Button, Stack, Container, MenuItem } from '@chakra-ui/react'
-// import { ModalsProvider, useModals } from '../src/provider'
+
 import { createModals } from '../src'
 import { MenuDialogList } from '../src/menu'
 
 import { Field, FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
-import { FormDialog } from '../src/form'
+import { FormDialog, createFormDialog } from '../src/form'
+import { createField } from '@saas-ui/forms'
+import { createZodForm } from '@saas-ui/forms/zod'
+
+import * as z from 'zod'
+
+const CustomField = createField((props: { customFieldProps: string }) => (
+  <div>custom</div>
+))
+
+const ZodForm = createZodForm({
+  fields: {
+    custom: CustomField,
+  },
+})
+
+const ZodFormDialog = createFormDialog(ZodForm)
 
 interface CustomModalProps extends Omit<BaseModalProps, 'children'> {
   customProp: 'test'
@@ -27,6 +43,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
 const { ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
+    form: ZodFormDialog,
   },
 })
 
@@ -153,20 +170,19 @@ export const Basic = () => {
         Open menu dialog
       </Button>
       <Button
-        onClick={() =>
+        onClick={() => {
           modals.form({
             title: 'Form',
+            schema: z.object({
+              title: z.string(),
+            }),
             defaultvalues: {
               title: 'My title',
             },
-            children: ({ Field }) => (
-              <FormLayout>
-                <Field name="title" label="Title" />
-              </FormLayout>
-            ),
-            onSubmit: () => Promise.resolve(),
+            onError: (error) => console.log(error),
+            onSubmit: ({ title }) => Promise.resolve(),
           })
-        }
+        }}
       >
         Open form dialog
       </Button>
@@ -193,14 +209,19 @@ export const Custom = () => {
   )
 }
 
-export const CustomFormDialog = () => {
+export const Form = () => {
   const modals = useModals()
 
   return (
     <Button
-      onClick={() =>
-        modals.open(FormDialog, {
+      onClick={() => {
+        const id = modals.form({
           title: 'My Modal',
+          schema: z.object({
+            title: z.string(),
+          }),
+          onError: (error) => console.error('error', error),
+          onChange: (values) => console.log('change', values),
           children: ({ Field }) => (
             <FormLayout>
               <Field name="title" label="Title" />
@@ -209,7 +230,49 @@ export const CustomFormDialog = () => {
           defaultValues: {
             title: 'My title',
           },
-          onSubmit: () => Promise.resolve(),
+          onSubmit: (data) =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve(null)
+                modals.closeAll()
+              }, 2000)
+            }),
+        })
+      }}
+    >
+      Open modal
+    </Button>
+  )
+}
+
+export const CustomForm = () => {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open(FormDialog, {
+          title: 'My Modal',
+          schema: z.object({
+            title: z.string(),
+          }),
+          onError: (error) => console.error('error', error),
+          onChange: (values) => console.log('change', values),
+          children: ({ Field }) => (
+            <FormLayout>
+              <Field name="title" label="Title" />
+            </FormLayout>
+          ),
+          defaultValues: {
+            title: 'My title',
+          },
+          onSubmit: (data) =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve(null)
+                modals.closeAll()
+              }, 2000)
+            }),
         })
       }
     >
@@ -248,6 +311,70 @@ export const OnClose = () => {
               title: 'You closed the modal',
             })
           },
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
+
+export const Multiple = () => {
+  const modals = useModals()
+
+  const next = () => {
+    const id = modals.open({
+      title: 'Modal step 2',
+      body: 'Step 2',
+      footer: (
+        <>
+          <Button onClick={() => modals.close(id)} mr="3">
+            Back
+          </Button>
+          <Button onClick={() => modals.closeAll()}>Done</Button>
+        </>
+      ),
+    })
+  }
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'Modal step 1',
+          body: 'Step 1',
+          footer: (
+            <>
+              <Button onClick={next}>Next</Button>
+            </>
+          ),
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
+
+export const AsyncConfirmDialog = () => {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.confirm({
+          title: 'Delete user',
+          body: 'Are you sure you want to delete this user?',
+          confirmProps: {
+            children: 'Delete',
+            colorScheme: 'red',
+          },
+          onConfirm: () =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve()
+              }, 2000)
+            }),
         })
       }
     >

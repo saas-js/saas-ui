@@ -373,10 +373,12 @@ export default function ListPage() {
           onSortChange={setSort}
           pageCount={data.total}
           initialState={{
-            pageSize: 1,
+            pagination: {
+              pageSize: 1,
+            },
           }}
           state={{
-            sort,
+            sorting: { sort },
           }}
         >
           <DataGridPagination

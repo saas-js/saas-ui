@@ -14,184 +14,43 @@ applied to each part specifically.
 
 ### Anatomy
 
-- `container`
-- `inner`
-- `main`
+- `addon`
+- `field`
+- `element`
 
 ### Default theme
 
 ```jsx live=false
-import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 import { Input } from '@chakra-ui/theme/components'
-
-import { inputTheme } from './form'
-
-export const selectTheme = defineStyleConfig({
-  ...Input,
-  defaultProps: inputTheme.defaultProps,
-  variants: {
-    outline: defineStyle((props) => ({
-      ...(inputTheme.variants?.outline(props) ?? {}),
-    })),
-    flushed: defineStyle((props) => Input.variants?.flushed(props) ?? {}),
-    filled: defineStyle((props) => Input.variants?.filled(props) ?? {}),
-    unstyled: Input.variants?.unstyled ?? {},
-  },
-  sizes: inputTheme.sizes,
-})
-```
-
-### Theming utilities
-
-- `createMultiStyleConfigHelpers`: a function that returns a set of utilities
-  for creating style configs for a multipart component (`definePartsStyle` and
-  `defineMultiStyleConfig`).
-- `definePartsStyle`: a function used to create multipart style objects.
-- `defineMultiStyleConfig`: a function used to define the style configuration
-  for a multipart component.
-
-```jsx live=false
 import { selectAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(selectAnatomy.keys)
-```
-
-### Customizing the default theme
-
-```jsx live=false
-import { selectAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(selectAnatomy.keys)
-
-const baseStyle = definePartsStyle({
-  // define the part you're going to style
-  container: {
-    bg: 'red.200', // change the backgroundColor of the container
-  },
-})
-
-export const selectTheme = defineMultiStyleConfig({ baseStyle })
-```
-
-After customizing the app shell theme, we can import it in our theme file and
-add it in the `components` property:
-
-```jsx live=false
-import { extendTheme } from '@chakra-ui/react'
-import { selectAnatomy } from './components/select'
-
-export const theme = extendTheme({
-  components: { SuiSelect: selectAnatomy },
-})
-```
-
-> Saas UI components are prefixed with `Sui` to avoid conflicts with Chakra UI.
-> This is a crucial step to make sure that any changes that we make to the
-> app shell theme are applied.
-
-### Adding a custom size
-
-Let's assume we want to include an extra large app shell icon size. Here's how
-we can do that:
-
-```jsx live=false
-import { selectAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(selectAnatomy.keys)
-
-const xl = definePartsStyle({
-  container: {
-    height: '1000px'
-  }
-})
-
-const sizes = {
-  xl,
-}
-
-export const app shellTheme = defineMultiStyleConfig({ sizes })
-
-// Now we can use the new `xl` size
-<Select size="xl"> ... </Select>
-```
-
-Every time you're adding anything new to the theme, you'd need to run the CLI
-command to get proper autocomplete in your IDE. You can learn more about the CLI
-tool [here](/docs/styled-system/cli).
-
-### Adding a custom variant
-
-Let's assume we want to include a custom pill variant. Here's how we can do
-that:
-
-```jsx live=false
-import { selectAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(selectAnatomy.keys)
-
-const custom = definePartsStyle({
-  container: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.50',
-    borderRadius: 'full',
-
-    // Let's also provide dark mode alternatives
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.800',
-    },
-  },
-  main: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.200',
-    color: 'gray.500',
-
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.600',
-      color: 'gray.400',
-    },
-  },
-})
-
-export const selectTheme = defineMultiStyleConfig({
-  variants: { custom },
-})
-
-// Now we can use the new `custom` variant
-<Select variant="custom"> ... </Select>
-```
-
-### Changing the default properties
-
-Let's assume we want to change the default size and variant of every app shell
-in our app. Here's how we can do that:
-
-```jsx live=false
-import { selectAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 
 const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
-  selectAnatomy.keys,
+  selectAnatomy.keys
 )
 
 export const selectTheme = defineMultiStyleConfig({
-  defaultProps: {
-    variant: 'custom',
+  defaultProps: Input.defaultProps,
+  baseStyle: Input.baseStyle,
+  sizes: Input.sizes,
+  variants: Input.variants,
+})
+```
+
+### Customizing the theme
+
+The Select component uses the `SuiSelect` key within the theme's components.
+
+```jsx live=false
+const theme = extendTheme({
+  components: {
+    SuiSelect: {
+      baseStyle: {
+        field: {
+          bg: 'red.200',
+        },
+      },
+    },
   },
 })
-
-// This saves you time, instead of manually setting the size and
-// variant every time you use an app shell:
-<Select variant="custom"> ... </Select>
 ```

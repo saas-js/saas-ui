@@ -14,161 +14,103 @@ applied to each part specifically.
 
 ### Anatomy
 
-- `container`
-- `inner`
-- `main`
+- `overlay`
+- `text`
 
-### Theming utilities
+### Default theme
 
-- `createMultiStyleConfigHelpers`: a function that returns a set of utilities
-  for creating style configs for a multipart component (`definePartsStyle` and
-  `defineMultiStyleConfig`).
-- `definePartsStyle`: a function used to create multipart style objects.
-- `defineMultiStyleConfig`: a function used to define the style configuration
-  for a multipart component.
+```tsx
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { loadingOverlayAnatomy } from '@saas-ui/theme/anatomy'
 
-```jsx live=false
-import { loaderAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(loaderAnatomy.keys)
-```
-
-### Customizing the default theme
-
-```jsx live=false
-import { loaderAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(loaderAnatomy.keys)
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(loadingOverlayAnatomy.keys)
 
 const baseStyle = definePartsStyle({
-  // define the part you're going to style
-  container: {
-    bg: 'red.200', // change the backgroundColor of the container
+  overlay: {
+    p: 4,
   },
+  text: {},
 })
 
-export const loaderTheme = defineMultiStyleConfig({ baseStyle })
-```
-
-After customizing the app shell theme, we can import it in our theme file and
-add it in the `components` property:
-
-```jsx live=false
-import { extendTheme } from '@chakra-ui/react'
-import { loaderAnatomy } from './components/loader'
-
-export const theme = extendTheme({
-  components: { SuiLoader: loaderAnatomy },
-})
-```
-
-> Saas UI components are prefixed with `Sui` to avoid conflicts with Chakra UI.
-> This is a crucial step to make sure that any changes that we make to the
-> app shell theme are applied.
-
-### Adding a custom size
-
-Let's assume we want to include an extra large app shell icon size. Here's how
-we can do that:
-
-```jsx live=false
-import { loaderAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(loaderAnatomy.keys)
-
-const xl = definePartsStyle({
-  container: {
-    height: '1000px'
+const variantFill = definePartsStyle(() => {
+  return {
+    overlay: {
+      flex: 1,
+      height: '100%',
+      bg: 'whiteAlpha.400',
+      _dark: {
+        bg: 'blackAlpha.400',
+      },
+    },
   }
 })
 
-const sizes = {
-  xl,
-}
-
-export const app shellTheme = defineMultiStyleConfig({ sizes })
-
-// Now we can use the new `xl` size
-<Loader size="xl"> ... </Loader>
-```
-
-Every time you're adding anything new to the theme, you'd need to run the CLI
-command to get proper autocomplete in your IDE. You can learn more about the CLI
-tool [here](/docs/styled-system/cli).
-
-### Adding a custom variant
-
-Let's assume we want to include a custom pill variant. Here's how we can do
-that:
-
-```jsx live=false
-import { loaderAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(loaderAnatomy.keys)
-
-const custom = definePartsStyle({
-  container: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.50',
-    borderRadius: 'full',
-
-    // Let's also provide dark mode alternatives
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.800',
+const variantFullscreen = definePartsStyle(() => {
+  return {
+    overlay: {
+      position: 'fixed',
+      inset: 0,
+      zIndex: 'modal',
+      bg: 'white',
+      _dark: {
+        bg: 'gray.800',
+      },
     },
-  },
-  main: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.200',
-    color: 'gray.500',
-
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.600',
-      color: 'gray.400',
-    },
-  },
+  }
 })
 
-export const loaderTheme = defineMultiStyleConfig({
-  variants: { custom },
+const variantOverlay = definePartsStyle(() => {
+  return {
+    overlay: {
+      position: 'absolute',
+      inset: 0,
+      bg: 'whiteAlpha.300',
+      _dark: {
+        bg: 'blackAlpha.300',
+      },
+    },
+  }
 })
 
-// Now we can use the new `custom` variant
-<Loader variant="custom"> ... </Loader>
-```
-
-### Changing the default properties
-
-Let's assume we want to change the default size and variant of every app shell
-in our app. Here's how we can do that:
-
-```jsx live=false
-import { loaderAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
-  loaderAnatomy.keys,
-)
-
-export const loaderTheme = defineMultiStyleConfig({
+export const loadingOverlayTheme = defineMultiStyleConfig({
   defaultProps: {
-    variant: 'custom',
+    variant: 'fill',
+  },
+  baseStyle,
+  variants: {
+    fill: variantFill,
+    fullscreen: variantFullscreen,
+    overlay: variantOverlay,
   },
 })
+```
 
-// This saves you time, instead of manually setting the size and
-// variant every time you use an app shell:
-<Loader variant="custom"> ... </Loader>
+### Customize the theme
+
+```tsx
+import { extendTheme } from '@chakra-ui/react'
+import { theme as baseTheme } from '@saas-ui/theme'
+
+const theme = extendTheme(
+  {
+    components: {
+      SuiLoader: {
+        baseStyle: {
+          overlay: {
+            bg: 'red.500',
+          },
+        },
+        variants: {
+          fill: {
+            overlay: {
+              bg: 'blue.500',
+            },
+          },
+        },
+      },
+    },
+  },
+  baseTheme
+)
 ```

@@ -15,27 +15,10 @@ applied to each part specifically.
 ### Anatomy
 
 - `container`
-- `inner`
-- `main`
-
-### Default theme
-
-```jsx live=false
-import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
-import { Input } from '@chakra-ui/theme/components'
-import { selectAnatomy } from '../../anatomy'
-
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
-  selectAnatomy.keys
-)
-
-export const selectTheme = defineMultiStyleConfig({
-  defaultProps: Input.defaultProps,
-  baseStyle: Input.baseStyle,
-  sizes: Input.sizes,
-  variants: Input.variants,
-})
-```
+- `header`
+- `title`
+- `description`
+- `body`
 
 ### Theming utilities
 
@@ -47,147 +30,9 @@ export const selectTheme = defineMultiStyleConfig({
   for a multipart component.
 
 ```jsx live=false
-import { sectionAnatomy } from '@saas-ui/theme/anatomy'
+import { sectionAnatomy } from '@saas-ui-pro/react/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(sectionAnatomy.keys)
-```
-
-### Customizing the default theme
-
-```jsx live=false
-import { sectionAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sectionAnatomy.keys)
-
-const baseStyle = definePartsStyle({
-  // define the part you're going to style
-  container: {
-    bg: 'red.200', // change the backgroundColor of the container
-  },
-})
-
-export const sectionTheme = defineMultiStyleConfig({ baseStyle })
-```
-
-After customizing the app shell theme, we can import it in our theme file and
-add it in the `components` property:
-
-```jsx live=false
-import { extendTheme } from '@chakra-ui/react'
-import { sectionAnatomy } from './components/section'
-
-export const theme = extendTheme({
-  components: { SuiSection: sectionAnatomy },
-})
-```
-
-> Saas UI components are prefixed with `Sui` to avoid conflicts with Chakra UI.
-> This is a crucial step to make sure that any changes that we make to the
-> app shell theme are applied.
-
-### Adding a custom size
-
-Let's assume we want to include an extra large app shell icon size. Here's how
-we can do that:
-
-```jsx live=false
-import { sectionAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sectionAnatomy.keys)
-
-const xl = definePartsStyle({
-  container: {
-    height: '1000px'
-  }
-})
-
-const sizes = {
-  xl,
-}
-
-export const app shellTheme = defineMultiStyleConfig({ sizes })
-
-// Now we can use the new `xl` size
-<Section size="xl"> ... </Section>
-```
-
-Every time you're adding anything new to the theme, you'd need to run the CLI
-command to get proper autocomplete in your IDE. You can learn more about the CLI
-tool [here](/docs/styled-system/cli).
-
-### Adding a custom variant
-
-Let's assume we want to include a custom pill variant. Here's how we can do
-that:
-
-```jsx live=false
-import { sectionAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sectionAnatomy.keys)
-
-const custom = definePartsStyle({
-  container: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.50',
-    borderRadius: 'full',
-
-    // Let's also provide dark mode alternatives
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.800',
-    },
-  },
-  main: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.200',
-    color: 'gray.500',
-
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.600',
-      color: 'gray.400',
-    },
-  },
-})
-
-export const sectionTheme = defineMultiStyleConfig({
-  variants: { custom },
-})
-
-// Now we can use the new `custom` variant
-<Section variant="custom"> ... </Section>
-```
-
-### Changing the default properties
-
-Let's assume we want to change the default size and variant of every app shell
-in our app. Here's how we can do that:
-
-```jsx live=false
-import { sectionAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
-  sectionAnatomy.keys,
-)
-
-export const sectionTheme = defineMultiStyleConfig({
-  defaultProps: {
-    variant: 'custom',
-  },
-})
-
-// This saves you time, instead of manually setting the size and
-// variant every time you use an app shell:
-<Section variant="custom"> ... </Section>
 ```

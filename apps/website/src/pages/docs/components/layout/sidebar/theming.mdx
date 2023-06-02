@@ -5,6 +5,11 @@ scope: theming
 
 ## Theming
 
+The `Sidebar`, `NavGroup` and `NavItem` components have separate themes. This
+allows you to customize each component individually.
+
+## Sidebar Theming
+
 The `Sidebar` component is a multipart component. The styling needs to be
 applied to each part specifically.
 
@@ -15,14 +20,14 @@ applied to each part specifically.
 ### Anatomy
 
 - `container`
-- `inner`
-- `main`
+- `section`
+- `toggleWrapper`
 
 ### Default theme
 
 ```jsx live=false
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
-import { sidebarAnatomy } from '../../anatomy'
+import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(sidebarAnatomy.keys)
 
@@ -97,157 +102,269 @@ export const sidebarTheme = defineMultiStyleConfig({
 })
 ```
 
-### Theming utilities
+## NavGroup Theming
 
-- `createMultiStyleConfigHelpers`: a function that returns a set of utilities
-  for creating style configs for a multipart component (`definePartsStyle` and
-  `defineMultiStyleConfig`).
-- `definePartsStyle`: a function used to create multipart style objects.
-- `defineMultiStyleConfig`: a function used to define the style configuration
-  for a multipart component.
+The `NavGroup` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `title`
+- `content`
+
+### Default theme
 
 ```jsx live=false
-import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navGroupAnatomy } from '@saas-ui/theme/anatomy'
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sidebarAnatomy.keys)
-```
+  createMultiStyleConfigHelpers(navGroupAnatomy.keys)
 
-### Customizing the default theme
-
-```jsx live=false
-import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sidebarAnatomy.keys)
-
-const baseStyle = definePartsStyle({
-  // define the part you're going to style
-  container: {
-    bg: 'red.200', // change the backgroundColor of the container
-  },
-})
-
-export const sidebarTheme = defineMultiStyleConfig({ baseStyle })
-```
-
-After customizing the app shell theme, we can import it in our theme file and
-add it in the `components` property:
-
-```jsx live=false
-import { extendTheme } from '@chakra-ui/react'
-import { sidebarAnatomy } from './components/sidebar'
-
-export const theme = extendTheme({
-  components: { SuiSidebar: sidebarAnatomy },
-})
-```
-
-> Saas UI components are prefixed with `Sui` to avoid conflicts with Chakra UI.
-> This is a crucial step to make sure that any changes that we make to the
-> app shell theme are applied.
-
-### Adding a custom size
-
-Let's assume we want to include an extra large app shell icon size. Here's how
-we can do that:
-
-```jsx live=false
-import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sidebarAnatomy.keys)
-
-const xl = definePartsStyle({
-  container: {
-    height: '1000px'
+const baseStyle = definePartsStyle((props) => {
+  return {
+    container: {
+      '&:not(:last-of-type)': {
+        mb: 4,
+      },
+    },
+    title: {
+      display: 'flex',
+      alignItems: 'center',
+      px: 3,
+      my: 1,
+      height: 6,
+      fontSize: 'sm',
+      fontWeight: 'medium',
+      color: 'muted',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      '&.sui-collapse-toggle .chakra-icon': {
+        opacity: 0,
+      },
+      '&.sui-collapse-toggle': {
+        cursor: 'pointer',
+        borderRadius: 'md',
+        _hover: {
+          bg: 'blackAlpha.100',
+          '& .chakra-icon': {
+            opacity: 1,
+          },
+          _dark: {
+            bg: 'whiteAlpha.200',
+          },
+        },
+      },
+      '[data-compact] &': {
+        opacity: 0,
+      },
+    },
+    content: {},
   }
 })
 
-const sizes = {
-  xl,
-}
-
-export const app shellTheme = defineMultiStyleConfig({ sizes })
-
-// Now we can use the new `xl` size
-<Sidebar size="xl"> ... </Sidebar>
+export const navGroupTheme = defineMultiStyleConfig({
+  baseStyle,
+})
 ```
 
-Every time you're adding anything new to the theme, you'd need to run the CLI
-command to get proper autocomplete in your IDE. You can learn more about the CLI
-tool [here](/docs/styled-system/cli).
+## NavItem Theming
 
-### Adding a custom variant
+The `NavGroup` component is a multipart component. The styling needs to be
+applied to each part specifically.
 
-Let's assume we want to include a custom pill variant. Here's how we can do
-that:
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `item`
+- `link`
+- `inner`
+- `label`
+- `icon`
+
+### Default theme
 
 ```jsx live=false
-import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+import { transparentize } from '@chakra-ui/theme-tools'
+import { theme as baseTheme } from '@chakra-ui/react'
 
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navItemAnatomy } from '@saas-ui/theme/anatomy'
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(sidebarAnatomy.keys)
+  createMultiStyleConfigHelpers(navItemAnatomy.keys)
 
-const custom = definePartsStyle({
-  container: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.50',
-    borderRadius: 'full',
-
-    // Let's also provide dark mode alternatives
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.800',
+const baseStyle = definePartsStyle((props) => {
+  return {
+    item: {
+      my: '2px',
+      color: 'gray.900',
+      minW: 1,
+      _dark: {
+        color: 'whiteAlpha.900',
+      },
     },
-  },
-  main: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.200',
-    color: 'gray.500',
-
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.600',
-      color: 'gray.400',
+    link: {
+      display: 'flex',
+      rounded: 'md',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      textDecoration: 'none',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      minW: 1,
+      _hover: {
+        textDecoration: 'none',
+      },
+      _focusVisible: {
+        outline: 'none',
+        boxShadow: 'outline',
+      },
     },
-  },
+    inner: {
+      display: 'flex',
+      flex: 1,
+      w: '100%',
+      alignItems: 'center',
+      minW: 1,
+    },
+    label: {
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+    },
+    icon: {
+      display: 'flex',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '4',
+      ml: '-0.25rem',
+      color: 'currentColor',
+    },
+  }
 })
 
-export const sidebarTheme = defineMultiStyleConfig({
-  variants: { custom },
+const variantNeutral = definePartsStyle((props) => {
+  return {
+    link: {
+      _hover: {
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active: {
+        bg: 'blackAlpha.200',
+        _dark: {
+          bg: `whiteAlpha.300`,
+        },
+      },
+    },
+    icon: {
+      opacity: 0.8,
+      '[data-active] &': {
+        opacity: 1,
+      },
+    },
+  }
 })
 
-// Now we can use the new `custom` variant
-<Sidebar variant="custom"> ... </Sidebar>
-```
+const variantSubtle = definePartsStyle((props) => {
+  const { colorScheme: c, theme } = props
 
-### Changing the default properties
+  return {
+    link: {
+      _hover: {
+        bg: `blackAlpha.100`,
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active: {
+        bg: transparentize(`${c}.500`, 0.3)(theme),
+        fontWeight: 'semibold',
+        color: `${c}.600`,
+        _dark: {
+          bg: transparentize(`${c}.500`, 0.3)(theme),
+          color: `${c}.100`,
+        },
+      },
+    },
+  }
+})
 
-Let's assume we want to change the default size and variant of every app shell
-in our app. Here's how we can do that:
+const variantSolid = definePartsStyle((props) => {
+  const { colorScheme: c } = props
 
-```jsx live=false
-import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+  return {
+    link: {
+      _hover: {
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active: {
+        bg: `${c}.500`,
+      },
+      color: 'white',
+    },
+    icon: {
+      color: 'white',
+    },
+    label: {},
+  }
+})
 
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
-  sidebarAnatomy.keys,
-)
-
-export const sidebarTheme = defineMultiStyleConfig({
+export const navItemTheme = defineMultiStyleConfig({
   defaultProps: {
-    variant: 'custom',
+    size: 'sm',
+    colorScheme: 'primary',
+    variant: 'neutral',
+  },
+  baseStyle,
+  sizes: {
+    xs: {
+      link: baseTheme.components.Button.sizes?.xs,
+      icon: {
+        me: 1,
+        fontSize: 'xs',
+      },
+    },
+    sm: {
+      link: baseTheme.components.Button.sizes?.sm,
+      icon: {
+        me: 2,
+        fontSize: 'sm',
+      },
+    },
+    md: {
+      link: baseTheme.components.Button.sizes?.md,
+      icon: {
+        me: 2,
+        fontSize: 'md',
+      },
+    },
+    lg: {
+      link: baseTheme.components.Button.sizes?.lg,
+      icon: {
+        me: 3,
+        fontSize: 'lg',
+      },
+    },
+  },
+  variants: {
+    neutral: variantNeutral,
+    subtle: variantSubtle,
+    solid: variantSolid,
   },
 })
-
-// This saves you time, instead of manually setting the size and
-// variant every time you use an app shell:
-<Sidebar variant="custom"> ... </Sidebar>
 ```

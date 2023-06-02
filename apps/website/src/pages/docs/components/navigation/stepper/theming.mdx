@@ -15,75 +15,151 @@ applied to each part specifically.
 ### Anatomy
 
 - `container`
-- `inner`
-- `main`
+- `item`
+- `content`
+- `stepper`
+- `step`
+- `title`
+- `description`
+- `indicator`
+- `separator`
+- `icon`
+- `number`
 
 ### Default theme
 
 ```jsx live=false
-import {
-  defineMultiStyleConfig,
-  definePartsStyle,
-} from '../../base/components/stepper'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 
-const variantSolid = definePartsStyle((props) => {
-  const { colorScheme: c } = props
-  return {
-    icon: {
-      bg: `gray.500`,
+const $size = cssVar('stepper-indicator-size')
+const $accentColor = cssVar('stepper-accent-color')
+const $verticalSeperatorOffset = cssVar('stepper-vertical-seperator-offset')
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    // saas ui parts
+    'container',
+    'item',
+    'content',
+    // default parts
+    'stepper',
+    'step',
+    'title',
+    'description',
+    'indicator',
+    'separator',
+    'icon',
+    'number',
+  ])
+
+const baseStyle = definePartsStyle(({ colorScheme: c }) => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
+  },
+  item: {
+    w: 'full',
+  },
+  content: {
+    ['&[data-orientation=vertical]']: {
+      mt: 2,
+      ms: $verticalSeperatorOffset.reference,
+      borderLeftWidth: '1px',
+      ps: 6,
+    },
+  },
+  stepper: {
+    gap: '2',
+    [$verticalSeperatorOffset.variable]: `10px`,
+    [$accentColor.variable]: `colors.${c}.500`,
+    _dark: {
+      [$accentColor.variable]: `colors.${c}.500`,
+    },
+  },
+  separator: {
+    transitionProperty: 'common',
+    transitionDuration: 'normal',
+    ['&[data-orientation=horizontal]']: {
+      height: '1px',
+    },
+    ['&[data-orientation=vertical]']: {
+      width: '1px',
+    },
+    ['.sui-steps__item .chakra-step &[data-orientation=vertical]']: {
+      display: 'none',
+    },
+    ['.sui-steps__item &[data-orientation=vertical]']: {
+      position: 'static',
+      minH: 4,
+      ms: $verticalSeperatorOffset.reference,
+    },
+  },
+  step: {
+    ['&[data-orientation=vertical]']: {
+      alignItems: 'center',
+    },
+  },
+}))
+
+const variantOutline = definePartsStyle((props) => ({}))
+
+const variantSolid = definePartsStyle((props) => ({
+  indicator: {
+    '&[data-status=active]': {
+      borderWidth: '0',
+      bg: $accentColor.reference,
+      color: 'chakra-inverse-text',
+    },
+    '&[data-status=complete]': {
+      bg: $accentColor.reference,
+      color: 'chakra-inverse-text',
+    },
+    '&[data-status=incomplete]': {
+      borderWidth: '0',
+      bg: 'blackAlpha.200',
       _dark: {
-        bg: `gray.600`,
-      },
-      color: 'white',
-      '[data-active] &': {
-        bg: `${c}.500`,
-        _dark: {
-          bg: `${c}.500`,
-        },
-      },
-      '[data-completed] &': {
-        bg: `${c}.500`,
-        _dark: {
-          bg: `${c}.500`,
-        },
+        bg: 'whiteAlpha.200',
       },
     },
-    separator: {
-      '&[data-active]': {
-        borderColor: `${c}.500`,
-      },
-    },
-    step: {
-      '&[data-active]:before, &[data-completed]': {
-        borderColor: `${c}.500`,
-      },
-    },
-  }
-})
+  },
+}))
 
-const variantOutline = definePartsStyle((props) => {
-  const { colorScheme: c } = props
-  const styles = variantSolid(props)
-
+const variantSubtle = definePartsStyle((props) => {
+  const { theme, colorScheme: c } = props
   return {
-    ...styles,
-    icon: {
-      ...styles.icon,
-      '[data-active] &': {
-        ...styles.icon['[data-active] &'],
-        outlineColor: `${c}.500`,
-        outlineWidth: '1px',
-        outlineStyle: 'solid',
-        outlineOffset: '2px',
+    stepper: {
+      [$accentColor.variable]: `colors.${c}.100`,
+    },
+    indicator: {
+      '&[data-status=active]': {
+        borderWidth: '0',
+        bg: $accentColor.reference,
+        color: `${c}.500`,
+        _dark: {
+          bg: transparentize(`${c}.200`, 0.16)(theme),
+        },
+      },
+      '&[data-status=complete]': {
+        bg: $accentColor.reference,
+        color: `${c}.500`,
+        _dark: {
+          bg: transparentize(`${c}.200`, 0.24)(theme),
+          color: `${c}.200`,
+        },
+      },
+      '&[data-status=incomplete]': {
+        borderWidth: '0',
+        bg: 'blackAlpha.200',
+        color: 'blackAlpha.700',
+        _dark: {
+          bg: 'whiteAlpha.200',
+          color: 'whiteAlpha.600',
+        },
       },
     },
   }
 })
-
-const variants = {
-  solid: variantSolid,
-  outline: variantOutline,
-}
 
 export const stepperTheme = defineMultiStyleConfig({
   defaultProps: {
@@ -91,161 +167,37 @@ export const stepperTheme = defineMultiStyleConfig({
     colorScheme: 'primary',
     size: 'md',
   },
-  variants,
-})
-```
-
-### Theming utilities
-
-- `createMultiStyleConfigHelpers`: a function that returns a set of utilities
-  for creating style configs for a multipart component (`definePartsStyle` and
-  `defineMultiStyleConfig`).
-- `definePartsStyle`: a function used to create multipart style objects.
-- `defineMultiStyleConfig`: a function used to define the style configuration
-  for a multipart component.
-
-```jsx live=false
-import { stepperAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(stepperAnatomy.keys)
-```
-
-### Customizing the default theme
-
-```jsx live=false
-import { stepperAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(stepperAnatomy.keys)
-
-const baseStyle = definePartsStyle({
-  // define the part you're going to style
-  container: {
-    bg: 'red.200', // change the backgroundColor of the container
+  baseStyle,
+  variants: {
+    outline: variantOutline,
+    solid: variantSolid,
+    subtle: variantSubtle,
+  },
+  sizes: {
+    xs: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.4',
+        [$verticalSeperatorOffset.variable]: `7px`,
+      },
+    }),
+    sm: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.6',
+        [$verticalSeperatorOffset.variable]: `11px`,
+      },
+    }),
+    md: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.7',
+        [$verticalSeperatorOffset.variable]: `14px`,
+      },
+    }),
+    lg: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.8',
+        [$verticalSeperatorOffset.variable]: `16px`,
+      },
+    }),
   },
 })
-
-export const stepperTheme = defineMultiStyleConfig({ baseStyle })
-```
-
-After customizing the app shell theme, we can import it in our theme file and
-add it in the `components` property:
-
-```jsx live=false
-import { extendTheme } from '@chakra-ui/react'
-import { stepperAnatomy } from './components/stepper'
-
-export const theme = extendTheme({
-  components: { SuiStepper: stepperAnatomy },
-})
-```
-
-> Saas UI components are prefixed with `Sui` to avoid conflicts with Chakra UI.
-> This is a crucial step to make sure that any changes that we make to the
-> app shell theme are applied.
-
-### Adding a custom size
-
-Let's assume we want to include an extra large app shell icon size. Here's how
-we can do that:
-
-```jsx live=false
-import { stepperAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(stepperAnatomy.keys)
-
-const xl = definePartsStyle({
-  container: {
-    height: '1000px'
-  }
-})
-
-const sizes = {
-  xl,
-}
-
-export const app shellTheme = defineMultiStyleConfig({ sizes })
-
-// Now we can use the new `xl` size
-<Stepper size="xl"> ... </Stepper>
-```
-
-Every time you're adding anything new to the theme, you'd need to run the CLI
-command to get proper autocomplete in your IDE. You can learn more about the CLI
-tool [here](/docs/styled-system/cli).
-
-### Adding a custom variant
-
-Let's assume we want to include a custom pill variant. Here's how we can do
-that:
-
-```jsx live=false
-import { stepperAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(stepperAnatomy.keys)
-
-const custom = definePartsStyle({
-  container: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.50',
-    borderRadius: 'full',
-
-    // Let's also provide dark mode alternatives
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.800',
-    },
-  },
-  main: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.200',
-    color: 'gray.500',
-
-    _dark: {
-      borderColor: 'gray.600',
-      background: 'gray.600',
-      color: 'gray.400',
-    },
-  },
-})
-
-export const stepperTheme = defineMultiStyleConfig({
-  variants: { custom },
-})
-
-// Now we can use the new `custom` variant
-<Stepper variant="custom"> ... </Stepper>
-```
-
-### Changing the default properties
-
-Let's assume we want to change the default size and variant of every app shell
-in our app. Here's how we can do that:
-
-```jsx live=false
-import { stepperAnatomy } from '@saas-ui/theme/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
-  stepperAnatomy.keys,
-)
-
-export const stepperTheme = defineMultiStyleConfig({
-  defaultProps: {
-    variant: 'custom',
-  },
-})
-
-// This saves you time, instead of manually setting the size and
-// variant every time you use an app shell:
-<Stepper variant="custom"> ... </Stepper>
 ```

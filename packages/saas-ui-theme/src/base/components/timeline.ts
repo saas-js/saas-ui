@@ -1,8 +1,11 @@
-import { PartsStyleFunction, mode } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 
-const baseStyle: PartsStyleFunction = (props) => {
-  const color = mode('gray.300', 'gray.600')(props)
+import { timelineAnatomy } from '../../anatomy'
 
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(timelineAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
   return {
     container: {},
     item: {
@@ -14,8 +17,11 @@ const baseStyle: PartsStyleFunction = (props) => {
       flexShrink: 0,
     },
     icon: {
-      color,
+      color: 'gray.300',
       py: '7px',
+      _dark: {
+        color: 'gray.600',
+      },
     },
     dot: {
       width: '9px',
@@ -24,24 +30,27 @@ const baseStyle: PartsStyleFunction = (props) => {
       borderRadius: 'full',
     },
     track: {
-      bg: color,
+      bg: 'gray.300',
       width: '1px',
       flex: 1,
+      _dark: {
+        bg: 'gray.600',
+      },
     },
     content: {
       pt: '1px',
       px: '2',
     },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction = () => {
+const variantSolid = definePartsStyle((props) => {
   return {
     icon: {},
   }
-}
+})
 
-const variantOutline: PartsStyleFunction = () => {
+const variantOutline = definePartsStyle((props) => {
   return {
     dot: {
       bg: 'transparent',
@@ -49,9 +58,9 @@ const variantOutline: PartsStyleFunction = () => {
       borderWidth: '2px',
     },
   }
-}
+})
 
-export const timelineStyleConfig = {
+export const timelineTheme = defineMultiStyleConfig({
   defaultProps: { variant: 'solid', size: 'sm' },
   baseStyle,
   variants: {
@@ -66,4 +75,4 @@ export const timelineStyleConfig = {
       },
     },
   },
-}
+})

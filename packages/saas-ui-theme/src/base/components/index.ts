@@ -17,6 +17,7 @@ import { searchInputTheme } from './search-input'
 import { sidebarTheme } from './sidebar'
 import { selectTheme } from './select'
 import { structuredListTheme } from './structured-list'
+import { timelineTheme } from './timeline'
 
 export { dividerTheme as Divider } from './divider'
 export { appShellTheme as SuiAppShell } from './app-shell'
@@ -37,6 +38,7 @@ export { searchInputTheme as SuiSearchInput } from './search-input'
 export { selectTheme as SuiSelect } from './select'
 export { sidebarTheme as SuiSidebar } from './sidebar'
 export { structuredListTheme as SuiStructuredList } from './structured-list'
+export { timelineTheme as SuiTimeline } from './timeline'
 
 export const components = {
   Divider: dividerTheme,
@@ -58,4 +60,5 @@ export const components = {
   SuiSearchInput: searchInputTheme,
   SuiSelect: selectTheme,
   SuiSidebar: sidebarTheme,
+  SuiTimeline: timelineTheme,
 }

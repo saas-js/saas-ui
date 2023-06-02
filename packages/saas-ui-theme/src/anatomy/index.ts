@@ -108,3 +108,13 @@ export const selectAnatomy = anatomy('select').parts(
   'field',
   'element'
 )
+
+export const timelineAnatomy = anatomy('timeline').parts(
+  'container',
+  'item',
+  'separator',
+  'icon',
+  'dot',
+  'track',
+  'content'
+)

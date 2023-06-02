@@ -8,7 +8,6 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
-import { timelineStyleConfig } from './timeline.styles'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiTimeline')
 
@@ -26,10 +25,7 @@ export interface TimelineProps
 export const Timeline: React.FC<TimelineProps> = (props) => {
   const { children, ...rest } = props
 
-  const styles = useMultiStyleConfig('SuiTimeline', {
-    styleConfig: timelineStyleConfig,
-    ...props,
-  })
+  const styles = useMultiStyleConfig('SuiTimeline', props)
 
   const timelineStyles = {
     position: 'relative',

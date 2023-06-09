@@ -17,6 +17,30 @@ Saas UI Pro components have been moved to their own `@saas-ui-pro` organization 
 npm i @saas-ui-pro/react @saas-ui-pro/feature-flags @saas-ui-pro/billing
 ```
 
+### 3. Update .npmrc or .yarnrc.yml
+
+Since the package namespace has been changed to `@saas-ui-pro` you will need to update your `.npmrc` or `.yarnrc.yml` file to include the following:
+
+#### .npmrc
+
+```bash
+@saas-ui-pro:registry=https://npm.saas-ui.dev
+//npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
+//npm.saas-ui.dev/:always-auth=true
+```
+
+#### .yarnrc.yml
+
+```bash
+npmScopes:
+  saas-ui-pro:
+    npmRegistryServer: 'https://npm.saas-ui.dev'
+npmRegistries:
+  //npm.saas-ui.dev:
+    npmAuthIdent: '${SAAS_UI_TOKEN:-}'
+    npmAlwaysAuth: true
+```
+
 ### 4. Deprecated features
 
 #### Timeline

@@ -85,8 +85,27 @@ export const zodFieldResolver = <T extends z.ZodTypeAny>(schema: T) => {
 }
 
 export interface ZodMeta {
+  /**
+   * The label of the field
+   */
   label: string
+  /**
+   * The type of the field
+   */
   type?: string
+  /**
+   * Object field column count
+   */
+  columns?: number
+  /**
+   * Array field min rows
+   */
+  min?: number
+  /**
+   * Array field max rows
+   */
+  max?: number
+  [key: string]: any
 }
 
 export const zodMeta = (meta: ZodMeta) => {

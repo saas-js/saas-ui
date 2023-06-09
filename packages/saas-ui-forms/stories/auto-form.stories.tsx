@@ -181,7 +181,7 @@ export const ZodSchemaNested = () => (
         author: z
           .object({
             name: z.string().describe('Name'),
-            email: z.string().describe('Email'),
+            email: z.string().email().describe('Email'),
           })
           .describe('Author'),
       })}
@@ -193,6 +193,10 @@ export const ZodSchemaNested = () => (
         },
       }}
       fields={{
+        author: {
+          type: 'object',
+          columns: 2,
+        },
         'author.email': {
           type: 'email',
         },

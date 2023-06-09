@@ -4,6 +4,8 @@ import { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { DefaultFields } from './default-fields'
 import { FormProps, FormRenderContext } from './form'
 import { SubmitButtonProps } from './submit-button'
+import { ObjectFieldProps } from './object-field'
+import { ArrayFieldProps } from './array-field'
 
 export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =
@@ -115,20 +117,39 @@ export type DefaultFieldOverrides = {
   [key: string]: any
 }
 
+type MergeOverrideFieldProps<
+  FieldDefs,
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = ValueOf<{
+  [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
+    ? { type?: K } & Omit<
+        ShallowMerge<Props, BaseFieldProps<TFieldValues, TName>>,
+        'name'
+      >
+    : never
+}>
+
 export type FieldOverrides<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
-  [K in FieldPathWithArray<TFieldValues, TName>]?: Omit<
-    MergeFieldProps<
-      FieldDefs extends never
-        ? DefaultFields
-        : ShallowMerge<DefaultFields, FieldDefs>,
-      TFieldValues
-    >,
-    'name'
-  >
+  [K in FieldPathWithArray<TFieldValues, TName>]?:
+    | MergeOverrideFieldProps<
+        FieldDefs extends never
+          ? DefaultFields
+          : ShallowMerge<DefaultFields, FieldDefs>,
+        TFieldValues
+      >
+    | ({ type?: 'object' } & Omit<
+        ObjectFieldProps<TFieldValues>,
+        'name' | 'children'
+      >)
+    | ({ type?: 'array' } & Omit<
+        ArrayFieldProps<TFieldValues>,
+        'name' | 'children'
+      >)
 }
 
 export type WithFields<

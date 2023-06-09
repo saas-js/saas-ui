@@ -67,30 +67,80 @@ const schema = {
       required: true,
     },
   },
-  assignee: {
-    type: 'select',
-    label: 'Assignee',
-    multiple: true,
-    options: [
-      { label: 'George', value: '63647b0b-9beb-41b1-9945-e465727f8e2d' },
-      { label: 'Haley', value: 'e124505a-1f94-4142-b03f-16bfdffa0371' },
-    ],
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+}
+
+export default function Task() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+      }}
+      onSubmit={(params) => alert(params)}
+    />
+  )
+}
+```
+
+### Customize submit button
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
     rules: {
-      required: 'An assignee is required',
+      required: true,
     },
   },
-  todos: {
-    type: 'array',
-    label: 'Todos',
-    min: 1,
-    items: {
-      type: 'object',
-      properties: {
-        todo: {
-          label: 'Todo',
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+}
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+      }}
+      onSubmit={(params) => alert(params)}
+      fields={{
+        submit: {
+          children: 'Save post',
+          variant: 'outline',
+          colorScheme: 'cyan',
         },
-      },
+      }}
+    />
+  )
+}
+```
+
+### Object field
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
     },
+  },
+  body: {
+    label: 'Body',
+    type: 'textarea',
   },
   author: {
     type: 'object',
@@ -99,34 +149,89 @@ const schema = {
       name: {
         label: 'Name',
       },
+      email: {
+        label: 'Email',
+      },
     },
   },
 }
 
-export default function Task() {
+export default function Post() {
   return (
     <Form
-      onSubmit={() => null}
+      schema={schema}
       defaultValues={{
         title: '',
-        todos: [{ todo: '' }],
-        assignees: ['63647b0b-9beb-41b1-9945-e465727f8e2d'],
-        author: {
-          name: 'Elliot',
-        },
+        body: '',
+        'author.name': 'Eelco',
+        'author.email': 'eelco@saas-ui.dev',
       }}
+      onSubmit={(params) => alert(params)}
       fields={{
+        author: {
+          type: 'object',
+          columns: 2,
+        },
         submit: {
-          children: 'Save task',
+          children: 'Save post',
         },
       }}
-      schema={schema}
     />
   )
 }
 ```
 
-## Zod schema
+### Array field
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
+    },
+  },
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+  tags: {
+    type: 'array',
+    label: 'Tags',
+    items: {
+      type: 'object',
+      properties: {
+        tag: {
+          label: 'Tag',
+        },
+      },
+    },
+  },
+}
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+        tags: [{ tag: 'react' }, { tag: 'typescript' }],
+      }}
+      onSubmit={(params) => alert(params)}
+      fields={{
+        submit: {
+          children: 'Save post',
+        },
+      }}
+    />
+  )
+}
+```
+
+### Zod schema
 
 The `describe` function can to supply a label to the field. Zod currently does not support adding meta data to the schema,
 use the `fields` prop to override properties on any of the fields.
@@ -163,7 +268,7 @@ export default function Post() {
 }
 ```
 
-## Yup schema
+### Yup schema
 
 The `label` function can to supply a label to the field. Using the `meta` function you can configure the type of fields.
 
@@ -188,38 +293,6 @@ export default function Post() {
       fields={{
         submit: {
           children: 'Save post',
-        },
-      }}
-    />
-  )
-}
-```
-
-### Customize submit button
-
-```jsx
-import { Form } from '@saas-ui/forms/yup'
-import * as yup from 'yup'
-
-const schema = yup.object().shape({
-  title: yup.string().required().label('Title'),
-  description: yup.string().label('Description').meta({ type: 'textarea' }),
-})
-
-export default function Post() {
-  return (
-    <Form
-      schema={schema}
-      defaultValues={{
-        title: '',
-        description: '',
-      }}
-      onSubmit={(params) => alert(params)}
-      fields={{
-        submit: {
-          children: 'Save post',
-          variant: 'outline',
-          colorScheme: 'cyan',
         },
       }}
     />

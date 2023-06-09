@@ -32,6 +32,8 @@ import {
 } from './select'
 
 import { createField } from './create-field'
+import { ObjectField } from './object-field'
+import { ArrayField } from './array-field'
 
 export interface InputFieldProps extends InputProps {
   type?: string

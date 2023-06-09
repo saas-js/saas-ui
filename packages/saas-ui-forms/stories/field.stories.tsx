@@ -59,7 +59,7 @@ export const Basic = () => (
     {({ Field }) => (
       <FormLayout>
         <Field name="text" label="Text" type="text" />
-        <Field name="number" label="Number" type="number" min={1} max={10} />
+        <Field name="number" label="Number" type="text" min={1} max={10} />
         <Field name="textarea" label="Textarea" type="textarea" />
         <Field name="switch" label="Switch" type="switch" />
         <Field
@@ -457,13 +457,7 @@ const addonSchema = helpSchema.concat(
 
 export const WithAddons = () => {
   return (
-    <YupForm
-      defaultValues={{
-        email: '',
-      }}
-      schema={addonSchema}
-      onSubmit={onSubmit}
-    >
+    <YupForm schema={addonSchema} onSubmit={onSubmit}>
       {({ Field }) => (
         <FormLayout>
           <Field

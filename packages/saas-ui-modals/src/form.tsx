@@ -21,9 +21,6 @@ import {
   DefaultFieldOverrides,
 } from '@saas-ui/forms'
 
-import { YupFormType } from '@saas-ui/forms/yup'
-import { ZodFormType } from '@saas-ui/forms/zod'
-
 import { BaseModal, BaseModalProps } from './modal'
 
 export type FormDialogFieldOverrides = DefaultFieldOverrides & {
@@ -118,29 +115,11 @@ const useFormProps = (props: FormDialogProps) => {
 /**
  * @todo make this dynamic to support other schema types
  */
-type MergeDialogProps<T> = T extends YupFormType<
+type MergeDialogProps<T> = T extends FormType<
   infer FieldDefs,
   infer ExtraProps,
-  infer ExtraOverrides,
-  'yup'
+  infer ExtraOverrides
 >
-  ? YupFormType<
-      FieldDefs,
-      ExtraProps & Omit<BaseModalProps, 'children'>,
-      ExtraOverrides & FormDialogFieldOverrides
-    >
-  : T extends ZodFormType<
-      infer FieldDefs,
-      infer ExtraProps,
-      infer ExtraOverrides,
-      'zod'
-    >
-  ? ZodFormType<
-      FieldDefs,
-      ExtraProps & Omit<BaseModalProps, 'children'>,
-      ExtraOverrides & FormDialogFieldOverrides
-    >
-  : T extends FormType<infer FieldDefs, infer ExtraProps, infer ExtraOverrides>
   ? FormType<
       FieldDefs,
       ExtraProps & Omit<BaseModalProps, 'children'>,

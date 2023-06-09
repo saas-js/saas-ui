@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.0.0-rc.27
+
+### Patch Changes
+
+- d6e9a39d: Form fields overries types now support array and object type props
+- Updated dependencies [b895e5bd]
+  - @saas-ui/core@2.0.0-rc.24
+
 ## 2.0.0-rc.26
 
 ### Patch Changes

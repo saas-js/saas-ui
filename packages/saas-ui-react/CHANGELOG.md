@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 2.0.0-rc.29
+
+### Patch Changes
+
+- d6e9a39d: Form fields overries types now support array and object type props
+- b895e5bd: Add Timeline theme to theme package.
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [943f6287]
+  - @saas-ui/forms@2.0.0-rc.27
+  - @saas-ui/theme@2.0.0-rc.15
+  - @saas-ui/core@2.0.0-rc.24
+  - @saas-ui/auth@2.0.0-rc.28
+  - @saas-ui/modals@2.0.0-rc.27
+  - @saas-ui/data-table@2.0.0-rc.29
+  - @saas-ui/hotkeys@2.0.0-rc.25
+
 ## 2.0.0-rc.28
 
 ### Minor Changes

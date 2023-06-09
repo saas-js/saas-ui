@@ -130,17 +130,22 @@ When you don't pass any children and supply a schema, the fields will be auto re
 
 ```jsx
 import { Button, useDisclosure } from '@chakra-ui/react'
-import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FormLayout, FormDialog } from '@saas-ui/react'
 import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
-import { Form } from '@saas-ui/forms/yup'
-import * as yup from 'yup'
 
-const YupFormDialog = createFormDialog(Form)
-
-const schema = yup.object().shape({
-  title: yup.string().required().label('Title'),
-  description: yup.string().label('Description').meta({ type: 'textarea' }),
-})
+const schema = {
+  title: {
+    type: 'text',
+    label: 'Title',
+    rules: {
+      required: 'Title is required',
+    },
+  },
+  description: {
+    type: 'textarea',
+    label: 'Description',
+  },
+}
 
 export default function Page() {
   const disclosure = useDisclosure()
@@ -153,7 +158,7 @@ export default function Page() {
     <>
       <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
 
-      <YupFormDialog
+      <FormDialog
         title="New post"
         schema={schema}
         {...disclosure}
@@ -219,6 +224,100 @@ export default function Page() {
           </FormLayout>
         )}
       </FormDialog>
+    </>
+  )
+}
+```
+
+### ZodFormDialog
+
+To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod`.
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+import { FormDialog } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+
+const schema = z.object({
+  title: z.string().describe('Title'),
+  description: z.string().optional().describe('Description'),
+})
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        schema={schema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        fields={{
+          description: {
+            type: 'textarea',
+          },
+        }}
+        onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+```
+
+### YupFormDialog
+
+To use Yup schemas, you can import `FormDialog` from `@saas-ui/forms/yup`.
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+import { FormDialog } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  description: yup.string().label('Description').meta({ type: 'textarea' }),
+})
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        schema={schema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        fields={{
+          description: {
+            type: 'textarea',
+          },
+        }}
+        onSubmit={onSubmit}
+      />
     </>
   )
 }

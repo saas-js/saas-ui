@@ -8,8 +8,17 @@ import {
 } from '@chakra-ui/react'
 
 import { Form, FormLayout, SubmitButton, createField } from '@saas-ui/forms'
-import { createZodForm, Form as InteralZodForm } from '@saas-ui/forms/zod'
-import { createYupForm } from '@saas-ui/forms/yup'
+import {
+  createZodForm,
+  createZodFormDialog,
+  Form as DefaultZodForm,
+  FormDialog as DefaultZodFormDialog,
+} from '@saas-ui/forms/zod'
+import {
+  createYupForm,
+  createYupFormDialog,
+  FormDialog as DefaultYupFormDialog,
+} from '@saas-ui/forms/yup'
 
 import { FormDialog, createFormDialog } from '../src/form'
 
@@ -26,7 +35,7 @@ const ZodForm = createZodForm({
   },
 })
 
-const ZodFormDialog = createFormDialog(ZodForm)
+const ZodFormDialog = createZodFormDialog(ZodForm)
 
 const YupForm = createYupForm({
   fields: {
@@ -34,7 +43,7 @@ const YupForm = createYupForm({
   },
 })
 
-const YupFormDialog = createFormDialog(YupForm)
+const YupFormDialog = createYupFormDialog(YupForm)
 
 export default {
   title: 'Components/Overlay/FormDialog',

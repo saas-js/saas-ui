@@ -1,5 +1,15 @@
 # @saas-ui/auth
 
+## 2.0.0-rc.28
+
+### Patch Changes
+
+- 943f6287: Fix Auth component footer
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [b895e5bd]
+  - @saas-ui/forms@2.0.0-rc.27
+  - @saas-ui/core@2.0.0-rc.24
+
 ## 2.0.0-rc.27
 
 ### Patch Changes

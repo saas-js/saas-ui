@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- b895e5bd: Add Timeline theme to theme package.
+- Updated dependencies [b895e5bd]
+  - @saas-ui/theme@2.0.0-rc.15
+
 ## 2.0.0-rc.23
 
 ### Minor Changes

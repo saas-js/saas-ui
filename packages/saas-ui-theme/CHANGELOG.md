@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-rc.15
+
+### Patch Changes
+
+- b895e5bd: Add Timeline theme to theme package.
+
 ## 2.0.0-rc.14
 
 ### Patch Changes

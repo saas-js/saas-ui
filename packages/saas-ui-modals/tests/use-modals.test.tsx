@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, waitFor, userEvent } from '@saas-ui/test-utils'
+import { render, waitFor } from '@saas-ui/test-utils'
 
 import { useModals, ModalsProvider, MenuDialogList } from '../src'
 import { MenuItem } from '@chakra-ui/react'

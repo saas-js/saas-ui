@@ -1,5 +1,13 @@
 # @saas-ui/test-utils
 
+## 3.0.0-rc.29
+
+### Patch Changes
+
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [b895e5bd]
+  - @saas-ui/react@2.0.0-rc.29
+
 ## 3.0.0-rc.28
 
 ### Patch Changes

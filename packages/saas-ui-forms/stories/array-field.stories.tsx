@@ -49,9 +49,9 @@ const arraySchema = Yup.object().shape({
   arrayField: Yup.array().min(2).max(4).of(subSchema).label('Array field'),
 })
 
-export const AutoArrayField = () => {
-  return (
-    <>
+export const AutoArrayField = {
+  render() {
+    return (
       <Form
         defaultValues={{
           arrayField: [
@@ -81,8 +81,8 @@ export const AutoArrayField = () => {
         }}
         onSubmit={onSubmit}
       />
-    </>
-  )
+    )
+  },
 }
 
 export const BasicArrayField = () => {
@@ -163,6 +163,7 @@ export const YupArrayField = () => (
         arrayField: [
           {
             title: 'Test',
+            description: '',
           },
         ],
       }}
@@ -283,46 +284,48 @@ export const CustomArrayField = () => (
   </>
 )
 
-export const MinMaxNoSchema = () => (
-  <>
-    <Form
-      defaultValues={{
-        arrayField: [
-          {
-            title: 'Test',
-            description: '',
-          },
-        ],
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, ArrayField }) => (
-        <FormLayout>
-          <ArrayField
-            name="arrayField"
-            label="Array field"
-            defaultValue={{}}
-            min={1}
-            max={3}
-          >
-            <Field
-              name="arrayField.$.title"
-              label="Title"
-              rules={{ required: true }}
-            />
-            <Field
-              name="arrayField.$.description"
-              label="Description"
-              type="textarea"
-            />
-          </ArrayField>
+export const MinMaxNoSchema = {
+  render() {
+    return (
+      <Form
+        defaultValues={{
+          arrayField: [
+            {
+              title: 'Test',
+              description: '',
+            },
+          ],
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field, ArrayField }) => (
+          <FormLayout>
+            <ArrayField
+              name="arrayField"
+              label="Array field"
+              defaultValue={{}}
+              min={1}
+              max={3}
+            >
+              <Field
+                name="arrayField.$.title"
+                label="Title"
+                rules={{ required: true }}
+              />
+              <Field
+                name="arrayField.$.description"
+                label="Description"
+                type="textarea"
+              />
+            </ArrayField>
 
-          <SubmitButton>Submit</SubmitButton>
-        </FormLayout>
-      )}
-    </Form>
-  </>
-)
+            <SubmitButton>Submit</SubmitButton>
+          </FormLayout>
+        )}
+      </Form>
+    )
+  },
+}
 
 const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
   const formState = useFormContext()

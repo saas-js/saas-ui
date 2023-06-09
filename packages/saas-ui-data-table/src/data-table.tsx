@@ -222,7 +222,7 @@ export const DataTableHeader = <Data extends object, TValue>(
 
   let headerProps = {}
 
-  const enabled = header.column.getCanSort() ? false : isSortable
+  const enabled = !header.column.getCanSort() ? false : isSortable
 
   if (enabled) {
     headerProps = {

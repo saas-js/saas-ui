@@ -84,12 +84,12 @@ export const Auth: React.FC<AuthProps> = (props) => {
   const {
     view = VIEWS.LOGIN,
     providers,
-    signupLink,
-    loginLink,
-    forgotLink,
-    backLink,
-    noAccount,
-    haveAccount,
+    signupLink = 'Sign up',
+    loginLink = 'Log in',
+    forgotLink = 'Forgot password?',
+    backLink = 'Back to log in',
+    noAccount = 'No account yet?',
+    haveAccount = 'Already have an account?',
     onError,
     ...rest
   } = props
@@ -201,15 +201,6 @@ const AuthLink = ({ label, link, onClick }: AuthLinkProps) => {
       {typeof link === 'string' ? <Link onClick={onClick}>{link}</Link> : link}
     </chakra.div>
   )
-}
-
-Auth.defaultProps = {
-  noAccount: 'No account yet?',
-  haveAccount: 'Already have an account?',
-  signupLink: 'Sign up',
-  loginLink: 'Log in',
-  forgotLink: 'Forgot password?',
-  backLink: 'Back to log in',
 }
 
 Auth.displayName = 'Auth'

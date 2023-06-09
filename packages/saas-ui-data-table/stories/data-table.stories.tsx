@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Container, Stack, Button } from '@chakra-ui/react'
 
@@ -21,7 +21,7 @@ export default {
   ],
 } as Meta
 
-const Template: Story<DataTableProps<ExampleData>> = ({
+const Template: StoryFn<DataTableProps<ExampleData>> = ({
   data,
   columns,
   initialState,
@@ -69,63 +69,70 @@ const initialState = {
   columnVisibility: { phone: false },
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  columns,
-  data,
-  initialState,
-}
-
-export const Sortable = Template.bind({})
-Sortable.args = {
-  columns,
-  data,
-  initialState,
-  isSortable: true,
-}
-
-export const Selectable = Template.bind({})
-Selectable.args = {
-  columns,
-  data,
-  initialState,
-  isSelectable: true,
-}
-
-export const InitialSelected = Template.bind({})
-InitialSelected.args = {
-  columns,
-  data,
-  initialState: {
-    ...initialState,
-    rowSelection: { 1: true },
+export const Default = {
+  args: {
+    columns,
+    data,
+    initialState,
   },
-  isSelectable: true,
 }
 
-export const SelectedChange = Template.bind({})
-SelectedChange.args = {
-  columns,
-  data,
-  initialState,
-  isSelectable: true,
-  onSelectedRowsChange: (rows) => console.log(rows),
+export const Sortable = {
+  args: {
+    columns,
+    data,
+    initialState,
+    isSortable: true,
+  },
 }
 
-export const SelectableAndSortable = Template.bind({})
-SelectableAndSortable.args = {
-  columns,
-  data,
-  initialState,
-  isSortable: true,
-  isSelectable: true,
+export const Selectable = {
+  args: {
+    columns,
+    data,
+    initialState,
+    isSelectable: true,
+  },
 }
 
-export const Numeric = Template.bind({})
-Numeric.args = {
-  columns,
-  data,
-  initialState,
+export const InitialSelected = {
+  args: {
+    columns,
+    data,
+    initialState: {
+      ...initialState,
+      rowSelection: { 1: true },
+    },
+    isSelectable: true,
+  },
+}
+
+export const SelectedChange = {
+  args: {
+    columns,
+    data,
+    initialState,
+    isSelectable: true,
+    onSelectedRowsChange: (rows: any) => console.log(rows),
+  },
+}
+
+export const SelectableAndSortable = {
+  args: {
+    columns,
+    data,
+    initialState,
+    isSortable: true,
+    isSelectable: true,
+  },
+}
+
+export const Numeric = {
+  args: {
+    columns,
+    data,
+    initialState,
+  },
 }
 
 const withLinks = (columns.concat() as any).map((column: any) => {
@@ -142,30 +149,33 @@ const withLinks = (columns.concat() as any).map((column: any) => {
   return column
 })
 
-export const WithLink = Template.bind({})
-WithLink.args = {
-  columns: withLinks,
-  data,
-  initialState,
+export const WithLink = {
+  args: {
+    columns: withLinks,
+    data,
+    initialState,
+  },
 }
 
-export const TableInstanceRef = () => {
-  const ref = React.useRef<TableInstance<ExampleData>>(null)
+export const TableInstanceRef = {
+  render: () => {
+    const ref = React.useRef<TableInstance<ExampleData>>(null)
 
-  return (
-    <>
-      <Stack direction="row" mb="8">
-        <Button onClick={() => ref.current?.toggleAllRowsSelected()}>
-          Toggle select all
-        </Button>
-      </Stack>
-      <DataTable<ExampleData>
-        instanceRef={ref}
-        columns={columns}
-        data={data}
-        isSelectable
-        isSortable
-      />
-    </>
-  )
+    return (
+      <>
+        <Stack direction="row" mb="8">
+          <Button onClick={() => ref.current?.toggleAllRowsSelected()}>
+            Toggle select all
+          </Button>
+        </Stack>
+        <DataTable<ExampleData>
+          instanceRef={ref}
+          columns={columns}
+          data={data}
+          isSelectable
+          isSortable
+        />
+      </>
+    )
+  },
 }

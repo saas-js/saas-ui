@@ -32,6 +32,7 @@ import { JSONSchemaType } from 'ajv'
 
 export default {
   title: 'Components/Forms/Form',
+  component: Form,
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -50,54 +51,61 @@ const loginSchema = yup.object({
     .meta({ type: 'password' }),
 })
 
-export const Basic = () => (
-  <Form
-    defaultValues={{
-      title: 'Form',
-      description: 'A basic layout',
-    }}
-    onSubmit={onSubmit}
-  >
-    {({ Field }) => (
-      <FormLayout>
-        <Field name="title" label="Title" />
-        <Field name="description" label="Description" />
+export const Basic = {
+  render(args: FormProps) {
+    return (
+      <Form
+        defaultValues={{
+          title: 'Form',
+          description: 'A basic layout',
+        }}
+        {...args}
+        onSubmit={args?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" />
 
-        <SubmitButton />
-      </FormLayout>
-    )}
-  </Form>
-)
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </Form>
+    )
+  },
+}
 
-export const WithValidationRules = (props: FormProps) => (
-  <>
-    <Form
-      defaultValues={{
-        title: '',
-        description: '',
-      }}
-      {...props}
-      onSubmit={onSubmit}
-    >
-      {({ Field }) => (
-        <FormLayout>
-          <Field
-            name="title"
-            label="Title"
-            rules={{ required: 'Title is required' }}
-          />
-          <Field
-            name="description"
-            label="Description"
-            rules={{ required: 'Description is required' }}
-          />
+export const WithValidationRules = {
+  render(props: FormProps) {
+    return (
+      <Form
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        {...props}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+            />
+            <Field
+              name="description"
+              label="Description"
+              rules={{ required: 'Description is required' }}
+            />
 
-          <SubmitButton />
-        </FormLayout>
-      )}
-    </Form>
-  </>
-)
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </Form>
+    )
+  },
+}
 
 const CustomField = createField((props: { customFieldProps: string }) => (
   <div>custom</div>
@@ -135,22 +143,28 @@ const zodSchema = z.object({
   age: z.number(),
 })
 
-export const WithZodForm = () => (
-  <ZodForm
-    schema={zodSchema}
-    defaultValues={{
-      firstName: '',
-    }}
-    onSubmit={onSubmit}
-  >
-    {({ Field }) => (
-      <FormLayout>
-        <Field name="firstName" label="Name" />
-        <Field name="age" label="Age" type="number" />
-      </FormLayout>
-    )}
-  </ZodForm>
-)
+export const WithZodSchema = {
+  render(props: React.ComponentProps<typeof ZodForm>) {
+    return (
+      <ZodForm
+        schema={zodSchema}
+        defaultValues={{
+          firstName: '',
+        }}
+        {...props}
+        onSubmit={props?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="firstName" label="Name" />
+            <Field name="age" label="Age" type="number" />
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </ZodForm>
+    )
+  },
+}
 
 const YupForm = createYupForm()
 
@@ -169,25 +183,30 @@ const yupSchema = yup.object({
     .label('Description'),
 })
 
-export const WithYupSchema = () => (
-  <YupForm
-    defaultValues={{
-      name: '',
-      description: '',
-    }}
-    onSubmit={onSubmit}
-    schema={yupSchema}
-  >
-    {({ Field }) => (
-      <FormLayout>
-        <Field name="name" label="Title" />
-        <Field name="description" label="Description" />
+export const WithYupSchema = {
+  render(props: React.ComponentProps<typeof YupForm>) {
+    return (
+      <YupForm
+        schema={yupSchema}
+        defaultValues={{
+          name: '',
+          description: '',
+        }}
+        {...props}
+        onSubmit={props?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="name" label="Title" />
+            <Field name="description" label="Description" />
 
-        <SubmitButton />
-      </FormLayout>
-    )}
-  </YupForm>
-)
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </YupForm>
+    )
+  },
+}
 
 const AjvForm = createAjvForm()
 

@@ -10,6 +10,7 @@ import {
   RouterContextValue,
   useRouterContext,
 } from './router-provider'
+import { vi } from 'vitest'
 
 const renderRouter = (router: RouterContextValue, ui: React.ReactNode) => {
   return render(<RouterProvider value={router}>{ui}</RouterProvider>)
@@ -17,8 +18,8 @@ const renderRouter = (router: RouterContextValue, ui: React.ReactNode) => {
 
 test('it should navigate', () => {
   const router = {
-    navigate: jest.fn(),
-    back: jest.fn(),
+    navigate: vi.fn(),
+    back: vi.fn(),
     params: {},
     location: {
       pathname: '/test',
@@ -46,8 +47,8 @@ test('it should navigate', () => {
 
 test('it should go back', () => {
   const router = {
-    navigate: jest.fn(),
-    back: jest.fn(),
+    navigate: vi.fn(),
+    back: vi.fn(),
     params: {},
     location: {
       pathname: '/test',
@@ -75,8 +76,8 @@ test('it should go back', () => {
 
 test('it should return correct location', () => {
   const router = {
-    navigate: jest.fn(),
-    back: jest.fn(),
+    navigate: vi.fn(),
+    back: vi.fn(),
     params: {},
     location: {
       pathname: '/test',
@@ -98,8 +99,8 @@ test('it should return correct location', () => {
 
 test('it should return params', () => {
   const router = {
-    navigate: jest.fn(),
-    back: jest.fn(),
+    navigate: vi.fn(),
+    back: vi.fn(),
     params: {
       id: 'test',
     },
@@ -123,8 +124,8 @@ test('it should return params', () => {
 
 test('it should render active path', () => {
   const router = {
-    navigate: jest.fn(),
-    back: jest.fn(),
+    navigate: vi.fn(),
+    back: vi.fn(),
     params: {},
     location: {
       pathname: '/test',

@@ -1,20 +1,13 @@
-import { Container, Stack, Text, useTheme } from '@chakra-ui/react'
+import { Container, Text } from '@chakra-ui/react'
 import * as React from 'react'
-
-import { StoryFn } from '@storybook/react'
 
 import {
   AuthProvider,
   Auth,
   AvailableProviders,
-  OtpForm,
   User,
   AuthParams,
-  ForgotPasswordView,
-  UpdatePasswordView,
   AuthProviderProps,
-  AuthProps,
-  useAuth,
 } from '../src'
 
 import { Field } from '@saas-ui/forms'
@@ -61,6 +54,7 @@ const authProvider: AuthProviderProps<any> = {
 
 export default {
   title: 'Components/Auth/Auth',
+  component: Auth,
   decorators: [
     (StoryFn: any) => (
       <AuthProvider {...authProvider}>
@@ -83,65 +77,84 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-const Template: StoryFn<AuthProps> = (args) => <Auth {...args} />
+export const Basic = {}
 
-export const Basic = Template.bind({})
-
-export const Providers = Template.bind({})
-Providers.args = {
-  providers: availableProviders,
+export const Providers = {
+  args: {
+    providers: availableProviders,
+  },
 }
 
-export const ButtonColor = () => {
-  const theme = useTheme()
-
-  theme.components.LoginButton = {
-    defaultProps: {
-      variant: 'solid',
-      colorScheme: 'cyan',
+export const ButtonColor = {
+  args: {
+    providers: availableProviders,
+    fields: {
+      submit: {
+        variant: 'solid',
+        colorScheme: 'cyan',
+      },
     },
-  }
-
-  return (
-    <Stack width="md">
-      <Auth providers={availableProviders} />
-    </Stack>
-  )
+  },
 }
 
-export const Password = Template.bind({})
-Password.args = {
-  type: 'password',
+export const Password = {
+  args: {
+    type: 'password',
+    fields: {
+      email: {
+        rules: {
+          required: 'Email is a required field',
+        },
+      },
+      password: {
+        rules: {
+          required: 'Password is a required field',
+          minLength: {
+            value: 4,
+            message: 'Password must be at least 4 characters',
+          },
+        },
+      },
+    },
+  },
 }
 
-export const Otp = Template.bind({})
-Otp.args = {
-  view: 'otp',
+export const Otp = {
+  args: {
+    view: 'otp',
+  },
 }
 
-export const Signup = Template.bind({})
-Signup.args = {
-  type: 'password',
-  view: 'signup',
+export const Signup = {
+  args: {
+    type: 'password',
+    view: 'signup',
+  },
 }
 
-export const SignupWithCustomFields = () => (
-  <Auth providers={availableProviders} type="password" view="signup">
-    <Field name="company" label="Company" rules={{ required: true }} />
-    <Text fontSize="md" color="muted">
-      By signing up your agree to our terms and conditions.
-    </Text>
-  </Auth>
-)
-
-export const ForgotPassword = Template.bind({})
-ForgotPassword.args = {
-  view: 'forgot_password',
+export const SignupWithCustomFields = {
+  render() {
+    return (
+      <Auth providers={availableProviders} type="password" view="signup">
+        <Field name="company" label="Company" rules={{ required: true }} />
+        <Text fontSize="md" color="muted">
+          By signing up your agree to our terms and conditions.
+        </Text>
+      </Auth>
+    )
+  },
 }
 
-export const UpdatePassword = Template.bind({})
-UpdatePassword.args = {
-  view: 'update_password',
+export const ForgotPassword = {
+  args: {
+    view: 'forgot_password',
+  },
+}
+
+export const UpdatePassword = {
+  args: {
+    view: 'update_password',
+  },
 }
 
 export const ErrorHandler = {

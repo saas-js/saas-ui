@@ -2,12 +2,13 @@ import * as React from 'react'
 
 import { render, testStories } from '@saas-ui/test-utils'
 import * as stories from '../stories/form.stories'
+import { vi } from 'vitest'
 
-const { WithValidationRules, WithYupSchema } =
-  testStories<typeof stories>(stories)
+const { WithValidationRules, WithZodSchema, WithYupSchema } =
+  testStories(stories)
 
 test('should validate', async () => {
-  const onSubmit = jest.fn()
+  const onSubmit = vi.fn()
   const { getByText, user } = render(
     <WithValidationRules onSubmit={onSubmit} />
   )
@@ -22,8 +23,23 @@ test('should validate', async () => {
   expect(getByText('Description is required')).toBeInTheDocument()
 })
 
-test('should validate with schema', async () => {
-  const onSubmit = jest.fn()
+test('should validate with zod schema', async () => {
+  const onSubmit = vi.fn()
+  const { getByText, getAllByText, user } = render(
+    <WithZodSchema onSubmit={onSubmit} />
+  )
+
+  const submit = getByText('Submit')
+
+  await user.click(submit)
+
+  expect(onSubmit).not.toBeCalled()
+
+  expect(getAllByText('Required')).toHaveLength(1)
+})
+
+test('should validate with yup schema', async () => {
+  const onSubmit = vi.fn()
   const { getByText, getAllByText, user } = render(
     <WithYupSchema onSubmit={onSubmit} />
   )

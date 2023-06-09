@@ -10,7 +10,7 @@ export const LoginButton: React.FC<SubmitButtonProps> = (props) => {
   const defaultProps = {
     p: 6,
     colorScheme: 'gray',
-    ...theme.components.LoginButton?.defaultProps,
+    ...theme.components?.LoginButton?.defaultProps,
   }
 
   return (

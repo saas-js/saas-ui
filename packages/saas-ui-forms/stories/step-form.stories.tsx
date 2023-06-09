@@ -42,6 +42,7 @@ import { StepForm as ZodStepForm } from '@saas-ui/forms/zod'
 
 export default {
   title: 'Components/Forms/StepForm',
+  component: StepForm,
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -77,41 +78,44 @@ const zodSchemas = {
   }),
 }
 
-export const Basic = () => (
-  <>
-    <StepForm
-      defaultValues={{
-        name: '',
-        email: '',
-        password: '',
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, FormStep }) => (
-        <FormLayout>
-          <FormStep name="profile">
-            <FormLayout>
-              <Field name="name" label="Name" rules={{ required: true }} />
-              <Field name="email" label="Email" rules={{ required: true }} />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="password">
-            <FormLayout>
-              <Field
-                name="password"
-                label="Password"
-                type="password"
-                rules={{ required: true, minLength: 4 }}
-              />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-        </FormLayout>
-      )}
-    </StepForm>
-  </>
-)
+export const Basic = {
+  render(args: StepFormProps) {
+    return (
+      <StepForm
+        defaultValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        {...args}
+        onSubmit={args?.onSubmit || onSubmit}
+      >
+        {({ Field, FormStep }) => (
+          <FormLayout>
+            <FormStep name="profile">
+              <FormLayout>
+                <Field name="name" label="Name" rules={{ required: true }} />
+                <Field name="email" label="Email" rules={{ required: true }} />
+                <NextButton />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="password">
+              <FormLayout>
+                <Field
+                  name="password"
+                  label="Password"
+                  type="password"
+                  rules={{ required: true, minLength: 4 }}
+                />
+                <NextButton />
+              </FormLayout>
+            </FormStep>
+          </FormLayout>
+        )}
+      </StepForm>
+    )
+  },
+}
 
 export const Vertical = () => (
   <>

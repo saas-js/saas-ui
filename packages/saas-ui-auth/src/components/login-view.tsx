@@ -55,6 +55,8 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     providers,
     providerLabel,
     dividerLabel,
+    footer,
+    oauthRedirectUrl,
     ...formProps
   } = props
   const [{ isResolved, data }, submit] = useLogin({ action })
@@ -70,10 +72,12 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
   }
 
   const wrapperProps = {
-    title,
     providers,
+    title,
     providerLabel,
     dividerLabel,
+    footer,
+    oauthRedirectUrl,
   }
 
   return (
@@ -108,6 +112,8 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     providers,
     providerLabel,
     dividerLabel,
+    footer,
+    oauthRedirectUrl,
     ...formProps
   } = props
 
@@ -120,10 +126,12 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
   }
 
   const wrapperProps = {
-    title,
     providers,
+    title,
     providerLabel,
     dividerLabel,
+    footer,
+    oauthRedirectUrl,
   }
 
   return (

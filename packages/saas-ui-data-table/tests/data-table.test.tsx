@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { render, testStories } from '@saas-ui/test-utils'
 import * as stories from '../stories/data-table.stories'
+import { vi } from 'vitest'
 
 const { TableInstanceRef, ...rest } = stories
 
@@ -31,7 +32,7 @@ test('should sort', async () => {
 })
 
 test('onSort should trigger', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const { getByText, user } = render(<Sortable onSortChange={onChange} />)
 
   const name = getByText('Username')
@@ -65,7 +66,7 @@ test('should select initial', async () => {
 })
 
 test('onSelectedRowsChange should trigger', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const { getByLabelText, user } = render(
     <Selectable onSelectedRowsChange={onChange} />
   )

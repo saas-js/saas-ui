@@ -9,7 +9,7 @@ export const ProviderButton: React.FC<ButtonProps> = (props) => {
   const defaultProps = {
     p: 6,
     variant: 'outline',
-    ...theme.components.ProviderButton?.defaultProps,
+    ...theme.components?.ProviderButton?.defaultProps,
   }
 
   return (

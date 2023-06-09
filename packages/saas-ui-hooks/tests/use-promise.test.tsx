@@ -1,8 +1,9 @@
 import { hooks } from '@saas-ui/test-utils'
 
 import { usePromise } from '../src'
+import { vi } from 'vitest'
 
-const TestFn = (shouldReject: boolean) => {
+const TestFn = (shouldReject?: boolean) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => (shouldReject ? reject() : resolve(true)))
   })
@@ -64,7 +65,7 @@ describe('usePromise', () => {
   test('it should trigger onSuccess', async () => {
     const { result } = hooks.render(() => usePromise(TestFn))
 
-    const onSuccess = jest.fn((result) => expect(result).toBeTruthy())
+    const onSuccess = vi.fn((result) => expect(result).toBeTruthy())
 
     await hooks.act(() => result.current[1]().then(onSuccess))
 
@@ -74,7 +75,7 @@ describe('usePromise', () => {
   test('it should trigger onError', async () => {
     const { result } = hooks.render(() => usePromise(TestFn))
 
-    const onError = jest.fn(() => null)
+    const onError = vi.fn(() => null)
 
     await hooks.act(() => result.current[1](true).catch(onError))
 

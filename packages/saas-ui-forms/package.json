@@ -105,7 +105,7 @@
     "@chakra-ui/utils": "^2.0.15",
     "@hookform/resolvers": "^3.1.0",
     "@saas-ui/core": "workspace:*",
-    "react-hook-form": "^7.43.9"
+    "react-hook-form": "^7.44.3"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",
@@ -121,7 +121,7 @@
     "ajv-errors": "^3.0.0",
     "json-schema-to-ts": "^2.8.2",
     "tsd": "^0.28.1",
-    "yup": "^1.1.1",
+    "yup": "^1.2.0",
     "zod": "^3.21.4"
   },
   "tsd": {

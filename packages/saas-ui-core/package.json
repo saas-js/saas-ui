@@ -83,9 +83,9 @@
   },
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/styled-system": "^2.9.0",
-    "@chakra-ui/system": "^2.5.7",
-    "@chakra-ui/theme-tools": "^2.0.17",
+    "@chakra-ui/styled-system": "^2.9.1",
+    "@chakra-ui/system": "^2.5.8",
+    "@chakra-ui/theme-tools": "^2.0.18",
     "@chakra-ui/utils": "^2.0.15",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*"

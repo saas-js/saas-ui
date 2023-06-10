@@ -71,6 +71,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.22.0"
+    "@supabase/supabase-js": "^2.24.0"
   }
 }

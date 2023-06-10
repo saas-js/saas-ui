@@ -58,8 +58,8 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/styled-system": "^2.9.0",
-    "@chakra-ui/theme-tools": "^2.0.17",
+    "@chakra-ui/styled-system": "^2.9.1",
+    "@chakra-ui/theme-tools": "^2.0.18",
     "@chakra-ui/utils": "^2.0.15",
     "@internationalized/date": "^3.2.0",
     "@react-aria/calendar": "^3.2.0",

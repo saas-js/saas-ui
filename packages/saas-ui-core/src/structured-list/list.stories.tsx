@@ -20,6 +20,7 @@ import {
   Checkbox,
   Radio,
   RadioGroup,
+  Collapse,
 } from '@chakra-ui/react'
 
 import { transparentize } from '@chakra-ui/theme-tools'
@@ -44,7 +45,7 @@ import {
   StructuredListIcon,
 } from './'
 
-import { Collapse, useCollapse } from '../collapse'
+import { useCollapse } from '../collapse'
 
 export default {
   title: 'Components/Data display/StructuredList',

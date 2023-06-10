@@ -57,7 +57,7 @@ const motionPresets = {
 export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const styles = useMultiStyleConfig('SuiSidebar', props)
   const theme = useTheme()
-  const defaultProps = theme.components['Sidebar']?.defaultProps
+  const defaultProps = theme.components['SuiSidebar']?.defaultProps
 
   const variant = useResponsiveValue(props.variant ?? defaultProps?.variant, {
     fallback: 'base',

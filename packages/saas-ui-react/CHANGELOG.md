@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.0.0-rc.33
+
+### Patch Changes
+
+- Updated dependencies [e9258592]
+  - @saas-ui/core@2.0.0-rc.28
+  - @saas-ui/auth@2.0.0-rc.32
+  - @saas-ui/data-table@2.0.0-rc.33
+  - @saas-ui/forms@2.0.0-rc.31
+  - @saas-ui/hotkeys@2.0.0-rc.29
+  - @saas-ui/modals@2.0.0-rc.31
+
 ## 2.0.0-rc.32
 
 ### Patch Changes

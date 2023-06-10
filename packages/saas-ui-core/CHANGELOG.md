@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-rc.28
+
+### Patch Changes
+
+- e9258592: Export LinkProps
+
 ## 2.0.0-rc.27
 
 ### Patch Changes

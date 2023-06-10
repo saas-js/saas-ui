@@ -13,9 +13,9 @@
       "default": "./src/index.ts"
     },
     "./anatomy": {
-      "require": "./dist/anatomy.js",
-      "types": "./dist/anatomy.d.ts",
-      "import": "./dist/anatomy.mjs"
+      "require": "./dist/anatomy/index.js",
+      "types": "./dist/anatomy/index.d.ts",
+      "import": "./dist/anatomy/index/.mjs"
     },
     "./anatomy/src": {
       "default": "./src/anatomy/index.ts"
@@ -24,7 +24,7 @@
   "typesVersions": {
     "*": {
       "anatomy": [
-        "./dist/anatomy.d.ts"
+        "./dist/anatomy/index.d.ts"
       ]
     }
   },

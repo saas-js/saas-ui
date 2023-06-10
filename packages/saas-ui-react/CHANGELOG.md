@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.0.0-rc.31
+
+### Patch Changes
+
+- 0fda9fee: Fix ContextMenu and OverflowMenu exports.
+- Updated dependencies [0fda9fee]
+  - @saas-ui/core@2.0.0-rc.26
+  - @saas-ui/data-table@2.0.0-rc.31
+  - @saas-ui/auth@2.0.0-rc.30
+  - @saas-ui/forms@2.0.0-rc.29
+  - @saas-ui/hotkeys@2.0.0-rc.27
+  - @saas-ui/modals@2.0.0-rc.29
+
 ## 2.0.0-rc.30
 
 ### Major Changes

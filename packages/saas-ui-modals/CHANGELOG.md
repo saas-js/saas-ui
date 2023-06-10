@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 2.0.0-rc.29
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.29
+
 ## 2.0.0-rc.28
 
 ### Minor Changes

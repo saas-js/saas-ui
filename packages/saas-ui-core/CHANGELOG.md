@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- 0fda9fee: Fix ContextMenu and OverflowMenu exports.
+
 ## 2.0.0-rc.25
 
 ### Major Changes

@@ -8,11 +8,13 @@ import {
   useMultiStyleConfig,
   SystemStyleObject,
   createStylesContext,
+  Divider,
+  HStack,
+  Text,
 } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
 import { FieldErrors } from '@saas-ui/forms'
-import { Divider } from '@saas-ui/core'
 
 import { Providers, AvailableProviders } from './forms/providers'
 import { AuthTypeEnum, AuthActionEnum, useAuth } from '../provider'
@@ -135,14 +137,16 @@ export interface AuthFormDividerProps {
 }
 
 export const AuthFormDivider: React.FC<AuthFormDividerProps> = (props) => {
+  const { label, ...rest } = props
   const styles = useStyles()
 
-  const dividerStyles = {
-    my: 4,
-    ...styles.divider,
-  }
-
-  return <Divider {...props} sx={dividerStyles} />
+  return (
+    <HStack color="muted" fontSize="sm" my="4">
+      <Divider {...rest} sx={styles.divider} />
+      <Text flexShrink="0">{label}</Text>
+      <Divider {...rest} sx={styles.divider} />
+    </HStack>
+  )
 }
 
 export const AuthFormTitle: React.FC<HTMLChakraProps<'h2'>> = ({

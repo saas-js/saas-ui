@@ -195,10 +195,6 @@ const sidebar = {
           path: '/docs/components/data-display/data-table',
         },
         {
-          title: 'Divider',
-          path: '/docs/components/data-display/divider',
-        },
-        {
           title: 'EmptyState',
           path: '/docs/components/data-display/empty-state',
         },

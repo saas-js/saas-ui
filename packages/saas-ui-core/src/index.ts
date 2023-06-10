@@ -57,7 +57,7 @@ export {
   type StructuredListItemProps,
   type StructuredListProps,
 } from './structured-list'
-export { Link } from './link'
+export { Link, type LinkProps } from './link'
 export {
   LoadingOverlay,
   type LoadingOverlayProps,

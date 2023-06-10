@@ -18,7 +18,7 @@ export interface MagicLinkServiceOptions {
  */
 export const createAuthService = (
   client: Magic,
-  serviceOptions: MagicLinkServiceOptions
+  serviceOptions?: MagicLinkServiceOptions
 ): AuthProviderProps<Partial<MagicUserMetadata>> => {
   let token: AuthToken
   let expireTime = 0
@@ -31,8 +31,8 @@ export const createAuthService = (
 
       token = await client.auth.loginWithMagicLink({
         email: params.email,
-        redirectURI: serviceOptions.redirectURI,
-        showUI: serviceOptions.showUI,
+        redirectURI: serviceOptions?.redirectURI,
+        showUI: serviceOptions?.showUI,
         ...params,
       })
 

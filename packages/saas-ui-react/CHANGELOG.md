@@ -1,5 +1,32 @@
 # @saas-ui/react
 
+## 2.0.0-rc.30
+
+### Major Changes
+
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- 6193c47c: Fixed issue where Sidebar would not get defaultProps from the theme.
+- Updated dependencies [8d6516c2]
+- Updated dependencies [6193c47c]
+- Updated dependencies [046e42b8]
+- Updated dependencies [6236e117]
+  - @saas-ui/theme@2.0.0-rc.16
+  - @saas-ui/core@2.0.0-rc.25
+  - @saas-ui/data-table@2.0.0-rc.30
+  - @saas-ui/nprogress@2.0.0-rc.5
+  - @saas-ui/hotkeys@2.0.0-rc.26
+  - @saas-ui/modals@2.0.0-rc.28
+  - @saas-ui/forms@2.0.0-rc.28
+  - @saas-ui/hooks@2.0.0-rc.6
+  - @saas-ui/auth@2.0.0-rc.29
+
 ## 2.0.0-rc.29
 
 ### Patch Changes

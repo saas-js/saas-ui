@@ -1,5 +1,15 @@
 # @saas-ui/theme
 
+## 2.0.0-rc.16
+
+### Major Changes
+
+- 8d6516c2: Removed Divider theming.
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
 ## 2.0.0-rc.15
 
 ### Patch Changes

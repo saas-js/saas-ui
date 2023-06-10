@@ -1,5 +1,16 @@
 # @saas-ui/supabase
 
+## 2.0.0-rc.5
+
+### Minor Changes
+
+- 046e42b8: Update Supabase client
+
+### Patch Changes
+
+- Updated dependencies [046e42b8]
+  - @saas-ui/auth@2.0.0-rc.29
+
 ## 2.0.0-rc.4
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @saas-ui/modals
 
+## 2.0.0-rc.28
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- Updated dependencies [046e42b8]
+  - @saas-ui/react-utils@2.0.0-rc.5
+  - @saas-ui/forms@2.0.0-rc.28
+  - @saas-ui/hooks@2.0.0-rc.6
+
 ## 2.0.0-rc.27
 
 ### Patch Changes

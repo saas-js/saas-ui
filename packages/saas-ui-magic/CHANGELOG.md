@@ -1,5 +1,13 @@
 # @saas-ui/auth
 
+## 2.0.0-rc.6
+
+### Patch Changes
+
+- 7b03a8d2: Magic auth options are now optional.
+- Updated dependencies [046e42b8]
+  - @saas-ui/auth@2.0.0-rc.29
+
 ## 2.0.0-rc.5
 
 ### Patch Changes

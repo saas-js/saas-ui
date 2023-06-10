@@ -1,5 +1,16 @@
 # website
 
+## 2.0.0-rc.30
+
+### Patch Changes
+
+- Updated dependencies [6193c47c]
+- Updated dependencies [046e42b8]
+- Updated dependencies [6236e117]
+  - @saas-ui/react@2.0.0-rc.30
+  - @saas-ui/command-bar@0.2.0-rc.6
+  - @saas-ui/forms@2.0.0-rc.28
+
 ## 2.0.0-rc.29
 
 ### Patch Changes

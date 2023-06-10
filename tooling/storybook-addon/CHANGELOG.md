@@ -1,5 +1,11 @@
 # @chakra-ui/storybook-addon
 
+## 1.1.0-rc.3
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
 ## 1.0.1-rc.2
 
 ### Patch Changes

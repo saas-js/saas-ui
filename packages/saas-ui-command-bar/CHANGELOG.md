@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.2.0-rc.6
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
 ## 0.2.0-rc.5
 
 ### Patch Changes

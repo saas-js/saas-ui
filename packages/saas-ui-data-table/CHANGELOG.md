@@ -1,5 +1,19 @@
 # @saas-ui/data-table
 
+## 2.0.0-rc.30
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- Updated dependencies [6193c47c]
+- Updated dependencies [046e42b8]
+- Updated dependencies [6236e117]
+  - @saas-ui/react@2.0.0-rc.30
+  - @saas-ui/core@2.0.0-rc.25
+
 ## 2.0.0-rc.29
 
 ### Patch Changes

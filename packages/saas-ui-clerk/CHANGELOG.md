@@ -1,5 +1,16 @@
 # @saas-ui/clerk
 
+## 3.0.0-rc.29
+
+### Minor Changes
+
+- 046e42b8: Update Clerk client
+
+### Patch Changes
+
+- Updated dependencies [046e42b8]
+  - @saas-ui/auth@2.0.0-rc.29
+
 ## 3.0.0-rc.28
 
 ### Patch Changes

@@ -1,4 +1,3 @@
-import { dividerTheme } from './divider'
 import { appShellTheme } from './app-shell'
 import { bannerTheme } from './banner'
 import { commandTheme } from './command'
@@ -19,7 +18,6 @@ import { selectTheme } from './select'
 import { structuredListTheme } from './structured-list'
 import { timelineTheme } from './timeline'
 
-export { dividerTheme as Divider } from './divider'
 export { appShellTheme as SuiAppShell } from './app-shell'
 export { bannerTheme as SuiBanner } from './banner'
 export { commandTheme as SuiCommand } from './command'
@@ -41,7 +39,6 @@ export { structuredListTheme as SuiStructuredList } from './structured-list'
 export { timelineTheme as SuiTimeline } from './timeline'
 
 export const components = {
-  Divider: dividerTheme,
   SuiAppShell: appShellTheme,
   SuiBanner: bannerTheme,
   SuiCommand: commandTheme,

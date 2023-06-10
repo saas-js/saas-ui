@@ -39,7 +39,6 @@ import {
 } from '@saas-ui-pro/react'
 import {
   AppShell,
-  Divider,
   FormLayout,
   PasswordInput,
   SearchInput,
@@ -64,7 +63,6 @@ import {
   LoadingOverlay,
   LoadingSpinner,
   Web3Address,
-  DividerLabel,
   Steps,
   StepsItem,
 } from '@saas-ui/react'
@@ -248,11 +246,6 @@ const componentIllustrations = {
         </Tbody>
       </Table>
     </Box>
-  ),
-  divider: (
-    <Divider>
-      <DividerLabel>Divider</DividerLabel>
-    </Divider>
   ),
   emptystate: (
     <EmptyState

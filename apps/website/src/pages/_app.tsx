@@ -12,8 +12,6 @@ import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-// import { Link } from '@chakra-ui/next-js'
-
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   const router = useRouter()
   return (

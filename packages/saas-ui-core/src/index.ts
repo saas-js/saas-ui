@@ -66,7 +66,22 @@ export {
   LoadingText,
   type LoadingTextProps,
 } from './loading-overlay'
-export { ContextMenu, ContextMenuItem } from './menu'
+export {
+  ContextMenu,
+  ContextMenuItem,
+  ContextMenuList,
+  type ContextMenuListProps,
+  type ContextMenuProps,
+  ContextMenuProvider,
+  ContextMenuTrigger,
+  type ContextMenuTriggerProps,
+  OverflowMenu,
+  type OverflowMenuProps,
+  type UseContextMenuProps,
+  type UseContextMenuReturn,
+  useContextMenu,
+  useContextMenuContext,
+} from './menu'
 export {
   Persona,
   PersonaAvatar,

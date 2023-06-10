@@ -1,5 +1,12 @@
 # @saas-ui/data-table
 
+## 2.0.0-rc.32
+
+### Patch Changes
+
+- @saas-ui/core@2.0.0-rc.27
+- @saas-ui/react@2.0.0-rc.32
+
 ## 2.0.0-rc.31
 
 ### Patch Changes

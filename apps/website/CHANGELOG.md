@@ -1,5 +1,12 @@
 # website
 
+## 2.0.0-rc.32
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-rc.32
+- @saas-ui/forms@2.0.0-rc.30
+
 ## 2.0.0-rc.31
 
 ### Patch Changes

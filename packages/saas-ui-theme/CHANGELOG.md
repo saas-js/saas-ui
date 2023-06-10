@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.0.0-rc.17
+
+### Patch Changes
+
+- 09dd16cc: Fix anatomy export
+
 ## 2.0.0-rc.16
 
 ### Major Changes

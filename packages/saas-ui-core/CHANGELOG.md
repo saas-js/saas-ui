@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 2.0.0-rc.27
+
+### Patch Changes
+
+- Updated dependencies [09dd16cc]
+  - @saas-ui/theme@2.0.0-rc.17
+
 ## 2.0.0-rc.26
 
 ### Patch Changes

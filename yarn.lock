@@ -2779,7 +2779,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/anatomy@npm:2.1.2, @chakra-ui/anatomy@npm:^2.1.2":
+"@chakra-ui/anatomy@npm:2.1.2, @chakra-ui/anatomy@npm:^2.1.1, @chakra-ui/anatomy@npm:^2.1.2":
   version: 2.1.2
   resolution: "@chakra-ui/anatomy@npm:2.1.2"
   checksum: 87519672ae028ef3af44ecc7d87fa18dc7ec8d46958a3490cb312ebc6b857bc227e908ffe0b12eb1e2a11c860656c38c3160ebc20bf1e9522b0ae0ef7b31e28d
@@ -3782,7 +3782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/styled-system@npm:2.9.1, @chakra-ui/styled-system@npm:^2.9.1":
+"@chakra-ui/styled-system@npm:2.9.1, @chakra-ui/styled-system@npm:^2.5.1, @chakra-ui/styled-system@npm:^2.9.1":
   version: 2.9.1
   resolution: "@chakra-ui/styled-system@npm:2.9.1"
   dependencies:
@@ -3917,7 +3917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/theme-tools@npm:2.0.18, @chakra-ui/theme-tools@npm:^2.0.18":
+"@chakra-ui/theme-tools@npm:2.0.18, @chakra-ui/theme-tools@npm:^2.0.16, @chakra-ui/theme-tools@npm:^2.0.18":
   version: 2.0.18
   resolution: "@chakra-ui/theme-tools@npm:2.0.18"
   dependencies:
@@ -7073,7 +7073,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.21.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.22.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -7129,7 +7129,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@^2.0.0-rc.24, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@^2.0.0-rc.29, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -7325,7 +7325,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/magic@workspace:packages/saas-ui-magic"
   dependencies:
-    "@saas-ui/auth": ^2.0.0-rc.24
+    "@saas-ui/auth": ^2.0.0-rc.29
     magic-sdk: ^17.1.6
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -7483,7 +7483,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
-    "@saas-ui/auth": ^2.0.0-rc.24
+    "@saas-ui/auth": ^2.0.0-rc.29
     "@supabase/supabase-js": ^2.24.0
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -7541,7 +7541,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@^0.3.2-rc.4, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@npm:^0.3.2-rc.4":
+  version: 0.3.3
+  resolution: "@saas-ui/theme-glass@npm:0.3.3"
+  dependencies:
+    "@chakra-ui/anatomy": ^2.1.1
+    "@chakra-ui/styled-system": ^2.5.1
+    "@chakra-ui/theme-tools": ^2.0.16
+    "@chakra-ui/utils": ^2.0.15
+  peerDependencies:
+    "@chakra-ui/react": ">=2.4.6"
+    "@chakra-ui/system": ">=2.3.8"
+    react: ">=18.0.0"
+  checksum: 2bc2d36abcc4317413fc9d8fc3da97ee3e34b079ea5f1dc40ad850229cc29616666123312a55fb80f76560d6570a460d4429b760f9571bf442a12fdd06f19d6c
+  languageName: node
+  linkType: hard
+
+"@saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -24053,7 +24069,7 @@ __metadata:
     "@dnd-kit/sortable": ^7.0.2
     "@emotion/react": ^11.11.0
     "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.21.0
+    "@saas-ui-pro/react": ^0.22.0
     "@saas-ui/react": ^2.0.0-beta.16
     framer-motion: ^10.12.16
     lucide-react: ^0.130.1

@@ -1,5 +1,17 @@
 # @saas-ui/react-utils
 
+## 1.2.2
+
+### Patch Changes
+
+- Fix types path
+
+## 1.2.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+
 ## 1.2.0
 
 ### Minor Changes

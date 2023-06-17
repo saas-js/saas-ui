@@ -1,5 +1,37 @@
 # @saas-ui/forms
 
+## 1.5.5
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+  - @saas-ui/input-right-button@1.4.2
+  - @saas-ui/number-input@1.4.2
+  - @saas-ui/password-input@1.4.2
+  - @saas-ui/pin-input@1.4.2
+  - @saas-ui/radio@1.4.3
+  - @saas-ui/react-utils@1.2.2
+  - @saas-ui/select@1.4.2
+  - @saas-ui/stepper@1.4.2
+
+## 1.5.4
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+  - @saas-ui/input-right-button@1.4.1
+  - @saas-ui/number-input@1.4.1
+  - @saas-ui/password-input@1.4.1
+  - @saas-ui/pin-input@1.4.1
+  - @saas-ui/radio@1.4.2
+  - @saas-ui/react-utils@1.2.1
+  - @saas-ui/select@1.4.1
+  - @saas-ui/stepper@1.4.1
+
 ## 1.5.3
 
 ### Patch Changes

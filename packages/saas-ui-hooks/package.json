@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/hooks",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Saas UI react hooks",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

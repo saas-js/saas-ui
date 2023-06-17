@@ -1,5 +1,21 @@
 # @saas-ui/card
 
+## 1.5.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/button@1.4.2
+
+## 1.5.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/button@1.4.1
+
 ## 1.5.0
 
 ### Minor Changes

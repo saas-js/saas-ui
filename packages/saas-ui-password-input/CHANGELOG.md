@@ -1,5 +1,21 @@
 # @saas-ui/password-input
 
+## 1.4.2
+
+### Patch Changes
+
+- Fix types path
+- Updated dependencies
+  - @saas-ui/input-right-button@1.4.2
+
+## 1.4.1
+
+### Patch Changes
+
+- b2302a3: Add types to package.json exports
+- Updated dependencies [b2302a3]
+  - @saas-ui/input-right-button@1.4.1
+
 ## 1.4.0
 
 ### Minor Changes

@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/provider",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Theme and components agnostic SaasProvider",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

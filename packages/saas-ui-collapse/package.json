@@ -1,11 +1,12 @@
 {
   "name": "@saas-ui/collapse",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "description": "Collapse Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.modern.mjs"
     },
     "./src": {

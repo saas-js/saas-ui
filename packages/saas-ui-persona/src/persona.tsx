@@ -304,7 +304,7 @@ export const PersonaAvatar = forwardRef<PresenceAvatarProps, 'span'>(
     if (presence) {
       const label = presenceLabel || Presence[presence]?.label
       const color = semantic
-        ? Presence[presence].color || `presence.${presence}`
+        ? Presence[presence]?.color || `presence.${presence}`
         : colors[presence]
       if (isOutOfOffice) {
         badgeProps.sx = {

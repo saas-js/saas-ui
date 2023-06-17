@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Script from 'next/script'
 
-import { Box, SimpleGrid } from '@chakra-ui/react'
+import { Box, CardHeader, SimpleGrid } from '@chakra-ui/react'
 import {
   Heading,
   Text,
@@ -12,6 +12,8 @@ import {
   useColorModeValue,
   Avatar,
   Tooltip,
+  Card,
+  CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -20,8 +22,6 @@ import SectionTitle from '@/components/marketing/section-title'
 import SEO from '@/components/seo'
 import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
-
-import { Card, CardBody } from '@saas-ui/card'
 
 import { Faq } from '@/components/faq'
 
@@ -125,7 +125,7 @@ const Pricing = () => {
               <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
             </PricingFeatures>
-            <ButtonLink href="/docs/introduction" variant="outline" mt="10">
+            <ButtonLink href="/docs" variant="outline" mt="10">
               View documentation
             </ButtonLink>
           </PricingBox>
@@ -133,14 +133,7 @@ const Pricing = () => {
             title="Bootstrap"
             price={
               <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €199,-
-                </Text>
-                <Text>€149,-</Text>
+                <Text>€199,-</Text>
               </HStack>
             }
             description="Complete frontend stack for bootstrappers and small teams."
@@ -192,7 +185,7 @@ const Pricing = () => {
                 >
                   €999,-
                 </Text>
-                <Text>€499,-</Text>
+                <Text>€699,-</Text>
               </HStack>
             }
             description="Unlimited license for growing teams or agencies."
@@ -408,12 +401,16 @@ const HighlightBox = (props) => {
 
 const Testimonial = ({ name, description, avatar, children, ...rest }) => {
   return (
-    <Card
-      avatar={<Avatar name="Tien Tienth" src={avatar} />}
-      title={name}
-      subtitle={description}
-      {...rest}
-    >
+    <Card {...rest}>
+      <CardHeader>
+        <Avatar name="Tien Tienth" src={avatar} />
+        <Stack>
+          <Heading size="sm">{name}</Heading>
+          <Text color="muted" size="md">
+            {description}
+          </Text>
+        </Stack>
+      </CardHeader>
       <CardBody>{children}</CardBody>
     </Card>
   )

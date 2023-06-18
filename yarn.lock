@@ -4293,19 +4293,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@clerk/clerk-react@npm:^3.5.1":
-  version: 3.5.1
-  resolution: "@clerk/clerk-react@npm:3.5.1"
-  dependencies:
-    "@clerk/types": ^2.21.0
-    swr: ^1.3.0
-    tslib: ^2.3.1
-  peerDependencies:
-    react: ">=16"
-  checksum: ef7c26ec4dd39107d61856c09e10a8e96cad4e0e6a9cbafadc6dd1d7ca61b6f61f06902ae6e39415b9323a971060ab56fb90caea0305ec37d1b50174addd918e
-  languageName: node
-  linkType: hard
-
 "@clerk/clerk-react@npm:^4.19.0":
   version: 4.19.0
   resolution: "@clerk/clerk-react@npm:4.19.0"
@@ -4330,13 +4317,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 26ecb0ddb93cb66d6411a232514577317364ffc5e1c0064ce7eade4abb94b3708f07c3a93d05f561d908dd9cd41dfe92307bcb900bbab1e9980f81047acdebdc
-  languageName: node
-  linkType: hard
-
-"@clerk/types@npm:^2.21.0":
-  version: 2.21.0
-  resolution: "@clerk/types@npm:2.21.0"
-  checksum: 3fab948f8a06a070e160035e83c6c1e561f111680f4dfe33c9bcee140fcbee0a049e6577c199cb38318617b9b24cf623cb6b042fe34cc3688b34303efa63bd67
   languageName: node
   linkType: hard
 
@@ -24085,7 +24065,6 @@ __metadata:
     "@chakra-ui/cli": ^2.4.1
     "@chakra-ui/react": ^2.7.0
     "@changesets/cli": ^2.26.1
-    "@clerk/clerk-react": ^3.5.1
     "@emotion/react": ^11.11.0
     "@emotion/styled": ^11.11.0
     "@manypkg/get-packages": ^1.1.3
@@ -25464,7 +25443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:1.3.0, swr@npm:^1.3.0":
+"swr@npm:1.3.0":
   version: 1.3.0
   resolution: "swr@npm:1.3.0"
   peerDependencies:

@@ -69,7 +69,6 @@
     "@chakra-ui/cli": "^2.4.1",
     "@chakra-ui/react": "^2.7.0",
     "@changesets/cli": "^2.26.1",
-    "@clerk/clerk-react": "^3.5.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@manypkg/get-packages": "^1.1.3",

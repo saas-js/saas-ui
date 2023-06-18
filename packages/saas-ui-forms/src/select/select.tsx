@@ -17,6 +17,7 @@ import {
   SystemStyleObject,
   MenuItemOptionProps,
   useFormControlContext,
+  ThemingProps,
 } from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
 import { ChevronDownIcon } from '@saas-ui/core'
@@ -26,8 +27,10 @@ import { FieldOption } from '../types'
 import {
   SelectOptions,
   SelectProvider,
+  SelectStylesProvider,
   useSelect,
   useSelectContext,
+  useSelectStyles,
 } from './select-context'
 
 export interface SelectOption
@@ -35,10 +38,12 @@ export interface SelectOption
     FieldOption {}
 
 export interface SelectProps
-  extends Omit<MenuProps, 'children'>,
+  extends Omit<MenuProps, 'children' | 'variant' | 'size'>,
+    ThemingProps<'SuiSelect'>,
     SelectOptions {}
 
-export interface SelectButtonProps extends ButtonProps {}
+export interface SelectButtonProps
+  extends Omit<ButtonProps, 'size' | 'variant'> {}
 
 /**
  * Button that opens the select menu and displays the selected value.
@@ -47,8 +52,6 @@ export interface SelectButtonProps extends ButtonProps {}
  */
 export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
   (props, ref) => {
-    const styles = useMultiStyleConfig('SuiSelect', props)
-
     const {
       displayValue,
       renderValue,
@@ -57,6 +60,8 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
     } = useSelectContext()
 
     const context = useFormControlContext()
+
+    const styles = useSelectStyles()
 
     const {
       isInvalid,
@@ -129,6 +134,8 @@ SelectButton.displayName = 'SelectButton'
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const { name, children, isDisabled, multiple, ...rest } = props
 
+  const styles = useMultiStyleConfig('SuiSelect', props)
+
   const menuProps = omitThemingProps(rest)
 
   const context = useSelect(props)
@@ -137,19 +144,21 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
 
   return (
     <SelectProvider value={context}>
-      <Menu {...menuProps} closeOnSelect={!multiple}>
-        <chakra.div className={cx('sui-select')}>
-          {children}
-          <chakra.input
-            {...controlProps}
-            ref={ref}
-            name={name}
-            type="hidden"
-            value={value || ''}
-            className="saas-select__input"
-          />
-        </chakra.div>
-      </Menu>
+      <SelectStylesProvider value={styles}>
+        <Menu {...menuProps} closeOnSelect={!multiple}>
+          <chakra.div className={cx('sui-select')}>
+            {children}
+            <chakra.input
+              {...controlProps}
+              ref={ref}
+              name={name}
+              type="hidden"
+              value={value || ''}
+              className="saas-select__input"
+            />
+          </chakra.div>
+        </Menu>
+      </SelectStylesProvider>
     </SelectProvider>
   )
 })

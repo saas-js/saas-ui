@@ -1,5 +1,6 @@
 import {
   HTMLChakraProps,
+  createStylesContext,
   useControllableState,
   useFormControl,
 } from '@chakra-ui/react'
@@ -8,6 +9,9 @@ import React from 'react'
 import { FieldOptions } from '../types'
 import { mapOptions } from '../utils'
 import { SelectOption } from './select'
+
+export const [SelectStylesProvider, useSelectStyles] =
+  createStylesContext('SuiSelect')
 
 export const [SelectProvider, useSelectContext] = createContext<
   ReturnType<typeof useSelect>

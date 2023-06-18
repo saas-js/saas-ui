@@ -2,6 +2,7 @@ import {
   Container,
   Icon,
   MenuItemOption,
+  Stack,
   Tag,
   Wrap,
   WrapItem,
@@ -171,5 +172,83 @@ export const WithEmptyOption = {
 export const WithNativeSelect = {
   render: () => (
     <NativeSelect name="select" options={options} aria-label="Select" />
+  ),
+}
+
+export const Sizes = {
+  render: () => (
+    <Stack>
+      <Select name="select" defaultValue="1" size="xs">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+      <Select name="select" defaultValue="1" size="sm">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+      <Select name="select" defaultValue="1" size="md">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+      <Select name="select" defaultValue="1" size="lg">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+    </Stack>
+  ),
+}
+
+export const Variants = {
+  render: () => (
+    <Stack>
+      <Select name="select" defaultValue="1" variant="outline">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+      <Select name="select" defaultValue="1" variant="flushed">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+      <Select name="select" defaultValue="1" variant="filled">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+      <Select name="select" defaultValue="1" variant="unstyled">
+        <SelectButton />
+        <SelectList>
+          <SelectOption value="">None</SelectOption>
+          <SelectOption value="1">Option 1</SelectOption>
+          <SelectOption value="2">Option 2</SelectOption>
+        </SelectList>
+      </Select>
+    </Stack>
   ),
 }

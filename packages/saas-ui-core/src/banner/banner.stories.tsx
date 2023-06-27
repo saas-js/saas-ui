@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Link } from '../layout'
+import { Link } from '../link'
 
 import { Button, VStack, useDisclosure, As } from '@chakra-ui/react'
 
@@ -22,15 +22,13 @@ export default {
   component: Banner,
 } as Meta
 
-const Template: Story = (args) => <Banner {...args} />
-
 const getChildren = ({
   icon,
-  title = 'Pre-order Saas UI Pro now.',
-  description = 'Get 50% discount and life-time access.',
-  actions = <Button>Order now</Button>,
+  title = 'Your order has been shipped.',
+  description = 'Expected delivery date is June 12th.',
+  actions = <Button>View order</Button>,
 }: {
-  icon?: As<any>
+  icon?: As
   title?: React.ReactNode
   description?: React.ReactNode
   actions?: React.ReactNode
@@ -46,9 +44,10 @@ const getChildren = ({
   </>
 )
 
-export const Basic = Template.bind({})
-Basic.args = {
-  children: getChildren(),
+export const Basic = {
+  args: {
+    children: getChildren(),
+  },
 }
 
 export const Status = () => {

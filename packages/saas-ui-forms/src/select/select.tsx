@@ -5,7 +5,6 @@ import {
   forwardRef,
   Menu,
   MenuProps,
-  MenuButton,
   MenuList,
   MenuListProps,
   MenuItemOption,
@@ -14,10 +13,10 @@ import {
   ButtonProps,
   omitThemingProps,
   useMultiStyleConfig,
-  SystemStyleObject,
   MenuItemOptionProps,
   useFormControlContext,
   ThemingProps,
+  useMenuButton,
 } from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
 import { ChevronDownIcon } from '@saas-ui/core'
@@ -97,16 +96,19 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       _expanded: focusStyles,
       _readOnly: readOnlyStyles,
       _invalid: invalid,
+      minW: 0,
       ...styles.field,
       h: 'auto',
     }
 
+    const buttonProps = useMenuButton(rest, ref)
+
     // Using a Button, so we can simply use leftIcon and rightIcon
     return (
-      <MenuButton
-        as={Button}
-        id={id || React.useId()}
+      <Button
+        {...buttonProps}
         {...buttonStyles}
+        id={id || buttonProps.id}
         {...rest}
         onFocus={onFocus}
         onBlur={onBlur}
@@ -116,10 +118,20 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
         data-focus={dataAttr(isFocused)}
         data-required={dataAttr(isRequired)}
         rightIcon={rightIcon}
-        ref={ref}
       >
-        {renderValue(displayValue) || placeholder}
-      </MenuButton>
+        <chakra.span
+          __css={{
+            display: 'block',
+            pointerEvents: 'none',
+            flex: '1 1 auto',
+            minW: 0,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {renderValue(displayValue) || placeholder}
+        </chakra.span>
+      </Button>
     )
   }
 )

@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.0-rc.29
+
+### Patch Changes
+
+- 70af3ead: Select now supports theming props.
+
 ## 2.0.0-rc.28
 
 ### Patch Changes

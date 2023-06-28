@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.0.0-rc.32
+
+### Patch Changes
+
+- b5912297: Fix Select button overflow.
+- Updated dependencies [70af3ead]
+  - @saas-ui/core@2.0.0-rc.29
+
 ## 2.0.0-rc.31
 
 ### Patch Changes

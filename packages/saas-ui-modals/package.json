@@ -70,5 +70,9 @@
     "framer-motion": ">=6.0.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "yup": "^1.2.0",
+    "zod": "^3.21.4"
   }
 }

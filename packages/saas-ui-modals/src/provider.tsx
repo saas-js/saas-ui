@@ -343,9 +343,14 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   )
 }
 
-export const useModalsContext = () =>
-  React.useContext(ModalsContext) as ModalsContextValue
+export const useModalsContext = () => React.useContext(ModalsContext)
 
 export const useModals = () => {
-  return useModalsContext()
+  const modals = useModalsContext()
+
+  if (!modals) {
+    throw new Error('useModals must be used within a ModalsProvider')
+  }
+
+  return modals
 }

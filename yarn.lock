@@ -7511,6 +7511,8 @@ __metadata:
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
     "@saas-ui/react-utils": "workspace:*"
+    yup: ^1.2.0
+    zod: ^3.21.4
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
     "@emotion/react": ">=11.0.0"

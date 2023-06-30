@@ -1,5 +1,64 @@
 # @saas-ui/hotkeys
 
+## 2.0.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+- f1e99198: Restructured packages.
+
+### Minor Changes
+
+- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- d236fb75: useHotkeys options are now optional
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [e23790a8]
+- Updated dependencies [83f54180]
+- Updated dependencies [ba61612f]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [b8be6d41]
+- Updated dependencies [d725a5da]
+- Updated dependencies [70af3ead]
+- Updated dependencies [d725a5da]
+- Updated dependencies [e9258592]
+- Updated dependencies [a5898c44]
+- Updated dependencies [6193c47c]
+- Updated dependencies [83f54180]
+- Updated dependencies [046e42b8]
+- Updated dependencies [83f54180]
+- Updated dependencies [7052dad3]
+- Updated dependencies [e52f63fa]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [7027d7c1]
+- Updated dependencies [0fda9fee]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [83f54180]
+- Updated dependencies [0a11d7b6]
+- Updated dependencies [83f54180]
+- Updated dependencies [2b639656]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [76887bda]
+- Updated dependencies [76887bda]
+- Updated dependencies [27a68bca]
+- Updated dependencies [6236e117]
+- Updated dependencies [0319aa57]
+- Updated dependencies [76887bda]
+- Updated dependencies [826c561a]
+- Updated dependencies [166978bd]
+  - @saas-ui/core@2.0.0
+
 ## 2.0.0-rc.30
 
 ### Patch Changes

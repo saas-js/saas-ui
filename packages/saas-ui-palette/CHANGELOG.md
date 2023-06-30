@@ -1,5 +1,19 @@
 # 0.2.0
 
+## 2.0.0
+
+### Major Changes
+
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+
 ## 2.0.0-rc.4
 
 ### Patch Changes

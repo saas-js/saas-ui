@@ -56,7 +56,7 @@
     "preinstall": "rm -rf node_modules/odiff-bin"
   },
   "workspaces": [
-    "apps/website",
+    "apps/*",
     "packages/pro/saas-ui/*",
     "packages/storybook",
     "packages/saas-ui-*",

@@ -1,5 +1,21 @@
 # @saas-ui/theme-glass
 
+## 0.4.0
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- 1563cc9a: Fix Textarea theme
+- f1e99198: Restructured packages.
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+
 ## 0.4.0-rc.5
 
 ### Minor Changes

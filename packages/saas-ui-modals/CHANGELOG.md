@@ -1,5 +1,58 @@
 # @saas-ui/modals
 
+## 2.0.0
+
+### Major Changes
+
+- f1e99198: Restructured packages.
+
+### Minor Changes
+
+- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
+- 1177329d: BaseModal now accepts header, content and footer props
+- 046e42b8: Updated to Chakra UI 2.7
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+
+### Patch Changes
+
+- 1563cc9a: BaseDrawer now accepts header, content and footer props.
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- cc713117: Fix issue where onCloseComplete would not be called
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [84e59fec]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [d725a5da]
+- Updated dependencies [532011d6]
+- Updated dependencies [a8ea24da]
+- Updated dependencies [6d3f5717]
+- Updated dependencies [d725a5da]
+- Updated dependencies [532011d6]
+- Updated dependencies [f1e99198]
+- Updated dependencies [01ac442f]
+- Updated dependencies [046e42b8]
+- Updated dependencies [8b82d945]
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [6c63217c]
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [c85541cb]
+- Updated dependencies [b5912297]
+- Updated dependencies [f1e99198]
+- Updated dependencies [39e778d8]
+- Updated dependencies [27a68bca]
+- Updated dependencies [0319aa57]
+- Updated dependencies [166978bd]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/forms@2.0.0
+  - @saas-ui/react-utils@2.0.0
+  - @saas-ui/hooks@2.0.0
+
 ## 2.0.0-rc.32
 
 ### Patch Changes

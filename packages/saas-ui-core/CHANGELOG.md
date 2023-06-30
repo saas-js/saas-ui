@@ -1,5 +1,78 @@
 # @saas-ui/react
 
+## 2.0.0
+
+### Major Changes
+
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 83f54180: Secondary button now uses solid variant and gray colorScheme.
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- 83f54180: Renamed Loader to LoadingOverlay.
+- 0a11d7b6: Renamed Sidebar condensed variant to compact.
+- 3a15e8c8: Improve StructuredList API.
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+### Minor Changes
+
+- 1177329d: Improved MenuDialog position on mobile
+- e94ca3c0: Added TimeLine to core components.
+- 83f54180: Added new tertiary button variant.
+- 046e42b8: Updated to Chakra UI 2.7
+- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- 76887bda: AppShell now controls the Sidebar disclosure state.
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 826c561a: EmptyState title and description no longer use Header and Text
+
+### Patch Changes
+
+- 189190c6: Fix Card theme tokens
+- e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
+- ba61612f: Fixed useSnackbar return type, always returns toastId.
+- b8be6d41: tooltipProps on NavItem no longer require children
+- d725a5da: Fix esm bundle import
+- 70af3ead: Select now supports theming props.
+- d725a5da: Bump version
+- e9258592: Export LinkProps
+- a5898c44: Fix Divider label contrast
+- 6193c47c: Fixed issue where Sidebar would not get defaultProps from the theme.
+- 7052dad3: Fix issue where Select context is undefined
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- 0fda9fee: Fix ContextMenu and OverflowMenu exports.
+- a7ef6dd9: Fixed issue where types for exports were not detected
+- 83f54180: Fix NavItem focus outline color.
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- b895e5bd: Add Timeline theme to theme package.
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [d3900eca]
+- Updated dependencies [d725a5da]
+- Updated dependencies [b521ce10]
+- Updated dependencies [d725a5da]
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [8d6516c2]
+- Updated dependencies [09dd16cc]
+- Updated dependencies [a5898c44]
+- Updated dependencies [8045baed]
+- Updated dependencies [83f54180]
+- Updated dependencies [f1e99198]
+- Updated dependencies [f79376c3]
+- Updated dependencies [5b9d90e8]
+- Updated dependencies [046e42b8]
+- Updated dependencies [83f54180]
+- Updated dependencies [8b82d945]
+- Updated dependencies [7027d7c1]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [aeab9b0b]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8e155c3b]
+- Updated dependencies [0319aa57]
+- Updated dependencies [166978bd]
+  - @saas-ui/theme@2.0.0
+  - @saas-ui/react-utils@2.0.0
+
 ## 2.0.0-rc.29
 
 ### Patch Changes

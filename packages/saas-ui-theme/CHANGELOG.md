@@ -1,5 +1,40 @@
 # @saas-ui/theme
 
+## 2.0.0
+
+### Major Changes
+
+- 8d6516c2: Removed Divider theming.
+- 83f54180: Secondary button now uses solid variant and gray colorScheme.
+- 8b82d945: Removed button package.
+- f1e99198: Restructured packages.
+
+### Minor Changes
+
+- 83f54180: Added new tertiary button variant.
+- f79376c3: Renamed Sidebar condensed variant to compact, minor improvements.
+- 046e42b8: Updated to Chakra UI 2.7
+- 8e155c3b: Updated Stepper theme to Chakra UI 2.6
+
+### Patch Changes
+
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- d725a5da: Fix esm bundle import
+- b521ce10: Fix Card theme
+- d725a5da: Bump version
+- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+- 09dd16cc: Fix anatomy export
+- a5898c44: Fix Divider label contrast
+- 8045baed: Fix issue where primary variant color would always be gray
+- f1e99198: Migrated from microbundle to tsup for builds
+- 5b9d90e8: Fix filled and outline color tokens
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- a7ef6dd9: Fixed issue where types for exports were not detected
+- aeab9b0b: Fix solid button hover colors
+- b895e5bd: Add Timeline theme to theme package.
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+
 ## 2.0.0-rc.17
 
 ### Patch Changes

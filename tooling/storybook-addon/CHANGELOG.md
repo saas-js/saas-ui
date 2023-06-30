@@ -1,5 +1,17 @@
 # @chakra-ui/storybook-addon
 
+## 1.1.0
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- 0319aa57: Bump version
+
 ## 1.1.0-rc.3
 
 ### Minor Changes

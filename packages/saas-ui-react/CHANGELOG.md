@@ -1,5 +1,167 @@
 # @saas-ui/react
 
+## 2.0.0
+
+### Major Changes
+
+- 772c9868: Updated to Tanstack ReactTable V8
+- d7c87a31: Moved form resolvers into a separate package.
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 37e38165: Auth forms can now be used standalone, to build custom solutions.
+- f1e99198: BREAKING: createPalette no longer exported from @saas-ui/react
+- 8b82d945: Renamed List to StructuredList
+- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- 83f54180: Secondary button now uses solid variant and gray colorScheme.
+- 8b82d945: Removed button package.
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- 83f54180: Renamed Loader to LoadingOverlay.
+- 0a11d7b6: Renamed Sidebar condensed variant to compact.
+- f34de7af: Moved Supabase and Magic auth services to separate packages.
+- 3a15e8c8: Improve StructuredList API.
+- f1e99198: Restructured packages.
+- 39e778d8: Form will now render AutoField by default when no children are passed.
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+- f3b09191: Removed Card component in favor of the new Chakra UI Card component.
+
+### Minor Changes
+
+- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
+- 1177329d: Improved MenuDialog position on mobile
+- e94ca3c0: Added TimeLine to core components.
+- 7ce390e9: Added Sidebar to core packages.
+- 532011d6: Select can now supports theming using the SuiSelect theme config.
+- a8ea24da: PasswordInput now accepts leftAddon property.
+- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
+- 83f54180: Added new tertiary button variant.
+- 046e42b8: Updated to Chakra UI 2.7
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- a9ca90dd: Updated to Chakra UI 2.6.x
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+- 6dd737ce: Select field now renders invalid state.
+- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
+- 76887bda: AppShell now controls the Sidebar disclosure state.
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 826c561a: EmptyState title and description no longer use Header and Text
+
+### Patch Changes
+
+- 189190c6: Fix Card theme tokens
+- e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
+- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
+- ba61612f: Fixed useSnackbar return type, always returns toastId.
+- b8be6d41: tooltipProps on NavItem no longer require children
+- d725a5da: Fix esm bundle import
+- 70af3ead: Select now supports theming props.
+- d725a5da: Bump version
+- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+- a5898c44: Fix Divider label contrast
+- 6193c47c: Fixed issue where Sidebar would not get defaultProps from the theme.
+- f1e99198: Migrated from microbundle to tsup for builds
+- dc435dd5: No longer needed to use Next.js legacyBehavior for the Link component.
+- 7027d7c1: Improve Stepper seperator position on all sizes
+- 0fda9fee: Fix ContextMenu and OverflowMenu exports.
+- a7ef6dd9: Fixed issue where types for exports were not detected
+- 6c63217c: object and array field props can now be overridden using the fields prop
+- d6e9a39d: Form fields overries types now support array and object type props
+- 83f54180: Fix NavItem focus outline color.
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- b895e5bd: Add Timeline theme to theme package.
+- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [772c9868]
+- Updated dependencies [84e59fec]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [1563cc9a]
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [e23790a8]
+- Updated dependencies [d236fb75]
+- Updated dependencies [83f54180]
+- Updated dependencies [d3900eca]
+- Updated dependencies [ba61612f]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [37e38165]
+- Updated dependencies [b8be6d41]
+- Updated dependencies [d725a5da]
+- Updated dependencies [b521ce10]
+- Updated dependencies [70af3ead]
+- Updated dependencies [532011d6]
+- Updated dependencies [a8ea24da]
+- Updated dependencies [6d3f5717]
+- Updated dependencies [d725a5da]
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [8d6516c2]
+- Updated dependencies [84e59fec]
+- Updated dependencies [1177329d]
+- Updated dependencies [09dd16cc]
+- Updated dependencies [e9258592]
+- Updated dependencies [a5898c44]
+- Updated dependencies [0a2bb91f]
+- Updated dependencies [532011d6]
+- Updated dependencies [8045baed]
+- Updated dependencies [6193c47c]
+- Updated dependencies [83f54180]
+- Updated dependencies [f1e99198]
+- Updated dependencies [01ac442f]
+- Updated dependencies [f79376c3]
+- Updated dependencies [ffd878b6]
+- Updated dependencies [5b9d90e8]
+- Updated dependencies [046e42b8]
+- Updated dependencies [cc713117]
+- Updated dependencies [83f54180]
+- Updated dependencies [8b82d945]
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [7052dad3]
+- Updated dependencies [e52f63fa]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [7027d7c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [0fda9fee]
+- Updated dependencies [2366db6a]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [6c63217c]
+- Updated dependencies [83f54180]
+- Updated dependencies [0a11d7b6]
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [c85541cb]
+- Updated dependencies [aeab9b0b]
+- Updated dependencies [b5912297]
+- Updated dependencies [83f54180]
+- Updated dependencies [2b639656]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [f34de7af]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8e155c3b]
+- Updated dependencies [76887bda]
+- Updated dependencies [39e778d8]
+- Updated dependencies [76887bda]
+- Updated dependencies [27a68bca]
+- Updated dependencies [6236e117]
+- Updated dependencies [943f6287]
+- Updated dependencies [0319aa57]
+- Updated dependencies [76887bda]
+- Updated dependencies [826c561a]
+- Updated dependencies [166978bd]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/hotkeys@2.0.0
+  - @saas-ui/data-table@2.0.0
+  - @saas-ui/forms@2.0.0
+  - @saas-ui/modals@2.0.0
+  - @saas-ui/core@2.0.0
+  - @saas-ui/theme@2.0.0
+  - @saas-ui/auth@2.0.0
+  - @saas-ui/nprogress@2.0.0
+  - @saas-ui/hooks@2.0.0
+
 ## 2.0.0-rc.34
 
 ### Patch Changes

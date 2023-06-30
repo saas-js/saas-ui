@@ -1,5 +1,37 @@
 # @saas-ui/clerk
 
+## 3.0.0
+
+### Major Changes
+
+- f1e99198: Restructured packages.
+
+### Minor Changes
+
+- 046e42b8: Update Clerk client
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [37e38165]
+- Updated dependencies [d725a5da]
+- Updated dependencies [d725a5da]
+- Updated dependencies [0a2bb91f]
+- Updated dependencies [f1e99198]
+- Updated dependencies [ffd878b6]
+- Updated dependencies [046e42b8]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f34de7af]
+- Updated dependencies [f1e99198]
+- Updated dependencies [943f6287]
+- Updated dependencies [0319aa57]
+- Updated dependencies [166978bd]
+  - @saas-ui/auth@2.0.0
+
 ## 3.0.0-rc.33
 
 ### Patch Changes

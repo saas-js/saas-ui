@@ -1,5 +1,18 @@
 # @saas-ui/charts
 
+## 0.8.0
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+- 5099e4b5: Add gradientOpacity prop. Add gradient support for Sparklines.
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- 0319aa57: Bump version
+
 ## 0.8.0-rc.4
 
 ### Minor Changes

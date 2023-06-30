@@ -1,5 +1,13 @@
 # @saas-ui/props-docs
 
+## 1.8.1
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- 0319aa57: Bump version
+
 ## 1.8.1-rc.2
 
 ### Patch Changes

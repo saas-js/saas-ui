@@ -1,5 +1,67 @@
 # @saas-ui/date-picker
 
+## 0.10.0
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- 633b5c63: Updated the day and month segment minimal width, so there's less spacing with single digits
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- f1e99198: Restructured packages.
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [1563cc9a]
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [e23790a8]
+- Updated dependencies [83f54180]
+- Updated dependencies [ba61612f]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [b8be6d41]
+- Updated dependencies [d725a5da]
+- Updated dependencies [70af3ead]
+- Updated dependencies [d725a5da]
+- Updated dependencies [84e59fec]
+- Updated dependencies [1177329d]
+- Updated dependencies [e9258592]
+- Updated dependencies [a5898c44]
+- Updated dependencies [6193c47c]
+- Updated dependencies [83f54180]
+- Updated dependencies [f1e99198]
+- Updated dependencies [046e42b8]
+- Updated dependencies [cc713117]
+- Updated dependencies [83f54180]
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [7052dad3]
+- Updated dependencies [e52f63fa]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [7027d7c1]
+- Updated dependencies [0fda9fee]
+- Updated dependencies [2366db6a]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [83f54180]
+- Updated dependencies [0a11d7b6]
+- Updated dependencies [83f54180]
+- Updated dependencies [2b639656]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [f1e99198]
+- Updated dependencies [76887bda]
+- Updated dependencies [76887bda]
+- Updated dependencies [27a68bca]
+- Updated dependencies [6236e117]
+- Updated dependencies [0319aa57]
+- Updated dependencies [76887bda]
+- Updated dependencies [826c561a]
+- Updated dependencies [166978bd]
+  - @saas-ui/modals@2.0.0
+  - @saas-ui/core@2.0.0
+
 ## 0.10.0-rc.16
 
 ### Patch Changes

@@ -1,5 +1,87 @@
 # @saas-ui/auth
 
+## 2.0.0
+
+### Major Changes
+
+- 37e38165: Auth forms can now be used standalone, to build custom solutions.
+- 8b82d945: Removed button package.
+- f34de7af: Moved Supabase and Magic auth services to separate packages.
+- f1e99198: Restructured packages.
+
+### Minor Changes
+
+- ffd878b6: Auth now support an onError handler
+- 046e42b8: Updated to Chakra UI 2.7
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- 0a2bb91f: The default Auth User type is now less strict.
+- f1e99198: Migrated from microbundle to tsup for builds
+- 943f6287: Fix Auth component footer
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+- Updated dependencies [84e59fec]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [e23790a8]
+- Updated dependencies [83f54180]
+- Updated dependencies [ba61612f]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [b8be6d41]
+- Updated dependencies [d725a5da]
+- Updated dependencies [70af3ead]
+- Updated dependencies [532011d6]
+- Updated dependencies [a8ea24da]
+- Updated dependencies [6d3f5717]
+- Updated dependencies [d725a5da]
+- Updated dependencies [e9258592]
+- Updated dependencies [a5898c44]
+- Updated dependencies [532011d6]
+- Updated dependencies [6193c47c]
+- Updated dependencies [83f54180]
+- Updated dependencies [f1e99198]
+- Updated dependencies [01ac442f]
+- Updated dependencies [046e42b8]
+- Updated dependencies [83f54180]
+- Updated dependencies [8b82d945]
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [7052dad3]
+- Updated dependencies [e52f63fa]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [7027d7c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [0fda9fee]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [6c63217c]
+- Updated dependencies [83f54180]
+- Updated dependencies [0a11d7b6]
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [c85541cb]
+- Updated dependencies [b5912297]
+- Updated dependencies [83f54180]
+- Updated dependencies [2b639656]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [f1e99198]
+- Updated dependencies [76887bda]
+- Updated dependencies [39e778d8]
+- Updated dependencies [76887bda]
+- Updated dependencies [27a68bca]
+- Updated dependencies [6236e117]
+- Updated dependencies [0319aa57]
+- Updated dependencies [76887bda]
+- Updated dependencies [826c561a]
+- Updated dependencies [166978bd]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/forms@2.0.0
+  - @saas-ui/core@2.0.0
+  - @saas-ui/hooks@2.0.0
+
 ## 2.0.0-rc.33
 
 ### Patch Changes

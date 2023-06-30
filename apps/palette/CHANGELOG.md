@@ -1,5 +1,12 @@
 # palette
 
+## 1.3.9
+
+### Patch Changes
+
+- @saas-ui/react@2.0.1
+- @saas-ui/theme-glass@0.4.0
+
 ## 1.3.8
 
 ### Patch Changes

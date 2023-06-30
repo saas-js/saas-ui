@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 2.0.1
+
+### Patch Changes
+
+- f29338d0: Fix issue where useModals would not return the correct type.
+
 ## 2.0.0
 
 ### Major Changes

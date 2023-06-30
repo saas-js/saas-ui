@@ -1,5 +1,4 @@
-import { Badge, Box, HStack, Text } from '@chakra-ui/react'
-import { Button, IconButton } from '@saas-ui/react'
+import { Badge, Box, HStack, Text, Button, IconButton } from '@chakra-ui/react'
 
 import { FaTwitter, FaGithub } from 'react-icons/fa'
 
@@ -23,11 +22,7 @@ export const Nav = () => {
         </HStack>
       </Button>
 
-      <Button
-        as="a"
-        href="https://saas-ui.dev/docs/introduction"
-        variant="ghost"
-      >
+      <Button as="a" href="https://saas-ui.dev/docs" variant="ghost">
         Documentation
       </Button>
 

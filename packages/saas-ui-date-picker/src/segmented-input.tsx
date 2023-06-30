@@ -28,7 +28,7 @@ export const [SegmentedInputStylesProvider, useSegmentedInputStyles] =
 
 export interface SegmentedInputProps
   extends HTMLChakraProps<'div'>,
-    ThemingProps<'SegmentedInput'> {}
+    ThemingProps<'Input'> {}
 
 /**
  * SegmentedInput
@@ -72,7 +72,7 @@ SegmentedInput.displayName = 'SegmentedInput'
 
 export interface InputSegmentProps
   extends HTMLChakraProps<'div'>,
-    ThemingProps<'InputSegment'> {
+    ThemingProps<'SuiInputSegment'> {
   minValue?: number
   maxValue?: number
   type?: string
@@ -100,17 +100,20 @@ export const InputSegment = forwardRef<InputSegmentProps, 'div'>(
     } = props
 
     const theme = useTheme()
-    const isThemed = !!theme.components['InputSegment']
+    const isThemed = !!theme.components['SuiInputSegment']
 
-    const styles = useStyleConfig('InputSegment', {
+    const styles = useStyleConfig('SuiInputSegment', {
       styleConfig: !isThemed ? defaultStyleConfig : undefined,
       ...rest,
     })
 
+    const minWidth =
+      type && ['day', 'month'].includes(type) ? 1 : String(maxValue).length
+
     const segmentStyles = {
       boxSizing: 'content-box',
       fontVariantNumeric: 'tabular-nums',
-      minWidth: maxValue != null ? String(maxValue).length + 'ch' : 'auto',
+      minWidth: maxValue != null ? minWidth + 'ch' : 'auto',
       ...styles,
     }
 

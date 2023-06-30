@@ -1,0 +1,421 @@
+---
+id: snackbar
+title: Snackbar
+description: The snackbar component is used to give feedback after certain actions.
+---
+
+The snackbar is used to show alerts on top of an overlay. The snackbar will close
+itself when the close button is clicked, or after a timeout — the default is 5
+seconds.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core/src/snackbar' }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ theme: 'saas-ui', componentName: 'toaster' }}
+/>
+
+Snackbars can be configured to appear at either the top or the bottom of an
+application window, and it is possible to have more than one snackbar onscreen at a
+time.
+
+Snackbar is a wrapper around the [useToast](https://chakra-ui.com/docs/feedback/toast), with some additional features.
+
+- Convenience methods
+- Support for an action button
+
+## Import
+
+```js
+import { useSnackbar } from '@saas-ui/react'
+```
+
+## Usage
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarExample() {
+  const snackbar = useSnackbar()
+  return (
+    <Button
+      onClick={() =>
+        snackbar({
+          title: 'Account created.',
+          description: "We've created your account for you.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      }
+    >
+      Show Snackbar
+    </Button>
+  )
+}
+```
+
+> Make sure to call `useSnackbar` at least one component level below the
+> `<SaasProvider>` or `<ChakraProvider>` because it needs access to the current theme.
+
+### Convenience methods
+
+Snackbar adds a bunch of convenience methods on top of the default useToast hook.
+You can either pass a snackbar options object or simply a string, which is a shorthand for `{title: '...'}`
+
+```jsx
+import { Button, HStack } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarExample() {
+  const snackbar = useSnackbar()
+  return (
+    <HStack spacing={4}>
+      <Button onClick={() => snackbar.info('Your account has been created.')}>
+        Show Info
+      </Button>
+      <Button
+        onClick={() => snackbar.success('Your account has been created.')}
+      >
+        Show Success
+      </Button>
+      <Button
+        onClick={() => snackbar.error("Your account couldn't be created.")}
+      >
+        Show Error
+      </Button>
+      <Button
+        onClick={() =>
+          snackbar.promise(
+            new Promise((resolve) => setTimeout(resolve, 10000)),
+            {
+              loading: 'Creating your account...',
+              success: 'Your account has been created.',
+              error: "Your account couldn't be created.",
+            }
+          )
+        }
+      >
+        Show Promise
+      </Button>
+    </HStack>
+  )
+}
+```
+
+### Action
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarExample() {
+  const snackbar = useSnackbar()
+  return (
+    <Button
+      onClick={() =>
+        snackbar.success({
+          title: 'Email sent',
+          description: 'The email has been sent',
+          action: <Button variant="subtle">Undo</Button>,
+        })
+      }
+    >
+      Show Snackbar
+    </Button>
+  )
+}
+```
+
+### Custom component
+
+Display a custom component instead of the default Snackbar UI.
+
+```jsx
+import { Button, Box } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function CustomSnackbarExample() {
+  const snackbar = useSnackbar()
+  return (
+    <Button
+      onClick={() =>
+        snackbar({
+          position: 'bottom-left',
+          render: () => (
+            <Box color="white" p={3} bg="blue.500">
+              Hello World
+            </Box>
+          ),
+        })
+      }
+    >
+      Show Snackbar
+    </Button>
+  )
+}
+```
+
+### Closing Snackbars
+
+Snackbars can be closed imperatively, individually (via the `close` instance
+method) or all together (via the `closeAll` instance method).
+
+```jsx
+import { Button, Stack } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function ClosingSnackbarExample() {
+  const snackbar = useSnackbar()
+  const snackbarIdRef = React.useRef()
+
+  function close() {
+    if (snackbarIdRef.current) {
+      snackbar.close(snackbarIdRef.current)
+    }
+  }
+
+  function closeAll() {
+    // you may optionally pass an object of positions to exclusively close
+    // keeping other positions opened
+    // e.g. `{ positions: ['bottom'] }`
+    snackbar.closeAll()
+  }
+
+  function addSnackbar() {
+    snackbarIdRef.current = snackbar({ description: 'some text' })
+  }
+
+  return (
+    <Stack isInline spacing={2}>
+      <Button onClick={addSnackbar} type="button">
+        Snackbar
+      </Button>
+
+      <Button onClick={close} type="button" variant="outline">
+        Close last snackbar
+      </Button>
+
+      <Button onClick={closeAll} type="button" variant="outline">
+        Close all snackbars
+      </Button>
+    </Stack>
+  )
+}
+```
+
+### Updating Snackbars
+
+Snackbars' options can be updated, by passing an `id` and the new `options` to the
+`update` instance method.
+
+```jsx
+import { Button, Stack } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function UpdatingSnackbarExample() {
+  const snackbar = useSnackbar()
+  const snackbarIdRef = React.useRef()
+
+  function update() {
+    if (snackbarIdRef.current) {
+      snackbar.update(snackbarIdRef.current, { description: 'new text' })
+    }
+  }
+
+  function addSnackbar() {
+    snackbarIdRef.current = snackbar({ description: 'some text' })
+  }
+
+  return (
+    <Stack isInline spacing={2}>
+      <Button onClick={addSnackbar} type="button">
+        Snackbar
+      </Button>
+
+      <Button onClick={update} type="button" variant="outline">
+        Update last snackbar
+      </Button>
+    </Stack>
+  )
+}
+```
+
+### Status
+
+You can use `status` to change the color of your snackbars.
+
+```jsx
+import { Button, Wrap, WrapItem } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarStatusExample() {
+  const snackbar = useSnackbar()
+  const statuses = ['success', 'error', 'warning', 'info']
+
+  return (
+    <Wrap>
+      {statuses.map((status, i) => (
+        <WrapItem key={i}>
+          <Button
+            onClick={() =>
+              snackbar({
+                title: `${status} snackbar`,
+                status: status,
+                isClosable: true,
+              })
+            }
+          >
+            Show {status} snackbar
+          </Button>
+        </WrapItem>
+      ))}
+    </Wrap>
+  )
+}
+```
+
+### Variants
+
+If you're using the Saas UI theme, Snackbar will automatically use the `snackbar` variant by default.
+
+You can also use variants of the
+[`Alert`](https://chakra-ui.com/docs/feedback/alert) component.
+
+```jsx
+import { Button, Wrap, WrapItem } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function SnackbarVariantsExample() {
+  const snackbar = useSnackbar()
+  const variants = ['snackbar', 'solid', 'subtle', 'left-accent', 'top-accent']
+
+  return (
+    <Wrap>
+      {variants.map((variant, i) => (
+        <WrapItem key={i}>
+          <Button
+            onClick={() =>
+              snackbar({
+                title: `${variant} snackbar`,
+                variant: variant,
+                isClosable: true,
+              })
+            }
+          >
+            Show {variant} snackbar
+          </Button>
+        </WrapItem>
+      ))}
+    </Wrap>
+  )
+}
+```
+
+### Custom container styles
+
+The `snackbar` function now exposes a `containerStyle` property you can use to
+override the default styles for the snackbar container.
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function Example() {
+  // Via instantiation
+  const snackbar = useSnackbar({
+    position: 'top',
+    title: 'Container style is updated',
+    containerStyle: {
+      width: '800px',
+      maxWidth: '100%',
+    },
+  })
+  // Or via trigger
+  // Style here will overwrite the entire style above
+  return (
+    <Button
+      onClick={() => {
+        snackbar({
+          containerStyle: {
+            border: '20px solid red',
+          },
+        })
+      }}
+    >
+      Click me to show snackbar with custom container style.
+    </Button>
+  )
+}
+```
+
+### Changing the snackbar position
+
+Using the `position` prop you can adjust where your snackbar will be popup from.
+
+```jsx
+import { Button, Wrap, WrapItem } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function PositionExample() {
+  const snackbar = useSnackbar()
+  const positions = [
+    'top',
+    'top-right',
+    'top-left',
+    'bottom',
+    'bottom-right',
+    'bottom-left',
+  ]
+
+  return (
+    <Wrap>
+      {positions.map((position, i) => (
+        <WrapItem key={i}>
+          <Button
+            onClick={() =>
+              snackbar({
+                title: `${position} snackbar`,
+                position: position,
+                isClosable: true,
+              })
+            }
+          >
+            Show {position} snackbar
+          </Button>
+        </WrapItem>
+      ))}
+    </Wrap>
+  )
+}
+```
+
+### Preventing Duplicate Snackbar
+
+In some cases you might need to prevent duplicate of specific snackbars. To achieve
+you need to pass an `id` and use the `snackbar.isActive` method to determine when
+to call `snackbar(...)`.
+
+```jsx live=false
+import { Button } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function PreventDuplicateExample() {
+  const snackbar = useSnackbar()
+  const id = 'test-snackbar'
+  return (
+    <Button
+      onClick={() => {
+        if (!snackbar.isActive(id)) {
+          snackbar({
+            id,
+            title: 'Hey! You can create a duplicate snackbar',
+          })
+        }
+      }}
+    >
+      Click me!
+    </Button>
+  )
+}
+```

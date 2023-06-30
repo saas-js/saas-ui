@@ -3,20 +3,23 @@ import * as Chakra from '@chakra-ui/react'
 import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
-import * as AppShell from '@saas-ui/app-shell'
-import * as Sidebar from '@saas-ui/sidebar'
+import * as SaasUIAuth from '@saas-ui/auth'
+import * as SaasUIForms from '@saas-ui/forms'
 import * as DatePicker from '@saas-ui/date-picker'
-import * as SaasUIPro from '@saas-ui/pro'
-import * as SaasUIFeatures from '@saas-ui/features'
+import * as SaasUIPro from '@saas-ui-pro/react'
+import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
+import * as CommandBar from '@saas-ui/command-bar'
 
-import * as Web3 from '@saas-ui/web3'
-import * as Yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { yupForm } from '@saas-ui/forms/yup'
+import * as z from 'zod'
+import * as yup from 'yup'
+import * as YupForm from '@saas-ui/forms/yup'
+import * as ZodForm from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
 import FocusLock from 'react-focus-lock'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
   FiHome,
@@ -46,6 +49,13 @@ import {
   FiUserCheck,
   FiCode,
   FiRefreshCw,
+  FiMessageSquare,
+  FiMail,
+  FiStar,
+  FiEye,
+  FiEyeOff,
+  FiTrash,
+  FiInfo,
 } from 'react-icons/fi'
 
 import {
@@ -89,6 +99,13 @@ const reactIcons = {
   FiUserCheck,
   FiCode,
   FiRefreshCw,
+  FiMessageSquare,
+  FiMail,
+  FiStar,
+  FiEye,
+  FiEyeOff,
+  FiTrash,
+  FiInfo,
 }
 
 const StarIcon = (props) => (
@@ -120,15 +137,14 @@ const ReactLiveScope = {
   ...Chakra,
   ...SaasUIPro,
   ...SaasUI,
+  ...SaasUIAuth,
+  ...SaasUIForms,
   ...SaasUIFeatures,
-  ...AppShell,
-  ...Sidebar,
   ...DatePicker,
-  ...Web3,
   ...Icons,
-  Yup,
-  yupResolver,
-  yupForm,
+  ...CommandBar,
+  yup,
+  yupResolver: yupResolver,
   // ...Loaders,
   ...reactIcons,
   StarIcon,
@@ -140,6 +156,24 @@ const ReactLiveScope = {
   StatusBadge,
   SaasSpinner,
   ThrowSomeError,
+  import: {
+    '@chakra-ui/react': Chakra,
+    '@saas-ui/react': SaasUI,
+    '@saas-ui/auth': SaasUIAuth,
+    '@saas-ui/forms': SaasUIForms,
+    '@saas-ui/forms/zod': ZodForm,
+    '@saas-ui/forms/yup': YupForm,
+    '@saas-ui/command-bar': CommandBar,
+    '@saas-ui-pro/react': SaasUIPro,
+    '@saas-ui-pro/feature-flags': SaasUIFeatures,
+    '@saas-ui/date-picker': DatePicker,
+    '@chakra-ui/icons': Icons,
+    'react-icons/fi': reactIcons,
+    '@hookform/resolvers/yup': { yupResolver },
+    '@hookform/resolvers/zod': { zodResolver },
+    zod: z,
+    yup: yup,
+  },
 }
 
 export default ReactLiveScope

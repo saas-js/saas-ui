@@ -2,9 +2,7 @@ import * as React from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
-import { Button, ButtonProps } from '@saas-ui/button'
-
-import { __DEV__ } from '@chakra-ui/utils'
+import { Button, ButtonProps, forwardRef } from '@chakra-ui/react'
 
 export interface SubmitButtonProps extends ButtonProps {
   /**
@@ -22,46 +20,46 @@ export interface SubmitButtonProps extends ButtonProps {
    */
   disableIfInvalid?: boolean
 }
+/**
+ * A button with type submit and default color scheme primary and isLoading state when the form is submitting.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
+export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
+  (props, ref) => {
+    const {
+      children = 'Submit',
+      disableIfUntouched,
+      disableIfInvalid,
+      isDisabled: isDisabledProp,
+      isLoading,
+      ...rest
+    } = props
+    const { formState } = useFormContext()
 
-export const SubmitButton = React.forwardRef<
-  HTMLButtonElement,
-  SubmitButtonProps
->((props, ref) => {
-  const {
-    children,
-    disableIfUntouched,
-    disableIfInvalid,
-    isDisabled: isDisabledProp,
-    isLoading,
-    ...rest
-  } = props
-  const { formState } = useFormContext()
+    const isDisabled =
+      (disableIfUntouched && !formState.isDirty) ||
+      (disableIfInvalid && !formState.isValid) ||
+      isDisabledProp
 
-  const isDisabled =
-    (disableIfUntouched && !formState.isDirty) ||
-    (disableIfInvalid && !formState.isValid) ||
-    isDisabledProp
-
-  return (
-    <Button
-      {...rest}
-      ref={ref}
-      type="submit"
-      isLoading={formState.isSubmitting || isLoading}
-      isDisabled={isDisabled}
-    >
-      {children}
-    </Button>
-  )
-})
+    return (
+      <Button
+        {...rest}
+        ref={ref}
+        type="submit"
+        isLoading={formState.isSubmitting || isLoading}
+        isDisabled={isDisabled}
+      >
+        {children}
+      </Button>
+    )
+  }
+)
 
 SubmitButton.defaultProps = {
   variant: 'primary',
-  children: 'Submit',
   disableIfUntouched: false,
   disableIfInvalid: false,
 }
 
-if (__DEV__) {
-  SubmitButton.displayName = 'SubmitButton'
-}
+SubmitButton.displayName = 'SubmitButton'

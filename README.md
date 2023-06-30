@@ -1,4 +1,7 @@
-<h1 align='center'>Saas UI</h1>
+<p align='center'>
+<img src="./apps/website/public/saasui.svg#gh-light-mode-only" alt="Saas UI logo" height="60px" />
+<img src="./apps/website/public/saasui-dark.svg#gh-dark-mode-only" alt="Saas UI logo" height="60px" />
+</p>
 
 <p align='center'>The React component library for Startups</p>
 
@@ -17,28 +20,36 @@
 
 <hr />
 
-Saas UI is an advanced component library that helps you build essential SaaS functionality in hours instead of weeks.
-
+Saas UI is an advanced component library designed to build beautiful B2B and dashboard style apps with speed.
 It's built on top of Chakra UI and fully written in Typescript.
 
 This repository contains all [open source components](/packages), aswell as the [documentation website](apps/website/pages/docs).
 
-## Documentation
+## Links
 
-You can find the documentation on our website:
+💡 [Documentation](https://saas-ui.dev/docs/introduction)
 
-https://www.saas-ui.dev/docs/introduction
+🧭 [Roadmap](https://roadmap.saas-ui.dev)
+
+🖼 [Storybooks](https://storybook.saas-ui.pro)
+
+🌟 [Saas UI Pro](https://saas-ui.dev/#pro-features)
 
 ## Contributing & Support
 
 Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md) and feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
 
-If you like to support the project financially you can [Sponsor](https://github.com/sponsors/saas-js) Saas UI, or consider [Pre-ordering Saas UI Pro](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the development version and our private Discord server. As an early adopter you will get 50% discount on the final price, life-time access, free updates and a lot of love ❤️.
+If you like to support the project financially you can [Sponsor](https://github.com/sponsors/saas-js) Saas UI, or consider ordering [Saas UI Pro Beta](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the private Git repository with the beta and our private Discord server for support.
 
 ### Core
 
-30+ essential open source components built on top of Chakra UI.
-Including fully functional auth screens, forms (with react-hook-form), modal manager, and much more.
+40+ essential open source components built on top of Chakra UI.
+Everything you need to build
+
+- Authentication screens
+- Powerfull forms manager
+- DatePicker / DateRangePicker
+- Stepper, Timeline, DataTable and much more.
 
 ### Pro
 
@@ -58,13 +69,13 @@ Complete source code available in a monorepo that can serve as a starting point 
 - [x] Billing/subscription management (Paddle)
 - [x] Mock graph api (MSW)
 - [x] Custom color schemes
+- [x] Glass theme
+- [x] Onboarding flows
 
 #### In progress
 
-- [ ] Example pages (CRM, Inbox, CRUD)
-- [ ] Onboarding flows
+- [ ] Example pages (CRM, Inbox)
 - [ ] Upselling flows (Trials, upgrades, etc)
-- [ ] Saas UI themes
 - [ ] File uploads
 
 ## Using this repo

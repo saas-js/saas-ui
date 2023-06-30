@@ -1,20 +1,12 @@
-import {
-  anatomy,
-  mode,
-  transparentize,
-  PartsStyleFunction,
-} from '@chakra-ui/theme-tools'
+import { transparentize } from '@chakra-ui/theme-tools'
 import { theme as baseTheme } from '@chakra-ui/react'
 
-const parts = anatomy('nav-item').parts(
-  'item',
-  'link',
-  'inner',
-  'icon',
-  'label'
-)
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navItemAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(navItemAnatomy.keys)
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   return {
     item: {
       my: '2px',
@@ -37,6 +29,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
         textDecoration: 'none',
       },
       _focusVisible: {
+        outline: 'none',
         boxShadow: 'outline',
       },
     },
@@ -60,21 +53,25 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       justifyContent: 'center',
       width: '4',
       ml: '-0.25rem',
+      color: 'currentColor',
     },
   }
-}
+})
 
-const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
-  const hoverBg = mode('blackAlpha.100', 'whiteAlpha.200')(props)
-  const activeBg = mode('blackAlpha.200', 'whiteAlpha.300')(props)
-
+const variantNeutral = definePartsStyle((props) => {
   return {
     link: {
       _hover: {
-        bg: hoverBg,
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
       },
       _active: {
-        bg: activeBg,
+        bg: 'blackAlpha.200',
+        _dark: {
+          bg: `whiteAlpha.300`,
+        },
       },
     },
     icon: {
@@ -84,43 +81,45 @@ const variantNeutral: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
   }
-}
+})
 
-const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
+const variantSubtle = definePartsStyle((props) => {
   const { colorScheme: c, theme } = props
-
-  const activeBg = mode(
-    transparentize(`${c}.500`, 0.3)(theme),
-    transparentize(`${c}.500`, 0.3)(theme)
-  )(props)
 
   return {
     link: {
       _hover: {
-        bg: mode('blackAlpha.100', 'whiteAlpha.200')(props),
+        bg: `blackAlpha.100`,
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
       },
       _active: {
-        bg: activeBg,
+        bg: transparentize(`${c}.500`, 0.3)(theme),
         fontWeight: 'semibold',
-        color: mode(`${c}.600`, `${c}.100`)(props),
+        color: `${c}.600`,
+        _dark: {
+          bg: transparentize(`${c}.500`, 0.3)(theme),
+          color: `${c}.100`,
+        },
       },
     },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
+const variantSolid = definePartsStyle((props) => {
   const { colorScheme: c } = props
-
-  const activeBg = `${c}.500`
-  const hoverBg = mode('blackAlpha.100', 'whiteAlpha.200')(props)
 
   return {
     link: {
       _hover: {
-        bg: hoverBg,
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
       },
       _active: {
-        bg: activeBg,
+        bg: `${c}.500`,
       },
       color: 'white',
     },
@@ -129,10 +128,9 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
     },
     label: {},
   }
-}
+})
 
-export default {
-  parts: parts.keys,
+export const navItemTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'sm',
     colorScheme: 'primary',
@@ -143,7 +141,7 @@ export default {
     xs: {
       link: baseTheme.components.Button.sizes?.xs,
       icon: {
-        me: 2,
+        me: 1,
         fontSize: 'xs',
       },
     },
@@ -164,7 +162,7 @@ export default {
     lg: {
       link: baseTheme.components.Button.sizes?.lg,
       icon: {
-        me: 2,
+        me: 3,
         fontSize: 'lg',
       },
     },
@@ -174,4 +172,4 @@ export default {
     subtle: variantSubtle,
     solid: variantSolid,
   },
-}
+})

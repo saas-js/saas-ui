@@ -1,0 +1,277 @@
+---
+title: Upgrading to v2
+description: How to upgrade to v2
+---
+
+Saas UI 2.0 comes with a lot of new features and improvements. This guide will help you upgrade your existing Saas UI 1.x project to Saas UI 2.0.
+
+## Upgrade Steps
+
+### 1. Update dependencies
+
+Make sure you use the latest Chakra UI version, minimum `2.5.0`.
+
+```bash
+npm i @chakra-ui/react@latest
+```
+
+### 2. Update Saas UI
+
+<Info>Use @next while Saas UI 2.0 is in beta</Info>
+
+```bash
+npm i @saas-ui/react@next
+```
+
+### 3. Next.js
+
+The linkComponent no longer requires legacyBehavior. You can pass the Link component to SaasProvider as following:
+
+```tsx
+import Link, { LinkProps } from 'next/link'
+import { SaasProvider } from '@saas-ui/react'
+
+const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <Link ref={ref} {...props} />
+)
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <SaasProvider linkComponent={Link}>
+      <Component {...pageProps} />
+    </SaasProvider>
+  )
+}
+```
+
+### 4. New components
+
+#### Timeline
+
+The Timeline component has been moved from `pro` to the core package.
+
+#### Sidebar
+
+Sidebar is now out of beta and part of the core.
+
+#### CommandBar
+
+New CommandBar component.
+
+### 4. Deprecated features
+
+#### Button, ButtonGroup, IconButton, Menu, MenuItem, Divider
+
+These components are no longer re-exported from Saas UI. You can import them directly from Chakra UI.
+
+### 5. Breaking changes
+
+#### Auth
+
+Auth forms can now be used standalone, without using the Auth Provider.
+
+- PasswordForm -> PasswordView
+- OtpForm -> OtpView
+- MagicLinkForm -> MagicLinkView
+- UpdatePasswordForm -> UpdatePasswordView
+- ForgotPasswordForm -> ForgotPasswordView
+- `@saas-ui/auth/supabase` moved to `@saas-ui/supabase`
+- `@saas-ui/auth/magic` moved to `@saas-ui/magic`
+
+#### List
+
+`List` has been renamed to `StructuredList` and has a new improved API.
+
+```tsx
+<StructuredList>
+  <StructuredListItem>
+    <StructuredListCell>
+      <Text fontWeight="bold">Elliot Alderson</Text>
+      <Text fontSize="sm" color="muted">
+        Hacker
+      </Text>
+    </StructuredListCell>
+    <StructuredListCell>
+      <Tag>admin</Tag>
+    </StructuredListCell>
+  </StructuredListItem>
+</StructuredList>
+```
+
+#### DataTable
+
+`DataTable` has been updated to use React Table v8.
+
+#### Form
+
+- `Form` now accepts a render prop that gives you access to the internal form state, as well as typed Form components.
+
+```tsx
+export default function MyForm = () => {
+  return (
+    <Form defaultValues={{name: ''}}>
+      {({Field}) => (
+        <Field type="text" name="name" />
+      )}
+    </Form>
+  )
+}
+```
+
+- `AutoForm` has been removed, you can use `Form` instead. `Form` will auto render fields based on the schema you pass to it, when no children are provided.
+
+- Importing `Form` from `@saas-ui/forms/yup` or `@saas-ui/forms/zod` gives you a typed `Form` component. No longer needed to use `useForm` or `getResolver`.
+
+- `registerFieldType` has been renamed to `createField` and can be used together with `createForm` to create forms with custom fields.
+
+```tsx
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
+
+// zod
+// import {createZodForm} from '@saas-ui/forms/zod'
+
+// yup
+// import {createYupForm} from '@saas-ui/forms/yup'
+
+const MyCustomField = createField(
+  React.forwardRef((props, ref) => {
+    return <input ref={ref} {...props} />
+  })
+)
+
+const MyCustomControlledField = createField(
+  React.forwardRef((props, ref) => {
+    return <ReactSelect ref={ref} {...props} />
+  }),
+  {
+    isControlled: true,
+  }
+)
+
+export const Form = createForm({
+  fields: {
+    custom: MyCustomField,
+    'custom-controlled': MyCustomControlledField,
+  },
+})
+```
+
+#### StepForm
+
+`StepForm` has a new improved API, similar to `Form`.
+
+```tsx
+import {StepForm} from '@saas-ui/react'
+
+// zod
+// import { StepForm } from '@saas-ui/forms/zod'
+
+// yup
+// import { StepForm } from '@saas-ui/forms/yup'
+
+export default function MyStepForm = () => {
+  return (
+    <StepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+Zod and Yup forms now expect a `steps` property that contains the schemas for each step.
+
+```tsx
+export default function MyStepForm = () => {
+  return (
+    <StepForm
+      steps={[{
+        name: 'profile',
+        schema: z.object({
+          name: z.string(),
+          email: z.string().email(),
+        })
+      }, {
+        name: 'password',
+        schema: z.object({
+          password: z.string().min(4),
+        })
+      }]}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+#### Loader
+
+`Loader` has been renamed to `LoadingOverlay` and has a new improved API.
+
+```tsx
+<LoadingOverlay>
+  <LoadingSpinner />
+</LoadingOverlay>
+```
+
+#### Sidebar
+
+The `breakpoints` property is removed and Sidebar now accepts a single `breakpointValue` prop.
+The `condensed` variant has been renamed to `compact`.
+
+#### ErrorBoundary
+
+ErrorBoundary `errorComponent` property renamed to `fallback` to be consistent with Suspense.

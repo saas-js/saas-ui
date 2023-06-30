@@ -1,0 +1,64 @@
+---
+id: error-boundary
+title: ErrorBoundary
+package: '@saas-ui/react'
+description: A container component that catches errors and displays a fallback UI.
+---
+
+Use ErrorBoundary to make sure the UI of your app stays accessible to people in the event of any errors.
+It allows your to log the errors and display a fallback UI.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-react' }}
+  npm={{ package: '@saas-ui/react' }}
+/>
+
+## Import
+
+```js
+import { ErrorBoundary } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic setup
+
+```tsx
+import { ErrorBoundary } from '@saas-ui/react'
+
+export default function CustomComponent({ children }) {
+  return <ErrorBoundary>{children}</ErrorBoundary>
+}
+```
+
+Errors can picked up by setting the `onError` handler of `SaasProvider`.
+
+```tsx
+import { SaasProvider } from '@saas-ui/react'
+
+export default function App({ children }) {
+  const onError = React.useCallback((error) => {
+    console.log(error)
+  }, [])
+
+  return <SaasProvider onError={onError}>{children}</SaasProvider>
+}
+```
+
+### Fallback component
+
+By default a `Something went wrong.` message will be down. Customize the error message with a custom error component.
+
+```tsx
+import { ErrorBoundary, EmptyState } from '@saas-ui/react'
+
+export default function CustomComponent({ children }) {
+  return (
+    <ErrorBoundary
+      fallback={<EmptyState title="Oops this doesn't look good" />}
+    >
+      {children}
+    </ErrorBoundary>
+  )
+}
+```

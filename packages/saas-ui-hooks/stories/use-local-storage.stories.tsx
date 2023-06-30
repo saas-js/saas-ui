@@ -3,16 +3,17 @@ import { Story, Meta } from '@storybook/react'
 
 import { useLocalStorage } from '../src'
 
-import { Container, Box, ButtonGroup } from '@chakra-ui/react'
-
-import { Button } from '@saas-ui/button'
+import { Container, Button, ButtonGroup } from '@chakra-ui/react'
 
 export default {
   title: 'Hooks/useLocalStorage',
 } as Meta
 
 export const Basic = () => {
-  const [value, setValue] = useLocalStorage('story.basic', '')
+  const [value, setValue] = useLocalStorage<string | undefined>(
+    'story.basic',
+    ''
+  )
 
   return (
     <Container>
@@ -26,7 +27,10 @@ export const Basic = () => {
 }
 
 export const DefaultValue = () => {
-  const [value, setValue] = useLocalStorage('story.default', 'Not clicked')
+  const [value, setValue] = useLocalStorage<string | undefined>(
+    'story.default',
+    'Not clicked'
+  )
 
   return (
     <Container>

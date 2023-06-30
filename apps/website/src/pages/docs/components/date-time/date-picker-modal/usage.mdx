@@ -1,0 +1,76 @@
+---
+id: date-picker-modal
+title: DatePickerModal
+description: Allow users to select a Date and Time value.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DatePicker is currently in beta, we'd love to hear your feedback while we
+  finalize the API.
+</Info>
+
+## Import
+
+- `DatePickerModal`: The container component that manages state and context.
+- `DatePickerTimeField`: Time field to allow users enter a time.
+
+```ts
+import { DatePickerModal, DatePickerTimeField } from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+function Page() {
+  const disclosure = useDisclosure()
+
+  const [value, setValue] = React.useState('')
+
+  return (
+    <>
+      <Button onClick={disclosure.onOpen}>
+        {value ? value.toString() : 'Select a date'}
+      </Button>
+      <DatePickerModal {...disclosure} onSubmit={setValue} />
+    </>
+  )
+}
+```
+
+### With time
+
+```jsx center=true
+function Page() {
+  const disclosure = useDisclosure()
+
+  const [value, setValue] = React.useState('')
+
+  return (
+    <>
+      <Button onClick={disclosure.onOpen}>
+        {value ? value.toString() : 'Select a date'}
+      </Button>
+      <DatePickerModal {...disclosure} onSubmit={setValue}>
+        <DatePickerTimeField />
+      </DatePickerModal>
+    </>
+  )
+}
+```

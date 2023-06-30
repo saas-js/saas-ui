@@ -9,13 +9,25 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalProps as ChakraModalProps,
+  ModalContentProps,
+  ModalHeaderProps,
+  ModalFooterProps,
 } from '@chakra-ui/react'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { runIfFn } from '@chakra-ui/utils'
 
-export interface BaseModalProps extends ChakraModalProps {
+export interface BaseModalProps extends Omit<ChakraModalProps, 'children'> {
   /**
    * The modal title
    */
   title?: React.ReactNode
+  /**
+   * The modal children
+   */
+  children: MaybeRenderProp<{
+    isOpen: boolean
+    onClose: () => void
+  }>
   /**
    * The modal footer
    */
@@ -28,6 +40,18 @@ export interface BaseModalProps extends ChakraModalProps {
    * Hide the overlay
    */
   hideOverlay?: boolean
+  /**
+   * Props for the modal header
+   */
+  headerProps?: ModalHeaderProps
+  /**
+   * Props for the modal content
+   */
+  contentProps?: ModalContentProps
+  /**
+   * Props for the modal footer
+   */
+  footerProps?: ModalFooterProps
 }
 
 export const BaseModal: React.FC<BaseModalProps> = (props) => {
@@ -39,26 +63,37 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
     onClose,
     hideCloseButton,
     hideOverlay,
+    headerProps,
+    contentProps,
+    footerProps,
     ...rest
   } = props
   return (
     <ChakraModal isOpen={isOpen} onClose={onClose} {...rest}>
       {!hideOverlay && <ModalOverlay />}
-      <ModalContent>
-        {title && <ModalHeader>{title}</ModalHeader>}
+      <ModalContent {...contentProps}>
+        {title && <ModalHeader {...headerProps}>{title}</ModalHeader>}
         {!hideCloseButton && <ModalCloseButton />}
-        {children}
-        {footer && <ModalFooter>{footer}</ModalFooter>}
+        {runIfFn(children, {
+          isOpen,
+          onClose,
+        })}
+        {footer && <ModalFooter {...footerProps}>{footer}</ModalFooter>}
       </ModalContent>
     </ChakraModal>
   )
 }
 
 export const Modal: React.FC<BaseModalProps> = (props) => {
-  const { children, ...rest } = props
+  const { children, isOpen, onClose, ...rest } = props
   return (
-    <BaseModal {...rest}>
-      <ModalBody>{children}</ModalBody>
+    <BaseModal {...rest} isOpen={isOpen} onClose={onClose}>
+      <ModalBody>
+        {runIfFn(children, {
+          isOpen,
+          onClose,
+        })}
+      </ModalBody>
     </BaseModal>
   )
 }

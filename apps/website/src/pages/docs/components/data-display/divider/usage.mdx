@@ -1,0 +1,109 @@
+---
+id: divider
+title: Divider
+package: '@saas-ui/core'
+description: Dividers are used to visually separate content in a list or group.
+---
+
+Dividers are used to visually separate content in a list or group.
+
+<ComponentLinks
+  theme={{ componentName: 'divider' }}
+  github={{
+    url: 'https://github.com/saas-ui/saas-ui/blob/main/packages/saas-ui-core/src/divider',
+  }}
+  npm={{ package: '@saas-ui/core' }}
+/>
+
+## Import
+
+```js
+import { Divider, DividerLabel } from '@saas-ui/react'
+```
+
+## Usage
+
+The `Divider` displays a thin horizontal or vertical line, and renders a `hr`
+tag.
+
+## Basic
+
+```jsx
+<Divider />
+```
+
+## Variants
+
+The `Divider` component comes with 2 variants: `solid` and `dashed`.
+
+```jsx
+<Divider variant="dashed" />
+```
+
+## Label
+
+You can add a text label that will be aligned in the center of the `Divider`,
+this will render a `div` tag.
+
+```jsx
+<Divider>
+  <DividerLabel>Divider</DividerLabel>
+</Divider>
+```
+
+### Divider Orientation
+
+Pass the `orientation` prop and set it to either `horizontal` or `vertical`. The default is `horizontal`.
+
+```jsx
+<Divider orientation="horizontal" />
+```
+
+If the vertical orientation is used, make sure that the parent element is
+assigned a height.
+
+```jsx
+import { Center } from '@chakra-ui/react'
+import { Divider } from '@saas-ui/react'
+
+export default function Vertical() {
+  return (
+    <Center height="50px">
+      <Divider orientation="vertical" />
+    </Center>
+  )
+}
+```
+
+Vertical with a label.
+
+```jsx
+import { Center } from '@chakra-ui/react'
+import { Divider, DividerLabel } from '@saas-ui/react'
+
+export default function VerticalWithLabel() {
+  return (
+    <Center height="100px">
+      <Divider orientation="vertical">
+        <DividerLabel>Label</DividerLabel>
+      </Divider>
+    </Center>
+  )
+}
+```
+
+## Composition
+
+```jsx
+import { Stack, Text } from '@chakra-ui/react'
+import { Divider, DividerLabel } from '@saas-ui/react'
+
+export default function Composition() {
+  return (
+    <Stack direction="row" h="100px" p={4}>
+      <Divider orientation="vertical" />
+      <Text>Saas UI</Text>
+    </Stack>
+  )
+}
+```

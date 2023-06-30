@@ -3,6 +3,8 @@
   "include": ["./src"],
   "compilerOptions": {
     "strictNullChecks": true,
+    "declaration": true,
+    "declarationMap": true,
     "baseUrl": ".",
     "paths": {
       "@saas-ui/forms": ["../"]

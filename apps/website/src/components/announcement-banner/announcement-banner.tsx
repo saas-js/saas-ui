@@ -8,6 +8,7 @@ import {
   LinkBox,
   LinkOverlay,
   useColorModeValue,
+  Button,
 } from '@chakra-ui/react'
 import {
   Banner,
@@ -15,7 +16,6 @@ import {
   BannerContent,
   BannerDescription,
   BannerTitle,
-  Button,
 } from '@saas-ui/react'
 import { FiArrowRight } from 'react-icons/fi'
 import { FallInPlace } from '../motion/fall-in-place'
@@ -31,7 +31,6 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
   props
 ) => {
   const { title, description, href, action } = props
-  const bg = useColorModeValue('white', 'gray.900')
   if (!title) {
     return null
   }
@@ -45,11 +44,10 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
     >
       <Container maxW="container.2xl" px="8">
         <FallInPlace initialInView delay={1.4} translateY="-10px">
-          <NextLink href={href}>
+          <NextLink href={href} legacyBehavior>
             <Banner
-              as={LinkBox}
               display="flex"
-              bg={bg}
+              bg="white"
               fontSize="sm"
               justifyContent="center"
               colorScheme="purple"
@@ -57,8 +55,6 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
               borderRadius="full"
               maxW="400px"
               margin="0 auto"
-              borderWidth="2px"
-              borderTopWidth="0"
               borderColor="transparent"
               position="relative"
               py="4px"
@@ -66,6 +62,7 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
               overflow="visible"
               cursor="pointer"
               transition="all .2s ease-out"
+              _dark={{ bg: 'gray.900', borderColor: 'transparent' }}
               _before={{
                 content: `""`,
                 position: 'absolute',
@@ -78,6 +75,9 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
                 margin: '-2px',
                 bgGradient: 'linear(to-r, purple.500, cyan.500)',
                 transition: 'background .2s ease-out',
+                _dark: {
+                  bgGradient: 'linear(to-r, purple.500, cyan.500)',
+                },
               }}
               _hover={{
                 '& .chakra-icon': {
@@ -91,8 +91,6 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
                   {title}
                 </BannerTitle>
                 <BannerDescription
-                  as={LinkOverlay}
-                  href={href}
                   display={{ base: 'none', md: 'block' }}
                   dangerouslySetInnerHTML={{ __html: description }}
                 />

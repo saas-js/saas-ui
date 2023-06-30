@@ -53,7 +53,11 @@ const JsonPreview = () => {
           </List>
 
           <ButtonGroup>
-            <NextLink href="https://gumroad.com/a/507971507/pucdw" passHref>
+            <NextLink
+              href="https://gumroad.com/a/507971507/pucdw"
+              passHref
+              legacyBehavior
+            >
               <Button
                 variant="primary"
                 as="a"

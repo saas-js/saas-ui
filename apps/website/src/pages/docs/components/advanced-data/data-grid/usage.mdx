@@ -1,0 +1,569 @@
+---
+id: data-grid
+title: DataGrid
+description: Data grids are used to organize lists of high density data.
+---
+
+A advanced data grid component that supports sorting, selections, filters and pagination.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+```ts
+import {
+  DataGrid,
+  DataGridPagination,
+  useColumnVisibility,
+} from '@saas-ui-pro/react'
+```
+
+## Usage
+
+DataGrid uses `@tanstack/react-table` v8 internally, and supports all `useTable` props, you can [find the docs here](https://tanstack.com/table/v8).
+
+### Basic DataGrid
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+} from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+  return (
+    <Page height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full">
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+        >
+          <DataGridPagination />
+        </DataGrid>
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### With BulkActions
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+  BulkActions,
+} from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const [selections, setSelections] = React.useState([])
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        isNumeric: true,
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+  return (
+    <Page height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <BulkActions selections={selections} maxW="400px">
+          <Button colorScheme="white">Delete</Button>
+        </BulkActions>
+
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+          onSelectedRowsChange={setSelections}
+          initialState={{
+            rowSelection: { 1: true },
+          }}
+        >
+          <DataGridPagination />
+        </DataGrid>
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Clickable rows
+
+cells with a `href` property will render the cell value in an `a`.
+Using the DataGrid `onRowClick` handler you can trigger a click event on the link whenever the row is clicked.
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+  BulkActions,
+} from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const [selections, setSelections] = React.useState([])
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 200,
+      },
+    ]
+  }, [])
+  return (
+    <Page
+      height="400px"
+      sx={{
+        '& tbody tr:hover': {
+          cursor: 'pointer',
+        },
+      }}
+    >
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <BulkActions selections={selections} width="400px">
+          <Button colorScheme="white">Delete</Button>
+        </BulkActions>
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+          onSelectedRowsChange={setSelections}
+          onRowClick={(row, e) => {
+            // Find the first A and trigger a click.
+            const link = e.currentTarget.querySelector('td a')
+            link && link.click()
+          }}
+        >
+          <DataGridPagination />
+        </DataGrid>
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Remote data
+
+By default all sorting, filtering and pagination is handled locally by `react-table` to work with remote data use this example as a reference.
+
+This example uses [React Query](https://tanstack.com/query) to fetch data.
+
+```tsx
+import { Button } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  DataGrid,
+  DataGridPagination,
+  SortingState,
+  BulkActions,
+} from '@saas-ui-pro/react'
+
+// import { useQuery } from '@tanstack/react-query'
+
+export default function ListPage() {
+  const [selections, setSelections] = React.useState([])
+  const [sort, setSort] = React.useState<SortingState>([])
+  const [page, setPage] = React.useState(0)
+
+  const { data } = useQuery(['customers', sort, page], () => {
+    // fetch...
+  })
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        width: '100px',
+      },
+    ]
+  }, [])
+
+  return (
+    <Page
+      height="400px"
+      sx={{
+        '& tbody tr:hover': {
+          cursor: 'pointer',
+        },
+      }}
+    >
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <BulkActions selections={selections}>
+          <Button colorScheme="white" variant="subtle">
+            Delete
+          </Button>
+        </BulkActions>
+        <DataGrid
+          columns={columns}
+          data={dataTable.data}
+          isSortable
+          isSelectable
+          isHoverable
+          onSelectedRowsChange={setSelections}
+          onRowClick={(row, e) => {
+            // Find the first A and trigger a click.
+            const link = e.currentTarget.querySelector('td a')
+            link && link.click()
+          }}
+          manualSortBy
+          onSortChange={setSort}
+          pageCount={data.total}
+          initialState={{
+            pagination: {
+              pageSize: 1,
+            },
+          }}
+          state={{
+            sorting: { sort },
+          }}
+        >
+          <DataGridPagination
+            onChange={({ pageIndex }) => setPage(pageIndex)}
+          />
+        </DataGrid>
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Access internal state
+
+You can access the react-table `TableInstance` by passing a ref to `DataGrid`.
+Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  ToolbarButton,
+  DataGrid,
+} from '@saas-ui-pro/react'
+
+export default function InternalState() {
+  const gridRef = useRef(null)
+
+  return (
+    <Page
+      title="Customers"
+      height="400px"
+      toolbar={
+        <Toolbar>
+          <ToolbarButton
+            onClick={() => {
+              gridRef.current.toggleAllRowsSelected()
+            }}
+            label="Select all rows"
+            variant="primary"
+          />
+        </Toolbar>
+      }
+    >
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          instanceRef={gridRef}
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+        />
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Toggle visible columns
+
+```jsx
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuOptionGroup,
+  MenuOptionItem,
+  Button,
+} from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  DataGrid,
+  useColumnVisibility,
+} from '@saas-ui-pro/react'
+
+export default function VisibleColumns() {
+  const allColumns = ['name', 'email', 'company', 'country', 'employees']
+  const [visibleColumns, setVisibleColumns] = React.useState([
+    'name',
+    'email',
+    'company',
+  ])
+
+  const columnVisibility = useColumnVisibility({
+    columns: dataGrid.columns,
+    visibleColumns,
+  })
+
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader
+        title="Customers"
+        toolbar={
+          <Toolbar>
+            <Menu closeOnSelect={false}>
+              <MenuButton as={Button}>View</MenuButton>
+              <MenuList>
+                <MenuOptionGroup
+                  value={visibleColumns}
+                  type="checkbox"
+                  onChange={setVisibleColumns}
+                  close
+                >
+                  {allColumns.map((c) => (
+                    <MenuItemOption value={c}>{c}</MenuItemOption>
+                  ))}
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
+          </Toolbar>
+        }
+      />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+          state={{
+            columnVisibility,
+          }}
+        />
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+## Typescript
+
+<Info>
+  To add typesafety for the meta properties, you need to add
+  `react-table-config.d.ts` to your `src`. To use the default DataGrid config
+  you can simply re-export the config from `@saas-ui-pro/react`.
+</Info>
+
+```ts
+// Copy to: src/types/react-table-config.d.ts
+export * from '@saas-ui-pro/react/src/data-grid/react-table-config.d'
+```
+
+```tsx
+import {
+  ColumnDef,
+  DataGrid,
+  DataGridPagination,
+} from '@saas-ui-pro/react'
+
+interface ExampleData {
+  id: string
+  name: string
+  email: string
+}
+
+const columns: ColumnDef<ExampleData>[] = [
+  {
+    accessorKey: 'id',
+    header: 'Id',
+  },
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+]
+
+const data: ExampleData[] = [{
+  {
+    id: 1,
+    name: 'TaShya Charles',
+    email: 'urna.nec.luctus@icloud.couk'
+  },
+  {
+    id: 2,
+    name: 'Donovan Mosley',
+    email: 'lacinia.mattis.integer@icloud.couk',
+  },
+}]
+
+<DataGrid<ExampleData> columns={columns} data={data} />
+```

@@ -1,0 +1,370 @@
+---
+id: sidebar
+scope: theming
+---
+
+## Theming
+
+The `Sidebar`, `NavGroup` and `NavItem` components have separate themes. This
+allows you to customize each component individually.
+
+## Sidebar Theming
+
+The `Sidebar` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `section`
+- `toggleWrapper`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { sidebarAnatomy } from '@saas-ui/theme/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(sidebarAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
+  const { colorScheme: c } = props
+
+  return {
+    container: {
+      bg: c ? `${c}.500` : 'white',
+      display: 'flex',
+      flexDirection: 'column',
+      borderRightWidth: '1px',
+      _dark: {
+        bg: c ? `${c}.500` : 'gray.800',
+      },
+    },
+    overlay: {
+      bg: 'blackAlpha.200',
+    },
+  }
+})
+
+const variantDefault = definePartsStyle((props) => {
+  return {
+    container: {
+      width: '280px',
+      maxWidth: ['100vw', '320px'],
+      minWidth: '220px',
+      py: 3,
+      '&[data-collapsible]': {
+        pt: 14,
+      },
+    },
+    section: {
+      px: 3,
+    },
+    toggleWrapper: {
+      h: 8,
+      mb: 4,
+      display: 'none',
+      '[data-collapsible] &': {
+        display: 'block',
+      },
+    },
+  }
+})
+
+const variantCondensed = definePartsStyle((props) => {
+  return {
+    container: {
+      width: '14',
+      py: 3,
+    },
+    section: {
+      px: 3,
+    },
+    toggleWrapper: {
+      display: 'none',
+    },
+  }
+})
+
+export const sidebarTheme = defineMultiStyleConfig({
+  defaultProps: {
+    variant: 'default',
+  },
+  baseStyle,
+  variants: {
+    default: variantDefault,
+    compact: variantCondensed,
+  },
+})
+```
+
+## NavGroup Theming
+
+The `NavGroup` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `title`
+- `content`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navGroupAnatomy } from '@saas-ui/theme/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(navGroupAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
+  return {
+    container: {
+      '&:not(:last-of-type)': {
+        mb: 4,
+      },
+    },
+    title: {
+      display: 'flex',
+      alignItems: 'center',
+      px: 3,
+      my: 1,
+      height: 6,
+      fontSize: 'sm',
+      fontWeight: 'medium',
+      color: 'muted',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      '&.sui-collapse-toggle .chakra-icon': {
+        opacity: 0,
+      },
+      '&.sui-collapse-toggle': {
+        cursor: 'pointer',
+        borderRadius: 'md',
+        _hover: {
+          bg: 'blackAlpha.100',
+          '& .chakra-icon': {
+            opacity: 1,
+          },
+          _dark: {
+            bg: 'whiteAlpha.200',
+          },
+        },
+      },
+      '[data-compact] &': {
+        opacity: 0,
+      },
+    },
+    content: {},
+  }
+})
+
+export const navGroupTheme = defineMultiStyleConfig({
+  baseStyle,
+})
+```
+
+## NavItem Theming
+
+The `NavGroup` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `item`
+- `link`
+- `inner`
+- `label`
+- `icon`
+
+### Default theme
+
+```jsx live=false
+import { transparentize } from '@chakra-ui/theme-tools'
+import { theme as baseTheme } from '@chakra-ui/react'
+
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navItemAnatomy } from '@saas-ui/theme/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(navItemAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
+  return {
+    item: {
+      my: '2px',
+      color: 'gray.900',
+      minW: 1,
+      _dark: {
+        color: 'whiteAlpha.900',
+      },
+    },
+    link: {
+      display: 'flex',
+      rounded: 'md',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      textDecoration: 'none',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      minW: 1,
+      _hover: {
+        textDecoration: 'none',
+      },
+      _focusVisible: {
+        outline: 'none',
+        boxShadow: 'outline',
+      },
+    },
+    inner: {
+      display: 'flex',
+      flex: 1,
+      w: '100%',
+      alignItems: 'center',
+      minW: 1,
+    },
+    label: {
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+    },
+    icon: {
+      display: 'flex',
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '4',
+      ml: '-0.25rem',
+      color: 'currentColor',
+    },
+  }
+})
+
+const variantNeutral = definePartsStyle((props) => {
+  return {
+    link: {
+      _hover: {
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active: {
+        bg: 'blackAlpha.200',
+        _dark: {
+          bg: `whiteAlpha.300`,
+        },
+      },
+    },
+    icon: {
+      opacity: 0.8,
+      '[data-active] &': {
+        opacity: 1,
+      },
+    },
+  }
+})
+
+const variantSubtle = definePartsStyle((props) => {
+  const { colorScheme: c, theme } = props
+
+  return {
+    link: {
+      _hover: {
+        bg: `blackAlpha.100`,
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active: {
+        bg: transparentize(`${c}.500`, 0.3)(theme),
+        fontWeight: 'semibold',
+        color: `${c}.600`,
+        _dark: {
+          bg: transparentize(`${c}.500`, 0.3)(theme),
+          color: `${c}.100`,
+        },
+      },
+    },
+  }
+})
+
+const variantSolid = definePartsStyle((props) => {
+  const { colorScheme: c } = props
+
+  return {
+    link: {
+      _hover: {
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active: {
+        bg: `${c}.500`,
+      },
+      color: 'white',
+    },
+    icon: {
+      color: 'white',
+    },
+    label: {},
+  }
+})
+
+export const navItemTheme = defineMultiStyleConfig({
+  defaultProps: {
+    size: 'sm',
+    colorScheme: 'primary',
+    variant: 'neutral',
+  },
+  baseStyle,
+  sizes: {
+    xs: {
+      link: baseTheme.components.Button.sizes?.xs,
+      icon: {
+        me: 1,
+        fontSize: 'xs',
+      },
+    },
+    sm: {
+      link: baseTheme.components.Button.sizes?.sm,
+      icon: {
+        me: 2,
+        fontSize: 'sm',
+      },
+    },
+    md: {
+      link: baseTheme.components.Button.sizes?.md,
+      icon: {
+        me: 2,
+        fontSize: 'md',
+      },
+    },
+    lg: {
+      link: baseTheme.components.Button.sizes?.lg,
+      icon: {
+        me: 3,
+        fontSize: 'lg',
+      },
+    },
+  },
+  variants: {
+    neutral: variantNeutral,
+    subtle: variantSubtle,
+    solid: variantSolid,
+  },
+})
+```

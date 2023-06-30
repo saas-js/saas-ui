@@ -43,7 +43,7 @@ const modifiers: Record<string, string> = {
 
 export const splitKeys = (keys: string) => {
   return keys
-    .replace(/\+/, (match, offset) => {
+    .replace(/\+/g, (match, offset) => {
       if (offset === 0) {
         return match
       }
@@ -107,6 +107,15 @@ const isInputEvent = (event: KeyboardEvent) => {
   )
 }
 
+export interface UseHotkeysOptions {
+  /**
+   * Whether to prevent the default behavior of the event.
+   * Eg. to override browser hotkeys.
+   * @default false
+   **/
+  preventDefault?: boolean
+}
+
 /**
  * useHotKeys React Hook
  *
@@ -121,8 +130,18 @@ const isInputEvent = (event: KeyboardEvent) => {
 export const useHotkeys = (
   keys: string | string[],
   callback: (event: KeyboardEvent) => void,
-  deps: Array<any> = []
+  options: UseHotkeysOptions | Array<any> = [],
+  deps?: Array<any>
 ) => {
+  let _options: UseHotkeysOptions = {}
+  if (Array.isArray(options)) {
+    deps = options
+    _options = {}
+  } else {
+    _options = options
+    deps = deps || []
+  }
+
   const memoizedCallback = useCallback(callback, deps || [])
 
   const targetKeys: Array<Set<string>> = useMemo(
@@ -155,6 +174,9 @@ export const useHotkeys = (
       keysMatch(pressedKeys, targetKeys) ||
       (bufferKeys.size > 1 && keysMatch(bufferKeys, targetKeys))
     ) {
+      if (_options.preventDefault) {
+        event.preventDefault()
+      }
       bufferKeys.clear() // make sure the buffer gets cleared
       // execute on next tick to make sure the last keyup doesn't trigger in any focused field
       setTimeout(() => memoizedCallback(event), 0)

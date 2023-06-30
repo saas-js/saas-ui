@@ -10,19 +10,42 @@ let config = {
   optimizeFonts: true,
   reactStrictMode: true,
   typescript: {
-    // turn of untill v2
     ignoreBuildErrors: true,
   },
   experimental: {
     externalDir: true,
   },
-  compiler: {},
   async redirects() {
     return [
       {
-        source: '/docs',
-        destination: '/docs/introduction',
-        permanent: false,
+        source: '/docs/core/overview',
+        destination: '/docs',
+        permanent: true,
+      },
+      {
+        source: '/docs/introduction',
+        destination: '/docs',
+        permanent: true,
+      },
+      {
+        source: '/docs/core/getting-started',
+        destination: '/docs/core/quickstarts',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/data-display/list',
+        destination: '/docs/components/data-display/structured-list',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/auth/',
+        destination: '/docs/components/authentication',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/auth/:path*',
+        destination: '/docs/components/authentication/:path*',
+        permanent: true,
       },
     ]
   },
@@ -45,37 +68,34 @@ let config = {
       ],
     })
 
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: 'removeViewBox',
-                  active: false,
-                },
-              ],
-            },
-          },
-        },
-      ],
-    })
+    config.module.rules.push(
+      // Reapply the existing rule, but only for svg imports ending in ?url
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      // Convert all other *.svg imports to React components
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: /url/ }, // exclude if *.svg?url
+        use: ['@svgr/webpack'],
+      }
+    )
 
     config.resolve = {
       ...config.resolve,
     }
 
-    // config.module.rules.push({
-    //   test: /node_modules\/@saas-ui\/(pro|charts|billing|features|onboarding|router)\/.*\.tsx?/,
-    //   use: [defaultLoaders.babel],
-    // })
+    config.module.rules.push({
+      test: /node_modules\/@saas-ui(?:-pro)?\/.*\.tsx?/,
+      use: [defaultLoaders.babel],
+    })
 
     config.plugins = config.plugins.concat([
       new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui\/([a-z0-9-\/]+)$/,
+        /\@saas-ui(?:-pro)?\/([a-z0-9-\/]+)$/,
         (resource) => {
           if (!resource.request.match(/^@saas-ui\/(props-docs)$/)) {
             resource.request = resource.request + '/src'
@@ -88,10 +108,8 @@ let config = {
   },
 }
 
-const isNextDev = process.argv.includes('dev')
-
-if (isNextDev) {
-  config = withContentlayer(config)
-}
+// if (process.env.NODE_ENV !== 'production') {
+config = withContentlayer(config)
+// }
 
 module.exports = withBundleAnalyzer(config)

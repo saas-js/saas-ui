@@ -1,0 +1,313 @@
+---
+id: hotkeys
+title: Hotkeys
+description: Keyboard shortcuts for modern apps
+---
+
+Keyboard shortcuts are an excellent way to support advanced users
+in your app to be more productive.
+
+As you add more shortcuts to you app you can run into conflicts,
+it can become a big mess if you don't keep track of which hotkeys are used and where.
+`Hotkeys` tries to solve this by having a single source of truth that defines
+all available hotkeys throughout your app.
+An extra benefit is that the documentation for your users can be generated and is always up to date.
+
+Other features
+
+- Supports shifted keys like ?, =, @.
+- ⌥ ⇧ ⌃ ⌘ shorthands are supported.
+- Won't trigger inside inputs / content editable elements.
+- Hooks also work without a global config object.
+- The HotkeysList can also be used to list other options, like markdown support.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-hotkeys' }}
+  npm={{ package: '@saas-ui/hotkeys' }}
+  theme={{ componentName: 'hotkeys' }}
+/>
+
+## Import
+
+```ts
+import {
+  useHotkeys,
+  useHotkeysShortcut,
+  HotkeysProvider,
+  HotkeysList,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Stand alone usage
+
+`useHotkeys` can also be used standalone.
+
+Press `⌘ K` to trigger the action.
+
+```jsx
+import { Box, Flex, Kbd } from '@chakra-ui/react'
+import { useHotkeys, SearchInput } from '@saas-ui/react'
+
+export default function Dialog() {
+  const searchRef = React.useRef(null)
+
+  useHotkeys('⌘ K', () => {
+    searchRef.current.focus()
+  })
+
+  return (
+    <Box>
+      <SearchInput
+        ref={searchRef}
+        pr="30px"
+        rightElement={
+          <Flex pos="absolute" right="4px">
+            <Kbd bg="none" fontSize="lg">
+              ⌘
+            </Kbd>
+            <Kbd bg="none" fontSize="lg">
+              K
+            </Kbd>
+          </Flex>
+        }
+      />
+    </Box>
+  )
+}
+```
+
+### Multiple key combinations
+
+To target multiple platforms it's possible to pass an array of key combinations.
+
+Press `⌘ Enter` or `Ctrl+Enter` to trigger the action.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
+
+  const key = useHotkeys(['⌘ Enter', 'Ctrl+Enter'], () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label="⌘ Enter" openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
+### Complex key combinations
+
+You can combine mutiple keys using the `+` sign or by adding a space.
+Press `cmd shift D` or `Ctrl+Shift+D` to trigger the action.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
+
+  const key = useHotkeys(['cmd shift d', 'Ctrl+Shift+D'], () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label="cmd shift d" openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
+### Prevent default
+
+To prevent the default behavior of a key combination you can set the `preventDefault` option to `true`.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys, SearchInput } from '@saas-ui/react'
+
+export default function Search() {
+  const [isLoading, setLoading] = React.useState()
+
+  const ref = React.useRef(null)
+
+  const key = useHotkeys(
+    ['ctrl+f', 'cmd f'],
+    () => {
+      ref.current.focus()
+    },
+    { preventDefault: true }
+  )
+
+  return (
+    <Box>
+      <SearchInput ref={ref} />
+    </Box>
+  )
+}
+```
+
+### Key sequences
+
+Use the `then` keyword to create a sequence of keys.
+
+Press `A` then `S` to trigger the action.
+
+```jsx
+import { Box, Tooltip, Button } from '@chakra-ui/react'
+import { useHotkeys } from '@saas-ui/react'
+
+export default function Dialog() {
+  const [isLoading, setLoading] = React.useState()
+
+  const key = useHotkeys('A then S', () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  })
+
+  return (
+    <Box>
+      <Tooltip label={key} openDelay={500}>
+        <Button isLoading={isLoading}>Save</Button>
+      </Tooltip>
+    </Box>
+  )
+}
+```
+
+### Hotkeys configuration
+
+Create a config object containing all the keyboard shortcuts in your app.
+The keys in the config can be used as shortcuts with the included hook throughout your app.
+
+```jsx live=false
+// app.tsx
+import { HotkeysProvider, HotkeysListOptions } from '@saas-ui/react'
+
+const hotkeys: HotkeysListOptions = {
+  general: {
+    title: 'General',
+    hotkeys: {
+      help: { label: 'Help', command: '?' },
+      search: { label: 'Search', command: '⌘ K' },
+    },
+  }
+}
+
+export default const App = () => {
+  return (
+    <HotkeysProvider hotkeys={hotkeys}>
+      {children}
+    </HotkeysProvider>
+  )
+}
+```
+
+### Register shortcut actions
+
+`useHotkeysShortcut` returns the command value and can be used to show the key combinations to your users.
+
+```jsx live=false
+import { Kbd } from '@chakra-ui/react'
+import { useHotkeysShortcut } from '@saas-ui/react'
+
+export const MyComponent = () => {
+  const help = useHotkeysShortcut('general.help', () => {
+    onOpen()
+  })
+
+  useHotkeysShortcut('general.search', () => {
+    searchRef.current?.focus()
+  })
+
+  return (
+    <>
+      Press <Kbd>{help}</Kbd> for help.
+    </>
+  )
+}
+```
+
+### HotkeysList component
+
+The `HotkeysList` component can be used to list all available hotkeys in your app.
+
+Press `?` to open the modal.
+
+```jsx
+import {
+  Box,
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalCloseButton,
+  ModalBody,
+  Kbd,
+} from '@chakra-ui/react'
+import {
+  HotkeysList,
+  HotkeysSearch,
+  HostkeysListItems,
+  useHotkeysShortcut,
+} from '@saas-ui/react'
+
+export default function HotkeysListModal() {
+  const searchRef = useRef(null)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const help = useHotkeysShortcut('?' /* general.help */, () => {
+    onOpen()
+  })
+
+  // for the sake of this example we don't depend on the hotkeys context here.
+  // const { hotkeys } = useHotkeysContext()
+
+  const hotkeys = {
+    general: {
+      title: 'General',
+      hotkeys: {
+        help: { label: 'Help', command: '?' },
+        search: { label: 'Search', command: '⌘ K' },
+      },
+    },
+  }
+
+  return (
+    <Box>
+      <Text>
+        Press <strong>{help}</strong> for help
+      </Text>
+
+      <Modal isOpen={isOpen} onClose={onClose} initialFocusRef={searchRef}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalHeader>Keyboard shortcuts</ModalHeader>
+
+          <ModalBody>
+            <HotkeysList hotkeys={hotkeys}>
+              <HotkeysSearch ref={searchRef} />
+              <HotkeysListItems />
+            </HotkeysList>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </Box>
+  )
+}
+```

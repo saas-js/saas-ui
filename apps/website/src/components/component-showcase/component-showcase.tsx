@@ -17,10 +17,12 @@ import {
   useColorModeValue,
   DarkMode,
   Box,
+  Button,
+  Card,
+  CardBody,
+  Heading,
   Tag,
 } from '@chakra-ui/react'
-import { Button } from '@saas-ui/button'
-import { Card, CardBody } from '@saas-ui/card'
 import {
   Field,
   FormStep,
@@ -28,22 +30,27 @@ import {
   NextButton,
   FormStepper,
   FormLayout,
+  Select,
+  SelectButton,
+  SelectList,
 } from '@saas-ui/forms'
-import { OverflowMenu } from '@saas-ui/menu'
-import { Persona } from '@saas-ui/persona'
-import { Property, PropertyList } from '@saas-ui/property'
-import { SearchInput } from '@saas-ui/search-input'
-import { Select } from '@saas-ui/select'
-import { Web3Address } from '@saas-ui/web3'
 import { FiCopy, FiDelete, FiPenTool } from 'react-icons/fi'
 import { BackgroundGradient } from '../background-gradient'
 import Section from '../marketing/section-wrapper'
 import { Float } from '../motion/float'
-import { useHotkeys } from '@saas-ui/hotkeys'
 import { FaGithub } from 'react-icons/fa'
-import { DataTable, Column } from '@saas-ui/data-table'
 import { useScrollSpy } from '@/hooks/use-scrollspy'
-import { StepperCompleted } from '@saas-ui/react'
+import {
+  StepsCompleted,
+  OverflowMenu,
+  Persona,
+  Property,
+  PropertyList,
+  SearchInput,
+  Web3Address,
+  DataTable,
+  useHotkeys,
+} from '@saas-ui/react'
 
 import confetti from 'canvas-confetti'
 
@@ -90,24 +97,27 @@ export const ComponentShowcase = () => {
     fontSize: 'md',
   }
 
-  const columns: Column<Data>[] = [
+  const columns: any[] = [
     {
-      accessor: 'amount',
-      width: '10%',
-      Header: 'Amount',
+      accessorKey: 'amount',
+      size: 10,
+      header: 'Amount',
     },
     {
-      accessor: 'name',
-      Header: 'Name',
+      accessorKey: 'name',
+      header: 'Name',
     },
     {
       id: 'actions',
-      width: '10%',
-      // disableSortBy: true,
-      Header: '',
-      Cell: () => {
+      size: 10,
+      disableSortBy: true,
+      header: '',
+      cell: () => {
         const menuStyles = {
-          bg: useColorModeValue('whiteAlpha.600', 'blackAlpha.500'),
+          bg: 'whiteAlpha.600',
+          _dark: {
+            bg: 'blackAlpha.500',
+          },
           borderWidth: '1px',
           backdropFilter: 'blur(5px)',
           fontSize: 'md',
@@ -160,14 +170,13 @@ export const ComponentShowcase = () => {
             zIndex="2"
           >
             <Card {...cardStyles}>
-              <DataTable<Data>
+              <DataTable
                 columns={columns}
                 data={data}
                 isSelectable
                 isSortable
                 initialState={{
-                  /* @ts-ignore */
-                  selectedRowIds: ['1'],
+                  rowSelection: { 0: true },
                 }}
               />
             </Card>
@@ -252,12 +261,12 @@ export const ComponentShowcase = () => {
                           name="password"
                           label="Password"
                           type="password"
-                          autoComplete="off"
+                          // autoComplete="off"
                         />
                         <NextButton />
                       </FormLayout>
                     </FormStep>
-                    <StepperCompleted>Completed!</StepperCompleted>
+                    <StepsCompleted>Completed!</StepsCompleted>
                   </FormStepper>
                 </StepForm>
               </CardBody>
@@ -286,20 +295,26 @@ export const ComponentShowcase = () => {
                         label="Status"
                         value={
                           <Select
+                            name="status"
                             value="Open"
-                            menuListProps={menuStyles}
                             size="sm"
                             defaultIsOpen
                             isOpen={isOpen}
                             flip={false}
                             autoSelect={false}
                           >
-                            <MenuItemOption value="Open" sx={menuItemStyles}>
-                              Open
-                            </MenuItemOption>
-                            <MenuItemOption value="Closed" sx={menuItemStyles}>
-                              Closed
-                            </MenuItemOption>
+                            <SelectButton />
+                            <SelectList>
+                              <MenuItemOption value="Open" sx={menuItemStyles}>
+                                Open
+                              </MenuItemOption>
+                              <MenuItemOption
+                                value="Closed"
+                                sx={menuItemStyles}
+                              >
+                                Closed
+                              </MenuItemOption>
+                            </SelectList>
                           </Select>
                         }
                       />
@@ -311,33 +326,26 @@ export const ComponentShowcase = () => {
           </Float>
 
           <Float position="absolute" left="1080px" top="-60px">
-            <Card
-              title="Github"
-              avatar={<FaGithub size="20" />}
-              minW="300px"
-              action={
-                <>
-                  <Tag
-                    variant="subtle"
-                    colorScheme="green"
-                    rounded="full"
-                    px="4"
-                  >
-                    Enabled
-                  </Tag>
-                  <OverflowMenu
-                    menuListProps={menuStyles}
-                    flip={false}
-                    placement="bottom-end"
-                  >
-                    <MenuItem sx={menuItemStyles}>Settings</MenuItem>
-                    <MenuDivider />
-                    <MenuItem sx={menuItemStyles}>Disconnect</MenuItem>
-                  </OverflowMenu>
-                </>
-              }
-              {...cardStyles}
-            ></Card>
+            <Card minW="300px" {...cardStyles}>
+              <HStack py="2" px="4">
+                <FaGithub />
+                <Heading size="sm" fontWeight="medium" flex="1">
+                  Github
+                </Heading>
+                <Tag variant="subtle" colorScheme="green" rounded="full" px="4">
+                  Enabled
+                </Tag>
+                <OverflowMenu
+                  menuListProps={menuStyles}
+                  flip={false}
+                  placement="bottom-end"
+                >
+                  <MenuItem sx={menuItemStyles}>Settings</MenuItem>
+                  <MenuDivider />
+                  <MenuItem sx={menuItemStyles}>Disconnect</MenuItem>
+                </OverflowMenu>
+              </HStack>
+            </Card>
           </Float>
         </HStack>
       </Box>

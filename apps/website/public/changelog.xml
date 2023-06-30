@@ -7,9 +7,122 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 09 Dec 2022 10:45:13 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 14 Apr 2023 10:06:18 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/04-14-2023</guid>
+    <title>Apr 14, 2023</title>
+    <link>https://saas-ui.dev/changelog/04-14-2023</link>
+    <description>
+## 04-14-2023
+
+`@saas-ui/react@2.0.0-next.9`
+
+- Fix Card theme tokens
+- Improved MenuDialog positio...</description>
+    <pubDate>Fri, 14 Apr 2023 10:06:18 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/04-08-2023</guid>
+    <title>Apr 8, 2023</title>
+    <link>https://saas-ui.dev/changelog/04-08-2023</link>
+    <description>
+## 04-08-2023
+
+**Forms** `v2.0.0-next.8`
+
+- Fix React import
+...</description>
+    <pubDate>Sat, 08 Apr 2023 12:26:27 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/04-07-2023</guid>
+    <title>Apr 8, 2023</title>
+    <link>https://saas-ui.dev/changelog/04-07-2023</link>
+    <description>
+## 04-07-2023
+
+# @saas-ui/react
+
+## 2.0.0-next.6
+
+### Major Changes
+
+- 37e38165: Auth forms can now...</description>
+    <pubDate>Sat, 08 Apr 2023 12:22:40 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/02-16-2023</guid>
+    <title>Feb 16, 2023</title>
+    <link>https://saas-ui.dev/changelog/02-16-2023</link>
+    <description>
+## 02-16-2023
+
+**Date Picker** `v0.8.7`
+
+- Pass DateRangeInput props down to the internal Input.
+...</description>
+    <pubDate>Thu, 16 Feb 2023 18:48:31 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/02-10-2023</guid>
+    <title>Feb 10, 2023</title>
+    <link>https://saas-ui.dev/changelog/02-10-2023</link>
+    <description>
+## 02-10-2023
+
+`@saas-ui/react@1.9.1`
+
+- InputRightButton no longer exported from forms package to ...</description>
+    <pubDate>Fri, 10 Feb 2023 09:48:09 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/02-03-2023</guid>
+    <title>Feb 3, 2023</title>
+    <link>https://saas-ui.dev/changelog/02-03-2023</link>
+    <description>
+## 02-03-2023
+
+`@saas-ui/react@1.9.0`
+
+- Improved Sidebar behavior and theme.
+
+**Sidebar** `v0.9.0`...</description>
+    <pubDate>Fri, 03 Feb 2023 15:02:16 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/01-08-2023</guid>
+    <title>Jan 8, 2023</title>
+    <link>https://saas-ui.dev/changelog/01-08-2023</link>
+    <description>
+`@saas-ui/react@1.7.4`
+
+- Fixed default value for Switch fields.
+- Support disable sorting on indiv...</description>
+    <pubDate>Sun, 08 Jan 2023 13:42:43 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/12-09-2022</guid>
     <title>Dec 9, 2022</title>

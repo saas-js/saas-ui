@@ -1,0 +1,137 @@
+---
+id: loader
+title: LoadingOverlay
+description: A loading indicator that fills it's parent.
+---
+
+The `Loader` component will try to fill up it's parent element and
+renders a `Spinner` in the center.
+
+<ComponentLinks
+  theme={{ componentName: 'loader' }}
+  github={{
+    url: 'https://github.com/saas-ui/saas-ui/blob/main/packages/saas-ui-core/src/loader',
+  }}
+  npm={{ package: '@saas-ui/core' }}
+/>
+
+## Import
+
+```ts
+import { LoadingOverlay, LoadingSpinner, LoadingText } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+<LoadingOverlay>
+  <LoadingSpinner />
+</LoadingOverlay>
+```
+
+### Variants
+
+#### Fill
+
+The default variant is `fill`, this will fill it's parent element with `flex="1"` and `height="100%"`.
+
+```jsx
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+
+export default function Fill() {
+  return (
+    <Card>
+      <CardHeader>Users</CardHeader>
+      <CardBody>
+        <LoadingOverlay>
+          <LoadingSpinner />
+        </LoadingOverlay>
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+#### Overlay
+
+The `overlay` variant will position the loader `absolute`, on top of it's parent element.
+When using overlay be sure to add `position="relative"` to the parent element to position it correctly.
+
+```jsx
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+
+export default function Fill() {
+  return (
+    <Card position="relative" height="100px">
+      <CardHeader>Users</CardHeader>
+      <CardBody>
+        <LoadingOverlay variant="overlay">
+          <LoadingSpinner />
+        </LoadingOverlay>
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+#### Fullscreen
+
+The `fullscreen` variant will position the loader `fixed`, on top of your app.
+
+```jsx
+import { Box, Button } from '@chakra-ui/react'
+
+export default function MyApp() {
+  const [isLoading, setLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000)
+    }
+  }, [isLoading])
+
+  return (
+    <Box height="200px" pos="relative" p="4">
+      <Button onClick={() => setLoading(true)}>Show loader</Button>
+      <LoadingOverlay variant="fullscreen" isLoading={isLoading}>
+        <LoadingSpinner />
+      </LoadingOverlay>
+    </Box>
+  )
+}
+```
+
+### Customize spinner
+
+```jsx
+<LoadingOverlay>
+  <LoadingSpinner size="lg" color="primary.500" thickness="4px" />
+</LoadingOverlay>
+```
+
+### Custom spinner
+
+```jsx
+<LoadingOverlay>
+  <SaasSpinner />
+</LoadingOverlay>
+```
+
+### With text
+
+```jsx
+<LoadingOverlay>
+  <SaasSpinner />
+  <LoadingText>Loading...</LoadingText>
+</LoadingOverlay>
+```
+
+## Accessiblity
+
+Add a `label` describing the type of content being loaded to notify screen readers.

@@ -14,32 +14,27 @@ const { definePartsStyle } = createMultiStyleConfigHelpers(parts.keys)
 
 const $bg = cssVar('card-bg')
 const $padding = cssVar('card-padding')
-const $border = cssVar('card-border')
-
-const baseStyle = definePartsStyle(() => {
-  return {
-    container: {
-      borderColor: $border.reference,
-    },
-  }
-})
+const $shadow = cssVar('card-shadow')
+const $radius = cssVar('card-radius')
+const $border = cssVar('card-border-width', '0')
+const $borderColor = cssVar('card-border-color')
 
 const sizes = {
   sm: definePartsStyle({
     container: {
-      borderRadius: 'base',
+      [$radius.variable]: 'radii.base',
       [$padding.variable]: 'space.3',
     },
   }),
   md: definePartsStyle({
     container: {
-      borderRadius: 'md',
+      [$radius.variable]: 'radii.md',
       [$padding.variable]: 'space.4',
     },
   }),
   lg: definePartsStyle({
     container: {
-      borderRadius: 'xl',
+      [$radius.variable]: 'radii.xl',
       [$padding.variable]: 'space.6',
     },
   }),
@@ -49,20 +44,20 @@ const variantShadow = definePartsStyle((props) => {
   const { isHoverable } = props
   return {
     container: {
-      [$border.variable]: 'colors.blackAlpha.200',
-      boxShadow: 'sm',
-      borderWidth: '1px',
+      [$borderColor.variable]: 'colors.blackAlpha.200',
+      [$border.variable]: '1px',
+      [$shadow.variable]: 'shadows.sm',
       _hover: isHoverable
         ? {
-            [$border.variable]: 'colors.blackAlpha.300',
+            [$borderColor.variable]: 'colors.blackAlpha.300',
           }
         : {},
       _dark: {
         [$bg.variable]: 'colors.gray.700',
-        [$border.variable]: 'colors.whiteAlpha.50',
+        [$borderColor.variable]: 'colors.whiteAlpha.50',
         _hover: isHoverable
           ? {
-              [$border.variable]: 'colors.whiteAlpha.300',
+              [$borderColor.variable]: 'colors.whiteAlpha.300',
             }
           : {},
       },
@@ -75,7 +70,6 @@ export default {
   defaultProps: {
     variant: 'elevated',
   },
-  baseStyle,
   variants: {
     elevated: variantShadow,
     shadow: variantShadow,

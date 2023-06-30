@@ -6,7 +6,7 @@ prepare your contribution.
 
 ## Setup the Project
 
-The following steps will get you up and running to contribute to Chakra UI:
+The following steps will get you up and running to contribute to Saas UI:
 
 1. Fork the repo (click the <kbd>Fork</kbd> button at the top right of
    [this page](https://github.com/saas-js/saas-ui))
@@ -19,12 +19,12 @@ cd saas-ui
 ```
 
 3. The docs website depends on private packages, if you don't have access to the Pro repository,
-   remove `"apps/*",` from `workspace` in package.json before continuing.
+   remove `"apps/*",` from `workspaces` in package.json before continuing.
 
 4. Setup all the dependencies and packages by running `yarn`. This
    command will install dependencies.
 
-> If you run into any issues during this step, kindly reach out to the Chakra UI
+> If you run into any issues during this step, kindly reach out to the Saas UI
 > React team here: https://discord.gg/4PmJGFcAjX
 
 ## Development
@@ -36,7 +36,7 @@ that can be consumed in isolation.
 ### Tooling
 
 - [Yarn](https://yarnpkg.com/) to manage packages and dependecnies
-- [Microbundle](https://github.com/developit/microbundle) to bundle packages
+- [TS-UP](https://tsup.egoist.dev/) to bundle packages
 - [Storybook](https://storybook.js.org/) for rapid UI component development and
   testing
 - [Testing Library](https://testing-library.com/) for testing components and

@@ -1,6 +1,8 @@
-Sitemap: https://saas-ui.dev/sitemap.xml
+#Sitemap: https://saas-ui.dev/sitemap.xml
 
-User-agent: *
-Allow: /*
+#User-agent: *
+#Allow: /*
 
-Disallow: /api/*
+#Disallow: /api/*
+
+Disallow: /*

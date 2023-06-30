@@ -8,14 +8,15 @@ import {
   fireEvent,
 } from '@saas-ui/test-utils'
 import * as stories from '../stories/step-form.stories'
+import { vi } from 'vitest'
 
-const { Basic } = testStories<typeof stories>(stories, {
+const { Basic } = testStories(stories, {
   snapshots: false,
   a11y: false,
 })
 
 test('should go to the next step', async () => {
-  const onSubmit = jest.fn()
+  const onSubmit = vi.fn()
   const { getByText, getByLabelText, user } = render(
     <Basic onSubmit={async () => onSubmit()} />
   )
@@ -35,6 +36,10 @@ test('should go to the next step', async () => {
   })
 
   expect(onSubmit).not.toBeCalled()
+
+  await waitFor(() => {
+    getByLabelText('Password')
+  })
 
   const password = getByLabelText('Password')
 

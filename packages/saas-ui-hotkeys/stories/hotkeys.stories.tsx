@@ -30,6 +30,7 @@ import {
   HotkeysListOptions,
   useHotkeysShortcut,
   useHotkeysContext,
+  useHotkeys,
 } from '../src'
 
 const hotkeys: HotkeysListOptions = {
@@ -67,10 +68,10 @@ export default {
   ],
 }
 
-export const basic = () => {
+export const Basic = () => {
   const { isOpen, onOpen } = useDisclosure()
 
-  const searchRef = useRef<HTMLInputElement>()
+  const searchRef = useRef<HTMLInputElement>(null)
 
   const { hotkeys } = useHotkeysContext()
   const help = useHotkeysShortcut('general.help', () => {
@@ -97,7 +98,7 @@ export const basic = () => {
   )
 }
 
-export const hotkeysList = () => {
+export const List = () => {
   const { hotkeys } = useHotkeysContext()
 
   return (
@@ -110,7 +111,7 @@ export const hotkeysList = () => {
   )
 }
 
-export const hotkeysListModal = () => {
+export const ListModal = () => {
   const searchRef = useRef<HTMLInputElement | null>(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -144,7 +145,7 @@ export const hotkeysListModal = () => {
   )
 }
 
-export const hotkeysListDrawer = () => {
+export const ListDrawer = () => {
   const searchRef = useRef<HTMLInputElement | null>(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -178,10 +179,10 @@ export const hotkeysListDrawer = () => {
   )
 }
 
-export const keyWithoutShortcut = () => {
+export const WithoutShortcut = () => {
   const ref = useRef<HTMLInputElement | null>(null)
   const key = useHotkeysShortcut('cmd+k', () => {
-    ref.current.focus()
+    ref.current?.focus()
   })
 
   return (
@@ -191,14 +192,14 @@ export const keyWithoutShortcut = () => {
   )
 }
 
-export const ignoreKeyInsideInput = () => {
+export const IgnoreKeyInsideInput = () => {
   const ref = useRef<HTMLInputElement | null>(null)
   const key = useHotkeysShortcut('k', () => {
     alert('K pressed')
   })
 
   useEffect(() => {
-    ref.current.focus()
+    ref.current?.focus()
   }, [])
 
   return (
@@ -211,7 +212,7 @@ export const ignoreKeyInsideInput = () => {
 export const KeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
   const key = useHotkeysShortcut('A then B', () => {
-    ref.current.focus()
+    ref.current?.focus()
   })
 
   return (
@@ -225,7 +226,7 @@ export const SingleAndKeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
 
   const key = useHotkeysShortcut('A', () => {
-    ref.current.focus()
+    ref.current?.focus()
   })
 
   useHotkeysShortcut('A then B', () => {
@@ -236,6 +237,38 @@ export const SingleAndKeySequence = () => {
   return (
     <Box>
       <Input placeholder={`Press ${key} to focus`} ref={ref} />
+    </Box>
+  )
+}
+
+export const MultipleKeys = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  useHotkeys('ctrl+shift+d', () => {
+    ref.current?.focus()
+  })
+
+  return (
+    <Box>
+      <Input placeholder={`Press ctrl+shift+d to focus`} ref={ref} />
+    </Box>
+  )
+}
+
+export const PreventDefault = () => {
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  useHotkeys(
+    ['ctrl+f', 'cmd+f'],
+    () => {
+      ref.current?.focus()
+    },
+    { preventDefault: true }
+  )
+
+  return (
+    <Box>
+      <Input placeholder={`Press ctrl+f or cmd+f to focus`} ref={ref} />
     </Box>
   )
 }

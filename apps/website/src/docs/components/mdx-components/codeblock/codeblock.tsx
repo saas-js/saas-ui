@@ -59,17 +59,6 @@ function CodeBlock(props) {
     return <ReactLiveBlock editable {...reactLiveBlockProps} />
   }
 
-  if (isMounted && render) {
-    /**
-     * @TODO Not sure if this is even used?
-     */
-    return (
-      <div style={{ marginTop: 32 }}>
-        <ReactLiveBlock editable={false} {...reactLiveBlockProps} />
-      </div>
-    )
-  }
-
   return (
     <Box position="relative" zIndex="0">
       <CodeContainer px="0" overflow="hidden" bg={theme.plain.backgroundColor}>

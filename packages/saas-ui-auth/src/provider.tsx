@@ -28,21 +28,24 @@ export type AuthOptions<ExtraOptions extends object = ExtraAuthOptions> = {
 } & ExtraOptions
 
 /**
- * The user object, id is required.
+ * The user object
  */
 export interface User {
-  id: string
-  email?: string
   [key: string]: any
+}
+
+export interface DefaultUser extends User {
+  id?: string | null
+  email?: string | null
 }
 
 type UnsubscribeHandler = () => void
 
-export type AuthStateChangeCallback<TUser extends User = User> = (
+export type AuthStateChangeCallback<TUser extends User = DefaultUser> = (
   user?: TUser | null
 ) => void
 
-export interface AuthProviderProps<TUser extends User = User> {
+export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
    * Loads user data after authentication
    */
@@ -67,14 +70,14 @@ export interface AuthProviderProps<TUser extends User = User> {
   onResetPassword?: (
     params: Required<Pick<AuthParams, 'email'>>,
     options?: AuthOptions
-  ) => Promise<void>
+  ) => Promise<any>
   /**
    * Update the password.
    */
   onUpdatePassword?: (
     params: Required<Pick<AuthParams, 'password'>>,
     options?: AuthOptions
-  ) => Promise<void>
+  ) => Promise<any>
   /**
    * Verify an one time password (2fa)
    */
@@ -112,7 +115,7 @@ interface OtpParams extends AuthParams {
 type ResetPasswordParams = Required<Pick<AuthParams, 'email'>>
 type UpdatePasswordParams = Required<Pick<AuthParams, 'password'>>
 
-export interface AuthContextValue<TUser extends User = User> {
+export interface AuthContextValue<TUser extends User = DefaultUser> {
   isAuthenticated: boolean
   isLoggingIn: boolean
   isLoading: boolean
@@ -127,13 +130,13 @@ export interface AuthContextValue<TUser extends User = User> {
   getToken: () => Promise<AuthToken>
 }
 
-const createAuthContext = <TUser extends User = User>() => {
+const createAuthContext = <TUser extends User = DefaultUser>() => {
   return createContext<AuthContextValue<TUser> | null>(null)
 }
 
 export const AuthContext = createAuthContext()
 
-export const AuthProvider = <TUser extends User = User>({
+export const AuthProvider = <TUser extends User = DefaultUser>({
   onLoadUser = () => Promise.resolve(null),
   onSignup = () => Promise.resolve(null),
   onLogin = () => Promise.resolve(null),
@@ -235,7 +238,7 @@ export const AuthProvider = <TUser extends User = User>({
       params: Required<Pick<AuthParams, 'email'>>,
       options?: AuthOptions
     ) => {
-      await onResetPassword?.(params, options)
+      return await onResetPassword?.(params, options)
     },
     [onResetPassword]
   )
@@ -245,7 +248,7 @@ export const AuthProvider = <TUser extends User = User>({
       params: Required<Pick<AuthParams, 'password'>>,
       options?: AuthOptions
     ) => {
-      await onUpdatePassword?.(params, options)
+      return await onUpdatePassword?.(params, options)
     },
     [onUpdatePassword]
   )
@@ -273,7 +276,7 @@ export const AuthProvider = <TUser extends User = User>({
 }
 
 export const useAuth = <
-  TUser extends User = User
+  TUser extends User = DefaultUser
 >(): AuthContextValue<TUser> => {
   const context = useContext(AuthContext)
   if (context === null) {
@@ -285,7 +288,7 @@ export const useAuth = <
   return context as AuthContextValue<TUser>
 }
 
-export const useCurrentUser = <TUser extends User = User>():
+export const useCurrentUser = <TUser extends User = DefaultUser>():
   | TUser
   | null
   | undefined => {

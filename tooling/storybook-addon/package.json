@@ -1,0 +1,121 @@
+{
+  "name": "@saas-ui/storybook-addon",
+  "version": "1.1.0",
+  "description": "The official Storybook Addon for Saas UI",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "theming-arg-types.png"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./*": "./*",
+    "./preset": {
+      "types": "./dist/preset/index.d.ts",
+      "import": "./dist/preset/index.mjs",
+      "require": "./dist/preset/index.js"
+    },
+    "./preset/decorators": {
+      "types": "./dist/preset/index.d.ts",
+      "import": "./dist/preset/decorators.mjs",
+      "require": "./dist/preset/decorators.js"
+    },
+    "./preset/register": {
+      "types": "./dist/preset/index.d.ts",
+      "import": "./dist/preset/register.mjs",
+      "require": "./dist/preset/register.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "preset": [
+        "./dist/preset/index.d.ts"
+      ],
+      "preset/decorators": [
+        "./dist/preset/decorators.d.ts"
+      ],
+      "preset/register": [
+        "./dist/preset/register.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "yarn build -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui.git",
+    "directory": "tooling/storybook-addon"
+  },
+  "keywords": [
+    "storybook-addon",
+    "chakra-ui",
+    "saas-ui",
+    "storybook",
+    "addons",
+    "dark-mode"
+  ],
+  "author": "Andres Tuñón <andressp@ngxcoder.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saas-ui/saas-ui/issues"
+  },
+  "homepage": "https://github.com/saas-ui/saas-ui#readme",
+  "devDependencies": {
+    "@chakra-ui/react": "^2.7.0",
+    "@chakra-ui/system": ">=2.3.8",
+    "@emotion/react": ">=11.1.5",
+    "@emotion/styled": ">=11.1.5",
+    "@saas-ui/react": "workspace:*",
+    "@saas-ui/theme": "workspace:*",
+    "@saas-ui/theme-glass": "workspace:*",
+    "@storybook/addons": "^7.0.20",
+    "@storybook/api": "^7.0.20",
+    "@storybook/components": "^7.0.20",
+    "framer-motion": ">=4.1.17",
+    "react": "^18.2.0",
+    "react-dom": ">=18.0.0",
+    "tsup": "^6.7.0"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=2.0.0",
+    "@storybook/addons": ">=7",
+    "@storybook/api": ">=7",
+    "@storybook/components": ">=7",
+    "react": ">=18.0.x"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "storybook": {
+    "displayName": "Chakra UI",
+    "supportedFrameworks": [
+      "react"
+    ],
+    "unsupportedFrameworks": [
+      "Vue",
+      "Angular",
+      "Svelte"
+    ],
+    "icon": "https://raw.githubusercontent.com/chakra-ui/chakra-ui/main/logo/logomark-colored.svg"
+  }
+}

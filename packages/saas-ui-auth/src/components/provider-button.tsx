@@ -1,9 +1,6 @@
 import * as React from 'react'
 
-import { useTheme } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
-
-import { Button, ButtonProps } from '@saas-ui/button'
+import { Button, ButtonProps, useTheme } from '@chakra-ui/react'
 
 export const ProviderButton: React.FC<ButtonProps> = (props) => {
   const { children, ...rest } = props
@@ -12,7 +9,7 @@ export const ProviderButton: React.FC<ButtonProps> = (props) => {
   const defaultProps = {
     p: 6,
     variant: 'outline',
-    ...theme.components.ProviderButton?.defaultProps,
+    ...theme.components?.ProviderButton?.defaultProps,
   }
 
   return (
@@ -22,6 +19,4 @@ export const ProviderButton: React.FC<ButtonProps> = (props) => {
   )
 }
 
-if (__DEV__) {
-  ProviderButton.displayName = 'ProviderButton'
-}
+ProviderButton.displayName = 'ProviderButton'

@@ -1,24 +1,19 @@
 {
   "name": "@saas-ui/clerk",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Clerk Authentication Service for Saas UI",
   "source": "src/index.ts",
   "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
-    }
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -61,12 +56,14 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.6",
-    "@chakra-ui/system": ">=2.3.8",
-    "@clerk/clerk-react": "^4.12.0",
-    "framer-motion": ">=5.5.0",
-    "react": ">=18.0.0"
+    "@clerk/clerk-react": ">=4.12.0",
+    "@emotion/react": ">=11.4.1",
+    "@emotion/styled": ">=11.3.0",
+    "framer-motion": ">=6.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@clerk/clerk-react": "^4.12.0"
+    "@clerk/clerk-react": "^4.19.0"
   }
 }

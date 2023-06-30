@@ -1,4 +1,0 @@
-{
-  "main": "dist/magic-link.js",
-  "module": "dist/magic-link.modern.mjs"
-}

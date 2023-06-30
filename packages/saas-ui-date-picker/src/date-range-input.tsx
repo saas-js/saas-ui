@@ -7,7 +7,7 @@ import {
   DatePickerDialog,
   DatePickerTrigger,
 } from './date-picker-dialog'
-import { CalendarIcon } from '@chakra-ui/icons'
+import { CalendarIcon } from './icons'
 import {
   chakra,
   forwardRef,
@@ -67,7 +67,7 @@ interface DatePickerInputProps extends InputGroupProps {
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 const DateRangePickerInput = forwardRef<DatePickerInputProps, 'div'>(
-  (props) => {
+  (props, ref) => {
     const { calendarIcon, size, variant, ...rest } = props
 
     const {
@@ -93,7 +93,7 @@ const DateRangePickerInput = forwardRef<DatePickerInputProps, 'div'>(
       >
         <DatePickerAnchor>
           <SegmentedInput {...themeProps}>
-            <DateField locale={locale} {...startFieldProps} />
+            <DateField locale={locale} {...startFieldProps} ref={ref} />
             <chakra.span aria-hidden="true" paddingX="1">
               –
             </chakra.span>

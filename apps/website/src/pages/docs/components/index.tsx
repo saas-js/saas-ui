@@ -106,11 +106,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     data.map(async ({ title, routes }) => {
       const components = await Promise.all(
         routes.map(async ({ title: routeTitle, path: url }) => {
-          const { description } = allDocs.find((doc) => doc.slug === url)
+          const doc = allDocs.find((doc) => doc.slug === url)
           const component: Component = {
             title: routeTitle,
             url,
-            description,
+            description: doc?.description || null,
           }
 
           return component

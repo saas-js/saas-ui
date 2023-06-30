@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { render, testStories } from '@saas-ui/test-utils'
 import * as stories from '../stories/data-table.stories'
+import { vi } from 'vitest'
 
 const { TableInstanceRef, ...rest } = stories
 
@@ -10,7 +11,7 @@ const { Sortable, Selectable, InitialSelected } = testStories<typeof rest>(rest)
 test('should sort', async () => {
   const { getByText, getByLabelText, user } = render(<Sortable />)
 
-  const name = getByText('Name')
+  const name = getByText('Username')
 
   await user.click(name)
 
@@ -31,10 +32,10 @@ test('should sort', async () => {
 })
 
 test('onSort should trigger', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const { getByText, user } = render(<Sortable onSortChange={onChange} />)
 
-  const name = getByText('Name')
+  const name = getByText('Username')
 
   await user.click(name)
 
@@ -42,36 +43,35 @@ test('onSort should trigger', async () => {
 })
 
 test('should select all rows', async () => {
-  const { getByText, getByTitle, getAllByTitle, user } = render(<Selectable />)
+  const { getAllByLabelText, getByLabelText, user } = render(<Selectable />)
 
-  const select = getByTitle('Toggle All Rows Selected')
+  const select = getByLabelText('Select all rows')
 
   await user.click(select)
 
-  const selected = getAllByTitle('Toggle Row Selected')
+  const selected = getAllByLabelText('Deselect row')
 
-  expect(selected).toHaveLength(5)
+  expect(selected).toHaveLength(20)
 
   for (const s of selected) {
-    expect(s).toHaveAttribute('data-checked')
+    expect(s).toBeChecked()
   }
 })
 
-test('should select all rows', async () => {
-  const { getAllByTitle } = render(<InitialSelected />)
+test('should select initial', async () => {
+  const { getAllByLabelText } = render(<InitialSelected />)
 
-  const selected = getAllByTitle('Toggle Row Selected')
-
-  expect(selected[1]).toHaveAttribute('data-checked')
+  const selected = getAllByLabelText('Deselect row')
+  expect(selected[0]).toBeChecked()
 })
 
 test('onSelectedRowsChange should trigger', async () => {
-  const onChange = jest.fn()
-  const { getByTitle, user } = render(
+  const onChange = vi.fn()
+  const { getByLabelText, user } = render(
     <Selectable onSelectedRowsChange={onChange} />
   )
 
-  const select = getByTitle('Toggle All Rows Selected')
+  const select = getByLabelText('Select all rows')
 
   await user.click(select)
 

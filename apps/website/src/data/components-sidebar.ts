@@ -8,17 +8,17 @@ const sidebar = {
     },
     {
       title: 'Authentication',
-      path: '/docs/components/auth',
+      path: '/docs/components/authentication',
       heading: true,
       open: true,
       routes: [
         {
           title: 'AuthProvider',
-          path: '/docs/components/auth/auth-provider',
+          path: '/docs/components/authentication/auth-provider',
         },
         {
           title: 'Auth',
-          path: '/docs/components/auth/auth',
+          path: '/docs/components/authentication/auth',
         },
       ],
     },
@@ -29,21 +29,21 @@ const sidebar = {
       open: true,
       routes: [
         {
-          title: 'Card',
-          path: '/docs/components/layout/card',
-        },
-        {
           title: 'App Shell',
           path: '/docs/components/layout/app-shell',
         },
         {
           title: 'Sidebar',
           path: '/docs/components/layout/sidebar',
-          beta: true,
         },
         {
           title: 'Page',
           path: '/docs/components/layout/page',
+          pro: true,
+        },
+        {
+          title: 'SplitPage',
+          path: '/docs/components/layout/split-page',
           pro: true,
         },
         {
@@ -65,6 +65,11 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'CommandBar',
+          path: '/docs/components/navigation/command-bar',
+          beta: true,
+        },
+        {
           title: 'Hotkeys',
           path: '/docs/components/navigation/hotkeys',
         },
@@ -75,6 +80,7 @@ const sidebar = {
         {
           title: 'ToggleButton',
           path: '/docs/components/navigation/toggle-button',
+          pro: true,
         },
       ],
     },
@@ -86,7 +92,7 @@ const sidebar = {
       sort: true,
       routes: [
         {
-          title: 'Address',
+          title: 'Web3Address',
           path: '/docs/components/web3/address',
         },
       ],
@@ -189,16 +195,12 @@ const sidebar = {
           path: '/docs/components/data-display/data-table',
         },
         {
-          title: 'Divider',
-          path: '/docs/components/data-display/divider',
-        },
-        {
           title: 'EmptyState',
           path: '/docs/components/data-display/empty-state',
         },
         {
-          title: 'List',
-          path: '/docs/components/data-display/list',
+          title: 'StructuredList',
+          path: '/docs/components/data-display/structured-list',
         },
         {
           title: 'Property',
@@ -211,12 +213,10 @@ const sidebar = {
         {
           title: 'Timeline',
           path: '/docs/components/data-display/timeline',
-          pro: true,
         },
         {
           title: 'Command',
           path: '/docs/components/data-display/command',
-          pro: true,
         },
       ],
     },
@@ -263,7 +263,7 @@ const sidebar = {
           path: '/docs/components/feedback/snackbar',
         },
         {
-          title: 'Loader',
+          title: 'LoadingOverlay',
           path: '/docs/components/feedback/loader',
         },
       ],

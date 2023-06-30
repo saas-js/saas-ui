@@ -1,13 +1,9 @@
-import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { navGroupAnatomy } from '../../anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(navGroupAnatomy.keys)
 
-const parts = anatomy('nav-group').parts(
-  'container',
-  'title',
-  'icon',
-  'content'
-)
-
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   return {
     container: {
       '&:not(:last-of-type)': {
@@ -25,10 +21,10 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       color: 'muted',
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      '&.saas-collapse-toggle .chakra-icon': {
+      '&.sui-collapse-toggle .chakra-icon': {
         opacity: 0,
       },
-      '&.saas-collapse-toggle': {
+      '&.sui-collapse-toggle': {
         cursor: 'pointer',
         borderRadius: 'md',
         _hover: {
@@ -41,15 +37,14 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
           },
         },
       },
-      '[data-condensed] &': {
+      '[data-compact] &': {
         opacity: 0,
       },
     },
     content: {},
   }
-}
+})
 
-export default {
-  parts: parts.keys,
+export const navGroupTheme = defineMultiStyleConfig({
   baseStyle,
-}
+})

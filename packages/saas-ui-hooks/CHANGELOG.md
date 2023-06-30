@@ -1,5 +1,72 @@
 # @saas-ui/system
 
+## 2.0.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+- f1e99198: Restructured packages.
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- 0319aa57: Bump version
+- 166978bd: Fix esm bundle filename.
+
+## 2.0.0-rc.6
+
+### Minor Changes
+
+- 046e42b8: Updated to Chakra UI 2.7
+
+## 2.0.0-rc.5
+
+### Patch Changes
+
+- Bump version
+
+## 2.0.0-next.4
+
+### Patch Changes
+
+- Fix esm bundle import
+
+## 2.0.0-next.3
+
+### Patch Changes
+
+- Bump version
+
+## 2.0.0-next.2
+
+### Minor Changes
+
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+
+## 2.0.0-next.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+- f1e99198: Restructured packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+
 ## 1.2.2
 
 ### Patch Changes

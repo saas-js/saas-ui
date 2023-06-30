@@ -1,0 +1,96 @@
+---
+id: date-picker-static
+title: DatePicker
+description: Allow users to select a Date and Time value.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DatePicker is currently in beta, we'd love to hear your feedback while we
+  finalize the API.
+</Info>
+
+## Import
+
+- `DatePickerStatic`: The container component that manages state and context.
+- `DatePickerCalendar`: Calender showing available months and days.
+- `DatePickerTimeField`: Time field to allow users enter a time.
+
+```ts
+import {
+  DatePickerStatic,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+<DatePickerStatic>
+  <DatePickerCalendar />
+</DatePickerStatic>
+```
+
+### With time
+
+```jsx center=true
+<DatePickerStatic granularity="minute">
+  <DatePickerCalendar />
+  <DatePickerTimeField />
+</DatePickerStatic>
+```
+
+### With 24 hour time
+
+```jsx center=true
+<DatePickerStatic hourCycle="24" granularity="minute">
+  <DatePickerCalendar />
+  <DatePickerTimeField />
+</DatePickerStatic>
+```
+
+### Controlled
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(today(getLocalTimeZone()))
+
+  return (
+    <DatePickerStatic value={value} onChange={setValue}>
+      <DatePickerCalendar />
+    </DatePickerStatic>
+  )
+}
+```
+
+### Controlled with zoned time
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  return (
+    <DatePickerStatic value={value} onChange={setValue} granularity="minute">
+      <DatePickerCalendar />
+      <DatePickerTimeField />
+    </DatePickerStatic>
+  )
+}
+```

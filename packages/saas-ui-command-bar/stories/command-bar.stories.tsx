@@ -120,7 +120,7 @@ const DialogTemplate: Story<CommandBarProps> = (args) => {
       <Button onClick={onToggle}>Open Command Bar</Button>
 
       <CommandBar
-        onValueChange={(value) => console.log(value)}
+        onChange={(value) => console.log(value)}
         isOpen={isOpen}
         onClose={onClose}
         closeOnSelect
@@ -165,25 +165,29 @@ export const Dialog = DialogTemplate.bind({})
 Dialog.args = {}
 
 export const Loading = () => {
+  const [isLoading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    if (!isLoading) return
+    const timeout = setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [isLoading])
+
   return (
     <CommandBar>
       <CommandBarContent>
-        <CommandBarInput placeholder="Type a command or search..." />
-
+        <CommandBarInput
+          placeholder="Type a command or search..."
+          onChange={() => {
+            setLoading(true)
+          }}
+        />
         <CommandBarList>
-          <CommandBarLoading>Loading...</CommandBarLoading>
-
-          <CommandBarEmpty>No results found.</CommandBarEmpty>
-
-          <CommandBarGroup heading="Fruits">
-            <CommandBarItem>Apple</CommandBarItem>
-            <CommandBarItem>Orange</CommandBarItem>
-            <CommandBarSeparator />
-            <CommandBarItem>Pear</CommandBarItem>
-            <CommandBarItem>Blueberry</CommandBarItem>
-          </CommandBarGroup>
-
-          <CommandBarItem>Fish</CommandBarItem>
+          {isLoading && <CommandBarLoading>Loading...</CommandBarLoading>}
+          <CommandBarEmpty hidden={isLoading}>
+            No results found.
+          </CommandBarEmpty>
         </CommandBarList>
       </CommandBarContent>
     </CommandBar>

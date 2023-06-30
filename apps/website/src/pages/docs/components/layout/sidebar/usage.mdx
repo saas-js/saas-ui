@@ -1,0 +1,578 @@
+---
+id: sidebar
+title: Sidebar
+description: Side navigation, commonly used as the primary navigation.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core/src/sidebar' }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ componentName: 'sidebar' }}
+/>
+
+## Import
+
+- `Sidebar`: The container component that manages state.
+- `SidebarSection`: A sidebar section.
+- `SidebarToggleButton`: Button to toggle the sidebar visibility.
+- `SidebarOverlay`: Background overlay visible when the sidebar is open on mobile.
+- `NavGroup`: A group of navigation items.
+- `NavItem`: A navigation item.
+
+```ts
+import {
+  Sidebar,
+  SidebarSection,
+  SidebarToggleButton,
+  SidebarOverlay,
+  NavGroup,
+  NavItem,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx height=400px overflow=hidden
+import {
+  Box,
+  Spacer,
+  Button,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarToggleButton,
+  SidebarSection,
+  NavItem,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { FiHome, FiUsers } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar>
+          <SidebarToggleButton />
+          <SidebarSection direction="row">
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="7"
+            />
+            <Spacer />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={
+                  <PersonaAvatar
+                    presence="online"
+                    size="xs"
+                    src="/showcase-avatar.jpg"
+                  />
+                }
+                variant="ghost"
+              />
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
+          <SidebarSection aria-label="Main">
+            <NavItem icon={<FiHome />} isActive>
+              Home
+            </NavItem>
+            <NavItem icon={<FiUsers />}>Users</NavItem>
+            <NavItem icon={<FiSettings />}>Settings</NavItem>
+          </SidebarSection>
+        </Sidebar>
+      }
+    />
+  )
+}
+```
+
+### Grouped items
+
+```jsx height=400px overflow=hidden
+import {
+  Box,
+  Spacer,
+  Button,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarToggleButton,
+  SidebarSection,
+  NavItem,
+  NavGroup,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { FiHome, FiUsers, FiSettings } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar>
+          <SidebarToggleButton />
+          <SidebarSection direction="row">
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="7"
+            />
+            <Spacer />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={
+                  <PersonaAvatar
+                    presence="online"
+                    size="xs"
+                    src="/showcase-avatar.jpg"
+                  />
+                }
+                variant="ghost"
+              />
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
+          <SidebarSection aria-label="Main">
+            <NavGroup>
+              <NavItem icon={<FiHome />} isActive>
+                Home
+              </NavItem>
+              <NavItem icon={<FiUsers />}>Users</NavItem>
+              <NavItem icon={<FiSettings />}>Settings</NavItem>
+            </NavGroup>
+
+            <NavGroup title="Teams" isCollapsible>
+              <NavItem>Sales</NavItem>
+              <NavItem>Support</NavItem>
+            </NavGroup>
+          </SidebarSection>
+        </Sidebar>
+      }
+    />
+  )
+}
+```
+
+### Scroll
+
+Make a section in the sidebar scrollable by setting the `overflowY` prop, use `flex=1` to make sure it fills up the entire vertical space.
+
+```jsx live=false
+<SidebarSection flex="1" overflowY="auto"></SidebarSection>
+```
+
+```jsx height=400px overflow=hidden
+import {
+  Box,
+  Badge,
+  Text,
+  Spacer,
+  Button,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarToggleButton,
+  SidebarSection,
+  NavItem,
+  NavGroup,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { FiHome, FiUsers, FiSettings, FiHelpCircle } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar>
+          <SidebarToggleButton />
+          <SidebarSection direction="row">
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="7"
+            />
+            <Spacer />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={
+                  <PersonaAvatar
+                    presence="online"
+                    size="xs"
+                    src="/showcase-avatar.jpg"
+                  />
+                }
+                variant="ghost"
+              />
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
+          <SidebarSection flex="1" overflowY="auto">
+            <NavGroup>
+              <NavItem icon={<FiHome />} isActive>
+                Home
+              </NavItem>
+              <NavItem icon={<FiUsers />}>Users</NavItem>
+              <NavItem icon={<FiSettings />}>Settings</NavItem>
+            </NavGroup>
+
+            <NavGroup title="Teams" isCollapsible>
+              <NavItem>Sales</NavItem>
+              <NavItem>Support</NavItem>
+            </NavGroup>
+
+            <NavGroup title="Tags" isCollapsible>
+              <NavItem
+                icon={<Badge bg="purple.500" boxSize="2" borderRadius="full" />}
+              >
+                <Text>Lead</Text>
+                <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
+                  83
+                </Badge>
+              </NavItem>
+              <NavItem
+                icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
+              >
+                <Text>Customer</Text>
+                <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
+                  210
+                </Badge>
+              </NavItem>
+            </NavGroup>
+          </SidebarSection>
+          <SidebarSection>
+            <NavItem icon={<FiHelpCircle />}>Documentation</NavItem>
+          </SidebarSection>
+        </Sidebar>
+      }
+    />
+  )
+}
+```
+
+### Condensed variant
+
+The compact variant can be used as a collapsed state on smaller screens, or as the primary navigation in a double sidebar layout, see below.
+NavItem labels will be rendered as tooltips.
+
+Use the `tooltipProps` prop to customize the tooltip.
+
+```jsx height=400px overflow=hidden
+import { Box, Image } from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarSection,
+  SidebarToggleButton,
+  NavItem,
+} from '@saas-ui/react'
+import { FiHome, FiUsers, FiSettings } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar variant="compact" width="64px">
+          <SidebarToggleButton />
+          <SidebarSection alignItems="center">
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="7"
+            />
+          </SidebarSection>
+          <SidebarSection>
+            <NavItem icon={<FiHome size="1.2em" />} size="md">
+              Home
+            </NavItem>
+            <NavItem icon={<FiUsers size="1.2em" />} size="md">
+              Users
+            </NavItem>
+            <NavItem icon={<FiSettings size="1.2em" />} size="md">
+              Settings
+            </NavItem>
+          </SidebarSection>
+        </Sidebar>
+      }
+    />
+  )
+}
+```
+
+### Toggle variant
+
+```jsx height=400px overflow=hidden
+import { Box, Spacer, IconButton, Image, useDisclosure } from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarSection,
+  SidebarOverlay,
+  NavItem,
+  NavGroup,
+} from '@saas-ui/react'
+import {
+  FiHome,
+  FiUsers,
+  FiSettings,
+  FiStar,
+  FiChevronsLeft,
+  FiChevronsRight,
+} from 'react-icons/fi'
+
+export default function ToggleVariant() {
+  const { isOpen, onToggle } = useDisclosure({
+    defaultIsOpen: true,
+  })
+
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar
+          toggleBreakpoint={false}
+          variant={isOpen ? 'default' : 'compact'}
+          transition="width"
+          transitionDuration="normal"
+          width={isOpen ? '280px' : '14'}
+          minWidth="auto"
+        >
+          <SidebarSection direction={isOpen ? 'row' : 'column'}>
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="6"
+              mb="1"
+              display={isOpen ? 'block' : 'none'}
+            />
+            <Spacer />
+            <IconButton
+              onClick={onToggle}
+              variant="ghost"
+              size="sm"
+              icon={isOpen ? <FiChevronsLeft /> : <FiChevronsRight />}
+              aria-label="Toggle Sidebar"
+            />
+          </SidebarSection>
+
+          <SidebarSection flex="1" overflowY="auto" overflowX="hidden">
+            <NavGroup>
+              <NavItem icon={<FiHome />} isActive>
+                All users
+              </NavItem>
+              <NavItem icon={<FiStar />}>Favourite users</NavItem>
+            </NavGroup>
+          </SidebarSection>
+          <SidebarOverlay zIndex="1" />
+        </Sidebar>
+      }
+    />
+  )
+}
+```
+
+### Double sidebar
+
+You can stack multiple sidebars together to create a double sidebar layout.
+
+```jsx height=400px overflow=hidden
+import { Box, HStack, Image, Heading, Text, Badge } from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarSection,
+  NavItem,
+  NavGroup,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { FiHome, FiUsers, FiSettings, FiHelpCircle } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      sidebar={
+        <HStack spacing="0" alignItems="stretch">
+          <Sidebar
+            variant="compact"
+            bg="purple.500"
+            borderWidth="0"
+            spacing="3"
+            _dark={{
+              bg: 'purple.500',
+            }}
+          >
+            <SidebarSection>
+              <Image
+                src="https://saas-ui.dev/favicons/favicon-96x96.png"
+                boxSize="7"
+              />
+            </SidebarSection>
+            <SidebarSection>
+              <NavItem icon={<FiHome size="1.2em" color="white" />}>
+                Home
+              </NavItem>
+              <NavItem icon={<FiUsers size="1.2em" color="white" />} isActive>
+                Users
+              </NavItem>
+              <NavItem icon={<FiSettings size="1.2em" color="white" />}>
+                Settings
+              </NavItem>
+            </SidebarSection>
+          </Sidebar>
+          <Sidebar>
+            <SidebarSection direction="row" mt="2" px="4">
+              <Heading size="sm" fontWeight="semibold">
+                Users
+              </Heading>
+            </SidebarSection>
+            <SidebarSection flex="1" overflowY="auto">
+              <NavGroup>
+                <NavItem icon={<FiUsers />} isActive>
+                  Overview
+                </NavItem>
+              </NavGroup>
+
+              <NavGroup title="Teams" isCollapsible>
+                <NavItem>Sales</NavItem>
+                <NavItem>Support</NavItem>
+              </NavGroup>
+
+              <NavGroup title="Tags" isCollapsible>
+                <NavItem
+                  icon={
+                    <Badge bg="purple.500" boxSize="2" borderRadius="full" />
+                  }
+                >
+                  <Text>Lead</Text>
+                  <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
+                    83
+                  </Badge>
+                </NavItem>
+                <NavItem
+                  icon={<Badge bg="cyan.500" boxSize="2" borderRadius="full" />}
+                >
+                  <Text>Customer</Text>
+                  <Badge opacity="0.6" borderRadius="full" bg="none" ms="auto">
+                    210
+                  </Badge>
+                </NavItem>
+              </NavGroup>
+            </SidebarSection>
+            <SidebarSection>
+              <NavItem icon={<FiHelpCircle />}>Documentation</NavItem>
+            </SidebarSection>
+          </Sidebar>
+        </HStack>
+      }
+    />
+  )
+}
+```
+
+### Breakpoints
+
+The sidebar will automatically close on small screens. You can change this behavior by customizing the `toggleBreakpoint`. Breakpoints are disabled for the `compact` variant.
+
+The default breakpoint is `lg`, to disable the breakpoint set the `toggleBreakpoint` to `false`.
+
+```tsx live=false
+<Sidebar toggleBreakpoint="lg" />
+```
+
+Custom `toggleBreakpoint` value:
+
+```jsx height=400px overflow=hidden
+import {
+  Box,
+  Spacer,
+  Button,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Image,
+} from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarSection,
+  NavItem,
+  NavGroup,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  DataGrid,
+  DataGridPagination,
+} from '@saas-ui-pro/react'
+import { FiHome, FiUsers, FiSettings } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      sidebar={
+        <Sidebar toggleBreakpoint="xl">
+          <SidebarToggleButton />
+          <SidebarSection direction="row">
+            <Image
+              src="https://saas-ui.dev/favicons/favicon-96x96.png"
+              boxSize="7"
+            />
+            <Spacer />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={
+                  <PersonaAvatar
+                    presence="online"
+                    size="xs"
+                    src="/showcase-avatar.jpg"
+                  />
+                }
+                variant="ghost"
+              />
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
+          <SidebarSection aria-label="Main">
+            <NavItem icon={<FiHome />} isActive>
+              Home
+            </NavItem>
+            <NavItem icon={<FiUsers />}>Users</NavItem>
+            <NavItem icon={<FiSettings />}>Settings</NavItem>
+          </SidebarSection>
+          <SidebarOverlay />
+        </Sidebar>
+      }
+    />
+  )
+}
+```

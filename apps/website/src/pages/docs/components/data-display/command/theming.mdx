@@ -1,0 +1,26 @@
+---
+id: command
+scope: theming
+---
+
+## Theming
+
+The `Command` component uses the `SuiCommand` key in the theme.
+
+### Default theme
+
+```tsx
+export const commandTheme = {
+  baseStyle: {
+    fontSize: 'xs',
+    '[role=tooltip] > &': {
+      ms: 1,
+      _before: {
+        content: '"•"',
+        me: 1,
+        fontSize: 'xs',
+      },
+    },
+  },
+}
+```

@@ -1,16 +1,25 @@
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
 import { inputAnatomy } from '@chakra-ui/anatomy'
 
+import { Input as ChakraInput } from '@chakra-ui/theme/components'
+
+import {
+  createMultiStyleConfigHelpers,
+  defineStyle,
+  defineStyleConfig,
+} from '@chakra-ui/styled-system'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(inputAnatomy.keys)
+
 const inputSizes = {
-  sm: {
+  sm: definePartsStyle({
     field: {
       borderRadius: 'md',
     },
     addon: {
       borderRadius: 'md',
     },
-  },
-  md: {
+  }),
+  md: definePartsStyle({
     field: {
       px: 3,
       h: 9,
@@ -19,42 +28,67 @@ const inputSizes = {
       px: 3,
       h: 9,
     },
-  },
+  }),
 }
 
-const outlineVariant: PartsStyleFunction<typeof inputAnatomy> = (props) => {
+const outlineVariant = definePartsStyle((props) => {
   return {
     field: {
-      borderColor: mode('blackAlpha.300', 'whiteAlpha.300')(props),
+      borderColor: 'blackAlpha.300',
+      _dark: {
+        borderColor: 'whiteAlpha.300',
+      },
       _hover: {
-        borderColor: mode('blackAlpha.400', 'whiteAlpha.400')(props),
+        borderColor: 'blackAlpha.400',
+        _dark: {
+          borderColor: 'whiteAlpha.400',
+        },
       },
     },
   }
-}
+})
 
-const Input = {
+const Input = defineMultiStyleConfig({
   defaultProps: {
+    /* @ts-expect-error */
     focusBorderColor: 'primary.500',
   },
   variants: {
     outline: outlineVariant,
   },
   sizes: inputSizes,
-}
+})
 
-export default {
-  FormLabel: {
-    variants: {
-      horizontal: {
-        mb: 0,
-        marginStart: '0.5rem',
-      },
+export const formLabelTheme = {
+  variants: {
+    horizontal: {
+      mb: 0,
+      marginStart: '0.5rem',
     },
   },
-  Input,
-  NumberInput: Input,
-  PinInput: Input,
-  Textarea: Input,
-  Select: Input,
 }
+
+export const inputTheme = Input
+export const numberInputTheme = Input
+export const pinInputTheme = defineStyleConfig({
+  defaultProps: {
+    /* @ts-expect-error */
+    focusBorderColor: 'primary.500',
+  },
+  variants: {
+    outline: outlineVariant,
+  },
+  sizes: inputSizes,
+})
+export const textareaTheme = defineStyleConfig({
+  defaultProps: {
+    /* @ts-expect-error */
+    focusBorderColor: 'primary.500',
+  },
+  variants: {
+    outline: defineStyle(
+      (props) => inputTheme.variants?.outline(props).field ?? {}
+    ),
+  },
+})
+export const nativeSelectTheme = defineStyleConfig(Input)

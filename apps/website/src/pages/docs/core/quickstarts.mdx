@@ -1,0 +1,100 @@
+---
+title: Quickstarts
+description: How to get up and running quickly with Saas UI.
+---
+
+Saas UI is built on top of Chakra UI, before you continue it's recommended to have a basic understanding of how Chakra UI works. You can find the documentation on the [Chakra UI website](https://www.chakra-ui.com/docs).
+
+## Framework Quickstarts
+
+<FrameworkLinks />
+
+## Custom Installation
+
+### Install in an existing project
+
+Inside your React project directory, install Chakra UI if you haven't done so already:
+
+```bash
+yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```
+
+```bash
+npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```
+
+Install Saas UI by running this:
+
+```bash
+yarn add @saas-ui/react
+```
+
+```bash
+npm i @saas-ui/react
+```
+
+### Set up Provider
+
+For Saas UI to work correctly, you need to set up the `SaasProvider` at the
+root of your application.
+
+The `SaasProvider` will handle the basic Chakra UI setup for you. It configures the color mode manager,
+add the Saas UI base theme, css reset and global styles.
+
+#### Direct integration
+
+Go to the root of your application and do this:
+
+```jsx live=false
+import * as React from 'react'
+
+// 1. import `SaasProvider` component
+import { SaasProvider } from '@saas-ui/react'
+
+function App({ Component }) {
+  // 2. Use at the root of your app
+  return (
+    <SaasProvider>
+      <Component />
+    </SaasProvider>
+  )
+}
+```
+
+### SaasProvider Props
+
+| Name             | Type              | Default               | Description                                                            |
+| ---------------- | ----------------- | --------------------- | ---------------------------------------------------------------------- |
+| resetCSS         | `boolean`         | `true`                | automatically includes `<CSSReset />`                                  |
+| theme            | `Theme`           | `@chakra-ui/theme`    | optional custom theme                                                  |
+| colorModeManager | `StorageManager`  | `localStorageManager` | manager to persist a users color mode preference in                    |
+| portalZIndex     | `number`          | `undefined`           | common z-index to use for `Portal`                                     |
+| linkComponent    | `React.ReactNode` | `undefined`           | Wrapper component for router enabled links                             |
+| onError          | `function`        | `undefined`           | Callback called whenever an error is triggered inside an ErrorBoundary |
+
+### Under the hood
+
+Besides setting up the Saas UI specific context, this is how the basic Chakra setup looks like internally.
+
+```tsx
+export function SaasProvider({
+  theme,
+  linkComponent,
+  onError,
+  children,
+  ...rest
+}: SaasProviderProps) {
+  const context = {
+    linkComponent,
+    onError,
+  }
+
+  return (
+    <SaasContext.Provider value={context}>
+      <ChakraProvider {...rest} theme={theme || defaultTheme}>
+        {children}
+      </ChakraProvider>
+    </SaasContext.Provider>
+  )
+}
+```

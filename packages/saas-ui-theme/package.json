@@ -1,24 +1,39 @@
 {
   "name": "@saas-ui/theme",
-  "version": "1.8.2",
-  "description": "Theme Component",
+  "version": "2.0.0",
+  "description": "Saas UI theme package",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
+    },
+    "./anatomy": {
+      "require": "./dist/anatomy/index.js",
+      "types": "./dist/anatomy/index.d.ts",
+      "import": "./dist/anatomy/index/.mjs"
+    },
+    "./anatomy/src": {
+      "default": "./src/anatomy/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "anatomy": [
+        "./dist/anatomy/index.d.ts"
+      ]
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "tsup src/index.ts src/anatomy/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -43,6 +58,7 @@
     "react",
     "ui",
     "chakra-ui",
+    "theme",
     "design-system",
     "react-components",
     "uikit",
@@ -56,9 +72,9 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/anatomy": "^2.1.1",
-    "@chakra-ui/styled-system": "^2.5.1",
-    "@chakra-ui/theme-tools": "^2.0.16"
+    "@chakra-ui/anatomy": "^2.1.2",
+    "@chakra-ui/styled-system": "^2.9.1",
+    "@chakra-ui/theme-tools": "^2.0.18"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.6",

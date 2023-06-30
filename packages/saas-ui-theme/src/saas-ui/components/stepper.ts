@@ -1,75 +1,244 @@
-import { mode, PartsStyleFunction } from '@chakra-ui/theme-tools'
+// import {
 
-import { parts } from '../../base/components/stepper'
+import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/styled-system'
+import { transparentize } from '@chakra-ui/theme-tools'
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
+// } from '@chakra-ui/stepper'
+
+// const variantSolid = definePartsStyle((props) => {
+//   const { colorScheme: c } = props
+//   return {
+//     icon: {
+//       bg: `gray.500`,
+//       _dark: {
+//         bg: `gray.600`,
+//       },
+//       color: 'white',
+//       '[data-active] &': {
+//         bg: `${c}.500`,
+//         _dark: {
+//           bg: `${c}.500`,
+//         },
+//       },
+//       '[data-completed] &': {
+//         bg: `${c}.500`,
+//         _dark: {
+//           bg: `${c}.500`,
+//         },
+//       },
+//     },
+//     separator: {
+//       '&[data-active]': {
+//         borderColor: `${c}.500`,
+//       },
+//     },
+//     step: {
+//       '&[data-active]:before, &[data-completed]': {
+//         borderColor: `${c}.500`,
+//       },
+//     },
+//   }
+// })
+
+// const variantOutline = definePartsStyle((props) => {
+//   const { colorScheme: c } = props
+//   const styles = variantSolid(props)
+
+//   return {
+//     ...styles,
+//     icon: {
+//       ...styles.icon,
+//       '[data-active] &': {
+//         ...styles.icon['[data-active] &'],
+//         outlineColor: `${c}.500`,
+//         outlineWidth: '1px',
+//         outlineStyle: 'solid',
+//         outlineOffset: '2px',
+//       },
+//     },
+//   }
+// })
+
+// const variants = {
+//   solid: variantSolid,
+//   outline: variantOutline,
+// }
+
+// export const stepperTheme = defineMultiStyleConfig({
+//   defaultProps: {
+//     variant: 'outline',
+//     colorScheme: 'primary',
+//     size: 'md',
+//   },
+//   variants,
+// })
+
+const $size = cssVar('stepper-indicator-size')
+const $accentColor = cssVar('stepper-accent-color')
+const $verticalSeperatorOffset = cssVar('stepper-vertical-seperator-offset')
+
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers([
+    // saas ui parts
+    'container',
+    'item',
+    'content',
+    // default parts
+    'stepper',
+    'step',
+    'title',
+    'description',
+    'indicator',
+    'separator',
+    'icon',
+    'number',
+  ])
+
+const baseStyle = definePartsStyle(({ colorScheme: c }) => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
+  },
+  item: {
+    w: 'full',
+  },
+  content: {
+    ['&[data-orientation=vertical]']: {
+      mt: 2,
+      ms: $verticalSeperatorOffset.reference,
+      borderLeftWidth: '1px',
+      ps: 6,
+    },
+  },
+  stepper: {
+    gap: '2',
+    [$verticalSeperatorOffset.variable]: `10px`,
+    [$accentColor.variable]: `colors.${c}.500`,
+    _dark: {
+      [$accentColor.variable]: `colors.${c}.500`,
+    },
+  },
+  separator: {
+    transitionProperty: 'common',
+    transitionDuration: 'normal',
+    ['&[data-orientation=horizontal]']: {
+      height: '1px',
+    },
+    ['&[data-orientation=vertical]']: {
+      width: '1px',
+    },
+    ['.sui-steps__item .chakra-step &[data-orientation=vertical]']: {
+      display: 'none',
+    },
+    ['.sui-steps__item &[data-orientation=vertical]']: {
+      position: 'static',
+      minH: 4,
+      ms: $verticalSeperatorOffset.reference,
+    },
+  },
+  step: {
+    ['&[data-orientation=vertical]']: {
+      alignItems: 'center',
+    },
+  },
+}))
+
+const variantOutline = definePartsStyle((props) => ({}))
+
+const variantSolid = definePartsStyle((props) => ({
+  indicator: {
+    '&[data-status=active]': {
+      borderWidth: '0',
+      bg: $accentColor.reference,
+      color: 'chakra-inverse-text',
+    },
+    '&[data-status=complete]': {
+      bg: $accentColor.reference,
+      color: 'chakra-inverse-text',
+    },
+    '&[data-status=incomplete]': {
+      borderWidth: '0',
+      bg: 'blackAlpha.200',
+      _dark: {
+        bg: 'whiteAlpha.200',
+      },
+    },
+  },
+}))
+
+const variantSubtle = definePartsStyle((props) => {
+  const { theme, colorScheme: c } = props
   return {
-    icon: {
-      bg: mode(`gray.500`, `gray.600`)(props),
-      color: 'white',
-      '[data-active] &': {
-        bg: `${c}.500`,
-      },
-      '[data-completed] &': {
-        bg: `${c}.500`,
-      },
+    stepper: {
+      [$accentColor.variable]: `colors.${c}.100`,
     },
-    separator: {
-      '&[data-active]': {
-        borderColor: `${c}.500`,
+    indicator: {
+      '&[data-status=active]': {
+        borderWidth: '0',
+        bg: $accentColor.reference,
+        color: `${c}.500`,
+        _dark: {
+          bg: transparentize(`${c}.200`, 0.16)(theme),
+        },
       },
-    },
-    step: {
-      '&[data-active]:before, &[data-completed]': {
-        borderColor: `${c}.500`,
+      '&[data-status=complete]': {
+        bg: $accentColor.reference,
+        color: `${c}.500`,
+        _dark: {
+          bg: transparentize(`${c}.200`, 0.24)(theme),
+          color: `${c}.200`,
+        },
+      },
+      '&[data-status=incomplete]': {
+        borderWidth: '0',
+        bg: 'blackAlpha.200',
+        color: 'blackAlpha.700',
+        _dark: {
+          bg: 'whiteAlpha.200',
+          color: 'whiteAlpha.600',
+        },
       },
     },
   }
-}
+})
 
-const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
-  return {
-    icon: {
-      bg: mode(`gray.500`, `gray.600`)(props),
-      color: 'white',
-      '[data-active] &': {
-        bg: `${c}.500`,
-        outlineColor: `${c}.500`,
-        outlineWidth: '1px',
-        outlineStyle: 'solid',
-        outlineOffset: '2px',
+export const stepperTheme = defineMultiStyleConfig({
+  defaultProps: {
+    variant: 'outline',
+    colorScheme: 'primary',
+    size: 'md',
+  },
+  baseStyle,
+  variants: {
+    outline: variantOutline,
+    solid: variantSolid,
+    subtle: variantSubtle,
+  },
+  sizes: {
+    xs: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.4',
+        [$verticalSeperatorOffset.variable]: `7px`,
       },
-      '[data-completed] &': {
-        bg: `${c}.500`,
+    }),
+    sm: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.6',
+        [$verticalSeperatorOffset.variable]: `11px`,
       },
-    },
-    separator: {
-      '&[data-active]': {
-        borderColor: `${c}.500`,
+    }),
+    md: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.7',
+        [$verticalSeperatorOffset.variable]: `14px`,
       },
-    },
-    step: {
-      '&[data-active]:before, &[data-completed]': {
-        borderColor: `${c}.500`,
+    }),
+    lg: definePartsStyle({
+      stepper: {
+        [$size.variable]: 'sizes.8',
+        [$verticalSeperatorOffset.variable]: `16px`,
       },
-    },
-  }
-}
-
-const variants = {
-  solid: variantSolid,
-  outline: variantOutline,
-}
-
-const defaultProps = {
-  variant: 'outline',
-  colorScheme: 'primary',
-  size: 'md',
-}
-
-export default {
-  defaultProps,
-  variants,
-}
+    }),
+  },
+})

@@ -1,40 +1,24 @@
 {
   "name": "@saas-ui/auth",
-  "version": "1.7.6",
+  "version": "2.0.0",
   "description": "Authentication provider and components for Chakra UI",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs"
-    },
-    "./services/supabase": {
-      "require": "./dist/supabase.js",
-      "types": "./dist/services/supbase.d.ts",
-      "import": "./dist/supabase.modern.mjs"
-    },
-    "./services/magic-link": {
-      "require": "./dist/magic-link.js",
-      "types": "./dist/services/magic-link.d.ts",
-      "import": "./dist/magic-link.modern.mjs"
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
-    },
-    "./src/services/supabase": {
-      "default": "./src/services/supabase.ts"
-    },
-    "./src/services/magic-link": {
-      "default": "./src/services/supabase.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle src/**/*.ts --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -67,27 +51,24 @@
     "components",
     "emotion",
     "library",
-    "authentication",
-    "supabase"
+    "authentication"
   ],
   "storybook": {
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.14",
-    "@saas-ui/button": "workspace:*",
+    "@chakra-ui/utils": "^2.0.15",
+    "@saas-ui/core": "workspace:*",
     "@saas-ui/forms": "workspace:*",
-    "@saas-ui/hooks": "workspace:*",
-    "@saas-ui/layout": "workspace:*"
+    "@saas-ui/hooks": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
-    "@chakra-ui/system": ">=2.3.8",
-    "framer-motion": ">=5.5.0",
-    "react": ">=18.0.0"
-  },
-  "devDependencies": {
-    "@supabase/supabase-js": "^2.1.0"
+    "@chakra-ui/react": ">=2.4.9",
+    "@emotion/react": ">=11.0.0",
+    "@emotion/styled": ">=11.0.0",
+    "framer-motion": ">=6.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   }
 }

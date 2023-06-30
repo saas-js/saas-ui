@@ -14,7 +14,7 @@ const sidebar = {
   routes: [
     {
       title: 'Introduction',
-      path: '/docs/introduction',
+      path: '/docs',
       icon: FiBookOpen,
     },
     {
@@ -30,7 +30,7 @@ const sidebar = {
       routes: [
         {
           title: 'Overview',
-          path: '/docs/core/overview',
+          path: '/docs',
         },
         {
           title: 'Design Principles',
@@ -39,12 +39,12 @@ const sidebar = {
 
         {
           title: 'Quickstarts',
-          path: '/docs/core/getting-started',
+          path: '/docs/core/quickstarts',
           open: true,
           routes: [
             {
               title: 'Overview',
-              path: '/docs/core/getting-started',
+              path: '/docs/core/quickstarts',
             },
             {
               title: 'Next JS',
@@ -209,16 +209,16 @@ const sidebar = {
         },
         {
           title: 'Authentication',
-          path: '/docs/components/auth',
+          path: '/docs/components/authentication',
           open: true,
           routes: [
             {
               title: 'AuthProvider',
-              path: '/docs/components/auth/auth-provider',
+              path: '/docs/components/authentication/auth-provider',
             },
             {
               title: 'Auth',
-              path: '/docs/components/auth/auth',
+              path: '/docs/components/authentication/auth',
             },
           ],
         },
@@ -227,10 +227,6 @@ const sidebar = {
           path: '/docs/components/layout',
           open: true,
           routes: [
-            {
-              title: 'Card',
-              path: '/docs/components/layout/card',
-            },
             {
               title: 'App Shell',
               path: '/docs/components/layout/app-shell',
@@ -387,8 +383,8 @@ const sidebar = {
               path: '/docs/components/data-display/empty-state',
             },
             {
-              title: 'List',
-              path: '/docs/components/data-display/list',
+              title: 'StructuredList',
+              path: '/docs/components/data-display/structured-list',
             },
             {
               title: 'Property',

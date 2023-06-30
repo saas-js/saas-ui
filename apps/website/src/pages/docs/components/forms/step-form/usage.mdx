@@ -1,0 +1,520 @@
+---
+id: step-form
+title: StepForm
+description: Create multi-step React forms with just a few lines of code.
+---
+
+The StepForm component is an abstraction around [React Hook Form](https://react-hook-form.com/) and
+follows the [WAI specifications ](https://www.w3.org/WAI/tutorials/forms/) for forms.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `StepForm`: The wrapper component provides context, state, and focus management.
+- `FormStepper`: Renders a stepper that displays progress above the form.
+- `FormStep`: The form step containing fields for a specific step.
+- `PrevButton`: A button that this opens the previous step when clicked. Disabled on the first step.
+- `NextButton`: A button that submits the active step.
+
+```ts
+import {
+  StepForm,
+  FormStepper,
+  FormStep,
+  PrevButton,
+  NextButton,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic step form
+
+```jsx
+import { StepForm, FormLayout, FormStep, NextButton } from '@saas-ui/react'
+
+export default function BasicStepForm() {
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <StepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+### With Yup schemas
+
+Import `StepForm` from `@saas-ui/forms/yup` and pass an array of steps with a name and schema.
+
+```jsx
+import { Spacer } from '@chakra-ui/react'
+import { FormLayout, PrevButton, NextButton } from '@saas-ui/react'
+import { StepForm } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+export default function CreateProject() {
+  const steps = [
+    {
+      name: 'project',
+      schema: yup.object({
+        name: yup.string().required().label('Name'),
+        description: yup.string().label('Description'),
+      }),
+    },
+    {
+      name: 'members',
+      schema: yup.object({
+        members: yup.string().label('Members'),
+      }),
+    },
+  ]
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <StepForm
+      steps={steps}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="project">
+            <FormLayout>
+              <Field name="name" isRequired label="Name" />
+              <Field name="description" label="Description" />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="members">
+            <FormLayout>
+              <Field
+                name="members"
+                type="textarea"
+                label="Invite people"
+                placeholder="hello@saas-ui.dev, etc"
+              />
+            </FormLayout>
+          </FormStep>
+          <ButtonGroup w="full">
+            <PrevButton variant="ghost" />
+            <Spacer />
+            <NextButton />
+          </ButtonGroup>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+### With Zod schemas
+
+Import `StepForm` from `@saas-ui/forms/zod` and pass an array of steps with a name and schema.
+
+```jsx
+import { Spacer } from '@chakra-ui/react'
+import { FormLayout, PrevButton, NextButton } from '@saas-ui/react'
+import { StepForm } from '@saas-ui/forms/zod'
+import * as zod from 'zod'
+
+export default function CreateProject() {
+  const steps = [
+    {
+      name: 'project',
+      schema: zod.object({
+        name: yup.string(),
+        description: yup.string().optional(),
+      }),
+    },
+    {
+      name: 'members',
+      schema: yup.object({
+        members: yup.string(),
+      }),
+    },
+  ]
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <StepForm
+      steps={steps}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="project">
+            <FormLayout>
+              <Field name="name" isRequired label="Name" />
+              <Field name="description" label="Description" />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="members">
+            <FormLayout>
+              <Field
+                name="members"
+                type="textarea"
+                label="Invite people"
+                placeholder="hello@saas-ui.dev, etc"
+              />
+            </FormLayout>
+          </FormStep>
+          <ButtonGroup w="full">
+            <PrevButton variant="ghost" />
+            <Spacer />
+            <NextButton />
+          </ButtonGroup>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+### With a stepper
+
+```jsx
+import { Text, Spacer, ButtonGroup } from '@chakra-ui/react'
+import {
+  FormLayout,
+  PrevButton,
+  NextButton,
+  FormStepper,
+  StepsCompleted,
+  FormValue,
+  LoadingOverlay,
+  LoadingSpinner,
+  LoadingText,
+  PropertyList,
+  Property,
+} from '@saas-ui/react'
+import { StepForm } from '@saas-ui/forms/zod'
+import * as zod from 'zod'
+
+export default function CreateProject() {
+  const steps = [
+    {
+      name: 'project',
+      schema: zod.object({
+        name: zod.string().nonempty(),
+        description: zod.string(),
+      }),
+    },
+    {
+      name: 'members',
+      schema: zod.object({
+        members: zod.string(),
+      }),
+    },
+  ]
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <StepForm
+      steps={steps}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStepper>
+            <FormStep name="project" title="Project details">
+              <FormLayout>
+                <Field name="name" isRequired label="Name" />
+                <Field name="description" label="Description" />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="members" title="Invite your team">
+              <FormLayout>
+                <Field
+                  name="members"
+                  type="textarea"
+                  label="Invite people"
+                  placeholder="hello@saas-ui.dev, etc"
+                  autoFocus
+                />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="confirm" title="Confirm">
+              <FormLayout>
+                <Text>Please confirm that your information is correct.</Text>
+                <PropertyList>
+                  <Property label="Name" value={<FormValue name="name" />} />
+                  <Property
+                    label="Description"
+                    value={<FormValue name="description" />}
+                  />
+                </PropertyList>
+              </FormLayout>
+            </FormStep>
+
+            <StepsCompleted>
+              <LoadingOverlay>
+                <LoadingSpinner />
+                <LoadingText>
+                  We are setting up your project, just a moment...
+                </LoadingText>
+              </LoadingOverlay>
+            </StepsCompleted>
+          </FormStepper>
+          <ButtonGroup w="full">
+            <PrevButton variant="ghost" />
+            <Spacer />
+            <NextButton />
+          </ButtonGroup>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+### With a vertical stepper
+
+```jsx
+import { Text, Spacer, ButtonGroup } from '@chakra-ui/react'
+import {
+  FormLayout,
+  PrevButton,
+  NextButton,
+  FormStepper,
+  StepsCompleted,
+  FormValue,
+  LoadingOverlay,
+  LoadingSpinner,
+  LoadingText,
+  PropertyList,
+  Property,
+} from '@saas-ui/react'
+import { StepForm } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+export default function CreateProject() {
+  const steps = [
+    {
+      name: 'project',
+      schema: yup.object({
+        name: yup.string().required().label('Name'),
+        description: yup.string().label('Description'),
+      }),
+    },
+    {
+      name: 'members',
+      schema: yup.object({
+        members: yup.string().label('Members'),
+      }),
+    },
+  ]
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <StepForm
+      steps={steps}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStepper orientation="vertical">
+            <FormStep name="project" title="Project details">
+              <FormLayout>
+                <Field name="name" isRequired label="Name" />
+                <Field name="description" label="Description" />
+                <NextButton />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="members" title="Invite your team">
+              <FormLayout>
+                <Field
+                  name="members"
+                  type="textarea"
+                  label="Invite people"
+                  placeholder="hello@saas-ui.dev, etc"
+                  autoFocus
+                />
+                <ButtonGroup>
+                  <NextButton />
+                  <PrevButton variant="ghost" />
+                </ButtonGroup>
+              </FormLayout>
+            </FormStep>
+            <FormStep name="confirm" title="Confirm">
+              <FormLayout>
+                <Text>Please confirm that your information is correct.</Text>
+                <PropertyList>
+                  <Property label="Name" value={<FormValue name="name" />} />
+                  <Property
+                    label="Description"
+                    value={<FormValue name="description" />}
+                  />
+                </PropertyList>
+                <ButtonGroup>
+                  <NextButton />
+                  <PrevButton variant="ghost" />
+                </ButtonGroup>
+              </FormLayout>
+            </FormStep>
+
+            <StepsCompleted>
+              <LoadingOverlay>
+                <LoadingSpinner />
+                <LoadingText>
+                  We are setting up your project, just a moment...
+                </LoadingText>
+              </LoadingOverlay>
+            </StepsCompleted>
+          </FormStepper>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+## Access stepper state
+
+You can access the form step state by using render props or the `useStepFormContext` hook and using the render props.
+
+```jsx
+import { Text, ButtonGroup } from '@chakra-ui/react'
+import {
+  StepForm,
+  FormLayout,
+  FormStep,
+  PrevButton,
+  NextButton,
+  FormStepper,
+} from '@saas-ui/react'
+
+export default function StepperState() {
+  return (
+    <StepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={saveHandler}
+    >
+      {({
+        Field,
+        FormStep,
+        isFirstStep,
+        isLastStep,
+        isCompleted,
+        nextStep,
+        prevStep,
+      }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" />
+              <Field name="email" label="Email" />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field name="password" label="Password" />
+            </FormLayout>
+          </FormStep>
+          {isCompleted ? (
+            <Text>Completed</Text>
+          ) : (
+            <ButtonGroup>
+              <PrevButton />
+              <NextButton />
+            </ButtonGroup>
+          )}
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+## Accessibility
+
+The `StepForm` component wraps the children in a HTML `<form>` element.
+
+### Keyboard Interaction
+
+| Key     | Action          |
+| ------- | --------------- |
+| `Enter` | Submit the form |

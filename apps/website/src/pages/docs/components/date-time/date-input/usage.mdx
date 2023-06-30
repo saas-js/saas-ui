@@ -1,0 +1,102 @@
+---
+id: date-input
+title: DateInput
+description: Allow users to enter or select a Date and Time value.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DateInput is currently in beta, we'd love to hear your feedback while we
+  finalize the API.
+</Info>
+
+## Import
+
+- `DateInput`: A date form input.
+- `DateTimeInput`: A date time form input.
+
+```ts
+import { DateInput, DateTimeInput } from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+<FormControl>
+  <FormLabel>Date</FormLabel>
+  <DateInput />
+</FormControl>
+```
+
+### DateTime
+
+```jsx center=true
+<FormControl>
+  <FormLabel>Date and time</FormLabel>
+  <DateTimeInput />
+</FormControl>
+```
+
+### With 24 hour time
+
+```jsx center=true
+<FormControl>
+  <FormLabel>Date and time</FormLabel>
+  <DateTimeInput hourCycle="24" />
+</FormControl>
+```
+
+### Controlled
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(today(getLocalTimeZone()))
+
+  return <DateInput value={value} onChange={setValue} />
+}
+```
+
+### Time zone
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  return (
+    <DateTimeInput value={value} onChange={setValue} granularity="minute" />
+  )
+}
+```
+
+### Hide time zone
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  return (
+    <DateTimeInput
+      value={value}
+      onChange={setValue}
+      granularity="minute"
+      hideTimeZone
+    />
+  )
+}
+```

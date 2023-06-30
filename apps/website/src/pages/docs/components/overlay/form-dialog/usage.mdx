@@ -1,0 +1,334 @@
+---
+id: form-dialog
+title: Form Dialog
+description: A modal dialog that renders a form.
+---
+
+`FormDialog` can be used to quickly request information from people without leaving the current page.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-modals' }}
+  npm={{ package: '@saas-ui/modals' }}
+/>
+
+## Import
+
+```ts
+import { FormDialog } from '@saas-ui/react'
+```
+
+## Best practises
+
+<BestPractises
+  does={[
+    'Use FormDialog for simple forms to increase productivity.',
+    'Set focus on the first field.',
+  ]}
+  donts={['Use more than 4/5 fields in a dialog.']}
+/>
+
+## Usage
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        defaultValues={{ title: '', description: '' }}
+        {...disclosure}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              type="text"
+              rules={{ required: 'Title is required' }}
+              autoFocus
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
+      </FormDialog>
+    </>
+  )
+}
+```
+
+### Focus first field
+
+Use `initialFocusRef` for fields that don't support `autoFocus`.
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const initialRef = useRef()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        defaultValues={{ title: '' }}
+        {...disclosure}
+        onSubmit={onSubmit}
+        initialFocusRef={initialRef}
+      >
+        <FormLayout>
+          <Field
+            name="category"
+            label="Category"
+            type="select"
+            options={[
+              {
+                value: 'general',
+                label: 'General',
+              },
+            ]}
+            ref={initialRef}
+          />
+          <Field
+            name="title"
+            label="Title"
+            rules={{ required: 'Title is required' }}
+          />
+          <Field name="description" type="textarea" label="Description" />
+        </FormLayout>
+      </FormDialog>
+    </>
+  )
+}
+```
+
+### Auto form
+
+When you don't pass any children and supply a schema, the fields will be auto rendered.
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, FormDialog } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+const schema = {
+  title: {
+    type: 'text',
+    label: 'Title',
+    rules: {
+      required: 'Title is required',
+    },
+  },
+  description: {
+    type: 'textarea',
+    label: 'Description',
+  },
+}
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        schema={schema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+```
+
+### Custom footer
+
+```jsx
+import { Button, useDisclosure, MenuItem } from '@chakra-ui/react'
+import { FormDialog, FormLayout } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const initialRef = React.useRef()
+
+  const footer = (
+    <ModalFooter>
+      <SubmitButton>Save post</SubmitButton>
+    </ModalFooter>
+  )
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          disclosure.onOpen()
+        }}
+      >
+        Create new post
+      </Button>
+
+      <FormDialog
+        title="New post"
+        {...disclosure}
+        onSubmit={onSubmit}
+        initialFocusRef={initialRef}
+        footer={footer}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+              ref={initialRef}
+            />
+            <Field name="description" type="textarea" label="Description" />
+          </FormLayout>
+        )}
+      </FormDialog>
+    </>
+  )
+}
+```
+
+### ZodFormDialog
+
+To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod`.
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+import { FormDialog } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+
+const schema = z.object({
+  title: z.string().describe('Title'),
+  description: z.string().optional().describe('Description'),
+})
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        schema={schema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        fields={{
+          description: {
+            type: 'textarea',
+          },
+        }}
+        onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+```
+
+### YupFormDialog
+
+To use Yup schemas, you can import `FormDialog` from `@saas-ui/forms/yup`.
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+import { FormDialog } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  description: yup.string().label('Description').meta({ type: 'textarea' }),
+})
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        schema={schema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        fields={{
+          description: {
+            type: 'textarea',
+          },
+        }}
+        onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+```
+
+## Accessibility
+
+### Keyboard Interaction
+
+| Key      | Action                                      |
+| -------- | ------------------------------------------- |
+| `Enter`  | When the dialog is open, submits the form.  |
+| `Escape` | When the dialog is open, closes the dialog. |
+| `Tab`    | Focus next field                            |

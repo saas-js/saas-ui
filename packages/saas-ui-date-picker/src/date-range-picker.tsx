@@ -22,7 +22,7 @@ import { getLocalTimeZone } from '@internationalized/date'
 import { datePickerStyleConfig } from './date-picker-styles'
 
 export interface DateRangePickerContainerProps
-  extends ThemingProps<'DatePicker'>,
+  extends ThemingProps<'SuiDatePicker'>,
     Omit<PopoverProps, 'variant' | 'size'>,
     Omit<DateRangePickerStateOptions, 'value' | 'onChange' | 'closeOnSelect'> {
   value?: DateRangeValue
@@ -49,7 +49,7 @@ export const DateRangePickerContainer: React.FC<
 
   const { locale } = useLocale()
 
-  const styles = useMultiStyleConfig('DatePicker', {
+  const styles = useMultiStyleConfig('SuiDatePicker', {
     styleConfig: datePickerStyleConfig,
     ...props,
   })

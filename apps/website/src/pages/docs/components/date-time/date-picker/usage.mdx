@@ -1,0 +1,145 @@
+---
+id: date--picker
+title: DatePicker
+description: Allow users to select a Date and Time value.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DatePicker is currently in beta, we'd love to hear your feedback while we
+  finalize the API.
+</Info>
+
+## Import
+
+- `DatePicker`: The container component that manages state and context.
+- `DatePickerTrigger`: Wrapper that toggles the DatePickerDialog visibility.
+- `DatePickerDialog`: The date picker content.
+- `DatePickerCalendar`: Calender showing available months and days.
+- `DatePickerTimeField`: Time field to allow users enter a time.
+
+```ts
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+In case you run into build issue with Next.js add the following line to `next.config.js`.
+
+```js
+transpilePackages: ['@saas-ui/date-picker'],
+```
+
+### Basic
+
+```jsx center=true
+<DatePicker>
+  <DatePickerTrigger>
+    <Button>Open DatePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DatePickerCalendar />
+  </DatePickerDialog>
+</DatePicker>
+```
+
+### With time
+
+```jsx center=true
+<DatePicker granularity="minute">
+  <DatePickerTrigger>
+    <Button>Open DatePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DatePickerCalendar />
+    <DatePickerTimeField />
+  </DatePickerDialog>
+</DatePicker>
+```
+
+### Locale
+
+```jsx center=true
+<DatePicker granularity="minute" locale="nl-NL">
+  <DatePickerTrigger>
+    <Button>Open DatePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DatePickerCalendar />
+    <DatePickerTimeField />
+  </DatePickerDialog>
+</DatePicker>
+```
+
+### With 24 hour time
+
+```jsx center=true
+<DatePicker hourCycle="24" granularity="minute">
+  <DatePickerTrigger>
+    <Button>Open DatePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DatePickerCalendar />
+    <DatePickerTimeField />
+  </DatePickerDialog>
+</DatePicker>
+```
+
+### Controlled
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(today(getLocalTimeZone()))
+
+  return (
+    <DatePicker value={value} onChange={setValue}>
+      <DatePickerTrigger>
+        <Button>{value.toString()}</Button>
+      </DatePickerTrigger>
+      <DatePickerDialog>
+        <DatePickerCalendar />
+      </DatePickerDialog>
+    </DatePicker>
+  )
+}
+```
+
+### Controlled with zoned time
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  return (
+    <DatePicker value={value} onChange={setValue} granularity="minute">
+      <DatePickerTrigger>
+        <Button>{value.toString()}</Button>
+      </DatePickerTrigger>
+      <DatePickerDialog>
+        <DatePickerCalendar />
+        <DatePickerTimeField />
+      </DatePickerDialog>
+    </DatePicker>
+  )
+}
+```

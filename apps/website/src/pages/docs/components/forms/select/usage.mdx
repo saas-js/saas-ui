@@ -1,0 +1,157 @@
+---
+id: select
+title: Select
+description: Allows users to select one or more values from a list.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+```ts
+import { Select, SelectButton, SelectList, SelectOption } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic Usage
+
+```jsx
+<Select
+  name="country"
+  defaultValue="nl"
+  options={[
+    { label: 'Netherlands', value: 'nl' },
+    { label: 'USA', value: 'us' },
+  ]}
+>
+  <SelectButton />
+  <SelectList />
+</Select>
+```
+
+### Sizes
+
+```jsx
+<Stack spacing={4}>
+  <Select
+    name="country"
+    placeholder="Select a country"
+    options={[
+      { label: 'Netherlands', value: 'nl' },
+      { label: 'USA', value: 'us' },
+    ]}
+    size="lg"
+  >
+    <SelectButton />
+    <SelectList />
+  </Select>
+
+  <Select
+    name="country"
+    placeholder="Select a country"
+    options={[
+      { label: 'Netherlands', value: 'nl' },
+      { label: 'USA', value: 'us' },
+    ]}
+    size="md"
+  >
+    <SelectButton />
+    <SelectList />
+  </Select>
+
+  <Select
+    name="country"
+    placeholder="Select a country"
+    options={[
+      { label: 'Netherlands', value: 'nl' },
+      { label: 'USA', value: 'us' },
+    ]}
+    size="sm"
+  >
+    <SelectButton />
+    <SelectList />
+  </Select>
+
+  <Select
+    name="country"
+    placeholder="Select a country"
+    options={[
+      { label: 'Netherlands', value: 'nl' },
+      { label: 'USA', value: 'us' },
+    ]}
+    size="xs"
+  >
+    <SelectButton />
+    <SelectList />
+  </Select>
+</Stack>
+```
+
+### Multi select
+
+```jsx
+<Select
+  name="interest"
+  placeholder="Select your interests"
+  options={[
+    { value: 'Cars' },
+    { value: 'Cooking' },
+    { value: 'Reading' },
+    { value: 'Hiking' },
+    { value: 'Traveling' },
+  ]}
+  multiple
+>
+  <SelectButton />
+  <SelectList />
+</Select>
+```
+
+### Custom options
+
+Alternatively you can use `MenuItemOption` to compose the select options, which gives you full control and flexibility.
+
+```jsx
+import { Image, HStack, MenuDivider } from '@chakra-ui/react'
+import { Select, SelectButton, SelectList, SelectOption } from '@saas-ui/react'
+
+export default function CatSelect() {
+  return (
+    <Select name="interest" placeholder="Select your favourite cat">
+      <SelectButton />
+      <SelectList>
+        <SelectOption value="No cats">I don't like cats</SelectOption>
+        <MenuDivider />
+        <SelectOption value="Fluffybuns the Destroyer">
+          <HStack>
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src="https://placekitten.com/100/100"
+              alt="Fluffybuns the destroyer"
+              mr="12px"
+            />
+            <span>Fluffybuns the Destroyer</span>
+          </HStack>
+        </SelectOption>
+        <SelectOption value="Simon the pensive">
+          <HStack>
+            <Image
+              boxSize="2rem"
+              borderRadius="full"
+              src="https://placekitten.com/120/120"
+              alt="Simon the pensive"
+              mr="12px"
+            />
+            <span>Simon the pensive</span>
+          </HStack>
+        </SelectOption>
+      </SelectList>
+    </Select>
+  )
+}
+```

@@ -1,9 +1,12 @@
 import * as React from 'react'
 import {
   useFieldArray,
-  useFormContext,
   UseFieldArrayReturn,
+  FieldValues,
+  FieldPath,
 } from 'react-hook-form'
+
+import { useFormContext } from './form-context'
 
 import { createContext } from '@chakra-ui/react-utils'
 
@@ -59,11 +62,14 @@ export const [ArrayFieldRowProvider, useArrayFieldRowContext] =
     name: 'ArrayFieldRowContext',
   })
 
-export interface ArrayFieldOptions {
+export interface ArrayFieldOptions<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> {
   /**
    * The field name
    */
-  name: string
+  name: TName
   /**
    * Default value for new values in the array
    */

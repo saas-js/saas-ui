@@ -14,40 +14,35 @@ import * as Yup from 'yup'
 import * as z from 'zod'
 
 import {
-  FormLayout,
   Field,
+  FormLayout,
   FormValue,
   StepFormProps,
   useStepFormContext,
   FormStepSubmitHandler,
   FormStepProps,
-} from '../src'
-
-import {
-  StepForm,
-  FormStepper,
-  FormStep,
-  PrevButton,
-  NextButton,
-} from '../src/step-form'
-
-import { ButtonGroup } from '@saas-ui/button'
-
-import { PropertyList, Property } from '@saas-ui/property'
-
-import { onSubmit } from './helpers'
-import { StepperCompleted } from '@saas-ui/stepper'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { zodResolver } from '@hookform/resolvers/zod'
-import {
   FormState,
   useFormContext,
   UseFormReturn,
   useWatch,
-} from 'react-hook-form'
+} from '../src'
+
+import { FormStepper, FormStep, PrevButton, NextButton } from '../src/step-form'
+
+import { StepForm } from '../src'
+
+import { ButtonGroup } from '@chakra-ui/react'
+
+import { PropertyList, Property } from '@saas-ui/core'
+
+import { onSubmit } from './helpers'
+import { StepsCompleted } from '@saas-ui/core'
+import { StepForm as YupStepForm } from '@saas-ui/forms/yup'
+import { StepForm as ZodStepForm } from '@saas-ui/forms/zod'
 
 export default {
   title: 'Components/Forms/StepForm',
+  component: StepForm,
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -83,44 +78,46 @@ const zodSchemas = {
   }),
 }
 
-export const Basic = ({
-  onSubmit: onSubmitProp = onSubmit,
-  ...rest
-}: StepFormProps) => (
-  <>
-    <StepForm
-      defaultValues={{
-        name: '',
-        email: '',
-        password: '',
-      }}
-      onSubmit={onSubmitProp}
-      {...rest}
-    >
-      <FormLayout>
-        <FormStep name="profile">
+export const Basic = {
+  render(args: StepFormProps) {
+    return (
+      <StepForm
+        defaultValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        {...args}
+        onSubmit={args?.onSubmit || onSubmit}
+      >
+        {({ Field, FormStep }) => (
           <FormLayout>
-            <Field name="name" label="Name" rules={{ required: true }} />
-            <Field name="email" label="Email" rules={{ required: true }} />
-            <NextButton />
+            <FormStep name="profile">
+              <FormLayout>
+                <Field name="name" label="Name" rules={{ required: true }} />
+                <Field name="email" label="Email" rules={{ required: true }} />
+                <NextButton />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="password">
+              <FormLayout>
+                <Field
+                  name="password"
+                  label="Password"
+                  type="password"
+                  rules={{ required: true, minLength: 4 }}
+                />
+                <NextButton />
+              </FormLayout>
+            </FormStep>
           </FormLayout>
-        </FormStep>
-        <FormStep name="password">
-          <FormLayout>
-            <Field
-              name="password"
-              label="Password"
-              rules={{ required: true, minLength: 4 }}
-            />
-            <NextButton />
-          </FormLayout>
-        </FormStep>
-      </FormLayout>
-    </StepForm>
-  </>
-)
+        )}
+      </StepForm>
+    )
+  },
+}
 
-export const WithYupSchema = () => (
+export const Vertical = () => (
   <>
     <StepForm
       defaultValues={{
@@ -130,19 +127,67 @@ export const WithYupSchema = () => (
       }}
       onSubmit={onSubmit}
     >
-      {({ isCompleted }) => (
+      {({ Field, FormStep }) => (
+        <FormStepper orientation="vertical">
+          <FormStep name="profile" title="Profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password" title="Password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                type="password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormStepper>
+      )}
+    </StepForm>
+  </>
+)
+
+export const WithYupSchema = () => (
+  <>
+    <YupStepForm
+      steps={[
+        {
+          name: 'profile',
+          schema: schemas.profile,
+        } as const,
+        {
+          name: 'password',
+          schema: schemas.password,
+        } as const,
+      ]}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep, isCompleted }) => (
         <FormLayout>
-          <FormStep name="profile" resolver={yupResolver(schemas.profile)}>
-            <FormLayout>
-              <Field name="name" label="Name" />
-              <Field name="email" label="Email" />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="password" resolver={yupResolver(schemas.password)}>
-            <FormLayout>
-              <Field name="password" label="Password" />
-            </FormLayout>
-          </FormStep>
+          <FormStepper orientation="vertical">
+            <FormStep name="profile" title="Profile">
+              <FormLayout>
+                <Field name="name" label="Name" />
+                <Field name="email" label="Email" />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="password" title="Password">
+              <FormLayout>
+                <Field name="password" label="Password" isRequired />
+              </FormLayout>
+            </FormStep>
+          </FormStepper>
           {isCompleted ? (
             <Text>Completed</Text>
           ) : (
@@ -153,29 +198,39 @@ export const WithYupSchema = () => (
           )}
         </FormLayout>
       )}
-    </StepForm>
+    </YupStepForm>
   </>
 )
 
 export const WithZodSchema = () => (
   <>
-    <StepForm
+    <ZodStepForm
+      steps={[
+        {
+          name: 'project',
+          schema: zodSchemas.project,
+        } as const,
+        {
+          name: 'members',
+          schema: zodSchemas.members,
+        } as const,
+      ]}
       defaultValues={{
         name: '',
-        email: '',
-        password: '',
+        description: '',
+        members: '',
       }}
       onSubmit={onSubmit}
     >
-      {({ isCompleted }) => (
+      {({ Field, FormStep, isCompleted }) => (
         <FormLayout>
-          <FormStep name="project" resolver={zodResolver(zodSchemas.project)}>
+          <FormStep name="project">
             <FormLayout>
               <Field name="name" label="Name" />
               <Field name="description" label="Description" />
             </FormLayout>
           </FormStep>
-          <FormStep name="members" resolver={zodResolver(zodSchemas.members)}>
+          <FormStep name="members">
             <FormLayout>
               <Field name="members" label="Members" type="textarea" />
             </FormLayout>
@@ -190,7 +245,7 @@ export const WithZodSchema = () => (
           )}
         </FormLayout>
       )}
-    </StepForm>
+    </ZodStepForm>
   </>
 )
 
@@ -217,53 +272,126 @@ export const WithStepper = () => {
         }}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <FormStepper>
-            <FormStep name="profile" title="Profile">
-              <FormLayout>
-                <Field name="name" label="Name" />
-                <Field name="email" label="Email" autoComplete="off" />
-                <StepperNav />
-              </FormLayout>
-            </FormStep>
+        {({ Field }) => (
+          <FormLayout>
+            <FormStepper>
+              <FormStep name="profile" title="Profile">
+                <FormLayout>
+                  <Field name="name" label="Name" rules={{ required: true }} />
+                  <Field name="email" label="Email" autoComplete="off" />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
 
-            <FormStep name="password" title="Password">
-              <FormLayout>
-                <Field
-                  name="password"
-                  label="Password"
-                  type="password"
-                  autoFocus
-                  autoComplete="off"
-                />
-                <StepperNav />
-              </FormLayout>
-            </FormStep>
+              <FormStep name="password" title="Password">
+                <FormLayout>
+                  <Field
+                    name="password"
+                    label="Password"
+                    type="password"
+                    autoFocus
+                    autoComplete="off"
+                  />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
 
-            <FormStep name="confirmation" title="Confirmation">
-              <FormLayout>
-                <Text>Please confirm that your information is correct.</Text>
-                <PropertyList>
-                  <Property label="Name" value={<FormValue name="name" />} />
-                  <Property label="Email" value={<FormValue name="email" />} />
-                </PropertyList>
-                <StepperNav />
-              </FormLayout>
-            </FormStep>
+              <FormStep name="confirmation" title="Confirmation">
+                <FormLayout>
+                  <Text>Please confirm that your information is correct.</Text>
+                  <PropertyList>
+                    <Property label="Name" value={<FormValue name="name" />} />
+                    <Property
+                      label="Email"
+                      value={<FormValue name="email" />}
+                    />
+                  </PropertyList>
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
 
-            <StepperCompleted>
-              <Alert status="success">
-                <AlertIcon />
-                <Box>
-                  <AlertTitle>Thanks for signing up</AlertTitle>
-                  <AlertDescription width="full">
-                    Check your inbox to confirm your email address.
-                  </AlertDescription>
-                </Box>
-              </Alert>
-            </StepperCompleted>
-          </FormStepper>
-        </FormLayout>
+              <StepsCompleted>
+                <Alert status="success">
+                  <AlertIcon />
+                  <Box>
+                    <AlertTitle>Thanks for signing up</AlertTitle>
+                    <AlertDescription width="full">
+                      Check your inbox to confirm your email address.
+                    </AlertDescription>
+                  </Box>
+                </Alert>
+              </StepsCompleted>
+            </FormStepper>
+          </FormLayout>
+        )}
+      </StepForm>
+    </>
+  )
+}
+
+export const WithStepperVariant = () => {
+  return (
+    <>
+      <StepForm
+        defaultValues={{
+          name: '',
+          email: '',
+          password: '',
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <FormStepper variant="solid" colorScheme="cyan">
+              <FormStep name="profile" title="Profile">
+                <FormLayout>
+                  <Field name="name" label="Name" />
+                  <Field name="email" label="Email" autoComplete="off" />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
+
+              <FormStep name="password" title="Password">
+                <FormLayout>
+                  <Field
+                    name="password"
+                    label="Password"
+                    type="password"
+                    autoFocus
+                    autoComplete="off"
+                  />
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
+
+              <FormStep name="confirmation" title="Confirmation">
+                <FormLayout>
+                  <Text>Please confirm that your information is correct.</Text>
+                  <PropertyList>
+                    <Property label="Name" value={<FormValue name="name" />} />
+                    <Property
+                      label="Email"
+                      value={<FormValue name="email" />}
+                    />
+                  </PropertyList>
+                  <StepperNav />
+                </FormLayout>
+              </FormStep>
+
+              <StepsCompleted>
+                <Alert status="success">
+                  <AlertIcon />
+                  <Box>
+                    <AlertTitle>Thanks for signing up</AlertTitle>
+                    <AlertDescription width="full">
+                      Check your inbox to confirm your email address.
+                    </AlertDescription>
+                  </Box>
+                </Alert>
+              </StepsCompleted>
+            </FormStepper>
+          </FormLayout>
+        )}
       </StepForm>
     </>
   )
@@ -348,7 +476,7 @@ export const WithState = () => {
   return (
     <>
       <StepForm
-        ref={formRef}
+        formRef={formRef}
         defaultValues={{
           name: '',
           email: '',
@@ -364,7 +492,7 @@ export const WithState = () => {
               </FormStep>
             ))}
 
-            <StepperCompleted>
+            <StepsCompleted>
               <Alert status="success">
                 <AlertIcon />
                 <Box>
@@ -374,7 +502,7 @@ export const WithState = () => {
                   </AlertDescription>
                 </Box>
               </Alert>
-            </StepperCompleted>
+            </StepsCompleted>
           </FormStepper>
         </FormLayout>
       </StepForm>

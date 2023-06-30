@@ -1,10 +1,9 @@
-import * as React from 'react'
+import { composeStories } from '@storybook/testing-react'
+import { render, fireEvent, act } from '@saas-ui/test-utils'
 
-import { render, testStories, fireEvent, act } from '@saas-ui/test-utils'
 import * as stories from '../stories/auth.stories'
-
-const { Basic, Providers, Password, PasswordWithCustomFields } =
-  testStories<typeof stories>(stories)
+const { Basic, Providers, Password, Signup, SignupWithCustomFields } =
+  composeStories(stories)
 
 test('shows success after submitting email', async () => {
   const { getByText, getByLabelText, getByRole } = render(<Basic />)
@@ -19,7 +18,7 @@ test('shows success after submitting email', async () => {
     fireEvent.click(submit)
   })
 
-  expect(getByText('Check your mailbox!')).toBeVisible()
+  expect(getByText('Check your mailbox')).toBeVisible()
 })
 
 test('shows providers', async () => {
@@ -56,13 +55,13 @@ test('opens sign up action', async () => {
 })
 
 test('shows signup view', () => {
-  const { getByRole } = render(<Basic view="signup" />)
+  const { getByRole } = render(<Signup />)
 
   expect(getByRole('button', { name: 'Sign up' })).toBeInTheDocument()
 })
 
 test('shows password form', () => {
-  const { getByText } = render(<Basic type="password" />)
+  const { getByText } = render(<Password />)
 
   expect(getByText('Password')).toBeInTheDocument()
 })
@@ -83,7 +82,7 @@ test('shows error messages on invalid input', async () => {
 
   expect(getByText('Email is a required field')).toBeVisible()
 
-  expect(getByText('Password must be at least 4 characters')).toBeVisible()
+  expect(getByText('Password is a required field')).toBeVisible()
 })
 
 test('shows password reset form', async () => {
@@ -99,7 +98,9 @@ test('shows password reset form', async () => {
 })
 
 test('renders custom field', async () => {
-  const { getByText } = render(<PasswordWithCustomFields />)
+  const { getByText } = render(<SignupWithCustomFields />)
 
-  expect(getByText('Remember me')).toBeVisible()
+  expect(
+    getByText('By signing up your agree to our terms and conditions.')
+  ).toBeVisible()
 })

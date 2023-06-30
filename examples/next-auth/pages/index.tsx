@@ -10,7 +10,7 @@ const IndexPage = () => {
   } else if (!user) {
     return (
       <Box>
-        <NextLink href="/login">
+        <NextLink href="/login" legacyBehavior>
           <Button>Log in</Button>
         </NextLink>
       </Box>

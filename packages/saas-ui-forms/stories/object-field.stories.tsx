@@ -1,19 +1,11 @@
 import { Container } from '@chakra-ui/react'
-import { yupResolver } from '@hookform/resolvers/yup'
 import * as React from 'react'
 
 import * as Yup from 'yup'
 
-import {
-  Form,
-  AutoForm,
-  FormLayout,
-  Field,
-  ObjectField,
-  SubmitButton,
-} from '../src'
+import { Form, FormLayout, SubmitButton } from '../src'
 
-import { yupForm } from '../yup/src'
+import { Form as YupForm } from '@saas-ui/forms/yup'
 
 import { onSubmit } from './helpers'
 
@@ -46,20 +38,40 @@ export const Basic = () => {
   return (
     <>
       <Form
-        defaultValues={{
-          post: {},
+        schema={{
+          properties: {
+            name: 'post',
+            type: 'object',
+            properties: {
+              title: {
+                type: 'string',
+                label: 'Title',
+              },
+              description: {
+                type: 'string',
+                label: 'Description',
+              },
+            },
+          },
         }}
-        resolver={yupResolver(objectSchema)}
+        defaultValues={{
+          post: {
+            title: '',
+            description: '',
+          },
+        }}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <ObjectField name="post" label="Post">
-            <Field name="title" label="Title" />
-            <Field name="description" label="Description" />
-          </ObjectField>
+        {({ Field, ObjectField }) => (
+          <FormLayout>
+            <ObjectField name="post" label="Post">
+              <Field name="post.title" label="Title" />
+              <Field name="post.description" label="Description" />
+            </ObjectField>
 
-          <SubmitButton label="Save post" />
-        </FormLayout>
+            <SubmitButton>Save post</SubmitButton>
+          </FormLayout>
+        )}
       </Form>
     </>
   )
@@ -68,12 +80,17 @@ export const Basic = () => {
 export const AutoObjectField = () => {
   return (
     <>
-      <AutoForm
+      <YupForm
+        schema={objectSchema}
         defaultValues={{
           post: {},
         }}
+        fields={{
+          post: {
+            hideLabel: true,
+          },
+        }}
         onSubmit={onSubmit}
-        {...yupForm(objectSchema)}
       />
     </>
   )
@@ -83,20 +100,25 @@ export const HideLabel = () => {
   return (
     <>
       <Form
+        schema={objectSchema}
         defaultValues={{
-          post: {},
+          post: {
+            title: '',
+            description: '',
+          },
         }}
-        resolver={yupResolver(objectSchema)}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <ObjectField name="post" label="Post" hideLabel>
-            <Field name="title" label="Title" />
-            <Field name="description" label="Description" />
-          </ObjectField>
+        {({ Field, ObjectField }) => (
+          <FormLayout>
+            <ObjectField name="post" label="Post" hideLabel>
+              <Field name="post.title" label="Title" />
+              <Field name="post.description" label="Description" />
+            </ObjectField>
 
-          <SubmitButton label="Save post" />
-        </FormLayout>
+            <SubmitButton>Save post</SubmitButton>
+          </FormLayout>
+        )}
       </Form>
     </>
   )
@@ -118,28 +140,30 @@ const nestedSchema = Yup.object().shape({
 export const NestedObjectField = () => {
   return (
     <>
-      <Form
+      <YupForm
+        schema={nestedSchema}
         defaultValues={{
           post: {},
         }}
-        resolver={yupResolver(nestedSchema)}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <ObjectField name="post" label="Post">
-            <Field name="title" label="Title" />
-            <Field name="description" label="Description" />
-            <ObjectField name="meta">
-              <ObjectField name="author" label="Author">
-                <Field name="name" label="Name" />
-                <Field name="email" label="Email" />
+        {({ Field, ObjectField }) => (
+          <FormLayout>
+            <ObjectField name="post" label="Post">
+              <Field name="post.title" label="Title" />
+              <Field name="post.description" label="Description" />
+              <ObjectField name="post.meta">
+                <ObjectField name="post.meta.author" label="Author">
+                  <Field name="post.meta.author.name" label="Name" />
+                  <Field name="post.meta.author.email" label="Email" />
+                </ObjectField>
               </ObjectField>
             </ObjectField>
-          </ObjectField>
 
-          <SubmitButton label="Save post" />
-        </FormLayout>
-      </Form>
+            <SubmitButton>Save post</SubmitButton>
+          </FormLayout>
+        )}
+      </YupForm>
     </>
   )
 }

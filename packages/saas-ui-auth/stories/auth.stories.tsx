@@ -1,34 +1,29 @@
-import { Container, Stack, Text, useTheme } from '@chakra-ui/react'
+import { Container, Text } from '@chakra-ui/react'
 import * as React from 'react'
-
-import { Story } from '@storybook/react'
 
 import {
   AuthProvider,
   Auth,
-  AuthForm,
   AvailableProviders,
-  OtpForm,
   User,
   AuthParams,
-  ForgotPasswordView,
-  UpdatePasswordView,
-  AuthProps,
+  AuthProviderProps,
 } from '../src'
 
-import { Field, useAuth } from '@saas-ui/react'
+import { Field } from '@saas-ui/forms'
 
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useSnackbar } from '@saas-ui/core'
 
 const passwordSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required().label('Email'),
   password: Yup.string().min(4).required().label('Password'),
 })
 
-const authProvider = {
+const authProvider: AuthProviderProps<any> = {
   onLogin: async (params: AuthParams) => {
     console.log('onLogin', params)
     const { email, password, provider } = params
@@ -36,7 +31,10 @@ const authProvider = {
     let response = {}
     if (email && password) {
       response = { id: 1, email }
-    } else if (!email && !password && !provider) {
+    } else if (
+      (!email && !password && !provider) ||
+      email === 'error@error.com'
+    ) {
       throw new Error('Login failed')
     }
 
@@ -46,20 +44,22 @@ const authProvider = {
     } as unknown as User
   },
   onSignup: async (params: AuthParams) => {
-    console.log('onSignup', params)
     const { email } = params
     return { id: 1, email } as unknown as User
   },
-  onVerify: async () => true,
+  onVerifyOtp: async () => true,
+  onResetPassword: async (params: AuthParams) => true,
+  onUpdatePassword: async (params: AuthParams) => true,
 }
 
 export default {
   title: 'Components/Auth/Auth',
+  component: Auth,
   decorators: [
-    (Story: any) => (
+    (StoryFn: any) => (
       <AuthProvider {...authProvider}>
         <Container mt="40px" width="md">
-          <Story />
+          <StoryFn />
         </Container>
       </AuthProvider>
     ),
@@ -77,86 +77,99 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-const Template: Story<AuthProps> = (args) => <Auth {...args} />
+export const Basic = {}
 
-export const Basic = Template.bind({})
-
-export const Providers = Template.bind({})
-Providers.args = {
-  providers: availableProviders,
+export const Providers = {
+  args: {
+    providers: availableProviders,
+  },
 }
 
-export const ButtonColor = () => {
-  const theme = useTheme()
-
-  theme.components.LoginButton = {
-    defaultProps: {
-      colorScheme: 'primary',
+export const ButtonColor = {
+  args: {
+    providers: availableProviders,
+    fields: {
+      submit: {
+        variant: 'solid',
+        colorScheme: 'cyan',
+      },
     },
-  }
-
-  return (
-    <Stack width="md">
-      <Auth providers={availableProviders} />
-    </Stack>
-  )
+  },
 }
 
-export const Password = Template.bind({})
-Password.args = {
-  type: 'password',
-  resolver: yupResolver(passwordSchema),
+export const Password = {
+  args: {
+    type: 'password',
+    fields: {
+      email: {
+        rules: {
+          required: 'Email is a required field',
+        },
+      },
+      password: {
+        rules: {
+          required: 'Password is a required field',
+          minLength: {
+            value: 4,
+            message: 'Password must be at least 4 characters',
+          },
+        },
+      },
+    },
+  },
 }
 
-export const PasswordWithCustomFields = () => {
-  return (
-    <AuthForm action="logIn" type="password">
-      <Field
-        name="rememberMe"
-        type="checkbox"
-        value="true"
-        label="Remember me"
+export const Otp = {
+  args: {
+    view: 'otp',
+  },
+}
+
+export const Signup = {
+  args: {
+    type: 'password',
+    view: 'signup',
+  },
+}
+
+export const SignupWithCustomFields = {
+  render() {
+    return (
+      <Auth providers={availableProviders} type="password" view="signup">
+        <Field name="company" label="Company" rules={{ required: true }} />
+        <Text fontSize="md" color="muted">
+          By signing up your agree to our terms and conditions.
+        </Text>
+      </Auth>
+    )
+  },
+}
+
+export const ForgotPassword = {
+  args: {
+    view: 'forgot_password',
+  },
+}
+
+export const UpdatePassword = {
+  args: {
+    view: 'update_password',
+  },
+}
+
+export const ErrorHandler = {
+  render: () => {
+    const snackbar = useSnackbar()
+
+    return (
+      <Auth
+        title="Type error@error.com to show an error"
+        onError={(view, error) => {
+          if (view === 'login' && error) {
+            snackbar.error(error.message)
+          }
+        }}
       />
-    </AuthForm>
-  )
-}
-PasswordWithCustomFields.args = {}
-
-export const Otp = Template.bind({})
-Otp.args = {
-  view: 'otp',
-}
-
-export const Signup = Template.bind({})
-Signup.args = {
-  type: 'password',
-  view: 'signup',
-}
-
-export const SignupWithCustomFields = () => (
-  <Auth providers={availableProviders} type="password" view="signup">
-    <Field name="company" label="Company" rules={{ required: true }} />
-    <Text fontSize="md" color="muted">
-      By signing up your agree to our terms and conditions.
-    </Text>
-  </Auth>
-)
-
-export const ForgotPassword = Template.bind({})
-ForgotPassword.args = {
-  view: 'forgot_password',
-}
-
-export const UpdatePassword = Template.bind({})
-UpdatePassword.args = {
-  view: 'update_password',
-}
-
-interface MyUser extends User {
-  extraField: 'foobar'
-}
-
-export const UseAuth = () => {
-  const auth = useAuth<MyUser>()
-  return <>{auth.user?.extraField}</>
+    )
+  },
 }

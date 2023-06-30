@@ -42,6 +42,12 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
                 __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
               }}
             />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.lemonSqueezyAffiliateConfig = { store: "saas-ui" };`,
+              }}
+            />
+            <script src="https://lmsqueezy.com/affiliate.js" defer></script>
             <NProgressNextRouter router={router} />
             <Component {...pageProps} />
           </Layout>

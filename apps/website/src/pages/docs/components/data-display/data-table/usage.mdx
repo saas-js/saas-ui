@@ -1,0 +1,172 @@
+---
+id: data-table
+title: DataTable
+description: A basic data table component that supports sorting and selections.
+---
+
+Data tables are used to organize lists of high density data.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-data-table' }}
+  npm={{ package: '@saas-ui/data-table' }}
+  theme={{ theme: 'chakra', componentName: 'table' }}
+/>
+
+## Import
+
+```ts
+import { DataTable } from '@saas-ui/react'
+```
+
+## Usage
+
+DataTable uses `@tanstack/react-table` v8 internally and supports all TableOptions which allows you to extend the DataTable with pagination, column resizing, filtering and more, see the [TanStack table documentation](https://tanstack.com/table/v8/docs/api/core/table) for more information.
+
+Check out the [full example](#full-example) on the bottom of this page to see how to format columns and your data.
+
+### Basic
+
+```jsx
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={dataTable.columns} data={dataTable.data} />
+    </Box>
+  )
+}
+```
+
+### Table sizing
+
+The table component is available in 3 sizes: `sm`, `md`, `lg`. The default size is `md`.
+
+```jsx
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={dataTable.columns} data={dataTable.data} size="sm" />
+    </Box>
+  )
+}
+```
+
+### Sortable
+
+```jsx
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Sortable() {
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={dataTable.columns} data={dataTable.data} isSortable />
+    </Box>
+  )
+}
+```
+
+### Selectable
+
+```jsx
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function Selectable() {
+  return (
+    <Box overflowX="auto">
+      <DataTable
+        columns={dataTable.columns}
+        data={dataTable.data}
+        isSelectable
+        onSelectedRowsChange={(selected) => console.log(selected)}
+      />
+    </Box>
+  )
+}
+```
+
+### Access internal state
+
+You can access the react-table `TableInstance` by passing a ref to `DataTable`.
+Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
+
+```jsx
+import { Box, Button, ButtonGroup } from '@chakra-ui/react'
+import { DataTable } from '@saas-ui/react'
+
+export default function TableState() {
+  const tableRef = useRef(null)
+
+  return (
+    <Box overflowX="auto">
+      <ButtonGroup mb="4">
+        <Button
+          onClick={() =>
+            tableRef.current.toggleAllRowsSelected(
+              !tableRef.current.getIsAllRowsSelected()
+            )
+          }
+        >
+          Select all rows
+        </Button>
+      </ButtonGroup>
+      <DataTable
+        instanceRef={tableRef}
+        columns={dataTable.columns}
+        data={dataTable.data}
+        isSelectable
+      />
+    </Box>
+  )
+}
+```
+
+### Full example
+
+```jsx
+import { ColumnDef } from '@saas-ui/react'
+
+interface ExampleData {
+  id: string
+  name: string
+  email: string
+}
+
+const columns: ColumnDef<ExampleData>[] = [
+  {
+    accessorKey: 'id',
+    header: 'Id',
+  },
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+]
+
+const data: ExampleData[] = [
+  {
+    id: 1,
+    name: 'TaShya Charles',
+    email: 'urna.nec.luctus@icloud.couk'
+  },
+  {
+    id: 2,
+    name: 'Donovan Mosley',
+    email: 'lacinia.mattis.integer@icloud.couk',
+  },
+]
+
+export default function TypeScript() {
+  return <DataTable<ExampleData> columns={columns} data={data} />
+}
+```

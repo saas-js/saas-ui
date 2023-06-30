@@ -1,0 +1,38 @@
+---
+id: beacon
+scope: theming
+---
+
+## Theming
+
+The `Beacon` component is a single part component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-single-part-components)
+> page.
+
+### Customize the theme
+
+```jsx
+import { extendTheme } from '@chakra-ui/react'
+import { theme as proTheme } from '@saas-ui-pro/react'
+
+const theme = extendTheme(
+  {
+    components: {
+      SuiBeacon: {
+        baseStyle: {
+          container: {
+            bg: 'red.500',
+            color: 'white',
+            borderRadius: 'md',
+            p: 4,
+          },
+        },
+      },
+    },
+  },
+  proTheme
+)
+```

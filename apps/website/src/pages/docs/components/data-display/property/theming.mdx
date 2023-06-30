@@ -1,0 +1,54 @@
+---
+id: property
+scope: theming
+---
+
+## Theming
+
+The `Property` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `property`
+- `label`
+- `value`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { propertyAnatomy } from '@saas-ui/theme/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(propertyAnatomy.keys)
+
+export const propertyTheme = defineMultiStyleConfig({
+  baseStyle: {
+    label: {
+      color: 'muted',
+    },
+  },
+})
+```
+
+### Customize the theme
+
+```jsx live=false
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = extendTheme({
+  components: {
+    SuiProperty: {
+      baseStyle: {
+        label: {
+          color: 'red.500',
+        },
+      },
+    },
+  },
+}
+```

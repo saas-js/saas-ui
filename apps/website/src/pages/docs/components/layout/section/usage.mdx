@@ -1,0 +1,195 @@
+---
+id: section
+title: Section
+description: Split content into multiple easily scannable sections.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `Section`: The container component
+- `SectionHeader`: The header component with title and description.
+- `SectionBody`: The section content.
+
+```ts
+import { Section, SectionHeader, SectionBody } from '@saas-ui-pro/react'
+```
+
+## Usage
+
+Sections can be used to split long content like forms into multiple smaller sections with a title and an optional description.
+
+### Basic section
+
+```jsx height=200px
+import { AppShell } from '@saas-ui/react'
+import { Section, SectionHeader, SectionBody } from '@saas-ui-pro/react'
+
+export default function App() {
+  return (
+    <AppShell p="8">
+      <Section>
+        <SectionHeader title="Section" description="This is a basic section." />
+        <SectionBody>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </SectionBody>
+      </Section>
+    </AppShell>
+  )
+}
+```
+
+### Annotated variant
+
+The annotated variant is typically used together with the `Card` component to create well structed forms.
+
+```jsx height=400px
+import { Card, CardBody } from '@chakra-ui/react'
+import { AppShell, Form, FormLayout } from '@saas-ui/react'
+import { Section, SectionHeader, SectionBody } from '@saas-ui-pro/react'
+
+export default function App() {
+  return (
+    <AppShell>
+      <Form px="4">
+        {({ Field }) => (
+          <Section variant="annotated">
+            <SectionHeader
+              title="Section"
+              description="This is a basic section."
+            />
+            <SectionBody>
+              <Card>
+                <CardBody>
+                  <FormLayout>
+                    <Field name="title" label="Title" />
+                    <Field
+                      name="description"
+                      label="Description"
+                      type="textarea"
+                    />
+                  </FormLayout>
+                </CardBody>
+              </Card>
+            </SectionBody>
+          </Section>
+        )}
+      </Form>
+    </AppShell>
+  )
+}
+```
+
+### Multiple sections with divider
+
+The annotated variant is typically used together with the `Card` component to create well structed forms.
+
+```jsx height=440px
+import { Card, CardBody } from '@chakra-ui/react'
+import { AppShell, Form, FormLayout } from '@saas-ui/react'
+import { Section, SectionHeader, SectionBody } from '@saas-ui-pro/react'
+
+export default function App() {
+  return (
+    <AppShell>
+      <Form px="4" defaultValues={{ teams: ['frontend'] }}>
+        {({ Field }) => (
+          <VStack
+            divider={<StackDivider />}
+            align="stretch"
+            spacing={8}
+            pb="16"
+          >
+            <Section variant="annotated">
+              <SectionHeader
+                title="Create workspace"
+                description="Workspaces contain all assets shared across your team."
+              />
+              <SectionBody>
+                <Card>
+                  <CardBody>
+                    <FormLayout>
+                      <Field name="title" label="Title" />
+                      <Field
+                        name="description"
+                        label="Description"
+                        type="textarea"
+                      />
+                    </FormLayout>
+                  </CardBody>
+                </Card>
+              </SectionBody>
+            </Section>
+            <Section variant="annotated">
+              <SectionHeader
+                title="Teams"
+                description="Select which teams have access to this workspace."
+              />
+              <SectionBody>
+                <Card>
+                  <CardBody>
+                    <Form>
+                      <FormLayout>
+                        <Field
+                          name="teams"
+                          label="Teams"
+                          type="select"
+                          multiple
+                          options={[
+                            { value: 'Frontend' },
+                            { value: 'Backend' },
+                          ]}
+                        />
+                      </FormLayout>
+                    </Form>
+                  </CardBody>
+                </Card>
+              </SectionBody>
+            </Section>
+          </VStack>
+        )}
+      </Form>
+    </AppShell>
+  )
+}
+```
+
+### Custom title and description
+
+The section title renders a `h3` element by default. You can customize the title and description by passing a custom component to the `SectionHeader` component, instead of using the `title` prop.
+
+```jsx
+import { Text } from '@chakra-ui/react'
+import { AppShell, Form, FormLayout } from '@saas-ui/react'
+import {
+  Section,
+  SectionHeader,
+  SectionTitle,
+  SectionDescription,
+  SectionBody,
+} from '@saas-ui-pro/react'
+
+export default function App() {
+  return (
+    <Section>
+      <SectionHeader mb={4}>
+        <SectionTitle as="h2">H2 heading</SectionTitle>
+        <SectionDescription fontSize="lg">
+          Customize the look and feel of the section title and description.
+        </SectionDescription>
+      </SectionHeader>
+      <SectionBody>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          consectetur, eros quis aliquam ultricies, nunc nisl ultrices ligula,
+          quis ultricies nisl nunc quis nunc. Sed euismod, nisl eget ultricies
+          aliquam, nisl nisl ultricies nisl, quis ultricies nisl nunc quis nunc.
+          Sed euismod, nisl eget ultricies aliquam, nisl nisl ultricies nisl,
+          quis ultricies nisl nunc quis nunc.
+        </Text>
+      </SectionBody>
+    </Section>
+  )
+}
+```

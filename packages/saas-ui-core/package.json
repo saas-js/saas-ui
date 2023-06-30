@@ -1,0 +1,104 @@
+{
+  "name": "@saas-ui/core",
+  "version": "2.0.0",
+  "description": "Saas UI - The React component library for startups.",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./icons": {
+      "require": "./dist/icons/index.js",
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.mjs"
+    },
+    "./utils": {
+      "require": "./dist/utils/index.js",
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.mjs"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    },
+    "./icons/src": {
+      "default": "./src/icons/index.ts"
+    },
+    "./utils/src": {
+      "default": "./src/utils/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "icons": [
+        "./dist/icons/index.d.ts"
+      ],
+      "utils": [
+        "./dist/utils/index.d.ts"
+      ]
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsup src/index.ts src/utils/index.ts src/icons/index.ts --config tsup.config.ts",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saas-js/saas-ui",
+    "directory": "packages/saas-ui-react"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@chakra-ui/react-utils": "^2.0.12",
+    "@chakra-ui/styled-system": "^2.9.1",
+    "@chakra-ui/system": "^2.5.8",
+    "@chakra-ui/theme-tools": "^2.0.18",
+    "@chakra-ui/utils": "^2.0.15",
+    "@saas-ui/react-utils": "workspace:*",
+    "@saas-ui/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=2.4.0",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": ">=5.5.0",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "tsup": "^6.7.0"
+  }
+}

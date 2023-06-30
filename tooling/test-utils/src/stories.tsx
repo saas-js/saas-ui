@@ -8,6 +8,7 @@ import type {
 
 import { render } from './render'
 import { testA11y } from './accessibility'
+import isFunction from 'lodash/isFunction'
 
 /**
  * Validates if all stories render and against a11y mistakes.
@@ -15,7 +16,7 @@ import { testA11y } from './accessibility'
  *
  * @example
  * ```jsx
- * import * as stories from '../stories/button.stories)
+ * import * as stories from '../stories/button.stories'
  *
  * const { Basic } = testStories(stories)
  *
@@ -31,7 +32,18 @@ export const testStories = <T extends StoryFile = StoryFile>(
   stories: T,
   { snapshots = true, a11y = true } = {}
 ) => {
-  const composedStories = composeStories<T>(stories)
+  const _stories = Object.fromEntries(
+    Object.entries(stories).map<any>((story) => {
+      if (isFunction(story)) {
+        return {
+          render: story,
+        }
+      }
+      return story
+    })
+  ) as T
+
+  const composedStories = composeStories<T>(_stories)
 
   const testCases = Object.values<any>(composedStories).map((Story) => [
     Story.storyName,

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  Button,
   Stack,
   Container,
   MenuItem,
@@ -10,8 +11,6 @@ import {
 import { MenuDialog, MenuDialogList } from '../src/menu'
 
 import { FiArchive, FiTag, FiUsers, FiSettings } from 'react-icons/fi'
-
-import { Button } from '@saas-ui/button'
 
 export default {
   title: 'Components/Overlay/MenuDialog',
@@ -24,7 +23,7 @@ export default {
   ],
 }
 
-export const basic = () => {
+export const Basic = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -48,7 +47,7 @@ export const basic = () => {
   )
 }
 
-export const iconAndCommand = () => {
+export const IconAndCommand = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -78,7 +77,7 @@ export const iconAndCommand = () => {
   )
 }
 
-export const menuGroup = () => {
+export const Group = () => {
   const disclosure = useDisclosure()
 
   return (
@@ -113,10 +112,10 @@ export const menuGroup = () => {
   )
 }
 
-export const overflow = () => {
+export const Overflow = () => {
   const disclosure = useDisclosure()
 
-  const items = []
+  const items: React.ReactElement[] = []
   for (let i = 0; i < 50; i++) {
     items.push(<MenuItem key={i}>Item {i}</MenuItem>)
   }

@@ -1,26 +1,23 @@
 import * as React from 'react'
 
 import { useTheme } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
-import { Button, ButtonProps } from '@saas-ui/button'
+import { SubmitButton, SubmitButtonProps } from '@saas-ui/forms'
 
-export const LoginButton: React.FC<ButtonProps> = (props) => {
+export const LoginButton: React.FC<SubmitButtonProps> = (props) => {
   const { children, ...rest } = props
   const theme = useTheme()
 
   const defaultProps = {
     p: 6,
     colorScheme: 'gray',
-    ...theme.components.LoginButton?.defaultProps,
+    ...theme.components?.LoginButton?.defaultProps,
   }
 
   return (
-    <Button {...defaultProps} {...rest}>
+    <SubmitButton {...defaultProps} {...rest}>
       {children}
-    </Button>
+    </SubmitButton>
   )
 }
 
-if (__DEV__) {
-  LoginButton.displayName = 'LoginButton'
-}
+LoginButton.displayName = 'LoginButton'

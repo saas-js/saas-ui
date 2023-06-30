@@ -3,21 +3,22 @@ title: Private NPM using Yarn
 description: Install Saas UI Pro components from a private NPM registry.
 ---
 
-<Info>
-  Configuration is slightly different for each package manager, so it's
-  important to follow the steps for the package manager you are using in your
-  project.
-</Info>
-
 ### Yarn
 
-This configuration is for **Yarn 3**, if you are still using Yarn 1.2 it's highly recommended to upgrade.
+<Info>
+  This configuration is for **Yarn 3**, if you are still using Yarn 1.2 it's
+  highly recommended to upgrade.
+</Info>
+
+Your NPM account is a combination of the Github username (in lower case) you used to redeem your license and the license code (`username:license-key`).
+
+<NpmAuthToken />
 
 In the root of your project edit `.yarnrc.yml` and add the following lines.
 
 ```yml
 npmScopes:
-  saas-ui:
+  saas-ui-pro:
     npmRegistryServer: 'https://npm.saas-ui.dev'
 npmRegistries:
   //npm.saas-ui.dev:
@@ -25,18 +26,14 @@ npmRegistries:
     npmAlwaysAuth: true
 ```
 
-To set it up on your dev machine add this to `~/.bash_profile` or your CI configuration.
+To set it up on your dev machine add the SAAS_UI_TOKEN to `~/.bash_profile` or your CI configuration.
 
 ```bash
-export SAAS_UI_TOKEN="GithubUsername:licenseKey"
+export SAAS_UI_TOKEN="github-username:license-key"
 ```
 
 The same configuration can be used for CI and deployments.
 
-Run `yarn add @saas-ui/pro` to see if the configuration was succesful.
+Run `yarn add @saas-ui-pro/react` to see if the configuration was succesful.
 
-If you have issues getting this to work, try base64 encoding your auth token.
-
-```bash
-echo -n 'GithubUsername:licenseKey' | base64
-```
+If you have issues getting this to work, try base64 encoding your auth token. You can create and copy the encoded token above.

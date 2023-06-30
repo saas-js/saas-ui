@@ -10,12 +10,11 @@
     "strict": true,
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
-    "incremental": true,
     "declarationMap": true
   },
   "exclude": ["node_modules", "**/node_modules"],

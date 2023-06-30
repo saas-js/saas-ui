@@ -1,0 +1,187 @@
+---
+id: command-bar
+title: CommandBar
+description: Command bars provide users with easy access to your app's most common tasks.
+---
+
+CommandBar is built on top of [CMDK](https://cmdk.paco.me/), by [Paco Coursey](https://twitter.com/pacocoursey).
+
+<ComponentLinks
+  github={{ package: 'saas-ui-command-bar' }}
+  npm={{ package: '@saas-ui/command-bar' }}
+  theme={{ theme: 'saas-ui', componentName: 'command-bar' }}
+/>
+
+## Import
+
+- `CommandBar`: The wrapper component provides context and state management.
+- `CommandBarDialog`: The dialog component.
+- `CommandBarContent`: The container for the input and list.
+- `CommandBarInput`: The input field.
+- `CommandBarList`: The container for the list items.
+- `CommandBarGroup`: The container for a group of items.
+- `CommandBarItem`: An item in the list.
+- `CommandBarSeparator`: A separator between items.
+- `CommandBarLoading`: The loading content.
+- `CommandBarEmpty`: The empty content.
+
+```ts
+import {
+  CommandBar,
+  CommandBarContent,
+  CommandBarInput,
+  CommandBarList,
+  CommandBarGroup,
+  CommandBarItem,
+  CommandBarSeparator,
+  CommandBarLoading,
+  CommandBarEmpty,
+} from '@saas-ui/command-bar'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+import {
+  CommandBar,
+  CommandBarContent,
+  CommandBarInput,
+  CommandBarList,
+  CommandBarGroup,
+  CommandBarItem,
+  CommandBarSeparator,
+  CommandBarLoading,
+  CommandBarEmpty,
+} from '@saas-ui/command-bar'
+
+export default function Inline() {
+  return (
+    <CommandBar>
+      <CommandBarContent>
+        <CommandBarInput placeholder="Type a command or search..." />
+
+        <CommandBarList>
+          <CommandBarEmpty>No results found.</CommandBarEmpty>
+
+          <CommandBarGroup heading="Fruits">
+            <CommandBarItem>Apple</CommandBarItem>
+            <CommandBarItem>Orange</CommandBarItem>
+            <CommandBarSeparator />
+            <CommandBarItem>Pear</CommandBarItem>
+            <CommandBarItem>Blueberry</CommandBarItem>
+          </CommandBarGroup>
+
+          <CommandBarItem>Fish</CommandBarItem>
+        </CommandBarList>
+      </CommandBarContent>
+    </CommandBar>
+  )
+}
+```
+
+### Dialog
+
+```jsx
+import { Button, Box } from '@chakra-ui/react'
+import { Command, useHotkeys } from '@saas-ui/react'
+import {
+  CommandBar,
+  CommandBarDialog,
+  CommandBarContent,
+  CommandBarInput,
+  CommandBarList,
+  CommandBarGroup,
+  CommandBarItem,
+  CommandBarSeparator,
+  CommandBarLoading,
+  CommandBarEmpty,
+} from '@saas-ui/command-bar'
+import {
+  FiUserCheck,
+  FiUser,
+  FiCircle,
+  FiBarChart,
+  FiTag,
+  FiCalendar,
+} from 'react-icons/fi'
+
+export default function Dialog() {
+  const { isOpen, onClose, onToggle } = useDisclosure()
+
+  const [isLoading, setLoading] = React.useState(false)
+
+  useHotkeys('ctrl+k', () => {
+    onToggle()
+  })
+
+  return (
+    <>
+      <Button onClick={onToggle}>
+        Open Command Bar <Command ms="2">ctrl+k</Command>
+      </Button>
+
+      <CommandBar
+        onChange={(value) => console.log(value)}
+        isOpen={isOpen}
+        onClose={onClose}
+        closeOnSelect
+      >
+        <CommandBarDialog>
+          <CommandBarContent>
+            <CommandBarInput
+              placeholder="Type a command or search..."
+              autoFocus
+            />
+
+            <CommandBarList>
+              {isLoading && <CommandBarLoading>Hang on…</CommandBarLoading>}
+
+              <CommandBarEmpty>No results found.</CommandBarEmpty>
+
+              {items.map(({ icon, label, shortcut }) => {
+                return (
+                  <CommandBarItem key={label} value={label}>
+                    {icon}
+                    {label}
+                    <Command ms="auto">{shortcut}</Command>
+                  </CommandBarItem>
+                )
+              })}
+            </CommandBarList>
+          </CommandBarContent>
+        </CommandBarDialog>
+      </CommandBar>
+    </>
+  )
+}
+
+const items = [
+  {
+    icon: <FiUserCheck />,
+    label: 'Assign to...',
+    shortcut: 'A',
+  },
+  {
+    icon: <FiUser />,
+    label: 'Assign to me',
+    shortcut: 'I',
+  },
+  {
+    icon: <FiCircle />,
+    label: 'Change status...',
+    shortcut: 'S',
+  },
+  {
+    icon: <FiTag />,
+    label: 'Change labels...',
+    shortcut: 'L',
+  },
+  {
+    icon: <FiTag />,
+    label: 'Remove label...',
+    shortcut: '⇧ L',
+  },
+]
+```

@@ -1,15 +1,4 @@
-import {
-  Box,
-  Center,
-  Link as ChakraLink,
-  LinkBox,
-  LinkOverlay,
-  SimpleGrid,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react'
-import { Card } from '@saas-ui/react'
-import Link from 'next/link'
+import { Center, SimpleGrid, Text } from '@chakra-ui/react'
 import React from 'react'
 import {
   BlitzSvg,

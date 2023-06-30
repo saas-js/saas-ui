@@ -8,6 +8,9 @@ import {
   Spinner,
   Center,
   IconButton,
+  ButtonGroup,
+  Card,
+  CardBody,
 } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
@@ -20,9 +23,6 @@ import {
   FormLayout,
   Field,
   SubmitButton,
-  Card,
-  CardBody,
-  ButtonGroup,
   useSnackbar,
 } from '@saas-ui/react'
 
@@ -208,7 +208,7 @@ export function RedeemForm(props) {
             rules={{ required: true }}
           />
 
-          <SubmitButton label="Redeem" />
+          <SubmitButton>Redeem</SubmitButton>
         </FormLayout>
       </Form>
     )

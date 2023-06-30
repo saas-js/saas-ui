@@ -3,6 +3,8 @@ import {
   Avatar,
   Box,
   Button,
+  Card,
+  CardFooter,
   Checkbox,
   CloseButton,
   Code,
@@ -12,6 +14,7 @@ import {
   Heading,
   HStack,
   Icon,
+  Image,
   Input,
   LinkBox,
   LinkOverlay,
@@ -26,28 +29,29 @@ import {
 } from '@chakra-ui/react'
 import {
   Page,
+  PageHeader,
   Section,
+  SectionHeader,
   Toolbar,
   ToolbarButton,
   Command,
   ActiveFilter,
-} from '@saas-ui/pro'
-import { AppShell } from '@saas-ui/app-shell'
-import { Sidebar, NavGroup, NavItem, SidebarSection } from '@saas-ui/sidebar'
+} from '@saas-ui-pro/react'
 import {
-  Card,
-  Divider,
+  AppShell,
   FormLayout,
   PasswordInput,
   SearchInput,
   Select,
-  Stepper,
-  StepperStep,
   EmptyState,
-  List,
-  ListItem,
-  ListItemLabel,
-  ListItemIcon,
+  Sidebar,
+  NavGroup,
+  NavItem,
+  SidebarSection,
+  StructuredList,
+  StructuredListItem,
+  StructuredListCell,
+  StructuredListIcon,
   Property,
   PropertyList,
   Persona,
@@ -56,11 +60,12 @@ import {
   BannerTitle,
   BannerContent,
   NProgress,
-  Loader,
-  CardMedia,
-  CardFooter,
+  LoadingOverlay,
+  LoadingSpinner,
+  Web3Address,
+  Steps,
+  StepsItem,
 } from '@saas-ui/react'
-import { Web3Address } from '@saas-ui/web3'
 import NextLink from 'next/link'
 import {
   FiBold,
@@ -80,25 +85,6 @@ const autoform = `z.object({
 const componentIllustrations = {
   authprovider: <Code colorScheme="primary">const auth = useAuth()</Code>,
   auth: <Button variant="primary">Log in</Button>,
-  card: (
-    <Card width="90%" height="80%" position="relative" overflow="hidden">
-      <CardMedia as="img" src="/img/mountains.jpg" objectFit="cover" />
-      <CardFooter
-        position="absolute"
-        bottom="0"
-        width="100%"
-        bgGradient="linear(to-t, blackAlpha.900, transparent)"
-        py="2"
-        px="2"
-        color="white"
-      >
-        <Text flex="1">South Tirol</Text>
-        <Button size="xs" bg="gray.800">
-          Book now
-        </Button>
-      </CardFooter>
-    </Card>
-  ),
   'app-shell': (
     <AppShell
       variant="static"
@@ -114,19 +100,20 @@ const componentIllustrations = {
     </AppShell>
   ),
   page: (
-    <Page
-      title="Contacts"
-      height="100%"
-      toolbar={
-        <Toolbar>
-          <Button variant="primary">Add</Button>
-        </Toolbar>
-      }
-    ></Page>
+    <Page height="100%">
+      <PageHeader
+        title="Contacts"
+        toolbar={
+          <Toolbar>
+            <Button variant="primary">Add</Button>
+          </Toolbar>
+        }
+      />
+    </Page>
   ),
   section: (
-    <Section title="Settings" description="Manage your settings">
-      <></>
+    <Section>
+      <SectionHeader title="Settings" description="Manage your settings" />
     </Section>
   ),
   toolbar: (
@@ -138,16 +125,18 @@ const componentIllustrations = {
   ),
   hotkeys: <Code colorScheme="primary">{`useHotkeys('G then D')`}</Code>,
   stepper: (
-    <Stepper orientation="vertical">
-      <StepperStep title="Information" />
-      <StepperStep title="Account" />
-    </Stepper>
+    <Steps orientation="vertical">
+      <StepsItem title="Information" />
+      <StepsItem title="Account" />
+    </Steps>
   ),
   sidebar: (
     <Sidebar width="80%" borderRadius="md">
       <SidebarSection>
-        <NavItem label="Dashboard" icon={<FiHome />} isActive />
-        <NavItem label="Contacts" icon={<FiUsers />} />
+        <NavItem icon={<FiHome />} isActive>
+          Dashboard
+        </NavItem>
+        <NavItem icon={<FiUsers />}>Contacts</NavItem>
       </SidebarSection>
     </Sidebar>
   ),
@@ -166,12 +155,12 @@ const componentIllustrations = {
     </FormLayout>
   ),
   stepform: (
-    <Stepper orientation="vertical">
-      <StepperStep title="Information">
+    <Steps orientation="vertical">
+      <StepsItem title="Information">
         <Input placeholder="Name" size="sm" />
-      </StepperStep>
-      <StepperStep title="Account" />
-    </Stepper>
+      </StepsItem>
+      <StepsItem title="Account" />
+    </Steps>
   ),
   formlayout: (
     <FormLayout>
@@ -215,11 +204,8 @@ const componentIllustrations = {
   ),
   select: (
     <Select
-      options={[
-        { value: 'Fullstack Developer' },
-        { value: 'Frontend Engineer' },
-        { value: 'Designer' },
-      ]}
+      name="type"
+      options={['Fullstack Developer']}
       value="Fullstack Developer"
     />
   ),
@@ -261,7 +247,6 @@ const componentIllustrations = {
       </Table>
     </Box>
   ),
-  divider: <Divider label="Divider" />,
   emptystate: (
     <EmptyState
       title="No results"
@@ -270,19 +255,19 @@ const componentIllustrations = {
     />
   ),
   list: (
-    <List width="80%">
-      <ListItem>
-        <ListItemIcon>
+    <StructuredList width="90%">
+      <StructuredListItem>
+        <StructuredListIcon>
           <Avatar src="/showcase-avatar.jpg" size="sm" />
-        </ListItemIcon>
-        <ListItemLabel>
-          <Text noOfLines={1}>Renata - Love your product.</Text>
+        </StructuredListIcon>
+        <StructuredListCell>
+          <Text noOfLines={1}>Love your product.</Text>
           <Text noOfLines={2} color="muted" fontSize="xs">
-            We just launched our first product build with Saas UI.
+            Renata - We just launched our first product build with Saas UI.
           </Text>
-        </ListItemLabel>
-      </ListItem>
-    </List>
+        </StructuredListCell>
+      </StructuredListItem>
+    </StructuredList>
   ),
   property: (
     <PropertyList fontSize="sm">
@@ -365,7 +350,11 @@ const componentIllustrations = {
       <CloseButton size="sm" />
     </HStack>
   ),
-  loader: <Loader />,
+  loader: (
+    <LoadingOverlay>
+      <LoadingSpinner />
+    </LoadingOverlay>
+  ),
   'modals-manager': (
     <Code colorScheme="primary">const modals = useModals()</Code>
   ),
@@ -515,7 +504,7 @@ type Props = {
 
 const OverviewItem = ({ url, title, description, slug }: Props) => {
   return (
-    <Card as={LinkBox} height="full" role="group" isHoverable>
+    <Card as={LinkBox} height="full" role="group">
       <AspectRatio
         ratio={4 / 3}
         w="full"
@@ -542,7 +531,7 @@ const OverviewItem = ({ url, title, description, slug }: Props) => {
         borderTopWidth="1px"
         _dark={{ borderTopWidth: 0 }}
       >
-        <NextLink href={url} passHref>
+        <NextLink href={url} passHref legacyBehavior>
           <LinkOverlay>
             <Heading as="h3" size="sm">
               {title}

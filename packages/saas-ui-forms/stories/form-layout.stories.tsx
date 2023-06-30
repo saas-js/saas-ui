@@ -109,7 +109,7 @@ const genderOptions = [
   },
 ]
 
-export const Condensed = () => (
+export const Compact = () => (
   <>
     <Form
       defaultValues={{

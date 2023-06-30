@@ -8,6 +8,81 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 04-14-2023
+
+`@saas-ui/react@2.0.0-next.9`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+- Added new createModals method to create typesafe modals managers with support for custom modals
+
+**Forms** `v2.0.0-next.9`
+
+- Form render prop Field now supports ref
+
+**Core** `v2.0.0-next.7`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+
+**Modals** `v2.0.0-next.9`
+
+- Added new createModals method to create typesafe modals managers with support for custom modals
+- BaseModal now accepts header, content and footer props
+
+## 04-08-2023
+
+**Forms** `v2.0.0-next.8`
+
+- Fix React import
+
+## 02-18-2023
+
+`@saas-ui/react@2.0.0-next.2`
+
+- Renamed Sidebar condensed variant to compact.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+**Core** `v2.0.0-next.2`
+
+- Renamed Sidebar condensed variant to compact.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+## 02-17-2023
+
+`@saas-ui/react@2.0.0-next.1`
+
+- Fix esm bundle filename.
+
+## 02-17-2023
+
+`@saas-ui/react@2.0.0-next.0`
+
+### Major Changes
+
+- Updated to Tanstack ReactTable V8
+- Moved form resolvers into a separate package.
+- BREAKING: createPalette no longer exported from @saas-ui/react
+- Renamed List to StructuredList
+- Removed button package.
+- Moved Supabase and Magic auth services to separate packages.
+- Improve StructuredList API.
+- Restructured packages.
+- Removed Card component in favor of the new Chakra UI Card component.
+
+### Minor Changes
+
+- Added TimeLine to core components.
+- Added Sidebar to core packages.
+
+### Patch Changes
+
+- Migrated from microbundle to tsup for builds
+
 ## 02-16-2023
 
 **Date Picker** `v0.8.7`

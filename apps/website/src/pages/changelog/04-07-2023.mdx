@@ -1,0 +1,91 @@
+---
+title: Apr 8, 2023
+date: 'Sat Apr 08 2023 14:22:40 GMT+0200 (Central European Summer Time)'
+---
+
+## 04-07-2023
+
+# @saas-ui/react
+
+## 2.0.0-next.6
+
+### Major Changes
+
+- 37e38165: Auth forms can now be used standalone, to build custom solutions.
+- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- 39e778d8: Form will now render AutoField by default when no children are passed.
+
+### Minor Changes
+
+- 532011d6: Select can now supports theming using the SuiSelect theme config.
+- 6dd737ce: Select field now renders invalid state.
+- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
+
+## 2.0.0-next.5
+
+### Major Changes
+
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+
+### Minor Changes
+
+- a8ea24da: PasswordInput now accepts leftAddon property.
+
+## 2.0.0-next.4
+
+### Major Changes
+
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 83f54180: Secondary button now uses solid variant and gray colorScheme.
+- 83f54180: Renamed Loader to LoadingOverlay.
+
+### Minor Changes
+
+- 83f54180: Added new tertiary button variant.
+- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+
+### Patch Changes
+
+- ba61612f: Fixed useSnackbar return type, always returns toastId.
+- 83f54180: Fix NavItem focus outline color.
+
+## 2.0.0-next.2
+
+### Major Changes
+
+- 0a11d7b6: Renamed Sidebar condensed variant to compact.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+### Minor Changes
+
+- 76887bda: AppShell now controls the Sidebar disclosure state.
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 166978bd: Fix esm bundle filename.
+
+## 2.0.0-next.0
+
+### Major Changes
+
+- 772c9868: Updated to Tanstack ReactTable V8
+- d7c87a31: Moved form resolvers into a separate package.
+- f1e99198: BREAKING: createPalette no longer exported from @saas-ui/react
+- 8b82d945: Renamed List to StructuredList
+- 8b82d945: Removed button package.
+- f34de7af: Moved Supabase and Magic auth services to separate packages.
+- 3a15e8c8: Improve StructuredList API.
+- f1e99198: Restructured packages.
+- f3b09191: Removed Card component in favor of the new Chakra UI Card component.
+
+### Minor Changes
+
+- e94ca3c0: Added TimeLine to core components.
+- 7ce390e9: Added Sidebar to core packages.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds

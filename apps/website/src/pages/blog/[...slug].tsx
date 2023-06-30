@@ -2,7 +2,7 @@ import fs from 'fs'
 import { allBlogs, Blog } from '.contentlayer/generated'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from '@/hooks/next-contentlayer'
 import readingTime from 'reading-time'
 import Layout from 'src/layouts/'
 import generateRss from '@/utils/generate-rss'
@@ -12,6 +12,7 @@ export default function Page({ blog }: { blog: Blog }) {
 
   return (
     <Layout frontMatter={blog.frontMatter}>
+      {/* @ts-ignore */}
       <Component components={MDXComponents} />
     </Layout>
   )

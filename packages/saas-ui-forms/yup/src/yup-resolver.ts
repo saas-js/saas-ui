@@ -1,7 +1,8 @@
-import { reach, AnyObjectSchema } from 'yup'
+import { reach } from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { FieldProps } from '@saas-ui/forms'
+import { FieldProps, GetFieldResolver } from '@saas-ui/forms'
+import { AnyObjectSchema } from './types'
 
 export { yupResolver }
 
@@ -74,10 +75,10 @@ export const getFieldsFromSchema = (schema: AnyObjectSchema): FieldProps[] => {
 }
 
 export const getNestedSchema = (schema: AnyObjectSchema, path: string) => {
-  return reach(schema, path)
+  return reach(schema, path) as AnyObjectSchema
 }
 
-export const yupFieldResolver = (schema: AnyObjectSchema) => {
+export const yupFieldResolver: GetFieldResolver = (schema: AnyObjectSchema) => {
   return {
     getFields() {
       return getFieldsFromSchema(schema)
@@ -85,17 +86,5 @@ export const yupFieldResolver = (schema: AnyObjectSchema) => {
     getNestedFields(name: string) {
       return getFieldsFromSchema(getNestedSchema(schema, name))
     },
-  }
-}
-
-export const yupForm = (
-  schema: AnyObjectSchema,
-  schemaOptions = {},
-  resolverOptions = {}
-) => {
-  return {
-    schema,
-    resolver: yupResolver(schema, schemaOptions, resolverOptions),
-    fieldResolver: yupFieldResolver(schema),
   }
 }

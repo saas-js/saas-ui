@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import { Container, Text, VStack, useColorModeValue } from '@chakra-ui/react'
+import { Container, Text, VStack } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
 

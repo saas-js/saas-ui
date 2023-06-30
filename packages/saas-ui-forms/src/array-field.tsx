@@ -1,12 +1,17 @@
 import * as React from 'react'
 
-import { chakra, ResponsiveValue, forwardRef } from '@chakra-ui/system'
-import { __DEV__ } from '@chakra-ui/utils'
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-import { IconButton, ButtonProps } from '@saas-ui/button'
+import {
+  chakra,
+  ResponsiveValue,
+  forwardRef,
+  Button,
+  ButtonProps,
+} from '@chakra-ui/react'
+import { PlusIcon, MinusIcon } from '@saas-ui/core/icons'
 
 import { FormLayout, FormLayoutProps } from './layout'
-import { BaseField, FieldProps } from './field'
+import { BaseField } from './base-field'
+import { BaseFieldProps } from './types'
 
 import { mapNestedFields } from './utils'
 
@@ -22,6 +27,12 @@ import {
   useArrayFieldAddButton,
   UseArrayFieldReturn,
 } from './use-array-field'
+import { FieldPath, FieldValues } from 'react-hook-form'
+import { isFunction } from '@chakra-ui/utils'
+import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { useFieldProps } from './form-context'
+
+export interface ArrayFieldButtonProps extends ButtonProps {}
 
 interface ArrayField {
   id: string
@@ -46,7 +57,11 @@ interface ArrayFieldRowProps extends FormLayoutProps {
    */
   children: React.ReactNode
 }
-
+/**
+ * Render prop component, to get access to the internal fields state. Must be a child of ArrayFieldContainer.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
   children,
   index,
@@ -60,9 +75,7 @@ export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRow.displayName = 'ArrayFieldRow'
-}
+ArrayFieldRow.displayName = 'ArrayFieldRow'
 
 export interface ArrayFieldRowFieldsProps extends FormLayoutProps {
   /**
@@ -78,7 +91,11 @@ export interface ArrayFieldRowFieldsProps extends FormLayoutProps {
    */
   children: React.ReactNode
 }
-
+/**
+ * Add the name prefix to the fields and acts as a horizontal form layout by default.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({
   children,
   ...layoutProps
@@ -91,13 +108,17 @@ export const ArrayFieldRowFields: React.FC<ArrayFieldRowFieldsProps> = ({
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
-}
+ArrayFieldRowFields.displayName = 'ArrayFieldRowFields'
 
+/**
+ * The row container component providers row context.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
   children,
   index,
+  ...rest
 }) => {
   const context = useArrayFieldRow({ index })
 
@@ -111,67 +132,87 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
 
   return (
     <ArrayFieldRowProvider value={context}>
-      <chakra.div __css={styles}>{children}</chakra.div>
+      <chakra.div {...rest} __css={styles}>
+        {children}
+      </chakra.div>
     </ArrayFieldRowProvider>
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
-}
+ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
 
-export const ArrayFieldRemoveButton: React.FC<ButtonProps> = (props) => {
+/**
+ * The default remove button.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
+export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
+  props
+) => {
   return (
-    <IconButton
-      icon={<MinusIcon />}
-      aria-label="Remove row"
-      {...useArrayFieldRemoveButton()}
-      {...props}
-    />
+    <Button aria-label="Remove row" {...useArrayFieldRemoveButton()} {...props}>
+      {props.children || <MinusIcon />}
+    </Button>
   )
 }
 
-if (__DEV__) {
-  ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
-}
+ArrayFieldRemoveButton.displayName = 'ArrayFieldRemoveButton'
 
-export const ArrayFieldAddButton: React.FC<ButtonProps> = (props) => {
+/**
+ * The default add button.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
+export const ArrayFieldAddButton: React.FC<ArrayFieldButtonProps> = (props) => {
   return (
-    <IconButton
-      icon={<AddIcon />}
+    <Button
       aria-label="Add row"
       float="right"
       {...useArrayFieldAddButton()}
       {...props}
-    />
+    >
+      {props.children || <PlusIcon />}
+    </Button>
   )
 }
 
-if (__DEV__) {
-  ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
+ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
+
+export interface ArrayFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> extends ArrayFieldOptions<TFieldValues, TName>,
+    Omit<
+      BaseFieldProps<TFieldValues, TName>,
+      'name' | 'defaultValue' | 'children'
+    > {
+  children: MaybeRenderProp<ArrayField[]>
 }
 
-export interface ArrayFieldProps
-  extends ArrayFieldOptions,
-    Omit<FieldProps, 'defaultValue'> {}
-
+/**
+ * The wrapper component that composes the default ArrayField functionality.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayField = forwardRef(
   (props: ArrayFieldProps, ref: React.ForwardedRef<UseArrayFieldReturn>) => {
     const { children, ...containerProps } = props
 
+    const rowFn = isFunction(children)
+      ? children
+      : (fields: ArrayField[]) => (
+          <>
+            {fields.map(({ id }, index: number) => (
+              <ArrayFieldRow key={id} index={index}>
+                {children}
+              </ArrayFieldRow>
+            )) || null}
+          </>
+        )
+
     return (
       <ArrayFieldContainer ref={ref} {...containerProps}>
-        <ArrayFieldRows>
-          {(fields: ArrayField[]) => (
-            <>
-              {fields.map(({ id }, index: number) => (
-                <ArrayFieldRow key={id} index={index}>
-                  {children}
-                </ArrayFieldRow>
-              ))}
-            </>
-          )}
-        </ArrayFieldRows>
+        <ArrayFieldRows>{rowFn as any}</ArrayFieldRows>
         <ArrayFieldAddButton />
       </ArrayFieldContainer>
     )
@@ -184,9 +225,7 @@ export const ArrayField = forwardRef(
   displayName: string
 }
 
-if (__DEV__) {
-  ArrayField.displayName = 'ArrayField'
-}
+ArrayField.displayName = 'ArrayField'
 
 export interface ArrayFieldRowsProps {
   children: (fields: ArrayField[]) => React.ReactElement | null
@@ -199,10 +238,18 @@ export const ArrayFieldRows = ({
   return children(fields)
 }
 
-if (__DEV__) {
-  ArrayFieldRows.displayName = 'ArrayFieldRows'
+ArrayFieldRows.displayName = 'ArrayFieldRows'
+
+export interface ArrayFieldContainerProps
+  extends Omit<ArrayFieldProps, 'children'> {
+  children: React.ReactNode
 }
 
+/**
+ * The container component provides context and state management.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/array-field
+ */
 export const ArrayFieldContainer = React.forwardRef(
   (
     {
@@ -213,15 +260,17 @@ export const ArrayFieldContainer = React.forwardRef(
       max,
       children,
       ...fieldProps
-    }: ArrayFieldProps,
+    }: ArrayFieldContainerProps,
     ref: React.ForwardedRef<UseArrayFieldReturn>
   ) => {
+    const overrides = useFieldProps(name)
+
     const context = useArrayField({
       name,
       defaultValue,
       keyName,
-      min,
-      max,
+      min: min || (overrides as any)?.min,
+      max: max || (overrides as any)?.max,
     })
 
     // This exposes the useArrayField api through the forwarded ref
@@ -229,7 +278,7 @@ export const ArrayFieldContainer = React.forwardRef(
 
     return (
       <ArrayFieldProvider value={context}>
-        <BaseField name={name} {...fieldProps}>
+        <BaseField name={name} {...fieldProps} {...overrides}>
           {children}
         </BaseField>
       </ArrayFieldProvider>
@@ -237,6 +286,4 @@ export const ArrayFieldContainer = React.forwardRef(
   }
 )
 
-if (__DEV__) {
-  ArrayFieldContainer.displayName = 'ArrayFieldContainer'
-}
+ArrayFieldContainer.displayName = 'ArrayFieldContainer'

@@ -16,7 +16,7 @@ $ npm i @saas-ui/auth  --save
 
 ## Docs
 
-https://www.saas-ui.dev/docs/auth/auth-provider
+https://www.saas-ui.dev/docs/authentication/auth-provider
 
 ## Source
 

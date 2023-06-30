@@ -7,7 +7,7 @@ import {
   DateFieldStateOptions,
   TimeFieldStateOptions,
   DateFieldState,
-  DateSegment,
+  DateSegment as DateSegmentType,
 } from '@react-stately/datepicker'
 import {
   useDateField,
@@ -232,7 +232,7 @@ export const DateRangePickerTimeField: React.FC<DateRangeTimeFieldProps> = (
 DateRangePickerTimeField.displayName = 'DateRangePickerTimeField'
 
 interface DateSegmentProps extends HTMLChakraProps<'div'> {
-  segment: DateSegment
+  segment: DateSegmentType
   state: DateFieldState
 }
 

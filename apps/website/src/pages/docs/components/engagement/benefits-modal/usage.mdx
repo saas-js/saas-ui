@@ -1,0 +1,108 @@
+---
+id: benefits-modal
+title: Benefits Modal
+package: '@saas-ui-pro/react'
+description: A benefits modal is used to show case important features or product updates.
+---
+
+Use benefits modals whenever you release a new important feature or when onboarding new users. The benefits modal can be an entry point for a `Tour`.
+It's recommended to add an illustration to make complex ideas more accesible, if you don't have suitable illustrations use a `TourDialog` instead.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `BenefitsModal`: The wrapper that provides context for its children.
+- `BenefitsModalMedia`: An image or video supporting the title and description.
+- `BenefitsModalHeader`: The header with a consise title describing the feature.
+- `BenefitsModalBody`: The body with the main message.
+- `BenefitsModalFooter`: The footer with actions.
+
+```js
+import {
+  BenefitsModal,
+  BenefitsModalMedia,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui-pro/react'
+```
+
+## Usage
+
+### Default modal
+
+```jsx
+import { Button, Icon, Text, useDisclosure } from '@chakra-ui/react'
+import {
+  BenefitsModal,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui-pro/react'
+import { FiInfo } from 'react-icons/fi'
+
+export default function Basic() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Button onClick={onOpen}>Show BenefitsModal</Button>
+
+      <BenefitsModal isOpen={isOpen} onClose={onClose}>
+        <BenefitsModalHeader flexDirection="column">
+          <Icon as={FiInfo} boxSize="8" mb="4" color="primary.500" />
+          <Text>Check out this new feature</Text>
+        </BenefitsModalHeader>
+        <BenefitsModalBody>
+          Benefits modals can be used to highlight new features and their
+          benefits in your app. Embed illustrations or videos to make ideas more
+          accessible.
+        </BenefitsModalBody>
+        <BenefitsModalFooter>
+          <Button colorScheme="primary">Get started</Button>
+        </BenefitsModalFooter>
+      </BenefitsModal>
+    </>
+  )
+}
+```
+
+### Centered content
+
+```jsx
+import { Button, Icon, Text, useDisclosure } from '@chakra-ui/react'
+import {
+  BenefitsModal,
+  BenefitsModalHeader,
+  BenefitsModalBody,
+  BenefitsModalFooter,
+} from '@saas-ui-pro/react'
+import { FiInfo } from 'react-icons/fi'
+
+export default function Centered() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <>
+      <Button onClick={onOpen}>Show benefits</Button>
+
+      <BenefitsModal isOpen={isOpen} onClose={onClose}>
+        <BenefitsModalHeader flexDirection="column" textAlign="center">
+          <Icon as={FiInfo} boxSize="8" mb="4" color="primary.500" />
+          <Text>Check out this new feature</Text>
+        </BenefitsModalHeader>
+        <BenefitsModalBody textAlign="center">
+          Benefits modals can be used to highlight new features and their
+          benefits in your app. Embed illustrations or videos to make ideas more
+          accessible.
+        </BenefitsModalBody>
+        <BenefitsModalFooter>
+          <BenefitsModalActions justifyContent="center">
+            <Button onClick={onClose}>Dismiss</Button>
+            <Button variant="primary">Get started</Button>
+          </BenefitsModalActions>
+        </BenefitsModalFooter>
+      </BenefitsModal>
+    </>
+  )
+}
+```

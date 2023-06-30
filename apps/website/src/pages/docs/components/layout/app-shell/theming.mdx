@@ -1,0 +1,51 @@
+---
+id: app-shell
+scope: theming
+---
+
+## Theming
+
+The `AppShell` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `inner`
+- `main`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { appShellAnatomy } from '../../anatomy'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(appShellAnatomy.keys)
+
+const baseStyle = definePartsStyle({
+  container: {},
+  inner: {},
+  main: {},
+})
+
+export const appShellTheme = defineMultiStyleConfig({
+  defaultProps: {
+    variant: 'fullscreen',
+  },
+  variants: {
+    static: {},
+    fullscreen: {
+      container: {
+        position: 'absolute',
+        inset: 0,
+      },
+    },
+  },
+  baseStyle,
+})
+```

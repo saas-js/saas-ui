@@ -2,19 +2,15 @@ import {
   Link as ChakraLink,
   LinkProps as ChakraLinkProps,
   Button,
-  ButtonProps
-} from "@chakra-ui/react"
-import NextLink, { LinkProps as NextLinkProps } from "next/link"
+  ButtonProps,
+} from '@chakra-ui/react'
+import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 
 export type LinkProps = NextLinkProps & ChakraLinkProps
 
-const Link = ({
-  href,
-  children,
-  ...props
-}: LinkProps) => {
+const Link = ({ href, children, ...props }: LinkProps) => {
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <ChakraLink {...props}>{children}</ChakraLink>
     </NextLink>
   )

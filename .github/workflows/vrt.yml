@@ -1,0 +1,38 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Lost Pixel
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build packages
+        run: yarn build:packages
+
+      - name: Build Storybook addon
+        run: yarn build:storybook-addon
+
+      - name: Build tokens
+        run: yarn build:tokens
+
+      - name: Build Storybook
+        run: yarn build:storybook
+
+      - name: Install Lost Pixel
+        run: yarn add lost-pixel
+
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.1.0
+        env:
+          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}

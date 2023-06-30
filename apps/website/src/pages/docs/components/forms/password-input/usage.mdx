@@ -1,0 +1,79 @@
+---
+id: password-input
+title: PasswordInput
+description: A password input type component
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+```ts
+import { PasswordInput } from '@saas-ui/react'
+```
+
+## Usage
+
+The `PasswordInput` component is a wrapper around the `Input` component with a `type="password"` prop, and a `viewIcon` and `viewOffIcon` prop to toggle the visibility of the password.
+
+When the password is visible `autoComplete` will be set to `off` to prevent the browser from saving the password.
+
+### Basic
+
+```jsx
+<PasswordInput />
+```
+
+### Placeholder
+
+```jsx
+<PasswordInput placeholder="Your password" />
+```
+
+### Custom icons
+
+```jsx
+import { Icon } from '@chakra-ui/react'
+import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { PasswordInput } from '@saas-ui/react'
+
+export default function CustomIcons() {
+  return (
+    <PasswordInput
+      name="password"
+      placeholder="Password"
+      viewIcon={<Icon as={FiEye} />}
+      viewOffIcon={<Icon as={FiEyeOff} />}
+    />
+  )
+}
+```
+
+### Left Addon
+
+Use the `leftAddon` prop to add an `InputLeftElement` or `InputLeftAddon` to the left of the input.
+
+```jsx
+import { FormControl, FormLabel, InputLeftElement } from '@chakra-ui/react'
+import { FiLock } from 'react-icons/fi'
+import { PasswordInput } from '@saas-ui/react'
+
+export default function LeftAddon() {
+  return (
+    <FormControl>
+      <FormLabel>Password</FormLabel>
+      <PasswordInput
+        name="password"
+        leftAddon={
+          <InputLeftElement>
+            <FiLock />
+          </InputLeftElement>
+        }
+      />
+    </FormControl>
+  )
+}
+```

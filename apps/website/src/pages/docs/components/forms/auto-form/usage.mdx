@@ -1,0 +1,301 @@
+---
+id: auto-form
+title: AutoForm
+description: Automatically render forms based on a schema.
+---
+
+The Form component is an abstraction around React Hook Form and
+follows the [WAI specifications ](https://www.w3.org/WAI/tutorials/forms/) for forms.
+
+AutoForm can be used to quickly generate forms for prototyping or forms that don't require any customization.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `Form`: The wrapper component that manages context and state.
+
+```ts
+import { Form } from '@saas-ui/react' // default form
+import { Form } from '@saas-ui/forms/zod' // zod form
+import { Form } from '@saas-ui/forms/yup' // yup form
+```
+
+## Usage
+
+When you supply a schema to `Form` and don't supply any children, the form will automatically render the fields.
+
+The default Form component supports the following schema format.
+
+### Object schema
+
+The object schema is an object with field props. Array and object fields can have nested fields.
+
+```ts
+type FieldTypes =
+  | 'array'
+  | 'object'
+  | 'text'
+  | 'textarea'
+  | 'select'
+  | 'number'
+  | 'checkbox'
+  | 'radio'
+  | 'pin'
+  | 'phone'
+  | 'url'
+  | 'email'
+  | 'password'
+  | 'switch'
+  | 'native-select'
+
+type ObjectSchema = {
+  [key: FieldTypes]: FieldProps
+}
+```
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
+    },
+  },
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+}
+
+export default function Task() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+      }}
+      onSubmit={(params) => alert(params)}
+    />
+  )
+}
+```
+
+### Customize submit button
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
+    },
+  },
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+}
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+      }}
+      onSubmit={(params) => alert(params)}
+      fields={{
+        submit: {
+          children: 'Save post',
+          variant: 'outline',
+          colorScheme: 'cyan',
+        },
+      }}
+    />
+  )
+}
+```
+
+### Object field
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
+    },
+  },
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+  author: {
+    type: 'object',
+    label: 'Author',
+    properties: {
+      name: {
+        label: 'Name',
+      },
+      email: {
+        label: 'Email',
+      },
+    },
+  },
+}
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+        'author.name': 'Eelco',
+        'author.email': 'eelco@saas-ui.dev',
+      }}
+      onSubmit={(params) => alert(params)}
+      fields={{
+        author: {
+          type: 'object',
+          columns: 2,
+        },
+        submit: {
+          children: 'Save post',
+        },
+      }}
+    />
+  )
+}
+```
+
+### Array field
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: true,
+    },
+  },
+  body: {
+    label: 'Body',
+    type: 'textarea',
+  },
+  tags: {
+    type: 'array',
+    label: 'Tags',
+    items: {
+      type: 'object',
+      properties: {
+        tag: {
+          label: 'Tag',
+        },
+      },
+    },
+  },
+}
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        body: '',
+        tags: [{ tag: 'react' }, { tag: 'typescript' }],
+      }}
+      onSubmit={(params) => alert(params)}
+      fields={{
+        submit: {
+          children: 'Save post',
+        },
+      }}
+    />
+  )
+}
+```
+
+### Zod schema
+
+The `describe` function can to supply a label to the field. Zod currently does not support adding meta data to the schema,
+use the `fields` prop to override properties on any of the fields.
+
+```jsx
+import { Form } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+
+const schema = z.object({
+  title: z.string().min(1).describe('Title'),
+  description: z.string(),
+})
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      onSubmit={() => null}
+      fields={{
+        description: {
+          label: 'Description',
+          type: 'textarea',
+        },
+        submit: {
+          children: 'Save post',
+        },
+      }}
+    />
+  )
+}
+```
+
+### Yup schema
+
+The `label` function can to supply a label to the field. Using the `meta` function you can configure the type of fields.
+
+```jsx
+import { Form } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  description: yup.string().label('Description').meta({ type: 'textarea' }),
+})
+
+export default function Post() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        description: '',
+      }}
+      onSubmit={() => null}
+      fields={{
+        submit: {
+          children: 'Save post',
+        },
+      }}
+    />
+  )
+}
+```

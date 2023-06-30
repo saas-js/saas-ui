@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
-import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
 import Link from 'next/link'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
@@ -33,7 +33,7 @@ const SecondaryNavLink = ({
   const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <Flex
         as="a"
         py="2"
@@ -54,17 +54,17 @@ const SecondaryNavLink = ({
 
 export const docsNav = [
   {
-    href: '/docs/introduction',
-    label: 'Introduction',
+    href: '/docs',
+    label: 'Getting started',
     match: (asPath: string, href: string) =>
-      href.startsWith('/docs/introduction') &&
-      asPath.startsWith('/docs/introduction'),
+      asPath === '/docs' ||
+      (href.startsWith('/docs/core') && asPath.startsWith('/docs/core')),
   },
   {
-    href: '/docs/core/overview',
-    label: 'Core',
+    href: '/docs/guides',
+    label: 'Guides',
     match: (asPath: string, href: string) =>
-      href.startsWith('/docs/core') && asPath.startsWith('/docs/core'),
+      href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
   },
   {
     href: '/docs/components',

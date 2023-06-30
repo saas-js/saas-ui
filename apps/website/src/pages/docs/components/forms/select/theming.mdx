@@ -1,0 +1,56 @@
+---
+id: select
+scope: theming
+---
+
+## Theming
+
+The `Select` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `addon`
+- `field`
+- `element`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { Input } from '@chakra-ui/theme/components'
+import { selectAnatomy } from '@saas-ui/theme/anatomy'
+
+const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
+  selectAnatomy.keys
+)
+
+export const selectTheme = defineMultiStyleConfig({
+  defaultProps: Input.defaultProps,
+  baseStyle: Input.baseStyle,
+  sizes: Input.sizes,
+  variants: Input.variants,
+})
+```
+
+### Customizing the theme
+
+The Select component uses the `SuiSelect` key within the theme's components.
+
+```jsx live=false
+const theme = extendTheme({
+  components: {
+    SuiSelect: {
+      baseStyle: {
+        field: {
+          bg: 'red.200',
+        },
+      },
+    },
+  },
+})
+```

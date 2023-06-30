@@ -11,16 +11,16 @@ function NavLink(props: HTMLChakraProps<'a'>) {
   const isActive = pathname.includes(group)
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <chakra.a
         aria-current={isActive ? 'page' : undefined}
-        display='block'
-        py='1'
-        px='3'
-        borderRadius='full'
-        transition='all 0.3s'
+        display="block"
+        py="1"
+        px="3"
+        borderRadius="full"
+        transition="all 0.3s"
         color={useColorModeValue('gray.600', 'whiteAlpha.800')}
-        fontWeight='normal'
+        fontWeight="normal"
         _hover={{ bg: useColorModeValue('gray.100', 'whiteAlpha.100') }}
         _activeLink={{
           fontWeight: 'semibold',

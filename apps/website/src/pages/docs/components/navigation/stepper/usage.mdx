@@ -1,0 +1,329 @@
+---
+id: stepper
+title: Steps
+description: Indicate progress through numbered steps in multi-step workflows.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core' }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ theme: 'saas-ui', componentName: 'steps' }}
+/>
+
+## Import
+
+- `Steps`: The wrapper component provides context and state management.
+- `StepsItem`: Manages redering of steps and completed states.
+- `StepsCompleted`: The completed content.
+
+```ts
+import { Steps, StepsItem, StepsCompleted } from '@saas-ui/react'
+```
+
+## Usage
+
+The `Steps` component is a wrapper around the Chakra UI Stepper component and makes it easier to manage state and content of the steps.
+
+### Basic
+
+```jsx
+import { Steps, StepsItem, StepsCompleted } from '@saas-ui/react'
+
+export default function Basic() {
+  return (
+    <Steps step={1}>
+      <StepsItem title="Personal information" />
+      <StepsItem title="Account" />
+      <StepsItem title="Confirmation" />
+    </Steps>
+  )
+}
+```
+
+### Vertical
+
+Use the `orientation` prop to change the stepper to a vertical layout.
+
+```jsx
+import { Steps, StepsItem, StepsCompleted } from '@saas-ui/react'
+
+export default function Vertical() {
+  return (
+    <Steps step={1} orientation="vertical">
+      <StepsItem title="Personal information" />
+      <StepsItem title="Account" />
+      <StepsItem title="Confirmation" />
+    </Steps>
+  )
+}
+```
+
+### Variants
+
+The Saas UI theme comes with 3 variants, `outline`, `solid` and `subtle`.
+
+#### Outline
+
+```jsx
+<Steps step={1}>
+  <StepsItem title="Personal information" />
+  <StepsItem title="Account" />
+  <StepsItem title="Confirmation" />
+</Steps>
+```
+
+#### Solid
+
+```jsx
+<Steps step={1} variant="solid">
+  <StepsItem title="Personal information" />
+  <StepsItem title="Account" />
+  <StepsItem title="Confirmation" />
+</Steps>
+```
+
+#### Subtle
+
+```jsx
+<Steps step={1} variant="subtle">
+  <StepsItem title="Personal information" />
+  <StepsItem title="Account" />
+  <StepsItem title="Confirmation" />
+</Steps>
+```
+
+### Custom steps
+
+Use the `render` prop to render custom steps.
+
+```jsx
+import { Steps, StepsItem, StepsCompleted } from '@saas-ui/react'
+
+import {
+  Box,
+  Step,
+  StepIndicator,
+  StepStatus,
+  StepIcon,
+  StepNumber,
+  StepTitle,
+  StepDescription,
+  StepSeparator,
+} from '@chakra-ui/react'
+
+const steps = [
+  {
+    name: 'step 1',
+    title: 'First step',
+    children: <Box py="4">Content step 1</Box>,
+  },
+  {
+    name: 'step 2',
+    title: 'Second step',
+    children: <Box py="4">Content step 2</Box>,
+  },
+  {
+    name: 'step 3',
+    title: 'Third step',
+    children: <Box py="4">Content step 3</Box>,
+  },
+]
+
+export default function Custom() {
+  return (
+    <Steps step={1}>
+      {steps.map((step, i) => (
+        <StepsItem
+          key={i}
+          {...step}
+          render={() => (
+            <Step>
+              <StepIndicator>
+                <StepStatus
+                  complete={<StepIcon />}
+                  incomplete={<StepNumber />}
+                  active={<StepNumber />}
+                />
+              </StepIndicator>
+
+              <Box flexShrink="0">
+                <StepTitle>{step.title}</StepTitle>
+                <StepDescription>{step.description}</StepDescription>
+              </Box>
+
+              <StepSeparator />
+            </Step>
+          )}
+        />
+      ))}
+      <StepsCompleted py="4">Completed</StepsCompleted>
+    </Steps>
+  )
+}
+```
+
+### Responsive Mobile stepper
+
+Horizontal steppers will position titles below the step icon on smaller screens.
+If you have more then 3 steps it's recommended to use a vertical stepper instead.
+
+```jsx
+function ResponsiveStepper() {
+  return (
+    <Steps
+      step={1}
+      orientation={useBreakpointValue({ base: 'vertical', md: 'horizontal' })}
+    >
+      <StepsItem title="Personal information" />
+      <StepsItem title="Account" />
+      <StepsItem title="Confirmation" />
+    </Steps>
+  )
+}
+```
+
+### With content
+
+```jsx
+function WithContent() {
+  const [step, setStep] = React.useState(0)
+
+  const back = () => {
+    setStep(step - 1)
+  }
+
+  const next = () => {
+    setStep(step + 1)
+  }
+
+  const steps = [
+    {
+      name: 'step 1',
+      title: 'First step',
+      children: <Box py="4">Content step 1</Box>,
+    },
+    {
+      name: 'step 2',
+      title: 'Second step',
+      children: <Box py="4">Content step 2</Box>,
+    },
+    {
+      name: 'step 3',
+      title: 'Third step',
+      children: <Box py="4">Content step 3</Box>,
+    },
+  ]
+
+  return (
+    <>
+      <Steps step={step} mb="2">
+        {steps.map((args, i) => (
+          <StepsItem key={i} {...args} />
+        ))}
+        <StepsCompleted py="4">Completed</StepsCompleted>
+      </Steps>
+      <ButtonGroup width="100%">
+        <Button onClick={back} isDisabled={step === 0} variant="ghost">
+          Back
+        </Button>
+        <Spacer />
+        <Button onClick={next} isDisabled={step >= 3} colorScheme="primary">
+          Next
+        </Button>
+      </ButtonGroup>
+    </>
+  )
+}
+```
+
+### With Vertical Content
+
+```jsx
+function VerticalContent() {
+  const [step, setStep] = React.useState(0)
+
+  const back = () => {
+    setStep(step - 1)
+  }
+
+  const next = () => {
+    setStep(step + 1)
+  }
+
+  const steps = [
+    {
+      name: 'step 1',
+      title: 'First step',
+      children: (
+        <>
+          <Box py="4">Content step 1</Box>
+          <ButtonGroup>
+            <Button
+              onClick={next}
+              isDisabled={step >= 3}
+              colorScheme="primary"
+            >Next</Button>
+          </ButtonGroup>
+        </>
+      ),
+    },
+    {
+      name: 'step 2',
+      title: 'Second step',
+      children: (
+        <>
+          <Box py="4">Content step 2</Box>{' '}
+          <ButtonGroup>
+            <Button
+              onClick={next}
+              isDisabled={step >= 3}
+              colorScheme="primary"
+            >Next</Button>
+            <Button
+              onClick={back}
+              isDisabled={step === 0}
+              variant="ghost"
+            >Back</Button>
+          </ButtonGroup>
+        </>
+      ),
+    },
+    {
+      name: 'step 3',
+      title: 'Third step',
+      children: (
+        <>
+          <Box py="4">Content step 3</Box>
+          <ButtonGroup>
+            <Button
+              onClick={next}
+              isDisabled={step >= 3}
+              colorScheme="primary"
+            >
+              Next
+            </Button>
+            <Button
+              onClick={back}
+              isDisabled={step === 0}
+              variant="ghost"
+            >
+              Back
+            </Button>
+          </ButtonGroup>
+        </>
+      ),
+    },
+  ]
+
+  return (
+    <>
+      <Steps step={step} mb="2" orientation="vertical">
+        {steps.map((args, i) => (
+          <StepsItem key={i} {...args} />
+        ))}
+        <StepsCompleted py="4">Completed</StepperCompleted>
+      </Steps>
+    </>
+  )
+}
+```

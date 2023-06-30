@@ -1,0 +1,269 @@
+---
+id: field
+title: Field
+description: A controlled form field component.
+---
+
+Field is a complete functional form control that renders a specific field type based on the data type used.
+It handles the field state, renders a label, the input, help text, error messages
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `Field`: The wrapper component that controls context, state and manages rendering field types.
+
+```ts
+import { Field } from '@saas-ui/react'
+```
+
+## Usage
+
+The `Field` is a controlled component and should aways be wrapped with `Form`, as it depends on the form context.
+
+## Build in field types
+
+Build in field types are `text`, `textarea`, `number`, `password`, `select`, `native-select`, `radio`, `checkbox`, `switch`, `pin`.
+Any other type will fallback to a regular HTML `input` element. Eg: `email` will render as a `InputField` with the type set to email.
+
+### Text field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="text" name="name" label="Name" />
+
+        <Field type="email" name="email" label="Email" />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Textarea field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="textarea" name="description" label="Description" />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Number field
+
+The number field value is always a string, you have to parse it yourself.
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="number"
+          name="amount"
+          label="Amount"
+          value="10"
+          min="0"
+          max="10"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Password field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="password" name="password" label="Password" />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Select field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="select"
+          name="role"
+          label="Role"
+          options={[
+            { value: 'Developer' },
+            { value: 'Designer' },
+            { value: 'Management' },
+          ]}
+          value="Developer"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Native Select field
+
+<Info>
+  On mobile devices interaction can be improved by using the native select.
+</Info>
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="native-select"
+          name="role"
+          label="Role"
+          options={[
+            { value: 'Developer' },
+            { value: 'Designer' },
+            { value: 'Management' },
+          ]}
+          value="Developer"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Radio field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="radio"
+          name="role"
+          label="Role"
+          options={[
+            { value: 'Developer' },
+            { value: 'Designer' },
+            { value: 'Management' },
+          ]}
+          value="Developer"
+        />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Checkbox field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="checkbox"
+          name="terms"
+          label="I've read and agree with the terms of service."
+          value={true}
+        />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Switch field
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field
+          type="switch"
+          name="terms"
+          label="Receive notifications."
+          value={true}
+        />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Pin field
+
+The pin length defaults to `4`.
+
+```jsx
+export default function MyForm() {
+  return (
+    <Form>
+      <FormLayout>
+        <Field type="pin" name="pin" label="Two-factor auth" pinLength={5} />
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+## Advanced
+
+### Creating your own fields.
+
+```jsx live=false
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
+
+import ReactSelect from 'react-select'
+
+const ReactSelectField = createField(ReactSelect, {
+  isControlled: true,
+})
+
+export const Form = createForm({
+  fields: {
+    'react-select': ReactSelectField,
+  },
+})
+```
+
+### Overriding default fields.
+
+You can override any of the build in types by registering a field on the corresponding key.
+
+```jsx live=false
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
+
+import ReactSelect from 'react-select'
+
+const ReactSelectField = createField(ReactSelect, {
+  isControlled: true,
+})
+
+export const Form = createForm({
+  fields: {
+    select: ReactSelectField,
+  },
+})
+```

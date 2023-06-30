@@ -1,15 +1,12 @@
-import { Box, Container } from '@chakra-ui/react'
+import { Box, Button, Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
 
-import { useFormContext, useWatch } from 'react-hook-form'
-
-import { yupForm, yupResolver } from '../yup/src'
+import { Form as YupForm } from '@saas-ui/forms/yup'
 
 import {
   Form,
-  AutoForm,
   FormLayout,
   Field,
   ArrayField,
@@ -25,9 +22,10 @@ import {
   UseArrayFieldReturn,
   SubmitButton,
   ArrayFieldProps,
+  ArrayFieldAddButton,
+  useFormContext,
+  useWatch,
 } from '../src'
-
-import { Button } from '@saas-ui/button'
 
 import { onSubmit } from './helpers'
 
@@ -51,10 +49,10 @@ const arraySchema = Yup.object().shape({
   arrayField: Yup.array().min(2).max(4).of(subSchema).label('Array field'),
 })
 
-export const AutoArrayField = () => {
-  return (
-    <>
-      <AutoForm
+export const AutoArrayField = {
+  render() {
+    return (
+      <Form
         defaultValues={{
           arrayField: [
             {
@@ -65,6 +63,7 @@ export const AutoArrayField = () => {
         schema={{
           arrayField: {
             type: 'array',
+            label: 'Posts',
             items: {
               type: 'object',
               properties: {
@@ -82,6 +81,58 @@ export const AutoArrayField = () => {
         }}
         onSubmit={onSubmit}
       />
+    )
+  },
+}
+
+export const BasicArrayField = () => {
+  return (
+    <>
+      <Form
+        defaultValues={{
+          arrayField: [
+            {
+              title: 'Test',
+              description: '',
+            },
+          ],
+        }}
+        schema={{
+          arrayField: {
+            type: 'array',
+            label: 'Posts',
+            items: {
+              type: 'object',
+              properties: {
+                title: {
+                  label: 'Title',
+                  rules: { required: true },
+                },
+                description: {
+                  label: 'Description',
+                  type: 'textarea',
+                },
+              },
+            },
+          },
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field, ArrayField }) => (
+          <FormLayout>
+            <ArrayField name="arrayField" label="Comments" defaultValue={{}}>
+              <Field name="arrayField.$.title" label="Title" />
+              <Field
+                name="arrayField.$.description"
+                label="Description"
+                type="textarea"
+              />
+            </ArrayField>
+
+            <SubmitButton>Submit</SubmitButton>
+          </FormLayout>
+        )}
+      </Form>
     </>
   )
 }
@@ -89,7 +140,8 @@ export const AutoArrayField = () => {
 export const AutoYupArrayField = () => {
   return (
     <>
-      <AutoForm
+      <YupForm
+        schema={arraySchema}
         defaultValues={{
           arrayField: [
             {
@@ -98,34 +150,40 @@ export const AutoYupArrayField = () => {
           ],
         }}
         onSubmit={onSubmit}
-        {...yupForm(arraySchema)}
       />
     </>
   )
 }
 
-export const WithResolver = () => (
+export const YupArrayField = () => (
   <>
-    <Form
+    <YupForm
+      schema={arraySchema}
       defaultValues={{
         arrayField: [
           {
             title: 'Test',
+            description: '',
           },
         ],
       }}
-      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <ArrayField name="arrayField" label="Array field" defaultValue={{}}>
-          <Field name="title" label="Title" />
-          <Field name="description" label="Description" type="textarea" />
-        </ArrayField>
+      {({ Field, ArrayField }) => (
+        <FormLayout>
+          <ArrayField name="arrayField" label="Comments" defaultValue={{}}>
+            <Field name="arrayField.$.title" label="Title" />
+            <Field
+              name="arrayField.$.description"
+              label="Description"
+              type="textarea"
+            />
+          </ArrayField>
 
-        <SubmitButton label="Submit" />
-      </FormLayout>
-    </Form>
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </YupForm>
   </>
 )
 
@@ -159,7 +217,16 @@ const RemoveButton = () => {
 
 export const CustomArrayField = () => (
   <>
-    <Form
+    <YupForm
+      schema={Yup.object({
+        arrayField: Yup.array().of(
+          Yup.object({
+            id: Yup.string().required(),
+            name: Yup.string().required(),
+            lastName: Yup.string().required(),
+          })
+        ),
+      })}
       defaultValues={{
         arrayField: [
           {
@@ -169,79 +236,96 @@ export const CustomArrayField = () => (
           },
         ],
       }}
-      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <ArrayFieldContainer
-          name="arrayField"
-          label="Array field composed"
-          defaultValue={{}}
-          keyName="key"
-          min={2}
-          max={4}
-        >
-          <ArrayFieldRows>
-            {(fields) => (
-              <>
-                {fields.map((field, i) => {
-                  return (
-                    <ArrayFieldRowContainer key={field.key as string} index={i}>
-                      <ArrayFieldRowFields columns={3} spacing={1}>
-                        <Field name="id" placeholder="Id" />
-                        <Field name="name" placeholder="Name" />
-                        <Box>
-                          <Field
-                            name={`arrayField.${i}.lastName`}
-                            placeholder="Last name"
-                          />
-                        </Box>
-                      </ArrayFieldRowFields>
-                      <RemoveButton />
-                    </ArrayFieldRowContainer>
-                  )
-                })}
-              </>
-            )}
-          </ArrayFieldRows>
-          <AddButton />
-        </ArrayFieldContainer>
+      {({ Field, ArrayField }) => (
+        <FormLayout>
+          <ArrayFieldContainer
+            name="arrayField"
+            label="Array field composed"
+            defaultValue={{}}
+            keyName="key"
+            min={2}
+            max={4}
+          >
+            <ArrayFieldRows>
+              {(fields) => (
+                <>
+                  {fields.map((field, i) => {
+                    return (
+                      <ArrayFieldRowContainer
+                        key={field.key as string}
+                        index={i}
+                      >
+                        <ArrayFieldRowFields columns={3} spacing={1}>
+                          <Field name="arrayField.$.id" placeholder="Id" />
+                          <Field name="arrayField.$.name" placeholder="Name" />
+                          <Box>
+                            <Field
+                              name={`arrayField.${i}.lastName`}
+                              placeholder="Last name"
+                            />
+                          </Box>
+                        </ArrayFieldRowFields>
+                        <RemoveButton />
+                      </ArrayFieldRowContainer>
+                    )
+                  })}
+                </>
+              )}
+            </ArrayFieldRows>
+            <AddButton />
+          </ArrayFieldContainer>
 
-        <SubmitButton label="Submit" />
-      </FormLayout>
-    </Form>
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </YupForm>
   </>
 )
 
-export const MinMaxNoSchema = () => (
-  <>
-    <Form
-      defaultValues={{
-        arrayField: [
-          {
-            title: 'Test',
-          },
-        ],
-      }}
-      onSubmit={onSubmit}
-    >
-      <FormLayout>
-        <ArrayField
-          name="arrayField"
-          label="Array field"
-          defaultValue={{}}
-          min={1}
-          max={3}
-        >
-          <Field name="title" label="Title" rules={{ required: true }} />
-          <Field name="description" label="Description" type="textarea" />
-        </ArrayField>
+export const MinMaxNoSchema = {
+  render() {
+    return (
+      <Form
+        defaultValues={{
+          arrayField: [
+            {
+              title: 'Test',
+              description: '',
+            },
+          ],
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field, ArrayField }) => (
+          <FormLayout>
+            <ArrayField
+              name="arrayField"
+              label="Array field"
+              defaultValue={{}}
+              min={1}
+              max={3}
+            >
+              <Field
+                name="arrayField.$.title"
+                label="Title"
+                rules={{ required: true }}
+              />
+              <Field
+                name="arrayField.$.description"
+                label="Description"
+                type="textarea"
+              />
+            </ArrayField>
 
-        <SubmitButton label="Submit" />
-      </FormLayout>
-    </Form>
-  </>
-)
+            <SubmitButton>Submit</SubmitButton>
+          </FormLayout>
+        )}
+      </Form>
+    )
+  },
+}
 
 const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
   const formState = useFormContext()
@@ -276,7 +360,16 @@ const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
 
 export const WatchArrayField = () => {
   return (
-    <Form
+    <YupForm
+      schema={Yup.object({
+        arrayField: Yup.array().of(
+          Yup.object({
+            id: Yup.number().required(),
+            title: Yup.string().required(),
+            description: Yup.string(),
+          })
+        ),
+      })}
       defaultValues={{
         arrayField: [
           {
@@ -286,15 +379,14 @@ export const WatchArrayField = () => {
           },
         ],
       }}
-      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
       <FormLayout>
         <MyArrayField />
 
-        <SubmitButton label="Submit" />
+        <SubmitButton>Submit</SubmitButton>
       </FormLayout>
-    </Form>
+    </YupForm>
   )
 }
 
@@ -307,23 +399,24 @@ export const ArrayFieldRef = () => {
   }, [ref])
 
   return (
-    <Form
+    <YupForm
+      schema={arraySchema}
       defaultValues={{
         arrayField: [
           {
-            id: 1,
             title: 'Test',
           },
         ],
       }}
-      resolver={yupResolver(arraySchema)}
       onSubmit={onSubmit}
     >
-      <FormLayout>
-        <MyArrayField ref={ref} />
+      {() => (
+        <FormLayout>
+          <MyArrayField ref={ref} />
 
-        <SubmitButton label="Submit" />
-      </FormLayout>
-    </Form>
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </YupForm>
   )
 }

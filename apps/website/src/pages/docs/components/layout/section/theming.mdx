@@ -1,0 +1,38 @@
+---
+id: section
+scope: theming
+---
+
+## Theming
+
+The `Section` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `header`
+- `title`
+- `description`
+- `body`
+
+### Theming utilities
+
+- `createMultiStyleConfigHelpers`: a function that returns a set of utilities
+  for creating style configs for a multipart component (`definePartsStyle` and
+  `defineMultiStyleConfig`).
+- `definePartsStyle`: a function used to create multipart style objects.
+- `defineMultiStyleConfig`: a function used to define the style configuration
+  for a multipart component.
+
+```jsx live=false
+import { sectionAnatomy } from '@saas-ui-pro/react/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(sectionAnatomy.keys)
+```

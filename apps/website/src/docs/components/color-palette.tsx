@@ -53,13 +53,17 @@ export const ColorPalettes = (props: { color: string }) => {
   const theme = useTheme()
   const keys = Object.keys(theme.colors[color])
 
-  return keys.map((item) => (
-    <ColorPalette
-      key={`${color}.${item}`}
-      color={`${color}.${item}`}
-      name={`${color} ${item}`}
-    />
-  ))
+  return (
+    <>
+      {keys.map((item) => (
+        <ColorPalette
+          key={`${color}.${item}`}
+          color={`${color}.${item}`}
+          name={`${color} ${item}`}
+        />
+      ))}
+    </>
+  )
 }
 
 export const ColorWrapper: React.FC<GridProps> = (props) => (

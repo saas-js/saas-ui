@@ -21,12 +21,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 
-import {
-  Form,
-  FormLayout,
-  registerFieldType,
-  SubmitButton,
-} from '@saas-ui/forms'
+import { Form, FormLayout, createField, SubmitButton } from '@saas-ui/forms'
 
 export default {
   title: 'Components/DateTime/DateInput',
@@ -82,8 +77,16 @@ export const DateTimeNoTimezone = () => {
   )
 }
 
-const DateField = registerFieldType(
-  'date',
+export const DisableCloseOnSelect = () => {
+  return (
+    <Template
+      defaultValue={parseAbsoluteToLocal(new Date().toISOString())}
+      closeOnSelect={false}
+    />
+  )
+}
+
+const DateField = createField(
   forwardRef((props, ref) => {
     const { value: valueProp, onChange: onChangeProp, ...rest } = props
 
@@ -103,7 +106,7 @@ export const FormWithDateField = () => {
   return (
     <Form
       defaultValues={{
-        date: '',
+        date: null,
       }}
       onSubmit={(data) => console.log('onSubmit', data)}
     >

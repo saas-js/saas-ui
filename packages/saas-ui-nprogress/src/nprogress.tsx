@@ -11,7 +11,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/system'
 
-import { cx, __DEV__ } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 
 import { useNProgress } from '@tanem/react-nprogress'
 
@@ -25,10 +25,14 @@ interface NProgressOptions {
 export interface NProgressProps
   extends NProgressOptions,
     HTMLChakraProps<'div'>,
-    ThemingProps<'NProgress'> {}
-
+    ThemingProps<'SuiNProgress'> {}
+/**
+ * Show feedback when switching pages and content is loading in the background.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/feedback/nprogress
+ */
 export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('NProgress', props)
+  const styles = useMultiStyleConfig('SuiNProgress', props)
 
   const { colorScheme: c } = props
 
@@ -57,7 +61,7 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
       zIndex="overlay"
       transition={`opacity ${animationDuration}ms linear`}
       {...containerProps}
-      className={cx('saas-nprogress', props.className)}
+      className={cx('sui-nprogress', props.className)}
     >
       <chakra.div
         __css={barStyles}
@@ -68,6 +72,4 @@ export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
   )
 })
 
-if (__DEV__) {
-  NProgress.displayName = 'NProgress'
-}
+NProgress.displayName = 'NProgress'

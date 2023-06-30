@@ -8,14 +8,11 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   AlertDialogProps,
-} from '@chakra-ui/react'
-
-import {
   ButtonGroup,
   ButtonGroupProps,
   Button,
   ButtonProps,
-} from '@saas-ui/button'
+} from '@chakra-ui/react'
 
 export interface ConfirmDialogProps
   extends Omit<AlertDialogProps, 'leastDestructiveRef'> {
@@ -63,9 +60,9 @@ export interface ConfirmDialogProps
    */
   onCancel?: () => void
   /**
-   * Function that's called when confirm is clicked
+   * Function that's called when confirm is clicked.
    */
-  onConfirm?: () => void
+  onConfirm?: () => Promise<void> | void
 }
 
 export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
@@ -89,7 +86,26 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   const cancelRef = React.useRef(null)
   const confirmRef = React.useRef(null)
+  const [isLoading, setIsLoading] = React.useState(false)
 
+  const handleConfirm = async () => {
+    try {
+      const result = onConfirm?.()
+      if (typeof result?.then === 'function') {
+        setIsLoading(true)
+        await result
+      }
+
+      closeOnConfirm && onClose()
+      /* eslint-disable no-useless-catch */
+    } catch (e: any) {
+      throw e
+    } finally {
+      setIsLoading(false)
+    }
+    /* eslint-enable */
+  }
+  console.log(isLoading)
   return (
     <AlertDialog
       isOpen={isOpen}
@@ -116,18 +132,15 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
                   closeOnCancel && onClose()
                 }}
               >
-                {cancelProps?.children || cancelProps?.label || cancelLabel}
+                {cancelProps?.children || cancelLabel}
               </Button>
               <Button
                 ref={confirmRef}
+                isLoading={isLoading}
                 {...confirmProps}
-                onClick={() => {
-                  onConfirm?.()
-
-                  closeOnConfirm && onClose()
-                }}
+                onClick={handleConfirm}
               >
-                {confirmProps?.children || confirmProps?.label || confirmLabel}
+                {confirmProps?.children || confirmLabel}
               </Button>
             </ButtonGroup>
           </AlertDialogFooter>

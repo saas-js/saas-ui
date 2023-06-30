@@ -1,0 +1,71 @@
+---
+id: search-input
+title: SearchInput
+description: A search input type component.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+```ts
+import { SearchInput } from '@saas-ui/react'
+```
+
+## Usage
+
+The `SearchInput` composes the `Input` component with a search icon and reset button.
+
+### Basic
+
+```jsx
+<SearchInput placeholder="Search" />
+```
+
+### Default value
+
+```jsx
+<SearchInput placeholder="Search" defaultValue="AI prompt engineer" />
+```
+
+### Custom icons
+
+You can pass custom icons to the `icon` and `resetIcon` props.
+
+```jsx
+import { SearchIcon, CloseIcon } from '@chakra-ui/icons'
+
+export default function Search() {
+  return (
+    <SearchInput
+      placeholder="Search"
+      icon={<SearchIcon />}
+      resetIcon={<CloseIcon />}
+    />
+  )
+}
+```
+
+### Controlled
+
+You can control the value of the input by passing the `value` and `onChange` props. You can also pass an `onReset` prop to handle the reset button click.
+
+```jsx
+import { SearchInput } from '@saas-ui/react'
+
+export default function Search() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <SearchInput
+      placeholder="Search"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onReset={() => setValue('')}
+    />
+  )
+}
+```

@@ -1,13 +1,13 @@
 ---
-title: Private NPM
+title: Private NPM registry
 description: Install Saas UI Pro components from a private NPM registry.
 ---
 
-In the next steps we'll show you how to install `@saas-ui/pro` in new or existing projects.
-You'll need a valid license to install Pro, you can order one at [here](/#pricing).
+In the next steps we'll show you how to install `@saas-ui-pro/react` in new or existing projects.
+You'll need a valid license to install Pro, you can order one [here](/pricing).
 
 <Info>
-  Before continuing [follow these steps](/docs/core/getting-started) to set up
+  Before continuing [follow these steps](/docs/core/quickstarts) to set up
   `@saas-ui/react` and `@chakra-ui/react` in your project, if you haven't done
   so already.
 </Info>
@@ -17,7 +17,9 @@ You'll need a valid license to install Pro, you can order one at [here](/#pricin
 All pro packages can be installed from our private NPM registry at https://npm.saas-ui.dev.
 After [redeeming](/redeem) your license, an account will be automatically created.
 
-Your NPM account is a combination of the Github username you used to redeem your license and the license code (`username:licenseKey`).
+Your NPM account is a combination of the Github username (in lower case) you used to redeem your license and the license code (`username:license-key`).
+
+<NpmAuthToken />
 
 <Info>
   Configuration is slightly different for each package manager, so it's
@@ -30,10 +32,10 @@ Your NPM account is a combination of the Github username you used to redeem your
 In your project root folder you can run this and enter your Github username as user and license key as password.
 
 ```bash
-npm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui
+npm login --registry=https://npm.saas-ui.dev/ --scope=@saas-ui-pro
 ```
 
-Now run `npm i @saas-ui/pro` to install the Pro components.
+Now run `npm i @saas-ui-pro/react` to install the Pro components.
 
 #### Manual & CI configuration.
 
@@ -65,9 +67,9 @@ or run `source ~/.bash_profile`, to make sure the token is loaded.
 Then edit `.npmrc` in the root of your project and add the following lines.
 
 ```
-@saas-ui:registry=https://npm.saas-ui.dev
+@saas-ui-pro:registry=https://npm.saas-ui.dev
 //npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
 //npm.saas-ui.dev/:always-auth=true
 ```
 
-Now run `npm i @saas-ui/pro` to check if the configuration was succesful.
+Now run `npm i @saas-ui-pro/react` to check if the configuration was succesful.

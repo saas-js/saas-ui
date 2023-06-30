@@ -1,0 +1,134 @@
+---
+id: date-range-picker
+title: DateRangePicker
+description: Allow users to select a Date and Time value.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DateRangePicker is currently in beta, we'd love to hear your feedback
+  while we finalize the API.
+</Info>
+
+## Import
+
+- `DateRangePicker`: The container component that manages state and context.
+- `DateRangePickerCalendar`: Calender showing available months and days.
+- `DateRangePickerTimeField`: Time field to allow users enter a time.
+- `DatePickerTrigger`: Wrapper that toggles the DatePickerDialog visibility.
+- `DatePickerDialog`: The date picker content.
+
+```ts
+import {
+  DateRangePicker,
+  DateRangePickerCalendar,
+  DateRangePickerTimeField,
+  DateRangeTrigger,
+  DateRangeDialog,
+} from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DateRangePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+<DateRangePicker>
+  <DatePickerTrigger>
+    <Button>Open DateRangePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DateRangePickerCalendar />
+  </DatePickerDialog>
+</DateRangePicker>
+```
+
+### With time
+
+```jsx center=true
+<DateRangePicker granularity="minute">
+  <DatePickerTrigger>
+    <Button>Open DateRangePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DateRangePickerCalendar />
+    <DateRangePickerTimeField />
+  </DatePickerDialog>
+</DateRangePicker>
+```
+
+### With 24 hour time
+
+```jsx center=true
+<DateRangePicker hourCycle="24" granularity="minute">
+  <DatePickerTrigger>
+    <Button>Open DateRangePicker</Button>
+  </DatePickerTrigger>
+  <DatePickerDialog>
+    <DateRangePickerCalendar />
+    <DateRangePickerTimeField />
+  </DatePickerDialog>
+</DateRangePicker>
+```
+
+### Controlled
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: today(getLocalTimeZone()),
+    end: null,
+  })
+
+  const start = value.start ? value.start.toString() : ''
+  const end = value.end ? value.end.toString() : ''
+
+  return (
+    <DateRangePicker value={value} onChange={setValue}>
+      <DatePickerTrigger>
+        <Button>{start + ' - ' + end}</Button>
+      </DatePickerTrigger>
+      <DatePickerDialog>
+        <DateRangePickerCalendar />
+      </DatePickerDialog>
+    </DateRangePicker>
+  )
+}
+```
+
+### Controlled with time
+
+```jsx center=true
+function ControlledPicker() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  const start = value.start ? value.start.toString() : ''
+  const end = value.end ? value.end.toString() : ''
+
+  return (
+    <DateRangePicker value={value} onChange={setValue} granularity="minute">
+      <DatePickerTrigger>
+        <Button>{start + ' - ' + end}</Button>
+      </DatePickerTrigger>
+      <DatePickerDialog>
+        <DateRangePickerCalendar />
+        <DateRangePickerTimeField />
+      </DatePickerDialog>
+    </DateRangePicker>
+  )
+}
+```

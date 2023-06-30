@@ -1,8 +1,8 @@
 export * from './display-field'
 export * from './field'
 export * from './fields'
-export * from './form'
-export * from './auto-form'
+export * from './fields-context'
+// export * from './auto-form'
 export * from './layout'
 export * from './submit-button'
 export * from './array-field'
@@ -13,6 +13,65 @@ export * from './step-form'
 export * from './use-step-form'
 export * from './field-resolver'
 export * from './watch-field'
+export * from './input-right-button'
+export * from './select'
+export * from './password-input'
+export * from './radio'
+
+export * from './base-field'
+
+export {
+  CheckboxField,
+  InputField,
+  NativeSelectField,
+  NumberInputField,
+  PasswordInputField,
+  PinField,
+  RadioField,
+  SelectField,
+  SwitchField,
+  TextareaField,
+  defaultFieldTypes,
+  type DefaultFields,
+  type InputFieldProps,
+  type NumberInputFieldProps,
+  type PinFieldProps,
+} from './default-fields'
+
+export type {
+  FieldProps,
+  WithFields,
+  BaseFieldProps,
+  FieldOptions,
+  DefaultFieldOverrides,
+} from './types'
+
+export { createForm, type CreateFormProps, type FormType } from './create-form'
+export { createField, type CreateFieldOptions } from './create-field'
+
+export { Form as BaseForm } from './form'
+export type { FormProps, FormRenderContext, FormComponent } from './form'
+
+export { FormProvider, useFormContext } from './form-context'
+
+import { createForm } from './create-form'
+import { createStepForm } from './create-step-form'
+
+/**
+ * Form component.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/form
+ */
+export const Form = createForm()
+
+export { createStepForm } from './create-step-form'
+
+/**
+ * Multi-step form component.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
+export const StepForm = createStepForm()
 
 export type {
   BatchFieldArrayUpdate,
@@ -117,9 +176,7 @@ export {
   useController,
   useFieldArray,
   useForm,
-  useFormContext,
   useFormState,
   useWatch,
   Controller,
-  FormProvider,
 } from 'react-hook-form'

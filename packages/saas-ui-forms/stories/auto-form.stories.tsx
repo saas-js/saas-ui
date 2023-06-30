@@ -2,13 +2,12 @@ import { Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
-
-import { yupForm } from '../yup/src'
+import { createYupForm } from '@saas-ui/forms/yup'
 
 import * as z from 'zod'
-import { zodForm, zodMeta } from '../zod/src'
+import { createZodForm, zodMeta } from '@saas-ui/forms/zod'
 
-import { AutoForm, SubmitButton } from '../src'
+import { Form, SubmitButton } from '../src'
 
 import { onSubmit } from './helpers'
 
@@ -37,6 +36,7 @@ const basicSchema = {
   },
   emails: {
     type: 'array',
+    label: 'Emails',
     items: {
       type: 'object',
       properties: {
@@ -46,7 +46,7 @@ const basicSchema = {
       },
     },
   },
-}
+} as const
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -68,6 +68,8 @@ const schema = Yup.object().shape({
     .label('Email addresses'),
 })
 
+const YupForm = createYupForm()
+
 const zodSchema = z.object({
   firstName: z
     .string()
@@ -87,9 +89,11 @@ const zodSchema = z.object({
     .describe('Email addresses'),
 })
 
+const ZodForm = createZodForm()
+
 export const Basic = () => (
   <>
-    <AutoForm
+    <Form
       defaultValues={{
         firstName: '',
         lastName: '',
@@ -100,25 +104,6 @@ export const Basic = () => (
         ],
       }}
       schema={basicSchema}
-      onSubmit={onSubmit}
-    />
-  </>
-)
-
-export const SubmitLabel = () => (
-  <>
-    <AutoForm
-      defaultValues={{
-        firstName: '',
-        lastName: '',
-        emails: [
-          {
-            address: '',
-          },
-        ],
-      }}
-      schema={basicSchema}
-      submitLabel={'Save'}
       onSubmit={onSubmit}
     />
   </>
@@ -126,7 +111,7 @@ export const SubmitLabel = () => (
 
 export const CustomSubmit = () => (
   <>
-    <AutoForm
+    <Form
       defaultValues={{
         firstName: '',
         lastName: '',
@@ -137,17 +122,21 @@ export const CustomSubmit = () => (
         ],
       }}
       schema={basicSchema}
-      submitLabel={null}
       onSubmit={onSubmit}
-    >
-      <SubmitButton colorScheme="secondary">Save</SubmitButton>
-    </AutoForm>
+      fields={{
+        submit: {
+          children: 'Save',
+          variant: 'secondary',
+        },
+      }}
+    />
   </>
 )
 
 export const YupSchema = () => (
   <>
-    <AutoForm
+    <YupForm
+      schema={schema}
       defaultValues={{
         firstName: '',
         lastName: '',
@@ -158,14 +147,14 @@ export const YupSchema = () => (
         ],
       }}
       onSubmit={onSubmit}
-      {...yupForm(schema)}
     />
   </>
 )
 
 export const ZodSchema = () => (
   <>
-    <AutoForm
+    <ZodForm
+      schema={zodSchema}
       defaultValues={{
         firstName: '',
         lastName: '',
@@ -176,14 +165,26 @@ export const ZodSchema = () => (
         ],
       }}
       onSubmit={onSubmit}
-      {...zodForm(zodSchema)}
     />
   </>
 )
 
 export const ZodSchemaNested = () => (
   <>
-    <AutoForm
+    <ZodForm
+      schema={z.object({
+        title: z
+          .string()
+          .min(2, 'Too short')
+          .max(25, 'Too long')
+          .describe('Title'),
+        author: z
+          .object({
+            name: z.string().describe('Name'),
+            email: z.string().email().describe('Email'),
+          })
+          .describe('Author'),
+      })}
       defaultValues={{
         title: '',
         author: {
@@ -191,71 +192,69 @@ export const ZodSchemaNested = () => (
           email: '',
         },
       }}
+      fields={{
+        author: {
+          type: 'object',
+          columns: 2,
+        },
+        'author.email': {
+          type: 'email',
+        },
+      }}
       onSubmit={onSubmit}
-      {...zodForm(
-        z.object({
-          title: z
-            .string()
-            .min(2, 'Too short')
-            .max(25, 'Too long')
-            .describe('Title'),
-          author: z
-            .object({
-              name: z.string().describe('Name'),
-              email: z.string().describe('Email'),
-            })
-            .describe('Author'),
-        })
-      )}
     />
   </>
 )
 
 export const ZodSchemaArray = () => (
   <>
-    <AutoForm
+    <ZodForm
+      schema={z.object({
+        description: z
+          .string()
+          .min(2, 'Too short')
+          .max(25, 'Too long')
+          .describe('Description'),
+        todos: z
+          .array(
+            z.object({
+              todo: z.string().describe('Todo'),
+            })
+          )
+          .min(1, 'Add minimal 1 todo')
+          .max(10, 'Maximum 10 todos')
+          .describe('Todos'),
+      })}
       defaultValues={{
         description: '',
         todos: [{ todo: '' }],
       }}
+      fields={{
+        'todos.$.todo': {
+          type: 'textarea',
+        },
+        submit: {
+          children: 'Save',
+        },
+      }}
       onSubmit={onSubmit}
-      {...zodForm(
-        z.object({
-          description: z
-            .string()
-            .min(2, 'Too short')
-            .max(25, 'Too long')
-            .describe('Description'),
-          todos: z
-            .array(
-              z.object({
-                todo: z.string().describe('Todo'),
-              })
-            )
-            .min(1, 'Add minimal 1 todo')
-            .max(10, 'Maximum 10 todos')
-            .describe('Todos'),
-        })
-      )}
     />
   </>
 )
 
 export const ZodSchemaMeta = () => (
   <>
-    <AutoForm
+    <ZodForm
+      schema={z.object({
+        description: z
+          .string()
+          .min(2, 'Too short')
+          .describe(zodMeta({ label: 'Description', type: 'textarea' })),
+      })}
       defaultValues={{
         description: '',
       }}
       onSubmit={onSubmit}
-      {...zodForm(
-        z.object({
-          description: z
-            .string()
-            .min(2, 'Too short')
-            .describe(zodMeta({ label: 'Description', type: 'textarea' })),
-        })
-      )}
     />
   </>
 )

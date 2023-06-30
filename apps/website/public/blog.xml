@@ -30,5 +30,15 @@
     
   </item>
 
+  <item>
+    <guid>https://saas-ui.dev/blog/saas-ui-2-0</guid>
+    <title>Saas UI 2.0 is out!</title>
+    <link>https://saas-ui.dev/blog/saas-ui-2-0</link>
+    <description>After a lot of hard work we are proud to announce the release of Saas UI 2.0!</description>
+    <pubDate>Fri, 30 Jun 2023 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
     </channel>
   </rss>

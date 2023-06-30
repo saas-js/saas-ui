@@ -1286,10 +1286,10 @@ export async function getStaticProps() {
   return {
     props: {
       announcement: {
-        title: '@saas-ui/react@2.0.0-rc is now available!',
-        description:
-          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: 'https://beta.saas-ui.dev',
+        title: 'Introducing Saas UI 2.0 🥳',
+        // description:
+        //   '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
+        href: '/blog/saas-ui-2-0',
         action: false,
       },
       header: {

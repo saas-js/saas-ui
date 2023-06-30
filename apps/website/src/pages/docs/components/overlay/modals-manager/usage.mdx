@@ -137,17 +137,22 @@ export default function Page() {
 
 You can create custom modals, or change the default modals
 `modal`, `drawer`, `alert`, `confirm` if you desire to use a
-different composition.
+different composition or use a different FormDialog implementation.
 
 ```tsx
-const modals = {
-  modal: MyModal,
-  custom: CustomModal,
-  // etc
-}
+import { createModals } from '@saas-ui/react'
+import { FormDialog } from '@saas-ui/forms/zod'
+
+const { ModalsProvider, useModals } = createModals({
+  modals: {
+    modal: MyModal,
+    custom: CustomModal,
+    form: FormDialog,
+  },
+})
 
 function App({ children }) {
-  return <ModalsProvider modals={modals}>{children}</ModalsProvider>
+  return <ModalsProvider>{children}</ModalsProvider>
 }
 
 function Page() {

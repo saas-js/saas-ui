@@ -1,0 +1,320 @@
+---
+title: Saas UI 2.0 is out!
+date: '2023-06-30'
+author: Eelco Wiersma
+avatar: /eelco128.jpg
+description: After a lot of hard work we are proud to announce the release of Saas UI 2.0!
+---
+
+This release comes with improved type-safety for forms and the modal manager, improved APIs and composition of components, a long with a lot of bug fixes and improvements.
+
+## Forms
+
+- `Form` now accepts a render prop that gives you access to the internal form state, as well as typed Form components.
+
+```tsx
+export default function MyForm = () => {
+  return (
+    <Form defaultValues={{name: ''}}>
+      {({Field}) => (
+        <Field type="text" name="name" />
+      )}
+    </Form>
+  )
+}
+```
+
+- `AutoForm` has been removed, you can use `Form` instead. `Form` will auto render fields based on the schema you pass to it, when no children are provided.
+
+- Importing `Form` from `@saas-ui/forms/yup` or `@saas-ui/forms/zod` gives you a typed `Form` component. No longer needed to use `useForm` or `getResolver`.
+
+- `registerFieldType` has been renamed to `createField` and can be used together with `createForm` to create forms with custom fields.
+
+```tsx
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
+
+// zod
+// import {createZodForm} from '@saas-ui/forms/zod'
+
+// yup
+// import {createYupForm} from '@saas-ui/forms/yup'
+
+const MyCustomField = createField(
+  React.forwardRef((props, ref) => {
+    return <input ref={ref} {...props} />
+  })
+)
+
+const MyCustomControlledField = createField(
+  React.forwardRef((props, ref) => {
+    return <ReactSelect ref={ref} {...props} />
+  }),
+  {
+    isControlled: true,
+  }
+)
+
+export const Form = createForm({
+  fields: {
+    custom: MyCustomField,
+    'custom-controlled': MyCustomControlledField,
+  },
+})
+```
+
+## StepForm
+
+`StepForm` has a new improved API, similar to `Form`.
+
+```tsx
+import {StepForm} from '@saas-ui/react'
+
+// zod
+// import { StepForm } from '@saas-ui/forms/zod'
+
+// yup
+// import { StepForm } from '@saas-ui/forms/yup'
+
+export default function MyStepForm = () => {
+  return (
+    <StepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+Zod and Yup forms now expect a `steps` property that contains the schemas for each step.
+
+```tsx
+export default function MyStepForm = () => {
+  return (
+    <StepForm
+      steps={[{
+        name: 'profile',
+        schema: z.object({
+          name: z.string(),
+          email: z.string().email(),
+        })
+      }, {
+        name: 'password',
+        schema: z.object({
+          password: z.string().min(4),
+        })
+      }]}
+      defaultValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormLayout>
+          <FormStep name="profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password">
+            <FormLayout>
+              <Field
+                name="password"
+                label="Password"
+                rules={{ required: true, minLength: 4 }}
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormLayout>
+      )}
+    </StepForm>
+  )
+}
+```
+
+## FormDialog
+
+`FormDialog` now comes with a Yup and Zod variant out of the box.
+
+To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod` (or `@saas-ui/forms/yup` for Yup schemas)
+
+```jsx
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
+import { FormDialog } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+
+const schema = z.object({
+  title: z.string().describe('Title'),
+  description: z.string().optional().describe('Description'),
+})
+
+export default function Page() {
+  const disclosure = useDisclosure()
+
+  const onSubmit = async (data) => {
+    disclosure.onClose()
+  }
+
+  return (
+    <>
+      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
+
+      <FormDialog
+        title="New post"
+        schema={schema}
+        {...disclosure}
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        fields={{
+          description: {
+            type: 'textarea',
+          },
+        }}
+        onSubmit={onSubmit}
+      />
+    </>
+  )
+}
+```
+
+## Modals
+
+The modals manager now has a new API that allows you to create modals or change the default modals in a convenient way.
+
+```tsx
+import { createModals } from '@saas-ui/react'
+import { FormDialog } from '@saas-ui/forms/zod'
+
+const { ModalsProvider, useModals } = createModals({
+  modals: {
+    modal: MyModal,
+    custom: CustomModal,
+    form: FormDialog,
+  },
+})
+
+function App({ children }) {
+  return <ModalsProvider>{children}</ModalsProvider>
+}
+
+function Page() {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'My modal',
+          body: 'Custom modal',
+          type: 'custom',
+        })
+      }
+    >
+      Open custom modal
+    </Button>
+  )
+}
+```
+
+## Components
+
+### List
+
+`List` has been renamed to `StructuredList` and has a new improved API that gives you much more flexibility to build all kinds of lists, [see documentation](/docs/components/data-display/structured-list).
+
+```tsx
+<StructuredList>
+  <StructuredListItem>
+    <StructuredListCell>
+      <Text fontWeight="bold">Elliot Alderson</Text>
+      <Text fontSize="sm" color="muted">
+        Hacker
+      </Text>
+    </StructuredListCell>
+    <StructuredListCell>
+      <Tag>admin</Tag>
+    </StructuredListCell>
+  </StructuredListItem>
+</StructuredList>
+```
+
+### Loader
+
+`Loader` has been renamed to `LoadingOverlay` and has a new improved API.
+
+```tsx
+<LoadingOverlay>
+  <LoadingSpinner />
+</LoadingOverlay>
+```
+
+### Sidebar
+
+The `Sidebar` is out of beta.
+
+[See the full changelog](/changelog#06-30-2023).
+
+## Future of Saas UI
+
+There is a lot of good stuff coming in the next 6 months, here's a little sneak peak of what to expect.
+
+### New components
+
+We will be releasing more Pro components in the Open Source library in the next few months to give you more building blocks to build your applications.
+
+### Figma design system
+
+After much request we are also working on a new Figma design system that will be released very soon, join our [Discord](https://discord.gg/4PmJGFcAjX) to get early access.
+
+### Cross framework design system
+
+There has been a big move away from CSS-in-JS in the last 6 months,
+in big part due to the introduction of the Next.js app router and RSC (React Server Components).
+This came with a lot of misconceptions and confusion about client side components (`use server` vs `use client`) being bad and server components are the way forward.
+The fact is you cannot build modern web applications without client side components, we believe there is a big role for SPAs applications.
+Especially for the types of apps Saas UI is designed for, B2B applications, dashboards and internal tools that are not public facing and need to be highly interactive.
+JSX with CSS-in-JS like APIs is still the best way to build these types of applications.
+
+Today you can already use Chakra UI and Saas UI with the Next.js app directory to build SPA style applications.
+The app directory gives you a much better router with nested layouts and a much better developer experience for data fetching with server components.
+While the app directory has been released as stable, it still comes with a lot of performance issues in development and we still recommend the pages router for now.
+
+We will continue to work on the Chakra UI version of Saas UI, but have also started exploring to bring the Saas UI design system to other platforms.
+With the releases of Mitosis, Zag.js, Ark and PandaCSS opening the door for maintainable cross framework UI libraries, we are very excited about the future of Saas UI.
+
+If you are interested in helping us build the future of Saas UI, join our [Discord](https://discord.gg/4PmJGFcAjX).

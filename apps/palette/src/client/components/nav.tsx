@@ -6,20 +6,7 @@ export const Nav = () => {
   return (
     <>
       <Button as="a" href="https://saas-ui.dev/themes" variant="ghost">
-        <HStack justifyContent="center">
-          <Text>Themes</Text>
-          <Box lineHeight={1.4}>
-            <Badge
-              variant="solid"
-              colorScheme="primary"
-              rounded="full"
-              px="2"
-              fontWeight="medium"
-            >
-              New!
-            </Badge>
-          </Box>
-        </HStack>
+        Themes
       </Button>
 
       <Button as="a" href="https://saas-ui.dev/docs" variant="ghost">

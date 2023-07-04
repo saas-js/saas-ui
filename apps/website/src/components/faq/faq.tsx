@@ -30,7 +30,15 @@ export const Faq = () => {
         />
         <FaqItem
           question="Does Saas UI include Figma, Sketch or other design files?"
-          answer="No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks."
+          answer={
+            <>
+              Yes, we have a Figma community and pro version.{' '}
+              <Link href="https://www.figma.com/community/file/1257658419283927894">
+                View community Figma
+              </Link>
+              .
+            </>
+          }
         />
         <FaqItem
           question="Does Saas UI have a Javascript version?"

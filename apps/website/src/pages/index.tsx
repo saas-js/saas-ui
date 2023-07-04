@@ -947,10 +947,15 @@ const Highlights = () => {
               content: '""',
               position: 'absolute',
               inset: 0,
-              bgGradient: 'linear(to-b, gray.800, transparent, gray.800)',
+              bgGradient: 'linear(to-b, white, transparent, white)',
               zIndex: 1,
             }}
             overflow="hidden"
+            _dark={{
+              _before: {
+                bgGradient: 'linear(to-b, gray.800, transparent, gray.800)',
+              },
+            }}
           >
             <svg
               height="400px"

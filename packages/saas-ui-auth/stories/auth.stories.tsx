@@ -23,8 +23,55 @@ const passwordSchema = Yup.object({
   password: Yup.string().min(4).required().label('Password'),
 })
 
+type CustomUser = {
+  email: string
+}
+
+const createAuthService = (): AuthProviderProps<CustomUser> => {
+  let user: CustomUser | null = null
+  return {
+    onLogin: async (params: AuthParams) => {
+      if (params.email) {
+        user = { email: params.email }
+        return user
+      }
+    },
+    onSignup: async (params: AuthParams) => {
+      if (params.email) {
+        user = { email: params.email }
+        return user
+      }
+    },
+    onVerifyOtp: async (params: AuthParams) => {
+      return true // check if params.otp is valid
+    },
+    onLogout: async () => {
+      user = null
+    },
+    onAuthStateChange: (callback) => {
+      // Set up and event handler that calls `callback(user)` with the current user or undefined if the user is logged out
+      return () => {
+        // Remove the event handler
+      }
+    },
+    onLoadUser: async () => {
+      return user
+    },
+    onGetToken: async () => {
+      // return a session token if it's supported.
+      return null
+    },
+    onResetPassword: async (params: AuthParams) => {
+      // send a reset password email
+    },
+    onUpdatePassword: async (params: AuthParams) => {
+      // update the user's password, eg after sending a reset password email
+    },
+  }
+}
+
 const authProvider: AuthProviderProps<any> = {
-  onLogin: async (params: AuthParams) => {
+  onLogin: async (params) => {
     console.log('onLogin', params)
     const { email, password, provider } = params
     // email and provider login may return an empty object on success
@@ -43,13 +90,13 @@ const authProvider: AuthProviderProps<any> = {
       email,
     } as unknown as User
   },
-  onSignup: async (params: AuthParams) => {
+  onSignup: async (params) => {
     const { email } = params
     return { id: 1, email } as unknown as User
   },
   onVerifyOtp: async () => true,
-  onResetPassword: async (params: AuthParams) => true,
-  onUpdatePassword: async (params: AuthParams) => true,
+  onResetPassword: async (params) => true,
+  onUpdatePassword: async (params) => true,
 }
 
 export default {

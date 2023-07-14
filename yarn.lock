@@ -6558,8 +6558,6 @@ __metadata:
     tsup: ^6.7.0
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-    "@storybook/addons": ">=7"
-    "@storybook/api": ">=7"
     "@storybook/components": ">=7"
     react: ">=18.0.x"
   peerDependenciesMeta:

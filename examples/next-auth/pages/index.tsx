@@ -1,12 +1,17 @@
 import { Box, Button } from '@chakra-ui/react'
-import { Loader, useAuth } from '@saas-ui/react'
+import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+import { useAuth } from '@saas-ui/auth'
 import NextLink from 'next/link'
 
 const IndexPage = () => {
   const { isLoggingIn, user, logOut } = useAuth()
 
   if (isLoggingIn) {
-    return <Loader variant="fullscreen" />
+    return (
+      <LoadingOverlay variant="fullscreen">
+        <LoadingSpinner />
+      </LoadingOverlay>
+    )
   } else if (!user) {
     return (
       <Box>

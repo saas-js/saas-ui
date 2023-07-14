@@ -1,11 +1,5 @@
-import { Stack } from '@chakra-ui/react'
-import {
-  Auth,
-  AvailableProviders,
-  Card,
-  CardBody,
-  useAuth,
-} from '@saas-ui/react'
+import { Stack, Card, CardBody } from '@chakra-ui/react'
+import { Auth, AvailableProviders, useAuth } from '@saas-ui/auth'
 import { useRouter } from 'next/router'
 import React from 'react'
 

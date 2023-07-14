@@ -1,0 +1,59 @@
+---
+title: Customize authentication screens
+description: How to customize the built-in authentication screens
+---
+
+## Configure your auth screens
+
+Next you'll need to configure your authentication screens.
+This can be done by editing `packages/app-config/src/auth.ts`.
+
+### 1. Authentication type
+
+Here you can change your preferred authentication type, `magiclink` or `password`.
+
+```ts
+export const authType = 'password'
+```
+
+### 2. Oauth providers
+
+And the OAuth providers you want to use. Set `authProviders` to undefined to disable social login.
+
+```ts
+export const authProviders: AvailableProviders = {
+  google: {
+    icon: FaGoogle,
+    name: 'Google',
+  },
+  github: {
+    icon: FaGithub,
+    name: 'Github',
+  },
+}
+```
+
+### 3. Paths and titles
+
+If you use different paths you can change them here.
+
+```ts
+export const authPaths: Record<string, any> = {
+  '/login': {
+    view: 'login',
+    title: 'Welcome back',
+  },
+  '/signup': {
+    view: 'signup',
+    title: 'Sign up for free',
+  },
+  '/forgot_password': {
+    view: 'forgot_password',
+    title: 'Reset your password',
+  },
+  '/reset_password': {
+    view: 'update_password',
+    title: 'Enter a new password',
+  },
+}
+```

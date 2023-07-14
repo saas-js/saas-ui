@@ -216,7 +216,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const githubInvited = await addGithubCollaborator(req.body.githubAccount)
 
     const npmAccount = await addNpmAccount(
-      req.body.githubAccount,
+      req.body.githubAccount.toLowerCase(),
       req.body.licenseKey,
       result.email
     )

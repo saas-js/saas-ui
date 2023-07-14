@@ -9,7 +9,6 @@ import { UpdatePasswordView } from './update-password-view'
 import { OtpView } from './otp-view'
 import { AvailableProviders } from './forms/providers'
 import { FormProps } from '@saas-ui/forms'
-import { error } from 'console'
 
 export const VIEWS = {
   LOGIN: 'login',

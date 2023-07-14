@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 2.0.2
+
+### Patch Changes
+
+- df98007a: Add missing dependency
+- 9b609119: Fix issue where Link would not pass props correctly.
+- Updated dependencies [9b609119]
+  - @saas-ui/core@2.0.1
+  - @saas-ui/data-table@2.0.2
+  - @saas-ui/auth@2.0.1
+  - @saas-ui/forms@2.0.1
+  - @saas-ui/hotkeys@2.0.1
+  - @saas-ui/modals@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

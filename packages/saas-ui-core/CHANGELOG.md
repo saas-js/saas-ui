@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.1
+
+### Patch Changes
+
+- 9b609119: Fix issue where Link would not pass props correctly.
+
 ## 2.0.0
 
 ### Major Changes

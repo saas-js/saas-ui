@@ -46,6 +46,7 @@ import {
   CardFooter,
   Image,
   useClipboard,
+  Divider,
 } from '@chakra-ui/react'
 import {
   Select,
@@ -57,7 +58,6 @@ import {
   StructuredListCell,
   PersonaAvatar,
   SearchInput,
-  Divider,
   useSnackbar,
   ModalsProvider,
 } from '@saas-ui/react'

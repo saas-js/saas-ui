@@ -61,12 +61,6 @@ export const docsNav = [
       (href.startsWith('/docs/core') && asPath.startsWith('/docs/core')),
   },
   {
-    href: '/docs/guides',
-    label: 'Guides',
-    match: (asPath: string, href: string) =>
-      href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
-  },
-  {
     href: '/docs/components',
     label: 'Components',
     match: (asPath: string, href: string) =>
@@ -78,6 +72,12 @@ export const docsNav = [
     label: 'Hooks',
     match: (asPath: string, href: string) =>
       href.startsWith('/docs/hooks') && asPath.startsWith('/docs/hooks'),
+  },
+  {
+    href: '/docs/guides',
+    label: 'Guides',
+    match: (asPath: string, href: string) =>
+      href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
   },
   {
     href: '/docs/pro/overview',
@@ -136,6 +136,7 @@ export const SecondaryNav = (props) => {
         backdropFilter: 'blur(16px)',
         mask: 'linear-gradient(to-b, black, transparent)',
         WebkitMask: 'linear-gradient(to bottom, black 48px, transparent)',
+        transform: 'translate3d(0, 0, 0)',
       }}
     >
       <Box position="relative" borderBottomWidth="1px">

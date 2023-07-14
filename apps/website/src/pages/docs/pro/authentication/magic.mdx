@@ -1,0 +1,35 @@
+---
+title: Magic.link Authentication
+description: How configure the Magic.link authentication service.
+---
+
+Saas UI supports authentication with [Magic.link](https://magic.link/). The following steps will guide you through the process of setting up Magic.link authentication.
+
+1. Install the Magic Javascript client and the magic auth service in the @app/config package.
+
+```bash
+cd packages/app-config && yarn add magic-sdk @saas-ui/magic
+```
+
+2. Copy `apps/web/.env.example` to `apps/web/.env` and add your public Magic API Key.
+
+```bash
+NEXT_PUBLIC_MAGIC_API_KEY="..."
+```
+
+3. Edit `packages/app-config/src/auth-service` and create the Magic authentication service.
+
+```js
+import { Magic } from 'magic-sdk'
+import { createAuthService } from '@saas-ui/magic'
+
+export const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_API_KEY || '')
+
+export const authService = createAuthService(magic)
+```
+
+Now your frontend is configured to use Supabase authentication.
+
+Try it out by running `yarn dev:web` and navigating to `http://localhost:3000/app`.
+
+<Info>The Magic integration only supports magic link authentication.</Info>

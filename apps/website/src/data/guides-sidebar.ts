@@ -18,18 +18,6 @@ const sidebar = {
         },
       ],
     },
-    {
-      title: 'Forms',
-      path: '/docs/guides/forms',
-      heading: true,
-      open: true,
-      routes: [
-        {
-          title: 'End-to-End typesafe forms',
-          path: '/docs/guides/forms/typesafe-forms',
-        },
-      ],
-    },
   ] as RouteItem[],
 }
 

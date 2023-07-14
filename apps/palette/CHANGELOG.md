@@ -1,5 +1,14 @@
 # palette
 
+## 1.3.10
+
+### Patch Changes
+
+- Updated dependencies [df98007a]
+- Updated dependencies [9b609119]
+  - @saas-ui/react@2.0.2
+  - @saas-ui/theme-glass@0.4.0
+
 ## 1.3.9
 
 ### Patch Changes

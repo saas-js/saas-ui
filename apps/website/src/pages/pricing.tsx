@@ -286,6 +286,7 @@ const PricingBox = ({
     <VStack
       zIndex="2"
       backdropFilter="blur(100px)"
+      transform="translate3d(0, 0, 0)"
       borderRadius="lg"
       p="8"
       flex="1 0"

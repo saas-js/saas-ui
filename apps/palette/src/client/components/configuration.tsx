@@ -17,7 +17,13 @@ import {
   SliderTrack,
   VStack,
 } from '@chakra-ui/react'
-import { Form, Select } from '@saas-ui/react'
+import {
+  Form,
+  Select,
+  SelectButton,
+  SelectList,
+  SelectOption,
+} from '@saas-ui/react'
 import { useCallback } from 'react'
 import { FaTwitter } from 'react-icons/fa'
 import Section from './section'
@@ -59,14 +65,18 @@ const PaletteConfiguration = () => {
             <FormLabel>Theme</FormLabel>
 
             <Select
+              name="theme"
               value={theme}
               onChange={(theme) =>
                 setState((state) => ({ ...state, theme: theme as string }))
               }
             >
-              <MenuItemOption value="Glass">Glass</MenuItemOption>
-              <MenuItemOption value="Chakra UI">Chakra UI</MenuItemOption>
-              <MenuItemOption value="Saas UI">Saas UI</MenuItemOption>
+              <SelectButton>{theme}</SelectButton>
+              <SelectList>
+                <SelectOption value="Glass">Glass</SelectOption>
+                <SelectOption value="Chakra UI">Chakra UI</SelectOption>
+                <SelectOption value="Saas UI">Saas UI</SelectOption>
+              </SelectList>
             </Select>
           </FormControl>
           <FormControl>

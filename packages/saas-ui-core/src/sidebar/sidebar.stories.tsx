@@ -57,7 +57,7 @@ export default {
 } as Meta
 
 const Template: StoryFn<SidebarProps> = (args) => (
-  <AppShell sidebar={<Sidebar {...args} />}>
+  <AppShell sidebar={<Sidebar {...args} />} height="$100vh">
     <Box px="4" py="3">
       <SidebarToggleButton />
     </Box>
@@ -69,7 +69,7 @@ Basic.args = {
   children: (
     <>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem>Home</NavItem>
+        <NavItem href="/dfdfd">Home</NavItem>
         <NavItem>Users</NavItem>
         <NavItem>Settings</NavItem>
       </SidebarSection>

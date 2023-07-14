@@ -1,0 +1,126 @@
+---
+title: Custom auth service
+description: How to create a custom auth service
+---
+
+The `AuthProvider` allows you to configure custom auth services. This is useful if you have a custom auth solution,
+or if you want to use a different auth service than the ones provided by Saas UI.
+
+An `AuthService` is simply a function that returns the configuration for the `AuthProvider`.
+
+## Example AuthService
+
+```ts
+import { AuthProviderConfig } from '@saas-ui/auth'
+
+type CustomUser = {
+  email: string
+}
+
+export const createAuthService = (): AuthProviderProps<CustomUser> => {
+  let user: CustomUser | null = null
+  return {
+    onLogin: async (params: AuthParams) => {
+      if (params.email) {
+        user = { email: params.email }
+        return user
+      }
+    },
+    onSignup: async (params: AuthParams) => {
+      if (params.email) {
+        user = { email: params.email }
+        return user
+      }
+    },
+    onVerifyOtp: async (params: AuthParams) => {
+      return true // check if params.otp is valid
+    },
+    onLogout: async () => {
+      user = null
+    },
+    onAuthStateChange: (callback) => {
+      // Set up and event handler that calls `callback(user)` with the current user or undefined if the user is logged out
+      return () => {
+        // Remove the event handler
+      }
+    },
+    onLoadUser: async () => {
+      return user
+    },
+    onGetToken: async () => {
+      // return a session token if it's supported.
+      return null
+    },
+    onResetPassword: async (params: AuthParams) => {
+      // send a reset password email
+    },
+    onUpdatePassword: async (params: AuthParams) => {
+      // update the user's password, eg after sending a reset password email
+    },
+  }
+}
+```
+
+After creating your service you can pass it to the `AuthProvider`:
+
+```tsx
+import { AuthProvider } from '@saas-ui/auth'
+import { createAuthService } from './auth-service'
+
+const authService = createAuthService()
+
+const App = ({ Component, pageProps }) => {
+  return (
+    <AuthProvider {...authService}>
+      <Component {...pageProps} />
+    </AuthProvider>
+  )
+}
+```
+
+## Passing properties to the AuthService
+
+Since the auth service is just a function, you can pass properties to it:
+
+```ts
+import { AuthProviderConfig } from '@saas-ui/auth'
+
+type CustomUser = {
+  email: string
+}
+
+type AuthServiceProps = {
+  redirectUrl: string
+}
+
+export const createAuthService = (
+  props: AuthServiceProps
+): AuthProviderProps<CustomUser> => {
+  return {
+    onLogin: async (params: AuthParams) => {
+      login({
+        redirectUrl: props.redirectUrl,
+        // ...
+      })
+      // ...
+    },
+  }
+}
+```
+
+And in your app:
+
+```tsx
+import { AuthProvider } from '@saas-ui/auth'
+import { createAuthService } from './auth-service'
+
+const authService = createAuthService({
+  redirectUrl: 'https://my-app/auth/callback',
+})
+```
+
+## What's next?
+
+- [AuthProvider docs](/docs/components/auth/auth-provider)
+- [Supabase auth service](https://github.com/saas-js/saas-ui/blob/main/packages/saas-ui-supabase/src/supabase.ts)
+- [NextAuth example](https://github.com/saas-js/saas-ui/tree/main/examples/next-auth)

@@ -1,4 +1,4 @@
-import { AuthProvider, AuthProviderProps, User } from '@saas-ui/react'
+import { AuthProvider, AuthProviderProps, User } from '@saas-ui/auth'
 import { SessionProvider, signIn, signOut, useSession } from 'next-auth/react'
 import { Session } from 'next-auth'
 import React from 'react'

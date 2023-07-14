@@ -136,6 +136,7 @@ export const SecondaryNav = (props) => {
         backdropFilter: 'blur(16px)',
         mask: 'linear-gradient(to-b, black, transparent)',
         WebkitMask: 'linear-gradient(to bottom, black 48px, transparent)',
+        transform: 'translate3d(0, 0, 0)',
       }}
     >
       <Box position="relative" borderBottomWidth="1px">

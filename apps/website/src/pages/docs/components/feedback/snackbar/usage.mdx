@@ -419,3 +419,36 @@ export default function PreventDuplicateExample() {
   )
 }
 ```
+
+### Stand alone snackbar
+
+You can use the `createStandAloneSnackbar` function to create a stand alone snackbar, that can be used outside of the React context.
+
+<Info>
+  If you are using a custom theme, you need to pass it to the
+  `createStandAloneSnackbar` arguments. This will prevent any shift in font size
+  when a snackbar is opened.
+</Info>
+
+```tsx
+import { createStandAloneSnackbar } from '@saas-ui/react'
+
+const { SnackbarContainer, snackbar } = createStandAloneSnackbar()
+
+export default function StandAloneSnackbarExample() {
+  return (
+    <>
+      <SnackbarContainer />
+      <Button
+        onClick={() => {
+          snackbar({
+            title: 'Look ma, I am a stand alone snackbar!',
+          })
+        }}
+      >
+        Click me!
+      </Button>
+    </>
+  )
+}
+```

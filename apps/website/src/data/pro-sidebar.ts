@@ -25,6 +25,14 @@ const sidebar = {
           path: '/docs/pro/installation/overview',
         },
         {
+          title: 'Clone the repository',
+          path: '/docs/pro/installation/clone-repository',
+        },
+        {
+          title: 'Run the application',
+          path: '/docs/pro/installation/run-application',
+        },
+        {
           title: 'NPM registry',
           path: '/docs/pro/installation/npm',
           heading: true,
@@ -47,14 +55,40 @@ const sidebar = {
       ],
     },
     {
-      title: 'Configuration',
-      path: '/docs/pro/configuration',
+      title: 'Authentication',
+      path: '/docs/pro/authentication',
       heading: true,
       open: true,
       routes: [
         {
-          title: 'Authentication',
-          path: '/docs/pro/configuration/authentication',
+          title: 'Overview',
+          path: '/docs/pro/authentication',
+        },
+        {
+          title: 'Providers',
+          open: true,
+          routes: [
+            {
+              title: 'Supabase',
+              path: '/docs/pro/authentication/supabase',
+            },
+            {
+              title: 'Clerk',
+              path: '/docs/pro/authentication/clerk',
+            },
+            {
+              title: 'Magic',
+              path: '/docs/pro/authentication/magic',
+            },
+            {
+              title: 'Auth.js (NextAuth)',
+              path: '/docs/pro/authentication/authjs',
+            },
+          ],
+        },
+        {
+          title: 'Customize auth screens',
+          path: '/docs/pro/authentication/customize-auth-screens',
         },
       ],
     },

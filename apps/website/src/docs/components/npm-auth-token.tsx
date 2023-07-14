@@ -26,7 +26,7 @@ export const NpmAuthToken = () => {
 
   const [token, setToken] = React.useState(
     data?.licenseKey
-      ? `${data.githubAccount}:${data.licenseKey}`.toLowerCase()
+      ? `${data.githubAccount.toLowerCase()}:${data.licenseKey}`
       : ''
   )
 

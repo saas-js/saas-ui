@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.9.0
+
+### Minor Changes
+
+- 3e55b2f3: Add new BartChart component, thanks to @Brettm12345
+
 ## 0.8.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/storybook-addon",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The official Storybook Addon for Saas UI",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

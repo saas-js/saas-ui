@@ -1,5 +1,11 @@
 # @chakra-ui/storybook-addon
 
+## 1.1.1
+
+### Patch Changes
+
+- f1f0cc28: Remove peer deps
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,20 @@
 # @saas-ui/react
 
+## 2.0.3
+
+### Patch Changes
+
+- 268fa240: Add support for standalone snackbars
+- 93736bed: Export createZodStepForm from form package
+- Updated dependencies [268fa240]
+- Updated dependencies [93736bed]
+  - @saas-ui/core@2.0.2
+  - @saas-ui/forms@2.0.2
+  - @saas-ui/auth@2.0.2
+  - @saas-ui/data-table@2.0.3
+  - @saas-ui/hotkeys@2.0.2
+  - @saas-ui/modals@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes

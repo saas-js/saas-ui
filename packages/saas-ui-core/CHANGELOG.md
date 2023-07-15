@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.0.2
+
+### Patch Changes
+
+- 268fa240: Add support for standalone snackbars
+
 ## 2.0.1
 
 ### Patch Changes

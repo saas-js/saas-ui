@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.0.2
+
+### Patch Changes
+
+- 93736bed: Export createZodStepForm from form package
+- Updated dependencies [268fa240]
+  - @saas-ui/core@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

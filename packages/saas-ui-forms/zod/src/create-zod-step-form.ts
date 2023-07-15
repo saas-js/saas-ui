@@ -51,7 +51,7 @@ type ZodStepFormType<
 export const createZodStepForm = <FieldDefs>(
   options?: CreateZodFormProps<FieldDefs>
 ) => {
-  const ZodStepForm = createStepForm<any, any, any, any>({
+  const ZodStepForm = createStepForm<any, any, any>({
     resolver: (schema: any) =>
       zodResolver(schema, options?.schemaOptions, options?.resolverOptions),
     fieldResolver: zodFieldResolver,

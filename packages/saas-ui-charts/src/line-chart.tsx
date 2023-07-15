@@ -21,13 +21,7 @@ import {
 } from 'recharts'
 
 import { ClassNames } from '@emotion/react'
-
-export interface ChartData {
-  x: number
-  xv: string
-  y: number
-  yv: string
-}
+import { ChartData } from './types'
 
 export interface LineChartProps {
   data: ChartData[]

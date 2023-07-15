@@ -21,13 +21,7 @@ import * as React from 'react'
 import { css } from '@chakra-ui/styled-system'
 
 import { ClassNames } from '@emotion/react'
-
-export interface ChartData {
-  x: number
-  xv: string
-  y: number
-  yv: string
-}
+import { ChartData } from './types'
 
 export interface BarChartProps {
   data: ChartData[]

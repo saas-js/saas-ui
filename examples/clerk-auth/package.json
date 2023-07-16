@@ -1,0 +1,41 @@
+{
+  "name": "saas-ui-clerk-auth-ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.7.1",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@saas-ui/react": "^2.0.2",
+    "@saas-ui/auth": "^2.0.1",
+    "@saas-ui/clerk": "^3.0.3",
+    "@clerk/nextjs": "^4.21.15",
+    "framer-motion": "^6.3.16",
+    "next": "^13.4.10",
+    "nodemailer": "^6.7.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.41",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saas-js/saas-ui.git",
+    "directory": "examples/nextjs-typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/saas-js/saas-ui/issues"
+  },
+  "license": "MIT"
+}

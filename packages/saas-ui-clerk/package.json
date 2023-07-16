@@ -1,12 +1,17 @@
 {
   "name": "@saas-ui/clerk",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Clerk Authentication Service for Saas UI",
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.mjs"
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

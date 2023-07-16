@@ -1,5 +1,11 @@
 # @saas-ui/clerk
 
+## 3.0.3
+
+### Patch Changes
+
+- Add src exports
+
 ## 3.0.2
 
 ### Patch Changes

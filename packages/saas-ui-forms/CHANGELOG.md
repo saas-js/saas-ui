@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.0.4
+
+### Patch Changes
+
+- 3b5567c6: Fixed issue where StepForm would not render custom fields
+
 ## 2.0.3
 
 ### Patch Changes

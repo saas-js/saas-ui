@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 2.0.5
+
+### Patch Changes
+
+- 3b5567c6: Fixed issue where StepForm would not render custom fields
+- Updated dependencies [3b5567c6]
+  - @saas-ui/forms@2.0.4
+  - @saas-ui/auth@2.0.4
+  - @saas-ui/modals@2.0.5
+  - @saas-ui/data-table@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

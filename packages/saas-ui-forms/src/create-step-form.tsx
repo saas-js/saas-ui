@@ -6,10 +6,10 @@ import {
   FieldProps,
   FieldValues,
   FieldsProvider,
-  Form,
   GetFieldResolver,
   ObjectField,
 } from './'
+import { Form } from './form'
 import { Field } from './field'
 import { FormStep, StepsOptions } from './step-form'
 import {

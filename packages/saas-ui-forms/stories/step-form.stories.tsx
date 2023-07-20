@@ -7,6 +7,7 @@ import {
   AlertTitle,
   AlertDescription,
   AlertIcon,
+  forwardRef,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -52,9 +53,11 @@ export default {
   ],
 }
 
-const CustomField = createField((props: { customFieldProps: string }) => (
-  <div>custom</div>
-))
+const CustomField = createField(
+  forwardRef((props: { customFieldProps: string }, ref) => (
+    <div ref={ref}>custom</div>
+  ))
+)
 
 const CustomStepForm = createStepForm({
   fields: {
@@ -610,13 +613,15 @@ const steps = [
   },
 ]
 
-const TermsCard = createField(() => {
-  return (
-    <Box>
-      <Text>Terms card</Text>
-    </Box>
-  )
-})
+const TermsCard = createField(
+  forwardRef((props, ref) => {
+    return (
+      <Box ref={ref}>
+        <Text>Terms card</Text>
+      </Box>
+    )
+  })
+)
 
 const CustomZodStepForm = createZodStepForm({
   fields: {

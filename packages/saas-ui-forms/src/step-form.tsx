@@ -27,7 +27,6 @@ import {
   UseStepFormProps,
   FormStepSubmitHandler,
 } from './use-step-form'
-import { FieldProps } from './types'
 
 export type StepsOptions<TSchema, TName extends string = string> = {
   /**
@@ -43,9 +42,8 @@ export type StepsOptions<TSchema, TName extends string = string> = {
 export interface StepFormProps<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
-> extends UseStepFormProps<TSteps, TFieldValues, TContext, TFieldTypes> {}
+  TContext extends object = object
+> extends UseStepFormProps<TSteps, TFieldValues, TContext> {}
 
 export interface FormStepOptions<TName extends string = string> {
   /**

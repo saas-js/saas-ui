@@ -8,6 +8,12 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 07-20-2023
+
+**Forms** `v2.0.3`
+
+- Fixed issue where custom StepForm field types would not propagate.
+
 ## 06-30-2023
 
 `@saas-ui/react@2.0.0`

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.0.3
+
+### Patch Changes
+
+- 8c7ee0be: Fixed issue where custom StepForm field types would not propagate.
+
 ## 2.0.2
 
 ### Patch Changes

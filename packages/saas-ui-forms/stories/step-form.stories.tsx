@@ -17,7 +17,6 @@ import {
   Field,
   FormLayout,
   FormValue,
-  StepFormProps,
   useStepFormContext,
   FormStepSubmitHandler,
   FormStepProps,
@@ -25,11 +24,12 @@ import {
   useFormContext,
   UseFormReturn,
   useWatch,
+  createField,
 } from '../src'
 
 import { FormStepper, FormStep, PrevButton, NextButton } from '../src/step-form'
 
-import { StepForm } from '../src'
+import { StepForm, createStepForm } from '../src'
 
 import { ButtonGroup } from '@chakra-ui/react'
 
@@ -38,7 +38,7 @@ import { PropertyList, Property } from '@saas-ui/core'
 import { onSubmit } from './helpers'
 import { StepsCompleted } from '@saas-ui/core'
 import { StepForm as YupStepForm } from '@saas-ui/forms/yup'
-import { StepForm as ZodStepForm } from '@saas-ui/forms/zod'
+import { StepForm as ZodStepForm, createZodStepForm } from '@saas-ui/forms/zod'
 
 export default {
   title: 'Components/Forms/StepForm',
@@ -51,6 +51,16 @@ export default {
     ),
   ],
 }
+
+const CustomField = createField((props: { customFieldProps: string }) => (
+  <div>custom</div>
+))
+
+const CustomStepForm = createStepForm({
+  fields: {
+    custom: CustomField,
+  },
+})
 
 const schemas = {
   profile: Yup.object().shape({
@@ -79,7 +89,7 @@ const zodSchemas = {
 }
 
 export const Basic = {
-  render(args: StepFormProps) {
+  render(args) {
     return (
       <StepForm
         defaultValues={{
@@ -87,8 +97,7 @@ export const Basic = {
           email: '',
           password: '',
         }}
-        {...args}
-        onSubmit={args?.onSubmit || onSubmit}
+        onSubmit={args.onSubmit || onSubmit}
       >
         {({ Field, FormStep }) => (
           <FormLayout>
@@ -150,6 +159,42 @@ export const Vertical = () => (
         </FormStepper>
       )}
     </StepForm>
+  </>
+)
+
+export const CustomFields = () => (
+  <>
+    <CustomStepForm
+      defaultValues={{
+        name: '',
+        email: '',
+        custom: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field, FormStep }) => (
+        <FormStepper orientation="vertical">
+          <FormStep name="profile" title="Profile">
+            <FormLayout>
+              <Field name="name" label="Name" rules={{ required: true }} />
+              <Field name="email" label="Email" rules={{ required: true }} />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+          <FormStep name="password" title="Password">
+            <FormLayout>
+              <Field
+                name="custom"
+                label="Password"
+                type="custom"
+                customFieldProps="test"
+              />
+              <NextButton />
+            </FormLayout>
+          </FormStep>
+        </FormStepper>
+      )}
+    </CustomStepForm>
   </>
 )
 
@@ -506,6 +551,125 @@ export const WithState = () => {
           </FormStepper>
         </FormLayout>
       </StepForm>
+    </>
+  )
+}
+
+const steps = [
+  {
+    name: 'name',
+    schema: z.object({
+      name: z
+        .string()
+        .nonempty('Name is required ')
+        .min(2, 'Name is too short'),
+    }),
+  },
+  {
+    name: 'Login details',
+    schema: z.object({
+      email: z.string().nonempty('Email is required ').email(),
+      password: z
+        .string()
+        .nonempty('Password is required ')
+        .superRefine((password, ctx) => {
+          let fullMsg = 'Password must contain at least'
+
+          // loop through requirements & append error message to fullMsg message if not met
+          ;[
+            { regex: /^.{8,}$/, msg: '8 characters' },
+            // { regex: /[@$!%*?&]{1,}/, msg: 'one symbol' },
+            { regex: /[a-z]{1,}/, msg: 'one lowercase letterpas' },
+            { regex: /[A-Z]{1,}/, msg: 'one uppercase letter' },
+            { regex: /[0-9]{1,}/, msg: 'one number' },
+          ].forEach(({ regex, msg }) => {
+            const result = z.string().regex(regex).safeParse(password)
+            if (!result.success) {
+              fullMsg += ` ${msg},`
+            }
+          })
+
+          // if any requirements are not met, set error
+          if (fullMsg !== 'Password must contain at least') {
+            ctx.addIssue({
+              code: 'custom',
+              message: fullMsg.replace(/,(?=[^,]*$)/, '.'),
+            })
+          }
+        }),
+    }),
+  },
+  {
+    name: 'Privacy',
+    schema: z.object({
+      privacy: z.boolean().refine((val) => val === true, {
+        message: 'You must agree to the terms and conditions',
+        path: ['privacy'],
+      }),
+    }),
+  },
+]
+
+const TermsCard = createField(() => {
+  return (
+    <Box>
+      <Text>Terms card</Text>
+    </Box>
+  )
+})
+
+const CustomZodStepForm = createZodStepForm({
+  fields: {
+    terms: TermsCard,
+  },
+})
+
+export function SignupPage() {
+  return (
+    <>
+      <CustomZodStepForm
+        // ref={formRef}
+        steps={steps}
+        mode="onSubmit"
+        h="100%"
+        defaultValues={{
+          name: '',
+          email: '',
+          password: '',
+          privacy: false,
+        }}
+        onChange={(data) => {
+          console.log('change: ', data)
+        }}
+        onSubmit={(params) => {
+          console.log('submit: ', params)
+        }}
+      >
+        {({ Field, FormStep, isCompleted }) => (
+          <FormLayout>
+            <FormStep name="name">
+              <FormLayout>
+                <Field name="name" label="What should we call you?" />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="Login details">
+              <FormLayout>
+                <Field name="email" label="Email" />
+                <Field name="password" type="password" label="password" />
+              </FormLayout>
+            </FormStep>
+            <FormStep name="Privacy">
+              <FormLayout>
+                <Field
+                  name="privacy"
+                  label="Do you agree to these Terms & Conditions?"
+                  type="terms" // custom field not working
+                />
+              </FormLayout>
+            </FormStep>
+          </FormLayout>
+        )}
+      </CustomZodStepForm>
     </>
   )
 }

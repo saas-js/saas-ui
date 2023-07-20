@@ -1,8 +1,9 @@
 import {
-  CreateFormProps,
+  CreateStepFormProps,
   createStepForm,
   StepsOptions,
   UseStepFormProps,
+  WithStepFields,
 } from '@saas-ui/forms'
 import { zodFieldResolver, zodResolver } from './zod-resolver'
 import { AnyZodObject, z } from 'zod'
@@ -10,8 +11,8 @@ import React from 'react'
 
 type ResolverArgs = Parameters<typeof zodResolver>
 
-export interface CreateZodFormProps<FieldDefs>
-  extends CreateFormProps<FieldDefs> {
+export interface CreateZodStepFormProps<FieldDefs>
+  extends CreateStepFormProps<FieldDefs> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }
@@ -39,17 +40,21 @@ type ZodStepFormType<
   TFieldValues extends InferStepType<TSteps> = InferStepType<TSteps>,
   TContext extends object = object
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext> & {
+  props: WithStepFields<
+    UseStepFormProps<TSteps, TFieldValues, TContext>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
     steps: TSteps
     ref?: React.ForwardedRef<HTMLFormElement>
-  }
+  } & ExtraProps
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
 }
 
 export const createZodStepForm = <FieldDefs>(
-  options?: CreateZodFormProps<FieldDefs>
+  options?: CreateZodStepFormProps<FieldDefs>
 ) => {
   const ZodStepForm = createStepForm<any, any, any>({
     resolver: (schema: any) =>

@@ -6,6 +6,8 @@ import { FormProps, FormRenderContext } from './form'
 import { SubmitButtonProps } from './submit-button'
 import { ObjectFieldProps } from './object-field'
 import { ArrayFieldProps } from './array-field'
+import { StepFormRenderContext, UseStepFormProps } from './use-step-form'
+import { StepsOptions } from './step-form'
 
 export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =
@@ -82,7 +84,7 @@ type FieldPathWithArray<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = TName | ArrayFieldPath<TName>
 
-type MergeFieldProps<
+export type MergeFieldProps<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
@@ -163,6 +165,43 @@ export type WithFields<
 >
   ? Omit<TFormProps, 'children' | 'fields'> & {
       children?: FormChildren<FieldDefs, TFieldValues, TContext>
+      fields?: FieldOverrides<FieldDefs, TFieldValues> & {
+        submit?: SubmitButtonProps
+      } & ExtraOverrides
+    }
+  : never
+
+// StepForm types
+export type StepFormChildren<
+  FieldDefs,
+  TSteps extends StepsOptions<any> = StepsOptions<any>,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> = MaybeRenderProp<
+  StepFormRenderContext<
+    TSteps,
+    TFieldValues,
+    TContext,
+    MergeFieldProps<
+      FieldDefs extends never
+        ? DefaultFields
+        : ShallowMerge<DefaultFields, FieldDefs>,
+      TFieldValues
+    >
+  >
+>
+
+export type WithStepFields<
+  TStepFormProps extends UseStepFormProps<any, any, any>,
+  FieldDefs,
+  ExtraOverrides = object
+> = TStepFormProps extends UseStepFormProps<
+  infer TSteps,
+  infer TFieldValues,
+  infer TContext
+>
+  ? Omit<TStepFormProps, 'children' | 'fields'> & {
+      children?: StepFormChildren<FieldDefs, TSteps, TFieldValues, TContext>
       fields?: FieldOverrides<FieldDefs, TFieldValues> & {
         submit?: SubmitButtonProps
       } & ExtraOverrides

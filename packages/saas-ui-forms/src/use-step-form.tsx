@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { createContext, MaybeRenderProp } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/react-utils'
 import {
   useStepper,
   useStep,
@@ -33,10 +33,10 @@ export const [StepFormProvider, useStepFormContext] =
       'useStepFormContext: `context` is undefined. Seems you forgot to wrap step form components in `<StepForm />`',
   })
 
+import { FocusableElement } from '@chakra-ui/utils'
 import { FormProps } from './form'
 import { FormStepProps, StepsOptions } from './step-form'
-import { FieldProps } from './types'
-import { FocusableElement } from '@chakra-ui/utils'
+import { FieldProps, StepFormChildren } from './types'
 import { DisplayIfProps } from './display-if'
 import { ArrayFieldProps } from './array-field'
 import { UseArrayFieldReturn } from './use-array-field'
@@ -45,7 +45,7 @@ import { ObjectFieldProps } from './object-field'
 type StepName<T extends { [k: number]: { readonly name: string } }> =
   T[number]['name']
 
-interface StepFormRenderContext<
+export interface StepFormRenderContext<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
@@ -63,14 +63,11 @@ interface StepFormRenderContext<
 export interface UseStepFormProps<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TContext extends object = object
 > extends Omit<UseStepperProps, 'onChange'>,
-    Omit<FormProps<any, TFieldValues, TContext, TFieldTypes>, 'children'> {
+    Omit<FormProps<any, TFieldValues, TContext>, 'children'> {
   steps?: TSteps
-  children: MaybeRenderProp<
-    StepFormRenderContext<TSteps, TFieldValues, TContext, TFieldTypes>
-  >
+  children: StepFormChildren<any, TSteps, TFieldValues, TContext>
 }
 
 export interface UseStepFormReturn<
@@ -88,10 +85,9 @@ export interface UseStepFormReturn<
 export function useStepForm<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TContext extends object = object
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext, TFieldTypes>
+  props: UseStepFormProps<TSteps, TFieldValues, TContext>
 ): UseStepFormReturn<TFieldValues> {
   const { onChange, steps: stepsOptions, resolver, ...rest } = props
   const stepper = useStepper(rest)

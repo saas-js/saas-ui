@@ -20,47 +20,41 @@ import {
 import { StepperProvider } from '@saas-ui/core'
 import { runIfFn } from '@chakra-ui/utils'
 import { GetResolver } from './form'
+import { WithStepFields } from './types'
 
-type StepFormType<FieldDefs, ExtraProps = object, ExtraOverrides = object> = (<
+export type StepFormType<
+  FieldDefs,
+  ExtraProps = object,
+  ExtraOverrides = object
+> = (<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TFieldTypes = FieldProps<TFieldValues>
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext, TFieldTypes> & {
+  props: WithStepFields<
+    UseStepFormProps<TSteps, TFieldValues, TContext>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
     ref?: React.ForwardedRef<HTMLFormElement>
-  }
+  } & ExtraProps
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
 }
 
-export type DefaultFormType<
-  FieldDefs = any,
-  ExtraProps = object,
-  ExtraOverrides = object
-> = (<
-  TFieldValues extends Record<string, any> = any,
-  TContext extends object = object,
-  TSchema = unknown
->(
-  props: any
-) => React.ReactElement) & {
-  displayName?: string
-  id?: string
-}
-
-export interface CreateFormProps<FieldDefs> {
+export interface CreateStepFormProps<FieldDefs> {
   resolver?: GetResolver
   fieldResolver?: GetFieldResolver
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
 }
 
 export function createStepForm<
-  FieldDefs = any,
+  FieldDefs,
   ExtraProps = object,
   ExtraOverrides = object
->({ fields, resolver, fieldResolver }: CreateFormProps<FieldDefs> = {}) {
+>({ fields, resolver, fieldResolver }: CreateStepFormProps<FieldDefs> = {}) {
   const StepForm = forwardRef<any, 'div'>((props, ref) => {
     const { children, steps, ...rest } = props
 

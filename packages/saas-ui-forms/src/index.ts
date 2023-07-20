@@ -2,7 +2,6 @@ export * from './display-field'
 export * from './field'
 export * from './fields'
 export * from './fields-context'
-// export * from './auto-form'
 export * from './layout'
 export * from './submit-button'
 export * from './array-field'
@@ -44,6 +43,7 @@ export type {
   BaseFieldProps,
   FieldOptions,
   DefaultFieldOverrides,
+  WithStepFields,
 } from './types'
 
 export { createForm, type CreateFormProps, type FormType } from './create-form'
@@ -64,7 +64,7 @@ import { createStepForm } from './create-step-form'
  */
 export const Form = createForm()
 
-export { createStepForm } from './create-step-form'
+export { createStepForm, type CreateStepFormProps } from './create-step-form'
 
 /**
  * Multi-step form component.

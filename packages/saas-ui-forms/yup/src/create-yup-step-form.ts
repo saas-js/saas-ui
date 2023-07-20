@@ -1,13 +1,10 @@
 import {
-  createForm,
-  CreateFormProps,
-  FormProps,
-  WithFields,
-  FieldValues,
+  CreateStepFormProps,
   createStepForm,
   StepsOptions,
   UseStepFormProps,
   Form,
+  WithStepFields,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
 import { InferType, object, string } from 'yup'
@@ -17,7 +14,7 @@ import { AnyObjectSchema } from './types'
 type ResolverArgs = Parameters<typeof yupResolver>
 
 export interface CreateYupFormProps<FieldDefs>
-  extends CreateFormProps<FieldDefs> {
+  extends CreateStepFormProps<FieldDefs> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }
@@ -43,10 +40,14 @@ type YupStepFormType<
   TFieldValues extends InferStepType<TSteps> = InferStepType<TSteps>,
   TContext extends object = object
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext> & {
+  props: WithStepFields<
+    UseStepFormProps<TSteps, TFieldValues, TContext>,
+    FieldDefs,
+    ExtraOverrides
+  > & {
     steps: TSteps
     ref?: React.ForwardedRef<HTMLFormElement>
-  }
+  } & ExtraProps
 ) => React.ReactElement) & {
   displayName?: string
   id?: string

@@ -1,4 +1,4 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  transpilePackages: ['@saas-ui/clerk'],
+  transpilePackages: ['@clerk/clerk-react', '@clerk/nextjs', '@saas-ui/clerk'],
 }

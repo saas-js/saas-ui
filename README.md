@@ -58,11 +58,11 @@ Complete source code available in a monorepo that can serve as a starting point 
 - [x] Billing/subscription management (Paddle)
 - [x] Mock graph api (MSW)
 - [x] Custom color schemes
+- [x] Example pages (CRM, Inbox, CRUD)
+- [x] Onboarding flows
 
 #### In progress
 
-- [ ] Example pages (CRM, Inbox, CRUD)
-- [ ] Onboarding flows
 - [ ] Upselling flows (Trials, upgrades, etc)
 - [ ] Saas UI themes
 - [ ] File uploads

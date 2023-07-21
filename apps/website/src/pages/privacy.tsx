@@ -63,6 +63,8 @@ const PrivacyPolicy = () => {
           </p>
           <ul>
             <li>Gumroad.com</li>
+            <li>Lemonsqueezy.com</li>
+            <li>Discord.com</li>
           </ul>
           <h3>How will we use your data?</h3>
           <p>Appulse Holding B.V. collects your data so that we can:</p>

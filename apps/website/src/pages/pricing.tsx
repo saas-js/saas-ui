@@ -29,6 +29,7 @@ import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
+import { useRouter } from 'next/router'
 
 const PricingPage = () => {
   return (
@@ -69,13 +70,16 @@ const PricingPage = () => {
   )
 }
 
-const paymentLinks =
-  process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
+const getPaymentLinks = (append?: boolean) => {
+  const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
+  let affix = ''
+  if (append && aff) {
+    affix = `?aff=${aff}`
+  }
+  return process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
     ? {
-        bootstrap:
-          'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
-        startup:
-          'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
+        bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
+        startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
         className: 'lemonsqueezy-button',
       }
     : {
@@ -85,14 +89,22 @@ const paymentLinks =
           'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
         className: 'gumroad-button',
       }
+}
 
 const Pricing = () => {
+  const [paymentLinks, setPaymentLinks] = React.useState(getPaymentLinks())
+
   React.useEffect(() => {
     if (process.env.NEXT_PUBLIC_PAYMENT === 'lemon') {
       /* @ts-ignore */
       window.createLemonSqueezy?.()
     }
   }, [])
+
+  React.useEffect(() => {
+    setPaymentLinks(getPaymentLinks(true))
+  }, [])
+
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">

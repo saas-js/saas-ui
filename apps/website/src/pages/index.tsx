@@ -1280,10 +1280,8 @@ export async function getStaticProps() {
   return {
     props: {
       announcement: {
-        title: 'Support us by becoming a stargazer! 🚀 ',
-        description:
-          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: 'https://github.com/saas-js/saas-ui',
+        title: 'Looking for v2 docs?',
+        href: 'https://saas-ui.dev',
         action: false,
       },
       header: {

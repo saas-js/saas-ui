@@ -153,6 +153,7 @@ export {
   type UseSnackbarOptions,
   type UseSnackbarReturn,
   useSnackbar,
+  createStandAloneSnackbar,
 } from './snackbar'
 export {
   type StepperContentProps,

@@ -1,5 +1,12 @@
 # @saas-ui/theme
 
+## 2.0.1
+
+### Patch Changes
+
+- 493a548a: NavItem now renders an aria-current tag when the item is active.
+- 493a548a: NavItem active state is now compatible with Remix and ReactRouter NavLink
+
 ## 2.0.0
 
 ### Major Changes

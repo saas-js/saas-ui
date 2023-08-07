@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 2.0.6
+
+### Patch Changes
+
+- 493a548a: NavItem now renders an aria-current tag when the item is active.
+- 9e848077: Export createStandAloneSnackbar from core package.
+- 493a548a: NavItem active state is now compatible with Remix and ReactRouter NavLink
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+- Updated dependencies [493a548a]
+  - @saas-ui/theme@2.0.1
+  - @saas-ui/core@2.0.3
+  - @saas-ui/auth@2.0.5
+  - @saas-ui/data-table@2.0.6
+  - @saas-ui/forms@2.0.5
+  - @saas-ui/hotkeys@2.0.3
+  - @saas-ui/modals@2.0.6
+
 ## 2.0.5
 
 ### Patch Changes

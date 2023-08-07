@@ -8,6 +8,24 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 08-07-2023
+
+`@saas-ui/react@2.0.6`
+
+- NavItem now renders an aria-current tag when the item is active.
+- Export createStandAloneSnackbar from core package.
+- NavItem active state is now compatible with Remix and ReactRouter NavLink
+
+**Theme** `v2.0.1`
+
+- NavItem now renders an aria-current tag when the item is active.
+- NavItem active state is now compatible with Remix and ReactRouter NavLink
+
+**Core** `v2.0.3`
+
+- NavItem now renders an aria-current tag when the item is active.
+- Export createStandAloneSnackbar from core package.
+
 ## 07-20-2023
 
 **Forms** `v2.0.3`

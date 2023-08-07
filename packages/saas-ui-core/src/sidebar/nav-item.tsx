@@ -134,6 +134,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const link = (
     <chakra.a
       as={as}
+      aria-current={isActive ? 'page' : undefined}
       {...rest}
       ref={ref}
       href={href}

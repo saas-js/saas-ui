@@ -69,7 +69,7 @@ Basic.args = {
   children: (
     <>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem href="/dfdfd">Home</NavItem>
+        <NavItem aria-current="page">Home</NavItem>
         <NavItem>Users</NavItem>
         <NavItem>Settings</NavItem>
       </SidebarSection>
@@ -82,7 +82,7 @@ WithLinks.args = {
   children: (
     <>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem>Home</NavItem>
+        <NavItem isActive>Home</NavItem>
         <NavItem>Users</NavItem>
         <NavItem>Settings</NavItem>
       </SidebarSection>
@@ -95,7 +95,9 @@ WithFeatherIcons.args = {
   children: (
     <>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem icon={<FiHome />}>Home</NavItem>
+        <NavItem icon={<FiHome />} isActive>
+          Home
+        </NavItem>
         <NavItem icon={<FiUsers />}>Users</NavItem>
         <NavItem icon={<FiSettings />}>Settings</NavItem>
       </SidebarSection>
@@ -108,7 +110,9 @@ WithFaIcons.args = {
   children: (
     <>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem icon={<FaHome />}>Home</NavItem>
+        <NavItem icon={<FaHome />} isActive>
+          Home
+        </NavItem>
         <NavItem icon={<FaUsers />}>Users</NavItem>
         <NavItem icon={<FaCog />}>Settings</NavItem>
       </SidebarSection>
@@ -133,7 +137,9 @@ WithHorizontalNav.args = {
         </Menu>
       </SidebarSection>
       <SidebarSection flex="1" overflowY="auto">
-        <NavItem icon={<FiHome />}>Home</NavItem>
+        <NavItem icon={<FiHome />} isActive>
+          Home
+        </NavItem>
         <NavItem icon={<FiUsers />}>Users</NavItem>
         <NavItem icon={<FiSettings />}>Settings</NavItem>
       </SidebarSection>

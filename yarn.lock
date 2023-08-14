@@ -3673,39 +3673,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@clerk/clerk-react@npm:^4.19.0":
-  version: 4.19.0
-  resolution: "@clerk/clerk-react@npm:4.19.0"
+"@clerk/clerk-react@npm:4.18.0":
+  version: 4.18.0
+  resolution: "@clerk/clerk-react@npm:4.18.0"
   dependencies:
-    "@clerk/shared": ^0.18.0
-    "@clerk/types": ^3.41.1
+    "@clerk/shared": ^0.17.2
+    "@clerk/types": ^3.41.0
     swr: 1.3.0
     tslib: 2.4.1
   peerDependencies:
     react: ">=16"
-  checksum: 2748de13ccdb6d7f8a9b510d4b0ca962c6ce5773321da123cddb085302523d1460324cd15724bd76477c4761a05e1d2f2c34baa334d1297b7d17bbbab05e0fc0
+  checksum: 4e0bf49081cbf00fa5f701895e3bed43c19c2e199ee4d9157ad136545fbc9cf445a64dd6b358379b17364e8456739beebb895df19b8ba4cfe4859f1328041dae
   languageName: node
   linkType: hard
 
-"@clerk/shared@npm:^0.18.0":
-  version: 0.18.0
-  resolution: "@clerk/shared@npm:0.18.0"
+"@clerk/shared@npm:^0.17.2":
+  version: 0.17.2
+  resolution: "@clerk/shared@npm:0.17.2"
   dependencies:
     glob-to-regexp: 0.4.1
-    js-cookie: 3.0.1
-    swr: 1.3.0
   peerDependencies:
     react: ">=16"
-  checksum: 26ecb0ddb93cb66d6411a232514577317364ffc5e1c0064ce7eade4abb94b3708f07c3a93d05f561d908dd9cd41dfe92307bcb900bbab1e9980f81047acdebdc
+  checksum: 44accc1f7fddf75c83fe7398f22d0794eead307696c46df5b0c34e922e8b24ad317a2fe375857580229165fb6698533961cf4ceb9c673c86482f8b56ee636f8f
   languageName: node
   linkType: hard
 
-"@clerk/types@npm:^3.41.1":
-  version: 3.41.1
-  resolution: "@clerk/types@npm:3.41.1"
+"@clerk/types@npm:^3.41.0":
+  version: 3.49.0
+  resolution: "@clerk/types@npm:3.49.0"
   dependencies:
     csstype: 3.1.1
-  checksum: 5668fb3d680804f50dd6d61fe815269817845a810749bbbb17d19593c614a1055aacba5e1581e021b1738ad900e814005204607d93dbbab790a77336673158ca
+  checksum: e7be56a11e8598610fb9eb527295004eb14bd4ced9607ea07bcf90207f8e885b2c62cba3334bc0dadab95e91629ad2700915fb1ae8a5ee3ee3ece6c6c6341858
   languageName: node
   linkType: hard
 
@@ -6735,11 +6733,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/clerk@workspace:packages/saas-ui-clerk"
   dependencies:
-    "@clerk/clerk-react": ^4.19.0
+    "@clerk/clerk-react": 4.18.0
     "@saas-ui/auth": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.6"
-    "@clerk/clerk-react": ">=4.12.0"
+    "@clerk/clerk-react": ">=4.12.0 <=4.18.0"
     "@emotion/react": ">=11.4.1"
     "@emotion/styled": ">=11.3.0"
     framer-motion: ">=6.0.0"
@@ -18554,13 +18552,6 @@ __metadata:
   version: 3.1.1
   resolution: "joycon@npm:3.1.1"
   checksum: 8003c9c3fc79c5c7602b1c7e9f7a2df2e9916f046b0dbad862aa589be78c15734d11beb9fe846f5e06138df22cb2ad29961b6a986ba81c4920ce2b15a7f11067
-  languageName: node
-  linkType: hard
-
-"js-cookie@npm:3.0.1":
-  version: 3.0.1
-  resolution: "js-cookie@npm:3.0.1"
-  checksum: bb48de67e2a6bd1ae3dfd6b2d5a167c33dd0c5a37e909206161eb0358c98f17cb55acd55827a58e9eea3630d89444e7479f7938ef4420dda443218b8c434a4c3
   languageName: node
   linkType: hard
 

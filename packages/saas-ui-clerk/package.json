@@ -61,7 +61,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.6",
-    "@clerk/clerk-react": ">=4.12.0",
+    "@clerk/clerk-react": ">=4.12.0 <=4.18.0",
     "@emotion/react": ">=11.4.1",
     "@emotion/styled": ">=11.3.0",
     "framer-motion": ">=6.0.0",
@@ -69,6 +69,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@clerk/clerk-react": "^4.19.0"
+    "@clerk/clerk-react": "4.18.0"
   }
 }

@@ -1,5 +1,11 @@
 # @saas-ui/clerk
 
+## 3.0.7
+
+### Patch Changes
+
+- d4538334: Lock Clerk version to fix ESM incompatibility
+
 ## 3.0.6
 
 ### Patch Changes

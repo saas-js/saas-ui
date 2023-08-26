@@ -2643,9 +2643,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/next-js@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "@chakra-ui/next-js@npm:2.1.4"
+"@chakra-ui/next-js@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@chakra-ui/next-js@npm:2.1.5"
   dependencies:
     "@emotion/cache": ^11.11.0
   peerDependencies:
@@ -2653,7 +2653,7 @@ __metadata:
     "@emotion/react": ">=11"
     next: ">=13"
     react: ">=18"
-  checksum: c8524a9e8daed216a975f93c8bd9a9beda3ca315f3f4acf17a18a3dff744eceb8478b334166bae3556e4a365467b4c2c9a6040eb01ee8cdcd6d2bfd4e0fa132e
+  checksum: 8996a41f3d69663279749367cdc815398efe3c4b22f03832bab4e393cda386784be1cfe6de79c3736f0879a9476931b0e61346734ce8866c9c6e0ffa6aeb227b
   languageName: node
   linkType: hard
 
@@ -27673,7 +27673,7 @@ __metadata:
   resolution: "website@workspace:apps/website"
   dependencies:
     "@chakra-ui/icons": ^2.0.19
-    "@chakra-ui/next-js": ^2.1.4
+    "@chakra-ui/next-js": ^2.1.5
     "@chakra-ui/props-docs": ^2.2.1
     "@chakra-ui/react": ^2.7.0
     "@chakra-ui/skip-nav": ^2.0.15

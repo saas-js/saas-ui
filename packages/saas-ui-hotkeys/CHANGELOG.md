@@ -1,5 +1,15 @@
 # @saas-ui/hotkeys
 
+## 2.1.0
+
+### Minor Changes
+
+- b4808069: useHotkeys now supports a custom targetElement, eg an input
+
+### Patch Changes
+
+- b4808069: Fixed issue where useHotkeys would not reset pressed keys
+
 ## 2.0.3
 
 ### Patch Changes

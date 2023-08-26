@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
-    "@chakra-ui/next-js": "^2.1.4",
+    "@chakra-ui/next-js": "^2.1.5",
     "@chakra-ui/props-docs": "^2.2.1",
     "@chakra-ui/react": "^2.7.0",
     "@chakra-ui/skip-nav": "^2.0.15",

@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 2.1.0
+
+### Minor Changes
+
+- b4808069: useHotkeys now supports a custom targetElement, eg an input
+
+### Patch Changes
+
+- b4808069: Fixed issue where useHotkeys would not reset pressed keys
+- Updated dependencies [b4808069]
+- Updated dependencies [b4808069]
+  - @saas-ui/hotkeys@2.1.0
+  - @saas-ui/data-table@3.0.0
+
 ## 2.0.6
 
 ### Patch Changes

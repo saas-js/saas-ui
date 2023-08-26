@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 2.0.6
+
+### Patch Changes
+
+- 197077d3: Fixed issue where email was rendered as undefined on magic link auth
+
 ## 2.0.5
 
 ### Patch Changes

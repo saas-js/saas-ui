@@ -8,6 +8,18 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 08-26-2023
+
+`@saas-ui/react@2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an input
+- Fixed issue where useHotkeys would not reset pressed keys
+
+**Hotkeys** `v2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an input
+- Fixed issue where useHotkeys would not reset pressed keys
+
 ## 08-07-2023
 
 `@saas-ui/react@2.0.6`

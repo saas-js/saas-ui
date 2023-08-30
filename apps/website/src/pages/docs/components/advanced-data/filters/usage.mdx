@@ -13,7 +13,7 @@ description: Intuitive data filtering components.
 - `ActiveFilter`: Active filter component.
 - `ActiveFiltersList`: A list of active filters.
 - `NoFilteredResults`: EmptyState used incombination with DataGrid.
-- `useDataGridFilter`: Hook to enable DataGrid filtering.
+- `getDataGridFilter`: Utility to enable DataGrid filtering.
 
 ```ts
 import {
@@ -23,7 +23,7 @@ import {
   ActiveFilters,
   FiltersProvider,
   NoFilteredResults,
-  useDataGridFilter,
+  getDataGridFilter,
 } from '@saas-ui-pro/react'
 ```
 
@@ -32,6 +32,8 @@ import {
 The FiltersProvider can be used together with `DataGrid` to create intuitive data heavy list pages.
 
 ### Basic
+
+The `ActiveFiltersList` component is best used together with the `Page` component. It will render a list of active filters.
 
 ```jsx
 import { Spacer, Badge } from '@chakra-ui/react'
@@ -75,6 +77,74 @@ export default function ListPage() {
             ),
           },
         ],
+      },
+    ],
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters}>
+      <Page>
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+
+        <ActiveFiltersList />
+        <PageBody></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+### Async filters
+
+Filter `items` can be async. This is useful when you need to fetch data from an API.
+
+```jsx
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+} from '@saas-ui-pro/react'
+import { FiTag } from 'react-icons/fi'
+
+const getTags = async (query: string) => {
+  const tags = ['new', 'active', 'lead']
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(tags.filter((tag) => tag.match(query)))
+    }, 1000)
+  })
+}
+
+export default function ListPage() {
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'tags',
+        label: 'Tag',
+        icon: <FiTag />,
+        type: 'enum',
+        items: async (query) => {
+          console.log('query', query)
+          const tags = await getTags(query)
+          return tags.map((tag) => ({
+            id: tag,
+            label: tag,
+          }))
+        },
       },
     ],
     []
@@ -265,7 +335,7 @@ export default function ListPage() {
           }
         />
         <ActiveFiltersList />
-        <PageBody fullWidth>
+        <PageBody>
           <DataGrid
             instanceRef={gridRef}
             columns={columns}
@@ -453,7 +523,7 @@ export default function ListPage() {
         }
       >
         <ActiveFiltersList />
-        <PageBody fullWidth>
+        <PageBody>
           <DataGrid
             instanceRef={gridRef}
             columns={columns}

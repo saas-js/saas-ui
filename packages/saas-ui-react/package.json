@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
   "exports": {
@@ -60,7 +60,6 @@
     "@chakra-ui/react-utils": "^2.0.12",
     "@chakra-ui/system": "^2.5.8",
     "@chakra-ui/utils": "^2.0.15",
-    "@saas-ui/auth": "workspace:*",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/data-table": "workspace:*",
     "@saas-ui/forms": "workspace:*",

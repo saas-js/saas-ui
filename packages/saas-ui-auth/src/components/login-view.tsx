@@ -102,9 +102,9 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     renderSuccess = (data: any) => (
       <AuthFormSuccess
         title="Check your mailbox"
-        description={
-          `We've sent a magic link to ${data?.email}` || 'your email address'
-        }
+        description={`We've sent a magic link to ${
+          data?.email || 'your email address'
+        }`}
       />
     ),
     title,

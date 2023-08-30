@@ -1,5 +1,11 @@
 # @saas-ui/hotkeys
 
+## 2.1.1
+
+### Patch Changes
+
+- 0aecc7ba: Fix issue where useHotkeys would throw on SSR
+
 ## 2.1.0
 
 ### Minor Changes

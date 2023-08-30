@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
   "exports": {

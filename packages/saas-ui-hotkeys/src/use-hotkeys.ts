@@ -153,7 +153,8 @@ export const useHotkeys = (
     preventDefault = false,
   } = _options
 
-  const targetElement = _options.targetElement || window
+  const targetElement =
+    _options.targetElement || typeof window === 'undefined' ? null : window
 
   const memoizedCallback = useCallback(callback, deps || [])
 
@@ -222,14 +223,14 @@ export const useHotkeys = (
   }
 
   useEffect(() => {
-    targetElement.addEventListener('keydown', onKeyDown)
-    targetElement.addEventListener('keyup', onKeyUp)
-    targetElement.addEventListener('blur', onWindowBlur)
+    targetElement?.addEventListener('keydown', onKeyDown)
+    targetElement?.addEventListener('keyup', onKeyUp)
+    targetElement?.addEventListener('blur', onWindowBlur)
 
     return () => {
-      targetElement.removeEventListener('keydown', onKeyDown)
-      targetElement.removeEventListener('keyup', onKeyUp)
-      targetElement.removeEventListener('blur', onWindowBlur)
+      targetElement?.removeEventListener('keydown', onKeyDown)
+      targetElement?.removeEventListener('keyup', onKeyUp)
+      targetElement?.removeEventListener('blur', onWindowBlur)
     }
   }, [memoizedCallback, targetElement])
 }

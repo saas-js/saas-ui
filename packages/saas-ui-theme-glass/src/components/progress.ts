@@ -14,7 +14,7 @@ export default defineMultiStyleConfig({
         borderRadius: 'md',
         bg: 'gray.200',
         _dark: {
-          bg: 'gray.700',
+          bg: 'gray.800',
         },
       },
       filledTrack: {

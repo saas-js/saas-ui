@@ -40,7 +40,7 @@ const members = [
 
 export const ThemesMembers = () => {
   return (
-    <Card width="600px">
+    <Card minWidth="600px">
       <CardHeader>
         <Stack spacing="1">
           <Heading size="sm" fontWeight="semibold">

@@ -1,4 +1,11 @@
-import { Card, Divider, Heading, Switch, Text } from '@chakra-ui/react'
+import {
+  Card,
+  CardHeader,
+  Divider,
+  Heading,
+  Switch,
+  Text,
+} from '@chakra-ui/react'
 import {
   StructuredList,
   StructuredListCell,
@@ -11,11 +18,12 @@ interface NotificationItemProps {
   title: string
   description?: string
   isChecked?: boolean
+  defaultChecked?: boolean
   onChange?: (checked: boolean) => void
 }
 
 const NotificationItem: React.FC<NotificationItemProps> = (props) => {
-  const { title, description, isChecked, onChange } = props
+  const { title, description, defaultChecked, isChecked, onChange } = props
   return (
     <StructuredListItem>
       <StructuredListCell flex="1">
@@ -30,6 +38,7 @@ const NotificationItem: React.FC<NotificationItemProps> = (props) => {
       </StructuredListCell>
       <StructuredListCell>
         <Switch
+          defaultChecked={defaultChecked}
           isChecked={isChecked}
           onChange={(e) => onChange?.(!!e.target.value)}
         />
@@ -41,19 +50,25 @@ const NotificationItem: React.FC<NotificationItemProps> = (props) => {
 export function ThemeNotifications() {
   return (
     <Card>
+      <CardHeader>
+        <Heading size="sm" fontWeight="semibold">
+          Notifications
+        </Heading>
+      </CardHeader>
       <StructuredList size="condensed">
-        <StructuredListHeader>Contacts</StructuredListHeader>
-        <NotificationItem title="A new lead is added." isChecked={true} />
-        <NotificationItem title="An account has upgraded." isChecked={true} />
+        <StructuredListHeader fontWeight="regular" fontSize="sm">
+          Contacts
+        </StructuredListHeader>
+        <NotificationItem title="A new lead is added." defaultChecked />
+        <NotificationItem title="An account has upgraded." />
       </StructuredList>
       <Divider />
       <StructuredList size="condensed">
-        <StructuredListHeader>Inbox</StructuredListHeader>
-        <NotificationItem
-          title="A message is assigned to me."
-          isChecked={true}
-        />
-        <NotificationItem title="Somebody mentions me." isChecked={true} />
+        <StructuredListHeader fontWeight="regular" fontSize="sm">
+          Inbox
+        </StructuredListHeader>
+        <NotificationItem title="A message is assigned to me." />
+        <NotificationItem title="Somebody mentions me." defaultChecked />
       </StructuredList>
     </Card>
   )

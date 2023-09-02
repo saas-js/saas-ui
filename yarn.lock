@@ -6997,7 +6997,6 @@ __metadata:
     "@chakra-ui/react-utils": ^2.0.12
     "@chakra-ui/system": ^2.5.8
     "@chakra-ui/utils": ^2.0.15
-    "@saas-ui/auth": "workspace:*"
     "@saas-ui/core": "workspace:*"
     "@saas-ui/data-table": "workspace:*"
     "@saas-ui/forms": "workspace:*"
@@ -17281,6 +17280,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"humps@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "humps@npm:2.0.1"
+  checksum: 7d5a674cfca2f34c04562f6fd0d129b4c43a5caf85fcc1c9eacf5d0729554c9375db362c4232519b37369c94dd2560d85f96ad4091a8fbf4af4e625ab5214a30
+  languageName: node
+  linkType: hard
+
 "husky@npm:^8.0.3":
   version: 8.0.3
   resolution: "husky@npm:8.0.3"
@@ -23242,6 +23248,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-shadow@npm:^20.4.0":
+  version: 20.4.0
+  resolution: "react-shadow@npm:20.4.0"
+  dependencies:
+    humps: ^2.0.1
+  peerDependencies:
+    prop-types: ^15.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 88be6a3f2ed8336116458585d3acd09d2c21b43bd857dac305c72d26b13e9d0c56a21db1c6cc49cecaa92f976b563b8cd487c19ee4e8f1ffb0ad13ea677f021e
+  languageName: node
+  linkType: hard
+
 "react-shallow-renderer@npm:^16.15.0":
   version: 16.15.0
   resolution: "react-shallow-renderer@npm:16.15.0"
@@ -27719,6 +27738,7 @@ __metadata:
     react-intersection-observer: ^9.4.3
     react-live-runner: ^1.0.5
     react-markdown: ^8.0.7
+    react-shadow: ^20.4.0
     reading-time: ^1.5.0
     remark-code-titles: ^0.1.2
     remark-emoji: ^3.1.1

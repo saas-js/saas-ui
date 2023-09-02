@@ -54,6 +54,7 @@
     "react-intersection-observer": "^9.4.3",
     "react-live-runner": "^1.0.5",
     "react-markdown": "^8.0.7",
+    "react-shadow": "^20.4.0",
     "reading-time": "^1.5.0",
     "remark-code-titles": "^0.1.2",
     "remark-emoji": "^3.1.1",

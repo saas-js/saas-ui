@@ -15,6 +15,13 @@ import {
   Checkbox,
   Tag,
   ThemeProvider,
+  useColorMode,
+  useControllableState,
+  SimpleGrid,
+  Grid,
+  GridItem,
+  useClipboard,
+  IconButton,
 } from '@chakra-ui/react'
 
 import SEO from '@/components/seo'
@@ -26,6 +33,7 @@ import {
   Br,
   SaasProvider,
   StructuredList,
+  StructuredListButton,
   StructuredListCell,
   StructuredListHeader,
   StructuredListItem,
@@ -33,20 +41,61 @@ import {
 import { ThemesIssues } from './issues'
 import { ThemesMembers } from './members'
 import { ThemeNotifications } from './notifications'
-import dynamic from 'next/dynamic'
 
-import Frame, { FrameContextConsumer } from 'react-frame-component'
-import { CacheProvider } from '@chakra-ui/next-js'
+import root from 'react-shadow/emotion'
 
-import { baseTheme as SaasUITheme } from '@saas-ui/theme'
-const ChakraUITheme = {}
+import { theme as SaasUITheme } from '@saas-ui/react'
 import { theme as GlassTheme } from '@saas-ui/theme-glass'
-import { createPortal } from 'react-dom'
+import { PaymentOptions, PaymentSuccessful } from './payment'
+import { DiskUsage, Files } from './files'
+import { UserProfileCard } from './profile'
+import { Revenue } from './stats'
+import { HotelCard } from './booking'
+import { Activity } from './activity'
+import { FiCheck, FiCopy } from 'react-icons/fi'
 
 export const ThemesPage = () => {
-  const [theme, setTheme] = React.useState(SaasUITheme)
+  const [theme, setTheme] = React.useState<object>(SaasUITheme)
+  const [themeId, setThemeId] = useControllableState({
+    defaultValue: 'saas-ui',
+    onChange(themeId) {
+      updateTheme(themeId, primaryColor)
+    },
+  })
+  const [primaryColor, setPrimaryColor] = useControllableState({
+    defaultValue: 'purple',
+    onChange(primaryColor) {
+      console.log('change', theme, primaryColor)
+      updateTheme(themeId, primaryColor)
+    },
+  })
 
-  const shadowRef = React.useRef<ShadowRoot>()
+  const colorScheme = useColorMode()
+
+  const updateTheme = (theme, primaryColor) => {
+    switch (theme) {
+      case 'saas-ui':
+        setTheme({
+          ...SaasUITheme,
+          colors: {
+            ...SaasUITheme.colors,
+            primary: SaasUITheme.colors[primaryColor],
+          },
+        })
+        break
+      case 'glass':
+        setTheme({
+          ...GlassTheme,
+          colors: {
+            ...GlassTheme.colors,
+            primary: GlassTheme.colors[primaryColor],
+          },
+        })
+        break
+    }
+  }
+
+  const gc = useClipboard('npm i @saas-ui/theme-glass')
 
   return (
     <Box>
@@ -77,9 +126,33 @@ export const ThemesPage = () => {
             </Text>
           </Box>
 
-          <ThemeSelector />
+          <ThemeSelector onChange={setThemeId} />
 
-          <ColorScheme />
+          <PrimaryColorSelector onChange={setPrimaryColor} />
+
+          <Box height="20" mt="8">
+            {themeId === 'glass' ? (
+              <Box
+                rounded="full"
+                borderWidth="1px"
+                py="2"
+                px="3"
+                display="inline-block"
+                fontSize="md"
+              >
+                npm i @saas-ui/theme-glass
+                <IconButton
+                  variant="ghost"
+                  rounded="full"
+                  ml="2"
+                  size="sm"
+                  icon={gc.hasCopied ? <FiCheck /> : <FiCopy />}
+                  onClick={gc.onCopy}
+                  aria-label="Copy to clipboard"
+                />
+              </Box>
+            ) : null}
+          </Box>
         </Section>
         <Box
           overflow="hidden"
@@ -87,74 +160,52 @@ export const ThemesPage = () => {
           height="$100vh"
           position="relative"
           zIndex="1"
+          pb="20"
         >
-          <ShadowRoot ref={shadowRef}>
-            {/* <Frame width="100%" height="100%">
-            <FrameContextConsumer>
-              {({ document }) => {
-                console.log('wut') */}
-            {/* return ( */}
-            <CacheProvider container={shadowRef.current}>
-              <SaasProvider theme={theme}>
-                <HStack gap="8" alignItems="flex-start" mt="72px">
-                  <Flex flex="1" gap="8" flexDirection="column">
-                    <ThemesIssues />
-                    <ThemesMembers />
-                    <ThemeNotifications />
-                  </Flex>
-                  <Flex flex="1" gap="8" flexDirection="column">
-                    <Card height="300px"></Card>
-                    <Card height="600px"></Card>
-                    <Card height="200px"></Card>
-                  </Flex>
-                  <Flex flex="1" gap="8" flexDirection="column">
-                    <Card height="200px"></Card>
-                    <Card height="400px"></Card>
-                    <Card height="600px"></Card>
-                  </Flex>
-                </HStack>
-              </SaasProvider>
-            </CacheProvider>
-            {/*       )
-         //       }}
-        //     </FrameContextConsumer>
-        //   </Frame> */}
-          </ShadowRoot>
+          <root.div className="shadow-root">
+            <SaasProvider theme={theme}>
+              <HStack
+                gap="8"
+                alignItems="flex-start"
+                mt="72px"
+                data-theme={colorScheme.colorMode}
+                data-theme-id={themeId}
+              >
+                <Flex flex="1" gap="8" flexDirection="column">
+                  <ThemesIssues />
+                  <ThemesMembers />
+                  <ThemeNotifications />
+                  <Grid templateColumns="repeat(12, 1fr)" gap="8">
+                    <GridItem colSpan={5}>
+                      <PaymentOptions />
+                    </GridItem>
+                    <GridItem colSpan={7}>
+                      <PaymentSuccessful />
+                    </GridItem>
+                  </Grid>
+                </Flex>
+                <Flex flex="1" gap="8" flexDirection="column">
+                  <HStack
+                    alignItems="stretch"
+                    justifyContent="stretch"
+                    spacing="8"
+                  >
+                    <DiskUsage />
+                    <UserProfileCard />
+                  </HStack>
+
+                  <Files />
+                  <Revenue />
+                  <HotelCard />
+                  <Activity />
+                </Flex>
+              </HStack>
+            </SaasProvider>
+          </root.div>
         </Box>
       </HStack>
     </Box>
   )
-}
-
-function ShadowRoot(props: {
-  children: React.ReactNode
-  ref: React.Ref<ShadowRoot>
-}) {
-  const rootRef = React.useRef<Element>()
-
-  const [root, setRoot] = React.useState<ShadowRoot | null>(null)
-
-  React.useLayoutEffect(() => {
-    if (!root) {
-      const el = document.createElement('div')
-      rootRef.current = el
-      document.body.appendChild(rootRef.current)
-      console.log(rootRef.current)
-      const shadowRoot = rootRef.current.attachShadow({ mode: 'open' })
-
-      // root.adoptedStyleSheets = [sheet];
-
-      setRoot(shadowRoot)
-    }
-  }, [root])
-
-  React.useImperativeHandle(props.ref, () => root, [root])
-
-  if (root) {
-    return createPortal(props.children, root)
-  }
-
-  return null
 }
 
 const themes = [
@@ -166,14 +217,13 @@ const themes = [
     id: 'glass',
     title: 'Glass',
   },
-  {
-    id: 'chakra-ui',
-    title: 'Chakra UI',
-  },
 ]
 
-const ThemeSelector = () => {
-  const [checked, setChecked] = React.useState('saas-ui')
+const ThemeSelector = ({ onChange }: { onChange: (theme: string) => void }) => {
+  const [checked, setChecked] = useControllableState({
+    defaultValue: 'saas-ui',
+    onChange,
+  })
   return (
     <Box width="400px">
       <FormLabel>Select your theme</FormLabel>
@@ -196,7 +246,10 @@ const ThemeSelector = () => {
                 mb="2"
                 data-checked={isChecked ? true : undefined}
                 _checked={{
-                  borderColor: 'whiteAlpha.500',
+                  borderColor: 'blackAlpha.500',
+                  _dark: {
+                    borderColor: 'whiteAlpha.500',
+                  },
                 }}
               >
                 <StructuredListCell flex="1">
@@ -213,37 +266,40 @@ const ThemeSelector = () => {
 
 const colorSchemes = [
   {
-    id: 'default',
-    title: 'Default',
+    id: 'primary',
+    title: 'Purple',
     mode: 'dark',
     color: 'primary.500',
     bg: 'transparent',
   },
   {
-    id: 'earth',
-    title: 'Earth',
+    id: 'teal',
+    title: 'Teal',
     mode: 'light',
     color: 'teal.500',
     bg: 'white',
   },
   {
-    id: 'galaxy',
-    title: 'Galaxy',
-    mode: 'dark',
-    color: 'primary.500',
+    id: 'orange',
+    title: 'Orange',
+    mode: 'light',
+    color: 'orange.500',
     bg: '#242038',
   },
   {
-    id: 'galaxy-light',
-    title: 'Galaxy Light',
+    id: 'red',
+    title: 'Red',
     mode: 'light',
-    color: 'primary.500',
+    color: 'red.500',
     bg: 'white',
   },
 ]
 
-const ColorScheme = () => {
-  const [checked, setChecked] = React.useState('default')
+const PrimaryColorSelector = ({ onChange }) => {
+  const [checked, setChecked] = useControllableState({
+    defaultValue: 'primary',
+    onChange,
+  })
   return (
     <Box width="400px">
       <FormLabel>Color scheme</FormLabel>
@@ -258,30 +314,38 @@ const ColorScheme = () => {
           {colorSchemes.map((variant) => {
             const isChecked = checked === variant.id
             return (
-              <Tooltip key={variant.id} label={variant.title}>
-                <StructuredListItem
-                  display="flex"
-                  onClick={() => setChecked(variant.id)}
-                  borderRadius="md"
-                  borderWidth="1px"
-                  mb="2"
-                  data-checked={isChecked ? true : undefined}
-                  _checked={{
+              <StructuredListItem
+                key={variant.id}
+                display="flex"
+                borderRadius="md"
+                borderWidth="1px"
+                mb="2"
+                data-checked={isChecked ? true : undefined}
+                _checked={{
+                  borderColor: 'blackAlpha.500',
+                  _dark: {
                     borderColor: 'whiteAlpha.500',
-                  }}
-                >
-                  <StructuredListCell alignSelf="flex-start">
-                    <Box
-                      w="3"
-                      h="3"
-                      bg={variant.color}
-                      border="2px"
-                      borderColor={variant.bg}
-                      rounded="full"
-                    />
-                  </StructuredListCell>
-                </StructuredListItem>
-              </Tooltip>
+                  },
+                }}
+                p="0"
+              >
+                <Tooltip label={variant.title}>
+                  <StructuredListButton
+                    onClick={() => setChecked(variant.id)}
+                    w="6"
+                    h="6"
+                    p="0"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <StructuredListCell px="0">
+                      <Box w="3" h="3" bg={variant.color} rounded="full" />
+                    </StructuredListCell>
+                  </StructuredListButton>
+                </Tooltip>
+              </StructuredListItem>
             )
           })}
         </StructuredList>

@@ -107,6 +107,7 @@ export function ThemesIssues() {
   const renderIssue = (issue) => {
     return (
       <StructuredListItem
+        key={issue.id}
         href="#"
         as={HStack}
         spacing="4"
@@ -153,13 +154,13 @@ export function ThemesIssues() {
   }
 
   return (
-    <Card width="600px" overflowY="auto" maxH="240px">
+    <Card minWidth="600px" overflowY="auto" maxH="240px">
       <StructuredList py="0">
         <StructuredListHeader
           fontWeight="normal"
           bg="gray.200"
           _dark={{ bg: 'gray.700' }}
-          color="app-text"
+          color="chakra-body-text"
           position="sticky"
           top="0"
           zIndex="popover"
@@ -174,7 +175,7 @@ export function ThemesIssues() {
           fontWeight="normal"
           bg="gray.200"
           _dark={{ bg: 'gray.700' }}
-          color="app-text"
+          color="chakra-body-text"
           position="sticky"
           top="0"
           zIndex="popover"

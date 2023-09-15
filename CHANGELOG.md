@@ -13,6 +13,7 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 `@saas-ui/react@2.2.0`
 
 - Updated to Chakra UI 2.8.0
+- Added `use client` directive for better RSC support
 
 **Command Bar** `v0.3.0`
 

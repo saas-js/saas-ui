@@ -5,6 +5,7 @@
 ### Minor Changes
 
 - 5a384c28: Updated to Chakra UI 2.8.0
+- 5a384c28: Added `use client` directive for better RSC support
 
 ### Patch Changes
 

@@ -1,5 +1,18 @@
 # palette
 
+## 1.4.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/theme-glass@0.5.0
+  - @saas-ui/palette@2.1.0
+  - @saas-ui/react@2.2.0
+
 ## 1.3.16
 
 ### Patch Changes

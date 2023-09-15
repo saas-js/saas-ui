@@ -1,5 +1,20 @@
 # website
 
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/command-bar@0.3.0
+  - @saas-ui/palette@2.1.0
+  - @saas-ui/forms@2.1.0
+  - @saas-ui/react@2.2.0
+  - @saas-ui/props-docs@1.9.0
+
 ## 2.0.8
 
 ### Patch Changes

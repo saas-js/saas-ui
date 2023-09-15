@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.2.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/data-table@4.0.0
+  - @saas-ui/modals@2.1.0
+  - @saas-ui/forms@2.1.0
+  - @saas-ui/theme@2.1.0
+  - @saas-ui/core@2.1.0
+  - @saas-ui/hotkeys@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

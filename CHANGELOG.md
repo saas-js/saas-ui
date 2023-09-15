@@ -8,6 +8,78 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 09-15-2023
+
+`@saas-ui/react@2.2.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Command Bar** `v0.3.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Date Picker** `v0.11.0`
+
+- Updated to Chakra UI 2.8.0
+- Added Portal to DateInput and DateRangeInput pickers.
+
+**Theme Glass** `v0.5.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Data Table** `v4.0.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Palette** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Charts** `v0.10.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Modals** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Forms** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Magic** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+- Updated magic client
+
+**Theme** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Core** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Saas Ui Storybook** `v1.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Props Docs** `v1.9.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Test Utils** `v3.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Palette Docs** `v1.4.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Website** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
 ## 08-26-2023
 
 `@saas-ui/react@2.1.0`

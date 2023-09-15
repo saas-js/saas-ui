@@ -1,5 +1,16 @@
 # @saas-ui/modals
 
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/forms@2.1.0
+
 ## 2.0.6
 
 ### Patch Changes

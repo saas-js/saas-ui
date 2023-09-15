@@ -1,5 +1,17 @@
 # saas-ui-storybook
 
+## 1.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/react@2.2.0
+  - @saas-ui/storybook-addon@1.1.1
+
 ## 1.0.9
 
 ### Patch Changes

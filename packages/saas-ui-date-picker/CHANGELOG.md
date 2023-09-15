@@ -1,5 +1,18 @@
 # @saas-ui/date-picker
 
+## 0.11.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- 3400690c: Added Portal to DateInput and DateRangeInput pickers.
+- Updated dependencies [5a384c28]
+  - @saas-ui/modals@2.1.0
+  - @saas-ui/core@2.1.0
+
 ## 0.10.6
 
 ### Patch Changes

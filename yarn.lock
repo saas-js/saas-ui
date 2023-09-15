@@ -6600,7 +6600,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/feature-flags@workspace:*, @saas-ui-pro/feature-flags@workspace:packages/pro/saas-ui/feature-flags":
+"@saas-ui-pro/feature-flags@workspace:packages/pro/saas-ui/feature-flags":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/feature-flags@workspace:packages/pro/saas-ui/feature-flags"
   dependencies:
@@ -27731,8 +27731,6 @@ __metadata:
     "@netlify/plugin-nextjs": ^4.37.1
     "@next/bundle-analyzer": ^13.4.3
     "@octokit/rest": ^19.0.9
-    "@saas-ui-pro/feature-flags": "workspace:*"
-    "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/command-bar": "workspace:^"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/palette": "workspace:*"
@@ -27773,11 +27771,6 @@ __metadata:
     typescript: ^5.0.4
     yup: ^1.2.0
     zod: ^3.21.4
-  dependenciesMeta:
-    "@saas-ui-pro/feature-flags":
-      optional: true
-    "@saas-ui-pro/react":
-      optional: true
   languageName: unknown
   linkType: soft
 

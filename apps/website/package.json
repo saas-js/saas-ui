@@ -72,9 +72,5 @@
     "eslint": "^8.41.0",
     "eslint-config-next": "^13.4.3",
     "typescript": "^5.0.4"
-  },
-  "optionalDependencies": {
-    "@saas-ui-pro/feature-flags": "workspace:*",
-    "@saas-ui-pro/react": "workspace:*"
   }
 }

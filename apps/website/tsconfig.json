@@ -24,7 +24,12 @@
       "@/docs/*": ["src/docs/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@saas-ui/react": ["../../packages/saas-ui-react/src"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer/generated": ["./.contentlayer/generated"],
+      "@saas-ui-pro/feature-flags": [
+        "../../packages/pro/saas-ui/feature-flags/src"
+      ],
+      "@saas-ui-pro/react": ["../../packages/pro/saas-ui/react/src"],
+      "@saas-ui-pro/kanban": ["../../packages/pro/saas-ui/kanban/src"]
     },
     "incremental": true
   },

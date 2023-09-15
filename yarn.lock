@@ -6615,6 +6615,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui-pro/kanban@workspace:packages/pro/saas-ui/kanban":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui-pro/kanban@workspace:packages/pro/saas-ui/kanban"
+  dependencies:
+    "@chakra-ui/anatomy": ^2.1.2
+    "@chakra-ui/react-utils": ^2.0.12
+    "@chakra-ui/styled-system": ^2.9.1
+    "@chakra-ui/system": ^2.5.8
+    "@chakra-ui/theme-tools": ^2.0.18
+    "@chakra-ui/utils": ^2.0.15
+    "@dnd-kit/core": ^6.0.8
+    "@dnd-kit/sortable": ^7.0.2
+    "@saas-ui/react-utils": ^2.0.0
+    react-icons: ^4.10.1
+    tsup: ^6.7.0
+  peerDependencies:
+    "@chakra-ui/react": ">=2.1"
+    "@emotion/react": ">=11"
+    "@emotion/styled": ">=11"
+    "@saas-ui/react": ">=2.0.0"
+    framer-motion: ">=5.5.0"
+    react: ">=18"
+    react-dom: ">=18"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui-pro/onboarding@workspace:*, @saas-ui-pro/onboarding@workspace:packages/pro/saas-ui/onboarding":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/onboarding@workspace:packages/pro/saas-ui/onboarding"
@@ -6639,7 +6665,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.24.1, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.24.3, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -6653,7 +6679,7 @@ __metadata:
     "@ngneat/falso": ^2.27.0
     "@react-hookz/web": ^15.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/forms": ^2.0.1
+    "@saas-ui/forms": ^2.0.4
     "@saas-ui/react-utils": ^2.0.0
     "@saas-ui/theme": ^2.0.0
     "@tanstack/react-table": ^8.9.3
@@ -6835,7 +6861,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@^2.0.1, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@^2.0.4, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -6989,7 +7015,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@^2.0.2, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@^2.0.5, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -24213,8 +24239,8 @@ __metadata:
     "@dnd-kit/sortable": ^7.0.2
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.24.1
-    "@saas-ui/react": ^2.0.2
+    "@saas-ui-pro/react": ^0.24.3
+    "@saas-ui/react": ^2.0.5
     framer-motion: ^10.12.21
     lucide-react: ^0.260.0
     react: ^18.2.0

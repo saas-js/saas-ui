@@ -45,7 +45,11 @@ export const createYupForm = <FieldDefs>(
 ) => {
   const YupForm = createForm({
     resolver: (schema: any) =>
-      yupResolver(schema, options?.schemaOptions, options?.resolverOptions),
+      yupResolver(
+        schema,
+        options?.schemaOptions,
+        options?.resolverOptions
+      ) as any,
     fieldResolver: yupFieldResolver,
     ...options,
   })

@@ -58,7 +58,11 @@ export const createYupStepForm = <FieldDefs>(
 ) => {
   const YupStepForm = createStepForm<any, any, any>({
     resolver: (schema: any) =>
-      yupResolver(schema, options?.schemaOptions, options?.resolverOptions),
+      yupResolver(
+        schema,
+        options?.schemaOptions,
+        options?.resolverOptions
+      ) as any,
     fieldResolver: yupFieldResolver,
     ...options,
   })

@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.7.1",
-    "@chakra-ui/system": "2.5.8",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@chakra-ui/react": "^2.8.1",
+    "@chakra-ui/system": "2.6.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^4.5.15",
     "@saas-ui/next-workspaces": "^0.3.0",
     "@saas-ui/palette": "workspace:*",
@@ -22,18 +22,18 @@
     "@saas-ui/theme-glass": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "@types/lodash.debounce": "^4.0.7",
-    "framer-motion": "^10.10.0",
+    "framer-motion": "^10.16.4",
     "lodash.debounce": "^4.0.8",
-    "next": "^13.2.4",
-    "next-seo": "^6.0.0",
+    "next": "^13.4.19",
+    "next-seo": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.11.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.33",
-    "eslint": "^8.37.0",
-    "eslint-config-next": "^13.2.4",
-    "typescript": "^5.0.4"
+    "@types/react": "^18.2.21",
+    "eslint": "^8.49.0",
+    "eslint-config-next": "^13.4.19",
+    "typescript": "^5.2.2"
   }
 }

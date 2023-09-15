@@ -58,7 +58,7 @@
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
     "@chakra-ui/styled-system": "^2.9.1",
-    "@chakra-ui/theme-tools": "^2.0.18",
+    "@chakra-ui/theme-tools": "^2.1.1",
     "@chakra-ui/utils": "^2.0.15",
     "cmdk": "^0.2.0"
   },
@@ -68,6 +68,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "react-icons": "^4.9.0"
+    "react-icons": "^4.11.0"
   }
 }

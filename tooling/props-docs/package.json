@@ -31,7 +31,7 @@
     "build": "ts-node -T src/build.ts"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.7.0",
+    "@chakra-ui/react": "^2.8.1",
     "@chakra-ui/styled-system": "^2.9.1",
     "glob": "^9.3.5",
     "mkdirp": "^2.1.6",

@@ -14,6 +14,7 @@ import {
   InputGroup,
   InputGroupProps,
   InputRightElement,
+  Portal,
 } from '@chakra-ui/react'
 import { useDateRangePickerContext } from './date-picker-context'
 import {
@@ -44,12 +45,14 @@ export const DateRangeInput = forwardRef<DateRangeInputProps, 'div'>(
           size={size}
           variant={variant}
         />
-        <DatePickerDialog>
-          <>
-            <DateRangePickerCalendar />
-            {children}
-          </>
-        </DatePickerDialog>
+        <Portal>
+          <DatePickerDialog>
+            <>
+              <DateRangePickerCalendar />
+              {children}
+            </>
+          </DatePickerDialog>
+        </Portal>
       </DateRangePicker>
     )
   }

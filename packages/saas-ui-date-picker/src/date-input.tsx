@@ -5,6 +5,7 @@ import {
   InputGroup,
   InputGroupProps,
   InputRightElement,
+  Portal,
 } from '@chakra-ui/react'
 
 import { FieldButton } from './button'
@@ -35,12 +36,14 @@ export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
         variant={variant}
         ref={ref}
       />
-      <DatePickerDialog>
-        <>
-          <DatePickerCalendar />
-          {children}
-        </>
-      </DatePickerDialog>
+      <Portal>
+        <DatePickerDialog>
+          <>
+            <DatePickerCalendar />
+            {children}
+          </>
+        </DatePickerDialog>
+      </Portal>
     </DatePicker>
   )
 })

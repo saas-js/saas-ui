@@ -241,6 +241,11 @@ const sidebar = {
           path: '/docs/components/advanced-data/filters',
           pro: true,
         },
+        {
+          title: 'Kanban',
+          path: '/docs/components/advanced-data/kanban',
+          pro: true,
+        },
       ],
     },
     {

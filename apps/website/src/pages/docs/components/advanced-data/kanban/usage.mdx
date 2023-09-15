@@ -1,0 +1,284 @@
+---
+id: kanban
+title: Kanban
+description: A Kanban board is a visual representation of work processes used to manage and optimize workflow.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+The Kanban board is composed of several key primitives:
+
+- `Kanban`: The canvas or workspace that provides context.
+- `KanbanColumn`: Columns represent different stages or phases in your workflow.
+- `KanbanColumnHeader`: The header of a column.
+- `KanbanColumnBody`: The body of a column.
+- `KanbanColumnDragHandle`: Handle to allow sorting of columns.
+- `KanbanCard`: A card represents an individual work item or task.
+- `KanbanDragOverlay`: A drag overlay that can be used to provide visual feedback.
+- `KanbanTrash`: Allows cards to be dropped and removed.
+- `useKanbanContext`: A hook to access the Kanban context.
+
+```ts
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanTrash,
+  useKanbanContext,
+} from '@saas-ui-pro/kanban'
+```
+
+## Usage
+
+These Kanban primitives can be used to build advanced workflows that allows items to be moved over different stages.
+
+### Basic
+
+```jsx
+import { Card, CardBody } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanDragOverlay,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+export default function Basic() {
+  return (
+    <Kanban defaultItems={kanbanItems}>
+      {({ columns, items, activeId }) => {
+        return (
+          <>
+            {columns.map((columnId) => (
+              <KanbanColumn id={columnId}>
+                <KanbanColumnHeader>
+                  {columnDefs[columnId]?.title} ({items[columnId]?.length})
+                </KanbanColumnHeader>
+                <KanbanColumnBody>
+                  {items[columnId].map((itemId) => {
+                    return (
+                      <KanbanCard id={itemId}>
+                        <Card minHeight="80px" w="full">
+                          <CardBody>{itemId}</CardBody>
+                        </Card>
+                      </KanbanCard>
+                    )
+                  })}
+                </KanbanColumnBody>
+              </KanbanColumn>
+            ))}
+
+            <KanbanDragOverlay>
+              {activeId ? (
+                <KanbanCard id={activeId}>
+                  <Card minHeight="80px" w="full" cursor="grabbing">
+                    <CardBody>{activeId}</CardBody>
+                  </Card>
+                </KanbanCard>
+              ) : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```
+
+### Controlled
+
+```jsx
+import { Card, CardBody } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanDragOverlay,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+export default function Controlled() {
+  const [items, setItems] = React.useState(kanbanItems)
+
+  return (
+    <Kanban items={items} onChange={setItems}>
+      {({ columns, items, activeId }) => {
+        return (
+          <>
+            {columns.map((columnId) => (
+              <KanbanColumn id={columnId}>
+                <KanbanColumnHeader>
+                  {columnDefs[columnId]?.title} ({items[columnId]?.length})
+                </KanbanColumnHeader>
+                <KanbanColumnBody>
+                  {items[columnId].map((itemId) => {
+                    return (
+                      <KanbanCard id={itemId}>
+                        <Card minHeight="80px" w="full">
+                          <CardBody>{itemId}</CardBody>
+                        </Card>
+                      </KanbanCard>
+                    )
+                  })}
+                </KanbanColumnBody>
+              </KanbanColumn>
+            ))}
+
+            <KanbanDragOverlay>
+              {activeId ? (
+                <KanbanCard id={activeId}>
+                  <Card minHeight="80px" w="full" cursor="grabbing">
+                    <CardBody>{activeId}</CardBody>
+                  </Card>
+                </KanbanCard>
+              ) : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```
+
+### Draggable columns
+
+```jsx
+import { Card, CardBody, Spacer } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnProps,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnDragHandle,
+  KanbanCard,
+  KanbanCardProps,
+  KanbanDragOverlay,
+  useKanbanContext,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+function DraggableBoardColumn({
+  children,
+  id,
+  style,
+  ...props
+}: KanbanColumnProps & {
+  id: string | number,
+}) {
+  const { items } = useKanbanContext()
+
+  return (
+    <KanbanColumn id={id} {...props}>
+      <KanbanColumnHeader>
+        {columnDefs[id]?.title} ({items[id]?.length})
+        <Spacer />
+        <KanbanColumnDragHandle />
+      </KanbanColumnHeader>
+      <KanbanColumnBody>{children}</KanbanColumnBody>
+    </KanbanColumn>
+  )
+}
+
+function BoardCard({ id, ...rest }: Omit<KanbanCardProps, 'children'>) {
+  return (
+    <KanbanCard id={id} {...rest}>
+      <Card minHeight="100px" w="full">
+        <CardBody>{id}</CardBody>
+      </Card>
+    </KanbanCard>
+  )
+}
+
+export default function DraggableColumns() {
+  return (
+    <Kanban defaultItems={kanbanItems}>
+      {({ columns, items, isSortingColumn, activeId }) => {
+        function renderSortableItemDragOverlay(id: string | number) {
+          return <BoardCard id={id} cursor="grabbing" />
+        }
+
+        function renderColumnDragOverlay(columnId: string | number) {
+          return (
+            <KanbanColumn id={columnId}>
+              {items[columnId].map((itemId) => (
+                <BoardCard id={itemId} key={itemId} />
+              ))}
+            </KanbanColumn>
+          )
+        }
+        return (
+          <>
+            {columns.map((columnId) => (
+              <DraggableBoardColumn key={columnId} id={columnId}>
+                {items[columnId].map((itemId) => {
+                  return (
+                    <BoardCard
+                      isDisabled={isSortingColumn}
+                      key={itemId}
+                      id={itemId}
+                    />
+                  )
+                })}
+              </DraggableBoardColumn>
+            ))}
+
+            <KanbanDragOverlay>
+              {activeId
+                ? columns.includes(activeId)
+                  ? renderColumnDragOverlay(activeId)
+                  : renderSortableItemDragOverlay(activeId)
+                : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```

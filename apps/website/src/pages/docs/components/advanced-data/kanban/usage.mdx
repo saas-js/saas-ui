@@ -38,6 +38,8 @@ These Kanban primitives can be used to build advanced workflows that allows item
 
 ### Basic
 
+This is a basic example showing a simple Kanban board with 3 columns.
+
 ```jsx
 import { Card, CardBody } from '@chakra-ui/react'
 import {
@@ -69,7 +71,7 @@ export default function Basic() {
         return (
           <>
             {columns.map((columnId) => (
-              <KanbanColumn id={columnId}>
+              <KanbanColumn id={columnId} minWidth="200px">
                 <KanbanColumnHeader>
                   {columnDefs[columnId]?.title} ({items[columnId]?.length})
                 </KanbanColumnHeader>
@@ -77,7 +79,7 @@ export default function Basic() {
                   {items[columnId].map((itemId) => {
                     return (
                       <KanbanCard id={itemId}>
-                        <Card minHeight="80px" w="full">
+                        <Card minHeight="80px" w="full" fontSize="sm">
                           <CardBody>{itemId}</CardBody>
                         </Card>
                       </KanbanCard>
@@ -90,7 +92,12 @@ export default function Basic() {
             <KanbanDragOverlay>
               {activeId ? (
                 <KanbanCard id={activeId}>
-                  <Card minHeight="80px" w="full" cursor="grabbing">
+                  <Card
+                    minHeight="80px"
+                    w="full"
+                    fontSize="sm"
+                    cursor="grabbing"
+                  >
                     <CardBody>{activeId}</CardBody>
                   </Card>
                 </KanbanCard>
@@ -105,6 +112,8 @@ export default function Basic() {
 ```
 
 ### Controlled
+
+You can control the items by passing the `items` and `onChange` props to the `Kanban` component.
 
 ```jsx
 import { Card, CardBody } from '@chakra-ui/react'
@@ -139,7 +148,7 @@ export default function Controlled() {
         return (
           <>
             {columns.map((columnId) => (
-              <KanbanColumn id={columnId}>
+              <KanbanColumn id={columnId} minWidth="200px">
                 <KanbanColumnHeader>
                   {columnDefs[columnId]?.title} ({items[columnId]?.length})
                 </KanbanColumnHeader>
@@ -147,7 +156,7 @@ export default function Controlled() {
                   {items[columnId].map((itemId) => {
                     return (
                       <KanbanCard id={itemId}>
-                        <Card minHeight="80px" w="full">
+                        <Card minHeight="80px" w="full" fontSize="sm">
                           <CardBody>{itemId}</CardBody>
                         </Card>
                       </KanbanCard>
@@ -160,7 +169,12 @@ export default function Controlled() {
             <KanbanDragOverlay>
               {activeId ? (
                 <KanbanCard id={activeId}>
-                  <Card minHeight="80px" w="full" cursor="grabbing">
+                  <Card
+                    minHeight="80px"
+                    w="full"
+                    fontSize="sm"
+                    cursor="grabbing"
+                  >
                     <CardBody>{activeId}</CardBody>
                   </Card>
                 </KanbanCard>
@@ -175,6 +189,8 @@ export default function Controlled() {
 ```
 
 ### Draggable columns
+
+You can make columns draggable by using the `KanbanColumnDragHandle` component.
 
 ```jsx
 import { Card, CardBody, Spacer } from '@chakra-ui/react'
@@ -214,7 +230,7 @@ function DraggableBoardColumn({
   const { items } = useKanbanContext()
 
   return (
-    <KanbanColumn id={id} {...props}>
+    <KanbanColumn id={id} minWidth="200px" {...props}>
       <KanbanColumnHeader>
         {columnDefs[id]?.title} ({items[id]?.length})
         <Spacer />
@@ -228,7 +244,7 @@ function DraggableBoardColumn({
 function BoardCard({ id, ...rest }: Omit<KanbanCardProps, 'children'>) {
   return (
     <KanbanCard id={id} {...rest}>
-      <Card minHeight="100px" w="full">
+      <Card minHeight="100px" w="full" fontSize="sm">
         <CardBody>{id}</CardBody>
       </Card>
     </KanbanCard>
@@ -245,7 +261,7 @@ export default function DraggableColumns() {
 
         function renderColumnDragOverlay(columnId: string | number) {
           return (
-            <KanbanColumn id={columnId}>
+            <KanbanColumn id={columnId} minWidth="200px">
               {items[columnId].map((itemId) => (
                 <BoardCard id={itemId} key={itemId} />
               ))}
@@ -274,6 +290,293 @@ export default function DraggableColumns() {
                   ? renderColumnDragOverlay(activeId)
                   : renderSortableItemDragOverlay(activeId)
                 : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```
+
+### Toggle columns
+
+You can toggle column visibility by using useState.
+
+```jsx
+import { Button, Card, CardBody } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanDragOverlay,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+export default function ToggleColumn() {
+  const [visibleColumns, setVisibleColumns] = React.useState({
+    todo: true,
+    doing: true,
+    done: false,
+  })
+
+  const showColumn = (columnId) => {
+    setVisibleColumns((prev) => ({
+      ...prev,
+      [columnId]: true,
+    }))
+  }
+
+  const hideColumn = (columnId) => {
+    setVisibleColumns((prev) => ({
+      ...prev,
+      [columnId]: false,
+    }))
+  }
+
+  const hiddenColumns = Object.keys(visibleColumns).filter(
+    (columnId) => !visibleColumns[columnId]
+  )
+
+  return (
+    <Kanban defaultItems={kanbanItems}>
+      {({ columns, items, isSortingColumn, activeId }) => {
+        return (
+          <>
+            {columns.map((columnId) => {
+              if (!visibleColumns[columnId]) {
+                return null
+              }
+
+              return (
+                <KanbanColumn id={columnId} minWidth="200px">
+                  <KanbanColumnHeader py="1">
+                    {columnDefs[columnId]?.title} ({items[columnId]?.length})
+                    <Button onClick={() => hideColumn(columnId)} size="xs">
+                      Hide
+                    </Button>
+                  </KanbanColumnHeader>
+                  <KanbanColumnBody>
+                    {items[columnId].map((itemId) => {
+                      return (
+                        <KanbanCard id={itemId}>
+                          <Card minHeight="80px" w="full" fontSize="sm">
+                            <CardBody>{itemId}</CardBody>
+                          </Card>
+                        </KanbanCard>
+                      )
+                    })}
+                  </KanbanColumnBody>
+                </KanbanColumn>
+              )
+            })}
+
+            <Stack pt="10">
+              {hiddenColumns.map((col) => (
+                <Button onClick={() => showColumn(col)}>Show {col}</Button>
+              ))}
+            </Stack>
+
+            <KanbanDragOverlay>
+              {activeId ? (
+                <KanbanCard id={activeId}>
+                  <Card
+                    minHeight="80px"
+                    w="full"
+                    fontSize="sm"
+                    cursor="grabbing"
+                  >
+                    <CardBody>{activeId}</CardBody>
+                  </Card>
+                </KanbanCard>
+              ) : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```
+
+### Removing items
+
+You can remove items by dragging them into the `KanbanTrash` component.
+
+```jsx
+import { Button, Card, CardBody } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanDragOverlay,
+  KanbanTrash,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+export default function Trash() {
+  return (
+    <Kanban defaultItems={kanbanItems}>
+      {({ columns, items, isSortingColumn, activeId }) => {
+        return (
+          <>
+            {columns.map((columnId) => (
+              <KanbanColumn id={columnId} minWidth="200px">
+                <KanbanColumnHeader>
+                  {columnDefs[columnId]?.title} ({items[columnId]?.length})
+                </KanbanColumnHeader>
+                <KanbanColumnBody>
+                  {items[columnId].map((itemId) => {
+                    return (
+                      <KanbanCard id={itemId}>
+                        <Card minHeight="80px" w="full" fontSize="sm">
+                          <CardBody>{itemId}</CardBody>
+                        </Card>
+                      </KanbanCard>
+                    )
+                  })}
+                </KanbanColumnBody>
+              </KanbanColumn>
+            ))}
+
+            <KanbanTrash mt="8">
+              <Card height="300px">
+                <CardBody>Drag items here to remove them.</CardBody>
+              </Card>
+            </KanbanTrash>
+
+            <KanbanDragOverlay>
+              {activeId ? (
+                <KanbanCard id={activeId}>
+                  <Card
+                    minHeight="80px"
+                    w="full"
+                    fontSize="sm"
+                    cursor="grabbing"
+                  >
+                    <CardBody>{activeId}</CardBody>
+                  </Card>
+                </KanbanCard>
+              ) : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```
+
+### Add event listeners
+
+The `Kanban` component provides several event listeners that can be used to listen to drag events.
+
+- `onCardDragEnd`: Called when a card drag ends.
+- `onColumnDragEnd`: Called when a column drag ends.
+
+```jsx
+import { Button, Card, CardBody } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanDragOverlay,
+  KanbanTrash,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+export default function EventListeners() {
+  const onCardDragEnd: OnCardDragEndHandler = React.useCallback((args) => {
+    console.log(args)
+  }, [])
+
+  const onColumnDragEnd: OnColumnDragEndHandler = React.useCallback((args) => {
+    console.log(args)
+  }, [])
+
+  return (
+    <Kanban
+      defaultItems={kanbanItems}
+      onCardDragEnd={onCardDragEnd}
+      onColumnDragEnd={onColumnDragEnd}
+    >
+      {({ columns, items, isSortingColumn, activeId }) => {
+        return (
+          <>
+            {columns.map((columnId) => (
+              <KanbanColumn id={columnId} minWidth="200px">
+                <KanbanColumnHeader>
+                  {columnDefs[columnId]?.title} ({items[columnId]?.length})
+                </KanbanColumnHeader>
+                <KanbanColumnBody>
+                  {items[columnId].map((itemId) => {
+                    return (
+                      <KanbanCard id={itemId}>
+                        <Card minHeight="80px" w="full" fontSize="sm">
+                          <CardBody>{itemId}</CardBody>
+                        </Card>
+                      </KanbanCard>
+                    )
+                  })}
+                </KanbanColumnBody>
+              </KanbanColumn>
+            ))}
+
+            <KanbanDragOverlay>
+              {activeId ? (
+                <KanbanCard id={activeId}>
+                  <Card
+                    minHeight="80px"
+                    w="full"
+                    fontSize="sm"
+                    cursor="grabbing"
+                  >
+                    <CardBody>{activeId}</CardBody>
+                  </Card>
+                </KanbanCard>
+              ) : null}
             </KanbanDragOverlay>
           </>
         )

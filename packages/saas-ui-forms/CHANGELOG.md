@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.1.1
+
+### Patch Changes
+
+- 96b0a058: Fixed select button sizes
+
 ## 2.1.0
 
 ### Minor Changes

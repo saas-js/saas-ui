@@ -1,0 +1,12 @@
+.image-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .image-light {
+    display: none;
+  }
+  .image-dark {
+    display: unset;
+  }
+}

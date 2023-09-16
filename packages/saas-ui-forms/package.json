@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {

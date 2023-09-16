@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 2.2.1
+
+### Patch Changes
+
+- 96b0a058: Fixed select button sizes
+- Updated dependencies [96b0a058]
+  - @saas-ui/forms@2.1.1
+  - @saas-ui/modals@2.1.1
+  - @saas-ui/data-table@4.0.1
+
 ## 2.2.0
 
 ### Minor Changes

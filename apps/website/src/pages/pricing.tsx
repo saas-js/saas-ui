@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Script from 'next/script'
 
-import { Box, CardHeader, SimpleGrid } from '@chakra-ui/react'
+import { Box, Button, CardHeader, SimpleGrid } from '@chakra-ui/react'
 import {
   Heading,
   Text,
@@ -360,7 +360,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€2000,-</Text>
+            <Text>€2500,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>
@@ -370,25 +370,43 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
+          title="Startup license included"
+          iconColor="cyan.500"
+        ></PricingFeature>
+        <PricingFeature title="Project setup" iconColor="cyan.500" />
+        <PricingFeature title="Design-system setup" iconColor="cyan.500" />
+        <PricingFeature
           title="Custom component development"
           iconColor="cyan.500"
         />
-        <PricingFeature title="Help with implementation" iconColor="cyan.500" />
-        <PricingFeature title="Project setup" iconColor="cyan.500" />
-        <PricingFeature title="Hands-on support" iconColor="cyan.500" />
+        <PricingFeature title="Design services" iconColor="cyan.500" />
       </PricingFeatures>
-      <ButtonLink
-        href="mailto:hello@saas-ui.dev?subject=Membership"
+      <Button
         colorScheme="cyan"
         onClick={() => {
           setTimeout(() => {
             /* @ts-ignore */
             window?.pirsch?.('Membership')
+            $crisp.push(['do', 'chat:open'])
+            $crisp.push(['do', 'message:thread:start', ['Membership']])
+            $crisp.push([
+              'do',
+              'message:send',
+              ['text', 'Hey! Thanks for your interest in Saas UI.'],
+            ])
+            $crisp.push([
+              'do',
+              'message:send',
+              [
+                'text',
+                "Please share some information about your project and I'll get back to you asap. I'm also happy to plan a call to discuss your project.",
+              ],
+            ])
           })
         }}
       >
         Get in touch
-      </ButtonLink>
+      </Button>
     </PricingBox>
   )
 }

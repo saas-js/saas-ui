@@ -106,6 +106,8 @@ import { Startec } from '@/components/logos/customers/startec'
 import { Eqtble } from '@/components/logos/customers/eqtble'
 import { Farmo } from '@/components/logos/customers/farmo'
 import { Ownco } from '@/components/logos/customers/ownco'
+import styles from '../styles/theme-image.module.css'
+import { ThemeImage } from '@/components/theme-image'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -184,7 +186,7 @@ const Home = () => {
                 <FallInPlace delay={1} initialInView>
                   <ButtonGroup spacing={4} alignItems="center">
                     <ButtonLink colorScheme="primary" size="lg" href="/pricing">
-                      Buy Pro
+                      View Pricing
                     </ButtonLink>
                     <ButtonLink
                       size="lg"
@@ -212,8 +214,9 @@ const Home = () => {
                 </FallInPlace>
               </Hero>
               <Box
+                role="group"
                 width="80vw"
-                maxW="1100px"
+                maxW="1200px"
                 margin="0 auto"
                 alignItems="center"
                 position="relative"
@@ -226,16 +229,39 @@ const Home = () => {
                 >
                   <AspectRatio ratio={1100 / 698}>
                     <Image
-                      src="/screenshots/list.png"
-                      // layout="fill"
-                      width={1100}
+                      src={useColorModeValue(
+                        '/screenshots/list.png',
+                        '/screenshots/list-dark.png'
+                      )}
+                      width={1200}
                       height={698}
                       alt="Screenshot of a ListPage in Saas UI Pro"
-                      quality="75"
+                      quality="85"
                       priority
                     />
                   </AspectRatio>
                 </FallInPlace>
+                <Stack
+                  display="none"
+                  alignItems="center"
+                  justifyContent="center"
+                  _groupHover={{ display: 'flex' }}
+                  position="absolute"
+                  inset="0"
+                >
+                  <Button
+                    as="a"
+                    target="_blank"
+                    href="https://demo.saas-ui.dev"
+                    variant="solid"
+                    colorScheme="white"
+                    borderColor="gray.800"
+                    borderWidth="2px"
+                    size="lg"
+                  >
+                    View Demo
+                  </Button>
+                </Stack>
               </Box>
             </Stack>
             <BackgroundGradientRadial bottom="0" animate={animateGlow} />

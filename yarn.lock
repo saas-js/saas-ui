@@ -3064,33 +3064,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@clerk/clerk-react@npm:4.24.2":
-  version: 4.24.2
-  resolution: "@clerk/clerk-react@npm:4.24.2"
+"@clerk/clerk-react@npm:4.18.0":
+  version: 4.18.0
+  resolution: "@clerk/clerk-react@npm:4.18.0"
   dependencies:
-    "@clerk/shared": ^0.22.0
-    "@clerk/types": ^3.51.0
+    "@clerk/shared": ^0.17.2
+    "@clerk/types": ^3.41.0
+    swr: 1.3.0
     tslib: 2.4.1
   peerDependencies:
     react: ">=16"
-  checksum: ca83bc9a5d09923c753d60c4558d623867da88c9b52391dfd0b1e96b9fc2c19583a2ebbc103937e4113ca3783a3bb637e28320f38480661d741ac875d9da6958
+  checksum: 4e0bf49081cbf00fa5f701895e3bed43c19c2e199ee4d9157ad136545fbc9cf445a64dd6b358379b17364e8456739beebb895df19b8ba4cfe4859f1328041dae
   languageName: node
   linkType: hard
 
-"@clerk/shared@npm:^0.22.0":
-  version: 0.22.0
-  resolution: "@clerk/shared@npm:0.22.0"
+"@clerk/shared@npm:^0.17.2":
+  version: 0.17.2
+  resolution: "@clerk/shared@npm:0.17.2"
   dependencies:
     glob-to-regexp: 0.4.1
-    js-cookie: 3.0.1
-    swr: 2.2.0
   peerDependencies:
     react: ">=16"
-  checksum: f588df3a55f4924f15bf9c10910859a479713836fe513efa1a6d492dfb09936f9104324091818d7d5544826e772b35001856949e5529094377762b4805e803c6
+  checksum: 44accc1f7fddf75c83fe7398f22d0794eead307696c46df5b0c34e922e8b24ad317a2fe375857580229165fb6698533961cf4ceb9c673c86482f8b56ee636f8f
   languageName: node
   linkType: hard
 
-"@clerk/types@npm:^3.51.0":
+"@clerk/types@npm:^3.41.0":
   version: 3.51.0
   resolution: "@clerk/types@npm:3.51.0"
   dependencies:
@@ -6566,26 +6565,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-hookz/deep-equal@npm:^1.0.3":
+"@react-hookz/deep-equal@npm:^1.0.4":
   version: 1.0.4
   resolution: "@react-hookz/deep-equal@npm:1.0.4"
   checksum: 0923e364d309e32ee54e0850471a86488faf149d7a04ee838552cf5d54f493964623a8d742880ec82410cc1105530123f056e66dfc72b7da235d4cc93fad708f
   languageName: node
   linkType: hard
 
-"@react-hookz/web@npm:^15.1.0":
-  version: 15.1.0
-  resolution: "@react-hookz/web@npm:15.1.0"
+"@react-hookz/web@npm:^23.1.0":
+  version: 23.1.0
+  resolution: "@react-hookz/web@npm:23.1.0"
   dependencies:
-    "@react-hookz/deep-equal": ^1.0.3
+    "@react-hookz/deep-equal": ^1.0.4
   peerDependencies:
-    js-cookie: ^3.0.1
+    js-cookie: ^3.0.5
     react: ^16.8 || ^17 || ^18
     react-dom: ^16.8 || ^17 || ^18
   peerDependenciesMeta:
     js-cookie:
       optional: true
-  checksum: 74854629a0e86d3035f8fec97a618c79c6d8ae5a71513e6a29b717c5142109e2ec33eea835b9250686d27e9fdb66e7ccf72c7e89edf9300596fac450821130cc
+  checksum: bf28241ccbf0c139d4cc843ebe04a963c74935abf9846ae1d64964ecc96b7c214441835a6ad82d9b00ebbd36c7f74a8b193f8035dfc9f2ab49055ff3d035d8b8
   languageName: node
   linkType: hard
 
@@ -6832,7 +6831,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.24.3, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.25.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -6844,11 +6843,11 @@ __metadata:
     "@chakra-ui/theme-tools": ^2.1.1
     "@chakra-ui/utils": ^2.0.15
     "@ngneat/falso": ^2.27.0
-    "@react-hookz/web": ^15.1.0
+    "@react-hookz/web": ^23.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/forms": ^2.0.4
+    "@saas-ui/forms": ^2.1.0
     "@saas-ui/react-utils": ^2.0.0
-    "@saas-ui/theme": ^2.0.0
+    "@saas-ui/theme": ^2.1.0
     "@tanstack/react-table": ^8.9.10
     date-fns: ^2.30.0
     polished: ^4.2.2
@@ -6873,7 +6872,7 @@ __metadata:
     "@chakra-ui/styled-system": ^2.9.1
     "@chakra-ui/theme-tools": ^2.1.1
     "@saas-ui-pro/react": "workspace:*"
-    "@saas-ui/theme-glass": ^0.4.0
+    "@saas-ui/theme-glass": ^0.5.0
     react-icons: ^4.11.0
     tsup: ^6.7.0
   peerDependencies:
@@ -6888,7 +6887,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@^2.0.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@^2.0.0, @saas-ui/auth@^2.0.7, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -6926,7 +6925,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/clerk@workspace:packages/saas-ui-clerk"
   dependencies:
-    "@clerk/clerk-react": 4.24.2
+    "@clerk/clerk-react": 4.18.0
     "@saas-ui/auth": "workspace:*"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.6"
@@ -7028,7 +7027,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@^2.0.4, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@^2.1.0, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -7084,7 +7083,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/magic@workspace:packages/saas-ui-magic"
   dependencies:
-    "@saas-ui/auth": ^2.0.0
+    "@saas-ui/auth": ^2.0.7
     magic-sdk: ^17.4.0
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -7182,7 +7181,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@^2.0.5, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@^2.2.0, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -7243,7 +7242,7 @@ __metadata:
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
     "@saas-ui/auth": ^2.0.0
-    "@supabase/supabase-js": ^2.33.2
+    "@supabase/supabase-js": ^2.24.0
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
     "@emotion/react": ">=11.0.0"
@@ -7300,7 +7299,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@^0.4.0, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@^0.5.0, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -7320,7 +7319,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@^2.0.0, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@^2.1.0, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   dependencies:
@@ -8476,7 +8475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/supabase-js@npm:^2.33.2":
+"@supabase/supabase-js@npm:^2.24.0":
   version: 2.33.2
   resolution: "@supabase/supabase-js@npm:2.33.2"
   dependencies:
@@ -17756,13 +17755,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-cookie@npm:3.0.1":
-  version: 3.0.1
-  resolution: "js-cookie@npm:3.0.1"
-  checksum: bb48de67e2a6bd1ae3dfd6b2d5a167c33dd0c5a37e909206161eb0358c98f17cb55acd55827a58e9eea3630d89444e7479f7938ef4420dda443218b8c434a4c3
-  languageName: node
-  linkType: hard
-
 "js-sha3@npm:0.8.0, js-sha3@npm:^0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -23300,8 +23292,8 @@ __metadata:
     "@dnd-kit/sortable": ^7.0.2
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.24.3
-    "@saas-ui/react": ^2.0.5
+    "@saas-ui-pro/react": ^0.25.0
+    "@saas-ui/react": ^2.2.0
     framer-motion: ^10.16.4
     lucide-react: ^0.260.0
     react: ^18.2.0
@@ -24603,14 +24595,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:2.2.0":
-  version: 2.2.0
-  resolution: "swr@npm:2.2.0"
-  dependencies:
-    use-sync-external-store: ^1.2.0
+"swr@npm:1.3.0":
+  version: 1.3.0
+  resolution: "swr@npm:1.3.0"
   peerDependencies:
     react: ^16.11.0 || ^17.0.0 || ^18.0.0
-  checksum: 1f04795ff9dff54987cbf8a544afc9e42d1350a99e899be8a7cdc4885f561e3ee464f78245ee2ebc8ced262b04023d134f731e276227319dc2d6e1843389ddd8
+  checksum: e7a184f0d560e9c8be85c023cc8e65e56a88a6ed46f9394b301b07f838edca23d2e303685319a4fcd620b81d447a7bcb489c7fa0a752c259f91764903c690cdb
   languageName: node
   linkType: hard
 
@@ -26063,7 +26053,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:1.2.0, use-sync-external-store@npm:^1.2.0":
+"use-sync-external-store@npm:1.2.0":
   version: 1.2.0
   resolution: "use-sync-external-store@npm:1.2.0"
   peerDependencies:

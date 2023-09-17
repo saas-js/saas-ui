@@ -18,10 +18,23 @@ description: Allow users to enter or select a Date and Time range.
 
 ## Import
 
-- `DateRangeInput`: A date range form input.
+- `DateRangePicker`: The container component that manages state and context.
+- `DateRangePickerInput`: A date range form input.
+- `DateRangePickerDialog`: A dialog that contains a calendar and time picker.
+- `DateRangePickerCalendar`: A calendar that allows users to select a date range.
+
+#
+
+- `DateRangeInput`: A composite component that composes the above components.
 
 ```ts
-import { DateRangeInput, DateRangeTimeInput } from '@saas-ui/date-picker'
+import {
+  DateRangePicker
+  DateRangePickerInput,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+  DateRangeInput
+  } from '@saas-ui/date-picker'
 ```
 
 ## Usage
@@ -37,34 +50,58 @@ import { DateRangeInput, DateRangeTimeInput } from '@saas-ui/date-picker'
 ### Basic
 
 ```jsx center=true
-<FormControl>
-  <FormLabel>Dates</FormLabel>
-  <DateRangeInput />
-</FormControl>
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function Basic() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangeInput />
+    </FormControl>
+  )
+}
 ```
 
 ### DateTime
 
 ```jsx center=true
-<FormControl>
-  <FormLabel>Dates and time</FormLabel>
-  <DateRangeInput granularity="minute" />
-</FormControl>
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function DateTime() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangeInput granularity="minute" />
+    </FormControl>
+  )
+}
 ```
 
 ### With 24 hour time
 
 ```jsx center=true
-<FormControl>
-  <FormLabel>Dates and time</FormLabel>
-  <DateRangeInput granularity="minute" hourCycle="24" />
-</FormControl>
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function HourCycle() {
+  return (
+    <FormControl>
+      <FormLabel>Dates and time</FormLabel>
+      <DateRangeInput granularity="minute" hourCycle="24" />
+    </FormControl>
+  )
+}
 ```
 
 ### Controlled
 
 ```jsx
-function ControlledPicker() {
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
   const [value, setValue] = React.useState({
     start: today(getLocalTimeZone()),
     end: null,
@@ -77,7 +114,10 @@ function ControlledPicker() {
 ### Time zone
 
 ```jsx
-function ControlledPicker() {
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
   const [value, setValue] = React.useState({
     start: now(getLocalTimeZone()),
     end: null,
@@ -92,7 +132,10 @@ function ControlledPicker() {
 ### Hide time zone
 
 ```jsx
-function ControlledPicker() {
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
   const [value, setValue] = React.useState({
     start: now(getLocalTimeZone()),
     end: null,
@@ -105,6 +148,60 @@ function ControlledPicker() {
       granularity="minute"
       hideTimeZone
     />
+  )
+}
+```
+
+### Composed
+
+```jsx
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DateRangePicker,
+  DateRangeInput,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function Composed() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangePicker>
+        <DateRangeInput />
+        <DateRangePickerDialog>
+          <DateRangePickerCalendar />
+        </DateRangePickerDialog>
+      </DateRangePicker>
+    </FormControl>
+  )
+}
+```
+
+### Portal
+
+```jsx
+import { FormControl, FormLabel, Portal } from '@chakra-ui/react'
+import {
+  DateRangePicker,
+  DateRangeInput,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function WithPortal() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangePicker>
+        <DateRangeInput />
+        <Portal>
+          <DateRangePickerDialog>
+            <DateRangePickerCalendar />
+          </DateRangePickerDialog>
+        </Portal>
+      </DateRangePicker>
+    </FormControl>
   )
 }
 ```

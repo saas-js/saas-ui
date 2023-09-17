@@ -1,5 +1,11 @@
 # website
 
+## 2.2.0
+
+### Minor Changes
+
+- ec2bf223: Added new portal prop to DateInput and DateRangePicker components to conditionally open the dialog in a portal.
+
 ## 2.1.1
 
 ### Patch Changes

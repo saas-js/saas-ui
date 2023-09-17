@@ -20,6 +20,7 @@ import { useLocale } from '@react-aria/i18n'
 import { DateRangeValue } from './types'
 import { getLocalTimeZone } from '@internationalized/date'
 import { datePickerStyleConfig } from './date-picker-styles'
+import { DatePickerDialog } from './date-picker-dialog'
 
 export interface DateRangePickerContainerProps
   extends ThemingProps<'SuiDatePicker'>,
@@ -120,3 +121,5 @@ export interface DateRangePickerProps extends DateRangePickerContainerProps {}
 export const DateRangePicker: React.FC<DateRangePickerProps> = (props) => {
   return <DateRangePickerContainer {...props} />
 }
+
+export const DateRangePickerDialog = DatePickerDialog

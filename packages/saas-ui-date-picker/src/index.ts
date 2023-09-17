@@ -15,7 +15,11 @@ export type { DatePickerDialogProps } from './date-picker-dialog'
 export { DatePickerCalendar } from './calendar'
 export type { DatePickerCalendarProps } from './calendar'
 
-export { DateRangePicker, DateRangePickerContainer } from './date-range-picker'
+export {
+  DateRangePicker,
+  DateRangePickerContainer,
+  DateRangePickerDialog,
+} from './date-range-picker'
 export type {
   DateRangePickerProps,
   DateRangePickerContainerProps,

@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.12.0
+
+### Minor Changes
+
+- ec2bf223: Added new portal prop to DateInput and DateRangePicker components to conditionally open the dialog in a portal.
+
 ## 0.11.1
 
 ### Patch Changes

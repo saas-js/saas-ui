@@ -2,7 +2,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 import fetch from 'node-fetch'
 
-const sendDiscordNotification = async ({ page, rating, feedback }) => {
+const sendDiscordNotification = async ({
+  page,
+  rating,
+  feedback,
+  username,
+}) => {
   const DISCORD_WEBHOOK = process.env.DISCORD_FEEDBACK
   try {
     if (DISCORD_WEBHOOK) {
@@ -19,6 +24,10 @@ const sendDiscordNotification = async ({ page, rating, feedback }) => {
                   {
                     name: 'Rating',
                     value: rating,
+                  },
+                  {
+                    name: 'Username',
+                    value: username || 'anonymous',
                   },
                 ],
               },
@@ -65,6 +74,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       page: req.body.page,
       rating: req.body.rating,
       feedback: req.body.feedback,
+      username: req.body.username,
     })
 
     res.status(200).json({

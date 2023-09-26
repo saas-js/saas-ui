@@ -51,6 +51,7 @@ export interface FormDialogProps<
       | 'criteriaMode'
       | 'delayError'
       | 'resetOptions'
+      | 'formRef'
       | 'children'
     > {
   /**
@@ -87,6 +88,7 @@ const useFormProps = (props: FormDialogProps) => {
     criteriaMode,
     delayError = 100,
     fields,
+    formRef,
     ...modalProps
   } = props
 
@@ -107,6 +109,7 @@ const useFormProps = (props: FormDialogProps) => {
     criteriaMode,
     delayError,
     fields,
+    formRef,
   }
 
   return { modalProps, formProps, fields }

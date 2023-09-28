@@ -35,7 +35,10 @@ export interface AuthProps
    * - forgot_password
    * - update_password
    * - otp
+   * - SUBMIT LABEL WAS RETURNING AN TS ERROR ON FRONT.
    */
+  submitLabel?: string;
+  
   view?: ViewType
   /**
    * The OAuth providers that are supported.

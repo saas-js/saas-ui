@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.12.4
+
+### Patch Changes
+
+- 01bf8785: Fixed issue where onFocus and onBlur would not trigger on calendar navigation buttons
+
 ## 0.12.3
 
 ### Patch Changes

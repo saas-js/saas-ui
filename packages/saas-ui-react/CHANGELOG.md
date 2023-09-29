@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.2.4
+
+### Patch Changes
+
+- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would not overflow correctly
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/core@2.1.2
+  - @saas-ui/data-table@4.0.4
+  - @saas-ui/forms@2.1.3
+  - @saas-ui/hotkeys@2.1.4
+  - @saas-ui/modals@2.1.4
+
 ## 2.2.3
 
 ### Patch Changes

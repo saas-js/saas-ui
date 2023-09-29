@@ -255,7 +255,10 @@ export const StepsContent: React.FC<StepperContentProps> = (props) => {
       data-orientation={orientation}
     >
       {orientation === 'vertical' ? (
-        <Collapse in={isOpen}>
+        <Collapse
+          in={isOpen}
+          style={{ overflow: isOpen ? 'visible' : 'hidden' }}
+        >
           <chakra.div p="2px">{isOpen ? children : null}</chakra.div>
         </Collapse>
       ) : (

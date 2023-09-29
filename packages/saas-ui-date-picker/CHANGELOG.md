@@ -1,5 +1,21 @@
 # @saas-ui/date-picker
 
+## 0.12.2
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/modals@2.1.3
+  - @saas-ui/core@2.1.1
+
+## 0.12.1
+
+### Patch Changes
+
+- Updated dependencies [2fec29d4]
+  - @saas-ui/modals@2.1.2
+
 ## 0.12.0
 
 ### Minor Changes

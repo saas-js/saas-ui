@@ -1,2 +1,2 @@
-export * from './nprogress'
-export * from './next-router'
+export { NProgress, type NProgressProps } from './nprogress'
+export { NProgressNextRouter } from './next-router'

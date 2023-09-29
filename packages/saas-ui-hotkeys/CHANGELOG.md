@@ -1,5 +1,12 @@
 # @saas-ui/hotkeys
 
+## 2.1.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+  - @saas-ui/core@2.1.1
+
 ## 2.1.2
 
 ### Patch Changes

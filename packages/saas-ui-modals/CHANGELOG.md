@@ -1,5 +1,21 @@
 # @saas-ui/modals
 
+## 2.1.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.1
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/hooks@2.0.1
+
+## 2.1.2
+
+### Patch Changes
+
+- 2fec29d4: Added formRef prop to FormDialog to access the internal form state
+
 ## 2.1.1
 
 ### Patch Changes

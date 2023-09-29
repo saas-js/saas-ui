@@ -1,5 +1,13 @@
 # @saas-ui/auth
 
+## 2.1.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/auth@2.0.9
+
 ## 2.1.0
 
 ### Minor Changes

@@ -1,4 +1,10 @@
-export * from './yup-resolver'
+export {
+  type Options,
+  getFieldsFromSchema,
+  getNestedSchema,
+  yupFieldResolver,
+  yupResolver,
+} from './yup-resolver'
 export { createYupForm, type YupFormType } from './create-yup-form'
 export { createYupStepForm } from './create-yup-step-form'
 export { createYupFormDialog } from './create-yup-dialog'

@@ -1,5 +1,13 @@
 # @saas-ui/clerk
 
+## 3.0.11
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/auth@2.0.9
+
 ## 3.0.10
 
 ### Patch Changes

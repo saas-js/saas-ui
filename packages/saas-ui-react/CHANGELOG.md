@@ -1,5 +1,30 @@
 # @saas-ui/react
 
+## 2.2.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/data-table@4.0.3
+  - @saas-ui/nprogress@2.0.1
+  - @saas-ui/hotkeys@2.1.3
+  - @saas-ui/modals@2.1.3
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/hooks@2.0.1
+  - @saas-ui/theme@2.1.1
+  - @saas-ui/core@2.1.1
+
+## 2.2.2
+
+### Patch Changes
+
+- 3b12ef4e: Removed client directive from index, fixes app directory compatibility
+- 2fec29d4: Added formRef prop to FormDialog to access the internal form state
+- Updated dependencies [2fec29d4]
+  - @saas-ui/modals@2.1.2
+  - @saas-ui/data-table@4.0.2
+
 ## 2.2.1
 
 ### Patch Changes

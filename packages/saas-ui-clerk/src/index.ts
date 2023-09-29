@@ -1,2 +1,5 @@
-export * from './auth-service'
-export * from './clerk-auth-provider'
+export { type ClerkAuthService, createAuthService } from './auth-service'
+export {
+  ClerkAuthProvider,
+  type ClerkAuthProviderProps,
+} from './clerk-auth-provider'

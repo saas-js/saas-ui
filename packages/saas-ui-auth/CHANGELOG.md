@@ -1,5 +1,15 @@
 # @saas-ui/auth
 
+## 2.0.9
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/hooks@2.0.1
+  - @saas-ui/core@2.1.1
+
 ## 2.0.8
 
 ### Patch Changes

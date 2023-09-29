@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.5.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.1
+  - @saas-ui/theme@2.1.1
+
 ## 2.1.0
 
 ### Minor Changes

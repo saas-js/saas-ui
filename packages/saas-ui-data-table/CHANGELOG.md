@@ -1,5 +1,22 @@
 # @saas-ui/data-table
 
+## 4.0.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/react@2.2.3
+  - @saas-ui/core@2.1.1
+
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [3b12ef4e]
+- Updated dependencies [2fec29d4]
+  - @saas-ui/react@2.2.2
+
 ## 4.0.1
 
 ### Patch Changes

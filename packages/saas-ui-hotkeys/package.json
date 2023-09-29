@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/hotkeys",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Easy manageable keyboard shortcuts for Chakra UI",
   "source": "src/index.ts",
   "exports": {

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.1.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+
 ## 2.1.0
 
 ### Minor Changes

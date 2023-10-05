@@ -26,7 +26,7 @@ yarn add @clerk/nextjs
 2. Copy `apps/web/.env.example` to `apps/web/.env` and add your Clerk publisable key which you can find in the Clerk dashboard.
 
 ```bash
-NEXT_PUBLIC_CLERK_PUBLISABLE_KEY=""
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=""
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/signup
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/app
@@ -42,7 +42,7 @@ import { ClerkAuthProvider } from '@saas-ui/clerk'
 export const AuthProvider = (props: { children: React.ReactNode }) => {
   return (
     <ClerkAuthProvider
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISABLE_KEY}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
       {({ authService }) => (
         <BaseAuthProvider {...authService}>{props.children}</BaseAuthProvider>

@@ -36,7 +36,7 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/app
 3. Edit `packages/app-features/core/providers/auth.tsx` and add the Clerk provider.
 
 ```ts
-import { AuthProvider as BaseAuthProvider } from '@saas-ui/react'
+import { AuthProvider as BaseAuthProvider } from '@saas-ui/auth'
 import { ClerkAuthProvider } from '@saas-ui/clerk'
 
 export const AuthProvider = (props: { children: React.ReactNode }) => {

@@ -45,7 +45,7 @@ export const AuthProvider = (props: { children: React.ReactNode }) => {
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISABLE_KEY}
     >
       {({ authService }) => (
-        <BaseAuthProvider {...authService}>{children}</BaseAuthProvider>
+        <BaseAuthProvider {...authService}>{props.children}</BaseAuthProvider>
       )}
     </ClerkAuthProvider>
   )

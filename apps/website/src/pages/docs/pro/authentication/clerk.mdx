@@ -56,6 +56,22 @@ Your app is now configured to use Clerk for authentication.
 
 Open `http://localhost:3000/app` to try it out.
 
+## Troubleshooting
+
+If you get the following error in Next.js you can add the following to `nextjs.config.mjs`.
+This will resolve any ESM / CommonJS issues which can accur with `@clerk/clerk-react` > 4.18
+
+```
+SyntaxError: Named export 'AuthenticateWithRedirectCallback' not found. The requested module '@clerk/clerk-react' is a CommonJS module, which may not support all module.exports as named exports.
+```
+
+```ts
+transpilePackages: [
+  '@clerk/clerk-react',
+  '@saas-ui/clerk',
+],
+```
+
 ## Next up
 
 - [Clerk Next.js documentation](https://clerk.com/docs/nextjs/get-started-with-nextjs)

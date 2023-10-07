@@ -1,5 +1,11 @@
 # website
 
+## 2.3.0
+
+### Minor Changes
+
+- a0ac02b1: Added new FileUpload component �
+
 ## 2.2.3
 
 ### Patch Changes

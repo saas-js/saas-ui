@@ -1,0 +1,249 @@
+---
+id: file-upload
+title: FileUpload
+description: 'A file upload component allows users to select and upload files.'
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-file-upload' }}
+  npm={{ package: '@saas-ui/file-upload' }}
+/>
+
+## Import
+
+```js
+import {
+  FileUpload,
+  FileUploadTrigger,
+  FileUploadDropzone,
+  FileUploadPreview,
+} from '@saas-ui/file-upload'
+```
+
+- `FileUpload`: Manages state and context.
+- `FileUploadTrigger`: That triggers the file selection dialog when clicked.
+- `FileUploadDropzone`: Allows users to drag and drop files for upload.
+- `FileUploadPreview`: Show an image preview for a selected image.
+
+## Usage
+
+### Basic
+
+This shows a basic example that accepts one image of maximum 1MB.
+
+```jsx
+import { Text, HStack, Button } from '@chakra-ui/react'
+import {
+  FileUpload,
+  FileUploadTrigger,
+  FileUploadDropzone,
+} from '@saas-ui/file-upload'
+
+export default function Basic() {
+  return (
+    <FileUpload maxFileSize={1024 * 1024} maxFiles={1} accept="image/*">
+      {({ files, deleteFile }) => (
+        <FileUploadDropzone>
+          <Text fontSize="sm">Drag your image here</Text>
+          {!files?.length ? (
+            <FileUploadTrigger as={Button}>Select files</FileUploadTrigger>
+          ) : (
+            <HStack>
+              <Text fontSize="sm">{files[0].name}</Text>
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  deleteFile(files[0])
+                }}
+              >
+                Clear
+              </Button>
+            </HStack>
+          )}
+        </FileUploadDropzone>
+      )}
+    </FileUpload>
+  )
+}
+```
+
+### Multiple files
+
+Set `maxFiles` to increase the amount of accepted files.
+
+```jsx
+import { Text, HStack, Button } from '@chakra-ui/react'
+import {
+  FileUpload,
+  FileUploadTrigger,
+  FileUploadDropzone,
+} from '@saas-ui/file-upload'
+
+export default function MultipleFiles() {
+  return (
+    <FileUpload maxFileSize={1024 * 1024} maxFiles={10} accept="image/*">
+      {({ files, clearFiles }) => (
+        <FileUploadDropzone>
+          <Text fontSize="sm">Drag your image(s) here</Text>
+          {!files?.length ? (
+            <FileUploadTrigger as={Button}>Select image(s)</FileUploadTrigger>
+          ) : (
+            <HStack>
+              <Text fontSize="sm">{files.length} selected</Text>
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  clearFiles()
+                }}
+              >
+                Clear
+              </Button>
+            </HStack>
+          )}
+        </FileUploadDropzone>
+      )}
+    </FileUpload>
+  )
+}
+```
+
+### Image preview
+
+```jsx
+import { Text, HStack, Button } from '@chakra-ui/react'
+import {
+  FileUpload,
+  FileUploadTrigger,
+  FileUploadDropzone,
+  FileUploadPreview,
+} from '@saas-ui/file-upload'
+
+export default function Basic() {
+  return (
+    <FileUpload maxFileSize={1024 * 1024} maxFiles={1} accept="image/*">
+      {({ files, deleteFile }) => (
+        <FileUploadDropzone>
+          {!files?.length ? (
+            <>
+              <Text fontSize="sm">Drag your image here</Text>
+              <FileUploadTrigger as={Button}>Select files</FileUploadTrigger>
+            </>
+          ) : (
+            <HStack>
+              <FileUploadPreview file={files[0]} width="200px" />
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  deleteFile(files[0])
+                }}
+              >
+                Remove
+              </Button>
+            </HStack>
+          )}
+        </FileUploadDropzone>
+      )}
+    </FileUpload>
+  )
+}
+```
+
+### Form field
+
+FileUpload can be used in a `Form` by creating a custom field using `createField` provided by `@saas-ui/forms`.
+
+Make sure `isControlled` is set to true and call the `onChange` handler inside the `onFilesChange` callback to pass the file to the form state.
+
+```jsx
+import { Text, HStack } from '@chakra-ui/react'
+import {
+  FileUpload,
+  FileUploadTrigger,
+  FileUploadDropzone,
+} from '@saas-ui/file-upload'
+import { Form, FormLayout, createField } from '@saas-ui/forms'
+
+const UploadField = createField(
+  forwardRef((props, ref) => {
+    const { onChange, ...rest } = props
+    return (
+      <FileUpload
+        maxFileSize={1024 * 1024}
+        accept="image/*"
+        {...rest}
+        onFilesChange={(files) => {
+          if (files.acceptedFiles?.length) {
+            onChange(files.acceptedFiles[0])
+          }
+        }}
+        maxFiles={1}
+        inputRef={ref}
+      >
+        {({ files, deleteFile }) => (
+          <FileUploadDropzone>
+            <Text fontSize="sm">Drag your image here</Text>
+            {!files?.length ? (
+              <FileUploadTrigger as={Button}>Select files</FileUploadTrigger>
+            ) : (
+              <HStack>
+                <Text fontSize="sm">{files[0].name}</Text>
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    deleteFile(files[0])
+                  }}
+                >
+                  Clear
+                </Button>
+              </HStack>
+            )}
+          </FileUploadDropzone>
+        )}
+      </FileUpload>
+    )
+  }),
+  {
+    isControlled: true,
+  }
+)
+
+export default function FormField() {
+  return (
+    <Form
+      onSubmit={async (data) => {
+        const formData = new FormData()
+
+        formData.append('profilePicture', data.file)
+        formData.append(
+          'meta',
+          JSON.stringify({
+            filename: data.file.name,
+            size: data.file.size,
+            type: data.file.type,
+          })
+        )
+        formData.append('name', data.name)
+
+        return fetch('/api/user', {
+          method: 'POST',
+          body: formData,
+        }).then((response) => {
+          if (response.ok) {
+            // Handle successful upload
+          } else {
+            // Handle error
+          }
+        })
+      }}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field name="name" label="Your name" />
+          <UploadField name="file" label="Profile picture" />
+          <SubmitButton />
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```

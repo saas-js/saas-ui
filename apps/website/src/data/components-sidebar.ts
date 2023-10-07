@@ -144,6 +144,11 @@ const sidebar = {
           title: 'SearchInput',
           path: '/docs/components/forms/search-input',
         },
+        {
+          title: 'FileUpload',
+          path: '/docs/components/file-upload',
+          new: true,
+        },
       ],
     },
     {

@@ -9,7 +9,7 @@ import * as DatePicker from '@saas-ui/date-picker'
 import * as SaasUIPro from '@saas-ui-pro/react'
 import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
 import * as CommandBar from '@saas-ui/command-bar'
-
+import * as FileUpload from '@saas-ui/file-upload'
 import * as z from 'zod'
 import * as yup from 'yup'
 import * as YupForm from '@saas-ui/forms/yup'
@@ -184,6 +184,7 @@ const ReactLiveScope = {
     '@saas-ui/forms/zod': ZodForm,
     '@saas-ui/forms/yup': YupForm,
     '@saas-ui/command-bar': CommandBar,
+    '@saas-ui/file-upload': FileUpload,
     '@saas-ui-pro/react': SaasUIPro,
     '@saas-ui-pro/feature-flags': SaasUIFeatures,
     '@saas-ui-pro/kanban': SaasUIKanban,

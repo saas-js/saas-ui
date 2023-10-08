@@ -7,9 +7,85 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 14 Apr 2023 10:06:18 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 15 Sep 2023 12:56:55 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/09-15-2023</guid>
+    <title>Sep 15, 2023</title>
+    <link>https://saas-ui.dev/changelog/09-15-2023</link>
+    <description>
+## 09-15-2023
+
+`@saas-ui/react@2.2.0`
+
+- Updated to Chakra UI 2.8.0
+- Added `use client` directive ...</description>
+    <pubDate>Fri, 15 Sep 2023 12:56:55 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/08-26-2023</guid>
+    <title>Aug 26, 2023</title>
+    <link>https://saas-ui.dev/changelog/08-26-2023</link>
+    <description>
+## 08-26-2023
+
+`@saas-ui/react@2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an inpu...</description>
+    <pubDate>Sat, 26 Aug 2023 08:04:36 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/08-07-2023</guid>
+    <title>Aug 7, 2023</title>
+    <link>https://saas-ui.dev/changelog/08-07-2023</link>
+    <description>
+## 08-07-2023
+
+`@saas-ui/react@2.0.6`
+
+- NavItem now renders an aria-current tag when the item is a...</description>
+    <pubDate>Mon, 07 Aug 2023 18:26:23 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/07-20-2023</guid>
+    <title>Jul 20, 2023</title>
+    <link>https://saas-ui.dev/changelog/07-20-2023</link>
+    <description>
+## 07-20-2023
+
+**Forms** `v2.0.3`
+
+- Fixed issue where custom StepForm field types would not propag...</description>
+    <pubDate>Thu, 20 Jul 2023 18:11:06 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/06-30-2023</guid>
+    <title>Jun 30, 2023</title>
+    <link>https://saas-ui.dev/changelog/06-30-2023</link>
+    <description>
+## 06-30-2023
+
+`@saas-ui/react@2.0.0`
+
+- useHotkeys now supports preventDefault option to prevent d...</description>
+    <pubDate>Fri, 30 Jun 2023 06:55:58 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/04-14-2023</guid>
     <title>Apr 14, 2023</title>

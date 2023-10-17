@@ -182,8 +182,8 @@ export default function CustomArrayField() {
                     return (
                       <ArrayFieldRowContainer key={field.key} index={i}>
                         <ArrayFieldRowFields columns={3} spacing={1}>
-                          <Field name="users.$.id" placeholder="Id" />
-                          <Field name="users.$.name" placeholder="Name" />
+                          <Field name={`users.${i}.id`} placeholder="Id" />
+                          <Field name={`users.${i}.name`} placeholder="Name" />
                           <Box>
                             <Field
                               name={`users.${i}.lastName`}

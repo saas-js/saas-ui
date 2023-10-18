@@ -279,7 +279,8 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       )
     }
 
-    closeComplete(id)
+    // @todo this is not ideal, but not all modals support onCloseComplete
+    setTimeout(() => closeComplete(id), 200)
   }
 
   const closeComplete = (id?: ModalId | null) => {

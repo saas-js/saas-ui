@@ -89,7 +89,13 @@ export function useStepForm<
 >(
   props: UseStepFormProps<TSteps, TFieldValues, TContext>
 ): UseStepFormReturn<TFieldValues> {
-  const { onChange, steps: stepsOptions, resolver, ...rest } = props
+  const {
+    onChange,
+    steps: stepsOptions,
+    resolver,
+    fieldResolver,
+    ...rest
+  } = props
   const stepper = useStepper(rest)
 
   const [options, setOptions] = React.useState<TSteps | undefined>(stepsOptions)
@@ -98,13 +104,20 @@ export function useStepForm<
 
   const [steps, updateSteps] = React.useState<Record<string, StepState>>({})
 
+  const mergedData = React.useRef<TFieldValues>({} as any)
+
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
       try {
         const step = steps[activeStep]
 
+        mergedData.current = {
+          ...mergedData.current,
+          ...data,
+        }
+
         if (isLastStep) {
-          await props.onSubmit?.(data)
+          await props.onSubmit?.(mergedData.current)
 
           updateStep({
             ...step,
@@ -122,7 +135,7 @@ export function useStepForm<
         // Step submission failed.
       }
     },
-    [steps, activeStep, isLastStep]
+    [steps, activeStep, isLastStep, mergedData]
   )
 
   const getFormProps = React.useCallback(() => {
@@ -134,8 +147,11 @@ export function useStepForm<
       resolver: step?.schema
         ? /* @todo fix resolver type */ (resolver as any)?.(step.schema)
         : undefined,
+      fieldResolver: step?.schema
+        ? (fieldResolver as any)?.(step.schema)
+        : undefined,
     }
-  }, [steps, onSubmitStep, activeStep])
+  }, [steps, onSubmitStep, activeStep, resolver, fieldResolver])
 
   const updateStep = React.useCallback(
     (step: StepState) => {

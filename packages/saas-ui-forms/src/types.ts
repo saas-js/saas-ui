@@ -42,7 +42,7 @@ export type ArrayFieldPath<Name extends string> = Name extends string
 export interface BaseFieldProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> extends Omit<FormControlProps, 'label' | 'type'> {
+> extends Omit<FormControlProps, 'label' | 'type' | 'onChange'> {
   /**
    * The field name
    */

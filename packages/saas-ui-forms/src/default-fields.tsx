@@ -34,8 +34,6 @@ import {
 } from './select'
 
 import { createField } from './create-field'
-import { ObjectField } from './object-field'
-import { ArrayField } from './array-field'
 
 export interface InputFieldProps extends InputProps {
   type?: string
@@ -59,12 +57,10 @@ export const InputField = createField<InputFieldProps>(
   })
 )
 
-export interface NumberInputFieldProps extends NumberInputProps {
-  type: 'number'
-}
-
-export const NumberInputField = createField<NumberInputFieldProps>(
-  NumberInput,
+export const NumberInputField = createField<NumberInputProps>(
+  forwardRef((props, ref) => {
+    return <NumberInput ref={ref} {...props} />
+  }),
   {
     isControlled: true,
   }

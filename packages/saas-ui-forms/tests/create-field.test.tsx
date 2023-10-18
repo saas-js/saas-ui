@@ -45,6 +45,11 @@ const inputProps: FieldProps = {
   type: 'text',
 }
 
+const numberProps: FieldProps = {
+  name: 'test',
+  type: 'number',
+}
+
 test('should have correct event handler type on Field', async () => {
   expectTypeOf<(typeof selectProps)['onChange']>().toEqualTypeOf<
     ((value: string | string[]) => void) | undefined
@@ -52,5 +57,9 @@ test('should have correct event handler type on Field', async () => {
 
   expectTypeOf<(typeof inputProps)['onChange']>().toEqualTypeOf<
     React.ChangeEventHandler<HTMLInputElement> | undefined
+  >()
+
+  expectTypeOf<(typeof numberProps)['onChange']>().toEqualTypeOf<
+    ((valueAsString: string, valueAsNumber: number) => void) | undefined
   >()
 })

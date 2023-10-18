@@ -81,6 +81,7 @@ const zodSchema = z.object({
     .min(2, 'Too short')
     .max(25, 'Too long')
     .describe('Last name'),
+  role: z.enum(['admin', 'user']).default('user').describe('Role'),
   emails: z
     .object({
       address: z.string().describe('Email address'),

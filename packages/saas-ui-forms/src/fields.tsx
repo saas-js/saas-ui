@@ -82,7 +82,13 @@ export const AutoFields: React.FC<FieldsProps> = ({
           }
 
           return (
-            <Field key={name} name={name} type={type as any} {...fieldProps} />
+            <Field
+              key={name}
+              name={name}
+              type={type as any}
+              defaultValue={defaultValue}
+              {...fieldProps}
+            />
           )
         }
       )}

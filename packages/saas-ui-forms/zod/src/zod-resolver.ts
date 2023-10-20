@@ -5,12 +5,19 @@ import { FieldProps } from '@saas-ui/forms'
 
 export { zodResolver }
 
-export type Options = {
+export type ExtraProps = {
   min?: number
   max?: number
+  options?: { label: string; value: string }[]
 }
 
-const getType = (field: z.ZodTypeAny) => {
+const getType = (
+  field: z.ZodTypeAny
+): 'array' | 'object' | 'number' | 'date' | 'select' | 'text' => {
+  if (field._def.typeName === 'ZodDefault') {
+    return getType(field._def.innerType)
+  }
+
   switch (field._def.typeName) {
     case 'ZodArray':
       return 'array'
@@ -20,6 +27,8 @@ const getType = (field: z.ZodTypeAny) => {
       return 'number'
     case 'ZodDate':
       return 'date'
+    case 'ZodEnum':
+      return 'select'
     case 'ZodString':
     default:
       return 'text'
@@ -51,10 +60,19 @@ export const getFieldsFromSchema = (schema: z.ZodTypeAny): FieldProps[] => {
   for (const name in schemaFields) {
     const field = schemaFields[name]
 
-    const options: Options = {}
-    if (field._def.typeName === 'ZodArray') {
-      options.min = getArrayOption(field, 'minLength')
-      options.max = getArrayOption(field, 'maxLength')
+    const def =
+      field._def.typeName === 'ZodDefault'
+        ? field._def.innerType._def
+        : field._def
+
+    const props: ExtraProps = {}
+    if (def.typeName === 'ZodArray') {
+      props.min = getArrayOption(field, 'minLength')
+      props.max = getArrayOption(field, 'maxLength')
+    } else if (def.typeName === 'ZodEnum') {
+      props.options = def.values.map((value: string) => {
+        return { label: value, value }
+      })
     }
 
     const meta = field.description && zodParseMeta(field.description)
@@ -63,7 +81,8 @@ export const getFieldsFromSchema = (schema: z.ZodTypeAny): FieldProps[] => {
       name,
       label: meta?.label || field.description || name,
       type: meta?.type || getType(field),
-      ...options,
+      defaultValue: field._def.defaultValue?.(),
+      ...props,
     })
   }
   return fields

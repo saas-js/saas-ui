@@ -8,6 +8,31 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 10-20-2023
+
+`@saas-ui/react@2.3.0`
+
+- Zod schema enum types now render a Select by default
+- Fixed issue where closing large models with modals manager would flicker
+- Fixed issue where Field would not infer correct onChange handler
+- Fixed issue where not all StepForm data would be passed to onSubmit
+- ZodForm now infers defaultValues from the schema
+- FormLayout no longer renders each child in a wrapper div
+- Fixed issue where placeholder would not be passed to the NumberInputField
+
+**Forms** `v2.2.0`
+
+- Zod schema enum types now render a Select by default
+- Fixed issue where Field would not infer correct onChange handler
+- Fixed issue where not all StepForm data would be passed to onSubmit
+- ZodForm now infers defaultValues from the schema
+- FormLayout no longer renders each child in a wrapper div
+- Fixed issue where placeholder would not be passed to the NumberInputField
+
+**Modals** `v2.1.5`
+
+- Fixed issue where closing large models with modals manager would flicker
+
 ## 09-15-2023
 
 `@saas-ui/react@2.2.0`

@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-import {
-  chakra,
-  ResponsiveValue,
-  SimpleGrid,
-  SimpleGridProps,
-  useTheme,
-} from '@chakra-ui/react'
+import { chakra, SimpleGrid, SimpleGridProps, useTheme } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
 export interface FormLayoutProps extends SimpleGridProps {}
@@ -47,12 +41,7 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
       {...gridProps}
       className={cx('sui-form__layout', props.className)}
     >
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          return <FormLayoutItem>{child}</FormLayoutItem>
-        }
-        return child
-      })}
+      {children}
     </SimpleGrid>
   )
 }

@@ -70,6 +70,8 @@ const withControlledInput = (InputComponent: React.FC<any>) => {
     ({ name, rules, ...inputProps }, ref) => {
       const { control } = useFormContext()
 
+      const onChange = inputProps.onChange as (...event: any[]) => void
+
       return (
         <Controller
           name={name}
@@ -79,7 +81,7 @@ const withControlledInput = (InputComponent: React.FC<any>) => {
             <InputComponent
               {...field}
               {...inputProps}
-              onChange={callAllHandlers(inputProps.onChange, field.onChange)}
+              onChange={callAllHandlers(onChange, field.onChange)}
               onBlur={callAllHandlers(inputProps.onBlur, field.onBlur)}
               ref={useMergeRefs(ref, _ref)}
             />
@@ -97,11 +99,13 @@ const withUncontrolledInput = (InputComponent: React.FC<any>) => {
 
       const { ref: _ref, ...field } = register(name, rules)
 
+      const onChange = inputProps.onChange as (...event: any[]) => void
+
       return (
         <InputComponent
           {...field}
           {...inputProps}
-          onChange={callAllHandlers(inputProps.onChange, field.onChange)}
+          onChange={callAllHandlers(onChange, field.onChange)}
           onBlur={callAllHandlers(inputProps.onBlur, field.onBlur)}
           ref={useMergeRefs(ref, _ref)}
         />
@@ -139,7 +143,7 @@ export const createField = <TProps extends object>(
     displayName: `${component.displayName ?? 'Custom'}Field`,
     hideLabel: options?.hideLabel,
     BaseField: options?.BaseField || BaseField,
-  }) as React.FC<TProps & BaseFieldProps>
+  }) as React.FC<Omit<BaseFieldProps, keyof TProps> & TProps>
 
   return Field
 }

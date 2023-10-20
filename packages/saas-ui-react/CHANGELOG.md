@@ -1,5 +1,30 @@
 # @saas-ui/react
 
+## 2.3.0
+
+### Minor Changes
+
+- 87fcdc2c: FormLayout no longer renders each child in a wrapper div
+
+### Patch Changes
+
+- 9ad407a7: Zod schema enum types now render a Select by default
+- bcd6d65c: Fixed issue where closing large models with modals manager would flicker
+- 654ad186: Fixed issue where Field would not infer correct onChange handler
+- 87fcdc2c: Fixed issue where not all StepForm data would be passed to onSubmit
+- 9ad407a7: ZodForm now infers defaultValues from the schema
+- be52e785: Fixed issue where placeholder would not be passed to the NumberInputField
+- Updated dependencies [9ad407a7]
+- Updated dependencies [bcd6d65c]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+  - @saas-ui/modals@2.1.5
+  - @saas-ui/data-table@5.0.0
+
 ## 2.2.4
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @saas-ui/forms
 
+## 2.2.0
+
+### Minor Changes
+
+- 87fcdc2c: FormLayout no longer renders each child in a wrapper div
+
+### Patch Changes
+
+- 9ad407a7: Zod schema enum types now render a Select by default
+- 654ad186: Fixed issue where Field would not infer correct onChange handler
+- 87fcdc2c: Fixed issue where not all StepForm data would be passed to onSubmit
+- 9ad407a7: ZodForm now infers defaultValues from the schema
+- be52e785: Fixed issue where placeholder would not be passed to the NumberInputField
+
 ## 2.1.3
 
 ### Patch Changes

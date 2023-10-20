@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Button, Stack, Container, MenuItem } from '@chakra-ui/react'
 
-import { createModals, useModals } from '../src'
+import { createModals } from '../src'
 import { MenuDialogList } from '../src/menu'
 
-import { Field, FormLayout } from '@saas-ui/forms'
+import { FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
 import { FormDialog } from '../src/form'
 import { createField } from '@saas-ui/forms'
@@ -40,7 +40,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
   </Modal>
 )
 
-const { ModalsProvider, useModals: useCustomModals } = createModals({
+const { ModalsProvider: ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
     form: ZodFormDialog,
@@ -75,6 +75,18 @@ export const Basic = () => {
         }}
       >
         Open modal
+      </Button>
+      <Button
+        onClick={() => {
+          const id = modals.open({
+            title: 'My Modal',
+            body: <>My modal</>,
+            size: 'xl',
+            footer: <Button onClick={() => modals.close(id)}>Close</Button>,
+          })
+        }}
+      >
+        Open xl modal
       </Button>
       <Button
         onClick={() =>
@@ -173,11 +185,9 @@ export const Basic = () => {
         onClick={() => {
           modals.form({
             title: 'Form',
-            schema: {
-              title: {
-                type: 'string',
-              },
-            },
+            schema: z.object({
+              title: z.string(),
+            }),
             defaultValues: {
               title: 'My title',
             },
@@ -193,7 +203,7 @@ export const Basic = () => {
 }
 
 export const Custom = () => {
-  const modals = useCustomModals()
+  const modals = useModals()
 
   return (
     <Button
@@ -212,7 +222,7 @@ export const Custom = () => {
 }
 
 export const Form = () => {
-  const modals = useCustomModals()
+  const modals = useModals()
 
   return (
     <Button
@@ -248,7 +258,7 @@ export const Form = () => {
 }
 
 export const CustomForm = () => {
-  const modals = useCustomModals()
+  const modals = useModals()
 
   return (
     <Button
@@ -284,7 +294,7 @@ export const CustomForm = () => {
 }
 
 export const CustomAsComponent = () => {
-  const modals = useCustomModals()
+  const modals = useModals()
 
   return (
     <Button

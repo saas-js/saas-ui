@@ -8,6 +8,7 @@ import {
   AlertDescription,
   AlertIcon,
   forwardRef,
+  Checkbox,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -38,8 +39,8 @@ import { PropertyList, Property } from '@saas-ui/core'
 
 import { onSubmit } from './helpers'
 import { StepsCompleted } from '@saas-ui/core'
-import { StepForm as YupStepForm } from '@saas-ui/forms/yup'
-import { StepForm as ZodStepForm, createZodStepForm } from '@saas-ui/forms/zod'
+import { StepForm as YupStepForm } from '../yup/src'
+import { StepForm as ZodStepForm, createZodStepForm } from '../zod/src'
 
 export default {
   title: 'Components/Forms/StepForm',
@@ -617,10 +618,13 @@ const TermsCard = createField(
   forwardRef((props, ref) => {
     return (
       <Box ref={ref}>
-        <Text>Terms card</Text>
+        <Checkbox {...props} /> I agree to the terms
       </Box>
     )
-  })
+  }),
+  {
+    isControlled: true,
+  }
 )
 
 const CustomZodStepForm = createZodStepForm({
@@ -657,13 +661,13 @@ export function SignupPage() {
                 <Field name="name" label="What should we call you?" />
               </FormLayout>
             </FormStep>
-            <FormStep name="Login details">
+            <FormStep name="details">
               <FormLayout>
                 <Field name="email" label="Email" />
                 <Field name="password" type="password" label="password" />
               </FormLayout>
             </FormStep>
-            <FormStep name="Privacy">
+            <FormStep name="privacy">
               <FormLayout>
                 <Field
                   name="privacy"
@@ -672,6 +676,14 @@ export function SignupPage() {
                 />
               </FormLayout>
             </FormStep>
+            {isCompleted ? (
+              <Text>Completed</Text>
+            ) : (
+              <ButtonGroup>
+                <PrevButton />
+                <NextButton />
+              </ButtonGroup>
+            )}
           </FormLayout>
         )}
       </CustomZodStepForm>

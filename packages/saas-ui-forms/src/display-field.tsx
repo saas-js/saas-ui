@@ -10,10 +10,11 @@ import {
 import { FieldProps } from './types'
 
 export interface DisplayFieldProps
-  extends FormControlProps,
-    Omit<FieldProps, 'type' | 'label'> {}
+  extends Omit<FormControlProps, 'onChange'>,
+    Omit<FieldProps, 'type' | 'label' | 'onChange'> {}
+
 /**
- *
+ * Display a field value.
  *
  * @see Docs https://saas-ui.dev/
  */

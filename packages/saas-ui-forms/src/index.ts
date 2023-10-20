@@ -112,6 +112,7 @@ export {
   type InputFieldProps,
   type NumberInputFieldProps,
   type PinFieldProps,
+  type SelectFieldProps,
 } from './default-fields'
 
 export type {

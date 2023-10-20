@@ -5,6 +5,7 @@ import { SaasContext } from '../provider'
 export interface ErrorBoundaryProps {
   fallback?: React.ReactNode
   children: React.ReactNode
+  onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
 export interface ErrorBoundaryState {
@@ -19,6 +20,8 @@ export interface ErrorBoundaryState {
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   state: ErrorBoundaryState
 
+  static contextType = SaasContext
+
   declare context: React.ContextType<typeof SaasContext>
 
   constructor(props: ErrorBoundaryProps) {
@@ -30,8 +33,13 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     return { error }
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  onError = (error: Error, errorInfo: any) => {
+    this.props.onError?.(error, errorInfo)
     this.context.onError?.(error, errorInfo)
+  }
+
+  componentDidCatch(error: Error, errorInfo: any) {
+    this.onError(error, errorInfo)
   }
 
   render() {

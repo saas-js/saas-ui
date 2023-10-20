@@ -23,6 +23,7 @@ import { LinkCard } from '../link-card'
 import { QuickLink } from '../quick-link'
 import { NpmAuthToken } from '../npm-auth-token'
 import { FiArrowRight, FiStar, FiZap, FiMap, FiBox } from 'react-icons/fi'
+import { Tweet } from './tweet'
 
 const PropsTable = dynamic(() => import('../props-table'))
 
@@ -169,4 +170,5 @@ export const MDXComponents = {
   FiZap,
   FiMap,
   FiBox,
+  Tweet,
 }

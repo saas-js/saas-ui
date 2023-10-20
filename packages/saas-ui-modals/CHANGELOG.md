@@ -1,5 +1,18 @@
 # @saas-ui/modals
 
+## 2.1.5
+
+### Patch Changes
+
+- bcd6d65c: Fixed issue where closing large models with modals manager would flicker
+- Updated dependencies [9ad407a7]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+
 ## 2.1.4
 
 ### Patch Changes

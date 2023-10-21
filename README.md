@@ -14,7 +14,7 @@
   </a>
   <img alt="MIT License" src="https://img.shields.io/github/license/saas-js/saas-ui"/>
   <a href="https://twitter.com/intent/follow?screen_name=saas_js">
-    <img src="https://img.shields.io/twitter/follow/saas_js?style=social&logo=twitter" alt="follow on Twitter">
+    <img src="https://img.shields.io/twitter/follow/saas_js" alt="follow on Twitter">
   </a>
 </p>
 

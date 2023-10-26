@@ -1,0 +1,150 @@
+---
+id: resize-box
+title: ResizeBox
+package: '@saas-ui-pro/react'
+description: Utility hook and component to create resizable panels.
+---
+
+ResizeBox is used for creating resizable sidebar panels, it currently only supports resizing the X axis.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `ResizeBox`: Resizable Box component.
+- `ResizeHandle`: The resize handle.
+- `useResize`: Hook that returns prop getters for low-level integration.
+
+```js
+import { ResizeBox, ResizeHandle, useResize } from '@saas-ui-pro/react'
+```
+
+## Usage
+
+ResizeBox behaves just like a `Box` component and can be used as a container component.
+
+### Basic setup
+
+```jsx
+<ResizeBox
+  width="280px"
+  height="200px"
+  borderRightWidth="1px"
+  bg="blackAlpha.300"
+/>
+```
+
+### Min and Max Width
+
+The `minWidth` and `maxWidth` properties can be used to limit the range of the resizer.
+
+```jsx
+<ResizeBox
+  width="280px"
+  height="200px"
+  minWidth="100px"
+  maxWidth="300px"
+  borderRightWidth="1px"
+  bg="blackAlpha.300"
+/>
+```
+
+### Disable resizing
+
+Use the `isResizable` to disable resizing.
+
+```jsx
+<ResizeBox
+  width="280px"
+  height="200px"
+  borderRightWidth="1px"
+  bg="blackAlpha.300"
+  isResizable={false}
+/>
+```
+
+### Handle position
+
+The handle can be positioned either `right` or `left` side of the container.
+
+```jsx
+<Box position="relative" height="200px">
+  <ResizeBox
+    position="absolute"
+    right="0"
+    width="280px"
+    height="200px"
+    borderLeftWidth="1px"
+    bg="blackAlpha.300"
+    handlePosition="left"
+  />
+</Box>
+```
+
+### With content
+
+```jsx
+<ResizeBox
+  width="280px"
+  minWidth="200px"
+  height="200px"
+  borderRightWidth="1px"
+  bg="blackAlpha.300"
+  padding="4"
+>
+  <Text>
+    “Most of all, I discovered that in order to succeed with a product you must
+    truly get to know your customers and build something for them.”
+  </Text>
+  <Text size="sm" color="muted">
+    – Marc Benioff
+  </Text>
+</ResizeBox>
+```
+
+### Custom
+
+```jsx
+import { Box } from '@chakra-ui/react'
+import { ResizeHandle, useResize } from '@saas-ui-pro/react'
+
+export default function Custom() {
+  const { getContainerProps, getHandleProps } = useResize({
+    onHandleClick: (e: any) => {
+      alert('Resize handle clicked')
+    },
+  })
+
+  return (
+    <Box
+      {...getContainerProps()}
+      position="relative"
+      bg="blackAlpha.200"
+      borderRightWidth="1px"
+      width="200px"
+      height="200px"
+    >
+      <ResizeHandle
+        {...getHandleProps()}
+        _after={{
+          content: '""',
+          position: 'absolute',
+          top: '0',
+          bottom: '0',
+          left: '4px',
+          width: '2px',
+          bg: 'primary.500',
+          transitionProperty: 'opacity',
+          transitionDuration: 'normal',
+          opacity: 0,
+        }}
+        _hover={{
+          _after: {
+            opacity: 1,
+          },
+        }}
+      />
+    </Box>
+  )
+}
+```

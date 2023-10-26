@@ -1,23 +1,24 @@
 {
   "name": "@saas-ui/react",
-  "version": "1.9.1",
-  "description": "Saas UI - The frontend stack for SaaS companies.",
+  "version": "2.3.0",
+  "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress --define process.env.NODE_ENV=production",
+    "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -55,39 +56,21 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/system": "^2.3.8",
-    "@saas-ui/app-shell": "workspace:*",
-    "@saas-ui/auth": "workspace:*",
-    "@saas-ui/banner": "workspace:*",
-    "@saas-ui/button": "workspace:*",
-    "@saas-ui/card": "workspace:*",
-    "@saas-ui/collapse": "workspace:*",
+    "@chakra-ui/icon": "^3.2.0",
+    "@chakra-ui/react-utils": "^2.0.12",
+    "@chakra-ui/system": "^2.6.1",
+    "@chakra-ui/utils": "^2.0.15",
+    "@saas-ui/core": "workspace:*",
     "@saas-ui/data-table": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/hotkeys": "workspace:*",
-    "@saas-ui/input-right-button": "workspace:*",
-    "@saas-ui/layout": "workspace:*",
-    "@saas-ui/list": "workspace:*",
-    "@saas-ui/menu": "workspace:*",
     "@saas-ui/modals": "workspace:*",
     "@saas-ui/nprogress": "workspace:*",
-    "@saas-ui/number-input": "workspace:*",
-    "@saas-ui/palette": "workspace:*",
-    "@saas-ui/password-input": "workspace:*",
-    "@saas-ui/persona": "workspace:*",
-    "@saas-ui/pin-input": "workspace:*",
-    "@saas-ui/property": "workspace:*",
-    "@saas-ui/provider": "workspace:*",
-    "@saas-ui/radio": "workspace:*",
-    "@saas-ui/search-input": "workspace:*",
-    "@saas-ui/select": "workspace:*",
-    "@saas-ui/snackbar": "workspace:*",
-    "@saas-ui/stepper": "workspace:*",
     "@saas-ui/theme": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.0",
+    "@chakra-ui/react": ">=2.6.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": ">=5.5.0",

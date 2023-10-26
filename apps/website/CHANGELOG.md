@@ -1,5 +1,566 @@
 # website
 
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [9ad407a7]
+- Updated dependencies [bcd6d65c]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+  - @saas-ui/react@2.3.0
+
+## 2.3.0
+
+### Minor Changes
+
+- a0ac02b1: Added new FileUpload component �
+
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/react@2.2.4
+  - @saas-ui/forms@2.1.3
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/react@2.2.3
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [3b12ef4e]
+- Updated dependencies [2fec29d4]
+  - @saas-ui/react@2.2.2
+
+## 2.2.0
+
+### Minor Changes
+
+- ec2bf223: Added new portal prop to DateInput and DateRangePicker components to conditionally open the dialog in a portal.
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [96b0a058]
+  - @saas-ui/forms@2.1.1
+  - @saas-ui/react@2.2.1
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/command-bar@0.3.0
+  - @saas-ui/palette@2.1.0
+  - @saas-ui/forms@2.1.0
+  - @saas-ui/react@2.2.0
+  - @saas-ui/props-docs@1.9.0
+
+## 2.0.8
+
+### Patch Changes
+
+- @saas-ui/react@2.1.1
+
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies [b4808069]
+- Updated dependencies [b4808069]
+  - @saas-ui/react@2.1.0
+
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+- Updated dependencies [493a548a]
+  - @saas-ui/react@2.0.6
+  - @saas-ui/forms@2.0.5
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [3b5567c6]
+  - @saas-ui/forms@2.0.4
+  - @saas-ui/react@2.0.5
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [8c7ee0be]
+  - @saas-ui/forms@2.0.3
+  - @saas-ui/react@2.0.4
+
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [268fa240]
+- Updated dependencies [93736bed]
+  - @saas-ui/react@2.0.3
+  - @saas-ui/forms@2.0.2
+
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [df98007a]
+- Updated dependencies [9b609119]
+  - @saas-ui/react@2.0.2
+  - @saas-ui/forms@2.0.1
+
+## 2.0.1
+
+### Patch Changes
+
+- @saas-ui/react@2.0.1
+
+## 2.0.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+
+### Patch Changes
+
+- d725a5da: Fix esm bundle import
+- d725a5da: Bump version
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [772c9868]
+- Updated dependencies [84e59fec]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [e23790a8]
+- Updated dependencies [83f54180]
+- Updated dependencies [d3900eca]
+- Updated dependencies [ba61612f]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [7ce390e9]
+- Updated dependencies [37e38165]
+- Updated dependencies [b8be6d41]
+- Updated dependencies [d725a5da]
+- Updated dependencies [70af3ead]
+- Updated dependencies [532011d6]
+- Updated dependencies [a8ea24da]
+- Updated dependencies [6d3f5717]
+- Updated dependencies [f1e99198]
+- Updated dependencies [d725a5da]
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [84e59fec]
+- Updated dependencies [8b82d945]
+- Updated dependencies [a5898c44]
+- Updated dependencies [532011d6]
+- Updated dependencies [6193c47c]
+- Updated dependencies [83f54180]
+- Updated dependencies [f1e99198]
+- Updated dependencies [01ac442f]
+- Updated dependencies [dc435dd5]
+- Updated dependencies [046e42b8]
+- Updated dependencies [83f54180]
+- Updated dependencies [8b82d945]
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [e52f63fa]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [7027d7c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [0fda9fee]
+- Updated dependencies [2366db6a]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [a7ef6dd9]
+- Updated dependencies [6c63217c]
+- Updated dependencies [83f54180]
+- Updated dependencies [0a11d7b6]
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [c85541cb]
+- Updated dependencies [b5912297]
+- Updated dependencies [83f54180]
+- Updated dependencies [2b639656]
+- Updated dependencies [b895e5bd]
+- Updated dependencies [f34de7af]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [f1e99198]
+- Updated dependencies [76887bda]
+- Updated dependencies [39e778d8]
+- Updated dependencies [76887bda]
+- Updated dependencies [27a68bca]
+- Updated dependencies [6236e117]
+- Updated dependencies [0319aa57]
+- Updated dependencies [76887bda]
+- Updated dependencies [8346fd1a]
+- Updated dependencies [826c561a]
+- Updated dependencies [166978bd]
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [f3b09191]
+  - @saas-ui/react@2.0.0
+  - @saas-ui/forms@2.0.0
+  - @saas-ui/command-bar@0.2.0
+  - @saas-ui/palette@2.0.0
+  - @saas-ui/props-docs@1.8.1
+
+## 2.0.0-rc.34
+
+### Patch Changes
+
+- Updated dependencies [70af3ead]
+- Updated dependencies [b5912297]
+  - @saas-ui/react@2.0.0-rc.34
+  - @saas-ui/forms@2.0.0-rc.32
+
+## 2.0.0-rc.33
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.0-rc.31
+- @saas-ui/react@2.0.0-rc.33
+
+## 2.0.0-rc.32
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-rc.32
+- @saas-ui/forms@2.0.0-rc.30
+
+## 2.0.0-rc.31
+
+### Patch Changes
+
+- Updated dependencies [0fda9fee]
+  - @saas-ui/react@2.0.0-rc.31
+  - @saas-ui/forms@2.0.0-rc.29
+
+## 2.0.0-rc.30
+
+### Patch Changes
+
+- Updated dependencies [6193c47c]
+- Updated dependencies [046e42b8]
+- Updated dependencies [6236e117]
+  - @saas-ui/react@2.0.0-rc.30
+  - @saas-ui/command-bar@0.2.0-rc.6
+  - @saas-ui/forms@2.0.0-rc.28
+
+## 2.0.0-rc.29
+
+### Patch Changes
+
+- Updated dependencies [d6e9a39d]
+- Updated dependencies [b895e5bd]
+  - @saas-ui/forms@2.0.0-rc.27
+  - @saas-ui/react@2.0.0-rc.29
+
+## 2.0.0-rc.28
+
+### Patch Changes
+
+- Updated dependencies [e52f63fa]
+  - @saas-ui/react@2.0.0-rc.28
+  - @saas-ui/forms@2.0.0-rc.26
+
+## 2.0.0-rc.27
+
+### Patch Changes
+
+- Updated dependencies [e23790a8]
+- Updated dependencies [2366db6a]
+  - @saas-ui/react@2.0.0-rc.27
+  - @saas-ui/forms@2.0.0-rc.25
+
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- Updated dependencies [5ac0e9ba]
+- Updated dependencies [5ac0e9ba]
+  - @saas-ui/react@2.0.0-rc.26
+  - @saas-ui/forms@2.0.0-rc.24
+
+## 2.0.0-rc.25
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+- Updated dependencies
+  - @saas-ui/react@2.0.0-rc.25
+  - @saas-ui/command-bar@0.2.0-rc.5
+  - @saas-ui/palette@2.0.0-rc.4
+  - @saas-ui/forms@2.0.0-rc.23
+  - @saas-ui/props-docs@1.8.1-rc.2
+
+## 2.0.0-rc.24
+
+### Patch Changes
+
+- Updated dependencies [7027d7c1]
+  - @saas-ui/react@2.0.0-rc.24
+  - @saas-ui/forms@2.0.0-rc.22
+
+## 2.0.0-next.23
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.23
+
+## 2.0.0-next.22
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.22
+- @saas-ui/forms@2.0.0-next.21
+
+## 2.0.0-next.21
+
+### Patch Changes
+
+- Updated dependencies [ccfce5c1]
+- Updated dependencies [a9ca90dd]
+- Updated dependencies [2b639656]
+- Updated dependencies [ccfce5c1]
+  - @saas-ui/react@2.0.0-next.21
+  - @saas-ui/forms@2.0.0-next.20
+
+## 2.0.0-next.20
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.20
+
+## 2.0.0-next.19
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.19
+- @saas-ui/forms@2.0.0-next.19
+
+## 2.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies [01ac442f]
+  - @saas-ui/forms@2.0.0-next.18
+  - @saas-ui/react@2.0.0-next.18
+
+## 2.0.0-next.17
+
+### Patch Changes
+
+- Updated dependencies [a5898c44]
+  - @saas-ui/react@2.0.0-next.17
+  - @saas-ui/forms@2.0.0-next.17
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- Updated dependencies [b8be6d41]
+  - @saas-ui/react@2.0.0-next.16
+  - @saas-ui/forms@2.0.0-next.16
+
+## 2.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [2d18cdc2]
+- Updated dependencies [826c561a]
+  - @saas-ui/forms@2.0.0-next.15
+  - @saas-ui/react@2.0.0-next.15
+
+## 2.0.0-next.14
+
+### Patch Changes
+
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/command-bar@0.2.0-next.4
+  - @saas-ui/palette@2.0.0-next.3
+  - @saas-ui/forms@2.0.0-next.14
+  - @saas-ui/react@2.0.0-next.14
+  - @saas-ui/props-docs@1.8.1-next.1
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+- Updated dependencies [dc435dd5]
+- Updated dependencies [6c63217c]
+  - @saas-ui/react@2.0.0-next.13
+  - @saas-ui/command-bar@0.2.0-next.3
+  - @saas-ui/palette@2.0.0-next.2
+  - @saas-ui/forms@2.0.0-next.13
+  - @saas-ui/props-docs@1.8.1-next.0
+
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Updated dependencies [a7ef6dd9]
+  - @saas-ui/react@2.0.0-next.12
+
+## 2.0.0-next.11
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.11
+
+## 2.0.0-next.10
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.10
+
+## 2.0.0-next.9
+
+### Patch Changes
+
+- Updated dependencies [189190c6]
+- Updated dependencies [1177329d]
+- Updated dependencies [84e59fec]
+  - @saas-ui/react@2.0.0-next.9
+
+## 2.0.0-next.8
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.8
+
+## 2.0.0-next.7
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.7
+
+## 2.0.0-next.6
+
+### Patch Changes
+
+- Updated dependencies [37e38165]
+- Updated dependencies [532011d6]
+- Updated dependencies [532011d6]
+- Updated dependencies [6dd737ce]
+- Updated dependencies [c85541cb]
+- Updated dependencies [39e778d8]
+  - @saas-ui/react@2.0.0-next.6
+
+## 2.0.0-next.5
+
+### Patch Changes
+
+- Updated dependencies [a8ea24da]
+- Updated dependencies [61b27fa6]
+- Updated dependencies [8346fd1a]
+  - @saas-ui/react@2.0.0-next.5
+  - @saas-ui/command-bar@0.2.0-next.2
+
+## 2.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [83f54180]
+- Updated dependencies [ba61612f]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [83f54180]
+- Updated dependencies [27a68bca]
+  - @saas-ui/react@2.0.0-next.4
+
+## 2.0.0-next.3
+
+### Patch Changes
+
+- @saas-ui/react@2.0.0-next.3
+
+## 2.0.0-next.2
+
+### Patch Changes
+
+- Updated dependencies [0a11d7b6]
+- Updated dependencies [76887bda]
+- Updated dependencies [76887bda]
+- Updated dependencies [76887bda]
+  - @saas-ui/react@2.0.0-next.2
+
+## 2.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [166978bd]
+  - @saas-ui/command-bar@0.1.1-next.1
+  - @saas-ui/palette@2.0.0-next.1
+  - @saas-ui/react@2.0.0-next.1
+
+## 2.0.0-next.0
+
+### Major Changes
+
+- 8b82d945: Removed button package.
+
+### Patch Changes
+
+- f1e99198: Migrated from microbundle to tsup for builds
+- Updated dependencies [772c9868]
+- Updated dependencies [d7c87a31]
+- Updated dependencies [e94ca3c0]
+- Updated dependencies [7ce390e9]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f1e99198]
+- Updated dependencies [8b82d945]
+- Updated dependencies [f34de7af]
+- Updated dependencies [3a15e8c8]
+- Updated dependencies [f1e99198]
+- Updated dependencies [f3b09191]
+  - @saas-ui/react@2.0.0-next.0
+  - @saas-ui/command-bar@0.1.1-next.0
+  - @saas-ui/palette@2.0.0-next.0
+
+## 1.3.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/command-bar@0.1.2
+  - @saas-ui/palette@1.3.2
+  - @saas-ui/web3@1.4.2
+  - @saas-ui/react@1.9.3
+
+## 1.3.6
+
+### Patch Changes
+
+- Updated dependencies [b2302a3]
+  - @saas-ui/command-bar@0.1.1
+  - @saas-ui/palette@1.3.1
+  - @saas-ui/react@1.9.2
+  - @saas-ui/web3@1.4.1
+
 ## 1.3.5
 
 ### Patch Changes

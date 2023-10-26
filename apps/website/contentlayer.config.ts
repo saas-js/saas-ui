@@ -57,18 +57,27 @@ const Doc = defineDocumentType(() => ({
   bodyType: 'mdx',
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
+    title: { type: 'string' },
     package: { type: 'string' },
-    description: { type: 'string', required: true },
+    description: { type: 'string' },
     image: { type: 'string' },
     version: { type: 'string' },
     tags: { type: 'list', of: { type: 'string' } },
+    id: { type: 'string' },
+    scope: {
+      type: 'enum',
+      options: ['usage', 'theming', 'props'],
+      default: 'usage',
+    },
+    category: { type: 'string' },
   },
   computedFields: {
     ...computedFields,
     frontMatter: {
       type: 'json',
       resolve: (doc) => ({
+        id: doc.id,
+        scope: doc.scope,
         title: doc.title,
         package: doc.package,
         description: doc.description,

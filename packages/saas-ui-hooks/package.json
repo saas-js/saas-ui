@@ -1,23 +1,24 @@
 {
   "name": "@saas-ui/hooks",
-  "version": "1.2.0",
+  "version": "2.0.1",
   "description": "Saas UI react hooks",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
+    "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

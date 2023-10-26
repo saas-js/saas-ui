@@ -1,0 +1,47 @@
+---
+id: address
+title: Web3Address
+description: Display Web3 addresses in a more readable format.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core/src/web3-address' }}
+  npm={{ package: '@saas-ui/core' }}
+/>
+
+## Import
+
+```ts
+import { Web3Address } from '@saas-ui/react'
+```
+
+## Usage
+
+```jsx
+<Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
+```
+
+### Custom length
+
+```jsx
+<Web3Address
+  address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F"
+  startLength={6}
+  endLength={3}
+/>
+```
+
+### In a button
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { Web3Address } from '@saas-ui/react'
+
+export default function AddressButton() {
+  return (
+    <Button>
+      <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
+    </Button>
+  )
+}
+```

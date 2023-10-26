@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
-import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui/pro'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
 import Link from 'next/link'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
@@ -33,7 +33,7 @@ const SecondaryNavLink = ({
   const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <Flex
         as="a"
         py="2"
@@ -54,17 +54,11 @@ const SecondaryNavLink = ({
 
 export const docsNav = [
   {
-    href: '/docs/introduction',
-    label: 'Introduction',
+    href: '/docs',
+    label: 'Getting started',
     match: (asPath: string, href: string) =>
-      href.startsWith('/docs/introduction') &&
-      asPath.startsWith('/docs/introduction'),
-  },
-  {
-    href: '/docs/core/overview',
-    label: 'Core',
-    match: (asPath: string, href: string) =>
-      href.startsWith('/docs/core') && asPath.startsWith('/docs/core'),
+      asPath === '/docs' ||
+      (href.startsWith('/docs/core') && asPath.startsWith('/docs/core')),
   },
   {
     href: '/docs/components',
@@ -78,6 +72,12 @@ export const docsNav = [
     label: 'Hooks',
     match: (asPath: string, href: string) =>
       href.startsWith('/docs/hooks') && asPath.startsWith('/docs/hooks'),
+  },
+  {
+    href: '/docs/guides',
+    label: 'Guides',
+    match: (asPath: string, href: string) =>
+      href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
   },
   {
     href: '/docs/pro/overview',
@@ -136,6 +136,7 @@ export const SecondaryNav = (props) => {
         backdropFilter: 'blur(16px)',
         mask: 'linear-gradient(to-b, black, transparent)',
         WebkitMask: 'linear-gradient(to bottom, black 48px, transparent)',
+        transform: 'translate3d(0, 0, 0)',
       }}
     >
       <Box position="relative" borderBottomWidth="1px">

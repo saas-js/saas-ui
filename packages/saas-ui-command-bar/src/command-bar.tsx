@@ -21,9 +21,18 @@ import {
 import { cx, dataAttr } from '@chakra-ui/utils'
 import { useCommandBar, CommandBarOptions } from './command-bar-context'
 
-import { Command as CommandPrimitive } from 'cmdk'
+import {
+  CommandRoot,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandLoading,
+  CommandSeparator,
+} from 'cmdk'
 
-import styleConfig from './command-bar-styles'
+import { commandBarTheme } from './command-bar-theme'
 
 function cmdkFactory<P extends object>(
   Component: React.ForwardRefExoticComponent<P>,
@@ -42,38 +51,32 @@ function cmdkFactory<P extends object>(
         ref={ref}
         {...props}
         __css={componentStyles}
-        className={cx(`saas-command-bar__${key}`, props.className)}
+        className={cx(`sui-command-bar__${key}`, props.className)}
       />
     )
   })
 }
 
-const StyledCommand = chakra(CommandPrimitive)
-const StyledInput = chakra(CommandPrimitive.Input)
-const StyledItem = chakra(CommandPrimitive.Item)
+const StyledCommand = chakra(CommandRoot)
+const StyledInput = chakra(CommandInput)
+const StyledItem = chakra(CommandItem)
 
-export const CommandBarList = cmdkFactory(CommandPrimitive.List, 'list')
-export const CommandBarLoading = cmdkFactory(
-  CommandPrimitive.Loading,
-  'loading'
-)
-export const CommandBarEmpty = cmdkFactory(CommandPrimitive.Empty, 'empty')
+export const CommandBarList = cmdkFactory(CommandList, 'list')
+export const CommandBarLoading = cmdkFactory(CommandLoading, 'loading')
+export const CommandBarEmpty = cmdkFactory(CommandEmpty, 'empty')
 
-export const CommandBarSeparator = cmdkFactory(
-  CommandPrimitive.Separator,
-  'separator'
-)
-export const CommandBarGroup = cmdkFactory(CommandPrimitive.Group, 'group')
+export const CommandBarSeparator = cmdkFactory(CommandSeparator, 'separator')
+export const CommandBarGroup = cmdkFactory(CommandGroup, 'group')
 
 export interface CommandBarProps
   extends CommandBarOptions,
-    ThemingProps<'CommandBar'> {
+    ThemingProps<'SuiCommandBar'> {
   children: React.ReactNode
 }
 
 export const CommandBar: React.FC<CommandBarProps> = (props) => {
-  const styles = useMultiStyleConfig('CommandBar', {
-    styleConfig,
+  const styles = useMultiStyleConfig('SuiCommandBar', {
+    styleConfig: commandBarTheme,
     ...props,
   })
 
@@ -108,7 +111,7 @@ export const CommandBarContent = forwardRef<HTMLChakraProps<'div'>, 'div'>(
         {...props}
         {...getCommandProps(props)}
         __css={containerStyles}
-        className={cx('saas-command-bar', props.className)}
+        className={cx('sui-command-bar', props.className)}
       />
     )
   }
@@ -138,7 +141,7 @@ export const CommandBarInput = forwardRef<CommandBarInputProps, 'input'>(
         onValueChange={onChange}
         {...rest}
         __css={inputStyles}
-        className={cx('saas-command-bar__input', props.className)}
+        className={cx('sui-command-bar__input', props.className)}
       />
     )
   }
@@ -170,7 +173,7 @@ export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
         {...getItemProps(props)}
         __css={itemStyles}
         data-disabled={dataAttr(isDisabled)}
-        className={cx('saas-command-bar__item', props.className)}
+        className={cx('sui-command-bar__item', props.className)}
       />
     )
   }

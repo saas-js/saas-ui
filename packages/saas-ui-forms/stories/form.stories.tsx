@@ -1,11 +1,19 @@
-import { Container, Stack, HStack, Text } from '@chakra-ui/react'
+import {
+  Container,
+  Stack,
+  Button,
+  FormControl,
+  Input,
+  FormLabel,
+} from '@chakra-ui/react'
 import * as React from 'react'
 
-import * as Yup from 'yup'
+import * as yup from 'yup'
+import { z } from 'zod'
 
-import { yupResolver } from '@hookform/resolvers/yup'
-
-import { UseFormReturn } from 'react-hook-form'
+import { createYupForm } from '../yup/src'
+import { createZodForm } from '../zod/src'
+import { JTDDataType, createAjvForm } from '../ajv/src'
 
 import {
   Form,
@@ -14,14 +22,17 @@ import {
   DisplayIf,
   SubmitButton,
   FormProps,
+  createForm,
+  UseFormReturn,
+  createField,
 } from '../src'
 
-import { Button } from '@saas-ui/button'
-
 import { onSubmit } from './helpers'
+import { JSONSchemaType } from 'ajv'
 
 export default {
   title: 'Components/Forms/Form',
+  component: Form,
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -31,92 +42,210 @@ export default {
   ],
 }
 
-const schema = Yup.object().shape({
-  title: Yup.string()
+const loginSchema = yup.object({
+  email: yup.string().email().required().label('Email address'),
+  password: yup
+    .string()
+    .required()
+    .label('Password')
+    .meta({ type: 'password' }),
+})
+
+export const Basic = {
+  render(args: FormProps) {
+    return (
+      <Form
+        defaultValues={{
+          title: 'Form',
+          description: 'A basic layout',
+        }}
+        {...args}
+        onSubmit={args?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" />
+
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </Form>
+    )
+  },
+}
+
+export const WithValidationRules = {
+  render(props: FormProps) {
+    return (
+      <Form
+        defaultValues={{
+          title: '',
+          description: '',
+        }}
+        {...props}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="title"
+              label="Title"
+              rules={{ required: 'Title is required' }}
+            />
+            <Field
+              name="description"
+              label="Description"
+              rules={{ required: 'Description is required' }}
+            />
+
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </Form>
+    )
+  },
+}
+
+const CustomField = createField((props: { customFieldProps: string }) => (
+  <div>custom</div>
+))
+
+const TypedForm = createForm({
+  fields: { custom: CustomField },
+})
+
+export const BasicTyped = () => (
+  <TypedForm
+    defaultValues={{
+      title: 'Form',
+      description: 'A basic layout',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="title" label="Title" type="text" />
+        <Field name="description" label="Description" type="textarea" />
+
+        <SubmitButton />
+      </FormLayout>
+    )}
+  </TypedForm>
+)
+
+const ZodForm = createZodForm({
+  fields: { custom: CustomField },
+})
+
+const zodSchema = z.object({
+  firstName: z.string(),
+  age: z.number(),
+})
+
+export const WithZodSchema = {
+  render(props: React.ComponentProps<typeof ZodForm>) {
+    return (
+      <ZodForm
+        schema={zodSchema}
+        defaultValues={{
+          firstName: '',
+        }}
+        {...props}
+        onSubmit={props?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="firstName" label="Name" />
+            <Field name="age" label="Age" type="number" />
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </ZodForm>
+    )
+  },
+}
+
+const YupForm = createYupForm()
+
+const yupSchema = yup.object({
+  name: yup
+    .string()
     .min(2, 'Too short')
     .max(25, 'Too long')
     .required()
     .label('Title'),
-  description: Yup.string()
+  description: yup
+    .string()
     .min(2, 'Too short')
     .max(25, 'Too long')
     .required()
     .label('Description'),
 })
 
-const loginSchema = Yup.object().shape({
-  email: Yup.string().email().required().label('Email address'),
-  password: Yup.string()
-    .required()
-    .label('Password')
-    .meta({ type: 'password' }),
-})
+export const WithYupSchema = {
+  render(props: React.ComponentProps<typeof YupForm>) {
+    return (
+      <YupForm
+        schema={yupSchema}
+        defaultValues={{
+          name: '',
+          description: '',
+        }}
+        {...props}
+        onSubmit={props?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="name" label="Title" />
+            <Field name="description" label="Description" />
 
-export const Basic = () => (
-  <>
-    <Form
-      defaultValues={{
-        title: 'Form',
-        description: 'A basic layout',
-      }}
-      onSubmit={onSubmit}
-    >
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </YupForm>
+    )
+  },
+}
+
+const AjvForm = createAjvForm()
+
+type JSONData = {
+  firstName: string
+  age: number
+}
+
+const ajvSchema = {
+  type: 'object',
+  properties: {
+    firstName: {
+      type: 'string',
+    },
+    age: {
+      type: 'integer',
+    },
+  },
+  required: ['firstName', 'age'],
+  additionalProperties: false,
+} as const
+
+type DataSchema = JTDDataType<typeof ajvSchema>
+
+export const WithAjvForm = () => (
+  <AjvForm
+    schema={ajvSchema}
+    defaultValues={{
+      firstName: '',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
       <FormLayout>
-        <Field name="title" label="Title" />
-        <Field name="description" label="Description" />
-
-        <SubmitButton />
+        <Field name="firstName" label="Name" />
+        <Field name="age" label="Age" />
       </FormLayout>
-    </Form>
-  </>
-)
-
-export const WithValidationRules = (props: FormProps) => (
-  <>
-    <Form
-      defaultValues={{
-        title: '',
-        description: '',
-      }}
-      {...props}
-      onSubmit={onSubmit}
-    >
-      <FormLayout>
-        <Field
-          name="title"
-          label="Title"
-          rules={{ required: 'Title is required' }}
-        />
-        <Field
-          name="description"
-          label="Description"
-          rules={{ required: 'Description is required' }}
-        />
-
-        <SubmitButton />
-      </FormLayout>
-    </Form>
-  </>
-)
-
-export const WithYupSchema = () => (
-  <>
-    <Form
-      defaultValues={{
-        title: '',
-        description: '',
-      }}
-      onSubmit={onSubmit}
-      resolver={yupResolver(schema)}
-    >
-      <FormLayout>
-        <Field name="title" label="Title" />
-        <Field name="description" label="Description" />
-
-        <SubmitButton />
-      </FormLayout>
-    </Form>
-  </>
+    )}
+  </AjvForm>
 )
 
 export const FormState = () => {
@@ -147,12 +276,14 @@ export const FormState = () => {
           description: 'A basic layout',
         }}
         onSubmit={onSubmit}
-        ref={ref}
+        formRef={ref}
       >
-        <FormLayout>
-          <Field name="title" label="Title" />
-          <Field name="description" label="Description" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" />
+            <Field name="description" label="Description" />
+          </FormLayout>
+        )}
       </Form>
     </Stack>
   )
@@ -166,17 +297,19 @@ type PostInputs = {
 export const WithTypescript = () => {
   return (
     <Stack>
-      <Form<PostInputs>
+      <Form
         defaultValues={{
           firstName: 'Eelco',
           lastName: 'Wiersma',
         }}
         onSubmit={onSubmit}
       >
-        <FormLayout>
-          <Field<PostInputs> name="firstName" label="First name" />
-          <Field<PostInputs> name="lastName" label="Last name" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="firstName" label="First name" />
+            <Field name="lastName" label="Last name" />
+          </FormLayout>
+        )}
       </Form>
     </Stack>
   )
@@ -188,32 +321,34 @@ type FormInputs = {
 }
 
 export const TypescriptWithRef = () => {
-  const ref = React.useRef<UseFormReturn<FormInputs>>(null)
+  const ref = React.useRef<UseFormReturn<FormInputs, object>>(null)
 
   return (
-    <Form<FormInputs>
-      ref={ref}
+    <Form
+      formRef={ref}
       defaultValues={{
         firstName: '',
         lastName: '',
       }}
       onSubmit={() => Promise.resolve()}
     >
-      <FormLayout>
-        <Field<FormInputs>
-          name="firstName"
-          label="First name"
-          rules={{ required: 'Please enter your first name' }}
-        />
-        <Field<FormInputs> name="lastName" label="Last name" />
-        <DisplayIf name="firstName" condition={(value) => !!value}>
-          <Button onClick={() => ref.current?.reset()}>Reset</Button>
-        </DisplayIf>
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="firstName"
+            label="First name"
+            rules={{ required: 'Please enter your first name' }}
+          />
+          <Field name="lastName" label="Last name" />
+          <DisplayIf name="firstName" condition={(value) => !!value}>
+            <Button onClick={() => ref.current?.reset()}>Reset</Button>
+          </DisplayIf>
 
-        <SubmitButton disableIfUntouched disableIfInvalid>
-          Save
-        </SubmitButton>
-      </FormLayout>
+          <SubmitButton disableIfUntouched disableIfInvalid>
+            Save
+          </SubmitButton>
+        </FormLayout>
+      )}
     </Form>
   )
 }
@@ -229,16 +364,18 @@ export const WithOnChange = () => {
         onSubmit={onSubmit}
         onChange={(e) => console.log('change', e)}
       >
-        <FormLayout>
-          <Field<PostInputs> name="firstName" label="First name" />
-          <Field<PostInputs> name="lastName" label="Last name" />
-        </FormLayout>
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="firstName" label="First name" />
+            <Field name="lastName" label="Last name" />
+          </FormLayout>
+        )}
       </Form>
     </Stack>
   )
 }
 
-export const WithRenderProp = () => {
+export const WithRegister = () => {
   return (
     <Stack>
       <Form<PostInputs>
@@ -249,12 +386,14 @@ export const WithRenderProp = () => {
         onSubmit={onSubmit}
         onChange={(e) => console.log('change', e)}
       >
-        {(form) => {
-          console.log(form)
+        {({ Field, register }) => {
           return (
             <FormLayout>
-              <Field<PostInputs> name="firstName" label="First name" />
-              <Field<PostInputs> name="lastName" label="Last name" />
+              <Field name="firstName" label="First name" />
+              <FormControl>
+                <FormLabel>Last name</FormLabel>
+                <Input {...register('lastName')} />
+              </FormControl>
             </FormLayout>
           )
         }}

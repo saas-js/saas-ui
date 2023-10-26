@@ -1,70 +1,55 @@
 import * as React from 'react'
 
-import { FieldValues, UseFormReturn } from 'react-hook-form'
-
-import { chakra, HTMLChakraProps, ThemingProps } from '@chakra-ui/system'
-
-import { callAllHandlers, runIfFn, cx, __DEV__ } from '@chakra-ui/utils'
+import { FieldValues } from 'react-hook-form'
 
 import {
-  StepperProvider,
-  StepperSteps,
-  StepperStepsProps,
-  StepperStep,
-  useStepperContext,
-  StepperContainer,
-  StepperProps,
-} from '@saas-ui/stepper'
-import { Button, ButtonProps } from '@saas-ui/button'
+  chakra,
+  Button,
+  ButtonProps,
+  HTMLChakraProps,
+  ThemingProps,
+} from '@chakra-ui/react'
 
-import { Form } from './form'
+import { callAllHandlers, cx } from '@chakra-ui/utils'
+
+import {
+  Steps,
+  StepsItem,
+  StepsItemProps,
+  StepsProps,
+  useStepperContext,
+} from '@saas-ui/core'
+
 import { SubmitButton } from './submit-button'
 
 import {
-  useStepForm,
   useFormStep,
-  StepFormProvider,
   UseStepFormProps,
   FormStepSubmitHandler,
 } from './use-step-form'
 
-export interface StepFormProps<TFieldValues extends FieldValues = FieldValues>
-  extends UseStepFormProps<TFieldValues> {}
-
-export const StepForm = React.forwardRef(
-  <TFieldValues extends FieldValues = FieldValues>(
-    props: StepFormProps<TFieldValues>,
-    ref: React.ForwardedRef<UseFormReturn<TFieldValues>>
-  ) => {
-    const { children, ...rest } = props
-
-    const stepper = useStepForm<TFieldValues>(props)
-
-    const { getFormProps, ...ctx } = stepper
-
-    const context = React.useMemo(() => ctx, [ctx])
-
-    return (
-      <StepperProvider value={context}>
-        <StepFormProvider value={context}>
-          <Form ref={ref} {...rest} {...getFormProps()}>
-            {runIfFn(children, stepper)}
-          </Form>
-        </StepFormProvider>
-      </StepperProvider>
-    )
-  }
-) as <TFieldValues extends FieldValues>(
-  props: StepFormProps<TFieldValues> & {
-    ref?: React.ForwardedRef<UseFormReturn<TFieldValues>>
-  }
-) => React.ReactElement
-
-export interface FormStepOptions {
+export type StepsOptions<TSchema, TName extends string = string> = {
   /**
    * The step name
    */
-  name: string
+  name: TName
+  /**
+   * Schema
+   */
+  schema?: TSchema
+}[]
+
+export interface StepFormProps<
+  TSteps extends StepsOptions<any> = StepsOptions<any>,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> extends UseStepFormProps<TSteps, TFieldValues, TContext> {}
+
+export interface FormStepOptions<TName extends string = string> {
+  /**
+   * The step name
+   */
+  name: TName
   /**
    * Schema
    */
@@ -75,14 +60,28 @@ export interface FormStepOptions {
   resolver?: any
 }
 
-export interface FormStepperProps
-  extends StepperStepsProps,
-    ThemingProps<'Stepper'> {}
+export interface FormStepperProps extends StepsProps, ThemingProps<'Stepper'> {
+  render?: StepsItemProps['render']
+}
 
+/**
+ * Renders a stepper that displays progress above the form.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const FormStepper: React.FC<FormStepperProps> = (props) => {
   const { activeIndex, setIndex } = useStepperContext()
 
-  const { children, orientation, variant, colorScheme, size, ...rest } = props
+  const {
+    children,
+    orientation,
+    variant,
+    colorScheme,
+    size,
+    onChange: onChangeProp,
+    render,
+    ...rest
+  } = props
 
   const elements = React.Children.map(children, (child) => {
     if (
@@ -91,14 +90,15 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
     ) {
       const { isCompleted } = useFormStep(child.props) // Register this step
       return (
-        <StepperStep
+        <StepsItem
+          render={render}
           name={child.props.name}
           title={child.props.title}
           isCompleted={isCompleted}
           {...rest}
         >
           {child.props.children}
-        </StepperStep>
+        </StepsItem>
       )
     }
     return child
@@ -106,10 +106,11 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
 
   const onChange = React.useCallback((i: number) => {
     setIndex(i)
+    onChangeProp?.(i)
   }, [])
 
   return (
-    <StepperContainer
+    <Steps
       orientation={orientation}
       step={activeIndex}
       variant={variant}
@@ -117,59 +118,69 @@ export const FormStepper: React.FC<FormStepperProps> = (props) => {
       size={size}
       onChange={onChange}
     >
-      <StepperSteps mb="4" {...props}>
-        {elements}
-      </StepperSteps>
-    </StepperContainer>
+      {elements}
+    </Steps>
   )
 }
 
-export interface FormStepProps
-  extends FormStepOptions,
+export interface FormStepProps<TName extends string = string>
+  extends FormStepOptions<TName>,
     Omit<HTMLChakraProps<'div'>, 'onSubmit'> {
   onSubmit?: FormStepSubmitHandler
 }
-
-export const FormStep: React.FC<FormStepProps> = (props) => {
-  const { name, schema, resolver, children, className, onSubmit, ...rest } =
-    props
-  const step = useFormStep({ name, schema, resolver, onSubmit })
+/**
+ * The form step containing fields for a specific step.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
+export const FormStep = <TName extends string = string>(
+  props: FormStepProps<TName>
+) => {
+  const { name, children, className, onSubmit, ...rest } = props
+  const step = useFormStep({ name, onSubmit })
 
   const { isActive } = step
 
   return isActive ? (
-    <chakra.div {...rest} className={cx('saas-form__step', className)}>
+    <chakra.div {...rest} className={cx('sui-form__step', className)}>
       {children}
     </chakra.div>
   ) : null
 }
 
-if (__DEV__) {
-  FormStep.displayName = 'FormStep'
-}
+FormStep.displayName = 'FormStep'
 
+/**
+ * A button that this opens the previous step when clicked. Disabled on the first step.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const PrevButton: React.FC<ButtonProps> = (props) => {
   const { isFirstStep, isCompleted, prevStep } = useStepperContext()
 
   return (
     <Button
       isDisabled={isFirstStep || isCompleted}
-      label="Back"
+      children="Back"
       {...props}
-      className={cx('saas-form__prev-button', props.className)}
+      className={cx('sui-form__prev-button', props.className)}
       onClick={callAllHandlers(props.onClick, prevStep)}
     />
   )
 }
 
-if (__DEV__) {
-  PrevButton.displayName = 'PrevButton'
-}
+PrevButton.displayName = 'PrevButton'
 
-export interface NextButtonProps extends ButtonProps {
+export interface NextButtonProps extends Omit<ButtonProps, 'children'> {
   submitLabel?: string
+  label?: string
 }
 
+/**
+ * A button that submits the active step.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/step-form
+ */
 export const NextButton: React.FC<NextButtonProps> = (props) => {
   const { label = 'Next', submitLabel = 'Complete', ...rest } = props
   const { isLastStep, isCompleted } = useStepperContext()
@@ -178,13 +189,11 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
     <SubmitButton
       {...rest}
       isDisabled={isCompleted}
-      className={cx('saas-form__next-button', props.className)}
+      className={cx('sui-form__next-button', props.className)}
     >
       {isLastStep || isCompleted ? submitLabel : label}
     </SubmitButton>
   )
 }
 
-if (__DEV__) {
-  NextButton.displayName = 'NextButton'
-}
+NextButton.displayName = 'NextButton'

@@ -1,2 +1,1 @@
-export * from './theme'
-export * from './utils'
+export { theme } from './theme'

@@ -7,13 +7,15 @@ import {
   DatePickerDialog,
   DatePickerTrigger,
 } from './date-picker-dialog'
-import { CalendarIcon } from '@chakra-ui/icons'
+import { CalendarIcon } from './icons'
 import {
   chakra,
   forwardRef,
   InputGroup,
   InputGroupProps,
   InputRightElement,
+  Portal,
+  SystemCSSProperties,
 } from '@chakra-ui/react'
 import { useDateRangePickerContext } from './date-picker-context'
 import {
@@ -23,7 +25,15 @@ import {
 import { SegmentedInput } from './segmented-input'
 
 export interface DateRangeInputProps extends DateRangePickerContainerProps {
+  /**
+   * The icon to use in the calendar button
+   */
   calendarIcon?: React.ReactNode
+  /**
+   * If `true`, the `DatePickerDialog` will open in a portal.
+   * Also accepts a `z-index` value.
+   */
+  portal?: boolean | SystemCSSProperties['zIndex']
 }
 
 /**
@@ -35,7 +45,19 @@ export interface DateRangeInputProps extends DateRangePickerContainerProps {
  */
 export const DateRangeInput = forwardRef<DateRangeInputProps, 'div'>(
   (props, ref) => {
-    const { children, size, variant, calendarIcon, ...rest } = props
+    const { children, size, variant, calendarIcon, portal, ...rest } = props
+
+    const zIndex = typeof portal === 'boolean' ? undefined : portal
+
+    const dialog = (
+      <DatePickerDialog zIndex={zIndex}>
+        <>
+          <DateRangePickerCalendar />
+          {children}
+        </>
+      </DatePickerDialog>
+    )
+
     return (
       <DateRangePicker placement="bottom-start" {...rest}>
         <DateRangePickerInput
@@ -44,12 +66,7 @@ export const DateRangeInput = forwardRef<DateRangeInputProps, 'div'>(
           size={size}
           variant={variant}
         />
-        <DatePickerDialog>
-          <>
-            <DateRangePickerCalendar />
-            {children}
-          </>
-        </DatePickerDialog>
+        {portal ? <Portal>{dialog}</Portal> : dialog}
       </DateRangePicker>
     )
   }
@@ -67,7 +84,7 @@ interface DatePickerInputProps extends InputGroupProps {
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 const DateRangePickerInput = forwardRef<DatePickerInputProps, 'div'>(
-  (props) => {
+  (props, ref) => {
     const { calendarIcon, size, variant, ...rest } = props
 
     const {
@@ -93,7 +110,7 @@ const DateRangePickerInput = forwardRef<DatePickerInputProps, 'div'>(
       >
         <DatePickerAnchor>
           <SegmentedInput {...themeProps}>
-            <DateField locale={locale} {...startFieldProps} />
+            <DateField locale={locale} {...startFieldProps} ref={ref} />
             <chakra.span aria-hidden="true" paddingX="1">
               –
             </chakra.span>

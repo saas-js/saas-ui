@@ -1,0 +1,41 @@
+---
+id: timeline
+scope: theming
+---
+
+## Theming
+
+The `Timeline` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `item`
+- `separator`
+- `icon`
+- `dot`
+- `track`
+- `content`
+
+### Customize the theme
+
+```jsx live=false
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = extendTheme({
+  components: {
+    SuiTimeline: {
+      baseStyle: {
+        label: {
+          color: 'red.500',
+        },
+      },
+    },
+  },
+}
+```

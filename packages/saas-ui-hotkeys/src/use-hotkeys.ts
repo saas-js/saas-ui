@@ -43,7 +43,7 @@ const modifiers: Record<string, string> = {
 
 export const splitKeys = (keys: string) => {
   return keys
-    .replace(/\+/, (match, offset) => {
+    .replace(/\+/g, (match, offset) => {
       if (offset === 0) {
         return match
       }
@@ -97,14 +97,28 @@ const getKeyFromEvent = (event: KeyboardEvent): string => {
   return key
 }
 
-const isInputEvent = (event: KeyboardEvent) => {
-  const target = event.target as HTMLElement
-  return (
-    target.isContentEditable ||
-    (['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName) &&
-      // @ts-ignore: This only exists on HTMLInputElements
-      !target.readOnly)
-  )
+export interface UseHotkeysOptions {
+  /**
+   * Whether to prevent the default behavior of the event.
+   * Eg. to override browser hotkeys.
+   * @default false
+   **/
+  preventDefault?: boolean
+  /**
+   * The element to attach the event listener to.
+   * @default window
+   */
+  targetElement?: HTMLElement | null
+  /**
+   * Ignore hotkeys when the target is an input element.
+   * @default ['INPUT', 'TEXTAREA', 'SELECT']
+   */
+  ignoreTags?: string[]
+  /**
+   * Whether to enable hotkeys when the target is a content editable element.
+   * @default false
+   */
+  enableOnContentEditable?: boolean
 }
 
 /**
@@ -121,8 +135,27 @@ const isInputEvent = (event: KeyboardEvent) => {
 export const useHotkeys = (
   keys: string | string[],
   callback: (event: KeyboardEvent) => void,
-  deps: Array<any> = []
+  options: UseHotkeysOptions | Array<any> = [],
+  deps?: Array<any>
 ) => {
+  let _options: UseHotkeysOptions = {}
+  if (Array.isArray(options)) {
+    deps = options
+    _options = {}
+  } else {
+    _options = options
+    deps = deps || []
+  }
+
+  const {
+    ignoreTags = ['INPUT', 'TEXTAREA', 'SELECT'],
+    enableOnContentEditable,
+    preventDefault = false,
+  } = _options
+
+  const targetElement =
+    _options.targetElement || typeof window === 'undefined' ? null : window
+
   const memoizedCallback = useCallback(callback, deps || [])
 
   const targetKeys: Array<Set<string>> = useMemo(
@@ -134,12 +167,24 @@ export const useHotkeys = (
   const bufferKeys: Set<string> = useMemo(() => new Set(), [])
   const bufferTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  function onKeyDown(event: KeyboardEvent): void {
-    if (isInputEvent(event)) {
+  const isInputEvent = (event: KeyboardEvent) => {
+    const target = event.target as HTMLElement
+    return (
+      (target.isContentEditable && !enableOnContentEditable) ||
+      (ignoreTags.includes(target.tagName) &&
+        // @ts-ignore: This only exists on HTMLInputElements
+        !target.readOnly &&
+        // @ts-ignore: when targetElement is this input, we should trigger
+        target !== targetElement)
+    )
+  }
+
+  function onKeyDown(event: Event) {
+    if (isInputEvent(event as KeyboardEvent)) {
       return
     }
 
-    const key = getKeyFromEvent(event)
+    const key = getKeyFromEvent(event as KeyboardEvent)
     pressedKeys.add(key)
     bufferKeys.add(key)
 
@@ -155,33 +200,37 @@ export const useHotkeys = (
       keysMatch(pressedKeys, targetKeys) ||
       (bufferKeys.size > 1 && keysMatch(bufferKeys, targetKeys))
     ) {
+      if (preventDefault) {
+        event.preventDefault()
+      }
       bufferKeys.clear() // make sure the buffer gets cleared
+      pressedKeys.clear() // make sure the pressed keys get cleared
       // execute on next tick to make sure the last keyup doesn't trigger in any focused field
-      setTimeout(() => memoizedCallback(event), 0)
+      setTimeout(() => memoizedCallback(event as KeyboardEvent), 0)
     }
   }
 
-  function onKeyUp(event: KeyboardEvent): void {
-    if (isInputEvent(event)) {
+  function onKeyUp(event: Event) {
+    if (isInputEvent(event as KeyboardEvent)) {
       pressedKeys.clear()
       return
     }
-    pressedKeys.delete(getKeyFromEvent(event))
+    pressedKeys.delete(getKeyFromEvent(event as KeyboardEvent))
   }
 
-  function onWindowBlur(): void {
+  function onWindowBlur() {
     pressedKeys.clear()
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', onKeyDown)
-    window.addEventListener('keyup', onKeyUp)
-    window.addEventListener('blur', onWindowBlur)
+    targetElement?.addEventListener('keydown', onKeyDown)
+    targetElement?.addEventListener('keyup', onKeyUp)
+    targetElement?.addEventListener('blur', onWindowBlur)
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown)
-      window.removeEventListener('keyup', onKeyUp)
-      window.removeEventListener('blur', onWindowBlur)
+      targetElement?.removeEventListener('keydown', onKeyDown)
+      targetElement?.removeEventListener('keyup', onKeyUp)
+      targetElement?.removeEventListener('blur', onWindowBlur)
     }
-  }, [memoizedCallback])
+  }, [memoizedCallback, targetElement])
 }

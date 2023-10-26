@@ -1,0 +1,77 @@
+---
+title: Clerk Authentication
+description: How to configure the Clerk authentication service.
+---
+
+Clerk is a service that provides beautiful and secure user authentication.
+This guide will show you how to configure Clerk in your app and connect them to the Saas UI authentication components.
+
+## Install
+
+1. Install the Clerk React client and the Saas UI Clerk integration in the @app/features package.
+
+```bash
+cd packages/app-features && yarn add @clerk/clerk-react @saas-ui/clerk
+```
+
+`clerk-react` is a dependency of `@saas-ui/clerk` and is required to be installed in the same package.
+To use Clerks Next.js feature like middleware support, you need to install `@clerk-ui/nextjs` as well.
+
+```bash
+yarn add @clerk/nextjs
+```
+
+## Configure
+
+2. Copy `apps/web/.env.example` to `apps/web/.env` and add your Clerk publisable key which you can find in the Clerk dashboard.
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=""
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/signup
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/app
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/app
+```
+
+3. Edit `packages/app-features/core/providers/auth.tsx` and add the Clerk provider.
+
+```ts
+import { AuthProvider as BaseAuthProvider } from '@saas-ui/auth'
+import { ClerkAuthProvider } from '@saas-ui/clerk'
+
+export const AuthProvider = (props: { children: React.ReactNode }) => {
+  return (
+    <ClerkAuthProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
+      {({ authService }) => (
+        <BaseAuthProvider {...authService}>{props.children}</BaseAuthProvider>
+      )}
+    </ClerkAuthProvider>
+  )
+}
+```
+
+Your app is now configured to use Clerk for authentication.
+
+Open `http://localhost:3000/app` to try it out.
+
+## Troubleshooting
+
+If you get the following error in Next.js you can add the following to `nextjs.config.mjs`.
+This will resolve any ESM / CommonJS issues which can accur with `@clerk/clerk-react` > 4.18
+
+```
+SyntaxError: Named export 'AuthenticateWithRedirectCallback' not found. The requested module '@clerk/clerk-react' is a CommonJS module, which may not support all module.exports as named exports.
+```
+
+```ts
+transpilePackages: [
+  '@clerk/clerk-react',
+  '@saas-ui/clerk',
+],
+```
+
+## Next up
+
+- [Clerk Next.js documentation](https://clerk.com/docs/nextjs/get-started-with-nextjs)

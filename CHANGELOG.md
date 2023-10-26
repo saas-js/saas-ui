@@ -8,6 +8,599 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 10-20-2023
+
+`@saas-ui/react@2.3.0`
+
+- Zod schema enum types now render a Select by default
+- Fixed issue where closing large models with modals manager would flicker
+- Fixed issue where Field would not infer correct onChange handler
+- Fixed issue where not all StepForm data would be passed to onSubmit
+- ZodForm now infers defaultValues from the schema
+- FormLayout no longer renders each child in a wrapper div
+- Fixed issue where placeholder would not be passed to the NumberInputField
+
+**Forms** `v2.2.0`
+
+- Zod schema enum types now render a Select by default
+- Fixed issue where Field would not infer correct onChange handler
+- Fixed issue where not all StepForm data would be passed to onSubmit
+- ZodForm now infers defaultValues from the schema
+- FormLayout no longer renders each child in a wrapper div
+- Fixed issue where placeholder would not be passed to the NumberInputField
+
+**Modals** `v2.1.5`
+
+- Fixed issue where closing large models with modals manager would flicker
+
+## 09-15-2023
+
+`@saas-ui/react@2.2.0`
+
+- Updated to Chakra UI 2.8.0
+- Added `use client` directive for better RSC support
+
+**Command Bar** `v0.3.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Date Picker** `v0.11.0`
+
+- Updated to Chakra UI 2.8.0
+- Added Portal to DateInput and DateRangeInput pickers.
+
+**Theme Glass** `v0.5.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Data Table** `v4.0.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Palette** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Charts** `v0.10.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Modals** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Forms** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Magic** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+- Updated magic client
+
+**Theme** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Core** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Saas Ui Storybook** `v1.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Props Docs** `v1.9.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Test Utils** `v3.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Palette Docs** `v1.4.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Website** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+## 08-26-2023
+
+`@saas-ui/react@2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an input
+- Fixed issue where useHotkeys would not reset pressed keys
+
+**Hotkeys** `v2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an input
+- Fixed issue where useHotkeys would not reset pressed keys
+
+## 08-07-2023
+
+`@saas-ui/react@2.0.6`
+
+- NavItem now renders an aria-current tag when the item is active.
+- Export createStandAloneSnackbar from core package.
+- NavItem active state is now compatible with Remix and ReactRouter NavLink
+
+**Theme** `v2.0.1`
+
+- NavItem now renders an aria-current tag when the item is active.
+- NavItem active state is now compatible with Remix and ReactRouter NavLink
+
+**Core** `v2.0.3`
+
+- NavItem now renders an aria-current tag when the item is active.
+- Export createStandAloneSnackbar from core package.
+
+## 07-20-2023
+
+**Forms** `v2.0.3`
+
+- Fixed issue where custom StepForm field types would not propagate.
+
+## 06-30-2023
+
+`@saas-ui/react@2.0.0`
+
+- useHotkeys now supports preventDefault option to prevent default browser events from firing
+- Updated to Tanstack ReactTable V8
+- Moved form resolvers into a separate package.
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+- Fix SnackbarPromiseOptions error type to SnackbarOptions
+- ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- button primary, secondary and tertiary variants colorScheme can now be changed.
+- Fixed useSnackbar return type, always returns toastId.
+- Added TimeLine to core components.
+- Added Sidebar to core packages.
+- Auth forms can now be used standalone, to build custom solutions.
+- tooltipProps on NavItem no longer require children
+- Fix esm bundle import
+- Select now supports theming props.
+- Select can now supports theming using the SuiSelect theme config.
+- PasswordInput now accepts leftAddon property.
+- BREAKING: createPalette no longer exported from @saas-ui/react
+- Bump version
+- Fix vertical stepper items not taking up the full parent width.
+- Added new createModals method to create typesafe modals managers with support for custom modals
+- Renamed List to StructuredList
+- Fix Divider label contrast
+- Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- Fixed issue where Sidebar would not get defaultProps from the theme.
+- Added new tertiary button variant.
+- Migrated from microbundle to tsup for builds
+- No longer needed to use Next.js legacyBehavior for the Link component.
+- Updated to Chakra UI 2.7
+- Secondary button now uses solid variant and gray colorScheme.
+- Removed button package.
+- New createFormDialog function to create Zod or Yup specific FormDialogs
+- useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- Improve Stepper seperator position on all sizes
+- Updated to Chakra UI 2.6.x
+- Fix ContextMenu and OverflowMenu exports.
+- ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+- Select field now renders invalid state.
+- Fixed issue where types for exports were not detected
+- object and array field props can now be overridden using the fields prop
+- Renamed Loader to LoadingOverlay.
+- Renamed Sidebar condensed variant to compact.
+- Form fields overries types now support array and object type props
+- AutoForm field props can now be overridden using the fields prop on Form
+- Fix NavItem focus outline color.
+- Fixed issue where colorScheme would be passed down to stepper dom element
+- Add Timeline theme to theme package.
+- Moved Supabase and Magic auth services to separate packages.
+- Improve StructuredList API.
+- Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- Restructured packages.
+- AppShell now controls the Sidebar disclosure state.
+- Form will now render AutoField by default when no children are passed.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- useLocalStorage now updates all hook instances on the current page when the value changed
+- Removed the Divider component in favor of the Chakra UI Divider component.
+- Bump version
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+- EmptyState title and description no longer use Header and Text
+- Fix esm bundle filename.
+- Fix issue where StepForm would not submit when subsequent fields are required.
+- Removed Card component in favor of the new Chakra UI Card component.
+
+**Hotkeys** `v2.0.0`
+
+- useHotkeys now supports preventDefault option to prevent default browser events from firing
+- useHotkeys options are now optional
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Removed button package.
+- Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Data Table** `v2.0.0`
+
+- Updated to Tanstack ReactTable V8
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Removed button package.
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Forms** `v2.0.0`
+
+- Form render prop Field now supports ref
+- Moved form resolvers into a separate package.
+- Fix esm bundle import
+- Select can now supports theming using the SuiSelect theme config.
+- PasswordInput now accepts leftAddon property.
+- Fix React import
+- Bump version
+- Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- Migrated from microbundle to tsup for builds
+- Fixed modal form handler type inference
+- Updated to Chakra UI 2.7
+- Removed button package.
+- New createFormDialog function to create Zod or Yup specific FormDialogs
+- Updated to Chakra UI 2.6.x
+- Select field now renders invalid state.
+- Fixed issue where types for exports were not detected
+- object and array field props can now be overridden using the fields prop
+- Form fields overries types now support array and object type props
+- AutoForm field props can now be overridden using the fields prop on Form
+- Fix Select button overflow.
+- Restructured packages.
+- Form will now render AutoField by default when no children are passed.
+- Bump version
+- Fix esm bundle filename.
+- Fix issue where StepForm would not submit when subsequent fields are required.
+
+**Date Picker** `v0.10.0`
+
+- Updated the day and month segment minimal width, so there's less spacing with single digits
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Modals** `v2.0.0`
+
+- BaseDrawer now accepts header, content and footer props.
+- Fix esm bundle import
+- Bump version
+- Added new createModals method to create typesafe modals managers with support for custom modals
+- BaseModal now accepts header, content and footer props
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Fix issue where onCloseComplete would not be called
+- New createFormDialog function to create Zod or Yup specific FormDialogs
+- ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Core** `v2.0.0`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+- Fix SnackbarPromiseOptions error type to SnackbarOptions
+- ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- Fixed useSnackbar return type, always returns toastId.
+- Added TimeLine to core components.
+- tooltipProps on NavItem no longer require children
+- Fix esm bundle import
+- Select now supports theming props.
+- Bump version
+- Export LinkProps
+- Fix Divider label contrast
+- Fixed issue where Sidebar would not get defaultProps from the theme.
+- Added new tertiary button variant.
+- Updated to Chakra UI 2.7
+- Secondary button now uses solid variant and gray colorScheme.
+- Fix issue where Select context is undefined
+- useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- Improve Stepper seperator position on all sizes
+- Fix ContextMenu and OverflowMenu exports.
+- Fixed issue where types for exports were not detected
+- Renamed Loader to LoadingOverlay.
+- Renamed Sidebar condensed variant to compact.
+- Fix NavItem focus outline color.
+- Fixed issue where colorScheme would be passed down to stepper dom element
+- Add Timeline theme to theme package.
+- Improve StructuredList API.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- useLocalStorage now updates all hook instances on the current page when the value changed
+- Removed the Divider component in favor of the Chakra UI Divider component.
+- Bump version
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+- EmptyState title and description no longer use Header and Text
+- Fix esm bundle filename.
+
+**Theme** `v2.0.0`
+
+- button primary, secondary and tertiary variants colorScheme can now be changed.
+- Fix esm bundle import
+- Fix Card theme
+- Bump version
+- Fix vertical stepper items not taking up the full parent width.
+- Removed Divider theming.
+- Fix anatomy export
+- Fix Divider label contrast
+- Fix issue where primary variant color would always be gray
+- Added new tertiary button variant.
+- Migrated from microbundle to tsup for builds
+- Renamed Sidebar condensed variant to compact, minor improvements.
+- Fix filled and outline color tokens
+- Updated to Chakra UI 2.7
+- Secondary button now uses solid variant and gray colorScheme.
+- Removed button package.
+- Improve Stepper seperator position on all sizes
+- Fixed issue where types for exports were not detected
+- Fix solid button hover colors
+- Add Timeline theme to theme package.
+- Restructured packages.
+- Updated Stepper theme to Chakra UI 2.6
+- Bump version
+- Fix esm bundle filename.
+
+**Auth** `v2.0.0`
+
+- Auth forms can now be used standalone, to build custom solutions.
+- Fix esm bundle import
+- Bump version
+- The default Auth User type is now less strict.
+- Migrated from microbundle to tsup for builds
+- Auth now support an onError handler
+- Updated to Chakra UI 2.7
+- Removed button package.
+- Moved Supabase and Magic auth services to separate packages.
+- Restructured packages.
+- Fix Auth component footer
+- Bump version
+- Fix esm bundle filename.
+
+**Command Bar** `v0.2.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Restructured packages.
+- Bump version
+- Update to cmdk 2.0
+- Fix esm bundle filename.
+
+**React Utils** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Theme Glass** `v0.4.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Fix Textarea theme
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Nprogress** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Supabase** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Moved Supabase and Magic auth services to separate packages.
+- Restructured packages.
+- Update Supabase client
+- Bump version
+- Fix esm bundle filename.
+
+**Palette** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Charts** `v0.8.0`
+
+- Fix esm bundle import
+- Bump version
+- Updated to Chakra UI 2.7
+- Add gradientOpacity prop. Add gradient support for Sparklines.
+- Bump version
+
+**System** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Storybook Addon** `v1.1.0`
+
+- Fix esm bundle import
+- Bump version
+- Updated to Chakra UI 2.7
+- Bump version
+
+**Clerk** `v3.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Restructured packages.
+- Bump version
+- Update Clerk client
+- Fix esm bundle filename.
+
+**Hooks** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated to Chakra UI 2.7
+- Removed button package.
+- Restructured packages.
+- useLocalStorage now updates all hook instances on the current page when the value changed
+- Bump version
+- Fix esm bundle filename.
+
+**Magic** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Updated Magic auth service to latest SDK version
+- Magic auth options are now optional.
+- Moved Supabase and Magic auth services to separate packages.
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Saas Ui Storybook** `v1.0.1`
+
+- Fix esm bundle import
+- Bump version
+- Bump version
+
+**Props Docs** `v1.8.1`
+
+- Fix esm bundle import
+- Bump version
+- Bump version
+
+**Test Utils** `v3.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Restructured packages.
+- Bump version
+- Fix esm bundle filename.
+
+**Website** `v2.0.0`
+
+- Fix esm bundle import
+- Bump version
+- Migrated from microbundle to tsup for builds
+- Removed button package.
+
+**Palette Docs** `v1.3.8`
+
+- Migrated from microbundle to tsup for builds
+
+## 04-14-2023
+
+`@saas-ui/react@2.0.0-next.9`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+- Added new createModals method to create typesafe modals managers with support for custom modals
+
+**Forms** `v2.0.0-next.9`
+
+- Form render prop Field now supports ref
+
+**Core** `v2.0.0-next.7`
+
+- Fix Card theme tokens
+- Improved MenuDialog position on mobile
+
+**Modals** `v2.0.0-next.9`
+
+- Added new createModals method to create typesafe modals managers with support for custom modals
+- BaseModal now accepts header, content and footer props
+
+## 04-08-2023
+
+**Forms** `v2.0.0-next.8`
+
+- Fix React import
+
+## 02-18-2023
+
+`@saas-ui/react@2.0.0-next.2`
+
+- Renamed Sidebar condensed variant to compact.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+**Core** `v2.0.0-next.2`
+
+- Renamed Sidebar condensed variant to compact.
+- AppShell now controls the Sidebar disclosure state.
+- SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+
+## 02-17-2023
+
+`@saas-ui/react@2.0.0-next.1`
+
+- Fix esm bundle filename.
+
+## 02-17-2023
+
+`@saas-ui/react@2.0.0-next.0`
+
+### Major Changes
+
+- Updated to Tanstack ReactTable V8
+- Moved form resolvers into a separate package.
+- BREAKING: createPalette no longer exported from @saas-ui/react
+- Renamed List to StructuredList
+- Removed button package.
+- Moved Supabase and Magic auth services to separate packages.
+- Improve StructuredList API.
+- Restructured packages.
+- Removed Card component in favor of the new Chakra UI Card component.
+
+### Minor Changes
+
+- Added TimeLine to core components.
+- Added Sidebar to core packages.
+
+### Patch Changes
+
+- Migrated from microbundle to tsup for builds
+
 ## 02-16-2023
 
 **Date Picker** `v0.8.7`

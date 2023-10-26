@@ -1,0 +1,207 @@
+---
+id: date-range-input
+title: DateRangeInput
+description: Allow users to enter or select a Date and Time range.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DateRangeInput is currently in beta, we'd love to hear your feedback while
+  we finalize the API.
+</Info>
+
+## Import
+
+- `DateRangePicker`: The container component that manages state and context.
+- `DateRangePickerInput`: A date range form input.
+- `DateRangePickerDialog`: A dialog that contains a calendar and time picker.
+- `DateRangePickerCalendar`: A calendar that allows users to select a date range.
+
+#
+
+- `DateRangeInput`: A composite component that composes the above components.
+
+```ts
+import {
+  DateRangePicker
+  DateRangePickerInput,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+  DateRangeInput
+  } from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function Basic() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangeInput />
+    </FormControl>
+  )
+}
+```
+
+### DateTime
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function DateTime() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangeInput granularity="minute" />
+    </FormControl>
+  )
+}
+```
+
+### With 24 hour time
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function HourCycle() {
+  return (
+    <FormControl>
+      <FormLabel>Dates and time</FormLabel>
+      <DateRangeInput granularity="minute" hourCycle="24" />
+    </FormControl>
+  )
+}
+```
+
+### Controlled
+
+```jsx
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: today(getLocalTimeZone()),
+    end: null,
+  })
+
+  return <DateRangeInput value={value} onChange={setValue} />
+}
+```
+
+### Time zone
+
+```jsx
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: now(getLocalTimeZone()),
+    end: null,
+  })
+
+  return (
+    <DateRangeInput value={value} onChange={setValue} granularity="minute" />
+  )
+}
+```
+
+### Hide time zone
+
+```jsx
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateRangeInput } from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
+  const [value, setValue] = React.useState({
+    start: now(getLocalTimeZone()),
+    end: null,
+  })
+
+  return (
+    <DateRangeInput
+      value={value}
+      onChange={setValue}
+      granularity="minute"
+      hideTimeZone
+    />
+  )
+}
+```
+
+### Composed
+
+```jsx
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DateRangePicker,
+  DateRangeInput,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function Composed() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangePicker>
+        <DateRangeInput />
+        <DateRangePickerDialog>
+          <DateRangePickerCalendar />
+        </DateRangePickerDialog>
+      </DateRangePicker>
+    </FormControl>
+  )
+}
+```
+
+### Portal
+
+```jsx
+import { FormControl, FormLabel, Portal } from '@chakra-ui/react'
+import {
+  DateRangePicker,
+  DateRangeInput,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function WithPortal() {
+  return (
+    <FormControl>
+      <FormLabel>Dates</FormLabel>
+      <DateRangePicker>
+        <DateRangeInput />
+        <Portal>
+          <DateRangePickerDialog>
+            <DateRangePickerCalendar />
+          </DateRangePickerDialog>
+        </Portal>
+      </DateRangePicker>
+    </FormControl>
+  )
+}
+```

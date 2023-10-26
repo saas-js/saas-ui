@@ -1,23 +1,24 @@
 {
   "name": "@saas-ui/system",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Saas UI system utilities",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress --define process.env.NODE_ENV=production",
+    "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -56,9 +57,9 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.5.1",
-    "@chakra-ui/utils": "^2.0.14",
-    "react-fast-compare": "^3.2.0"
+    "@chakra-ui/styled-system": "^2.9.1",
+    "@chakra-ui/utils": "^2.0.15",
+    "react-fast-compare": "^3.2.2"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.3.8",

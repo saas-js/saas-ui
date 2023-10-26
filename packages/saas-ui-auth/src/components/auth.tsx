@@ -2,18 +2,13 @@ import * as React from 'react'
 
 import { chakra, Link } from '@chakra-ui/react'
 
-import { __DEV__ } from '@chakra-ui/utils'
-
-import {
-  LoginView,
-  SignupView,
-  OtpView,
-  ForgotPasswordView,
-  UpdatePasswordView,
-  AuthFormProps,
-} from './auth-form'
-
-import { AvailableProviders } from '.'
+import { AuthFormOptions } from './auth-form'
+import { LoginView, SignupView } from './login-view'
+import { ForgotPasswordView } from './forgot-password-view'
+import { UpdatePasswordView } from './update-password-view'
+import { OtpView } from './otp-view'
+import { AvailableProviders } from './forms/providers'
+import { FormProps } from '@saas-ui/forms'
 
 export const VIEWS = {
   LOGIN: 'login',
@@ -21,17 +16,17 @@ export const VIEWS = {
   FORGOT_PASSWORD: 'forgot_password',
   UPDATE_PASSWORD: 'update_password',
   OTP: 'otp',
-}
+} as const
 
-type ViewType =
-  | 'login'
-  | 'signup'
-  | 'forgot_password'
-  | 'update_password'
-  | 'otp'
+type ValueOf<T> = T[keyof T]
+type ViewType = ValueOf<typeof VIEWS>
 
 export interface AuthProps
-  extends Omit<AuthFormProps, 'action' | 'defaultValues' | 'onSubmit'> {
+  extends AuthFormOptions,
+    Omit<
+      FormProps<any, any>,
+      'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
+    > {
   /**
    * Sets the visible authentication form.
    * Supported views are:
@@ -76,18 +71,25 @@ export interface AuthProps
    * @default "Already have an account?"
    */
   haveAccount?: React.ReactNode
+  /**
+   * Called when a login or signup request fails.
+   * @param view The current active view
+   * @param error
+   */
+  onError?: (view: ViewType, error: Error) => void
 }
 
 export const Auth: React.FC<AuthProps> = (props) => {
   const {
     view = VIEWS.LOGIN,
     providers,
-    signupLink,
-    loginLink,
-    forgotLink,
-    backLink,
-    noAccount,
-    haveAccount,
+    signupLink = 'Sign up',
+    loginLink = 'Log in',
+    forgotLink = 'Forgot password?',
+    backLink = 'Back to log in',
+    noAccount = 'No account yet?',
+    haveAccount = 'Already have an account?',
+    onError,
     ...rest
   } = props
 
@@ -99,11 +101,21 @@ export const Auth: React.FC<AuthProps> = (props) => {
     setAuthView(view)
   }, [view])
 
+  const errorHandler = React.useCallback(
+    (view: ViewType) => (error: Error) => {
+      if (authView === view && onError) {
+        onError(view, error)
+      }
+    },
+    [authView]
+  )
+
   switch (authView) {
     case VIEWS.LOGIN:
       return (
         <LoginView
           providers={providers}
+          onError={errorHandler(VIEWS.LOGIN)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.SIGNUP)}
@@ -132,6 +144,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
       return (
         <SignupView
           providers={providers}
+          onError={errorHandler(VIEWS.SIGNUP)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
@@ -140,11 +153,12 @@ export const Auth: React.FC<AuthProps> = (props) => {
             />
           }
           {...rest}
-        ></SignupView>
+        />
       )
     case VIEWS.FORGOT_PASSWORD:
       return (
         <ForgotPasswordView
+          onError={errorHandler(VIEWS.FORGOT_PASSWORD)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
@@ -155,9 +169,14 @@ export const Auth: React.FC<AuthProps> = (props) => {
         />
       )
     case VIEWS.UPDATE_PASSWORD:
-      return <UpdatePasswordView {...rest} />
+      return (
+        <UpdatePasswordView
+          onError={errorHandler(VIEWS.UPDATE_PASSWORD)}
+          {...rest}
+        />
+      )
     case VIEWS.OTP:
-      return <OtpView {...rest} />
+      return <OtpView onError={errorHandler(VIEWS.OTP)} {...rest} />
   }
 
   return null
@@ -183,15 +202,4 @@ const AuthLink = ({ label, link, onClick }: AuthLinkProps) => {
   )
 }
 
-Auth.defaultProps = {
-  noAccount: 'No account yet?',
-  haveAccount: 'Already have an account?',
-  signupLink: 'Sign up',
-  loginLink: 'Log in',
-  forgotLink: 'Forgot password?',
-  backLink: 'Back to log in',
-}
-
-if (__DEV__) {
-  Auth.displayName = 'Auth'
-}
+Auth.displayName = 'Auth'

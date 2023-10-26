@@ -1,9 +1,5 @@
-import {
-  FieldValues,
-  useFormContext,
-  UseFormReturn,
-  useWatch,
-} from 'react-hook-form'
+import { FieldValues, useWatch } from 'react-hook-form'
+import { useFormContext, UseFormReturn } from './form-context'
 
 export interface WatchFieldProps<
   Value = unknown,

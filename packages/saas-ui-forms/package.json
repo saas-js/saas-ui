@@ -1,61 +1,73 @@
 {
   "name": "@saas-ui/forms",
-  "version": "1.5.3",
+  "version": "2.2.0",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.modern.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     },
     "./yup": {
       "require": "./dist/yup/index.js",
-      "import": "./dist/yup/index.modern.mjs"
+      "types": "./dist/yup/index.d.ts",
+      "import": "./dist/yup/index.mjs"
     },
     "./yup/src": {
       "default": "./yup/src/index.ts"
     },
     "./zod": {
       "require": "./dist/zod/index.js",
-      "import": "./dist/zod/index.modern.mjs"
+      "types": "./dist/zod/index.d.ts",
+      "import": "./dist/zod/index.mjs"
     },
     "./zod/src": {
       "default": "./zod/src/index.ts"
     },
     "./ajv": {
       "require": "./dist/ajv/index.js",
-      "import": "./dist/ajv/index.modern.mjs"
+      "types": "./dist/ajv/index.d.ts",
+      "import": "./dist/ajv/index.mjs"
     },
     "./ajv/src": {
       "default": "./ajv/src/index.ts"
     }
   },
+  "typesVersions": {
+    "*": {
+      "ajv": [
+        "./dist/ajv/index.d.ts"
+      ],
+      "yup": [
+        "./dist/yup/index.d.ts"
+      ],
+      "zod": [
+        "./dist/zod/index.d.ts"
+      ]
+    }
+  },
   "main": "./dist/index.js",
-  "module": "./dist/index.modern.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
     "build": "yarn build:package && yarn build:yup && yarn build:zod && yarn build:ajv",
-    "build:package": "yarn clean && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,modern --compress",
-    "build:yup": "cross-env NODE_ENV=production microbundle --cwd yup --tsconfig ./yup/tsconfig.json -f cjs,modern --compress",
-    "build:zod": "cross-env NODE_ENV=production microbundle --cwd zod --tsconfig ./zod/tsconfig.json -f cjs,modern --compress",
-    "build:ajv": "cross-env NODE_ENV=production microbundle --cwd ajv --tsconfig ./ajv/tsconfig.json -f cjs,modern --compress",
+    "build:package": "tsup src/index.ts --config tsup.config.ts",
+    "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
+    "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",
+    "build:ajv": "tsup ajv/src/index.ts --config ajv/tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tsd": "tsd"
   },
   "files": [
     "dist",
-    "src",
-    "yup/package.json",
-    "yup/src",
-    "zod/package.json",
-    "zod/src",
-    "ajv/package.json",
-    "ajv/src"
+    "src"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -89,29 +101,30 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.16",
-    "@chakra-ui/react-utils": "^2.0.11",
-    "@chakra-ui/utils": "^2.0.14",
-    "@hookform/resolvers": "^2.9.10",
-    "@saas-ui/button": "workspace:*",
-    "@saas-ui/input-right-button": "workspace:*",
-    "@saas-ui/number-input": "workspace:*",
-    "@saas-ui/password-input": "workspace:*",
-    "@saas-ui/pin-input": "workspace:*",
-    "@saas-ui/radio": "workspace:*",
-    "@saas-ui/react-utils": "workspace:*",
-    "@saas-ui/select": "workspace:*",
-    "@saas-ui/stepper": "workspace:*",
-    "react-hook-form": "^7.42.1"
+    "@chakra-ui/react-utils": "^2.0.12",
+    "@chakra-ui/utils": "^2.0.15",
+    "@hookform/resolvers": "^3.3.1",
+    "@saas-ui/core": "workspace:*",
+    "react-hook-form": "^7.46.1"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
-    "@chakra-ui/system": ">=2.3.8",
-    "react": ">=18.0.0"
+    "@chakra-ui/react": ">=2.4.9",
+    "@emotion/react": ">=11.0.0",
+    "@emotion/styled": ">=11.0.0",
+    "framer-motion": ">=6.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "ajv": "^8.11.2",
-    "yup": "^0.32.11",
-    "zod": "^3.19.1"
+    "@types/json-schema": "^7.0.12",
+    "ajv": "^8.12.0",
+    "ajv-errors": "^3.0.0",
+    "json-schema-to-ts": "^2.9.2",
+    "tsd": "^0.28.1",
+    "yup": "^1.2.0",
+    "zod": "^3.22.2"
+  },
+  "tsd": {
+    "directory": "tests"
   }
 }

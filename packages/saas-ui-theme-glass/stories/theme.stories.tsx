@@ -46,20 +46,18 @@ import {
   CardFooter,
   Image,
   useClipboard,
+  Divider,
 } from '@chakra-ui/react'
 import {
   Select,
   PropertyList,
   Property,
-  List,
-  ListItem,
-  ListItemIcon,
+  StructuredList,
+  StructuredListItem,
+  StructuredListIcon,
+  StructuredListCell,
   PersonaAvatar,
-  ListItemLabel,
-  ListItemTertiary,
-  ListItemAction,
   SearchInput,
-  Divider,
   useSnackbar,
   ModalsProvider,
 } from '@saas-ui/react'
@@ -398,7 +396,7 @@ const Members = () => {
           Invite people
         </Button>
       </ButtonGroup>
-      <List>
+      {/* <List>
         {members.map((member) => (
           <ListItem
             key={member.name}
@@ -440,7 +438,7 @@ const Members = () => {
             </ListItemAction>
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Card>
   )
 }

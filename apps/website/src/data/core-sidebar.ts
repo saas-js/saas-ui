@@ -4,7 +4,11 @@ const sidebar = {
   routes: [
     {
       title: 'Overview',
-      path: '/docs/core/overview',
+      path: '/docs',
+    },
+    {
+      title: 'Upgrading to v2',
+      path: '/docs/core/upgrading-to-v2',
     },
     {
       title: 'Design Principles',
@@ -19,7 +23,7 @@ const sidebar = {
       routes: [
         {
           title: 'Overview',
-          path: '/docs/core/getting-started',
+          path: '/docs/core/quickstarts',
         },
         {
           title: 'Next JS',

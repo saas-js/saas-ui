@@ -25,7 +25,7 @@ const Page404 = () => {
             Go back
           </Button>
 
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Button
               variant="ghost"
               backgroundColor={

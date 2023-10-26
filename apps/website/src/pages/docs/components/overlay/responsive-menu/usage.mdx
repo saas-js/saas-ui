@@ -1,0 +1,34 @@
+---
+id: responsive-menu
+title: ResponsiveMenu
+description: A mobile friendly Menu component.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+```ts
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
+```
+
+## Usage
+
+ResponsiveMenu renders a `Menu` by default and switches to a `MenuDialog` on smaller screens.
+
+```jsx
+import { Button, MenuItem, MenuButton } from '@chakra-ui/react'
+import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
+
+export default function App() {
+  return (
+    <ResponsiveMenu>
+      <MenuButton as={Button}>Open menu</MenuButton>
+      <ResponsiveMenuList>
+        <MenuItem>Edit</MenuItem>
+        <MenuItem>Delete</MenuItem>
+      </ResponsiveMenuList>
+    </ResponsiveMenu>
+  )
+}
+```

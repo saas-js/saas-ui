@@ -1,0 +1,70 @@
+---
+id: empty-state
+scope: theming
+---
+
+## Theming
+
+The `EmptyState` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `body`
+- `icon`
+- `title`
+- `descripton`
+- `actions`
+- `footer`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { emptyStateAnatomy } from '@saas-ui/theme/anatomy'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(emptyStateAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
+  const { colorScheme: c } = props
+  return {
+    icon: {
+      boxSize: [10, null, 12],
+      color: `${c}.500`,
+      _dark: {
+        color: `${c}.200`,
+      },
+    },
+    title: {
+      mt: 8,
+    },
+    actions: {
+      mt: 8,
+    },
+  }
+})
+
+const variantCentered = definePartsStyle((props) => {
+  return {
+    body: {
+      display: 'flex',
+      flexDirection: 'column',
+      textAlign: 'center',
+      alignItems: 'center',
+    },
+  }
+})
+
+export const emptyStateTheme = defineMultiStyleConfig({
+  baseStyle,
+  variants: {
+    centered: variantCentered,
+  },
+})
+```

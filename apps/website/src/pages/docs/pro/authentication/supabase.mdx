@@ -1,0 +1,38 @@
+---
+title: Supabase Authentication
+description: Configure the Supabase authentication service
+---
+
+Saas UI supports Supabase authentication out of the box. To use it, you need to configure the Supabase client and the Supabase auth service.
+
+1. Install the Supabase Javascript client and the Supabase auth service in the @app/config package.
+
+```bash
+cd packages/app-config && yarn add @supabase/supabase-js @saas-ui/supabase
+```
+
+2. Copy `apps/web/.env.example` to `apps/web/.env` and add your public Supabase URL and KEY.
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL="https://x.supabase.co"
+NEXT_PUBLIC_SUPABASE_KEY="x"
+```
+
+3. Edit `packages/app-config/src/auth-service` and create the supabase authentication service.
+
+```js
+import { createClient } from '@supabase/supabase-js'
+import { createAuthService } from '@saas-ui/supabase'
+
+// In case you already have a Supabase client defined, you can import it instead of creating a new one.
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '',
+  process.env.NEXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
+)
+
+export const authService = createAuthService(supabase)
+```
+
+Now your frontend is configured to use Supabase authentication.
+
+Try it out by running `yarn dev:web` and navigating to `http://localhost:3000/app`.

@@ -1,0 +1,73 @@
+---
+id: nprogress
+scope: theming
+---
+
+## Theming
+
+The `NProgress` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `container`
+- `bar`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { nprogressAnatomy } from '@saas-ui/theme/anatomy'
+
+export const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(nprogressAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
+  const { colorScheme: c } = props
+  return {
+    bar: {
+      bg: `${c}.500`,
+      _dark: {
+        bg: `${c}.500`,
+      },
+    },
+  }
+})
+
+export const nprogressTheme = defineMultiStyleConfig({
+  defaultProps: {
+    colorScheme: 'primary',
+  },
+  baseStyle,
+})
+```
+
+### Customize the theme
+
+Use the `SuiNProgress` key to customize the theme.
+
+```jsx live=false
+import { extendTheme } from '@chakra-ui/react'
+
+const extendTheme({
+  components: {
+    SuiNProgress: {
+      defaultProps: {
+        colorScheme: 'primary',
+      },
+      baseStyle: {
+        bar: {
+          bg: 'red.500',
+          _dark: {
+            bg: 'red.500',
+          },
+        },
+      },
+    },
+  },
+})
+```

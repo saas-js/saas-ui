@@ -17,10 +17,10 @@ Supported authentication strategies are:
 
 - Magic link
 
-## Import
+## Installation
 
-```js
-import { createAuthService } from '@saas-ui/auth/services/magic'
+```bash
+yarn add magic-sdk @saas-ui/magic
 ```
 
 ## Usage
@@ -28,15 +28,15 @@ import { createAuthService } from '@saas-ui/auth/services/magic'
 If you haven't done so already install `magic-sdk`.
 
 ```bash
-yarn add magic-sdk
+yarn add @saas-ui/auth @saas-ui/magic magic-sdk
 ```
 
 ### Setup AuthProvider
 
 ```tsx
 import { Magic } from 'magic-sdk'
-import { AuthProvider } from '@saas-ui/react'
-import { createAuthService } from '@saas-ui/auth/services/magic'
+import { AuthProvider } from '@saas-ui/auth'
+import { createAuthService } from '@saas-ui/magic'
 
 const magic = new Magic(process.env.MAGIC_API_KEY)
 
@@ -49,4 +49,4 @@ function App({ children }) {
 }
 ```
 
-That's it! Check the [Auth documentation](/docs/auth/auth) to see how to add authentication screens to your app.
+That's it! Check the [Auth documentation](/docs/components/authentication/auth) to see how to add authentication screens to your app.

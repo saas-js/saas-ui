@@ -63,6 +63,8 @@ const PrivacyPolicy = () => {
           </p>
           <ul>
             <li>Gumroad.com</li>
+            <li>Lemonsqueezy.com</li>
+            <li>Discord.com</li>
           </ul>
           <h3>How will we use your data?</h3>
           <p>Appulse Holding B.V. collects your data so that we can:</p>
@@ -174,7 +176,7 @@ const PrivacyPolicy = () => {
           <p>
             Appulse Holding B.V. keeps its privacy policy under regular review
             and places any updates on this web page. This privacy policy was
-            last updated on 13 December 2021.
+            last updated on 21 July 2023.
           </p>
           <h3>How to contact us</h3>
           <p>

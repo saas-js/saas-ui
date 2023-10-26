@@ -1,0 +1,164 @@
+---
+id: structured-list
+scope: theming
+---
+
+## Theming
+
+The `StructuredList` component is a multipart component. The styling needs to be
+applied to each part specifically.
+
+> To learn more about styling multipart components, visit the Chakra UI
+> [Component Style](https://chakra-ui.com/docs/styled-system/component-style#styling-multipart-components)
+> page.
+
+### Anatomy
+
+- `list`
+- `item`
+- `button`
+- `header`
+- `cell`
+- `icon`
+
+### Default theme
+
+```jsx live=false
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { structuredListAnatomy } from '@saas-ui/theme/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(structuredListAnatomy.keys)
+
+const baseStyle = definePartsStyle((props) => {
+  return {
+    item: {
+      py: 2,
+      px: 4,
+    },
+    button: {
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      borderRadius: 'inherit',
+      outline: 'none',
+      _hover: {
+        bg: 'blackAlpha.50',
+        _dark: {
+          bg: 'whiteAlpha.50',
+        },
+      },
+      _focusVisible: {
+        boxShadow: 'outline',
+      },
+      _focus: {
+        bg: 'blackAlpha.50',
+        _dark: {
+          bg: 'whiteAlpha.50',
+        },
+      },
+      _active: {
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: 'whiteAlpha.100',
+        },
+      },
+    },
+  }
+})
+
+export const structuredListTheme = defineMultiStyleConfig({
+  defaultProps: {
+    size: 'md',
+  },
+  baseStyle,
+  sizes: {
+    sm: {
+      item: {
+        py: 1,
+        px: 1,
+      },
+      button: {
+        py: 1,
+        px: 1,
+      },
+      cell: {
+        px: 1,
+      },
+      icon: {
+        px: 1,
+      },
+    },
+    md: {
+      item: {
+        py: 2,
+        px: 2,
+      },
+      button: { py: 2, px: 2 },
+      cell: {
+        px: 2,
+      },
+      icon: {
+        px: 2,
+      },
+    },
+  },
+})
+```
+
+### Customize the theme
+
+The `StructuredList` component uses the `SuiStructuredList` key within the theme
+object.
+
+```jsx live=false
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = extendTheme({
+  components: {
+    SuiStructuredList: {
+      baseStyle: {
+        item: {
+          py: 4,
+          px: 8,
+        },
+        button: {
+          borderRadius: 'full',
+          _hover: {
+            bg: 'teal.500',
+            color: 'white',
+          },
+          _focus: {
+            bg: 'teal.500',
+            color: 'white',
+          },
+          _active: {
+            bg: 'teal.600',
+            color: 'white',
+          },
+        },
+      },
+      sizes: {
+        sm: {
+          item: {
+            py: 2,
+            px: 4,
+          },
+          button: {
+            py: 2,
+            px: 4,
+          },
+        },
+        md: {
+          item: {
+            py: 4,
+            px: 8,
+          },
+          button: {
+            py: 4,
+            px: 8,
+          },
+        },
+      },
+    },
+  },
+})
+```

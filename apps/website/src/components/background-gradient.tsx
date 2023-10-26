@@ -32,6 +32,7 @@ export const BackgroundGradient = ({ animate, hideOverlay, ...props }: any) => {
       width="100%"
       overflow="hidden"
       pointerEvents="none"
+      transform="translate3d(0, 0, 0)"
       {...props}
     >
       {gradient}

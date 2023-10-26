@@ -4,29 +4,16 @@ description: A guide for installing Saas UI with Nextjs projects
 tags: ['nextjs']
 ---
 
-<Info>
-Server components in the new app directory are currently not supported due to a limitation of Emotion.js. 
-Client components are supported, you can enable this by adding <code>'use client';</code> at the top of the file.
-
-<Link
-  href="https://github.com/emotion-js/emotion/issues/2928"
-  fontWeight="bold"
->
-  More information
-</Link>
-
-</Info>
-
 ### 1. Installation
 
 In your Next.js project, install Saas UI by running either of the following:
 
 ```bash
-npm i @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 ```
 
 ```bash
-yarn add @saas-ui/react @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+yarn add @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 ```
 
 ### 2. Provider Setup
@@ -54,15 +41,15 @@ export default MyApp
 
 ### 3. Link Component
 
-Configure a `linkComponent` to make the Saas UI `Link` work with the Next.js router.
+Configure a `linkComponent` to make the Saas UI `Link` works with the Next.js router.
 
 ```tsx
-import NextLink from 'next/link'
-import { SaasProvider, LinkProps } from '@saas-ui/react'
+import Link, { LinkProps } from 'next/link'
+import { SaasProvider } from '@saas-ui/react'
 
-const Link: React.FC<LinkProps> = (props) => {
-  return <NextLink {...props} legacyBehavior />
-}
+const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <Link ref={ref} {...props} />
+)
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -73,7 +60,67 @@ function MyApp({ Component, pageProps }) {
 }
 ```
 
-The `legacyBehavior` is only required for Next.js 13+.
+### App Directory Setup
+
+Next.js 13 introduces a new `app/` directory / folder structure. By default it
+uses Server Components. However, **Saas UI only works in client-side
+components**.
+
+To use Saas UI in server components, you need to convert them into client-side
+component by adding a `'use client';` at the top of your file.
+
+Chakra UI also provides a `@chakra-ui/next-js` package that gives you a smoother
+experience when using Saas UI in the app directory.
+
+This package provides the **CacheProvider** which composes the Emotion.js' cache
+provider with the `useServerInsertedHTML` hook from next/navigation. This is
+necessary to ensure that computed styles are included in the initial server
+payload (during streaming).
+
+To use Saas UI in app directory, you can wrap `SaasProvider` and `CacheProvider` in your own client Component.
+
+```jsx live=false
+// app/providers.tsx
+'use client'
+
+import { CacheProvider } from '@chakra-ui/next-js'
+import { SaasProvider } from '@saas-ui/react'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <CacheProvider>
+      <SaasProvider>{children}</SaasProvider>
+    </CacheProvider>
+  )
+}
+```
+
+Now, you can import and render `<Providers />` directly within your root. With the providers rendered at the root, all the components and hooks will work as expected within your own Client Components.
+
+```jsx live=false
+// app/layout.tsx
+import { Providers } from './providers'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode,
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+> The `'use client'` directive is still required to be added to the top of the
+> page-related file.
+
+If you're not using the new `app/` directory, there's no need to add
+the`'use client';` directive add the top of your file.
 
 ### 4. Customizing Theme
 

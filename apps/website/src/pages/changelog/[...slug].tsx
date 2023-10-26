@@ -2,7 +2,7 @@ import { allChangelogs, Changelog } from '.contentlayer/generated'
 import { MDXComponents } from '@/docs/components/mdx-components'
 import Layout from 'src/layouts'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from '@/hooks/next-contentlayer'
 import React from 'react'
 
 export default function Page({ doc }: { doc: Changelog }) {

@@ -19,7 +19,7 @@ import {
   isSameDay,
   now,
 } from '@internationalized/date'
-import { isDateInRange } from './date'
+import { isDateInRange } from './date-utils'
 
 export const [DatePickerStylesProvider, useDatePickerStyles] = createContext<
   Record<string, SystemStyleObject>

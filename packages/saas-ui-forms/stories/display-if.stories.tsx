@@ -1,5 +1,5 @@
 import { Container } from '@chakra-ui/react'
-import { yupResolver } from '../yup/src'
+import { yupResolver } from '@saas-ui/forms/yup'
 import * as React from 'react'
 
 import * as Yup from 'yup'
@@ -24,26 +24,31 @@ const postSchema = Yup.object().shape({
   description: Yup.string().meta({ type: 'textarea' }).label('Description'),
 })
 
-export const Basic = () => {
-  return (
-    <>
-      <Form
-        defaultValues={{
-          title: '',
-          description: '',
-        }}
-        resolver={yupResolver(postSchema)}
-        onSubmit={onSubmit}
-      >
-        <FormLayout>
-          <Field name="title" label="Title" />
-          <DisplayIf name="title" condition={(value) => !!value}>
-            <Field name="description" label="Description" />
-          </DisplayIf>
+export const Basic = {
+  args: {
+    onSubmit,
+  },
+  render({ onSubmit }: any) {
+    return (
+      <>
+        <Form
+          defaultValues={{
+            title: '',
+            description: '',
+          }}
+          resolver={yupResolver(postSchema)}
+          onSubmit={onSubmit}
+        >
+          <FormLayout>
+            <Field name="title" label="Title" />
+            <DisplayIf name="title" condition={(value) => !!value}>
+              <Field name="description" label="Description" />
+            </DisplayIf>
 
-          <SubmitButton label="Save post" />
-        </FormLayout>
-      </Form>
-    </>
-  )
+            <SubmitButton>Save post</SubmitButton>
+          </FormLayout>
+        </Form>
+      </>
+    )
+  },
 }

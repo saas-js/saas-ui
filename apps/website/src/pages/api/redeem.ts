@@ -10,7 +10,6 @@ const sendDiscordNotification = async ({
   npmAccount,
 }) => {
   const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK
-  console.log(DISCORD_WEBHOOK)
   try {
     if (DISCORD_WEBHOOK) {
       const body = JSON.stringify({
@@ -42,7 +41,6 @@ const sendDiscordNotification = async ({
           },
         ],
       })
-      console.log(body)
       const result = await fetch(DISCORD_WEBHOOK, {
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +48,6 @@ const sendDiscordNotification = async ({
         method: 'POST',
         body,
       })
-      console.log(await result.text())
       return result
     }
   } catch (err) {
@@ -149,7 +146,7 @@ const redeemLemon = async (licenseKey, githubAccount) => {
   )
 
   const result = await response.json()
-  console.log(result)
+
   return {
     email: result.meta?.customer_email,
     product: result.meta?.variant_name,
@@ -219,7 +216,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const githubInvited = await addGithubCollaborator(req.body.githubAccount)
 
     const npmAccount = await addNpmAccount(
-      req.body.githubAccount,
+      req.body.githubAccount.toLowerCase(),
       req.body.licenseKey,
       result.email
     )
@@ -262,7 +259,7 @@ const addNpmAccount = async (username, key, email) => {
       body: JSON.stringify({
         email,
         username,
-        displayName: username,
+        displayName: username.toLowerCase(),
         password: key,
         admin: false,
       }),

@@ -20,7 +20,7 @@ import { Fragment } from 'react'
 
 const items = [
   {
-    title: 'Core',
+    title: 'Getting started',
     items: coreSidebar.routes,
   },
   {

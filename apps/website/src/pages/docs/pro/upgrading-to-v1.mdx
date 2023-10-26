@@ -1,0 +1,74 @@
+---
+title: Upgrading to v1
+description: How to upgrade to v1
+---
+
+As the Saas UI Pro we are working towards the official release there will be some breaking changes, which will be documented here.
+
+## Upgrade Steps
+
+### 1. Update dependencies
+
+Saas UI Pro components have been moved to their own `@saas-ui-pro` organization in order to make it clear which packages are part of pro.
+
+### 2. Update Saas UI Pro
+
+```bash
+npm i @saas-ui-pro/react @saas-ui-pro/feature-flags @saas-ui-pro/billing
+```
+
+### 3. Update .npmrc or .yarnrc.yml
+
+Since the package namespace has been changed to `@saas-ui-pro` you will need to update your `.npmrc` or `.yarnrc.yml` file to include the following:
+
+#### .npmrc
+
+```bash
+@saas-ui-pro:registry=https://npm.saas-ui.dev
+//npm.saas-ui.dev/:_auth="${SAAS_UI_TOKEN}"
+//npm.saas-ui.dev/:always-auth=true
+```
+
+#### .yarnrc.yml
+
+```bash
+npmScopes:
+  saas-ui-pro:
+    npmRegistryServer: 'https://npm.saas-ui.dev'
+npmRegistries:
+  //npm.saas-ui.dev:
+    npmAuthIdent: '${SAAS_UI_TOKEN:-}'
+    npmAlwaysAuth: true
+```
+
+### 4. Deprecated features
+
+#### Timeline
+
+Timeline has been moved to `@saas-ui/react`.
+
+### 5. Breaking changes
+
+#### Page
+
+The `Page` component composition has been updated, it no longer renders PageHeader and PageBody, they should now be added as child components.
+
+```tsx
+<Page>
+  <PageHeader title="Title" />
+  <PageBody>Body</PageBody>
+</Page>
+```
+
+#### Section
+
+The `Section` component composition has been updated, it no longer renders SectionHeader and SectionBody, they should now be added as child components.
+
+The `isAnnotated` property has been removed, instead use the `variant` property.
+
+```tsx
+<Section variant="annotated">
+  <SectionHeader title="Title" />
+  <SectionBody><SectionBody>
+</Section>
+```

@@ -1,10 +1,32 @@
-import {
-  mode,
-  SystemStyleFunction,
-  transparentize,
-} from '@chakra-ui/theme-tools'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system'
+import { mode, transparentize } from '@chakra-ui/theme-tools'
 
-import { getStateColors } from '../utils'
+type Dict = Record<string, any>
+
+export const getStateColors = (props: Dict) => {
+  const { colorScheme: c } = props
+  if (c === 'gray') {
+    return {
+      base: mode('gray.100', 'whiteAlpha.300')(props),
+      hover: mode('gray.200', 'whiteAlpha.400')(props),
+      active: mode('gray.300', 'whiteAlpha.500')(props),
+    }
+  }
+
+  if (c === 'white') {
+    return {
+      base: 'whiteAlpha.900',
+      hover: 'whiteAlpha.700',
+      active: 'whiteAlpha.500',
+    }
+  }
+
+  return {
+    base: mode(`${c}.500`, `${c}.500`)(props),
+    hover: mode(`${c}.600`, `${c}.600`)(props),
+    active: mode(`${c}.700`, `${c}.700`)(props),
+  }
+}
 
 type AccessibleColor = {
   bg?: string
@@ -30,7 +52,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
   },
 }
 
-const variantSolid: SystemStyleFunction = (props) => {
+const variantSolid = defineStyle((props) => {
   const { colorScheme: c } = props
 
   if (c === 'white') {
@@ -38,12 +60,20 @@ const variantSolid: SystemStyleFunction = (props) => {
       bg: 'white',
       color: 'black',
       _hover: {
-        bg: mode(`whiteAlpha.900`, `whiteAlpha.900`)(props),
+        bg: `whiteAlpha.900`,
+        _dark: {
+          bg: `whiteAlpha.900`,
+        },
         _disabled: {
           bg: 'white',
         },
       },
-      _active: { bg: mode(`whiteAlpha.800`, `whiteAlpha.800`)(props) },
+      _active: {
+        bg: `whiteAlpha.800`,
+        _dark: {
+          bg: `whiteAlpha.800`,
+        },
+      },
       _disabled: {
         color: 'blackAlpha.700',
       },
@@ -60,7 +90,7 @@ const variantSolid: SystemStyleFunction = (props) => {
   } = accessibleColorMap[c] ?? {}
 
   return {
-    bg: bg,
+    bg,
     color,
     _hover: {
       bg: hoverBg,
@@ -72,38 +102,49 @@ const variantSolid: SystemStyleFunction = (props) => {
       bg: activeBg,
     },
   }
-}
+})
 
-const variantElevated: SystemStyleFunction = (props) => {
+const variantElevated = defineStyle((props) => {
   return {
     shadow: 'md',
     ...variantSolid(props),
   }
-}
+})
 
-const variantOutline: SystemStyleFunction = (props) => {
+const variantOutline = defineStyle((props) => {
   const { colorScheme: c } = props
   const { base, hover, active } = getStateColors(props)
   return {
-    borderColor: c === 'gray' ? hover : base,
-    color: base,
     ...variantGhost(props),
+    borderColor: c === 'gray' ? hover : base,
+    borderWidth: '1px',
     _hover: {
       borderColor: c === 'gray' ? active : hover,
     },
   }
-}
+})
 
-const variantGhost: SystemStyleFunction = (props) => {
+const variantGhost = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   if (c === 'gray') {
     return {
-      color: mode(`inherit`, `whiteAlpha.900`)(props),
-      _hover: {
-        bg: mode(`blackAlpha.100`, `whiteAlpha.200`)(props),
+      color: 'inherit',
+      _dark: {
+        color: 'whiteAlpha.900',
       },
-      _active: { bg: mode(`blackAlpha.200`, `whiteAlpha.300`)(props) },
+      _hover: {
+        bg: `blackAlpha.100`,
+        _dark: {
+          bg: 'whiteAlpha.200',
+        },
+      },
+      _active: {
+        bg: 'blackAlpha.200',
+        _dark: {
+          bg: 'whiteAlpha.300',
+        },
+      },
     }
   }
 
@@ -121,28 +162,49 @@ const variantGhost: SystemStyleFunction = (props) => {
   const darkActiveBg = transparentize(`${c}.200`, 0.24)(theme)
 
   return {
-    color: mode(`${c}.600`, `${c}.200`)(props),
+    color: `${c}.600`,
+    _dark: {
+      color: `${c}.200`,
+    },
     bg: 'transparent',
     _hover: {
-      bg: mode(`${c}.50`, darkHoverBg)(props),
+      bg: `${c}.50`,
+      _dark: {
+        bg: darkHoverBg,
+      },
     },
     _active: {
-      bg: mode(`${c}.100`, darkActiveBg)(props),
+      bg: `${c}.100`,
+      _dark: {
+        bg: darkActiveBg,
+      },
     },
   }
-}
+})
 
-const variantSubtle: SystemStyleFunction = (props) => {
+const variantSubtle = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   if (c === 'gray') {
     return {
-      color: mode(`inherit`, `whiteAlpha.900`)(props),
-      bg: mode(`blackAlpha.100`, `whiteAlpha.100`)(props),
-      _hover: {
-        bg: mode(`blackAlpha.200`, `whiteAlpha.200`)(props),
+      color: `inherit`,
+      bg: `blackAlpha.100`,
+      _dark: {
+        bg: `whiteAlpha.100`,
+        color: `whiteAlpha.900`,
       },
-      _active: { bg: mode(`blackAlpha.300`, `whiteAlpha.300`)(props) },
+      _hover: {
+        bg: `blackAlpha.200`,
+        _dark: {
+          color: `white.200`,
+        },
+      },
+      _active: {
+        bg: `blackAlpha.300`,
+        _dark: {
+          bg: `whiteAlpha.300`,
+        },
+      },
     }
   }
 
@@ -161,9 +223,9 @@ const variantSubtle: SystemStyleFunction = (props) => {
       bg: activeBg,
     },
   }
-}
+})
 
-const variantLink: SystemStyleFunction = (props) => {
+const variantLink = defineStyle((props) => {
   const { colorScheme: c } = props
   return {
     padding: 0,
@@ -182,25 +244,37 @@ const variantLink: SystemStyleFunction = (props) => {
         c === 'white' ? 'whiteAlpha.800' : mode(`${c}.700`, `${c}.500`)(props),
     },
   }
-}
+})
 
-const variantPrimary: SystemStyleFunction = (props) => {
+const variantPrimary = defineStyle((props) => {
+  let { colorScheme } = props
+
+  if (colorScheme === 'gray') {
+    colorScheme = 'primary'
+  }
+
   return variantSolid({
     ...props,
     variant: 'solid',
-    colorScheme: 'primary',
+    colorScheme,
   })
-}
+})
 
-const variantSecondary: SystemStyleFunction = (props) => {
+const variantSecondary = defineStyle((props) => {
+  return variantSolid({
+    ...props,
+    variant: 'solid',
+  })
+})
+
+const variantTertiary = defineStyle((props) => {
   return variantOutline({
     ...props,
     variant: 'outline',
-    colorScheme: 'secondary',
   })
-}
+})
 
-export default {
+export const buttonTheme = defineStyleConfig({
   defaultProps: {
     size: 'sm',
   },
@@ -213,5 +287,6 @@ export default {
     link: variantLink,
     primary: variantPrimary,
     secondary: variantSecondary,
+    tertiary: variantTertiary,
   },
-}
+})

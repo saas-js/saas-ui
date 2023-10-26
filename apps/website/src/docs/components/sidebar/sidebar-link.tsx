@@ -3,9 +3,9 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import { NavItem } from '@saas-ui/sidebar'
+import { NavItem } from '@saas-ui/react'
 
-type SidebarLinkProps = PropsOf<typeof chakra.div> & {
+type SidebarLinkProps = PropsOf<typeof chakra.a> & {
   href?: string
   icon?: React.ReactElement
 }
@@ -32,7 +32,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
 
   if (href) {
     link = (
-      <NextLink href={href} passHref>
+      <NextLink href={href} passHref legacyBehavior>
         {link}
       </NextLink>
     )

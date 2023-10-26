@@ -1,0 +1,345 @@
+---
+id: date-input
+title: DateInput
+description: Allow users to enter or select a Date and Time value.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-date-picker' }}
+  npm={{ package: '@saas-ui/date-picker' }}
+  theme={{ componentName: 'date-picker' }}
+  beta
+/>
+
+<Info>
+  The DatePicker is currently in beta, we'd love to hear your feedback while we
+  finalize the API.
+</Info>
+
+## Import
+
+- `DatePicker`: The container component that manages state and context.
+- `DatePickerInput`: A date form input.
+- `DatePickerDialog`: A dialog that contains a calendar and time picker.
+- `DatePickerCalendar`: A calendar that allows users to select a date.
+- `DatePickerTimeField`: A time picker that allows users to select a time.
+
+#
+
+- `DateInput`: A composite component that contains a date form input and a
+  calendar dialog.
+- `DateTimeInput`: A composite component that contains a date form input and a
+  calendar and time picker dialog.
+
+```ts
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+```
+
+## Usage
+
+<Info>
+  The DatePicker uses
+  [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/)
+  to represent and manipulate dates. [Check out the
+  documentation](https://react-spectrum.adobe.com/internationalized/date/) to
+  learn how to work with Date objects.
+</Info>
+
+### Basic
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateInput } from '@saas-ui/date-picker'
+
+export default function Basic() {
+  return (
+    <FormControl>
+      <FormLabel>Date</FormLabel>
+      <DateInput />
+    </FormControl>
+  )
+}
+```
+
+### Basic with time
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import { DateTimeInput } from '@saas-ui/date-picker'
+
+export default function BasicWithTime() {
+  return (
+    <FormControl>
+      <FormLabel>Date</FormLabel>
+      <DateTimeInput />
+    </FormControl>
+  )
+}
+```
+
+### Composed
+
+Composing the `DatePicker` components gives you more control over the layout and
+props of the child components.
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function Composed() {
+  return (
+    <FormControl>
+      <FormLabel>Date</FormLabel>
+      <DatePicker placement="bottom-end" granularity="day">
+        <DatePickerInput />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### Custom calendar icon
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+import { CalendarIcon } from '@chakra-ui/icons'
+
+export default function CustomCalendarIcon() {
+  return (
+    <FormControl>
+      <FormLabel>Date</FormLabel>
+      <DatePicker placement="bottom-end" granularity="day">
+        <DatePickerInput calendarIcon={<CalendarIcon />} />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### Using Portal
+
+When the `DatePicker` is rendered inside an overflow container, you can use the
+`Portal` to render the dialog in a portal outside of the overflow
+container.
+
+```jsx center=true
+import { FormControl, FormLabel, Portal } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+import { CalendarIcon } from '@chakra-ui/icons'
+
+export default function UsingPortal() {
+  return (
+    <FormControl>
+      <FormLabel>Date</FormLabel>
+      <DatePicker placement="bottom-end" granularity="day">
+        <DatePickerInput calendarIcon={<CalendarIcon />} />
+        <Portal>
+          <DatePickerDialog>
+            <DatePickerCalendar />
+          </DatePickerDialog>
+        </Portal>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### DateTime
+
+Changing the granularity to `minute` and adding a `DatePickerTimeField` will
+allow users to select a time as well.
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+
+export default function DateTime() {
+  return (
+    <FormControl>
+      <FormLabel>Date and time</FormLabel>
+      <DatePicker placement="bottom-end" granularity="minute">
+        <DatePickerInput />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### Controlled
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function ControlledPicker() {
+  const [value, setValue] = React.useState(today(getLocalTimeZone()))
+
+  return (
+    <FormControl>
+      <FormLabel>Date</FormLabel>
+      <DatePicker
+        placement="bottom-end"
+        granularity="day"
+        value={value}
+        onChange={setValue}
+      >
+        <DatePickerInput />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### With 24 hour time
+
+To use 24 hour time, set the `hourCycle` prop to `24`.
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+
+export default function HourCycle() {
+  return (
+    <FormControl>
+      <FormLabel>Date and time</FormLabel>
+      <DatePicker placement="bottom-end" granularity="minute" hourCycle="24">
+        <DatePickerInput />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### Time zone
+
+When using a local date, the `DatePicker` will show the time zone of the user's
+browser.
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+import { now, getLocalTimeZone } from '@internationalized/date'
+
+export default function TimeZone() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  return (
+    <FormControl>
+      <FormLabel>Date and time</FormLabel>
+      <DatePicker
+        placement="bottom-end"
+        granularity="minute"
+        value={value}
+        onChange={setValue}
+      >
+        <DatePickerInput />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```
+
+### Hide time zone
+
+To hide the time zone, add the `hideTimeZone` prop.
+
+```jsx center=true
+import { FormControl, FormLabel } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerInput,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+import { now, getLocalTimeZone } from '@internationalized/date'
+
+export default function HideTimeZone() {
+  const [value, setValue] = React.useState(now(getLocalTimeZone()))
+
+  return (
+    <FormControl>
+      <FormLabel>Date and time</FormLabel>
+      <DatePicker
+        placement="bottom-end"
+        granularity="minute"
+        value={value}
+        onChange={setValue}
+        hideTimeZone
+      >
+        <DatePickerInput />
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </FormControl>
+  )
+}
+```

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Script from 'next/script'
 
-import { Box, SimpleGrid } from '@chakra-ui/react'
+import { Box, Button, CardHeader, SimpleGrid } from '@chakra-ui/react'
 import {
   Heading,
   Text,
@@ -12,6 +12,8 @@ import {
   useColorModeValue,
   Avatar,
   Tooltip,
+  Card,
+  CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -21,14 +23,13 @@ import SEO from '@/components/seo'
 import { CheckIcon } from '@chakra-ui/icons'
 import { ButtonLink } from '@/components/link'
 
-import { Card, CardBody } from '@saas-ui/card'
-
 import { Faq } from '@/components/faq'
 
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
+import { useRouter } from 'next/router'
 
 const PricingPage = () => {
   return (
@@ -69,13 +70,16 @@ const PricingPage = () => {
   )
 }
 
-const paymentLinks =
-  process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
+const getPaymentLinks = (append?: boolean) => {
+  const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
+  let affix = ''
+  if (append && aff) {
+    affix = `?aff=${aff}`
+  }
+  return process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
     ? {
-        bootstrap:
-          'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
-        startup:
-          'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
+        bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
+        startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
         className: 'lemonsqueezy-button',
       }
     : {
@@ -85,14 +89,22 @@ const paymentLinks =
           'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
         className: 'gumroad-button',
       }
+}
 
 const Pricing = () => {
+  const [paymentLinks, setPaymentLinks] = React.useState(getPaymentLinks())
+
   React.useEffect(() => {
     if (process.env.NEXT_PUBLIC_PAYMENT === 'lemon') {
       /* @ts-ignore */
       window.createLemonSqueezy?.()
     }
   }, [])
+
+  React.useEffect(() => {
+    setPaymentLinks(getPaymentLinks(true))
+  }, [])
+
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
@@ -125,7 +137,7 @@ const Pricing = () => {
               <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
             </PricingFeatures>
-            <ButtonLink href="/docs/introduction" variant="outline" mt="10">
+            <ButtonLink href="/docs" variant="outline" mt="10">
               View documentation
             </ButtonLink>
           </PricingBox>
@@ -286,6 +298,7 @@ const PricingBox = ({
     <VStack
       zIndex="2"
       backdropFilter="blur(100px)"
+      transform="translate3d(0, 0, 0)"
       borderRadius="lg"
       p="8"
       flex="1 0"
@@ -347,7 +360,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€2000,-</Text>
+            <Text>€2500,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>
@@ -357,25 +370,43 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
+          title="Startup license included"
+          iconColor="cyan.500"
+        ></PricingFeature>
+        <PricingFeature title="Project setup" iconColor="cyan.500" />
+        <PricingFeature title="Design-system setup" iconColor="cyan.500" />
+        <PricingFeature
           title="Custom component development"
           iconColor="cyan.500"
         />
-        <PricingFeature title="Help with implementation" iconColor="cyan.500" />
-        <PricingFeature title="Project setup" iconColor="cyan.500" />
-        <PricingFeature title="Hands-on support" iconColor="cyan.500" />
+        <PricingFeature title="Design services" iconColor="cyan.500" />
       </PricingFeatures>
-      <ButtonLink
-        href="mailto:hello@saas-ui.dev?subject=Membership"
+      <Button
         colorScheme="cyan"
         onClick={() => {
           setTimeout(() => {
             /* @ts-ignore */
             window?.pirsch?.('Membership')
+            $crisp.push(['do', 'chat:open'])
+            $crisp.push(['do', 'message:thread:start', ['Membership']])
+            $crisp.push([
+              'do',
+              'message:send',
+              ['text', 'Hey! Thanks for your interest in Saas UI.'],
+            ])
+            $crisp.push([
+              'do',
+              'message:send',
+              [
+                'text',
+                "Please share some information about your project and I'll get back to you asap. I'm also happy to plan a call to discuss your project.",
+              ],
+            ])
           })
         }}
       >
         Get in touch
-      </ButtonLink>
+      </Button>
     </PricingBox>
   )
 }
@@ -401,12 +432,16 @@ const HighlightBox = (props) => {
 
 const Testimonial = ({ name, description, avatar, children, ...rest }) => {
   return (
-    <Card
-      avatar={<Avatar name="Tien Tienth" src={avatar} />}
-      title={name}
-      subtitle={description}
-      {...rest}
-    >
+    <Card {...rest}>
+      <CardHeader>
+        <Avatar name="Tien Tienth" src={avatar} />
+        <Stack>
+          <Heading size="sm">{name}</Heading>
+          <Text color="muted" size="md">
+            {description}
+          </Text>
+        </Stack>
+      </CardHeader>
       <CardBody>{children}</CardBody>
     </Card>
   )

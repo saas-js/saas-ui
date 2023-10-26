@@ -1,0 +1,631 @@
+---
+id: form
+title: Form
+description: Create fully functional React forms with just a few lines of code.
+---
+
+The Form component is an abstraction around [React Hook Form](https://react-hook-form.com/) and
+follows the [WAI specifications ](https://www.w3.org/WAI/tutorials/forms/) for forms.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+  theme={{ theme: 'saas-ui', componentName: 'form' }}
+/>
+
+## Import
+
+- `Form`: The wrapper component provides context, state, and focus management.
+- `FormLayout`: Create consistent field spacing and positioning.
+- `Field`: Renders a fully functional form control, supports [multiple types](/docs/forms/field). Must be a child of `Form`.
+- `DisplayIf`: Conditionally render parts of a form.
+- `SubmitButton`: A button with type `submit` and default color scheme `primary` and `isLoading` state when the form is submitting.
+
+```ts
+import {
+  Form,
+  FormLayout,
+  Field,
+  DisplayIf,
+  SubmitButton,
+} from '@saas-ui/react'
+```
+
+## Best practises
+
+<BestPractises
+  does={[
+    'Keep optional fields to a minimum.',
+    'Make it clear which fields are required or optional.',
+    'Group related information in sections to make forms easier to scan.',
+    'Consider splitting up long forms into multiple steps.',
+    'Position the submit button consistenly throughout all forms.',
+  ]}
+  donts={[
+    'Use too many ungrouped fields on a single page.',
+    'Use tabs inside forms.',
+  ]}
+/>
+
+## Usage
+
+### Basic form
+
+```jsx
+import { Form, Field, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function BasicForm() {
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      defaultValues={{
+        name: 'Saas UI',
+        description: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="name"
+          label="Name"
+          type="text"
+          help="Choose a name for this project"
+          rules={{ required: true }}
+        />
+
+        <Field
+          name="description"
+          type="textarea"
+          label="Description"
+          placeholder="Optional description"
+        />
+
+        <SubmitButton>Create Project</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Typed form
+
+Form accepts a render props, which gives you access to the internal form state, but also to the `Field` component.
+This allows you create typesafe forms, the `name` property of `Field` is typed based on the `defaultValues` prop.
+
+```jsx
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function BasicForm() {
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      defaultValues={{
+        name: 'Saas UI',
+        description: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="name"
+            label="Name"
+            type="text"
+            help="Choose a name for this project"
+            rules={{ required: true }}
+          />
+
+          <Field
+            name="description"
+            type="textarea"
+            label="Description"
+            placeholder="Optional description"
+          />
+
+          <SubmitButton>Create Project</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Zod form
+
+If you are using [Zod](https://github.com/colinhacks/zod), you can use the `Form` component from `@saas-ui/forms/zod` which accepts a `schema` prop.
+The `Field` component will be typed based on the schema.
+
+```jsx
+import { Form } from '@saas-ui/forms/zod'
+import { FormLayout, SubmitButton } from '@saas-ui/react'
+import * as z from 'zod'
+
+const schema = z.object({
+  name: z.string().nonempty('Name is required'),
+  description: z.string().optional(),
+})
+
+export default function BasicForm() {
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        name: 'Saas UI',
+        description: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="name"
+            label="Name"
+            type="text"
+            help="Choose a name for this project"
+            rules={{ required: true }}
+          />
+
+          <Field
+            name="description"
+            type="textarea"
+            label="Description"
+            placeholder="Optional description"
+          />
+
+          <SubmitButton>Create Project</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Yup form
+
+If you are using [Yup](https://github.com/jquense/yup), you can use the `Form` component from `@saas-ui/forms/yup` which accepts a `schema` prop.
+The `Field` component will be typed based on the schema.
+
+```jsx
+import { Form } from '@saas-ui/forms/yup'
+import { FormLayout, SubmitButton } from '@saas-ui/react'
+import * as yup from 'yup'
+
+const schema = yup.object({
+  name: yup.string().required('Name is required'),
+  description: yup.string(),
+})
+
+export default function BasicForm() {
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        name: 'Saas UI',
+        description: '',
+      }}
+      onSubmit={onSubmit}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="name"
+            label="Name"
+            type="text"
+            help="Choose a name for this project"
+            rules={{ required: true }}
+          />
+
+          <Field
+            name="description"
+            type="textarea"
+            label="Description"
+            placeholder="Optional description"
+          />
+
+          <SubmitButton>Create Project</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Schema resolvers
+
+`Form` supports all React Hook Form [resolvers](https://react-hook-form.com/api/useform/#resolver) out of the box.
+
+```jsx
+function CreateProject() {
+  const schema = yup.object().shape({
+    name: yup.string().required().label('Name'),
+    description: yup.string().label('Description').min(50),
+  })
+
+  const onSubmit = (params) => {
+    console.log(params)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+
+  return (
+    <Form
+      defaultValues={{
+        name: '',
+        description: '',
+      }}
+      resolver={yupResolver(schema)}
+      onSubmit={onSubmit}
+    >
+      <FormLayout>
+        <Field
+          name="name"
+          label="Name"
+          type="text"
+          help="Choose a title for this project."
+        />
+
+        <Field
+          name="description"
+          type="textarea"
+          label="Description"
+          help="Minimum 50 characters."
+        />
+
+        <SubmitButton>Create Project</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Disable the submit button when untouched
+
+You can disable the submit button when the form is untouched by passing the `disableIfUntouched` prop to the `SubmitButton` component.
+The SubmitButton will be disabled until the user interacts with any of the fields.
+
+```jsx
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function DisableIfUntouched() {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="title"
+            label="Title"
+            rules={{ required: 'Title is required' }}
+          />
+          <Field name="description" type="textarea" label="Description" />
+          <SubmitButton disableIfUntouched />
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Disable the submit button when invalid
+
+To disable the submit button when the form is invalid, pass the `disableIfInvalid` prop to the `SubmitButton` component.
+The SubmitButton will be disabled until the user fixes all the errors.
+
+```jsx
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function DisableIfInvalid() {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({ Field }) => (
+        <FormLayout>
+          <Field
+            name="email"
+            label="Email"
+            rules={{ required: true, type: 'email' }}
+          />
+          <Field
+            name="terms"
+            type="checkbox"
+            label="I accept the terms & conditions."
+            rules={{ required: true }}
+          />
+          <SubmitButton disableIfInvalid />
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Use your own submit button
+
+Use any button with `type="submit"` to submit the form.
+
+```jsx
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function CustomSubmit() {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({ Field, formState }) => (
+        <FormLayout>
+          <Field name="title" label="Title" />
+
+          <Button
+            type="submit"
+            colorScheme="teal"
+            isLoading={formState.isSubmitting}
+          >
+            Submit
+          </Button>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Group related fields
+
+```jsx
+import { Heading } from '@chakra-ui/react'
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function GroupedFields() {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({ Field }) => (
+        <FormLayout>
+          <Heading size="md">Personal information</Heading>
+          <FormLayout columns="2">
+            <Field name="firstname" label="Name" />
+            <Field name="lastname" label="Last name" />
+          </FormLayout>
+
+          <Field name="email" label="Email address" />
+
+          <Heading size="md" mt="4">
+            Address
+          </Heading>
+          <FormLayout>
+            <Field name="address" label="Address" />
+            <Field name="city" label="City" />
+          </FormLayout>
+
+          <Heading size="md" mt="4">
+            Billing information
+          </Heading>
+          <FormLayout columns="2">
+            <Field name="card" label="Card number" />
+            <FormLayout columns="2">
+              <Field name="exp" label="Expiration date" />
+              <Field name="cvc" label="CVC" />
+            </FormLayout>
+          </FormLayout>
+
+          <SubmitButton>Complete order</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Conditionally show fields
+
+```jsx
+import { Heading } from '@chakra-ui/react'
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function ConditionalFields() {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({ Field, DisplayIf }) => (
+        <FormLayout>
+          <Heading size="md">Personal information</Heading>
+          <FormLayout columns="2">
+            <Field name="firstname" label="Name" />
+            <Field name="lastname" label="Last name" />
+          </FormLayout>
+
+          <Field name="email" label="Email address" />
+
+          <Field
+            name="ship"
+            type="checkbox"
+            value={true}
+            label="Ship to my home address"
+          />
+
+          <DisplayIf name="ship" condition={(ship) => !!ship}>
+            <FormLayout>
+              <Heading size="md" mt="4">
+                Address
+              </Heading>
+              <FormLayout>
+                <Field name="address" label="Address" />
+                <Field name="city" label="City" />
+              </FormLayout>
+
+              <Heading size="md" mt="4">
+                Billing information
+              </Heading>
+              <FormLayout columns="2">
+                <Field name="card" label="Card number" />
+                <FormLayout columns="2">
+                  <Field name="exp" label="Expiration date" />
+                  <Field name="cvc" label="CVC" />
+                </FormLayout>
+              </FormLayout>
+            </FormLayout>
+          </DisplayIf>
+
+          <SubmitButton>Complete order</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+### Access the form context
+
+You can get access to the form context using a render prop, the `useFormContext` hook or the form ref.
+
+#### Render prop
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { Form, FormLayout, SubmitButton } from '@saas-ui/react'
+
+export default function FormContext() {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({ formState, reset }) => (
+        <FormLayout>
+          <Field name="title" label="Title" />
+          <Button onClick={() => reset()}>Reset</Button>
+          <SubmitButton isLoading={formState.isSubmitting}>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```
+
+#### useFormContext
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { Form, FormLayout, SubmitButton, useFormContext } from '@saas-ui/react'
+
+function ResetButton() {
+  const form = useFormContext()
+
+  return <Button onClick={() => form.reset()}>Reset</Button>
+}
+
+export default function MyForm() {
+  return (
+    <Form onSubmit={saveHandler}>
+      <FormLayout>
+        <Field name="title" label="Title" />
+        <ResetButton />
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+#### Form ref
+
+```jsx
+function MyForm() {
+  const formRef = useRef(null)
+
+  return (
+    <Form formRef={formRef} onSubmit={saveHandler}>
+      <FormLayout>
+        <Field name="title" label="Title" />
+        <SubmitButton>Submit</SubmitButton>
+        <Button onClick={() => formRef.current.reset()}>Reset</Button>
+      </FormLayout>
+    </Form>
+  )
+}
+```
+
+### Defining custom form fields
+
+You can create custom form fields using the `createField` function.
+Once defined you can create a custom form using the `createForm` function.
+
+In case you use Zod or Yup, you can use the `createZodForm` or `createYupForm` functions from `@saas-ui/forms/zod` or `@saas-ui/forms/yup`.
+
+```tsx
+// form.tsx
+import { createForm, createField } from '@saas-ui/react'
+
+// zod
+// import {createZodForm} from '@saas-ui/forms/zod'
+
+// yup
+// import {createYupForm} from '@saas-ui/forms/yup'
+
+const MyCustomField = createField(
+  React.forwardRef((props, ref) => {
+    return <input ref={ref} {...props} />
+  })
+)
+
+const MyCustomControlledField = createField(
+  React.forwardRef((props, ref) => {
+    return <ReactSelect ref={ref} {...props} />
+  }),
+  {
+    isControlled: true,
+  }
+)
+
+export const Form = createForm({
+  fields: {
+    custom: MyCustomField,
+    'custom-controlled': MyCustomControlledField,
+  },
+})
+```
+
+Now you can use the `custom` field in your forms.
+
+```tsx
+import { Form } from './form'
+
+export default function MyForm = () => {
+  return (
+    <Form onSubmit={saveHandler}>
+      {({Field}) => (
+        <Field type="custom" name="custom" />
+        <Field type="custom-controlled" name="customControlled" />
+      )}
+    </Form>
+  )
+}
+```
+
+## Accessibility
+
+The `Form` component wraps the children in a HTML `<form>` element.
+
+### Keyboard Interaction
+
+| Key     | Action          |
+| ------- | --------------- |
+| `Enter` | Submit the form |

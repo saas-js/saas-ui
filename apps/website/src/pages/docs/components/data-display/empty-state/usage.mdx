@@ -1,0 +1,84 @@
+---
+id: empty-state
+title: EmptyState
+package: '@saas-ui/core'
+description: Display actionable feedback when no data is available.
+---
+
+`EmptyState` is used when there is no data available in a list, table, or other data visualizations.
+
+<ComponentLinks
+  theme={{ componentName: 'empty-state' }}
+  github={{
+    url: 'https://github.com/saas-ui/saas-ui/blob/main/packages/saas-ui-core/src/empty-state',
+  }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ componentName: 'empty-state' }}
+/>
+
+## Import
+
+```js
+import { EmptyState } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic EmptyState
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { EmptyState } from '@saas-ui/react'
+import { FiUsers } from 'react-icons/fi'
+
+export default function NoCustomers() {
+  return (
+    <EmptyState
+      colorScheme="primary"
+      icon={FiUsers}
+      title="No customers yet"
+      description="You haven't imported any customers yet."
+      actions={
+        <>
+          <Button colorScheme="primary">Import customers</Button>
+          <Button>Create customer</Button>
+        </>
+      }
+    />
+  )
+}
+```
+
+### Composition
+
+In case you want more control you can compose your own EmptyState component.
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import {
+  EmptyStateContainer,
+  EmptyStateBody,
+  EmptyStateIcon,
+  EmptyStateTitle,
+  EmptyStateDescription,
+  EmptyStateActions,
+} from '@saas-ui/react'
+import { WarningIcon } from '@chakra-ui/icons'
+
+export default function CustomEmptyState() {
+  return (
+    <EmptyStateContainer colorScheme="red">
+      <EmptyStateBody>
+        <EmptyStateIcon as={WarningIcon} />
+
+        <EmptyStateTitle>Whoops, something went wrong</EmptyStateTitle>
+        <EmptyStateDescription>Where do you want to go?</EmptyStateDescription>
+        <EmptyStateActions>
+          <Button>Home</Button>
+          <Button variant="ghost">Back</Button>
+        </EmptyStateActions>
+      </EmptyStateBody>
+    </EmptyStateContainer>
+  )
+}
+```

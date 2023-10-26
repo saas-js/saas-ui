@@ -1,5 +1,5 @@
 ---
-title: Core overview
+title: Getting started
 description: An advanced component library built on Chakra UI for building high quality SaaS products at speed.
 ---
 
@@ -11,7 +11,8 @@ from fully functional forms with `react-hook-form` to authentication, modals man
 
 <SimpleGrid columns={[1, null, null, 2]} spacing={[4, null, 8]}>
   <QuickLink
-    href="/docs/getting-started"
+    icon={<FiZap />}
+    href="/docs/core/quickstarts"
     width="100%"
     mt="8"
     title="Quickstarts"
@@ -19,6 +20,7 @@ from fully functional forms with `react-hook-form` to authentication, modals man
     label="Get started"
   />
   <QuickLink
+    icon={<FiBox />}
     href="/docs/components"
     width="100%"
     mt="8"
@@ -27,10 +29,18 @@ from fully functional forms with `react-hook-form` to authentication, modals man
     label="Get started"
   />
   <QuickLink
+    icon={<FiMap />}
     href="https://roadmap.saas-ui.dev/roadmap"
     title="Roadmap"
     description="Feature requests and public roadmap."
     label="View roadmap"
+  />
+  <QuickLink
+    icon={<FiStar />}
+    href="/docs/pro/overview"
+    title="Pro"
+    description="Documentation for Saas UI Pro."
+    label="View Pro documentation"
   />
 </SimpleGrid>
 

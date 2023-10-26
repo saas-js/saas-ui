@@ -1,0 +1,69 @@
+---
+id: beacon
+title: Beacon
+package: '@saas-ui-pro/react'
+description: A pulsating beacon that attracts attention
+---
+
+Beacons allows you to direct an users attention to parts of your application. For example to indicate there's a new update available.
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+```js
+import { Beacon } from '@saas-ui-pro/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx
+<Beacon />
+```
+
+### Color scheme
+
+```jsx
+<Beacon colorScheme="primary" />
+```
+
+### Sizes
+
+```jsx
+import { Stack } from '@chakra-ui/react'
+
+export default function Sizes() {
+  return (
+    <Stack spacing="4">
+      <Beacon size="xs" colorScheme="primary" />
+      <Beacon size="sm" colorScheme="cyan" />
+      <Beacon size="md" colorScheme="blue" />
+      <Beacon size="lg" />
+    </Stack>
+  )
+}
+```
+
+### With Button
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { Beacon } from '@saas-ui-pro/react'
+
+export default function WithButton() {
+  return (
+    <Button position="relative">
+      Changelog{' '}
+      <Beacon
+        size="sm"
+        colorScheme="primary"
+        position="absolute"
+        top="0"
+        right="0"
+      />
+    </Button>
+  )
+}
+```

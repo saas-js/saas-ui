@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-import { CalendarIcon } from '@chakra-ui/icons'
 import {
   forwardRef,
   InputGroup,
   InputGroupProps,
   InputRightElement,
+  Portal,
+  SystemCSSProperties,
 } from '@chakra-ui/react'
 
 import { FieldButton } from './button'
@@ -15,20 +16,39 @@ import { DatePickerDialog, DatePickerTrigger } from './date-picker-dialog'
 import { DatePicker, DatePickerProps } from './date-picker'
 import { useDatePickerContext } from './date-picker-context'
 import { SegmentedInput } from './segmented-input'
+import { CalendarIcon } from './icons'
 
 export interface DateInputProps extends DatePickerProps {
+  /**
+   * The icon to use in the calendar button
+   */
   calendarIcon?: React.ReactNode
+  /**
+   * If `true`, the `DatePickerDialog` will open in a portal.
+   * Also accepts a `z-index` value that will be passed to the dialog.
+   */
+  portal?: boolean | SystemCSSProperties['zIndex']
 }
 
 /**
- * DateInput
- *
  * A Date form input with Calendar popover to allow users to enter or select a date value.
  *
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
-  const { children, calendarIcon, size, variant, ...rest } = props
+  const { children, calendarIcon, size, variant, portal, ...rest } = props
+
+  const zIndex = typeof portal === 'boolean' ? undefined : portal
+
+  const dialog = (
+    <DatePickerDialog zIndex={zIndex}>
+      <>
+        <DatePickerCalendar />
+        {children}
+      </>
+    </DatePickerDialog>
+  )
+
   return (
     <DatePicker placement="bottom-end" granularity="day" {...rest}>
       <DatePickerInput
@@ -37,12 +57,8 @@ export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
         variant={variant}
         ref={ref}
       />
-      <DatePickerDialog>
-        <>
-          <DatePickerCalendar />
-          {children}
-        </>
-      </DatePickerDialog>
+
+      {portal ? <Portal>{dialog}</Portal> : dialog}
     </DatePicker>
   )
 })
@@ -59,7 +75,7 @@ DateInput.displayName = 'DateInput'
 export const DateTimeInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
   const { children, ...rest } = props
   return (
-    <DateInput granularity="minute" {...rest}>
+    <DateInput ref={ref} granularity="minute" {...rest}>
       <>
         <DatePickerTimeField />
         {children}

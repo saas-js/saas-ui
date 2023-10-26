@@ -39,6 +39,7 @@ import {
   AspectRatio,
   Badge,
   DarkMode,
+  Card,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
@@ -62,6 +63,7 @@ import { BackgroundGradient } from '@/components/background-gradient'
 
 import { ReactLogo } from '@/components/logos/react'
 import { ChakraLogo } from '@/components/logos/chakra'
+import { FigmaLogo } from '@/components/logos/figma'
 
 import {
   FiBox,
@@ -85,7 +87,6 @@ import {
 import { FaGithub } from 'react-icons/fa'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
-import { Card } from '@saas-ui/card'
 import {
   Banner,
   BannerCloseButton,
@@ -93,7 +94,7 @@ import {
   BannerDescription,
   BannerIcon,
   BannerTitle,
-} from '@saas-ui/banner'
+} from '@saas-ui/core'
 
 import { transparentize } from '@chakra-ui/theme-tools'
 import { Testimonial, Testimonials } from '@/components/testimonials'
@@ -105,6 +106,8 @@ import { Startec } from '@/components/logos/customers/startec'
 import { Eqtble } from '@/components/logos/customers/eqtble'
 import { Farmo } from '@/components/logos/customers/farmo'
 import { Ownco } from '@/components/logos/customers/ownco'
+import styles from '../styles/theme-image.module.css'
+import { ThemeImage } from '@/components/theme-image'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -156,6 +159,8 @@ const Home = () => {
                     delay={0.4}
                     fontWeight="medium"
                     textAlign="center"
+                    color="gray.600"
+                    _dark={{ color: 'gray.400' }}
                     fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
                     initialInView
                   >
@@ -175,16 +180,17 @@ const Home = () => {
                       <Text fontWeight="medium">React</Text>
                     </HStack>
                     <ChakraLogo height="24px" />
+                    <FigmaLogo height="24px" />
                   </HStack>
                 </FallInPlace>
                 <FallInPlace delay={1} initialInView>
                   <ButtonGroup spacing={4} alignItems="center">
                     <ButtonLink colorScheme="primary" size="lg" href="/pricing">
-                      Buy Pro
+                      View Pricing
                     </ButtonLink>
                     <ButtonLink
                       size="lg"
-                      href="/docs/introduction"
+                      href="/docs"
                       variant="outline"
                       _hover={{
                         bg: 'whiteAlpha.200',
@@ -208,8 +214,9 @@ const Home = () => {
                 </FallInPlace>
               </Hero>
               <Box
+                role="group"
                 width="80vw"
-                maxW="1100px"
+                maxW="1200px"
                 margin="0 auto"
                 alignItems="center"
                 position="relative"
@@ -222,16 +229,39 @@ const Home = () => {
                 >
                   <AspectRatio ratio={1100 / 698}>
                     <Image
-                      src="/screenshots/list.png"
-                      layout="fill"
-                      width="1100px"
-                      height="698px"
+                      src={useColorModeValue(
+                        '/screenshots/list.png',
+                        '/screenshots/list-dark.png'
+                      )}
+                      width={1200}
+                      height={698}
                       alt="Screenshot of a ListPage in Saas UI Pro"
-                      quality="75"
+                      quality="85"
                       priority
                     />
                   </AspectRatio>
                 </FallInPlace>
+                <Stack
+                  display="none"
+                  alignItems="center"
+                  justifyContent="center"
+                  _groupHover={{ display: 'flex' }}
+                  position="absolute"
+                  inset="0"
+                >
+                  <Button
+                    as="a"
+                    target="_blank"
+                    href="https://demo.saas-ui.dev"
+                    variant="solid"
+                    colorScheme="white"
+                    borderColor="gray.800"
+                    borderWidth="2px"
+                    size="lg"
+                  >
+                    View Demo
+                  </Button>
+                </Stack>
               </Box>
             </Stack>
             <BackgroundGradientRadial bottom="0" animate={animateGlow} />
@@ -247,7 +277,7 @@ const Home = () => {
 
           <BoilerplateCode />
 
-          <Themable />
+          {/* <Themable /> */}
 
           <Highlights />
         </Box>
@@ -357,7 +387,12 @@ const Benefits = () => {
 
 const Screenshots = () => {
   return (
-    <Section innerWidth="container.xl" variant="alternate" pt="0">
+    <Section
+      innerWidth="container.xl"
+      variant="alternate"
+      pt="0"
+      bg="transparent"
+    >
       <Box
         position="relative"
         height={['320px', null, '640px']}
@@ -384,9 +419,9 @@ const Screenshots = () => {
             alt="Image showing the Saas UI dashboard"
             src="/screenshots/dashboard.png"
             quality="75"
-            layout="fixed"
-            width="1528px"
-            height="1060px"
+            // layout="fixed"
+            width={1528}
+            height={1060}
           />
         </Center>
         <Center
@@ -401,9 +436,9 @@ const Screenshots = () => {
             alt="Image showing the Saas UI billing settings"
             src="/screenshots/billing.png"
             quality="75"
-            layout="fixed"
-            width="1607px"
-            height="1021px"
+            // layout="fixed"
+            width={1607}
+            height={1021}
           />
         </Center>
       </Box>
@@ -605,7 +640,7 @@ const Themable = () => {
             WebkitMaskComposite: 'xor',
           }}
         >
-          <Tabs width="100%" colorScheme="white">
+          <Tabs width="100%" colorScheme="white" size="md">
             <TabList borderColor="whiteAlpha.200" color="white">
               <Tab>Style props</Tab>
               <Tab>Theme</Tab>
@@ -739,7 +774,7 @@ const Highlights = () => {
               />
             </HStack>
             <ButtonLink
-              href="/docs/introduction"
+              href="/docs"
               variant="ghost"
               _hover={{
                 bg: 'whiteAlpha.200',
@@ -885,78 +920,98 @@ const Highlights = () => {
             ))}
           </Wrap>
         </GridItem>
-        <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
-          <Heading fontSize="1.4em">Plays well with others</Heading>
-          <Text color="muted" fontSize="lg">
-            <>
-              Saas UI is backend agnostic and works with the framework
-              <Br /> or starter pack that you love.
-            </>
-          </Text>
-          <SimpleGrid
-            columns={[2, null, 4]}
-            columnGap={8}
-            sx={{
-              svg: {
-                width: '80%',
-                height: 'auto',
-                maxHeight: '40px',
+        <GridItem
+          colSpan={[1, null, null, 2]}
+          as={HighlightBox}
+          flexDirection="row"
+          padding="0"
+        >
+          <Stack spacing={8} padding="12">
+            <Heading fontSize="1.4em">
+              Figma library{' '}
+              <Tag colorScheme="primary" variant="solid">
+                New!
+              </Tag>
+            </Heading>
+            <Text color="muted" fontSize="lg" maxW="400px">
+              <>
+                Saas UI ships with a Figma design system. <br />
+                It includes all the components and styles you need to design
+                your product. Fully in sync with the codebase.
+              </>
+            </Text>
+
+            <ButtonLink
+              href="https://www.figma.com/community/file/1257658419283927894"
+              variant="subtle"
+              _hover={{
+                bg: 'whiteAlpha.200',
+              }}
+              rightIcon={
+                <Icon
+                  as={FiArrowRight}
+                  sx={{
+                    transitionProperty: 'common',
+                    transitionDuration: 'normal',
+                    '.chakra-button:hover &': {
+                      transform: 'translate(5px)',
+                    },
+                  }}
+                />
+              }
+            >
+              Community library
+            </ButtonLink>
+          </Stack>
+          <Flex
+            flex="1"
+            width="40%"
+            minWidth="200px"
+            h="320px"
+            position="relative"
+            _before={{
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              bgGradient: 'linear(to-b, white, transparent, white)',
+              zIndex: 1,
+            }}
+            overflow="hidden"
+            _dark={{
+              _before: {
+                bgGradient: 'linear(to-b, gray.800, transparent, gray.800)',
               },
             }}
           >
-            <Link
-              href="https://nextjs.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                path: {
-                  fill: useColorModeValue('#000', '#fff'),
-                },
-              }}
+            <svg
+              height="400px"
+              width="266px"
+              viewBox="0 0 38 57"
+              fill="none"
+              style={{ position: 'absolute', top: '-20px' }}
             >
-              <NextJS alt="Next.JS logo" />
-              <VisuallyHidden>Next.js</VisuallyHidden>
-            </Link>
-
-            <Link href="https://blitzjs.com" p="8" h="100%" display="flex">
-              <Blitz alt="Blitz.js logo" />
-              <VisuallyHidden>Blitz.js</VisuallyHidden>
-            </Link>
-
-            <Link
-              href="https://redwoodjs.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                path: {
-                  fill: useColorModeValue('#000', '#fff'),
-                },
-              }}
-            >
-              <RedwoodJS alt="RedwoodJS logo" />
-              <VisuallyHidden>RedwoodJS</VisuallyHidden>
-            </Link>
-
-            <Link
-              href="https://supabase.com"
-              p="8"
-              h="100%"
-              display="flex"
-              sx={{
-                'path.wordmark': {
-                  fill: useColorModeValue('#1F1F1F', '#FFF'),
-                },
-              }}
-            >
-              <Supabase
-                alt="Supabase logo"
-                viewBox="0 0 581 113" // somehow this gets removed when importing
+              <path
+                d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38C25.9804 38 23.5641 36.9991 21.7825 35.2175C20.0009 33.4359 19 31.0196 19 28.5Z"
+                fill="#1ABCFE"
               />
-              <VisuallyHidden>Supabase</VisuallyHidden>
-            </Link>
-          </SimpleGrid>
+              <path
+                d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98044 38 9.5 38H19V47.5C19 50.0196 17.9991 52.4359 16.2175 54.2175C14.4359 55.9991 12.0196 57 9.5 57C6.98044 57 4.56408 55.9991 2.78249 54.2175C1.00089 52.4359 0 50.0196 0 47.5H0Z"
+                fill="#0ACF83"
+              />
+              <path
+                d="M19 0V19H28.5C31.0196 19 33.4359 17.9991 35.2175 16.2175C36.9991 14.4359 38 12.0196 38 9.5C38 6.98044 36.9991 4.56408 35.2175 2.78249C33.4359 1.00089 31.0196 0 28.5 0L19 0Z"
+                fill="#FF7262"
+              />
+              <path
+                d="M0 9.5C0 12.0196 1.00089 14.4359 2.78249 16.2175C4.56408 17.9991 6.98044 19 9.5 19H19V0H9.5C6.98044 0 4.56408 1.00089 2.78249 2.78249C1.00089 4.56408 0 6.98044 0 9.5H0Z"
+                fill="#F24E1E"
+              />
+              <path
+                d="M0 28.5C0 31.0196 1.00089 33.4359 2.78249 35.2175C4.56408 36.9991 6.98044 38 9.5 38H19V19H9.5C6.98044 19 4.56408 20.0009 2.78249 21.7825C1.00089 23.5641 0 25.9804 0 28.5H0Z"
+                fill="#A259FF"
+              />
+            </svg>
+          </Flex>
         </GridItem>
         <GridItem
           as={HighlightBox}
@@ -1008,29 +1063,31 @@ const Highlights = () => {
 }
 
 const codeExamples = {
-  form: `import * as React from 'react'
-import { FormDialog, Field } from '@saas-ui/react'
+  form: `import { FormDialog } from '@saas-ui/forms/zod'
+import * as z from 'zod'
 
-interface CreateProjectInputs {
-  name: string
-}
+const schema = z.object({
+  name: z.string().nonempty({
+    message: 'Please enter a name
+  }),
+})
 
 export const CreateProject = (props) => {
   return (
-    <FormDialog<CreateProjectInputs>
+    <FormDialog
       title="Create project"
       defaultValues={{
         name: '',
       }}
+      schema={schema}
+      fields={{
+        name: {
+          label: 'Name',
+          help: 'Choose a cool name for this project',
+        }
+      }}
       {...props}
-    >
-        <Field
-          name="name"
-          label="Name"
-          help="Choose a cool name for this project"
-          rules={{ required: 'Please enter a name' }}
-        />
-    </FormDialog>
+    />
   )
 }`,
   styleProps: `<Banner
@@ -1131,6 +1188,7 @@ const ProFeatures = () => {
       id="pro-features"
       position="relative"
       zIndex="1"
+      bg="transparent"
       title={
         <Stack alignItems="flex-start">
           <Badge
@@ -1280,10 +1338,10 @@ export async function getStaticProps() {
   return {
     props: {
       announcement: {
-        title: 'Support us by becoming a stargazer! 🚀 ',
-        description:
-          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: 'https://github.com/saas-js/saas-ui',
+        title: 'Introducing Saas UI 2.0 🥳',
+        // description:
+        //   '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
+        href: '/blog/saas-ui-2-0',
         action: false,
       },
       header: {

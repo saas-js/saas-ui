@@ -64,6 +64,7 @@ export const BackgroundGradientRadial = ({
           pointerEvents="none"
           objectFit="cover"
           filter="blur(160px)"
+          transform="translate3d(0, 0, 0)"
         />
       </AspectRatio>
     </Box>

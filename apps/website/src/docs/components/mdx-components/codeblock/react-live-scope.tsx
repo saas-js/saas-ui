@@ -3,20 +3,23 @@ import * as Chakra from '@chakra-ui/react'
 import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
 import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
-import * as AppShell from '@saas-ui/app-shell'
-import * as Sidebar from '@saas-ui/sidebar'
+import * as SaasUIAuth from '@saas-ui/auth'
+import * as SaasUIForms from '@saas-ui/forms'
 import * as DatePicker from '@saas-ui/date-picker'
-import * as SaasUIPro from '@saas-ui/pro'
-import * as SaasUIFeatures from '@saas-ui/features'
-
-import * as Web3 from '@saas-ui/web3'
-import * as Yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { yupForm } from '@saas-ui/forms/yup'
+import * as SaasUIPro from '@saas-ui-pro/react'
+import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
+import * as CommandBar from '@saas-ui/command-bar'
+import * as FileUpload from '@saas-ui/file-upload'
+import * as z from 'zod'
+import * as yup from 'yup'
+import * as YupForm from '@saas-ui/forms/yup'
+import * as ZodForm from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as sampleData from '@/data/sample-data'
 import FocusLock from 'react-focus-lock'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
   FiHome,
@@ -46,6 +49,13 @@ import {
   FiUserCheck,
   FiCode,
   FiRefreshCw,
+  FiMessageSquare,
+  FiMail,
+  FiStar,
+  FiEye,
+  FiEyeOff,
+  FiTrash,
+  FiInfo,
 } from 'react-icons/fi'
 
 import {
@@ -89,7 +99,19 @@ const reactIcons = {
   FiUserCheck,
   FiCode,
   FiRefreshCw,
+  FiMessageSquare,
+  FiMail,
+  FiStar,
+  FiEye,
+  FiEyeOff,
+  FiTrash,
+  FiInfo,
 }
+
+import { KanbanItems } from '@saas-ui-pro/kanban'
+import * as SaasUIKanban from '@saas-ui-pro/kanban'
+
+import { now, getLocalTimeZone } from '@internationalized/date'
 
 const StarIcon = (props) => (
   <chakra.svg m="2px" fill="current" boxSize="3" viewBox="0 0 24 24" {...props}>
@@ -114,21 +136,35 @@ const ThrowSomeError = () => {
   throw new Error()
 }
 
+const defaultInitializer = (index: number) => index
+
+export function createRange<T = number>(
+  length: number,
+  initializer: (index: number) => any = defaultInitializer
+): T[] {
+  return [...new Array(length)].map((_, index) => initializer(index))
+}
+
+const kanbanItems: KanbanItems = {
+  todo: createRange(4, (index) => `todo${index + 1}`),
+  doing: createRange(4, (index) => `doing${index + 1}`),
+  done: createRange(4, (index) => `done${index + 1}`),
+}
+
 const ReactLiveScope = {
   React,
   ...React,
   ...Chakra,
   ...SaasUIPro,
   ...SaasUI,
+  ...SaasUIAuth,
+  ...SaasUIForms,
   ...SaasUIFeatures,
-  ...AppShell,
-  ...Sidebar,
   ...DatePicker,
-  ...Web3,
   ...Icons,
-  Yup,
-  yupResolver,
-  yupForm,
+  ...CommandBar,
+  yup,
+  yupResolver: yupResolver,
   // ...Loaders,
   ...reactIcons,
   StarIcon,
@@ -140,6 +176,28 @@ const ReactLiveScope = {
   StatusBadge,
   SaasSpinner,
   ThrowSomeError,
+  import: {
+    '@chakra-ui/react': Chakra,
+    '@saas-ui/react': SaasUI,
+    '@saas-ui/auth': SaasUIAuth,
+    '@saas-ui/forms': SaasUIForms,
+    '@saas-ui/forms/zod': ZodForm,
+    '@saas-ui/forms/yup': YupForm,
+    '@saas-ui/command-bar': CommandBar,
+    '@saas-ui/file-upload': FileUpload,
+    '@saas-ui-pro/react': SaasUIPro,
+    '@saas-ui-pro/feature-flags': SaasUIFeatures,
+    '@saas-ui-pro/kanban': SaasUIKanban,
+    '@saas-ui/date-picker': DatePicker,
+    '@chakra-ui/icons': Icons,
+    'react-icons/fi': reactIcons,
+    '@hookform/resolvers/yup': { yupResolver },
+    '@hookform/resolvers/zod': { zodResolver },
+    '@internationalized/date': { now, getLocalTimeZone },
+    zod: z,
+    yup: yup,
+  },
+  kanbanItems,
 }
 
 export default ReactLiveScope

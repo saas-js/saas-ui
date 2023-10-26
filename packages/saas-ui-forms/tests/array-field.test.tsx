@@ -5,8 +5,13 @@ import * as stories from '../stories/array-field.stories'
 
 const { ArrayFieldRef, ...rest } = stories
 
-const { AutoArrayField, AutoYupArrayField, MinMaxNoSchema } =
-  testStories<typeof stories>(rest)
+const { AutoArrayField, AutoYupArrayField, MinMaxNoSchema } = testStories(
+  stories,
+  {
+    a11y: false,
+    snapshots: false,
+  }
+)
 
 test('should add rows', async () => {
   const { getByLabelText, getAllByLabelText, user } = render(<AutoArrayField />)
@@ -36,18 +41,3 @@ test('should not add or remove more rows than min/max.', async () => {
 
   expect(getAllByLabelText('Title')).toHaveLength(3)
 })
-
-// test('should validate with schema', async () => {
-//   const onSubmit = jest.fn()
-//   const { getByText, getAllByText, user } = render(
-//     <WithYupSchema onSubmit={onSubmit} />
-//   )
-
-//   const submit = getByText('Submit')
-
-//   await user.click(submit)
-
-//   expect(onSubmit).not.toBeCalled()
-
-//   expect(getAllByText('Too short')).toHaveLength(2)
-// })

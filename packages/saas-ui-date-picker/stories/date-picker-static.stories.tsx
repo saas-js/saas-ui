@@ -2,9 +2,7 @@ import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { DatePickerStatic, DateValue, DatePickerCalendar } from '../src'
-import { Container, Heading, VStack } from '@chakra-ui/react'
-
-import { Card } from '@saas-ui/card'
+import { Card, Container, Heading, VStack } from '@chakra-ui/react'
 
 export default {
   title: 'Components/DateTime/DatePickerStatic',

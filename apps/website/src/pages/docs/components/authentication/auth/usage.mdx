@@ -1,0 +1,193 @@
+---
+id: auth
+title: Auth
+package: '@saas-ui/auth'
+description: Ready to use authentication forms.
+---
+
+<ComponentLinks
+  theme={{ componentName: 'auth' }}
+  github={{
+    package: 'saas-ui-auth',
+  }}
+  npm={{ package: '@saas-ui/auth' }}
+/>
+
+## Import
+
+- `Auth`: Higher order component responsible for rendering all specific auth forms.
+- `AuthForm`: Composes login and signup forms with a title and oauth providers.
+- `MagicLoginForm`: Basic magic link login form.
+- `PasswordForm`: Basic email and password form.
+- `ForgotPasswordForm`: Basic forgot password form.
+- `UpdatePasswordForm`: Basic update password form.
+- `OtpForm`: Basic one time password form.
+- `Providers`: Oauth provider login buttons.
+
+```js
+import {
+  Auth,
+  AuthForm,
+  MagicLinkForm,
+  PasswordForm,
+  ForgotPasswordForm,
+  UpdatePasswordForm,
+  OtpForm,
+  Providers,
+} from '@saas-ui/auth'
+```
+
+## Usage
+
+`Auth` is an higher order component that handles the rendering of all the specific authentication forms.
+If you need more flexiblity it's possible to use these components directly.
+
+`Auth` depends on context provided by `AuthProvider`, if you haven't done so already, first [add it to your App root](/docs/authentication/auth-provider).
+
+### Basic usage
+
+The default authentication strategy is `magiclink`.
+
+```jsx
+<Stack maxW="400px">
+  <Auth />
+</Stack>
+```
+
+### Password login
+
+```jsx
+<Stack maxW="400px">
+  <Auth type="password" />
+</Stack>
+```
+
+### Social login
+
+```jsx
+<Stack maxW="400px">
+  <Auth
+    providers={{
+      github: {
+        icon: FaGithub,
+        name: 'Github',
+      },
+    }}
+  />
+</Stack>
+```
+
+### Sign up
+
+```jsx
+<Stack maxW="400px">
+  <Auth view="signup" />
+</Stack>
+```
+
+### One time password
+
+```jsx
+<Stack maxW="400px">
+  <Auth view="otp" />
+</Stack>
+```
+
+### Error handler
+
+The `Auth` component accepts an `onError` prop that can be used to handle errors.
+You can use the `useSnackbar` hook to display a message.
+
+```jsx
+import { Auth } from '@saas-ui/auth'
+import { useSnackbar } from '@saas-ui/react'
+
+export default function ErrorHandler() {
+  const snackbar = useSnackbar()
+
+  return (
+    <Auth
+      onError={(view, error) => {
+        if (view === 'login' && error) {
+          snackbar.error(error.message)
+        }
+      }}
+    />
+  )
+}
+```
+
+### Custom links
+
+```jsx
+<Stack maxW="400px" alignSelf="center">
+  <Auth
+    signupLink={<Link href="/signup">Sign up</Link>}
+    loginLink={<Link href="/login">Log in</Link>}
+  />
+</Stack>
+```
+
+### Custom log in page
+
+```jsx
+function LoginPage() {
+  return (
+    <Card title="Welcome to Saas UI">
+      <CardBody>
+        <PasswordForm action="logIn" submitLabel="Log in" />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+### Custom sign up page
+
+```jsx
+import { Card, CardBody } from '@chakra-ui/react'
+import { FormLayout, Field } from '@saas-ui/react'
+import { PasswordForm } from '@saas-ui/auth'
+
+export default function SignUpPage() {
+  return (
+    <Card title="Sign up for free">
+      <CardBody>
+        <PasswordForm action="signUp" submitLabel="Sign up">
+          <FormLayout columns={2}>
+            <Field name="firstName" label="First name" />
+            <Field name="lastName" label="Last name" />
+          </FormLayout>
+          <Field name="company" label="Company" />
+        </PasswordForm>
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+### Schema validation
+
+```jsx
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { PasswordForm } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const schema = yup.object({
+    email: yup
+      .string()
+      .email('Invalid email address')
+      .required()
+      .label('Email'),
+    password: yup.string().min(4).required().label('Password'),
+  })
+  return (
+    <PasswordForm
+      action="logIn"
+      submitLabel="Log in"
+      resolver={yupResolver(schema)}
+    />
+  )
+}
+```

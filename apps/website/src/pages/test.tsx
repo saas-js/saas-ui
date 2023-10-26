@@ -1,21 +1,22 @@
 import {
+  AppShell,
   Sidebar,
   SidebarSection,
   SidebarToggleButton,
   SidebarOverlay,
   NavGroup,
   NavItem,
-} from '@saas-ui/sidebar'
-import { AppShell } from '@saas-ui/react'
+} from '@saas-ui/react'
 import { FiHome, FiSettings, FiHelpCircle, FiUsers } from 'react-icons/fi'
 import { HStack, Box, Image, Badge, Heading, Text } from '@chakra-ui/react'
 export default function Home() {
   return (
     <AppShell
+      height="$100vh"
       sidebar={
         <HStack spacing="0" height="100vh">
           {/* <Sidebar
-            variant="condensed"
+            variant="compact"
             height="100vh"
             bg="purple.500"
             borderWidth="0"
@@ -41,11 +42,10 @@ export default function Home() {
           </Sidebar> */}
           <Sidebar
             height="100vh"
-            //isResizable
             width="280px"
             minWidth="220px"
             maxWidth="320px"
-            breakpoints={{ base: true, lg: false }}
+            toggleBreakpoint="lg"
           >
             <SidebarToggleButton />
             <SidebarSection direction="row">
@@ -99,4 +99,12 @@ export default function Home() {
       </Box>
     </AppShell>
   )
+}
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      header: null,
+    },
+  }
 }

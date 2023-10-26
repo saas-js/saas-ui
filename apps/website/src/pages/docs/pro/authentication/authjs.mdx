@@ -1,0 +1,96 @@
+---
+title: Auth.js (NextAuth) authentication
+description: Using Auth.js (NextAuth) as your authentication service.
+---
+
+Auth.js, formerly NextAuth is a popular authentication solution for Next.js
+applications. It supports many different authentication providers and is easy to
+configure.
+
+## Install
+
+Install Next Auth in the @app/features package.
+
+```bash
+cd packages/app-features && yarn add next-auth
+```
+
+## Configure
+
+Edit `packages/app-features/core/providers/auth.tsx` and replace with the following:
+
+```tsx
+import React from 'react'
+import {
+  AuthProvider as BaseAuthProvider,
+  AuthProviderProps,
+  User,
+} from '@saas-ui/auth'
+import { SessionProvider, signIn, signOut, useSession } from 'next-auth/react'
+import { Session } from 'next-auth'
+
+const createAuthService = (session: Session | null): AuthProviderProps => {
+  return {
+    onLogin: async ({ provider, email }, options) => {
+      const type = provider ?? 'email'
+
+      let params: Record<string, any> = {
+        callbackUrl: options?.redirectTo,
+      }
+
+      if (email) {
+        params = {
+          email,
+          redirect: false, // do not redirect to NextAuth login page
+          ...params,
+        }
+      }
+
+      const result = await signIn(type, params)
+
+      if (result?.ok) {
+        //
+      }
+
+      return undefined
+    },
+    onLogout: () => signOut(),
+    onLoadUser: async () => (session?.user as User) || null,
+    onGetToken: async () => {
+      // we don't have access to any token, so just returning the user email here.
+      return session?.user?.email
+    },
+  }
+}
+
+/**
+ * Wrap the AuthProvider here so we can get access to the NextAuth context
+ */
+const Provider: React.FC<React.PropsWithChildren> = (props) => {
+  const { data } = useSession()
+  return (
+    <AuthProvider {...createAuthService(data)}>{props.children}</AuthProvider>
+  )
+}
+
+export interface AuthProviderProps {
+  session?: Session | null
+  children: React.ReactNode
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = (props) => {
+  const { children, session } = props
+  return (
+    <SessionProvider session={session}>
+      <Provider>{children}</Provider>
+    </SessionProvider>
+  )
+}
+```
+
+## Next up
+
+This is a very basic setup. You can read more about NextAuth and how to configure
+it in the [NextAuth documentation](https://next-auth.js.org/).
+
+You can fetch the session server side using the `getSession` function to improve page load times and use middleware to protect routes.

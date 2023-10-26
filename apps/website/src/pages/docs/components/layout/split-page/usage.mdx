@@ -1,0 +1,246 @@
+---
+id: split-page
+category: 'layout'
+title: SplitPage
+description: SplitPage allows you to create mobile friendly layouts with split panes.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `SplitPage`: The container component that manages composition.
+- `useSplitPage`: Access the `SplitPage` context.
+
+```ts
+import { SplitPage, useSplitPage } from '@saas-ui-pro/react'
+```
+
+## Usage
+
+SplitPage can be use to create horizontal and vertical layouts and is best used together with the `Page` component.
+
+### Basic split page
+
+The `SplitPage` requires 2 children. The first child is the left pane and the second child is the right pane for horizontal layouts.
+
+```jsx height=400px overflow=hidden
+import { Text } from '@chakra-ui/react'
+import {
+  AppShell,
+  EmptyState,
+  StructuredList,
+  StructuredListItem,
+  StructuredListCell,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function Basic() {
+  return (
+    <AppShell>
+      <SplitPage>
+        <Page borderRightWidth="1px" width="30%" maxW="300px">
+          <PageHeader title="Inbox" />
+          <PageBody p="0"></PageBody>
+        </Page>
+        <EmptyState title="Inbox zero" description="Time for some coffee" />
+      </SplitPage>
+    </AppShell>
+  )
+}
+```
+
+### With content
+
+```jsx height=400px overflow=hidden
+import { Text } from '@chakra-ui/react'
+import {
+  AppShell,
+  EmptyState,
+  StructuredList,
+  StructuredListItem,
+  StructuredListCell,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+export default function Basic() {
+  return (
+    <AppShell>
+      <SplitPage>
+        <Page borderRightWidth="1px" width="30%" maxW="300px">
+          <PageHeader title="Inbox" />
+          <PageBody p="0">
+            <StructuredList>
+              <StructuredListItem href="#">
+                <StructuredListCell width="14">
+                  <PersonaAvatar
+                    name="Elliot Alderson"
+                    size="sm"
+                    presence="online"
+                  />
+                </StructuredListCell>
+                <StructuredListCell flex="1">
+                  <Text fontWeight="bold">A bug is never just a mistake.</Text>
+                  <Text fontSize="sm" color="muted" noOfLines={2}>
+                    <Text as="span" color="app-text">
+                      Elliot Alderson
+                    </Text>{' '}
+                    — It represents something bigger. An error of thinking that
+                    makes you who you are.
+                  </Text>
+                </StructuredListCell>
+              </StructuredListItem>
+            </StructuredList>
+          </PageBody>
+        </Page>
+        <Page>
+          <PageHeader
+            title="Elliot Alderson"
+            description="A bug is never just a mistake"
+          />
+          <PageBody></PageBody>
+        </Page>
+      </SplitPage>
+    </AppShell>
+  )
+}
+```
+
+### With responsive content
+
+```jsx height=400px overflow=hidden
+import { Text } from '@chakra-ui/react'
+import {
+  AppShell,
+  EmptyState,
+  StructuredList,
+  StructuredListItem,
+  StructuredListCell,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+
+const breakpoints = { base: true, xl: false }
+
+function InboxMessage() {
+  const { onClose } = useSplitPage()
+
+  const isMobile = useBreakpointValue(breakpoints)
+  const nav = isMobile && <BackButton onClick={onClose} ms="-2" />
+
+  return (
+    <Page>
+      <PageHeader
+        title="Elliot Alderson"
+        description="A bug is never just a mistake"
+        nav={nav}
+      />
+      <PageBody />
+    </Page>
+  )
+}
+
+function InboxList() {
+  const { onOpen } = useSplitPage()
+  return (
+    <StructuredList>
+      <StructuredListItem href="#" onClick={onOpen}>
+        <StructuredListCell width="14">
+          <PersonaAvatar name="Elliot Alderson" size="sm" presence="online" />
+        </StructuredListCell>
+        <StructuredListCell flex="1">
+          <Text fontWeight="bold">A bug is never just a mistake.</Text>
+          <Text fontSize="sm" color="muted" noOfLines={2}>
+            <Text as="span" color="app-text">
+              Elliot Alderson
+            </Text>{' '}
+            — It represents something bigger. An error of thinking that makes
+            you who you are.
+          </Text>
+        </StructuredListCell>
+      </StructuredListItem>
+    </StructuredList>
+  )
+}
+
+export default function Inbox() {
+  return (
+    <AppShell>
+      <SplitPage defaultIsOpen={true} breakpoint="xl">
+        <Page borderRightWidth="1px" width="30%" maxW="300px">
+          <PageHeader title="Inbox" />
+          <PageBody p="0">
+            <InboxList />
+          </PageBody>
+        </Page>
+        <InboxMessage />
+      </SplitPage>
+    </AppShell>
+  )
+}
+```
+
+### Vertical layout
+
+```jsx height=400px overflow=hidden
+import { Text, Box } from '@chakra-ui/react'
+import {
+  AppShell,
+  StructuredList,
+  StructuredListItem,
+  StructuredListCell,
+  PersonaAvatar,
+} from '@saas-ui/react'
+import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
+import { FiCode } from 'react-icons/fi'
+
+function Queries() {
+  const { onOpen } = useSplitPage()
+  return (
+    <StructuredList>
+      <StructuredListItem onClick={() => onOpen}>
+        <StructuredListIcon color="muted">
+          <FiCode />
+        </StructuredListIcon>
+        <StructuredListCell px="2" flex="1">
+          Get all users
+        </StructuredListCell>
+      </StructuredListItem>
+    </StructuredList>
+  )
+}
+
+export default function Vertical() {
+  const breakpoints = { base: false }
+
+  return (
+    <AppShell>
+      <SplitPage
+        defaultIsOpen={false}
+        breakpoints={breakpoints}
+        orientation="vertical"
+      >
+        <Page borderBottomWidth="1px" height="30%">
+          <PageHeader title="Queries" />
+          <PageBody p="0">
+            <Queries />
+          </PageBody>
+        </Page>
+        <Page>
+          <PageBody p="0">
+            <Box
+              _focus={{ outline: 0 }}
+              minH="100%"
+              p="4"
+              contentEditable
+              dangerouslySetInnerHTML={{ __html: 'SELECT * FROM users' }}
+            />
+          </PageBody>
+        </Page>
+      </SplitPage>
+    </AppShell>
+  )
+}
+```

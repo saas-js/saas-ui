@@ -6,39 +6,61 @@ import {
   ResponsiveValue,
   useStyleConfig,
 } from '@chakra-ui/react'
-import { __DEV__ } from '@chakra-ui/utils'
 
 import { FormLayout } from './layout'
-import { FieldProps } from './field'
+import { BaseFieldProps } from './types'
 
 import { mapNestedFields } from './utils'
+import { FieldPath, FieldValues } from 'react-hook-form'
+import { useFieldProps } from './form-context'
 
-export interface ObjectFieldProps extends FieldProps {
-  name: string
+export interface ObjectFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> extends BaseFieldProps {
+  name: TName
   children: React.ReactNode
   columns?: ResponsiveValue<number>
   spacing?: ResponsiveValue<string | number>
 }
 
 export const FormLegend = (props: FormLabelProps) => {
-  const styles = useStyleConfig('FormLegend')
+  const styles = useStyleConfig('SuiFormLegend')
   return <FormLabel as="legend" sx={styles} {...props} />
 }
-
+/**
+ * The object field component.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/forms/object-field
+ */
 export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
-  const { name, label, hideLabel, children, columns, spacing, ...fieldProps } =
-    props
+  const {
+    name,
+    label,
+    hideLabel: hideLabelProp,
+    children,
+    columns: columnsProp,
+    spacing: spacingProp,
+    ...fieldProps
+  } = props
+
+  const { hideLabel, columns, spacing, ...overrides } = useFieldProps(
+    name
+  ) as Omit<ObjectFieldProps, 'name'>
 
   return (
-    <FormControl name={name} as="fieldset" {...fieldProps}>
-      <FormLegend display={hideLabel ? 'none' : 'block'}>{label}</FormLegend>
-      <FormLayout columns={columns} gridGap={spacing}>
+    <FormControl name={name} as="fieldset" {...fieldProps} {...overrides}>
+      <FormLegend display={hideLabelProp || hideLabel ? 'none' : 'block'}>
+        {label}
+      </FormLegend>
+      <FormLayout
+        columns={columnsProp || columns}
+        gridGap={spacingProp || spacing}
+      >
         {mapNestedFields(name, children)}
       </FormLayout>
     </FormControl>
   )
 }
 
-if (__DEV__) {
-  ObjectField.displayName = 'ObjectField'
-}
+ObjectField.displayName = 'ObjectField'

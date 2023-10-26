@@ -1,0 +1,550 @@
+---
+id: filters
+title: Filters
+description: Intuitive data filtering components.
+---
+
+<ComponentLinks pro={{ gumroad: true }} />
+
+## Import
+
+- `FiltersProvider`: Context provider that manages active filters.
+- `FiltersAddButton`: Menu with available filters.
+- `ActiveFilter`: Active filter component.
+- `ActiveFiltersList`: A list of active filters.
+- `NoFilteredResults`: EmptyState used incombination with DataGrid.
+- `getDataGridFilter`: Utility to enable DataGrid filtering.
+
+```ts
+import {
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFilter,
+  ActiveFilters,
+  FiltersProvider,
+  NoFilteredResults,
+  getDataGridFilter,
+} from '@saas-ui-pro/react'
+```
+
+## Usage
+
+The FiltersProvider can be used together with `DataGrid` to create intuitive data heavy list pages.
+
+### Basic
+
+The `ActiveFiltersList` component is best used together with the `Page` component. It will render a list of active filters.
+
+```jsx
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+} from '@saas-ui-pro/react'
+import { FiCircle } from 'react-icons/fi'
+
+export default function ListPage() {
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'status',
+        label: 'Status',
+        icon: <FiCircle />,
+        type: 'enum',
+        items: [
+          {
+            id: 'new',
+            label: 'New',
+            icon: (
+              <Badge boxSize="8px" mx="2px" borderRadius="full" bg="blue.400" />
+            ),
+          },
+          {
+            id: 'active',
+            label: 'Active',
+            icon: (
+              <Badge
+                boxSize="8px"
+                mx="2px"
+                borderRadius="full"
+                bg="green.400"
+              />
+            ),
+          },
+        ],
+      },
+    ],
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters}>
+      <Page>
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+
+        <ActiveFiltersList />
+        <PageBody></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+### Async filters
+
+Filter `items` can be async. This is useful when you need to fetch data from an API.
+
+```jsx
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+} from '@saas-ui-pro/react'
+import { FiTag } from 'react-icons/fi'
+
+const getTags = async (query: string) => {
+  const tags = ['new', 'active', 'lead']
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(tags.filter((tag) => tag.match(query)))
+    }, 1000)
+  })
+}
+
+export default function ListPage() {
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'tags',
+        label: 'Tag',
+        icon: <FiTag />,
+        type: 'enum',
+        items: async (query) => {
+          console.log('query', query)
+          const tags = await getTags(query)
+          return tags.map((tag) => ({
+            id: tag,
+            label: tag,
+          }))
+        },
+      },
+    ],
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters}>
+      <Page>
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+
+        <ActiveFiltersList />
+        <PageBody></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+## Usage with DataGrid
+
+```jsx
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+  getDataGridFilter,
+} from '@saas-ui-pro/react'
+import { FiCircle, FiUser } from 'react-icons/fi'
+
+export default function ListPage() {
+  const gridRef = useRef()
+
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'status',
+        label: 'Status',
+        icon: <FiCircle />,
+        type: 'enum',
+        items: [
+          {
+            id: 'new',
+            label: 'New',
+            icon: (
+              <Badge boxSize="8px" mx="2px" borderRadius="full" bg="blue.400" />
+            ),
+          },
+          {
+            id: 'active',
+            label: 'Active',
+            icon: (
+              <Badge
+                boxSize="8px"
+                mx="2px"
+                borderRadius="full"
+                bg="green.400"
+              />
+            ),
+          },
+        ],
+      },
+      {
+        id: 'isLead',
+        label: 'Is lead',
+        type: 'boolean',
+        icon: <FiUser />,
+        value: true,
+      },
+    ],
+    []
+  )
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: (cell) => {
+          const value = cell.getValue()
+          return (
+            <Tag
+              colorScheme={value === 'new' ? 'blue' : 'green'}
+              size="sm"
+              variant="outline"
+            >
+              {value}
+            </Tag>
+          )
+        },
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'isLead',
+        header: 'Lead',
+        hidden: true,
+        filterFn: getDataGridFilter('boolean'),
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+
+  const onFilter = React.useCallback((filters) => {
+    gridRef.current.setColumnFilters(
+      filters.map((filter) => {
+        return {
+          id: filter.id,
+          value: {
+            value: filter.value,
+            operator: filter.operator || 'is',
+          },
+        }
+      })
+    )
+  }, [])
+
+  const data = React.useMemo(
+    () =>
+      dataTable.data.map((item) => {
+        return {
+          ...item,
+          status: 'new',
+          isLead: true,
+        }
+      }),
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters} onChange={onFilter}>
+      <Page height="400px">
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+        <ActiveFiltersList />
+        <PageBody>
+          <DataGrid
+            instanceRef={gridRef}
+            columns={columns}
+            data={data}
+            noResults={NoFilteredResults}
+            initialState={{
+              columnVisibility: {
+                isLead: false,
+              },
+            }}
+          />
+        </PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+### DataGrid with default filters
+
+```jsx
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+  getDataGridFilter,
+} from '@saas-ui-pro/react'
+import { FiCircle, FiUser } from 'react-icons/fi'
+
+export default function ListPage() {
+  const gridRef = useRef()
+
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'status',
+        label: 'Status',
+        icon: <FiCircle />,
+        type: 'enum',
+        items: [
+          {
+            id: 'new',
+            label: 'New',
+            icon: (
+              <Badge boxSize="8px" mx="2px" borderRadius="full" bg="blue.400" />
+            ),
+          },
+          {
+            id: 'active',
+            label: 'Active',
+            icon: (
+              <Badge
+                boxSize="8px"
+                mx="2px"
+                borderRadius="full"
+                bg="green.400"
+              />
+            ),
+          },
+        ],
+      },
+      {
+        id: 'isLead',
+        label: 'Is lead',
+        type: 'boolean',
+        icon: <FiUser />,
+        value: true,
+      },
+    ],
+    []
+  )
+
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'status',
+        header: 'Status',
+        cell: (cell) => {
+          const value = cell.getValue()
+          return (
+            <Tag colorScheme={value === 'new' ? 'orange' : 'green'} size="sm">
+              {value}
+            </Tag>
+          )
+        },
+        filterFn: getDataGridFilter('string'),
+      },
+      {
+        accessorKey: 'isLead',
+        header: 'Lead',
+        hidden: true,
+        filterFn: getDataGridFilter('boolean'),
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+
+  const onFilter = React.useCallback((filters) => {
+    gridRef.current.setColumnFilters(
+      filters.map((filter) => {
+        return {
+          id: filter.id,
+          value: {
+            value: filter.value,
+            operator: filter.operator || 'is',
+          },
+        }
+      })
+    )
+  }, [])
+
+  const data = React.useMemo(
+    () =>
+      dataTable.data.map((item) => {
+        return {
+          ...item,
+          status: 'new',
+          isLead: true,
+        }
+      }),
+    []
+  )
+
+  const defaultFilters = React.useMemo(
+    () => [{ id: 'status', operator: 'isNot', value: 'new' }],
+    []
+  )
+
+  return (
+    <FiltersProvider
+      filters={filters}
+      onChange={onFilter}
+      defaultFilters={defaultFilters}
+    >
+      <Page
+        title="Contacts"
+        height="400px"
+        toolbar={
+          <Toolbar variant="outline">
+            <FiltersAddButton />
+            <Spacer />
+          </Toolbar>
+        }
+      >
+        <ActiveFiltersList />
+        <PageBody>
+          <DataGrid
+            instanceRef={gridRef}
+            columns={columns}
+            data={data}
+            noResults={NoFilteredResults}
+            initialState={{
+              columnVisibility: {
+                isLead: false,
+              },
+              filters: defaultFilters.map(({ id, value, operator }) => ({
+                id,
+                value: {
+                  value,
+                  operator,
+                },
+              })),
+            }}
+          />
+        </PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```

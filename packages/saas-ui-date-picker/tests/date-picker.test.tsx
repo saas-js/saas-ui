@@ -9,3 +9,7 @@
  */
 
 import * as React from 'react'
+
+test('it should render', async () => {
+  //
+})

@@ -10,22 +10,7 @@ const headerNav: NavLinkProps[] = [
   { id: 'features', label: 'Features', ...hideMobile },
   {
     href: '/themes',
-    label: (
-      <HStack justifyContent="center">
-        <Text>Themes</Text>
-        <Box lineHeight={1.4}>
-          <Badge
-            variant="solid"
-            colorScheme="primary"
-            rounded="full"
-            px="2"
-            fontWeight="medium"
-          >
-            New!
-          </Badge>
-        </Box>
-      </HStack>
-    ),
+    label: 'Themes',
     ...hideMobile,
   },
   {
@@ -33,7 +18,7 @@ const headerNav: NavLinkProps[] = [
     label: 'Pricing',
     ...hideMobile,
   },
-  { href: '/docs/introduction', label: 'Documentation', ...hideMobile },
+  { href: '/docs', label: 'Documentation', ...hideMobile },
   {
     href: '/pricing',
     label: 'Buy Pro',

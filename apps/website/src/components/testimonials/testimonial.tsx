@@ -1,5 +1,14 @@
-import { Avatar } from '@chakra-ui/react'
-import { Card, CardBody, CardProps, Link } from '@saas-ui/react'
+import {
+  Avatar,
+  Card,
+  CardBody,
+  CardHeader,
+  CardProps,
+  Heading,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
+import { Link } from '@saas-ui/react'
 import { FaTwitter } from 'react-icons/fa'
 
 interface Testimonial extends CardProps {
@@ -19,13 +28,16 @@ export const Testimonial = ({
   ...rest
 }: Testimonial) => {
   return (
-    <Card
-      position="relative"
-      avatar={<Avatar name={name} src={avatar} bg="transparent" />}
-      title={name}
-      subtitle={description}
-      {...rest}
-    >
+    <Card position="relative" {...rest}>
+      <CardHeader display="flex" flexDirection="row" alignItems="center">
+        <Avatar name={name} src={avatar} size="sm" bg="transparent" />
+        <Stack spacing="1" ms="4">
+          <Heading size="sm">{name}</Heading>
+          <Text color="muted" size="xs">
+            {description}
+          </Text>
+        </Stack>
+      </CardHeader>
       <CardBody>
         {children}
 

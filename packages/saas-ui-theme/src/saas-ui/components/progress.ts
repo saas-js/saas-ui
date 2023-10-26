@@ -1,10 +1,15 @@
 import { StyleFunctionProps } from '@chakra-ui/theme-tools'
 
-export default {
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { progressAnatomy } from '@chakra-ui/anatomy'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(progressAnatomy.keys)
+
+export const progressTheme = defineMultiStyleConfig({
   defaultProps: {
     colorScheme: 'primary',
   },
-  baseStyle: (props: StyleFunctionProps) => {
+  baseStyle: definePartsStyle((props) => {
     const { colorScheme } = props
     return {
       track: {
@@ -14,5 +19,5 @@ export default {
         bg: `${colorScheme}.500`,
       },
     }
-  },
-}
+  }),
+})

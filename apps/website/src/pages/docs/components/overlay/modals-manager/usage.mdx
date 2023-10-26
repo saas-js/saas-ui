@@ -1,0 +1,325 @@
+---
+id: modals-manager
+title: Modals manager
+description: Manage different types of modals with a single easy to use hook.
+---
+
+Modals manager helps you create consistent and non-conflicting
+modals throughout your app with minimal boilerplate code.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-modals' }}
+  npm={{ package: '@saas-ui/modals' }}
+/>
+
+## Import
+
+```ts
+import { ModalsProvider, useModals } from '@saas-ui/react'
+```
+
+## Best practises
+
+<BestPractises
+  does={['Use the same modal type throughout your app for similar actions.']}
+  donts={[
+    'Open multiple modals on top of eachother, with exception of alerts.',
+  ]}
+/>
+
+## Usage
+
+### Setup provider
+
+Add `ModalsProvider` to the root of your project.
+
+```tsx
+import { SaasProvider, ModalsProvider } from '@saas-ui/react'
+
+export default function App({ children }) {
+  return (
+    // ...
+    <SaasProvider>
+      <ModalsProvider>{children}</ModalsProvider>
+    </SaasProvider>
+    // ...
+  )
+}
+```
+
+### Open a modal
+
+`open` acccepts all default `Modal` properties, [more information](https://chakra-ui.com/docs/overlay/modal#props).
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'Modal',
+          body: 'Body',
+          footer: 'Footer',
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
+```
+
+### Open a drawer
+
+`drawer` acccepts all default `Drawer` properties, [more information](https://chakra-ui.com/docs/overlay/drawer#props).
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.drawer({
+          title: 'Drawer',
+          body: 'Body',
+          footer: 'Footer',
+        })
+      }
+    >
+      Open drawer
+    </Button>
+  )
+}
+```
+
+### Open a confirm dialog
+
+`confirm` acccepts all default `AlertDialog` properties, [more information](https://chakra-ui.com/docs/alert-dialog/modal#props).
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
+  const modals = useModals()
+
+  return (
+    <Button
+      colorScheme="red"
+      onClick={() =>
+        modals.confirm({
+          title: 'Delete user',
+          body: 'Are you sure you want to delete this user?',
+          confirmProps: {
+            colorScheme: 'red',
+            label: 'Delete',
+          },
+          onConfirm: () => {}, // action
+        })
+      }
+    >
+      Delete user
+    </Button>
+  )
+}
+```
+
+### Custom modals
+
+You can create custom modals, or change the default modals
+`modal`, `drawer`, `alert`, `confirm` if you desire to use a
+different composition or use a different FormDialog implementation.
+
+```tsx
+import { createModals } from '@saas-ui/react'
+import { FormDialog } from '@saas-ui/forms/zod'
+
+const { ModalsProvider, useModals } = createModals({
+  modals: {
+    modal: MyModal,
+    custom: CustomModal,
+    form: FormDialog,
+  },
+})
+
+function App({ children }) {
+  return <ModalsProvider>{children}</ModalsProvider>
+}
+
+function Page() {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'My modal',
+          body: 'Custom modal',
+          type: 'custom',
+        })
+      }
+    >
+      Open custom modal
+    </Button>
+  )
+}
+```
+
+### Opening multiple modals
+
+By default modals will never open on top of eachother, except for alert dialogs.
+This is handled with scopes, opening a modal in the same scope will replace any
+other model in that scope that's currently open. When closing the last modal,
+the manager will render the previous open modal, unless you use `closeAll`.
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
+  const modals = useModals()
+
+  const next = () => {
+    const id = modals.open({
+      title: 'Modal step 2',
+      body: 'Step 2',
+      footer: (
+        <>
+          <Button onClick={() => modals.close(id)} mr="3">
+            Back
+          </Button>
+          <Button onClick={() => modals.closeAll()}>Done</Button>
+        </>
+      ),
+    })
+  }
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'Modal step 1',
+          body: 'Step 1',
+          footer: (
+            <>
+              <Button onClick={next}>Next</Button>
+            </>
+          ),
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
+```
+
+### Prevent a modal from closing
+
+Return false in the `onClose` to prevent a modal from closing.
+You can also return a `Promise` if you need to do some async checks, like below.
+
+Alerts and confirm dialogs can be opened on top of other modals,
+for example to warn a person that changes might be lost when closing a modal.
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { useModals } from '@saas-ui/react'
+
+export default function Page() {
+  const modals = useModals()
+
+  const close = (resolve) => {
+    const id = modals.confirm({
+      title: 'Unsaved changes',
+      body: 'You have unsaved changes, are you sure you want to cancel?',
+      onConfirm: () => {
+        resolve(true)
+        modals.closeAll()
+      },
+      onCancel: () => resolve(false),
+    })
+  }
+
+  return (
+    <Button
+      onClick={() => {
+        const id = modals.drawer({
+          title: 'Profile',
+          hideCloseButton: true,
+          body: (
+            <>
+              <Property label="Name" value="Eelco" />
+            </>
+          ),
+          footer: (
+            <ButtonGroup>
+              <Button onClick={() => modals.close(id)}>Cancel</Button>
+              <Button
+                onClick={() => modals.close(id, true)}
+                colorScheme="primary"
+              >
+                Save
+              </Button>
+            </ButtonGroup>
+          ),
+          onClose: ({ force }) => force || new Promise(close),
+        })
+      }}
+    >
+      Open modal
+    </Button>
+  )
+}
+```
+
+### Scopes
+
+The default scopes are `modal` and `alert`, to open a modal in a different scope you can use the `scope` option.
+
+```jsx
+function Page() {
+  const modals = useModals()
+
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'Modal',
+          body: (
+            <Button
+              onClick={() =>
+                modals.open({
+                  title: 'Another modal', // this will open in the `modal` scope
+                })
+              }
+            >
+              Open another modal
+            </Button>
+          ),
+          scope: 'myscope',
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
+```
+
+## Accessibility
+
+### Keyboard Interaction
+
+| Key   | Action                                     |
+| ----- | ------------------------------------------ |
+| `Esc` | Close the modal or cancel a confirm dialog |

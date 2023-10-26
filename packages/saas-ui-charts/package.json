@@ -1,0 +1,44 @@
+{
+  "name": "@saas-ui/charts",
+  "version": "0.10.0",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --config tsup.config.ts",
+    "lint": "TIMING=1 eslint src/**/*.ts* --fix",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@chakra-ui/styled-system": "^2.9.1",
+    "recharts": "^2.8.0"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=2.4.8",
+    "@emotion/react": ">=11",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "prop-types": "^15.8.1",
+    "tsup": "^6.7.0"
+  }
+}

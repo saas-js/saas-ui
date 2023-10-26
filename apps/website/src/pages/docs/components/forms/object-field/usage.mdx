@@ -1,0 +1,186 @@
+---
+id: object-field
+title: ObjectField
+description: Form field component to handle object type values.
+---
+
+The `ObjectField` is mainly used by `AutoForm` to support complex data structures,
+but can be used to structure your custom forms as well.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-forms' }}
+  npm={{ package: '@saas-ui/forms' }}
+/>
+
+## Import
+
+- `ObjectField`: The object field component.
+
+```ts
+import { ObjectField } from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic
+
+Auto generated form with object schema
+
+```jsx
+import { Form } from '@saas-ui/react'
+
+const schema = {
+  title: {
+    label: 'Title',
+    rules: {
+      required: 'Please enter a title',
+    },
+  },
+  author: {
+    type: 'object',
+    label: 'Author',
+    hideLabel: true,
+    properties: {
+      name: {
+        type: 'string',
+        label: 'Name',
+        rules: {
+          required: 'Please enter a name',
+        },
+      },
+    },
+  },
+}
+
+export default function CreatePost() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+        },
+      }}
+      onSubmit={() => Promise.resolve()}
+    />
+  )
+}
+```
+
+### Yup form
+
+Auto generated form with Yup schema.
+
+```jsx
+import { Form } from '@saas-ui/forms/yup'
+import * as yup from 'yup'
+
+const schema = yup.object({
+  title: yup.string().required().label('Title'),
+  author: yup
+    .object({
+      name: yup.string().required().label('Name'),
+    })
+    .label('Author')
+    .meta({ hideLabel: true }),
+})
+
+export default function CreatePost() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+        },
+      }}
+      onSubmit={() => Promise.resolve()}
+    />
+  )
+}
+```
+
+### Zod form
+
+Auto generated form with Zod schema.
+
+```jsx
+import { Form } from '@saas-ui/forms/zod'
+import * as z from 'zod'
+
+const schema = z.object({
+  title: z.string().nonempty().describe('Title'),
+  author: z
+    .object({
+      name: z.string().nonempty().describe('Name'),
+    })
+    .describe('Author'),
+})
+
+export default function CreatePost() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+        },
+      }}
+      fields={{
+        author: {
+          hideLabel: true,
+        },
+      }}
+      onSubmit={() => Promise.resolve()}
+    />
+  )
+}
+```
+
+### Custom defined fields
+
+```jsx
+import { Form } from '@saas-ui/forms/yup'
+import { FormLayout } from '@saas-ui/react'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  title: yup.string().required().label('Title'),
+  author: yup.object({
+    name: yup.string().required().label('Author name'),
+    email: yup.string().required().email().label('Email address'),
+  }),
+})
+
+export default function CreatePost() {
+  return (
+    <Form
+      schema={schema}
+      defaultValues={{
+        title: '',
+        author: {
+          name: '',
+          email: '',
+        },
+      }}
+      onSubmit={() => Promise.resolve()}
+    >
+      {({ Field, ObjectField }) => (
+        <FormLayout>
+          <Field name="title" label="Title" />
+
+          <ObjectField name="author" label="Author">
+            <Field name="author.name" label="Name" />
+            <Field name="author.email" label="Email" />
+          </ObjectField>
+
+          <SubmitButton>Create post</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+```

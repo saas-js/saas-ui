@@ -7,6 +7,10 @@ const sidebar = {
       path: '/docs/pro/overview',
     },
     {
+      title: 'Upgrading to v1',
+      path: '/docs/pro/upgrading-to-v1',
+    },
+    {
       title: 'Project structure',
       path: '/docs/pro/project-structure',
     },
@@ -19,6 +23,14 @@ const sidebar = {
         {
           title: 'Overview',
           path: '/docs/pro/installation/overview',
+        },
+        {
+          title: 'Clone the repository',
+          path: '/docs/pro/installation/clone-repository',
+        },
+        {
+          title: 'Run the application',
+          path: '/docs/pro/installation/run-application',
         },
         {
           title: 'NPM registry',
@@ -43,14 +55,40 @@ const sidebar = {
       ],
     },
     {
-      title: 'Configuration',
-      path: '/docs/pro/configuration',
+      title: 'Authentication',
+      path: '/docs/pro/authentication',
       heading: true,
       open: true,
       routes: [
         {
-          title: 'Authentication',
-          path: '/docs/pro/configuration/authentication',
+          title: 'Overview',
+          path: '/docs/pro/authentication',
+        },
+        {
+          title: 'Providers',
+          open: true,
+          routes: [
+            {
+              title: 'Supabase',
+              path: '/docs/pro/authentication/supabase',
+            },
+            {
+              title: 'Clerk',
+              path: '/docs/pro/authentication/clerk',
+            },
+            {
+              title: 'Magic',
+              path: '/docs/pro/authentication/magic',
+            },
+            {
+              title: 'Auth.js (NextAuth)',
+              path: '/docs/pro/authentication/authjs',
+            },
+          ],
+        },
+        {
+          title: 'Customize auth screens',
+          path: '/docs/pro/authentication/customize-auth-screens',
         },
       ],
     },

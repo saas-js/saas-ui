@@ -200,6 +200,7 @@ function ComponentLinks(props: ComponentLinksProps) {
       {storybookLink}
       {videoLink}
       {gumroadLink}
+      {version}
     </Wrap>
   )
 }

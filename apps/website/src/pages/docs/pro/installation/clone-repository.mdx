@@ -1,0 +1,88 @@
+---
+title: Clone the Git repository
+description: Learn how to clone the Saas UI Git repository.
+---
+
+In case you have redeemed your license key and accepted the Github invite, you should now have access to the Saas UI Pro Git repository.
+
+## Generate from template
+
+You can create a new repository using the Github template feature.
+
+[Generate from template](https://github.com/saas-js/saas-ui-pro/generate)
+
+Make sure you deselect `Include all branches` and create a new `Private` repository.
+The new repository will be created with the latest version of Saas UI Pro, and without any commit history.
+
+## Clone the repository
+
+To clone the repository on your local machine, use the following command:
+
+```bash
+git clone --depth=1 git@github.com:saas-js/saas-ui-pro.git my-project
+```
+
+This will clone the repository into the `my-project` folder, without the commit history.
+
+## Setup Git
+
+Now that you have cloned the repository, you can setup your Git configuration.
+
+The `saas-ui-pro` repository is configured as the `origin` by default,
+you can can change this to `upstream` and keep `origin` for your own repository.
+
+```bash
+git remote rename origin upstream
+
+git remote add origin git@github.com:your-username/your-repository.git
+```
+
+You can pull the latest changes from the `upstream` repository using the following command:
+
+```bash
+git pull upstream main --allow-unrelated-histories
+```
+
+As your codebase diverges from `saas-ui-pro` you will run into merge conflicts eventually,
+so at some point it might be easier to manually copy over any changes that you want to implement.
+
+## Install dependencies
+
+This project uses `yarn 3` to manage dependencies, you can install all dependencies using the following command:
+
+```bash
+yarn
+```
+
+## PNPM support
+
+If you prefer to use `pnpm` instead of `yarn`, you need to set up the `pnpm` workspace.
+
+Create `.pnpm-workspace.yaml` in the root of your project with the following content:
+
+```yaml
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'saas-ui/*'
+```
+
+Then run the following command to install all dependencies:
+
+```bash
+pnpm i
+```
+
+Make sure you also update the `scripts` in `package.json` to use `pnpm` instead of `yarn`.
+
+## Saas UI base components
+
+The repository includes the source code of the Saas UI Pro base components, which are located in the `saas-ui` folder.
+These packages will be installed as part of the workspace. In case you want to install these packages from the private NPM registry,
+you can remove the `saas-ui` folder from the workspaces configuration in `package.json`, or `pnpm-workspace.yaml` in case you use `pnpm`.
+
+After removing the `saas-ui` folder from the workspaces configuration, you can delete this folder and configure the private NPM registry.
+Make sure you also delete the `SaasUIProPlugin` from your Next.js Webpack configuration in `apps/web/next.config.mjs`.
+
+- [Configure private NPM registry with Yarn](/docs/pro/installation/yarn)
+- [Configure private NPM registry with PNPM](/docs/pro/installation/pnpm)

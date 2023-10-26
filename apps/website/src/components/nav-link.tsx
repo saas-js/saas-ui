@@ -1,6 +1,4 @@
-import { forwardRef } from '@chakra-ui/react'
-
-import { Button, ButtonProps } from '@saas-ui/react'
+import { Button, ButtonProps, forwardRef } from '@chakra-ui/react'
 
 import Link from 'next/link'
 
@@ -8,13 +6,14 @@ export interface NavLinkProps extends ButtonProps {
   isActive?: boolean
   href?: string
   id?: string
+  label: React.ReactNode
 }
 
 const NavLink = forwardRef((props: NavLinkProps, ref) => {
-  const { href, type, isActive, ...rest } = props
+  const { label, href, type, isActive, ...rest } = props
 
   return (
-    <Link href={href as string} passHref>
+    <Link href={href as string} passHref legacyBehavior>
       <Button
         as="a"
         ref={ref}
@@ -24,7 +23,9 @@ const NavLink = forwardRef((props: NavLinkProps, ref) => {
         fontWeight="medium"
         fontSize="md"
         {...rest}
-      />
+      >
+        {label}
+      </Button>
     </Link>
   )
 })

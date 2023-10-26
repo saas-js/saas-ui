@@ -241,7 +241,7 @@ import { FormDialog } from '@saas-ui/forms/zod'
 import * as z from 'zod'
 
 const schema = z.object({
-  title: z.string().describe('Title'),
+  title: z.string().nonempty().describe('Title'),
   description: z.string().optional().describe('Description'),
 })
 

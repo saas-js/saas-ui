@@ -43,11 +43,11 @@ If you like to support the project financially you can [Sponsor](https://github.
 
 ### Core
 
-40+ essential open source components built on top of Chakra UI.
+40+ essential open-source components built on top of Chakra UI.
 Everything you need to build
 
 - Authentication screens
-- Powerfull forms manager
+- Powerful forms manager
 - DatePicker / DateRangePicker
 - Stepper, Timeline, DataTable and much more.
 

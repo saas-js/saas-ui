@@ -25,7 +25,7 @@ import { HamburgerIcon } from '../icons'
 
 import { FaGithub, FaSlack } from 'react-icons/fa'
 
-import { FaTwitter } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import { Persona } from '../persona'
 import { FiArrowRight } from 'react-icons/fi'
 
@@ -77,7 +77,7 @@ export const Header = () => (
           Contact
         </Button>
         <Spacer />
-        <IconButton icon={<FaTwitter />} aria-label="Twitter" />
+        <IconButton icon={<FaXTwitter />} aria-label="Twitter" />
       </CardFooter>
     </Card>
   </>

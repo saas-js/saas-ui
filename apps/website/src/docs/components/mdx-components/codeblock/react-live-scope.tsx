@@ -60,11 +60,12 @@ import {
 
 import {
   FaFacebook,
-  FaTwitter,
   FaGithub,
   FaSlack,
   FaCookie,
 } from 'react-icons/fa'
+
+import { FaXTwitter } from 'react-icons/fa6'
 
 const reactIcons = {
   FiHome,
@@ -90,7 +91,7 @@ const reactIcons = {
   FiUnderline,
   FiLink,
   FaFacebook,
-  FaTwitter,
+  FaXTwitter,
   FaGithub,
   FaSlack,
   FaCookie,

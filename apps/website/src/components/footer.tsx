@@ -1,7 +1,8 @@
 import { Flex, HStack, IconButton, Stack, Text } from '@chakra-ui/react'
 import { Link } from '@saas-ui/react'
-import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
 import Footer, { Copyright, FooterLink } from './layout/footer'
+import { FaXTwitter } from 'react-icons/fa6'
 
 import Logo from './saas-ui'
 
@@ -52,7 +53,7 @@ const CustomFooter = () => {
           <IconButton
             variant="ghost"
             aria-label="twitter"
-            icon={<FaTwitter size="14" />}
+            icon={<FaXTwitter size="14" />}
             borderRadius="md"
             as={Link}
             href="https://twitter.com/saas_js"

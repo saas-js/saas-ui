@@ -50,7 +50,6 @@ Saas UI is sponsored by these amazing companies and people.
 ### Core
 
 40+ essential open-source components built on top of Chakra UI.
-Everything you need to build
 
 - Authentication screens
 - Powerful forms manager
@@ -60,7 +59,7 @@ Everything you need to build
 ### Pro
 
 A premium frontend starter pack designed for SaaS products.
-Complete source code available in a monorepo that can serve as a starting point for your project.
+Complete source code available in a monorepo that can serve as a starting point or as a reference for your project.
 
 ![theme-tokens](https://user-images.githubusercontent.com/32583/172424112-72bacfdd-17df-4024-81db-690dc47d0c81.png)
 

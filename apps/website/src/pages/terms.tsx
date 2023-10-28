@@ -35,7 +35,7 @@ const License = () => {
 export default License
 
 const terms = `
-Last updated 2nd of Februari, 2021
+Last updated 2nd of February, 2021
 
 By accessing our website, you are agreeing to be bound by these terms of service, and agree that you are responsible for compliance with any applicable local laws.
 

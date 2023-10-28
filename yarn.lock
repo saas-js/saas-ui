@@ -4162,7 +4162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource-variable/inter@npm:^5.0.14":
+"@fontsource-variable/inter@npm:^5.0.15":
   version: 5.0.15
   resolution: "@fontsource-variable/inter@npm:5.0.15"
   checksum: 4bb1f40e0ce0aa05608606a3564c216290cf10ebcf57e324f8c61245e7a7c37f096a8661a0ae505f9f333569f427d46793f1d44e59d2a9aa0d63347f0fb0159e
@@ -6913,7 +6913,7 @@ __metadata:
   dependencies:
     "@chakra-ui/utils": ^2.0.15
     tsup: 6.7.0
-    zustand: ^4.4.3
+    zustand: ^4.4.4
   peerDependencies:
     "@chakra-ui/react": ">=2.5.0"
     "@saas-ui/react": ">=2.0.0"
@@ -6972,7 +6972,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.27.1, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.28.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -6986,7 +6986,8 @@ __metadata:
     "@ngneat/falso": ^2.27.0
     "@react-hookz/web": ^23.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/forms": ^2.2.0
+    "@saas-ui/date-picker": ^0.12.6
+    "@saas-ui/forms": ^2.2.1
     "@saas-ui/react-utils": ^2.0.1
     "@saas-ui/theme": ^2.1.1
     "@tanstack/react-table": ^8.10.7
@@ -7137,7 +7138,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
+"@saas-ui/date-picker@^0.12.6, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
@@ -7187,7 +7188,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@^2.2.0, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@^2.2.1, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -7341,7 +7342,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@^2.3.0, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@^2.3.1, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -24331,7 +24332,7 @@ __metadata:
   resolution: "saas-ui-storybook-pro@workspace:packages/pro/saas-ui/storybook"
   dependencies:
     "@babel/core": ^7.23.2
-    "@fontsource-variable/inter": ^5.0.14
+    "@fontsource-variable/inter": ^5.0.15
     "@storybook/addon-a11y": ^7.5.1
     "@storybook/addon-docs": ^7.5.1
     "@storybook/addon-essentials": ^7.5.1
@@ -24406,8 +24407,8 @@ __metadata:
     "@dnd-kit/sortable": ^7.0.2
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.27.1
-    "@saas-ui/react": ^2.3.0
+    "@saas-ui-pro/react": ^0.28.0
+    "@saas-ui/react": ^2.3.1
     framer-motion: ^10.16.4
     lucide-react: ^0.260.0
     react: ^18.2.0
@@ -28611,7 +28612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:^4.4.3":
+"zustand@npm:^4.4.4":
   version: 4.4.4
   resolution: "zustand@npm:4.4.4"
   dependencies:

@@ -39,7 +39,13 @@ This repository contains all [open source components](/packages), as well as the
 
 Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md) and feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
 
-If you like to support the project financially you can [Sponsor](https://github.com/sponsors/saas-js) Saas UI, or consider ordering [Saas UI Pro Beta](https://appulse.gumroad.com/l/saas-ui-pro-pre-order), all funds will go to the further development of Saas UI. This will give you access to the private Git repository with the beta and our private Discord server for support.
+If you like to support the project financially you can [become a sponsor](https://github.com/sponsors/saas-js) of Saas UI, or consider ordering [Saas UI Pro Beta](https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5), all funds will go to the further development of Saas UI. This will give you access to the private Git repository with the beta and our private Discord server for support.
+
+## Sponsors ❤️
+
+Saas UI is sponsored by these amazing companies and people.
+
+- [LocalXPose](https://localxpose.io/)
 
 ### Core
 
@@ -58,33 +64,26 @@ Complete source code available in a monorepo that can serve as a starting point 
 
 ![theme-tokens](https://user-images.githubusercontent.com/32583/172424112-72bacfdd-17df-4024-81db-690dc47d0c81.png)
 
-- [x] Example SaaS app (NextJS & Electron)
-- [x] Authentication screens (Supabase/Magic/Clerk/Custom)
-- [x] App layout
-- [x] DataGrid with filtering/pagination
-- [x] User profiles
-- [x] Charts / Sparklines
-- [x] Settings pages
-- [x] Feature flags
-- [x] Billing/subscription management (Paddle)
-- [x] Mock graph api (MSW)
-- [x] Custom color schemes
-- [x] Glass theme
-- [x] Onboarding flows
-
-#### In progress
-
-- [ ] Example pages (CRM, Inbox)
-- [ ] Upselling flows (Trials, upgrades, etc)
-- [ ] File uploads
+- Example Next.js SaaS app (https://demo.saas-ui.dev)
+- Authentication screens (Supabase/Magic/Clerk/Custom)
+- App layout
+- DataGrid and DataBoard (Kanban) with filtering/pagination
+- Charts / Sparklines
+- User account pages
+- Settings pages
+- Feature flags
+- Billing/subscription management (Lemonsqueezy)
+- Mocked API with React Query
+- Custom color schemes
+- Glass theme
+- Onboarding flows
+- Example pages (CRM, Inbox)
 
 ## Using this repo
 
-The docs website depends on private packages (`@saas-ui/pro`). If you don't have access to the Pro repository,
-remove `"apps/*",` from `workspaces` in `package.json` before running `yarn`. This will allow you to install all dependencies,
-and run Storybooks for local development.
+The docs website depends on private packages (`@saas-ui-pro/react`), and won't build properly without access to the private Git submodule.
 
-## Storybook
+### Storybook
 
 https://storybook.saas-ui.pro
 
@@ -94,13 +93,13 @@ Or run locally:
 yarn storybook
 ```
 
-## Build
+### Build
 
 ```bash
 yarn build:packages
 ```
 
-## Website
+### Website
 
 Before running the website you need to build the props-docs by running this.
 

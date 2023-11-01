@@ -78,8 +78,8 @@ interface SupabaseServiceAuthOptions {
   }
 }
 
-export const createAuthService = (
-  supabase: SupabaseClient<any, 'public', any>,
+export const createAuthService = <Client extends SupabaseClient>(
+  supabase: Client,
   serviceOptions?: SupabaseServiceAuthOptions
 ): AuthProviderProps<User> => {
   const onLogin = async (

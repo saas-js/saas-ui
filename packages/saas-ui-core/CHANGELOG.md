@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.1.3
+
+### Patch Changes
+
+- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to SaasProvider context
+
 ## 2.1.2
 
 ### Patch Changes

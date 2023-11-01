@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.2.1
+
+### Patch Changes
+
+- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in FormDialog
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/core@2.1.3
+
 ## 2.2.0
 
 ### Minor Changes

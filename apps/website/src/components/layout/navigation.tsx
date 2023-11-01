@@ -9,7 +9,8 @@ import {
   Tooltip,
   useBreakpointValue,
 } from '@chakra-ui/react'
-import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 import { useRouter } from 'next/router'
 
@@ -111,7 +112,7 @@ const Header = () => {
           <IconButton
             variant="ghost"
             aria-label="twitter"
-            icon={<FaTwitter size="14" />}
+            icon={<FaXTwitter size="14" />}
             borderRadius="md"
             as={Link}
             href="https://twitter.com/saas_js"

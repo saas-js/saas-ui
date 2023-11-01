@@ -7,7 +7,7 @@ import Logo from './saas-ui'
 
 const CustomFooter = () => {
   return (
-    <Footer columns={{ base: 1, lg: 2 }} mb={{ lg: 16 }}>
+    <Footer columns={{ base: 1, lg: 2 }}>
       <Stack spacing="8" mb="4">
         <Stack alignItems="flex-start">
           <Flex width="100px">

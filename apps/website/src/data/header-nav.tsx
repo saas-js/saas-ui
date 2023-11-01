@@ -14,18 +14,30 @@ const headerNav: NavLinkProps[] = [
     ...hideMobile,
   },
   {
+    href: '/blocks',
+    label: (
+      <HStack justifyContent="center">
+        <Text>Blocks</Text>
+        <Badge
+          rounded="full"
+          colorScheme="primary"
+          variant="solid"
+          lineHeight={1.2}
+          py="0.5"
+          px="1.5"
+          fontSize="2xs"
+        >
+          New
+        </Badge>
+      </HStack>
+    ),
+  },
+  {
     href: '/pricing',
     label: 'Pricing',
     ...hideMobile,
   },
   { href: '/docs', label: 'Documentation', ...hideMobile },
-  {
-    href: '/pricing',
-    label: 'Buy Pro',
-    variant: 'solid',
-    colorScheme: 'primary',
-    fontSize: 'sm',
-  },
 ]
 
 export default headerNav

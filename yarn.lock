@@ -7261,12 +7261,12 @@ __metadata:
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
     "@saas-ui/auth": ^2.0.9
-    "@supabase/supabase-js": ^2.24.0
+    "@supabase/supabase-js": ^2.38.4
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
     "@emotion/react": ">=11.0.0"
     "@emotion/styled": ">=11.0.0"
-    "@supabase/supabase-js": ^2.1.0
+    "@supabase/supabase-js": ^2.38.4
     framer-motion: ">=6.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -8447,12 +8447,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/gotrue-js@npm:^2.51.0":
-  version: 2.52.0
-  resolution: "@supabase/gotrue-js@npm:2.52.0"
+"@supabase/gotrue-js@npm:^2.56.0":
+  version: 2.57.0
+  resolution: "@supabase/gotrue-js@npm:2.57.0"
   dependencies:
     "@supabase/node-fetch": ^2.6.14
-  checksum: 71ebf716fb3f02ca841f782ccdcc410d9b5bc6d2d397a53370f9d2c5958ae3f177cb9599d3f366fdfdaeccf24b04b42558c46c572fcf7fcbe00a40eafea6d300
+  checksum: 2328b53f5ed33845e6097f84c76db094572f091da465018b93a3d5f9f41161b8d25b505d5a94d462242b7d346083a1a43b877e06f956e5298efe64ddb84ead63
   languageName: node
   linkType: hard
 
@@ -8465,23 +8465,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/postgrest-js@npm:^1.8.4":
-  version: 1.8.4
-  resolution: "@supabase/postgrest-js@npm:1.8.4"
+"@supabase/postgrest-js@npm:^1.8.5":
+  version: 1.8.5
+  resolution: "@supabase/postgrest-js@npm:1.8.5"
   dependencies:
     "@supabase/node-fetch": ^2.6.14
-  checksum: e37f3046362986b739fc237b6aef9d08cf40e22fff667a3f98010f8638f91fce7019cc3300059d4405385181e7ef89ad85acbe2906d3fb0aa2d969a2a31b3d1e
+  checksum: 45d188bfb30bbc964131ee0da71b12c3a9e4631e62948a02512fe1b7ae021a1b883f543d477c649a87e4a87bc8655e798657a4b15d4e0ec03e7d090bc835cb46
   languageName: node
   linkType: hard
 
-"@supabase/realtime-js@npm:^2.7.4":
-  version: 2.7.4
-  resolution: "@supabase/realtime-js@npm:2.7.4"
+"@supabase/realtime-js@npm:^2.8.4":
+  version: 2.8.4
+  resolution: "@supabase/realtime-js@npm:2.8.4"
   dependencies:
+    "@supabase/node-fetch": ^2.6.14
     "@types/phoenix": ^1.5.4
     "@types/websocket": ^1.0.3
     websocket: ^1.0.34
-  checksum: f718dd2a9fbf9068a6cdbda45fc0d8b14198424a1901fec942913b07d1206ac8e0abebfb7ad84bb16325a1e4bfa36bf6a14b1c71fca05ad038a82f6d210f1e8c
+  checksum: ddc93c0ac54042ae842e71194bfd6e77117cf8bf3d6815393abb12b15d627945b0c352a888527c48e72000a1a0259bb0ea1f33208bb619c0a5e090422d521324
+  languageName: node
+  linkType: hard
+
+"@supabase/ssr@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "@supabase/ssr@npm:0.0.5"
+  dependencies:
+    cookie: ^0.5.0
+    ramda: ^0.29.0
+  peerDependencies:
+    "@supabase/supabase-js": ^2.33.1
+  checksum: 3bb678d38d805cd70b0f031fb96bab80ca996572b2966272e77a7325fd73de0411b9a69ecdc47eebd2c24d5479833d74f6bae1bbfd2b1ff7a5596e511415ccb5
   languageName: node
   linkType: hard
 
@@ -8494,17 +8507,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/supabase-js@npm:^2.24.0":
-  version: 2.33.2
-  resolution: "@supabase/supabase-js@npm:2.33.2"
+"@supabase/supabase-js@npm:^2.38.4":
+  version: 2.38.4
+  resolution: "@supabase/supabase-js@npm:2.38.4"
   dependencies:
     "@supabase/functions-js": ^2.1.5
-    "@supabase/gotrue-js": ^2.51.0
+    "@supabase/gotrue-js": ^2.56.0
     "@supabase/node-fetch": ^2.6.14
-    "@supabase/postgrest-js": ^1.8.4
-    "@supabase/realtime-js": ^2.7.4
+    "@supabase/postgrest-js": ^1.8.5
+    "@supabase/realtime-js": ^2.8.4
     "@supabase/storage-js": ^2.5.4
-  checksum: 20ce6a961a3a5f9b4aa593c492510843944c99a1af9916a68b1797859390ac4d72793fb418f66097672fe3bba2dcf988c7057660a0997084da97c906f5c5cc86
+  checksum: d4bc83be5c36d00d5c90a8fbf1db19b7653c2eeaaf75dcf53fffbf256c5e3230b32ee23589b1760edd6e4d74302ba2cdb66b7f91bb0c6c6e3ae9acc6f96435a7
   languageName: node
   linkType: hard
 
@@ -11758,6 +11771,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"change-case@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "change-case@npm:5.1.2"
+  checksum: b3a5bdd59b50b96bc3e42f4cb3876aa75178dcc0aa9a5a44975e569c9cd809fc4fc15345a887fb45b9656e0fde98ffe028a41fc3d97c4748c6ab80422eea6e7a
+  languageName: node
+  linkType: hard
+
 "character-entities-html4@npm:^2.0.0":
   version: 2.1.0
   resolution: "character-entities-html4@npm:2.1.0"
@@ -12573,7 +12593,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.5.0":
+"cookie@npm:0.5.0, cookie@npm:^0.5.0":
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
@@ -22098,6 +22118,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ramda@npm:^0.29.0":
+  version: 0.29.1
+  resolution: "ramda@npm:0.29.1"
+  checksum: df7c627597a66d5f317f6ba77ad17d7ba818efc9c2c4a638440bc23f2c651e823970ea05b05a28895738c0e4b738fadbdc17b2c97b3ad922826febc09c859c44
+  languageName: node
+  linkType: hard
+
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -26162,6 +26189,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"urs@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "urs@npm:0.0.8"
+  peerDependencies:
+    react: ^16.13.1 || ^17.0.0
+    react-dom: ^16.13.1 || ^17.0.0
+  checksum: ab36ebdc648ca29f2fbbd40ebb300d5b750b1d4e0b4c7855b21ad630e6724f5a419f49976f5f06685ab20ca052e75137119bfed58dc23187e4bbb5ae1369f8c5
+  languageName: node
+  linkType: hard
+
 "use-callback-ref@npm:^1.3.0":
   version: 1.3.0
   resolution: "use-callback-ref@npm:1.3.0"
@@ -26174,6 +26211,20 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 7913df383a5a6fcb399212eedefaac2e0c6f843555202d4e3010bac3848afe38ecaa3d0d6500ad1d936fbeffd637e6c517e68edb024af5e6beca7f27f3ce7b21
+  languageName: node
+  linkType: hard
+
+"use-http@npm:^1.0.28":
+  version: 1.0.28
+  resolution: "use-http@npm:1.0.28"
+  dependencies:
+    urs: ^0.0.8
+    use-ssr: ^1.0.24
+    utility-types: ^3.10.0
+  peerDependencies:
+    react: ^16.13.1 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
+  checksum: d13b35ba32eb3fc8696c0d2a642e7b90e0a5326cc06497438c03954a5cda817f24b7733e3a1029ebc5c748c8d64a6c4a9b829d21d8a9089a9757a4ad3d05a351
   languageName: node
   linkType: hard
 
@@ -26202,6 +26253,16 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 925d1922f9853e516eaad526b6fed1be38008073067274f0ecc3f56b17bb8ab63480140dd7c271f94150027c996cea4efe83d3e3525e8f3eda22055f6a39220b
+  languageName: node
+  linkType: hard
+
+"use-ssr@npm:^1.0.24":
+  version: 1.0.25
+  resolution: "use-ssr@npm:1.0.25"
+  peerDependencies:
+    react: ^16.13.1 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
+  checksum: 1f76b860d3592bba524a67ae8d5e21007dcf47aaadf0a08b283d57a1c7518923622bcd4d26d667f0d6b84359f06f1d9a112becd85ff75646c5ba73d06cf0287e
   languageName: node
   linkType: hard
 
@@ -26285,6 +26346,13 @@ __metadata:
   version: 0.4.0
   resolution: "utila@npm:0.4.0"
   checksum: 97ffd3bd2bb80c773429d3fb8396469115cd190dded1e733f190d8b602bd0a1bcd6216b7ce3c4395ee3c79e3c879c19d268dbaae3093564cb169ad1212d436f4
+  languageName: node
+  linkType: hard
+
+"utility-types@npm:^3.10.0":
+  version: 3.10.0
+  resolution: "utility-types@npm:3.10.0"
+  checksum: 8f274415c6196ab62883b8bd98c9d2f8829b58016e4269aaa1ebd84184ac5dda7dc2ca45800c0d5e0e0650966ba063bf9a412aaeaea6850ca4440a391283d5c8
   languageName: node
   linkType: hard
 
@@ -26934,11 +27002,14 @@ __metadata:
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/props-docs": "workspace:*"
     "@saas-ui/react": "workspace:*"
+    "@supabase/ssr": ^0.0.5
+    "@supabase/supabase-js": ^2.38.4
     "@svgr/webpack": ^5.5.0
     "@types/node": ^18.17.16
     "@types/react": ^18.2.21
     "@vercel/og": ^0.5.13
     canvas-confetti: ^1.6.0
+    change-case: ^5.1.2
     concurrently: ^8.2.1
     contentlayer: ^0.3.2
     date-fns: ^2.30.0
@@ -26967,6 +27038,7 @@ __metadata:
     remark-gfm: ^3.0.1
     remark-slug: ^7.0.1
     typescript: ^5.2.2
+    use-http: ^1.0.28
     yup: ^1.2.0
     zod: ^3.22.2
   languageName: unknown

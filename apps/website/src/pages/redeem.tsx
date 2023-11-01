@@ -24,26 +24,26 @@ const Redeem = () => {
 
       <Box mb={8} w="full">
         <Box>
-          <Container maxW="2xl">
+          <Container maxW="container.xl">
             <Section>
               <ScaleInView>
                 <SectionTitle title="Redeem your license key"></SectionTitle>
               </ScaleInView>
 
               <ScaleInView>
-                <VStack fontSize="lg" spacing="8" alignItems="stretch">
-                  <Text>
+                <VStack fontSize="lg" alignItems="center">
+                  <Text textAlign="center" color="muted">
                     {router.query.sale_id
                       ? 'Thanks for your purchase! Activate your license below.'
                       : 'You can find your license key in the purchase confirmation e-mail.'}
                   </Text>
 
-                  <Text>
+                  <Text textAlign="center" color="muted" mb="10">
                     After activating you will get access to our Github
                     repository and discord channel.
                   </Text>
 
-                  <RedeemForm />
+                  <RedeemForm maxW="xl" />
                 </VStack>
               </ScaleInView>
             </Section>

@@ -34,7 +34,12 @@ export function RedeemForm(props) {
   const router = useRouter()
   const snackbar = useSnackbar()
 
-  const [data, setData] = useLocalStorage('saas-ui.data', null)
+  const [data, setData] = useLocalStorage<{
+    licenseKey: string
+    githubAccount: string
+    discordInvite: string
+    githubInvited: boolean
+  } | null>('saas-ui.data', null)
 
   const [licenseKey, setLicenseKey] = useState<string>('')
 

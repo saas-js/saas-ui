@@ -1,10 +1,17 @@
 import * as React from 'react'
 import {
   Box,
+  Button,
   HStack,
   IconButton,
   Kbd,
   Link,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
   Spacer,
   Tooltip,
   useBreakpointValue,
@@ -22,14 +29,16 @@ import { useDisclosure, useUpdateEffect } from '@chakra-ui/react'
 
 import ThemeToggle from './theme-toggle'
 import { ProductLaneLogo } from '../logos/productlane'
-import { SearchInput, useHotkeys } from '@saas-ui/react'
+import { ChevronDownIcon, SearchInput, useHotkeys } from '@saas-ui/react'
 
 import { GlobalSearch } from '../global-search/global-search'
+import { useAuth } from '@saas-ui/auth'
 
 const Header = () => {
+  const router = useRouter()
   const mobileNav = useDisclosure()
   const isDesktop = useBreakpointValue({ xl: true })
-  const router = useRouter()
+  const { user, isAuthenticated, logOut } = useAuth()
   const activeId = useScrollSpy(
     headerNav.filter(({ id }) => id).map(({ id }) => `[id="${id}"]`),
     {
@@ -61,13 +70,7 @@ const Header = () => {
             rightElement={<Kbd fontSize="md">/</Kbd>}
           />
         )}
-        <GlobalSearch
-          isOpen={isOpen}
-          onClose={onClose}
-          onSelect={(value) => {
-            console.log(value)
-          }}
-        />
+        <GlobalSearch isOpen={isOpen} onClose={onClose} />
       </Box>
       <HStack spacing="2" flexShrink={0} flex="1" justifyContent="flex-end">
         {headerNav.map(({ href, id, ...props }, i) => {
@@ -77,13 +80,42 @@ const Header = () => {
               href={href || `/#${id}`}
               key={i}
               isActive={
-                (id && activeId === id) ||
-                (href && !!router.asPath.match(new RegExp(href)))
+                !!(id && activeId === id) ||
+                !!(href && !!router.asPath.match(new RegExp(href)))
               }
               {...props}
             />
           )
         })}
+
+        {isAuthenticated ? (
+          <Menu>
+            <MenuButton
+              as={Button}
+              variant="primary"
+              rightIcon={<ChevronDownIcon />}
+            >
+              Account
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title={user?.email || undefined}>
+                <MenuItem onClick={() => router.push('/redeem')}>
+                  Redeem license
+                </MenuItem>
+              </MenuGroup>
+
+              <MenuDivider />
+              <MenuItem onClick={() => logOut()}>Log out</MenuItem>
+            </MenuList>
+          </Menu>
+        ) : (
+          <NavLink
+            display={{ base: 'none', lg: 'block' }}
+            href="pricing"
+            label="Buy Pro"
+            variant="primary"
+          />
+        )}
 
         <Tooltip label="Feedback &amp; Roadmap">
           <IconButton

@@ -12,6 +12,7 @@ import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { authService } from '@/lib/auth'
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   const router = useRouter()
@@ -24,7 +25,7 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
 
   return (
     <SaasProvider theme={theme} linkComponent={Link}>
-      <AuthProvider>
+      <AuthProvider {...authService}>
         <ModalsProvider>
           <Layout
             announcement={pageProps.announcement}

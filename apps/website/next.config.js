@@ -53,7 +53,6 @@ let config = {
     const fileLoaderRule = config.module.rules.find(
       (rule) => rule.test && rule.test.test('.svg')
     )
-    fileLoaderRule.exclude = /\.svg$/
 
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
@@ -72,7 +71,7 @@ let config = {
       // Reapply the existing rule, but only for svg imports ending in ?url
       {
         ...fileLoaderRule,
-        test: /\.svg$/i,
+        test: /\.svg/i,
         resourceQuery: /url/, // *.svg?url
       },
       // Convert all other *.svg imports to React components

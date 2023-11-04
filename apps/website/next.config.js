@@ -15,7 +15,6 @@ let config = {
   },
   experimental: {
     externalDir: true,
-    outputFileTracingRoot: path.join(__dirname, '../../'),
   },
   async redirects() {
     return [

@@ -93,6 +93,28 @@ The default authentication strategy is `magiclink`.
 </Stack>
 ```
 
+### Redirect after login
+
+Use the `redirectTo` prop to redirect the user after login.
+
+```jsx
+import { Auth } from '@saas-ui/auth'
+import { useSnackbar } from '@saas-ui/react'
+
+const getAbsoluteUrl = (path: string) => {
+  if (typeof window === 'undefined') {
+    return path
+  }
+  return window.location.origin
+}
+
+export default function AuthPage() {
+  const snackbar = useSnackbar()
+
+  return <Auth redirectTo={getAbsoluteUrl('/dashboard')} />
+}
+```
+
 ### Error handler
 
 The `Auth` component accepts an `onError` prop that can be used to handle errors.

@@ -20,21 +20,21 @@ export const CATEGORIES: CategoriesGroup[] = [
         name: 'Settings',
         images: fallbackImage,
       },
-      {
-        slug: 'files',
-        name: 'File management',
-        images: fallbackImage,
-      },
-      {
-        slug: 'billing',
-        name: 'Payments & Billing',
-        images: fallbackImage,
-      },
-      {
-        slug: 'charts',
-        name: 'Charts',
-        images: fallbackImage,
-      },
+      // {
+      //   slug: 'files',
+      //   name: 'File management',
+      //   images: fallbackImage,
+      // },
+      // {
+      //   slug: 'billing',
+      //   name: 'Payments & Billing',
+      //   images: fallbackImage,
+      // },
+      // {
+      //   slug: 'charts',
+      //   name: 'Charts',
+      //   images: fallbackImage,
+      // },
     ],
   },
 ]

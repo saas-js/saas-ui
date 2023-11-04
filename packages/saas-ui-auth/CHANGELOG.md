@@ -1,5 +1,11 @@
 # @saas-ui/auth
 
+## 2.1.0
+
+### Minor Changes
+
+- ccf2824d: Added new redirectUrl prop and deprecated oauthRedirectUrl
+
 ## 2.0.12
 
 ### Patch Changes

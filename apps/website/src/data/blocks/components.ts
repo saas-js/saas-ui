@@ -59,9 +59,12 @@ function getComponentCode(componentFolder: string, componentName: string) {
 }
 
 const getRootFolder = () => {
-  return path.join(
-    process.env.PROJECT_CWD ?? __dirname + '/../../../../',
-    '/packages/pro/saas-ui/templates/src'
+  return (
+    process.env.TEMPLATE_ROOT ||
+    path.join(
+      process.env.PROJECT_CWD ?? __dirname + '/../../../../',
+      '/packages/pro/saas-ui/templates/src'
+    )
   )
 }
 
@@ -111,6 +114,7 @@ export function getComponent(
   componentName: string,
   rootFolder = getRootFolder()
 ): ComponentInfo | null {
+  console.log('rootFolder', rootFolder)
   const componentDirectory = path.join(rootFolder, categoryName, componentName)
   const componentAttributes = path.join(componentDirectory, 'attributes.json')
 

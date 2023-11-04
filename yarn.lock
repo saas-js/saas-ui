@@ -7261,12 +7261,12 @@ __metadata:
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
     "@saas-ui/auth": ^2.0.9
-    "@supabase/supabase-js": ^2.38.4
+    "@supabase/supabase-js": ^2.24.0
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
     "@emotion/react": ">=11.0.0"
     "@emotion/styled": ">=11.0.0"
-    "@supabase/supabase-js": ^2.38.4
+    "@supabase/supabase-js": ^2.1.0
     framer-motion: ">=6.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -8486,15 +8486,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/ssr@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "@supabase/ssr@npm:0.0.5"
+"@supabase/ssr@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "@supabase/ssr@npm:0.0.8"
   dependencies:
     cookie: ^0.5.0
     ramda: ^0.29.0
   peerDependencies:
     "@supabase/supabase-js": ^2.33.1
-  checksum: 3bb678d38d805cd70b0f031fb96bab80ca996572b2966272e77a7325fd73de0411b9a69ecdc47eebd2c24d5479833d74f6bae1bbfd2b1ff7a5596e511415ccb5
+  checksum: 83700c90bd646acdedeeba4400303747c3ae71a5ddfec7318d3e7a8ba0ea0316f23904fcef246b76d2234cfa28b115f9fbc695055c90d8127b23cfbba243a638
   languageName: node
   linkType: hard
 
@@ -8507,7 +8507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/supabase-js@npm:^2.38.4":
+"@supabase/supabase-js@npm:^2.24.0, @supabase/supabase-js@npm:^2.38.4":
   version: 2.38.4
   resolution: "@supabase/supabase-js@npm:2.38.4"
   dependencies:
@@ -27002,7 +27002,7 @@ __metadata:
     "@saas-ui/palette": "workspace:*"
     "@saas-ui/props-docs": "workspace:*"
     "@saas-ui/react": "workspace:*"
-    "@supabase/ssr": ^0.0.5
+    "@supabase/ssr": ^0.0.8
     "@supabase/supabase-js": ^2.38.4
     "@svgr/webpack": ^5.5.0
     "@types/node": ^18.17.16

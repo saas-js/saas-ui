@@ -75,8 +75,22 @@ const theme = extendTheme(
           _dark: 'gray.900',
         },
         muted: {
+          default: 'gray.500',
+          _dark: 'gray.300',
+        },
+        emphasized: {
           default: 'gray.600',
           _dark: 'gray.400',
+        },
+        border: {
+          muted: {
+            default: 'gray.600',
+            _dark: 'gray.400',
+          },
+          emphasized: {
+            default: 'gray.600',
+            _dark: 'gray.400',
+          },
         },
         'chakra-body-bg': {
           default: 'app-background',

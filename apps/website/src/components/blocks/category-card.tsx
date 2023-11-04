@@ -9,6 +9,7 @@ import {
   Heading,
   LinkBox,
   LinkOverlay,
+  AspectRatio,
 } from '@chakra-ui/react'
 import { Category } from '../../data/blocks'
 
@@ -28,6 +29,7 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
     _groupHover: {
       transform: 'scale(1.05)',
     },
+    minHeight: '240px',
   }
 
   return (
@@ -77,7 +79,7 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
           </LinkOverlay>
         </Heading>
         <Text color="muted">
-          {count} {count === 1 ? 'component' : 'components'}
+          {count ?? 'No'} {count === 1 ? 'component' : 'components'}
         </Text>
       </CardBody>
     </Card>

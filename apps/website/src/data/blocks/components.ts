@@ -61,42 +61,57 @@ function getComponentCode(componentFolder: string, componentName: string) {
 const getRootFolder = () => {
   return path.join(
     process.env.PROJECT_CWD ?? __dirname + '/../../../../',
-    '/packages/pro/saas-ui/templates'
+    '/packages/pro/saas-ui/templates/src'
   )
 }
 
 export function getAllComponents(): ComponentInfo[] {
   const rootFolder = getRootFolder()
-  const paths = fs.readdirSync(rootFolder)
+  const categories = fs.readdirSync(rootFolder)
 
-  return paths
-    .map((componentName) => {
-      const componentDirectory = path.join(rootFolder, componentName)
+  const components: ComponentInfo[] = []
+  for (const category of categories) {
+    const categoryDirectory = path.join(rootFolder, category)
+    if (!fs.lstatSync(categoryDirectory).isDirectory()) {
+      continue
+    }
+    const componentsInCategory = fs.readdirSync(categoryDirectory)
+    for (const componentName of componentsInCategory) {
+      const componentDirectory = path.join(rootFolder, category, componentName)
       const componentAttributes = path.join(
         componentDirectory,
         'attributes.json'
       )
 
       if (fs.lstatSync(componentDirectory).isDirectory()) {
-        const attributes = JSON.parse(
-          fs.readFileSync(componentAttributes, 'utf8')
-        )
-        return {
+        let attributes = {}
+        try {
+          attributes = JSON.parse(fs.readFileSync(componentAttributes, 'utf8'))
+        } catch {}
+
+        components.push({
           component: pascalCase(componentName),
           slug: componentName,
           code: [],
-          attributes,
-        }
+          attributes: {
+            title: pascalCase(componentName),
+            category,
+            ...attributes,
+          },
+        })
       }
+    }
+  }
 
-      return null
-    })
-    .filter((c) => c) as ComponentInfo[]
+  return components.sort(({ attributes }) => (attributes.public ? -1 : 1))
 }
 
-export function getComponent(componentName: string): ComponentInfo | null {
+export function getComponent(
+  categoryName: string,
+  componentName: string
+): ComponentInfo | null {
   const rootFolder = getRootFolder()
-  const componentDirectory = path.join(rootFolder, componentName)
+  const componentDirectory = path.join(rootFolder, categoryName, componentName)
   const componentAttributes = path.join(componentDirectory, 'attributes.json')
 
   if (fs.lstatSync(componentDirectory).isDirectory()) {

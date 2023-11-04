@@ -17,6 +17,8 @@ export interface CanvasAttributes {
   category: string
   title: string
   props?: Record<string, any>
+  version?: string
+  public?: boolean
 }
 
 export interface UiComponent {

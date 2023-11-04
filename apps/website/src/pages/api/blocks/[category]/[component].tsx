@@ -1,6 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 
-import { getComponent } from '../../../data/blocks/components'
+import { getComponent } from '../../../../data/blocks/components'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -23,19 +23,20 @@ export default async function handler(
 
   const { data, error } = await supabase.auth.getSession()
 
-  if (!data.session || error) {
-    return res.status(401).json({ error: 'Unauthorized' })
-  }
+  const { category, component } = req.query
 
-  const { component } = req.query
-
+  const categoryName = category?.toString()
   const componentName = component?.toString()
 
-  if (!componentName) {
+  if (!categoryName || !componentName) {
     return res.status(404).json({ error: 'Missing component name' })
   }
 
-  const attributes = getComponent(componentName)
+  const attributes = getComponent(categoryName, componentName)
+
+  if ((!attributes?.attributes.public && !data.session) || error) {
+    return res.status(401).json({ error: 'Unauthorized' })
+  }
 
   res.status(200).json(attributes)
 }

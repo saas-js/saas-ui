@@ -34,7 +34,7 @@
     "@saas-ui/palette": "workspace:*",
     "@saas-ui/props-docs": "workspace:*",
     "@saas-ui/react": "workspace:*",
-    "@supabase/ssr": "^0.0.5",
+    "@supabase/ssr": "^0.0.8",
     "@supabase/supabase-js": "^2.38.4",
     "@svgr/webpack": "^5.5.0",
     "@vercel/og": "^0.5.13",

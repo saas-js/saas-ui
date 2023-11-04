@@ -1,18 +1,15 @@
 import { FaGithub } from 'react-icons/fa'
-import { FiExternalLink, FiCode, FiEye, FiLock } from 'react-icons/fi'
+import { FiCode, FiEye, FiLock } from 'react-icons/fi'
 import {
-  Stack,
-  Text,
   IconButton,
   Badge,
-  Center,
   Box,
   ButtonGroup,
   Button,
-  Card,
   CardHeader,
   HStack,
   Heading,
+  Tag,
 } from '@chakra-ui/react'
 import { ColorControl } from './color-control'
 import { UiComponent } from '../../data/blocks'
@@ -44,6 +41,9 @@ export function CanvasHeader({
 }: CanvasHeaderProps) {
   const router = useRouter()
   const { isAuthenticated } = useAuth()
+
+  const isUnlocked = isAuthenticated || attributes.public
+
   return (
     <CardHeader
       {...rest}
@@ -60,29 +60,25 @@ export function CanvasHeader({
           {attributes.title}
         </Heading>
 
-        <HStack gap="xs">
-          {!excludeExternal && (
-            <IconButton
-              variant="default"
-              aria-label="View component in isolation"
-              as="a"
-              href={`/component/${slug}`}
-              target="_blank"
-            >
-              <FiExternalLink size="0.9rem" />
-            </IconButton>
+        <HStack spacing="1">
+          {attributes.version && (
+            <Tag variant="outline" rounded="full" px="2">
+              {attributes.version}
+            </Tag>
           )}
 
-          <IconButton
-            variant="default"
-            aria-label="View source on github"
-            as="a"
-            href={`https://github.com/saas-js/saas-ui-pro/tree/main/saas-ui/templates/${slug}/${slug}.tsx`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub size="0.9rem" />
-          </IconButton>
+          {isAuthenticated && (
+            <IconButton
+              variant="default"
+              aria-label="View source on github"
+              as="a"
+              href={`https://github.com/saas-js/saas-ui-pro/tree/main/saas-ui/templates/${slug}/${slug}.tsx`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size="0.9rem" />
+            </IconButton>
+          )}
 
           {attributes.responsive && <Badge variant="light">Responsive</Badge>}
         </HStack>
@@ -93,7 +89,7 @@ export function CanvasHeader({
           <ColorControl onChange={onPrimaryColorChange} value={primaryColor} />
         )}
 
-        {isAuthenticated ? (
+        {isUnlocked ? (
           <ButtonGroup isAttached>
             <Button
               variant="outline"
@@ -115,7 +111,7 @@ export function CanvasHeader({
           </ButtonGroup>
         ) : (
           <Button
-            variant="outline"
+            variant="primary"
             data-checked={state === 'code' ? 'true' : undefined}
             leftIcon={<FiLock size="1rem" />}
             onClick={() =>

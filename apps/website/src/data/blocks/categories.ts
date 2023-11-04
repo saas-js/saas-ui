@@ -1,6 +1,11 @@
 import { CategoriesGroup, Category } from './types'
 import images from './images'
 
+const fallbackImage = {
+  light: '',
+  dark: '',
+}
+
 export const CATEGORIES: CategoriesGroup[] = [
   {
     name: 'Application UI',
@@ -9,6 +14,26 @@ export const CATEGORIES: CategoriesGroup[] = [
         slug: 'sidebar-layouts',
         name: 'Sidebar layouts',
         images: images.navbars ?? null,
+      },
+      {
+        slug: 'settings',
+        name: 'Settings',
+        images: fallbackImage,
+      },
+      {
+        slug: 'files',
+        name: 'File management',
+        images: fallbackImage,
+      },
+      {
+        slug: 'billing',
+        name: 'Payments & Billing',
+        images: fallbackImage,
+      },
+      {
+        slug: 'charts',
+        name: 'Charts',
+        images: fallbackImage,
       },
     ],
   },

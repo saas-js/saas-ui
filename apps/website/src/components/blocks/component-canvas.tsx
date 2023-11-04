@@ -13,24 +13,33 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
   const { isAuthenticated } = useAuth()
   const [state, setState] = useState('preview')
   const [primaryColor, setPrimaryColor] = useState('blue')
+  const [error, setError] = useState(false)
   const Component: any =
     UiComponents[props.component as keyof typeof UiComponents]
+
+  const isUnlocked = isAuthenticated || props.attributes.public
 
   const theme = useTheme()
 
   const [code, setCode] = useState(props.code)
-  const { get, response } = useFetch(`/api/blocks/${props.slug}`)
+  const { get, response } = useFetch(
+    `/api/blocks/${props.attributes.category}/${props.slug}`
+  )
 
   const fetchCode = async () => {
     const data = await get()
     if (response.ok) {
       setCode(data.code)
+    } else {
+      setError(true)
     }
   }
 
   React.useEffect(() => {
-    if (isAuthenticated) {
+    if (isUnlocked) {
       fetchCode()
+    } else {
+      setError(true)
     }
   }, [isAuthenticated])
 

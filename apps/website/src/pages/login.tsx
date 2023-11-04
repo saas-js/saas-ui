@@ -1,7 +1,8 @@
-import Logo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
-import { Card, CardBody, Center, Container } from '@chakra-ui/react'
+import { Center, Container } from '@chakra-ui/react'
 import { AvailableProviders, LoginView } from '@saas-ui/auth'
+import { useSnackbar } from '@saas-ui/react'
+import { useRouter } from 'next/router'
 import { FaDiscord, FaGoogle } from 'react-icons/fa'
 
 const providers: AvailableProviders = {
@@ -15,22 +16,34 @@ const providers: AvailableProviders = {
   },
 }
 
+const getAbsoluteUrl = (path: string) => {
+  if (typeof window === 'undefined') {
+    return path
+  }
+  const url = new URL(path, window.location.origin)
+  return url.toString()
+}
+
 export default function LoginPage() {
+  const router = useRouter()
+
+  const redirectUrl = router.query.redirectUrl?.toString() || ''
+
+  const snackbar = useSnackbar()
+
   return (
     <Center h="calc(100vh - 260px)">
       <Container maxW="container.sm" py="20">
-        <Card>
-          <CardBody>
-            <Center py="8">
-              <SaasUIGlyph width="48px" />
-            </Center>
-            <LoginView
-              title="Log in to Saas UI"
-              providers={providers}
-              submitLabel="Log in with Email"
-            />
-          </CardBody>
-        </Card>
+        <Center py="8">
+          <SaasUIGlyph width="48px" />
+        </Center>
+        <LoginView
+          title="Log in to Saas UI"
+          providers={providers}
+          submitLabel="Log in with Email"
+          redirectUrl={getAbsoluteUrl(redirectUrl)}
+          onError={(e) => snackbar.error(e.message)}
+        />
       </Container>
     </Center>
   )

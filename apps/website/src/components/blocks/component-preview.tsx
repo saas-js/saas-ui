@@ -1,4 +1,4 @@
-import { Box, Center } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { CanvasAttributes } from '../../data/blocks'
 
 interface ComponentPreviewProps {
@@ -14,9 +14,9 @@ export function ComponentPreview({
 }: ComponentPreviewProps) {
   if (canvas?.center) {
     return (
-      <Center minH="400px" p="8">
+      <Box minH="300px" maxW="container.lg" margin="0 auto" p="12">
         {children}
-      </Center>
+      </Box>
     )
   }
   return (

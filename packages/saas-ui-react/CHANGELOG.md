@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 2.3.1
+
+### Patch Changes
+
+- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in FormDialog
+- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to SaasProvider context
+- Updated dependencies [1c64bfaf]
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/forms@2.2.1
+  - @saas-ui/core@2.1.3
+  - @saas-ui/modals@2.1.6
+  - @saas-ui/data-table@5.0.1
+  - @saas-ui/hotkeys@2.1.5
+
 ## 2.3.0
 
 ### Minor Changes

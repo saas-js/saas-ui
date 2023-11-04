@@ -25,7 +25,7 @@ import {
   SelectOption,
 } from '@saas-ui/react'
 import { useCallback } from 'react'
-import { FaTwitter } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import Section from './section'
 
 const PaletteConfiguration = () => {
@@ -148,7 +148,7 @@ const PaletteConfiguration = () => {
             <Button
               as="a"
               href="https://twitter.com/intent/tweet?text=I%20created%20my%20%40chakra_ui%20color%20palette%20with%20%40saas_js%20%F0%9F%A4%A9%0A%0A%0Ahttps%3A//palette.saas-ui.dev%20"
-              leftIcon={<FaTwitter />}
+              leftIcon={<FaXTwitter />}
               variant="solid"
               colorScheme="primary"
             >

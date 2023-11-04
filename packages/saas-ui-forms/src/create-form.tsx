@@ -47,13 +47,19 @@ export function createForm<FieldDefs>({
       props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs>,
       ref: ForwardedRef<HTMLFormElement>
     ) => {
-      const { schema, ...rest } = props
+      const {
+        schema,
+        resolver: resolverProp,
+        fieldResolver: fieldResolverProp,
+        ...rest
+      } = props
+
       return (
         <FieldsProvider value={fields || {}}>
           <Form
             ref={ref}
-            resolver={resolver?.(props.schema)}
-            fieldResolver={fieldResolver?.(schema)}
+            resolver={resolverProp ?? resolver?.(props.schema)}
+            fieldResolver={fieldResolverProp ?? fieldResolver?.(schema)}
             {...rest}
           />
         </FieldsProvider>

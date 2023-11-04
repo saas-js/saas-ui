@@ -51,9 +51,9 @@ let config = {
     ]
   },
   webpack: (config, { defaultLoaders }) => {
-    const fileLoaderRule = config.module.rules.find(
-      (rule) => rule.test && rule.test.test('.svg')
-    )
+    const fileLoaderRule = config.module.rules.find((rule) => {
+      return new RegExp(rule.test).test('.svg')
+    })
 
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,

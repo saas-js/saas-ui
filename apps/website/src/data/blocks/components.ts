@@ -60,7 +60,7 @@ function getComponentCode(componentFolder: string, componentName: string) {
 
 const getRootFolder = () => {
   return path.join(
-    process.env.PROJECT_CWD ?? __dirname + '/../../../../',
+    process.env.PROJECT_CWD ?? process.cwd(),
     '/packages/pro/saas-ui/templates/src'
   )
 }

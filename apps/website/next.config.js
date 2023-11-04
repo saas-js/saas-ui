@@ -15,10 +15,7 @@ let config = {
   },
   experimental: {
     externalDir: true,
-    outputFileTracingRoot: path.join(
-      __dirname,
-      '../../packages/pro/templates/**/**'
-    ),
+    outputFileTracingRoot: path.join(__dirname, '../../'),
   },
   async redirects() {
     return [

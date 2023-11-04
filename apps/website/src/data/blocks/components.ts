@@ -109,9 +109,10 @@ export function getAllComponents(): ComponentInfo[] {
 export function getComponent(
   categoryName: string,
   componentName: string,
-  rootFolder = getRootFolder()
+  rootFolder
 ): ComponentInfo | null {
   const componentDirectory = path.join(rootFolder, categoryName, componentName)
+  console.log(componentDirectory)
   const componentAttributes = path.join(componentDirectory, 'attributes.json')
 
   if (fs.lstatSync(componentDirectory).isDirectory()) {

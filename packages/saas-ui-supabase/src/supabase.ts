@@ -89,7 +89,9 @@ export const createAuthService = <Client extends SupabaseClient>(
     const options = {
       ...serviceOptions?.loginOptions,
       ...authOptions,
+      emailRedirectTo: authOptions?.redirectTo,
     }
+
     function authenticate() {
       const { email, password, provider, phone } = params
       if (email && password) {
@@ -117,13 +119,12 @@ export const createAuthService = <Client extends SupabaseClient>(
     if (resp.error) {
       throw resp.error
     }
+
     if (isOauthResponse(resp)) {
-      const userResp = await supabase.auth.getUser()
-      if (userResp.error) {
-        throw userResp.error
-      }
-      return userResp.data.user
+      // do nothing, supabase will redirect
+      return
     }
+
     return resp.data.user
   }
 
@@ -140,6 +141,7 @@ export const createAuthService = <Client extends SupabaseClient>(
       const options = {
         ...serviceOptions?.signupOptions,
         ...authOptions,
+        emailRedirectTo: authOptions?.redirectTo,
       }
       if (email && password) {
         return await supabase.auth.signUp({

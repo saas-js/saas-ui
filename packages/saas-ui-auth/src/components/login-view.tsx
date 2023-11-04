@@ -56,13 +56,18 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
+    redirectUrl,
     oauthRedirectUrl,
     ...formProps
   } = props
   const [{ isResolved, data }, submit] = useLogin({ action })
 
   const handleSubmit: SubmitHandler<PasswordSubmitParams> = (params) => {
-    return submit(params).then(onSuccess).catch(onError)
+    return submit(params, {
+      redirectTo: redirectUrl,
+    })
+      .then(onSuccess)
+      .catch(onError)
   }
 
   // Show a default success message on signup.
@@ -113,6 +118,7 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
+    redirectUrl,
     oauthRedirectUrl,
     ...formProps
   } = props
@@ -122,7 +128,14 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
   })
 
   const handleSubmit: SubmitHandler<MagicLinkSubmitParams> = ({ email }) => {
-    return submit({ email }).then(onSuccess).catch(onError)
+    return submit(
+      { email },
+      {
+        redirectTo: redirectUrl,
+      }
+    )
+      .then(onSuccess)
+      .catch(onError)
   }
 
   const wrapperProps = {
@@ -166,13 +179,14 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
     footer,
     children,
     oauthRedirectUrl,
+    redirectUrl,
     ...rest
   } = props
 
   const { logIn } = useAuth()
 
   const signInWith = (provider: string) => {
-    return logIn({ provider }, { redirectTo: oauthRedirectUrl })
+    return logIn({ provider }, { redirectTo: redirectUrl || oauthRedirectUrl })
   }
 
   return (

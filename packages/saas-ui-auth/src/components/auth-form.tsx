@@ -76,8 +76,13 @@ export interface AuthFormOptions {
   providers?: AvailableProviders
   /**
    * The redirect URL after successful OAuth login
+   * @deprecated Use `redirectUrl` instead
    */
   oauthRedirectUrl?: string
+  /**
+   * The redirecet URL after succesful magic link or password login
+   */
+  redirectUrl?: string
   /**
    * Label for the provider buttons
    * @default "Continue with"

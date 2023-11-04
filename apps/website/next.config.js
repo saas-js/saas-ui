@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer')
+const path = require('node:path')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -14,6 +15,10 @@ let config = {
   },
   experimental: {
     externalDir: true,
+    outputFileTracingRoot: path.join(
+      __dirname,
+      '../../packages/pro/templates/**/**'
+    ),
   },
   async redirects() {
     return [

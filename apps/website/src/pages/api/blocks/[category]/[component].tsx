@@ -32,7 +32,11 @@ export default async function handler(
     return res.status(404).json({ error: 'Missing component name' })
   }
 
-  const attributes = getComponent(categoryName, componentName)
+  const attributes = getComponent(
+    categoryName,
+    componentName,
+    process.env.TEMPLATE_ROOT
+  )
 
   if ((!attributes?.attributes.public && !data.session) || error) {
     return res.status(401).json({ error: 'Unauthorized' })

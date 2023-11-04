@@ -135,6 +135,8 @@ export function getComponentsByCategory() {
         acc[component.attributes.category] = []
       }
       acc[component.attributes.category].push(component)
+
+      console.log(acc[component.attributes.category])
       return acc
     },
     {}

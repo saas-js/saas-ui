@@ -35,7 +35,8 @@ export default async function handler(
   const attributes = getComponent(
     categoryName,
     componentName,
-    process.env.TEMPLATE_ROOT
+    process.env.TEMPLATE_ROOT ||
+      '/var/task/apps/website/.next/server/templates/src/'
   )
 
   if ((!attributes?.attributes.public && !data.session) || error) {

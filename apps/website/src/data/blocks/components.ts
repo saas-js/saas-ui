@@ -109,9 +109,8 @@ export function getAllComponents(): ComponentInfo[] {
 export function getComponent(
   categoryName: string,
   componentName: string,
-  rootFolder = process.env.TEMPLATE_ROOT || getRootFolder()
+  rootFolder = getRootFolder()
 ): ComponentInfo | null {
-  console.log('rootFolder', rootFolder)
   const componentDirectory = path.join(rootFolder, categoryName, componentName)
   const componentAttributes = path.join(componentDirectory, 'attributes.json')
 

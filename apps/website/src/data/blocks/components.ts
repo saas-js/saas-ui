@@ -28,8 +28,7 @@ function getComponentCode(componentFolder: string, componentName: string) {
     .filter(
       (item) =>
         (item.endsWith('.tsx') && !item.endsWith('.stories.tsx')) ||
-        item.endsWith('.ts') ||
-        item.endsWith('.css')
+        item.endsWith('.ts')
     )
 
   const mainFileContent = removeReact(
@@ -108,11 +107,13 @@ export function getAllComponents(): ComponentInfo[] {
 
 export function getComponent(
   categoryName: string,
-  componentName: string,
-  rootFolder
+  componentName: string
 ): ComponentInfo | null {
-  const componentDirectory = path.join(rootFolder, categoryName, componentName)
-  console.log(componentDirectory)
+  const componentDirectory = path.join(
+    getRootFolder(),
+    categoryName,
+    componentName
+  )
   const componentAttributes = path.join(componentDirectory, 'attributes.json')
 
   if (fs.lstatSync(componentDirectory).isDirectory()) {

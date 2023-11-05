@@ -23,7 +23,7 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
 
   const [code, setCode] = useState(props.code)
   const { get, response } = useFetch(
-    `/api/blocks/${props.attributes.category}/${props.slug}`
+    `/api/blocks/${props.attributes.category}/${props.slug}?version=${props.attributes.version}`
   )
 
   const fetchCode = async () => {

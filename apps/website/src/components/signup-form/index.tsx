@@ -8,6 +8,12 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  ModalBody,
+  ModalCloseButton,
 } from '@chakra-ui/react'
 import { FormLayout } from '@saas-ui/forms'
 
@@ -40,12 +46,10 @@ export function SignupForm({ isOpen, onClose }: any) {
     /* @ts-ignore */
     window?.pirsch?.('Signup Submitted')
 
-    fetch('/', {
+    fetch('/api/figma-signup', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      redirect: 'manual',
-      body: encode({
-        'form-name': 'early-access',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         name,
         email,
       }),
@@ -117,13 +121,23 @@ export function SignupForm({ isOpen, onClose }: any) {
   }
 
   return (
-    <Box
-      as="form"
-      onSubmit={handleSubmit}
-      data-netlify="true"
-      name="early-access"
-    >
-      <Box>{content}</Box>
-    </Box>
+    <Modal isOpen={isOpen} onClose={onClose} initialFocusRef={initialRef}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>
+          Figma early access <ModalCloseButton />
+        </ModalHeader>
+        <ModalBody pb="6">
+          <Box
+            as="form"
+            onSubmit={handleSubmit}
+            data-netlify="true"
+            name="early-access"
+          >
+            <Box>{content}</Box>
+          </Box>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
   )
 }

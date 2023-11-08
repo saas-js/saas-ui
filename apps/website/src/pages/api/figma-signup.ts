@@ -31,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const json = await response.json()
 
     if (json.success) {
-      sendDiscordNotification({ name, email })
+      await sendDiscordNotification({ name, email })
     }
 
     res.status(200).json({ success: !!json.success })

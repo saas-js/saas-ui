@@ -1,11 +1,10 @@
-import { extendTheme, ThemeTypings } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui-pro/react'
 
-import '@fontsource/inter/variable.css'
+import '@fontsource-variable/inter'
 
-import { mode, transparentize, blacken } from '@chakra-ui/theme-tools'
-
+import { mode, blacken } from '@chakra-ui/theme-tools'
 import Badge from './components/badge'
 import Button from './components/button'
 import CTA from './components/cta'
@@ -70,7 +69,14 @@ const theme = extendTheme(
     colors,
     semanticTokens: {
       colors: {
+        /**
+         * @deprecated use `code-bg` instead
+         */
         codeBackground: {
+          default: blacken('purple.600', 70)(baseTheme),
+          _dark: 'gray.900',
+        },
+        'code-bg': {
           default: blacken('purple.600', 70)(baseTheme),
           _dark: 'gray.900',
         },
@@ -99,9 +105,9 @@ const theme = extendTheme(
           default: 'gray.900',
           _dark: 'white',
         },
-        'app-background': {
-          default: 'white',
-          _dark: 'black',
+        'component-canvas-bg': {
+          default: 'gray.50',
+          _dark: 'gray.900',
         },
       },
     },
@@ -109,8 +115,8 @@ const theme = extendTheme(
     textStyles,
     fonts: {
       ...baseTheme.fonts,
-      body: 'InterVariable, sans-serif',
-      heading: 'InterVariable, sans-serif',
+      body: '"Inter Variable", Inter, sans-serif',
+      heading: '"Inter Variable", Inter, sans-serif',
     },
     sizes: {
       ...baseTheme.sizes,

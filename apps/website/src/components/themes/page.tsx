@@ -63,9 +63,8 @@ export const ThemesPage = () => {
     },
   })
   const [primaryColor, setPrimaryColor] = useControllableState({
-    defaultValue: 'purple',
+    defaultValue: 'primary',
     onChange(primaryColor) {
-      console.log('change', theme, primaryColor)
       updateTheme(themeId, primaryColor)
     },
   })
@@ -136,9 +135,10 @@ export const ThemesPage = () => {
                 rounded="full"
                 borderWidth="1px"
                 py="2"
-                px="3"
+                px="4"
                 display="inline-block"
                 fontSize="md"
+                fontFamily="monospace"
               >
                 npm i @saas-ui/theme-glass
                 <IconButton
@@ -160,6 +160,7 @@ export const ThemesPage = () => {
           height="$100vh"
           position="relative"
           zIndex="1"
+          pt="4"
           pb="20"
         >
           <root.div className="shadow-root">

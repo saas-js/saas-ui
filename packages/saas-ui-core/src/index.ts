@@ -209,3 +209,4 @@ export {
   ViewOffIcon,
 } from './icons'
 export { createIcon } from './icons/create-icon'
+export { type IconBadgeProps, IconBadge } from './icon-badge'

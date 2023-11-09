@@ -13,7 +13,12 @@ export const CodeTabs = (props: { code: any }) => {
       <TabPanels>
         {props.code.map((code: any) => {
           return (
-            <TabPanel key={code.fileName} px="0" position="relative">
+            <TabPanel
+              key={code.fileName}
+              px="0"
+              position="relative"
+              bg="code-bg"
+            >
               <CopyButton code={code.code} top="4" right="4" />
               <CodePanel language={code.language}>{code.code}</CodePanel>
             </TabPanel>

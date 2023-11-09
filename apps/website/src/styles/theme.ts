@@ -13,6 +13,7 @@ import Section from './components/section'
 import SectionTitle from './components/section-title'
 
 import colors from './colors'
+import { textStyles, fontSizes } from './typography'
 
 import mdx from './mdx'
 
@@ -30,25 +31,6 @@ const styles = {
       zIndex: 10,
     },
   }),
-}
-
-const textStyles = {
-  pageTitle: {
-    fontSize: { base: '2xl', sm: '3xl', md: '5xl', lg: '6xl' },
-    fontWeight: 'extrabold',
-    lineHeight: '1.2',
-    letterSpacing: '-2%',
-  },
-  h2: {
-    fontSize: ['36px', '48px'],
-    fontWeight: '900',
-    lineHeight: '110%',
-    letterSpacing: '-1%',
-  },
-  subtitle: {
-    fontSize: { base: 'sm', sm: 'sm', md: '2xl' },
-    fontWeight: 'normal',
-  },
 }
 
 const breakpoints = {
@@ -82,7 +64,7 @@ const theme = extendTheme(
         },
         muted: {
           default: 'gray.500',
-          _dark: 'gray.300',
+          _dark: 'gray.400',
         },
         emphasized: {
           default: 'gray.600',
@@ -113,6 +95,7 @@ const theme = extendTheme(
     },
     styles,
     textStyles,
+    fontSizes,
     fonts: {
       ...baseTheme.fonts,
       body: '"Inter Variable", Inter, sans-serif',

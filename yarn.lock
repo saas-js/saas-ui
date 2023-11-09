@@ -4039,7 +4039,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource-variable/inter@npm:^5.0.8":
+"@fontsource-variable/inter@npm:^5.0.15, @fontsource-variable/inter@npm:^5.0.8":
   version: 5.0.15
   resolution: "@fontsource-variable/inter@npm:5.0.15"
   checksum: 4bb1f40e0ce0aa05608606a3564c216290cf10ebcf57e324f8c61245e7a7c37f096a8661a0ae505f9f333569f427d46793f1d44e59d2a9aa0d63347f0fb0159e
@@ -27301,7 +27301,7 @@ __metadata:
     "@chakra-ui/system": ^2.6.1
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
-    "@fontsource/inter": ^4.5.15
+    "@fontsource-variable/inter": ^5.0.15
     "@mapbox/rehype-prism": ^0.8.0
     "@mdx-js/loader": ^2.3.0
     "@netlify/plugin-nextjs": ^4.40.1

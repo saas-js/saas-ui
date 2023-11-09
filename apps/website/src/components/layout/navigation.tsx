@@ -61,19 +61,7 @@ const Header = () => {
 
   return (
     <HStack flex="1" ps="4">
-      <Box>
-        {isDesktop && (
-          <SearchInput
-            placeholder="Search docs..."
-            size="sm"
-            borderRadius="md"
-            onFocus={onOpen}
-            rightElement={<Kbd fontSize="md">/</Kbd>}
-          />
-        )}
-        <GlobalSearch isOpen={isOpen} onClose={onClose} />
-      </Box>
-      <HStack spacing="2" flexShrink={0} flex="1" justifyContent="flex-end">
+      <HStack spacing="2" flexShrink={0} flex="1" justifyContent="flex-start">
         {headerNav.map(({ href, id, ...props }, i) => {
           return (
             <NavLink
@@ -88,6 +76,26 @@ const Header = () => {
             />
           )
         })}
+      </HStack>
+      <HStack>
+        <Box>
+          {isDesktop && (
+            <SearchInput
+              placeholder="Search docs..."
+              size="sm"
+              borderRadius="md"
+              onFocus={onOpen}
+              rightElement={<Kbd fontSize="md">/</Kbd>}
+            />
+          )}
+          <GlobalSearch
+            isOpen={isOpen}
+            onClose={onClose}
+            onSelect={(value) => {
+              console.log(value)
+            }}
+          />
+        </Box>
 
         {isAuthenticated ? (
           <Menu>

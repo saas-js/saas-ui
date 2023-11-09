@@ -54,8 +54,8 @@ export const Faq = () => {
             <>
               We&apos;ll add new components and improvements to the library as
               we get new ideas and feedback, you will receive these updates
-              during the first year. After that you can renew your license for a
-              reduced fee.
+              during the first year. After that you can renew your license if
+              you want to keep receiving updates.
               <br />
               <br />
               We might release different stacks, for example for Vue and

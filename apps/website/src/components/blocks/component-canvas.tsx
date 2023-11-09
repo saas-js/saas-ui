@@ -53,9 +53,9 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
         onPrimaryColorChange={setPrimaryColor}
       />
 
-      <CardBody bg="app-background" padding="0">
+      <CardBody bg="component-canvas-bg" padding="0">
         {state === 'preview' ? (
-          <Box style={{ zIndex: props.zIndex }} minH="400px">
+          <Box style={{ zIndex: props.zIndex }}>
             <ComponentPreview canvas={props.attributes.canvas}>
               <ChakraProvider theme={theme}>
                 <Component {...props.attributes.props} />

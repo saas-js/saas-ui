@@ -2,7 +2,17 @@ import * as React from 'react'
 
 import Script from 'next/script'
 
-import { Box, Button, CardHeader, SimpleGrid } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  CardHeader,
+  Center,
+  IconButton,
+  SimpleGrid,
+  Tag,
+  useClipboard,
+  useDisclosure,
+} from '@chakra-ui/react'
 import {
   Heading,
   Text,
@@ -30,6 +40,9 @@ import { Testimonials } from '@/components/testimonials'
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
 import { useRouter } from 'next/router'
+import CodePanel from '@/components/code-panel/code-panel'
+import { FiCheck, FiCopy } from 'react-icons/fi'
+import { SignupForm } from '@/components/signup-form'
 
 const PricingPage = () => {
   return (
@@ -91,6 +104,33 @@ const getPaymentLinks = (append?: boolean) => {
       }
 }
 
+const Install = () => {
+  const { value, onCopy, hasCopied } = useClipboard(
+    'npm install @saas-ui/react'
+  )
+  return (
+    <Center>
+      <HStack
+        py="1"
+        px="2"
+        borderRadius="full"
+        bg="codeBackground"
+        borderWidth="1px"
+      >
+        <CodePanel language="bash">{value}</CodePanel>
+        <IconButton
+          icon={hasCopied ? <FiCheck /> : <FiCopy />}
+          aria-label="copy"
+          onClick={onCopy}
+          variant="ghost"
+          borderRadius="full"
+          color="white"
+        />
+      </HStack>
+    </Center>
+  )
+}
+
 const Pricing = () => {
   const [paymentLinks, setPaymentLinks] = React.useState(getPaymentLinks())
 
@@ -105,51 +145,89 @@ const Pricing = () => {
     setPaymentLinks(getPaymentLinks(true))
   }, [])
 
+  const figma = useDisclosure()
+
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
         <SectionTitle
           title="Pricing for every stage"
           description={
-            <Text fontSize="xl">
-              Get started for free with 40+ open source components. Upgrade to
-              Pro <Br display={{ sm: 'none', lg: 'inline' }} />
-              to get all components and features with a license for you or your
-              team.
-            </Text>
+            <>
+              <Text fontSize="xl" mb="12">
+                Get started for free with 40+ open source components. Upgrade to
+                Pro <Br display={{ sm: 'none', lg: 'inline' }} />
+                to get all components and features with a license for you or
+                your team.
+              </Text>
+              <Install />
+            </>
           }
-          py={{ base: '8', lg: '20' }}
+          pt={{ base: '8', lg: '20' }}
+          pb="12"
         />
+
+        <SignupForm isOpen={figma.isOpen} onClose={figma.onClose} />
 
         <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
-            title="Open Source"
-            description="Basic components, perfect to get started."
-            price="Free forever"
+            title={
+              <HStack as="span">
+                <Text as="span">Design</Text>{' '}
+                <Tag colorScheme="primary" size="sm">
+                  Soon
+                </Tag>
+              </HStack>
+            }
+            description="Comprehensive Figma design system."
+            price={
+              <HStack>
+                <Text
+                  textDecoration="line-through"
+                  fontSize="sm"
+                  color="gray.400"
+                >
+                  $99,-
+                </Text>
+                <Text>49,-</Text>
+              </HStack>
+            }
           >
             <PricingFeatures>
-              <PricingFeature title="MIT License" />
-              <PricingFeature title="Auth (Clerk/Supabase/Magic)" />
-              <PricingFeature title="Forms manager" />
-              <PricingFeature title="Modals manager" />
-              <PricingFeature title="Stepper" />
-              <PricingFeature title="Hotkeys" />
-              <PricingFeature title="Web3 components" />
-              <Text fontSize="sm">And much more...</Text>
+              <PricingFeature
+                title="One editor"
+                help="One editor per license, you can buy as many licenses as you need. Licenses can be transfered."
+              />
+              <PricingFeature
+                title="Unlimited projects"
+                help="You can design unlimited projects."
+              />
+              <PricingFeature title="40+ components" />
+              <PricingFeature title="Auto-layout" />
+              <PricingFeature title="Theming with Figma variables" />
+              <PricingFeature title="Dark mode" />
+              <PricingFeature title="Token Studio integration" />
+              <PricingFeature title="1 year of updates" />
             </PricingFeatures>
-            <ButtonLink href="/docs" variant="outline" mt="10">
-              View documentation
-            </ButtonLink>
+            <Button variant="outline" mt="10" onClick={() => figma.onOpen()}>
+              Get notified
+            </Button>
           </PricingBox>
           <PricingBox
             title="Bootstrap"
             price={
               <HStack>
+                <Text
+                  textDecoration="line-through"
+                  fontSize="sm"
+                  color="gray.400"
+                >
+                  €249,-
+                </Text>
                 <Text>€199,-</Text>
               </HStack>
             }
             description="Complete frontend stack for bootstrappers and small teams."
-            highlight="primary.500"
           >
             <PricingFeatures>
               <PricingFeature
@@ -165,7 +243,6 @@ const Pricing = () => {
               <PricingFeature title="Next.js and Electron boilerplates" />
               <PricingFeature title="Private discord community" />
               <PricingFeature title="1 year of updates" />
-              <br />
               <PricingFeature
                 title="Private beta access"
                 iconColor="green.500"
@@ -183,11 +260,12 @@ const Pricing = () => {
                 })
               }}
             >
-              Early access
+              Beta access
             </ButtonLink>
           </PricingBox>
           <PricingBox
             title="Startup"
+            highlight="primary.500"
             price={
               <HStack>
                 <Text
@@ -212,11 +290,20 @@ const Pricing = () => {
                 help="No restrictions on commercial projects or client work."
               />
               <PricingFeature title="Everything from Bootstrap" />
+              <PricingFeature
+                title={
+                  <HStack as="span">
+                    <Text as="span">Figma design system</Text>{' '}
+                    <Tag colorScheme="primary" size="sm">
+                      Soon
+                    </Tag>
+                  </HStack>
+                }
+              />
               <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />
               <PricingFeature title="Introduction call" />
               <PricingFeature title="1 year of updates" />
-              <br />
               <PricingFeature
                 title="Private beta access"
                 iconColor="green.500"
@@ -234,7 +321,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Early access
+              Beta access
             </ButtonLink>
           </PricingBox>
           <MemberShip />
@@ -290,7 +377,7 @@ const PricingBox = ({
   title,
   description,
   price,
-  highlight = undefined,
+  highlight = '',
   children,
   ...props
 }) => {
@@ -408,42 +495,6 @@ const MemberShip = () => {
         Get in touch
       </Button>
     </PricingBox>
-  )
-}
-
-const HighlightBox = (props) => {
-  const { children, ...rest } = props
-  return (
-    <VStack
-      bgColor={useColorModeValue('gray.100', 'gray.800')}
-      borderRadius="md"
-      p="8"
-      flex="1 0"
-      alignItems="flex-start"
-      spacing="8"
-      overflow="hidden"
-      position="relative"
-      {...rest}
-    >
-      {children}
-    </VStack>
-  )
-}
-
-const Testimonial = ({ name, description, avatar, children, ...rest }) => {
-  return (
-    <Card {...rest}>
-      <CardHeader>
-        <Avatar name="Tien Tienth" src={avatar} />
-        <Stack>
-          <Heading size="sm">{name}</Heading>
-          <Text color="muted" size="md">
-            {description}
-          </Text>
-        </Stack>
-      </CardHeader>
-      <CardBody>{children}</CardBody>
-    </Card>
   )
 }
 

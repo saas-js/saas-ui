@@ -6,7 +6,7 @@ export const config = {
 }
 
 const font = fetch(
-  new URL('../../../public/fonts/Inter-Regular.ttf', import.meta.url)
+  new URL('../../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
 // const fontBold = fetch(
 //   new URL('../../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
@@ -105,6 +105,7 @@ export default async function handler(req: NextRequest) {
                 fontWeight: 700,
                 color: 'white',
                 marginBottom: 20,
+                fontSize: 56,
               }}
             >
               {title}

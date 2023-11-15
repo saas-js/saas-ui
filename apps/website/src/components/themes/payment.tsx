@@ -13,6 +13,7 @@ import {
   RadioGroup,
   Text,
   VStack,
+  useRadioGroupContext,
 } from '@chakra-ui/react'
 import { transparentize } from '@chakra-ui/theme-tools'
 import { dataAttr } from '@chakra-ui/utils'
@@ -48,8 +49,6 @@ export const PaymentSuccessful = () => {
           Payment was successful
         </Heading>
         <Text color="muted" fontSize="md">
-          Payment has been received successful.
-          <br />
           Thank you for your payment.
         </Text>
       </VStack>
@@ -67,11 +66,16 @@ export const PaymentSuccessful = () => {
 }
 
 interface RadioCardProps extends CardProps {
-  isChecked?: boolean
+  value: string
 }
 
 const RadioCard: React.FC<RadioCardProps> = (props) => {
-  const { children, isChecked, onChange, ...rest } = props
+  const { children, value, onChange, ...rest } = props
+
+  const group = useRadioGroupContext()
+
+  const isChecked = group.value === value
+
   return (
     <Card
       p="4"
@@ -79,13 +83,24 @@ const RadioCard: React.FC<RadioCardProps> = (props) => {
       flexDirection="row"
       alignItems="flex-start"
       gap="4"
+      cursor="pointer"
+      _hover={{
+        borderColor: 'gray.400',
+        _dark: {
+          borderColor: 'whiteAlpha.400',
+        },
+      }}
       _checked={{
         borderColor: 'primary.500',
+        _dark: {
+          borderColor: 'primary.500',
+        },
       }}
       data-checked={dataAttr(isChecked)}
+      onClick={() => group.onChange(value)}
       {...rest}
     >
-      <Radio isChecked={isChecked} />
+      <Radio value={value} />
 
       {children}
     </Card>
@@ -94,9 +109,9 @@ const RadioCard: React.FC<RadioCardProps> = (props) => {
 
 export const PaymentOptions = () => {
   return (
-    <RadioGroup name="paymentMethod">
-      <VStack spacing="4" alignItems="stretch">
-        <RadioCard isChecked>
+    <RadioGroup name="paymentMethod" defaultValue="apple">
+      <VStack spacing="2" alignItems="stretch">
+        <RadioCard value="apple">
           <VStack alignItems="flex-start" spacing="1">
             <Heading size="sm" fontWeight="semibold">
               Apple Pay
@@ -106,7 +121,7 @@ export const PaymentOptions = () => {
             </Text>
           </VStack>
         </RadioCard>
-        <RadioCard>
+        <RadioCard value="google">
           <VStack alignItems="flex-start" spacing="1">
             <Heading size="sm" fontWeight="semibold">
               Google Pay
@@ -116,7 +131,7 @@ export const PaymentOptions = () => {
             </Text>
           </VStack>
         </RadioCard>
-        <RadioCard>
+        <RadioCard value="paypal">
           <VStack alignItems="flex-start" spacing="1">
             <Heading size="sm" fontWeight="semibold">
               Paypal
@@ -126,7 +141,7 @@ export const PaymentOptions = () => {
             </Text>
           </VStack>
         </RadioCard>
-        <RadioCard>
+        <RadioCard value="amazon">
           <VStack alignItems="flex-start" spacing="1">
             <Heading size="sm" fontWeight="semibold">
               Amazon

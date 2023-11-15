@@ -19,13 +19,6 @@ const headerNav: NavLinkProps[] = [
     ...hideMobile,
   },
   { href: '/docs', label: 'Documentation', ...hideMobile },
-  {
-    href: '/pricing',
-    label: 'Buy Pro',
-    variant: 'solid',
-    colorScheme: 'primary',
-    fontSize: 'sm',
-  },
 ]
 
 export default headerNav

@@ -125,7 +125,7 @@ export function SignupForm({ isOpen, onClose }: any) {
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
-          Figma early access <ModalCloseButton />
+          Figma Pro early access <ModalCloseButton />
         </ModalHeader>
         <ModalBody pb="6">
           <Box

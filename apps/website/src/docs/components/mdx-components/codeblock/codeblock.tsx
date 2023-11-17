@@ -29,6 +29,7 @@ function CodeBlock(props) {
     height,
     overflow,
     center,
+    padding,
   } = props.children.props
 
   const _live = live === 'true' || live === true
@@ -53,8 +54,9 @@ function CodeBlock(props) {
     height,
     overflow,
     center,
+    padding,
   }
-
+  console.log(reactLiveBlockProps)
   if (isMounted && language === 'jsx' && _live === true) {
     return <ReactLiveBlock editable {...reactLiveBlockProps} />
   }

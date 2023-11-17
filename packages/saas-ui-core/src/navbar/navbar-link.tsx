@@ -1,4 +1,4 @@
-import { forwardRef, HTMLChakraProps } from '@chakra-ui/react'
+import { chakra, forwardRef, HTMLChakraProps } from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
 
 import { useNavBarStyles } from './navbar-context'
@@ -21,7 +21,8 @@ export const NavbarLink = forwardRef<NavbarLinkProps, 'li'>((props, ref) => {
   const styles = useNavBarStyles()
 
   return (
-    <Link
+    <chakra.a
+      as={Link}
       ref={ref}
       __css={styles.link}
       data-active={dataAttr(isActive)}
@@ -29,7 +30,7 @@ export const NavbarLink = forwardRef<NavbarLinkProps, 'li'>((props, ref) => {
       {...rest}
     >
       {children}
-    </Link>
+    </chakra.a>
   )
 })
 

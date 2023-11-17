@@ -1,0 +1,223 @@
+---
+id: navbar
+title: Navbar
+category: 'layout'
+package: '@saas-ui/core'
+description: Top navigation, typically used as primary navigation in website.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core/src/navbar' }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ componentName: 'navbar' }}
+/>
+
+## Import
+
+- `Navbar`: The container component that manages composition.
+- `NavbarBrand`: The component used for branding.
+- `NavbarContent`: The component that contains navbar items.
+- `NavbarItem`: A navbar item.
+- `NavbarLink`: A navbar link.
+
+```ts
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarLink,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+### Basic navbar
+
+```jsx height=200px overflow=auto
+import {
+  AppShell,
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarLink,
+} from '@saas-ui/react'
+
+export default function Page() {
+  return (
+    <AppShell
+      navbar={
+        <Navbar>
+          <NavbarBrand>
+            <SaasUILogo width="100px" />
+          </NavbarBrand>
+          <NavbarContent>
+            <NavbarItem>
+              <NavbarLink isActive aria-current="page" href="#">
+                Home
+              </NavbarLink>
+            </NavbarItem>
+            <NavbarItem>
+              <NavbarLink href="#">About</NavbarLink>
+            </NavbarItem>
+            <NavbarItem>
+              <NavbarLink href="#">Contact</NavbarLink>
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarContent justifyContent="flex-end" spacing="2">
+            <NavbarItem>
+              <Button href="#">Login</Button>
+            </NavbarItem>
+            <NavbarItem>
+              <Button variant="primary">Sign up</Button>
+            </NavbarItem>
+          </NavbarContent>
+        </Navbar>
+      }
+    >
+      <Box as="main" flex="1" py="2" px="4">
+        <Container
+          maxW="container.xl"
+          pt="8"
+          px="8"
+          display="flex"
+          flexDirection="column"
+          margin="0 auto"
+        >
+          <Stack spacing="4" mb="14">
+            <Skeleton width="100px" height="24px" speed={0} />
+            <SkeletonText speed={0} />
+          </Stack>
+          <Stack direction="row" spacing="8" mb="14">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+          <Stack direction="row" spacing="8" mb="14">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+          <Stack direction="row" spacing="8">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </AppShell>
+  )
+}
+```
+
+### Sticky navbar
+
+Navbar uses `position` static by default, you can use `sticky` to make it stick to the top of the page.
+
+```jsx height=200px overflow=auto padding=0
+import {
+  AppShell,
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarLink,
+} from '@saas-ui/react'
+
+export default function Page() {
+  return (
+    <AppShell
+      navbar={
+        <Navbar position="sticky">
+          <NavbarBrand>
+            <SaasUILogo width="100px" />
+          </NavbarBrand>
+          <NavbarContent>
+            <NavbarItem>
+              <NavbarLink isActive aria-current="page" href="#">
+                Home
+              </NavbarLink>
+            </NavbarItem>
+            <NavbarItem>
+              <NavbarLink href="#">About</NavbarLink>
+            </NavbarItem>
+            <NavbarItem>
+              <NavbarLink href="#">Contact</NavbarLink>
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarContent justifyContent="flex-end" spacing="2">
+            <NavbarItem>
+              <Button href="#">Login</Button>
+            </NavbarItem>
+            <NavbarItem>
+              <Button variant="primary">Sign up</Button>
+            </NavbarItem>
+          </NavbarContent>
+        </Navbar>
+      }
+    >
+      <Box as="main" flex="1" py="2" px="4">
+        <Container
+          maxW="container.xl"
+          pt="8"
+          px="8"
+          display="flex"
+          flexDirection="column"
+          margin="0 auto"
+        >
+          <Stack spacing="4" mb="14">
+            <Skeleton width="100px" height="24px" speed={0} />
+            <SkeletonText speed={0} />
+          </Stack>
+          <Stack direction="row" spacing="8" mb="14">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+          <Stack direction="row" spacing="8" mb="14">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+          <Stack direction="row" spacing="8">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </AppShell>
+  )
+}
+```

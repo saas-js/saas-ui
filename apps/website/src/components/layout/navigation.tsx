@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <HStack flex="1" ps="4">
-      <HStack spacing="2" flexShrink={0} flex="1" justifyContent="flex-start">
+      <HStack spacing="1" flexShrink={0} flex="1" justifyContent="flex-start">
         {headerNav.map(({ href, id, ...props }, i) => {
           return (
             <NavLink

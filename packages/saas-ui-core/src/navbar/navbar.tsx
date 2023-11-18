@@ -18,7 +18,7 @@ type MotionProps = Pick<
 >
 
 export interface NavbarProps
-  extends Omit<UseNavbarProps, 'hideOnScroll'>,
+  extends Omit<UseNavbarProps, 'hideOnScroll' | 'ref'>,
     Omit<HTMLChakraProps<'div'>, keyof MotionProps | 'height'>,
     MotionProps,
     ThemingProps<'SuiNavbar'> {

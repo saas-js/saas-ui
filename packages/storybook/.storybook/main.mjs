@@ -28,6 +28,7 @@ export default {
   ],
   features: {
     buildStoriesJson: true,
+    emotionAlias: false,
   },
   staticDirs: ['./static'],
   typescript: {

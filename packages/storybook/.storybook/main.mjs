@@ -81,7 +81,4 @@ export default {
   framework: {
     name: '@storybook/react-vite',
   },
-  docs: {
-    autodocs: true,
-  },
 }

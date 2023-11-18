@@ -105,7 +105,9 @@ function ReactLiveBlock({
   theme,
   height,
   overflow,
+  overflowY,
   center,
+  padding,
   ...rest
 }) {
   const [editorCode, setEditorCode] = useState(rawCode.trim())
@@ -119,6 +121,8 @@ function ReactLiveBlock({
 
   let sx: object = {
     overflow,
+    overflowY,
+    padding,
   }
 
   if (center) {

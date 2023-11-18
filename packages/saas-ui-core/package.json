@@ -87,6 +87,7 @@
     "@chakra-ui/system": "^2.6.1",
     "@chakra-ui/theme-tools": "^2.1.1",
     "@chakra-ui/utils": "^2.0.15",
+    "@react-aria/utils": "^3.22.0",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*"
   },

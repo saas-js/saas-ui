@@ -33,6 +33,11 @@ const sidebar = {
           path: '/docs/components/layout/app-shell',
         },
         {
+          title: 'Navbar',
+          path: '/docs/components/layout/navbar',
+          new: true,
+        },
+        {
           title: 'Sidebar',
           path: '/docs/components/layout/sidebar',
         },

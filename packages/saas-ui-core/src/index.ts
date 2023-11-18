@@ -114,6 +114,20 @@ export {
   useSaas,
 } from './provider'
 export {
+  Navbar,
+  NavbarBrand,
+  type NavbarBrandProps,
+  NavbarContent,
+  type NavbarContentProps,
+  NavbarItem,
+  type NavbarItemProps,
+  NavbarLink,
+  type NavbarProps,
+  NavbarProvider,
+  useNavbar,
+  useNavbarContext,
+} from './navbar'
+export {
   Nav,
   NavGroup,
   NavGroupContent,

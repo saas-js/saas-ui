@@ -28,7 +28,9 @@ function CodeBlock(props) {
     mountStylesheet = false,
     height,
     overflow,
+    overflowY,
     center,
+    padding,
   } = props.children.props
 
   const _live = live === 'true' || live === true
@@ -52,7 +54,9 @@ function CodeBlock(props) {
     mountStylesheet,
     height,
     overflow,
+    overflowY,
     center,
+    padding,
   }
 
   if (isMounted && language === 'jsx' && _live === true) {

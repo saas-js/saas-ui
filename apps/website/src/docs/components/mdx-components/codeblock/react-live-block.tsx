@@ -105,6 +105,7 @@ function ReactLiveBlock({
   theme,
   height,
   overflow,
+  overflowY,
   center,
   padding,
   ...rest
@@ -120,6 +121,7 @@ function ReactLiveBlock({
 
   let sx: object = {
     overflow,
+    overflowY,
     padding,
   }
 

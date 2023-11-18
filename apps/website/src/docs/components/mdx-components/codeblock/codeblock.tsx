@@ -28,6 +28,7 @@ function CodeBlock(props) {
     mountStylesheet = false,
     height,
     overflow,
+    overflowY,
     center,
     padding,
   } = props.children.props
@@ -53,10 +54,11 @@ function CodeBlock(props) {
     mountStylesheet,
     height,
     overflow,
+    overflowY,
     center,
     padding,
   }
-  console.log(reactLiveBlockProps)
+
   if (isMounted && language === 'jsx' && _live === true) {
     return <ReactLiveBlock editable {...reactLiveBlockProps} />
   }

@@ -8,6 +8,7 @@ import {
   Checkbox,
   CloseButton,
   Code,
+  Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -18,6 +19,7 @@ import {
   Input,
   LinkBox,
   LinkOverlay,
+  Spacer,
   Table,
   Tbody,
   Td,
@@ -36,6 +38,7 @@ import {
   ToolbarButton,
   Command,
   ActiveFilter,
+  Beacon,
 } from '@saas-ui-pro/react'
 import {
   AppShell,
@@ -65,11 +68,23 @@ import {
   Web3Address,
   Steps,
   StepsItem,
+  Navbar,
+  SelectOption,
+  SelectList,
+  Link,
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineDot,
+  TimelineContent,
+  TimelineTrack,
+  TimelineIcon,
 } from '@saas-ui/react'
 import NextLink from 'next/link'
 import {
   FiBold,
   FiCheck,
+  FiFilter,
   FiHome,
   FiItalic,
   FiMaximize,
@@ -77,6 +92,8 @@ import {
   FiUnderline,
   FiUsers,
 } from 'react-icons/fi'
+import SaasUIGlyph from '../saas-ui-glyph'
+import { SelectButton } from '@saas-ui/forms'
 
 const autoform = `z.object({
   name: z.string()
@@ -111,10 +128,38 @@ const componentIllustrations = {
       />
     </Page>
   ),
+  splitpage: (
+    <HStack height="100%" width="full" spacing="0">
+      <Page height="100%" borderRightWidth="1px" flex="0">
+        <PageHeader
+          title="Inbox"
+          toolbar={
+            <Toolbar>
+              <Button variant="secondary" size="xs">
+                <FiFilter />
+              </Button>
+            </Toolbar>
+          }
+        />
+      </Page>
+      <Page height="100%" flex="1">
+        <PageHeader title="Hello" />
+      </Page>
+    </HStack>
+  ),
   section: (
-    <Section>
+    <Section width="80%">
       <SectionHeader title="Settings" description="Manage your settings" />
     </Section>
+  ),
+  commandbar: <Command>CMD+K</Command>,
+  togglebutton: (
+    <Button variant="primary" size="xs">
+      Toggle
+    </Button>
+  ),
+  web3address: (
+    <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
   ),
   toolbar: (
     <Toolbar flex="0" borderWidth="1px" rounded="md">
@@ -129,6 +174,21 @@ const componentIllustrations = {
       <StepsItem title="Information" />
       <StepsItem title="Account" />
     </Steps>
+  ),
+  navbar: (
+    <HStack
+      borderBottomWidth="1px"
+      width="full"
+      px="3"
+      py="2"
+      alignSelf="start"
+    >
+      <SaasUIGlyph width="18px" />
+      <Spacer />
+      <Button variant="primary" size="xs">
+        Log in
+      </Button>
+    </HStack>
   ),
   sidebar: (
     <Sidebar width="80%" borderRadius="md">
@@ -203,11 +263,16 @@ const componentIllustrations = {
     </Code>
   ),
   select: (
-    <Select
-      name="type"
-      options={['Fullstack Developer']}
-      value="Fullstack Developer"
-    />
+    <Box width="90%">
+      <Select name="type" value="Fullstack Developer" defaultIsOpen>
+        <SelectButton>Fullstack Developer</SelectButton>
+        <SelectList>
+          <SelectOption value="Fullstack Developer">
+            Fullstack Developer
+          </SelectOption>
+        </SelectList>
+      </Select>
+    </Box>
   ),
   passwordinput: (
     <Box width="80%">
@@ -217,6 +282,11 @@ const componentIllustrations = {
   searchinput: (
     <Box width="80%">
       <SearchInput size="sm" />
+    </Box>
+  ),
+  fileupload: (
+    <Box borderWidth="1px" rounded="md" p="4">
+      Drop your files here or <Link href="#">select files</Link>
     </Box>
   ),
   datatable: (
@@ -254,7 +324,7 @@ const componentIllustrations = {
       actions={<Button variant="link">Reset search</Button>}
     />
   ),
-  list: (
+  structuredlist: (
     <StructuredList width="90%">
       <StructuredListItem>
         <StructuredListIcon>
@@ -284,6 +354,27 @@ const componentIllustrations = {
       secondaryLabel="Founder"
       tertiaryLabel="Out for lunch"
     />
+  ),
+  timeline: (
+    <Timeline>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineIcon />
+          <TimelineTrack />
+        </TimelineSeparator>
+        <TimelineContent>
+          <Text fontSize="sm">New signup</Text>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineIcon />
+        </TimelineSeparator>
+        <TimelineContent>
+          <Text fontSize="sm">Account upgraded</Text>
+        </TimelineContent>
+      </TimelineItem>
+    </Timeline>
   ),
   command: <Command>G then D</Command>,
   datagrid: (
@@ -329,6 +420,23 @@ const componentIllustrations = {
   filters: (
     <ActiveFilter id="status" label="Status" operator="is" value="Active" />
   ),
+  kanban: (
+    <HStack spacing="4" alignItems="start" width="90%">
+      <Flex flexDirection="column" flex="1" gap="2">
+        <Box>Todo</Box>
+        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
+      </Flex>
+      <Flex flexDirection="column" flex="1" gap="2">
+        <Box>Done</Box>
+        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
+        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
+      </Flex>
+      <Flex flexDirection="column" flex="1" gap="2">
+        <Box>Doing</Box>
+        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
+      </Flex>
+    </HStack>
+  ),
   banner: (
     <Banner width="80%" colorScheme="primary" variant="solid" rounded="md">
       <BannerContent>
@@ -350,7 +458,7 @@ const componentIllustrations = {
       <CloseButton size="sm" />
     </HStack>
   ),
-  loader: (
+  loadingoverlay: (
     <LoadingOverlay>
       <LoadingSpinner />
     </LoadingOverlay>
@@ -424,6 +532,7 @@ const componentIllustrations = {
       <Box>Remove</Box>
     </VStack>
   ),
+  beacon: <Beacon />,
   'benefits-modal': (
     <VStack
       rounded="md"

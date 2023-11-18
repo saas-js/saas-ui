@@ -2628,7 +2628,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:2.6.1, @chakra-ui/system@npm:>=2.3.8, @chakra-ui/system@npm:^2.6.1":
+"@chakra-ui/system@npm:2.6.1, @chakra-ui/system@npm:^2.6.1":
   version: 2.6.1
   resolution: "@chakra-ui/system@npm:2.6.1"
   dependencies:
@@ -7227,23 +7227,26 @@ __metadata:
   resolution: "@saas-ui/storybook-addon@workspace:tooling/storybook-addon"
   dependencies:
     "@chakra-ui/react": ^2.8.1
-    "@chakra-ui/system": ">=2.3.8"
     "@emotion/react": ">=11.1.5"
     "@emotion/styled": ">=11.1.5"
     "@saas-ui/react": "workspace:*"
     "@saas-ui/theme": "workspace:*"
     "@saas-ui/theme-glass": "workspace:*"
-    "@storybook/addons": ^7.4.2
-    "@storybook/api": ^7.4.2
-    "@storybook/components": ^7.4.2
+    "@storybook/api": ^7.5.3
+    "@storybook/components": ^7.5.3
+    "@storybook/manager-api": ^7.5.3
+    "@storybook/preview-api": ^7.5.3
+    "@storybook/types": ^7.3.2
     framer-motion: ">=4.1.17"
     react: ^18.2.0
-    react-dom: ">=18.0.0"
     tsup: ^6.7.0
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-    "@storybook/components": ">=7"
-    react: ">=18.0.x"
+    "@storybook/components": ">=7.0.12"
+    "@storybook/manager-api": ">=7.0.12"
+    "@storybook/preview-api": ">=7.0.12"
+    "@storybook/types": ">=7.0.24"
+    react: ">=16.8.x"
   peerDependenciesMeta:
     react:
       optional: true
@@ -7690,12 +7693,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:^7.4.2":
-  version: 7.4.2
-  resolution: "@storybook/api@npm:7.4.2"
+"@storybook/api@npm:^7.5.3":
+  version: 7.5.3
+  resolution: "@storybook/api@npm:7.5.3"
   dependencies:
-    "@storybook/client-logger": 7.4.2
-    "@storybook/manager-api": 7.4.2
+    "@storybook/client-logger": 7.5.3
+    "@storybook/manager-api": 7.5.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -7704,7 +7707,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: bd0b42e61d7c86e5cfe13a7adfabd2e94a0879add0584b11f5ad04089ecbbc9467d0e3bcf41a1fddbc2161468909bb0a5ddd20d36ec9c83b87ff1d8d54bde0db
+  checksum: 14c28a8564811001d82e2e8c4c2be0120d181bae9d8ad278c3b60f01d28857bcdf6e84c9c57d3efa1335173635346a212fac36d9cfb441622c0c556417b3e71d
   languageName: node
   linkType: hard
 
@@ -7979,7 +7982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:7.5.3, @storybook/components@npm:^7.4.2":
+"@storybook/components@npm:7.5.3, @storybook/components@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/components@npm:7.5.3"
   dependencies:
@@ -8220,7 +8223,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:7.5.3":
+"@storybook/manager-api@npm:7.5.3, @storybook/manager-api@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/manager-api@npm:7.5.3"
   dependencies:
@@ -8296,7 +8299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/preview-api@npm:7.5.3":
+"@storybook/preview-api@npm:7.5.3, @storybook/preview-api@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/preview-api@npm:7.5.3"
   dependencies:
@@ -8517,7 +8520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/types@npm:7.5.3, @storybook/types@npm:^7.4.2":
+"@storybook/types@npm:7.5.3, @storybook/types@npm:^7.3.2, @storybook/types@npm:^7.4.2":
   version: 7.5.3
   resolution: "@storybook/types@npm:7.5.3"
   dependencies:
@@ -22203,7 +22206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:>=18.0.0, react-dom@npm:^18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:

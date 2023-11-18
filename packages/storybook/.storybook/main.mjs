@@ -28,7 +28,6 @@ export default {
   ],
   features: {
     buildStoriesJson: true,
-    emotionAlias: false,
   },
   staticDirs: ['./static'],
   typescript: {
@@ -39,7 +38,6 @@ export default {
       '@chakra-ui/react': {
         disable: true, // Make sure Chakra gets loaded last
       },
-
       chakra: {
         title: 'Chakra UI',
         url: 'https://storybook.chakra-ui.com',
@@ -66,13 +64,13 @@ export default {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
       // Add storybook-specific dependencies to pre-optimization
-      // optimizeDeps: {
-      //   include: ['storybook-addon-designs'],
-      // },
+      optimizeDeps: {
+        include: ['@saas-ui/storybook-addon'],
+      },
       resolve: {
         alias: [
           {
-            find: /(\@saas-ui\/[a-z-\/]+)$/,
+            find: /(\@saas-ui\/(?!storybook-addon\/?)[a-z-\/]+)$/,
             replacement: '$1/src',
           },
         ],

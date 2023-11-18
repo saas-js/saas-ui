@@ -7222,24 +7222,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/storybook-addon@workspace:*, @saas-ui/storybook-addon@workspace:tooling/storybook-addon":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/storybook-addon@workspace:tooling/storybook-addon"
-  dependencies:
-    "@chakra-ui/react": ^2.8.1
-    "@emotion/react": ">=11.1.5"
-    "@emotion/styled": ">=11.1.5"
-    "@saas-ui/react": "workspace:*"
-    "@saas-ui/theme": "workspace:*"
-    "@saas-ui/theme-glass": "workspace:*"
-    "@storybook/api": ^7.5.3
-    "@storybook/components": ^7.5.3
-    "@storybook/manager-api": ^7.5.3
-    "@storybook/preview-api": ^7.5.3
-    "@storybook/types": ^7.3.2
-    framer-motion: ">=4.1.17"
-    react: ^18.2.0
-    tsup: ^6.7.0
+"@saas-ui/storybook-addon@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@saas-ui/storybook-addon@npm:2.0.0"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
     "@storybook/components": ">=7.0.12"
@@ -7252,8 +7237,9 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  languageName: unknown
-  linkType: soft
+  checksum: 50d202e3f5112eb5e7af587ed7b8323aee052c7a5ed14ac569d8efdf1ca0e28e6cb80b51b65f5947728442fc0683c4b4985bbf17878a3d92c822065a64c76d86
+  languageName: node
+  linkType: hard
 
 "@saas-ui/supabase@workspace:packages/saas-ui-supabase":
   version: 0.0.0-use.local
@@ -7693,24 +7679,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:^7.5.3":
-  version: 7.5.3
-  resolution: "@storybook/api@npm:7.5.3"
-  dependencies:
-    "@storybook/client-logger": 7.5.3
-    "@storybook/manager-api": 7.5.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 14c28a8564811001d82e2e8c4c2be0120d181bae9d8ad278c3b60f01d28857bcdf6e84c9c57d3efa1335173635346a212fac36d9cfb441622c0c556417b3e71d
-  languageName: node
-  linkType: hard
-
 "@storybook/blocks@npm:7.5.3":
   version: 7.5.3
   resolution: "@storybook/blocks@npm:7.5.3"
@@ -7982,7 +7950,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:7.5.3, @storybook/components@npm:^7.5.3":
+"@storybook/components@npm:7.5.3":
   version: 7.5.3
   resolution: "@storybook/components@npm:7.5.3"
   dependencies:
@@ -8223,7 +8191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:7.5.3, @storybook/manager-api@npm:^7.5.3":
+"@storybook/manager-api@npm:7.5.3":
   version: 7.5.3
   resolution: "@storybook/manager-api@npm:7.5.3"
   dependencies:
@@ -8299,7 +8267,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/preview-api@npm:7.5.3, @storybook/preview-api@npm:^7.5.3":
+"@storybook/preview-api@npm:7.5.3":
   version: 7.5.3
   resolution: "@storybook/preview-api@npm:7.5.3"
   dependencies:
@@ -8520,7 +8488,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/types@npm:7.5.3, @storybook/types@npm:^7.3.2, @storybook/types@npm:^7.4.2":
+"@storybook/types@npm:7.5.3, @storybook/types@npm:^7.4.2":
   version: 7.5.3
   resolution: "@storybook/types@npm:7.5.3"
   dependencies:
@@ -15415,7 +15383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:>=4.1.17, framer-motion@npm:^10.16.4":
+"framer-motion@npm:^10.16.4":
   version: 10.16.4
   resolution: "framer-motion@npm:10.16.4"
   dependencies:
@@ -23427,7 +23395,7 @@ __metadata:
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@saas-ui/react": "workspace:*"
-    "@saas-ui/storybook-addon": "workspace:*"
+    "@saas-ui/storybook-addon": ^2.0.0
     "@storybook/addon-a11y": ^7.4.2
     "@storybook/addon-storysource": ^7.4.2
     "@storybook/addon-toolbars": ^7.4.2

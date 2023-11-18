@@ -63,9 +63,7 @@
     "packages/saas-ui-*",
     "tooling/next-workspaces",
     "tooling/test-utils",
-    "tooling/props-docs",
-    "tooling/storybook-addon",
-    "tooling/storybook-addon2"
+    "tooling/props-docs"
   ],
   "devDependencies": {
     "@chakra-ui/cli": "^2.4.1",

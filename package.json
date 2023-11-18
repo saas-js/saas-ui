@@ -38,7 +38,7 @@
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -p --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
     "storybook": "yarn w saas-ui-storybook dev",
-    "build:storybook": "yarn build:storybook-addon && yarn w saas-ui-storybook build",
+    "build:storybook": "yarn w saas-ui-storybook build",
     "prepare": "husky install",
     "clean": "turbo run clean",
     "test": "vitest",

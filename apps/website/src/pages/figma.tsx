@@ -1,48 +1,22 @@
 import * as React from 'react'
 
-import Script from 'next/script'
-
 import {
   AspectRatio,
   Box,
   Button,
-  CardHeader,
-  Center,
-  IconButton,
-  SimpleGrid,
-  Tag,
-  useClipboard,
-  useDisclosure,
-} from '@chakra-ui/react'
-import {
   Heading,
   Text,
   HStack,
-  VStack,
-  Stack,
-  useColorModeValue,
-  Avatar,
-  Tooltip,
-  Card,
-  CardBody,
+  useDisclosure,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
 import SectionTitle from '@/components/marketing/section-title'
 
 import SEO from '@/components/seo'
-import { CheckIcon } from '@chakra-ui/icons'
-import { ButtonLink } from '@/components/link'
-
-import { Faq } from '@/components/faq'
-
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Br } from '@saas-ui/react'
-import { useRouter } from 'next/router'
-import CodePanel from '@/components/code-panel/code-panel'
-import { FiCheck, FiCopy } from 'react-icons/fi'
 import { SignupForm } from '@/components/signup-form'
 import { FaFigma } from 'react-icons/fa6'
 
@@ -51,8 +25,9 @@ const FigmaPage = () => {
     <Box>
       <SEO
         title="Saas UI"
-        description="The React component library for Startups"
-        titleTemplate="%s - Pricing"
+        description="Professionally crafted Figma design system for designing
+        beautiful products at any scale."
+        titleTemplate="%s - Figma Design System"
       />
       <BackgroundGradientRadial
         top="-30%"
@@ -61,7 +36,7 @@ const FigmaPage = () => {
         _dark={{ opacity: 0.5 }}
         pointerEvents="none"
       />
-      <Box mb={8} w="full" position="relative" overflow="hidden">
+      <Box mb={8} w="full" position="relative" overflow="hidden" zIndex="1">
         <Figma />
 
         <FigmaEmbed />

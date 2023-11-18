@@ -10,10 +10,12 @@ import {
 } from '@chakra-ui/react'
 import { GetStaticProps } from 'next'
 
-import OverviewItem from '@/components/overview/item'
-import docsSidebar from '@/data/docs-sidebar'
+import docsSidebar from '@/data/components-sidebar'
 import Layout from '@/layouts/index'
 import { Link } from '@saas-ui/react'
+import dynamic from 'next/dynamic'
+
+const OverviewItem = dynamic(() => import('@/components/overview/item'))
 
 type Component = {
   title: string
@@ -32,6 +34,7 @@ type Props = {
 }
 
 export const ComponentsOverview = ({ categories, headings }: Props) => {
+  console.log(categories)
   return (
     <Layout
       frontMatter={{
@@ -98,18 +101,15 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const data = docsSidebar.routes
-    .find((route) => route.path.match(/\/docs\/components/))
-    .routes.concat()
-    .splice(1)
+  const data = docsSidebar.routes?.concat().splice(1) || []
   const categories: Category[] = await Promise.all(
-    data.map(async ({ title, routes }) => {
+    data.map(async ({ title, routes = [] }) => {
       const components = await Promise.all(
         routes.map(async ({ title: routeTitle, path: url }) => {
           const doc = allDocs.find((doc) => doc.slug === url)
           const component: Component = {
             title: routeTitle,
-            url,
+            url: url!,
             description: doc?.description || null,
           }
 

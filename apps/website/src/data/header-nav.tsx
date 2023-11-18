@@ -14,6 +14,11 @@ const headerNav: NavLinkProps[] = [
     ...hideMobile,
   },
   {
+    href: '/figma',
+    label: 'Figma',
+    ...hideMobile,
+  },
+  {
     href: '/pricing',
     label: 'Pricing',
     ...hideMobile,

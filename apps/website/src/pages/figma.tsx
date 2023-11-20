@@ -95,7 +95,7 @@ const FigmaEmbed = () => {
           as="iframe"
           objectFit={'cover'}
           rounded="xl"
-          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FPxBbup77UKMM8ApWacxlCb%2FSaas-UI-Theme-1.1-(Community)%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DD2h54RiMJdxlk72N-1"
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXsBODCq9lrqBAwReJqikbR%2FSaas-UI-Theme-1.1%3Ftype%3Ddesign%26node-id%3D4228%253A35736%26mode%3Ddesign%26t%3DTHstGvI1X3duAdqr-1"
         ></Box>
       </AspectRatio>
     </Box>

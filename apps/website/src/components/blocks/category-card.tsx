@@ -29,7 +29,7 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
     _groupHover: {
       transform: 'scale(1.05)',
     },
-    minHeight: '240px',
+    minHeight: '100px',
   }
 
   return (
@@ -58,6 +58,7 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
           bgGradient: 'linear(to-bl,transparent, whiteAlpha.50)',
         }}
         overflow="hidden"
+        px="8"
       >
         <Image
           src={category.images.light}
@@ -73,12 +74,12 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
         />
       </Box>
       <CardBody>
-        <Heading as="h4" size="md">
+        <Heading as="h4" size="sm" fontWeight="medium">
           <LinkOverlay as={Link} href={`/blocks/${category.slug}`}>
             {category.name}
           </LinkOverlay>
         </Heading>
-        <Text color="muted">
+        <Text color="muted" fontSize="sm">
           {count ?? 'No'} {count === 1 ? 'component' : 'components'}
         </Text>
       </CardBody>

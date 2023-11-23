@@ -7337,6 +7337,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/use-hotkeys@workspace:packages/saas-ui-use-hotkeys":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/use-hotkeys@workspace:packages/saas-ui-use-hotkeys"
+  dependencies:
+    "@chakra-ui/react-utils": ^2.0.12
+    "@chakra-ui/utils": ^2.0.15
+    "@saas-ui/core": "workspace:*"
+  peerDependencies:
+    "@chakra-ui/react": ">=2.4.9"
+    "@emotion/react": ">=11.0.0"
+    "@emotion/styled": ">=11.0.0"
+    framer-motion: ">=6.0.0"
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@shuding/opentype.js@npm:1.4.0-beta.0":
   version: 1.4.0-beta.0
   resolution: "@shuding/opentype.js@npm:1.4.0-beta.0"

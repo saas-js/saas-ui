@@ -53,6 +53,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
       defaultValue: defaultValueProp,
       size,
       variant,
+      width,
       icon,
       resetIcon,
       rightElement,
@@ -88,7 +89,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
     const btnSize = size === 'lg' ? 'sm' : 'xs'
 
     return (
-      <InputGroup size={size}>
+      <InputGroup size={size} width={width}>
         <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
         <Input
           type="text"

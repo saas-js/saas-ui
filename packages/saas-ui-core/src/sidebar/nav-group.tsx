@@ -115,8 +115,8 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
   const {
     title,
     icon,
-    isCollapsible,
-    defaultIsOpen,
+    isCollapsible = true,
+    defaultIsOpen = true,
     onOpen,
     onClose,
     children,
@@ -159,8 +159,3 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
 }
 
 NavGroup.displayName = 'NavGroup'
-
-NavGroup.defaultProps = {
-  defaultIsOpen: true,
-  isCollapsible: false,
-}

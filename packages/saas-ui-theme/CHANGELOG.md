@@ -1,5 +1,16 @@
 # @saas-ui/theme
 
+## 2.2.0
+
+### Minor Changes
+
+- 31d05ed5: Added new Navbar component 🥳
+- ebba8404: Added new IconBadge component
+
+### Patch Changes
+
+- 91412d77: Fixed theme incompatibility with Chakra UI 2.8
+
 ## 2.1.1
 
 ### Patch Changes

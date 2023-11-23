@@ -28,9 +28,10 @@ export interface SubmitButtonProps extends ButtonProps {
 export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
   (props, ref) => {
     const {
+      variant = 'primary',
       children = 'Submit',
-      disableIfUntouched,
-      disableIfInvalid,
+      disableIfUntouched = false,
+      disableIfInvalid = false,
       isDisabled: isDisabledProp,
       isLoading,
       ...rest
@@ -46,6 +47,7 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
       <Button
         {...rest}
         ref={ref}
+        variant={variant}
         type="submit"
         isLoading={formState.isSubmitting || isLoading}
         isDisabled={isDisabled}
@@ -55,11 +57,5 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
     )
   }
 )
-
-SubmitButton.defaultProps = {
-  variant: 'primary',
-  disableIfUntouched: false,
-  disableIfInvalid: false,
-}
 
 SubmitButton.displayName = 'SubmitButton'

@@ -12,7 +12,7 @@ export interface OtpViewProps
 
 export const OtpView: React.FC<OtpViewProps> = (props) => {
   const {
-    title,
+    title = 'One-time password',
     footer,
     onSuccess,
     onError,
@@ -49,10 +49,6 @@ export const OtpView: React.FC<OtpViewProps> = (props) => {
       {footer}
     </AuthFormContainer>
   )
-}
-
-OtpView.defaultProps = {
-  title: 'One-time password',
 }
 
 OtpView.displayName = 'OtpView'

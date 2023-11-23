@@ -72,10 +72,6 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
   }
 )
 
-StructuredList.defaultProps = {
-  variant: 'structured-list',
-}
-
 StructuredList.displayName = 'StructuredList'
 
 export interface StructuredListHeaderProps extends HTMLChakraProps<'li'> {

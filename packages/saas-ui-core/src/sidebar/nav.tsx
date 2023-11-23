@@ -17,7 +17,7 @@ export interface NavProps extends HTMLChakraProps<'nav'> {
 export const Nav: React.FC<NavProps> = (props) => {
   const styles = useStyleConfig('SuiNav', props)
 
-  const { children, spacing, orientation = 'vertical', ...rest } = props
+  const { children, spacing = 0, orientation = 'vertical', ...rest } = props
 
   const containerStyles = {
     '& > *:not(style) ~ *:not(style)': {
@@ -37,10 +37,6 @@ export const Nav: React.FC<NavProps> = (props) => {
       {children}
     </chakra.nav>
   )
-}
-
-Nav.defaultProps = {
-  spacing: 0,
 }
 
 Nav.displayName = 'Nav'

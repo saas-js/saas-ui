@@ -1,14 +1,16 @@
 import { defineConfig } from 'tsup'
 
-export default defineConfig({
+export default defineConfig((options) => ({
   entry: ['src'],
   clean: true,
-  external: [
-    '@saas-ui/storybook-addon',
-    '@saas-ui/react',
-    '@saas-ui/core',
-    '@saas-ui/theme',
-    '@saas-ui/theme-glass',
-  ],
+  external: ['@chakra-ui/storybook-addon'],
   format: ['esm', 'cjs'],
-})
+  dts: {
+    resolve: true,
+  },
+  treeshake: 'recommended',
+  sourcemap: true,
+  splitting: false,
+  minify: !options.watch,
+  platform: 'browser',
+}))

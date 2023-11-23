@@ -71,6 +71,7 @@ export const navbarTheme = defineMultiStyleConfig({
       p: 0,
     },
     link: {
+      color: 'current',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -82,6 +83,10 @@ export const navbarTheme = defineMultiStyleConfig({
       transitionDuration: 'normal',
       px: 3,
       h: 8,
+      _focusVisible: {
+        outline: 'none',
+        boxShadow: 'outline',
+      },
       _hover: {
         bg: 'gray.100',
         textDecoration: 'none',

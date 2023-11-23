@@ -48,6 +48,7 @@ export interface SearchInputProps
 export const SearchInput = forwardRef<SearchInputProps, 'input'>(
   (props, ref) => {
     const {
+      placeholder = 'Search',
       value: valueProp,
       defaultValue: defaultValueProp,
       size,
@@ -91,6 +92,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
         <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
         <Input
           type="text"
+          placeholder={placeholder}
           size={size}
           value={value}
           ref={ref}
@@ -117,9 +119,5 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
     )
   }
 )
-
-SearchInput.defaultProps = {
-  placeholder: 'Search',
-}
 
 SearchInput.displayName = 'SearchInput'

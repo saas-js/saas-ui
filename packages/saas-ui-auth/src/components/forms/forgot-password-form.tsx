@@ -19,8 +19,8 @@ export interface ForgotPasswordFormProps<
 }
 
 export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
-  submitLabel,
-  emailLabel,
+  submitLabel = 'Reset password',
+  emailLabel = 'Your email address',
   helpText,
   children,
   ...formProps
@@ -44,11 +44,6 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       </FormLayout>
     </Form>
   )
-}
-
-ForgotPasswordForm.defaultProps = {
-  submitLabel: 'Reset password',
-  emailLabel: 'Your email address',
 }
 
 ForgotPasswordForm.displayName = 'ForgotPasswordForm'

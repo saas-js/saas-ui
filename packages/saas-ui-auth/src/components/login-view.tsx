@@ -16,7 +16,7 @@ import { AuthFormSuccess } from './success'
 export const LoginView: React.FC<AuthViewOptions & AuthFormOptions> = (
   props
 ) => {
-  const { title, submitLabel, ...rest } = props
+  const { title = 'Log in', submitLabel = 'Log in', ...rest } = props
   if (props.type === 'password') {
     return <PasswordView title={title} submitLabel={submitLabel} {...rest} />
   }

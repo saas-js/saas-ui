@@ -296,12 +296,10 @@ The authentication forms can be used directly, for example in a custom log in pa
 ```jsx center=true
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
-import { PasswordForm } from '@saas-ui/auth'
+import { PasswordForm, useAuth } from '@saas-ui/auth'
 
 export default function LoginPage() {
-  const onSubmit = () => {
-    // handle submit
-  }
+  const auth = useAuth()
 
   return (
     <Card flex="1" maxW="400px">
@@ -309,7 +307,10 @@ export default function LoginPage() {
         <Heading size="md">Welcome back</Heading>
       </CardHeader>
       <CardBody>
-        <PasswordForm onSubmit={onSubmit} submitLabel="Log in" />
+        <PasswordForm
+          onSubmit={(data) => auth.logIn(data)}
+          submitLabel="Log in"
+        />
       </CardBody>
     </Card>
   )
@@ -317,6 +318,8 @@ export default function LoginPage() {
 ```
 
 ### Custom sign up page
+
+You can add extra fields to the sign up form by using the `PasswordForm` component directly.
 
 ```jsx center=true
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
@@ -349,6 +352,8 @@ export default function LoginPage() {
 ```
 
 ### Schema validation
+
+The authentication forms accept a React Hook Form `resolver` prop that can be used to validate the form data.
 
 ```jsx center=true
 import * as yup from 'yup'

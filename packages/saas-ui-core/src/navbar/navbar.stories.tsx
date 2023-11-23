@@ -125,14 +125,10 @@ const Template = (args: NavbarProps) => {
             </NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Integrations
-            </NavbarLink>
+            <NavbarLink href="#">Integrations</NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Pricing
-            </NavbarLink>
+            <NavbarLink href="#">Pricing</NavbarLink>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justifyContent="end" spacing="2">
@@ -164,9 +160,7 @@ const WithMenuTemplate = (args: NavbarProps) => {
 
         <NavbarContent display={{ base: 'none', sm: 'flex' }}>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Features
-            </NavbarLink>
+            <NavbarLink href="#">Features</NavbarLink>
           </NavbarItem>
           <NavbarItem>
             <NavbarLink isActive href="#">
@@ -174,14 +168,10 @@ const WithMenuTemplate = (args: NavbarProps) => {
             </NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Integrations
-            </NavbarLink>
+            <NavbarLink href="#">Integrations</NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Pricing
-            </NavbarLink>
+            <NavbarLink href="#">Pricing</NavbarLink>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justifyContent="end" spacing="2">
@@ -233,19 +223,15 @@ const WithUserMenuTemplate = (args: NavbarProps) => {
         </NavbarBrand>
         <NavbarContent display={{ base: 'hidden', sm: 'flex' }}>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Inbox
-            </NavbarLink>
+            <NavbarLink href="#">Inbox</NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink isActive color="secondary" href="#">
+            <NavbarLink isActive href="#">
               Contacts
             </NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Tasks
-            </NavbarLink>
+            <NavbarLink href="#">Tasks</NavbarLink>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent as="div" justifyContent="end">
@@ -283,19 +269,15 @@ const WithSearchInputTemplate = (args: NavbarProps) => {
         </NavbarBrand>
         <NavbarContent display={{ base: 'hidden', sm: 'flex' }}>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Inbox
-            </NavbarLink>
+            <NavbarLink href="#">Inbox</NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink isActive color="secondary" href="#">
+            <NavbarLink isActive href="#">
               Contacts
             </NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink color="foreground" href="#">
-              Tasks
-            </NavbarLink>
+            <NavbarLink href="#">Tasks</NavbarLink>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent as="div" justifyContent="end" spacing="4">

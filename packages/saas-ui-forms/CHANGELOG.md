@@ -1,5 +1,22 @@
 # @saas-ui/forms
 
+## 2.3.0
+
+### Minor Changes
+
+- 68995558: Added new onToggle prop to DisplayIf
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/core@2.2.0
+
 ## 2.2.1
 
 ### Patch Changes

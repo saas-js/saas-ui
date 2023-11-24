@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.2.2
+
+### Patch Changes
+
+- 491315aa: Fixed forwarded ref not being passed down in IconBadge
+
 ## 2.2.1
 
 ### Patch Changes

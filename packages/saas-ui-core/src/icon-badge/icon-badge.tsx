@@ -28,7 +28,7 @@ export interface IconBadgeProps
   'aria-label'?: string
 }
 
-export const IconBadge = forwardRef<IconBadgeProps, 'div'>((props) => {
+export const IconBadge = forwardRef<IconBadgeProps, 'div'>((props, ref) => {
   const { icon, children, isRound, 'aria-label': ariaLabel, ...rest } = props
   const styles = useStyleConfig('SuiIconBadge', props)
 
@@ -52,6 +52,7 @@ export const IconBadge = forwardRef<IconBadgeProps, 'div'>((props) => {
 
   return (
     <chakra.div
+      ref={ref}
       __css={__css}
       borderRadius={isRound ? 'full' : undefined}
       aria-label={ariaLabel}

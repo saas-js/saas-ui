@@ -1,5 +1,11 @@
 # @saas-ui/clerk
 
+## 3.0.18
+
+### Patch Changes
+
+- @saas-ui/auth@2.2.2
+
 ## 3.0.17
 
 ### Patch Changes

@@ -18,10 +18,10 @@ const $borderRadius = cssVar('input-border-radius')
 const inputSizes = {
   sm: definePartsStyle({
     field: {
-      [$borderRadius.variable]: 'md',
+      [$borderRadius.variable]: 'radii.md',
     },
     group: {
-      [$borderRadius.variable]: 'md',
+      [$borderRadius.variable]: 'radii.md',
     },
   }),
   md: definePartsStyle({

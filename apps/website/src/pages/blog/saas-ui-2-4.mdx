@@ -24,6 +24,8 @@ description: We got some nifty new components and improvements for you in this r
 
 The Navbar component represents a top navigation bar that typically contains links or buttons for navigating to different sections of a website or application.
 
+- [Navbar Documentation](/docs/components/layout/navbar)
+
 ### Usage
 
 The `Navbar` component can be used together with `AppShell` and supports different placement modes, `static`, `sticky`.
@@ -157,5 +159,24 @@ export default function Page() {
       </Box>
     </AppShell>
   )
+}
+```
+
+## IconBadge
+
+The IconBadge component represents a badge with an icon.
+
+- [IconBadge Documentation](/docs/components/data-display/icon-badge)
+
+### Usage
+
+The `IconBadge` component can be used to display a badge with an icon.
+
+```jsx
+import { IconBadge } from '@saas-ui/react'
+import { FiUser } from 'react-icons/fi'
+
+export default function Page() {
+  return <IconBadge icon={<FiUser />} />
 }
 ```

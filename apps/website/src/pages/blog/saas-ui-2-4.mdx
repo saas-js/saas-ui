@@ -1,0 +1,161 @@
+---
+title: Saas UI v2.4 is here!
+date: '2023-11-24'
+author: Eelco Wiersma
+avatar: /eelco128.jpg
+description: We got some nifty new components and improvements for you in this release.
+---
+
+## What's new in v2.4?
+
+### New Components
+
+- `Navbar` - A new component used for top navigation.
+- `IconBadge` - A new component used for displaying icons with a badge.
+
+### Improvements
+
+- Removed all Component.defaultProps definitions
+- Fixed issue where width would not be applied to the SearchInput container element
+- Fixed SearchInput reset when uncontrolled
+- Fixed theme incompatibility with Chakra UI 2.8
+
+## Navbar
+
+The Navbar component represents a top navigation bar that typically contains links or buttons for navigating to different sections of a website or application.
+
+### Usage
+
+The `Navbar` component can be used together with `AppShell` and supports different placement modes, `static`, `sticky`.
+It can also be easily styled to add a glass effect for example.
+
+Here's a full example with a workspace dropdown, search input and user menu.
+
+```jsx height=280px overflow=auto padding=0
+import {
+  AppShell,
+  Navbar,
+  NavbarContent,
+  NavbarItem,
+  NavbarLink,
+  PersonaAvatar,
+  SearchInput,
+} from '@saas-ui/react'
+
+import {
+  Button,
+  Box,
+  Breadcrumb
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Container,
+  Stack,
+  Skeleton,
+  SkeletonText,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuGroup,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+} from '@chakra-ui/react'
+
+export default function Page() {
+  return (
+    <AppShell
+      navbar={
+        <Navbar
+          position="sticky"
+          borderBottomWidth="1px"
+          background="transparent"
+          backdropFilter="blur(10px)"
+        >
+          <NavbarContent>
+          <Breadcrumb separator={<Box as="span" opacity="0.4">/</Box>}>
+            <BreadcrumbItem>
+              <Menu>
+                <MenuButton as={Button} variant="ghost" leftIcon={<SaasUIGlyph height='24px' />} rightIcon={<FiChevronDown />}>
+                   Saas UI
+                </MenuButton>
+                <MenuList>
+                  <MenuGroup title="Workspaces">
+                    <MenuItem>Saas UI</MenuItem>
+                    <MenuItem>Acme</MenuItem>
+                  </MenuGroup>
+                  <MenuDivider />
+                  <MenuItem>Create workspace</MenuItem>
+                </MenuList>
+              </Menu>
+            </BreadcrumbItem>
+            <BreadcrumbItem isCurrentPage>
+              <BreadcrumbLink href='#'>Overview</BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
+          </NavbarContent>
+          <NavbarContent as="div" justifyContent="end" spacing="4">
+            <Box width="180px">
+              <SearchInput size="sm" />
+            </Box>
+            <Menu>
+              <MenuButton>
+                <PersonaAvatar
+                  src="/showcase-avatar.jpg"
+                  name="Beatriz"
+                  size="xs"
+                  presence="online"
+                />
+              </MenuButton>
+              <MenuList>
+                <MenuGroup title="beatriz@saas-ui.dev">
+                  <MenuItem>Profile</MenuItem>
+                  <MenuItem>Settings</MenuItem>
+                  <MenuItem>Help &amp; feedback</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuItem>Log out</MenuItem>
+              </MenuList>
+            </Menu>
+          </NavbarContent>
+        </Navbar>
+      }
+    >
+      <Box as="main" flex="1" py="2" px="4">
+        <Container
+          maxW="container.xl"
+          pt="8"
+          px="8"
+          display="flex"
+          flexDirection="column"
+          margin="0 auto"
+        >
+          <Stack spacing="4" mb="14">
+            <Skeleton width="100px" height="24px" speed={0} />
+            <SkeletonText speed={0} />
+          </Stack>
+          <Stack direction="row" spacing="8" mb="14">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+          <Stack direction="row" spacing="8" mb="14">
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+            <Stack spacing="4" flex="1">
+              <Skeleton width="100px" height="20px" speed={0} />
+              <SkeletonText speed={0} />
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </AppShell>
+  )
+}
+```

@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [4e728c26]
+- Updated dependencies [3ddca73d]
+  - @saas-ui/theme@2.2.1
+  - @saas-ui/core@2.2.1
+  - @saas-ui/data-table@6.0.1
+  - @saas-ui/forms@2.3.1
+  - @saas-ui/hotkeys@2.1.7
+  - @saas-ui/modals@2.1.8
+
 ## 2.4.0
 
 ### Minor Changes

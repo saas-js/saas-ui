@@ -1,5 +1,12 @@
 # @saas-ui/hotkeys
 
+## 2.1.7
+
+### Patch Changes
+
+- Updated dependencies [3ddca73d]
+  - @saas-ui/core@2.2.1
+
 ## 2.1.6
 
 ### Patch Changes

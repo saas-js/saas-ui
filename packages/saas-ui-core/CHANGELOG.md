@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.2.1
+
+### Patch Changes
+
+- 3ddca73d: Fixed issue where NavGroup collapse would not receive defaultIsOpen prop
+- Updated dependencies [4e728c26]
+  - @saas-ui/theme@2.2.1
+
 ## 2.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.2.1
+
+### Patch Changes
+
+- 4e728c26: Fixed border radius of sm input variant
+
 ## 2.2.0
 
 ### Minor Changes

@@ -48,7 +48,7 @@ If you need more flexiblity it's possible to use these components directly.
 
 The default authentication strategy is `magiclink`.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { Auth } from '@saas-ui/auth'
 
@@ -70,7 +70,7 @@ export default function AuthPage() {
 
 Using the `type` prop you can switch to password login.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { Auth } from '@saas-ui/auth'
 
@@ -92,7 +92,7 @@ export default function AuthPage() {
 
 Using the `providers` prop you can add social login buttons.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { Auth } from '@saas-ui/auth'
 
@@ -122,7 +122,7 @@ export default function AuthPage() {
 Using the `view` prop you can switch different supported view. The default view is `login`.
 Supported views: `login`, `signup`, `forgotPassword`, `updatePassword`, `otp`.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { Auth } from '@saas-ui/auth'
 
@@ -150,7 +150,7 @@ export default function AuthPage() {
 
 ### One time password
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { Auth } from '@saas-ui/auth'
 
@@ -172,7 +172,7 @@ export default function AuthPage() {
 
 Use the `redirectTo` prop to redirect the user after login.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
 import { Auth } from '@saas-ui/auth'
@@ -212,7 +212,7 @@ export default function AuthPage() {
 The `Auth` component accepts an `onError` prop that can be used to handle errors.
 You can use the `useSnackbar` hook to display a message.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
 import { Auth } from '@saas-ui/auth'
@@ -253,7 +253,7 @@ export default function AuthPage() {
 
 ### Custom links
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
 import { Auth } from '@saas-ui/auth'
@@ -293,7 +293,7 @@ export default function AuthPage() {
 
 The authentication forms can be used directly, for example in a custom log in page.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
 import { PasswordForm, useAuth } from '@saas-ui/auth'
@@ -321,7 +321,7 @@ export default function LoginPage() {
 
 You can add extra fields to the sign up form by using the `PasswordForm` component directly.
 
-```jsx center=true
+```jsx center=true height=550px
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
 import { PasswordForm, useAuth } from '@saas-ui/auth'
@@ -355,7 +355,7 @@ export default function LoginPage() {
 
 The authentication forms accept a React Hook Form `resolver` prop that can be used to validate the form data.
 
-```jsx center=true
+```jsx center=true height=550px
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { PasswordForm, useAuth } from '@saas-ui/auth'

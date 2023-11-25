@@ -13,6 +13,28 @@ import {
 } from '@saas-ui/react'
 import { ButtonLink } from '../link'
 
+const GlobalBanner = () => {
+  return (
+    <Banner
+      variant="solid"
+      colorScheme="primary"
+      display="flex"
+      justifyContent="center"
+    >
+      <BannerContent alignItems="center" justifyContent="center">
+        <BannerTitle>Black Friday Sale 🤩</BannerTitle>
+        <BannerDescription>
+          Use code <strong>BLACKFRIDAY30</strong> and get{' '}
+          <strong>30% OFF</strong>
+        </BannerDescription>
+        <BannerActions>
+          <ButtonLink href="/pricing">Buy now</ButtonLink>
+        </BannerActions>
+      </BannerContent>
+    </Banner>
+  )
+}
+
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
 const Header = (props: HeaderProps) => {
@@ -42,23 +64,6 @@ const Header = (props: HeaderProps) => {
       }}
       {...props}
     >
-      <Banner
-        variant="solid"
-        colorScheme="primary"
-        display="flex"
-        justifyContent="center"
-      >
-        <BannerContent alignItems="center" justifyContent="center">
-          <BannerTitle>Black Friday Sale 🤩</BannerTitle>
-          <BannerDescription>
-            Use code <strong>BLACKFRIDAY30</strong> and get{' '}
-            <strong>30% OFF</strong>
-          </BannerDescription>
-          <BannerActions>
-            <ButtonLink href="/pricing">Buy now</ButtonLink>
-          </BannerActions>
-        </BannerContent>
-      </Banner>
       <Box
         zIndex="1"
         position="relative"

@@ -59,7 +59,7 @@ export default function Page() {
   return (
     <AppShell
       sidebar={
-        <Sidebar>
+        <Sidebar toggleBreakpoint="sm">
           <SidebarToggleButton />
           <SidebarSection direction="row">
             <Image
@@ -126,7 +126,7 @@ export default function Page() {
   return (
     <AppShell
       sidebar={
-        <Sidebar>
+        <Sidebar toggleBreakpoint="sm">
           <SidebarToggleButton />
           <SidebarSection direction="row">
             <Image
@@ -208,7 +208,7 @@ export default function Page() {
   return (
     <AppShell
       sidebar={
-        <Sidebar>
+        <Sidebar toggleBreakpoint="sm">
           <SidebarToggleButton />
           <SidebarSection direction="row">
             <Image
@@ -298,7 +298,7 @@ export default function Page() {
   return (
     <AppShell
       sidebar={
-        <Sidebar variant="compact" width="64px">
+        <Sidebar variant="compact" width="64px" toggleBreakpoint="sm">
           <SidebarToggleButton />
           <SidebarSection alignItems="center">
             <Image
@@ -423,6 +423,7 @@ export default function Page() {
             _dark={{
               bg: 'purple.500',
             }}
+            toggleBreakpoint="sm"
           >
             <SidebarSection>
               <Image

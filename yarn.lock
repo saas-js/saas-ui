@@ -4354,16 +4354,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/number@npm:^3.2.1":
-  version: 3.2.1
-  resolution: "@internationalized/number@npm:3.2.1"
-  dependencies:
-    "@swc/helpers": ^0.5.0
-  checksum: 5b716de97a491c8e276679a47a131d9fc94484f27ae7d2dba2d9e312c607fbdd2deabe0702a9faa79ad1d84ea0676061fd051c3565946f520acfdccc73dd1956
-  languageName: node
-  linkType: hard
-
-"@internationalized/number@npm:^3.3.0":
+"@internationalized/number@npm:^3.2.1, @internationalized/number@npm:^3.3.0":
   version: 3.4.0
   resolution: "@internationalized/number@npm:3.4.0"
   dependencies:
@@ -11124,16 +11115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zag-js/store@npm:0.23.0":
-  version: 0.23.0
-  resolution: "@zag-js/store@npm:0.23.0"
-  dependencies:
-    proxy-compare: 2.5.1
-  checksum: cb57f248bafeaa55f9c53287eabc7596cc8cbf23612086f0349507c48a14f79eb4c647dcf38365318f417b6bd017ad1786d3b241c7166ffc7eafa142d9deea1e
-  languageName: node
-  linkType: hard
-
-"@zag-js/store@npm:0.30.0":
+"@zag-js/store@npm:^0.30.0":
   version: 0.30.0
   resolution: "@zag-js/store@npm:0.30.0"
   dependencies:

@@ -110,7 +110,8 @@
     "unist-util-visit": "4.0.0",
     "react": "18.2.0",
     "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0"
+    "@emotion/styled": "11.11.0",
+    "@zag-js/store": "^0.30.0"
   },
   "packageManager": "yarn@3.3.0",
   "dependencies": {

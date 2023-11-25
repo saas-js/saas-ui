@@ -31,6 +31,7 @@ function CodeBlock(props) {
     overflowY,
     center,
     padding,
+    inline,
   } = props.children.props
 
   const _live = live === 'true' || live === true
@@ -57,6 +58,7 @@ function CodeBlock(props) {
     overflowY,
     center,
     padding,
+    inline,
   }
 
   if (isMounted && language === 'jsx' && _live === true) {

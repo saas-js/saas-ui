@@ -12,7 +12,7 @@ import CodeContainer from './code-container'
 import CopyButton from './copy-button'
 import scope from './react-live-scope'
 import { liveEditorStyle, liveErrorStyle } from './styles'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Splitter } from '@ark-ui/react'
 import Frame from 'react-frame-component'
 import { FrameProvider } from './frame-provider'
@@ -114,14 +114,20 @@ function ReactLiveBlock({
   rawCode,
   theme,
   height,
+  inline,
   overflow,
   overflowY,
   center,
-  padding,
+  padding = 4,
   ...rest
 }) {
   const [editorCode, setEditorCode] = useState(rawCode.trim())
   const onChange = (newCode) => setEditorCode(newCode.trim())
+
+  const [frameHeight, setFrameHeight] = useState<string | undefined>()
+
+  const [frameRef, setFrameRef] = useState<HTMLIFrameElement | null>(null)
+
   const liveProviderProps = {
     code: editorCode,
     scope,
@@ -139,11 +145,31 @@ function ReactLiveBlock({
     sx = {
       display: 'flex',
       justifyContent: 'center',
+      alignItems: 'center',
       ...sx,
     }
   }
 
   const [isResizing, setResizing] = useState(false)
+
+  useEffect(() => {
+    if (frameRef && !inline) {
+      setInterval(() => {
+        const height = frameRef.contentWindow?.document.body.scrollHeight ?? 240
+        setFrameHeight(height + 'px')
+      }, 500)
+    }
+  }, [frameRef, inline])
+
+  const frame = inline ? (
+    <LiveCodePreview fontSize="sm" sx={sx} />
+  ) : (
+    <Frame ref={(ref) => setFrameRef(ref)} width="100%" height="100%">
+      <FrameProvider>
+        <LiveCodePreview fontSize="sm" sx={sx} minHeight="$100vh" />
+      </FrameProvider>
+    </Frame>
+  )
 
   return (
     <FeaturesProvider value={features}>
@@ -153,7 +179,7 @@ function ReactLiveBlock({
           display="flex"
           alignItems="center"
           defaultSize={[
-            { id: 'a', size: 100 },
+            { id: 'a', size: 100, minSize: 40 },
             { id: 'b', size: 0 },
           ]}
           onSizeChangeStart={() => setResizing(true)}
@@ -162,13 +188,10 @@ function ReactLiveBlock({
           <Splitter.Panel id="a">
             <LiveCodePreviewWrapper
               pointerEvents={isResizing ? 'none' : undefined}
-              height={height}
+              height={height || frameHeight}
+              boxSizing="content-box"
             >
-              <Frame width="100%" height="100%">
-                <FrameProvider>
-                  <LiveCodePreview fontSize="sm" sx={sx} />
-                </FrameProvider>
-              </Frame>
+              {frame}
             </LiveCodePreviewWrapper>
           </Splitter.Panel>
           <Box

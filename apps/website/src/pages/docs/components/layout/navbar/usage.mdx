@@ -34,7 +34,7 @@ import {
 
 ### Basic navbar
 
-```jsx height=200px overflow=auto
+```jsx height=400px overflow=auto
 import {
   AppShell,
   Navbar,
@@ -139,7 +139,7 @@ export default function Page() {
 
 Navbar uses `position` static by default, you can use `sticky` to make it stick to the top of the page.
 
-```jsx height=200px overflow=auto padding=0
+```jsx height=400px overflow=auto padding=0
 import {
   AppShell,
   Navbar,
@@ -244,7 +244,7 @@ export default function Page() {
 
 Simply add `borderBottomWidth="1px"` to the navbar to add a bottom border.
 
-```jsx height=200px overflow=auto padding=0
+```jsx height=400px overflow=auto padding=0
 import {
   AppShell,
   Navbar,
@@ -349,7 +349,7 @@ export default function Page() {
 
 Using a transparent background with a backdrop blur filter can add a glassy effect to the navbar.
 
-```jsx height=200px overflow=auto padding=0
+```jsx height=400px overflow=auto padding=0
 import {
   AppShell,
   Navbar,
@@ -460,7 +460,7 @@ export default function Page() {
 Setting the `shouldHideOnScroll` prop to `true` will hide the navbar when the user scrolls down and show it when the user scrolls up.
 Use the `parentRef` prop to specify the parent scroll container, defaults to the `window` object.
 
-```jsx height=200px padding=0 overflow="hidden" position="relative"
+```jsx height=400px padding=0 overflow="hidden" position="relative"
 import {
   AppShell,
   Navbar,
@@ -485,7 +485,7 @@ export default function Page() {
   return (
     <Box
       ref={parentRef}
-      height="200px"
+      height="400px"
       overflowY="auto"
       position="relative"
       borderRadius="xl"
@@ -580,7 +580,7 @@ export default function Page() {
 
 Add a mobile navigation menu to the navbar using the `Drawer` component from `@chakra-ui/react`.
 
-```jsx height=200px overflowY=auto padding=0
+```jsx height=400px overflowY=auto padding=0
 import {
   AppShell,
   Navbar,
@@ -735,7 +735,7 @@ export default function Page() {
 
 Example with an avatar and dropdown menu.
 
-```jsx height=280px overflow=auto padding=0
+```jsx height=400px overflow=auto padding=0
 import {
   AppShell,
   Navbar,
@@ -870,7 +870,7 @@ export default function Page() {
 
 An example with a global search input.
 
-```jsx height=280px overflow=auto padding=0
+```jsx height=400px overflow=auto padding=0
 import { SaasUILogo } from '@saas-ui/assets'
 import {
   AppShell,
@@ -1010,7 +1010,7 @@ export default function Page() {
 
 An example with breadcrumbs and a workspace dropdown menu.
 
-```jsx height=280px overflow=auto padding=0
+```jsx height=400px overflow=auto padding=0
 import { SaasUIIcon } from '@saas-ui/assets'
 import { FiChevronDown } from 'react-icons/fi'
 import {

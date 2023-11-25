@@ -238,7 +238,7 @@ function WithContent() {
 
 ### With Vertical Content
 
-```jsx
+```jsx height=400px
 function VerticalContent() {
   const [step, setStep] = React.useState(0)
 
@@ -258,11 +258,9 @@ function VerticalContent() {
         <>
           <Box py="4">Content step 1</Box>
           <ButtonGroup>
-            <Button
-              onClick={next}
-              isDisabled={step >= 3}
-              colorScheme="primary"
-            >Next</Button>
+            <Button onClick={next} isDisabled={step >= 3} colorScheme="primary">
+              Next
+            </Button>
           </ButtonGroup>
         </>
       ),
@@ -274,16 +272,12 @@ function VerticalContent() {
         <>
           <Box py="4">Content step 2</Box>{' '}
           <ButtonGroup>
-            <Button
-              onClick={next}
-              isDisabled={step >= 3}
-              colorScheme="primary"
-            >Next</Button>
-            <Button
-              onClick={back}
-              isDisabled={step === 0}
-              variant="ghost"
-            >Back</Button>
+            <Button onClick={next} isDisabled={step >= 3} colorScheme="primary">
+              Next
+            </Button>
+            <Button onClick={back} isDisabled={step === 0} variant="ghost">
+              Back
+            </Button>
           </ButtonGroup>
         </>
       ),
@@ -295,18 +289,10 @@ function VerticalContent() {
         <>
           <Box py="4">Content step 3</Box>
           <ButtonGroup>
-            <Button
-              onClick={next}
-              isDisabled={step >= 3}
-              colorScheme="primary"
-            >
+            <Button onClick={next} isDisabled={step >= 3} colorScheme="primary">
               Next
             </Button>
-            <Button
-              onClick={back}
-              isDisabled={step === 0}
-              variant="ghost"
-            >
+            <Button onClick={back} isDisabled={step === 0} variant="ghost">
               Back
             </Button>
           </ButtonGroup>

@@ -13,6 +13,9 @@ import CopyButton from './copy-button'
 import scope from './react-live-scope'
 import { liveEditorStyle, liveErrorStyle } from './styles'
 import { useState } from 'react'
+import { Splitter } from '@ark-ui/react'
+import Frame from 'react-frame-component'
+import { FrameProvider } from './frame-provider'
 
 const features: FeaturesOptions = {
   segments: [
@@ -39,16 +42,23 @@ const features: FeaturesOptions = {
   ],
 }
 
-const LiveCodePreview = chakra(LivePreview, {
-  baseStyle: {
-    fontFamily: 'body',
-    mt: 5,
-    p: 3,
-    borderWidth: 1,
-    borderRadius: '12px',
-    fontSize: 'md',
-  },
-})
+const LiveCodePreview = chakra(LivePreview, {})
+
+const LiveCodePreviewWrapper = (props: BoxProps) => {
+  return (
+    <Box
+      fontFamily="body"
+      mt={5}
+      borderWidth="1px"
+      borderRadius="12px"
+      fontSize="md"
+      overflow="hidden"
+      {...props}
+    >
+      {props.children}
+    </Box>
+  )
+}
 
 const EditableNotice = (props: BoxProps) => {
   return (
@@ -133,22 +143,55 @@ function ReactLiveBlock({
     }
   }
 
+  const [isResizing, setResizing] = useState(false)
+
   return (
     <FeaturesProvider value={features}>
       <LiveProvider {...liveProviderProps}>
-        <LiveCodePreview
-          zIndex="1"
-          height={height}
-          position="relative"
-          fontSize="sm"
-          sx={sx}
-        />
+        <Box
+          as={Splitter.Root}
+          display="flex"
+          alignItems="center"
+          defaultSize={[
+            { id: 'a', size: 100 },
+            { id: 'b', size: 0 },
+          ]}
+          onSizeChangeStart={() => setResizing(true)}
+          onSizeChangeEnd={() => setResizing(false)}
+        >
+          <Splitter.Panel id="a">
+            <LiveCodePreviewWrapper
+              pointerEvents={isResizing ? 'none' : undefined}
+              height={height}
+            >
+              <Frame width="100%" height="100%">
+                <FrameProvider>
+                  <LiveCodePreview fontSize="sm" sx={sx} />
+                </FrameProvider>
+              </Frame>
+            </LiveCodePreviewWrapper>
+          </Splitter.Panel>
+          <Box
+            as={Splitter.ResizeTrigger}
+            id="a:b"
+            width="4px"
+            bg="muted"
+            mx="2"
+            height="100px"
+            rounded="full"
+            _hover={{
+              bg: 'primary.500',
+            }}
+          />
+          <Splitter.Panel id="b"></Splitter.Panel>
+        </Box>
         {editable && <LiveError style={liveErrorStyle} />}
         <Box position="relative" zIndex="0">
           {editable && (
             <CodeContainer
               bg={theme.plain.backgroundColor}
               sx={{
+                maxHeight: '400px',
                 textarea: {
                   _focus: {
                     outline: 'none',

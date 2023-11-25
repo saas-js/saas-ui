@@ -871,6 +871,7 @@ export default function Page() {
 An example with a global search input.
 
 ```jsx height=280px overflow=auto padding=0
+import { SaasUILogo } from '@saas-ui/assets'
 import {
   AppShell,
   Navbar,
@@ -1010,6 +1011,8 @@ export default function Page() {
 An example with breadcrumbs and a workspace dropdown menu.
 
 ```jsx height=280px overflow=auto padding=0
+import { SaasUIIcon } from '@saas-ui/assets'
+import { FiChevronDown } from 'react-icons/fi'
 import {
   AppShell,
   Navbar,
@@ -1023,7 +1026,7 @@ import {
 import {
   Button,
   Box,
-  Breadcrumb
+  Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   Container,
@@ -1050,26 +1053,37 @@ export default function Page() {
           backdropFilter="blur(10px)"
         >
           <NavbarContent>
-          <Breadcrumb separator={<Box as="span" opacity="0.4">/</Box>}>
-            <BreadcrumbItem>
-              <Menu>
-                <MenuButton as={Button} variant="ghost" leftIcon={<SaasUIGlyph height='24px' />} rightIcon={<FiChevronDown />}>
-                   Saas UI
-                </MenuButton>
-                <MenuList>
-                  <MenuGroup title="Workspaces">
-                    <MenuItem>Saas UI</MenuItem>
-                    <MenuItem>Acme</MenuItem>
-                  </MenuGroup>
-                  <MenuDivider />
-                  <MenuItem>Create workspace</MenuItem>
-                </MenuList>
-              </Menu>
-            </BreadcrumbItem>
-            <BreadcrumbItem isCurrentPage>
-              <BreadcrumbLink href='#'>Overview</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
+            <Breadcrumb
+              separator={
+                <Box as="span" opacity="0.4">
+                  /
+                </Box>
+              }
+            >
+              <BreadcrumbItem>
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    variant="ghost"
+                    leftIcon={<SaasUIIcon height="24px" />}
+                    rightIcon={<FiChevronDown />}
+                  >
+                    Saas UI
+                  </MenuButton>
+                  <MenuList>
+                    <MenuGroup title="Workspaces">
+                      <MenuItem>Saas UI</MenuItem>
+                      <MenuItem>Acme</MenuItem>
+                    </MenuGroup>
+                    <MenuDivider />
+                    <MenuItem>Create workspace</MenuItem>
+                  </MenuList>
+                </Menu>
+              </BreadcrumbItem>
+              <BreadcrumbItem isCurrentPage>
+                <BreadcrumbLink href="#">Overview</BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
           </NavbarContent>
           <NavbarContent as="div" justifyContent="end" spacing="4">
             <Box width="180px">

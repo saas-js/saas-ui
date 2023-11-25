@@ -2,7 +2,7 @@ import { extendTheme, ThemeTypings } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui-pro/react'
 
-import '@fontsource/inter/variable.css'
+import '@fontsource-variable/inter'
 
 import { mode, transparentize, blacken } from '@chakra-ui/theme-tools'
 
@@ -78,8 +78,6 @@ const theme = extendTheme(
     fontSizes,
     fonts: {
       ...baseTheme.fonts,
-      body: 'InterVariable, sans-serif',
-      heading: 'InterVariable, sans-serif',
     },
     sizes: {
       ...baseTheme.sizes,

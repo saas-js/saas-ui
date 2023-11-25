@@ -81,6 +81,7 @@ export const navbarTheme = defineMultiStyleConfig({
       borderRadius: 'md',
       transitionProperty: 'common',
       transitionDuration: 'normal',
+      lineHeight: 1,
       px: 3,
       h: 8,
       _focusVisible: {

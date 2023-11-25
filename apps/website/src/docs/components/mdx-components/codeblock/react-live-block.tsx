@@ -162,11 +162,11 @@ function ReactLiveBlock({
   }, [frameRef, inline])
 
   const frame = inline ? (
-    <LiveCodePreview fontSize="sm" sx={sx} minH="200px" />
+    <LiveCodePreview fontSize="md" sx={sx} minH="200px" />
   ) : (
     <Frame ref={(ref) => setFrameRef(ref)} width="100%" height="100%">
       <FrameProvider>
-        <LiveCodePreview fontSize="sm" sx={sx} minHeight="$100vh" />
+        <LiveCodePreview fontSize="md" sx={sx} minHeight="$100vh" />
       </FrameProvider>
     </Frame>
   )

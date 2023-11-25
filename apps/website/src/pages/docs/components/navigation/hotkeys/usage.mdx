@@ -46,7 +46,7 @@ import {
 
 Press `S` to trigger the action.
 
-```jsx inline=true
+```jsx center=true  inline=true
 import { Box, Flex, Kbd } from '@chakra-ui/react'
 import { useHotkeys, SearchInput } from '@saas-ui/react'
 
@@ -81,7 +81,7 @@ To target multiple platforms it's possible to pass an array of key combinations.
 
 Press `⌘ Enter` or `Ctrl+Enter` to trigger the action.
 
-```jsx inline=true
+```jsx center=true  inline=true
 import { Box, Tooltip, Button } from '@chakra-ui/react'
 import { useHotkeys } from '@saas-ui/react'
 
@@ -108,7 +108,7 @@ export default function Dialog() {
 You can combine mutiple keys using the `+` sign or by adding a space.
 Press `cmd shift D` or `Ctrl+Shift+D` to trigger the action.
 
-```jsx inline=true
+```jsx center=true  inline=true
 import { Box, Tooltip, Button } from '@chakra-ui/react'
 import { useHotkeys } from '@saas-ui/react'
 
@@ -134,7 +134,7 @@ export default function Dialog() {
 
 To prevent the default behavior of a key combination you can set the `preventDefault` option to `true`.
 
-```jsx inline=true
+```jsx center=true  inline=true
 import { Box, Tooltip, Button } from '@chakra-ui/react'
 import { useHotkeys, SearchInput } from '@saas-ui/react'
 
@@ -165,7 +165,7 @@ Use the `then` keyword to create a sequence of keys.
 
 Press `A` then `S` to trigger the action.
 
-```jsx inline=true
+```jsx center=true  inline=true
 import { Box, Tooltip, Button } from '@chakra-ui/react'
 import { useHotkeys } from '@saas-ui/react'
 
@@ -192,7 +192,7 @@ export default function Dialog() {
 Create a config object containing all the keyboard shortcuts in your app.
 The keys in the config can be used as shortcuts with the included hook throughout your app.
 
-```jsx inline=true  live=false
+```jsx center=true  inline=true  live=false
 // app.tsx
 import { HotkeysProvider, HotkeysListOptions } from '@saas-ui/react'
 
@@ -219,7 +219,7 @@ export default const App = () => {
 
 `useHotkeysShortcut` returns the command value and can be used to show the key combinations to your users.
 
-```jsx inline=true  live=false
+```jsx center=true  inline=true  live=false
 import { Kbd } from '@chakra-ui/react'
 import { useHotkeysShortcut } from '@saas-ui/react'
 
@@ -246,7 +246,7 @@ The `HotkeysList` component can be used to list all available hotkeys in your ap
 
 Press `?` to open the modal.
 
-```jsx inline=true
+```jsx center=true  inline=true
 import {
   Box,
   Text,

@@ -7245,6 +7245,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/assets@workspace:packages/saas-ui-assets":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/assets@workspace:packages/saas-ui-assets"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui/auth@^2.0.9, @saas-ui/auth@^2.1.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"

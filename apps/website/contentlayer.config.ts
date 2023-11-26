@@ -115,6 +115,7 @@ const Changelog = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'src/pages',
+
   documentTypes: [Blog, Doc, Changelog],
   mdx: {
     rehypePlugins: [rehypeMdxCodeMeta],

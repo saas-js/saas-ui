@@ -13,7 +13,12 @@ export interface CanvasAttributes {
   responsive?: boolean
   withColor?: boolean
   dimmed?: boolean
-  canvas: { center: boolean; maxWidth?: number }
+  canvas: {
+    center: boolean
+    maxWidth?: number
+    height?: number
+    overflow?: string
+  }
   category: string
   title: string
   props?: Record<string, any>

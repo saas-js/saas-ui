@@ -110,13 +110,7 @@ const Install = () => {
   )
   return (
     <Center>
-      <HStack
-        py="1"
-        px="2"
-        borderRadius="full"
-        bg="codeBackground"
-        borderWidth="1px"
-      >
+      <HStack py="1" px="2" borderRadius="full" bg="code-bg" borderWidth="1px">
         <CodePanel language="bash">{value}</CodePanel>
         <IconButton
           icon={hasCopied ? <FiCheck /> : <FiCopy />}

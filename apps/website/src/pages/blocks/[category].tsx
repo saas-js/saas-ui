@@ -21,5 +21,8 @@ export const getStaticProps: GetStaticProps<
     category: getCategoryData(context!.params!.category),
     components: getComponentsByCategory()[context!.params!.category],
     allComponents: getAllComponents(),
+    header: {
+      position: 'sticky',
+    },
   },
 })

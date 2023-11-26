@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { Box, Card, CardBody, ChakraProvider, useTheme } from '@chakra-ui/react'
+import {
+  Box,
+  Card,
+  CardBody,
+  ChakraProvider,
+  Stack,
+  useTheme,
+} from '@chakra-ui/react'
 import * as UiComponents from '../../../../../packages/pro/saas-ui/templates'
 import { UiComponent } from '../../data/blocks'
 import { ComponentPreview } from './component-preview'
@@ -8,6 +15,9 @@ import { CodeTabs } from './code-tabs'
 import { useFetch } from 'use-http'
 import { useAuth } from '@saas-ui/auth'
 import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+
+import { theme } from '@saas-ui-pro/react'
+import { ChakraFrame } from '../code-panel/chakra-frame'
 
 export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
   const { isAuthenticated } = useAuth()
@@ -18,8 +28,6 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
     UiComponents[props.component as keyof typeof UiComponents]
 
   const isUnlocked = isAuthenticated || props.attributes.public
-
-  const theme = useTheme()
 
   const [code, setCode] = useState(props.code)
   const { get, response } = useFetch(
@@ -44,7 +52,7 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
   }, [isAuthenticated])
 
   return (
-    <Card rounded="xl" overflow="hidden" mb="20">
+    <Box overflow="hidden" mb="20">
       <CanvasHeader
         {...props}
         state={state}
@@ -53,27 +61,33 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
         onPrimaryColorChange={setPrimaryColor}
       />
 
-      <CardBody bg="component-canvas-bg" padding="0">
-        {state === 'preview' ? (
-          <Box style={{ zIndex: props.zIndex }}>
-            <ComponentPreview canvas={props.attributes.canvas}>
-              <ChakraProvider theme={theme}>
+      <Card rounded="xl" overflow="hidden" mb="20">
+        <CardBody bg="component-canvas-bg" padding="0">
+          {state === 'preview' ? (
+            <Stack
+              style={{ zIndex: props.zIndex }}
+              minHeight="400px"
+              alignItems="stretch"
+              justifyContent="stretch"
+              fontSize="md"
+            >
+              <ComponentPreview canvas={props.attributes.canvas}>
                 <Component {...props.attributes.props} />
-              </ChakraProvider>
-            </ComponentPreview>
-          </Box>
-        ) : (
-          <Box pos="relative" minH="400px">
-            {code?.length ? (
-              <CodeTabs code={code} />
-            ) : (
-              <LoadingOverlay variant="overlay">
-                <LoadingSpinner />
-              </LoadingOverlay>
-            )}
-          </Box>
-        )}
-      </CardBody>
-    </Card>
+              </ComponentPreview>
+            </Stack>
+          ) : (
+            <Box pos="relative" minH="400px">
+              {code?.length ? (
+                <CodeTabs code={code} />
+              ) : (
+                <LoadingOverlay variant="overlay">
+                  <LoadingSpinner />
+                </LoadingOverlay>
+              )}
+            </Box>
+          )}
+        </CardBody>
+      </Card>
+    </Box>
   )
 }

@@ -559,10 +559,10 @@ const BoilerplateCode = () => {
           justifyContent="center"
           borderRadius="2xl"
           position="relative"
-          bg="codeBackground"
+          bg="code-bg"
           _dark={{
             bg: 'transparent',
-            bgGradient: 'linear(to-b, codeBackground, transparent)',
+            bgGradient: 'linear(to-b, code-bg, transparent)',
           }}
           _before={{
             content: '""',
@@ -613,10 +613,10 @@ const Themable = () => {
           justifyContent="center"
           borderRadius="2xl"
           position="relative"
-          bg="codeBackground"
+          bg="code-bg"
           _dark={{
             bg: 'transparent',
-            bgGradient: 'linear(to-b, codeBackground, transparent)',
+            bgGradient: 'linear(to-b, code-bg, transparent)',
           }}
           _before={{
             content: '""',
@@ -756,7 +756,7 @@ const Highlights = () => {
               py="1"
               px="2"
               borderRadius="full"
-              bg="codeBackground"
+              bg="code-bg"
               borderWidth="1px"
             >
               <CodePanel language="bash">{value}</CodePanel>

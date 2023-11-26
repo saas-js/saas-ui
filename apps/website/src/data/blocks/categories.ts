@@ -16,6 +16,11 @@ export const CATEGORIES: CategoriesGroup[] = [
         images: images.navbars ?? null,
       },
       {
+        slug: 'stacked-layouts',
+        name: 'Stacked layouts',
+        images: fallbackImage,
+      },
+      {
         slug: 'settings',
         name: 'Settings',
         images: fallbackImage,
@@ -25,16 +30,6 @@ export const CATEGORIES: CategoriesGroup[] = [
         name: 'File management',
         images: fallbackImage,
       },
-      // {
-      //   slug: 'billing',
-      //   name: 'Payments & Billing',
-      //   images: fallbackImage,
-      // },
-      // {
-      //   slug: 'charts',
-      //   name: 'Charts',
-      //   images: fallbackImage,
-      // },
     ],
   },
 ]

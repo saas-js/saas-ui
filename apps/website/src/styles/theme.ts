@@ -80,6 +80,10 @@ const theme = extendTheme(
             _dark: 'gray.400',
           },
         },
+        'app-background': {
+          default: 'white',
+          _dark: 'black',
+        },
         'chakra-body-bg': {
           default: 'app-background',
         },

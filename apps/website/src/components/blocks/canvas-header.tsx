@@ -45,12 +45,7 @@ export function CanvasHeader({
   const isUnlocked = isAuthenticated || attributes.public
 
   return (
-    <CardHeader
-      {...rest}
-      display="flex"
-      flexDirection="row"
-      borderBottomWidth="1px"
-    >
+    <HStack py="4" {...rest}>
       <HStack flex="1">
         <Box
           id={slug}
@@ -122,6 +117,6 @@ export function CanvasHeader({
           </Button>
         )}
       </HStack>
-    </CardHeader>
+    </HStack>
   )
 }

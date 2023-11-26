@@ -48,58 +48,140 @@ If you need more flexiblity it's possible to use these components directly.
 
 The default authentication strategy is `magiclink`.
 
-```jsx
-<Stack maxW="400px">
-  <Auth />
-</Stack>
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth />
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### Password login
 
-```jsx
-<Stack maxW="400px">
-  <Auth type="password" />
-</Stack>
+Using the `type` prop you can switch to password login.
+
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth type="password" />
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### Social login
 
-```jsx
-<Stack maxW="400px">
-  <Auth
-    providers={{
-      github: {
-        icon: FaGithub,
-        name: 'Github',
-      },
-    }}
-  />
-</Stack>
+Using the `providers` prop you can add social login buttons.
+
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+        />
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### Sign up
 
-```jsx
-<Stack maxW="400px">
-  <Auth view="signup" />
-</Stack>
+Using the `view` prop you can switch different supported view. The default view is `login`.
+Supported views: `login`, `signup`, `forgotPassword`, `updatePassword`, `otp`.
+
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          view="signup"
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+        />
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### One time password
 
-```jsx
-<Stack maxW="400px">
-  <Auth view="otp" />
-</Stack>
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth view="otp" />
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### Redirect after login
 
 Use the `redirectTo` prop to redirect the user after login.
 
-```jsx
-import { Auth } from '@saas-ui/auth'
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
+import { Auth } from '@saas-ui/auth'
 
 const getAbsoluteUrl = (path: string) => {
   if (typeof window === 'undefined') {
@@ -109,9 +191,25 @@ const getAbsoluteUrl = (path: string) => {
 }
 
 export default function AuthPage() {
-  const snackbar = useSnackbar()
-
-  return <Auth redirectTo={getAbsoluteUrl('/dashboard')} />
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          view="signup"
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+          redirectTo={getAbsoluteUrl('/dashboard')}
+        />
+      </CardBody>
+    </Card>
+  )
 }
 ```
 
@@ -120,44 +218,107 @@ export default function AuthPage() {
 The `Auth` component accepts an `onError` prop that can be used to handle errors.
 You can use the `useSnackbar` hook to display a message.
 
-```jsx
-import { Auth } from '@saas-ui/auth'
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
+import { Auth } from '@saas-ui/auth'
 
-export default function ErrorHandler() {
-  const snackbar = useSnackbar()
+const getAbsoluteUrl = (path: string) => {
+  if (typeof window === 'undefined') {
+    return path
+  }
+  return window.location.origin
+}
 
+export default function AuthPage() {
   return (
-    <Auth
-      onError={(view, error) => {
-        if (view === 'login' && error) {
-          snackbar.error(error.message)
-        }
-      }}
-    />
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          view="signup"
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+          onError={(view, error) => {
+            if (view === 'login' && error) {
+              snackbar.error(error.message)
+            }
+          }}
+        />
+      </CardBody>
+    </Card>
   )
 }
 ```
 
 ### Custom links
 
-```jsx
-<Stack maxW="400px" alignSelf="center">
-  <Auth
-    signupLink={<Link href="/signup">Sign up</Link>}
-    loginLink={<Link href="/login">Log in</Link>}
-  />
-</Stack>
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+const getAbsoluteUrl = (path: string) => {
+  if (typeof window === 'undefined') {
+    return path
+  }
+  return window.location.origin
+}
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          view="signup"
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+          signupLink={<Link href="/signup">Sign up</Link>}
+          loginLink={<Link href="/login">Log in</Link>}
+        />
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### Custom log in page
 
-```jsx
-function LoginPage() {
+The authentication forms can be used directly, for example in a custom log in page.
+
+```jsx center=true height=550px
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+import { PasswordForm, useAuth } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const auth = useAuth()
+
   return (
-    <Card title="Welcome to Saas UI">
+    <Card flex="1" maxW="400px">
+      <CardHeader>
+        <Heading size="md">Welcome back</Heading>
+      </CardHeader>
       <CardBody>
-        <PasswordForm action="logIn" submitLabel="Log in" />
+        <PasswordForm
+          onSubmit={(data) => auth.logIn(data)}
+          submitLabel="Log in"
+        />
       </CardBody>
     </Card>
   )
@@ -166,16 +327,26 @@ function LoginPage() {
 
 ### Custom sign up page
 
-```jsx
-import { Card, CardBody } from '@chakra-ui/react'
-import { FormLayout, Field } from '@saas-ui/react'
-import { PasswordForm } from '@saas-ui/auth'
+You can add extra fields to the sign up form by using the `PasswordForm` component directly.
 
-export default function SignUpPage() {
+```jsx center=true height=550px
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+import { PasswordForm, useAuth } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const auth = useAuth()
+
   return (
-    <Card title="Sign up for free">
+    <Card flex="1" maxW="400px">
+      <CardHeader>
+        <Heading size="md">Sign up for Saas UI</Heading>
+      </CardHeader>
       <CardBody>
-        <PasswordForm action="signUp" submitLabel="Sign up">
+        <PasswordForm
+          onSubmit={(data) => auth.signUp(data)}
+          submitLabel="Sign up"
+        >
           <FormLayout columns={2}>
             <Field name="firstName" label="First name" />
             <Field name="lastName" label="Last name" />
@@ -190,12 +361,16 @@ export default function SignUpPage() {
 
 ### Schema validation
 
-```jsx
+The authentication forms accept a React Hook Form `resolver` prop that can be used to validate the form data.
+
+```jsx center=true height=550px
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { PasswordForm } from '@saas-ui/auth'
+import { PasswordForm, useAuth } from '@saas-ui/auth'
 
 export default function LoginPage() {
+  const auth = useAuth()
+
   const schema = yup.object({
     email: yup
       .string()
@@ -204,12 +379,20 @@ export default function LoginPage() {
       .label('Email'),
     password: yup.string().min(4).required().label('Password'),
   })
+
   return (
-    <PasswordForm
-      action="logIn"
-      submitLabel="Log in"
-      resolver={yupResolver(schema)}
-    />
+    <Card flex="1" maxW="400px">
+      <CardHeader>
+        <Heading size="md">Sign up for Saas UI</Heading>
+      </CardHeader>
+      <CardBody>
+        <PasswordForm
+          onSubmit={(data) => auth.logIn(data)}
+          submitLabel="Log in"
+          resolver={yupResolver(schema)}
+        />
+      </CardBody>
+    </Card>
   )
 }
 ```

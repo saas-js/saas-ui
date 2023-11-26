@@ -18,7 +18,7 @@ export const ForgotPasswordView: React.FC<ForgotPasswordViewProps> = (
   props
 ) => {
   const {
-    title,
+    title = 'Forgot password',
     footer,
     onSuccess,
     onError,
@@ -60,10 +60,6 @@ export const ForgotPasswordView: React.FC<ForgotPasswordViewProps> = (
       {footer}
     </AuthFormContainer>
   )
-}
-
-ForgotPasswordView.defaultProps = {
-  title: 'Forgot password',
 }
 
 ForgotPasswordView.displayName = 'ForgotPasswordView'

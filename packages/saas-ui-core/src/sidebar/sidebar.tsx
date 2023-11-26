@@ -71,7 +71,7 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
   const {
     spacing = 4,
     children,
-    toggleBreakpoint,
+    toggleBreakpoint = 'lg',
     className,
     motionPreset = 'slideInOut',
     isOpen: isOpenProp,
@@ -162,11 +162,6 @@ export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
     </SidebarProvider>
   )
 })
-
-Sidebar.defaultProps = {
-  variant: 'default',
-  toggleBreakpoint: 'lg',
-}
 
 Sidebar.displayName = 'Sidebar'
 Sidebar.id = 'Sidebar'

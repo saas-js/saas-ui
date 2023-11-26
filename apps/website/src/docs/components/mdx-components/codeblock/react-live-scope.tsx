@@ -16,6 +16,7 @@ import * as YupForm from '@saas-ui/forms/yup'
 import * as ZodForm from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
+import * as Assets from '@saas-ui/assets'
 import * as sampleData from '@/data/sample-data'
 import FocusLock from 'react-focus-lock'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -26,6 +27,8 @@ import {
   FiInbox,
   FiUsers,
   FiUser,
+  FiMenu,
+  FiX,
   FiFilter,
   FiCircle,
   FiSettings,
@@ -46,6 +49,7 @@ import {
   FiLink,
   FiChevronsLeft,
   FiChevronsRight,
+  FiChevronDown,
   FiUserCheck,
   FiCode,
   FiRefreshCw,
@@ -67,6 +71,8 @@ const reactIcons = {
   FiInbox,
   FiUsers,
   FiUser,
+  FiMenu,
+  FiX,
   FiFilter,
   FiCircle,
   FiSettings,
@@ -92,6 +98,7 @@ const reactIcons = {
   FaCookie,
   FiChevronsLeft,
   FiChevronsRight,
+  FiChevronDown,
   FiUserCheck,
   FiCode,
   FiRefreshCw,
@@ -185,6 +192,7 @@ const ReactLiveScope = {
     '@saas-ui-pro/feature-flags': SaasUIFeatures,
     '@saas-ui-pro/kanban': SaasUIKanban,
     '@saas-ui/date-picker': DatePicker,
+    '@saas-ui/assets': Assets,
     '@chakra-ui/icons': Icons,
     'react-icons/fi': reactIcons,
     '@hookform/resolvers/yup': { yupResolver },

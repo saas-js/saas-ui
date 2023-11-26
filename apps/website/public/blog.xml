@@ -25,7 +25,7 @@
     <title>Introducing Kanban primitives</title>
     <link>https://saas-ui.dev/blog/introducing-kanban-primitives</link>
     <description>Build interactive Kanban boards with Saas UI Pro</description>
-    <pubDate>Fri, 30 Jun 2023 00:00:00 GMT</pubDate>
+    <pubDate>Fri, 06 Oct 2023 00:00:00 GMT</pubDate>
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
@@ -46,6 +46,16 @@
     <link>https://saas-ui.dev/blog/saas-ui-2-0</link>
     <description>After a lot of hard work we are proud to announce the release of Saas UI 2.0!</description>
     <pubDate>Fri, 30 Jun 2023 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/blog/saas-ui-2-4</guid>
+    <title>Saas UI v2.4 is here!</title>
+    <link>https://saas-ui.dev/blog/saas-ui-2-4</link>
+    <description>We got some nifty new components and improvements for you in this release.</description>
+    <pubDate>Fri, 24 Nov 2023 00:00:00 GMT</pubDate>
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>

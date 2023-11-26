@@ -25,7 +25,7 @@ ResizeBox behaves just like a `Box` component and can be used as a container com
 
 ### Basic setup
 
-```jsx
+```jsx inline=true
 <ResizeBox
   width="280px"
   height="200px"
@@ -38,7 +38,7 @@ ResizeBox behaves just like a `Box` component and can be used as a container com
 
 The `minWidth` and `maxWidth` properties can be used to limit the range of the resizer.
 
-```jsx
+```jsx inline=true
 <ResizeBox
   width="280px"
   height="200px"
@@ -53,7 +53,7 @@ The `minWidth` and `maxWidth` properties can be used to limit the range of the r
 
 Use the `isResizable` to disable resizing.
 
-```jsx
+```jsx inline=true
 <ResizeBox
   width="280px"
   height="200px"
@@ -67,7 +67,7 @@ Use the `isResizable` to disable resizing.
 
 The handle can be positioned either `right` or `left` side of the container.
 
-```jsx
+```jsx inline=true
 <Box position="relative" height="200px">
   <ResizeBox
     position="absolute"
@@ -83,7 +83,7 @@ The handle can be positioned either `right` or `left` side of the container.
 
 ### With content
 
-```jsx
+```jsx inline=true
 <ResizeBox
   width="280px"
   minWidth="200px"
@@ -104,7 +104,7 @@ The handle can be positioned either `right` or `left` side of the container.
 
 ### Custom
 
-```jsx
+```jsx inline=true
 import { Box } from '@chakra-ui/react'
 import { ResizeHandle, useResize } from '@saas-ui-pro/react'
 

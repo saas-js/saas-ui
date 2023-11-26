@@ -40,7 +40,7 @@ These Kanban primitives can be used to build advanced workflows that allows item
 
 This is a basic example showing a simple Kanban board with 3 columns.
 
-```jsx
+```jsx inline=true
 import { Card, CardBody } from '@chakra-ui/react'
 import {
   Kanban,
@@ -115,7 +115,7 @@ export default function Basic() {
 
 You can control the items by passing the `items` and `onChange` props to the `Kanban` component.
 
-```jsx
+```jsx inline=true
 import { Card, CardBody } from '@chakra-ui/react'
 import {
   Kanban,
@@ -192,7 +192,7 @@ export default function Controlled() {
 
 You can make columns draggable by using the `KanbanColumnDragHandle` component.
 
-```jsx
+```jsx inline=true
 import { Card, CardBody, Spacer } from '@chakra-ui/react'
 import {
   Kanban,
@@ -303,7 +303,7 @@ export default function DraggableColumns() {
 
 You can toggle column visibility by using useState.
 
-```jsx
+```jsx inline=true
 import { Button, Card, CardBody } from '@chakra-ui/react'
 import {
   Kanban,
@@ -417,7 +417,7 @@ export default function ToggleColumn() {
 
 You can remove items by dragging them into the `KanbanTrash` component.
 
-```jsx
+```jsx inline=true
 import { Button, Card, CardBody } from '@chakra-ui/react'
 import {
   Kanban,
@@ -502,7 +502,7 @@ The `Kanban` component provides several event listeners that can be used to list
 - `onCardDragEnd`: Called when a card drag ends.
 - `onColumnDragEnd`: Called when a column drag ends.
 
-```jsx
+```jsx inline=true
 import { Button, Card, CardBody } from '@chakra-ui/react'
 import {
   Kanban,

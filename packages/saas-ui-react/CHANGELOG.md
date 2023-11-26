@@ -1,5 +1,56 @@
 # @saas-ui/react
 
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+  - @saas-ui/data-table@6.0.2
+  - @saas-ui/forms@2.3.2
+  - @saas-ui/hotkeys@2.1.8
+  - @saas-ui/modals@2.1.9
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [4e728c26]
+- Updated dependencies [3ddca73d]
+  - @saas-ui/theme@2.2.1
+  - @saas-ui/core@2.2.1
+  - @saas-ui/data-table@6.0.1
+  - @saas-ui/forms@2.3.1
+  - @saas-ui/hotkeys@2.1.7
+  - @saas-ui/modals@2.1.8
+
+## 2.4.0
+
+### Minor Changes
+
+- 31d05ed5: Added new Navbar component 🥳
+- ebba8404: Added new IconBadge component
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- dddb3d1a: Fixed issue where width would not be applied to the SearchInput container element
+- 91412d77: Fixed SearchInput reset when uncontrolled
+- 91412d77: Fixed theme incompatibility with Chakra UI 2.8
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [68995558]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/theme@2.2.0
+  - @saas-ui/core@2.2.0
+  - @saas-ui/forms@2.3.0
+  - @saas-ui/data-table@6.0.0
+  - @saas-ui/hotkeys@2.1.6
+  - @saas-ui/modals@2.1.7
+
 ## 2.3.1
 
 ### Patch Changes

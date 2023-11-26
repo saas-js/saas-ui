@@ -27790,6 +27790,7 @@ __metadata:
     "@chakra-ui/system": ^2.6.1
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
+    "@fontsource-variable/inter": ^5.0.15
     "@fontsource/inter": ^4.5.15
     "@mapbox/rehype-prism": ^0.8.0
     "@mdx-js/loader": ^2.3.0

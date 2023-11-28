@@ -54,6 +54,7 @@ function NavLink({ href, children, label, isActive, ...rest }: NavLinkProps) {
         borderColor={isActive ? 'purple.400' : undefined}
         borderWidth="1px"
         color={isActive ? 'white' : undefined}
+        w="full"
         _hover={{
           bg: isActive ? 'purple.500' : bgActiveHoverColor,
         }}

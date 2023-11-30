@@ -13,22 +13,22 @@ export const CATEGORIES: CategoriesGroup[] = [
       {
         slug: 'sidebar-layouts',
         name: 'Sidebar layouts',
-        images: images.navbars ?? null,
+        images: images.sidebars ?? null,
       },
       {
         slug: 'stacked-layouts',
         name: 'Stacked layouts',
-        images: fallbackImage,
+        images: images.navbars ?? null,
       },
       {
         slug: 'settings',
         name: 'Settings',
-        images: fallbackImage,
+        images: images.settings ?? null,
       },
       {
         slug: 'files',
         name: 'File management',
-        images: fallbackImage,
+        images: images.files ?? null,
       },
     ],
   },

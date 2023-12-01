@@ -25,17 +25,20 @@ export const iconBadgeTheme = defineStyleConfig({
     sm: {
       borderRadius: 'sm',
       fontSize: '0.9em',
-      p: 1,
+      w: 6,
+      h: 6,
     },
     md: {
       borderRadius: 'md',
-      fontSize: '1em',
-      p: 2,
+      fontSize: '1.1em',
+      w: 8,
+      h: 8,
     },
     lg: {
       borderRadius: 'md',
       fontSize: '1.3em',
-      p: 3,
+      w: 10,
+      h: 10,
     },
   },
   defaultProps: {

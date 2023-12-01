@@ -84,7 +84,11 @@ export const createAuthService = <Client extends SupabaseClient>(
 ): AuthProviderProps<User> => {
   const onLogin = async (
     params: AuthParams,
-    authOptions?: AuthOptions<{ data?: object; captchaToken?: string }>
+    authOptions?: AuthOptions<{
+      data?: object
+      captchaToken?: string
+      scopes?: string
+    }>
   ) => {
     const options = {
       ...serviceOptions?.loginOptions,

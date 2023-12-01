@@ -191,7 +191,7 @@ interface AuthLinkProps {
 const AuthLink = ({ label, link, onClick }: AuthLinkProps) => {
   const styles = {
     textAlign: 'center',
-    py: 8,
+    pt: 4,
     fontSize: 'md',
   }
   return (

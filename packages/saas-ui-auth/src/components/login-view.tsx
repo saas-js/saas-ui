@@ -64,7 +64,7 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
 
   const handleSubmit: SubmitHandler<PasswordSubmitParams> = (params) => {
     return submit(params, {
-      redirectTo: redirectUrl,
+      redirectTo: redirectUrl || oauthRedirectUrl,
     })
       .then(onSuccess)
       .catch(onError)
@@ -83,6 +83,7 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     dividerLabel,
     footer,
     oauthRedirectUrl,
+    redirectUrl,
   }
 
   return (
@@ -144,6 +145,7 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
+    redirectUrl,
     oauthRedirectUrl,
   }
 
@@ -186,7 +188,7 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
   const { logIn } = useAuth()
 
   const signInWith = (provider: string) => {
-    return logIn({ provider }, { redirectTo: redirectUrl || oauthRedirectUrl })
+    return logIn({ provider }, { redirectTo: redirectUrl })
   }
 
   return (

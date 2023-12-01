@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useFormContext } from 'react-hook-form'
 
 import { Button, ButtonProps, forwardRef } from '@chakra-ui/react'
+import { useFieldProps } from './form-context'
 
 export interface SubmitButtonProps extends ButtonProps {
   /**
@@ -42,9 +43,12 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
       (disableIfInvalid && !formState.isValid) ||
       isDisabledProp
 
+    const field = useFieldProps('submit') as any
+
     return (
       <Button
         {...rest}
+        {...field}
         ref={ref}
         type="submit"
         isLoading={formState.isSubmitting || isLoading}

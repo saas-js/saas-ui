@@ -1,5 +1,13 @@
 # @saas-ui/supabase
 
+## 2.1.1
+
+### Patch Changes
+
+- d5ca55e4: Added support for scopes
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/auth@2.3.0
+
 ## 2.1.0
 
 ### Minor Changes

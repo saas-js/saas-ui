@@ -4,6 +4,7 @@ import { SimpleGrid, Icon, ButtonProps } from '@chakra-ui/react'
 import { callAllHandlers } from '@chakra-ui/utils'
 
 import { ProviderButton } from '../provider-button'
+import { AuthOptions } from '../../provider'
 
 export interface Provider extends ButtonProps {
   /**
@@ -18,6 +19,10 @@ export interface Provider extends ButtonProps {
    * The provider color
    */
   color?: string
+  /**
+   * The provider scopes
+   */
+  scopes?: string
 }
 
 export interface AvailableProviders {
@@ -40,7 +45,10 @@ export interface ProvidersProps<
    * The on sign in callback
    * @param providerId The provider id
    */
-  onSignIn: (providerId: Extract<keyof TProviders, string>) => void
+  onSignIn: (
+    providerId: Extract<keyof TProviders, string>,
+    options: AuthOptions
+  ) => void
 }
 
 export const Providers = <
@@ -58,7 +66,7 @@ export const Providers = <
   return (
     <SimpleGrid spacing={4} {...rest}>
       {Object.entries(providers).map(([id, provider]) => {
-        const { name, icon, color, ...rest } = provider
+        const { name, icon, color, scopes, ...rest } = provider
 
         return (
           <ProviderButton
@@ -66,7 +74,9 @@ export const Providers = <
             color={color}
             leftIcon={icon && <Icon as={icon} />}
             {...rest}
-            onClick={callAllHandlers(rest.onClick, () => onSignIn(id as any))}
+            onClick={callAllHandlers(rest.onClick, () =>
+              onSignIn(id as any, { scopes })
+            )}
           >
             {labelPrefix} {name}
           </ProviderButton>

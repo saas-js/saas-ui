@@ -1,5 +1,18 @@
 # @saas-ui/auth
 
+## 2.3.0
+
+### Minor Changes
+
+- d5ca55e4: Fixed redirect property for oauth providers and add support for scopes
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/forms@2.3.3
+  - @saas-ui/core@2.2.3
+
 ## 2.2.2
 
 ### Patch Changes

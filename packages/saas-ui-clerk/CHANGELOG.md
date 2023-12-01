@@ -1,5 +1,12 @@
 # @saas-ui/clerk
 
+## 3.0.19
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/auth@2.3.0
+
 ## 3.0.18
 
 ### Patch Changes

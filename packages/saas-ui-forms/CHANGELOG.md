@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.3.3
+
+### Patch Changes
+
+- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields prop
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/core@2.2.3
+
 ## 2.3.2
 
 ### Patch Changes

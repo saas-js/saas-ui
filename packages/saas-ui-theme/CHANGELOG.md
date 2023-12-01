@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.2.2
+
+### Patch Changes
+
+- 537804bf: Fixed NavLink line height
+
 ## 2.2.1
 
 ### Patch Changes

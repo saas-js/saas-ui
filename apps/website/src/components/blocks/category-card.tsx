@@ -50,8 +50,7 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
     >
       <Flex
         flexDirection="column"
-        // bgGradient="linear(to-bl,white, gray.100)"
-        bg="gray.100"
+        bgGradient="linear(to-bl,white, gray.100)"
         _dark={{
           bg: 'whiteAlpha.100',
           bgGradient: 'linear(to-bl,transparent, whiteAlpha.50)',

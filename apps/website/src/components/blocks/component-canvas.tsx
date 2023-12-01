@@ -6,9 +6,12 @@ import { ComponentPreview } from './component-preview'
 import { CanvasHeader } from './canvas-header'
 import { CodeTabs } from './code-tabs'
 import { useFetch } from 'use-http'
-import { useAuth, useCurrentUser } from '@saas-ui/auth'
-import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+import { useCurrentUser } from '@saas-ui/auth'
+import { LoadingOverlay, LoadingSpinner, SaasProvider } from '@saas-ui/react'
 import { User } from '@supabase/supabase-js'
+
+import { theme } from '@saas-ui-pro/react'
+import { ChakraFrame } from '../code-panel/chakra-frame'
 
 export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
   const user = useCurrentUser<User>()
@@ -43,6 +46,8 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
     }
   }, [isUnlocked])
 
+  const [frameHeight, setFrameHeight] = useState<string | undefined>()
+
   return (
     <Box overflow="hidden" mb="20">
       <CanvasHeader
@@ -59,13 +64,16 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
             <Stack
               style={{ zIndex: props.zIndex }}
               minHeight="400px"
+              height={frameHeight}
               alignItems="stretch"
               justifyContent="stretch"
               fontSize="md"
             >
-              <ComponentPreview canvas={props.attributes.canvas}>
-                <Component {...props.attributes.props} />
-              </ComponentPreview>
+              <ChakraFrame onHeightChange={(height) => setFrameHeight(height)}>
+                <ComponentPreview canvas={props.attributes.canvas}>
+                  <Component {...props.attributes.props} />
+                </ComponentPreview>
+              </ChakraFrame>
             </Stack>
           ) : (
             <Box pos="relative" minH="400px">

@@ -48,8 +48,13 @@ export const FooterLink = ({ children, ...props }: LinkProps) => {
       fontSize="sm"
       textDecoration="none"
       _hover={{
-        color: 'white',
+        color: 'black',
         transition: 'color .2s ease-in',
+      }}
+      _dark={{
+        _hover: {
+          color: 'white',
+        },
       }}
     >
       {children}

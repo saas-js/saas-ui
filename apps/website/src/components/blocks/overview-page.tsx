@@ -35,9 +35,10 @@ export function OverviewPage({ componentsCountByCategory }: OverviewPageProps) {
             Blocks
           </Heading>
           <Text fontSize="xl" mt="5" color="muted">
-            Build SaaS apps and dashboards faster with pre-built templates.
+            Build delightful apps and dashboards faster with pre-built
+            templates.
             <br />
-            Inspired by your favourite SaaS products.
+            Crafted with precision and proven design patterns.
           </Text>
         </Box>
 

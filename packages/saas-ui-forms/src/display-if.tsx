@@ -18,6 +18,10 @@ export interface DisplayIfProps<
   isDisabled?: boolean
   isExact?: boolean
   condition?: (value: unknown, context: UseFormReturn<TFieldValues>) => boolean
+  onToggle?: (
+    conditionMatched: boolean,
+    context: UseFormReturn<TFieldValues>
+  ) => void
 }
 /**
  * Conditionally render parts of a form.
@@ -34,7 +38,11 @@ export const DisplayIf = <
   isDisabled,
   isExact,
   condition = (value) => !!value,
+  onToggle,
 }: DisplayIfProps<TFieldValues, TName>) => {
+  const initializedRef = React.useRef(false)
+  const matchesRef = React.useRef(false)
+
   const value = useWatch<TFieldValues>({
     name,
     defaultValue: defaultValue as any,
@@ -42,7 +50,20 @@ export const DisplayIf = <
     exact: isExact,
   })
   const context = useFormContext() as any
-  return condition(value, context) ? children : null
+
+  const matches = condition(value, context)
+
+  React.useEffect(() => {
+    if (!initializedRef.current) {
+      initializedRef.current = true
+      return
+    }
+    if (matchesRef.current === matches) return
+    matchesRef.current = matches
+    onToggle?.(matches, context)
+  }, [value])
+
+  return matches ? children : null
 }
 
 DisplayIf.displayName = 'DisplayIf'

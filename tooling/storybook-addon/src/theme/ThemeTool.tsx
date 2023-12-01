@@ -6,7 +6,7 @@ import {
   Icons,
 } from '@storybook/components'
 import { addons } from '@storybook/addons'
-import { ADDON_ID, EVENTS } from '../../constants'
+import { ADDON_ID, EVENTS } from '../constants'
 
 const themes: Record<string, string> = {
   0: 'Chakra UI',

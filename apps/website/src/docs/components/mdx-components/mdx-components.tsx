@@ -84,11 +84,11 @@ const BestPractice = ({ children, title, ...props }) => {
 }
 
 const Do = (props) => {
-  return <BestPractice {...props} status="success" title="Do" />
+  return <BestPractice {...props} status="success" title="Do" fontSize="md" />
 }
 
 const Dont = (props) => {
-  return <BestPractice {...props} status="error" title="Don't" />
+  return <BestPractice {...props} status="error" title="Don't" fontSize="md" />
 }
 
 export const MDXComponents = {

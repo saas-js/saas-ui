@@ -8,6 +8,41 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 11-23-2023
+
+`@saas-ui/react@2.4.0`
+
+- Added new Navbar component 🥳
+- Fixed issue where width would not be applied to the SearchInput container element
+- Added new IconBadge component
+- Fixed SearchInput reset when uncontrolled
+- Removed all Component.defaultProps definitions
+- Fixed theme incompatibility with Chakra UI 2.8
+
+**Theme** `v2.2.0`
+
+- Added new Navbar component 🥳
+- Added new IconBadge component
+- Fixed theme incompatibility with Chakra UI 2.8
+
+**Core** `v2.2.0`
+
+- Added new Navbar component 🥳
+- Fixed issue where width would not be applied to the SearchInput container element
+- Added new IconBadge component
+- Fixed SearchInput reset when uncontrolled
+- Removed all Component.defaultProps definitions
+- Fixed theme incompatibility with Chakra UI 2.8
+
+**Forms** `v2.3.0`
+
+- Added new onToggle prop to DisplayIf
+- Removed all Component.defaultProps definitions
+
+**Auth** `v2.2.0`
+
+- Removed all Component.defaultProps definitions
+
 ## 10-20-2023
 
 `@saas-ui/react@2.3.0`

@@ -464,7 +464,11 @@ export default function ConditionalFields() {
             label="Ship to my home address"
           />
 
-          <DisplayIf name="ship" condition={(ship) => !!ship}>
+          <DisplayIf
+            name="ship"
+            condition={(ship) => !!ship}
+            onToggle={(matches) => console.log(matches)}
+          >
             <FormLayout>
               <Heading size="md" mt="4">
                 Address

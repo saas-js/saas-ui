@@ -1,13 +1,13 @@
-import { addons, types } from '@storybook/addons'
+import { addons, types } from '@storybook/manager-api'
 import {
   ADDON_ID,
   COLOR_MODE_TOOL_ID,
   DIRECTION_TOOL_ID,
   THEME_TOOL_ID,
-} from '../constants'
-import { ColorModeTool } from '../feature/color-mode/ColorModeTool'
-import { ThemeTool } from '../feature/color-mode/ThemeTool'
-import { DirectionTool } from '../feature/direction/DirectionTool'
+} from './constants'
+import { ColorModeTool } from './color-mode/ColorModeTool'
+import { DirectionTool } from './direction/DirectionTool'
+import { ThemeTool } from './theme/ThemeTool'
 
 addons.register(ADDON_ID, () => {
   const match = ({ viewMode }: { viewMode?: string }) =>

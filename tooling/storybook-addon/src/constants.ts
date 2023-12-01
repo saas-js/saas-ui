@@ -1,4 +1,4 @@
-export const ADDON_ID = '@saas-ui/storybook-addon'
+export const ADDON_ID = '@saas-ui/storybook-addon2'
 export const COLOR_MODE_TOOL_ID = `${ADDON_ID}/color-mode-tool`
 export const DIRECTION_TOOL_ID = `${ADDON_ID}/direction-tool`
 export const THEME_TOOL_ID = `${ADDON_ID}/theme-tool`

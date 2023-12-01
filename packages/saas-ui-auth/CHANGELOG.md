@@ -1,5 +1,39 @@
 # @saas-ui/auth
 
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+  - @saas-ui/forms@2.3.2
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [3ddca73d]
+  - @saas-ui/core@2.2.1
+  - @saas-ui/forms@2.3.1
+
+## 2.2.0
+
+### Minor Changes
+
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [68995558]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/core@2.2.0
+  - @saas-ui/forms@2.3.0
+
 ## 2.1.0
 
 ### Minor Changes

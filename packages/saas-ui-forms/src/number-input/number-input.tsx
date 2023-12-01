@@ -42,7 +42,7 @@ export interface NumberInputProps
 
 export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
   const {
-    hideStepper,
+    hideStepper = false,
     incrementIcon = <ChevronUpIcon />,
     decrementIcon = <ChevronDownIcon />,
     placeholder,
@@ -65,9 +65,5 @@ export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
     </ChakraNumberInput>
   )
 })
-
-NumberInput.defaultProps = {
-  hideStepper: false,
-}
 
 NumberInput.displayName = 'NumberInput'

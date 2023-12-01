@@ -17,6 +17,8 @@ import { sidebarTheme } from './sidebar'
 import { selectTheme } from './select'
 import { structuredListTheme } from './structured-list'
 import { timelineTheme } from './timeline'
+import { iconBadgeTheme } from './icon-badge'
+import { navbarTheme } from './navbar'
 
 export { appShellTheme as SuiAppShell } from './app-shell'
 export { bannerTheme as SuiBanner } from './banner'
@@ -37,6 +39,8 @@ export { selectTheme as SuiSelect } from './select'
 export { sidebarTheme as SuiSidebar } from './sidebar'
 export { structuredListTheme as SuiStructuredList } from './structured-list'
 export { timelineTheme as SuiTimeline } from './timeline'
+export { iconBadgeTheme as SuiIconBadge } from './icon-badge'
+export { navbarTheme as SuiNavbarTheme } from './navbar'
 
 export const components = {
   SuiAppShell: appShellTheme,
@@ -58,4 +62,6 @@ export const components = {
   SuiSelect: selectTheme,
   SuiSidebar: sidebarTheme,
   SuiTimeline: timelineTheme,
+  SuiIconBadge: iconBadgeTheme,
+  SuiNavbar: navbarTheme,
 }

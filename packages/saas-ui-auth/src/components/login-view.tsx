@@ -16,22 +16,26 @@ import { AuthFormSuccess } from './success'
 export const LoginView: React.FC<AuthViewOptions & AuthFormOptions> = (
   props
 ) => {
+  const { title = 'Log in', submitLabel = 'Log in', ...rest } = props
   if (props.type === 'password') {
-    return <PasswordView {...props} />
+    return <PasswordView title={title} submitLabel={submitLabel} {...rest} />
   }
 
-  return <MagicLinkView {...props} />
+  return <MagicLinkView title={title} submitLabel={submitLabel} {...rest} />
 }
 
 export const SignupView: React.FC<AuthViewOptions & AuthFormOptions> = (
   props
 ) => {
-  return <LoginView action="signUp" {...props} />
-}
-
-SignupView.defaultProps = {
-  title: 'Sign up',
-  submitLabel: 'Sign up',
+  const { title = 'Sign up', submitLabel = 'Sign up', ...rest } = props
+  return (
+    <LoginView
+      action="signUp"
+      title={title}
+      submitLabel={submitLabel}
+      {...rest}
+    />
+  )
 }
 
 SignupView.displayName = 'SignupView'
@@ -160,11 +164,6 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
   )
 }
 
-LoginView.defaultProps = {
-  title: 'Log in',
-  submitLabel: 'Log in',
-}
-
 LoginView.displayName = 'LoginView'
 
 interface AuthFormWrapperProps
@@ -176,8 +175,8 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
   const {
     providers,
     title,
-    providerLabel,
-    dividerLabel,
+    providerLabel = 'Continue with',
+    dividerLabel = 'or continue with',
     footer,
     children,
     oauthRedirectUrl,
@@ -214,12 +213,6 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
       {footer}
     </AuthFormContainer>
   )
-}
-
-AuthFormWrapper.defaultProps = {
-  type: 'magiclink',
-  providerLabel: 'Continue with',
-  dividerLabel: 'or continue with',
 }
 
 AuthFormWrapper.displayName = 'AuthForm'

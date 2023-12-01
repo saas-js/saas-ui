@@ -26,8 +26,8 @@ export interface OtpFormProps<Params extends FieldValues = OtpSubmitParams>
 
 export const OtpForm: React.FC<OtpFormProps> = ({
   submitLabel = 'Verify',
-  otpLabel,
-  helpText,
+  otpLabel = 'Your verification code',
+  helpText = 'You can find your one-time password in the Google Authenticator or Authy app.',
   pinLength = 4,
   defaultValues,
   children,
@@ -53,13 +53,6 @@ export const OtpForm: React.FC<OtpFormProps> = ({
       </FormLayout>
     </Form>
   )
-}
-
-OtpForm.defaultProps = {
-  helpText:
-    'You can find your one-time password in the Google Authenticator or Authy app.',
-  submitLabel: 'Verify',
-  otpLabel: 'Your verification code',
 }
 
 OtpForm.displayName = 'OtpForm'

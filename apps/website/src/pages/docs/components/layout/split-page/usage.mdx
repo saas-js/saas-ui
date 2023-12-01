@@ -39,7 +39,7 @@ import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
 export default function Basic() {
   return (
     <AppShell>
-      <SplitPage>
+      <SplitPage breakpoint="sm">
         <Page borderRightWidth="1px" width="30%" maxW="300px">
           <PageHeader title="Inbox" />
           <PageBody p="0"></PageBody>
@@ -65,64 +65,7 @@ import {
 } from '@saas-ui/react'
 import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
 
-export default function Basic() {
-  return (
-    <AppShell>
-      <SplitPage>
-        <Page borderRightWidth="1px" width="30%" maxW="300px">
-          <PageHeader title="Inbox" />
-          <PageBody p="0">
-            <StructuredList>
-              <StructuredListItem href="#">
-                <StructuredListCell width="14">
-                  <PersonaAvatar
-                    name="Elliot Alderson"
-                    size="sm"
-                    presence="online"
-                  />
-                </StructuredListCell>
-                <StructuredListCell flex="1">
-                  <Text fontWeight="bold">A bug is never just a mistake.</Text>
-                  <Text fontSize="sm" color="muted" noOfLines={2}>
-                    <Text as="span" color="app-text">
-                      Elliot Alderson
-                    </Text>{' '}
-                    — It represents something bigger. An error of thinking that
-                    makes you who you are.
-                  </Text>
-                </StructuredListCell>
-              </StructuredListItem>
-            </StructuredList>
-          </PageBody>
-        </Page>
-        <Page>
-          <PageHeader
-            title="Elliot Alderson"
-            description="A bug is never just a mistake"
-          />
-          <PageBody></PageBody>
-        </Page>
-      </SplitPage>
-    </AppShell>
-  )
-}
-```
-
-### With responsive content
-
-```jsx height=400px overflow=hidden
-import { Text } from '@chakra-ui/react'
-import {
-  AppShell,
-  EmptyState,
-  StructuredList,
-  StructuredListItem,
-  StructuredListCell,
-  PersonaAvatar,
-} from '@saas-ui/react'
-import { SplitPage, Page, PageHeader, PageBody } from '@saas-ui-pro/react'
-
-const breakpoints = { base: true, xl: false }
+const breakpoints = { base: true, sm: false }
 
 function InboxMessage() {
   const { onClose } = useSplitPage()
@@ -168,7 +111,7 @@ function InboxList() {
 export default function Inbox() {
   return (
     <AppShell>
-      <SplitPage defaultIsOpen={true} breakpoint="xl">
+      <SplitPage defaultIsOpen={true} breakpoint="sm">
         <Page borderRightWidth="1px" width="30%" maxW="300px">
           <PageHeader title="Inbox" />
           <PageBody p="0">
@@ -200,7 +143,7 @@ function Queries() {
   const { onOpen } = useSplitPage()
   return (
     <StructuredList>
-      <StructuredListItem onClick={() => onOpen}>
+      <StructuredListItem onClick={() => onOpen()}>
         <StructuredListIcon color="muted">
           <FiCode />
         </StructuredListIcon>
@@ -213,15 +156,9 @@ function Queries() {
 }
 
 export default function Vertical() {
-  const breakpoints = { base: false }
-
   return (
     <AppShell>
-      <SplitPage
-        defaultIsOpen={false}
-        breakpoints={breakpoints}
-        orientation="vertical"
-      >
+      <SplitPage defaultIsOpen={false} breakpoint="sm" orientation="vertical">
         <Page borderBottomWidth="1px" height="30%">
           <PageHeader title="Queries" />
           <PageBody p="0">

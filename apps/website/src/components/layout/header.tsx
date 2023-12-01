@@ -1,9 +1,39 @@
 import * as React from 'react'
 
-import { Box, BoxProps, Container, HStack } from '@chakra-ui/react'
+import { Box, BoxProps, Button, Container, HStack } from '@chakra-ui/react'
 import Navigation from './navigation'
 import Logo from './logo'
 import { useScroll } from 'framer-motion'
+import {
+  Banner,
+  BannerActions,
+  BannerContent,
+  BannerDescription,
+  BannerTitle,
+} from '@saas-ui/react'
+import { ButtonLink } from '../link'
+
+const GlobalBanner = () => {
+  return (
+    <Banner
+      variant="solid"
+      colorScheme="primary"
+      display="flex"
+      justifyContent="center"
+    >
+      <BannerContent alignItems="center" justifyContent="center">
+        <BannerTitle>Black Friday Sale 🤩</BannerTitle>
+        <BannerDescription>
+          Use code <strong>BLACKFRIDAY30</strong> and get{' '}
+          <strong>30% OFF</strong>
+        </BannerDescription>
+        <BannerActions>
+          <ButtonLink href="/pricing">Buy now</ButtonLink>
+        </BannerActions>
+      </BannerContent>
+    </Banner>
+  )
+}
 
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 

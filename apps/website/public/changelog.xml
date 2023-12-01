@@ -7,9 +7,41 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 15 Sep 2023 12:56:55 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 24 Nov 2023 12:34:09 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/11-24-2023</guid>
+    <title>Nov 24, 2023</title>
+    <link>https://saas-ui.dev/changelog/11-24-2023</link>
+    <description>
+## 11-23-2023
+
+`@saas-ui/react@2.4.0`
+
+- Added new Navbar component 🥳
+- Fixed issue where width wo...</description>
+    <pubDate>Fri, 24 Nov 2023 12:34:09 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/10-20-2023</guid>
+    <title>Oct 20, 2023</title>
+    <link>https://saas-ui.dev/changelog/10-20-2023</link>
+    <description>
+## 10-20-2023
+
+`@saas-ui/react@2.3.0`
+
+- Zod schema enum types now render a Select by default
+- Fix...</description>
+    <pubDate>Fri, 20 Oct 2023 11:20:10 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/09-15-2023</guid>
     <title>Sep 15, 2023</title>

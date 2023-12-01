@@ -1,7 +1,8 @@
-import { useAddonState } from '@storybook/api'
+import * as React from 'react'
 import { IconButton } from '@storybook/components'
-import { addons } from '@storybook/addons'
-import { ADDON_ID, EVENTS } from '../../constants'
+import { addons } from '@storybook/manager-api'
+
+import { EVENTS } from '../constants'
 
 const MoonIcon = () => (
   <svg viewBox="0 0 24 24" focusable="false">
@@ -34,28 +35,23 @@ const SunIcon = () => (
   </svg>
 )
 
-/**
- * This component is rendered in the Storybook toolbar
- */
 export const ColorModeTool = () => {
   const isDarkMode = localStorage.getItem('chakra-ui-color-mode') === 'dark'
-  const [darkMode, setDarkMode] = useAddonState(
-    `${ADDON_ID}/dark-mode`,
-    isDarkMode
-  )
+
+  const [darkMode, setDarkMode] = React.useState(isDarkMode)
 
   const channel = addons.getChannel()
 
-  const toggleDarkMode = () => {
+  const handleToggle = () => {
     channel.emit(EVENTS.TOGGLE_COLOR_MODE, !darkMode ? 'dark' : 'light')
-    setDarkMode(!darkMode)
+    setDarkMode((prev) => !prev)
   }
 
   return (
     <IconButton
-      active={darkMode}
       title={`Set color mode to ${darkMode ? 'light' : 'dark'}`}
-      onClick={toggleDarkMode}
+      active={darkMode}
+      onClick={handleToggle}
     >
       {darkMode ? <SunIcon /> : <MoonIcon />}
     </IconButton>

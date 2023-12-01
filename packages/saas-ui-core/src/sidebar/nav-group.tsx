@@ -115,8 +115,8 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
   const {
     title,
     icon,
-    isCollapsible,
-    defaultIsOpen,
+    isCollapsible = true,
+    defaultIsOpen = true,
     onOpen,
     onClose,
     children,
@@ -124,7 +124,10 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
   } = props
   const styles = useMultiStyleConfig('SuiNavGroup', props)
 
-  const collapse = useCollapse(props)
+  const collapse = useCollapse({
+    ...props,
+    defaultIsOpen,
+  })
   const { getCollapseProps } = collapse
 
   let header = title
@@ -159,8 +162,3 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
 }
 
 NavGroup.displayName = 'NavGroup'
-
-NavGroup.defaultProps = {
-  defaultIsOpen: true,
-  isCollapsible: false,
-}

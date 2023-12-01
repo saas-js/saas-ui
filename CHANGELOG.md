@@ -8,6 +8,33 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 12-01-2023
+
+`@saas-ui/react@2.4.3`
+
+- Fixed issue where SubmitButton would not properties from form fields prop
+- Fixed NavLink line height
+
+**Auth** `v2.3.0`
+
+- Fixed redirect property for oauth providers and add support for scopes
+
+**Forms** `v2.3.3`
+
+- Fixed issue where SubmitButton would not properties from form fields prop
+
+**Core** `v2.2.3`
+
+- Fixed prop types of OverflowMenu
+
+**Supabase** `v2.1.1`
+
+- Added support for scopes
+
+**Theme** `v2.2.2`
+
+- Fixed NavLink line height
+
 ## 11-23-2023
 
 `@saas-ui/react@2.4.0`

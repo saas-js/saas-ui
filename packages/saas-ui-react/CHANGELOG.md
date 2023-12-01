@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.4.3
+
+### Patch Changes
+
+- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields prop
+- 537804bf: Fixed NavLink line height
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [537804bf]
+  - @saas-ui/forms@2.3.3
+  - @saas-ui/core@2.2.3
+  - @saas-ui/theme@2.2.2
+  - @saas-ui/modals@2.1.10
+  - @saas-ui/data-table@6.0.3
+  - @saas-ui/hotkeys@2.1.9
+
 ## 2.4.2
 
 ### Patch Changes

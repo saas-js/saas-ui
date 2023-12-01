@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/supabase",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Saas UI Supabase integration",
   "source": "src/index.ts",
   "exports": {
@@ -59,7 +59,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@saas-ui/auth": "^2.1.0"
+    "@saas-ui/auth": "^2.3.0"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",

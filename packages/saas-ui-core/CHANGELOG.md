@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.2.3
+
+### Patch Changes
+
+- d5ca55e4: Fixed prop types of OverflowMenu
+- Updated dependencies [537804bf]
+  - @saas-ui/theme@2.2.2
+
 ## 2.2.2
 
 ### Patch Changes

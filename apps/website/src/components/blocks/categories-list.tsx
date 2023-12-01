@@ -27,7 +27,11 @@ export function CategoriesList({
 
     return (
       <div key={group.name}>
-        <SimpleGrid id="cards-grid" columns={4} spacing="8">
+        <SimpleGrid
+          id="cards-grid"
+          columns={{ base: 1, md: 2, xl: 4 }}
+          spacing="8"
+        >
           {cards}
         </SimpleGrid>
       </div>

@@ -178,7 +178,13 @@ const Home = () => {
                   </HStack>
                 </FallInPlace>
                 <FallInPlace delay={1} initialInView>
-                  <ButtonGroup spacing={4} alignItems="center">
+                  <ButtonGroup
+                    spacing="0"
+                    gap={4}
+                    alignItems="stretch"
+                    justifyContent="stretch"
+                    flexDirection={{ base: 'column', lg: 'row' }}
+                  >
                     <ButtonLink colorScheme="primary" size="lg" href="/pricing">
                       View Pricing
                     </ButtonLink>

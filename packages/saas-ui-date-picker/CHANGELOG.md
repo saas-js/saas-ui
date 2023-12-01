@@ -1,5 +1,13 @@
 # @saas-ui/date-picker
 
+## 0.12.10
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/core@2.2.3
+  - @saas-ui/modals@2.1.10
+
 ## 0.12.9
 
 ### Patch Changes

@@ -7,11 +7,10 @@ import {
   MenuListProps,
   IconButton,
   ThemeTypings,
-  SystemProps,
 } from '@chakra-ui/react'
 import { MoreIcon } from './icons'
 
-export interface OverflowMenuProps extends MenuProps {
+export interface OverflowMenuProps extends Omit<MenuProps, 'size'> {
   /**
    * The button (aria) label.
    */
@@ -26,10 +25,10 @@ export interface OverflowMenuProps extends MenuProps {
   /**
    * The MenuButton size
    */
-  size?: 'Button' extends keyof ThemeTypings['components']
+  size?: 'IconButton' extends keyof ThemeTypings['components']
     ? /* @ts-ignore */
-      ThemeTypings['components']['Button']['sizes']
-    : SystemProps['boxSize']
+      ThemeTypings['components']['IconButton']['sizes']
+    : string
   /**
    * Props passed to the MenuList.
    */

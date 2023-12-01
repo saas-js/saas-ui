@@ -62,7 +62,8 @@ const Header = () => {
   return (
     <HStack flex="1" ps="4">
       <HStack spacing="1" flexShrink={0} flex="1" justifyContent="flex-start">
-        {headerNav.map(({ href, id, ...props }, i) => {
+        {headerNav.map(({ href, id, authenticated, ...props }, i) => {
+          if (authenticated && !isAuthenticated) return null
           return (
             <NavLink
               display={{ base: 'none', lg: 'block' }}

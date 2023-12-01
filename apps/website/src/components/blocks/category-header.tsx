@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Heading, Link, Center, Box } from '@chakra-ui/react'
+import { Heading, Link, Center, Box, Icon } from '@chakra-ui/react'
 import { FiArrowLeft } from 'react-icons/fi'
 import { Category } from '../../data/blocks'
 
@@ -13,11 +13,19 @@ export function CategoryHeader({ category }: CategoryHeaderProps) {
       <Link
         as={NextLink}
         href="/blocks"
+        role="group"
         display="inline-flex"
         alignItems="center"
         color="muted"
       >
-        <FiArrowLeft size="0.9rem" />
+        <Icon
+          as={FiArrowLeft}
+          transitionProperty="all"
+          transitionDuration="normal"
+          _groupHover={{
+            transform: 'translateX(-4px)',
+          }}
+        />
         <Box as="span" ml="1">
           Back to all categories
         </Box>

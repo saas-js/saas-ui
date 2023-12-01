@@ -11,6 +11,8 @@ import {
   ButtonGroup,
   Card,
   CardBody,
+  Button,
+  Box,
 } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
@@ -19,20 +21,30 @@ import { ButtonLink } from '@/components/link'
 import {
   useLocalStorage,
   Link,
-  Form,
   FormLayout,
-  Field,
   SubmitButton,
   useSnackbar,
 } from '@saas-ui/react'
 
+import { Form } from '@saas-ui/forms/zod'
+
+import * as z from 'zod'
+
 import { FaGithub, FaDiscord } from 'react-icons/fa'
 
 import confetti from 'canvas-confetti'
+import { useCurrentUser } from '@saas-ui/auth'
+import { User } from '@supabase/supabase-js'
 
 export function RedeemForm(props) {
   const router = useRouter()
   const snackbar = useSnackbar()
+
+  const user = useCurrentUser<User>()
+
+  const hasDiscord = user?.identities?.some(
+    (identity) => identity.provider === 'discord'
+  )
 
   const [data, setData] = useLocalStorage<{
     licenseKey: string
@@ -120,6 +132,19 @@ export function RedeemForm(props) {
       })
   }
 
+  useEffect(() => {
+    if (user && data?.licenseKey && !user.user_metadata?.licenses) {
+      fetch('/api/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          licenseKey: data.licenseKey,
+          githubAccount: data.githubAccount,
+        }),
+      })
+    }
+  }, [user, data])
+
   let content
 
   if (loading) {
@@ -151,14 +176,14 @@ export function RedeemForm(props) {
               .
             </Text>
           ) : (
-            'You will receive a Github invite shortly, depending on the timezone you are in.'
+            'You will receive a Github invite shortly.'
           )}
         </Text>
 
         <Text>
-          As an early adopter your opinion is very important to me, please
-          don&apos;t hestitate to reach out when you have any questions or
-          feedback, especially if you don&apos;t like something :)
+          Your opinion is very important to me, please don&apos;t hestitate to
+          reach out when you have any questions or feedback, especially if you
+          don&apos;t like something :)
         </Text>
 
         <Text>Here are some links to get your started.</Text>
@@ -200,21 +225,33 @@ export function RedeemForm(props) {
           licenseKey,
           githubAccount: '',
         }}
+        minW="400px"
+        schema={z.object({
+          licenseKey: z.string().min(1, 'License key is required'),
+          githubAccount: z
+            .string()
+            .regex(
+              /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i,
+              'Please enter a valid Github username'
+            ),
+        })}
       >
-        <FormLayout>
-          <Field
-            name="licenseKey"
-            label="License key"
-            rules={{ required: true }}
-          />
-          <Field
-            name="githubAccount"
-            label="Github username"
-            rules={{ required: true }}
-          />
+        {({ Field }) => (
+          <FormLayout>
+            <Field
+              name="licenseKey"
+              label="License key"
+              rules={{ required: true }}
+            />
+            <Field
+              name="githubAccount"
+              label="Github username"
+              rules={{ required: true }}
+            />
 
-          <SubmitButton>Redeem</SubmitButton>
-        </FormLayout>
+            <SubmitButton>Redeem</SubmitButton>
+          </FormLayout>
+        )}
       </Form>
     )
   }

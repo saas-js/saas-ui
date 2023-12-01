@@ -1,33 +1,25 @@
 import React, { useState } from 'react'
-import {
-  Box,
-  Card,
-  CardBody,
-  ChakraProvider,
-  Stack,
-  useTheme,
-} from '@chakra-ui/react'
+import { Box, Card, CardBody, Stack } from '@chakra-ui/react'
 import * as UiComponents from '../../../../../packages/pro/saas-ui/templates'
 import { UiComponent } from '../../data/blocks'
 import { ComponentPreview } from './component-preview'
 import { CanvasHeader } from './canvas-header'
 import { CodeTabs } from './code-tabs'
 import { useFetch } from 'use-http'
-import { useAuth } from '@saas-ui/auth'
+import { useAuth, useCurrentUser } from '@saas-ui/auth'
 import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
-
-import { theme } from '@saas-ui-pro/react'
-import { ChakraFrame } from '../code-panel/chakra-frame'
+import { User } from '@supabase/supabase-js'
 
 export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
-  const { isAuthenticated } = useAuth()
+  const user = useCurrentUser<User>()
   const [state, setState] = useState('preview')
   const [primaryColor, setPrimaryColor] = useState('blue')
   const [error, setError] = useState(false)
   const Component: any =
     UiComponents[props.component as keyof typeof UiComponents]
 
-  const isUnlocked = isAuthenticated || props.attributes.public
+  const isUnlocked =
+    user?.user_metadata.licenses?.length || props.attributes.public
 
   const [code, setCode] = useState(props.code)
   const { get, response } = useFetch(
@@ -49,7 +41,7 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
     } else {
       setError(true)
     }
-  }, [isAuthenticated])
+  }, [isUnlocked])
 
   return (
     <Box overflow="hidden" mb="20">

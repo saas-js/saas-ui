@@ -10,6 +10,7 @@ import {
   LinkBox,
   LinkOverlay,
   AspectRatio,
+  Flex,
 } from '@chakra-ui/react'
 import { Category } from '../../data/blocks'
 
@@ -19,10 +20,6 @@ export interface CategoryCardProps {
 }
 
 export function CategoryCard({ count, category }: CategoryCardProps) {
-  const {
-    images: { light: LightImage, dark: DarkImage },
-  } = category
-
   const imgStyles = {
     transitionProperty: 'all',
     transitionDuration: 'normal',
@@ -51,7 +48,8 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
       role="group"
       overflow="hidden"
     >
-      <Box
+      <Flex
+        flexDirection="column"
         // bgGradient="linear(to-bl,white, gray.100)"
         bg="gray.100"
         _dark={{
@@ -60,6 +58,8 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
         }}
         overflow="hidden"
         px="8"
+        alignItems="center"
+        justifyItems="center"
       >
         <Image
           src={category.images.light}
@@ -73,7 +73,7 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
           _light={{ display: 'none' }}
           {...imgStyles}
         />
-      </Box>
+      </Flex>
       <CardBody>
         <Heading as="h4" size="sm" fontWeight="medium">
           <LinkOverlay as={Link} href={`/blocks/${category.slug}`}>

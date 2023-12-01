@@ -24,7 +24,7 @@ export function CategoryPage({ category, components }: CategoryPageProps) {
       <Head>
         <title>{`${category.name} | Saas UI`}</title>
       </Head>
-      <Container maxWidth="container.2xl" px="8" py="20">
+      <Container maxWidth="container.xl" px="8" py="20">
         <CategoryHeader category={category} />
         {canvases}
       </Container>

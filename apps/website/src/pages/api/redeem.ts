@@ -1,6 +1,27 @@
+import { createServerClient } from '@/lib/supabase'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import fetch from 'node-fetch'
+
+const syncLicense = async (req: NextApiRequest, res: NextApiResponse) => {
+  const supabase = createServerClient(req, res)
+  const { data } = await supabase.auth.getUser()
+
+  await supabase.auth.updateUser({
+    data: {
+      licenses: [
+        {
+          licenseKey: req.body.licenseKey,
+          githubAccount: req.body.githubAccount,
+        },
+      ].concat(
+        (data.user?.user_metadata.licenses || []).filter(
+          ({ licenseKey }) => licenseKey !== req.body.licenseKey
+        )
+      ),
+    },
+  })
+}
 
 const sendDiscordNotification = async ({
   licenseKey,
@@ -211,6 +232,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         error: result.error,
       })
       return res.status(200).json({ success: false, error: result.error })
+    }
+
+    try {
+      syncLicense(req, res)
+    } catch (err) {
+      console.error('[Supabase]', err)
     }
 
     const githubInvited = await addGithubCollaborator(req.body.githubAccount)

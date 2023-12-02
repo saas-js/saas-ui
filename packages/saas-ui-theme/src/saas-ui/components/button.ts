@@ -5,6 +5,7 @@ type Dict = Record<string, any>
 
 export const getStateColors = (props: Dict) => {
   const { colorScheme: c } = props
+
   if (c === 'gray') {
     return {
       base: mode('gray.100', 'whiteAlpha.300')(props),
@@ -53,7 +54,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 }
 
 const variantSolid = defineStyle((props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c, colorMode } = props
 
   if (c === 'white') {
     return {
@@ -76,6 +77,41 @@ const variantSolid = defineStyle((props) => {
       },
       _disabled: {
         color: 'blackAlpha.700',
+      },
+    }
+  }
+
+  if (c === 'neutral') {
+    return {
+      bg: 'black',
+      color: 'white',
+      _dark: {
+        bg: 'white',
+        color: 'black',
+      },
+      _hover: {
+        bg: `blackAlpha.800`,
+        _disabled: {
+          bg: 'black',
+        },
+        _dark: {
+          bg: 'whiteAlpha.800',
+          _disabled: {
+            bg: 'white',
+          },
+        },
+      },
+      _active: {
+        bg: `blackAlpha.800`,
+        _dark: {
+          bg: 'whiteAlpha.800',
+        },
+      },
+      _disabled: {
+        color: 'blackAlpha.700',
+        _dark: {
+          color: 'whiteAlpha.700',
+        },
       },
     }
   }

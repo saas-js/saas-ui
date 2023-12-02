@@ -1,0 +1,768 @@
+---
+author: 'Subha Chanda'
+title: 'Building a Modern SaaS Dashboard with Saas UI and Next.js App Router'
+description: "Dashboards are essential for every SaaS app, and UI libraries do help you build them fast. Let's look at how Saas UI can help."
+date: '2023-12-02'
+tags:
+  [
+    'nextjs',
+    'react',
+    'next app router',
+    'saas ui',
+    'dashboard',
+    'app development',
+  ]
+---
+
+![](https://cdn-images-1.medium.com/max/1600/0*Bca0aG3lWN0MIBti)
+
+### Introduction
+
+The global SaaS or Software as a Service market size is increasing at an incredible pace. In 2022, the market size was [valued at USD 237.48 billion](https://www.fortunebusinessinsights.com/software-as-a-service-saas-market-102222). And it is expected to grow to USD 908.21 billion by 2030.
+
+For aspiring indie developers venturing into the realm of SaaS - regardless of your business niche - is the user-facing dashboard. This dashboard functions as a centralized nexus, orchestrating the monitoring, analysis, and visualization of data stemming from your application. There's just no substitute for a good administrative dashboard.
+
+Building an efficient, responsive, and good-looking dashboard can take significant time. However, if you'd rather prioritize channeling your energy into product refinement rather than exhaustive UI/UX design, [Saas UI](https://saas-ui.dev/) can be a great addition to your UI kit for building smooth and beautiful dashboards. Saas UI provides a comprehensive set of design components, and combining it with a Next.js 14 application serves as a powerful foundation for any SaaS application.
+
+[**Saas UI**: The React component library for Startups](https://saas-ui.dev/)
+
+The objective of this article is to guide you through the process of building a modern dashboard for a SaaS app using Saas UI and the Next.js app router.
+
+![Dashboard with Next.js and SaaS UI](/img/blog/dashboard/dashboard.png)
+
+Let's get started!
+
+### Building a Modern Dashboard App with Saas UI and Next.js App Router
+
+Saas UI is a React component library and a starter kit that helps you build intuitive SaaS products with speed. It provides accessible, themeable, and composable UI elements that look and feel great. It is based on Chakra and includes 40 essential elements that are open-sourced.
+
+On the other hand, [Next.js](https://nextjs.org/) is a React framework that allows you to create full-stack web applications by extending the latest React features. It offers a powerful combination of server-side rendering, efficient client-side navigation, and a robust development ecosystem. The latest iteration - NextJS 14 - provides intuitive layouts and routing, improved SEO, and additional features like built-in font, image, script optimization, and, critically, React server components...with one cat
+
+Combining the two can help you build high-performance, responsive, data-dense dashboards with speed.
+
+Let's begin by creating a Next.js project and setting it up.
+
+### Setting Up the Next.js Project
+
+Scaffolding a new Next.js application using the Next.js CLI is very simple.
+
+```bash
+npx create-next-app@latest
+```
+
+Running the command will ask you a few questions about the project setup. To keep this tutorial straightforward, Typescript will not be used. Since Saas UI is built on top of Chakra UI, we also don't need Tailwind CSS.
+You can use the following options to set up the project:
+
+![Next.js configuration for creating a dashboard with SaaS UI](https://cdn-images-1.medium.com/max/1600/0*YDH8ZKYe3w4rzna1)
+
+Once the required packages install successfully, you are ready to install the Saas UI. Installing Saas UI is straightforward. Let's set up the Next.js application using Saas UI.
+
+### Installing Saas UI
+
+First, run the following command in your terminal to install the required packages:
+
+```bash
+npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```
+
+Here's a brief explanation of these packages:
+
+- `@saas-ui/react`: Saas UI itself.
+- `@chakra-ui/react`: The Chakra UI package for React. Saas UI is built on top of Chakra UI, so it needs it as a dependency.
+- `@chakra-ui/next-js`: Chakra UI package for smoother integration with Next.js's app router. It gives us the `<CacheProvider>` that we'll need to ensure Chakra's computed styles play nice with Next.js's Streaming SSR.
+- `@emotion/react`: For CSS-in-JS. It is a Chakra UI dependency.
+- `@emotion/styled`: The styled API for `@emotion/react`.
+- `framer-motion`: For animations. Another ChakraUI dependency.
+
+We also want to add some nice icons.
+
+```bash
+npm i react-icons
+```
+
+Once the packages are successfully installed, create a new file called _providers.jsx_ inside the app directory. Paste the following content in it:
+
+```tsx
+'use client'
+
+import { CacheProvider } from '@chakra-ui/next-js'
+import { SaasProvider } from '@saas-ui/react'
+
+export function Providers({ children }) {
+  return (
+    <CacheProvider>
+      <SaasProvider>{children}</SaasProvider>
+    </CacheProvider>
+  )
+}
+```
+
+The `SaasProvider` adds the Saas UI theme to your application. It also provides the `ChakraProvider` and `ColorModeProvider` from Chakra UI.
+
+Chakra UI (and by extension, Saas UI) make extensive use of React context, and thus are client components.
+To make your life easier, all components are annotated with `'use client'` directives, so they can simply be used in your server components.
+
+The `@chakra-ui/next-js` package provides the `CacheProvider` for smoother integration into the Next.js app router setup - composing [Emotion's cache provider](https://emotion.sh/docs/cache-provider) with Next.js's new [_useServerInsertedHTML_ hook](https://nextjs.org/docs/app/building-your-application/styling/css-in-js#configuring-css-in-js-in-app) to make sure Chakra UI generated styles are included in the initial server payload for Streaming SSR.
+
+So, import this `providers.jsx` file into your root component - the `layout.js` file. The `layout.js` file inside the `src` directory works as a top-level layout for your entire application.
+
+At this point, remove everything from the `layout.js` file and paste the following content to it:
+
+```tsx
+import { Providers } from './providers'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+The code here is simple. Only the _Providers_ component we built before is imported, and it wraps all children components, allowing you to use the Saas UI components throughout your application.
+
+The initial setup for Saas UI is now complete. Now, let's explore the different parts of our dashboard design and see how we can implement them using Saas UI components.
+
+### Designing a Dashboard
+
+We're sticking to only the Users administrative section for our Dashboard design. We will have four components, essentially.
+
+1.  A sidebar, for navigation.
+2.  A summary section to provide KPI numbers to admin users at a glance
+3.  A recent activity section to show new signups, plan changes, cancellations, etc.
+4.  A list of users. This will be the main component of this page.
+
+Let's make our way down this list.
+
+#### 1. The Sidebar
+
+Sidebars are usually the most common type of navigation. It can take quite some time if you want to create it from scratch, but Saas UI makes it super easy. It provides a component called [_AppShell_](https://saas-ui.dev/docs/components/layout/app-shell). _AppShell_ offers a collection of components that can be shared throughout the application, consisting of a header, content aside, footer - and you guessed it, a [Sidebar](https://saas-ui.dev/docs/components/layout/sidebar).
+
+Create a new folder called `components` inside your src directory and create a file called `SidebarLayout.jsx` inside it. Once the file is created, paste the following code inside it:
+
+```tsx
+import {
+  Box,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Spacer,
+} from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarSection,
+  NavItem,
+  PersonaAvatar,
+  SidebarToggleButton,
+} from '@saas-ui/react'
+
+import { FiBarChart, FiHome, FiSettings, FiUsers } from 'react-icons/fi'
+
+import Image from 'next/image'
+
+import Logo from 'public/logoipsum-288.svg'
+
+export function SidebarLayout({ children }) {
+  return (
+    <AppShell
+      height="$100vh"
+      fontSize="md"
+      sidebar={
+        <Sidebar width="25%" bg="gray.100">
+          <SidebarToggleButton />
+          <SidebarSection direction="row">
+            <Image src={Logo} width="100" alt="Logo" />
+            <Spacer />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={
+                  <PersonaAvatar presence="online" size="xs" name="John Doe" />
+                }
+                variant="ghost"
+              />
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
+          <SidebarSection flex="1" overflowY="auto">
+            <NavItem icon={<FiHome size="1.1em" />}>Home</NavItem>
+            <NavItem icon={<FiUsers size="1.1em" />} isActive={true}>
+              Users
+            </NavItem>
+            <NavItem icon={<FiBarChart size="1.1em" />}>Analytics</NavItem>
+            <NavItem icon={<FiSettings size="1.1em" />}>Settings</NavItem>
+          </SidebarSection>
+        </Sidebar>
+      }
+    >
+      <Box as="main" overflow="auto" py="6" px="8" fontSize="md">
+        {children}
+      </Box>
+    </AppShell>
+  )
+}
+```
+
+> ⚠️ As you can see, we didn't add the `'use client'` directive, since this is already added by Chakra and Saas UI internally, you can safely use the components in your server components.
+
+The Logo is a placeholder SVG logo for demonstration purposes. You can [download it from here](https://github.com/nemo0/nextjs-saas-ui/blob/main/public/logoipsum-288.svg) if you want to use the same.
+
+Let's quickly go over this code.
+
+- The _AppShell_ component accepts a sidebar prop. This prop is used to pass JSX for displaying a sidebar, as a component.
+- The _Sidebar_ and _SidebarSection_ components themselves are available from the Saas UI package. The _Sidebar_ component consists of two SidebarSection's for our design: one for displaying the logo and user profile image and the other for displaying the navigation menu.
+- We'll also include Saas UI's _SidebarToggleButton_ for showing or hiding the Sidebar on mobile/tablet devices.
+- The navigation items for the Sidebar are wrapped inside the _NavItem_ component, imported from the Saas UI package. The _children_ prop is provided inside the _Box_ component to display the child elements.
+- The _PersonaAvatar_ component in the above code is used for displaying the user's profile image. It is imported from the Saas UI package. You can provide a _src_ prop to it containing an image URL, and it'll display the image. If you don't want to display the image, pass another prop called _name_ with the user's name. In this case, it's _John Doe_, and it will display the initial of the name inside it. You can also provide a _presence_ prop that can either be _online_, _offline_, _busy_, _dnd_, or _away_. You can see more [in the docs](https://saas-ui.dev/docs/components/data-display/persona).
+- For an accessible dropdown menu that is Tab navigable, [_Menu_](https://chakra-ui.com/docs/components/menu/usage), _MenuItem_, _MenuButton_, _MenuList_, etc., are imported from the Chakra UI library. Check [docs](https://chakra-ui.com/docs/components) here for a better understanding of their functionalities.
+
+There's one last thing to add and that is a color mode switch, so users can switch between light and dark mode.
+We can use the `useColorMode` hook from Chakra UI to do this. Add the following code to the `SidebarLayout.jsx` file:
+
+```tsx
+'use client'
+
+import {
+  Box,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Spacer,
+  useColorMode,
+} from '@chakra-ui/react'
+import {
+  AppShell,
+  Sidebar,
+  SidebarSection,
+  NavItem,
+  PersonaAvatar,
+  SidebarToggleButton,
+} from '@saas-ui/react'
+
+import {
+  FiBarChart,
+  FiHome,
+  FiMoon,
+  FiSettings,
+  FiSun,
+  FiUsers,
+} from 'react-icons/fi'
+
+import Image from 'next/image'
+
+import Logo from 'public/logoipsum-288.svg'
+
+export function SidebarLayout({ children }) {
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  return (
+    <AppShell
+      height="$100vh"
+      fontSize="md"
+      sidebar={
+        <Sidebar width="25%" bg="gray.100">
+          <SidebarToggleButton />
+          <SidebarSection direction="row">
+            <Image src={Logo} width="100" alt="Logo" />
+            <Spacer />
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={
+                  <PersonaAvatar presence="online" size="xs" name="John Doe" />
+                }
+                variant="ghost"
+              />
+              <MenuList>
+                <MenuItem>Sign out</MenuItem>
+              </MenuList>
+            </Menu>
+          </SidebarSection>
+          <SidebarSection flex="1" overflowY="auto">
+            <NavItem icon={<FiHome size="1.2em" />}>Home</NavItem>
+            <NavItem icon={<FiUsers size="1.2em" />} isActive={true}>
+              Users
+            </NavItem>
+            <NavItem icon={<FiBarChart size="1.2em" />}>Analytics</NavItem>
+            <NavItem icon={<FiSettings size="1.2em" />}>Settings</NavItem>
+          </SidebarSection>
+          <SidebarSection alignItems="flex-start">
+            <IconButton
+              icon={colorMode === 'dark' ? <FiMoon /> : <FiSun />}
+              aria-label="Toggle color mode"
+              onClick={toggleColorMode}
+            />
+          </SidebarSection>
+        </Sidebar>
+      }
+    >
+      <Box as="main" overflow="auto" py="6" px="8" fontSize="md">
+        {children}
+      </Box>
+    </AppShell>
+  )
+}
+```
+
+> Note that since we are using a hook here, we have to turns this into a client component by adding the `'use client'` directive.
+
+Now, open the `layout.js` file again and add the new SidebarLayout:
+
+```tsx
+import { Providers } from './providers'
+import SidebarLayout from '@/components/SidebarLayout'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>
+          <SidebarLayout>{children}</SidebarLayout>
+        </Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+The new SidebarLayout will now be used as the top-level layout for your application. You can now start building the dashboard components.
+
+#### 2. Data Table
+
+Dashboards are built to display large amounts of data in a more readable format. A data table makes it easier. Let's implement a [data table with Saas UI](https://saas-ui.dev/docs/components/data-display/data-table) now. But before that, let's fetch some data to display in the data table.
+
+You'll be using the [JSON Placeholder API](https://jsonplaceholder.typicode.com/) to fetch user data. Our parent component - _page.js_ - is a Server Component by default. Being natively stateless and async, we can make the fetch API call directly here!
+
+Use the built-in [fetch method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to fetch the data. Change the code of this file according to the following code sample:
+
+```tsx
+export default async function Home() {
+  const COLUMNS = [
+    {
+      accessorKey: 'id',
+      header: 'ID',
+    },
+    {
+      accessorKey: 'name',
+      header: 'Name',
+    },
+    {
+      accessorKey: 'username',
+      header: 'Username',
+    },
+    {
+      accessorKey: 'email',
+      header: 'Email',
+    },
+    {
+      accessorKey: 'phone',
+      header: 'Phone',
+    },
+    {
+      accessorKey: 'website',
+      header: 'Website',
+    },
+  ]
+
+  const users = await fetch('https://jsonplaceholder.typicode.com/users').then(
+    (res) => res.json()
+  )
+
+  console.log(users)
+
+  return <div />
+}
+```
+
+At this moment, you are only fetching the data from the JSON Placeholder and converting it to a JSON object. The data table in Saas UI uses [TanStack Table](https://tanstack.com/table/v8) under the hood and usually takes two props - one for the table columns and the other one for data.
+
+The columns are hard-coded in this case, but they can be easily made dynamic using some JavaScript magic. The _accessorKey_ represents the identifier of the key, and the _header_ is the text that you want to show for the key.
+
+The data is returned and stored in the _users_ variable. Running your app will display the contents in your server console. Once the data fetching is done, let's create the data table component for displaying it.
+
+Create a new file inside the components directory and name it _DataTable.jsx_. Paste the below code into it:
+
+```tsx
+'use client'
+
+import { Card, CardBody } from '@chakra-ui/react'
+import { DataTable as DataTableRoot } from '@saas-ui/react'
+
+export function DataTable({ columns, data }) {
+  return (
+    <Card>
+      <CardBody overflowX="auto" px="0">
+        <DataTable columns={columns} data={data} />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+The DataTable component is built using the [_DataTable_ component](https://saas-ui.dev/docs/components/data-display/data-table) imported from Saas UI. The _DatatableComponent_ takes two props. One is for the columns, and the other is for the data. These props are passed into the columns and data props of the _DataTable_ component.
+
+Change the body of the page like this:
+
+```tsx
+import { Box } from '@chakra-ui/react'
+import { DataTable } from '@/components/DataTable'
+
+export default async function Home() {
+  const COLUMNS = [
+    {
+      accessorKey: 'id',
+      header: 'ID',
+    },
+    // ...
+  ]
+
+  // ...
+
+  return (
+    <Box overflowX="auto">
+      <Heading as="h2">Users</Heading>
+
+      <DataTable columns={COLUMNS} data={users} />
+    </Box>
+  )
+}
+```
+
+The _DataTable_ component accepts props like _isSortable_, _isSelectable_, etc. Passing these props into the component will allow you to either sort or select the data from the table. This component is now ready.
+You can also add a search box at the top of the datable using the [SearchInput component](https://saas-ui.dev/docs/components/forms/search-input) from the Saas UI package.
+Importing and using it is pretty straightforward. Inside the parent Box component of the _DatatableComponent_, paste the following code:
+
+```tsx
+import { Card, CardBody, CardHeader } from '@chakra-ui/react'
+import { DataTable as DataTableRoot, SearchInput } from '@saas-ui/react'
+
+export function DataTable({ columns, data }) {
+  return (
+    <Card>
+      <CardHeader>
+        <SearchInput width="40%" placeholder="Search" />
+      </CardHeader>
+      <CardBody overflowX="auto" px="0">
+        <DataTableRoot columns={columns} data={data} />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+It'll display the search box, take 40% width of the parent, and add a margin-bottom of 3 rem. You can bind it with your search API to make it functional.
+
+For the sake of this example we will connect the search box to the data table and use client side filtering.
+
+First we'll need to install React Table, since filtering is not enabled by default in the DataTable.
+
+```bash
+npm i @tanstack/react-table
+```
+
+Now change the `DataTable.jsx` file to the following:
+
+```tsx
+'use client'
+
+import React from 'react'
+import { Card, CardBody, CardHeader } from '@chakra-ui/react'
+import { DataTable as DataTableRoot, SearchInput } from '@saas-ui/react'
+import { getFilteredRowModel } from '@tanstack/react-table'
+
+export function DataTable({ columns, data }) {
+  const [globalFilter, setGlobalFilter] = React.useState('')
+
+  return (
+    <Card>
+      <CardHeader>
+        <SearchInput
+          width="40%"
+          placeholder="Search"
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+          onReset={() => setGlobalFilter('')}
+        />
+      </CardHeader>
+      <CardBody overflowX="auto" px="0">
+        <DataTableRoot
+          columns={columns}
+          data={data}
+          getFilteredRowModel={getFilteredRowModel()}
+          state={{ globalFilter }}
+          onGlobalFilterChange={setGlobalFilter}
+        />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+> Note that we added the `'use client'` here, this is because we're using `React.useState` which is a client side hook.
+
+That's it! Now you can search through the data table, it will do a fuzzy search on all columns.
+
+#### 3. Summary Display
+
+This is our simplest component. It exists just to display relevant company metrics in a high-visibility way, aiming to be the first thing the administrative user sees upon entering this section of the Dashboard.
+
+![Summary Display with Chakra UI](/img/blog/dashboard/summary.png)
+
+Create a new file called _Summary.jsx_ inside the components folder and paste the following code into it:
+
+```tsx
+import {
+  Box,
+  Card,
+  CardBody,
+  Grid,
+  GridItem,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
+} from '@chakra-ui/react'
+
+export function Summary({ currentUsersCount, oldUsersCount }) {
+  return (
+    <Box mb="8" w="full">
+      <Grid
+        templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }}
+        gap="4"
+        width="full"
+      >
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>Total Users</StatLabel>
+              <StatNumber>{currentUsersCount}</StatNumber>
+              <StatHelpText>
+                <StatArrow type="increase" />
+                80%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
+        </GridItem>
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>New Users (Q3 23)</StatLabel>
+              <StatNumber>{currentUsersCount - oldUsersCount}</StatNumber>
+              <StatHelpText>
+                <StatArrow type="increase" />
+                {((currentUsersCount - oldUsersCount) / oldUsersCount) * 100}%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
+        </GridItem>
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>Revenue</StatLabel>
+              <StatNumber> $12,345</StatNumber>
+              <StatHelpText>
+                <StatArrow type="increase" />
+                78%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
+        </GridItem>
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>Churn</StatLabel>
+              <StatNumber>0</StatNumber>
+              <StatHelpText>
+                <StatArrow type="" />
+                0%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
+        </GridItem>
+      </Grid>
+    </Box>
+  )
+}
+```
+
+The data this component needs will be passed to it as props from the parent server component.
+
+#### 4. Recent Activity
+
+This section uses Saas UI's [Timeline](https://saas-ui.dev/docs/components/data-display/timeline) component to display a list of events chronologically - user signups, plan changes, cancellations, and so on.
+
+![Recent Activity with Next.js and SaaS UI](/img/blog/dashboard/recent.png)
+
+The Timeline component can display a simple list of events, or - as we're doing here - custom content.
+
+The [TimelineIcon](https://saas-ui.dev/docs/components/data-display/timeline#colored-icons) component lets us customize the component/icon we want to use for each item, and we'll use the [Persona component](https://saas-ui.dev/docs/components/data-display/persona) here, again, to represent users, as each event in our Timeline has _something_ to do with a user.
+
+```tsx
+import { Card, CardBody, CardHeader, Heading, Text } from '@chakra-ui/react'
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineIcon,
+  TimelineTrack,
+  TimelineContent,
+  PersonaAvatar,
+} from '@saas-ui/react'
+
+export function Recent() {
+  return (
+    <Card variant="solid" bg="transparent">
+      <CardHeader pb="0">
+        <Heading as="h3" size="md">
+          Recent Activity
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <Timeline variant="outline">
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineIcon>
+                <PersonaAvatar
+                  name="Nicholas Runolfsdottir V"
+                  size="xs"
+                  presence="online"
+                />
+              </TimelineIcon>
+              <TimelineTrack />
+            </TimelineSeparator>
+            <TimelineContent pt="2" px="3">
+              <Text fontWeight="medium">Maxime_Nienow</Text>
+              <Text color="muted">signed up.</Text>
+            </TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineIcon>
+                <PersonaAvatar
+                  name="Clementine Bauch"
+                  size="xs"
+                  presence="dnd"
+                />
+              </TimelineIcon>
+              <TimelineTrack />
+            </TimelineSeparator>
+            <TimelineContent pt="2" px="3">
+              <Text fontWeight="medium">Samantha</Text>
+              <Text color="muted">subscription changed to </Text>
+              <Text>12_PREMIUM</Text>
+            </TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineIcon>
+                <PersonaAvatar
+                  name="Leanne Graham"
+                  size="xs"
+                  presence="offline"
+                />
+              </TimelineIcon>
+              <TimelineTrack />
+            </TimelineSeparator>
+            <TimelineContent pt="2" px="3">
+              <Text fontWeight="medium">Bret</Text>
+              <Text color="muted">subscription cancelled.</Text>
+            </TimelineContent>
+          </TimelineItem>
+        </Timeline>
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+#### 5. Putting it all together
+
+Replace the current contents of the _page.js_ file and paste this code:
+
+```tsx
+import { DataTable } from '@/components/DataTable'
+import { Recent } from '@/components/Recent'
+import { Summary } from '@/components/Summary'
+import { Box, Flex } from '@chakra-ui/react'
+
+export default async function Home() {
+  const COLUMNS = [
+    {
+      accessorKey: 'id',
+      header: 'ID',
+    },
+    {
+      accessorKey: 'name',
+      header: 'Name',
+    },
+    {
+      accessorKey: 'username',
+      header: 'Username',
+    },
+    {
+      accessorKey: 'email',
+      header: 'Email',
+    },
+    {
+      accessorKey: 'phone',
+      header: 'Phone',
+    },
+    {
+      accessorKey: 'website',
+      header: 'Website',
+    },
+  ]
+
+  const users = await fetch('https://jsonplaceholder.typicode.com/users').then(
+    (res) => res.json()
+  )
+
+  return (
+    <Box>
+      <Heading as="h2" mb="8" ms={{ base: 8, lg: 0 }}>
+        Users
+      </Heading>
+      <Flex>
+        <Summary currentUsersCount={users.length} oldUsersCount={2} />
+      </Flex>
+      <Flex gap="8" flexDirection={{ base: 'column', lg: 'row' }}>
+        <Box flex="1" overflowX="auto">
+          <DataTable columns={COLUMNS} data={users} />
+        </Box>
+        <Box width="30%" maxW="300px" flexShrink="0">
+          <Recent />
+        </Box>
+      </Flex>
+    </Box>
+  )
+}
+```
+
+The complete dashboard, at this moment, should look like the image below.
+
+![Dashboard with Data table, Timeline and Summary Display](/img/blog/dashboard/dashboard2.png)
+
+We also added responsive styles so the dashboard will look good on mobile devices.
+
+![Responsive Dashboard with Next.js and SaaS UI](/img/blog/dashboard/responsive.png)
+
+There are many other components Saas UI provides to make building SaaS applications easier. Check out the [documentation](https://saas-ui.dev/docs) to learn more. If you are not satisfied with the styling of your app, you can also change the theming. Follow [this link](https://saas-ui.dev/docs/core/theming/customize-theme) to understand better how theming can be done in Saas UI.
+
+The code of this article can be found in this [Github repo](https://github.com/nemo0/nextjs-saas-ui/).
+
+### Conclusion
+
+The aim of the article was to help you get started with building a modern dashboard using the Next.js app directory setup, using Saas UI to do so. To that end, hopefully, you now have a good idea of how Saas UI can be integrated into your Next.js 14 application and how its components could be used to build responsive, accessible, and customizable SaaS apps quickly.
+
+The official Saas UI documentation is a great place if you want to learn more about it. Saas UI also provides a pro license that gives you access to further components like [split page](https://saas-ui.dev/docs/components/layout/split-page), [bulk actions](https://saas-ui.dev/docs/components/advanced-data/bulk-actions), and more. The pricing for the Pro license starts at €199. Check out the [pricing page](https://saas-ui.dev/pricing) for more information.

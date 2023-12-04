@@ -7,9 +7,19 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Mon, 12 Dec 2022 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 02 Dec 2023 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/blog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/blog/building-a-modern-saas-dashboard-with-saas-ui-and-next-js-app-router</guid>
+    <title>Building a Modern SaaS Dashboard with Saas UI and Next.js App Router</title>
+    <link>https://saas-ui.dev/blog/building-a-modern-saas-dashboard-with-saas-ui-and-next-js-app-router</link>
+    <description>Dashboards are essential for every SaaS app, and UI libraries do help you build them fast. Let's look at how Saas UI can help.</description>
+    <pubDate>Sat, 02 Dec 2023 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>nextjs</category><category>react</category><category>next app router</category><category>saas ui</category><category>dashboard</category><category>app development</category>
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/blog/introducing-glass-theme-for-chakra-ui</guid>
     <title>Introducing the new Glass theme for Chakra UI</title>

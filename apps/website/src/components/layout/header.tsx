@@ -15,20 +15,19 @@ import { ButtonLink } from '../link'
 
 const GlobalBanner = () => {
   return (
-    <Banner
-      variant="solid"
-      colorScheme="primary"
-      display="flex"
-      justifyContent="center"
-    >
-      <BannerContent alignItems="center" justifyContent="center">
-        <BannerTitle>Black Friday Sale 🤩</BannerTitle>
-        <BannerDescription>
-          Use code <strong>BLACKFRIDAY30</strong> and get{' '}
-          <strong>30% OFF</strong>
-        </BannerDescription>
+    <Banner variant="solid" bg="black" display="flex" justifyContent="center">
+      <BannerContent alignItems="center" justifyContent="center" fontSize="sm">
+        <BannerTitle>We&apos;re live on DevHunt:</BannerTitle>
+        <BannerDescription>tool of the week contest</BannerDescription>
         <BannerActions>
-          <ButtonLink href="/pricing">Buy now</ButtonLink>
+          <ButtonLink
+            href="https://devhunt.org/tool/saas-ui"
+            colorScheme="white"
+            size="xs"
+            rel="noopener"
+          >
+            Check it out
+          </ButtonLink>
         </BannerActions>
       </BannerContent>
     </Banner>
@@ -64,6 +63,7 @@ const Header = (props: HeaderProps) => {
       }}
       {...props}
     >
+      <GlobalBanner />
       <Box
         zIndex="1"
         position="relative"

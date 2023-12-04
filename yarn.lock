@@ -7050,7 +7050,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@^2.0.9, @saas-ui/auth@^2.1.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@^2.0.9, @saas-ui/auth@^2.3.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -7413,7 +7413,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
-    "@saas-ui/auth": ^2.1.0
+    "@saas-ui/auth": ^2.3.0
     "@supabase/supabase-js": ^2.38.4
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"

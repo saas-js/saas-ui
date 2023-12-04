@@ -95,51 +95,55 @@ const Header = () => {
           fontSize="sm"
         />
 
-        <Tooltip label="Feedback &amp; Roadmap">
-          <IconButton
-            variant="ghost"
-            aria-label="roadmap"
-            icon={<ProductLaneLogo boxSize="3" />}
-            borderRadius="md"
-            as={Link}
-            href="https://roadmap.saas-ui.dev"
-          />
-        </Tooltip>
+        <HStack spacing="0">
+          <Tooltip label="Feedback &amp; Roadmap">
+            <IconButton
+              variant="ghost"
+              aria-label="roadmap"
+              icon={<ProductLaneLogo boxSize="3" />}
+              borderRadius="md"
+              as={Link}
+              href="https://roadmap.saas-ui.dev"
+              display={{ base: 'none', lg: 'inline-flex' }}
+            />
+          </Tooltip>
 
-        <Tooltip label="Discord community">
-          <IconButton
-            variant="ghost"
-            aria-label="discord"
-            icon={<FaDiscord size="14" />}
-            borderRadius="md"
-            as={Link}
-            href="https://discord.gg/4PmJGFcAjX"
-          />
-        </Tooltip>
+          <Tooltip label="Discord community">
+            <IconButton
+              variant="ghost"
+              aria-label="discord"
+              icon={<FaDiscord size="14" />}
+              borderRadius="md"
+              as={Link}
+              href="https://discord.gg/4PmJGFcAjX"
+            />
+          </Tooltip>
 
-        <Tooltip label="Twitter">
-          <IconButton
-            variant="ghost"
-            aria-label="twitter"
-            icon={<FaXTwitter size="14" />}
-            borderRadius="md"
-            as={Link}
-            href="https://twitter.com/saas_js"
-          />
-        </Tooltip>
+          <Tooltip label="Twitter">
+            <IconButton
+              variant="ghost"
+              aria-label="twitter"
+              icon={<FaXTwitter size="14" />}
+              borderRadius="md"
+              as={Link}
+              display={{ base: 'none', lg: 'inline-flex' }}
+              href="https://twitter.com/saas_js"
+            />
+          </Tooltip>
 
-        <Tooltip label="Github">
-          <IconButton
-            variant="ghost"
-            aria-label="github"
-            icon={<FaGithub size="14" />}
-            borderRadius="md"
-            as={Link}
-            href="https://github.com/saas-js/saas-ui"
-          />
-        </Tooltip>
+          <Tooltip label="Github">
+            <IconButton
+              variant="ghost"
+              aria-label="github"
+              icon={<FaGithub size="14" />}
+              borderRadius="md"
+              as={Link}
+              href="https://github.com/saas-js/saas-ui"
+            />
+          </Tooltip>
 
-        <ThemeToggle />
+          <ThemeToggle />
+        </HStack>
 
         <MobileNavButton
           ref={mobileNavBtnRef}

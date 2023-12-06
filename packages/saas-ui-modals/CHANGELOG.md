@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 2.1.11
+
+### Patch Changes
+
+- 4c81f542: Fixed issue where modals manager would throw an error when opening multiple modals.
+  - @saas-ui/forms@2.3.4
+
 ## 2.1.10
 
 ### Patch Changes

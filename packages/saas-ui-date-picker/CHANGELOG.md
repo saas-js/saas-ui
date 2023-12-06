@@ -1,5 +1,14 @@
 # @saas-ui/date-picker
 
+## 0.12.11
+
+### Patch Changes
+
+- 8177989f: Updated React Aria deps
+- Updated dependencies [4c81f542]
+  - @saas-ui/modals@2.1.11
+  - @saas-ui/core@2.2.4
+
 ## 0.12.10
 
 ### Patch Changes

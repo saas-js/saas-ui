@@ -8,6 +8,24 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 12-06-2023
+
+`@saas-ui/react@2.4.4`
+
+- Improved IconBadge sizing
+
+**Date Picker** `v0.12.11`
+
+- Updated React Aria deps
+
+**Modals** `v2.1.11`
+
+- Fixed issue where modals manager would throw an error when opening multiple modals.
+
+**Theme** `v2.2.3`
+
+- Improved IconBadge sizing
+
 ## 12-01-2023
 
 `@saas-ui/react@2.4.3`

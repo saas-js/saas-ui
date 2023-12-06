@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 2.4.4
+
+### Patch Changes
+
+- f03246ac: Improved IconBadge sizing
+- Updated dependencies [4c81f542]
+- Updated dependencies [f03246ac]
+  - @saas-ui/modals@2.1.11
+  - @saas-ui/theme@2.2.3
+  - @saas-ui/core@2.2.4
+  - @saas-ui/data-table@6.0.4
+  - @saas-ui/forms@2.3.4
+  - @saas-ui/hotkeys@2.1.10
+
 ## 2.4.3
 
 ### Patch Changes

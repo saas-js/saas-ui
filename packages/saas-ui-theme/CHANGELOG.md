@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.2.3
+
+### Patch Changes
+
+- f03246ac: Improved IconBadge sizing
+
 ## 2.2.2
 
 ### Patch Changes

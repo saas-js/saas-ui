@@ -21,7 +21,7 @@ import {
 import { DateValue, FormattedValue } from './types'
 
 import { datePickerStyleConfig } from './date-picker-styles'
-import { getLocalTimeZone } from '@internationalized/date'
+import { Calendar, getLocalTimeZone } from '@internationalized/date'
 import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
 
 export interface DatePickerContainerProps
@@ -44,6 +44,7 @@ export interface DatePickerContainerProps
   timeZone?: string
   closeOnSelect?: boolean
   children: MaybeFunction<React.ReactNode, [DatePickerState]>
+  createCalendar?(name: string): Calendar
 }
 
 export const DatePickerContainer = (props: DatePickerContainerProps) => {
@@ -55,6 +56,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     defaultValue,
     onChange,
     closeOnSelect,
+    createCalendar,
     ...rest
   } = props
 
@@ -96,6 +98,9 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     descriptionProps,
     errorMessageProps,
     calendarProps,
+    isInvalid,
+    validationDetails,
+    validationErrors,
   } = useDatePicker(
     {
       ['aria-label']: 'Date Picker',
@@ -123,6 +128,10 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     descriptionProps,
     errorMessageProps,
     datePickerRef,
+    isInvalid,
+    validationDetails,
+    validationErrors,
+    createCalendar,
   }
 
   return (

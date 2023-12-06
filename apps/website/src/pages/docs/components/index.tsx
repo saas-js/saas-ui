@@ -34,7 +34,6 @@ type Props = {
 }
 
 export const ComponentsOverview = ({ categories, headings }: Props) => {
-  console.log(categories)
   return (
     <Layout
       frontMatter={{

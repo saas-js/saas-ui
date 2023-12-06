@@ -103,7 +103,7 @@ export default function Page() {
   return (
     <AppShell
       variant="static"
-      minH="100%"
+      minH="$100vh"
       navbar={
         <Navbar borderBottomWidth="1px" position="sticky" top="0">
           <NavbarBrand>
@@ -135,7 +135,7 @@ export default function Page() {
 
 ### Example layout
 
-Full example with Sidebar, Page <Badge bg="primary.500" >Pro</Badge> and DataGrid <Badge bg="primary.500" >Pro</Badge>
+Full example with Sidebar, Page <Badge variant="solid" colorScheme="primary" >Pro</Badge> and DataGrid <Badge variant="solid" colorScheme="primary">Pro</Badge>
 
 ```jsx height=400px overflow=scroll
 import {
@@ -190,8 +190,8 @@ export default function Page() {
             </Menu>
           </SidebarSection>
           <SidebarSection flex="1" overflowY="auto">
-            <NavItem icon={<FiHome />}>Home</NavItem>
-            <NavItem icon={<FiUsers />}>Contacts</NavItem>
+            <NavItem icon={<FiHome size="1.2em" />}>Home</NavItem>
+            <NavItem icon={<FiUsers size="1.2em" />}>Contacts</NavItem>
           </SidebarSection>
         </Sidebar>
       }

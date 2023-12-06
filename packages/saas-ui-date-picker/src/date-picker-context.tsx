@@ -13,9 +13,9 @@ import {
 import { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 import { dataAttr } from '@chakra-ui/utils'
 import {
+  Calendar,
   CalendarDate,
   getDayOfWeek,
-  getLocalTimeZone,
   isSameDay,
   now,
 } from '@internationalized/date'
@@ -33,6 +33,7 @@ interface BaseContextValue {
   locale: string
   hourCycle: 12 | 24
   timeZone: string
+  createCalendar?(name: string): Calendar
 }
 
 export interface DatePickerProviderValue
@@ -92,8 +93,17 @@ export const useCalendarCell = (
   const context = useContext()
   const { date, currentMonth } = props
 
-  const { cellProps, buttonProps, isSelected, isInvalid, formattedDate } =
-    useAriaCalendarCell({ date }, state, ref)
+  const {
+    cellProps,
+    buttonProps,
+    isSelected,
+    isInvalid,
+    formattedDate,
+    isDisabled,
+    isFocused,
+    isOutsideVisibleRange,
+    isUnavailable,
+  } = useAriaCalendarCell({ date }, state, ref)
 
   const highlightedRange = 'highlightedRange' in state && state.highlightedRange
   const dayOfWeek = getDayOfWeek(props.date, context.locale)
@@ -114,6 +124,8 @@ export const useCalendarCell = (
     cellProps,
     buttonProps: {
       ...buttonProps,
+      isDisabled,
+      isFocused,
       ['data-selected']: dataAttr(isSelected),
       ['data-invalid']: dataAttr(isInvalid),
       ['data-selection-start']: dataAttr(isSelectionStart),
@@ -122,6 +134,8 @@ export const useCalendarCell = (
       ['data-range-end']: dataAttr(isRangeEnd),
       ['data-highlighted']: dataAttr(isRange),
       ['data-today']: dataAttr(isSameDay(date, now(context.timeZone))),
+      ['data-outside-visible-range']: dataAttr(isOutsideVisibleRange),
+      ['data-unavailable']: dataAttr(isUnavailable),
     },
     isSelected,
     isInvalid,

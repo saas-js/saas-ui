@@ -114,7 +114,7 @@ const reactIcons = {
 import { KanbanItems } from '@saas-ui-pro/kanban'
 import * as SaasUIKanban from '@saas-ui-pro/kanban'
 
-import { now, getLocalTimeZone } from '@internationalized/date'
+import { now, getLocalTimeZone, today } from '@internationalized/date'
 
 const StarIcon = (props) => (
   <chakra.svg m="2px" fill="current" boxSize="3" viewBox="0 0 24 24" {...props}>
@@ -197,7 +197,7 @@ const ReactLiveScope = {
     'react-icons/fi': reactIcons,
     '@hookform/resolvers/yup': { yupResolver },
     '@hookform/resolvers/zod': { zodResolver },
-    '@internationalized/date': { now, getLocalTimeZone },
+    '@internationalized/date': { now, getLocalTimeZone, today },
     zod: z,
     yup: yup,
   },

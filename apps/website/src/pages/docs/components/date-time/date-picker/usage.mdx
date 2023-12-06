@@ -52,94 +52,196 @@ transpilePackages: ['@saas-ui/date-picker'],
 
 ### Basic
 
-```jsx center=true
-<DatePicker>
-  <DatePickerTrigger>
-    <Button>Open DatePicker</Button>
-  </DatePickerTrigger>
-  <DatePickerDialog>
-    <DatePickerCalendar />
-  </DatePickerDialog>
-</DatePicker>
+```jsx height=400px
+import { Flex, Button } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+
+export default function Page() {
+  return (
+    <Flex justifyContent="center">
+      <DatePicker defaultIsOpen>
+        <DatePickerTrigger>
+          <Button>Open DatePicker</Button>
+        </DatePickerTrigger>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+        </DatePickerDialog>
+      </DatePicker>
+    </Flex>
+  )
+}
 ```
 
 ### With time
 
-```jsx center=true
-<DatePicker granularity="minute">
-  <DatePickerTrigger>
-    <Button>Open DatePicker</Button>
-  </DatePickerTrigger>
-  <DatePickerDialog>
-    <DatePickerCalendar />
-    <DatePickerTimeField />
-  </DatePickerDialog>
-</DatePicker>
+```jsx height=420px
+import { Flex, Button } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+
+export default function Page() {
+  return (
+    <Flex justifyContent="center">
+      <DatePicker defaultIsOpen closeOnBlur={false}>
+        <DatePickerTrigger>
+          <Button>Open DatePicker</Button>
+        </DatePickerTrigger>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </Flex>
+  )
+}
 ```
 
 ### Locale
 
-```jsx center=true
-<DatePicker granularity="minute" locale="nl-NL">
-  <DatePickerTrigger>
-    <Button>Open DatePicker</Button>
-  </DatePickerTrigger>
-  <DatePickerDialog>
-    <DatePickerCalendar />
-    <DatePickerTimeField />
-  </DatePickerDialog>
-</DatePicker>
+```jsx height=420px
+import { Flex, Button } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+
+export default function Page() {
+  return (
+    <Flex justifyContent="center">
+      <DatePicker
+        defaultIsOpen
+        closeOnBlur={false}
+        granularity="minute"
+        locale="nl-NL"
+      >
+        <DatePickerTrigger>
+          <Button>Open DatePicker</Button>
+        </DatePickerTrigger>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </Flex>
+  )
+}
 ```
 
 ### With 24 hour time
 
-```jsx center=true
-<DatePicker hourCycle="24" granularity="minute">
-  <DatePickerTrigger>
-    <Button>Open DatePicker</Button>
-  </DatePickerTrigger>
-  <DatePickerDialog>
-    <DatePickerCalendar />
-    <DatePickerTimeField />
-  </DatePickerDialog>
-</DatePicker>
+```jsx height=420px
+import { Flex, Button } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+  DatePickerTimeField,
+} from '@saas-ui/date-picker'
+
+export default function Page() {
+  return (
+    <Flex justifyContent="center">
+      <DatePicker
+        defaultIsOpen
+        closeOnBlur={false}
+        hourCycle="24"
+        granularity="minute"
+      >
+        <DatePickerTrigger>
+          <Button>Open DatePicker</Button>
+        </DatePickerTrigger>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </Flex>
+  )
+}
 ```
 
 ### Controlled
 
-```jsx center=true
-function ControlledPicker() {
+```jsx height=420px
+import { Flex, Button } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+import { today, now, getLocalTimeZone } from '@internationalized/date'
+
+export default function ControlledPicker() {
   const [value, setValue] = React.useState(today(getLocalTimeZone()))
 
   return (
-    <DatePicker value={value} onChange={setValue}>
-      <DatePickerTrigger>
-        <Button>{value.toString()}</Button>
-      </DatePickerTrigger>
-      <DatePickerDialog>
-        <DatePickerCalendar />
-      </DatePickerDialog>
-    </DatePicker>
+    <Flex justifyContent="center">
+      <DatePicker
+        defaultIsOpen
+        closeOnBlur={false}
+        value={value}
+        onChange={setValue}
+      >
+        <DatePickerTrigger>
+          <Button>{value.toString()}</Button>
+        </DatePickerTrigger>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+        </DatePickerDialog>
+      </DatePicker>
+    </Flex>
   )
 }
 ```
 
 ### Controlled with zoned time
 
-```jsx center=true
-function ControlledPicker() {
+```jsx height=420px
+import { Flex, Button } from '@chakra-ui/react'
+import {
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerDialog,
+  DatePickerCalendar,
+} from '@saas-ui/date-picker'
+import { today, now, getLocalTimeZone } from '@internationalized/date'
+
+export default function ControlledPicker() {
   const [value, setValue] = React.useState(now(getLocalTimeZone()))
 
   return (
-    <DatePicker value={value} onChange={setValue} granularity="minute">
-      <DatePickerTrigger>
-        <Button>{value.toString()}</Button>
-      </DatePickerTrigger>
-      <DatePickerDialog>
-        <DatePickerCalendar />
-        <DatePickerTimeField />
-      </DatePickerDialog>
-    </DatePicker>
+    <Flex justifyContent="center">
+      <DatePicker
+        defaultIsOpen
+        closeOnBlur={false}
+        value={value}
+        onChange={setValue}
+        granularity="minute"
+      >
+        <DatePickerTrigger>
+          <Button>{value.toString()}</Button>
+        </DatePickerTrigger>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+          <DatePickerTimeField />
+        </DatePickerDialog>
+      </DatePicker>
+    </Flex>
   )
 }
 ```

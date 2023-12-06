@@ -37,7 +37,7 @@ import { DatePickerModal, DatePickerTimeField } from '@saas-ui/date-picker'
 
 ### Basic
 
-```jsx center=true
+```jsx height=420px
 function Page() {
   const disclosure = useDisclosure()
 
@@ -56,7 +56,7 @@ function Page() {
 
 ### With time
 
-```jsx center=true
+```jsx height=420px
 function Page() {
   const disclosure = useDisclosure()
 
@@ -68,7 +68,7 @@ function Page() {
         {value ? value.toString() : 'Select a date'}
       </Button>
       <DatePickerModal {...disclosure} onSubmit={setValue}>
-        <DatePickerTimeField />
+        <DatePickerTimeField width="full" />
       </DatePickerModal>
     </>
   )

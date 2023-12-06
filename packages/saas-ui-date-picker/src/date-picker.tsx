@@ -77,7 +77,10 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     minValue,
     maxValue,
     defaultValue,
-    onChange: onChange,
+    onChange: (value) => {
+      console.log('change', value)
+      onChange?.(value)
+    },
     shouldCloseOnSelect: closeOnSelect,
     ...rest,
   })
@@ -204,7 +207,7 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
   }
 
   return (
-    <DatePickerContainer {...containerProps}>
+    <DatePickerContainer {...containerProps} defaultOpen={defaultIsOpen}>
       {(state) => {
         return (
           <Popover

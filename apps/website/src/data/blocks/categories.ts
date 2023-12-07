@@ -22,13 +22,43 @@ export const CATEGORIES: CategoriesGroup[] = [
       },
       {
         slug: 'settings',
-        name: 'Settings',
+        name: 'Settings sections',
         images: images.settings ?? null,
       },
       {
         slug: 'files',
         name: 'File management',
         images: images.files ?? null,
+      },
+      {
+        slug: 'commandbars',
+        name: 'Command bars',
+        images: images.commandbars ?? null,
+      },
+      {
+        slug: 'drawers',
+        name: 'Drawers',
+        images: images.drawers ?? null,
+      },
+      {
+        slug: 'emptystates',
+        name: 'Empty states',
+        images: images.emptystates ?? null,
+      },
+      {
+        slug: 'menus',
+        name: 'Menus',
+        images: images.menus ?? null,
+      },
+      {
+        slug: 'forms',
+        name: 'Forms',
+        images: images.forms ?? null,
+      },
+      {
+        slug: 'tables',
+        name: 'Tables',
+        images: images.tables ?? null,
       },
     ],
   },

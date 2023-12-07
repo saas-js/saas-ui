@@ -20,14 +20,7 @@ export interface CategoryCardProps {
 }
 
 export function CategoryCard({ count, category }: CategoryCardProps) {
-  const imgStyles = {
-    transitionProperty: 'all',
-    transitionDuration: 'normal',
-    _groupHover: {
-      transform: 'scale(1.05)',
-    },
-    minHeight: '100px',
-  }
+  const imgStyles = {}
 
   return (
     <Card
@@ -52,26 +45,28 @@ export function CategoryCard({ count, category }: CategoryCardProps) {
         flexDirection="column"
         bgGradient="linear(to-bl,white, gray.100)"
         _dark={{
-          bg: 'whiteAlpha.100',
-          bgGradient: 'linear(to-bl,transparent, whiteAlpha.50)',
+          bg: 'black',
+          bgGradient: 'linear(to-tl,transparent, whiteAlpha.50)',
         }}
         overflow="hidden"
         px="8"
         alignItems="center"
         justifyItems="center"
       >
-        <Image
-          src={category.images.light}
-          alt="light category image"
-          _dark={{ display: 'none' }}
-          {...imgStyles}
-        />
-        <Image
-          src={category.images.dark}
-          alt="dark category image"
-          _light={{ display: 'none' }}
-          {...imgStyles}
-        />
+        <>
+          <Image
+            src={category.images.light}
+            alt="light category image"
+            _dark={{ display: 'none' }}
+            {...imgStyles}
+          />
+          <Image
+            src={category.images.dark}
+            alt="dark category image"
+            _light={{ display: 'none' }}
+            {...imgStyles}
+          />
+        </>
       </Flex>
       <CardBody>
         <Heading as="h4" size="sm" fontWeight="medium">

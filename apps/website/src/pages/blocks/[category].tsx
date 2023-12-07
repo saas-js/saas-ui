@@ -16,13 +16,15 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 export const getStaticProps: GetStaticProps<
   { category: Category | undefined },
   { category: string }
-> = (context) => ({
-  props: {
-    category: getCategoryData(context!.params!.category),
-    components: getComponentsByCategory()[context!.params!.category],
-    allComponents: getAllComponents(),
-    header: {
-      position: 'sticky',
+> = (context) => {
+  return {
+    props: {
+      category: getCategoryData(context!.params!.category),
+      components: getComponentsByCategory()[context!.params!.category] ?? [],
+      allComponents: getAllComponents(),
+      header: {
+        position: 'sticky',
+      },
     },
-  },
-})
+  }
+}

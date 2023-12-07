@@ -136,7 +136,9 @@ export function getComponentsByCategory() {
       if (!(component.attributes.category in acc)) {
         acc[component.attributes.category] = []
       }
-      acc[component.attributes.category].push(component)
+      if (component) {
+        acc[component.attributes.category].push(component)
+      }
       return acc
     },
     {}

@@ -183,7 +183,7 @@ CommandBarItem.displayName = 'CommandBarItem'
 export interface CommandBarDialogProps
   extends Omit<ModalProps, 'variant' | 'isOpen' | 'onClose'> {
   closeOnSelect?: boolean
-  contentProps: ModalContentProps
+  contentProps?: ModalContentProps
 }
 
 export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(

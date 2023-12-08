@@ -11,6 +11,7 @@ import {
   ModalOverlay,
   ModalProps,
   omitThemingProps,
+  ModalContentProps,
 } from '@chakra-ui/react'
 import {
   CommandBarProvider,
@@ -80,14 +81,12 @@ export const CommandBar: React.FC<CommandBarProps> = (props) => {
     ...props,
   })
 
-  const { children, ...rest } = omitThemingProps(props)
-
-  const context = useCommandBar(rest)
+  const context = useCommandBar(props)
 
   return (
     <CommandBarProvider value={context}>
       <CommandBarStylesProvider value={styles}>
-        {children}
+        {props.children}
       </CommandBarStylesProvider>
     </CommandBarProvider>
   )
@@ -184,17 +183,18 @@ CommandBarItem.displayName = 'CommandBarItem'
 export interface CommandBarDialogProps
   extends Omit<ModalProps, 'variant' | 'isOpen' | 'onClose'> {
   closeOnSelect?: boolean
+  contentProps: ModalContentProps
 }
 
 export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
   (props, ref) => {
-    const { children, ...rest } = props
+    const { children, contentProps, ...rest } = props
 
     const { getDialogProps } = useCommandBarContext()
 
     return (
-      <Modal {...getDialogProps(rest)} scrollBehavior="inside">
-        <ModalContent ref={ref} bg="transparent">
+      <Modal scrollBehavior="inside" {...getDialogProps(rest)}>
+        <ModalContent ref={ref} bg="transparent" {...contentProps}>
           {children}
         </ModalContent>
       </Modal>

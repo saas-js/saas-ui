@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.4.1
+
+### Patch Changes
+
+- 90ff4d16: Fixed incorrect require prop type on CommandBarDialog
+
 ## 0.4.0
 
 ### Minor Changes

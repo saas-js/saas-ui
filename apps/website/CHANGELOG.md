@@ -1,5 +1,12 @@
 # website
 
+## 2.3.9
+
+### Patch Changes
+
+- Updated dependencies [90ff4d16]
+  - @saas-ui/command-bar@0.4.1
+
 ## 2.3.8
 
 ### Patch Changes

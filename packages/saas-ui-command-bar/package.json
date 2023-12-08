@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/command-bar",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Chakra UI CommandBar Component",
   "source": "src/index.ts",
   "exports": {

@@ -1,5 +1,15 @@
 # @saas-ui/command-bar
 
+## 0.4.0
+
+### Minor Changes
+
+- 0b06ff35: Added support for size prop on CommandBar
+
+### Patch Changes
+
+- 0b06ff35: Added contentProps prop to CommandBarDialog for improved customization
+
 ## 0.3.0
 
 ### Minor Changes

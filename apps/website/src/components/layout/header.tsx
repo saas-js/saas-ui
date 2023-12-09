@@ -1,9 +1,38 @@
 import * as React from 'react'
 
-import { Box, BoxProps, Container, HStack } from '@chakra-ui/react'
+import { Box, BoxProps, Button, Container, HStack } from '@chakra-ui/react'
 import Navigation from './navigation'
 import Logo from './logo'
 import { useScroll } from 'framer-motion'
+import {
+  Banner,
+  BannerActions,
+  BannerContent,
+  BannerDescription,
+  BannerTitle,
+} from '@saas-ui/react'
+import { ButtonLink } from '../link'
+
+const GlobalBanner = () => {
+  return (
+    <Banner variant="solid" bg="black" display="flex" justifyContent="center">
+      <BannerContent alignItems="center" justifyContent="center" fontSize="sm">
+        <BannerTitle>We&apos;re live on DevHunt:</BannerTitle>
+        <BannerDescription>tool of the week contest</BannerDescription>
+        <BannerActions>
+          <ButtonLink
+            href="https://devhunt.org/tool/saas-ui"
+            colorScheme="white"
+            size="xs"
+            rel="noopener"
+          >
+            Check it out
+          </ButtonLink>
+        </BannerActions>
+      </BannerContent>
+    </Banner>
+  )
+}
 
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
@@ -34,6 +63,7 @@ const Header = (props: HeaderProps) => {
       }}
       {...props}
     >
+      <GlobalBanner />
       <Box
         zIndex="1"
         position="relative"

@@ -4,15 +4,24 @@ import { Story, Meta } from '@storybook/react'
 import { ErrorBoundary } from './'
 
 import { EmptyState } from '../empty-state'
+import { SaasProvider, useSaas } from '../provider'
 
 export default {
   title: 'Utilities/ErrorBoundary',
   component: ErrorBoundary,
+  decorators: [
+    (Story) => {
+      return (
+        <SaasProvider onError={(err) => console.log('ERROR', err)}>
+          <Story />
+        </SaasProvider>
+      )
+    },
+  ],
 } as Meta
 
 const Err = () => {
   throw new Error('Test error')
-
   return null
 }
 

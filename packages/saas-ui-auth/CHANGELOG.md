@@ -1,5 +1,148 @@
 # @saas-ui/auth
 
+## 2.3.1
+
+### Patch Changes
+
+- @saas-ui/core@2.2.4
+- @saas-ui/forms@2.3.4
+
+## 2.3.0
+
+### Minor Changes
+
+- d5ca55e4: Fixed redirect property for oauth providers and add support for scopes
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/forms@2.3.3
+  - @saas-ui/core@2.2.3
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+  - @saas-ui/forms@2.3.2
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [3ddca73d]
+  - @saas-ui/core@2.2.1
+  - @saas-ui/forms@2.3.1
+
+## 2.2.0
+
+### Minor Changes
+
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [68995558]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/core@2.2.0
+  - @saas-ui/forms@2.3.0
+
+## 2.1.0
+
+### Minor Changes
+
+- ccf2824d: Added new redirectUrl prop and deprecated oauthRedirectUrl
+
+## 2.0.12
+
+### Patch Changes
+
+- Updated dependencies [1c64bfaf]
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/forms@2.2.1
+  - @saas-ui/core@2.1.3
+
+## 2.0.11
+
+### Patch Changes
+
+- Updated dependencies [9ad407a7]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/core@2.1.2
+  - @saas-ui/forms@2.1.3
+
+## 2.0.9
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/hooks@2.0.1
+  - @saas-ui/core@2.1.1
+
+## 2.0.8
+
+### Patch Changes
+
+- Updated dependencies [96b0a058]
+  - @saas-ui/forms@2.1.1
+
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/forms@2.1.0
+  - @saas-ui/core@2.1.0
+
+## 2.0.6
+
+### Patch Changes
+
+- 197077d3: Fixed issue where email was rendered as undefined on magic link auth
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+  - @saas-ui/core@2.0.3
+  - @saas-ui/forms@2.0.5
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [3b5567c6]
+  - @saas-ui/forms@2.0.4
+
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [8c7ee0be]
+  - @saas-ui/forms@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes

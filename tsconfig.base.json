@@ -23,7 +23,6 @@
       "module": "CommonJS",
       "resolveJsonModule": true,
       "noImplicitAny": false
-    },
-    "swc": true
+    }
   }
 }

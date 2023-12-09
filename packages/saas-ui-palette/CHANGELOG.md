@@ -1,5 +1,11 @@
 # 0.2.0
 
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
 ## 2.0.0
 
 ### Major Changes

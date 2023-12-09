@@ -34,10 +34,16 @@ import {
 ### Basic Property
 
 ```jsx
-<Property>
-  <PropertyLabel>Name</PropertyLabel>
-  <PropertyValue>Elliot Alderson</PropertyValue>
-</Property>
+import { Property, PropertyLabel, PropertyValue } from '@saas-ui/react'
+
+function BasicProperty() {
+  return (
+    <Property>
+      <PropertyLabel>Name</PropertyLabel>
+      <PropertyValue>Elliot Alderson</PropertyValue>
+    </Property>
+  )
+}
 ```
 
 ### Label width
@@ -47,79 +53,120 @@ Label text will be truncated if it doesnt fit.
 The default width is `30%` with a min-width of `100px`. When you set a width, the min-width will be ignored.
 
 ```jsx
-<Property>
-  <PropertyLabel width="40px">Billing plan</PropertyLabel>
-  <PropertyValue>Professional</PropertyValue>
-</Property>
+import { Property, PropertyLabel, PropertyValue } from '@saas-ui/react'
+
+export default function PropertyLabelWidth() {
+  return (
+    <Property>
+      <PropertyLabel width="40px">Billing plan</PropertyLabel>
+      <PropertyValue>Professional</PropertyValue>
+    </Property>
+  )
+}
 ```
 
 ### Property with icon
 
 ```jsx
-<Property>
-  <PropertyLabel width="24px">
-    <EmailIcon display="block" />
-  </PropertyLabel>
-  <PropertyValue>hello@saas-ui.dev</PropertyValue>
-</Property>
+import { Property, PropertyLabel, PropertyValue } from '@saas-ui/react'
+import { EmailIcon } from '@chakra-ui/icons'
+
+export default function PropertyWithIcon() {
+  return (
+    <Property>
+      <PropertyLabel width="24px">
+        <EmailIcon display="block" />
+      </PropertyLabel>
+      <PropertyValue>hello@saas-ui.dev</PropertyValue>
+    </Property>
+  )
+}
 ```
 
 ### Property list
 
 ```jsx
-<PropertyList>
-  <Property>
-    <PropertyLabel>Name</PropertyLabel>
-    <PropertyValue>Elliot Alderson</PropertyValue>
-  </Property>
-  <Property>
-    <PropertyLabel>Role</PropertyLabel>
-    <PropertyValue>Hacker</PropertyValue>
-  </Property>
-  <Property>
-    <PropertyLabel>Birthday</PropertyLabel>
-    <PropertyValue>September 17, 1986</PropertyValue>
-  </Property>
-</PropertyList>
+import {
+  PropertyList,
+  Property,
+  PropertyLabel,
+  PropertyValue,
+} from '@saas-ui/react'
+
+export default function List() {
+  return (
+    <PropertyList>
+      <Property>
+        <PropertyLabel>Name</PropertyLabel>
+        <PropertyValue>Elliot Alderson</PropertyValue>
+      </Property>
+      <Property>
+        <PropertyLabel>Role</PropertyLabel>
+        <PropertyValue>Hacker</PropertyValue>
+      </Property>
+      <Property>
+        <PropertyLabel>Birthday</PropertyLabel>
+        <PropertyValue>September 17, 1986</PropertyValue>
+      </Property>
+    </PropertyList>
+  )
+}
 ```
 
 ### Property card
 
 ```jsx
-<Card
-  title="Billing details"
-  action={
-    <Button colorScheme="green" variant="solid">
-      Upgrade
-    </Button>
-  }
->
-  <CardBody>
-    <PropertyList>
-      <Property
-        label="Billing plan"
-        value={<Text fontWeight="bold">Professional</Text>}
-      />
-      <Property label="Billing period" value="Yearly" />
-      <Property label="Renewal date" value="01-01-2023" />
-      <Property
-        label="Users"
-        value={
-          <Box flex="1">
-            <Text fontSize="sm">20/100</Text>{' '}
-            <Progress
-              value="20"
-              size="xs"
-              colorScheme="primary"
-              borderRadius="full"
-            />
-          </Box>
-        }
-      />
-      <Property label="Price" value="€1250,-" />
-    </PropertyList>
-  </CardBody>
-</Card>
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Heading,
+  Button,
+  Text,
+  Box,
+  Progress,
+  Spacer,
+} from '@chakra-ui/react'
+import { PropertyList, Property } from '@saas-ui/react'
+
+export default function PropertyCard() {
+  return (
+    <Card>
+      <CardHeader display="flex" flexDirection="row">
+        <Heading size="sm">Billing details</Heading>
+        <Spacer />
+        <Button colorScheme="green" variant="solid">
+          Upgrade
+        </Button>
+      </CardHeader>
+      <CardBody>
+        <PropertyList>
+          <Property
+            label="Billing plan"
+            value={<Text fontWeight="bold">Professional</Text>}
+          />
+          <Property label="Billing period" value="Yearly" />
+          <Property label="Renewal date" value="01-01-2023" />
+          <Property
+            label="Users"
+            value={
+              <Box flex="1">
+                <Text fontSize="sm">20/100</Text>{' '}
+                <Progress
+                  value="20"
+                  size="xs"
+                  colorScheme="primary"
+                  borderRadius="full"
+                />
+              </Box>
+            }
+          />
+          <Property label="Price" value="€1250,-" />
+        </PropertyList>
+      </CardBody>
+    </Card>
+  )
+}
 ```
 
 ### Editable property
@@ -164,7 +211,7 @@ export default function Editable() {
         label="Status"
         value={
           <Select value="Open">
-            <SelectButton size="sm" variant="ghost" width="200px" />
+            <SelectButton width="200px" size="md" variant="ghost" />
             <SelectList>
               <SelectOption value="Open">Open</SelectOption>
               <SelectOption value="Closed">Closed</SelectOption>

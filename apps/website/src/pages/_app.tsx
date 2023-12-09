@@ -11,9 +11,17 @@ import { NProgressNextRouter } from '@saas-ui/nprogress'
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   const router = useRouter()
+
+  useEffect(() => {
+    if (router.isReady && router.query.aff) {
+      localStorage.setItem('aff', router.query.aff as string)
+    }
+  }, [router])
+
   return (
     <SaasProvider theme={theme} linkComponent={Link}>
       <AuthProvider>

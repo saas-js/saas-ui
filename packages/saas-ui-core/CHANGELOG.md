@@ -1,5 +1,93 @@
 # @saas-ui/react
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies [f03246ac]
+  - @saas-ui/theme@2.2.3
+
+## 2.2.3
+
+### Patch Changes
+
+- d5ca55e4: Fixed prop types of OverflowMenu
+- Updated dependencies [537804bf]
+  - @saas-ui/theme@2.2.2
+
+## 2.2.2
+
+### Patch Changes
+
+- 491315aa: Fixed forwarded ref not being passed down in IconBadge
+
+## 2.2.1
+
+### Patch Changes
+
+- 3ddca73d: Fixed issue where NavGroup collapse would not receive defaultIsOpen prop
+- Updated dependencies [4e728c26]
+  - @saas-ui/theme@2.2.1
+
+## 2.2.0
+
+### Minor Changes
+
+- 31d05ed5: Added new Navbar component 🥳
+- ebba8404: Added new IconBadge component
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- dddb3d1a: Fixed issue where width would not be applied to the SearchInput container element
+- 91412d77: Fixed SearchInput reset when uncontrolled
+- 91412d77: Fixed theme incompatibility with Chakra UI 2.8
+- Updated dependencies [31d05ed5]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+  - @saas-ui/theme@2.2.0
+
+## 2.1.3
+
+### Patch Changes
+
+- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to SaasProvider context
+
+## 2.1.2
+
+### Patch Changes
+
+- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would not overflow correctly
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.1
+  - @saas-ui/theme@2.1.1
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/theme@2.1.0
+
+## 2.0.3
+
+### Patch Changes
+
+- 493a548a: NavItem now renders an aria-current tag when the item is active.
+- 9e848077: Export createStandAloneSnackbar from core package.
+- Updated dependencies [493a548a]
+- Updated dependencies [493a548a]
+  - @saas-ui/theme@2.0.1
+
 ## 2.0.2
 
 ### Patch Changes

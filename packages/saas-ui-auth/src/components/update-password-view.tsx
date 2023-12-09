@@ -18,7 +18,7 @@ export const UpdatePasswordView: React.FC<UpdatePasswordViewProps> = (
   props
 ) => {
   const {
-    title,
+    title = 'Choose a new password',
     footer,
     onSuccess,
     onError,
@@ -62,10 +62,6 @@ export const UpdatePasswordView: React.FC<UpdatePasswordViewProps> = (
       {footer}
     </AuthFormContainer>
   )
-}
-
-UpdatePasswordView.defaultProps = {
-  title: 'Choose a new password',
 }
 
 UpdatePasswordView.displayName = 'UpdatePasswordView'

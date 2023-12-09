@@ -10,19 +10,20 @@ import {
   Stack,
   useBreakpointValue,
   Icon,
+  HStack,
 } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/system'
 import { ResponsiveMenu, ResponsiveMenuList } from '@saas-ui-pro/react'
 import Link from 'next/link'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { FiChevronDown } from 'react-icons/fi'
+import { FiArrowLeft, FiChevronDown } from 'react-icons/fi'
 
 type SecondaryNavLinkProps = {
   href: string
   isActive?: boolean
   children: React.ReactNode
-  label?: string
+  label?: string | JSX.Element
 }
 
 const SecondaryNavLink = ({
@@ -52,7 +53,13 @@ const SecondaryNavLink = ({
   )
 }
 
-export const docsNav = [
+type Links = {
+  href: string
+  label: string | JSX.Element
+  match?: (asPath: string, href: string) => boolean
+}[]
+
+export const docsNav: Links = [
   {
     href: '/docs',
     label: 'Getting started',
@@ -93,12 +100,23 @@ export const docsNav = [
   },
 ]
 
-const blogLinks = [
+const blogLinks: Links = [
   {
     href: '/blog',
-    label: 'Blog',
-    match: (asPath: string, href: string) =>
-      href.startsWith('/blog') && asPath.startsWith('/blog'),
+    label: (
+      <HStack role="group" spacing="1">
+        <Icon
+          as={FiArrowLeft}
+          _groupHover={{
+            transform: 'translateX(-5px)',
+            transitionProperty: 'common',
+            transitionDuration: 'normal',
+          }}
+        />{' '}
+        <span>All articles</span>
+      </HStack>
+    ),
+    match: (asPath: string, href: string) => asPath === '/blog',
   },
 ]
 
@@ -109,7 +127,9 @@ export const SecondaryNav = (props) => {
 
   const links = isBlog ? blogLinks : docsNav
 
-  const activeItem = links.find((link) => link.match(router.asPath, link.href))
+  const activeItem = links.find((link) =>
+    link.match?.(router.asPath, link.href)
+  )
 
   return (
     <Box

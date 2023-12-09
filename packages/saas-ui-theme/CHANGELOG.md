@@ -1,5 +1,53 @@
 # @saas-ui/theme
 
+## 2.2.3
+
+### Patch Changes
+
+- f03246ac: Improved IconBadge sizing
+
+## 2.2.2
+
+### Patch Changes
+
+- 537804bf: Fixed NavLink line height
+
+## 2.2.1
+
+### Patch Changes
+
+- 4e728c26: Fixed border radius of sm input variant
+
+## 2.2.0
+
+### Minor Changes
+
+- 31d05ed5: Added new Navbar component 🥳
+- ebba8404: Added new IconBadge component
+
+### Patch Changes
+
+- 91412d77: Fixed theme incompatibility with Chakra UI 2.8
+
+## 2.1.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+## 2.0.1
+
+### Patch Changes
+
+- 493a548a: NavItem now renders an aria-current tag when the item is active.
+- 493a548a: NavItem active state is now compatible with Remix and ReactRouter NavLink
+
 ## 2.0.0
 
 ### Major Changes

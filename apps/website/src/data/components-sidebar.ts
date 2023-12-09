@@ -33,6 +33,11 @@ const sidebar = {
           path: '/docs/components/layout/app-shell',
         },
         {
+          title: 'Navbar',
+          path: '/docs/components/layout/navbar',
+          new: true,
+        },
+        {
           title: 'Sidebar',
           path: '/docs/components/layout/sidebar',
         },
@@ -144,6 +149,11 @@ const sidebar = {
           title: 'SearchInput',
           path: '/docs/components/forms/search-input',
         },
+        {
+          title: 'FileUpload',
+          path: '/docs/components/file-upload',
+          new: true,
+        },
       ],
     },
     {
@@ -191,6 +201,10 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'Command',
+          path: '/docs/components/data-display/command',
+        },
+        {
           title: 'DataTable',
           path: '/docs/components/data-display/data-table',
         },
@@ -199,8 +213,9 @@ const sidebar = {
           path: '/docs/components/data-display/empty-state',
         },
         {
-          title: 'StructuredList',
-          path: '/docs/components/data-display/structured-list',
+          title: 'IconBadge',
+          path: '/docs/components/data-display/icon-badge',
+          new: true,
         },
         {
           title: 'Property',
@@ -211,12 +226,12 @@ const sidebar = {
           path: '/docs/components/data-display/persona',
         },
         {
-          title: 'Timeline',
-          path: '/docs/components/data-display/timeline',
+          title: 'StructuredList',
+          path: '/docs/components/data-display/structured-list',
         },
         {
-          title: 'Command',
-          path: '/docs/components/data-display/command',
+          title: 'Timeline',
+          path: '/docs/components/data-display/timeline',
         },
       ],
     },
@@ -239,6 +254,11 @@ const sidebar = {
         {
           title: 'Filters',
           path: '/docs/components/advanced-data/filters',
+          pro: true,
+        },
+        {
+          title: 'Kanban',
+          path: '/docs/components/advanced-data/kanban',
           pro: true,
         },
       ],

@@ -1,5 +1,123 @@
 # @saas-ui/forms
 
+## 2.3.4
+
+### Patch Changes
+
+- @saas-ui/core@2.2.4
+
+## 2.3.3
+
+### Patch Changes
+
+- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields prop
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/core@2.2.3
+
+## 2.3.2
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [3ddca73d]
+  - @saas-ui/core@2.2.1
+
+## 2.3.0
+
+### Minor Changes
+
+- 68995558: Added new onToggle prop to DisplayIf
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/core@2.2.0
+
+## 2.2.1
+
+### Patch Changes
+
+- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in FormDialog
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/core@2.1.3
+
+## 2.2.0
+
+### Minor Changes
+
+- 87fcdc2c: FormLayout no longer renders each child in a wrapper div
+
+### Patch Changes
+
+- 9ad407a7: Zod schema enum types now render a Select by default
+- 654ad186: Fixed issue where Field would not infer correct onChange handler
+- 87fcdc2c: Fixed issue where not all StepForm data would be passed to onSubmit
+- 9ad407a7: ZodForm now infers defaultValues from the schema
+- be52e785: Fixed issue where placeholder would not be passed to the NumberInputField
+
+## 2.1.3
+
+### Patch Changes
+
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/core@2.1.2
+
+## 2.1.2
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+  - @saas-ui/core@2.1.1
+
+## 2.1.1
+
+### Patch Changes
+
+- 96b0a058: Fixed select button sizes
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/core@2.1.0
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+  - @saas-ui/core@2.0.3
+
+## 2.0.4
+
+### Patch Changes
+
+- 3b5567c6: Fixed issue where StepForm would not render custom fields
+
+## 2.0.3
+
+### Patch Changes
+
+- 8c7ee0be: Fixed issue where custom StepForm field types would not propagate.
+
 ## 2.0.2
 
 ### Patch Changes

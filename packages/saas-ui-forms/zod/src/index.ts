@@ -6,7 +6,7 @@ export {
   zodMeta,
   zodParseMeta,
 } from './zod-resolver'
-export type { Options, ZodMeta } from './zod-resolver'
+export type { ZodMeta } from './zod-resolver'
 export { createZodForm, type ZodFormType } from './create-zod-form'
 export { createZodFormDialog } from './create-zod-dialog'
 export { createZodStepForm } from './create-zod-step-form'

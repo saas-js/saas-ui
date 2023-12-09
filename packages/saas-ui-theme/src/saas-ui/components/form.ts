@@ -4,29 +4,34 @@ import { Input as ChakraInput } from '@chakra-ui/theme/components'
 
 import {
   createMultiStyleConfigHelpers,
+  cssVar,
   defineStyle,
   defineStyleConfig,
 } from '@chakra-ui/styled-system'
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(inputAnatomy.keys)
 
+const $height = cssVar('input-height')
+const $padding = cssVar('input-padding')
+const $borderRadius = cssVar('input-border-radius')
+
 const inputSizes = {
   sm: definePartsStyle({
     field: {
-      borderRadius: 'md',
+      [$borderRadius.variable]: 'radii.md',
     },
-    addon: {
-      borderRadius: 'md',
+    group: {
+      [$borderRadius.variable]: 'radii.md',
     },
   }),
   md: definePartsStyle({
     field: {
-      px: 3,
-      h: 9,
+      [$padding.variable]: 'space.3',
+      [$height.variable]: 'sizes.9',
     },
-    addon: {
-      px: 3,
-      h: 9,
+    group: {
+      [$padding.variable]: 'space.3',
+      [$height.variable]: 'sizes.9',
     },
   }),
 }

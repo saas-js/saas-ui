@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 2.0.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+
 ## 2.0.0
 
 ### Major Changes

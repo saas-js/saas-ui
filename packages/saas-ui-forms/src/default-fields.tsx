@@ -29,6 +29,8 @@ import {
   SelectProps,
   NativeSelect,
   NativeSelectProps,
+  SelectButtonProps,
+  SelectListProps,
 } from './select'
 
 import { createField } from './create-field'
@@ -83,12 +85,18 @@ export const SwitchField = createField<SwitchProps>(
   }
 )
 
-export const SelectField = createField<SelectProps>(
+export interface SelectFieldProps extends SelectProps {
+  buttonProps?: SelectButtonProps
+  listProps?: SelectListProps
+}
+
+export const SelectField = createField<SelectFieldProps>(
   forwardRef((props, ref) => {
+    const { buttonProps, listProps, ...rest } = props
     return (
-      <Select ref={ref} {...props}>
-        <SelectButton />
-        <SelectList />
+      <Select ref={ref} {...rest}>
+        <SelectButton {...buttonProps} />
+        <SelectList {...listProps} />
       </Select>
     )
   }),

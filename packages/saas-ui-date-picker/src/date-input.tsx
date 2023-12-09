@@ -5,6 +5,8 @@ import {
   InputGroup,
   InputGroupProps,
   InputRightElement,
+  Portal,
+  SystemCSSProperties,
 } from '@chakra-ui/react'
 
 import { FieldButton } from './button'
@@ -17,7 +19,15 @@ import { SegmentedInput } from './segmented-input'
 import { CalendarIcon } from './icons'
 
 export interface DateInputProps extends DatePickerProps {
+  /**
+   * The icon to use in the calendar button
+   */
   calendarIcon?: React.ReactNode
+  /**
+   * If `true`, the `DatePickerDialog` will open in a portal.
+   * Also accepts a `z-index` value that will be passed to the dialog.
+   */
+  portal?: boolean | SystemCSSProperties['zIndex']
 }
 
 /**
@@ -26,7 +36,19 @@ export interface DateInputProps extends DatePickerProps {
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
-  const { children, calendarIcon, size, variant, ...rest } = props
+  const { children, calendarIcon, size, variant, portal, ...rest } = props
+
+  const zIndex = typeof portal === 'boolean' ? undefined : portal
+
+  const dialog = (
+    <DatePickerDialog zIndex={zIndex}>
+      <>
+        <DatePickerCalendar />
+        {children}
+      </>
+    </DatePickerDialog>
+  )
+
   return (
     <DatePicker placement="bottom-end" granularity="day" {...rest}>
       <DatePickerInput
@@ -35,12 +57,8 @@ export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
         variant={variant}
         ref={ref}
       />
-      <DatePickerDialog>
-        <>
-          <DatePickerCalendar />
-          {children}
-        </>
-      </DatePickerDialog>
+
+      {portal ? <Portal>{dialog}</Portal> : dialog}
     </DatePicker>
   )
 })

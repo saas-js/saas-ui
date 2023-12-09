@@ -1,46 +1,46 @@
 # @chakra-ui/storybook-addon
 
-## 1.1.1
-
-### Patch Changes
-
-- f1f0cc28: Remove peer deps
-
-## 1.1.0
+## 5.1.0
 
 ### Minor Changes
 
-- 046e42b8: Updated to Chakra UI 2.7
+- [#8109](https://github.com/chakra-ui/chakra-ui/pull/8109)
+  [`4340dbda4`](https://github.com/chakra-ui/chakra-ui/commit/4340dbda47bd01d8b4e64ef70a44401a1853606d)
+  Thanks [@TylerAPfledderer](https://github.com/TylerAPfledderer)! - Bumps
+  Storybook deps to latest (7.5.3) and updates the tooling
+
+  - Toggling state for color mode originally used Storybook's `useAddonState`
+    api hook. However, this hook is not reliable to persistent allow toggling of
+    boolean state. Replaces this hook with React's `useState` as this state is a
+    primitive.
+  - Makes use of the `makeDecorator` function to make this addon more like an
+    official Storybook addon.
+  - Removes unneeded props from the button components that were originally part
+    of a Type error bug.
+
+## 5.0.1
 
 ### Patch Changes
 
-- d725a5da: Fix esm bundle import
-- d725a5da: Bump version
-- 0319aa57: Bump version
+- [#7820](https://github.com/chakra-ui/chakra-ui/pull/7820)
+  [`a0144a1d8`](https://github.com/chakra-ui/chakra-ui/commit/a0144a1d884e590b0b2788040e4269b301e67aac)
+  Thanks [@TylerAPfledderer](https://github.com/TylerAPfledderer)! - Improve
+  build and exports
 
-## 1.1.0-rc.3
+  - Export a `preview` object containing the provider decorator
+  - Modify tsup config for improved build and to generate `.dts` files for prod
+  - Use up-to-date decorator function type for Provider decorator
+    - Turns the first argument for the story into a function which returns the
+      preview.
 
-### Minor Changes
+## 5.0.0
 
-- 046e42b8: Updated to Chakra UI 2.7
+### Major Changes
 
-## 1.0.1-rc.2
-
-### Patch Changes
-
-- Bump version
-
-## 1.0.1-next.1
-
-### Patch Changes
-
-- Fix esm bundle import
-
-## 1.0.1-next.0
-
-### Patch Changes
-
-- Bump version
+- [#7678](https://github.com/chakra-ui/chakra-ui/pull/7678)
+  [`8d9c878a9`](https://github.com/chakra-ui/chakra-ui/commit/8d9c878a9d6e5b82ec19bd1ec8994a75a4dc7de9)
+  Thanks [@TylerAPfledderer](https://github.com/TylerAPfledderer)! - BREAKING:
+  Adds support for Storybook v7
 
 ## 4.0.17
 

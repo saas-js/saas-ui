@@ -1,85 +1,87 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import {
   Box,
   Heading,
   Text,
-  Stack,
   Container,
-  LinkBox,
-  LinkOverlay,
-  useColorModeValue,
-  Button,
-  Icon,
-  VStack,
   HStack,
   Image,
+  SimpleGrid,
+  Card,
+  AspectRatio,
+  CardBody,
+  Avatar,
 } from '@chakra-ui/react'
 
 import SEO from '@/components/seo'
 
 import { allBlogs } from '.contentlayer/generated'
 
-import Link, { ButtonLink } from '@/components/link'
+import Link from '@/components/link'
 import { compareDesc } from 'date-fns'
-import { FiArrowRight } from 'react-icons/fi'
+import {
+  StructuredList,
+  StructuredListCell,
+  StructuredListItem,
+} from '@saas-ui/react'
 
 const Post = (props) => {
-  const { title, description, slug, image, status } = props
+  const { title, description, slug, image, status, author, avatar, size } =
+    props
 
   return (
-    <LinkBox as="article" role="group">
-      <HStack alignItems="flex-start" spacing="8">
-        <Box
-          width="300px"
-          height="150px"
-          flexShrink="0"
-          overflow="hidden"
-          borderRadius="lg"
-        >
-          <Image src={image || `/api/og?title=${title}`} alt={title} />
-        </Box>
-        <Box pt="4">
-          <Heading size="md" mb="2">
-            <LinkOverlay
-              as={Link}
-              href={slug}
-              _hover={{ textDecoration: 'none' }}
-            >
-              {title}
-            </LinkOverlay>
-          </Heading>
-          <Text color={useColorModeValue('gray.500', 'gray.400')} mb="4">
-            {description}
+    <Card
+      as={Link}
+      href={slug}
+      rounded="xl"
+      overflow="hidden"
+      _hover={{ bg: 'gray.100' }}
+      _dark={{ bg: 'gray.800', _hover: { bg: 'gray.700' } }}
+      transitionProperty="common"
+      transitionDuration="normal"
+      position="relative"
+    >
+      <AspectRatio ratio={16 / 9} width="full">
+        <Image
+          src={image || `/api/og?title=${title}`}
+          alt={title}
+          width="100%"
+        />
+      </AspectRatio>
+
+      <CardBody
+        position="absolute"
+        bgGradient="linear(to-t, gray.900, transparent)"
+        bottom="0"
+        width="full"
+        pt="4"
+        px={size === 'sm' ? '4' : '6'}
+      >
+        <HStack>
+          <Avatar
+            size={size === 'sm' ? '2xs' : 'xs'}
+            name={author}
+            src={avatar}
+          />{' '}
+          <Text fontSize="sm" color="muted" display="none">
+            {author}
           </Text>
-          <ButtonLink
-            size="sm"
-            href={slug}
-            variant="outline"
-            _hover={{
-              bg: 'whiteAlpha.200',
-            }}
-            rightIcon={
-              <Icon
-                as={FiArrowRight}
-                sx={{
-                  transitionProperty: 'common',
-                  transitionDuration: 'normal',
-                  _groupHover: {
-                    transform: 'translate(5px)',
-                  },
-                }}
-              />
-            }
-          >
-            Continue reading
-          </ButtonLink>
-        </Box>
-      </HStack>
-    </LinkBox>
+        </HStack>
+        {image ? (
+          <Heading size="md" mt="2">
+            {title}
+          </Heading>
+        ) : null}
+      </CardBody>
+    </Card>
   )
 }
 
 const BlogPage = ({ blogs }) => {
+  const latest = blogs.slice(0, 2)
+  const recent = blogs.slice(2, 5)
+  const older = blogs.slice(5)
+
   return (
     <Box py={20}>
       <SEO
@@ -87,16 +89,32 @@ const BlogPage = ({ blogs }) => {
         description="A blog about UI development"
         titleTemplate="%s - Saas UI"
       />
-      <Container maxW="4xl">
-        <Heading size="2xl" as="h2" mb="12">
+      <Container maxW="container.lg">
+        <Heading size="xl" as="h2" mb="12">
           Blog
         </Heading>
 
-        <Stack spacing="12">
-          {blogs.map((blog, i) => {
+        <SimpleGrid columns={2} spacing={8} mb={8}>
+          {latest.map((blog, i) => {
             return <Post key={blog._id} {...blog} />
           })}
-        </Stack>
+        </SimpleGrid>
+
+        <SimpleGrid columns={3} spacing={8}>
+          {recent.map((blog, i) => {
+            return <Post key={blog._id} {...blog} size="sm" />
+          })}
+        </SimpleGrid>
+
+        <StructuredList>
+          {older.map((post, i) => {
+            return (
+              <StructuredListItem key={post.slug} href={post.slug}>
+                <StructuredListCell>{post.title}</StructuredListCell>
+              </StructuredListItem>
+            )
+          })}
+        </StructuredList>
       </Container>
     </Box>
   )

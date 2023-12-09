@@ -1,5 +1,96 @@
 # @saas-ui/hotkeys
 
+## 2.1.10
+
+### Patch Changes
+
+- @saas-ui/core@2.2.4
+
+## 2.1.9
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/core@2.2.3
+
+## 2.1.8
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+
+## 2.1.7
+
+### Patch Changes
+
+- Updated dependencies [3ddca73d]
+  - @saas-ui/core@2.2.1
+
+## 2.1.6
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/core@2.2.0
+
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/core@2.1.3
+
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/core@2.1.2
+
+## 2.1.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+  - @saas-ui/core@2.1.1
+
+## 2.1.2
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/core@2.1.0
+
+## 2.1.1
+
+### Patch Changes
+
+- 0aecc7ba: Fix issue where useHotkeys would throw on SSR
+
+## 2.1.0
+
+### Minor Changes
+
+- b4808069: useHotkeys now supports a custom targetElement, eg an input
+
+### Patch Changes
+
+- b4808069: Fixed issue where useHotkeys would not reset pressed keys
+
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+  - @saas-ui/core@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes

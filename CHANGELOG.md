@@ -8,6 +8,220 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 12-06-2023
+
+`@saas-ui/react@2.4.4`
+
+- Improved IconBadge sizing
+
+**Date Picker** `v0.12.11`
+
+- Updated React Aria deps
+
+**Modals** `v2.1.11`
+
+- Fixed issue where modals manager would throw an error when opening multiple modals.
+
+**Theme** `v2.2.3`
+
+- Improved IconBadge sizing
+
+## 12-01-2023
+
+`@saas-ui/react@2.4.3`
+
+- Fixed issue where SubmitButton would not properties from form fields prop
+- Fixed NavLink line height
+
+**Auth** `v2.3.0`
+
+- Fixed redirect property for oauth providers and add support for scopes
+
+**Forms** `v2.3.3`
+
+- Fixed issue where SubmitButton would not properties from form fields prop
+
+**Core** `v2.2.3`
+
+- Fixed prop types of OverflowMenu
+
+**Supabase** `v2.1.1`
+
+- Added support for scopes
+
+**Theme** `v2.2.2`
+
+- Fixed NavLink line height
+
+## 11-23-2023
+
+`@saas-ui/react@2.4.0`
+
+- Added new Navbar component 🥳
+- Fixed issue where width would not be applied to the SearchInput container element
+- Added new IconBadge component
+- Fixed SearchInput reset when uncontrolled
+- Removed all Component.defaultProps definitions
+- Fixed theme incompatibility with Chakra UI 2.8
+
+**Theme** `v2.2.0`
+
+- Added new Navbar component 🥳
+- Added new IconBadge component
+- Fixed theme incompatibility with Chakra UI 2.8
+
+**Core** `v2.2.0`
+
+- Added new Navbar component 🥳
+- Fixed issue where width would not be applied to the SearchInput container element
+- Added new IconBadge component
+- Fixed SearchInput reset when uncontrolled
+- Removed all Component.defaultProps definitions
+- Fixed theme incompatibility with Chakra UI 2.8
+
+**Forms** `v2.3.0`
+
+- Added new onToggle prop to DisplayIf
+- Removed all Component.defaultProps definitions
+
+**Auth** `v2.2.0`
+
+- Removed all Component.defaultProps definitions
+
+## 10-20-2023
+
+`@saas-ui/react@2.3.0`
+
+- Zod schema enum types now render a Select by default
+- Fixed issue where closing large models with modals manager would flicker
+- Fixed issue where Field would not infer correct onChange handler
+- Fixed issue where not all StepForm data would be passed to onSubmit
+- ZodForm now infers defaultValues from the schema
+- FormLayout no longer renders each child in a wrapper div
+- Fixed issue where placeholder would not be passed to the NumberInputField
+
+**Forms** `v2.2.0`
+
+- Zod schema enum types now render a Select by default
+- Fixed issue where Field would not infer correct onChange handler
+- Fixed issue where not all StepForm data would be passed to onSubmit
+- ZodForm now infers defaultValues from the schema
+- FormLayout no longer renders each child in a wrapper div
+- Fixed issue where placeholder would not be passed to the NumberInputField
+
+**Modals** `v2.1.5`
+
+- Fixed issue where closing large models with modals manager would flicker
+
+## 09-15-2023
+
+`@saas-ui/react@2.2.0`
+
+- Updated to Chakra UI 2.8.0
+- Added `use client` directive for better RSC support
+
+**Command Bar** `v0.3.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Date Picker** `v0.11.0`
+
+- Updated to Chakra UI 2.8.0
+- Added Portal to DateInput and DateRangeInput pickers.
+
+**Theme Glass** `v0.5.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Data Table** `v4.0.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Palette** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Charts** `v0.10.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Modals** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Forms** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Magic** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+- Updated magic client
+
+**Theme** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Core** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Saas Ui Storybook** `v1.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Props Docs** `v1.9.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Test Utils** `v3.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Palette Docs** `v1.4.0`
+
+- Updated to Chakra UI 2.8.0
+
+**Website** `v2.1.0`
+
+- Updated to Chakra UI 2.8.0
+
+## 08-26-2023
+
+`@saas-ui/react@2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an input
+- Fixed issue where useHotkeys would not reset pressed keys
+
+**Hotkeys** `v2.1.0`
+
+- useHotkeys now supports a custom targetElement, eg an input
+- Fixed issue where useHotkeys would not reset pressed keys
+
+## 08-07-2023
+
+`@saas-ui/react@2.0.6`
+
+- NavItem now renders an aria-current tag when the item is active.
+- Export createStandAloneSnackbar from core package.
+- NavItem active state is now compatible with Remix and ReactRouter NavLink
+
+**Theme** `v2.0.1`
+
+- NavItem now renders an aria-current tag when the item is active.
+- NavItem active state is now compatible with Remix and ReactRouter NavLink
+
+**Core** `v2.0.3`
+
+- NavItem now renders an aria-current tag when the item is active.
+- Export createStandAloneSnackbar from core package.
+
+## 07-20-2023
+
+**Forms** `v2.0.3`
+
+- Fixed issue where custom StepForm field types would not propagate.
+
 ## 06-30-2023
 
 `@saas-ui/react@2.0.0`

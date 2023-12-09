@@ -14,18 +14,16 @@ const headerNav: NavLinkProps[] = [
     ...hideMobile,
   },
   {
+    href: '/figma',
+    label: 'Figma',
+    ...hideMobile,
+  },
+  {
     href: '/pricing',
     label: 'Pricing',
     ...hideMobile,
   },
   { href: '/docs', label: 'Documentation', ...hideMobile },
-  {
-    href: '/pricing',
-    label: 'Buy Pro',
-    variant: 'solid',
-    colorScheme: 'primary',
-    fontSize: 'sm',
-  },
 ]
 
 export default headerNav

@@ -33,6 +33,7 @@ const Blog = defineDocumentType(() => ({
     author: { type: 'string' },
     avatar: { type: 'string' },
     status: { type: 'string' },
+    tags: { type: 'list', of: { type: 'string' } },
   },
   computedFields: {
     ...computedFields,
@@ -115,6 +116,7 @@ const Changelog = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'src/pages',
+
   documentTypes: [Blog, Doc, Changelog],
   mdx: {
     rehypePlugins: [rehypeMdxCodeMeta],

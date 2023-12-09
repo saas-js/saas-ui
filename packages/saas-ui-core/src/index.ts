@@ -114,6 +114,20 @@ export {
   useSaas,
 } from './provider'
 export {
+  Navbar,
+  NavbarBrand,
+  type NavbarBrandProps,
+  NavbarContent,
+  type NavbarContentProps,
+  NavbarItem,
+  type NavbarItemProps,
+  NavbarLink,
+  type NavbarProps,
+  NavbarProvider,
+  useNavbar,
+  useNavbarContext,
+} from './navbar'
+export {
   Nav,
   NavGroup,
   NavGroupContent,
@@ -153,6 +167,7 @@ export {
   type UseSnackbarOptions,
   type UseSnackbarReturn,
   useSnackbar,
+  createStandAloneSnackbar,
 } from './snackbar'
 export {
   type StepperContentProps,
@@ -208,3 +223,4 @@ export {
   ViewOffIcon,
 } from './icons'
 export { createIcon } from './icons/create-icon'
+export { type IconBadgeProps, IconBadge } from './icon-badge'

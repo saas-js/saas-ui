@@ -1,5 +1,7 @@
 import { anatomy } from '@chakra-ui/theme-tools'
 
+import { Modal } from '@chakra-ui/theme/components'
+
 export const commandBarAnatomy = anatomy('command-bar').parts(
   'container',
   'dialog',
@@ -103,6 +105,9 @@ const baseStyle = definePartsStyle({
 })
 
 export const commandBarTheme = defineMultiStyleConfig({
-  defaultProps: {},
+  defaultProps: {
+    size: 'md',
+  },
   baseStyle,
+  sizes: Modal.sizes,
 })

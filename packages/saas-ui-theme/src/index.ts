@@ -1,2 +1,2 @@
-export * from './saas-ui'
-export * from './base'
+export { theme } from './saas-ui'
+export { baseTheme } from './base'

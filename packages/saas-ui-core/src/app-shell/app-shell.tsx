@@ -8,6 +8,7 @@ import {
   useMultiStyleConfig,
   omitThemingProps,
   SystemStyleObject,
+  forwardRef,
 } from '@chakra-ui/react'
 
 import { cx } from '@chakra-ui/utils'
@@ -38,6 +39,7 @@ export interface AppShellProps
    * The main content
    */
   children: React.ReactNode
+  mainRef?: React.RefObject<HTMLDivElement>
 }
 
 /**
@@ -45,14 +47,21 @@ export interface AppShellProps
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/app-shell
  */
-export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
+export const AppShell = forwardRef<AppShellProps, 'div'>((props, ref) => {
   const styles = useMultiStyleConfig('SuiAppShell', props) as Record<
     string,
     SystemStyleObject
   >
 
-  const { navbar, sidebar, aside, footer, children, ...containerProps } =
-    omitThemingProps(props)
+  const {
+    navbar,
+    sidebar,
+    aside,
+    footer,
+    children,
+    mainRef,
+    ...containerProps
+  } = omitThemingProps(props)
 
   const containerStyles: SystemStyleObject = {
     flexDirection: 'column',
@@ -86,6 +95,7 @@ export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
     <AppShellProvider value={context}>
       <StylesProvider value={styles}>
         <Flex
+          ref={ref}
           {...containerProps}
           sx={containerStyles}
           className={cx('sui-app-shell', props.className)}
@@ -93,7 +103,11 @@ export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
           {navbar}
           <Flex sx={innerStyles} className="saas-app-shell__inner">
             {sidebar}
-            <Flex sx={mainStyles} className="saas-app-shell__main">
+            <Flex
+              ref={mainRef}
+              sx={mainStyles}
+              className="saas-app-shell__main"
+            >
               {children}
             </Flex>
             {aside}
@@ -103,6 +117,6 @@ export const AppShell: React.FC<AppShellProps> = (props: AppShellProps) => {
       </StylesProvider>
     </AppShellProvider>
   )
-}
+})
 
 AppShell.displayName = 'AppShell'

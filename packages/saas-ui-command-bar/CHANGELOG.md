@@ -1,5 +1,27 @@
 # @saas-ui/command-bar
 
+## 0.4.1
+
+### Patch Changes
+
+- 90ff4d16: Fixed incorrect require prop type on CommandBarDialog
+
+## 0.4.0
+
+### Minor Changes
+
+- 0b06ff35: Added support for size prop on CommandBar
+
+### Patch Changes
+
+- 0b06ff35: Added contentProps prop to CommandBarDialog for improved customization
+
+## 0.3.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
 ## 0.2.0
 
 ### Minor Changes

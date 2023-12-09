@@ -1,5 +1,113 @@
 # @saas-ui/clerk
 
+## 3.0.20
+
+### Patch Changes
+
+- @saas-ui/auth@2.3.1
+
+## 3.0.19
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/auth@2.3.0
+
+## 3.0.18
+
+### Patch Changes
+
+- @saas-ui/auth@2.2.2
+
+## 3.0.17
+
+### Patch Changes
+
+- @saas-ui/auth@2.2.1
+
+## 3.0.16
+
+### Patch Changes
+
+- Updated dependencies [a3180b02]
+  - @saas-ui/auth@2.2.0
+
+## 3.0.15
+
+### Patch Changes
+
+- Updated dependencies [ccf2824d]
+  - @saas-ui/auth@2.1.0
+
+## 3.0.14
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.12
+
+## 3.0.13
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.11
+
+## 3.0.12
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.10
+
+## 3.0.11
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/auth@2.0.9
+
+## 3.0.10
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.8
+
+## 3.0.9
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.7
+
+## 3.0.8
+
+### Patch Changes
+
+- Updated dependencies [197077d3]
+  - @saas-ui/auth@2.0.6
+
+## 3.0.7
+
+### Patch Changes
+
+- d4538334: Lock Clerk version to fix ESM incompatibility
+
+## 3.0.6
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.5
+
+## 3.0.5
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.4
+
+## 3.0.4
+
+### Patch Changes
+
+- @saas-ui/auth@2.0.3
+
 ## 3.0.3
 
 ### Patch Changes

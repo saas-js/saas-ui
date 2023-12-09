@@ -39,8 +39,4 @@ export const PinInput = forwardRef<PinInputProps, 'div'>((props, ref) => {
   )
 })
 
-PinInput.defaultProps = {
-  pinLength: 4,
-}
-
 PinInput.displayName = 'PinInput'

@@ -23,6 +23,7 @@ import { LinkCard } from '../link-card'
 import { QuickLink } from '../quick-link'
 import { NpmAuthToken } from '../npm-auth-token'
 import { FiArrowRight, FiStar, FiZap, FiMap, FiBox } from 'react-icons/fi'
+import { Tweet } from './tweet'
 
 const PropsTable = dynamic(() => import('../props-table'))
 
@@ -83,11 +84,11 @@ const BestPractice = ({ children, title, ...props }) => {
 }
 
 const Do = (props) => {
-  return <BestPractice {...props} status="success" title="Do" />
+  return <BestPractice {...props} status="success" title="Do" fontSize="md" />
 }
 
 const Dont = (props) => {
-  return <BestPractice {...props} status="error" title="Don't" />
+  return <BestPractice {...props} status="error" title="Don't" fontSize="md" />
 }
 
 export const MDXComponents = {
@@ -169,4 +170,5 @@ export const MDXComponents = {
   FiZap,
   FiMap,
   FiBox,
+  Tweet,
 }

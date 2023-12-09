@@ -28,9 +28,9 @@ export interface UpdatePasswordFormProps<
 }
 
 export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
-  submitLabel,
-  passwordLabel,
-  confirmLabel,
+  submitLabel = 'Update password',
+  passwordLabel = 'New password',
+  confirmLabel = 'Confirm password',
   helpText,
   children,
   ...formProps
@@ -74,12 +74,6 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
       </FormLayout>
     </Form>
   )
-}
-
-UpdatePasswordForm.defaultProps = {
-  submitLabel: 'Update password',
-  passwordLabel: 'New password',
-  confirmLabel: 'Confirm password',
 }
 
 UpdatePasswordForm.displayName = 'UpdatePasswordForm'

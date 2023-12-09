@@ -279,7 +279,8 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       )
     }
 
-    closeComplete(id)
+    // @todo this is not ideal, but not all modals support onCloseComplete
+    setTimeout(() => closeComplete(id), 200)
   }
 
   const closeComplete = (id?: ModalId | null) => {
@@ -288,9 +289,9 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
 
     _instances.delete(modal)
 
-    const scoped = modals.filter(({ scope }) => scope === modal.scope)
+    const scoped = modal && modals.filter(({ scope }) => scope === modal.scope)
 
-    if (scoped.length === 1) {
+    if (scoped?.length === 1) {
       setActiveModal(initialModalState, modal.scope)
     }
   }

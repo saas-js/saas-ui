@@ -46,7 +46,7 @@ import {
 
 ### Basic
 
-```jsx center=true
+```jsx height=420px
 <DateRangePicker>
   <DatePickerTrigger>
     <Button>Open DateRangePicker</Button>
@@ -59,7 +59,7 @@ import {
 
 ### With time
 
-```jsx center=true
+```jsx height=420px
 <DateRangePicker granularity="minute">
   <DatePickerTrigger>
     <Button>Open DateRangePicker</Button>
@@ -73,7 +73,7 @@ import {
 
 ### With 24 hour time
 
-```jsx center=true
+```jsx height=420px
 <DateRangePicker hourCycle="24" granularity="minute">
   <DatePickerTrigger>
     <Button>Open DateRangePicker</Button>
@@ -87,7 +87,7 @@ import {
 
 ### Controlled
 
-```jsx center=true
+```jsx height=420px
 function ControlledPicker() {
   const [value, setValue] = React.useState({
     start: today(getLocalTimeZone()),
@@ -112,7 +112,7 @@ function ControlledPicker() {
 
 ### Controlled with time
 
-```jsx center=true
+```jsx height=420px
 function ControlledPicker() {
   const [value, setValue] = React.useState(now(getLocalTimeZone()))
 

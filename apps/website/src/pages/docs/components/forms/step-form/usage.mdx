@@ -169,14 +169,14 @@ export default function CreateProject() {
     {
       name: 'project',
       schema: zod.object({
-        name: yup.string(),
+        name: zod.string(),
         description: yup.string().optional(),
       }),
     },
     {
       name: 'members',
-      schema: yup.object({
-        members: yup.string(),
+      schema: zod.object({
+        members: zod.string(),
       }),
     },
   ]

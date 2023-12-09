@@ -1,0 +1,65 @@
+---
+id: icon-badge
+title: Icon Badge
+description: 'Display an icon as a badge.'
+---
+
+The `IconBadge` component wraps individual keys in a `<Kbd />` component.
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core/src/icon-badge' }}
+  npm={{ package: '@saas-ui/core' }}
+  theme={{ componentName: 'icon-badge' }}
+/>
+
+## Usage
+
+### Basic
+
+```jsx center=true
+import { IconBadge } from '@saas-ui/react'
+import { FiUser } from 'react-icons/fi'
+
+export default function Page() {
+  return <IconBadge icon={<FiUser />} />
+}
+```
+
+### Sizes
+
+`IconBadge` supports `sm`, `md`, `lg` sizes. The default size is `md`.
+
+```jsx center=true
+import { IconBadge } from '@saas-ui/react'
+import { FiUser } from 'react-icons/fi'
+import { HStack } from '@chakra-ui/react'
+
+export default function Page() {
+  return (
+    <HStack>
+      <IconBadge icon={<FiUser />} size="sm" />
+      <IconBadge icon={<FiUser />} size="md" />
+      <IconBadge icon={<FiUser />} size="lg" />
+    </HStack>
+  )
+}
+```
+
+### Variants
+
+`IconBadge` supports `outline` and `solid` variants. The default variant is `outline`.
+
+```jsx center=true
+import { IconBadge } from '@saas-ui/react'
+import { FiUser } from 'react-icons/fi'
+import { HStack } from '@chakra-ui/react'
+
+export default function Page() {
+  return (
+    <HStack>
+      <IconBadge icon={<FiUser />} variant="outline" colorScheme="primary" />
+      <IconBadge icon={<FiUser />} variant="solid" colorScheme="primary" />
+    </HStack>
+  )
+}
+```

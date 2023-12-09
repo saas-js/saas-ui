@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { createContext, MaybeRenderProp } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/react-utils'
 import {
   useStepper,
   useStep,
@@ -33,10 +33,10 @@ export const [StepFormProvider, useStepFormContext] =
       'useStepFormContext: `context` is undefined. Seems you forgot to wrap step form components in `<StepForm />`',
   })
 
+import { FocusableElement } from '@chakra-ui/utils'
 import { FormProps } from './form'
 import { FormStepProps, StepsOptions } from './step-form'
-import { FieldProps } from './types'
-import { FocusableElement } from '@chakra-ui/utils'
+import { FieldProps, StepFormChildren } from './types'
 import { DisplayIfProps } from './display-if'
 import { ArrayFieldProps } from './array-field'
 import { UseArrayFieldReturn } from './use-array-field'
@@ -45,7 +45,7 @@ import { ObjectFieldProps } from './object-field'
 type StepName<T extends { [k: number]: { readonly name: string } }> =
   T[number]['name']
 
-interface StepFormRenderContext<
+export interface StepFormRenderContext<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
@@ -63,14 +63,11 @@ interface StepFormRenderContext<
 export interface UseStepFormProps<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TContext extends object = object
 > extends Omit<UseStepperProps, 'onChange'>,
-    Omit<FormProps<any, TFieldValues, TContext, TFieldTypes>, 'children'> {
+    Omit<FormProps<any, TFieldValues, TContext>, 'children'> {
   steps?: TSteps
-  children: MaybeRenderProp<
-    StepFormRenderContext<TSteps, TFieldValues, TContext, TFieldTypes>
-  >
+  children: StepFormChildren<any, TSteps, TFieldValues, TContext>
 }
 
 export interface UseStepFormReturn<
@@ -88,12 +85,17 @@ export interface UseStepFormReturn<
 export function useStepForm<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TContext extends object = object
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext, TFieldTypes>
+  props: UseStepFormProps<TSteps, TFieldValues, TContext>
 ): UseStepFormReturn<TFieldValues> {
-  const { onChange, steps: stepsOptions, resolver, ...rest } = props
+  const {
+    onChange,
+    steps: stepsOptions,
+    resolver,
+    fieldResolver,
+    ...rest
+  } = props
   const stepper = useStepper(rest)
 
   const [options, setOptions] = React.useState<TSteps | undefined>(stepsOptions)
@@ -102,13 +104,20 @@ export function useStepForm<
 
   const [steps, updateSteps] = React.useState<Record<string, StepState>>({})
 
+  const mergedData = React.useRef<TFieldValues>({} as any)
+
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
       try {
         const step = steps[activeStep]
 
+        mergedData.current = {
+          ...mergedData.current,
+          ...data,
+        }
+
         if (isLastStep) {
-          await props.onSubmit?.(data)
+          await props.onSubmit?.(mergedData.current)
 
           updateStep({
             ...step,
@@ -126,7 +135,7 @@ export function useStepForm<
         // Step submission failed.
       }
     },
-    [steps, activeStep, isLastStep]
+    [steps, activeStep, isLastStep, mergedData]
   )
 
   const getFormProps = React.useCallback(() => {
@@ -138,8 +147,11 @@ export function useStepForm<
       resolver: step?.schema
         ? /* @todo fix resolver type */ (resolver as any)?.(step.schema)
         : undefined,
+      fieldResolver: step?.schema
+        ? (fieldResolver as any)?.(step.schema)
+        : undefined,
     }
-  }, [steps, onSubmitStep, activeStep])
+  }, [steps, onSubmitStep, activeStep, resolver, fieldResolver])
 
   const updateStep = React.useCallback(
     (step: StepState) => {

@@ -1,5 +1,119 @@
 # @saas-ui/modals
 
+## 2.1.11
+
+### Patch Changes
+
+- 4c81f542: Fixed issue where modals manager would throw an error when opening multiple modals.
+  - @saas-ui/forms@2.3.4
+
+## 2.1.10
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/forms@2.3.3
+
+## 2.1.9
+
+### Patch Changes
+
+- @saas-ui/forms@2.3.2
+
+## 2.1.8
+
+### Patch Changes
+
+- @saas-ui/forms@2.3.1
+
+## 2.1.7
+
+### Patch Changes
+
+- Updated dependencies [68995558]
+- Updated dependencies [a3180b02]
+  - @saas-ui/forms@2.3.0
+
+## 2.1.6
+
+### Patch Changes
+
+- Updated dependencies [1c64bfaf]
+  - @saas-ui/forms@2.2.1
+
+## 2.1.5
+
+### Patch Changes
+
+- bcd6d65c: Fixed issue where closing large models with modals manager would flicker
+- Updated dependencies [9ad407a7]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+
+## 2.1.4
+
+### Patch Changes
+
+- @saas-ui/forms@2.1.3
+
+## 2.1.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.1
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/hooks@2.0.1
+
+## 2.1.2
+
+### Patch Changes
+
+- 2fec29d4: Added formRef prop to FormDialog to access the internal form state
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [96b0a058]
+  - @saas-ui/forms@2.1.1
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/forms@2.1.0
+
+## 2.0.6
+
+### Patch Changes
+
+- @saas-ui/forms@2.0.5
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [3b5567c6]
+  - @saas-ui/forms@2.0.4
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [8c7ee0be]
+  - @saas-ui/forms@2.0.3
+
 ## 2.0.3
 
 ### Patch Changes

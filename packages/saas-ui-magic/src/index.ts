@@ -1,1 +1,1 @@
-export * from './magic'
+export { type MagicLinkServiceOptions, createAuthService } from './magic'

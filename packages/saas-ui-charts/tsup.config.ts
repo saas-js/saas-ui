@@ -1,7 +1,6 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  name: 'tsup',
   target: 'es2019',
   dts: {
     resolve: true,
@@ -16,6 +15,7 @@ export default defineConfig({
     '@chakra-ui/utils',
   ],
   format: ['esm', 'cjs'],
-
-  treeshake: 'smallest',
+  banner: {
+    js: "'use client'",
+  },
 })

@@ -1,5 +1,148 @@
 # @saas-ui/date-picker
 
+## 0.12.12
+
+### Patch Changes
+
+- b682e612: Fixed issue where unsupported dom props were passed to calendar cells
+
+## 0.12.11
+
+### Patch Changes
+
+- 8177989f: Updated React Aria deps
+- Updated dependencies [4c81f542]
+  - @saas-ui/modals@2.1.11
+  - @saas-ui/core@2.2.4
+
+## 0.12.10
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/core@2.2.3
+  - @saas-ui/modals@2.1.10
+
+## 0.12.9
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+  - @saas-ui/modals@2.1.9
+
+## 0.12.8
+
+### Patch Changes
+
+- Updated dependencies [3ddca73d]
+  - @saas-ui/core@2.2.1
+  - @saas-ui/modals@2.1.8
+
+## 0.12.7
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/core@2.2.0
+  - @saas-ui/modals@2.1.7
+
+## 0.12.6
+
+### Patch Changes
+
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/core@2.1.3
+  - @saas-ui/modals@2.1.6
+
+## 0.12.5
+
+### Patch Changes
+
+- Updated dependencies [bcd6d65c]
+  - @saas-ui/modals@2.1.5
+
+## 0.12.4
+
+### Patch Changes
+
+- 01bf8785: Fixed issue where onFocus and onBlur would not trigger on calendar navigation buttons
+
+## 0.12.3
+
+### Patch Changes
+
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/core@2.1.2
+  - @saas-ui/modals@2.1.4
+
+## 0.12.2
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/modals@2.1.3
+  - @saas-ui/core@2.1.1
+
+## 0.12.1
+
+### Patch Changes
+
+- Updated dependencies [2fec29d4]
+  - @saas-ui/modals@2.1.2
+
+## 0.12.0
+
+### Minor Changes
+
+- ec2bf223: Added new portal prop to DateInput and DateRangePicker components to conditionally open the dialog in a portal.
+
+## 0.11.1
+
+### Patch Changes
+
+- @saas-ui/modals@2.1.1
+
+## 0.11.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- 3400690c: Added Portal to DateInput and DateRangeInput pickers.
+- Updated dependencies [5a384c28]
+  - @saas-ui/modals@2.1.0
+  - @saas-ui/core@2.1.0
+
+## 0.10.6
+
+### Patch Changes
+
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+  - @saas-ui/core@2.0.3
+  - @saas-ui/modals@2.0.6
+
+## 0.10.5
+
+### Patch Changes
+
+- @saas-ui/modals@2.0.5
+
+## 0.10.4
+
+### Patch Changes
+
+- @saas-ui/modals@2.0.4
+
 ## 0.10.3
 
 ### Patch Changes

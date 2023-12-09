@@ -1,5 +1,34 @@
 # @saas-ui/supabase
 
+## 2.1.1
+
+### Patch Changes
+
+- d5ca55e4: Added support for scopes
+- Updated dependencies [d5ca55e4]
+  - @saas-ui/auth@2.3.0
+
+## 2.1.0
+
+### Minor Changes
+
+- ccf2824d: Fixed issue where supabase client would not redirect after magic link login
+- adfc8dfd: Updated Supabase and fixed issue with client types
+
+### Patch Changes
+
+- ccf2824d: Fixed issue where Supabase client would throw an error when social login is initialized
+- Updated dependencies [ccf2824d]
+  - @saas-ui/auth@2.1.0
+
+## 2.0.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/auth@2.0.9
+
 ## 2.0.0
 
 ### Major Changes

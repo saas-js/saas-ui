@@ -18,13 +18,9 @@ interface SaasProviderProps extends ChakraProviderProps {
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
-export function SaasProvider({
-  theme,
-  linkComponent,
-  onError,
-  children,
-  ...rest
-}: SaasProviderProps) {
+export function SaasProvider(props: SaasProviderProps) {
+  const { theme, linkComponent, onError, children, ...rest } = props
+
   const context = {
     linkComponent,
     onError,

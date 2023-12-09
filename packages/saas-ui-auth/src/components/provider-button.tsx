@@ -7,7 +7,7 @@ export const ProviderButton: React.FC<ButtonProps> = (props) => {
   const theme = useTheme()
 
   const defaultProps = {
-    p: 6,
+    h: 12,
     variant: 'outline',
     ...theme.components?.ProviderButton?.defaultProps,
   }

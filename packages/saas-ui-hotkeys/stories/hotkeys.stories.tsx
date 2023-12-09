@@ -181,7 +181,7 @@ export const ListDrawer = () => {
 
 export const WithoutShortcut = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('cmd+k', () => {
+  const key = useHotkeysShortcut('⌘ k', () => {
     ref.current?.focus()
   })
 
@@ -269,6 +269,25 @@ export const PreventDefault = () => {
   return (
     <Box>
       <Input placeholder={`Press ctrl+f or cmd+f to focus`} ref={ref} />
+    </Box>
+  )
+}
+
+export const TargetEl = () => {
+  const [ref, setRef] = React.useState<HTMLInputElement | null>(null)
+
+  useHotkeys(
+    ['esc'],
+    () => {
+      ref?.blur()
+    },
+    { targetElement: ref },
+    [ref]
+  )
+
+  return (
+    <Box>
+      <Input placeholder={`Press esc to exit`} ref={setRef} />
     </Box>
   )
 }

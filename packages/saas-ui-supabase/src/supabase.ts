@@ -78,18 +78,24 @@ interface SupabaseServiceAuthOptions {
   }
 }
 
-export const createAuthService = (
-  supabase: SupabaseClient<any, 'public', any>,
+export const createAuthService = <Client extends SupabaseClient>(
+  supabase: Client,
   serviceOptions?: SupabaseServiceAuthOptions
 ): AuthProviderProps<User> => {
   const onLogin = async (
     params: AuthParams,
-    authOptions?: AuthOptions<{ data?: object; captchaToken?: string }>
+    authOptions?: AuthOptions<{
+      data?: object
+      captchaToken?: string
+      scopes?: string
+    }>
   ) => {
     const options = {
       ...serviceOptions?.loginOptions,
       ...authOptions,
+      emailRedirectTo: authOptions?.redirectTo,
     }
+
     function authenticate() {
       const { email, password, provider, phone } = params
       if (email && password) {
@@ -117,13 +123,12 @@ export const createAuthService = (
     if (resp.error) {
       throw resp.error
     }
+
     if (isOauthResponse(resp)) {
-      const userResp = await supabase.auth.getUser()
-      if (userResp.error) {
-        throw userResp.error
-      }
-      return userResp.data.user
+      // do nothing, supabase will redirect
+      return
     }
+
     return resp.data.user
   }
 
@@ -140,6 +145,7 @@ export const createAuthService = (
       const options = {
         ...serviceOptions?.signupOptions,
         ...authOptions,
+        emailRedirectTo: authOptions?.redirectTo,
       }
       if (email && password) {
         return await supabase.auth.signUp({

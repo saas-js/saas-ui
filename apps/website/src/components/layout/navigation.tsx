@@ -9,7 +9,8 @@ import {
   Tooltip,
   useBreakpointValue,
 } from '@chakra-ui/react'
-import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 import { useRouter } from 'next/router'
 
@@ -51,25 +52,7 @@ const Header = () => {
 
   return (
     <HStack flex="1" ps="4">
-      <Box>
-        {isDesktop && (
-          <SearchInput
-            placeholder="Search docs..."
-            size="sm"
-            borderRadius="md"
-            onFocus={onOpen}
-            rightElement={<Kbd fontSize="md">/</Kbd>}
-          />
-        )}
-        <GlobalSearch
-          isOpen={isOpen}
-          onClose={onClose}
-          onSelect={(value) => {
-            console.log(value)
-          }}
-        />
-      </Box>
-      <HStack spacing="2" flexShrink={0} flex="1" justifyContent="flex-end">
+      <HStack spacing="1" flexShrink={0} flex="1" justifyContent="flex-start">
         {headerNav.map(({ href, id, ...props }, i) => {
           return (
             <NavLink
@@ -77,59 +60,90 @@ const Header = () => {
               href={href || `/#${id}`}
               key={i}
               isActive={
-                (id && activeId === id) ||
-                (href && !!router.asPath.match(new RegExp(href)))
+                !!(id && activeId === id) ||
+                !!(href && !!router.asPath.match(new RegExp(href)))
               }
               {...props}
             />
           )
         })}
-
-        <Tooltip label="Feedback &amp; Roadmap">
-          <IconButton
-            variant="ghost"
-            aria-label="roadmap"
-            icon={<ProductLaneLogo boxSize="3" />}
-            borderRadius="md"
-            as={Link}
-            href="https://roadmap.saas-ui.dev"
+      </HStack>
+      <HStack>
+        <Box>
+          {isDesktop && (
+            <SearchInput
+              placeholder="Search docs..."
+              size="sm"
+              borderRadius="md"
+              onFocus={onOpen}
+              rightElement={<Kbd fontSize="md">/</Kbd>}
+            />
+          )}
+          <GlobalSearch
+            isOpen={isOpen}
+            onClose={onClose}
+            onSelect={(value) => {
+              console.log(value)
+            }}
           />
-        </Tooltip>
+        </Box>
 
-        <Tooltip label="Discord community">
-          <IconButton
-            variant="ghost"
-            aria-label="discord"
-            icon={<FaDiscord size="14" />}
-            borderRadius="md"
-            as={Link}
-            href="https://discord.gg/4PmJGFcAjX"
-          />
-        </Tooltip>
+        <NavLink
+          href="/pricing"
+          label="Buy Pro"
+          variant="primary"
+          fontSize="sm"
+        />
 
-        <Tooltip label="Twitter">
-          <IconButton
-            variant="ghost"
-            aria-label="twitter"
-            icon={<FaTwitter size="14" />}
-            borderRadius="md"
-            as={Link}
-            href="https://twitter.com/saas_js"
-          />
-        </Tooltip>
+        <HStack spacing="0">
+          <Tooltip label="Feedback &amp; Roadmap">
+            <IconButton
+              variant="ghost"
+              aria-label="roadmap"
+              icon={<ProductLaneLogo boxSize="3" />}
+              borderRadius="md"
+              as={Link}
+              href="https://roadmap.saas-ui.dev"
+              display={{ base: 'none', lg: 'inline-flex' }}
+            />
+          </Tooltip>
 
-        <Tooltip label="Github">
-          <IconButton
-            variant="ghost"
-            aria-label="github"
-            icon={<FaGithub size="14" />}
-            borderRadius="md"
-            as={Link}
-            href="https://github.com/saas-js/saas-ui"
-          />
-        </Tooltip>
+          <Tooltip label="Discord community">
+            <IconButton
+              variant="ghost"
+              aria-label="discord"
+              icon={<FaDiscord size="14" />}
+              borderRadius="md"
+              as={Link}
+              href="https://discord.gg/4PmJGFcAjX"
+            />
+          </Tooltip>
 
-        <ThemeToggle />
+          <Tooltip label="Twitter">
+            <IconButton
+              variant="ghost"
+              aria-label="twitter"
+              icon={<FaXTwitter size="14" />}
+              borderRadius="md"
+              as={Link}
+              display={{ base: 'none', lg: 'inline-flex' }}
+              href="https://twitter.com/saas_js"
+            />
+          </Tooltip>
+
+          <Tooltip label="Github">
+            <IconButton
+              variant="ghost"
+              aria-label="github"
+              icon={<FaGithub size="14" />}
+              borderRadius="md"
+              as={Link}
+              href="https://github.com/saas-js/saas-ui"
+            />
+          </Tooltip>
+
+          <ThemeToggle />
+        </HStack>
 
         <MobileNavButton
           ref={mobileNavBtnRef}

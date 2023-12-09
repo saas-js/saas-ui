@@ -1,5 +1,24 @@
 # @saas-ui/auth
 
+## 2.1.1
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/auth@2.0.9
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- 94b4fd0b: Updated magic client
+  - @saas-ui/auth@2.0.7
+
 ## 2.0.0
 
 ### Major Changes

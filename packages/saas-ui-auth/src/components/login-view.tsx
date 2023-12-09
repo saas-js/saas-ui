@@ -16,22 +16,26 @@ import { AuthFormSuccess } from './success'
 export const LoginView: React.FC<AuthViewOptions & AuthFormOptions> = (
   props
 ) => {
+  const { title = 'Log in', submitLabel = 'Log in', ...rest } = props
   if (props.type === 'password') {
-    return <PasswordView {...props} />
+    return <PasswordView title={title} submitLabel={submitLabel} {...rest} />
   }
 
-  return <MagicLinkView {...props} />
+  return <MagicLinkView title={title} submitLabel={submitLabel} {...rest} />
 }
 
 export const SignupView: React.FC<AuthViewOptions & AuthFormOptions> = (
   props
 ) => {
-  return <LoginView action="signUp" {...props} />
-}
-
-SignupView.defaultProps = {
-  title: 'Sign up',
-  submitLabel: 'Sign up',
+  const { title = 'Sign up', submitLabel = 'Sign up', ...rest } = props
+  return (
+    <LoginView
+      action="signUp"
+      title={title}
+      submitLabel={submitLabel}
+      {...rest}
+    />
+  )
 }
 
 SignupView.displayName = 'SignupView'
@@ -56,13 +60,18 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
+    redirectUrl,
     oauthRedirectUrl,
     ...formProps
   } = props
   const [{ isResolved, data }, submit] = useLogin({ action })
 
   const handleSubmit: SubmitHandler<PasswordSubmitParams> = (params) => {
-    return submit(params).then(onSuccess).catch(onError)
+    return submit(params, {
+      redirectTo: redirectUrl || oauthRedirectUrl,
+    })
+      .then(onSuccess)
+      .catch(onError)
   }
 
   // Show a default success message on signup.
@@ -78,6 +87,7 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     dividerLabel,
     footer,
     oauthRedirectUrl,
+    redirectUrl,
   }
 
   return (
@@ -102,9 +112,9 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     renderSuccess = (data: any) => (
       <AuthFormSuccess
         title="Check your mailbox"
-        description={
-          `We've sent a magic link to ${data?.email}` || 'your email address'
-        }
+        description={`We've sent a magic link to ${
+          data?.email || 'your email address'
+        }`}
       />
     ),
     title,
@@ -113,6 +123,7 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
+    redirectUrl,
     oauthRedirectUrl,
     ...formProps
   } = props
@@ -122,7 +133,14 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
   })
 
   const handleSubmit: SubmitHandler<MagicLinkSubmitParams> = ({ email }) => {
-    return submit({ email }).then(onSuccess).catch(onError)
+    return submit(
+      { email },
+      {
+        redirectTo: redirectUrl,
+      }
+    )
+      .then(onSuccess)
+      .catch(onError)
   }
 
   const wrapperProps = {
@@ -131,6 +149,7 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
+    redirectUrl,
     oauthRedirectUrl,
   }
 
@@ -145,11 +164,6 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
   )
 }
 
-LoginView.defaultProps = {
-  title: 'Log in',
-  submitLabel: 'Log in',
-}
-
 LoginView.displayName = 'LoginView'
 
 interface AuthFormWrapperProps
@@ -161,18 +175,19 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
   const {
     providers,
     title,
-    providerLabel,
-    dividerLabel,
+    providerLabel = 'Continue with',
+    dividerLabel = 'or continue with',
     footer,
     children,
     oauthRedirectUrl,
+    redirectUrl,
     ...rest
   } = props
 
   const { logIn } = useAuth()
 
   const signInWith = (provider: string) => {
-    return logIn({ provider }, { redirectTo: oauthRedirectUrl })
+    return logIn({ provider }, { redirectTo: redirectUrl })
   }
 
   return (
@@ -198,12 +213,6 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
       {footer}
     </AuthFormContainer>
   )
-}
-
-AuthFormWrapper.defaultProps = {
-  type: 'magiclink',
-  providerLabel: 'Continue with',
-  dividerLabel: 'or continue with',
 }
 
 AuthFormWrapper.displayName = 'AuthForm'

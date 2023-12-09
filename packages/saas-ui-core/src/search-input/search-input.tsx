@@ -11,6 +11,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   useControllableState,
+  useMergeRefs,
 } from '@chakra-ui/react'
 import { callAllHandlers } from '@chakra-ui/utils'
 import { SearchIcon, CloseIcon } from '../icons'
@@ -48,19 +49,23 @@ export interface SearchInputProps
 export const SearchInput = forwardRef<SearchInputProps, 'input'>(
   (props, ref) => {
     const {
+      placeholder = 'Search',
       value: valueProp,
       defaultValue: defaultValueProp,
       size,
       variant,
+      width,
       icon,
       resetIcon,
       rightElement,
       onChange: onChangeProp,
-      onReset,
+      onReset: onResetProp,
       onKeyDown: onKeyDownProp,
       ...inputProps
     } = props
     const styles = useMultiStyleConfig('SuiSearchInput', props)
+
+    const inputRef = React.useRef<HTMLInputElement>(null)
 
     const [value, setValue] = useControllableState({
       value: valueProp,
@@ -78,22 +83,29 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
       (event: React.KeyboardEvent) => {
         if (event.key === 'Escape') {
           setValue('')
-          onReset?.()
+          onReset()
         }
       },
-      [onReset, setValue]
+      [onResetProp, setValue]
     )
+
+    const onReset = () => {
+      setValue('')
+      onResetProp?.()
+      inputRef.current?.focus()
+    }
 
     const btnSize = size === 'lg' ? 'sm' : 'xs'
 
     return (
-      <InputGroup size={size}>
+      <InputGroup size={size} width={width}>
         <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
         <Input
           type="text"
+          placeholder={placeholder}
           size={size}
           value={value}
-          ref={ref}
+          ref={useMergeRefs(ref, inputRef)}
           sx={styles.input}
           onChange={callAllHandlers(onChange, onChangeProp)}
           onKeyDown={callAllHandlers(onKeyDown, onKeyDownProp)}
@@ -117,9 +129,5 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
     )
   }
 )
-
-SearchInput.defaultProps = {
-  placeholder: 'Search',
-}
 
 SearchInput.displayName = 'SearchInput'

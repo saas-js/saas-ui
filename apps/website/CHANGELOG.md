@@ -1,5 +1,187 @@
 # website
 
+## 2.3.9
+
+### Patch Changes
+
+- Updated dependencies [90ff4d16]
+  - @saas-ui/command-bar@0.4.1
+
+## 2.3.8
+
+### Patch Changes
+
+- Updated dependencies [0b06ff35]
+- Updated dependencies [0b06ff35]
+  - @saas-ui/command-bar@0.4.0
+
+## 2.3.7
+
+### Patch Changes
+
+- Updated dependencies [f03246ac]
+  - @saas-ui/react@2.4.4
+  - @saas-ui/forms@2.3.4
+
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [537804bf]
+  - @saas-ui/forms@2.3.3
+  - @saas-ui/react@2.4.3
+
+## 2.3.5
+
+### Patch Changes
+
+- @saas-ui/forms@2.3.2
+- @saas-ui/react@2.4.2
+
+## 2.3.4
+
+### Patch Changes
+
+- @saas-ui/react@2.4.1
+- @saas-ui/forms@2.3.1
+
+## 2.3.3
+
+### Patch Changes
+
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [68995558]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/react@2.4.0
+  - @saas-ui/forms@2.3.0
+
+## 2.3.2
+
+### Patch Changes
+
+- Updated dependencies [1c64bfaf]
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/forms@2.2.1
+  - @saas-ui/react@2.3.1
+
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [9ad407a7]
+- Updated dependencies [bcd6d65c]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+  - @saas-ui/react@2.3.0
+
+## 2.3.0
+
+### Minor Changes
+
+- a0ac02b1: Added new FileUpload component �
+
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/react@2.2.4
+  - @saas-ui/forms@2.1.3
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/react@2.2.3
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [3b12ef4e]
+- Updated dependencies [2fec29d4]
+  - @saas-ui/react@2.2.2
+
+## 2.2.0
+
+### Minor Changes
+
+- ec2bf223: Added new portal prop to DateInput and DateRangePicker components to conditionally open the dialog in a portal.
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [96b0a058]
+  - @saas-ui/forms@2.1.1
+  - @saas-ui/react@2.2.1
+
+## 2.1.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/command-bar@0.3.0
+  - @saas-ui/palette@2.1.0
+  - @saas-ui/forms@2.1.0
+  - @saas-ui/react@2.2.0
+  - @saas-ui/props-docs@1.9.0
+
+## 2.0.8
+
+### Patch Changes
+
+- @saas-ui/react@2.1.1
+
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies [b4808069]
+- Updated dependencies [b4808069]
+  - @saas-ui/react@2.1.0
+
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+- Updated dependencies [493a548a]
+  - @saas-ui/react@2.0.6
+  - @saas-ui/forms@2.0.5
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [3b5567c6]
+  - @saas-ui/forms@2.0.4
+  - @saas-ui/react@2.0.5
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [8c7ee0be]
+  - @saas-ui/forms@2.0.3
+  - @saas-ui/react@2.0.4
+
 ## 2.0.3
 
 ### Patch Changes

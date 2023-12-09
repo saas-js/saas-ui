@@ -99,6 +99,7 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       minW: 0,
       ...styles.field,
       h: 'auto',
+      ...props.sx,
     }
 
     const buttonProps = useMenuButton(rest, ref)
@@ -107,7 +108,7 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
     return (
       <Button
         {...buttonProps}
-        {...buttonStyles}
+        sx={buttonStyles}
         id={id || buttonProps.id}
         {...rest}
         onFocus={onFocus}

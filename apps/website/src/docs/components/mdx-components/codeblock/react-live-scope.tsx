@@ -9,13 +9,14 @@ import * as DatePicker from '@saas-ui/date-picker'
 import * as SaasUIPro from '@saas-ui-pro/react'
 import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
 import * as CommandBar from '@saas-ui/command-bar'
-
+import * as FileUpload from '@saas-ui/file-upload'
 import * as z from 'zod'
 import * as yup from 'yup'
 import * as YupForm from '@saas-ui/forms/yup'
 import * as ZodForm from '@saas-ui/forms/zod'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
+import * as Assets from '@saas-ui/assets'
 import * as sampleData from '@/data/sample-data'
 import FocusLock from 'react-focus-lock'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -26,6 +27,8 @@ import {
   FiInbox,
   FiUsers,
   FiUser,
+  FiMenu,
+  FiX,
   FiFilter,
   FiCircle,
   FiSettings,
@@ -46,6 +49,7 @@ import {
   FiLink,
   FiChevronsLeft,
   FiChevronsRight,
+  FiChevronDown,
   FiUserCheck,
   FiCode,
   FiRefreshCw,
@@ -58,19 +62,17 @@ import {
   FiInfo,
 } from 'react-icons/fi'
 
-import {
-  FaFacebook,
-  FaTwitter,
-  FaGithub,
-  FaSlack,
-  FaCookie,
-} from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaSlack, FaCookie } from 'react-icons/fa'
+
+import { FaXTwitter } from 'react-icons/fa6'
 
 const reactIcons = {
   FiHome,
   FiInbox,
   FiUsers,
   FiUser,
+  FiMenu,
+  FiX,
   FiFilter,
   FiCircle,
   FiSettings,
@@ -90,12 +92,13 @@ const reactIcons = {
   FiUnderline,
   FiLink,
   FaFacebook,
-  FaTwitter,
+  FaXTwitter,
   FaGithub,
   FaSlack,
   FaCookie,
   FiChevronsLeft,
   FiChevronsRight,
+  FiChevronDown,
   FiUserCheck,
   FiCode,
   FiRefreshCw,
@@ -107,6 +110,11 @@ const reactIcons = {
   FiTrash,
   FiInfo,
 }
+
+import { KanbanItems } from '@saas-ui-pro/kanban'
+import * as SaasUIKanban from '@saas-ui-pro/kanban'
+
+import { now, getLocalTimeZone, today } from '@internationalized/date'
 
 const StarIcon = (props) => (
   <chakra.svg m="2px" fill="current" boxSize="3" viewBox="0 0 24 24" {...props}>
@@ -129,6 +137,21 @@ const SaasSpinner = () => <SaasUIGlyph width="48px" height="48px" isAnimating />
 
 const ThrowSomeError = () => {
   throw new Error()
+}
+
+const defaultInitializer = (index: number) => index
+
+export function createRange<T = number>(
+  length: number,
+  initializer: (index: number) => any = defaultInitializer
+): T[] {
+  return [...new Array(length)].map((_, index) => initializer(index))
+}
+
+const kanbanItems: KanbanItems = {
+  todo: createRange(4, (index) => `todo${index + 1}`),
+  doing: createRange(4, (index) => `doing${index + 1}`),
+  done: createRange(4, (index) => `done${index + 1}`),
 }
 
 const ReactLiveScope = {
@@ -164,16 +187,21 @@ const ReactLiveScope = {
     '@saas-ui/forms/zod': ZodForm,
     '@saas-ui/forms/yup': YupForm,
     '@saas-ui/command-bar': CommandBar,
+    '@saas-ui/file-upload': FileUpload,
     '@saas-ui-pro/react': SaasUIPro,
     '@saas-ui-pro/feature-flags': SaasUIFeatures,
+    '@saas-ui-pro/kanban': SaasUIKanban,
     '@saas-ui/date-picker': DatePicker,
+    '@saas-ui/assets': Assets,
     '@chakra-ui/icons': Icons,
     'react-icons/fi': reactIcons,
     '@hookform/resolvers/yup': { yupResolver },
     '@hookform/resolvers/zod': { zodResolver },
+    '@internationalized/date': { now, getLocalTimeZone, today },
     zod: z,
     yup: yup,
   },
+  kanbanItems,
 }
 
 export default ReactLiveScope

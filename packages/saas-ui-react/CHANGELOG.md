@@ -1,5 +1,250 @@
 # @saas-ui/react
 
+## 2.4.4
+
+### Patch Changes
+
+- f03246ac: Improved IconBadge sizing
+- Updated dependencies [4c81f542]
+- Updated dependencies [f03246ac]
+  - @saas-ui/modals@2.1.11
+  - @saas-ui/theme@2.2.3
+  - @saas-ui/core@2.2.4
+  - @saas-ui/data-table@6.0.4
+  - @saas-ui/forms@2.3.4
+  - @saas-ui/hotkeys@2.1.10
+
+## 2.4.3
+
+### Patch Changes
+
+- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields prop
+- 537804bf: Fixed NavLink line height
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [d5ca55e4]
+- Updated dependencies [537804bf]
+  - @saas-ui/forms@2.3.3
+  - @saas-ui/core@2.2.3
+  - @saas-ui/theme@2.2.2
+  - @saas-ui/modals@2.1.10
+  - @saas-ui/data-table@6.0.3
+  - @saas-ui/hotkeys@2.1.9
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [491315aa]
+  - @saas-ui/core@2.2.2
+  - @saas-ui/data-table@6.0.2
+  - @saas-ui/forms@2.3.2
+  - @saas-ui/hotkeys@2.1.8
+  - @saas-ui/modals@2.1.9
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [4e728c26]
+- Updated dependencies [3ddca73d]
+  - @saas-ui/theme@2.2.1
+  - @saas-ui/core@2.2.1
+  - @saas-ui/data-table@6.0.1
+  - @saas-ui/forms@2.3.1
+  - @saas-ui/hotkeys@2.1.7
+  - @saas-ui/modals@2.1.8
+
+## 2.4.0
+
+### Minor Changes
+
+- 31d05ed5: Added new Navbar component 🥳
+- ebba8404: Added new IconBadge component
+- a3180b02: Removed all Component.defaultProps definitions
+
+### Patch Changes
+
+- dddb3d1a: Fixed issue where width would not be applied to the SearchInput container element
+- 91412d77: Fixed SearchInput reset when uncontrolled
+- 91412d77: Fixed theme incompatibility with Chakra UI 2.8
+- Updated dependencies [31d05ed5]
+- Updated dependencies [dddb3d1a]
+- Updated dependencies [68995558]
+- Updated dependencies [ebba8404]
+- Updated dependencies [91412d77]
+- Updated dependencies [a3180b02]
+- Updated dependencies [91412d77]
+  - @saas-ui/theme@2.2.0
+  - @saas-ui/core@2.2.0
+  - @saas-ui/forms@2.3.0
+  - @saas-ui/data-table@6.0.0
+  - @saas-ui/hotkeys@2.1.6
+  - @saas-ui/modals@2.1.7
+
+## 2.3.1
+
+### Patch Changes
+
+- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in FormDialog
+- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to SaasProvider context
+- Updated dependencies [1c64bfaf]
+- Updated dependencies [4a3c9dc7]
+  - @saas-ui/forms@2.2.1
+  - @saas-ui/core@2.1.3
+  - @saas-ui/modals@2.1.6
+  - @saas-ui/data-table@5.0.1
+  - @saas-ui/hotkeys@2.1.5
+
+## 2.3.0
+
+### Minor Changes
+
+- 87fcdc2c: FormLayout no longer renders each child in a wrapper div
+
+### Patch Changes
+
+- 9ad407a7: Zod schema enum types now render a Select by default
+- bcd6d65c: Fixed issue where closing large models with modals manager would flicker
+- 654ad186: Fixed issue where Field would not infer correct onChange handler
+- 87fcdc2c: Fixed issue where not all StepForm data would be passed to onSubmit
+- 9ad407a7: ZodForm now infers defaultValues from the schema
+- be52e785: Fixed issue where placeholder would not be passed to the NumberInputField
+- Updated dependencies [9ad407a7]
+- Updated dependencies [bcd6d65c]
+- Updated dependencies [654ad186]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [9ad407a7]
+- Updated dependencies [87fcdc2c]
+- Updated dependencies [be52e785]
+  - @saas-ui/forms@2.2.0
+  - @saas-ui/modals@2.1.5
+  - @saas-ui/data-table@5.0.0
+
+## 2.2.4
+
+### Patch Changes
+
+- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would not overflow correctly
+- Updated dependencies [e13ae4cd]
+  - @saas-ui/core@2.1.2
+  - @saas-ui/data-table@4.0.4
+  - @saas-ui/forms@2.1.3
+  - @saas-ui/hotkeys@2.1.4
+  - @saas-ui/modals@2.1.4
+
+## 2.2.3
+
+### Patch Changes
+
+- Fixed all packages index to use named exports
+- Updated dependencies
+  - @saas-ui/data-table@4.0.3
+  - @saas-ui/nprogress@2.0.1
+  - @saas-ui/hotkeys@2.1.3
+  - @saas-ui/modals@2.1.3
+  - @saas-ui/forms@2.1.2
+  - @saas-ui/hooks@2.0.1
+  - @saas-ui/theme@2.1.1
+  - @saas-ui/core@2.1.1
+
+## 2.2.2
+
+### Patch Changes
+
+- 3b12ef4e: Removed client directive from index, fixes app directory compatibility
+- 2fec29d4: Added formRef prop to FormDialog to access the internal form state
+- Updated dependencies [2fec29d4]
+  - @saas-ui/modals@2.1.2
+  - @saas-ui/data-table@4.0.2
+
+## 2.2.1
+
+### Patch Changes
+
+- 96b0a058: Fixed select button sizes
+- Updated dependencies [96b0a058]
+  - @saas-ui/forms@2.1.1
+  - @saas-ui/modals@2.1.1
+  - @saas-ui/data-table@4.0.1
+
+## 2.2.0
+
+### Minor Changes
+
+- 5a384c28: Updated to Chakra UI 2.8.0
+- 5a384c28: Added `use client` directive for better RSC support
+
+### Patch Changes
+
+- Updated dependencies [5a384c28]
+  - @saas-ui/data-table@4.0.0
+  - @saas-ui/modals@2.1.0
+  - @saas-ui/forms@2.1.0
+  - @saas-ui/theme@2.1.0
+  - @saas-ui/core@2.1.0
+  - @saas-ui/hotkeys@2.1.2
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [0aecc7ba]
+  - @saas-ui/hotkeys@2.1.1
+  - @saas-ui/data-table@3.0.1
+
+## 2.1.0
+
+### Minor Changes
+
+- b4808069: useHotkeys now supports a custom targetElement, eg an input
+
+### Patch Changes
+
+- b4808069: Fixed issue where useHotkeys would not reset pressed keys
+- Updated dependencies [b4808069]
+- Updated dependencies [b4808069]
+  - @saas-ui/hotkeys@2.1.0
+  - @saas-ui/data-table@3.0.0
+
+## 2.0.6
+
+### Patch Changes
+
+- 493a548a: NavItem now renders an aria-current tag when the item is active.
+- 9e848077: Export createStandAloneSnackbar from core package.
+- 493a548a: NavItem active state is now compatible with Remix and ReactRouter NavLink
+- Updated dependencies [493a548a]
+- Updated dependencies [9e848077]
+- Updated dependencies [493a548a]
+  - @saas-ui/theme@2.0.1
+  - @saas-ui/core@2.0.3
+  - @saas-ui/auth@2.0.5
+  - @saas-ui/data-table@2.0.6
+  - @saas-ui/forms@2.0.5
+  - @saas-ui/hotkeys@2.0.3
+  - @saas-ui/modals@2.0.6
+
+## 2.0.5
+
+### Patch Changes
+
+- 3b5567c6: Fixed issue where StepForm would not render custom fields
+- Updated dependencies [3b5567c6]
+  - @saas-ui/forms@2.0.4
+  - @saas-ui/auth@2.0.4
+  - @saas-ui/modals@2.0.5
+  - @saas-ui/data-table@2.0.5
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [8c7ee0be]
+  - @saas-ui/forms@2.0.3
+  - @saas-ui/auth@2.0.3
+  - @saas-ui/modals@2.0.4
+  - @saas-ui/data-table@2.0.4
+
 ## 2.0.3
 
 ### Patch Changes

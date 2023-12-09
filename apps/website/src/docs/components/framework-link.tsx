@@ -42,6 +42,14 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
+        href="/docs/core/installation/remix-guide"
+        accentColor="#121212"
+        name="Remix"
+      >
+        <RemixSvg style={{ margin: 'auto' }} />
+      </FrameworkLink>
+
+      <FrameworkLink
         href="/docs/core/installation/vite-guide"
         accentColor="#C07600"
         name="Vite"
@@ -50,27 +58,11 @@ export const FrameworkLinks = () => {
       </FrameworkLink>
 
       <FrameworkLink
-        href="/docs/core/installation/blitzjs-guide"
-        accentColor="#6700EB"
-        name="BlitzJS"
-      >
-        <BlitzSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
         href="/docs/core/installation/redwoodjs-guide"
         accentColor="#BF4722"
         name="RedwoodJS"
       >
         <RedwoodSvg style={{ margin: 'auto' }} />
-      </FrameworkLink>
-
-      <FrameworkLink
-        href="/docs/core/installation/remix-guide"
-        accentColor="#121212"
-        name="Remix"
-      >
-        <RemixSvg style={{ margin: 'auto' }} />
       </FrameworkLink>
 
       <FrameworkLink

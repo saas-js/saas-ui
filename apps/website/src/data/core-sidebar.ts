@@ -26,16 +26,12 @@ const sidebar = {
           path: '/docs/core/quickstarts',
         },
         {
-          title: 'Next JS',
+          title: 'Next.js (App)',
           path: '/docs/core/installation/nextjs-guide',
         },
         {
-          title: 'Blitz JS',
-          path: '/docs/core/installation/blitzjs-guide',
-        },
-        {
-          title: 'RedwoodJS',
-          path: '/docs/core/installation/redwoodjs-guide',
+          title: 'Next.js (Pages)',
+          path: '/docs/core/installation/nextjs-pages-guide',
         },
         {
           title: 'Remix',
@@ -44,6 +40,10 @@ const sidebar = {
         {
           title: 'Vite',
           path: '/docs/core/installation/vite-guide',
+        },
+        {
+          title: 'RedwoodJS',
+          path: '/docs/core/installation/redwoodjs-guide',
         },
         {
           title: 'Create React App',

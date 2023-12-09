@@ -124,8 +124,6 @@ export const useCalendarCell = (
     cellProps,
     buttonProps: {
       ...buttonProps,
-      isDisabled,
-      isFocused,
       ['data-selected']: dataAttr(isSelected),
       ['data-invalid']: dataAttr(isInvalid),
       ['data-selection-start']: dataAttr(isSelectionStart),

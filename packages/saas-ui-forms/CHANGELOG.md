@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.3.4
+
+### Patch Changes
+
+- @saas-ui/core@2.2.4
+
 ## 2.3.3
 
 ### Patch Changes

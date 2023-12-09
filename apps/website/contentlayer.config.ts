@@ -33,6 +33,7 @@ const Blog = defineDocumentType(() => ({
     author: { type: 'string' },
     avatar: { type: 'string' },
     status: { type: 'string' },
+    tags: { type: 'list', of: { type: 'string' } },
   },
   computedFields: {
     ...computedFields,

@@ -111,7 +111,9 @@ const Template: Story<CommandBarProps> = (args) => {
 }
 
 const DialogTemplate: Story<CommandBarProps> = (args) => {
-  const { isOpen, onClose, onToggle } = useDisclosure()
+  const { isOpen, onClose, onToggle } = useDisclosure({
+    defaultIsOpen: true,
+  })
 
   const [isLoading, setLoading] = React.useState(false)
 
@@ -124,6 +126,7 @@ const DialogTemplate: Story<CommandBarProps> = (args) => {
         isOpen={isOpen}
         onClose={onClose}
         closeOnSelect
+        {...args}
       >
         <CommandBarDialog>
           <CommandBarContent>
@@ -163,6 +166,11 @@ Default.args = {}
 
 export const Dialog = DialogTemplate.bind({})
 Dialog.args = {}
+
+export const DialogSize = DialogTemplate.bind({})
+DialogSize.args = {
+  size: 'xl',
+}
 
 export const Loading = () => {
   const [isLoading, setLoading] = React.useState(true)

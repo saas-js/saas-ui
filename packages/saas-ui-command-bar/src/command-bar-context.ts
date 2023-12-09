@@ -1,4 +1,8 @@
-import { SystemStyleObjectRecord, useDisclosure } from '@chakra-ui/react'
+import {
+  ModalProps,
+  SystemStyleObjectRecord,
+  useDisclosure,
+} from '@chakra-ui/react'
 import { createContext } from '@chakra-ui/react-utils'
 import { callAllHandlers } from '@chakra-ui/utils'
 import { useCallback } from 'react'
@@ -12,6 +16,7 @@ export interface CommandBarOptions {
   isOpen?: boolean
   onClose?(): void
   closeOnSelect?: boolean
+  size?: ModalProps['size']
 }
 
 export const [CommandBarStylesProvider, useCommandBarStyles] =
@@ -36,6 +41,7 @@ export const useCommandBar = (props: CommandBarOptions) => {
     isOpen: isOpenProp,
     onClose: onCloseProp,
     closeOnSelect,
+    size,
   } = props
 
   const { isOpen, onClose } = useDisclosure({
@@ -71,10 +77,12 @@ export const useCommandBar = (props: CommandBarOptions) => {
   )
 
   const getDialogProps = useCallback(
-    (props: any) => {
+    (props?: any) => {
       return {
         isOpen,
-        onClose,
+        onClose: callAllHandlers(props?.onClose, onClose),
+        size,
+        ...props,
       }
     },
     [isOpen, onClose]

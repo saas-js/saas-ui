@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/data-table",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {

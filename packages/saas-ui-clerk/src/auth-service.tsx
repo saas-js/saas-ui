@@ -1,4 +1,4 @@
-import { LoadedClerk, SignInCreateParams } from '@clerk/types'
+import { LoadedClerk, SignInCreateParams, OAuthProvider } from '@clerk/types'
 
 import {} from '@clerk/clerk-react'
 
@@ -9,22 +9,6 @@ import {
   AuthProviderProps,
   AuthStateChangeCallback,
 } from '@saas-ui/auth'
-
-type Providers =
-  | 'facebook'
-  | 'github'
-  | 'google'
-  | 'hubspot'
-  | 'tiktok'
-  | 'gitlab'
-  | 'discord'
-  | 'twitter'
-  | 'twitch'
-  | 'linkedin'
-  | 'dropbox'
-  | 'bitbucket'
-  | 'microsoft'
-  | 'notion'
 
 /**
  * Clerk auth service
@@ -48,7 +32,7 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
   ): Promise<User | null | undefined> => {
     if (params.provider) {
       await client.signIn.authenticateWithRedirect({
-        strategy: `oauth_${params.provider}` as `oauth_${Providers}`,
+        strategy: `oauth_${params.provider}` as `oauth_${OAuthProvider}`,
         redirectUrl: '/#sso_callback',
         redirectUrlComplete: options?.redirectTo || '/',
       })

@@ -1,6 +1,6 @@
-# TypeScript Next.js Saas UI example
+# TypeScript Next.js Saas UI Clerk example
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+This is a basic example of how to use [Clerk](https://clerk.dev) to add authentication to a Next.js app using Saas UI
 
 ## Deploy your own
 

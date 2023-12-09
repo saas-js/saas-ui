@@ -1,4 +1,6 @@
-import { Box, Button } from '@chakra-ui/react'
+'use client'
+
+import { Box, Button, Center } from '@chakra-ui/react'
 import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
 import { useAuth } from '@saas-ui/auth'
 import NextLink from 'next/link'
@@ -14,19 +16,21 @@ const IndexPage = () => {
     )
   } else if (!user) {
     return (
-      <Box>
+      <Center h="$100vh">
         <NextLink href="/login" legacyBehavior>
-          <Button>Log in</Button>
+          <Button variant="primary" size="lg">
+            Log in
+          </Button>
         </NextLink>
-      </Box>
+      </Center>
     )
   }
 
   return (
-    <Box>
+    <Center h="$100vh">
       Logged in as: {user.email}.{' '}
       <Button onClick={() => logOut()}>Log out</Button>
-    </Box>
+    </Center>
   )
 }
 

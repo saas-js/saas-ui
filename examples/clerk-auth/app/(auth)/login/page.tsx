@@ -1,16 +1,18 @@
+'use client'
+
 import { Stack, Card, CardBody } from '@chakra-ui/react'
 import { Auth, AvailableProviders, useAuth } from '@saas-ui/auth'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
-import { FaGithub } from 'react-icons/fa'
-import { Logo } from '../components/Logo'
+import { FaGoogle } from 'react-icons/fa'
+import { Logo } from '../../../components/Logo'
 import { useSnackbar } from '@saas-ui/react'
 
 const providers: AvailableProviders = {
-  github: {
-    icon: FaGithub,
-    name: 'Github',
+  google: {
+    icon: FaGoogle,
+    name: 'Google',
   },
 }
 

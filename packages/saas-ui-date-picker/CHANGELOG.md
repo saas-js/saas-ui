@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.12.12
+
+### Patch Changes
+
+- b682e612: Fixed issue where unsupported dom props were passed to calendar cells
+
 ## 0.12.11
 
 ### Patch Changes

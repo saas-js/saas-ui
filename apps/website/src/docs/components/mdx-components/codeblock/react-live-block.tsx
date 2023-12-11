@@ -7,6 +7,7 @@ import {
   LiveEditor,
   LiveError,
   LivePreview,
+  LiveProviderProps,
 } from 'react-live-runner'
 import CodeContainer from './code-container'
 import CopyButton from './copy-button'
@@ -128,9 +129,12 @@ function ReactLiveBlock({
 
   const [frameRef, setFrameRef] = useState<HTMLIFrameElement | null>(null)
 
-  const liveProviderProps = {
+  const liveProviderProps: LiveProviderProps = {
     code: editorCode,
-    scope,
+    scope: {
+      getRootNode: () => frameRef?.contentWindow?.document,
+      ...scope,
+    },
     theme,
     ...rest,
   }

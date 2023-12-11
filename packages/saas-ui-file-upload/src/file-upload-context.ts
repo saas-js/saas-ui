@@ -19,7 +19,7 @@ export const [FileUploadProvider, useFileUploadContext] =
 export type FileUploadContext = ReturnType<typeof useFileUpload>
 
 export interface FileUploadOptions
-  extends Omit<fileUpload.Context, 'id' | 'getRootNode' | 'disabled'> {
+  extends Omit<fileUpload.Context, 'id' | 'disabled'> {
   isDisabled?: boolean
 }
 

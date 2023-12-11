@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FiPenTool, FiCheck } from 'react-icons/fi'
 import {
   Box,
@@ -7,32 +7,66 @@ import {
   PopoverTrigger,
   PopoverContent,
   useTheme,
+  IconButton,
+  Badge,
 } from '@chakra-ui/react'
+import { LuCheck, LuPenTool } from 'react-icons/lu'
 
 interface ColorControlProps {
   onChange(color: string): void
   value: string
 }
 
+const ignore = [
+  'black',
+  'white',
+  'gray',
+  'transparent',
+  'current',
+  'code',
+  'linkedin',
+  'facebook',
+  'messenger',
+  'whatsapp',
+  'twitter',
+  'telegram',
+]
+
 export function ColorControl({ onChange, value }: ColorControlProps) {
   const [opened, setOpened] = useState(false)
   const theme = useTheme()
-  const colors = Object.keys(theme.colors).map((color) => ({
-    swatch: theme.colors[color][6],
-    color,
-  }))
+
+  // @todo remove this hack to prevent hydration errors
+  const initializedRef = React.useRef(false)
+  React.useEffect(() => {
+    if (!initializedRef.current) {
+      initializedRef.current = true
+    }
+  }, [])
+
+  if (!initializedRef.current) {
+    return null
+  }
+
+  const colors = Object.keys(theme.colors)
+    .filter((color) => !color.match('Alpha') && !ignore.includes(color))
+    .map((color) => ({
+      swatch: theme.colors[color][500],
+      color,
+    }))
 
   const swatches = colors.map(({ color, swatch }) => (
-    <Box
-      as="button"
-      type="button"
+    <IconButton
+      aria-label={color}
       onClick={() => onChange(color)}
+      isRound
+      size="xs"
       key={color}
-      color={swatch}
+      bg={swatch}
       style={{ color: theme.white, cursor: 'pointer' }}
     >
-      {value === color && <FiCheck size={10} />}
-    </Box>
+      {value === color && <LuCheck size="1.2em" />}
+    </IconButton>
   ))
 
   return (
@@ -40,20 +74,22 @@ export function ColorControl({ onChange, value }: ColorControlProps) {
       isOpen={opened}
       onClose={() => setOpened(false)}
       placement="bottom-end"
+      isLazy
     >
       <PopoverTrigger>
-        <Box
-          as="button"
-          type="button"
-          color={theme.colors[value][6]}
+        <IconButton
+          aria-label="Change primary color"
+          icon={
+            <Badge rounded="full" boxSize="3" bg={theme.colors[value][500]} />
+          }
+          variant="tertiary"
           onClick={() => setOpened((o) => !o)}
-          style={{ display: 'block', cursor: 'pointer' }}
-        >
-          <FiPenTool style={{ width: 14, height: 14 }} color="#fff" />
-        </Box>
+        />
       </PopoverTrigger>
       <PopoverContent>
-        <Stack gap="xs">{swatches}</Stack>
+        <Stack gap="2" flexDirection="row" flexWrap="wrap" p="2">
+          {swatches}
+        </Stack>
       </PopoverContent>
     </Popover>
   )

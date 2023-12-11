@@ -15,6 +15,7 @@ import { ColorControl } from './color-control'
 import { UiComponent } from '../../data/blocks'
 import { useAuth } from '@saas-ui/auth'
 import { useRouter } from 'next/router'
+import { ThemeControl } from './theme-control'
 
 export interface CanvasHeaderProps
   extends UiComponent,
@@ -22,6 +23,8 @@ export interface CanvasHeaderProps
   state: string
   onStateChange(state: string): void
   onPrimaryColorChange(color: string): void
+  onThemeChange(theme: string): void
+  theme: string
   primaryColor: string
   excludeExternal?: boolean
   zIndex?: number
@@ -35,6 +38,8 @@ export function CanvasHeader({
   onStateChange,
   primaryColor,
   onPrimaryColorChange,
+  theme,
+  onThemeChange,
   excludeExternal = false,
   zIndex,
   ...rest
@@ -80,9 +85,9 @@ export function CanvasHeader({
       </HStack>
 
       <HStack>
-        {attributes.withColor && (
-          <ColorControl onChange={onPrimaryColorChange} value={primaryColor} />
-        )}
+        <ColorControl onChange={onPrimaryColorChange} value={primaryColor} />
+
+        <ThemeControl onChange={onThemeChange} value={theme} />
 
         {isUnlocked ? (
           <ButtonGroup isAttached>

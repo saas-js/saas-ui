@@ -3,6 +3,7 @@ import * as React from 'react'
 import { ChakraProvider, ChakraProviderProps } from '@chakra-ui/react'
 
 import { theme as defaultTheme } from '@saas-ui/theme'
+import { Dict } from '@chakra-ui/utils'
 
 export interface SaasContextValue {
   linkComponent?: React.ElementType<any>
@@ -11,8 +12,8 @@ export interface SaasContextValue {
 
 export const SaasContext = React.createContext<SaasContextValue>({})
 
-interface SaasProviderProps extends ChakraProviderProps {
-  theme?: any
+export interface SaasProviderProps extends ChakraProviderProps {
+  theme?: Dict
   linkComponent?: React.ElementType<any>
   children: React.ReactNode
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void

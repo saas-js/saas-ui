@@ -7,25 +7,19 @@ interface ComponentPreviewProps {
   withSpacing?: boolean
 }
 
-export function ComponentPreview({
-  children,
-  canvas,
-  withSpacing = false,
-}: ComponentPreviewProps) {
-  if (canvas?.center) {
-    return (
-      <Box maxW={canvas?.maxWidth ?? 'container.lg'} margin="0 auto" p="12">
-        {children}
-      </Box>
-    )
-  }
+export function ComponentPreview({ children, canvas }: ComponentPreviewProps) {
   return (
     <Box
-      style={{
-        paddingTop: canvas?.maxWidth && withSpacing ? 4 : 0,
-        maxWidth: canvas?.maxWidth ? canvas.maxWidth : '100%',
+      sx={{
+        padding: canvas?.center ? 12 : 0,
+        maxWidth: canvas?.maxWidth
+          ? canvas.maxWidth
+          : canvas?.center
+          ? 'container.lg'
+          : '100%',
         marginLeft: canvas?.center ? 'auto' : 'unset',
         marginRight: canvas?.center ? 'auto' : 'unset',
+        height: canvas?.height ?? 'auto',
       }}
     >
       {children}

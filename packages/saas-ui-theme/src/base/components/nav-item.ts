@@ -141,7 +141,6 @@ const variantSolid = definePartsStyle((props) => {
 const variantLeftAccent = definePartsStyle((props) => {
   const { colorScheme: c } = props
   const _active = {
-    color: 'inherit',
     _before: {
       content: '""',
       display: 'block',
@@ -158,7 +157,6 @@ const variantLeftAccent = definePartsStyle((props) => {
       position: 'relative',
     },
     link: {
-      color: 'muted',
       _hover: {
         color: 'inherit',
         bg: 'blackAlpha.100',

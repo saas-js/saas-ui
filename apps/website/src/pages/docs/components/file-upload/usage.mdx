@@ -41,7 +41,13 @@ import {
 
 export default function Basic() {
   return (
-    <FileUpload maxFileSize={1024 * 1024} maxFiles={1} accept="image/*">
+    <FileUpload
+      /* Remove `getRootNode` in your code, only required for this example */
+      getRootNode={getRootNode}
+      maxFileSize={1024 * 1024}
+      maxFiles={1}
+      accept="image/*"
+    >
       {({ files, deleteFile }) => (
         <FileUploadDropzone>
           <Text fontSize="sm">Drag your image here</Text>
@@ -81,7 +87,13 @@ import {
 
 export default function MultipleFiles() {
   return (
-    <FileUpload maxFileSize={1024 * 1024} maxFiles={10} accept="image/*">
+    <FileUpload
+      /* Remove `getRootNode` in your code, only required for this example */
+      getRootNode={getRootNode}
+      maxFileSize={1024 * 1024}
+      maxFiles={10}
+      accept="image/*"
+    >
       {({ files, clearFiles }) => (
         <FileUploadDropzone>
           <Text fontSize="sm">Drag your image(s) here</Text>
@@ -120,7 +132,13 @@ import {
 
 export default function Basic() {
   return (
-    <FileUpload maxFileSize={1024 * 1024} maxFiles={1} accept="image/*">
+    <FileUpload
+      /* Remove `getRootNode` in your code, only required for this example */
+      getRootNode={getRootNode}
+      maxFileSize={1024 * 1024}
+      maxFiles={1}
+      accept="image/*"
+    >
       {({ files, deleteFile }) => (
         <FileUploadDropzone>
           {!files?.length ? (
@@ -168,6 +186,8 @@ const UploadField = createField(
     const { onChange, ...rest } = props
     return (
       <FileUpload
+        /* Remove `getRootNode` in your code, only required for this example */
+        getRootNode={getRootNode}
         maxFileSize={1024 * 1024}
         accept="image/*"
         {...rest}

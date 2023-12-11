@@ -3,22 +3,21 @@ import { CacheProvider } from '@emotion/react'
 import createCache from '@emotion/cache'
 import weakMemoize from '@emotion/weak-memoize'
 import { FrameContextConsumer, useFrame } from 'react-frame-component'
-import { SaasProvider } from '@saas-ui/react'
-import { theme } from '@saas-ui-pro/react'
-import { ColorMode, useColorMode } from '@chakra-ui/system'
+import { SaasProvider, SaasProviderProps } from '@saas-ui/react'
+import { ColorMode, ColorModeContext, useColorMode } from '@chakra-ui/react'
 
 let memoizedCreateCacheWithContainer = weakMemoize((container: Node) => {
-  let newCache = createCache({ key: 'frame', container })
+  let newCache = createCache({ key: 'chakra', container })
   return newCache
 })
 
-export const FrameProvider = (props) => {
+export const FrameProvider = (props: SaasProviderProps) => {
   const { colorMode } = useColorMode()
 
   return (
     <FrameContextConsumer>
       {({ document, window }) => {
-        if (!document) {
+        if (!document || !window) {
           return null
         }
 
@@ -27,7 +26,17 @@ export const FrameProvider = (props) => {
             value={memoizedCreateCacheWithContainer(document.head)}
           >
             <ColorModeScript colorMode={colorMode} />
-            <SaasProvider theme={theme}>{props.children}</SaasProvider>
+            <SaasProvider
+              environment={{
+                getDocument: () => document,
+                getWindow: () => window,
+              }}
+              {...props}
+            >
+              <SyncColorMode colorMode={colorMode}>
+                {props.children}
+              </SyncColorMode>
+            </SaasProvider>
           </CacheProvider>
         )
       }}
@@ -35,12 +44,32 @@ export const FrameProvider = (props) => {
   )
 }
 
+const SyncColorMode = ({ children, colorMode: resolvedValue }) => {
+  const [colorMode, setColorMode] = React.useState<ColorMode>(resolvedValue)
+
+  const toggleColorMode = React.useCallback(() => {
+    setColorMode(resolvedValue === 'dark' ? 'light' : 'dark')
+  }, [resolvedValue, setColorMode])
+
+  React.useEffect(() => {
+    setColorMode(resolvedValue)
+  }, [setColorMode, resolvedValue])
+
+  return (
+    <ColorModeContext.Provider
+      value={{ colorMode, setColorMode, toggleColorMode }}
+    >
+      {children}
+    </ColorModeContext.Provider>
+  )
+}
+
 const ColorModeScript = ({ colorMode }) => {
-  const { getSystemTheme, setClassName, setDataset } = useColorModeUtils()
+  const { getSystemTheme, setClassName, setDataset, addListener } =
+    useColorModeUtils()
 
   const setColorMode = React.useCallback(
     (value: ColorMode | 'system') => {
-      //
       const resolved = value === 'system' ? getSystemTheme() : value
 
       setClassName(resolved === 'dark')
@@ -52,6 +81,10 @@ const ColorModeScript = ({ colorMode }) => {
   React.useEffect(() => {
     setColorMode(colorMode)
   }, [colorMode, setColorMode])
+
+  React.useEffect(() => {
+    return addListener(setColorMode)
+  }, [addListener, setColorMode])
 
   return null
 }

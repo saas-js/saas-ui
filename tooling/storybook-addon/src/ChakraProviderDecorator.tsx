@@ -18,9 +18,7 @@ const useThemeSync = () => {
 
   React.useEffect(() => {
     const channel = addons.getChannel()
-    console.log('sync theme')
     const themeCallback = (value: string) => {
-      console.log(value)
       setTheme(value)
     }
     channel.on(EVENTS.SET_THEME, themeCallback)

@@ -102,7 +102,7 @@ export interface NavItemProps
  */
 export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const {
-    href = '#',
+    href,
     icon,
     inset,
     className,
@@ -127,7 +127,7 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   }
 
   let as
-  if (href && href !== '#') {
+  if (href) {
     as = Link
   }
 

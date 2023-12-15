@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { Box, Card, CardBody, Stack, extendTheme } from '@chakra-ui/react'
 import * as UiComponents from '../../../../../packages/pro/saas-ui/templates'
 import { UiComponent } from '../../data/blocks'
@@ -7,18 +7,26 @@ import { CanvasHeader } from './canvas-header'
 import { CodeTabs } from './code-tabs'
 import { useFetch } from 'use-http'
 import { useCurrentUser } from '@saas-ui/auth'
-import {
-  LoadingOverlay,
-  LoadingSpinner,
-  SaasProvider,
-  useLocalStorage,
-} from '@saas-ui/react'
+import { LoadingOverlay, LoadingSpinner, useLocalStorage } from '@saas-ui/react'
 import { User } from '@supabase/supabase-js'
 
 import { theme } from '@saas-ui-pro/react'
 import { theme as glassTheme } from '@saas-ui-pro/theme-glass'
 
-const LinkStub = (props: any) => <Box {...props} />
+const LinkStub = forwardRef((props: any, ref) => {
+  return (
+    <a
+      ref={ref}
+      {...props}
+      onClick={(e) => {
+        e.stopPropagation()
+        e.preventDefault()
+      }}
+    />
+  )
+})
+
+LinkStub.displayName = 'LinkStub'
 
 const themes = {
   'saas-ui': theme,
@@ -110,6 +118,7 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
                   }}
                   onHeightChange={(height) => setFrameHeight(String(height))}
                   theme={selectedTheme}
+                  linkComponent={LinkStub}
                 >
                   <ComponentPreview canvas={props.attributes.canvas}>
                     <Component

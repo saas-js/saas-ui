@@ -21,8 +21,6 @@ const syncLicense = async (req: NextApiRequest, res: NextApiResponse) => {
       ),
     },
   })
-
-  console.log(result.data.user?.user_metadata)
 }
 
 const isLemonLicense = (licenseKey) => {

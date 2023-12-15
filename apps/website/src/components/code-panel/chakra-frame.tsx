@@ -37,17 +37,18 @@ export const ChakraFrame = (props: ChakraFrameProps) => {
         setFrameHeight(height + 'px')
 
         onHeightChange?.(height)
-      }, 100)
 
-      frameRef.contentWindow?.document.body.addEventListener(
-        'mouseout',
-        onMouseOut
-      )
+        frameRef.contentWindow?.document.body?.addEventListener(
+          'mouseout',
+          onMouseOut
+        )
+      }, 100)
     }
+
     setInitialized(true)
 
     return () => {
-      frameRef?.contentWindow?.document.body.removeEventListener(
+      frameRef?.contentWindow?.document.body?.removeEventListener(
         'mouseout',
         onMouseOut
       )

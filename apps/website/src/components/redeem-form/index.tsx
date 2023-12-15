@@ -162,23 +162,19 @@ export function RedeemForm(props) {
             🥳
           </chakra.span>
         </Heading>
-        <Text>
-          {data.githubInvited || !router.query.sale_id ? (
-            <Text>
-              Your Github account <strong>{data.githubAccount}</strong> has been
-              added to the private{' '}
-              <Link
-                href="https://github.com/saas-js/saas-ui-pro"
-                target="_blank"
-              >
-                Github repo
-              </Link>
-              .
-            </Text>
-          ) : (
-            'You will receive a Github invite shortly.'
-          )}
-        </Text>
+
+        {data.githubInvited || !router.query.sale_id ? (
+          <Text>
+            Your Github account <strong>{data.githubAccount}</strong> has been
+            added to the private{' '}
+            <Link href="https://github.com/saas-js/saas-ui-pro" target="_blank">
+              Github repo
+            </Link>
+            .
+          </Text>
+        ) : (
+          <Text>You will receive a Github invite shortly.</Text>
+        )}
 
         <Text>
           Your opinion is very important to me, please don&apos;t hestitate to

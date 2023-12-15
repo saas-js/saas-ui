@@ -7,9 +7,28 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 01 Dec 2023 16:34:41 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 06 Dec 2023 18:22:54 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/12-06-2023</guid>
+    <title>Dec 6, 2023</title>
+    <link>https://saas-ui.dev/changelog/12-06-2023</link>
+    <description>
+## 12-06-2023
+
+`@saas-ui/react@2.4.4`
+
+- Improved IconBadge sizing
+
+**Date Picker** `v0.12.11`
+
+- U...</description>
+    <pubDate>Wed, 06 Dec 2023 18:22:54 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/12-01-2023</guid>
     <title>Dec 1, 2023</title>

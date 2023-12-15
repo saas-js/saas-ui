@@ -63,7 +63,7 @@ const Header = (props: HeaderProps) => {
       }}
       {...props}
     >
-      <GlobalBanner />
+      {/* <GlobalBanner /> */}
       <Box
         zIndex="1"
         position="relative"

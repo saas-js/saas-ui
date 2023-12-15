@@ -23,7 +23,7 @@ const generateRssItem = (post) => {
 `
 }
 
-const generateRss = (posts = [], page = 'index.xml') => `
+const generateRss = (posts: Record<string, any>[] = [], page = 'index.xml') => `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${siteMetadata.seo.title}</title>

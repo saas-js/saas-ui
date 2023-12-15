@@ -1,101 +1,48 @@
 ---
-title: Getting Started with Nextjs
-description: A guide for installing Saas UI with Nextjs projects
-tags: ['nextjs']
+title: Getting Started with Next.js (App)
+description: A guide for installing Saas UI with Next.js app directory
+tags: ['nextjs', 'app']
+category: frameworks
 ---
 
-### 1. Installation
+### Installation
 
-In your Next.js project, install Saas UI by running either of the following:
+In your Next.js project, install Saas UI and its peer dependencies:
 
-```bash
-npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
-```
+<PackageManagers
+  command={{
+    npm: 'npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
+    yarn: 'yarn add @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
+    pnpm: 'pnpm add @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
+  }}
+/>
 
-```bash
-yarn add @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
-```
+### Setup Provider
 
-### 2. Provider Setup
-
-After installing Saas UI, you need to set up the `SaasProvider` at the root
-of your application. If you already have `ChakraProvider` in your app, you can replace this with `SaasProvider`.
-
-Go to `pages/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and
-wrap the `Component` with the `SaasProvider`:
-
-```jsx live=false
-// pages/_app.js
-import { SaasProvider } from '@saas-ui/react'
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <SaasProvider>
-      <Component {...pageProps} />
-    </SaasProvider>
-  )
-}
-
-export default MyApp
-```
-
-### 3. Link Component
-
-Configure a `linkComponent` to make the Saas UI `Link` works with the Next.js router.
-
-```tsx
-import Link, { LinkProps } from 'next/link'
-import { SaasProvider } from '@saas-ui/react'
-
-const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref) => <Link ref={ref} {...props} />
-)
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <SaasProvider linkComponent={Link}>
-      <Component {...pageProps} />
-    </SaasProvider>
-  )
-}
-```
-
-### App Directory Setup
-
-Next.js 13 introduces a new `app/` directory / folder structure. By default it
-uses Server Components. However, **Saas UI only works in client-side
+Next.js 13 introduced a new `app/` directory / folder structure. By default it
+uses Server Components. However, **Chakra UI only works in client-side
 components**.
 
-To use Saas UI in server components, you need to convert them into client-side
-component by adding a `'use client';` at the top of your file.
+Saas UI and Chakra UI have added `use client` directive to the top of all
+components so they are automatically treated as client-side components.
 
 Chakra UI also provides a `@chakra-ui/next-js` package that gives you a smoother
-experience when using Saas UI in the app directory.
-
-This package provides the **CacheProvider** which composes the Emotion.js' cache
-provider with the `useServerInsertedHTML` hook from next/navigation. This is
-necessary to ensure that computed styles are included in the initial server
-payload (during streaming).
-
-To use Saas UI in app directory, you can wrap `SaasProvider` and `CacheProvider` in your own client Component.
+experience when using Chakra UI in the app directory.
 
 ```jsx live=false
 // app/providers.tsx
 'use client'
 
-import { CacheProvider } from '@chakra-ui/next-js'
 import { SaasProvider } from '@saas-ui/react'
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return (
-    <CacheProvider>
-      <SaasProvider>{children}</SaasProvider>
-    </CacheProvider>
-  )
+  return <SaasProvider>{children}</SaasProvider>
 }
 ```
 
-Now, you can import and render `<Providers />` directly within your root. With the providers rendered at the root, all the components and hooks will work as expected within your own Client Components.
+### Setup Layout
+
+Next, use the `Providers` component in your layouts.
 
 ```jsx live=false
 // app/layout.tsx
@@ -116,87 +63,100 @@ export default function RootLayout({
 }
 ```
 
-> The `'use client'` directive is still required to be added to the top of the
-> page-related file.
+### Link Component
 
-If you're not using the new `app/` directory, there's no need to add
-the`'use client';` directive add the top of your file.
+Configure a `linkComponent` to make the Saas UI components that use `Link` work with the Next.js router.
 
-### 4. Customizing Theme
+```tsx
+'use client'
 
-If you intend to customise the default theme object to match your design
-requirements, you can extend the `theme` from `@chakra-ui/react`.
+import Link, { LinkProps } from 'next/link'
+import { SaasProvider } from '@saas-ui/react'
 
-Chakra UI provides an `extendTheme` function that deep merges the default theme
-with your customizations.
+const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <Link ref={ref} {...props} />
+)
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <SaasProvider linkComponent={Link}>{children}</SaasProvider>
+}
+```
+
+### Styling Next.js Link
+
+We recommend using the `Link` component provided from the `@chakra-ui/next-js`
+package. It combines the functionality of the Next.js Link and Chakra's styling
+features.
 
 ```jsx live=false
-// 1. Import the extendTheme function
-import { extendTheme } from '@chakra-ui/react'
+// app/page.tsx
+'use client'
+import { Link } from '@chakra-ui/next-js'
 
-// 2. Import the Saas UI theme
-import { SaasProvider, theme as baseTheme } from '@saas-ui/react'
-
-// 2. Extend the theme to include custom colors, fonts, etc
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  },
-}
-
-const theme = extendTheme({ colors }, baseTheme)
-
-// 3. Pass the `theme` prop to the `SaasProvider`
-function MyApp({ Component, pageProps }) {
+export default function Page() {
   return (
-    <SaasProvider theme={theme}>
-      <Component {...pageProps} />
-    </SaasProvider>
+    <Link href="/about" color="blue.400" _hover={{ color: 'blue.500' }}>
+      About
+    </Link>
   )
 }
 ```
 
-> To further customize components or build your own design system, the
-> `theme-tools` package includes useful utilities.
+### Using custom font
 
-### 6. Color Mode Script
+With Next.js 13, you can optimize your fonts (including custom fonts) and remove
+external network requests for improved privacy and performance.
 
-The color mode script needs to be added before the content inside the `body` tag
-for local storage syncing to work correctly.
+First, you need define the font you need
 
-> When setting the initial color mode, we recommend adding it as a config to
-> your theme and reference that in the `ColorModeScript`.
+```jsx live=false
+// app/fonts.ts
+import { Inter } from 'next/font/google'
 
-> To use `ColorModeScript` on a site with strict `Content-Security-Policy`, you
-> can use the `nonce` prop that will be passed to the `<script>` tag.
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
-```jsx live=false ln={14}
-// pages/_document.js
-
-import { ColorModeScript } from '@chakra-ui/react'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import theme from './theme'
-
-export default class Document extends NextDocument {
-  render() {
-    return (
-      <Html lang="en">
-        <Head />
-        <body>
-          {/* 👇 Here's the script */}
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+export const fonts = {
+  inter,
 }
 ```
 
-#### Notes on TypeScript 🚨
+Next, you need to update your root layout to include the font styles.
 
-Please note that when adding Chakra UI to a TypeScript project, a minimum
-TypeScript version of `4.1.0` is required.
+```jsx live=false
+// app/layout.tsx
+import { fonts } from './fonts'
+import { Providers } from './providers'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode,
+}) {
+  return (
+    <html lang="en" className={fonts.inter.variable}>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+Finally, you can use font variable in your custom theme file across the app.
+
+```jsx live=false
+/* theme.ts */
+import { extendTheme } from "@chakra-ui/react";
+
+export const theme = extendTheme({
+  ...
+    fonts: {
+      heading: 'var(--font-inter)',
+      body: 'var(--font-inter)',
+    }
+  ...
+});
+```

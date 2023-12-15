@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Thu, 07 Dec 2023 18:10:42 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 15 Dec 2023 10:27:43 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -131,34 +131,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/file-upload/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/file-upload/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/file-upload/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/file-upload/theming</link>
-    <description>
-## Theming
-
-### Default theme
-
-```tsx
-import { anatomy } from '@chakra-ui/theme-tools'
-
-export cons...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/file-upload/usage</guid>
     <title>FileUpload</title>
     <link>https://saas-ui.dev/docs/components/file-upload/usage</link>
@@ -190,8 +162,18 @@ export cons...</description>
 
   <item>
     <guid>https://saas-ui.dev/docs/core/installation/nextjs-guide</guid>
-    <title>Getting Started with Nextjs</title>
+    <title>Getting Started with Next.js (App)</title>
     <link>https://saas-ui.dev/docs/core/installation/nextjs-guide</link>
+    <description>A guide for installing Saas UI with Next.js app directory</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>nextjs</category><category>app</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/installation/nextjs-pages-guide</guid>
+    <title>Getting Started with Nextjs</title>
+    <link>https://saas-ui.dev/docs/core/installation/nextjs-pages-guide</link>
     <description>A guide for installing Saas UI with Nextjs projects</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
@@ -449,36 +431,6 @@ export cons...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/props</link>
-    <description>
-## Props
-
-The `BulkActions` component accepts all `Banner` properties.
-
-### Toolbar Props
-
-<PropsTa...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/theming</link>
-    <description>
-## Theming
-
-The `BulkActions` component composes a `Banner` with the `floating` variant by default....</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</guid>
     <title>BulkActions</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</link>
@@ -519,73 +471,10 @@ The `BulkActions` component composes a `Banner` with the `floating` variant by d
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/data-grid/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/data-grid/props</link>
-    <description>
-## Props
-
-### DataGrid Props
-
-Accepts all `Box` properties.
-
-<PropsTable of="DataGrid" />
-
-### Data...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/data-grid/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/data-grid/theming</link>
-    <description>
-## Theming
-
-The `DataGrid` component is a multipart component. The styling needs to be
-applied to e...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/advanced-data/data-grid/usage</guid>
     <title>DataGrid</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/data-grid/usage</link>
     <description>Data grids are used to organize lists of high density data.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/filters/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/filters/props</link>
-    <description>
-## Props
-
-### FiltersProvider Props
-
-<PropsTable of="FiltersProvider" />
-
-### FiltersAddButton Prop...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/filters/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/filters/theming</link>
-    <description>
-## Theming
-
-The `Filters` component composes `Button` and `Menu` components, you can customize the ...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -602,150 +491,10 @@ The `Filters` component composes `Button` and `Menu` components, you can customi
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/kanban/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/kanban/props</link>
-    <description>
-## Props
-
-### Kanban Props
-
-<PropsTable of="Kanban" />
-
-### KanbanColumn Props
-
-<PropsTable of="Kan...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/kanban/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/kanban/theming</link>
-    <description>
-## Theming
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</guid>
     <title>Kanban</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</link>
     <description>A Kanban board is a visual representation of work processes used to manage and optimize workflow.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth/props</link>
-    <description>
-## Props
-
-### Auth Props
-
-<PropsTable of="Auth" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth/theming</link>
-    <description>
-## Theming
-
-The `Auth` component is a multipart component. The styling needs to be
-applied to each ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth/usage</guid>
-    <title>Auth</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth/usage</link>
-    <description>Ready to use authentication forms.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/props</link>
-    <description>
-## Props
-
-### AuthProvider Props
-
-<PropsTable of="AuthProvider" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/theming</link>
-    <description>
-## Theming
-
-The `AuthProvider` component is a multipart component. The styling needs to be
-applied ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</link>
-    <description>Authentication state management and hooks.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-input/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-input/props</link>
-    <description>
-## Props
-
-### DateInput Props
-
-<PropsTable of="DateInput" />
-
-### DateTimeInput Props
-
-<PropsTable ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-input/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-input/theming</link>
-    <description>...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -762,67 +511,10 @@ applied ...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker/props</link>
-    <description>
-## Props
-
-### DatePicker Props
-
-<PropsTable of="DatePicker" />
-
-### DatePickerTrigger Props
-
-<Props...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker/theming</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/date-time/date-picker/usage</guid>
     <title>DatePicker</title>
     <link>https://saas-ui.dev/docs/components/date-time/date-picker/usage</link>
     <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-modal/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker-modal/props</link>
-    <description>
-## Props
-
-### DatePicker Props
-
-<PropsTable of="DatePickerModal" />
-
-### DatePickerTimeField Props
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-modal/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker-modal/theming</link>
-    <description>...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -839,101 +531,10 @@ applied ...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-static/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker-static/props</link>
-    <description>
-## Props
-
-### DatePicker Props
-
-<PropsTable of="DatePickerStatic" />
-
-### DatePickerCalendar Props
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-static/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker-static/theming</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/date-time/date-picker-static/usage</guid>
     <title>DatePicker</title>
     <link>https://saas-ui.dev/docs/components/date-time/date-picker-static/usage</link>
     <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/props</link>
-    <description>
-## Props
-
-### DateRangeInput Props
-
-<PropsTable of="DateRangeInput" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/theming</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</guid>
-    <title>DateRangeInput</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</link>
-    <description>Allow users to enter or select a Date and Time range.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker/props</link>
-    <description>
-## Props
-
-### DateRangePicker Props
-
-<PropsTable of="DateRangePicker" />
-
-### DateRangePickerTrigge...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker/theming</link>
-    <description>...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -950,27 +551,30 @@ applied ...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/command/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/command/props</link>
-    <description>...</description>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</guid>
+    <title>DateRangeInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</link>
+    <description>Allow users to enter or select a Date and Time range.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/command/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/command/theming</link>
-    <description>
-## Theming
+    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</link>
+    <description>Authentication state management and hooks.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
 
-The `Command` component uses the `SuiCommand` key in the theme.
-
-### Default theme
-
-```...</description>
+  <item>
+    <guid>https://saas-ui.dev/docs/components/authentication/auth/usage</guid>
+    <title>Auth</title>
+    <link>https://saas-ui.dev/docs/components/authentication/auth/usage</link>
+    <description>Ready to use authentication forms.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -987,29 +591,10 @@ The `Command` component uses the `SuiCommand` key in the theme.
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/data-table/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/data-table/props</link>
-    <description>
-## Props
-
-### DataTable Props
-
-<PropsTable of="DataTable" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/data-table/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/data-table/theming</link>
-    <description>
-## Theming
-
-The `DataTable` component is a multipart component that composes a Chakra UI `Table` co...</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/divider/usage</guid>
+    <title>Divider</title>
+    <link>https://saas-ui.dev/docs/components/data-display/divider/usage</link>
+    <description>Dividers are used to visually separate content in a list or group.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1026,88 +611,10 @@ The `DataTable` component is a multipart component that composes a Chakra UI `Ta
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/divider/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/divider/props</link>
-    <description>
-## Props
-
-<PropsTable of="Divider" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/divider/usage</guid>
-    <title>Divider</title>
-    <link>https://saas-ui.dev/docs/components/data-display/divider/usage</link>
-    <description>Dividers are used to visually separate content in a list or group.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/empty-state/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/empty-state/props</link>
-    <description>
-## Props
-
-<PropsTable of="EmptyState" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/empty-state/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/empty-state/theming</link>
-    <description>
-## Theming
-
-The `EmptyState` component is a multipart component. The styling needs to be
-applied to...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/empty-state/usage</guid>
     <title>EmptyState</title>
     <link>https://saas-ui.dev/docs/components/data-display/empty-state/usage</link>
     <description>Display actionable feedback when no data is available.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/icon-badge/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/icon-badge/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/icon-badge/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/icon-badge/theming</link>
-    <description>
-## Theming
-
-The `IconBadge` component uses the `SuiIconBadge` key in the theme.
-
-### Default theme
-...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1124,65 +631,10 @@ The `IconBadge` component uses the `SuiIconBadge` key in the theme.
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/persona/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/persona/props</link>
-    <description>
-## Props
-
-`Persona` and all sub components accept `Box` props.
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/persona/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/persona/theming</link>
-    <description>
-## Theming
-
-The `Persona` component is a multipart component. The styling needs to be
-applied to ea...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/persona/usage</guid>
     <title>Persona</title>
     <link>https://saas-ui.dev/docs/components/data-display/persona/usage</link>
     <description>A component that represents a person and their status.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/property/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/property/props</link>
-    <description>
-## Props
-
-`PropertyList`, `Property`, `PropertyLabel` and `PropertyValue` accept all `Box` properti...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/property/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/property/theming</link>
-    <description>
-## Theming
-
-The `Property` component is a multipart component. The styling needs to be
-applied to e...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1199,172 +651,10 @@ applied to e...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/structured-list/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/structured-list/props</link>
-    <description>
-## Props
-
-### StructuredList Props
-
-<PropsTable of="StructuredList" />
-
-### StructuredListItem Prop...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/structured-list/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/structured-list/theming</link>
-    <description>
-## Theming
-
-The `StructuredList` component is a multipart component. The styling needs to be
-applie...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/structured-list/usage</guid>
     <title>StructuredList</title>
     <link>https://saas-ui.dev/docs/components/data-display/structured-list/usage</link>
     <description>A component used to display collections of data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal/theming</link>
-    <description>
-## Theming
-
-The `BenefitsModal` component composes a `Modal` component. This means that all of the ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal/usage</guid>
-    <title>Benefits Modal</title>
-    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal/usage</link>
-    <description>A benefits modal is used to show case important features or product updates.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/props</link>
-    <description>
-## Props
-
-### Timeline Props
-
-<PropsTable of="Timeline" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/theming</link>
-    <description>
-## Theming
-
-The `Timeline` component is a multipart component. The styling needs to be
-applied to e...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
-    <title>Timeline</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
-    <description>Display a list of events in chronological order.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour/theming</link>
-    <description>
-## Theming
-
-The `Tour` component is a multipart component. The styling needs to be
-applied to each ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour/usage</guid>
-    <title>Tour</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour/usage</link>
-    <description>Introduce people to new features using multi-step tours.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/beacon/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/beacon/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/beacon/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/beacon/theming</link>
-    <description>
-## Theming
-
-The `Beacon` component is a single part component. The styling needs to be
-applied to e...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1381,63 +671,30 @@ applied to e...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/loader/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/loader/props</link>
-    <description>
-## Props
-
-Support all [Spinner](https://chakra-ui.com/docs/feedback/spinner) options
-
-<PropsTable o...</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
+    <title>Timeline</title>
+    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
+    <description>Display a list of events in chronological order.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/loader/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/loader/theming</link>
-    <description>
-## Theming
-
-The `Loader` component is a multipart component. The styling needs to be
-applied to eac...</description>
+    <guid>https://saas-ui.dev/docs/components/engagement/benefits-modal/usage</guid>
+    <title>Benefits Modal</title>
+    <link>https://saas-ui.dev/docs/components/engagement/benefits-modal/usage</link>
+    <description>A benefits modal is used to show case important features or product updates.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/loader/usage</guid>
-    <title>LoadingOverlay</title>
-    <link>https://saas-ui.dev/docs/components/feedback/loader/usage</link>
-    <description>A loading indicator that fills it's parent.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog/theming</link>
-    <description>
-## Theming
-
-The `TourDialog` component is a multipart component. The styling needs to be
-applied to...</description>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour/usage</guid>
+    <title>Tour</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour/usage</link>
+    <description>Introduce people to new features using multi-step tours.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1454,39 +711,6 @@ applied to...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/banner/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/banner/props</link>
-    <description>
-## Props
-
-### Banner Props
-
-`Banner` composes a `Flex` component.
-
-<PropsTable
-  of="Banner"
-  only...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/banner/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/banner/theming</link>
-    <description>
-## Theming
-
-The `Feedback` component is a multipart component. The styling needs to be
-applied to e...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/feedback/banner/usage</guid>
     <title>Banner</title>
     <link>https://saas-ui.dev/docs/components/feedback/banner/usage</link>
@@ -1497,28 +721,10 @@ applied to e...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/nprogress/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/nprogress/props</link>
-    <description>
-## Props
-
-<PropsTable of="NProgress" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/nprogress/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/nprogress/theming</link>
-    <description>
-## Theming
-
-The `NProgress` component is a multipart component. The styling needs to be
-applied to ...</description>
+    <guid>https://saas-ui.dev/docs/components/feedback/loader/usage</guid>
+    <title>LoadingOverlay</title>
+    <link>https://saas-ui.dev/docs/components/feedback/loader/usage</link>
+    <description>A loading indicator that fills it's parent.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1535,127 +741,10 @@ applied to ...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/snackbar/props</link>
-    <description>
-## Props
-
-<PropsTable of="useSnackbar" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/feedback/snackbar/theming</link>
-    <description>
-## Theming
-
-The `Snackbar` component renders a `Alert` component with the `snackbar` variant.
-
-- [A...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/usage</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/components/feedback/snackbar/usage</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/auto-form/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/auto-form/props</link>
-    <description>
-## Props
-
-<PropsTable of="AutoForm" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/auto-form/usage</guid>
-    <title>AutoForm</title>
-    <link>https://saas-ui.dev/docs/components/forms/auto-form/usage</link>
-    <description>Automatically render forms based on a schema.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/array-field/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/array-field/props</link>
-    <description>
-## Props
-
-### ArrayField Props
-
-<PropsTable of="ArrayField" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
     <title>ArrayField</title>
     <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
     <description>Form field component to handle array type values.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/form/props</link>
-    <description>
-## Props
-
-<PropsTable of="Form" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form/usage</guid>
-    <title>Form</title>
-    <link>https://saas-ui.dev/docs/components/forms/form/usage</link>
-    <description>Create fully functional React forms with just a few lines of code.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/field/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/field/props</link>
-    <description>
-## Props
-
-<PropsTable of="Field" />
-...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1672,13 +761,30 @@ The `Snackbar` component renders a `Alert` component with the `snackbar` variant
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form-layout/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/form-layout/props</link>
-    <description>
-## Props
+    <guid>https://saas-ui.dev/docs/components/forms/auto-form/usage</guid>
+    <title>AutoForm</title>
+    <link>https://saas-ui.dev/docs/components/forms/auto-form/usage</link>
+    <description>Automatically render forms based on a schema.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
 
-`FormLayout` renders a `SimpleGrid` and accepts all of it's props. See [Chakra UI docs](h...</description>
+  <item>
+    <guid>https://saas-ui.dev/docs/components/forms/form/usage</guid>
+    <title>Form</title>
+    <link>https://saas-ui.dev/docs/components/forms/form/usage</link>
+    <description>Create fully functional React forms with just a few lines of code.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/usage</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/components/feedback/snackbar/usage</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1695,38 +801,10 @@ The `Snackbar` component renders a `Alert` component with the `snackbar` variant
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/object-field/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/object-field/props</link>
-    <description>
-## Props
-
-<PropsTable of="ObjectField" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/forms/object-field/usage</guid>
     <title>ObjectField</title>
     <link>https://saas-ui.dev/docs/components/forms/object-field/usage</link>
     <description>Form field component to handle object type values.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/password-input/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/password-input/props</link>
-    <description>
-## Props
-
-<PropsTable of="PasswordInput" />
-...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1743,76 +821,10 @@ The `Snackbar` component renders a `Alert` component with the `snackbar` variant
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/search-input/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/search-input/props</link>
-    <description>
-## Props
-
-The `SearchInput` composes the `Input` component, so you can use all the `Input` props.
-
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/forms/search-input/usage</guid>
     <title>SearchInput</title>
     <link>https://saas-ui.dev/docs/components/forms/search-input/usage</link>
     <description>A search input type component.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/select/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/select/props</link>
-    <description>
-## Props
-
-`Select` renders a `Menu` and accepts all of it's props. See: [Chakra UI docs](https://ch...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/select/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/select/theming</link>
-    <description>
-## Theming
-
-The `Select` component is a multipart component. The styling needs to be
-applied to eac...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/select/usage</guid>
-    <title>Select</title>
-    <link>https://saas-ui.dev/docs/components/forms/select/usage</link>
-    <description>Allows users to select one or more values from a list.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/step-form/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/forms/step-form/props</link>
-    <description>
-## Props
-
-<PropsTable of="StepForm" />
-...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1829,29 +841,10 @@ applied to eac...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/app-shell/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/app-shell/props</link>
-    <description>
-## Props
-
-The `AppShell` component and all sub components accept all `Box` properties.
-
-<PropsTable...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/app-shell/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/app-shell/theming</link>
-    <description>
-## Theming
-
-The `AppShell` component is a multipart component. The styling needs to be
-applied to e...</description>
+    <guid>https://saas-ui.dev/docs/components/forms/select/usage</guid>
+    <title>Select</title>
+    <link>https://saas-ui.dev/docs/components/forms/select/usage</link>
+    <description>Allows users to select one or more values from a list.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1868,260 +861,10 @@ applied to e...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/navbar/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/navbar/props</link>
-    <description>
-## Props
-
-The `Navbar` component and all sub components accept all `Box` properties.
-
-<PropsTable o...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/navbar/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/navbar/theming</link>
-    <description>
-## Theming
-
-The `Navbar` component is a multipart component. The styling needs to be
-applied to eac...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
     <title>Navbar</title>
     <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
     <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/section/props</link>
-    <description>
-## Props
-
-The `Section` component and all sub components accept all `Box` properties.
-
-### Section ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/section/theming</link>
-    <description>
-## Theming
-
-The `Section` component is a multipart component. The styling needs to be
-applied to ea...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section/usage</guid>
-    <title>Section</title>
-    <link>https://saas-ui.dev/docs/components/layout/section/usage</link>
-    <description>Split content into multiple easily scannable sections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/sidebar/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/sidebar/props</link>
-    <description>
-## Props
-
-The `Sidebar` component and all sub components accept all `Box` properties.
-
-### Sidebar ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/sidebar/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/sidebar/theming</link>
-    <description>
-## Theming
-
-The `Sidebar`, `NavGroup` and `NavItem` components have separate themes. This
-allows yo...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/sidebar/usage</guid>
-    <title>Sidebar</title>
-    <link>https://saas-ui.dev/docs/components/layout/sidebar/usage</link>
-    <description>Side navigation, commonly used as the primary navigation in web applications.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/split-page/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/split-page/props</link>
-    <description>
-## Props
-
-The `SplitPage` component and all sub components accept all `Box` properties.
-
-### SplitP...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/split-page/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/split-page/theming</link>
-    <description>
-## Theming
-
-The `SplitPage` component is a multipart component. The styling needs to be
-applied to ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/split-page/usage</guid>
-    <title>SplitPage</title>
-    <link>https://saas-ui.dev/docs/components/layout/split-page/usage</link>
-    <description>SplitPage allows you to create mobile friendly layouts with split panes.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/toolbar/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/toolbar/props</link>
-    <description>
-## Props
-
-The `Toolbar` component and all sub components accept all `Box` properties.
-
-### Toolbar ...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/toolbar/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/toolbar/theming</link>
-    <description>
-## Theming
-
-The `Toolbar` component composes a `ButtonGroup`, you can find the theming API availabl...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/toolbar/usage</guid>
-    <title>Toolbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/toolbar/usage</link>
-    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/command-bar/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/command-bar/props</link>
-    <description>
-## Props
-
-### CommandBar props
-
-<PropsTable of="CommandBar" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/command-bar/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/command-bar/theming</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/command-bar/usage</guid>
-    <title>CommandBar</title>
-    <link>https://saas-ui.dev/docs/components/navigation/command-bar/usage</link>
-    <description>Command bars provide users with easy access to your app's most common tasks.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/page/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/page/props</link>
-    <description>
-## Props
-
-The `Page` component and all sub components accept all `Box` properties.
-
-### Card Props
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/page/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/layout/page/theming</link>
-    <description>
-## Theming
-
-The `Page` component is a multipart component. The styling needs to be
-applied to each ...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -2138,29 +881,50 @@ applied to each ...</description>
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/hotkeys/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/hotkeys/props</link>
-    <description>
-## Props
-
-### useHotkeys Params
-
-`useHotkeys` accepts a `string` or array of strings `string[]` and...</description>
+    <guid>https://saas-ui.dev/docs/components/layout/section/usage</guid>
+    <title>Section</title>
+    <link>https://saas-ui.dev/docs/components/layout/section/usage</link>
+    <description>Split content into multiple easily scannable sections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/hotkeys/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/hotkeys/theming</link>
-    <description>
-# Theming
+    <guid>https://saas-ui.dev/docs/components/layout/sidebar/usage</guid>
+    <title>Sidebar</title>
+    <link>https://saas-ui.dev/docs/components/layout/sidebar/usage</link>
+    <description>Side navigation, commonly used as the primary navigation in web applications.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
 
-Hotkeys doesn't implement any theming.
-...</description>
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/split-page/usage</guid>
+    <title>SplitPage</title>
+    <link>https://saas-ui.dev/docs/components/layout/split-page/usage</link>
+    <description>SplitPage allows you to create mobile friendly layouts with split panes.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/toolbar/usage</guid>
+    <title>Toolbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/toolbar/usage</link>
+    <description>A container for grouping a set of controls, like buttons, toggles or menus.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/navigation/command-bar/usage</guid>
+    <title>CommandBar</title>
+    <link>https://saas-ui.dev/docs/components/navigation/command-bar/usage</link>
+    <description>Command bars provide users with easy access to your app's most common tasks.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -2177,75 +941,10 @@ Hotkeys doesn't implement any theming.
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/stepper/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/stepper/props</link>
-    <description>
-## Props
-
-### Stepper props
-
-<PropsTable of="Stepper" />
-
-### StepperStep props
-
-<PropsTable of="St...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/stepper/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/stepper/theming</link>
-    <description>
-## Theming
-
-The `Stepper` component is a multipart component. The styling needs to be
-applied to ea...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/navigation/stepper/usage</guid>
     <title>Steps</title>
     <link>https://saas-ui.dev/docs/components/navigation/stepper/usage</link>
     <description>Indicate progress through numbered steps in multi-step workflows.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/toggle-button/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/toggle-button/props</link>
-    <description>
-## Props
-
-### ToggleButton props
-
-<PropsTable of="ToggleButton" />
-
-### ToggleButtonGroup props
-
-<P...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/toggle-button/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/navigation/toggle-button/theming</link>
-    <description>
-## Theming
-
-The `ToggleButton` component composes a `Button` component and supports all of the same...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -2262,70 +961,10 @@ The `ToggleButton` component composes a `Button` component and supports all of t
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/form-dialog/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/form-dialog/props</link>
-    <description>
-## Props
-
-### FormDialog Props
-
-<PropsTable of="FormDialog" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/form-dialog/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/form-dialog/theming</link>
-    <description>
-## Theming
-
-The `FormDialog` composes the `Modal` component. Please refer to the `Modal` documentat...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/overlay/form-dialog/usage</guid>
     <title>Form Dialog</title>
     <link>https://saas-ui.dev/docs/components/overlay/form-dialog/usage</link>
     <description>A modal dialog that renders a form.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/menu-dialog/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/menu-dialog/props</link>
-    <description>
-## Props
-
-### MenuDialog Props
-
-<PropsTable of="MenuDialog" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/menu-dialog/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/menu-dialog/theming</link>
-    <description>
-## Theming
-
-The `MenuDialog` composes the `Modal` and `Menu` components.
-
-- [Modal theming document...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -2342,45 +981,10 @@ The `MenuDialog` composes the `Modal` and `Menu` components.
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/modals-manager/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/modals-manager/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/overlay/modals-manager/usage</guid>
     <title>Modals manager</title>
     <link>https://saas-ui.dev/docs/components/overlay/modals-manager/usage</link>
     <description>Manage different types of modals with a single easy to use hook.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/responsive-menu/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/responsive-menu/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/responsive-menu/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/overlay/responsive-menu/theming</link>
-    <description>
-## Theming
-
-The `ResponsiveMenu` composes the `Modal` and `Menu` components.
-
-- [Modal theming docu...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -2397,30 +1001,10 @@ The `ResponsiveMenu` composes the `Modal` and `Menu` components.
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/utils/error-boundary/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/utils/error-boundary/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/utils/error-boundary/usage</guid>
     <title>ErrorBoundary</title>
     <link>https://saas-ui.dev/docs/components/utils/error-boundary/usage</link>
     <description>A container component that catches errors and displays a fallback UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/utils/feature-flags/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/utils/feature-flags/props</link>
-    <description>...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -2437,48 +1021,10 @@ The `ResponsiveMenu` composes the `Modal` and `Menu` components.
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/utils/resize-box/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/utils/resize-box/props</link>
-    <description>...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/utils/resize-box/usage</guid>
     <title>ResizeBox</title>
     <link>https://saas-ui.dev/docs/components/utils/resize-box/usage</link>
     <description>Utility hook and component to create resizable panels.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/web3/address/props</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/web3/address/props</link>
-    <description>
-## Props
-
-<PropsTable of="Web3Address" />
-...</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/web3/address/theming</guid>
-    <title>undefined</title>
-    <link>https://saas-ui.dev/docs/components/web3/address/theming</link>
-    <description>
-## Theming
-
-The `Web3Address` component doesn't implement any theming.
-...</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

@@ -115,8 +115,9 @@ const Home = () => {
     <Box>
       <SEO
         title="Saas UI"
-        description="The React component library for Startups"
+        description="Modern React component library and starterkit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js."
         titleTemplate="%s - The React component library for Startups"
+        canonical="https://saas-ui.dev"
       />
 
       <Box mb={8} w="full" position="relative" overflow="hidden">

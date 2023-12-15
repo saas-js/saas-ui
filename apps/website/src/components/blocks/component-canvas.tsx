@@ -26,6 +26,7 @@ const themes = {
 }
 
 import { ChakraFrame } from '../code-panel/chakra-frame'
+import { Resizer } from './resizer'
 
 export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
   const user = useCurrentUser<User>()
@@ -94,31 +95,33 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
       <Card rounded="xl" overflow="hidden" mb="20">
         <CardBody bg="component-canvas-bg" padding="0">
           {state === 'preview' ? (
-            <Stack
-              style={{ zIndex: props.zIndex }}
-              minHeight="400px"
-              height={frameHeight}
-              alignItems="stretch"
-              justifyContent="stretch"
-              fontSize="md"
-            >
-              <ChakraFrame
-                frameRef={(el) => {
-                  frameRef.current = el
-                }}
-                onHeightChange={(height) => setFrameHeight(String(height))}
-                theme={selectedTheme}
+            <Resizer>
+              <Stack
+                style={{ zIndex: props.zIndex }}
+                minHeight="400px"
+                height={frameHeight}
+                alignItems="stretch"
+                justifyContent="stretch"
+                fontSize="md"
               >
-                <ComponentPreview canvas={props.attributes.canvas}>
-                  <Component
-                    {...props.attributes.props}
-                    getRootNode={() =>
-                      frameRef.current?.contentWindow?.document
-                    }
-                  />
-                </ComponentPreview>
-              </ChakraFrame>
-            </Stack>
+                <ChakraFrame
+                  frameRef={(el) => {
+                    frameRef.current = el
+                  }}
+                  onHeightChange={(height) => setFrameHeight(String(height))}
+                  theme={selectedTheme}
+                >
+                  <ComponentPreview canvas={props.attributes.canvas}>
+                    <Component
+                      {...props.attributes.props}
+                      getRootNode={() =>
+                        frameRef.current?.contentWindow?.document
+                      }
+                    />
+                  </ComponentPreview>
+                </ChakraFrame>
+              </Stack>
+            </Resizer>
           ) : (
             <Box pos="relative" minH="400px">
               {code?.length ? (

@@ -47,26 +47,25 @@ const sidebar = {
               path: '/docs/core/quickstarts',
             },
             {
-              title: 'Next JS',
+              title: 'Next JS (App)',
               path: '/docs/core/installation/nextjs-guide',
+            },
+            {
+              title: 'Next JS (Pages)',
+              path: '/docs/core/installation/nextjs-pages-guide',
+            },
+            {
+              title: 'Remix',
+              path: '/docs/core/installation/remix-guide',
             },
             {
               title: 'Vite',
               path: '/docs/core/installation/vite-guide',
             },
             {
-              title: 'Blitz JS',
-              path: '/docs/core/installation/blitzjs-guide',
-            },
-            {
               title: 'RedwoodJS',
               path: '/docs/core/installation/redwoodjs-guide',
             },
-            {
-              title: 'Remix',
-              path: '/docs/core/installation/remix-guide',
-            },
-
             {
               title: 'Create React App',
               path: '/docs/core/installation/cra-guide',

@@ -15,6 +15,7 @@ import {
   FrameworkLinksPro,
 } from '@/docs/components/framework-link'
 import { VideoPlayer } from '@/docs/components/mdx-components/video-player'
+import { PackageManagers } from './package-managers'
 import * as React from 'react'
 import CodeBlock from './codeblock/codeblock'
 import ComponentLinks from './component-links'
@@ -171,4 +172,5 @@ export const MDXComponents = {
   FiMap,
   FiBox,
   Tweet,
+  PackageManagers,
 }

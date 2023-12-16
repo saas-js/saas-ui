@@ -110,6 +110,7 @@ export {
   SaasContext,
   type SaasContextValue,
   SaasProvider,
+  type SaasProviderProps,
   useLink,
   useSaas,
 } from './provider'

@@ -1,7 +1,9 @@
 import { inputAnatomy as parts } from '@chakra-ui/anatomy'
 import {
   createMultiStyleConfigHelpers,
+  cssVar,
   defineStyle,
+  defineStyleConfig,
 } from '@chakra-ui/styled-system'
 import { getColor, mode } from '@chakra-ui/theme-tools'
 
@@ -14,6 +16,10 @@ function getDefaults(props: Record<string, any>) {
     errorBorderColor: ec || mode('red.500', 'red.300')(props),
   }
 }
+
+const $borderRadius = cssVar('input-border-radius')
+const $height = cssVar('input-height')
+const $padding = cssVar('input-padding')
 
 const variantOutline = definePartsStyle((props) => {
   const { theme } = props
@@ -63,58 +69,72 @@ const variantOutline = definePartsStyle((props) => {
 const sizes = {
   sm: {
     field: {
-      borderRadius: '4px',
-      h: 7,
+      [$borderRadius.variable]: 'radii.sm',
+      [$height.variable]: 'sizes.7',
     },
     addon: {
-      borderRadius: '4px',
-      h: 7,
+      [$borderRadius.variable]: 'radii.sm',
+      [$height.variable]: 'sizes.7',
     },
   },
   md: {
     field: {
-      px: 3,
-      h: 9,
+      [$padding.variable]: 'space.3',
+      [$height.variable]: 'sizes.9',
     },
     addon: {
-      px: 3,
-      h: 9,
+      [$padding.variable]: 'space.3',
+      [$height.variable]: 'sizes.9',
     },
   },
 }
 
-const Input = {
+const Input = defineStyleConfig({
   defaultProps: {
     variant: 'outline',
     size: 'sm',
+    /* @ts-expect-error */
     focusBorderColor: 'primary.500',
   },
   variants: {
     outline: variantOutline,
   },
   sizes,
-}
+})
 
-export default {
-  FormLabel: {
-    baseStyle: {
-      mb: 1,
-    },
-    variants: {
-      horizontal: {
-        mb: 0,
-        marginStart: '0.5rem',
-      },
+export const formLabelTheme = defineStyleConfig({
+  baseStyle: {
+    mb: 1,
+  },
+  variants: {
+    horizontal: {
+      mb: 0,
+      marginStart: '0.5rem',
     },
   },
-  Input,
-  NumberInput: Input,
-  PinInput: Input,
-  Textarea: {
-    defaultProps: Input.defaultProps,
-    variants: {
-      outline: defineStyle((props) => variantOutline(props).field),
-    },
+})
+
+export const inputTheme = Input
+export const numberInputTheme = Input
+export const pinInputTheme = defineStyleConfig({
+  defaultProps: {
+    /* @ts-expect-error */
+    focusBorderColor: 'primary.500',
   },
-  Select: Input,
-}
+  variants: {
+    outline: variantOutline,
+  },
+  sizes,
+})
+export const textareaTheme = defineStyleConfig({
+  defaultProps: {
+    /* @ts-expect-error */
+    focusBorderColor: 'primary.500',
+  },
+  variants: {
+    outline: defineStyle(
+      (props) => inputTheme.variants?.outline(props).field ?? {}
+    ),
+  },
+})
+export const nativeSelectTheme = inputTheme

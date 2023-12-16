@@ -3,6 +3,7 @@ import * as React from 'react'
 import Script from 'next/script'
 
 import {
+  Badge,
   Box,
   Button,
   CardHeader,
@@ -20,10 +21,7 @@ import {
   VStack,
   Stack,
   useColorModeValue,
-  Avatar,
   Tooltip,
-  Card,
-  CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -39,7 +37,6 @@ import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
-import { useRouter } from 'next/router'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 import { SignupForm } from '@/components/signup-form'
@@ -110,13 +107,7 @@ const Install = () => {
   )
   return (
     <Center>
-      <HStack
-        py="1"
-        px="2"
-        borderRadius="full"
-        bg="codeBackground"
-        borderWidth="1px"
-      >
+      <HStack py="1" px="2" borderRadius="full" bg="code-bg" borderWidth="1px">
         <CodePanel language="bash">{value}</CodePanel>
         <IconButton
           icon={hasCopied ? <FiCheck /> : <FiCopy />}
@@ -154,7 +145,7 @@ const Pricing = () => {
           title="Pricing for every stage"
           description={
             <>
-              <Text fontSize="xl" mb="12">
+              <Text fontSize="xl" mb="12" color="muted">
                 Get started for free with 40+ open source components. Upgrade to
                 Pro <Br display={{ sm: 'none', lg: 'inline' }} />
                 to get all components and features with a license for you or
@@ -260,7 +251,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Beta access
+              Buy now
             </ButtonLink>
           </PricingBox>
           <PricingBox
@@ -275,7 +266,7 @@ const Pricing = () => {
                 >
                   €999,-
                 </Text>
-                <Text>€699,-</Text>
+                <Text>€799,-</Text>
               </HStack>
             }
             description="Unlimited license for growing teams or agencies."
@@ -321,7 +312,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Beta access
+              Buy now
             </ButtonLink>
           </PricingBox>
           <MemberShip />
@@ -447,7 +438,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€2500,-</Text>
+            <Text>€4950,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>
@@ -457,9 +448,10 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
-          title="Startup license included"
-          iconColor="cyan.500"
-        ></PricingFeature>
+          title={<strong>1 spot available</strong>}
+          iconColor="green.400"
+        />
+        <PricingFeature title="Startup license included" iconColor="cyan.500" />
         <PricingFeature title="Project setup" iconColor="cyan.500" />
         <PricingFeature title="Design-system setup" iconColor="cyan.500" />
         <PricingFeature
@@ -467,6 +459,7 @@ const MemberShip = () => {
           iconColor="cyan.500"
         />
         <PricingFeature title="Design services" iconColor="cyan.500" />
+        <PricingFeature title="Code reviews" iconColor="cyan.500" />
       </PricingFeatures>
       <Button
         colorScheme="cyan"
@@ -474,13 +467,17 @@ const MemberShip = () => {
           setTimeout(() => {
             /* @ts-ignore */
             window?.pirsch?.('Membership')
+            /* @ts-ignore */
             $crisp.push(['do', 'chat:open'])
+            /* @ts-ignore */
             $crisp.push(['do', 'message:thread:start', ['Membership']])
+            /* @ts-ignore */
             $crisp.push([
               'do',
               'message:send',
               ['text', 'Hey! Thanks for your interest in Saas UI.'],
             ])
+            /* @ts-ignore */
             $crisp.push([
               'do',
               'message:send',

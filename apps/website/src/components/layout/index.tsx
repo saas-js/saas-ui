@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
 import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
@@ -18,16 +18,16 @@ interface LayoutProps {
 
 const Layout = ({ children, announcement, header, footer }: LayoutProps) => {
   return (
-    <Box minH="$100vh">
+    <Flex minH="$100vh" flexDirection="column">
       <SkipNavLink>Skip to content</SkipNavLink>
       <AnnouncementBanner {...announcement} />
       <Header {...header} />
-      <Box as="main">
+      <Box as="main" flex="1">
         <SkipNavContent />
         {children}
       </Box>
       {footer}
-    </Box>
+    </Flex>
   )
 }
 

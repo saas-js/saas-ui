@@ -4,7 +4,6 @@ import Card from './card'
 import Checkbox from './checkbox'
 import CloseButton from './close-button'
 import Drawer from './drawer'
-import Form from './form'
 import Heading from './heading'
 import Kbd from './kbd'
 import Menu from './menu'
@@ -15,6 +14,14 @@ import Radio from './radio'
 import Slider from './slider'
 import Switch from './switch'
 import Tooltip from './tooltip'
+import {
+  inputTheme,
+  pinInputTheme,
+  formLabelTheme,
+  numberInputTheme,
+  nativeSelectTheme,
+  textareaTheme,
+} from './form'
 
 export { default as Alert } from './alert'
 export { default as Button } from './button'
@@ -33,6 +40,15 @@ export { default as Slider } from './slider'
 export { default as Switch } from './switch'
 export { default as Tooltip } from './tooltip'
 
+export {
+  inputTheme as Input,
+  pinInputTheme as PinInput,
+  formLabelTheme as FormLabel,
+  numberInputTheme as NumberInput,
+  nativeSelectTheme as Select,
+  textareaTheme as Textarea,
+} from './form'
+
 export default {
   Alert,
   Button,
@@ -50,5 +66,10 @@ export default {
   Slider,
   Switch,
   Tooltip,
-  ...Form,
+  Input: inputTheme,
+  PinInput: pinInputTheme,
+  FormLabel: formLabelTheme,
+  NumberInput: numberInputTheme,
+  Select: nativeSelectTheme,
+  Textarea: textareaTheme,
 }

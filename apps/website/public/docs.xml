@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Tue, 12 Dec 2023 18:40:07 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 15 Dec 2023 10:27:43 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -431,6 +431,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</guid>
+    <title>BulkActions</title>
+    <link>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</link>
+    <description>A set of actions to perform on one or more selected items.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/pro/theming/color-schemes</guid>
     <title>Color schemes</title>
     <link>https://saas-ui.dev/docs/pro/theming/color-schemes</link>
@@ -461,10 +471,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</guid>
-    <title>BulkActions</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</link>
-    <description>A set of actions to perform on one or more selected items.</description>
+    <guid>https://saas-ui.dev/docs/components/advanced-data/data-grid/usage</guid>
+    <title>DataGrid</title>
+    <link>https://saas-ui.dev/docs/components/advanced-data/data-grid/usage</link>
+    <description>Data grids are used to organize lists of high density data.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -481,20 +491,80 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/data-grid/usage</guid>
-    <title>DataGrid</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/data-grid/usage</link>
-    <description>Data grids are used to organize lists of high density data.</description>
+    <guid>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</guid>
+    <title>Kanban</title>
+    <link>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</link>
+    <description>A Kanban board is a visual representation of work processes used to manage and optimize workflow.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</guid>
-    <title>Kanban</title>
-    <link>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</link>
-    <description>A Kanban board is a visual representation of work processes used to manage and optimize workflow.</description>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-input/usage</guid>
+    <title>DateInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-input/usage</link>
+    <description>Allow users to enter or select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-picker/usage</guid>
+    <title>DatePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-picker/usage</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-modal/usage</guid>
+    <title>DatePickerModal</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-picker-modal/usage</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-static/usage</guid>
+    <title>DatePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-picker-static/usage</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</guid>
+    <title>DateRangePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</link>
+    <description>Allow users to select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</guid>
+    <title>DateRangeInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</link>
+    <description>Allow users to enter or select a Date and Time range.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</link>
+    <description>Authentication state management and hooks.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -521,10 +591,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</link>
-    <description>Authentication state management and hooks.</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/divider/usage</guid>
+    <title>Divider</title>
+    <link>https://saas-ui.dev/docs/components/data-display/divider/usage</link>
+    <description>Dividers are used to visually separate content in a list or group.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -535,16 +605,6 @@
     <title>DataTable</title>
     <link>https://saas-ui.dev/docs/components/data-display/data-table/usage</link>
     <description>A basic data table component that supports sorting and selections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/divider/usage</guid>
-    <title>Divider</title>
-    <link>https://saas-ui.dev/docs/components/data-display/divider/usage</link>
-    <description>Dividers are used to visually separate content in a list or group.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -601,20 +661,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
-    <title>Timeline</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
-    <description>Display a list of events in chronological order.</description>
+    <guid>https://saas-ui.dev/docs/components/engagement/beacon/usage</guid>
+    <title>Beacon</title>
+    <link>https://saas-ui.dev/docs/components/engagement/beacon/usage</link>
+    <description>A pulsating beacon that attracts attention</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/beacon/usage</guid>
-    <title>Beacon</title>
-    <link>https://saas-ui.dev/docs/components/engagement/beacon/usage</link>
-    <description>A pulsating beacon that attracts attention</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
+    <title>Timeline</title>
+    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
+    <description>Display a list of events in chronological order.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -651,66 +711,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker/usage</guid>
-    <title>DatePicker</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker/usage</link>
-    <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-input/usage</guid>
-    <title>DateInput</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-input/usage</link>
-    <description>Allow users to enter or select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-modal/usage</guid>
-    <title>DatePickerModal</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker-modal/usage</link>
-    <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</guid>
-    <title>DateRangeInput</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</link>
-    <description>Allow users to enter or select a Date and Time range.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-picker-static/usage</guid>
-    <title>DatePicker</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-picker-static/usage</link>
-    <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</guid>
-    <title>DateRangePicker</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</link>
-    <description>Allow users to select a Date and Time value.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/feedback/banner/usage</guid>
     <title>Banner</title>
     <link>https://saas-ui.dev/docs/components/feedback/banner/usage</link>
@@ -741,20 +741,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/usage</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/components/feedback/snackbar/usage</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
+    <title>ArrayField</title>
+    <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
+    <description>Form field component to handle array type values.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
-    <title>ArrayField</title>
-    <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
-    <description>Form field component to handle array type values.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/field/usage</guid>
+    <title>Field</title>
+    <link>https://saas-ui.dev/docs/components/forms/field/usage</link>
+    <description>A controlled form field component.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -781,10 +781,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/field/usage</guid>
-    <title>Field</title>
-    <link>https://saas-ui.dev/docs/components/forms/field/usage</link>
-    <description>A controlled form field component.</description>
+    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/usage</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/components/feedback/snackbar/usage</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -831,16 +831,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/select/usage</guid>
-    <title>Select</title>
-    <link>https://saas-ui.dev/docs/components/forms/select/usage</link>
-    <description>Allows users to select one or more values from a list.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/forms/step-form/usage</guid>
     <title>StepForm</title>
     <link>https://saas-ui.dev/docs/components/forms/step-form/usage</link>
@@ -851,10 +841,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
-    <title>Navbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
-    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/select/usage</guid>
+    <title>Select</title>
+    <link>https://saas-ui.dev/docs/components/forms/select/usage</link>
+    <description>Allows users to select one or more values from a list.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -871,6 +861,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
+    <title>Navbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
+    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/layout/page/usage</guid>
     <title>Page</title>
     <link>https://saas-ui.dev/docs/components/layout/page/usage</link>
@@ -881,10 +881,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/split-page/usage</guid>
-    <title>SplitPage</title>
-    <link>https://saas-ui.dev/docs/components/layout/split-page/usage</link>
-    <description>SplitPage allows you to create mobile friendly layouts with split panes.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/section/usage</guid>
+    <title>Section</title>
+    <link>https://saas-ui.dev/docs/components/layout/section/usage</link>
+    <description>Split content into multiple easily scannable sections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -901,10 +901,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section/usage</guid>
-    <title>Section</title>
-    <link>https://saas-ui.dev/docs/components/layout/section/usage</link>
-    <description>Split content into multiple easily scannable sections.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/split-page/usage</guid>
+    <title>SplitPage</title>
+    <link>https://saas-ui.dev/docs/components/layout/split-page/usage</link>
+    <description>SplitPage allows you to create mobile friendly layouts with split panes.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -941,20 +941,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</guid>
-    <title>ToggleButton</title>
-    <link>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</link>
-    <description>Toggle between different states in your app with either a checkbox or radio mode.</description>
+    <guid>https://saas-ui.dev/docs/components/navigation/stepper/usage</guid>
+    <title>Steps</title>
+    <link>https://saas-ui.dev/docs/components/navigation/stepper/usage</link>
+    <description>Indicate progress through numbered steps in multi-step workflows.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/navigation/stepper/usage</guid>
-    <title>Steps</title>
-    <link>https://saas-ui.dev/docs/components/navigation/stepper/usage</link>
-    <description>Indicate progress through numbered steps in multi-step workflows.</description>
+    <guid>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</guid>
+    <title>ToggleButton</title>
+    <link>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</link>
+    <description>Toggle between different states in your app with either a checkbox or radio mode.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

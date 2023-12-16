@@ -12,17 +12,28 @@ export default function PageTitle({
 }: PageTitleProps) {
   return (
     <VStack spacing={[4, null, 8]} alignItems="flex-start" {...props}>
-      <Text as="h1" textStyle="pageTitle" textAlign="left">
-        {title}
-      </Text>
-      <Text
-        as="div"
-        textStyle="subtitle"
-        align="left"
-        color={useColorModeValue('gray.500', 'gray.400')}
-      >
-        {description}
-      </Text>
+      {typeof title === 'string' ? (
+        <Text as="h1" textStyle="pageTitle" textAlign="left">
+          {title}
+        </Text>
+      ) : (
+        title
+      )}
+      {typeof description === 'string' ? (
+        <Text
+          as="div"
+          textStyle="subtitle"
+          align="left"
+          color="gray.500"
+          _dark={{
+            color: 'gray.400',
+          }}
+        >
+          {description}
+        </Text>
+      ) : (
+        description
+      )}
     </VStack>
   )
 }

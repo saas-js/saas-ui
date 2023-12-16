@@ -24,7 +24,7 @@
     "@types/lodash.debounce": "^4.0.7",
     "framer-motion": "^10.16.4",
     "lodash.debounce": "^4.0.8",
-    "next": "^13.4.19",
+    "next": "^14.0.1",
     "next-seo": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/react": "^18.2.21",
     "eslint": "^8.49.0",
-    "eslint-config-next": "^13.4.19",
+    "eslint-config-next": "^14.0.1",
     "typescript": "^5.2.2"
   }
 }

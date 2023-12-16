@@ -42,7 +42,7 @@ function CodeBlock(props) {
   const theme = {
     ...prismTheme,
     plain: {
-      backgroundColor: 'codeBackground',
+      backgroundColor: 'code-bg',
       color: prismTheme.plain.color,
     },
   }

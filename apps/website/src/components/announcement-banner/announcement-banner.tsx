@@ -47,43 +47,33 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
           <NextLink href={href} legacyBehavior>
             <Banner
               display="flex"
-              bg="white"
               fontSize="sm"
               justifyContent="center"
-              colorScheme="purple"
-              backgroundClip="padding-box"
               borderRadius="full"
               maxW="400px"
               margin="0 auto"
-              borderColor="transparent"
               position="relative"
               py="4px"
-              px="3"
+              px="2"
               overflow="visible"
               cursor="pointer"
               transition="all .2s ease-out"
-              _dark={{ bg: 'gray.900', borderColor: 'transparent' }}
-              _before={{
-                content: `""`,
-                position: 'absolute',
-                zIndex: -1,
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                borderRadius: 'inherit',
-                margin: '-2px',
-                bgGradient: 'linear(to-r, purple.500, cyan.500)',
-                transition: 'background .2s ease-out',
-                _dark: {
-                  bgGradient: 'linear(to-r, purple.500, cyan.500)',
-                },
-              }}
+              borderWidth="1px"
               _hover={{
                 '& .chakra-icon': {
                   transform: 'translate(0)',
                 },
                 boxShadow: 'md',
+              }}
+              bg="whiteAlpha.500"
+              borderColor="whiteAlpha.800"
+              boxShadow="sm"
+              _dark={{
+                bg: 'whiteAlpha.200',
+                borderColor: 'whiteAlpha.300',
+                _hover: {
+                  borderColor: 'whiteAlpha.400',
+                },
               }}
             >
               <HStack zIndex="2">

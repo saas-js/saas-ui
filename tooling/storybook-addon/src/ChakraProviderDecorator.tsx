@@ -1,8 +1,7 @@
 import * as React from 'react'
 
 import { extendTheme } from '@chakra-ui/react'
-import { makeDecorator } from '@storybook/preview-api'
-import { addons } from '@storybook/addons'
+import { makeDecorator, addons } from '@storybook/preview-api'
 import { ColorModeSync } from './color-mode/ColorModeSync'
 import { useDirection } from './direction/useDirection'
 import { EVENTS, DIRECTION_TOOL_ID } from './constants'
@@ -19,9 +18,7 @@ const useThemeSync = () => {
 
   React.useEffect(() => {
     const channel = addons.getChannel()
-
     const themeCallback = (value: string) => {
-      console.log(value)
       setTheme(value)
     }
     channel.on(EVENTS.SET_THEME, themeCallback)

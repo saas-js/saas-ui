@@ -17,7 +17,7 @@ const CodePanel: React.FC<CodePanelProps> = ({
   const theme = {
     ...prismTheme,
     plain: {
-      backgroundColor: 'codeBackground',
+      backgroundColor: 'code-bg',
       color: prismTheme.plain.color,
     },
   }

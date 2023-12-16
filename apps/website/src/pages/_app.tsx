@@ -12,6 +12,7 @@ import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { authService } from '@/lib/auth'
 import Head from 'next/head'
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
@@ -29,7 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <SaasProvider theme={theme} linkComponent={Link}>
-        <AuthProvider>
+        <AuthProvider {...authService}>
           <ModalsProvider>
             <Layout
               announcement={pageProps.announcement}

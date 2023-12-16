@@ -1,11 +1,10 @@
-import { extendTheme, ThemeTypings } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui-pro/react'
 
 import '@fontsource-variable/inter'
 
-import { mode, transparentize, blacken } from '@chakra-ui/theme-tools'
-
+import { mode, blacken } from '@chakra-ui/theme-tools'
 import Badge from './components/badge'
 import Button from './components/button'
 import CTA from './components/cta'
@@ -14,7 +13,7 @@ import Section from './components/section'
 import SectionTitle from './components/section-title'
 
 import colors from './colors'
-import { textStyles, fontSizes } from './typography'
+import { textStyles } from './typography'
 
 import mdx from './mdx'
 
@@ -52,13 +51,38 @@ const theme = extendTheme(
     colors,
     semanticTokens: {
       colors: {
+        /**
+         * @deprecated use `code-bg` instead
+         */
         codeBackground: {
           default: blacken('purple.600', 70)(baseTheme),
           _dark: 'gray.900',
         },
+        'code-bg': {
+          default: blacken('purple.600', 70)(baseTheme),
+          _dark: 'gray.900',
+        },
         muted: {
+          default: 'gray.500',
+          _dark: 'gray.400',
+        },
+        emphasized: {
           default: 'gray.600',
           _dark: 'gray.400',
+        },
+        border: {
+          muted: {
+            default: 'gray.600',
+            _dark: 'gray.400',
+          },
+          emphasized: {
+            default: 'gray.600',
+            _dark: 'gray.400',
+          },
+        },
+        'app-background': {
+          default: 'white',
+          _dark: 'black',
         },
         'chakra-body-bg': {
           default: 'app-background',
@@ -67,17 +91,18 @@ const theme = extendTheme(
           default: 'gray.900',
           _dark: 'white',
         },
-        'app-background': {
-          default: 'white',
-          _dark: 'black',
+        'component-canvas-bg': {
+          default: 'gray.50',
+          _dark: 'gray.900',
         },
       },
     },
     styles,
     textStyles,
-    fontSizes,
     fonts: {
       ...baseTheme.fonts,
+      body: '"Inter Variable", Inter, sans-serif',
+      heading: '"Inter Variable", Inter, sans-serif',
     },
     sizes: {
       ...baseTheme.sizes,
@@ -88,6 +113,17 @@ const theme = extendTheme(
       Container: {
         baseStyle: {
           maxW: 'container.lg',
+        },
+      },
+      Heading: {
+        baseStyle: {
+          fontWeight: 'semibold',
+        },
+        sizes: {
+          lg: {
+            fontSize: ['2xl', null, '2xl'],
+            lineHeight: [1.33, null, 1.2],
+          },
         },
       },
       Badge,

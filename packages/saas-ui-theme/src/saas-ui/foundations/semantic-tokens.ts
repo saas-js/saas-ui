@@ -5,5 +5,13 @@ export default {
       default: 'gray.500',
       _dark: 'gray.400',
     },
+    neutral: {
+      default: 'black',
+      _dark: 'white',
+    },
+    'neutral-fg': {
+      default: 'white',
+      _dark: 'black',
+    },
   },
 }

@@ -174,40 +174,56 @@ Sidebar.id = 'Sidebar'
 export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
   props
 ) => {
-  const { sx, pos, position, ...rest } = props
+  const { sx, pos, position, variant = 'ghost', icon, isRound, ...rest } = props
   const { isOpen, isMobile, getButtonProps } = useSidebarToggleButton()
   const styles = useStyleConfig('SuiSidebarToggleButton', props)
+  const btnStyles = useStyleConfig('Button', {
+    ...props,
+    variant,
+  })
 
   const p = pos ?? position ?? sx?.pos ?? sx?.position
 
   const buttonStyles: SystemStyleObject = {
+    display: 'inline-flex',
+    appearance: 'none',
+    alignItems: 'center',
+    justifyContent: 'center',
+    userSelect: 'none',
+    whiteSpace: 'nowrap',
+    verticalAlign: 'middle',
+    outline: 'none',
+    ...btnStyles,
     ...(isMobile
       ? !p
         ? { position: 'fixed', top: 3, left: 4, zIndex: 'modal' }
         : {}
       : { display: 'none' }),
     ...styles,
-    ...sx,
   }
 
-  const icon = props.icon ? (
-    runIfFn(props.icon, {
+  const _icon = icon ? (
+    runIfFn(icon, {
       isOpen,
     })
   ) : (
-    <HamburgerIcon />
+    <HamburgerIcon aria-hidden="true" focusable="false" />
   )
 
   return (
-    <IconButton
-      variant="ghost"
-      sx={buttonStyles}
+    <chakra.button
+      __css={buttonStyles}
+      padding="0"
+      borderRadius={isRound ? 'full' : undefined}
       aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
       {...rest}
       {...getButtonProps(props)}
+      sx={sx}
       icon={icon as any}
       className={cx('sui-sidebar__toggle-button', props.className)}
-    />
+    >
+      {_icon}
+    </chakra.button>
   )
 }
 

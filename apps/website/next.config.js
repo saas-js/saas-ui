@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer')
+const path = require('node:path')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -50,13 +51,12 @@ let config = {
     ]
   },
   webpack: (config, { defaultLoaders }) => {
-    const fileLoaderRule = config.module.rules.find(
-      (rule) => rule.test && rule.test.test('.svg')
-    )
-    fileLoaderRule.exclude = /\.svg$/
+    const fileLoaderRule = config.module.rules.find((rule) => {
+      return new RegExp(rule.test).test('.svg')
+    })
 
     config.module.rules.push({
-      test: /\.(png|jpe?g|gif|mp4)$/i,
+      test: /\.(png|jpe?g|gif|mp4|svg)$/i,
       use: [
         {
           loader: 'file-loader',
@@ -72,7 +72,7 @@ let config = {
       // Reapply the existing rule, but only for svg imports ending in ?url
       {
         ...fileLoaderRule,
-        test: /\.svg$/i,
+        test: /\.svg/i,
         resourceQuery: /url/, // *.svg?url
       },
       // Convert all other *.svg imports to React components

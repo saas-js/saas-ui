@@ -138,6 +138,44 @@ const variantSolid = definePartsStyle((props) => {
   }
 })
 
+const variantLeftAccent = definePartsStyle((props) => {
+  const { colorScheme: c } = props
+  const _active = {
+    _before: {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: -3,
+      width: '3px',
+      bg: `${c}.500`,
+    },
+  }
+  return {
+    item: {
+      position: 'relative',
+    },
+    link: {
+      _hover: {
+        color: 'inherit',
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: `whiteAlpha.200`,
+        },
+      },
+      _active,
+      ['&[aria-current=page]']: _active,
+    },
+    icon: {
+      '[data-active] &': {
+        color: 'currentColor',
+      },
+    },
+    label: {},
+  }
+})
+
 export const navItemTheme = defineMultiStyleConfig({
   defaultProps: {
     size: 'sm',
@@ -179,5 +217,6 @@ export const navItemTheme = defineMultiStyleConfig({
     neutral: variantNeutral,
     subtle: variantSubtle,
     solid: variantSolid,
+    'left-accent': variantLeftAccent,
   },
 })

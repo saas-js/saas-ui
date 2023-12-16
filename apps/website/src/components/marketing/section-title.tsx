@@ -24,13 +24,19 @@ export default function SectionTitle({
       spacing={4}
       {...props}
     >
-      <Heading sx={styles.title} as="h2">
-        {title}
-      </Heading>
-      {description && (
+      {typeof title === 'string' ? (
+        <Heading sx={styles.title} as="h2" textStyle="sectionTitle">
+          {title}
+        </Heading>
+      ) : (
+        title
+      )}
+      {typeof description === 'string' ? (
         <Box sx={styles.description} textAlign={align}>
           {description}
         </Box>
+      ) : (
+        description
       )}
     </VStack>
   )

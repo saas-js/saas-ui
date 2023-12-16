@@ -1,10 +1,17 @@
 import * as React from 'react'
 import {
   Box,
+  Button,
   HStack,
   IconButton,
   Kbd,
   Link,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
   Spacer,
   Tooltip,
   useBreakpointValue,
@@ -23,14 +30,16 @@ import { useDisclosure, useUpdateEffect } from '@chakra-ui/react'
 
 import ThemeToggle from './theme-toggle'
 import { ProductLaneLogo } from '../logos/productlane'
-import { SearchInput, useHotkeys } from '@saas-ui/react'
+import { ChevronDownIcon, SearchInput, useHotkeys } from '@saas-ui/react'
 
 import { GlobalSearch } from '../global-search/global-search'
+import { useAuth } from '@saas-ui/auth'
 
 const Header = () => {
+  const router = useRouter()
   const mobileNav = useDisclosure()
   const isDesktop = useBreakpointValue({ xl: true })
-  const router = useRouter()
+  const { user, isAuthenticated, logOut } = useAuth()
   const activeId = useScrollSpy(
     headerNav.filter(({ id }) => id).map(({ id }) => `[id="${id}"]`),
     {
@@ -53,7 +62,8 @@ const Header = () => {
   return (
     <HStack flex="1" ps="4">
       <HStack spacing="1" flexShrink={0} flex="1" justifyContent="flex-start">
-        {headerNav.map(({ href, id, ...props }, i) => {
+        {headerNav.map(({ href, id, authenticated, ...props }, i) => {
+          if (authenticated && !isAuthenticated) return null
           return (
             <NavLink
               display={{ base: 'none', lg: 'block' }}
@@ -88,12 +98,34 @@ const Header = () => {
           />
         </Box>
 
-        <NavLink
-          href="/pricing"
-          label="Buy Pro"
-          variant="primary"
-          fontSize="sm"
-        />
+        {isAuthenticated ? (
+          <Menu>
+            <MenuButton
+              as={Button}
+              variant="primary"
+              rightIcon={<ChevronDownIcon />}
+            >
+              Account
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title={user?.email || undefined}>
+                <MenuItem onClick={() => router.push('/redeem')}>
+                  Redeem license
+                </MenuItem>
+              </MenuGroup>
+
+              <MenuDivider />
+              <MenuItem onClick={() => logOut()}>Log out</MenuItem>
+            </MenuList>
+          </Menu>
+        ) : (
+          <NavLink
+            display={{ base: 'none', lg: 'block' }}
+            href="pricing"
+            label="Buy Pro"
+            variant="primary"
+          />
+        )}
 
         <HStack spacing="0">
           <Tooltip label="Feedback &amp; Roadmap">

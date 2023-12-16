@@ -11,9 +11,26 @@ export const Testimonials = () => {
       <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
         <Stack spacing="8">
           <Testimonial
+            name="Ahmed"
+            description={
+              <>
+                Founder -{' '}
+                <a href="https://localxpose.io/" target="_blank">
+                  LocalXpose
+                </a>
+              </>
+            }
+            fontSize="md"
+          >
+            “I really recommend SaaSUI to any developer or team seeking a
+            robust, visually appealing, and easy-to-implement UI framework. The
+            support and updates from the SaaSUI team were exceptional, Thank
+            you. ”
+          </Testimonial>
+          <Testimonial
             name="Makenna Smutz"
             description="Founder - Heron"
-            avatar="https://pbs.twimg.com/profile_images/1580198717109551104/tPsHzf7X_normal.jpg"
+            avatar="https://pbs.twimg.com/profile_images/1672077486082101251/oYuIjezD_normal.jpg"
             fontSize="md"
             href="https://twitter.com/KenzSmutz/status/1531625230011088898"
           >
@@ -62,9 +79,34 @@ export const Testimonials = () => {
             Also, the SaaS UI is very flexible and can be easily customized to
             suit my specific needs.”
           </Testimonial>
+          <Testimonial
+            name="Juyoung"
+            description="Frontend developer"
+            fontSize="md"
+          >
+            “Thanks to SaaS UI, frontend web development has become much faster,
+            allowing me to focus more on business logic, which is fantastic. I
+            have a feeling that it will significantly grow in the coming years.
+            Thank you.”
+          </Testimonial>
         </Stack>
 
         <Stack spacing="8">
+          <Testimonial
+            name="Kai Pradel"
+            description={
+              <>
+                Founder - <a href="https://inkubator.dev">Inkubator</a>
+              </>
+            }
+            avatar="https://senjaio.b-cdn.net/public/avatar/48bd839c-bbab-4290-ae39-a3731486d63e_IMG_6039%20%281%29.jpg?width=102&height=102&format=webp"
+            fontSize="md"
+          >
+            “At Inkubator we build Saas companies and SaasUI is our go-to UI kit
+            at the beginning of every project. Not only are the components
+            beautiful and intuitive but the community is also highly engaged and
+            supportive.”
+          </Testimonial>
           <Testimonial
             name="@moshyfawn"
             description="Software Engineer - React Hook Form"

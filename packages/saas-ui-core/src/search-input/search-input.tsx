@@ -103,6 +103,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
         <Input
           type="text"
           placeholder={placeholder}
+          variant={variant}
           size={size}
           value={value}
           ref={useMergeRefs(ref, inputRef)}

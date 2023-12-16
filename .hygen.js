@@ -7,6 +7,7 @@ const config = {
   org: 'saas-ui',
   packagesDir: 'packages',
   appsDir: 'apps',
+  blocksDir: 'packages/pro/saas-ui/templates/src',
 }
 
 const packageName = (org, name, separator = '/') => {
@@ -21,6 +22,8 @@ const pluralizeProp = (name) => inflection.pluralize(name)
 const camelizeQuery = (name, lower = false) =>
   inflection.camelize(name, lower).replace(/::/g, '/')
 const pluralizeQuery = (name) => inflection.pluralize(name)
+
+const pascalize = (name) => inflection.camelize(name.replaceAll(' ', '_'))
 
 module.exports = {
   templates: `${__dirname}/templates`,
@@ -38,13 +41,14 @@ module.exports = {
 
       return `use${camelizedQuery}Query`
     },
+    pascalize: (name) => pascalize(name),
     /**
      * Normalize the filename casing. Defaults to kebabcase.
      * @param {string} name
      * @returns
      */
     filename: (name) => {
-      return inflection.dasherize(name)
+      return inflection.dasherize(name).toLowerCase()
     },
     /**
      * Returns the package directory, eg: packages/saas-ui-component
@@ -70,6 +74,19 @@ module.exports = {
      */
     appDir: (app) => {
       return path.join(config.appsDir, app)
+    },
+    /**
+     * Returns the blocks directory, eg: packages/pro/saas-ui/templates/src/
+     * @param {string} category
+     * @param {string} name
+     * @returns
+     */
+    blocksDir: (category, name) => {
+      return path.join(
+        config.blocksDir,
+        inflection.dasherize(category).toLowerCase(),
+        inflection.dasherize(name).toLowerCase()
+      )
     },
   },
 }

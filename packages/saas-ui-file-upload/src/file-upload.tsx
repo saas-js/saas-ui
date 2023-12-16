@@ -47,6 +47,7 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     'minFileSize',
     'name',
     'onFilesChange',
+    'getRootNode',
   ])
 
   const context = useFileUpload(options)

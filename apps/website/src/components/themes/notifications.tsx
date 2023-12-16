@@ -12,7 +12,6 @@ import {
   StructuredListHeader,
   StructuredListItem,
 } from '@saas-ui/react'
-import { Section, SectionBody, SectionHeader } from '@saas-ui-pro/react'
 
 interface NotificationItemProps {
   title: string

@@ -76,9 +76,7 @@ import {
   FiTrendingUp,
   FiArrowRight,
   FiUserPlus,
-  FiChevronRight,
 } from 'react-icons/fi'
-import { FaGithub } from 'react-icons/fa'
 import { FormDialog } from '@saas-ui/modals'
 import { Field } from '@saas-ui/forms'
 import {
@@ -91,6 +89,7 @@ import {
 } from '@saas-ui/core'
 
 import { transparentize } from '@chakra-ui/theme-tools'
+import { FocusableElement } from '@saas-ui/react-utils'
 import { Testimonial, Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
@@ -100,8 +99,6 @@ import { Startec } from '@/components/logos/customers/startec'
 import { Eqtble } from '@/components/logos/customers/eqtble'
 import { Farmo } from '@/components/logos/customers/farmo'
 import { Ownco } from '@/components/logos/customers/ownco'
-import styles from '../styles/theme-image.module.css'
-import { ThemeImage } from '@/components/theme-image'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -115,8 +112,9 @@ const Home = () => {
     <Box>
       <SEO
         title="Saas UI"
-        description="The React component library for Startups"
+        description="Modern React component library and starterkit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js."
         titleTemplate="%s - The React component library for Startups"
+        canonical="https://saas-ui.dev"
       />
 
       <Box mb={8} w="full" position="relative" overflow="hidden">
@@ -144,7 +142,12 @@ const Home = () => {
                 alignItems="center"
                 textAlign="center"
                 title={
-                  <FallInPlace textAlign="center" initialInView>
+                  <FallInPlace
+                    as="h1"
+                    textAlign="center"
+                    initialInView
+                    textStyle="pageTitle"
+                  >
                     Build intuitive apps that your customers will love
                   </FallInPlace>
                 }
@@ -192,6 +195,10 @@ const Home = () => {
                       size="lg"
                       href="/docs"
                       variant="outline"
+                      borderColor="blackAlpha.400"
+                      _dark={{
+                        borderColor: 'whiteAlpha.400',
+                      }}
                       _hover={{
                         bg: 'whiteAlpha.200',
                       }}
@@ -242,12 +249,15 @@ const Home = () => {
                   </AspectRatio>
                 </FallInPlace>
                 <Stack
-                  display="none"
                   alignItems="center"
                   justifyContent="center"
-                  _groupHover={{ display: 'flex' }}
+                  opacity="0"
+                  _groupHover={{ display: 'flex', opacity: 1 }}
                   position="absolute"
                   inset="0"
+                  transitionProperty="common"
+                  transitionDuration="normal"
+                  boxShadow="lg"
                 >
                   <Button
                     as="a"
@@ -258,6 +268,7 @@ const Home = () => {
                     borderColor="gray.800"
                     borderWidth="2px"
                     size="lg"
+                    rounded="full"
                   >
                     View Demo
                   </Button>
@@ -455,7 +466,9 @@ const Founder = () => {
     >
       <Box position="relative">
         <Heading
-          fontWeight="bold"
+          as="h2"
+          textStyle="sectionTitle"
+          fontWeight="semibold"
           fontSize={['2xl', null, '4xl']}
           lineHeight="lg"
           color={useColorModeValue('black', 'white')}
@@ -509,18 +522,13 @@ const Founder = () => {
 
 const BoilerplateCode = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const fieldRef = React.useRef()
+  const fieldRef = React.useRef<FocusableElement>(null)
 
   return (
     <Section innerWidth="container.xl">
       <Stack spacing="12" direction={['column', null, null, 'row']}>
         <Box py="10" flex="1">
-          <Heading
-            size="2xl"
-            lineHeight="shorter"
-            mb="8"
-            fontWeight="extrabold"
-          >
+          <Heading as="h2" size="2xl" mb="8" textStyle="sectionTitle">
             Less boilerplate
             <Br /> build with speed.
           </Heading>
@@ -565,10 +573,10 @@ const BoilerplateCode = () => {
           justifyContent="center"
           borderRadius="2xl"
           position="relative"
-          bg="codeBackground"
+          bg="code-bg"
           _dark={{
             bg: 'transparent',
-            bgGradient: 'linear(to-b, codeBackground, transparent)',
+            bgGradient: 'linear(to-b, code-bg, transparent)',
           }}
           _before={{
             content: '""',
@@ -619,10 +627,10 @@ const Themable = () => {
           justifyContent="center"
           borderRadius="2xl"
           position="relative"
-          bg="codeBackground"
+          bg="code-bg"
           _dark={{
             bg: 'transparent',
-            bgGradient: 'linear(to-b, codeBackground, transparent)',
+            bgGradient: 'linear(to-b, code-bg, transparent)',
           }}
           _before={{
             content: '""',
@@ -750,7 +758,9 @@ const Highlights = () => {
         position="relative"
       >
         <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
-          <Heading fontSize="1.4em">40+ open source components</Heading>
+          <Heading as="h3" textStyle="cardTitle" size="lg">
+            40+ open source components
+          </Heading>
           <Text color="muted" fontSize="xl">
             Get started for free with 40+ open source components. Including
             authentication screens with Clerk, Supabase and Magic. Fully
@@ -762,7 +772,7 @@ const Highlights = () => {
               py="1"
               px="2"
               borderRadius="full"
-              bg="codeBackground"
+              bg="code-bg"
               borderWidth="1px"
             >
               <CodePanel language="bash">{value}</CodePanel>
@@ -799,7 +809,9 @@ const Highlights = () => {
           </HStack>
         </GridItem>
         <GridItem as={HighlightBox}>
-          <Heading fontSize="1.4em">Solid foundations</Heading>
+          <Heading as="h3" textStyle="cardTitle" size="lg">
+            Solid foundations
+          </Heading>
           <Text color="muted" fontSize="lg">
             Saas UI is built on top of industry leading libraries and tools.
             <Br />
@@ -849,7 +861,7 @@ const Highlights = () => {
           </Testimonial>
         </GridItem>
         <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
-          <Heading fontSize="1.4em">
+          <Heading as="h3" textStyle="cardTitle" size="lg">
             Start your next idea two steps ahead
           </Heading>
           <Text color="muted" fontSize="lg">
@@ -984,11 +996,8 @@ const FigmaCard = () => {
   return (
     <>
       <Stack spacing={8} padding="12">
-        <Heading fontSize="1.4em">
-          Figma library{' '}
-          <Tag colorScheme="primary" variant="solid">
-            New!
-          </Tag>
+        <Heading as="h3" textStyle="cardTitle" size="lg">
+          Figma library
         </Heading>
         <Text color="muted" fontSize="lg" maxW="400px">
           <>
@@ -1222,10 +1231,10 @@ const ProFeatures = () => {
             Pro license
           </Badge>
           <Heading
-            lineHeight="short"
             fontSize={['2xl', null, '4xl']}
+            textStyle="sectionTitle"
             textAlign="left"
-            as="p"
+            as="h2"
             color="inherit"
           >
             Not your standard
@@ -1234,8 +1243,8 @@ const ProFeatures = () => {
         </Stack>
       }
       description={
-        <Stack alignItems="flex-start" spacing="8">
-          <Text fontSize={['xl', null, 'xl']}>
+        <Stack alignItems="flex-start" spacing="8" textAlign="left">
+          <Text fontSize={['xl', null, 'xl']} color="muted">
             Saas UI Pro includes everything you need to build frontends that
             scale.
             <Br />

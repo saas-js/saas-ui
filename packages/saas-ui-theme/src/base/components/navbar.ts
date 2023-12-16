@@ -54,7 +54,10 @@ export const navbarTheme = defineMultiStyleConfig({
         justifyContent: 'space-between',
         width: 'full',
         height: 'var(--navbar-height)',
-        px: 6,
+        px: {
+          base: 4,
+          lg: 6,
+        },
         gap: 4,
         flexWrap: 'nowrap',
       },

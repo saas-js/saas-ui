@@ -49,12 +49,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const tabsData = getComponentTabsData([ctx.params.slug])
+  const tabsData = getComponentTabsData([ctx.params?.slug])
   const doc = getDocDoc([ctx.params.slug])
 
   const params =
     (Array.isArray(ctx.params?.slug) ? ctx.params?.slug : [ctx.params?.slug]) ??
     []
+
+  const docs = allDocs.filter((doc) => {
+    return !['props', 'theming'].includes(doc.scope)
+  })
 
   if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {
     const rss = generateRss(
@@ -65,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
             'Professionally crafted Chakra UI components that help you build intuitive React apps with speed.',
           title: 'Professionally crafted Chakra UI components',
         },
-      ].concat(allDocs as any),
+      ].concat(docs as any),
       'docs.xml'
     )
     fs.writeFileSync('./public/docs.xml', rss)

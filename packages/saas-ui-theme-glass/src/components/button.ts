@@ -1,10 +1,18 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system'
 
 const variantSolid = defineStyle((props) => {
-  const { colorScheme: c } = props
+  const { colorScheme: c, colorMode } = props
 
-  const color = `${c}.500`
-  const hoverColor = `${c}.600`
+  let color = `${c}.500`
+  let hoverColor = `${c}.600`
+
+  if (c === 'neutral' && colorMode === 'dark') {
+    color = 'white'
+    hoverColor = 'whiteAlpha.800'
+  } else if (c === 'neutral') {
+    color = 'black'
+    hoverColor = 'blackAlpha.800'
+  }
 
   return {
     borderWidth: '1px',

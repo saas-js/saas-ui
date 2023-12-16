@@ -195,6 +195,10 @@ const Home = () => {
                       size="lg"
                       href="/docs"
                       variant="outline"
+                      borderColor="blackAlpha.400"
+                      _dark={{
+                        borderColor: 'whiteAlpha.400',
+                      }}
                       _hover={{
                         bg: 'whiteAlpha.200',
                       }}

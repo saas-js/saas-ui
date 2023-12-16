@@ -196,7 +196,7 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
     ...btnStyles,
     ...(isMobile
       ? !p
-        ? { position: 'fixed', top: 3, left: 4, zIndex: 'modal' }
+        ? { position: 'fixed', top: 3, left: 3, zIndex: 'popover' }
         : {}
       : { display: 'none' }),
     ...styles,
@@ -216,10 +216,10 @@ export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
       padding="0"
       borderRadius={isRound ? 'full' : undefined}
       aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
+      data-state={isOpen ? 'open' : 'closed'}
       {...rest}
       {...getButtonProps(props)}
       sx={sx}
-      icon={icon as any}
       className={cx('sui-sidebar__toggle-button', props.className)}
     >
       {_icon}

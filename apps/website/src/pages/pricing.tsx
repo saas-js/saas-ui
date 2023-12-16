@@ -20,10 +20,7 @@ import {
   VStack,
   Stack,
   useColorModeValue,
-  Avatar,
   Tooltip,
-  Card,
-  CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -39,7 +36,6 @@ import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
-import { useRouter } from 'next/router'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 import { SignupForm } from '@/components/signup-form'
@@ -148,7 +144,7 @@ const Pricing = () => {
           title="Pricing for every stage"
           description={
             <>
-              <Text fontSize="xl" mb="12">
+              <Text fontSize="xl" mb="12" color="muted">
                 Get started for free with 40+ open source components. Upgrade to
                 Pro <Br display={{ sm: 'none', lg: 'inline' }} />
                 to get all components and features with a license for you or
@@ -468,13 +464,17 @@ const MemberShip = () => {
           setTimeout(() => {
             /* @ts-ignore */
             window?.pirsch?.('Membership')
+            /* @ts-ignore */
             $crisp.push(['do', 'chat:open'])
+            /* @ts-ignore */
             $crisp.push(['do', 'message:thread:start', ['Membership']])
+            /* @ts-ignore */
             $crisp.push([
               'do',
               'message:send',
               ['text', 'Hey! Thanks for your interest in Saas UI.'],
             ])
+            /* @ts-ignore */
             $crisp.push([
               'do',
               'message:send',

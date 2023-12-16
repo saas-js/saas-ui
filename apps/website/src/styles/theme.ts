@@ -13,7 +13,7 @@ import Section from './components/section'
 import SectionTitle from './components/section-title'
 
 import colors from './colors'
-import { textStyles, fontSizes } from './typography'
+import { textStyles } from './typography'
 
 import mdx from './mdx'
 
@@ -99,7 +99,6 @@ const theme = extendTheme(
     },
     styles,
     textStyles,
-    fontSizes,
     fonts: {
       ...baseTheme.fonts,
       body: '"Inter Variable", Inter, sans-serif',
@@ -114,6 +113,17 @@ const theme = extendTheme(
       Container: {
         baseStyle: {
           maxW: 'container.lg',
+        },
+      },
+      Heading: {
+        baseStyle: {
+          fontWeight: 'semibold',
+        },
+        sizes: {
+          lg: {
+            fontSize: ['2xl', null, '2xl'],
+            lineHeight: [1.33, null, 1.2],
+          },
         },
       },
       Badge,

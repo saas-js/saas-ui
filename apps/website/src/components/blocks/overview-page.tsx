@@ -31,7 +31,7 @@ export function OverviewPage({ componentsCountByCategory }: OverviewPageProps) {
 
       <Box position="relative" zIndex="1">
         <Box mb="12">
-          <Heading as="h2" fontSize="5xl">
+          <Heading as="h2" size="2xl" textStyle="pageTitle">
             Blocks
           </Heading>
           <Text fontSize="xl" mt="5" color="muted">

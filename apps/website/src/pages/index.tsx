@@ -257,16 +257,13 @@ const Home = () => {
                   inset="0"
                   transitionProperty="common"
                   transitionDuration="normal"
-                  boxShadow="lg"
                 >
                   <Button
                     as="a"
                     target="_blank"
                     href="https://demo.saas-ui.dev"
                     variant="solid"
-                    colorScheme="white"
-                    borderColor="gray.800"
-                    borderWidth="2px"
+                    colorScheme="neutral"
                     size="lg"
                     rounded="full"
                   >

@@ -3,6 +3,7 @@ import * as React from 'react'
 import Script from 'next/script'
 
 import {
+  Badge,
   Box,
   Button,
   CardHeader,
@@ -250,7 +251,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Beta access
+              Buy now
             </ButtonLink>
           </PricingBox>
           <PricingBox
@@ -265,7 +266,7 @@ const Pricing = () => {
                 >
                   €999,-
                 </Text>
-                <Text>€699,-</Text>
+                <Text>€799,-</Text>
               </HStack>
             }
             description="Unlimited license for growing teams or agencies."
@@ -311,7 +312,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Beta access
+              Buy now
             </ButtonLink>
           </PricingBox>
           <MemberShip />
@@ -437,7 +438,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€2500,-</Text>
+            <Text>€4950,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>
@@ -447,9 +448,10 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
-          title="Startup license included"
-          iconColor="cyan.500"
-        ></PricingFeature>
+          title={<strong>1 spot available</strong>}
+          iconColor="green.400"
+        />
+        <PricingFeature title="Startup license included" iconColor="cyan.500" />
         <PricingFeature title="Project setup" iconColor="cyan.500" />
         <PricingFeature title="Design-system setup" iconColor="cyan.500" />
         <PricingFeature
@@ -457,6 +459,7 @@ const MemberShip = () => {
           iconColor="cyan.500"
         />
         <PricingFeature title="Design services" iconColor="cyan.500" />
+        <PricingFeature title="Code reviews" iconColor="cyan.500" />
       </PricingFeatures>
       <Button
         colorScheme="cyan"

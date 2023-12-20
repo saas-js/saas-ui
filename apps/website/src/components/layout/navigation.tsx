@@ -121,7 +121,7 @@ const Header = () => {
         ) : (
           <NavLink
             display={{ base: 'none', lg: 'block' }}
-            href="pricing"
+            href="/pricing"
             label="Buy Pro"
             variant="primary"
           />

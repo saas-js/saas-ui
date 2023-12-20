@@ -459,6 +459,7 @@ const MemberShip = () => {
           iconColor="cyan.500"
         />
         <PricingFeature title="Design services" iconColor="cyan.500" />
+        <PricingFeature title="Private Slack/Discord" iconColor="cyan.500" />
         <PricingFeature title="Code reviews" iconColor="cyan.500" />
       </PricingFeatures>
       <Button

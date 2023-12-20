@@ -95,6 +95,10 @@ yarn storybook
 ### Build
 
 ```bash
+yarn install
+```
+
+```bash
 yarn build:packages
 ```
 

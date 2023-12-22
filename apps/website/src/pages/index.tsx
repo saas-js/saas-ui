@@ -265,8 +265,7 @@ const Home = () => {
                     href="https://demo.saas-ui.dev"
                     variant="solid"
                     colorScheme="white"
-                    borderColor="gray.800"
-                    borderWidth="2px"
+                    boxShadow="0 0 0 8px rgba(0,0,0,0.3)"
                     size="lg"
                     rounded="full"
                   >

@@ -191,11 +191,7 @@ function SidebarGroup({
                 >
                   {/* <Stack spacing="1"> */}
                   {sortedRoutes.map((lvl3, i) => (
-                    <SidebarLink
-                      key={lvl3.path || i}
-                      href={lvl3.path}
-                      color="muted"
-                    >
+                    <SidebarLink key={lvl3.path || i} href={lvl3.path} mb="2px">
                       <span>{convertBackticksToInlineCode(lvl3.title)}</span>
                       {lvl3.new && (
                         <Badge

@@ -121,9 +121,7 @@ function SidebarGroup({
               if (!lvl2.routes) {
                 return (
                   <SidebarLink
-                    mb="1"
-                    ml="4"
-                    color="muted"
+                    mb="2px"
                     key={lvl2.path || index}
                     href={lvl2.path}
                   >

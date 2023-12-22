@@ -254,7 +254,7 @@ export function SidebarContent(props: SidebarContentProps) {
   const { routes, pathname, contentRef } = props
   const color = useColorModeValue('gray.700', 'inherit')
 
-  const searchRef = React.useRef(null)
+  const searchRef = React.useRef<any>(null)
 
   useHotkeys('/', () => {
     searchRef.current?.focus()

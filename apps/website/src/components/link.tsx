@@ -23,7 +23,9 @@ export const ButtonLink = ({
 }: LinkProps & ButtonProps) => {
   return (
     <NextLink href={href} passHref legacyBehavior>
-      <Button {...props}>{children}</Button>
+      <Button as="a" {...props}>
+        {children}
+      </Button>
     </NextLink>
   )
 }

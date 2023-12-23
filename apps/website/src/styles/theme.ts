@@ -5,7 +5,6 @@ import { theme as baseTheme } from '@saas-ui-pro/react'
 import '@fontsource-variable/inter'
 
 import { mode, blacken } from '@chakra-ui/theme-tools'
-import Badge from './components/badge'
 import Button from './components/button'
 import CTA from './components/cta'
 import Features, { Feature } from './components/features'
@@ -126,7 +125,6 @@ const theme = extendTheme(
           },
         },
       },
-      Badge,
       Button,
       CTA,
       Section,

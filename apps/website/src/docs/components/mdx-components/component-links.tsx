@@ -148,7 +148,7 @@ function ComponentLinks(props: ComponentLinksProps) {
   const gumroadLink = pro?.gumroad && (
     <WrapItem>
       <ComponentLink
-        url={`https://appulse.gumroad.com/l/saas-ui-pro-pre-order`}
+        url="/pricing"
         iconColor="primary.500"
         iconSize="1rem"
         icon={FiLock}

@@ -27,19 +27,21 @@ export const QuickLink = (props) => {
       </Text>
       <Button
         variant="link"
+        color="inherit"
         rightIcon={
           <Icon
             as={FiArrowRight}
+            mt="1px"
             transform="translateX(-5px)"
             transitionProperty="common"
-            transitionDuration="normal"
-            sx={{ '.saas-card:hover &': { transform: 'translateX(0)' } }}
+            transitionDuration="fast"
+            sx={{ '.chakra-card:hover &': { transform: 'translateX(0)' } }}
           />
         }
         _hover={{
           textDecoration: 'none',
         }}
-        sx={{ '.saas-card:hover &': { color: 'secondary.400' } }}
+        sx={{ '.chakra-card:hover &': { color: 'secondary.400' } }}
       >
         {label}
       </Button>

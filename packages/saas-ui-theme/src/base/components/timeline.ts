@@ -1,24 +1,68 @@
-import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import {
+  createMultiStyleConfigHelpers,
+  cssVar,
+  defineCssVars,
+} from '@chakra-ui/styled-system'
 
 import { timelineAnatomy } from '../../anatomy'
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(timelineAnatomy.keys)
 
+const $rowStart = cssVar('timeline-row-start', 'minmax(0,1fr)')
+const $rowEnd = cssVar('timeline-row-end', 'minmax(0,1fr)')
+
+const $colStart = cssVar('timeline-col-start', 'minmax(0,1fr)')
+const $colEnd = cssVar('timeline-col-end', 'minmax(0,1fr)')
+
 const baseStyle = definePartsStyle((props) => {
   return {
-    container: {},
+    container: {
+      display: 'flex',
+      [$rowStart.variable]: 'minmax(0,1fr)',
+      [$rowEnd.variable]: 'minmax(0,1fr)',
+      [$colStart.variable]: 'auto',
+      [$colEnd.variable]: '2fr',
+      flexDirection: 'column',
+      justifyItems: 'center',
+    },
     item: {
-      minHeight: '32px',
+      display: 'grid',
+      alignItems: 'center',
+      justifyItems: 'start',
+      gridTemplateRows: `${$rowStart.reference}`,
+      gridTemplateColumns: `${$colStart.reference} auto ${$colEnd.reference}`,
       position: 'relative',
     },
     separator: {
-      width: '24px',
+      mx: 1,
+      minW: '24px',
       flexShrink: 0,
+      gridColumnStart: 1,
+      gap: 2,
+      height: '100%',
+      _before: {
+        content: '""',
+        display: 'block',
+        flex: 1,
+        minH: '0.5em',
+      },
+      _after: {
+        content: '""',
+        display: 'block',
+        flex: 1,
+        minH: '0.5em',
+      },
+
+      '&:has(.sui-timeline__track:first-child):before': {
+        display: 'none',
+      },
+      '&:has(.sui-timeline__track:last-child):after': {
+        display: 'none',
+      },
     },
     icon: {
       color: 'gray.300',
-      py: '7px',
       _dark: {
         color: 'gray.600',
       },
@@ -33,13 +77,20 @@ const baseStyle = definePartsStyle((props) => {
       bg: 'gray.300',
       width: '1px',
       flex: 1,
+      minH: '0.5em',
       _dark: {
         bg: 'gray.600',
       },
     },
     content: {
-      pt: '1px',
       px: '2',
+      _first: {
+        gridColumnStart: 1,
+      },
+      _last: {
+        gridColumnStart: 2,
+        justifySelf: 'start',
+      },
     },
   }
 })

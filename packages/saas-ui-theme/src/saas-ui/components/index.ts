@@ -1,5 +1,6 @@
 // Chakra UI Components
 import { alertTheme } from './alert'
+import { badgeTheme } from './badge'
 import { buttonTheme } from './button'
 import { cardTheme } from './card'
 import { checkboxTheme } from './checkbox'
@@ -24,6 +25,7 @@ import { switchTheme } from './switch'
 import { tooltipTheme } from './tooltip'
 
 export { alertTheme as Alert } from './alert'
+export { badgeTheme as Badge } from './badge'
 export { buttonTheme as Button } from './button'
 export { cardTheme as Card } from './card'
 export { checkboxTheme as Checkbox } from './checkbox'
@@ -60,6 +62,7 @@ export { stepperTheme as SuiStepper } from './stepper'
 
 export const components = {
   Alert: alertTheme,
+  Badge: badgeTheme,
   Button: buttonTheme,
   Card: cardTheme,
   Checkbox: checkboxTheme,

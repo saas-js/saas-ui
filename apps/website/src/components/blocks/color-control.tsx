@@ -48,22 +48,31 @@ export function ColorControl({ onChange, value }: ColorControlProps) {
     return null
   }
 
-  const colors = Object.keys(theme.colors)
-    .filter((color) => !color.match('Alpha') && !ignore.includes(color))
-    .map((color) => ({
-      swatch: theme.colors[color][500],
-      color,
-    }))
+  const colors = Object.keys(theme.colors).filter(
+    (color) => !color.match('Alpha') && !ignore.includes(color)
+  )
 
-  const swatches = colors.map(({ color, swatch }) => (
+  const swatches = colors.map((color) => (
     <IconButton
       aria-label={color}
       onClick={() => onChange(color)}
       isRound
       size="xs"
       key={color}
-      bg={swatch}
-      style={{ color: theme.white, cursor: 'pointer' }}
+      bg={`${color}.500`}
+      color="white"
+      _selected={{
+        outline: '2px solid',
+        outlineOffset: '1px',
+        outlineColor: `${color}.500`,
+        _hover: {
+          bg: `${color}.500`,
+        },
+      }}
+      _hover={{
+        bg: `${color}.400`,
+      }}
+      data-selected={value === color ? '' : undefined}
     >
       {value === color && <LuCheck size="1.2em" />}
     </IconButton>
@@ -79,9 +88,7 @@ export function ColorControl({ onChange, value }: ColorControlProps) {
       <PopoverTrigger>
         <IconButton
           aria-label="Change primary color"
-          icon={
-            <Badge rounded="full" boxSize="3" bg={theme.colors[value][500]} />
-          }
+          icon={<Badge rounded="full" boxSize="3" bg={`${value}.500`} />}
           variant="tertiary"
           onClick={() => setOpened((o) => !o)}
         />

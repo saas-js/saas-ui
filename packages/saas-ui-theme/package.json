@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/theme",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "Saas UI theme package",
   "source": "src/index.ts",
   "exports": {
@@ -19,12 +19,25 @@
     },
     "./anatomy/src": {
       "default": "./src/anatomy/index.ts"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.mjs",
+      "require": "./dist/components/index.js"
+    },
+    "./components/*": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.mjs",
+      "require": "./dist/components/*.js"
     }
   },
   "typesVersions": {
     "*": {
       "anatomy": [
         "./dist/anatomy/index.d.ts"
+      ],
+      "components": [
+        "./dist/components/index.d.ts"
       ]
     }
   },

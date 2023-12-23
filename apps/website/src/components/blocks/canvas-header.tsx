@@ -62,7 +62,7 @@ export function CanvasHeader({
 
         <HStack spacing="1">
           {attributes.version && (
-            <Tag variant="outline" rounded="full" px="2">
+            <Tag variant="solid" rounded="full" px="2">
               {attributes.version}
             </Tag>
           )}
@@ -111,7 +111,7 @@ export function CanvasHeader({
           </ButtonGroup>
         ) : (
           <Button
-            variant="primary"
+            variant="outline"
             data-checked={state === 'code' ? 'true' : undefined}
             leftIcon={<FiLock size="1rem" />}
             onClick={() =>

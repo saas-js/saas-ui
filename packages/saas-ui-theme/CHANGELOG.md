@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.3.1
+
+### Patch Changes
+
+- c0f203bf: Fixed issue where timeline content would not scale to width
+
 ## 2.3.0
 
 ### Minor Changes

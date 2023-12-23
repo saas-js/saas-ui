@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.3.1
+
+### Patch Changes
+
+- c0f203bf: Fixed issue where theming props would be passed to dom
+- Updated dependencies [c0f203bf]
+  - @saas-ui/theme@2.3.1
+
 ## 2.3.0
 
 ### Minor Changes

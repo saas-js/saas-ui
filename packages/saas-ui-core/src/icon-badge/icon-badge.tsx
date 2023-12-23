@@ -4,6 +4,7 @@ import {
   IconProps,
   ThemingProps,
   forwardRef,
+  omitThemingProps,
 } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 import { cloneElement, isValidElement } from 'react'
@@ -32,6 +33,8 @@ export const IconBadge = forwardRef<IconBadgeProps, 'div'>((props, ref) => {
   const { icon, children, isRound, 'aria-label': ariaLabel, ...rest } = props
   const styles = useStyleConfig('SuiIconBadge', props)
 
+  const itemProps = omitThemingProps(rest)
+
   /**
    * Passing the icon as prop or children should work
    */
@@ -56,7 +59,7 @@ export const IconBadge = forwardRef<IconBadgeProps, 'div'>((props, ref) => {
       __css={__css}
       borderRadius={isRound ? 'full' : undefined}
       aria-label={ariaLabel}
-      {...rest}
+      {...itemProps}
       className={cx('sui-icon-badge', props.className)}
     >
       {_children}

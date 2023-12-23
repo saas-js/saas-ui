@@ -31,7 +31,7 @@ const baseStyle = definePartsStyle((props) => {
       alignItems: 'center',
       justifyItems: 'start',
       gridTemplateRows: `${$rowStart.reference}`,
-      gridTemplateColumns: `${$colStart.reference} auto ${$colEnd.reference}`,
+      gridTemplateColumns: `${$colStart.reference} ${$colEnd.reference}`,
       position: 'relative',
     },
     separator: {
@@ -54,10 +54,10 @@ const baseStyle = definePartsStyle((props) => {
         minH: '0.5em',
       },
 
-      '&:has(.sui-timeline__track:first-child):before': {
+      '&:has(.sui-timeline__track:first-of-type):before': {
         display: 'none',
       },
-      '&:has(.sui-timeline__track:last-child):after': {
+      '&:has(.sui-timeline__track:last-of-type):after': {
         display: 'none',
       },
     },

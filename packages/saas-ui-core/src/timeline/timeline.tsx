@@ -23,7 +23,7 @@ export interface TimelineProps
  * @see Docs https://saas-ui.dev/docs/components/data-display/timeline
  */
 export const Timeline: React.FC<TimelineProps> = (props) => {
-  const { children, ...rest } = props
+  const { children, orientation = 'vertical', ...rest } = props
 
   const styles = useMultiStyleConfig('SuiTimeline', props)
 
@@ -39,6 +39,7 @@ export const Timeline: React.FC<TimelineProps> = (props) => {
         {...rest}
         __css={timelineStyles}
         className={cx('sui-timeline', props.className)}
+        data-orientation="vertical"
       >
         {children}
       </chakra.ul>
@@ -56,16 +57,11 @@ export const TimelineItem = forwardRef<TimelineItemProps, 'li'>(
 
     const styles = useStyles()
 
-    const itemStyles = {
-      display: 'flex',
-      ...styles.item,
-    }
-
     return (
       <chakra.li
         {...rest}
         ref={ref}
-        __css={itemStyles}
+        __css={styles.item}
         className={cx('sui-timeline__item', props.className)}
       >
         {children}
@@ -188,17 +184,10 @@ export const TimelineTrack: React.FC<TimelineTrackProps> = (props) => {
 
   const styles = useStyles()
 
-  const trackStyles = {
-    flex: 1,
-    width: '1px',
-    minH: '10px',
-    ...styles.track,
-  }
-
   return (
     <chakra.div
       {...rest}
-      __css={trackStyles}
+      __css={styles.track}
       className={cx('sui-timeline__track', props.className)}
     >
       {children}

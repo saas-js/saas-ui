@@ -20,9 +20,13 @@ which are basically the same as outlined in manual installation steps below.
 
 After this you can install Saas UI.
 
-```bash
-yarn add @saas-ui/react
-```
+<PackageManagers
+  command={{
+    npm: 'npm i @saas-ui/react',
+    yarn: 'yarn add @saas-ui/react',
+    pnpm: 'pnpm add @saas-ui/react',
+  }}
+/>
 
 See [additional setup](#additional-setup) (such as including
 theme customizations and Storybook integration) below.

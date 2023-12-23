@@ -8456,7 +8456,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/storybook-addon@^2.0.0, @saas-ui/storybook-addon@workspace:tooling/storybook-addon":
+"@saas-ui/storybook-addon@2.0.2, @saas-ui/storybook-addon@workspace:tooling/storybook-addon":
   version: 0.0.0-use.local
   resolution: "@saas-ui/storybook-addon@workspace:tooling/storybook-addon"
   dependencies:
@@ -26321,7 +26321,7 @@ __metadata:
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@saas-ui/react": "workspace:*"
-    "@saas-ui/storybook-addon": ^2.0.0
+    "@saas-ui/storybook-addon": 2.0.2
     "@storybook/addon-a11y": ^7.4.2
     "@storybook/addon-storysource": ^7.4.2
     "@storybook/addon-toolbars": ^7.4.2

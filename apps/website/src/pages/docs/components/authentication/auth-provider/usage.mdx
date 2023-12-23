@@ -72,14 +72,35 @@ function App({ children }) {
 Return the Auth context.
 
 ```tsx
-function Page() {
+import { Box, Button, Text } from '@chakra-ui/react'
+import { useAuth } from '@saas-ui/auth'
+
+export default function Page() {
   const auth = useAuth()
+
+  if (auth.isLoggingIn) return <Text>Loading...</Text>
+
+  return (
+    <Box>
+      {auth.isAuthenticated ? (
+        <Box>
+          <Text>Logged in as {auth.user.email}</Text>
+          <Button onClick={() => auth.logOut()}>Log out</Button>
+        </Box>
+      ) : (
+        <Box>
+          <Text>Not logged in</Text>
+          <Button onClick={() => auth.logIn()}>Log in</Button>
+        </Box>
+      )}
+    </Box>
+  )
 }
 ```
 
-### useLogin
+### Log in with email
 
-```jsx
+```tsx
 function LoginPage() {
   const [{ isLoading, data, error }, login] = useLogin()
 
@@ -94,10 +115,95 @@ function LoginPage() {
 }
 ```
 
-### useSignUp
+### Log in with password
 
-```jsx
-function SignupPage() {
+```tsx
+import { Button } from '@chakra-ui/react'
+import { useLogin } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const [{ isLoading, data, error }, login] = useLogin()
+
+  return (
+    <Button
+      onClick={() => login({ email: 'hello@saas-ui.dev', password: '1234' })}
+      isLoading={isLoading}
+    >
+      Log in
+    </Button>
+  )
+}
+```
+
+### Social login
+
+```tsx
+import { Button } from '@chakra-ui/react'
+import { useLogin } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const [{ isLoading, data, error }, login] = useLogin()
+
+  return (
+    <Button onClick={() => login({ provider: 'github' })} isLoading={isLoading}>
+      Log in with Github
+    </Button>
+  )
+}
+```
+
+### Log in with redirect
+
+```tsx
+import { Button } from '@chakra-ui/react'
+import { useLogin } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const [{ isLoading, data, error }, login] = useLogin()
+
+  return (
+    <Button
+      onClick={() =>
+        login({
+          email: 'hello@saas-ui.dev',
+          redirectTo: 'http://localhost:3000/account',
+        })
+      }
+      isLoading={isLoading}
+    >
+      Log in
+    </Button>
+  )
+}
+```
+
+### Sign up with email
+
+```tsx
+import { Button } from '@chakra-ui/react'
+import { useSignUp } from '@saas-ui/auth'
+
+export default function SignupPage() {
+  const [{ isLoading, data, error }, signUp] = useSignUp()
+
+  return (
+    <Button
+      onClick={() => signUp({ email: 'hello@saas-ui.dev' })}
+      isLoading={isLoading}
+    >
+      Sign up
+    </Button>
+  )
+}
+```
+
+### Sign up with password
+
+```tsx
+import { Button } from '@chakra-ui/react'
+import { useSignUp } from '@saas-ui/auth'
+
+export default function SignupPage() {
   const [{ isLoading, data, error }, signUp] = useSignUp()
 
   return (
@@ -108,6 +214,26 @@ function SignupPage() {
       isLoading={isLoading}
     >
       Sign up
+    </Button>
+  )
+}
+```
+
+### Social signup
+
+```tsx
+import { Button } from '@chakra-ui/react'
+import { useSignUp } from '@saas-ui/auth'
+
+export default function LoginPage() {
+  const [{ isLoading, data, error }, signup] = useSignUp()
+
+  return (
+    <Button
+      onClick={() => signup({ provider: 'github' })}
+      isLoading={isLoading}
+    >
+      Log in with Github
     </Button>
   )
 }

@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 2.5.2
+
+### Patch Changes
+
+- 042c15f3: Added useScrollPosition hook
+- Updated dependencies [042c15f3]
+  - @saas-ui/hooks@2.0.2
+  - @saas-ui/modals@2.1.14
+  - @saas-ui/data-table@7.0.2
+
 ## 2.5.1
 
 ### Patch Changes

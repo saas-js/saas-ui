@@ -8,9 +8,9 @@ export const LoginButton: React.FC<SubmitButtonProps> = (props) => {
   const theme = useTheme()
 
   const defaultProps = {
-    h: '12',
+    h: '10',
     variant: 'solid',
-    colorScheme: 'gray',
+    colorScheme: 'primary',
     ...theme.components?.LoginButton?.defaultProps,
   }
 

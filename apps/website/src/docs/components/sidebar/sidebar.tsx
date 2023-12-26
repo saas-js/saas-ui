@@ -121,9 +121,7 @@ function SidebarGroup({
               if (!lvl2.routes) {
                 return (
                   <SidebarLink
-                    mb="1"
-                    ml="4"
-                    color="muted"
+                    mb="2px"
                     key={lvl2.path || index}
                     href={lvl2.path}
                   >
@@ -193,11 +191,7 @@ function SidebarGroup({
                 >
                   {/* <Stack spacing="1"> */}
                   {sortedRoutes.map((lvl3, i) => (
-                    <SidebarLink
-                      key={lvl3.path || i}
-                      href={lvl3.path}
-                      color="muted"
-                    >
+                    <SidebarLink key={lvl3.path || i} href={lvl3.path} mb="2px">
                       <span>{convertBackticksToInlineCode(lvl3.title)}</span>
                       {lvl3.new && (
                         <Badge
@@ -260,7 +254,7 @@ export function SidebarContent(props: SidebarContentProps) {
   const { routes, pathname, contentRef } = props
   const color = useColorModeValue('gray.700', 'inherit')
 
-  const searchRef = React.useRef(null)
+  const searchRef = React.useRef<any>(null)
 
   useHotkeys('/', () => {
     searchRef.current?.focus()

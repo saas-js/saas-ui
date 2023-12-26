@@ -1,5 +1,12 @@
 # @saas-ui/theme-glass
 
+## 0.5.2
+
+### Patch Changes
+
+- f271a950: Improved glass theme input to use css variables
+- 8782a76b: Added neutral color scheme support for buttons
+
 ## 0.5.1
 
 ### Patch Changes

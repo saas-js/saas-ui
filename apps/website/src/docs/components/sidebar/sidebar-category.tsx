@@ -55,12 +55,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef])
 
   return (
-    <chakra.div
-      // mt="8"
-      sx={{ '&:first-of-type': { mt: 2 } }}
-      ref={ref}
-      {...rest}
-    >
+    <chakra.div sx={{ '&:first-of-type': { mt: 2 } }} ref={ref} {...rest}>
       <chakra.p
         className="sidebar-category-header"
         width="full"
@@ -71,13 +66,21 @@ function SidebarCategory(props: SidebarCategoryProps) {
         alignItems="center"
         justifyContent="space-between"
         userSelect="none"
-        color={useColorModeValue('gray.500', 'gray.500')}
-        ps="7"
+        ps="3"
         py="2"
+        _dark={{ color: 'gray.400' }}
       >
         {title}
       </chakra.p>
-      <chakra.div role="group" hidden={!toggle} mt="2" mx="-3" ps="10" pe="3">
+      <chakra.div
+        role="group"
+        hidden={!toggle}
+        mt="2"
+        ml="3"
+        ps="2"
+        pe="3"
+        borderLeftWidth="1px"
+      >
         {children}
       </chakra.div>
     </chakra.div>

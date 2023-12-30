@@ -158,7 +158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.18.9, @babel/core@npm:^7.20.12, @babel/core@npm:^7.22.19, @babel/core@npm:^7.22.9, @babel/core@npm:^7.23.3":
+"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.18.9, @babel/core@npm:^7.20.12, @babel/core@npm:^7.22.19, @babel/core@npm:^7.22.9":
   version: 7.23.3
   resolution: "@babel/core@npm:7.23.3"
   dependencies:
@@ -201,6 +201,29 @@ __metadata:
     json5: ^2.2.3
     semver: ^6.3.1
   checksum: 4bddd1b80394a64b2ee33eeb216e8a2a49ad3d74f0ca9ba678c84a37f4502b2540662d72530d78228a2a349fda837fa852eea5cd3ae28465d1188acc6055868e
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.23.6":
+  version: 7.23.7
+  resolution: "@babel/core@npm:7.23.7"
+  dependencies:
+    "@ampproject/remapping": ^2.2.0
+    "@babel/code-frame": ^7.23.5
+    "@babel/generator": ^7.23.6
+    "@babel/helper-compilation-targets": ^7.23.6
+    "@babel/helper-module-transforms": ^7.23.3
+    "@babel/helpers": ^7.23.7
+    "@babel/parser": ^7.23.6
+    "@babel/template": ^7.22.15
+    "@babel/traverse": ^7.23.7
+    "@babel/types": ^7.23.6
+    convert-source-map: ^2.0.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.3
+    semver: ^6.3.1
+  checksum: 32d5bf73372a47429afaae9adb0af39e47bcea6a831c4b5dcbb4791380cda6949cb8cb1a2fea8b60bb1ebe189209c80e333903df1fa8e9dcb04798c0ce5bf59e
   languageName: node
   linkType: hard
 
@@ -607,6 +630,17 @@ __metadata:
     "@babel/traverse": ^7.23.6
     "@babel/types": ^7.23.6
   checksum: c5ba62497e1d717161d107c4b3de727565c68b6b9f50f59d6298e613afeca8895799b227c256e06d362e565aec34e26fb5c675b9c3d25055c52b945a21c21e21
+  languageName: node
+  linkType: hard
+
+"@babel/helpers@npm:^7.23.7":
+  version: 7.23.7
+  resolution: "@babel/helpers@npm:7.23.7"
+  dependencies:
+    "@babel/template": ^7.22.15
+    "@babel/traverse": ^7.23.7
+    "@babel/types": ^7.23.6
+  checksum: 4f3bdf35fb54ff79107c6020ba1e36a38213a15b05ca0fa06c553b65f566e185fba6339fb3344be04593ebc244ed0bbb0c6087e73effe0d053a30bcd2db3a013
   languageName: node
   linkType: hard
 
@@ -2670,6 +2704,24 @@ __metadata:
     debug: ^4.3.1
     globals: ^11.1.0
   checksum: 48f2eac0e86b6cb60dab13a5ea6a26ba45c450262fccdffc334c01089e75935f7546be195e260e97f6e43cea419862eda095018531a2718fef8189153d479f88
+  languageName: node
+  linkType: hard
+
+"@babel/traverse@npm:^7.23.7":
+  version: 7.23.7
+  resolution: "@babel/traverse@npm:7.23.7"
+  dependencies:
+    "@babel/code-frame": ^7.23.5
+    "@babel/generator": ^7.23.6
+    "@babel/helper-environment-visitor": ^7.22.20
+    "@babel/helper-function-name": ^7.23.0
+    "@babel/helper-hoist-variables": ^7.22.5
+    "@babel/helper-split-export-declaration": ^7.22.6
+    "@babel/parser": ^7.23.6
+    "@babel/types": ^7.23.6
+    debug: ^4.3.1
+    globals: ^11.1.0
+  checksum: d4a7afb922361f710efc97b1e25ec343fab8b2a4ddc81ca84f9a153f22d4482112cba8f263774be8d297918b6c4767c7a98988ab4e53ac73686c986711dd002e
   languageName: node
   linkType: hard
 
@@ -7977,7 +8029,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/billing@workspace:packages/pro/saas-ui/billing"
   dependencies:
-    date-fns: ^2.30.0
+    date-fns: ^3.0.6
     tsup: ^6.7.0
   peerDependencies:
     react: ">=18"
@@ -8063,13 +8115,13 @@ __metadata:
     "@ngneat/falso": ^2.27.0
     "@react-hookz/web": ^23.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/date-picker": ^0.12.12
-    "@saas-ui/forms": ^2.3.4
+    "@saas-ui/date-picker": ^0.12.14
+    "@saas-ui/forms": ^2.3.6
     "@saas-ui/react-utils": ^2.0.1
-    "@saas-ui/theme": ^2.2.3
-    "@tanstack/react-table": ^8.10.7
+    "@saas-ui/theme": ^2.3.1
+    "@tanstack/react-table": ^8.11.2
     "@tanstack/react-virtual": ^3.0.1
-    date-fns: ^2.30.0
+    date-fns: ^3.0.6
     polished: ^4.2.2
     react-icons: ^4.12.0
     tsup: ^6.7.0
@@ -8092,7 +8144,8 @@ __metadata:
     "@chakra-ui/styled-system": ^2.9.2
     "@chakra-ui/theme-tools": ^2.1.2
     "@saas-ui-pro/react": "workspace:*"
-    "@saas-ui/theme-glass": ^0.5.1
+    "@saas-ui/theme": ^2.3.1
+    "@saas-ui/theme-glass": ^0.5.2
     react-icons: ^4.12.0
     tsup: ^6.7.0
   peerDependencies:
@@ -8196,6 +8249,7 @@ __metadata:
     "@react-aria/utils": ^3.22.0
     "@saas-ui/react-utils": "workspace:*"
     "@saas-ui/theme": "workspace:*"
+    "@zag-js/dom-utils": ^0.2.4
     tsup: ^6.7.0
   peerDependencies:
     "@chakra-ui/react": ">=2.4.0"
@@ -8226,7 +8280,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker@^0.12.12, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
+"@saas-ui/date-picker@^0.12.14, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
@@ -8276,7 +8330,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@^2.3.4, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@^2.3.6, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -8430,7 +8484,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@^2.4.4, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@^2.5.1, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -8551,7 +8605,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@^0.5.1, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@^0.5.2, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -8571,7 +8625,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@^2.2.3, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@^2.3.1, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   dependencies:
@@ -8657,7 +8711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^7.6.4":
+"@storybook/addon-a11y@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/addon-a11y@npm:7.6.6"
   dependencies:
@@ -8703,7 +8757,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:7.6.6, @storybook/addon-docs@npm:^7.6.4":
+"@storybook/addon-docs@npm:7.6.6, @storybook/addon-docs@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/addon-docs@npm:7.6.6"
   dependencies:
@@ -8733,7 +8787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^7.6.4":
+"@storybook/addon-essentials@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/addon-essentials@npm:7.6.6"
   dependencies:
@@ -8825,7 +8879,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-storysource@npm:^7.6.4":
+"@storybook/addon-storysource@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/addon-storysource@npm:7.6.6"
   dependencies:
@@ -9076,7 +9130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-webpack5@npm:^7.6.4":
+"@storybook/builder-webpack5@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/builder-webpack5@npm:7.6.6"
   dependencies:
@@ -9232,7 +9286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/cli@npm:^7.6.4":
+"@storybook/cli@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/cli@npm:7.6.6"
   dependencies:
@@ -10081,7 +10135,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-vite@npm:^7.6.4":
+"@storybook/react-vite@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/react-vite@npm:7.6.6"
   dependencies:
@@ -10136,7 +10190,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:7.6.6, @storybook/react@npm:^7.6.4":
+"@storybook/react@npm:7.6.6, @storybook/react@npm:^7.6.6":
   version: 7.6.6
   resolution: "@storybook/react@npm:7.6.6"
   dependencies:
@@ -10781,7 +10835,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:^8.10.7, @tanstack/react-table@npm:^8.9.10":
+"@tanstack/react-table@npm:^8.11.2":
+  version: 8.11.2
+  resolution: "@tanstack/react-table@npm:8.11.2"
+  dependencies:
+    "@tanstack/table-core": 8.11.2
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 783a7bc53aeb011dbcfbd8b79aa2f2fe943fe46f7e27a599fcb04e45574e02f3a36605cfc43900b25cf3544c2e273664990a062e33dcc0826477ddb3a643592b
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-table@npm:^8.9.10":
   version: 8.10.7
   resolution: "@tanstack/react-table@npm:8.10.7"
   dependencies:
@@ -10809,6 +10875,13 @@ __metadata:
   version: 8.10.7
   resolution: "@tanstack/table-core@npm:8.10.7"
   checksum: 2a364917e7ab051ef3f33d6f18e5e1ddb75cfed4b5ee0e2b9c74a8cb72d3b86cdd4ffbab67565c68b4333f761b6fde9a7215196387a9a3b3d5811119d8859bad
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.11.2":
+  version: 8.11.2
+  resolution: "@tanstack/table-core@npm:8.11.2"
+  checksum: 9b97d30bc80882a17d3f8ebdfecdc580905f1708dee73897b6c451f676a4b35beaf57b0939e05d80a395d5ef23cf515fa2a1159554f9928dfacddadd69ba7f7c
   languageName: node
   linkType: hard
 
@@ -12461,6 +12534,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zag-js/dom-utils@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "@zag-js/dom-utils@npm:0.2.4"
+  dependencies:
+    "@zag-js/types": 0.3.4
+  checksum: b955ef3b188b97a81a52818e30786df388020d63f31974e3ac29c324f04471b30519898657131e6e677f38d9f8d8ad0158c5bde87056fea365cdd5e47d5edff1
+  languageName: node
+  linkType: hard
+
 "@zag-js/editable@npm:0.30.0":
   version: 0.30.0
   resolution: "@zag-js/editable@npm:0.30.0"
@@ -12978,6 +13060,15 @@ __metadata:
   dependencies:
     csstype: 3.1.2
   checksum: 1ec6442eb39dfbab79db7e7ae94e8f880098511aaa7320b67323eef91babe5ac2951fd7b5d1d2983369d71f3464f117a2eb871274d636a28c921edf7ccf87146
+  languageName: node
+  linkType: hard
+
+"@zag-js/types@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@zag-js/types@npm:0.3.4"
+  dependencies:
+    csstype: 3.1.1
+  checksum: a52eab7008f496e0163959d10cd2f7c893c7bde0657f8c0d64be88bd12026de457194f15d9b8be50c210c92c911eb47e99d2c7dc31f2f78d1827e20ff39877ee
   languageName: node
   linkType: hard
 
@@ -15839,6 +15930,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "date-fns@npm:3.0.6"
+  checksum: ee62b8e764e4c11c418d342f401d3e85adb4a631b196746e49ac89099c8d34cb141f10ae953c4a72bd3c76fe4d8740ec89564c8599a31256c82adbbed56c0014
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9, debug@npm:^2.2.0, debug@npm:^2.6.0, debug@npm:^2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -18157,7 +18255,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:>=4.1.17":
+"framer-motion@npm:>=4.1.17, framer-motion@npm:^10.16.16":
   version: 10.16.16
   resolution: "framer-motion@npm:10.16.16"
   dependencies:
@@ -18178,7 +18276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^10.16.4, framer-motion@npm:^10.16.5":
+"framer-motion@npm:^10.16.4":
   version: 10.16.5
   resolution: "framer-motion@npm:10.16.5"
   dependencies:
@@ -21558,12 +21656,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.292.0":
-  version: 0.292.0
-  resolution: "lucide-react@npm:0.292.0"
+"lucide-react@npm:^0.300.0":
+  version: 0.300.0
+  resolution: "lucide-react@npm:0.300.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: 4e71cdc3a6ca91b090f1253d275e7ebf7644f9ad1121e94b3d0c1f4938b935c69309be5fb093ee24afd932733e8e2ef4e29baf3c8c7b89477683625bafd40726
+  checksum: a8442cf2d53f65680065236117f320e7674af26b62b3abafd8fa8970e90bc2b1a604b564777e1c1a98c30ee021726103f6fab71eb8336cec971caa9f21add682
   languageName: node
   linkType: hard
 
@@ -26278,20 +26376,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "saas-ui-storybook-pro@workspace:packages/pro/saas-ui/storybook"
   dependencies:
-    "@babel/core": ^7.23.3
+    "@babel/core": ^7.23.6
     "@fontsource-variable/inter": ^5.0.16
-    "@storybook/addon-a11y": ^7.6.4
-    "@storybook/addon-docs": ^7.6.4
-    "@storybook/addon-essentials": ^7.6.4
-    "@storybook/addon-storysource": ^7.6.4
-    "@storybook/builder-webpack5": ^7.6.4
-    "@storybook/cli": ^7.6.4
+    "@storybook/addon-a11y": ^7.6.6
+    "@storybook/addon-docs": ^7.6.6
+    "@storybook/addon-essentials": ^7.6.6
+    "@storybook/addon-storysource": ^7.6.6
+    "@storybook/builder-webpack5": ^7.6.6
+    "@storybook/cli": ^7.6.6
     "@storybook/mdx2-csf": ^1.1.0
-    "@storybook/react": ^7.6.4
-    "@storybook/react-vite": ^7.6.4
+    "@storybook/react": ^7.6.6
+    "@storybook/react-vite": ^7.6.6
     chromatic: ^7.6.0
-    framer-motion: ^10.16.5
-    lucide-react: ^0.292.0
+    framer-motion: ^10.16.16
+    lucide-react: ^0.300.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-is: ^18.2.0
@@ -26356,9 +26454,9 @@ __metadata:
     "@emotion/styled": ^11.11.0
     "@saas-ui-pro/react": ^0.29.3
     "@saas-ui/file-upload": ^0.2.0
-    "@saas-ui/react": ^2.4.4
-    framer-motion: ^10.16.5
-    lucide-react: ^0.292.0
+    "@saas-ui/react": ^2.5.1
+    framer-motion: ^10.16.16
+    lucide-react: ^0.300.0
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown

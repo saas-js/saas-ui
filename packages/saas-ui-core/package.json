@@ -89,7 +89,8 @@
     "@chakra-ui/utils": "^2.0.15",
     "@react-aria/utils": "^3.22.0",
     "@saas-ui/react-utils": "workspace:*",
-    "@saas-ui/theme": "workspace:*"
+    "@saas-ui/theme": "workspace:*",
+    "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.0",

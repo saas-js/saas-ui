@@ -13,11 +13,51 @@ import {
   useMultiStyleConfig,
   createStylesContext,
   Icon,
+  useId,
+  useMergeRefs,
 } from '@chakra-ui/react'
 
-import { cx } from '@chakra-ui/utils'
+import { callAllHandlers, cx, dataAttr } from '@chakra-ui/utils'
+import { createContext } from '@chakra-ui/react-utils'
+
+import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiStructuredList')
+
+interface StructuredListContext {
+  id: string
+  containerRef: React.RefObject<HTMLUListElement>
+  focusId: string | null
+  setFocusId: React.Dispatch<React.SetStateAction<string | null>>
+  selectedIds: string[]
+  setSelectedIds: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+const [StructuredListProvider, useStructuredListContext] =
+  createContext<StructuredListContext>({
+    name: 'StructuredListContext',
+    errorMessage:
+      'useStructuredListContext: `context` is undefined. Seems you forgot to wrap the components in `<StructuredList />`',
+  })
+
+function queryAllItems(root: HTMLElement | null) {
+  return queryAll(root, `[role='button']:not([disabled])`)
+}
+
+const useStructuredList = (props: StructuredListProps) => {
+  const id = useId()
+
+  const ref = React.useRef<HTMLUListElement>(null)
+
+  const [focusId, setFocusId] = React.useState<string | null>(null)
+
+  return {
+    id: props.id ?? id,
+    containerRef: ref,
+    focusId,
+    setFocusId,
+  }
+}
 
 interface StructuredListOptions {
   /**
@@ -57,17 +97,21 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
       ...styles.list,
     }
 
+    const context = useStructuredList(props)
+
     return (
-      <StylesProvider value={styles}>
-        <chakra.ul
-          ref={ref}
-          __css={listStyles}
-          {...listProps}
-          className={cx('sui-list', props.className)}
-        >
-          {content}
-        </chakra.ul>
-      </StylesProvider>
+      <StructuredListProvider value={context}>
+        <StylesProvider value={styles}>
+          <chakra.ul
+            ref={useMergeRefs(ref, context.containerRef)}
+            __css={listStyles}
+            {...listProps}
+            className={cx('sui-list', props.className)}
+          >
+            {content}
+          </chakra.ul>
+        </StylesProvider>
+      </StructuredListProvider>
     )
   }
 )
@@ -185,6 +229,62 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
 
 StructuredListItem.displayName = 'StructuredListItem'
 
+const useStructuredListButton = (props: StructuredListButtonProps) => {
+  const {
+    id: containerId,
+    containerRef,
+    focusId,
+    setFocusId,
+  } = useStructuredListContext()
+
+  const id = `${containerId}-${useId()}`
+  const buttonId = props.id ?? id
+
+  const isFocused = focusId === buttonId
+
+  const buttonProps = {
+    id: buttonId,
+    ['data-focus']: dataAttr(isFocused),
+    tabIndex: isFocused ? 0 : -1,
+    onFocus: callAllHandlers(props.onFocus, () => {
+      setFocusId(buttonId)
+    }),
+    onKeyDown: callAllHandlers(
+      props.onKeyDown,
+      React.useCallback(
+        (e: React.KeyboardEvent) => {
+          const items = queryAllItems(containerRef.current)
+
+          const keyMap: Record<string, React.KeyboardEventHandler> = {
+            ArrowUp: () => {
+              prevById(items, buttonId)?.focus()
+            },
+            ArrowDown: () => {
+              nextById(items, buttonId)?.focus()
+            },
+            Home: () => {
+              items[0]?.focus()
+            },
+            End: () => {
+              items[items.length - 1]?.focus()
+            },
+          }
+
+          if (keyMap[e.key]) {
+            e.preventDefault()
+            keyMap[e.key](e)
+          }
+        },
+        [buttonId]
+      )
+    ),
+  }
+
+  return {
+    buttonProps,
+  }
+}
+
 export interface StructuredListButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
   as?: As
@@ -205,6 +305,9 @@ export const StructuredListButton = forwardRef<
   'div'
 >((props, ref) => {
   const { children, ...rest } = props
+
+  const { buttonProps } = useStructuredListButton(props)
+
   const styles = useStyles()
 
   const buttonStyles: SystemStyleObject = {
@@ -223,8 +326,8 @@ export const StructuredListButton = forwardRef<
       ref={ref}
       __css={buttonStyles}
       role="button"
-      tabIndex={0}
       {...rest}
+      {...buttonProps}
       className={cx('sui-list__item-button', props.className)}
     >
       {children}

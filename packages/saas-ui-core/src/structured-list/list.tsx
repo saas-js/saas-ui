@@ -29,8 +29,6 @@ interface StructuredListContext {
   containerRef: React.RefObject<HTMLUListElement>
   focusId: string | null
   setFocusId: React.Dispatch<React.SetStateAction<string | null>>
-  selectedIds: string[]
-  setSelectedIds: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 const [StructuredListProvider, useStructuredListContext] =

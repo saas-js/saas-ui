@@ -8109,7 +8109,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.30.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.31.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -26399,7 +26399,7 @@ __metadata:
     "@dnd-kit/sortable": ^7.0.2
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.30.0
+    "@saas-ui-pro/react": ^0.31.0
     "@saas-ui/file-upload": ^0.2.0
     "@saas-ui/react": ^2.5.2
     framer-motion: ^10.16.16

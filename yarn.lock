@@ -8051,19 +8051,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui-pro/kanban-core@workspace:*, @saas-ui-pro/kanban-core@workspace:packages/pro/saas-ui/kanban-core":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui-pro/kanban-core@workspace:packages/pro/saas-ui/kanban-core"
+  dependencies:
+    "@dnd-kit/core": ^6.1.0
+    "@dnd-kit/sortable": ^7.0.2
+    "@dnd-kit/utilities": ^3.2.2
+    "@zag-js/core": ^0.31.1
+    react-icons: ^4.12.0
+    tsup: ^6.7.0
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui-pro/kanban@workspace:packages/pro/saas-ui/kanban":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/kanban@workspace:packages/pro/saas-ui/kanban"
   dependencies:
-    "@chakra-ui/anatomy": ^2.2.2
-    "@chakra-ui/react-utils": ^2.0.12
-    "@chakra-ui/styled-system": ^2.9.2
-    "@chakra-ui/system": ^2.6.2
-    "@chakra-ui/theme-tools": ^2.1.2
-    "@chakra-ui/utils": ^2.0.15
-    "@dnd-kit/core": ^6.1.0
-    "@dnd-kit/sortable": ^7.0.2
-    "@saas-ui/react-utils": ^2.0.1
+    "@saas-ui-pro/kanban-core": "workspace:*"
     react-icons: ^4.12.0
     tsup: ^6.7.0
   peerDependencies:
@@ -8101,7 +8109,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@^0.29.3, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@^0.30.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -8115,7 +8123,7 @@ __metadata:
     "@ngneat/falso": ^2.27.0
     "@react-hookz/web": ^23.1.0
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/date-picker": ^0.12.14
+    "@saas-ui/date-picker": ^0.12.15
     "@saas-ui/forms": ^2.3.6
     "@saas-ui/react-utils": ^2.0.1
     "@saas-ui/theme": ^2.3.1
@@ -8280,7 +8288,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker@^0.12.14, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
+"@saas-ui/date-picker@^0.12.15, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
@@ -8484,7 +8492,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@^2.5.1, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@^2.5.2, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -12441,6 +12449,16 @@ __metadata:
     "@zag-js/store": 0.30.0
     klona: 2.0.6
   checksum: ef318ce4c7c04bf753527fba15ee6a3f8b2fd9c503e00c11bf786ac5574e7ea36fc55f9e23922766a0f522f1679a51828157752d85141222c45a3ce02617f7bf
+  languageName: node
+  linkType: hard
+
+"@zag-js/core@npm:^0.31.1":
+  version: 0.31.1
+  resolution: "@zag-js/core@npm:0.31.1"
+  dependencies:
+    "@zag-js/store": 0.31.1
+    klona: 2.0.6
+  checksum: 4ac01005a96eb08109039df0e416466e78aa7741d6e37375f64d2648309d5f8131c0fc76e509124a58145b39de067840eae1c786e8ab45425b4f83961332b24c
   languageName: node
   linkType: hard
 
@@ -26372,6 +26390,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"saas-ui-blocks@workspace:packages/pro/saas-ui/blocks":
+  version: 0.0.0-use.local
+  resolution: "saas-ui-blocks@workspace:packages/pro/saas-ui/blocks"
+  dependencies:
+    "@chakra-ui/react": ^2.8.2
+    "@dnd-kit/core": ^6.1.0
+    "@dnd-kit/sortable": ^7.0.2
+    "@emotion/react": ^11.11.1
+    "@emotion/styled": ^11.11.0
+    "@saas-ui-pro/react": ^0.30.0
+    "@saas-ui/file-upload": ^0.2.0
+    "@saas-ui/react": ^2.5.2
+    framer-motion: ^10.16.16
+    lucide-react: ^0.300.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
 "saas-ui-storybook-pro@workspace:packages/pro/saas-ui/storybook":
   version: 0.0.0-use.local
   resolution: "saas-ui-storybook-pro@workspace:packages/pro/saas-ui/storybook"
@@ -26440,25 +26477,6 @@ __metadata:
     react-dom: ^18.2.0
     typescript: ^5.2.2
     vite: ^4.4.9
-  languageName: unknown
-  linkType: soft
-
-"saas-ui-templates@workspace:packages/pro/saas-ui/templates":
-  version: 0.0.0-use.local
-  resolution: "saas-ui-templates@workspace:packages/pro/saas-ui/templates"
-  dependencies:
-    "@chakra-ui/react": ^2.8.2
-    "@dnd-kit/core": ^6.1.0
-    "@dnd-kit/sortable": ^7.0.2
-    "@emotion/react": ^11.11.1
-    "@emotion/styled": ^11.11.0
-    "@saas-ui-pro/react": ^0.29.3
-    "@saas-ui/file-upload": ^0.2.0
-    "@saas-ui/react": ^2.5.1
-    framer-motion: ^10.16.16
-    lucide-react: ^0.300.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 

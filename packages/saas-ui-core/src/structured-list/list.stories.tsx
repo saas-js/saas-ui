@@ -312,7 +312,15 @@ export function WithCheckbox() {
         {['Release V2', 'Learn Saas UI'].map((todo) => {
           const [checked, setChecked] = React.useState(false)
           return (
-            <StructuredListItem key={todo} onClick={() => setChecked(!checked)}>
+            <StructuredListItem
+              key={todo}
+              onClick={() => setChecked(!checked)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setChecked(!checked)
+                }
+              }}
+            >
               <StructuredListCell display="flex" alignItems="center">
                 <Checkbox isChecked={checked} />
               </StructuredListCell>

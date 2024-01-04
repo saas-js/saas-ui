@@ -72,7 +72,7 @@ export function CanvasHeader({
               variant="default"
               aria-label="View source on github"
               as="a"
-              href={`https://github.com/saas-js/saas-ui-pro/tree/main/saas-ui/templates/${slug}/${slug}.tsx`}
+              href={`https://github.com/saas-js/saas-ui-pro/tree/main/saas-ui/blocks/${slug}/${slug}.tsx`}
               target="_blank"
               rel="noopener noreferrer"
             >

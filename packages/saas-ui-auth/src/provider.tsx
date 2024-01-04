@@ -170,7 +170,9 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   const checkAuth = useCallback(async () => {
     try {
       if (onGetToken) {
-        setAuthenticated(!!(await onGetToken()))
+        const isAuthenticated = !!(await onGetToken())
+        setAuthenticated(isAuthenticated)
+        return isAuthenticated
       }
     } catch (e) {
       setAuthenticated(false)
@@ -179,15 +181,14 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
 
   useEffect(() => {
     window.addEventListener('focus', checkAuth)
-
-    checkAuth()
-
     return () => {
       window.removeEventListener('focus', checkAuth)
     }
   }, [checkAuth])
 
   const loadUser = useCallback(async () => {
+    const isAuthenticated = await checkAuth()
+
     if (isAuthenticated) {
       const user = await onLoadUser()
 
@@ -199,7 +200,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
     }
 
     setLoading(false)
-  }, [onLoadUser, isAuthenticated])
+  }, [onLoadUser, checkAuth])
 
   const signUp = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {

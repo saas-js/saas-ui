@@ -1,5 +1,25 @@
 # @saas-ui/theme
 
+## 2.3.1
+
+### Patch Changes
+
+- c0f203bf: Fixed issue where timeline content would not scale to width
+
+## 2.3.0
+
+### Minor Changes
+
+- 78bc41d0: Improved timeline behavior so it scales automatically with the icon and ocontent size used.
+- 316388b9: Added ghost variant to the Badge theme
+
+### Patch Changes
+
+- 8782a76b: Improved Navbar inner padding on small screens
+- 8782a76b: Added new left-accent variant to the NavItem theme
+- 8782a76b: Added new neutral color scheme to Button theme
+- 8782a76b: Updated NavGroup to no longer be collapsible by default
+
 ## 2.2.3
 
 ### Patch Changes

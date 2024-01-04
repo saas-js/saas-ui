@@ -54,6 +54,7 @@ export default function BasicTimeline() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
+          <TimelineTrack />
           <TimelineIcon />
           <TimelineTrack />
         </TimelineSeparator>
@@ -61,6 +62,7 @@ export default function BasicTimeline() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
+          <TimelineTrack />
           <TimelineIcon />
         </TimelineSeparator>
         <TimelineContent>Iterate</TimelineContent>
@@ -96,14 +98,16 @@ export default function ColoredIcons() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="cyan.500" />
+          <TimelineTrack />
+          <TimelineIcon color="cyan.500" _dark={{ color: 'cyan.500' }} />
           <TimelineTrack />
         </TimelineSeparator>
         <TimelineContent>Build</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="green.500" />
+          <TimelineTrack />
+          <TimelineIcon color="green.500" _dark={{ color: 'green.500' }} />
         </TimelineSeparator>
         <TimelineContent>Iterate</TimelineContent>
       </TimelineItem>
@@ -131,21 +135,23 @@ export default function OutlineVariant() {
     <Timeline variant="outline">
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="primary.500" />
+          <TimelineIcon color="primary.500" _dark={{ color: 'primary.500' }} />
           <TimelineTrack />
         </TimelineSeparator>
         <TimelineContent>Validate</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="cyan.500" />
+          <TimelineTrack />
+          <TimelineIcon color="cyan.500" _dark={{ color: 'cyan.500' }} />
           <TimelineTrack />
         </TimelineSeparator>
         <TimelineContent>Build</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="green.500" />
+          <TimelineTrack />
+          <TimelineIcon color="green.500" _dark={{ color: 'green.500' }} />
         </TimelineSeparator>
         <TimelineContent>Iterate</TimelineContent>
       </TimelineItem>
@@ -166,6 +172,7 @@ import {
   TimelineIcon,
   TimelineTrack,
   TimelineContent,
+  IconBadge,
 } from '@saas-ui/react'
 import { FiUserCheck, FiCode, FiRefreshCw } from 'react-icons/fi'
 
@@ -174,27 +181,31 @@ export default function CustomIcons() {
     <Timeline>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="gray.800" _dark={{ color: 'white' }}>
-            <FiUserCheck />
-          </TimelineIcon>
+          <IconBadge
+            icon={<FiUserCheck />}
+            colorScheme="green"
+            rounded="full"
+          />
           <TimelineTrack />
         </TimelineSeparator>
         <TimelineContent>Validate</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="gray.800" _dark={{ color: 'white' }}>
-            <FiCode />
-          </TimelineIcon>
+          <TimelineTrack />
+          <IconBadge icon={<FiCode />} colorScheme="yellow" rounded="full" />
           <TimelineTrack />
         </TimelineSeparator>
         <TimelineContent>Build</TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineIcon color="gray.800" _dark={{ color: 'white' }}>
-            <FiRefreshCw />
-          </TimelineIcon>
+          <TimelineTrack />
+          <IconBadge
+            icon={<FiRefreshCw />}
+            colorScheme="purple"
+            rounded="full"
+          />
         </TimelineSeparator>
         <TimelineContent>Iterate</TimelineContent>
       </TimelineItem>
@@ -206,7 +217,6 @@ export default function CustomIcons() {
 ### Custom timeline
 
 Here's a more advanced example that shows a list of user actions.
-Use padding on `TimelineContent` to align the content with the icon.
 
 ```jsx
 import {
@@ -218,7 +228,7 @@ import {
   TimelineContent,
   PersonaAvatar,
 } from '@saas-ui/react'
-import { Text, Link, Badge } from '@chakra-ui/react'
+import { Card, CardBody, Text, Link, Badge } from '@chakra-ui/react'
 
 export default function CustomTimeline() {
   return (
@@ -237,7 +247,7 @@ export default function CustomTimeline() {
           </TimelineIcon>
           <TimelineTrack />
         </TimelineSeparator>
-        <TimelineContent pt="2" px="3">
+        <TimelineContent>
           <Text color="muted">
             <Link color="black" _dark={{ color: 'white' }}>
               Renata
@@ -248,23 +258,25 @@ export default function CustomTimeline() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
+          <TimelineTrack />
           <TimelineIcon>
             <Badge
               rounded="full"
               borderWidth="2px"
-              borderColor="green.300"
+              borderColor="yellow.300"
               bg="none"
               boxSize="13px"
             />
           </TimelineIcon>
           <TimelineTrack />
         </TimelineSeparator>
-        <TimelineContent pt="2px" px="3">
+        <TimelineContent>
           <Text color="muted">John changed status to pending.</Text>
         </TimelineContent>
       </TimelineItem>
-      <TimelineItem>
+      <TimelineItem alignItems="start">
         <TimelineSeparator>
+          <TimelineTrack flex="0" />
           <TimelineIcon>
             <PersonaAvatar
               src="/showcase-avatar.jpg"
@@ -274,8 +286,30 @@ export default function CustomTimeline() {
               presence="online"
             />
           </TimelineIcon>
+          <TimelineTrack />
         </TimelineSeparator>
-        <TimelineContent pt="2" px="3">
+        <TimelineContent>
+          <Card>
+            <CardBody>
+              @John I just completed the timeline component, what's next?
+            </CardBody>
+          </Card>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineTrack />
+          <TimelineIcon>
+            <Badge
+              rounded="full"
+              borderWidth="2px"
+              borderColor="green.300"
+              bg="none"
+              boxSize="13px"
+            />
+          </TimelineIcon>
+        </TimelineSeparator>
+        <TimelineContent>
           <Text color="muted">
             <Link color="black" _dark={{ color: 'white' }}>
               Renata

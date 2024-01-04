@@ -175,7 +175,7 @@ export default function AuthPage() {
 
 ### Redirect after login
 
-Use the `redirectTo` prop to redirect the user after login.
+Use the `redirectUrl` prop to redirect the user after login.
 
 ```jsx center=true height=550px
 import { SaasUILogo } from '@saas-ui/assets'
@@ -205,7 +205,7 @@ export default function AuthPage() {
               name: 'Github',
             },
           }}
-          redirectTo={getAbsoluteUrl('/dashboard')}
+          redirectUrl={getAbsoluteUrl('/dashboard')}
         />
       </CardBody>
     </Card>
@@ -250,6 +250,41 @@ export default function AuthPage() {
             if (view === 'login' && error) {
               snackbar.error(error.message)
             }
+          }}
+        />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+### Customize submit button
+
+Using the `fields` prop to set props of the form fields and submit button.
+
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+          fields={{
+            submit: {
+              colorScheme: 'gray',
+            },
           }}
         />
       </CardBody>

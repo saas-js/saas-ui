@@ -48,7 +48,7 @@ export const CATEGORIES: CategoriesGroup[] = [
       {
         slug: 'modals',
         name: 'Modals',
-        images: images.modals ?? null,
+        images: images.drawers ?? null,
       },
       {
         slug: 'menus',

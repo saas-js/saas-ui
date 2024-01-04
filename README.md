@@ -27,7 +27,7 @@ This repository contains all [open source components](/packages), as well as the
 
 ## Links
 
-💡 [Documentation](https://saas-ui.dev/docs/introduction)
+💡 [Documentation](https://saas-ui.dev/docs)
 
 🧭 [Roadmap](https://roadmap.saas-ui.dev)
 
@@ -89,10 +89,6 @@ yarn
 ```
 
 ### Storybook
-
-https://storybook.saas-ui.pro
-
-Or run locally:
 
 ```bash
 yarn storybook

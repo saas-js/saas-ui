@@ -296,21 +296,16 @@ const sidebar = {
       sort: false,
       routes: [
         {
+          title: 'ContextMenu',
+          path: '/docs/components/overlay/context-menu',
+        },
+        {
           title: 'Modals manager',
           path: '/docs/components/overlay/modals-manager',
         },
         {
-          title: 'MenuDialog',
-          path: '/docs/components/overlay/menu-dialog',
-        },
-        {
           title: 'FormDialog',
           path: '/docs/components/overlay/form-dialog',
-        },
-        {
-          title: 'ResponsiveMenu',
-          path: '/docs/components/overlay/responsive-menu',
-          pro: true,
         },
       ],
     },

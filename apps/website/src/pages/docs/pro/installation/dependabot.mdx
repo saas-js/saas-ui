@@ -1,0 +1,62 @@
+---
+title: Setting up Dependabot
+description: How to configure Dependabot with the private NPM registry.
+---
+
+In the next steps you'll learn how to configure Dependabot to use the private NPM registry.
+
+## Configuration
+
+Dependabot uses NPM to analyze your project and check for updates.
+
+Create an `.npmrc` file in the root of your project and add the following lines.
+
+```
+registry=https://registry.npmjs.org/
+@saas-ui-pro:registry=https://npm.saas-ui.dev/
+```
+
+## Dependabot configuration
+
+Create a new file in `.github/dependabot.yml` and add the following lines.
+
+```yaml
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+
+registries:
+  saas-ui-pro:
+    type: npm-registry
+    url: https://npm.saas-ui.dev/
+    username: ${{secrets.SAAS_UI_USER}}
+    password: ${{secrets.SAAS_UI_LICENSE_KEY}}
+    replaces-base: false
+
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    registries: '*'
+    schedule:
+      interval: 'weekly'
+      time: '04:00'
+    open-pull-requests-limit: 99
+    target-branch: 'main'
+    labels:
+      - 'dependencies'
+      - 'javascript'
+```
+
+This is an example configuration, the important part is the `registries` section.
+
+You can find more information about the configuration options in the [official documentation](https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates).
+
+## Secrets
+
+You need to add the following secrets to your repository.
+
+- `SAAS_UI_USER` - Your Saas UI (Github) username.
+- `SAAS_UI_LICENSE_KEY` - Your Saas UI license key.
+
+More information about the secrets can be found in the [official documentation](https://docs.github.com/en/actions/reference/encrypted-secrets).

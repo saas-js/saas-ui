@@ -37,7 +37,8 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
       <chakra.h4
         fontSize="sm"
         fontWeight="bold"
-        my="1rem"
+        mt="1rem"
+        mb="0.5rem"
         letterSpacing="wider"
         color={isActive ? color : 'muted'}
         display="flex"

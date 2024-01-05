@@ -50,6 +50,10 @@ const sidebar = {
               title: 'Pnpm',
               path: '/docs/pro/installation/pnpm',
             },
+            {
+              title: 'Dependabot',
+              path: '/docs/pro/installation/dependabot',
+            },
           ],
         },
       ],

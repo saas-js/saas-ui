@@ -68,6 +68,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
         userSelect="none"
         ps="3"
         py="2"
+        mt="2"
         _dark={{ color: 'gray.400' }}
       >
         {title}
@@ -75,7 +76,6 @@ function SidebarCategory(props: SidebarCategoryProps) {
       <chakra.div
         role="group"
         hidden={!toggle}
-        mt="2"
         ml="3"
         ps="2"
         pe="3"

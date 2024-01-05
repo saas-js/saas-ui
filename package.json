@@ -115,7 +115,7 @@
     "@emotion/styled": "11.11.0",
     "@zag-js/store": "^0.30.0"
   },
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@4.0.2",
   "dependencies": {
     "@storybook/testing-react": "^2.0.1",
     "vitest": "^0.34.4"

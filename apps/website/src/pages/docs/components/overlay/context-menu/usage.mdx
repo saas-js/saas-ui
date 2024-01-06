@@ -1,0 +1,50 @@
+---
+id: context-menu
+title: Context Menu
+description: A list of options that appears when a user interacts right-clicking on a trigger element.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-core' }}
+  npm={{ package: '@saas-ui/core' }}
+/>
+
+## Import
+
+```ts
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuList,
+  ContextMenuItem,
+} from '@saas-ui/react'
+```
+
+## Usage
+
+```jsx inline=true
+import { Center } from '@chakra-ui/react'
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuList,
+  ContextMenuItem,
+} from '@saas-ui/react'
+
+export default function Page() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>
+        <Center height="200px" borderWidth="1px">
+          Right click here
+        </Center>
+      </ContextMenuTrigger>
+      <ContextMenuList>
+        <ContextMenuItem>Edit</ContextMenuItem>
+        <ContextMenuItem>Copy</ContextMenuItem>
+        <ContextMenuItem>Delete</ContextMenuItem>
+      </ContextMenuList>
+    </ContextMenu>
+  )
+}
+```

@@ -2,7 +2,12 @@ export {
   HotkeysProvider,
   type HotkeysProviderProps,
   useHotkeysContext,
-} from './provider'
+  type UseHotkeysOptions,
+  splitKeys,
+  useHotkeys,
+  useHotkeysShortcut,
+} from '@saas-ui/use-hotkeys'
+
 export {
   HotkeysCommand,
   HotkeysGroup,
@@ -21,5 +26,3 @@ export {
   type UseHotkeysListReturn,
   useHotkeysSearch,
 } from './hotkeys'
-export { type UseHotkeysOptions, splitKeys, useHotkeys } from './use-hotkeys'
-export { useHotkeysShortcut } from './use-hotkeys-shortcut'

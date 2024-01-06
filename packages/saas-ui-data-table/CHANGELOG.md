@@ -1,5 +1,14 @@
 # @saas-ui/data-table
 
+## 7.0.3
+
+### Patch Changes
+
+- Updated dependencies [bbd692d4]
+- Updated dependencies [781a1c26]
+  - @saas-ui/core@2.3.2
+  - @saas-ui/react@2.5.3
+
 ## 7.0.2
 
 ### Patch Changes

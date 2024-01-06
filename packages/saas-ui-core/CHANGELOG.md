@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 2.3.2
+
+### Patch Changes
+
+- bbd692d4: Improved StructuredList with keyboard navigation support
+- 781a1c26: Added long press support to ContextMenu
+
 ## 2.3.1
 
 ### Patch Changes

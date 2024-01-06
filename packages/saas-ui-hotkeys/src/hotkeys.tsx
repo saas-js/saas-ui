@@ -23,7 +23,7 @@ function escapeRegExp(value: string) {
   return value.replace(regExpSyntaxCharacter, '\\$&')
 }
 
-import { splitKeys } from './use-hotkeys'
+import { splitKeys } from '@saas-ui/use-hotkeys'
 
 export interface HotkeysItemOptions {
   /**

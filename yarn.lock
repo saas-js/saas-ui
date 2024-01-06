@@ -8296,12 +8296,10 @@ __metadata:
     "@chakra-ui/utils": "npm:^2.0.15"
     "@react-aria/interactions": "npm:^3.20.1"
     "@react-aria/utils": "npm:^3.22.0"
-    "@react-types/shared": "npm:^3.22.0"
     "@saas-ui/react-utils": "workspace:*"
     "@saas-ui/theme": "workspace:*"
     "@zag-js/dom-event": "npm:^0.32.0"
     "@zag-js/dom-utils": "npm:^0.2.4"
-    "@zag-js/popper": "npm:^0.32.0"
     tsup: "npm:^6.7.0"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.0"
@@ -12645,13 +12643,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zag-js/element-rect@npm:0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/element-rect@npm:0.32.0"
-  checksum: c37de28e5d5eadc11b0dda068caac765e6a67af9d7bcf4db6f75e007028a076c7d8b8de24305eb88e6f88403878a86d99cb4e9bb70a8942ba2583701f03b9d46
-  languageName: node
-  linkType: hard
-
 "@zag-js/element-size@npm:0.10.5":
   version: 0.10.5
   resolution: "@zag-js/element-size@npm:0.10.5"
@@ -12878,18 +12869,6 @@ __metadata:
     "@zag-js/element-rect": "npm:0.30.0"
     "@zag-js/utils": "npm:0.30.0"
   checksum: 239842efa45f2d9951f3ec984a8db70844a61b5104ef7bbe9953eca3ed4699e62ca95aefa312be8c9fc5a91fdcbce2451d017192bde0d86d0d5122e45357f4ab
-  languageName: node
-  linkType: hard
-
-"@zag-js/popper@npm:^0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/popper@npm:0.32.0"
-  dependencies:
-    "@floating-ui/dom": "npm:1.5.3"
-    "@zag-js/dom-query": "npm:0.32.0"
-    "@zag-js/element-rect": "npm:0.32.0"
-    "@zag-js/utils": "npm:0.32.0"
-  checksum: c85c8901a12458256bc2c180290bb37f28ee82a4a312127d44397c9c0eb038c20dea13fc064b4ac33716a5bce30259e784ba8e093d11f95a5fae27c9b2200d8c
   languageName: node
   linkType: hard
 
@@ -13208,13 +13187,6 @@ __metadata:
   version: 0.30.0
   resolution: "@zag-js/utils@npm:0.30.0"
   checksum: 21b00073834f072fe3fa2f145a6e0b23c9fd6552c71f1b89f929f3778116081bb02a65d14214f2b0fcfcc24868f02d217e33377b57c5ade816f7daaa1b30a249
-  languageName: node
-  linkType: hard
-
-"@zag-js/utils@npm:0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/utils@npm:0.32.0"
-  checksum: a33b07b0ee939fea6b0ea56bcc31b3261dc132a726f16083ddcaaf311a0fe5ae83a1b972520c6b47967d40d8f54574f38cfcbcf6231fbea345c6f868850bd7f2
   languageName: node
   linkType: hard
 

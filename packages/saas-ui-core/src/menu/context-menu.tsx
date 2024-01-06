@@ -14,19 +14,19 @@ import {
 } from '@chakra-ui/react'
 
 import { createContext } from '@chakra-ui/react-utils'
-import { AnyPointerEvent, runIfFn } from '@chakra-ui/utils'
+import { AnyPointerEvent, callAllHandlers, runIfFn } from '@chakra-ui/utils'
 
 // @todo migrate this to Ark-ui ContextMenu
 import { useLongPress } from '@react-aria/interactions'
 
 import { getEventPoint } from '@zag-js/dom-event'
-import { getPlacement } from '@zag-js/popper'
 
 type Position = [number, number]
+type Anchor = { x: number; y: number }
 
 export interface UseContextMenuReturn {
   isOpen: boolean
-  position: Position
+  anchor: Anchor
   triggerRef: React.RefObject<HTMLSpanElement>
   menuRef: React.RefObject<HTMLDivElement>
   onClose: () => void
@@ -46,7 +46,7 @@ export interface UseContextMenuProps extends ContextMenuProps {
 export const useContextMenu = (props: UseContextMenuProps) => {
   const { closeOnBlur = true } = props
   const [isOpen, setIsOpen] = useState(false)
-  const [position, setPosition] = useState<Position>([0, 0])
+  const [anchor, setAnchor] = useState<Anchor>({ x: 0, y: 0 })
   const triggerRef = useRef<HTMLSpanElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -67,16 +67,19 @@ export const useContextMenu = (props: UseContextMenuProps) => {
     enabled: isOpen && closeOnBlur,
     ref: menuRef,
     handler: (event) => {
-      if (!triggerRef.current?.contains(event.target as HTMLElement)) {
+      if (
+        !triggerRef.current?.contains(event.target as HTMLElement) &&
+        menuRef.current?.parentElement !== event.target
+      ) {
         onClose()
       }
     },
   })
 
   const onOpen = useCallback((event: AnyPointerEvent) => {
-    setIsOpen(true)
     const point = getEventPoint(event)
-    setPosition([point.x, point.y])
+    setAnchor(point)
+    setIsOpen(true)
   }, [])
 
   const onClose = useCallback(() => {
@@ -84,31 +87,9 @@ export const useContextMenu = (props: UseContextMenuProps) => {
     setIsOpen(false)
   }, [props.onClose, setIsOpen])
 
-  const getAnchorRect = () => {
-    return {
-      width: 0,
-      height: 0,
-      top: position[1],
-      left: position[0],
-    }
-  }
-  const placement = getPlacement(triggerRef.current, menuRef.current, {
-    getAnchorRect,
-    listeners: false,
-    onComplete(data) {
-      console.log('data', data)
-    },
-  })
-
-  console.log('placement', placement)
-
-  // const getMenuListProps = () => {
-
-  // }
-
   return {
     isOpen,
-    position,
+    anchor,
     triggerRef,
     menuRef,
     onClose,
@@ -144,13 +125,25 @@ export const ContextMenu: React.FC<ContextMenuProps> = (props) => {
 
 ContextMenu.displayName = 'ContextMenu'
 
-export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {}
+const generateClientRect = (x = 0, y = 0) => {
+  return () => {
+    return {
+      width: 0,
+      height: 0,
+      top: y,
+      left: x,
+      right: x,
+      bottom: y,
+    }
+  }
+}
 
-export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
-  props
-) => {
-  const { children, ...rest } = props
-  const { triggerRef, onOpen, onClose } = useContextMenuContext()
+const useContextMenuTrigger = (props: ContextMenuTriggerProps) => {
+  const { triggerRef, onOpen, onClose, anchor } = useContextMenuContext()
+
+  const menu = useMenuContext()
+
+  const { popper, openAndFocusFirstItem } = menu
 
   const { longPressProps } = useLongPress({
     accessibilityDescription: 'Long press to open context menu',
@@ -169,21 +162,49 @@ export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
     },
   })
 
-  const menu = useMenuContext()
+  const anchorRef = React.useRef({
+    getBoundingClientRect: generateClientRect(anchor.x, anchor.y),
+  })
 
-  const { openAndFocusFirstItem } = menu
+  React.useEffect(() => {
+    popper.referenceRef(anchorRef.current)
+  }, [])
+
+  React.useEffect(() => {
+    anchorRef.current.getBoundingClientRect = generateClientRect(
+      anchor.x,
+      anchor.y
+    )
+    menu.popper.update()
+  }, [anchor])
+
+  return {
+    triggerProps: {
+      ...longPressProps,
+      onContextMenu: callAllHandlers((event: AnyPointerEvent) => {
+        event.preventDefault()
+        onOpen(event)
+        openAndFocusFirstItem()
+      }, props.onContextMenu as any),
+      ref: triggerRef,
+    },
+  }
+}
+
+export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {}
+
+export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
+  props
+) => {
+  const { children, ...rest } = props
+
+  const { triggerProps } = useContextMenuTrigger(props)
 
   return (
     <chakra.span
       {...rest}
       sx={{ WebkitTouchCallout: 'none' }}
-      {...longPressProps}
-      onContextMenu={(event) => {
-        event.preventDefault()
-        onOpen(event as unknown as AnyPointerEvent)
-        openAndFocusFirstItem()
-      }}
-      ref={triggerRef}
+      {...triggerProps}
     >
       {children}
     </chakra.span>
@@ -196,18 +217,10 @@ export interface ContextMenuListProps extends MenuListProps {}
 
 export const ContextMenuList: React.FC<ContextMenuListProps> = (props) => {
   const { children, ...rest } = props
-  const { position, menuRef } = useContextMenuContext()
+  const { menuRef } = useContextMenuContext()
 
   return (
-    <MenuList
-      ref={menuRef}
-      {...rest}
-      style={{
-        position: 'absolute',
-        left: position[0],
-        top: position[1],
-      }}
-    >
+    <MenuList ref={menuRef} {...rest}>
       {children}
     </MenuList>
   )

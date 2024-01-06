@@ -92,8 +92,7 @@
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*",
     "@zag-js/dom-event": "^0.32.0",
-    "@zag-js/dom-utils": "^0.2.4",
-    "@zag-js/popper": "^0.32.0"
+    "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.0",
@@ -104,7 +103,6 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@react-types/shared": "^3.22.0",
     "tsup": "^6.7.0"
   }
 }

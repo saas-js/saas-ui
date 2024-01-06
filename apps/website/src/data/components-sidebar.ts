@@ -290,7 +290,7 @@ const sidebar = {
     },
     {
       title: 'Overlay',
-      path: '/docs/overlay',
+      path: '/docs/components/overlay',
       heading: true,
       open: true,
       sort: false,

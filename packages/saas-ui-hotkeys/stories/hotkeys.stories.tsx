@@ -32,6 +32,7 @@ import {
   useHotkeysContext,
   useHotkeys,
 } from '../src'
+import { set } from 'lodash'
 
 const hotkeys: HotkeysListOptions = {
   general: {
@@ -290,4 +291,19 @@ export const TargetEl = () => {
       <Input placeholder={`Press esc to exit`} ref={setRef} />
     </Box>
   )
+}
+
+export const PressAndHold = () => {
+  const [presses, setPresses] = React.useState(0)
+  useHotkeys(
+    'Cmd+Z',
+    () => {
+      setPresses((prev) => prev + 1)
+    },
+    {
+      preventDefault: true,
+    }
+  )
+
+  return <Box>{presses} presses</Box>
 }

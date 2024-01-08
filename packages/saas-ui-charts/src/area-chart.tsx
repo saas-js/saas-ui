@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { ClassNames } from '@emotion/react'
 import {
   Box,
   SystemProps,
@@ -18,23 +19,39 @@ import {
   Tooltip,
   ResponsiveContainer,
   TooltipProps,
+  Legend,
 } from 'recharts'
+import type { CurveType } from 'recharts/types/shape/Curve'
 
-import { ClassNames } from '@emotion/react'
-import { ChartData } from './types'
+import { ChartLegend } from './legend'
 
 export interface AreaChartProps {
-  data: ChartData[]
+  allowDecimals?: boolean
+  animationDuration?: number
+  data: Record<string, string | number>[]
+  categories?: string[]
+  colors?: string[]
+  index?: string
+  intervalType?: 'preserveStartEnd' | 'equidistantPreserveStart'
   height: SystemProps['height']
-  showGrid?: boolean
-  color?: string
+  connectNulls?: boolean
+  curveType?: CurveType
   strokeWidth?: string
   name?: string
   gradientOpacity?: number
-  tickFormatter?(value: number): string
-  variant?: 'line' | 'solid' | 'gradient'
+  valueFormatter?(value: number): string
+  showAnimation?: boolean
+  showGrid?: boolean
+  showLegend?: boolean
+  showXAxis?: boolean
+  showYAxis?: boolean
+  stack?: boolean
+  startEndOnly?: boolean
   tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
   tooltipFormatter?(value: string, name: string, props: any): string
+  variant?: 'line' | 'solid' | 'gradient'
+  yAxisWidth?: number
+  legendHeight?: number
   children?: React.ReactNode
 }
 
@@ -45,8 +62,6 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       categories = [],
       colors = ['primary'],
       height,
-      showGrid = true,
-      color = 'primary',
       connectNulls = false,
       curveType = 'linear',
       index = 'date',
@@ -54,23 +69,28 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       intervalType = 'equidistantPreserveStart',
       allowDecimals = true,
       strokeWidth = 2,
+      showAnimation = true,
+      showGrid = true,
+      showLegend = true,
+      showXAxis = true,
+      showYAxis = true,
       stack = false,
-      yAxisWidth = 30,
+      yAxisWidth = 40,
+      legendHeight = 32,
       animationDuration = 500,
       name,
-      tickFormatter,
+      valueFormatter,
       variant = 'gradient',
       gradientOpacity = 0.8,
       tooltipContent,
-      tooltipFormatter = (value: string, name: string, props: any) => {
-        return props.payload.yv
-      },
       children,
     } = props
 
     const theme = useTheme()
     const id = useId()
-    const styles = useStyleConfig('Tooltip')
+
+    const tooltipTheme = useStyleConfig('Tooltip')
+    const tooltipStyles = css(tooltipTheme)(theme)
 
     const categoryColors = Object.fromEntries(
       categories.map((category, index) => [category, colors[index] || 'gray'])
@@ -80,18 +100,20 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       return theme.colors[categoryColors[category]]?.[500]
     }
 
-    const getFill = (category: strong) => {
+    const getGradientId = (category: string) => {
+      return `${id}-${categoryColors[category]}-gradient`
+    }
+
+    const getFill = (category: string) => {
       switch (variant) {
         case 'solid':
           return getColor(category)
         case 'gradient':
-          return `url(#${categoryColors[category]}-gradient)`
+          return `url(#${getGradientId(category)})`
         default:
           return 'transparent'
       }
     }
-
-    const tooltipStyles = css(styles)(theme)
 
     return (
       <ClassNames>
@@ -100,10 +122,78 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
             <Box ref={ref} height={height} fontSize="sm">
               <ResponsiveContainer width="100%" height="100%">
                 <ReAreaChart data={data}>
+                  {showGrid && (
+                    <CartesianGrid
+                      strokeDasharray=" 1 1 1"
+                      vertical={false}
+                      strokeOpacity={useColorModeValue(0.8, 0.3)}
+                    />
+                  )}
+
+                  <XAxis
+                    padding={{ left: 20, right: 20 }}
+                    dataKey={index}
+                    hide={!showXAxis}
+                    tick={{ transform: 'translate(0, 6)' }}
+                    ticks={
+                      startEndOnly
+                        ? [data[0][index], data[data.length - 1][index]]
+                        : undefined
+                    }
+                    interval={startEndOnly ? 'preserveStartEnd' : intervalType}
+                    tickLine={false}
+                    axisLine={false}
+                    minTickGap={5}
+                    style={{
+                      color: 'var(--chakra-colors-muted)',
+                    }}
+                  />
+
+                  <YAxis
+                    width={yAxisWidth}
+                    hide={!showYAxis}
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ transform: 'translate(-3, 0)' }}
+                    type="number"
+                    tickFormatter={valueFormatter}
+                    allowDecimals={allowDecimals}
+                    style={{
+                      color: 'var(--chakra-colors-muted)',
+                    }}
+                  />
+
+                  <Tooltip
+                    formatter={valueFormatter}
+                    wrapperStyle={{ outline: 'none' }}
+                    contentStyle={{
+                      background: 'var(--tooltip-bg)',
+                      border:
+                        '1px solid var(--chakra-colors-default-border-color)',
+                      outline: 'none',
+                      display: 'block',
+                      padding: '4px 8px',
+                    }}
+                    wrapperClassName={css(tooltipStyles)}
+                    content={tooltipContent}
+                  />
+
+                  {showLegend && (
+                    <Legend
+                      verticalAlign="top"
+                      align="right"
+                      height={legendHeight}
+                      content={({ payload }) => {
+                        return <ChartLegend payload={payload} />
+                      }}
+                    />
+                  )}
+
                   <defs>
-                    {categories.map((category, index) => (
+                    {categories.map((category) => (
                       <linearGradient
-                        id={`${categoryColors[category]}-gradient`}
+                        key={category}
+                        id={getGradientId(category)}
                         x1="0"
                         y1="0"
                         x2="0"
@@ -122,50 +212,6 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                       </linearGradient>
                     ))}
                   </defs>
-                  {showGrid && (
-                    <CartesianGrid
-                      strokeDasharray=" 1 1 1"
-                      vertical={false}
-                      strokeOpacity={useColorModeValue(0.8, 0.3)}
-                    />
-                  )}
-                  <XAxis
-                    dataKey={index}
-                    ticks={
-                      startEndOnly
-                        ? [data[0][index], data[data.length - 1][index]]
-                        : undefined
-                    }
-                    interval={startEndOnly ? 'preserveStartEnd' : intervalType}
-                    tickLine={false}
-                    axisLine={false}
-                    minTickGap={5}
-                  />
-
-                  <YAxis
-                    width={yAxisWidth}
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ transform: 'translate(-3, 0)' }}
-                    type="number"
-                    tickFormatter={tickFormatter}
-                    allowDecimals={allowDecimals}
-                  />
-
-                  <Tooltip
-                    formatter={tooltipFormatter}
-                    wrapperStyle={{ outline: 'none' }}
-                    contentStyle={{
-                      background: 'var(--tooltip-bg)',
-                      border:
-                        '1px solid var(--chakra-colors-default-border-color)',
-                      outline: 'none',
-                      display: 'block',
-                      padding: '4px 8px',
-                    }}
-                    wrapperClassName={css(tooltipStyles)}
-                    content={tooltipContent}
-                  />
 
                   {children}
 
@@ -180,7 +226,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                       strokeLinecap="round"
                       fill={getFill(category)}
                       name={name}
-                      //     isAnimationActive={showAnimation}
+                      isAnimationActive={showAnimation}
                       animationDuration={animationDuration}
                       stackId={stack ? 'a' : undefined}
                       connectNulls={connectNulls}

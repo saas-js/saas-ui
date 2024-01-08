@@ -38,6 +38,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "date-fns": "^3.1.0",
     "prop-types": "^15.8.1",
     "tsup": "^6.7.0"
   }

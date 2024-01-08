@@ -7,12 +7,12 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import { StoryObj } from '@storybook/react'
-import { AreaChart } from '../src'
+import { LineChart } from '../src'
 import { createData } from './utils'
 
 export default {
-  title: 'Components/Visualization/AreaChart',
-  component: AreaChart,
+  title: 'Components/Visualization/LineChart',
+  component: LineChart,
   decorators: [
     (Story: React.ComponentType) => (
       <Container maxW="container.xl">
@@ -22,7 +22,7 @@ export default {
   ],
 }
 
-type Story = StoryObj<typeof AreaChart>
+type Story = StoryObj<typeof LineChart>
 
 export const Basic: Story = {
   args: {
@@ -35,24 +35,24 @@ export const Basic: Story = {
     }),
     height: '300px',
     categories: ['Revenue'],
-    yAxisWidth: 80,
-    valueFormatter: (value) => {
+    tickFormatter: (value) => {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
       }).format(value)
     },
+    yAxisWidth: 80,
   },
   render: (args) => {
     return (
       <Card>
-        <CardHeader>
+        <CardHeader pb="0">
           <Heading as="h4" fontWeight="medium" size="md">
             Revenue growth
           </Heading>
         </CardHeader>
         <CardBody>
-          <AreaChart {...args} />
+          <LineChart {...args} />
         </CardBody>
       </Card>
     )
@@ -75,13 +75,13 @@ export const Multiple: Story = {
   render: (args) => {
     return (
       <Card>
-        <CardHeader>
+        <CardHeader pb="0">
           <Heading as="h4" fontWeight="medium" size="md">
             Developers
           </Heading>
         </CardHeader>
         <CardBody>
-          <AreaChart {...args} />
+          <LineChart {...args} />
         </CardBody>
       </Card>
     )

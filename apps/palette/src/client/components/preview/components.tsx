@@ -52,6 +52,13 @@ const ComponentPreview = () => {
         </HStack>
         <HStack>
           {colors.map((colorScheme) => (
+            <Button key={colorScheme} colorScheme={colorScheme} variant="ghost">
+              {colorScheme}
+            </Button>
+          ))}
+        </HStack>
+        <HStack>
+          {colors.map((colorScheme) => (
             <Button
               key={colorScheme}
               colorScheme={colorScheme}

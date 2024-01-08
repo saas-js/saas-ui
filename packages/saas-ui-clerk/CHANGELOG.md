@@ -1,5 +1,32 @@
 # @saas-ui/clerk
 
+## 3.0.24
+
+### Patch Changes
+
+- @saas-ui/auth@2.4.3
+
+## 3.0.23
+
+### Patch Changes
+
+- @saas-ui/auth@2.4.2
+
+## 3.0.22
+
+### Patch Changes
+
+- @saas-ui/auth@2.4.1
+
+## 3.0.21
+
+### Patch Changes
+
+- 5a6ea1e4: Updated clerk provider types
+- Updated dependencies [e7ec7f8e]
+- Updated dependencies [7fd6c6aa]
+  - @saas-ui/auth@2.4.0
+
 ## 3.0.20
 
 ### Patch Changes

@@ -1,5 +1,79 @@
 # @saas-ui/react
 
+## 2.5.3
+
+### Patch Changes
+
+- bbd692d4: Improved StructuredList with keyboard navigation support
+- 781a1c26: Added long press support to ContextMenu
+- Updated dependencies [bbd692d4]
+- Updated dependencies [029b9b1c]
+- Updated dependencies [029b9b1c]
+- Updated dependencies [781a1c26]
+  - @saas-ui/core@2.3.2
+  - @saas-ui/hotkeys@2.1.13
+  - @saas-ui/data-table@7.0.3
+  - @saas-ui/forms@2.3.7
+  - @saas-ui/modals@2.1.15
+
+## 2.5.2
+
+### Patch Changes
+
+- 042c15f3: Added useScrollPosition hook
+- Updated dependencies [042c15f3]
+  - @saas-ui/hooks@2.0.2
+  - @saas-ui/modals@2.1.14
+  - @saas-ui/data-table@7.0.2
+
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies [c0f203bf]
+- Updated dependencies [c0f203bf]
+  - @saas-ui/theme@2.3.1
+  - @saas-ui/core@2.3.1
+  - @saas-ui/data-table@7.0.1
+  - @saas-ui/forms@2.3.6
+  - @saas-ui/hotkeys@2.1.12
+  - @saas-ui/modals@2.1.13
+
+## 2.5.0
+
+### Minor Changes
+
+- 78bc41d0: Improved timeline behavior so it scales automatically with the icon and ocontent size used.
+- 316388b9: Added ghost variant to the Badge theme
+
+### Patch Changes
+
+- 8782a76b: Fixed issue where variant would not be passed to SearchInput
+- 8782a76b: Improved Navbar inner padding on small screens
+- 8782a76b: Added new left-accent variant to the NavItem theme
+- 8782a76b: Added new neutral color scheme to Button theme
+- 8782a76b: Updated NavGroup to no longer be collapsible by default
+- 8782a76b: Fixed issue where SidebarToggleButton style props would not have any effect
+- 8782a76b: Added data-state attribute to SidebarToggleButton
+- 8782a76b: NavItem href prop no longer has # as default
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [78bc41d0]
+- Updated dependencies [8782a76b]
+- Updated dependencies [316388b9]
+- Updated dependencies [8782a76b]
+  - @saas-ui/core@2.3.0
+  - @saas-ui/theme@2.3.0
+  - @saas-ui/data-table@7.0.0
+  - @saas-ui/forms@2.3.5
+  - @saas-ui/hotkeys@2.1.11
+  - @saas-ui/modals@2.1.12
+
 ## 2.4.4
 
 ### Patch Changes

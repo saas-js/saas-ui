@@ -1,5 +1,50 @@
 # @saas-ui/auth
 
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [bbd692d4]
+- Updated dependencies [781a1c26]
+  - @saas-ui/core@2.3.2
+  - @saas-ui/forms@2.3.7
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [042c15f3]
+  - @saas-ui/hooks@2.0.2
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [c0f203bf]
+  - @saas-ui/core@2.3.1
+  - @saas-ui/forms@2.3.6
+
+## 2.4.0
+
+### Minor Changes
+
+- 7fd6c6aa: Improved consistency of styles
+
+### Patch Changes
+
+- e7ec7f8e: Fixed issue where auth state would not update correctly
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [78bc41d0]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+  - @saas-ui/core@2.3.0
+  - @saas-ui/forms@2.3.5
+
 ## 2.3.1
 
 ### Patch Changes

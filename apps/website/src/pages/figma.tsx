@@ -19,6 +19,7 @@ import { Testimonials } from '@/components/testimonials'
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { SignupForm } from '@/components/signup-form'
 import { FaFigma } from 'react-icons/fa6'
+import { ButtonLink } from '@/components/link'
 
 const FigmaPage = () => {
   return (
@@ -90,14 +91,28 @@ const FigmaEmbed = () => {
       <Heading textAlign="center" size="md" fontWeight="medium" mb="8">
         Free community library
       </Heading>
-      <AspectRatio ratio={16 / 9} w="full" maxW="container.xl" mx="auto">
-        <Box
-          as="iframe"
-          objectFit={'cover'}
-          rounded="xl"
-          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXsBODCq9lrqBAwReJqikbR%2FSaas-UI-Theme-1.1%3Ftype%3Ddesign%26node-id%3D4228%253A35736%26mode%3Ddesign%26t%3DTHstGvI1X3duAdqr-1"
-        ></Box>
-      </AspectRatio>
+      <Box position="relative" maxW="container.xl" mx="auto">
+        <ButtonLink
+          href="https://www.figma.com/community/file/1257658419283927894"
+          position="absolute"
+          top="4"
+          right="4"
+          left="auto"
+          bottom="auto"
+          zIndex="1"
+          leftIcon={<FaFigma />}
+        >
+          Open in Figma
+        </ButtonLink>
+        <AspectRatio ratio={16 / 9} w="full">
+          <Box
+            as="iframe"
+            objectFit={'cover'}
+            rounded="xl"
+            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXsBODCq9lrqBAwReJqikbR%2FSaas-UI-Theme-1.1%3Ftype%3Ddesign%26node-id%3D4228%253A35736%26mode%3Ddesign%26t%3DTHstGvI1X3duAdqr-1"
+          ></Box>
+        </AspectRatio>
+      </Box>
     </Box>
   )
 }

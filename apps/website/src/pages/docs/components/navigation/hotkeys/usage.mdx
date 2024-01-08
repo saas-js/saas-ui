@@ -163,7 +163,7 @@ export default function Search() {
 
 Use the `then` keyword to create a sequence of keys.
 
-Press `A` then `S` to trigger the action.
+Press `A` then `B` to trigger the action.
 
 ```jsx center=true  inline=true
 import { Box, Tooltip, Button } from '@chakra-ui/react'
@@ -172,7 +172,7 @@ import { useHotkeys } from '@saas-ui/react'
 export default function Dialog() {
   const [isLoading, setLoading] = React.useState()
 
-  const key = useHotkeys('A then S', () => {
+  const key = useHotkeys('A then B', () => {
     setLoading(true)
     setTimeout(() => setLoading(false), 2000)
   })

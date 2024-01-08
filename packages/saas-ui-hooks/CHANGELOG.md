@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.0.2
+
+### Patch Changes
+
+- 042c15f3: Added useScrollPosition hook
+
 ## 2.0.1
 
 ### Patch Changes

@@ -31,24 +31,11 @@ const SecondaryNavLink = ({
   isActive,
   children,
 }: SecondaryNavLinkProps) => {
-  const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
-
   return (
     <NextLink href={href} passHref legacyBehavior>
-      <Flex
-        as="a"
-        py="2"
-        px="3"
-        align="center"
-        fontSize="md"
-        fontWeight="medium"
-        transitionProperty="colors"
-        transitionDuration="200ms"
-        color={isActive ? linkColor : 'muted'}
-        _hover={{ color: linkColor }}
-      >
+      <Button as="a" variant="nav-link" isActive={isActive}>
         {children}
-      </Flex>
+      </Button>
     </NextLink>
   )
 }

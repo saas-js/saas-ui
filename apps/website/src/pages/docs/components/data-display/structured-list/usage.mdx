@@ -209,10 +209,18 @@ function WithCheckbox() {
   return (
     <Card width="320px">
       <StructuredList>
-        {['Release V2', 'Learn Saas UI'].map((todo) => {
+        {['Design', 'Build', 'Ship'].map((todo) => {
           const [checked, setChecked] = useState(false)
           return (
-            <StructuredListItem key={todo} onClick={() => setChecked(!checked)}>
+            <StructuredListItem
+              key={todo}
+              onClick={() => setChecked(!checked)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setChecked(!checked)
+                }
+              }}
+            >
               <StructuredListCell width="10" display="flex" alignItems="center">
                 <Checkbox isChecked={checked} />
               </StructuredListCell>
@@ -500,3 +508,14 @@ function Issues() {
   )
 }
 ```
+
+## Accessibility
+
+Structured list supports keyboard navigation.
+
+| Key        | Description              |
+| ---------- | ------------------------ |
+| Arrow Up   | Focus the previous item. |
+| Arrow Down | Focus the next item.     |
+| Home       | Focus the first item.    |
+| End        | Focus the last item.     |

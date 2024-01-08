@@ -27,7 +27,7 @@ This repository contains all [open source components](/packages), as well as the
 
 ## Links
 
-💡 [Documentation](https://saas-ui.dev/docs/introduction)
+💡 [Documentation](https://saas-ui.dev/docs)
 
 🧭 [Roadmap](https://roadmap.saas-ui.dev)
 
@@ -35,17 +35,17 @@ This repository contains all [open source components](/packages), as well as the
 
 🌟 [Saas UI Pro](https://saas-ui.dev/#pro-features)
 
-## Contributing & Support
-
-Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md) and feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
-
-If you'd like to support the project financially, you can [become a sponsor](https://github.com/sponsors/saas-js) of Saas UI or consider ordering [Saas UI Pro Beta](https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5). All funds will go toward the further development of Saas UI. This will give you access to the private Git repository with the beta and our private Discord server for support.
-
 ## Sponsors ❤️
 
 Saas UI is sponsored by these amazing companies and people.
 
 - [LocalXPose](https://localxpose.io/)
+
+## Contributing & Support
+
+Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md) and feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
+
+If you'd like to support the project financially, you can [become a sponsor](https://github.com/sponsors/saas-js) of Saas UI or consider ordering [Saas UI Pro Beta](https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5). All funds will go toward the further development of Saas UI. This will give you access to the private Git repository with the beta and our private Discord server for support.
 
 ### Core
 
@@ -80,13 +80,15 @@ Complete source code available in a monorepo that can serve as a starting point 
 
 ## Using this repo
 
-The docs website depends on private packages (`@saas-ui-pro/react`), and won't build properly without access to the private Git submodule.
+The docs website depends on private packages (`@saas-ui-pro/react`), and won't build fully without access to the private Git submodule.
+
+This repository uses Yarn workspaces, to get started run:
+
+```bash
+yarn
+```
 
 ### Storybook
-
-https://storybook.saas-ui.pro
-
-Or run locally:
 
 ```bash
 yarn storybook

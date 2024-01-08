@@ -1,5 +1,37 @@
 # @saas-ui/hotkeys
 
+## 2.1.13
+
+### Patch Changes
+
+- 029b9b1c: Fixed issue where custom target element would always be null
+- 029b9b1c: Fixed issue where holding keys would not trigger hotkey handlers
+- Updated dependencies [bbd692d4]
+- Updated dependencies [781a1c26]
+  - @saas-ui/core@2.3.2
+
+## 2.1.12
+
+### Patch Changes
+
+- Updated dependencies [c0f203bf]
+  - @saas-ui/core@2.3.1
+
+## 2.1.11
+
+### Patch Changes
+
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [78bc41d0]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+  - @saas-ui/core@2.3.0
+
 ## 2.1.10
 
 ### Patch Changes

@@ -2,24 +2,33 @@ import { mode } from '@chakra-ui/theme-tools'
 
 type Dict = Record<string, any>
 
-export default {
+const buttonTheme = {
   variants: {
     'nav-link': (props: Dict) => {
-      const { isActive } = props
-
-      const hoverColor = mode('gray.900', 'white')(props)
       return {
         outline: 'none',
         fontWeight: '500',
-        color: isActive
-          ? hoverColor
-          : mode('gray.700', 'whiteAlpha.700')(props),
+        color: 'gray.600',
         transition: 'color .2s ease-in',
+        _dark: {
+          color: 'whiteAlpha.700',
+        },
+        _active: {
+          color: 'gray.900',
+          _dark: {
+            color: 'white',
+          },
+        },
         _hover: {
           textDecoration: 'none',
-          color: hoverColor,
+          color: 'gray.900',
+          _dark: {
+            color: 'white',
+          },
         },
       }
     },
   },
 }
+
+export default buttonTheme

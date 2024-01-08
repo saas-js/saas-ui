@@ -14,6 +14,7 @@ A advanced data grid component that supports sorting, selections, filters and pa
 import {
   DataGrid,
   DataGridPagination,
+  useColumns,
   useColumnVisibility,
 } from '@saas-ui-pro/react'
 ```
@@ -74,6 +75,7 @@ export default function ListPage() {
       },
     ]
   }, [])
+
   return (
     <Page height="400px">
       <PageHeader title="Customers" />
@@ -175,7 +177,7 @@ export default function ListPage() {
 
 ### Clickable rows
 
-cells with a `href` property will render the cell value in an `a`.
+Cells with a `href` property will render the cell value in an `a`.
 Using the DataGrid `onRowClick` handler you can trigger a click event on the link whenever the row is clicked.
 
 ```jsx
@@ -263,6 +265,76 @@ export default function ListPage() {
         >
           <DataGridPagination />
         </DataGrid>
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Nested rows
+
+Use the `isExpandable` prop to enable row expanding. The default property for nested rows is `subRows`.
+To use a custom property for nested rows, use the `getSubRows` prop.
+
+For more than one level of nesting, it's recommended to use `tableLayout=auto` on the `DataGrid` component.
+
+```jsx
+import { Button } from '@chakra-ui/react'
+import { Page, PageHeader, DataGrid } from '@saas-ui-pro/react'
+
+const demoData = dataTable.data.map((row, i) => {
+  return {
+    ...row,
+    subRows: [
+      {
+        id: row.id + '-1',
+        ...row,
+      },
+      {
+        id: row.id + '-2',
+        ...row,
+      },
+    ],
+  }
+})
+
+export default function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+        meta: {
+          href: ({ id }) => `#customers/${id}`,
+        },
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+    ]
+  }, [])
+  return (
+    <Page height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid columns={columns} data={demoData} isSortable isExpandable />
       </PageBody>
     </Page>
   )

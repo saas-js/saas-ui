@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react'
 import { Box, Card, CardBody, Stack, extendTheme } from '@chakra-ui/react'
-import * as UiComponents from '../../../../../packages/pro/saas-ui/templates'
+import * as UiComponents from '../../../../../packages/pro/saas-ui/blocks'
 import { UiComponent } from '../../data/blocks'
 import { ComponentPreview } from './component-preview'
 import { CanvasHeader } from './canvas-header'

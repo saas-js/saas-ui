@@ -1,5 +1,44 @@
 # @saas-ui/react
 
+## 2.3.2
+
+### Patch Changes
+
+- bbd692d4: Improved StructuredList with keyboard navigation support
+- 781a1c26: Added long press support to ContextMenu
+
+## 2.3.1
+
+### Patch Changes
+
+- c0f203bf: Fixed issue where theming props would be passed to dom
+- Updated dependencies [c0f203bf]
+  - @saas-ui/theme@2.3.1
+
+## 2.3.0
+
+### Minor Changes
+
+- 78bc41d0: Improved timeline behavior so it scales automatically with the icon and ocontent size used.
+
+### Patch Changes
+
+- 8782a76b: Fixed issue where variant would not be passed to SearchInput
+- 8782a76b: Improved Navbar inner padding on small screens
+- 8782a76b: Added new left-accent variant to the NavItem theme
+- 8782a76b: Updated NavGroup to no longer be collapsible by default
+- 8782a76b: Fixed issue where SidebarToggleButton style props would not have any effect
+- 8782a76b: Export SaasProviderProps
+- 8782a76b: Added data-state attribute to SidebarToggleButton
+- 8782a76b: NavItem href prop no longer has # as default
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [8782a76b]
+- Updated dependencies [78bc41d0]
+- Updated dependencies [316388b9]
+  - @saas-ui/theme@2.3.0
+
 ## 2.2.4
 
 ### Patch Changes

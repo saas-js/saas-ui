@@ -36,7 +36,7 @@
     "changeset:next": "yarn changeset pre enter next",
     "version": "yarn changelog:gen && changeset version",
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
-    "publish": "yarn workspaces foreach -p --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
+    "publish": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
     "storybook": "yarn w saas-ui-storybook dev",
     "build:storybook": "yarn w saas-ui-storybook build",
     "prepare": "husky install",
@@ -51,6 +51,7 @@
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "build:packages:force": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue --force && yarn build:tokens",
+    "watch:theme": "turbo run build --filter='./packages/saas-ui-theme' -- --watch",
     "clean:packages": "turbo run clean",
     "build:storybook-addon": "yarn w @saas-ui/storybook-addon build",
     "build:props-docs": "yarn w @saas-ui/props-docs build",
@@ -114,7 +115,7 @@
     "@emotion/styled": "11.11.0",
     "@zag-js/store": "^0.30.0"
   },
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@4.0.2",
   "dependencies": {
     "@storybook/testing-react": "^2.0.1",
     "vitest": "^0.34.4"

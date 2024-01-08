@@ -154,7 +154,7 @@ export const useHotkeys = (
   } = _options
 
   const targetElement =
-    _options.targetElement || typeof window === 'undefined' ? null : window
+    _options.targetElement || (typeof window === 'undefined' ? null : window)
 
   const memoizedCallback = useCallback(callback, deps || [])
 
@@ -185,6 +185,7 @@ export const useHotkeys = (
     }
 
     const key = getKeyFromEvent(event as KeyboardEvent)
+
     pressedKeys.add(key)
     bufferKeys.add(key)
 
@@ -204,7 +205,6 @@ export const useHotkeys = (
         event.preventDefault()
       }
       bufferKeys.clear() // make sure the buffer gets cleared
-      pressedKeys.clear() // make sure the pressed keys get cleared
       // execute on next tick to make sure the last keyup doesn't trigger in any focused field
       setTimeout(() => memoizedCallback(event as KeyboardEvent), 0)
     }

@@ -43,12 +43,12 @@ export interface AreaChartProps {
   showAnimation?: boolean
   showGrid?: boolean
   showLegend?: boolean
+  showTooltip?: boolean
   showXAxis?: boolean
   showYAxis?: boolean
   stack?: boolean
   startEndOnly?: boolean
   tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
-  tooltipFormatter?(value: string, name: string, props: any): string
   variant?: 'line' | 'solid' | 'gradient'
   yAxisWidth?: number
   legendHeight?: number
@@ -72,6 +72,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       showAnimation = true,
       showGrid = true,
       showLegend = true,
+      showTooltip = true,
       showXAxis = true,
       showYAxis = true,
       stack = false,
@@ -163,20 +164,22 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                     }}
                   />
 
-                  <Tooltip
-                    formatter={valueFormatter}
-                    wrapperStyle={{ outline: 'none' }}
-                    contentStyle={{
-                      background: 'var(--tooltip-bg)',
-                      border:
-                        '1px solid var(--chakra-colors-default-border-color)',
-                      outline: 'none',
-                      display: 'block',
-                      padding: '4px 8px',
-                    }}
-                    wrapperClassName={css(tooltipStyles)}
-                    content={tooltipContent}
-                  />
+                  {showTooltip && (
+                    <Tooltip
+                      formatter={valueFormatter}
+                      wrapperStyle={{ outline: 'none' }}
+                      contentStyle={{
+                        background: 'var(--tooltip-bg)',
+                        border:
+                          '1px solid var(--chakra-colors-default-border-color)',
+                        outline: 'none',
+                        display: 'block',
+                        padding: '4px 8px',
+                      }}
+                      wrapperClassName={css(tooltipStyles)}
+                      content={tooltipContent}
+                    />
+                  )}
 
                   {showLegend && (
                     <Legend

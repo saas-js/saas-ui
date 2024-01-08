@@ -38,16 +38,15 @@ export interface LineChartProps {
   curveType?: CurveType
   strokeWidth?: string
   name?: string
-  tickFormatter?(value: number): string
+  valueFormatter?(value: number): string
   showAnimation?: boolean
   showGrid?: boolean
   showLegend?: boolean
+  showTooltip?: boolean
   showXAxis?: boolean
   showYAxis?: boolean
-  stack?: boolean
   startEndOnly?: boolean
   tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
-  tooltipFormatter?(value: string, name: string, props: any): string
   variant?: 'line' | 'solid' | 'gradient'
   yAxisWidth?: number
   legendHeight?: number
@@ -71,24 +70,20 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       showAnimation = true,
       showGrid = true,
       showLegend = true,
+      showTooltip = true,
       showXAxis = true,
       showYAxis = true,
-      stack = false,
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
       name,
-      tickFormatter,
+      valueFormatter,
       variant,
       tooltipContent,
-      tooltipFormatter = (value: string, name: string, props: any) => {
-        return value
-      },
       children,
     } = props
 
     const theme = useTheme()
-    const id = useId()
 
     const tooltipTheme = useStyleConfig('Tooltip')
     const tooltipStyles = css(tooltipTheme)(theme)
@@ -142,27 +137,29 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                     tickLine={false}
                     tick={{ transform: 'translate(-3, 0)' }}
                     type="number"
-                    tickFormatter={tickFormatter}
+                    tickFormatter={valueFormatter}
                     allowDecimals={allowDecimals}
                     style={{
                       color: 'var(--chakra-colors-muted)',
                     }}
                   />
 
-                  <Tooltip
-                    formatter={tooltipFormatter}
-                    wrapperStyle={{ outline: 'none' }}
-                    contentStyle={{
-                      background: 'var(--tooltip-bg)',
-                      border:
-                        '1px solid var(--chakra-colors-default-border-color)',
-                      outline: 'none',
-                      display: 'block',
-                      padding: '4px 8px',
-                    }}
-                    wrapperClassName={css(tooltipStyles)}
-                    content={tooltipContent}
-                  />
+                  {showTooltip && (
+                    <Tooltip
+                      formatter={valueFormatter}
+                      wrapperStyle={{ outline: 'none' }}
+                      contentStyle={{
+                        background: 'var(--tooltip-bg)',
+                        border:
+                          '1px solid var(--chakra-colors-default-border-color)',
+                        outline: 'none',
+                        display: 'block',
+                        padding: '4px 8px',
+                      }}
+                      wrapperClassName={css(tooltipStyles)}
+                      content={tooltipContent}
+                    />
+                  )}
 
                   {showLegend && (
                     <Legend

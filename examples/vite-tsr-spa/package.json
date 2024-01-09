@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"tsr watch\" \"vite\"",
-    "build": "tsr generate && vite build",
+    "dev": "vite",
+    "build": "vite build",
+    "generate": "tsr generate",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -26,6 +27,7 @@
     "@tanstack/react-router": "^1.1.12",
     "@tanstack/router-cli": "^1.1.12",
     "@tanstack/router-devtools": "^1.1.12",
+    "@tanstack/router-vite-plugin": "^1.2.2",
     "framer-motion": "^10.17.9",
     "prettier": "^3.1.1",
     "react": "^18.2.0",
@@ -37,7 +39,6 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "concurrently": "^8.2.2",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",

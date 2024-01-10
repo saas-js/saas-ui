@@ -10,6 +10,7 @@ import * as SaasUIPro from '@saas-ui-pro/react'
 import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
 import * as CommandBar from '@saas-ui/command-bar'
 import * as FileUpload from '@saas-ui/file-upload'
+import * as Charts from '@saas-ui/charts'
 import * as z from 'zod'
 import * as yup from 'yup'
 import * as YupForm from '@saas-ui/forms/yup'
@@ -193,6 +194,7 @@ const ReactLiveScope = {
     '@saas-ui-pro/kanban': SaasUIKanban,
     '@saas-ui/date-picker': DatePicker,
     '@saas-ui/assets': Assets,
+    '@saas-ui/charts': Charts,
     '@chakra-ui/icons': Icons,
     'react-icons/fi': reactIcons,
     '@hookform/resolvers/yup': { yupResolver },

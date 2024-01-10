@@ -87,3 +87,33 @@ export const Multiple: Story = {
     )
   },
 }
+
+export const Stacked: Story = {
+  args: {
+    data: createData({
+      startDate: '2023-12-01',
+      endDate: '2023-12-31',
+      categories: ['New', 'Active', 'Churned'],
+      startValues: [50, 30, 2],
+      growthRate: 1.05,
+    }),
+    height: '300px',
+    categories: ['New', 'Active', 'Churned'],
+    colors: ['green', 'blue', 'red'],
+    stack: true,
+  },
+  render: (args) => {
+    return (
+      <Card>
+        <CardHeader>
+          <Heading as="h4" fontWeight="medium" size="md">
+            Developers
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <AreaChart {...args} />
+        </CardBody>
+      </Card>
+    )
+  },
+}

@@ -1,15 +1,12 @@
 import * as React from 'react'
 
-import { ClassNames } from '@emotion/react'
 import {
   Box,
   SystemProps,
   useColorModeValue,
   useId,
-  useStyleConfig,
   useTheme,
 } from '@chakra-ui/react'
-import { css } from '@chakra-ui/styled-system'
 import {
   AreaChart as ReAreaChart,
   Area,
@@ -24,6 +21,8 @@ import {
 import type { CurveType } from 'recharts/types/shape/Curve'
 
 import { ChartLegend } from './legend'
+import { createCategoryColors } from './utils'
+import { ChartTooltip } from './tooltip'
 
 export interface AreaChartProps {
   allowDecimals?: boolean
@@ -60,7 +59,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     const {
       data = [],
       categories = [],
-      colors = ['primary'],
+      colors = ['primary', 'cyan'],
       height,
       connectNulls = false,
       curveType = 'linear',
@@ -90,15 +89,9 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     const theme = useTheme()
     const id = useId()
 
-    const tooltipTheme = useStyleConfig('Tooltip')
-    const tooltipStyles = css(tooltipTheme)(theme)
-
-    const categoryColors = Object.fromEntries(
-      categories.map((category, index) => [category, colors[index] || 'gray'])
-    )
-
+    const categoryColors = createCategoryColors(categories, colors, theme)
     const getColor = (category: string) => {
-      return theme.colors[categoryColors[category]]?.[500]
+      return categoryColors[category]
     }
 
     const getGradientId = (category: string) => {
@@ -117,130 +110,128 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     }
 
     return (
-      <ClassNames>
-        {({ css }) => {
-          return (
-            <Box ref={ref} height={height} fontSize="sm">
-              <ResponsiveContainer width="100%" height="100%">
-                <ReAreaChart data={data}>
-                  {showGrid && (
-                    <CartesianGrid
-                      strokeDasharray=" 1 1 1"
-                      vertical={false}
-                      strokeOpacity={useColorModeValue(0.8, 0.3)}
-                    />
-                  )}
+      <Box ref={ref} height={height} fontSize="sm">
+        <ResponsiveContainer width="100%" height="100%">
+          <ReAreaChart data={data}>
+            {showGrid && (
+              <CartesianGrid
+                strokeDasharray=" 1 1 1"
+                vertical={false}
+                strokeOpacity={useColorModeValue(0.8, 0.3)}
+              />
+            )}
 
-                  <XAxis
-                    padding={{ left: 20, right: 20 }}
-                    dataKey={index}
-                    hide={!showXAxis}
-                    tick={{ transform: 'translate(0, 6)' }}
-                    ticks={
-                      startEndOnly
-                        ? [data[0][index], data[data.length - 1][index]]
-                        : undefined
-                    }
-                    interval={startEndOnly ? 'preserveStartEnd' : intervalType}
-                    tickLine={false}
-                    axisLine={false}
-                    minTickGap={5}
-                    style={{
-                      color: 'var(--chakra-colors-muted)',
-                    }}
-                  />
+            <XAxis
+              padding={{ left: 20, right: 20 }}
+              dataKey={index}
+              hide={!showXAxis}
+              tick={{ transform: 'translate(0, 6)' }}
+              ticks={
+                startEndOnly
+                  ? [data[0][index], data[data.length - 1][index]]
+                  : undefined
+              }
+              interval={startEndOnly ? 'preserveStartEnd' : intervalType}
+              tickLine={false}
+              axisLine={false}
+              minTickGap={5}
+              style={{
+                color: 'var(--chakra-colors-muted)',
+              }}
+            />
 
-                  <YAxis
-                    width={yAxisWidth}
-                    hide={!showYAxis}
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ transform: 'translate(-3, 0)' }}
-                    type="number"
-                    tickFormatter={valueFormatter}
-                    allowDecimals={allowDecimals}
-                    style={{
-                      color: 'var(--chakra-colors-muted)',
-                    }}
-                  />
+            <YAxis
+              width={yAxisWidth}
+              hide={!showYAxis}
+              axisLine={false}
+              tickLine={false}
+              tick={{ transform: 'translate(-3, 0)' }}
+              type="number"
+              tickFormatter={valueFormatter}
+              allowDecimals={allowDecimals}
+              style={{
+                color: 'var(--chakra-colors-muted)',
+              }}
+            />
 
-                  {showTooltip && (
-                    <Tooltip
-                      formatter={valueFormatter}
-                      wrapperStyle={{ outline: 'none' }}
-                      contentStyle={{
-                        background: 'var(--tooltip-bg)',
-                        border:
-                          '1px solid var(--chakra-colors-default-border-color)',
-                        outline: 'none',
-                        display: 'block',
-                        padding: '4px 8px',
-                      }}
-                      wrapperClassName={css(tooltipStyles)}
-                      content={tooltipContent}
-                    />
-                  )}
-
-                  {showLegend && (
-                    <Legend
-                      verticalAlign="top"
-                      align="right"
-                      height={legendHeight}
-                      content={({ payload }) => {
-                        return <ChartLegend payload={payload} />
-                      }}
-                    />
-                  )}
-
-                  <defs>
-                    {categories.map((category) => (
-                      <linearGradient
-                        key={category}
-                        id={getGradientId(category)}
-                        x1="0"
-                        y1="0"
-                        x2="0"
-                        y2="1"
-                      >
-                        <stop
-                          offset="5%"
-                          stopColor={getColor(category)}
-                          stopOpacity={gradientOpacity}
+            {showTooltip && (
+              <Tooltip
+                formatter={valueFormatter}
+                content={
+                  tooltipContent
+                    ? tooltipContent
+                    : (props) => (
+                        <ChartTooltip
+                          {...props}
+                          categoryColors={categoryColors}
                         />
-                        <stop
-                          offset="95%"
-                          stopColor={getColor(category)}
-                          stopOpacity={0}
-                        />
-                      </linearGradient>
-                    ))}
-                  </defs>
+                      )
+                }
+              />
+            )}
 
-                  {children}
-
-                  {categories.map((category) => (
-                    <Area
-                      key={category}
-                      type={curveType}
-                      dataKey={category}
-                      stroke={getColor(category)}
-                      strokeWidth={strokeWidth}
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      fill={getFill(category)}
-                      name={name}
-                      isAnimationActive={showAnimation}
-                      animationDuration={animationDuration}
-                      stackId={stack ? 'a' : undefined}
-                      connectNulls={connectNulls}
+            {showLegend && (
+              <Legend
+                verticalAlign="top"
+                align="right"
+                height={legendHeight}
+                content={({ payload }) => {
+                  return (
+                    <ChartLegend
+                      payload={payload}
+                      categoryColors={categoryColors}
                     />
-                  ))}
-                </ReAreaChart>
-              </ResponsiveContainer>
-            </Box>
-          )
-        }}
-      </ClassNames>
+                  )
+                }}
+              />
+            )}
+
+            <defs>
+              {categories.map((category) => (
+                <linearGradient
+                  key={category}
+                  id={getGradientId(category)}
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop
+                    offset="5%"
+                    stopColor={getColor(category)}
+                    stopOpacity={gradientOpacity}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor={getColor(category)}
+                    stopOpacity={0}
+                  />
+                </linearGradient>
+              ))}
+            </defs>
+
+            {children}
+
+            {categories.map((category) => (
+              <Area
+                key={category}
+                type={curveType}
+                dataKey={category}
+                stroke={getColor(category)}
+                strokeWidth={strokeWidth}
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                fill={getFill(category)}
+                name={name}
+                isAnimationActive={showAnimation}
+                animationDuration={animationDuration}
+                stackId={stack ? 'a' : undefined}
+                connectNulls={connectNulls}
+              />
+            ))}
+          </ReAreaChart>
+        </ResponsiveContainer>
+      </Box>
     )
   }
 )

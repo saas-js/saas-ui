@@ -7,12 +7,12 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import { StoryObj } from '@storybook/react'
-import { LineChart } from '../src'
+import { BarChart } from '../src'
 import { createData } from './utils'
 
 export default {
-  title: 'Components/Visualization/LineChart',
-  component: LineChart,
+  title: 'Components/Visualization/BarChart',
+  component: BarChart,
   decorators: [
     (Story: React.ComponentType) => (
       <Container maxW="container.xl">
@@ -22,7 +22,7 @@ export default {
   ],
 }
 
-type Story = StoryObj<typeof LineChart>
+type Story = StoryObj<typeof BarChart>
 
 export const Basic: Story = {
   args: {
@@ -35,13 +35,13 @@ export const Basic: Story = {
     }),
     height: '300px',
     categories: ['Revenue'],
+    yAxisWidth: 80,
     valueFormatter: (value) => {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
       }).format(value)
     },
-    yAxisWidth: 80,
   },
   render: (args) => {
     return (
@@ -52,21 +52,13 @@ export const Basic: Story = {
           </Heading>
         </CardHeader>
         <CardBody>
-          <LineChart {...args} />
+          <BarChart {...args} />
         </CardBody>
       </Card>
     )
   },
 }
-console.log(
-  createData({
-    startDate: '2023-12-01',
-    endDate: '2023-12-31',
-    categories: ['Backend', 'Frontend'],
-    startValues: [50, 30],
-    growthRate: 1.01,
-  })
-)
+
 export const Multiple: Story = {
   args: {
     data: createData({
@@ -89,7 +81,37 @@ export const Multiple: Story = {
           </Heading>
         </CardHeader>
         <CardBody>
-          <LineChart {...args} />
+          <BarChart {...args} />
+        </CardBody>
+      </Card>
+    )
+  },
+}
+
+export const Stacked: Story = {
+  args: {
+    data: createData({
+      startDate: '2023-12-01',
+      endDate: '2023-12-31',
+      categories: ['New', 'Active', 'Churned'],
+      startValues: [50, 30, 2],
+      growthRate: 1.05,
+    }),
+    height: '300px',
+    categories: ['New', 'Active', 'Churned'],
+    colors: ['green', 'blue', 'red'],
+    stack: true,
+  },
+  render: (args) => {
+    return (
+      <Card>
+        <CardHeader pb="0">
+          <Heading as="h4" fontWeight="medium" size="md">
+            Developers
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <BarChart {...args} />
         </CardBody>
       </Card>
     )

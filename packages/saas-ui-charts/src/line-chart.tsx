@@ -1,15 +1,6 @@
 import * as React from 'react'
 
-import { ClassNames } from '@emotion/react'
-import {
-  Box,
-  SystemProps,
-  useColorModeValue,
-  useId,
-  useStyleConfig,
-  useTheme,
-} from '@chakra-ui/react'
-import { css } from '@chakra-ui/styled-system'
+import { Box, SystemProps, useColorModeValue, useTheme } from '@chakra-ui/react'
 import {
   LineChart as ReLineChart,
   Line,
@@ -24,6 +15,8 @@ import {
 import type { CurveType } from 'recharts/types/shape/Curve'
 
 import { ChartLegend } from './legend'
+import { createCategoryColors } from './utils'
+import { ChartTooltip } from './tooltip'
 
 export interface LineChartProps {
   allowDecimals?: boolean
@@ -47,7 +40,6 @@ export interface LineChartProps {
   showYAxis?: boolean
   startEndOnly?: boolean
   tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
-  variant?: 'line' | 'solid' | 'gradient'
   yAxisWidth?: number
   legendHeight?: number
   children?: React.ReactNode
@@ -78,124 +70,115 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       animationDuration = 500,
       name,
       valueFormatter,
-      variant,
       tooltipContent,
       children,
     } = props
 
     const theme = useTheme()
 
-    const tooltipTheme = useStyleConfig('Tooltip')
-    const tooltipStyles = css(tooltipTheme)(theme)
-
-    const categoryColors = Object.fromEntries(
-      categories.map((category, index) => [category, colors[index] || 'gray'])
-    )
-
+    const categoryColors = createCategoryColors(categories, colors, theme)
     const getColor = (category: string) => {
-      return theme.colors[categoryColors[category]]?.[500]
+      return categoryColors[category]
     }
 
     return (
-      <ClassNames>
-        {({ css }) => {
-          return (
-            <Box ref={ref} height={height} fontSize="sm">
-              <ResponsiveContainer width="100%" height="100%">
-                <ReLineChart data={data}>
-                  {showGrid && (
-                    <CartesianGrid
-                      strokeDasharray=" 1 1 1"
-                      vertical={false}
-                      strokeOpacity={useColorModeValue(0.8, 0.3)}
+      <Box ref={ref} height={height} fontSize="sm">
+        <ResponsiveContainer width="100%" height="100%">
+          <ReLineChart data={data}>
+            {showGrid && (
+              <CartesianGrid
+                strokeDasharray=" 1 1 1"
+                vertical={false}
+                strokeOpacity={useColorModeValue(0.8, 0.3)}
+              />
+            )}
+
+            <XAxis
+              padding={{ left: 20, right: 20 }}
+              dataKey={index}
+              hide={!showXAxis}
+              tick={{ transform: 'translate(0, 6)' }}
+              ticks={
+                startEndOnly
+                  ? [data[0][index], data[data.length - 1][index]]
+                  : undefined
+              }
+              interval={startEndOnly ? 'preserveStartEnd' : intervalType}
+              tickLine={false}
+              axisLine={false}
+              minTickGap={5}
+              style={{
+                color: 'var(--chakra-colors-muted)',
+              }}
+            />
+
+            <YAxis
+              width={yAxisWidth}
+              hide={!showYAxis}
+              axisLine={false}
+              tickLine={false}
+              tick={{ transform: 'translate(-3, 0)' }}
+              type="number"
+              tickFormatter={valueFormatter}
+              allowDecimals={allowDecimals}
+              style={{
+                color: 'var(--chakra-colors-muted)',
+              }}
+            />
+
+            {showTooltip && (
+              <Tooltip
+                formatter={valueFormatter}
+                content={
+                  tooltipContent
+                    ? tooltipContent
+                    : (props) => (
+                        <ChartTooltip
+                          {...props}
+                          categoryColors={categoryColors}
+                        />
+                      )
+                }
+              />
+            )}
+
+            {showLegend && (
+              <Legend
+                verticalAlign="top"
+                align="right"
+                height={legendHeight}
+                content={({ payload }) => {
+                  return (
+                    <ChartLegend
+                      payload={payload}
+                      categoryColors={categoryColors}
                     />
-                  )}
+                  )
+                }}
+              />
+            )}
 
-                  <XAxis
-                    padding={{ left: 20, right: 20 }}
-                    dataKey={index}
-                    hide={!showXAxis}
-                    tick={{ transform: 'translate(0, 6)' }}
-                    ticks={
-                      startEndOnly
-                        ? [data[0][index], data[data.length - 1][index]]
-                        : undefined
-                    }
-                    interval={startEndOnly ? 'preserveStartEnd' : intervalType}
-                    tickLine={false}
-                    axisLine={false}
-                    minTickGap={5}
-                    style={{
-                      color: 'var(--chakra-colors-muted)',
-                    }}
-                  />
+            {children}
 
-                  <YAxis
-                    width={yAxisWidth}
-                    hide={!showYAxis}
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ transform: 'translate(-3, 0)' }}
-                    type="number"
-                    tickFormatter={valueFormatter}
-                    allowDecimals={allowDecimals}
-                    style={{
-                      color: 'var(--chakra-colors-muted)',
-                    }}
-                  />
-
-                  {showTooltip && (
-                    <Tooltip
-                      formatter={valueFormatter}
-                      wrapperStyle={{ outline: 'none' }}
-                      contentStyle={{
-                        background: 'var(--tooltip-bg)',
-                        border:
-                          '1px solid var(--chakra-colors-default-border-color)',
-                        outline: 'none',
-                        display: 'block',
-                        padding: '4px 8px',
-                      }}
-                      wrapperClassName={css(tooltipStyles)}
-                      content={tooltipContent}
-                    />
-                  )}
-
-                  {showLegend && (
-                    <Legend
-                      verticalAlign="top"
-                      align="right"
-                      height={legendHeight}
-                      content={({ payload }) => {
-                        return <ChartLegend payload={payload} />
-                      }}
-                    />
-                  )}
-
-                  {children}
-
-                  {categories.map((category) => (
-                    <Line
-                      key={category}
-                      type={curveType}
-                      dataKey={category}
-                      dot={false}
-                      stroke={getColor(category)}
-                      strokeWidth={strokeWidth}
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      name={name}
-                      isAnimationActive={showAnimation}
-                      animationDuration={animationDuration}
-                      connectNulls={connectNulls}
-                    />
-                  ))}
-                </ReLineChart>
-              </ResponsiveContainer>
-            </Box>
-          )
-        }}
-      </ClassNames>
+            {categories.map((category) => (
+              <Line
+                key={category}
+                type={curveType}
+                dataKey={category}
+                dot={false}
+                stroke={getColor(category)}
+                strokeWidth={strokeWidth}
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                name={name}
+                isAnimationActive={showAnimation}
+                animationDuration={animationDuration}
+                connectNulls={connectNulls}
+              />
+            ))}
+          </ReLineChart>
+        </ResponsiveContainer>
+      </Box>
     )
   }
 )

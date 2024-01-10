@@ -268,18 +268,6 @@ const sidebar = {
           ],
         },
         {
-          title: 'Web3',
-          path: '/docs/components/web3',
-          open: true,
-          sort: true,
-          routes: [
-            {
-              title: 'Address',
-              path: '/docs/components/web3/address',
-            },
-          ],
-        },
-        {
           title: 'Forms',
           path: '/docs/components/form',
           sort: false,
@@ -401,6 +389,25 @@ const sidebar = {
           ],
         },
         {
+          title: 'Visualization',
+          path: '/docs/components/visualization',
+          open: true,
+          routes: [
+            {
+              title: 'AreaChart',
+              path: '/docs/components/visualization/area-chart',
+            },
+            {
+              title: 'LineChart',
+              path: '/docs/components/visualization/line-chart',
+            },
+            {
+              title: 'BarChart',
+              path: '/docs/components/visualization/bar-chart',
+            },
+          ],
+        },
+        {
           title: 'Advanced Data',
           path: '/docs/components/advanced-data',
           open: true,
@@ -485,6 +492,18 @@ const sidebar = {
               title: 'Tour',
               path: '/docs/components/engagement/tour',
               pro: true,
+            },
+          ],
+        },
+        {
+          title: 'Web3',
+          path: '/docs/components/web3',
+          open: true,
+          sort: true,
+          routes: [
+            {
+              title: 'Address',
+              path: '/docs/components/web3/address',
             },
           ],
         },

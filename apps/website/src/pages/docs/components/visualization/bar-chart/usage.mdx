@@ -1,29 +1,29 @@
 ---
-id: aria-chart
-title: Area Chart
-description: An area chart is a visual representation that shows quantitative data as a series of points connected by straight line segments, filled below with color.
+id: bar-chart
+title: Bar Chart
+description: A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.
 ---
 
 <ComponentLinks
-  github={{ package: 'saas-ui-charts/src/area-chart.tsx' }}
+  github={{ package: 'saas-ui-charts/src/bar-chart.tsx' }}
   npm={{ package: '@saas-ui/charts' }}
 />
 
 ## Import
 
 ```js
-import { AreaChart } from '@saas-ui/charts'
+import { BarChart } from '@saas-ui/charts'
 ```
 
 ## Usage
 
 ### Basic
 
-Basic composition with `Card` and `Heading` components. `AreaChart` requires a fixed height (eg `height="300px"`) to render properly.
+Basic composition with `Card` and `Heading` components. `BarChart` requires a fixed height (eg `height="300px"`) to render properly.
 
 ```jsx inline=true
 import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
-import { AreaChart } from '@saas-ui/charts'
+import { BarChart } from '@saas-ui/charts'
 
 const valueFormatter = (value) => {
   return new Intl.NumberFormat('en-US', {
@@ -41,7 +41,7 @@ export default function Page() {
         </Heading>
       </CardHeader>
       <CardBody>
-        <AreaChart
+        <BarChart
           data={data}
           categories={['Revenue']}
           valueFormatter={valueFormatter}
@@ -167,7 +167,7 @@ Multiple categories can be displayed in the same chart. Categories map to the `d
 
 ```jsx inline=true
 import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
-import { AreaChart } from '@saas-ui/charts'
+import { BarChart } from '@saas-ui/charts'
 
 export default function Page() {
   return (
@@ -178,7 +178,7 @@ export default function Page() {
         </Heading>
       </CardHeader>
       <CardBody>
-        <AreaChart
+        <BarChart
           data={data}
           categories={['Backend', 'Frontend']}
           height="300px"
@@ -353,7 +353,7 @@ Use the `colors` prop to customize the chart colors. Supported formats are `prim
 
 ```jsx inline=true
 import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
-import { AreaChart } from '@saas-ui/charts'
+import { BarChart } from '@saas-ui/charts'
 
 export default function Page() {
   return (
@@ -364,7 +364,7 @@ export default function Page() {
         </Heading>
       </CardHeader>
       <CardBody>
-        <AreaChart
+        <BarChart
           data={data}
           categories={['Backend', 'Frontend']}
           colors={['orange', 'yellow']}
@@ -540,7 +540,7 @@ Categories can be stacked using the `stack` prop. Stacked charts are useful for 
 
 ```jsx inline=true
 import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
-import { AreaChart } from '@saas-ui/charts'
+import { BarChart } from '@saas-ui/charts'
 
 export default function Page() {
   return (
@@ -551,7 +551,7 @@ export default function Page() {
         </Heading>
       </CardHeader>
       <CardBody>
-        <AreaChart
+        <BarChart
           data={data}
           categories={['New', 'Active', 'Churned']}
           colors={['green', 'blue', 'red']}

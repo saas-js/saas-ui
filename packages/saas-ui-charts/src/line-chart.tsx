@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, SystemProps, useColorModeValue, useTheme } from '@chakra-ui/react'
+import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
 import {
   LineChart as ReLineChart,
   Line,
@@ -9,7 +9,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  TooltipProps,
   Legend,
 } from 'recharts'
 import type { CurveType } from 'recharts/types/shape/Curve'
@@ -17,32 +16,12 @@ import type { CurveType } from 'recharts/types/shape/Curve'
 import { ChartLegend } from './legend'
 import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
+import { BaseChartProps } from './types'
 
-export interface LineChartProps {
-  allowDecimals?: boolean
-  animationDuration?: number
-  data: Record<string, string | number>[]
-  categories?: string[]
-  colors?: string[]
-  index?: string
-  intervalType?: 'preserveStartEnd' | 'equidistantPreserveStart'
-  height: SystemProps['height']
+export interface LineChartProps extends BaseChartProps {
   connectNulls?: boolean
   curveType?: CurveType
-  strokeWidth?: string
-  name?: string
-  valueFormatter?(value: number): string
-  showAnimation?: boolean
-  showGrid?: boolean
-  showLegend?: boolean
-  showTooltip?: boolean
-  showXAxis?: boolean
-  showYAxis?: boolean
-  startEndOnly?: boolean
-  tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
-  yAxisWidth?: number
-  legendHeight?: number
-  children?: React.ReactNode
+  strokeWidth?: string | number
 }
 
 export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(

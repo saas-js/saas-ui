@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-import {
-  Box,
-  SystemProps,
-  useColorModeValue,
-  useId,
-  useTheme,
-} from '@chakra-ui/react'
+import { Box, useColorModeValue, useId, useTheme } from '@chakra-ui/react'
 import {
   AreaChart as ReAreaChart,
   Area,
@@ -15,43 +9,20 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  TooltipProps,
   Legend,
 } from 'recharts'
-import type { CurveType } from 'recharts/types/shape/Curve'
 
 import { ChartLegend } from './legend'
 import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
+import { BaseChartProps, CurveType } from './types'
 
-export interface AreaChartProps {
-  allowDecimals?: boolean
-  animationDuration?: number
-  data: Record<string, string | number>[]
-  categories?: string[]
-  colors?: string[]
-  index?: string
-  intervalType?: 'preserveStartEnd' | 'equidistantPreserveStart'
-  height: SystemProps['height']
+export interface AreaChartProps extends BaseChartProps {
   connectNulls?: boolean
   curveType?: CurveType
-  strokeWidth?: string
-  name?: string
-  gradientOpacity?: number
-  valueFormatter?(value: number): string
-  showAnimation?: boolean
-  showGrid?: boolean
-  showLegend?: boolean
-  showTooltip?: boolean
-  showXAxis?: boolean
-  showYAxis?: boolean
+  strokeWidth?: string | number
   stack?: boolean
-  startEndOnly?: boolean
-  tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
-  variant?: 'line' | 'solid' | 'gradient'
-  yAxisWidth?: number
-  legendHeight?: number
-  children?: React.ReactNode
+  variant?: 'solid' | 'gradient' | 'line'
 }
 
 export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
@@ -81,7 +52,6 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       name,
       valueFormatter,
       variant = 'gradient',
-      gradientOpacity = 0.8,
       tooltipContent,
       children,
     } = props
@@ -95,7 +65,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     }
 
     const getGradientId = (category: string) => {
-      return `${id}-${categoryColors[category]}-gradient`
+      return `${id}-${category}-gradient`
     }
 
     const getFill = (category: string) => {
@@ -110,7 +80,15 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     }
 
     return (
-      <Box ref={ref} height={height} fontSize="sm">
+      <Box
+        ref={ref}
+        height={height}
+        fontSize="sm"
+        sx={{
+          '--chart-gradient-start-opacity': '0.8',
+          '--chart-gradient-end-opacity': '0',
+        }}
+      >
         <ResponsiveContainer width="100%" height="100%">
           <ReAreaChart data={data}>
             {showGrid && (
@@ -199,12 +177,12 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                   <stop
                     offset="5%"
                     stopColor={getColor(category)}
-                    stopOpacity={gradientOpacity}
+                    stopOpacity="var(--chart-gradient-start-opacity)"
                   />
                   <stop
                     offset="95%"
                     stopColor={getColor(category)}
-                    stopOpacity={0}
+                    stopOpacity="var(--chart-gradient-end-opacity)"
                   />
                 </linearGradient>
               ))}

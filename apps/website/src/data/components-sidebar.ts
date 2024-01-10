@@ -262,13 +262,18 @@ const sidebar = {
           beta: true,
         },
         {
+          title: 'BarChart',
+          path: '/docs/components/visualization/bar-chart',
+          beta: true,
+        },
+        {
           title: 'LineChart',
           path: '/docs/components/visualization/line-chart',
           beta: true,
         },
         {
-          title: 'BarChart',
-          path: '/docs/components/visualization/bar-chart',
+          title: 'Sparkline',
+          path: '/docs/components/visualization/sparkline',
           beta: true,
         },
       ],

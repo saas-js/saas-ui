@@ -5,14 +5,14 @@ export const createData = ({
   endDate,
   interval = 1,
   growthRate = 1.02,
-  categories = [],
+  categories = ['value'],
   startValues = [],
 }: {
   startDate: string
   endDate: string
   interval?: number
   growthRate?: number
-  categories: string[]
+  categories?: string[]
   startValues?: number[]
 }) => {
   const days = eachDayOfInterval({

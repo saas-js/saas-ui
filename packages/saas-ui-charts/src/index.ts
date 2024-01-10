@@ -1,5 +1,5 @@
-export { type SparklineProps, Sparklines } from './sparklines'
+export { type SparklineProps, Sparkline, Sparklines } from './sparkline'
 export { AreaChart, type AreaChartProps } from './area-chart'
 export { LineChart, type LineChartProps } from './line-chart'
 export { BarChart, type BarChartProps } from './bar-chart'
-export type { ChartData } from './types'
+export type { BaseChartProps } from './types'

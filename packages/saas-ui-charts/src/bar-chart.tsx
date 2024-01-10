@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-import {
-  Box,
-  SystemProps,
-  useColorModeValue,
-  useId,
-  useTheme,
-} from '@chakra-ui/react'
+import { Box, useColorModeValue, useId, useTheme } from '@chakra-ui/react'
 import {
   BarChart as ReBarChart,
   Bar,
@@ -15,41 +9,20 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  TooltipProps,
   Legend,
 } from 'recharts'
 
 import { ChartLegend } from './legend'
 import { ChartTooltip } from './tooltip'
 import { createCategoryColors } from './utils'
+import { BaseChartProps } from './types'
 
-export interface BarChartProps {
-  allowDecimals?: boolean
-  animationDuration?: number
+export interface BarChartProps extends BaseChartProps {
   barGap?: string | number
   barCategoryGap?: string | number
-  data: Record<string, string | number>[]
-  categories?: string[]
-  colors?: string[]
-  index?: string
-  intervalType?: 'preserveStartEnd' | 'equidistantPreserveStart'
-  height: SystemProps['height']
-  name?: string
-  valueFormatter?(value: number): string
-  showAnimation?: boolean
-  showGrid?: boolean
-  showLegend?: boolean
-  showTooltip?: boolean
-  showXAxis?: boolean
-  showYAxis?: boolean
+  radius?: number | [number, number, number, number]
   stack?: boolean
-  startEndOnly?: boolean
-  tooltipContent?(props: TooltipProps<any, any>): React.ReactNode
   variant?: 'solid' | 'gradient'
-  yAxisWidth?: number
-  legendHeight?: number
-  radius?: number
-  children?: React.ReactNode
 }
 
 export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
@@ -79,7 +52,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       valueFormatter,
       variant = 'gradient',
       tooltipContent,
-      radius = 2,
+      radius = stack ? 0 : [2, 2, 0, 0],
       children,
     } = props
 
@@ -92,7 +65,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
     }
 
     const getGradientId = (category: string) => {
-      return `${id}-${categoryColors[category]}-gradient`
+      return `${id}-${category}-gradient`
     }
 
     const getFill = (category: string) => {

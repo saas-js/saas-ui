@@ -5,15 +5,18 @@ export const createCategoryColors = (
 ) => {
   return Object.fromEntries(
     categories.map((category, index) => {
-      let color = colors[index] ?? 'gray.500'
-
-      if (color.match(/\.[0-9]{2,3}/)) {
-        color = `var(--chakra-colors-${color.replace('.', '-')})`
-      } else if (theme.colors[color]) {
-        color = theme.colors[color]?.[500]
-      }
-
+      const color = getColor(colors[index] ?? 'gray.500', theme)
       return [category, color]
     })
   )
+}
+
+export const getColor = (color: string, theme: any) => {
+  if (color.match(/\.[0-9]{2,3}/)) {
+    return `var(--chakra-colors-${color.replace('.', '-')})`
+  } else if (theme.colors[color]) {
+    return theme.colors[color]?.[500]
+  }
+
+  return color
 }

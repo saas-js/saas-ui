@@ -5,20 +5,59 @@ import type { CurveProps } from 'recharts'
 import { createCategoryColors } from './utils'
 
 export interface SparklineProps extends BoxProps {
+  /**
+   * The chart data.
+   */
   data: Array<Record<string, string | number>>
+  /**
+   * The categories to display, values map to keys in data.
+   * @default ['value']
+   */
   categories?: string[]
+  /**
+   * Colors to use for each category.
+   * @default ['primary', 'gray']
+   */
   colors?: string[]
+  /**
+   * The curve type of the area.
+   */
   curveType?: CurveProps['type']
-  limit?: number
-  color?: string
+  /**
+   * The width of the line.
+   */
   strokeWidth?: number
+  /**
+   * The sparkline variant.
+   * @default gradient
+   */
   variant?: 'line' | 'solid' | 'gradient'
+  /**
+   * Whether to show animation.
+   * @default false
+   */
   showAnimation?: boolean
+  /**
+   * The animation duration.
+   * @default 500
+   */
   animationDuration?: number
+  /**
+   * Whether to connect null values.
+   * @default true
+   */
   connectNulls?: boolean
+  /**
+   * Whether to stack the categories.
+   * @default false
+   */
   stack?: boolean
 }
 
+/**
+ * Sparkline
+ * @see Docs https://saas-ui.dev/docs/components/visualization/sparkline
+ */
 export const Sparkline = (props: SparklineProps) => {
   const {
     data = [],
@@ -29,7 +68,7 @@ export const Sparkline = (props: SparklineProps) => {
     variant = 'gradient',
     showAnimation = false,
     animationDuration = 500,
-    connectNulls = false,
+    connectNulls = true,
     stack = false,
     ...rest
   } = props

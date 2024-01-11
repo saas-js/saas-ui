@@ -19,11 +19,24 @@ import { ChartTooltip } from './tooltip'
 import { BaseChartProps } from './types'
 
 export interface LineChartProps extends BaseChartProps {
+  /**
+   * Whether to connect null values.
+   */
   connectNulls?: boolean
+  /**
+   * The curve type of the line.
+   */
   curveType?: CurveType
+  /**
+   * The width of the line.
+   */
   strokeWidth?: string | number
 }
 
+/**
+ * LineChart
+ * @see Docs https://saas-ui.dev/docs/components/visualization/line-chart
+ */
 export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
   (props, ref) => {
     const {
@@ -47,7 +60,6 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
-      name,
       valueFormatter,
       tooltipContent,
       children,
@@ -149,7 +161,6 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 strokeWidth={strokeWidth}
                 strokeLinejoin="round"
                 strokeLinecap="round"
-                name={name}
                 isAnimationActive={showAnimation}
                 animationDuration={animationDuration}
                 connectNulls={connectNulls}

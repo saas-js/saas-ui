@@ -18,13 +18,33 @@ import { createCategoryColors } from './utils'
 import { BaseChartProps } from './types'
 
 export interface BarChartProps extends BaseChartProps {
+  /**
+   * Gap between bars in pixels or percentage.
+   */
   barGap?: string | number
+  /**
+   * Gap between categories in pixels or percentage.
+   */
   barCategoryGap?: string | number
+  /**
+   * Radius of the bars.
+   */
   radius?: number | [number, number, number, number]
+  /**
+   * Whether to stack the bars.
+   */
   stack?: boolean
+  /**
+   * The bar chart variant.
+   * @default gradient
+   */
   variant?: 'solid' | 'gradient'
 }
 
+/**
+ * BarChart
+ * @see Docs https://saas-ui.dev/docs/components/visualization/bar-chart
+ */
 export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
   (props, ref) => {
     const {
@@ -48,7 +68,6 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
-      name,
       valueFormatter,
       variant = 'gradient',
       tooltipContent,
@@ -207,7 +226,6 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 dataKey={category}
                 fill={getFill(category)}
                 color={getColor(category)}
-                name={name}
                 isAnimationActive={showAnimation}
                 animationDuration={animationDuration}
                 stackId={stack ? 'a' : undefined}

@@ -18,13 +18,33 @@ import { ChartTooltip } from './tooltip'
 import { BaseChartProps, CurveType } from './types'
 
 export interface AreaChartProps extends BaseChartProps {
+  /**
+   * Whether to connect null values.
+   */
   connectNulls?: boolean
+  /**
+   * The curve type of the area.
+   */
   curveType?: CurveType
+  /**
+   * The width of the line.
+   */
   strokeWidth?: string | number
+  /**
+   * Whether to stack the areas.
+   */
   stack?: boolean
+  /**
+   * The area chart variant.
+   * @default gradient
+   */
   variant?: 'solid' | 'gradient' | 'line'
 }
 
+/**
+ * AreaChart
+ * @see Docs https://saas-ui.dev/docs/components/visualization/area-chart
+ */
 export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
   (props, ref) => {
     const {
@@ -200,7 +220,6 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                 strokeLinejoin="round"
                 strokeLinecap="round"
                 fill={getFill(category)}
-                name={name}
                 isAnimationActive={showAnimation}
                 animationDuration={animationDuration}
                 stackId={stack ? 'a' : undefined}

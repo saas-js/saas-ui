@@ -20,6 +20,7 @@ import {
   now,
 } from '@internationalized/date'
 import { isDateInRange } from './date-utils'
+import { usePopoverContext } from '@chakra-ui/react'
 
 export const [DatePickerStylesProvider, useDatePickerStyles] = createContext<
   Record<string, SystemStyleObject>
@@ -77,8 +78,76 @@ export const useDateRangePickerContext = () => {
 }
 
 export const useDatePickerDialog = () => {
-  const { dialogProps } = useContext()
-  return { dialogProps }
+  const { dialogProps, state, datePickerRef } = useContext()
+
+  React.useEffect(() => {
+    if (state.isOpen) {
+      setTimeout(() => {
+        const parent = datePickerRef.current?.parentNode
+        const el =
+          parent?.querySelector<HTMLElement>('[data-selected]') ||
+          parent?.querySelector<HTMLElement>('[data-today]') ||
+          parent?.querySelector<HTMLElement>(
+            'td button:not([aria-disabled="true"])'
+          )
+
+        el?.focus()
+      }, 0)
+    }
+  }, [datePickerRef, state.isOpen])
+
+  return {
+    dialogProps: {
+      ...dialogProps,
+    },
+  }
+}
+
+export const useDatePickerInput = () => {
+  const popover = usePopoverContext()
+  const { onClick, ...triggerProps } = popover.getTriggerProps()
+
+  const context = useDatePickerContext()
+
+  const { state, locale, groupProps, datePickerRef } = context
+
+  const buttonProps = {
+    ...context.buttonProps,
+    ...triggerProps,
+  }
+
+  return {
+    fieldProps: context.fieldProps,
+    groupProps,
+    buttonProps,
+    datePickerRef,
+    locale,
+    state,
+  }
+}
+
+export const useDateRangePickerInput = () => {
+  const popover = usePopoverContext()
+  const { onClick, ...triggerProps } = popover.getTriggerProps()
+
+  const context = useDateRangePickerContext()
+
+  const { state, locale, groupProps, datePickerRef } = context
+
+  const buttonProps = {
+    ...context.buttonProps,
+    ...triggerProps,
+  }
+
+  return {
+    groupProps,
+    buttonProps,
+    datePickerRef,
+    locale,
+    state,
+    startFieldProps: context.startFieldProps,
+    endFieldProps: context.endFieldProps,
+  }
 }
 
 export interface UseCalenderCellProps extends AriaCalendarCellProps {
@@ -99,8 +168,6 @@ export const useCalendarCell = (
     isSelected,
     isInvalid,
     formattedDate,
-    isDisabled,
-    isFocused,
     isOutsideVisibleRange,
     isUnavailable,
   } = useAriaCalendarCell({ date }, state, ref)

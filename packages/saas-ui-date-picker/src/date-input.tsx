@@ -20,7 +20,7 @@ import {
   DatePickerDialogProps,
 } from './date-picker-dialog'
 import { DatePicker, DatePickerProps } from './date-picker'
-import { useDatePickerContext } from './date-picker-context'
+import { useDatePickerContext, useDatePickerInput } from './date-picker-context'
 import { SegmentedInput } from './segmented-input'
 import { CalendarIcon } from './icons'
 
@@ -131,7 +131,7 @@ export const DatePickerInput = forwardRef<DatePickerInputProps, 'div'>(
       fieldProps,
       buttonProps,
       datePickerRef,
-    } = useDatePickerContext()
+    } = useDatePickerInput()
 
     const themeProps = { size, variant }
 

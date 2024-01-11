@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { Box, useColorModeValue, useId, useTheme } from '@chakra-ui/react'
 import {
-  BarChart as ReBarChart,
-  Bar,
+  AreaChart as ReAreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -13,51 +13,52 @@ import {
 } from 'recharts'
 
 import { ChartLegend } from './legend'
-import { ChartTooltip } from './tooltip'
 import { createCategoryColors } from './utils'
-import { BaseChartProps } from './types'
+import { ChartTooltip } from './tooltip'
+import { BaseChartProps, CurveType } from './types'
 
-export interface BarChartProps extends BaseChartProps {
+export interface AreaChartProps extends BaseChartProps {
   /**
-   * Gap between bars in pixels or percentage.
+   * Whether to connect null values.
    */
-  barGap?: string | number
+  connectNulls?: boolean
   /**
-   * Gap between categories in pixels or percentage.
+   * The curve type of the area.
    */
-  barCategoryGap?: string | number
+  curveType?: CurveType
   /**
-   * Radius of the bars.
+   * The width of the line.
    */
-  radius?: number | [number, number, number, number]
+  strokeWidth?: string | number
   /**
-   * Whether to stack the bars.
+   * Whether to stack the areas.
    */
   stack?: boolean
   /**
-   * The bar chart variant.
+   * The area chart variant.
    * @default gradient
    */
-  variant?: 'solid' | 'gradient'
+  variant?: 'solid' | 'gradient' | 'line'
 }
 
 /**
- * BarChart
- * @see Docs https://saas-ui.dev/docs/components/visualization/bar-chart
+ * AreaChart
+ * @see Docs https://saas-ui.dev/docs/components/visualization/area-chart
  */
-export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
+export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
   (props, ref) => {
     const {
       data = [],
       categories = [],
       colors = ['primary', 'cyan'],
       height,
+      connectNulls = false,
+      curveType = 'linear',
       index = 'date',
-      barGap = '2',
-      barCategoryGap = '10%',
       startEndOnly = false,
       intervalType = 'equidistantPreserveStart',
       allowDecimals = true,
+      strokeWidth = 2,
       showAnimation = true,
       showGrid = true,
       showLegend = true,
@@ -68,10 +69,10 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
+      name,
       valueFormatter,
       variant = 'gradient',
       tooltipContent,
-      radius = stack ? 0 : [2, 2, 0, 0],
       children,
     } = props
 
@@ -104,22 +105,12 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
         height={height}
         fontSize="sm"
         sx={{
-          '--chart-cursor-bg': 'var(--chakra-colors-blackAlpha-100)',
           '--chart-gradient-start-opacity': '0.8',
-          '--chart-gradient-end-opacity': '80',
-          _dark: {
-            '--chart-cursor-bg': 'var(--chakra-colors-whiteAlpha-100)',
-            '--chart-gradient-start-opacity': '80',
-            '--chart-gradient-end-opacity': '0.8',
-          },
+          '--chart-gradient-end-opacity': '0',
         }}
       >
         <ResponsiveContainer width="100%" height="100%">
-          <ReBarChart
-            data={data}
-            barCategoryGap={barCategoryGap}
-            barGap={barGap}
-          >
+          <ReAreaChart data={data}>
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
@@ -164,7 +155,6 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             {showTooltip && (
               <Tooltip
                 formatter={valueFormatter}
-                cursor={{ fill: 'var(--chart-cursor-bg)' }}
                 content={
                   tooltipContent
                     ? tooltipContent
@@ -221,18 +211,22 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             {children}
 
             {categories.map((category) => (
-              <Bar
+              <Area
                 key={category}
+                type={curveType}
                 dataKey={category}
+                stroke={getColor(category)}
+                strokeWidth={strokeWidth}
+                strokeLinejoin="round"
+                strokeLinecap="round"
                 fill={getFill(category)}
-                color={getColor(category)}
                 isAnimationActive={showAnimation}
                 animationDuration={animationDuration}
                 stackId={stack ? 'a' : undefined}
-                radius={radius}
+                connectNulls={connectNulls}
               />
             ))}
-          </ReBarChart>
+          </ReAreaChart>
         </ResponsiveContainer>
       </Box>
     )

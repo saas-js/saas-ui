@@ -1,0 +1,791 @@
+---
+id: sparkline
+title: Sparkline
+description: A sparkline component is a minimalist, inline graphic displaying trends or variations.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-charts/src/sparkline.tsx' }}
+  npm={{ package: '@saas-ui/charts' }}
+/>
+
+## Import
+
+```js
+import { Sparkline } from '@saas-ui/charts'
+```
+
+## Usage
+
+### Basic
+
+Basic composition with `Card` and `Stat` components. `Sparkline` requires a fixed height (eg `height="60px"`) to render properly.
+
+```jsx inline=true center=true
+import {
+  Card,
+  CardBody,
+  Stat,
+  StatLabel,
+  StatArrow,
+  StatNumber,
+} from '@chakra-ui/react'
+import { Sparkline } from '@saas-ui/charts'
+
+const currencyFormatter = (value) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value)
+}
+
+export default function Page() {
+  return (
+    <Card width="300px">
+      <CardBody>
+        <Stat>
+          <StatLabel>Revenue</StatLabel>
+          <StatNumber>
+            {currencyFormatter(data[data.length - 1].value ?? 0)}
+          </StatNumber>
+          <Sparkline data={data} height="60px" mx="-4" />
+        </Stat>
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Jan 1',
+    value: 1475,
+  },
+  {
+    date: 'Jan 8',
+    value: 1936,
+  },
+  {
+    date: 'Jan 15',
+    value: 1555,
+  },
+  {
+    date: 'Jan 22',
+    value: 1557,
+  },
+  {
+    date: 'Jan 29',
+    value: 1977,
+  },
+  {
+    date: 'Feb 5',
+    value: 2315,
+  },
+  {
+    date: 'Feb 12',
+    value: 1736,
+  },
+  {
+    date: 'Feb 19',
+    value: 1981,
+  },
+  {
+    date: 'Feb 26',
+    value: 2581,
+  },
+  {
+    date: 'Mar 5',
+    value: 2592,
+  },
+  {
+    date: 'Mar 12',
+    value: 2635,
+  },
+  {
+    date: 'Mar 19',
+    value: 2074,
+  },
+  {
+    date: 'Mar 26',
+    value: 2984,
+  },
+  {
+    date: 'Apr 2',
+    value: 2254,
+  },
+  {
+    date: 'Apr 9',
+    value: 3159,
+  },
+  {
+    date: 'Apr 16',
+    value: 2804,
+  },
+  {
+    date: 'Apr 23',
+    value: 2602,
+  },
+  {
+    date: 'Apr 30',
+    value: 2840,
+  },
+  {
+    date: 'May 7',
+    value: 3299,
+  },
+  {
+    date: 'May 14',
+    value: 3487,
+  },
+  {
+    date: 'May 21',
+    value: 3439,
+  },
+  {
+    date: 'May 28',
+    value: 3095,
+  },
+  {
+    date: 'Jun 4',
+    value: 3252,
+  },
+  {
+    date: 'Jun 11',
+    value: 4096,
+  },
+  {
+    date: 'Jun 18',
+    value: 4193,
+  },
+  {
+    date: 'Jun 25',
+    value: 4759,
+  },
+]
+```
+
+### Multiple categories
+
+Multiple categories can be displayed in the same chart. Categories map to the `data` object keys.
+
+```jsx inline=true center=true
+import {
+  Card,
+  CardBody,
+  Stat,
+  StatLabel,
+  StatHelpText,
+  StatArrow,
+  StatNumber,
+} from '@chakra-ui/react'
+import { Sparkline } from '@saas-ui/charts'
+
+export default function Page() {
+  const value = Number(data[data.length - 1].value ?? 0)
+  const compareValue = Number(data[data.length - 1].compareValue ?? 0)
+
+  const percentage = Math.round(((value - compareValue) / value) * 100)
+
+  return (
+    <Card width="300px">
+      <CardBody>
+        <Stat pos="relative">
+          <StatLabel>New customers</StatLabel>
+          <StatHelpText pos="absolute" top="0" right="0">
+            <StatArrow type="increase" /> {percentage}%
+          </StatHelpText>
+          <StatNumber>{data[data.length - 1].value ?? 0}</StatNumber>
+          <Sparkline
+            data={data}
+            categories={['value', 'compareValue']}
+            height="60px"
+            mx="-4"
+          />
+        </Stat>
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    value: 40,
+    compareValue: 21,
+  },
+  {
+    date: 'Dec 2',
+    value: 38,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 3',
+    value: 49,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 4',
+    value: 48,
+    compareValue: 29,
+  },
+  {
+    date: 'Dec 5',
+    value: 50,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 6',
+    value: 42,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 7',
+    value: 41,
+    compareValue: 28,
+  },
+  {
+    date: 'Dec 8',
+    value: 44,
+    compareValue: 23,
+  },
+  {
+    date: 'Dec 9',
+    value: 44,
+    compareValue: 24,
+  },
+  {
+    date: 'Dec 10',
+    value: 44,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 11',
+    value: 46,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 12',
+    value: 48,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 13',
+    value: 46,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 14',
+    value: 50,
+    compareValue: 28,
+  },
+  {
+    date: 'Dec 15',
+    value: 42,
+    compareValue: 34,
+  },
+  {
+    date: 'Dec 16',
+    value: 58,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 17',
+    value: 49,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 18',
+    value: 44,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 19',
+    value: 46,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 20',
+    value: 44,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 21',
+    value: 51,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 22',
+    value: 58,
+    compareValue: 36,
+  },
+  {
+    date: 'Dec 23',
+    value: 46,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 24',
+    value: 61,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 25',
+    value: 56,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 26',
+    value: 55,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 27',
+    value: 47,
+    compareValue: 32,
+  },
+  {
+    date: 'Dec 28',
+    value: 55,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 29',
+    value: 61,
+    compareValue: 32,
+  },
+  {
+    date: 'Dec 30',
+    value: 62,
+    compareValue: 29,
+  },
+  {
+    date: 'Dec 31',
+    value: 52,
+    compareValue: 37,
+  },
+]
+```
+
+### Customize colors
+
+Use the `colors` prop to customize the chart colors. Supported formats are `primary`, `purple`, `purple.400`, or `#4FD1C5`.
+
+```jsx inline=true center=true
+import {
+  Card,
+  CardBody,
+  Stat,
+  StatLabel,
+  StatHelpText,
+  StatArrow,
+  StatNumber,
+} from '@chakra-ui/react'
+import { Sparkline } from '@saas-ui/charts'
+
+export default function Page() {
+  const value = Number(data[data.length - 1].value ?? 0)
+  const compareValue = Number(data[data.length - 1].compareValue ?? 0)
+
+  const percentage = Math.round(((value - compareValue) / value) * 100)
+
+  return (
+    <Card width="300px">
+      <CardBody>
+        <Stat pos="relative">
+          <StatLabel>New customers</StatLabel>
+          <StatHelpText pos="absolute" top="0" right="0">
+            <StatArrow type="increase" /> {percentage}%
+          </StatHelpText>
+          <StatNumber>{data[data.length - 1].value ?? 0}</StatNumber>
+          <Sparkline
+            data={data}
+            categories={['value', 'compareValue']}
+            colors={['orange', 'gray']}
+            height="60px"
+            mx="-4"
+          />
+        </Stat>
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    value: 40,
+    compareValue: 21,
+  },
+  {
+    date: 'Dec 2',
+    value: 38,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 3',
+    value: 49,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 4',
+    value: 48,
+    compareValue: 29,
+  },
+  {
+    date: 'Dec 5',
+    value: 50,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 6',
+    value: 42,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 7',
+    value: 41,
+    compareValue: 28,
+  },
+  {
+    date: 'Dec 8',
+    value: 44,
+    compareValue: 23,
+  },
+  {
+    date: 'Dec 9',
+    value: 44,
+    compareValue: 24,
+  },
+  {
+    date: 'Dec 10',
+    value: 44,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 11',
+    value: 46,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 12',
+    value: 48,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 13',
+    value: 46,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 14',
+    value: 50,
+    compareValue: 28,
+  },
+  {
+    date: 'Dec 15',
+    value: 42,
+    compareValue: 34,
+  },
+  {
+    date: 'Dec 16',
+    value: 58,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 17',
+    value: 49,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 18',
+    value: 44,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 19',
+    value: 46,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 20',
+    value: 44,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 21',
+    value: 51,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 22',
+    value: 58,
+    compareValue: 36,
+  },
+  {
+    date: 'Dec 23',
+    value: 46,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 24',
+    value: 61,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 25',
+    value: 56,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 26',
+    value: 55,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 27',
+    value: 47,
+    compareValue: 32,
+  },
+  {
+    date: 'Dec 28',
+    value: 55,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 29',
+    value: 61,
+    compareValue: 32,
+  },
+  {
+    date: 'Dec 30',
+    value: 62,
+    compareValue: 29,
+  },
+  {
+    date: 'Dec 31',
+    value: 52,
+    compareValue: 37,
+  },
+]
+```
+
+### Stacked
+
+Categories can be stacked using the `stack` prop. Stacked charts are useful for displaying cumulative data of multiple categories over time.
+
+```jsx inline=true center=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { Sparkline } from '@saas-ui/charts'
+
+export default function Page() {
+  const total =
+    data[data.length - 1].New +
+    data[data.length - 1].Active +
+    data[data.length - 1].Churned
+  return (
+    <Card width="300px">
+      <CardBody>
+        <Stat pos="relative">
+          <StatLabel>Customers</StatLabel>
+          <StatNumber>{total ?? 0}</StatNumber>
+          <Sparkline
+            data={data}
+            categories={['New', 'Active', 'Churned']}
+            colors={['green', 'blue', 'red']}
+            height="60px"
+            stack
+          />
+        </Stat>
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    New: 46,
+    Active: 26,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 2',
+    New: 47,
+    Active: 23,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 3',
+    New: 40,
+    Active: 25,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 4',
+    New: 50,
+    Active: 28,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 5',
+    New: 53,
+    Active: 31,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 6',
+    New: 61,
+    Active: 34,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 7',
+    New: 65,
+    Active: 37,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 8',
+    New: 54,
+    Active: 39,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 9',
+    New: 55,
+    Active: 43,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 10',
+    New: 64,
+    Active: 40,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 11',
+    New: 65,
+    Active: 46,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 12',
+    New: 68,
+    Active: 42,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 13',
+    New: 88,
+    Active: 51,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 14',
+    New: 81,
+    Active: 44,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 15',
+    New: 83,
+    Active: 51,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 16',
+    New: 97,
+    Active: 52,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 17',
+    New: 106,
+    Active: 51,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 18',
+    New: 106,
+    Active: 58,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 19',
+    New: 112,
+    Active: 51,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 20',
+    New: 121,
+    Active: 60,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 21',
+    New: 100,
+    Active: 73,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 22',
+    New: 135,
+    Active: 63,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 23',
+    New: 109,
+    Active: 79,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 24',
+    New: 130,
+    Active: 84,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 25',
+    New: 126,
+    Active: 88,
+    Churned: 6,
+  },
+  {
+    date: 'Dec 26',
+    New: 163,
+    Active: 98,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 27',
+    New: 133,
+    Active: 106,
+    Churned: 7,
+  },
+  {
+    date: 'Dec 28',
+    New: 180,
+    Active: 97,
+    Churned: 7,
+  },
+  {
+    date: 'Dec 29',
+    New: 138,
+    Active: 89,
+    Churned: 7,
+  },
+  {
+    date: 'Dec 30',
+    New: 147,
+    Active: 108,
+    Churned: 6,
+  },
+  {
+    date: 'Dec 31',
+    New: 168,
+    Active: 115,
+    Churned: 8,
+  },
+]
+```

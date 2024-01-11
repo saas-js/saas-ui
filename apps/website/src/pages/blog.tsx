@@ -106,15 +106,25 @@ const BlogPage = ({ blogs }) => {
           })}
         </SimpleGrid>
 
-        <StructuredList>
-          {older.map((post, i) => {
-            return (
-              <StructuredListItem key={post.slug} href={post.slug}>
-                <StructuredListCell>{post.title}</StructuredListCell>
-              </StructuredListItem>
-            )
-          })}
-        </StructuredList>
+        <Box mt="12">
+          <Heading size="md" as="h3">
+            Older posts
+          </Heading>
+
+          <StructuredList mx="-4">
+            {older.map((post, i) => {
+              return (
+                <StructuredListItem
+                  key={post.slug}
+                  href={post.slug}
+                  rounded="md"
+                >
+                  <StructuredListCell>{post.title}</StructuredListCell>
+                </StructuredListItem>
+              )
+            })}
+          </StructuredList>
+        </Box>
       </Container>
     </Box>
   )
@@ -131,6 +141,15 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       )
       .sort((a, b) => {
         return compareDesc(new Date(a.date), new Date(b.date))
+      })
+      .map((blog) => {
+        return {
+          title: blog.title,
+          frontMatter: blog.frontMatter,
+          slug: blog.slug,
+          author: blog.author,
+          avatar: blog.avatar ?? null,
+        }
       }) || []
 
   return {

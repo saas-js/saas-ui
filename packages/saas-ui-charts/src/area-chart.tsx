@@ -69,7 +69,6 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
-      name,
       valueFormatter,
       variant = 'gradient',
       tooltipContent,

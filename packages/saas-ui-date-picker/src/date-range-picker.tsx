@@ -21,6 +21,7 @@ import { DateRangeValue } from './types'
 import { Calendar, getLocalTimeZone } from '@internationalized/date'
 import { datePickerStyleConfig } from './date-picker-styles'
 import { DatePickerDialog } from './date-picker-dialog'
+import { flushSync } from 'react-dom'
 
 export interface DateRangePickerContainerProps
   extends ThemingProps<'SuiDatePicker'>,
@@ -122,8 +123,9 @@ export const DateRangePickerContainer: React.FC<
       <DatePickerStylesProvider value={styles}>
         <Popover
           {...props}
-          onOpen={() => state.setOpen(true)}
-          onClose={() => state.setOpen(false)}
+          isOpen={state.isOpen}
+          onOpen={() => flushSync(() => state.setOpen(true))}
+          onClose={() => flushSync(() => state.setOpen(false))}
         />
       </DatePickerStylesProvider>
     </DatePickerProvider>

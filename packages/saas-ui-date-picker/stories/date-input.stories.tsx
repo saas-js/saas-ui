@@ -10,14 +10,10 @@ import {
 } from '../src'
 import {
   Box,
-  Button,
   Container,
-  Flex,
   FormControl,
   FormLabel,
   forwardRef,
-  IconButton,
-  InputGroup,
   VStack,
 } from '@chakra-ui/react'
 
@@ -29,7 +25,7 @@ export default {
   decorators: [
     (Story) => {
       return (
-        <Container>
+        <Container maxW="sm">
           <VStack>
             <Story />
           </VStack>

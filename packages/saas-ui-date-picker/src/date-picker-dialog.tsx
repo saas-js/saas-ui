@@ -27,7 +27,7 @@ export interface DatePickerDialogProps
 }
 
 export const DatePickerDialog: React.FC<DatePickerDialogProps> = (props) => {
-  const { children, hideArrow, ...rest } = props
+  const { children, hideArrow = true, ...rest } = props
 
   const { dialogProps } = useDatePickerDialog()
   const styles = useDatePickerStyles()

@@ -8505,6 +8505,7 @@ __metadata:
     "@react-aria/calendar": "npm:^3.5.3"
     "@react-aria/datepicker": "npm:^3.9.0"
     "@react-aria/i18n": "npm:^3.9.0"
+    "@react-aria/interactions": "npm:^3.20.1"
     "@react-stately/calendar": "npm:^3.4.2"
     "@react-stately/datepicker": "npm:^3.9.0"
     "@react-types/datepicker": "npm:^3.6.0"

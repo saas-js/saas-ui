@@ -7,14 +7,20 @@ import {
   InputRightElement,
   Portal,
   SystemCSSProperties,
+  useMergeRefs,
+  usePopoverContext,
 } from '@chakra-ui/react'
 
 import { FieldButton } from './button'
 import { DatePickerCalendar } from './calendar'
 import { DateField, DatePickerTimeField } from './date-field'
-import { DatePickerDialog, DatePickerTrigger } from './date-picker-dialog'
+import {
+  DatePickerAnchor,
+  DatePickerDialog,
+  DatePickerDialogProps,
+} from './date-picker-dialog'
 import { DatePicker, DatePickerProps } from './date-picker'
-import { useDatePickerContext } from './date-picker-context'
+import { useDatePickerContext, useDatePickerInput } from './date-picker-context'
 import { SegmentedInput } from './segmented-input'
 import { CalendarIcon } from './icons'
 
@@ -28,6 +34,14 @@ export interface DateInputProps extends DatePickerProps {
    * Also accepts a `z-index` value that will be passed to the dialog.
    */
   portal?: boolean | SystemCSSProperties['zIndex']
+  /**
+   * The DatePickerInput props.
+   */
+  inputProps?: DatePickerInputProps
+  /**
+   * The DatePickerDialog props.
+   */
+  dialogProps?: DatePickerDialogProps
 }
 
 /**
@@ -36,12 +50,21 @@ export interface DateInputProps extends DatePickerProps {
  * @see Docs https://saas-ui.dev/docs/date-time/date-picker-input
  */
 export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
-  const { children, calendarIcon, size, variant, portal, ...rest } = props
+  const {
+    children,
+    calendarIcon,
+    size,
+    variant,
+    inputProps,
+    dialogProps,
+    portal,
+    ...rest
+  } = props
 
   const zIndex = typeof portal === 'boolean' ? undefined : portal
 
   const dialog = (
-    <DatePickerDialog zIndex={zIndex}>
+    <DatePickerDialog zIndex={zIndex} {...dialogProps}>
       <>
         <DatePickerCalendar />
         {children}
@@ -56,6 +79,7 @@ export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
         size={size}
         variant={variant}
         ref={ref}
+        {...inputProps}
       />
 
       {portal ? <Portal>{dialog}</Portal> : dialog}
@@ -107,17 +131,22 @@ export const DatePickerInput = forwardRef<DatePickerInputProps, 'div'>(
       fieldProps,
       buttonProps,
       datePickerRef,
-    } = useDatePickerContext()
+    } = useDatePickerInput()
 
     const themeProps = { size, variant }
 
     return (
-      <InputGroup {...rest} {...groupProps} {...themeProps} ref={datePickerRef}>
-        <SegmentedInput {...themeProps}>
-          <DateField locale={locale} {...fieldProps} ref={ref} />
-        </SegmentedInput>
-        <InputRightElement py="1">
-          <DatePickerTrigger>
+      <DatePickerAnchor>
+        <InputGroup
+          ref={datePickerRef}
+          {...rest}
+          {...groupProps}
+          {...themeProps}
+        >
+          <SegmentedInput {...themeProps}>
+            <DateField ref={ref} locale={locale} {...fieldProps} />
+          </SegmentedInput>
+          <InputRightElement py="1">
             <FieldButton
               variant="ghost"
               flex="1"
@@ -127,9 +156,9 @@ export const DatePickerInput = forwardRef<DatePickerInputProps, 'div'>(
             >
               {calendarIcon || <CalendarIcon />}
             </FieldButton>
-          </DatePickerTrigger>
-        </InputRightElement>
-      </InputGroup>
+          </InputRightElement>
+        </InputGroup>
+      </DatePickerAnchor>
     )
   }
 )

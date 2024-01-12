@@ -1,0 +1,540 @@
+{
+  "Sparkline": {
+    "data": {
+      "type": "Record<string, string | number>[]",
+      "required": true,
+      "description": "The chart data."
+    },
+    "animationDuration": {
+      "type": "number",
+      "defaultValue": "500",
+      "required": false,
+      "description": "The animation duration."
+    },
+    "categories": {
+      "type": "string[]",
+      "defaultValue": "['value']",
+      "required": false,
+      "description": "The categories to display, values map to keys in data."
+    },
+    "colors": {
+      "type": "string[]",
+      "defaultValue": "['primary', 'gray']",
+      "required": false,
+      "description": "Colors to use for each category."
+    },
+    "connectNulls": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "Whether to connect null values."
+    },
+    "curveType": {
+      "type": "CurveType",
+      "required": false,
+      "description": "The curve type of the area."
+    },
+    "showAnimation": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to show animation."
+    },
+    "stack": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to stack the categories."
+    },
+    "strokeWidth": {
+      "type": "number",
+      "required": false,
+      "description": "The width of the line."
+    },
+    "variant": {
+      "type": "\"line\" | \"solid\" | \"gradient\"",
+      "defaultValue": "gradient",
+      "required": false,
+      "description": "The sparkline variant."
+    }
+  },
+  "AreaChart": {
+    "data": {
+      "type": "Record<string, string | number>[]",
+      "required": true,
+      "description": "The data to be displayed in the chart."
+    },
+    "allowDecimals": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show decimals on the y-axis."
+    },
+    "animationDuration": {
+      "type": "number",
+      "required": false,
+      "description": "Animation duration in milliseconds."
+    },
+    "categories": {
+      "type": "string[]",
+      "required": false,
+      "description": "The data keys to be displayed in the chart."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Children to render."
+    },
+    "colors": {
+      "type": "string[]",
+      "required": false,
+      "description": "The colors to use for each category."
+    },
+    "connectNulls": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to connect null values."
+    },
+    "curveType": {
+      "type": "CurveType",
+      "required": false,
+      "description": "The curve type of the area."
+    },
+    "height": {
+      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "required": false,
+      "description": "The height of the chart."
+    },
+    "index": {
+      "type": "string",
+      "defaultValue": "'date'",
+      "required": false,
+      "description": "The y-axis data key to use."
+    },
+    "intervalType": {
+      "type": "type ONLY_FOR_FORMAT =\n  | number\n  | \"preserveStartEnd\"\n  | \"equidistantPreserveStart\"\n  | \"preserveStart\"\n  | \"preserveEnd\"",
+      "required": false,
+      "description": "If set 0, all the ticks will be shown. If set preserveStart\", \"preserveEnd\" or \"preserveStartEnd\", the ticks which is to be shown or hidden will be calculated automatically."
+    },
+    "legendHeight": {
+      "type": "number",
+      "required": false,
+      "description": "Height of the legend."
+    },
+    "showAnimation": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the animation or not."
+    },
+    "showGrid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the grid or not."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the legend or not."
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the tooltip or not."
+    },
+    "showXAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the x-axis or not."
+    },
+    "showYAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the y-axis or not."
+    },
+    "stack": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to stack the areas."
+    },
+    "startEndOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Only show the start and end ticks on the x-axis."
+    },
+    "strokeWidth": {
+      "type": "string | number",
+      "required": false,
+      "description": "The width of the line."
+    },
+    "tooltipContent": {
+      "type": "(props: TooltipProps<any, any>) => ReactNode",
+      "required": false,
+      "description": "Render custom tooltip content."
+    },
+    "valueFormatter": {
+      "type": "(value: number) => string",
+      "required": false,
+      "description": "Format the value of the x-axis."
+    },
+    "variant": {
+      "type": "\"line\" | \"solid\" | \"gradient\"",
+      "defaultValue": "gradient",
+      "required": false,
+      "description": "The area chart variant."
+    },
+    "yAxisWidth": {
+      "type": "number",
+      "required": false,
+      "description": "Width of the y-axis labels."
+    }
+  },
+  "LineChart": {
+    "data": {
+      "type": "Record<string, string | number>[]",
+      "required": true,
+      "description": "The data to be displayed in the chart."
+    },
+    "allowDecimals": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show decimals on the y-axis."
+    },
+    "animationDuration": {
+      "type": "number",
+      "required": false,
+      "description": "Animation duration in milliseconds."
+    },
+    "categories": {
+      "type": "string[]",
+      "required": false,
+      "description": "The data keys to be displayed in the chart."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Children to render."
+    },
+    "colors": {
+      "type": "string[]",
+      "required": false,
+      "description": "The colors to use for each category."
+    },
+    "connectNulls": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to connect null values."
+    },
+    "curveType": {
+      "type": "CurveType",
+      "required": false,
+      "description": "The curve type of the line."
+    },
+    "height": {
+      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "required": false,
+      "description": "The height of the chart."
+    },
+    "index": {
+      "type": "string",
+      "defaultValue": "'date'",
+      "required": false,
+      "description": "The y-axis data key to use."
+    },
+    "intervalType": {
+      "type": "type ONLY_FOR_FORMAT =\n  | number\n  | \"preserveStartEnd\"\n  | \"equidistantPreserveStart\"\n  | \"preserveStart\"\n  | \"preserveEnd\"",
+      "required": false,
+      "description": "If set 0, all the ticks will be shown. If set preserveStart\", \"preserveEnd\" or \"preserveStartEnd\", the ticks which is to be shown or hidden will be calculated automatically."
+    },
+    "legendHeight": {
+      "type": "number",
+      "required": false,
+      "description": "Height of the legend."
+    },
+    "showAnimation": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the animation or not."
+    },
+    "showGrid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the grid or not."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the legend or not."
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the tooltip or not."
+    },
+    "showXAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the x-axis or not."
+    },
+    "showYAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the y-axis or not."
+    },
+    "startEndOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Only show the start and end ticks on the x-axis."
+    },
+    "strokeWidth": {
+      "type": "string | number",
+      "required": false,
+      "description": "The width of the line."
+    },
+    "tooltipContent": {
+      "type": "(props: TooltipProps<any, any>) => ReactNode",
+      "required": false,
+      "description": "Render custom tooltip content."
+    },
+    "valueFormatter": {
+      "type": "(value: number) => string",
+      "required": false,
+      "description": "Format the value of the x-axis."
+    },
+    "yAxisWidth": {
+      "type": "number",
+      "required": false,
+      "description": "Width of the y-axis labels."
+    }
+  },
+  "BarChart": {
+    "data": {
+      "type": "Record<string, string | number>[]",
+      "required": true,
+      "description": "The data to be displayed in the chart."
+    },
+    "allowDecimals": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show decimals on the y-axis."
+    },
+    "animationDuration": {
+      "type": "number",
+      "required": false,
+      "description": "Animation duration in milliseconds."
+    },
+    "barCategoryGap": {
+      "type": "string | number",
+      "required": false,
+      "description": "Gap between categories in pixels or percentage."
+    },
+    "barGap": {
+      "type": "string | number",
+      "required": false,
+      "description": "Gap between bars in pixels or percentage."
+    },
+    "categories": {
+      "type": "string[]",
+      "required": false,
+      "description": "The data keys to be displayed in the chart."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Children to render."
+    },
+    "colors": {
+      "type": "string[]",
+      "required": false,
+      "description": "The colors to use for each category."
+    },
+    "height": {
+      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "required": false,
+      "description": "The height of the chart."
+    },
+    "index": {
+      "type": "string",
+      "defaultValue": "'date'",
+      "required": false,
+      "description": "The y-axis data key to use."
+    },
+    "intervalType": {
+      "type": "type ONLY_FOR_FORMAT =\n  | number\n  | \"preserveStartEnd\"\n  | \"equidistantPreserveStart\"\n  | \"preserveStart\"\n  | \"preserveEnd\"",
+      "required": false,
+      "description": "If set 0, all the ticks will be shown. If set preserveStart\", \"preserveEnd\" or \"preserveStartEnd\", the ticks which is to be shown or hidden will be calculated automatically."
+    },
+    "legendHeight": {
+      "type": "number",
+      "required": false,
+      "description": "Height of the legend."
+    },
+    "radius": {
+      "type": "number | [number, number, number, number]",
+      "required": false,
+      "description": "Radius of the bars."
+    },
+    "showAnimation": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the animation or not."
+    },
+    "showGrid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the grid or not."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the legend or not."
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the tooltip or not."
+    },
+    "showXAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the x-axis or not."
+    },
+    "showYAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the y-axis or not."
+    },
+    "stack": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to stack the bars."
+    },
+    "startEndOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Only show the start and end ticks on the x-axis."
+    },
+    "tooltipContent": {
+      "type": "(props: TooltipProps<any, any>) => ReactNode",
+      "required": false,
+      "description": "Render custom tooltip content."
+    },
+    "valueFormatter": {
+      "type": "(value: number) => string",
+      "required": false,
+      "description": "Format the value of the x-axis."
+    },
+    "variant": {
+      "type": "\"solid\" | \"gradient\"",
+      "defaultValue": "gradient",
+      "required": false,
+      "description": "The bar chart variant."
+    },
+    "yAxisWidth": {
+      "type": "number",
+      "required": false,
+      "description": "Width of the y-axis labels."
+    }
+  },
+  "BaseChart": {
+    "data": {
+      "type": "Record<string, string | number>[]",
+      "required": true,
+      "description": "The data to be displayed in the chart."
+    },
+    "allowDecimals": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show decimals on the y-axis."
+    },
+    "animationDuration": {
+      "type": "number",
+      "required": false,
+      "description": "Animation duration in milliseconds."
+    },
+    "categories": {
+      "type": "string[]",
+      "required": false,
+      "description": "The data keys to be displayed in the chart."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Children to render."
+    },
+    "colors": {
+      "type": "string[]",
+      "required": false,
+      "description": "The colors to use for each category."
+    },
+    "height": {
+      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "required": false,
+      "description": "The height of the chart."
+    },
+    "index": {
+      "type": "string",
+      "defaultValue": "'date'",
+      "required": false,
+      "description": "The y-axis data key to use."
+    },
+    "intervalType": {
+      "type": "type ONLY_FOR_FORMAT =\n  | number\n  | \"preserveStartEnd\"\n  | \"equidistantPreserveStart\"\n  | \"preserveStart\"\n  | \"preserveEnd\"",
+      "required": false,
+      "description": "If set 0, all the ticks will be shown. If set preserveStart\", \"preserveEnd\" or \"preserveStartEnd\", the ticks which is to be shown or hidden will be calculated automatically."
+    },
+    "legendHeight": {
+      "type": "number",
+      "required": false,
+      "description": "Height of the legend."
+    },
+    "showAnimation": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the animation or not."
+    },
+    "showGrid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the grid or not."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the legend or not."
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the tooltip or not."
+    },
+    "showXAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the x-axis or not."
+    },
+    "showYAxis": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wether to show the y-axis or not."
+    },
+    "startEndOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Only show the start and end ticks on the x-axis."
+    },
+    "tooltipContent": {
+      "type": "(props: TooltipProps<any, any>) => ReactNode",
+      "required": false,
+      "description": "Render custom tooltip content."
+    },
+    "valueFormatter": {
+      "type": "(value: number) => string",
+      "required": false,
+      "description": "Format the value of the x-axis."
+    },
+    "yAxisWidth": {
+      "type": "number",
+      "required": false,
+      "description": "Width of the y-axis labels."
+    }
+  }
+}

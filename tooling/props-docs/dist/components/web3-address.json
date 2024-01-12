@@ -1,0 +1,7 @@
+{
+  "Web3Address": {
+    "address": { "type": "string", "required": true },
+    "endLength": { "type": "number", "required": false },
+    "startLength": { "type": "number", "required": false }
+  }
+}

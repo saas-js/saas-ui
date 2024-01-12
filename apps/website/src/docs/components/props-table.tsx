@@ -1,20 +1,7 @@
 import { getPropDoc } from '@saas-ui/props-docs'
 import { getPropDoc as getChakraPropDoc } from '@chakra-ui/props-docs'
-import {
-  Badge,
-  chakra,
-  Code,
-  Flex,
-  HStack,
-  Stack,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react'
+import { transparentize } from '@chakra-ui/theme-tools'
+import { Code, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
 import * as React from 'react'
 import { convertBackticksToInlineCode } from '../utils/convert-backticks-to-inline-code'
 import { t } from '../utils/i18n'
@@ -97,6 +84,10 @@ const PropsTable = ({
                 color="inherit"
                 px="1"
                 py="0.5"
+                _dark={{
+                  bg: transparentize('primary.900', 0.16),
+                  borderColor: 'primary.900',
+                }}
               >
                 {prop.type}
               </Code>
@@ -113,6 +104,10 @@ const PropsTable = ({
                   bg="gray.50"
                   borderColor="gray.100"
                   color="inherit"
+                  _dark={{
+                    bg: 'whiteAlpha.100',
+                    borderColor: 'whiteAlpha.200',
+                  }}
                 >
                   {prop.defaultValue}
                 </Code>

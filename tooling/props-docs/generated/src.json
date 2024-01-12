@@ -1,0 +1,9 @@
+{
+  "NProgress": {
+    "isAnimating": {
+      "type": "boolean",
+      "required": true,
+      "description": "Set to true to start the progress animation."
+    }
+  }
+}

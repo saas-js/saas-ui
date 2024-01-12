@@ -10,7 +10,6 @@ import {
   ModalContent,
   ModalOverlay,
   ModalProps,
-  omitThemingProps,
   ModalContentProps,
 } from '@chakra-ui/react'
 import {

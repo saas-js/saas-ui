@@ -1,10 +1,10 @@
-export {
-  Snackbar,
-  type SnackbarOptions,
-  type SnackbarPromiseOptions,
-  type UseSnackbarOptions,
-  type UseSnackbarReturn,
-  useSnackbar,
-} from './use-snackbar'
+export { Snackbar, useSnackbar } from './use-snackbar'
 
 export { createStandAloneSnackbar } from './standalone'
+
+export type {
+  SnackbarOptions,
+  SnackbarPromiseOptions,
+  UseSnackbarOptions,
+  UseSnackbarReturn,
+} from './use-snackbar'

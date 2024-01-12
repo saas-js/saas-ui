@@ -1,12 +1,14 @@
 export {
-  type FileUploadContext,
-  type FileUploadOptions,
   FileUploadProvider,
-  type FileUploadRenderContext,
   FileUploadStylesProvider,
   useFileUpload,
   useFileUploadContext,
   useFileUploadStyles,
+} from './file-upload-context'
+export type {
+  FileUploadContext,
+  FileUploadOptions,
+  FileUploadRenderContext,
 } from './file-upload-context'
 export { fileUploadAnatomy, fileUploadTheme } from './file-upload-theme'
 export {
@@ -14,6 +16,5 @@ export {
   FileUploadTrigger,
   FileUploadDropzone,
   FileUploadPreview,
-  type FileUploadPreviewProps,
-  type FileUploadProps,
 } from './file-upload'
+export type { FileUploadPreviewProps, FileUploadProps } from './file-upload'

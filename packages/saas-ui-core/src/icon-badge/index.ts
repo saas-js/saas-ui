@@ -1,1 +1,2 @@
-export { IconBadge, type IconBadgeProps } from './icon-badge'
+export { IconBadge } from './icon-badge'
+export type { IconBadgeProps } from './icon-badge'

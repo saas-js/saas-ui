@@ -1,0 +1,1083 @@
+{
+  "BannerActions": {
+    "isAttached": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the borderRadius of button that are direct children will be altered\nto look flushed together"
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, all wrapped button will be disabled"
+    },
+    "spacing": {
+      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"initial\"\n  | \"inherit\"\n  | \"-moz-initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "defaultValue": "'0.5rem'",
+      "required": false,
+      "description": "The spacing between the buttons"
+    }
+  },
+  "BannerContent": {},
+  "BannerDescription": {},
+  "BannerIcon": { "icon": { "type": "As", "required": false } },
+  "Banner": {
+    "_dragX": {
+      "type": "MotionValue<number>",
+      "required": false,
+      "description": "Usually, dragging uses the layout project engine, and applies transforms to the underlying VisualElement.\nPassing MotionValues as _dragX and _dragY instead applies drag updates to these motion values.\nThis allows you to manually control how updates from a drag gesture on an element is applied."
+    },
+    "_dragY": {
+      "type": "MotionValue<number>",
+      "required": false,
+      "description": "Usually, dragging uses the layout project engine, and applies transforms to the underlying VisualElement.\nPassing MotionValues as _dragX and _dragY instead applies drag updates to these motion values.\nThis allows you to manually control how updates from a drag gesture on an element is applied."
+    },
+    "about": { "type": "string", "required": false },
+    "accessKey": { "type": "string", "required": false },
+    "animate": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | AnimationControls\n  | TargetAndTransition\n  | VariantLabels",
+      "required": false,
+      "description": "Values to animate to, variant label(s), or `AnimationControls`.\n\n```jsx\n// As values\n<motion.div animate={{ opacity: 1 }} />\n\n// As variant\n<motion.div animate=\"visible\" variants={variants} />\n\n// Multiple variants\n<motion.div animate={[\"visible\", \"active\"]} variants={variants} />\n\n// AnimationControls\n<motion.div animate={animation} />\n```"
+    },
+    "aria-activedescendant": { "type": "string", "required": false },
+    "aria-atomic": { "type": "Booleanish", "required": false },
+    "aria-autocomplete": {
+      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "required": false
+    },
+    "aria-braillelabel": { "type": "string", "required": false },
+    "aria-brailleroledescription": { "type": "string", "required": false },
+    "aria-busy": { "type": "Booleanish", "required": false },
+    "aria-checked": {
+      "type": "boolean | \"true\" | \"false\" | \"mixed\"",
+      "required": false
+    },
+    "aria-colcount": { "type": "number", "required": false },
+    "aria-colindex": { "type": "number", "required": false },
+    "aria-colindextext": { "type": "string", "required": false },
+    "aria-colspan": { "type": "number", "required": false },
+    "aria-controls": { "type": "string", "required": false },
+    "aria-current": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | \"time\"\n  | \"page\"\n  | \"true\"\n  | \"false\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "required": false
+    },
+    "aria-describedby": { "type": "string", "required": false },
+    "aria-description": { "type": "string", "required": false },
+    "aria-details": { "type": "string", "required": false },
+    "aria-disabled": { "type": "Booleanish", "required": false },
+    "aria-dropeffect": {
+      "type": "\"link\" | \"none\" | \"copy\" | \"move\" | \"execute\" | \"popup\"",
+      "required": false
+    },
+    "aria-errormessage": { "type": "string", "required": false },
+    "aria-expanded": { "type": "Booleanish", "required": false },
+    "aria-flowto": { "type": "string", "required": false },
+    "aria-grabbed": { "type": "Booleanish", "required": false },
+    "aria-haspopup": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"grid\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"",
+      "required": false
+    },
+    "aria-hidden": { "type": "Booleanish", "required": false },
+    "aria-invalid": {
+      "type": "boolean | \"true\" | \"false\" | \"grammar\" | \"spelling\"",
+      "required": false
+    },
+    "aria-keyshortcuts": { "type": "string", "required": false },
+    "aria-label": { "type": "string", "required": false },
+    "aria-labelledby": { "type": "string", "required": false },
+    "aria-level": { "type": "number", "required": false },
+    "aria-live": {
+      "type": "\"off\" | \"assertive\" | \"polite\"",
+      "required": false
+    },
+    "aria-modal": { "type": "Booleanish", "required": false },
+    "aria-multiline": { "type": "Booleanish", "required": false },
+    "aria-multiselectable": { "type": "Booleanish", "required": false },
+    "aria-orientation": {
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false
+    },
+    "aria-owns": { "type": "string", "required": false },
+    "aria-placeholder": { "type": "string", "required": false },
+    "aria-posinset": { "type": "number", "required": false },
+    "aria-pressed": {
+      "type": "boolean | \"true\" | \"false\" | \"mixed\"",
+      "required": false
+    },
+    "aria-readonly": { "type": "Booleanish", "required": false },
+    "aria-relevant": {
+      "type": "type ONLY_FOR_FORMAT =\n  | \"text\"\n  | \"all\"\n  | \"additions\"\n  | \"additions removals\"\n  | \"additions text\"\n  | \"removals\"\n  | \"removals additions\"\n  | \"removals text\"\n  | \"text additions\"\n  | \"text removals\"",
+      "required": false
+    },
+    "aria-required": { "type": "Booleanish", "required": false },
+    "aria-roledescription": { "type": "string", "required": false },
+    "aria-rowcount": { "type": "number", "required": false },
+    "aria-rowindex": { "type": "number", "required": false },
+    "aria-rowindextext": { "type": "string", "required": false },
+    "aria-rowspan": { "type": "number", "required": false },
+    "aria-selected": { "type": "Booleanish", "required": false },
+    "aria-setsize": { "type": "number", "required": false },
+    "aria-sort": {
+      "type": "\"none\" | \"ascending\" | \"descending\" | \"other\"",
+      "required": false
+    },
+    "aria-valuemax": { "type": "number", "required": false },
+    "aria-valuemin": { "type": "number", "required": false },
+    "aria-valuenow": { "type": "number", "required": false },
+    "aria-valuetext": { "type": "string", "required": false },
+    "autoCapitalize": { "type": "string", "required": false },
+    "autoCorrect": { "type": "string", "required": false },
+    "autoFocus": { "type": "boolean", "required": false },
+    "autoSave": { "type": "string", "required": false },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | MotionValue<...> | MotionValue<...>",
+      "required": false
+    },
+    "className": { "type": "string", "required": false },
+    "content": { "type": "string", "required": false },
+    "contentEditable": {
+      "type": "\"inherit\" | Booleanish",
+      "required": false
+    },
+    "contextMenu": { "type": "string", "required": false },
+    "custom": {
+      "type": "any",
+      "required": false,
+      "description": "Custom data to use to resolve dynamic variants differently for each animating component.\n\n```jsx\nconst variants = {\n  visible: (custom) => ({\n    opacity: 1,\n    transition: { delay: custom * 0.2 }\n  })\n}\n\n<motion.div custom={0} animate=\"visible\" variants={variants} />\n<motion.div custom={1} animate=\"visible\" variants={variants} />\n<motion.div custom={2} animate=\"visible\" variants={variants} />\n```"
+    },
+    "dangerouslySetInnerHTML": {
+      "type": "{ __html: string | TrustedHTML }",
+      "required": false
+    },
+    "datatype": { "type": "string", "required": false },
+    "defaultChecked": { "type": "boolean", "required": false },
+    "defaultValue": {
+      "type": "string | number | readonly string[]",
+      "required": false
+    },
+    "dir": { "type": "string", "required": false },
+    "drag": {
+      "type": "boolean | \"x\" | \"y\"",
+      "required": false,
+      "description": "Enable dragging for this element. Set to `false` by default.\nSet `true` to drag in both directions.\nSet `\"x\"` or `\"y\"` to only drag in a specific direction.\n\n```jsx\n<motion.div drag=\"x\" />\n```"
+    },
+    "dragConstraints": {
+      "type": "false | Partial<BoundingBox> | RefObject<Element>",
+      "required": false,
+      "description": "Applies constraints on the permitted draggable area.\n\nIt can accept an object of optional `top`, `left`, `right`, and `bottom` values, measured in pixels.\nThis will define a distance the named edge of the draggable component.\n\nAlternatively, it can accept a `ref` to another component created with React's `useRef` hook.\nThis `ref` should be passed both to the draggable component's `dragConstraints` prop, and the `ref`\nof the component you want to use as constraints.\n\n```jsx\n// In pixels\n<motion.div\n  drag=\"x\"\n  dragConstraints={{ left: 0, right: 300 }}\n/>\n\n// As a ref to another component\nconst MyComponent = () => {\n  const constraintsRef = useRef(null)\n\n  return (\n     <motion.div ref={constraintsRef}>\n         <motion.div drag dragConstraints={constraintsRef} />\n     </motion.div>\n  )\n}\n```"
+    },
+    "dragControls": {
+      "type": "DragControls",
+      "required": false,
+      "description": "Usually, dragging is initiated by pressing down on a component and moving it. For some\nuse-cases, for instance clicking at an arbitrary point on a video scrubber, we\nmight want to initiate dragging from a different component than the draggable one.\n\nBy creating a `dragControls` using the `useDragControls` hook, we can pass this into\nthe draggable component's `dragControls` prop. It exposes a `start` method\nthat can start dragging from pointer events on other components.\n\n```jsx\nconst dragControls = useDragControls()\n\nfunction startDrag(event) {\n  dragControls.start(event, { snapToCursor: true })\n}\n\nreturn (\n  <>\n    <div onPointerDown={startDrag} />\n    <motion.div drag=\"x\" dragControls={dragControls} />\n  </>\n)\n```"
+    },
+    "dragDirectionLock": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, this will lock dragging to the initially-detected direction. Defaults to `false`.\n\n```jsx\n<motion.div drag dragDirectionLock />\n```"
+    },
+    "dragElastic": {
+      "type": "DragElastic",
+      "required": false,
+      "description": "The degree of movement allowed outside constraints. 0 = no movement, 1 =\nfull movement.\n\nSet to `0.5` by default. Can also be set as `false` to disable movement.\n\nBy passing an object of `top`/`right`/`bottom`/`left`, individual values can be set\nper constraint. Any missing values will be set to `0`.\n\n```jsx\n<motion.div\n  drag\n  dragConstraints={{ left: 0, right: 300 }}\n  dragElastic={0.2}\n/>\n```"
+    },
+    "draggable": { "type": "Booleanish", "required": false },
+    "dragListener": {
+      "type": "boolean",
+      "required": false,
+      "description": "By default, if `drag` is defined on a component then an event listener will be attached\nto automatically initiate dragging when a user presses down on it.\n\nBy setting `dragListener` to `false`, this event listener will not be created.\n\n```jsx\nconst dragControls = useDragControls()\n\nfunction startDrag(event) {\n  dragControls.start(event, { snapToCursor: true })\n}\n\nreturn (\n  <>\n    <div onPointerDown={startDrag} />\n    <motion.div\n      drag=\"x\"\n      dragControls={dragControls}\n      dragListener={false}\n    />\n  </>\n)\n```"
+    },
+    "dragMomentum": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply momentum from the pan gesture to the component when dragging\nfinishes. Set to `true` by default.\n\n```jsx\n<motion.div\n  drag\n  dragConstraints={{ left: 0, right: 300 }}\n  dragMomentum={false}\n/>\n```"
+    },
+    "dragPropagation": {
+      "type": "boolean",
+      "required": false,
+      "description": "Allows drag gesture propagation to child components. Set to `false` by\ndefault.\n\n```jsx\n<motion.div drag=\"x\" dragPropagation />\n```"
+    },
+    "dragSnapToOrigin": {
+      "type": "boolean",
+      "required": false,
+      "description": "If true, element will snap back to its origin when dragging ends.\n\nEnabling this is the equivalent of setting all `dragConstraints` axes to `0`\nwith `dragElastic={1}`, but when used together `dragConstraints` can define\na wider draggable area and `dragSnapToOrigin` will ensure the element\nanimates back to its origin on release."
+    },
+    "dragTransition": {
+      "type": "Partial<Omit<Inertia, \"type\" | \"velocity\">>",
+      "required": false,
+      "description": "Allows you to change dragging inertia parameters.\nWhen releasing a draggable Frame, an animation with type `inertia` starts. The animation is based on your dragging velocity. This property allows you to customize it.\nSee \n{@link \nhttps://framer.com/api/animation/#inertia Inertia\n}\n for all properties you can use.\n\n```jsx\n<motion.div\n  drag\n  dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}\n/>\n```"
+    },
+    "exit": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "A target to animate to when this component is removed from the tree.\n\nThis component **must** be the first animatable child of an `AnimatePresence` to enable this exit animation.\n\nThis limitation exists because React doesn't allow components to defer unmounting until after\nan animation is complete. Once this limitation is fixed, the `AnimatePresence` component will be unnecessary.\n\n```jsx\nimport { AnimatePresence, motion } from 'framer-motion'\n\nexport const MyComponent = ({ isVisible }) => {\n  return (\n    <AnimatePresence>\n       {isVisible && (\n         <motion.div\n           initial={{ opacity: 0 }}\n           animate={{ opacity: 1 }}\n           exit={{ opacity: 0 }}\n         />\n       )}\n    </AnimatePresence>\n  )\n}\n```"
+    },
+    "hidden": { "type": "boolean", "required": false },
+    "id": { "type": "string", "required": false },
+    "ignoreStrict": { "type": "boolean", "required": false },
+    "inherit": { "type": "boolean", "required": false },
+    "initial": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | MakeCustomValueType<TargetProperties>\n  | VariantLabels",
+      "required": false,
+      "description": "Properties, variant label or array of variant labels to start in.\n\nSet to `false` to initialise with the values in `animate` (disabling the mount animation)\n\n```jsx\n// As values\n<motion.div initial={{ opacity: 1 }} />\n\n// As variant\n<motion.div initial=\"visible\" variants={variants} />\n\n// Multiple variants\n<motion.div initial={[\"visible\", \"active\"]} variants={variants} />\n\n// As false (disable mount animation)\n<motion.div initial={false} animate={{ opacity: 0 }} />\n```"
+    },
+    "inlist": { "type": "any", "required": false },
+    "inputMode": {
+      "type": "type ONLY_FOR_FORMAT =\n  | \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "required": false
+    },
+    "is": { "type": "string", "required": false },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show or hide the banner."
+    },
+    "itemID": { "type": "string", "required": false },
+    "itemProp": { "type": "string", "required": false },
+    "itemRef": { "type": "string", "required": false },
+    "itemScope": { "type": "boolean", "required": false },
+    "itemType": { "type": "string", "required": false },
+    "lang": { "type": "string", "required": false },
+    "layout": {
+      "type": "boolean | \"position\" | \"size\" | \"preserve-aspect\"",
+      "required": false,
+      "description": "If `true`, this component will automatically animate to its new position when\nits layout changes.\n\n```jsx\n<motion.div layout />\n```\n\nThis will perform a layout animation using performant transforms. Part of this technique\ninvolved animating an element's scale. This can introduce visual distortions on children,\n`boxShadow` and `borderRadius`.\n\nTo correct distortion on immediate children, add `layout` to those too.\n\n`boxShadow` and `borderRadius` will automatically be corrected if they are already being\nanimated on this component. Otherwise, set them directly via the `initial` prop.\n\nIf `layout` is set to `\"position\"`, the size of the component will change instantly and\nonly its position will animate. If `layout` is set to `\"size\"`, the position of the\ncomponent will change instantly but its size will animate.\n\nIf `layout` is set to `\"size\"`, the position of the component will change instantly and\nonly its size will animate.\n\nIf `layout` is set to `\"preserve-aspect\"`, the component will animate size & position if\nthe aspect ratio remains the same between renders, and just position if the ratio changes."
+    },
+    "layoutDependency": { "type": "any", "required": false },
+    "layoutId": {
+      "type": "string",
+      "required": false,
+      "description": "Enable shared layout transitions between different components with the same `layoutId`.\n\nWhen a component with a layoutId is removed from the React tree, and then\nadded elsewhere, it will visually animate from the previous component's bounding box\nand its latest animated values.\n\n```jsx\n  {items.map(item => (\n     <motion.li layout>\n        {item.name}\n        {item.isSelected && <motion.div layoutId=\"underline\" />}\n     </motion.li>\n  ))}\n```\n\nIf the previous component remains in the tree it will crossfade with the new component."
+    },
+    "layoutRoot": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether an element should be considered a \"layout root\", where\nall children will be forced to resolve relatively to it.\nCurrently used for `position: sticky` elements in Framer."
+    },
+    "layoutScroll": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether a projection node should measure its scroll when it or its descendants update their layout."
+    },
+    "motionPreset": {
+      "type": "BannerMotion",
+      "defaultValue": "'slideOutTop'",
+      "required": false,
+      "description": "Customize the close animation."
+    },
+    "nonce": { "type": "string", "required": false },
+    "onAbort": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAbortCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAnimationComplete": {
+      "type": "(definition: AnimationDefinition) => void",
+      "required": false,
+      "description": "Callback when animation defined in `animate` is complete.\n\nThe provided callback will be called with the triggering animation definition.\nIf this is a variant, it'll be the variant name, and if a target object\nthen it'll be the target object.\n\nThis way, it's possible to figure out which animation has completed.\n\n```jsx\nfunction onComplete() {\n  console.log(\"Animation completed\")\n}\n\n<motion.div\n  animate={{ x: 100 }}\n  onAnimationComplete={definition => {\n    console.log('Completed animating', definition)\n  }}\n/>\n```"
+    },
+    "onAnimationEnd": {
+      "type": "AnimationEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAnimationEndCapture": {
+      "type": "AnimationEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAnimationIteration": {
+      "type": "AnimationEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAnimationIterationCapture": {
+      "type": "AnimationEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAnimationStart": {
+      "type": "(definition: AnimationDefinition) => void",
+      "required": false,
+      "description": "Callback when animation defined in `animate` begins.\n\nThe provided callback will be called with the triggering animation definition.\nIf this is a variant, it'll be the variant name, and if a target object\nthen it'll be the target object.\n\nThis way, it's possible to figure out which animation has started.\n\n```jsx\nfunction onStart() {\n  console.log(\"Animation started\")\n}\n\n<motion.div animate={{ x: 100 }} onAnimationStart={onStart} />\n```"
+    },
+    "onAnimationStartCapture": {
+      "type": "AnimationEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAuxClick": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onAuxClickCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onBeforeInput": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onBeforeInputCapture": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onBeforeLayoutMeasure": {
+      "type": "(box: Box) => void",
+      "required": false
+    },
+    "onBlur": {
+      "type": "FocusEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onBlurCapture": {
+      "type": "FocusEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCanPlay": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCanPlayCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCanPlayThrough": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCanPlayThroughCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onChange": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onChangeCapture": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onClick": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onClickCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the close button is clicked."
+    },
+    "onCompositionEnd": {
+      "type": "CompositionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCompositionEndCapture": {
+      "type": "CompositionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCompositionStart": {
+      "type": "CompositionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCompositionStartCapture": {
+      "type": "CompositionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCompositionUpdate": {
+      "type": "CompositionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCompositionUpdateCapture": {
+      "type": "CompositionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onContextMenu": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onContextMenuCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCopy": {
+      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCopyCapture": {
+      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCut": {
+      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onCutCapture": {
+      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDirectionLock": {
+      "type": "(axis: \"x\" | \"y\") => void",
+      "required": false,
+      "description": "Callback function that fires a drag direction is determined.\n\n```jsx\n<motion.div\n  drag\n  dragDirectionLock\n  onDirectionLock={axis => console.log(axis)}\n/>\n```"
+    },
+    "onDoubleClick": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDoubleClickCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDrag": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "required": false,
+      "description": "Callback function that fires when the component is dragged.\n\n```jsx\n<motion.div\n  drag\n  onDrag={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
+    },
+    "onDragCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragEnd": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "required": false,
+      "description": "Callback function that fires when dragging ends.\n\n```jsx\n<motion.div\n  drag\n  onDragEnd={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
+    },
+    "onDragEndCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragEnter": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragEnterCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragExit": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragExitCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragLeave": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragLeaveCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragOver": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragOverCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragStart": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "required": false,
+      "description": "Callback function that fires when dragging starts.\n\n```jsx\n<motion.div\n  drag\n  onDragStart={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
+    },
+    "onDragStartCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDragTransitionEnd": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback function that fires when drag momentum/bounce transition finishes.\n\n```jsx\n<motion.div\n  drag\n  onDragTransitionEnd={() => console.log('Drag transition complete')}\n/>\n```"
+    },
+    "onDrop": { "type": "DragEventHandler<HTMLDivElement>", "required": false },
+    "onDropCapture": {
+      "type": "DragEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDurationChange": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onDurationChangeCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onEmptied": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onEmptiedCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onEncrypted": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onEncryptedCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onEnded": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onEndedCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onError": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onErrorCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onFocus": {
+      "type": "FocusEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onFocusCapture": {
+      "type": "FocusEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onGotPointerCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onGotPointerCaptureCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onHoverEnd": {
+      "type": "(event: MouseEvent, info: EventInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when pointer stops hovering over the component.\n\n```jsx\n<motion.div onHoverEnd={() => console.log(\"Hover ends\")} />\n```"
+    },
+    "onHoverStart": {
+      "type": "(event: MouseEvent, info: EventInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when pointer starts hovering over the component.\n\n```jsx\n<motion.div onHoverStart={() => console.log('Hover starts')} />\n```"
+    },
+    "onInput": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onInputCapture": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onInvalid": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onInvalidCapture": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onKeyDown": {
+      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onKeyDownCapture": {
+      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onKeyPress": {
+      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onKeyPressCapture": {
+      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onKeyUp": {
+      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onKeyUpCapture": {
+      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLayoutAnimationComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "A callback that will fire when a layout animation on this component completes."
+    },
+    "onLayoutAnimationStart": {
+      "type": "() => void",
+      "required": false,
+      "description": "A callback that will fire when a layout animation on this component starts."
+    },
+    "onLayoutMeasure": {
+      "type": "(box: Box, prevBox: Box) => void",
+      "required": false
+    },
+    "onLoad": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadedData": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadedDataCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadedMetadata": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadedMetadataCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadStart": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLoadStartCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLostPointerCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onLostPointerCaptureCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMeasureDragConstraints": {
+      "type": "(constraints: BoundingBox) => void | BoundingBox",
+      "required": false,
+      "description": "If `dragConstraints` is set to a React ref, this callback will call with the measured drag constraints."
+    },
+    "onMouseDown": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseDownCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseEnter": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseLeave": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseMove": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseMoveCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseOut": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseOutCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseOver": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseOverCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseUp": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onMouseUpCapture": {
+      "type": "MouseEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPan": {
+      "type": "(event: PointerEvent, info: PanInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when the pan gesture is recognised on this element.\n\n**Note:** For pan gestures to work correctly with touch input, the element needs\ntouch scrolling to be disabled on either x/y or both axis with the\n[touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) CSS rule.\n\n```jsx\nfunction onPan(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPan={onPan} />\n```"
+    },
+    "onPanEnd": {
+      "type": "(event: PointerEvent, info: PanInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when the pan gesture ends on this element.\n\n```jsx\nfunction onPanEnd(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPanEnd={onPanEnd} />\n```"
+    },
+    "onPanSessionStart": {
+      "type": "(event: PointerEvent, info: EventInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when we begin detecting a pan gesture. This\nis analogous to `onMouseStart` or `onTouchStart`.\n\n```jsx\nfunction onPanSessionStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPanSessionStart={onPanSessionStart} />\n```"
+    },
+    "onPanStart": {
+      "type": "(event: PointerEvent, info: PanInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when the pan gesture begins on this element.\n\n```jsx\nfunction onPanStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPanStart={onPanStart} />\n```"
+    },
+    "onPaste": {
+      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPasteCapture": {
+      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPause": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPauseCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPlay": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPlayCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPlaying": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPlayingCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerCancel": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerCancelCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerDown": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerDownCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerEnter": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerEnterCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerLeave": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerLeaveCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerMove": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerMoveCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerOut": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerOutCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerOver": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerOverCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerUp": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onPointerUpCapture": {
+      "type": "PointerEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onProgress": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onProgressCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onRateChange": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onRateChangeCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onReset": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onResetCapture": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onResize": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onResizeCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onScroll": { "type": "UIEventHandler<HTMLDivElement>", "required": false },
+    "onScrollCapture": {
+      "type": "UIEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSeeked": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSeekedCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSeeking": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSeekingCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSelect": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSelectCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onStalled": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onStalledCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSubmit": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSubmitCapture": {
+      "type": "FormEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSuspend": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onSuspendCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTap": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "required": false,
+      "description": "Callback when the tap gesture successfully ends on this element.\n\n```jsx\nfunction onTap(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTap={onTap} />\n```"
+    },
+    "onTapCancel": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "required": false,
+      "description": "Callback when the tap gesture ends outside this element.\n\n```jsx\nfunction onTapCancel(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapCancel={onTapCancel} />\n```"
+    },
+    "onTapStart": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "required": false,
+      "description": "Callback when the tap gesture starts on this element.\n\n```jsx\nfunction onTapStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapStart={onTapStart} />\n```"
+    },
+    "onTimeUpdate": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTimeUpdateCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchCancel": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchCancelCapture": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchEnd": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchEndCapture": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchMove": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchMoveCapture": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchStart": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTouchStartCapture": {
+      "type": "TouchEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionEnd": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onUpdate": {
+      "type": "(latest: ResolvedValues) => void",
+      "required": false,
+      "description": "Callback with latest motion values, fired max once per frame.\n\n```jsx\nfunction onUpdate(latest) {\n  console.log(latest.x, latest.opacity)\n}\n\n<motion.div animate={{ x: 100, opacity: 0 }} onUpdate={onUpdate} />\n```"
+    },
+    "onViewportEnter": { "type": "ViewportEventHandler", "required": false },
+    "onViewportLeave": { "type": "ViewportEventHandler", "required": false },
+    "onVolumeChange": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onVolumeChangeCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onWaiting": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onWaitingCapture": {
+      "type": "ReactEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onWheel": {
+      "type": "WheelEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onWheelCapture": {
+      "type": "WheelEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "placeholder": { "type": "string", "required": false },
+    "prefix": { "type": "string", "required": false },
+    "property": { "type": "string", "required": false },
+    "radioGroup": { "type": "string", "required": false },
+    "rel": { "type": "string", "required": false },
+    "resource": { "type": "string", "required": false },
+    "results": { "type": "number", "required": false },
+    "rev": { "type": "string", "required": false },
+    "role": { "type": "AriaRole", "required": false },
+    "security": { "type": "string", "required": false },
+    "slot": { "type": "string", "required": false },
+    "spellCheck": { "type": "Booleanish", "required": false },
+    "status": {
+      "type": "\"info\" | \"warning\" | \"success\" | \"error\"",
+      "required": false,
+      "description": "The status of the banner."
+    },
+    "style": {
+      "type": "MotionStyle",
+      "required": false,
+      "description": "\nThe React DOM `style` prop, enhanced with support for `MotionValue`s and separate `transform` values.\n\n```jsx\nexport const MyComponent = () => {\n  const x = useMotionValue(0)\n\n  return <motion.div style={{ x, opacity: 1, scale: 0.5 }} />\n}\n```"
+    },
+    "suppressContentEditableWarning": { "type": "boolean", "required": false },
+    "suppressHydrationWarning": { "type": "boolean", "required": false },
+    "tabIndex": { "type": "number", "required": false },
+    "title": { "type": "string", "required": false },
+    "transformTemplate": {
+      "type": "(\n  transform: TransformProperties,\n  generatedTransform: string\n) => string",
+      "required": false,
+      "description": "By default, Framer Motion generates a `transform` property with a sensible transform order. `transformTemplate`\ncan be used to create a different order, or to append/preprend the automatically generated `transform` property.\n\n```jsx\n<motion.div\n  style={{ x: 0, rotate: 180 }}\n  transformTemplate={\n    ({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`\n  }\n/>\n```"
+    },
+    "transformValues": {
+      "type": "<V extends ResolvedValues>(values: V) => V",
+      "required": false,
+      "description": "Internal.\n\nThis allows values to be transformed before being animated or set as styles.\n\nFor instance, this allows custom values in Framer Library like `size` to be converted into `width` and `height`.\nIt also allows us a chance to take a value like `Color` and convert it to an animatable color string.\n\nA few structural typing changes need making before this can be a public property:\n- Allow `Target` values to be appended by user-defined types (delete `CustomStyles` - does `size` throw a type error?)\n- Extract `CustomValueType` as a separate user-defined type (delete `CustomValueType` and animate a `Color` - does this throw a type error?)."
+    },
+    "translate": { "type": "\"yes\" | \"no\"", "required": false },
+    "typeof": { "type": "string", "required": false },
+    "unselectable": { "type": "\"on\" | \"off\"", "required": false },
+    "variants": {
+      "type": "Variants",
+      "required": false,
+      "description": "Variants allow you to define animation states and organise them by name. They allow\nyou to control animations throughout a component tree by switching a single `animate` prop.\n\nUsing `transition` options like `delayChildren` and `staggerChildren`, you can orchestrate\nwhen children animations play relative to their parent.\n\n\nAfter passing variants to one or more `motion` component's `variants` prop, these variants\ncan be used in place of values on the `animate`, `initial`, `whileFocus`, `whileTap` and `whileHover` props.\n\n```jsx\nconst variants = {\n  active: {\n      backgroundColor: \"#f00\"\n  },\n  inactive: {\n    backgroundColor: \"#fff\",\n    transition: { duration: 2 }\n  }\n}\n\n<motion.div variants={variants} animate=\"active\" />\n```"
+    },
+    "viewport": { "type": "ViewportOptions", "required": false },
+    "vocab": { "type": "string", "required": false },
+    "whileDrag": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the drag gesture is recognised.\n\n```jsx\n<motion.div whileDrag={{ scale: 1.2 }} />\n```"
+    },
+    "whileFocus": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the focus gesture is recognised.\n\n```jsx\n<motion.input whileFocus={{ scale: 1.2 }} />\n```"
+    },
+    "whileHover": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the hover gesture is recognised.\n\n```jsx\n<motion.div whileHover={{ scale: 1.2 }} />\n```"
+    },
+    "whileInView": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false
+    },
+    "whileTap": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the component is pressed.\n\n```jsx\n<motion.div whileTap={{ scale: 0.8 }} />\n```"
+    }
+  },
+  "BannerTitle": {}
+}

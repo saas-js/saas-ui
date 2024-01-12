@@ -1,0 +1,108 @@
+{
+  "Persona": {
+    "badgeSize": {
+      "type": "ResponsiveValue<number | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-fit-content\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 6 more ... | \"min-intrinsic\">",
+      "required": false,
+      "description": "The badge size. Defaults to 1em. Use em value to keep the size relative to the avatar."
+    },
+    "crossOrigin": {
+      "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+      "required": false
+    },
+    "getInitials": {
+      "type": "(name: string) => string",
+      "required": false,
+      "description": "Function to get the initials to display"
+    },
+    "hideDetails": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the persona details next to the avatar."
+    },
+    "icon": {
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "The default avatar used as fallback when `name`, and `src`\nis not specified."
+    },
+    "iconLabel": { "type": "string", "required": false },
+    "ignoreFallback": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, opt out of the avatar's `fallback` logic and\nrenders the `img` at all times."
+    },
+    "isOutOfOffice": {
+      "type": "boolean",
+      "required": false,
+      "description": "Indicates that a person is out of office. Changes the presence badge style."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Primary label of the persona, defaults to the name"
+    },
+    "loading": {
+      "type": "\"eager\" | \"lazy\"",
+      "required": false,
+      "description": "Defines loading strategy"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the person in the avatar.\n\n- if `src` has loaded, the name will be used as the `alt` attribute of the `img`\n- If `src` is not loaded, the name will be used to create the initials"
+    },
+    "onError": {
+      "type": "() => void",
+      "required": false,
+      "description": "Function called when image failed to load"
+    },
+    "presence": {
+      "type": "string",
+      "required": false,
+      "description": "The presence status of the person\n\nIf set will add an AvatarBadge with color configured in `Presence`\nDefault presence options:\n- online\n- offline\n- busy\n- dnd\n- away"
+    },
+    "presenceIcon": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The icon shown in the AvatarBadge"
+    },
+    "presenceLabel": {
+      "type": "string",
+      "required": false,
+      "description": "The textual presence status of the person.\nOnline, Offline, Busy, Do-not-disturb or Away"
+    },
+    "referrerPolicy": {
+      "type": "HTMLAttributeReferrerPolicy",
+      "required": false,
+      "description": "Defining which referrer is sent when fetching the resource."
+    },
+    "secondaryLabel": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Secondary label, usually the role of the person\nOnly visible from md size and up."
+    },
+    "showBorder": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the `Avatar` will show a border around it.\n\nBest for a group of avatars"
+    },
+    "src": {
+      "type": "string",
+      "required": false,
+      "description": "The image url of the `Avatar`"
+    },
+    "srcSet": {
+      "type": "string",
+      "required": false,
+      "description": "List of sources to use for different screen resolutions"
+    },
+    "tertiaryLabel": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Tertiary label, usually the status of the person.\nOnly visible from lg size and up."
+    }
+  },
+  "PersonaContainer": {},
+  "PresenceOptions": {}
+}

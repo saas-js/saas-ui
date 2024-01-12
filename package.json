@@ -54,7 +54,8 @@
     "watch:theme": "turbo run build --filter='./packages/saas-ui-theme' -- --watch",
     "clean:packages": "turbo run clean",
     "build:storybook-addon": "yarn w @saas-ui/storybook-addon build",
-    "build:props-docs": "yarn w @saas-ui/props-docs build",
+    "build:props-docs": "yarn typedocs && yarn w @saas-ui/props-docs build",
+    "typedocs": "tsx scripts/typedocs.ts",
     "preinstall": "rm -rf node_modules/odiff-bin"
   },
   "workspaces": [
@@ -118,6 +119,8 @@
   "packageManager": "yarn@4.0.2",
   "dependencies": {
     "@storybook/testing-react": "^2.0.1",
+    "@types/prettier": "^3.0.0",
+    "tsx": "^4.7.0",
     "vitest": "^0.34.4"
   }
 }

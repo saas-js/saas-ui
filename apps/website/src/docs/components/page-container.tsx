@@ -137,7 +137,7 @@ function PageContainer(props: PageContainerProps) {
                 >
                   <PageTransition
                     style={{
-                      maxWidth: '52rem',
+                      maxWidth: '58rem',
                       margin: '0 auto',
                     }}
                   >

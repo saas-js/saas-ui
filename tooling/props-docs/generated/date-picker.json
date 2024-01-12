@@ -1,0 +1,3263 @@
+{
+  "DatePicker": {
+    "arrowPadding": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The padding required to prevent the arrow from\nreaching the very edge of the popper."
+    },
+    "arrowShadowColor": {
+      "type": "string",
+      "required": false,
+      "description": "The `box-shadow` of the popover arrow"
+    },
+    "arrowSize": {
+      "type": "number",
+      "required": false,
+      "description": "The size of the popover arrow"
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the element should receive focus on render."
+    },
+    "boundary": {
+      "type": "HTMLElement | \"clippingParents\" | \"scrollParent\"",
+      "defaultValue": "clippingParents",
+      "required": false,
+      "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
+    },
+    "closeDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover closes after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "closeOnBlur": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you blur out it by\nclicking outside or tabbing out"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you hit the `Esc` key"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "computePositionOnMount": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be positioned when it mounts\n(even if it's not open)\n\nNote 🚨: We don't recommend using this in a popover/menu intensive UI or page\nas it might affect scrolling performance."
+    },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultIsOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be initially opened."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": { "type": "DateValue", "required": false },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "direction": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "eventListeners": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | { scroll?: boolean | undefined; resize?: boolean | undefined }",
+      "defaultValue": true,
+      "required": false,
+      "description": "If provided, determines whether the popper will reposition itself on `scroll`\nand `resize` of the window."
+    },
+    "flip": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popper will change its placement and flip when it's\nabout to overflow its boundary area."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The distance or margin between the reference and popper.\nIt is used internally to create an `offset` modifier.\n\nNB: If you define `offset` prop, it'll override the gutter."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<{ focus(): void }>",
+      "required": false,
+      "description": "The `ref` of the element that should receive focus when the popover opens."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isLazy": {
+      "type": "boolean",
+      "required": false,
+      "description": "Performance 🚀:\nIf `true`, the PopoverContent rendering will be deferred\nuntil the popover is open."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (controlled)."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "lazyBehavior": {
+      "type": "LazyMode",
+      "defaultValue": "unmount",
+      "required": false,
+      "description": "Performance 🚀:\nThe lazy behavior of popover's content when not visible.\nOnly works when `isLazy={true}`\n\n- \"unmount\": The popover's content is always unmounted when not open.\n- \"keepMounted\": The popover's content initially unmounted,\nbut stays mounted when popover is open."
+    },
+    "locale": { "type": "string", "required": false },
+    "matchWidth": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the popper will match the width of the reference at all times.\nIt's useful for `autocomplete`, `date-picker` and `select` patterns."
+    },
+    "maxValue": { "type": "DateValue", "required": false },
+    "minValue": { "type": "DateValue", "required": false },
+    "modifiers": {
+      "type": "Partial<Modifier<string, any>>[]",
+      "required": false,
+      "description": "Array of popper.js modifiers. Check the docs to see\nthe list of possible modifiers you can pass."
+    },
+    "offset": {
+      "type": "[number, number]",
+      "required": false,
+      "description": "The main and cross-axis offset to displace popper element\nfrom its reference element."
+    },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onChange": {
+      "type": "(value: DateValue | null) => void",
+      "required": false
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover closes"
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpen": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover opens"
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "openDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover opens after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "placement": {
+      "type": "PlacementWithLogical",
+      "defaultValue": "bottom",
+      "required": false,
+      "description": "The placement of the popper relative to its reference."
+    },
+    "preventOverflow": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be returned to the element that triggers the popover\nwhen it closes"
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "strategy": {
+      "type": "\"fixed\" | \"absolute\"",
+      "defaultValue": "absolute",
+      "required": false,
+      "description": "The CSS positioning strategy to use."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "trigger": {
+      "type": "\"click\" | \"hover\"",
+      "defaultValue": "click",
+      "required": false,
+      "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
+    },
+    "validate": {
+      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateValue", "required": false }
+  },
+  "DatePickerContainer": {
+    "autoFocus": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the element should receive focus on render."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((args_0: DatePickerState) => ReactNode)",
+      "required": false
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": { "type": "DateValue", "required": false },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (controlled)."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "locale": { "type": "string", "required": false },
+    "maxValue": { "type": "DateValue", "required": false },
+    "minValue": { "type": "DateValue", "required": false },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onChange": {
+      "type": "(value: DateValue | null) => void",
+      "required": false
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "validate": {
+      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateValue", "required": false }
+  },
+  "DatePickerStatic": {
+    "autoFocus": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the element should receive focus on render."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((args_0: DatePickerState) => ReactNode)",
+      "required": false
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": { "type": "DateValue", "required": false },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (controlled)."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "locale": { "type": "string", "required": false },
+    "maxValue": { "type": "DateValue", "required": false },
+    "minValue": { "type": "DateValue", "required": false },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onChange": {
+      "type": "(value: DateValue | null) => void",
+      "required": false
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "validate": {
+      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateValue", "required": false }
+  },
+  "DatePickerDialog": {
+    "_dragX": {
+      "type": "MotionValue<number>",
+      "required": false,
+      "description": "Usually, dragging uses the layout project engine, and applies transforms to the underlying VisualElement.\nPassing MotionValues as _dragX and _dragY instead applies drag updates to these motion values.\nThis allows you to manually control how updates from a drag gesture on an element is applied."
+    },
+    "_dragY": {
+      "type": "MotionValue<number>",
+      "required": false,
+      "description": "Usually, dragging uses the layout project engine, and applies transforms to the underlying VisualElement.\nPassing MotionValues as _dragX and _dragY instead applies drag updates to these motion values.\nThis allows you to manually control how updates from a drag gesture on an element is applied."
+    },
+    "about": { "type": "string", "required": false },
+    "accessKey": { "type": "string", "required": false },
+    "animate": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | TargetAndTransition\n  | AnimationControls\n  | VariantLabels",
+      "required": false,
+      "description": "Values to animate to, variant label(s), or `AnimationControls`.\n\n```jsx\n// As values\n<motion.div animate={{ opacity: 1 }} />\n\n// As variant\n<motion.div animate=\"visible\" variants={variants} />\n\n// Multiple variants\n<motion.div animate={[\"visible\", \"active\"]} variants={variants} />\n\n// AnimationControls\n<motion.div animate={animation} />\n```"
+    },
+    "aria-activedescendant": { "type": "string", "required": false },
+    "aria-atomic": { "type": "Booleanish", "required": false },
+    "aria-autocomplete": {
+      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "required": false
+    },
+    "aria-braillelabel": { "type": "string", "required": false },
+    "aria-brailleroledescription": { "type": "string", "required": false },
+    "aria-busy": { "type": "Booleanish", "required": false },
+    "aria-checked": {
+      "type": "boolean | \"true\" | \"false\" | \"mixed\"",
+      "required": false
+    },
+    "aria-colcount": { "type": "number", "required": false },
+    "aria-colindex": { "type": "number", "required": false },
+    "aria-colindextext": { "type": "string", "required": false },
+    "aria-colspan": { "type": "number", "required": false },
+    "aria-controls": { "type": "string", "required": false },
+    "aria-current": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"step\"\n  | \"page\"\n  | \"location\"\n  | \"date\"",
+      "required": false
+    },
+    "aria-describedby": { "type": "string", "required": false },
+    "aria-description": { "type": "string", "required": false },
+    "aria-details": { "type": "string", "required": false },
+    "aria-disabled": { "type": "Booleanish", "required": false },
+    "aria-dropeffect": {
+      "type": "\"link\" | \"none\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
+      "required": false
+    },
+    "aria-errormessage": { "type": "string", "required": false },
+    "aria-expanded": { "type": "Booleanish", "required": false },
+    "aria-flowto": { "type": "string", "required": false },
+    "aria-grabbed": { "type": "Booleanish", "required": false },
+    "aria-haspopup": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "required": false
+    },
+    "aria-hidden": { "type": "Booleanish", "required": false },
+    "aria-invalid": {
+      "type": "boolean | \"true\" | \"false\" | \"grammar\" | \"spelling\"",
+      "required": false
+    },
+    "aria-keyshortcuts": { "type": "string", "required": false },
+    "aria-label": { "type": "string", "required": false },
+    "aria-labelledby": { "type": "string", "required": false },
+    "aria-level": { "type": "number", "required": false },
+    "aria-live": {
+      "type": "\"off\" | \"assertive\" | \"polite\"",
+      "required": false
+    },
+    "aria-modal": { "type": "Booleanish", "required": false },
+    "aria-multiline": { "type": "Booleanish", "required": false },
+    "aria-multiselectable": { "type": "Booleanish", "required": false },
+    "aria-orientation": {
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false
+    },
+    "aria-owns": { "type": "string", "required": false },
+    "aria-placeholder": { "type": "string", "required": false },
+    "aria-posinset": { "type": "number", "required": false },
+    "aria-pressed": {
+      "type": "boolean | \"true\" | \"false\" | \"mixed\"",
+      "required": false
+    },
+    "aria-readonly": { "type": "Booleanish", "required": false },
+    "aria-relevant": {
+      "type": "type ONLY_FOR_FORMAT =\n  | \"text\"\n  | \"additions\"\n  | \"additions removals\"\n  | \"additions text\"\n  | \"all\"\n  | \"removals\"\n  | \"removals additions\"\n  | \"removals text\"\n  | \"text additions\"\n  | \"text removals\"",
+      "required": false
+    },
+    "aria-required": { "type": "Booleanish", "required": false },
+    "aria-roledescription": { "type": "string", "required": false },
+    "aria-rowcount": { "type": "number", "required": false },
+    "aria-rowindex": { "type": "number", "required": false },
+    "aria-rowindextext": { "type": "string", "required": false },
+    "aria-rowspan": { "type": "number", "required": false },
+    "aria-selected": { "type": "Booleanish", "required": false },
+    "aria-setsize": { "type": "number", "required": false },
+    "aria-sort": {
+      "type": "\"none\" | \"ascending\" | \"descending\" | \"other\"",
+      "required": false
+    },
+    "aria-valuemax": { "type": "number", "required": false },
+    "aria-valuemin": { "type": "number", "required": false },
+    "aria-valuenow": { "type": "number", "required": false },
+    "aria-valuetext": { "type": "string", "required": false },
+    "autoCapitalize": { "type": "string", "required": false },
+    "autoCorrect": { "type": "string", "required": false },
+    "autoFocus": { "type": "boolean", "required": false },
+    "autoSave": { "type": "string", "required": false },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The DatePickerDialog children"
+    },
+    "className": { "type": "string", "required": false },
+    "color": { "type": "string", "required": false },
+    "content": { "type": "string", "required": false },
+    "contentEditable": {
+      "type": "\"inherit\" | Booleanish",
+      "required": false
+    },
+    "contextMenu": { "type": "string", "required": false },
+    "custom": {
+      "type": "any",
+      "required": false,
+      "description": "Custom data to use to resolve dynamic variants differently for each animating component.\n\n```jsx\nconst variants = {\n  visible: (custom) => ({\n    opacity: 1,\n    transition: { delay: custom * 0.2 }\n  })\n}\n\n<motion.div custom={0} animate=\"visible\" variants={variants} />\n<motion.div custom={1} animate=\"visible\" variants={variants} />\n<motion.div custom={2} animate=\"visible\" variants={variants} />\n```"
+    },
+    "dangerouslySetInnerHTML": {
+      "type": "{ __html: string | TrustedHTML }",
+      "required": false
+    },
+    "datatype": { "type": "string", "required": false },
+    "defaultChecked": { "type": "boolean", "required": false },
+    "defaultValue": {
+      "type": "string | number | readonly string[]",
+      "required": false
+    },
+    "dir": { "type": "string", "required": false },
+    "drag": {
+      "type": "boolean | \"x\" | \"y\"",
+      "required": false,
+      "description": "Enable dragging for this element. Set to `false` by default.\nSet `true` to drag in both directions.\nSet `\"x\"` or `\"y\"` to only drag in a specific direction.\n\n```jsx\n<motion.div drag=\"x\" />\n```"
+    },
+    "dragConstraints": {
+      "type": "false | Partial<BoundingBox> | RefObject<Element>",
+      "required": false,
+      "description": "Applies constraints on the permitted draggable area.\n\nIt can accept an object of optional `top`, `left`, `right`, and `bottom` values, measured in pixels.\nThis will define a distance the named edge of the draggable component.\n\nAlternatively, it can accept a `ref` to another component created with React's `useRef` hook.\nThis `ref` should be passed both to the draggable component's `dragConstraints` prop, and the `ref`\nof the component you want to use as constraints.\n\n```jsx\n// In pixels\n<motion.div\n  drag=\"x\"\n  dragConstraints={{ left: 0, right: 300 }}\n/>\n\n// As a ref to another component\nconst MyComponent = () => {\n  const constraintsRef = useRef(null)\n\n  return (\n     <motion.div ref={constraintsRef}>\n         <motion.div drag dragConstraints={constraintsRef} />\n     </motion.div>\n  )\n}\n```"
+    },
+    "dragControls": {
+      "type": "DragControls",
+      "required": false,
+      "description": "Usually, dragging is initiated by pressing down on a component and moving it. For some\nuse-cases, for instance clicking at an arbitrary point on a video scrubber, we\nmight want to initiate dragging from a different component than the draggable one.\n\nBy creating a `dragControls` using the `useDragControls` hook, we can pass this into\nthe draggable component's `dragControls` prop. It exposes a `start` method\nthat can start dragging from pointer events on other components.\n\n```jsx\nconst dragControls = useDragControls()\n\nfunction startDrag(event) {\n  dragControls.start(event, { snapToCursor: true })\n}\n\nreturn (\n  <>\n    <div onPointerDown={startDrag} />\n    <motion.div drag=\"x\" dragControls={dragControls} />\n  </>\n)\n```"
+    },
+    "dragDirectionLock": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, this will lock dragging to the initially-detected direction. Defaults to `false`.\n\n```jsx\n<motion.div drag dragDirectionLock />\n```"
+    },
+    "dragElastic": {
+      "type": "DragElastic",
+      "required": false,
+      "description": "The degree of movement allowed outside constraints. 0 = no movement, 1 =\nfull movement.\n\nSet to `0.5` by default. Can also be set as `false` to disable movement.\n\nBy passing an object of `top`/`right`/`bottom`/`left`, individual values can be set\nper constraint. Any missing values will be set to `0`.\n\n```jsx\n<motion.div\n  drag\n  dragConstraints={{ left: 0, right: 300 }}\n  dragElastic={0.2}\n/>\n```"
+    },
+    "draggable": { "type": "Booleanish", "required": false },
+    "dragListener": {
+      "type": "boolean",
+      "required": false,
+      "description": "By default, if `drag` is defined on a component then an event listener will be attached\nto automatically initiate dragging when a user presses down on it.\n\nBy setting `dragListener` to `false`, this event listener will not be created.\n\n```jsx\nconst dragControls = useDragControls()\n\nfunction startDrag(event) {\n  dragControls.start(event, { snapToCursor: true })\n}\n\nreturn (\n  <>\n    <div onPointerDown={startDrag} />\n    <motion.div\n      drag=\"x\"\n      dragControls={dragControls}\n      dragListener={false}\n    />\n  </>\n)\n```"
+    },
+    "dragMomentum": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply momentum from the pan gesture to the component when dragging\nfinishes. Set to `true` by default.\n\n```jsx\n<motion.div\n  drag\n  dragConstraints={{ left: 0, right: 300 }}\n  dragMomentum={false}\n/>\n```"
+    },
+    "dragPropagation": {
+      "type": "boolean",
+      "required": false,
+      "description": "Allows drag gesture propagation to child components. Set to `false` by\ndefault.\n\n```jsx\n<motion.div drag=\"x\" dragPropagation />\n```"
+    },
+    "dragSnapToOrigin": {
+      "type": "boolean",
+      "required": false,
+      "description": "If true, element will snap back to its origin when dragging ends.\n\nEnabling this is the equivalent of setting all `dragConstraints` axes to `0`\nwith `dragElastic={1}`, but when used together `dragConstraints` can define\na wider draggable area and `dragSnapToOrigin` will ensure the element\nanimates back to its origin on release."
+    },
+    "dragTransition": {
+      "type": "Partial<Omit<Inertia, \"type\" | \"velocity\">>",
+      "required": false,
+      "description": "Allows you to change dragging inertia parameters.\nWhen releasing a draggable Frame, an animation with type `inertia` starts. The animation is based on your dragging velocity. This property allows you to customize it.\nSee \n{@link \nhttps://framer.com/api/animation/#inertia Inertia\n}\n for all properties you can use.\n\n```jsx\n<motion.div\n  drag\n  dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}\n/>\n```"
+    },
+    "exit": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "A target to animate to when this component is removed from the tree.\n\nThis component **must** be the first animatable child of an `AnimatePresence` to enable this exit animation.\n\nThis limitation exists because React doesn't allow components to defer unmounting until after\nan animation is complete. Once this limitation is fixed, the `AnimatePresence` component will be unnecessary.\n\n```jsx\nimport { AnimatePresence, motion } from 'framer-motion'\n\nexport const MyComponent = ({ isVisible }) => {\n  return (\n    <AnimatePresence>\n       {isVisible && (\n         <motion.div\n           initial={{ opacity: 0 }}\n           animate={{ opacity: 1 }}\n           exit={{ opacity: 0 }}\n         />\n       )}\n    </AnimatePresence>\n  )\n}\n```"
+    },
+    "hidden": { "type": "boolean", "required": false },
+    "hideArrow": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the arrow"
+    },
+    "id": { "type": "string", "required": false },
+    "ignoreStrict": { "type": "boolean", "required": false },
+    "inherit": { "type": "boolean", "required": false },
+    "initial": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | MakeCustomValueType<TargetProperties>\n  | VariantLabels",
+      "required": false,
+      "description": "Properties, variant label or array of variant labels to start in.\n\nSet to `false` to initialise with the values in `animate` (disabling the mount animation)\n\n```jsx\n// As values\n<motion.div initial={{ opacity: 1 }} />\n\n// As variant\n<motion.div initial=\"visible\" variants={variants} />\n\n// Multiple variants\n<motion.div initial={[\"visible\", \"active\"]} variants={variants} />\n\n// As false (disable mount animation)\n<motion.div initial={false} animate={{ opacity: 0 }} />\n```"
+    },
+    "inlist": { "type": "any", "required": false },
+    "inputMode": {
+      "type": "type ONLY_FOR_FORMAT =\n  | \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "required": false
+    },
+    "is": { "type": "string", "required": false },
+    "itemID": { "type": "string", "required": false },
+    "itemProp": { "type": "string", "required": false },
+    "itemRef": { "type": "string", "required": false },
+    "itemScope": { "type": "boolean", "required": false },
+    "itemType": { "type": "string", "required": false },
+    "lang": { "type": "string", "required": false },
+    "layout": {
+      "type": "boolean | \"position\" | \"size\" | \"preserve-aspect\"",
+      "required": false,
+      "description": "If `true`, this component will automatically animate to its new position when\nits layout changes.\n\n```jsx\n<motion.div layout />\n```\n\nThis will perform a layout animation using performant transforms. Part of this technique\ninvolved animating an element's scale. This can introduce visual distortions on children,\n`boxShadow` and `borderRadius`.\n\nTo correct distortion on immediate children, add `layout` to those too.\n\n`boxShadow` and `borderRadius` will automatically be corrected if they are already being\nanimated on this component. Otherwise, set them directly via the `initial` prop.\n\nIf `layout` is set to `\"position\"`, the size of the component will change instantly and\nonly its position will animate. If `layout` is set to `\"size\"`, the position of the\ncomponent will change instantly but its size will animate.\n\nIf `layout` is set to `\"size\"`, the position of the component will change instantly and\nonly its size will animate.\n\nIf `layout` is set to `\"preserve-aspect\"`, the component will animate size & position if\nthe aspect ratio remains the same between renders, and just position if the ratio changes."
+    },
+    "layoutDependency": { "type": "any", "required": false },
+    "layoutId": {
+      "type": "string",
+      "required": false,
+      "description": "Enable shared layout transitions between different components with the same `layoutId`.\n\nWhen a component with a layoutId is removed from the React tree, and then\nadded elsewhere, it will visually animate from the previous component's bounding box\nand its latest animated values.\n\n```jsx\n  {items.map(item => (\n     <motion.li layout>\n        {item.name}\n        {item.isSelected && <motion.div layoutId=\"underline\" />}\n     </motion.li>\n  ))}\n```\n\nIf the previous component remains in the tree it will crossfade with the new component."
+    },
+    "layoutRoot": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether an element should be considered a \"layout root\", where\nall children will be forced to resolve relatively to it.\nCurrently used for `position: sticky` elements in Framer."
+    },
+    "layoutScroll": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether a projection node should measure its scroll when it or its descendants update their layout."
+    },
+    "motionProps": {
+      "type": "HTMLMotionProps<\"section\">",
+      "required": false
+    },
+    "nonce": { "type": "string", "required": false },
+    "onAbort": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onAbortCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAnimationComplete": {
+      "type": "(definition: AnimationDefinition) => void",
+      "required": false,
+      "description": "Callback when animation defined in `animate` is complete.\n\nThe provided callback will be called with the triggering animation definition.\nIf this is a variant, it'll be the variant name, and if a target object\nthen it'll be the target object.\n\nThis way, it's possible to figure out which animation has completed.\n\n```jsx\nfunction onComplete() {\n  console.log(\"Animation completed\")\n}\n\n<motion.div\n  animate={{ x: 100 }}\n  onAnimationComplete={definition => {\n    console.log('Completed animating', definition)\n  }}\n/>\n```"
+    },
+    "onAnimationEnd": {
+      "type": "AnimationEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAnimationEndCapture": {
+      "type": "AnimationEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAnimationIteration": {
+      "type": "AnimationEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAnimationIterationCapture": {
+      "type": "AnimationEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAnimationStartCapture": {
+      "type": "AnimationEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAuxClick": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onAuxClickCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onBeforeInput": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onBeforeInputCapture": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onBeforeLayoutMeasure": {
+      "type": "(box: Box) => void",
+      "required": false
+    },
+    "onBlur": { "type": "FocusEventHandler<HTMLElement>", "required": false },
+    "onBlurCapture": {
+      "type": "FocusEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCanPlay": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCanPlayCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCanPlayThrough": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCanPlayThroughCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onChange": { "type": "FormEventHandler<HTMLElement>", "required": false },
+    "onChangeCapture": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onClick": { "type": "MouseEventHandler<HTMLElement>", "required": false },
+    "onClickCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCompositionEnd": {
+      "type": "CompositionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCompositionEndCapture": {
+      "type": "CompositionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCompositionStart": {
+      "type": "CompositionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCompositionStartCapture": {
+      "type": "CompositionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCompositionUpdate": {
+      "type": "CompositionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCompositionUpdateCapture": {
+      "type": "CompositionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onContextMenu": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onContextMenuCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCopy": {
+      "type": "ClipboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCopyCapture": {
+      "type": "ClipboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCut": {
+      "type": "ClipboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onCutCapture": {
+      "type": "ClipboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDirectionLock": {
+      "type": "(axis: \"x\" | \"y\") => void",
+      "required": false,
+      "description": "Callback function that fires a drag direction is determined.\n\n```jsx\n<motion.div\n  drag\n  dragDirectionLock\n  onDirectionLock={axis => console.log(axis)}\n/>\n```"
+    },
+    "onDoubleClick": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDoubleClickCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragEndCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragEnter": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragEnterCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragExit": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragExitCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragLeave": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragLeaveCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragOver": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragOverCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragStartCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDragTransitionEnd": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback function that fires when drag momentum/bounce transition finishes.\n\n```jsx\n<motion.div\n  drag\n  onDragTransitionEnd={() => console.log('Drag transition complete')}\n/>\n```"
+    },
+    "onDrop": { "type": "DragEventHandler<HTMLElement>", "required": false },
+    "onDropCapture": {
+      "type": "DragEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDurationChange": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onDurationChangeCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onEmptied": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onEmptiedCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onEncrypted": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onEncryptedCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onEnded": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onEndedCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onError": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onErrorCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onFocus": { "type": "FocusEventHandler<HTMLElement>", "required": false },
+    "onFocusCapture": {
+      "type": "FocusEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onGotPointerCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onGotPointerCaptureCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onHoverEnd": {
+      "type": "(event: MouseEvent, info: EventInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when pointer stops hovering over the component.\n\n```jsx\n<motion.div onHoverEnd={() => console.log(\"Hover ends\")} />\n```"
+    },
+    "onHoverStart": {
+      "type": "(event: MouseEvent, info: EventInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when pointer starts hovering over the component.\n\n```jsx\n<motion.div onHoverStart={() => console.log('Hover starts')} />\n```"
+    },
+    "onInput": { "type": "FormEventHandler<HTMLElement>", "required": false },
+    "onInputCapture": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onInvalid": { "type": "FormEventHandler<HTMLElement>", "required": false },
+    "onInvalidCapture": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onKeyDown": {
+      "type": "KeyboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onKeyDownCapture": {
+      "type": "KeyboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onKeyPress": {
+      "type": "KeyboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onKeyPressCapture": {
+      "type": "KeyboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onKeyUp": {
+      "type": "KeyboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onKeyUpCapture": {
+      "type": "KeyboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLayoutAnimationComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "A callback that will fire when a layout animation on this component completes."
+    },
+    "onLayoutAnimationStart": {
+      "type": "() => void",
+      "required": false,
+      "description": "A callback that will fire when a layout animation on this component starts."
+    },
+    "onLayoutMeasure": {
+      "type": "(box: Box, prevBox: Box) => void",
+      "required": false
+    },
+    "onLoad": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onLoadCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLoadedData": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLoadedDataCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLoadedMetadata": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLoadedMetadataCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLoadStart": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLoadStartCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLostPointerCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onLostPointerCaptureCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMeasureDragConstraints": {
+      "type": "(constraints: BoundingBox) => void | BoundingBox",
+      "required": false,
+      "description": "If `dragConstraints` is set to a React ref, this callback will call with the measured drag constraints."
+    },
+    "onMouseDown": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseDownCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseEnter": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseLeave": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseMove": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseMoveCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseOut": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseOutCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseOver": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseOverCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseUp": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onMouseUpCapture": {
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPan": {
+      "type": "(event: PointerEvent, info: PanInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when the pan gesture is recognised on this element.\n\n**Note:** For pan gestures to work correctly with touch input, the element needs\ntouch scrolling to be disabled on either x/y or both axis with the\n[touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) CSS rule.\n\n```jsx\nfunction onPan(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPan={onPan} />\n```"
+    },
+    "onPanEnd": {
+      "type": "(event: PointerEvent, info: PanInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when the pan gesture ends on this element.\n\n```jsx\nfunction onPanEnd(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPanEnd={onPanEnd} />\n```"
+    },
+    "onPanSessionStart": {
+      "type": "(event: PointerEvent, info: EventInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when we begin detecting a pan gesture. This\nis analogous to `onMouseStart` or `onTouchStart`.\n\n```jsx\nfunction onPanSessionStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPanSessionStart={onPanSessionStart} />\n```"
+    },
+    "onPanStart": {
+      "type": "(event: PointerEvent, info: PanInfo) => void",
+      "required": false,
+      "description": "Callback function that fires when the pan gesture begins on this element.\n\n```jsx\nfunction onPanStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onPanStart={onPanStart} />\n```"
+    },
+    "onPaste": {
+      "type": "ClipboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPasteCapture": {
+      "type": "ClipboardEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPause": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onPauseCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPlay": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onPlayCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPlaying": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPlayingCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerCancel": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerCancelCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerDown": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerDownCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerEnter": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerEnterCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerLeave": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerLeaveCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerMove": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerMoveCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerOut": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerOutCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerOver": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerOverCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerUp": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onPointerUpCapture": {
+      "type": "PointerEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onProgress": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onProgressCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onRateChange": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onRateChangeCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onReset": { "type": "FormEventHandler<HTMLElement>", "required": false },
+    "onResetCapture": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onResize": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onResizeCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onScroll": { "type": "UIEventHandler<HTMLElement>", "required": false },
+    "onScrollCapture": {
+      "type": "UIEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSeeked": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onSeekedCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSeeking": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSeekingCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSelect": { "type": "ReactEventHandler<HTMLElement>", "required": false },
+    "onSelectCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onStalled": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onStalledCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSubmit": { "type": "FormEventHandler<HTMLElement>", "required": false },
+    "onSubmitCapture": {
+      "type": "FormEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSuspend": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onSuspendCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTap": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "required": false,
+      "description": "Callback when the tap gesture successfully ends on this element.\n\n```jsx\nfunction onTap(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTap={onTap} />\n```"
+    },
+    "onTapCancel": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "required": false,
+      "description": "Callback when the tap gesture ends outside this element.\n\n```jsx\nfunction onTapCancel(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapCancel={onTapCancel} />\n```"
+    },
+    "onTapStart": {
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "required": false,
+      "description": "Callback when the tap gesture starts on this element.\n\n```jsx\nfunction onTapStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapStart={onTapStart} />\n```"
+    },
+    "onTimeUpdate": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTimeUpdateCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchCancel": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchCancelCapture": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchEnd": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchEndCapture": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchMove": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchMoveCapture": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchStart": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTouchStartCapture": {
+      "type": "TouchEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionEnd": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onUpdate": {
+      "type": "(latest: ResolvedValues) => void",
+      "required": false,
+      "description": "Callback with latest motion values, fired max once per frame.\n\n```jsx\nfunction onUpdate(latest) {\n  console.log(latest.x, latest.opacity)\n}\n\n<motion.div animate={{ x: 100, opacity: 0 }} onUpdate={onUpdate} />\n```"
+    },
+    "onViewportEnter": { "type": "ViewportEventHandler", "required": false },
+    "onViewportLeave": { "type": "ViewportEventHandler", "required": false },
+    "onVolumeChange": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onVolumeChangeCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onWaiting": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onWaitingCapture": {
+      "type": "ReactEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onWheel": { "type": "WheelEventHandler<HTMLElement>", "required": false },
+    "onWheelCapture": {
+      "type": "WheelEventHandler<HTMLElement>",
+      "required": false
+    },
+    "placeholder": { "type": "string", "required": false },
+    "prefix": { "type": "string", "required": false },
+    "property": { "type": "string", "required": false },
+    "radioGroup": { "type": "string", "required": false },
+    "rel": { "type": "string", "required": false },
+    "resource": { "type": "string", "required": false },
+    "results": { "type": "number", "required": false },
+    "rev": { "type": "string", "required": false },
+    "role": { "type": "AriaRole", "required": false },
+    "rootProps": { "type": "HTMLChakraProps<\"div\">", "required": false },
+    "security": { "type": "string", "required": false },
+    "slot": { "type": "string", "required": false },
+    "spellCheck": { "type": "Booleanish", "required": false },
+    "suppressContentEditableWarning": { "type": "boolean", "required": false },
+    "suppressHydrationWarning": { "type": "boolean", "required": false },
+    "tabIndex": { "type": "number", "required": false },
+    "title": { "type": "string", "required": false },
+    "transformTemplate": {
+      "type": "(\n  transform: TransformProperties,\n  generatedTransform: string\n) => string",
+      "required": false,
+      "description": "By default, Framer Motion generates a `transform` property with a sensible transform order. `transformTemplate`\ncan be used to create a different order, or to append/preprend the automatically generated `transform` property.\n\n```jsx\n<motion.div\n  style={{ x: 0, rotate: 180 }}\n  transformTemplate={\n    ({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`\n  }\n/>\n```"
+    },
+    "transformValues": {
+      "type": "<V extends ResolvedValues>(values: V) => V",
+      "required": false,
+      "description": "Internal.\n\nThis allows values to be transformed before being animated or set as styles.\n\nFor instance, this allows custom values in Framer Library like `size` to be converted into `width` and `height`.\nIt also allows us a chance to take a value like `Color` and convert it to an animatable color string.\n\nA few structural typing changes need making before this can be a public property:\n- Allow `Target` values to be appended by user-defined types (delete `CustomStyles` - does `size` throw a type error?)\n- Extract `CustomValueType` as a separate user-defined type (delete `CustomValueType` and animate a `Color` - does this throw a type error?)."
+    },
+    "translate": { "type": "\"yes\" | \"no\"", "required": false },
+    "typeof": { "type": "string", "required": false },
+    "unselectable": { "type": "\"on\" | \"off\"", "required": false },
+    "variants": {
+      "type": "Partial<Record<\"exit\" | \"enter\", Variant>>",
+      "required": false
+    },
+    "viewport": { "type": "ViewportOptions", "required": false },
+    "vocab": { "type": "string", "required": false },
+    "whileDrag": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the drag gesture is recognised.\n\n```jsx\n<motion.div whileDrag={{ scale: 1.2 }} />\n```"
+    },
+    "whileFocus": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the focus gesture is recognised.\n\n```jsx\n<motion.input whileFocus={{ scale: 1.2 }} />\n```"
+    },
+    "whileHover": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the hover gesture is recognised.\n\n```jsx\n<motion.div whileHover={{ scale: 1.2 }} />\n```"
+    },
+    "whileInView": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false
+    },
+    "whileTap": {
+      "type": "TargetAndTransition | VariantLabels",
+      "required": false,
+      "description": "Properties or variant label to animate to while the component is pressed.\n\n```jsx\n<motion.div whileTap={{ scale: 0.8 }} />\n```"
+    }
+  },
+  "DatePickerCalendar": {},
+  "DateRangePicker": {
+    "onChange": {
+      "type": "(value?: DateRangeValue | undefined) => void",
+      "required": true
+    },
+    "allowsNonContiguousRanges": {
+      "type": "boolean",
+      "required": false,
+      "description": "When combined with `isDateUnavailable`, determines whether non-contiguous ranges,\ni.e. ranges containing unavailable dates, may be selected."
+    },
+    "arrowPadding": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The padding required to prevent the arrow from\nreaching the very edge of the popper."
+    },
+    "arrowShadowColor": {
+      "type": "string",
+      "required": false,
+      "description": "The `box-shadow` of the popover arrow"
+    },
+    "arrowSize": {
+      "type": "number",
+      "required": false,
+      "description": "The size of the popover arrow"
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be transferred to the first interactive element\nwhen the popover opens"
+    },
+    "boundary": {
+      "type": "HTMLElement | \"clippingParents\" | \"scrollParent\"",
+      "defaultValue": "clippingParents",
+      "required": false,
+      "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
+    },
+    "closeDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover closes after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "closeOnBlur": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you blur out it by\nclicking outside or tabbing out"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you hit the `Esc` key"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "computePositionOnMount": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be positioned when it mounts\n(even if it's not open)\n\nNote 🚨: We don't recommend using this in a popover/menu intensive UI or page\nas it might affect scrolling performance."
+    },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultIsOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be initially opened."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": {
+      "type": "RangeValue<DateValue>",
+      "required": false,
+      "description": "The default value (uncontrolled)."
+    },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "direction": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
+    },
+    "endName": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "eventListeners": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | { scroll?: boolean | undefined; resize?: boolean | undefined }",
+      "defaultValue": true,
+      "required": false,
+      "description": "If provided, determines whether the popper will reposition itself on `scroll`\nand `resize` of the window."
+    },
+    "flip": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popper will change its placement and flip when it's\nabout to overflow its boundary area."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The distance or margin between the reference and popper.\nIt is used internally to create an `offset` modifier.\n\nNB: If you define `offset` prop, it'll override the gutter."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<{ focus(): void }>",
+      "required": false,
+      "description": "The `ref` of the element that should receive focus when the popover opens."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isLazy": {
+      "type": "boolean",
+      "required": false,
+      "description": "Performance 🚀:\nIf `true`, the PopoverContent rendering will be deferred\nuntil the popover is open."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be opened in controlled mode."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "lazyBehavior": {
+      "type": "LazyMode",
+      "defaultValue": "unmount",
+      "required": false,
+      "description": "Performance 🚀:\nThe lazy behavior of popover's content when not visible.\nOnly works when `isLazy={true}`\n\n- \"unmount\": The popover's content is always unmounted when not open.\n- \"keepMounted\": The popover's content initially unmounted,\nbut stays mounted when popover is open."
+    },
+    "locale": { "type": "string", "required": false },
+    "matchWidth": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the popper will match the width of the reference at all times.\nIt's useful for `autocomplete`, `date-picker` and `select` patterns."
+    },
+    "maxValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "The maximum allowed date that a user may select."
+    },
+    "minValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "The minimum allowed date that a user may select."
+    },
+    "modifiers": {
+      "type": "Partial<Modifier<string, any>>[]",
+      "required": false,
+      "description": "Array of popper.js modifiers. Check the docs to see\nthe list of possible modifiers you can pass."
+    },
+    "offset": {
+      "type": "[number, number]",
+      "required": false,
+      "description": "The main and cross-axis offset to displace popper element\nfrom its reference element."
+    },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover closes"
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpen": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover opens"
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "openDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover opens after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "placement": {
+      "type": "PlacementWithLogical",
+      "defaultValue": "bottom",
+      "required": false,
+      "description": "The placement of the popper relative to its reference."
+    },
+    "preventOverflow": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be returned to the element that triggers the popover\nwhen it closes"
+    },
+    "shouldCloseOnSelect": {
+      "type": "boolean | (() => boolean)",
+      "defaultValue": true,
+      "required": false,
+      "description": "Determines whether the date picker popover should close automatically when a date is selected."
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "startName": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the start date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    "strategy": {
+      "type": "\"fixed\" | \"absolute\"",
+      "defaultValue": "absolute",
+      "required": false,
+      "description": "The CSS positioning strategy to use."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "trigger": {
+      "type": "\"click\" | \"hover\"",
+      "defaultValue": "click",
+      "required": false,
+      "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
+    },
+    "validate": {
+      "type": "(\n  value: RangeValue<DateValue>\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateRangeValue", "required": false }
+  },
+  "DateRangePickerContainer": {
+    "onChange": {
+      "type": "(value?: DateRangeValue | undefined) => void",
+      "required": true
+    },
+    "allowsNonContiguousRanges": {
+      "type": "boolean",
+      "required": false,
+      "description": "When combined with `isDateUnavailable`, determines whether non-contiguous ranges,\ni.e. ranges containing unavailable dates, may be selected."
+    },
+    "arrowPadding": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The padding required to prevent the arrow from\nreaching the very edge of the popper."
+    },
+    "arrowShadowColor": {
+      "type": "string",
+      "required": false,
+      "description": "The `box-shadow` of the popover arrow"
+    },
+    "arrowSize": {
+      "type": "number",
+      "required": false,
+      "description": "The size of the popover arrow"
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be transferred to the first interactive element\nwhen the popover opens"
+    },
+    "boundary": {
+      "type": "HTMLElement | \"clippingParents\" | \"scrollParent\"",
+      "defaultValue": "clippingParents",
+      "required": false,
+      "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
+    },
+    "closeDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover closes after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "closeOnBlur": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you blur out it by\nclicking outside or tabbing out"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you hit the `Esc` key"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "computePositionOnMount": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be positioned when it mounts\n(even if it's not open)\n\nNote 🚨: We don't recommend using this in a popover/menu intensive UI or page\nas it might affect scrolling performance."
+    },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultIsOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be initially opened."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": {
+      "type": "RangeValue<DateValue>",
+      "required": false,
+      "description": "The default value (uncontrolled)."
+    },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "direction": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
+    },
+    "endName": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "eventListeners": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | { scroll?: boolean | undefined; resize?: boolean | undefined }",
+      "defaultValue": true,
+      "required": false,
+      "description": "If provided, determines whether the popper will reposition itself on `scroll`\nand `resize` of the window."
+    },
+    "flip": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popper will change its placement and flip when it's\nabout to overflow its boundary area."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The distance or margin between the reference and popper.\nIt is used internally to create an `offset` modifier.\n\nNB: If you define `offset` prop, it'll override the gutter."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<{ focus(): void }>",
+      "required": false,
+      "description": "The `ref` of the element that should receive focus when the popover opens."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isLazy": {
+      "type": "boolean",
+      "required": false,
+      "description": "Performance 🚀:\nIf `true`, the PopoverContent rendering will be deferred\nuntil the popover is open."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be opened in controlled mode."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "lazyBehavior": {
+      "type": "LazyMode",
+      "defaultValue": "unmount",
+      "required": false,
+      "description": "Performance 🚀:\nThe lazy behavior of popover's content when not visible.\nOnly works when `isLazy={true}`\n\n- \"unmount\": The popover's content is always unmounted when not open.\n- \"keepMounted\": The popover's content initially unmounted,\nbut stays mounted when popover is open."
+    },
+    "locale": { "type": "string", "required": false },
+    "matchWidth": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the popper will match the width of the reference at all times.\nIt's useful for `autocomplete`, `date-picker` and `select` patterns."
+    },
+    "maxValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "The maximum allowed date that a user may select."
+    },
+    "minValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "The minimum allowed date that a user may select."
+    },
+    "modifiers": {
+      "type": "Partial<Modifier<string, any>>[]",
+      "required": false,
+      "description": "Array of popper.js modifiers. Check the docs to see\nthe list of possible modifiers you can pass."
+    },
+    "offset": {
+      "type": "[number, number]",
+      "required": false,
+      "description": "The main and cross-axis offset to displace popper element\nfrom its reference element."
+    },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover closes"
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpen": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover opens"
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "openDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover opens after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "placement": {
+      "type": "PlacementWithLogical",
+      "defaultValue": "bottom",
+      "required": false,
+      "description": "The placement of the popper relative to its reference."
+    },
+    "preventOverflow": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be returned to the element that triggers the popover\nwhen it closes"
+    },
+    "shouldCloseOnSelect": {
+      "type": "boolean | (() => boolean)",
+      "defaultValue": true,
+      "required": false,
+      "description": "Determines whether the date picker popover should close automatically when a date is selected."
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "startName": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the start date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    "strategy": {
+      "type": "\"fixed\" | \"absolute\"",
+      "defaultValue": "absolute",
+      "required": false,
+      "description": "The CSS positioning strategy to use."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "trigger": {
+      "type": "\"click\" | \"hover\"",
+      "defaultValue": "click",
+      "required": false,
+      "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
+    },
+    "validate": {
+      "type": "(\n  value: RangeValue<DateValue>\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateRangeValue", "required": false }
+  },
+  "DateInput": {
+    "arrowPadding": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The padding required to prevent the arrow from\nreaching the very edge of the popper."
+    },
+    "arrowShadowColor": {
+      "type": "string",
+      "required": false,
+      "description": "The `box-shadow` of the popover arrow"
+    },
+    "arrowSize": {
+      "type": "number",
+      "required": false,
+      "description": "The size of the popover arrow"
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the element should receive focus on render."
+    },
+    "boundary": {
+      "type": "HTMLElement | \"clippingParents\" | \"scrollParent\"",
+      "defaultValue": "clippingParents",
+      "required": false,
+      "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
+    },
+    "calendarIcon": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The icon to use in the calendar button"
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
+    },
+    "closeDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover closes after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "closeOnBlur": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you blur out it by\nclicking outside or tabbing out"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you hit the `Esc` key"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "computePositionOnMount": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be positioned when it mounts\n(even if it's not open)\n\nNote 🚨: We don't recommend using this in a popover/menu intensive UI or page\nas it might affect scrolling performance."
+    },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultIsOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be initially opened."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": { "type": "DateValue", "required": false },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "direction": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "eventListeners": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | { scroll?: boolean | undefined; resize?: boolean | undefined }",
+      "defaultValue": true,
+      "required": false,
+      "description": "If provided, determines whether the popper will reposition itself on `scroll`\nand `resize` of the window."
+    },
+    "flip": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popper will change its placement and flip when it's\nabout to overflow its boundary area."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The distance or margin between the reference and popper.\nIt is used internally to create an `offset` modifier.\n\nNB: If you define `offset` prop, it'll override the gutter."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<{ focus(): void }>",
+      "required": false,
+      "description": "The `ref` of the element that should receive focus when the popover opens."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isLazy": {
+      "type": "boolean",
+      "required": false,
+      "description": "Performance 🚀:\nIf `true`, the PopoverContent rendering will be deferred\nuntil the popover is open."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (controlled)."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "lazyBehavior": {
+      "type": "LazyMode",
+      "defaultValue": "unmount",
+      "required": false,
+      "description": "Performance 🚀:\nThe lazy behavior of popover's content when not visible.\nOnly works when `isLazy={true}`\n\n- \"unmount\": The popover's content is always unmounted when not open.\n- \"keepMounted\": The popover's content initially unmounted,\nbut stays mounted when popover is open."
+    },
+    "locale": { "type": "string", "required": false },
+    "matchWidth": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the popper will match the width of the reference at all times.\nIt's useful for `autocomplete`, `date-picker` and `select` patterns."
+    },
+    "maxValue": { "type": "DateValue", "required": false },
+    "minValue": { "type": "DateValue", "required": false },
+    "modifiers": {
+      "type": "Partial<Modifier<string, any>>[]",
+      "required": false,
+      "description": "Array of popper.js modifiers. Check the docs to see\nthe list of possible modifiers you can pass."
+    },
+    "offset": {
+      "type": "[number, number]",
+      "required": false,
+      "description": "The main and cross-axis offset to displace popper element\nfrom its reference element."
+    },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onChange": {
+      "type": "(value: DateValue | null) => void",
+      "required": false
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover closes"
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpen": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover opens"
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "openDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover opens after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "placement": {
+      "type": "PlacementWithLogical",
+      "defaultValue": "bottom",
+      "required": false,
+      "description": "The placement of the popper relative to its reference."
+    },
+    "portal": {
+      "type": "boolean | ZIndex",
+      "required": false,
+      "description": "If `true`, the `DatePickerDialog` will open in a portal.\nAlso accepts a `z-index` value that will be passed to the dialog."
+    },
+    "preventOverflow": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be returned to the element that triggers the popover\nwhen it closes"
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "strategy": {
+      "type": "\"fixed\" | \"absolute\"",
+      "defaultValue": "absolute",
+      "required": false,
+      "description": "The CSS positioning strategy to use."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "trigger": {
+      "type": "\"click\" | \"hover\"",
+      "defaultValue": "click",
+      "required": false,
+      "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
+    },
+    "validate": {
+      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateValue", "required": false }
+  },
+  "DateRangeInput": {
+    "onChange": {
+      "type": "(value?: DateRangeValue | undefined) => void",
+      "required": true
+    },
+    "allowsNonContiguousRanges": {
+      "type": "boolean",
+      "required": false,
+      "description": "When combined with `isDateUnavailable`, determines whether non-contiguous ranges,\ni.e. ranges containing unavailable dates, may be selected."
+    },
+    "arrowPadding": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The padding required to prevent the arrow from\nreaching the very edge of the popper."
+    },
+    "arrowShadowColor": {
+      "type": "string",
+      "required": false,
+      "description": "The `box-shadow` of the popover arrow"
+    },
+    "arrowSize": {
+      "type": "number",
+      "required": false,
+      "description": "The size of the popover arrow"
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be transferred to the first interactive element\nwhen the popover opens"
+    },
+    "boundary": {
+      "type": "HTMLElement | \"clippingParents\" | \"scrollParent\"",
+      "defaultValue": "clippingParents",
+      "required": false,
+      "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
+    },
+    "calendarIcon": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The icon to use in the calendar button"
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
+    },
+    "closeDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover closes after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "closeOnBlur": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you blur out it by\nclicking outside or tabbing out"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popover will close when you hit the `Esc` key"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "computePositionOnMount": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be positioned when it mounts\n(even if it's not open)\n\nNote 🚨: We don't recommend using this in a popover/menu intensive UI or page\nas it might affect scrolling performance."
+    },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultIsOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be initially opened."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": {
+      "type": "RangeValue<DateValue>",
+      "required": false,
+      "description": "The default value (uncontrolled)."
+    },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "direction": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
+    },
+    "endName": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "eventListeners": {
+      "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | { scroll?: boolean | undefined; resize?: boolean | undefined }",
+      "defaultValue": true,
+      "required": false,
+      "description": "If provided, determines whether the popper will reposition itself on `scroll`\nand `resize` of the window."
+    },
+    "flip": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the popper will change its placement and flip when it's\nabout to overflow its boundary area."
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": "8",
+      "required": false,
+      "description": "The distance or margin between the reference and popper.\nIt is used internally to create an `offset` modifier.\n\nNB: If you define `offset` prop, it'll override the gutter."
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<{ focus(): void }>",
+      "required": false,
+      "description": "The `ref` of the element that should receive focus when the popover opens."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isLazy": {
+      "type": "boolean",
+      "required": false,
+      "description": "Performance 🚀:\nIf `true`, the PopoverContent rendering will be deferred\nuntil the popover is open."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the popover will be opened in controlled mode."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "lazyBehavior": {
+      "type": "LazyMode",
+      "defaultValue": "unmount",
+      "required": false,
+      "description": "Performance 🚀:\nThe lazy behavior of popover's content when not visible.\nOnly works when `isLazy={true}`\n\n- \"unmount\": The popover's content is always unmounted when not open.\n- \"keepMounted\": The popover's content initially unmounted,\nbut stays mounted when popover is open."
+    },
+    "locale": { "type": "string", "required": false },
+    "matchWidth": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the popper will match the width of the reference at all times.\nIt's useful for `autocomplete`, `date-picker` and `select` patterns."
+    },
+    "maxValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "The maximum allowed date that a user may select."
+    },
+    "minValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "The minimum allowed date that a user may select."
+    },
+    "modifiers": {
+      "type": "Partial<Modifier<string, any>>[]",
+      "required": false,
+      "description": "Array of popper.js modifiers. Check the docs to see\nthe list of possible modifiers you can pass."
+    },
+    "offset": {
+      "type": "[number, number]",
+      "required": false,
+      "description": "The main and cross-axis offset to displace popper element\nfrom its reference element."
+    },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover closes"
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpen": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the popover opens"
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "openDelay": {
+      "type": "number",
+      "defaultValue": "200",
+      "required": false,
+      "description": "Delay in milliseconds before the popover opens after a trigger event.\nOnly works when `trigger=\"hover\"`"
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "placement": {
+      "type": "PlacementWithLogical",
+      "defaultValue": "bottom",
+      "required": false,
+      "description": "The placement of the popper relative to its reference."
+    },
+    "portal": {
+      "type": "boolean | ZIndex",
+      "required": false,
+      "description": "If `true`, the `DatePickerDialog` will open in a portal.\nAlso accepts a `z-index` value."
+    },
+    "preventOverflow": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, focus will be returned to the element that triggers the popover\nwhen it closes"
+    },
+    "shouldCloseOnSelect": {
+      "type": "boolean | (() => boolean)",
+      "defaultValue": true,
+      "required": false,
+      "description": "Determines whether the date picker popover should close automatically when a date is selected."
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "startName": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the start date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
+    },
+    "strategy": {
+      "type": "\"fixed\" | \"absolute\"",
+      "defaultValue": "absolute",
+      "required": false,
+      "description": "The CSS positioning strategy to use."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "trigger": {
+      "type": "\"click\" | \"hover\"",
+      "defaultValue": "click",
+      "required": false,
+      "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
+    },
+    "validate": {
+      "type": "(\n  value: RangeValue<DateValue>\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateRangeValue", "required": false }
+  },
+  "SegmentedInput": {},
+  "InputSegment": {
+    "isEditable": { "type": "boolean", "required": false },
+    "isPlaceholder": { "type": "boolean", "required": false },
+    "maxValue": { "type": "number", "required": false },
+    "minValue": { "type": "number", "required": false },
+    "type": { "type": "string", "required": false }
+  },
+  "DatePickerModal": {
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "createCalendar": {
+      "type": "(name: string) => Calendar",
+      "required": false
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (uncontrolled)."
+    },
+    "defaultValue": { "type": "DateValue", "required": false },
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    "errorMessage": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "required": false,
+      "description": "An error message for the field."
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "granularity": {
+      "type": "Granularity",
+      "required": false,
+      "description": "Determines the smallest unit that is displayed in the date picker. By default, this is `\"day\"` for dates, and `\"minute\"` for times."
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "hideTimeZone": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to hide the time zone abbreviation."
+    },
+    "hourCycle": {
+      "type": "12 | 24",
+      "required": false,
+      "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "isDateUnavailable": {
+      "type": "(date: DateValue) => boolean",
+      "required": false,
+      "description": "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable."
+    },
+    "isDisabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "isInvalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input value is invalid."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the overlay is open by default (controlled)."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input can be selected but not changed by the user."
+    },
+    "isRequired": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether user input is required on the input before form submission."
+    },
+    "label": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The content to display as the label."
+    },
+    "locale": { "type": "string", "required": false },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "maxValue": { "type": "DateValue", "required": false },
+    "minValue": { "type": "DateValue", "required": false },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onBlur": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element loses focus."
+    },
+    "onChange": {
+      "type": "(value: DateValue | null) => void",
+      "required": false
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onFocus": {
+      "type": "(e: FocusEvent<Element, Element>) => void",
+      "required": false,
+      "description": "Handler that is called when the element receives focus."
+    },
+    "onFocusChange": {
+      "type": "(isFocused: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the element's focus status changes."
+    },
+    "onKeyDown": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is pressed."
+    },
+    "onKeyUp": {
+      "type": "(e: KeyboardEvent) => void",
+      "required": false,
+      "description": "Handler that is called when a key is released."
+    },
+    "onOpenChange": {
+      "type": "(isOpen: boolean) => void",
+      "required": false,
+      "description": "Handler that is called when the overlay's open state changes."
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "onSubmit": {
+      "type": "(date: DateValue | null) => void",
+      "required": false
+    },
+    "pageBehavior": {
+      "type": "PageBehavior",
+      "defaultValue": "visible",
+      "required": false,
+      "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration."
+    },
+    "placeholderValue": {
+      "type": "DateValue",
+      "required": false,
+      "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "shouldForceLeadingZeros": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale."
+    },
+    "timeZone": { "type": "string", "required": false },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    },
+    "validate": {
+      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "required": false,
+      "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
+    },
+    "validationBehavior": {
+      "type": "\"aria\" | \"native\"",
+      "defaultValue": "'aria'",
+      "required": false,
+      "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA."
+    },
+    "validationState": { "type": "ValidationState", "required": false },
+    "value": { "type": "DateValue", "required": false }
+  },
+  "CycleOptions": {
+    "round": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to round the field value to the nearest interval of the amount."
+    }
+  },
+  "CycleTimeOptions": {
+    "hourCycle": {
+      "type": "12 | 24",
+      "defaultValue": "24",
+      "required": false,
+      "description": "Whether to use 12 or 24 hour time. If 12 hour time is chosen, the resulting value\nwill remain in the same day period as the original value (e.g. if the value is AM,\nthe resulting value also be AM)."
+    },
+    "round": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to round the field value to the nearest interval of the amount."
+    }
+  }
+}

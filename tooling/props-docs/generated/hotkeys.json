@@ -1,0 +1,69 @@
+{
+  "HotkeysProvider": {
+    "hotkeys": { "type": "HotkeysConfig", "required": true },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    }
+  },
+  "UseHotkeysOptions": {
+    "enableOnContentEditable": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to enable hotkeys when the target is a content editable element."
+    },
+    "ignoreTags": {
+      "type": "string[]",
+      "defaultValue": "['INPUT', 'TEXTAREA', 'SELECT']",
+      "required": false,
+      "description": "Ignore hotkeys when the target is an input element."
+    },
+    "preventDefault": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Whether to prevent the default behavior of the event.\nEg. to override browser hotkeys."
+    },
+    "targetElement": {
+      "type": "HTMLElement",
+      "defaultValue": "window",
+      "required": false,
+      "description": "The element to attach the event listener to."
+    }
+  },
+  "HotkeysGroupListOptions": {},
+  "HotkeysGroupOptions": {
+    "hotkeys": {
+      "type": "HotkeysGroupListOptions",
+      "required": true,
+      "description": "Hotkeys in this group"
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "description": "The group title"
+    }
+  },
+  "HotkeysGroup": { "title": { "type": "string", "required": false } },
+  "HotkeysItemOptions": {
+    "command": {
+      "type": "string",
+      "required": true,
+      "description": "The key combination.\nSupports shorthands: ⌥ ⇧ ⌃ ⌘\n\nShifted keys like ? and + are handled automatically"
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Label describing the function of this keyboard shortcut"
+    }
+  },
+  "HotkeysItem": { "command": { "type": "string", "required": true } },
+  "HotkeysListOptions": {},
+  "HotkeysList": {
+    "hotkeys": { "type": "HotkeysListOptions", "required": true }
+  },
+  "HotkeysOptions": {
+    "hotkeys": { "type": "HotkeysListOptions", "required": true }
+  }
+}

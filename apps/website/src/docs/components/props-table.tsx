@@ -1,27 +1,29 @@
-import { chakra, Code, Flex, HStack, Stack, theme } from '@chakra-ui/react'
-import Link from 'next/link'
+import { getPropDoc } from '@saas-ui/props-docs'
+import { getPropDoc as getChakraPropDoc } from '@chakra-ui/props-docs'
+import {
+  Badge,
+  chakra,
+  Code,
+  Flex,
+  HStack,
+  Stack,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react'
 import * as React from 'react'
-import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
-import { InlineCode } from '@/docs/components/mdx-components/inline-code'
-import { Anchor } from '@/docs/components/mdx-components/anchor'
-import { t } from '@/docs/utils/i18n'
-
-import * as ComponentProps from '@saas-ui/props-docs'
-
-/**
- * A map of components that use foreign theme key.
- * The key is name of the component and value is the theme key it uses.
- */
-const themeComponentKeyAliases = {
-  AlertDialog: 'Modal',
-  IconButton: 'Button',
-}
+import { convertBackticksToInlineCode } from '../utils/convert-backticks-to-inline-code'
+import { t } from '../utils/i18n'
 
 export type PropsTableProps = {
   /**
    * displayName of the target component
    */
-  of: keyof typeof ComponentProps
+  of: string
   /**
    * prop names to omit
    */
@@ -43,121 +45,102 @@ const PropsTable = ({
     [of, omit, only]
   )
 
-  if (!propList.length) {
-    // this error breaks the build to notify you when there would be an empty table
-    console.warn(
-      `No props left to render for component ${of}.
-Remove the use of <PropsTable of="${of}" /> for this component in the docs.`
-    )
-  }
+  if (!propList.length) return null
 
   return (
-    <Stack spacing="10" my="10">
-      {propList.map((prop) => (
-        <chakra.div
-          key={prop.name}
-          css={{
-            width: '100%',
-            fontSize: '0.95em',
-            borderCollapse: 'collapse',
-            '.row': {
-              minWidth: 100,
-              width: '20%',
-              fontSize: '0.9em',
-              textAlign: 'start',
-              fontWeight: 500,
-              padding: '4px 16px 4px 8px',
-              whiteSpace: 'nowrap',
-              verticalAlign: 'baseline',
-            },
-            '.cell': {
-              padding: '4px 0px 4px 8px',
-              width: '100%',
-            },
-          }}
-        >
-          <chakra.div css={{ textAlign: 'start', fontSize: '1em' }}>
-            <chakra.h3
-              css={{
-                fontSize: '0.8em',
-                paddingBottom: 8,
-                marginBottom: 16,
-                borderBottomWidth: 1,
-              }}
-            >
-              <HStack>
-                <Code colorScheme="purple">{prop.name}</Code>
-                {prop.required && (
-                  <Code colorScheme="red">
-                    {t('component.props-table.required')}
-                  </Code>
-                )}
-              </HStack>
-            </chakra.h3>
-          </chakra.div>
-          <div>
-            {prop.description && (
-              <Flex>
-                <div className="row">
-                  {t('component.props-table.description')}
-                </div>
-                <div className="cell">
-                  <p>{convertBackticksToInlineCode(prop.description)}</p>
-                </div>
-              </Flex>
-            )}
-            <Flex>
-              <div className="row">{t('component.props-table.type')}</div>
-              <div className="cell">
-                <InlineCode whiteSpace="wrap" fontSize="0.8em">
-                  {prop.type}
-                </InlineCode>
-              </div>
-            </Flex>
-            {prop.defaultValue && (
-              <Flex>
-                <div className="row">{t('component.props-table.default')}</div>
-                <div className="cell">
-                  <InlineCode whiteSpace="wrap" fontSize="0.8em">
-                    {prop.defaultValue}
-                  </InlineCode>
-                </div>
-              </Flex>
-            )}
-          </div>
-        </chakra.div>
-      ))}
-    </Stack>
+    <Table mt="8" fontSize="sm">
+      <Thead>
+        <Tr>
+          <Th textTransform="none" fontWeight="medium" width="180px">
+            Prop
+          </Th>
+          <Th textTransform="none" fontWeight="medium" width="280px">
+            Type
+          </Th>
+          <Th textTransform="none" fontWeight="medium" width="120px">
+            Default
+          </Th>
+          <Th textTransform="none" fontWeight="medium">
+            Description
+          </Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        {propList.map((prop) => (
+          <Tr key={prop.name} _hover={{ bg: 'whiteAlpha.100' }}>
+            <Td>
+              <Text
+                as="span"
+                fontWeight="medium"
+                color="primary.500"
+                fontSize="sm"
+                _dark={{ color: 'primary.300' }}
+              >
+                {prop.name}
+              </Text>
+
+              {prop.required && (
+                <Code colorScheme="red" ms="2" fontSize="xs">
+                  {t('component.props-table.required')}
+                </Code>
+              )}
+            </Td>
+            <Td>
+              <Code
+                whiteSpace="normal"
+                fontSize="0.8em"
+                wordBreak="break-all"
+                borderWidth="1px"
+                rounded="sm"
+                bg="primary.50"
+                borderColor="primary.100"
+                color="inherit"
+                px="1"
+                py="0.5"
+              >
+                {prop.type}
+              </Code>
+            </Td>
+            <Td>
+              {prop.defaultValue && (
+                <Code
+                  whiteSpace="normal"
+                  fontSize="0.8em"
+                  borderRadius="sm"
+                  borderWidth="1px"
+                  py="0.5"
+                  px="1"
+                  bg="gray.50"
+                  borderColor="gray.100"
+                  color="inherit"
+                >
+                  {prop.defaultValue}
+                </Code>
+              )}
+            </Td>
+            <Td>{convertBackticksToInlineCode(prop.description)}</Td>
+          </Tr>
+        ))}
+      </Tbody>
+    </Table>
   )
 }
 
 export default PropsTable
 
-interface MakePropsTableOptions extends PropsTableProps {}
+type MakePropsTableOptions = PropsTableProps
 
-const TYPE_GENERIC_THEMABLE = '(string & {})'
+const customTable: Record<string, any> = {
+  Section: {
+    isLoading: {
+      type: 'boolean',
+      defaultValue: false,
+    },
+  },
+}
 
 function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
-  const props = ComponentProps[of]?.props
-
-  const themeKey = themeComponentKeyAliases[of] ?? of
-  const componentTheme = theme.components[themeKey]
-
-  const featNotImplemented = (feat: string) => (
-    <>
-      {feat} {t('component.props-table.for')} <InlineCode>{of}</InlineCode>{' '}
-      {t('component.props-table.are-not-implemented-in-the-default-theme')}{' '}
-      {t('component.props-table.you-can')}{' '}
-      <Link
-        href="/docs/theming/customize-theme#customizing-component-styles"
-        passHref
-        legacyBehavior
-      >
-        <Anchor>{t('component.props-table.extend-the-theme')}</Anchor>
-      </Link>{' '}
-      {t('component.props-table.to-implement-them')}
-    </>
-  )
+  const props = customTable[of] ?? getPropDoc(of) ?? getChakraPropDoc(of)
 
   if (!props) return []
 
@@ -173,69 +156,18 @@ function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
 
       return true
     })
-    .map(([name, { defaultValue, description, required, type }]: any) => {
-      const prop = {
-        name,
-        defaultValue: defaultValue?.value,
-        description,
-        required,
-        type: type.name,
-      }
-
-      if (name === 'size') {
-        const defaultSize = componentTheme?.defaultProps?.size
-
-        if (defaultSize != null) {
-          prop.defaultValue = `"${defaultSize}"`
-        }
-
-        if (prop.type === TYPE_GENERIC_THEMABLE) {
-          prop.type = 'string'
-          prop.description = featNotImplemented('Sizes')
-        } else {
-          prop.type = omitGenericThemableType(prop.type)
-        }
-      }
-
-      if (name === 'variant') {
-        const defaultVariant = componentTheme?.defaultProps?.variant
-
-        if (defaultVariant != null) {
-          prop.defaultValue = `"${defaultVariant}"`
-        }
-
-        if (prop.type === TYPE_GENERIC_THEMABLE) {
-          prop.type = 'string'
-          prop.description = featNotImplemented('Variants')
-        } else {
-          prop.type = omitGenericThemableType(prop.type)
-        }
-      }
-
-      if (name === 'colorScheme') {
-        prop.type = omitGenericThemableType(prop.type)
-
-        const defaultColorScheme = componentTheme?.defaultProps?.colorScheme
-
-        if (defaultColorScheme != null) {
-          prop.defaultValue = `"${defaultColorScheme}"`
-        } else {
-          prop.description = featNotImplemented('Color Schemes')
-        }
-      }
-
-      return prop
-    })
-    .sort((propA, propB) => {
-      const aRequired = propA.required ? 1000 : 0
-      const bRequired = propB.required ? 1000 : 0
-      const requiredOffset = aRequired - bRequired
-      return String(propA.name).localeCompare(propB.name) - requiredOffset
-    })
+    .map(([name, value]: any[]) => ({
+      name,
+      ...value,
+      type: cleanType(value.type),
+      defaultValue: cleanDefaultValue(value.defaultValue),
+    }))
 }
 
-const omitGenericThemableType = (type: string) =>
-  type
-    .split(' | ')
-    .filter((type) => type !== TYPE_GENERIC_THEMABLE)
-    .join(' | ')
+function cleanType(value: any) {
+  return typeof value === 'string' ? value.replace(';', '') : value
+}
+
+function cleanDefaultValue(value: any) {
+  return typeof value === 'boolean' ? value.toString() : value
+}

@@ -13,7 +13,7 @@ import {
 
 const createAuthService = (): AuthProviderProps => {
   let token: AuthToken = null
-  let user: User
+  let user: User | null = null
   return {
     onLogin: async (params: AuthParams) => {
       const { email, password, provider } = params
@@ -54,6 +54,10 @@ const createAuthService = (): AuthProviderProps => {
     },
     onLoadUser: async () => {
       return user
+    },
+    onLogout: async () => {
+      token = null
+      user = null
     },
   }
 }

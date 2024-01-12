@@ -151,9 +151,9 @@ export async function main() {
       const baseName = basename(file, ".json")
       const componentName = startCase(baseName)
 
-      const fileName = join(baseName, `${componentName}.json`)
-      const distJsonName = join("components", `${componentName}.json`)
-      const distJsonPath = join(outputPath, `${componentName}.json`)
+      const fileName = join(baseName, `${baseName}.json`)
+      const distJsonName = join("components", `${baseName}.json`)
+      const distJsonPath = join(outputPath, `${baseName}.json`)
 
       return {
         componentName,

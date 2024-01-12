@@ -1,0 +1,49 @@
+{
+  "StructuredList": {
+    "items": {
+      "type": "StructuredListItemProps[]",
+      "required": false,
+      "description": "An array of list items"
+    }
+  },
+  "StructuredListHeader": {
+    "action": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Action rendered next to the title"
+    },
+    "level": {
+      "type": "number",
+      "required": false,
+      "description": "The aria-level"
+    }
+  },
+  "StructuredListItem": {
+    "href": { "type": "string | object", "required": false },
+    "onClick": {
+      "type": "(e: MouseEvent<Element, MouseEvent>) => void",
+      "required": false
+    }
+  },
+  "StructuredListButton": {
+    "as": { "type": "As", "required": false },
+    "onClick": {
+      "type": "(e: MouseEvent<Element, MouseEvent>) => void",
+      "required": false
+    }
+  },
+  "StructuredListIcon": {
+    "size": {
+      "type": "ResponsiveValue<number | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-fit-content\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 6 more ... | \"min-intrinsic\">",
+      "defaultValue": "5",
+      "required": false,
+      "description": "The icon size"
+    },
+    "spacing": {
+      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "required": false,
+      "description": "The icon spacing, ltr supported"
+    }
+  },
+  "StructuredListCell": {}
+}

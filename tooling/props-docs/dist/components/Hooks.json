@@ -1,0 +1,9 @@
+{
+  "UseSearchQueryOptions": {
+    "defaultValue": { "type": "string", "required": false },
+    "fields": { "type": "string[]", "required": false },
+    "items": { "type": "T[]", "required": false },
+    "onChange": { "type": "(value: string) => void", "required": false },
+    "value": { "type": "string", "required": false }
+  }
+}

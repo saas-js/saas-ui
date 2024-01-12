@@ -1,0 +1,164 @@
+{
+  "CommandBar": {
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "isOpen": { "type": "boolean", "required": false },
+    "onChange": { "type": "(search: string) => void", "required": false },
+    "onClose": { "type": "() => void", "required": false },
+    "onFilter": {
+      "type": "(string: string, search: string) => number",
+      "required": false
+    },
+    "onSelect": { "type": "(value: string) => void", "required": false },
+    "shouldFilter": { "type": "boolean", "required": false },
+    "size": { "type": "ResponsiveValue<string>", "required": false },
+    "value": { "type": "string", "required": false }
+  },
+  "CommandBarDialog": {
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "contentProps": { "type": "ModalContentProps", "required": false },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "CommandBarItem": {
+    "isDisabled": { "type": "boolean", "required": false },
+    "onSelect": { "type": "(value: string) => void", "required": false },
+    "value": { "type": "string", "required": false }
+  },
+  "CommandBarInput": {
+    "onChange": { "type": "(value: string) => void", "required": false },
+    "value": { "type": "string", "required": false }
+  },
+  "CommandBarOptions": {
+    "closeOnSelect": { "type": "boolean", "required": false },
+    "isOpen": { "type": "boolean", "required": false },
+    "onChange": { "type": "(search: string) => void", "required": false },
+    "onClose": { "type": "() => void", "required": false },
+    "onFilter": {
+      "type": "(string: string, search: string) => number",
+      "required": false
+    },
+    "onSelect": { "type": "(value: string) => void", "required": false },
+    "shouldFilter": { "type": "boolean", "required": false },
+    "size": { "type": "ResponsiveValue<string>", "required": false },
+    "value": { "type": "string", "required": false }
+  }
+}

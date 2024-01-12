@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.5.4
+
+### Patch Changes
+
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [829a3364]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/hooks@2.0.3
+  - @saas-ui/data-table@7.0.4
+  - @saas-ui/nprogress@2.0.2
+  - @saas-ui/hotkeys@2.1.14
+  - @saas-ui/modals@2.1.16
+  - @saas-ui/core@2.3.3
+
 ## 2.5.3
 
 ### Patch Changes

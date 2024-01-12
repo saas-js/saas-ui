@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.3.3
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+
 ## 2.3.2
 
 ### Patch Changes

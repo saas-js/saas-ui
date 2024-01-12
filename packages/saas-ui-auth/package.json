@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/auth",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Authentication provider and components for Chakra UI",
   "source": "src/index.ts",
   "exports": {

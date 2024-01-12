@@ -1,5 +1,15 @@
 # @saas-ui/forms
 
+## 2.3.8
+
+### Patch Changes
+
+- bc176848: Fixed issue where Select button and input would have the same id
+- bc176848: Fixed issue where Form context would not be available
+- 90ee13c3: Refactored exports
+- Updated dependencies [90ee13c3]
+  - @saas-ui/core@2.3.3
+
 ## 2.3.7
 
 ### Patch Changes

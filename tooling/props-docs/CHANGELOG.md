@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 2.0.0
+
+### Major Changes
+
+- 90ee13c3: Updated all props and include pro packages
+
 ## 1.9.0
 
 ### Minor Changes

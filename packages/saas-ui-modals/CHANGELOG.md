@@ -1,5 +1,17 @@
 # @saas-ui/modals
 
+## 2.1.16
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [829a3364]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/hooks@2.0.3
+
 ## 2.1.15
 
 ### Patch Changes

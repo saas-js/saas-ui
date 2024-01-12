@@ -1,5 +1,18 @@
 # @saas-ui/auth
 
+## 2.4.4
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [829a3364]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/hooks@2.0.3
+  - @saas-ui/core@2.3.3
+
 ## 2.4.3
 
 ### Patch Changes

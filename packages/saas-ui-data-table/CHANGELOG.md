@@ -1,5 +1,14 @@
 # @saas-ui/data-table
 
+## 7.0.4
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [90ee13c3]
+  - @saas-ui/core@2.3.3
+  - @saas-ui/react@2.5.4
+
 ## 7.0.3
 
 ### Patch Changes

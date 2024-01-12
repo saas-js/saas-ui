@@ -1,5 +1,13 @@
 # @saas-ui/hotkeys
 
+## 2.1.14
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [90ee13c3]
+  - @saas-ui/core@2.3.3
+
 ## 2.1.13
 
 ### Patch Changes

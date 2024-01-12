@@ -1,5 +1,16 @@
 # @saas-ui/date-picker
 
+## 0.12.17
+
+### Patch Changes
+
+- 66d23357: Improved DatePicker to enable keyboard navigation on calendar days after opening
+- 66d23357: Fixed issue where date picker dialog would not open using keyboard controls
+- 90ee13c3: Refactored exports
+- Updated dependencies [90ee13c3]
+  - @saas-ui/modals@2.1.16
+  - @saas-ui/core@2.3.3
+
 ## 0.12.16
 
 ### Patch Changes

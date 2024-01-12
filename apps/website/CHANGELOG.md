@@ -1,5 +1,18 @@
 # website
 
+## 2.3.14
+
+### Patch Changes
+
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [90ee13c3]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/command-bar@0.4.2
+  - @saas-ui/props-docs@2.0.0
+  - @saas-ui/react@2.5.4
+
 ## 2.3.13
 
 ### Patch Changes

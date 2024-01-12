@@ -34,7 +34,7 @@
     "changelog:write": "ts-node scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
     "changeset:next": "yarn changeset pre enter next",
-    "version": "yarn changelog:gen && changeset version",
+    "changeset:version": "yarn changelog:gen && changeset version",
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
     "storybook": "yarn w saas-ui-storybook dev",

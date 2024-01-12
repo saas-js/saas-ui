@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.4.2
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+
 ## 0.4.1
 
 ### Patch Changes

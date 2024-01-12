@@ -84,7 +84,7 @@ async function main() {
 
   let content = [getCurrentDate(), ...releaseEntries].join('\n\n')
 
-  content = prettier.format(content, {
+  content = await prettier.format(content, {
     parser: 'markdown',
     printWidth: 80,
     singleQuote: true,

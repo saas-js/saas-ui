@@ -48,6 +48,7 @@
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",
     "build:web": "yarn w website build",
+    "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui/theme.ts",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue && yarn build:tokens",
     "build:packages:force": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --no-deps --continue --force && yarn build:tokens",

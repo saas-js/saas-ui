@@ -22,6 +22,7 @@ import {
   Td,
   Checkbox,
   ThemingProps,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 
 import { cx } from '@chakra-ui/utils'
@@ -59,6 +60,10 @@ export interface DataTableProps<Data extends object>
    * The table class name attribute
    */
   className?: string
+  /**
+   * Table styles
+   */
+  sx?: SystemStyleObject
 }
 
 export const DataTable = React.forwardRef(
@@ -77,6 +82,7 @@ export const DataTable = React.forwardRef(
       size,
       variant,
       className,
+      sx,
       ...rest
     } = props
 
@@ -121,7 +127,7 @@ export const DataTable = React.forwardRef(
     return (
       <Table
         ref={ref}
-        sx={{ 'tr:last-child td': { border: 0 } }}
+        sx={{ 'tr:last-child td': { border: 0 }, ...sx }}
         className={cx('sui-data-table', className)}
         colorScheme={colorScheme}
         size={size}

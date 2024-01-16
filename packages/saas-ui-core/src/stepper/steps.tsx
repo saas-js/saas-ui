@@ -101,7 +101,7 @@ export const Steps = forwardRef<StepsProps, 'div'>((props, ref) => {
       isActive: activeIndex === i,
       isCompleted: step.props.isCompleted || activeIndex > i,
     })
-
+    console.log(arr.length, i)
     if (isVertical) {
       memo.push(
         <chakra.div

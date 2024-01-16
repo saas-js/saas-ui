@@ -8,7 +8,6 @@ interface ComponentPreviewProps {
 }
 
 export function ComponentPreview({ children, canvas }: ComponentPreviewProps) {
-  console.log(canvas)
   return (
     <Box
       sx={{

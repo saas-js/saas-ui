@@ -106,7 +106,6 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
             <Resizer>
               <Stack
                 style={{ zIndex: props.zIndex }}
-                minHeight="400px"
                 height={frameHeight}
                 alignItems="stretch"
                 justifyContent="stretch"

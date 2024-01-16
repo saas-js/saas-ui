@@ -14,6 +14,8 @@ import emptystates from './emptystates.svg?url'
 import emptystatesDark from './emptystates-dark.svg?url'
 import menus from './menus.svg?url'
 import menusDark from './menus-dark.svg?url'
+import modals from './modals.svg?url'
+import modalsDark from './modals-dark.svg?url'
 import forms from './forms.svg?url'
 import formsDark from './forms-dark.svg?url'
 import tables from './tables.svg?url'
@@ -28,6 +30,7 @@ export default {
   drawers: { light: drawers, dark: drawersDark },
   emptystates: { light: emptystates, dark: emptystatesDark },
   menus: { light: menus, dark: menusDark },
+  modals: { light: modals, dark: modalsDark },
   forms: { light: forms, dark: formsDark },
   tables: { light: tables, dark: tablesDark },
 }

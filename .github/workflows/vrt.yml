@@ -22,10 +22,8 @@ jobs:
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
-      # - name: Build packages
-      #   run: yarn build:packages
-      - name: Build theme
-        run: yarn build:theme
+      - name: Build packages
+        run: yarn build:packages
 
       - name: Build Storybook addon
         run: yarn build:storybook-addon

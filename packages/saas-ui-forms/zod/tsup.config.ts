@@ -8,6 +8,7 @@ export default defineConfig({
     'zod',
     'react-hook-form',
     '@saas-ui/forms',
+    '@saas-ui/modals',
     '@hookform/resolvers/zod',
     '@chakra-ui/utils',
   ],

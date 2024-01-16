@@ -4,7 +4,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@saas-ui/forms": ["../"]
+      "@saas-ui/forms": ["../"],
+      "@saas-ui/modals": ["../../saas-ui-modals/src"]
     }
   }
 }

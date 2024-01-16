@@ -8,6 +8,7 @@ export default defineConfig({
     'ajv',
     'react-hook-form',
     '@saas-ui/forms',
+    '@saas-ui/modals',
     '@hookform/resolvers/ajv',
     '@chakra-ui/utils',
   ],

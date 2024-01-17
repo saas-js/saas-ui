@@ -12,6 +12,8 @@ import drawers from './drawers.svg?url'
 import drawersDark from './drawers-dark.svg?url'
 import emptystates from './emptystates.svg?url'
 import emptystatesDark from './emptystates-dark.svg?url'
+import kpicards from './kpicards.svg?url'
+import kpicardsDark from './kpicards-dark.svg?url'
 import menus from './menus.svg?url'
 import menusDark from './menus-dark.svg?url'
 import modals from './modals.svg?url'
@@ -29,6 +31,7 @@ const img = {
   commandbars: { light: commandbars, dark: commandbarsDark },
   drawers: { light: drawers, dark: drawersDark },
   emptystates: { light: emptystates, dark: emptystatesDark },
+  kpicards: { light: kpicards, dark: kpicardsDark },
   menus: { light: menus, dark: menusDark },
   modals: { light: modals, dark: modalsDark },
   forms: { light: forms, dark: formsDark },

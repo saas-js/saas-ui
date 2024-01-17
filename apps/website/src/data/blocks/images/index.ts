@@ -2,10 +2,10 @@ import sidebar from './sidebar.svg?url'
 import sidebarDark from './sidebar-dark.svg?url'
 import navbar from './navbars.svg?url'
 import navbarDark from './navbars-dark.svg?url'
-import settings from './forms.svg?url'
-import settingsDark from './forms-dark.svg?url'
+import settings from './settings.svg?url'
+import settingsDark from './settings-dark.svg?url'
 import files from './files.svg?url'
-import filesDark from './forms-dark.svg?url'
+import filesDark from './files-dark.svg?url'
 import commandbars from './commandbars.svg?url'
 import commandbarsDark from './commandbars-dark.svg?url'
 import drawers from './drawers.svg?url'
@@ -21,7 +21,7 @@ import formsDark from './forms-dark.svg?url'
 import tables from './tables.svg?url'
 import tablesDark from './tables-dark.svg?url'
 
-export default {
+const img = {
   sidebars: { light: sidebar, dark: sidebarDark },
   navbars: { light: navbar, dark: navbarDark },
   settings: { light: settings, dark: settingsDark },
@@ -34,3 +34,5 @@ export default {
   forms: { light: forms, dark: formsDark },
   tables: { light: tables, dark: tablesDark },
 }
+
+export default img

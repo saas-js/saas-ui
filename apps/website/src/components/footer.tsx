@@ -10,20 +10,15 @@ const CustomFooter = () => {
   return (
     <Footer columns={{ base: 1, lg: 2 }}>
       <Stack spacing="8" mb="4">
-        <Stack alignItems="flex-start">
+        <Stack alignItems="flex-start" maxW="container.sm">
           <Flex width="100px">
             <Logo />
           </Flex>
           <Text fontSize="md" color="muted">
-            The React component library for startups.
+            The React component library for startups. 100+ Open Source and
+            Premium components. Next.js boilerplate for B2B apps and dashboards.
           </Text>
         </Stack>
-        <Copyright>
-          Built by{' '}
-          <FooterLink href="https://twitter.com/Pagebakers">
-            Eelco Wiersma
-          </FooterLink>
-        </Copyright>
       </Stack>
       <Stack
         direction={{ base: 'row', lg: 'column-reverse' }}

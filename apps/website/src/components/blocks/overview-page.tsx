@@ -38,7 +38,7 @@ export function OverviewPage({ componentsCountByCategory }: OverviewPageProps) {
             Build delightful apps and dashboards faster with pre-built
             templates.
             <br />
-            Crafted with precision and proven design patterns.
+            New blocks released every 2 weeks.
           </Text>
         </Box>
 

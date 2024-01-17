@@ -8,6 +8,7 @@ import {
   ButtonProps,
   Image,
   ImageProps,
+  useEnvironment,
 } from '@chakra-ui/react'
 
 import { pick, runIfFn, split } from '@chakra-ui/utils'
@@ -50,7 +51,12 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     'getRootNode',
   ])
 
-  const context = useFileUpload(options)
+  const env = useEnvironment()
+
+  const context = useFileUpload({
+    getRootNode: env.getDocument,
+    ...options,
+  })
 
   const styles = useMultiStyleConfig('SuiFileUpload', {
     styleConfig: fileUploadTheme,

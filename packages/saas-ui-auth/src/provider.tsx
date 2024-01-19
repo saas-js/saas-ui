@@ -47,6 +47,10 @@ export type AuthStateChangeCallback<TUser extends User = DefaultUser> = (
 
 export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
+   * Restore the authentication state, eg after redirecting
+   */
+  onRestoreAuthState?: () => Promise<boolean>
+  /**
    * Loads user data after authentication
    */
   onLoadUser?: () => Promise<TUser | null>
@@ -105,7 +109,7 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
 
 export type AuthFunction<
   TParams = AuthParams,
-  TExtraOptions extends object = Record<string, unknown>
+  TExtraOptions extends object = Record<string, unknown>,
 > = (params: TParams, options?: AuthOptions<TExtraOptions>) => Promise<any>
 
 interface OtpParams extends AuthParams {
@@ -137,6 +141,7 @@ const createAuthContext = <TUser extends User = DefaultUser>() => {
 export const AuthContext = createAuthContext()
 
 export const AuthProvider = <TUser extends User = DefaultUser>({
+  onRestoreAuthState,
   onLoadUser = () => Promise.resolve(null),
   onSignup = () => Promise.resolve(null),
   onLogin = () => Promise.resolve(null),
@@ -164,7 +169,12 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   }, [])
 
   useEffect(() => {
-    loadUser()
+    const restoreState = async () => {
+      await onRestoreAuthState?.()
+      loadUser()
+    }
+
+    restoreState
   }, [isAuthenticated])
 
   const checkAuth = useCallback(async () => {
@@ -277,7 +287,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
 }
 
 export const useAuth = <
-  TUser extends User = DefaultUser
+  TUser extends User = DefaultUser,
 >(): AuthContextValue<TUser> => {
   const context = useContext(AuthContext)
   if (context === null) {

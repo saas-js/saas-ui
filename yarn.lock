@@ -113,6 +113,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@auth0/auth0-spa-js@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@auth0/auth0-spa-js@npm:2.1.2"
+  checksum: f89b76551e071d51a44b7ce79061c4021c3e57d9e3ea7c5a3610ea6096ea4a8741772aa9a5f142021d51ec61a65f52f4bad53f8589f98b450c0a8ddd9f685ed2
+  languageName: node
+  linkType: hard
+
 "@aw-web-design/x-default-browser@npm:1.4.126":
   version: 1.4.126
   resolution: "@aw-web-design/x-default-browser@npm:1.4.126"
@@ -7311,6 +7318,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/assets@workspace:packages/saas-ui-assets"
   peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/auth-auth0-web@workspace:packages/saas-ui-auth0":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/auth-auth0-web@workspace:packages/saas-ui-auth0"
+  dependencies:
+    "@auth0/auth0-spa-js": "npm:2.1.2"
+    "@saas-ui/auth": "npm:^2.3.0"
+  peerDependencies:
+    "@auth0/auth0-spa-js": 2.1.2
+    "@chakra-ui/react": ">=2.4.9"
+    "@emotion/react": ">=11.0.0"
+    "@emotion/styled": ">=11.0.0"
+    framer-motion: ">=6.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
   languageName: unknown

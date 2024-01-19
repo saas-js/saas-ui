@@ -33,9 +33,75 @@ The FiltersProvider can be used together with `DataGrid` to create intuitive dat
 
 ### Basic
 
+Filters can be added to the `FiltersProvider` component. The `FiltersAddButton` component will render a menu with available filters.
 The `ActiveFiltersList` component is best used together with the `Page` component. It will render a list of active filters.
 
-```jsx
+In this example we have a filter on the `type`, with two possible values: `lead` and `customer`.
+Use the `activeLabel` property to render a different label when the filter is active.
+
+```jsx inline=true
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+} from '@saas-ui-pro/react'
+import { FiCircle } from 'react-icons/fi'
+
+export default function ListPage() {
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'type',
+        label: 'Contact is lead',
+        activeLabel: 'Contact',
+        icon: <FiUser />,
+        value: 'lead',
+      },
+      {
+        id: 'type',
+        label: 'Contact is customer',
+        activeLabel: 'Contact',
+        icon: <FiUser />,
+        value: 'customer',
+      },
+    ],
+    []
+  )
+
+  return (
+    <FiltersProvider filters={filters}>
+      <Page>
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+
+        <ActiveFiltersList />
+        <PageBody></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+### Nested values
+
+Filters support multiple levels of nesting. This is a useful pattern where users can select a property, eg `status` and then can choose
+from a list of available values, eg `New`, `Active`, etc.
+
+Here's a basic example of how that works:
+
+```jsx inline=true
 import { Spacer, Badge } from '@chakra-ui/react'
 import {
   Page,
@@ -103,11 +169,200 @@ export default function ListPage() {
 }
 ```
 
+### Custom user input
+
+There are cases where you want to allow users to enter custom values, for example when filtering by an amount or date.
+Instead of using the `enum` type, you can use the `string` type and return a custom `Input` component in the `renderValue` function for a specific filter.
+
+```jsx inline=true
+import { Spacer, Badge } from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+  ActiveFilterValueInput
+} from '@saas-ui-pro/react'
+import { FiTag } from 'react-icons/fi'
+
+const getTags = async (query: string) => {
+  const tags = ['new', 'active', 'lead']
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(tags.filter((tag) => tag.match(query)))
+    }, 1000)
+  })
+}
+
+export default function ListPage() {
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'likes',
+        label: 'Likes',
+        icon: <FiHeart />,
+        type: 'number',
+        defaultOperator: 'moreThan',
+      },
+    ],
+    []
+  )
+
+    const renderValue: FilterRenderFn = React.useCallback((context) => {
+    if (context.id === 'likes') {
+      return <ActiveFilterValueInput bg='none' />
+    }
+    return context.value?.toLocaleString()
+  }, [])
+
+  return (
+    <FiltersProvider filters={filters}>
+      <Page>
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+
+        <ActiveFiltersList renderValue={renderValue} />
+        <PageBody></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
+### Input from modal
+
+Another way to collect user input is to use a modal. This is useful when you want to select dates with a `DatePicker`.
+This can be achieved using the `onBeforeEnableFilter` callback.
+In this example we have a filter for `createdAt` and we want to allow users to select a date from a list of predefined options or a custom date.
+
+```jsx inline=true
+import { Spacer } from '@chakra-ui/react'
+import {
+  useModals
+} from '@saas-ui/react'
+import {
+  DatePickerModal,
+  DateValue,
+} from '@saas-ui/date-picker'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  Filter,
+  FilterItem,
+  FiltersProvider,
+  FiltersAddButton,
+  ActiveFiltersList,
+  ActiveFilterValueInput
+} from '@saas-ui-pro/react'
+import { FiCalendar, FiTag } from 'react-icons/fi'
+
+import {startOfDay, subDays, formatDistanceToNowStrict} from 'date-fns'
+
+const getTags = async (query: string) => {
+  const tags = ['new', 'active', 'lead']
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(tags.filter((tag) => tag.match(query)))
+    }, 1000)
+  })
+}
+
+const days = [1, 2, 3, 7, 14, 21, 31, 60]
+
+export default function ListPage() {
+  const modals = useModals()
+
+  const filters = React.useMemo(
+    () => [
+      {
+        id: 'createdAt',
+        label: 'Created at',
+        icon: <FiCalendar />,
+        type: 'date',
+        operators: ['after', 'before'],
+        defaultOperator: 'after',
+        items: days
+          .map((day): FilterItem => {
+            const date = startOfDay(subDays(new Date(), day))
+            return {
+              id: `${day}days`,
+              label: formatDistanceToNowStrict(date, { addSuffix: true }),
+              value: date,
+            }
+          })
+          .concat([{ id: 'custom', label: 'Custom' }]),
+      },
+    ],
+    []
+  )
+
+  const onBeforeEnableFilter = React.useCallback(
+    (activeFilter: Filter, filter: FilterItem): Promise<Filter> => {
+      return new Promise((resolve, reject) => {
+        const { key, id, value } = activeFilter
+        const { type, label } = filter
+
+        if (type === 'date' && value === 'custom') {
+          return modals.open({
+            title: label,
+            date: new Date(),
+            onSubmit: (date: DateValue) => {
+              resolve({
+                key,
+                id,
+                value: date.toDate(getLocalTimeZone()),
+                operator: 'after',
+              })
+            },
+            onClose: () => reject(),
+            component: DatePickerModal,
+          })
+        }
+
+        resolve(activeFilter)
+      })
+    },
+    [],
+  )
+
+  return (
+    <FiltersProvider filters={filters} onBeforeEnableFilter={onBeforeEnableFilter}>
+      <Page>
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
+
+        <ActiveFiltersList />
+        <PageBody></PageBody>
+      </Page>
+    </FiltersProvider>
+  )
+}
+```
+
 ### Async filters
 
 Filter `items` can be async. This is useful when you need to fetch data from an API.
 
-```jsx
+```jsx inline=true
 import { Spacer, Badge } from '@chakra-ui/react'
 import {
   Page,
@@ -173,7 +428,9 @@ export default function ListPage() {
 
 ## Usage with DataGrid
 
-```jsx
+Filters can be used together with `DataGrid` or Tanstack Table using the `getDataGridFilter` helper function.
+
+```jsx inline=true
 import { Spacer, Badge } from '@chakra-ui/react'
 import {
   Page,
@@ -356,7 +613,7 @@ export default function ListPage() {
 
 ### DataGrid with default filters
 
-```jsx
+```jsx inline=true
 import { Spacer, Badge } from '@chakra-ui/react'
 import {
   Page,

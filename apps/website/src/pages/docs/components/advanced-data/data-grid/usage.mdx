@@ -583,6 +583,78 @@ export default function VisibleColumns() {
 }
 ```
 
+### Custom icons
+
+Icons can be customized by passing a `icons` map to the `DataGrid` component.
+
+| icon           | description     |
+| -------------- | --------------- |
+| sortAscending  | Sort ascending  |
+| sortDescending | Sort descending |
+| rowExpanded    | Expanded row    |
+| rowCollapsed   | Collapsed row   |
+
+```jsx
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuOptionGroup,
+  MenuOptionItem,
+  Button,
+} from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  DataGrid,
+} from '@saas-ui-pro/react'
+
+import { FiArrowUp, FiArrowDown, FiArrowRight } from 'react-icons/fi'
+
+const icons = {
+  sortAscending: <FiArrowUp />,
+  sortDescending: <FiArrowDown />,
+  rowExpanded: <FiArrowDown />,
+  rowCollapsed: <FiArrowRight />,
+}
+
+export default function CustomIcons() {
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={demoData}
+          isSelectable
+          isSortable
+          isExpandable
+          icons={icons}
+        />
+      </PageBody>
+    </Page>
+  )
+}
+
+const demoData = dataGrid.data.map((row, i) => {
+  return {
+    ...row,
+    subRows: [
+      {
+        id: row.id + '-1',
+        ...row,
+      },
+      {
+        id: row.id + '-2',
+        ...row,
+      },
+    ],
+  }
+})
+```
+
 ## Typescript
 
 <Info>

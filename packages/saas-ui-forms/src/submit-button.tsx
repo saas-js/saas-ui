@@ -48,13 +48,13 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
 
     return (
       <Button
-        {...rest}
-        {...field}
         ref={ref}
         variant={variant}
         type="submit"
         isLoading={formState.isSubmitting || isLoading}
         isDisabled={isDisabled}
+        {...rest}
+        {...field}
       >
         {children}
       </Button>

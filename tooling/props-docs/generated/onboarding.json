@@ -292,7 +292,7 @@
     "primaryActionProps": { "type": "ButtonProps", "required": false },
     "secondaryActionProps": { "type": "ButtonProps", "required": false },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"1\" | \"2\" | \"3\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"-1\" | \"-2\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "'0.5rem'",
       "required": false,
       "description": "The spacing between the buttons"

@@ -1,7 +1,7 @@
 {
   "Persona": {
     "badgeSize": {
-      "type": "ResponsiveValue<number | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-fit-content\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 6 more ... | \"min-intrinsic\">",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-fit-content\" | \"-moz-max-content\" | \"-moz-min-content\" | ... 62 more ... | \"container.2xl\">",
       "required": false,
       "description": "The badge size. Defaults to 1em. Use em value to keep the size relative to the avatar."
     },

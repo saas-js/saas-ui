@@ -38,7 +38,7 @@
       "description": "The step name"
     },
     "render": {
-      "type": "(\n  props?: any\n) => ReactElement<any, string | JSXElementConstructor<any>>",
+      "type": "(\n  props?: any,\n) => ReactElement<any, string | JSXElementConstructor<any>>",
       "required": false,
       "description": "Custom render function"
     },

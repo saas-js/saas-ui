@@ -21,7 +21,7 @@
       "description": "Callback invoked when the sidebar is opened."
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | (string & {}) | \"px\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "Spacing between child elements."
     },
@@ -55,17 +55,17 @@
       "description": "Callback invoked when the sidebar is closed."
     },
     "onDrag": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when the component is dragged.\n\n```jsx\n<motion.div\n  drag\n  onDrag={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
     "onDragEnd": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when dragging ends.\n\n```jsx\n<motion.div\n  drag\n  onDragEnd={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
     "onDragStart": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when dragging starts.\n\n```jsx\n<motion.div\n  drag\n  onDragStart={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
@@ -75,7 +75,7 @@
       "description": "Callback invoked when the sidebar is opened."
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | (string & {}) | \"px\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "Spacing between child elements."
     },
@@ -130,7 +130,7 @@
       "required": false
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | (string & {}) | \"px\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     }
   },
@@ -172,7 +172,7 @@
       "description": "Icon to be displayed in the nav item"
     },
     "inset": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | (string & {}) | \"px\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Inset of the item, used for nested items"
     },

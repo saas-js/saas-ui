@@ -126,11 +126,6 @@
       "required": false,
       "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
     },
-    "initialFocusRef": {
-      "type": "RefObject<{ focus(): void }>",
-      "required": false,
-      "description": "The `ref` of the element that should receive focus when the popover opens."
-    },
     "isDateUnavailable": {
       "type": "(date: DateValue) => boolean",
       "required": false,
@@ -294,7 +289,7 @@
       "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
     },
     "validate": {
-      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: DateValue,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -444,7 +439,7 @@
     },
     "timeZone": { "type": "string", "required": false },
     "validate": {
-      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: DateValue,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -594,7 +589,7 @@
     },
     "timeZone": { "type": "string", "required": false },
     "validate": {
-      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: DateValue,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -799,6 +794,11 @@
       "type": "TargetAndTransition | VariantLabels",
       "required": false,
       "description": "A target to animate to when this component is removed from the tree.\n\nThis component **must** be the first animatable child of an `AnimatePresence` to enable this exit animation.\n\nThis limitation exists because React doesn't allow components to defer unmounting until after\nan animation is complete. Once this limitation is fixed, the `AnimatePresence` component will be unnecessary.\n\n```jsx\nimport { AnimatePresence, motion } from 'framer-motion'\n\nexport const MyComponent = ({ isVisible }) => {\n  return (\n    <AnimatePresence>\n       {isVisible && (\n         <motion.div\n           initial={{ opacity: 0 }}\n           animate={{ opacity: 1 }}\n           exit={{ opacity: 0 }}\n         />\n       )}\n    </AnimatePresence>\n  )\n}\n```"
+    },
+    "globalTapTarget": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the tap gesture will attach its start listener to window.\n\nNote: This is not supported publically."
     },
     "hidden": { "type": "boolean", "required": false },
     "hideArrow": {
@@ -1424,17 +1424,17 @@
       "required": false
     },
     "onTap": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo,\n) => void",
       "required": false,
       "description": "Callback when the tap gesture successfully ends on this element.\n\n```jsx\nfunction onTap(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTap={onTap} />\n```"
     },
     "onTapCancel": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo,\n) => void",
       "required": false,
       "description": "Callback when the tap gesture ends outside this element.\n\n```jsx\nfunction onTapCancel(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapCancel={onTapCancel} />\n```"
     },
     "onTapStart": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo,\n) => void",
       "required": false,
       "description": "Callback when the tap gesture starts on this element.\n\n```jsx\nfunction onTapStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapStart={onTapStart} />\n```"
     },
@@ -1532,7 +1532,7 @@
     "tabIndex": { "type": "number", "required": false },
     "title": { "type": "string", "required": false },
     "transformTemplate": {
-      "type": "(\n  transform: TransformProperties,\n  generatedTransform: string\n) => string",
+      "type": "(\n  transform: TransformProperties,\n  generatedTransform: string,\n) => string",
       "required": false,
       "description": "By default, Framer Motion generates a `transform` property with a sensible transform order. `transformTemplate`\ncan be used to create a different order, or to append/preprend the automatically generated `transform` property.\n\n```jsx\n<motion.div\n  style={{ x: 0, rotate: 180 }}\n  transformTemplate={\n    ({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`\n  }\n/>\n```"
     },
@@ -1905,7 +1905,7 @@
       "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
     },
     "validate": {
-      "type": "(\n  value: RangeValue<DateValue>\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: RangeValue<DateValue>,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -2247,7 +2247,7 @@
       "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
     },
     "validate": {
-      "type": "(\n  value: RangeValue<DateValue>\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: RangeValue<DateValue>,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -2342,6 +2342,11 @@
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
+    "dialogProps": {
+      "type": "DatePickerDialogProps",
+      "required": false,
+      "description": "The DatePickerDialog props."
+    },
     "direction": {
       "type": "\"ltr\" | \"rtl\"",
       "defaultValue": "ltr",
@@ -2392,10 +2397,10 @@
       "required": false,
       "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
     },
-    "initialFocusRef": {
-      "type": "RefObject<{ focus(): void }>",
+    "inputProps": {
+      "type": "DatePickerInputProps",
       "required": false,
-      "description": "The `ref` of the element that should receive focus when the popover opens."
+      "description": "The DatePickerInput props."
     },
     "isDateUnavailable": {
       "type": "(date: DateValue) => boolean",
@@ -2565,7 +2570,7 @@
       "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
     },
     "validate": {
-      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: DateValue,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -2674,6 +2679,11 @@
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
+    "dialogProps": {
+      "type": "DatePickerDialogProps",
+      "required": false,
+      "description": "The DatePickerDialog props."
+    },
     "direction": {
       "type": "\"ltr\" | \"rtl\"",
       "defaultValue": "ltr",
@@ -2733,6 +2743,11 @@
       "type": "RefObject<{ focus(): void }>",
       "required": false,
       "description": "The `ref` of the element that should receive focus when the popover opens."
+    },
+    "inputProps": {
+      "type": "DatePickerInputProps",
+      "required": false,
+      "description": "The DatePickerInput props."
     },
     "isDateUnavailable": {
       "type": "(date: DateValue) => boolean",
@@ -2917,7 +2932,7 @@
       "description": "The interaction that triggers the popover.\n\n`hover` - means the popover will open when you hover with mouse or\nfocus with keyboard on the popover trigger\n\n`click` - means the popover will open on click or\npress `Enter` to `Space` on keyboard"
     },
     "validate": {
-      "type": "(\n  value: RangeValue<DateValue>\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: RangeValue<DateValue>,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },
@@ -3227,7 +3242,7 @@
       "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
     },
     "validate": {
-      "type": "(\n  value: DateValue\n) => true | ValidationError | null | undefined",
+      "type": "(\n  value: DateValue,\n) => true | ValidationError | null | undefined",
       "required": false,
       "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead."
     },

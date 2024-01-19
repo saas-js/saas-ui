@@ -47,7 +47,7 @@
   },
   "KanbanColumnDragHandle": {
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"1\" | \"2\" | \"3\" | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"-1\" | \"-2\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },
@@ -111,7 +111,7 @@
   },
   "KanbanAction": {
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"1\" | \"2\" | \"3\" | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"-1\" | \"-2\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },

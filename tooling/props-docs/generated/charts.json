@@ -100,7 +100,7 @@
       "description": "The curve type of the area."
     },
     "height": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },
@@ -229,7 +229,7 @@
       "description": "The curve type of the line."
     },
     "height": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },
@@ -347,7 +347,7 @@
       "description": "The colors to use for each category."
     },
     "height": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },
@@ -466,7 +466,7 @@
       "description": "The colors to use for each category."
     },
     "height": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"-moz-max-content\"\n  | \"-moz-min-content\"\n  | \"-webkit-fit-content\"\n  | \"auto\"\n  | \"fit-content\"\n  | \"max-content\"\n  | \"min-content\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },

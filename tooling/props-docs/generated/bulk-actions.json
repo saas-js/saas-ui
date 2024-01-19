@@ -196,6 +196,11 @@
       "required": false,
       "description": "A target to animate to when this component is removed from the tree.\n\nThis component **must** be the first animatable child of an `AnimatePresence` to enable this exit animation.\n\nThis limitation exists because React doesn't allow components to defer unmounting until after\nan animation is complete. Once this limitation is fixed, the `AnimatePresence` component will be unnecessary.\n\n```jsx\nimport { AnimatePresence, motion } from 'framer-motion'\n\nexport const MyComponent = ({ isVisible }) => {\n  return (\n    <AnimatePresence>\n       {isVisible && (\n         <motion.div\n           initial={{ opacity: 0 }}\n           animate={{ opacity: 1 }}\n           exit={{ opacity: 0 }}\n         />\n       )}\n    </AnimatePresence>\n  )\n}\n```"
     },
+    "globalTapTarget": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true`, the tap gesture will attach its start listener to window.\n\nNote: This is not supported publically."
+    },
     "hidden": { "type": "boolean", "required": false },
     "id": { "type": "string", "required": false },
     "ignoreStrict": { "type": "boolean", "required": false },
@@ -415,7 +420,7 @@
       "required": false
     },
     "onDrag": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when the component is dragged.\n\n```jsx\n<motion.div\n  drag\n  onDrag={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
@@ -424,7 +429,7 @@
       "required": false
     },
     "onDragEnd": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when dragging ends.\n\n```jsx\n<motion.div\n  drag\n  onDragEnd={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
@@ -465,7 +470,7 @@
       "required": false
     },
     "onDragStart": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when dragging starts.\n\n```jsx\n<motion.div\n  drag\n  onDragStart={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
@@ -898,17 +903,17 @@
       "required": false
     },
     "onTap": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo,\n) => void",
       "required": false,
       "description": "Callback when the tap gesture successfully ends on this element.\n\n```jsx\nfunction onTap(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTap={onTap} />\n```"
     },
     "onTapCancel": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo,\n) => void",
       "required": false,
       "description": "Callback when the tap gesture ends outside this element.\n\n```jsx\nfunction onTapCancel(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapCancel={onTapCancel} />\n```"
     },
     "onTapStart": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: TapInfo,\n) => void",
       "required": false,
       "description": "Callback when the tap gesture starts on this element.\n\n```jsx\nfunction onTapStart(event, info) {\n  console.log(info.point.x, info.point.y)\n}\n\n<motion.div onTapStart={onTapStart} />\n```"
     },
@@ -1023,7 +1028,7 @@
       "description": "The title\n\n\":selections\" will be replaced with the amount of selected items."
     },
     "transformTemplate": {
-      "type": "(\n  transform: TransformProperties,\n  generatedTransform: string\n) => string",
+      "type": "(\n  transform: TransformProperties,\n  generatedTransform: string,\n) => string",
       "required": false,
       "description": "By default, Framer Motion generates a `transform` property with a sensible transform order. `transformTemplate`\ncan be used to create a different order, or to append/preprend the automatically generated `transform` property.\n\n```jsx\n<motion.div\n  style={{ x: 0, rotate: 180 }}\n  transformTemplate={\n    ({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`\n  }\n/>\n```"
     },

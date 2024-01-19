@@ -82,7 +82,7 @@
       "description": "Shorthand prop for `gridColumn`"
     },
     "columnGap": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Shorthand prop for `gridColumnGap`"
     },
@@ -92,12 +92,12 @@
       "description": "The number of columns"
     },
     "gap": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Shorthand prop for `gridGap`"
     },
     "minChildWidth": {
-      "type": "ResponsiveValue<number | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"max-content\" | \"min-content\" | \"-moz-fit-content\" | \"-moz-max-content\" | ... 7 more ... | \"-webkit-min-content\">",
+      "type": "ResponsiveValue<number | \"px\" | \"max\" | \"min\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"max-content\" | \"min-content\" | \"sm\" | ... 61 more ... | \"-webkit-min-content\">",
       "required": false,
       "description": "The width at which child elements will break into columns. Pass a number for pixel values or a string for any other valid CSS length."
     },
@@ -107,22 +107,22 @@
       "description": "Shorthand prop for `gridRow`"
     },
     "rowGap": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Shorthand prop for `gridRowGap`"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "The gap between the grid items"
     },
     "spacingX": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "The column gap between the grid items"
     },
     "spacingY": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "The row gap between the grid items"
     },
@@ -154,7 +154,7 @@
       "description": "Disable the submit button if the form is untouched.\n\nChange the default behavior by updating\n`SubmitButton.defaultProps.disableIfUntouched`"
     },
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },
@@ -205,7 +205,7 @@
   },
   "ArrayFieldButton": {
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },
@@ -437,7 +437,7 @@
       "description": "Shorthand prop for `gridColumn`"
     },
     "columnGap": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Shorthand prop for `gridColumnGap`"
     },
@@ -447,12 +447,12 @@
       "description": "Amount of field columns"
     },
     "gap": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Shorthand prop for `gridGap`"
     },
     "minChildWidth": {
-      "type": "ResponsiveValue<number | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"max-content\" | \"min-content\" | \"-moz-fit-content\" | \"-moz-max-content\" | ... 7 more ... | \"-webkit-min-content\">",
+      "type": "ResponsiveValue<number | \"px\" | \"max\" | \"min\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"max-content\" | \"min-content\" | \"sm\" | ... 61 more ... | \"-webkit-min-content\">",
       "required": false,
       "description": "The width at which child elements will break into columns. Pass a number for pixel values or a string for any other valid CSS length."
     },
@@ -462,7 +462,7 @@
       "description": "Shorthand prop for `gridRow`"
     },
     "rowGap": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "Shorthand prop for `gridRowGap`"
     },
@@ -472,12 +472,12 @@
       "description": "Spacing between fields"
     },
     "spacingX": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "The column gap between the grid items"
     },
     "spacingY": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
       "description": "The row gap between the grid items"
     },
@@ -499,7 +499,7 @@
   },
   "ArrayFieldRows": {
     "children": {
-      "type": "(\n  fields: ArrayField[]\n) => ReactElement<any, string | JSXElementConstructor<any>> | null",
+      "type": "(\n  fields: ArrayField[],\n) => ReactElement<any, string | JSXElementConstructor<any>> | null",
       "required": true
     }
   },
@@ -601,14 +601,14 @@
     },
     "name": { "type": "TName", "required": true },
     "condition": {
-      "type": "(\n  value: unknown,\n  context: UseFormReturn<TFieldValues>\n) => boolean",
+      "type": "(\n  value: unknown,\n  context: UseFormReturn<TFieldValues>,\n) => boolean",
       "required": false
     },
     "defaultValue": { "type": "{}", "required": false },
     "isDisabled": { "type": "boolean", "required": false },
     "isExact": { "type": "boolean", "required": false },
     "onToggle": {
-      "type": "(\n  conditionMatched: boolean,\n  context: UseFormReturn<TFieldValues>\n) => void",
+      "type": "(\n  conditionMatched: boolean,\n  context: UseFormReturn<TFieldValues>,\n) => void",
       "required": false
     }
   },
@@ -656,7 +656,7 @@
       "description": "The orientation of the stepper."
     },
     "render": {
-      "type": "(\n  props?: any\n) => ReactElement<any, string | JSXElementConstructor<any>>",
+      "type": "(\n  props?: any,\n) => ReactElement<any, string | JSXElementConstructor<any>>",
       "required": false
     },
     "step": {
@@ -672,7 +672,7 @@
   },
   "NextButton": {
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },
@@ -793,18 +793,18 @@
     "values": { "type": "TFieldValues", "required": false }
   },
   "StepsOptions": {
-    "__@iterator@39699": {
+    "__@iterator@40401": {
       "type": "() => IterableIterator<{\n  name: TName\n  schema?: TSchema | undefined\n}>",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@41156": {
+    "__@unscopables@41852": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
     },
     "at": {
-      "type": "(\n  index: number\n) => { name: TName; schema?: TSchema | undefined } | undefined",
+      "type": "(\n  index: number,\n) => { name: TName; schema?: TSchema | undefined } | undefined",
       "required": true,
       "description": "Returns the item located at the specified index."
     },
@@ -814,7 +814,7 @@
       "description": "Combines two or more arrays.\nThis method returns a new array without modifying any existing arrays."
     },
     "copyWithin": {
-      "type": "(\n  target: number,\n  start: number,\n  end?: number | undefined\n) => StepsOptions<TSchema, TName>",
+      "type": "(\n  target: number,\n  start: number,\n  end?: number | undefined,\n) => StepsOptions<TSchema, TName>",
       "required": true,
       "description": "Returns the this object after copying a section of the array identified by start and end\nto the same array starting at position target"
     },
@@ -829,7 +829,7 @@
       "description": "Determines whether all the members of an array satisfy the specified test."
     },
     "fill": {
-      "type": "(\n  value: { name: TName; schema?: TSchema | undefined },\n  start?: number | undefined,\n  end?: number | undefined\n) => StepsOptions<TSchema, TName>",
+      "type": "(\n  value: { name: TName; schema?: TSchema | undefined },\n  start?: number | undefined,\n  end?: number | undefined,\n) => StepsOptions<TSchema, TName>",
       "required": true,
       "description": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array"
     },
@@ -844,7 +844,7 @@
       "description": "Returns the value of the first element in the array where predicate is true, and undefined\notherwise."
     },
     "findIndex": {
-      "type": "(\n  predicate: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    obj: { name: TName; schema?: TSchema | undefined }[]\n  ) => unknown,\n  thisArg?: any\n) => number",
+      "type": "(\n  predicate: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    obj: { name: TName; schema?: TSchema | undefined }[],\n  ) => unknown,\n  thisArg?: any,\n) => number",
       "required": true,
       "description": "Returns the index of the first element in the array where predicate is true, and -1\notherwise."
     },
@@ -854,32 +854,32 @@
       "description": "Returns the value of the last element in the array where predicate is true, and undefined\notherwise."
     },
     "findLastIndex": {
-      "type": "(\n  predicate: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[]\n  ) => unknown,\n  thisArg?: any\n) => number",
+      "type": "(\n  predicate: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[],\n  ) => unknown,\n  thisArg?: any,\n) => number",
       "required": true,
       "description": "Returns the index of the last element in the array where predicate is true, and -1\notherwise."
     },
     "flat": {
-      "type": "<A, D extends number = 1>(\n  this: A,\n  depth?: D | undefined\n) => FlatArray<A, D>[]",
+      "type": "<A, D extends number = 1>(\n  this: A,\n  depth?: D | undefined,\n) => FlatArray<A, D>[]",
       "required": true,
       "description": "Returns a new array with all sub-array elements concatenated into it recursively up to the\nspecified depth."
     },
     "flatMap": {
-      "type": "<U, This = undefined>(\n  callback: (\n    this: This,\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[]\n  ) => U | readonly U[],\n  thisArg?: This | undefined\n) => U[]",
+      "type": "<U, This = undefined>(\n  callback: (\n    this: This,\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[],\n  ) => U | readonly U[],\n  thisArg?: This | undefined,\n) => U[]",
       "required": true,
       "description": "Calls a defined callback function on each element of an array. Then, flattens the result into\na new array.\nThis is identical to a map followed by flat with depth 1."
     },
     "forEach": {
-      "type": "(\n  callbackfn: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[]\n  ) => void,\n  thisArg?: any\n) => void",
+      "type": "(\n  callbackfn: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[],\n  ) => void,\n  thisArg?: any,\n) => void",
       "required": true,
       "description": "Performs the specified action for each element in an array."
     },
     "includes": {
-      "type": "(\n  searchElement: { name: TName; schema?: TSchema | undefined },\n  fromIndex?: number | undefined\n) => boolean",
+      "type": "(\n  searchElement: { name: TName; schema?: TSchema | undefined },\n  fromIndex?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Determines whether an array includes a certain element, returning true or false as appropriate."
     },
     "indexOf": {
-      "type": "(\n  searchElement: { name: TName; schema?: TSchema | undefined },\n  fromIndex?: number | undefined\n) => number",
+      "type": "(\n  searchElement: { name: TName; schema?: TSchema | undefined },\n  fromIndex?: number | undefined,\n) => number",
       "required": true,
       "description": "Returns the index of the first occurrence of a value in an array, or -1 if it is not present."
     },
@@ -894,7 +894,7 @@
       "description": "Returns an iterable of keys in the array"
     },
     "lastIndexOf": {
-      "type": "(\n  searchElement: { name: TName; schema?: TSchema | undefined },\n  fromIndex?: number | undefined\n) => number",
+      "type": "(\n  searchElement: { name: TName; schema?: TSchema | undefined },\n  fromIndex?: number | undefined,\n) => number",
       "required": true,
       "description": "Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present."
     },
@@ -904,7 +904,7 @@
       "description": "Gets or sets the length of the array. This is a number one higher than the highest index in the array."
     },
     "map": {
-      "type": "<U>(\n  callbackfn: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[]\n  ) => U,\n  thisArg?: any\n) => U[]",
+      "type": "<U>(\n  callbackfn: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[],\n  ) => U,\n  thisArg?: any,\n) => U[]",
       "required": true,
       "description": "Calls a defined callback function on each element of an array, and returns an array that contains the results."
     },
@@ -939,17 +939,17 @@
       "description": "Removes the first element from an array and returns it.\nIf the array is empty, undefined is returned and the array is not modified."
     },
     "slice": {
-      "type": "(\n  start?: number | undefined,\n  end?: number | undefined\n) => { name: TName; schema?: TSchema | undefined }[]",
+      "type": "(\n  start?: number | undefined,\n  end?: number | undefined,\n) => { name: TName; schema?: TSchema | undefined }[]",
       "required": true,
       "description": "Returns a copy of a section of an array.\nFor both start and end, a negative index can be used to indicate an offset from the end of the array.\nFor example, -2 refers to the second to last element of the array."
     },
     "some": {
-      "type": "(\n  predicate: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[]\n  ) => unknown,\n  thisArg?: any\n) => boolean",
+      "type": "(\n  predicate: (\n    value: { name: TName; schema?: TSchema | undefined },\n    index: number,\n    array: { name: TName; schema?: TSchema | undefined }[],\n  ) => unknown,\n  thisArg?: any,\n) => boolean",
       "required": true,
       "description": "Determines whether the specified callback function returns true for any element of an array."
     },
     "sort": {
-      "type": "(\n  compareFn?:\n    | ((\n        a: { name: TName; schema?: TSchema | undefined },\n        b: { name: TName; schema?: TSchema | undefined }\n      ) => number)\n    | undefined\n) => StepsOptions<TSchema, TName>",
+      "type": "(\n  compareFn?:\n    | ((\n        a: { name: TName; schema?: TSchema | undefined },\n        b: { name: TName; schema?: TSchema | undefined },\n      ) => number)\n    | undefined,\n) => StepsOptions<TSchema, TName>",
       "required": true,
       "description": "Sorts an array in place.\nThis method mutates the array and returns a reference to the same array."
     },
@@ -969,7 +969,7 @@
       "description": "Returns a copy of an array with its elements reversed."
     },
     "toSorted": {
-      "type": "(\n  compareFn?:\n    | ((\n        a: { name: TName; schema?: TSchema | undefined },\n        b: { name: TName; schema?: TSchema | undefined }\n      ) => number)\n    | undefined\n) => { name: TName; schema?: TSchema | undefined }[]",
+      "type": "(\n  compareFn?:\n    | ((\n        a: { name: TName; schema?: TSchema | undefined },\n        b: { name: TName; schema?: TSchema | undefined },\n      ) => number)\n    | undefined,\n) => { name: TName; schema?: TSchema | undefined }[]",
       "required": true,
       "description": "Returns a copy of an array with its elements sorted."
     },
@@ -994,7 +994,7 @@
       "description": "Returns an iterable of values in the array"
     },
     "with": {
-      "type": "(\n  index: number,\n  value: { name: TName; schema?: TSchema | undefined }\n) => { name: TName; schema?: TSchema | undefined }[]",
+      "type": "(\n  index: number,\n  value: { name: TName; schema?: TSchema | undefined },\n) => { name: TName; schema?: TSchema | undefined }[]",
       "required": true,
       "description": "Copies an array, then overwrites the value at the provided index with the\ngiven value. If the index is negative, then it replaces from the end\nof the array."
     }
@@ -1089,7 +1089,7 @@
   },
   "InputRightButton": {
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },
@@ -1196,7 +1196,7 @@
   },
   "SelectButton": {
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between the button icon and label."
     },
@@ -1521,7 +1521,7 @@
       "description": "Function called once a radio is checked"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     },
     "value": {
@@ -1531,12 +1531,12 @@
     }
   },
   "RadioOptions": {
-    "__@iterator@39699": {
+    "__@iterator@40401": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<RadioOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@41156": {
+    "__@unscopables@41852": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -1567,7 +1567,7 @@
       "description": "Determines whether all the members of an array satisfy the specified test."
     },
     "fill": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      value: string,\n      start?: number | undefined,\n      end?: number | undefined\n    ) => string[])\n  | ((\n      value: RadioOption,\n      start?: number | undefined,\n      end?: number | undefined\n    ) => RadioOption[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      value: string,\n      start?: number | undefined,\n      end?: number | undefined,\n    ) => string[])\n  | ((\n      value: RadioOption,\n      start?: number | undefined,\n      end?: number | undefined,\n    ) => RadioOption[])",
       "required": true,
       "description": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array"
     },
@@ -1582,7 +1582,7 @@
       "description": "Returns the value of the first element in the array where predicate is true, and undefined\notherwise."
     },
     "findIndex": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, obj: string[]) => unknown,\n      thisArg?: any\n    ) => number)\n  | ((\n      predicate: (\n        value: RadioOption,\n        index: number,\n        obj: RadioOption[]\n      ) => unknown,\n      thisArg?: any\n    ) => number)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, obj: string[]) => unknown,\n      thisArg?: any,\n    ) => number)\n  | ((\n      predicate: (\n        value: RadioOption,\n        index: number,\n        obj: RadioOption[],\n      ) => unknown,\n      thisArg?: any,\n    ) => number)",
       "required": true,
       "description": "Returns the index of the first element in the array where predicate is true, and -1\notherwise."
     },
@@ -1592,22 +1592,22 @@
       "description": "Returns the value of the last element in the array where predicate is true, and undefined\notherwise."
     },
     "findLastIndex": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any\n    ) => number)\n  | ((\n      predicate: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[]\n      ) => unknown,\n      thisArg?: any\n    ) => number)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any,\n    ) => number)\n  | ((\n      predicate: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[],\n      ) => unknown,\n      thisArg?: any,\n    ) => number)",
       "required": true,
       "description": "Returns the index of the last element in the array where predicate is true, and -1\notherwise."
     },
     "flat": {
-      "type": "type ONLY_FOR_FORMAT =\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined\n    ) => FlatArray<A, D>[])\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined\n    ) => FlatArray<A, D>[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined,\n    ) => FlatArray<A, D>[])\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined,\n    ) => FlatArray<A, D>[])",
       "required": true,
       "description": "Returns a new array with all sub-array elements concatenated into it recursively up to the\nspecified depth."
     },
     "flatMap": {
-      "type": "type ONLY_FOR_FORMAT =\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: string,\n        index: number,\n        array: string[]\n      ) => U | readonly U[],\n      thisArg?: This | undefined\n    ) => U[])\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: RadioOption,\n        index: number,\n        array: RadioOption[]\n      ) => U | readonly U[],\n      thisArg?: This | undefined\n    ) => U[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: string,\n        index: number,\n        array: string[],\n      ) => U | readonly U[],\n      thisArg?: This | undefined,\n    ) => U[])\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: RadioOption,\n        index: number,\n        array: RadioOption[],\n      ) => U | readonly U[],\n      thisArg?: This | undefined,\n    ) => U[])",
       "required": true,
       "description": "Calls a defined callback function on each element of an array. Then, flattens the result into\na new array.\nThis is identical to a map followed by flat with depth 1."
     },
     "forEach": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      callbackfn: (value: string, index: number, array: string[]) => void,\n      thisArg?: any\n    ) => void)\n  | ((\n      callbackfn: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[]\n      ) => void,\n      thisArg?: any\n    ) => void)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      callbackfn: (value: string, index: number, array: string[]) => void,\n      thisArg?: any,\n    ) => void)\n  | ((\n      callbackfn: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[],\n      ) => void,\n      thisArg?: any,\n    ) => void)",
       "required": true,
       "description": "Performs the specified action for each element in an array."
     },
@@ -1642,7 +1642,7 @@
       "description": "Gets or sets the length of the array. This is a number one higher than the highest index in the array."
     },
     "map": {
-      "type": "type ONLY_FOR_FORMAT =\n  | (<U>(\n      callbackfn: (value: string, index: number, array: string[]) => U,\n      thisArg?: any\n    ) => U[])\n  | (<U>(\n      callbackfn: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[]\n      ) => U,\n      thisArg?: any\n    ) => U[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | (<U>(\n      callbackfn: (value: string, index: number, array: string[]) => U,\n      thisArg?: any,\n    ) => U[])\n  | (<U>(\n      callbackfn: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[],\n      ) => U,\n      thisArg?: any,\n    ) => U[])",
       "required": true,
       "description": "Calls a defined callback function on each element of an array, and returns an array that contains the results."
     },
@@ -1682,12 +1682,12 @@
       "description": "Returns a copy of a section of an array.\nFor both start and end, a negative index can be used to indicate an offset from the end of the array.\nFor example, -2 refers to the second to last element of the array."
     },
     "some": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any\n    ) => boolean)\n  | ((\n      predicate: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[]\n      ) => unknown,\n      thisArg?: any\n    ) => boolean)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any,\n    ) => boolean)\n  | ((\n      predicate: (\n        value: RadioOption,\n        index: number,\n        array: RadioOption[],\n      ) => unknown,\n      thisArg?: any,\n    ) => boolean)",
       "required": true,
       "description": "Determines whether the specified callback function returns true for any element of an array."
     },
     "sort": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: RadioOption, b: RadioOption) => number) | undefined\n    ) => RadioOption[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: RadioOption, b: RadioOption) => number) | undefined,\n    ) => RadioOption[])",
       "required": true,
       "description": "Sorts an array in place.\nThis method mutates the array and returns a reference to the same array."
     },
@@ -1707,7 +1707,7 @@
       "description": "Returns a copy of an array with its elements reversed."
     },
     "toSorted": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: RadioOption, b: RadioOption) => number) | undefined\n    ) => RadioOption[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: RadioOption, b: RadioOption) => number) | undefined,\n    ) => RadioOption[])",
       "required": true,
       "description": "Returns a copy of an array with its elements sorted."
     },
@@ -1927,7 +1927,7 @@
       "required": false
     },
     "onInvalid": {
-      "type": "(\n  message: ValidityState,\n  value: string,\n  valueAsNumber: number\n) => void",
+      "type": "(\n  message: ValidityState,\n  value: string,\n  valueAsNumber: number,\n) => void",
       "required": false
     },
     "parse": {
@@ -2018,7 +2018,7 @@
       "description": "The placeholder for the pin input"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     },
     "value": {
@@ -2267,7 +2267,7 @@
       "description": "The callback invoked when the checkbox is focused"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "0.5rem",
       "required": false,
       "description": "The spacing between the switch and its label text"
@@ -2416,7 +2416,7 @@
       "description": "The callback invoked when the checkbox is focused"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "0.5rem",
       "required": false,
       "description": "The spacing between the checkbox and its label text"
@@ -2525,7 +2525,7 @@
       "description": "Function called once a radio is checked"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     },
     "value": {
@@ -2606,12 +2606,12 @@
     }
   },
   "FieldOptions": {
-    "__@iterator@39699": {
+    "__@iterator@40401": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<TOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@41156": {
+    "__@unscopables@41852": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -2642,7 +2642,7 @@
       "description": "Determines whether all the members of an array satisfy the specified test."
     },
     "fill": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      value: string,\n      start?: number | undefined,\n      end?: number | undefined\n    ) => string[])\n  | ((\n      value: TOption,\n      start?: number | undefined,\n      end?: number | undefined\n    ) => TOption[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      value: string,\n      start?: number | undefined,\n      end?: number | undefined,\n    ) => string[])\n  | ((\n      value: TOption,\n      start?: number | undefined,\n      end?: number | undefined,\n    ) => TOption[])",
       "required": true,
       "description": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array"
     },
@@ -2657,7 +2657,7 @@
       "description": "Returns the value of the first element in the array where predicate is true, and undefined\notherwise."
     },
     "findIndex": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, obj: string[]) => unknown,\n      thisArg?: any\n    ) => number)\n  | ((\n      predicate: (value: TOption, index: number, obj: TOption[]) => unknown,\n      thisArg?: any\n    ) => number)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, obj: string[]) => unknown,\n      thisArg?: any,\n    ) => number)\n  | ((\n      predicate: (value: TOption, index: number, obj: TOption[]) => unknown,\n      thisArg?: any,\n    ) => number)",
       "required": true,
       "description": "Returns the index of the first element in the array where predicate is true, and -1\notherwise."
     },
@@ -2667,22 +2667,22 @@
       "description": "Returns the value of the last element in the array where predicate is true, and undefined\notherwise."
     },
     "findLastIndex": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any\n    ) => number)\n  | ((\n      predicate: (value: TOption, index: number, array: TOption[]) => unknown,\n      thisArg?: any\n    ) => number)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any,\n    ) => number)\n  | ((\n      predicate: (value: TOption, index: number, array: TOption[]) => unknown,\n      thisArg?: any,\n    ) => number)",
       "required": true,
       "description": "Returns the index of the last element in the array where predicate is true, and -1\notherwise."
     },
     "flat": {
-      "type": "type ONLY_FOR_FORMAT =\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined\n    ) => FlatArray<A, D>[])\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined\n    ) => FlatArray<A, D>[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined,\n    ) => FlatArray<A, D>[])\n  | (<A, D extends number = 1>(\n      this: A,\n      depth?: D | undefined,\n    ) => FlatArray<A, D>[])",
       "required": true,
       "description": "Returns a new array with all sub-array elements concatenated into it recursively up to the\nspecified depth."
     },
     "flatMap": {
-      "type": "type ONLY_FOR_FORMAT =\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: string,\n        index: number,\n        array: string[]\n      ) => U | readonly U[],\n      thisArg?: This | undefined\n    ) => U[])\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: TOption,\n        index: number,\n        array: TOption[]\n      ) => U | readonly U[],\n      thisArg?: This | undefined\n    ) => U[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: string,\n        index: number,\n        array: string[],\n      ) => U | readonly U[],\n      thisArg?: This | undefined,\n    ) => U[])\n  | (<U, This = undefined>(\n      callback: (\n        this: This,\n        value: TOption,\n        index: number,\n        array: TOption[],\n      ) => U | readonly U[],\n      thisArg?: This | undefined,\n    ) => U[])",
       "required": true,
       "description": "Calls a defined callback function on each element of an array. Then, flattens the result into\na new array.\nThis is identical to a map followed by flat with depth 1."
     },
     "forEach": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      callbackfn: (value: string, index: number, array: string[]) => void,\n      thisArg?: any\n    ) => void)\n  | ((\n      callbackfn: (value: TOption, index: number, array: TOption[]) => void,\n      thisArg?: any\n    ) => void)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      callbackfn: (value: string, index: number, array: string[]) => void,\n      thisArg?: any,\n    ) => void)\n  | ((\n      callbackfn: (value: TOption, index: number, array: TOption[]) => void,\n      thisArg?: any,\n    ) => void)",
       "required": true,
       "description": "Performs the specified action for each element in an array."
     },
@@ -2717,7 +2717,7 @@
       "description": "Gets or sets the length of the array. This is a number one higher than the highest index in the array."
     },
     "map": {
-      "type": "type ONLY_FOR_FORMAT =\n  | (<U>(\n      callbackfn: (value: string, index: number, array: string[]) => U,\n      thisArg?: any\n    ) => U[])\n  | (<U>(\n      callbackfn: (value: TOption, index: number, array: TOption[]) => U,\n      thisArg?: any\n    ) => U[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | (<U>(\n      callbackfn: (value: string, index: number, array: string[]) => U,\n      thisArg?: any,\n    ) => U[])\n  | (<U>(\n      callbackfn: (value: TOption, index: number, array: TOption[]) => U,\n      thisArg?: any,\n    ) => U[])",
       "required": true,
       "description": "Calls a defined callback function on each element of an array, and returns an array that contains the results."
     },
@@ -2757,12 +2757,12 @@
       "description": "Returns a copy of a section of an array.\nFor both start and end, a negative index can be used to indicate an offset from the end of the array.\nFor example, -2 refers to the second to last element of the array."
     },
     "some": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any\n    ) => boolean)\n  | ((\n      predicate: (value: TOption, index: number, array: TOption[]) => unknown,\n      thisArg?: any\n    ) => boolean)",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      predicate: (value: string, index: number, array: string[]) => unknown,\n      thisArg?: any,\n    ) => boolean)\n  | ((\n      predicate: (value: TOption, index: number, array: TOption[]) => unknown,\n      thisArg?: any,\n    ) => boolean)",
       "required": true,
       "description": "Determines whether the specified callback function returns true for any element of an array."
     },
     "sort": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: TOption, b: TOption) => number) | undefined\n    ) => TOption[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: TOption, b: TOption) => number) | undefined,\n    ) => TOption[])",
       "required": true,
       "description": "Sorts an array in place.\nThis method mutates the array and returns a reference to the same array."
     },
@@ -2782,7 +2782,7 @@
       "description": "Returns a copy of an array with its elements reversed."
     },
     "toSorted": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: TOption, b: TOption) => number) | undefined\n    ) => TOption[])",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((compareFn?: ((a: string, b: string) => number) | undefined) => string[])\n  | ((\n      compareFn?: ((a: TOption, b: TOption) => number) | undefined,\n    ) => TOption[])",
       "required": true,
       "description": "Returns a copy of an array with its elements sorted."
     },

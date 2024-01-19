@@ -34,6 +34,11 @@
       "required": false,
       "description": "The table class name attribute"
     },
+    "columnResizeDirection": {
+      "type": "ColumnResizeDirection",
+      "required": false,
+      "description": "Enables or disables right-to-left support for resizing the column. defaults to 'ltr'."
+    },
     "columnResizeMode": {
       "type": "ColumnResizeMode",
       "required": false,
@@ -167,15 +172,15 @@
       "description": "This function is responsible for returning the expanded row model. If this function is not provided, the table will not expand rows. You can use the default exported `getExpandedRowModel` function to get the expanded row model or implement your own."
     },
     "getFacetedMinMaxValues": {
-      "type": "(\n  table: Table<Data>,\n  columnId: string\n) => () => [number, number] | undefined",
+      "type": "(\n  table: Table<Data>,\n  columnId: string,\n) => () => [number, number] | undefined",
       "required": false
     },
     "getFacetedRowModel": {
-      "type": "(\n  table: Table<Data>,\n  columnId: string\n) => () => RowModel<Data>",
+      "type": "(\n  table: Table<Data>,\n  columnId: string,\n) => () => RowModel<Data>",
       "required": false
     },
     "getFacetedUniqueValues": {
-      "type": "(\n  table: Table<Data>,\n  columnId: string\n) => () => Map<any, number>",
+      "type": "(\n  table: Table<Data>,\n  columnId: string,\n) => () => Map<any, number>",
       "required": false
     },
     "getFilteredRowModel": {
@@ -204,7 +209,7 @@
       "description": "If provided, allows you to override the default behavior of determining whether a row can be expanded."
     },
     "getRowId": {
-      "type": "(\n  originalRow: Data,\n  index: number,\n  parent?: Row<Data> | undefined\n) => string",
+      "type": "(\n  originalRow: Data,\n  index: number,\n  parent?: Row<Data> | undefined,\n) => string",
       "required": false,
       "description": "This optional function is used to derive a unique ID for any given row. If not provided the rows index is used (nested rows join together with `.` using their grandparents' index eg. `index.index.index`). If you need to identify individual rows that are originating from any server-side operations, it's suggested you use this function to return an ID that makes sense regardless of network IO/ambiguity eg. a userId, taskId, database ID field, etc."
     },
@@ -294,7 +299,7 @@
       "description": "Set a maximum number of columns that can be multi-sorted."
     },
     "mergeOptions": {
-      "type": "(\n  defaultOptions: TableOptions<Data>,\n  options: Partial<TableOptions<Data>>\n) => TableOptions<Data>",
+      "type": "(\n  defaultOptions: TableOptions<Data>,\n  options: Partial<TableOptions<Data>>,\n) => TableOptions<Data>",
       "required": false,
       "description": "This option is used to optionally implement the merging of table options."
     },
@@ -411,6 +416,11 @@
       "type": "Partial<TableState>",
       "required": false,
       "description": "The `state` option can be used to optionally _control_ part or all of the table state. The state you pass here will merge with and overwrite the internal automatically-managed state to produce the final state for the table. You can also listen to state changes via the `onStateChange` option.\n> Note: Any state passed in here will override both the internal state and any other `initialState` you provide."
+    },
+    "sx": {
+      "type": "SystemStyleObject",
+      "required": false,
+      "description": "Table styles"
     }
   },
   "DataTableSort": {

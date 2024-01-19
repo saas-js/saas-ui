@@ -181,15 +181,15 @@
       "description": "This function is responsible for returning the expanded row model. If this function is not provided, the table will not expand rows. You can use the default exported `getExpandedRowModel` function to get the expanded row model or implement your own."
     },
     "getFacetedMinMaxValues": {
-      "type": "(\n  table: Table<Data>,\n  columnId: string\n) => () => [number, number] | undefined",
+      "type": "(\n  table: Table<Data>,\n  columnId: string,\n) => () => [number, number] | undefined",
       "required": false
     },
     "getFacetedRowModel": {
-      "type": "(\n  table: Table<Data>,\n  columnId: string\n) => () => RowModel<Data>",
+      "type": "(\n  table: Table<Data>,\n  columnId: string,\n) => () => RowModel<Data>",
       "required": false
     },
     "getFacetedUniqueValues": {
-      "type": "(\n  table: Table<Data>,\n  columnId: string\n) => () => Map<any, number>",
+      "type": "(\n  table: Table<Data>,\n  columnId: string,\n) => () => Map<any, number>",
       "required": false
     },
     "getFilteredRowModel": {
@@ -218,7 +218,7 @@
       "description": "If provided, allows you to override the default behavior of determining whether a row can be expanded."
     },
     "getRowId": {
-      "type": "(\n  originalRow: Data,\n  index: number,\n  parent?: Row<Data> | undefined\n) => string",
+      "type": "(\n  originalRow: Data,\n  index: number,\n  parent?: Row<Data> | undefined,\n) => string",
       "required": false,
       "description": "This optional function is used to derive a unique ID for any given row. If not provided the rows index is used (nested rows join together with `.` using their grandparents' index eg. `index.index.index`). If you need to identify individual rows that are originating from any server-side operations, it's suggested you use this function to return an ID that makes sense regardless of network IO/ambiguity eg. a userId, taskId, database ID field, etc."
     },
@@ -241,6 +241,11 @@
       "type": "false | \"reorder\" | \"remove\"",
       "required": false,
       "description": "Grouping columns are automatically reordered by default to the start of the columns list. If you would rather remove them or leave them as-is, set the appropriate mode here."
+    },
+    "icons": {
+      "type": "DataGridIcons",
+      "required": false,
+      "description": "Custom icons\nThis prop is memoized and will not update after initial render."
     },
     "initialState": {
       "type": "InitialTableState",
@@ -318,7 +323,7 @@
       "description": "Set a maximum number of columns that can be multi-sorted."
     },
     "mergeOptions": {
-      "type": "(\n  defaultOptions: TableOptions<Data>,\n  options: Partial<TableOptions<Data>>\n) => TableOptions<Data>",
+      "type": "(\n  defaultOptions: TableOptions<Data>,\n  options: Partial<TableOptions<Data>>,\n) => TableOptions<Data>",
       "required": false,
       "description": "This option is used to optionally implement the merging of table options."
     },
@@ -388,7 +393,7 @@
       "description": "Callback fired when clear filters is clicked."
     },
     "onRowClick": {
-      "type": "(\n  row: Row<Data>,\n  e: MouseEvent<Element, MouseEvent>,\n  meta?: any\n) => void",
+      "type": "(\n  row: Row<Data>,\n  e: MouseEvent<Element, MouseEvent>,\n  meta?: any,\n) => void",
       "required": false,
       "description": "Callback fired when a row is clicked."
     },
@@ -478,7 +483,8 @@
     "children": {
       "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
       "required": false
-    }
+    },
+    "icons": { "type": "DataGridIcons", "required": false }
   },
   "DataGridSort": {
     "header": { "type": "Header<Data, TValue>", "required": true }
@@ -505,7 +511,7 @@
     "onReset": { "type": "() => void", "required": false },
     "resource": { "type": "string", "required": false },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | \"auto\"\n  | (string & {})\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"auto\" | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     },
     "title": { "type": "string", "required": false }

@@ -27,17 +27,17 @@
       "description": "Callback when animation defined in `animate` begins.\n\nThe provided callback will be called with the triggering animation definition.\nIf this is a variant, it'll be the variant name, and if a target object\nthen it'll be the target object.\n\nThis way, it's possible to figure out which animation has started.\n\n```jsx\nfunction onStart() {\n  console.log(\"Animation started\")\n}\n\n<motion.div animate={{ x: 100 }} onAnimationStart={onStart} />\n```"
     },
     "onDrag": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when the component is dragged.\n\n```jsx\n<motion.div\n  drag\n  onDrag={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
     "onDragEnd": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when dragging ends.\n\n```jsx\n<motion.div\n  drag\n  onDragEnd={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
     "onDragStart": {
-      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo\n) => void",
+      "type": "(\n  event: MouseEvent | TouchEvent | PointerEvent,\n  info: PanInfo,\n) => void",
       "required": false,
       "description": "Callback function that fires when dragging starts.\n\n```jsx\n<motion.div\n  drag\n  onDragStart={\n    (event, info) => console.log(info.point.x, info.point.y)\n  }\n/>\n```"
     },
@@ -77,7 +77,7 @@
       "description": "Typically the `NavbarItem` component"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | \"initial\"\n  | \"inherit\"\n  | (string & {})\n  | \"-moz-initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n  | \"auto\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | \"initial\" | \"inherit\" | (string & {}) | \"-moz-initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "Spacing between each navbar item"
     }

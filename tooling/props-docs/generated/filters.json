@@ -180,7 +180,7 @@
     },
     "onClose": { "type": "() => void", "required": false },
     "onInputChange": {
-      "type": "(\n  value: string,\n  activeItemId?: string | undefined\n) => void",
+      "type": "(\n  value: string,\n  activeItemId?: string | undefined,\n) => void",
       "required": false
     },
     "onOpen": { "type": "() => void", "required": false },
@@ -226,7 +226,7 @@
       "description": "If `true`, all wrapped button will be disabled"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "'0.5rem'",
       "required": false,
       "description": "The spacing between the buttons"
@@ -238,7 +238,7 @@
       "required": false
     },
     "iconSpacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     }
   },
@@ -365,7 +365,7 @@
       "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
     },
     "shouldUpdate": {
-      "type": "(\n  prev: FilterOperatorId,\n  next: FilterOperatorId\n) => boolean",
+      "type": "(\n  prev: FilterOperatorId,\n  next: FilterOperatorId,\n) => boolean",
       "required": false,
       "description": "The function that determines if the state should be updated"
     },
@@ -429,7 +429,7 @@
     "operators": { "type": "FilterItem[]", "required": false },
     "renderValue": { "type": "FilterRenderFn", "required": false },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "'0.5rem'",
       "required": false,
       "description": "The spacing between the buttons"
@@ -487,17 +487,17 @@
       "description": "If `true`, the children will be wrapped in a `WrapItem`"
     },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The space between each child (even if it wraps)"
     },
     "spacingX": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The horizontal space between the each child (even if it wraps). Defaults to `spacing` if not defined."
     },
     "spacingY": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "The vertical space between the each child (even if it wraps). Defaults to `spacing` if not defined."
     }
@@ -573,7 +573,7 @@
       "description": "The callback fired when the value changes"
     },
     "shouldUpdate": {
-      "type": "(\n  prev: FilterOperatorId,\n  next: FilterOperatorId\n) => boolean",
+      "type": "(\n  prev: FilterOperatorId,\n  next: FilterOperatorId,\n) => boolean",
       "required": false,
       "description": "The function that determines if the state should be updated"
     },
@@ -611,14 +611,17 @@
     "defaultFilters": { "type": "Filter[]", "required": false },
     "filters": { "type": "FilterItem[]", "required": false },
     "onBeforeEnableFilter": {
-      "type": "(\n  filter: Filter,\n  filterItem?: FilterItem | undefined\n) => Promise<Filter>",
+      "type": "(\n  filter: Filter,\n  filterItem?: FilterItem | undefined,\n) => Promise<Filter>",
       "required": false
     },
     "onChange": {
       "type": "(activeFilters: Filter[]) => void",
       "required": false
     },
-    "operators": { "type": "FilterOperators", "required": false }
+    "operators": {
+      "type": "FilterOperators<Operator, Type>",
+      "required": false
+    }
   },
   "NoFilteredResults": {
     "children": {
@@ -629,13 +632,13 @@
     "onReset": { "type": "() => void", "required": false },
     "resource": { "type": "string", "required": false },
     "spacing": {
-      "type": "ResponsiveValue<\n  | number\n  | (string & {})\n  | \"auto\"\n  | \"-moz-initial\"\n  | \"inherit\"\n  | \"initial\"\n  | \"revert\"\n  | \"revert-layer\"\n  | \"unset\"\n>",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false
     },
     "title": { "type": "string", "required": false }
   },
   "FilterOperatorId": {
-    "__@iterator@382478": {
+    "__@iterator@389453": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -686,7 +689,7 @@
       "description": "Returns a string that contains the concatenation of two or more strings."
     },
     "endsWith": {
-      "type": "(\n  searchString: string,\n  endPosition?: number | undefined\n) => boolean",
+      "type": "(\n  searchString: string,\n  endPosition?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nendPosition – length(this). Otherwise returns false."
     },
@@ -706,12 +709,12 @@
       "description": "Returns a `<font>` HTML element and sets the size attribute value"
     },
     "includes": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => boolean",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Returns true if searchString appears as a substring of the result of converting this\nobject to a String, at one or more positions that are\ngreater than or equal to position; otherwise, returns false."
     },
     "indexOf": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => number",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => number",
       "required": true,
       "description": "Returns the position of the first occurrence of a substring."
     },
@@ -721,7 +724,7 @@
       "description": "Returns an `<i>` HTML element"
     },
     "lastIndexOf": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => number",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => number",
       "required": true,
       "description": "Returns the last occurrence of a substring in the string."
     },
@@ -736,7 +739,7 @@
       "description": "Returns an `<a>` HTML element and sets the href attribute value"
     },
     "localeCompare": {
-      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined\n  ): number\n}",
+      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
       "required": true,
       "description": "Determines whether two strings are equivalent in the current locale.\n\n\nDetermines whether two strings are equivalent in the current or specified locale."
     },
@@ -756,12 +759,12 @@
       "description": "Returns the String value result of normalizing the string into the normalization form\nnamed by form as specified in Unicode Standard Annex #15, Unicode Normalization Forms."
     },
     "padEnd": {
-      "type": "(\n  maxLength: number,\n  fillString?: string | undefined\n) => string",
+      "type": "(\n  maxLength: number,\n  fillString?: string | undefined,\n) => string",
       "required": true,
       "description": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\nThe padding is applied from the end (right) of the current string."
     },
     "padStart": {
-      "type": "(\n  maxLength: number,\n  fillString?: string | undefined\n) => string",
+      "type": "(\n  maxLength: number,\n  fillString?: string | undefined,\n) => string",
       "required": true,
       "description": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\nThe padding is applied from the start (left) of the current string."
     },
@@ -776,7 +779,7 @@
       "description": "Replaces text in a string, using a regular expression or search string.\n\n\nPasses a string and \n{@linkcode \nreplaceValue\n}\n to the `[Symbol.replace]` method on \n{@linkcode \nsearchValue\n}\n. This method is expected to implement its own replacement algorithm.\n\n\nReplaces text in a string, using an object that supports replacement within a string."
     },
     "replaceAll": {
-      "type": "{\n  (searchValue: string | RegExp, replaceValue: string): string\n  (\n    searchValue: string | RegExp,\n    replacer: (substring: string, ...args: any[]) => string\n  ): string\n}",
+      "type": "{\n  (searchValue: string | RegExp, replaceValue: string): string\n  (\n    searchValue: string | RegExp,\n    replacer: (substring: string, ...args: any[]) => string,\n  ): string\n}",
       "required": true,
       "description": "Replace all instances of a substring in a string, using a regular expression or search string."
     },
@@ -786,7 +789,7 @@
       "description": "Finds the first substring match in a regular expression search."
     },
     "slice": {
-      "type": "(\n  start?: number | undefined,\n  end?: number | undefined\n) => string",
+      "type": "(\n  start?: number | undefined,\n  end?: number | undefined,\n) => string",
       "required": true,
       "description": "Returns a section of a string."
     },
@@ -796,12 +799,12 @@
       "description": "Returns a `<small>` HTML element"
     },
     "split": {
-      "type": "{\n  (separator: string | RegExp, limit?: number | undefined): string[]\n  (\n    splitter: {\n      [Symbol.split](string: string, limit?: number | undefined): string[]\n    },\n    limit?: number | undefined\n  ): string[]\n}",
+      "type": "{\n  (separator: string | RegExp, limit?: number | undefined): string[]\n  (\n    splitter: {\n      [Symbol.split](string: string, limit?: number | undefined): string[]\n    },\n    limit?: number | undefined,\n  ): string[]\n}",
       "required": true,
       "description": "Split a string into substrings using the specified separator and return them as an array."
     },
     "startsWith": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => boolean",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nposition. Otherwise returns false."
     },
@@ -887,7 +890,7 @@
     }
   },
   "FilterType": {
-    "__@iterator@382478": {
+    "__@iterator@389453": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -938,7 +941,7 @@
       "description": "Returns a string that contains the concatenation of two or more strings."
     },
     "endsWith": {
-      "type": "(\n  searchString: string,\n  endPosition?: number | undefined\n) => boolean",
+      "type": "(\n  searchString: string,\n  endPosition?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nendPosition – length(this). Otherwise returns false."
     },
@@ -958,12 +961,12 @@
       "description": "Returns a `<font>` HTML element and sets the size attribute value"
     },
     "includes": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => boolean",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Returns true if searchString appears as a substring of the result of converting this\nobject to a String, at one or more positions that are\ngreater than or equal to position; otherwise, returns false."
     },
     "indexOf": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => number",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => number",
       "required": true,
       "description": "Returns the position of the first occurrence of a substring."
     },
@@ -973,7 +976,7 @@
       "description": "Returns an `<i>` HTML element"
     },
     "lastIndexOf": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => number",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => number",
       "required": true,
       "description": "Returns the last occurrence of a substring in the string."
     },
@@ -988,7 +991,7 @@
       "description": "Returns an `<a>` HTML element and sets the href attribute value"
     },
     "localeCompare": {
-      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined\n  ): number\n}",
+      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
       "required": true,
       "description": "Determines whether two strings are equivalent in the current locale.\n\n\nDetermines whether two strings are equivalent in the current or specified locale."
     },
@@ -1008,12 +1011,12 @@
       "description": "Returns the String value result of normalizing the string into the normalization form\nnamed by form as specified in Unicode Standard Annex #15, Unicode Normalization Forms."
     },
     "padEnd": {
-      "type": "(\n  maxLength: number,\n  fillString?: string | undefined\n) => string",
+      "type": "(\n  maxLength: number,\n  fillString?: string | undefined,\n) => string",
       "required": true,
       "description": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\nThe padding is applied from the end (right) of the current string."
     },
     "padStart": {
-      "type": "(\n  maxLength: number,\n  fillString?: string | undefined\n) => string",
+      "type": "(\n  maxLength: number,\n  fillString?: string | undefined,\n) => string",
       "required": true,
       "description": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\nThe padding is applied from the start (left) of the current string."
     },
@@ -1028,7 +1031,7 @@
       "description": "Replaces text in a string, using a regular expression or search string.\n\n\nPasses a string and \n{@linkcode \nreplaceValue\n}\n to the `[Symbol.replace]` method on \n{@linkcode \nsearchValue\n}\n. This method is expected to implement its own replacement algorithm.\n\n\nReplaces text in a string, using an object that supports replacement within a string."
     },
     "replaceAll": {
-      "type": "{\n  (searchValue: string | RegExp, replaceValue: string): string\n  (\n    searchValue: string | RegExp,\n    replacer: (substring: string, ...args: any[]) => string\n  ): string\n}",
+      "type": "{\n  (searchValue: string | RegExp, replaceValue: string): string\n  (\n    searchValue: string | RegExp,\n    replacer: (substring: string, ...args: any[]) => string,\n  ): string\n}",
       "required": true,
       "description": "Replace all instances of a substring in a string, using a regular expression or search string."
     },
@@ -1038,7 +1041,7 @@
       "description": "Finds the first substring match in a regular expression search."
     },
     "slice": {
-      "type": "(\n  start?: number | undefined,\n  end?: number | undefined\n) => string",
+      "type": "(\n  start?: number | undefined,\n  end?: number | undefined,\n) => string",
       "required": true,
       "description": "Returns a section of a string."
     },
@@ -1048,12 +1051,264 @@
       "description": "Returns a `<small>` HTML element"
     },
     "split": {
-      "type": "{\n  (separator: string | RegExp, limit?: number | undefined): string[]\n  (\n    splitter: {\n      [Symbol.split](string: string, limit?: number | undefined): string[]\n    },\n    limit?: number | undefined\n  ): string[]\n}",
+      "type": "{\n  (separator: string | RegExp, limit?: number | undefined): string[]\n  (\n    splitter: {\n      [Symbol.split](string: string, limit?: number | undefined): string[]\n    },\n    limit?: number | undefined,\n  ): string[]\n}",
       "required": true,
       "description": "Split a string into substrings using the specified separator and return them as an array."
     },
     "startsWith": {
-      "type": "(\n  searchString: string,\n  position?: number | undefined\n) => boolean",
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => boolean",
+      "required": true,
+      "description": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nposition. Otherwise returns false."
+    },
+    "strike": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<strike>` HTML element"
+    },
+    "sub": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<sub>` HTML element"
+    },
+    "substr": {
+      "type": "(from: number, length?: number | undefined) => string",
+      "required": true,
+      "description": "Gets a substring beginning at the specified location and having the specified length."
+    },
+    "substring": {
+      "type": "(start: number, end?: number | undefined) => string",
+      "required": true,
+      "description": "Returns the substring at the specified location within a String object."
+    },
+    "sup": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<sup>` HTML element"
+    },
+    "toLocaleLowerCase": {
+      "type": "(locales?: string | string[] | undefined) => string",
+      "required": true,
+      "description": "Converts all alphabetic characters to lowercase, taking into account the host environment's current locale."
+    },
+    "toLocaleUpperCase": {
+      "type": "(locales?: string | string[] | undefined) => string",
+      "required": true,
+      "description": "Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale."
+    },
+    "toLowerCase": {
+      "type": "() => string",
+      "required": true,
+      "description": "Converts all the alphabetic characters in a string to lowercase."
+    },
+    "toString": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a string representation of a string."
+    },
+    "toUpperCase": {
+      "type": "() => string",
+      "required": true,
+      "description": "Converts all the alphabetic characters in a string to uppercase."
+    },
+    "trim": {
+      "type": "() => string",
+      "required": true,
+      "description": "Removes the leading and trailing white space and line terminator characters from a string."
+    },
+    "trimEnd": {
+      "type": "() => string",
+      "required": true,
+      "description": "Removes the trailing white space and line terminator characters from a string."
+    },
+    "trimLeft": {
+      "type": "() => string",
+      "required": true,
+      "description": "Removes the leading white space and line terminator characters from a string."
+    },
+    "trimRight": {
+      "type": "() => string",
+      "required": true,
+      "description": "Removes the trailing white space and line terminator characters from a string."
+    },
+    "trimStart": {
+      "type": "() => string",
+      "required": true,
+      "description": "Removes the leading white space and line terminator characters from a string."
+    },
+    "valueOf": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns the primitive value of the specified object."
+    }
+  },
+  "FilterOperator": {
+    "__@iterator@389453": {
+      "type": "() => IterableIterator<string>",
+      "required": true,
+      "description": "Iterator"
+    },
+    "anchor": {
+      "type": "(name: string) => string",
+      "required": true,
+      "description": "Returns an `<a>` HTML anchor element and sets the name attribute to the text value"
+    },
+    "at": {
+      "type": "(index: number) => string | undefined",
+      "required": true,
+      "description": "Returns a new String consisting of the single UTF-16 code unit located at the specified index."
+    },
+    "big": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<big>` HTML element"
+    },
+    "blink": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<blink>` HTML element"
+    },
+    "bold": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<b>` HTML element"
+    },
+    "charAt": {
+      "type": "(pos: number) => string",
+      "required": true,
+      "description": "Returns the character at the specified index."
+    },
+    "charCodeAt": {
+      "type": "(index: number) => number",
+      "required": true,
+      "description": "Returns the Unicode value of the character at the specified location."
+    },
+    "codePointAt": {
+      "type": "(pos: number) => number | undefined",
+      "required": true,
+      "description": "Returns a nonnegative integer Number less than 1114112 (0x110000) that is the code point\nvalue of the UTF-16 encoded code point starting at the string element at position pos in\nthe String resulting from converting this object to a String.\nIf there is no element at that position, the result is undefined.\nIf a valid UTF-16 surrogate pair does not begin at pos, the result is the code unit at pos."
+    },
+    "concat": {
+      "type": "(...strings: string[]) => string",
+      "required": true,
+      "description": "Returns a string that contains the concatenation of two or more strings."
+    },
+    "endsWith": {
+      "type": "(\n  searchString: string,\n  endPosition?: number | undefined,\n) => boolean",
+      "required": true,
+      "description": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nendPosition – length(this). Otherwise returns false."
+    },
+    "fixed": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<tt>` HTML element"
+    },
+    "fontcolor": {
+      "type": "(color: string) => string",
+      "required": true,
+      "description": "Returns a `<font>` HTML element and sets the color attribute value"
+    },
+    "fontsize": {
+      "type": "{ (size: number): string; (size: string): string }",
+      "required": true,
+      "description": "Returns a `<font>` HTML element and sets the size attribute value"
+    },
+    "includes": {
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => boolean",
+      "required": true,
+      "description": "Returns true if searchString appears as a substring of the result of converting this\nobject to a String, at one or more positions that are\ngreater than or equal to position; otherwise, returns false."
+    },
+    "indexOf": {
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => number",
+      "required": true,
+      "description": "Returns the position of the first occurrence of a substring."
+    },
+    "italics": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns an `<i>` HTML element"
+    },
+    "lastIndexOf": {
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => number",
+      "required": true,
+      "description": "Returns the last occurrence of a substring in the string."
+    },
+    "length": {
+      "type": "number",
+      "required": true,
+      "description": "Returns the length of a String object."
+    },
+    "link": {
+      "type": "(url: string) => string",
+      "required": true,
+      "description": "Returns an `<a>` HTML element and sets the href attribute value"
+    },
+    "localeCompare": {
+      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
+      "required": true,
+      "description": "Determines whether two strings are equivalent in the current locale.\n\n\nDetermines whether two strings are equivalent in the current or specified locale."
+    },
+    "match": {
+      "type": "{\n  (regexp: string | RegExp): RegExpMatchArray | null\n  (matcher: {\n    [Symbol.match](string: string): RegExpMatchArray | null\n  }): RegExpMatchArray | null\n}",
+      "required": true,
+      "description": "Matches a string with a regular expression, and returns an array containing the results of that search.\n\n\nMatches a string or an object that supports being matched against, and returns an array\ncontaining the results of that search, or null if no matches are found."
+    },
+    "matchAll": {
+      "type": "(regexp: RegExp) => IterableIterator<RegExpMatchArray>",
+      "required": true,
+      "description": "Matches a string with a regular expression, and returns an iterable of matches\ncontaining the results of that search."
+    },
+    "normalize": {
+      "type": "{\n  (form: \"NFC\" | \"NFD\" | \"NFKC\" | \"NFKD\"): string\n  (form?: string | undefined): string\n}",
+      "required": true,
+      "description": "Returns the String value result of normalizing the string into the normalization form\nnamed by form as specified in Unicode Standard Annex #15, Unicode Normalization Forms."
+    },
+    "padEnd": {
+      "type": "(\n  maxLength: number,\n  fillString?: string | undefined,\n) => string",
+      "required": true,
+      "description": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\nThe padding is applied from the end (right) of the current string."
+    },
+    "padStart": {
+      "type": "(\n  maxLength: number,\n  fillString?: string | undefined,\n) => string",
+      "required": true,
+      "description": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\nThe padding is applied from the start (left) of the current string."
+    },
+    "repeat": {
+      "type": "(count: number) => string",
+      "required": true,
+      "description": "Returns a String value that is made from count copies appended together. If count is 0,\nthe empty string is returned."
+    },
+    "replace": {
+      "type": "{ (searchValue: string | RegExp, replaceValue: string): string; (searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) => string): string; (searchValue: { ...; }, replaceValue: string): string; (searchValue: { ...; }, replacer: (substring: string, ...args: any[]) => string): string; }",
+      "required": true,
+      "description": "Replaces text in a string, using a regular expression or search string.\n\n\nPasses a string and \n{@linkcode \nreplaceValue\n}\n to the `[Symbol.replace]` method on \n{@linkcode \nsearchValue\n}\n. This method is expected to implement its own replacement algorithm.\n\n\nReplaces text in a string, using an object that supports replacement within a string."
+    },
+    "replaceAll": {
+      "type": "{\n  (searchValue: string | RegExp, replaceValue: string): string\n  (\n    searchValue: string | RegExp,\n    replacer: (substring: string, ...args: any[]) => string,\n  ): string\n}",
+      "required": true,
+      "description": "Replace all instances of a substring in a string, using a regular expression or search string."
+    },
+    "search": {
+      "type": "{\n  (regexp: string | RegExp): number\n  (searcher: { [Symbol.search](string: string): number }): number\n}",
+      "required": true,
+      "description": "Finds the first substring match in a regular expression search."
+    },
+    "slice": {
+      "type": "(\n  start?: number | undefined,\n  end?: number | undefined,\n) => string",
+      "required": true,
+      "description": "Returns a section of a string."
+    },
+    "small": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a `<small>` HTML element"
+    },
+    "split": {
+      "type": "{\n  (separator: string | RegExp, limit?: number | undefined): string[]\n  (\n    splitter: {\n      [Symbol.split](string: string, limit?: number | undefined): string[]\n    },\n    limit?: number | undefined,\n  ): string[]\n}",
+      "required": true,
+      "description": "Split a string into substrings using the specified separator and return them as an array."
+    },
+    "startsWith": {
+      "type": "(\n  searchString: string,\n  position?: number | undefined,\n) => boolean",
       "required": true,
       "description": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nposition. Otherwise returns false."
     },

@@ -16,7 +16,9 @@ const CustomFooter = () => {
           </Flex>
           <Text fontSize="md" color="muted">
             The React component library for startups. 100+ Open Source and
-            Premium components. Next.js boilerplate for B2B apps and dashboards.
+            Premium components.{' '}
+            <Link href="/nextjs-boilerplate">Next.js boilerplate</Link> for B2B
+            apps and dashboards.
           </Text>
         </Stack>
       </Stack>

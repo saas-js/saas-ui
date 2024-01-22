@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.3.4
+
+### Patch Changes
+
+- aa3c97a0: Fixed issue where FormStepper separator would render incorrectly
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+  - @saas-ui/theme@2.3.2
+
 ## 2.3.3
 
 ### Patch Changes

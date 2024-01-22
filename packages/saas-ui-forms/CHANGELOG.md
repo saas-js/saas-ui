@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.3.9
+
+### Patch Changes
+
+- 2f170bf7: Fixed issue where SubmitButton theming props could not be overwritten with AutoForm
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/core@2.3.4
+
 ## 2.3.8
 
 ### Patch Changes

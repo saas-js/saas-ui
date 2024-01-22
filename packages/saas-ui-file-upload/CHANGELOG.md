@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.2
+
+### Patch Changes
+
+- 0ee3634b: Retrieve environment from Chakra UI context to support shadowdom/frame for file uploads
+
 ## 0.2.1
 
 ### Patch Changes

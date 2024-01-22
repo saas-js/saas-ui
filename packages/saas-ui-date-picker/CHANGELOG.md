@@ -1,5 +1,14 @@
 # @saas-ui/date-picker
 
+## 0.12.18
+
+### Patch Changes
+
+- d77401dd: Fixed issue where DateInput button wouldn't open the date picker
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/core@2.3.4
+  - @saas-ui/modals@2.1.17
+
 ## 0.12.17
 
 ### Patch Changes

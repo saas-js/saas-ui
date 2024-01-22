@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 2.5.5
+
+### Patch Changes
+
+- d6d7ca3f: Added xl size to IconBadge
+- 4e291385: Updated Input lg variant height
+- aa3c97a0: Fixed issue where FormStepper separator would render incorrectly
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+- Updated dependencies [ac3e7f9f]
+- Updated dependencies [2f170bf7]
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/theme@2.3.2
+  - @saas-ui/data-table@7.0.5
+  - @saas-ui/forms@2.3.9
+  - @saas-ui/core@2.3.4
+  - @saas-ui/modals@2.1.17
+  - @saas-ui/hotkeys@2.1.15
+
 ## 2.5.4
 
 ### Patch Changes

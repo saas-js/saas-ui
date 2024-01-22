@@ -120,7 +120,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     groupProps,
     labelProps,
     fieldProps,
-    buttonProps: {},
+    buttonProps,
     dialogProps,
     calendarProps,
     descriptionProps,
@@ -143,7 +143,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
 
 export interface DatePickerProps<
   TDateValue = DateValue,
-  TFormattedValue = FormattedValue
+  TFormattedValue = FormattedValue,
 > extends Omit<DatePickerContainerProps, 'children'>,
     Omit<PopoverProps, 'variant' | 'size' | 'initialFocusRef'> {}
 

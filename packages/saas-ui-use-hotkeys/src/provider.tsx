@@ -11,7 +11,7 @@ export interface HotkeysItemConfig {
    *
    * Shifted keys like ? and + are handled automatically
    */
-  command: string
+  command: string | string[]
 }
 
 export interface HotkeysGroupItems {
@@ -42,7 +42,7 @@ export interface HotkeysConfig {
 const { createContext, useContext } = React
 
 export interface HotkeysContextValues<
-  Config extends HotkeysConfig = HotkeysConfig
+  Config extends HotkeysConfig = HotkeysConfig,
 > {
   hotkeys: Config
 }

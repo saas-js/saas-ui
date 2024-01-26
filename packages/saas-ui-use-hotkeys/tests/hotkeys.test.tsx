@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { render } from '@saas-ui/test-utils'
+import { vi } from 'vitest'
 
 import {
   useHotkeys,
@@ -8,6 +9,7 @@ import {
   HotkeysConfig,
   Hotkey,
 } from '../src'
+import { toAriaKeyshortcuts } from '../src/use-hotkeys'
 
 const hotkeys: HotkeysConfig = {
   general: {
@@ -37,7 +39,7 @@ const renderModal = (ui: React.ReactNode) => {
 }
 
 test('should trigger hotkey shortcuts.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     const command = useHotkeysShortcut('general.compose', action)
 
@@ -55,7 +57,7 @@ test('should trigger hotkey shortcuts.', async () => {
 })
 
 test('should trigger shifted keys.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeysShortcut('general.help', action)
     return null
@@ -69,7 +71,7 @@ test('should trigger shifted keys.', async () => {
 })
 
 test('should trigger key combinations.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeysShortcut('general.logout', action)
     return null
@@ -83,7 +85,7 @@ test('should trigger key combinations.', async () => {
 })
 
 test('should trigger key sequences.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeysShortcut('general.dashboard', action)
     return null
@@ -98,7 +100,7 @@ test('should trigger key sequences.', async () => {
 })
 
 test('should trigger custom hotkeys.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeys('c', action)
     return null
@@ -112,7 +114,7 @@ test('should trigger custom hotkeys.', async () => {
 })
 
 test('should support multiple key combinations.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeys(['c', 'G then C'], action)
     return null
@@ -131,7 +133,7 @@ test('should support multiple key combinations.', async () => {
 })
 
 test('Hotkey should trigger hotkey shortcuts.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     return (
       <Hotkey command="general.compose" callback={action}>
@@ -148,4 +150,34 @@ test('Hotkey should trigger hotkey shortcuts.', async () => {
   await user.keyboard('c')
 
   expect(action).toBeCalled()
+})
+
+test('should format aria key shortcuts.', async () => {
+  expect(toAriaKeyshortcuts(['s'])).toBe('s')
+
+  expect(toAriaKeyshortcuts(['?'])).toBe('shift+/')
+
+  expect(toAriaKeyshortcuts(['⌘ K'])).toBe('meta+k')
+
+  expect(toAriaKeyshortcuts(['A', '⌘ K'])).toBe('a meta+k')
+
+  expect(toAriaKeyshortcuts(['A then B'])).toBe('a+b')
+
+  expect(toAriaKeyshortcuts(['Shift+F', '⌃ X'])).toBe('shift+f control+x')
+})
+
+test('should render aria-keyshortcut tag', async () => {
+  const action = vi.fn()
+  const TestComponent = () => {
+    return (
+      <Hotkey command="general.compose" callback={action}>
+        <button>Compose</button>
+      </Hotkey>
+    )
+  }
+
+  const { findByText } = renderModal(<TestComponent />)
+
+  const button = await findByText('Compose')
+  expect(button).toHaveAttribute('aria-keyshortcuts', 'c')
 })

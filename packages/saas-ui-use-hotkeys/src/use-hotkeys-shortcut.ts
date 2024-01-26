@@ -19,14 +19,14 @@ import { useHotkeys, UseHotkeysOptions } from './use-hotkeys'
  * @param keyOrShortcut Key combinations or a hotkeys shortcut
  * @param callback The function to execute when the keys are pressed
  * @param deps Deps for the callback function
- * @returns The key combination
+ * @returns The key combination(s)
  */
 export const useHotkeysShortcut = (
   keyOrShortcut: string | string[],
   callback: (event: KeyboardEvent) => void,
   options: UseHotkeysOptions | Array<any> = [],
   deps?: Array<any>
-): string => {
+): string | string[] => {
   const { hotkeys } = useHotkeysContext()
 
   let keys = keyOrShortcut
@@ -45,5 +45,5 @@ export const useHotkeysShortcut = (
 
   useHotkeys(keys, callback, options, deps)
 
-  return Array.isArray(keys) ? keys[0] : keys
+  return keys
 }

@@ -320,7 +320,13 @@ export const WithHotkey = () => {
       command="general.search"
       callback={() => searchRef.current?.focus()}
     >
-      {({ keys }) => <Input ref={searchRef} placeholder={keys} />}
+      {({ keys, ariaKeyshortcuts }) => (
+        <Input
+          ref={searchRef}
+          placeholder={keys}
+          aria-keyshortcuts={ariaKeyshortcuts}
+        />
+      )}
     </Hotkey>
   )
 }

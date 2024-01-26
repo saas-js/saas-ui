@@ -1,5 +1,5 @@
 import React from 'react'
-import { UseHotkeysOptions } from './use-hotkeys'
+import { UseHotkeysOptions, toAriaKeyshortcuts } from './use-hotkeys'
 import { useHotkeysShortcut } from './use-hotkeys-shortcut'
 
 export interface HotkeyProps {
@@ -21,17 +21,37 @@ export interface HotkeyProps {
   /**
    * Children or render prop function
    */
-  children: React.ReactNode | ((props: { keys: string }) => React.ReactNode)
+  children:
+    | React.ReactNode
+    | ((props: {
+        keys: string | string[]
+        ariaKeyshortcuts?: string
+      }) => React.ReactNode)
 }
 
+/**
+ * Registers a hotkey shortcut.
+ * Supports shorthands: ⌥ ⇧ ⌃ ⌘
+ * Shifted keys like ? and + are handled automatically
+ *
+ * Will pass `aria-keyshortcuts` to the child if it's a valid element, or render a span with the attribute
+ */
 export const Hotkey: React.FC<HotkeyProps> = (props) => {
   const { command, callback, hotkeyOptions, children } = props
 
   const keys = useHotkeysShortcut(command, callback, hotkeyOptions)
 
+  const ariaKeyshortcuts = React.useMemo(() => toAriaKeyshortcuts(keys), [keys])
+
   if (typeof children === 'function') {
-    return children({ keys })
+    return children({ keys, ariaKeyshortcuts })
   }
 
-  return children
+  if (React.isValidElement(children)) {
+    return React.cloneElement<any>(children, {
+      'aria-keyshortcuts': ariaKeyshortcuts,
+    })
+  }
+
+  return <span aria-keyshortcuts={ariaKeyshortcuts}>{children}</span>
 }

@@ -186,20 +186,20 @@ export const ListDrawer = () => {
 
 export const WithoutShortcut = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeys('⌘ k', () => {
+  useHotkeys('⌘ k', () => {
     ref.current?.focus()
   })
 
   return (
     <Box>
-      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+      <Input placeholder={`Press ⌘ k to focus`} ref={ref} />
     </Box>
   )
 }
 
 export const IgnoreKeyInsideInput = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeys('k', () => {
+  useHotkeys('k', () => {
     alert('K pressed')
   })
 
@@ -209,20 +209,20 @@ export const IgnoreKeyInsideInput = () => {
 
   return (
     <Box>
-      <Input placeholder={`Type ${key}`} ref={ref} />
+      <Input placeholder={`Type k`} ref={ref} />
     </Box>
   )
 }
 
 export const KeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeys('A then B', () => {
+  useHotkeys('A then B', () => {
     ref.current?.focus()
   })
 
   return (
     <Box>
-      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+      <Input placeholder={`Press A then B to focus`} ref={ref} />
     </Box>
   )
 }
@@ -230,7 +230,7 @@ export const KeySequence = () => {
 export const SingleAndKeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
 
-  const key = useHotkeys('A', () => {
+  useHotkeys('A', () => {
     ref.current?.focus()
   })
 
@@ -241,7 +241,7 @@ export const SingleAndKeySequence = () => {
 
   return (
     <Box>
-      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+      <Input placeholder={`Press A to focus`} ref={ref} />
     </Box>
   )
 }

@@ -23,18 +23,16 @@ import * as React from 'react'
 const { useEffect, useRef } = React
 
 import {
-  HotkeysProvider,
   HotkeysList,
   HotkeysSearch,
   HotkeysListItems,
-  HotkeysListOptions,
-  useHotkeysShortcut,
+  HotkeysConfig,
   useHotkeysContext,
   useHotkeys,
+  createHotkeys,
 } from '../src'
-import { set } from 'lodash'
 
-const hotkeys: HotkeysListOptions = {
+const hotkeys: HotkeysConfig = {
   general: {
     title: 'General',
     hotkeys: {
@@ -56,12 +54,18 @@ const hotkeys: HotkeysListOptions = {
   },
 }
 
+const {
+  HotkeysProvider,
+  useHotkeys: useHotkeysShortcut,
+  Hotkey,
+} = createHotkeys(hotkeys)
+
 export default {
   title: 'Components/Navigation/Hotkeys',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
-        <HotkeysProvider hotkeys={hotkeys}>
+        <HotkeysProvider>
           <Story />
         </HotkeysProvider>
       </Container>
@@ -182,20 +186,20 @@ export const ListDrawer = () => {
 
 export const WithoutShortcut = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('⌘ k', () => {
+  useHotkeys('⌘ k', () => {
     ref.current?.focus()
   })
 
   return (
     <Box>
-      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+      <Input placeholder={`Press ⌘ k to focus`} ref={ref} />
     </Box>
   )
 }
 
 export const IgnoreKeyInsideInput = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('k', () => {
+  useHotkeys('k', () => {
     alert('K pressed')
   })
 
@@ -205,20 +209,20 @@ export const IgnoreKeyInsideInput = () => {
 
   return (
     <Box>
-      <Input placeholder={`Type ${key}`} ref={ref} />
+      <Input placeholder={`Type k`} ref={ref} />
     </Box>
   )
 }
 
 export const KeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('A then B', () => {
+  useHotkeys('A then B', () => {
     ref.current?.focus()
   })
 
   return (
     <Box>
-      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+      <Input placeholder={`Press A then B to focus`} ref={ref} />
     </Box>
   )
 }
@@ -226,18 +230,18 @@ export const KeySequence = () => {
 export const SingleAndKeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
 
-  const key = useHotkeysShortcut('A', () => {
+  useHotkeys('A', () => {
     ref.current?.focus()
   })
 
-  useHotkeysShortcut('A then B', () => {
+  useHotkeys('A then B', () => {
     // this shouldn't trigger
     alert('A then B pressed')
   })
 
   return (
     <Box>
-      <Input placeholder={`Press ${key} to focus`} ref={ref} />
+      <Input placeholder={`Press A to focus`} ref={ref} />
     </Box>
   )
 }
@@ -306,4 +310,23 @@ export const PressAndHold = () => {
   )
 
   return <Box>{presses} presses</Box>
+}
+
+export const WithHotkey = () => {
+  const searchRef = React.useRef<HTMLInputElement>(null)
+
+  return (
+    <Hotkey
+      command="general.search"
+      callback={() => searchRef.current?.focus()}
+    >
+      {({ keys, ariaKeyshortcuts }) => (
+        <Input
+          ref={searchRef}
+          placeholder={Array.isArray(keys) ? keys[0] : keys}
+          aria-keyshortcuts={ariaKeyshortcuts}
+        />
+      )}
+    </Hotkey>
+  )
 }

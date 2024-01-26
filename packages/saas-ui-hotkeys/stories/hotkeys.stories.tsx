@@ -323,7 +323,7 @@ export const WithHotkey = () => {
       {({ keys, ariaKeyshortcuts }) => (
         <Input
           ref={searchRef}
-          placeholder={keys}
+          placeholder={Array.isArray(keys) ? keys[0] : keys}
           aria-keyshortcuts={ariaKeyshortcuts}
         />
       )}

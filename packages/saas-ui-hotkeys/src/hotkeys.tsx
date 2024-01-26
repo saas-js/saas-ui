@@ -114,9 +114,11 @@ const filterHotkeys = (
 ): HotkeysItemConfig[] | null => {
   const results = Object.values(hotkeys).reduce(
     (hotkeys: Array<HotkeysItemConfig>, key) => {
-      const { label, command } = key
+      const { label } = key
       const re = query && new RegExp(escapeRegExp(query), 'i')
-      if (!re || label.match(re) || command.match(re)) {
+
+      const command = Array.isArray(key.command) ? key.command : [key.command]
+      if (!re || label.match(re) || command.some((c) => c.match(re))) {
         hotkeys.push(key)
       }
 
@@ -151,8 +153,9 @@ export const HotkeysListItems = forwardRef<HTMLChakraProps<'div'>, 'div'>(
           return (
             <HotkeysGroup title={group.title} key={i}>
               {results.map(({ label, command }: HotkeysItemConfig) => {
+                const c = Array.isArray(command) ? command[0] : command
                 return (
-                  <HotkeysItem command={command} key={command}>
+                  <HotkeysItem command={c} key={c}>
                     {label}
                   </HotkeysItem>
                 )

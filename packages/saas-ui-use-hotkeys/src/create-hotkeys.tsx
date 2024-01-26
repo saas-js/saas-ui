@@ -7,7 +7,7 @@ import {
 } from './provider'
 import { UseHotkeysOptions } from './use-hotkeys'
 import { useHotkeysShortcut as useHotkeysShortcutBase } from './use-hotkeys-shortcut'
-import { Hotkey as HotkeyBase } from './hotkey'
+import { Hotkey as HotkeyBase, HotkeyProps } from './hotkey'
 
 type ExtractHotkeys<T extends HotkeysConfig> = {
   [Group in keyof T]: {
@@ -31,11 +31,10 @@ export const createHotkeys = <Config extends HotkeysConfig>(
       options: UseHotkeysOptions | Array<any> = [],
       deps?: Array<any>
     ) => useHotkeysShortcutBase(shortcut, callback, options, deps),
-    Hotkey: HotkeyBase as React.FC<{
-      command: ExtractHotkeys<Config>
-      callback: () => void
-      hotkeyOptions?: UseHotkeysOptions
-      children: React.ReactNode | ((props: { keys: string }) => React.ReactNode)
-    }>,
+    Hotkey: HotkeyBase as React.FC<
+      Omit<HotkeyProps, 'command'> & {
+        command: ExtractHotkeys<Config>
+      }
+    >,
   }
 }

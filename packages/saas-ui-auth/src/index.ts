@@ -65,3 +65,5 @@ export type {
   UpdatePasswordViewProps,
   Provider,
 } from './components'
+
+export { createAuth } from './supabase'

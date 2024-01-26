@@ -5,14 +5,13 @@ import Layout from '@/components/layout'
 import theme from '../styles/theme'
 
 import { SaasProvider, ModalsProvider } from '@saas-ui/react'
-import { AuthProvider } from '@saas-ui/auth'
 import { NProgressNextRouter } from '@saas-ui/nprogress'
 
 import Footer from '@/components/footer'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { authService } from '@/lib/auth'
+import { AuthProvider } from '@/lib/auth'
 import Head from 'next/head'
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
@@ -30,7 +29,7 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <SaasProvider theme={theme} linkComponent={Link}>
-        <AuthProvider {...authService}>
+        <AuthProvider>
           <ModalsProvider>
             <Layout
               announcement={pageProps.announcement}

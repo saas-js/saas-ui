@@ -23,55 +23,21 @@ function escapeRegExp(value: string) {
   return value.replace(regExpSyntaxCharacter, '\\$&')
 }
 
-import { splitKeys } from '@saas-ui/use-hotkeys'
-
-export interface HotkeysItemOptions {
-  /**
-   * Label describing the function of this keyboard shortcut
-   */
-  label: string
-  /**
-   * The key combination.
-   * Supports shorthands: ⌥ ⇧ ⌃ ⌘
-   *
-   * Shifted keys like ? and + are handled automatically
-   */
-  command: string
-}
-
-export interface HotkeysGroupListOptions {
-  [item: string]: HotkeysItemOptions
-}
-
-export interface HotkeysGroupOptions {
-  /**
-   * The group title
-   */
-  title?: string
-  /**
-   * Hotkeys in this group
-   */
-  hotkeys: HotkeysGroupListOptions
-}
-
-/**
- * The hotkeys configuration.
- * Supports shorthands: ⌥ ⇧ ⌃ ⌘
- *
- * Shifted keys like ? and + are handled automatically
- */
-export interface HotkeysListOptions {
-  [group: string]: HotkeysGroupOptions
-}
+import {
+  HotkeysGroupItems,
+  HotkeysItemConfig,
+  splitKeys,
+} from '@saas-ui/use-hotkeys'
+import { HotkeysConfig } from '@saas-ui/use-hotkeys'
 
 export interface HotkeysOptions {
-  hotkeys: HotkeysListOptions
+  hotkeys: HotkeysConfig
 }
 
 export interface UseHotkeysListReturn {
   query?: string
   setQuery: (query: string) => void
-  hotkeys: HotkeysListOptions
+  hotkeys: HotkeysConfig
 }
 
 const [HotkeysListProvider, useHotkeysListContext] =
@@ -143,14 +109,16 @@ export const HotkeysSearch = forwardRef<Omit<SearchInputProps, 'as'>, 'input'>(
 HotkeysSearch.displayName = 'HotkeysSearch'
 
 const filterHotkeys = (
-  hotkeys: HotkeysGroupListOptions,
+  hotkeys: HotkeysGroupItems,
   query?: string
-): HotkeysItemOptions[] | null => {
+): HotkeysItemConfig[] | null => {
   const results = Object.values(hotkeys).reduce(
-    (hotkeys: Array<HotkeysItemOptions>, key) => {
-      const { label, command } = key
+    (hotkeys: Array<HotkeysItemConfig>, key) => {
+      const { label } = key
       const re = query && new RegExp(escapeRegExp(query), 'i')
-      if (!re || label.match(re) || command.match(re)) {
+
+      const command = Array.isArray(key.command) ? key.command : [key.command]
+      if (!re || label.match(re) || command.some((c) => c.match(re))) {
         hotkeys.push(key)
       }
 
@@ -184,9 +152,10 @@ export const HotkeysListItems = forwardRef<HTMLChakraProps<'div'>, 'div'>(
 
           return (
             <HotkeysGroup title={group.title} key={i}>
-              {results.map(({ label, command }: HotkeysItemOptions) => {
+              {results.map(({ label, command }: HotkeysItemConfig) => {
+                const c = Array.isArray(command) ? command[0] : command
                 return (
-                  <HotkeysItem command={command} key={command}>
+                  <HotkeysItem command={c} key={c}>
                     {label}
                   </HotkeysItem>
                 )

@@ -76,6 +76,7 @@ const Header = (props: HeaderProps) => {
           mask: 'linear-gradient(to-b, black, transparent)',
           WebkitMask: 'linear-gradient(to bottom, black 60px, transparent)',
           transform: 'translate3d(0, 0, 0)',
+          pointerEvents: 'none',
         }}
       >
         <Box borderBottomWidth="1px" position="relative" zIndex="1">

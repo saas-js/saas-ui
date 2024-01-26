@@ -1,9 +1,19 @@
+import React from 'react'
 import {
   HotkeysConfig,
   HotkeysContextValues,
-  HotkeysProviderProps,
-  useHotkeysContext,
+  HotkeysProvider as HotkeysProviderBase,
+  useHotkeysContext as useHotkeysContextBase,
 } from './provider'
+import { UseHotkeysOptions } from './use-hotkeys'
+import { useHotkeysShortcut as useHotkeysShortcutBase } from './use-hotkeys-shortcut'
+import { Hotkey as HotkeyBase } from './hotkey'
+
+type ExtractHotkeys<T extends HotkeysConfig> = {
+  [Group in keyof T]: {
+    [Item in keyof T[Group]['hotkeys']]: `${string & Group}.${string & Item}`
+  }[keyof T[Group]['hotkeys']]
+}[keyof T]
 
 export const createHotkeys = <Config extends HotkeysConfig>(
   hotkeys: Config
@@ -11,9 +21,21 @@ export const createHotkeys = <Config extends HotkeysConfig>(
   return {
     hotkeys,
     HotkeysProvider: (props: { children: React.ReactNode }) => (
-      <HotkeysProviderProps {...props} hotkeys={hotkeys} />
+      <HotkeysProviderBase {...props} hotkeys={hotkeys} />
     ),
     useHotkeysContext: () =>
-      useHotkeysContext() as HotkeysContextValues<Config>,
+      useHotkeysContextBase() as HotkeysContextValues<Config>,
+    useHotkeys: (
+      shortcut: ExtractHotkeys<Config>,
+      callback: (event: KeyboardEvent) => void,
+      options: UseHotkeysOptions | Array<any> = [],
+      deps?: Array<any>
+    ) => useHotkeysShortcutBase(shortcut, callback, options, deps),
+    Hotkey: HotkeyBase as React.FC<{
+      command: ExtractHotkeys<Config>
+      callback: () => void
+      hotkeyOptions?: UseHotkeysOptions
+      children: React.ReactNode | ((props: { keys: string }) => React.ReactNode)
+    }>,
   }
 }

@@ -40,13 +40,19 @@ const Component = () => {
 }
 ```
 
-### 2. Setup your hotkeys config (optional)
+### 2. Typesafe hotkeys config (optional)
 
 ```tsx
-// app.tsx
-import { HotkeysProvider, HotkeysConfig } from '@saas-ui/use-hotkeys'
+// hotkeys.ts
+import { createHotkeys } from '@saas-ui/use-hotkeys'
 
-const hotkeys: HotkeysConfig = {
+export const {
+  hotkeys,
+  HotkeysProvider,
+  useHotkeysContext,
+  useHotkeys,
+  Hotkey,
+} = createHotkeys({
   general: {
     title: 'General',
     hotkeys: {
@@ -60,12 +66,15 @@ const hotkeys: HotkeysConfig = {
       bold: { label: 'Bold', command: '**text**' },
     },
   },
-}
+})
+```
 
+```tsx
+// App.tsx
 export default const App = () => {
   return (
     ...
-      <HotkeysProvider hotkeys={hotkeys}>
+      <HotkeysProvider>
         {children}
       </HotkeysProvider>
     ...
@@ -73,21 +82,29 @@ export default const App = () => {
 }
 ```
 
-### 3. Setup your hooks
-
 ```tsx
-import { useHotkeysShortcut, useHotkeysContext } from '@saas-ui/hotkeys'
+// MyComponent.tsx
+import { useHotkeys, Hotkey } from './hotkeys'
 
 export const MyComponent = () => {
-  const help = useHotkeysShortcut('general.help', () => {
+  const searchRef = React.useRef<HTMLInputElement>(null)
+
+  const help = useHotkeys('general.help', () => {
     onOpen()
   })
 
-  useHotkeysShortcut('general.search', () => {
-    searchRef.current?.focus()
-  })
+  return (
+    <div>
+      <div>Press {help} for help.</div>
 
-  return <>Press {help} for help.</>
+      <Hotkey
+        command="general.search"
+        callback={() => searchRef.current?.focus()}
+      >
+        <input ref={searchRef} placeholder="Search..." />
+      </Hotkey>
+    </div>
+  )
 }
 ```
 

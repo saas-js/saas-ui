@@ -22,25 +22,28 @@ import { useHotkeys, UseHotkeysOptions } from './use-hotkeys'
  * @returns The key combination
  */
 export const useHotkeysShortcut = (
-  keyOrShortcut: string,
+  keyOrShortcut: string | string[],
   callback: (event: KeyboardEvent) => void,
   options: UseHotkeysOptions | Array<any> = [],
   deps?: Array<any>
 ): string => {
   const { hotkeys } = useHotkeysContext()
 
-  const [group, key] = keyOrShortcut.split('.')
+  let keys = keyOrShortcut
 
-  let keys
-  if (group && key) {
-    keys = hotkeys?.[group]?.hotkeys[key]?.command
-  }
+  if (typeof keys === 'string') {
+    const [group, key] = keys.split('.')
 
-  if (!keys) {
-    keys = keyOrShortcut
+    if (group && key) {
+      keys = hotkeys?.[group]?.hotkeys[key]?.command
+    }
+
+    if (!keys) {
+      keys = keyOrShortcut
+    }
   }
 
   useHotkeys(keys, callback, options, deps)
 
-  return keys
+  return Array.isArray(keys) ? keys[0] : keys
 }

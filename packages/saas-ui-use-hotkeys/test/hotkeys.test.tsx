@@ -6,6 +6,7 @@ import {
   useHotkeysShortcut,
   HotkeysProvider,
   HotkeysConfig,
+  Hotkey,
 } from '../src'
 
 const hotkeys: HotkeysConfig = {
@@ -127,4 +128,24 @@ test('should support multiple key combinations.', async () => {
   await user.keyboard('C')
 
   expect(action).toBeCalledTimes(2)
+})
+
+test('Hotkey should trigger hotkey shortcuts.', async () => {
+  const action = jest.fn()
+  const TestComponent = () => {
+    return (
+      <Hotkey command="general.compose" callback={action}>
+        {({ keys }) => <button>{keys}</button>}
+      </Hotkey>
+    )
+  }
+
+  const { findByText, user } = renderModal(<TestComponent />)
+
+  const button = await findByText('c')
+  expect(button).toBeInTheDocument()
+
+  await user.keyboard('c')
+
+  expect(action).toBeCalled()
 })

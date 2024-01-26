@@ -23,18 +23,16 @@ import * as React from 'react'
 const { useEffect, useRef } = React
 
 import {
-  HotkeysProvider,
   HotkeysList,
   HotkeysSearch,
   HotkeysListItems,
-  HotkeysListOptions,
-  useHotkeysShortcut,
+  HotkeysConfig,
   useHotkeysContext,
   useHotkeys,
+  createHotkeys,
 } from '../src'
-import { set } from 'lodash'
 
-const hotkeys: HotkeysListOptions = {
+const hotkeys: HotkeysConfig = {
   general: {
     title: 'General',
     hotkeys: {
@@ -56,12 +54,18 @@ const hotkeys: HotkeysListOptions = {
   },
 }
 
+const {
+  HotkeysProvider,
+  useHotkeys: useHotkeysShortcut,
+  Hotkey,
+} = createHotkeys(hotkeys)
+
 export default {
   title: 'Components/Navigation/Hotkeys',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
-        <HotkeysProvider hotkeys={hotkeys}>
+        <HotkeysProvider>
           <Story />
         </HotkeysProvider>
       </Container>
@@ -182,7 +186,7 @@ export const ListDrawer = () => {
 
 export const WithoutShortcut = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('⌘ k', () => {
+  const key = useHotkeys('⌘ k', () => {
     ref.current?.focus()
   })
 
@@ -195,7 +199,7 @@ export const WithoutShortcut = () => {
 
 export const IgnoreKeyInsideInput = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('k', () => {
+  const key = useHotkeys('k', () => {
     alert('K pressed')
   })
 
@@ -212,7 +216,7 @@ export const IgnoreKeyInsideInput = () => {
 
 export const KeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
-  const key = useHotkeysShortcut('A then B', () => {
+  const key = useHotkeys('A then B', () => {
     ref.current?.focus()
   })
 
@@ -226,11 +230,11 @@ export const KeySequence = () => {
 export const SingleAndKeySequence = () => {
   const ref = useRef<HTMLInputElement | null>(null)
 
-  const key = useHotkeysShortcut('A', () => {
+  const key = useHotkeys('A', () => {
     ref.current?.focus()
   })
 
-  useHotkeysShortcut('A then B', () => {
+  useHotkeys('A then B', () => {
     // this shouldn't trigger
     alert('A then B pressed')
   })
@@ -306,4 +310,17 @@ export const PressAndHold = () => {
   )
 
   return <Box>{presses} presses</Box>
+}
+
+export const WithHotkey = () => {
+  const searchRef = React.useRef<HTMLInputElement>(null)
+
+  return (
+    <Hotkey
+      command="general.search"
+      callback={() => searchRef.current?.focus()}
+    >
+      {({ keys }) => <Input ref={searchRef} placeholder={keys} />}
+    </Hotkey>
+  )
 }

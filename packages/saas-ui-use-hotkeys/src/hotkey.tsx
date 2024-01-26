@@ -19,10 +19,11 @@ export interface HotkeyProps {
    */
   hotkeyOptions?: UseHotkeysOptions
   /**
-   * Children or render prop function
+   * A single child or render prop function
    */
   children:
-    | React.ReactNode
+    | string
+    | React.ReactElement
     | ((props: {
         keys: string | string[]
         ariaKeyshortcuts?: string

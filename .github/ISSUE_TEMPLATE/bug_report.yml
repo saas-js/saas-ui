@@ -44,10 +44,18 @@ body:
     id: 'saas-ui-version'
     attributes:
       label: 'Saas UI Version'
-      description: 'The version of Chakra UI you use.'
+      description: 'The version of Saas UI you use.'
       placeholder: '2.x.x'
     validations:
       required: true
+  - type: 'input'
+    id: 'chakra-ui-version'
+    attributes:
+      label: 'Chakra UI Version'
+      description: 'The version of Chakra UI you use.'
+      placeholder: '2.x.x'
+    validations:
+      required: false
   - type: 'input'
     id: 'browser'
     attributes:

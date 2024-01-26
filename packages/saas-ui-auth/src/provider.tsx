@@ -49,7 +49,7 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
    * Restore the authentication state, eg after redirecting
    */
-  onRestoreAuthState?: () => Promise<boolean>
+  onRestoreAuthState?: () => Promise<void>
   /**
    * Loads user data after authentication
    */
@@ -174,8 +174,8 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
       loadUser()
     }
 
-    restoreState
-  }, [isAuthenticated])
+    restoreState()
+  }, [onRestoreAuthState])
 
   const checkAuth = useCallback(async () => {
     try {

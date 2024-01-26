@@ -1,4 +1,4 @@
-import type { AuthParams, AuthOptions, AuthProviderProps } from '@saas-ui/auth'
+import type { AuthOptions, AuthProviderProps } from '@saas-ui/auth'
 
 import type {
   Auth0Client,
@@ -24,22 +24,28 @@ export const createAuthService = <Client extends Auth0Client>(
   }
 
   const onLogin = async (
-    params: AuthParams,
-    options?: AuthOptions<RedirectLoginOptions>
+    params: RedirectLoginOptions,
+    options?: AuthOptions
   ) => {
-    await auth0Client.loginWithRedirect(options)
+    await auth0Client.loginWithRedirect({
+      ...params,
+      authorizationParams: {
+        redirect_uri: options?.redirectTo,
+      },
+    })
     return null
   }
 
   const onSignup = async (
-    params: AuthParams,
-    options?: AuthOptions<RedirectLoginOptions>
+    params: RedirectLoginOptions,
+    options?: AuthOptions
   ) => {
     await auth0Client.loginWithRedirect({
-      ...options,
+      ...params,
       authorizationParams: {
         screen_hint: 'signup',
         prompt: 'login',
+        redirect_uri: options?.redirectTo,
       },
     })
     return null

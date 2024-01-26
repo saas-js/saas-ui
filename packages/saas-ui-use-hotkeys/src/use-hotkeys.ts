@@ -61,7 +61,7 @@ const parseKeys = (keys: string | string[]) => {
       splitKeys(command.toLowerCase()).reduce(
         (keys: string[], key: string, i, command) => {
           if (command.length === 1 && shiftedKeys[key]) {
-            memo.push(['shift', shiftedKeys[key]])
+            return ['shift', shiftedKeys[key]]
           }
           if (modifiers[key]) {
             keys.push(modifiers[key])
@@ -75,6 +75,19 @@ const parseKeys = (keys: string | string[]) => {
     )
     return memo
   }, [])
+}
+
+/**
+ * Transform a key combination into an aria keyshortcuts string
+ * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts
+ */
+export const toAriaKeyshortcuts = (keys: string | string[]) => {
+  const parsed = parseKeys(keys)
+  return parsed
+    .map((keys) => {
+      return keys.join('+')
+    })
+    .join(' ')
 }
 
 const keysMatch = (

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Roadmap
+    url: https://roadmap.saas-ui.dev
+    about: Request features and see what's planned
+  - name: Chat with other community members
+    url: https://saas-ui.dev/discord
+    about: The official Saas UI Discord community

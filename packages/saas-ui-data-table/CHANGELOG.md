@@ -1,5 +1,16 @@
 # @saas-ui/data-table
 
+## 7.0.5
+
+### Patch Changes
+
+- ac3e7f9f: fix: forward sx prop to data table
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/react@2.5.5
+  - @saas-ui/core@2.3.4
+
 ## 7.0.4
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/theme
 
+## 2.3.2
+
+### Patch Changes
+
+- d6d7ca3f: Added xl size to IconBadge
+- 4e291385: Updated Input lg variant height
+
 ## 2.3.1
 
 ### Patch Changes

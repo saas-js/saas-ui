@@ -9,15 +9,15 @@ configure.
 
 ## Install
 
-Install Next Auth in the @app/features package.
+Install Next Auth in `apps/web`.
 
 ```bash
-cd packages/app-features && yarn add next-auth
+cd apps/web && yarn add next-auth
 ```
 
 ## Configure
 
-Edit `packages/app-features/core/providers/auth.tsx` and replace with the following:
+Edit `apps/web/src/features/common/providers/auth.tsx` and replace with the following:
 
 ```tsx
 import React from 'react'

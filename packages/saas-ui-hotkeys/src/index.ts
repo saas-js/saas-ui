@@ -4,10 +4,18 @@ export {
   splitKeys,
   useHotkeys,
   useHotkeysShortcut,
+  Hotkey,
+  createHotkeys,
 } from '@saas-ui/use-hotkeys'
 export type {
   HotkeysProviderProps,
   UseHotkeysOptions,
+  HotkeysConfig,
+  HotkeyProps,
+  HotkeysContextValues,
+  HotkeysGroupConfig,
+  HotkeysGroupItems,
+  HotkeysItemConfig,
 } from '@saas-ui/use-hotkeys'
 
 export {
@@ -20,12 +28,8 @@ export {
   useHotkeysSearch,
 } from './hotkeys'
 export type {
-  HotkeysGroupListOptions,
-  HotkeysGroupOptions,
   HotkeysGroupProps,
-  HotkeysItemOptions,
   HotkeysItemProps,
-  HotkeysListOptions,
   HotkeysListProps,
   HotkeysOptions,
   UseHotkeysListReturn,

@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 2.1.0
+
+### Minor Changes
+
+- 942c7f88: Updated with Pro 0.31.3
+
 ## 2.0.0
 
 ### Major Changes

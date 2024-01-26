@@ -8,6 +8,43 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 01-22-2024
+
+`@saas-ui/react@2.5.5`
+
+- Added xl size to IconBadge
+- Updated Input lg variant height
+- Fixed issue where FormStepper separator would render incorrectly
+
+**Theme** `v2.3.2`
+
+- Added xl size to IconBadge
+- Updated Input lg variant height
+
+**Data Table** `v7.0.5`
+
+- fix: forward sx prop to data table
+
+**Forms** `v2.3.9`
+
+- Fixed issue where SubmitButton theming props could not be overwritten with AutoForm
+
+**File Upload** `v0.2.2`
+
+- Retrieve environment from Chakra UI context to support shadowdom/frame for file uploads
+
+**Core** `v2.3.4`
+
+- Fixed issue where FormStepper separator would render incorrectly
+
+**Props Docs** `v2.1.0`
+
+- Updated with Pro 0.31.3
+
+**Date Picker** `v0.12.18`
+
+- Fixed issue where DateInput button wouldn't open the date picker
+
 ## 01-12-2024
 
 **Forms** `v2.3.8`

@@ -8,6 +8,7 @@ import {
   Text,
   HStack,
   useDisclosure,
+  Icon,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -20,6 +21,7 @@ import { BackgroundGradientRadial } from '@/components/background-gradient-radia
 import { SignupForm } from '@/components/signup-form'
 import { FaFigma } from 'react-icons/fa6'
 import { ButtonLink } from '@/components/link'
+import { FiArrowRight } from 'react-icons/fi'
 
 const FigmaPage = () => {
   return (
@@ -33,7 +35,7 @@ const FigmaPage = () => {
       <BackgroundGradientRadial
         top="-30%"
         bottom="auto"
-        opacity="0.3"
+        opacity="0.1"
         _dark={{ opacity: 0.5 }}
         pointerEvents="none"
       />
@@ -58,7 +60,7 @@ const Figma = () => {
           title="Saas UI Figma Kit"
           description={
             <>
-              <Text fontSize="xl" mb="12">
+              <Text fontSize="xl" mb="12" color="muted">
                 Professionally crafted Figma design system for <br /> designing
                 beautiful products at any scale.
               </Text>
@@ -77,6 +79,33 @@ const Figma = () => {
           >
             Figma Pro early access
           </Button>
+          <ButtonLink
+            size="lg"
+            href="https://www.figma.com/community/file/1257658419283927894"
+            target="_blank"
+            variant="outline"
+            borderColor="blackAlpha.400"
+            _dark={{
+              borderColor: 'whiteAlpha.400',
+            }}
+            _hover={{
+              bg: 'whiteAlpha.200',
+            }}
+            rightIcon={
+              <Icon
+                as={FiArrowRight}
+                sx={{
+                  transitionProperty: 'common',
+                  transitionDuration: 'normal',
+                  '.chakra-button:hover &': {
+                    transform: 'translate(5px)',
+                  },
+                }}
+              />
+            }
+          >
+            Community Library
+          </ButtonLink>
         </HStack>
 
         <SignupForm isOpen={figma.isOpen} onClose={figma.onClose} />

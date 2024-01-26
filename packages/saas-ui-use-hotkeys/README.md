@@ -1,18 +1,26 @@
 # @saas-ui/use-hotkeys
 
-Easy to use and scalable keyboard shortcuts for React.
+Typesafe and accessible keyboard shortcuts for React.
 
 ## How it works
 
 Create a config object containing all the keyboard shortcuts in your app. The keys in the config can be used as shortcuts with the included hook throughout your app.
 
-Other features
+Other features:
 
 - Supports shifted keys like ?, =, @.
 - ⌥ ⇧ ⌃ ⌘ shorthands are supported.
 - Won't trigger inside inputs / content editable elements.
 - Hooks also work without a global config object.
 - The HotkeysList can also be used to list other options, like markdown support.
+
+## Accessibility
+
+The `Hotkey` component will add the `aria-keyshortcuts` attribute to the wrapped element. This attribute is used by screen readers to announce the available keyboard shortcuts. Short hand keys like `⌘` or `?` will be expanded to `Meta` and `Shift+/` respectively.
+
+The hotkeys config can be used to display a list of available shortcuts in your app for discoverability.
+
+More info: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts
 
 ## Installation
 

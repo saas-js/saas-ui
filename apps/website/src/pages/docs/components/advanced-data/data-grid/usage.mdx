@@ -95,6 +95,80 @@ export default function ListPage() {
 }
 ```
 
+### Sticky header
+
+Sticky headers are enabled by default, but can be disabled by passing `stickyHeader` to `DataGrid`.
+
+Use style props to customize the header styles.
+
+```jsx
+import { Button, Card } from '@chakra-ui/react'
+import { DataGrid, DataGridPagination } from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+
+  return (
+    <Card overflow="hidden">
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        stickyHeader={false}
+        sx={{
+          '& thead': {
+            bg: 'gray.50',
+            _dark: {
+              bg: 'gray.900',
+            },
+          },
+        }}
+      >
+        <DataGridPagination />
+      </DataGrid>
+    </Card>
+  )
+}
+```
+
 ### With BulkActions
 
 ```jsx

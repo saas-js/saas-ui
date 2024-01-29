@@ -31,6 +31,11 @@ export const CATEGORIES: CategoriesGroup[] = [
         images: images.settings ?? null,
       },
       {
+        slug: 'communication',
+        name: 'Communication',
+        images: images.kpicards ?? null,
+      },
+      {
         slug: 'files',
         name: 'File management',
         images: images.files ?? null,

@@ -1,20 +1,11 @@
 'use client'
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
-
 import { Stack, Card, CardBody } from '@chakra-ui/react'
+import { Auth, useAuth } from '@saas-ui/auth'
+import { useRouter } from 'next/navigation'
+import React from 'react'
+
 import { SaasUILogo } from '@saas-ui/assets'
-import { Auth, AvailableProviders, useAuth } from '@saas-ui/auth'
-
-import { FaGithub } from 'react-icons/fa'
-
-const providers: AvailableProviders = {
-  github: {
-    icon: FaGithub,
-    name: 'Github',
-  },
-}
 
 export default function LoginPage() {
   const { isAuthenticated } = useAuth()
@@ -36,7 +27,7 @@ export default function LoginPage() {
       <SaasUILogo width="120px" />
       <Card width="380px" maxW="container.md">
         <CardBody>
-          <Auth providers={providers} type="magiclink" />
+          <Auth type="password" />
         </CardBody>
       </Card>
     </Stack>

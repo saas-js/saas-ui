@@ -16,7 +16,7 @@ const providers: AvailableProviders = {
   },
 }
 
-export default function LoginPage() {
+export default function SignupPage() {
   const { isAuthenticated } = useAuth()
   const router = useRouter()
 
@@ -36,7 +36,7 @@ export default function LoginPage() {
       <SaasUILogo width="120px" />
       <Card width="380px" maxW="container.md">
         <CardBody>
-          <Auth providers={providers} type="magiclink" />
+          <Auth providers={providers} type="magiclink" view="signup" />
         </CardBody>
       </Card>
     </Stack>

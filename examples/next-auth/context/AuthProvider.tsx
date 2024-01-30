@@ -20,48 +20,79 @@ const createAuthService = ({
 }): AuthProviderProps => {
   const channel = BroadcastChannel()
 
+  let user: User | null = getUser()
+
   return {
     onAuthStateChange(callback) {
       // we need to use a broadcast channel here to make sure that the
       // auth state is updated across all tabs
-      const unsubscribe = channel.receive(async (message) => {
-        console.log('message', message)
-        const session = await getSession()
-        callback((session?.user as User) ?? null)
+      return channel.receive(async (message) => {
+        if (
+          message.event === 'session' &&
+          message.data?.trigger === 'getSession'
+        ) {
+          const session = await getSession()
+          callback((session?.user as User) ?? null)
+        }
       })
-
-      return unsubscribe
     },
-    onLogin: async ({ provider, email }, options) => {
-      const type = provider ?? 'email'
-
+    onLogin: async ({ provider, email, password }, options) => {
+      let type = 'email'
       let params: Record<string, any> = {
         callbackUrl: options?.redirectTo,
       }
 
-      if (email) {
+      if (provider) {
+        type = provider
+      } else if (email && password) {
+        type = 'credentials'
+        params = {
+          email,
+          password,
+          redirect: false,
+          ...params,
+        }
+      } else if (email) {
         params = {
           email,
           redirect: false, // do not redirect to NextAuth login page
           ...params,
         }
+      } else {
+        throw new Error('Unknown login method')
       }
 
       const result = await signIn(type, params)
 
-      if (result?.ok) {
-        //
+      if (result && !result?.ok) {
+        throw new Error(result?.error ?? 'Unknown error')
+      }
+
+      if (type === 'credentials') {
+        // result doesn't return the user data, so fetch the session here.
+        // this will fetch the session twice though.
+        const session = await getSession()
+        user = session?.user as User
+        return user
       }
 
       return undefined
     },
-    onLogout: () => signOut(),
+    onLogout: async () => {
+      await signOut({
+        redirect: false,
+      })
+      user = null
+    },
     onLoadUser: async () => {
-      return getUser()
+      user = getUser()
+      return user
     },
     onGetToken: async () => {
-      const user = await getUser()
-      // we don't have access to any token, so just returning the user email here.
+      // we don't have access to the token here, so returning the user email instead.
+      if (!user) {
+        user = getUser()
+      }
       return user?.email
     },
   }
@@ -95,13 +126,14 @@ const Provider: React.FC<React.PropsWithChildren> = (props) => {
   const { data, status } = useSession()
 
   const authService = React.useMemo(() => {
+    // when data is undefined the session is still loading
     if (typeof data === 'undefined') {
       return
     }
 
     return createAuthService({
-      async getUser() {
-        return data?.user
+      getUser() {
+        return data?.user ?? null
       },
     })
   }, [data, status])

@@ -6,7 +6,7 @@ import { useAuth } from '@saas-ui/auth'
 
 export default function HomePage() {
   const { user, logOut } = useAuth()
-
+  console.log('user', user)
   return (
     <Authenticated>
       <Box>

@@ -71,14 +71,14 @@ const Figma = () => {
         />
 
         <HStack justifyContent="center">
-          <Button
-            onClick={figma.onOpen}
+          <ButtonLink
+            href="/pricing"
             variant="primary"
             size="lg"
             leftIcon={<FaFigma />}
           >
             Figma Pro early access
-          </Button>
+          </ButtonLink>
           <ButtonLink
             size="lg"
             href="https://www.figma.com/community/file/1257658419283927894"

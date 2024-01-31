@@ -1,10 +1,13 @@
-import { Stack, Card, CardBody } from '@chakra-ui/react'
-import { Auth, AvailableProviders, useAuth } from '@saas-ui/auth'
-import { useRouter } from 'next/router'
+'use client'
+
 import React from 'react'
+import { useRouter } from 'next/navigation'
+
+import { Stack, Card, CardBody } from '@chakra-ui/react'
+import { SaasUILogo } from '@saas-ui/assets'
+import { Auth, AvailableProviders, useAuth } from '@saas-ui/auth'
 
 import { FaGithub } from 'react-icons/fa'
-import { Logo } from '../components/Logo'
 
 const providers: AvailableProviders = {
   github: {
@@ -13,7 +16,7 @@ const providers: AvailableProviders = {
   },
 }
 
-const LoginPage = () => {
+export default function LoginPage() {
   const { isAuthenticated } = useAuth()
   const router = useRouter()
 
@@ -30,14 +33,12 @@ const LoginPage = () => {
       justifyContent="center"
       spacing="10"
     >
-      <Logo width="120px" />
+      <SaasUILogo width="120px" />
       <Card width="380px" maxW="container.md">
         <CardBody>
-          <Auth providers={providers} method="magic" />
+          <Auth providers={providers} type="magiclink" />
         </CardBody>
       </Card>
     </Stack>
   )
 }
-
-export default LoginPage

@@ -105,7 +105,7 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
 
 export type AuthFunction<
   TParams = AuthParams,
-  TExtraOptions extends object = Record<string, unknown>
+  TExtraOptions extends object = Record<string, unknown>,
 > = (params: TParams, options?: AuthOptions<TExtraOptions>) => Promise<any>
 
 interface OtpParams extends AuthParams {
@@ -151,6 +151,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   const [isAuthenticated, setAuthenticated] = useState(false)
   const [user, setUser] = useState<TUser | null>()
   const [isLoading, setLoading] = useState(true)
+  const isFetchingRef = React.useRef(false)
 
   useEffect(() => {
     if (onAuthStateChange) {
@@ -165,7 +166,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
 
   useEffect(() => {
     loadUser()
-  }, [isAuthenticated])
+  }, [])
 
   const checkAuth = useCallback(async () => {
     try {
@@ -180,32 +181,45 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   }, [onGetToken])
 
   useEffect(() => {
-    window.addEventListener('focus', checkAuth)
+    const onWindowFocus = async () => {
+      loadUser()
+    }
+    window.addEventListener('focus', onWindowFocus)
     return () => {
-      window.removeEventListener('focus', checkAuth)
+      window.removeEventListener('focus', onWindowFocus)
     }
   }, [checkAuth])
 
   const loadUser = useCallback(async () => {
-    const isAuthenticated = await checkAuth()
-
-    if (isAuthenticated) {
-      const user = await onLoadUser()
-
-      if (user) {
-        setUser(user)
-      } else {
-        setAuthenticated(false)
+    try {
+      // Prevent multiple calls to loadUser
+      if (isFetchingRef.current) {
+        return
       }
-    }
 
-    setLoading(false)
+      const isAuthenticated = await checkAuth()
+
+      if (isAuthenticated && !isFetchingRef.current) {
+        isFetchingRef.current = true
+        const user = await onLoadUser()
+
+        if (user) {
+          setUser(user)
+        } else {
+          setAuthenticated(false)
+          setUser(null)
+        }
+      }
+    } finally {
+      isFetchingRef.current = false
+      setLoading(false)
+    }
   }, [onLoadUser, checkAuth])
 
   const signUp = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {
       const result = await onSignup(params, options)
-      checkAuth() // In case the auth service authenticates the user directly.
+      loadUser()
       return result
     },
     [onSignup]
@@ -214,7 +228,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   const logIn = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {
       const result = await onLogin(params, options)
-      checkAuth() // In case the auth service authenticates the user directly.
+      loadUser()
       return result
     },
     [onLogin]
@@ -277,7 +291,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
 }
 
 export const useAuth = <
-  TUser extends User = DefaultUser
+  TUser extends User = DefaultUser,
 >(): AuthContextValue<TUser> => {
   const context = useContext(AuthContext)
   if (context === null) {

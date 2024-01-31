@@ -24,6 +24,7 @@ const passwordSchema = Yup.object({
 })
 
 type CustomUser = {
+  id: number
   email: string
 }
 
@@ -31,14 +32,22 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
   let user: CustomUser | null = null
   return {
     onLogin: async (params: AuthParams) => {
-      if (params.email) {
-        user = { email: params.email }
+      console.log('onLogin', params)
+      const { email, password, provider } = params
+      // email and provider login may return an empty object on success
+      if (email && password) {
+        user = { id: 1, email }
         return user
+      } else if (
+        (!email && !password && !provider) ||
+        email === 'error@error.com'
+      ) {
+        throw new Error('Login failed')
       }
     },
     onSignup: async (params: AuthParams) => {
       if (params.email) {
-        user = { email: params.email }
+        user = { id: 2, email: params.email }
         return user
       }
     },
@@ -55,11 +64,13 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
       }
     },
     onLoadUser: async () => {
+      console.log('onLoadUser', user)
       return user
     },
     onGetToken: async () => {
       // return a session token if it's supported.
-      return null
+      console.log('onGetToken', user?.email)
+      return user?.email
     },
     onResetPassword: async (params: AuthParams) => {
       // send a reset password email
@@ -70,34 +81,7 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
   }
 }
 
-const authProvider: AuthProviderProps<any> = {
-  onLogin: async (params) => {
-    console.log('onLogin', params)
-    const { email, password, provider } = params
-    // email and provider login may return an empty object on success
-    let response = {}
-    if (email && password) {
-      response = { id: 1, email }
-    } else if (
-      (!email && !password && !provider) ||
-      email === 'error@error.com'
-    ) {
-      throw new Error('Login failed')
-    }
-
-    return {
-      id: 1,
-      email,
-    } as unknown as User
-  },
-  onSignup: async (params) => {
-    const { email } = params
-    return { id: 1, email } as unknown as User
-  },
-  onVerifyOtp: async () => true,
-  onResetPassword: async (params) => true,
-  onUpdatePassword: async (params) => true,
-}
+const authProvider = createAuthService()
 
 export default {
   title: 'Components/Auth/Auth',

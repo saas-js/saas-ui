@@ -1,5 +1,11 @@
 # saas-ui-storybook
 
+## 1.1.19
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+
 ## 1.1.18
 
 ### Patch Changes

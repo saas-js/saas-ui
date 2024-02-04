@@ -1,5 +1,11 @@
 # @saas-ui/use-hotkeys
 
+## 1.1.1
+
+### Patch Changes
+
+- Fix backwards compatibility
+
 ## 1.1.0
 
 ### Minor Changes

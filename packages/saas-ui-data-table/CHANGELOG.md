@@ -1,5 +1,11 @@
 # @saas-ui/data-table
 
+## 7.0.7
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+
 ## 7.0.6
 
 ### Patch Changes

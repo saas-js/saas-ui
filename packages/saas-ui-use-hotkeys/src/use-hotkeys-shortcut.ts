@@ -26,7 +26,7 @@ export const useHotkeysShortcut = (
   callback: (event: KeyboardEvent) => void,
   options: UseHotkeysOptions | Array<any> = [],
   deps?: Array<any>
-): string | string[] => {
+): string => {
   const { hotkeys } = useHotkeysContext()
 
   let keys = keyOrShortcut
@@ -45,5 +45,5 @@ export const useHotkeysShortcut = (
 
   useHotkeys(keys, callback, options, deps)
 
-  return keys
+  return typeof keys === 'string' ? keys : keys[0]
 }

@@ -34,3 +34,10 @@ export type {
   HotkeysOptions,
   UseHotkeysListReturn,
 } from './hotkeys'
+
+import { HotkeysConfig } from '@saas-ui/use-hotkeys'
+
+/**
+ * @deprecated Use `HotkeysConfig` instead.
+ */
+export type HotkeysListOptions = HotkeysConfig

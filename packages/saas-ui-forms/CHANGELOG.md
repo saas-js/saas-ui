@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.3.10
+
+### Patch Changes
+
+- 52e7490c: Fixed issue where theming props would be forwarded to form layout element
+- Updated dependencies [afb87d86]
+  - @saas-ui/core@2.3.5
+
 ## 2.3.9
 
 ### Patch Changes

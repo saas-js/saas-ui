@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.3.15",
+  "version": "2.3.16",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {

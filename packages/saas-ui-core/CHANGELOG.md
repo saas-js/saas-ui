@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.3.5
+
+### Patch Changes
+
+- afb87d86: Removed console.log
+
 ## 2.3.4
 
 ### Patch Changes

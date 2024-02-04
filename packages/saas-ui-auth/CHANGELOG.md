@@ -1,5 +1,15 @@
 # @saas-ui/auth
 
+## 2.4.6
+
+### Patch Changes
+
+- afb87d86: Fixed issue where load user would be called multiple times on initial load
+- Updated dependencies [afb87d86]
+- Updated dependencies [52e7490c]
+  - @saas-ui/core@2.3.5
+  - @saas-ui/forms@2.3.10
+
 ## 2.4.5
 
 ### Patch Changes

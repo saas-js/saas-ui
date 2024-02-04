@@ -11,6 +11,9 @@
     },
     "./src": {
       "default": "./src/index.ts"
+    },
+    "./src/components/*": {
+      "default": "./src/components/*"
     }
   },
   "main": "./dist/index.js",

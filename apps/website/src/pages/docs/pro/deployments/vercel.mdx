@@ -34,10 +34,11 @@ follow these steps to deploy the monorepo to Vercel.
 2. Connect your GitHub account.
 3. Find the repository you want to deploy and click `import`.
 4. Select `apps/web` as the root directory.
-5. Override the build command with;
+5. Make sure `Include source files outside of the Root Directory in the Build Step.` is checked.
+6. Override the build command with;
 
 ```bash
-cd ../.. && yarn generate && yarn workspace web run build
+cd ../.. && yarn workspace web run build
 ```
 
 6. Override the install command with;

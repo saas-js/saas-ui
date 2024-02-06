@@ -76,6 +76,11 @@
       "required": false,
       "description": "Shorthand prop for `gridAutoRows`"
     },
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "column": {
       "type": "ResponsiveValue<GridColumn>",
       "required": false,
@@ -111,6 +116,11 @@
       "required": false,
       "description": "Shorthand prop for `gridRowGap`"
     },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the FormLayout"
+    },
     "spacing": {
       "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | \"6\" | ... 53 more ... | \"-3.5\">",
       "required": false,
@@ -140,6 +150,11 @@
       "type": "ResponsiveValue<GridTemplateRows<0 | (string & {})>>",
       "required": false,
       "description": "Shorthand prop for `gridTemplateRows`"
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the FormLayout"
     }
   },
   "SubmitButton": {
@@ -793,12 +808,12 @@
     "values": { "type": "TFieldValues", "required": false }
   },
   "StepsOptions": {
-    "__@iterator@40401": {
+    "__@iterator@40623": {
       "type": "() => IterableIterator<{\n  name: TName\n  schema?: TSchema | undefined\n}>",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@41852": {
+    "__@unscopables@42074": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -1294,7 +1309,7 @@
       "description": "If `true`, the menu will close when a menu item is\nclicked"
     },
     "colorScheme": {
-      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\"",
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
       "required": false,
       "description": "The visual color appearance of the component"
     },
@@ -1531,12 +1546,12 @@
     }
   },
   "RadioOptions": {
-    "__@iterator@40401": {
+    "__@iterator@40623": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<RadioOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@41852": {
+    "__@unscopables@42074": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -2606,12 +2621,12 @@
     }
   },
   "FieldOptions": {
-    "__@iterator@40401": {
+    "__@iterator@40623": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<TOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@41852": {
+    "__@unscopables@42074": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -2836,6 +2851,11 @@
       "required": false,
       "description": "The form children, can be a render prop or a ReactNode."
     },
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "context": { "type": "TContext", "required": false },
     "criteriaMode": { "type": "CriteriaMode", "required": false },
     "defaultValues": {
@@ -2890,7 +2910,17 @@
     "shouldFocusError": { "type": "boolean", "required": false },
     "shouldUnregister": { "type": "boolean", "required": false },
     "shouldUseNativeValidation": { "type": "boolean", "required": false },
-    "values": { "type": "TFieldValues", "required": false }
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the Form"
+    },
+    "values": { "type": "TFieldValues", "required": false },
+    "variant": {
+      "type": "\"horizontal\"",
+      "required": false,
+      "description": "The variant of the Form"
+    }
   },
   "CreateStepForm": {
     "fieldResolver": { "type": "GetFieldResolver", "required": false },

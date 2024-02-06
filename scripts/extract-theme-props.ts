@@ -67,23 +67,23 @@ export function extractThemeProps(theme: {
   for (const [name, componentTheme] of Object.entries(theme.components ?? {})) {
     const { defaultProps, variants, sizes } = componentTheme
 
-    if (!defaultProps) continue
+    // if (!defaultProps) continue
 
     result[name] = {
       variant: {
-        defaultValue: defaultProps.variant?.toString(),
+        defaultValue: defaultProps?.variant?.toString(),
         type: variants ? toLiteralStringType(Object.keys(variants)) : 'string',
         required: false,
-        description: `The variant of the ${name}`,
+        description: `The variant of the ${name.replace('Sui', '')}`,
       },
       size: {
-        defaultValue: defaultProps.size?.toString(),
+        defaultValue: defaultProps?.size?.toString(),
         type: sizes ? toLiteralStringType(Object.keys(sizes)) : 'string',
         required: false,
-        description: `The size of the ${name}`,
+        description: `The size of the ${name.replace('Sui', '')}`,
       },
       colorScheme: {
-        defaultValue: defaultProps.colorScheme,
+        defaultValue: defaultProps?.colorScheme,
         type: colorSchemeType,
         required: false,
         description: 'The visual color appearance of the component',

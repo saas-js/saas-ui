@@ -53,6 +53,11 @@
       "required": false,
       "description": "Determines when the columnSizing state is updated. `onChange` updates the state when the user is dragging the resize handle. `onEnd` updates the state when the user releases the resize handle."
     },
+    "columnVirtualizerOptions": {
+      "type": "VirtualizerOptions<\n  HTMLDivElement,\n  HTMLTableRowElement\n> & { enabled?: boolean | undefined }",
+      "required": false,
+      "description": "React Virtual options for the column virtualizer"
+    },
     "debugAll": {
       "type": "boolean",
       "required": false,
@@ -82,6 +87,11 @@
       "type": "Partial<ColumnDef<Data, unknown>>",
       "required": false,
       "description": "Default column options to use for all column defs supplied to the table."
+    },
+    "emptyState": {
+      "type": "FC<any>",
+      "required": false,
+      "description": "Empty state component, rendered when there is no data and no filters enabled."
     },
     "enableColumnFilters": {
       "type": "boolean",
@@ -335,7 +345,7 @@
     "noResults": {
       "type": "FC<any>",
       "required": false,
-      "description": "No results component"
+      "description": "No results component, rendered when filters are enabled and there are no results."
     },
     "onColumnFiltersChange": {
       "type": "OnChangeFn<ColumnFiltersState>",
@@ -447,6 +457,11 @@
       "required": false,
       "description": "Value used when the desired value is not found in the data."
     },
+    "rowVirtualizerOptions": {
+      "type": "VirtualizerOptions<\n  HTMLDivElement,\n  HTMLTableRowElement\n> & { enabled?: boolean | undefined }",
+      "required": false,
+      "description": "React Virtual options for the row virtualizer"
+    },
     "sortDescFirst": {
       "type": "boolean",
       "required": false,
@@ -461,16 +476,16 @@
       "required": false,
       "description": "The `state` option can be used to optionally _control_ part or all of the table state. The state you pass here will merge with and overwrite the internal automatically-managed state to produce the final state for the table. You can also listen to state changes via the `onStateChange` option.\n> Note: Any state passed in here will override both the internal state and any other `initialState` you provide."
     },
+    "stickyHeader": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "Set to false to disable sticky headers"
+    },
     "sx": {
       "type": "SystemStyleObject",
       "required": false,
       "description": "Grid styles"
-    },
-    "tableLayout": {
-      "type": "\"auto\" | \"fixed\"",
-      "defaultValue": "fixed",
-      "required": false,
-      "description": "CSS table-layout property"
     },
     "virtualizerProps": {
       "type": "VirtualizerOptions<HTMLDivElement, HTMLTableRowElement>",

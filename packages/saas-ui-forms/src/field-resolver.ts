@@ -1,6 +1,9 @@
-import { BaseFieldProps } from './types'
+import { FieldValues } from 'react-hook-form'
+import { BaseFieldProps, FieldProps } from './types'
 
 import { get } from '@chakra-ui/utils'
+import { ArrayFieldProps } from './array-field'
+import { ObjectFieldProps } from './object-field'
 
 export type FieldResolver = {
   getFields(): BaseFieldProps[]
@@ -9,10 +12,19 @@ export type FieldResolver = {
 
 export type GetFieldResolver<TSchema = any> = (schema: TSchema) => FieldResolver
 
-interface SchemaField extends BaseFieldProps {
+type SchemaField = (
+  | Omit<FieldProps, 'name'>
+  | (Omit<ObjectFieldProps, 'name' | 'children'> & { type: 'object' })
+  | (Omit<ArrayFieldProps, 'name' | 'children'> & { type: 'array' })
+) & {
   items?: SchemaField[]
   properties?: Record<string, SchemaField>
 }
+
+// interface SchemaField<TFieldValues extends FieldValues = FieldValues> extends FieldProps<TFieldValues> {
+//   items?: SchemaField[]
+//   properties?: Record<string, SchemaField>
+// }
 
 export type ObjectSchema = Record<string, SchemaField>
 

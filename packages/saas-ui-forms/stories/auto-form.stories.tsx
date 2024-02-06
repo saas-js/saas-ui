@@ -7,7 +7,7 @@ import { createYupForm } from '@saas-ui/forms/yup'
 import * as z from 'zod'
 import { createZodForm, zodMeta } from '@saas-ui/forms/zod'
 
-import { Form, SubmitButton } from '../src'
+import { Form, ObjectSchema, SubmitButton } from '../src'
 
 import { onSubmit } from './helpers'
 
@@ -22,7 +22,7 @@ export default {
   ],
 }
 
-const basicSchema = {
+const basicSchema: ObjectSchema = {
   firstName: {
     type: 'text',
     label: 'First name',
@@ -34,19 +34,29 @@ const basicSchema = {
     type: 'text',
     label: 'Last name',
   },
+  role: {
+    type: 'select',
+    label: 'Role',
+    options: [
+      { label: 'Admin', value: 'admin' },
+      { label: 'User', value: 'user' },
+    ],
+  },
   emails: {
     type: 'array',
     label: 'Emails',
-    items: {
-      type: 'object',
-      properties: {
-        address: {
-          label: 'Email address',
+    items: [
+      {
+        type: 'object',
+        properties: {
+          address: {
+            label: 'Email address',
+          },
         },
       },
-    },
+    ],
   },
-} as const
+}
 
 const schema = Yup.object().shape({
   firstName: Yup.string()

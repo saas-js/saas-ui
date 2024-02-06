@@ -27,8 +27,11 @@ interface AutoFormOptions {
 
 export interface AutoFormProps<
   TFieldValues extends FieldValues,
-  TContext extends object = object
-> extends Omit<FormProps<TFieldValues, TContext>, 'schema' | 'children'>,
+  TContext extends object = object,
+> extends Omit<
+      FormProps<TFieldValues, TContext>,
+      'schema' | 'children' | 'fieldResolver'
+    >,
     AutoFormOptions {
   children?: React.ReactNode
 }
@@ -40,7 +43,7 @@ export interface AutoFormProps<
 export const AutoForm = forwardRef(
   <
     TFieldValues extends FieldValues = FieldValues,
-    TContext extends object = object
+    TContext extends object = object,
   >(
     props: AutoFormProps<TFieldValues, TContext>,
     ref: React.ForwardedRef<HTMLFormElement>

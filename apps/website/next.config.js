@@ -97,7 +97,10 @@ let config = {
       new webpack.NormalModuleReplacementPlugin(
         /\@saas-ui(?:-pro)?\/([a-z0-9-\/]+)$/,
         (resource) => {
-          if (!resource.request.match(/^@saas-ui\/(props-docs)$/)) {
+          if (
+            !resource.request.match(/^@saas-ui\/(props-docs)$/) &&
+            !resource.request.match('/src')
+          ) {
             resource.request = resource.request + '/src'
           }
         }

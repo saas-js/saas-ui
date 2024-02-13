@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.3
+
+### Patch Changes
+
+- ae2e7875: Added missing theming props
+
 ## 0.2.2
 
 ### Patch Changes

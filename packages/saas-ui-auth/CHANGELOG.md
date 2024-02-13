@@ -1,5 +1,12 @@
 # @saas-ui/auth
 
+## 2.4.7
+
+### Patch Changes
+
+- e5fdee84: Fixed issue where success message would not render on forgot password view
+- e5fdee84: Allow view prop to controlled with new onViewChange handler
+
 ## 2.4.6
 
 ### Patch Changes

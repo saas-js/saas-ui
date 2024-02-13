@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { chakra, Link } from '@chakra-ui/react'
+import { chakra, Link, useControllableState } from '@chakra-ui/react'
 
 import { AuthFormOptions } from './auth-form'
 import { LoginView, SignupView } from './login-view'
@@ -21,8 +21,13 @@ export const VIEWS = {
 type ValueOf<T> = T[keyof T]
 type ViewType = ValueOf<typeof VIEWS>
 
+export type RedirectViews =
+  | typeof VIEWS.LOGIN
+  | typeof VIEWS.SIGNUP
+  | typeof VIEWS.FORGOT_PASSWORD
+
 export interface AuthProps
-  extends AuthFormOptions,
+  extends Omit<AuthFormOptions, 'redirectUrl'>,
     Omit<
       FormProps<any, any>,
       'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
@@ -37,6 +42,10 @@ export interface AuthProps
    * - otp
    */
   view?: ViewType
+  /**
+   * Called when the view changes.
+   */
+  onViewChange?(view: ViewType): void
   /**
    * The OAuth providers that are supported.
    */
@@ -77,11 +86,17 @@ export interface AuthProps
    * @param error
    */
   onError?: (view: ViewType, error: Error) => void
+  /**
+   * The redirect URL after succesful login
+   * This property is passed down to the auth service
+   */
+  redirectUrl?: string | ((view: RedirectViews) => string | undefined)
 }
 
 export const Auth: React.FC<AuthProps> = (props) => {
   const {
     view = VIEWS.LOGIN,
+    onViewChange,
     providers,
     signupLink = 'Sign up',
     loginLink = 'Log in',
@@ -90,16 +105,19 @@ export const Auth: React.FC<AuthProps> = (props) => {
     noAccount = 'No account yet?',
     haveAccount = 'Already have an account?',
     onError,
+    redirectUrl,
     ...rest
   } = props
 
   const { type } = rest
 
-  const [authView, setAuthView] = React.useState(view)
-
-  React.useEffect(() => {
-    setAuthView(view)
-  }, [view])
+  const [authView, setAuthView] = useControllableState<ViewType>({
+    defaultValue: 'login',
+    value: view,
+    onChange: (view) => {
+      onViewChange?.(view)
+    },
+  })
 
   const errorHandler = React.useCallback(
     (view: ViewType) => (error: Error) => {
@@ -108,6 +126,16 @@ export const Auth: React.FC<AuthProps> = (props) => {
       }
     },
     [authView]
+  )
+
+  const getRedirectUrl = React.useCallback(
+    (view: RedirectViews) => {
+      if (typeof redirectUrl === 'function') {
+        return redirectUrl(view)
+      }
+      return redirectUrl
+    },
+    [redirectUrl]
   )
 
   switch (authView) {
@@ -123,6 +151,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
               link={signupLink}
             />
           }
+          redirectUrl={getRedirectUrl(VIEWS.LOGIN)}
           {...rest}
         >
           {type === 'password' &&
@@ -152,6 +181,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
               link={loginLink}
             />
           }
+          redirectUrl={getRedirectUrl(VIEWS.SIGNUP)}
           {...rest}
         />
       )
@@ -165,6 +195,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
               link={backLink}
             />
           }
+          redirectUrl={getRedirectUrl(VIEWS.FORGOT_PASSWORD)}
           {...rest}
         />
       )

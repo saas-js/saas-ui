@@ -29,15 +29,6 @@ interface OtpParams extends AuthParams {
   otp: string
 }
 
-const getParams = (): RecoveryParams => {
-  const hash = window.location.hash.replace('#', '')
-  return hash.split('&').reduce<any>((memo, part) => {
-    const [key, value] = part.split('=')
-    memo[key] = value
-    return memo
-  }, {})
-}
-
 interface SupabaseServiceAuthOptions {
   loginOptions?: {
     data?: object
@@ -264,15 +255,11 @@ export const createAuthService = <Client extends SupabaseClient>(
   const onUpdatePassword = async ({
     password,
   }: Required<Pick<AuthParams, 'password'>>) => {
-    const params = getParams()
-
-    if (params?.type === 'recovery') {
-      const { error } = await supabase.auth.updateUser({
-        password,
-      })
-      if (error) {
-        throw error
-      }
+    const { error } = await supabase.auth.updateUser({
+      password,
+    })
+    if (error) {
+      throw error
     }
   }
 

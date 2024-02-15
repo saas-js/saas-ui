@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 2.1.19
+
+### Patch Changes
+
+- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+
 ## 2.1.18
 
 ### Patch Changes

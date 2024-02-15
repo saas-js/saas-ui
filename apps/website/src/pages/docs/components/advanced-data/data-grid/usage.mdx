@@ -556,22 +556,21 @@ export default function InternalState() {
   const gridRef = useRef(null)
 
   return (
-    <Page
-      title="Customers"
-      height="400px"
-      toolbar={
-        <Toolbar>
-          <ToolbarButton
-            onClick={() => {
-              gridRef.current.toggleAllRowsSelected()
-            }}
-            label="Select all rows"
-            variant="primary"
-          />
-        </Toolbar>
-      }
-    >
-      <PageHeader title="Customers" />
+    <Page title="Customers" height="400px">
+      <PageHeader
+        title="Customers"
+        toolbar={
+          <Toolbar>
+            <ToolbarButton
+              onClick={() => {
+                gridRef.current.toggleAllRowsSelected()
+              }}
+              label="Select all rows"
+              variant="primary"
+            />
+          </Toolbar>
+        }
+      />
       <PageBody p="0" contentWidth="full" position="relative">
         <DataGrid
           instanceRef={gridRef}
@@ -626,7 +625,7 @@ export default function VisibleColumns() {
           <Toolbar>
             <Menu closeOnSelect={false}>
               <MenuButton as={Button}>View</MenuButton>
-              <MenuList>
+              <MenuList zIndex="dropdown">
                 <MenuOptionGroup
                   value={visibleColumns}
                   type="checkbox"

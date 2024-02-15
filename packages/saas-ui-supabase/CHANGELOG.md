@@ -1,5 +1,14 @@
 # @saas-ui/supabase
 
+## 2.1.2
+
+### Patch Changes
+
+- e5fdee84: Fixed issue where update password would not execute
+- Updated dependencies [e5fdee84]
+- Updated dependencies [e5fdee84]
+  - @saas-ui/auth@2.4.7
+
 ## 2.1.1
 
 ### Patch Changes

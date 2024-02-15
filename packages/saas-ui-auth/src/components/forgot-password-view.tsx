@@ -1,6 +1,11 @@
 import { SubmitHandler } from '@saas-ui/forms'
 import { useResetPassword } from '../provider'
-import { AuthFormContainer, AuthFormTitle, AuthViewOptions } from './auth-form'
+import {
+  AuthFormContainer,
+  AuthFormOptions,
+  AuthFormTitle,
+  AuthViewOptions,
+} from './auth-form'
 import {
   ForgotPasswordForm,
   ForgotPasswordFormProps,
@@ -12,6 +17,10 @@ export interface ForgotPasswordViewProps
   extends AuthViewOptions,
     Omit<ForgotPasswordFormProps, 'title' | 'action' | 'onError' | 'onSubmit'> {
   renderSuccess?: (data: any) => React.ReactElement
+  /**
+   * The URL where the user can save their new password.
+   */
+  redirectUrl?: string
 }
 
 export const ForgotPasswordView: React.FC<ForgotPasswordViewProps> = (
@@ -29,16 +38,19 @@ export const ForgotPasswordView: React.FC<ForgotPasswordViewProps> = (
         description="Please check your email for instructions to reset your password."
       />
     ),
+    redirectUrl,
     ...rest
   } = props
 
   const [{ data, isResolved }, submit] = useResetPassword()
 
   const handleSubmit: SubmitHandler<ForgotPasswordSubmitParams> = (params) => {
-    return submit(params).then(onSuccess).catch(onError)
+    return submit(params, {
+      redirectTo: redirectUrl,
+    })
+      .then(onSuccess)
+      .catch(onError)
   }
-
-  const isSuccess = isResolved && data
 
   return (
     <AuthFormContainer>
@@ -47,7 +59,7 @@ export const ForgotPasswordView: React.FC<ForgotPasswordViewProps> = (
       ) : (
         title
       )}
-      {isSuccess ? (
+      {isResolved ? (
         renderSuccess(data)
       ) : (
         <ForgotPasswordForm

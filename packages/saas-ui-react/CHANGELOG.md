@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.5.8
+
+### Patch Changes
+
+- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+- Updated dependencies [bc1997b0]
+  - @saas-ui/modals@2.1.19
+  - @saas-ui/data-table@7.0.8
+
 ## 2.5.7
 
 ### Patch Changes

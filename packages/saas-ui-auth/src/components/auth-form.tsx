@@ -16,8 +16,8 @@ import { cx } from '@chakra-ui/utils'
 
 import { FieldErrors } from '@saas-ui/forms'
 
-import { Providers, AvailableProviders } from './forms/providers'
-import { AuthTypeEnum, AuthActionEnum, useAuth } from '../provider'
+import { AvailableProviders } from './forms/providers'
+import { AuthTypeEnum, AuthActionEnum } from '../provider'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiAuthForm')
 
@@ -80,7 +80,7 @@ export interface AuthFormOptions {
    */
   oauthRedirectUrl?: string
   /**
-   * The redirecet URL after succesful magic link or password login
+   * The redirect URL after succesful OAuth or Magic link login
    */
   redirectUrl?: string
   /**

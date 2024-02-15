@@ -48,6 +48,16 @@ let config = {
         destination: '/docs/components/authentication/:path*',
         permanent: true,
       },
+      {
+        source: '/docs/components/file-upload',
+        destination: '/docs/components/forms/file-upload',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/file-upload/:path*',
+        destination: '/docs/components/forms/file-upload/:path*',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {

@@ -10,18 +10,12 @@ export interface ForgotPasswordSubmitParams {
 }
 
 export interface ForgotPasswordFormProps<
-  Params extends FieldValues = ForgotPasswordSubmitParams
+  Params extends FieldValues = ForgotPasswordSubmitParams,
 > extends Omit<FormProps<any, Params>, 'children'> {
-  emailLabel?: string
-  helpText?: string
-  submitLabel?: string
   children?: React.ReactNode
 }
 
 export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
-  submitLabel = 'Reset password',
-  emailLabel = 'Your email address',
-  helpText,
   children,
   ...formProps
 }) => {
@@ -30,7 +24,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label={emailLabel}
+          label="Your email address"
           type="email"
           rules={{ required: true }}
           autoComplete="email"
@@ -39,7 +33,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
         {children}
 
         <LoginButton type="submit" width="full">
-          {submitLabel}
+          Reset password
         </LoginButton>
       </FormLayout>
     </Form>

@@ -34,6 +34,11 @@
   },
   "SidebarOverlay": {},
   "Sidebar": {
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "isOpen": {
       "type": "boolean",
       "required": false,
@@ -74,6 +79,11 @@
       "required": false,
       "description": "Callback invoked when the sidebar is opened."
     },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the Sidebar"
+    },
     "spacing": {
       "type": "ResponsiveValue<number | (string & {}) | \"px\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
@@ -84,6 +94,12 @@
       "defaultValue": "lg",
       "required": false,
       "description": "Define the for the mobile nav. Use `false` to disable the mobile nav."
+    },
+    "variant": {
+      "defaultValue": "default",
+      "type": "\"default\" | \"compact\"",
+      "required": false,
+      "description": "The variant of the Sidebar"
     }
   },
   "SidebarSection": {
@@ -135,6 +151,11 @@
     }
   },
   "NavGroup": {
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "defaultIsOpen": { "type": "boolean", "required": false },
     "icon": {
       "type": "ReactElement<any, string | JSXElementConstructor<any>>",
@@ -143,9 +164,19 @@
     "isCollapsible": { "type": "boolean", "required": false },
     "onClose": { "type": "() => void", "required": false },
     "onOpen": { "type": "() => void", "required": false },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the NavGroup"
+    },
     "title": {
       "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
       "required": false
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the NavGroup"
     }
   },
   "NavGroupTitle": {
@@ -161,6 +192,12 @@
   },
   "NavItemLabel": {},
   "NavItem": {
+    "colorScheme": {
+      "defaultValue": "primary",
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "href": {
       "type": "string",
       "required": false,
@@ -181,10 +218,22 @@
       "required": false,
       "description": "If `true`, the nav item will be active"
     },
+    "size": {
+      "defaultValue": "sm",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+      "required": false,
+      "description": "The size of the NavItem"
+    },
     "tooltipProps": {
       "type": "Omit<TooltipProps, \"children\">",
       "required": false,
       "description": "Props to be passed to the tooltip"
+    },
+    "variant": {
+      "defaultValue": "neutral",
+      "type": "\"neutral\" | \"subtle\" | \"solid\" | \"left-accent\"",
+      "required": false,
+      "description": "The variant of the NavItem"
     }
   }
 }

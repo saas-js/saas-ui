@@ -10,6 +10,11 @@
       "required": false,
       "description": "The main content"
     },
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "footer": {
       "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
       "required": false,
@@ -25,6 +30,17 @@
       "type": "ReactElement<any, string | JSXElementConstructor<any>>",
       "required": false,
       "description": "Main sidebar, positioned on the left"
+    },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the AppShell"
+    },
+    "variant": {
+      "defaultValue": "fullscreen",
+      "type": "\"static\" | \"fullscreen\"",
+      "required": false,
+      "description": "The variant of the AppShell"
     }
   }
 }

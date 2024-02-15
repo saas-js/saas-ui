@@ -14,14 +14,16 @@ import {
 } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
-import { FieldErrors } from '@saas-ui/forms'
+import { FieldErrors, FieldValues } from '@saas-ui/forms'
 
 import { AvailableProviders } from './forms/providers'
 import { AuthTypeEnum, AuthActionEnum } from '../provider'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiAuthForm')
 
-export interface AuthViewOptions {
+export interface AuthViewOptions<
+  TFieldValues extends FieldValues = FieldValues,
+> {
   /**
    * The submit action, `logIn` or `signUp`
    */
@@ -34,11 +36,6 @@ export interface AuthViewOptions {
    * The form title
    */
   title?: React.ReactNode
-  /**
-   * Label for the submit button
-   * @default "Sign in"
-   */
-  submitLabel?: string
   /**
    * Children are passed down to the underlying form
    */
@@ -58,7 +55,7 @@ export interface AuthViewOptions {
   /**
    * Callback executed when there are validation errors
    */
-  onValidationError?: (errors: FieldErrors) => void
+  onValidationError?: (errors: FieldErrors<TFieldValues>) => void
 }
 
 export interface AuthFormOptions {
@@ -74,11 +71,6 @@ export interface AuthFormOptions {
    * List of OAuth providers
    */
   providers?: AvailableProviders
-  /**
-   * The redirect URL after successful OAuth login
-   * @deprecated Use `redirectUrl` instead
-   */
-  oauthRedirectUrl?: string
   /**
    * The redirect URL after succesful OAuth or Magic link login
    */

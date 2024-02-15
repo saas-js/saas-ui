@@ -18,20 +18,12 @@ export interface UpdatePasswordSubmitParams {
 }
 
 export interface UpdatePasswordFormProps<
-  Params extends FieldValues = UpdatePasswordSubmitParams
+  Params extends FieldValues = UpdatePasswordSubmitParams,
 > extends Omit<FormProps<any, Params>, 'children'> {
-  passwordLabel?: string
-  confirmLabel?: string
-  helpText?: string
-  submitLabel?: string
   children?: React.ReactNode
 }
 
 export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
-  submitLabel = 'Update password',
-  passwordLabel = 'New password',
-  confirmLabel = 'Confirm password',
-  helpText,
   children,
   ...formProps
 }) => {
@@ -52,7 +44,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
       <FormLayout>
         <Field
           name="password"
-          label={passwordLabel}
+          label="New password"
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"
@@ -60,7 +52,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
 
         <Field
           name="confirmPassword"
-          label={confirmLabel}
+          label="Confirm password"
           type="password"
           rules={{ validate: validatePassword }}
           autoComplete="new-password"
@@ -69,7 +61,7 @@ export const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({
         {children}
 
         <LoginButton type="submit" width="full">
-          {submitLabel}
+          Update password
         </LoginButton>
       </FormLayout>
     </Form>

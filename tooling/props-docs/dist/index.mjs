@@ -5,7 +5,6 @@ import ToggleJson from './components/toggle.json'
 import TimelineJson from './components/timeline.json'
 import StructuredListJson from './components/structured-list.json'
 import StepperJson from './components/stepper.json'
-import SrcJson from './components/src.json'
 import SnackbarJson from './components/snackbar.json'
 import SidebarJson from './components/sidebar.json'
 import SearchInputJson from './components/search-input.json'
@@ -48,7 +47,6 @@ export const Toggle = ToggleJson
 export const Timeline = TimelineJson
 export const StructuredList = StructuredListJson
 export const Stepper = StepperJson
-export const Src = SrcJson
 export const Snackbar = SnackbarJson
 export const Sidebar = SidebarJson
 export const SearchInput = SearchInputJson
@@ -92,7 +90,6 @@ Toggle,
 Timeline,
 StructuredList,
 Stepper,
-Src,
 Snackbar,
 Sidebar,
 SearchInput,

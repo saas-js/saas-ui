@@ -16,7 +16,6 @@ export declare const Toggle: PropDoc
 export declare const Timeline: PropDoc
 export declare const StructuredList: PropDoc
 export declare const Stepper: PropDoc
-export declare const Src: PropDoc
 export declare const Snackbar: PropDoc
 export declare const Sidebar: PropDoc
 export declare const SearchInput: PropDoc

@@ -1,5 +1,10 @@
 {
   "SearchInput": {
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "errorBorderColor": {
       "type": "string",
       "required": false,
@@ -64,6 +69,16 @@
       "type": "ReactElement<any, string | JSXElementConstructor<any>>",
       "required": false,
       "description": "Right element rendered when the value is empty"
+    },
+    "size": {
+      "type": "\"sm\" | \"lg\"",
+      "required": false,
+      "description": "The size of the SearchInput"
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the SearchInput"
     }
   }
 }

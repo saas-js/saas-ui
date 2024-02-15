@@ -1,5 +1,21 @@
 # @saas-ui/auth
 
+## 3.0.0
+
+### Major Changes
+
+- 46299d93: New translations api that allows to translate all labels and messages
+- 46299d93: Removed deprecated props
+
+### Minor Changes
+
+- 46299d93: onSuccess handler now receives the active view and can be used to redirect after succesful log in
+
+### Patch Changes
+
+- Updated dependencies [29e5c317]
+  - @saas-ui/forms@2.3.11
+
 ## 2.4.7
 
 ### Patch Changes

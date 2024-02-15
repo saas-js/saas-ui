@@ -1,5 +1,15 @@
 # website
 
+## 2.3.19
+
+### Patch Changes
+
+- Updated dependencies [46299d93]
+- Updated dependencies [29e5c317]
+  - @saas-ui/props-docs@2.3.0
+  - @saas-ui/forms@2.3.11
+  - @saas-ui/react@2.5.9
+
 ## 2.3.18
 
 ### Patch Changes

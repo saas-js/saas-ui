@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.3.11
+
+### Patch Changes
+
+- 29e5c317: Fixed issue where submit label could not be overwritten using the fields prop
+
 ## 2.3.10
 
 ### Patch Changes

@@ -44,7 +44,7 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
       (disableIfInvalid && !formState.isValid) ||
       isDisabledProp
 
-    const field = useFieldProps('submit') as any
+    const field = useFieldProps('submit') as SubmitButtonProps
 
     return (
       <Button
@@ -53,11 +53,10 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
         type="submit"
         isLoading={formState.isSubmitting || isLoading}
         isDisabled={isDisabled}
+        children={children}
         {...rest}
         {...field}
-      >
-        {children}
-      </Button>
+      />
     )
   }
 )

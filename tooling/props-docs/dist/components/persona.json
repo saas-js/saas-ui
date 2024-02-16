@@ -5,6 +5,11 @@
       "required": false,
       "description": "The badge size. Defaults to 1em. Use em value to keep the size relative to the avatar."
     },
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "crossOrigin": {
       "type": "\"\" | \"anonymous\" | \"use-credentials\"",
       "required": false
@@ -87,6 +92,12 @@
       "required": false,
       "description": "If `true`, the `Avatar` will show a border around it.\n\nBest for a group of avatars"
     },
+    "size": {
+      "defaultValue": "md",
+      "type": "\"2xs\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\"",
+      "required": false,
+      "description": "The size of the Persona"
+    },
     "src": {
       "type": "string",
       "required": false,
@@ -101,6 +112,11 @@
       "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
       "required": false,
       "description": "Tertiary label, usually the status of the person.\nOnly visible from lg size and up."
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the Persona"
     }
   },
   "PersonaContainer": {},

@@ -177,6 +177,12 @@ export default function AuthPage() {
 
 Use the `redirectUrl` prop to redirect the user after login.
 
+<Info>
+  This only works for social log in and magic link in case it's implemented in
+  the auth provider. For password login you need to handle the redirect
+  manually, eg using the `onSuccess` handler.
+</Info>
+
 ```jsx center=true height=550px
 import { SaasUILogo } from '@saas-ui/assets'
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
@@ -213,6 +219,40 @@ export default function AuthPage() {
 }
 ```
 
+### Success handler
+
+The `Auth` component accepts an `onSuccess` prop that can be used to trigger actions after succesful login, like redirecting.
+
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  const snackbar = useSnackbar()
+
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          view="login"
+          onSuccess={(view, error) => {
+            if (view === 'login') {
+              snackbar.success('Welcome back!')
+              // redirect to '/'
+            }
+          }}
+        />
+      </CardBody>
+    </Card>
+  )
+}
+```
+
 ### Error handler
 
 The `Auth` component accepts an `onError` prop that can be used to handle errors.
@@ -224,14 +264,9 @@ import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { useSnackbar } from '@saas-ui/react'
 import { Auth } from '@saas-ui/auth'
 
-const getAbsoluteUrl = (path: string) => {
-  if (typeof window === 'undefined') {
-    return path
-  }
-  return window.location.origin
-}
-
 export default function AuthPage() {
+  const snackbar = useSnackbar()
+
   return (
     <Card flex="1" maxW="400px">
       <CardHeader display="flex" alignItems="center" justifyContent="center">
@@ -284,6 +319,7 @@ export default function AuthPage() {
           fields={{
             submit: {
               colorScheme: 'gray',
+              variant: 'outline',
             },
           }}
         />
@@ -352,7 +388,11 @@ export default function LoginPage() {
       <CardBody>
         <PasswordForm
           onSubmit={(data) => auth.logIn(data)}
-          submitLabel="Log in"
+          fields={{
+            submit: {
+              children: 'Log in',
+            },
+          }}
         />
       </CardBody>
     </Card>
@@ -429,5 +469,68 @@ export default function LoginPage() {
       </CardBody>
     </Card>
   )
+}
+```
+
+### Translations
+
+The `Auth` component accepts a `translations` prop that can be used to translate the form fields and buttons.
+
+```jsx center=true height=550px
+import { SaasUILogo } from '@saas-ui/assets'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { useSnackbar } from '@saas-ui/react'
+import { Auth } from '@saas-ui/auth'
+
+export default function AuthPage() {
+  return (
+    <Card flex="1" maxW="400px">
+      <CardHeader display="flex" alignItems="center" justifyContent="center">
+        <SaasUILogo width="100px" />
+      </CardHeader>
+      <CardBody>
+        <Auth
+          providers={{
+            github: {
+              icon: FaGithub,
+              name: 'Github',
+            },
+          }}
+          translations={translations}
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const translations = {
+  signup: 'Aanmelden',
+  signupSubmit: 'Aanmelden',
+  signupSuccess: 'Gelukt!',
+  signupSuccessDescription:
+    'Controleer je mailbox om je account te verifiëren.',
+  login: 'Inloggen',
+  loginSubmit: 'Inloggen',
+  magicLinkSuccess: 'Controleer je mailbox',
+  magicLinkSuccessDescription:
+    'We hebben een magic link naar {email} gestuurd.',
+  yourEmail: 'je e-mailadres',
+  forgotPassword: 'Wachtwoord vergeten?',
+  forgotPasswordSubmit: 'Stuur reset link',
+  updatePassword: 'Wachtwoord wijzigen',
+  updatePasswordSubmit: 'Wachtwoord opslaan',
+  backToLogin: 'Terug naar inloggen',
+  noAccount: 'Nog geen account?',
+  haveAccount: 'Reeds aangemeld?',
+  otp: 'Eenmalig wachtwoord',
+  otpSubmit: 'Verifiëren',
+  otpHelp:
+    'Je kunt je eenmalig wachtwoord vinden in de Google Authenticator of Authy app.',
+  continueWith: 'Doorgaan met',
+  orContinueWith: 'of doorgaan met',
+  email: 'E-mail',
+  password: 'Wachtwoord',
+  newPassword: 'Nieuw wachtwoord',
+  confirmPassword: 'Bevestig wachtwoord',
 }
 ```

@@ -728,6 +728,52 @@ const demoData = dataGrid.data.map((row, i) => {
 })
 ```
 
+### SlotProps
+
+Using the `slotProps` prop you can customize internal components (slots) of the `DataGrid` component.
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  ToolbarButton,
+  DataGrid,
+} from '@saas-ui-pro/react'
+
+export default function InternalState() {
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+          slotProps={{
+            row: ({ row, table }) => {
+              return {
+                bg: row.original.employees > 100 ? 'red.100' : 'transparent',
+                _dark: {
+                  bg: row.original.employees > 100 ? 'red.700' : 'transparent',
+                },
+              }
+            },
+            cell: ({ cell, table }) => {
+              return {
+                fontWeight:
+                  cell.column.id === 'employees' ? 'semibold' : 'inherit',
+              }
+            },
+          }}
+        />
+      </PageBody>
+    </Page>
+  )
+}
+```
+
 ## Typescript
 
 <Info>

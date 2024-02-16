@@ -135,6 +135,12 @@
       "required": false
     },
     "className": { "type": "string", "required": false },
+    "colorScheme": {
+      "defaultValue": "blue",
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "content": { "type": "string", "required": false },
     "contentEditable": {
       "type": "\"inherit\" | Booleanish",
@@ -1023,6 +1029,11 @@
     "rev": { "type": "string", "required": false },
     "role": { "type": "AriaRole", "required": false },
     "security": { "type": "string", "required": false },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the Banner"
+    },
     "slot": { "type": "string", "required": false },
     "spellCheck": { "type": "Booleanish", "required": false },
     "status": {
@@ -1052,6 +1063,12 @@
     "translate": { "type": "\"yes\" | \"no\"", "required": false },
     "typeof": { "type": "string", "required": false },
     "unselectable": { "type": "\"on\" | \"off\"", "required": false },
+    "variant": {
+      "defaultValue": "subtle",
+      "type": "\"subtle\" | \"solid\"",
+      "required": false,
+      "description": "The variant of the Banner"
+    },
     "variants": {
       "type": "Variants",
       "required": false,

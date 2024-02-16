@@ -8,16 +8,10 @@ import { useFieldProps } from './form-context'
 export interface SubmitButtonProps extends ButtonProps {
   /**
    * Disable the submit button if the form is untouched.
-   *
-   * Change the default behavior by updating
-   * `SubmitButton.defaultProps.disableIfUntouched`
    */
   disableIfUntouched?: boolean
   /**
    * Disable the submit button if the form is invalid.
-   *
-   * Change the default behavior by updating
-   * `SubmitButton.defaultProps.disableIfInvalid`
    */
   disableIfInvalid?: boolean
 }
@@ -31,20 +25,30 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
     const {
       variant = 'primary',
       children = 'Submit',
-      disableIfUntouched = false,
-      disableIfInvalid = false,
+      disableIfUntouched: disableIfUntouchedProp = false,
+      disableIfInvalid: disableIfInvalidProp = false,
       isDisabled: isDisabledProp,
       isLoading,
       ...rest
     } = props
     const { formState } = useFormContext()
 
+    const field = useFieldProps('submit') as SubmitButtonProps
+
+    const {
+      disableIfUntouched: disableIfUntouchedOverride,
+      disableIfInvalid: disableIfInvalidOverride,
+      ...fieldProps
+    } = field
+
+    const disableIfUntouched =
+      disableIfUntouchedOverride ?? disableIfUntouchedProp
+    const disableIfInvalid = disableIfInvalidOverride ?? disableIfInvalidProp
+
     const isDisabled =
       (disableIfUntouched && !formState.isDirty) ||
       (disableIfInvalid && !formState.isValid) ||
       isDisabledProp
-
-    const field = useFieldProps('submit') as any
 
     return (
       <Button
@@ -53,11 +57,10 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
         type="submit"
         isLoading={formState.isSubmitting || isLoading}
         isDisabled={isDisabled}
+        children={children}
         {...rest}
-        {...field}
-      >
-        {children}
-      </Button>
+        {...fieldProps}
+      />
     )
   }
 )

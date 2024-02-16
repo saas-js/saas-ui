@@ -4,10 +4,8 @@ import { Form, FormLayout, Field, FormProps, FieldValues } from '@saas-ui/forms'
 import { LoginButton } from '../login-button'
 
 export interface MagicLinkFormProps<
-  Params extends FieldValues = MagicLinkSubmitParams
+  Params extends FieldValues = MagicLinkSubmitParams,
 > extends Omit<FormProps<any, Params>, 'children'> {
-  submitLabel?: string
-  emailLabel?: string
   children?: React.ReactNode
 }
 
@@ -17,8 +15,6 @@ export interface MagicLinkSubmitParams {
 }
 
 export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
-  submitLabel = 'Continue with Email',
-  emailLabel = 'Email',
   children,
   ...formProps
 }) => {
@@ -27,7 +23,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label={emailLabel}
+          label="Email"
           type="email"
           rules={{ required: true }}
           autoComplete="email"
@@ -36,7 +32,7 @@ export const MagicLinkForm: React.FC<MagicLinkFormProps> = ({
         {children}
 
         <LoginButton type="submit" width="full">
-          {submitLabel}
+          Continue with Email
         </LoginButton>
       </FormLayout>
     </Form>

@@ -4,6 +4,11 @@
       "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ReactNode[]",
       "required": false
     },
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "disableScrollHandler": {
       "type": "boolean",
       "defaultValue": false,
@@ -58,10 +63,20 @@
       "required": false,
       "description": "Whether the navbar should hide on scroll or not."
     },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the Navbar"
+    },
     "style": {
       "type": "CSSProperties",
       "required": false,
       "description": "Style props to be applied to the navbar container."
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the Navbar"
     }
   },
   "NavbarBrand": {

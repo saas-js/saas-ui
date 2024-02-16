@@ -1,3 +1,4 @@
+import { Meta, StoryObj } from '@storybook/react'
 import { Container, Text } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -8,6 +9,7 @@ import {
   User,
   AuthParams,
   AuthProviderProps,
+  AuthProps,
 } from '../src'
 
 import { Field } from '@saas-ui/forms'
@@ -95,7 +97,9 @@ export default {
       </AuthProvider>
     ),
   ],
-}
+} as Meta
+
+type Story = StoryObj<AuthProps>
 
 const availableProviders: AvailableProviders = {
   google: {
@@ -108,15 +112,15 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-export const Basic = {}
+export const Basic: Story = {}
 
-export const Providers = {
+export const Providers: Story = {
   args: {
     providers: availableProviders,
   },
 }
 
-export const ButtonColor = {
+export const ButtonColor: Story = {
   args: {
     providers: availableProviders,
     fields: {
@@ -128,7 +132,7 @@ export const ButtonColor = {
   },
 }
 
-export const Password = {
+export const Password: Story = {
   args: {
     type: 'password',
     fields: {
@@ -150,20 +154,20 @@ export const Password = {
   },
 }
 
-export const Otp = {
+export const Otp: Story = {
   args: {
     view: 'otp',
   },
 }
 
-export const Signup = {
+export const Signup: Story = {
   args: {
     type: 'password',
     view: 'signup',
   },
 }
 
-export const SignupWithCustomFields = {
+export const SignupWithCustomFields: Story = {
   render() {
     return (
       <Auth providers={availableProviders} type="password" view="signup">
@@ -176,19 +180,19 @@ export const SignupWithCustomFields = {
   },
 }
 
-export const ForgotPassword = {
+export const ForgotPassword: Story = {
   args: {
     view: 'forgot_password',
   },
 }
 
-export const UpdatePassword = {
+export const UpdatePassword: Story = {
   args: {
     view: 'update_password',
   },
 }
 
-export const ErrorHandler = {
+export const ErrorHandler: Story = {
   render: () => {
     const snackbar = useSnackbar()
 
@@ -202,5 +206,46 @@ export const ErrorHandler = {
         }}
       />
     )
+  },
+}
+
+export const SuccessHandler: Story = {
+  render: () => {
+    const snackbar = useSnackbar()
+
+    return (
+      <Auth
+        onSuccess={(view, data) => {
+          if (view === 'login') {
+            snackbar.success('Login succesful')
+          }
+        }}
+      />
+    )
+  },
+}
+
+export const Translations: Story = {
+  args: {
+    type: 'password',
+    providers: availableProviders,
+    translations: {
+      signup: 'Aanmelden',
+      signupSubmit: 'Aanmelden',
+      login: 'Inloggen',
+      loginSubmit: 'Inloggen',
+      forgotPassword: 'Wachtwoord vergeten?',
+      forgotPasswordSubmit: 'Stuur reset link',
+      updatePassword: 'Wachtwoord wijzigen',
+      updatePasswordSubmit: 'Wachtwoord opslaan',
+      backToLogin: 'Terug naar inloggen',
+      noAccount: 'Nog geen account?',
+      haveAccount: 'Reeds aangemeld?',
+      otpSubmit: 'Verifiëren',
+      continueWith: 'Doorgaan met',
+      orContinueWith: 'of doorgaan met',
+      email: 'E-mail',
+      password: 'Wachtwoord',
+    },
   },
 }

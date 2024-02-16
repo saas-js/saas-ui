@@ -1,42 +1,51 @@
-export {
-  ForgotPasswordForm,
-  type ForgotPasswordFormProps,
+export { ForgotPasswordForm } from './forms/forgot-password-form'
+export type {
+  ForgotPasswordFormProps,
+  ForgotPasswordSubmitParams,
 } from './forms/forgot-password-form'
 
-export {
-  UpdatePasswordForm,
-  type UpdatePasswordFormProps,
+export { UpdatePasswordForm } from './forms/update-password-form'
+export type {
+  UpdatePasswordFormProps,
+  UpdatePasswordSubmitParams,
 } from './forms/update-password-form'
 
-export { MagicLinkForm, type MagicLinkFormProps } from './forms/magic-link-form'
+export { MagicLinkForm } from './forms/magic-link-form'
+export type {
+  MagicLinkFormProps,
+  MagicLinkSubmitParams,
+} from './forms/magic-link-form'
 
-export { OtpForm, type OtpFormProps } from './forms/otp-form'
+export { OtpForm } from './forms/otp-form'
+export type { OtpFormProps, OtpSubmitParams } from './forms/otp-form'
 
-export { PasswordForm, type PasswordFormProps } from './forms/password-form'
+export { PasswordForm } from './forms/password-form'
+export type {
+  PasswordFormProps,
+  PasswordSubmitParams,
+} from './forms/password-form'
 
-export {
-  Providers,
-  type ProvidersProps,
-  type Provider,
-  type AvailableProviders,
+export { Providers } from './forms/providers'
+export type {
+  ProvidersProps,
+  Provider,
+  AvailableProviders,
 } from './forms/providers'
 
-export {
-  type AuthViewOptions,
-  type AuthFormOptions,
-  AuthFormContainer,
-  type AuthFormContainerProps,
-  AuthFormDivider,
-  type AuthFormDividerProps,
-  AuthFormTitle,
+export { AuthFormContainer, AuthFormDivider, AuthFormTitle } from './auth-form'
+export type {
+  AuthViewOptions,
+  AuthFormOptions,
+  AuthFormContainerProps,
+  AuthFormDividerProps,
 } from './auth-form'
 
-export { Auth, type AuthProps, VIEWS } from './auth'
+export { Auth, VIEWS } from './auth'
 
-export {
-  ForgotPasswordView,
-  type ForgotPasswordViewProps,
-} from './forgot-password-view'
+export type { AuthProps, IntlTranslations, RedirectViews } from './auth'
+
+export { ForgotPasswordView } from './forgot-password-view'
+export type { ForgotPasswordViewProps } from './forgot-password-view'
 
 export { LoginButton } from './login-button'
 
@@ -46,9 +55,8 @@ export { OtpView } from './otp-view'
 
 export { ProviderButton } from './provider-button'
 
-export { AuthFormSuccess, type AuthFormSuccessProps } from './success'
+export { AuthFormSuccess } from './success'
+export type { AuthFormSuccessProps } from './success'
 
-export {
-  UpdatePasswordView,
-  type UpdatePasswordViewProps,
-} from './update-password-view'
+export { UpdatePasswordView } from './update-password-view'
+export type { UpdatePasswordViewProps } from './update-password-view'

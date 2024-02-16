@@ -1,5 +1,10 @@
 {
   "LoadingOverlay": {
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "isLoading": {
       "type": "boolean",
       "defaultValue": true,
@@ -12,12 +17,22 @@
       "required": false,
       "description": "The transition that should be used for the overlay"
     },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the LoadingOverlay"
+    },
     "spacing": {
       "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "Spacing between children"
     },
-    "variant": { "type": "any", "defaultValue": "fill", "required": false }
+    "variant": {
+      "defaultValue": "fill",
+      "type": "\"fill\" | \"fullscreen\" | \"overlay\"",
+      "required": false,
+      "description": "The variant of the LoadingOverlay"
+    }
   },
   "LoadingText": {},
   "LoadingSpinner": {

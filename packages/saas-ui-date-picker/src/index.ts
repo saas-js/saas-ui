@@ -3,7 +3,11 @@ export {
   DatePickerContainer,
   DatePickerStatic,
 } from './date-picker'
-export type { DatePickerProps, DatePickerContainerProps } from './date-picker'
+export type {
+  DatePickerProps,
+  DatePickerContainerProps,
+  DatePickerStaticProps,
+} from './date-picker'
 
 export {
   DatePickerDialog,

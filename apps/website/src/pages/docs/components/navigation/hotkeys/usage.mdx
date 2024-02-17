@@ -1,11 +1,11 @@
 ---
 id: hotkeys
 title: Hotkeys
-description: Keyboard shortcuts for modern apps
+description: Hotkeys are a series of one or several keys that trigger an action when pressed.
 ---
 
-Keyboard shortcuts are an excellent way to support advanced users
-in your app to be more productive.
+Keyboard shortcuts enable keyboard users to invoke commands using the keyboard that would otherwise require accessing a menu or using touch or a mouse.
+This enables sighted and advanced users to quickly navigate and interact with your app.
 
 As you add more shortcuts to you app you can run into conflicts,
 it can become a big mess if you don't keep track of which hotkeys are used and where.
@@ -35,14 +35,14 @@ import {
   useHotkeysShortcut,
   HotkeysProvider,
   HotkeysList,
+  Hotkey,
+  createHotkeys,
 } from '@saas-ui/react'
 ```
 
 ## Usage
 
 ### Stand alone usage
-
-`useHotkeys` can also be used standalone.
 
 Press `S` to trigger the action.
 
@@ -187,55 +187,64 @@ export default function Dialog() {
 }
 ```
 
-### Hotkeys configuration
+### Typesafe hotkeys configuration
 
 Create a config object containing all the keyboard shortcuts in your app.
 The keys in the config can be used as shortcuts with the included hook throughout your app.
 
-```jsx center=true  inline=true  live=false
-// app.tsx
-import { HotkeysProvider, HotkeysListOptions } from '@saas-ui/react'
+```tsx center=true  inline=true  live=false
+// lib/hotkeys.ts
+import { createHotkeys } from '@saas-ui/react'
 
-const hotkeys: HotkeysListOptions = {
+export const { HotkeysProvider, useHotkeys, Hotkey } = createHotkeys({
   general: {
     title: 'General',
     hotkeys: {
       help: { label: 'Help', command: '?' },
       search: { label: 'Search', command: '⌘ K' },
     },
-  }
-}
+  },
+})
+```
 
-export default const App = () => {
-  return (
-    <HotkeysProvider hotkeys={hotkeys}>
-      {children}
-    </HotkeysProvider>
-  )
+Add the provider to your app.
+
+```tsx
+// app.tsx
+import { HotkeysProvider } from './lib/hotkeys'
+
+export default function App() {
+  return <HotkeysProvider>{children}</HotkeysProvider>
 }
 ```
 
-### Register shortcut actions
+Now you can use the `useHotkeys` hook and `Hotkey` component to trigger keyboard actions.
 
-`useHotkeysShortcut` returns the command value and can be used to show the key combinations to your users.
-
-```jsx center=true  inline=true  live=false
+```tsx
 import { Kbd } from '@chakra-ui/react'
-import { useHotkeysShortcut } from '@saas-ui/react'
+import { SearchInput } from '@saas-ui/react'
+import { useHotkeys, Hotkey } from './lib/hotkeys'
 
 export const MyComponent = () => {
-  const help = useHotkeysShortcut('general.help', () => {
+  const searchRef = React.useRef<HTMLInputElement>(null)
+
+  const help = useHotkeys('general.help', () => {
     onOpen()
   })
 
-  useHotkeysShortcut('general.search', () => {
-    searchRef.current?.focus()
-  })
-
   return (
-    <>
-      Press <Kbd>{help}</Kbd> for help.
-    </>
+    <div>
+      <div>
+        Press <Kbd>{help}</Kbd> for help.
+      </div>
+
+      <Hotkey
+        command="general.search"
+        callback={() => searchRef.current?.focus()}
+      >
+        {({ keys }) => <SearchInput ref={searchRef} placeholder={keys} />}
+      </Hotkey>
+    </div>
   )
 }
 ```
@@ -308,3 +317,11 @@ export default function HotkeysListModal() {
   )
 }
 ```
+
+## Accessibility
+
+The `Hotkey` component will add the `aria-keyshortcuts` attribute to the wrapped element. This attribute is used by screen readers to announce the available keyboard shortcuts. Short hand keys like `⌘` or `?` will be expanded to `Meta` and `Shift+/` respectively.
+
+The hotkeys config can be used to display a list of available shortcuts in your app for discoverability.
+
+More info: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts

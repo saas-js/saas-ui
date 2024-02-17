@@ -60,7 +60,7 @@ const PricingPage = () => {
         src="https://app.lemonsqueezy.com/js/lemon.js"
         onLoad={() => {
           /* @ts-ignore */
-          window.createLemonSqueezy?.()
+          // window.createLemonSqueezy?.()
         }}
       />
       <BackgroundGradientRadial
@@ -80,25 +80,25 @@ const PricingPage = () => {
   )
 }
 
-const getPaymentLinks = (append?: boolean) => {
+const getPaymentLinks = (
+  append?: boolean
+): {
+  figma: string
+  bootstrap: string
+  startup: string
+  className?: string
+} => {
   const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
   let affix = ''
   if (append && aff) {
     affix = `?aff=${aff}`
   }
-  return process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
-    ? {
-        bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
-        startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
-        className: 'lemonsqueezy-button',
-      }
-    : {
-        bootstrap:
-          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
-        startup:
-          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
-        className: 'gumroad-button',
-      }
+  return {
+    figma: `https://saas-ui.lemonsqueezy.com/checkout/buy/f01bee85-aa4f-4de9-8e20-f53b0206b26f${affix}`,
+    bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
+    startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
+    // className: 'lemonsqueezy-button',
+  }
 }
 
 const Install = () => {
@@ -146,7 +146,7 @@ const Pricing = () => {
           description={
             <>
               <Text fontSize="xl" mb="12" color="muted">
-                Get started for free with 40+ open source components. Upgrade to
+                Get started for free with 50+ open source components. Upgrade to
                 Pro <Br display={{ sm: 'none', lg: 'inline' }} />
                 to get all components and features with a license for you or
                 your team.
@@ -154,7 +154,7 @@ const Pricing = () => {
               <Install />
             </>
           }
-          pt={{ base: '8', lg: '20' }}
+          pt={{ base: '8', lg: '10' }}
           pb="12"
         />
 
@@ -166,7 +166,7 @@ const Pricing = () => {
               <HStack as="span">
                 <Text as="span">Design</Text>{' '}
                 <Tag colorScheme="primary" size="sm">
-                  Soon
+                  New
                 </Tag>
               </HStack>
             }
@@ -193,16 +193,27 @@ const Pricing = () => {
                 title="Unlimited projects"
                 help="You can design unlimited projects."
               />
-              <PricingFeature title="40+ components" />
+              <PricingFeature title="50+ components" />
+              <PricingFeature title="3000+ variants" />
               <PricingFeature title="Auto-layout" />
               <PricingFeature title="Theming with Figma variables" />
-              <PricingFeature title="Dark mode" />
-              <PricingFeature title="Token Studio integration" />
+              <PricingFeature title="Dark mode (soon)" color="muted" />
               <PricingFeature title="1 year of updates" />
             </PricingFeatures>
-            <Button variant="outline" mt="10" onClick={() => figma.onOpen()}>
-              Get notified
-            </Button>
+            <ButtonLink
+              as="a"
+              colorScheme="primary"
+              href={paymentLinks.figma}
+              className={paymentLinks.className}
+              onClick={(e) => {
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Figma')
+                })
+              }}
+            >
+              Early access
+            </ButtonLink>
           </PricingBox>
           <PricingBox
             title="Bootstrap"
@@ -286,7 +297,7 @@ const Pricing = () => {
                   <HStack as="span">
                     <Text as="span">Figma design system</Text>{' '}
                     <Tag colorScheme="primary" size="sm">
-                      Soon
+                      New
                     </Tag>
                   </HStack>
                 }
@@ -344,12 +355,17 @@ const PricingFeatures = ({ children }) => {
   )
 }
 
-const PricingFeature = ({ title, iconColor = 'primary.500', help = '' }) => {
+const PricingFeature = ({
+  title,
+  iconColor = 'primary.500',
+  help = '',
+  color = 'inherit',
+}) => {
   return (
     <HStack>
       <CheckIcon color={iconColor} />{' '}
       <Tooltip label={help}>
-        <Text flex="1" fontSize="sm" cursor="default">
+        <Text flex="1" fontSize="sm" cursor="default" color={color}>
           <Text
             as="span"
             borderStyle="dotted"
@@ -438,7 +454,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€4950,-</Text>
+            <Text>€2499,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>
@@ -448,7 +464,7 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
-          title={<strong>1 spot available</strong>}
+          title={<strong>2 spots available</strong>}
           iconColor="green.400"
         />
         <PricingFeature title="Startup license included" iconColor="cyan.500" />

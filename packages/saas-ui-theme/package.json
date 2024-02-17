@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/theme",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Saas UI theme package",
   "source": "src/index.ts",
   "exports": {

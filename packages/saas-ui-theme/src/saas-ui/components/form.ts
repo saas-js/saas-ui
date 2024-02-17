@@ -1,7 +1,5 @@
 import { inputAnatomy } from '@chakra-ui/anatomy'
 
-import { Input as ChakraInput } from '@chakra-ui/theme/components'
-
 import {
   createMultiStyleConfigHelpers,
   cssVar,
@@ -32,6 +30,16 @@ const inputSizes = {
     group: {
       [$padding.variable]: 'space.3',
       [$height.variable]: 'sizes.9',
+    },
+  }),
+  lg: definePartsStyle({
+    field: {
+      [$padding.variable]: 'space.3',
+      [$height.variable]: 'sizes.10',
+    },
+    group: {
+      [$padding.variable]: 'space.3',
+      [$height.variable]: 'sizes.10',
     },
   }),
 }

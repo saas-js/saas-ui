@@ -7,9 +7,24 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sat, 23 Dec 2023 12:55:50 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 12 Jan 2024 13:31:10 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/01-12-2024</guid>
+    <title>Jan 12, 2024</title>
+    <link>https://saas-ui.dev/changelog/01-12-2024</link>
+    <description>
+## 01-12-2024
+
+**Forms** `v2.3.8`
+
+- Fixed issue where Select button and input would have the same ...</description>
+    <pubDate>Fri, 12 Jan 2024 13:31:10 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/12-23-2023</guid>
     <title>Dec 23, 2023</title>

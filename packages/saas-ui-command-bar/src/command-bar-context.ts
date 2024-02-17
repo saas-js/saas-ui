@@ -1,6 +1,7 @@
 import {
   ModalProps,
   SystemStyleObjectRecord,
+  ThemingProps,
   useDisclosure,
 } from '@chakra-ui/react'
 import { createContext } from '@chakra-ui/react-utils'
@@ -16,7 +17,7 @@ export interface CommandBarOptions {
   isOpen?: boolean
   onClose?(): void
   closeOnSelect?: boolean
-  size?: ModalProps['size']
+  size?: ThemingProps<'SuiCommandBar'>['size']
 }
 
 export const [CommandBarStylesProvider, useCommandBarStyles] =

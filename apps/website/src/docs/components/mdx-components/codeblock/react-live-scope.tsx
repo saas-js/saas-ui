@@ -10,6 +10,7 @@ import * as SaasUIPro from '@saas-ui-pro/react'
 import * as SaasUIFeatures from '@saas-ui-pro/feature-flags'
 import * as CommandBar from '@saas-ui/command-bar'
 import * as FileUpload from '@saas-ui/file-upload'
+import * as Charts from '@saas-ui/charts'
 import * as z from 'zod'
 import * as yup from 'yup'
 import * as YupForm from '@saas-ui/forms/yup'
@@ -37,6 +38,8 @@ import {
   FiTruck,
   FiLock,
   FiCheck,
+  FiArrowUp,
+  FiArrowDown,
   FiArrowRight,
   FiAlertTriangle,
   FiHelpCircle,
@@ -60,6 +63,8 @@ import {
   FiEyeOff,
   FiTrash,
   FiInfo,
+  FiHeart,
+  FiCalendar,
 } from 'react-icons/fi'
 
 import { FaFacebook, FaGithub, FaSlack, FaCookie } from 'react-icons/fa'
@@ -81,6 +86,8 @@ const reactIcons = {
   FiTruck,
   FiLock,
   FiCheck,
+  FiArrowUp,
+  FiArrowDown,
   FiArrowRight,
   FiAlertTriangle,
   FiHelpCircle,
@@ -109,12 +116,15 @@ const reactIcons = {
   FiEyeOff,
   FiTrash,
   FiInfo,
+  FiHeart,
+  FiCalendar,
 }
 
 import { KanbanItems } from '@saas-ui-pro/kanban'
 import * as SaasUIKanban from '@saas-ui-pro/kanban'
 
 import { now, getLocalTimeZone, today } from '@internationalized/date'
+import { startOfDay, subDays, formatDistanceToNowStrict } from 'date-fns'
 
 const StarIcon = (props) => (
   <chakra.svg m="2px" fill="current" boxSize="3" viewBox="0 0 24 24" {...props}>
@@ -193,7 +203,13 @@ const ReactLiveScope = {
     '@saas-ui-pro/kanban': SaasUIKanban,
     '@saas-ui/date-picker': DatePicker,
     '@saas-ui/assets': Assets,
+    '@saas-ui/charts': Charts,
     '@chakra-ui/icons': Icons,
+    'date-fns': {
+      startOfDay,
+      subDays,
+      formatDistanceToNowStrict,
+    },
     'react-icons/fi': reactIcons,
     '@hookform/resolvers/yup': { yupResolver },
     '@hookform/resolvers/zod': { zodResolver },

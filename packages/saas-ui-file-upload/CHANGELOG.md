@@ -1,5 +1,23 @@
 # @saas-ui/file-upload
 
+## 0.2.3
+
+### Patch Changes
+
+- ae2e7875: Added missing theming props
+
+## 0.2.2
+
+### Patch Changes
+
+- 0ee3634b: Retrieve environment from Chakra UI context to support shadowdom/frame for file uploads
+
+## 0.2.1
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+
 ## 0.2.0
 
 ### Minor Changes

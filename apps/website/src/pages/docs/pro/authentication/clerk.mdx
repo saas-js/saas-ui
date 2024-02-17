@@ -8,10 +8,10 @@ This guide will show you how to configure Clerk in your app and connect them to 
 
 ## Install
 
-1. Install the Clerk React client and the Saas UI Clerk integration in the @app/features package.
+1. Install the Clerk React client and the Saas UI Clerk integration in `apps/web`.
 
 ```bash
-cd packages/app-features && yarn add @clerk/clerk-react @saas-ui/clerk
+cd apps/web && yarn add @clerk/clerk-react @saas-ui/clerk
 ```
 
 `clerk-react` is a dependency of `@saas-ui/clerk` and is required to be installed in the same package.
@@ -33,7 +33,7 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/app
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/app
 ```
 
-3. Edit `packages/app-features/core/providers/auth.tsx` and add the Clerk provider.
+3. Edit `apps/web/src/features/common/providers/auth.tsx` and add the Clerk provider.
 
 ```ts
 import { AuthProvider as BaseAuthProvider } from '@saas-ui/auth'

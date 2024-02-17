@@ -1,8 +1,8 @@
-export { type UsePromise, usePromise } from './use-promise'
-export {
-  type UseLocalStorageOptions,
-  useLocalStorage,
-} from './use-local-storage'
+export { usePromise } from './use-promise'
+export type { UsePromise } from './use-promise'
+export { useLocalStorage } from './use-local-storage'
+export type { UseLocalStorageOptions } from './use-local-storage'
 export { useSteps } from './use-steps'
-export { type ScriptElt, type Status, useScript } from './use-script'
+export { useScript } from './use-script'
+export type { ScriptElt, Status } from './use-script'
 export { useScrollPosition } from './use-scroll-position'

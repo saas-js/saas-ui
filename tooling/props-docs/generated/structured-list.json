@@ -1,0 +1,65 @@
+{
+  "StructuredList": {
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
+    "items": {
+      "type": "StructuredListItemProps[]",
+      "required": false,
+      "description": "An array of list items"
+    },
+    "size": {
+      "defaultValue": "md",
+      "type": "\"sm\" | \"md\"",
+      "required": false,
+      "description": "The size of the StructuredList"
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the StructuredList"
+    }
+  },
+  "StructuredListHeader": {
+    "action": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Action rendered next to the title"
+    },
+    "level": {
+      "type": "number",
+      "required": false,
+      "description": "The aria-level"
+    }
+  },
+  "StructuredListItem": {
+    "href": { "type": "string | object", "required": false },
+    "onClick": {
+      "type": "(e: MouseEvent<Element, MouseEvent>) => void",
+      "required": false
+    }
+  },
+  "StructuredListButton": {
+    "as": { "type": "As", "required": false },
+    "onClick": {
+      "type": "(e: MouseEvent<Element, MouseEvent>) => void",
+      "required": false
+    }
+  },
+  "StructuredListIcon": {
+    "size": {
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-fit-content\" | \"-moz-max-content\" | \"-moz-min-content\" | ... 62 more ... | \"container.2xl\">",
+      "defaultValue": "5",
+      "required": false,
+      "description": "The icon size"
+    },
+    "spacing": {
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"2\" | \"3\" | \"4\" | \"5\" | \"6\" | \"7\" | \"8\" | \"9\" | \"10\" | ... 54 more ... | \"-3.5\">",
+      "required": false,
+      "description": "The icon spacing, ltr supported"
+    }
+  },
+  "StructuredListCell": {}
+}

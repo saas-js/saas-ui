@@ -1,5 +1,80 @@
 # @saas-ui/react
 
+## 2.5.9
+
+### Patch Changes
+
+- Updated dependencies [29e5c317]
+  - @saas-ui/forms@2.3.11
+  - @saas-ui/modals@2.1.20
+  - @saas-ui/data-table@7.0.9
+
+## 2.5.8
+
+### Patch Changes
+
+- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+- Updated dependencies [bc1997b0]
+  - @saas-ui/modals@2.1.19
+  - @saas-ui/data-table@7.0.8
+
+## 2.5.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/hotkeys@2.2.1
+  - @saas-ui/data-table@7.0.7
+
+## 2.5.6
+
+### Patch Changes
+
+- 52e7490c: Fixed issue where theming props would be forwarded to form layout element
+- Updated dependencies [afb87d86]
+- Updated dependencies [836305f8]
+- Updated dependencies [52e7490c]
+  - @saas-ui/core@2.3.5
+  - @saas-ui/hotkeys@2.2.0
+  - @saas-ui/forms@2.3.10
+  - @saas-ui/data-table@7.0.6
+  - @saas-ui/modals@2.1.18
+
+## 2.5.5
+
+### Patch Changes
+
+- d6d7ca3f: Added xl size to IconBadge
+- 4e291385: Updated Input lg variant height
+- aa3c97a0: Fixed issue where FormStepper separator would render incorrectly
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+- Updated dependencies [ac3e7f9f]
+- Updated dependencies [2f170bf7]
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/theme@2.3.2
+  - @saas-ui/data-table@7.0.5
+  - @saas-ui/forms@2.3.9
+  - @saas-ui/core@2.3.4
+  - @saas-ui/modals@2.1.17
+  - @saas-ui/hotkeys@2.1.15
+
+## 2.5.4
+
+### Patch Changes
+
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [829a3364]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/hooks@2.0.3
+  - @saas-ui/data-table@7.0.4
+  - @saas-ui/nprogress@2.0.2
+  - @saas-ui/hotkeys@2.1.14
+  - @saas-ui/modals@2.1.16
+  - @saas-ui/core@2.3.3
+
 ## 2.5.3
 
 ### Patch Changes

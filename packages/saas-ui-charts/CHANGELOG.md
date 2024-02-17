@@ -1,5 +1,16 @@
 # @saas-ui/charts
 
+## 0.11.0
+
+### Minor Changes
+
+- 829a3364: Improved chart component apis
+- 829a3364: Added BartChart and LineChart components
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+
 ## 0.10.0
 
 ### Minor Changes

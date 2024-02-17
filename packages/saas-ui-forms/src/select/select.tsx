@@ -109,7 +109,6 @@ export const SelectButton = forwardRef<SelectButtonProps, 'button'>(
       <Button
         {...buttonProps}
         sx={buttonStyles}
-        id={id || buttonProps.id}
         {...rest}
         onFocus={onFocus}
         onBlur={onBlur}

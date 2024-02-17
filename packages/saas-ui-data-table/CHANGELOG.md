@@ -1,5 +1,53 @@
 # @saas-ui/data-table
 
+## 7.0.9
+
+### Patch Changes
+
+- @saas-ui/react@2.5.9
+
+## 7.0.8
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+  - @saas-ui/react@2.5.8
+
+## 7.0.7
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+
+## 7.0.6
+
+### Patch Changes
+
+- Updated dependencies [afb87d86]
+- Updated dependencies [52e7490c]
+  - @saas-ui/core@2.3.5
+  - @saas-ui/react@2.5.6
+
+## 7.0.5
+
+### Patch Changes
+
+- ac3e7f9f: fix: forward sx prop to data table
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/react@2.5.5
+  - @saas-ui/core@2.3.4
+
+## 7.0.4
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [90ee13c3]
+  - @saas-ui/core@2.3.3
+  - @saas-ui/react@2.5.4
+
 ## 7.0.3
 
 ### Patch Changes

@@ -1,0 +1,215 @@
+{
+  "FileUploadOptions": {
+    "accept": {
+      "type": "string | Record<string, string[]>",
+      "required": false,
+      "description": "The accept file types"
+    },
+    "allowDrop": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to allow drag and drop in the dropzone element"
+    },
+    "dir": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "The document's text/writing direction."
+    },
+    "files": {
+      "type": "File[]",
+      "required": false,
+      "description": "The current value of the file input"
+    },
+    "getRootNode": {
+      "type": "() => Node | ShadowRoot | Document",
+      "required": false,
+      "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron."
+    },
+    "isDisabled": { "type": "boolean", "required": false },
+    "isValidFile": {
+      "type": "(file: File) => boolean",
+      "required": false,
+      "description": "Function to validate a file"
+    },
+    "locale": {
+      "type": "string",
+      "defaultValue": "en-US",
+      "required": false,
+      "description": "The current locale. Based on the BCP 47 definition."
+    },
+    "maxFiles": {
+      "type": "number",
+      "required": false,
+      "description": "The maximum number of files"
+    },
+    "maxFileSize": {
+      "type": "number",
+      "required": false,
+      "description": "The maximum file size in bytes"
+    },
+    "minFileSize": {
+      "type": "number",
+      "required": false,
+      "description": "The minimum file size in bytes"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the underlying file input"
+    },
+    "onFilesChange": {
+      "type": "(details: FileChangeDetails) => void",
+      "required": false,
+      "description": "Function called when the value changes"
+    }
+  },
+  "FileUploadPreview": {
+    "file": { "type": "File", "required": true },
+    "align": {
+      "type": "ResponsiveValue<ObjectPosition<Length>>",
+      "required": false,
+      "description": "How to align the image within its bounds.\nIt maps to css `object-position` property."
+    },
+    "crossOrigin": {
+      "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+      "required": false,
+      "description": "The key used to set the crossOrigin on the HTMLImageElement into which the image will be loaded.\nThis tells the browser to request cross-origin access when trying to download the image data."
+    },
+    "fallback": {
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Fallback element to show if image is loading or image fails."
+    },
+    "fallbackSrc": {
+      "type": "string",
+      "required": false,
+      "description": "Fallback image `src` to show if image is loading or image fails.\n\nNote 🚨: We recommend you use a local image"
+    },
+    "fallbackStrategy": {
+      "type": "FallbackStrategy",
+      "defaultValue": "beforeLoadOrError",
+      "required": false,
+      "description": "- beforeLoadOrError(default): loads the fallbackImage while loading the src\n- onError: loads the fallbackImage only if there is an error fetching the src"
+    },
+    "fetchPriority": {
+      "type": "\"high\" | \"low\" | \"auto\"",
+      "required": false
+    },
+    "fit": {
+      "type": "ResponsiveValue<ObjectFit>",
+      "required": false,
+      "description": "How the image to fit within its bounds.\nIt maps to css `object-fit` property."
+    },
+    "htmlHeight": {
+      "type": "string | number",
+      "required": false,
+      "description": "The native HTML `height` attribute to the passed to the `img`"
+    },
+    "htmlWidth": {
+      "type": "string | number",
+      "required": false,
+      "description": "The native HTML `width` attribute to the passed to the `img`"
+    },
+    "ignoreFallback": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, opt out of the `fallbackSrc` logic and use as `img`"
+    },
+    "loading": { "type": "\"eager\" | \"lazy\"", "required": false },
+    "onError": {
+      "type": "ReactEventHandler<HTMLImageElement>",
+      "required": false,
+      "description": "A callback for when there was an error loading the image `src`"
+    },
+    "onLoad": {
+      "type": "ReactEventHandler<HTMLImageElement>",
+      "required": false,
+      "description": "A callback for when the image `src` has been loaded"
+    },
+    "sizes": {
+      "type": "string",
+      "required": false,
+      "description": "The image `sizes` attribute"
+    },
+    "srcSet": {
+      "type": "string",
+      "required": false,
+      "description": "The image `srcset` attribute"
+    }
+  },
+  "FileUpload": {
+    "accept": {
+      "type": "string | Record<string, string[]>",
+      "required": false,
+      "description": "The accept file types"
+    },
+    "allowDrop": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to allow drag and drop in the dropzone element"
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((props: FileUploadRenderContext) => ReactNode)",
+      "required": false
+    },
+    "dir": {
+      "type": "\"ltr\" | \"rtl\"",
+      "defaultValue": "ltr",
+      "required": false,
+      "description": "The document's text/writing direction."
+    },
+    "files": {
+      "type": "File[]",
+      "required": false,
+      "description": "The current value of the file input"
+    },
+    "getRootNode": {
+      "type": "() => Node | ShadowRoot | Document",
+      "required": false,
+      "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron."
+    },
+    "inputRef": {
+      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: HTMLInputElement | null) => void)\n  | RefObject<HTMLInputElement>",
+      "required": false
+    },
+    "isDisabled": { "type": "boolean", "required": false },
+    "isValidFile": {
+      "type": "(file: File) => boolean",
+      "required": false,
+      "description": "Function to validate a file"
+    },
+    "locale": {
+      "type": "string",
+      "defaultValue": "en-US",
+      "required": false,
+      "description": "The current locale. Based on the BCP 47 definition."
+    },
+    "maxFiles": {
+      "type": "number",
+      "required": false,
+      "description": "The maximum number of files"
+    },
+    "maxFileSize": {
+      "type": "number",
+      "required": false,
+      "description": "The maximum file size in bytes"
+    },
+    "minFileSize": {
+      "type": "number",
+      "required": false,
+      "description": "The minimum file size in bytes"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "The name of the underlying file input"
+    },
+    "onFilesChange": {
+      "type": "(details: FileChangeDetails) => void",
+      "required": false,
+      "description": "Function called when the value changes"
+    }
+  }
+}

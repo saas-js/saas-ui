@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { Form, FormLayout, SubmitButton } from '../src'
 
-import { Form as YupForm } from '@saas-ui/forms/yup'
+import { Form as YupForm } from '../yup/src'
 
 import { onSubmit } from './helpers'
 
@@ -140,13 +140,7 @@ const nestedSchema = Yup.object().shape({
 export const NestedObjectField = () => {
   return (
     <>
-      <YupForm
-        schema={nestedSchema}
-        defaultValues={{
-          post: {},
-        }}
-        onSubmit={onSubmit}
-      >
+      <YupForm schema={nestedSchema} onSubmit={onSubmit}>
         {({ Field, ObjectField }) => (
           <FormLayout>
             <ObjectField name="post" label="Post">

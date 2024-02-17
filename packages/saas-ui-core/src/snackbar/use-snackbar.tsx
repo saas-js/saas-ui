@@ -15,6 +15,8 @@ import {
   ButtonGroup,
   Spinner,
   useMultiStyleConfig,
+  AlertProps,
+  ToastPosition,
 } from '@chakra-ui/react'
 import { runIfFn } from '@chakra-ui/utils'
 
@@ -32,7 +34,19 @@ const AlertSpinner: React.FC<AlertIconProps> = (props) => {
   )
 }
 
-export const Snackbar: React.FC<any> = (props) => {
+export interface SnackbarProps
+  extends Omit<AlertProps, 'id' | 'title' | 'position'> {
+  id?: ToastId
+  title?: React.ReactNode
+  icon?: React.ReactNode
+  action?: React.ReactNode
+  description?: React.ReactNode
+  position?: ToastPosition
+  isClosable?: boolean
+  onClose?: () => void
+}
+
+export const Snackbar: React.FC<SnackbarProps> = (props) => {
   const {
     status,
     variant,
@@ -59,7 +73,7 @@ export const Snackbar: React.FC<any> = (props) => {
     <Alert
       status={status}
       variant={variant || defaultVariant}
-      id={id}
+      id={id !== 'undefined' ? `toast-${id}` : undefined}
       alignItems="start"
       borderRadius="md"
       boxShadow="lg"

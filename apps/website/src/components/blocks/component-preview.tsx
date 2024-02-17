@@ -15,8 +15,8 @@ export function ComponentPreview({ children, canvas }: ComponentPreviewProps) {
         maxWidth: canvas?.maxWidth
           ? canvas.maxWidth
           : canvas?.center
-          ? 'container.lg'
-          : '100%',
+            ? 'container.lg'
+            : '100%',
         marginLeft: canvas?.center ? 'auto' : 'unset',
         marginRight: canvas?.center ? 'auto' : 'unset',
         height: canvas?.height ?? 'auto',

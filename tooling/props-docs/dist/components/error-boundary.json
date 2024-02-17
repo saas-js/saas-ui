@@ -1,0 +1,16 @@
+{
+  "ErrorBoundary": {
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "fallback": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "onError": {
+      "type": "(error: Error, errorInfo: ErrorInfo) => void",
+      "required": false
+    }
+  }
+}

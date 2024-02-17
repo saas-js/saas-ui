@@ -12,18 +12,12 @@ export interface PasswordSubmitParams {
 }
 
 export interface PasswordFormProps<
-  Params extends FieldValues = PasswordSubmitParams
+  Params extends FieldValues = PasswordSubmitParams,
 > extends Omit<FormProps<any, Params>, 'children'> {
-  submitLabel?: string
-  emailLabel?: string
-  passwordLabel?: string
   children?: React.ReactNode
 }
 
 export const PasswordForm: React.FC<PasswordFormProps> = ({
-  submitLabel = 'Log in',
-  emailLabel = 'Email',
-  passwordLabel = 'Password',
   defaultValues,
   children,
   ...formProps
@@ -33,14 +27,14 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
       <FormLayout>
         <Field
           name="email"
-          label={emailLabel}
+          label="Email"
           type="email"
           rules={{ required: true }}
           autoComplete="email"
         />
         <Field
           name="password"
-          label={passwordLabel}
+          label="Password"
           type="password"
           rules={{ required: true }}
           autoComplete="current-password"
@@ -49,7 +43,7 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({
         {children}
 
         <LoginButton type="submit" width="full">
-          {submitLabel}
+          Log in
         </LoginButton>
       </FormLayout>
     </Form>

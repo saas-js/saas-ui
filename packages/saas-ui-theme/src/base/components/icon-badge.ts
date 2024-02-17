@@ -40,6 +40,12 @@ export const iconBadgeTheme = defineStyleConfig({
       w: 10,
       h: 10,
     },
+    xl: {
+      borderRadius: 'md',
+      fontSize: '1.5em',
+      w: 12,
+      h: 12,
+    },
   },
   defaultProps: {
     variant: 'outline',

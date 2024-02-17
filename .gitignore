@@ -24,6 +24,9 @@ __snapshots__
 **/dist
 **/build/**
 
+# we include these files so they don't have to be re-build when deploying to Vercel
+!tooling/props-docs/dist
+
 # misc
 .DS_Store
 *.pem

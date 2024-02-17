@@ -1,5 +1,44 @@
 # @saas-ui/modals
 
+## 2.1.20
+
+### Patch Changes
+
+- Updated dependencies [29e5c317]
+  - @saas-ui/forms@2.3.11
+
+## 2.1.19
+
+### Patch Changes
+
+- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+
+## 2.1.18
+
+### Patch Changes
+
+- Updated dependencies [52e7490c]
+  - @saas-ui/forms@2.3.10
+
+## 2.1.17
+
+### Patch Changes
+
+- Updated dependencies [2f170bf7]
+  - @saas-ui/forms@2.3.9
+
+## 2.1.16
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [829a3364]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/hooks@2.0.3
+
 ## 2.1.15
 
 ### Patch Changes

@@ -1,5 +1,53 @@
 # palette
 
+## 1.4.21
+
+### Patch Changes
+
+- @saas-ui/react@2.5.9
+- @saas-ui/theme-glass@0.5.3
+
+## 1.4.20
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+  - @saas-ui/react@2.5.8
+  - @saas-ui/theme-glass@0.5.3
+
+## 1.4.19
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+- @saas-ui/theme-glass@0.5.3
+
+## 1.4.18
+
+### Patch Changes
+
+- Updated dependencies [b500c42f]
+- Updated dependencies [52e7490c]
+  - @saas-ui/theme-glass@0.5.3
+  - @saas-ui/react@2.5.6
+
+## 1.4.17
+
+### Patch Changes
+
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/react@2.5.5
+  - @saas-ui/theme-glass@0.5.2
+
+## 1.4.16
+
+### Patch Changes
+
+- @saas-ui/react@2.5.4
+- @saas-ui/theme-glass@0.5.2
+
 ## 1.4.15
 
 ### Patch Changes

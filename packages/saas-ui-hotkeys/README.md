@@ -1,6 +1,6 @@
 # @saas-ui/hotkeys
 
-Easy manageable keyboard shortcuts for Chakra UI
+Typesafe and accessible keyboard shortcuts for Chakra UI
 
 ## How it works
 
@@ -30,9 +30,9 @@ $ npm i @saas-ui/hotkeys --save
 
 ```tsx
 // app.tsx
-import { HotkeysProvider, HotkeysListOptions } from '@saas-ui/hotkeys'
+import { HotkeysProvider, HotkeysConfig } from '@saas-ui/hotkeys'
 
-const hotkeys: HotkeysListOptions = {
+const hotkeys: HotkeysConfig = {
   general: {
     title: 'General',
     hotkeys: {

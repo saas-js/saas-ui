@@ -1,5 +1,60 @@
 # @saas-ui/auth
 
+## 3.0.0
+
+### Major Changes
+
+- 46299d93: New translations api that allows to translate all labels and messages
+- 46299d93: Removed deprecated props
+
+### Minor Changes
+
+- 46299d93: onSuccess handler now receives the active view and can be used to redirect after succesful log in
+
+### Patch Changes
+
+- Updated dependencies [29e5c317]
+  - @saas-ui/forms@2.3.11
+
+## 2.4.7
+
+### Patch Changes
+
+- e5fdee84: Fixed issue where success message would not render on forgot password view
+- e5fdee84: Allow view prop to controlled with new onViewChange handler
+
+## 2.4.6
+
+### Patch Changes
+
+- afb87d86: Fixed issue where load user would be called multiple times on initial load
+- Updated dependencies [afb87d86]
+- Updated dependencies [52e7490c]
+  - @saas-ui/core@2.3.5
+  - @saas-ui/forms@2.3.10
+
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies [2f170bf7]
+- Updated dependencies [aa3c97a0]
+  - @saas-ui/forms@2.3.9
+  - @saas-ui/core@2.3.4
+
+## 2.4.4
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+- Updated dependencies [bc176848]
+- Updated dependencies [bc176848]
+- Updated dependencies [829a3364]
+- Updated dependencies [90ee13c3]
+  - @saas-ui/forms@2.3.8
+  - @saas-ui/hooks@2.0.3
+  - @saas-ui/core@2.3.3
+
 ## 2.4.3
 
 ### Patch Changes

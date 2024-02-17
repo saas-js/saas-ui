@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -16,6 +19,8 @@ jobs:
 
       - name: Install dependencies
         run: yarn
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
       - name: Build packages
         run: yarn build:packages

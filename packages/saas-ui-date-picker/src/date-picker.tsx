@@ -23,6 +23,7 @@ import { DateValue, FormattedValue } from './types'
 import { datePickerStyleConfig } from './date-picker-styles'
 import { Calendar, getLocalTimeZone } from '@internationalized/date'
 import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
+import { flushSync } from 'react-dom'
 
 export interface DatePickerContainerProps
   extends ThemingProps<'SuiDatePicker'>,
@@ -79,10 +80,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     minValue,
     maxValue,
     defaultValue,
-    onChange: (value) => {
-      console.log('change', value)
-      onChange?.(value)
-    },
+    onChange,
     shouldCloseOnSelect: closeOnSelect,
     ...rest,
   })
@@ -145,9 +143,9 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
 
 export interface DatePickerProps<
   TDateValue = DateValue,
-  TFormattedValue = FormattedValue
+  TFormattedValue = FormattedValue,
 > extends Omit<DatePickerContainerProps, 'children'>,
-    Omit<PopoverProps, 'variant' | 'size'> {}
+    Omit<PopoverProps, 'variant' | 'size' | 'initialFocusRef'> {}
 
 /**
  * DatePicker
@@ -173,7 +171,6 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
     eventListeners,
     flip,
     gutter,
-    initialFocusRef,
     isLazy,
     lazyBehavior,
     modifiers,
@@ -202,7 +199,6 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
     eventListeners,
     flip,
     gutter,
-    initialFocusRef,
     isLazy,
     lazyBehavior,
     modifiers,
@@ -222,8 +218,8 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
           <Popover
             {...popoverProps}
             isOpen={state.isOpen}
-            onOpen={() => state.setOpen(true)}
-            onClose={() => state.setOpen(false)}
+            onOpen={() => flushSync(() => state.setOpen(true))}
+            onClose={() => flushSync(() => state.setOpen(false))}
           >
             {children}
           </Popover>

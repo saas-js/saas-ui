@@ -1,0 +1,88 @@
+{
+  "StepperContent": {
+    "isOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show or hide the content, only when orientation is vertical."
+    },
+    "orientation": {
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false,
+      "description": "The orientation of the stepper."
+    }
+  },
+  "StepsItem": {
+    "description": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The step description"
+    },
+    "icon": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Show an icon instead of the step number"
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show the step as active"
+    },
+    "isCompleted": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show the step as completed"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "The step name"
+    },
+    "render": {
+      "type": "(\n  props?: any,\n) => ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Custom render function"
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The step title"
+    }
+  },
+  "Steps": {
+    "index": {
+      "type": "number",
+      "required": false,
+      "description": "The current step index."
+    },
+    "onChange": {
+      "type": "(index: number) => void",
+      "required": false,
+      "description": "Callback invoked when the step changes."
+    },
+    "orientation": {
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false,
+      "description": "The orientation of the stepper."
+    },
+    "step": {
+      "type": "string | number",
+      "required": false,
+      "description": "The current step index or name."
+    },
+    "stepperProps": {
+      "type": "StepperProps",
+      "required": false,
+      "description": "Props to pass to the stepper component."
+    }
+  },
+  "UseStep": {
+    "isActive": { "type": "boolean", "required": false },
+    "isCompleted": { "type": "boolean", "required": false },
+    "name": { "type": "string", "required": false }
+  },
+  "UseStepper": {
+    "isCompleted": { "type": "boolean", "required": false },
+    "onChange": { "type": "(index: number) => void", "required": false },
+    "step": { "type": "string | number", "required": false }
+  }
+}

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { chakra, Link } from '@chakra-ui/react'
+import { chakra, Link, useControllableState } from '@chakra-ui/react'
 
 import { AuthFormOptions } from './auth-form'
 import { LoginView, SignupView } from './login-view'
@@ -9,6 +9,7 @@ import { UpdatePasswordView } from './update-password-view'
 import { OtpView } from './otp-view'
 import { AvailableProviders } from './forms/providers'
 import { FormProps } from '@saas-ui/forms'
+import { AuthFormSuccess } from './success'
 
 export const VIEWS = {
   LOGIN: 'login',
@@ -21,8 +22,13 @@ export const VIEWS = {
 type ValueOf<T> = T[keyof T]
 type ViewType = ValueOf<typeof VIEWS>
 
+export type RedirectViews =
+  | typeof VIEWS.LOGIN
+  | typeof VIEWS.SIGNUP
+  | typeof VIEWS.FORGOT_PASSWORD
+
 export interface AuthProps
-  extends AuthFormOptions,
+  extends Omit<AuthFormOptions, 'redirectUrl'>,
     Omit<
       FormProps<any, any>,
       'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
@@ -37,6 +43,10 @@ export interface AuthProps
    * - otp
    */
   view?: ViewType
+  /**
+   * Called when the view changes.
+   */
+  onViewChange?(view: ViewType): void
   /**
    * The OAuth providers that are supported.
    */
@@ -62,44 +72,95 @@ export interface AuthProps
    */
   backLink?: React.ReactNode
   /**
-   * Text shown before the signupLink
-   * @default "No account?"
+   * Internationalization options for the auth form.
    */
-  noAccount?: React.ReactNode
-  /**
-   * Text shown before the loginLink
-   * @default "Already have an account?"
-   */
-  haveAccount?: React.ReactNode
+  translations?: Partial<typeof defaultTranslations>
   /**
    * Called when a login or signup request fails.
    * @param view The current active view
    * @param error
    */
   onError?: (view: ViewType, error: Error) => void
+  /**
+   * Called when a login or signup request succeeds.
+   * @param view The current active view
+   * @param data
+   */
+  onSuccess?: (view: ViewType, data: any) => void
+  /**
+   * The redirect URL after succesful login
+   * This will only redirect if implemented in the auth provider.
+   */
+  redirectUrl?: string | ((view: RedirectViews) => string | undefined)
+}
+
+const defaultTranslations = {
+  signup: 'Sign up',
+  signupSubmit: 'Sign up',
+  signupSuccess: 'Success!',
+  signupSuccessDescription: 'Check your mailbox to verify your account.',
+  login: 'Log in',
+  loginSubmit: 'Log in',
+  magicLinkSuccess: 'Check your mailbox',
+  magicLinkSuccessDescription: 'We have sent a magic link to {email}.',
+  yourEmail: 'your email address',
+  forgotPassword: 'Forgot password?',
+  forgotPasswordSubmit: 'Send reset link',
+  updatePassword: 'Update password',
+  updatePasswordSubmit: 'Update password',
+  backToLogin: 'Back to log in',
+  noAccount: 'No account yet?',
+  haveAccount: 'Already have an account?',
+  otp: 'One-time password',
+  otpSubmit: 'Verify',
+  otpHelp:
+    'You can find your one-time password in the Google Authenticator or Authy app.',
+  continueWith: 'Continue with',
+  orContinueWith: 'or continue with',
+  verificationCode: 'Your verification code',
+  email: 'Email',
+  password: 'Password',
+  newPassword: 'New password',
+  confirmPassword: 'Confirm password',
+}
+
+export type IntlTranslations = typeof defaultTranslations
+
+const tpl = (value: string, data: Record<string, any>) => {
+  return value.replace(/{(\w*)}/g, function (m, key) {
+    return Object.prototype.hasOwnProperty.call(data, key) ? data[key] : ''
+  })
 }
 
 export const Auth: React.FC<AuthProps> = (props) => {
   const {
-    view = VIEWS.LOGIN,
+    view,
+    onViewChange,
     providers,
-    signupLink = 'Sign up',
-    loginLink = 'Log in',
-    forgotLink = 'Forgot password?',
-    backLink = 'Back to log in',
-    noAccount = 'No account yet?',
-    haveAccount = 'Already have an account?',
+    title,
+    translations: translationsProp,
+    signupLink,
+    loginLink,
+    forgotLink,
+    backLink,
     onError,
+    onSuccess,
+    redirectUrl,
+    fields,
     ...rest
   } = props
 
+  const translations = { ...defaultTranslations, ...translationsProp }
+
   const { type } = rest
 
-  const [authView, setAuthView] = React.useState(view)
-
-  React.useEffect(() => {
-    setAuthView(view)
-  }, [view])
+  const [authView, setAuthView] = useControllableState<ViewType>({
+    defaultValue: VIEWS.LOGIN,
+    value: view,
+    onChange: (view) => {
+      onViewChange?.(view)
+    },
+  })
 
   const errorHandler = React.useCallback(
     (view: ViewType) => (error: Error) => {
@@ -110,30 +171,81 @@ export const Auth: React.FC<AuthProps> = (props) => {
     [authView]
   )
 
+  const successHandler = React.useCallback(
+    (view: ViewType) => (data: any) => {
+      if (authView === view && onSuccess) {
+        onSuccess(view, data)
+      }
+    },
+    [authView]
+  )
+
+  const getRedirectUrl = React.useCallback(
+    (view: RedirectViews) => {
+      if (typeof redirectUrl === 'function') {
+        return redirectUrl(view)
+      }
+      return redirectUrl
+    },
+    [redirectUrl]
+  )
+
   switch (authView) {
     case VIEWS.LOGIN:
       return (
         <LoginView
           providers={providers}
           onError={errorHandler(VIEWS.LOGIN)}
+          onSuccess={successHandler(VIEWS.LOGIN)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.SIGNUP)}
-              label={noAccount}
-              link={signupLink}
+              label={translations.noAccount}
+              link={signupLink ?? translations.signup}
             />
+          }
+          redirectUrl={getRedirectUrl(VIEWS.LOGIN)}
+          title={title ?? translations.login}
+          providerLabel={translations.continueWith}
+          dividerLabel={translations.orContinueWith}
+          fields={{
+            ...fields,
+            email: {
+              label: translations.email,
+              ...fields?.email,
+            },
+            password: {
+              label: translations.password,
+              ...fields?.password,
+            },
+            submit: {
+              children: translations.loginSubmit,
+              ...fields?.submit,
+            },
+          }}
+          renderSuccess={
+            type === 'magiclink'
+              ? (data) => (
+                  <AuthFormSuccess
+                    title={translations.magicLinkSuccess}
+                    description={tpl(translations.magicLinkSuccessDescription, {
+                      email: data?.email || translations.yourEmail,
+                    })}
+                  />
+                )
+              : undefined
           }
           {...rest}
         >
           {type === 'password' &&
-            (typeof forgotLink === 'string' ? (
+            (!forgotLink || typeof forgotLink === 'string' ? (
               <Link
                 fontSize="md"
                 color="muted"
                 float="right"
                 onClick={() => setAuthView(VIEWS.FORGOT_PASSWORD)}
               >
-                {forgotLink}
+                {forgotLink ?? translations.forgotPassword}
               </Link>
             ) : (
               forgotLink
@@ -145,13 +257,39 @@ export const Auth: React.FC<AuthProps> = (props) => {
         <SignupView
           providers={providers}
           onError={errorHandler(VIEWS.SIGNUP)}
+          onSuccess={successHandler(VIEWS.SIGNUP)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
-              label={haveAccount}
-              link={loginLink}
+              label={translations.haveAccount}
+              link={loginLink ?? translations.login}
             />
           }
+          redirectUrl={getRedirectUrl(VIEWS.SIGNUP)}
+          title={title ?? translations.signup}
+          providerLabel={translations.continueWith}
+          dividerLabel={translations.orContinueWith}
+          fields={{
+            ...fields,
+            email: {
+              label: translations.email,
+              ...fields?.label,
+            },
+            password: {
+              label: translations.password,
+              ...fields?.password,
+            },
+            submit: {
+              children: translations.signupSubmit,
+              ...fields?.submit,
+            },
+          }}
+          renderSuccess={() => (
+            <AuthFormSuccess
+              title="Success!"
+              description="Check your mailbox to verify your account."
+            />
+          )}
           {...rest}
         />
       )
@@ -159,12 +297,26 @@ export const Auth: React.FC<AuthProps> = (props) => {
       return (
         <ForgotPasswordView
           onError={errorHandler(VIEWS.FORGOT_PASSWORD)}
+          onSuccess={successHandler(VIEWS.FORGOT_PASSWORD)}
           footer={
             <AuthLink
               onClick={() => setAuthView(VIEWS.LOGIN)}
-              link={backLink}
+              link={backLink ?? translations.backToLogin}
             />
           }
+          redirectUrl={getRedirectUrl(VIEWS.FORGOT_PASSWORD)}
+          title={title ?? translations.forgotPassword}
+          fields={{
+            ...fields,
+            email: {
+              label: translations.email,
+              ...fields?.email,
+            },
+            submit: {
+              children: translations.forgotPasswordSubmit,
+              ...fields?.submit,
+            },
+          }}
           {...rest}
         />
       )
@@ -172,11 +324,47 @@ export const Auth: React.FC<AuthProps> = (props) => {
       return (
         <UpdatePasswordView
           onError={errorHandler(VIEWS.UPDATE_PASSWORD)}
+          onSuccess={successHandler(VIEWS.UPDATE_PASSWORD)}
+          title={title ?? translations.updatePassword}
+          fields={{
+            ...fields,
+            password: {
+              label: translations.newPassword,
+              ...fields?.password,
+            },
+            confirmPassword: {
+              label: translations.confirmPassword,
+              ...fields?.confirmPassword,
+            },
+            submit: {
+              children: translations.updatePasswordSubmit,
+              ...fields?.submit,
+            },
+          }}
           {...rest}
         />
       )
     case VIEWS.OTP:
-      return <OtpView onError={errorHandler(VIEWS.OTP)} {...rest} />
+      return (
+        <OtpView
+          onError={errorHandler(VIEWS.OTP)}
+          onSuccess={successHandler(VIEWS.OTP)}
+          title={title ?? translations.otp}
+          fields={{
+            ...fields,
+            otp: {
+              label: translations.verificationCode,
+              help: translations.otpHelp,
+              ...fields?.otp,
+            },
+            submit: {
+              children: translations.otpSubmit,
+              ...fields?.submit,
+            },
+          }}
+          {...rest}
+        />
+      )
   }
 
   return null

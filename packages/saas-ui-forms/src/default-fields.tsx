@@ -34,8 +34,6 @@ import {
 } from './select'
 
 import { createField } from './create-field'
-import { ObjectField } from './object-field'
-import { ArrayField } from './array-field'
 
 export interface InputFieldProps extends InputProps {
   type?: string
@@ -74,9 +72,13 @@ export const PasswordInputField = createField<PasswordInputProps>(
   forwardRef((props, ref) => <PasswordInput ref={ref} {...props} />)
 )
 
-export const TextareaField = createField<TextareaProps>(Textarea)
+export interface TextareaFieldProps extends TextareaProps {}
 
-export const SwitchField = createField<SwitchProps>(
+export const TextareaField = createField<TextareaFieldProps>(Textarea)
+
+export interface SwitchFieldProps extends SwitchProps {}
+
+export const SwitchField = createField<SwitchFieldProps>(
   forwardRef(({ type, value, ...rest }, ref) => {
     return <Switch isChecked={!!value} {...rest} ref={ref} />
   }),
@@ -105,7 +107,9 @@ export const SelectField = createField<SelectFieldProps>(
   }
 )
 
-export const CheckboxField = createField<CheckboxProps>(
+export type CheckboxFieldProps = CheckboxProps
+
+export const CheckboxField = createField<CheckboxFieldProps>(
   forwardRef(({ label, type, ...props }, ref) => {
     return (
       <Checkbox ref={ref} {...props}>
@@ -118,13 +122,20 @@ export const CheckboxField = createField<CheckboxProps>(
   }
 )
 
-export const RadioField = createField<RadioInputProps>(RadioInput, {
+export type RadioFieldProps = RadioInputProps
+
+export const RadioField = createField<RadioFieldProps>(RadioInput, {
   isControlled: true,
 })
 
-export const NativeSelectField = createField<NativeSelectProps>(NativeSelect, {
-  isControlled: true,
-})
+export type NativeSelectFieldProps = NativeSelectProps
+
+export const NativeSelectField = createField<NativeSelectFieldProps>(
+  NativeSelect,
+  {
+    isControlled: true,
+  }
+)
 
 export interface PinFieldProps extends Omit<UsePinInputProps, 'type'> {
   pinLength?: number

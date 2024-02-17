@@ -16,18 +16,12 @@ export interface OtpSubmitParams {
 }
 
 export interface OtpFormProps<Params extends FieldValues = OtpSubmitParams>
-  extends Omit<FormProps<any, Params>, 'chilren'> {
-  otpLabel?: string
-  helpText?: string
+  extends Omit<FormProps<any, Params>, 'children'> {
   pinLength?: number
-  submitLabel?: string
   children?: React.ReactNode
 }
 
 export const OtpForm: React.FC<OtpFormProps> = ({
-  submitLabel = 'Verify',
-  otpLabel = 'Your verification code',
-  helpText = 'You can find your one-time password in the Google Authenticator or Authy app.',
   pinLength = 4,
   defaultValues,
   children,
@@ -38,8 +32,8 @@ export const OtpForm: React.FC<OtpFormProps> = ({
       <FormLayout>
         <PinField
           name="otp"
-          label={otpLabel}
-          help={helpText}
+          label="Your verification code"
+          help="You can find your one-time password in the Google Authenticator or Authy app."
           type="pin"
           pinLength={pinLength}
           rules={{ required: true }}
@@ -48,7 +42,7 @@ export const OtpForm: React.FC<OtpFormProps> = ({
         {children}
 
         <LoginButton type="submit" width="full">
-          {submitLabel}
+          Verify
         </LoginButton>
       </FormLayout>
     </Form>

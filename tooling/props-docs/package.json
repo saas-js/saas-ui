@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/props-docs",
-  "version": "1.9.0",
+  "version": "2.3.0",
   "description": "Extracts prop types for documentation purposes",
   "keywords": [
     "docs",
@@ -10,11 +10,11 @@
   "author": "Tim Kolberger <tim@kolberger.eu>",
   "homepage": "https://github.com/saas-js/saas-ui#readme",
   "license": "MIT",
-  "main": "lib/saas-ui-props-docs.cjs.js",
-  "module": "lib/saas-ui-props-docs.esm.js",
-  "types": "lib/saas-ui-props-docs.cjs.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -28,28 +28,15 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "ts-node -T src/build.ts"
+    "build": "tsx src/build.mts",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.1",
-    "@chakra-ui/styled-system": "^2.9.1",
-    "glob": "^9.3.5",
-    "mkdirp": "^2.1.6",
-    "react-docgen-typescript": "^2.2.2",
-    "regenerator-runtime": "^0.13.11"
-  },
-  "peerDependencies": {
-    "@chakra-ui/system": ">=2.3.8",
-    "@emotion/react": ">=11",
-    "@emotion/styled": ">=11",
-    "framer-motion": ">=5.5.0",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
-    "typescript": ">=4.5.0"
+    "glob": "^10.3.3",
+    "outdent": "^0.8.0"
   },
   "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/mkdirp": "^2.0.0",
-    "ts-node": "^10.9.1"
+    "@types/glob": "^8.1.0"
   }
 }

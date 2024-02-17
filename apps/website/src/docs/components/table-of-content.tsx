@@ -32,7 +32,7 @@ function TableOfContent(props: TableOfContentProps) {
     <Box
       as="nav"
       aria-labelledby="toc-title"
-      width="16rem"
+      width="12rem"
       flexShrink={0}
       display={{ base: 'none', xl: 'block' }}
       position="sticky"

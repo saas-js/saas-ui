@@ -1,28 +1,43 @@
 export {
   HotkeysProvider,
-  type HotkeysProviderProps,
   useHotkeysContext,
-  type UseHotkeysOptions,
   splitKeys,
   useHotkeys,
   useHotkeysShortcut,
+  Hotkey,
+  createHotkeys,
+} from '@saas-ui/use-hotkeys'
+export type {
+  HotkeysProviderProps,
+  UseHotkeysOptions,
+  HotkeysConfig,
+  HotkeyProps,
+  HotkeysContextValues,
+  HotkeysGroupConfig,
+  HotkeysGroupItems,
+  HotkeysItemConfig,
 } from '@saas-ui/use-hotkeys'
 
 export {
   HotkeysCommand,
   HotkeysGroup,
-  type HotkeysGroupListOptions,
-  type HotkeysGroupOptions,
-  type HotkeysGroupProps,
   HotkeysItem,
-  type HotkeysItemOptions,
-  type HotkeysItemProps,
   HotkeysList,
   HotkeysListItems,
-  type HotkeysListOptions,
-  type HotkeysListProps,
-  type HotkeysOptions,
   HotkeysSearch,
-  type UseHotkeysListReturn,
   useHotkeysSearch,
 } from './hotkeys'
+export type {
+  HotkeysGroupProps,
+  HotkeysItemProps,
+  HotkeysListProps,
+  HotkeysOptions,
+  UseHotkeysListReturn,
+} from './hotkeys'
+
+import { HotkeysConfig } from '@saas-ui/use-hotkeys'
+
+/**
+ * @deprecated Use `HotkeysConfig` instead.
+ */
+export type HotkeysListOptions = HotkeysConfig

@@ -160,16 +160,18 @@ export const FormField = {
         onSubmit={async (data) => {
           const formData = new FormData()
 
-          formData.append('profilePicture', data.file)
-          formData.append(
-            'meta',
-            JSON.stringify({
-              filename: data.file.name,
-              size: data.file.size,
-              type: data.file.type,
-            })
-          )
-          formData.append('name', data.name)
+          if (data.file) {
+            formData.append('profilePicture', data.file)
+            formData.append(
+              'meta',
+              JSON.stringify({
+                filename: data.file.name,
+                size: data.file.size,
+                type: data.file.type,
+              })
+            )
+            formData.append('name', data.name)
+          }
 
           return fetch('/api/user', {
             method: 'POST',

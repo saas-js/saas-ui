@@ -1,0 +1,2108 @@
+{
+  "ConfirmDialog": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true,
+      "description": "If `true`, the modal will be open."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "buttonGroupProps": {
+      "type": "ButtonGroupProps",
+      "required": false,
+      "description": "The button group props"
+    },
+    "cancelLabel": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The cancel button label"
+    },
+    "cancelProps": {
+      "type": "ButtonProps",
+      "required": false,
+      "description": "The cancel button props"
+    },
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "closeOnCancel": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "Close the dialog on cancel"
+    },
+    "closeOnConfirm": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "Close the dialog on confirm"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "confirmLabel": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The confirm button label"
+    },
+    "confirmProps": {
+      "type": "ButtonProps",
+      "required": false,
+      "description": "The confirm button props"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "leastDestructiveFocus": {
+      "type": "\"cancel\" | \"confirm\"",
+      "required": false,
+      "description": "Defines which button gets initial focus\nhttps://www.w3.org/TR/wai-aria-practices/#alertdialog"
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onCancel": {
+      "type": "() => void",
+      "required": false,
+      "description": "Function that's called when cancel is clicked"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onConfirm": {
+      "type": "() => void | Promise<void>",
+      "required": false,
+      "description": "Function that's called when confirm is clicked."
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The dialog title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "BaseDrawer": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true,
+      "description": "If `true`, the modal will be open."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The modal children"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overflow"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isFullHeight": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true` and drawer's placement is `top` or `bottom`,\nthe drawer will occupy the viewport height (100vh)"
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "placement": {
+      "type": "SlideDirection | LogicalPlacement",
+      "defaultValue": "right",
+      "required": false,
+      "description": "The placement of the drawer"
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The drawer title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "Drawer": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true,
+      "description": "If `true`, the modal will be open."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The modal children"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "Drawer footer content, wrapped with `DrawerFooter`"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overflow"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isFullHeight": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true` and drawer's placement is `top` or `bottom`,\nthe drawer will occupy the viewport height (100vh)"
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "placement": {
+      "type": "SlideDirection | LogicalPlacement",
+      "defaultValue": "right",
+      "required": false,
+      "description": "The placement of the drawer"
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The drawer title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "BaseModal": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true,
+      "description": "If `true`, the modal will be open."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The modal children"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "MenuDialogList": {
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "motionProps": {
+      "type": "HTMLMotionProps<\"div\">",
+      "required": false,
+      "description": "The framer-motion props to animate the menu list"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "rootProps": {
+      "type": "HTMLChakraProps<\"div\">",
+      "required": false,
+      "description": "Props for the root element that positions the menu."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "MenuDialog": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true,
+      "description": "If `true`, the modal will be open."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "required": false,
+      "description": "The modal children"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer, wrapped with `ModalFooter`"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "FormDialog": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true,
+      "description": "If `true`, the modal will be open."
+    },
+    "onClose": {
+      "type": "() => void",
+      "required": true,
+      "description": "Callback invoked to close the modal."
+    },
+    "onSubmit": {
+      "type": "SubmitHandler<TFieldValues>",
+      "required": true,
+      "description": "The submit handler."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "children": {
+      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: FormRenderContext<...>) => ReactNode)",
+      "required": false,
+      "description": "The form children, can be a render prop or a ReactNode."
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "context": { "type": "TContext", "required": false },
+    "criteriaMode": { "type": "CriteriaMode", "required": false },
+    "defaultValues": {
+      "type": "type ONLY_FOR_FORMAT =\n  | AsyncDefaultValues<TFieldValues>\n  | DefaultValues<TFieldValues>",
+      "required": false
+    },
+    "delayError": { "type": "number", "required": false },
+    "fieldResolver": {
+      "type": "FieldResolver",
+      "required": false,
+      "description": "A schema field resolver used to auto generate form fields."
+    },
+    "fields": {
+      "type": "FormDialogFieldOverrides",
+      "required": false,
+      "description": "Field overrides"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer, will be wrapped with `ModalFooter`.\nDefaults to a cancel and submit button."
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "formRef": {
+      "type": "RefObject<UseFormReturn<TFieldValues, TContext>>",
+      "required": false,
+      "description": "The Hook Form state ref."
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "mode": { "type": "keyof ValidationMode", "required": false },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onChange": {
+      "type": "WatchObserver<TFieldValues>",
+      "required": false,
+      "description": "Triggers when any of the field change."
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onError": {
+      "type": "SubmitErrorHandler<TFieldValues>",
+      "required": false,
+      "description": "Triggers when there are validation errors."
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "resetOptions": {
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "required": false
+    },
+    "resolver": {
+      "type": "Resolver<TFieldValues, TContext>",
+      "required": false
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "reValidateMode": {
+      "type": "\"onBlur\" | \"onChange\" | \"onSubmit\"",
+      "required": false
+    },
+    "schema": {
+      "type": "NonNullable<TSchema>",
+      "required": false,
+      "description": "The form schema."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "shouldFocusError": { "type": "boolean", "required": false },
+    "shouldUnregister": { "type": "boolean", "required": false },
+    "shouldUseNativeValidation": { "type": "boolean", "required": false },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    },
+    "values": { "type": "TFieldValues", "required": false }
+  },
+  "ConfirmDialogOptions": {
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "buttonGroupProps": {
+      "type": "ButtonGroupProps",
+      "required": false,
+      "description": "The button group props"
+    },
+    "cancelLabel": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The cancel button label"
+    },
+    "cancelProps": {
+      "type": "ButtonProps",
+      "required": false,
+      "description": "The cancel button props"
+    },
+    "closeOnCancel": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "Close the dialog on cancel"
+    },
+    "closeOnConfirm": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "Close the dialog on confirm"
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "confirmLabel": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The confirm button label"
+    },
+    "confirmProps": {
+      "type": "ButtonProps",
+      "required": false,
+      "description": "The confirm button props"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "leastDestructiveFocus": {
+      "type": "\"cancel\" | \"confirm\"",
+      "required": false,
+      "description": "Defines which button gets initial focus\nhttps://www.w3.org/TR/wai-aria-practices/#alertdialog"
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onCancel": {
+      "type": "() => void",
+      "required": false,
+      "description": "Function that's called when cancel is clicked"
+    },
+    "onClose": {
+      "type": "(args: {\n  force?: boolean | undefined\n}) => void | Promise<boolean | undefined>",
+      "required": false
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onConfirm": {
+      "type": "() => void | Promise<void>",
+      "required": false,
+      "description": "Function that's called when confirm is clicked."
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "DrawerOptions": {
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "isFullHeight": {
+      "type": "boolean",
+      "required": false,
+      "description": "If `true` and drawer's placement is `top` or `bottom`,\nthe drawer will occupy the viewport height (100vh)"
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onClose": {
+      "type": "(args: {\n  force?: boolean | undefined\n}) => void | Promise<boolean | undefined>",
+      "required": false
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "placement": {
+      "type": "SlideDirection | LogicalPlacement",
+      "defaultValue": "right",
+      "required": false,
+      "description": "The placement of the drawer"
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "FormDialogOptions": {
+    "onSubmit": {
+      "type": "SubmitHandler<FieldValues>",
+      "required": true,
+      "description": "The submit handler."
+    },
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "context": { "type": "object", "required": false },
+    "criteriaMode": { "type": "CriteriaMode", "required": false },
+    "defaultValues": {
+      "type": "AsyncDefaultValues<FieldValues> | { [x: string]: any }",
+      "required": false
+    },
+    "delayError": { "type": "number", "required": false },
+    "fieldResolver": {
+      "type": "FieldResolver",
+      "required": false,
+      "description": "A schema field resolver used to auto generate form fields."
+    },
+    "fields": {
+      "type": "FormDialogFieldOverrides",
+      "required": false,
+      "description": "Field overrides"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "formRef": {
+      "type": "RefObject<UseFormReturn<FieldValues, object>>",
+      "required": false,
+      "description": "The Hook Form state ref."
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "mode": { "type": "keyof ValidationMode", "required": false },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onChange": {
+      "type": "WatchObserver<FieldValues>",
+      "required": false,
+      "description": "Triggers when any of the field change."
+    },
+    "onClose": {
+      "type": "(args: {\n  force?: boolean | undefined\n}) => void | Promise<boolean | undefined>",
+      "required": false
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onError": {
+      "type": "SubmitErrorHandler<FieldValues>",
+      "required": false,
+      "description": "Triggers when there are validation errors."
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "resetOptions": {
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "required": false
+    },
+    "resolver": { "type": "Resolver<FieldValues, object>", "required": false },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "reValidateMode": {
+      "type": "\"onBlur\" | \"onChange\" | \"onSubmit\"",
+      "required": false
+    },
+    "schema": {
+      "type": "any",
+      "required": false,
+      "description": "The form schema."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "shouldFocusError": { "type": "boolean", "required": false },
+    "shouldUnregister": { "type": "boolean", "required": false },
+    "shouldUseNativeValidation": { "type": "boolean", "required": false },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    },
+    "values": { "type": "FieldValues", "required": false }
+  },
+  "MenuDialogOptions": {
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onClose": {
+      "type": "(args: {\n  force?: boolean | undefined\n}) => void | Promise<boolean | undefined>",
+      "required": false
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "ModalsProvider": {
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false
+    },
+    "modals": { "type": "TModals", "required": false }
+  },
+  "OpenOptions": {
+    "allowPinchZoom": {
+      "type": "boolean",
+      "defaultValue": "false.",
+      "required": false,
+      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
+    },
+    "blockScrollOnMount": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
+    },
+    "closeOnEsc": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the `Esc` key is pressed"
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will close when the overlay is clicked"
+    },
+    "contentProps": {
+      "type": "ModalContentProps",
+      "required": false,
+      "description": "Props for the modal content"
+    },
+    "finalFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal closes."
+    },
+    "footer": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal footer"
+    },
+    "footerProps": {
+      "type": "ModalFooterProps",
+      "required": false,
+      "description": "Props for the modal footer"
+    },
+    "headerProps": {
+      "type": "ModalHeaderProps",
+      "required": false,
+      "description": "Props for the modal header"
+    },
+    "hideCloseButton": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the close button"
+    },
+    "hideOverlay": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the overlay"
+    },
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": "The `id` of the modal"
+    },
+    "initialFocusRef": {
+      "type": "RefObject<FocusableElement>",
+      "required": false,
+      "description": "The `ref` of element to receive focus when the modal opens."
+    },
+    "isCentered": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the modal will be centered on screen."
+    },
+    "lockFocusAcrossFrames": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
+    },
+    "motionPreset": {
+      "type": "MotionPreset",
+      "defaultValue": "scale",
+      "required": false,
+      "description": "The transition that should be used for the modal"
+    },
+    "onClose": {
+      "type": "(args: {\n  force?: boolean | undefined\n}) => void | Promise<boolean | undefined>",
+      "required": false
+    },
+    "onCloseComplete": {
+      "type": "() => void",
+      "required": false,
+      "description": "Fires when all exiting nodes have completed animating out"
+    },
+    "onEsc": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the escape key is pressed and focus is within modal"
+    },
+    "onOverlayClick": {
+      "type": "() => void",
+      "required": false,
+      "description": "Callback fired when the overlay is clicked."
+    },
+    "portalProps": {
+      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
+      "required": false,
+      "description": "Props to be forwarded to the portal component"
+    },
+    "preserveScrollBarGap": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
+    },
+    "returnFocusOnClose": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
+    },
+    "scope": { "type": "ModalScopes", "required": false },
+    "scrollBehavior": {
+      "type": "ScrollBehavior",
+      "defaultValue": "outside",
+      "required": false,
+      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
+    },
+    "title": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "required": false,
+      "description": "The modal title"
+    },
+    "trapFocus": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
+    },
+    "type": { "type": "TModalTypes", "required": false },
+    "useInert": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
+    }
+  },
+  "CreateModalsOptions": {
+    "modals": { "type": "TModalDefs", "required": true }
+  }
+}

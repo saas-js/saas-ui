@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/charts",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -38,6 +38,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "date-fns": "^3.1.0",
     "prop-types": "^15.8.1",
     "tsup": "^6.7.0"
   }

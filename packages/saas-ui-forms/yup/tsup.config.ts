@@ -8,6 +8,7 @@ export default defineConfig({
     'yup',
     'react-hook-form',
     '@saas-ui/forms',
+    '@saas-ui/modals',
     '@hookform/resolvers/yup',
   ],
   clean: false,

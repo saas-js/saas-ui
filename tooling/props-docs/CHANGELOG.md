@@ -1,5 +1,29 @@
 # @saas-ui/props-docs
 
+## 2.3.0
+
+### Minor Changes
+
+- 46299d93: Updated props
+
+## 2.2.0
+
+### Minor Changes
+
+- 95d59e57: Add missing theming props
+
+## 2.1.0
+
+### Minor Changes
+
+- 942c7f88: Updated with Pro 0.31.3
+
+## 2.0.0
+
+### Major Changes
+
+- 90ee13c3: Updated all props and include pro packages
+
 ## 1.9.0
 
 ### Minor Changes

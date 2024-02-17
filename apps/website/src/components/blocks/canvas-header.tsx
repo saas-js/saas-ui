@@ -6,7 +6,6 @@ import {
   Box,
   ButtonGroup,
   Button,
-  CardHeader,
   HStack,
   Heading,
   Tag,
@@ -50,14 +49,30 @@ export function CanvasHeader({
   const isUnlocked = isAuthenticated || attributes.public
 
   return (
-    <HStack py="4" {...rest}>
+    <HStack py="4" {...rest} id={slug}>
       <HStack flex="1">
         <Box
           id={slug}
           style={{ visibility: 'hidden', position: 'absolute', top: -75 }}
         />
-        <Heading as="h4" fontSize="lg" minW="200px" fontWeight="medium">
-          {attributes.title}
+        <Heading
+          as="h4"
+          fontSize="lg"
+          minW="200px"
+          fontWeight="medium"
+          role="group"
+        >
+          <a href={`#${slug}`}>
+            {attributes.title}{' '}
+            <Box
+              as="span"
+              display="none"
+              _groupHover={{ display: 'inline' }}
+              color="muted"
+            >
+              #
+            </Box>
+          </a>
         </Heading>
 
         <HStack spacing="1">
@@ -72,7 +87,7 @@ export function CanvasHeader({
               variant="default"
               aria-label="View source on github"
               as="a"
-              href={`https://github.com/saas-js/saas-ui-pro/tree/main/saas-ui/blocks/${slug}/${slug}.tsx`}
+              href={`https://github.com/saas-js/saas-ui-pro/tree/main/saas-ui/blocks/src/${attributes.category}/${slug}/${slug}.tsx`}
               target="_blank"
               rel="noopener noreferrer"
             >

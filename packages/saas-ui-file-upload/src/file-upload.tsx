@@ -8,6 +8,8 @@ import {
   ButtonProps,
   Image,
   ImageProps,
+  useEnvironment,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { pick, runIfFn, split } from '@chakra-ui/utils'
@@ -26,13 +28,22 @@ import { fileUploadTheme } from './file-upload-theme'
 
 export interface FileUploadProps
   extends Omit<HTMLChakraProps<'div'>, 'children' | 'dir'>,
+    ThemingProps<'SuiFileUpload'>,
     FileUploadOptions {
   children: MaybeRenderProp<FileUploadRenderContext>
   inputRef?: React.Ref<HTMLInputElement>
 }
 
 export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
-  const { children, inputRef, ...rest } = props
+  const {
+    children,
+    inputRef,
+    colorScheme,
+    size,
+    variant,
+    styleConfig,
+    ...rest
+  } = props
 
   const [options, containerProps] = split(rest, [
     'accept',
@@ -50,10 +61,18 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     'getRootNode',
   ])
 
-  const context = useFileUpload(options)
+  const env = useEnvironment()
+
+  const context = useFileUpload({
+    getRootNode: env.getDocument,
+    ...options,
+  })
 
   const styles = useMultiStyleConfig('SuiFileUpload', {
-    styleConfig: fileUploadTheme,
+    styleConfig: styleConfig ?? fileUploadTheme,
+    size,
+    variant,
+    colorScheme,
   })
 
   const renderContext: FileUploadRenderContext = pick(context, [

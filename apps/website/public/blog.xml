@@ -21,6 +21,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/blog/introducing-charts-for-chakra-ui</guid>
+    <title>Introducing 4 new Open Source data visualization components for Chakra UI.</title>
+    <link>https://saas-ui.dev/blog/introducing-charts-for-chakra-ui</link>
+    <description>Build beautiful metrics dashboards faster with Area, Bar, Line and Sparkline charts for Chakra UI.</description>
+    <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/blog/introducing-glass-theme-for-chakra-ui</guid>
     <title>Introducing the new Glass theme for Chakra UI</title>
     <link>https://saas-ui.dev/blog/introducing-glass-theme-for-chakra-ui</link>

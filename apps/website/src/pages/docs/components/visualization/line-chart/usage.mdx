@@ -1,0 +1,535 @@
+---
+id: line-chart
+title: Line Chart
+description: A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.
+---
+
+<ComponentLinks
+  github={{ package: 'saas-ui-charts/src/line-chart.tsx' }}
+  npm={{ package: '@saas-ui/charts' }}
+/>
+
+## Import
+
+```js
+import { LineChart } from '@saas-ui/charts'
+```
+
+## Usage
+
+### Basic
+
+Basic composition with `Card` and `Heading` components. `LineChart` requires a fixed height (eg `height="300px"`) to render properly.
+
+```jsx inline=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { LineChart } from '@saas-ui/charts'
+
+const valueFormatter = (value) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value)
+}
+
+export default function Page() {
+  return (
+    <Card>
+      <CardHeader pb="0">
+        <Heading as="h4" fontWeight="medium" size="md">
+          Revenue over time
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <LineChart
+          data={data}
+          categories={['Revenue']}
+          valueFormatter={valueFormatter}
+          yAxisWidth={80}
+          height="300px"
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Jan 1',
+    Revenue: 1475,
+  },
+  {
+    date: 'Jan 8',
+    Revenue: 1936,
+  },
+  {
+    date: 'Jan 15',
+    Revenue: 1555,
+  },
+  {
+    date: 'Jan 22',
+    Revenue: 1557,
+  },
+  {
+    date: 'Jan 29',
+    Revenue: 1977,
+  },
+  {
+    date: 'Feb 5',
+    Revenue: 2315,
+  },
+  {
+    date: 'Feb 12',
+    Revenue: 1736,
+  },
+  {
+    date: 'Feb 19',
+    Revenue: 1981,
+  },
+  {
+    date: 'Feb 26',
+    Revenue: 2581,
+  },
+  {
+    date: 'Mar 5',
+    Revenue: 2592,
+  },
+  {
+    date: 'Mar 12',
+    Revenue: 2635,
+  },
+  {
+    date: 'Mar 19',
+    Revenue: 2074,
+  },
+  {
+    date: 'Mar 26',
+    Revenue: 2984,
+  },
+  {
+    date: 'Apr 2',
+    Revenue: 2254,
+  },
+  {
+    date: 'Apr 9',
+    Revenue: 3159,
+  },
+  {
+    date: 'Apr 16',
+    Revenue: 2804,
+  },
+  {
+    date: 'Apr 23',
+    Revenue: 2602,
+  },
+  {
+    date: 'Apr 30',
+    Revenue: 2840,
+  },
+  {
+    date: 'May 7',
+    Revenue: 3299,
+  },
+  {
+    date: 'May 14',
+    Revenue: 3487,
+  },
+  {
+    date: 'May 21',
+    Revenue: 3439,
+  },
+  {
+    date: 'May 28',
+    Revenue: 3095,
+  },
+  {
+    date: 'Jun 4',
+    Revenue: 3252,
+  },
+  {
+    date: 'Jun 11',
+    Revenue: 4096,
+  },
+  {
+    date: 'Jun 18',
+    Revenue: 4193,
+  },
+  {
+    date: 'Jun 25',
+    Revenue: 4759,
+  },
+]
+```
+
+### Multiple categories
+
+Multiple categories can be displayed in the same chart. Categories map to the `data` object keys.
+
+```jsx inline=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { LineChart } from '@saas-ui/charts'
+
+export default function Page() {
+  return (
+    <Card>
+      <CardHeader pb="0">
+        <Heading as="h4" fontWeight="medium" size="md">
+          Developers
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <LineChart
+          data={data}
+          categories={['Backend', 'Frontend']}
+          height="300px"
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    Backend: 40,
+    Frontend: 21,
+  },
+  {
+    date: 'Dec 2',
+    Backend: 38,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 3',
+    Backend: 49,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 4',
+    Backend: 48,
+    Frontend: 29,
+  },
+  {
+    date: 'Dec 5',
+    Backend: 50,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 6',
+    Backend: 42,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 7',
+    Backend: 41,
+    Frontend: 28,
+  },
+  {
+    date: 'Dec 8',
+    Backend: 44,
+    Frontend: 23,
+  },
+  {
+    date: 'Dec 9',
+    Backend: 44,
+    Frontend: 24,
+  },
+  {
+    date: 'Dec 10',
+    Backend: 44,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 11',
+    Backend: 46,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 12',
+    Backend: 48,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 13',
+    Backend: 46,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 14',
+    Backend: 50,
+    Frontend: 28,
+  },
+  {
+    date: 'Dec 15',
+    Backend: 42,
+    Frontend: 34,
+  },
+  {
+    date: 'Dec 16',
+    Backend: 58,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 17',
+    Backend: 49,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 18',
+    Backend: 44,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 19',
+    Backend: 46,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 20',
+    Backend: 44,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 21',
+    Backend: 51,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 22',
+    Backend: 58,
+    Frontend: 36,
+  },
+  {
+    date: 'Dec 23',
+    Backend: 46,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 24',
+    Backend: 61,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 25',
+    Backend: 56,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 26',
+    Backend: 55,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 27',
+    Backend: 47,
+    Frontend: 32,
+  },
+  {
+    date: 'Dec 28',
+    Backend: 55,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 29',
+    Backend: 61,
+    Frontend: 32,
+  },
+  {
+    date: 'Dec 30',
+    Backend: 62,
+    Frontend: 29,
+  },
+  {
+    date: 'Dec 31',
+    Backend: 52,
+    Frontend: 37,
+  },
+]
+```
+
+### Customize colors
+
+Use the `colors` prop to customize the chart colors. Supported formats are `primary`, `purple`, `purple.400`, or `#4FD1C5`.
+
+```jsx inline=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { LineChart } from '@saas-ui/charts'
+
+export default function Page() {
+  return (
+    <Card>
+      <CardHeader pb="0">
+        <Heading as="h4" fontWeight="medium" size="md">
+          Developers
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <LineChart
+          data={data}
+          categories={['Backend', 'Frontend']}
+          colors={['orange', 'yellow']}
+          height="300px"
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    Backend: 40,
+    Frontend: 21,
+  },
+  {
+    date: 'Dec 2',
+    Backend: 38,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 3',
+    Backend: 49,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 4',
+    Backend: 48,
+    Frontend: 29,
+  },
+  {
+    date: 'Dec 5',
+    Backend: 50,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 6',
+    Backend: 42,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 7',
+    Backend: 41,
+    Frontend: 28,
+  },
+  {
+    date: 'Dec 8',
+    Backend: 44,
+    Frontend: 23,
+  },
+  {
+    date: 'Dec 9',
+    Backend: 44,
+    Frontend: 24,
+  },
+  {
+    date: 'Dec 10',
+    Backend: 44,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 11',
+    Backend: 46,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 12',
+    Backend: 48,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 13',
+    Backend: 46,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 14',
+    Backend: 50,
+    Frontend: 28,
+  },
+  {
+    date: 'Dec 15',
+    Backend: 42,
+    Frontend: 34,
+  },
+  {
+    date: 'Dec 16',
+    Backend: 58,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 17',
+    Backend: 49,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 18',
+    Backend: 44,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 19',
+    Backend: 46,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 20',
+    Backend: 44,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 21',
+    Backend: 51,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 22',
+    Backend: 58,
+    Frontend: 36,
+  },
+  {
+    date: 'Dec 23',
+    Backend: 46,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 24',
+    Backend: 61,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 25',
+    Backend: 56,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 26',
+    Backend: 55,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 27',
+    Backend: 47,
+    Frontend: 32,
+  },
+  {
+    date: 'Dec 28',
+    Backend: 55,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 29',
+    Backend: 61,
+    Frontend: 32,
+  },
+  {
+    date: 'Dec 30',
+    Backend: 62,
+    Frontend: 29,
+  },
+  {
+    date: 'Dec 31',
+    Backend: 52,
+    Frontend: 37,
+  },
+]
+```

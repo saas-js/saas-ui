@@ -53,7 +53,7 @@ const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SaasProvider linkComponent={Link}>
+    <SaasProvider linkComponent={NextLink}>
       <Component {...pageProps} />
     </SaasProvider>
   )

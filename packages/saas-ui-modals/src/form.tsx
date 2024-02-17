@@ -31,7 +31,7 @@ export interface FormDialogProps<
   TSchema = any,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TFieldTypes = FieldProps<TFieldValues>,
 > extends Omit<BaseModalProps, 'children'>,
     Pick<
       FormProps<TSchema, TFieldValues, TContext, TFieldTypes>,
@@ -143,11 +143,11 @@ type IsSchemaType<T, Schema, FieldDefs> = T extends DefaultFormType<FieldDefs>
 export type DefaultFormType<
   FieldDefs = any,
   ExtraProps = object,
-  ExtraOverrides = FormDialogFieldOverrides
+  ExtraOverrides = FormDialogFieldOverrides,
 > = (<
   TSchema = unknown,
   TFieldValues extends Record<string, any> = any,
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: any
 ) => React.ReactElement) & {
@@ -163,17 +163,26 @@ export function createFormDialog<
     FieldDefs,
     ExtraProps,
     ExtraOverrides
-  > = DefaultFormType<FieldDefs, ExtraProps, ExtraOverrides>
+  > = DefaultFormType<FieldDefs, ExtraProps, ExtraOverrides>,
 >(Form: TFormType) {
   const Dialog = forwardRef<any, 'div'>((props, ref) => {
     const { isOpen, onClose, footer, children, ...rest } = props
     const { modalProps, formProps, fields } = useFormProps(rest)
     return (
       <BaseModal {...modalProps} isOpen={isOpen} onClose={onClose}>
-        <Form ref={ref} {...(formProps as any)}>
+        <Form
+          ref={ref}
+          {...(formProps as any)}
+          flex="1"
+          minHeight="0px"
+          display="flex"
+          flexDirection="column"
+        >
           {(form: any) => (
             <>
-              <ModalBody>{runIfFn(children, form) || <AutoFields />}</ModalBody>
+              <ModalBody height="100%">
+                {runIfFn(children, form) || <AutoFields />}
+              </ModalBody>
 
               {footer || (
                 <ModalFooter>

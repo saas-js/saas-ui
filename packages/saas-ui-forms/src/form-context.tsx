@@ -11,7 +11,7 @@ import { BaseFieldProps, FieldProps } from './types'
 export type FormContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TSchema = any
+  TSchema = any,
 > = {
   fieldResolver?: FieldResolver
   schema?: TSchema
@@ -23,7 +23,7 @@ export type FormContextValue<
 export type FormProviderProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TSchema = any
+  TSchema = any,
 > = HookFormProviderProps<TFieldValues, TContext> & {
   fieldResolver?: FieldResolver
   schema?: TSchema
@@ -37,14 +37,10 @@ const FormContext = React.createContext<FormContextValue | null>(null)
 export const useFormContext = <
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TSchema = any
+  TSchema = any,
 >() => {
   const context = React.useContext(FormContext)
   const hookContext = useHookFormContext()
-
-  if (!context) {
-    throw new Error('FormProvider must be used within a Form component')
-  }
 
   return {
     ...hookContext,
@@ -63,13 +59,13 @@ export const useFieldProps = <TFieldValues extends FieldValues = FieldValues>(
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TSchema = any
+  TSchema = any,
 > = ReturnType<typeof useFormContext>
 
 export const FormProvider = <
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TSchema = any
+  TSchema = any,
 >(
   props: FormProviderProps<TFieldValues, TContext, TSchema>
 ) => {

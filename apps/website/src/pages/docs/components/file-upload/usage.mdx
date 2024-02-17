@@ -192,9 +192,7 @@ const UploadField = createField(
         accept="image/*"
         {...rest}
         onFilesChange={(files) => {
-          if (files.acceptedFiles?.length) {
-            onChange(files.acceptedFiles[0])
-          }
+          onChange(files.acceptedFiles[0])
         }}
         maxFiles={1}
         inputRef={ref}
@@ -233,15 +231,18 @@ export default function FormField() {
       onSubmit={async (data) => {
         const formData = new FormData()
 
-        formData.append('profilePicture', data.file)
-        formData.append(
-          'meta',
-          JSON.stringify({
-            filename: data.file.name,
-            size: data.file.size,
-            type: data.file.type,
-          })
-        )
+        if (data.file) {
+          formData.append('profilePicture', data.file)
+          formData.append(
+            'meta',
+            JSON.stringify({
+              filename: data.file.name,
+              size: data.file.size,
+              type: data.file.type,
+            })
+          )
+          formData.append('name', data.name)
+        }
         formData.append('name', data.name)
 
         return fetch('/api/user', {

@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 2.0.2
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+
 ## 2.0.1
 
 ### Patch Changes

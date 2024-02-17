@@ -1,0 +1,38 @@
+{
+  "IconBadge": {
+    "aria-label": {
+      "type": "string",
+      "required": false,
+      "description": "A11y: A label that describes the icon"
+    },
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
+    "icon": {
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "The icon to be used in the button."
+    },
+    "isRound": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "If `true`, the badge will be perfectly round. Else, it'll be slightly round"
+    },
+    "orientation": { "type": "Orientation", "required": false },
+    "size": {
+      "defaultValue": "md",
+      "type": "\"sm\" | \"md\" | \"lg\" | \"xl\"",
+      "required": false,
+      "description": "The size of the IconBadge"
+    },
+    "variant": {
+      "defaultValue": "outline",
+      "type": "\"outline\" | \"solid\"",
+      "required": false,
+      "description": "The variant of the IconBadge"
+    }
+  }
+}

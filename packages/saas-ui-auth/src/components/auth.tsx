@@ -209,14 +209,18 @@ export const Auth: React.FC<AuthProps> = (props) => {
           providerLabel={translations.continueWith}
           dividerLabel={translations.orContinueWith}
           fields={{
+            ...fields,
             email: {
               label: translations.email,
+              ...fields?.email,
             },
             password: {
               label: translations.password,
+              ...fields?.password,
             },
             submit: {
               children: translations.loginSubmit,
+              ...fields?.submit,
             },
           }}
           renderSuccess={

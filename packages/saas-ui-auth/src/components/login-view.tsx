@@ -17,6 +17,7 @@ export type LoginViewProps = PasswordViewProps | MagicLinkViewProps
 
 export const LoginView: React.FC<LoginViewProps> = (props) => {
   const { title = 'Log in', ...rest } = props
+
   if (props.type === 'password') {
     return <PasswordView title={title} {...rest} />
   }

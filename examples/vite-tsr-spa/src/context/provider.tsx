@@ -1,21 +1,27 @@
+import { forwardRef } from 'react'
+import { AuthProvider } from '@saas-ui/auth'
 import { LinkProps, SaasProvider } from '@saas-ui/react'
-import { RouterProvider, Router, Link } from '@tanstack/react-router'
+import { RouterProvider, createRouter, Link } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { routeTree } from '../routeTree.gen'
 
-import { theme } from '#/theme'
-import { forwardRef } from 'react'
-import { AuthProvider } from '@saas-ui/auth'
-import { authService } from '#/lib/auth'
+import { authService } from '#lib/auth'
+import { supabase } from '#lib/supabase'
+import { theme } from '#theme'
 
 const queryClient = new QueryClient()
 
 // Set up a Router instance
-const router = new Router({
+const router = createRouter({
   routeTree,
   context: {
     queryClient,
+    supabase,
+    getUser: async () => {
+      const { data } = await supabase.auth.getUser()
+      return data.user
+    },
   },
   defaultPreload: 'intent',
   // Since we're using React Query, we don't want loader calls to ever be stale

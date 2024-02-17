@@ -1,8 +1,8 @@
 import { Outlet, createFileRoute, redirect } from '@tanstack/react-router'
 
-import { SidebarLayout } from '#layouts/sidebar-layout'
+import { FullscreenLayout } from '#layouts/fullscreen-layout'
 
-export const Route = createFileRoute('/_app')({
+export const Route = createFileRoute('/_onboarding')({
   component: AppLayout,
   beforeLoad: async ({ location, context }) => {
     const user = await context.getUser()
@@ -22,8 +22,8 @@ export const Route = createFileRoute('/_app')({
 
 function AppLayout() {
   return (
-    <SidebarLayout>
+    <FullscreenLayout>
       <Outlet />
-    </SidebarLayout>
+    </FullscreenLayout>
   )
 }

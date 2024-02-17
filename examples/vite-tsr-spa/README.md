@@ -1,30 +1,26 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to build a single-page application using React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Typesafe from routing to data-fetching.
+- Fast and lean development experience.
+- Client-side routing with optional SSR support.
+- Multi-tenant routing (workspaces).
+- Authentication with Supabase.
 
-## Expanding the ESLint configuration
+## Libraries
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- **TanStack Router**: A simple and typesafe router for React.
+- **TanStack Query**: A powerful data-fetching and caching library for React.
+- **Chakra UI**: A simple, modular and accessible component library that gives you the building blocks you need to build your React applications.
+- **Saas UI**: Component library to build B2B applications with speed.
+- **Supabase**: The open source Firebase alternative. Instantly add authentication, a realtime database, serverless functions, and storage to your project.
 
-- Configure the top-level `parserOptions` property like this:
+## LICENSE
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+MIT

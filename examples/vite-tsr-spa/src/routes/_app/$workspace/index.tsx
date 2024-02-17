@@ -1,13 +1,19 @@
-import { FileRoute } from '@tanstack/react-router'
+import { Center } from '@chakra-ui/react'
+import { EmptyState } from '@saas-ui/react'
+import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = new FileRoute('/_app/$workspace/').createRoute({
+export const Route = createFileRoute('/_app/$workspace/')({
   component: Home,
 })
 
 function Home() {
   return (
-    <div className="p-2">
-      <h3>App</h3>
-    </div>
+    <Center height="$100vh">
+      <EmptyState
+        variant="centered"
+        title="Nothing here yet"
+        description="Add routes and pages to get started"
+      />
+    </Center>
   )
 }

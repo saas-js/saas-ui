@@ -58,6 +58,21 @@ let config = {
         destination: '/docs/components/forms/file-upload/:path*',
         permanent: true,
       },
+      {
+        source: '/docs/pro/installation/npm',
+        destination: '/docs/pro/installation/private-npm/npm',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/installation/yarn',
+        destination: '/docs/pro/installation/private-npm/yarn',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/installation/pnpm',
+        destination: '/docs/pro/installation/private-npm/pnpm',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {

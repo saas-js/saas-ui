@@ -34,21 +34,25 @@ const sidebar = {
         },
         {
           title: 'NPM registry',
-          path: '/docs/pro/installation/npm',
+          path: '/docs/pro/installation/overview',
           heading: true,
           open: true,
           routes: [
             {
+              title: 'Overview',
+              path: '/docs/pro/installation/private-npm/overview',
+            },
+            {
               title: 'NPM',
-              path: '/docs/pro/installation/npm',
+              path: '/docs/pro/installation/private-npm/npm',
             },
             {
               title: 'Yarn',
-              path: '/docs/pro/installation/yarn',
+              path: '/docs/pro/installation/private-npm/yarn',
             },
             {
-              title: 'Pnpm',
-              path: '/docs/pro/installation/pnpm',
+              title: 'PNPM',
+              path: '/docs/pro/installation/private-npm/pnpm',
             },
             {
               title: 'Dependabot',
@@ -69,26 +73,20 @@ const sidebar = {
           path: '/docs/pro/authentication',
         },
         {
-          title: 'Providers',
-          open: true,
-          routes: [
-            {
-              title: 'Supabase',
-              path: '/docs/pro/authentication/supabase',
-            },
-            {
-              title: 'Clerk',
-              path: '/docs/pro/authentication/clerk',
-            },
-            {
-              title: 'Magic',
-              path: '/docs/pro/authentication/magic',
-            },
-            {
-              title: 'Auth.js (NextAuth)',
-              path: '/docs/pro/authentication/authjs',
-            },
-          ],
+          title: 'Supabase',
+          path: '/docs/pro/authentication/supabase',
+        },
+        {
+          title: 'Clerk',
+          path: '/docs/pro/authentication/clerk',
+        },
+        {
+          title: 'Magic',
+          path: '/docs/pro/authentication/magic',
+        },
+        {
+          title: 'Auth.js (NextAuth)',
+          path: '/docs/pro/authentication/authjs',
         },
         {
           title: 'Customize auth screens',

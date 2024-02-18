@@ -5,15 +5,6 @@ description: Learn how to clone the Saas UI Git repository.
 
 In case you have redeemed your license key and accepted the Github invite, you should now have access to the Saas UI Pro Git repository.
 
-## Generate from template
-
-You can create a new repository using the Github template feature.
-
-[Generate from template](https://github.com/saas-js/saas-ui-pro/generate)
-
-Make sure you deselect `Include all branches` and create a new `Private` repository.
-The new repository will be created with the latest version of Saas UI Pro, and without any commit history.
-
 ## Clone the repository
 
 To clone the repository on your local machine, use the following command:
@@ -100,14 +91,35 @@ pnpm i
 
 Make sure you also update the `scripts` in `package.json` to use `pnpm` instead of `yarn`.
 
-## Saas UI base components
+## Saas UI Pro components
 
-The repository includes the source code of the Saas UI Pro base components, which are located in the `saas-ui` folder.
+The repository includes the source code of the Saas UI Pro core components, which are located in the `saas-ui` folder.
 These packages will be installed as part of the workspace. In case you want to install these packages from the private NPM registry,
 you can remove the `saas-ui` folder from the workspaces configuration in `package.json`, or `pnpm-workspace.yaml` in case you use `pnpm`.
 
 After removing the `saas-ui` folder from the workspaces configuration, you can delete this folder and configure the private NPM registry.
 Make sure you also delete the `SaasUIProPlugin` from your Next.js Webpack configuration in `apps/web/next.config.mjs`.
 
-- [Configure private NPM registry with Yarn](/docs/pro/installation/yarn)
-- [Configure private NPM registry with PNPM](/docs/pro/installation/pnpm)
+<SimpleGrid columns={[1, null, 3]} spacing={8} mt="8">
+  <QuickLink
+    href="/docs/pro/installation/private-npm/npm"
+    width="100%"
+    title="NPM"
+    description="Install Saas UI Pro with NPM."
+    label="Instructions"
+  />
+  <QuickLink
+    href="/docs/pro/installation/private-npm/yarn"
+    width="100%"
+    title="Yarn"
+    description="Install Saas UI Pro with Yarn."
+    label="Instructions"
+  />
+  <QuickLink
+    href="/docs/pro/installation/private-npm/pnpm"
+    width="100%"
+    title="PNPM"
+    description="Install Saas UI Pro with PNPM."
+    label="Instructions"
+  />
+</SimpleGrid>

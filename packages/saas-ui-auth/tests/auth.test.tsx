@@ -94,7 +94,7 @@ test('shows password reset form', async () => {
     fireEvent.click(link)
   })
 
-  expect(getByText('Reset password')).toBeVisible()
+  expect(getByText('Send reset link')).toBeVisible()
 })
 
 test('renders custom field', async () => {

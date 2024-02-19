@@ -106,6 +106,9 @@ const defaultTranslations = {
   yourEmail: 'your email address',
   forgotPassword: 'Forgot password?',
   forgotPasswordSubmit: 'Send reset link',
+  forgotPasswordSuccess: 'Password reset requested',
+  forgotPasswordSuccessDescription:
+    'Please check your email for instructions to reset your password.',
   updatePassword: 'Update password',
   updatePasswordSubmit: 'Update password',
   backToLogin: 'Back to log in',
@@ -286,8 +289,8 @@ export const Auth: React.FC<AuthProps> = (props) => {
           }}
           renderSuccess={() => (
             <AuthFormSuccess
-              title="Success!"
-              description="Check your mailbox to verify your account."
+              title={translations.signupSuccess}
+              description={translations.signupSuccessDescription}
             />
           )}
           {...rest}
@@ -317,6 +320,12 @@ export const Auth: React.FC<AuthProps> = (props) => {
               ...fields?.submit,
             },
           }}
+          renderSuccess={() => (
+            <AuthFormSuccess
+              title={translations.forgotPasswordSuccess}
+              description={translations.forgotPasswordSuccessDescription}
+            />
+          )}
           {...rest}
         />
       )

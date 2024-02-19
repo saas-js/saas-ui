@@ -63,6 +63,11 @@
       "required": false,
       "description": "Set this option to `true` to output all debugging information to the console."
     },
+    "debugCells": {
+      "type": "boolean",
+      "required": false,
+      "description": "Set this option to `true` to output cell debugging information to the console."
+    },
     "debugColumns": {
       "type": "boolean",
       "required": false,
@@ -461,6 +466,11 @@
       "type": "VirtualizerOptions<\n  HTMLDivElement,\n  HTMLTableRowElement\n> & { enabled?: boolean | undefined }",
       "required": false,
       "description": "React Virtual options for the row virtualizer"
+    },
+    "slotProps": {
+      "type": "{ container?: BoxProps | ((params: { table: Table<Data>; }) => BoxProps) | undefined; inner?: BoxProps | ((params: { table: Table<Data>; }) => BoxProps) | undefined; table?: TableProps | ... 1 more ... | undefined; row?: TableRowProps | ... 1 more ... | undefined; cell?: TableCellProps | ... 1 more ... | undefined; }",
+      "required": false,
+      "description": "Pass custom properties to child (slots) components."
     },
     "sortDescFirst": {
       "type": "boolean",

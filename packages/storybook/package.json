@@ -1,7 +1,7 @@
 {
   "name": "saas-ui-storybook",
   "type": "module",
-  "version": "1.1.21",
+  "version": "1.1.22",
   "scripts": {
     "dev": "sb dev -p 6006",
     "build": "sb build --debug --loglevel verbose"
@@ -16,7 +16,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@saas-ui/react": "workspace:*",
-    "@saas-ui/storybook-addon": "^2.0.2",
+    "@saas-ui/storybook-addon": "^2.0.3",
     "@storybook/addon-a11y": "^7.6.16",
     "@storybook/addon-storysource": "^7.6.16",
     "@storybook/addon-toolbars": "^7.6.16",

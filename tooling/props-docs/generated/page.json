@@ -280,7 +280,7 @@
     "className": { "type": "string", "required": false },
     "content": { "type": "string", "required": false },
     "contentEditable": {
-      "type": "\"inherit\" | Booleanish",
+      "type": "\"inherit\" | Booleanish | \"plaintext-only\"",
       "required": false
     },
     "contextMenu": { "type": "string", "required": false },
@@ -1165,7 +1165,6 @@
       "type": "WheelEventHandler<HTMLDivElement>",
       "required": false
     },
-    "placeholder": { "type": "string", "required": false },
     "prefix": { "type": "string", "required": false },
     "property": { "type": "string", "required": false },
     "radioGroup": { "type": "string", "required": false },
@@ -1361,7 +1360,7 @@
     "className": { "type": "string", "required": false },
     "content": { "type": "string", "required": false },
     "contentEditable": {
-      "type": "\"inherit\" | Booleanish",
+      "type": "\"inherit\" | Booleanish | \"plaintext-only\"",
       "required": false
     },
     "contextMenu": { "type": "string", "required": false },
@@ -2251,7 +2250,6 @@
       "type": "WheelEventHandler<HTMLDivElement>",
       "required": false
     },
-    "placeholder": { "type": "string", "required": false },
     "prefix": { "type": "string", "required": false },
     "property": { "type": "string", "required": false },
     "radioGroup": { "type": "string", "required": false },

@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 2.3.1
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+
 ## 2.3.0
 
 ### Minor Changes

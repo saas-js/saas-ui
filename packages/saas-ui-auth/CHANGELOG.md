@@ -1,5 +1,16 @@
 # @saas-ui/auth
 
+## 3.0.1
+
+### Patch Changes
+
+- 40301ca: Added missing translations for forgot password
+- da5167a: Fixed issue where submit field props were not passed down correctly
+- Updated dependencies [2e7da38]
+- Updated dependencies [da5167a]
+  - @saas-ui/forms@2.3.12
+  - @saas-ui/core@2.3.6
+
 ## 3.0.0
 
 ### Major Changes

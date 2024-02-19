@@ -51,7 +51,7 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     'dir',
     'isDisabled',
     'files',
-    'isValidFile',
+    'validate',
     'locale',
     'maxFileSize',
     'maxFiles',

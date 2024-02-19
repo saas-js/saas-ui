@@ -1110,7 +1110,10 @@
       "required": false,
       "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
     },
-    "mode": { "type": "keyof ValidationMode", "required": false },
+    "mode": {
+      "type": "\"onBlur\" | \"onChange\" | \"onSubmit\" | \"all\" | \"onTouched\"",
+      "required": false
+    },
     "motionPreset": {
       "type": "MotionPreset",
       "defaultValue": "scale",
@@ -1154,7 +1157,7 @@
       "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
     },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -1690,7 +1693,10 @@
       "required": false,
       "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
     },
-    "mode": { "type": "keyof ValidationMode", "required": false },
+    "mode": {
+      "type": "\"onBlur\" | \"onChange\" | \"onSubmit\" | \"all\" | \"onTouched\"",
+      "required": false
+    },
     "motionPreset": {
       "type": "MotionPreset",
       "defaultValue": "scale",
@@ -1738,7 +1744,7 @@
       "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
     },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": { "type": "Resolver<FieldValues, object>", "required": false },

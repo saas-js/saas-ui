@@ -1,11 +1,12 @@
 import { AriaCalendarProps } from '@react-aria/calendar'
 import { useCalendar as useAriaCalendar } from '@react-aria/calendar'
 import { useCalendarState } from '@react-stately/calendar'
-import { useRef, useState, useMemo } from 'react'
+import { useRef, useState, useMemo, useEffect } from 'react'
 import { useDatePickerContext } from './date-picker-context'
 import { DateValue } from './types'
 import { CalendarAction } from './calendar-context'
 import { GregorianCalendar } from '@internationalized/date'
+import { useControllableState } from '@chakra-ui/react'
 
 export const defaultCreateCalendar = (name: string) => {
   switch (name) {
@@ -25,11 +26,23 @@ export const useCalendar = (props: AriaCalendarProps<DateValue>) => {
 
   const [action, setAction] = useState<CalendarAction>('calendar')
 
+  const [focusedValue, setFocusedValue] = useControllableState<DateValue>({
+    value: props.focusedValue,
+    defaultValue: props.defaultFocusedValue,
+    onChange: props.onFocusChange as any,
+  })
+
   const state = useCalendarState({
     ...contextCalendarProps,
+    focusedValue,
+    onFocusChange: setFocusedValue,
     locale,
     createCalendar,
   })
+
+  useEffect(() => {
+    setFocusedValue(state.value)
+  }, [state.value])
 
   const ref = useRef<HTMLDivElement>(null)
   const {

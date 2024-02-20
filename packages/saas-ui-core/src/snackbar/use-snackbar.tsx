@@ -114,7 +114,7 @@ export type SnackbarOptions = UseSnackbarOptions | string
 
 export interface SnackbarPromiseOptions {
   loading?: SnackbarOptions
-  success: SnackbarOptions
+  success: SnackbarOptions | ((data: any) => SnackbarOptions)
   error: SnackbarOptions | ((error: any) => SnackbarOptions)
 }
 
@@ -172,6 +172,12 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
         ...parseOptions(options),
       })
 
+    /**
+     * A utility function to show a loading spinner while a promise resolves.
+     * `success` and `error` accept an optional function that receives the result or error of the promise.
+     *
+     * if `error` is a function, it will not throw the error, and you can handle it in the callback function.
+     */
     snackbar.promise = async (
       promise: Promise<unknown>,
       { loading, success, error }: SnackbarPromiseOptions
@@ -190,7 +196,7 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
         .then((result) => {
           const options: UseSnackbarOptions = {
             status: 'success',
-            ...parseOptions(success),
+            ...parseOptions(runIfFn(success, result)),
           }
           if (toastId) {
             snackbar.update(toastId, options)
@@ -213,7 +219,9 @@ export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
             snackbar(options)
           }
 
-          throw e
+          if (typeof error !== 'function') {
+            throw e
+          }
         })
     }
 

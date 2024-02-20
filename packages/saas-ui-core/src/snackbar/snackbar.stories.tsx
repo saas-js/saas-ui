@@ -152,10 +152,13 @@ export const WithPromiseCustomError = () => {
       <Button
         onClick={() =>
           snackbar.promise(
-            new Promise((resolve) => setTimeout(resolve, 2000)),
+            new Promise((resolve) =>
+              setTimeout(() => resolve({ name: 'Elliot' }), 2000)
+            ),
             {
               loading: 'Creating your account...',
-              success: 'Your account has been created.',
+              success: (data) =>
+                `Welcome ${data.name}, your account has been created.`,
               error: "Your account couldn't be created.",
             }
           )
@@ -172,7 +175,7 @@ export const WithPromiseCustomError = () => {
               ),
               {
                 loading: 'Creating your account...',
-                success: 'Your account has been created.',
+                success: (data) => `Your account has been created: ${data}`,
                 error: (err) => err.message,
               }
             )

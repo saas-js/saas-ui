@@ -9,7 +9,7 @@ import * as React from 'react'
 import * as yup from 'yup'
 import { z } from 'zod'
 
-import { FormLayout, SubmitButton, FormProps, createForm } from '../src'
+import { FormLayout, SubmitButton, createForm } from '../src'
 
 export default {
   title: 'Components/Forms/Field',
@@ -66,6 +66,7 @@ export const Basic = () => (
           min={1}
           max={10}
           placeholder="Number"
+          leftAddon={<InputLeftElement>$</InputLeftElement>}
         />
         <Field name="textarea" label="Textarea" type="textarea" />
         <Field name="switch" label="Switch" type="switch" />

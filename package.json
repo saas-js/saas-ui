@@ -43,7 +43,7 @@
     "clean": "turbo run clean",
     "test": "vitest",
     "test:watch": "vitest --watch --onlyChanged",
-    "test:ci": "vitest --color --runInBand --ci",
+    "test:ci": "vitest --color --run",
     "lint": "turbo run lint",
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",

@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.3.6
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- Updated dependencies [2e7da38]
+  - @saas-ui/theme@2.3.3
+
 ## 2.3.5
 
 ### Patch Changes

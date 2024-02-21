@@ -381,6 +381,7 @@
       "description": "The value to used in controlled mode"
     }
   },
+  "ActiveFilterRemove": {},
   "ActiveFilter": {
     "id": { "type": "string", "required": true },
     "defaultOperator": { "type": "FilterOperatorId", "required": false },
@@ -638,7 +639,7 @@
     "title": { "type": "string", "required": false }
   },
   "FilterOperatorId": {
-    "__@iterator@389453": {
+    "__@iterator@370689": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -890,7 +891,7 @@
     }
   },
   "FilterType": {
-    "__@iterator@389453": {
+    "__@iterator@370689": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -1142,7 +1143,7 @@
     }
   },
   "FilterOperator": {
-    "__@iterator@389453": {
+    "__@iterator@370689": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"

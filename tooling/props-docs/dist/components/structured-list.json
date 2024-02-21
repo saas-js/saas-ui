@@ -1,9 +1,25 @@
 {
   "StructuredList": {
+    "colorScheme": {
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
     "items": {
       "type": "StructuredListItemProps[]",
       "required": false,
       "description": "An array of list items"
+    },
+    "size": {
+      "defaultValue": "md",
+      "type": "\"sm\" | \"md\"",
+      "required": false,
+      "description": "The size of the StructuredList"
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the StructuredList"
     }
   },
   "StructuredListHeader": {

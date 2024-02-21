@@ -7,6 +7,7 @@ import {
   parseAbsoluteToLocal,
   parseDate,
   DateValue,
+  CalendarDate,
 } from '../src'
 import {
   Box,
@@ -38,7 +39,7 @@ export default {
 const Template: Story<DateInputProps> = (args) => (
   <FormControl>
     <FormLabel>Date</FormLabel>
-    <DateInput {...args} />
+    <DateInput {...args} defaultValue={new CalendarDate(2023, 1, 1)} />
   </FormControl>
 )
 

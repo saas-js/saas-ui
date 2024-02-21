@@ -81,7 +81,6 @@ export const DateInput = forwardRef<DateInputProps, 'div'>((props, ref) => {
         ref={ref}
         {...inputProps}
       />
-
       {portal ? <Portal>{dialog}</Portal> : dialog}
     </DatePicker>
   )

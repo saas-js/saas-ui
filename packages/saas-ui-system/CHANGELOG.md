@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.0.1
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+
 ## 2.0.0
 
 ### Major Changes

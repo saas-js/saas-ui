@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.4.3
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+
 ## 0.4.2
 
 ### Patch Changes

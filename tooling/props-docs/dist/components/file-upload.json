@@ -26,12 +26,12 @@
       "required": false,
       "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron."
     },
-    "isDisabled": { "type": "boolean", "required": false },
-    "isValidFile": {
-      "type": "(file: File) => boolean",
+    "ids": {
+      "type": "Partial<{\n  root: string\n  dropzone: string\n  hiddenInput: string\n  trigger: string\n  label: string\n  item(id: string): string\n  itemName(id: string): string\n  itemSizeText(id: string): string\n  itemPreview(id: string): string\n}>",
       "required": false,
-      "description": "Function to validate a file"
+      "description": "The ids of the elements. Useful for composition."
     },
+    "isDisabled": { "type": "boolean", "required": false },
     "locale": {
       "type": "string",
       "defaultValue": "en-US",
@@ -58,10 +58,30 @@
       "required": false,
       "description": "The name of the underlying file input"
     },
+    "onFileAccept": {
+      "type": "(details: FileAcceptDetails) => void",
+      "required": false,
+      "description": "Function called when the file is accepted"
+    },
+    "onFileReject": {
+      "type": "(details: FileRejectDetails) => void",
+      "required": false,
+      "description": "Function called when the file is rejected"
+    },
     "onFilesChange": {
       "type": "(details: FileChangeDetails) => void",
       "required": false,
-      "description": "Function called when the value changes"
+      "description": "Function called when the value changes, whether accepted or rejected"
+    },
+    "translations": {
+      "type": "IntlTranslations",
+      "required": false,
+      "description": "The localized messages to use."
+    },
+    "validate": {
+      "type": "(file: File) => FileError[] | null",
+      "required": false,
+      "description": "Function to validate a file"
     }
   },
   "FileUploadPreview": {
@@ -170,16 +190,16 @@
       "required": false,
       "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron."
     },
+    "ids": {
+      "type": "Partial<{\n  root: string\n  dropzone: string\n  hiddenInput: string\n  trigger: string\n  label: string\n  item(id: string): string\n  itemName(id: string): string\n  itemSizeText(id: string): string\n  itemPreview(id: string): string\n}>",
+      "required": false,
+      "description": "The ids of the elements. Useful for composition."
+    },
     "inputRef": {
       "type": "type ONLY_FOR_FORMAT =\n  | ((instance: HTMLInputElement | null) => void)\n  | RefObject<HTMLInputElement>",
       "required": false
     },
     "isDisabled": { "type": "boolean", "required": false },
-    "isValidFile": {
-      "type": "(file: File) => boolean",
-      "required": false,
-      "description": "Function to validate a file"
-    },
     "locale": {
       "type": "string",
       "defaultValue": "en-US",
@@ -206,10 +226,30 @@
       "required": false,
       "description": "The name of the underlying file input"
     },
+    "onFileAccept": {
+      "type": "(details: FileAcceptDetails) => void",
+      "required": false,
+      "description": "Function called when the file is accepted"
+    },
+    "onFileReject": {
+      "type": "(details: FileRejectDetails) => void",
+      "required": false,
+      "description": "Function called when the file is rejected"
+    },
     "onFilesChange": {
       "type": "(details: FileChangeDetails) => void",
       "required": false,
-      "description": "Function called when the value changes"
+      "description": "Function called when the value changes, whether accepted or rejected"
+    },
+    "translations": {
+      "type": "IntlTranslations",
+      "required": false,
+      "description": "The localized messages to use."
+    },
+    "validate": {
+      "type": "(file: File) => FileError[] | null",
+      "required": false,
+      "description": "Function to validate a file"
     }
   }
 }

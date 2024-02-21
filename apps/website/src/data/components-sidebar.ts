@@ -138,7 +138,7 @@ const sidebar = {
         },
         {
           title: 'FileUpload',
-          path: '/docs/components/file-upload',
+          path: '/docs/components/forms/file-upload',
           new: true,
         },
       ],

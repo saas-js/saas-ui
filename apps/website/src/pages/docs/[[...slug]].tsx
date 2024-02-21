@@ -49,8 +49,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const tabsData = getComponentTabsData([ctx.params?.slug])
-  const doc = getDocDoc([ctx.params.slug])
+  const tabsData = getComponentTabsData([ctx.params?.slug!])
+  const doc = getDocDoc([ctx.params?.slug!])
 
   const params =
     (Array.isArray(ctx.params?.slug) ? ctx.params?.slug : [ctx.params?.slug]) ??

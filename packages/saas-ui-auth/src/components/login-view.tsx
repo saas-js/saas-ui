@@ -1,5 +1,5 @@
 import { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
-import { SubmitHandler } from '@saas-ui/forms'
+import { FormProps, SubmitHandler } from '@saas-ui/forms'
 import { useAuth, useLogin } from '../provider'
 import {
   AuthFormOptions,
@@ -13,34 +13,32 @@ import { PasswordForm, PasswordSubmitParams } from './forms/password-form'
 import { Providers } from './forms/providers'
 import { AuthFormSuccess } from './success'
 
-export const LoginView: React.FC<AuthViewOptions & AuthFormOptions> = (
-  props
-) => {
-  const { title = 'Log in', submitLabel = 'Log in', ...rest } = props
+export type LoginViewProps = PasswordViewProps | MagicLinkViewProps
+
+export const LoginView: React.FC<LoginViewProps> = (props) => {
+  const { title = 'Log in', ...rest } = props
+
   if (props.type === 'password') {
-    return <PasswordView title={title} submitLabel={submitLabel} {...rest} />
+    return <PasswordView title={title} {...rest} />
   }
 
-  return <MagicLinkView title={title} submitLabel={submitLabel} {...rest} />
+  return <MagicLinkView title={title} {...rest} />
 }
 
-export const SignupView: React.FC<AuthViewOptions & AuthFormOptions> = (
-  props
-) => {
-  const { title = 'Sign up', submitLabel = 'Sign up', ...rest } = props
-  return (
-    <LoginView
-      action="signUp"
-      title={title}
-      submitLabel={submitLabel}
-      {...rest}
-    />
-  )
+export const SignupView: React.FC<LoginViewProps> = (props) => {
+  const { title = 'Sign up', ...rest } = props
+  return <LoginView action="signUp" title={title} {...rest} />
 }
 
 SignupView.displayName = 'SignupView'
 
-interface PasswordViewProps extends AuthViewOptions, AuthFormOptions {
+interface PasswordViewProps
+  extends AuthViewOptions,
+    AuthFormOptions,
+    Omit<
+      FormProps<any, any>,
+      'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
+    > {
   renderSuccess?: (data: any) => React.ReactElement
 }
 
@@ -61,14 +59,13 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     dividerLabel,
     footer,
     redirectUrl,
-    oauthRedirectUrl,
     ...formProps
   } = props
   const [{ isResolved, data }, submit] = useLogin({ action })
 
   const handleSubmit: SubmitHandler<PasswordSubmitParams> = (params) => {
     return submit(params, {
-      redirectTo: redirectUrl || oauthRedirectUrl,
+      redirectTo: redirectUrl,
     })
       .then(onSuccess)
       .catch(onError)
@@ -86,7 +83,6 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
     providerLabel,
     dividerLabel,
     footer,
-    oauthRedirectUrl,
     redirectUrl,
   }
 
@@ -101,7 +97,13 @@ const PasswordView: React.FC<PasswordViewProps> = (props) => {
   )
 }
 
-interface MagicLinkViewProps extends AuthViewOptions, AuthFormOptions {
+interface MagicLinkViewProps
+  extends AuthViewOptions,
+    AuthFormOptions,
+    Omit<
+      FormProps<any, any>,
+      'title' | 'action' | 'defaultValues' | 'onSubmit' | 'onError' | 'children'
+    > {
   renderSuccess?: (data: any) => React.ReactElement
 }
 
@@ -124,11 +126,10 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     dividerLabel,
     footer,
     redirectUrl,
-    oauthRedirectUrl,
     ...formProps
   } = props
 
-  const [{ isLoading, isResolved, data }, submit] = useLogin({
+  const [{ isResolved, data }, submit] = useLogin({
     action,
   })
 
@@ -150,7 +151,6 @@ const MagicLinkView: React.FC<MagicLinkViewProps> = (props) => {
     dividerLabel,
     footer,
     redirectUrl,
-    oauthRedirectUrl,
   }
 
   return (
@@ -179,7 +179,6 @@ const AuthFormWrapper: React.FC<AuthFormWrapperProps> = (props) => {
     dividerLabel = 'or continue with',
     footer,
     children,
-    oauthRedirectUrl,
     redirectUrl,
     ...rest
   } = props

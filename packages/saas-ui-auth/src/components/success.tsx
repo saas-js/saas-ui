@@ -31,7 +31,9 @@ export const AuthFormSuccess: React.FC<AuthFormSuccessProps> = ({
       <AlertTitle mt={4} mb={1} fontSize="lg">
         {title}
       </AlertTitle>
-      <AlertDescription maxWidth="sm">{description}</AlertDescription>
+      <AlertDescription maxWidth="sm" fontSize="md">
+        {description}
+      </AlertDescription>
     </Alert>
   )
 }

@@ -1,5 +1,36 @@
 # website
 
+## 2.3.20
+
+### Patch Changes
+
+- Updated dependencies [2e7da38]
+- Updated dependencies [da5167a]
+  - @saas-ui/command-bar@0.4.3
+  - @saas-ui/palette@2.1.1
+  - @saas-ui/forms@2.3.12
+  - @saas-ui/react@2.5.10
+  - @saas-ui/props-docs@2.3.1
+
+## 2.3.19
+
+### Patch Changes
+
+- Updated dependencies [46299d93]
+- Updated dependencies [29e5c317]
+  - @saas-ui/props-docs@2.3.0
+  - @saas-ui/forms@2.3.11
+  - @saas-ui/react@2.5.9
+
+## 2.3.18
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+- Updated dependencies [95d59e57]
+  - @saas-ui/react@2.5.8
+  - @saas-ui/props-docs@2.2.0
+
 ## 2.3.17
 
 ### Patch Changes

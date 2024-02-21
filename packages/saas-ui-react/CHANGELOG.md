@@ -1,5 +1,38 @@
 # @saas-ui/react
 
+## 2.5.10
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- Updated dependencies [2e7da38]
+- Updated dependencies [da5167a]
+  - @saas-ui/data-table@7.0.10
+  - @saas-ui/nprogress@2.0.3
+  - @saas-ui/modals@2.1.21
+  - @saas-ui/forms@2.3.12
+  - @saas-ui/theme@2.3.3
+  - @saas-ui/core@2.3.6
+  - @saas-ui/hotkeys@2.2.2
+
+## 2.5.9
+
+### Patch Changes
+
+- Updated dependencies [29e5c317]
+  - @saas-ui/forms@2.3.11
+  - @saas-ui/modals@2.1.20
+  - @saas-ui/data-table@7.0.9
+
+## 2.5.8
+
+### Patch Changes
+
+- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+- Updated dependencies [bc1997b0]
+  - @saas-ui/modals@2.1.19
+  - @saas-ui/data-table@7.0.8
+
 ## 2.5.7
 
 ### Patch Changes

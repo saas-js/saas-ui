@@ -46,7 +46,6 @@ import Hero from '@/components/marketing/hero'
 import Features from '@/components/marketing/features'
 import Section from '@/components/marketing/section-wrapper'
 
-import { SignupForm } from '@/components/signup-form'
 import { Em, Br } from '@/components/typography'
 
 import { FallInPlace } from '@/components/motion/fall-in-place'
@@ -989,7 +988,6 @@ const Highlights = () => {
 }
 
 const FigmaCard = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Stack spacing={8} padding="12">
@@ -1005,9 +1003,9 @@ const FigmaCard = () => {
         </Text>
 
         <ButtonGroup>
-          <Button variant="primary" onClick={() => onOpen()}>
+          <ButtonLink variant="primary" href="/pricing">
             Figma Pro early access
-          </Button>
+          </ButtonLink>
           <ButtonLink
             href="https://www.figma.com/community/file/1257658419283927894"
             variant="subtle"
@@ -1029,8 +1027,6 @@ const FigmaCard = () => {
           >
             Community library
           </ButtonLink>
-
-          <SignupForm isOpen={isOpen} onClose={onClose} />
         </ButtonGroup>
       </Stack>
       <Flex

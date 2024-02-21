@@ -1,5 +1,20 @@
 # @saas-ui/forms
 
+## 2.3.12
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- da5167a: Fixed issue where submit field props were not passed down correctly
+- Updated dependencies [2e7da38]
+  - @saas-ui/core@2.3.6
+
+## 2.3.11
+
+### Patch Changes
+
+- 29e5c317: Fixed issue where submit label could not be overwritten using the fields prop
+
 ## 2.3.10
 
 ### Patch Changes

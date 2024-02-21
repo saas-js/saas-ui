@@ -32,38 +32,30 @@
       "description": "The element to attach the event listener to."
     }
   },
-  "HotkeysGroupListOptions": {},
-  "HotkeysGroupOptions": {
-    "hotkeys": {
-      "type": "HotkeysGroupListOptions",
+  "Hotkey": {
+    "callback": {
+      "type": "() => void",
       "required": true,
-      "description": "Hotkeys in this group"
+      "description": "Callback to be called when the key combination is pressed"
     },
-    "title": {
-      "type": "string",
-      "required": false,
-      "description": "The group title"
-    }
-  },
-  "HotkeysGroup": { "title": { "type": "string", "required": false } },
-  "HotkeysItemOptions": {
+    "children": {
+      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ((props: {\n      keys: string | string[]\n      ariaKeyshortcuts?: string | undefined\n    }) => ReactNode)",
+      "required": true,
+      "description": "A single child or render prop function"
+    },
     "command": {
-      "type": "string",
+      "type": "string | string[]",
       "required": true,
       "description": "The key combination.\nSupports shorthands: ⌥ ⇧ ⌃ ⌘\n\nShifted keys like ? and + are handled automatically"
     },
-    "label": {
-      "type": "string",
-      "required": true,
-      "description": "Label describing the function of this keyboard shortcut"
+    "hotkeyOptions": {
+      "type": "UseHotkeysOptions",
+      "required": false,
+      "description": "Options for the useHotkeys hook"
     }
   },
+  "HotkeysGroup": { "title": { "type": "string", "required": false } },
   "HotkeysItem": { "command": { "type": "string", "required": true } },
-  "HotkeysListOptions": {},
-  "HotkeysList": {
-    "hotkeys": { "type": "HotkeysListOptions", "required": true }
-  },
-  "HotkeysOptions": {
-    "hotkeys": { "type": "HotkeysListOptions", "required": true }
-  }
+  "HotkeysList": { "hotkeys": { "type": "HotkeysConfig", "required": true } },
+  "HotkeysOptions": { "hotkeys": { "type": "HotkeysConfig", "required": true } }
 }

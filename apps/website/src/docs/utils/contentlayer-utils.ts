@@ -14,13 +14,16 @@ function toCapitalized(str: string) {
 }
 
 export function getGroupedComponents() {
-  return getDocByType('components').reduce((acc, doc) => {
-    const category = doc.category
-    if (!category) return acc
-    acc[toCapitalized(category)] ??= []
-    acc[toCapitalized(category)].push(doc)
-    return acc
-  }, {} as { [key: string]: any[] })
+  return getDocByType('components').reduce(
+    (acc, doc) => {
+      const category = doc.category
+      if (!category) return acc
+      acc[toCapitalized(category)] ??= []
+      acc[toCapitalized(category)].push(doc)
+      return acc
+    },
+    {} as { [key: string]: any[] }
+  )
 }
 
 const getUsageDoc = (id: string) => {
@@ -52,16 +55,16 @@ export const getDocDoc = (slug: MixedArray): Doc | undefined => {
   if (isThemingTab) {
     doc.frontMatter = {
       ...doc.frontMatter,
-      ...(getUsageDoc(doc.id)?.frontMatter ?? {}),
-      ...(getThemingDoc(doc.id)?.frontMatter ?? {}),
+      ...(getUsageDoc(doc.id!)?.frontMatter ?? {}),
+      ...(getThemingDoc(doc.id!)?.frontMatter ?? {}),
     }
   }
 
   if (isPropsTab) {
     doc.frontMatter = {
       ...doc.frontMatter,
-      ...(getUsageDoc(doc.id)?.frontMatter ?? {}),
-      ...(getPropsDoc(doc.id)?.frontMatter ?? {}),
+      ...(getUsageDoc(doc.id!)?.frontMatter ?? {}),
+      ...(getPropsDoc(doc.id!)?.frontMatter ?? {}),
     }
   }
 

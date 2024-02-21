@@ -87,7 +87,7 @@ export default function SnackbarExample() {
       <Button
         onClick={() =>
           snackbar.promise(
-            new Promise((resolve) => setTimeout(resolve, 10000)),
+            new Promise((resolve) => setTimeout(resolve, 1000)),
             {
               loading: 'Creating your account...',
               success: 'Your account has been created.',
@@ -99,6 +99,40 @@ export default function SnackbarExample() {
         Show Promise
       </Button>
     </HStack>
+  )
+}
+```
+
+### Promise
+
+Using the `promise` method, you can show a loading state while waiting for a promise to resolve.
+The `success` and `error` option accept an optional function that receives the resolved value or the error, respectively.
+
+If `error` is a function any errors thrown by the promise will be caught and passed to the function.
+
+```jsx inline=true
+export default function SnackbarPromise() {
+  return (
+    <Button
+      onClick={() =>
+        snackbar.promise(
+          new Promise((resolve) =>
+            setTimeout(() => resolve({ name: 'Elliot' }), 1000)
+          ),
+          {
+            loading: 'Creating your account...',
+            success: (data) =>
+              `Welcome ${data.name}, your account has been created.`,
+            error: (error) => {
+              console.error(error)
+              return "Your account couldn't be created."
+            },
+          }
+        )
+      }
+    >
+      Show Promise
+    </Button>
   )
 }
 ```

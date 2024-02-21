@@ -34,31 +34,8 @@ The default Form component supports the following schema format.
 
 The object schema is an object with field props. Array and object fields can have nested fields.
 
-```ts
-type FieldTypes =
-  | 'array'
-  | 'object'
-  | 'text'
-  | 'textarea'
-  | 'select'
-  | 'number'
-  | 'checkbox'
-  | 'radio'
-  | 'pin'
-  | 'phone'
-  | 'url'
-  | 'email'
-  | 'password'
-  | 'switch'
-  | 'native-select'
-
-type ObjectSchema = {
-  [key: FieldTypes]: FieldProps
-}
-```
-
 ```jsx
-import { Form } from '@saas-ui/react'
+import { Form, ObjectSchema } from '@saas-ui/react'
 
 const schema = {
   title: {
@@ -71,7 +48,7 @@ const schema = {
     label: 'Body',
     type: 'textarea',
   },
-}
+} as const satisfies ObjectSchema
 
 export default function Task() {
   return (
@@ -90,7 +67,7 @@ export default function Task() {
 ### Customize submit button
 
 ```jsx
-import { Form } from '@saas-ui/react'
+import { Form, ObjectSchema  } from '@saas-ui/react'
 
 const schema = {
   title: {
@@ -103,7 +80,7 @@ const schema = {
     label: 'Body',
     type: 'textarea',
   },
-}
+} as const satisfies ObjectSchema
 
 export default function Post() {
   return (
@@ -129,7 +106,7 @@ export default function Post() {
 ### Object field
 
 ```jsx
-import { Form } from '@saas-ui/react'
+import { Form, ObjectSchema } from '@saas-ui/react'
 
 const schema = {
   title: {
@@ -154,7 +131,7 @@ const schema = {
       },
     },
   },
-}
+} as const satisfies ObjectSchema
 
 export default function Post() {
   return (
@@ -184,7 +161,7 @@ export default function Post() {
 ### Array field
 
 ```jsx
-import { Form } from '@saas-ui/react'
+import { Form, ObjectSchema } from '@saas-ui/react'
 
 const schema = {
   title: {
@@ -209,7 +186,7 @@ const schema = {
       },
     },
   },
-}
+} as const satisfies ObjectSchema
 
 export default function Post() {
   return (

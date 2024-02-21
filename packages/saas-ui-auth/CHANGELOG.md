@@ -1,5 +1,17 @@
 # @saas-ui/auth
 
+## 3.0.2
+
+### Patch Changes
+
+- 21d603f: Added missing translations
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+- Updated dependencies [73d09d9]
+- Updated dependencies [efca417]
+  - @saas-ui/core@2.4.0
+  - @saas-ui/forms@2.4.0
+
 ## 3.0.1
 
 ### Patch Changes

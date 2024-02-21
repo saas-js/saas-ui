@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 2.4.0
+
+### Minor Changes
+
+- 4a95712: Improved snackbar.promise method to not rethrow error when the error option is a function
+- 4a95712: Improved snackbar.promise success prop to accept an optional function callback
+
 ## 2.3.6
 
 ### Patch Changes

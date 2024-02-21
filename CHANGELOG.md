@@ -8,6 +8,37 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 02-21-2024
+
+`@saas-ui/react@2.6.0`
+
+- Improved snackbar.promise method to not rethrow error when the error option is a function
+- Improved snackbar.promise success prop to accept an optional function callback
+- Added support for leftAddon and rightAddon on number input types
+- Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
+**Date Picker** `v0.12.23`
+
+- Fixed issue where date picker visible date would not update when input value changed
+
+**Auth** `v3.0.2`
+
+- Added missing translations
+
+**Website** `v2.3.21`
+
+- Added missing translations
+
+**Core** `v2.4.0`
+
+- Improved snackbar.promise method to not rethrow error when the error option is a function
+- Improved snackbar.promise success prop to accept an optional function callback
+
+**Forms** `v2.4.0`
+
+- Added support for leftAddon and rightAddon on number input types
+- Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
 ## 01-22-2024
 
 `@saas-ui/react@2.5.5`

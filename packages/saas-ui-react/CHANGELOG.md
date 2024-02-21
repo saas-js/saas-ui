@@ -1,5 +1,26 @@
 # @saas-ui/react
 
+## 2.6.0
+
+### Minor Changes
+
+- 4a95712: Improved snackbar.promise method to not rethrow error when the error option is a function
+- 4a95712: Improved snackbar.promise success prop to accept an optional function callback
+- 73d09d9: Added support for leftAddon and rightAddon on number input types
+- efca417: Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
+### Patch Changes
+
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+- Updated dependencies [73d09d9]
+- Updated dependencies [efca417]
+  - @saas-ui/core@2.4.0
+  - @saas-ui/forms@2.4.0
+  - @saas-ui/data-table@8.0.0
+  - @saas-ui/hotkeys@2.2.3
+  - @saas-ui/modals@2.1.22
+
 ## 2.5.10
 
 ### Patch Changes

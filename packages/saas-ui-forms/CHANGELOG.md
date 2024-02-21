@@ -1,5 +1,18 @@
 # @saas-ui/forms
 
+## 2.4.0
+
+### Minor Changes
+
+- 73d09d9: Added support for leftAddon and rightAddon on number input types
+- efca417: Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
+### Patch Changes
+
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+  - @saas-ui/core@2.4.0
+
 ## 2.3.12
 
 ### Patch Changes

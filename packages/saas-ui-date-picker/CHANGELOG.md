@@ -1,5 +1,15 @@
 # @saas-ui/date-picker
 
+## 0.12.23
+
+### Patch Changes
+
+- a733ca1: Fixed issue where date picker visible date would not update when input value changed
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+  - @saas-ui/core@2.4.0
+  - @saas-ui/modals@2.1.22
+
 ## 0.12.22
 
 ### Patch Changes

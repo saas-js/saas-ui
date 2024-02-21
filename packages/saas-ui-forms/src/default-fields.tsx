@@ -31,9 +31,11 @@ import {
   NativeSelectProps,
   SelectButtonProps,
   SelectListProps,
+  SelectOption,
 } from './select'
 
 import { createField } from './create-field'
+import { FieldOption, FieldOptions } from './types'
 
 export interface InputFieldProps extends InputProps {
   type?: string
@@ -95,6 +97,7 @@ export interface SelectFieldProps extends SelectProps {
 export const SelectField = createField<SelectFieldProps>(
   forwardRef((props, ref) => {
     const { buttonProps, listProps, ...rest } = props
+
     return (
       <Select ref={ref} {...rest}>
         <SelectButton {...buttonProps} />

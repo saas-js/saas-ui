@@ -118,27 +118,25 @@ const useFormProps = (props: FormDialogProps) => {
 /**
  * @todo make this dynamic to support other schema types
  */
-type MergeDialogProps<T> = T extends FormType<
-  infer FieldDefs,
-  infer ExtraProps,
-  infer ExtraOverrides
->
-  ? FormType<
-      FieldDefs,
-      ExtraProps & Omit<BaseModalProps, 'children'>,
-      ExtraOverrides & FormDialogFieldOverrides
-    >
-  : never
+type MergeDialogProps<T> =
+  T extends FormType<infer FieldDefs, infer ExtraProps, infer ExtraOverrides>
+    ? FormType<
+        FieldDefs,
+        ExtraProps & Omit<BaseModalProps, 'children'>,
+        ExtraOverrides & FormDialogFieldOverrides
+      >
+    : never
 
-type IsSchemaType<T, Schema, FieldDefs> = T extends DefaultFormType<FieldDefs>
-  ? T extends (
-      props: FormProps<infer TSchema, infer TFieldValues, infer TContext>
-    ) => any
-    ? Schema extends TSchema
-      ? true
+type IsSchemaType<T, Schema, FieldDefs> =
+  T extends DefaultFormType<FieldDefs>
+    ? T extends (
+        props: FormProps<infer TSchema, infer TFieldValues, infer TContext>
+      ) => any
+      ? Schema extends TSchema
+        ? true
+        : false
       : false
     : false
-  : false
 
 export type DefaultFormType<
   FieldDefs = any,

@@ -52,15 +52,14 @@ const loginSchema = yup.object({
 })
 
 export const Basic = {
-  render(args: FormProps) {
+  render() {
     return (
       <Form
         defaultValues={{
           title: 'Form',
           description: 'A basic layout',
         }}
-        {...args}
-        onSubmit={args?.onSubmit || onSubmit}
+        onSubmit={onSubmit}
       >
         {({ Field }) => (
           <FormLayout>
@@ -76,14 +75,13 @@ export const Basic = {
 }
 
 export const WithValidationRules = {
-  render(props: FormProps) {
+  render() {
     return (
       <Form
         defaultValues={{
           title: '',
           description: '',
         }}
-        {...props}
         onSubmit={onSubmit}
       >
         {({ Field }) => (
@@ -184,7 +182,7 @@ const yupSchema = yup.object({
 })
 
 export const WithYupSchema = {
-  render(props: React.ComponentProps<typeof YupForm>) {
+  render() {
     return (
       <YupForm
         schema={yupSchema}
@@ -192,8 +190,7 @@ export const WithYupSchema = {
           name: '',
           description: '',
         }}
-        {...props}
-        onSubmit={props?.onSubmit || onSubmit}
+        onSubmit={onSubmit}
       >
         {({ Field }) => (
           <FormLayout>

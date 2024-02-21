@@ -111,6 +111,9 @@ const defaultTranslations = {
     'Please check your email for instructions to reset your password.',
   updatePassword: 'Update password',
   updatePasswordSubmit: 'Update password',
+  updatePasswordSuccess: 'Your password has been updated',
+  updatePasswordSuccessDescription:
+    'You can now log in with your new password.',
   backToLogin: 'Back to log in',
   noAccount: 'No account yet?',
   haveAccount: 'Already have an account?',
@@ -350,6 +353,12 @@ export const Auth: React.FC<AuthProps> = (props) => {
               ...fields?.submit,
             },
           }}
+          renderSuccess={() => (
+            <AuthFormSuccess
+              title={translations.updatePasswordSuccess}
+              description={translations.updatePasswordSuccessDescription}
+            />
+          )}
           {...rest}
         />
       )

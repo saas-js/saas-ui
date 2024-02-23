@@ -65,7 +65,7 @@ export default function RootLayout({
 
 ### Link Component
 
-Configure a `linkComponent` to make the Saas UI components that use `Link` work with the Next.js router.
+Configure a `linkComponent` to make the Saas UI components use `Link` that works with the Next.js router.
 
 ```tsx
 'use client'
@@ -78,7 +78,7 @@ const NextLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
 )
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <SaasProvider linkComponent={Link}>{children}</SaasProvider>
+  return <SaasProvider linkComponent={NextLink}>{children}</SaasProvider>
 }
 ```
 

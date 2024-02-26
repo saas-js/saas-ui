@@ -46,6 +46,7 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
   } = props
 
   const [options, containerProps] = split(rest, [
+    'translations',
     'accept',
     'allowDrop',
     'dir',
@@ -58,6 +59,8 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     'minFileSize',
     'name',
     'onFilesChange',
+    'onFileAccept',
+    'onFileReject',
     'getRootNode',
   ])
 

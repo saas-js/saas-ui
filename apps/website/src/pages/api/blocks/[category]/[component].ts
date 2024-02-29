@@ -30,7 +30,7 @@ export default async function handler(
     }
   )
 
-  const { data, error } = await supabase.auth.getUser()
+  const { data } = await supabase.auth.getUser()
 
   const hasLicense = !!data.user?.user_metadata.licenses?.length
 
@@ -43,7 +43,7 @@ export default async function handler(
     attributes = await getComponentFromRepo(category, component)
   }
 
-  if ((!attributes?.attributes.public && !hasLicense) || error) {
+  if (!attributes?.attributes.public && !hasLicense) {
     return res.status(401).json({ error: 'Unauthorized' })
   }
 

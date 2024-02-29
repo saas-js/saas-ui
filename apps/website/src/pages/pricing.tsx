@@ -464,7 +464,7 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
-          title={<strong>2 spots available</strong>}
+          title={<strong>1 spot available</strong>}
           iconColor="green.400"
         />
         <PricingFeature title="Startup license included" iconColor="cyan.500" />

@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.5
+
+### Patch Changes
+
+- 6290650: Fixed issue where onFileAccept an onFileReject would not trigger
+
 ## 0.2.4
 
 ### Patch Changes

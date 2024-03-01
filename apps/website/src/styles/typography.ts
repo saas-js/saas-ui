@@ -10,6 +10,8 @@ export const textStyles = {
     lineHeight: '1.2',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
+    '-webkit-background-clip': 'text',
+    '-webkit-text-fill-color': 'transparent',
     backgroundImage:
       'linear-gradient(to bottom, rgb(0, 0, 0, 0.70) 10%, rgba(0, 0, 0))',
     _dark: {
@@ -20,6 +22,8 @@ export const textStyles = {
   sectionTitle: {
     fontWeight: 'semibold',
     lineHeight: '1.1',
+    '-webkit-background-clip': 'text',
+    '-webkit-text-fill-color': 'transparent',
     backgroundImage:
       'linear-gradient(to bottom, rgb(0, 0, 0, 0.70) 10%, rgba(0, 0, 0))',
     _dark: {
@@ -29,6 +33,8 @@ export const textStyles = {
   },
   cardTitle: {
     fontWeight: 'semibold',
+    '-webkit-background-clip': 'text',
+    '-webkit-text-fill-color': 'transparent',
     backgroundImage:
       'linear-gradient(to bottom, rgb(0, 0, 0, 0.70) 10%, rgba(0, 0, 0))',
     _dark: {

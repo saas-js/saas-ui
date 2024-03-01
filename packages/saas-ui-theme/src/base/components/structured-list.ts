@@ -6,10 +6,20 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseStyle = definePartsStyle((props) => {
   return {
     item: {
-      py: 2,
-      px: 4,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      fontSize: 'md',
     },
     button: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flex: 1,
+      cursor: 'pointer',
+      userSelect: 'none',
       transitionProperty: 'common',
       transitionDuration: 'normal',
       borderRadius: 'inherit',
@@ -36,6 +46,18 @@ const baseStyle = definePartsStyle((props) => {
         },
       },
     },
+    header: {
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'sticky',
+      fontSize: 'md',
+      fontWeight: 'semibold',
+      color: 'muted',
+    },
+    icon: {
+      display: 'flex',
+      flexShrink: 0,
+    },
   }
 })
 
@@ -47,6 +69,10 @@ export const structuredListTheme = defineMultiStyleConfig({
   sizes: {
     sm: {
       item: {
+        py: 1,
+        px: 1,
+      },
+      header: {
         py: 1,
         px: 1,
       },
@@ -63,6 +89,10 @@ export const structuredListTheme = defineMultiStyleConfig({
     },
     md: {
       item: {
+        py: 2,
+        px: 2,
+      },
+      header: {
         py: 2,
         px: 2,
       },

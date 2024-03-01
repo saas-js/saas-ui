@@ -20,6 +20,7 @@ export function ComponentPreview({ children, canvas }: ComponentPreviewProps) {
         marginLeft: canvas?.center ? 'auto' : 'unset',
         marginRight: canvas?.center ? 'auto' : 'unset',
         height: canvas?.height ?? 'auto',
+        overflow: canvas?.height ? 'auto' : 'visible',
       }}
     >
       {children}

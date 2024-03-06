@@ -84,11 +84,14 @@ export const OnFileAccept = {
   render: () => {
     return (
       <FileUpload
-        maxFileSize={1024 * 1024}
+        maxFileSize={1024}
         maxFiles={10}
         accept="image/*"
         onFileAccept={(details) => {
-          console.log(details)
+          console.log('accept', details)
+        }}
+        onFileReject={(details) => {
+          console.log('reject', details)
         }}
       >
         {({ files, clearFiles }) => (

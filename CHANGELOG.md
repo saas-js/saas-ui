@@ -8,6 +8,32 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-06-2024
+
+`@saas-ui/react@2.6.1`
+
+- Fixed issue where Chakra UI Card sizes would not apply
+- Moved all StructuredList styling into theme
+- Fixed issue where ref would not be forwarded to StructuredListHeader
+
+**Theme** `v2.3.4`
+
+- Fixed issue where Chakra UI Card sizes would not apply
+- Moved all StructuredList styling into theme
+
+**Auth** `v3.0.3`
+
+- Added defaultView prop to Auth
+
+**Core** `v2.4.1`
+
+- Moved all StructuredList styling into theme
+- Fixed issue where ref would not be forwarded to StructuredListHeader
+
+**File Upload** `v0.2.6`
+
+- Fixed issue where onFileReject would not be called
+
 ## 02-21-2024
 
 `@saas-ui/react@2.6.0`

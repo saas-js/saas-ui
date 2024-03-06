@@ -1,5 +1,14 @@
 # saas-ui-storybook
 
+## 1.1.24
+
+### Patch Changes
+
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/react@2.6.1
+
 ## 1.1.23
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 2.4.1
+
+### Patch Changes
+
+- 0778d23: Moved all StructuredList styling into theme
+- 7db4aee: Fixed issue where ref would not be forwarded to StructuredListHeader
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+  - @saas-ui/theme@2.3.4
+
 ## 2.4.0
 
 ### Minor Changes

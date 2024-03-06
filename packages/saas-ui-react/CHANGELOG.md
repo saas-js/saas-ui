@@ -1,5 +1,22 @@
 # @saas-ui/react
 
+## 2.6.1
+
+### Patch Changes
+
+- 2f32548: Fixed issue where Chakra UI Card sizes would not apply
+- 0778d23: Moved all StructuredList styling into theme
+- 7db4aee: Fixed issue where ref would not be forwarded to StructuredListHeader
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/theme@2.3.4
+  - @saas-ui/core@2.4.1
+  - @saas-ui/data-table@8.0.1
+  - @saas-ui/forms@2.4.1
+  - @saas-ui/hotkeys@2.2.4
+  - @saas-ui/modals@2.1.23
+
 ## 2.6.0
 
 ### Minor Changes

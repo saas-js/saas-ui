@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.6
+
+### Patch Changes
+
+- 6062e31: Fixed issue where onFileReject would not be called
+
 ## 0.2.5
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @saas-ui/auth
 
+## 3.0.3
+
+### Patch Changes
+
+- e9838ea: Added defaultView prop to Auth
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/core@2.4.1
+  - @saas-ui/forms@2.4.1
+
 ## 3.0.2
 
 ### Patch Changes

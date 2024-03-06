@@ -44,6 +44,11 @@ export interface AuthProps
    */
   view?: ViewType
   /**
+   * The default view to show.
+   * @default "login"
+   */
+  defaultView?: ViewType
+  /**
    * Called when the view changes.
    */
   onViewChange?(view: ViewType): void
@@ -141,6 +146,7 @@ const tpl = (value: string, data: Record<string, any>) => {
 export const Auth: React.FC<AuthProps> = (props) => {
   const {
     view,
+    defaultView = VIEWS.LOGIN,
     onViewChange,
     providers,
     title,
@@ -161,7 +167,7 @@ export const Auth: React.FC<AuthProps> = (props) => {
   const { type } = rest
 
   const [authView, setAuthView] = useControllableState<ViewType>({
-    defaultValue: VIEWS.LOGIN,
+    defaultValue: defaultView,
     value: view,
     onChange: (view) => {
       onViewChange?.(view)

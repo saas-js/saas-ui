@@ -105,7 +105,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     }
     /* eslint-enable */
   }
-  console.log(isLoading)
+
   return (
     <AlertDialog
       isOpen={isOpen}

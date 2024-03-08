@@ -95,6 +95,10 @@ export const BasicArrayField = () => {
               title: 'Test',
               description: '',
             },
+            {
+              title: 'Test',
+              description: '',
+            },
           ],
         }}
         schema={{
@@ -120,7 +124,14 @@ export const BasicArrayField = () => {
       >
         {({ Field, ArrayField }) => (
           <FormLayout>
-            <ArrayField name="arrayField" label="Comments" defaultValue={{}}>
+            <ArrayField
+              name="arrayField"
+              label="Comments"
+              defaultValue={{
+                title: '',
+                description: '',
+              }}
+            >
               <Field name="arrayField.$.title" label="Title" />
               <Field
                 name="arrayField.$.description"

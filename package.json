@@ -119,7 +119,9 @@
     "react": "18.2.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@zag-js/store": "^0.30.0"
+    "@zag-js/core": "^0.38.1",
+    "@zag-js/store": "^0.38.1",
+    "@zag-js/file-upload": "^0.38.1"
   },
   "packageManager": "yarn@4.1.0"
 }

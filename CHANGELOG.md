@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-11-2024
+
+**Modals** `v2.1.24`
+
+- Removed a console.log, closes #211
+
+**File Upload** `v0.2.7`
+
+- Updated zag.js
+
 ## 03-06-2024
 
 `@saas-ui/react@2.6.1`

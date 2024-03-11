@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 2.6.2
+
+### Patch Changes
+
+- Updated dependencies [0fad607]
+  - @saas-ui/modals@2.1.24
+  - @saas-ui/data-table@8.0.2
+
 ## 2.6.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.7
+
+### Patch Changes
+
+- 8279132: Updated zag.js
+
 ## 0.2.6
 
 ### Patch Changes

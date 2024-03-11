@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 2.1.24
+
+### Patch Changes
+
+- 0fad607: Removed a console.log, closes #211
+
 ## 2.1.23
 
 ### Patch Changes

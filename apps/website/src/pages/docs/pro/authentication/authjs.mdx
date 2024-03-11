@@ -69,7 +69,9 @@ const createAuthService = (session: Session | null): AuthProviderProps => {
 const Provider: React.FC<React.PropsWithChildren> = (props) => {
   const { data } = useSession()
   return (
-    <AuthProvider {...createAuthService(data)}>{props.children}</AuthProvider>
+    <BaseAuthProvider {...createAuthService(data)}>
+      {props.children}
+    </BaseAuthProvider>
   )
 }
 

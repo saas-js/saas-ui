@@ -23,4 +23,5 @@ export type {
   FileAcceptDetails,
   FileRejectDetails,
   FileRejection,
+  FileChangeDetails,
 } from '@zag-js/file-upload'

@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.8
+
+### Patch Changes
+
+- 6456ba5: Exported missing FileChangeDetails type
+
 ## 0.2.7
 
 ### Patch Changes

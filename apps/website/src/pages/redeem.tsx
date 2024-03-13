@@ -12,10 +12,6 @@ import { Auth, AvailableProviders, useAuth } from '@saas-ui/auth'
 import { FaDiscord, FaGoogle } from 'react-icons/fa6'
 
 const providers: AvailableProviders = {
-  google: {
-    name: 'Google',
-    icon: () => <FaGoogle size="1.1rem" color="#DB4437" />,
-  },
   discord: {
     name: 'Discord',
     icon: () => <FaDiscord size="1.1rem" color="#7289da" />,

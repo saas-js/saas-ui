@@ -99,7 +99,7 @@ export const ThemesPage = () => {
   return (
     <Box>
       <SEO
-        title="Saas UI"
+        title="Chakra UI Themes"
         description="Professionally crafted Chakra UI themes"
         titleTemplate="Professionally crafted Chakra UI themes"
       />

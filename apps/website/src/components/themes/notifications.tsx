@@ -34,7 +34,7 @@ const NotificationItem: React.FC<NotificationItemProps> = (props) => {
           size="sm"
           fontWeight="normal"
           m="0"
-          for={name}
+          htmlFor={name}
           userSelect="none"
         >
           {title}

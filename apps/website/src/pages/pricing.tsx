@@ -3,13 +3,20 @@ import * as React from 'react'
 import Script from 'next/script'
 
 import {
+  Avatar,
   Badge,
   Box,
   Button,
   CardHeader,
   Center,
+  Container,
   IconButton,
   SimpleGrid,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   Tag,
   useClipboard,
   useDisclosure,
@@ -33,7 +40,7 @@ import { ButtonLink } from '@/components/link'
 
 import { Faq } from '@/components/faq'
 
-import { Testimonials } from '@/components/testimonials'
+import { Testimonial, Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
@@ -72,11 +79,87 @@ const PricingPage = () => {
       <Box mb={8} w="full" position="relative" overflow="hidden">
         <Pricing />
 
+        <TestimonialTabs />
+
         <Faq />
 
         <Testimonials />
       </Box>
     </Box>
+  )
+}
+
+const TestimonialTabs = () => {
+  return (
+    <Container>
+      <Tabs
+        variant="unstyled"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+      >
+        <TabList mb="6">
+          <Tab opacity="0.4" _selected={{ opacity: 1 }}>
+            <Avatar
+              name="Simon Høiberg"
+              src="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=200"
+            />
+          </Tab>
+          <Tab opacity="0.4" _selected={{ opacity: 1 }}>
+            <Avatar
+              name="Makenna Smutz"
+              src="https://senjaio.b-cdn.net/public/avatar/ecbaf7d4-f379-4693-8366-39bb63d2b623_profile-image.jpeg?width=200"
+            />
+          </Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel textAlign="center">
+            <Text
+              fontSize="2xl"
+              fontWeight="light"
+              mb="6"
+              _before={{ content: '"“"' }}
+              _after={{ content: '"“"' }}
+            >
+              It&apos;s challenging building something that&apos;s a great
+              developer experience and performing well at the same time. SaaS UI
+              has been a massive help in this.
+            </Text>
+
+            <Text>Simon Høiberg</Text>
+            <Text color="muted" fontSize="sm">
+              {' '}
+              Founder -{' '}
+              <a href="https://aidbase.ai/" target="_blank">
+                Aidbase
+              </a>
+            </Text>
+          </TabPanel>
+          <TabPanel textAlign="center">
+            <Text
+              fontSize="2xl"
+              fontWeight="light"
+              mb="6"
+              _before={{ content: '"“"' }}
+              _after={{ content: '"“"' }}
+            >
+              Saas-ui is fantastic if you want to build fast-as-thought with
+              beautiful defaults and still have the flexibility to customize
+              when time allows. I truly love building with it!!
+            </Text>
+
+            <Text>Makenna Smutz</Text>
+            <Text color="muted" fontSize="sm">
+              {' '}
+              Founder -{' '}
+              <a href="https://halite.app/" target="_blank">
+                Halite
+              </a>
+            </Text>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Container>
   )
 }
 
@@ -164,7 +247,7 @@ const Pricing = () => {
           <PricingBox
             title={
               <HStack as="span">
-                <Text as="span">Design</Text>{' '}
+                <Text as="span">Figma Pro</Text>{' '}
                 <Tag colorScheme="primary" size="sm">
                   New
                 </Tag>
@@ -241,6 +324,16 @@ const Pricing = () => {
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
               <PricingFeature title="Advanced components" />
+              <PricingFeature
+                title={
+                  <HStack as="span">
+                    <Text as="span">Blocks</Text>{' '}
+                    <Tag colorScheme="primary" size="sm">
+                      New
+                    </Tag>
+                  </HStack>
+                }
+              />
               <PricingFeature title="Multiple themes" />
               <PricingFeature title="Next.js and Electron boilerplates" />
               <PricingFeature title="Private discord community" />
@@ -295,7 +388,7 @@ const Pricing = () => {
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Figma design system</Text>{' '}
+                    <Text as="span">Figma Pro included</Text>{' '}
                     <Tag colorScheme="primary" size="sm">
                       New
                     </Tag>

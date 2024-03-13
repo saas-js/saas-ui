@@ -23,7 +23,7 @@ export const CATEGORIES: CategoriesGroup[] = [
       {
         slug: 'cards',
         name: 'Cards',
-        images: images.kpicards ?? null,
+        images: images.cards ?? null,
       },
       {
         slug: 'kpi-cards',

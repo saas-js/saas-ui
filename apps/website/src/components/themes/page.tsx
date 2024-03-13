@@ -169,10 +169,11 @@ export const ThemesPage = () => {
                 gap="8"
                 alignItems="flex-start"
                 mt="72px"
+                width="1000px"
                 data-theme={colorScheme.colorMode}
                 data-theme-id={themeId}
               >
-                <Flex flex="1" gap="8" flexDirection="column">
+                <Flex flex="1" flexShrink="0" gap="8" flexDirection="column">
                   <ThemesIssues />
                   <ThemesMembers />
                   <ThemeNotifications />
@@ -185,7 +186,7 @@ export const ThemesPage = () => {
                     </GridItem>
                   </Grid>
                 </Flex>
-                <Flex flex="1" gap="8" flexDirection="column">
+                <Flex flex="1" flexShrink="0" gap="8" flexDirection="column">
                   <HStack
                     alignItems="stretch"
                     justifyContent="stretch"

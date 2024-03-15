@@ -140,7 +140,7 @@ export { RadioInput } from './radio'
 export type { RadioInputProps, RadioOption, RadioOptions } from './radio'
 
 // Exporting BaseField from './base-field'
-export { BaseField } from './base-field'
+export { BaseField, useBaseField } from './base-field'
 
 // Exporting from './default-fields'
 export {

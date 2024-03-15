@@ -5,11 +5,15 @@ import {
   FormControl,
   Input,
   FormLabel,
+  HStack,
+  Tooltip,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as yup from 'yup'
 import { z } from 'zod'
+
+import { LuInfo } from 'react-icons/lu'
 
 import { createYupForm } from '../yup/src'
 import { createZodForm } from '../zod/src'
@@ -25,10 +29,12 @@ import {
   createForm,
   UseFormReturn,
   createField,
+  useBaseField,
 } from '../src'
 
 import { onSubmit } from './helpers'
 import { JSONSchemaType } from 'ajv'
+import { splitProps } from '@saas-ui/core/utils'
 
 export default {
   title: 'Components/Forms/Form',
@@ -105,12 +111,53 @@ export const WithValidationRules = {
   },
 }
 
-const CustomField = createField((props: { customFieldProps: string }) => (
+const CustomField = createField((props: { labelInfo: string }) => (
   <div>custom</div>
 ))
 
 const TypedForm = createForm({
   fields: { custom: CustomField },
+  getBaseField() {
+    const baseFieldProps = [
+      'id',
+      'name',
+      'label',
+      'help',
+      'isDisabled',
+      'isInvalid',
+      'isReadOnly',
+      'isRequired',
+      'children',
+      'labelInfo',
+    ]
+
+    return {
+      baseFieldProps,
+      BaseField: (props) => {
+        const [fieldProps] = splitProps(props, baseFieldProps)
+
+        const { labelInfo, children, ...rest } = fieldProps
+
+        const { controlProps, labelProps, error, touched } = useBaseField(rest)
+
+        return (
+          <FormControl {...controlProps} isInvalid={!!error}>
+            <HStack alignItems="center" mb="2" spacing="0">
+              <FormLabel mb="0">{labelProps.label}</FormLabel>
+              {labelInfo ? (
+                <Tooltip label={labelInfo}>
+                  <span>
+                    <LuInfo />
+                  </span>
+                </Tooltip>
+              ) : null}
+            </HStack>
+            {children}
+          </FormControl>
+        )
+      },
+    }
+  },
 })
 
 export const BasicTyped = () => (
@@ -126,6 +173,26 @@ export const BasicTyped = () => (
         <Field name="title" label="Title" type="text" />
         <Field name="description" label="Description" type="textarea" />
 
+        <SubmitButton />
+      </FormLayout>
+    )}
+  </TypedForm>
+)
+
+export const CustomBaseField = () => (
+  <TypedForm
+    defaultValues={{
+      title: 'Form',
+      description: 'A basic layout',
+      custom: '',
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="title" label="Title" type="text" />
+        <Field name="description" label="Description" type="textarea" />
+        <Field name="custom" label="Custom" labelInfo="Test" />
         <SubmitButton />
       </FormLayout>
     )}

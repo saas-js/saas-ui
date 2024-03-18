@@ -1,6 +1,6 @@
 import React from 'react'
 import { defaultFieldTypes, InputField } from './default-fields'
-import { GetBaseField } from './create-field'
+import { GetBaseField } from './types'
 
 export interface FieldsContextValue {
   fields: Record<string, React.FC<any>>

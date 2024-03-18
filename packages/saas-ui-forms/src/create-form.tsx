@@ -1,22 +1,26 @@
 import React, { ForwardedRef } from 'react'
+import { forwardRef } from '@chakra-ui/react'
+
 import { FieldsProvider } from './fields-context'
 import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { WithFields } from './types'
+import { GetBaseField, WithFields } from './types'
 import { objectFieldResolver } from './field-resolver'
 import { GetFieldResolver } from './field-resolver'
-import { forwardRef } from '@chakra-ui/react'
-import { GetBaseField } from './create-field'
 
-export interface CreateFormProps<FieldDefs> {
+export interface CreateFormProps<
+  FieldDefs,
+  ExtraFieldProps extends object = object,
+> {
   resolver?: GetResolver
   fieldResolver?: GetFieldResolver
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
-  getBaseField?: GetBaseField<any>
+  getBaseField?: GetBaseField<ExtraFieldProps>
 }
 
 export type FormType<
   FieldDefs,
   ExtraProps = object,
+  ExtraFieldProps extends object = object,
   ExtraOverrides = object,
 > = (<
   TSchema = unknown,
@@ -24,7 +28,7 @@ export type FormType<
   TContext extends object = object,
 >(
   props: WithFields<
-    FormProps<TSchema, TFieldValues, TContext>,
+    FormProps<TSchema, TFieldValues, TContext, ExtraFieldProps>,
     FieldDefs,
     ExtraOverrides
   > & {
@@ -35,19 +39,22 @@ export type FormType<
   id?: string
 }
 
-export function createForm<FieldDefs>({
+export function createForm<FieldDefs, ExtraFieldProps extends object = object>({
   resolver,
   fieldResolver = objectFieldResolver,
   fields,
   getBaseField,
-}: CreateFormProps<FieldDefs> = {}) {
+}: CreateFormProps<FieldDefs, ExtraFieldProps> = {}) {
   const DefaultForm = forwardRef(
     <
       TSchema = any,
       TFieldValues extends FieldValues = FieldValues,
       TContext extends object = object,
     >(
-      props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs>,
+      props: WithFields<
+        FormProps<TSchema, TFieldValues, TContext, ExtraFieldProps>,
+        FieldDefs
+      >,
       ref: ForwardedRef<HTMLFormElement>
     ) => {
       const {
@@ -68,7 +75,7 @@ export function createForm<FieldDefs>({
         </FieldsProvider>
       )
     }
-  ) as FormType<FieldDefs>
+  ) as FormType<FieldDefs, object, ExtraFieldProps>
 
   DefaultForm.displayName = 'Form'
   DefaultForm.id = 'Form'

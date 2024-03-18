@@ -1,9 +1,8 @@
 import * as zod from 'zod'
-
+import { FieldPath } from 'react-hook-form'
 import { expectType } from 'tsd'
 
 import { ArrayFieldPath, FieldOverrides } from '../src/types'
-import { FieldPath } from 'react-hook-form'
 
 const schema = zod.object({
   name: zod.string(),
@@ -58,7 +57,7 @@ type Test = FieldOverrides<
     c: [
       {
         test: string
-      }
+      },
     ]
   }
 >

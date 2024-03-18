@@ -34,7 +34,8 @@ import { UseArrayFieldReturn } from './use-array-field'
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TExtraFieldProps extends object = object,
+  TFieldTypes = FieldProps<TFieldValues, TExtraFieldProps>,
 > extends UseFormReturn<TFieldValues, TContext> {
   Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
   DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
@@ -48,7 +49,8 @@ interface FormOptions<
   TSchema = unknown,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TExtraFieldProps extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>,
 > {
   /**
    * The form schema.
@@ -74,7 +76,7 @@ interface FormOptions<
    * The form children, can be a render prop or a ReactNode.
    */
   children?: MaybeRenderProp<
-    FormRenderContext<TFieldValues, TContext, TFieldTypes>
+    FormRenderContext<TFieldValues, TContext, TExtraFieldProps, TFieldTypes>
   >
   /**
    * The field resolver, used to resolve the fields from schemas.
@@ -90,13 +92,20 @@ export interface FormProps<
   TSchema = unknown,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TExtraFieldProps extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>,
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,
       'children' | 'onChange' | 'onSubmit' | 'onError'
     >,
-    FormOptions<TSchema, TFieldValues, TContext, TFieldTypes> {}
+    FormOptions<
+      TSchema,
+      TFieldValues,
+      TContext,
+      TExtraFieldProps,
+      TFieldTypes
+    > {}
 
 /**
  * The wrapper component provides context, state, and focus management.
@@ -108,9 +117,16 @@ export const Form = forwardRef(
     TSchema = any,
     TFieldValues extends FieldValues = FieldValues,
     TContext extends object = object,
-    TFieldTypes = FieldProps<TFieldValues>
+    TExtraFieldProps extends object = object,
+    TFieldTypes = FieldProps<TFieldValues>,
   >(
-    props: FormProps<TSchema, TFieldValues, TContext, TFieldTypes>,
+    props: FormProps<
+      TSchema,
+      TFieldValues,
+      TContext,
+      TExtraFieldProps,
+      TFieldTypes
+    >,
     ref: React.ForwardedRef<HTMLFormElement>
   ) => {
     const {
@@ -206,9 +222,16 @@ export type FormComponent = (<
   TSchema = unknown,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TExtraFieldProps extends object = object,
+  TFieldTypes = FieldProps<TFieldValues>,
 >(
-  props: FormProps<TSchema, TFieldValues, TContext, TFieldTypes> & {
+  props: FormProps<
+    TSchema,
+    TFieldValues,
+    TContext,
+    TExtraFieldProps,
+    TFieldTypes
+  > & {
     ref?: React.ForwardedRef<HTMLFormElement>
   }
 ) => React.ReactElement) & {
@@ -219,7 +242,7 @@ Form.displayName = 'Form'
 
 export type GetResolver = <
   TFieldValues extends FieldValues,
-  TContext extends object
+  TContext extends object,
 >(
   schema: unknown
 ) => (

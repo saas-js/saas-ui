@@ -27,13 +27,14 @@ const isTouched = (
 }
 
 export const useBaseField = (props: BaseFieldProps) => {
-  const { children, ...rest } = props
+  const [labelProps] = splitProps(props, ['name', 'label', 'help', 'hideLabel'])
 
-  const [labelProps, controlProps] = splitProps(rest, [
-    'name',
-    'label',
-    'help',
-    'hideLabel',
+  const [controlProps] = splitProps(props, [
+    'id',
+    'isDisabled',
+    'isInvalid',
+    'isReadOnly',
+    'isRequired',
   ])
 
   const { formState } = useFormContext()

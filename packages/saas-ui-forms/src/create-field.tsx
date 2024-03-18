@@ -6,22 +6,22 @@ import { callAllHandlers } from '@chakra-ui/utils'
 
 import { splitProps } from '@saas-ui/core/utils'
 
-import { BaseFieldProps, FieldProps } from './types'
+import { BaseFieldProps, FieldProps, GetBaseField } from './types'
 import { BaseField } from './base-field'
 import { useFormContext } from './form-context'
 import { useFieldsContext } from './fields-context'
 
-interface CreateFieldProps {
+interface CreateFieldProps<ExtraFieldProps extends object = object> {
   displayName: string
   hideLabel?: boolean
-  getBaseField: GetBaseField<any>
+  getBaseField: GetBaseField<ExtraFieldProps>
 }
 
 const _createField = (
   InputComponent: React.FC<any>,
   { displayName, hideLabel, getBaseField: getBaseFieldProp }: CreateFieldProps
 ) => {
-  const Field = forwardRef((props, ref) => {
+  const Field = forwardRef<any, 'div'>((props, ref) => {
     const { id, name, label, isRequired, rules } = props
 
     const inputRules = {
@@ -33,19 +33,31 @@ const _createField = (
 
     const getBaseField = fieldContext?.getBaseField ?? getBaseFieldProp
 
-    const { baseFieldProps, BaseField } = getBaseField(props)
+    const { extraProps, BaseField } = getBaseField()
 
-    const [fieldProps, inputProps] = splitProps(props, baseFieldProps)
+    const [, inputProps] = splitProps(
+      props,
+      [
+        'children',
+        'name',
+        'label',
+        'isRequired',
+        'isDisabled',
+        'isInvalid',
+        'isReadOnly',
+        'help',
+      ].concat(extraProps)
+    )
 
     return (
-      <BaseField {...fieldProps}>
+      <BaseField {...props}>
         <InputComponent
           ref={ref}
           id={id}
           name={name}
           label={hideLabel ? label : undefined} // Only pass down the label when it should be inline.
-          rules={inputRules}
           {...inputProps}
+          rules={inputRules}
         />
       </BaseField>
     )
@@ -105,21 +117,10 @@ const withUncontrolledInput = (InputComponent: React.FC<any>) => {
   )
 }
 
-export type GetBaseField<TProps extends object> = (
-  props: Omit<BaseFieldProps, 'name'> & { name: string } & TProps
-) => {
-  baseFieldProps: string[]
-  BaseField: React.FC<TProps>
-}
-
 export interface CreateFieldOptions<TProps extends object> {
   isControlled?: boolean
   hideLabel?: boolean
-  /**
-   * @deprecated Use `getBaseField` instead
-   */
   BaseField?: React.FC<any>
-  getBaseField?: GetBaseField<TProps>
 }
 
 /**
@@ -141,31 +142,13 @@ export const createField = <TProps extends object>(
     InputComponent = withUncontrolledInput(component)
   }
 
-  const getBaseField =
-    options?.getBaseField ??
-    function getBaseField(props: any) {
-      const keys = [
-        'id',
-        'name',
-        'label',
-        'help',
-        'isDisabled',
-        'isInvalid',
-        'isReadOnly',
-        'isRequired',
-        'children',
-      ]
-
-      return {
-        baseFieldProps: keys,
-        BaseField: options?.BaseField || BaseField,
-      }
-    }
-
   const Field = _createField(InputComponent, {
     displayName: `${component.displayName ?? 'Custom'}Field`,
     hideLabel: options?.hideLabel,
-    getBaseField,
+    getBaseField: () => ({
+      extraProps: [],
+      BaseField,
+    }),
   }) as React.FC<Omit<BaseFieldProps, keyof TProps> & TProps>
 
   return Field

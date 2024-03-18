@@ -7,6 +7,7 @@ import {
   FormLabel,
   HStack,
   Tooltip,
+  forwardRef,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -14,6 +15,7 @@ import * as yup from 'yup'
 import { z } from 'zod'
 
 import { LuInfo } from 'react-icons/lu'
+import { splitProps } from '@saas-ui/core/utils'
 
 import { createYupForm } from '../yup/src'
 import { createZodForm } from '../zod/src'
@@ -25,7 +27,6 @@ import {
   Field,
   DisplayIf,
   SubmitButton,
-  FormProps,
   createForm,
   UseFormReturn,
   createField,
@@ -33,8 +34,8 @@ import {
 } from '../src'
 
 import { onSubmit } from './helpers'
-import { JSONSchemaType } from 'ajv'
-import { splitProps } from '@saas-ui/core/utils'
+
+import { GetBaseField } from '../src/types'
 
 export default {
   title: 'Components/Forms/Form',
@@ -111,53 +112,43 @@ export const WithValidationRules = {
   },
 }
 
-const CustomField = createField((props: { labelInfo: string }) => (
-  <div>custom</div>
-))
+const CustomField = createField<{ customFieldProp?: string }>(
+  forwardRef((props, ref) => <div ref={ref}>{props.customFieldProp}</div>)
+)
+
+const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
+  return {
+    extraProps: ['infoLabel'],
+    BaseField: (props) => {
+      const [{ children, infoLabel }, fieldProps] = splitProps(props, [
+        'children',
+        'infoLabel',
+      ])
+
+      const { controlProps, labelProps, error } = useBaseField(fieldProps)
+
+      return (
+        <FormControl {...controlProps} isInvalid={!!error}>
+          <HStack alignItems="center" mb="2" spacing="0">
+            <FormLabel mb="0">{labelProps.label}</FormLabel>
+            {infoLabel ? (
+              <Tooltip label={infoLabel}>
+                <span>
+                  <LuInfo />
+                </span>
+              </Tooltip>
+            ) : null}
+          </HStack>
+          {children}
+        </FormControl>
+      )
+    },
+  }
+}
 
 const TypedForm = createForm({
   fields: { custom: CustomField },
-  getBaseField() {
-    const baseFieldProps = [
-      'id',
-      'name',
-      'label',
-      'help',
-      'isDisabled',
-      'isInvalid',
-      'isReadOnly',
-      'isRequired',
-      'children',
-      'labelInfo',
-    ]
-
-    return {
-      baseFieldProps,
-      BaseField: (props) => {
-        const [fieldProps] = splitProps(props, baseFieldProps)
-
-        const { labelInfo, children, ...rest } = fieldProps
-
-        const { controlProps, labelProps, error, touched } = useBaseField(rest)
-
-        return (
-          <FormControl {...controlProps} isInvalid={!!error}>
-            <HStack alignItems="center" mb="2" spacing="0">
-              <FormLabel mb="0">{labelProps.label}</FormLabel>
-              {labelInfo ? (
-                <Tooltip label={labelInfo}>
-                  <span>
-                    <LuInfo />
-                  </span>
-                </Tooltip>
-              ) : null}
-            </HStack>
-            {children}
-          </FormControl>
-        )
-      },
-    }
-  },
+  getBaseField,
 })
 
 export const BasicTyped = () => (
@@ -192,7 +183,13 @@ export const CustomBaseField = () => (
       <FormLayout>
         <Field name="title" label="Title" type="text" />
         <Field name="description" label="Description" type="textarea" />
-        <Field name="custom" label="Custom" labelInfo="Test" />
+        <Field
+          name="custom"
+          type="custom"
+          label="Custom"
+          infoLabel="Hello there"
+          customFieldProps="custom"
+        />
         <SubmitButton />
       </FormLayout>
     )}

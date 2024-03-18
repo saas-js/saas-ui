@@ -50,7 +50,7 @@ interface FormOptions<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TExtraFieldProps extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>,
+  TFieldTypes = FieldProps<TFieldValues, TExtraFieldProps>,
 > {
   /**
    * The form schema.
@@ -93,7 +93,7 @@ export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
   TExtraFieldProps extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>,
+  TFieldTypes = FieldProps<TFieldValues, TExtraFieldProps>,
 > extends UseFormProps<TFieldValues, TContext>,
     Omit<
       HTMLChakraProps<'form'>,

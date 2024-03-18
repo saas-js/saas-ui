@@ -148,7 +148,7 @@ const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
 
 const TypedForm = createForm({
   fields: { custom: CustomField },
-  getBaseField,
+  //getBaseField,
 })
 
 export const BasicTyped = () => (

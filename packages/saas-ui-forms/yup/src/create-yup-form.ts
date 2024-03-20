@@ -4,6 +4,7 @@ import {
   FormProps,
   WithFields,
   FieldValues,
+  GetBaseField,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
 import { InferType } from 'yup'
@@ -12,8 +13,10 @@ import { AnyObjectSchema } from './types'
 
 type ResolverArgs = Parameters<typeof yupResolver>
 
-export interface CreateYupFormProps<FieldDefs>
-  extends CreateFormProps<FieldDefs> {
+export interface CreateYupFormProps<
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+> extends CreateFormProps<FieldDefs, TGetBaseField> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }
@@ -21,15 +24,16 @@ export interface CreateYupFormProps<FieldDefs>
 export type YupFormType<
   FieldDefs,
   ExtraProps = object,
+  ExtraFieldProps extends object = object,
   ExtraOverrides = object,
-  Type extends 'yup' = 'yup'
+  Type extends 'yup' = 'yup',
 > = (<
   TSchema extends AnyObjectSchema = AnyObjectSchema,
   TFieldValues extends InferType<TSchema> = InferType<TSchema>, // placeholder
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: WithFields<
-    FormProps<TFieldValues, TContext, TSchema>,
+    FormProps<TSchema, TFieldValues, TContext, ExtraFieldProps>,
     FieldDefs,
     ExtraOverrides
   > & {
@@ -40,9 +44,17 @@ export type YupFormType<
   id?: 'YupForm'
 }
 
-export const createYupForm = <FieldDefs>(
-  options?: CreateYupFormProps<FieldDefs>
+export const createYupForm = <
+  FieldDefs,
+  TGetBaseField extends GetBaseField<any> = GetBaseField<any>,
+>(
+  options?: CreateYupFormProps<FieldDefs, TGetBaseField>
 ) => {
+  type ExtraFieldProps =
+    TGetBaseField extends GetBaseField<infer ExtraFieldProps>
+      ? ExtraFieldProps
+      : object
+
   const YupForm = createForm({
     resolver: (schema: any) =>
       yupResolver(
@@ -57,5 +69,5 @@ export const createYupForm = <FieldDefs>(
   YupForm.displayName = 'YupForm'
   YupForm.id = 'YupForm'
 
-  return YupForm as YupFormType<FieldDefs>
+  return YupForm as YupFormType<FieldDefs, object, ExtraFieldProps>
 }

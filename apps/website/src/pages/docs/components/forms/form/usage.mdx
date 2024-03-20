@@ -624,6 +624,53 @@ export default function MyForm = () => {
 }
 ```
 
+### Custom base field
+
+The base field is responsible for rendering the label, help text, error message and the input itself.
+You can configure a custom base field using the `getBaseField` prop of `createForm`.
+
+You can configure `extraProps` that can be passed to the `Field` component and will be available in your custom `BaseField` component.
+
+```tsx
+import { FormControl, FormLabel, HStack, Tooltip } from '@chakra-ui/react'
+import { createForm, useBaseField, splitProps } from '@saas-ui/react'
+import { LuInfo } from 'react-icons/lu'
+
+const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
+  return {
+    extraProps: ['infoLabel'],
+    BaseField: (props) => {
+      const [{ children, infoLabel }, fieldProps] = splitProps(props, [
+        'children',
+        'infoLabel',
+      ])
+
+      const { controlProps, labelProps, error } = useBaseField(fieldProps)
+
+      return (
+        <FormControl {...controlProps} isInvalid={!!error}>
+          <HStack alignItems="center" mb="2" spacing="0">
+            <FormLabel mb="0">{labelProps.label}</FormLabel>
+            {infoLabel ? (
+              <Tooltip label={infoLabel}>
+                <span>
+                  <LuInfo />
+                </span>
+              </Tooltip>
+            ) : null}
+          </HStack>
+          {children}
+        </FormControl>
+      )
+    },
+  }
+}
+
+export const Form = createForm({
+  getBaseField,
+})
+```
+
 ## Accessibility
 
 The `Form` component wraps the children in a HTML `<form>` element.

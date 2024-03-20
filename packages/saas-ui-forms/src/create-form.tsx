@@ -9,12 +9,12 @@ import { GetFieldResolver } from './field-resolver'
 
 export interface CreateFormProps<
   FieldDefs,
-  ExtraFieldProps extends object = object,
+  TGetBaseField extends GetBaseField = GetBaseField,
 > {
   resolver?: GetResolver
   fieldResolver?: GetFieldResolver
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
-  getBaseField?: GetBaseField<ExtraFieldProps>
+  getBaseField?: TGetBaseField
 }
 
 export type FormType<
@@ -39,12 +39,20 @@ export type FormType<
   id?: string
 }
 
-export function createForm<FieldDefs, ExtraFieldProps extends object = object>({
+export function createForm<
+  FieldDefs,
+  TGetBaseField extends GetBaseField<any> = GetBaseField<any>,
+>({
   resolver,
   fieldResolver = objectFieldResolver,
   fields,
   getBaseField,
-}: CreateFormProps<FieldDefs, ExtraFieldProps> = {}) {
+}: CreateFormProps<FieldDefs, TGetBaseField> = {}) {
+  type ExtraFieldProps =
+    TGetBaseField extends GetBaseField<infer ExtraFieldProps>
+      ? ExtraFieldProps
+      : object
+
   const DefaultForm = forwardRef(
     <
       TSchema = any,

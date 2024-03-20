@@ -34,8 +34,7 @@ import { UseArrayFieldReturn } from './use-array-field'
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TExtraFieldProps extends object = object,
-  TFieldTypes = FieldProps<TFieldValues, TExtraFieldProps>,
+  TFieldTypes = FieldProps<TFieldValues>,
 > extends UseFormReturn<TFieldValues, TContext> {
   Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
   DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
@@ -76,7 +75,7 @@ interface FormOptions<
    * The form children, can be a render prop or a ReactNode.
    */
   children?: MaybeRenderProp<
-    FormRenderContext<TFieldValues, TContext, TExtraFieldProps, TFieldTypes>
+    FormRenderContext<TFieldValues, TContext, TFieldTypes>
   >
   /**
    * The field resolver, used to resolve the fields from schemas.

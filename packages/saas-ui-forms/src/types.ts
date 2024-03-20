@@ -97,12 +97,12 @@ type FieldPathWithArray<
 export type MergeFieldProps<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
-  TCustomProps extends object = object,
+  TExtraFieldProps extends object = object,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = ValueOf<{
   [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
     ? { type?: K } & ShallowMerge<Props, BaseFieldProps<TFieldValues, TName>> &
-        TCustomProps
+        TExtraFieldProps
     : never
 }>
 
@@ -115,7 +115,7 @@ export type FormChildren<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TCustomProps extends object = object,
+  TExtraFieldProps extends object = object,
 > = MaybeRenderProp<
   FormRenderContext<
     TFieldValues,
@@ -125,7 +125,7 @@ export type FormChildren<
         ? DefaultFields
         : ShallowMerge<DefaultFields, FieldDefs>,
       TFieldValues,
-      TCustomProps
+      TExtraFieldProps
     >
   >
 >

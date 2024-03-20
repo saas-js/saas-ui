@@ -148,7 +148,7 @@ const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
 
 const TypedForm = createForm({
   fields: { custom: CustomField },
-  //getBaseField,
+  getBaseField,
 })
 
 export const BasicTyped = () => (
@@ -187,8 +187,8 @@ export const CustomBaseField = () => (
           name="custom"
           type="custom"
           label="Custom"
+          customFieldProp="custom"
           infoLabel="Hello there"
-          customFieldProps="custom"
         />
         <SubmitButton />
       </FormLayout>
@@ -198,11 +198,13 @@ export const CustomBaseField = () => (
 
 const ZodForm = createZodForm({
   fields: { custom: CustomField },
+  getBaseField,
 })
 
 const zodSchema = z.object({
   firstName: z.string(),
   age: z.number(),
+  custom: z.string().optional(),
 })
 
 export const WithZodSchema = {
@@ -220,6 +222,13 @@ export const WithZodSchema = {
           <FormLayout>
             <Field name="firstName" label="Name" />
             <Field name="age" label="Age" type="number" />
+            <Field
+              name="custom"
+              type="custom"
+              label="Custom"
+              customFieldProp="custom"
+              infoLabel="Hello there"
+            />
             <SubmitButton />
           </FormLayout>
         )}
@@ -228,7 +237,10 @@ export const WithZodSchema = {
   },
 }
 
-const YupForm = createYupForm()
+const YupForm = createYupForm({
+  fields: { custom: CustomField },
+  getBaseField,
+})
 
 const yupSchema = yup.object({
   name: yup
@@ -243,6 +255,7 @@ const yupSchema = yup.object({
     .max(25, 'Too long')
     .required()
     .label('Description'),
+  custom: yup.string(),
 })
 
 export const WithYupSchema = {
@@ -250,17 +263,25 @@ export const WithYupSchema = {
     return (
       <YupForm
         schema={yupSchema}
-        defaultValues={{
-          name: '',
-          description: '',
-        }}
+        defaultValues={
+          {
+            // name: '',
+            // description: '',
+          }
+        }
         onSubmit={onSubmit}
       >
         {({ Field }) => (
           <FormLayout>
             <Field name="name" label="Title" />
             <Field name="description" label="Description" />
-
+            <Field
+              name="custom"
+              type="custom"
+              label="Custom"
+              customFieldProp="custom"
+              infoLabel="Hello there"
+            />
             <SubmitButton />
           </FormLayout>
         )}

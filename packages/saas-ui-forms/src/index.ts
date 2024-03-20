@@ -178,6 +178,7 @@ export type {
   FieldOptions,
   DefaultFieldOverrides,
   WithStepFields,
+  GetBaseField,
 } from './types'
 
 // Exporting from './create-form'

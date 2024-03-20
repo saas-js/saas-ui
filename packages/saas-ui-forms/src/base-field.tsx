@@ -9,7 +9,7 @@ import {
   FormErrorMessage,
 } from '@chakra-ui/react'
 
-import { splitProps } from '@saas-ui/core/utils'
+import { splitProps } from '@saas-ui/core'
 
 import { useFormContext } from './form-context'
 
@@ -27,7 +27,7 @@ const isTouched = (
 }
 
 export const useBaseField = (props: BaseFieldProps) => {
-  const [labelProps] = splitProps(props, ['name', 'label', 'help', 'hideLabel'])
+  const [fieldProps] = splitProps(props, ['name', 'label', 'help', 'hideLabel'])
 
   const [controlProps] = splitProps(props, [
     'id',
@@ -39,11 +39,11 @@ export const useBaseField = (props: BaseFieldProps) => {
 
   const { formState } = useFormContext()
 
-  const error = getError(labelProps.name, formState)
-  const touched = isTouched(labelProps.name, formState)
+  const error = getError(fieldProps.name, formState)
+  const touched = isTouched(fieldProps.name, formState)
 
   return {
-    labelProps,
+    ...fieldProps,
     controlProps,
     error,
     touched,
@@ -55,9 +55,7 @@ export const useBaseField = (props: BaseFieldProps) => {
  * Composes the Chakra UI FormControl component, with FormLabel, FormHelperText and FormErrorMessage.
  */
 export const BaseField: React.FC<BaseFieldProps> = (props) => {
-  const { labelProps, controlProps, error } = useBaseField(props)
-
-  const { label, help, hideLabel } = labelProps
+  const { controlProps, label, help, hideLabel, error } = useBaseField(props)
 
   return (
     <FormControl {...controlProps} isInvalid={!!error}>

@@ -1,3 +1,4 @@
+import { StoryObj } from '@storybook/react'
 import {
   Container,
   Stack,
@@ -8,6 +9,9 @@ import {
   HStack,
   Tooltip,
   forwardRef,
+  Box,
+  FormHelperText,
+  FormErrorMessage,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -49,6 +53,8 @@ export default {
   ],
 }
 
+type Story = StoryObj<typeof Form>
+
 const loginSchema = yup.object({
   email: yup.string().email().required().label('Email address'),
   password: yup
@@ -58,7 +64,7 @@ const loginSchema = yup.object({
     .meta({ type: 'password' }),
 })
 
-export const Basic = {
+export const Basic: Story = {
   render() {
     return (
       <Form
@@ -81,7 +87,7 @@ export const Basic = {
   },
 }
 
-export const WithValidationRules = {
+export const WithValidationRules: Story = {
   render() {
     return (
       <Form
@@ -125,21 +131,32 @@ const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
         'infoLabel',
       ])
 
-      const { controlProps, labelProps, error } = useBaseField(fieldProps)
+      const { controlProps, label, help, hideLabel, error } =
+        useBaseField(fieldProps)
 
       return (
         <FormControl {...controlProps} isInvalid={!!error}>
-          <HStack alignItems="center" mb="2" spacing="0">
-            <FormLabel mb="0">{labelProps.label}</FormLabel>
-            {infoLabel ? (
-              <Tooltip label={infoLabel}>
-                <span>
-                  <LuInfo />
-                </span>
-              </Tooltip>
+          {!hideLabel ? (
+            <HStack alignItems="center" mb="2" spacing="0">
+              <FormLabel mb="0">{label}</FormLabel>
+              {infoLabel ? (
+                <Tooltip label={infoLabel}>
+                  <span>
+                    <LuInfo />
+                  </span>
+                </Tooltip>
+              ) : null}
+            </HStack>
+          ) : null}
+          <Box>
+            {children}
+            {help && !error?.message ? (
+              <FormHelperText>{help}</FormHelperText>
             ) : null}
-          </HStack>
-          {children}
+            {error?.message && (
+              <FormErrorMessage>{error?.message}</FormErrorMessage>
+            )}
+          </Box>
         </FormControl>
       )
     },
@@ -151,50 +168,58 @@ const TypedForm = createForm({
   getBaseField,
 })
 
-export const BasicTyped = () => (
-  <TypedForm
-    defaultValues={{
-      title: 'Form',
-      description: 'A basic layout',
-    }}
-    onSubmit={onSubmit}
-  >
-    {({ Field }) => (
-      <FormLayout>
-        <Field name="title" label="Title" type="text" />
-        <Field name="description" label="Description" type="textarea" />
+export const BasicTyped: Story = {
+  render() {
+    return (
+      <TypedForm
+        defaultValues={{
+          title: 'Form',
+          description: 'A basic layout',
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" type="text" />
+            <Field name="description" label="Description" type="textarea" />
 
-        <SubmitButton />
-      </FormLayout>
-    )}
-  </TypedForm>
-)
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </TypedForm>
+    )
+  },
+}
 
-export const CustomBaseField = () => (
-  <TypedForm
-    defaultValues={{
-      title: 'Form',
-      description: 'A basic layout',
-      custom: '',
-    }}
-    onSubmit={onSubmit}
-  >
-    {({ Field }) => (
-      <FormLayout>
-        <Field name="title" label="Title" type="text" />
-        <Field name="description" label="Description" type="textarea" />
-        <Field
-          name="custom"
-          type="custom"
-          label="Custom"
-          customFieldProp="custom"
-          infoLabel="Hello there"
-        />
-        <SubmitButton />
-      </FormLayout>
-    )}
-  </TypedForm>
-)
+export const CustomBaseField: Story = {
+  render() {
+    return (
+      <TypedForm
+        defaultValues={{
+          title: 'Form',
+          description: 'A basic layout',
+          custom: '',
+        }}
+        onSubmit={onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="title" label="Title" type="text" />
+            <Field name="description" label="Description" type="textarea" />
+            <Field
+              name="custom"
+              type="custom"
+              label="Custom"
+              customFieldProp="custom"
+              infoLabel="Hello there"
+            />
+            <SubmitButton />
+          </FormLayout>
+        )}
+      </TypedForm>
+    )
+  },
+}
 
 const ZodForm = createZodForm({
   fields: { custom: CustomField },
@@ -202,20 +227,19 @@ const ZodForm = createZodForm({
 })
 
 const zodSchema = z.object({
-  firstName: z.string(),
+  firstName: z.string().min(2),
   age: z.number(),
   custom: z.string().optional(),
 })
 
-export const WithZodSchema = {
-  render(props: React.ComponentProps<typeof ZodForm>) {
+export const WithZodSchema: StoryObj<typeof ZodForm> = {
+  render(props) {
     return (
       <ZodForm
         schema={zodSchema}
         defaultValues={{
           firstName: '',
         }}
-        {...props}
         onSubmit={props?.onSubmit || onSubmit}
       >
         {({ Field }) => (
@@ -258,8 +282,8 @@ const yupSchema = yup.object({
   custom: yup.string(),
 })
 
-export const WithYupSchema = {
-  render() {
+export const WithYupSchema: StoryObj<typeof YupForm> = {
+  render(props) {
     return (
       <YupForm
         schema={yupSchema}
@@ -269,7 +293,7 @@ export const WithYupSchema = {
             // description: '',
           }
         }
-        onSubmit={onSubmit}
+        onSubmit={props.onSubmit || onSubmit}
       >
         {({ Field }) => (
           <FormLayout>

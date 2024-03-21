@@ -3,7 +3,6 @@ import {
   CreateFormProps,
   FormProps,
   WithFields,
-  FieldValues,
   GetBaseField,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
@@ -29,7 +28,7 @@ export type YupFormType<
   Type extends 'yup' = 'yup',
 > = (<
   TSchema extends AnyObjectSchema = AnyObjectSchema,
-  TFieldValues extends InferType<TSchema> = InferType<TSchema>, // placeholder
+  TFieldValues extends InferType<TSchema> = InferType<TSchema>,
   TContext extends object = object,
 >(
   props: WithFields<

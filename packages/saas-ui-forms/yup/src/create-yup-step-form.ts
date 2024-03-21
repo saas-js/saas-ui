@@ -5,6 +5,7 @@ import {
   UseStepFormProps,
   Form,
   WithStepFields,
+  GetBaseField,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
 import { InferType, object, string } from 'yup'
@@ -13,8 +14,10 @@ import { AnyObjectSchema } from './types'
 
 type ResolverArgs = Parameters<typeof yupResolver>
 
-export interface CreateYupFormProps<FieldDefs>
-  extends CreateStepFormProps<FieldDefs> {
+export interface CreateYupFormProps<
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+> extends CreateStepFormProps<FieldDefs, TGetBaseField> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }
@@ -32,13 +35,13 @@ type InferStepType<T extends Required<StepsOptions<AnyObjectSchema>>> =
 type YupStepFormType<
   FieldDefs,
   ExtraProps = object,
-  ExtraOverrides = object
+  ExtraOverrides = object,
 > = (<
   TSteps extends Required<StepsOptions<AnyObjectSchema>> = Required<
     StepsOptions<AnyObjectSchema>
   >,
   TFieldValues extends InferStepType<TSteps> = InferStepType<TSteps>,
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: WithStepFields<
     UseStepFormProps<TSteps, TFieldValues, TContext>,
@@ -53,10 +56,13 @@ type YupStepFormType<
   id?: string
 }
 
-export const createYupStepForm = <FieldDefs>(
-  options?: CreateYupFormProps<FieldDefs>
+export const createYupStepForm = <
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+>(
+  options?: CreateYupFormProps<FieldDefs, TGetBaseField>
 ) => {
-  const YupStepForm = createStepForm<any, any, any>({
+  const YupStepForm = createStepForm<any, any>({
     resolver: (schema: any) =>
       yupResolver(
         schema,

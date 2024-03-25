@@ -35,6 +35,7 @@ type InferStepType<T extends Required<StepsOptions<AnyObjectSchema>>> =
 type YupStepFormType<
   FieldDefs,
   ExtraProps = object,
+  ExtraFieldProps extends object = object,
   ExtraOverrides = object,
 > = (<
   TSteps extends Required<StepsOptions<AnyObjectSchema>> = Required<
@@ -62,6 +63,11 @@ export const createYupStepForm = <
 >(
   options?: CreateYupFormProps<FieldDefs, TGetBaseField>
 ) => {
+  type ExtraFieldProps =
+    TGetBaseField extends GetBaseField<infer ExtraFieldProps>
+      ? ExtraFieldProps
+      : object
+
   const YupStepForm = createStepForm<any, any>({
     resolver: (schema: any) =>
       yupResolver(
@@ -76,5 +82,5 @@ export const createYupStepForm = <
   YupStepForm.displayName = 'YupStepForm'
   YupStepForm.id = 'YupStepForm'
 
-  return YupStepForm as YupStepFormType<FieldDefs>
+  return YupStepForm as YupStepFormType<FieldDefs, object, ExtraFieldProps>
 }

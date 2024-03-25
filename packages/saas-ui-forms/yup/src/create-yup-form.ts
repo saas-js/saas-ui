@@ -6,9 +6,9 @@ import {
   GetBaseField,
 } from '@saas-ui/forms'
 import { yupFieldResolver, yupResolver } from './yup-resolver'
-import { InferType } from 'yup'
+import { InferType, AnyObjectSchema } from 'yup'
 import React from 'react'
-import { AnyObjectSchema } from './types'
+// import { AnyObjectSchema } from './types'
 
 type ResolverArgs = Parameters<typeof yupResolver>
 
@@ -28,7 +28,9 @@ export type YupFormType<
   Type extends 'yup' = 'yup',
 > = (<
   TSchema extends AnyObjectSchema = AnyObjectSchema,
-  TFieldValues extends InferType<TSchema> = InferType<TSchema>,
+  TFieldValues extends Required<InferType<TSchema>> = Required<
+    InferType<TSchema>
+  >,
   TContext extends object = object,
 >(
   props: WithFields<

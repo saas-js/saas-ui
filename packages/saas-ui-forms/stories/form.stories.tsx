@@ -282,17 +282,17 @@ const yupSchema = yup.object({
   custom: yup.string(),
 })
 
+type Test = yup.InferType<typeof yupSchema>
+
 export const WithYupSchema: StoryObj<typeof YupForm> = {
   render(props) {
     return (
       <YupForm
         schema={yupSchema}
-        defaultValues={
-          {
-            // name: '',
-            // description: '',
-          }
-        }
+        defaultValues={{
+          name: '',
+          // description: '',
+        }}
         onSubmit={props.onSubmit || onSubmit}
       >
         {({ Field }) => (

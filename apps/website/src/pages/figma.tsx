@@ -192,11 +192,7 @@ const FigmaHero = () => {
         position="relative"
         zIndex="2"
       >
-        <FallInPlace
-          delay={1.4}
-          threshold={0.2}
-          // onChange={(inView) => setAnimate(inView)}
-        >
+        <FallInPlace delay={1.4} threshold={0.2}>
           <AspectRatio ratio={1100 / 698}>
             <Image
               src={useColorModeValue(

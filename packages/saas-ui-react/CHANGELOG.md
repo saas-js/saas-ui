@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.7.2
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+- Updated dependencies [d77a5b3]
+  - @saas-ui/forms@2.5.2
+  - @saas-ui/core@2.4.3
+  - @saas-ui/modals@2.1.27
+  - @saas-ui/data-table@9.0.2
+  - @saas-ui/hotkeys@2.2.6
+
 ## 2.7.1
 
 ### Patch Changes

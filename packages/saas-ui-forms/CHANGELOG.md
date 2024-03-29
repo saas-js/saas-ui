@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.5.2
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+
 ## 2.5.1
 
 ### Patch Changes

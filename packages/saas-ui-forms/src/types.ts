@@ -20,10 +20,10 @@ export type ShallowMerge<A, B> = Omit<A, keyof B> & B
 type Split<S extends string, D extends string> = string extends S
   ? string[]
   : S extends ''
-  ? []
-  : S extends `${infer T}${D}${infer U}`
-  ? [T, ...Split<U, D>]
-  : [S]
+    ? []
+    : S extends `${infer T}${D}${infer U}`
+      ? [T, ...Split<U, D>]
+      : [S]
 
 type MapPath<T extends string[]> = T extends [infer U, ...infer R]
   ? U extends string
@@ -41,7 +41,7 @@ export type ArrayFieldPath<Name extends string> = Name extends string
 
 export interface BaseFieldProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > extends Omit<FormControlProps, 'label' | 'type' | 'onChange'> {
   /**
    * The field name
@@ -79,28 +79,43 @@ export interface BaseFieldProps<
   placeholder?: string
 }
 
+export type GetBaseField<TProps extends object = object> = () => {
+  extraProps: string[]
+  BaseField: React.FC<
+    Omit<BaseFieldProps, 'name'> & {
+      name: string
+      children: React.ReactNode
+    } & TProps
+  >
+}
+
 type FieldPathWithArray<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = TName | ArrayFieldPath<TName>
 
 export type MergeFieldProps<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TExtraFieldProps extends object = object,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = ValueOf<{
   [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
-    ? { type?: K } & ShallowMerge<Props, BaseFieldProps<TFieldValues, TName>>
+    ? { type?: K } & ShallowMerge<Props, BaseFieldProps<TFieldValues, TName>> &
+        TExtraFieldProps
     : never
 }>
 
-export type FieldProps<TFieldValues extends FieldValues = FieldValues> =
-  MergeFieldProps<DefaultFields, TFieldValues>
+export type FieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TExtraFieldProps extends object = object,
+> = MergeFieldProps<DefaultFields, TFieldValues, TExtraFieldProps>
 
 export type FormChildren<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
+  TExtraFieldProps extends object = object,
 > = MaybeRenderProp<
   FormRenderContext<
     TFieldValues,
@@ -109,7 +124,8 @@ export type FormChildren<
       FieldDefs extends never
         ? DefaultFields
         : ShallowMerge<DefaultFields, FieldDefs>,
-      TFieldValues
+      TFieldValues,
+      TExtraFieldProps
     >
   >
 >
@@ -122,7 +138,7 @@ export type DefaultFieldOverrides = {
 type MergeOverrideFieldProps<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = ValueOf<{
   [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
     ? { type?: K } & Omit<
@@ -135,7 +151,7 @@ type MergeOverrideFieldProps<
 export type FieldOverrides<
   FieldDefs,
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
   [K in FieldPathWithArray<TFieldValues, TName>]?:
     | MergeOverrideFieldProps<
@@ -155,28 +171,35 @@ export type FieldOverrides<
 }
 
 export type WithFields<
-  TFormProps extends FormProps<any, any, any, any>,
+  TFormProps extends FormProps<any, any, any, any, any>,
   FieldDefs,
-  ExtraOverrides = object
-> = TFormProps extends FormProps<
-  infer TSchema,
-  infer TFieldValues,
-  infer TContext
->
-  ? Omit<TFormProps, 'children' | 'fields'> & {
-      children?: FormChildren<FieldDefs, TFieldValues, TContext>
-      fields?: FieldOverrides<FieldDefs, TFieldValues> & {
-        submit?: SubmitButtonProps
-      } & ExtraOverrides
-    }
-  : never
+  ExtraOverrides = object,
+> =
+  TFormProps extends FormProps<
+    infer TSchema,
+    infer TFieldValues,
+    infer TContext,
+    infer TExtraFieldProps
+  >
+    ? Omit<TFormProps, 'children' | 'fields'> & {
+        children?: FormChildren<
+          FieldDefs,
+          TFieldValues,
+          TContext,
+          TExtraFieldProps
+        >
+        fields?: FieldOverrides<FieldDefs, TFieldValues> & {
+          submit?: SubmitButtonProps
+        } & ExtraOverrides
+      }
+    : never
 
 // StepForm types
 export type StepFormChildren<
   FieldDefs,
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
 > = MaybeRenderProp<
   StepFormRenderContext<
     TSteps,
@@ -194,16 +217,17 @@ export type StepFormChildren<
 export type WithStepFields<
   TStepFormProps extends UseStepFormProps<any, any, any>,
   FieldDefs,
-  ExtraOverrides = object
-> = TStepFormProps extends UseStepFormProps<
-  infer TSteps,
-  infer TFieldValues,
-  infer TContext
->
-  ? Omit<TStepFormProps, 'children' | 'fields'> & {
-      children?: StepFormChildren<FieldDefs, TSteps, TFieldValues, TContext>
-      fields?: FieldOverrides<FieldDefs, TFieldValues> & {
-        submit?: SubmitButtonProps
-      } & ExtraOverrides
-    }
-  : never
+  ExtraOverrides = object,
+> =
+  TStepFormProps extends UseStepFormProps<
+    infer TSteps,
+    infer TFieldValues,
+    infer TContext
+  >
+    ? Omit<TStepFormProps, 'children' | 'fields'> & {
+        children?: StepFormChildren<FieldDefs, TSteps, TFieldValues, TContext>
+        fields?: FieldOverrides<FieldDefs, TFieldValues> & {
+          submit?: SubmitButtonProps
+        } & ExtraOverrides
+      }
+    : never

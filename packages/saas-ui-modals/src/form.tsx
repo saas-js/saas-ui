@@ -31,10 +31,11 @@ export interface FormDialogProps<
   TSchema = any,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
+  TExtraFieldProps extends object = object,
   TFieldTypes = FieldProps<TFieldValues>,
 > extends Omit<BaseModalProps, 'children'>,
     Pick<
-      FormProps<TSchema, TFieldValues, TContext, TFieldTypes>,
+      FormProps<TSchema, TFieldValues, TContext, TExtraFieldProps, TFieldTypes>,
       | 'schema'
       | 'defaultValues'
       | 'values'
@@ -119,10 +120,16 @@ const useFormProps = (props: FormDialogProps) => {
  * @todo make this dynamic to support other schema types
  */
 type MergeDialogProps<T> =
-  T extends FormType<infer FieldDefs, infer ExtraProps, infer ExtraOverrides>
+  T extends FormType<
+    infer FieldDefs,
+    infer ExtraProps,
+    infer ExtraFieldProps,
+    infer ExtraOverrides
+  >
     ? FormType<
         FieldDefs,
         ExtraProps & Omit<BaseModalProps, 'children'>,
+        ExtraFieldProps,
         ExtraOverrides & FormDialogFieldOverrides
       >
     : never
@@ -141,6 +148,7 @@ type IsSchemaType<T, Schema, FieldDefs> =
 export type DefaultFormType<
   FieldDefs = any,
   ExtraProps = object,
+  ExtraFieldProps extends object = object,
   ExtraOverrides = FormDialogFieldOverrides,
 > = (<
   TSchema = unknown,
@@ -156,12 +164,14 @@ export type DefaultFormType<
 export function createFormDialog<
   FieldDefs = any,
   ExtraProps = object,
+  ExtraFieldProps extends object = object,
   ExtraOverrides = FormDialogFieldOverrides,
   TFormType extends DefaultFormType<
     FieldDefs,
     ExtraProps,
+    ExtraFieldProps,
     ExtraOverrides
-  > = DefaultFormType<FieldDefs, ExtraProps, ExtraOverrides>,
+  > = DefaultFormType<FieldDefs, ExtraProps, ExtraFieldProps, ExtraOverrides>,
 >(Form: TFormType) {
   const Dialog = forwardRef<any, 'div'>((props, ref) => {
     const { isOpen, onClose, footer, children, ...rest } = props

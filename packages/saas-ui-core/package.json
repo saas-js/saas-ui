@@ -32,10 +32,10 @@
   "typesVersions": {
     "*": {
       "icons": [
-        "./dist/icons/index.d.ts"
+        "dist/icons/index.d.ts"
       ],
       "utils": [
-        "./dist/utils/index.d.ts"
+        "dist/utils/index.d.ts"
       ]
     }
   },
@@ -103,6 +103,6 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "tsup": "^6.7.0"
+    "tsup": "^8.0.2"
   }
 }

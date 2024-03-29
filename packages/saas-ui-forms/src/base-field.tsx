@@ -13,7 +13,7 @@ import { splitProps } from '@saas-ui/core'
 
 import { useFormContext } from './form-context'
 
-import { BaseFieldProps } from './types'
+import type { BaseFieldProps } from './types'
 
 const getError = (name: string, formState: FormState<{ [x: string]: any }>) => {
   return get(formState.errors, name)

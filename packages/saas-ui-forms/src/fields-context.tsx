@@ -1,6 +1,6 @@
 import React from 'react'
 import { defaultFieldTypes, InputField } from './default-fields'
-import { GetBaseField } from './types'
+import type { GetBaseField } from './types'
 
 export interface FieldsContextValue {
   fields: Record<string, React.FC<any>>
@@ -10,14 +10,11 @@ export interface FieldsContextValue {
 const FieldsContext = React.createContext<FieldsContextValue | null>(null)
 
 export const FieldsProvider: React.FC<{
-  value: Partial<FieldsContextValue>
+  value: FieldsContextValue
   children: React.ReactNode
 }> = (props) => {
-  const fields = { ...defaultFieldTypes, ...props.value.fields }
   return (
-    <FieldsContext.Provider
-      value={{ fields, getBaseField: props.value.getBaseField }}
-    >
+    <FieldsContext.Provider value={props.value}>
       {props.children}
     </FieldsContext.Provider>
   )
@@ -27,7 +24,10 @@ export const useFieldsContext = () => {
   return React.useContext(FieldsContext)
 }
 
-export const useField = (type: string): React.FC<any> => {
+export const useField = (
+  type: string,
+  fallback: React.FC<any>
+): React.FC<any> => {
   const context = React.useContext(FieldsContext)
-  return context?.fields?.[type] || InputField
+  return context?.fields?.[type] || fallback
 }

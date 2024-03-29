@@ -4,7 +4,7 @@ import { Controller } from 'react-hook-form'
 import { forwardRef, useMergeRefs } from '@chakra-ui/react'
 import { callAllHandlers } from '@chakra-ui/utils'
 
-import { splitProps } from '@saas-ui/core/utils'
+import { splitProps } from '@saas-ui/core'
 
 import { BaseFieldProps, FieldProps, GetBaseField } from './types'
 import { BaseField } from './base-field'

@@ -1,13 +1,13 @@
-import { FormControlProps } from '@chakra-ui/react'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
-import { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
-import { DefaultFields } from './default-fields'
-import { FormProps, FormRenderContext } from './form'
-import { SubmitButtonProps } from './submit-button'
-import { ObjectFieldProps } from './object-field'
-import { ArrayFieldProps } from './array-field'
-import { StepFormRenderContext, UseStepFormProps } from './use-step-form'
-import { StepsOptions } from './step-form'
+import type { FormControlProps } from '@chakra-ui/react'
+import type { MaybeRenderProp } from '@chakra-ui/react-utils'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
+import type { DefaultFields } from './default-fields'
+import type { FormProps, FormRenderContext } from './form'
+import type { SubmitButtonProps } from './submit-button'
+import type { ObjectFieldProps } from './object-field'
+import type { ArrayFieldProps } from './array-field'
+import type { StepFormRenderContext, UseStepFormProps } from './use-step-form'
+import type { StepsOptions } from './step-form'
 
 export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =

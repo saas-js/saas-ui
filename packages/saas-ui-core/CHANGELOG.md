@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.4.3
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+
 ## 2.4.2
 
 ### Patch Changes

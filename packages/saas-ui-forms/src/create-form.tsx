@@ -6,6 +6,7 @@ import { Form, FieldValues, FormProps, GetResolver } from './form'
 import { GetBaseField, WithFields } from './types'
 import { objectFieldResolver } from './field-resolver'
 import { GetFieldResolver } from './field-resolver'
+import { defaultFieldTypes } from './default-fields'
 
 export interface CreateFormProps<
   FieldDefs,
@@ -72,8 +73,13 @@ export function createForm<
         ...rest
       } = props
 
+      const fieldsContext = {
+        fields: { ...defaultFieldTypes, ...fields },
+        getBaseField,
+      }
+
       return (
-        <FieldsProvider value={{ fields, getBaseField }}>
+        <FieldsProvider value={fieldsContext}>
           <Form
             ref={ref}
             resolver={resolverProp ?? resolver?.(props.schema)}

@@ -4,7 +4,7 @@ import { render, testStories } from '@saas-ui/test-utils'
 import * as stories from '../stories/form.stories'
 import { vi } from 'vitest'
 
-const { WithValidationRules, WithZodSchema, WithYupSchema } =
+const { WithValidationRules, WithZodSchema, WithYupSchema, CustomBaseField } =
   testStories(stories)
 
 test('should validate', async () => {
@@ -51,4 +51,18 @@ test('should validate with yup schema', async () => {
   expect(onSubmit).not.toBeCalled()
 
   expect(getAllByText('Too short')).toHaveLength(2)
+})
+
+test('should render custom field', async () => {
+  const onSubmit = vi.fn()
+  const { getByText, user } = render(<CustomBaseField onSubmit={onSubmit} />)
+
+  expect(getByText('custom')).toBeInTheDocument()
+})
+
+test('should render custom base field', async () => {
+  const onSubmit = vi.fn()
+  const { getByText, user } = render(<CustomBaseField onSubmit={onSubmit} />)
+
+  expect(getByText('Custom')).toBeInTheDocument()
 })

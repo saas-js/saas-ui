@@ -4,6 +4,7 @@ import {
   StepsOptions,
   UseStepFormProps,
   WithStepFields,
+  GetBaseField,
 } from '@saas-ui/forms'
 import { zodFieldResolver, zodResolver } from './zod-resolver'
 import { AnyZodObject, z } from 'zod'
@@ -11,15 +12,17 @@ import React from 'react'
 
 type ResolverArgs = Parameters<typeof zodResolver>
 
-export interface CreateZodStepFormProps<FieldDefs>
-  extends CreateStepFormProps<FieldDefs> {
+export interface CreateZodStepFormProps<
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+> extends CreateStepFormProps<FieldDefs, TGetBaseField> {
   schemaOptions?: ResolverArgs[1]
   resolverOptions?: ResolverArgs[2]
 }
 
 type InferStepType<T extends Required<StepsOptions<AnyZodObject>>> = T extends [
   infer Step,
-  ...infer Rest
+  ...infer Rest,
 ]
   ? Step extends { schema: AnyZodObject }
     ? z.infer<Step['schema']> &
@@ -32,13 +35,14 @@ type InferStepType<T extends Required<StepsOptions<AnyZodObject>>> = T extends [
 type ZodStepFormType<
   FieldDefs,
   ExtraProps = object,
-  ExtraOverrides = object
+  ExtraFieldProps extends object = object,
+  ExtraOverrides = object,
 > = (<
   TSteps extends Required<StepsOptions<AnyZodObject>> = Required<
     StepsOptions<AnyZodObject>
   >,
   TFieldValues extends InferStepType<TSteps> = InferStepType<TSteps>,
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: WithStepFields<
     UseStepFormProps<TSteps, TFieldValues, TContext>,
@@ -53,10 +57,18 @@ type ZodStepFormType<
   id?: string
 }
 
-export const createZodStepForm = <FieldDefs>(
-  options?: CreateZodStepFormProps<FieldDefs>
+export const createZodStepForm = <
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+>(
+  options?: CreateZodStepFormProps<FieldDefs, TGetBaseField>
 ) => {
-  const ZodStepForm = createStepForm<any, any, any>({
+  type ExtraFieldProps =
+    TGetBaseField extends GetBaseField<infer ExtraFieldProps>
+      ? ExtraFieldProps
+      : object
+
+  const ZodStepForm = createStepForm<any, any>({
     resolver: (schema: any) =>
       zodResolver(schema, options?.schemaOptions, options?.resolverOptions),
     fieldResolver: zodFieldResolver,
@@ -66,5 +78,5 @@ export const createZodStepForm = <FieldDefs>(
   ZodStepForm.displayName = 'ZodStepForm'
   ZodStepForm.id = 'ZodStepForm'
 
-  return ZodStepForm as ZodStepFormType<FieldDefs>
+  return ZodStepForm as ZodStepFormType<FieldDefs, object, ExtraFieldProps>
 }

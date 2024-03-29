@@ -1,6 +1,6 @@
 {
   "name": "palette-docs",
-  "version": "1.4.25",
+  "version": "1.4.27",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -34,6 +34,6 @@
     "@types/react": "^18.2.56",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   }
 }

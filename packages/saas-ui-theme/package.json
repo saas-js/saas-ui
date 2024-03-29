@@ -34,10 +34,10 @@
   "typesVersions": {
     "*": {
       "anatomy": [
-        "./dist/anatomy/index.d.ts"
+        "dist/anatomy/index.d.ts"
       ],
       "components": [
-        "./dist/components/index.d.ts"
+        "dist/components/index.d.ts"
       ]
     }
   },

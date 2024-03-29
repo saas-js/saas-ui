@@ -22,6 +22,9 @@ jobs:
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
+      - name: Build packages
+        run: yarn build:packages
+
       - name: Build tokens
         run: yarn build:tokens
 

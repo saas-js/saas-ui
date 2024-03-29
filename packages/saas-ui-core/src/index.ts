@@ -250,3 +250,5 @@ export {
 export { createIcon } from './icons/create-icon'
 export { IconBadge } from './icon-badge'
 export type { IconBadgeProps } from './icon-badge'
+
+export { splitProps } from './utils'

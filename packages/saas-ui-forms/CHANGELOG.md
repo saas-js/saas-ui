@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.5.0
+
+### Minor Changes
+
+- Improved forms to support a global base field override
+
 ## 2.4.1
 
 ### Patch Changes

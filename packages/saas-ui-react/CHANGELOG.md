@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.7.0
+
+### Minor Changes
+
+- Improved forms to support a global base field override
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.0
+  - @saas-ui/modals@2.1.25
+  - @saas-ui/data-table@9.0.0
+
 ## 2.6.2
 
 ### Patch Changes

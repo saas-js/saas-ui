@@ -8,6 +8,7 @@ import {
   FieldsProvider,
   GetFieldResolver,
   ObjectField,
+  defaultFieldTypes,
 } from './'
 import { Form } from './form'
 import { Field } from './field'
@@ -82,10 +83,18 @@ export function createStepForm<
 
     const context = useMemo(() => ctx, [ctx])
 
+    const fieldsContext = {
+      fields: {
+        ...defaultFieldTypes,
+        ...fields,
+      },
+      getBaseField,
+    }
+
     return (
       <StepperProvider value={context}>
         <StepFormProvider value={context}>
-          <FieldsProvider value={{ fields, getBaseField }}>
+          <FieldsProvider value={fieldsContext}>
             <Form ref={ref} {...rest} {...getFormProps()}>
               {runIfFn(children, {
                 ...stepper,

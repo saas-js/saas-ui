@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.4.2
+
+### Patch Changes
+
+- Bump version
+
 ## 2.4.1
 
 ### Patch Changes

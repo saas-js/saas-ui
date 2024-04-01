@@ -45,6 +45,7 @@ export {
   UpdatePasswordForm,
   UpdatePasswordView,
   VIEWS,
+  Authenticated,
 } from './components'
 
 export type {
@@ -64,4 +65,5 @@ export type {
   UpdatePasswordFormProps,
   UpdatePasswordViewProps,
   Provider,
+  AuthenticatedProps,
 } from './components'

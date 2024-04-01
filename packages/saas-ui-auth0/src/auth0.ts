@@ -11,48 +11,58 @@ export const createAuthService = <Client extends Auth0Client>(
 ): AuthProviderProps<User> => {
   const onRestoreAuthState = async () => {
     if (
-      global?.location?.search?.includes('code=') &&
-      global?.location?.search?.includes('state=')
+      typeof window !== 'undefined' &&
+      window.location?.search?.includes('code=') &&
+      window.location?.search?.includes('state=')
     ) {
-      const { appState } = await auth0Client.handleRedirectCallback()
-      const url =
-        appState && appState.targetUrl
-          ? appState.targetUrl
-          : window.location.pathname
-      global?.location?.assign(url)
+      const { appState } = await auth0Client.handleRedirectCallback(
+        window.location.href
+      )
+
+      if (appState && appState.targetUrl) {
+        window.location?.assign(appState.targetUrl)
+      } else {
+        history.replaceState({}, document.title, window.location.pathname)
+      }
     }
   }
 
   const onLogin = async (
-    params: RedirectLoginOptions,
-    options?: AuthOptions
+    params?: object,
+    options: AuthOptions<RedirectLoginOptions> = {}
   ) => {
+    const { redirectTo, ...loginOptions } = options
+
     await auth0Client.loginWithRedirect({
-      ...params,
+      ...loginOptions,
       authorizationParams: {
-        redirect_uri: options?.redirectTo,
+        redirect_uri: redirectTo ?? window.location.href,
       },
     })
     return null
   }
 
   const onSignup = async (
-    params: RedirectLoginOptions,
-    options?: AuthOptions
+    params?: object,
+    options: AuthOptions<RedirectLoginOptions> = {}
   ) => {
+    const { redirectTo, ...loginOptions } = options
+
     await auth0Client.loginWithRedirect({
-      ...params,
+      ...loginOptions,
       authorizationParams: {
         screen_hint: 'signup',
         prompt: 'login',
-        redirect_uri: options?.redirectTo,
+        redirect_uri: options?.redirectTo ?? window.location.href,
       },
     })
     return null
   }
 
   const onLogout = async () => {
-    return await auth0Client.logout()
+    return await auth0Client.logout({
+      logoutParams: { returnTo: window.location.origin },
+    })
   }
 
   const onLoadUser = async () => {
@@ -61,7 +71,9 @@ export const createAuthService = <Client extends Auth0Client>(
   }
 
   const onGetToken = async () => {
-    return await auth0Client.getTokenSilently()
+    return auth0Client.getTokenSilently({
+      timeoutInSeconds: 2,
+    })
   }
 
   return {

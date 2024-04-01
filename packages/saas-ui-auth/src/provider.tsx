@@ -103,7 +103,9 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
    * Return the session token
    */
   onGetToken?: () => Promise<AuthToken>
-
+  /**
+   * The children to render
+   */
   children?: React.ReactNode
 }
 
@@ -156,6 +158,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   const [isAuthenticated, setAuthenticated] = useState(false)
   const [user, setUser] = useState<TUser | null>()
   const [isLoading, setLoading] = useState(true)
+  const restoreRef = React.useRef(false)
   const isFetchingRef = React.useRef(false)
 
   useEffect(() => {
@@ -171,11 +174,15 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
 
   useEffect(() => {
     const restoreState = async () => {
+      restoreRef.current = true
       await onRestoreAuthState?.()
-      loadUser()
+      await loadUser()
+      restoreRef.current = false
     }
 
-    restoreState()
+    if (!restoreRef.current) {
+      restoreState()
+    }
   }, [onRestoreAuthState])
 
   const checkAuth = useCallback(async () => {

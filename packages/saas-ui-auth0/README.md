@@ -1,24 +1,24 @@
-# @saas-ui/supabase
+# @saas-ui/auth0
 
-Saas UI Supabase integration.
+Auth0 authentication provider for Saas-UI.
 
 ## Installation
 
 ```sh
-$ yarn add @saas-ui/supabase
+$ yarn add @saas-ui/auth0
 
 #or
 
-$ npm i @saas-ui/supabase  --save
+$ npm i @saas-ui/auth0  --save
 ```
 
 ## Docs
 
-https://www.saas-ui.dev/docs/authentication/auth-provider
+https://saas-ui.dev/docs/core/integrations/auth0
 
 ## Source
 
-https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-supabase
+https://github.com/saas-js/saas-ui/tree/next/packages/saas-ui-auth0
 
 ## License
 

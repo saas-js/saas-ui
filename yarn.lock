@@ -122,10 +122,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth0/auth0-spa-js@npm:2.1.2":
-  version: 2.1.2
-  resolution: "@auth0/auth0-spa-js@npm:2.1.2"
-  checksum: 10/f89b76551e071d51a44b7ce79061c4021c3e57d9e3ea7c5a3610ea6096ea4a8741772aa9a5f142021d51ec61a65f52f4bad53f8589f98b450c0a8ddd9f685ed2
+"@auth0/auth0-spa-js@npm:2.1.3":
+  version: 2.1.3
+  resolution: "@auth0/auth0-spa-js@npm:2.1.3"
+  checksum: 10/c0585a7f6c8f8929bf6c7402f2d049cda2c64f82c1736e700cc6ca668d3e23c2c0d22722e8f2aa2d24478e5e6676349e3d5f7ec197a44d093c5607ea8a831adc
   languageName: node
   linkType: hard
 
@@ -2037,7 +2037,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/anatomy@npm:2.2.2, @chakra-ui/anatomy@npm:^2.2.1, @chakra-ui/anatomy@npm:^2.2.2":
+"@chakra-ui/anatomy@npm:2.2.2, @chakra-ui/anatomy@npm:^2.2.2":
   version: 2.2.2
   resolution: "@chakra-ui/anatomy@npm:2.2.2"
   checksum: 10/4cbff0c43a4d7005c7bd966c0b2f7d086a6e8393761e3a73ac27e9522f12ea468a1c4b05e1f3c0506e510e8718a3da36e31f87859547a1610758f6f30034dba6
@@ -3030,7 +3030,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/styled-system@npm:2.9.2, @chakra-ui/styled-system@npm:^2.9.1, @chakra-ui/styled-system@npm:^2.9.2":
+"@chakra-ui/styled-system@npm:2.9.2, @chakra-ui/styled-system@npm:^2.9.2":
   version: 2.9.2
   resolution: "@chakra-ui/styled-system@npm:2.9.2"
   dependencies:
@@ -3055,7 +3055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:2.6.2, @chakra-ui/system@npm:^2.6.1, @chakra-ui/system@npm:^2.6.2":
+"@chakra-ui/system@npm:2.6.2, @chakra-ui/system@npm:^2.6.2":
   version: 2.6.2
   resolution: "@chakra-ui/system@npm:2.6.2"
   dependencies:
@@ -3133,7 +3133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/theme-tools@npm:2.1.2, @chakra-ui/theme-tools@npm:^2.1.1, @chakra-ui/theme-tools@npm:^2.1.2":
+"@chakra-ui/theme-tools@npm:2.1.2, @chakra-ui/theme-tools@npm:^2.1.2":
   version: 2.1.2
   resolution: "@chakra-ui/theme-tools@npm:2.1.2"
   dependencies:
@@ -5232,15 +5232,6 @@ __metadata:
   bin:
     proto-loader-gen-types: build/bin/proto-loader-gen-types.js
   checksum: 10/1fdc0b10480614cecc4bf52578756cbf59ec75f1bea37452947125eff81cd3ceabba04606247ed8361f97bcd00d147ca4118abc22b046cc0541cb749671b97d9
-  languageName: node
-  linkType: hard
-
-"@hookform/resolvers@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "@hookform/resolvers@npm:3.3.1"
-  peerDependencies:
-    react-hook-form: ^7.0.0
-  checksum: 10/8ef4c4bad0ed7d53a07cec8350988418ed90c0da1c10dd4b06d8c5bdf4beae759c3b359a90b3d234d288b47259995e22487c3d4dc4b6b59f2c29d09280887e27
   languageName: node
   linkType: hard
 
@@ -7721,20 +7712,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/interactions@npm:^3.20.1":
-  version: 3.20.1
-  resolution: "@react-aria/interactions@npm:3.20.1"
-  dependencies:
-    "@react-aria/ssr": "npm:^3.9.1"
-    "@react-aria/utils": "npm:^3.23.0"
-    "@react-types/shared": "npm:^3.22.0"
-    "@swc/helpers": "npm:^0.5.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/17fbbab6bfb0e0860fa0250ba644b1e6aaf23023e143a7f9f816c37d164813f858be592644cc89f06f6a1baa9dffdfa8bd5a2db12246f0837dce4a9169217932
-  languageName: node
-  linkType: hard
-
 "@react-aria/interactions@npm:^3.21.1":
   version: 3.21.1
   resolution: "@react-aria/interactions@npm:3.21.1"
@@ -7788,17 +7765,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/ssr@npm:^3.9.1":
-  version: 3.9.1
-  resolution: "@react-aria/ssr@npm:3.9.1"
-  dependencies:
-    "@swc/helpers": "npm:^0.5.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/a42bf23241b022e2e55ca95aeec5cafb3aa276b4586373f4b85834655ab05068d5af81707bf1d4548f2f5b29c80a02ef920c0711b2d1a8b189effca2c72ca5f9
-  languageName: node
-  linkType: hard
-
 "@react-aria/ssr@npm:^3.9.2":
   version: 3.9.2
   resolution: "@react-aria/ssr@npm:3.9.2"
@@ -7807,21 +7773,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: 10/fe4ce0ccc647d14f158724c0605433291f1403a73c82cb6654c323b5153fa3afbf0d36618bb3ecac38217b56837c27490c32b7d2082034b1171de6e95a4382a8
-  languageName: node
-  linkType: hard
-
-"@react-aria/utils@npm:^3.22.0, @react-aria/utils@npm:^3.23.0":
-  version: 3.23.0
-  resolution: "@react-aria/utils@npm:3.23.0"
-  dependencies:
-    "@react-aria/ssr": "npm:^3.9.1"
-    "@react-stately/utils": "npm:^3.9.0"
-    "@react-types/shared": "npm:^3.22.0"
-    "@swc/helpers": "npm:^0.5.0"
-    clsx: "npm:^2.0.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/7be5f852fb80b4cdb0a983542804534ce14bbd3809c8e81786507335d457202a5cd57a4a437c32aabb1b678902405da00f5ba9d697c7ab6f33cf0840bb1978be
   languageName: node
   linkType: hard
 
@@ -7921,17 +7872,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-stately/utils@npm:^3.9.0":
-  version: 3.9.0
-  resolution: "@react-stately/utils@npm:3.9.0"
-  dependencies:
-    "@swc/helpers": "npm:^0.5.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/66bb72441c289c334cf626ac789bb601db8b765e3f522181f8ff38b281bede9d1b2474dc6d5f17b6b31c12f48425797151eb2d4df5922e05c2e467ee195b7ade
-  languageName: node
-  linkType: hard
-
 "@react-stately/utils@npm:^3.9.1":
   version: 3.9.1
   resolution: "@react-stately/utils@npm:3.9.1"
@@ -8000,15 +7940,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: 10/6c952fdbe7724b07cade95e8d3fe6bf61cb6e993b730051c1ada33da2afe246e3124a8981127977cc55f6df32124b049504fda7d19593446895559ca00a9f0b9
-  languageName: node
-  linkType: hard
-
-"@react-types/shared@npm:^3.22.0":
-  version: 3.22.0
-  resolution: "@react-types/shared@npm:3.22.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/83ccac6c0e73573232f3c336187ff678f8c3041db36c64f6c0d626798f34e489dee502193b3fbfb323b8fca376cf4cdafe8aad2d93aa2bd90531b9ffe55dc3e7
   languageName: node
   linkType: hard
 
@@ -8547,14 +8478,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth-auth0-web@workspace:packages/saas-ui-auth0":
+"@saas-ui/auth0@workspace:packages/saas-ui-auth0":
   version: 0.0.0-use.local
-  resolution: "@saas-ui/auth-auth0-web@workspace:packages/saas-ui-auth0"
+  resolution: "@saas-ui/auth0@workspace:packages/saas-ui-auth0"
   dependencies:
-    "@auth0/auth0-spa-js": "npm:2.1.2"
-    "@saas-ui/auth": "npm:^2.3.0"
+    "@auth0/auth0-spa-js": "npm:2.1.3"
+    "@saas-ui/auth": "workspace:*"
   peerDependencies:
-    "@auth0/auth0-spa-js": 2.1.2
+    "@auth0/auth0-spa-js": ^2.1.3
     "@chakra-ui/react": ">=2.4.9"
     "@emotion/react": ">=11.0.0"
     "@emotion/styled": ">=11.0.0"
@@ -8563,25 +8494,6 @@ __metadata:
     react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
-
-"@saas-ui/auth@npm:^2.3.0":
-  version: 2.4.7
-  resolution: "@saas-ui/auth@npm:2.4.7"
-  dependencies:
-    "@chakra-ui/utils": "npm:^2.0.15"
-    "@saas-ui/core": "npm:2.3.5"
-    "@saas-ui/forms": "npm:2.3.10"
-    "@saas-ui/hooks": "npm:2.0.3"
-  peerDependencies:
-    "@chakra-ui/react": ">=2.4.9"
-    "@emotion/react": ">=11.0.0"
-    "@emotion/styled": ">=11.0.0"
-    framer-motion: ">=6.0.0"
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-  checksum: 10/ac1b41fb01684e727e910b55d07813b482236a512a6089fcfef2c832da3ad0fdab6f7465bff5d0ab993238a45399a17c3ab5184b83d07851062adc3772a393da
-  languageName: node
-  linkType: hard
 
 "@saas-ui/auth@npm:^3.0.0, @saas-ui/auth@npm:^3.0.1, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
@@ -8651,32 +8563,6 @@ __metadata:
     react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
-
-"@saas-ui/core@npm:2.3.5":
-  version: 2.3.5
-  resolution: "@saas-ui/core@npm:2.3.5"
-  dependencies:
-    "@chakra-ui/react-utils": "npm:^2.0.12"
-    "@chakra-ui/styled-system": "npm:^2.9.1"
-    "@chakra-ui/system": "npm:^2.6.1"
-    "@chakra-ui/theme-tools": "npm:^2.1.1"
-    "@chakra-ui/utils": "npm:^2.0.15"
-    "@react-aria/interactions": "npm:^3.20.1"
-    "@react-aria/utils": "npm:^3.22.0"
-    "@saas-ui/react-utils": "npm:2.0.1"
-    "@saas-ui/theme": "npm:2.3.2"
-    "@zag-js/dom-event": "npm:^0.32.0"
-    "@zag-js/dom-utils": "npm:^0.2.4"
-  peerDependencies:
-    "@chakra-ui/react": ">=2.4.0"
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
-    framer-motion: ">=5.5.0"
-    react: ">=18"
-    react-dom: ">=18"
-  checksum: 10/16e8c1ce7b4fdc2f92659b3fb16a41a18916fcbee14536d3677d2a37b4ef7ae8ba8c30b17c3cddb9509f64ae4a6e81a0b0a5a4c585880d3954dbd98d6e51203f
-  languageName: node
-  linkType: hard
 
 "@saas-ui/core@workspace:*, @saas-ui/core@workspace:packages/saas-ui-core":
   version: 0.0.0-use.local
@@ -8774,26 +8660,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@npm:2.3.10":
-  version: 2.3.10
-  resolution: "@saas-ui/forms@npm:2.3.10"
-  dependencies:
-    "@chakra-ui/react-utils": "npm:^2.0.12"
-    "@chakra-ui/utils": "npm:^2.0.15"
-    "@hookform/resolvers": "npm:^3.3.1"
-    "@saas-ui/core": "npm:2.3.5"
-    react-hook-form: "npm:^7.46.1"
-  peerDependencies:
-    "@chakra-ui/react": ">=2.4.9"
-    "@emotion/react": ">=11.0.0"
-    "@emotion/styled": ">=11.0.0"
-    framer-motion: ">=6.0.0"
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-  checksum: 10/4ec7013b045a0347dbfa800f392af59ec52847cbdd3e8691b04967229cf86d5cd27dfbe67fd4fb347cba45160214b8f0905b46a0c990f70eab2bf10986ee8377
-  languageName: node
-  linkType: hard
-
 "@saas-ui/forms@npm:^2.5.1, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
@@ -8822,7 +8688,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/hooks@npm:2.0.3, @saas-ui/hooks@workspace:*, @saas-ui/hooks@workspace:packages/saas-ui-hooks":
+"@saas-ui/hooks@workspace:*, @saas-ui/hooks@workspace:packages/saas-ui-hooks":
   version: 0.0.0-use.local
   resolution: "@saas-ui/hooks@workspace:packages/saas-ui-hooks"
   peerDependencies:
@@ -8926,7 +8792,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react-utils@npm:2.0.1, @saas-ui/react-utils@npm:^2.0.1, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
+"@saas-ui/react-utils@npm:^2.0.1, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react-utils@workspace:packages/saas-ui-react-utils"
   dependencies:
@@ -9077,21 +8943,6 @@ __metadata:
     react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
-
-"@saas-ui/theme@npm:2.3.2":
-  version: 2.3.2
-  resolution: "@saas-ui/theme@npm:2.3.2"
-  dependencies:
-    "@chakra-ui/anatomy": "npm:^2.2.1"
-    "@chakra-ui/styled-system": "npm:^2.9.1"
-    "@chakra-ui/theme-tools": "npm:^2.1.1"
-  peerDependencies:
-    "@chakra-ui/react": ">=2.4.6"
-    "@chakra-ui/system": ">=2.3.8"
-    react: ">=18.0.0"
-  checksum: 10/b073654f78b40109381eb389714a63435af79c8757167ba37235bd24e6d1b8d8341c66a05ebec174c0274c8ce8b7e5103d8814b9f615965f4fe565e54a56b277
-  languageName: node
-  linkType: hard
 
 "@saas-ui/theme@npm:^2.3.4, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
@@ -12894,16 +12745,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zag-js/dom-event@npm:^0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/dom-event@npm:0.32.0"
-  dependencies:
-    "@zag-js/text-selection": "npm:0.32.0"
-    "@zag-js/types": "npm:0.32.0"
-  checksum: 10/c7461c603a0404bb08d533fb33cabef9479b0fe818f80b5524db5684750c7a9f5e0122ae1a2fd938f43526eedfd7cc9bd8d88a9913b7976d4c30383fd26c32d1
-  languageName: node
-  linkType: hard
-
 "@zag-js/dom-event@npm:^0.36.3":
   version: 0.36.3
   resolution: "@zag-js/dom-event@npm:0.36.3"
@@ -12918,13 +12759,6 @@ __metadata:
   version: 0.16.0
   resolution: "@zag-js/dom-query@npm:0.16.0"
   checksum: 10/4f84f3367fd3b61f15b6bac64d91db28b1519bb96b8aeb3686688f0799ac71d1a387cdee6a67dfc1075772f6bfec31f4e2b5d996b318ad85906bbf9f8df2314c
-  languageName: node
-  linkType: hard
-
-"@zag-js/dom-query@npm:0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/dom-query@npm:0.32.0"
-  checksum: 10/2e4397cd1e79a16bf3aaa7d9a634d89096518063732210b86604ad287f3846e3b3620eb0e54924cbf052c51e2f375a010ec85025896ad3407ebb522e6cdb11b5
   languageName: node
   linkType: hard
 
@@ -13427,15 +13261,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zag-js/text-selection@npm:0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/text-selection@npm:0.32.0"
-  dependencies:
-    "@zag-js/dom-query": "npm:0.32.0"
-  checksum: 10/1489c8ac6eb218ebb4881c65a902983c4591e879ce5896c27838408d65d57862ed68a12e385c5050d79a9328072017a224943bf02ad176a3fe4b53eded1681f2
-  languageName: node
-  linkType: hard
-
 "@zag-js/text-selection@npm:0.36.3":
   version: 0.36.3
   resolution: "@zag-js/text-selection@npm:0.36.3"
@@ -13518,15 +13343,6 @@ __metadata:
   dependencies:
     csstype: "npm:3.1.1"
   checksum: 10/e7f76be548c764f6f426240bc7557df710028d27db6bf3335d47e71fb2ba36a2755a6e4b41841fbf1e4c332a111a8b07e68bced98260659523904eb297b8361d
-  languageName: node
-  linkType: hard
-
-"@zag-js/types@npm:0.32.0":
-  version: 0.32.0
-  resolution: "@zag-js/types@npm:0.32.0"
-  dependencies:
-    csstype: "npm:3.1.2"
-  checksum: 10/defcb20a4bc2b34f0696521d5fd1d082330743946f71f637a80a297a5ed359879aab1875255d5141e03c2533fc869c248c88a92ae295a17dacfe751cccf85d08
   languageName: node
   linkType: hard
 
@@ -16292,17 +16108,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:3.1.2, csstype@npm:^3.0.2, csstype@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "csstype@npm:3.1.2"
-  checksum: 10/1f39c541e9acd9562996d88bc9fb62d1cb234786ef11ed275567d4b2bd82e1ceacde25debc8de3d3b4871ae02c2933fa02614004c97190711caebad6347debc2
-  languageName: node
-  linkType: hard
-
 "csstype@npm:3.1.3":
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
   checksum: 10/f593cce41ff5ade23f44e77521e3a1bcc2c64107041e1bf6c3c32adc5187d0d60983292fda326154d20b01079e24931aa5b08e4467cc488b60bb1e7f6d478ade
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.0.2, csstype@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "csstype@npm:3.1.2"
+  checksum: 10/1f39c541e9acd9562996d88bc9fb62d1cb234786ef11ed275567d4b2bd82e1ceacde25debc8de3d3b4871ae02c2933fa02614004c97190711caebad6347debc2
   languageName: node
   linkType: hard
 
@@ -26457,15 +26273,6 @@ __metadata:
     react: ">= 16.3"
     react-dom: ">= 16.3"
   checksum: 10/58b34e1c2346a39df41e363b6f1dbde550d8ac974b562bf8df84dde1ceff27c9e6691eded947a39e4554ca8049cc7e3176c4e8fc954d54948393d27938e646d8
-  languageName: node
-  linkType: hard
-
-"react-hook-form@npm:^7.46.1":
-  version: 7.46.1
-  resolution: "react-hook-form@npm:7.46.1"
-  peerDependencies:
-    react: ^16.8.0 || ^17 || ^18
-  checksum: 10/24662e7be4c27df219ca7252e7625f384f7846b529271c4df5f6415efc12c8d3e8811b06f84c5a4428670c552608e6c9ca2e47f4bab06bd5d6c0172d750a3b68
   languageName: node
   linkType: hard
 

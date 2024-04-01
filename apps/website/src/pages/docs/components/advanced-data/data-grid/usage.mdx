@@ -95,6 +95,80 @@ export default function ListPage() {
 }
 ```
 
+### Sticky header
+
+Sticky headers are enabled by default, but can be disabled by passing `stickyHeader` to `DataGrid`.
+
+Use style props to customize the header styles.
+
+```jsx
+import { Button, Card } from '@chakra-ui/react'
+import { DataGrid, DataGridPagination } from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+
+  return (
+    <Card overflow="hidden">
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        stickyHeader={false}
+        sx={{
+          '& thead': {
+            bg: 'gray.50',
+            _dark: {
+              bg: 'gray.900',
+            },
+          },
+        }}
+      >
+        <DataGridPagination />
+      </DataGrid>
+    </Card>
+  )
+}
+```
+
 ### With BulkActions
 
 ```jsx
@@ -482,22 +556,21 @@ export default function InternalState() {
   const gridRef = useRef(null)
 
   return (
-    <Page
-      title="Customers"
-      height="400px"
-      toolbar={
-        <Toolbar>
-          <ToolbarButton
-            onClick={() => {
-              gridRef.current.toggleAllRowsSelected()
-            }}
-            label="Select all rows"
-            variant="primary"
-          />
-        </Toolbar>
-      }
-    >
-      <PageHeader title="Customers" />
+    <Page title="Customers" height="400px">
+      <PageHeader
+        title="Customers"
+        toolbar={
+          <Toolbar>
+            <ToolbarButton
+              onClick={() => {
+                gridRef.current.toggleAllRowsSelected()
+              }}
+              label="Select all rows"
+              variant="primary"
+            />
+          </Toolbar>
+        }
+      />
       <PageBody p="0" contentWidth="full" position="relative">
         <DataGrid
           instanceRef={gridRef}
@@ -552,7 +625,7 @@ export default function VisibleColumns() {
           <Toolbar>
             <Menu closeOnSelect={false}>
               <MenuButton as={Button}>View</MenuButton>
-              <MenuList>
+              <MenuList zIndex="dropdown">
                 <MenuOptionGroup
                   value={visibleColumns}
                   type="checkbox"
@@ -655,6 +728,107 @@ const demoData = dataGrid.data.map((row, i) => {
 })
 ```
 
+### SlotProps
+
+Using the `slotProps` prop you can customize internal components (slots) of the `DataGrid` component.
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  ToolbarButton,
+  DataGrid,
+} from '@saas-ui-pro/react'
+
+export default function SlotProps() {
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          isSelectable
+          slotProps={{
+            row: ({ row, table }) => {
+              return {
+                bg: row.original.employees > 100 ? 'red.100' : 'transparent',
+                _dark: {
+                  bg: row.original.employees > 100 ? 'red.700' : 'transparent',
+                },
+              }
+            },
+            cell: ({ cell, table }) => {
+              return {
+                fontWeight:
+                  cell.column.id === 'employees' ? 'semibold' : 'inherit',
+              }
+            },
+          }}
+        />
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+### Context Menu
+
+Using `slotsProps` you can use the `as` prop to customize the `tr` element and wrap it with a `ContextMenu`.
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  ToolbarButton,
+  DataGrid,
+} from '@saas-ui-pro/react'
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuList,
+  ContextMenuItem
+} from '@saas-ui/react'
+
+export default function DataGridWithContextMenu() {
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          slotProps={{
+            row: () => ({
+              as: RowWithContext,
+            }),
+          }}
+        />
+      </PageBody>
+    </Page>
+  )
+}
+
+const RowWithContext = (props: TableRowProps) => {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>
+        <Tr {...props} />
+      </ContextMenuTrigger>
+      <ContextMenuList>
+        <ContextMenuItem>Edit</MenuItem>
+        <ContextMenuItem>Copy</MenuItem>
+        <ContextMenuItem>Delete</MenuItem>
+      </ContextMenuList>
+    </ContextMenu>
+  )
+}
+```
+
 ## Typescript
 
 <Info>
@@ -698,12 +872,12 @@ const columns: ColumnDef<ExampleData>[] = [
 
 const data: ExampleData[] = [{
   {
-    id: 1,
+    id: '1',
     name: 'TaShya Charles',
     email: 'urna.nec.luctus@icloud.couk'
   },
   {
-    id: 2,
+    id: '2',
     name: 'Donovan Mosley',
     email: 'lacinia.mattis.integer@icloud.couk',
   },

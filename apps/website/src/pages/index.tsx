@@ -46,7 +46,6 @@ import Hero from '@/components/marketing/hero'
 import Features from '@/components/marketing/features'
 import Section from '@/components/marketing/section-wrapper'
 
-import { SignupForm } from '@/components/signup-form'
 import { Em, Br } from '@/components/typography'
 
 import { FallInPlace } from '@/components/motion/fall-in-place'
@@ -97,7 +96,7 @@ import { Polypane } from '@/components/logos/customers/polypane'
 import { YouGotBud } from '@/components/logos/customers/you-got-bud'
 import { Startec } from '@/components/logos/customers/startec'
 import { Eqtble } from '@/components/logos/customers/eqtble'
-import { Farmo } from '@/components/logos/customers/farmo'
+import { Aidbase } from '@/components/logos/customers/aidbase'
 import { Ownco } from '@/components/logos/customers/ownco'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
@@ -326,6 +325,9 @@ const UsedBy = () => {
           </Text>
         </Flex>
         <Flex justifyContent="center">
+          <Aidbase height="30px" />
+        </Flex>
+        <Flex justifyContent="center">
           <Ownco height="26px" />
         </Flex>
         <Flex justifyContent="center" gap="2">
@@ -339,9 +341,6 @@ const UsedBy = () => {
         </Flex>
         <Flex justifyContent="center">
           <Eqtble height="24px" />
-        </Flex>
-        <Flex justifyContent="center">
-          <Farmo height="20px" />
         </Flex>
       </SimpleGrid>
     </Section>
@@ -835,26 +834,32 @@ const Highlights = () => {
             inset="0px"
           />
           <Testimonial
-            avatar="/testimonials/turbothinh.png"
-            name="Tien Thinh"
+            avatar="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=200"
+            name="Simon Høiberg"
             description={
-              <Text color="whiteAlpha.700" as="span">
-                @turbothinh
+              <Text color="whiteAlpha.700" as="span" fontSize="sm">
+                Aidbase.ai
               </Text>
             }
             border="0"
             bg="transparent"
             boxShadow="none"
             color="white"
-            sx={{
-              '& p': {
-                color: useColorModeValue('blackAlpha.600', 'whiteAlpha.500'),
-              },
-            }}
             position="relative"
           >
-            Saas UI is the ONLY template out there that does the code structure
-            that I think can scale 😄
+            <Text
+              fontSize="sm"
+              color="blackAlpha.600"
+              _dark={{
+                color: 'whiteAlpha.800',
+              }}
+            >
+              At Aidbase, we&apos;re developing a framework-agnostic component
+              library to support our various chatbots, ticket forms, and other
+              widgets. It&apos;s challenging building something that&apos;s a
+              great developer experience and performing well at the same time.
+              SaaS UI has been a massive help in this.
+            </Text>
           </Testimonial>
         </GridItem>
         <GridItem colSpan={[1, null, null, 2]} as={HighlightBox}>
@@ -960,7 +965,7 @@ const Highlights = () => {
           <Testimonial
             name="Sukhpal Saini"
             description={
-              <Text color="whiteAlpha.700" as="span">
+              <Text color="whiteAlpha.700" as="span" fontSize="sm">
                 <Link href="https://saasbase.dev" target="_blank">
                   saasbase.dev
                 </Link>{' '}
@@ -989,10 +994,9 @@ const Highlights = () => {
 }
 
 const FigmaCard = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Stack spacing={8} padding="12">
+      <Stack spacing={8} padding={{ base: 8, sm: 12 }}>
         <Heading as="h3" textStyle="cardTitle" size="lg">
           Figma library
         </Heading>
@@ -1004,10 +1008,10 @@ const FigmaCard = () => {
           </>
         </Text>
 
-        <ButtonGroup>
-          <Button variant="primary" onClick={() => onOpen()}>
+        <Stack flexDirection={{ base: 'column', sm: 'row' }}>
+          <ButtonLink variant="primary" href="/pricing">
             Figma Pro early access
-          </Button>
+          </ButtonLink>
           <ButtonLink
             href="https://www.figma.com/community/file/1257658419283927894"
             variant="subtle"
@@ -1029,11 +1033,10 @@ const FigmaCard = () => {
           >
             Community library
           </ButtonLink>
-
-          <SignupForm isOpen={isOpen} onClose={onClose} />
-        </ButtonGroup>
+        </Stack>
       </Stack>
       <Flex
+        display={{ base: 'none', sm: 'flex' }}
         flex="1"
         width="40%"
         minWidth="200px"

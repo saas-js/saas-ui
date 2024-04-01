@@ -26,7 +26,10 @@
       "required": false,
       "description": "The environment (`window` and `document`) to be used by\nall components and hooks.\n\nBy default, we smartly determine the ownerDocument and defaultView\nbased on where `ChakraProvider` is rendered."
     },
-    "linkComponent": { "type": "ElementType<any>", "required": false },
+    "linkComponent": {
+      "type": "ElementType<any, keyof IntrinsicElements>",
+      "required": false
+    },
     "onError": {
       "type": "(error: Error, errorInfo: ErrorInfo) => void",
       "required": false

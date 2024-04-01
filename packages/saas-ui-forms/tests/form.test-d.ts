@@ -1,9 +1,14 @@
 import * as zod from 'zod'
-
+import { FieldPath, FieldValues } from 'react-hook-form'
 import { expectType } from 'tsd'
 
-import { ArrayFieldPath, FieldOverrides } from '../src/types'
-import { FieldPath } from 'react-hook-form'
+import {
+  ArrayFieldPath,
+  BaseFieldProps,
+  FieldOverrides,
+  GetBaseField,
+} from '../src/types'
+import { FormType } from '../src'
 
 const schema = zod.object({
   name: zod.string(),
@@ -58,7 +63,7 @@ type Test = FieldOverrides<
     c: [
       {
         test: string
-      }
+      },
     ]
   }
 >
@@ -72,3 +77,15 @@ type Overrides = {
 }
 
 expectType<Overrides>(test<Test>())
+
+type TypedForm = FormType<
+  {
+    custom: React.FC<
+      Omit<BaseFieldProps<FieldValues, string>, 'customFieldProp'> & {
+        customFieldProp?: string | undefined
+      }
+    >
+  },
+  { extraProp?: string },
+  GetBaseField<{ infoLabel?: string }>
+>

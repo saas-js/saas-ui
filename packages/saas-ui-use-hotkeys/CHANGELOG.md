@@ -1,5 +1,18 @@
 # @saas-ui/use-hotkeys
 
+## 1.1.1
+
+### Patch Changes
+
+- Fix backwards compatibility
+
+## 1.1.0
+
+### Minor Changes
+
+- 836305f8: New createHotkeys factory function to define typescript keyboard shortcuts
+- 836305f8: Added Hotkey component to improve how keyboard shortcuts are defined
+
 ## 1.0.9
 
 ### Patch Changes

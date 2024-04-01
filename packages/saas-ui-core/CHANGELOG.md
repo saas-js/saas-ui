@@ -1,5 +1,48 @@
 # @saas-ui/react
 
+## 2.4.3
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+
+## 2.4.2
+
+### Patch Changes
+
+- Bump version
+
+## 2.4.1
+
+### Patch Changes
+
+- 0778d23: Moved all StructuredList styling into theme
+- 7db4aee: Fixed issue where ref would not be forwarded to StructuredListHeader
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+  - @saas-ui/theme@2.3.4
+
+## 2.4.0
+
+### Minor Changes
+
+- 4a95712: Improved snackbar.promise method to not rethrow error when the error option is a function
+- 4a95712: Improved snackbar.promise success prop to accept an optional function callback
+
+## 2.3.6
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- Updated dependencies [2e7da38]
+  - @saas-ui/theme@2.3.3
+
+## 2.3.5
+
+### Patch Changes
+
+- afb87d86: Removed console.log
+
 ## 2.3.4
 
 ### Patch Changes

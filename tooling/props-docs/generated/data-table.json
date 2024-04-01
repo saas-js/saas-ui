@@ -49,6 +49,11 @@
       "required": false,
       "description": "Set this option to `true` to output all debugging information to the console."
     },
+    "debugCells": {
+      "type": "boolean",
+      "required": false,
+      "description": "Set this option to `true` to output cell debugging information to the console."
+    },
     "debugColumns": {
       "type": "boolean",
       "required": false,

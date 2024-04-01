@@ -18,3 +18,10 @@ export {
   FileUploadPreview,
 } from './file-upload'
 export type { FileUploadPreviewProps, FileUploadProps } from './file-upload'
+export type {
+  FileError,
+  FileAcceptDetails,
+  FileRejectDetails,
+  FileRejection,
+  FileChangeDetails,
+} from '@zag-js/file-upload'

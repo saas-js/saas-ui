@@ -1,5 +1,41 @@
 # @saas-ui/file-upload
 
+## 0.2.8
+
+### Patch Changes
+
+- 6456ba5: Exported missing FileChangeDetails type
+
+## 0.2.7
+
+### Patch Changes
+
+- 8279132: Updated zag.js
+
+## 0.2.6
+
+### Patch Changes
+
+- 6062e31: Fixed issue where onFileReject would not be called
+
+## 0.2.5
+
+### Patch Changes
+
+- 6290650: Fixed issue where onFileAccept an onFileReject would not trigger
+
+## 0.2.4
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+
+## 0.2.3
+
+### Patch Changes
+
+- ae2e7875: Added missing theming props
+
 ## 0.2.2
 
 ### Patch Changes

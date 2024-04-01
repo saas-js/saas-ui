@@ -32,11 +32,8 @@ export const Faq = () => {
           question="Does Saas UI include Figma, Sketch or other design files?"
           answer={
             <>
-              Yes, we have a Figma community and pro version.{' '}
-              <Link href="https://www.figma.com/community/file/1257658419283927894">
-                View community Figma
-              </Link>
-              .
+              Yes, we have a free Figma community and a Pro libary,
+              <Link href="/figma">more information</Link>.
             </>
           }
         />

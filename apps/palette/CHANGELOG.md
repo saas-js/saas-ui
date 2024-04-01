@@ -1,5 +1,96 @@
 # palette
 
+## 1.4.28
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/react@2.7.2
+  - @saas-ui/theme-glass@0.5.4
+
+## 1.4.27
+
+### Patch Changes
+
+- @saas-ui/react@2.7.1
+- @saas-ui/theme-glass@0.5.4
+
+## 1.4.26
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@2.7.0
+  - @saas-ui/theme-glass@0.5.4
+
+## 1.4.25
+
+### Patch Changes
+
+- @saas-ui/react@2.6.2
+- @saas-ui/theme-glass@0.5.4
+
+## 1.4.24
+
+### Patch Changes
+
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/react@2.6.1
+  - @saas-ui/theme-glass@0.5.4
+
+## 1.4.23
+
+### Patch Changes
+
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+- Updated dependencies [73d09d9]
+- Updated dependencies [efca417]
+  - @saas-ui/react@2.6.0
+  - @saas-ui/theme-glass@0.5.4
+
+## 1.4.22
+
+### Patch Changes
+
+- Updated dependencies [2e7da38]
+  - @saas-ui/theme-glass@0.5.4
+  - @saas-ui/palette@2.1.1
+  - @saas-ui/react@2.5.10
+
+## 1.4.21
+
+### Patch Changes
+
+- @saas-ui/react@2.5.9
+- @saas-ui/theme-glass@0.5.3
+
+## 1.4.20
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+  - @saas-ui/react@2.5.8
+  - @saas-ui/theme-glass@0.5.3
+
+## 1.4.19
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+- @saas-ui/theme-glass@0.5.3
+
+## 1.4.18
+
+### Patch Changes
+
+- Updated dependencies [b500c42f]
+- Updated dependencies [52e7490c]
+  - @saas-ui/theme-glass@0.5.3
+  - @saas-ui/react@2.5.6
+
 ## 1.4.17
 
 ### Patch Changes

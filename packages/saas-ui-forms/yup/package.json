@@ -21,6 +21,6 @@
   "peerDependencies": {
     "@hookform/resolvers": "^3.0.0",
     "react-hook-form": "^7.43.9",
-    "yup": "^1.0.2"
+    "yup": "^1.4.0"
   }
 }

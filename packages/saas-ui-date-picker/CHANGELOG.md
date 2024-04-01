@@ -1,5 +1,83 @@
 # @saas-ui/date-picker
 
+## 0.12.28
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+  - @saas-ui/modals@2.1.27
+
+## 0.12.27
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+  - @saas-ui/modals@2.1.26
+
+## 0.12.26
+
+### Patch Changes
+
+- @saas-ui/modals@2.1.25
+
+## 0.12.25
+
+### Patch Changes
+
+- Updated dependencies [0fad607]
+  - @saas-ui/modals@2.1.24
+
+## 0.12.24
+
+### Patch Changes
+
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/core@2.4.1
+  - @saas-ui/modals@2.1.23
+
+## 0.12.23
+
+### Patch Changes
+
+- a733ca1: Fixed issue where date picker visible date would not update when input value changed
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+  - @saas-ui/core@2.4.0
+  - @saas-ui/modals@2.1.22
+
+## 0.12.22
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- Updated dependencies [2e7da38]
+  - @saas-ui/modals@2.1.21
+  - @saas-ui/core@2.3.6
+
+## 0.12.21
+
+### Patch Changes
+
+- @saas-ui/modals@2.1.20
+
+## 0.12.20
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+  - @saas-ui/modals@2.1.19
+
+## 0.12.19
+
+### Patch Changes
+
+- Updated dependencies [afb87d86]
+  - @saas-ui/core@2.3.5
+  - @saas-ui/modals@2.1.18
+
 ## 0.12.18
 
 ### Patch Changes

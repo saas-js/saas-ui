@@ -8,6 +8,83 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-29-2024
+
+`@saas-ui/react@2.7.0`
+
+- Improved forms to support a global base field override
+
+**Forms** `v2.5.0`
+
+- Improved forms to support a global base field override
+
+## 03-11-2024
+
+**Modals** `v2.1.24`
+
+- Removed a console.log, closes #211
+
+**File Upload** `v0.2.7`
+
+- Updated zag.js
+
+## 03-06-2024
+
+`@saas-ui/react@2.6.1`
+
+- Fixed issue where Chakra UI Card sizes would not apply
+- Moved all StructuredList styling into theme
+- Fixed issue where ref would not be forwarded to StructuredListHeader
+
+**Theme** `v2.3.4`
+
+- Fixed issue where Chakra UI Card sizes would not apply
+- Moved all StructuredList styling into theme
+
+**Auth** `v3.0.3`
+
+- Added defaultView prop to Auth
+
+**Core** `v2.4.1`
+
+- Moved all StructuredList styling into theme
+- Fixed issue where ref would not be forwarded to StructuredListHeader
+
+**File Upload** `v0.2.6`
+
+- Fixed issue where onFileReject would not be called
+
+## 02-21-2024
+
+`@saas-ui/react@2.6.0`
+
+- Improved snackbar.promise method to not rethrow error when the error option is a function
+- Improved snackbar.promise success prop to accept an optional function callback
+- Added support for leftAddon and rightAddon on number input types
+- Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
+**Date Picker** `v0.12.23`
+
+- Fixed issue where date picker visible date would not update when input value changed
+
+**Auth** `v3.0.2`
+
+- Added missing translations
+
+**Website** `v2.3.21`
+
+- Added missing translations
+
+**Core** `v2.4.0`
+
+- Improved snackbar.promise method to not rethrow error when the error option is a function
+- Improved snackbar.promise success prop to accept an optional function callback
+
+**Forms** `v2.4.0`
+
+- Added support for leftAddon and rightAddon on number input types
+- Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
 ## 01-22-2024
 
 `@saas-ui/react@2.5.5`

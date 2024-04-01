@@ -3,13 +3,18 @@ import * as React from 'react'
 import Script from 'next/script'
 
 import {
-  Badge,
+  Avatar,
   Box,
   Button,
-  CardHeader,
   Center,
+  Container,
   IconButton,
   SimpleGrid,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   Tag,
   useClipboard,
   useDisclosure,
@@ -33,7 +38,7 @@ import { ButtonLink } from '@/components/link'
 
 import { Faq } from '@/components/faq'
 
-import { Testimonials } from '@/components/testimonials'
+import { Testimonial, Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
@@ -60,7 +65,7 @@ const PricingPage = () => {
         src="https://app.lemonsqueezy.com/js/lemon.js"
         onLoad={() => {
           /* @ts-ignore */
-          window.createLemonSqueezy?.()
+          // window.createLemonSqueezy?.()
         }}
       />
       <BackgroundGradientRadial
@@ -72,6 +77,8 @@ const PricingPage = () => {
       <Box mb={8} w="full" position="relative" overflow="hidden">
         <Pricing />
 
+        <TestimonialTabs />
+
         <Faq />
 
         <Testimonials />
@@ -80,25 +87,97 @@ const PricingPage = () => {
   )
 }
 
-const getPaymentLinks = (append?: boolean) => {
+const TestimonialTabs = () => {
+  return (
+    <Container>
+      <Tabs
+        variant="unstyled"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+      >
+        <TabList mb="6">
+          <Tab opacity="0.4" _selected={{ opacity: 1 }}>
+            <Avatar
+              name="Simon Høiberg"
+              src="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=200"
+            />
+          </Tab>
+          <Tab opacity="0.4" _selected={{ opacity: 1 }}>
+            <Avatar
+              name="Makenna Smutz"
+              src="https://senjaio.b-cdn.net/public/avatar/ecbaf7d4-f379-4693-8366-39bb63d2b623_profile-image.jpeg?width=200"
+            />
+          </Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel textAlign="center">
+            <Text
+              fontSize="2xl"
+              fontWeight="light"
+              mb="6"
+              _before={{ content: '"“"' }}
+              _after={{ content: '"“"' }}
+            >
+              It&apos;s challenging building something that&apos;s a great
+              developer experience and performing well at the same time. SaaS UI
+              has been a massive help in this.
+            </Text>
+
+            <Text>Simon Høiberg</Text>
+            <Text color="muted" fontSize="sm">
+              Founder -{' '}
+              <a href="https://aidbase.ai/" target="_blank">
+                Aidbase
+              </a>
+            </Text>
+          </TabPanel>
+          <TabPanel textAlign="center">
+            <Text
+              fontSize="2xl"
+              fontWeight="light"
+              mb="6"
+              _before={{ content: '"“"' }}
+              _after={{ content: '"“"' }}
+            >
+              Saas-ui is fantastic if you want to build fast-as-thought with
+              beautiful defaults and still have the flexibility to customize
+              when time allows. I truly love building with it!!
+            </Text>
+
+            <Text>Makenna Smutz</Text>
+            <Text color="muted" fontSize="sm">
+              Founder -{' '}
+              <a href="https://halite.app/" target="_blank">
+                Halite
+              </a>
+            </Text>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Container>
+  )
+}
+
+const getPaymentLinks = (
+  append?: boolean
+): {
+  figma: string
+  bootstrap: string
+  startup: string
+  className?: string
+} => {
   const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
   let affix = ''
   if (append && aff) {
     affix = `?aff=${aff}`
   }
-  return process.env.NEXT_PUBLIC_PAYMENT === 'lemon'
-    ? {
-        bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
-        startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
-        className: 'lemonsqueezy-button',
-      }
-    : {
-        bootstrap:
-          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
-        startup:
-          'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
-        className: 'gumroad-button',
-      }
+  return {
+    figma: `https://saas-ui.lemonsqueezy.com/checkout/buy/f01bee85-aa4f-4de9-8e20-f53b0206b26f${affix}`,
+    bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
+    startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
+    // className: 'lemonsqueezy-button',
+  }
 }
 
 const Install = () => {
@@ -146,7 +225,7 @@ const Pricing = () => {
           description={
             <>
               <Text fontSize="xl" mb="12" color="muted">
-                Get started for free with 40+ open source components. Upgrade to
+                Get started for free with 50+ open source components. Upgrade to
                 Pro <Br display={{ sm: 'none', lg: 'inline' }} />
                 to get all components and features with a license for you or
                 your team.
@@ -154,7 +233,7 @@ const Pricing = () => {
               <Install />
             </>
           }
-          pt={{ base: '8', lg: '20' }}
+          pt={{ base: '8', lg: '10' }}
           pb="12"
         />
 
@@ -164,9 +243,9 @@ const Pricing = () => {
           <PricingBox
             title={
               <HStack as="span">
-                <Text as="span">Design</Text>{' '}
+                <Text as="span">Figma Pro</Text>{' '}
                 <Tag colorScheme="primary" size="sm">
-                  Soon
+                  New
                 </Tag>
               </HStack>
             }
@@ -193,16 +272,27 @@ const Pricing = () => {
                 title="Unlimited projects"
                 help="You can design unlimited projects."
               />
-              <PricingFeature title="40+ components" />
+              <PricingFeature title="50+ components" />
+              <PricingFeature title="3000+ variants" />
               <PricingFeature title="Auto-layout" />
               <PricingFeature title="Theming with Figma variables" />
-              <PricingFeature title="Dark mode" />
-              <PricingFeature title="Token Studio integration" />
+              <PricingFeature title="Dark mode (soon)" color="muted" />
               <PricingFeature title="1 year of updates" />
             </PricingFeatures>
-            <Button variant="outline" mt="10" onClick={() => figma.onOpen()}>
-              Get notified
-            </Button>
+            <ButtonLink
+              as="a"
+              colorScheme="primary"
+              href={paymentLinks.figma}
+              className={paymentLinks.className}
+              onClick={(e) => {
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Figma')
+                })
+              }}
+            >
+              Early access
+            </ButtonLink>
           </PricingBox>
           <PricingBox
             title="Bootstrap"
@@ -230,6 +320,16 @@ const Pricing = () => {
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
               <PricingFeature title="Advanced components" />
+              <PricingFeature
+                title={
+                  <HStack as="span">
+                    <Text as="span">Blocks</Text>{' '}
+                    <Tag colorScheme="primary" size="sm">
+                      New
+                    </Tag>
+                  </HStack>
+                }
+              />
               <PricingFeature title="Multiple themes" />
               <PricingFeature title="Next.js and Electron boilerplates" />
               <PricingFeature title="Private discord community" />
@@ -284,12 +384,20 @@ const Pricing = () => {
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Figma design system</Text>{' '}
+                    <Text
+                      as="span"
+                      borderBottomWidth="1px"
+                      borderBottomStyle="dotted"
+                      borderColor="currentColor"
+                    >
+                      Figma Pro included
+                    </Text>{' '}
                     <Tag colorScheme="primary" size="sm">
-                      Soon
+                      New
                     </Tag>
                   </HStack>
                 }
+                help="One editor included. Additional licenses can be purchased separately."
               />
               <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />
@@ -344,12 +452,17 @@ const PricingFeatures = ({ children }) => {
   )
 }
 
-const PricingFeature = ({ title, iconColor = 'primary.500', help = '' }) => {
+const PricingFeature = ({
+  title,
+  iconColor = 'primary.500',
+  help = '',
+  color = 'inherit',
+}) => {
   return (
     <HStack>
       <CheckIcon color={iconColor} />{' '}
       <Tooltip label={help}>
-        <Text flex="1" fontSize="sm" cursor="default">
+        <Text flex="1" fontSize="sm" cursor="default" color={color}>
           <Text
             as="span"
             borderStyle="dotted"
@@ -438,7 +551,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€4950,-</Text>
+            <Text>€2499,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>

@@ -95,6 +95,7 @@ export interface SelectFieldProps extends SelectProps {
 export const SelectField = createField<SelectFieldProps>(
   forwardRef((props, ref) => {
     const { buttonProps, listProps, ...rest } = props
+
     return (
       <Select ref={ref} {...rest}>
         <SelectButton {...buttonProps} />

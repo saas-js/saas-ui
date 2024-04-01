@@ -4,6 +4,8 @@ import navbar from './navbars.svg?url'
 import navbarDark from './navbars-dark.svg?url'
 import settings from './settings.svg?url'
 import settingsDark from './settings-dark.svg?url'
+import cards from './cards.svg?url'
+import cardsDark from './cards-dark.svg?url'
 import files from './files.svg?url'
 import filesDark from './files-dark.svg?url'
 import commandbars from './commandbars.svg?url'
@@ -27,6 +29,7 @@ const img = {
   sidebars: { light: sidebar, dark: sidebarDark },
   navbars: { light: navbar, dark: navbarDark },
   settings: { light: settings, dark: settingsDark },
+  cards: { light: cards, dark: cardsDark },
   files: { light: files, dark: filesDark },
   commandbars: { light: commandbars, dark: commandbarsDark },
   drawers: { light: drawers, dark: drawersDark },

@@ -5,6 +5,7 @@ import { FocusableElement } from '@chakra-ui/utils'
 import { useField } from './fields-context'
 import { FieldProps } from './types'
 import { useFieldProps } from './form-context'
+import { InputField } from './default-fields'
 
 export interface Option {
   value: string
@@ -36,7 +37,7 @@ export const Field = React.forwardRef(
   ) => {
     const { type = defaultInputType, name } = props
     const overrides = useFieldProps(name)
-    const InputComponent = useField(overrides?.type || type)
+    const InputComponent = useField(overrides?.type || type, InputField)
 
     return <InputComponent ref={ref} {...props} {...overrides} />
   }

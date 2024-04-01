@@ -1,5 +1,64 @@
 # @saas-ui/hotkeys
 
+## 2.2.6
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/core@2.4.1
+
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+  - @saas-ui/core@2.4.0
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies [2e7da38]
+  - @saas-ui/core@2.3.6
+
+## 2.2.1
+
+### Patch Changes
+
+- Fix backwards compatibility
+- Updated dependencies
+  - @saas-ui/use-hotkeys@1.1.1
+
+## 2.2.0
+
+### Minor Changes
+
+- 836305f8: Added typesafe shortcuts and Hotkey component
+
+### Patch Changes
+
+- Updated dependencies [afb87d86]
+- Updated dependencies [836305f8]
+- Updated dependencies [836305f8]
+  - @saas-ui/core@2.3.5
+  - @saas-ui/use-hotkeys@1.1.0
+
 ## 2.1.15
 
 ### Patch Changes

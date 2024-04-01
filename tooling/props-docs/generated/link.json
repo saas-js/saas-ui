@@ -1,9 +1,19 @@
 {
   "Link": {
-    "to": { "type": "string", "required": true },
-    "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+    "cancel": { "type": "boolean", "required": false },
+    "className": { "type": "string", "required": false },
+    "containsIcon": { "type": "boolean", "required": false },
+    "href": { "type": "string", "required": false },
+    "inverse": { "type": "boolean", "required": false },
+    "isButton": { "type": "boolean", "required": false },
+    "nochrome": { "type": "boolean", "required": false },
+    "onClick": {
+      "type": "(e: MouseEvent<Element, MouseEvent>) => void",
       "required": false
-    }
+    },
+    "secondary": { "type": "boolean", "required": false },
+    "style": { "type": "object", "required": false },
+    "tertiary": { "type": "boolean", "required": false },
+    "withArrow": { "type": "boolean", "required": false }
   }
 }

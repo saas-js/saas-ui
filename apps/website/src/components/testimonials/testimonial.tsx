@@ -36,14 +36,14 @@ export const Testimonial = ({
           size="sm"
           bg={avatar ? 'transparent' : undefined}
         />
-        <Stack spacing="1" ms="4">
+        <Stack spacing="0" ms="4">
           <Heading size="sm">{name}</Heading>
-          <Text color="muted" size="xs">
+          <Text color="muted" size="sm">
             {description}
           </Text>
         </Stack>
       </CardHeader>
-      <CardBody>
+      <CardBody pt="2">
         {children}
 
         {href && (

@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-import { chakra, SimpleGrid, SimpleGridProps, useTheme } from '@chakra-ui/react'
+import {
+  chakra,
+  omitThemingProps,
+  SimpleGrid,
+  SimpleGridProps,
+  useTheme,
+} from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
 export interface FormLayoutProps extends SimpleGridProps {}
@@ -31,10 +37,10 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
     spacing: 4,
   }
 
-  const gridProps = {
+  const gridProps = omitThemingProps({
     ...defaultProps,
     ...props,
-  }
+  })
 
   return (
     <SimpleGrid

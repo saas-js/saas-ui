@@ -21,14 +21,19 @@ export const CATEGORIES: CategoriesGroup[] = [
         images: images.navbars ?? null,
       },
       {
+        slug: 'cards',
+        name: 'Cards',
+        images: images.cards ?? null,
+      },
+      {
         slug: 'kpi-cards',
         name: 'KPI cards',
         images: images.kpicards ?? null,
       },
       {
-        slug: 'settings',
-        name: 'Settings sections',
-        images: images.settings ?? null,
+        slug: 'communication',
+        name: 'Communication',
+        images: images.kpicards ?? null,
       },
       {
         slug: 'files',
@@ -46,6 +51,11 @@ export const CATEGORIES: CategoriesGroup[] = [
         images: images.emptystates ?? null,
       },
       {
+        slug: 'lists',
+        name: 'Lists',
+        images: images.tables ?? null,
+      },
+      {
         slug: 'modals',
         name: 'Modals',
         images: images.modals ?? null,
@@ -54,6 +64,11 @@ export const CATEGORIES: CategoriesGroup[] = [
         slug: 'menus',
         name: 'Menus',
         images: images.menus ?? null,
+      },
+      {
+        slug: 'settings',
+        name: 'Settings sections',
+        images: images.settings ?? null,
       },
     ],
   },

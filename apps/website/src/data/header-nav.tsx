@@ -14,7 +14,6 @@ const headerNav: (NavLinkProps & { authenticated?: boolean })[] = [
   },
   {
     href: '/blocks',
-    authenticated: true,
     label: (
       <HStack justifyContent="center">
         <Text>Blocks</Text>

@@ -1,5 +1,70 @@
 # @saas-ui/forms
 
+## 2.5.2
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+
+## 2.5.0
+
+### Minor Changes
+
+- Improved forms to support a global base field override
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/core@2.4.1
+
+## 2.4.0
+
+### Minor Changes
+
+- 73d09d9: Added support for leftAddon and rightAddon on number input types
+- efca417: Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+
+### Patch Changes
+
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+  - @saas-ui/core@2.4.0
+
+## 2.3.12
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- da5167a: Fixed issue where submit field props were not passed down correctly
+- Updated dependencies [2e7da38]
+  - @saas-ui/core@2.3.6
+
+## 2.3.11
+
+### Patch Changes
+
+- 29e5c317: Fixed issue where submit label could not be overwritten using the fields prop
+
+## 2.3.10
+
+### Patch Changes
+
+- 52e7490c: Fixed issue where theming props would be forwarded to form layout element
+- Updated dependencies [afb87d86]
+  - @saas-ui/core@2.3.5
+
 ## 2.3.9
 
 ### Patch Changes

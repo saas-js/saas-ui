@@ -1,3 +1,4 @@
+import { Meta, StoryObj } from '@storybook/react'
 import { Container, Text } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -8,6 +9,7 @@ import {
   User,
   AuthParams,
   AuthProviderProps,
+  AuthProps,
 } from '../src'
 
 import { Field } from '@saas-ui/forms'
@@ -24,6 +26,7 @@ const passwordSchema = Yup.object({
 })
 
 type CustomUser = {
+  id: number
   email: string
 }
 
@@ -31,14 +34,22 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
   let user: CustomUser | null = null
   return {
     onLogin: async (params: AuthParams) => {
-      if (params.email) {
-        user = { email: params.email }
+      console.log('onLogin', params)
+      const { email, password, provider } = params
+      // email and provider login may return an empty object on success
+      if (email && password) {
+        user = { id: 1, email }
         return user
+      } else if (
+        (!email && !password && !provider) ||
+        email === 'error@error.com'
+      ) {
+        throw new Error('Login failed')
       }
     },
     onSignup: async (params: AuthParams) => {
       if (params.email) {
-        user = { email: params.email }
+        user = { id: 2, email: params.email }
         return user
       }
     },
@@ -55,11 +66,13 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
       }
     },
     onLoadUser: async () => {
+      console.log('onLoadUser', user)
       return user
     },
     onGetToken: async () => {
       // return a session token if it's supported.
-      return null
+      console.log('onGetToken', user?.email)
+      return user?.email
     },
     onResetPassword: async (params: AuthParams) => {
       // send a reset password email
@@ -70,34 +83,7 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
   }
 }
 
-const authProvider: AuthProviderProps<any> = {
-  onLogin: async (params) => {
-    console.log('onLogin', params)
-    const { email, password, provider } = params
-    // email and provider login may return an empty object on success
-    let response = {}
-    if (email && password) {
-      response = { id: 1, email }
-    } else if (
-      (!email && !password && !provider) ||
-      email === 'error@error.com'
-    ) {
-      throw new Error('Login failed')
-    }
-
-    return {
-      id: 1,
-      email,
-    } as unknown as User
-  },
-  onSignup: async (params) => {
-    const { email } = params
-    return { id: 1, email } as unknown as User
-  },
-  onVerifyOtp: async () => true,
-  onResetPassword: async (params) => true,
-  onUpdatePassword: async (params) => true,
-}
+const authProvider = createAuthService()
 
 export default {
   title: 'Components/Auth/Auth',
@@ -111,7 +97,9 @@ export default {
       </AuthProvider>
     ),
   ],
-}
+} as Meta
+
+type Story = StoryObj<AuthProps>
 
 const availableProviders: AvailableProviders = {
   google: {
@@ -124,15 +112,15 @@ const availableProviders: AvailableProviders = {
   },
 }
 
-export const Basic = {}
+export const Basic: Story = {}
 
-export const Providers = {
+export const Providers: Story = {
   args: {
     providers: availableProviders,
   },
 }
 
-export const ButtonColor = {
+export const ButtonColor: Story = {
   args: {
     providers: availableProviders,
     fields: {
@@ -144,7 +132,7 @@ export const ButtonColor = {
   },
 }
 
-export const Password = {
+export const Password: Story = {
   args: {
     type: 'password',
     fields: {
@@ -166,20 +154,20 @@ export const Password = {
   },
 }
 
-export const Otp = {
+export const Otp: Story = {
   args: {
     view: 'otp',
   },
 }
 
-export const Signup = {
+export const Signup: Story = {
   args: {
     type: 'password',
     view: 'signup',
   },
 }
 
-export const SignupWithCustomFields = {
+export const SignupWithCustomFields: Story = {
   render() {
     return (
       <Auth providers={availableProviders} type="password" view="signup">
@@ -192,19 +180,19 @@ export const SignupWithCustomFields = {
   },
 }
 
-export const ForgotPassword = {
+export const ForgotPassword: Story = {
   args: {
     view: 'forgot_password',
   },
 }
 
-export const UpdatePassword = {
+export const UpdatePassword: Story = {
   args: {
     view: 'update_password',
   },
 }
 
-export const ErrorHandler = {
+export const ErrorHandler: Story = {
   render: () => {
     const snackbar = useSnackbar()
 
@@ -218,5 +206,46 @@ export const ErrorHandler = {
         }}
       />
     )
+  },
+}
+
+export const SuccessHandler: Story = {
+  render: () => {
+    const snackbar = useSnackbar()
+
+    return (
+      <Auth
+        onSuccess={(view, data) => {
+          if (view === 'login') {
+            snackbar.success('Login succesful')
+          }
+        }}
+      />
+    )
+  },
+}
+
+export const Translations: Story = {
+  args: {
+    type: 'password',
+    providers: availableProviders,
+    translations: {
+      signup: 'Aanmelden',
+      signupSubmit: 'Aanmelden',
+      login: 'Inloggen',
+      loginSubmit: 'Inloggen',
+      forgotPassword: 'Wachtwoord vergeten?',
+      forgotPasswordSubmit: 'Stuur reset link',
+      updatePassword: 'Wachtwoord wijzigen',
+      updatePasswordSubmit: 'Wachtwoord opslaan',
+      backToLogin: 'Terug naar inloggen',
+      noAccount: 'Nog geen account?',
+      haveAccount: 'Reeds aangemeld?',
+      otpSubmit: 'Verifiëren',
+      continueWith: 'Doorgaan met',
+      orContinueWith: 'of doorgaan met',
+      email: 'E-mail',
+      password: 'Wachtwoord',
+    },
   },
 }

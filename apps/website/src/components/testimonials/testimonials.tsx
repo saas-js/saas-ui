@@ -11,6 +11,25 @@ export const Testimonials = () => {
       <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
         <Stack spacing="8">
           <Testimonial
+            name="Simon Høiberg"
+            avatar="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=200"
+            description={
+              <>
+                Founder -{' '}
+                <a href="https://aidbase.ai/" target="_blank">
+                  Aidbase
+                </a>
+              </>
+            }
+            fontSize="md"
+          >
+            “At Aidbase, we&apos;re developing a framework-agnostic component
+            library to support our various chatbots, ticket forms, and other
+            widgets. It&apos;s challenging building something that&apos;s a
+            great developer experience and performing well at the same time.
+            SaaS UI has been a massive help in this.”
+          </Testimonial>
+          <Testimonial
             name="Ahmed"
             description={
               <>
@@ -39,20 +58,27 @@ export const Testimonials = () => {
             This filter UI is some of my favorite 🤤”
           </Testimonial>
           <Testimonial
-            name="João Tosto"
-            description="Founder - Startec"
-            avatar="https://avatars.githubusercontent.com/u/48574634?v=4"
+            name="@moshyfawn"
+            description="Software Engineer - React Hook Form"
+            avatar="https://pbs.twimg.com/profile_images/1518679972281466888/6iy5ls8Q_normal.png"
             fontSize="md"
-            href="https://startecjobs.com/"
+            href="https://twitter.com/moshyfawn/status/1542477407675883520"
           >
-            “Saas UI is one of the most exciting dev tools I&apos;ve tried so
-            far. The pre-built components allow me and my team to develop our
-            products much more easily and faster than traditional ways. If you
-            are a single developer, a startup trying to launch a new product or
-            even a scaling-up company, I strongly recommend Saas UI.”
+            “Imagine a well thought out SaaS UI with super cool integrations
+            like @HookForm @chakra_ui and @date_fns that power the whole thing!
+            Like WAT?!”
           </Testimonial>
         </Stack>
         <Stack spacing="8">
+          <Testimonial
+            name="Tien Thinh"
+            description="Software Engineer"
+            avatar="/testimonials/turbothinh.png"
+            fontSize="md"
+          >
+            “Saas UI is the ONLY template out there that does the code structure
+            that I think can scale 😄”
+          </Testimonial>
           <Testimonial
             name="Milan van Schaik"
             description="CTO - CultureKit"
@@ -93,6 +119,19 @@ export const Testimonials = () => {
 
         <Stack spacing="8">
           <Testimonial
+            name="João Tosto"
+            description="Founder - Startec"
+            avatar="https://avatars.githubusercontent.com/u/48574634?v=4"
+            fontSize="md"
+            href="https://startecjobs.com/"
+          >
+            “Saas UI is one of the most exciting dev tools I&apos;ve tried so
+            far. The pre-built components allow me and my team to develop our
+            products much more easily and faster than traditional ways. If you
+            are a single developer, a startup trying to launch a new product or
+            even a scaling-up company, I strongly recommend Saas UI.”
+          </Testimonial>
+          <Testimonial
             name="Kai Pradel"
             description={
               <>
@@ -107,17 +146,7 @@ export const Testimonials = () => {
             beautiful and intuitive but the community is also highly engaged and
             supportive.”
           </Testimonial>
-          <Testimonial
-            name="@moshyfawn"
-            description="Software Engineer - React Hook Form"
-            avatar="https://pbs.twimg.com/profile_images/1518679972281466888/6iy5ls8Q_normal.png"
-            fontSize="md"
-            href="https://twitter.com/moshyfawn/status/1542477407675883520"
-          >
-            “Imagine a well thought out SaaS UI with super cool integrations
-            like @HookForm @chakra_ui and @date_fns that power the whole thing!
-            Like WAT?!”
-          </Testimonial>
+
           <Testimonial
             name="@simonweniger"
             description="Software Engineer - Mintgate"
@@ -127,6 +156,18 @@ export const Testimonials = () => {
             “SaasUI is really great and helps me to focus on the core part for
             the mvp instead of spending time on the framework. I really enjoyed
             the dev experience in the first days.”
+          </Testimonial>
+          <Testimonial
+            name="Jacob Leuthardt"
+            description="Founder - Frantic Software"
+            avatar="https://senjaio.b-cdn.net/public/avatar/d0ae3c9a-6c33-4d34-9c55-b73b202d1eff_PXL_20240103_031225981.PORTRAIT.jpg?width=200"
+            fontSize="md"
+            href="https://www.frantic-software.com/"
+          >
+            “SaaS UI has let my business hit the ground running. Good UI is the
+            foundation of good software and SaaS UI is what makes good software.
+            Before SaaS UI, my UI was hand written in plain HTML/CSS/JS. Now
+            it&apos;s an eye-catching experience that turns heads.”
           </Testimonial>
         </Stack>
       </SimpleGrid>

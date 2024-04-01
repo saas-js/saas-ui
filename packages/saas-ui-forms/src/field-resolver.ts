@@ -1,6 +1,9 @@
-import { BaseFieldProps } from './types'
+import { BaseFieldProps, ValueOf } from './types'
 
 import { get } from '@chakra-ui/utils'
+import { ArrayFieldProps } from './array-field'
+import { ObjectFieldProps } from './object-field'
+import { DefaultFields } from './default-fields'
 
 export type FieldResolver = {
   getFields(): BaseFieldProps[]
@@ -9,16 +12,32 @@ export type FieldResolver = {
 
 export type GetFieldResolver<TSchema = any> = (schema: TSchema) => FieldResolver
 
-interface SchemaField extends BaseFieldProps {
-  items?: SchemaField[]
-  properties?: Record<string, SchemaField>
-}
+type FieldTypes<FieldDefs = DefaultFields> = ValueOf<{
+  [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
+    ? { type?: K } & Omit<Props, 'name'>
+    : never
+}>
 
-export type ObjectSchema = Record<string, SchemaField>
+type SchemaField<FieldDefs = DefaultFields> =
+  | FieldTypes<FieldDefs>
+  | (Omit<ObjectFieldProps, 'name' | 'children'> & {
+      type: 'object'
+      properties?: Record<string, SchemaField<FieldDefs>>
+    })
+  | (Omit<ArrayFieldProps, 'name' | 'children'> & {
+      type: 'array'
+      items?: SchemaField<FieldDefs>
+    })
+
+export type ObjectSchema<FieldDefs = DefaultFields> = Record<
+  string,
+  SchemaField<FieldDefs>
+>
 
 const mapFields = (schema: ObjectSchema): BaseFieldProps[] =>
   schema &&
-  Object.entries(schema).map(([name, { items, label, title, ...field }]) => {
+  Object.entries(schema).map(([name, props]) => {
+    const { items, label, title, ...field } = props as any
     return {
       ...field,
       name,

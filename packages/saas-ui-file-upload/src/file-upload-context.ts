@@ -39,19 +39,19 @@ export type FileUploadRenderContext = Pick<
 export const useFileUpload = (props: FileUploadOptions) => {
   const { isDisabled, ...rest } = props
 
-  const [state, send] = useMachine(
-    fileUpload.machine({
-      id: useId(),
-      disabled: isDisabled,
-      ...rest,
-    })
-  )
+  const initialContext: fileUpload.Context = {
+    id: useId(),
+    disabled: isDisabled,
+    ...rest,
+  }
+
+  const [state, send] = useMachine(fileUpload.machine(initialContext), {
+    context: {
+      ...initialContext,
+    },
+  })
 
   const api = fileUpload.connect(state, send, normalizeProps)
-  // @todo temporary workaround
-  api.clearFiles = () => {
-    api.files?.forEach((file) => api.deleteFile(file))
-  }
 
   api.dropzoneProps = omit(api.dropzoneProps, ['onClick'])
 

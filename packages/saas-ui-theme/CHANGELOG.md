@@ -1,5 +1,18 @@
 # @saas-ui/theme
 
+## 2.3.4
+
+### Patch Changes
+
+- 2f32548: Fixed issue where Chakra UI Card sizes would not apply
+- 0778d23: Moved all StructuredList styling into theme
+
+## 2.3.3
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+
 ## 2.3.2
 
 ### Patch Changes

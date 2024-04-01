@@ -1,5 +1,74 @@
 # @saas-ui/modals
 
+## 2.1.27
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/forms@2.5.2
+
+## 2.1.26
+
+### Patch Changes
+
+- @saas-ui/forms@2.5.1
+
+## 2.1.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.0
+
+## 2.1.24
+
+### Patch Changes
+
+- 0fad607: Removed a console.log, closes #211
+
+## 2.1.23
+
+### Patch Changes
+
+- @saas-ui/forms@2.4.1
+
+## 2.1.22
+
+### Patch Changes
+
+- Updated dependencies [73d09d9]
+- Updated dependencies [efca417]
+  - @saas-ui/forms@2.4.0
+
+## 2.1.21
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- Updated dependencies [2e7da38]
+- Updated dependencies [da5167a]
+  - @saas-ui/forms@2.3.12
+
+## 2.1.20
+
+### Patch Changes
+
+- Updated dependencies [29e5c317]
+  - @saas-ui/forms@2.3.11
+
+## 2.1.19
+
+### Patch Changes
+
+- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+
+## 2.1.18
+
+### Patch Changes
+
+- Updated dependencies [52e7490c]
+  - @saas-ui/forms@2.3.10
+
 ## 2.1.17
 
 ### Patch Changes

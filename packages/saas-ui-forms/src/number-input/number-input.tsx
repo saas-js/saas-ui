@@ -9,13 +9,18 @@ import {
   NumberDecrementStepper,
   NumberInputProps as ChakraNumberInputProps,
   NumberInputFieldProps,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
+  InputLeftElement,
+  InputRightElement,
 } from '@chakra-ui/react'
 
 import { ChevronDownIcon, ChevronUpIcon } from '@saas-ui/core'
 
 interface NumberInputOptions {
   /**
-   * Hide the stepper.
+   * Hide the stepper. This will be true when `rightAddon` is provided.
    */
   hideStepper?: boolean
   /**
@@ -34,7 +39,21 @@ interface NumberInputOptions {
    * Props to pass to the NumberInputField component.
    */
   fieldProps?: NumberInputFieldProps
+  /**
+   * Either `InputLeftAddon` or `InputLeftElement`
+   */
+  leftAddon?: React.ReactNode
+  /**
+   * Either `InputRightAddon` or `InputRightElement`
+   */
+  rightAddon?: React.ReactNode
 }
+
+const Input = forwardRef<NumberInputFieldProps, 'input'>((props, ref) => (
+  <NumberInputField ref={ref} {...props} />
+))
+Input.displayName = 'NumberInputField'
+Input.id = 'Input'
 
 export interface NumberInputProps
   extends ChakraNumberInputProps,
@@ -45,6 +64,8 @@ export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
     hideStepper = false,
     incrementIcon = <ChevronUpIcon />,
     decrementIcon = <ChevronDownIcon />,
+    leftAddon,
+    rightAddon,
     placeholder,
     fieldProps: _fieldProps,
     ...rest
@@ -54,14 +75,17 @@ export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
 
   return (
     <ChakraNumberInput {...rest} ref={ref}>
-      <NumberInputField {...fieldProps} />
-
-      {!hideStepper && (
+      <InputGroup>
+        {leftAddon}
+        <Input {...fieldProps} />
+        {rightAddon}
+      </InputGroup>
+      {!hideStepper && !rightAddon ? (
         <NumberInputStepper>
           <NumberIncrementStepper children={incrementIcon} />
           <NumberDecrementStepper children={decrementIcon} />
         </NumberInputStepper>
-      )}
+      ) : null}
     </ChakraNumberInput>
   )
 })

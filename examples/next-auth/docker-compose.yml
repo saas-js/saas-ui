@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    # Uncomment the following line to enable query logging
+    # Then restart the container.
+    # command: ['postgres', '-c', 'log_statement=all']
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: nextauth
+      POSTGRES_PASSWORD: changeme
+    ports:
+      - '5432:5432'

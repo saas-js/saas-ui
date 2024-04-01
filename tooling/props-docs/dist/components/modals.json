@@ -384,11 +384,6 @@
       "required": false,
       "description": "If `true`, the modal will close when the overlay is clicked"
     },
-    "colorScheme": {
-      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\"",
-      "required": false,
-      "description": "The visual color appearance of the component"
-    },
     "contentProps": {
       "type": "ModalContentProps",
       "required": false,
@@ -483,12 +478,6 @@
       "required": false,
       "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
     },
-    "size": {
-      "defaultValue": "xs",
-      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"full\"",
-      "required": false,
-      "description": "The size of the Drawer"
-    },
     "title": {
       "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
       "required": false,
@@ -505,11 +494,6 @@
       "defaultValue": true,
       "required": false,
       "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
-    },
-    "variant": {
-      "type": "string",
-      "required": false,
-      "description": "The variant of the Drawer"
     }
   },
   "BaseModal": {
@@ -1126,7 +1110,10 @@
       "required": false,
       "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
     },
-    "mode": { "type": "keyof ValidationMode", "required": false },
+    "mode": {
+      "type": "\"onBlur\" | \"onChange\" | \"onSubmit\" | \"all\" | \"onTouched\"",
+      "required": false
+    },
     "motionPreset": {
       "type": "MotionPreset",
       "defaultValue": "scale",
@@ -1170,7 +1157,7 @@
       "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
     },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -1706,7 +1693,10 @@
       "required": false,
       "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
     },
-    "mode": { "type": "keyof ValidationMode", "required": false },
+    "mode": {
+      "type": "\"onBlur\" | \"onChange\" | \"onSubmit\" | \"all\" | \"onTouched\"",
+      "required": false
+    },
     "motionPreset": {
       "type": "MotionPreset",
       "defaultValue": "scale",
@@ -1754,7 +1744,7 @@
       "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
     },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": { "type": "Resolver<FieldValues, object>", "required": false },

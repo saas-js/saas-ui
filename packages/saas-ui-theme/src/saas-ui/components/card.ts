@@ -1,4 +1,3 @@
-import { mode } from '@chakra-ui/theme-tools'
 import { cardAnatomy } from '@chakra-ui/anatomy'
 
 import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/styled-system'
@@ -17,15 +16,6 @@ const baseStyle = definePartsStyle(() => {
     container: {
       transitionProperty: 'common',
       transitionDuration: 'normal',
-    },
-    header: {
-      p: 4,
-    },
-    body: {
-      p: 4,
-    },
-    footer: {
-      p: 4,
     },
   }
 })
@@ -97,6 +87,27 @@ const variantOutline = definePartsStyle((props) => {
   }
 })
 
+const sizes = {
+  sm: definePartsStyle({
+    container: {
+      [$radius.variable]: 'radii.base',
+      [$padding.variable]: 'space.3',
+    },
+  }),
+  md: definePartsStyle({
+    container: {
+      [$radius.variable]: 'radii.md',
+      [$padding.variable]: 'space.4',
+    },
+  }),
+  lg: definePartsStyle({
+    container: {
+      [$radius.variable]: 'radii.xl',
+      [$padding.variable]: 'space.6',
+    },
+  }),
+}
+
 export const cardTheme = defineMultiStyleConfig({
   defaultProps: {
     variant: 'elevated',
@@ -107,4 +118,5 @@ export const cardTheme = defineMultiStyleConfig({
     outline: variantOutline,
     filled: variantFilled,
   },
+  sizes,
 })

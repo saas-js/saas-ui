@@ -43,7 +43,7 @@ export const DocsFeedback = () => {
 }
 
 const FeedbackButton = ({ children, onClick: onClickProp, ...rest }) => {
-  const [data] = useLocalStorage('saas-ui.data', null)
+  const [data] = useLocalStorage<any>('saas-ui.data', null)
 
   const onClick = () => {
     onClickProp(rest['aria-label'])
@@ -53,7 +53,7 @@ const FeedbackButton = ({ children, onClick: onClickProp, ...rest }) => {
       body: JSON.stringify({
         page: window.location.href,
         rating: children,
-        username: data.githubAccount,
+        username: data?.githubAccount,
       }),
     })
   }
@@ -72,7 +72,7 @@ const FeedbackButton = ({ children, onClick: onClickProp, ...rest }) => {
 }
 
 const FeedbackForm = (props) => {
-  const [data] = useLocalStorage('saas-ui.data', null)
+  const [data] = useLocalStorage<any>('saas-ui.data', null)
   const { rating } = props
 
   const [submitted, setSubmitted] = React.useState(false)
@@ -85,7 +85,7 @@ const FeedbackForm = (props) => {
         page: window.location.href,
         rating: options[rating],
         feedback: formData.feedback,
-        username: data.githubAccount,
+        username: data?.githubAccount,
       }),
     })
 

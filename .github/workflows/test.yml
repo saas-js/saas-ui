@@ -1,0 +1,32 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Vitest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: yarn
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
+      - name: Build packages
+        run: yarn build:packages
+
+      - name: Build tokens
+        run: yarn build:tokens
+
+      - name: Run tests
+        run: yarn test:ci

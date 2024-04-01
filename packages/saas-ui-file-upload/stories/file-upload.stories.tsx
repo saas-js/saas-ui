@@ -80,6 +80,45 @@ export const MultipleFiles = {
   },
 }
 
+export const OnFileAccept = {
+  render: () => {
+    return (
+      <FileUpload
+        maxFileSize={1024 * 1024}
+        maxFiles={1}
+        accept="image/png"
+        onFileAccept={(details) => {
+          console.log('accept', details)
+        }}
+        onFileReject={(details) => {
+          console.log('reject', details)
+        }}
+      >
+        {({ files, clearFiles }) => (
+          <FileUploadDropzone>
+            <Text fontSize="sm">Drag your image(s) here</Text>
+            {!files?.length ? (
+              <FileUploadTrigger as={Button}>Select image(s)</FileUploadTrigger>
+            ) : (
+              <HStack>
+                <Text fontSize="sm">{files.length} selected</Text>
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    clearFiles()
+                  }}
+                >
+                  Clear
+                </Button>
+              </HStack>
+            )}
+          </FileUploadDropzone>
+        )}
+      </FileUpload>
+    )
+  },
+}
+
 export const ImagePreview = {
   render: () => {
     return (

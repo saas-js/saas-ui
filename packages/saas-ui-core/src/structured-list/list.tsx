@@ -127,45 +127,34 @@ export interface StructuredListHeaderProps extends HTMLChakraProps<'li'> {
   level?: number
 }
 
-export const StructuredListHeader: React.FC<StructuredListHeaderProps> = (
-  props
-) => {
-  const {
-    children,
-    onClick,
-    action,
-    role = 'heading',
-    level = 1,
-    ...rest
-  } = props
-  const styles = useStyles()
+export const StructuredListHeader = forwardRef<StructuredListHeaderProps, 'li'>(
+  (props, ref) => {
+    const {
+      children,
+      onClick,
+      action,
+      role = 'heading',
+      level = 1,
+      ...rest
+    } = props
+    const styles = useStyles()
 
-  const headerStyles = {
-    display: 'flex',
-    flexDirection: 'row',
-    py: 2,
-    px: 4,
-    position: 'sticky',
-    fontSize: 'md',
-    fontWeight: 'semibold',
-    color: useColorModeValue('gray.500', 'gray.400'),
-    ...styles.header,
+    return (
+      <chakra.li
+        ref={ref}
+        __css={styles.header}
+        onClick={onClick}
+        {...rest}
+        className={cx('sui-list__header', props.className)}
+      >
+        <chakra.span flex="1" userSelect="none" role={role} aria-level={level}>
+          {children}
+        </chakra.span>
+        {action}
+      </chakra.li>
+    )
   }
-
-  return (
-    <chakra.li
-      __css={headerStyles}
-      onClick={onClick}
-      {...rest}
-      className={cx('sui-list__header', props.className)}
-    >
-      <chakra.span flex="1" userSelect="none" role={role} aria-level={level}>
-        {children}
-      </chakra.span>
-      {action}
-    </chakra.li>
-  )
-}
+)
 
 StructuredListHeader.displayName = 'StructuredListHeader'
 
@@ -189,11 +178,6 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
     const disablePadding = !!isButton
 
     const itemStyles: SystemStyleObject = {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      fontSize: 'md',
       ...styles.item,
       ...(disablePadding ? { py: 0, px: 0 } : {}),
     }
@@ -308,21 +292,10 @@ export const StructuredListButton = forwardRef<
 
   const styles = useStyles()
 
-  const buttonStyles: SystemStyleObject = {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flex: 1,
-    cursor: 'pointer',
-    userSelect: 'none',
-    ...styles.button,
-  }
-
   return (
     <chakra.div
       ref={ref}
-      __css={buttonStyles}
+      __css={styles.button}
       role="button"
       {...rest}
       {...buttonProps}
@@ -355,8 +328,6 @@ export const StructuredListIcon: React.FC<StructuredListIconProps> = (
 
   const iconStyles: SystemStyleObject = {
     ...styles.icon,
-    display: 'flex',
-    flexShrink: 0,
     me: spacing,
   }
 

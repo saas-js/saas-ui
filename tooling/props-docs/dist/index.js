@@ -5,7 +5,6 @@ const Toggle = require('./components/toggle.json')
 const Timeline = require('./components/timeline.json')
 const StructuredList = require('./components/structured-list.json')
 const Stepper = require('./components/stepper.json')
-const Src = require('./components/src.json')
 const Snackbar = require('./components/snackbar.json')
 const Sidebar = require('./components/sidebar.json')
 const SearchInput = require('./components/search-input.json')
@@ -49,7 +48,6 @@ const json = {
   Timeline,
   StructuredList,
   Stepper,
-  Src,
   Snackbar,
   Sidebar,
   SearchInput,
@@ -102,7 +100,6 @@ module.exports = {
   Timeline,
   StructuredList,
   Stepper,
-  Src,
   Snackbar,
   Sidebar,
   SearchInput,

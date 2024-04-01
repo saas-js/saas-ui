@@ -276,9 +276,9 @@ export default function Page() {
 }
 ```
 
-### Condensed variant
+### Compact variant
 
-The compact variant can be used as a collapsed state on smaller screens, or as the primary navigation in a double sidebar layout, see below.
+The `compact` variant can be used as a collapsed state on smaller screens, or as the primary navigation in a double sidebar layout, see below.
 NavItem labels will be rendered as tooltips.
 
 Use the `tooltipProps` prop to customize the tooltip.
@@ -423,7 +423,6 @@ export default function Page() {
             _dark={{
               bg: 'purple.500',
             }}
-            toggleBreakpoint="sm"
           >
             <SidebarSection>
               <Image
@@ -443,7 +442,7 @@ export default function Page() {
               </NavItem>
             </SidebarSection>
           </Sidebar>
-          <Sidebar>
+          <Sidebar toggleBreakpoint="sm">
             <SidebarSection direction="row" mt="2" px="4">
               <Heading size="sm" fontWeight="semibold">
                 Users
@@ -525,13 +524,6 @@ import {
   NavGroup,
   PersonaAvatar,
 } from '@saas-ui/react'
-import {
-  Page,
-  PageHeader,
-  PageBody,
-  DataGrid,
-  DataGridPagination,
-} from '@saas-ui-pro/react'
 import { FiHome, FiUsers, FiSettings } from 'react-icons/fi'
 
 export default function Page() {

@@ -11,6 +11,7 @@ import {
   Tag,
 } from '@chakra-ui/react'
 import { ColorControl } from './color-control'
+import { ButtonLink } from '../link'
 import { UiComponent } from '../../data/blocks'
 import { useAuth } from '@saas-ui/auth'
 import { useRouter } from 'next/router'
@@ -125,16 +126,14 @@ export function CanvasHeader({
             </Button>
           </ButtonGroup>
         ) : (
-          <Button
+          <ButtonLink
             variant="outline"
             data-checked={state === 'code' ? 'true' : undefined}
             leftIcon={<FiLock size="1rem" />}
-            onClick={() =>
-              router.push(`/login?redirectUrl=/blocks/${attributes.category}`)
-            }
+            href="/pricing"
           >
             Get the code
-          </Button>
+          </ButtonLink>
         )}
       </HStack>
     </HStack>

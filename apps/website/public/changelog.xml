@@ -7,9 +7,25 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 12 Jan 2024 13:31:10 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 22 Jan 2024 09:34:21 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/01-22-2024</guid>
+    <title>Jan 22, 2024</title>
+    <link>https://saas-ui.dev/changelog/01-22-2024</link>
+    <description>
+## 01-22-2024
+
+`@saas-ui/react@2.5.5`
+
+- Added xl size to IconBadge
+- Updated Input lg variant heig...</description>
+    <pubDate>Mon, 22 Jan 2024 09:34:21 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/01-12-2024</guid>
     <title>Jan 12, 2024</title>

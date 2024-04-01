@@ -48,6 +48,31 @@ let config = {
         destination: '/docs/components/authentication/:path*',
         permanent: true,
       },
+      {
+        source: '/docs/components/file-upload',
+        destination: '/docs/components/forms/file-upload',
+        permanent: true,
+      },
+      {
+        source: '/docs/components/file-upload/:path*',
+        destination: '/docs/components/forms/file-upload/:path*',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/installation/npm',
+        destination: '/docs/pro/installation/private-npm/npm',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/installation/yarn',
+        destination: '/docs/pro/installation/private-npm/yarn',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/installation/pnpm',
+        destination: '/docs/pro/installation/private-npm/pnpm',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {
@@ -97,7 +122,10 @@ let config = {
       new webpack.NormalModuleReplacementPlugin(
         /\@saas-ui(?:-pro)?\/([a-z0-9-\/]+)$/,
         (resource) => {
-          if (!resource.request.match(/^@saas-ui\/(props-docs)$/)) {
+          if (
+            !resource.request.match(/^@saas-ui\/(props-docs)$/) &&
+            !resource.request.match('/src')
+          ) {
             resource.request = resource.request + '/src'
           }
         }

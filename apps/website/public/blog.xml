@@ -80,5 +80,15 @@
     
   </item>
 
+  <item>
+    <guid>https://saas-ui.dev/blog/building-a-multi-tenant-b2b-saas-with-vite-tanstack-router</guid>
+    <title>Building a multi-tenant B2B SaaS with Vite and Tanstack Router & Query - Part 1: The boilerplate</title>
+    <link>https://saas-ui.dev/blog/building-a-multi-tenant-b2b-saas-with-vite-tanstack-router</link>
+    <description>In this article, we'll start building a multi-tenant B2B SaaS using Vite, Tanstack Router & Query, Chakra UI and Saas UI.</description>
+    <pubDate>Fri, 23 Feb 2024 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>vite</category><category>tanstack router</category><category>react query</category><category>react</category><category>saas ui</category><category>chakra ui</category>
+  </item>
+
     </channel>
   </rss>

@@ -4,6 +4,22 @@
       "type": "boolean",
       "required": true,
       "description": "Set to true to start the progress animation."
+    },
+    "colorScheme": {
+      "defaultValue": "primary",
+      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
+      "required": false,
+      "description": "The visual color appearance of the component"
+    },
+    "size": {
+      "type": "string",
+      "required": false,
+      "description": "The size of the NProgress"
+    },
+    "variant": {
+      "type": "string",
+      "required": false,
+      "description": "The variant of the NProgress"
     }
   }
 }

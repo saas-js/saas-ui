@@ -1,5 +1,84 @@
 # saas-ui-storybook
 
+## 1.1.28
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/react@2.7.2
+
+## 1.1.27
+
+### Patch Changes
+
+- @saas-ui/react@2.7.1
+
+## 1.1.26
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@2.7.0
+
+## 1.1.25
+
+### Patch Changes
+
+- @saas-ui/react@2.6.2
+
+## 1.1.24
+
+### Patch Changes
+
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/react@2.6.1
+
+## 1.1.23
+
+### Patch Changes
+
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+- Updated dependencies [73d09d9]
+- Updated dependencies [efca417]
+  - @saas-ui/react@2.6.0
+
+## 1.1.22
+
+### Patch Changes
+
+- Updated dependencies [2e7da38]
+  - @saas-ui/storybook-addon@2.0.3
+  - @saas-ui/react@2.5.10
+
+## 1.1.21
+
+### Patch Changes
+
+- @saas-ui/react@2.5.9
+
+## 1.1.20
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+  - @saas-ui/react@2.5.8
+
+## 1.1.19
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+
+## 1.1.18
+
+### Patch Changes
+
+- Updated dependencies [52e7490c]
+  - @saas-ui/react@2.5.6
+
 ## 1.1.17
 
 ### Patch Changes

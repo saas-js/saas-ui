@@ -1,5 +1,17 @@
 # @saas-ui/theme-glass
 
+## 0.5.4
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+
+## 0.5.3
+
+### Patch Changes
+
+- b500c42f: Export component src
+
 ## 0.5.2
 
 ### Patch Changes

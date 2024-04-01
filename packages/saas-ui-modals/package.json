@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals",
-  "version": "2.1.17",
+  "version": "2.1.27",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -72,7 +72,7 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "yup": "^1.2.0",
-    "zod": "^3.22.2"
+    "yup": "^1.4.0",
+    "zod": "^3.22.4"
   }
 }

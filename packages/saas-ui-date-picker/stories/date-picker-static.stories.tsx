@@ -1,7 +1,12 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { DatePickerStatic, DateValue, DatePickerCalendar } from '../src'
+import {
+  DatePickerStatic,
+  DateValue,
+  DatePickerCalendar,
+  CalendarDate,
+} from '../src'
 import { Card, Container, Heading, VStack } from '@chakra-ui/react'
 
 export default {
@@ -23,14 +28,16 @@ export default {
 const Template: Story = (args) => {
   const { children, ...rest } = args
 
-  const [value, setValue] = React.useState<DateValue | null>(null)
+  const [value, setValue] = React.useState<DateValue | null>(
+    new CalendarDate(2024, 6, 1)
+  )
 
   return (
     <Card p="4">
       <Heading size="md" mb="8">
         {value?.toString() ?? 'Select a date'}
       </Heading>
-      <DatePickerStatic onChange={setValue} {...rest}>
+      <DatePickerStatic value={value} onChange={setValue} {...rest}>
         <DatePickerCalendar />
       </DatePickerStatic>
     </Card>

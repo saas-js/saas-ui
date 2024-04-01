@@ -1,5 +1,101 @@
 # website
 
+## 2.3.26
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/forms@2.5.2
+  - @saas-ui/react@2.7.2
+
+## 2.3.25
+
+### Patch Changes
+
+- @saas-ui/forms@2.5.1
+- @saas-ui/react@2.7.1
+
+## 2.3.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.0
+  - @saas-ui/react@2.7.0
+
+## 2.3.23
+
+### Patch Changes
+
+- @saas-ui/react@2.6.2
+
+## 2.3.22
+
+### Patch Changes
+
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+- Updated dependencies [7db4aee]
+  - @saas-ui/react@2.6.1
+  - @saas-ui/forms@2.4.1
+
+## 2.3.21
+
+### Patch Changes
+
+- 21d603f: Added missing translations
+- Updated dependencies [4a95712]
+- Updated dependencies [4a95712]
+- Updated dependencies [73d09d9]
+- Updated dependencies [efca417]
+  - @saas-ui/react@2.6.0
+  - @saas-ui/forms@2.4.0
+
+## 2.3.20
+
+### Patch Changes
+
+- Updated dependencies [2e7da38]
+- Updated dependencies [da5167a]
+  - @saas-ui/command-bar@0.4.3
+  - @saas-ui/palette@2.1.1
+  - @saas-ui/forms@2.3.12
+  - @saas-ui/react@2.5.10
+  - @saas-ui/props-docs@2.3.1
+
+## 2.3.19
+
+### Patch Changes
+
+- Updated dependencies [46299d93]
+- Updated dependencies [29e5c317]
+  - @saas-ui/props-docs@2.3.0
+  - @saas-ui/forms@2.3.11
+  - @saas-ui/react@2.5.9
+
+## 2.3.18
+
+### Patch Changes
+
+- Updated dependencies [bc1997b0]
+- Updated dependencies [95d59e57]
+  - @saas-ui/react@2.5.8
+  - @saas-ui/props-docs@2.2.0
+
+## 2.3.17
+
+### Patch Changes
+
+- @saas-ui/react@2.5.7
+
+## 2.3.16
+
+### Patch Changes
+
+- Updated dependencies [52e7490c]
+  - @saas-ui/forms@2.3.10
+  - @saas-ui/react@2.5.6
+
 ## 2.3.15
 
 ### Patch Changes

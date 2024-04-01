@@ -122,6 +122,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@auth0/auth0-spa-js@npm:2.1.3":
+  version: 2.1.3
+  resolution: "@auth0/auth0-spa-js@npm:2.1.3"
+  checksum: 10/c0585a7f6c8f8929bf6c7402f2d049cda2c64f82c1736e700cc6ca668d3e23c2c0d22722e8f2aa2d24478e5e6676349e3d5f7ec197a44d093c5607ea8a831adc
+  languageName: node
+  linkType: hard
+
 "@aw-web-design/x-default-browser@npm:1.4.126":
   version: 1.4.126
   resolution: "@aw-web-design/x-default-browser@npm:1.4.126"
@@ -5473,6 +5480,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/source-map@npm:^0.3.2":
+  version: 0.3.3
+  resolution: "@jridgewell/source-map@npm:0.3.3"
+  dependencies:
+    "@jridgewell/gen-mapping": "npm:^0.3.0"
+    "@jridgewell/trace-mapping": "npm:^0.3.9"
+  checksum: 10/6346a931c7eacb509120324d1cf796767ee34421fbdfb7a81d7038d65b63948980b59b5353a322c073f85b42a5cb8f227276603d5cbd19050e0052d8b7e5c6f7
+  languageName: node
+  linkType: hard
+
 "@jridgewell/source-map@npm:^0.3.3":
   version: 0.3.5
   resolution: "@jridgewell/source-map@npm:0.3.5"
@@ -8475,6 +8492,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/assets@workspace:packages/saas-ui-assets"
   peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@saas-ui/auth0@workspace:packages/saas-ui-auth0":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/auth0@workspace:packages/saas-ui-auth0"
+  dependencies:
+    "@auth0/auth0-spa-js": "npm:2.1.3"
+    "@saas-ui/auth": "workspace:*"
+  peerDependencies:
+    "@auth0/auth0-spa-js": ^2.1.3
+    "@chakra-ui/react": ">=2.4.9"
+    "@emotion/react": ">=11.0.0"
+    "@emotion/styled": ">=11.0.0"
+    framer-motion: ">=6.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
   languageName: unknown
@@ -13370,7 +13404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.10.0, acorn@npm:^8.4.1, acorn@npm:^8.8.2, acorn@npm:^8.9.0":
+"acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.10.0, acorn@npm:^8.4.1, acorn@npm:^8.5.0, acorn@npm:^8.8.2, acorn@npm:^8.9.0":
   version: 8.10.0
   resolution: "acorn@npm:8.10.0"
   bin:
@@ -29167,7 +29201,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser-webpack-plugin@npm:^5.3.1, terser-webpack-plugin@npm:^5.3.10":
+"terser-webpack-plugin@npm:^5.3.1":
+  version: 5.3.7
+  resolution: "terser-webpack-plugin@npm:5.3.7"
+  dependencies:
+    "@jridgewell/trace-mapping": "npm:^0.3.17"
+    jest-worker: "npm:^27.4.5"
+    schema-utils: "npm:^3.1.1"
+    serialize-javascript: "npm:^6.0.1"
+    terser: "npm:^5.16.5"
+  peerDependencies:
+    webpack: ^5.1.0
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    esbuild:
+      optional: true
+    uglify-js:
+      optional: true
+  checksum: 10/cb0de20e9953fd3d801183919bd4004a908c4d2de4f942ef283f0c2cfc204494ecc681777f98fda85d015790efc579260a88ac929c16c51906a79e51ba52ec9b
+  languageName: node
+  linkType: hard
+
+"terser-webpack-plugin@npm:^5.3.10":
   version: 5.3.10
   resolution: "terser-webpack-plugin@npm:5.3.10"
   dependencies:
@@ -29200,6 +29256,20 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: 10/589f1112d6cd7653f6e2d4a38970e97a160de01cddb214dc924aa330c22b8c3635067a47db1233e060e613e380b979ca336c3211b17507ea13b0adff10ecbd40
+  languageName: node
+  linkType: hard
+
+"terser@npm:^5.16.5":
+  version: 5.17.1
+  resolution: "terser@npm:5.17.1"
+  dependencies:
+    "@jridgewell/source-map": "npm:^0.3.2"
+    acorn: "npm:^8.5.0"
+    commander: "npm:^2.20.0"
+    source-map-support: "npm:~0.5.20"
+  bin:
+    terser: bin/terser
+  checksum: 10/b7d44c0d35bf74da9ba1415f73771cdc9fae9c3adc667724951dec27274e9acb796261c3d971dbafb4d9fdf43da98172b8213263a501025b9c9fe93cdd94d262
   languageName: node
   linkType: hard
 

@@ -60,3 +60,6 @@ export type { AuthFormSuccessProps } from './success'
 
 export { UpdatePasswordView } from './update-password-view'
 export type { UpdatePasswordViewProps } from './update-password-view'
+
+export { Authenticated } from './authenticated'
+export type { AuthenticatedProps } from './authenticated'

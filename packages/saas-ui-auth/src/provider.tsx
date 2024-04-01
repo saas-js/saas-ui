@@ -47,6 +47,10 @@ export type AuthStateChangeCallback<TUser extends User = DefaultUser> = (
 
 export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
+   * Restore the authentication state, eg after redirecting
+   */
+  onRestoreAuthState?: () => Promise<void>
+  /**
    * Loads user data after authentication
    */
   onLoadUser?: () => Promise<TUser | null>
@@ -99,7 +103,9 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
    * Return the session token
    */
   onGetToken?: () => Promise<AuthToken>
-
+  /**
+   * The children to render
+   */
   children?: React.ReactNode
 }
 
@@ -137,6 +143,7 @@ const createAuthContext = <TUser extends User = DefaultUser>() => {
 export const AuthContext = createAuthContext()
 
 export const AuthProvider = <TUser extends User = DefaultUser>({
+  onRestoreAuthState,
   onLoadUser = () => Promise.resolve(null),
   onSignup = () => Promise.resolve(null),
   onLogin = () => Promise.resolve(null),
@@ -151,6 +158,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   const [isAuthenticated, setAuthenticated] = useState(false)
   const [user, setUser] = useState<TUser | null>()
   const [isLoading, setLoading] = useState(true)
+  const restoreRef = React.useRef(false)
   const isFetchingRef = React.useRef(false)
 
   useEffect(() => {
@@ -165,8 +173,17 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   }, [])
 
   useEffect(() => {
-    loadUser()
-  }, [])
+    const restoreState = async () => {
+      restoreRef.current = true
+      await onRestoreAuthState?.()
+      await loadUser()
+      restoreRef.current = false
+    }
+
+    if (!restoreRef.current) {
+      restoreState()
+    }
+  }, [onRestoreAuthState])
 
   const checkAuth = useCallback(async () => {
     try {

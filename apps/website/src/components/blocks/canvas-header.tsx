@@ -16,6 +16,7 @@ import { UiComponent } from '../../data/blocks'
 import { useAuth } from '@saas-ui/auth'
 import { useRouter } from 'next/router'
 import { ThemeControl } from './theme-control'
+import { trackEvent } from '@/utils/track-event'
 
 export interface CanvasHeaderProps
   extends UiComponent,
@@ -120,7 +121,13 @@ export function CanvasHeader({
               variant="outline"
               data-checked={state === 'code' ? 'true' : undefined}
               leftIcon={<FiCode size="1rem" />}
-              onClick={() => onStateChange('code')}
+              onClick={() => {
+                onStateChange('code')
+
+                trackEvent('View Block Code', {
+                  block: slug,
+                })
+              }}
             >
               Code
             </Button>

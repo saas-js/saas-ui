@@ -186,7 +186,7 @@ function ReactLiveBlock({
             { id: 'a', size: 100, minSize: 40 },
             { id: 'b', size: 0 },
           ]}
-          onSizeChangeStart={() => setResizing(true)}
+          onSizeChange={() => setResizing(true)}
           onSizeChangeEnd={() => setResizing(false)}
         >
           <Splitter.Panel id="a">

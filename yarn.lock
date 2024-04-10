@@ -8443,8 +8443,8 @@ __metadata:
     "@ngneat/falso": "npm:^2.27.0"
     "@react-hookz/web": "npm:^23.1.0"
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/date-picker": "npm:^0.12.27"
-    "@saas-ui/forms": "npm:^2.5.1"
+    "@saas-ui/date-picker": "npm:^0.12.28"
+    "@saas-ui/forms": "npm:^2.5.2"
     "@saas-ui/react-utils": "npm:^2.0.1"
     "@saas-ui/theme": "npm:^2.3.4"
     "@tanstack/react-table": "npm:^8.15.3"
@@ -8628,7 +8628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker@npm:^0.12.27, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
+"@saas-ui/date-picker@npm:^0.12.28, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
@@ -8679,7 +8679,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@npm:^2.5.1, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@npm:^2.5.2, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -8822,7 +8822,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@npm:^2.7.1, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@npm:^2.7.2, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -27615,7 +27615,7 @@ __metadata:
     "@emotion/styled": "npm:^11.11.0"
     "@saas-ui-pro/react": "npm:^0.32.6"
     "@saas-ui/file-upload": "npm:^0.2.8"
-    "@saas-ui/react": "npm:^2.7.1"
+    "@saas-ui/react": "npm:^2.7.2"
     framer-motion: "npm:^10.18.0"
     lucide-react: "npm:^0.321.0"
     nanoid: "npm:^5.0.6"

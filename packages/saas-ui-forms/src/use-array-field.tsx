@@ -97,7 +97,6 @@ export const useArrayField = ({
     name,
     keyName,
   })
-  console.log(context)
   return {
     ...context,
     name,

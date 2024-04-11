@@ -9,11 +9,26 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
+    "./components": {
+      "require": "./dist/components/index.js",
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.mjs"
+    },
     "./src": {
       "default": "./src/index.ts"
     },
-    "./src/components/*": {
-      "default": "./src/components/*"
+    "./src/components": {
+      "default": "./src/components/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "components": [
+        "dist/components/index.d.ts"
+      ]
     }
   },
   "main": "./dist/index.js",
@@ -21,7 +36,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts --config tsup.config.ts",
+    "build": "tsup src/index.ts src/components/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

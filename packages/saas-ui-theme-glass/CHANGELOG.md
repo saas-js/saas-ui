@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.5.5
+
+### Patch Changes
+
+- 86caa6f: Fixed exports and types
+
 ## 0.5.4
 
 ### Patch Changes

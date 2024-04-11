@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.5.4
+
+### Patch Changes
+
+- Bump version
+
 ## 2.5.3
 
 ### Patch Changes

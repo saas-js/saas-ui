@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 2.7.3
+
+### Patch Changes
+
+- 20c7175: Added forwardRef to ContextMenuTrigger
+- ca911e4: Fixed issue where global toast default options would not apply to snackbar
+- 0a218fd: Fixed issue where Field types would not be inferred
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+- Updated dependencies [ca911e4]
+- Updated dependencies [0a218fd]
+- Updated dependencies [0a218fd]
+  - @saas-ui/core@2.4.4
+  - @saas-ui/forms@2.5.3
+  - @saas-ui/data-table@9.0.3
+  - @saas-ui/hotkeys@2.2.7
+  - @saas-ui/modals@2.1.28
+
 ## 2.7.2
 
 ### Patch Changes

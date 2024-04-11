@@ -77,7 +77,12 @@ export const Basic: Story = {
         {({ Field }) => (
           <FormLayout>
             <Field name="title" label="Title" />
-            <Field name="description" label="Description" />
+            <Field
+              type="text"
+              name="description"
+              label="Description"
+              onChange={(e) => console.log(e)}
+            />
 
             <SubmitButton />
           </FormLayout>
@@ -282,8 +287,6 @@ const yupSchema = yup.object({
   custom: yup.string(),
 })
 
-type Test = yup.InferType<typeof yupSchema>
-
 export const WithYupSchema: StoryObj<typeof YupForm> = {
   render(props) {
     return (
@@ -291,7 +294,7 @@ export const WithYupSchema: StoryObj<typeof YupForm> = {
         schema={yupSchema}
         defaultValues={{
           name: '',
-          // description: '',
+          description: '',
         }}
         onSubmit={props.onSubmit || onSubmit}
       >

@@ -101,8 +101,10 @@ export type MergeFieldProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = ValueOf<{
   [K in keyof FieldDefs]: FieldDefs[K] extends React.FC<infer Props>
-    ? { type?: K } & ShallowMerge<Props, BaseFieldProps<TFieldValues, TName>> &
-        TExtraFieldProps
+    ? { type?: K } & ShallowMerge<
+        Props,
+        BaseFieldProps<TFieldValues, TName>
+      > & { [key in keyof TExtraFieldProps]: TExtraFieldProps[key] }
     : never
 }>
 

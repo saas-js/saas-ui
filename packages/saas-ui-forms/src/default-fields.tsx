@@ -171,6 +171,7 @@ export const defaultFieldTypes = {
   email: InputField,
   url: InputField,
   phone: InputField,
+  time: InputField,
   number: NumberInputField,
   password: PasswordInputField,
   textarea: TextareaField,

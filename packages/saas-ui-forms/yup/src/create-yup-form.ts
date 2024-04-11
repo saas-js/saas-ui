@@ -8,7 +8,6 @@ import {
 import { yupFieldResolver, yupResolver } from './yup-resolver'
 import { InferType, AnyObjectSchema } from 'yup'
 import React from 'react'
-// import { AnyObjectSchema } from './types'
 
 type ResolverArgs = Parameters<typeof yupResolver>
 

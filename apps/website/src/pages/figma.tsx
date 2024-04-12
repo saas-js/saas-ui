@@ -133,7 +133,8 @@ const FigmaHero = () => {
             </ButtonLink>
             <ButtonLink
               size="lg"
-              href="/docs"
+              href="https://www.figma.com/file/XsBODCq9lrqBAwReJqikbR/Saas-UI-Theme-1.2?type=design&node-id=2106-2109&mode=design"
+              target="_blank"
               variant="outline"
               borderColor="blackAlpha.400"
               _dark={{
@@ -257,7 +258,8 @@ const Stats = () => {
           </ButtonLink>
           <ButtonLink
             size="md"
-            href="/docs"
+            href="https://www.figma.com/file/XsBODCq9lrqBAwReJqikbR/Saas-UI-Theme-1.2?type=design&node-id=2106-2109&mode=design"
+            target="_blank"
             variant="outline"
             borderColor="blackAlpha.400"
             _dark={{

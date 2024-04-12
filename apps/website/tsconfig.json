@@ -32,6 +32,9 @@
       "@saas-ui-pro/theme-glass": [
         "../../packages/pro/saas-ui/pro-theme-glass/src"
       ],
+      "@saas-ui/theme-glass/components/src": [
+        "../../packages/saas-ui-theme-glass/src/components"
+      ],
       "@saas-ui-pro/kanban": ["../../packages/pro/saas-ui/kanban/src"]
     },
     "incremental": true,

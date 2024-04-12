@@ -1,62 +1,40 @@
 import * as React from 'react'
 
 import {
-  chakra,
   AspectRatio,
   Box,
-  Button,
   Heading,
   Text,
   HStack,
-  useDisclosure,
   Icon,
   Stack,
   ButtonGroup,
   useColorModeValue,
-  SimpleGrid,
   Card,
   CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
-import SectionTitle from '@/components/marketing/section-title'
 
 import SEO from '@/components/seo'
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { SignupForm } from '@/components/signup-form'
 import { FaFigma } from 'react-icons/fa6'
 import { ButtonLink } from '@/components/link'
-import {
-  FiArrowRight,
-  FiGrid,
-  FiSliders,
-  FiSmile,
-  FiThumbsUp,
-} from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 import Features from '@/components/marketing/features'
 import {
   LuBraces,
-  LuGrid,
   LuLayoutGrid,
   LuLayoutPanelLeft,
-  LuLayoutPanelTop,
-  LuPanelLeftClose,
   LuPanelTop,
 } from 'react-icons/lu'
 import Hero from '@/components/marketing/hero'
 import { FallInPlace } from '@/components/motion/fall-in-place'
 import { Br, Em } from '@/components/typography'
-import { FigmaLogo } from '@/components/logos/figma'
 import Image from 'next/image'
 import { UsedBy } from '@/components/used-by'
-import {
-  Property,
-  PropertyLabel,
-  PropertyList,
-  PropertyValue,
-} from '@saas-ui/react'
 
 const FigmaPage = () => {
   return (
@@ -260,8 +238,13 @@ const StatsCard = ({ title, children, description, gridColumn, ...rest }) => {
 const Stats = () => {
   return (
     <Section innerWidth="container.xl">
-      <HStack alignItems="start" justifyContent="space-between">
-        <Heading mb="12" maxW="400px" fontSize="3xl">
+      <Stack
+        alignItems="start"
+        justifyContent="space-between"
+        flexDirection={{ base: 'column', lg: 'row' }}
+        mb="8"
+      >
+        <Heading maxW="400px" fontSize="3xl" mb="4">
           Everything you need to get your design system of the ground. Fast.
         </Heading>
 
@@ -297,56 +280,129 @@ const Stats = () => {
             Preview
           </ButtonLink>
         </HStack>
-      </HStack>
+      </Stack>
 
-      <Box display="grid" gridTemplateColumns="repeat(6, 1fr)" gap="8">
+      <Box
+        display="grid"
+        gridTemplateColumns={{ base: 'repeat(3, 1fr)', lg: 'repeat(6, 1fr)' }}
+        gap={{
+          base: '32px 0',
+          md: 8,
+        }}
+      >
         <StatsCard
           title="250+ variables"
           description="Create consistent designs with tokens and variables."
-          flexDirection="row"
+          flexDirection={{
+            base: 'column',
+            md: 'row',
+          }}
           alignItems="center"
           gridColumn="span 3"
         >
-          <Box overflow="hidden" borderRadius="md">
-            <Image src="/img/figma/variables.png" width="229" height="369" />
+          <Box
+            width={{
+              base: '100%',
+              md: '240px',
+            }}
+            height={{ base: '140px', md: '280px' }}
+          >
+            <Box
+              overflow="hidden"
+              borderRadius="md"
+              position="absolute"
+              boxShadow="xl"
+              right={{ base: 'auto', md: 8 }}
+              bottom={{ base: '-220px', md: 'auto' }}
+            >
+              <Image
+                src="/img/figma/variables.png"
+                width="229"
+                height="369"
+                alt="Variables preview"
+              />
+            </Box>
           </Box>
         </StatsCard>
         <StatsCard
           title="2000+ variants"
-          description="Manage multiple component variations effortlessly."
+          description="All components are crafted using Auto Layout and variants that match their code counter parts. "
           gridColumn="span 3"
-        />
+        >
+          <Box width="100%" height="140px">
+            <Box
+              overflow="hidden"
+              borderRadius="md"
+              position="absolute"
+              boxShadow="xl"
+              right="8"
+            >
+              <Image
+                src="/img/figma/variants.png"
+                width="229"
+                height="369"
+                alt="Variants preview"
+              />
+            </Box>
+          </Box>
+        </StatsCard>
         <StatsCard
           title="50+ blocks and examples"
           description={
             <>
-              Includes ready-to-use pages and components, available in Figma and
-              React. <br />
-              <br />{' '}
-              <Text as="span" color="muted" fontSize="xl">
-                New blocks added regularly.
+              Includes ready-to-use pages and components. All available in Figma
+              and React. <br />
+              <Text as="span" color="muted" fontSize="sm" fontWeight="normal">
+                * New blocks added regularly.
               </Text>
             </>
           }
           gridColumn="span 4"
-          flexDirection="row"
+          flexDirection={{
+            base: 'column',
+            md: 'row',
+          }}
           alignItems="center"
         >
-          <Box width="620px" height="300px">
-            <Box position="absolute" right="-200px" top="0">
+          <Box
+            width="620px"
+            height={{
+              base: '150px',
+              md: '300px',
+            }}
+          >
+            <Box
+              position="absolute"
+              right={{
+                base: 'auto',
+                md: '-200px',
+              }}
+              bottom={{
+                base: '-8',
+                md: '-8',
+              }}
+              left={{
+                base: '4',
+                md: 'auto',
+              }}
+            >
               <Image
                 src="/img/figma/blocks.png"
                 width="620"
                 height="400"
                 quality={100}
+                alt="Example blocks"
               />
             </Box>
           </Box>
         </StatsCard>
         <StatsCard
           title="2000+ icons"
-          description="Icons for every use case, multiple styles from 9 icon packs."
-          gridColumn="span 2"
+          description="Icons for every use case. Multiple styles from nine free to use icon packs."
+          gridColumn={{
+            base: 'span 3',
+            md: 'span 2',
+          }}
           flexDirection="column-reverse"
         >
           <Box height="160px">

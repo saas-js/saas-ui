@@ -8428,7 +8428,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@npm:^0.32.6, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@npm:^0.32.8, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -8632,7 +8632,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
-    "@chakra-ui/icons": "npm:^2.1.1"
     "@chakra-ui/react-utils": "npm:^2.0.12"
     "@chakra-ui/styled-system": "npm:^2.9.2"
     "@chakra-ui/theme-tools": "npm:^2.1.2"
@@ -8674,6 +8673,9 @@ __metadata:
     react-icons: "npm:^4.12.0"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.6"
+    "@emotion/react": ">=11"
+    "@emotion/styled": ">=11"
+    framer-motion: ">=6"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
   languageName: unknown
@@ -27613,7 +27615,7 @@ __metadata:
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.0"
-    "@saas-ui-pro/react": "npm:^0.32.6"
+    "@saas-ui-pro/react": "npm:^0.32.8"
     "@saas-ui/file-upload": "npm:^0.2.8"
     "@saas-ui/react": "npm:^2.7.2"
     framer-motion: "npm:^10.18.0"

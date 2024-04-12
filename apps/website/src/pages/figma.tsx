@@ -215,10 +215,13 @@ const StatsCard = ({ title, children, description, gridColumn, ...rest }) => {
           <Box>
             <Heading
               as="h3"
-              color="primary.300"
+              color="primary.500"
               fontWeight="medium"
               fontSize="lg"
               mb="2"
+              _dark={{
+                color: 'primary.300',
+              }}
             >
               {title}
             </Heading>
@@ -314,6 +317,23 @@ const Stats = () => {
               boxShadow="xl"
               right={{ base: 'auto', md: 8 }}
               bottom={{ base: '-220px', md: 'auto' }}
+              _dark={{ display: 'none' }}
+            >
+              <Image
+                src="/img/figma/variables-light.png"
+                width="229"
+                height="369"
+                alt="Variables preview"
+              />
+            </Box>
+            <Box
+              overflow="hidden"
+              borderRadius="md"
+              position="absolute"
+              boxShadow="xl"
+              right={{ base: 'auto', md: 8 }}
+              bottom={{ base: '-220px', md: 'auto' }}
+              _light={{ display: 'none' }}
             >
               <Image
                 src="/img/figma/variables.png"
@@ -335,12 +355,12 @@ const Stats = () => {
               borderRadius="md"
               position="absolute"
               boxShadow="xl"
-              right="8"
+              right="0"
             >
               <Image
                 src="/img/figma/variants.png"
-                width="229"
-                height="369"
+                width="608"
+                height="75"
                 alt="Variants preview"
               />
             </Box>
@@ -406,7 +426,29 @@ const Stats = () => {
           flexDirection="column-reverse"
         >
           <Box height="160px">
-            <Box position="absolute" top="-100px" left="0" width="100%">
+            <Box
+              position="absolute"
+              top="-100px"
+              left="0"
+              width="100%"
+              _dark={{ display: 'none' }}
+            >
+              <Image
+                src="/img/figma/icons-light.svg"
+                width="400"
+                height="400"
+                quality="100"
+                alt="Icon preview"
+                style={{ objectFit: 'contain' }}
+              />
+            </Box>
+            <Box
+              position="absolute"
+              top="-100px"
+              left="0"
+              width="100%"
+              _light={{ display: 'none' }}
+            >
               <Image
                 src="/img/figma/icons.svg"
                 width="400"

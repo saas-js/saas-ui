@@ -14,6 +14,8 @@ import {
   ButtonGroup,
   useColorModeValue,
   SimpleGrid,
+  Card,
+  CardBody,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -78,8 +80,6 @@ const FigmaPage = () => {
         <UsedBy pt="14" />
 
         <Stats />
-
-        <Benefits />
 
         <FigmaEmbed />
 
@@ -212,99 +212,156 @@ const FigmaHero = () => {
   )
 }
 
+const StatsCard = ({ title, children, description, gridColumn, ...rest }) => {
+  return (
+    <Card
+      gridColumn={gridColumn}
+      borderRadius="lg"
+      variant="solid"
+      gap="2"
+      py="4"
+      px="4"
+      bg="gray.50"
+      boxShadow="sm"
+      borderWidth="1px"
+      borderColor="inherit"
+      position="relative"
+      overflow="hidden"
+      _dark={{
+        bg: 'gray.800',
+        borderColor: 'transparent',
+      }}
+    >
+      <CardBody>
+        <Stack {...rest}>
+          <Box>
+            <Heading
+              as="h3"
+              color="primary.300"
+              fontWeight="medium"
+              fontSize="lg"
+              mb="2"
+            >
+              {title}
+            </Heading>
+
+            <Text fontWeight="medium" fontSize="1.3em" maxW="80%">
+              {description}
+            </Text>
+          </Box>
+
+          {children}
+        </Stack>
+      </CardBody>
+    </Card>
+  )
+}
+
 const Stats = () => {
   return (
     <Section innerWidth="container.xl">
-      <SectionTitle title="Everything you need to get your project or design system of the ground" />
-      <Box
-        display="grid"
-        gridTemplateColumns="1fr 1fr 1fr 1fr"
-        borderWidth="1px"
-        borderRadius="lg"
-      >
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          textAlign="center"
-          gap="2"
-          py="4"
-          px="4"
-          borderRightWidth="1px"
-        >
-          <Text fontWeight="bold" fontSize="2xl">
-            250+
-          </Text>
-          <Heading as="h4" size="md">
-            Variables and styles
-          </Heading>
+      <HStack alignItems="start" justifyContent="space-between">
+        <Heading mb="12" maxW="400px" fontSize="3xl">
+          Everything you need to get your design system of the ground. Fast.
+        </Heading>
 
-          <Text color="muted">
-            Manage multiple component variations effortlessly.
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          textAlign="center"
-          gap="2"
-          py="4"
-          px="4"
-          borderRightWidth="1px"
-        >
-          <Text fontWeight="bold" fontSize="2xl">
-            20000+
-          </Text>
-          <Heading as="h4" size="md">
-            Components and variants
-          </Heading>
+        <HStack>
+          <ButtonLink href="/pricing" variant="primary" size="md">
+            Buy now
+          </ButtonLink>
+          <ButtonLink
+            size="md"
+            href="/docs"
+            variant="outline"
+            borderColor="blackAlpha.400"
+            _dark={{
+              borderColor: 'whiteAlpha.400',
+            }}
+            _hover={{
+              bg: 'whiteAlpha.200',
+            }}
+            leftIcon={<FaFigma />}
+            rightIcon={
+              <Icon
+                as={FiArrowRight}
+                sx={{
+                  transitionProperty: 'common',
+                  transitionDuration: 'normal',
+                  '.chakra-button:hover &': {
+                    transform: 'translate(5px)',
+                  },
+                }}
+              />
+            }
+          >
+            Preview
+          </ButtonLink>
+        </HStack>
+      </HStack>
 
-          <Text color="muted">
-            Manage multiple component variations effortlessly.
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
+      <Box display="grid" gridTemplateColumns="repeat(6, 1fr)" gap="8">
+        <StatsCard
+          title="250+ variables"
+          description="Create consistent designs with tokens and variables."
+          flexDirection="row"
           alignItems="center"
-          textAlign="center"
-          gap="2"
-          py="4"
-          px="4"
-          borderRightWidth="1px"
+          gridColumn="span 3"
         >
-          <Text fontWeight="bold" fontSize="2xl">
-            50+
-          </Text>
-          <Heading as="h4" size="md">
-            Templates and blocks
-          </Heading>
-
-          <Text color="muted">
-            Manage multiple component variations effortlessly.
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
+          <Box overflow="hidden" borderRadius="md">
+            <Image src="/img/figma/variables.png" width="229" height="369" />
+          </Box>
+        </StatsCard>
+        <StatsCard
+          title="2000+ variants"
+          description="Manage multiple component variations effortlessly."
+          gridColumn="span 3"
+        />
+        <StatsCard
+          title="50+ blocks and examples"
+          description={
+            <>
+              Includes ready-to-use pages and components, available in Figma and
+              React. <br />
+              <br />{' '}
+              <Text as="span" color="muted" fontSize="xl">
+                New blocks added regularly.
+              </Text>
+            </>
+          }
+          gridColumn="span 4"
+          flexDirection="row"
           alignItems="center"
-          textAlign="center"
-          gap="2"
-          py="4"
-          px="4"
         >
-          <Text fontWeight="bold" fontSize="2xl">
-            2000+
-          </Text>
-          <Heading as="h4" size="md">
-            Icons
-          </Heading>
-
-          <Text color="muted">
-            Manage multiple component variations effortlessly.
-          </Text>
-        </Box>
+          <Box width="620px" height="300px">
+            <Box position="absolute" right="-200px" top="0">
+              <Image
+                src="/img/figma/blocks.png"
+                width="620"
+                height="400"
+                quality={100}
+              />
+            </Box>
+          </Box>
+        </StatsCard>
+        <StatsCard
+          title="2000+ icons"
+          description="Icons for every use case, multiple styles from 9 icon packs."
+          gridColumn="span 2"
+          flexDirection="column-reverse"
+        >
+          <Box height="160px">
+            <Box position="absolute" top="-100px" left="0" width="100%">
+              <Image
+                src="/img/figma/icons.svg"
+                width="400"
+                height="400"
+                quality="100"
+                alt="Icon preview"
+                style={{ objectFit: 'contain' }}
+              />
+            </Box>
+          </Box>
+        </StatsCard>
       </Box>
     </Section>
   )
@@ -414,10 +471,15 @@ const Benefits = () => {
 
 const FigmaEmbed = () => {
   return (
-    <Box>
-      <Heading textAlign="center" size="md" fontWeight="medium" mb="8">
-        Free community library
-      </Heading>
+    <Box py="40">
+      <Box mb="8">
+        <Heading textAlign="center" size="xl" fontWeight="medium" mb="2">
+          Free community library
+        </Heading>
+        <Text textAlign="center" color="muted" fontSize="xl">
+          Try out our free community library. Used by 1000+ designers.
+        </Text>
+      </Box>
       <Box position="relative" maxW="container.xl" mx="auto">
         <ButtonLink
           href="https://www.figma.com/community/file/1257658419283927894"

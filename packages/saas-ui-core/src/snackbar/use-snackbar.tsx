@@ -118,17 +118,12 @@ export interface SnackbarPromiseOptions {
   error: SnackbarOptions | ((error: any) => SnackbarOptions)
 }
 
-const defaults = {
-  duration: 5000,
-  position: 'bottom',
-} as const
-
 /**
  * The snackbar component is used to give feedback after certain actions.
  *
  * @see Docs https://saas-ui.dev/docs/components/feedback/snackbar
  */
-export function useSnackbar(defaultOptions: UseSnackbarOptions = defaults) {
+export function useSnackbar(defaultOptions?: UseSnackbarOptions) {
   const toast = useToast(defaultOptions)
 
   const parseOptions = React.useCallback(

@@ -1,5 +1,24 @@
 # @saas-ui/react
 
+## 2.4.4
+
+### Patch Changes
+
+- 20c7175: Added forwardRef to ContextMenuTrigger
+- ca911e4: Fixed issue where global toast default options would not apply to snackbar
+
+## 2.4.3
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+
+## 2.4.2
+
+### Patch Changes
+
+- Bump version
+
 ## 2.4.1
 
 ### Patch Changes

@@ -236,6 +236,7 @@ export default function ListPage() {
           isSortable
           isSelectable
           isHoverable
+          rowVirtualizer={{ enabled: false }}
           onSelectedRowsChange={setSelections}
           initialState={{
             rowSelection: { 1: true },
@@ -633,7 +634,9 @@ export default function VisibleColumns() {
                   close
                 >
                   {allColumns.map((c) => (
-                    <MenuItemOption value={c}>{c}</MenuItemOption>
+                    <MenuItemOption key={c} value={c}>
+                      {c}
+                    </MenuItemOption>
                   ))}
                 </MenuOptionGroup>
               </MenuList>
@@ -742,7 +745,7 @@ import {
   DataGrid,
 } from '@saas-ui-pro/react'
 
-export default function InternalState() {
+export default function SlotProps() {
   return (
     <Page title="Customers" height="400px">
       <PageHeader title="Customers" />
@@ -772,6 +775,64 @@ export default function InternalState() {
     </Page>
   )
 }
+```
+
+### Context Menu
+
+Using `slotsProps` you can use the `as` prop to customize the `tr` element and wrap it with a `ContextMenu`.
+
+```jsx
+import {
+  Portal
+} from '@chakra-ui/react'
+import {
+  Page,
+  PageHeader,
+  PageBody,
+  Toolbar,
+  ToolbarButton,
+  DataGrid,
+} from '@saas-ui-pro/react'
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuList,
+  ContextMenuItem
+} from '@saas-ui/react'
+
+export default function DataGridWithContextMenu() {
+  return (
+    <Page title="Customers" height="400px">
+      <PageHeader title="Customers" />
+      <PageBody p="0" contentWidth="full" position="relative">
+        <DataGrid
+          columns={dataGrid.columns.concat()}
+          data={dataGrid.data.concat()}
+          slotProps={{
+            row: () => ({
+              as: RowWithContext,
+            }),
+          }}
+        />
+      </PageBody>
+    </Page>
+  )
+}
+
+const RowWithContext = React.forwardRef<HTMLTableRowElement, TableRowProps>((props: TableRowProps, ref) => {
+  return (
+    <ContextMenu isLazy>
+      <ContextMenuTrigger as={Tr} ref={ref} {...props}/>
+      <Portal>
+        <ContextMenuList>
+          <MenuItem>Edit</MenuItem>
+          <MenuItem>Copy</MenuItem>
+          <MenuItem>Delete</MenuItem>
+        </ContextMenuList>
+      </Portal>
+    </ContextMenu>
+  )
+})
 ```
 
 ## Typescript

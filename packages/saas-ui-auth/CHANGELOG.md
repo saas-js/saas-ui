@@ -1,5 +1,51 @@
 # @saas-ui/auth
 
+## 3.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.4
+
+## 3.1.0
+
+### Minor Changes
+
+- 1df0084: Added new onRestoreAuthState handler to allow more control over restoring auth state
+
+### Patch Changes
+
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+- Updated dependencies [ca911e4]
+- Updated dependencies [0a218fd]
+- Updated dependencies [0a218fd]
+  - @saas-ui/core@2.4.4
+  - @saas-ui/forms@2.5.3
+
+## 3.0.6
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/forms@2.5.2
+  - @saas-ui/core@2.4.3
+
+## 3.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+  - @saas-ui/forms@2.5.1
+
+## 3.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.0
+
 ## 3.0.3
 
 ### Patch Changes

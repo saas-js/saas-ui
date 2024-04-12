@@ -73,6 +73,21 @@ let config = {
         destination: '/docs/pro/installation/private-npm/pnpm',
         permanent: true,
       },
+      {
+        source: '/docs/core/integrations/clerk',
+        destination: '/docs/guides/auth/clerk',
+        permanent: true,
+      },
+      {
+        source: '/docs/core/integrations/supabase',
+        destination: '/docs/guides/auth/supabase',
+        permanent: true,
+      },
+      {
+        source: '/docs/core/integrations/magic',
+        destination: '/docs/guides/auth/magic',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {

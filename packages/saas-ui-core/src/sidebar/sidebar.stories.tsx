@@ -320,8 +320,8 @@ WithSolidLinks.args = {
   ),
 }
 
-export const VariantCondensed = Template.bind({})
-VariantCondensed.args = {
+export const VariantCompact = Template.bind({})
+VariantCompact.args = {
   variant: 'compact',
   children: (
     <>
@@ -341,8 +341,8 @@ VariantCondensed.args = {
   ),
 }
 
-export const VariantCondensedColor = Template.bind({})
-VariantCondensedColor.args = {
+export const VariantCompactColor = Template.bind({})
+VariantCompactColor.args = {
   variant: 'compact',
   colorScheme: 'purple',
   children: (
@@ -365,8 +365,8 @@ VariantCondensedColor.args = {
   ),
 }
 
-export const VariantCondensedResponsive = Template.bind({})
-VariantCondensedResponsive.args = {
+export const VariantCompactResponsive = Template.bind({})
+VariantCompactResponsive.args = {
   variant: { base: 'compact' },
   toggleBreakpoint: false,
   colorScheme: 'purple',
@@ -405,8 +405,8 @@ VariantCondensedResponsive.args = {
   ),
 }
 
-export const VariantCondensedNavGroup = Template.bind({})
-VariantCondensedNavGroup.args = {
+export const VariantCompactNavGroup = Template.bind({})
+VariantCompactNavGroup.args = {
   variant: 'compact',
   colorScheme: 'purple',
   children: (

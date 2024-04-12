@@ -38,7 +38,7 @@ export const FrameworkLinks = () => {
         accentColor="black"
         name="Next.js"
       >
-        <NextjsSvg style={{ margin: 'auto' }} />
+        <NextjsSvg style={{ margin: 'auto', width: '100px', height: '60px' }} />
       </FrameworkLink>
 
       <FrameworkLink

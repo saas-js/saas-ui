@@ -6,7 +6,7 @@ import {
   FieldValues,
 } from 'react-hook-form'
 import { FieldResolver } from './field-resolver'
-import { BaseFieldProps, FieldProps } from './types'
+import type { BaseFieldProps } from './types'
 
 export type FormContextValue<
   TFieldValues extends FieldValues = FieldValues,

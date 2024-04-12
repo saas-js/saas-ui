@@ -1,5 +1,40 @@
 # saas-ui-storybook
 
+## 1.1.30
+
+### Patch Changes
+
+- @saas-ui/react@2.7.4
+
+## 1.1.29
+
+### Patch Changes
+
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+- Updated dependencies [0a218fd]
+  - @saas-ui/react@2.7.3
+
+## 1.1.28
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/react@2.7.2
+
+## 1.1.27
+
+### Patch Changes
+
+- @saas-ui/react@2.7.1
+
+## 1.1.26
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@2.7.0
+
 ## 1.1.25
 
 ### Patch Changes

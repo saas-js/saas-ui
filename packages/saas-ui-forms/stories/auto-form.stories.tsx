@@ -122,6 +122,7 @@ export const CustomSubmit = () => (
     defaultValues={{
       firstName: '',
       lastName: '',
+      role: '',
       emails: [
         {
           address: '',
@@ -131,6 +132,9 @@ export const CustomSubmit = () => (
     schema={basicSchema}
     onSubmit={onSubmit}
     fields={{
+      role: {
+        placeholder: 'Select a role',
+      },
       submit: {
         children: 'Save',
         variant: 'secondary',

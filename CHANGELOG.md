@@ -8,6 +8,16 @@ Stay up to date about all changes we've made to Saas UI Core & Pro.
 
 <!-- CHANGELOG:INSERT -->
 
+## 03-29-2024
+
+`@saas-ui/react@2.7.0`
+
+- Improved forms to support a global base field override
+
+**Forms** `v2.5.0`
+
+- Improved forms to support a global base field override
+
 ## 03-11-2024
 
 **Modals** `v2.1.24`

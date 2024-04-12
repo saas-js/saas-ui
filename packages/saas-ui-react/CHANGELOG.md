@@ -1,5 +1,68 @@
 # @saas-ui/react
 
+## 2.7.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.4
+  - @saas-ui/modals@2.1.29
+  - @saas-ui/data-table@9.0.4
+
+## 2.7.3
+
+### Patch Changes
+
+- 20c7175: Added forwardRef to ContextMenuTrigger
+- ca911e4: Fixed issue where global toast default options would not apply to snackbar
+- 0a218fd: Fixed issue where Field types would not be inferred
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+- Updated dependencies [ca911e4]
+- Updated dependencies [0a218fd]
+- Updated dependencies [0a218fd]
+  - @saas-ui/core@2.4.4
+  - @saas-ui/forms@2.5.3
+  - @saas-ui/data-table@9.0.3
+  - @saas-ui/hotkeys@2.2.7
+  - @saas-ui/modals@2.1.28
+
+## 2.7.2
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+- Updated dependencies [d77a5b3]
+  - @saas-ui/forms@2.5.2
+  - @saas-ui/core@2.4.3
+  - @saas-ui/modals@2.1.27
+  - @saas-ui/data-table@9.0.2
+  - @saas-ui/hotkeys@2.2.6
+
+## 2.7.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+  - @saas-ui/data-table@9.0.1
+  - @saas-ui/forms@2.5.1
+  - @saas-ui/hotkeys@2.2.5
+  - @saas-ui/modals@2.1.26
+
+## 2.7.0
+
+### Minor Changes
+
+- Improved forms to support a global base field override
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.0
+  - @saas-ui/modals@2.1.25
+  - @saas-ui/data-table@9.0.0
+
 ## 2.6.2
 
 ### Patch Changes

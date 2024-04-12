@@ -10,7 +10,7 @@ import {
 import * as stories from '../stories/step-form.stories'
 import { vi } from 'vitest'
 
-const { Basic } = testStories(stories, {
+const { Basic, CustomFields } = testStories(stories, {
   snapshots: false,
   a11y: false,
 })
@@ -52,4 +52,13 @@ test('should go to the next step', async () => {
   })
 
   expect(onSubmit).toBeCalled()
+})
+
+test('should render custom field', async () => {
+  const onSubmit = vi.fn()
+  const { getByText, getByLabelText, user } = render(
+    <CustomFields onSubmit={async () => onSubmit()} />
+  )
+
+  expect(getByText('Custom')).toBeInTheDocument()
 })

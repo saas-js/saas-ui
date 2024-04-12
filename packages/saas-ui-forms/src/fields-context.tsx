@@ -1,23 +1,33 @@
 import React from 'react'
 import { defaultFieldTypes, InputField } from './default-fields'
+import type { GetBaseField } from './types'
 
-const FieldsContext = React.createContext<Record<string, React.FC<any>> | null>(
-  null
-)
+export interface FieldsContextValue {
+  fields: Record<string, React.FC<any>>
+  getBaseField?: GetBaseField<any>
+}
+
+const FieldsContext = React.createContext<FieldsContextValue | null>(null)
 
 export const FieldsProvider: React.FC<{
-  value: Record<string, React.FC<any>>
+  value: FieldsContextValue
   children: React.ReactNode
 }> = (props) => {
-  const fields = { ...defaultFieldTypes, ...props.value }
   return (
-    <FieldsContext.Provider value={fields}>
+    <FieldsContext.Provider value={props.value}>
       {props.children}
     </FieldsContext.Provider>
   )
 }
 
-export const useField = (type: string): React.FC<any> => {
+export const useFieldsContext = () => {
+  return React.useContext(FieldsContext)
+}
+
+export const useField = (
+  type: string,
+  fallback: React.FC<any>
+): React.FC<any> => {
   const context = React.useContext(FieldsContext)
-  return context?.[type] || InputField
+  return context?.fields?.[type] || fallback
 }

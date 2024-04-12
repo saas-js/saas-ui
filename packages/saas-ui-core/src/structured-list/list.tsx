@@ -360,7 +360,7 @@ export const StructuredListCell: React.FC<StructuredListCellProps> = (
 ) => {
   const { children, ...rest } = props
   const styles = useStyles()
-  console.log(styles)
+
   return (
     <chakra.div
       __css={styles.cell}

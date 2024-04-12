@@ -1,5 +1,43 @@
 # @saas-ui/forms
 
+## 2.5.4
+
+### Patch Changes
+
+- Bump version
+
+## 2.5.3
+
+### Patch Changes
+
+- ca911e4: Removed lost console.log
+- 0a218fd: Added time Field type
+- 0a218fd: Fixed issue where Field types would not be inferred
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+  - @saas-ui/core@2.4.4
+
+## 2.5.2
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+
+## 2.5.0
+
+### Minor Changes
+
+- Improved forms to support a global base field override
+
 ## 2.4.1
 
 ### Patch Changes

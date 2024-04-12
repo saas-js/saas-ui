@@ -75,26 +75,6 @@ const sidebar = {
         },
       ],
     },
-    {
-      title: 'Integrations',
-      path: '/docs/core/integrations',
-      open: true,
-      heading: true,
-      routes: [
-        {
-          title: 'Clerk',
-          path: '/docs/core/integrations/clerk',
-        },
-        {
-          title: 'Supabase',
-          path: '/docs/core/integrations/supabase',
-        },
-        {
-          title: 'Magic.link',
-          path: '/docs/core/integrations/magic',
-        },
-      ],
-    },
   ] as RouteItem[],
 }
 

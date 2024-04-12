@@ -384,12 +384,20 @@ const Pricing = () => {
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Figma Pro included</Text>{' '}
+                    <Text
+                      as="span"
+                      borderBottomWidth="1px"
+                      borderBottomStyle="dotted"
+                      borderColor="currentColor"
+                    >
+                      Figma Pro included
+                    </Text>{' '}
                     <Tag colorScheme="primary" size="sm">
                       New
                     </Tag>
                   </HStack>
                 }
+                help="One editor included. Additional licenses can be purchased separately."
               />
               <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />

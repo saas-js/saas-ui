@@ -64,7 +64,7 @@ export const [ArrayFieldRowProvider, useArrayFieldRowContext] =
 
 export interface ArrayFieldOptions<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > {
   /**
    * The field name
@@ -91,12 +91,12 @@ export const useArrayField = ({
   max,
 }: ArrayFieldOptions) => {
   const { control } = useFormContext()
+
   const context = useFieldArray({
     control,
     name,
     keyName,
   })
-
   return {
     ...context,
     name,

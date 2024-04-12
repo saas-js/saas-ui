@@ -31,11 +31,9 @@ import {
   NativeSelectProps,
   SelectButtonProps,
   SelectListProps,
-  SelectOption,
 } from './select'
 
 import { createField } from './create-field'
-import { FieldOption, FieldOptions } from './types'
 
 export interface InputFieldProps extends InputProps {
   type?: string
@@ -173,6 +171,7 @@ export const defaultFieldTypes = {
   email: InputField,
   url: InputField,
   phone: InputField,
+  time: InputField,
   number: NumberInputField,
   password: PasswordInputField,
   textarea: TextareaField,

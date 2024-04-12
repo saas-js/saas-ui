@@ -11,9 +11,10 @@ import {
   useMenuContext,
   useEventListener,
   useOutsideClick,
+  forwardRef,
 } from '@chakra-ui/react'
 
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext, mergeRefs } from '@chakra-ui/react-utils'
 import { AnyPointerEvent, callAllHandlers, runIfFn } from '@chakra-ui/utils'
 
 // @todo migrate this to Ark-ui ContextMenu
@@ -138,7 +139,10 @@ const generateClientRect = (x = 0, y = 0) => {
   }
 }
 
-const useContextMenuTrigger = (props: ContextMenuTriggerProps) => {
+const useContextMenuTrigger = (
+  props: ContextMenuTriggerProps,
+  ref: React.ForwardedRef<any>
+) => {
   const { triggerRef, onOpen, onClose, anchor } = useContextMenuContext()
 
   const menu = useMenuContext()
@@ -186,30 +190,30 @@ const useContextMenuTrigger = (props: ContextMenuTriggerProps) => {
         onOpen(event)
         openAndFocusFirstItem()
       }, props.onContextMenu as any),
-      ref: triggerRef,
+      ref: mergeRefs(triggerRef, ref),
     },
   }
 }
 
 export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {}
 
-export const ContextMenuTrigger: React.FC<ContextMenuTriggerProps> = (
-  props
-) => {
-  const { children, ...rest } = props
+export const ContextMenuTrigger = forwardRef<ContextMenuTriggerProps, 'span'>(
+  (props, ref) => {
+    const { children, ...rest } = props
 
-  const { triggerProps } = useContextMenuTrigger(props)
+    const { triggerProps } = useContextMenuTrigger(props, ref)
 
-  return (
-    <chakra.span
-      {...rest}
-      sx={{ WebkitTouchCallout: 'none' }}
-      {...triggerProps}
-    >
-      {children}
-    </chakra.span>
-  )
-}
+    return (
+      <chakra.span
+        {...rest}
+        sx={{ WebkitTouchCallout: 'none' }}
+        {...triggerProps}
+      >
+        {children}
+      </chakra.span>
+    )
+  }
+)
 
 ContextMenuTrigger.displayName = 'ContextMenuTrigger'
 

@@ -8,6 +8,7 @@ import {
   FieldsProvider,
   GetFieldResolver,
   ObjectField,
+  defaultFieldTypes,
 } from './'
 import { Form } from './form'
 import { Field } from './field'
@@ -20,17 +21,18 @@ import {
 import { StepperProvider } from '@saas-ui/core'
 import { runIfFn } from '@chakra-ui/utils'
 import { GetResolver } from './form'
-import { WithStepFields } from './types'
+import { GetBaseField, WithStepFields } from './types'
 
 export type StepFormType<
   FieldDefs,
   ExtraProps = object,
-  ExtraOverrides = object
+  ExtraFieldProps extends object = object,
+  ExtraOverrides = object,
 > = (<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TFieldTypes = FieldProps<TFieldValues, ExtraFieldProps>,
 >(
   props: WithStepFields<
     UseStepFormProps<TSteps, TFieldValues, TContext>,
@@ -44,17 +46,30 @@ export type StepFormType<
   id?: string
 }
 
-export interface CreateStepFormProps<FieldDefs> {
+export interface CreateStepFormProps<
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+> {
   resolver?: GetResolver
   fieldResolver?: GetFieldResolver
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
+  getBaseField?: TGetBaseField
 }
 
 export function createStepForm<
   FieldDefs,
-  ExtraProps = object,
-  ExtraOverrides = object
->({ fields, resolver, fieldResolver }: CreateStepFormProps<FieldDefs> = {}) {
+  TGetBaseField extends GetBaseField<any> = GetBaseField<any>,
+>({
+  fields,
+  resolver,
+  fieldResolver,
+  getBaseField,
+}: CreateStepFormProps<FieldDefs, TGetBaseField> = {}) {
+  type ExtraFieldProps =
+    TGetBaseField extends GetBaseField<infer ExtraFieldProps>
+      ? ExtraFieldProps
+      : object
+
   const StepForm = forwardRef<any, 'div'>((props, ref) => {
     const { children, steps, ...rest } = props
 
@@ -68,10 +83,18 @@ export function createStepForm<
 
     const context = useMemo(() => ctx, [ctx])
 
+    const fieldsContext = {
+      fields: {
+        ...defaultFieldTypes,
+        ...fields,
+      },
+      getBaseField,
+    }
+
     return (
       <StepperProvider value={context}>
         <StepFormProvider value={context}>
-          <FieldsProvider value={fields || {}}>
+          <FieldsProvider value={fieldsContext}>
             <Form ref={ref} {...rest} {...getFormProps()}>
               {runIfFn(children, {
                 ...stepper,
@@ -86,7 +109,7 @@ export function createStepForm<
         </StepFormProvider>
       </StepperProvider>
     )
-  }) as StepFormType<FieldDefs, ExtraProps, ExtraOverrides>
+  }) as StepFormType<FieldDefs, object, ExtraFieldProps>
 
   StepForm.displayName = `Step${Form.displayName || Form.name}`
 

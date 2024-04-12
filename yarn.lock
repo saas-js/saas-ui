@@ -8622,7 +8622,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
-    "@chakra-ui/icons": "npm:^2.1.1"
     "@chakra-ui/react-utils": "npm:^2.0.12"
     "@chakra-ui/styled-system": "npm:^2.9.2"
     "@chakra-ui/theme-tools": "npm:^2.1.2"
@@ -8664,6 +8663,9 @@ __metadata:
     react-icons: "npm:^5.0.1"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.6"
+    "@emotion/react": ">=11"
+    "@emotion/styled": ">=11"
+    framer-motion: ">=6"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
   languageName: unknown

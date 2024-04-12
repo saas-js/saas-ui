@@ -8463,7 +8463,7 @@ __metadata:
     "@chakra-ui/theme-tools": "npm:^2.1.2"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/theme": "npm:^2.3.4"
-    "@saas-ui/theme-glass": "npm:^0.5.4"
+    "@saas-ui/theme-glass": "npm:^0.5.5"
     react-icons: "npm:^5.0.1"
     tsup: "npm:^6.7.0"
   peerDependencies:
@@ -8935,7 +8935,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@npm:^0.5.4, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@npm:^0.5.5, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:

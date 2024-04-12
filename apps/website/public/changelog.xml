@@ -7,9 +7,74 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Mon, 22 Jan 2024 09:34:21 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 29 Mar 2024 11:55:17 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/03-29-2024</guid>
+    <title>Mar 29, 2024</title>
+    <link>https://saas-ui.dev/changelog/03-29-2024</link>
+    <description>
+## 03-29-2024
+
+`@saas-ui/react@2.7.0`
+
+- Improved forms to support a global base field override
+
+**...</description>
+    <pubDate>Fri, 29 Mar 2024 11:55:17 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/03-11-2024</guid>
+    <title>Mar 11, 2024</title>
+    <link>https://saas-ui.dev/changelog/03-11-2024</link>
+    <description>
+## 03-11-2024
+
+**Modals** `v2.1.24`
+
+- Removed a console.log, closes #211
+
+**File Upload** `v0.2.7`...</description>
+    <pubDate>Mon, 11 Mar 2024 13:55:43 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/03-06-2024</guid>
+    <title>Mar 6, 2024</title>
+    <link>https://saas-ui.dev/changelog/03-06-2024</link>
+    <description>
+## 03-06-2024
+
+`@saas-ui/react@2.6.1`
+
+- Fixed issue where Chakra UI Card sizes would not apply
+- M...</description>
+    <pubDate>Wed, 06 Mar 2024 18:13:15 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/changelog/02-21-2024</guid>
+    <title>Feb 21, 2024</title>
+    <link>https://saas-ui.dev/changelog/02-21-2024</link>
+    <description>
+## 02-21-2024
+
+`@saas-ui/react@2.6.0`
+
+- Improved snackbar.promise method to not rethrow error when...</description>
+    <pubDate>Wed, 21 Feb 2024 19:07:39 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/01-22-2024</guid>
     <title>Jan 22, 2024</title>

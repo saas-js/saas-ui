@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 07 Feb 2024 13:13:52 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 12 Apr 2024 12:19:24 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -131,16 +131,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/file-upload/usage</guid>
-    <title>FileUpload</title>
-    <link>https://saas-ui.dev/docs/components/file-upload/usage</link>
-    <description>A file upload component allows users to select and upload files.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/core/installation/blitzjs-guide</guid>
     <title>Blitz JS</title>
     <link>https://saas-ui.dev/docs/core/installation/blitzjs-guide</link>
@@ -208,6 +198,16 @@
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     <category>vite</category>
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/core/integrations/auth0</guid>
+    <title>Auth0</title>
+    <link>https://saas-ui.dev/docs/core/integrations/auth0</link>
+    <description>Integrating Auth0 authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
   </item>
 
   <item>
@@ -281,10 +281,50 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/auth0</guid>
+    <title>Auth0</title>
+    <link>https://saas-ui.dev/docs/guides/auth/auth0</link>
+    <description>Integrating Auth0 authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/guides/auth/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/guides/auth/custom-auth-service</guid>
     <title>Custom auth service</title>
     <link>https://saas-ui.dev/docs/guides/auth/custom-auth-service</link>
     <description>How to create a custom auth service</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/guides/auth/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/guides/auth/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -361,36 +401,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/color-schemes</guid>
-    <title>Color schemes</title>
-    <link>https://saas-ui.dev/docs/pro/theming/color-schemes</link>
-    <description>Use the build in color schemes.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/configuration</guid>
-    <title>Setting the Saas UI Pro theme</title>
-    <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
-    <description>How to setup the Saas UI Pro theme in your project.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/fonts</guid>
-    <title>Fonts</title>
-    <link>https://saas-ui.dev/docs/pro/theming/fonts</link>
-    <description>Settings up fonts in your theme.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/pro/deployments/vercel</guid>
     <title>Deploy to Vercel</title>
     <link>https://saas-ui.dev/docs/pro/deployments/vercel</link>
@@ -421,30 +431,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/installation/npm</guid>
-    <title>Private NPM registry</title>
-    <link>https://saas-ui.dev/docs/pro/installation/npm</link>
-    <description>Install Saas UI Pro components from a private NPM registry.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/pro/installation/overview</guid>
     <title>Quickstart</title>
     <link>https://saas-ui.dev/docs/pro/installation/overview</link>
     <description>Getting started quickly with Saas UI Pro.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/installation/pnpm</guid>
-    <title>Private NPM using PNPM</title>
-    <link>https://saas-ui.dev/docs/pro/installation/pnpm</link>
-    <description>Install Saas UI Pro components from a private NPM registry.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -461,10 +451,30 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/installation/yarn</guid>
-    <title>Private NPM using Yarn</title>
-    <link>https://saas-ui.dev/docs/pro/installation/yarn</link>
-    <description>Install Saas UI Pro components from a private NPM registry.</description>
+    <guid>https://saas-ui.dev/docs/pro/theming/color-schemes</guid>
+    <title>Color schemes</title>
+    <link>https://saas-ui.dev/docs/pro/theming/color-schemes</link>
+    <description>Use the build in color schemes.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/configuration</guid>
+    <title>Setting the Saas UI Pro theme</title>
+    <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
+    <description>How to setup the Saas UI Pro theme in your project.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/fonts</guid>
+    <title>Fonts</title>
+    <link>https://saas-ui.dev/docs/pro/theming/fonts</link>
+    <description>Settings up fonts in your theme.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -491,6 +501,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/authentication/auth/usage</guid>
+    <title>Auth</title>
+    <link>https://saas-ui.dev/docs/components/authentication/auth/usage</link>
+    <description>Ready to use authentication forms.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/advanced-data/filters/usage</guid>
     <title>Filters</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/filters/usage</link>
@@ -505,106 +525,6 @@
     <title>Kanban</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/kanban/usage</link>
     <description>A Kanban board is a visual representation of work processes used to manage and optimize workflow.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/command/usage</guid>
-    <title>Command</title>
-    <link>https://saas-ui.dev/docs/components/data-display/command/usage</link>
-    <description>A command is used to show which key or combination of keys performs a given action.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/data-table/usage</guid>
-    <title>DataTable</title>
-    <link>https://saas-ui.dev/docs/components/data-display/data-table/usage</link>
-    <description>A basic data table component that supports sorting and selections.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/divider/usage</guid>
-    <title>Divider</title>
-    <link>https://saas-ui.dev/docs/components/data-display/divider/usage</link>
-    <description>Dividers are used to visually separate content in a list or group.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/empty-state/usage</guid>
-    <title>EmptyState</title>
-    <link>https://saas-ui.dev/docs/components/data-display/empty-state/usage</link>
-    <description>Display actionable feedback when no data is available.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/icon-badge/usage</guid>
-    <title>Icon Badge</title>
-    <link>https://saas-ui.dev/docs/components/data-display/icon-badge/usage</link>
-    <description>Display an icon as a badge.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/persona/usage</guid>
-    <title>Persona</title>
-    <link>https://saas-ui.dev/docs/components/data-display/persona/usage</link>
-    <description>A component that represents a person and their status.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/property/usage</guid>
-    <title>Property</title>
-    <link>https://saas-ui.dev/docs/components/data-display/property/usage</link>
-    <description>A component used to show key/value data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/structured-list/usage</guid>
-    <title>StructuredList</title>
-    <link>https://saas-ui.dev/docs/components/data-display/structured-list/usage</link>
-    <description>A component used to display collections of data in a consistent manner.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
-    <title>Timeline</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
-    <description>Display a list of events in chronological order.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth/usage</guid>
-    <title>Auth</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth/usage</link>
-    <description>Ready to use authentication forms.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -681,10 +601,100 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/beacon/usage</guid>
-    <title>Beacon</title>
-    <link>https://saas-ui.dev/docs/components/engagement/beacon/usage</link>
-    <description>A pulsating beacon that attracts attention</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/command/usage</guid>
+    <title>Command</title>
+    <link>https://saas-ui.dev/docs/components/data-display/command/usage</link>
+    <description>A command is used to show which key or combination of keys performs a given action.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/data-table/usage</guid>
+    <title>DataTable</title>
+    <link>https://saas-ui.dev/docs/components/data-display/data-table/usage</link>
+    <description>A basic data table component that supports sorting and selections.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/divider/usage</guid>
+    <title>Divider</title>
+    <link>https://saas-ui.dev/docs/components/data-display/divider/usage</link>
+    <description>Dividers are used to visually separate content in a list or group.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/empty-state/usage</guid>
+    <title>EmptyState</title>
+    <link>https://saas-ui.dev/docs/components/data-display/empty-state/usage</link>
+    <description>Display actionable feedback when no data is available.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/icon-badge/usage</guid>
+    <title>Icon Badge</title>
+    <link>https://saas-ui.dev/docs/components/data-display/icon-badge/usage</link>
+    <description>Display an icon as a badge.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/persona/usage</guid>
+    <title>Persona</title>
+    <link>https://saas-ui.dev/docs/components/data-display/persona/usage</link>
+    <description>A component that represents a person and their status.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/property/usage</guid>
+    <title>Property</title>
+    <link>https://saas-ui.dev/docs/components/data-display/property/usage</link>
+    <description>A component used to show key/value data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
+    <title>Timeline</title>
+    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
+    <description>Display a list of events in chronological order.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/structured-list/usage</guid>
+    <title>StructuredList</title>
+    <link>https://saas-ui.dev/docs/components/data-display/structured-list/usage</link>
+    <description>A component used to display collections of data in a consistent manner.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</guid>
+    <title>Tour Dialog</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</link>
+    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -711,16 +721,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</guid>
-    <title>Tour Dialog</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</link>
-    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/feedback/banner/usage</guid>
     <title>Banner</title>
     <link>https://saas-ui.dev/docs/components/feedback/banner/usage</link>
@@ -741,10 +741,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/nprogress/usage</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/components/feedback/nprogress/usage</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
+    <guid>https://saas-ui.dev/docs/components/engagement/beacon/usage</guid>
+    <title>Beacon</title>
+    <link>https://saas-ui.dev/docs/components/engagement/beacon/usage</link>
+    <description>A pulsating beacon that attracts attention</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -761,20 +761,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
-    <title>ArrayField</title>
-    <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
-    <description>Form field component to handle array type values.</description>
+    <guid>https://saas-ui.dev/docs/components/feedback/nprogress/usage</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/components/feedback/nprogress/usage</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/auto-form/usage</guid>
-    <title>AutoForm</title>
-    <link>https://saas-ui.dev/docs/components/forms/auto-form/usage</link>
-    <description>Automatically render forms based on a schema.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
+    <title>ArrayField</title>
+    <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
+    <description>Form field component to handle array type values.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -801,6 +801,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/forms/file-upload/usage</guid>
+    <title>FileUpload</title>
+    <link>https://saas-ui.dev/docs/components/forms/file-upload/usage</link>
+    <description>A file upload component allows users to select and upload files.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/forms/form-layout/usage</guid>
     <title>FormLayout</title>
     <link>https://saas-ui.dev/docs/components/forms/form-layout/usage</link>
@@ -811,20 +821,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/object-field/usage</guid>
-    <title>ObjectField</title>
-    <link>https://saas-ui.dev/docs/components/forms/object-field/usage</link>
-    <description>Form field component to handle object type values.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/forms/password-input/usage</guid>
-    <title>PasswordInput</title>
-    <link>https://saas-ui.dev/docs/components/forms/password-input/usage</link>
-    <description>A password input type component</description>
+    <guid>https://saas-ui.dev/docs/components/forms/auto-form/usage</guid>
+    <title>AutoForm</title>
+    <link>https://saas-ui.dev/docs/components/forms/auto-form/usage</link>
+    <description>Automatically render forms based on a schema.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -841,10 +841,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/select/usage</guid>
-    <title>Select</title>
-    <link>https://saas-ui.dev/docs/components/forms/select/usage</link>
-    <description>Allows users to select one or more values from a list.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/password-input/usage</guid>
+    <title>PasswordInput</title>
+    <link>https://saas-ui.dev/docs/components/forms/password-input/usage</link>
+    <description>A password input type component</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/forms/object-field/usage</guid>
+    <title>ObjectField</title>
+    <link>https://saas-ui.dev/docs/components/forms/object-field/usage</link>
+    <description>Form field component to handle object type values.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -871,10 +881,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
-    <title>Navbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
-    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/select/usage</guid>
+    <title>Select</title>
+    <link>https://saas-ui.dev/docs/components/forms/select/usage</link>
+    <description>Allows users to select one or more values from a list.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -891,20 +901,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/section/usage</guid>
-    <title>Section</title>
-    <link>https://saas-ui.dev/docs/components/layout/section/usage</link>
-    <description>Split content into multiple easily scannable sections.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
+    <title>Navbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
+    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/sidebar/usage</guid>
-    <title>Sidebar</title>
-    <link>https://saas-ui.dev/docs/components/layout/sidebar/usage</link>
-    <description>Side navigation, commonly used as the primary navigation in web applications.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/section/usage</guid>
+    <title>Section</title>
+    <link>https://saas-ui.dev/docs/components/layout/section/usage</link>
+    <description>Split content into multiple easily scannable sections.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -971,6 +981,56 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/overlay/context-menu/usage</guid>
+    <title>Context Menu</title>
+    <link>https://saas-ui.dev/docs/components/overlay/context-menu/usage</link>
+    <description>A list of options that appears when a user interacts right-clicking on a trigger element.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/layout/sidebar/usage</guid>
+    <title>Sidebar</title>
+    <link>https://saas-ui.dev/docs/components/layout/sidebar/usage</link>
+    <description>Side navigation, commonly used as the primary navigation in web applications.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/overlay/form-dialog/usage</guid>
+    <title>Form Dialog</title>
+    <link>https://saas-ui.dev/docs/components/overlay/form-dialog/usage</link>
+    <description>A modal dialog that renders a form.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/overlay/menu-dialog/usage</guid>
+    <title>Menu Dialog</title>
+    <link>https://saas-ui.dev/docs/components/overlay/menu-dialog/usage</link>
+    <description>A list of menu options inside a modal dialog.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/overlay/modals-manager/usage</guid>
+    <title>Modals manager</title>
+    <link>https://saas-ui.dev/docs/components/overlay/modals-manager/usage</link>
+    <description>Manage different types of modals with a single easy to use hook.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/utils/error-boundary/usage</guid>
     <title>ErrorBoundary</title>
     <link>https://saas-ui.dev/docs/components/utils/error-boundary/usage</link>
@@ -1001,50 +1061,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/form-dialog/usage</guid>
-    <title>Form Dialog</title>
-    <link>https://saas-ui.dev/docs/components/overlay/form-dialog/usage</link>
-    <description>A modal dialog that renders a form.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/context-menu/usage</guid>
-    <title>Context Menu</title>
-    <link>https://saas-ui.dev/docs/components/overlay/context-menu/usage</link>
-    <description>A list of options that appears when a user interacts right-clicking on a trigger element.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/menu-dialog/usage</guid>
-    <title>Menu Dialog</title>
-    <link>https://saas-ui.dev/docs/components/overlay/menu-dialog/usage</link>
-    <description>A list of menu options inside a modal dialog.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/overlay/modals-manager/usage</guid>
-    <title>Modals manager</title>
-    <link>https://saas-ui.dev/docs/components/overlay/modals-manager/usage</link>
-    <description>Manage different types of modals with a single easy to use hook.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/overlay/responsive-menu/usage</guid>
     <title>ResponsiveMenu</title>
     <link>https://saas-ui.dev/docs/components/overlay/responsive-menu/usage</link>
     <description>A mobile friendly Menu component.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/web3/address/usage</guid>
+    <title>Web3Address</title>
+    <link>https://saas-ui.dev/docs/components/web3/address/usage</link>
+    <description>Display Web3 addresses in a more readable format.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1061,20 +1091,40 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</guid>
-    <title>Bar Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</link>
-    <description>A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.</description>
+    <guid>https://saas-ui.dev/docs/pro/installation/private-npm/npm</guid>
+    <title>NPM installation instructions</title>
+    <link>https://saas-ui.dev/docs/pro/installation/private-npm/npm</link>
+    <description>Install Saas UI Pro components from the private NPM registry using NPM.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/line-chart/usage</guid>
-    <title>Line Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/line-chart/usage</link>
-    <description>A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.</description>
+    <guid>https://saas-ui.dev/docs/pro/installation/private-npm/overview</guid>
+    <title>Private NPM Registry</title>
+    <link>https://saas-ui.dev/docs/pro/installation/private-npm/overview</link>
+    <description>How to set up the private NPM registry with Saas UI Pro.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/installation/private-npm/pnpm</guid>
+    <title>PNPM installation instructions</title>
+    <link>https://saas-ui.dev/docs/pro/installation/private-npm/pnpm</link>
+    <description>Install Saas UI Pro components from the private NPM registry using PNPM.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/installation/private-npm/yarn</guid>
+    <title>Yarn installation instructions</title>
+    <link>https://saas-ui.dev/docs/pro/installation/private-npm/yarn</link>
+    <description>Install Saas UI Pro components from the private NPM registry using Yarn.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1091,10 +1141,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/web3/address/usage</guid>
-    <title>Web3Address</title>
-    <link>https://saas-ui.dev/docs/components/web3/address/usage</link>
-    <description>Display Web3 addresses in a more readable format.</description>
+    <guid>https://saas-ui.dev/docs/components/visualization/line-chart/usage</guid>
+    <title>Line Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/line-chart/usage</link>
+    <description>A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</guid>
+    <title>Bar Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</link>
+    <description>A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

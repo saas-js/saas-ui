@@ -83,7 +83,7 @@ const FigmaHero = () => {
         textAlign="center"
         initialInView
       >
-        Saas UI Figma Kit ・ v0.1
+        Saas UI Figma Kit ・ v1.2
       </FallInPlace>
       <Hero
         as={Stack}

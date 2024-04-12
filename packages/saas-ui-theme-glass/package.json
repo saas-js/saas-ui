@@ -90,6 +90,6 @@
   },
   "devDependencies": {
     "@saas-ui/react": "workspace:*",
-    "react-icons": "^4.12.0"
+    "react-icons": "^5.0.1"
   }
 }

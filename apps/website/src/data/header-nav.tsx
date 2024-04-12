@@ -3,7 +3,6 @@ import { Badge, HStack, Text } from '@chakra-ui/react'
 
 const headerNav: (NavLinkProps & { authenticated?: boolean })[] = [
   { id: 'home', label: 'Home', display: 'none' },
-  { id: 'features', label: 'Features' },
   {
     href: '/themes',
     label: 'Themes',

@@ -103,7 +103,7 @@ const componentIllustrations = {
   authprovider: <img src="/img/components/AuthProvider.svg" />,
   auth: <img src="/img/components/Auth.svg" />,
   'app-shell': (
-    <img src="/img/components/FormLayouts.svg" />
+    <img src="/img/components/AppShell4.svg" />
   ),
   page: (
     <img src="/img/components/Page.svg" />

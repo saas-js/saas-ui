@@ -103,18 +103,7 @@ const componentIllustrations = {
   authprovider: <Code colorScheme="primary">const auth = useAuth()</Code>,
   auth: <Button variant="primary">Log in</Button>,
   'app-shell': (
-    <AppShell
-      variant="static"
-      height="80%"
-      width="80%"
-      borderWidth="1px"
-      rounded="md"
-      overflow="hidden"
-      navbar={<Box bg="primary.500" height="20px" />}
-      sidebar={<Box borderRightWidth="2px" width="30%" />}
-    >
-      <div />
-    </AppShell>
+    <img src="/img/components/FormLayouts.svg" />
   ),
   page: (
     <Page height="100%">

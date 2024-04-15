@@ -106,40 +106,13 @@ const componentIllustrations = {
     <img src="/img/components/FormLayouts.svg" />
   ),
   page: (
-    <Page height="100%">
-      <PageHeader
-        title="Contacts"
-        toolbar={
-          <Toolbar>
-            <Button variant="primary">Add</Button>
-          </Toolbar>
-        }
-      />
-    </Page>
+    <img src="/img/components/Page.svg" />
   ),
   splitpage: (
-    <HStack height="100%" width="full" spacing="0">
-      <Page height="100%" borderRightWidth="1px" flex="0">
-        <PageHeader
-          title="Inbox"
-          toolbar={
-            <Toolbar>
-              <Button variant="secondary" size="xs">
-                <FiFilter />
-              </Button>
-            </Toolbar>
-          }
-        />
-      </Page>
-      <Page height="100%" flex="1">
-        <PageHeader title="Hello" />
-      </Page>
-    </HStack>
+    <img src="/img/components/SplitPages1.svg" />
   ),
   section: (
-    <Section width="80%">
-      <SectionHeader title="Settings" description="Manage your settings" />
-    </Section>
+    <img src="/img/components/SettingSection3.svg" />
   ),
   commandbar: <Command>CMD+K</Command>,
   togglebutton: (
@@ -151,11 +124,7 @@ const componentIllustrations = {
     <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
   ),
   toolbar: (
-    <Toolbar flex="0" borderWidth="1px" rounded="md">
-      <ToolbarButton label="bold" icon={<FiBold />} />
-      <ToolbarButton label="italic" icon={<FiItalic />} />
-      <ToolbarButton label="underline" icon={<FiUnderline />} />
-    </Toolbar>
+    <img src="/img/components/Toolbar.svg" />
   ),
   hotkeys: <Code colorScheme="primary">{`useHotkeys('G then D')`}</Code>,
   stepper: (
@@ -165,29 +134,10 @@ const componentIllustrations = {
     </Steps>
   ),
   navbar: (
-    <HStack
-      borderBottomWidth="1px"
-      width="full"
-      px="3"
-      py="2"
-      alignSelf="start"
-    >
-      <SaasUIGlyph width="18px" />
-      <Spacer />
-      <Button variant="primary" size="xs">
-        Log in
-      </Button>
-    </HStack>
+    <img src="/img/components/Navbar.svg" />
   ),
   sidebar: (
-    <Sidebar width="80%" borderRadius="md">
-      <SidebarSection>
-        <NavItem icon={<FiHome />} isActive>
-          Dashboard
-        </NavItem>
-        <NavItem icon={<FiUsers />}>Contacts</NavItem>
-      </SidebarSection>
-    </Sidebar>
+    <img src="/img/components/Sidebar.svg" />
   ),
   address: (
     <Button variant="outline" colorScheme="primary">

@@ -100,8 +100,8 @@ const autoform = `z.object({
 })`
 
 const componentIllustrations = {
-  authprovider: <Code colorScheme="primary">const auth = useAuth()</Code>,
-  auth: <Button variant="primary">Log in</Button>,
+  authprovider: <img src="/img/components/AuthProvider.svg" />,
+  auth: <img src="/img/components/Auth.svg" />,
   'app-shell': (
     <img src="/img/components/FormLayouts.svg" />
   ),

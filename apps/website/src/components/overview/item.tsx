@@ -114,11 +114,9 @@ const componentIllustrations = {
   section: (
     <img src="/img/components/SettingSection3.svg" />
   ),
-  commandbar: <Command>CMD+K</Command>,
+  commandbar: <img src="/img/components/CommandBar.svg" />,
   togglebutton: (
-    <Button variant="primary" size="xs">
-      Toggle
-    </Button>
+    <img src="/img/components/ToggleButton5.svg" />
   ),
   web3address: (
     <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
@@ -126,12 +124,9 @@ const componentIllustrations = {
   toolbar: (
     <img src="/img/components/Toolbar.svg" />
   ),
-  hotkeys: <Code colorScheme="primary">{`useHotkeys('G then D')`}</Code>,
+  hotkeys: <img src="/img/components/Hotkeys4.svg" />,
   stepper: (
-    <Steps orientation="vertical">
-      <StepsItem title="Information" />
-      <StepsItem title="Account" />
-    </Steps>
+    <img src="/img/components/Stepper1.svg" />
   ),
   navbar: (
     <img src="/img/components/Navbar.svg" />

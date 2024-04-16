@@ -206,9 +206,6 @@ const componentIllustrations = {
   property: (
     <img src="/img/components/Property1.svg" />
   ),
-  iconBadge (
-  <img src="/img/components/IconBadge2.svg" />
-  ),
   persona: (
     <img src="/img/components/Persona2.svg" />
   ),

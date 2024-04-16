@@ -226,30 +226,16 @@ const componentIllustrations = {
     <img src="/img/components/Kanban2.svg" />
   ),
   banner: (
-    <Banner width="80%" colorScheme="primary" variant="solid" rounded="md">
-      <BannerContent>
-        <BannerTitle>Test</BannerTitle>
-      </BannerContent>
-      <BannerCloseButton />
-    </Banner>
+    <img src="/img/components/Banner3.svg" />
   ),
   nprogress: (
-    <Box position="relative" width="100%">
-      <NProgress isAnimating position="absolute" width="100%" />
-    </Box>
+    <img src="/img/components/NProgress1.svg" />
   ),
   snackbar: (
-    <HStack rounded="md" bg="white" _dark={{ bg: 'gray.800' }} py="2" px="4">
-      <Text color="black" _dark={{ color: 'white' }} fontWeight="semibold">
-        Settings saved
-      </Text>
-      <CloseButton size="sm" />
-    </HStack>
+    <img src="/img/components/Snackbar2.svg" />
   ),
   loadingoverlay: (
-    <LoadingOverlay>
-      <LoadingSpinner />
-    </LoadingOverlay>
+    <img src="/img/components/LoadingOverlay1.svg" />
   ),
   'modals-manager': (
     <Code colorScheme="primary">const modals = useModals()</Code>

@@ -306,66 +306,12 @@ const componentIllustrations = {
       <Box>Remove</Box>
     </VStack>
   ),
-  beacon: <Beacon />,
+  beacon: <img src="/img/components/Beacon1.svg" />,
   'benefits-modal': (
-    <VStack
-      rounded="md"
-      bg="white"
-      _dark={{ bg: 'gray.700' }}
-      py="2"
-      px="4"
-      boxShadow="xl"
-      alignItems="flex-start"
-      width="80%"
-      maxW="300px"
-      borderWidth="1px"
-    >
-      <HStack width="100%">
-        <Text fontWeight="semibold" flex="1">
-          New feature
-        </Text>
-        <CloseButton size="sm" alignSelf="flex-end" />
-      </HStack>
-
-      <HStack width="100%">
-        <Icon as={FiCheck} color="green.500" />
-        <Box
-          flex="1"
-          height="4px"
-          bg="gray.100"
-          _dark={{ bg: 'gray.600' }}
-        ></Box>
-      </HStack>
-
-      <HStack width="100%">
-        <Icon as={FiCheck} color="green.500" />
-        <Box
-          flex="1"
-          height="4px"
-          bg="gray.100"
-          _dark={{ bg: 'gray.600' }}
-        ></Box>
-      </HStack>
-
-      <Button variant="primary" size="xs" alignSelf="flex-end">
-        Get started
-      </Button>
-    </VStack>
+    <img src="/img/components/BenefitsModal1.svg" />
   ),
   tour: (
-    <Box position="relative">
-      <Button>Add contact</Button>
-      <Box
-        position="absolute"
-        width="110px"
-        height="40px"
-        borderWidth="2px"
-        borderColor="primary.500"
-        rounded="md"
-        mt="-36px"
-        ml="-4px"
-      ></Box>
-    </Box>
+    <img src="/img/components/Tour1.svg" />
   ),
   errorboundary: (
     <Box>

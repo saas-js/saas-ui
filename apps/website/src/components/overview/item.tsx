@@ -121,6 +121,24 @@ const componentIllustrations = {
   web3address: (
     <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
   ),
+  dateInput: (
+     <img src="/img/components/DateInput.svg" />
+  ),
+  datePicker: (
+     <img src="/img/components/DatePicker.svg" />
+  ),
+  datePickerModal: (
+     <img src="/img/components/DatePickerModal2.svg" />
+  ),
+  datePickerStatic: (
+     <img src="/img/components/DatePickerStatic1.svg" />
+  ),
+  dateRangeInput: (
+     <img src="/img/components/DateRangeInput.svg" />
+  ),
+  dateRangePicker: (
+     <img src="/img/components/dateRangePicker.svg" />
+  ),
   toolbar: (
     <img src="/img/components/Toolbar.svg" />
   ),

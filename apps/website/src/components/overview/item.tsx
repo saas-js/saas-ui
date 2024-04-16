@@ -238,7 +238,7 @@ const componentIllustrations = {
     <img src="/img/components/LoadingOverlay1.svg" />
   ),
   'modals-manager': (
-    <Code colorScheme="primary">const modals = useModals()</Code>
+    <img src="/img/components/ModalsManager.svg" />
   ),
   menudialog: (
     <VStack
@@ -265,29 +265,7 @@ const componentIllustrations = {
     </VStack>
   ),
   formdialog: (
-    <VStack
-      rounded="md"
-      bg="white"
-      _dark={{ bg: 'gray.700' }}
-      py="2"
-      px="4"
-      boxShadow="xl"
-      alignItems="flex-start"
-      width="80%"
-      maxW="300px"
-      borderWidth="1px"
-    >
-      <HStack width="100%">
-        <Text fontWeight="semibold" flex="1">
-          Edit
-        </Text>
-        <CloseButton size="sm" alignSelf="flex-end" />
-      </HStack>
-
-      <Input size="sm" />
-
-      <Button variant="primary">Save</Button>
-    </VStack>
+    <img src="/img/components/FormDialog.svg" />
   ),
   responsivemenu: (
     <VStack
@@ -314,14 +292,12 @@ const componentIllustrations = {
     <img src="/img/components/Tour1.svg" />
   ),
   errorboundary: (
-    <Box>
-      <Heading size="sm">Oops, something went wrong</Heading>
-    </Box>
+    <img src="/img/components/ErrorBoundary1.svg" />
   ),
   'feature-flags': (
-    <Code colorScheme="primary">{`<Has feature="premium" />`}</Code>
+    <img src="/img/components/FeatureFlags7.svg" />
   ),
-  resizebox: <FiMaximize size="32" />,
+  resizebox: <img src="/img/components/ResizeBox2.svg" />,
 }
 
 type Props = {

@@ -140,33 +140,13 @@ const componentIllustrations = {
     </Button>
   ),
   form: (
-    <FormLayout>
-      <FormControl size="xs">
-        <FormLabel>Email</FormLabel>
-        <Input />
-      </FormControl>
-      <Button variant="primary">Submit</Button>
-    </FormLayout>
+    <img src="/img/components/Form1.svg" />
   ),
   stepform: (
-    <Steps orientation="vertical">
-      <StepsItem title="Information">
-        <Input placeholder="Name" size="sm" />
-      </StepsItem>
-      <StepsItem title="Account" />
-    </Steps>
+    <img src="/img/components/StepForm1.svg" />
   ),
   formlayout: (
-    <FormLayout>
-      <FormControl>
-        <FormLabel>Email</FormLabel>
-        <Input size="sm" />
-      </FormControl>
-      <FormControl>
-        <FormLabel>Password</FormLabel>
-        <Input size="sm" />
-      </FormControl>
-    </FormLayout>
+    <img src="/img/components/FormLayout1.svg" />
   ),
   autoform: (
     <Code colorScheme="primary" p="2" rounded="md">
@@ -174,22 +154,10 @@ const componentIllustrations = {
     </Code>
   ),
   field: (
-    <FormControl isRequired isInvalid width="80%">
-      <FormLabel>Name</FormLabel>
-      <Input size="sm" />
-      <FormErrorMessage>Please enter a name</FormErrorMessage>
-    </FormControl>
+    <img src="/img/components/Field.svg" />
   ),
   arrayfield: (
-    <HStack alignItems="flex-end" width="80%">
-      <FormControl>
-        <FormLabel>Todo</FormLabel>
-        <Input size="sm" />
-      </FormControl>
-      <Button>
-        <FiPlus />
-      </Button>
-    </HStack>
+    <img src="/img/components/ArrayField2.svg" />
   ),
   objectfield: (
     <Code colorScheme="primary" p="2" rounded="md">
@@ -197,31 +165,16 @@ const componentIllustrations = {
     </Code>
   ),
   select: (
-    <Box width="90%">
-      <Select name="type" value="Fullstack Developer" defaultIsOpen>
-        <SelectButton>Fullstack Developer</SelectButton>
-        <SelectList>
-          <SelectOption value="Fullstack Developer">
-            Fullstack Developer
-          </SelectOption>
-        </SelectList>
-      </Select>
-    </Box>
+    <img src="/img/components/Select.svg" />
   ),
   passwordinput: (
-    <Box width="80%">
-      <PasswordInput size="sm" value="Secret password" onChange={(e) => {}} />
-    </Box>
+    <img src="/img/components/PasswordInput.svg" />
   ),
   searchinput: (
-    <Box width="80%">
-      <SearchInput size="sm" />
-    </Box>
+    <img src="/img/components/SearchInput2.svg" />
   ),
   fileupload: (
-    <Box borderWidth="1px" rounded="md" p="4">
-      Drop your files here or <Link href="#">select files</Link>
-    </Box>
+    <img src="/img/components/FileUpload3.svg" />
   ),
   datatable: (
     <Box>

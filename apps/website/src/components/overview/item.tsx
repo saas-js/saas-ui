@@ -119,7 +119,7 @@ const componentIllustrations = {
     <img src="/img/components/ToggleButton5.svg" />
   ),
   web3address: (
-    <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
+    <img src="/img/components/WebAdress2.svg" />
   ),
   dateInput: (
      <img src="/img/components/DateInput.svg" />

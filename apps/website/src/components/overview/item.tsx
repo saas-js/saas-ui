@@ -195,93 +195,27 @@ const componentIllustrations = {
     <img src="/img/components/FileUpload3.svg" />
   ),
   datatable: (
-    <Box>
-      <Table size="sm">
-        <Thead>
-          <Tr>
-            <Th>
-              <Checkbox isChecked />
-            </Th>
-            <Th>Name</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td>
-              <Checkbox isChecked />
-            </Td>
-            <Td>Elliot Alderson</Td>
-          </Tr>
-          <Tr>
-            <Td>
-              <Checkbox isChecked />
-            </Td>
-            <Td>Mr Robot</Td>
-          </Tr>
-        </Tbody>
-      </Table>
-    </Box>
+    <img src="/img/components/DataTable3.svg" />
   ),
   emptystate: (
-    <EmptyState
-      title="No results"
-      description={`No results found for "ui"`}
-      actions={<Button variant="link">Reset search</Button>}
-    />
+    <img src="/img/components/EmptyState.svg" />
   ),
   structuredlist: (
-    <StructuredList width="90%">
-      <StructuredListItem>
-        <StructuredListIcon>
-          <Avatar src="/showcase-avatar.jpg" size="sm" />
-        </StructuredListIcon>
-        <StructuredListCell>
-          <Text noOfLines={1}>Love your product.</Text>
-          <Text noOfLines={2} color="muted" fontSize="xs">
-            Renata - We just launched our first product build with Saas UI.
-          </Text>
-        </StructuredListCell>
-      </StructuredListItem>
-    </StructuredList>
+    <img src="/img/components/StructureList1.svg" />
   ),
   property: (
-    <PropertyList fontSize="sm">
-      <Property label="Name" value="Michael Scott" />
-      <Property label="Role" value="CTO" />
-    </PropertyList>
+    <img src="/img/components/Property1.svg" />
+  ),
+  iconBadge (
+  <img src="/img/components/IconBadge2.svg" />
   ),
   persona: (
-    <Persona
-      src="/showcase-avatar.jpg"
-      size="sm"
-      presence="away"
-      name="Renata Alink"
-      secondaryLabel="Founder"
-      tertiaryLabel="Out for lunch"
-    />
+    <img src="/img/components/Persona2.svg" />
   ),
   timeline: (
-    <Timeline>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineIcon />
-          <TimelineTrack />
-        </TimelineSeparator>
-        <TimelineContent>
-          <Text fontSize="sm">New signup</Text>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineIcon />
-        </TimelineSeparator>
-        <TimelineContent>
-          <Text fontSize="sm">Account upgraded</Text>
-        </TimelineContent>
-      </TimelineItem>
-    </Timeline>
+    <img src="/img/components/Timeline.svg" />
   ),
-  command: <Command>G then D</Command>,
+  command: <img src="/img/components/Command.svg" />,
   datagrid: (
     <Box>
       <Table size="sm">

@@ -217,64 +217,16 @@ const componentIllustrations = {
   ),
   command: <img src="/img/components/Command.svg" />,
   datagrid: (
-    <Box>
-      <Table size="sm">
-        <Thead>
-          <Tr>
-            <Th>
-              <Checkbox isChecked />
-            </Th>
-            <Th>Name</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td>
-              <Checkbox isChecked />
-            </Td>
-            <Td>Elliot Alderson</Td>
-          </Tr>
-          <Tr>
-            <Td>
-              <Checkbox isChecked />
-            </Td>
-            <Td>Mr Robot</Td>
-          </Tr>
-        </Tbody>
-      </Table>
-    </Box>
+    <img src="/img/components/DataGrid2.svg" />
   ),
   bulkactions: (
-    <Box
-      py="2"
-      px="4"
-      rounded="md"
-      bg="primary.500"
-      fontSize="sm"
-      color="white"
-    >
-      3 items selected
-    </Box>
+    <img src="/img/components/BulkAction5.svg" />
   ),
   filters: (
-    <ActiveFilter id="status" label="Status" operator="is" value="Active" />
+    <img src="/img/components/Filters5.svg" />
   ),
   kanban: (
-    <HStack spacing="4" alignItems="start" width="90%">
-      <Flex flexDirection="column" flex="1" gap="2">
-        <Box>Todo</Box>
-        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
-      </Flex>
-      <Flex flexDirection="column" flex="1" gap="2">
-        <Box>Done</Box>
-        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
-        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
-      </Flex>
-      <Flex flexDirection="column" flex="1" gap="2">
-        <Box>Doing</Box>
-        <Box borderWidth="1px" rounded="md" px="2" py="4"></Box>
-      </Flex>
-    </HStack>
+    <img src="/img/components/Kanban2.svg" />
   ),
   banner: (
     <Banner width="80%" colorScheme="primary" variant="solid" rounded="md">

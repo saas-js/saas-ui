@@ -1,5 +1,18 @@
 # @saas-ui/storybook-addon
 
+## 3.0.0
+
+### Major Changes
+
+- 3f92e52: Updated to Storybook 8
+
+### Patch Changes
+
+- Updated dependencies [9fe1899]
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/react@2.8.0
+
 ## 2.0.3
 
 ### Patch Changes

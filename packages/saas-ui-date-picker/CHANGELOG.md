@@ -1,5 +1,15 @@
 # @saas-ui/date-picker
 
+## 0.12.31
+
+### Patch Changes
+
+- b9678a3: Removed Chakra UI icons dependency
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/core@2.5.0
+  - @saas-ui/modals@2.1.30
+
 ## 0.12.30
 
 ### Patch Changes

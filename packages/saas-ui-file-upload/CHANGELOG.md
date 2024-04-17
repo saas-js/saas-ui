@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.2.9
+
+### Patch Changes
+
+- b9678a3: Added missing deep dependencies
+
 ## 0.2.8
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @saas-ui/react
 
+## 2.8.0
+
+### Minor Changes
+
+- 9fe1899: Improved Select types, value type is now string or string[] depending on the multiple prop
+- e75e99b: StructuredListItem now supports isDisabled props
+
+### Patch Changes
+
+- e75e99b: Fixed issue where StructuredListItem would not receive focus
+- Updated dependencies [9fe1899]
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/forms@2.6.0
+  - @saas-ui/core@2.5.0
+  - @saas-ui/theme@2.4.0
+  - @saas-ui/modals@2.1.30
+  - @saas-ui/data-table@10.0.0
+  - @saas-ui/hotkeys@2.2.8
+
 ## 2.7.4
 
 ### Patch Changes

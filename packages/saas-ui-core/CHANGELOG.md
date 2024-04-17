@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.5.0
+
+### Minor Changes
+
+- e75e99b: StructuredListItem now supports isDisabled props
+
+### Patch Changes
+
+- e75e99b: Fixed issue where StructuredListItem would not receive focus
+- Updated dependencies [e75e99b]
+  - @saas-ui/theme@2.4.0
+
 ## 2.4.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.6.1
+
+### Patch Changes
+
+- b110d4a: Fixed select field not accepting multiple prop
+
 ## 2.6.0
 
 ### Minor Changes

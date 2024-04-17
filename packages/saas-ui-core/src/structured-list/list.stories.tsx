@@ -21,6 +21,7 @@ import {
   Radio,
   RadioGroup,
   Collapse,
+  Button,
 } from '@chakra-ui/react'
 
 import { transparentize } from '@chakra-ui/theme-tools'
@@ -646,4 +647,53 @@ export function StickyHeaders() {
       </StructuredList>
     </Card>
   )
+}
+
+export const KeyboardNavigation = {
+  render() {
+    const onClick = () => console.log('Clicked list item!')
+
+    return (
+      <Box
+        width="full"
+        minH="400px"
+        height="full"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Card width="320px">
+          <Button mt="4">Focus Target Before</Button>
+
+          <StructuredList>
+            <StructuredListItem onClick={onClick}>
+              <StructuredListCell flex="1">
+                <Text fontWeight="bold">Elliot Alderson</Text>
+                <Text fontSize="sm" color="muted">
+                  Hacker
+                </Text>
+              </StructuredListCell>
+            </StructuredListItem>
+            <StructuredListItem onClick={onClick}>
+              <StructuredListCell flex="1">
+                <Text fontWeight="bold">Tyrell Wellick</Text>
+                <Text fontSize="sm" color="muted">
+                  CEO
+                </Text>
+              </StructuredListCell>
+            </StructuredListItem>
+            <StructuredListItem isDisabled onClick={onClick}>
+              <StructuredListCell flex="1">
+                <Text fontWeight="bold">Tyrell Wellick</Text>
+                <Text fontSize="sm" color="muted">
+                  CEO
+                </Text>
+              </StructuredListCell>
+            </StructuredListItem>
+          </StructuredList>
+          <Button>Focus Target Before</Button>
+        </Card>
+      </Box>
+    )
+  },
 }

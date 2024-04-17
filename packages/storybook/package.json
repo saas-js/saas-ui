@@ -35,6 +35,5 @@
     "react-dom": "^18.2.0",
     "typescript": "^5.4.2",
     "vite": "^4.5.2"
-  },
-  "devDependencies": {}
+  }
 }

@@ -9,7 +9,6 @@ import {
   SystemProps,
   SystemStyleObject,
   As,
-  useColorModeValue,
   useMultiStyleConfig,
   createStylesContext,
   Icon,
@@ -17,7 +16,7 @@ import {
   useMergeRefs,
 } from '@chakra-ui/react'
 
-import { callAllHandlers, cx, dataAttr, isDisabled } from '@chakra-ui/utils'
+import { callAllHandlers, cx, dataAttr } from '@chakra-ui/utils'
 import { createContext } from '@chakra-ui/react-utils'
 
 import { nextById, prevById, queryAll } from '@zag-js/dom-utils'

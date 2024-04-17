@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { composeStories } from '@storybook/testing-react'
+import { composeStories } from '@storybook/react'
 
-import type {
-  StoriesWithPartialProps,
-  StoryFile,
-} from '@storybook/testing-react/src/types'
+import type { ReactRenderer } from '@storybook/react'
 
 import { render } from './render'
 import { testA11y } from './accessibility'
 import isFunction from 'lodash/isFunction'
+import type { Store_CSFExports } from '@storybook/types'
+
+export { composeStories } from '@storybook/react'
 
 /**
  * Validates if all stories render and against a11y mistakes.
@@ -28,10 +28,9 @@ import isFunction from 'lodash/isFunction'
  *  await testA11Y(container, options);
  * });
  */
-export const testStories = <T extends StoryFile = StoryFile>(
-  stories: T,
-  { snapshots = true, a11y = true } = {}
-) => {
+export function testStories<
+  TModule extends Store_CSFExports<ReactRenderer, any>,
+>(stories: TModule, { snapshots = true, a11y = true } = {}) {
   const _stories = Object.fromEntries(
     Object.entries(stories).map<any>((story) => {
       if (isFunction(story)) {
@@ -41,9 +40,9 @@ export const testStories = <T extends StoryFile = StoryFile>(
       }
       return story
     })
-  ) as T
+  ) as TModule
 
-  const composedStories = composeStories<T>(_stories)
+  const composedStories = composeStories<TModule>(_stories)
 
   const testCases = Object.values<any>(composedStories).map((Story) => [
     Story.storyName,

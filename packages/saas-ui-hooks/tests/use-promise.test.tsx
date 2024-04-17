@@ -5,7 +5,9 @@ import { vi } from 'vitest'
 
 const TestFn = (shouldReject?: boolean) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => (shouldReject ? reject() : resolve(true)))
+    setTimeout(() => {
+      shouldReject ? reject() : resolve(true)
+    }, 100)
   })
 }
 
@@ -29,13 +31,19 @@ describe('usePromise', () => {
   test('it should update isLoading', async () => {
     const { result } = hooks.render(() => usePromise(TestFn))
 
+    let promise: Promise<any>
+
     expect(result.current[0].isLoading).toBeFalsy()
 
-    const promise = hooks.act(() => result.current[1]())
+    await hooks.act(async () => {
+      promise = result.current[1]()
+    })
 
     expect(result.current[0].isLoading).toBeTruthy()
 
-    await promise
+    await hooks.act(async () => {
+      await promise
+    })
 
     expect(result.current[0].isLoading).toBeFalsy()
   })
@@ -43,7 +51,9 @@ describe('usePromise', () => {
   test('it should resolve', async () => {
     const { result } = hooks.render(() => usePromise(TestFn))
 
-    await hooks.act(() => result.current[1]())
+    await hooks.act(async () => {
+      await result.current[1]()
+    })
 
     expect(result.current[0].data).toBeTruthy()
 
@@ -53,11 +63,13 @@ describe('usePromise', () => {
   test('it should reject', async () => {
     const { result } = hooks.render(() => usePromise(TestFn))
 
-    try {
-      await hooks.act(() => result.current[1](true))
-    } catch (e) {
-      expect(e).toBeFalsy()
-    }
+    await hooks.act(async () => {
+      try {
+        await result.current[1](true)
+      } catch (e) {
+        expect(e).toBeFalsy()
+      }
+    })
 
     expect(result.current[0].isRejected).toBeTruthy()
   })
@@ -77,7 +89,9 @@ describe('usePromise', () => {
 
     const onError = vi.fn(() => null)
 
-    await hooks.act(() => result.current[1](true).catch(onError))
+    await hooks.act(async () => {
+      await result.current[1](true).catch(onError)
+    })
 
     expect(onError).toBeCalled()
   })

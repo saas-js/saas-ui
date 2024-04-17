@@ -1,6 +1,5 @@
-import path from 'path'
-import { mergeConfig } from 'vite'
-const toPath = (_path) => path.join(process.cwd(), _path)
+import path, { dirname, join } from 'path'
+
 export default {
   stories: [
     '../../saas-ui-auth/stories/*.stories.tsx',
@@ -19,6 +18,7 @@ export default {
     '../../saas-ui-theme/stories/*.stories.tsx',
     '../../saas-ui-theme-glass/stories/*.stories.tsx',
   ],
+
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
@@ -26,13 +26,17 @@ export default {
     '@storybook/addon-viewport',
     '@saas-ui/storybook-addon',
   ],
+
   features: {
     buildStoriesJson: true,
   },
+
   staticDirs: ['./static'],
+
   typescript: {
     reactDocgen: false,
   },
+
   refs: (config, { configType }) => {
     const refs = {
       '@chakra-ui/react': {
@@ -60,24 +64,16 @@ export default {
       ...refs,
     }
   },
-  async viteFinal(config) {
-    // Merge custom configuration into the default config
-    return mergeConfig(config, {
-      // Add storybook-specific dependencies to pre-optimization
-      optimizeDeps: {
-        include: ['@saas-ui/storybook-addon'],
-      },
-      resolve: {
-        alias: [
-          {
-            find: /(\@saas-ui\/(?!storybook-addon\/?)[a-z-\/]+)$/,
-            replacement: '$1/src',
-          },
-        ],
-      },
-    })
-  },
+
   framework: {
     name: '@storybook/react-vite',
   },
+
+  docs: {
+    autodocs: false,
+  },
+}
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')))
 }

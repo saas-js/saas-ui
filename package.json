@@ -120,7 +120,9 @@
     "@emotion/styled": "11.11.0",
     "@zag-js/core": "^0.38.1",
     "@zag-js/store": "^0.38.1",
-    "@zag-js/file-upload": "^0.38.1"
+    "@zag-js/file-upload": "^0.38.1",
+    "@storybook/react-dom-shim@npm": "8.0.8",
+    "@storybook/cli": "8.0.8"
   },
   "packageManager": "yarn@4.1.0",
   "dependencies": {

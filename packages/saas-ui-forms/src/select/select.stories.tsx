@@ -1,31 +1,24 @@
-import {
-  Container,
-  Icon,
-  MenuItemOption,
-  Stack,
-  Tag,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react'
+import { Container, Icon, Stack, Tag, Wrap, WrapItem } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { StoryFn } from '@storybook/react'
+import { StoryObj } from '@storybook/react'
 
-import { Select, SelectButton, SelectList, SelectOption } from './select'
+import {
+  Select,
+  SelectButton,
+  SelectList,
+  SelectOption,
+  SelectProps,
+} from './select'
 import { NativeSelect } from './native-select'
 
 import { FiSmile } from 'react-icons/fi'
 
-const Template: StoryFn<typeof Select> = (args) => (
-  <Select placeholder="Select an option..." {...args}>
-    <SelectButton />
-    <SelectList />
-  </Select>
-)
+type Story<Multiple extends boolean = false> = StoryObj<SelectProps<Multiple>>
 
 export default {
   title: 'Components/Forms/Select',
-  component: Template,
+  component: Select,
   decorators: [
     (Story: any) => (
       <Container mt="40px" maxW="320px">
@@ -43,62 +36,104 @@ const getOptions = (length = 6) =>
 
 const options = getOptions()
 
-export const Basic = {
+export const Basic: Story = {
   args: {
     name: 'select',
     options,
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
 
-export const DefaultValue = {
+export const DefaultValue: Story = {
   args: {
     name: 'select',
     options,
     defaultValue: '1',
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
 
-export const Placeholder = {
+export const Placeholder: Story = {
   args: {
     name: 'select',
     options,
     placeholder: 'Select an option...',
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
-export const Disabled = {
+export const Disabled: Story = {
   args: {
     name: 'select',
     options,
     placeholder: 'Disabled.',
     isDisabled: true,
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
 
-export const Multi = {
+export const Multi: Story<true> = {
   args: {
     name: 'select',
     options,
     placeholder: 'Multiple.',
     multiple: true,
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
 
-export const MultiWithDefaultValue = {
+export const MultiWithDefaultValue: Story<true> = {
   args: {
     name: 'select',
     options,
     placeholder: 'Select an option...',
     multiple: true,
     defaultValue: ['1'],
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
 
-export const MultiWithTags = {
+export const MultiWithTags: Story<true> = {
   args: {
     name: 'select',
     options,
     placeholder: 'Select options...',
     multiple: true,
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
     renderValue: (selected) => {
       if (selected?.length) {
         return (
@@ -115,15 +150,52 @@ export const MultiWithTags = {
   },
 }
 
-export const Test = {
-  render: () => (
-    <Tag variant="outline" colorScheme="teal">
-      Test
-    </Tag>
-  ),
+export const Controlled: Story = {
+  render: (args) => {
+    const [value, setValue] = React.useState('1')
+
+    return (
+      <Select
+        placeholder="Select an option..."
+        value={value}
+        onChange={(value) => setValue(value)}
+        {...args}
+      >
+        <SelectButton />
+        <SelectList />
+      </Select>
+    )
+  },
+  args: {
+    name: 'select',
+    options,
+  },
 }
 
-export const WithIcons = {
+export const ControlledMulti: Story<true> = {
+  render: (args) => {
+    const [value, setValue] = React.useState(['1'])
+
+    return (
+      <Select
+        placeholder="Select an option..."
+        value={value}
+        onChange={(value) => setValue(value)}
+        {...args}
+      >
+        <SelectButton />
+        <SelectList />
+      </Select>
+    )
+  },
+  args: {
+    name: 'select',
+    options,
+    multiple: true,
+  },
+}
+
+export const WithIcons: Story = {
   render: (args) => (
     <Select placeholder="Select an option..." {...args}>
       <SelectButton leftIcon={<Icon as={FiSmile} />} />
@@ -137,14 +209,21 @@ export const WithIcons = {
   },
 }
 
-export const MaxHeight = {
+export const MaxHeight: Story = {
   args: {
     name: 'select',
     options: getOptions(100),
+    placeholder: 'Select an option...',
+    children: (
+      <>
+        <SelectButton />
+        <SelectList />
+      </>
+    ),
   },
 }
 
-export const WithChildren = {
+export const WithChildren: Story = {
   render: () => (
     <Select name="select" defaultValue="1">
       <SelectButton />
@@ -156,7 +235,7 @@ export const WithChildren = {
   ),
 }
 
-export const WithEmptyOption = {
+export const WithEmptyOption: Story = {
   render: () => (
     <Select name="select" defaultValue="1">
       <SelectButton />
@@ -169,13 +248,13 @@ export const WithEmptyOption = {
   ),
 }
 
-export const WithNativeSelect = {
+export const WithNativeSelect: Story = {
   render: () => (
     <NativeSelect name="select" options={options} aria-label="Select" />
   ),
 }
 
-export const Sizes = {
+export const Sizes: Story = {
   render: () => (
     <Stack>
       <Select name="select" defaultValue="1" size="xs">
@@ -214,7 +293,7 @@ export const Sizes = {
   ),
 }
 
-export const Variants = {
+export const Variants: Story = {
   render: () => (
     <Stack>
       <Select name="select" defaultValue="1" variant="outline">

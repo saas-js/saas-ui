@@ -19,7 +19,10 @@ export const [SelectProvider, useSelectContext] = createContext<
   strict: true,
 })
 
-export interface SelectOptions {
+export interface SelectOptions<
+  Multiple extends boolean = false,
+  Value = Multiple extends true ? string[] : string,
+> {
   /**
    * The name of the input field in a native form.
    */
@@ -27,16 +30,16 @@ export interface SelectOptions {
   /**
    * The value of the select field.
    */
-  value?: string | string[]
+  value?: Value
   /**
    * The initial value of the select field.
    */
-  defaultValue?: string | string[]
+  defaultValue?: Value
   /**
    * The callback invoked when the value of the select field changes.
    * @param value The value of the select field.
    */
-  onChange?: (value: string | string[]) => void
+  onChange?: (value: Value) => void
   /**
    * The placeholder text when there's no value.
    */
@@ -53,16 +56,16 @@ export interface SelectOptions {
   /**
    * Enable multiple select.
    */
-  multiple?: boolean
+  multiple?: Multiple
   /**
    * The function used to render the value of the select field.
    * @param value The value of the select field.
    * @returns The rendered value.
    */
-  renderValue?: (value: string | string[]) => React.ReactNode
+  renderValue?: (value: Value) => React.ReactNode
 }
 
-export const useSelect = (props: SelectOptions) => {
+export const useSelect = (props: SelectOptions<boolean>) => {
   const {
     name,
     value,

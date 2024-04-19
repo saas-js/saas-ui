@@ -19,7 +19,7 @@ const OverviewItem = dynamic(() => import('@/components/overview/item'))
 
 type Component = {
   title: string
-  description: string
+  description: string | null
   url: string
 }
 

@@ -1,245 +1,94 @@
 import {
   AspectRatio,
-  Avatar,
   Box,
-  Button,
   Card,
-  CardFooter,
-  Checkbox,
   CloseButton,
   Code,
-  Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
   Heading,
   HStack,
-  Icon,
-  Image,
-  Input,
   LinkBox,
   LinkOverlay,
-  Spacer,
-  Table,
-  Tbody,
-  Td,
   Text,
-  Th,
-  Thead,
-  Tr,
   VStack,
 } from '@chakra-ui/react'
-import {
-  Page,
-  PageHeader,
-  Section,
-  SectionHeader,
-  Toolbar,
-  ToolbarButton,
-  Command,
-  ActiveFilter,
-  Beacon,
-} from '@saas-ui-pro/react'
-import {
-  AppShell,
-  FormLayout,
-  PasswordInput,
-  SearchInput,
-  Select,
-  EmptyState,
-  Sidebar,
-  NavGroup,
-  NavItem,
-  SidebarSection,
-  StructuredList,
-  StructuredListItem,
-  StructuredListCell,
-  StructuredListIcon,
-  Property,
-  PropertyList,
-  Persona,
-  Banner,
-  BannerCloseButton,
-  BannerTitle,
-  BannerContent,
-  NProgress,
-  LoadingOverlay,
-  LoadingSpinner,
-  Web3Address,
-  Steps,
-  StepsItem,
-  Navbar,
-  SelectOption,
-  SelectList,
-  Link,
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineContent,
-  TimelineTrack,
-  TimelineIcon,
-} from '@saas-ui/react'
-import NextLink from 'next/link'
-import {
-  FiBold,
-  FiCheck,
-  FiFilter,
-  FiHome,
-  FiItalic,
-  FiMaximize,
-  FiPlus,
-  FiUnderline,
-  FiUsers,
-} from 'react-icons/fi'
-import SaasUIGlyph from '../saas-ui-glyph'
-import { SelectButton } from '@saas-ui/forms'
 
-const autoform = `z.object({
-  name: z.string()
-})`
+import Image from 'next/image'
+import NextLink from 'next/link'
+
+const ComponentImage = ({ name }: { name: string }) => {
+  return (
+    <>
+      <Image
+        src={`/img/components/${name}.svg`}
+        alt={`Illustration of ${name} component`}
+        width="296"
+        height="141"
+        data-light
+      />
+      <Image
+        src={`/img/components/${name}.svg`} // Change this to `/img/components/${name}-dark.svg`
+        alt={`Illustration of ${name} component in dark mode`}
+        width="296"
+        height="141"
+        data-dark
+      />
+    </>
+  )
+}
 
 const componentIllustrations = {
-  authprovider: <img src="/img/components/AuthProvider.svg" />,
-  auth: <img src="/img/components/Auth.svg" />,
-  'app-shell': (
-    <img src="/img/components/AppShell4.svg" />
-  ),
-  page: (
-    <img src="/img/components/Page.svg" />
-  ),
-  splitpage: (
-    <img src="/img/components/SplitPages1.svg" />
-  ),
-  section: (
-    <img src="/img/components/SettingSection3.svg" />
-  ),
-  commandbar: <img src="/img/components/CommandBar.svg" />,
-  togglebutton: (
-    <img src="/img/components/ToggleButton5.svg" />
-  ),
-  web3address: (
-    <img src="/img/components/Web3Adress2.svg" />
-  ),
-  dateInput: (
-     <img src="/img/components/DateInput.svg" />
-  ),
-  datePicker: (
-     <img src="/img/components/DatePicker.svg" />
-  ),
-  datePickerModal: (
-     <img src="/img/components/DatePickerModal2.svg" />
-  ),
-  datePickerStatic: (
-     <img src="/img/components/DatePickerStatic1.svg" />
-  ),
-  dateRangeInput: (
-     <img src="/img/components/DateRangeInput.svg" />
-  ),
-  dateRangePicker: (
-     <img src="/img/components/dateRangePicker.svg" />
-  ),
-  toolbar: (
-    <img src="/img/components/Toolbar.svg" />
-  ),
-  hotkeys: <img src="/img/components/Hotkeys4.svg" />,
-  stepper: (
-    <img src="/img/components/Stepper1.svg" />
-  ),
-  navbar: (
-    <img src="/img/components/Navbar.svg" />
-  ),
-  sidebar: (
-    <img src="/img/components/Sidebar.svg" />
-  ),
-  address: (
-    <Button variant="outline" colorScheme="primary">
-      <Web3Address address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" />
-    </Button>
-  ),
-  form: (
-    <img src="/img/components/Form1.svg" />
-  ),
-  stepform: (
-    <img src="/img/components/StepForm1.svg" />
-  ),
-  formlayout: (
-    <img src="/img/components/FormLayout1.svg" />
-  ),
-  autoform: (
-    <Code colorScheme="primary" p="2" rounded="md">
-      <pre>{autoform}</pre>
-    </Code>
-  ),
-  field: (
-    <img src="/img/components/Field.svg" />
-  ),
-  arrayfield: (
-    <img src="/img/components/ArrayField2.svg" />
-  ),
+  authprovider: <ComponentImage name="AuthProvider" />,
+  auth: <ComponentImage name="Auth" />,
+  'app-shell': <ComponentImage name="AppShell" />,
+  page: <ComponentImage name="Page" />,
+  splitpage: <ComponentImage name="SplitPage" />,
+  section: <ComponentImage name="SettingSections" />,
+  commandbar: <ComponentImage name="CommandBar" />,
+  togglebutton: <ComponentImage name="ToggleButton" />,
+  web3address: <ComponentImage name="Web3Address" />,
+  dateinput: <ComponentImage name="DateInput" />,
+  datepicker: <ComponentImage name="DatePicker" />,
+  datepickermodal: <ComponentImage name="DatePickerModal" />,
+  datepickerstatic: <ComponentImage name="DatePickerStatic" />,
+  daterangeinput: <ComponentImage name="DateRangeInput" />,
+  daterangepicker: <ComponentImage name="dateRangePicker" />,
+  toolbar: <ComponentImage name="Toolbar" />,
+  hotkeys: <ComponentImage name="Hotkeys" />,
+  stepper: <ComponentImage name="Stepper" />,
+  navbar: <ComponentImage name="Navbar" />,
+  sidebar: <ComponentImage name="Sidebar" />,
+  form: <ComponentImage name="Form" />,
+  stepform: <ComponentImage name="StepForm" />,
+  formlayout: <ComponentImage name="FormLayout" />,
+  autoform: <ComponentImage name="Form" />,
+  field: <ComponentImage name="Field" />,
+  arrayfield: <ComponentImage name="ArrayField" />,
   objectfield: (
     <Code colorScheme="primary" p="2" rounded="md">
       {`<Field name="author.name" />`}
     </Code>
   ),
-  select: (
-    <img src="/img/components/Select.svg" />
-  ),
-  passwordinput: (
-    <img src="/img/components/PasswordInput.svg" />
-  ),
-  searchinput: (
-    <img src="/img/components/SearchInput2.svg" />
-  ),
-  fileupload: (
-    <img src="/img/components/FileUpload3.svg" />
-  ),
-  datatable: (
-    <img src="/img/components/DataTable3.svg" />
-  ),
-  emptystate: (
-    <img src="/img/components/EmptyState.svg" />
-  ),
-  structuredlist: (
-    <img src="/img/components/StructureList1.svg" />
-  ),
-  property: (
-    <img src="/img/components/Property1.svg" />
-  ),
-  persona: (
-    <img src="/img/components/Persona2.svg" />
-  ),
-  timeline: (
-    <img src="/img/components/Timeline.svg" />
-  ),
-  command: <img src="/img/components/Command.svg" />,
-  datagrid: (
-    <img src="/img/components/DataGrid2.svg" />
-  ),
-  bulkactions: (
-    <img src="/img/components/BulkAction5.svg" />
-  ),
-  filters: (
-    <img src="/img/components/Filters5.svg" />
-  ),
-  kanban: (
-    <img src="/img/components/Kanban2.svg" />
-  ),
-  banner: (
-    <img src="/img/components/Banner3.svg" />
-  ),
-  nprogress: (
-    <img src="/img/components/NProgress1.svg" />
-  ),
-  snackbar: (
-    <img src="/img/components/Snackbar2.svg" />
-  ),
-  loadingoverlay: (
-    <img src="/img/components/LoadingOverlay1.svg" />
-  ),
-  'modals-manager': (
-    <img src="/img/components/ModalsManager.svg" />
-  ),
+  select: <ComponentImage name="Select" />,
+  passwordinput: <ComponentImage name="PasswordInput" />,
+  searchinput: <ComponentImage name="SearchInput" />,
+  fileupload: <ComponentImage name="FileUpload" />,
+  datatable: <ComponentImage name="DataTable" />,
+  emptystate: <ComponentImage name="EmptyState" />,
+  iconbadge: <ComponentImage name="IconBadge" />,
+  structuredlist: <ComponentImage name="StructuredList" />,
+  property: <ComponentImage name="Property" />,
+  persona: <ComponentImage name="Persona" />,
+  timeline: <ComponentImage name="Timeline" />,
+  command: <ComponentImage name="Command" />,
+  datagrid: <ComponentImage name="DataGrid" />,
+  bulkactions: <ComponentImage name="BulkActions" />,
+  filters: <ComponentImage name="Filters" />,
+  kanban: <ComponentImage name="Kanban" />,
+  banner: <ComponentImage name="Banner" />,
+  nprogress: <ComponentImage name="NProgress" />,
+  snackbar: <ComponentImage name="Snackbar" />,
+  loadingoverlay: <ComponentImage name="LoadingOverlay" />,
+  'modals-manager': <ComponentImage name="ModalsManager" />,
   menudialog: (
     <VStack
       rounded="md"
@@ -264,9 +113,7 @@ const componentIllustrations = {
       <Box>Close</Box>
     </VStack>
   ),
-  formdialog: (
-    <img src="/img/components/FormDialog.svg" />
-  ),
+  formdialog: <ComponentImage name="FormDialog" />,
   responsivemenu: (
     <VStack
       rounded="md"
@@ -284,26 +131,18 @@ const componentIllustrations = {
       <Box>Remove</Box>
     </VStack>
   ),
-  beacon: <img src="/img/components/Beacon1.svg" />,
-  'benefits-modal': (
-    <img src="/img/components/BenefitsModal1.svg" />
-  ),
-  tour: (
-    <img src="/img/components/Tour1.svg" />
-  ),
-  errorboundary: (
-    <img src="/img/components/ErrorBoundary1.svg" />
-  ),
-  'feature-flags': (
-    <img src="/img/components/FeatureFlags7.svg" />
-  ),
-  resizebox: <img src="/img/components/ResizeBox2.svg" />,
+  beacon: <ComponentImage name="Beacon" />,
+  'benefits-modal': <ComponentImage name="BenefitsModal" />,
+  tour: <ComponentImage name="Tour" />,
+  errorboundary: <ComponentImage name="ErrorBoundary" />,
+  'feature-flags': <ComponentImage name="FeatureFlags" />,
+  resizebox: <ComponentImage name="ResizeBox" />,
 }
 
 type Props = {
   url: string
   title: string
-  description: string
+  description: string | null
   slug: string
 }
 
@@ -311,7 +150,7 @@ const OverviewItem = ({ url, title, description, slug }: Props) => {
   return (
     <Card as={LinkBox} height="full" role="group">
       <AspectRatio
-        ratio={4 / 3}
+        ratio={4 / 2}
         w="full"
         overflow="hidden"
         borderTopRadius="md"
@@ -324,7 +163,9 @@ const OverviewItem = ({ url, title, description, slug }: Props) => {
           _dark={{
             bg: 'whiteAlpha.100',
             bgGradient: 'linear(to-bl,transparent, whiteAlpha.50)',
+            ['& [data-light]']: { display: 'none' },
           }}
+          _light={{ ['& [data-dark]']: { display: 'none' } }}
         >
           {componentIllustrations[slug]}
         </Box>
@@ -343,9 +184,6 @@ const OverviewItem = ({ url, title, description, slug }: Props) => {
             </Heading>
           </LinkOverlay>
         </NextLink>
-        <Text fontSize="sm" noOfLines={2} color="muted">
-          {description}
-        </Text>
       </VStack>
     </Card>
   )

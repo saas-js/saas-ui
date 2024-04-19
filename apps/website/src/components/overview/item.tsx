@@ -63,11 +63,7 @@ const componentIllustrations = {
   autoform: <ComponentImage name="Form" />,
   field: <ComponentImage name="Field" />,
   arrayfield: <ComponentImage name="ArrayField" />,
-  objectfield: (
-    <Code colorScheme="primary" p="2" rounded="md">
-      {`<Field name="author.name" />`}
-    </Code>
-  ),
+  objectfield: <ComponentImage name="ObjectField" />,
   select: <ComponentImage name="Select" />,
   passwordinput: <ComponentImage name="PasswordInput" />,
   searchinput: <ComponentImage name="SearchInput" />,

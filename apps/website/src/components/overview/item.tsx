@@ -137,6 +137,7 @@ const componentIllustrations = {
   barchart: <ComponentImage name="BarChart" />,
   linechart: <ComponentImage name="LineChart" />,
   sparkline: <ComponentImage name="Sparkline" />,
+  contextmenu: <ComponentImage name="ContextMenu" />
 }
 
 type Props = {

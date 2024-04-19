@@ -12,7 +12,6 @@ import { GetStaticProps } from 'next'
 
 import docsSidebar from '@/data/components-sidebar'
 import Layout from '@/layouts/index'
-import { Link } from '@saas-ui/react'
 import dynamic from 'next/dynamic'
 
 const OverviewItem = dynamic(() => import('@/components/overview/item'))

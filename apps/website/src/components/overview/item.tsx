@@ -133,6 +133,10 @@ const componentIllustrations = {
   errorboundary: <ComponentImage name="ErrorBoundary" />,
   'feature-flags': <ComponentImage name="FeatureFlags" />,
   resizebox: <ComponentImage name="ResizeBox" />,
+  areachart: <ComponentImage name="AreaChart" />,
+  barchart: <ComponentImage name="BarChart" />,
+  linechart: <ComponentImage name="LineChart" />,
+  sparkline: <ComponentImage name="Sparkline" />,
 }
 
 type Props = {

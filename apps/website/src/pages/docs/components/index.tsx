@@ -38,8 +38,7 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
     <Layout
       frontMatter={{
         title: 'Components',
-        description:
-          'Professionally crafted Chakra UI components that help you build intuitive React apps with speed.',
+        description: 'An overview of all Saas UI core components.',
         seo: {
           title: 'Professionally crafted Chakra UI components',
           description:
@@ -51,11 +50,8 @@ export const ComponentsOverview = ({ categories, headings }: Props) => {
     >
       <VStack w="full" mt={5} alignItems="stretch" spacing={12}>
         <Text>
-          These components go hand in hand with{' '}
-          <Link href="https://chakra-ui.com/docs/components">
-            Chakra UI&apos;s core components
-          </Link>{' '}
-          and help you create visual and functional consistency in your apps.
+          Saas UI comes with 60+ React components built with Chakra UI and are
+          designed to help you build intuitive React apps with speed.
         </Text>
         <List w="full" spacing={12}>
           {categories.map(({ title, components }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { composeStories } from '@storybook/testing-react'
-import { render, fireEvent, act } from '@saas-ui/test-utils'
+
+import { render, fireEvent, act, composeStories } from '@saas-ui/test-utils'
 
 import * as stories from '../stories/auth.stories'
 const { Basic, Providers, Password, Signup, SignupWithCustomFields } =

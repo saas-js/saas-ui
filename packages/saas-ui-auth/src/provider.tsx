@@ -251,8 +251,8 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
     [onLogin]
   )
 
-  const logOut = useCallback(async () => {
-    await onLogout()
+  const logOut = useCallback(async (options?: AuthOptions) => {
+    await onLogout(options)
     setUser(null)
     setAuthenticated(false)
   }, [onLogout])

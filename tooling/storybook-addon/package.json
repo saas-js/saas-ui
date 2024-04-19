@@ -1,7 +1,8 @@
 {
   "name": "@saas-ui/storybook-addon",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "The official Storybook Addon for Saas UI",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -12,19 +13,19 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./*": "./*",
     "./manager": {
       "types": "./dist/manager.d.ts",
-      "require": "./dist/manager.js",
-      "import": "./dist/manager.mjs"
+      "require": "./dist/manager.cjs",
+      "import": "./dist/manager.js"
     },
     "./preview": {
       "types": "./dist/preview.d.ts",
-      "require": "./dist/preview.js",
-      "import": "./dist/preview.mjs"
+      "require": "./dist/preview.cjs",
+      "import": "./dist/preview.js"
     }
   },
   "typesVersions": {
@@ -67,32 +68,26 @@
     "@emotion/react": ">=11.1.5",
     "@emotion/styled": ">=11.1.5",
     "@saas-ui/react": "workspace:*",
-    "@saas-ui/theme": "workspace:*",
     "@saas-ui/theme-glass": "workspace:*",
-    "@storybook/api": "^7.6.16",
-    "@storybook/components": "^7.6.16",
-    "@storybook/manager-api": "^7.6.16",
-    "@storybook/preview-api": "^7.6.16",
-    "@storybook/types": "^7.6.16",
-    "framer-motion": ">=4.1.17",
+    "@storybook/types": "^8.0.8",
+    "framer-motion": ">=10",
     "react": "^18.2.0",
     "tsup": "^8.0.2"
   },
+  "dependencies": {
+    "@storybook/components": "^8.0.8",
+    "@storybook/manager-api": "^8.0.8",
+    "@storybook/preview-api": "^8.0.8"
+  },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.0.0",
-    "@storybook/components": ">=7.0.12",
-    "@storybook/manager-api": ">=7.0.12",
-    "@storybook/preview-api": ">=7.0.12",
-    "@storybook/types": ">=7.0.24",
-    "react": ">=16.8.x"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
+    "@saas-ui/react": ">=2.8.1",
+    "@storybook/components": ">=8.0.0",
+    "@storybook/manager-api": ">=8.0.0",
+    "@storybook/preview-api": ">=8.0.0",
+    "@storybook/types": ">=8.0.0",
+    "react": ">=18.x",
+    "react-dom": ">=18.x"
   },
   "publishConfig": {
     "access": "public"

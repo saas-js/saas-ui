@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.3.28",
+  "version": "2.3.30",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -69,7 +69,6 @@
     "remark-emoji": "^3.1.2",
     "remark-gfm": "^3.0.1",
     "remark-slug": "^7.0.1",
-    "use-http": "^1.0.28",
     "yup": "^1.4.0",
     "zod": "^3.22.4"
   },
@@ -82,6 +81,7 @@
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
     "file-loader": "^6.2.0",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "webpack": "^5.91.0"
   }
 }

@@ -1,12 +1,12 @@
-import { useAddonState } from '@storybook/api'
 import {
   IconButton,
   WithTooltip,
   TooltipLinkList,
   Icons,
 } from '@storybook/components'
-import { addons } from '@storybook/addons'
 import { ADDON_ID, EVENTS } from '../constants'
+import { addons } from '@storybook/preview-api'
+import { useAddonState } from '@storybook/manager-api'
 
 const themes: Record<string, string> = {
   0: 'Chakra UI',
@@ -31,7 +31,7 @@ export const ThemeTool = () => {
   return (
     <WithTooltip
       placement="top"
-      closeOnClick
+      closeOnOutsideClick
       trigger="click"
       tooltip={({ onHide }) => (
         <TooltipLinkList

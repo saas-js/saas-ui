@@ -1,5 +1,23 @@
 # @saas-ui/auth
 
+## 3.1.3
+
+### Patch Changes
+
+- Updated dependencies [b110d4a]
+  - @saas-ui/forms@2.6.1
+
+## 3.1.2
+
+### Patch Changes
+
+- 54f2542: Fixed issue where options would not be passed to logOut handler, thanks @Segfaultd
+- Updated dependencies [9fe1899]
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/forms@2.6.0
+  - @saas-ui/core@2.5.0
+
 ## 3.1.1
 
 ### Patch Changes

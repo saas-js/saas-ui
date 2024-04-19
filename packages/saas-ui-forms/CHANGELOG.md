@@ -1,5 +1,23 @@
 # @saas-ui/forms
 
+## 2.6.1
+
+### Patch Changes
+
+- b110d4a: Fixed select field not accepting multiple prop
+
+## 2.6.0
+
+### Minor Changes
+
+- 9fe1899: Improved Select types, value type is now string or string[] depending on the multiple prop
+
+### Patch Changes
+
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/core@2.5.0
+
 ## 2.5.4
 
 ### Patch Changes

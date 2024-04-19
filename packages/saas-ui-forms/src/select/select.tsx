@@ -36,10 +36,14 @@ export interface SelectOption
   extends Omit<MenuItemOptionProps, 'value'>,
     FieldOption {}
 
-export interface SelectProps
-  extends Omit<MenuProps, 'children' | 'variant' | 'size'>,
+export interface SelectProps<
+  Multiple extends boolean = false,
+  Value = Multiple extends true ? string[] : string,
+> extends Omit<MenuProps, 'children' | 'variant' | 'size'>,
     ThemingProps<'SuiSelect'>,
-    SelectOptions {}
+    SelectOptions<Multiple, Value> {
+  children: React.ReactNode
+}
 
 export interface SelectButtonProps
   extends Omit<ButtonProps, 'size' | 'variant'> {}
@@ -143,7 +147,7 @@ SelectButton.displayName = 'SelectButton'
  *
  * @see https://saas-ui.dev/docs/components/forms/select
  */
-export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
+export const Select = forwardRef((props, ref) => {
   const { name, children, isDisabled, multiple, ...rest } = props
 
   const styles = useMultiStyleConfig('SuiSelect', props)
@@ -173,7 +177,13 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
       </SelectStylesProvider>
     </SelectProvider>
   )
-})
+}) as (<Multiple extends boolean = false>(
+  props: SelectProps<Multiple> & {
+    ref?: React.ForwardedRef<HTMLFormElement>
+  }
+) => React.ReactElement) & {
+  displayName?: string
+}
 
 export interface SelectListProps extends MenuListProps {}
 

@@ -1,11 +1,10 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, useCallback, useState } from 'react'
 import { Box, Card, CardBody, Stack, extendTheme } from '@chakra-ui/react'
 import * as UiComponents from '../../../../../packages/pro/saas-ui/blocks'
 import { UiComponent } from '../../data/blocks'
 import { ComponentPreview } from './component-preview'
 import { CanvasHeader } from './canvas-header'
 import { CodeTabs } from './code-tabs'
-import { useFetch } from 'use-http'
 import { useCurrentUser } from '@saas-ui/auth'
 import { LoadingOverlay, LoadingSpinner, useLocalStorage } from '@saas-ui/react'
 import { User } from '@supabase/supabase-js'
@@ -52,26 +51,39 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
     user?.user_metadata.licenses?.length || props.attributes.public
 
   const [code, setCode] = useState(props.code)
-  const { get, response } = useFetch(
-    `/api/blocks/${props.attributes.category}/${props.slug}?version=${props.attributes.version}`
-  )
 
-  const fetchCode = async () => {
+  const [data, setData] = useState()
+
+  const get = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `/api/blocks/${props.attributes.category}/${props.slug}?version=${props.attributes.version}`
+      )
+      if (!response.ok) throw new Error('Failed to fetch code')
+
+      return await response.json()
+    } catch (e) {
+      console.error(e)
+      setError(true)
+    }
+  }, [props])
+
+  const fetchCode = useCallback(async () => {
     const data = await get()
-    if (response.ok) {
+
+    if (data) {
+      setData(data)
       setCode(data.code)
     } else {
       setError(true)
     }
-  }
+  }, [get])
 
   React.useEffect(() => {
-    if (isUnlocked) {
+    if (isUnlocked && !data) {
       fetchCode()
-    } else {
-      setError(true)
     }
-  }, [isUnlocked])
+  }, [isUnlocked, fetchCode, data])
 
   const [frameHeight, setFrameHeight] = useState<string | undefined>()
   const frameRef = React.useRef<HTMLIFrameElement | null>(null)

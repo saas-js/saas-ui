@@ -87,7 +87,7 @@ export const SwitchField = createField<SwitchFieldProps>(
   }
 )
 
-export interface SelectFieldProps extends SelectProps {
+export interface SelectFieldProps extends SelectProps<boolean> {
   buttonProps?: SelectButtonProps
   listProps?: SelectListProps
 }

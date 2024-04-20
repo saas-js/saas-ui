@@ -26,7 +26,7 @@ const ComponentImage = ({ name }: { name: string }) => {
         data-light
       />
       <Image
-        src={`/img/components/${name}.svg`} // Change this to `/img/components/${name}-dark.svg`
+        src={`/img/components/${name}-dark.svg`}
         alt={`Illustration of ${name} component in dark mode`}
         width="296"
         height="141"
@@ -137,7 +137,7 @@ const componentIllustrations = {
   barchart: <ComponentImage name="BarChart" />,
   linechart: <ComponentImage name="LineChart" />,
   sparkline: <ComponentImage name="Sparkline" />,
-  contextmenu: <ComponentImage name="ContextMenu" />
+  contextmenu: <ComponentImage name="ContextMenu" />,
 }
 
 type Props = {

@@ -160,10 +160,10 @@ const OverviewItem = ({ url, title, description, slug }: Props) => {
           w="full"
           h="full"
           fontSize="sm"
-          bgGradient="linear(to-bl,white, gray.50)"
+          bgGradient="linear(to-bl,white, gray.100)"
           _dark={{
-            bg: 'whiteAlpha.100',
-            bgGradient: 'linear(to-bl,transparent, whiteAlpha.50)',
+            bg: 'black',
+            bgGradient: 'linear(to-tl,transparent, whiteAlpha.50)',
             ['& [data-light]']: { display: 'none' },
           }}
           _light={{ ['& [data-dark]']: { display: 'none' } }}

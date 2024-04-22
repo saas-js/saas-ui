@@ -141,6 +141,7 @@ export function useSnackbar(defaultOptions?: UseSnackbarOptions) {
   return React.useMemo(() => {
     const snackbar = (options: SnackbarOptions): ToastId => {
       const opts = parseOptions(options)
+      useToast
       return toast({
         render: (props) => (
           <Snackbar {...defaultOptions} {...opts} {...props} />
@@ -191,6 +192,7 @@ export function useSnackbar(defaultOptions?: UseSnackbarOptions) {
         .then((result) => {
           const options: UseSnackbarOptions = {
             status: 'success',
+            duration: 5000,
             ...parseOptions(runIfFn(success, result)),
           }
           if (toastId) {
@@ -205,6 +207,7 @@ export function useSnackbar(defaultOptions?: UseSnackbarOptions) {
             title: e.name,
             description: e.description,
             status: 'error',
+            duration: 5000,
             ...parseOptions(runIfFn(error, e)),
           }
 

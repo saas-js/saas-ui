@@ -1,7 +1,7 @@
 <svg width="296" height="149" viewBox="0 0 296 149" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_247_11727)">
 <g clip-path="url(#clip1_247_11727)">
-<path d="M64 55C64 51.6863 66.6863 49 70 49H226C229.314 49 232 51.6863 232 55V193C232 196.314 229.314 199 226 199H70C66.6863 199 64 196.314 64 193V55Z" fill="#F9FAFA"/>
+<path d="M64 55C64 51.6863 66.6863 49 70 49H226C229.314 49 232 51.6863 232 55V198C232 201.314 229.314 204 226 204H70C66.6863 204 64 201.314 64 198V55Z" fill="#F9FAFA"/>
 <mask id="path-3-inside-1_247_11727" fill="white">
 <path d="M64 49H232V61H64V49Z"/>
 </mask>
@@ -10,24 +10,24 @@
 <rect x="77" y="53" width="4" height="4" rx="2" fill="#FBC434"/>
 <rect x="84" y="53" width="4" height="4" rx="2" fill="#0EA371"/>
 <mask id="path-8-inside-2_247_11727" fill="white">
-<path d="M64 61H101V199H64V61Z"/>
+<path d="M64 61H101V204H64V61Z"/>
 </mask>
-<path d="M64 61H101V199H64V61Z" fill="white"/>
-<path d="M100 61V199H102V61H100Z" fill="#E7E7E8" mask="url(#path-8-inside-2_247_11727)"/>
+<path d="M64 61H101V204H64V61Z" fill="white"/>
+<path d="M100 61V204H102V61H100Z" fill="#E7E7E8" mask="url(#path-8-inside-2_247_11727)"/>
 <rect x="71" y="68" width="7" height="7" rx="3.5" fill="#D3D4D5"/>
 <rect x="71" y="79" width="19" height="3" rx="1.5" fill="#8952E0"/>
 <rect x="71" y="88" width="19" height="3" rx="1.5" fill="#D3D4D5"/>
 <rect x="71" y="97" width="19" height="3" rx="1.5" fill="#D3D4D5"/>
 <rect x="71" y="106" width="19" height="3" rx="1.5" fill="#D3D4D5"/>
 </g>
-<path d="M70 49.5H226C229.038 49.5 231.5 51.9624 231.5 55V193C231.5 196.038 229.038 198.5 226 198.5H70C66.9624 198.5 64.5 196.038 64.5 193V55C64.5 51.9624 66.9624 49.5 70 49.5Z" stroke="#D3D4D5"/>
+<path d="M70 49.5H226C229.038 49.5 231.5 51.9624 231.5 55V198C231.5 201.038 229.038 203.5 226 203.5H70C66.9624 203.5 64.5 201.038 64.5 198V55C64.5 51.9624 66.9624 49.5 70 49.5Z" stroke="#D3D4D5"/>
 </g>
 <defs>
 <clipPath id="clip0_247_11727">
 <rect width="296" height="149" fill="white"/>
 </clipPath>
 <clipPath id="clip1_247_11727">
-<path d="M64 55C64 51.6863 66.6863 49 70 49H226C229.314 49 232 51.6863 232 55V193C232 196.314 229.314 199 226 199H70C66.6863 199 64 196.314 64 193V55Z" fill="white"/>
+<path d="M64 55C64 51.6863 66.6863 49 70 49H226C229.314 49 232 51.6863 232 55V198C232 201.314 229.314 204 226 204H70C66.6863 204 64 201.314 64 198V55Z" fill="white"/>
 </clipPath>
 </defs>
 </svg>

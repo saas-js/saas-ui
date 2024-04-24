@@ -1,0 +1,35 @@
+<svg width="296" height="141" viewBox="0 0 296 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_99_8584)">
+<path d="M64 21C64 17.6863 66.6863 15 70 15H226C229.314 15 232 17.6863 232 21V120C232 123.314 229.314 126 226 126H70C66.6863 126 64 123.314 64 120V21Z" fill="#F9FAFA"/>
+<mask id="path-3-inside-1_99_8584" fill="white">
+<path d="M64 15H232V27H64V15Z"/>
+</mask>
+<path d="M64 15H232V27H64V15Z" fill="#F9FAFA"/>
+<path d="M232 26H64V28H232V26Z" fill="#E7E7E8" mask="url(#path-3-inside-1_99_8584)"/>
+<rect x="70" y="19" width="4" height="4" rx="2" fill="#E53E3E"/>
+<rect x="77" y="19" width="4" height="4" rx="2" fill="#FBC434"/>
+<rect x="84" y="19" width="4" height="4" rx="2" fill="#0EA371"/>
+<mask id="path-8-inside-2_99_8584" fill="white">
+<path d="M64 27H232V42H64V27Z"/>
+</mask>
+<path d="M64 27H232V42H64V27Z" fill="white"/>
+<path d="M232 41H64V43H232V41Z" fill="#E7E7E8" mask="url(#path-8-inside-2_99_8584)"/>
+<mask id="path-10-inside-3_99_8584" fill="white">
+<path d="M64 42H102V138H64V42Z"/>
+</mask>
+<path d="M64 42H102V138H64V42Z" fill="white"/>
+<path d="M101 42V138H103V42H101Z" fill="#E7E7E8" mask="url(#path-10-inside-3_99_8584)"/>
+<rect x="110.5" y="50.5" width="33" height="28" rx="1.5" fill="white" stroke="#E7E7E8"/>
+<rect x="148.5" y="50.5" width="33" height="28" rx="1.5" fill="white" stroke="#E7E7E8"/>
+<rect x="186.5" y="50.5" width="33" height="28" rx="1.5" fill="white" stroke="#E7E7E8"/>
+<rect x="110.5" y="86.5" width="33" height="28" rx="1.5" fill="white" stroke="#E7E7E8"/>
+<rect x="148.5" y="86.5" width="33" height="28" rx="1.5" fill="white" stroke="#E7E7E8"/>
+<rect x="186.5" y="86.5" width="33" height="28" rx="1.5" fill="white" stroke="#E7E7E8"/>
+</g>
+<path d="M64.5 21C64.5 17.9624 66.9624 15.5 70 15.5H226C229.038 15.5 231.5 17.9624 231.5 21V120C231.5 123.038 229.038 125.5 226 125.5H70C66.9624 125.5 64.5 123.038 64.5 120V21Z" stroke="#D3D4D5"/>
+<defs>
+<clipPath id="clip0_99_8584">
+<path d="M64 21C64 17.6863 66.6863 15 70 15H226C229.314 15 232 17.6863 232 21V120C232 123.314 229.314 126 226 126H70C66.6863 126 64 123.314 64 120V21Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

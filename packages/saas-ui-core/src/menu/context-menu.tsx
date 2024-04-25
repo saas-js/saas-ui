@@ -21,6 +21,7 @@ import { AnyPointerEvent, callAllHandlers, runIfFn } from '@chakra-ui/utils'
 import { useLongPress } from '@react-aria/interactions'
 
 import { getEventPoint } from '@zag-js/dom-event'
+import { FocusableElement } from '@react-types/shared'
 
 type Position = [number, number]
 type Anchor = { x: number; y: number }
@@ -67,9 +68,12 @@ export const useContextMenu = (props: UseContextMenuProps) => {
   useOutsideClick({
     enabled: isOpen && closeOnBlur,
     ref: menuRef,
-    handler: (event) => {
+    handler: (event: any /* MouseEvent */) => {
       if (
-        !triggerRef.current?.contains(event.target as HTMLElement) &&
+        !(
+          event.button === 2 &&
+          triggerRef.current?.contains(event.target as HTMLElement)
+        ) &&
         menuRef.current?.parentElement !== event.target
       ) {
         onClose()
@@ -139,6 +143,12 @@ const generateClientRect = (x = 0, y = 0) => {
   }
 }
 
+const isTouchDevice = () => {
+  return (
+    typeof window !== undefined && window.matchMedia('(hover: none)').matches
+  )
+}
+
 const useContextMenuTrigger = (
   props: ContextMenuTriggerProps,
   ref: React.ForwardedRef<any>
@@ -150,11 +160,10 @@ const useContextMenuTrigger = (
   const { popper, openAndFocusFirstItem } = menu
 
   const { longPressProps } = useLongPress({
+    isDisabled: props.longPressDisabled,
     accessibilityDescription: 'Long press to open context menu',
     onLongPressStart: (e) => {
-      if (e.pointerType === 'mouse') {
-        onClose()
-      }
+      onClose()
     },
     onLongPress: (e) => {
       if (e.pointerType === 'mouse') return
@@ -182,9 +191,25 @@ const useContextMenuTrigger = (
     menu.popper.update()
   }, [anchor])
 
+  const onPointerDown: React.PointerEventHandler<FocusableElement> = (
+    event
+  ) => {
+    if (event.pointerType !== 'mouse') {
+      longPressProps.onPointerDown?.(event)
+    }
+  }
+
+  const onMouseDown: React.MouseEventHandler<FocusableElement> = (event) => {
+    if (isTouchDevice()) {
+      longPressProps.onMouseDown?.(event)
+    }
+  }
+
   return {
     triggerProps: {
       ...longPressProps,
+      onPointerDown,
+      onMouseDown,
       onContextMenu: callAllHandlers((event: AnyPointerEvent) => {
         event.preventDefault()
         onOpen(event)
@@ -195,11 +220,16 @@ const useContextMenuTrigger = (
   }
 }
 
-export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {}
+export interface ContextMenuTriggerProps extends HTMLChakraProps<'span'> {
+  /**
+   * If `true`, the long press gesture is disabled.
+   */
+  longPressDisabled?: boolean
+}
 
 export const ContextMenuTrigger = forwardRef<ContextMenuTriggerProps, 'span'>(
   (props, ref) => {
-    const { children, ...rest } = props
+    const { children, longPressDisabled, ...rest } = props
 
     const { triggerProps } = useContextMenuTrigger(props, ref)
 

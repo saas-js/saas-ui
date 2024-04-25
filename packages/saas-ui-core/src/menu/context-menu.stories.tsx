@@ -36,7 +36,7 @@ export const Basic: Story = (props) => {
   return (
     <ContextMenu {...props}>
       <ContextMenuTrigger>
-        <Center height="200px" borderWidth="1px" style={{ userSelect: 'all' }}>
+        <Center height="200px" borderWidth="1px">
           Right click here
         </Center>
       </ContextMenuTrigger>

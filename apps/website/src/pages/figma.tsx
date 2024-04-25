@@ -41,9 +41,9 @@ const FigmaPage = () => {
     <Box>
       <SEO
         title="Saas UI"
-        description="Professionally crafted Figma design system for designing
+        description="Professionally crafted Figma design system and UI kit for designing
         beautiful products at any scale."
-        titleTemplate="%s - Figma Design System"
+        titleTemplate="%s - Figma Design System & UI Kit"
       />
       <BackgroundGradientRadial
         top="-30%"

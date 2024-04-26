@@ -92,13 +92,9 @@ import { FocusableElement } from '@saas-ui/react-utils'
 import { Testimonial, Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Polypane } from '@/components/logos/customers/polypane'
-import { YouGotBud } from '@/components/logos/customers/you-got-bud'
-import { Startec } from '@/components/logos/customers/startec'
-import { Eqtble } from '@/components/logos/customers/eqtble'
-import { Aidbase } from '@/components/logos/customers/aidbase'
-import { Ownco } from '@/components/logos/customers/ownco'
+
 import { UsedBy } from '@/components/used-by'
+import { GetStaticProps } from 'next'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -1321,7 +1317,7 @@ const ProFeatures = () => {
 
 export default Home
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
       announcement: {

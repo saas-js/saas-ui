@@ -25,7 +25,7 @@ DataGrid uses `@tanstack/react-table` v8 internally, and supports all `useTable`
 
 ### Basic DataGrid
 
-```jsx
+```jsx inline=true
 import { Button } from '@chakra-ui/react'
 import {
   Page,
@@ -97,11 +97,11 @@ export default function ListPage() {
 
 ### Sticky header
 
-Sticky headers are enabled by default, but can be disabled by passing `stickyHeader` to `DataGrid`.
+Sticky headers are enabled by default, but can be disabled by passing `stickyHeader={false}` to `DataGrid`.
 
 Use style props to customize the header styles.
 
-```jsx
+```jsx inline=true
 import { Button, Card } from '@chakra-ui/react'
 import { DataGrid, DataGridPagination } from '@saas-ui-pro/react'
 
@@ -169,9 +169,143 @@ export default function ListPage() {
 }
 ```
 
+### Column resizing
+
+Column resizing is disabled by default, but can be enabled by passing `columnResizeEnabled` to `DataGrid`.
+
+```jsx inline=true
+import { Button, Card } from '@chakra-ui/react'
+import { DataGrid, DataGridPagination } from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        disableResizing: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+
+  return (
+    <Card overflow="hidden">
+      <DataGrid columns={columns} data={dataTable.data} columnResizeEnabled>
+        <DataGridPagination />
+      </DataGrid>
+    </Card>
+  )
+}
+```
+
+### Pinned columns
+
+Pinned columns are columns that are always visible when scrolling horizontally.
+`DataGrid` supports both left and right pinned columns.
+
+To pin a column, use the `columnPinning` prop in `intialState` or `state` props.
+Setting it in `state` prop will allow you to change the pinned columns dynamically using React state.
+
+```jsx inline=true
+import { Button, Card } from '@chakra-ui/react'
+import { DataGrid, DataGridPagination } from '@saas-ui-pro/react'
+
+export default function ListPage() {
+  const columns = React.useMemo(() => {
+    return [
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 200,
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+      {
+        accessorKey: 'company',
+        header: 'Company',
+      },
+      {
+        accessorKey: 'country',
+        header: 'Country',
+      },
+      {
+        accessorKey: 'employees',
+        header: 'Employees',
+        meta: {
+          isNumeric: true,
+        },
+      },
+      {
+        id: 'action',
+        disableSortBy: true,
+        disableGlobaFilter: true,
+        header: '',
+        cell: () => (
+          <>
+            <Button size="xs">Edit</Button>
+          </>
+        ),
+        size: 100,
+      },
+    ]
+  }, [])
+
+  return (
+    <Card overflow="hidden">
+      <DataGrid
+        columns={columns}
+        data={dataTable.data}
+        initialState={{
+          columnPinning: {
+            left: ['selection', 'name'],
+            right: ['action'],
+          },
+        }}
+      >
+        <DataGridPagination />
+      </DataGrid>
+    </Card>
+  )
+}
+```
+
 ### With BulkActions
 
-```jsx
+```jsx inline=true
 import { Button } from '@chakra-ui/react'
 import {
   Page,
@@ -255,7 +389,7 @@ export default function ListPage() {
 Cells with a `href` property will render the cell value in an `a`.
 Using the DataGrid `onRowClick` handler you can trigger a click event on the link whenever the row is clicked.
 
-```jsx
+```jsx inline=true
 import { Button } from '@chakra-ui/react'
 import {
   Page,
@@ -353,7 +487,7 @@ To use a custom property for nested rows, use the `getSubRows` prop.
 
 For more than one level of nesting, it's recommended to use `tableLayout=auto` on the `DataGrid` component.
 
-```jsx
+```jsx inline=true
 import { Button } from '@chakra-ui/react'
 import { Page, PageHeader, DataGrid } from '@saas-ui-pro/react'
 
@@ -422,7 +556,7 @@ By default all sorting, filtering and pagination is handled locally by `react-ta
 
 This example uses [React Query](https://tanstack.com/query) to fetch data.
 
-```tsx
+```jsx inline=true
 import { Button } from '@chakra-ui/react'
 import {
   Page,
@@ -437,7 +571,7 @@ import {
 
 export default function ListPage() {
   const [selections, setSelections] = React.useState([])
-  const [sort, setSort] = React.useState<SortingState>([])
+  const [sort, setSort] = React.useState < SortingState > []
   const [page, setPage] = React.useState(0)
 
   const { data } = useQuery(['customers', sort, page], () => {
@@ -543,7 +677,7 @@ export default function ListPage() {
 You can access the react-table `TableInstance` by passing a ref to `DataGrid`.
 Check out the [react-table documentation](https://tanstack.com/table/v8/docs/api/core/table) for all properties.
 
-```jsx
+```jsx inline=true
 import {
   Page,
   PageHeader,
@@ -587,7 +721,7 @@ export default function InternalState() {
 
 ### Toggle visible columns
 
-```jsx
+```jsx inline=true
 import {
   Menu,
   MenuButton,
@@ -670,7 +804,7 @@ Icons can be customized by passing a `icons` map to the `DataGrid` component.
 | rowExpanded    | Expanded row    |
 | rowCollapsed   | Collapsed row   |
 
-```jsx
+```jsx inline=true
 import {
   Menu,
   MenuButton,
@@ -735,7 +869,7 @@ const demoData = dataGrid.data.map((row, i) => {
 
 Using the `slotProps` prop you can customize internal components (slots) of the `DataGrid` component.
 
-```jsx
+```jsx inline=true
 import {
   Page,
   PageHeader,
@@ -781,7 +915,7 @@ export default function SlotProps() {
 
 Using `slotsProps` you can use the `as` prop to customize the `tr` element and wrap it with a `ContextMenu`.
 
-```jsx
+```jsx inline=true
 import {
   Portal
 } from '@chakra-ui/react'

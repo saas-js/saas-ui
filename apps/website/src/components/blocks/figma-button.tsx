@@ -5,7 +5,7 @@ import { trackEvent } from '@/utils/track-event'
 export const FigmaButton = () => {
   return (
     <ButtonLink
-      variant="outline"
+      variant="ghost"
       size="sm"
       leftIcon={<FaFigma />}
       target="_blank"

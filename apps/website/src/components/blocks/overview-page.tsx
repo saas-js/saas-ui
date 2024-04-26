@@ -6,6 +6,7 @@ import { BackgroundGradientRadial } from '../background-gradient-radial'
 import { ButtonLink } from '../link'
 import { FaFigma } from 'react-icons/fa'
 import { FigmaButton } from './figma-button'
+import { useAuth } from '@saas-ui/auth'
 
 interface OverviewPageProps {
   componentsCountByCategory: Record<string, number>
@@ -16,6 +17,8 @@ export function OverviewPage({ componentsCountByCategory }: OverviewPageProps) {
     (acc, category) => acc + componentsCountByCategory[category],
     0
   )
+
+  const { isAuthenticated } = useAuth()
 
   return (
     <Container maxWidth="container.2xl" px="8" py="20">
@@ -47,6 +50,12 @@ export function OverviewPage({ componentsCountByCategory }: OverviewPageProps) {
           </Box>
 
           <FigmaButton />
+
+          {!isAuthenticated && (
+            <ButtonLink href="/login" size="sm" variant="outline">
+              Log in
+            </ButtonLink>
+          )}
         </HStack>
 
         <CategoriesList

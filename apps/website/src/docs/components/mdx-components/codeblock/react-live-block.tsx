@@ -159,7 +159,8 @@ function ReactLiveBlock({
   useEffect(() => {
     if (frameRef && !inline) {
       setInterval(() => {
-        const height = frameRef.contentWindow?.document.body.scrollHeight ?? 240
+        const height =
+          frameRef.contentWindow?.document.body?.scrollHeight ?? 240
         setFrameHeight(height + 'px')
       }, 500)
     }

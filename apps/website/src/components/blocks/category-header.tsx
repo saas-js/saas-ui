@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Heading, Link, Center, Box, Icon, HStack } from '@chakra-ui/react'
+import { Heading, Link, Box, Icon, HStack } from '@chakra-ui/react'
 import { FiArrowLeft } from 'react-icons/fi'
 import { Category } from '../../data/blocks'
 import { FigmaButton } from './figma-button'

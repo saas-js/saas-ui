@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import {
   DatePicker,
@@ -12,6 +12,7 @@ import {
   DatePickerTrigger,
   DatePickerCalendar,
   DatePickerTimeField,
+  DatePickerProps,
 } from '../src'
 import { Button, Container, Portal, VStack } from '@chakra-ui/react'
 
@@ -30,6 +31,10 @@ export default {
     },
   ],
 } as Meta
+
+type Story = StoryObj<
+  Omit<DatePickerProps, 'children'> & { children?: React.ReactNode }
+>['render']
 
 const Template: Story = (args) => {
   const { children, ...rest } = args

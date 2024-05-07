@@ -7022,6 +7022,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/command-bar@workspace:packages/saas-ui-command-bar"
   dependencies:
+    "@chakra-ui/anatomy": "npm:^2.2.2"
     "@chakra-ui/react-utils": "npm:^2.0.12"
     "@chakra-ui/styled-system": "npm:^2.9.2"
     "@chakra-ui/theme-tools": "npm:^2.1.2"

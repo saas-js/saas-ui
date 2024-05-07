@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 import {
   FiUser,
   FiCircle,
@@ -44,6 +44,8 @@ export default {
   ],
 } as Meta
 
+type Story = StoryObj<CommandBarProps>
+
 const items = [
   {
     icon: <FiUserCheck />,
@@ -82,7 +84,7 @@ const items = [
   },
 ]
 
-const Template: Story<CommandBarProps> = (args) => {
+const Template: Story['render'] = (args) => {
   const [isLoading, setLoading] = React.useState(false)
 
   return (
@@ -110,7 +112,7 @@ const Template: Story<CommandBarProps> = (args) => {
   )
 }
 
-const DialogTemplate: Story<CommandBarProps> = (args) => {
+const DialogTemplate: Story['render'] = (args) => {
   const { isOpen, onClose, onToggle } = useDisclosure({
     defaultIsOpen: true,
   })

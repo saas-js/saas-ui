@@ -1,13 +1,14 @@
 import { Container, Stack, Icon } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { Story } from '@storybook/react'
+import { StoryObj } from '@storybook/react'
 
 import { FiSearch, FiX } from 'react-icons/fi'
 
-import { SearchInput } from './search-input'
+import { SearchInput, SearchInputProps } from './search-input'
 
 export default {
   title: 'Components/Forms/SearchInput',
+  component: SearchInput,
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -17,34 +18,45 @@ export default {
   ],
 }
 
-const Template: Story = (props: any) => {
-  return <SearchInput {...props} />
+type Story = StoryObj<SearchInputProps>
+
+export const Basic: Story = {}
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Stack>
+        <SearchInput size="lg" />
+        <SearchInput size="md" />
+        <SearchInput size="sm" />
+      </Stack>
+    )
+  },
 }
 
-export const Basic = Template.bind({})
-
-export const Sizes = () => {
-  return (
-    <Stack>
-      <Template size="lg" />
-      <Template size="md" />
-      <Template size="sm" />
-    </Stack>
-  )
+export const Disabled: Story = {
+  args: {
+    isDisabled: true,
+  },
 }
 
-export const FeatherIcons = () => (
-  <Template icon={<Icon as={FiSearch} />} resetIcon={<Icon as={FiX} />} />
-)
+export const FeatherIcons: Story = {
+  args: {
+    icon: <Icon as={FiSearch} />,
+    resetIcon: <Icon as={FiX} />,
+  },
+}
 
-export const Controlled: Story = (props: any) => {
-  const [value, setValue] = useState('')
-  return (
-    <SearchInput
-      value={value}
-      onChange={({ target }) => setValue(target.value)}
-      onReset={() => setValue('')}
-      {...props}
-    />
-  )
+export const Controlled: Story = {
+  render: (props: any) => {
+    const [value, setValue] = useState('')
+    return (
+      <SearchInput
+        value={value}
+        onChange={({ target }) => setValue(target.value)}
+        onReset={() => setValue('')}
+        {...props}
+      />
+    )
+  },
 }

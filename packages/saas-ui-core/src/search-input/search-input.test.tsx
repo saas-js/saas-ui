@@ -3,12 +3,10 @@ import * as React from 'react'
 import { render, act, fireEvent, testStories } from '@saas-ui/test-utils'
 import * as stories from './search-input.stories'
 
-const { Basic } = testStories<typeof stories>(stories)
+const { Basic, Disabled } = testStories<typeof stories>(stories)
 
 test('should reset the value', async () => {
-  const { getByText, getByLabelText, getByPlaceholderText, getByRole } = render(
-    <Basic />
-  )
+  const { getByLabelText, getByPlaceholderText } = render(<Basic />)
 
   const input = getByPlaceholderText('Search')
 
@@ -23,4 +21,18 @@ test('should reset the value', async () => {
   })
 
   expect(getByPlaceholderText('Search')).toHaveValue('')
+})
+
+test('should not reset the value when disabled', async () => {
+  const { getByPlaceholderText, queryByLabelText } = render(<Disabled />)
+
+  const input = getByPlaceholderText('Search')
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: 'query' } })
+  })
+
+  const reset = queryByLabelText('Reset search')
+
+  expect(reset).not.toBeInTheDocument()
 })

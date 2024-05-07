@@ -57,8 +57,10 @@ export const useBaseField = (props: BaseFieldProps) => {
 export const BaseField: React.FC<BaseFieldProps> = (props) => {
   const { controlProps, label, help, hideLabel, error } = useBaseField(props)
 
+  const isInvalid = !!error || controlProps.isInvalid
+
   return (
-    <FormControl {...controlProps} isInvalid={!!error}>
+    <FormControl {...controlProps} isInvalid={isInvalid}>
       {label && !hideLabel ? <FormLabel>{label}</FormLabel> : null}
       <Box>
         {props.children}

@@ -398,6 +398,26 @@ export const NoLabel = () => {
   )
 }
 
+export const Invalid = () => {
+  return (
+    <Form
+      defaultValues={{
+        text: '',
+      }}
+      onSubmit={onSubmit}
+      onError={(err) => console.error(err)}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field name="text" label="Invalid field" isInvalid />
+
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+
 export const Variants = () => {
   return (
     <Form onSubmit={onSubmit} onError={(err) => console.error(err)}>

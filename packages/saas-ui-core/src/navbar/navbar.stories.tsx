@@ -181,14 +181,16 @@ const WithMenuTemplate = (args: NavbarProps) => {
           <NavbarItem>
             <Button variant="primary">Sign Up</Button>
           </NavbarItem>
-          <Button
-            aria-label={mobileNav.isOpen ? 'Close menu' : 'Open menu'}
-            display={{ base: 'inline-flex', sm: 'none' }}
-            onClick={mobileNav.onToggle}
-            variant="ghost"
-          >
-            {mobileNav.isOpen ? <FiX /> : <FiMenu />}
-          </Button>
+          <NavbarItem>
+            <Button
+              aria-label={mobileNav.isOpen ? 'Close menu' : 'Open menu'}
+              display={{ base: 'inline-flex', sm: 'none' }}
+              onClick={mobileNav.onToggle}
+              variant="ghost"
+            >
+              {mobileNav.isOpen ? <FiX /> : <FiMenu />}
+            </Button>
+          </NavbarItem>
         </NavbarContent>
         <Drawer {...mobileNav}>
           <DrawerOverlay />

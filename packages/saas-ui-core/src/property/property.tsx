@@ -159,11 +159,7 @@ export interface PropertyListProps extends Omit<ListProps, 'items'> {}
 export const PropertyList: React.FC<PropertyListProps> = (props) => {
   const { children, ...rest } = props
   return (
-    <List
-      as="dl"
-      {...rest}
-      className={cx('sui-property-list', props.className)}
-    >
+    <chakra.dl {...rest} className={cx('sui-property-list', props.className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement<PropertyProps>(child)
           ? React.cloneElement(child, {
@@ -171,7 +167,7 @@ export const PropertyList: React.FC<PropertyListProps> = (props) => {
             })
           : child
       )}
-    </List>
+    </chakra.dl>
   )
 }
 

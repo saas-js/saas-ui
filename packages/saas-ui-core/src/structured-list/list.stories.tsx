@@ -582,7 +582,7 @@ export const StickyHeaders: Story = {
     const inProgress = issues.filter(({ status }) => status === 'in-progress')
     const todo = issues.filter(({ status }) => status === 'todo')
 
-    const renderIssue = (issue) => {
+    const renderIssue = (issue: any) => {
       return (
         <StructuredListItem
           href="#"
@@ -593,21 +593,12 @@ export const StickyHeaders: Story = {
             borderColor: 'whiteAlpha.100',
           }}
         >
-          <StructuredListCell width="4" role="group" px="0">
-            <Checkbox
-              opacity="0"
-              _checked={{ opacity: 1 }}
-              _groupHover={{ opacity: 1 }}
-              size="md"
-              rounded="sm"
-            />
-          </StructuredListCell>
           <StructuredListCell color="muted">{issue.id}</StructuredListCell>
           <StructuredListCell flex="1">
             <Text noOfLines={1}>{issue.title}</Text>
           </StructuredListCell>
           <StructuredListCell color="muted" as={HStack}>
-            {issue.labels.map((label) => (
+            {issue.labels.map((label: any) => (
               <Tag
                 key={label}
                 bg="none"

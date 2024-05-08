@@ -103,6 +103,7 @@ const keysMatch = (
 
 const getKeyFromEvent = (event: KeyboardEvent): string => {
   const key = event.key.toLowerCase()
+
   if (shiftedKeys[key]) {
     return shiftedKeys[key]
   }
@@ -193,6 +194,7 @@ export const useHotkeys = (
   }
 
   function onKeyDown(event: Event) {
+    console.log(event)
     if (isInputEvent(event as KeyboardEvent)) {
       return
     }
@@ -206,6 +208,7 @@ export const useHotkeys = (
       clearTimeout(bufferTimeout.current)
       bufferTimeout.current = null
     }
+
     bufferTimeout.current = setTimeout(() => {
       bufferKeys.clear()
     }, 400)
@@ -224,11 +227,8 @@ export const useHotkeys = (
   }
 
   function onKeyUp(event: Event) {
-    if (isInputEvent(event as KeyboardEvent)) {
-      pressedKeys.clear()
-      return
-    }
-    pressedKeys.delete(getKeyFromEvent(event as KeyboardEvent))
+    // reset all keys on keyup
+    pressedKeys.clear()
   }
 
   function onWindowBlur() {

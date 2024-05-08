@@ -132,6 +132,24 @@ test('should support multiple key combinations.', async () => {
   expect(action).toBeCalledTimes(2)
 })
 
+test('should reset after modifier keys.', async () => {
+  const action = vi.fn()
+  const action2 = vi.fn()
+  const TestComponent = () => {
+    useHotkeys('ctrl+z', action)
+    useHotkeys('ArrowUp', action2)
+    return null
+  }
+
+  const { user } = renderModal(<TestComponent />)
+
+  await user.keyboard('{Control>}z')
+
+  await user.keyboard('[ArrowUp]')
+
+  expect(action2).toBeCalled()
+})
+
 test('Hotkey should trigger hotkey shortcuts.', async () => {
   const action = vi.fn()
   const TestComponent = () => {

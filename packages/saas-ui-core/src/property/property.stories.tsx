@@ -1,12 +1,18 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { Container, Avatar } from '@chakra-ui/react'
 
-import { PropertyList, Property, PropertyLabel, PropertyValue } from '.'
+import {
+  PropertyList,
+  Property,
+  PropertyLabel,
+  PropertyValue,
+  PropertyProps,
+} from '.'
 
 import { Persona } from '../persona'
-import { Select } from '@saas-ui/forms'
+import { Select, SelectButton, SelectList } from '@saas-ui/forms'
 
 export default {
   title: 'Components/Data Display/Property',
@@ -20,19 +26,21 @@ export default {
   ],
 } as Meta
 
-const Template: Story = (args) => <Property {...args} />
+type Story = StoryObj<PropertyProps>
 
-export const Basic = Template.bind({})
-Basic.args = {
-  value: 'Name',
-  label: 'Elliot Alderson',
+export const Basic = {
+  args: {
+    value: 'Name',
+    label: 'Elliot Alderson',
+  },
 }
 
-export const LabelWidth = Template.bind({})
-LabelWidth.args = {
-  value: 'Name',
-  label: 'Elliot Alderson',
-  labelWidth: '60px',
+export const LabelWidth = {
+  args: {
+    value: 'Name',
+    label: 'Elliot Alderson',
+    labelWidth: '60px',
+  },
 }
 
 export const Composed = () => {
@@ -40,7 +48,14 @@ export const Composed = () => {
     <Property>
       <PropertyLabel justifyContent="flex-end">Status</PropertyLabel>
       <PropertyValue>
-        <Select value="New" options={[{ value: 'New' }, { value: 'Open' }]} />
+        <Select
+          name="status"
+          value="New"
+          options={[{ value: 'New' }, { value: 'Open' }]}
+        >
+          <SelectButton />
+          <SelectList />
+        </Select>
       </PropertyValue>
     </Property>
   )

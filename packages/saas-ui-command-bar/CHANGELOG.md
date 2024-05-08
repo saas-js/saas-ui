@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.5.0
+
+### Minor Changes
+
+- 5fb8082: Command bar theme can now be overriden through the global theme config
+
 ## 0.4.3
 
 ### Patch Changes

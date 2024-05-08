@@ -1,5 +1,17 @@
 # @saas-ui/forms
 
+## 2.6.2
+
+### Patch Changes
+
+- 5fb8082: Fixed issue where isInvalid would not be passed down to form control
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [d94ccec]
+- Updated dependencies [06ec4b6]
+- Updated dependencies [1ff54a2]
+  - @saas-ui/core@2.5.1
+
 ## 2.6.1
 
 ### Patch Changes

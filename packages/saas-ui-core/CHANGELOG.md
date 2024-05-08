@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 2.5.1
+
+### Patch Changes
+
+- 5fb8082: Fixed issue where the SearchInput reset button could be interacted with when disabled
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+- d94ccec: Fixed aria role of PropertyList
+- 06ec4b6: Fixed issue where snackbar promise would not close
+- 1ff54a2: Fixed issue where text selection was disabled inside ContextMenuTrigger on mouse devices
+
 ## 2.5.0
 
 ### Minor Changes

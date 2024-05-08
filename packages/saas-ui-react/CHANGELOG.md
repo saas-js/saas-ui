@@ -1,5 +1,27 @@
 # @saas-ui/react
 
+## 2.8.2
+
+### Patch Changes
+
+- 5fb8082: Fixed issue where isInvalid would not be passed down to form control
+- 5fb8082: Fixed issue where the SearchInput reset button could be interacted with when disabled
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+- d94ccec: Fixed aria role of PropertyList
+- 06ec4b6: Fixed issue where snackbar promise would not close
+- 1ff54a2: Fixed issue where text selection was disabled inside ContextMenuTrigger on mouse devices
+- Updated dependencies [5fb8082]
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [d94ccec]
+- Updated dependencies [06ec4b6]
+- Updated dependencies [1ff54a2]
+  - @saas-ui/forms@2.6.2
+  - @saas-ui/core@2.5.1
+  - @saas-ui/hotkeys@2.2.9
+  - @saas-ui/modals@2.1.32
+  - @saas-ui/data-table@10.0.2
+
 ## 2.8.1
 
 ### Patch Changes

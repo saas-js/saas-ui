@@ -40,6 +40,7 @@ This repository contains all [open source components](/packages), as well as the
 Saas UI is sponsored by these amazing companies and people.
 
 - [LocalXPose](https://localxpose.io/)
+- Frank Faubert
 
 ## Contributing & Support
 
@@ -67,7 +68,6 @@ Complete source code available in a monorepo that can serve as a starting point 
 - Authentication screens (Supabase/Magic/Clerk/Custom)
 - App layout
 - DataGrid and DataBoard (Kanban) with filtering/pagination
-- Charts / Sparklines
 - User account pages
 - Settings pages
 - Feature flags

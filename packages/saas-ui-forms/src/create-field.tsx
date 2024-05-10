@@ -46,6 +46,7 @@ const _createField = (
         'isInvalid',
         'isReadOnly',
         'help',
+        'hideLabel',
       ].concat(extraProps)
     )
 

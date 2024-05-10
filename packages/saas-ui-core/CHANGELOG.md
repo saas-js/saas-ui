@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.5.2
+
+### Patch Changes
+
+- 69f5e66: Removed lost console.log
+
 ## 2.5.1
 
 ### Patch Changes

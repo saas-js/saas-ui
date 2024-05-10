@@ -1,5 +1,15 @@
 # website
 
+## 2.3.32
+
+### Patch Changes
+
+- Updated dependencies [5a334e2]
+- Updated dependencies [1cc3e3b]
+- Updated dependencies [69f5e66]
+  - @saas-ui/forms@2.6.3
+  - @saas-ui/react@2.8.3
+
 ## 2.3.31
 
 ### Patch Changes

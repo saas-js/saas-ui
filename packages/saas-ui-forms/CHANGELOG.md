@@ -1,5 +1,14 @@
 # @saas-ui/forms
 
+## 2.6.3
+
+### Patch Changes
+
+- 5a334e2: Fixed issue where hideLabel prop would be passed to input
+- 1cc3e3b: FormLayout now supports theming
+- Updated dependencies [69f5e66]
+  - @saas-ui/core@2.5.2
+
 ## 2.6.2
 
 ### Patch Changes

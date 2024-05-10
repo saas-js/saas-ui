@@ -1,5 +1,11 @@
 # @saas-ui/use-hotkeys
 
+## 1.1.3
+
+### Patch Changes
+
+- c13d30b: Removed console.log
+
 ## 1.1.2
 
 ### Patch Changes

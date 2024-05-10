@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 2.8.3
+
+### Patch Changes
+
+- 5a334e2: Fixed issue where hideLabel prop would be passed to input
+- 1cc3e3b: FormLayout now supports theming
+- 69f5e66: Removed lost console.log
+- Updated dependencies [5a334e2]
+- Updated dependencies [1cc3e3b]
+- Updated dependencies [69f5e66]
+  - @saas-ui/forms@2.6.3
+  - @saas-ui/core@2.5.2
+  - @saas-ui/modals@2.1.33
+  - @saas-ui/data-table@10.0.3
+  - @saas-ui/hotkeys@2.2.10
+
 ## 2.8.2
 
 ### Patch Changes

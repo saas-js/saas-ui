@@ -194,7 +194,6 @@ export const useHotkeys = (
   }
 
   function onKeyDown(event: Event) {
-    console.log(event)
     if (isInputEvent(event as KeyboardEvent)) {
       return
     }

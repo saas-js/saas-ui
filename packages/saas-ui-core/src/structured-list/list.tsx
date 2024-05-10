@@ -258,7 +258,7 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
       React.useCallback(
         (e: React.KeyboardEvent) => {
           const items = getItems()
-          console.log(items)
+
           const keyMap: Record<string, React.KeyboardEventHandler> = {
             ArrowUp: () => {
               prevById(items, buttonId)?.focus()

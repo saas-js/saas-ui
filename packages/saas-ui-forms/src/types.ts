@@ -77,6 +77,10 @@ export interface BaseFieldProps<
    * The input placeholder
    */
   placeholder?: string
+  /**
+   * Whether the label is positioned vertically or horizontally
+   */
+  direction?: 'row' | 'column'
 }
 
 export type GetBaseField<TProps extends object = object> = () => {

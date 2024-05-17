@@ -25,7 +25,7 @@ export { bannerTheme as SuiBanner } from './banner'
 export { commandTheme as SuiCommand } from './command'
 export { emptyStateTheme as SuiEmptyState } from './empty-state'
 export { formLayoutTheme as SuiFormLayout } from './form-layout'
-export { formTheme as SuiForm } from './form'
+export { formTheme as Form } from './form'
 export { formLegendTheme as SuiFormLegend } from './form-legend'
 export { hotkeysTheme as SuiHotkeys } from './hotkeys'
 export { loadingOverlayTheme as SuiLoadingOverlay } from './loading-overlay'
@@ -43,12 +43,12 @@ export { iconBadgeTheme as SuiIconBadge } from './icon-badge'
 export { navbarTheme as SuiNavbarTheme } from './navbar'
 
 export const components = {
+  Form: formTheme,
   SuiAppShell: appShellTheme,
   SuiBanner: bannerTheme,
   SuiCommand: commandTheme,
   SuiEmptyState: emptyStateTheme,
   SuiFormLayout: formLayoutTheme,
-  SuiForm: formTheme,
   SuiFormLegend: formLegendTheme,
   SuiHotkeys: hotkeysTheme,
   SuiStructuredList: structuredListTheme,

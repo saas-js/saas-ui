@@ -7,6 +7,7 @@ import {
   FormLabel,
   FormHelperText,
   FormErrorMessage,
+  useBreakpointValue,
 } from '@chakra-ui/react'
 
 import { splitProps } from '@saas-ui/core'
@@ -31,6 +32,7 @@ export const useBaseField = (props: BaseFieldProps) => {
 
   const [controlProps] = splitProps(props, [
     'id',
+    'direction',
     'isDisabled',
     'isInvalid',
     'isReadOnly',
@@ -59,8 +61,14 @@ export const BaseField: React.FC<BaseFieldProps> = (props) => {
 
   const isInvalid = !!error || controlProps.isInvalid
 
+  const { direction, ...rest } = controlProps
+
   return (
-    <FormControl {...controlProps} isInvalid={isInvalid}>
+    <FormControl
+      {...rest}
+      isInvalid={isInvalid}
+      variant={direction === 'row' ? 'horizontal' : undefined}
+    >
       {label && !hideLabel ? <FormLabel>{label}</FormLabel> : null}
       <Box>
         {props.children}

@@ -9,6 +9,7 @@ import {
   Popover,
   ThemingProps,
   PopoverProps,
+  useTheme,
 } from '@chakra-ui/react'
 import {
   DatePickerProvider,
@@ -58,8 +59,12 @@ export const DateRangePickerContainer: React.FC<
 
   const { locale } = useLocale()
 
+  const theme = useTheme()
+
+  const styleConfig = theme.components['SuiDatePicker'] ?? datePickerStyleConfig
+
   const styles = useMultiStyleConfig('SuiDatePicker', {
-    styleConfig: datePickerStyleConfig,
+    styleConfig,
     ...props,
   })
 

@@ -1,4 +1,4 @@
-const { withContentlayer } = require('next-contentlayer')
+const { withContentlayer } = require('next-contentlayer2')
 const path = require('node:path')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

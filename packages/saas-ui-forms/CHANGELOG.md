@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 2.6.4
+
+### Patch Changes
+
+- 4c03ddb: Added support for horizontal form fields
+  - @saas-ui/core@2.5.3
+
 ## 2.6.3
 
 ### Patch Changes

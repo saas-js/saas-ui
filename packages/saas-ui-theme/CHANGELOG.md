@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.4.1
+
+### Patch Changes
+
+- 4c03ddb: Added support for horizontal form fields
+
 ## 2.4.0
 
 ### Minor Changes

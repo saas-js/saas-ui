@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.8.4
+
+### Patch Changes
+
+- 4c03ddb: Added support for horizontal form fields
+- Updated dependencies [4c03ddb]
+  - @saas-ui/forms@2.6.4
+  - @saas-ui/theme@2.4.1
+  - @saas-ui/modals@2.1.34
+  - @saas-ui/core@2.5.3
+  - @saas-ui/data-table@10.0.4
+  - @saas-ui/hotkeys@2.2.11
+
 ## 2.8.3
 
 ### Patch Changes

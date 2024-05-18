@@ -1,5 +1,13 @@
 # @saas-ui/date-picker
 
+## 0.12.35
+
+### Patch Changes
+
+- d98fce0: Allow DatePicker theme to be configured globally in the theme config
+  - @saas-ui/modals@2.1.34
+  - @saas-ui/core@2.5.3
+
 ## 0.12.34
 
 ### Patch Changes

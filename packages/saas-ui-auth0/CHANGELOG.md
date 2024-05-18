@@ -1,5 +1,11 @@
 # @saas-ui/auth0
 
+## 0.1.6
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.6
+
 ## 0.1.5
 
 ### Patch Changes

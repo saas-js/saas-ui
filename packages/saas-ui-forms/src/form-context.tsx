@@ -40,7 +40,7 @@ export const useFormContext = <
   TSchema = any,
 >() => {
   const context = React.useContext(FormContext)
-  const hookContext = useHookFormContext()
+  const hookContext = useHookFormContext<TFieldValues, TContext>()
 
   return {
     ...hookContext,

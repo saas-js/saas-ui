@@ -60,7 +60,7 @@ export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
   TSchema = any,
-> = ReturnType<typeof useFormContext>
+> = ReturnType<typeof useFormContext<TFieldValues, TContext, TSchema>>
 
 export const FormProvider = <
   TFieldValues extends FieldValues = FieldValues,

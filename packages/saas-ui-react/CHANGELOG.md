@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.8.5
+
+### Patch Changes
+
+- 29c6fea: Fixed issue where hideLabel would not be passed to base field
+- b6ce1bf: Fixed return type of useFormContext
+- Updated dependencies [29c6fea]
+- Updated dependencies [b6ce1bf]
+  - @saas-ui/forms@2.6.5
+  - @saas-ui/modals@2.1.35
+  - @saas-ui/data-table@10.0.5
+
 ## 2.8.4
 
 ### Patch Changes

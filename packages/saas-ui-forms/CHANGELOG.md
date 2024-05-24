@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 2.6.5
+
+### Patch Changes
+
+- 29c6fea: Fixed issue where hideLabel would not be passed to base field
+- b6ce1bf: Fixed return type of useFormContext
+
 ## 2.6.4
 
 ### Patch Changes

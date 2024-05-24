@@ -51,7 +51,7 @@ const _createField = (
     )
 
     return (
-      <BaseField {...props}>
+      <BaseField hideLabel={hideLabel} {...props}>
         <InputComponent
           ref={ref}
           id={id}

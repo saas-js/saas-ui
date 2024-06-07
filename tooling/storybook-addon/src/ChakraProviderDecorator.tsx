@@ -6,9 +6,13 @@ import { ColorModeSync } from './color-mode/ColorModeSync'
 import { useDirection } from './direction/useDirection'
 import { EVENTS, DIRECTION_TOOL_ID } from './constants'
 
-import { SaasProvider, useLocalStorage } from '@saas-ui/react'
+import {
+  SaasProvider,
+  useLocalStorage,
+  baseTheme,
+  theme as suiTheme,
+} from '@saas-ui/react'
 
-import { baseTheme, theme as suiTheme } from '@saas-ui/theme'
 import { theme as baseGlassTheme } from '@saas-ui/theme-glass'
 
 const glassTheme = extendTheme(baseGlassTheme, suiTheme)

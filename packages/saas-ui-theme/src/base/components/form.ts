@@ -6,9 +6,10 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const horizontalVariant = definePartsStyle({
   container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row-reverse',
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
     justifyContent: 'flex-end',
   },
 })

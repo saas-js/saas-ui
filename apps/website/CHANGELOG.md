@@ -1,5 +1,108 @@
 # website
 
+## 2.3.34
+
+### Patch Changes
+
+- Updated dependencies [29c6fea]
+- Updated dependencies [b6ce1bf]
+  - @saas-ui/forms@2.6.5
+  - @saas-ui/react@2.8.5
+
+## 2.3.33
+
+### Patch Changes
+
+- Updated dependencies [4c03ddb]
+  - @saas-ui/forms@2.6.4
+  - @saas-ui/react@2.8.4
+
+## 2.3.32
+
+### Patch Changes
+
+- Updated dependencies [5a334e2]
+- Updated dependencies [1cc3e3b]
+- Updated dependencies [69f5e66]
+  - @saas-ui/forms@2.6.3
+  - @saas-ui/react@2.8.3
+
+## 2.3.31
+
+### Patch Changes
+
+- Updated dependencies [5fb8082]
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [06ec4b6]
+- Updated dependencies [1ff54a2]
+  - @saas-ui/forms@2.6.2
+  - @saas-ui/react@2.8.2
+  - @saas-ui/command-bar@0.5.0
+
+## 2.3.30
+
+### Patch Changes
+
+- Updated dependencies [b110d4a]
+  - @saas-ui/forms@2.6.1
+  - @saas-ui/react@2.8.1
+
+## 2.3.29
+
+### Patch Changes
+
+- Updated dependencies [9fe1899]
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/forms@2.6.0
+  - @saas-ui/react@2.8.0
+
+## 2.3.28
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.4
+  - @saas-ui/react@2.7.4
+
+## 2.3.27
+
+### Patch Changes
+
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+- Updated dependencies [ca911e4]
+- Updated dependencies [0a218fd]
+- Updated dependencies [0a218fd]
+  - @saas-ui/react@2.7.3
+  - @saas-ui/forms@2.5.3
+
+## 2.3.26
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/forms@2.5.2
+  - @saas-ui/react@2.7.2
+
+## 2.3.25
+
+### Patch Changes
+
+- @saas-ui/forms@2.5.1
+- @saas-ui/react@2.7.1
+
+## 2.3.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/forms@2.5.0
+  - @saas-ui/react@2.7.0
+
 ## 2.3.23
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @saas-ui/use-hotkeys
 
+## 1.1.3
+
+### Patch Changes
+
+- c13d30b: Removed console.log
+
+## 1.1.2
+
+### Patch Changes
+
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+
 ## 1.1.1
 
 ### Patch Changes

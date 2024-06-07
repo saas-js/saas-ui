@@ -45,6 +45,22 @@ const baseStyle = definePartsStyle((props) => {
           bg: 'whiteAlpha.100',
         },
       },
+      _disabled: {
+        cursor: 'inherit',
+        opacity: 0.5,
+        _hover: {
+          bg: 'transparent',
+          _dark: {
+            bg: 'transparent',
+          },
+        },
+        _active: {
+          bg: 'transparent',
+          _dark: {
+            bg: 'transparent',
+          },
+        },
+      },
     },
     header: {
       display: 'flex',

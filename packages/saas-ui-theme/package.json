@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/theme",
-  "version": "2.3.4",
+  "version": "2.4.1",
   "description": "Saas UI theme package",
   "source": "src/index.ts",
   "exports": {
@@ -25,19 +25,17 @@
       "import": "./dist/components/index.mjs",
       "require": "./dist/components/index.js"
     },
-    "./components/*": {
-      "types": "./dist/components/*.d.ts",
-      "import": "./dist/components/*.mjs",
-      "require": "./dist/components/*.js"
+    "./components/src": {
+      "default": "./src/components/index.ts"
     }
   },
   "typesVersions": {
     "*": {
       "anatomy": [
-        "./dist/anatomy/index.d.ts"
+        "dist/anatomy/index.d.ts"
       ],
       "components": [
-        "./dist/components/index.d.ts"
+        "dist/components/index.d.ts"
       ]
     }
   },
@@ -46,7 +44,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts src/anatomy/index.ts --config tsup.config.ts",
+    "build": "tsup src/index.ts src/anatomy/index.ts src/saas-ui/components/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

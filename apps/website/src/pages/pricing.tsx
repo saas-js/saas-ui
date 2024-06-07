@@ -4,10 +4,8 @@ import Script from 'next/script'
 
 import {
   Avatar,
-  Badge,
   Box,
   Button,
-  CardHeader,
   Center,
   Container,
   IconButton,
@@ -128,7 +126,6 @@ const TestimonialTabs = () => {
 
             <Text>Simon Høiberg</Text>
             <Text color="muted" fontSize="sm">
-              {' '}
               Founder -{' '}
               <a href="https://aidbase.ai/" target="_blank">
                 Aidbase
@@ -150,7 +147,6 @@ const TestimonialTabs = () => {
 
             <Text>Makenna Smutz</Text>
             <Text color="muted" fontSize="sm">
-              {' '}
               Founder -{' '}
               <a href="https://halite.app/" target="_blank">
                 Halite
@@ -388,12 +384,20 @@ const Pricing = () => {
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Figma Pro included</Text>{' '}
+                    <Text
+                      as="span"
+                      borderBottomWidth="1px"
+                      borderBottomStyle="dotted"
+                      borderColor="currentColor"
+                    >
+                      Figma Pro included
+                    </Text>{' '}
                     <Tag colorScheme="primary" size="sm">
                       New
                     </Tag>
                   </HStack>
                 }
+                help="One editor included. Additional licenses can be purchased separately."
               />
               <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />

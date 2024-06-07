@@ -1,5 +1,99 @@
 # @saas-ui/data-table
 
+## 10.0.5
+
+### Patch Changes
+
+- Updated dependencies [29c6fea]
+- Updated dependencies [b6ce1bf]
+  - @saas-ui/react@2.8.5
+
+## 10.0.4
+
+### Patch Changes
+
+- Updated dependencies [4c03ddb]
+  - @saas-ui/react@2.8.4
+  - @saas-ui/core@2.5.3
+
+## 10.0.3
+
+### Patch Changes
+
+- Updated dependencies [5a334e2]
+- Updated dependencies [1cc3e3b]
+- Updated dependencies [69f5e66]
+  - @saas-ui/react@2.8.3
+  - @saas-ui/core@2.5.2
+
+## 10.0.2
+
+### Patch Changes
+
+- Updated dependencies [5fb8082]
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [d94ccec]
+- Updated dependencies [06ec4b6]
+- Updated dependencies [1ff54a2]
+  - @saas-ui/react@2.8.2
+  - @saas-ui/core@2.5.1
+
+## 10.0.1
+
+### Patch Changes
+
+- @saas-ui/react@2.8.1
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [9fe1899]
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/react@2.8.0
+  - @saas-ui/core@2.5.0
+
+## 9.0.4
+
+### Patch Changes
+
+- @saas-ui/react@2.7.4
+
+## 9.0.3
+
+### Patch Changes
+
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+- Updated dependencies [0a218fd]
+  - @saas-ui/core@2.4.4
+  - @saas-ui/react@2.7.3
+
+## 9.0.2
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+  - @saas-ui/react@2.7.2
+
+## 9.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+  - @saas-ui/react@2.7.1
+
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@2.7.0
+
 ## 8.0.2
 
 ### Patch Changes

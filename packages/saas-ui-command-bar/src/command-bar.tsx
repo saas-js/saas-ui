@@ -11,6 +11,7 @@ import {
   ModalOverlay,
   ModalProps,
   ModalContentProps,
+  useTheme,
 } from '@chakra-ui/react'
 import {
   CommandBarProvider,
@@ -75,8 +76,12 @@ export interface CommandBarProps
 }
 
 export const CommandBar: React.FC<CommandBarProps> = (props) => {
+  const theme = useTheme()
+
+  const styleConfig = theme.components['SuiCommandBar'] ?? commandBarTheme
+
   const styles = useMultiStyleConfig('SuiCommandBar', {
-    styleConfig: commandBarTheme,
+    styleConfig,
     ...props,
   })
 
@@ -156,7 +161,7 @@ export interface CommandBarItemProps
 
 export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
   (props, ref) => {
-    const { onSelect, value, isDisabled, ...rest } = props
+    const { onSelect, value, isDisabled } = props
     const styles = useCommandBarStyles()
 
     const itemStyles = {

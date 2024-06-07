@@ -114,17 +114,16 @@ export const EmptyStateIcon = forwardRef<IconProps, typeof Icon>(
   (props, ref) => {
     const styles = useStyles()
 
-    const iconStyles: SystemStyleObject = {
-      boxSize: 10,
-      ...styles.icon,
-    }
-
     return (
       <Icon
         ref={ref}
         role="presentation"
-        sx={iconStyles}
         {...props}
+        boxSize={props.boxSize ?? 10}
+        sx={{
+          ...styles.icon,
+          ...props.sx,
+        }}
         className={cx('sui-empty-state__icon', props.className)}
       />
     )

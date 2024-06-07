@@ -1,3 +1,4 @@
+import { StoryObj } from '@storybook/react'
 import {
   Container,
   Text,
@@ -9,6 +10,12 @@ import {
   AlertIcon,
   forwardRef,
   Checkbox,
+  FormControl,
+  HStack,
+  FormLabel,
+  Tooltip,
+  FormHelperText,
+  FormErrorMessage,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -27,6 +34,8 @@ import {
   UseFormReturn,
   useWatch,
   createField,
+  GetBaseField,
+  useBaseField,
 } from '../src'
 
 import { FormStepper, FormStep, PrevButton, NextButton } from '../src/step-form'
@@ -41,6 +50,8 @@ import { onSubmit } from './helpers'
 import { StepsCompleted } from '@saas-ui/core'
 import { StepForm as YupStepForm } from '../yup/src'
 import { StepForm as ZodStepForm, createZodStepForm } from '../zod/src'
+import { LuInfo } from 'react-icons/lu'
+import { splitProps } from '@saas-ui/core'
 
 export default {
   title: 'Components/Forms/StepForm',
@@ -60,10 +71,52 @@ const CustomField = createField(
   ))
 )
 
+const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
+  return {
+    extraProps: ['infoLabel'],
+    BaseField: (props) => {
+      const [{ children, infoLabel }, fieldProps] = splitProps(props, [
+        'children',
+        'infoLabel',
+      ])
+
+      const { controlProps, label, help, hideLabel, error } =
+        useBaseField(fieldProps)
+
+      return (
+        <FormControl {...controlProps} isInvalid={!!error}>
+          {!hideLabel ? (
+            <HStack alignItems="center" mb="2" spacing="0">
+              <FormLabel mb="0">{label}</FormLabel>
+              {infoLabel ? (
+                <Tooltip label={infoLabel}>
+                  <span>
+                    <LuInfo />
+                  </span>
+                </Tooltip>
+              ) : null}
+            </HStack>
+          ) : null}
+          <Box>
+            {children}
+            {help && !error?.message ? (
+              <FormHelperText>{help}</FormHelperText>
+            ) : null}
+            {error?.message && (
+              <FormErrorMessage>{error?.message}</FormErrorMessage>
+            )}
+          </Box>
+        </FormControl>
+      )
+    },
+  }
+}
+
 const CustomStepForm = createStepForm({
   fields: {
     custom: CustomField,
   },
+  getBaseField,
 })
 
 const schemas = {
@@ -166,41 +219,52 @@ export const Vertical = () => (
   </>
 )
 
-export const CustomFields = () => (
-  <>
-    <CustomStepForm
-      defaultValues={{
-        name: '',
-        email: '',
-        custom: '',
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, FormStep }) => (
-        <FormStepper orientation="vertical">
-          <FormStep name="profile" title="Profile">
-            <FormLayout>
-              <Field name="name" label="Name" rules={{ required: true }} />
-              <Field name="email" label="Email" rules={{ required: true }} />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="password" title="Password">
-            <FormLayout>
-              <Field
-                name="custom"
-                label="Password"
-                type="custom"
-                customFieldProps="test"
-              />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-        </FormStepper>
-      )}
-    </CustomStepForm>
-  </>
-)
+export const CustomFields: StoryObj<typeof CustomStepForm> = {
+  render() {
+    return (
+      <>
+        <CustomStepForm
+          defaultValues={{
+            name: '',
+            email: '',
+            custom: '',
+            password: '',
+          }}
+          onSubmit={onSubmit}
+        >
+          {({ Field, FormStep }) => (
+            <FormStepper orientation="vertical">
+              <FormStep name="profile" title="Profile">
+                <FormLayout>
+                  <Field name="name" label="Name" rules={{ required: true }} />
+                  <Field
+                    name="email"
+                    label="Email"
+                    rules={{ required: true }}
+                  />
+                  <Field
+                    name="custom"
+                    label="Custom"
+                    type="custom"
+                    customFieldProps="test"
+                    infoLabel="Hello world"
+                  />
+                  <NextButton />
+                </FormLayout>
+              </FormStep>
+              <FormStep name="password" title="Password">
+                <FormLayout>
+                  <Field name="password" label="Password" type="password" />
+                  <NextButton />
+                </FormLayout>
+              </FormStep>
+            </FormStepper>
+          )}
+        </CustomStepForm>
+      </>
+    )
+  },
+}
 
 export const WithYupSchema = () => (
   <>

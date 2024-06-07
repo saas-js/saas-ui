@@ -2,10 +2,10 @@ import {
   ComputedFields,
   defineDocumentType,
   makeSource,
-} from 'contentlayer/source-files'
+} from 'contentlayer2/source-files'
 import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
-import remarkSlug from 'remark-slug'
+import rehypeSlug from 'rehype-slug'
 import docsConfig from './src/data/docs-config'
 import { getTableOfContents } from './src/docs/utils/mdx-utils'
 import { rehypeMdxCodeMeta } from './src/docs/utils/rehype-code-meta'
@@ -120,7 +120,7 @@ const contentLayerConfig = makeSource({
   documentTypes: [Blog, Doc, Changelog],
   mdx: {
     rehypePlugins: [rehypeMdxCodeMeta],
-    remarkPlugins: [remarkSlug, remarkGfm, remarkEmoji],
+    remarkPlugins: [rehypeSlug, remarkGfm, remarkEmoji],
   },
 })
 

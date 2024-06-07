@@ -1,5 +1,63 @@
 # @saas-ui/hotkeys
 
+## 2.2.11
+
+### Patch Changes
+
+- @saas-ui/core@2.5.3
+
+## 2.2.10
+
+### Patch Changes
+
+- Updated dependencies [c13d30b]
+- Updated dependencies [69f5e66]
+  - @saas-ui/use-hotkeys@1.1.3
+  - @saas-ui/core@2.5.2
+
+## 2.2.9
+
+### Patch Changes
+
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [d94ccec]
+- Updated dependencies [06ec4b6]
+- Updated dependencies [1ff54a2]
+  - @saas-ui/core@2.5.1
+  - @saas-ui/use-hotkeys@1.1.2
+
+## 2.2.8
+
+### Patch Changes
+
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/core@2.5.0
+
+## 2.2.7
+
+### Patch Changes
+
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+  - @saas-ui/core@2.4.4
+
+## 2.2.6
+
+### Patch Changes
+
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+
 ## 2.2.4
 
 ### Patch Changes

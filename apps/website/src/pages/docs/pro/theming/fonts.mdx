@@ -1,51 +1,48 @@
 ---
 title: Fonts
-description: Settings up fonts in your theme.
+description: Settings up fonts in Saas UI Pro.
 ---
 
-Saas UI Core &amp; Pro both use Inter as the default font.
+Saas UI Pro uses Inter as the default font.
 
 ## Configuration
-
-The easiest way to install is using Font source.
-
-```bash
-yarn add @fontsource/inter
-```
-
-Then add it to your theme.
-
-```ts
-import { extendTheme } from '@chakra-ui/react'
-import { theme as proTheme } from '@saas-ui-pro/react'
-
-import '@fontsource/inter/variable.css'
-
-// your theme
-```
 
 <Info>
   Note that we are using the variable version to reduce the total download size
   as opposed to including specific versions.
 </Info>
 
-## Using a custom font
+## Changing the font
 
-Configure a different font in your theme like this:
+To install a different font, you can use Font Source or Next.js fonts.
+
+### Font source
+
+```bash
+cd apps/web && yarn add @fontsource-variable/montserrat
+```
+
+Next import it in your root layout.
+
+```tsx
+// apps/web/app/layout.tsx
+
+import '@fontsource-variable/montserrat'
+//....
+```
+
+And update your theme to use the new font.
 
 ```ts
-import { extendTheme } from '@chakra-ui/react'
-import { theme as proTheme } from '@saas-ui-pro/react'
+// packages/ui-theme/src/theme.ts
 
-import '@fontsource/montserrar/variable.css'
-
-const theme = extendTheme(
+export const theme = extendTheme(
   {
     fonts: {
-      heading: 'MontserratVariable, sans-serif',
-      body: 'MontserratVariable, sans-serif',
+      heading: 'Montserrat Variable, sans-serif',
+      body: 'Montserrat Variable, sans-serif',
     },
   },
-  proTheme
+  baseTheme
 )
 ```

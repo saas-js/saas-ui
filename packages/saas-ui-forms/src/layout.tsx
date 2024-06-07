@@ -5,11 +5,15 @@ import {
   omitThemingProps,
   SimpleGrid,
   SimpleGridProps,
+  ThemingProps,
+  useStyleConfig,
   useTheme,
 } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
-export interface FormLayoutProps extends SimpleGridProps {}
+export interface FormLayoutProps
+  extends ThemingProps<'SuiFormLayout'>,
+    SimpleGridProps {}
 
 interface FormLayoutItemProps {
   children: React.ReactNode
@@ -24,7 +28,6 @@ FormLayoutItem.displayName = 'FormLayoutItem'
 /**
  * Create consistent field spacing and positioning.
  *
- *
  * Renders form items in a `SimpleGrid`
  * @see https://chakra-ui.com/docs/layout/simple-grid
  *
@@ -37,6 +40,8 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
     spacing: 4,
   }
 
+  const styles = useStyleConfig('SuiFormLayout', props)
+
   const gridProps = omitThemingProps({
     ...defaultProps,
     ...props,
@@ -46,6 +51,10 @@ export const FormLayout = ({ children, ...props }: FormLayoutProps) => {
     <SimpleGrid
       {...gridProps}
       className={cx('sui-form__layout', props.className)}
+      sx={{
+        ...styles,
+        ...props.sx,
+      }}
     >
       {children}
     </SimpleGrid>

@@ -92,12 +92,9 @@ import { FocusableElement } from '@saas-ui/react-utils'
 import { Testimonial, Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Polypane } from '@/components/logos/customers/polypane'
-import { YouGotBud } from '@/components/logos/customers/you-got-bud'
-import { Startec } from '@/components/logos/customers/startec'
-import { Eqtble } from '@/components/logos/customers/eqtble'
-import { Aidbase } from '@/components/logos/customers/aidbase'
-import { Ownco } from '@/components/logos/customers/ownco'
+
+import { UsedBy } from '@/components/used-by'
+import { GetStaticProps } from 'next'
 
 const CodePanel = dynamic(() => import('@/components/code-panel/code-panel'))
 const ComponentShowcase = dynamic(() =>
@@ -303,47 +300,6 @@ const Home = () => {
         </DarkMode>
       </Box>
     </Box>
-  )
-}
-
-const UsedBy = () => {
-  return (
-    <Section innerWidth="container.xl">
-      <Heading size="md" fontWeight="medium" textAlign="center" mb="12">
-        Used by indie founders and startups worldwide
-      </Heading>
-      <SimpleGrid
-        spacing="12"
-        userSelect="none"
-        columns={{ base: 2, md: 3, xl: 6 }}
-        scale={{ base: 0.4, lg: 1 }}
-      >
-        <Flex justifyContent="center" gap="2" whiteSpace="nowrap">
-          <Polypane height="30px" />
-          <Text fontWeight="bold" fontSize="xl">
-            Polypane
-          </Text>
-        </Flex>
-        <Flex justifyContent="center">
-          <Aidbase height="30px" />
-        </Flex>
-        <Flex justifyContent="center">
-          <Ownco height="26px" />
-        </Flex>
-        <Flex justifyContent="center" gap="2">
-          <YouGotBud height="30px" />
-          <Text fontWeight="bold" fontSize="xl">
-            You Got Bud
-          </Text>
-        </Flex>
-        <Flex justifyContent="center">
-          <Startec height="30px" />
-        </Flex>
-        <Flex justifyContent="center">
-          <Eqtble height="24px" />
-        </Flex>
-      </SimpleGrid>
-    </Section>
   )
 }
 
@@ -1361,7 +1317,7 @@ const ProFeatures = () => {
 
 export default Home
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
       announcement: {

@@ -44,6 +44,6 @@ describe('Navbar', () => {
 
     const navbarContent = wrapper.getByTestId('navbar-content-test')
 
-    expect(navbarContent.children.length).toBe(5)
+    expect(navbarContent.children.length).toBe(3)
   })
 })

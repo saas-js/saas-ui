@@ -1,28 +1,35 @@
 import React, { ForwardedRef } from 'react'
-import { FieldsProvider } from './fields-context'
-import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { DefaultFieldOverrides, WithFields } from './types'
-import { objectFieldResolver } from './field-resolver'
-import { GetFieldResolver } from './field-resolver'
 import { forwardRef } from '@chakra-ui/react'
 
-export interface CreateFormProps<FieldDefs> {
+import { FieldsProvider } from './fields-context'
+import { Form, FieldValues, FormProps, GetResolver } from './form'
+import { GetBaseField, WithFields } from './types'
+import { objectFieldResolver } from './field-resolver'
+import { GetFieldResolver } from './field-resolver'
+import { defaultFieldTypes } from './default-fields'
+
+export interface CreateFormProps<
+  FieldDefs,
+  TGetBaseField extends GetBaseField = GetBaseField,
+> {
   resolver?: GetResolver
   fieldResolver?: GetFieldResolver
   fields?: FieldDefs extends Record<string, React.FC<any>> ? FieldDefs : never
+  getBaseField?: TGetBaseField
 }
 
 export type FormType<
   FieldDefs,
   ExtraProps = object,
-  ExtraOverrides = object
+  ExtraFieldProps extends object = object,
+  ExtraOverrides = object,
 > = (<
   TSchema = unknown,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: WithFields<
-    FormProps<TSchema, TFieldValues, TContext>,
+    FormProps<TSchema, TFieldValues, TContext, ExtraFieldProps>,
     FieldDefs,
     ExtraOverrides
   > & {
@@ -33,18 +40,30 @@ export type FormType<
   id?: string
 }
 
-export function createForm<FieldDefs>({
+export function createForm<
+  FieldDefs,
+  TGetBaseField extends GetBaseField<any> = GetBaseField<any>,
+>({
   resolver,
   fieldResolver = objectFieldResolver,
   fields,
-}: CreateFormProps<FieldDefs> = {}) {
+  getBaseField,
+}: CreateFormProps<FieldDefs, TGetBaseField> = {}) {
+  type ExtraFieldProps =
+    TGetBaseField extends GetBaseField<infer ExtraFieldProps>
+      ? ExtraFieldProps
+      : object
+
   const DefaultForm = forwardRef(
     <
       TSchema = any,
       TFieldValues extends FieldValues = FieldValues,
-      TContext extends object = object
+      TContext extends object = object,
     >(
-      props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs>,
+      props: WithFields<
+        FormProps<TSchema, TFieldValues, TContext, ExtraFieldProps>,
+        FieldDefs
+      >,
       ref: ForwardedRef<HTMLFormElement>
     ) => {
       const {
@@ -54,8 +73,13 @@ export function createForm<FieldDefs>({
         ...rest
       } = props
 
+      const fieldsContext = {
+        fields: { ...defaultFieldTypes, ...fields },
+        getBaseField,
+      }
+
       return (
-        <FieldsProvider value={fields || {}}>
+        <FieldsProvider value={fieldsContext}>
           <Form
             ref={ref}
             resolver={resolverProp ?? resolver?.(props.schema)}
@@ -65,7 +89,7 @@ export function createForm<FieldDefs>({
         </FieldsProvider>
       )
     }
-  ) as FormType<FieldDefs>
+  ) as FormType<FieldDefs, object, ExtraFieldProps>
 
   DefaultForm.displayName = 'Form'
   DefaultForm.id = 'Form'

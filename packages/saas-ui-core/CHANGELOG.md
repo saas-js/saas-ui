@@ -1,5 +1,59 @@
 # @saas-ui/react
 
+## 2.5.3
+
+### Patch Changes
+
+- Updated dependencies [4c03ddb]
+  - @saas-ui/theme@2.4.1
+
+## 2.5.2
+
+### Patch Changes
+
+- 69f5e66: Removed lost console.log
+
+## 2.5.1
+
+### Patch Changes
+
+- 5fb8082: Fixed issue where the SearchInput reset button could be interacted with when disabled
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+- d94ccec: Fixed aria role of PropertyList
+- 06ec4b6: Fixed issue where snackbar promise would not close
+- 1ff54a2: Fixed issue where text selection was disabled inside ContextMenuTrigger on mouse devices
+
+## 2.5.0
+
+### Minor Changes
+
+- e75e99b: StructuredListItem now supports isDisabled props
+
+### Patch Changes
+
+- e75e99b: Fixed issue where StructuredListItem would not receive focus
+- Updated dependencies [e75e99b]
+  - @saas-ui/theme@2.4.0
+
+## 2.4.4
+
+### Patch Changes
+
+- 20c7175: Added forwardRef to ContextMenuTrigger
+- ca911e4: Fixed issue where global toast default options would not apply to snackbar
+
+## 2.4.3
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+
+## 2.4.2
+
+### Patch Changes
+
+- Bump version
+
 ## 2.4.1
 
 ### Patch Changes

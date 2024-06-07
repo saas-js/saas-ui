@@ -312,6 +312,25 @@ export const PressAndHold = () => {
   return <Box>{presses} presses</Box>
 }
 
+export const PressAndHoldRelease = () => {
+  const [presses, setPresses] = React.useState(0)
+  useHotkeys(
+    'Cmd+Z',
+    () => {
+      setPresses((prev) => prev + 1)
+    },
+    {
+      preventDefault: true,
+    }
+  )
+
+  useHotkeys('ArrowUp', () => {
+    setPresses(0)
+  })
+
+  return <Box>{presses} presses (Arrow up to reset)</Box>
+}
+
 export const WithHotkey = () => {
   const searchRef = React.useRef<HTMLInputElement>(null)
 

@@ -15,7 +15,7 @@ export const Resizer = (props) => {
         { id: 'a', size: 100, minSize: 30 },
         { id: 'b', size: 0 },
       ]}
-      onSizeChangeStart={() => setResizing(true)}
+      onSizeChange={() => setResizing(true)}
       onSizeChangeEnd={() => setResizing(false)}
     >
       {isResizing && <Box position="absolute" inset="0" />}

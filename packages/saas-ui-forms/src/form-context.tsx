@@ -6,7 +6,7 @@ import {
   FieldValues,
 } from 'react-hook-form'
 import { FieldResolver } from './field-resolver'
-import { BaseFieldProps, FieldProps } from './types'
+import type { BaseFieldProps } from './types'
 
 export type FormContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -40,7 +40,7 @@ export const useFormContext = <
   TSchema = any,
 >() => {
   const context = React.useContext(FormContext)
-  const hookContext = useHookFormContext()
+  const hookContext = useHookFormContext<TFieldValues, TContext>()
 
   return {
     ...hookContext,
@@ -60,7 +60,7 @@ export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
   TSchema = any,
-> = ReturnType<typeof useFormContext>
+> = ReturnType<typeof useFormContext<TFieldValues, TContext, TSchema>>
 
 export const FormProvider = <
   TFieldValues extends FieldValues = FieldValues,

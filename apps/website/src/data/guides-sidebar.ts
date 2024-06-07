@@ -13,6 +13,22 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'Auth0',
+          path: '/docs/guides/auth/auth0',
+        },
+        {
+          title: 'Clerk',
+          path: '/docs/guides/auth/clerk',
+        },
+        {
+          title: 'Supabase',
+          path: '/docs/guides/auth/supabase',
+        },
+        {
+          title: 'Magic.link',
+          path: '/docs/guides/auth/magic',
+        },
+        {
           title: 'Custom auth service',
           path: '/docs/guides/auth/custom-auth-service',
         },

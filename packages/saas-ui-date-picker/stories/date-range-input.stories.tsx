@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
 import {
   DateRangeInput,
@@ -25,38 +25,45 @@ export default {
   ],
 } as Meta
 
-const Template: Story = (args) => {
+export const Basic = () => {
   const [value, setValue] = React.useState<DateRangeValue>()
   return (
     <FormControl>
       <FormLabel>Date range</FormLabel>
-      <DateRangeInput value={value} onChange={setValue} {...args} />
+      <DateRangeInput value={value} onChange={setValue}></DateRangeInput>
     </FormControl>
   )
 }
 
-export const Basic = Template.bind({})
-Basic.args = {}
-
 export const DateTime = () => {
+  const [value, setValue] = React.useState<DateRangeValue>()
   return (
-    <Template granularity="minute">
-      <DateRangePickerTimeField />
-    </Template>
+    <FormControl>
+      <FormLabel>Date range</FormLabel>
+      <DateRangeInput value={value} onChange={setValue} granularity="minute">
+        <DateRangePickerTimeField />
+      </DateRangeInput>
+    </FormControl>
   )
 }
 
 export const DateTimeNoTimezone = () => {
+  const [value, setValue] = React.useState<DateRangeValue>()
   return (
-    <Template
-      defaultValue={{
-        start: parseAbsoluteToLocal(new Date().toISOString()),
-        end: null,
-      }}
-      granularity="minute"
-      hideTimeZone
-    >
-      <DateRangePickerTimeField />
-    </Template>
+    <FormControl>
+      <FormLabel>Date range</FormLabel>
+      <DateRangeInput
+        value={value}
+        onChange={setValue}
+        defaultValue={{
+          start: parseAbsoluteToLocal(new Date().toISOString()),
+          end: null,
+        }}
+        granularity="minute"
+        hideTimeZone
+      >
+        <DateRangePickerTimeField />
+      </DateRangeInput>
+    </FormControl>
   )
 }

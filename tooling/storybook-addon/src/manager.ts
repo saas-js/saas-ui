@@ -9,7 +9,11 @@ import { ColorModeTool } from './color-mode/ColorModeTool'
 import { DirectionTool } from './direction/DirectionTool'
 import { ThemeTool } from './theme/ThemeTool'
 
-addons.register(ADDON_ID, () => {
+console.log('REGISTER')
+
+addons.register(ADDON_ID, (api) => {
+  console.log('REGISTER')
+
   const match = ({ viewMode }: { viewMode?: string }) =>
     Boolean(viewMode && viewMode.match(/^(story|docs)$/))
 

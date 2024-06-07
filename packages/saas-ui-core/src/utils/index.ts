@@ -1,3 +1,8 @@
+export type { SplitPropsFn } from './split-props'
+export { createSplitProps, splitProps } from './split-props'
+
+export { createProps } from './create-props'
+
 export {
   __DEV__,
   __TEST__,

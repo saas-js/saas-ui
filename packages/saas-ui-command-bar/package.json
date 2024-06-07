@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/command-bar",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Chakra UI CommandBar Component",
   "source": "src/index.ts",
   "exports": {
@@ -9,8 +9,25 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
+    "./theme": {
+      "require": "./dist/command-bar-theme.js",
+      "types": "./dist/command-bar-theme.d.ts",
+      "import": "./dist/command-bar-theme.mjs"
+    },
     "./src": {
       "default": "./src/index.ts"
+    }
+  },
+  "typesVersions": {
+    ".": {
+      "*": [
+        "dist/index.d.ts"
+      ]
+    },
+    "./theme": {
+      "*": [
+        "dist/command-bar-theme.d.ts"
+      ]
     }
   },
   "main": "./dist/index.js",
@@ -18,7 +35,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts --config tsup.config.ts",
+    "build": "tsup src/index.ts src/command-bar-theme.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -56,6 +73,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
+    "@chakra-ui/anatomy": "^2.2.2",
     "@chakra-ui/react-utils": "^2.0.12",
     "@chakra-ui/styled-system": "^2.9.2",
     "@chakra-ui/theme-tools": "^2.1.2",
@@ -68,6 +86,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "react-icons": "^4.12.0"
+    "react-icons": "^5.0.1"
   }
 }

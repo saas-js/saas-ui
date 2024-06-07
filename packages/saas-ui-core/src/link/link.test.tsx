@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { render, testStories } from '@saas-ui/test-utils'
+import { render } from '@saas-ui/test-utils'
 
 import { SaasProvider } from '../provider'
 
@@ -14,17 +14,9 @@ interface LinkComponentProps {
 const LinkComponent: React.FC<LinkComponentProps> = (props) => {
   const { children, href, ...rest } = props
   return (
-    <>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement<any>(child)) {
-          return React.cloneElement(child, {
-            href,
-            className: 'saas-ui-link',
-            ...rest,
-          })
-        }
-      })}
-    </>
+    <a href={href} {...rest} className="saas-ui-link">
+      {children}
+    </a>
   )
 }
 

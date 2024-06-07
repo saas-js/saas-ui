@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { render } from '@saas-ui/test-utils'
+import { vi } from 'vitest'
 
 import {
   useHotkeys,
@@ -36,7 +37,7 @@ const renderModal = (ui: React.ReactNode) => {
 }
 
 test('should trigger hotkey shortcuts.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     const command = useHotkeysShortcut('general.compose', action)
 
@@ -54,7 +55,7 @@ test('should trigger hotkey shortcuts.', async () => {
 })
 
 test('should trigger shifted keys.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeysShortcut('general.help', action)
     return null
@@ -68,7 +69,7 @@ test('should trigger shifted keys.', async () => {
 })
 
 test('should trigger key combinations.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeysShortcut('general.logout', action)
     return null
@@ -82,7 +83,7 @@ test('should trigger key combinations.', async () => {
 })
 
 test('should trigger key sequences.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeysShortcut('general.dashboard', action)
     return null
@@ -97,7 +98,7 @@ test('should trigger key sequences.', async () => {
 })
 
 test('should trigger custom hotkeys.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeys('c', action)
     return null
@@ -111,7 +112,7 @@ test('should trigger custom hotkeys.', async () => {
 })
 
 test('should support multiple key combinations.', async () => {
-  const action = jest.fn()
+  const action = vi.fn()
   const TestComponent = () => {
     useHotkeys(['c', 'G then C'], action)
     return null

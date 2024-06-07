@@ -1,5 +1,73 @@
 # @saas-ui/clerk
 
+## 3.0.43
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.7
+
+## 3.0.42
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.6
+
+## 3.0.41
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.5
+
+## 3.0.40
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.4
+
+## 3.0.39
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.3
+
+## 3.0.38
+
+### Patch Changes
+
+- Updated dependencies [54f2542]
+  - @saas-ui/auth@3.1.2
+
+## 3.0.37
+
+### Patch Changes
+
+- @saas-ui/auth@3.1.1
+
+## 3.0.36
+
+### Patch Changes
+
+- Updated dependencies [1df0084]
+  - @saas-ui/auth@3.1.0
+
+## 3.0.35
+
+### Patch Changes
+
+- @saas-ui/auth@3.0.6
+
+## 3.0.34
+
+### Patch Changes
+
+- @saas-ui/auth@3.0.5
+
+## 3.0.33
+
+### Patch Changes
+
+- @saas-ui/auth@3.0.4
+
 ## 3.0.32
 
 ### Patch Changes

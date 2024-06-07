@@ -105,6 +105,100 @@ export const Basic = () => (
   </Form>
 )
 
+export const Horizontal = () => (
+  <Form
+    defaultValues={{
+      text: 'Text field',
+      number: 10,
+      textarea: 'Lorem ipsum',
+      switch: true,
+      select: 'Select 2',
+      multipleselect: ['Select 1', 'Select 2'],
+      nativeselect: 'Select 1',
+      password: 'Password123',
+      checkbox: true,
+      radio: 'Radio 1',
+      pin: '',
+    }}
+    onSubmit={(values) => {
+      console.log(values)
+    }}
+  >
+    {({ Field }) => (
+      <FormLayout>
+        <Field name="text" label="Text" type="text" direction="row" />
+        <Field
+          name="number"
+          label="Number"
+          type="number"
+          min={1}
+          max={10}
+          placeholder="Number"
+          leftAddon={<InputLeftElement>$</InputLeftElement>}
+          direction="row"
+        />
+        <Field
+          name="textarea"
+          label="Textarea"
+          type="textarea"
+          direction="row"
+        />
+        <Field name="switch" label="Switch" type="switch" direction="row" />
+        <Field
+          name="select"
+          label="Select"
+          type="select"
+          options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+          direction="row"
+        />
+        <Field
+          name="multipleselect"
+          label="Multiple Select"
+          type="select"
+          options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+          multiple
+          direction="row"
+        />
+        <Field
+          name="nativeselect"
+          label="Native Select"
+          type="native-select"
+          options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
+          direction="row"
+        />
+        <Field
+          name="password"
+          label="Password"
+          type="password"
+          direction="row"
+        />
+        <Field
+          name="checkbox"
+          label="Checkbox"
+          type="checkbox"
+          direction="row"
+        />
+        <Field
+          name="radio"
+          label="Radio"
+          type="radio"
+          options={[{ value: 'Radio 1' }, { value: 'Radio 2' }]}
+          direction="row"
+        />
+        <Field
+          name="pin"
+          label="Pin"
+          type="pin"
+          pinLength={4}
+          direction="row"
+        />
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    )}
+  </Form>
+)
+
 export const WithZodSchema = () => {
   return (
     <ZodForm
@@ -390,6 +484,26 @@ export const NoLabel = () => {
       {({ Field }) => (
         <FormLayout>
           <Field name="text" placeholder="Placeholder" />
+
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      )}
+    </Form>
+  )
+}
+
+export const Invalid = () => {
+  return (
+    <Form
+      defaultValues={{
+        text: '',
+      }}
+      onSubmit={onSubmit}
+      onError={(err) => console.error(err)}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field name="text" label="Invalid field" isInvalid />
 
           <SubmitButton>Submit</SubmitButton>
         </FormLayout>

@@ -7,7 +7,7 @@ import {
   MenuDivider,
   Stack,
 } from '@chakra-ui/react'
-import { Story } from '@storybook/react'
+import { StoryObj } from '@storybook/react'
 import * as React from 'react'
 
 import { useSnackbar } from '../snackbar'
@@ -30,7 +30,9 @@ export default {
   ],
 }
 
-export const Basic: Story<ContextMenuProps> = (props) => {
+type Story = StoryObj<ContextMenuProps>['render']
+
+export const Basic: Story = (props) => {
   return (
     <ContextMenu {...props}>
       <ContextMenuTrigger>
@@ -47,7 +49,7 @@ export const Basic: Story<ContextMenuProps> = (props) => {
   )
 }
 
-export const OnClose: Story<ContextMenuProps> = () => {
+export const OnClose: Story = () => {
   const snackbar = useSnackbar()
   return (
     <ContextMenu onClose={() => snackbar.success('Menu closed')}>
@@ -65,7 +67,7 @@ export const OnClose: Story<ContextMenuProps> = () => {
   )
 }
 
-export const MenuOptionGroups: Story<ContextMenuProps> = () => {
+export const MenuOptionGroups: Story = () => {
   return (
     <ContextMenu closeOnSelect={false}>
       <ContextMenuTrigger>
@@ -89,7 +91,7 @@ export const MenuOptionGroups: Story<ContextMenuProps> = () => {
   )
 }
 
-export const WithLazyRender: Story<ContextMenuProps> = (props) => {
+export const WithLazyRender: Story = (props) => {
   return (
     <ContextMenu isLazy {...props}>
       <ContextMenuTrigger>
@@ -106,7 +108,7 @@ export const WithLazyRender: Story<ContextMenuProps> = (props) => {
   )
 }
 
-export const WithMultipleMenus: Story<ContextMenuProps> = (props) => {
+export const WithMultipleMenus: Story = (props) => {
   return (
     <Stack>
       <ContextMenu {...props}>

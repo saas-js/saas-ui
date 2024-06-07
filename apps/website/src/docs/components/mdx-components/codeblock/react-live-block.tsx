@@ -159,7 +159,8 @@ function ReactLiveBlock({
   useEffect(() => {
     if (frameRef && !inline) {
       setInterval(() => {
-        const height = frameRef.contentWindow?.document.body.scrollHeight ?? 240
+        const height =
+          frameRef.contentWindow?.document.body?.scrollHeight ?? 240
         setFrameHeight(height + 'px')
       }, 500)
     }
@@ -186,7 +187,7 @@ function ReactLiveBlock({
             { id: 'a', size: 100, minSize: 40 },
             { id: 'b', size: 0 },
           ]}
-          onSizeChangeStart={() => setResizing(true)}
+          onSizeChange={() => setResizing(true)}
           onSizeChangeEnd={() => setResizing(false)}
         >
           <Splitter.Panel id="a">

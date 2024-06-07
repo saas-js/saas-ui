@@ -1,5 +1,96 @@
 # @saas-ui/forms
 
+## 2.6.5
+
+### Patch Changes
+
+- 29c6fea: Fixed issue where hideLabel would not be passed to base field
+- b6ce1bf: Fixed return type of useFormContext
+
+## 2.6.4
+
+### Patch Changes
+
+- 4c03ddb: Added support for horizontal form fields
+  - @saas-ui/core@2.5.3
+
+## 2.6.3
+
+### Patch Changes
+
+- 5a334e2: Fixed issue where hideLabel prop would be passed to input
+- 1cc3e3b: FormLayout now supports theming
+- Updated dependencies [69f5e66]
+  - @saas-ui/core@2.5.2
+
+## 2.6.2
+
+### Patch Changes
+
+- 5fb8082: Fixed issue where isInvalid would not be passed down to form control
+- Updated dependencies [5fb8082]
+- Updated dependencies [d94ccec]
+- Updated dependencies [d94ccec]
+- Updated dependencies [06ec4b6]
+- Updated dependencies [1ff54a2]
+  - @saas-ui/core@2.5.1
+
+## 2.6.1
+
+### Patch Changes
+
+- b110d4a: Fixed select field not accepting multiple prop
+
+## 2.6.0
+
+### Minor Changes
+
+- 9fe1899: Improved Select types, value type is now string or string[] depending on the multiple prop
+
+### Patch Changes
+
+- Updated dependencies [e75e99b]
+- Updated dependencies [e75e99b]
+  - @saas-ui/core@2.5.0
+
+## 2.5.4
+
+### Patch Changes
+
+- Bump version
+
+## 2.5.3
+
+### Patch Changes
+
+- ca911e4: Removed lost console.log
+- 0a218fd: Added time Field type
+- 0a218fd: Fixed issue where Field types would not be inferred
+- Updated dependencies [20c7175]
+- Updated dependencies [ca911e4]
+  - @saas-ui/core@2.4.4
+
+## 2.5.2
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+- Updated dependencies [d77a5b3]
+  - @saas-ui/core@2.4.3
+
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@2.4.2
+
+## 2.5.0
+
+### Minor Changes
+
+- Improved forms to support a global base field override
+
 ## 2.4.1
 
 ### Patch Changes

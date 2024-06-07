@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "2.4.1",
+  "version": "2.6.5",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
@@ -121,7 +121,9 @@
     "ajv-errors": "^3.0.0",
     "json-schema-to-ts": "^2.12.0",
     "tsd": "^0.28.1",
-    "yup": "^1.3.3",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2",
+    "yup": "^1.4.0",
     "zod": "^3.22.4"
   },
   "tsd": {

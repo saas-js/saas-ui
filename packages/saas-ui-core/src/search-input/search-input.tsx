@@ -97,6 +97,8 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
 
     const btnSize = size === 'lg' ? 'sm' : 'xs'
 
+    const showReset = value && !props.isDisabled
+
     return (
       <InputGroup size={size} width={width}>
         <InputLeftElement>{icon || <SearchIcon />}</InputLeftElement>
@@ -113,7 +115,7 @@ export const SearchInput = forwardRef<SearchInputProps, 'input'>(
           {...inputProps}
         />
         <InputRightElement>
-          {value ? (
+          {showReset ? (
             <IconButton
               onClick={onReset}
               size={btnSize}

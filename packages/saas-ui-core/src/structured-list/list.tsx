@@ -9,7 +9,6 @@ import {
   SystemProps,
   SystemStyleObject,
   As,
-  useColorModeValue,
   useMultiStyleConfig,
   createStylesContext,
   Icon,
@@ -49,11 +48,23 @@ const useStructuredList = (props: StructuredListProps) => {
 
   const [focusId, setFocusId] = React.useState<string | null>(null)
 
+  const listProps: StructuredListProps = {
+    onBlur: callAllHandlers(props.onBlur, (e) => {
+      if (e.relatedTarget) {
+        const items = queryAllItems(ref.current)
+        if (!items.includes(e.relatedTarget as HTMLElement)) {
+          setFocusId(null)
+        }
+      }
+    }),
+  }
+
   return {
     id: props.id ?? id,
     containerRef: ref,
     focusId,
     setFocusId,
+    listProps,
   }
 }
 
@@ -78,7 +89,7 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
 
     const styles = useMultiStyleConfig('SuiStructuredList', rest)
 
-    const listProps = omitThemingProps(rest)
+    const ownProps = omitThemingProps(rest)
 
     let content
     if (items) {
@@ -95,7 +106,7 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
       ...styles.list,
     }
 
-    const context = useStructuredList(props)
+    const { listProps, ...context } = useStructuredList(props)
 
     return (
       <StructuredListProvider value={context}>
@@ -103,6 +114,7 @@ export const StructuredList = forwardRef<StructuredListProps, 'ul'>(
           <chakra.ul
             ref={useMergeRefs(ref, context.containerRef)}
             __css={listStyles}
+            {...ownProps}
             {...listProps}
             className={cx('sui-list', props.className)}
           >
@@ -161,6 +173,7 @@ StructuredListHeader.displayName = 'StructuredListHeader'
 export interface StructuredListItemProps extends HTMLChakraProps<'li'> {
   onClick?: (e: React.MouseEvent) => void
   href?: string | object
+  isDisabled?: boolean
 }
 
 /**
@@ -168,7 +181,7 @@ export interface StructuredListItemProps extends HTMLChakraProps<'li'> {
  */
 export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
   (props, ref) => {
-    const { onClick, href, as, children, ...rest } = props
+    const { onClick, href, as, children, isDisabled, ...rest } = props
 
     const styles = useStyles()
 
@@ -187,6 +200,7 @@ export const StructuredListItem = forwardRef<StructuredListItemProps, 'li'>(
           onClick,
           href,
           as,
+          isDisabled,
         }
       : {}
 
@@ -224,10 +238,18 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
 
   const isFocused = focusId === buttonId
 
+  function getItems() {
+    return queryAll(
+      containerRef.current,
+      `.sui-list__item-button:not([aria-disabled=true])`
+    )
+  }
+
   const buttonProps = {
     id: buttonId,
     ['data-focus']: dataAttr(isFocused),
-    tabIndex: isFocused ? 0 : -1,
+    ['aria-disabled']: props.isDisabled ? 'true' : undefined,
+    tabIndex: props.isDisabled ? -1 : 0,
     onFocus: callAllHandlers(props.onFocus, () => {
       setFocusId(buttonId)
     }),
@@ -235,7 +257,7 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
       props.onKeyDown,
       React.useCallback(
         (e: React.KeyboardEvent) => {
-          const items = queryAllItems(containerRef.current)
+          const items = getItems()
 
           const keyMap: Record<string, React.KeyboardEventHandler> = {
             ArrowUp: () => {
@@ -260,6 +282,15 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
         [buttonId]
       )
     ),
+    onClick: (e: React.MouseEvent) => {
+      if (props.isDisabled) {
+        e.preventDefault()
+        e.stopPropagation()
+        return
+      }
+
+      props.onClick?.(e)
+    },
   }
 
   return {
@@ -270,6 +301,7 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
 export interface StructuredListButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
   as?: As
+  isDisabled?: boolean
 }
 
 /**
@@ -286,7 +318,7 @@ export const StructuredListButton = forwardRef<
   StructuredListButtonProps,
   'div'
 >((props, ref) => {
-  const { children, ...rest } = props
+  const { children, isDisabled, ...rest } = props
 
   const { buttonProps } = useStructuredListButton(props)
 
@@ -360,7 +392,7 @@ export const StructuredListCell: React.FC<StructuredListCellProps> = (
 ) => {
   const { children, ...rest } = props
   const styles = useStyles()
-  console.log(styles)
+
   return (
     <chakra.div
       __css={styles.cell}

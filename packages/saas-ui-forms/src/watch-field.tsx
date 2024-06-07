@@ -3,7 +3,8 @@ import { useFormContext, UseFormReturn } from './form-context'
 
 export interface WatchFieldProps<
   Value = unknown,
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
 > {
   name: string
   defaultValue?: Value
@@ -11,18 +12,19 @@ export interface WatchFieldProps<
   isExact?: boolean
   children: (
     value: Value,
-    form: UseFormReturn<TFieldValues>
+    form: UseFormReturn<TFieldValues, TContext>
   ) => React.ReactElement | void
 }
 
 export const WatchField = <
   Value = unknown,
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object,
 >(
-  props: WatchFieldProps<Value, TFieldValues>
+  props: WatchFieldProps<Value, TFieldValues, TContext>
 ) => {
   const { name, defaultValue, isDisabled, isExact } = props
-  const form = useFormContext<TFieldValues>()
+  const form = useFormContext<TFieldValues, TContext>()
 
   const field = useWatch({
     name,

@@ -2,7 +2,8 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
-    include: ['packages/saas-ui-*/tests/**/*.test.{ts,tsx}'],
+    setupFiles: 'vitest.setup.ts',
+    include: ['packages/saas-ui-*/**/*.test.{ts,tsx}'],
     globals: true,
     environment: 'jsdom',
   },

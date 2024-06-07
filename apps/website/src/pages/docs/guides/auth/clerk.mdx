@@ -1,0 +1,100 @@
+---
+title: Clerk
+package: '@saas-ui/clerk'
+description: Integrating Clerk authentication with Saas UI.
+---
+
+<ComponentLinks
+  github={{
+    package: 'saas-ui-clerk',
+  }}
+  npm={{ package: '@saas-ui/clerk' }}
+/>
+
+This integration allows you to connect the Clerk API with the Saas UI auth screens and provider.
+
+Supported authentication strategies are:
+
+- Magic link
+- Password
+- Social login (Oauth)
+
+<Info>
+  If you are using Clerk with Next.js, it's recommended to use their [Next.js
+  integration](https://clerk.dev/docs/nextjs/overview). It comes with extra
+  features like SSR and middlware support.
+</Info>
+
+## Example
+
+A full working example can be found in the [examples](https://github.com/saas-js/saas-ui/tree/main/examples/clerk-auth) folder of the Saas UI repository.
+
+## Installation
+
+```bash
+yarn add @clerk/clerk-react @saas-ui/clerk @saas-ui/auth
+```
+
+## Import
+
+```js
+import { ClerkAuthProvider } from '@saas-ui/clerk'
+```
+
+## Usage
+
+### Setup AuthProvider
+
+Add `ClerkAuthProvider` to the root of your app and configure the auth service.
+
+<Info>
+  ClerkAuthProvider will add `ClerkProvider` for you, so you can use all
+  build-in Clerk hooks and components in your app.
+</Info>
+
+```tsx
+import { AuthProvider } from '@saas-ui/auth'
+import { ClerkAuthProvider } from '@saas-ui/clerk'
+
+// You can find the publishable key in the Clerk dashboard.
+
+// Authentication with frontendApi is considered legacy.
+const frontendApi = 'clerk.x.x.lcl.dev'
+
+function App({ children }) {
+  return (
+    <ClerkAuthProvider
+      frontendApi={frontendApi}
+      publishableKey={process.env.CLERK_PUBLISABLE_KEY}
+    >
+      {({ authService }) => (
+        <SaasProvider>
+          <AuthProvider {...authService}>{children}</AuthProvider>
+        </SaasProvider>
+      )}
+    </ClerkAuthProvider>
+  )
+}
+```
+
+## Configure Clerk
+
+### Login with Password
+
+To use password authentication, you need to enable `Password` in the Clerk dashboard.
+You can enable this under `Configure > User & Authentication > Email, Phone, Username`.
+
+### Login with email
+
+To use magic link authentication, you need to enable `Email verification link` in the Clerk dashboard.
+You can enable this under `Configure > User & Authentication > Email, Phone, Username`.
+
+## Next steps
+
+That's it! Check the [Auth documentation](/docs/components/authentication/auth) to see how to add authentication screens to your app.
+
+## Props
+
+### ClerkAuthProvider Props
+
+<PropsTable of="ClerkAuthProvider" />

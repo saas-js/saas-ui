@@ -173,13 +173,19 @@ FileUpload can be used in a `Form` by creating a custom field using `createField
 Make sure `isControlled` is set to true and call the `onChange` handler inside the `onFilesChange` callback to pass the file to the form state.
 
 ```jsx
-import { Text, HStack } from '@chakra-ui/react'
+import { Text, HStack, Button } from '@chakra-ui/react'
 import {
   FileUpload,
   FileUploadTrigger,
   FileUploadDropzone,
-} from '@saas-ui/file-upload'
-import { Form, FormLayout, createField } from '@saas-ui/forms'
+  } from '@saas-ui/file-upload'
+import {
+    Form,
+    FormLayout,
+    SubmitButton,
+  } from '@saas-ui/react'
+import { createField } from '@saas-ui/forms'
+import { forwardRef } from 'react';
 
 const UploadField = createField(
   forwardRef((props, ref) => {

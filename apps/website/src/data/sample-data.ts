@@ -76,6 +76,8 @@ const data = [
     company: 'Luctus Et Industries',
     country: 'China',
     employees: 139,
+    status: 'new',
+    type: 'lead',
   },
   {
     id: 2,
@@ -85,6 +87,8 @@ const data = [
     company: 'Nunc Ullamcorper Industries',
     country: 'Sweden',
     employees: 234,
+    status: 'new',
+    type: 'lead',
   },
   {
     id: 3,
@@ -94,6 +98,8 @@ const data = [
     company: 'Venenatis Lacus LLC',
     country: 'Italy',
     employees: 32,
+    status: 'new',
+    type: 'customer',
   },
   {
     id: 4,
@@ -103,6 +109,8 @@ const data = [
     company: 'Maecenas Ornare Incorporated',
     country: 'China',
     employees: 1322,
+    status: 'new',
+    type: 'lead',
   },
   {
     id: 5,
@@ -112,6 +120,8 @@ const data = [
     company: 'Hendrerit Consectetuer Associates',
     country: 'Peru',
     employees: 4,
+    status: 'new',
+    type: 'customer',
   },
 ]
 

@@ -477,11 +477,17 @@ export default function ListPage() {
         ],
       },
       {
-        id: 'isLead',
-        label: 'Is lead',
-        type: 'boolean',
+        id: 'type',
+        label: 'Contact is lead',
+        activeLabel: 'Contact',
         icon: <FiUser />,
-        value: true,
+        value: 'lead',
+      },
+      {
+        id: 'type',
+        label: 'Contact is customer',
+        icon: <FiShoppingBag />,
+        value: 'customer',
       },
     ],
     []
@@ -566,18 +572,6 @@ export default function ListPage() {
       })
     )
   }, [])
-
-  const data = React.useMemo(
-    () =>
-      dataTable.data.map((item) => {
-        return {
-          ...item,
-          status: 'new',
-          isLead: true,
-        }
-      }),
-    []
-  )
 
   return (
     <FiltersProvider filters={filters} onChange={onFilter}>

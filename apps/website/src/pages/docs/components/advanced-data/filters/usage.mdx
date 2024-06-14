@@ -769,16 +769,16 @@ export default function ListPage() {
       onChange={onFilter}
       defaultFilters={defaultFilters}
     >
-      <Page
-        title="Contacts"
-        height="400px"
-        toolbar={
-          <Toolbar variant="outline">
-            <FiltersAddButton />
-            <Spacer />
-          </Toolbar>
-        }
-      >
+      <Page height="400px">
+        <PageHeader
+          title="Contacts"
+          toolbar={
+            <Toolbar variant="outline">
+              <FiltersAddButton />
+              <Spacer />
+            </Toolbar>
+          }
+        />
         <ActiveFiltersList />
         <PageBody>
           <DataGrid

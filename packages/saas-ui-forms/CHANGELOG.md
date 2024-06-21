@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.6.6
+
+### Patch Changes
+
+- Updated dependencies [12c35ea]
+- Updated dependencies [b61ff73]
+  - @saas-ui/core@2.5.4
+
 ## 2.6.5
 
 ### Patch Changes

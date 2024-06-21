@@ -3,13 +3,13 @@ import { Center, Container } from '@chakra-ui/react'
 import { AvailableProviders, LoginView } from '@saas-ui/auth'
 import { useSnackbar } from '@saas-ui/react'
 import { useRouter } from 'next/router'
-import { FaDiscord, FaGoogle } from 'react-icons/fa'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
 
 const providers: AvailableProviders = {
-  // google: {
-  //   name: 'Google',
-  //   icon: () => <FaGoogle size="1.1rem" color="#DB4437" />,
-  // },
+  github: {
+    name: 'Github',
+    icon: () => <FaGithub size="1.1rem" />,
+  },
   discord: {
     name: 'Discord',
     icon: () => <FaDiscord size="1.1rem" color="#7289da" />,
@@ -40,9 +40,13 @@ export default function LoginPage() {
         <LoginView
           title="Log in to Saas UI"
           providers={providers}
-          submitLabel="Log in with Email"
           redirectUrl={getAbsoluteUrl(redirectUrl)}
           onError={(e) => snackbar.error(e.message)}
+          fields={{
+            submit: {
+              children: 'Log in with Email',
+            },
+          }}
         />
       </Container>
     </Center>

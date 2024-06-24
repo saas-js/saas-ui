@@ -1,20 +1,5 @@
 {
   "DisplayField": {
-    "name": {
-      "type": "string",
-      "required": true,
-      "description": "The field name"
-    },
-    "help": {
-      "type": "string",
-      "required": false,
-      "description": "Field help text"
-    },
-    "hideLabel": {
-      "type": "boolean",
-      "required": false,
-      "description": "Hide the field label"
-    },
     "isDisabled": {
       "type": "boolean",
       "defaultValue": false,
@@ -43,21 +28,6 @@
       "type": "string",
       "required": false,
       "description": "The label text used to inform users as to what information is\nrequested for a text field."
-    },
-    "placeholder": {
-      "type": "string",
-      "required": false,
-      "description": "The input placeholder"
-    },
-    "rules": {
-      "type": "Omit<\n  RegisterOptions<FieldValues, string>,\n  \"disabled\" | \"setValueAs\" | \"valueAsDate\" | \"valueAsNumber\"\n>",
-      "required": false,
-      "description": "React hook form rules"
-    },
-    "value": {
-      "type": "string | number | string[] | readonly string[]",
-      "required": false,
-      "description": "The value of the counter. Should be less than `max` and greater than `min`\n\n\nThe value of the select field.\n\n\nThe value to be used in the checkbox input.\nThis is the value that will be returned on form submission.\n\n\nThe value of the radio to be `checked`\n(in controlled mode)\n\n\nThe value of the pin input. This is the value\nthat will be returned when the pin input is filled"
     }
   },
   "Fields": {
@@ -202,7 +172,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },
@@ -253,7 +223,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },
@@ -281,13 +251,18 @@
       "description": "The field name"
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "defaultValue": {
       "type": "Record<string, any>",
       "required": false,
       "description": "Default value for new values in the array"
+    },
+    "direction": {
+      "type": "\"column\" | \"row\"",
+      "required": false,
+      "description": "Whether the label is positioned vertically or horizontally"
     },
     "help": {
       "type": "string",
@@ -359,13 +334,18 @@
       "description": "The field name"
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((props: ArrayField[]) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: ArrayField[]) => ReactNode)",
       "required": false
     },
     "defaultValue": {
       "type": "Record<string, any>",
       "required": false,
       "description": "Default value for new values in the array"
+    },
+    "direction": {
+      "type": "\"column\" | \"row\"",
+      "required": false,
+      "description": "Whether the label is positioned vertically or horizontally"
     },
     "help": {
       "type": "string",
@@ -447,7 +427,7 @@
       "description": "Shorthand prop for `gridAutoRows`"
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The fields"
     },
@@ -551,10 +531,15 @@
       "description": "The field name"
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "columns": { "type": "ResponsiveValue<number>", "required": false },
+    "direction": {
+      "type": "\"column\" | \"row\"",
+      "required": false,
+      "description": "Whether the label is positioned vertically or horizontally"
+    },
     "help": {
       "type": "string",
       "required": false,
@@ -651,7 +636,10 @@
       "required": true,
       "description": "The step name"
     },
-    "onSubmit": { "type": "FormStepSubmitHandler", "required": false },
+    "onSubmit": {
+      "type": "FormStepSubmitHandler<FieldValues>",
+      "required": false
+    },
     "resolver": {
       "type": "any",
       "required": false,
@@ -721,7 +709,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },
@@ -750,7 +738,7 @@
       "description": "The submit handler."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: StepFormRenderContext<...>) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: StepFormRenderContext<...>) => ReactNode)",
       "required": false
     },
     "context": { "type": "TContext", "required": false },
@@ -794,7 +782,7 @@
     },
     "progressive": { "type": "boolean", "required": false },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValidating: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -818,12 +806,12 @@
     "values": { "type": "TFieldValues", "required": false }
   },
   "StepsOptions": {
-    "__@iterator@38027": {
+    "__@iterator@41149": {
       "type": "() => IterableIterator<{\n  name: TName\n  schema?: TSchema | undefined\n}>",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@39477": {
+    "__@unscopables@42621": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -984,7 +972,7 @@
       "description": "Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements."
     },
     "toLocaleString": {
-      "type": "() => string",
+      "type": "{\n  (): string\n  (\n    locales: string | string[],\n    options?: (NumberFormatOptions & DateTimeFormatOptions) | undefined,\n  ): string\n}",
       "required": true,
       "description": "Returns a string representation of an array. The elements are converted to string using their toLocaleString methods."
     },
@@ -1040,7 +1028,7 @@
       "description": "The submit handler."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: StepFormRenderContext<...>) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: StepFormRenderContext<...>) => ReactNode)",
       "required": false
     },
     "context": { "type": "TContext", "required": false },
@@ -1084,7 +1072,7 @@
     },
     "progressive": { "type": "boolean", "required": false },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValidating: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -1109,7 +1097,7 @@
   },
   "WatchField": {
     "children": {
-      "type": "(value: Value, form: { fieldResolver?: FieldResolver | undefined; schema?: any; fields?: { [key: string]: unknown; } | undefined; watch: UseFormWatch<FieldValues>; ... 13 more ...; setFocus: UseFormSetFocus<...>; }) => void | ReactElement<...>",
+      "type": "(value: Value, form: { fieldResolver?: FieldResolver | undefined; schema?: any; fields?: { [key: string]: unknown; } | undefined; watch: UseFormWatch<TFieldValues>; ... 13 more ...; setFocus: UseFormSetFocus<...>; }) => void | ReactElement<...>",
       "required": true
     },
     "name": { "type": "string", "required": true },
@@ -1147,7 +1135,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },
@@ -1217,7 +1205,7 @@
       "required": false,
       "description": "If `true`, the form control will be required. This has 2 side effects:\n- The `FormLabel` will show a required indicator\n- The form element (e.g, Input) will have `aria-required` set to `true`"
     },
-    "options": { "type": "Option[]", "required": false },
+    "options": { "type": "Option$1[]", "required": false },
     "placeholder": {
       "type": "string",
       "required": false,
@@ -1259,7 +1247,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },
@@ -1316,6 +1304,10 @@
       "required": false,
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
+    "children": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
+    },
     "closeOnBlur": {
       "type": "boolean",
       "defaultValue": true,
@@ -1336,7 +1328,7 @@
     "computePositionOnMount": { "type": "boolean", "required": false },
     "defaultIsOpen": { "type": "boolean", "required": false },
     "defaultValue": {
-      "type": "string | string[]",
+      "type": "NonNullable<Value>",
       "required": false,
       "description": "The initial value of the select field."
     },
@@ -1399,7 +1391,7 @@
       "description": "Array of popper.js modifiers. Check the docs to see\nthe list of possible modifiers you can pass."
     },
     "multiple": {
-      "type": "boolean",
+      "type": "Multiple",
       "required": false,
       "description": "Enable multiple select."
     },
@@ -1409,7 +1401,7 @@
       "description": "The main and cross-axis offset to displace popper element\nfrom its reference element."
     },
     "onChange": {
-      "type": "(value: string | string[]) => void",
+      "type": "(value: Value) => void",
       "required": false,
       "description": "The callback invoked when the value of the select field changes."
     },
@@ -1438,7 +1430,7 @@
       "description": "If `true`, will prevent the popper from being cut off and ensure\nit's visible within the boundary area."
     },
     "renderValue": {
-      "type": "(value: string | string[]) => ReactNode",
+      "type": "(value: Value) => ReactNode",
       "required": false,
       "description": "The function used to render the value of the select field."
     },
@@ -1455,7 +1447,7 @@
       "description": "The CSS positioning strategy to use."
     },
     "value": {
-      "type": "string | string[]",
+      "type": "NonNullable<Value>",
       "required": false,
       "description": "The value of the select field."
     },
@@ -1507,15 +1499,15 @@
       "description": "If `true`, the form control will be required. This has 2 side effects:\n- The `FormLabel` will show a required indicator\n- The form element (e.g, Input) will have `aria-required` set to `true`"
     },
     "leftAddon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "viewIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "viewOffIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
@@ -1566,12 +1558,12 @@
     }
   },
   "RadioOptions": {
-    "__@iterator@38027": {
+    "__@iterator@41149": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<RadioOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@39477": {
+    "__@unscopables@42621": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -1732,7 +1724,7 @@
       "description": "Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements."
     },
     "toLocaleString": {
-      "type": "(() => string) | (() => string)",
+      "type": "{ (): string; (locales: string | string[], options?: (NumberFormatOptions & DateTimeFormatOptions) | undefined): string; } | { ...; }",
       "required": true,
       "description": "Returns a string representation of an array. The elements are converted to string using their toLocaleString methods."
     },
@@ -1813,11 +1805,11 @@
       "description": "If `true`, the form control will be required. This has 2 side effects:\n- The `FormLabel` will show a required indicator\n- The form element (e.g, Input) will have `aria-required` set to `true`"
     },
     "leftAddon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "rightAddon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "type": { "type": "string", "required": false }
@@ -1839,7 +1831,7 @@
       "description": "This controls the value update when you blur out of the input.\n- If `true` and the value is greater than `max`, the value will be reset to `max`\n- Else, the value remains the same."
     },
     "decrementIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "Render a custom decrement icon."
     },
@@ -1882,7 +1874,7 @@
     "hideStepper": {
       "type": "boolean",
       "required": false,
-      "description": "Hide the stepper."
+      "description": "Hide the stepper. This will be true when `rightAddon` is provided."
     },
     "id": {
       "type": "string",
@@ -1890,7 +1882,7 @@
       "description": "The `id` to use for the number input field."
     },
     "incrementIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "Render a custom increment icon."
     },
@@ -1930,6 +1922,11 @@
       "defaultValue": true,
       "required": false,
       "description": "This controls the value update behavior in general.\n\n- If `true` and you use the stepper or up/down arrow keys,\n the value will not exceed the `max` or go lower than `min`\n\n- If `false`, the value will be allowed to go out of range."
+    },
+    "leftAddon": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false,
+      "description": "Either `InputLeftAddon` or `InputLeftElement`"
     },
     "max": {
       "type": "number",
@@ -1985,6 +1982,11 @@
       "type": "number",
       "required": false,
       "description": "The number of decimal points used to round the value"
+    },
+    "rightAddon": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false,
+      "description": "Either `InputRightAddon` or `InputRightElement`"
     },
     "step": {
       "type": "number",
@@ -2092,6 +2094,10 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "buttonProps": { "type": "SelectButtonProps", "required": false },
+    "children": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
+    },
     "closeOnBlur": {
       "type": "boolean",
       "defaultValue": true,
@@ -2521,7 +2527,7 @@
       "required": false,
       "description": "If `true`, the form control will be required. This has 2 side effects:\n- The `FormLabel` will show a required indicator\n- The form element (e.g, Input) will have `aria-required` set to `true`"
     },
-    "options": { "type": "Option[]", "required": false },
+    "options": { "type": "Option$1[]", "required": false },
     "placeholder": {
       "type": "string",
       "required": false,
@@ -2581,11 +2587,11 @@
   },
   "Field": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
@@ -2594,6 +2600,11 @@
       "type": "TName | ArrayFieldPath<TName>",
       "required": true,
       "description": "The field name"
+    },
+    "direction": {
+      "type": "\"column\" | \"row\"",
+      "required": false,
+      "description": "Whether the label is positioned vertically or horizontally"
     },
     "help": {
       "type": "string",
@@ -2651,12 +2662,12 @@
     }
   },
   "FieldOptions": {
-    "__@iterator@38027": {
+    "__@iterator@41149": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<TOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@39477": {
+    "__@unscopables@42621": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -2817,7 +2828,7 @@
       "description": "Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements."
     },
     "toLocaleString": {
-      "type": "(() => string) | (() => string)",
+      "type": "{ (): string; (locales: string | string[], options?: (NumberFormatOptions & DateTimeFormatOptions) | undefined): string; } | { ...; }",
       "required": true,
       "description": "Returns a string representation of an array. The elements are converted to string using their toLocaleString methods."
     },
@@ -2858,11 +2869,12 @@
     }
   },
   "CreateForm": {
-    "fieldResolver": { "type": "GetFieldResolver", "required": false },
+    "fieldResolver": { "type": "GetFieldResolver<any>", "required": false },
     "fields": {
       "type": "type ONLY_FOR_FORMAT =\n  FieldDefs extends Record<string, FC<any>> ? FieldDefs : never",
       "required": false
     },
+    "getBaseField": { "type": "TGetBaseField", "required": false },
     "resolver": { "type": "GetResolver", "required": false }
   },
   "CreateFieldOptions": {
@@ -2877,14 +2889,9 @@
       "description": "The submit handler."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: FormRenderContext<...>) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: FormRenderContext<...>) => ReactNode)",
       "required": false,
       "description": "The form children, can be a render prop or a ReactNode."
-    },
-    "colorScheme": {
-      "type": "\"whiteAlpha\" | \"blackAlpha\" | \"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"linkedin\" | \"facebook\" | \"messenger\" | \"whatsapp\" | \"twitter\" | \"telegram\" | \"primary\" | \"secondary\" | \"indigo\"",
-      "required": false,
-      "description": "The visual color appearance of the component"
     },
     "context": { "type": "TContext", "required": false },
     "criteriaMode": { "type": "CriteriaMode", "required": false },
@@ -2926,7 +2933,7 @@
     },
     "progressive": { "type": "boolean", "required": false },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValidating: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -2945,24 +2952,15 @@
     "shouldFocusError": { "type": "boolean", "required": false },
     "shouldUnregister": { "type": "boolean", "required": false },
     "shouldUseNativeValidation": { "type": "boolean", "required": false },
-    "size": {
-      "type": "string",
-      "required": false,
-      "description": "The size of the Form"
-    },
-    "values": { "type": "TFieldValues", "required": false },
-    "variant": {
-      "type": "\"horizontal\"",
-      "required": false,
-      "description": "The variant of the Form"
-    }
+    "values": { "type": "TFieldValues", "required": false }
   },
   "CreateStepForm": {
-    "fieldResolver": { "type": "GetFieldResolver", "required": false },
+    "fieldResolver": { "type": "GetFieldResolver<any>", "required": false },
     "fields": {
       "type": "type ONLY_FOR_FORMAT =\n  FieldDefs extends Record<string, FC<any>> ? FieldDefs : never",
       "required": false
     },
+    "getBaseField": { "type": "TGetBaseField", "required": false },
     "resolver": { "type": "GetResolver", "required": false }
   },
   "Controller": {
@@ -3004,10 +3002,7 @@
       "type": "UseFormClearErrors<TFieldValues>",
       "required": true
     },
-    "control": {
-      "type": "Control<TFieldValues, TContext, TFieldValues>",
-      "required": true
-    },
+    "control": { "type": "Control<TFieldValues, TContext>", "required": true },
     "formState": { "type": "FormState<TFieldValues>", "required": true },
     "getFieldState": {
       "type": "UseFormGetFieldState<TFieldValues>",
@@ -3015,7 +3010,7 @@
     },
     "getValues": { "type": "UseFormGetValues<TFieldValues>", "required": true },
     "handleSubmit": {
-      "type": "UseFormHandleSubmit<TFieldValues, TFieldValues>",
+      "type": "UseFormHandleSubmit<TFieldValues, undefined>",
       "required": true
     },
     "register": { "type": "UseFormRegister<TFieldValues>", "required": true },
@@ -3034,7 +3029,7 @@
     },
     "watch": { "type": "UseFormWatch<TFieldValues>", "required": true },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ReactNode[]",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ReactNode[]",
       "required": false
     },
     "fieldResolver": { "type": "FieldResolver", "required": false },
@@ -3049,12 +3044,16 @@
     "keepIsSubmitSuccessful": { "type": "boolean", "required": false },
     "keepIsSubmitted": { "type": "boolean", "required": false },
     "keepIsValid": { "type": "boolean", "required": false },
+    "keepIsValidating": { "type": "boolean", "required": false },
     "keepSubmitCount": { "type": "boolean", "required": false },
     "keepTouched": { "type": "boolean", "required": false },
     "keepValues": { "type": "boolean", "required": false }
   },
   "RegisterOptions": {
-    "deps": { "type": "string | string[]", "required": false },
+    "deps": {
+      "type": "FieldPath<TFieldValues> | FieldPath<TFieldValues>[]",
+      "required": false
+    },
     "disabled": { "type": "boolean", "required": false },
     "max": { "type": "ValidationRule<string | number>", "required": false },
     "maxLength": { "type": "ValidationRule<number>", "required": false },
@@ -3129,7 +3128,7 @@
     },
     "progressive": { "type": "boolean", "required": false },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValidating: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -3146,10 +3145,7 @@
     "values": { "type": "TFieldValues", "required": false }
   },
   "UseFormState": {
-    "control": {
-      "type": "Control<TFieldValues, any, TFieldValues>",
-      "required": false
-    },
+    "control": { "type": "Control<TFieldValues, any>", "required": false },
     "disabled": { "type": "boolean", "required": false },
     "exact": { "type": "boolean", "required": false },
     "name": {
@@ -3158,10 +3154,7 @@
     }
   },
   "UseWatch": {
-    "control": {
-      "type": "Control<TFieldValues, any, TFieldValues>",
-      "required": false
-    },
+    "control": { "type": "Control<TFieldValues, any>", "required": false },
     "defaultValue": { "type": "{}", "required": false },
     "disabled": { "type": "boolean", "required": false },
     "exact": { "type": "boolean", "required": false },

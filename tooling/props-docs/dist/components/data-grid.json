@@ -1,8 +1,4 @@
 {
-  "DataGridHeader": {
-    "header": { "type": "Header<Data, TValue>", "required": true },
-    "isSortable": { "type": "boolean", "required": false }
-  },
   "DataGrid": {
     "columns": {
       "type": "ColumnDef<Data, any>[]",
@@ -13,6 +9,11 @@
       "type": "Data[]",
       "required": true,
       "description": "The data for the table to display. This array should match the type you provided to `table.setRowType<...>`. Columns can access this data via string/index or a functional accessor. When the `data` option changes reference, the table will reprocess the data."
+    },
+    "_features": {
+      "type": "TableFeature<any>[]",
+      "required": false,
+      "description": "An array of extra features that you can add to the table instance."
     },
     "aggregationFns": {
       "type": "Record<string, AggregationFn<any>>",
@@ -34,7 +35,7 @@
       "description": "If set to `true`, pagination will be reset to the first page when page-altering state changes eg. `data` is updated, filters change, grouping changes, etc."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "DataGrid children"
     },
@@ -44,14 +45,20 @@
       "description": "The table class name attribute"
     },
     "columnResizeDirection": {
-      "type": "ColumnResizeDirection",
+      "type": "\"ltr\" | \"rtl\"",
       "required": false,
-      "description": "Enables or disables right-to-left support for resizing the column. defaults to 'ltr'."
+      "description": "Column resize direction"
+    },
+    "columnResizeEnabled": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "description": "Enable column resizing"
     },
     "columnResizeMode": {
-      "type": "ColumnResizeMode",
+      "type": "\"onChange\" | \"onEnd\"",
       "required": false,
-      "description": "Determines when the columnSizing state is updated. `onChange` updates the state when the user is dragging the resize handle. `onEnd` updates the state when the user releases the resize handle."
+      "description": "Column resize mode"
     },
     "columnVirtualizerOptions": {
       "type": "VirtualizerOptions<\n  HTMLDivElement,\n  HTMLTableRowElement\n> & { enabled?: boolean | undefined }",
@@ -133,7 +140,11 @@
       "required": false,
       "description": "Enables/disables grouping for the table."
     },
-    "enableHiding": { "type": "boolean", "required": false },
+    "enableHiding": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to enable column hiding. Defaults to `true`."
+    },
     "enableMultiRemove": {
       "type": "boolean",
       "required": false,
@@ -149,11 +160,7 @@
       "required": false,
       "description": "Enables/Disables multi-sorting for the table."
     },
-    "enablePinning": {
-      "type": "boolean",
-      "required": false,
-      "description": "Enables/disables all pinning for the table. Defaults to `true`."
-    },
+    "enablePinning": { "type": "boolean", "required": false },
     "enableRowPinning": {
       "type": "boolean | ((row: Row<Data>) => boolean)",
       "required": false,
@@ -184,6 +191,12 @@
       "type": "boolean",
       "required": false,
       "description": "By default, filtering is done from parent rows down (so if a parent row is filtered out, all of its children will be filtered out as well). Setting this option to `true` will cause filtering to be done from leaf rows up (which means parent rows will be included so long as one of their child or grand-child rows is also included)."
+    },
+    "focusMode": {
+      "type": "FocusMode",
+      "defaultValue": "'list'",
+      "required": false,
+      "description": "Enable keyboard navigation"
     },
     "getColumnCanGlobalFilter": {
       "type": "(column: Column<Data, unknown>) => boolean",
@@ -268,7 +281,7 @@
       "description": "Use this option to optionally pass initial state to the table. This state will be used when resetting various table states either automatically by the table (eg. `options.autoResetPageIndex`) or via functions like `table.resetRowSelection()`. Most reset function allow you optionally pass a flag to reset to a blank/default state instead of the initial state.\n\nTable state will not be reset when this object changes, which also means that the initial state object does not need to be stable."
     },
     "instanceRef": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: Table<Data> | null) => void)\n  | RefObject<Table<Data>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: Table<Data> | null) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<Table<Data>>",
       "required": false,
       "description": "The React Table instance reference"
     },
@@ -387,6 +400,11 @@
       "required": false,
       "description": "This function is called when the `expanded` table state changes. If a function is provided, you will be responsible for managing this state on your own. To pass the managed state back to the table, use the `tableOptions.state.expanded` option."
     },
+    "onFocusChange": {
+      "type": "FocusChangeHandler<Data>",
+      "required": false,
+      "description": "Callback fired when a row or cell is focused."
+    },
     "onGlobalFilterChange": {
       "type": "OnChangeFn<any>",
       "required": false,
@@ -462,13 +480,18 @@
       "required": false,
       "description": "Value used when the desired value is not found in the data."
     },
+    "rowCount": {
+      "type": "number",
+      "required": false,
+      "description": "When manually controlling pagination, you can supply a total `rowCount` value to the table if you know it. The `pageCount` can be calculated from this value and the `pageSize`."
+    },
     "rowVirtualizerOptions": {
       "type": "VirtualizerOptions<\n  HTMLDivElement,\n  HTMLTableRowElement\n> & { enabled?: boolean | undefined }",
       "required": false,
       "description": "React Virtual options for the row virtualizer"
     },
     "slotProps": {
-      "type": "{ container?: BoxProps | ((params: { table: Table<Data>; }) => BoxProps) | undefined; inner?: BoxProps | ((params: { table: Table<Data>; }) => BoxProps) | undefined; table?: TableProps | ... 1 more ... | undefined; row?: TableRowProps | ... 1 more ... | undefined; cell?: TableCellProps | ... 1 more ... | undefined; }",
+      "type": "{ container?: BoxProps | ((params: { table: Table<Data>; }) => BoxProps) | undefined; inner?: BoxProps | ((params: { table: Table<Data>; }) => BoxProps) | undefined; table?: TableProps | ... 1 more ... | undefined; header?: DataGridHeaderProps<...> | ... 1 more ... | undefined; row?: TableRowProps | ... 1 more ... |...",
       "required": false,
       "description": "Pass custom properties to child (slots) components."
     },
@@ -497,39 +520,47 @@
       "required": false,
       "description": "Grid styles"
     },
-    "virtualizerProps": {
-      "type": "VirtualizerOptions<HTMLDivElement, HTMLTableRowElement>",
-      "required": false,
-      "description": "React Virtual props"
+    "translations": {
+      "type": "Partial<DataGridTranslations>",
+      "required": false
     }
   },
   "DataGridProvider": {
     "instance": { "type": "Table<Data>", "required": true },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
-    "icons": { "type": "DataGridIcons", "required": false }
+    "icons": { "type": "DataGridIcons", "required": false },
+    "translations": { "type": "DataGridTranslations", "required": false }
+  },
+  "DataGridHeader": {
+    "header": { "type": "Header<Data, TValue>", "required": true },
+    "isSortable": { "type": "boolean", "required": false }
   },
   "DataGridSort": {
     "header": { "type": "Header<Data, TValue>", "required": true }
   },
-  "UseColumnVisibility": {
-    "columns": { "type": "ColumnDef<Data>[]", "required": true },
-    "visibleColumns": {
-      "type": "NonNullable<VisibleColumns>",
-      "required": false
-    }
-  },
   "DataGridPagination": {
+    "children": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false,
+      "description": "Child components"
+    },
     "onChange": {
       "type": "(props: { pageIndex: number; pageSize: number }) => void",
-      "required": false
+      "required": false,
+      "description": "Callback when page index or page size changes"
+    },
+    "variant": {
+      "type": "ResponsiveValue<string>",
+      "required": false,
+      "description": "Variant is applied to buttons"
     }
   },
   "NoResults": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "clearLabel": { "type": "string", "required": false },
@@ -540,5 +571,12 @@
       "required": false
     },
     "title": { "type": "string", "required": false }
+  },
+  "UseColumnVisibility": {
+    "columns": { "type": "ColumnDef<Data>[]", "required": true },
+    "visibleColumns": {
+      "type": "NonNullable<VisibleColumns>",
+      "required": false
+    }
   }
 }

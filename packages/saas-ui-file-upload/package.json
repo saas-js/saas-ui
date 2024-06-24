@@ -62,8 +62,8 @@
     "@chakra-ui/styled-system": "^2.9.2",
     "@chakra-ui/theme-tools": "^2.1.2",
     "@chakra-ui/utils": "^2.0.15",
-    "@zag-js/file-upload": "^0.38.1",
-    "@zag-js/react": "^0.38.1"
+    "@zag-js/file-upload": "^0.56.1",
+    "@zag-js/react": "^0.56.1"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.6",

@@ -28,7 +28,7 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -72,7 +72,7 @@
     },
     "defaultValue": { "type": "DateValue", "required": false },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
@@ -83,7 +83,7 @@
       "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -162,7 +162,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -309,7 +309,7 @@
       "description": "Whether the element should receive focus on render."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((args_0: DatePickerState) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((args_0: DatePickerState) => ReactNode)",
       "required": false
     },
     "closeOnSelect": { "type": "boolean", "required": false },
@@ -324,12 +324,12 @@
     },
     "defaultValue": { "type": "DateValue", "required": false },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -380,7 +380,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -459,7 +459,7 @@
       "description": "Whether the element should receive focus on render."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((args_0: DatePickerState) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((args_0: DatePickerState) => ReactNode)",
       "required": false
     },
     "closeOnSelect": { "type": "boolean", "required": false },
@@ -474,12 +474,12 @@
     },
     "defaultValue": { "type": "DateValue", "required": false },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -530,7 +530,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -711,7 +711,7 @@
     "autoFocus": { "type": "boolean", "required": false },
     "autoSave": { "type": "string", "required": false },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The DatePickerDialog children"
     },
@@ -808,6 +808,7 @@
     },
     "id": { "type": "string", "required": false },
     "ignoreStrict": { "type": "boolean", "required": false },
+    "inert": { "type": "boolean", "required": false },
     "inherit": { "type": "boolean", "required": false },
     "initial": {
       "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | MakeCustomValueType<TargetProperties>\n  | VariantLabels",
@@ -900,6 +901,10 @@
     },
     "onBeforeLayoutMeasure": {
       "type": "(box: Box) => void",
+      "required": false
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLElement>",
       "required": false
     },
     "onBlur": { "type": "FocusEventHandler<HTMLElement>", "required": false },
@@ -1309,15 +1314,7 @@
       "type": "PointerEventHandler<HTMLElement>",
       "required": false
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
-      "required": false
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLElement>",
-      "required": false
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLElement>",
       "required": false
     },
@@ -1446,6 +1443,10 @@
       "type": "ReactEventHandler<HTMLElement>",
       "required": false
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLElement>",
+      "required": false
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLElement>",
       "required": false
@@ -1478,11 +1479,35 @@
       "type": "TouchEventHandler<HTMLElement>",
       "required": false
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLElement>",
       "required": false
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "required": false
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLElement>",
       "required": false
     },
@@ -1512,6 +1537,12 @@
     "onWheel": { "type": "WheelEventHandler<HTMLElement>", "required": false },
     "onWheelCapture": {
       "type": "WheelEventHandler<HTMLElement>",
+      "required": false
+    },
+    "popover": { "type": "\"\" | \"auto\" | \"manual\"", "required": false },
+    "popoverTarget": { "type": "string", "required": false },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "required": false
     },
     "prefix": { "type": "string", "required": false },
@@ -1614,7 +1645,7 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -1662,7 +1693,7 @@
       "description": "The default value (uncontrolled)."
     },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
@@ -1678,7 +1709,7 @@
       "description": "The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -1762,7 +1793,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -1956,7 +1987,7 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -2004,7 +2035,7 @@
       "description": "The default value (uncontrolled)."
     },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
@@ -2020,7 +2051,7 @@
       "description": "The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -2104,7 +2135,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -2288,12 +2319,12 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "calendarIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The icon to use in the calendar button"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -2337,7 +2368,7 @@
     },
     "defaultValue": { "type": "DateValue", "required": false },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
@@ -2353,7 +2384,7 @@
       "description": "Theme direction `ltr` or `rtl`. Popper's placement will\nbe set accordingly"
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -2397,7 +2428,7 @@
       "description": "The html `id` attribute of the popover.\nIf not provided, we generate a unique id.\n\nThis `id` is also used to auto-generate the `aria-labelledby`\nand `aria-describedby` attributes that points to the `PopoverHeader` and `PopoverBody`"
     },
     "inputProps": {
-      "type": "DatePickerInputProps",
+      "type": "DatePickerInputProps$1",
       "required": false,
       "description": "The DatePickerInput props."
     },
@@ -2437,7 +2468,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -2621,12 +2652,12 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "calendarIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The icon to use in the calendar button"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -2674,7 +2705,7 @@
       "description": "The default value (uncontrolled)."
     },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
@@ -2695,7 +2726,7 @@
       "description": "The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)."
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -2784,7 +2815,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -2977,7 +3008,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "closeOnEsc": {
@@ -3009,12 +3040,12 @@
     },
     "defaultValue": { "type": "DateValue", "required": false },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
     },
     "errorMessage": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((v: ValidationResult) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((v: ValidationResult) => ReactNode)",
       "required": false,
       "description": "An error message for the field."
     },
@@ -3024,7 +3055,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -3111,7 +3142,7 @@
       "description": "Whether user input is required on the input before form submission."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display as the label."
     },
@@ -3224,7 +3255,7 @@
     },
     "timeZone": { "type": "string", "required": false },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },

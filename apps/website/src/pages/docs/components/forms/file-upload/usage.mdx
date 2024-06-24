@@ -41,25 +41,19 @@ import {
 
 export default function Basic() {
   return (
-    <FileUpload
-      /* Remove `getRootNode` in your code, only required for this example */
-      getRootNode={getRootNode}
-      maxFileSize={1024 * 1024}
-      maxFiles={1}
-      accept="image/*"
-    >
-      {({ files, deleteFile }) => (
+    <FileUpload maxFileSize={1024 * 1024} maxFiles={1} accept="image/*">
+      {({ acceptedFiles, deleteFile }) => (
         <FileUploadDropzone>
           <Text fontSize="sm">Drag your image here</Text>
-          {!files?.length ? (
+          {!acceptedFiles?.length ? (
             <FileUploadTrigger as={Button}>Select files</FileUploadTrigger>
           ) : (
             <HStack>
-              <Text fontSize="sm">{files[0].name}</Text>
+              <Text fontSize="sm">{acceptedFiles[0].name}</Text>
               <Button
                 onClick={(e) => {
                   e.stopPropagation()
-                  deleteFile(files[0])
+                  deleteFile(acceptedFiles[0])
                 }}
               >
                 Clear
@@ -87,21 +81,15 @@ import {
 
 export default function MultipleFiles() {
   return (
-    <FileUpload
-      /* Remove `getRootNode` in your code, only required for this example */
-      getRootNode={getRootNode}
-      maxFileSize={1024 * 1024}
-      maxFiles={10}
-      accept="image/*"
-    >
-      {({ files, clearFiles }) => (
+    <FileUpload maxFileSize={1024 * 1024} maxFiles={10} accept="image/*">
+      {({ acceptedFiles, clearFiles }) => (
         <FileUploadDropzone>
           <Text fontSize="sm">Drag your image(s) here</Text>
-          {!files?.length ? (
+          {!acceptedFiles?.length ? (
             <FileUploadTrigger as={Button}>Select image(s)</FileUploadTrigger>
           ) : (
             <HStack>
-              <Text fontSize="sm">{files.length} selected</Text>
+              <Text fontSize="sm">{acceptedFiles.length} selected</Text>
               <Button
                 onClick={(e) => {
                   e.stopPropagation()
@@ -132,27 +120,21 @@ import {
 
 export default function Basic() {
   return (
-    <FileUpload
-      /* Remove `getRootNode` in your code, only required for this example */
-      getRootNode={getRootNode}
-      maxFileSize={1024 * 1024}
-      maxFiles={1}
-      accept="image/*"
-    >
-      {({ files, deleteFile }) => (
+    <FileUpload maxFileSize={1024 * 1024} maxFiles={1} accept="image/*">
+      {({ acceptedFiles, deleteFile }) => (
         <FileUploadDropzone>
-          {!files?.length ? (
+          {!acceptedFiles?.length ? (
             <>
               <Text fontSize="sm">Drag your image here</Text>
               <FileUploadTrigger as={Button}>Select files</FileUploadTrigger>
             </>
           ) : (
             <HStack>
-              <FileUploadPreview file={files[0]} width="200px" />
+              <FileUploadPreview file={acceptedFiles[0]} width="200px" />
               <Button
                 onClick={(e) => {
                   e.stopPropagation()
-                  deleteFile(files[0])
+                  deleteFile(acceptedFiles[0])
                 }}
               >
                 Remove
@@ -170,7 +152,7 @@ export default function Basic() {
 
 FileUpload can be used in a `Form` by creating a custom field using `createField` provided by `@saas-ui/forms`.
 
-Make sure `isControlled` is set to true and call the `onChange` handler inside the `onFilesChange` callback to pass the file to the form state.
+Make sure `isControlled` is set to true and call the `onChange` handler inside the `onFileChange` callback to pass the file to the form state.
 
 ```jsx
 import { Text, HStack } from '@chakra-ui/react'
@@ -186,29 +168,27 @@ const UploadField = createField(
     const { onChange, ...rest } = props
     return (
       <FileUpload
-        /* Remove `getRootNode` in your code, only required for this example */
-        getRootNode={getRootNode}
         maxFileSize={1024 * 1024}
         accept="image/*"
         {...rest}
-        onFilesChange={(files) => {
-          onChange(files.acceptedFiles[0])
+        onFileChange={(files) => {
+          onChange(files.acceptedFiles)
         }}
         maxFiles={1}
         inputRef={ref}
       >
-        {({ files, deleteFile }) => (
+        {({ acceptedFiles, deleteFile }) => (
           <FileUploadDropzone>
             <Text fontSize="sm">Drag your image here</Text>
-            {!files?.length ? (
+            {!acceptedFiles?.length ? (
               <FileUploadTrigger as={Button}>Select files</FileUploadTrigger>
             ) : (
               <HStack>
-                <Text fontSize="sm">{files[0].name}</Text>
+                <Text fontSize="sm">{acceptedFiles[0].name}</Text>
                 <Button
                   onClick={(e) => {
                     e.stopPropagation()
-                    deleteFile(files[0])
+                    deleteFile(acceptedFiles[0])
                   }}
                 >
                   Clear

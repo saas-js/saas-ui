@@ -87,11 +87,11 @@
     "@chakra-ui/system": "^2.6.2",
     "@chakra-ui/theme-tools": "^2.1.2",
     "@chakra-ui/utils": "^2.0.15",
-    "@react-aria/interactions": "^3.21.1",
-    "@react-aria/utils": "^3.23.2",
+    "@react-aria/interactions": "^3.21.3",
+    "@react-aria/utils": "^3.24.1",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*",
-    "@zag-js/dom-event": "^0.36.3",
+    "@zag-js/dom-event": "^0.56.1",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
@@ -103,6 +103,6 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "tsup": "^8.0.2"
+    "tsup": "^8.1.0"
   }
 }

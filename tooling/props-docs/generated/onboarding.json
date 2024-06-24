@@ -20,7 +20,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "closeOnEsc": {
@@ -157,7 +157,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "closeOnEsc": {
@@ -328,7 +328,7 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -506,7 +506,7 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },
@@ -666,7 +666,7 @@
   },
   "Tour": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "defaultIsActive": {
@@ -693,6 +693,10 @@
       "type": "(index: number) => void",
       "required": false,
       "description": "Called when the current step is closed or dismissed."
+    },
+    "tourRef": {
+      "type": "RefObject<{ isActive: boolean; isCompleted: boolean; targetElement: HTMLElement | null; targetRef: MutableRefObject<HTMLElement | null>; ... 10 more ...; getDismissProps: PropGetterV2<...>; }>",
+      "required": false
     }
   },
   "UseTourBeacon": {
@@ -787,7 +791,7 @@
       "description": "The boundary area for the popper. Used within the `preventOverflow` modifier"
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The content of the popover. It is usually the `PopoverTrigger`,\nand `PopoverContent`"
     },

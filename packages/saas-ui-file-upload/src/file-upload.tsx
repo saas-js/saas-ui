@@ -25,6 +25,7 @@ import {
 
 import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { fileUploadTheme } from './file-upload-theme'
+import { FileChangeDetails } from '@zag-js/file-upload'
 
 export interface FileUploadProps
   extends Omit<HTMLChakraProps<'div'>, 'children' | 'dir'>,
@@ -32,6 +33,10 @@ export interface FileUploadProps
     FileUploadOptions {
   children: MaybeRenderProp<FileUploadRenderContext>
   inputRef?: React.Ref<HTMLInputElement>
+  /**
+   * @deprecated use `onFileChange` instead
+   */
+  onFilesChange?: (details: FileChangeDetails) => void
 }
 
 export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
@@ -42,6 +47,7 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     size,
     variant,
     styleConfig,
+    onFilesChange,
     ...rest
   } = props
 
@@ -51,15 +57,14 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     'allowDrop',
     'dir',
     'isDisabled',
-    'files',
     'validate',
     'locale',
     'maxFileSize',
     'maxFiles',
     'minFileSize',
     'name',
-    'onFilesChange',
     'onFileAccept',
+    'onFileChange',
     'onFileReject',
     'getRootNode',
   ])
@@ -68,6 +73,7 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
 
   const context = useFileUpload({
     getRootNode: env.getDocument,
+    onFileChange: onFilesChange,
     ...options,
   })
 
@@ -78,17 +84,22 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
     colorScheme,
   })
 
-  const renderContext: FileUploadRenderContext = pick(context, [
-    'files',
-    'clearFiles',
-    'createFileUrl',
-    'deleteFile',
-    'getFileSize',
-    'isDragging',
-    'isFocused',
-    'open',
-    'setFiles',
-  ])
+  const renderContext: FileUploadRenderContext = {
+    ...pick(context, [
+      'acceptedFiles',
+      'rejectedFiles',
+      'clearFiles',
+      'createFileUrl',
+      'deleteFile',
+      'getFileSize',
+      'dragging',
+      'focused',
+      'openFilePicker',
+      'setFiles',
+    ]),
+    open: context.openFilePicker,
+    files: context.acceptedFiles,
+  }
 
   return (
     <FileUploadStylesProvider value={styles}>
@@ -96,10 +107,10 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
         <chakra.div
           ref={ref}
           {...containerProps}
-          {...context.rootProps}
+          {...context.getRootProps()}
           __css={styles.container}
         >
-          <input ref={inputRef} {...context.hiddenInputProps} />
+          <input ref={inputRef} {...context.getHiddenInputProps()} />
           {runIfFn(children, renderContext)}
         </chakra.div>
       </FileUploadProvider>
@@ -110,9 +121,11 @@ export const FileUpload = forwardRef<FileUploadProps, 'div'>((props, ref) => {
 export const FileUploadDropzone = forwardRef((props, ref) => {
   const { children, ...rest } = props
 
-  const { dropzoneProps } = useFileUploadContext()
+  const { getDropzoneProps } = useFileUploadContext()
 
   const styles = useFileUploadStyles()
+
+  const { onClick, ...dropzoneProps } = getDropzoneProps()
 
   return (
     <chakra.div ref={ref} {...rest} {...dropzoneProps} __css={styles.dropzone}>
@@ -125,7 +138,7 @@ export const FileUploadTrigger = forwardRef<ButtonProps, 'button'>(
   (props, ref) => {
     const { children, ...rest } = props
 
-    const { triggerProps } = useFileUploadContext()
+    const { getTriggerProps } = useFileUploadContext()
 
     const styles = useFileUploadStyles()
 
@@ -133,7 +146,7 @@ export const FileUploadTrigger = forwardRef<ButtonProps, 'button'>(
       <chakra.button
         ref={ref}
         {...rest}
-        {...triggerProps}
+        {...getTriggerProps()}
         __css={styles.button}
       >
         {children}

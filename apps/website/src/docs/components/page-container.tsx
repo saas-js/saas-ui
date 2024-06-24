@@ -114,7 +114,6 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <SecondaryNav />
       <BackgroundGradient animate={false} height="80px" opacity={0.2} />
       <Container
         as="main"
@@ -122,6 +121,7 @@ function PageContainer(props: PageContainerProps) {
         maxW="container.2xl"
         position="relative"
         zIndex="2"
+        px="4"
       >
         <Box display={{ md: 'flex' }}>
           <React.Suspense>{sidebar || null}</React.Suspense>

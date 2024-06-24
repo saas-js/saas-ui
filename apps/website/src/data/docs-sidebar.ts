@@ -40,7 +40,7 @@ const sidebar = {
         {
           title: 'Quickstarts',
           path: '/docs/core/quickstarts',
-          open: true,
+          open: false,
           routes: [
             {
               title: 'Overview',
@@ -75,7 +75,7 @@ const sidebar = {
         {
           title: 'Theming',
           path: '/docs/core/theming',
-          open: true,
+          open: false,
           routes: [
             {
               title: 'Saas UI Theme',

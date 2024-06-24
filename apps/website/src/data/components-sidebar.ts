@@ -35,7 +35,6 @@ const sidebar = {
         {
           title: 'Navbar',
           path: '/docs/components/layout/navbar',
-          new: true,
         },
         {
           title: 'Sidebar',
@@ -139,7 +138,7 @@ const sidebar = {
         {
           title: 'FileUpload',
           path: '/docs/components/forms/file-upload',
-          new: true,
+          beta: true,
         },
       ],
     },
@@ -202,7 +201,6 @@ const sidebar = {
         {
           title: 'IconBadge',
           path: '/docs/components/data-display/icon-badge',
-          new: true,
         },
         {
           title: 'Property',

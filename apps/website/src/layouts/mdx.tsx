@@ -22,9 +22,9 @@ export function getRoutes(slug: string) {
 
   const configMap = {
     '/docs/core': coreSidebar,
-    '/docs/guides': guidesSidebar,
-    '/docs/components': componentsSidebar,
+    '/docs/components': coreSidebar,
     '/docs/hooks': hooksSidebar,
+    '/docs/guides': guidesSidebar,
     '/docs/pro': proSidebar,
     '/changelog': { routes: [] },
     '/blog': { routes: [] },

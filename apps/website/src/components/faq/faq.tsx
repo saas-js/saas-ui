@@ -43,7 +43,7 @@ export const Faq = () => {
         />
         <FaqItem
           question="What does 'lifetime access' mean?"
-          answer="Saas UI Pro is a one-time purchase, with no recurring subscription. You will have access to all assets of the Saas UI library forever."
+          answer="The Saas UI Pro license is perpetual, you will have access to all assets of the Saas UI Pro library forever."
         />
         <FaqItem
           question="What does '1 year of updates' include?"

@@ -19,13 +19,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
   const isDisabled = !href
 
   let link = (
-    <NavItem
-      isActive={isActive}
-      // isDisabled={isDisabled}
-      variant="subtle"
-      mb="2"
-      {...rest}
-    >
+    <NavItem isActive={isActive} variant="subtle" {...rest}>
       {children}
     </NavItem>
   )

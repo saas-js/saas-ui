@@ -3,6 +3,11 @@ import NextLink from 'next/link'
 import * as React from 'react'
 import sortBy from 'lodash/sortBy'
 import {
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  Button,
   Badge,
   Box,
   chakra,
@@ -14,15 +19,26 @@ import {
   Flex,
   Center,
   Container,
+  Text,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
 import SidebarCategory from './sidebar-category'
 import SidebarLink from './sidebar-link'
 
-import { NavItem, SearchInput, useHotkeys, useCollapse } from '@saas-ui/react'
+import Link from 'next/link'
+
+import {
+  NavItem,
+  SearchInput,
+  useHotkeys,
+  useCollapse,
+  NavItemProps,
+} from '@saas-ui/react'
 
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { FiChevronDown } from 'react-icons/fi'
+import { LuCheck } from 'react-icons/lu'
 
 export type SidebarContentProps = Routes & {
   pathname?: string
@@ -33,25 +49,27 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
   const color = useColorModeValue('gray.900', 'whiteAlpha.900')
 
   return (
-    <chakra.div px="3" {...props}>
+    <chakra.div {...props}>
       <chakra.h4
         fontSize="sm"
-        fontWeight="bold"
-        mt="1rem"
-        mb="0.5rem"
-        letterSpacing="wider"
-        color={isActive ? color : 'muted'}
+        fontWeight="semibold"
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
         userSelect="none"
         cursor="pointer"
         className="sidebar-group-header"
-        _hover={{ color }}
+        py="2"
+        px="2"
+        borderRadius="md"
+        _hover={{ color, bg: 'blackAlpha.50' }}
+        _dark={{
+          _hover: {
+            bg: 'whiteAlpha.50',
+          },
+        }}
+        gap="2"
       >
-        <chakra.span flex="1" display="inline-flex" alignItems="center">
-          {children}
-        </chakra.span>
         <chakra.span
           color={useColorModeValue('gray.500', 'gray.500')}
           transition="color .2s ease-in"
@@ -65,6 +83,9 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
             transform={isOpen && 'rotate(90deg)'}
             transition="transform .2s ease-in"
           />
+        </chakra.span>
+        <chakra.span flex="1" display="inline-flex" alignItems="center">
+          {children}
         </chakra.span>
       </chakra.h4>
     </chakra.div>
@@ -122,7 +143,7 @@ function SidebarGroup({
               if (!lvl2.routes) {
                 return (
                   <SidebarLink
-                    mb="2px"
+                    ps="10"
                     key={lvl2.path || index}
                     href={lvl2.path}
                   >
@@ -292,7 +313,10 @@ export function SidebarContent(props: SidebarContentProps) {
 
   return (
     <Flex flexDirection="column" height="100%">
-      <Box flex="1" overflowY="auto" minH="0" py="4">
+      <Box py="4">
+        <SidebarSwitch />
+      </Box>
+      <Box flex="1" overflowY="auto" minH="0">
         {filteredRoutes.map((lvl1, idx) => {
           return (
             <SidebarGroup
@@ -325,16 +349,14 @@ const Sidebar = ({ routes }) => {
     <Box
       ref={ref}
       as="nav"
-      aria-label="Main Navigation"
+      aria-label="Main navigation"
       pos="sticky"
       overscrollBehavior="contain"
       w="280px"
-      top="100px"
+      top="60px"
       height="calc(100vh - 100px)"
-      pr="4"
-      pl="2"
-      pt="4"
       className="sidebar-content"
+      ms="-2"
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}
     >
@@ -350,5 +372,53 @@ export const isMainNavLinkActive = (href: string, path: string) => {
 
   return path.includes(
     href.split('/').length >= 3 ? `${group}/${category}` : group
+  )
+}
+
+function SidebarSwitch() {
+  const router = useRouter()
+
+  const items = [
+    {
+      label: 'Saas UI',
+      href: '/docs',
+    },
+    {
+      label: 'Saas UI Pro',
+      href: '/docs/pro',
+    },
+  ]
+
+  const activeItem = items
+    .concat()
+    .reverse()
+    .find((link) => router.asPath.match?.(link.href))
+
+  return (
+    <Menu>
+      <MenuButton
+        as={Button}
+        rightIcon={<Icon as={FiChevronDown} />}
+        variant="outline"
+        size="xs"
+        mb="2"
+        w="full"
+        textAlign="start"
+      >
+        {activeItem?.label}
+      </MenuButton>
+      <MenuList>
+        {items.map((item) => (
+          <Link key={item.href} href={item.href} legacyBehavior>
+            <MenuItem>
+              <Text as="span" flex="1">
+                {item.label}
+              </Text>{' '}
+              {activeItem?.href === item.href ? <LuCheck /> : null}
+            </MenuItem>
+          </Link>
+        ))}
+      </MenuList>
+    </Menu>
   )
 }

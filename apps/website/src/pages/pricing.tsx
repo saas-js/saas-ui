@@ -331,7 +331,7 @@ const Pricing = () => {
                 }
               />
               <PricingFeature title="Multiple themes" />
-              <PricingFeature title="Next.js and Electron boilerplates" />
+              <PricingFeature title="Next.js starterkit" />
               <PricingFeature title="Private discord community" />
               <PricingFeature title="1 year of updates" />
               <PricingFeature

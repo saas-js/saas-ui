@@ -1,5 +1,12 @@
 # @saas-ui/supabase
 
+## 2.1.5
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+  - @saas-ui/auth@3.1.9
+
 ## 2.1.4
 
 ### Patch Changes

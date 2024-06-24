@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.5.5
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+
 ## 2.5.4
 
 ### Patch Changes

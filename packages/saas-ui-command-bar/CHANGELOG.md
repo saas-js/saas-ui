@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.5.1
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+
 ## 0.5.0
 
 ### Minor Changes

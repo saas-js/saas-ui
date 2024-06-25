@@ -1,0 +1,72 @@
+---
+title: Environment variables
+description: How to configure environment variables in the Saas UI Pro Next.js starterkit.
+---
+
+The Saas UI Pro Next.js starterkit uses environment variables to configure the application. This allows you to separate configuration from your codebase and keep sensitive information secure.
+
+## Configuration
+
+We distuingish between shared and secret environment variables. Shared environment variables are shared between environments (dev/staging/prod) are stored in the `apps/web/.env`. They should not contain any secrets and can be checked into version control.
+
+Secret environment variables are stored in the `apps/web/.env.local` file and _NEVER_ be checked into version control.
+
+Public environment variables are prefixed with `NEXT_PUBLIC_` and are available to the client and server.
+
+## `.env` file
+
+The `.env` file contains shared environment variables and is checked into version control.
+
+```bash
+## Default plan id for new accounts
+DEFAULT_PLAN_ID=free@1
+
+## Email
+FROM_EMAIL="hello@saas-ui.dev"
+```
+
+## `.env.local` file
+
+The `.env.local` file contains secret environment variables and should _NEVER_ be checked into version control.
+
+You can copy the `.env.local.example` file to `.env.local` and fill in the values.
+
+```bash
+## Database
+DATABASE_URL=postgres://admin:admin@localhost:5432/dev
+
+## Supabase (default Auth provider)
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_KEY=
+
+## Resend (default email provider)
+RESEND_API_KEY=
+
+## Stripe (default payment provider)
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+```
+
+## Secrets
+
+Secrets should always be configured using your CI/CD provider. For example, GitHub Actions, Vercel, etc. Never store secrets in your repository.
+
+Below you'll find instructions on where to find secrets for all services used.
+
+### Supabase
+
+- `NEXT_PUBLIC_SUPABASE_URL`: Find this in your Supabase project settings.
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Find this in your Supabase project API settings.
+- `SUPABASE_SERVICE_KEY`: Find this in your Supabase project API settings.
+
+### Resend
+
+- `RESEND_API`: Find this in your Resend project settings.
+
+### Stripe
+
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: Find this in your Stripe dashboard.
+- `STRIPE_SECRET_KEY`: Find this in your Stripe dashboard.
+- `STRIPE_WEBHOOK_SECRET`: Find this in your Stripe webhook settings.

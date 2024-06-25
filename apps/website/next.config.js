@@ -19,73 +19,24 @@ let config = {
   async redirects() {
     return [
       {
-        source: '/docs/core/overview',
-        destination: '/docs',
+        source: '/docs/pro/project-structure',
+        destination: '/docs/pro/nextjs-starterkit/project-structure',
         permanent: true,
       },
       {
-        source: '/docs/introduction',
-        destination: '/docs',
+        source: '/docs/pro/installation/overview',
+        destination: '/docs/pro/nextjs-starterkit/installation',
         permanent: true,
       },
       {
-        source: '/docs/core/getting-started',
-        destination: '/docs/core/quickstarts',
+        source: '/docs/pro/installation/clone-repository',
+        destination:
+          '/docs/pro/nextjs-starterkit/installation/clone-repository',
         permanent: true,
       },
       {
-        source: '/docs/components/data-display/list',
-        destination: '/docs/components/data-display/structured-list',
-        permanent: true,
-      },
-      {
-        source: '/docs/components/auth/',
-        destination: '/docs/components/authentication',
-        permanent: true,
-      },
-      {
-        source: '/docs/components/auth/:path*',
-        destination: '/docs/components/authentication/:path*',
-        permanent: true,
-      },
-      {
-        source: '/docs/components/file-upload',
-        destination: '/docs/components/forms/file-upload',
-        permanent: true,
-      },
-      {
-        source: '/docs/components/file-upload/:path*',
-        destination: '/docs/components/forms/file-upload/:path*',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/npm',
-        destination: '/docs/pro/installation/private-npm/npm',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/yarn',
-        destination: '/docs/pro/installation/private-npm/yarn',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/pnpm',
-        destination: '/docs/pro/installation/private-npm/pnpm',
-        permanent: true,
-      },
-      {
-        source: '/docs/core/integrations/clerk',
-        destination: '/docs/guides/auth/clerk',
-        permanent: true,
-      },
-      {
-        source: '/docs/core/integrations/supabase',
-        destination: '/docs/guides/auth/supabase',
-        permanent: true,
-      },
-      {
-        source: '/docs/core/integrations/magic',
-        destination: '/docs/guides/auth/magic',
+        source: '/docs/pro/installation/run-application',
+        destination: '/docs/pro/nextjs-starterkit/installation/run-application',
         permanent: true,
       },
     ]
@@ -151,8 +102,4 @@ let config = {
   },
 }
 
-// if (process.env.NODE_ENV !== 'production') {
-config = withContentlayer(config)
-// }
-
-module.exports = withBundleAnalyzer(config)
+module.exports = withContentlayer(withBundleAnalyzer(config))

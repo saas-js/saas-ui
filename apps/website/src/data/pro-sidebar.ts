@@ -57,26 +57,50 @@ const sidebar = {
       heading: true,
       routes: [
         {
+          title: 'Overview',
+          path: '/docs/pro/nextjs-starterkit',
+        },
+        {
+          title: 'Tech stack',
+          path: '/docs/pro/nextjs-starterkit/tech-stack',
+        },
+        {
           title: 'Project structure',
-          path: '/docs/pro/project-structure',
+          path: '/docs/pro/nextjs-starterkit/project-structure',
+        },
+        {
+          title: 'CLI commands',
+          path: '/docs/pro/nextjs-starterkit/commands',
         },
         {
           title: 'Installation',
-          path: '/docs/pro/installation',
+          path: '/docs/pro/nextjs-starterkit/installation',
           open: true,
           heading: true,
           routes: [
             {
               title: 'Overview',
-              path: '/docs/pro/installation/overview',
+              path: '/docs/pro/nextjs-starterkit/installation',
             },
             {
               title: 'Clone the repository',
-              path: '/docs/pro/installation/clone-repository',
+              path: '/docs/pro/nextjs-starterkit/installation/clone-repository',
             },
             {
               title: 'Run the application',
-              path: '/docs/pro/installation/run-application',
+              path: '/docs/pro/nextjs-starterkit/installation/run-application',
+            },
+          ],
+        },
+        {
+          title: 'Configuration',
+          path: '/docs/pro/nextjs-starterkit/configuration',
+          heading: true,
+          open: true,
+          routes: [
+            {
+              title: 'Environment variables',
+              path: '/docs/pro/nextjs-starterkit/configuration/environment-variables',
             },
           ],
         },
@@ -133,13 +157,75 @@ const sidebar = {
           ],
         },
         {
+          title: 'API',
+          path: '/docs/pro/nextjs-starterkit/api',
+          heading: true,
+          open: true,
+          routes: [
+            {
+              title: 'Fetching data',
+            },
+            {
+              title: 'Endpoints',
+            },
+          ],
+        },
+        {
+          title: 'Development',
+          path: '/docs/pro/nextjs-starterkit/development',
+          heading: true,
+          open: true,
+          routes: [
+            {
+              title: 'Getting started',
+              path: '/docs/pro/nextjs-starterkit/development',
+            },
+          ],
+        },
+        {
+          title: 'Billing',
+          path: '/docs/pro/nextjs-starterkit/billing',
+          heading: true,
+          open: true,
+          routes: [
+            {
+              title: 'Overview',
+              path: '/docs/pro/nextjs-starterkit/billing',
+            },
+            {
+              title: 'Billing plans',
+              path: '/docs/pro/nextjs-starterkit/billing/plans',
+            },
+            {
+              title: 'Stripe',
+              path: '/docs/pro/nextjs-starterkit/billing/stripe',
+            },
+            {
+              title: 'Seat based billing',
+              path: '/docs/pro/nextjs-starterkit/billing/seat-based-billing',
+            },
+            {
+              title: 'Metered billing',
+              path: '/docs/pro/nextjs-starterkit/billing/metered-billing',
+            },
+          ],
+        },
+        {
           title: 'Deployments',
           path: '/docs/pro/deployments',
           heading: true,
           open: true,
           routes: [
             {
-              title: 'Vercel',
+              title: 'Production builds',
+              path: '/docs/pro/nextjs-starterkit/deployments/production-build',
+            },
+            {
+              title: 'Checklist',
+              path: '/docs/pro/nextjs-starterkit/deployments/checklist',
+            },
+            {
+              title: 'Deploy to Vercel',
               path: '/docs/pro/deployments/vercel',
             },
           ],

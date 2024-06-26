@@ -12,7 +12,7 @@ const sidebar = {
     },
     {
       title: 'Project structure',
-      path: '/docs/nextjs-starterkitject-structure',
+      path: '/docs/nextjs-starterkit/project-structure',
     },
     {
       title: 'CLI commands',

@@ -387,6 +387,10 @@ function SidebarSwitch() {
       label: 'Saas UI Pro',
       href: '/docs/pro',
     },
+    {
+      label: 'Next.js Starterkit',
+      href: '/docs/nextjs-starterkit',
+    },
   ]
 
   const activeItem = items

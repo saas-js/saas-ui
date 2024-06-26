@@ -257,9 +257,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  $99,-
+                  $97,-
                 </Text>
-                <Text>49,-</Text>
+                <Text>47,-</Text>
               </HStack>
             }
           >
@@ -303,9 +303,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €249,-
+                  €297,-
                 </Text>
-                <Text>€199,-</Text>
+                <Text>€247,-</Text>
               </HStack>
             }
             description="Complete frontend stack for bootstrappers and small teams."
@@ -319,6 +319,7 @@ const Pricing = () => {
                 title={<>Unlimited projects*</>}
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
+              <PricingFeature title="Next.js starterkit" />
               <PricingFeature title="Advanced components" />
               <PricingFeature
                 title={
@@ -331,7 +332,6 @@ const Pricing = () => {
                 }
               />
               <PricingFeature title="Multiple themes" />
-              <PricingFeature title="Next.js starterkit" />
               <PricingFeature title="Private discord community" />
               <PricingFeature title="1 year of updates" />
               <PricingFeature
@@ -364,9 +364,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €999,-
+                  €997,-
                 </Text>
-                <Text>€799,-</Text>
+                <Text>€797,-</Text>
               </HStack>
             }
             description="Unlimited license for growing teams or agencies."
@@ -374,7 +374,7 @@ const Pricing = () => {
             <PricingFeatures>
               <PricingFeature
                 title="Up to 20 developers"
-                help="A developer can be either an employee or a contracted freelancer."
+                help="Need more developers? Get in touch for a custom offer."
               />
               <PricingFeature
                 title="Unlimited projects"
@@ -544,15 +544,15 @@ const MemberShip = () => {
           <Text>Membership</Text>
         </HStack>
       }
-      description="Limited access membership for teams that want to get moving fast."
+      description="Our experts join your team to help you move faster. "
       price={
         <Stack spacing="0">
           <Text fontSize="sm" color="gray.400" fontWeight="medium">
             Starting at
           </Text>
           <HStack>
-            <Text>€2499,-</Text>
-            <Text fontSize="sm" color="gray.400">
+            <Text>€4750,-</Text>
+            <Text fontSize="sm" color="gray.400" fontWeight="medium">
               / month
             </Text>
           </HStack>

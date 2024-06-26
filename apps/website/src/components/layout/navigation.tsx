@@ -162,16 +162,8 @@ const Header = () => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
-                  icon={<LuPackage size="1.2em" />}
-                  href="/docs/pro/installation/private-npm/overview"
-                  borderRadius="md"
-                >
-                  Packages
-                </MenuItem>
-                <MenuItem
-                  as={Link}
                   icon={<NextjsIcon boxSize="1.2em" />}
-                  href="/docs/pro/project-structure"
+                  href="/docs/nextjs-starterkit"
                   borderRadius="md"
                 >
                   Next.js starterkit

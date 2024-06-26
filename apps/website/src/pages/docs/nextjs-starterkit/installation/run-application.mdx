@@ -6,7 +6,12 @@ description: How to run the application locally.
 Once you have cloned the repository and installed the dependencies, you can run the application with the following commands:
 
 ```bash
-# Run the local database and push the schema
+cp apps/web/.env.local.example apps/web/.env.local
+```
+
+Then run the following command to start the local database and push the schema:
+
+```bash
 docker-compose up && yarn db:push
 ```
 

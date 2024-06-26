@@ -109,10 +109,19 @@ const sidebar = {
       open: true,
       routes: [
         {
+          title: 'Overview',
+        },
+        {
           title: 'Fetching data',
         },
         {
-          title: 'Endpoints',
+          title: 'Built-in endpoints',
+        },
+        {
+          title: 'API routes',
+        },
+        {
+          title: 'Database schema',
         },
       ],
     },
@@ -125,6 +134,23 @@ const sidebar = {
         {
           title: 'Getting started',
           path: '/docs/nextjs-starterkit/development',
+        },
+        {
+          title: 'Adding new pages',
+          // path: '/docs/nextjs-starterkit/development/add-new-pages',
+        },
+        {
+          title: 'Adding new features',
+          // path: '/docs/nextjs-starterkit/development/add-new-features',
+        },
+        {
+          title: 'Integrate with external services',
+        },
+        {
+          title: 'Forms and validation',
+        },
+        {
+          title: 'Error handling',
         },
       ],
     },
@@ -158,13 +184,13 @@ const sidebar = {
     },
     {
       title: 'Deployments',
-      path: '/docs/deployments',
+      path: '/docs/nextjs-starterkit/deployments',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Production builds',
-          path: '/docs/nextjs-starterkit/deploymentsduction-build',
+          path: '/docs/nextjs-starterkit/deployments/production-build',
         },
         {
           title: 'Checklist',
@@ -172,7 +198,35 @@ const sidebar = {
         },
         {
           title: 'Deploy to Vercel',
-          path: '/docs/deployments/vercel',
+          path: '/docs/nextjs-starterkit/deployments/vercel',
+        },
+      ],
+    },
+    {
+      title: 'Troubleshooting',
+      path: '/docs/nextjs-starterkit/troubleshooting',
+      heading: true,
+      open: true,
+      routes: [
+        {
+          title: 'Common issues',
+        },
+        {
+          title: 'Community support',
+        },
+      ],
+    },
+    {
+      title: 'Contributing',
+      path: '/docs/nextjs-starterkit/contributing',
+      heading: true,
+      open: true,
+      routes: [
+        {
+          title: 'Report bugs or feature requests',
+        },
+        {
+          title: 'Contribute to the project',
         },
       ],
     },

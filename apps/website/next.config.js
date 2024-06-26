@@ -43,6 +43,16 @@ let config = {
         destination: '/docs/nextjs-starterkit/authentication/:path*',
         permanent: true,
       },
+      {
+        source: '/docs/pro/deployments/:path*',
+        destination: '/docs/nextjs-starterkit/deployments/:path*',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/theming/:path*',
+        destination: '/docs/nextjs-starterkit/theming/:path*',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { defaultLoaders }) => {

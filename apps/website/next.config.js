@@ -20,23 +20,27 @@ let config = {
     return [
       {
         source: '/docs/pro/project-structure',
-        destination: '/docs/pro/nextjs-starterkit/project-structure',
+        destination: '/docs/nextjs-starterkit/project-structure',
         permanent: true,
       },
       {
         source: '/docs/pro/installation/overview',
-        destination: '/docs/pro/nextjs-starterkit/installation',
+        destination: '/docs/nextjs-starterkit/installation',
         permanent: true,
       },
       {
         source: '/docs/pro/installation/clone-repository',
-        destination:
-          '/docs/pro/nextjs-starterkit/installation/clone-repository',
+        destination: '/docs/nextjs-starterkit/installation/clone-repository',
         permanent: true,
       },
       {
         source: '/docs/pro/installation/run-application',
-        destination: '/docs/pro/nextjs-starterkit/installation/run-application',
+        destination: '/docs/nextjs-starterkit/installation/run-application',
+        permanent: true,
+      },
+      {
+        source: '/docs/pro/authentication/:path*',
+        destination: '/docs/nextjs-starterkit/authentication/:path*',
         permanent: true,
       },
     ]

@@ -52,33 +52,33 @@ const sidebar = {
     },
     {
       title: 'Authentication',
-      path: '/docs/authentication',
+      path: '/docs/nextjs-starterkit/authentication',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/authentication',
+          path: '/docs/nextjs-starterkit/authentication',
         },
         {
           title: 'Supabase',
-          path: '/docs/authentication/supabase',
+          path: '/docs/nextjs-starterkit/authentication/supabase',
         },
         {
           title: 'Clerk',
-          path: '/docs/authentication/clerk',
+          path: '/docs/nextjs-starterkit/authentication/clerk',
         },
         {
           title: 'Magic',
-          path: '/docs/authentication/magic',
+          path: '/docs/nextjs-starterkit/authentication/magic',
         },
         {
           title: 'Auth.js (NextAuth)',
-          path: '/docs/authentication/authjs',
+          path: '/docs/nextjs-starterkit/authentication/authjs',
         },
         {
           title: 'Customize auth screens',
-          path: '/docs/authentication/customize-auth-screens',
+          path: '/docs/nextjs-starterkit/authentication/customize-auth-screens',
         },
       ],
     },

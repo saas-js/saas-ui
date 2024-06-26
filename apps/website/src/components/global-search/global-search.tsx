@@ -21,7 +21,7 @@ import { Fragment } from 'react'
 const items = [
   {
     title: 'Getting started',
-    items: coreSidebar.routes,
+    items: coreSidebar.routes.filter((item) => !item.header),
   },
   {
     title: 'Components',
@@ -58,8 +58,8 @@ export const GlobalSearch = (props) => {
             {items.map(({ title, items }) => {
               return (
                 <CommandBarGroup key={title} heading={title}>
-                  {items.map(
-                    ({
+                  {items.map((item: any) => {
+                    const {
                       icon,
                       title,
                       heading,
@@ -67,63 +67,70 @@ export const GlobalSearch = (props) => {
                       action,
                       shortcut,
                       routes,
-                    }: any) => {
-                      return (
-                        <Fragment key={path + title}>
-                          <CommandBarItem
-                            value={path}
-                            isDisabled={heading}
-                            _disabled={{
+                    } = item
+
+                    return (
+                      <Fragment key={path + title}>
+                        <CommandBarItem
+                          value={path}
+                          isDisabled={heading && !routes?.length}
+                          borderRadius="md"
+                          onSelect={(e) => {
+                            if (heading) {
+                              return
+                            } else if (path) {
+                              router.push(path)
+                            } else if (action) {
+                              action()
+                            }
+                            onClose()
+                          }}
+                          sx={{
+                            '&[data-disabled=true]': {
                               color: 'muted',
                               fontWeight: 'semibold',
                               bg: 'transparent',
-                            }}
-                            borderRadius="md"
-                            onSelect={(e) => {
-                              if (heading) {
-                                return
-                              } else if (path) {
-                                router.push(path)
-                              } else if (action) {
-                                action()
-                              }
-                              onClose()
-                            }}
-                          >
-                            {icon}
-                            {title}
-                            {shortcut && (
-                              <Box ms="auto">
-                                {shortcut.map((key) => {
-                                  return <Kbd key={key}>{key}</Kbd>
-                                })}
-                              </Box>
-                            )}
-                          </CommandBarItem>
+                            },
+                          }}
+                        >
+                          {icon}
+                          {title}
+                          {shortcut && (
+                            <Box ms="auto">
+                              {shortcut.map((key) => {
+                                return <Kbd key={key}>{key}</Kbd>
+                              })}
+                            </Box>
+                          )}
+                        </CommandBarItem>
 
-                          {routes?.map(({ title, path, action }: any, i) => {
-                            return (
-                              <CommandBarItem
-                                key={i}
-                                value={path}
-                                borderRadius="md"
-                                onSelect={() => {
-                                  if (path) {
-                                    router.push(path)
-                                  } else if (action) {
-                                    action()
-                                  }
-                                  onClose()
-                                }}
-                              >
-                                {title}
-                              </CommandBarItem>
-                            )
-                          })}
-                        </Fragment>
-                      )
-                    }
-                  )}
+                        {routes?.map(({ title, path, action }: any, i) => {
+                          console.log(path, item.path)
+                          if (path === item.path) {
+                            return null
+                          }
+
+                          return (
+                            <CommandBarItem
+                              key={i}
+                              value={path}
+                              borderRadius="md"
+                              onSelect={() => {
+                                if (path) {
+                                  router.push(path)
+                                } else if (action) {
+                                  action()
+                                }
+                                onClose()
+                              }}
+                            >
+                              {title}
+                            </CommandBarItem>
+                          )
+                        })}
+                      </Fragment>
+                    )
+                  })}
                 </CommandBarGroup>
               )
             })}

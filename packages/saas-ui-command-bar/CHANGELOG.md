@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.5.2
+
+### Patch Changes
+
+- 68d5712: Fixed selected style selector
+
 ## 0.5.1
 
 ### Patch Changes

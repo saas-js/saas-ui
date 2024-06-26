@@ -65,7 +65,7 @@ const baseStyle = definePartsStyle({
     userSelect: 'none',
     transition: 'common',
     transitionDuration: 'normal',
-    _selected: {
+    '&[data-selected=true]': {
       bg: 'gray.100',
       _dark: {
         bg: 'whiteAlpha.100',

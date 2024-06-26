@@ -16,7 +16,7 @@ const sidebar = {
     },
     {
       title: 'Installation',
-      path: '/docs/pro/installation',
+      path: '/docs/pro/installation/private-npm/overview',
       open: true,
       heading: true,
       routes: [

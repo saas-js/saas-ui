@@ -14,7 +14,6 @@ const sidebar = {
       title: 'Design principles',
       path: '/docs/core/principles',
     },
-
     {
       title: 'Quickstarts',
       path: '/docs/core/installation',

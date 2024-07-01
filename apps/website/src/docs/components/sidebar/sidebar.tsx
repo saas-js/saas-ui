@@ -59,7 +59,7 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
         userSelect="none"
         cursor="pointer"
         className="sidebar-group-header"
-        py="2"
+        height="8"
         px="2"
         borderRadius="md"
         _hover={{ color, bg: 'blackAlpha.50' }}

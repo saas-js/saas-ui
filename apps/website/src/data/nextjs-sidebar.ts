@@ -69,10 +69,6 @@ const sidebar = {
           path: '/docs/nextjs-starterkit/authentication/clerk',
         },
         {
-          title: 'Magic',
-          path: '/docs/nextjs-starterkit/authentication/magic',
-        },
-        {
           title: 'Auth.js (NextAuth)',
           path: '/docs/nextjs-starterkit/authentication/authjs',
         },
@@ -90,15 +86,15 @@ const sidebar = {
       routes: [
         {
           title: 'Configuration',
-          path: '/docs/theming/configuration',
+          path: '/docs/nextjs-starterkit/theming/configuration',
         },
         {
           title: 'Color schemes',
-          path: '/docs/theming/color-schemes',
+          path: '/docs/nextjs-starterkit/theming/color-schemes',
         },
         {
           title: 'Fonts',
-          path: '/docs/theming/fonts',
+          path: '/docs/nextjs-starterkit/theming/fonts',
         },
       ],
     },

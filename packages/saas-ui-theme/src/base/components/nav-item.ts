@@ -64,7 +64,7 @@ const variantNeutral = definePartsStyle((props) => {
   const _active = {
     bg: 'blackAlpha.200',
     _dark: {
-      bg: `whiteAlpha.300`,
+      bg: `whiteAlpha.200`,
     },
   }
   return {
@@ -72,7 +72,7 @@ const variantNeutral = definePartsStyle((props) => {
       _hover: {
         bg: 'blackAlpha.100',
         _dark: {
-          bg: `whiteAlpha.200`,
+          bg: `whiteAlpha.100`,
         },
       },
       _active,

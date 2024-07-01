@@ -41,7 +41,6 @@ export const QuickLink = (props) => {
         _hover={{
           textDecoration: 'none',
         }}
-        sx={{ '.chakra-card:hover &': { color: 'secondary.400' } }}
       >
         {label}
       </Button>

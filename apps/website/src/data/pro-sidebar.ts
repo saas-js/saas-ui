@@ -50,6 +50,18 @@ const sidebar = {
         },
       ],
     },
+    {
+      title: 'Theming',
+      path: '/docs/pro/theming',
+      heading: true,
+      open: true,
+      routes: [
+        {
+          title: 'Configuration',
+          path: '/docs/pro/theming/configuration',
+        },
+      ],
+    },
   ] as RouteItem[],
 }
 

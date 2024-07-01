@@ -5,6 +5,8 @@ description: How to find your way in the project.
 
 Saas UI Pro is setup as a monorepo which is managed by Yarn v3 and Turbo Repo.
 
+## Folder structure
+
 The folder structure looks as following:
 
 | Path                       | Package name         | Description                                                                          |
@@ -24,7 +26,7 @@ The folder structure looks as following:
 | `packages/ui-lib`          | @ui/lib              | This is your shared UI library, and included all custom pre-built components         |
 | `packages/ui-theme`        | @ui/theme            | Your custom Chakra UI theme. This extends the Saas UI Pro theme by default.          |
 
-### Features
+## Features
 
 Application code is grouped by feature, this means that all related assets, like components, hook, pages are grouped in a single feature folder. This setup will help to keep the code base maintainable as it grows. It will make it easier to add/remove new features and prevent any unwanted side effects when refactoring or removing functionality, due to too much interdependencies.
 

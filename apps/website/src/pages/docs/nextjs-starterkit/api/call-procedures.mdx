@@ -52,7 +52,17 @@ export default function ProfilePage() {
     },
   })
 
-  return <button onClick={}>Save</button>
+  return (
+    <button
+      onClick={() => {
+        mutation.mutate({
+          name: 'John Doe',
+        })
+      }}
+    >
+      Save
+    </button>
+  )
 }
 ```
 

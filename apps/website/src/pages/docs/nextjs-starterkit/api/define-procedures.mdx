@@ -1,0 +1,31 @@
+---
+title: Define procedures
+description: Learn how to extend your API by defining procedures.
+---
+
+A procedure is a function that is exposed to the client, it can be one of:
+
+- a `Query` - used to fetch data.
+- a `Mutation` - used to modify data.
+- a `Subscription` - used to listen to data changes.
+
+## Base procedures
+
+Reusable base procedures is a pattern that allows you to define a set of procedures that can be reused across multiple services.
+
+The starterkit ships with a set of base procedures that you can use to get started.
+
+- `publicProcedure` - a procedure that is available to all clients.
+- `protectedProcedure` - a procedure that is available to authenticated clients.
+- `workspaceProcedure` - a procedure that is available to clients that are part of a workspace.
+- `adminProcedure` - a procedure that is available to clients that are an admin of a workspace.
+
+## Define a Query
+
+A query is used to fetch data from the server.
+
+```ts
+import { z } from 'zod'
+
+import { publicProcedure } from '#trpc'
+```

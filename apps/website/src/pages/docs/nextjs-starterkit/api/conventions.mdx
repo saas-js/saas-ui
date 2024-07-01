@@ -1,0 +1,80 @@
+---
+title: Conventions
+description: Learn about the conventions used in the API.
+---
+
+## Overview
+
+The API lives in the `packages/api` folder and is split into multiple modules.
+A module consists of a service, a set of procedures, schemas and DTO types.
+
+- **Service**: A service defines the business logic for a specific domain.
+- **Procedure**: Exposes a service to the client and can be a query, mutation, or subscription.
+- **Schema**: A Zod schema that defines the shape of the input and output of a procedure.
+- **DTO**: Data Transfer Object, a type that is shared between the client and the server.
+
+## Example module
+
+### Service
+
+We define a service for the `users` module that contains the business logic for managing users.
+
+Defining the business logic in a service allows us to keep the API layer thin and focused on handling requests and responses.
+
+```ts
+// packages/api/modules/users/users.service.ts
+import { eq } from 'drizzle-orm'
+import { z } from 'zod'
+
+import { db, users } from '@acme/db'
+
+import { UpdateUserSchema } from './users.schema'
+
+export const updateUserById = async (
+  input: z.infer<typeof UpdateUserSchema>
+) => {
+  const { id, ...$set } = input
+  const result = await db
+    .update(users)
+    .set($set)
+    .where(eq(users.id, id))
+    .returning({
+      id: users.id,
+    })
+
+  return result[0]
+}
+```
+
+### Router
+
+We define a router for the `users` module that exposes the `updateProfile` procedure to the client.
+
+```ts
+// packages/api/modules/users/users.router.ts
+import { z } from 'zod'
+
+import { createTRPCRouter, protectedProcedure, TRPCError } from '#trpc'
+
+import { UpdateUserSchema } from './users.schema.ts'
+import { updateUserById } from './users.service'
+
+export const usersRouter = createTRPCRouter({
+  updateProfile: protectedProcedure
+    .input(UpdateUserSchema.pick({ name: true, email: true, avatar: true }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        await updateUserById({
+          id: ctx.session.user.id,
+          ...input,
+        })
+      } catch (error: unknown) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to update profile',
+          cause: error,
+        })
+      }
+    }),
+})
+```

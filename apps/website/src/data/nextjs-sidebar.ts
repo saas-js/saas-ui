@@ -106,18 +106,58 @@ const sidebar = {
       routes: [
         {
           title: 'Overview',
+          path: '/docs/nextjs-starterkit/api',
+        },
+        {
+          title: 'Conventions',
+          path: '/docs/nextjs-starterkit/api/conventions',
+        },
+        {
+          title: 'Define procedures',
+          path: '/docs/nextjs-starterkit/api/define-procedures',
+        },
+        {
+          title: 'Router context',
+          path: '/docs/nextjs-starterkit/api/router-context',
         },
         {
           title: 'Fetching data',
+          path: '/docs/nextjs-starterkit/api/fetching-data',
+        },
+      ],
+    },
+    {
+      title: 'API procedures',
+      path: '/docs/nextjs-starterkit/api-procedures',
+      heading: true,
+      open: true,
+      routes: [
+        {
+          title: 'Auth',
         },
         {
-          title: 'Built-in endpoints',
+          title: 'Billing',
         },
         {
-          title: 'API routes',
+          title: 'Users',
         },
         {
-          title: 'Database schema',
+          title: 'Workspace members',
+        },
+        {
+          title: 'Workspaces',
+        },
+        {
+          title: 'Activity logs',
+        },
+        {
+          title: 'Notifications',
+        },
+        {
+          title: 'Tags',
+        },
+        {
+          title: 'Contacts',
         },
       ],
     },
@@ -133,20 +173,20 @@ const sidebar = {
         },
         {
           title: 'Adding new pages',
-          // path: '/docs/nextjs-starterkit/development/add-new-pages',
+          path: '/docs/nextjs-starterkit/development/add-new-pages',
         },
         {
           title: 'Adding new features',
-          // path: '/docs/nextjs-starterkit/development/add-new-features',
-        },
-        {
-          title: 'Integrate with external services',
+          path: '/docs/nextjs-starterkit/development/add-new-features',
         },
         {
           title: 'Forms and validation',
         },
         {
           title: 'Error handling',
+        },
+        {
+          title: 'Database schema',
         },
       ],
     },

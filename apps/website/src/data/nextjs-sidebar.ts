@@ -121,8 +121,8 @@ const sidebar = {
           path: '/docs/nextjs-starterkit/api/router-context',
         },
         {
-          title: 'Fetching data',
-          path: '/docs/nextjs-starterkit/api/fetching-data',
+          title: 'Call procedures',
+          path: '/docs/nextjs-starterkit/api/call-procedures',
         },
       ],
     },

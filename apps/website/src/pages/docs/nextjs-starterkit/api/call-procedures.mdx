@@ -1,0 +1,87 @@
+---
+title: Call procedures
+description: Learn how to call queries and mutations in your app.
+---
+
+## Overview
+
+There are two ways to call procedures. In client components we use the `useQuery` and `useMutation` hooks to call the procedures.
+On the server we use the `trpc` api caller to call the procedures directly.
+
+## Client
+
+The client uses [Tanstack Query](https://tanstack.com/query/latest) to manage data fetching and caching.
+
+### useQuery
+
+```tsx
+'use client'
+
+import { api } from '#lib/trpc/react'
+
+export default function ContactsPage(props: {
+  params: {
+    type: 'customer' | 'lead'
+  }
+}) {
+  const { data, isLoading } = api.contacts.listByType.useQuery({
+    workspaceId: workspace.id,
+    type,
+  })
+
+  // render the page
+}
+```
+
+### useMutation
+
+```tsx
+'use client'
+
+import { api } from '#lib/trpc/react'
+
+export default function ProfilePage() {
+  const { user } = useAuth()
+
+  const utils = api.useUtils()
+
+  const mutation = api.users.updateProfile.useMutation({
+    onSettled: () => {
+      // Invalidate the user cache, so the updated user is refetched
+      utils.users.invalidate()
+    },
+  })
+
+  return <button onClick={}>Save</button>
+}
+```
+
+## Server
+
+### Query
+
+```ts
+// app/[slug]/layout.tsx
+import { api } from '#lib/trpc/rsc'
+
+export default Layout(props: {
+  children: React.ReactNode
+  params: {
+    slug: string
+  }
+}) {
+  const workspace = await api.workspaces.bySlug({
+    slug: props.params.slug,
+  })
+
+  if (!workspace) {
+    notFound()
+  }
+
+  return (
+    <div>
+      {props.children}
+    </div>
+  )
+}
+```

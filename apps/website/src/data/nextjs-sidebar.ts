@@ -130,7 +130,7 @@ const sidebar = {
       title: 'API procedures',
       path: '/docs/nextjs-starterkit/api-procedures',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Auth',

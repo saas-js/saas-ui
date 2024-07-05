@@ -89,9 +89,11 @@ const mdx = {
     py: '2px',
     whiteSpace: 'nowrap',
     lineHeight: 'normal',
+    borderWidth: '1px',
+    borderRadius: 'md',
     color: 'primary.200',
     _dark: {
-      color: 'primary.300',
+      color: 'primary.200',
     },
   },
 }

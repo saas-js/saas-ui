@@ -182,11 +182,15 @@ const sidebar = {
         },
         {
           title: 'Schema',
-          path: '/docs/nextjs-starterkit/database/models',
+          path: '/docs/nextjs-starterkit/database/schema',
         },
         {
           title: 'Seed data',
           path: '/docs/nextjs-starterkit/database/seed-data',
+        },
+        {
+          title: 'Drizzle Studio',
+          path: '/docs/nextjs-starterkit/database/studio',
         },
       ],
     },

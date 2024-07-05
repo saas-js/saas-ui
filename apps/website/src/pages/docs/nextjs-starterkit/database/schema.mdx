@@ -56,15 +56,20 @@ const schema = {
 
 That's it, now we can update the database and query the new table.
 
+### Migrating changes
+
 For testing purposes you can run `yarn db:push` to push the changes to your local database.
-Use `yarn db:migrate` to create a new migration. [Learn more about migrations](/docs/nextjs-starterkit/database/migrations).
+
+Use `yarn db:migrate` to create a new migration.
+
+[Learn more about migrations](/docs/nextjs-starterkit/database/migrations).
 
 ## Conventions
 
 - Schema file extensions are prefixed with `.sql`, eg `todos.sql.ts`.
   Drizzle Kit will automatically stitch these files together in a single schema.
 
-- ID's use [Cuid2](https://github.com/paralleldrive/cuid2), which are secure, collision-resistant ids optimized for horizontal scaling and performance.
+- ID's use [Cuid2](https://github.com/paralleldrive/cuid2). Cuid2 ID's are secure, collision-resistant ids optimized for horizontal scaling and performance.
 
 - Table names are plural, eg `todos`, `workspaces`, etc.
 

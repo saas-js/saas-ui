@@ -134,30 +134,59 @@ const sidebar = {
       routes: [
         {
           title: 'Auth',
+          path: '/docs/nextjs-starterkit/api-procedures/auth',
         },
         {
           title: 'Billing',
+          path: '/docs/nextjs-starterkit/api-procedures/billing',
         },
         {
           title: 'Users',
+          path: '/docs/nextjs-starterkit/api-procedures/users',
         },
         {
           title: 'Workspace members',
+          path: '/docs/nextjs-starterkit/api-procedures/workspace-members',
         },
         {
           title: 'Workspaces',
-        },
-        {
-          title: 'Activity logs',
+          path: '/docs/nextjs-starterkit/api-procedures/workspaces',
         },
         {
           title: 'Notifications',
+          path: '/docs/nextjs-starterkit/api-procedures/notifications',
         },
         {
           title: 'Tags',
+          path: '/docs/nextjs-starterkit/api-procedures/tags',
         },
         {
           title: 'Contacts',
+          path: '/docs/nextjs-starterkit/api-procedures/contacts',
+        },
+      ],
+    },
+    {
+      title: 'Database',
+      path: '/docs/nextjs-starterkit/database',
+      heading: true,
+      open: true,
+      routes: [
+        {
+          title: 'Overview',
+          path: '/docs/nextjs-starterkit/database',
+        },
+        {
+          title: 'Migrations',
+          path: '/docs/nextjs-starterkit/database/migrations',
+        },
+        {
+          title: 'Schema',
+          path: '/docs/nextjs-starterkit/database/models',
+        },
+        {
+          title: 'Seed data',
+          path: '/docs/nextjs-starterkit/database/seed-data',
         },
       ],
     },
@@ -184,9 +213,6 @@ const sidebar = {
         },
         {
           title: 'Error handling',
-        },
-        {
-          title: 'Database schema',
         },
       ],
     },

@@ -337,13 +337,13 @@ const Sidebar = ({ routes }) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const [isInitial, setInitial] = React.useState(true)
 
-  React.useEffect(() => {
-    if (ref.current && isReady && isInitial) {
-      const el = ref.current.querySelector(`a[href="${asPath}"]`)
-      el?.scrollIntoView({ behavior: 'auto' })
-      setInitial(false)
-    }
-  }, [asPath, isReady, isInitial])
+  // React.useEffect(() => {
+  //   if (ref.current && isReady && isInitial) {
+  //     const el = ref.current.querySelector(`a[href="${asPath}"]`)
+  //     el?.scrollIntoView({ behavior: 'auto' })
+  //     setInitial(false)
+  //   }
+  // }, [asPath, isReady, isInitial])
 
   return (
     <Box

@@ -137,14 +137,9 @@ export interface EmptyStateTitleProps extends HTMLChakraProps<'h3'> {}
 export const EmptyStateTitle: React.FC<EmptyStateTitleProps> = (props) => {
   const styles = useStyles()
 
-  const titleStyles = {
-    mb: 1,
-    ...styles.title,
-  }
-
   return (
     <chakra.h3
-      __css={titleStyles}
+      __css={styles.title}
       {...props}
       className={cx('sui-empty-state__title', props.className)}
     />
@@ -156,15 +151,9 @@ EmptyStateTitle.displayName = 'EmptyStateTitle'
 export const EmptyStateDescription: React.FC<TextProps> = (props) => {
   const styles = useStyles()
 
-  const descriptionStyles: SystemStyleObject = {
-    color: 'muted',
-    fontSize: 'md',
-    ...styles.description,
-  }
-
   return (
     <chakra.p
-      __css={descriptionStyles}
+      __css={styles.description}
       {...props}
       className={cx('sui-empty-state__description', props.className)}
     />

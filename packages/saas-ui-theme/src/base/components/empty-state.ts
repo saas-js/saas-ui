@@ -9,16 +9,14 @@ const baseStyle = definePartsStyle((props) => {
   const { colorScheme: c } = props
   return {
     icon: {
-      boxSize: [10, null, 12],
       color: `${c}.500`,
       _dark: {
         color: `${c}.200`,
       },
     },
     title: {
-      mt: 8,
-      fontWeight: 'bold',
-      fontSize: 'xl',
+      mb: 1,
+      fontWeight: 'semibold',
     },
     actions: {
       mt: 8,
@@ -41,5 +39,31 @@ export const emptyStateTheme = defineMultiStyleConfig({
   baseStyle,
   variants: {
     centered: variantCentered,
+  },
+  sizes: {
+    sm: {
+      icon: {
+        fontSize: '2xl',
+      },
+      title: {
+        mt: 4,
+        fontSize: 'sm',
+      },
+      description: {
+        fontSize: 'sm',
+      },
+    },
+    md: {
+      icon: {
+        fontSize: '3xl',
+      },
+      title: {
+        mt: 8,
+        fontSize: 'md',
+      },
+      description: {
+        fontSize: 'md',
+      },
+    },
   },
 })

@@ -20,37 +20,37 @@ let config = {
     return [
       {
         source: '/docs/pro/project-structure',
-        destination: '/docs/nextjs-starterkit/project-structure',
+        destination: '/docs/nextjs-starter-kit/project-structure',
         permanent: true,
       },
       {
         source: '/docs/pro/installation/overview',
-        destination: '/docs/nextjs-starterkit/installation',
+        destination: '/docs/nextjs-starter-kit/installation',
         permanent: true,
       },
       {
         source: '/docs/pro/installation/clone-repository',
-        destination: '/docs/nextjs-starterkit/installation/clone-repository',
+        destination: '/docs/nextjs-starter-kit/installation/clone-repository',
         permanent: true,
       },
       {
         source: '/docs/pro/installation/run-application',
-        destination: '/docs/nextjs-starterkit/installation/run-application',
+        destination: '/docs/nextjs-starter-kit/installation/run-application',
         permanent: true,
       },
       {
         source: '/docs/pro/authentication/:path*',
-        destination: '/docs/nextjs-starterkit/authentication/:path*',
+        destination: '/docs/nextjs-starter-kit/authentication/:path*',
         permanent: true,
       },
       {
         source: '/docs/pro/deployments/:path*',
-        destination: '/docs/nextjs-starterkit/deployments/:path*',
+        destination: '/docs/nextjs-starter-kit/deployments/:path*',
         permanent: true,
       },
       {
         source: '/docs/pro/theming/:path*',
-        destination: '/docs/nextjs-starterkit/theming/:path*',
+        destination: '/docs/nextjs-starter-kit/theming/:path*',
         permanent: true,
       },
     ]

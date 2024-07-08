@@ -319,7 +319,7 @@ const Pricing = () => {
                 title={<>Unlimited projects*</>}
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
-              <PricingFeature title="Next.js starterkit" />
+              <PricingFeature title="Next.js starter kit" />
               <PricingFeature title="Advanced components" />
               <PricingFeature
                 title={

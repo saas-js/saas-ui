@@ -4,8 +4,6 @@ import {
   Box,
   Button,
   HStack,
-  Heading,
-  Icon,
   IconButton,
   Kbd,
   Menu,
@@ -15,13 +13,11 @@ import {
   MenuItem,
   MenuList,
   SimpleGrid,
-  Spacer,
   Text,
   Tooltip,
   useBreakpointValue,
 } from '@chakra-ui/react'
-import { FaDiscord, FaGithub } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaGithub } from 'react-icons/fa'
 
 import { useRouter } from 'next/router'
 
@@ -45,11 +41,8 @@ import {
   LuFileCode,
   LuFileText,
   LuGanttChartSquare,
-  LuMenu,
-  LuPackage,
   LuRotateCw,
 } from 'react-icons/lu'
-import { NextjsSvg } from '@/docs/components/framework-svg'
 import { NextjsIcon } from '../logos/nextjs'
 
 const Header = () => {
@@ -103,9 +96,9 @@ const Header = () => {
         />
         <NavLink href="/figma" isActive={isActive('/figma')} label="Figma" />
         <NavLink
-          href="/nextjs-boilerplate"
-          isActive={isActive('/nextjs-boilerplate')}
-          label="Starterkit"
+          href="/nextjs-starter-kit"
+          isActive={isActive('/nextjs-starter-kit')}
+          label="Next.js starter"
         />
 
         <DropdownMenu label="Learn">
@@ -163,10 +156,11 @@ const Header = () => {
                 <MenuItem
                   as={Link}
                   icon={<NextjsIcon boxSize="1.2em" />}
-                  href="/docs/nextjs-starterkit"
+                  href="/docs/nextjs-starter-kit"
                   borderRadius="md"
+                  whiteSpace="nowrap"
                 >
-                  Next.js starterkit
+                  Next.js starter kit
                 </MenuItem>
               </MenuGroup>
             </Box>

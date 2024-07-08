@@ -4,77 +4,77 @@ const sidebar = {
   routes: [
     {
       title: 'Overview',
-      path: '/docs/nextjs-starterkit',
+      path: '/docs/nextjs-starter-kit',
     },
     {
       title: 'Tech stack',
-      path: '/docs/nextjs-starterkit/tech-stack',
+      path: '/docs/nextjs-starter-kit/tech-stack',
     },
     {
       title: 'Project structure',
-      path: '/docs/nextjs-starterkit/project-structure',
+      path: '/docs/nextjs-starter-kit/project-structure',
     },
     {
       title: 'CLI commands',
-      path: '/docs/nextjs-starterkit/commands',
+      path: '/docs/nextjs-starter-kit/commands',
     },
     {
       title: 'Installation',
-      path: '/docs/nextjs-starterkit/installation',
+      path: '/docs/nextjs-starter-kit/installation',
       open: true,
       heading: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starterkit/installation',
+          path: '/docs/nextjs-starter-kit/installation',
         },
         {
           title: 'Clone the repository',
-          path: '/docs/nextjs-starterkit/installation/clone-repository',
+          path: '/docs/nextjs-starter-kit/installation/clone-repository',
         },
         {
           title: 'Run the application',
-          path: '/docs/nextjs-starterkit/installation/run-application',
+          path: '/docs/nextjs-starter-kit/installation/run-application',
         },
       ],
     },
     {
       title: 'Configuration',
-      path: '/docs/nextjs-starterkit/configuration',
+      path: '/docs/nextjs-starter-kit/configuration',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Environment variables',
-          path: '/docs/nextjs-starterkit/configuration/environment-variables',
+          path: '/docs/nextjs-starter-kit/configuration/environment-variables',
         },
       ],
     },
     {
       title: 'Authentication',
-      path: '/docs/nextjs-starterkit/authentication',
+      path: '/docs/nextjs-starter-kit/authentication',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starterkit/authentication',
+          path: '/docs/nextjs-starter-kit/authentication',
         },
         {
           title: 'Supabase',
-          path: '/docs/nextjs-starterkit/authentication/supabase',
+          path: '/docs/nextjs-starter-kit/authentication/supabase',
         },
         {
           title: 'Clerk',
-          path: '/docs/nextjs-starterkit/authentication/clerk',
+          path: '/docs/nextjs-starter-kit/authentication/clerk',
         },
         {
           title: 'Auth.js (NextAuth)',
-          path: '/docs/nextjs-starterkit/authentication/authjs',
+          path: '/docs/nextjs-starter-kit/authentication/authjs',
         },
         {
           title: 'Customize auth screens',
-          path: '/docs/nextjs-starterkit/authentication/customize-auth-screens',
+          path: '/docs/nextjs-starter-kit/authentication/customize-auth-screens',
         },
       ],
     },
@@ -86,131 +86,131 @@ const sidebar = {
       routes: [
         {
           title: 'Configuration',
-          path: '/docs/nextjs-starterkit/theming/configuration',
+          path: '/docs/nextjs-starter-kit/theming/configuration',
         },
         {
           title: 'Color schemes',
-          path: '/docs/nextjs-starterkit/theming/color-schemes',
+          path: '/docs/nextjs-starter-kit/theming/color-schemes',
         },
         {
           title: 'Fonts',
-          path: '/docs/nextjs-starterkit/theming/fonts',
+          path: '/docs/nextjs-starter-kit/theming/fonts',
         },
       ],
     },
     {
       title: 'API',
-      path: '/docs/nextjs-starterkit/api',
+      path: '/docs/nextjs-starter-kit/api',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starterkit/api',
+          path: '/docs/nextjs-starter-kit/api',
         },
         {
           title: 'Conventions',
-          path: '/docs/nextjs-starterkit/api/conventions',
+          path: '/docs/nextjs-starter-kit/api/conventions',
         },
         {
           title: 'Define procedures',
-          path: '/docs/nextjs-starterkit/api/define-procedures',
+          path: '/docs/nextjs-starter-kit/api/define-procedures',
         },
         {
           title: 'Router context',
-          path: '/docs/nextjs-starterkit/api/router-context',
+          path: '/docs/nextjs-starter-kit/api/router-context',
         },
         {
           title: 'Call procedures',
-          path: '/docs/nextjs-starterkit/api/call-procedures',
+          path: '/docs/nextjs-starter-kit/api/call-procedures',
         },
       ],
     },
     {
       title: 'API procedures',
-      path: '/docs/nextjs-starterkit/api-procedures',
+      path: '/docs/nextjs-starter-kit/api-procedures',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Auth',
-          path: '/docs/nextjs-starterkit/api-procedures/auth',
+          path: '/docs/nextjs-starter-kit/api-procedures/auth',
         },
         {
           title: 'Billing',
-          path: '/docs/nextjs-starterkit/api-procedures/billing',
+          path: '/docs/nextjs-starter-kit/api-procedures/billing',
         },
         {
           title: 'Users',
-          path: '/docs/nextjs-starterkit/api-procedures/users',
+          path: '/docs/nextjs-starter-kit/api-procedures/users',
         },
         {
           title: 'Workspace members',
-          path: '/docs/nextjs-starterkit/api-procedures/workspace-members',
+          path: '/docs/nextjs-starter-kit/api-procedures/workspace-members',
         },
         {
           title: 'Workspaces',
-          path: '/docs/nextjs-starterkit/api-procedures/workspaces',
+          path: '/docs/nextjs-starter-kit/api-procedures/workspaces',
         },
         {
           title: 'Notifications',
-          path: '/docs/nextjs-starterkit/api-procedures/notifications',
+          path: '/docs/nextjs-starter-kit/api-procedures/notifications',
         },
         {
           title: 'Tags',
-          path: '/docs/nextjs-starterkit/api-procedures/tags',
+          path: '/docs/nextjs-starter-kit/api-procedures/tags',
         },
         {
           title: 'Contacts',
-          path: '/docs/nextjs-starterkit/api-procedures/contacts',
+          path: '/docs/nextjs-starter-kit/api-procedures/contacts',
         },
       ],
     },
     {
       title: 'Database',
-      path: '/docs/nextjs-starterkit/database',
+      path: '/docs/nextjs-starter-kit/database',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starterkit/database',
+          path: '/docs/nextjs-starter-kit/database',
         },
         {
           title: 'Migrations',
-          path: '/docs/nextjs-starterkit/database/migrations',
+          path: '/docs/nextjs-starter-kit/database/migrations',
         },
         {
           title: 'Schema',
-          path: '/docs/nextjs-starterkit/database/schema',
+          path: '/docs/nextjs-starter-kit/database/schema',
         },
         {
           title: 'Seed data',
-          path: '/docs/nextjs-starterkit/database/seed-data',
+          path: '/docs/nextjs-starter-kit/database/seed-data',
         },
         {
           title: 'Drizzle Studio',
-          path: '/docs/nextjs-starterkit/database/studio',
+          path: '/docs/nextjs-starter-kit/database/studio',
         },
       ],
     },
     {
       title: 'Development',
-      path: '/docs/nextjs-starterkit/development',
+      path: '/docs/nextjs-starter-kit/development',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Getting started',
-          path: '/docs/nextjs-starterkit/development',
+          path: '/docs/nextjs-starter-kit/development',
         },
         {
           title: 'Adding new pages',
-          path: '/docs/nextjs-starterkit/development/add-new-pages',
+          path: '/docs/nextjs-starter-kit/development/add-new-pages',
         },
         {
           title: 'Adding new features',
-          path: '/docs/nextjs-starterkit/development/add-new-features',
+          path: '/docs/nextjs-starter-kit/development/add-new-features',
         },
         {
           title: 'Forms and validation',
@@ -222,55 +222,55 @@ const sidebar = {
     },
     {
       title: 'Billing',
-      path: '/docs/nextjs-starterkit/billing',
+      path: '/docs/nextjs-starter-kit/billing',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starterkit/billing',
+          path: '/docs/nextjs-starter-kit/billing',
         },
         {
           title: 'Billing plans',
-          path: '/docs/nextjs-starterkit/billing/plans',
+          path: '/docs/nextjs-starter-kit/billing/plans',
         },
         {
           title: 'Stripe',
-          path: '/docs/nextjs-starterkit/billing/stripe',
+          path: '/docs/nextjs-starter-kit/billing/stripe',
         },
         {
           title: 'Seat based billing',
-          path: '/docs/nextjs-starterkit/billing/seat-based-billing',
+          path: '/docs/nextjs-starter-kit/billing/seat-based-billing',
         },
         {
           title: 'Metered billing',
-          path: '/docs/nextjs-starterkit/billing/metered-billing',
+          path: '/docs/nextjs-starter-kit/billing/metered-billing',
         },
       ],
     },
     {
       title: 'Deployments',
-      path: '/docs/nextjs-starterkit/deployments',
+      path: '/docs/nextjs-starter-kit/deployments',
       heading: true,
       open: true,
       routes: [
         {
           title: 'Production builds',
-          path: '/docs/nextjs-starterkit/deployments/production-build',
+          path: '/docs/nextjs-starter-kit/deployments/production-build',
         },
         {
           title: 'Checklist',
-          path: '/docs/nextjs-starterkit/deployments/checklist',
+          path: '/docs/nextjs-starter-kit/deployments/checklist',
         },
         {
           title: 'Deploy to Vercel',
-          path: '/docs/nextjs-starterkit/deployments/vercel',
+          path: '/docs/nextjs-starter-kit/deployments/vercel',
         },
       ],
     },
     {
       title: 'Troubleshooting',
-      path: '/docs/nextjs-starterkit/troubleshooting',
+      path: '/docs/nextjs-starter-kit/troubleshooting',
       heading: true,
       open: true,
       routes: [
@@ -284,7 +284,7 @@ const sidebar = {
     },
     {
       title: 'Contributing',
-      path: '/docs/nextjs-starterkit/contributing',
+      path: '/docs/nextjs-starter-kit/contributing',
       heading: true,
       open: true,
       routes: [

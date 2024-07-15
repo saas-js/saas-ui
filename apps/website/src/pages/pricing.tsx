@@ -243,13 +243,13 @@ const Pricing = () => {
           <PricingBox
             title={
               <HStack as="span">
-                <Text as="span">Figma Pro</Text>{' '}
+                <Text as="span">Figma</Text>{' '}
                 <Tag colorScheme="primary" size="sm">
                   New
                 </Tag>
               </HStack>
             }
-            description="Comprehensive Figma design system."
+            description="Comprehensive Figma design system for designers."
             price={
               <HStack>
                 <Text
@@ -277,7 +277,10 @@ const Pricing = () => {
               <PricingFeature title="Auto-layout" />
               <PricingFeature title="Theming with Figma variables" />
               <PricingFeature title="Dark mode (soon)" color="muted" />
-              <PricingFeature title="1 year of updates" />
+              <PricingFeature
+                title="1 year of updates"
+                help="Renew your license for 40% discount after one year to keep receiving updates."
+              />
             </PricingFeatures>
             <ButtonLink
               as="a"
@@ -308,7 +311,7 @@ const Pricing = () => {
                 <Text>€199,-</Text>
               </HStack>
             }
-            description="Complete frontend stack for bootstrappers and small teams."
+            description="Single license for developers and small teams."
           >
             <PricingFeatures>
               <PricingFeature
@@ -319,7 +322,8 @@ const Pricing = () => {
                 title={<>Unlimited projects*</>}
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
-              <PricingFeature title="Advanced components" />
+              <PricingFeature title="Pro components" />
+              <PricingFeature title="Next.js starterkit" />
               <PricingFeature
                 title={
                   <HStack as="span">
@@ -331,9 +335,13 @@ const Pricing = () => {
                 }
               />
               <PricingFeature title="Multiple themes" />
-              <PricingFeature title="Next.js starterkit" />
+
               <PricingFeature title="Private discord community" />
-              <PricingFeature title="1 year of updates" />
+
+              <PricingFeature
+                title="1 year of updates"
+                help="Renew your license for 40% discount after one year to keep receiving updates.  You keep access to all components and features even if you don't renew."
+              />
               <PricingFeature
                 title="Private beta access"
                 iconColor="green.500"
@@ -351,7 +359,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Buy now
+              Buy Pro
             </ButtonLink>
           </PricingBox>
           <PricingBox
@@ -381,28 +389,14 @@ const Pricing = () => {
                 help="No restrictions on commercial projects or client work."
               />
               <PricingFeature title="Everything from Bootstrap" />
-              <PricingFeature
-                title={
-                  <HStack as="span">
-                    <Text
-                      as="span"
-                      borderBottomWidth="1px"
-                      borderBottomStyle="dotted"
-                      borderColor="currentColor"
-                    >
-                      Figma Pro included
-                    </Text>{' '}
-                    <Tag colorScheme="primary" size="sm">
-                      New
-                    </Tag>
-                  </HStack>
-                }
-                help="One editor included. Additional licenses can be purchased separately."
-              />
               <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />
               <PricingFeature title="Introduction call" />
-              <PricingFeature title="1 year of updates" />
+              <PricingFeature title="Private discord community" />
+              <PricingFeature
+                title="1 year of updates"
+                help="Renew your license for 40% discount after one year to keep receiving updates. You keep access to all components and features even if you don't renew."
+              />
               <PricingFeature
                 title="Private beta access"
                 iconColor="green.500"
@@ -420,7 +414,7 @@ const Pricing = () => {
                 })
               }}
             >
-              Buy now
+              Buy Pro
             </ButtonLink>
           </PricingBox>
           <MemberShip />
@@ -544,14 +538,14 @@ const MemberShip = () => {
           <Text>Membership</Text>
         </HStack>
       }
-      description="Limited access membership for teams that want to get moving fast."
+      description="Design engineer as a service. Limited access."
       price={
-        <Stack spacing="0">
+        <Stack spacing="0" mt="-4">
           <Text fontSize="sm" color="gray.400" fontWeight="medium">
             Starting at
           </Text>
           <HStack>
-            <Text>€2499,-</Text>
+            <Text>€4750,-</Text>
             <Text fontSize="sm" color="gray.400">
               / month
             </Text>
@@ -564,16 +558,41 @@ const MemberShip = () => {
           title={<strong>1 spot available</strong>}
           iconColor="green.400"
         />
-        <PricingFeature title="Startup license included" iconColor="cyan.500" />
-        <PricingFeature title="Project setup" iconColor="cyan.500" />
-        <PricingFeature title="Design-system setup" iconColor="cyan.500" />
+        <PricingFeature
+          title="One request at a time"
+          iconColor="cyan.500"
+          help="Make as many requests as you like."
+        />
+        <PricingFeature
+          title="Project setup"
+          iconColor="cyan.500"
+          help="Setup a boilerplate project according to your needs."
+        />
+        <PricingFeature
+          title="Design-system setup"
+          iconColor="cyan.500"
+          help="Set up you theme based on your brand and design."
+        />
         <PricingFeature
           title="Custom component development"
           iconColor="cyan.500"
+          help="We develop custom components for your project."
         />
-        <PricingFeature title="Design services" iconColor="cyan.500" />
-        <PricingFeature title="Private Slack/Discord" iconColor="cyan.500" />
-        <PricingFeature title="Code reviews" iconColor="cyan.500" />
+        <PricingFeature
+          title="Design services"
+          iconColor="cyan.500"
+          help="Get help with design challenges from our expert designer."
+        />
+        <PricingFeature
+          title="Private Slack/Discord"
+          iconColor="cyan.500"
+          help="We join your team in Slack or Discord."
+        />
+        <PricingFeature
+          title="Code reviews"
+          iconColor="cyan.500"
+          help="We do code reviews to improve code quality and support junior staff."
+        />
       </PricingFeatures>
       <Button
         colorScheme="cyan"

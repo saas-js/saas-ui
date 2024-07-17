@@ -17,20 +17,35 @@ import { ChartLegend } from './legend'
 import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
 import { BaseChartProps } from './types'
+import { AxisDomain } from 'recharts/types/util/types'
 
 export interface LineChartProps extends BaseChartProps {
   /**
    * Whether to connect null values.
    */
   connectNulls?: boolean
+
   /**
    * The curve type of the line.
    */
   curveType?: CurveType
+
   /**
    * The width of the line.
    */
   strokeWidth?: string | number
+
+  /**
+   * The lower bound of the y-axis.
+   * @default 0
+   */
+  minValue?: number | 'auto'
+
+  /**
+   * The upper bound of the y-axis.
+   * @default 'auto'
+   */
+  maxValue?: number | 'auto'
 }
 
 /**
@@ -60,6 +75,8 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
+      minValue = 0,
+      maxValue = 'auto',
       valueFormatter,
       tooltipContent,
       children,
@@ -71,6 +88,8 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     const getColor = (category: string) => {
       return categoryColors[category]
     }
+
+    const yAxisDomain: AxisDomain = [minValue, maxValue]
 
     return (
       <Box ref={ref} height={height} fontSize="sm">
@@ -108,6 +127,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               hide={!showYAxis}
               axisLine={false}
               tickLine={false}
+              domain={yAxisDomain}
               tick={{ transform: 'translate(-3, 0)' }}
               type="number"
               tickFormatter={valueFormatter}

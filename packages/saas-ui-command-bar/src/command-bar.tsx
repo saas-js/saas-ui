@@ -161,7 +161,6 @@ export interface CommandBarItemProps
 
 export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
   (props, ref) => {
-    const { onSelect, value, isDisabled } = props
     const styles = useCommandBarStyles()
 
     const itemStyles = {
@@ -175,7 +174,6 @@ export const CommandBarItem = forwardRef<CommandBarItemProps, 'div'>(
         ref={ref}
         {...getItemProps(props)}
         __css={itemStyles}
-        data-disabled={dataAttr(isDisabled)}
         className={cx('sui-command-bar__item', props.className)}
       />
     )

@@ -65,6 +65,9 @@ const baseStyle = definePartsStyle({
     userSelect: 'none',
     transition: 'common',
     transitionDuration: 'normal',
+    '&[data-disabled=true]': {
+      opacity: 0.6,
+    },
     '&[data-selected=true]': {
       bg: 'gray.100',
       _dark: {

@@ -203,3 +203,31 @@ export const Loading = () => {
     </CommandBar>
   )
 }
+
+export const DisabledItems = () => {
+  const [isLoading, setLoading] = React.useState(false)
+
+  return (
+    <CommandBar onSelect={(item) => console.log(item)}>
+      <CommandBarContent>
+        <CommandBarInput placeholder="Type a command or search..." />
+
+        <CommandBarList>
+          {isLoading && <CommandBarLoading>Hang on…</CommandBarLoading>}
+
+          <CommandBarEmpty>No results found.</CommandBarEmpty>
+
+          <CommandBarGroup heading="Fruits">
+            <CommandBarItem isDisabled>Apple</CommandBarItem>
+            <CommandBarItem>Orange</CommandBarItem>
+            <CommandBarSeparator />
+            <CommandBarItem isDisabled>Pear</CommandBarItem>
+            <CommandBarItem>Blueberry</CommandBarItem>
+          </CommandBarGroup>
+
+          <CommandBarItem>Fish</CommandBarItem>
+        </CommandBarList>
+      </CommandBarContent>
+    </CommandBar>
+  )
+}

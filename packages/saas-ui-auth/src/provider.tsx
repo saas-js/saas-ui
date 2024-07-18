@@ -47,6 +47,10 @@ export type AuthStateChangeCallback<TUser extends User = DefaultUser> = (
 
 export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
+   * Refetch the user data when the window regains focus
+   */
+  refetchUserOnWindowFocus?: boolean
+  /**
    * Restore the authentication state, eg after redirecting
    */
   onRestoreAuthState?: () => Promise<void>
@@ -143,6 +147,7 @@ const createAuthContext = <TUser extends User = DefaultUser>() => {
 export const AuthContext = createAuthContext()
 
 export const AuthProvider = <TUser extends User = DefaultUser>({
+  refetchUserOnWindowFocus = true,
   onRestoreAuthState,
   onLoadUser = () => Promise.resolve(null),
   onSignup = () => Promise.resolve(null),
@@ -198,14 +203,22 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   }, [onGetToken])
 
   useEffect(() => {
+    if (!refetchUserOnWindowFocus) {
+      return
+    }
+
     const onWindowFocus = async () => {
       loadUser()
     }
+
     window.addEventListener('focus', onWindowFocus)
+
     return () => {
-      window.removeEventListener('focus', onWindowFocus)
+      if (onWindowFocus) {
+        window.removeEventListener('focus', onWindowFocus)
+      }
     }
-  }, [checkAuth])
+  }, [checkAuth, refetchUserOnWindowFocus])
 
   const loadUser = useCallback(async () => {
     try {
@@ -251,11 +264,14 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
     [onLogin]
   )
 
-  const logOut = useCallback(async (options?: AuthOptions) => {
-    await onLogout(options)
-    setUser(null)
-    setAuthenticated(false)
-  }, [onLogout])
+  const logOut = useCallback(
+    async (options?: AuthOptions) => {
+      await onLogout(options)
+      setUser(null)
+      setAuthenticated(false)
+    },
+    [onLogout]
+  )
 
   const verifyOtp = useCallback(
     async (params: OtpParams, options?: AuthOptions) => {

@@ -9,6 +9,7 @@ import SnackbarJson from './components/snackbar.json'
 import SidebarJson from './components/sidebar.json'
 import SearchInputJson from './components/search-input.json'
 import ResizeJson from './components/resize.json'
+import RadioCardsJson from './components/radio-cards.json'
 import ProviderJson from './components/provider.json'
 import PropertyJson from './components/property.json'
 import PersonaJson from './components/persona.json'
@@ -51,6 +52,7 @@ export const Snackbar = SnackbarJson
 export const Sidebar = SidebarJson
 export const SearchInput = SearchInputJson
 export const Resize = ResizeJson
+export const RadioCards = RadioCardsJson
 export const Provider = ProviderJson
 export const Property = PropertyJson
 export const Persona = PersonaJson
@@ -94,6 +96,7 @@ Snackbar,
 Sidebar,
 SearchInput,
 Resize,
+RadioCards,
 Provider,
 Property,
 Persona,

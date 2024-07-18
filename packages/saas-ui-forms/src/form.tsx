@@ -70,7 +70,7 @@ interface FormOptions<
   /**
    * The Hook Form state ref.
    */
-  formRef?: React.RefObject<UseFormReturn<TFieldValues, TContext>>
+  formRef?: React.Ref<UseFormReturn<TFieldValues, TContext>>
   /**
    * The form children, can be a render prop or a ReactNode.
    */

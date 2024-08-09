@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.6.8
+
+### Patch Changes
+
+- fc62212: Fixed type of formRef to accept ref function handler
+
 ## 2.6.7
 
 ### Patch Changes

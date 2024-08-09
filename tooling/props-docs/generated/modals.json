@@ -1033,7 +1033,7 @@
       "description": "Props for the modal footer"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<TFieldValues, TContext>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<TFieldValues, TContext> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<TFieldValues, TContext>>",
       "required": false,
       "description": "The Hook Form state ref."
     },
@@ -1464,7 +1464,7 @@
       "description": "Props for the modal footer"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<FieldValues, object>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<FieldValues, object> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<FieldValues, object>>",
       "required": false,
       "description": "The Hook Form state ref."
     },

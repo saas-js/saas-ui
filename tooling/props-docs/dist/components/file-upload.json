@@ -255,6 +255,10 @@
       "required": false,
       "description": "Function called when the file is rejected"
     },
+    "onFilesChange": {
+      "type": "(details: FileChangeDetails) => void",
+      "required": false
+    },
     "translations": {
       "type": "IntlTranslations",
       "required": false,

@@ -6806,12 +6806,12 @@ __metadata:
     "@ngneat/falso": "npm:^2.27.0"
     "@react-hookz/web": "npm:^24.0.4"
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/date-picker": "npm:^0.12.36"
-    "@saas-ui/forms": "npm:^2.6.5"
+    "@saas-ui/date-picker": "npm:^0.12.38"
+    "@saas-ui/forms": "npm:^2.6.7"
     "@saas-ui/react-utils": "npm:^2.0.1"
     "@saas-ui/theme": "npm:^2.4.1"
-    "@tanstack/react-table": "npm:^8.15.3"
-    "@tanstack/react-virtual": "npm:^3.2.0"
+    "@tanstack/react-table": "npm:^8.17.3"
+    "@tanstack/react-virtual": "npm:^3.7.0"
     "@zag-js/dom-utils": "npm:^0.2.4"
     date-fns: "npm:^3.6.0"
     polished: "npm:^4.3.1"
@@ -6878,7 +6878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@npm:^3.0.0, @saas-ui/auth@npm:^3.1.9, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@npm:^3.0.0, @saas-ui/auth@npm:^3.2.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -6993,7 +6993,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker@npm:^0.12.36, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
+"@saas-ui/date-picker@npm:^0.12.38, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
@@ -7046,7 +7046,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@npm:^2.6.5, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@npm:^2.6.7, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -7189,7 +7189,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@npm:^2.8.5, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@npm:^2.8.7, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -7233,7 +7233,7 @@ __metadata:
     tsup: "npm:^8.1.0"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-    "@saas-ui/react": ">=2.8.7"
+    "@saas-ui/react": ">=2.8.8"
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"
@@ -7247,7 +7247,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
-    "@saas-ui/auth": "npm:^3.1.9"
+    "@saas-ui/auth": "npm:^3.2.0"
     "@supabase/supabase-js": "npm:^2.43.5"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -8678,7 +8678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:^8.15.3, @tanstack/react-table@npm:^8.17.3":
+"@tanstack/react-table@npm:^8.17.3":
   version: 8.17.3
   resolution: "@tanstack/react-table@npm:8.17.3"
   dependencies:
@@ -8690,15 +8690,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-virtual@npm:^3.2.0":
-  version: 3.7.0
-  resolution: "@tanstack/react-virtual@npm:3.7.0"
+"@tanstack/react-virtual@npm:^3.7.0":
+  version: 3.8.3
+  resolution: "@tanstack/react-virtual@npm:3.8.3"
   dependencies:
-    "@tanstack/virtual-core": "npm:3.7.0"
+    "@tanstack/virtual-core": "npm:3.8.3"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/20aae23c13296d686e211adb76a9c0213d9a8dc2bdfc51eeffe7a4e1a0da23dcea55984f2b9571354ca85e5e8fff84dce45a9138668a0c20dc34447ef48c9b07
+  checksum: 10/ab1c7d2f7237451140b310d2e9201b62eecd3c90c3fbef79f8670e687f5e52b68d513e3bcd837d8d123375deaa5e2b505ffa382ce301a755460862db63073ceb
   languageName: node
   linkType: hard
 
@@ -8709,10 +8709,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/virtual-core@npm:3.7.0":
-  version: 3.7.0
-  resolution: "@tanstack/virtual-core@npm:3.7.0"
-  checksum: 10/67d9f7cedf29c257a57683b7cfc30714b4bffe8c65b0defe5ef76dd0d9594844602b393b9cff42410514f1246fb14e066558b41f93736e5e049d47eb70ee5cff
+"@tanstack/virtual-core@npm:3.8.3":
+  version: 3.8.3
+  resolution: "@tanstack/virtual-core@npm:3.8.3"
+  checksum: 10/d3ec5f9b23e5a874a794853811fef99032c441851b68648fcbd9789effb780cb92ae7d5d952a42736e0f072ce423a0ad006c17e867de5317eb8958608ccf34df
   languageName: node
   linkType: hard
 
@@ -23041,7 +23041,7 @@ __metadata:
     "@emotion/styled": "npm:^11.11.5"
     "@saas-ui-pro/react": "npm:^0.35.0"
     "@saas-ui/file-upload": "npm:^0.3.0"
-    "@saas-ui/react": "npm:^2.8.5"
+    "@saas-ui/react": "npm:^2.8.7"
     framer-motion: "npm:^10.18.0"
     lucide-react: "npm:^0.396.0"
     nanoid: "npm:^5.0.7"

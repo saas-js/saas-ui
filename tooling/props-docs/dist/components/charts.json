@@ -100,7 +100,7 @@
       "description": "The curve type of the area."
     },
     "height": {
-      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"auto\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },
@@ -229,7 +229,7 @@
       "description": "The curve type of the line."
     },
     "height": {
-      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"auto\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },
@@ -248,6 +248,18 @@
       "type": "number",
       "required": false,
       "description": "Height of the legend."
+    },
+    "maxValue": {
+      "type": "number | \"auto\"",
+      "defaultValue": "'auto'",
+      "required": false,
+      "description": "The upper bound of the y-axis."
+    },
+    "minValue": {
+      "type": "number | \"auto\"",
+      "defaultValue": "0",
+      "required": false,
+      "description": "The lower bound of the y-axis."
     },
     "showAnimation": {
       "type": "boolean",
@@ -347,7 +359,7 @@
       "description": "The colors to use for each category."
     },
     "height": {
-      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"auto\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },
@@ -466,7 +478,7 @@
       "description": "The colors to use for each category."
     },
     "height": {
-      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | \"-webkit-fit-content\" | ... 56 more ... | \"container.2xl\">",
+      "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"max\" | \"min\" | \"auto\" | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"-moz-max-content\" | \"-moz-min-content\" | ... 56 more ... | \"container.2xl\">",
       "required": false,
       "description": "The height of the chart."
     },

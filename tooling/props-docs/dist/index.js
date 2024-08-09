@@ -9,6 +9,7 @@ const Snackbar = require('./components/snackbar.json')
 const Sidebar = require('./components/sidebar.json')
 const SearchInput = require('./components/search-input.json')
 const Resize = require('./components/resize.json')
+const RadioCards = require('./components/radio-cards.json')
 const Provider = require('./components/provider.json')
 const Property = require('./components/property.json')
 const Persona = require('./components/persona.json')
@@ -52,6 +53,7 @@ const json = {
   Sidebar,
   SearchInput,
   Resize,
+  RadioCards,
   Provider,
   Property,
   Persona,
@@ -104,6 +106,7 @@ module.exports = {
   Sidebar,
   SearchInput,
   Resize,
+  RadioCards,
   Provider,
   Property,
   Persona,

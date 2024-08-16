@@ -7,8 +7,14 @@
     },
     "allowDrop": {
       "type": "boolean",
+      "defaultValue": true,
       "required": false,
       "description": "Whether to allow drag and drop in the dropzone element"
+    },
+    "capture": {
+      "type": "\"user\" | \"environment\"",
+      "required": false,
+      "description": "The default camera to use when capturing media"
     },
     "dir": {
       "type": "\"ltr\" | \"rtl\"",
@@ -16,10 +22,10 @@
       "required": false,
       "description": "The document's text/writing direction."
     },
-    "files": {
-      "type": "File[]",
+    "directory": {
+      "type": "boolean",
       "required": false,
-      "description": "The current value of the file input"
+      "description": "Whether to accept directories, only works in webkit browsers"
     },
     "getRootNode": {
       "type": "() => Node | ShadowRoot | Document",
@@ -40,16 +46,19 @@
     },
     "maxFiles": {
       "type": "number",
+      "defaultValue": "1",
       "required": false,
       "description": "The maximum number of files"
     },
     "maxFileSize": {
       "type": "number",
+      "defaultValue": "Infinity",
       "required": false,
       "description": "The maximum file size in bytes"
     },
     "minFileSize": {
       "type": "number",
+      "defaultValue": "0",
       "required": false,
       "description": "The minimum file size in bytes"
     },
@@ -63,15 +72,15 @@
       "required": false,
       "description": "Function called when the file is accepted"
     },
+    "onFileChange": {
+      "type": "(details: FileChangeDetails) => void",
+      "required": false,
+      "description": "Function called when the value changes, whether accepted or rejected"
+    },
     "onFileReject": {
       "type": "(details: FileRejectDetails) => void",
       "required": false,
       "description": "Function called when the file is rejected"
-    },
-    "onFilesChange": {
-      "type": "(details: FileChangeDetails) => void",
-      "required": false,
-      "description": "Function called when the value changes, whether accepted or rejected"
     },
     "translations": {
       "type": "IntlTranslations",
@@ -111,10 +120,6 @@
       "defaultValue": "beforeLoadOrError",
       "required": false,
       "description": "- beforeLoadOrError(default): loads the fallbackImage while loading the src\n- onError: loads the fallbackImage only if there is an error fetching the src"
-    },
-    "fetchPriority": {
-      "type": "\"high\" | \"low\" | \"auto\"",
-      "required": false
     },
     "fit": {
       "type": "ResponsiveValue<ObjectFit>",
@@ -167,11 +172,17 @@
     },
     "allowDrop": {
       "type": "boolean",
+      "defaultValue": true,
       "required": false,
       "description": "Whether to allow drag and drop in the dropzone element"
     },
+    "capture": {
+      "type": "\"user\" | \"environment\"",
+      "required": false,
+      "description": "The default camera to use when capturing media"
+    },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ((props: FileUploadRenderContext) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: FileUploadRenderContext) => ReactNode)",
       "required": false
     },
     "dir": {
@@ -180,10 +191,10 @@
       "required": false,
       "description": "The document's text/writing direction."
     },
-    "files": {
-      "type": "File[]",
+    "directory": {
+      "type": "boolean",
       "required": false,
-      "description": "The current value of the file input"
+      "description": "Whether to accept directories, only works in webkit browsers"
     },
     "getRootNode": {
       "type": "() => Node | ShadowRoot | Document",
@@ -196,7 +207,7 @@
       "description": "The ids of the elements. Useful for composition."
     },
     "inputRef": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: HTMLInputElement | null) => void)\n  | RefObject<HTMLInputElement>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: HTMLInputElement | null) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<HTMLInputElement>",
       "required": false
     },
     "isDisabled": { "type": "boolean", "required": false },
@@ -208,16 +219,19 @@
     },
     "maxFiles": {
       "type": "number",
+      "defaultValue": "1",
       "required": false,
       "description": "The maximum number of files"
     },
     "maxFileSize": {
       "type": "number",
+      "defaultValue": "Infinity",
       "required": false,
       "description": "The maximum file size in bytes"
     },
     "minFileSize": {
       "type": "number",
+      "defaultValue": "0",
       "required": false,
       "description": "The minimum file size in bytes"
     },
@@ -231,6 +245,11 @@
       "required": false,
       "description": "Function called when the file is accepted"
     },
+    "onFileChange": {
+      "type": "(details: FileChangeDetails) => void",
+      "required": false,
+      "description": "Function called when the value changes, whether accepted or rejected"
+    },
     "onFileReject": {
       "type": "(details: FileRejectDetails) => void",
       "required": false,
@@ -238,8 +257,7 @@
     },
     "onFilesChange": {
       "type": "(details: FileChangeDetails) => void",
-      "required": false,
-      "description": "Function called when the value changes, whether accepted or rejected"
+      "required": false
     },
     "translations": {
       "type": "IntlTranslations",

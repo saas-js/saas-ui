@@ -10,6 +10,11 @@
       "required": true,
       "description": "The data for the table to display. This array should match the type you provided to `table.setRowType<...>`. Columns can access this data via string/index or a functional accessor. When the `data` option changes reference, the table will reprocess the data."
     },
+    "_features": {
+      "type": "TableFeature<any>[]",
+      "required": false,
+      "description": "An array of extra features that you can add to the table instance."
+    },
     "aggregationFns": {
       "type": "Record<string, AggregationFn<any>>",
       "required": false
@@ -114,7 +119,11 @@
       "required": false,
       "description": "Enables/disables grouping for the table."
     },
-    "enableHiding": { "type": "boolean", "required": false },
+    "enableHiding": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to enable column hiding. Defaults to `true`."
+    },
     "enableMultiRemove": {
       "type": "boolean",
       "required": false,
@@ -130,11 +139,7 @@
       "required": false,
       "description": "Enables/Disables multi-sorting for the table."
     },
-    "enablePinning": {
-      "type": "boolean",
-      "required": false,
-      "description": "Enables/disables all pinning for the table. Defaults to `true`."
-    },
+    "enablePinning": { "type": "boolean", "required": false },
     "enableRowPinning": {
       "type": "boolean | ((row: Row<Data>) => boolean)",
       "required": false,
@@ -244,7 +249,7 @@
       "description": "Use this option to optionally pass initial state to the table. This state will be used when resetting various table states either automatically by the table (eg. `options.autoResetPageIndex`) or via functions like `table.resetRowSelection()`. Most reset function allow you optionally pass a flag to reset to a blank/default state instead of the initial state.\n\nTable state will not be reset when this object changes, which also means that the initial state object does not need to be stable."
     },
     "instanceRef": {
-      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: Table<Data> | null) => void)\n  | RefObject<Table<Data>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((instance: Table<Data> | null) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<Table<Data>>",
       "required": false,
       "description": "The TableInstance reference"
     },
@@ -396,7 +401,7 @@
     "pageCount": {
       "type": "number",
       "required": false,
-      "description": "When manually controlling pagination, you should supply a total `pageCount` value to the table if you know it. If you do not know how many pages there are, you can set this to `-1`."
+      "description": "When manually controlling pagination, you can supply a total `pageCount` value to the table if you know it (Or supply a `rowCount` and `pageCount` will be calculated). If you do not know how many pages there are, you can set this to `-1`."
     },
     "paginateExpandedRows": {
       "type": "boolean",
@@ -407,6 +412,11 @@
       "type": "any",
       "required": false,
       "description": "Value used when the desired value is not found in the data."
+    },
+    "rowCount": {
+      "type": "number",
+      "required": false,
+      "description": "When manually controlling pagination, you can supply a total `rowCount` value to the table if you know it. The `pageCount` can be calculated from this value and the `pageSize`."
     },
     "sortDescFirst": {
       "type": "boolean",

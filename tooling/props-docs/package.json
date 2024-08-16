@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/props-docs",
-  "version": "2.3.1",
+  "version": "2.3.3",
   "description": "Extracts prop types for documentation purposes",
   "keywords": [
     "docs",
@@ -33,7 +33,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "glob": "^10.3.10",
+    "glob": "^10.4.2",
     "outdent": "^0.8.0"
   },
   "devDependencies": {

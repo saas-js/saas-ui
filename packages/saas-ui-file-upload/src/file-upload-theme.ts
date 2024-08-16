@@ -1,14 +1,8 @@
-import { anatomy } from '@chakra-ui/theme-tools'
-
-export const fileUploadAnatomy = anatomy('file-upload').parts(
-  'container',
-  'dropzone',
-  'button'
-)
+const parts = ['container', 'dropzone', 'button']
 
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(fileUploadAnatomy.keys)
+  createMultiStyleConfigHelpers(parts)
 
 const baseStyle = definePartsStyle({
   dropzone: {

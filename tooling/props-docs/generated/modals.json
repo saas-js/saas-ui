@@ -34,7 +34,7 @@
       "description": "The button group props"
     },
     "cancelLabel": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The cancel button label"
     },
@@ -44,7 +44,7 @@
       "description": "The cancel button props"
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "closeOnCancel": {
@@ -72,7 +72,7 @@
       "description": "If `true`, the modal will close when the overlay is clicked"
     },
     "confirmLabel": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The confirm button label"
     },
@@ -163,7 +163,7 @@
       "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The dialog title"
     },
@@ -210,7 +210,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The modal children"
     },
@@ -237,7 +237,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -321,7 +321,7 @@
       "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The drawer title"
     },
@@ -368,9 +368,8 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
-      "required": false,
-      "description": "The modal children"
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
     },
     "closeOnEsc": {
       "type": "boolean",
@@ -384,40 +383,10 @@
       "required": false,
       "description": "If `true`, the modal will close when the overlay is clicked"
     },
-    "contentProps": {
-      "type": "ModalContentProps",
-      "required": false,
-      "description": "Props for the modal content"
-    },
     "finalFocusRef": {
       "type": "RefObject<FocusableElement>",
       "required": false,
       "description": "The `ref` of element to receive focus when the modal closes."
-    },
-    "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
-      "required": false,
-      "description": "Drawer footer content, wrapped with `DrawerFooter`"
-    },
-    "footerProps": {
-      "type": "ModalFooterProps",
-      "required": false,
-      "description": "Props for the modal footer"
-    },
-    "headerProps": {
-      "type": "ModalHeaderProps",
-      "required": false,
-      "description": "Props for the modal header"
-    },
-    "hideCloseButton": {
-      "type": "boolean",
-      "required": false,
-      "description": "Hide the close button"
-    },
-    "hideOverlay": {
-      "type": "boolean",
-      "required": false,
-      "description": "Hide the overflow"
     },
     "id": {
       "type": "string",
@@ -478,11 +447,6 @@
       "required": false,
       "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
     },
-    "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
-      "required": false,
-      "description": "The drawer title"
-    },
     "trapFocus": {
       "type": "boolean",
       "defaultValue": true,
@@ -526,7 +490,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The modal children"
     },
@@ -553,7 +517,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -644,7 +608,7 @@
       "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -703,7 +667,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -798,7 +762,7 @@
       "description": "Props for the root element that positions the menu."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -845,7 +809,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The modal children"
     },
@@ -872,7 +836,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer, wrapped with `ModalFooter`"
     },
@@ -963,7 +927,7 @@
       "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -1015,7 +979,7 @@
       "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
     },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: FormRenderContext<...>) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: FormRenderContext<...>) => ReactNode)",
       "required": false,
       "description": "The form children, can be a render prop or a ReactNode."
     },
@@ -1059,7 +1023,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer, will be wrapped with `ModalFooter`.\nDefaults to a cancel and submit button."
     },
@@ -1069,7 +1033,7 @@
       "description": "Props for the modal footer"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<TFieldValues, TContext>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<TFieldValues, TContext> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<TFieldValues, TContext>>",
       "required": false,
       "description": "The Hook Form state ref."
     },
@@ -1157,7 +1121,7 @@
       "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
     },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValidating: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": {
@@ -1189,7 +1153,7 @@
     "shouldUnregister": { "type": "boolean", "required": false },
     "shouldUseNativeValidation": { "type": "boolean", "required": false },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -1232,7 +1196,7 @@
       "description": "The button group props"
     },
     "cancelLabel": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The cancel button label"
     },
@@ -1266,7 +1230,7 @@
       "description": "If `true`, the modal will close when the overlay is clicked"
     },
     "confirmLabel": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The confirm button label"
     },
@@ -1286,7 +1250,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -1396,7 +1360,7 @@
       "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -1414,168 +1378,16 @@
     }
   },
   "DrawerOptions": {
-    "allowPinchZoom": {
-      "type": "boolean",
-      "defaultValue": "false.",
-      "required": false,
-      "description": "Handle zoom/pinch gestures on iOS devices when scroll locking is enabled."
-    },
-    "autoFocus": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `true`, the modal will autofocus the first enabled and interactive\nelement within the `ModalContent`"
-    },
-    "blockScrollOnMount": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `true`, scrolling will be disabled on the `body` when the modal opens."
-    },
-    "closeOnEsc": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `true`, the modal will close when the `Esc` key is pressed"
-    },
-    "closeOnOverlayClick": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `true`, the modal will close when the overlay is clicked"
-    },
-    "contentProps": {
-      "type": "ModalContentProps",
-      "required": false,
-      "description": "Props for the modal content"
-    },
-    "finalFocusRef": {
-      "type": "RefObject<FocusableElement>",
-      "required": false,
-      "description": "The `ref` of element to receive focus when the modal closes."
-    },
-    "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
-      "required": false,
-      "description": "The modal footer"
-    },
-    "footerProps": {
-      "type": "ModalFooterProps",
-      "required": false,
-      "description": "Props for the modal footer"
-    },
-    "headerProps": {
-      "type": "ModalHeaderProps",
-      "required": false,
-      "description": "Props for the modal header"
-    },
-    "hideCloseButton": {
-      "type": "boolean",
-      "required": false,
-      "description": "Hide the close button"
-    },
-    "hideOverlay": {
-      "type": "boolean",
-      "required": false,
-      "description": "Hide the overlay"
-    },
-    "id": {
-      "type": "string",
-      "required": false,
-      "description": "The `id` of the modal"
-    },
-    "initialFocusRef": {
-      "type": "RefObject<FocusableElement>",
-      "required": false,
-      "description": "The `ref` of element to receive focus when the modal opens."
-    },
-    "isCentered": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": false,
-      "description": "If `true`, the modal will be centered on screen."
-    },
     "isFullHeight": {
       "type": "boolean",
       "required": false,
       "description": "If `true` and drawer's placement is `top` or `bottom`,\nthe drawer will occupy the viewport height (100vh)"
-    },
-    "lockFocusAcrossFrames": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": false,
-      "description": "Enables aggressive focus capturing within iframes.\n- If `true`: keep focus in the lock, no matter where lock is active\n- If `false`:  allows focus to move outside of iframe"
-    },
-    "motionPreset": {
-      "type": "MotionPreset",
-      "defaultValue": "scale",
-      "required": false,
-      "description": "The transition that should be used for the modal"
-    },
-    "onClose": {
-      "type": "(args: {\n  force?: boolean | undefined\n}) => void | Promise<boolean | undefined>",
-      "required": false
-    },
-    "onCloseComplete": {
-      "type": "() => void",
-      "required": false,
-      "description": "Fires when all exiting nodes have completed animating out"
-    },
-    "onEsc": {
-      "type": "() => void",
-      "required": false,
-      "description": "Callback fired when the escape key is pressed and focus is within modal"
-    },
-    "onOverlayClick": {
-      "type": "() => void",
-      "required": false,
-      "description": "Callback fired when the overlay is clicked."
     },
     "placement": {
       "type": "SlideDirection | LogicalPlacement",
       "defaultValue": "right",
       "required": false,
       "description": "The placement of the drawer"
-    },
-    "portalProps": {
-      "type": "Pick<\n  PortalProps,\n  \"appendToParentPortal\" | \"containerRef\"\n>",
-      "required": false,
-      "description": "Props to be forwarded to the portal component"
-    },
-    "preserveScrollBarGap": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
-    },
-    "returnFocusOnClose": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `true`, the modal will return focus to the element that triggered it when it closes."
-    },
-    "scrollBehavior": {
-      "type": "ScrollBehavior",
-      "defaultValue": "outside",
-      "required": false,
-      "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
-    },
-    "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
-      "required": false,
-      "description": "The modal title"
-    },
-    "trapFocus": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "If `false`, focus lock will be disabled completely.\n\nThis is useful in situations where you still need to interact with\nother surrounding elements.\n\n🚨Warning: We don't recommend doing this because it hurts the\naccessibility of the modal, based on WAI-ARIA specifications."
-    },
-    "useInert": {
-      "type": "boolean",
-      "defaultValue": true,
-      "required": false,
-      "description": "A11y: If `true`, the siblings of the `modal` will have `aria-hidden`\nset to `true` so that screen readers can only see the `modal`.\n\nThis is commonly known as making the other elements **inert**"
     }
   },
   "FormDialogOptions": {
@@ -1642,7 +1454,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -1652,7 +1464,7 @@
       "description": "Props for the modal footer"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<FieldValues, object>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<FieldValues, object> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<FieldValues, object>>",
       "required": false,
       "description": "The Hook Form state ref."
     },
@@ -1744,7 +1556,7 @@
       "description": "If `true`, a `padding-right` will be applied to the body element\nthat's equal to the width of the scrollbar.\n\nThis can help prevent some unpleasant flickering effect\nand content adjustment when the modal opens"
     },
     "resetOptions": {
-      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
+      "type": "Partial<{\n  keepDirtyValues: boolean\n  keepErrors: boolean\n  keepDirty: boolean\n  keepValues: boolean\n  keepDefaultValues: boolean\n  keepIsSubmitted: boolean\n  keepIsSubmitSuccessful: boolean\n  keepTouched: boolean\n  keepIsValidating: boolean\n  keepIsValid: boolean\n  keepSubmitCount: boolean\n}>",
       "required": false
     },
     "resolver": { "type": "Resolver<FieldValues, object>", "required": false },
@@ -1773,7 +1585,7 @@
     "shouldUnregister": { "type": "boolean", "required": false },
     "shouldUseNativeValidation": { "type": "boolean", "required": false },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -1833,7 +1645,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -1928,7 +1740,7 @@
       "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },
@@ -1947,7 +1759,7 @@
   },
   "ModalsProvider": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "modals": { "type": "TModals", "required": false }
@@ -1994,7 +1806,7 @@
       "description": "The `ref` of element to receive focus when the modal closes."
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal footer"
     },
@@ -2090,7 +1902,7 @@
       "description": "Where scroll behavior should originate.\n- If set to `inside`, scroll only occurs within the `ModalBody`.\n- If set to `outside`, the entire `ModalContent` will scroll within the viewport."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The modal title"
     },

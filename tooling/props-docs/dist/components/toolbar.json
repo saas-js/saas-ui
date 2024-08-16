@@ -34,7 +34,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },
@@ -96,7 +96,7 @@
       "description": "If added, the button will show an icon before the button's label."
     },
     "loadingText": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The label to show in the button when `isLoading` is true\nIf no text is passed, it only shows the spinner"
     },

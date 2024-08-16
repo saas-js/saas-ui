@@ -1,5 +1,17 @@
 # @saas-ui/charts
 
+## 0.11.3
+
+### Patch Changes
+
+- f1388b0: added minValue and maxValue to the LineChart
+
+## 0.11.2
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+
 ## 0.11.1
 
 ### Patch Changes

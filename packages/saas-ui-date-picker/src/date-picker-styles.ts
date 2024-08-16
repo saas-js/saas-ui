@@ -1,11 +1,7 @@
-import {
-  mode,
-  PartsStyleFunction,
-  anatomy,
-  transparentize,
-} from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+import { transparentize } from '@chakra-ui/theme-tools'
 
-const parts = anatomy('date-picker').parts(
+const parts = [
   'dialog',
   'calendar',
   'header',
@@ -13,10 +9,13 @@ const parts = anatomy('date-picker').parts(
   'weekday',
   'day',
   'dayButton',
-  'dayLabel'
-)
+  'dayLabel',
+] as const
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts)
+
+const baseStyle = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
   const selected = {
@@ -65,11 +64,17 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => {
         borderRadius: 'md',
       },
       '&[data-today]': {
-        bg: mode('blackAlpha.50', 'whiteAlpha.50')(props),
+        bg: 'blackAlpha.50',
+        _dark: {
+          bg: 'whiteAlpha.50',
+        },
       },
       _hover: {
-        bg: mode('blackAlpha.100', 'whiteAlpha.100')(props),
+        bg: 'blackAlpha.100',
         borderRadius: 'md',
+        _dark: {
+          bg: 'whiteAlpha.100',
+        },
       },
       _selected: selected,
       _highlighted: {
@@ -134,11 +139,11 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => {
       transitionDuration: 'normal',
     },
   }
-}
+})
 
-export const datePickerStyleConfig = {
+export const datePickerStyleConfig = defineMultiStyleConfig({
   defaultProps: {
     colorScheme: 'primary',
   },
   baseStyle,
-}
+})

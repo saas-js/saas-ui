@@ -1,4 +1,4 @@
-import { anatomy } from '@chakra-ui/theme-tools'
+import { anatomy } from './create-anatomy'
 
 export const appShellAnatomy = anatomy('app-shell').parts(
   'container',

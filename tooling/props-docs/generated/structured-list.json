@@ -24,7 +24,7 @@
   },
   "StructuredListHeader": {
     "action": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "Action rendered next to the title"
     },
@@ -36,6 +36,7 @@
   },
   "StructuredListItem": {
     "href": { "type": "string | object", "required": false },
+    "isDisabled": { "type": "boolean", "required": false },
     "onClick": {
       "type": "(e: MouseEvent<Element, MouseEvent>) => void",
       "required": false
@@ -43,6 +44,7 @@
   },
   "StructuredListButton": {
     "as": { "type": "As", "required": false },
+    "isDisabled": { "type": "boolean", "required": false },
     "onClick": {
       "type": "(e: MouseEvent<Element, MouseEvent>) => void",
       "required": false

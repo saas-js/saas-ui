@@ -113,7 +113,7 @@
     "autoFocus": { "type": "boolean", "required": false },
     "autoSave": { "type": "string", "required": false },
     "children": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false,
       "description": "The action buttons."
     },
@@ -204,6 +204,7 @@
     "hidden": { "type": "boolean", "required": false },
     "id": { "type": "string", "required": false },
     "ignoreStrict": { "type": "boolean", "required": false },
+    "inert": { "type": "boolean", "required": false },
     "inherit": { "type": "boolean", "required": false },
     "initial": {
       "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | MakeCustomValueType<TargetProperties>\n  | VariantLabels",
@@ -311,6 +312,10 @@
     },
     "onBeforeLayoutMeasure": {
       "type": "(box: Box) => void",
+      "required": false
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLDivElement>",
       "required": false
     },
     "onBlur": {
@@ -773,15 +778,7 @@
       "type": "PointerEventHandler<HTMLDivElement>",
       "required": false
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
-      "required": false
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLDivElement>",
-      "required": false
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLDivElement>",
       "required": false
     },
@@ -925,6 +922,10 @@
       "type": "ReactEventHandler<HTMLDivElement>",
       "required": false
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLDivElement>",
+      "required": false
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLDivElement>",
       "required": false
@@ -957,11 +958,35 @@
       "type": "TouchEventHandler<HTMLDivElement>",
       "required": false
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLDivElement>",
       "required": false
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLDivElement>",
       "required": false
     },
@@ -994,6 +1019,12 @@
     },
     "onWheelCapture": {
       "type": "WheelEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "popover": { "type": "\"\" | \"auto\" | \"manual\"", "required": false },
+    "popoverTarget": { "type": "string", "required": false },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "required": false
     },
     "prefix": { "type": "string", "required": false },

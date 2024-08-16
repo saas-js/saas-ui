@@ -10,7 +10,7 @@ export type {
   FileUploadOptions,
   FileUploadRenderContext,
 } from './file-upload-context'
-export { fileUploadAnatomy, fileUploadTheme } from './file-upload-theme'
+export { fileUploadTheme } from './file-upload-theme'
 export {
   FileUpload,
   FileUploadTrigger,

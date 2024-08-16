@@ -1,0 +1,107 @@
+---
+author: 'Eelco Wiersma'
+avatar: /eelco128.jpg
+title: 'Next.js createPage helper with loader pattern'
+description: "This Next.js pattern I've been using just got a whole lot better."
+date: '2024-07-01'
+tags: ['next', 'app router', 'react']
+---
+
+For the last two years I've been using a `createPage` helper with Next.js that
+allows you to re-use some common features, like fetching data, checking roles or feature flags, etc.
+This idea was originally posted by [Rado Stankov](https://blog.rstankov.com/structuring-next-js-application/) and I've been using it ever since.
+
+With the release of the app router in Next.js 13 I've been looking for a way to improve this pattern
+and make better use of RSC (React Server Components), but didn't find a setup yet that I was fully happy with.
+
+Earlier this week I came across a tweet from [@matt_stobbs](https://x.com/matt_stobbs/status/1807408408011690178) that showed the new
+`defineRoute` function that will be introduced in React Router (and Remix) when it dawned on me that I could use this
+to improve my `createPage` helper.
+
+## How it works
+
+Here's an example how the new `createPage` helper is used in the [Saas UI Pro starterkit](https://saas-ui.dev/nextjs-boilerplate).
+
+```tsx
+import { notFound } from 'next/navigation'
+import { z } from 'zod'
+
+import { DashboardPage } from '#features/workspaces/dashboard'
+import { createPage } from '#lib/create-page'
+import { api } from '#lib/trpc/rsc.js'
+
+const { Page, generateMetaData } = createPage({
+  params: z.object({
+    workspace: z.string(),
+  }),
+  searchParams: ['test'],
+  loader: async ({ params }) => {
+    const workspace = await api.workspaces.bySlug({
+      slug: params.workspace,
+    })
+
+    if (!workspace) {
+      notFound()
+    }
+
+    return {
+      workspace,
+    }
+  },
+  metadata: async ({ data }) => ({
+    title: `Dashboard - ${data.workspace.name}`,
+  }),
+  component: ({ params, searchParams, data }) => (
+    <DashboardPage
+      params={params}
+      searchParams={searchParams}
+      workspace={data.workspace}
+    />
+  ),
+})
+
+export { generateMetaData }
+
+export default Page
+```
+
+So what's happening here?
+
+The `createPage` function is a factory function that returns a `Page` component and `metadata` or `generateMetaData` that can be exported from an app router `page.tsx`.
+
+We can define `params` and `searchParams` using Zod schemas (or an array with the param names `['workspace']`).
+These then become available in the `loader` function that is called server-side to fetch the data for the metadata and page component.
+
+In this example we're fetchin data from a tRPC procedure, but this could be any async function that returns the data needed for the page.
+The return value of the loader function is then inferred by the metadata, and component handlers.
+
+The component returned by the `createPage` is a React Server Component that wraps the `DashboardPage` component, which can be a regular client component, or another RSC.
+
+Now we no longer have to import and move around types, params and searchParams are validated, and established a common pattern for fetching initial data for our metadata and page components.
+
+## Extending the helper
+
+You can easily extend this helper with extra functionality, like role access.
+
+```tsx
+const { Page, generateMetaData } = createPage({
+  roles: ['admin'],
+  component: ({ params, searchParams, data }) => (
+    <AdminPage params={params} searchParams={searchParams} data={data} />
+  ),
+})
+```
+
+## Source code
+
+You can [find the source code in this gist](https://gist.github.com/Pagebakers/f39f154e5bb6b03c477cb4a1d88ac937), there are still a few details I'm not certain about.
+
+- Use `safeParse` for the params and searchParams?
+- Should the `component` be wrapped with `Suspense`?
+- Can we hydrate the data returned from the loader function easily to React Query.
+- `cache` the loader function?
+- Turn this into a library?
+
+Please do leave a comment (below the gist) if you have idea's, suggestions or other feedback.
+
+Thanks for reading :)

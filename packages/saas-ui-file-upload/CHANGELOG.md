@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.3.0
+
+### Minor Changes
+
+- 02cac87: Updated zag.js and deprecated properties
+
 ## 0.2.9
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # @saas-ui/supabase
 
+## 2.2.0
+
+### Minor Changes
+
+- 3235366: Forward SignOut options to logOut handler
+
+### Patch Changes
+
+- Updated dependencies [dadcd94]
+  - @saas-ui/auth@3.2.0
+
+## 2.1.5
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+  - @saas-ui/auth@3.1.9
+
 ## 2.1.4
 
 ### Patch Changes

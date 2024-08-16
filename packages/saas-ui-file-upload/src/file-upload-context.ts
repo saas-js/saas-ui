@@ -3,7 +3,6 @@ import { createContext } from '@chakra-ui/react-utils'
 import { normalizeProps, useMachine } from '@zag-js/react'
 import * as fileUpload from '@zag-js/file-upload'
 import { useId } from 'react'
-import { omit } from '@chakra-ui/utils'
 
 export const [FileUploadStylesProvider, useFileUploadStyles] = createContext<
   Record<string, SystemStyleObject>
@@ -25,16 +24,26 @@ export interface FileUploadOptions
 
 export type FileUploadRenderContext = Pick<
   fileUpload.Api<any>,
-  | 'files'
-  | 'isDragging'
-  | 'isFocused'
-  | 'open'
+  | 'acceptedFiles'
+  | 'rejectedFiles'
+  | 'dragging'
+  | 'focused'
   | 'deleteFile'
   | 'setFiles'
+  | 'openFilePicker'
   | 'clearFiles'
   | 'getFileSize'
   | 'createFileUrl'
->
+> & {
+  /**
+   * @deprecated use `acceptedFiles` instead
+   */
+  files: File[]
+  /**
+   * @deprecated use `openFilePicker` instead
+   */
+  open: () => void
+}
 
 export const useFileUpload = (props: FileUploadOptions) => {
   const { isDisabled, ...rest } = props
@@ -42,6 +51,7 @@ export const useFileUpload = (props: FileUploadOptions) => {
   const initialContext: fileUpload.Context = {
     id: useId(),
     disabled: isDisabled,
+
     ...rest,
   }
 
@@ -51,9 +61,5 @@ export const useFileUpload = (props: FileUploadOptions) => {
     },
   })
 
-  const api = fileUpload.connect(state, send, normalizeProps)
-
-  api.dropzoneProps = omit(api.dropzoneProps, ['onClick'])
-
-  return api
+  return fileUpload.connect(state, send, normalizeProps)
 }

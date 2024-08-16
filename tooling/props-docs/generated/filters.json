@@ -58,7 +58,7 @@
       "description": "Gets or sets the length of the array. This is a number one higher than the highest index in the array."
     },
     "toLocaleString": {
-      "type": "(() => string) | (() => string)",
+      "type": "type ONLY_FOR_FORMAT =\n  | {\n      (): string\n      (\n        locales: string | string[],\n        options?: (NumberFormatOptions & DateTimeFormatOptions) | undefined,\n      ): string\n    }\n  | (() => string)",
       "required": true,
       "description": "Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.\n\n\nReturns a date converted to a string using the current locale."
     },
@@ -128,7 +128,7 @@
       "description": "The distance or margin between the reference and popper.\nIt is used internally to create an `offset` modifier.\n\nNB: If you define `offset` prop, it'll override the gutter."
     },
     "icon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "id": { "type": "string", "required": false },
@@ -147,7 +147,7 @@
     },
     "isOpen": { "type": "boolean", "required": false },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "lazyBehavior": {
@@ -185,7 +185,7 @@
     },
     "onOpen": { "type": "() => void", "required": false },
     "onSelect": {
-      "type": "(item: FilterItem | FilterItem[]) => Promise<void>",
+      "type": "(item: FilterItem | FilterItem[]) => void",
       "required": false
     },
     "placeholder": { "type": "string", "required": false },
@@ -234,7 +234,7 @@
   },
   "ActiveFilterLabel": {
     "icon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "iconSpacing": {
@@ -263,7 +263,7 @@
     },
     "buttonProps": { "type": "MenuButtonProps", "required": false },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "closeOnBlur": {
@@ -358,6 +358,7 @@
       "required": false,
       "description": "The placement of the popper relative to its reference."
     },
+    "portalProps": { "type": "PortalProps", "required": false },
     "preventOverflow": {
       "type": "boolean",
       "defaultValue": true,
@@ -391,14 +392,16 @@
     },
     "formatLabel": {
       "type": "(label?: string | undefined) => string",
-      "required": false
+      "required": false,
+      "description": "Custom label formatter"
     },
     "formatValue": {
       "type": "(value: FilterValue) => string",
-      "required": false
+      "required": false,
+      "description": "Format the value of the filter, eg timestamps, numbers, etc."
     },
     "icon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "isAttached": {
@@ -415,7 +418,11 @@
     },
     "items": { "type": "FilterItems", "required": false },
     "label": { "type": "string", "required": false },
-    "multiple": { "type": "boolean", "required": false },
+    "multiple": {
+      "type": "boolean",
+      "required": false,
+      "description": "Enable multiple select"
+    },
     "onChange": { "type": "(filter: Filter) => void", "required": false },
     "onOperatorChange": {
       "type": "(id: FilterOperatorId) => void",
@@ -428,7 +435,11 @@
     },
     "operator": { "type": "FilterOperatorId", "required": false },
     "operators": { "type": "FilterItem[]", "required": false },
-    "renderValue": { "type": "FilterRenderFn", "required": false },
+    "renderValue": {
+      "type": "FilterRenderFn",
+      "required": false,
+      "description": "Render the value of the filter, can render custom components like inputs.\nReturn `undefined` to use the default value rendering"
+    },
     "spacing": {
       "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "'0.5rem'",
@@ -443,7 +454,7 @@
   },
   "ActiveFilterValue": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "defaultValue": {
@@ -505,7 +516,7 @@
   },
   "ActiveFilterValueOptions": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "defaultValue": {
@@ -586,7 +597,7 @@
   },
   "UseFilterValue": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "defaultValue": {
@@ -606,7 +617,7 @@
   "FiltersProvider": {
     "activeFilters": { "type": "Filter[]", "required": false },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "defaultFilters": { "type": "Filter[]", "required": false },
@@ -626,7 +637,7 @@
   },
   "NoFilteredResults": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "clearLabel": { "type": "string", "required": false },
@@ -639,7 +650,7 @@
     "title": { "type": "string", "required": false }
   },
   "FilterOperatorId": {
-    "__@iterator@370689": {
+    "__@iterator@434581": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -719,6 +730,11 @@
       "required": true,
       "description": "Returns the position of the first occurrence of a substring."
     },
+    "isWellFormed": {
+      "type": "() => boolean",
+      "required": true,
+      "description": "Returns true if all leading surrogates and trailing surrogates appear paired and in order."
+    },
     "italics": {
       "type": "() => string",
       "required": true,
@@ -740,7 +756,7 @@
       "description": "Returns an `<a>` HTML element and sets the href attribute value"
     },
     "localeCompare": {
-      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
+      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n  (\n    that: string,\n    locales?: LocalesArgument,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
       "required": true,
       "description": "Determines whether two strings are equivalent in the current locale.\n\n\nDetermines whether two strings are equivalent in the current or specified locale."
     },
@@ -750,7 +766,7 @@
       "description": "Matches a string with a regular expression, and returns an array containing the results of that search.\n\n\nMatches a string or an object that supports being matched against, and returns an array\ncontaining the results of that search, or null if no matches are found."
     },
     "matchAll": {
-      "type": "(regexp: RegExp) => IterableIterator<RegExpMatchArray>",
+      "type": "(regexp: RegExp) => IterableIterator<RegExpExecArray>",
       "required": true,
       "description": "Matches a string with a regular expression, and returns an iterable of matches\ncontaining the results of that search."
     },
@@ -835,12 +851,12 @@
       "description": "Returns a `<sup>` HTML element"
     },
     "toLocaleLowerCase": {
-      "type": "(locales?: string | string[] | undefined) => string",
+      "type": "{\n  (locales?: string | string[] | undefined): string\n  (locales?: LocalesArgument): string\n}",
       "required": true,
       "description": "Converts all alphabetic characters to lowercase, taking into account the host environment's current locale."
     },
     "toLocaleUpperCase": {
-      "type": "(locales?: string | string[] | undefined) => string",
+      "type": "{\n  (locales?: string | string[] | undefined): string\n  (locales?: LocalesArgument): string\n}",
       "required": true,
       "description": "Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale."
     },
@@ -858,6 +874,11 @@
       "type": "() => string",
       "required": true,
       "description": "Converts all the alphabetic characters in a string to uppercase."
+    },
+    "toWellFormed": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a string where all lone or out-of-order surrogates have been replaced by the Unicode replacement character (U+FFFD)."
     },
     "trim": {
       "type": "() => string",
@@ -891,7 +912,7 @@
     }
   },
   "FilterType": {
-    "__@iterator@370689": {
+    "__@iterator@434581": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -971,6 +992,11 @@
       "required": true,
       "description": "Returns the position of the first occurrence of a substring."
     },
+    "isWellFormed": {
+      "type": "() => boolean",
+      "required": true,
+      "description": "Returns true if all leading surrogates and trailing surrogates appear paired and in order."
+    },
     "italics": {
       "type": "() => string",
       "required": true,
@@ -992,7 +1018,7 @@
       "description": "Returns an `<a>` HTML element and sets the href attribute value"
     },
     "localeCompare": {
-      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
+      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n  (\n    that: string,\n    locales?: LocalesArgument,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
       "required": true,
       "description": "Determines whether two strings are equivalent in the current locale.\n\n\nDetermines whether two strings are equivalent in the current or specified locale."
     },
@@ -1002,7 +1028,7 @@
       "description": "Matches a string with a regular expression, and returns an array containing the results of that search.\n\n\nMatches a string or an object that supports being matched against, and returns an array\ncontaining the results of that search, or null if no matches are found."
     },
     "matchAll": {
-      "type": "(regexp: RegExp) => IterableIterator<RegExpMatchArray>",
+      "type": "(regexp: RegExp) => IterableIterator<RegExpExecArray>",
       "required": true,
       "description": "Matches a string with a regular expression, and returns an iterable of matches\ncontaining the results of that search."
     },
@@ -1087,12 +1113,12 @@
       "description": "Returns a `<sup>` HTML element"
     },
     "toLocaleLowerCase": {
-      "type": "(locales?: string | string[] | undefined) => string",
+      "type": "{\n  (locales?: string | string[] | undefined): string\n  (locales?: LocalesArgument): string\n}",
       "required": true,
       "description": "Converts all alphabetic characters to lowercase, taking into account the host environment's current locale."
     },
     "toLocaleUpperCase": {
-      "type": "(locales?: string | string[] | undefined) => string",
+      "type": "{\n  (locales?: string | string[] | undefined): string\n  (locales?: LocalesArgument): string\n}",
       "required": true,
       "description": "Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale."
     },
@@ -1110,6 +1136,11 @@
       "type": "() => string",
       "required": true,
       "description": "Converts all the alphabetic characters in a string to uppercase."
+    },
+    "toWellFormed": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a string where all lone or out-of-order surrogates have been replaced by the Unicode replacement character (U+FFFD)."
     },
     "trim": {
       "type": "() => string",
@@ -1143,7 +1174,7 @@
     }
   },
   "FilterOperator": {
-    "__@iterator@370689": {
+    "__@iterator@434581": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -1223,6 +1254,11 @@
       "required": true,
       "description": "Returns the position of the first occurrence of a substring."
     },
+    "isWellFormed": {
+      "type": "() => boolean",
+      "required": true,
+      "description": "Returns true if all leading surrogates and trailing surrogates appear paired and in order."
+    },
     "italics": {
       "type": "() => string",
       "required": true,
@@ -1244,7 +1280,7 @@
       "description": "Returns an `<a>` HTML element and sets the href attribute value"
     },
     "localeCompare": {
-      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
+      "type": "{\n  (that: string): number\n  (\n    that: string,\n    locales?: string | string[] | undefined,\n    options?: CollatorOptions | undefined,\n  ): number\n  (\n    that: string,\n    locales?: LocalesArgument,\n    options?: CollatorOptions | undefined,\n  ): number\n}",
       "required": true,
       "description": "Determines whether two strings are equivalent in the current locale.\n\n\nDetermines whether two strings are equivalent in the current or specified locale."
     },
@@ -1254,7 +1290,7 @@
       "description": "Matches a string with a regular expression, and returns an array containing the results of that search.\n\n\nMatches a string or an object that supports being matched against, and returns an array\ncontaining the results of that search, or null if no matches are found."
     },
     "matchAll": {
-      "type": "(regexp: RegExp) => IterableIterator<RegExpMatchArray>",
+      "type": "(regexp: RegExp) => IterableIterator<RegExpExecArray>",
       "required": true,
       "description": "Matches a string with a regular expression, and returns an iterable of matches\ncontaining the results of that search."
     },
@@ -1339,12 +1375,12 @@
       "description": "Returns a `<sup>` HTML element"
     },
     "toLocaleLowerCase": {
-      "type": "(locales?: string | string[] | undefined) => string",
+      "type": "{\n  (locales?: string | string[] | undefined): string\n  (locales?: LocalesArgument): string\n}",
       "required": true,
       "description": "Converts all alphabetic characters to lowercase, taking into account the host environment's current locale."
     },
     "toLocaleUpperCase": {
-      "type": "(locales?: string | string[] | undefined) => string",
+      "type": "{\n  (locales?: string | string[] | undefined): string\n  (locales?: LocalesArgument): string\n}",
       "required": true,
       "description": "Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale."
     },
@@ -1362,6 +1398,11 @@
       "type": "() => string",
       "required": true,
       "description": "Converts all the alphabetic characters in a string to uppercase."
+    },
+    "toWellFormed": {
+      "type": "() => string",
+      "required": true,
+      "description": "Returns a string where all lone or out-of-order surrogates have been replaced by the Unicode replacement character (U+FFFD)."
     },
     "trim": {
       "type": "() => string",

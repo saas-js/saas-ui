@@ -1,11 +1,17 @@
 ---
-title: Private NPM Registry
+title: Private NPM registry
 description: How to set up the private NPM registry with Saas UI Pro.
 ---
 
+All `@saas-ui-pro` packages can be installed from our private NPM registry.
+While the source code of these packages is included in the Saas UI Pro repository, you can use the private NPM registry to install them in existing projects.
+
 Setting up a private NPM registry for Saas UI Pro is a simple process. You can use any of the popular package managers like NPM, Yarn, or PNPM to install Saas UI Pro from your private NPM registry.
 
-The instructions are slightly different for each package manager, so we have separate guides for each of them.
+<Info>
+  The instructions are slightly different for each package manager, so we have
+  separate guides for each of them.
+</Info>
 
 <SimpleGrid columns={[1, null, 3]} spacing={8} mt="8">
   <QuickLink
@@ -30,3 +36,14 @@ The instructions are slightly different for each package manager, so we have sep
     label="Instructions"
   />
 </SimpleGrid>
+
+## Available packages
+
+| Package                    | Description                                  |
+| -------------------------- | -------------------------------------------- |
+| @saas-ui-pro/react         | Pro React components                         |
+| @saas-ui-pro/onboarding    | Onboarding components                        |
+| @saas-ui-pro/billing       | React components and hooks for billing       |
+| @saas-ui-pro/feature-flags | React components and hooks for feature flags |
+| @saas-ui-pro/kanban-core   | Headless kanban primitives                   |
+| @saas-ui-pro/kanban        | Styled kanban board React components         |

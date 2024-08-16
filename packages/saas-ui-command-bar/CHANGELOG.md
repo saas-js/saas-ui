@@ -1,5 +1,23 @@
 # @saas-ui/command-bar
 
+## 0.5.3
+
+### Patch Changes
+
+- 916c46c: Fixed isDisabled prop on command bar items
+
+## 0.5.2
+
+### Patch Changes
+
+- 68d5712: Fixed selected style selector
+
+## 0.5.1
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+
 ## 0.5.0
 
 ### Minor Changes

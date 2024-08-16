@@ -42,7 +42,7 @@
       "description": "Indicates that a person is out of office. Changes the presence badge style."
     },
     "label": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "Primary label of the persona, defaults to the name"
     },
@@ -67,7 +67,7 @@
       "description": "The presence status of the person\n\nIf set will add an AvatarBadge with color configured in `Presence`\nDefault presence options:\n- online\n- offline\n- busy\n- dnd\n- away"
     },
     "presenceIcon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The icon shown in the AvatarBadge"
     },
@@ -82,7 +82,7 @@
       "description": "Defining which referrer is sent when fetching the resource."
     },
     "secondaryLabel": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "Secondary label, usually the role of the person\nOnly visible from md size and up."
     },
@@ -109,7 +109,7 @@
       "description": "List of sources to use for different screen resolutions"
     },
     "tertiaryLabel": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "Tertiary label, usually the status of the person.\nOnly visible from lg size and up."
     },

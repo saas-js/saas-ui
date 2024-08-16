@@ -15,6 +15,7 @@ import type {
   SupabaseClient,
   VerifyEmailOtpParams,
   VerifyMobileOtpParams,
+  SignOut,
 } from '@supabase/supabase-js'
 
 interface RecoveryParams {
@@ -209,8 +210,8 @@ export const createAuthService = <Client extends SupabaseClient>(
     throw new Error('You need to provide either email or phone')
   }
 
-  const onLogout = async () => {
-    return await supabase.auth.signOut()
+  const onLogout = async (options?: AuthOptions<SignOut>) => {
+    return await supabase.auth.signOut(options)
   }
 
   const onAuthStateChange = (callback: AuthStateChangeCallback<User>) => {

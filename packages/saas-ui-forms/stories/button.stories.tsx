@@ -11,7 +11,7 @@ import {
   Stack,
   Button,
   IconButton,
-  ButtonGroup,
+  Group,
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -220,20 +220,20 @@ export const WithIconButton = () => (
   </Stack>
 )
 
-export const WithButtonGroup = () => (
-  <ButtonGroup variant="outline">
+export const WithGroup = () => (
+  <Group variant="outline">
     <Button colorScheme="blue">Save</Button>
     <Button>Cancel</Button>
-  </ButtonGroup>
+  </Group>
 )
 
 export const AttachedButtons = () => (
-  <ButtonGroup size="sm" isAttached variant="outline">
+  <Group size="sm" isAttached variant="outline">
     <Button marginEnd="-px">Save</Button>
     <IconButton
       fontSize="2xl"
       aria-label="Add to friends"
       icon={<FiChevronDown />}
     />
-  </ButtonGroup>
+  </Group>
 )

@@ -58,7 +58,7 @@
   "dependencies": {
     "@chakra-ui/utils": "^2.0.15",
     "@saas-ui/core": "workspace:*",
-    "@tanstack/react-table": "^8.12.0"
+    "@tanstack/react-table": "^8.20.1"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",
@@ -70,6 +70,6 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@ngneat/falso": "^6.4.0"
+    "@ngneat/falso": "^7.2.0"
   }
 }

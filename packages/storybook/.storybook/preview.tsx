@@ -1,4 +1,8 @@
+import React from 'react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { withThemeByClassName } from '@storybook/addon-themes'
+import type { Preview, ReactRenderer } from '@storybook/react'
 
 /**
  * Add global context for RTL-LTR switching
@@ -20,3 +24,29 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
   },
 }
+
+const preview: Preview = {
+  parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+      },
+    },
+  },
+  decorators: [
+    withThemeByClassName<ReactRenderer>({
+      defaultTheme: 'light',
+      themes: {
+        light: '',
+        dark: 'dark',
+      },
+    }),
+    (Story) => (
+      <ChakraProvider value={defaultSystem}>
+        <Story />
+      </ChakraProvider>
+    ),
+  ],
+}
+
+export default preview

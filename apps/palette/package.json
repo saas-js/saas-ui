@@ -1,6 +1,6 @@
 {
   "name": "palette-docs",
-  "version": "1.4.40",
+  "version": "1.4.41",
   "private": true,
   "scripts": {
     "dev": "next dev",

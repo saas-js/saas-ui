@@ -1,5 +1,12 @@
 # saas-ui-storybook
 
+## 2.0.9
+
+### Patch Changes
+
+- @saas-ui/react@2.8.9
+- @saas-ui/storybook-addon@3.0.2
+
 ## 2.0.8
 
 ### Patch Changes

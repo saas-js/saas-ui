@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.8.9
+
+### Patch Changes
+
+- Updated dependencies [df5d37f]
+  - @saas-ui/forms@2.6.9
+  - @saas-ui/modals@2.1.39
+  - @saas-ui/data-table@10.0.9
+
 ## 2.8.8
 
 ### Patch Changes

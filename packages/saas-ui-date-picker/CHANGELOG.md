@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.12.40
+
+### Patch Changes
+
+- @saas-ui/modals@2.1.39
+
 ## 0.12.39
 
 ### Patch Changes

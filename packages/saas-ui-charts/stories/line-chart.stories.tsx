@@ -95,3 +95,34 @@ export const Multiple: Story = {
     )
   },
 }
+
+export const CustomYAxisBounds: Story = {
+  args: {
+    data: createData({
+      startDate: '2023-12-01',
+      endDate: '2023-12-31',
+      categories: ['Backend', 'Frontend'],
+      startValues: [50, 30],
+      growthRate: 1.01,
+    }),
+    height: '300px',
+    categories: ['Backend', 'Frontend'],
+    colors: ['purple', 'cyan'],
+    minValue: 20,
+    maxValue: 50
+  },
+  render: (args) => {
+    return (
+      <Card>
+        <CardHeader pb="0">
+          <Heading as="h4" fontWeight="medium" size="md">
+            Developers
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <LineChart {...args} />
+        </CardBody>
+      </Card>
+    )
+  }
+}

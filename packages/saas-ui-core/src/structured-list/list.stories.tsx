@@ -229,7 +229,7 @@ export const Nested: Story = {
   },
 }
 
-export const CustomSTyles: Story = {
+export const CustomStyles: Story = {
   render: () => {
     const { isOpen, getToggleProps, getCollapseProps } = useCollapse()
 

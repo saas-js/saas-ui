@@ -28,18 +28,13 @@ The folder structure looks as following:
 | `packages/ui-theme`            | Your custom Chakra UI theme. This extends the Saas UI Pro theme by default.          |
 | `tooling/test-utils`           | Helper functions for testing.                                                        |
 
-### Package naming
-
-Packages that are prefixed with `app` contain frontend application code. Your UI library related codes lives in `ui` prefixed packages.
-API related code lives in `api` prefixed packages.
-
 ### Features
 
-Application code is grouped by feature, this means that all related assets, like components, hook, pages are grouped in a single feature folder. This setup will help to keep the code base maintainable as it (and your team) grows. It will make it easier to add/remove new features and prevent any unwanted side effects when refactoring or removing functionality, due to too much interdependencies.
+Application code is grouped by feature, this means that all related assets, like components, hook, pages are grouped in a single feature folder. This setup will help to keep the code base maintainable as it grows. It will make it easier to add/remove new features and prevent any unwanted side effects when refactoring or removing functionality, due to too much interdependencies.
 
 A few rules to make sure the codebase stays maintainable.
 
 - Shared functionality is located in the `common` feature, other features can import from here.
-- Treat features as standalone packages, only import from the top-level barrel (index.ts) file. Eg `import { BillingStatus } from '@app/features/billing`.
-- If a component is used in multiple features and doesn't depend on external state (like data fetching), consider adding it to the ui library, otherwise add it to the common feature.
+- Treat features as standalone packages, keep them as decoupled as possible.
+- If a component is used in multiple features and doesn't depend on external state (like data fetching), consider adding it to the ui library, otherwise add it to the `common` feature.
 - Keep components clean, eg if there is complex business logic, like useQuery or useMutation hooks, move them into a separate hook in `hooks/`

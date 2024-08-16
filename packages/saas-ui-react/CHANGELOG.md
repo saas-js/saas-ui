@@ -1,5 +1,48 @@
 # @saas-ui/react
 
+## 2.8.9
+
+### Patch Changes
+
+- Updated dependencies [df5d37f]
+  - @saas-ui/forms@2.6.9
+  - @saas-ui/modals@2.1.39
+  - @saas-ui/data-table@10.0.9
+
+## 2.8.8
+
+### Patch Changes
+
+- Updated dependencies [fc62212]
+  - @saas-ui/forms@2.6.8
+  - @saas-ui/modals@2.1.38
+  - @saas-ui/data-table@10.0.8
+
+## 2.8.7
+
+### Patch Changes
+
+- Updated dependencies [02cac87]
+  - @saas-ui/data-table@10.0.7
+  - @saas-ui/modals@2.1.37
+  - @saas-ui/forms@2.6.7
+  - @saas-ui/core@2.5.5
+  - @saas-ui/hotkeys@2.2.13
+
+## 2.8.6
+
+### Patch Changes
+
+- 12c35ea: Fixed issue where NavGroup title would always render collapsible state
+- b61ff73: Improve styling overrides for EmptyStateIcon
+- Updated dependencies [12c35ea]
+- Updated dependencies [b61ff73]
+  - @saas-ui/core@2.5.4
+  - @saas-ui/data-table@10.0.6
+  - @saas-ui/forms@2.6.6
+  - @saas-ui/hotkeys@2.2.12
+  - @saas-ui/modals@2.1.36
+
 ## 2.8.5
 
 ### Patch Changes

@@ -1,5 +1,32 @@
 # @saas-ui/test-utils
 
+## 4.0.9
+
+### Patch Changes
+
+- @saas-ui/react@2.8.9
+
+## 4.0.8
+
+### Patch Changes
+
+- @saas-ui/react@2.8.8
+
+## 4.0.7
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+  - @saas-ui/react@2.8.7
+
+## 4.0.6
+
+### Patch Changes
+
+- Updated dependencies [12c35ea]
+- Updated dependencies [b61ff73]
+  - @saas-ui/react@2.8.6
+
 ## 4.0.5
 
 ### Patch Changes

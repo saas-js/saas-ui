@@ -107,7 +107,7 @@
   },
   "SidebarToggleButton": {
     "icon": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false
     },
     "isActive": {
@@ -170,7 +170,7 @@
       "description": "The size of the NavGroup"
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "variant": {
@@ -181,7 +181,7 @@
   },
   "NavGroupTitle": {
     "collapseIcon": {
-      "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | ((props: { ...; }) => ReactNode)",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ((props: { ...; }) => ReactNode)",
       "required": false
     },
     "isCollapsible": { "type": "boolean", "required": false },

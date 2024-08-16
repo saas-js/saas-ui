@@ -1,8 +1,6 @@
-import { anatomy } from '@chakra-ui/theme-tools'
-
 import { Modal } from '@chakra-ui/theme/components'
 
-export const commandBarAnatomy = anatomy('command-bar').parts(
+const parts = [
   'container',
   'dialog',
   'input',
@@ -11,12 +9,12 @@ export const commandBarAnatomy = anatomy('command-bar').parts(
   'empty',
   'group',
   'item',
-  'separator'
-)
+  'separator',
+]
 
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(commandBarAnatomy.keys)
+  createMultiStyleConfigHelpers(parts)
 
 const baseStyle = definePartsStyle({
   container: {
@@ -67,7 +65,10 @@ const baseStyle = definePartsStyle({
     userSelect: 'none',
     transition: 'common',
     transitionDuration: 'normal',
-    _selected: {
+    '&[data-disabled=true]': {
+      opacity: 0.6,
+    },
+    '&[data-selected=true]': {
       bg: 'gray.100',
       _dark: {
         bg: 'whiteAlpha.100',

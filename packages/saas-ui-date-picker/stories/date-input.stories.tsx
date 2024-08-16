@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import {
   DateInput,
@@ -36,10 +36,12 @@ export default {
   ],
 } as Meta
 
-const Template: Story<DateInputProps> = (args) => (
+type Story = StoryObj<DateInputProps>['render']
+
+const Template: Story = (args) => (
   <FormControl>
     <FormLabel>Date</FormLabel>
-    <DateInput {...args} defaultValue={new CalendarDate(2023, 1, 1)} />
+    <DateInput defaultValue={new CalendarDate(2023, 1, 1)} {...args} />
   </FormControl>
 )
 
@@ -130,40 +132,3 @@ export const Sizes = () => {
     </VStack>
   )
 }
-
-// const ForwardedDateTimeInput = forwardRef<
-//   HTMLDivElement,
-//   Omit<ComponentProps<typeof SaasUiDateTimeInput>, 'value'> & { value: string }
-// >(({ value, onChange, ...props }, ref) => {
-//   const parsedValue = value ? parseDateTime(value) : null
-
-//   return (
-//     <Flex gap="2" alignItems="center">
-//       <SaasUiDateTimeInput
-//         ref={ref}
-//         value={parsedValue}
-//         onChange={(value) => {
-//           onChange(value ? value.toString() : null)
-//         }}
-//         {...props}
-//       />
-//       <Button
-//         onClick={() => {
-//           onChange(null)
-//         }}
-//       >
-//         Clear
-//       </Button>
-//     </Flex>
-//   )
-// })
-
-// ForwardedDateTimeInput.displayName = 'ForwardedDateTimeInput'
-
-// export const DateTimeInput = registerFieldType(
-//   'custom-date-time-input',
-//   ForwardedDateTimeInput,
-//   {
-//     isControlled: true,
-//   }
-// )

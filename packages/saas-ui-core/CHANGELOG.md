@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.5.5
+
+### Patch Changes
+
+- 02cac87: Updated dependencies
+
+## 2.5.4
+
+### Patch Changes
+
+- 12c35ea: Fixed issue where NavGroup title would always render collapsible state
+- b61ff73: Improve styling overrides for EmptyStateIcon
+
 ## 2.5.3
 
 ### Patch Changes

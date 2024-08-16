@@ -1,7 +1,7 @@
 {
   "Navbar": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ReactNode[]",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ReactNode[]",
       "required": false
     },
     "colorScheme": {
@@ -81,25 +81,25 @@
   },
   "NavbarBrand": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ReactNode[]",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ReactNode[]",
       "required": false
     }
   },
   "NavbarContent": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode\n  | ReactNode[]",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | ReactNode[]",
       "required": false,
       "description": "Typically the `NavbarItem` component"
     },
     "spacing": {
-      "type": "ResponsiveValue<number | \"px\" | \"initial\" | \"inherit\" | (string & {}) | \"-moz-initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
+      "type": "ResponsiveValue<number | \"px\" | \"initial\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "required": false,
       "description": "Spacing between each navbar item"
     }
   },
   "NavbarItem": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "isActive": {

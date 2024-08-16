@@ -73,17 +73,27 @@ export const docsNav: Links = [
     match: (asPath: string, href: string) =>
       href.startsWith('/docs/guides') && asPath.startsWith('/docs/guides'),
   },
+]
+
+export const proNav: Links = [
   {
-    href: '/docs/pro/overview',
-    label: 'Pro',
-    match: (asPath: string, href: string) =>
-      href.startsWith('/docs/pro') && asPath.startsWith('/docs/pro'),
+    href: '/docs/pro',
+    label: 'Getting started',
+    match: (asPath: string, href: string) => asPath === '/docs/pro',
   },
   {
-    href: '/changelog',
-    label: 'Changelog',
+    href: '/docs/pro/packages',
+    label: 'Packages',
     match: (asPath: string, href: string) =>
-      href.startsWith('/changelog') && asPath.startsWith('/changelog'),
+      href.startsWith('/docs/pro/packages') &&
+      asPath.startsWith('/docs/pro/packages'),
+  },
+  {
+    href: '/docs/pro/nextjs-starterkit',
+    label: 'Next.js starterkit',
+    match: (asPath: string, href: string) =>
+      href.startsWith('/docs/pro/nextjs-starterkit') &&
+      asPath.startsWith('/docs/pro/nextjs-starterkit'),
   },
 ]
 
@@ -111,8 +121,9 @@ export const SecondaryNav = (props) => {
   const router = useRouter()
   const isMobile = useBreakpointValue({ base: true, md: false })
   const isBlog = router.asPath.match(/\/blog/)
+  const isPro = router.asPath.match(/\/pro/)
 
-  const links = isBlog ? blogLinks : docsNav
+  const links = isBlog ? blogLinks : isPro ? proNav : docsNav
 
   const activeItem = links.find((link) =>
     link.match?.(router.asPath, link.href)
@@ -147,7 +158,7 @@ export const SecondaryNav = (props) => {
       }}
     >
       <Box position="relative" borderBottomWidth="1px">
-        <Container maxW="container.2xl" px="6" py="1">
+        <Container maxW="container.2xl" px="2" py="1">
           <Stack spacing="2" direction="row" {...props}>
             {isMobile ? (
               <ResponsiveMenu>

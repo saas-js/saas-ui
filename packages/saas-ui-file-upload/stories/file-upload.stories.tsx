@@ -156,7 +156,7 @@ const UploadField = createField(
         maxFileSize={1024 * 1024}
         accept="image/*"
         {...rest}
-        onFilesChange={(files) => {
+        onFileChange={(files) => {
           if (files.acceptedFiles?.length) {
             onChange(files.acceptedFiles[0])
           }

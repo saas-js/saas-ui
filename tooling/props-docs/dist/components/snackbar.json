@@ -16,12 +16,15 @@
       "type": "SnackbarOptions | ((error: any) => SnackbarOptions)",
       "required": true
     },
-    "success": { "type": "SnackbarOptions", "required": true },
+    "success": {
+      "type": "SnackbarOptions | ((data: any) => SnackbarOptions)",
+      "required": true
+    },
     "loading": { "type": "SnackbarOptions", "required": false }
   },
   "UseSnackbarOptions": {
     "action": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "containerStyle": {
@@ -30,7 +33,7 @@
       "description": "Optional style overrides for the container wrapping the toast component."
     },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The description of the toast"
     },
@@ -41,7 +44,7 @@
       "description": "The delay before the toast hides (in milliseconds)\nIf set to `null`, toast will never dismiss."
     },
     "icon": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "A custom icon that will be displayed by the toast."
     },
@@ -78,7 +81,7 @@
       "description": "The status of the toast."
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The title of the toast"
     },

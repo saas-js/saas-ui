@@ -1,45 +1,57 @@
 {
   "PageHeader": {
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "nav": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "toolbar": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
   "PageOptions": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "errorComponent": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "hasError": { "type": "boolean", "required": false },
     "isLoading": { "type": "boolean", "required": false },
     "skeleton": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
   "Page": {
-    "query": { "type": "Record<string, any>", "required": true },
-    "locale": { "type": "string", "required": false }
+    "children": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
+    },
+    "errorComponent": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
+    },
+    "hasError": { "type": "boolean", "required": false },
+    "isLoading": { "type": "boolean", "required": false },
+    "skeleton": {
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
+    }
   },
   "PageBody": {
     "contentProps": { "type": "HTMLChakraProps<\"div\">", "required": false },
@@ -50,19 +62,19 @@
   },
   "ErrorPage": {
     "actions": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "footer": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "icon": { "type": "As", "required": false },
@@ -71,7 +83,7 @@
       "required": false
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
@@ -116,35 +128,20 @@
   "SectionBody": {},
   "SectionHeader": {
     "description": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
   "Section": {
     "children": {
-      "type": "ItemElement<T> | ItemElement<T>[] | ItemRenderer<T>",
-      "required": true,
-      "description": "Static child items or a function to render children."
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "required": false
     },
-    "aria-label": {
-      "type": "string",
-      "required": false,
-      "description": "An accessibility label for the section."
-    },
-    "items": {
-      "type": "Iterable<T>",
-      "required": false,
-      "description": "Item objects in the section."
-    },
-    "title": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
-      "required": false,
-      "description": "Rendered contents of the section, e.g. a header."
-    }
+    "isLoading": { "type": "boolean", "required": false }
   },
   "SplitPage": {
     "children": {
@@ -274,7 +271,7 @@
     "autoFocus": { "type": "boolean", "required": false },
     "autoSave": { "type": "string", "required": false },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "className": { "type": "string", "required": false },
@@ -376,6 +373,7 @@
     "hidden": { "type": "boolean", "required": false },
     "id": { "type": "string", "required": false },
     "ignoreStrict": { "type": "boolean", "required": false },
+    "inert": { "type": "boolean", "required": false },
     "inherit": { "type": "boolean", "required": false },
     "initial": {
       "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | MakeCustomValueType<TargetProperties>\n  | VariantLabels",
@@ -479,6 +477,10 @@
     },
     "onBeforeLayoutMeasure": {
       "type": "(box: Box) => void",
+      "required": false
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLDivElement>",
       "required": false
     },
     "onBlur": {
@@ -941,15 +943,7 @@
       "type": "PointerEventHandler<HTMLDivElement>",
       "required": false
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
-      "required": false
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLDivElement>",
-      "required": false
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLDivElement>",
       "required": false
     },
@@ -1094,6 +1088,10 @@
       "type": "ReactEventHandler<HTMLDivElement>",
       "required": false
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLDivElement>",
+      "required": false
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLDivElement>",
       "required": false
@@ -1126,11 +1124,35 @@
       "type": "TouchEventHandler<HTMLDivElement>",
       "required": false
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLDivElement>",
       "required": false
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLDivElement>",
       "required": false
     },
@@ -1163,6 +1185,12 @@
     },
     "onWheelCapture": {
       "type": "WheelEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "popover": { "type": "\"\" | \"auto\" | \"manual\"", "required": false },
+    "popoverTarget": { "type": "string", "required": false },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "required": false
     },
     "prefix": { "type": "string", "required": false },
@@ -1232,16 +1260,16 @@
   },
   "AsideOptions": {
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "errorComponent": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "isLoading": { "type": "boolean", "required": false },
     "skeleton": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     }
   },
@@ -1354,7 +1382,7 @@
     "autoFocus": { "type": "boolean", "required": false },
     "autoSave": { "type": "string", "required": false },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "className": { "type": "string", "required": false },
@@ -1438,7 +1466,7 @@
       "description": "Allows you to change dragging inertia parameters.\nWhen releasing a draggable Frame, an animation with type `inertia` starts. The animation is based on your dragging velocity. This property allows you to customize it.\nSee \n{@link \nhttps://framer.com/api/animation/#inertia Inertia\n}\n for all properties you can use.\n\n```jsx\n<motion.div\n  drag\n  dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}\n/>\n```"
     },
     "errorComponent": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "exit": {
@@ -1460,6 +1488,7 @@
     "hidden": { "type": "boolean", "required": false },
     "id": { "type": "string", "required": false },
     "ignoreStrict": { "type": "boolean", "required": false },
+    "inert": { "type": "boolean", "required": false },
     "inherit": { "type": "boolean", "required": false },
     "initial": {
       "type": "type ONLY_FOR_FORMAT =\n  | boolean\n  | MakeCustomValueType<TargetProperties>\n  | VariantLabels",
@@ -1564,6 +1593,10 @@
     },
     "onBeforeLayoutMeasure": {
       "type": "(box: Box) => void",
+      "required": false
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLDivElement>",
       "required": false
     },
     "onBlur": {
@@ -2026,15 +2059,7 @@
       "type": "PointerEventHandler<HTMLDivElement>",
       "required": false
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
-      "required": false
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLDivElement>",
-      "required": false
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLDivElement>",
       "required": false
     },
@@ -2179,6 +2204,10 @@
       "type": "ReactEventHandler<HTMLDivElement>",
       "required": false
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLDivElement>",
+      "required": false
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLDivElement>",
       "required": false
@@ -2211,11 +2240,35 @@
       "type": "TouchEventHandler<HTMLDivElement>",
       "required": false
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLDivElement>",
       "required": false
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLDivElement>",
+      "required": false
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLDivElement>",
       "required": false
     },
@@ -2250,6 +2303,12 @@
       "type": "WheelEventHandler<HTMLDivElement>",
       "required": false
     },
+    "popover": { "type": "\"\" | \"auto\" | \"manual\"", "required": false },
+    "popoverTarget": { "type": "string", "required": false },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
+      "required": false
+    },
     "prefix": { "type": "string", "required": false },
     "property": { "type": "string", "required": false },
     "radioGroup": { "type": "string", "required": false },
@@ -2260,7 +2319,7 @@
     "role": { "type": "AriaRole", "required": false },
     "security": { "type": "string", "required": false },
     "skeleton": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false
     },
     "slot": { "type": "string", "required": false },

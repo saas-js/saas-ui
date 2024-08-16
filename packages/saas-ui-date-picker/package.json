@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/date-picker",
-  "version": "0.12.36",
+  "version": "0.12.40",
   "description": "Chakra UI - Date Picker Component",
   "source": "src/index.ts",
   "exports": {
@@ -79,8 +79,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@react-types/datepicker": "^3.7.2",
-    "@react-types/shared": "^3.22.1",
+    "@react-types/datepicker": "^3.7.4",
+    "@react-types/shared": "^3.23.1",
     "@saas-ui/forms": "workspace:*",
     "date-fns": "^3.6.0"
   }

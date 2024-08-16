@@ -16,7 +16,6 @@
       "required": false,
       "description": "If `true`, all wrapped button will be disabled"
     },
-    "name": { "type": "string", "required": false },
     "onChange": {
       "type": "(\n  value: TType extends \"checkbox\" ? TValue[] : TValue,\n) => void",
       "required": false
@@ -40,7 +39,7 @@
       "description": "Whether the element should receive focus on render."
     },
     "children": {
-      "type": "type ONLY_FOR_FORMAT =\n  | string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | Iterable<ReactNode>\n  | ReactPortal\n  | PromiseLikeOfReactNode",
+      "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
       "description": "The content to display in the button."
     },

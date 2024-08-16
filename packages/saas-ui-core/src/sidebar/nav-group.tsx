@@ -126,6 +126,7 @@ export const NavGroup: React.FC<NavGroupProps> = (props) => {
 
   const collapse = useCollapse({
     ...props,
+    isCollapsible,
     defaultIsOpen,
   })
   const { getCollapseProps } = collapse

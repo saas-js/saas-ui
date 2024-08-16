@@ -7,9 +7,24 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Fri, 29 Mar 2024 11:55:17 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 17 Apr 2024 15:53:45 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/changelog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/changelog/04-17-2024</guid>
+    <title>Apr 17, 2024</title>
+    <link>https://saas-ui.dev/changelog/04-17-2024</link>
+    <description>
+## 04-17-2024
+
+`@saas-ui/react@2.8.0`
+
+- Improved Select types, value type is now string or string[...</description>
+    <pubDate>Wed, 17 Apr 2024 15:53:45 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/changelog/03-29-2024</guid>
     <title>Mar 29, 2024</title>

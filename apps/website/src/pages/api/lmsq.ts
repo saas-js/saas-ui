@@ -1,16 +1,23 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import crypto from 'crypto'
+import type { Readable } from 'stream'
+
+async function getRawBody(readable: Readable): Promise<Buffer> {
+  const chunks: Array<Buffer> = []
+  for await (const chunk of readable) {
+    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk)
+  }
+  return Buffer.concat(chunks)
+}
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    const rawBody = await getRawBody(req)
     const hmac = crypto.createHmac(
       'sha256',
       process.env.LEMON_SQUEEZY_WEBHOOK_SECRET!
     )
-    const digest = Buffer.from(
-      hmac.update(JSON.stringify(req.body)).digest('hex'),
-      'utf8'
-    )
+    const digest = Buffer.from(hmac.update(rawBody).digest('hex'), 'utf8')
     const signature = Buffer.from(
       (req.headers['x-signature'] as string) || '',
       'utf8'

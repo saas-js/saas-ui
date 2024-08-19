@@ -1,10 +1,22 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import crypto from 'crypto'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    if (
-      req.headers['x-signature'] !== process.env.LEMON_SQUEEZY_WEBHOOK_SECRET
-    ) {
+    const hmac = crypto.createHmac(
+      'sha256',
+      process.env.LEMON_SQUEEZY_WEBHOOK_SECRET!
+    )
+    const digest = Buffer.from(
+      hmac.update(JSON.stringify(req.body)).digest('hex'),
+      'utf8'
+    )
+    const signature = Buffer.from(
+      (req.headers['x-signature'] as string) || '',
+      'utf8'
+    )
+
+    if (!crypto.timingSafeEqual(digest, signature)) {
       return res.status(401).json({ success: false, error: 'Unauthorized' })
     }
 

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import crypto from 'crypto'
-import type { Readable } from 'stream'
+import crypto from 'node:crypto'
+import type { Readable } from 'node:stream'
 
 async function getRawBody(readable: Readable): Promise<Buffer> {
   const chunks: Array<Buffer> = []
@@ -10,24 +10,36 @@ async function getRawBody(readable: Readable): Promise<Buffer> {
   return Buffer.concat(chunks)
 }
 
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const rawBody = await getRawBody(req)
-    const hmac = crypto.createHmac(
-      'sha256',
-      process.env.LEMON_SQUEEZY_WEBHOOK_SECRET!
-    )
-    const digest = Buffer.from(hmac.update(rawBody).digest('hex'), 'utf8')
-    const signature = Buffer.from(
-      (req.headers['x-signature'] as string) || '',
-      'utf8'
-    )
+    const buf = await getRawBody(req)
+    const rawBody = buf.toString('utf8')
 
-    if (!crypto.timingSafeEqual(digest, signature)) {
-      return res.status(401).json({ success: false, error: 'Unauthorized' })
+    if (process.env.LEMON_SQUEEZY_WEBHOOK_SECRET) {
+      const hmac = crypto.createHmac(
+        'sha256',
+        process.env.LEMON_SQUEEZY_WEBHOOK_SECRET
+      )
+      const digest = Buffer.from(hmac.update(rawBody).digest('hex'), 'utf8')
+      const signature = Buffer.from(
+        (req.headers['x-signature'] as string) || '',
+        'utf8'
+      )
+
+      if (!crypto.timingSafeEqual(digest, signature)) {
+        return res.status(401).json({ success: false, error: 'Unauthorized' })
+      }
     }
 
-    const { meta, data } = req.body
+    const json = JSON.parse(rawBody)
+
+    const { meta, data } = json
 
     if (meta.event_name === 'order_created') {
       const response = await fetch(

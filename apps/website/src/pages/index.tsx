@@ -108,8 +108,8 @@ const Home = () => {
     <Box>
       <SEO
         title="Saas UI"
-        description="Modern React component library and starterkit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js."
-        titleTemplate="%s - The React component library and Next.js starterkit for Startups"
+        description="Modern React component library and starter kit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js."
+        titleTemplate="%s - The React component library and Next.js starter kit for Startups"
         canonical="https://saas-ui.dev"
       />
 
@@ -158,7 +158,7 @@ const Home = () => {
                     initialInView
                   >
                     Saas UI is a <Em>React component library</Em> and{' '}
-                    <Em>starterkit</Em>
+                    <Em>starter kit</Em>
                     <Br display={{ base: 'none', md: 'inline' }} /> that
                     doesn&apos;t get in your way and helps you{' '}
                     <Br display={{ base: 'none', md: 'inline' }} /> build

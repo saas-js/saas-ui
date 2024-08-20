@@ -116,4 +116,8 @@ let config = {
   },
 }
 
-module.exports = withContentlayer(withBundleAnalyzer(config))
+// if (process.env.NODE_ENV !== 'production') {
+// config = withContentlayer(config)
+// }
+
+module.exports = withBundleAnalyzer(config)

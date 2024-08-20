@@ -358,7 +358,7 @@ export const WithAjvForm = () => (
 )
 
 export const FormState = () => {
-  const ref = React.useRef<UseFormReturn>(null)
+  const ref = React.useRef<UseFormReturn | null>(null)
 
   React.useEffect(() => {
     // Access the form state
@@ -391,6 +391,8 @@ export const FormState = () => {
           <FormLayout>
             <Field name="title" label="Title" />
             <Field name="description" label="Description" />
+
+            <SubmitButton />
           </FormLayout>
         )}
       </Form>

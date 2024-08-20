@@ -185,7 +185,7 @@
     },
     "onOpen": { "type": "() => void", "required": false },
     "onSelect": {
-      "type": "(item: FilterItem | FilterItem[]) => Promise<void>",
+      "type": "(item: FilterItem | FilterItem[]) => void",
       "required": false
     },
     "placeholder": { "type": "string", "required": false },
@@ -358,6 +358,7 @@
       "required": false,
       "description": "The placement of the popper relative to its reference."
     },
+    "portalProps": { "type": "PortalProps", "required": false },
     "preventOverflow": {
       "type": "boolean",
       "defaultValue": true,
@@ -391,11 +392,13 @@
     },
     "formatLabel": {
       "type": "(label?: string | undefined) => string",
-      "required": false
+      "required": false,
+      "description": "Custom label formatter"
     },
     "formatValue": {
       "type": "(value: FilterValue) => string",
-      "required": false
+      "required": false,
+      "description": "Format the value of the filter, eg timestamps, numbers, etc."
     },
     "icon": {
       "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
@@ -415,7 +418,11 @@
     },
     "items": { "type": "FilterItems", "required": false },
     "label": { "type": "string", "required": false },
-    "multiple": { "type": "boolean", "required": false },
+    "multiple": {
+      "type": "boolean",
+      "required": false,
+      "description": "Enable multiple select"
+    },
     "onChange": { "type": "(filter: Filter) => void", "required": false },
     "onOperatorChange": {
       "type": "(id: FilterOperatorId) => void",
@@ -428,7 +435,11 @@
     },
     "operator": { "type": "FilterOperatorId", "required": false },
     "operators": { "type": "FilterItem[]", "required": false },
-    "renderValue": { "type": "FilterRenderFn", "required": false },
+    "renderValue": {
+      "type": "FilterRenderFn",
+      "required": false,
+      "description": "Render the value of the filter, can render custom components like inputs.\nReturn `undefined` to use the default value rendering"
+    },
     "spacing": {
       "type": "ResponsiveValue<number | \"px\" | (string & {}) | \"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"auto\" | \"1\" | \"-1\" | \"2\" | \"-2\" | \"3\" | \"-3\" | \"4\" | \"-4\" | \"5\" | \"-5\" | ... 54 more ... | \"-3.5\">",
       "defaultValue": "'0.5rem'",
@@ -639,7 +650,7 @@
     "title": { "type": "string", "required": false }
   },
   "FilterOperatorId": {
-    "__@iterator@429158": {
+    "__@iterator@434581": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -901,7 +912,7 @@
     }
   },
   "FilterType": {
-    "__@iterator@429158": {
+    "__@iterator@434581": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"
@@ -1163,7 +1174,7 @@
     }
   },
   "FilterOperator": {
-    "__@iterator@429158": {
+    "__@iterator@434581": {
       "type": "() => IterableIterator<string>",
       "required": true,
       "description": "Iterator"

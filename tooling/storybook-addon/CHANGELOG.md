@@ -1,5 +1,12 @@
 # @saas-ui/storybook-addon
 
+## 3.0.2
+
+### Patch Changes
+
+- 1cc49dc: Removed logs
+  - @saas-ui/react@2.8.8
+
 ## 3.0.1
 
 ### Patch Changes

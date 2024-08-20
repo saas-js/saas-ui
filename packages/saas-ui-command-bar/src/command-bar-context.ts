@@ -1,5 +1,4 @@
 import {
-  ModalProps,
   SystemStyleObjectRecord,
   ThemingProps,
   useDisclosure,
@@ -65,9 +64,11 @@ export const useCommandBar = (props: CommandBarOptions) => {
 
   const getItemProps = useCallback(
     (props: any) => {
+      const { isDisabled, onSelect: onSelectProp, ...rest } = props
       return {
-        ...props,
-        onSelect: callAllHandlers(props.onSelect, onSelect, () => {
+        ...rest,
+        disabled: isDisabled,
+        onSelect: callAllHandlers(onSelectProp, onSelect, () => {
           if (closeOnSelect) {
             onClose()
           }

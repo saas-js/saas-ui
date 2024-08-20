@@ -14,7 +14,7 @@ export type ExtraProps = {
 const getType = (
   field: z.ZodTypeAny
 ): 'array' | 'object' | 'number' | 'date' | 'select' | 'text' => {
-  if (field._def.typeName === 'ZodDefault') {
+  if (['ZodDefault', 'ZodOptional'].includes(field._def.typeName)) {
     return getType(field._def.innerType)
   }
 
@@ -27,6 +27,7 @@ const getType = (
       return 'number'
     case 'ZodDate':
       return 'date'
+    case 'ZodNativeEnum':
     case 'ZodEnum':
       return 'select'
     case 'ZodString':
@@ -73,6 +74,11 @@ export const getFieldsFromSchema = (schema: z.ZodTypeAny): FieldProps[] => {
       props.options = def.values.map((value: string) => {
         return { label: value, value }
       })
+    } else if (def.typeName === 'ZodNativeEnum') {
+      props.options = Object.entries(def.values).map(([label, value]) => ({
+        label,
+        value: value as string,
+      }))
     }
 
     const meta = field.description && zodParseMeta(field.description)
@@ -81,6 +87,8 @@ export const getFieldsFromSchema = (schema: z.ZodTypeAny): FieldProps[] => {
       name,
       label: meta?.label || field.description || name,
       type: meta?.type || getType(field),
+      help: meta?.help,
+      placeholder: meta?.placeholder,
       defaultValue: field._def.defaultValue?.(),
       ...props,
     })
@@ -108,22 +116,37 @@ export interface ZodMeta {
    * The label of the field
    */
   label: string
+
   /**
    * The type of the field
    */
   type?: string
+
+  /**
+   * The placeholder of the field
+   */
+  placeholder?: string
+
+  /**
+   * The help text of the field
+   */
+  help?: string
+
   /**
    * Object field column count
    */
   columns?: number
+
   /**
    * Array field min rows
    */
   min?: number
+
   /**
    * Array field max rows
    */
   max?: number
+
   [key: string]: any
 }
 

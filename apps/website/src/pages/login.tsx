@@ -32,7 +32,7 @@ export default function LoginPage() {
   const snackbar = useSnackbar()
 
   return (
-    <Center h="calc(100vh - 260px)">
+    <Center h="calc(100vh - 260px)" minH="500px">
       <Container maxW="container.sm" py="20">
         <Center py="8">
           <SaasUIGlyph width="48px" />

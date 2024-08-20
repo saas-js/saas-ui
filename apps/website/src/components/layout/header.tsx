@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Box, BoxProps, Button, Container, HStack } from '@chakra-ui/react'
-import Navigation from './navigation'
+import { Navigation } from './navigation-menu'
 import Logo from './logo'
 import { useScroll } from 'framer-motion'
 import {
@@ -37,6 +37,8 @@ const GlobalBanner = () => {
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
 const Header = (props: HeaderProps) => {
+  const { maxWidth = 'container.xl', ...rest } = props
+
   const ref = React.useRef<HTMLHeadingElement>()
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
@@ -61,7 +63,7 @@ const Header = (props: HeaderProps) => {
       _dark={{
         bg: 'transparent',
       }}
-      {...props}
+      {...rest}
     >
       {/* <GlobalBanner /> */}
       <Box
@@ -80,22 +82,8 @@ const Header = (props: HeaderProps) => {
         }}
       >
         <Box borderBottomWidth="1px" position="relative" zIndex="1">
-          <Container maxW="container.2xl" px="4" py="3">
-            <HStack width="full" align="center">
-              <Logo
-                onClick={(e) => {
-                  if (window.location.pathname === '/') {
-                    e.preventDefault()
-
-                    window.scrollTo({
-                      top: 0,
-                      behavior: 'smooth',
-                    })
-                  }
-                }}
-              />
-              <Navigation />
-            </HStack>
+          <Container maxW={maxWidth} px="4" py="2">
+            <Navigation />
           </Container>
         </Box>
       </Box>

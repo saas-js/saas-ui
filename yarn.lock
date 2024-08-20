@@ -23087,7 +23087,6 @@ __metadata:
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=5.5.0"
-    jest: ">=27.0.0"
     react: ">=18"
   languageName: unknown
   linkType: soft

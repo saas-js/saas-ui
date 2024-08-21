@@ -3,70 +3,66 @@ title: Environment variables
 description: How to configure environment variables in the Saas UI Next.js starter kit.
 ---
 
-The Saas UI Next.js starter kit uses environment variables to configure the application. This allows you to separate configuration from your codebase and keep sensitive information secure.
+The Saas UI Next.js starter kit uses environment variables to configure the application.
+This allows you to separate configuration from your codebase and keep sensitive information secure.
 
 ## Configuration
 
-We distuingish between shared and secret environment variables. Shared environment variables are shared between environments (dev/staging/prod) are stored in the `apps/web/.env`. They should not contain any secrets and can be checked into version control.
+<Info>
+  We recommend _NEVER_ to check in any .env files in order to prevent leaking
+  secrets into your Git repository. This is unlike [recommendations by
+  Next.js](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables#default-environment-variables),
+  but we believe it is the better/safer approach.
+</Info>
 
-Secret environment variables are stored in the `apps/web/.env.local` file and _NEVER_ be checked into version control.
+Environment variables should always be configured using your CI/CD provider. For example, GitHub Actions, Vercel, etc. Never store secrets in your repository.
 
-Public environment variables are prefixed with `NEXT_PUBLIC_` and are available to the client and server.
-
-## `.env` file
-
-The `.env` file contains shared environment variables and is checked into version control.
+You can copy the `.env.example` file to `.env` and fill in the values.
 
 ```bash
-## Default plan id for new accounts
+# Default plan id for new accounts.
+# Plans are configured in `packages/config/billing.config.ts`.
 DEFAULT_PLAN_ID=free@1
 
-## Email
+# Email
+# The email address that will be used to send emails from the application.
+# This domain must be verified in your email provider.
 FROM_EMAIL="hello@saas-ui.dev"
-```
 
-## `.env.local` file
-
-The `.env.local` file contains secret environment variables and should _NEVER_ be checked into version control.
-
-You can copy the `.env.local.example` file to `.env.local` and fill in the values.
-
-```bash
-## Database
+# Database
+# Uses a local docker instance by default.
 DATABASE_URL=postgres://admin:admin@localhost:5432/dev
 
-## Supabase (default Auth provider)
+# Supabase (default Auth provider)
+# You can find these values in your Supabase project settings.
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_KEY=
 
-## Resend (default email provider)
+# Resend (default email provider)
+# You can find this value in your Resend project settings.
 RESEND_API_KEY=
 
-## Stripe (default payment provider)
+# Stripe (default payment provider)
+# You can find these values in your Stripe dashboard, under developer settings.
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
 STRIPE_SECRET_KEY=
 STRIPE_WEBHOOK_SECRET=
 ```
 
-## Secrets
+## Using environment variables
 
-Secrets should always be configured using your CI/CD provider. For example, GitHub Actions, Vercel, etc. Never store secrets in your repository.
+All environment variables are defined using a Zod schema in `packages/env/env.ts`.
+This allows us to validate the environment variables and give us type-safety / auto-completion in our codebase.
 
-Below you'll find instructions on where to find secrets for all services used.
+You can import environment variables from `env`:
 
-### Supabase
+```ts
+import { env } from 'env'
 
-- `NEXT_PUBLIC_SUPABASE_URL`: Find this in your Supabase project settings.
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Find this in your Supabase project API settings.
-- `SUPABASE_SERVICE_KEY`: Find this in your Supabase project API settings.
+console.log(env.DATABASE_URL)
 
-### Resend
+// or
 
-- `RESEND_API`: Find this in your Resend project settings.
-
-### Stripe
-
-- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: Find this in your Stripe dashboard.
-- `STRIPE_SECRET_KEY`: Find this in your Stripe dashboard.
-- `STRIPE_WEBHOOK_SECRET`: Find this in your Stripe webhook settings.
+console.log(env.NEXT_PUBLIC_SUPABASE_URL)
+```

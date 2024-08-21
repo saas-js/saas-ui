@@ -21,7 +21,7 @@ const sidebar = {
     {
       title: 'Installation',
       path: '/docs/nextjs-starter-kit/installation',
-      open: true,
+      open: false,
       heading: true,
       routes: [
         {
@@ -42,7 +42,7 @@ const sidebar = {
       title: 'Configuration',
       path: '/docs/nextjs-starter-kit/configuration',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Environment variables',
@@ -54,7 +54,7 @@ const sidebar = {
       title: 'Authentication',
       path: '/docs/nextjs-starter-kit/authentication',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Overview',
@@ -82,7 +82,7 @@ const sidebar = {
       title: 'Theming',
       path: '/docs/theming',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Configuration',
@@ -102,7 +102,7 @@ const sidebar = {
       title: 'API',
       path: '/docs/nextjs-starter-kit/api',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Overview',
@@ -121,8 +121,8 @@ const sidebar = {
           path: '/docs/nextjs-starter-kit/api/router-context',
         },
         {
-          title: 'Call procedures',
-          path: '/docs/nextjs-starter-kit/api/call-procedures',
+          title: 'Calling procedures',
+          path: '/docs/nextjs-starter-kit/api/calling-procedures',
         },
       ],
     },
@@ -170,7 +170,7 @@ const sidebar = {
       title: 'Database',
       path: '/docs/nextjs-starter-kit/database',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Overview',
@@ -198,7 +198,7 @@ const sidebar = {
       title: 'Development',
       path: '/docs/nextjs-starter-kit/development',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Getting started',
@@ -224,7 +224,7 @@ const sidebar = {
       title: 'Billing',
       path: '/docs/nextjs-starter-kit/billing',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Overview',
@@ -252,7 +252,7 @@ const sidebar = {
       title: 'Deployments',
       path: '/docs/nextjs-starter-kit/deployments',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Production builds',
@@ -272,7 +272,7 @@ const sidebar = {
       title: 'Troubleshooting',
       path: '/docs/nextjs-starter-kit/troubleshooting',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Common issues',
@@ -286,7 +286,7 @@ const sidebar = {
       title: 'Contributing',
       path: '/docs/nextjs-starter-kit/contributing',
       heading: true,
-      open: true,
+      open: false,
       routes: [
         {
           title: 'Report bugs or feature requests',

@@ -368,7 +368,7 @@ const Sidebar = ({ routes }) => {
 export default Sidebar
 
 export const isMainNavLinkActive = (href: string, path: string) => {
-  const [, group, category] = href.split('/')
+  const [, , group, category] = href.split('/')
 
   return path.includes(
     href.split('/').length >= 3 ? `${group}/${category}` : group
@@ -388,8 +388,8 @@ function SidebarSwitch() {
       href: '/docs/pro',
     },
     {
-      label: 'Next.js Starterkit',
-      href: '/docs/nextjs-starterkit',
+      label: 'Next.js starter kit',
+      href: '/docs/nextjs-starter-kit',
     },
   ]
 

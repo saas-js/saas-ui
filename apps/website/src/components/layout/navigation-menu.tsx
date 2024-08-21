@@ -97,8 +97,8 @@ export const Navigation = () => {
                 </ListItem>
 
                 <ListItem
-                  href="/nextjs-boilerplate"
-                  title="Next.js boilerplate"
+                  href="/nextjs-starter-kit"
+                  title="Next.js starter kit"
                   gridColumn="2 / span 1"
                   gridRow="span 2"
                 >
@@ -139,29 +139,39 @@ export const Navigation = () => {
                   },
                 }}
               >
-                <ListItem
-                  title="Introduction"
-                  href="/docs"
-                  gridColumn="1 / span 1"
-                  gridRow="span 3"
+                <li
+                  style={{ gridColumn: '1 / span 1', gridRow: 'span 6' }}
+                  role="group"
                 >
-                  Learn how to use Saas UI Core.
-                </ListItem>
+                  <NavigationMenu.Link asChild>
+                    <Callout href="/docs">
+                      <CalloutHeading>Core docs</CalloutHeading>
+                      <CalloutText>Learn how to use Saas UI.</CalloutText>
+                      <Spacer />
+                      <HStack alignItems="flex-end">
+                        <CalloutLink href="/docs">Introduction</CalloutLink>
+                        <CalloutLink href="/docs/components">
+                          Components
+                        </CalloutLink>
+                      </HStack>
+                    </Callout>
+                  </NavigationMenu.Link>
+                </li>
                 <ListItem
-                  title="Components"
-                  href="/docs/components"
-                  gridColumn="1 / span 1"
-                  gridRow="span 3"
-                >
-                  An overview of all components.
-                </ListItem>
-                <ListItem
-                  title="Pro documentation"
+                  title="Pro docs"
                   href="/docs/pro"
                   gridColumn="2 / span 1"
-                  gridRow="1 / span 6"
+                  gridRow="1 / span 3"
                 >
                   Learn how to use Saas UI Pro.
+                </ListItem>
+                <ListItem
+                  title="Starter kit docs"
+                  href="/docs/nextjs-starter-kit"
+                  gridColumn="2 / span 1"
+                  gridRow="4 / span 3"
+                >
+                  Build modern apps with the Next.js starter kit.
                 </ListItem>
                 <ListItem
                   title="Roadmap"
@@ -574,33 +584,106 @@ const Callout = chakra('a', {
     flexDirection: 'column',
     width: '100%',
     height: '100%',
-    // background: `linear-gradient(135deg, ${purple.purple9} 0%, ${indigo.indigo9} 100%);`,
-    borderRadius: 6,
-    padding: 25,
+    background: 'blackAlpha.50',
+    borderRadius: 'md',
+    padding: 4,
     textDecoration: 'none',
     outline: 'none',
     userSelect: 'none',
-    // '&:focus': { boxShadow: `0 0 0 2px ${violet.violet7}` },
+    transition: 'background-color 0.2s ease',
+    _hover: {
+      background: 'blackAlpha.100',
+    },
+    _focus: {
+      background: 'blackAlpha.100',
+    },
+    _dark: {
+      background: 'whiteAlpha.200',
+      _hover: {
+        background: 'whiteAlpha.300',
+      },
+      _focus: {
+        background: 'whiteAlpha.300',
+      },
+    },
   },
 })
 
 const CalloutHeading = chakra('div', {
   baseStyle: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 500,
+    fontSize: 'md',
+    fontWeight: 'medium',
     lineHeight: 1.2,
-    marginTop: 16,
-    marginBottom: 7,
+    color: 'blackAlpha.800',
+    _dark: {
+      color: 'whiteAlpha.800',
+    },
+    transition: 'color 0.2s ease',
+    _groupHover: {
+      color: 'black',
+      _dark: {
+        color: 'white',
+      },
+    },
   },
 })
 
 const CalloutText = chakra('p', {
   baseStyle: {
     all: 'unset',
-    // color: mauve.mauve4,
-    fontSize: 14,
-    lineHeight: 1.3,
+    lineHeight: 1.4,
+    fontSize: 'sm',
+    fontWeight: 'initial',
+    color: 'blackAlpha.600',
+    transition: 'color 0.2s ease',
+    _dark: {
+      color: 'whiteAlpha.600',
+    },
+    _groupHover: {
+      color: 'blackAlpha.800',
+      _dark: {
+        color: 'whiteAlpha.800',
+      },
+    },
+  },
+})
+
+const CalloutLink = chakra(Link, {
+  baseStyle: {
+    display: 'block',
+    height: '100%',
+    outline: 'none',
+    textDecoration: 'none',
+    userSelect: 'none',
+    px: 3,
+    py: 1,
+    borderRadius: 'full',
+    fontSize: 'sm',
+    fontWeight: 'medium',
+    cursor: 'pointer',
+    bg: 'blackAlpha.50',
+    transition: 'background-color 0.2s ease',
+    _hover: {
+      bg: 'blackAlpha.100',
+    },
+    _focus: {
+      bg: 'blackAlpha.100',
+    },
+    _groupHover: {
+      bg: 'blackAlpha.100',
+    },
+    _dark: {
+      bg: 'whiteAlpha.200',
+      _hover: {
+        bg: 'whiteAlpha.300',
+      },
+      _focus: {
+        bg: 'whiteAlpha.300',
+      },
+      _groupHover: {
+        bg: 'whiteAlpha.300',
+      },
+    },
   },
 })
 

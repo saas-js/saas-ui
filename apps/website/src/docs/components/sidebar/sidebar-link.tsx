@@ -19,7 +19,23 @@ const SidebarLink = (props: SidebarLinkProps) => {
   const isDisabled = !href
 
   let link = (
-    <NavItem isActive={isActive} variant="neutral" {...rest}>
+    <NavItem
+      isActive={isActive}
+      variant="neutral"
+      color="muted"
+      _active={{
+        color: 'inherit',
+        fontWeight: 'medium',
+      }}
+      _hover={{
+        color: 'inherit',
+        bg: 'blackAlpha.100',
+        _dark: {
+          bg: 'whiteAlpha.100',
+        },
+      }}
+      {...rest}
+    >
       {children}
     </NavItem>
   )

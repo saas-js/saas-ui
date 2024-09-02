@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.11.5
+
+### Patch Changes
+
+- 8bc6ed5: Fixed forwarding missing stackOffset props
+
 ## 0.11.4
 
 ### Patch Changes

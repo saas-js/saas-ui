@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts'
+import type { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
 import { createCategoryColors } from './utils'
@@ -43,6 +44,17 @@ export interface AreaChartProps extends BaseChartProps {
    * @default gradient
    */
   variant?: 'solid' | 'gradient' | 'line'
+  /**
+   * The lower bound of the y-axis.
+   * @default 0
+   */
+  minValue?: number | 'auto'
+
+  /**
+   * The upper bound of the y-axis.
+   * @default 'auto'
+   */
+  maxValue?: number | 'auto'
 }
 
 /**
@@ -78,6 +90,8 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       variant = 'gradient',
       tooltipContent,
       children,
+      minValue = 0,
+      maxValue = 'auto',
     } = props
 
     const theme = useTheme()
@@ -102,6 +116,8 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
           return 'transparent'
       }
     }
+
+    const yAxisDomain: AxisDomain = [minValue, maxValue]
 
     return (
       <Box
@@ -151,6 +167,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
               type="number"
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
+              domain={yAxisDomain}
               style={{
                 color: 'var(--chakra-colors-muted)',
               }}

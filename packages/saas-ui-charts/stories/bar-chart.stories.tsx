@@ -132,6 +132,7 @@ export const StackedBySign: Story = {
     colors: ['green', 'blue', 'red'],
     stack: true,
     stackOffset: 'sign',
+    barSize: 8,
   },
   render: (args) => {
     return (

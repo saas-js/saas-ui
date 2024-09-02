@@ -27,6 +27,10 @@ export interface BarChartProps extends BaseChartProps {
    */
   barCategoryGap?: string | number
   /**
+   * Size of the bars in pixels.
+   */
+  barSize?: number
+  /**
    * Radius of the bars.
    */
   radius?: number | [number, number, number, number]
@@ -59,6 +63,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       index = 'date',
       barGap = '2',
       barCategoryGap = '10%',
+      barSize,
       startEndOnly = false,
       intervalType = 'equidistantPreserveStart',
       allowDecimals = true,
@@ -124,6 +129,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             data={data}
             barCategoryGap={barCategoryGap}
             barGap={barGap}
+            barSize={barSize}
             stackOffset={stackOffset}
           >
             {showGrid && (

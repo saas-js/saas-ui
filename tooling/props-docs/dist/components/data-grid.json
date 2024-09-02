@@ -545,7 +545,7 @@
     "children": {
       "type": "string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
       "required": false,
-      "description": "Child components"
+      "description": "When children is provided, it will be rendered instead of the default pagination controls"
     },
     "onChange": {
       "type": "(props: { pageIndex: number; pageSize: number }) => void",

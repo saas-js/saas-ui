@@ -21,7 +21,7 @@ import { Fragment } from 'react'
 const items = [
   {
     title: 'Getting started',
-    items: coreSidebar.routes.filter((item) => !item.header),
+    items: coreSidebar.routes.filter((item) => !item.heading),
   },
   {
     title: 'Components',
@@ -105,7 +105,6 @@ export const GlobalSearch = (props) => {
                         </CommandBarItem>
 
                         {routes?.map(({ title, path, action }: any, i) => {
-                          console.log(path, item.path)
                           if (path === item.path) {
                             return null
                           }

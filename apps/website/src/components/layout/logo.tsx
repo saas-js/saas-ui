@@ -22,8 +22,7 @@ const Logo = ({ href = '/', onClick }: LogoProps) => {
     logo = (
       <Box
         as={isMobile ? siteConfig.logoIcon : siteConfig.logo}
-        height="32px"
-        mt="-4px"
+        height="28px"
       />
     )
   } else {
@@ -35,12 +34,13 @@ const Logo = ({ href = '/', onClick }: LogoProps) => {
   }
 
   return (
-    <Flex h="8" flexShrink="0" alignItems="flex-start">
+    <Flex flexShrink="0" alignItems="center" height="100%">
       <AccessibleLink
         href={href}
         display="flex"
-        p="1"
+        alignItems="center"
         borderRadius="sm"
+        flex="1"
         onClick={onClick}
       >
         {logo}

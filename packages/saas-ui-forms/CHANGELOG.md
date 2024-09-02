@@ -1,5 +1,17 @@
 # @saas-ui/forms
 
+## 2.6.9
+
+### Patch Changes
+
+- df5d37f: feat(forms): get types for optional, map options for NativeEnum, map …
+
+## 2.6.8
+
+### Patch Changes
+
+- fc62212: Fixed type of formRef to accept ref function handler
+
 ## 2.6.7
 
 ### Patch Changes

@@ -25,55 +25,67 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { RemoveScroll } from 'react-remove-scroll'
 import Logo from '@/components/layout/logo'
 import { SidebarContent } from './sidebar/sidebar'
-import { t } from '@/docs/utils/i18n'
 
 import headerNav from '@/data/header-nav'
 
 interface NavLinkProps extends CenterProps {
   label: string
-  href?: string
+  href: string
   isActive?: boolean
 }
 
 function NavLink({ href, children, label, isActive, ...rest }: NavLinkProps) {
   const { pathname } = useRouter()
-  const bgActiveHoverColor = useColorModeValue('gray.100', 'whiteAlpha.100')
+  const bgActiveHoverColor = useColorModeValue('gray.100', 'whiteAlpha.200')
 
   const [, group] = href.split('/')
   isActive = isActive ?? pathname.includes(group)
 
   return (
     <GridItem as={NextLink} href={href}>
-      <Center
+      <Flex
+        data-active={isActive ? 'true' : undefined}
         flex="1"
-        minH="40px"
-        as="button"
+        px="3"
+        py="2"
         rounded="md"
         transition="0.2s all"
-        fontWeight={isActive ? 'semibold' : 'medium'}
-        borderColor={isActive ? 'purple.400' : undefined}
-        borderWidth="1px"
-        color={isActive ? 'white' : undefined}
+        fontWeight="medium"
+        color="blackAlpha.800"
         w="full"
         _hover={{
-          bg: isActive ? 'purple.500' : bgActiveHoverColor,
+          bg: bgActiveHoverColor,
+          color: 'black',
+        }}
+        _active={{
+          color: 'black',
+          fontWeight: 'semibold',
+        }}
+        _dark={{
+          color: 'whiteAlpha.800',
+          _hover: {
+            color: 'white',
+          },
+          _active: {
+            color: 'white',
+          },
         }}
         {...rest}
       >
         {label}
-      </Center>
+      </Flex>
     </GridItem>
   )
 }
 
 interface MobileNavContentProps {
-  isOpen?: boolean
-  onClose?: () => void
+  isOpen: boolean
+  onClose: () => void
 }
 
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose } = props
-  const closeBtnRef = React.useRef<HTMLButtonElement>()
+  const closeBtnRef = React.useRef<HTMLButtonElement>(null)
   const { pathname, asPath } = useRouter()
   const bgColor = useColorModeValue('whiteAlpha.900', 'blackAlpha.900')
 
@@ -136,8 +148,8 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   pb="6"
                   pt="2"
                   shadow={shadow}
-                  templateColumns="repeat(2, 1fr)"
-                  gap="2"
+                  templateColumns="repeat(1, 1fr)"
+                  gap="1px"
                 >
                   {headerNav.map(
                     ({ href, id, title, colorScheme, ...props }, i) => {
@@ -160,10 +172,12 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   setShadow(scrolled ? 'md' : undefined)
                 }}
               >
-                <SidebarContent
-                  pathname={pathname}
-                  routes={getRoutes(asPath)}
-                />
+                {pathname.match('docs') ? (
+                  <SidebarContent
+                    pathname={pathname}
+                    routes={getRoutes(asPath)}
+                  />
+                ) : null}
               </ScrollView>
             </Flex>
           </motion.div>
@@ -205,12 +219,12 @@ export const MobileNavButton = React.forwardRef(
       <IconButton
         ref={ref}
         display={{ base: 'flex', lg: 'none' }}
-        aria-label="Open menu"
         fontSize="20px"
         color={useColorModeValue('gray.800', 'inherit')}
         variant="ghost"
         icon={<AiOutlineMenu />}
         {...props}
+        aria-label="Open menu"
       />
     )
   }

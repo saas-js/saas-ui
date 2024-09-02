@@ -152,7 +152,7 @@ let config = {
 }
 
 // if (process.env.NODE_ENV !== 'production') {
-config = withContentlayer(config)
+// config = withContentlayer(config)
 // }
 
 module.exports = withBundleAnalyzer(config)

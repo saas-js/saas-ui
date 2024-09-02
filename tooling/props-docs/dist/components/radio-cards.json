@@ -1,0 +1,13 @@
+{
+  "RadioCard": {
+    "value": { "type": "string", "required": true },
+    "isDisabled": { "type": "boolean", "required": false }
+  },
+  "RadioCards": {
+    "columns": { "type": "ResponsiveValue<number>", "required": false },
+    "defaultValue": { "type": "string", "required": false },
+    "isDisabled": { "type": "boolean", "required": false },
+    "onChange": { "type": "(value: string) => void", "required": false },
+    "value": { "type": "string", "required": false }
+  }
+}

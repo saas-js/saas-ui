@@ -1,5 +1,23 @@
 # @saas-ui/auth
 
+## 3.2.1
+
+### Patch Changes
+
+- Updated dependencies [df5d37f]
+  - @saas-ui/forms@2.6.9
+
+## 3.2.0
+
+### Minor Changes
+
+- dadcd94: Added option to disable refetch user on window focus
+
+### Patch Changes
+
+- Updated dependencies [fc62212]
+  - @saas-ui/forms@2.6.8
+
 ## 3.1.9
 
 ### Patch Changes

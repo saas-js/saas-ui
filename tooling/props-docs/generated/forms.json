@@ -1,5 +1,25 @@
 {
   "DisplayField": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "description": "The field name"
+    },
+    "direction": {
+      "type": "\"row\" | \"column\"",
+      "required": false,
+      "description": "Whether the label is positioned vertically or horizontally"
+    },
+    "help": {
+      "type": "string",
+      "required": false,
+      "description": "Field help text"
+    },
+    "hideLabel": {
+      "type": "boolean",
+      "required": false,
+      "description": "Hide the field label"
+    },
     "isDisabled": {
       "type": "boolean",
       "defaultValue": false,
@@ -28,6 +48,21 @@
       "type": "string",
       "required": false,
       "description": "The label text used to inform users as to what information is\nrequested for a text field."
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "The input placeholder"
+    },
+    "rules": {
+      "type": "Omit<\n  RegisterOptions<FieldValues, string>,\n  \"disabled\" | \"setValueAs\" | \"valueAsDate\" | \"valueAsNumber\"\n>",
+      "required": false,
+      "description": "React hook form rules"
+    },
+    "value": {
+      "type": "string | number | string[] | readonly string[]",
+      "required": false,
+      "description": "The value of the counter. Should be less than `max` and greater than `min`\n\n\nThe value of the select field.\n\n\nThe value to be used in the checkbox input.\nThis is the value that will be returned on form submission.\n\n\nThe value of the radio to be `checked`\n(in controlled mode)\n\n\nThe value of the pin input. This is the value\nthat will be returned when the pin input is filled"
     }
   },
   "Fields": {
@@ -260,7 +295,7 @@
       "description": "Default value for new values in the array"
     },
     "direction": {
-      "type": "\"column\" | \"row\"",
+      "type": "\"row\" | \"column\"",
       "required": false,
       "description": "Whether the label is positioned vertically or horizontally"
     },
@@ -343,7 +378,7 @@
       "description": "Default value for new values in the array"
     },
     "direction": {
-      "type": "\"column\" | \"row\"",
+      "type": "\"row\" | \"column\"",
       "required": false,
       "description": "Whether the label is positioned vertically or horizontally"
     },
@@ -536,7 +571,7 @@
     },
     "columns": { "type": "ResponsiveValue<number>", "required": false },
     "direction": {
-      "type": "\"column\" | \"row\"",
+      "type": "\"row\" | \"column\"",
       "required": false,
       "description": "Whether the label is positioned vertically or horizontally"
     },
@@ -761,7 +796,7 @@
       "description": "Field overrides"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<TFieldValues, TContext>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<TFieldValues, TContext> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<TFieldValues, TContext>>",
       "required": false,
       "description": "The Hook Form state ref."
     },
@@ -806,12 +841,12 @@
     "values": { "type": "TFieldValues", "required": false }
   },
   "StepsOptions": {
-    "__@iterator@41149": {
+    "__@iterator@41913": {
       "type": "() => IterableIterator<{\n  name: TName\n  schema?: TSchema | undefined\n}>",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@42621": {
+    "__@unscopables@43385": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -1051,7 +1086,7 @@
       "description": "Field overrides"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<TFieldValues, TContext>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<TFieldValues, TContext> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<TFieldValues, TContext>>",
       "required": false,
       "description": "The Hook Form state ref."
     },
@@ -1558,12 +1593,12 @@
     }
   },
   "RadioOptions": {
-    "__@iterator@41149": {
+    "__@iterator@41913": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<RadioOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@42621": {
+    "__@unscopables@43385": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -2602,7 +2637,7 @@
       "description": "The field name"
     },
     "direction": {
-      "type": "\"column\" | \"row\"",
+      "type": "\"row\" | \"column\"",
       "required": false,
       "description": "Whether the label is positioned vertically or horizontally"
     },
@@ -2662,12 +2697,12 @@
     }
   },
   "FieldOptions": {
-    "__@iterator@41149": {
+    "__@iterator@41913": {
       "type": "type ONLY_FOR_FORMAT =\n  | (() => IterableIterator<string>)\n  | (() => IterableIterator<TOption>)",
       "required": true,
       "description": "Iterator"
     },
-    "__@unscopables@42621": {
+    "__@unscopables@43385": {
       "type": "{ [x: number]: boolean | undefined; length?: boolean | undefined; toString?: boolean | undefined; toLocaleString?: boolean | undefined; pop?: boolean | undefined; push?: boolean | undefined; ... 35 more ...; readonly [Symbol.unscopables]?: boolean | undefined; } | { ...; }",
       "required": true,
       "description": "Is an object whose properties have the value 'true'\nwhen they will be absent when used in a 'with' statement."
@@ -2913,7 +2948,7 @@
       "description": "Field overrides"
     },
     "formRef": {
-      "type": "RefObject<UseFormReturn<TFieldValues, TContext>>",
+      "type": "type ONLY_FOR_FORMAT =\n  | ((\n      instance: UseFormReturn<TFieldValues, TContext> | null,\n    ) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<UseFormReturn<TFieldValues, TContext>>",
       "required": false,
       "description": "The Hook Form state ref."
     },

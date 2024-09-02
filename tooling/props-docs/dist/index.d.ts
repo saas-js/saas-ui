@@ -20,6 +20,7 @@ export declare const Snackbar: PropDoc
 export declare const Sidebar: PropDoc
 export declare const SearchInput: PropDoc
 export declare const Resize: PropDoc
+export declare const RadioCards: PropDoc
 export declare const Provider: PropDoc
 export declare const Property: PropDoc
 export declare const Persona: PropDoc

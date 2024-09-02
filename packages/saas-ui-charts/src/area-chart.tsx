@@ -35,6 +35,10 @@ export interface AreaChartProps extends BaseChartProps {
    */
   stack?: boolean
   /**
+   * The type of offset function used to generate the lower and upper values in the series array. The four types are built-in offsets in d3-shape.
+   */
+  stackOffset?: 'expand' | 'none' | 'wiggle' | 'silhouette'
+  /**
    * The area chart variant.
    * @default gradient
    */

@@ -69,6 +69,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       showXAxis = true,
       showYAxis = true,
       stack = false,
+      stackOffset,
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
@@ -123,6 +124,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             data={data}
             barCategoryGap={barCategoryGap}
             barGap={barGap}
+            stackOffset={stackOffset}
           >
             {showGrid && (
               <CartesianGrid

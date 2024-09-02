@@ -70,6 +70,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       showXAxis = true,
       showYAxis = true,
       stack = false,
+      stackOffset,
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
@@ -113,7 +114,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
         }}
       >
         <ResponsiveContainer width="100%" height="100%">
-          <ReAreaChart data={data}>
+          <ReAreaChart data={data} stackOffset={stackOffset}>
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"

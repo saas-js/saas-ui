@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.11.7
+
+### Patch Changes
+
+- 12108b6: Added minValue and maxValue to bar and area charts
+
 ## 0.11.6
 
 ### Patch Changes

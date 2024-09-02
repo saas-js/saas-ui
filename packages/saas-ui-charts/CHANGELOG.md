@@ -1,5 +1,12 @@
 # @saas-ui/charts
 
+## 0.11.6
+
+### Patch Changes
+
+- 88fe6b7: Added barSize prop
+- fc897e3: Added sign option to barchart stackOffset
+
 ## 0.11.5
 
 ### Patch Changes

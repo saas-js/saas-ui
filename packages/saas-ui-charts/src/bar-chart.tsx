@@ -37,7 +37,7 @@ export interface BarChartProps extends BaseChartProps {
   /**
    * The type of offset function used to generate the lower and upper values in the series array. The four types are built-in offsets in d3-shape.
    */
-  stackOffset?: 'expand' | 'none' | 'wiggle' | 'silhouette'
+  stackOffset?: 'expand' | 'none' | 'wiggle' | 'silhouette' | 'sign'
   /**
    * The bar chart variant.
    * @default gradient

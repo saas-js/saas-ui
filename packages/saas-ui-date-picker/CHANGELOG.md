@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.12.41
+
+### Patch Changes
+
+- 5db3102: fix(date-picker): expose useDatePickerInput and useDateRangePicker hooks
+
 ## 0.12.40
 
 ### Patch Changes

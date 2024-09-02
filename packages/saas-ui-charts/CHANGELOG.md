@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.11.4
+
+### Patch Changes
+
+- a82e51e: Added support for stackOffset
+
 ## 0.11.3
 
 ### Patch Changes

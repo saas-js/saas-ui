@@ -33,7 +33,10 @@ const _createField = (
 
     const getBaseField = fieldContext?.getBaseField ?? getBaseFieldProp
 
-    const { extraProps, BaseField } = getBaseField()
+    const { extraProps, BaseField } = React.useMemo(
+      () => getBaseField(),
+      [getBaseField]
+    )
 
     const [, inputProps] = splitProps(
       props,

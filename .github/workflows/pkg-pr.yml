@@ -16,7 +16,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: yarn
+        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn
 
       - name: Build
         run: yarn build:packages

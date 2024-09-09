@@ -965,8 +965,8 @@ const FigmaCard = () => {
         </Text>
 
         <Stack flexDirection={{ base: 'column', sm: 'row' }}>
-          <ButtonLink variant="primary" href="/pricing">
-            Figma Pro early access
+          <ButtonLink variant="primary" href="/pricing/figma">
+            Buy Figma Pro
           </ButtonLink>
           <ButtonLink
             href="https://www.figma.com/community/file/1257658419283927894"

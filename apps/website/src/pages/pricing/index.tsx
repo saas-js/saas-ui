@@ -8,6 +8,7 @@ import {
   Button,
   Center,
   Container,
+  Icon,
   IconButton,
   SimpleGrid,
   Tab,
@@ -38,13 +39,15 @@ import { ButtonLink } from '@/components/link'
 
 import { Faq } from '@/components/faq'
 
-import { Testimonial, Testimonials } from '@/components/testimonials'
+import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
 import { Br } from '@saas-ui/react'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
-import { SignupForm } from '@/components/signup-form'
+
+import Link from 'next/link'
+import { FaFigma, FaReact } from 'react-icons/fa6'
 
 const PricingPage = () => {
   return (
@@ -140,7 +143,7 @@ const TestimonialTabs = () => {
               _before={{ content: '"“"' }}
               _after={{ content: '"“"' }}
             >
-              Saas-ui is fantastic if you want to build fast-as-thought with
+              Saas UI is fantastic if you want to build fast-as-thought with
               beautiful defaults and still have the flexibility to customize
               when time allows. I truly love building with it!!
             </Text>
@@ -215,86 +218,88 @@ const Pricing = () => {
     setPaymentLinks(getPaymentLinks(true))
   }, [])
 
-  const figma = useDisclosure()
-
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
-        <SectionTitle
-          title="Pricing for every stage"
-          description={
-            <>
-              <Text fontSize="xl" mb="12" color="muted">
-                Get started for free with 50+ open source components. Upgrade to
-                Pro <Br display={{ sm: 'none', lg: 'inline' }} />
-                to get all components and features with a license for you or
-                your team.
-              </Text>
-              <Install />
-            </>
-          }
+        <VStack
+          alignItems={'center'}
+          spacing={4}
           pt={{ base: '8', lg: '10' }}
-          pb="12"
-        />
+          pb="4"
+          mb="8"
+        >
+          <Heading as="h2" size="xl" textStyle="sectionTitle">
+            Pricing for every stage
+          </Heading>
 
-        <SignupForm isOpen={figma.isOpen} onClose={figma.onClose} />
+          <Box>
+            <Text fontSize="xl" color="muted">
+              Get started for free with 50+ open source components. Upgrade to
+              Pro <Br display={{ sm: 'none', lg: 'inline' }} />
+              to get all components and features with a license for you or your
+              team.
+            </Text>
+          </Box>
+        </VStack>
+
+        <Stack mb="14" align="center">
+          <Tabs variant="segments" maxW="lg">
+            <TabList justifyContent="stretch">
+              <Tab
+                as={Link}
+                href="/pricing"
+                alignItems="flex-start"
+                height="auto"
+                py="3"
+                px="3"
+                flex="1"
+              >
+                <Icon as={FaReact} boxSize="8" me="3" />
+                <VStack alignItems="flex-start" spacing="1">
+                  <Text>React</Text>
+                  <Text size="xs" color="muted" fontWeight="normal">
+                    React component library and Next.js starter kit
+                  </Text>
+                </VStack>
+              </Tab>
+              <Tab
+                as={Link}
+                href="/pricing/figma"
+                alignItems="flex-start"
+                height="auto"
+                py="3"
+                px="3"
+                flex="1"
+              >
+                <Icon as={FaFigma} boxSize="8" me="3" />
+                <VStack alignItems="flex-start" spacing="1">
+                  <Text>Figma</Text>
+                  <Text size="xs" color="muted" fontWeight="normal">
+                    Official Figma design system &amp; UI Kit
+                  </Text>
+                </VStack>
+              </Tab>
+            </TabList>
+          </Tabs>
+        </Stack>
 
         <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
-            title={
-              <HStack as="span">
-                <Text as="span">Figma</Text>{' '}
-                <Tag colorScheme="primary" size="sm">
-                  New
-                </Tag>
-              </HStack>
-            }
-            description="Comprehensive Figma design system for designers."
-            price={
-              <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  $99,-
-                </Text>
-                <Text>49,-</Text>
-              </HStack>
-            }
+            title="Open Source"
+            description="Basic components, perfect to get started."
+            price="Free forever"
           >
             <PricingFeatures>
-              <PricingFeature
-                title="One editor"
-                help="One editor per license, you can buy as many licenses as you need. Licenses can be transfered."
-              />
-              <PricingFeature
-                title="Unlimited projects"
-                help="You can design unlimited projects."
-              />
-              <PricingFeature title="50+ components" />
-              <PricingFeature title="3000+ variants" />
-              <PricingFeature title="Auto-layout" />
-              <PricingFeature title="Theming with Figma variables" />
-              <PricingFeature title="Dark mode (soon)" color="muted" />
-              <PricingFeature
-                title="1 year of updates"
-                help="Renew your license for 40% discount after one year to keep receiving updates."
-              />
+              <PricingFeature title="MIT License" />
+              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
+              <PricingFeature title="Forms (react-hook-form)" />
+              <PricingFeature title="Modals manager" />
+              <PricingFeature title="Hotkeys" />
+              <PricingFeature title="Web3 components" />
+              <Text fontSize="sm">And much more...</Text>
             </PricingFeatures>
-            <ButtonLink
-              as="a"
-              colorScheme="primary"
-              href={paymentLinks.figma}
-              className={paymentLinks.className}
-              onClick={(e) => {
-                setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.pirsch?.('Order Figma')
-                })
-              }}
-            >
-              Early access
+            <ButtonLink href="/docs" variant="outline" mt="10">
+              View documentation
             </ButtonLink>
           </PricingBox>
           <PricingBox
@@ -323,7 +328,7 @@ const Pricing = () => {
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
               <PricingFeature title="Pro components" />
-              <PricingFeature title="Next.js starterkit" />
+              <PricingFeature title="Next.js starter kit" />
               <PricingFeature
                 title={
                   <HStack as="span">

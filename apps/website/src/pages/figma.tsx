@@ -128,8 +128,8 @@ const FigmaHero = () => {
             justifyContent="stretch"
             flexDirection={{ base: 'column', lg: 'row' }}
           >
-            <ButtonLink colorScheme="primary" size="lg" href="/pricing">
-              View Pricing
+            <ButtonLink colorScheme="primary" size="lg" href="/pricing/figma">
+              Buy Figma Pro
             </ButtonLink>
             <ButtonLink
               size="lg"

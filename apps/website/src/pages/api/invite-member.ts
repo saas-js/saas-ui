@@ -188,8 +188,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json({
       success: true,
-      npmUsername,
-      npmPassword,
+      npm: npmAccount?.id
+        ? {
+            username: npmUsername,
+            password: npmPassword,
+          }
+        : {
+            error: npmAccount?.message,
+          },
     })
   } catch (error) {
     sendDiscordError({

@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.6.10
+
+### Patch Changes
+
+- fc2203a: Fixed issue where custom base field would trigger additional re-render and loose field focus
+
 ## 2.6.9
 
 ### Patch Changes

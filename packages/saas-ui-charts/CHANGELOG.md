@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.11.8
+
+### Patch Changes
+
+- 3eed648: Use css variable for chart tooltip category labels
+
 ## 0.11.7
 
 ### Patch Changes

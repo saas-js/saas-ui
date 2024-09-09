@@ -173,38 +173,22 @@ const getPaymentLinks = (
   scale: string
   className?: string
 } => {
-  const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
   let affix = ''
-  if (append && aff) {
-    affix = `?aff=${aff}`
+
+  const affRef =
+    typeof window !== 'undefined' &&
+    (window as any)?.LemonSqueezy?.Affiliate?.GetId()
+
+  if (append && affRef) {
+    affix = `?aff_ref=${affRef}`
   }
+
   return {
     standard: `https://saas-ui.lemonsqueezy.com/checkout/buy/f01bee85-aa4f-4de9-8e20-f53b0206b26f${affix}`,
     team: `https://saas-ui.lemonsqueezy.com/checkout/buy/afaaf220-0cba-4317-86a9-48b14c07dc0b${affix}`,
     scale: `https://saas-ui.lemonsqueezy.com/checkout/buy/25c366a6-d33f-472c-9c1d-4589c5420d01${affix}`,
     // className: 'lemonsqueezy-button',
   }
-}
-
-const Install = () => {
-  const { value, onCopy, hasCopied } = useClipboard(
-    'npm install @saas-ui/react'
-  )
-  return (
-    <Center>
-      <HStack py="1" px="2" borderRadius="full" bg="code-bg" borderWidth="1px">
-        <CodePanel language="bash">{value}</CodePanel>
-        <IconButton
-          icon={hasCopied ? <FiCheck /> : <FiCopy />}
-          aria-label="copy"
-          onClick={onCopy}
-          variant="ghost"
-          borderRadius="full"
-          color="white"
-        />
-      </HStack>
-    </Center>
-  )
 }
 
 const Pricing = () => {

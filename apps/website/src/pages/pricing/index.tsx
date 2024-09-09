@@ -170,16 +170,20 @@ const getPaymentLinks = (
   startup: string
   className?: string
 } => {
-  const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
   let affix = ''
-  if (append && aff) {
-    affix = `?aff=${aff}`
+
+  const affRef =
+    typeof window !== 'undefined' &&
+    (window as any)?.LemonSqueezy?.Affiliate?.GetId()
+
+  if (append && affRef) {
+    affix = `?aff_ref=${affRef}`
   }
+
   return {
     figma: `https://saas-ui.lemonsqueezy.com/checkout/buy/f01bee85-aa4f-4de9-8e20-f53b0206b26f${affix}`,
     bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
     startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
-    // className: 'lemonsqueezy-button',
   }
 }
 

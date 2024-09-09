@@ -137,7 +137,7 @@ export interface AuthContextValue<TUser extends User = DefaultUser> {
   updatePassword: AuthFunction<UpdatePasswordParams>
   logOut: (options?: AuthOptions) => Promise<unknown>
   loadUser: () => void
-  getToken: () => Promise<AuthToken>
+  getToken?: () => Promise<AuthToken>
 }
 
 const createAuthContext = <TUser extends User = DefaultUser>() => {
@@ -190,17 +190,36 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
     }
   }, [onRestoreAuthState])
 
-  const checkAuth = useCallback(async () => {
+  const loadUser = useCallback(async () => {
     try {
-      if (onGetToken) {
-        const isAuthenticated = !!(await onGetToken())
-        setAuthenticated(isAuthenticated)
-        return isAuthenticated
+      // Prevent multiple calls to loadUser
+      if (isFetchingRef.current) {
+        return
       }
-    } catch (e) {
+
+      if (
+        (typeof onGetToken === 'undefined' || (await onGetToken())) &&
+        !isFetchingRef.current
+      ) {
+        isFetchingRef.current = true
+        const user = await onLoadUser()
+
+        if (user) {
+          setUser(user)
+          setAuthenticated(true)
+        } else {
+          setAuthenticated(false)
+          setUser(null)
+        }
+      }
+    } catch {
       setAuthenticated(false)
+      setUser(null)
+    } finally {
+      isFetchingRef.current = false
+      setLoading(false)
     }
-  }, [onGetToken])
+  }, [onLoadUser, onGetToken])
 
   useEffect(() => {
     if (!refetchUserOnWindowFocus) {
@@ -218,33 +237,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
         window.removeEventListener('focus', onWindowFocus)
       }
     }
-  }, [checkAuth, refetchUserOnWindowFocus])
-
-  const loadUser = useCallback(async () => {
-    try {
-      // Prevent multiple calls to loadUser
-      if (isFetchingRef.current) {
-        return
-      }
-
-      const isAuthenticated = await checkAuth()
-
-      if (isAuthenticated && !isFetchingRef.current) {
-        isFetchingRef.current = true
-        const user = await onLoadUser()
-
-        if (user) {
-          setUser(user)
-        } else {
-          setAuthenticated(false)
-          setUser(null)
-        }
-      }
-    } finally {
-      isFetchingRef.current = false
-      setLoading(false)
-    }
-  }, [onLoadUser, checkAuth])
+  }, [loadUser, refetchUserOnWindowFocus])
 
   const signUp = useCallback(
     async (params: AuthParams, options?: AuthOptions) => {

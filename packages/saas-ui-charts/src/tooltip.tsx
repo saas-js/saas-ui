@@ -25,7 +25,7 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
   } = props
 
   const tooltipTheme = useStyleConfig('Tooltip')
-  console.log(tooltipTheme)
+
   const renderContent = () => {
     if (payload && payload.length) {
       const items = payload.map((entry, i) => {

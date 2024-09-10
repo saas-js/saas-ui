@@ -69,7 +69,11 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
               boxSize="2"
             />
             {finalName ? (
-              <Box flex="1" color="muted" minWidth="80px">
+              <Box
+                flex="1"
+                minWidth="80px"
+                color="var(--tooltip-fg-muted, var(--chakra-colors-muted))"
+              >
                 {finalName}
               </Box>
             ) : null}

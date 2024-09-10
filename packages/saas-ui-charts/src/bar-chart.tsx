@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts'
+import type { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
 import { ChartTooltip } from './tooltip'
@@ -22,23 +23,49 @@ export interface BarChartProps extends BaseChartProps {
    * Gap between bars in pixels or percentage.
    */
   barGap?: string | number
+
   /**
    * Gap between categories in pixels or percentage.
    */
   barCategoryGap?: string | number
+
+  /**
+   * Size of the bars in pixels.
+   */
+  barSize?: number
+
   /**
    * Radius of the bars.
    */
   radius?: number | [number, number, number, number]
+
   /**
    * Whether to stack the bars.
    */
   stack?: boolean
+
+  /**
+   * The type of offset function used to generate the lower and upper values in the series array. The four types are built-in offsets in d3-shape.
+   */
+  stackOffset?: 'expand' | 'none' | 'wiggle' | 'silhouette' | 'sign'
+
   /**
    * The bar chart variant.
    * @default gradient
    */
   variant?: 'solid' | 'gradient'
+
+  /**
+   * The lower bound of the y-axis.
+   * @default 0
+   */
+  minValue?: number | 'auto'
+
+  /**
+   * The upper bound of the y-axis.
+   * @default 'auto'
+   */
+  maxValue?: number | 'auto'
 }
 
 /**
@@ -55,6 +82,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       index = 'date',
       barGap = '2',
       barCategoryGap = '10%',
+      barSize,
       startEndOnly = false,
       intervalType = 'equidistantPreserveStart',
       allowDecimals = true,
@@ -65,9 +93,12 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       showXAxis = true,
       showYAxis = true,
       stack = false,
+      stackOffset,
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
+      minValue = 0,
+      maxValue = 'auto',
       valueFormatter,
       variant = 'gradient',
       tooltipContent,
@@ -98,6 +129,8 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       }
     }
 
+    const yAxisDomain: AxisDomain = [minValue, maxValue]
+
     return (
       <Box
         ref={ref}
@@ -119,6 +152,8 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             data={data}
             barCategoryGap={barCategoryGap}
             barGap={barGap}
+            barSize={barSize}
+            stackOffset={stackOffset}
           >
             {showGrid && (
               <CartesianGrid
@@ -155,6 +190,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               tick={{ transform: 'translate(-3, 0)' }}
               type="number"
               tickFormatter={valueFormatter}
+              domain={yAxisDomain}
               allowDecimals={allowDecimals}
               style={{
                 color: 'var(--chakra-colors-muted)',

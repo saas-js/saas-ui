@@ -7,6 +7,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const webpack = require('webpack')
 
+/**
+ * @type {import('next').NextConfig}
+ */
 let config = {
   optimizeFonts: true,
   reactStrictMode: true,
@@ -16,6 +19,14 @@ let config = {
   experimental: {
     externalDir: true,
   },
+  transpilePackages: [
+    '@saas-ui/core',
+    '@saas-ui/react',
+    '@saas-ui/theme',
+    '@saas-ui/date-picker',
+    '@saas-ui-pro/react',
+    '@saas-ui-pro/react/theme',
+  ],
   async redirects() {
     return [
       {

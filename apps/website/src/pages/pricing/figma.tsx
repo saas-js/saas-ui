@@ -3,11 +3,15 @@ import * as React from 'react'
 import Script from 'next/script'
 
 import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
   Avatar,
   Box,
   Button,
   Center,
   Container,
+  Icon,
   IconButton,
   SimpleGrid,
   Tab,
@@ -45,6 +49,8 @@ import { Br } from '@saas-ui/react'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 import { SignupForm } from '@/components/signup-form'
+import { FaFigma, FaReact } from 'react-icons/fa6'
+import Link from 'next/link'
 
 const PricingPage = () => {
   return (
@@ -52,7 +58,7 @@ const PricingPage = () => {
       <SEO
         title="Saas UI"
         description="The React component library for Startups"
-        titleTemplate="%s - Pricing"
+        titleTemplate="%s - Figma Pricing"
       />
       <Script
         id="paritydeals-js"
@@ -162,43 +168,27 @@ const TestimonialTabs = () => {
 const getPaymentLinks = (
   append?: boolean
 ): {
-  figma: string
-  bootstrap: string
-  startup: string
+  standard: string
+  team: string
+  scale: string
   className?: string
 } => {
-  const aff = typeof localStorage !== 'undefined' && localStorage.getItem('aff')
   let affix = ''
-  if (append && aff) {
-    affix = `?aff=${aff}`
+
+  const affRef =
+    typeof window !== 'undefined' &&
+    (window as any)?.LemonSqueezy?.Affiliate?.GetId()
+
+  if (append && affRef) {
+    affix = `?aff_ref=${affRef}`
   }
+
   return {
-    figma: `https://saas-ui.lemonsqueezy.com/checkout/buy/f01bee85-aa4f-4de9-8e20-f53b0206b26f${affix}`,
-    bootstrap: `https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5${affix}`,
-    startup: `https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0${affix}`,
+    standard: `https://saas-ui.lemonsqueezy.com/checkout/buy/f01bee85-aa4f-4de9-8e20-f53b0206b26f${affix}`,
+    team: `https://saas-ui.lemonsqueezy.com/checkout/buy/afaaf220-0cba-4317-86a9-48b14c07dc0b${affix}`,
+    scale: `https://saas-ui.lemonsqueezy.com/checkout/buy/25c366a6-d33f-472c-9c1d-4589c5420d01${affix}`,
     // className: 'lemonsqueezy-button',
   }
-}
-
-const Install = () => {
-  const { value, onCopy, hasCopied } = useClipboard(
-    'npm install @saas-ui/react'
-  )
-  return (
-    <Center>
-      <HStack py="1" px="2" borderRadius="full" bg="code-bg" borderWidth="1px">
-        <CodePanel language="bash">{value}</CodePanel>
-        <IconButton
-          icon={hasCopied ? <FiCheck /> : <FiCopy />}
-          aria-label="copy"
-          onClick={onCopy}
-          variant="ghost"
-          borderRadius="full"
-          color="white"
-        />
-      </HStack>
-    </Center>
-  )
 }
 
 const Pricing = () => {
@@ -215,41 +205,99 @@ const Pricing = () => {
     setPaymentLinks(getPaymentLinks(true))
   }, [])
 
-  const figma = useDisclosure()
-
   return (
     <Section id="pricing" pos="relative" innerWidth="container.xl">
       <Box zIndex="2" pos="relative">
-        <SectionTitle
-          title="Pricing for every stage"
-          description={
-            <>
-              <Text fontSize="xl" mb="12" color="muted">
-                Get started for free with 50+ open source components. Upgrade to
-                Pro <Br display={{ sm: 'none', lg: 'inline' }} />
-                to get all components and features with a license for you or
-                your team.
-              </Text>
-              <Install />
-            </>
-          }
+        <VStack
+          alignItems={'center'}
+          spacing={4}
           pt={{ base: '8', lg: '10' }}
-          pb="12"
-        />
+          pb="4"
+          mb="8"
+        >
+          <Heading as="h2" size="xl" textStyle="sectionTitle">
+            Pricing for every stage
+          </Heading>
 
-        <SignupForm isOpen={figma.isOpen} onClose={figma.onClose} />
+          <Box>
+            <Text fontSize="xl" color="muted">
+              Get started for free with 50+ open source components. Upgrade to
+              Pro <Br display={{ sm: 'none', lg: 'inline' }} />
+              to get all components and features with a license for you or your
+              team.
+            </Text>
+          </Box>
+        </VStack>
 
-        <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
+        <Stack mb="14" align="center">
+          <Tabs variant="segments" maxW="lg" index={1}>
+            <TabList justifyContent="stretch">
+              <Tab
+                as={Link}
+                href="/pricing"
+                alignItems="flex-start"
+                height="auto"
+                py="3"
+                px="3"
+                flex="1"
+              >
+                <Icon as={FaReact} boxSize="8" me="3" />
+                <VStack alignItems="flex-start" spacing="1">
+                  <Text fontSize="sm">React</Text>
+                  <Text size="xs" color="muted" fontWeight="normal">
+                    React component library and Next.js starter kit
+                  </Text>
+                </VStack>
+              </Tab>
+              <Tab
+                as={Link}
+                href="/pricing/figma"
+                alignItems="flex-start"
+                height="auto"
+                py="3"
+                px="3"
+                flex="1"
+              >
+                <Icon as={FaFigma} boxSize="8" me="3" />
+                <VStack alignItems="flex-start" spacing="1">
+                  <Text fontSize="sm">Figma</Text>
+                  <Text size="xs" color="muted" fontWeight="normal">
+                    Official Figma design system &amp; UI Kit
+                  </Text>
+                </VStack>
+              </Tab>
+            </TabList>
+          </Tabs>
+
+          <Alert
+            status="info"
+            colorScheme="primary"
+            borderRadius="full"
+            maxW="sm"
+            borderWidth="1px"
+            justifyContent="center"
+            mt="8"
+            py="2"
+          >
+            <AlertTitle fontSize="sm" fontWeight="medium" textAlign="center">
+              50% off on all Figma licenses during early access.
+            </AlertTitle>
+          </Alert>
+        </Stack>
+
+        <SimpleGrid
+          columns={[1, null, 3]}
+          spacing={4}
+          maxW="container.lg"
+          mx="auto"
+        >
           <PricingBox
             title={
               <HStack as="span">
-                <Text as="span">Figma</Text>{' '}
-                <Tag colorScheme="primary" size="sm">
-                  New
-                </Tag>
+                <Text as="span">Standard</Text>
               </HStack>
             }
-            description="Comprehensive Figma design system for designers."
+            description="License for 1 editor. Ideal for designers, freelancers and students."
             price={
               <HStack>
                 <Text
@@ -257,9 +305,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  $97,-
+                  €99,-
                 </Text>
-                <Text>47,-</Text>
+                <Text>€49,-</Text>
               </HStack>
             }
           >
@@ -285,12 +333,12 @@ const Pricing = () => {
             <ButtonLink
               as="a"
               colorScheme="primary"
-              href={paymentLinks.figma}
+              href={paymentLinks.standard}
               className={paymentLinks.className}
               onClick={(e) => {
                 setTimeout(() => {
                   /* @ts-ignore */
-                  window?.pirsch?.('Order Figma')
+                  window?.pirsch?.('Order Figma Standard')
                 })
               }}
             >
@@ -298,72 +346,13 @@ const Pricing = () => {
             </ButtonLink>
           </PricingBox>
           <PricingBox
-            title="Bootstrap"
-            price={
-              <HStack>
-                <Text
-                  textDecoration="line-through"
-                  fontSize="sm"
-                  color="gray.400"
-                >
-                  €297,-
-                </Text>
-                <Text>€247,-</Text>
-              </HStack>
-            }
-            description="Single license for developers and small teams."
-          >
-            <PricingFeatures>
-              <PricingFeature
-                title="One developer"
-                help="One developer per license, you can buy as many licenses as you need. Licenses can be transfered."
-              />
-              <PricingFeature
-                title={<>Unlimited projects*</>}
-                help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
-              />
-              <PricingFeature title="Pro components" />
-              <PricingFeature title="Next.js starterkit" />
-              <PricingFeature
-                title={
-                  <HStack as="span">
-                    <Text as="span">Blocks</Text>{' '}
-                    <Tag colorScheme="primary" size="sm">
-                      New
-                    </Tag>
-                  </HStack>
-                }
-              />
-              <PricingFeature title="Multiple themes" />
-              <PricingFeature title="Private discord community" />
-
-              <PricingFeature
-                title="1 year of updates"
-                help="Renew your license for 40% discount after one year to keep receiving updates.  You keep access to all components and features even if you don't renew."
-              />
-              <PricingFeature
-                title="Private beta access"
-                iconColor="green.500"
-              />
-            </PricingFeatures>
-            <ButtonLink
-              as="a"
-              colorScheme="primary"
-              href={paymentLinks.bootstrap}
-              className={paymentLinks.className}
-              onClick={(e) => {
-                setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.pirsch?.('Order Bootstrap')
-                })
-              }}
-            >
-              Buy Pro
-            </ButtonLink>
-          </PricingBox>
-          <PricingBox
-            title="Startup"
             highlight="primary.500"
+            title={
+              <HStack as="span">
+                <Text as="span">Team</Text>
+              </HStack>
+            }
+            description="License for 5 editors. Ideal for startups and agencies."
             price={
               <HStack>
                 <Text
@@ -371,52 +360,100 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €997,-
+                  €399,-
                 </Text>
-                <Text>€797,-</Text>
+                <Text>€199,-</Text>
               </HStack>
             }
-            description="Unlimited license for growing teams or agencies."
           >
             <PricingFeatures>
               <PricingFeature
-                title="Up to 20 developers"
-                help="Need more developers? Get in touch for a custom offer."
+                title="5 editors"
+                help="You can buy as many licenses as you need. Licenses can be transfered."
               />
               <PricingFeature
                 title="Unlimited projects"
-                help="No restrictions on commercial projects or client work."
+                help="You can design unlimited projects."
               />
-              <PricingFeature title="Everything from Bootstrap" />
-              <PricingFeature title="Prioritized feature requests" />
-              <PricingFeature title="Priority support" />
-              <PricingFeature title="Introduction call" />
-              <PricingFeature title="Private discord community" />
+              <PricingFeature title="50+ components" />
+              <PricingFeature title="3000+ variants" />
+              <PricingFeature title="Auto-layout" />
+              <PricingFeature title="Theming with Figma variables" />
+              <PricingFeature title="Dark mode (soon)" color="muted" />
               <PricingFeature
                 title="1 year of updates"
-                help="Renew your license for 40% discount after one year to keep receiving updates. You keep access to all components and features even if you don't renew."
-              />
-              <PricingFeature
-                title="Private beta access"
-                iconColor="green.500"
+                help="Renew your license for 40% discount after one year to keep receiving updates."
               />
             </PricingFeatures>
             <ButtonLink
               as="a"
               colorScheme="primary"
-              href={paymentLinks.startup}
+              href={paymentLinks.team}
               className={paymentLinks.className}
               onClick={(e) => {
                 setTimeout(() => {
                   /* @ts-ignore */
-                  window?.pirsch?.('Order Startup')
+                  window?.pirsch?.('Order Figma Team')
                 })
               }}
             >
-              Buy Pro
+              Early access
             </ButtonLink>
           </PricingBox>
-          <MemberShip />
+          <PricingBox
+            title={
+              <HStack as="span">
+                <Text as="span">Scale</Text>
+              </HStack>
+            }
+            description="Up to 20 editors. Ideal for fast growing teams."
+            price={
+              <HStack>
+                <Text
+                  textDecoration="line-through"
+                  fontSize="sm"
+                  color="gray.400"
+                >
+                  €799,-
+                </Text>
+                <Text>€399,-</Text>
+              </HStack>
+            }
+          >
+            <PricingFeatures>
+              <PricingFeature
+                title="20 editors"
+                help="You can buy as many licenses as you need. Licenses can be transfered."
+              />
+              <PricingFeature
+                title="Unlimited projects"
+                help="You can design unlimited projects."
+              />
+              <PricingFeature title="50+ components" />
+              <PricingFeature title="3000+ variants" />
+              <PricingFeature title="Auto-layout" />
+              <PricingFeature title="Theming with Figma variables" />
+              <PricingFeature title="Dark mode (soon)" color="muted" />
+              <PricingFeature
+                title="1 year of updates"
+                help="Renew your license for 40% discount after one year to keep receiving updates."
+              />
+            </PricingFeatures>
+            <ButtonLink
+              as="a"
+              colorScheme="primary"
+              href={paymentLinks.scale}
+              className={paymentLinks.className}
+              onClick={(e) => {
+                setTimeout(() => {
+                  /* @ts-ignore */
+                  window?.pirsch?.('Order Figma Scale')
+                })
+              }}
+            >
+              Early access
+            </ButtonLink>
+          </PricingBox>
         </SimpleGrid>
 
         <Text
@@ -537,7 +574,7 @@ const MemberShip = () => {
           <Text>Membership</Text>
         </HStack>
       }
-      description="Our experts join your team to help you move faster. "
+      description="Design engineer as a service. Limited access."
       price={
         <Stack spacing="0" mt="-4">
           <Text fontSize="sm" color="gray.400" fontWeight="medium">
@@ -545,7 +582,7 @@ const MemberShip = () => {
           </Text>
           <HStack>
             <Text>€4750,-</Text>
-            <Text fontSize="sm" color="gray.400" fontWeight="medium">
+            <Text fontSize="sm" color="gray.400">
               / month
             </Text>
           </HStack>

@@ -1,5 +1,36 @@
 # @saas-ui/charts
 
+## 0.11.8
+
+### Patch Changes
+
+- 3eed648: Use css variable for chart tooltip category labels
+
+## 0.11.7
+
+### Patch Changes
+
+- 12108b6: Added minValue and maxValue to bar and area charts
+
+## 0.11.6
+
+### Patch Changes
+
+- 88fe6b7: Added barSize prop
+- fc897e3: Added sign option to barchart stackOffset
+
+## 0.11.5
+
+### Patch Changes
+
+- 8bc6ed5: Fixed forwarding missing stackOffset props
+
+## 0.11.4
+
+### Patch Changes
+
+- a82e51e: Added support for stackOffset
+
 ## 0.11.3
 
 ### Patch Changes

@@ -22,11 +22,16 @@ interface LogoGlyph extends HTMLChakraProps<'svg'> {
 }
 
 const SaasUIGlyph: React.FC<LogoGlyph> = (props) => {
-  const { isAnimating, variant = 'gradient', ...rest } = props
+  const {
+    isAnimating,
+    variant = 'gradient',
+    color = '#8952e0',
+    ...rest
+  } = props
 
   return (
     <chakra.svg version="1.1" viewBox="0 0 432 520" {...rest}>
-      <g fill="#8952e0">
+      <g fill={color}>
         <path
           d="M185.59,22.26c4.41-0.43,7.58-1,10.76-1.01c64.35-0.05,128.7,0.18,193.04-0.26c10.8-0.07,13.54,3.89,13.39,13.89
 		c-0.46,30.3-0.59,60.62,0.03,90.92c0.23,11.53-4.58,14.09-14.99,14.03c-60.62-0.34-121.23-0.19-181.85-0.15

@@ -19,17 +19,55 @@ The client uses [Tanstack Query](https://tanstack.com/query/latest) to manage da
 
 import { api } from '#lib/trpc/react'
 
-export default function ContactsPage(props: {
+export function ContactPage(props: {
   params: {
-    type: 'customer' | 'lead'
+    id: string
   }
 }) {
-  const { data, isLoading } = api.contacts.listByType.useQuery({
-    workspaceId: workspace.id,
-    type,
+  const { data, isLoading } = api.contacts.byId.useQuery({
+    id,
   })
 
   // render the page
+}
+```
+
+### useSuspenseQuery
+
+`useSuspenseQuery` is very useful as it guarantees data to be defined, so you don't have to check for `isLoading` for conditional rendering.
+It also enables you use Next.js streaming to render the page as soon as the data is available.
+
+```tsx
+// in a server component, eg page or layout
+import { Suspense } from 'react'
+import { api, HydrateClient } from '#lib/trpc/rsc'
+import { ContactPage } from '#components/contact-page'
+
+export default async function Page(params: { id: string }) {
+  api.contacts.byId.prefetch({
+    id: params.id,
+  })
+
+  return (
+    <HydrateClient>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ContactPage id={params.id} />
+      </Suspense>
+    </HydrateClient>
+  )
+}
+```
+
+```tsx
+// in a client component
+import { api } from '#lib/trpc/react'
+
+export function ContactPage(props: { id: string }) {
+  const [data] = api.contacts.byId.useSuspenseQuery({
+    id,
+  })
+
+  return <div>{data.name}</div>
 }
 ```
 
@@ -68,11 +106,11 @@ export default function ProfilePage() {
 
 ## Server
 
-### Query
+To fetch and use the data on the server, you can use the `caller` object.
 
 ```ts
 // app/[slug]/layout.tsx
-import { api } from '#lib/trpc/rsc'
+import { caller } from '#lib/trpc/rsc'
 
 export default Layout(props: {
   children: React.ReactNode
@@ -80,7 +118,7 @@ export default Layout(props: {
     slug: string
   }
 }) {
-  const workspace = await api.workspaces.bySlug({
+  const workspace = await caller.workspaces.bySlug({
     slug: props.params.slug,
   })
 

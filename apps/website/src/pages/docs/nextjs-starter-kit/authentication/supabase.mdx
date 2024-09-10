@@ -3,19 +3,19 @@ title: Supabase Authentication
 description: Configure the Supabase authentication service
 ---
 
-Saas UI supports Supabase authentication out of the box. To use it, you need to configure the Supabase client and the Supabase auth service.
+Supabase is an open source Firebase alternative that provides a Postgres database, authentication, and real-time data sync.
 
 ## Install
 
-Install the Supabase Javascript client and the Supabase auth service.
+Install the Supabase auth service in the Next.js app.
 
 ```bash
-cd apps/web && yarn add @supabase/supabase-js @saas-ui/supabase @acme/auth-supabase
+yarn workspace web add @acme/auth-supabase
 ```
 
 ## Configure
 
-Edit `apps/web/.env.local` and add your public Supabase URL and KEY.
+Edit `apps/web/.env` and add your public Supabase URL and KEY. You can find your project URL and KEY in the [Supabase console](https://supabase.com/dashboard).
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL="https://x.supabase.co"
@@ -24,14 +24,30 @@ NEXT_PUBLIC_SUPABASE_KEY="x"
 
 Edit `apps/web/features/auth/auth-service` and create the supabase authentication service.
 
-```js
-import { createAuthService } from '@saas-ui/supabase'
+```ts
+import { createAuthService } from '@acme/auth-supabase/client'
 
-import { createSupabaseBrowserClient } from '@acme/auth-supabase/client'
+export const authService = createAuthService()
+```
 
-export const supabase = createSupabaseBrowserClient()
+Update the next.js Middleware `apps/web/middleware.ts` to use the Supabase authentication service.
 
-export const authService = createAuthService(supabase)
+```ts
+import { auth } from '@acme/auth-supabase/middleware'
+
+export default auth
+```
+
+Replace all `getSession` imports with the `getSession` from `@acme/auth-supabase` in the following files:
+
+- `apps/web/app/(app)/layout.tsx`
+- `apps/web/app/api/trpc/[trpc]/route.ts`
+- `apps/web/lib/trpc/rsc.ts`
+
+If you have any other files that use `getSession` you will need to replace them as well.
+
+```ts
+import { getSession } from '@acme/auth-supabase'
 ```
 
 Now your frontend is configured to use Supabase authentication.

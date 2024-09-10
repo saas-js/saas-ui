@@ -32,27 +32,12 @@ export const authProviders: AvailableProviders = {
 }
 ```
 
-### 3. Paths and titles
+## Customize the auth screens
 
-If you use different paths you can change them here.
+### Login screen
 
-```ts
-export const authPaths: Record<string, any> = {
-  '/login': {
-    view: 'login',
-    title: 'Welcome back',
-  },
-  '/signup': {
-    view: 'signup',
-    title: 'Sign up for free',
-  },
-  '/forgot_password': {
-    view: 'forgot_password',
-    title: 'Reset your password',
-  },
-  '/reset_password': {
-    view: 'update_password',
-    title: 'Enter a new password',
-  },
-}
-```
+The login screen is located in `apps/web/features/auth/login/login-page.tsx`.
+
+### Signup screen
+
+The signup screen is located in `apps/web/features/auth/signup/signup-page.tsx`.

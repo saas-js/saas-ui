@@ -61,16 +61,16 @@ const sidebar = {
           path: '/docs/nextjs-starter-kit/authentication',
         },
         {
+          title: 'Auth.js (NextAuth)',
+          path: '/docs/nextjs-starter-kit/authentication/authjs',
+        },
+        {
           title: 'Supabase',
           path: '/docs/nextjs-starter-kit/authentication/supabase',
         },
         {
           title: 'Clerk',
           path: '/docs/nextjs-starter-kit/authentication/clerk',
-        },
-        {
-          title: 'Auth.js (NextAuth)',
-          path: '/docs/nextjs-starter-kit/authentication/authjs',
         },
         {
           title: 'Customize auth screens',
@@ -87,10 +87,6 @@ const sidebar = {
         {
           title: 'Configuration',
           path: '/docs/nextjs-starter-kit/theming/configuration',
-        },
-        {
-          title: 'Color schemes',
-          path: '/docs/nextjs-starter-kit/theming/color-schemes',
         },
         {
           title: 'Fonts',
@@ -268,20 +264,20 @@ const sidebar = {
         },
       ],
     },
-    {
-      title: 'Troubleshooting',
-      path: '/docs/nextjs-starter-kit/troubleshooting',
-      heading: true,
-      open: false,
-      routes: [
-        {
-          title: 'Common issues',
-        },
-        {
-          title: 'Community support',
-        },
-      ],
-    },
+    // {
+    //   title: 'Troubleshooting',
+    //   path: '/docs/nextjs-starter-kit/troubleshooting',
+    //   heading: true,
+    //   open: false,
+    //   routes: [
+    //     {
+    //       title: 'Common issues',
+    //     },
+    //     {
+    //       title: 'Community support',
+    //     },
+    //   ],
+    // },
     {
       title: 'Contributing',
       path: '/docs/nextjs-starter-kit/contributing',
@@ -290,9 +286,11 @@ const sidebar = {
       routes: [
         {
           title: 'Report bugs or feature requests',
+          path: '/docs/nextjs-starter-kit/contributing/bugs-and-feature-requests',
         },
         {
           title: 'Contribute to the project',
+          path: '/docs/nextjs-starter-kit/contributing/contributing',
         },
       ],
     },

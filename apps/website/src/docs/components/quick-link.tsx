@@ -19,7 +19,7 @@ export const QuickLink = (props) => {
           {icon}
         </Box>
       )}
-      <Text fontWeight="bold" mb="2">
+      <Text fontWeight="semibold" mb="1">
         {title}
       </Text>
       <Text color="muted" fontSize="md" mb="4">

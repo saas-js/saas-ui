@@ -6,35 +6,39 @@ description: How to run the application locally.
 Once you have cloned the repository and installed the dependencies, you can run the application with the following commands:
 
 ```bash
-cp apps/web/.env.local.example apps/web/.env.local
+cp apps/web/.env.example apps/web/.env
 ```
 
-Then run the following command to start the local database and push the schema:
+Then run the following command to start the local database and run database migrations:
 
 ```bash
-docker-compose up && yarn db:push
+docker-compose up && yarn db:migrate
 ```
 
-Followed by:
+To run the Next.js application, run the following command:
 
 ```bash
 yarn dev:web
 ```
 
-This will start the Next.js application on `http://localhost:3000`.
+This will start the Next.js application at `http://localhost:3000`.
 
 ## Authentication
 
-To log in you need to configure the authentication provider, by default the application uses Supabase.
+The application uses Auth.js (NextAuth) by default for authentication.
+Auth.js requires an `AUTH_SECRET` environment variable to be set.
 
-To configure Supabase, create a `.env.local` file in the `apps/web` directory with the following content:
+To generate a secret, run the following command:
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://your-supabase-url.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-SUPABASE_SERVICE_KEY=your-supabase-service-key
+openssl rand -base64 33
 ```
+
+Now update the `AUTH_SECRET` environment variable in the `.env` file with the generated secret.
+
+You can now log in with your email address, the confirmation URL will be printed in the console in case you haven't configured any email provider.
 
 ## Next steps
 
-- [Configure authentication](/docs/pro/authentication)
+- [Configure Environment Variables](/docs/nextjs-starter-kit/configuration/environment-variables)
+- [Configure email provider](/docs/nextjs-starter-kit/configuration/email-provider)

@@ -1,5 +1,12 @@
 # @saas-ui/charts
 
+## 0.11.9
+
+### Patch Changes
+
+- ecc4efb: Added dot prop to line chart
+- 222bf5a: Improved tick rendering with low fixed maxValue
+
 ## 0.11.8
 
 ### Patch Changes

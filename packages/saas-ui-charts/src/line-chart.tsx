@@ -18,6 +18,7 @@ import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
 import { BaseChartProps } from './types'
 import { AxisDomain } from 'recharts/types/util/types'
+import type { LineDot } from 'recharts/types/cartesian/Line'
 
 export interface LineChartProps extends BaseChartProps {
   /**
@@ -29,6 +30,12 @@ export interface LineChartProps extends BaseChartProps {
    * The curve type of the line.
    */
   curveType?: CurveType
+
+  /**
+   * Whether to show line dots.
+   * @default false
+   */
+  dot?: LineDot
 
   /**
    * The width of the line.
@@ -61,6 +68,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       height,
       connectNulls = false,
       curveType = 'linear',
+      dot = false,
       index = 'date',
       startEndOnly = false,
       intervalType = 'equidistantPreserveStart',
@@ -178,7 +186,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 key={category}
                 type={curveType}
                 dataKey={category}
-                dot={false}
+                dot={dot}
                 stroke={getColor(category)}
                 strokeWidth={strokeWidth}
                 strokeLinejoin="round"

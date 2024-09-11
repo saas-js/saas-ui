@@ -188,6 +188,8 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               axisLine={false}
               tickLine={false}
               tick={{ transform: 'translate(-3, 0)' }}
+              // 5 is the default, but 6 typically gives better results
+              tickCount={6}
               type="number"
               tickFormatter={valueFormatter}
               domain={yAxisDomain}

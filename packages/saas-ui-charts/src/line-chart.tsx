@@ -129,6 +129,8 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               tickLine={false}
               domain={yAxisDomain}
               tick={{ transform: 'translate(-3, 0)' }}
+              // 5 is the default, but 6 typically gives better results
+              tickCount={6}
               type="number"
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}

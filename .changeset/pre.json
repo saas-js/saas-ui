@@ -43,5 +43,7 @@
     "@saas-ui/storybook-addon": "3.0.2",
     "@saas-ui/test-utils": "4.0.10"
   },
-  "changesets": []
+  "changesets": [
+    "few-eyes-invite"
+  ]
 }

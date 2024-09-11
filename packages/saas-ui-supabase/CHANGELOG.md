@@ -1,5 +1,12 @@
 # @saas-ui/supabase
 
+## 2.2.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0-next.0
+
 ## 2.2.0
 
 ### Minor Changes

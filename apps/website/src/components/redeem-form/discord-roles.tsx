@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase'
+import { getAbsoluteUrl } from '@/utils/get-absolute-url'
 import { Button } from '@chakra-ui/react'
 
 export function DiscordRoles() {
@@ -9,7 +10,7 @@ export function DiscordRoles() {
         supabase.auth.signInWithOAuth({
           provider: 'discord',
           options: {
-            redirectTo: 'http://localhost:3020/api/discord',
+            redirectTo: getAbsoluteUrl('/api/discord'),
             scopes: 'guilds.join',
           },
         })

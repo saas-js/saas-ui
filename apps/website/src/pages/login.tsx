@@ -1,4 +1,5 @@
 import SaasUIGlyph from '@/components/saas-ui-glyph'
+import { getAbsoluteUrl } from '@/utils/get-absolute-url'
 import { Center, Container } from '@chakra-ui/react'
 import { AvailableProviders, LoginView } from '@saas-ui/auth'
 import { useSnackbar } from '@saas-ui/react'
@@ -15,14 +16,6 @@ const providers: AvailableProviders = {
     icon: () => <FaDiscord size="1.1rem" color="#7289da" />,
     scopes: 'guilds.join',
   },
-}
-
-const getAbsoluteUrl = (path: string) => {
-  if (typeof window === 'undefined') {
-    return path
-  }
-  const url = new URL(path, window.location.origin)
-  return url.toString()
 }
 
 export default function LoginPage() {

@@ -13,6 +13,7 @@ const providers: AvailableProviders = {
   discord: {
     name: 'Discord',
     icon: () => <FaDiscord size="1.1rem" color="#7289da" />,
+    scopes: 'guilds.join',
   },
 }
 

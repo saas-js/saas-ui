@@ -35,6 +35,7 @@ import { FaGithub, FaDiscord } from 'react-icons/fa'
 import confetti from 'canvas-confetti'
 import { useCurrentUser } from '@saas-ui/auth'
 import { User } from '@supabase/supabase-js'
+import { DiscordRoles } from './discord-roles'
 
 export function RedeemForm(props) {
   const router = useRouter()
@@ -184,15 +185,10 @@ export function RedeemForm(props) {
 
         <Text>Here are some links to get your started.</Text>
 
+        <DiscordRoles />
+
         <ButtonGroup>
           <ButtonLink href="/docs/pro/overview">Documentation</ButtonLink>
-          <ButtonLink
-            href={data.discordInvite}
-            leftIcon={<FaDiscord />}
-            target="_blank"
-          >
-            Discord
-          </ButtonLink>
 
           <ButtonLink
             variant="ghost"

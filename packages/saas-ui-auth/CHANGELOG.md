@@ -1,5 +1,17 @@
 # @saas-ui/auth
 
+## 3.3.0
+
+### Minor Changes
+
+- c8c696e: onGetToken no longer required for authentication service
+
+## 3.3.0-next.0
+
+### Minor Changes
+
+- c8c696e: onGetToken no longer required for authentication service
+
 ## 3.2.2
 
 ### Patch Changes

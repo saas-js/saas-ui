@@ -5,6 +5,7 @@ import {
   Button,
   chakra,
   HStack,
+  Icon,
   IconButton,
   Kbd,
   keyframes,
@@ -20,7 +21,12 @@ import {
   useUpdateEffect,
   type HTMLChakraProps,
 } from '@chakra-ui/react'
-import { ChevronDownIcon, SearchInput, useHotkeys } from '@saas-ui/react'
+import {
+  ChevronDownIcon,
+  IconBadge,
+  SearchInput,
+  useHotkeys,
+} from '@saas-ui/react'
 import { useAuth } from '@saas-ui/auth'
 import { GlobalSearch } from '../global-search/global-search'
 import { useRouter } from 'next/router'
@@ -30,6 +36,18 @@ import Link from 'next/link'
 import ThemeToggle from './theme-toggle'
 import NavLink from '../nav-link'
 import Logo from './logo'
+import { SaasUIIcon } from '@saas-ui/assets'
+import { NextjsIcon } from '../logos/nextjs'
+import { FigmaLogo } from '../logos/figma'
+import { FaDiscord, FaFigma, FaX } from 'react-icons/fa6'
+import {
+  LuBook,
+  LuBookCopy,
+  LuBox,
+  LuFileClock,
+  LuMap,
+  LuSquare,
+} from 'react-icons/lu'
 
 export const Navigation = () => {
   const router = useRouter()
@@ -76,31 +94,49 @@ export const Navigation = () => {
                     width: '800px',
                     maxWidth: '80vw',
                     gridTemplateColumns: '1fr 1fr',
-                    gridTemplateRows: 'repeat(6, 1fr)',
+                    gridTemplateRows: 'repeat(3, 1fr)',
                   },
                 }}
               >
                 <ListItem
                   href="/#features"
-                  title="Saas UI Core"
-                  gridArea="1 / 1 / 4 / span 1"
+                  title="Saas UI"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <SaasUIIcon width="16px" height="16px" />
+                    </IconBadge>
+                  }
+                  gridArea="1 / 1 / 2 / span 1"
                 >
-                  Open source component library for startups.
+                  Open source design system for startups.
                 </ListItem>
 
                 <ListItem
                   href="/#pro-features"
                   title="Saas UI Pro"
-                  gridArea="4 / 1 / -1 / span 1"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <SaasUIIcon
+                        width="16px"
+                        height="16px"
+                        color="var(--chakra-colors-teal-400)"
+                      />
+                    </IconBadge>
+                  }
+                  gridArea="2 / 1 / 3 / span 1"
                 >
                   Premium React components and utilities.
                 </ListItem>
 
                 <ListItem
-                  href="/nextjs-boilerplate"
-                  title="Next.js boilerplate"
-                  gridColumn="2 / span 1"
-                  gridRow="span 2"
+                  href="/nextjs-starter-kit"
+                  title="Next.js starter kit"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <NextjsIcon width="16px" height="16px" />
+                    </IconBadge>
+                  }
+                  gridArea="3 / 1 / 4 / span 1"
                 >
                   Build intuitive Next.js apps with a solid foundation.
                 </ListItem>
@@ -108,16 +144,26 @@ export const Navigation = () => {
                 <ListItem
                   href="/figma"
                   title="Figma"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={FaFigma} boxSize="16px" />
+                    </IconBadge>
+                  }
                   gridColumn="2 / span 1"
-                  gridRow="span 2"
+                  gridRow="span 1"
                 >
                   Design system and UI Kit for product designers.
                 </ListItem>
                 <ListItem
                   href="/blocks"
                   title="Blocks"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={LuBox} boxSize="16px" />
+                    </IconBadge>
+                  }
                   gridColumn="2 / span 1"
-                  gridRow="span 2"
+                  gridRow="span 1"
                 >
                   Pre-built components for rapid development.
                 </ListItem>
@@ -126,62 +172,171 @@ export const Navigation = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuTrigger>Learn</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
             <NavigationMenuContent>
               <List
                 sx={{
                   '@media only screen and (min-width: 600px)': {
                     width: '800px',
                     maxWidth: '80vw',
-                    // gridAutoFlow: 'column',
                     gridTemplateColumns: 'repeat(3, 1fr)',
-                    gridTemplateRows: 'repeat(6, 1fr)',
+                    gridTemplateRows: 'repeat(4, 1fr)',
+                  },
+                }}
+              >
+                <li
+                  style={{ gridColumn: '1 / span 1', gridRow: 'span 4' }}
+                  role="group"
+                >
+                  <NavigationMenu.Link asChild>
+                    <Callout href="/docs" height="180px">
+                      <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
+                        <SaasUIIcon width="16px" height="16px" />
+                      </IconBadge>
+                      <CalloutHeading>Saas UI</CalloutHeading>
+                      <CalloutText>Learn how to use Saas UI.</CalloutText>
+                      <Spacer />
+                      <HStack alignItems="flex-end">
+                        <CalloutLink href="/docs">Introduction</CalloutLink>
+                        <CalloutLink href="/docs/components">
+                          Components
+                        </CalloutLink>
+                      </HStack>
+                    </Callout>
+                  </NavigationMenu.Link>
+                </li>
+                <li
+                  style={{ gridColumn: '2 / span 1', gridRow: '1 / span 4' }}
+                  role="group"
+                >
+                  <NavigationMenu.Link asChild>
+                    <Callout href="/docs/pro">
+                      <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
+                        <SaasUIIcon
+                          width="16px"
+                          height="16px"
+                          color="var(--chakra-colors-teal-400)"
+                        />
+                      </IconBadge>
+                      <CalloutHeading>Saas UI Pro</CalloutHeading>
+                      <CalloutText>Learn how to use Saas UI Pro.</CalloutText>
+                      <Spacer />
+                      <HStack alignItems="flex-end">
+                        <CalloutLink href="/docs/pro">
+                          Getting started
+                        </CalloutLink>
+                      </HStack>
+                    </Callout>
+                  </NavigationMenu.Link>
+                </li>
+                <li
+                  style={{ gridColumn: '3 / span 1', gridRow: '1 / span 4' }}
+                  role="group"
+                >
+                  <NavigationMenu.Link asChild>
+                    <Callout href="/docs/pro/installation/overview">
+                      <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
+                        <NextjsIcon width="16px" height="16px" />
+                      </IconBadge>
+                      <CalloutHeading>Next.js starter kit</CalloutHeading>
+                      <CalloutText>
+                        Learn to build apps with Next.js.
+                      </CalloutText>
+                      <Spacer />
+                      <HStack alignItems="flex-end">
+                        <CalloutLink href="/docs/pro/installation/overview">
+                          Quick start
+                        </CalloutLink>
+                      </HStack>
+                    </Callout>
+                  </NavigationMenu.Link>
+                </li>
+              </List>
+            </NavigationMenuContent>
+          </NavigationMenu.Item>
+
+          <NavigationMenu.Item>
+            <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <List
+                sx={{
+                  '@media only screen and (min-width: 600px)': {
+                    width: '600px',
+                    maxWidth: '80vw',
+
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gridTemplateRows: 'repeat(2, 1fr)',
                   },
                 }}
               >
                 <ListItem
-                  title="Introduction"
-                  href="/docs"
-                  gridColumn="1 / span 1"
-                  gridRow="span 3"
-                >
-                  Learn how to use Saas UI Core.
-                </ListItem>
-                <ListItem
-                  title="Components"
-                  href="/docs/components"
-                  gridColumn="1 / span 1"
-                  gridRow="span 3"
-                >
-                  An overview of all components.
-                </ListItem>
-                <ListItem
-                  title="Pro documentation"
-                  href="/docs/pro"
-                  gridColumn="2 / span 1"
-                  gridRow="1 / span 6"
-                >
-                  Learn how to use Saas UI Pro.
-                </ListItem>
-                <ListItem
                   title="Roadmap"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={LuMap} boxSize="16px" />
+                    </IconBadge>
+                  }
                   href="https://roadmap.saas-ui.dev"
                   target="_blank"
-                  gridColumn="3 / span 1"
-                  gridRow="1 /span 2"
-                />
+                >
+                  See what&apos;s coming next.
+                </ListItem>
                 <ListItem
                   title="Changelog"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={LuFileClock} boxSize="16px" />
+                    </IconBadge>
+                  }
                   href="/changelog"
-                  gridColumn="3 / span 1"
-                  gridRow="3 / span 2"
-                />
+                >
+                  See what&apos;s changed.
+                </ListItem>
+                <ListItem
+                  title="Github"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={FaGithub} boxSize="16px" />
+                    </IconBadge>
+                  }
+                  href="https://github.com/saas-js/saas-ui"
+                >
+                  Explore the code.
+                </ListItem>
                 <ListItem
                   title="Blog"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={LuBook} boxSize="16px" />
+                    </IconBadge>
+                  }
                   href="/blog"
-                  gridColumn="3 / span 1"
-                  gridRow="5 / span 2"
-                />
+                >
+                  Read the latest posts.
+                </ListItem>
+                <ListItem
+                  title="Discord"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={FaDiscord} boxSize="16px" />
+                    </IconBadge>
+                  }
+                  href="/discord"
+                >
+                  Join our community.
+                </ListItem>
+                <ListItem
+                  title="X"
+                  icon={
+                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
+                      <Icon as={FaX} boxSize="16px" />
+                    </IconBadge>
+                  }
+                  href="https://x.com/saas_js"
+                  target="_blank"
+                >
+                  Follow us on X.
+                </ListItem>
               </List>
             </NavigationMenuContent>
           </NavigationMenu.Item>
@@ -443,7 +598,7 @@ const NavigationMenuViewport = chakra(NavigationMenu.Viewport, {
     transformOrigin: 'top center',
     marginTop: 0,
     width: '100%',
-    backgroundColor: 'whiteAlpha.500',
+    backgroundColor: 'whiteAlpha.700',
     backdropFilter: 'blur(20px)',
     borderBottomRadius: 'lg',
     overflow: 'hidden',
@@ -458,7 +613,7 @@ const NavigationMenuViewport = chakra(NavigationMenu.Viewport, {
       width: 'var(--radix-navigation-menu-viewport-width)',
     },
     _dark: {
-      backgroundColor: 'blackAlpha.400',
+      backgroundColor: 'blackAlpha.700',
       boxShadow: 'dark-lg',
     },
   },
@@ -475,28 +630,34 @@ const List = chakra('ul', {
   },
 })
 
-const ListItem = React.forwardRef<HTMLAnchorElement, HTMLChakraProps<'a'>>(
-  function ListItem(
-    { children, title, gridRow, gridColumn, gridArea, ...props },
-    forwardedRef
-  ) {
-    return (
-      <chakra.li
-        role="group"
-        gridRow={gridRow}
-        gridColumn={gridColumn}
-        gridArea={gridArea}
-      >
-        <NavigationMenu.Link asChild>
-          <ListItemLink {...props} ref={forwardedRef}>
-            <ListItemHeading>{title}</ListItemHeading>
-            {children && <ListItemText>{children}</ListItemText>}
-          </ListItemLink>
-        </NavigationMenu.Link>
-      </chakra.li>
-    )
-  }
-)
+const ListItem = React.forwardRef<
+  HTMLAnchorElement,
+  HTMLChakraProps<'a'> & { icon?: React.ReactNode }
+>(function ListItem(
+  { children, title, icon, gridRow, gridColumn, gridArea, ...props },
+  forwardedRef
+) {
+  return (
+    <chakra.li
+      role="group"
+      gridRow={gridRow}
+      gridColumn={gridColumn}
+      gridArea={gridArea}
+    >
+      <NavigationMenu.Link asChild>
+        <ListItemLink {...props} ref={forwardedRef}>
+          <HStack alignItems="flex-start">
+            {icon}
+            <Box>
+              <ListItemHeading>{title}</ListItemHeading>
+              {children && <ListItemText>{children}</ListItemText>}
+            </Box>
+          </HStack>
+        </ListItemLink>
+      </NavigationMenu.Link>
+    </chakra.li>
+  )
+})
 
 const ListItemLink = chakra(Link, {
   baseStyle: {
@@ -509,21 +670,19 @@ const ListItemLink = chakra(Link, {
     borderRadius: 'md',
     fontSize: 'md',
     cursor: 'pointer',
-    bg: 'blackAlpha.50',
     transition: 'background-color 0.2s ease',
     _hover: {
-      bg: 'blackAlpha.100',
+      bg: 'blackAlpha.50',
     },
     _focus: {
-      bg: 'blackAlpha.100',
+      bg: 'blackAlpha.50',
     },
     _dark: {
-      bg: 'whiteAlpha.200',
       _hover: {
-        bg: 'whiteAlpha.300',
+        bg: 'whiteAlpha.100',
       },
       _focus: {
-        bg: 'whiteAlpha.300',
+        bg: 'whiteAlpha.100',
       },
     },
   },
@@ -574,33 +733,105 @@ const Callout = chakra('a', {
     flexDirection: 'column',
     width: '100%',
     height: '100%',
-    // background: `linear-gradient(135deg, ${purple.purple9} 0%, ${indigo.indigo9} 100%);`,
-    borderRadius: 6,
-    padding: 25,
+    // background: 'blackAlpha.50',
+    borderRadius: 'md',
+    padding: 3,
     textDecoration: 'none',
     outline: 'none',
     userSelect: 'none',
-    // '&:focus': { boxShadow: `0 0 0 2px ${violet.violet7}` },
+    transition: 'background-color 0.2s ease',
+    _hover: {
+      background: 'blackAlpha.50',
+    },
+    _focus: {
+      background: 'blackAlpha.50',
+    },
+    _dark: {
+      _hover: {
+        background: 'whiteAlpha.100',
+      },
+      _focus: {
+        background: 'whiteAlpha.100',
+      },
+    },
   },
 })
 
 const CalloutHeading = chakra('div', {
   baseStyle: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 500,
-    lineHeight: 1.2,
-    marginTop: 16,
-    marginBottom: 7,
+    fontSize: 'md',
+    fontWeight: 'medium',
+    lineHeight: 1.4,
+    color: 'blackAlpha.800',
+    _dark: {
+      color: 'whiteAlpha.800',
+    },
+    transition: 'color 0.2s ease',
+    _groupHover: {
+      color: 'black',
+      _dark: {
+        color: 'white',
+      },
+    },
   },
 })
 
 const CalloutText = chakra('p', {
   baseStyle: {
     all: 'unset',
-    // color: mauve.mauve4,
-    fontSize: 14,
-    lineHeight: 1.3,
+    lineHeight: 1.4,
+    fontSize: 'sm',
+    fontWeight: 'initial',
+    color: 'blackAlpha.600',
+    transition: 'color 0.2s ease',
+    _dark: {
+      color: 'whiteAlpha.600',
+    },
+    _groupHover: {
+      color: 'blackAlpha.800',
+      _dark: {
+        color: 'whiteAlpha.800',
+      },
+    },
+  },
+})
+
+const CalloutLink = chakra(Link, {
+  baseStyle: {
+    display: 'block',
+    height: '100%',
+    outline: 'none',
+    textDecoration: 'none',
+    userSelect: 'none',
+    px: 3,
+    py: 1,
+    borderRadius: 'full',
+    fontSize: 'sm',
+    fontWeight: 'medium',
+    cursor: 'pointer',
+    bg: 'blackAlpha.50',
+    transition: 'background-color 0.2s ease',
+    _hover: {
+      bg: 'blackAlpha.100',
+    },
+    _focus: {
+      bg: 'blackAlpha.100',
+    },
+    _groupHover: {
+      bg: 'blackAlpha.100',
+    },
+    _dark: {
+      bg: 'whiteAlpha.200',
+      _hover: {
+        bg: 'whiteAlpha.300',
+      },
+      _focus: {
+        bg: 'whiteAlpha.300',
+      },
+      _groupHover: {
+        bg: 'whiteAlpha.300',
+      },
+    },
   },
 })
 

@@ -201,18 +201,20 @@ const sidebar = {
           path: '/docs/nextjs-starter-kit/development',
         },
         {
-          title: 'Adding new pages',
-          path: '/docs/nextjs-starter-kit/development/add-new-pages',
+          title: 'Adding pages',
+          path: '/docs/nextjs-starter-kit/development/adding-pages',
         },
         {
-          title: 'Adding new features',
-          path: '/docs/nextjs-starter-kit/development/add-new-features',
+          title: 'Adding features',
+          path: '/docs/nextjs-starter-kit/development/adding-features',
         },
         {
           title: 'Forms and validation',
+          path: '/docs/nextjs-starter-kit/development/forms-and-validation',
         },
         {
           title: 'Error handling',
+          path: '/docs/nextjs-starter-kit/development/error-handling',
         },
       ],
     },

@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.4.2
+
+### Patch Changes
+
+- 5e000e0: Removed background color from loading overlay fill variant
+
 ## 2.4.1
 
 ### Patch Changes

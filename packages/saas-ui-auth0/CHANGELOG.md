@@ -1,5 +1,25 @@
 # @saas-ui/auth0
 
+## 0.1.14
+
+### Patch Changes
+
+- @saas-ui/auth@3.3.1
+
+## 0.1.13
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0
+
+## 0.1.13-next.0
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0-next.0
+
 ## 0.1.12
 
 ### Patch Changes

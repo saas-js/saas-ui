@@ -69,11 +69,6 @@ const createAuthService = (): AuthProviderProps<CustomUser> => {
       console.log('onLoadUser', user)
       return user
     },
-    onGetToken: async () => {
-      // return a session token if it's supported.
-      console.log('onGetToken', user?.email)
-      return user?.email
-    },
     onResetPassword: async (params: AuthParams) => {
       // send a reset password email
     },

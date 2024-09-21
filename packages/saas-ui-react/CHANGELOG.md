@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 2.8.11
+
+### Patch Changes
+
+- 5e000e0: Removed background color from loading overlay fill variant
+- Updated dependencies [5e000e0]
+  - @saas-ui/theme@2.4.2
+  - @saas-ui/core@2.5.6
+  - @saas-ui/data-table@10.0.11
+  - @saas-ui/forms@2.6.11
+  - @saas-ui/hotkeys@2.2.14
+  - @saas-ui/modals@2.1.41
+
 ## 2.8.10
 
 ### Patch Changes

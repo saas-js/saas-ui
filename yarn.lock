@@ -7441,7 +7441,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/auth@npm:^3.0.0, @saas-ui/auth@npm:^3.2.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
+"@saas-ui/auth@npm:^3.3.0-next.0, @saas-ui/auth@workspace:*, @saas-ui/auth@workspace:packages/saas-ui-auth":
   version: 0.0.0-use.local
   resolution: "@saas-ui/auth@workspace:packages/saas-ui-auth"
   dependencies:
@@ -7780,7 +7780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/magic@workspace:packages/saas-ui-magic"
   dependencies:
-    "@saas-ui/auth": "npm:^3.0.0"
+    "@saas-ui/auth": "npm:^3.3.0-next.0"
     magic-sdk: "npm:^17.4.0"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"
@@ -7969,7 +7969,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/supabase@workspace:packages/saas-ui-supabase"
   dependencies:
-    "@saas-ui/auth": "npm:^3.2.0"
+    "@saas-ui/auth": "npm:^3.3.0-next.0"
     "@supabase/supabase-js": "npm:^2.45.4"
   peerDependencies:
     "@chakra-ui/react": ">=2.4.9"

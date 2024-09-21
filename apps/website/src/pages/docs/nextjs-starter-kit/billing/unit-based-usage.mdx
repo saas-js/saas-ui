@@ -1,0 +1,30 @@
+---
+title: 'Unit based usage'
+description: 'How to set up and record unit based usage in your application'
+---
+
+Unit based usage (sometimes called seat based usage) is probably the most common usage type for SaaS applications, examples are:
+
+- Users
+- Seats
+- Monthly active users (MAU)
+
+The starter kit has built-in support for seat based usage and monthly active contacts.
+
+## Registering usage
+
+Usage of features is calculated in the `getFeatureCounts` function in the `billing` service.
+
+The function is called with the billing account id and should return an object with the feature counts.
+
+```ts
+export const getFeatureCounts = async (args: { accountId: string }) => {
+  return {
+    users: 10,
+  }
+}
+```
+
+## Checking usage limits
+
+TBD

@@ -68,10 +68,10 @@ const sidebar = {
           title: 'Supabase',
           path: '/docs/nextjs-starter-kit/authentication/supabase',
         },
-        {
-          title: 'Clerk',
-          path: '/docs/nextjs-starter-kit/authentication/clerk',
-        },
+        // {
+        //   title: 'Clerk',
+        //   path: '/docs/nextjs-starter-kit/authentication/clerk',
+        // },
         {
           title: 'Customize auth screens',
           path: '/docs/nextjs-starter-kit/authentication/customize-auth-screens',
@@ -91,6 +91,10 @@ const sidebar = {
         {
           title: 'Fonts',
           path: '/docs/nextjs-starter-kit/theming/fonts',
+        },
+        {
+          title: 'Logo',
+          path: '/docs/nextjs-starter-kit/theming/logo',
         },
       ],
     },
@@ -237,12 +241,16 @@ const sidebar = {
           path: '/docs/nextjs-starter-kit/billing/stripe',
         },
         {
-          title: 'Seat based billing',
-          path: '/docs/nextjs-starter-kit/billing/seat-based-billing',
+          title: 'Unit based usage',
+          path: '/docs/nextjs-starter-kit/billing/unit-based-usage',
         },
         {
-          title: 'Metered billing',
-          path: '/docs/nextjs-starter-kit/billing/metered-billing',
+          title: 'Metered usage',
+          path: '/docs/nextjs-starter-kit/billing/metered-usage',
+        },
+        {
+          title: 'Webhooks',
+          path: '/docs/nextjs-starter-kit/billing/webhooks',
         },
       ],
     },

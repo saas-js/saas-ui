@@ -1,0 +1,60 @@
+---
+title: 'Stripe'
+description: 'How to configure and use Stripe'
+---
+
+The starter kit comes with built-in support for Stripe as the default billing provider.
+
+## Configuration
+
+The following environment variables are required:
+
+- `STRIPE_SECRET_KEY`
+
+The secret key can be found in the Stripe dashboard under [`Developers -> API Keys`](https://dashboard.stripe.com/apikeys).
+
+- `STRIPE_WEBHOOK_SECRET`
+
+For development continue to `Stripe CLI` section.
+
+To manually configure webhooks you can find the secret in the Stripe dashboard under [`Developers -> Webhooks`](https://dashboard.stripe.com/webhooks).
+
+### Billing portal
+
+The starter kit uses the Stripe Billing portal to manage subscriptions.
+
+To enable the billing portal go to [`Settings -> Billing -> Customer portal`](https://dashboard.stripe.com/settings/billing/portal).
+
+### Stripe CLI
+
+The Stripe CLI can be used to receive webhook events locally.
+[Install the Stripe CLI](https://docs.stripe.com/stripe-cli) if you haven't done so already.
+
+To receive webhook events locally you need to start the Stripe CLI with the `listen` command to enable event forwarding.
+
+```bash
+stripe listen --forward-to http://localhost:3000/api/webhooks/stripe
+```
+
+or
+
+```bash
+yarn workspace @acme/billing-stripe listen
+```
+
+After starting the Stripe CLI it will display the webhook secret, which should be added to the `STRIPE_WEBHOOK_SECRET` environment variable.
+
+### Webhooks
+
+The following webhooks are handled by the starter kit:
+
+- `checkout.session.completed`
+- `customer.subscription.created`
+- `customer.subscription.updated`
+- `customer.subscription.deleted`
+
+These events should be enabled when configuring webhooks in the Stripe dashboard.
+
+You can add your own webhook handlers by editing `apps/web/app/api/webhooks/stripe/route.ts`.
+
+See [webhooks](/docs/nextjs-starter-kit/billing/webhooks) for more information.

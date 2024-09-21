@@ -16,13 +16,14 @@ const SidebarLink = (props: SidebarLinkProps) => {
   const { asPath } = useRouter()
   const isActive = asPath === href
 
-  const isDisabled = !href
-
   let link = (
     <NavItem
       isActive={isActive}
       variant="neutral"
-      color="muted"
+      color="gray.600"
+      _dark={{
+        color: 'gray.300',
+      }}
       _active={{
         color: 'inherit',
         fontWeight: 'medium',
@@ -31,6 +32,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
         color: 'inherit',
         bg: 'blackAlpha.100',
         _dark: {
+          color: 'inherit',
           bg: 'whiteAlpha.100',
         },
       }}

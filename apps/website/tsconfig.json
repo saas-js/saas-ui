@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "downlevelIteration": true,
     "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"],
       "@/components/*": ["src/components/*"],
       "@/data/*": ["src/data/*"],
       "@/utils/*": ["src/utils/*"],
@@ -24,7 +25,8 @@
       "@/docs/*": ["src/docs/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@saas-ui/react": ["../../packages/saas-ui-react/src"],
-      "contentlayer/generated": ["./.contentlayer/generated"],
+      "@saas-ui/forms": ["../../packages/saas-ui/forms/src"],
+      "@saas-ui/data-table": ["../../packages/saas-ui/data-table/src"],
       "@saas-ui-pro/feature-flags": [
         "../../packages/pro/saas-ui/feature-flags/src"
       ],

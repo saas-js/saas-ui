@@ -21,7 +21,9 @@ let config = {
   },
   transpilePackages: [
     '@saas-ui/core',
+    '@saas-ui/forms',
     '@saas-ui/react',
+    '@saas-ui/data-table',
     '@saas-ui/theme',
     '@saas-ui/date-picker',
     '@saas-ui-pro/react',

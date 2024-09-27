@@ -246,7 +246,7 @@ const sidebar = {
         },
         {
           title: 'Metered usage',
-          path: '/docs/nextjs-starter-kit/billing/metered-usage',
+          path: '/docs/nextjs-starter-kit/billing/metered-based-usage',
         },
         {
           title: 'Webhooks',
@@ -261,16 +261,20 @@ const sidebar = {
       open: false,
       routes: [
         {
+          title: 'Preparation',
+          path: '/docs/nextjs-starter-kit/deployments/preparation',
+        },
+        {
           title: 'Production builds',
           path: '/docs/nextjs-starter-kit/deployments/production-build',
         },
         {
-          title: 'Checklist',
-          path: '/docs/nextjs-starter-kit/deployments/checklist',
-        },
-        {
           title: 'Deploy to Vercel',
           path: '/docs/nextjs-starter-kit/deployments/vercel',
+        },
+        {
+          title: 'Deploy to Netlify',
+          path: '/docs/nextjs-starter-kit/deployments/netlify',
         },
       ],
     },

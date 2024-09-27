@@ -234,7 +234,7 @@ export const Navigation = () => {
                   role="group"
                 >
                   <NavigationMenu.Link asChild>
-                    <Callout href="/docs/pro/installation/overview">
+                    <Callout href="/docs/nextjs-starter-kit">
                       <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
                         <NextjsIcon width="16px" height="16px" />
                       </IconBadge>
@@ -244,8 +244,8 @@ export const Navigation = () => {
                       </CalloutText>
                       <Spacer />
                       <HStack alignItems="flex-end">
-                        <CalloutLink href="/docs/pro/installation/overview">
-                          Quick start
+                        <CalloutLink href="/docs/nextjs-starter-kit">
+                          Getting started
                         </CalloutLink>
                       </HStack>
                     </Callout>

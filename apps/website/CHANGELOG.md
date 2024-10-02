@@ -1,5 +1,18 @@
 # website
 
+## 2.4.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/command-bar@0.6.0
+  - @saas-ui/forms@2.7.0
+  - @saas-ui/react@2.9.0
+
 ## 2.3.41
 
 ### Patch Changes

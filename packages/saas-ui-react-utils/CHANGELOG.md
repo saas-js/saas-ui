@@ -1,5 +1,11 @@
 # @saas-ui/react-utils
 
+## 2.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 2.0.1
 
 ### Patch Changes

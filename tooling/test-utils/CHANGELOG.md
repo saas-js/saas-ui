@@ -1,5 +1,16 @@
 # @saas-ui/test-utils
 
+## 4.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/react@2.9.0
+
 ## 4.0.11
 
 ### Patch Changes

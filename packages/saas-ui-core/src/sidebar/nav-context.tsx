@@ -1,4 +1,4 @@
-import { createContext } from '@chakra-ui/react-context'
+import { createContext } from '@chakra-ui/utils'
 import { SystemStyleObject } from '@chakra-ui/react'
 
 export const [NavGroupStylesProvider, useNavGroupStyles] = createContext<

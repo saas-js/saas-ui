@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createContext, PropGetter } from '@chakra-ui/react-utils'
-import { useDisclosure, useId } from '@chakra-ui/react'
+import { useDisclosure } from '@chakra-ui/react'
 import { cx } from '@chakra-ui/utils'
 
 export const [CollapseProvider, useCollapseContext] =
@@ -19,7 +19,7 @@ export interface UseCollapse {
 export const useCollapse = (props: UseCollapse = {}) => {
   const { isCollapsible = true, ...rest } = props
 
-  const id = `collapse-${useId()}`
+  const id = `collapse-${React.useId()}`
 
   const { isOpen, onToggle, onOpen, onClose } = useDisclosure(rest)
 

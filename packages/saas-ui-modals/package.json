@@ -9,8 +9,35 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
+    "./zod": {
+      "require": "./dist/zod/index.js",
+      "types": "./dist/zod/index.d.ts",
+      "import": "./dist/zod/index.mjs"
+    },
+    "./yup": {
+      "require": "./dist/yup/index.js",
+      "types": "./dist/yup/index.d.ts",
+      "import": "./dist/yup/index.mjs"
+    },
     "./src": {
       "default": "./src/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    },
+    "zod": {
+      "*": [
+        "dist/zod/*"
+      ]
+    },
+    "yup": {
+      "*": [
+        "dist/yup/*"
+      ]
     }
   },
   "main": "./dist/index.js",
@@ -58,7 +85,7 @@
   },
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/utils": "^2.0.15",
+    "@chakra-ui/utils": "^2.1.2",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/react-utils": "workspace:*"

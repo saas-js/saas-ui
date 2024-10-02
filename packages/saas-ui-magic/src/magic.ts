@@ -1,5 +1,6 @@
 import type { AuthProviderProps, AuthToken } from '@saas-ui/auth'
 
+/* @ts-ignore */
 import type { Magic, MagicUserMetadata } from 'magic-sdk'
 
 export interface MagicLinkServiceOptions {

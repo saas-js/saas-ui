@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useId, useTheme } from '@chakra-ui/react'
+import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
 import {
   BarChart as ReBarChart,
   Bar,
@@ -107,7 +107,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
     } = props
 
     const theme = useTheme()
-    const id = useId()
+    const id = React.useId()
 
     const categoryColors = createCategoryColors(categories, colors, theme)
     const getColor = (category: string) => {

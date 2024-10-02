@@ -23,7 +23,7 @@ import { DateValue, FormattedValue } from './types'
 
 import { datePickerStyleConfig } from './date-picker-styles'
 import { Calendar, getLocalTimeZone } from '@internationalized/date'
-import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
+import { MaybeRenderProp, runIfFn } from '@chakra-ui/utils'
 import { flushSync } from 'react-dom'
 
 export interface DatePickerContainerProps
@@ -45,7 +45,7 @@ export interface DatePickerContainerProps
   locale?: string
   timeZone?: string
   closeOnSelect?: boolean
-  children: MaybeFunction<React.ReactNode, [DatePickerState]>
+  children: MaybeRenderProp<DatePickerState>
   createCalendar?(name: string): Calendar
 }
 

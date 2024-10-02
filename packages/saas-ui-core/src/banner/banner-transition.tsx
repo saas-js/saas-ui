@@ -1,11 +1,7 @@
 import * as React from 'react'
-import { chakra, ChakraProps } from '@chakra-ui/system'
-import {
-  scaleFadeConfig,
-  slideFadeConfig,
-  EASINGS,
-} from '@chakra-ui/transition'
+import { chakra, ChakraProps } from '@chakra-ui/react'
 import { HTMLMotionProps, motion } from 'framer-motion'
+import { EASINGS, scaleFadeConfig, slideFadeConfig } from '@chakra-ui/react'
 
 export type BannerMotion =
   | 'slideOutTop'

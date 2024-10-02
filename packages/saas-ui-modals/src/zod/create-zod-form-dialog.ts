@@ -1,9 +1,6 @@
-import {
-  createFormDialog,
-  BaseModalProps,
-  FormDialogFieldOverrides,
-} from '@saas-ui/modals'
-import { ZodFormType } from './create-zod-form'
+import type { ZodFormType } from '@saas-ui/forms/zod'
+import { createFormDialog, FormDialogFieldOverrides } from '../form'
+import type { BaseModalProps } from '../modal'
 
 export function createZodFormDialog<
   FieldDefs = any,

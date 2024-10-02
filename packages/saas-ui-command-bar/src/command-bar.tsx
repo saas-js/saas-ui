@@ -19,7 +19,7 @@ import {
   useCommandBarContext,
   useCommandBarStyles,
 } from './command-bar-context'
-import { cx, dataAttr } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 import { useCommandBar, CommandBarOptions } from './command-bar-context'
 
 import {

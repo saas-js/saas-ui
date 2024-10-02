@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "esnext",
+    "module": "ESNext",
     "lib": ["dom", "esnext"],
     "declaration": true,
     "sourceMap": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "skipLibCheck": true,
     "strict": true,
     "isolatedModules": true,
@@ -17,12 +17,5 @@
     "downlevelIteration": true,
     "declarationMap": true
   },
-  "exclude": ["node_modules", "**/node_modules"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS",
-      "resolveJsonModule": true,
-      "noImplicitAny": false
-    }
-  }
+  "exclude": ["node_modules", "**/node_modules"]
 }

@@ -1,8 +1,9 @@
-import { Box, BoxProps, useId, useTheme } from '@chakra-ui/react'
+import { Box, BoxProps, useTheme } from '@chakra-ui/react'
 
 import { AreaChart, Area, ResponsiveContainer, YAxis } from 'recharts'
 import type { CurveProps } from 'recharts'
 import { createCategoryColors } from './utils'
+import { useId } from 'react'
 
 export interface SparklineProps extends BoxProps {
   /**

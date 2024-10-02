@@ -1209,7 +1209,7 @@ const ProFeatures = () => {
           </Text>
           <ButtonGroup>
             <ButtonLink href="/pricing" size="lg" variant="primary">
-              Early access
+              Buy Pro
             </ButtonLink>
             <ButtonLink
               size="lg"

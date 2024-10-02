@@ -23,13 +23,7 @@ import { BackgroundGradientRadial } from '@/components/background-gradient-radia
 import { FaFigma } from 'react-icons/fa6'
 import { ButtonLink } from '@/components/link'
 import { FiArrowRight } from 'react-icons/fi'
-import Features from '@/components/marketing/features'
-import {
-  LuBraces,
-  LuLayoutGrid,
-  LuLayoutPanelLeft,
-  LuPanelTop,
-} from 'react-icons/lu'
+
 import Hero from '@/components/marketing/hero'
 import { FallInPlace } from '@/components/motion/fall-in-place'
 import { Br, Em } from '@/components/typography'
@@ -253,12 +247,12 @@ const Stats = () => {
         </Heading>
 
         <HStack>
-          <ButtonLink href="/pricing" variant="primary" size="md">
+          <ButtonLink href="/pricing/figma" variant="primary" size="md">
             Buy now
           </ButtonLink>
           <ButtonLink
             size="md"
-            href="https://www.figma.com/file/XsBODCq9lrqBAwReJqikbR/Saas-UI-Theme-1.2?type=design&node-id=2106-2109&mode=design"
+            href="#community-library"
             target="_blank"
             variant="outline"
             borderColor="blackAlpha.400"
@@ -467,111 +461,10 @@ const Stats = () => {
   )
 }
 
-const Figma = () => {
-  return (
-    <Section id="pricing" pos="relative" innerWidth="container.xl" py="20">
-      <Box zIndex="2" pos="relative">
-        <Hero
-          title="Saas UI Figma Kit"
-          description={
-            <>
-              <Text fontSize="xl" mb="12" color="muted">
-                Professionally crafted Figma design system for <br /> designing
-                beautiful products at any scale.
-              </Text>
-            </>
-          }
-        />
-
-        <HStack justifyContent="center">
-          <ButtonLink
-            href="/pricing"
-            variant="primary"
-            size="lg"
-            leftIcon={<FaFigma />}
-          >
-            Figma Pro early access
-          </ButtonLink>
-          <ButtonLink
-            size="lg"
-            href="https://www.figma.com/community/file/1257658419283927894"
-            target="_blank"
-            variant="outline"
-            borderColor="blackAlpha.400"
-            _dark={{
-              borderColor: 'whiteAlpha.400',
-            }}
-            _hover={{
-              bg: 'whiteAlpha.200',
-            }}
-            rightIcon={
-              <Icon
-                as={FiArrowRight}
-                sx={{
-                  transitionProperty: 'common',
-                  transitionDuration: 'normal',
-                  '.chakra-button:hover &': {
-                    transform: 'translate(5px)',
-                  },
-                }}
-              />
-            }
-          >
-            Community Library
-          </ButtonLink>
-        </HStack>
-      </Box>
-    </Section>
-  )
-}
-
-const Benefits = () => {
-  return (
-    <Features
-      id="benefits"
-      columns={[1, 2, 2, 4]}
-      iconSize={4}
-      innerWidth="container.xl"
-      pt="20"
-      features={[
-        {
-          title: 'Variants',
-          icon: LuLayoutGrid,
-          description: 'Manage multiple component variations effortlessly.',
-          iconPosition: 'left',
-          delay: 0.6,
-        },
-        {
-          title: 'Auto layout',
-          icon: LuLayoutPanelLeft,
-          description:
-            'Ensure design consistency across screens with automatic layout adjustments.',
-          iconPosition: 'left',
-          delay: 0.8,
-        },
-        {
-          title: 'Variables',
-          icon: LuBraces,
-          description: 'Customize design properties easily with variables.',
-          iconPosition: 'left',
-          delay: 1,
-        },
-        {
-          title: 'Page examples',
-          icon: LuPanelTop,
-          description:
-            'Includes ready-to-use interactive demos, pages, elements, and more.',
-          iconPosition: 'left',
-          delay: 1.1,
-        },
-      ]}
-    />
-  )
-}
-
 const FigmaEmbed = () => {
   return (
     <Box py="40">
+      <a id="community-library" />
       <Box mb="8">
         <Heading textAlign="center" size="xl" fontWeight="medium" mb="2">
           Free community library

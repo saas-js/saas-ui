@@ -40,6 +40,6 @@
   "devDependencies": {
     "date-fns": "^3.6.0",
     "prop-types": "^15.8.1",
-    "tsup": "^8.1.0"
+    "tsup": "^8.3.0"
   }
 }

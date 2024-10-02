@@ -1,7 +1,5 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex, SkipNavContent, SkipNavLink } from '@chakra-ui/react'
 import { ReactNode } from 'react'
-
-import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 
 import Header, { HeaderProps } from './header'
 import {

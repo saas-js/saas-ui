@@ -72,7 +72,7 @@ export const useContextMenu = (props: UseContextMenuProps) => {
 
   // useOutsideClick of menu doesn't catch contextmenu
   useEventListener(
-    () => triggerRef.current,
+    () => document,
     'contextmenu',
     (e) => {
       if (

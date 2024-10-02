@@ -1,10 +1,7 @@
 import * as React from 'react'
-import {
-  chakra,
-  HTMLChakraProps,
-  keyframes,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { chakra, HTMLChakraProps } from '@chakra-ui/react'
+
+import { keyframes } from '@emotion/react'
 
 const dash = keyframes`
   from {

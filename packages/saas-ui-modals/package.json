@@ -14,10 +14,16 @@
       "types": "./dist/zod/index.d.ts",
       "import": "./dist/zod/index.mjs"
     },
+    "./zod/src": {
+      "default": "./src/zod/index.ts"
+    },
     "./yup": {
       "require": "./dist/yup/index.js",
       "types": "./dist/yup/index.d.ts",
       "import": "./dist/yup/index.mjs"
+    },
+    "./yup/src": {
+      "default": "./src/yup/index.ts"
     },
     "./src": {
       "default": "./src/index.ts"
@@ -45,7 +51,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsup src/index.ts --config tsup.config.ts",
+    "build": "tsup --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

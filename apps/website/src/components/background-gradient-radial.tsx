@@ -1,10 +1,6 @@
-import {
-  Box,
-  useTheme,
-  useColorModeValue,
-  AspectRatio,
-  keyframes,
-} from '@chakra-ui/react'
+import { Box, useTheme, useColorModeValue, AspectRatio } from '@chakra-ui/react'
+
+import { keyframes } from '@emotion/react'
 
 const glow = keyframes`
 0% {

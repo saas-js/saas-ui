@@ -34,7 +34,7 @@ import Section from '@/components/marketing/section-wrapper'
 import SectionTitle from '@/components/marketing/section-title'
 
 import SEO from '@/components/seo'
-import { CheckIcon } from '@chakra-ui/icons'
+
 import { ButtonLink } from '@/components/link'
 
 import { Faq } from '@/components/faq'
@@ -42,7 +42,7 @@ import { Faq } from '@/components/faq'
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Br } from '@saas-ui/react'
+import { Br, CheckIcon } from '@saas-ui/react'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 

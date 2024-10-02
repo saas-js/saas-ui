@@ -8,7 +8,6 @@ import {
   Icon,
   IconButton,
   Kbd,
-  keyframes,
   Menu,
   MenuButton,
   MenuDivider,
@@ -48,6 +47,7 @@ import {
   LuMap,
   LuSquare,
 } from 'react-icons/lu'
+import { keyframes } from '@emotion/react'
 
 export const Navigation = () => {
   const router = useRouter()

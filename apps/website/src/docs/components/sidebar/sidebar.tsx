@@ -36,8 +36,7 @@ import {
   NavItemProps,
 } from '@saas-ui/react'
 
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { FiChevronDown } from 'react-icons/fi'
+import { FiChevronDown, FiChevronRight } from 'react-icons/fi'
 import { LuCheck } from 'react-icons/lu'
 
 export type SidebarContentProps = Routes & {
@@ -79,7 +78,8 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
             },
           }}
         >
-          <ChevronRightIcon
+          <Icon
+            as={FiChevronRight}
             transform={isOpen && 'rotate(90deg)'}
             transition="transform .2s ease-in"
           />

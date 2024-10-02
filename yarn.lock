@@ -7333,7 +7333,7 @@ __metadata:
     zustand: "npm:^4.5.5"
   peerDependencies:
     "@chakra-ui/react": ">=2.5.0"
-    "@saas-ui/react": ">=2.9.0"
+    "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=5.5.0"
     react: ">=18"
   languageName: unknown
@@ -7366,7 +7366,7 @@ __metadata:
     "@chakra-ui/react": ">=2.1"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=2.9.0"
+    "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -7389,14 +7389,14 @@ __metadata:
     "@chakra-ui/react": ">=2.1"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=2.9.0"
+    "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@npm:^1.0.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@npm:^0.36.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
@@ -7424,7 +7424,7 @@ __metadata:
     "@chakra-ui/react": ">=2.5.0"
     "@emotion/react": ">=11"
     "@emotion/styled": ">=11"
-    "@saas-ui/react": ">=2.9.0"
+    "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=5.5.0"
     react: ">=18"
     react-dom: ">=18"
@@ -7447,7 +7447,7 @@ __metadata:
     "@chakra-ui/react": ">=2.9.0"
     "@emotion/react": ">=11.0.0"
     "@emotion/styled": ">=11.0.0"
-    "@saas-ui/react": ">=2.9.0"
+    "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=6"
     react: ">=18"
     react-dom: ">=18"
@@ -24593,7 +24593,7 @@ __metadata:
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.13.3"
     "@emotion/styled": "npm:^11.13.0"
-    "@saas-ui-pro/react": "npm:^1.0.0"
+    "@saas-ui-pro/react": "npm:^0.36.0"
     "@saas-ui/file-upload": "npm:^0.4.0"
     "@saas-ui/react": "npm:^2.9.0"
     framer-motion: "npm:^11.9.0"
@@ -24634,7 +24634,7 @@ __metadata:
   peerDependencies:
     "@chakra-ui/react": ">=2.9.0"
     "@saas-ui-pro/react": "workspace:*"
-    "@saas-ui/react": ">=2.9.0"
+    "@saas-ui/react": ">=2.0.0"
     framer-motion: ">=5.5.0"
     jest: ">=27.0.0"
     react: ">=18"

@@ -4,6 +4,9 @@ const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(radioAnatomy.keys)
 
 export const radioTheme = defineMultiStyleConfig({
+  defaultProps: {
+    colorScheme: 'primary',
+  },
   baseStyle: definePartsStyle((props) => {
     const { colorScheme } = props
     return {

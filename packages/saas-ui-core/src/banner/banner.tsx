@@ -12,7 +12,6 @@ import {
   useMultiStyleConfig,
   HTMLChakraProps,
   createStylesContext,
-  ComponentWithAs,
   Icon,
 } from '@chakra-ui/react'
 import { callAllHandlers, cx } from '@chakra-ui/utils'

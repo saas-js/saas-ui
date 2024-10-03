@@ -28,7 +28,6 @@ export function getRoutes(slug: string) {
     '/docs/guides': guidesSidebar,
     '/docs/pro': proSidebar,
     '/docs/nextjs-starter-kit': nextjsSidebar,
-    '/changelog': { routes: [] },
     '/blog': { routes: [] },
   }
 

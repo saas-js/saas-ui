@@ -35,6 +35,11 @@ let config = {
   async redirects() {
     return [
       {
+        source: '/changelog',
+        destination: '/blog',
+        permanent: false,
+      },
+      {
         source: '/nextjs-boilerplate',
         destination: '/nextjs-starter-kit',
         permanent: true,

@@ -176,14 +176,6 @@ const Header = () => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
-                  icon={<LuRotateCw size="1.2em" />}
-                  href="/changelog"
-                  borderRadius="md"
-                >
-                  Changelog
-                </MenuItem>
-                <MenuItem
-                  as={Link}
                   icon={<LuBookOpen size="1.2em" />}
                   href="/blog"
                   borderRadius="md"

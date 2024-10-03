@@ -172,7 +172,7 @@ export const Navigation = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuTrigger>
+            <NavigationMenuTrigger asChild>
               <Link href="/docs">Documentation</Link>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -589,13 +589,13 @@ const NavigationMenuViewport = chakra(NavigationMenu.Viewport, {
     transformOrigin: 'top center',
     marginTop: 0,
     width: '100%',
-    backgroundColor: 'whiteAlpha.700',
-    backdropFilter: 'blur(20px)',
+    bg: 'white',
     borderBottomRadius: 'lg',
     overflow: 'hidden',
     borderWidth: '1px',
+    borderColor: 'gray.300',
     boxShadow:
-      'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
+      'hsl(206 22% 7% / 25%) 0px 10px 38px -10px, hsl(206 22% 7% / 15%) 0px 10px 20px -15px',
     height: 'var(--radix-navigation-menu-viewport-height)',
     transition: 'width, height, 300ms ease',
     '&[data-state="open"]': { animation: `${scaleIn} 200ms ease` },
@@ -604,8 +604,8 @@ const NavigationMenuViewport = chakra(NavigationMenu.Viewport, {
       width: 'var(--radix-navigation-menu-viewport-width)',
     },
     _dark: {
-      backgroundColor: 'blackAlpha.700',
-      boxShadow: 'dark-lg',
+      borderColor: 'gray.700',
+      bg: 'gray.900',
     },
   },
 })

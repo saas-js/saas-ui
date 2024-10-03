@@ -1,5 +1,16 @@
 # @saas-ui/clerk
 
+## 3.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/auth@3.4.0
+
 ## 3.0.50
 
 ### Patch Changes

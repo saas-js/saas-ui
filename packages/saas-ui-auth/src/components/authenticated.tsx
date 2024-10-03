@@ -1,11 +1,11 @@
-import { MaybeFunction, runIfFn } from '@chakra-ui/utils'
+import { MaybeRenderProp, runIfFn } from '@chakra-ui/utils'
 import { AuthContextValue, useAuth } from '../provider'
 import React from 'react'
 
 export interface AuthenticatedProps {
   onUnauthenticated?: () => void
-  fallback?: MaybeFunction<React.ReactNode, [AuthContextValue<any>]>
-  children: MaybeFunction<React.ReactNode, [AuthContextValue<any>]>
+  fallback?: MaybeRenderProp<AuthContextValue<any>>
+  children: MaybeRenderProp<AuthContextValue<any>>
 }
 
 export const Authenticated: React.FC<AuthenticatedProps> = (props) => {

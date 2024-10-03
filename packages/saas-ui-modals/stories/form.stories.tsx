@@ -8,19 +8,14 @@ import {
 } from '@chakra-ui/react'
 
 import { Form, FormLayout, SubmitButton, createField } from '@saas-ui/forms'
-import {
-  createZodForm,
-  createZodFormDialog,
-  Form as DefaultZodForm,
-  FormDialog as DefaultZodFormDialog,
-} from '@saas-ui/forms/zod'
-import {
-  createYupForm,
-  createYupFormDialog,
-  FormDialog as DefaultYupFormDialog,
-} from '@saas-ui/forms/yup'
+import { createZodForm, Form as DefaultZodForm } from '@saas-ui/forms/zod'
+import { createYupForm, Form as DefaultYupForm } from '@saas-ui/forms/yup'
 
-import { FormDialog, createFormDialog } from '../src/form'
+import { FormDialog } from '../src/form'
+
+import { createZodFormDialog } from '../src/zod'
+
+import { createYupFormDialog } from '../src/yup'
 
 import * as yup from 'yup'
 import * as zod from 'zod'

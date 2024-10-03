@@ -1,9 +1,7 @@
-import {
-  BaseModalProps,
-  FormDialogFieldOverrides,
-  createFormDialog,
-} from '@saas-ui/modals'
-import { YupFormType } from './create-yup-form'
+import type { YupFormType } from '@saas-ui/forms/yup'
+import { FormDialogFieldOverrides, createFormDialog } from '../form'
+
+import type { BaseModalProps } from '../modal'
 
 export function createYupFormDialog<
   FieldDefs = any,

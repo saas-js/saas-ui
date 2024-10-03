@@ -5,11 +5,11 @@ import {
   WithClerk,
   AuthenticateWithRedirectCallback,
   WithClerkProp,
+  type IsomorphicClerkOptions,
 } from '@clerk/clerk-react'
 import type { PublishableKeyOrFrontendApi } from '@clerk/types'
 
 import { createAuthService, ClerkAuthService } from './auth-service'
-import { IsomorphicClerkOptions } from '@clerk/clerk-react/dist/types'
 
 export type ClerkAuthProviderProps = {
   children(

@@ -17,6 +17,7 @@ import {
   useMultiStyleConfig,
   AlertProps,
   ToastPosition,
+  type CreateToastFnReturn,
 } from '@chakra-ui/react'
 import { runIfFn } from '@chakra-ui/utils'
 
@@ -118,12 +119,24 @@ export interface SnackbarPromiseOptions {
   error: SnackbarOptions | ((error: any) => SnackbarOptions)
 }
 
+export type UseSnackbarReturn = Omit<CreateToastFnReturn, 'promise'> & {
+  info: (options: SnackbarOptions) => ToastId
+  success: (options: SnackbarOptions) => ToastId
+  error: (options: SnackbarOptions) => ToastId
+  promise: (
+    promise: Promise<unknown>,
+    options: SnackbarPromiseOptions
+  ) => Promise<unknown>
+}
+
 /**
  * The snackbar component is used to give feedback after certain actions.
  *
  * @see Docs https://saas-ui.dev/docs/components/feedback/snackbar
  */
-export function useSnackbar(defaultOptions?: UseSnackbarOptions) {
+export function useSnackbar(
+  defaultOptions?: UseSnackbarOptions
+): UseSnackbarReturn {
   const toast = useToast(defaultOptions)
 
   const parseOptions = React.useCallback(
@@ -238,5 +251,3 @@ export function useSnackbar(defaultOptions?: UseSnackbarOptions) {
     return snackbar
   }, [toast, defaultOptions])
 }
-
-export type UseSnackbarReturn = ReturnType<typeof useSnackbar>

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/data-table",
-  "version": "10.0.11",
+  "version": "11.0.0",
   "description": "Data-table Component",
   "source": "src/index.ts",
   "exports": {
@@ -56,9 +56,9 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.15",
+    "@chakra-ui/utils": "^2.1.2",
     "@saas-ui/core": "workspace:*",
-    "@tanstack/react-table": "^8.17.3"
+    "@tanstack/react-table": "^8.20.5"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",

@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.6.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 0.5.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "2.6.11",
+  "version": "2.7.0",
   "description": "Fully functional forms for Chakra UI.",
   "source": "src/index.ts",
   "exports": {
@@ -102,10 +102,10 @@
   },
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/utils": "^2.0.15",
-    "@hookform/resolvers": "^3.6.0",
+    "@chakra-ui/utils": "^2.1.2",
+    "@hookform/resolvers": "^3.9.0",
     "@saas-ui/core": "workspace:*",
-    "react-hook-form": "^7.52.0"
+    "react-hook-form": "^7.53.0"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.9",
@@ -117,12 +117,12 @@
   },
   "devDependencies": {
     "@types/json-schema": "^7.0.15",
-    "ajv": "^8.16.0",
+    "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
     "json-schema-to-ts": "^2.12.0",
-    "tsd": "^0.31.1",
-    "tsup": "^8.1.0",
-    "typescript": "^5.5.2",
+    "tsd": "^0.31.2",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2",
     "yup": "^1.4.0",
     "zod": "^3.23.8"
   },

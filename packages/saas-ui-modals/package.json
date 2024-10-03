@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals",
-  "version": "2.1.41",
+  "version": "2.2.0",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -9,8 +9,41 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
+    "./zod": {
+      "require": "./dist/zod/index.js",
+      "types": "./dist/zod/index.d.ts",
+      "import": "./dist/zod/index.mjs"
+    },
+    "./zod/src": {
+      "default": "./src/zod/index.ts"
+    },
+    "./yup": {
+      "require": "./dist/yup/index.js",
+      "types": "./dist/yup/index.d.ts",
+      "import": "./dist/yup/index.mjs"
+    },
+    "./yup/src": {
+      "default": "./src/yup/index.ts"
+    },
     "./src": {
       "default": "./src/index.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    },
+    "zod": {
+      "*": [
+        "dist/zod/*"
+      ]
+    },
+    "yup": {
+      "*": [
+        "dist/yup/*"
+      ]
     }
   },
   "main": "./dist/index.js",
@@ -18,7 +51,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsup src/index.ts --config tsup.config.ts",
+    "build": "tsup --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -58,7 +91,7 @@
   },
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/utils": "^2.0.15",
+    "@chakra-ui/utils": "^2.1.2",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/react-utils": "workspace:*"

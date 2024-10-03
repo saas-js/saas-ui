@@ -1,7 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@saas-ui/forms/yup": ["../../packages/saas-ui-forms/yup/src"],
+      "@saas-ui/forms/zod": ["../../packages/saas-ui-forms/zod/src"]
+    }
   },
   "include": ["src"],
   "exclude": [

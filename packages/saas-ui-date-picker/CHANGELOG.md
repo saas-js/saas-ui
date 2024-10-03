@@ -1,5 +1,17 @@
 # @saas-ui/date-picker
 
+## 0.13.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/modals@2.2.0
+  - @saas-ui/core@2.6.0
+
 ## 0.12.43
 
 ### Patch Changes

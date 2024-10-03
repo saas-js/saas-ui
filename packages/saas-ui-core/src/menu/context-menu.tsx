@@ -10,12 +10,11 @@ import {
   HTMLChakraProps,
   useMenuContext,
   useEventListener,
-  useOutsideClick,
   forwardRef,
 } from '@chakra-ui/react'
 
 import { createContext, mergeRefs } from '@chakra-ui/react-utils'
-import { AnyPointerEvent, callAllHandlers, runIfFn } from '@chakra-ui/utils'
+import { callAllHandlers, runIfFn } from '@chakra-ui/utils'
 
 // @todo migrate this to Ark-ui ContextMenu
 import { useLongPress } from '@react-aria/interactions'
@@ -23,8 +22,27 @@ import { useLongPress } from '@react-aria/interactions'
 import { getEventPoint } from '@zag-js/dom-event'
 import { FocusableElement } from '@react-types/shared'
 
+import { useOutsideClick } from '@saas-ui/hooks'
+
 type Position = [number, number]
 type Anchor = { x: number; y: number }
+
+export type AnyPointerEvent = MouseEvent | TouchEvent | PointerEvent
+
+export interface Point {
+  x: number
+  y: number
+}
+
+export interface PointerEventInfo {
+  point: Point
+}
+
+export interface MixedEventListener {
+  (e: AnyPointerEvent, info: PointerEventInfo): void
+}
+
+export type PointType = 'page' | 'client'
 
 export interface UseContextMenuReturn {
   isOpen: boolean
@@ -53,17 +71,21 @@ export const useContextMenu = (props: UseContextMenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null)
 
   // useOutsideClick of menu doesn't catch contextmenu
-  useEventListener('contextmenu', (e) => {
-    if (
-      !triggerRef.current?.contains(e.target as any) &&
-      e.target !== triggerRef.current
-    ) {
-      setIsOpen(false)
-    } else {
-      e.preventDefault()
-      e.stopPropagation()
+  useEventListener(
+    () => document,
+    'contextmenu',
+    (e) => {
+      if (
+        !triggerRef.current?.contains(e.target as any) &&
+        e.target !== triggerRef.current
+      ) {
+        setIsOpen(false)
+      } else {
+        e.preventDefault()
+        e.stopPropagation()
+      }
     }
-  })
+  )
 
   useOutsideClick({
     enabled: isOpen && closeOnBlur,

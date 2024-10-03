@@ -1,7 +1,8 @@
-import { Link, SimpleGrid, Text } from '@chakra-ui/react'
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { Icon, Link, SimpleGrid, Text } from '@chakra-ui/react'
+
 import NextLink from 'next/link'
 import React from 'react'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 export const PaginationLink = (props: any) => {
   const { label, href, children, ...rest } = props
@@ -51,7 +52,7 @@ export const Pagination = ({ previous, next, ...rest }: any) => {
           href={previous.path}
           rel="prev"
         >
-          <ChevronLeftIcon mr="1" fontSize="1.2em" />
+          <Icon as={FiChevronLeft} mr="1" fontSize="1.2em" />
           {previous.title}
         </PaginationLink>
       ) : (
@@ -65,7 +66,7 @@ export const Pagination = ({ previous, next, ...rest }: any) => {
           rel="next"
         >
           {next.title}
-          <ChevronRightIcon ml="1" fontSize="1.2em" />
+          <Icon as={FiChevronRight} ml="1" fontSize="1.2em" />
         </PaginationLink>
       ) : (
         <div />

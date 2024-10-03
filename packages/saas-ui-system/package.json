@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/system",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Saas UI system utilities",
   "source": "src/index.ts",
   "exports": {
@@ -57,12 +57,14 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.9.2",
-    "@chakra-ui/utils": "^2.0.15",
+    "@chakra-ui/styled-system": "^2.10.2",
+    "@chakra-ui/utils": "^2.1.2",
     "react-fast-compare": "^3.2.2"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=2.3.8",
+    "@chakra-ui/react": ">=2.9",
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11",
     "react": ">=18.0.0"
   }
 }

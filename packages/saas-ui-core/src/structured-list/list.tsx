@@ -8,11 +8,9 @@ import {
   omitThemingProps,
   SystemProps,
   SystemStyleObject,
-  As,
   useMultiStyleConfig,
   createStylesContext,
   Icon,
-  useId,
   useMergeRefs,
 } from '@chakra-ui/react'
 
@@ -42,7 +40,7 @@ function queryAllItems(root: HTMLElement | null) {
 }
 
 const useStructuredList = (props: StructuredListProps) => {
-  const id = useId()
+  const id = React.useId()
 
   const ref = React.useRef<HTMLUListElement>(null)
 
@@ -233,7 +231,7 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
     setFocusId,
   } = useStructuredListContext()
 
-  const id = `${containerId}-${useId()}`
+  const id = `${containerId}-${React.useId()}`
   const buttonId = props.id ?? id
 
   const isFocused = focusId === buttonId
@@ -300,7 +298,7 @@ const useStructuredListButton = (props: StructuredListButtonProps) => {
 
 export interface StructuredListButtonProps extends HTMLChakraProps<'div'> {
   onClick?: (e: React.MouseEvent) => void
-  as?: As
+  as?: React.ElementType
   isDisabled?: boolean
 }
 

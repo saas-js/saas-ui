@@ -1,4 +1,5 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+
 import { Input } from '@chakra-ui/theme/components'
 import { selectAnatomy } from '../../anatomy'
 

@@ -85,7 +85,7 @@ import {
   BannerDescription,
   BannerIcon,
   BannerTitle,
-} from '@saas-ui/core'
+} from '@saas-ui/react'
 
 import { transparentize } from '@chakra-ui/theme-tools'
 import { FocusableElement } from '@saas-ui/react-utils'
@@ -1209,7 +1209,7 @@ const ProFeatures = () => {
           </Text>
           <ButtonGroup>
             <ButtonLink href="/pricing" size="lg" variant="primary">
-              Early access
+              Buy Pro
             </ButtonLink>
             <ButtonLink
               size="lg"

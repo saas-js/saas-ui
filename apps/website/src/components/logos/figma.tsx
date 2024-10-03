@@ -1,4 +1,4 @@
-import { useColorModeValue } from '@chakra-ui/system'
+import { useColorModeValue } from '@chakra-ui/react'
 import * as React from 'react'
 
 export const FigmaLogo = (props) => {

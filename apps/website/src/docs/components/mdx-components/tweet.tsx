@@ -1,4 +1,4 @@
-import { useColorMode } from '@chakra-ui/system'
+import { useColorMode } from '@chakra-ui/react'
 import { Spinner, Stack, chakra } from '@chakra-ui/react'
 import { useScript } from '@saas-ui/react'
 

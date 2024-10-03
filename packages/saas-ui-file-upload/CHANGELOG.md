@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.4.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 0.3.0
 
 ### Minor Changes

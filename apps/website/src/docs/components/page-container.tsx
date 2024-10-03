@@ -8,8 +8,9 @@ import {
   Flex,
   Avatar,
   Spacer,
+  SkipNavContent,
+  SkipNavLink,
 } from '@chakra-ui/react'
-import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 import EditPageLink from '@/docs/components/edit-page-button'
 import SEO, { SEOProps } from '@/components/seo'
 import TableOfContent from '@/docs/components/table-of-content'

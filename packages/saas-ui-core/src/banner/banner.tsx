@@ -11,9 +11,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   HTMLChakraProps,
-  As,
   createStylesContext,
-  useId,
   ComponentWithAs,
   Icon,
 } from '@chakra-ui/react'
@@ -111,7 +109,7 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   }
 
   const context = {
-    id: id || `banner-${useId()}`,
+    id: id || `banner-${React.useId()}`,
     status,
     onClose,
     isOpen,
@@ -251,7 +249,7 @@ export const BannerActions = forwardRef<BannerActionsProps, 'div'>(
 BannerActions.displayName = 'BannerActions'
 
 export interface BannerIconProps extends HTMLChakraProps<'span'> {
-  icon?: As
+  icon?: React.ElementType
 }
 
 /**

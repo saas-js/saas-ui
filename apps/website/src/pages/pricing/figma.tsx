@@ -37,7 +37,7 @@ import Section from '@/components/marketing/section-wrapper'
 import SectionTitle from '@/components/marketing/section-title'
 
 import SEO from '@/components/seo'
-import { CheckIcon } from '@chakra-ui/icons'
+
 import { ButtonLink } from '@/components/link'
 
 import { Faq } from '@/components/faq'
@@ -490,7 +490,7 @@ const PricingFeature = ({
 }) => {
   return (
     <HStack>
-      <CheckIcon color={iconColor} />{' '}
+      <Icon as={FiCheck} color={iconColor} />{' '}
       <Tooltip label={help}>
         <Text flex="1" fontSize="sm" cursor="default" color={color}>
           <Text

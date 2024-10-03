@@ -1,5 +1,16 @@
 # @saas-ui/hotkeys
 
+## 2.3.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/core@2.6.0
+
 ## 2.2.14
 
 ### Patch Changes

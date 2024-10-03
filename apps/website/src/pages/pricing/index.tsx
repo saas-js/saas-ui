@@ -256,7 +256,7 @@ const Pricing = () => {
                 px="3"
                 flex="1"
               >
-                <Icon as={FaReact} boxSize="8" me="3" />
+                <Icon as={FaReact} boxSize="6" me="2" />
                 <VStack alignItems="flex-start" spacing="1">
                   <Text>React</Text>
                   <Text size="xs" color="muted" fontWeight="normal">
@@ -273,7 +273,7 @@ const Pricing = () => {
                 px="3"
                 flex="1"
               >
-                <Icon as={FaFigma} boxSize="8" me="3" />
+                <Icon as={FaFigma} boxSize="6" me="2" />
                 <VStack alignItems="flex-start" spacing="1">
                   <Text>Figma</Text>
                   <Text size="xs" color="muted" fontWeight="normal">
@@ -329,14 +329,13 @@ const Pricing = () => {
                 title={<>Unlimited projects*</>}
                 help="You can build and fail as many self hosted SaaS products as you like. Maximum 1 client project per license."
               />
-              <PricingFeature title="Pro components" />
-              <PricingFeature title="Next.js starter kit" />
+              <PricingFeature title="Blocks &amp; Pro components" />
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Blocks</Text>{' '}
-                    <Tag colorScheme="primary" size="sm">
-                      New
+                    <Text as="span">Next.js starter kit</Text>{' '}
+                    <Tag colorScheme="green" size="sm">
+                      Updated
                     </Tag>
                   </HStack>
                 }
@@ -397,7 +396,6 @@ const Pricing = () => {
               <PricingFeature title="Everything from Bootstrap" />
               <PricingFeature title="Prioritized feature requests" />
               <PricingFeature title="Priority support" />
-              <PricingFeature title="Introduction call" />
               <PricingFeature title="Private discord community" />
               <PricingFeature
                 title="1 year of updates"

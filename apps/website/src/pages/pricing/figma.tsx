@@ -294,7 +294,7 @@ const Pricing = () => {
           <PricingBox
             title={
               <HStack as="span">
-                <Text as="span">Standard</Text>
+                <Text as="span">Personal</Text>
               </HStack>
             }
             description="License for 1 editor. Ideal for designers, freelancers and students."

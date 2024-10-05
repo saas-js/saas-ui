@@ -1,5 +1,13 @@
 # @saas-ui/test-utils
 
+## 4.1.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/react@2.9.1
+
 ## 4.1.0
 
 ### Minor Changes

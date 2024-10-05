@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.4.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
 ## 0.4.0
 
 ### Minor Changes

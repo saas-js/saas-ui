@@ -1,5 +1,15 @@
 # website
 
+## 2.4.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/command-bar@0.6.1
+  - @saas-ui/forms@2.7.1
+  - @saas-ui/react@2.9.1
+
 ## 2.4.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.1.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
 ## 2.1.0
 
 ### Minor Changes

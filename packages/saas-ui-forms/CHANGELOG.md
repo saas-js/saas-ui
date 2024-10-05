@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.7.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/core@2.6.1
+
 ## 2.7.0
 
 ### Minor Changes

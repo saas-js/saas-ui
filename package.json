@@ -71,9 +71,9 @@
     "tooling/storybook-addon"
   ],
   "devDependencies": {
-    "@chakra-ui/cli": "^2.5.2",
-    "@chakra-ui/react": "^2.9.3",
-    "@changesets/cli": "^2.27.8",
+    "@chakra-ui/cli": "^2.5.4",
+    "@chakra-ui/react": "^2.10.1",
+    "@changesets/cli": "^2.27.9",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@manypkg/get-packages": "^1.1.3",

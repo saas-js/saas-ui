@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/utils": "^2.1.2",
+    "@chakra-ui/utils": "^2.2.1",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/react-utils": "workspace:*"

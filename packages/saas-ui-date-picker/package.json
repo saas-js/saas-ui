@@ -56,9 +56,9 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.10.2",
-    "@chakra-ui/theme-tools": "^2.2.2",
-    "@chakra-ui/utils": "^2.1.2",
+    "@chakra-ui/styled-system": "^2.11.1",
+    "@chakra-ui/theme-tools": "^2.2.5",
+    "@chakra-ui/utils": "^2.2.1",
     "@internationalized/date": "3.5.6",
     "@react-aria/calendar": "^3.5.12",
     "@react-aria/datepicker": "^3.11.3",

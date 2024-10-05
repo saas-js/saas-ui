@@ -28,7 +28,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.10.2",
+    "@chakra-ui/styled-system": "^2.11.1",
     "recharts": "^2.12.7"
   },
   "peerDependencies": {

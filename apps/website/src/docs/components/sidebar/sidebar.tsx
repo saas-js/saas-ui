@@ -20,6 +20,7 @@ import {
   Center,
   Container,
   Text,
+  HStack,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -38,6 +39,8 @@ import {
 
 import { FiChevronDown, FiChevronRight } from 'react-icons/fi'
 import { LuCheck } from 'react-icons/lu'
+import SaasUIGlyph from '@/components/saas-ui-glyph'
+import { NextjsIcon } from '@/components/logos/nextjs'
 
 export type SidebarContentProps = Routes & {
   pathname?: string
@@ -58,7 +61,7 @@ function SidebarHeader({ isOpen, isActive, children, ...props }: any) {
         userSelect="none"
         cursor="pointer"
         className="sidebar-group-header"
-        py="2"
+        height="8"
         px="2"
         borderRadius="md"
         _hover={{ color, bg: 'blackAlpha.50' }}
@@ -337,13 +340,13 @@ const Sidebar = ({ routes }) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const [isInitial, setInitial] = React.useState(true)
 
-  React.useEffect(() => {
-    if (ref.current && isReady && isInitial) {
-      const el = ref.current.querySelector(`a[href="${asPath}"]`)
-      el?.scrollIntoView({ behavior: 'auto' })
-      setInitial(false)
-    }
-  }, [asPath, isReady, isInitial])
+  // React.useEffect(() => {
+  //   if (ref.current && isReady && isInitial) {
+  //     const el = ref.current.querySelector(`a[href="${asPath}"]`)
+  //     el?.scrollIntoView({ behavior: 'auto' })
+  //     setInitial(false)
+  //   }
+  // }, [asPath, isReady, isInitial])
 
   return (
     <Box
@@ -368,7 +371,7 @@ const Sidebar = ({ routes }) => {
 export default Sidebar
 
 export const isMainNavLinkActive = (href: string, path: string) => {
-  const [, group, category] = href.split('/')
+  const [, , group, category] = href.split('/')
 
   return path.includes(
     href.split('/').length >= 3 ? `${group}/${category}` : group
@@ -381,11 +384,23 @@ function SidebarSwitch() {
   const items = [
     {
       label: 'Saas UI',
+      description: 'Open source design system.',
       href: '/docs',
+      icon: SaasUIGlyph,
     },
     {
       label: 'Saas UI Pro',
+      description: 'Premium components and templates.',
       href: '/docs/pro',
+      icon: (props) => (
+        <SaasUIGlyph color="var(--chakra-colors-cyan-400)" {...props} />
+      ),
+    },
+    {
+      label: 'Next.js starter kit',
+      description: 'Production ready SaaS starter kit.',
+      href: '/docs/nextjs-starter-kit',
+      icon: NextjsIcon,
     },
   ]
 
@@ -398,22 +413,59 @@ function SidebarSwitch() {
     <Menu>
       <MenuButton
         as={Button}
-        rightIcon={<Icon as={FiChevronDown} />}
         variant="outline"
         size="xs"
+        py="2"
+        height="auto"
         mb="2"
         w="full"
         textAlign="start"
+        justifyContent="start"
+        minW="0"
+        borderColor="blackAlpha.200"
+        _dark={{
+          borderColor: 'whiteAlpha.200',
+        }}
       >
-        {activeItem?.label}
+        <HStack as="span" minW="0">
+          <Icon as={activeItem?.icon} alignSelf="start" boxSize="4" />
+          <Stack as="span" spacing="1" flex="1" minW="0">
+            <Text as="span" flex="1">
+              {activeItem?.label}
+            </Text>
+            <Text
+              as="span"
+              fontSize="xs"
+              color="muted"
+              fontWeight="normal"
+              maxW="100%"
+            >
+              {activeItem?.description}
+            </Text>
+          </Stack>
+          <Icon as={FiChevronDown} />
+        </HStack>
       </MenuButton>
-      <MenuList>
+      <MenuList width="280px">
         {items.map((item) => (
           <Link key={item.href} href={item.href} legacyBehavior>
-            <MenuItem>
-              <Text as="span" flex="1">
-                {item.label}
-              </Text>{' '}
+            <MenuItem fontSize="xs">
+              <HStack flex="1">
+                <Icon as={item.icon} alignSelf="start" boxSize="4" />
+                <Stack spacing="0" flex="1">
+                  <Text as="span" flex="1" fontWeight="semibold">
+                    {item?.label}
+                  </Text>
+                  <Text
+                    as="span"
+                    fontSize="xs"
+                    color="muted"
+                    fontWeight="normal"
+                  >
+                    {item?.description}
+                  </Text>
+                </Stack>
+              </HStack>{' '}
               {activeItem?.href === item.href ? <LuCheck /> : null}
             </MenuItem>
           </Link>

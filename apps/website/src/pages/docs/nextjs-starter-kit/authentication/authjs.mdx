@@ -1,0 +1,26 @@
+---
+title: Auth.js (NextAuth) authentication
+description: Using Auth.js (NextAuth) as your authentication service.
+---
+
+NextAuth is a popular authentication solution for Next.js applications.
+It supports many different authentication providers and is easy to
+configure.
+
+NextAuth v5 is the default authentication provider for the Next.js starterkit
+and is configured using Resend (email) provider.
+
+## Configure
+
+The NextAuth configuration is located in `packages/auth-authjs/src` and is split up
+into two files:
+
+- `config.ts` - The edge compatible configuration, used in Next.js middleware.
+- `auth.ts` - The main NextAuth configuration.
+
+Please refer to the [NextAuth documentation](https://authjs.dev/getting-started/authentication) for more
+information on how to configure NextAuth.
+
+## Next up
+
+- [Customize auth screens](/docs/nextjs-starterkit/authentication/customize-auth-screens)

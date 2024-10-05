@@ -167,23 +167,17 @@ export function RedeemForm(props) {
         {data.githubInvited || !router.query.sale_id ? (
           <Text>
             Your Github account <strong>{data.githubAccount}</strong> has been
-            added to the private{' '}
-            <Link href="https://github.com/saas-js/saas-ui-pro" target="_blank">
-              Github repo
-            </Link>
-            .
+            added to the GitHub members team.
           </Text>
         ) : (
           <Text>You will receive a Github invite shortly.</Text>
         )}
 
         <Text>
-          Your opinion is very important to me, please don&apos;t hestitate to
-          reach out when you have any questions or feedback, especially if you
+          Your opinion is very important, please don&apos;t hesitate to reach
+          out when you have any questions or feedback, especially if you
           don&apos;t like something :)
         </Text>
-
-        <Text>Here are some links to get your started.</Text>
 
         <DiscordRoles />
 
@@ -196,15 +190,16 @@ export function RedeemForm(props) {
             leftIcon={<FaGithub />}
             target="_blank"
           >
-            Github
+            saas-ui-pro
           </ButtonLink>
 
           <ButtonLink
-            href="https://roadmap.saas-ui.dev"
             variant="ghost"
+            href="https://github.com/saas-js/saas-ui-pro-nextjs-starter-kit"
+            leftIcon={<FaGithub />}
             target="_blank"
           >
-            Roadmap
+            nextjs-starter-kit
           </ButtonLink>
         </ButtonGroup>
       </Stack>

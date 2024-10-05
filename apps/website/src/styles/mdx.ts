@@ -36,14 +36,23 @@ const mdx = {
     color: 'gray.500',
     fontSize: 'xl',
     mb: '0.5rem',
+    _dark: {
+      color: 'gray.400',
+    },
   },
   a: {
-    color: 'cyan.500',
-    fontWeight: 'semibold',
+    color: 'primary.600',
+    fontWeight: 'medium',
     transition: 'color 0.15s',
     transitionTimingFunction: 'ease-out',
     _hover: {
-      color: 'cyan.600',
+      color: 'black',
+    },
+    _dark: {
+      color: 'primary.300',
+      _hover: {
+        color: 'white',
+      },
     },
   },
   p: {
@@ -80,6 +89,12 @@ const mdx = {
     py: '2px',
     whiteSpace: 'nowrap',
     lineHeight: 'normal',
+    borderWidth: '1px',
+    borderRadius: 'md',
+    color: 'primary.200',
+    _dark: {
+      color: 'primary.200',
+    },
   },
 }
 

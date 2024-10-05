@@ -21,7 +21,12 @@ let config = {
   },
   transpilePackages: [
     '@saas-ui/core',
+    '@saas-ui/forms',
     '@saas-ui/react',
+    '@saas-ui/modals',
+    '@saas-ui/hotkeys',
+    '@saas-ui/use-hotkeys',
+    '@saas-ui/data-table',
     '@saas-ui/theme',
     '@saas-ui/date-picker',
     '@saas-ui-pro/react',
@@ -30,78 +35,48 @@ let config = {
   async redirects() {
     return [
       {
+        source: '/changelog',
+        destination: '/blog',
+        permanent: false,
+      },
+      {
         source: '/nextjs-boilerplate',
         destination: '/nextjs-starter-kit',
         permanent: true,
       },
       {
-        source: '/docs/core/overview',
-        destination: '/docs',
+        source: '/docs/pro/project-structure',
+        destination: '/docs/nextjs-starter-kit/project-structure',
         permanent: true,
       },
       {
-        source: '/docs/introduction',
-        destination: '/docs',
+        source: '/docs/pro/installation/overview',
+        destination: '/docs/nextjs-starter-kit/installation',
         permanent: true,
       },
       {
-        source: '/docs/core/getting-started',
-        destination: '/docs/core/quickstarts',
+        source: '/docs/pro/installation/clone-repository',
+        destination: '/docs/nextjs-starter-kit/installation/clone-repository',
         permanent: true,
       },
       {
-        source: '/docs/components/data-display/list',
-        destination: '/docs/components/data-display/structured-list',
+        source: '/docs/pro/installation/run-application',
+        destination: '/docs/nextjs-starter-kit/installation/run-application',
         permanent: true,
       },
       {
-        source: '/docs/components/auth/',
-        destination: '/docs/components/authentication',
+        source: '/docs/pro/authentication/:path*',
+        destination: '/docs/nextjs-starter-kit/authentication/:path*',
         permanent: true,
       },
       {
-        source: '/docs/components/auth/:path*',
-        destination: '/docs/components/authentication/:path*',
+        source: '/docs/pro/deployments/:path*',
+        destination: '/docs/nextjs-starter-kit/deployments/:path*',
         permanent: true,
       },
       {
-        source: '/docs/components/file-upload',
-        destination: '/docs/components/forms/file-upload',
-        permanent: true,
-      },
-      {
-        source: '/docs/components/file-upload/:path*',
-        destination: '/docs/components/forms/file-upload/:path*',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/npm',
-        destination: '/docs/pro/installation/private-npm/npm',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/yarn',
-        destination: '/docs/pro/installation/private-npm/yarn',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/pnpm',
-        destination: '/docs/pro/installation/private-npm/pnpm',
-        permanent: true,
-      },
-      {
-        source: '/docs/core/integrations/clerk',
-        destination: '/docs/guides/auth/clerk',
-        permanent: true,
-      },
-      {
-        source: '/docs/core/integrations/supabase',
-        destination: '/docs/guides/auth/supabase',
-        permanent: true,
-      },
-      {
-        source: '/docs/core/integrations/magic',
-        destination: '/docs/guides/auth/magic',
+        source: '/docs/pro/theming/:path*',
+        destination: '/docs/nextjs-starter-kit/theming/:path*',
         permanent: true,
       },
     ]

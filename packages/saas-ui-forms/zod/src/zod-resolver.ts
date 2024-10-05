@@ -75,7 +75,10 @@ export const getFieldsFromSchema = (schema: z.ZodTypeAny): FieldProps[] => {
         return { label: value, value }
       })
     } else if (def.typeName === 'ZodNativeEnum') {
-      props.options = Object.entries(def.values).map(([label, value]) => ({ label, value: value as string }))
+      props.options = Object.entries(def.values).map(([label, value]) => ({
+        label,
+        value: value as string,
+      }))
     }
 
     const meta = field.description && zodParseMeta(field.description)

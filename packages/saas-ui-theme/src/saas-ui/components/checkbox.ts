@@ -16,4 +16,9 @@ const baseStyle = definePartsStyle((props) => {
   }
 })
 
-export const checkboxTheme = defineMultiStyleConfig({ baseStyle })
+export const checkboxTheme = defineMultiStyleConfig({
+  baseStyle,
+  defaultProps: {
+    colorScheme: 'primary',
+  },
+})

@@ -5,6 +5,9 @@ const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(switchAnatomy.keys)
 
 export const switchTheme = defineMultiStyleConfig({
+  defaultProps: {
+    colorScheme: 'primary',
+  },
   baseStyle: definePartsStyle((props) => {
     const { colorScheme } = props
     return {

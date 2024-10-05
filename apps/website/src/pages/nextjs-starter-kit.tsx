@@ -65,12 +65,12 @@ import { NextjsSvg } from '@/docs/components/framework-svg'
 
 const Home = () => {
   const [animateGlow, setAnimate] = React.useState()
-  const isDesktop = useBreakpointValue({ lg: true })
+
   return (
     <Box>
       <SEO
-        title="Next.js boilerplate for SaaS, B2B and internal tools"
-        description="Build beautiful and intuitive SaaS, B2B and internal tools with speed."
+        title="Premium Next.js starter kit for intuitive SaaS products"
+        description="Build beautiful and intuitive B2B SaaS products with speed."
         titleTemplate="%s - Saas UI"
         canonical="https://saas-ui.dev/nextjs-boilerplate"
       />
@@ -106,7 +106,7 @@ const Home = () => {
                     initialInView
                     textStyle="pageTitle"
                   >
-                    Next.js boilerplate for modern SaaS products
+                    Next.js starter kit for building intuitive SaaS products
                   </FallInPlace>
                 }
                 description={
@@ -120,7 +120,7 @@ const Home = () => {
                     initialInView
                   >
                     Saas UI gives you everything you need to build beautiful and
-                    intuitive frontends.{' '}
+                    intuitive SaaS products.{' '}
                     <Br display={{ base: 'none', md: 'inline' }} /> Out of the
                     box support for authentication, billing, multi-tenancy, and
                     more.
@@ -147,7 +147,7 @@ const Home = () => {
                     </ButtonLink>
                     <ButtonLink
                       size="lg"
-                      href="/docs"
+                      href="/docs/nextjs-starter-kit"
                       variant="outline"
                       borderColor="blackAlpha.400"
                       _dark={{

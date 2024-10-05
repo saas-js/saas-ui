@@ -138,7 +138,7 @@ export const Navigation = () => {
                   }
                   gridArea="3 / 1 / 4 / span 1"
                 >
-                  Build intuitive Next.js apps with a solid foundation.
+                  Production ready Next.js starter kit.
                 </ListItem>
 
                 <ListItem
@@ -172,7 +172,9 @@ export const Navigation = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+            <NavigationMenuTrigger>
+              <Link href="/docs">Documentation</Link>
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <List
                 sx={{
@@ -234,7 +236,7 @@ export const Navigation = () => {
                   role="group"
                 >
                   <NavigationMenu.Link asChild>
-                    <Callout href="/docs/pro/installation/overview">
+                    <Callout href="/docs/nextjs-starter-kit">
                       <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
                         <NextjsIcon width="16px" height="16px" />
                       </IconBadge>
@@ -244,8 +246,8 @@ export const Navigation = () => {
                       </CalloutText>
                       <Spacer />
                       <HStack alignItems="flex-end">
-                        <CalloutLink href="/docs/pro/installation/overview">
-                          Quick start
+                        <CalloutLink href="/docs/nextjs-starter-kit">
+                          Getting started
                         </CalloutLink>
                       </HStack>
                     </Callout>
@@ -280,17 +282,6 @@ export const Navigation = () => {
                   target="_blank"
                 >
                   See what&apos;s coming next.
-                </ListItem>
-                <ListItem
-                  title="Changelog"
-                  icon={
-                    <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
-                      <Icon as={LuFileClock} boxSize="16px" />
-                    </IconBadge>
-                  }
-                  href="/changelog"
-                >
-                  See what&apos;s changed.
                 </ListItem>
                 <ListItem
                   title="Github"

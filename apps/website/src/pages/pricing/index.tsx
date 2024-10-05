@@ -18,7 +18,6 @@ import {
   Tabs,
   Tag,
   useClipboard,
-  useDisclosure,
 } from '@chakra-ui/react'
 import {
   Heading,
@@ -31,7 +30,6 @@ import {
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
-import SectionTitle from '@/components/marketing/section-title'
 
 import SEO from '@/components/seo'
 
@@ -315,9 +313,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €249,-
+                  €297,-
                 </Text>
-                <Text>€199,-</Text>
+                <Text>€247,-</Text>
               </HStack>
             }
             description="Single license for developers and small teams."
@@ -344,7 +342,6 @@ const Pricing = () => {
                 }
               />
               <PricingFeature title="Multiple themes" />
-
               <PricingFeature title="Private discord community" />
 
               <PricingFeature
@@ -381,9 +378,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €999,-
+                  €997,-
                 </Text>
-                <Text>€799,-</Text>
+                <Text>€797,-</Text>
               </HStack>
             }
             description="Unlimited license for growing teams or agencies."
@@ -391,7 +388,7 @@ const Pricing = () => {
             <PricingFeatures>
               <PricingFeature
                 title="Up to 20 developers"
-                help="A developer can be either an employee or a contracted freelancer."
+                help="Need more developers? Get in touch for a custom offer."
               />
               <PricingFeature
                 title="Unlimited projects"
@@ -547,7 +544,7 @@ const MemberShip = () => {
           <Text>Membership</Text>
         </HStack>
       }
-      description="Design engineer as a service. Limited access."
+      description="Our experts join your team to help you move faster. "
       price={
         <Stack spacing="0" mt="-4">
           <Text fontSize="sm" color="gray.400" fontWeight="medium">
@@ -555,7 +552,7 @@ const MemberShip = () => {
           </Text>
           <HStack>
             <Text>€4750,-</Text>
-            <Text fontSize="sm" color="gray.400">
+            <Text fontSize="sm" color="gray.400" fontWeight="medium">
               / month
             </Text>
           </HStack>

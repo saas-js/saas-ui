@@ -71,6 +71,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/blog/nextjs-create-page-helper-with-loader-pattern</guid>
+    <title>Next.js createPage helper with loader pattern</title>
+    <link>https://saas-ui.dev/blog/nextjs-create-page-helper-with-loader-pattern</link>
+    <description>This Next.js pattern I've been using just got a whole lot better.</description>
+    <pubDate>Mon, 01 Jul 2024 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    <category>next</category><category>app router</category><category>react</category>
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/blog/saas-ui-2-0</guid>
     <title>Saas UI 2.0 is out!</title>
     <link>https://saas-ui.dev/blog/saas-ui-2-0</link>

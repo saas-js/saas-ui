@@ -1,0 +1,66 @@
+---
+title: Environment variables
+description: How to configure environment variables in the Saas UI Next.js starter kit.
+---
+
+The Saas UI Next.js starter kit uses environment variables to configure the application.
+This allows you to separate configuration from your codebase and keep sensitive information secure.
+
+## Configuration
+
+<Info>
+  We recommend _NEVER_ to check in any .env files in order to prevent leaking
+  secrets into your Git repository. This is unlike [recommendations by
+  Next.js](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables#default-environment-variables),
+  but we believe it is the better/safer approach.
+</Info>
+
+Environment variables should always be configured using your CI/CD provider. For example, GitHub Actions, Vercel, etc. Never store secrets in your repository.
+
+Run `yarn turbo gen env` to generate a new .env file.
+
+Alternatively, you can copy the `.env.example` file to `.env` and fill in the values.
+
+```bash
+# The public URL of the application
+APP_URL=http://localhost:3000
+
+# Default plan id for new accounts.
+# Plans are configured in `packages/config/billing.config.ts`.
+DEFAULT_PLAN_ID=free@1
+
+# Email
+# The email address that will be used to send emails from the application.
+# This domain must be verified in your email provider.
+EMAIL_FROM="hello@saas-ui.dev"
+
+# Resend (default email provider)
+# You can find this value in your Resend project settings.
+RESEND_API_KEY=
+
+# Database
+# Uses a local docker instance by default.
+DATABASE_URL=postgres://admin:admin@localhost:5432/dev
+
+# Auth.js
+AUTH_SECRET=
+
+# Stripe (default payment provider)
+# You can find these values in your Stripe dashboard, under developer settings.
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+```
+
+## Using environment variables
+
+All environment variables are defined using a Zod schema in `packages/env/env.ts`.
+This allows us to validate the environment variables and give us type-safety / auto-completion in our codebase.
+
+You can import environment variables from `env`, only `NEXT_PUBLIC_` prefixed variables are exposed to the client.
+
+```ts
+import { env } from 'env'
+
+console.log(env.DATABASE_URL)
+```

@@ -1,5 +1,14 @@
 # palette
 
+## 1.5.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/theme-glass@0.6.1
+  - @saas-ui/react@2.9.1
+
 ## 1.5.0
 
 ### Minor Changes

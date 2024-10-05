@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.6.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
 ## 0.6.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.12.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
 ## 0.12.0
 
 ### Minor Changes

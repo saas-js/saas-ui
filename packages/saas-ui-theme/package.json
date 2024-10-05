@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/theme",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Saas UI theme package",
   "source": "src/index.ts",
   "exports": {
@@ -83,9 +83,9 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/anatomy": "^2.3.2",
-    "@chakra-ui/styled-system": "^2.10.2",
-    "@chakra-ui/theme-tools": "^2.2.2"
+    "@chakra-ui/anatomy": "^2.3.4",
+    "@chakra-ui/styled-system": "^2.11.1",
+    "@chakra-ui/theme-tools": "^2.2.5"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.4.6",

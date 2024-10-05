@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/file-upload",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Saas UI Dropzone Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {
@@ -59,9 +59,9 @@
   },
   "dependencies": {
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/styled-system": "^2.10.2",
-    "@chakra-ui/theme-tools": "^2.2.2",
-    "@chakra-ui/utils": "^2.1.2",
+    "@chakra-ui/styled-system": "^2.11.1",
+    "@chakra-ui/theme-tools": "^2.2.5",
+    "@chakra-ui/utils": "^2.2.1",
     "@zag-js/file-upload": "^0.73.0",
     "@zag-js/react": "^0.73.0"
   },

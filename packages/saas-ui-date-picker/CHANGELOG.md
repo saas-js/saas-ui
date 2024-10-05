@@ -1,5 +1,14 @@
 # @saas-ui/date-picker
 
+## 0.13.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/modals@2.2.1
+  - @saas-ui/core@2.6.1
+
 ## 0.13.0
 
 ### Minor Changes

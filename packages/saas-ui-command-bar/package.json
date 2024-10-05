@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/command-bar",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Chakra UI CommandBar Component",
   "source": "src/index.ts",
   "exports": {
@@ -73,12 +73,12 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/anatomy": "^2.3.2",
+    "@chakra-ui/anatomy": "^2.3.4",
     "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/styled-system": "^2.10.2",
-    "@chakra-ui/theme": "^3.4.2",
-    "@chakra-ui/theme-tools": "^2.2.2",
-    "@chakra-ui/utils": "^2.1.2",
+    "@chakra-ui/styled-system": "^2.11.1",
+    "@chakra-ui/theme": "^3.4.5",
+    "@chakra-ui/theme-tools": "^2.2.5",
+    "@chakra-ui/utils": "^2.2.1",
     "cmdk": "^1.0.0"
   },
   "peerDependencies": {

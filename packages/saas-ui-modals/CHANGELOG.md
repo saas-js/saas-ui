@@ -1,5 +1,14 @@
 # @saas-ui/modals
 
+## 2.2.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/react-utils@2.1.1
+  - @saas-ui/forms@2.7.1
+
 ## 2.2.0
 
 ### Minor Changes

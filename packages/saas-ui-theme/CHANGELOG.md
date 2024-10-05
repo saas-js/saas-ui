@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.5.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
 ## 2.5.0
 
 ### Minor Changes

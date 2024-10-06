@@ -109,7 +109,7 @@ const Home = () => {
       <SEO
         title="Saas UI"
         description="Modern React component library and starter kit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js."
-        titleTemplate="%s - The React component library and Next.js starter kit for Startups"
+        titleTemplate="%s - The React component library and Next.js starter kit for startups"
         canonical="https://saas-ui.dev"
       />
 
@@ -123,7 +123,8 @@ const Home = () => {
         <Box _dark={{ bg: 'black' }} pt="16">
           <Container
             maxW="container.xl"
-            py={{ base: 10, lg: 20, xl: 40 }}
+            pb={{ base: 10, lg: 20, xl: 30 }}
+            pt={{ base: 10, lg: 20, xl: 40 }}
             position="relative"
           >
             <Stack
@@ -153,16 +154,21 @@ const Home = () => {
                     fontWeight="medium"
                     textAlign="center"
                     color="gray.600"
+                    width="3xl"
                     _dark={{ color: 'gray.400' }}
                     fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
                     initialInView
                   >
-                    Saas UI is a <Em>React component library</Em> and{' '}
+                    {/* Saas UI is a <Em>React component library</Em> and{' '}
                     <Em>starter kit</Em>
                     <Br display={{ base: 'none', md: 'inline' }} /> that
                     doesn&apos;t get in your way and helps you{' '}
                     <Br display={{ base: 'none', md: 'inline' }} /> build
-                    intuitive SaaS products with speed.
+                    intuitive SaaS products with speed. */}
+                    Saas UI is a purpose-built toolkit for building high-quality
+                    apps. Start with our free component library and build
+                    fullstack apps with production-ready templates and starter
+                    kits.
                   </FallInPlace>
                 }
               >
@@ -268,7 +274,7 @@ const Home = () => {
                 </Stack>
               </Box>
             </Stack>
-            <BackgroundGradientRadial bottom="0" animate={animateGlow} />
+            <BackgroundGradientRadial bottom="-200px" animate={animateGlow} />
           </Container>
 
           <UsedBy />

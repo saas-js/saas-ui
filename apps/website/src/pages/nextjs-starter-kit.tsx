@@ -37,7 +37,6 @@ import { ButtonLink } from '@/components/link'
 import { BackgroundGradient } from '@/components/background-gradient'
 
 import { ChakraLogo } from '@/components/logos/chakra'
-import { FigmaLogo } from '@/components/logos/figma'
 
 import {
   FiBox,
@@ -55,16 +54,13 @@ import {
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Polypane } from '@/components/logos/customers/polypane'
-import { YouGotBud } from '@/components/logos/customers/you-got-bud'
-import { Startec } from '@/components/logos/customers/startec'
-import { Eqtble } from '@/components/logos/customers/eqtble'
-import { Farmo } from '@/components/logos/customers/farmo'
-import { Ownco } from '@/components/logos/customers/ownco'
+
 import { NextjsSvg } from '@/docs/components/framework-svg'
+import { UsedBy } from '@/components/used-by'
+import { TrpcLogo } from '@/components/logos/trpc'
 
 const Home = () => {
-  const [animateGlow, setAnimate] = React.useState()
+  const [animateGlow, setAnimate] = React.useState(false)
 
   return (
     <Box>
@@ -85,7 +81,8 @@ const Home = () => {
         <Box _dark={{ bg: 'black' }} pt="16">
           <Container
             maxW="container.xl"
-            py={{ base: 10, lg: 20, xl: 40 }}
+            pt={{ base: 10, lg: 20, xl: 40 }}
+            pb={{ base: 10, lg: 20, xl: 30 }}
             position="relative"
           >
             <Stack
@@ -131,7 +128,7 @@ const Home = () => {
                   <HStack pt="12" pb="12" spacing="8" justifyContent="center">
                     <NextjsSvg height="18px" />
                     <ChakraLogo height="24px" />
-                    <FigmaLogo height="28px" />
+                    <TrpcLogo height="24px" />
                   </HStack>
                 </FallInPlace>
                 <FallInPlace delay={1} initialInView>
@@ -226,14 +223,13 @@ const Home = () => {
                 </Stack>
               </Box>
             </Stack>
-            <BackgroundGradientRadial bottom="0" animate={animateGlow} />
+            <BackgroundGradientRadial bottom="-200px" animate={animateGlow} />
           </Container>
 
           <UsedBy />
         </Box>
 
         <Box overflow="hidden" position="relative">
-          <BackgroundGradientRadial opacity="0.1" top="-50%" />
           <ProFeatures />
 
           <Screenshots />
@@ -241,63 +237,22 @@ const Home = () => {
 
         <Founder />
 
-        <Testimonials />
-
         <Stack alignItems="center" mx="auto" maxW="container.lg">
           <Heading as="h3" size="lg">
             Get started today
           </Heading>
           <Text color="muted" size="lg" mb="4">
-            Join more than 300 other developers and founders building SaaS
-            products.
+            Join more than 400 other developers and founders building succesful
+            SaaS products.
           </Text>
           <ButtonLink href="/pricing" variant="primary" size="lg">
             Buy Pro
           </ButtonLink>
         </Stack>
+
+        <Testimonials />
       </Box>
     </Box>
-  )
-}
-
-const UsedBy = () => {
-  return (
-    <Section innerWidth="container.xl">
-      <Heading size="md" fontWeight="medium" textAlign="center" mb="12">
-        Used by indie founders and startups worldwide
-      </Heading>
-      <SimpleGrid
-        spacing="12"
-        userSelect="none"
-        columns={{ base: 2, md: 3, xl: 6 }}
-        scale={{ base: 0.4, lg: 1 }}
-      >
-        <Flex justifyContent="center" gap="2" whiteSpace="nowrap">
-          <Polypane height="30px" />
-          <Text fontWeight="bold" fontSize="xl">
-            Polypane
-          </Text>
-        </Flex>
-        <Flex justifyContent="center">
-          <Ownco height="26px" />
-        </Flex>
-        <Flex justifyContent="center" gap="2">
-          <YouGotBud height="30px" />
-          <Text fontWeight="bold" fontSize="xl">
-            You Got Bud
-          </Text>
-        </Flex>
-        <Flex justifyContent="center">
-          <Startec height="30px" />
-        </Flex>
-        <Flex justifyContent="center">
-          <Eqtble height="24px" />
-        </Flex>
-        <Flex justifyContent="center">
-          <Farmo height="20px" />
-        </Flex>
-      </SimpleGrid>
-    </Section>
   )
 }
 

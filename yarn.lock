@@ -2870,7 +2870,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/anatomy@npm:2.3.4, @chakra-ui/anatomy@npm:^2.3.4":
+"@chakra-ui/anatomy@npm:2.3.4, @chakra-ui/anatomy@npm:^2.3.2, @chakra-ui/anatomy@npm:^2.3.4":
   version: 2.3.4
   resolution: "@chakra-ui/anatomy@npm:2.3.4"
   checksum: 10/7cbd832dfd703e7ca9728b972681b9b2b199915b97e800d56a1b171c495dfb2f451ccd527b8400c044cf8df2a5873667074be68b9cc4e6a522f6477e7d05510d
@@ -2984,7 +2984,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:^2.10.1":
+"@chakra-ui/react@npm:^2.10.1, @chakra-ui/react@npm:^2.9.3":
   version: 2.10.1
   resolution: "@chakra-ui/react@npm:2.10.1"
   dependencies:
@@ -3016,7 +3016,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/styled-system@npm:2.11.1, @chakra-ui/styled-system@npm:^2.11.1":
+"@chakra-ui/styled-system@npm:2.11.1, @chakra-ui/styled-system@npm:^2.10.2, @chakra-ui/styled-system@npm:^2.11.1":
   version: 2.11.1
   resolution: "@chakra-ui/styled-system@npm:2.11.1"
   dependencies:
@@ -3026,7 +3026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/theme-tools@npm:2.2.5, @chakra-ui/theme-tools@npm:^2.2.5":
+"@chakra-ui/theme-tools@npm:2.2.5, @chakra-ui/theme-tools@npm:^2.2.2, @chakra-ui/theme-tools@npm:^2.2.5":
   version: 2.2.5
   resolution: "@chakra-ui/theme-tools@npm:2.2.5"
   dependencies:
@@ -3064,7 +3064,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/utils@npm:2.2.1, @chakra-ui/utils@npm:^2.2.1":
+"@chakra-ui/utils@npm:2.2.1, @chakra-ui/utils@npm:^2.1.2, @chakra-ui/utils@npm:^2.2.1":
   version: 2.2.1
   resolution: "@chakra-ui/utils@npm:2.2.1"
   dependencies:
@@ -5448,6 +5448,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngneat/falso@npm:^2.27.0":
+  version: 2.27.0
+  resolution: "@ngneat/falso@npm:2.27.0"
+  dependencies:
+    seedrandom: "npm:3.0.5"
+    uuid: "npm:8.3.2"
+  checksum: 10/fd2fc5a003421621b760d4610e6226170715dd55f1043de5b625785744e6bb4a6ac9c5438fe5d73c90ca4f6dab9e65bafc425a248cecb1ef2e1d3d468089f951
+  languageName: node
+  linkType: hard
+
 "@ngneat/falso@npm:^6.4.0":
   version: 6.4.0
   resolution: "@ngneat/falso@npm:6.4.0"
@@ -5455,16 +5465,6 @@ __metadata:
     seedrandom: "npm:3.0.5"
     uuid: "npm:8.3.2"
   checksum: 10/75901da8b520e60e77bf1fa730ef4f91e6632b1f617727e10eea041b4cf5f7b9ba0ee4915a18e4b140695d4fd4441e86f38715fa30c21cfdc63271d40fb22897
-  languageName: node
-  linkType: hard
-
-"@ngneat/falso@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "@ngneat/falso@npm:7.2.0"
-  dependencies:
-    seedrandom: "npm:3.0.5"
-    uuid: "npm:8.3.2"
-  checksum: 10/a8551eb455594ee1bb9d1a3a48d5a6228e403875f768d76c0b5b23650a59fe88bf97c148738edee591a00f09e3e3aaf9c4483108f47ea30c85107267a861cd5c
   languageName: node
   linkType: hard
 
@@ -7277,7 +7277,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/billing@workspace:packages/pro/saas-ui/billing"
   dependencies:
-    date-fns: "npm:^4.1.0"
+    date-fns: "npm:^3.6.0"
     tsup: "npm:^8.3.0"
   peerDependencies:
     react: ">=18"
@@ -7288,7 +7288,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/feature-flags@workspace:packages/pro/saas-ui/feature-flags"
   dependencies:
-    "@chakra-ui/utils": "npm:^2.2.1"
+    "@chakra-ui/utils": "npm:^2.1.2"
     tsup: "npm:8.3.0"
     zustand: "npm:^4.5.5"
   peerDependencies:
@@ -7306,7 +7306,7 @@ __metadata:
     "@dnd-kit/core": "npm:^6.1.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
-    "@zag-js/core": "npm:^0.73.1"
+    "@zag-js/core": "npm:^0.73.0"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.0"
   peerDependencies:
@@ -7337,12 +7337,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/onboarding@workspace:packages/pro/saas-ui/onboarding"
   dependencies:
-    "@chakra-ui/anatomy": "npm:^2.3.4"
+    "@chakra-ui/anatomy": "npm:^2.3.2"
     "@chakra-ui/react-utils": "npm:^2.0.12"
-    "@chakra-ui/styled-system": "npm:^2.11.1"
-    "@chakra-ui/theme-tools": "npm:^2.2.5"
-    "@chakra-ui/utils": "npm:^2.2.1"
-    "@saas-ui/react-utils": "npm:^2.1.1"
+    "@chakra-ui/styled-system": "npm:^2.10.2"
+    "@chakra-ui/theme-tools": "npm:^2.2.2"
+    "@chakra-ui/utils": "npm:^2.1.2"
+    "@saas-ui/react-utils": "npm:^2.1.0"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.0"
   peerDependencies:
@@ -7356,27 +7356,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@npm:^0.36.4, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
+"@saas-ui-pro/react@npm:^0.36.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/saas-ui/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/saas-ui/react"
   dependencies:
-    "@chakra-ui/anatomy": "npm:^2.3.4"
+    "@chakra-ui/anatomy": "npm:^2.3.2"
     "@chakra-ui/clickable": "npm:^2.1.0"
     "@chakra-ui/react-utils": "npm:^2.0.12"
-    "@chakra-ui/styled-system": "npm:^2.11.1"
-    "@chakra-ui/theme-tools": "npm:^2.2.5"
-    "@chakra-ui/utils": "npm:^2.2.1"
-    "@ngneat/falso": "npm:^7.2.0"
+    "@chakra-ui/styled-system": "npm:^2.10.2"
+    "@chakra-ui/theme-tools": "npm:^2.2.2"
+    "@chakra-ui/utils": "npm:^2.1.2"
+    "@ngneat/falso": "npm:^2.27.0"
     "@react-hookz/web": "npm:^24.0.4"
     "@saas-ui-pro/onboarding": "workspace:*"
-    "@saas-ui/date-picker": "npm:^0.13.1"
-    "@saas-ui/forms": "npm:^2.7.1"
-    "@saas-ui/react-utils": "npm:^2.1.1"
-    "@saas-ui/theme": "npm:^2.5.1"
+    "@saas-ui/date-picker": "npm:^0.13.0"
+    "@saas-ui/forms": "npm:^2.7.0"
+    "@saas-ui/react-utils": "npm:^2.1.0"
+    "@saas-ui/theme": "npm:^2.5.0"
     "@tanstack/react-table": "npm:^8.20.5"
     "@tanstack/react-virtual": "npm:^3.10.8"
     "@zag-js/dom-utils": "npm:^0.2.4"
-    date-fns: "npm:^4.1.0"
+    date-fns: "npm:^3.6.0"
     polished: "npm:^4.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.0"
@@ -7395,12 +7395,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/theme-glass@workspace:packages/pro/saas-ui/pro-theme-glass"
   dependencies:
-    "@chakra-ui/anatomy": "npm:^2.3.4"
-    "@chakra-ui/styled-system": "npm:^2.11.1"
-    "@chakra-ui/theme-tools": "npm:^2.2.5"
+    "@chakra-ui/anatomy": "npm:^2.3.2"
+    "@chakra-ui/styled-system": "npm:^2.10.2"
+    "@chakra-ui/theme-tools": "npm:^2.2.2"
     "@saas-ui-pro/react": "workspace:*"
-    "@saas-ui/theme": "npm:^2.5.1"
-    "@saas-ui/theme-glass": "npm:^0.6.1"
+    "@saas-ui/theme": "npm:^2.5.0"
+    "@saas-ui/theme-glass": "npm:^0.6.0"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.0"
   peerDependencies:
@@ -7555,7 +7555,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/date-picker@npm:^0.13.1, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
+"@saas-ui/date-picker@npm:^0.13.0, @saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
   dependencies:
@@ -7585,7 +7585,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/file-upload@npm:^0.4.1, @saas-ui/file-upload@workspace:packages/saas-ui-file-upload":
+"@saas-ui/file-upload@npm:^0.4.0, @saas-ui/file-upload@workspace:packages/saas-ui-file-upload":
   version: 0.0.0-use.local
   resolution: "@saas-ui/file-upload@workspace:packages/saas-ui-file-upload"
   dependencies:
@@ -7607,7 +7607,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/forms@npm:^2.7.1, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
+"@saas-ui/forms@npm:^2.7.0, @saas-ui/forms@workspace:*, @saas-ui/forms@workspace:packages/saas-ui-forms":
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
@@ -7742,7 +7742,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react-utils@npm:^2.1.1, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
+"@saas-ui/react-utils@npm:^2.1.0, @saas-ui/react-utils@workspace:*, @saas-ui/react-utils@workspace:packages/saas-ui-react-utils":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react-utils@workspace:packages/saas-ui-react-utils"
   dependencies:
@@ -7753,7 +7753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/react@npm:^2.9.1, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@npm:^2.9.0, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -7866,7 +7866,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme-glass@npm:^0.6.1, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
+"@saas-ui/theme-glass@npm:^0.6.0, @saas-ui/theme-glass@workspace:*, @saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme-glass@workspace:packages/saas-ui-theme-glass"
   dependencies:
@@ -7886,7 +7886,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@npm:^2.5.1, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@npm:^2.5.0, @saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   dependencies:
@@ -7941,7 +7941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^8.3.5":
+"@storybook/addon-a11y@npm:^8.3.4, @storybook/addon-a11y@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/addon-a11y@npm:8.3.5"
   dependencies:
@@ -7995,7 +7995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:8.3.5, @storybook/addon-docs@npm:^8.3.5":
+"@storybook/addon-docs@npm:8.3.5, @storybook/addon-docs@npm:^8.3.4":
   version: 8.3.5
   resolution: "@storybook/addon-docs@npm:8.3.5"
   dependencies:
@@ -8017,7 +8017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^8.3.5":
+"@storybook/addon-essentials@npm:^8.3.4":
   version: 8.3.5
   resolution: "@storybook/addon-essentials@npm:8.3.5"
   dependencies:
@@ -8072,7 +8072,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-storysource@npm:^8.3.5":
+"@storybook/addon-storysource@npm:^8.3.4, @storybook/addon-storysource@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/addon-storysource@npm:8.3.5"
   dependencies:
@@ -8136,7 +8136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:8.3.5, @storybook/builder-vite@npm:^8.3.5":
+"@storybook/builder-vite@npm:8.3.5, @storybook/builder-vite@npm:^8.3.4":
   version: 8.3.5
   resolution: "@storybook/builder-vite@npm:8.3.5"
   dependencies:
@@ -8166,7 +8166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/cli@npm:^8.3.5":
+"@storybook/cli@npm:^8.3.4, @storybook/cli@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/cli@npm:8.3.5"
   dependencies:
@@ -8325,7 +8325,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:^8.3.5":
+"@storybook/manager-api@npm:^8.3.4, @storybook/manager-api@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/manager-api@npm:8.3.5"
   peerDependencies:
@@ -8361,7 +8361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-vite@npm:^8.3.5":
+"@storybook/react-vite@npm:^8.3.4, @storybook/react-vite@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/react-vite@npm:8.3.5"
   dependencies:
@@ -8383,7 +8383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:8.3.5, @storybook/react@npm:^8.3.5":
+"@storybook/react@npm:8.3.5, @storybook/react@npm:^8.3.4, @storybook/react@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/react@npm:8.3.5"
   dependencies:
@@ -8436,7 +8436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:^8.3.5":
+"@storybook/theming@npm:^8.3.4, @storybook/theming@npm:^8.3.5":
   version: 8.3.5
   resolution: "@storybook/theming@npm:8.3.5"
   peerDependencies:
@@ -10344,7 +10344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zag-js/core@npm:^0.73.1":
+"@zag-js/core@npm:^0.73.0":
   version: 0.73.1
   resolution: "@zag-js/core@npm:0.73.1"
   dependencies:
@@ -13483,13 +13483,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "date-fns@npm:4.1.0"
-  checksum: 10/d5f6e9de5bbc52310f786099e18609289ed5e30af60a71e0646784c8185ddd1d0eebcf7c96b7faaaefc4a8366f3a3a4244d099b6d0866ee2bec80d1361e64342
-  languageName: node
-  linkType: hard
-
 "debounce@npm:^1.2.1":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -15876,26 +15869,6 @@ __metadata:
   version: 0.2.0
   resolution: "forwarded@npm:0.2.0"
   checksum: 10/29ba9fd347117144e97cbb8852baae5e8b2acb7d1b591ef85695ed96f5b933b1804a7fac4a15dd09ca7ac7d0cdc104410e8102aae2dd3faa570a797ba07adb81
-  languageName: node
-  linkType: hard
-
-"framer-motion@npm:^11.11.1":
-  version: 11.11.1
-  resolution: "framer-motion@npm:11.11.1"
-  dependencies:
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    "@emotion/is-prop-valid": "*"
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  peerDependenciesMeta:
-    "@emotion/is-prop-valid":
-      optional: true
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 10/acf1219d4400e3d08ed37caabb601cb6f79512d1add4288e50359635723a454ad5b620a9feeba5137673d2f71e9b51c9b0bee796fe64533c73b82fa9ba76e254
   languageName: node
   linkType: hard
 
@@ -23828,17 +23801,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "saas-ui-blocks@workspace:packages/pro/saas-ui/blocks"
   dependencies:
-    "@chakra-ui/react": "npm:^2.10.1"
+    "@chakra-ui/react": "npm:^2.9.3"
     "@dnd-kit/core": "npm:^6.1.0"
     "@dnd-kit/modifiers": "npm:^7.0.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.13.3"
     "@emotion/styled": "npm:^11.13.0"
-    "@saas-ui-pro/react": "npm:^0.36.4"
-    "@saas-ui/file-upload": "npm:^0.4.1"
-    "@saas-ui/react": "npm:^2.9.1"
-    framer-motion: "npm:^11.11.1"
+    "@saas-ui-pro/react": "npm:^0.36.0"
+    "@saas-ui/file-upload": "npm:^0.4.0"
+    "@saas-ui/react": "npm:^2.9.0"
+    framer-motion: "npm:^11.9.0"
     lucide-react: "npm:^0.447.0"
     nanoid: "npm:^5.0.7"
     react: "npm:^18.3.1"
@@ -23852,26 +23825,26 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.25.7"
     "@fontsource-variable/inter": "npm:^5.1.0"
-    "@storybook/addon-a11y": "npm:^8.3.5"
-    "@storybook/addon-docs": "npm:^8.3.5"
-    "@storybook/addon-essentials": "npm:^8.3.5"
-    "@storybook/addon-storysource": "npm:^8.3.5"
-    "@storybook/builder-vite": "npm:^8.3.5"
-    "@storybook/cli": "npm:^8.3.5"
-    "@storybook/manager-api": "npm:^8.3.5"
+    "@storybook/addon-a11y": "npm:^8.3.4"
+    "@storybook/addon-docs": "npm:^8.3.4"
+    "@storybook/addon-essentials": "npm:^8.3.4"
+    "@storybook/addon-storysource": "npm:^8.3.4"
+    "@storybook/builder-vite": "npm:^8.3.4"
+    "@storybook/cli": "npm:^8.3.4"
+    "@storybook/manager-api": "npm:^8.3.4"
     "@storybook/mdx2-csf": "npm:^1.1.0"
-    "@storybook/react": "npm:^8.3.5"
-    "@storybook/react-vite": "npm:^8.3.5"
-    "@storybook/theming": "npm:^8.3.5"
+    "@storybook/react": "npm:^8.3.4"
+    "@storybook/react-vite": "npm:^8.3.4"
+    "@storybook/theming": "npm:^8.3.4"
     "@vitejs/plugin-react": "npm:^4.3.2"
     chromatic: "npm:^11.11.0"
-    framer-motion: "npm:^11.11.1"
+    framer-motion: "npm:^11.9.0"
     lucide-react: "npm:^0.447.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-is: "npm:^18.3.1"
     require-from-string: "npm:^2.0.2"
-    storybook: "npm:^8.3.5"
+    storybook: "npm:^8.3.4"
     vite: "npm:^5.4.8"
   peerDependencies:
     "@chakra-ui/react": ">=2.9.0"
@@ -24740,7 +24713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:8.3.5, storybook@npm:^8.3.5":
+"storybook@npm:8.3.5, storybook@npm:^8.3.4":
   version: 8.3.5
   resolution: "storybook@npm:8.3.5"
   dependencies:

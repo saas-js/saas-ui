@@ -12,6 +12,7 @@ import {
   useColorModeValue,
   Card,
   CardBody,
+  Container,
 } from '@chakra-ui/react'
 
 import Section from '@/components/marketing/section-wrapper'
@@ -54,6 +55,8 @@ const FigmaPage = () => {
         <Stats />
 
         <FigmaEmbed />
+
+        <CTA />
 
         <Testimonials />
       </Box>
@@ -496,6 +499,60 @@ const FigmaEmbed = () => {
         </AspectRatio>
       </Box>
     </Box>
+  )
+}
+
+function CTA() {
+  return (
+    <Container maxW="container.xl">
+      <Stack
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="space-between"
+        textAlign="center"
+        mb="8"
+      >
+        <Heading fontSize="3xl">Start your project now</Heading>
+
+        <Text color="muted" mb="4">
+          Get <strong>50% off</strong> during early access.
+        </Text>
+
+        <HStack>
+          <ButtonLink href="/pricing/figma" variant="primary" size="md">
+            Buy now
+          </ButtonLink>
+          <ButtonLink
+            size="md"
+            href="#community-library"
+            target="_blank"
+            variant="outline"
+            borderColor="blackAlpha.400"
+            _dark={{
+              borderColor: 'whiteAlpha.400',
+            }}
+            _hover={{
+              bg: 'whiteAlpha.200',
+            }}
+            leftIcon={<FaFigma />}
+            rightIcon={
+              <Icon
+                as={FiArrowRight}
+                sx={{
+                  transitionProperty: 'common',
+                  transitionDuration: 'normal',
+                  '.chakra-button:hover &': {
+                    transform: 'translate(5px)',
+                  },
+                }}
+              />
+            }
+          >
+            Preview
+          </ButtonLink>
+        </HStack>
+      </Stack>
+    </Container>
   )
 }
 

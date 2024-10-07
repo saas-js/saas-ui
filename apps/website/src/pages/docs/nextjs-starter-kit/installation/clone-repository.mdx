@@ -10,7 +10,7 @@ In case you have redeemed your license key and accepted the Github invite, you s
 To clone the repository on your local machine, use the following command:
 
 ```bash
-git clone --single-branch --branch=main git@github.com:saas-js/saas-ui-pro.git my-project
+git clone --single-branch --branch=main git@github.com:saas-js/saas-ui-pro-nextjs-starter-kit.git my-project
 ```
 
 This will clone the repository into the `my-project` folder, without the commit history.
@@ -19,12 +19,10 @@ This will clone the repository into the `my-project` folder, without the commit 
 
 Now that you have cloned the repository, you can setup your Git configuration.
 
-The `saas-ui-pro` repository is configured as the `origin` by default,
-you can can change this to `upstream` and keep `origin` for your own repository.
+The `saas-ui-pro-nextjs-starter-kit` repository is configured as the `upstream` by default.
+To add your own repository as the `origin`, use the following command:
 
 ```bash
-git remote rename origin upstream
-
 git remote add origin git@github.com:your-username/your-repository.git
 ```
 
@@ -34,8 +32,23 @@ You can pull the latest changes from the `upstream` repository using the followi
 git pull upstream main --allow-unrelated-histories
 ```
 
-As your codebase diverges from `saas-ui-pro` you will run into merge conflicts eventually,
+As your codebase diverges from `saas-ui-pro-nextjs-starter-kit` you will run into merge conflicts eventually,
 so at some point it might be easier to manually copy over any changes that you want to implement.
+
+## Login to the private package registry
+
+The Saas UI Pro packages are hosted on a private package registry (https://npm.saas-ui.dev).
+
+After cloning the repository, log in to the private NPM registry with your license key.
+
+- The `username` is the Github username you used to activate the license.
+- The `password` is your license key that you received from Lemonsqueezy or Gumroad.
+
+```bash
+yarn npm login --scope saas-ui-pro --always-auth
+```
+
+[Learn more about the private package registry](/docs/pro/installation/private-npm/overview)
 
 ## Install dependencies
 
@@ -68,7 +81,6 @@ Create `.pnpm-workspace.yaml` in the root of your project with the following con
 packages:
   - 'apps/*'
   - 'packages/*'
-  - 'saas-ui/*'
 ```
 
 The recommended way to install PNPM is using `corepack`, you can enable `corepack` using the following command:
@@ -90,36 +102,3 @@ pnpm i
 ```
 
 Make sure you also update the `scripts` in `package.json` to use `pnpm` instead of `yarn`.
-
-## Saas UI Pro components
-
-The repository includes the source code of the Saas UI Pro core components, which are located in the `saas-ui` folder.
-These packages will be installed as part of the workspace. In case you want to install these packages from the private NPM registry,
-you can remove the `saas-ui` folder from the workspaces configuration in `package.json`, or `pnpm-workspace.yaml` in case you use `pnpm`.
-
-After removing the `saas-ui` folder from the workspaces configuration, you can delete this folder and configure the private NPM registry.
-Make sure you also delete the `SaasUIProPlugin` from your Next.js Webpack configuration in `apps/web/next.config.mjs`.
-
-<SimpleGrid columns={[1, null, 3]} spacing={8} mt="8">
-  <QuickLink
-    href="/docs/pro/installation/private-npm/npm"
-    width="100%"
-    title="NPM"
-    description="Install Saas UI Pro with NPM."
-    label="Instructions"
-  />
-  <QuickLink
-    href="/docs/pro/installation/private-npm/yarn"
-    width="100%"
-    title="Yarn"
-    description="Install Saas UI Pro with Yarn."
-    label="Instructions"
-  />
-  <QuickLink
-    href="/docs/pro/installation/private-npm/pnpm"
-    width="100%"
-    title="PNPM"
-    description="Install Saas UI Pro with PNPM."
-    label="Instructions"
-  />
-</SimpleGrid>

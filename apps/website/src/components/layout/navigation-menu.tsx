@@ -357,7 +357,7 @@ export const Navigation = () => {
             isOpen={isOpen}
             onClose={onClose}
             onSelect={(value) => {
-              console.log(value)
+              onClose()
             }}
           />
         </Box>

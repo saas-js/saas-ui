@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 4.1.2
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/react@2.10.0
+
 ## 4.1.1
 
 ### Patch Changes

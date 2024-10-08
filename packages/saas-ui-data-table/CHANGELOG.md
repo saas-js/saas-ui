@@ -1,5 +1,13 @@
 # @saas-ui/data-table
 
+## 12.0.0
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/react@2.10.0
+  - @saas-ui/core@2.7.0
+
 ## 11.0.1
 
 ### Patch Changes

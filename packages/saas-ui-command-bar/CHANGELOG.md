@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.7.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
 ## 0.6.1
 
 ### Patch Changes

@@ -33,7 +33,7 @@ export const navbarTheme = defineMultiStyleConfig({
         display: 'flex',
         [$bg.variable]: colorScheme
           ? `colors.${colorScheme}.500`
-          : 'chakra-body-bg',
+          : 'colors.chakra-body-bg',
         [$color.variable]: color,
         bg: $bg.reference,
         color: $color.reference,

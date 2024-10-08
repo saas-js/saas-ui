@@ -1,5 +1,17 @@
 # @saas-ui/date-picker
 
+## 0.14.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/modals@2.3.0
+  - @saas-ui/core@2.7.0
+
 ## 0.13.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 2.8.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/core@2.7.0
+
 ## 2.7.1
 
 ### Patch Changes

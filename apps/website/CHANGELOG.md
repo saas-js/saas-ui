@@ -1,5 +1,14 @@
 # website
 
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/command-bar@0.7.0
+  - @saas-ui/forms@2.8.0
+  - @saas-ui/react@2.10.0
+
 ## 2.4.1
 
 ### Patch Changes

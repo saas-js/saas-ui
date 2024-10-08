@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.7.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
 ## 2.6.1
 
 ### Patch Changes

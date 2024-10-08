@@ -16,15 +16,9 @@ export interface LogoProps {
 import siteConfig from '@/data/site-config'
 
 const Logo = ({ href = '/', onClick }: LogoProps) => {
-  const isMobile = useBreakpointValue({ base: true, sm: false })
   let logo
   if (siteConfig.logo) {
-    logo = (
-      <Box
-        as={isMobile ? siteConfig.logoIcon : siteConfig.logo}
-        height="28px"
-      />
-    )
+    logo = <Box as={siteConfig.logo} height="28px" width="90px" />
   } else {
     logo = (
       <Heading as="h1" size="md">

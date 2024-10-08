@@ -3,7 +3,7 @@ const mdx = {
     mt: '2rem',
     mb: '.25rem',
     lineHeight: 1.2,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     fontSize: '1.875rem',
     letterSpacing: '-.025em',
   },

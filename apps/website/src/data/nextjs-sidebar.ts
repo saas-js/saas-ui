@@ -265,10 +265,6 @@ const sidebar = {
           path: '/docs/nextjs-starter-kit/deployments/preparation',
         },
         {
-          title: 'Production builds',
-          path: '/docs/nextjs-starter-kit/deployments/production-build',
-        },
-        {
           title: 'Deploy to Vercel',
           path: '/docs/nextjs-starter-kit/deployments/vercel',
         },

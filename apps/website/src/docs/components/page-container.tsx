@@ -115,7 +115,7 @@ function PageContainer(props: PageContainerProps) {
       <SkipNavLink zIndex={20}>
         {t('component.page-container.skip-to-content')}
       </SkipNavLink>
-      <BackgroundGradient animate={false} height="80px" opacity={0.2} />
+
       <Container
         as="main"
         className="main-content"
@@ -128,7 +128,7 @@ function PageContainer(props: PageContainerProps) {
           <React.Suspense>{sidebar || null}</React.Suspense>
           <Box flex="1" minW="0">
             <SkipNavContent />
-            <Box id="content" mx="auto" minH="76vh">
+            <Box id="content" mx="auto" minH="76vh" fontSize="0.95rem">
               <Flex>
                 <Box
                   minW="0"
@@ -136,7 +136,7 @@ function PageContainer(props: PageContainerProps) {
                   px={{ base: '4', sm: '6', xl: '8' }}
                   pt="10"
                 >
-                  <PageTransition
+                  <Box
                     style={{
                       maxWidth: '58rem',
                       margin: '0 auto',
@@ -184,7 +184,7 @@ function PageContainer(props: PageContainerProps) {
                       <Box>{editUrl && <EditPageLink href={editUrl} />}</Box>
                       {pagination || null}
                     </Box>
-                  </PageTransition>
+                  </Box>
                 </Box>
                 <TableOfContent
                   visibility={headings.length === 0 ? 'hidden' : 'initial'}

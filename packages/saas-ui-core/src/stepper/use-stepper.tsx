@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 
 export const [StepperProvider, useStepperContext] =
   createContext<UseStepperReturn>({

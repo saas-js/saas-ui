@@ -1,5 +1,5 @@
 import type { FormControlProps } from '@chakra-ui/react'
-import type { MaybeRenderProp } from '@chakra-ui/react-utils'
+import type { MaybeRenderProp } from '@chakra-ui/utils'
 import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import type { DefaultFields } from './default-fields'
 import type { FormProps, FormRenderContext } from './form'

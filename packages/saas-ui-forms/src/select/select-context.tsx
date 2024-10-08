@@ -4,7 +4,7 @@ import {
   useControllableState,
   useFormControl,
 } from '@chakra-ui/react'
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 import React from 'react'
 import { FieldOptions } from '../types'
 import { mapOptions } from '../utils'

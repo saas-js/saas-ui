@@ -14,8 +14,7 @@ import {
   useMergeRefs,
 } from '@chakra-ui/react'
 
-import { callAllHandlers, cx, dataAttr } from '@chakra-ui/utils'
-import { createContext } from '@chakra-ui/react-utils'
+import { callAllHandlers, cx, dataAttr, createContext } from '@chakra-ui/utils'
 
 import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
 

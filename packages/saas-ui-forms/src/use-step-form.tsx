@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 import {
   useStepper,
   useStep,
@@ -18,7 +18,7 @@ export interface StepState {
 }
 
 export type FormStepSubmitHandler<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
 > = (data: TFieldValues, stepper: UseStepperReturn) => Promise<void>
 
 export interface StepFormContext extends UseStepperReturn {
@@ -49,7 +49,7 @@ export interface StepFormRenderContext<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>
+  TFieldTypes = FieldProps<TFieldValues>,
 > extends UseStepFormReturn<TFieldValues> {
   Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
   FormStep: React.FC<FormStepProps<StepName<TSteps>>>
@@ -63,7 +63,7 @@ export interface StepFormRenderContext<
 export interface UseStepFormProps<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
 > extends Omit<UseStepperProps, 'onChange'>,
     Omit<FormProps<any, TFieldValues, TContext>, 'children'> {
   steps?: TSteps
@@ -71,7 +71,7 @@ export interface UseStepFormProps<
 }
 
 export interface UseStepFormReturn<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
 > extends UseStepperReturn {
   getFormProps(): {
     onSubmit: SubmitHandler<TFieldValues>
@@ -85,7 +85,7 @@ export interface UseStepFormReturn<
 export function useStepForm<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: UseStepFormProps<TSteps, TFieldValues, TContext>
 ): UseStepFormReturn<TFieldValues> {

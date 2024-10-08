@@ -10,8 +10,7 @@ import {
   useStyleConfig,
   useTheme,
 } from '@chakra-ui/react'
-import { createContext } from '@chakra-ui/react-utils'
-import { dataAttr, mapResponsive } from '@chakra-ui/utils'
+import { createContext, dataAttr, mapResponsive } from '@chakra-ui/utils'
 
 import defaultStyleConfig from './segmented-input-styles'
 

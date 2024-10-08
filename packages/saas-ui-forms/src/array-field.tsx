@@ -28,8 +28,7 @@ import {
   UseArrayFieldReturn,
 } from './use-array-field'
 import { FieldPath, FieldValues } from 'react-hook-form'
-import { isFunction } from '@chakra-ui/utils'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { isFunction, MaybeRenderProp } from '@chakra-ui/utils'
 import { useFieldProps } from './form-context'
 
 export interface ArrayFieldButtonProps extends ButtonProps {}
@@ -180,7 +179,7 @@ ArrayFieldAddButton.displayName = 'ArrayFieldAddButton'
 
 export interface ArrayFieldProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > extends ArrayFieldOptions<TFieldValues, TName>,
     Omit<
       BaseFieldProps<TFieldValues, TName>,

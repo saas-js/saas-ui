@@ -5,7 +5,7 @@ import {
   SystemProps,
   ThemingProps,
 } from '@chakra-ui/react'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { MaybeRenderProp } from '@chakra-ui/utils'
 import { HTMLMotionProps } from 'framer-motion'
 
 export interface SidebarOptions {

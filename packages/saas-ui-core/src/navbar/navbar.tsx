@@ -1,29 +1,10 @@
-import {
-  HTMLChakraProps,
-  ThemingProps,
-  chakra,
-  forwardRef,
-  useMultiStyleConfig,
-} from '@chakra-ui/react'
-import { HTMLMotionProps, motion } from 'framer-motion'
-import { UseNavbarProps, useNavbar } from './use-navbar'
+import { chakra, forwardRef, useMultiStyleConfig } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
+import { useNavbar, type NavbarProps } from './use-navbar'
 import { NavBarStylesProvider, NavbarProvider } from './navbar-context'
 import { cx } from '@saas-ui/react-utils'
 
 const MotionBox = chakra(motion.nav)
-
-type MotionProps = Pick<
-  HTMLMotionProps<'div'>,
-  'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
->
-
-export interface NavbarProps
-  extends Omit<UseNavbarProps, 'hideOnScroll' | 'ref'>,
-    Omit<HTMLChakraProps<'div'>, keyof MotionProps | 'height'>,
-    MotionProps,
-    ThemingProps<'SuiNavbar'> {
-  children?: React.ReactNode | React.ReactNode[]
-}
 
 export const Navbar = forwardRef<NavbarProps, 'div'>((props, ref) => {
   const { children, ...otherProps } = props
@@ -56,7 +37,7 @@ export const Navbar = forwardRef<NavbarProps, 'div'>((props, ref) => {
             visible: { y: 0, transition: { ease: 'easeInOut' } },
           }}
           className={cx('sui-navbar', props.className)}
-          {...context.getContainerProps()}
+          {...context.getContainerProps(props)}
         >
           {content}
         </MotionBox>

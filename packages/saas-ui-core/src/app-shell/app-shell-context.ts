@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 import { useBreakpointValue, useDisclosure } from '@chakra-ui/react'
 import { Breakpoints, getBreakpoints } from '../sidebar/sidebar-utils'
 

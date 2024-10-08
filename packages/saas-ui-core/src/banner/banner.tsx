@@ -14,9 +14,7 @@ import {
   createStylesContext,
   Icon,
 } from '@chakra-ui/react'
-import { callAllHandlers, cx } from '@chakra-ui/utils'
-
-import { createContext } from '@chakra-ui/react-utils'
+import { callAllHandlers, cx, createContext } from '@chakra-ui/utils'
 
 import { InfoIcon, WarningIcon, CheckIcon } from './icons'
 

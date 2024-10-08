@@ -3,8 +3,8 @@ import {
   ThemingProps,
   useDisclosure,
 } from '@chakra-ui/react'
-import { createContext } from '@chakra-ui/react-utils'
-import { callAllHandlers } from '@chakra-ui/utils'
+
+import { callAllHandlers, createContext } from '@chakra-ui/utils'
 import { useCallback } from 'react'
 
 export interface CommandBarOptions {

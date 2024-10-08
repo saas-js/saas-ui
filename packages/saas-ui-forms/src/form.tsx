@@ -1,7 +1,12 @@
 import * as React from 'react'
 
 import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
-import { FocusableElement, cx, runIfFn } from '@chakra-ui/utils'
+import {
+  FocusableElement,
+  cx,
+  runIfFn,
+  MaybeRenderProp,
+} from '@chakra-ui/utils'
 
 import {
   useForm,
@@ -16,7 +21,6 @@ import {
 } from 'react-hook-form'
 import { FormProvider } from './form-context'
 import { FieldResolver } from './field-resolver'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
 

@@ -11,10 +11,10 @@ import {
   useMenuContext,
   useEventListener,
   forwardRef,
+  mergeRefs,
 } from '@chakra-ui/react'
 
-import { createContext, mergeRefs } from '@chakra-ui/react-utils'
-import { callAllHandlers, runIfFn } from '@chakra-ui/utils'
+import { callAllHandlers, runIfFn, createContext } from '@chakra-ui/utils'
 
 // @todo migrate this to Ark-ui ContextMenu
 import { useLongPress } from '@react-aria/interactions'

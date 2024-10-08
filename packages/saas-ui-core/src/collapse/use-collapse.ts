@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { createContext, PropGetter } from '@chakra-ui/react-utils'
 import { useDisclosure } from '@chakra-ui/react'
-import { cx } from '@chakra-ui/utils'
+import { cx, createContext, PropGetter } from '@chakra-ui/utils'
 
 export const [CollapseProvider, useCollapseContext] =
   createContext<UseCollapseReturn>({

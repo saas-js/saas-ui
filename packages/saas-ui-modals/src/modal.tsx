@@ -13,8 +13,8 @@ import {
   ModalHeaderProps,
   ModalFooterProps,
 } from '@chakra-ui/react'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
-import { runIfFn } from '@chakra-ui/utils'
+
+import { runIfFn, MaybeRenderProp } from '@chakra-ui/utils'
 
 export interface BaseModalProps extends Omit<ChakraModalProps, 'children'> {
   /**

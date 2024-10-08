@@ -1,9 +1,29 @@
-import { PropGetterV2 } from '@chakra-ui/react-utils'
-import { dataAttr } from '@chakra-ui/utils'
+import { dataAttr, PropGetter } from '@chakra-ui/utils'
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { useResizeObserver } from '@react-aria/utils'
 import { useScrollPosition } from '@saas-ui/hooks'
 import { HTMLMotionProps } from 'framer-motion'
+import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
+
+type MotionProps = Pick<
+  HTMLMotionProps<'div'>,
+  | 'animate'
+  | 'initial'
+  | 'variants'
+  | 'onAnimationStart'
+  | 'onAnimationComplete'
+  | 'onDrag'
+  | 'onDragStart'
+  | 'onDragEnd'
+>
+
+export interface NavbarProps
+  extends Omit<UseNavbarProps, 'hideOnScroll' | 'ref'>,
+    Omit<HTMLChakraProps<'div'>, keyof MotionProps | 'height'>,
+    MotionProps,
+    ThemingProps<'SuiNavbar'> {
+  children?: React.ReactNode | React.ReactNode[]
+}
 
 export interface UseNavbarProps {
   /**
@@ -35,7 +55,7 @@ export interface UseNavbarProps {
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    * This motion is only available if the `shouldHideOnScroll` prop is set to `true`.
    */
-  motionProps?: HTMLMotionProps<'nav'>
+  motionProps?: MotionProps
   /**
    * The scroll event handler for the navbar. The event fires when the navbar parent element is scrolled.
    * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
@@ -110,7 +130,7 @@ export function useNavbar(props: UseNavbarProps) {
     },
   })
 
-  const getContainerProps: PropGetterV2<any> = (props = {}) => ({
+  const getContainerProps = (props: NavbarProps = {}) => ({
     ...containerProps,
     ...motionProps,
     'data-hidden': dataAttr(isHidden),

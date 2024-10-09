@@ -1,6 +1,7 @@
 import React from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import {
+  Badge,
   Box,
   Button,
   chakra,
@@ -130,7 +131,23 @@ export const Navigation = () => {
 
                 <ListItem
                   href="/nextjs-starter-kit"
-                  title="Next.js starter kit"
+                  title={
+                    <>
+                      <span>Next.js starter kit</span>
+                      <Badge
+                        variant="subtle"
+                        colorScheme="green"
+                        fontWeight="medium"
+                        borderRadius="full"
+                        textTransform="none"
+                        py="2px"
+                        px="4px"
+                        ms="2"
+                      >
+                        Updated
+                      </Badge>
+                    </>
+                  }
                   icon={
                     <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
                       <NextjsIcon width="16px" height="16px" />
@@ -623,7 +640,10 @@ const List = chakra('ul', {
 
 const ListItem = React.forwardRef<
   HTMLAnchorElement,
-  HTMLChakraProps<'a'> & { icon?: React.ReactNode }
+  Omit<HTMLChakraProps<'a'>, 'title'> & {
+    icon?: React.ReactNode
+    title: React.ReactNode
+  }
 >(function ListItem(
   { children, title, icon, gridRow, gridColumn, gridArea, ...props },
   forwardedRef

@@ -4,16 +4,14 @@ import Image from 'next/image'
 
 import {
   Box,
-  Flex,
-  SimpleGrid,
-  useBreakpointValue,
+  Card,
+  CardBody,
   Container,
   Heading,
   Text,
   HStack,
   VStack,
   Stack,
-  Link,
   Button,
   ButtonGroup,
   useColorModeValue,
@@ -21,11 +19,11 @@ import {
   Icon,
   Center,
   AspectRatio,
-  Badge,
+  type ButtonProps,
+  type StackProps,
 } from '@chakra-ui/react'
 
 import Hero from '@/components/marketing/hero'
-import Features from '@/components/marketing/features'
 import Section from '@/components/marketing/section-wrapper'
 
 import { Em, Br } from '@/components/typography'
@@ -38,18 +36,7 @@ import { BackgroundGradient } from '@/components/background-gradient'
 
 import { ChakraLogo } from '@/components/logos/chakra'
 
-import {
-  FiBox,
-  FiCode,
-  FiFlag,
-  FiLock,
-  FiSearch,
-  FiTerminal,
-  FiToggleLeft,
-  FiTrendingUp,
-  FiArrowRight,
-  FiUserPlus,
-} from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 
 import { Testimonials } from '@/components/testimonials'
 
@@ -59,7 +46,7 @@ import { NextjsSvg } from '@/docs/components/framework-svg'
 import { UsedBy } from '@/components/used-by'
 import { TrpcLogo } from '@/components/logos/trpc'
 
-const Home = () => {
+const NextjsStarterKit = () => {
   const [animateGlow, setAnimate] = React.useState(false)
 
   return (
@@ -142,32 +129,7 @@ const Home = () => {
                     <ButtonLink colorScheme="primary" size="lg" href="/pricing">
                       View Pricing
                     </ButtonLink>
-                    <ButtonLink
-                      size="lg"
-                      href="/docs/nextjs-starter-kit"
-                      variant="outline"
-                      borderColor="blackAlpha.400"
-                      _dark={{
-                        borderColor: 'whiteAlpha.400',
-                      }}
-                      _hover={{
-                        bg: 'whiteAlpha.200',
-                      }}
-                      rightIcon={
-                        <Icon
-                          as={FiArrowRight}
-                          sx={{
-                            transitionProperty: 'common',
-                            transitionDuration: 'normal',
-                            '.chakra-button:hover &': {
-                              transform: 'translate(5px)',
-                            },
-                          }}
-                        />
-                      }
-                    >
-                      Read documentation
-                    </ButtonLink>
+                    <DocumentationLink />
                   </ButtonGroup>
                 </FallInPlace>
               </Hero>
@@ -230,29 +192,448 @@ const Home = () => {
         </Box>
 
         <Box overflow="hidden" position="relative">
-          <ProFeatures />
+          <StarterKitFeatures />
 
           <Screenshots />
         </Box>
 
         <Founder />
 
-        <Stack alignItems="center" mx="auto" maxW="container.lg">
-          <Heading as="h3" size="lg">
-            Get started today
+        <Stack alignItems="center" mx="auto" my="20" maxW="container.lg">
+          <Heading as="h3" size="xl">
+            Start shipping today
           </Heading>
-          <Text color="muted" size="lg" mb="4">
-            Join more than 400 other developers and founders building succesful
-            SaaS products.
+          <Text color="muted" fontSize="xl" mb="4">
+            Trusted by 400+ developers and founders world wide.
           </Text>
-          <ButtonLink href="/pricing" variant="primary" size="lg">
-            Buy Pro
-          </ButtonLink>
+          <HStack>
+            <ButtonLink href="/pricing" variant="primary" size="lg">
+              Buy Pro
+            </ButtonLink>
+            <DocumentationLink />
+          </HStack>
         </Stack>
 
         <Testimonials />
       </Box>
     </Box>
+  )
+}
+
+function DocumentationLink(props: Pick<ButtonProps, 'size' | 'variant'>) {
+  return (
+    <ButtonLink
+      size="lg"
+      variant="outline"
+      href="/docs/nextjs-starter-kit"
+      borderColor="blackAlpha.400"
+      _dark={{
+        borderColor: 'whiteAlpha.400',
+      }}
+      _hover={{
+        bg: 'whiteAlpha.200',
+      }}
+      rightIcon={
+        <Icon
+          as={FiArrowRight}
+          sx={{
+            transitionProperty: 'common',
+            transitionDuration: 'normal',
+            '.chakra-button:hover &': {
+              transform: 'translate(5px)',
+            },
+          }}
+        />
+      }
+      {...props}
+    >
+      Documentation
+    </ButtonLink>
+  )
+}
+
+const FeatureCard = ({
+  title,
+  children,
+  description,
+  gridColumn,
+  bg = 'gray.50',
+  ...rest
+}: StackProps & { description: React.ReactNode }) => {
+  return (
+    <Card
+      gridColumn={gridColumn}
+      borderRadius="xl"
+      variant="solid"
+      // bg={bg}
+      gap="2"
+      py="4"
+      px="4"
+      boxShadow="sm"
+      borderWidth="1px"
+      borderColor="inherit"
+      position="relative"
+      overflow="hidden"
+      _dark={{
+        bg: 'gray.800',
+        borderColor: 'transparent',
+      }}
+    >
+      <CardBody>
+        <Stack {...rest}>
+          <Box>
+            <Heading
+              as="h3"
+              color="primary.500"
+              fontWeight="medium"
+              fontSize="lg"
+              mb="2"
+              _dark={{
+                color: 'primary.300',
+              }}
+            >
+              {title}
+            </Heading>
+
+            <Text fontWeight="medium" fontSize="1.2em" maxW="90%">
+              {description}
+            </Text>
+          </Box>
+
+          {children}
+        </Stack>
+      </CardBody>
+    </Card>
+  )
+}
+
+function StarterKitFeatures() {
+  return (
+    <Section innerWidth="container.xl">
+      <Stack
+        alignItems="start"
+        justifyContent="space-between"
+        flexDirection={{ base: 'column', lg: 'row' }}
+        mb="8"
+      >
+        <Heading maxW="2xl" fontSize="2xl" mb="4">
+          Saas UI solves all the boring stuff for you. It ships with a ton
+          useful UI components, patterns and templates <br /> to help you build
+          better products, faster.
+        </Heading>
+
+        <HStack>
+          <ButtonLink href="/pricing/figma" variant="primary" size="md">
+            Buy now
+          </ButtonLink>
+          <ButtonLink
+            size="md"
+            href="/docs/nextjs-starter-kit"
+            target="_blank"
+            variant="outline"
+            borderColor="blackAlpha.400"
+            _dark={{
+              borderColor: 'whiteAlpha.400',
+            }}
+            _hover={{
+              bg: 'whiteAlpha.200',
+            }}
+            rightIcon={
+              <Icon
+                as={FiArrowRight}
+                sx={{
+                  transitionProperty: 'common',
+                  transitionDuration: 'normal',
+                  '.chakra-button:hover &': {
+                    transform: 'translate(5px)',
+                  },
+                }}
+              />
+            }
+          >
+            Documentation
+          </ButtonLink>
+        </HStack>
+      </Stack>
+
+      <Box
+        display="grid"
+        gridTemplateColumns={{ base: 'repeat(3, 1fr)', lg: 'repeat(6, 1fr)' }}
+        gap={{
+          base: '32px 0',
+          md: 8,
+        }}
+      >
+        <FeatureCard
+          title="Next.js + tRPC"
+          description={
+            <>
+              <Text as="span" display="block" fontWeight="semibold">
+                Utilise all latest Next.js features.
+              </Text>
+              <Text as="span" color="emphasized">
+                RSC, SSR, Streaming without getting fully locked in thanks to
+                tRPC and React Query.
+              </Text>
+            </>
+          }
+          gridColumn="span 3"
+        >
+          <HStack gap="4" mt="4">
+            <Image
+              src="/img/frameworks/nextjs.svg"
+              alt="Next.js"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/trpc.svg"
+              alt="tRPC"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/tanstack.png"
+              alt="Tanstack Query"
+              height="40"
+              width="40"
+            />
+          </HStack>
+        </FeatureCard>
+        <FeatureCard
+          title="Developer Experience"
+          description={
+            <>
+              <Text as="span" display="block" fontWeight="semibold">
+                Fast, type-safe development environment.
+              </Text>
+              <Text as="span" color="emphasized">
+                Turbopack, Turborepo, TypeScript and sensible configs for
+                Prettier and ESLint.
+              </Text>
+            </>
+          }
+          gridColumn="span 3"
+        >
+          <HStack gap="4" mt="4">
+            <Image
+              src="/img/frameworks/typescript.svg"
+              alt="TypeScript"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/turbopack.svg"
+              alt="Turbopack"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/turborepo.svg"
+              alt="Turborepo"
+              height="40"
+              width="40"
+            />
+          </HStack>
+        </FeatureCard>
+        <FeatureCard
+          title="Database"
+          description={
+            <>
+              <Text as="span" display="block" fontWeight="semibold">
+                Built on the world&apos;s most proven database.
+              </Text>
+              <Text as="span" color="emphasized">
+                PostgreSQL managed by Drizzle ORM. Run it locally, use Supabase,
+                or on the edge with Neon.
+              </Text>
+            </>
+          }
+          gridColumn="span 3"
+        >
+          <HStack gap="4" mt="4">
+            <Image
+              src="/img/frameworks/postgresql.svg"
+              alt="Postgresql"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/drizzle.svg"
+              alt="Turbopack"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/supabase.svg"
+              alt="Supabase"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/neon.svg"
+              alt="Neon"
+              height="40"
+              width="40"
+            />
+          </HStack>
+        </FeatureCard>
+        <FeatureCard
+          title="Billing"
+          description={
+            <>
+              <Text as="span" display="block" fontWeight="semibold">
+                Get paid reliably.
+              </Text>
+              <Text as="span" color="emphasized">
+                Stripe integration, pricing tables, tiered pricing, metered
+                usage, grandfathering and entitlements.
+              </Text>
+            </>
+          }
+          gridColumn="span 3"
+        >
+          <HStack gap="4" mt="4">
+            <Image
+              src="/img/frameworks/stripe.svg"
+              alt="Stripe"
+              height="40"
+              width="40"
+            />
+          </HStack>
+        </FeatureCard>
+        <FeatureCard
+          title="Authentication"
+          description={
+            <>
+              <Text as="span" display="block" fontWeight="semibold">
+                Own your user data or choose a hosted solution.
+              </Text>
+              <Text as="span" color="emphasized">
+                Easily switch providers, support magic links, passwords, OAuth
+                and role-based authorization.
+              </Text>
+            </>
+          }
+          gridColumn="span 3"
+        >
+          <HStack gap="4" mt="4">
+            <Image
+              src="/img/frameworks/authjs.webp"
+              alt="Auth.js"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/supabase.svg"
+              alt="Supabase"
+              height="40"
+              width="40"
+            />
+          </HStack>
+        </FeatureCard>
+        <FeatureCard
+          title="Transactional email"
+          description={
+            <>
+              <Text as="span" display="block" fontWeight="semibold">
+                Beautiful, easily customisable emails.
+              </Text>
+              <Text as="span" color="emphasized">
+                Build with React Email, send with Resend or pick your own
+                favourite SMTP provider.
+              </Text>
+            </>
+          }
+          gridColumn="span 3"
+        >
+          <HStack gap="4" mt="4">
+            <Image
+              src="/img/frameworks/react-email.png"
+              quality="100"
+              alt="React Email"
+              height="40"
+              width="40"
+            />
+            <Image
+              src="/img/frameworks/resend.svg"
+              alt="Resend"
+              height="40"
+              width="40"
+            />
+          </HStack>
+        </FeatureCard>
+
+        <FeatureCard
+          title="Multi-tenancy"
+          description={
+            <>
+              <Text as="span" color="emphasized" fontSize="lg">
+                Support multiple workspaces. Invite members and manage roles.
+              </Text>
+            </>
+          }
+          gridColumn="span 2"
+        />
+        <FeatureCard
+          title="UI"
+          description={
+            <>
+              <Text as="span" color="emphasized" fontSize="lg">
+                Expertly crafted dashboard UI built with the Saas UI design
+                system.
+              </Text>
+            </>
+          }
+          gridColumn="span 2"
+        />
+        <FeatureCard
+          title="Settings"
+          description={
+            <>
+              <Text as="span" color="emphasized" fontSize="lg">
+                Built-in settings pages for users and teams.
+              </Text>
+            </>
+          }
+          gridColumn="span 2"
+        />
+        <FeatureCard
+          title="Onboarding"
+          description={
+            <>
+              <Text as="span" color="emphasized" fontSize="lg">
+                Built-in onboarding pages to guide users through the product.
+              </Text>
+            </>
+          }
+          gridColumn="span 2"
+        />
+        <FeatureCard
+          title="Feature-flags"
+          description={
+            <>
+              <Text as="span" color="emphasized" fontSize="lg">
+                Incrementally roll out new features and add easily add paywalls.
+              </Text>
+            </>
+          }
+          gridColumn="span 2"
+        />
+        <FeatureCard
+          title="Storybooks"
+          description={
+            <>
+              <Text as="span" color="emphasized" fontSize="lg">
+                Growing collection of components and patterns to help you build
+                better products.
+              </Text>
+            </>
+          }
+          gridColumn="span 2"
+        />
+      </Box>
+    </Section>
   )
 }
 
@@ -274,8 +655,12 @@ const Screenshots = () => {
       >
         <BackgroundGradient
           hideOverlay
-          filter={useColorModeValue('none', 'blur(50px)')}
-          opacity={useColorModeValue(0.9, 0.4)}
+          filter="none"
+          opacity={0.9}
+          _dark={{
+            filter: 'blur(50px)',
+            opacity: 0.4,
+          }}
         />
 
         <Center
@@ -290,7 +675,6 @@ const Screenshots = () => {
             alt="Image showing the Saas UI dashboard"
             src="/screenshots/dashboard.png"
             quality="75"
-            // layout="fixed"
             width={1528}
             height={1060}
           />
@@ -307,7 +691,6 @@ const Screenshots = () => {
             alt="Image showing the Saas UI billing settings"
             src="/screenshots/billing.png"
             quality="75"
-            // layout="fixed"
             width={1607}
             height={1021}
           />
@@ -331,7 +714,6 @@ const Founder = () => {
           fontWeight="semibold"
           fontSize={['2xl', null, '4xl']}
           lineHeight="lg"
-          color={useColorModeValue('black', 'white')}
           width={{ base: 'full', lg: '50%' }}
           mb="8"
         >
@@ -341,6 +723,7 @@ const Founder = () => {
 
         <Stack
           fontSize="lg"
+          fontWeight="medium"
           spacing="16"
           alignItems="flex-start"
           color="muted"
@@ -380,157 +763,7 @@ const Founder = () => {
   )
 }
 
-const ProFeatures = () => {
-  return (
-    <Features
-      id="pro-features"
-      position="relative"
-      zIndex="1"
-      bg="transparent"
-      title={
-        <Stack alignItems="flex-start">
-          <Badge
-            colorScheme="primary"
-            variant="outline"
-            border="1px"
-            rounded="full"
-            px="2"
-            fontWeight="medium"
-            textTransform="inherit"
-            fontSize="md"
-          >
-            Pro license
-          </Badge>
-          <Heading
-            fontSize={['2xl', null, '4xl']}
-            textStyle="sectionTitle"
-            textAlign="left"
-            as="h2"
-            color="inherit"
-          >
-            Not your standard
-            <Br /> dashboard template.
-          </Heading>
-        </Stack>
-      }
-      description={
-        <Stack alignItems="flex-start" spacing="8" textAlign="left">
-          <Text fontSize={['xl', null, 'xl']} color="muted">
-            Saas UI Pro includes everything you need to build frontends that
-            scale.
-            <Br />
-            Use it as a template for your next product or foundation for your
-            design system.
-          </Text>
-          <ButtonGroup>
-            <ButtonLink href="/pricing" size="lg" variant="primary">
-              Buy Pro
-            </ButtonLink>
-            <ButtonLink
-              size="lg"
-              href="https://demo.saas-ui.dev"
-              target="_blank"
-              variant="outline"
-              _hover={{
-                bg: 'whiteAlpha.200',
-              }}
-              rightIcon={
-                <Icon
-                  as={FiArrowRight}
-                  sx={{
-                    transitionProperty: 'common',
-                    transitionDuration: 'normal',
-                    '.chakra-button:hover &': {
-                      transform: 'translate(5px)',
-                    },
-                  }}
-                />
-              }
-            >
-              Explore Demo
-            </ButtonLink>
-          </ButtonGroup>
-        </Stack>
-      }
-      align="left"
-      variant="alternate"
-      columns={[1, 2, 3]}
-      iconSize={4}
-      features={[
-        {
-          title: 'Components.',
-          icon: FiBox,
-          description:
-            'All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.',
-          variant: 'inline',
-        },
-        {
-          title: 'Starterkits.',
-          icon: FiLock,
-          description:
-            'Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.',
-          variant: 'inline',
-        },
-        {
-          title: 'Documentation.',
-          icon: FiSearch,
-          description:
-            'Extensively documented, including storybooks, best practices, use-cases and examples.',
-          variant: 'inline',
-        },
-        {
-          title: 'Onboarding.',
-          icon: FiUserPlus,
-          description:
-            'Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.',
-          variant: 'inline',
-        },
-        {
-          title: 'Feature flags.',
-          icon: FiFlag,
-          description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-          variant: 'inline',
-        },
-        {
-          title: 'Upselling.',
-          icon: FiTrendingUp,
-          description:
-            'Components and hooks for upgrade flows designed to make upgrading inside your app frictionless.',
-          variant: 'inline',
-        },
-        {
-          title: 'Themes.',
-          icon: FiToggleLeft,
-          description:
-            'Includes multiple themes with darkmode support, always have the perfect starting point for your next project.',
-          variant: 'inline',
-        },
-        {
-          title: 'Generators.',
-          icon: FiTerminal,
-          description:
-            'Extend your design system while maintaininig code quality and consistency with build-in generators.',
-          variant: 'inline',
-        },
-        {
-          title: 'Monorepo.',
-          icon: FiCode,
-          description: (
-            <>
-              All code is available as packages in a high-performance{' '}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
-            </>
-          ),
-          variant: 'inline',
-        },
-      ]}
-    />
-  )
-}
-
-export default Home
+export default NextjsStarterKit
 
 export async function getStaticProps() {
   return {

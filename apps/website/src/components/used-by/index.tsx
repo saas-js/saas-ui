@@ -12,7 +12,7 @@ export const UsedBy = (props?: Omit<SectionProps, 'children'>) => {
   return (
     <Section innerWidth="container.xl" pt="12" {...props}>
       <Heading size="md" fontWeight="medium" textAlign="center" mb="12">
-        Used by indie founders and startups worldwide
+        Used by indie founders and established startups
       </Heading>
       <Flex
         gap="4"

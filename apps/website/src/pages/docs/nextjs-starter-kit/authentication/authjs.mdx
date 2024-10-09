@@ -7,12 +7,12 @@ NextAuth is a popular authentication solution for Next.js applications.
 It supports many different authentication providers and is easy to
 configure.
 
-NextAuth v5 is the default authentication provider for the Next.js starterkit
-and is configured using Resend (email) provider.
+NextAuth v5 is the default authentication provider for the Next.js starter kit
+and is configured with the Resend email provider out of the box.
 
 ## Configure
 
-The NextAuth configuration is located in `packages/auth-authjs/src` and is split up
+The NextAuth configuration is located in `packages/auth-authjs` and is split up
 into two files:
 
 - `config.ts` - The edge compatible configuration, used in Next.js middleware.
@@ -20,6 +20,58 @@ into two files:
 
 Please refer to the [NextAuth documentation](https://authjs.dev/getting-started/authentication) for more
 information on how to configure NextAuth.
+
+## Add a new provider
+
+To add a new authentication provider, here is an example of how to add Google as an authentication provider:
+
+Edit the `auth.ts` file to add the new provider:
+
+```ts
+// packages/auth-authjs/src/auth.ts
+import GoogleProvider from 'next-auth/providers/google'
+
+// ... existing code
+  providers: [
+    // ... existing providers
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: .GOOGLE_CLIENT_SECRET,
+    }),
+  ],
+// ... existing code
+```
+
+Note that we are using the `env` object to get the client ID and secret from the environment variables.
+This way we can ensure that the client ID and secret are set and available at runtime.
+
+```ts
+// packages/auth-authjs/src/env.ts
+import { createEnv } from 'env/create'
+import { z } from 'zod'
+
+export const env = createEnv(
+  z.object({
+    AUTH_DEBUG: z.coerce.boolean().optional(),
+    AUTH_SECRET: z.string(),
+    EMAIL_FROM: z.string(),
+    GOOGLE_CLIENT_ID: z.string(),
+    GOOGLE_CLIENT_SECRET: z.string(),
+  })
+)
+```
+
+After adding the new provider, you can add the new environment variables to the `.env` file.
+
+```
+// .env
+GOOGLE_CLIENT_ID=<your-client-id>
+GOOGLE_CLIENT_SECRET=<your-client-secret>
+```
+
+Now you can add the new provider to your authenication screens. Refer to the
+[customize auth screens](/docs/nextjs-starterkit/authentication/customize-auth-screens)
+documentation for more information.
 
 ## Next up
 

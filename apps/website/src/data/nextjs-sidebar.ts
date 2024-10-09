@@ -201,8 +201,8 @@ const sidebar = {
       open: false,
       routes: [
         {
-          title: 'Getting started',
-          path: '/docs/nextjs-starter-kit/development',
+          title: 'Updating dependencies',
+          path: '/docs/nextjs-starter-kit/development/updating-dependencies',
         },
         {
           title: 'Adding pages',

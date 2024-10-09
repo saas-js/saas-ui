@@ -123,7 +123,7 @@ export const GlobalSearch = (props: Omit<CommandBarProps, 'children'>) => {
                                 } else if (action) {
                                   action()
                                 }
-                                onClose()
+                                onClose?.()
                               }}
                             >
                               {title}

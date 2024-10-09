@@ -154,17 +154,11 @@ const Home = () => {
                     fontWeight="medium"
                     textAlign="center"
                     color="gray.600"
-                    width="3xl"
+                    maxW="3xl"
                     _dark={{ color: 'gray.400' }}
                     fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
                     initialInView
                   >
-                    {/* Saas UI is a <Em>React component library</Em> and{' '}
-                    <Em>starter kit</Em>
-                    <Br display={{ base: 'none', md: 'inline' }} /> that
-                    doesn&apos;t get in your way and helps you{' '}
-                    <Br display={{ base: 'none', md: 'inline' }} /> build
-                    intuitive SaaS products with speed. */}
                     Saas UI is a purpose-built toolkit for building high-quality
                     apps. Start with our free component library and build
                     fullstack apps with production-ready templates and starter
@@ -429,9 +423,10 @@ const Founder = () => {
           fontWeight="semibold"
           fontSize={['2xl', null, '4xl']}
           lineHeight="lg"
-          color={useColorModeValue('black', 'white')}
+          color="black"
           width={{ base: 'full', lg: '50%' }}
           mb="8"
+          _dark={{ color: 'white' }}
         >
           Building SaaS products requires you to be a generalist on many fronts.
           However many developers aren&apos;t very design savvy and vice versa.

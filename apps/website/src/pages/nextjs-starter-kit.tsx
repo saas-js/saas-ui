@@ -52,10 +52,20 @@ const NextjsStarterKit = () => {
   return (
     <Box>
       <SEO
-        title="Premium Next.js starter kit for intuitive SaaS products"
-        description="Build beautiful and intuitive B2B SaaS products with speed."
+        title="Next.js SaaS Starter Kit"
+        description="Production-ready Next.js starter kit for building intuitive SaaS products"
         titleTemplate="%s - Saas UI"
-        canonical="https://saas-ui.dev/nextjs-boilerplate"
+        canonical="https://saas-ui.dev/nextjs-starter-kit"
+        openGraph={{
+          images: [
+            {
+              url: '/nextjs-starter-kit-og.png',
+              width: 1200,
+              height: 630,
+              alt: 'Next.js starter kit for building intuitive SaaS products',
+            },
+          ],
+        }}
       />
 
       <Box mb={8} w="full" position="relative" overflow="hidden">

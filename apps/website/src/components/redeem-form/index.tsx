@@ -100,8 +100,16 @@ export function RedeemForm(props) {
 
   const handleSubmit = async ({ licenseKey, githubAccount }) => {
     setTimeout(() => {
-      /* @ts-ignore */
-      window?.pirsch?.('Redeem Submitted')
+      try {
+        /* @ts-ignore */
+        window?.pirsch?.('Redeem Submitted', {
+          meta: {
+            aff: localStorage.getItem('aff'),
+          },
+        })
+      } catch (e) {
+        console.log(e)
+      }
     })
     return fetch('/api/redeem', {
       method: 'POST',

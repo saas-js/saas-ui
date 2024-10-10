@@ -69,10 +69,6 @@ const PricingPage = () => {
         id="lemon-js"
         strategy="afterInteractive"
         src="https://app.lemonsqueezy.com/js/lemon.js"
-        onLoad={() => {
-          /* @ts-ignore */
-          // window.createLemonSqueezy?.()
-        }}
       />
       <BackgroundGradientRadial
         top="-30%"

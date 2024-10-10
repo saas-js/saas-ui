@@ -160,6 +160,17 @@ const TestimonialTabs = () => {
   )
 }
 
+const getAffiliateId = () => {
+  try {
+    return (
+      typeof window !== 'undefined' &&
+      (window as any)?.LemonSqueezy?.Affiliate?.GetId()
+    )
+  } catch (e) {
+    return null
+  }
+}
+
 const getPaymentLinks = (
   append?: boolean
 ): {
@@ -170,9 +181,7 @@ const getPaymentLinks = (
 } => {
   let affix = ''
 
-  const affRef =
-    typeof window !== 'undefined' &&
-    (window as any)?.LemonSqueezy?.Affiliate?.GetId()
+  const affRef = getAffiliateId()
 
   if (append && affRef) {
     affix = `?aff_ref=${affRef}`
@@ -210,10 +219,8 @@ const Pricing = () => {
   const [paymentLinks, setPaymentLinks] = React.useState(getPaymentLinks())
 
   React.useEffect(() => {
-    if (process.env.NEXT_PUBLIC_PAYMENT === 'lemon') {
-      /* @ts-ignore */
-      window.createLemonSqueezy?.()
-    }
+    /* @ts-ignore */
+    window.createLemonSqueezy?.()
   }, [])
 
   React.useEffect(() => {
@@ -359,8 +366,16 @@ const Pricing = () => {
               className={paymentLinks.className}
               onClick={(e) => {
                 setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.pirsch?.('Order Bootstrap')
+                  try {
+                    /* @ts-ignore */
+                    window?.pirsch?.('Order Bootstrap', {
+                      meta: {
+                        aff: localStorage.getItem('aff'),
+                      },
+                    })
+                  } catch (e) {
+                    console.log(e)
+                  }
                 })
               }}
             >
@@ -413,8 +428,16 @@ const Pricing = () => {
               className={paymentLinks.className}
               onClick={(e) => {
                 setTimeout(() => {
-                  /* @ts-ignore */
-                  window?.pirsch?.('Order Startup')
+                  try {
+                    /* @ts-ignore */
+                    window?.pirsch?.('Order Startup', {
+                      meta: {
+                        aff: localStorage.getItem('aff'),
+                      },
+                    })
+                  } catch (e) {
+                    console.log(e)
+                  }
                 })
               }}
             >

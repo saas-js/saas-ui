@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.7.1
+
+### Patch Changes
+
+- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by internal Link prop if href is passed
+
 ## 2.7.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # website
 
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/react@2.10.1
+  - @saas-ui/forms@2.8.1
+  - @saas-ui/file-upload@0.5.0
+
 ## 2.4.2
 
 ### Patch Changes

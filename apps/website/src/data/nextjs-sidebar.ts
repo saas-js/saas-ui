@@ -36,6 +36,10 @@ const sidebar = {
           title: 'Run the application',
           path: '/docs/nextjs-starter-kit/installation/run-application',
         },
+        {
+          title: 'Using PNPM',
+          path: '/docs/nextjs-starter-kit/installation/using-pnpm',
+        },
       ],
     },
     {
@@ -207,10 +211,6 @@ const sidebar = {
         {
           title: 'Adding pages',
           path: '/docs/nextjs-starter-kit/development/adding-pages',
-        },
-        {
-          title: 'Adding features',
-          path: '/docs/nextjs-starter-kit/development/adding-features',
         },
         {
           title: 'Forms and validation',

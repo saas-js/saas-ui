@@ -6,7 +6,17 @@ description: How to run the application locally.
 Once you have cloned the repository and installed the dependencies, you can run the application with the following commands:
 
 ```bash
-cp apps/web/.env.example apps/web/.env
+yarn turbo gen env
+```
+
+This will generate a new `.env` file in the root directory and create a symlink to `apps/web/.env`.
+
+Alternatively, you can copy the `.env.example` file to `.env` and fill in the values.
+
+```bash
+cp .env.example .env
+
+ln -s apps/web/.env .env
 ```
 
 Then run the following command to start the local database and run database migrations:
@@ -28,7 +38,9 @@ This will start the Next.js application at `http://localhost:3000`.
 The application uses Auth.js (NextAuth) by default for authentication.
 Auth.js requires an `AUTH_SECRET` environment variable to be set.
 
-To generate a secret, run the following command:
+When using the CLI to generate the `.env` file, a secret is automatically generated and set.
+
+To generate a secret manually, run the following command:
 
 ```bash
 openssl rand -base64 33

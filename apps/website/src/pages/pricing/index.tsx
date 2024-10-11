@@ -320,9 +320,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €297,-
+                  €247,-
                 </Text>
-                <Text>€247,-</Text>
+                <Text>€197,-</Text>
               </HStack>
             }
             description="Single license for developers and small teams."

@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.13.1
+
+### Patch Changes
+
+- 1e79ddf: Bump version
+
 ## 0.13.0
 
 ### Minor Changes

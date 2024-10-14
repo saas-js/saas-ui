@@ -89,11 +89,11 @@ export const proNav: Links = [
       asPath.startsWith('/docs/pro/packages'),
   },
   {
-    href: '/docs/pro/nextjs-starterkit',
+    href: '/docs/nextjs-starter-kit',
     label: 'Next.js starter kit',
     match: (asPath: string, href: string) =>
-      href.startsWith('/docs/pro/nextjs-starterkit') &&
-      asPath.startsWith('/docs/pro/nextjs-starterkit'),
+      href.startsWith('/docs/nextjs-starter-kit') &&
+      asPath.startsWith('/docs/nextjs-starter-kit'),
   },
 ]
 

@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.13.0
+
+### Minor Changes
+
+- b2b6a72: Updated recharts to remove defaultProps warning, thanks to @JackoPlane
+
 ## 0.12.1
 
 ### Patch Changes

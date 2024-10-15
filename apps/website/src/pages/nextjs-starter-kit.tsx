@@ -136,8 +136,12 @@ const NextjsStarterKit = () => {
                     justifyContent="stretch"
                     flexDirection={{ base: 'column', lg: 'row' }}
                   >
-                    <ButtonLink colorScheme="primary" size="lg" href="/pricing">
-                      View Pricing
+                    <ButtonLink
+                      colorScheme="primary"
+                      size="lg"
+                      href="https://demo.saas-ui.dev"
+                    >
+                      View Demo
                     </ButtonLink>
                     <DocumentationLink />
                   </ButtonGroup>

@@ -85,8 +85,8 @@ export const Navigation = () => {
           />
         </NavigationMenu.Item>
 
-        <HStack display={{ base: 'none', md: 'flex' }}>
-          <NavigationMenu.Item>
+        <HStack display={{ base: 'none', md: 'flex' }} gap="1px">
+          {/* <NavigationMenu.Item>
             <NavigationMenuTrigger>Products</NavigationMenuTrigger>
             <NavigationMenuContent>
               <List
@@ -186,11 +186,25 @@ export const Navigation = () => {
                 </ListItem>
               </List>
             </NavigationMenuContent>
+          </NavigationMenu.Item> */}
+
+          <NavigationMenu.Item>
+            <NavigationMenuLink href="/nextjs-starter-kit">
+              Starter kit
+            </NavigationMenuLink>
+          </NavigationMenu.Item>
+
+          <NavigationMenu.Item>
+            <NavigationMenuLink href="/blocks">Blocks</NavigationMenuLink>
+          </NavigationMenu.Item>
+
+          <NavigationMenu.Item>
+            <NavigationMenuLink href="/figma">Figma</NavigationMenuLink>
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
             <NavigationMenuTrigger asChild>
-              <Link href="/docs">Documentation</Link>
+              <Link href="/docs">Docs</Link>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <List
@@ -275,7 +289,16 @@ export const Navigation = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+            <NavigationMenuTrigger
+              sx={{
+                display: {
+                  md: 'none',
+                  lg: 'flex',
+                },
+              }}
+            >
+              Resources
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <List
                 sx={{
@@ -358,7 +381,7 @@ export const Navigation = () => {
 
         <Box
           sx={{
-            '@media only screen and (max-width: 768px)': {
+            '@media only screen and (max-width: 1020px)': {
               display: 'none',
             },
           }}
@@ -568,6 +591,7 @@ const NavigationMenuLink = chakra(NavigationMenu.Link, {
     textDecoration: 'none',
     fontSize: 'md',
     lineHeight: 1,
+    textWrap: 'nowrap',
   },
 })
 

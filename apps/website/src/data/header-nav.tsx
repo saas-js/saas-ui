@@ -3,8 +3,8 @@ import { NavLinkProps } from '@/components/nav-link'
 const headerNav: (NavLinkProps & { authenticated?: boolean })[] = [
   { id: 'home', label: 'Home' },
   {
-    href: '/nextjs-boilerplate',
-    label: 'Next.js boilerplate',
+    href: '/nextjs-starter-kit',
+    label: 'Next.js starter kit',
   },
   {
     href: '/figma',

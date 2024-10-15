@@ -423,10 +423,8 @@ const Founder = () => {
           fontWeight="semibold"
           fontSize={['2xl', null, '4xl']}
           lineHeight="lg"
-          color="black"
           width={{ base: 'full', lg: '50%' }}
           mb="8"
-          _dark={{ color: 'white' }}
         >
           Building SaaS products requires you to be a generalist on many fronts.
           However many developers aren&apos;t very design savvy and vice versa.

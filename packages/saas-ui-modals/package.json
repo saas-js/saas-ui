@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
   "type": "commonjs",
@@ -31,11 +31,6 @@
     }
   },
   "typesVersions": {
-    "*": {
-      "*": [
-        "dist/*"
-      ]
-    },
     "zod": {
       "*": [
         "dist/zod/*"

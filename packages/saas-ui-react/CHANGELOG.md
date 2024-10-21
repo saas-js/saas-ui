@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.10.2
+
+### Patch Changes
+
+- 7669720: Fixed publint issues
+- Updated dependencies [7669720]
+  - @saas-ui/modals@2.3.2
+  - @saas-ui/data-table@12.0.2
+
 ## 2.10.1
 
 ### Patch Changes

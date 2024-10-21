@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.10.4
+
+### Patch Changes
+
+- a863a5e: Updated package type to fix next 15 support
+- Updated dependencies [a863a5e]
+  - @saas-ui/modals@2.3.4
+  - @saas-ui/data-table@12.0.4
+
 ## 2.10.3
 
 ### Patch Changes

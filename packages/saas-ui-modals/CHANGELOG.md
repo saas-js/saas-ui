@@ -1,5 +1,11 @@
 # @saas-ui/modals
 
+## 2.3.4
+
+### Patch Changes
+
+- a863a5e: Updated package type to fix next 15 support
+
 ## 2.3.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # website
 
+## 2.4.6
+
+### Patch Changes
+
+- Updated dependencies [a863a5e]
+  - @saas-ui/react@2.10.4
+
 ## 2.4.5
 
 ### Patch Changes

@@ -2,17 +2,18 @@
   "name": "@saas-ui/react",
   "version": "2.10.1",
   "description": "Saas UI - The React component library for startups.",
-  "source": "src/index.ts",
+  "type": "commonjs",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
     "./src": {
       "default": "./src/index.ts"
     }
   },
+  "source": "src/index.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -36,7 +37,7 @@
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui",
     "directory": "packages/saas-ui-react"
   },
   "keywords": [

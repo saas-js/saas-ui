@@ -3,23 +3,24 @@
   "version": "2.3.1",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
+  "type": "commonjs",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
     "./zod": {
-      "require": "./dist/zod/index.js",
       "types": "./dist/zod/index.d.ts",
+      "require": "./dist/zod/index.js",
       "import": "./dist/zod/index.mjs"
     },
     "./zod/src": {
       "default": "./src/zod/index.ts"
     },
     "./yup": {
-      "require": "./dist/yup/index.js",
       "types": "./dist/yup/index.d.ts",
+      "require": "./dist/yup/index.js",
       "import": "./dist/yup/index.mjs"
     },
     "./yup/src": {
@@ -69,7 +70,7 @@
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui",
     "directory": "packages/saas-ui-modals"
   },
   "keywords": [

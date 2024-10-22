@@ -1,5 +1,43 @@
 # @saas-ui/react
 
+## 2.10.5
+
+### Patch Changes
+
+- c9daf50: Fixed issue where link component prop would not be passed to NavItem
+- Updated dependencies [c9daf50]
+  - @saas-ui/core@2.7.2
+  - @saas-ui/data-table@12.0.5
+  - @saas-ui/forms@2.8.2
+  - @saas-ui/hotkeys@2.4.2
+  - @saas-ui/modals@2.3.5
+
+## 2.10.4
+
+### Patch Changes
+
+- a863a5e: Updated package type to fix next 15 support
+- Updated dependencies [a863a5e]
+  - @saas-ui/modals@2.3.4
+  - @saas-ui/data-table@12.0.4
+
+## 2.10.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/modals@2.3.3
+  - @saas-ui/data-table@12.0.3
+
+## 2.10.2
+
+### Patch Changes
+
+- 7669720: Fixed publint issues
+- Updated dependencies [7669720]
+  - @saas-ui/modals@2.3.2
+  - @saas-ui/data-table@12.0.2
+
 ## 2.10.1
 
 ### Patch Changes

@@ -101,7 +101,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
 
     return (
       <Box ref={ref} height={height} fontSize="sm">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
           <ReLineChart data={data}>
             {showGrid && (
               <CartesianGrid

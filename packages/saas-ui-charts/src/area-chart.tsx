@@ -129,7 +129,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
           '--chart-gradient-end-opacity': '0',
         }}
       >
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
           <ReAreaChart data={data} stackOffset={stackOffset}>
             {showGrid && (
               <CartesianGrid

@@ -1,5 +1,29 @@
 # @saas-ui/modals
 
+## 2.3.5
+
+### Patch Changes
+
+- @saas-ui/forms@2.8.2
+
+## 2.3.4
+
+### Patch Changes
+
+- a863a5e: Updated package type to fix next 15 support
+
+## 2.3.3
+
+### Patch Changes
+
+- Fixed incorrect types versions
+
+## 2.3.2
+
+### Patch Changes
+
+- 7669720: Fixed publint issues
+
 ## 2.3.1
 
 ### Patch Changes

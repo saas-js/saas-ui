@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 2.7.2
+
+### Patch Changes
+
+- c9daf50: Fixed issue where link component prop would not be passed to NavItem
+
 ## 2.7.1
 
 ### Patch Changes

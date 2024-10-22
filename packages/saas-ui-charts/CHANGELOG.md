@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.13.2
+
+### Patch Changes
+
+- 8272a28: Fixed responsive container warning
+
 ## 0.13.1
 
 ### Patch Changes

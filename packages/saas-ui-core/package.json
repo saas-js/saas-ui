@@ -92,7 +92,7 @@
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0",
+    "@chakra-ui/react": ">=2.9.0 <3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": ">=5.5.0",

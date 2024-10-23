@@ -65,7 +65,7 @@
     "@zag-js/react": "^0.73.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
+    "@chakra-ui/react": ">=2.9.0 <3",
     "@emotion/react": ">=11",
     "@emotion/styled": ">=11",
     "framer-motion": ">=6",

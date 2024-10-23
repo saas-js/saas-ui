@@ -62,7 +62,7 @@
     "react-fast-compare": "^3.2.2"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9",
+    "@chakra-ui/react": ">=2.9.0 <3",
     "@emotion/react": ">=11",
     "@emotion/styled": ">=11",
     "react": ">=18.0.0"

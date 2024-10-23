@@ -34,7 +34,7 @@
     "react-test-renderer": "^18.3.1"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.3.9",
+    "@chakra-ui/react": ">=2.3.9 <3",
     "@emotion/react": ">=11",
     "@emotion/styled": ">=11",
     "@storybook/addon-a11y": ">=8",

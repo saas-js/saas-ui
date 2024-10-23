@@ -61,7 +61,7 @@
     "@tanem/react-nprogress": "^5.0.51"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0",
+    "@chakra-ui/react": ">=2.9.0 <3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": ">=5.5.0",

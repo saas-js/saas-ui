@@ -61,7 +61,7 @@
     "@tanstack/react-table": "^8.20.5"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.9",
+    "@chakra-ui/react": ">=2.9.0 <3",
     "@emotion/react": ">=11.0.0",
     "@emotion/styled": ">=11.0.0",
     "@saas-ui/react": "workspace:*",

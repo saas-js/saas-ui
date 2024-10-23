@@ -65,6 +65,6 @@
     "@types/chroma-js": "^2.4.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.1.0"
+    "@chakra-ui/react": ">=2.9.0 <3"
   }
 }

@@ -81,7 +81,7 @@
     "@chakra-ui/utils": "^2.2.1"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
+    "@chakra-ui/react": ">=2.9.0 <3",
     "@emotion/react": ">=11.1.5",
     "@emotion/styled": ">=11.1.5",
     "framer-motion": ">=4.1.17",

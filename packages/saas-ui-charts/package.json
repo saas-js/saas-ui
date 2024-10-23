@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/charts",
-  "version": "0.13.2",
+  "version": "0.14.0",
   "exports": {
     ".": {
       "require": "./dist/index.js",

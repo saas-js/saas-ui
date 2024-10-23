@@ -1,5 +1,16 @@
 # website
 
+## 2.4.8
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/command-bar@0.8.0
+  - @saas-ui/file-upload@0.6.0
+  - @saas-ui/palette@2.2.0
+  - @saas-ui/forms@2.9.0
+  - @saas-ui/react@2.11.0
+
 ## 2.4.7
 
 ### Patch Changes

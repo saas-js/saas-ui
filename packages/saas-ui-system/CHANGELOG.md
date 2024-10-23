@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.2.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
 ## 2.1.1
 
 ### Patch Changes

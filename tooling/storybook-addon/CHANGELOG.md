@@ -1,5 +1,16 @@
 # @saas-ui/storybook-addon
 
+## 6.0.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/react@2.11.0
+
 ## 5.0.0
 
 ### Patch Changes

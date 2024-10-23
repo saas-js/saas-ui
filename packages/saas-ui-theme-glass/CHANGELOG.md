@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.7.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
 ## 0.6.1
 
 ### Patch Changes

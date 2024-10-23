@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.14.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
 ## 0.13.2
 
 ### Patch Changes

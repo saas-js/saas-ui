@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.6.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
 ## 0.5.0
 
 ### Minor Changes

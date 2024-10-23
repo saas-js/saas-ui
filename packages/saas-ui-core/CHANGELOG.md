@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 2.8.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/react-utils@2.2.0
+  - @saas-ui/theme@2.6.0
+
 ## 2.7.2
 
 ### Patch Changes

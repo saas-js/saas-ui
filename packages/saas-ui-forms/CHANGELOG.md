@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 2.9.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/core@2.8.0
+
 ## 2.8.2
 
 ### Patch Changes

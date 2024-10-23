@@ -1,5 +1,17 @@
 # @saas-ui/date-picker
 
+## 0.15.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/modals@2.4.0
+  - @saas-ui/core@2.8.0
+
 ## 0.14.5
 
 ### Patch Changes

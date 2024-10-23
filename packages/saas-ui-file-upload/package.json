@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/file-upload",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Saas UI Dropzone Component for Chakra UI",
   "source": "src/index.ts",
   "exports": {

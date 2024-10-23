@@ -1,5 +1,18 @@
 # @saas-ui/modals
 
+## 2.4.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/react-utils@2.2.0
+  - @saas-ui/forms@2.9.0
+  - @saas-ui/hooks@2.2.0
+
 ## 2.3.5
 
 ### Patch Changes

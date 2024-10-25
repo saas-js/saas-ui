@@ -17,7 +17,7 @@ import { cx } from '@chakra-ui/utils'
 import { FieldErrors, FieldValues } from '@saas-ui/forms'
 
 import { AvailableProviders } from './forms/providers'
-import { AuthTypeEnum, AuthActionEnum } from '../provider'
+import { AuthTypeEnum, AuthActionEnum } from '@saas-ui/auth-provider'
 
 const [StylesProvider, useStyles] = createStylesContext('SuiAuthForm')
 

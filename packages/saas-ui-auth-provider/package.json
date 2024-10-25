@@ -1,7 +1,7 @@
 {
-  "name": "@saas-ui/magic",
-  "version": "2.3.0",
-  "description": "Saas UI Magic.link integration",
+  "name": "@saas-ui/auth-provider",
+  "version": "1.0.0",
+  "description": "Authentication provider primivites",
   "source": "src/index.ts",
   "exports": {
     ".": {
@@ -25,8 +25,7 @@
   },
   "files": [
     "dist",
-    "src",
-    "services"
+    "src"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -37,39 +36,26 @@
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
-    "directory": "packages/saas-ui-auth"
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-auth-provider"
   },
   "keywords": [
     "react",
     "ui",
-    "chakra-ui",
-    "design-system",
-    "react-components",
-    "uikit",
     "accessible",
     "components",
-    "emotion",
     "library",
-    "authentication",
-    "magic.link"
+    "authentication"
   ],
-  "dependencies": {
-    "@saas-ui/auth": "^3.5.0"
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
-    "@emotion/react": ">=11.0.0",
-    "@emotion/styled": ">=11.0.0",
-    "framer-motion": ">=6.0.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "magic-sdk": "^17.4.0"
-  },
-  "storybook": {
-    "title": "Saas UI",
-    "url": "https://storybook.saas-ui.dev"
+    "typescript": "^5.6.3"
   }
 }

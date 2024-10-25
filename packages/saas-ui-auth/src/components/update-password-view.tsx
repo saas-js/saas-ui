@@ -1,5 +1,5 @@
 import { SubmitHandler } from '@saas-ui/forms'
-import { useUpdatePassword } from '../provider'
+import { useUpdatePassword } from '@saas-ui/auth-provider'
 import { AuthFormContainer, AuthViewOptions, AuthFormTitle } from './auth-form'
 import {
   UpdatePasswordForm,

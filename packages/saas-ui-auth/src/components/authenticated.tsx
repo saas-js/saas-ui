@@ -1,5 +1,5 @@
 import { MaybeRenderProp, runIfFn } from '@chakra-ui/utils'
-import { AuthContextValue, useAuth } from '../provider'
+import { AuthContextValue, useAuth } from '@saas-ui/auth-provider'
 import React from 'react'
 
 export interface AuthenticatedProps {

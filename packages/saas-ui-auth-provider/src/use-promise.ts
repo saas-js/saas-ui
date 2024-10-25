@@ -10,9 +10,6 @@ export interface UsePromise {
 
 type CallbackFn = (...args: any[]) => Promise<any>
 
-/**
- * @deprecated
- */
 export function usePromise<C extends CallbackFn>(fn: C): [UsePromise, C] {
   const [isLoading, setLoading] = React.useState(false)
   const [isResolved, setResolved] = React.useState(false)

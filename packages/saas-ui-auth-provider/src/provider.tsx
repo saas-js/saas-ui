@@ -1,8 +1,12 @@
-import * as React from 'react'
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  useCallback,
+} from 'react'
 
-const { createContext, useState, useContext, useEffect, useCallback } = React
-
-import { usePromise } from '@saas-ui/hooks'
+import { usePromise } from './use-promise'
 
 export type AuthTypeEnum = 'magiclink' | 'password'
 

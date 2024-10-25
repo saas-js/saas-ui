@@ -1,4 +1,4 @@
-import type { AuthOptions, AuthProviderProps } from '@saas-ui/auth'
+import type { AuthOptions, AuthProviderProps } from '@saas-ui/auth-provider'
 
 import type {
   Auth0Client,

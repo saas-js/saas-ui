@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 2.3.0
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
 ## 2.2.0
 
 ### Minor Changes

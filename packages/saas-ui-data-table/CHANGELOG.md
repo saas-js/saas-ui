@@ -1,5 +1,11 @@
 # @saas-ui/data-table
 
+## 13.0.1
+
+### Patch Changes
+
+- @saas-ui/react@2.11.1
+
 ## 13.0.0
 
 ### Minor Changes

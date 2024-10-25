@@ -1,5 +1,17 @@
 # @saas-ui/auth
 
+## 3.6.0
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/hooks@2.3.0
+  - @saas-ui/auth-provider@1.1.0
+
 ## 3.5.0
 
 ### Minor Changes

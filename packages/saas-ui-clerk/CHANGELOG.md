@@ -1,5 +1,20 @@
 # @saas-ui/clerk
 
+## 4.0.0
+
+### Major Changes
+
+- a69829a: Updated to Clerk React 5 and Clerk Nextjs 6
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/auth-provider@1.1.0
+
 ## 3.2.0
 
 ### Minor Changes

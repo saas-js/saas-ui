@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/hooks@2.3.0
+
 ## 2.4.0
 
 ### Minor Changes

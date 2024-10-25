@@ -1,5 +1,11 @@
 # @saas-ui/test-utils
 
+## 4.2.1
+
+### Patch Changes
+
+- @saas-ui/react@2.11.1
+
 ## 4.2.0
 
 ### Minor Changes

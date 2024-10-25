@@ -7,12 +7,8 @@ import {
   Text,
   Spinner,
   Center,
-  IconButton,
-  ButtonGroup,
   Card,
   CardBody,
-  Button,
-  Box,
 } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
@@ -20,7 +16,6 @@ import { ButtonLink } from '@/components/link'
 
 import {
   useLocalStorage,
-  Link,
   FormLayout,
   SubmitButton,
   useSnackbar,
@@ -30,22 +25,11 @@ import { Form } from '@saas-ui/forms/zod'
 
 import * as z from 'zod'
 
-import { FaGithub, FaDiscord } from 'react-icons/fa'
-
 import confetti from 'canvas-confetti'
-import { useCurrentUser } from '@saas-ui/auth'
-import { User } from '@supabase/supabase-js'
-import { DiscordRoles } from './discord-roles'
 
 export function RedeemForm(props) {
   const router = useRouter()
   const snackbar = useSnackbar()
-
-  const user = useCurrentUser<User>()
-
-  const hasDiscord = user?.identities?.some(
-    (identity) => identity.provider === 'discord'
-  )
 
   const [data, setData] = useLocalStorage<{
     licenseKey: string
@@ -57,7 +41,7 @@ export function RedeemForm(props) {
   const [licenseKey, setLicenseKey] = useState<string>('')
 
   const [loading, setLoading] = useState<boolean>(true)
-
+  const [success, setSuccess] = useState<boolean>(false)
   const celebrate = () => {
     confetti({
       zIndex: 999,
@@ -133,6 +117,7 @@ export function RedeemForm(props) {
           discordInvite: response.discordInvite,
           githubInvited: response.githubInvited,
         })
+        setSuccess(true)
       })
       .catch((error) => {
         console.error(error)
@@ -140,19 +125,6 @@ export function RedeemForm(props) {
         window?.pirsch?.('Redeem Failed')
       })
   }
-
-  useEffect(() => {
-    if (user && data?.licenseKey && !user.user_metadata?.licenses) {
-      fetch('/api/sync', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          licenseKey: data.licenseKey,
-          githubAccount: data.githubAccount,
-        }),
-      })
-    }
-  }, [user, data])
 
   let content
 
@@ -162,7 +134,7 @@ export function RedeemForm(props) {
         <Spinner />
       </Center>
     )
-  } else if (data) {
+  } else if (success && data) {
     content = (
       <Stack spacing="4" fontSize="md">
         <Heading size="md">
@@ -181,35 +153,7 @@ export function RedeemForm(props) {
           <Text>You will receive a Github invite shortly.</Text>
         )}
 
-        <Text>
-          Your opinion is very important, please don&apos;t hesitate to reach
-          out when you have any questions or feedback, especially if you
-          don&apos;t like something :)
-        </Text>
-
-        <DiscordRoles />
-
-        <ButtonGroup>
-          <ButtonLink href="/docs/pro/overview">Documentation</ButtonLink>
-
-          <ButtonLink
-            variant="ghost"
-            href="https://github.com/saas-js/saas-ui-pro"
-            leftIcon={<FaGithub />}
-            target="_blank"
-          >
-            saas-ui-pro
-          </ButtonLink>
-
-          <ButtonLink
-            variant="ghost"
-            href="https://github.com/saas-js/saas-ui-pro-nextjs-starter-kit"
-            leftIcon={<FaGithub />}
-            target="_blank"
-          >
-            nextjs-starter-kit
-          </ButtonLink>
-        </ButtonGroup>
+        <ButtonLink href="/account">Continue to your account</ButtonLink>
       </Stack>
     )
   } else {

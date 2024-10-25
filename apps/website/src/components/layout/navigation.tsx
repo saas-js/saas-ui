@@ -224,6 +224,9 @@ const Header = () => {
             </MenuButton>
             <MenuList>
               <MenuGroup title={user?.email || undefined}>
+                <MenuItem onClick={() => router.push('/account')}>
+                  Account
+                </MenuItem>
                 <MenuItem onClick={() => router.push('/redeem')}>
                   Redeem license
                 </MenuItem>

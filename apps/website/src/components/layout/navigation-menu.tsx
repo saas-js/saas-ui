@@ -402,6 +402,21 @@ export const Navigation = () => {
           />
         </Box>
 
+        <HStack spacing="0">
+          <Tooltip label="Github">
+            <IconButton
+              variant="ghost"
+              aria-label="github"
+              icon={<FaGithub size="14" />}
+              borderRadius="md"
+              as={Link}
+              href="https://github.com/saas-js/saas-ui"
+            />
+          </Tooltip>
+
+          <ThemeToggle />
+        </HStack>
+
         {isAuthenticated ? (
           <Menu>
             <MenuButton
@@ -413,6 +428,9 @@ export const Navigation = () => {
             </MenuButton>
             <MenuList>
               <MenuGroup title={user?.email || undefined}>
+                <MenuItem onClick={() => router.push('/account')}>
+                  Account
+                </MenuItem>
                 <MenuItem onClick={() => router.push('/redeem')}>
                   Redeem license
                 </MenuItem>
@@ -441,21 +459,6 @@ export const Navigation = () => {
             />
           </>
         )}
-
-        <HStack spacing="0">
-          <Tooltip label="Github">
-            <IconButton
-              variant="ghost"
-              aria-label="github"
-              icon={<FaGithub size="14" />}
-              borderRadius="md"
-              as={Link}
-              href="https://github.com/saas-js/saas-ui"
-            />
-          </Tooltip>
-
-          <ThemeToggle />
-        </HStack>
 
         <MobileNavButton
           ref={mobileNavBtnRef}

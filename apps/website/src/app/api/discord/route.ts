@@ -4,12 +4,18 @@ const PRO_ROLE_ID = '990532440126808094'
 
 import { NextRequest, NextResponse } from 'next/server'
 
-export const GET = async () => {
+export const GET = async (req: NextRequest) => {
+  const code = req.nextUrl.searchParams.get('code')
+
+  if (!code) {
+    return NextResponse.redirect(req.nextUrl.origin)
+  }
+
   const supabase = createClient()
 
   const {
     data: { session },
-  } = await supabase.auth.getSession()
+  } = await supabase.auth.exchangeCodeForSession(code)
 
   if (!session) {
     return NextResponse.json({
@@ -17,7 +23,7 @@ export const GET = async () => {
       message: 'You need to be logged in.',
     })
   }
-  console.log(session)
+
   if (!session.provider_token) {
     return NextResponse.json({
       success: false,

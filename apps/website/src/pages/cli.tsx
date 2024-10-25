@@ -2,7 +2,7 @@ import { supabase } from '@/lib/supabase'
 import { Center, Container } from '@chakra-ui/react'
 import { LoadingOverlay, LoadingSpinner, LoadingText } from '@saas-ui/react'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export default function CliPage() {
   const router = useRouter()
@@ -11,10 +11,10 @@ export default function CliPage() {
     'loading'
   )
 
-  async function exchangeToken() {
-    const url = new URL(`http://localhost:${router.query.port}`)
+  const port = router.query.port
 
-    console.log(url.toString())
+  const exchangeToken = useCallback(async () => {
+    const url = new URL(`http://localhost:${port}`)
 
     const session = await supabase.auth.getSession()
 
@@ -40,13 +40,13 @@ export default function CliPage() {
       router.push(url)
       setStatus('error')
     }
-  }
+  }, [port, router])
 
   useEffect(() => {
     if (router.isReady) {
       exchangeToken()
     }
-  }, [router.isReady])
+  }, [router.isReady, exchangeToken])
 
   return (
     <Center h="calc(100vh - 260px)" minH="500px">

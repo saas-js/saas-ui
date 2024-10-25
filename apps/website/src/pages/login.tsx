@@ -23,7 +23,15 @@ export default function LoginPage() {
 
   const redirectUrl = router.query.redirectUrl?.toString() || ''
 
+  const callbackPort = router.query.callbackPort?.toString() || ''
+
+  const url = callbackPort
+    ? getAbsoluteUrl(`/cli?port=${callbackPort}`)
+    : getAbsoluteUrl(redirectUrl)
+
   const snackbar = useSnackbar()
+
+  console.log(url)
 
   return (
     <Center h="calc(100vh - 260px)" minH="500px">
@@ -34,7 +42,7 @@ export default function LoginPage() {
         <LoginView
           title="Log in to Saas UI"
           providers={providers}
-          redirectUrl={getAbsoluteUrl(redirectUrl)}
+          redirectUrl={url}
           onError={(e) => snackbar.error(e.message)}
           fields={{
             submit: {

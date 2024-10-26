@@ -562,10 +562,10 @@ const MemberShip = () => {
     <PricingBox
       title={
         <HStack>
-          <Text>Membership</Text>
+          <Text>Enterprise</Text>
         </HStack>
       }
-      description="Our experts join your team to help you move faster. "
+      description="Our experts join your team to help you move faster."
       price={
         <Stack spacing="0" mt="-4">
           <Text fontSize="sm" color="gray.400" fontWeight="medium">

@@ -310,7 +310,7 @@ export const getServerSideProps = async (ctx) => {
     status: string
   }> = []
 
-  for await (const license of user.user_metadata.licenses) {
+  for await (const license of user.user_metadata.licenses ?? []) {
     try {
       const data = await getLicense(license.licenseKey)
 

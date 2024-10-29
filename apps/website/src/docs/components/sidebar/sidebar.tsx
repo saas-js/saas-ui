@@ -17,8 +17,6 @@ import {
   Collapse,
   Icon,
   Flex,
-  Center,
-  Container,
   Text,
   HStack,
 } from '@chakra-ui/react'
@@ -29,13 +27,7 @@ import SidebarLink from './sidebar-link'
 
 import Link from 'next/link'
 
-import {
-  NavItem,
-  SearchInput,
-  useHotkeys,
-  useCollapse,
-  NavItemProps,
-} from '@saas-ui/react'
+import { useHotkeys, useCollapse } from '@saas-ui/react'
 
 import { FiChevronDown, FiChevronRight } from 'react-icons/fi'
 import { LuCheck } from 'react-icons/lu'
@@ -145,11 +137,7 @@ function SidebarGroup({
             {routes?.map((lvl2, index) => {
               if (!lvl2.routes) {
                 return (
-                  <SidebarLink
-                    ps="10"
-                    key={lvl2.path || index}
-                    href={lvl2.path}
-                  >
+                  <SidebarLink ps="7" key={lvl2.path || index} href={lvl2.path}>
                     <span>{convertBackticksToInlineCode(lvl2.title)}</span>
                     {lvl2.new && (
                       <Badge
@@ -200,6 +188,7 @@ function SidebarGroup({
               }
 
               const selected = pathname.startsWith(lvl2.path)
+
               const opened = selected || lvl2.open
 
               const sortedRoutes = lvl2.sort
@@ -374,7 +363,7 @@ export const isMainNavLinkActive = (href: string, path: string) => {
   const [, , group, category] = href.split('/')
 
   return path.includes(
-    href.split('/').length >= 3 ? `${group}/${category}` : group
+    href.split('/').length >= 4 ? `${group}/${category}` : group
   )
 }
 

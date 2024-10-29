@@ -21,6 +21,17 @@ Run `yarn turbo gen env` to generate a new .env file.
 
 Alternatively, you can copy the `.env.example` file to `.env` and fill in the values.
 
+<Info status="warning">
+  The `gen` command will create a symlink from `.env` to `apps/web/.env`. This
+  will not work on Windows and you create a link or copy the `.env` to
+  `apps/web/.env` yourself.
+</Info>
+
+```bash
+# Windows (PowerShell)
+mklink apps/web/.env .env
+```
+
 ```bash
 # The public URL of the application
 APP_URL=http://localhost:3000

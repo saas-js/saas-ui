@@ -16,7 +16,11 @@ Alternatively, you can copy the `.env.example` file to `.env` and fill in the va
 ```bash
 cp .env.example .env
 
+# MacOS/Linux
 ln -s apps/web/.env .env
+
+# Windows
+mklink apps/web/.env .env
 ```
 
 Then run the following command to start the local database and run database migrations:

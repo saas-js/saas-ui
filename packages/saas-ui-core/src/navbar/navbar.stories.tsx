@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { type HTMLProps, forwardRef } from 'react'
 
 import {
   Box,
@@ -45,6 +45,16 @@ export default {
 type Story = StoryObj<typeof Navbar.Root>
 
 const AppLogo = () => <SaasUIIcon width="28px" height="28px" />
+
+const Link = forwardRef<HTMLAnchorElement, HTMLProps<HTMLAnchorElement>>(
+  ({ children, ...props }, ref) => {
+    return (
+      <Link ref={ref} onClick={(e) => e.preventDefault()} {...props}>
+        {children}
+      </Link>
+    )
+  },
+)
 
 export interface SkeletonTextProps extends SkeletonProps {
   noOfLines?: number
@@ -134,24 +144,24 @@ const Template = (args: Navbar.RootProps) => {
           </Navbar.Brand>
           <HStack display={{ base: 'hidden', md: 'flex' }}>
             <Navbar.Item asChild>
-              <a href="#">Features</a>
+              <Link href="#">Features</Link>
             </Navbar.Item>
             <Navbar.Item active asChild>
-              <a href="#">Customers</a>
+              <Link href="#">Customers</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Integrations</a>
+              <Link href="#">Integrations</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Pricing</a>
+              <Link href="#">Pricing</Link>
             </Navbar.Item>
           </HStack>
           <HStack justifyContent="end" gap="2">
             <Navbar.Item asChild>
-              <a href="#">Login</a>
+              <Link href="#">Login</Link>
             </Navbar.Item>
             <Button variant="solid" asChild>
-              <a href="#">Sign Up</a>
+              <Link href="#">Sign Up</Link>
             </Button>
           </HStack>
         </Navbar.Content>
@@ -175,26 +185,26 @@ const WithMenuTemplate = (args: Navbar.RootProps) => {
 
           <HStack display={{ base: 'none', sm: 'flex' }}>
             <Navbar.Item asChild>
-              <a href="#">Features</a>
+              <Link href="#">Features</Link>
             </Navbar.Item>
             <Navbar.Item active asChild>
-              <a href="#">Customers</a>
+              <Link href="#">Customers</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Integrations</a>
+              <Link href="#">Integrations</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Pricing</a>
+              <Link href="#">Pricing</Link>
             </Navbar.Item>
           </HStack>
 
           <HStack justifyContent="end" gap="2">
             <Navbar.Item asChild>
-              <a href="#">Login</a>
+              <Link href="#">Login</Link>
             </Navbar.Item>
 
             <Button variant="solid" asChild>
-              <a href="#">Sign Up</a>
+              <Link href="#">Sign Up</Link>
             </Button>
 
             <Button
@@ -222,7 +232,7 @@ const WithMenuTemplate = (args: Navbar.RootProps) => {
               <Stack direction="column" gap="4">
                 {menuItems.map((item, index) => (
                   <Navbar.Item key={`${item}-${index}`} width="full" asChild>
-                    <a href="#">{item}</a>
+                    <Link href="#">{item}</Link>
                   </Navbar.Item>
                 ))}
               </Stack>
@@ -245,13 +255,13 @@ const WithUserMenuTemplate = (args: Navbar.RootProps) => {
 
           <HStack display={{ base: 'hidden', sm: 'flex' }}>
             <Navbar.Item asChild active>
-              <a href="#">Inbox</a>
+              <Link href="#">Inbox</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Contacts</a>
+              <Link href="#">Contacts</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Tasks</a>
+              <Link href="#">Tasks</Link>
             </Navbar.Item>
           </HStack>
 
@@ -269,18 +279,18 @@ const WithUserMenuTemplate = (args: Navbar.RootProps) => {
               <Menu.Content>
                 <Menu.ItemGroup title="beatriz@saas-ui.dev">
                   <Menu.Item value="profile" asChild>
-                    <a href="#">Profile</a>
+                    <Link href="#">Profile</Link>
                   </Menu.Item>
                   <Menu.Item value="settings" asChild>
-                    <a href="#">Settings</a>
+                    <Link href="#">Settings</Link>
                   </Menu.Item>
                   <Menu.Item value="help" asChild>
-                    <a href="#">Help & feedback</a>
+                    <Link href="#">Help & feedback</Link>
                   </Menu.Item>
                 </Menu.ItemGroup>
                 <Menu.Separator />
                 <Menu.Item value="logout" asChild>
-                  <a href="#">Log out</a>
+                  <Link href="#">Log out</Link>
                 </Menu.Item>
               </Menu.Content>
             </Menu.Root>
@@ -302,13 +312,13 @@ const WithSearchInputTemplate = (args: Navbar.RootProps) => {
 
           <HStack display={{ base: 'hidden', sm: 'flex' }} gap="1">
             <Navbar.Item asChild>
-              <a href="#">Inbox</a>
+              <Link href="#">Inbox</Link>
             </Navbar.Item>
             <Navbar.Item active asChild>
-              <a href="#">Contacts</a>
+              <Link href="#">Contacts</Link>
             </Navbar.Item>
             <Navbar.Item asChild>
-              <a href="#">Tasks</a>
+              <Link href="#">Tasks</Link>
             </Navbar.Item>
           </HStack>
 
@@ -327,18 +337,18 @@ const WithSearchInputTemplate = (args: Navbar.RootProps) => {
               <Menu.Content>
                 <Menu.ItemGroup title="beatriz@saas-ui.dev">
                   <Menu.Item value="profile" asChild>
-                    <a href="#">Profile</a>
+                    <Link href="#">Profile</Link>
                   </Menu.Item>
                   <Menu.Item value="settings" asChild>
-                    <a href="#">Settings</a>
+                    <Link href="#">Settings</Link>
                   </Menu.Item>
                   <Menu.Item value="help" asChild>
-                    <a href="#">Help & feedback</a>
+                    <Link href="#">Help & feedback</Link>
                   </Menu.Item>
                 </Menu.ItemGroup>
                 <Menu.Separator />
                 <Menu.Item value="logout" asChild>
-                  <a href="#">Log out</a>
+                  <Link href="#">Log out</Link>
                 </Menu.Item>
               </Menu.Content>
             </Menu.Root>

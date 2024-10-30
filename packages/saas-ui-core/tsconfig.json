@@ -1,8 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
+  "include": ["src", "../saas-ui-react/src/components/persona/persona.tsx"],
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "#system": ["./src/system/index.ts"]
+    }
   },
   "exclude": [
     "src/tests",

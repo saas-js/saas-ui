@@ -1,68 +1,85 @@
+import { forwardRef } from 'react'
+
+import { createContext } from '@chakra-ui/react'
+
 import {
-  HTMLChakraProps,
-  ThemingProps,
-  chakra,
-  forwardRef,
-  useMultiStyleConfig,
-} from '@chakra-ui/react'
-import { HTMLMotionProps, motion } from 'framer-motion'
-import { UseNavbarProps, useNavbar } from './use-navbar'
-import { NavBarStylesProvider, NavbarProvider } from './navbar-context'
-import { cx } from '@saas-ui/react-utils'
+  type HTMLSystemProps,
+  type SlotRecipeProps,
+  createSlotRecipeContext,
+  sui,
+} from '#system'
 
-const MotionBox = chakra(motion.nav)
+import { UseNavbarProps, splitNavbarProps, useNavbar } from './use-navbar'
+import type { UseNavbarReturn } from './use-navbar'
 
-type MotionProps = Pick<
-  HTMLMotionProps<'div'>,
-  'onAnimationStart' | 'onDrag' | 'onDragStart' | 'onDragEnd'
->
+export const [NavbarProvider, useNavbarContext] =
+  createContext<UseNavbarReturn>({
+    name: 'NavbarContext',
+    strict: true,
+    errorMessage:
+      'useNavbarContext: `context` is undefined. Seems you forgot to wrap component within <Navbar />',
+  })
 
-export interface NavbarProps
-  extends Omit<UseNavbarProps, 'hideOnScroll' | 'ref'>,
-    Omit<HTMLChakraProps<'div'>, keyof MotionProps | 'height'>,
-    MotionProps,
-    ThemingProps<'SuiNavbar'> {
+const {
+  withProvider,
+  withContext,
+  useStyles: useNavbarStyles,
+} = createSlotRecipeContext({
+  key: 'navbar',
+})
+
+export { useNavbarStyles }
+export interface NavbarRootProps
+  extends UseNavbarProps,
+    Omit<HTMLSystemProps<'div'>, 'height'>,
+    SlotRecipeProps<'navbar'> {
   children?: React.ReactNode | React.ReactNode[]
 }
 
-export const Navbar = forwardRef<NavbarProps, 'div'>((props, ref) => {
-  const { children, ...otherProps } = props
+export const NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(
+  forwardRef<HTMLDivElement, NavbarRootProps>((props, ref) => {
+    const { children, ...rest } = props
 
-  const context = useNavbar({ ...otherProps, ref })
+    const [navbarProps, rootProps] = splitNavbarProps(rest)
 
-  const styles = useMultiStyleConfig('SuiNavbar', props)
+    const context = useNavbar({ ...navbarProps, ref })
 
-  const content = (
-    <chakra.header __css={styles.inner} className="sui-navbar__inner">
-      {children}
-    </chakra.header>
-  )
-
-  const containerStyles = {
-    top: props.position === 'sticky' ? '0' : undefined,
-    insetX: props.position === 'sticky' ? '0' : undefined,
-    ...styles.container,
-  }
-
-  return (
-    <NavBarStylesProvider value={styles}>
+    return (
       <NavbarProvider value={context}>
-        <MotionBox
-          __css={containerStyles}
-          animate={context.isHidden ? 'hidden' : 'visible'}
-          initial={false}
-          variants={{
-            hidden: { y: '-100%' },
-            visible: { y: 0, transition: { ease: 'easeInOut' } },
-          }}
-          className={cx('sui-navbar', props.className)}
-          {...context.getContainerProps()}
+        <sui.div
+          {...rootProps}
+          {...context.rootProps}
+          style={
+            {
+              '--navbar-height': context.height,
+              ...props.style,
+            } as Record<string, any>
+          }
         >
-          {content}
-        </MotionBox>
+          {children}
+        </sui.div>
       </NavbarProvider>
-    </NavBarStylesProvider>
-  )
-})
+    )
+  }),
+  'root',
+)
 
-Navbar.displayName = 'Navbar'
+export const NavbarBrand = withContext<HTMLDivElement, HTMLSystemProps<'div'>>(
+  'div',
+  'brand',
+)
+
+export const NavbarContent = withContext<
+  HTMLUListElement,
+  HTMLSystemProps<'ul'>
+>('ul', 'content')
+
+export const NavbarItem = withContext<HTMLLIElement, HTMLSystemProps<'li'>>(
+  'li',
+  'item',
+)
+
+export const NavbarLink = withContext<HTMLAnchorElement, HTMLSystemProps<'a'>>(
+  'a',
+  'link',
+)

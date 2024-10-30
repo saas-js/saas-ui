@@ -2,13 +2,14 @@ import path, { dirname, join } from 'path'
 
 export default {
   stories: [
+    '../../saas-ui-react/src/components/**/*.stories.tsx',
+    '../../saas-ui-core/src/**/*.stories.tsx',
     // '../../saas-ui-auth/stories/*.stories.tsx',
     // '../../saas-ui-charts/stories/*.stories.tsx',
     // '../../saas-ui-command-bar/stories/*.stories.tsx',
     // '../../saas-ui-forms/stories/*.stories.tsx',
-    '../../saas-ui-forms/**/*.stories.tsx',
+    // '../../saas-ui-forms/**/*.stories.tsx',
     // '../../saas-ui-file-upload/**/*.stories.tsx',
-    // '../../saas-ui-core/src/**/*.stories.tsx',
     // '../../saas-ui-data-table/stories/*.stories.tsx',
     // '../../saas-ui-date-picker/stories/*.stories.tsx',
     // '../../saas-ui-hotkeys/stories/*.stories.tsx',
@@ -38,33 +39,33 @@ export default {
     reactDocgen: false,
   },
 
-  refs: (config, { configType }) => {
-    const refs = {
-      '@chakra-ui/react': {
-        disable: true, // Make sure Chakra gets loaded last
-      },
-      chakra: {
-        title: 'Chakra UI',
-        url: 'https://storybook.chakra-ui.com',
-      },
-    }
-    if (configType === 'DEVELOPMENT') {
-      return {
-        '@saas-ui/pro': {
-          title: 'Saas UI Pro',
-          url: 'http://localhost:6007',
-        },
-        ...refs,
-      }
-    }
-    return {
-      '@saas-ui/pro': {
-        title: 'Saas UI Pro',
-        url: 'https://storybook.saas-ui.pro',
-      },
-      ...refs,
-    }
-  },
+  // refs: (config, { configType }) => {
+  //   const refs = {
+  //     '@chakra-ui/react': {
+  //       disable: true, // Make sure Chakra gets loaded last
+  //     },
+  //     chakra: {
+  //       title: 'Chakra UI',
+  //       url: 'https://storybook.chakra-ui.com',
+  //     },
+  //   }
+  //   if (configType === 'DEVELOPMENT') {
+  //     return {
+  //       '@saas-ui/pro': {
+  //         title: 'Saas UI Pro',
+  //         url: 'http://localhost:6007',
+  //       },
+  //       ...refs,
+  //     }
+  //   }
+  //   return {
+  //     '@saas-ui/pro': {
+  //       title: 'Saas UI Pro',
+  //       url: 'https://storybook.saas-ui.pro',
+  //     },
+  //     ...refs,
+  //   }
+  // },
 
   framework: {
     name: '@storybook/react-vite',

@@ -1,68 +1,55 @@
-import {
-  chakra,
-  useStyleConfig,
-  IconProps,
-  ThemingProps,
-  forwardRef,
-  omitThemingProps,
-} from '@chakra-ui/react'
-import { cx } from '@chakra-ui/utils'
+'use client'
+
+import * as React from 'react'
 import { cloneElement, isValidElement } from 'react'
 
+import { cx } from '@chakra-ui/utils'
+
+import { type HTMLSystemProps, RecipeProps, sui, useRecipe } from '#system'
+
+////////////////////////////////////////////////////////////////////////////////////
+
 export interface IconBadgeProps
-  extends IconProps,
-    ThemingProps<'SuiIconBadge'> {
+  extends HTMLSystemProps<'div'>,
+    RecipeProps<'iconBadge'> {
   /**
-   * The icon to be used in the button.
-   * @type React.ReactElement
+   * The icon to display
    */
-  icon?: React.ReactElement
-  /**
-   * If `true`, the badge will be perfectly round. Else, it'll be slightly round
-   *
-   * @default false
-   */
-  isRound?: boolean
+  icon: React.ReactNode
+
   /**
    * A11y: A label that describes the icon
    */
   'aria-label'?: string
 }
 
-export const IconBadge = forwardRef<IconBadgeProps, 'div'>((props, ref) => {
-  const { icon, children, isRound, 'aria-label': ariaLabel, ...rest } = props
-  const styles = useStyleConfig('SuiIconBadge', props)
+export const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(
+  (props, ref) => {
+    const { icon, children, ...rest } = props
+    const recipe = useRecipe({ key: 'iconBadge', recipe: props.recipe })
+    const [variantProps, localProps] = recipe.splitVariantProps(rest)
+    const styles = recipe(variantProps)
 
-  const itemProps = omitThemingProps(rest)
+    /**
+     * Passing the icon as prop or children should work
+     */
+    const element = icon || children
+    const _children = isValidElement(element)
+      ? cloneElement(element as any, {
+          'aria-hidden': true,
+          focusable: false,
+        })
+      : null
 
-  /**
-   * Passing the icon as prop or children should work
-   */
-  const element = icon || children
-  const _children = isValidElement(element)
-    ? cloneElement(element as any, {
-        'aria-hidden': true,
-        focusable: false,
-      })
-    : null
-
-  const __css = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    ...styles,
-  }
-
-  return (
-    <chakra.div
-      ref={ref}
-      __css={__css}
-      borderRadius={isRound ? 'full' : undefined}
-      aria-label={ariaLabel}
-      {...itemProps}
-      className={cx('sui-icon-badge', props.className)}
-    >
-      {_children}
-    </chakra.div>
-  )
-})
+    return (
+      <sui.div
+        ref={ref}
+        {...localProps}
+        css={[styles, props.css]}
+        className={cx(recipe.className, props.className)}
+      >
+        {_children}
+      </sui.div>
+    )
+  },
+)

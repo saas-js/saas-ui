@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Button, Center, Tooltip, VStack } from '@chakra-ui/react'
 
 import { Command } from './command'
@@ -25,14 +27,21 @@ export const Basic = {
 
 export const TooltipCommand = {
   render: () => (
-    <Tooltip
-      label={
-        <>
-          Inbox <Command>G then I</Command>
-        </>
-      }
-    >
-      <Button>Inbox</Button>
-    </Tooltip>
+    <Tooltip.Root>
+      <Tooltip.Trigger>
+        <Button>Inbox</Button>
+      </Tooltip.Trigger>
+      <Tooltip.Positioner>
+        <Tooltip.Content>
+          <Tooltip.Arrow>
+            <Tooltip.ArrowTip />
+          </Tooltip.Arrow>
+
+          <>
+            Inbox <Command>G then I</Command>
+          </>
+        </Tooltip.Content>
+      </Tooltip.Positioner>
+    </Tooltip.Root>
   ),
 }

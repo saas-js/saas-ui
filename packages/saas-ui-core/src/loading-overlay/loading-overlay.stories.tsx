@@ -1,7 +1,8 @@
-import { Container, Box, Stack, Text, Button, Card } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { LoadingOverlay, LoadingSpinner, LoadingText } from './loading-overlay'
+import { Button, Card, Container, Text } from '@chakra-ui/react'
+
+import { LoadingOverlay } from './'
 
 export default {
   title: 'Components/Feedback/LoadingOverlay',
@@ -15,53 +16,53 @@ export default {
 }
 
 export const Basic = () => (
-  <Card height="200px" overflow="hidden">
-    <LoadingOverlay>
-      <LoadingSpinner />
-    </LoadingOverlay>
-  </Card>
+  <Card.Root width="400px" height="200px" overflow="hidden">
+    <LoadingOverlay.Root>
+      <LoadingOverlay.Spinner />
+    </LoadingOverlay.Root>
+  </Card.Root>
 )
 
 export const Overlay = () => (
-  <Card height="200px" pos="relative" p="4">
+  <Card.Root width="400px" height="200px" pos="relative" p="4">
     <Text>This content will be overlayed.</Text>
-    <LoadingOverlay variant="overlay">
-      <LoadingSpinner />
-    </LoadingOverlay>
-  </Card>
+    <LoadingOverlay.Root variant="overlay">
+      <LoadingOverlay.Spinner />
+    </LoadingOverlay.Root>
+  </Card.Root>
 )
 
 export const Fullscreen = () => (
-  <LoadingOverlay variant="fullscreen">
-    <LoadingSpinner />
-  </LoadingOverlay>
+  <LoadingOverlay.Root variant="fullscreen">
+    <LoadingOverlay.Spinner />
+  </LoadingOverlay.Root>
 )
 
 export const WithText = () => (
-  <Card height="200px">
-    <LoadingOverlay borderRadius="md">
-      <LoadingText>Loading...</LoadingText>
-    </LoadingOverlay>
-  </Card>
+  <Card.Root width="400px" height="200px">
+    <LoadingOverlay.Root borderRadius="md">
+      <LoadingOverlay.Text>Loading...</LoadingOverlay.Text>
+    </LoadingOverlay.Root>
+  </Card.Root>
 )
 
 export const ExitAnimation = () => {
-  const [isLoading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
-    if (isLoading) {
+    if (loading) {
       setTimeout(() => {
         setLoading(false)
       }, 4000)
     }
-  }, [isLoading])
+  }, [loading])
 
   return (
-    <Card height="200px" pos="relative" p="4">
+    <Card.Root width="400px" height="200px" pos="relative" p="4">
       <Button onClick={() => setLoading(true)}>Show loader</Button>
-      <LoadingOverlay variant="overlay" isLoading={isLoading}>
-        <LoadingSpinner />
-      </LoadingOverlay>
-    </Card>
+      <LoadingOverlay.Root variant="overlay" loading={loading}>
+        <LoadingOverlay.Spinner />
+      </LoadingOverlay.Root>
+    </Card.Root>
   )
 }

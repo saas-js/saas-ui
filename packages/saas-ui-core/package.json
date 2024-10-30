@@ -2,46 +2,69 @@
   "name": "@saas-ui/core",
   "version": "2.5.5",
   "description": "Saas UI - The React component library for startups.",
-  "source": "src/index.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "sui": "./src/index.ts",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
     },
-    "./icons": {
-      "require": "./dist/icons/index.js",
-      "types": "./dist/icons/index.d.ts",
-      "import": "./dist/icons/index.mjs"
+    "./app-shell": {
+      "sui": "./src/app-shell/index.ts",
+      "require": "./dist/app-shell/index.cjs",
+      "types": "./dist/app-shell/index.d.ts",
+      "import": "./dist/app-shell/index.js"
+    },
+    "./command": {
+      "sui": "./src/command/index.ts",
+      "require": "./dist/command/index.cjs",
+      "types": "./dist/command/index.d.ts",
+      "import": "./dist/command/index.js"
+    },
+    "./error-boundary": {
+      "sui": "./src/error-boundary/index.ts",
+      "require": "./dist/error-boundary/index.cjs",
+      "types": "./dist/error-boundary/index.d.ts",
+      "import": "./dist/error-boundary/index.js"
+    },
+    "./icon-badge": {
+      "sui": "./src/icon-badge/index.ts",
+      "require": "./dist/icon-badge/index.cjs",
+      "types": "./dist/icon-badge/index.d.ts",
+      "import": "./dist/icon-badge/index.js"
+    },
+    "./link": {
+      "sui": "./src/link/index.ts",
+      "require": "./dist/link/index.cjs",
+      "types": "./dist/link/index.d.ts",
+      "import": "./dist/link/index.js"
+    },
+    "./loading-overlay": {
+      "sui": "./src/loading-overlay/index.ts",
+      "require": "./dist/loading-overlay/index.cjs",
+      "types": "./dist/loading-overlay/index.d.ts",
+      "import": "./dist/loading-overlay/index.js"
+    },
+    "./persona": {
+      "sui": "./src/persona/index.ts",
+      "require": "./dist/persona/index.cjs",
+      "types": "./dist/persona/index.d.ts",
+      "import": "./dist/persona/index.js"
     },
     "./utils": {
-      "require": "./dist/utils/index.js",
+      "sui": "./src/utils/index.ts",
+      "require": "./dist/utils/index.cjs",
       "types": "./dist/utils/index.d.ts",
-      "import": "./dist/utils/index.mjs"
+      "import": "./dist/utils/index.js"
     },
     "./src": {
       "default": "./src/index.ts"
-    },
-    "./icons/src": {
-      "default": "./src/icons/index.ts"
-    },
-    "./utils/src": {
-      "default": "./src/utils/index.ts"
     }
   },
-  "typesVersions": {
-    "*": {
-      "icons": [
-        "dist/icons/index.d.ts"
-      ],
-      "utils": [
-        "dist/utils/index.d.ts"
-      ]
-    }
+  "imports": {
+    "#system": "./src/system"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup src/index.ts src/utils/index.ts src/icons/index.ts --config tsup.config.ts",
@@ -82,27 +105,26 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/styled-system": "^2.9.2",
-    "@chakra-ui/system": "^2.6.2",
-    "@chakra-ui/theme-tools": "^2.1.2",
-    "@chakra-ui/utils": "^2.0.15",
-    "@react-aria/interactions": "^3.21.3",
-    "@react-aria/utils": "^3.24.1",
+    "@chakra-ui/hooks": "^3.0.0-next.23",
+    "@chakra-ui/utils": "^3.0.0-next.23",
+    "@react-aria/interactions": "^3.22.4",
+    "@react-aria/utils": "^3.25.3",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*",
-    "@zag-js/dom-event": "^0.65.0",
+    "@zag-js/dom-event": "^0.75.0",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.0",
+    "@chakra-ui/react": ">=3.0.0-next.13",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "framer-motion": ">=5.5.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "tsup": "^8.2.4"
+    "@chakra-ui/react": "^3.0.1",
+    "@react-types/shared": "^3.25.0",
+    "react-icons": "^5.3.0",
+    "tsup": "^8.3.5"
   }
 }

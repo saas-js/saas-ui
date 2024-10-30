@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "include": ["src"],
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "customConditions": ["sui"]
   },
   "exclude": [
     "src/tests",

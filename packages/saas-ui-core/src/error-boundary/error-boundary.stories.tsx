@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
 
+import { Button, EmptyState } from '@chakra-ui/react'
+import { Meta } from '@storybook/react'
+
+import { system } from '../preset.ts'
+import { SuiProvider } from '../provider/sui-provider.tsx'
 import { ErrorBoundary } from './'
-
-import { EmptyState } from '../empty-state'
-import { SaasProvider, useSaas } from '../provider'
 
 export default {
   title: 'Utilities/ErrorBoundary',
@@ -12,9 +13,12 @@ export default {
   decorators: [
     (Story) => {
       return (
-        <SaasProvider onError={(err) => console.log('ERROR', err)}>
+        <SuiProvider
+          value={system}
+          onError={(err) => console.log('ERROR', err)}
+        >
           <Story />
-        </SaasProvider>
+        </SuiProvider>
       )
     },
   ],
@@ -25,7 +29,7 @@ const Err = () => {
   return null
 }
 
-export const Basic: Story = () => {
+export const Basic = () => {
   return (
     <ErrorBoundary>
       <Err />
@@ -33,15 +37,19 @@ export const Basic: Story = () => {
   )
 }
 
-export const CustomFallback: Story = () => {
+export const CustomFallback = () => {
   return (
     <ErrorBoundary
       fallback={
-        <EmptyState
-          title="Whoops, this was not expected"
-          description="Something terribly went wrong, but it's not your fault."
-          variant="centered"
-        />
+        <EmptyState.Root>
+          <EmptyState.Title>Whoops, this was not expected</EmptyState.Title>
+          <EmptyState.Description>
+            Something terribly went wrong, but it's not your fault.
+          </EmptyState.Description>
+          <EmptyState.Content>
+            <Button>Refresh</Button>
+          </EmptyState.Content>
+        </EmptyState.Root>
       }
     >
       <Err />

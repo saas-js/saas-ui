@@ -57,11 +57,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.15",
-    "@tanem/react-nprogress": "^5.0.51"
+    "@chakra-ui/utils": "3.0.0-next.23",
+    "@tanem/react-nprogress": "^5.0.52"
   },
   "peerDependencies": {
-    "@chakra-ui/system": ">=2.5.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   }

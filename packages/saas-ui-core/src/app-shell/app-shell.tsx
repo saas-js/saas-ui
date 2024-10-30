@@ -1,28 +1,32 @@
-import * as React from 'react'
+'use client'
+
+import { forwardRef } from 'react'
 
 import {
-  Flex,
-  createStylesContext,
-  HTMLChakraProps,
-  ThemingProps,
-  useMultiStyleConfig,
-  omitThemingProps,
-  SystemStyleObject,
-  forwardRef,
-} from '@chakra-ui/react'
+  type HTMLSystemProps,
+  type SlotRecipeProps,
+  createSlotRecipeContext,
+} from '#system'
 
-import { cx } from '@chakra-ui/utils'
-import { AppShellProvider, useAppShell } from './app-shell-context'
+////////////////////////////////////////////////////////////////////////////////////
 
-const [StylesProvider, useStyles] = createStylesContext('SuiAppShell')
+const {
+  withProvider,
+  withContext,
+  useStyles: useAppShellStyles,
+} = createSlotRecipeContext({
+  key: 'appShell',
+})
+
+export { useAppShellStyles }
 
 export interface AppShellProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'SuiAppShell'> {
+  extends HTMLSystemProps<'div'>,
+    SlotRecipeProps<'sui-app-shell'> {
   /**
    * The top header navigation
    */
-  navbar?: React.ReactNode
+  header?: React.ReactNode
   /**
    * Main sidebar, positioned on the left
    */
@@ -39,7 +43,6 @@ export interface AppShellProps
    * The main content
    */
   children: React.ReactNode
-  mainRef?: React.RefObject<HTMLDivElement>
 }
 
 /**
@@ -47,76 +50,43 @@ export interface AppShellProps
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/app-shell
  */
-export const AppShell = forwardRef<AppShellProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('SuiAppShell', props) as Record<
-    string,
-    SystemStyleObject
-  >
+export const AppShellRoot = withProvider<HTMLDivElement, AppShellProps>(
+  'div',
+  'root',
+  { forwardAsChild: true },
+)
 
-  const {
-    navbar,
-    sidebar,
-    aside,
-    footer,
-    children,
-    mainRef,
-    ...containerProps
-  } = omitThemingProps(props)
+export interface AppShellContentProps extends HTMLSystemProps<'div'> {}
 
-  const containerStyles: SystemStyleObject = {
-    flexDirection: 'column',
-    ...styles.container,
-  }
+export const AppShellContent = withContext<
+  HTMLDivElement,
+  AppShellContentProps
+>('div', 'content', { forwardAsChild: true })
 
-  const innerStyles: SystemStyleObject = {
-    flex: 1,
-    minHeight: 0, // make sure child flex divs get correct height.
-    minWidth: 0, // make sure child flex divs get correct width.
-    ...styles.inner,
-  }
+export interface AppShellMainProps extends HTMLSystemProps<'div'> {}
 
-  const mainStyles: SystemStyleObject = {
-    flex: 1,
-    flexDirection: 'column',
-    minWidth: 0, // make sure child flex divs get correct width.
-    ...styles.main,
-  }
+export const AppShellMain = withContext<HTMLDivElement, AppShellMainProps>(
+  'div',
+  'main',
+  { forwardAsChild: true },
+)
 
-  const isSidebar =
-    React.isValidElement(sidebar) && (sidebar as any).type.id === 'Sidebar'
+export const AppShell = forwardRef<HTMLDivElement, AppShellProps>(
+  (props, ref) => {
+    const { header, sidebar, aside, footer, children, ...rootProps } = props
 
-  const context = useAppShell({
-    toggleBreakpoint: isSidebar
-      ? (sidebar as any)?.props.toggleBreakpoint
-      : undefined,
-  })
-
-  return (
-    <AppShellProvider value={context}>
-      <StylesProvider value={styles}>
-        <Flex
-          ref={ref}
-          {...containerProps}
-          sx={containerStyles}
-          className={cx('sui-app-shell', props.className)}
-        >
-          {navbar}
-          <Flex sx={innerStyles} className="saas-app-shell__inner">
-            {sidebar}
-            <Flex
-              ref={mainRef}
-              sx={mainStyles}
-              className="saas-app-shell__main"
-            >
-              {children}
-            </Flex>
-            {aside}
-          </Flex>
-          {footer}
-        </Flex>
-      </StylesProvider>
-    </AppShellProvider>
-  )
-})
+    return (
+      <AppShellRoot ref={ref} {...rootProps}>
+        {header}
+        <AppShellContent>
+          {sidebar}
+          <AppShellMain>{children}</AppShellMain>
+          {aside}
+        </AppShellContent>
+        {footer}
+      </AppShellRoot>
+    )
+  },
+)
 
 AppShell.displayName = 'AppShell'

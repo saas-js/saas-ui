@@ -11,8 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.0.0-next.13",
-    "@chakra-ui/system": "2.6.2",
+    "@chakra-ui/react": "^3.0.0-next.16",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@fontsource/inter": "^5.0.20",

@@ -1,15 +1,25 @@
-import { PropGetterV2 } from '@chakra-ui/react-utils'
-import { dataAttr } from '@chakra-ui/utils'
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
+
 import { useResizeObserver } from '@react-aria/utils'
 import { useScrollPosition } from '@saas-ui/hooks'
-import { HTMLMotionProps } from 'framer-motion'
+
+import { dataAttr } from '../utils/data-attr.ts'
+import { splitProps } from '../utils/split-props.ts'
+
+export const splitNavbarProps = <T extends Record<string, any>>(props: T) =>
+  splitProps(props, [
+    'parentRef',
+    'height',
+    'shouldHideOnScroll',
+    'disableScrollHandler',
+    'onScrollPositionChange',
+  ])
 
 export interface UseNavbarProps {
   /**
    * Ref to the DOM node.
    */
-  ref: React.ForwardedRef<HTMLElement>
+  ref: React.ForwardedRef<HTMLDivElement>
   /**
    * The parent element where the navbar is placed within.
    * This is used to determine the scroll position and whether the navbar should be hidden or not.
@@ -32,19 +42,10 @@ export interface UseNavbarProps {
    */
   disableScrollHandler?: boolean
   /**
-   * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
-   * This motion is only available if the `shouldHideOnScroll` prop is set to `true`.
-   */
-  motionProps?: HTMLMotionProps<'nav'>
-  /**
    * The scroll event handler for the navbar. The event fires when the navbar parent element is scrolled.
    * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
    */
   onScrollPositionChange?: (scrollPosition: number) => void
-  /**
-   * Style props to be applied to the navbar container.
-   */
-  style?: React.CSSProperties
 }
 
 export function useNavbar(props: UseNavbarProps) {
@@ -55,22 +56,21 @@ export function useNavbar(props: UseNavbarProps) {
     shouldHideOnScroll = false,
     disableScrollHandler = false,
     onScrollPositionChange,
-    motionProps,
-    ...containerProps
   } = props
 
-  const containerRef = useRef<HTMLElement>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
 
-  useImperativeHandle(ref, () => containerRef.current as HTMLElement)
+  useImperativeHandle(ref, () => rootRef.current as HTMLDivElement)
 
   const prevWidth = useRef(0)
   const navHeight = useRef(0)
 
-  const [isHidden, setIsHidden] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const [atTop, setAtTop] = useState(true)
 
   const updateWidth = () => {
-    if (containerRef.current) {
-      const width = containerRef.current.offsetWidth
+    if (rootRef.current) {
+      const width = rootRef.current.offsetWidth
 
       if (width !== prevWidth.current) {
         prevWidth.current = width
@@ -79,9 +79,9 @@ export function useNavbar(props: UseNavbarProps) {
   }
 
   useResizeObserver({
-    ref: containerRef,
+    ref: rootRef,
     onResize: () => {
-      const currentWidth = containerRef.current?.offsetWidth
+      const currentWidth = rootRef.current?.offsetWidth
 
       if (currentWidth !== prevWidth.current) {
         updateWidth()
@@ -92,7 +92,7 @@ export function useNavbar(props: UseNavbarProps) {
   useEffect(() => {
     updateWidth()
 
-    navHeight.current = containerRef.current?.offsetHeight || 0
+    navHeight.current = rootRef.current?.offsetHeight || 0
   }, [])
 
   useScrollPosition({
@@ -100,8 +100,11 @@ export function useNavbar(props: UseNavbarProps) {
     isEnabled: shouldHideOnScroll || !disableScrollHandler,
     callback: ({ prevPos, currPos }) => {
       onScrollPositionChange?.(currPos.y)
+
+      setAtTop(currPos.y === 0)
+
       if (shouldHideOnScroll) {
-        setIsHidden((prev) => {
+        setHidden((prev) => {
           const next = currPos.y > prevPos.y && currPos.y > navHeight.current
 
           return next !== prev ? next : prev
@@ -110,25 +113,21 @@ export function useNavbar(props: UseNavbarProps) {
     },
   })
 
-  const getContainerProps: PropGetterV2<any> = (props = {}) => ({
-    ...containerProps,
-    ...motionProps,
-    'data-hidden': dataAttr(isHidden),
-    ref: containerRef,
+  const rootProps = {
+    ref: rootRef,
+    'data-hidden': dataAttr(hidden),
+    'data-at-top': dataAttr(atTop),
     style: {
       '--navbar-height': height,
-      ...containerProps.style,
-      ...props?.style,
     },
-  })
+  }
 
   return {
-    containerRef,
+    rootRef,
     height,
-    isHidden,
+    hidden,
     shouldHideOnScroll,
-    motionProps,
-    getContainerProps,
+    rootProps,
   }
 }
 

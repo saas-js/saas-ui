@@ -1,47 +1,31 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
+import React, { forwardRef } from 'react'
+
 import {
+  Box,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Container,
   Drawer,
-  DrawerContent,
-  DrawerBody,
-  useDisclosure,
-  DrawerHeader,
-  DrawerCloseButton,
-  DrawerOverlay,
-  MenuGroup,
-  MenuDivider,
-  Box,
-  Skeleton,
-  SkeletonText,
+  HStack,
+  Menu,
+  Skeleton as SkeletonPrimitive,
+  type SkeletonProps,
   Stack,
+  useDisclosure,
 } from '@chakra-ui/react'
+// import { SearchInput } from '../search-input'
+import { SaasUIIcon } from '@saas-ui/assets'
+import { Meta, StoryObj } from '@storybook/react'
+import { LuMenu as FiMenu, LuX as FiX, LuX } from 'react-icons/lu'
 
 import { AppShell } from '../app-shell'
-import { PersonaAvatar } from '../persona'
-import { SearchInput } from '../search-input'
-
-import { FiMenu, FiX } from 'react-icons/fi'
-
-import SaasUILogo from '../sidebar/saas-ui-glyph'
-
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarLink,
-  NavbarProps,
-} from '.'
+import { Persona } from '../persona'
+import { Navbar } from './index.ts'
 
 export default {
   title: 'Components/Layout/Navbar',
-  component: Navbar,
+  parameters: {
+    layout: 'fullscreen',
+  },
   argTypes: {
     position: {
       control: {
@@ -56,14 +40,47 @@ export default {
       options: ['sm', 'md', 'lg', 'xl', '2xl', 'full'],
     },
   },
-  decorators: [(Story) => <Story />],
-} as Meta<typeof Navbar>
+} as Meta
 
-const AppLogo = () => <SaasUILogo width="28px" height="28px" />
+type Story = StoryObj<typeof Navbar.Root>
+
+const AppLogo = () => <SaasUIIcon width="28px" height="28px" />
+
+export interface SkeletonTextProps extends SkeletonProps {
+  noOfLines?: number
+}
+
+const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
+  function Skeleton(props, ref) {
+    return (
+      <SkeletonPrimitive ref={ref} variant="none" bg="bg.subtle" {...props} />
+    )
+  },
+)
+
+const SkeletonText = forwardRef<HTMLDivElement, SkeletonTextProps>(
+  function SkeletonText(props, ref) {
+    const { noOfLines = 3, gap, ...rest } = props
+    return (
+      <Stack gap={gap} width="full" ref={ref}>
+        {Array.from({ length: noOfLines }).map((_, index) => (
+          <SkeletonPrimitive
+            height="4"
+            key={index}
+            _last={{ maxW: '80%' }}
+            variant="none"
+            bg="bg.subtle"
+            {...rest}
+          />
+        ))}
+      </Stack>
+    )
+  },
+)
 
 const App = React.forwardRef(({ children, navbar }: any, ref: any) => {
   return (
-    <AppShell navbar={navbar} fontSize="md">
+    <AppShell header={navbar}>
       <Box ref={ref} height="100%" width="100%" overflowY="auto">
         {children}
         <Container
@@ -74,28 +91,27 @@ const App = React.forwardRef(({ children, navbar }: any, ref: any) => {
           flexDirection="column"
           margin="0 auto"
         >
-          <Stack spacing="4" mb="14">
-            <Skeleton width="100px" height="24px" speed={0} />
-            <SkeletonText speed={0} />
+          <Stack gap="4" mb="14">
+            <Skeleton width="100px" height="24px" />
           </Stack>
-          <Stack direction="row" spacing="8" mb="14">
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
           </Stack>
-          <Stack direction="row" spacing="8">
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+          <Stack direction="row" gap="8">
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
           </Stack>
         </Container>
@@ -106,212 +122,234 @@ const App = React.forwardRef(({ children, navbar }: any, ref: any) => {
 
 App.displayName = 'App'
 
-const Template = (args: NavbarProps) => {
+const Template = (args: Navbar.RootProps) => {
   const parentRef = React.useRef(null)
 
   return (
     <App ref={parentRef}>
-      <Navbar {...args} parentRef={parentRef}>
-        <NavbarBrand>
-          <AppLogo />
-        </NavbarBrand>
-        <NavbarContent display={{ base: 'hidden', md: 'flex' }}>
-          <NavbarItem>
-            <NavbarLink href="#">Features</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink isActive href="#">
-              Customers
-            </NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink href="#">Integrations</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink href="#">Pricing</NavbarLink>
-          </NavbarItem>
-        </NavbarContent>
-        <NavbarContent justifyContent="end" spacing="2">
-          <NavbarItem>
-            <NavbarLink href="#">Login</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <Button variant="primary">Sign Up</Button>
-          </NavbarItem>
-        </NavbarContent>
-      </Navbar>
+      <Navbar.Root {...args} parentRef={parentRef}>
+        <Navbar.Content>
+          <Navbar.Brand>
+            <AppLogo />
+          </Navbar.Brand>
+          <HStack display={{ base: 'hidden', md: 'flex' }}>
+            <Navbar.Item asChild>
+              <a href="#">Features</a>
+            </Navbar.Item>
+            <Navbar.Item active asChild>
+              <a href="#">Customers</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Integrations</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Pricing</a>
+            </Navbar.Item>
+          </HStack>
+          <HStack justifyContent="end" gap="2">
+            <Navbar.Item asChild>
+              <a href="#">Login</a>
+            </Navbar.Item>
+            <Button variant="solid" asChild>
+              <a href="#">Sign Up</a>
+            </Button>
+          </HStack>
+        </Navbar.Content>
+      </Navbar.Root>
     </App>
   )
 }
 
-const WithMenuTemplate = (args: NavbarProps) => {
+const WithMenuTemplate = (args: Navbar.RootProps) => {
   const parentRef = React.useRef(null)
-
   const mobileNav = useDisclosure()
-
   const menuItems = ['Features', 'Customers', 'Integrations', 'Pricing']
 
   return (
     <App ref={parentRef}>
-      <Navbar parentRef={parentRef} position="sticky" {...args}>
-        <NavbarBrand>
-          <AppLogo />
-        </NavbarBrand>
+      <Navbar.Root parentRef={parentRef} position="sticky" {...args}>
+        <Navbar.Content>
+          <Navbar.Brand>
+            <AppLogo />
+          </Navbar.Brand>
 
-        <NavbarContent display={{ base: 'none', sm: 'flex' }}>
-          <NavbarItem>
-            <NavbarLink href="#">Features</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink isActive href="#">
-              Customers
-            </NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink href="#">Integrations</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink href="#">Pricing</NavbarLink>
-          </NavbarItem>
-        </NavbarContent>
-        <NavbarContent justifyContent="end" spacing="2">
-          <NavbarItem>
-            <NavbarLink href="#">Login</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <Button variant="primary">Sign Up</Button>
-          </NavbarItem>
-          <NavbarItem>
+          <HStack display={{ base: 'none', sm: 'flex' }}>
+            <Navbar.Item asChild>
+              <a href="#">Features</a>
+            </Navbar.Item>
+            <Navbar.Item active asChild>
+              <a href="#">Customers</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Integrations</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Pricing</a>
+            </Navbar.Item>
+          </HStack>
+
+          <HStack justifyContent="end" gap="2">
+            <Navbar.Item asChild>
+              <a href="#">Login</a>
+            </Navbar.Item>
+
+            <Button variant="solid" asChild>
+              <a href="#">Sign Up</a>
+            </Button>
+
             <Button
-              aria-label={mobileNav.isOpen ? 'Close menu' : 'Open menu'}
+              aria-label={mobileNav.open ? 'Close menu' : 'Open menu'}
               display={{ base: 'inline-flex', sm: 'none' }}
               onClick={mobileNav.onToggle}
               variant="ghost"
             >
-              {mobileNav.isOpen ? <FiX /> : <FiMenu />}
+              {mobileNav.open ? <FiX /> : <FiMenu />}
             </Button>
-          </NavbarItem>
-        </NavbarContent>
-        <Drawer {...mobileNav}>
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerCloseButton />
-            </DrawerHeader>
-            <DrawerBody fontSize="md">
-              <NavbarContent flexDirection="column" justifyContent="stretch">
+          </HStack>
+        </Navbar.Content>
+
+        <Drawer.Root open={mobileNav.open} onOpenChange={mobileNav.onToggle}>
+          <Drawer.Backdrop />
+          <Drawer.Content>
+            <Drawer.Header>
+              <Drawer.CloseTrigger>
+                <Button variant="ghost">
+                  <LuX />
+                </Button>
+              </Drawer.CloseTrigger>
+            </Drawer.Header>
+            <Drawer.Body fontSize="md">
+              <Stack direction="column" gap="4">
                 {menuItems.map((item, index) => (
-                  <NavbarItem key={`${item}-${index}`} width="full">
-                    <NavbarLink href="#" width="full" justifyContent="start">
-                      {item}
-                    </NavbarLink>
-                  </NavbarItem>
+                  <Navbar.Item key={`${item}-${index}`} width="full" asChild>
+                    <a href="#">{item}</a>
+                  </Navbar.Item>
                 ))}
-              </NavbarContent>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-      </Navbar>
+              </Stack>
+            </Drawer.Body>
+          </Drawer.Content>
+        </Drawer.Root>
+      </Navbar.Root>
     </App>
   )
 }
 
-const WithUserMenuTemplate = (args: NavbarProps) => {
+const WithUserMenuTemplate = (args: Navbar.RootProps) => {
   return (
     <App>
-      <Navbar {...args}>
-        <NavbarBrand>
-          <AppLogo />
-        </NavbarBrand>
-        <NavbarContent display={{ base: 'hidden', sm: 'flex' }}>
-          <NavbarItem>
-            <NavbarLink href="#">Inbox</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink isActive href="#">
-              Contacts
-            </NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink href="#">Tasks</NavbarLink>
-          </NavbarItem>
-        </NavbarContent>
-        <NavbarContent as="div" justifyContent="end">
-          <Menu>
-            <MenuButton>
-              <PersonaAvatar
-                src="/showcase-avatar.jpg"
-                name="Beatriz"
-                size="xs"
-                presence="online"
-              />
-            </MenuButton>
-            <MenuList>
-              <MenuGroup title="beatriz@saas-ui.dev">
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Settings</MenuItem>
-                <MenuItem>Help &amp; feedback</MenuItem>
-              </MenuGroup>
-              <MenuDivider />
-              <MenuItem>Log out</MenuItem>
-            </MenuList>
-          </Menu>
-        </NavbarContent>
-      </Navbar>
-    </App>
-  )
-}
+      <Navbar.Root {...args}>
+        <Navbar.Content>
+          <Navbar.Brand>
+            <AppLogo />
+          </Navbar.Brand>
 
-const WithSearchInputTemplate = (args: NavbarProps) => {
-  return (
-    <App>
-      <Navbar {...args}>
-        <NavbarBrand>
-          <AppLogo />
-        </NavbarBrand>
-        <NavbarContent display={{ base: 'hidden', sm: 'flex' }}>
-          <NavbarItem>
-            <NavbarLink href="#">Inbox</NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink isActive href="#">
-              Contacts
-            </NavbarLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavbarLink href="#">Tasks</NavbarLink>
-          </NavbarItem>
-        </NavbarContent>
-        <NavbarContent as="div" justifyContent="end" spacing="4">
-          <Box width="180px">
-            <SearchInput size="sm" />
+          <HStack display={{ base: 'hidden', sm: 'flex' }}>
+            <Navbar.Item asChild active>
+              <a href="#">Inbox</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Contacts</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Tasks</a>
+            </Navbar.Item>
+          </HStack>
+
+          <Box>
+            <Menu.Root>
+              <Menu.Trigger>
+                <Persona.Avatar
+                  src="/showcase-avatar.jpg"
+                  name="Beatriz"
+                  size="xs"
+                >
+                  <Persona.PresenceBadge presence="online" />
+                </Persona.Avatar>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.ItemGroup title="beatriz@saas-ui.dev">
+                  <Menu.Item value="profile" asChild>
+                    <a href="#">Profile</a>
+                  </Menu.Item>
+                  <Menu.Item value="settings" asChild>
+                    <a href="#">Settings</a>
+                  </Menu.Item>
+                  <Menu.Item value="help" asChild>
+                    <a href="#">Help & feedback</a>
+                  </Menu.Item>
+                </Menu.ItemGroup>
+                <Menu.Separator />
+                <Menu.Item value="logout" asChild>
+                  <a href="#">Log out</a>
+                </Menu.Item>
+              </Menu.Content>
+            </Menu.Root>
           </Box>
-          <Menu>
-            <MenuButton>
-              <PersonaAvatar
-                src="/showcase-avatar.jpg"
-                name="Beatriz"
-                size="xs"
-                presence="online"
-              />
-            </MenuButton>
-            <MenuList>
-              <MenuGroup title="beatriz@saas-ui.dev">
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Settings</MenuItem>
-                <MenuItem>Help &amp; feedback</MenuItem>
-              </MenuGroup>
-              <MenuDivider />
-              <MenuItem>Log out</MenuItem>
-            </MenuList>
-          </Menu>
-        </NavbarContent>
-      </Navbar>
+        </Navbar.Content>
+      </Navbar.Root>
     </App>
   )
 }
 
-export const Static = {
+const WithSearchInputTemplate = (args: Navbar.RootProps) => {
+  return (
+    <App>
+      <Navbar.Root {...args}>
+        <Navbar.Content>
+          <Navbar.Brand>
+            <AppLogo />
+          </Navbar.Brand>
+
+          <HStack display={{ base: 'hidden', sm: 'flex' }} gap="1">
+            <Navbar.Item asChild>
+              <a href="#">Inbox</a>
+            </Navbar.Item>
+            <Navbar.Item active asChild>
+              <a href="#">Contacts</a>
+            </Navbar.Item>
+            <Navbar.Item asChild>
+              <a href="#">Tasks</a>
+            </Navbar.Item>
+          </HStack>
+
+          <HStack gap="4">
+            <Box width="180px">{/* <SearchInput size="sm" /> */}</Box>
+            <Menu.Root>
+              <Menu.Trigger>
+                <Persona.Avatar
+                  src="/showcase-avatar.jpg"
+                  name="Beatriz"
+                  size="xs"
+                >
+                  <Persona.PresenceBadge presence="online" />
+                </Persona.Avatar>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.ItemGroup title="beatriz@saas-ui.dev">
+                  <Menu.Item value="profile" asChild>
+                    <a href="#">Profile</a>
+                  </Menu.Item>
+                  <Menu.Item value="settings" asChild>
+                    <a href="#">Settings</a>
+                  </Menu.Item>
+                  <Menu.Item value="help" asChild>
+                    <a href="#">Help & feedback</a>
+                  </Menu.Item>
+                </Menu.ItemGroup>
+                <Menu.Separator />
+                <Menu.Item value="logout" asChild>
+                  <a href="#">Log out</a>
+                </Menu.Item>
+              </Menu.Content>
+            </Menu.Root>
+          </HStack>
+        </Navbar.Content>
+      </Navbar.Root>
+    </App>
+  )
+}
+
+export const Static: Story = {
   render: Template,
 
   args: {
@@ -319,7 +357,7 @@ export const Static = {
   },
 }
 
-export const Sticky = {
+export const Sticky: Story = {
   render: Template,
 
   args: {
@@ -327,27 +365,16 @@ export const Sticky = {
   },
 }
 
-export const Border = {
-  render: Template,
-
-  args: {
-    position: 'sticky',
-    borderBottomWidth: '1px',
-  },
-}
-
-export const BlurredBg = {
+export const Border: Story = {
   render: Template,
 
   args: {
     position: 'sticky',
     borderBottomWidth: '1px',
-    background: 'transparent',
-    backdropFilter: 'blur(4px)',
   },
 }
 
-export const Shadow = {
+export const BlurredBg: Story = {
   render: Template,
 
   args: {
@@ -355,11 +382,26 @@ export const Shadow = {
     borderBottomWidth: '1px',
     background: 'transparent',
     backdropFilter: 'blur(4px)',
-    boxShadow: 'lg',
   },
 }
 
-export const HideOnScroll = {
+export const Shadow: Story = {
+  render: Template,
+
+  args: {
+    position: 'sticky',
+    background: 'transparent',
+    backdropFilter: 'blur(4px)',
+    css: {
+      '&:not([data-at-top])': {
+        borderBottomWidth: '1px',
+        boxShadow: 'lg',
+      },
+    },
+  },
+}
+
+export const HideOnScroll: Story = {
   render: Template,
 
   args: {
@@ -368,14 +410,14 @@ export const HideOnScroll = {
   },
 }
 
-export const WithMenu = {
+export const WithMenu: Story = {
   render: WithMenuTemplate,
 }
 
-export const WithUserMenu = {
+export const WithUserMenu: Story = {
   render: WithUserMenuTemplate,
 }
 
-export const WithSearchInput = {
+export const WithSearchInput: Story = {
   render: WithSearchInputTemplate,
 }

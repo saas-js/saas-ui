@@ -1,4 +1,7 @@
-import { Link as ChakraLink, LinkProps, forwardRef } from '@chakra-ui/react'
+import React from 'react'
+
+import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+
 import { useLink } from '../provider'
 
 export type { LinkProps }
@@ -9,12 +12,16 @@ export type { LinkProps }
  * The router link component can be configured in `SaasProvider`.
  * @see https://saas-ui.dev/docs/core/getting-started
  */
-export const Link = forwardRef<LinkProps, 'a'>((props, ref) => {
-  const LinkComponent = useLink()
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => {
+    const LinkComponent = useLink()
 
-  const { href, ...rest } = props
-
-  return <ChakraLink as={LinkComponent} ref={ref} href={href} {...rest} />
-})
+    return (
+      <ChakraLink asChild>
+        <LinkComponent ref={ref} {...props} />
+      </ChakraLink>
+    )
+  },
+)
 
 Link.displayName = 'Link'

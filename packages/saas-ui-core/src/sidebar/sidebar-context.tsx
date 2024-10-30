@@ -1,5 +1,5 @@
-import { createContext } from '@chakra-ui/react-context'
-import { SystemStyleObject } from '@chakra-ui/react'
+import { createContext } from '@chakra-ui/react'
+import type { SystemStyleObject } from '@chakra-ui/react'
 
 export const [SidebarStylesProvider, useSidebarStyles] = createContext<
   Record<string, SystemStyleObject>

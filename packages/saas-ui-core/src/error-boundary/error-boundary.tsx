@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { SaasContext } from '../provider'
+import { SuiContext } from '../provider'
 
 export interface ErrorBoundaryProps {
   fallback?: React.ReactNode
@@ -12,6 +12,7 @@ export interface ErrorBoundaryState {
   error?: Error | null
   errorInfo?: any
 }
+
 /**
  * A container component that catches errors and displays a fallback UI.
  *
@@ -20,9 +21,9 @@ export interface ErrorBoundaryState {
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   state: ErrorBoundaryState
 
-  static contextType = SaasContext
+  static contextType = SuiContext
 
-  declare context: React.ContextType<typeof SaasContext>
+  declare context: React.ContextType<typeof SuiContext>
 
   constructor(props: ErrorBoundaryProps) {
     super(props)

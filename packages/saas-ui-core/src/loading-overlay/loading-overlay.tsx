@@ -1,109 +1,54 @@
-import React, { useState } from 'react'
+import React from 'react'
+
 import {
-  chakra,
-  Spinner,
-  ThemingProps,
-  ThemeTypings,
-  SystemStyleObject,
-  createStylesContext,
-  useMultiStyleConfig,
-  HTMLChakraProps,
-  omitThemingProps,
-  SystemProps,
-  fadeConfig,
-  SpinnerProps,
-} from '@chakra-ui/react'
-import { cx } from '@chakra-ui/utils'
+  Presence,
+  type PresenceBaseProps,
+  splitPresenceProps,
+} from '@ark-ui/react/presence'
+import { Spinner } from '@chakra-ui/react'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import {
+  HTMLSystemProps,
+  SlotRecipeProps,
+  createSlotRecipeContext,
+  sui,
+} from '#system'
 
-type Variants = 'fill' | 'overlay' | 'fullscreen'
-
-const [StylesProvider, useStyles] = createStylesContext('SuiLoadingOverlay')
+const { useStyles, withContext, withProvider } = createSlotRecipeContext({
+  key: 'loadingOverlay',
+})
 
 export const useLoadingOverlayStyles = useStyles
 
 export interface LoadingOverlayProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'SuiLoadingOverlay'> {
+  extends HTMLSystemProps<'div'>,
+    SlotRecipeProps<'loadingOverlay'>,
+    PresenceBaseProps {
   /**
    * Show or hide the LoadingOverlay.
    * @default true
    */
-  isLoading?: boolean
-
-  /**
-   * The transition that should be used for the overlay
-   * @default "fade"
-   */
-  motionPreset?: 'none' | 'fade'
-  /**
-   * Spacing between children
-   */
-  spacing?: SystemProps['margin']
-  /**
-   * @type "fill" | "overlay" | "fullscreen"
-   * @default "fill"
-   */
-  variant?: 'SuiLoadingOverlay' extends keyof ThemeTypings['components']
-    ? /* @ts-ignore */
-      ThemeTypings['components']['SuiLoadingOverlay']['variants']
-    : Variants
+  loading?: boolean
 }
 
-const Motion = chakra(motion.div)
+const LoadingOverlay: React.FC<LoadingOverlayProps> = (props) => {
+  const { children, loading = true, ...rest } = props
 
-export const LoadingOverlay: React.FC<LoadingOverlayProps> = (props) => {
-  const styles = useMultiStyleConfig('SuiLoadingOverlay', props)
-
-  const {
-    children,
-    isLoading = true,
-    spacing = 2,
-    motionPreset,
-    ...rest
-  } = omitThemingProps(props)
-
-  const overlayStyles: SystemStyleObject = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    '& > *:not(style) ~ *:not(style)': { marginTop: spacing },
-    ...styles.overlay,
-  }
-
-  const [animateInitial] = useState(!isLoading && motionPreset !== 'none')
-
-  const motionProps: any = motionPreset === 'none' ? {} : fadeConfig
+  const [presenceProps, rootProps] = splitPresenceProps(rest)
 
   return (
-    <StylesProvider value={styles}>
-      <AnimatePresence initial={animateInitial}>
-        {isLoading && (
-          <Motion
-            {...motionProps}
-            {...rest}
-            __css={overlayStyles}
-            className={cx('chakra-loading-overlay', props.className)}
-          >
-            {children}
-          </Motion>
-        )}
-      </AnimatePresence>
-    </StylesProvider>
+    <Presence present={loading} {...presenceProps} asChild>
+      <sui.div {...rootProps}>{children}</sui.div>
+    </Presence>
   )
 }
 
-LoadingOverlay.displayName = 'LoadingOverlay'
+export const LoadingOverlayRoot = withProvider(LoadingOverlay, 'root')
 
-export const LoadingSpinner = Spinner
+LoadingOverlayRoot.displayName = 'LoadingOverlay'
 
-export type LoadingSpinnerProps = SpinnerProps
+export const LoadingOverlaySpinner = Spinner
 
-export interface LoadingTextProps extends HTMLChakraProps<'p'> {}
+export interface LoadingTextProps extends HTMLSystemProps<'p'> {}
 
-export const LoadingText: React.FC<LoadingTextProps> = (props) => {
-  const styles = useStyles()
-  return <chakra.p {...props} __css={styles.text}></chakra.p>
-}
+export const LoadingOverlayText = withContext('p', 'text')

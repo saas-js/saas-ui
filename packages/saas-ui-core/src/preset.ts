@@ -16,16 +16,6 @@ const fluidFontSizes = {
   }),
 }
 
-console.log(
-  'fluid',
-  fluid({
-    property: 'fluid-text-size',
-    from: breakpointValues.sm,
-    to: breakpointValues['2xl'],
-    divider: 1,
-  }),
-)
-
 // 'fluid-text-size': {
 //   'min-max': fluid({ property: 'fluid-text-size', from: BP_SM, to: BP_2XL, divider: 1 }),
 //   'sm-md': fluid({ property: 'fluid-text-size', from: BP_SM, to: BP_MD, divider: 1 }),

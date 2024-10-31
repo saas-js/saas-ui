@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ChakraProvider } from '@chakra-ui/react'
+import '@fontsource-variable/inter'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import type { Preview, ReactRenderer } from '@storybook/react'

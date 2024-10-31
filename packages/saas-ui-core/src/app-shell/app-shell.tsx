@@ -20,9 +20,7 @@ const {
 
 export { useAppShellStyles }
 
-export interface AppShellProps
-  extends HTMLSystemProps<'div'>,
-    SlotRecipeProps<'sui-app-shell'> {
+export interface AppShellProps extends HTMLSystemProps<'div'> {
   /**
    * The top header navigation
    */
@@ -45,12 +43,16 @@ export interface AppShellProps
   children: React.ReactNode
 }
 
+export interface AppShellRootProps
+  extends AppShellProps,
+    SlotRecipeProps<'appShell'> {}
+
 /**
  * The App Shell defines the main structure of your app.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/app-shell
  */
-export const AppShellRoot = withProvider<HTMLDivElement, AppShellProps>(
+export const AppShellRoot = withProvider<HTMLDivElement, AppShellRootProps>(
   'div',
   'root',
   { forwardAsChild: true },
@@ -71,7 +73,7 @@ export const AppShellMain = withContext<HTMLDivElement, AppShellMainProps>(
   { forwardAsChild: true },
 )
 
-export const AppShell = forwardRef<HTMLDivElement, AppShellProps>(
+export const AppShell = forwardRef<HTMLDivElement, AppShellRootProps>(
   (props, ref) => {
     const { header, sidebar, aside, footer, children, ...rootProps } = props
 

@@ -1,292 +1,145 @@
-import * as React from 'react'
+import React, { forwardRef } from 'react'
+
+import { Presence } from '@ark-ui/react'
+
+import { type HTMLSystemProps, createSlotRecipeContext, sui } from '#system'
 
 import {
-  chakra,
-  omitThemingProps,
-  useMultiStyleConfig,
-  useBreakpointValue,
-  SystemStyleObject,
-  IconButton,
-  useDisclosure,
-  Portal,
-  forwardRef,
-  useTheme,
-  useStyleConfig,
-} from '@chakra-ui/react'
-import { cx, dataAttr, runIfFn } from '@chakra-ui/utils'
-import { HamburgerIcon } from '../icons'
-import { motion, AnimatePresence } from 'framer-motion'
+  SidebarProvider as SidebarProviderContext,
+  type SidebarProviderProps,
+  useSidebar,
+  useSidebarTrigger,
+} from './sidebar.context'
+import { SidebarProps } from './sidebar.types'
 
-import { useResponsiveValue } from '@saas-ui/react-utils'
+const { withRootProvider, withContext } = createSlotRecipeContext({
+  key: 'sidebar',
+})
 
-import {
-  SidebarProvider,
-  useSidebarContext,
-  useSidebarToggleButton,
-} from './use-sidebar'
-import { SidebarStylesProvider, useSidebarStyles } from './sidebar-context'
-import {
-  SidebarOverlayProps,
-  SidebarProps,
-  SidebarSectionProps,
-  SidebarToggleButtonProps,
-} from './sidebar-types'
-import { getBreakpoints } from './sidebar-utils'
-import { useAppShellContext } from '../app-shell/app-shell-context'
+const SidebarRootPrimitive = React.forwardRef<HTMLDivElement, SidebarProps>(
+  (props, ref) => {
+    const { children, ...containerProps } = props
 
-const MotionBox = chakra(motion.nav)
+    const { open } = useSidebar()
 
-const motionPresets = {
-  slideInOut: {
-    enter: {
-      left: 0,
-      transition: { type: 'spring', duration: 0.6, bounce: 0.15 },
-    },
-    exit: {
-      left: '-100%',
-    },
+    return (
+      <sui.div
+        ref={ref}
+        data-state={open ? 'open' : 'closed'}
+        {...containerProps}
+      >
+        {children}
+      </sui.div>
+    )
   },
-  none: {},
-}
+)
+
+export interface SidebarTriggerProps extends HTMLSystemProps<'button'> {}
+
+const ToggleTriggerPrimitive = forwardRef<
+  HTMLButtonElement,
+  SidebarTriggerProps
+>((props, ref) => {
+  const { children, ...rest } = props
+  const { getButtonProps } = useSidebarTrigger()
+
+  return (
+    <sui.button {...getButtonProps(rest)} ref={ref} {...rest}>
+      {children}
+    </sui.button>
+  )
+})
+
+export const SidebarProvider = withRootProvider<SidebarProviderProps>(
+  SidebarProviderContext,
+)
 
 /**
  * Side navigation, commonly used as the primary navigation
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const Sidebar = forwardRef<SidebarProps, 'nav'>((props, ref) => {
-  const styles = useMultiStyleConfig('SuiSidebar', props)
-  const theme = useTheme()
-  const defaultProps = theme.components['SuiSidebar']?.defaultProps
-
-  const variant = useResponsiveValue(props.variant ?? defaultProps?.variant, {
-    fallback: 'base',
-  })
-  const size = useResponsiveValue(props.size ?? defaultProps?.size, {
-    fallback: 'base',
-  })
-
-  const isCondensed = variant === 'compact'
-
-  const {
-    spacing = 4,
-    children,
-    toggleBreakpoint = 'lg',
-    className,
-    motionPreset = 'slideInOut',
-    isOpen: isOpenProp,
-    onOpen: onOpenProp,
-    onClose: onCloseProp,
-    ...containerProps
-  } = omitThemingProps(props)
-
-  const appShell = useAppShellContext()
-  const breakpoints = getBreakpoints(toggleBreakpoint)
-
-  const isMobile = useBreakpointValue(breakpoints, {
-    fallback: undefined,
-  })
-  // we check this twice to avoid SSR issues.
-  const isMobileInitial = useBreakpointValue(breakpoints)
-  const isInitial = typeof isMobile === 'undefined'
-  const isControlled = typeof isOpenProp !== 'undefined'
-  const isCollapsible = (isMobile || isControlled) && !isCondensed
-
-  const disclosure = useDisclosure({
-    isOpen: isOpenProp || appShell?.isSidebarOpen,
-    onOpen: onOpenProp || appShell?.openSidebar,
-    onClose: onCloseProp || appShell?.closeSidebar,
-  })
-
-  const { isOpen, onClose, onOpen } = disclosure
-
-  React.useEffect(() => {
-    if ((isInitial && isMobileInitial) || isCondensed || isControlled) {
-      // make sure we do not show an initial animation or when this is a compact sidebar
-      return
-    }
-    isMobileInitial ? onClose() : onOpen()
-  }, [isInitial, isCondensed, isMobileInitial])
-
-  const containerStyles: SystemStyleObject = {
-    '& > *:not(style) ~ *:not(style, .sui-resize-handle, .sui-sidebar__toggle-button + *)':
-      {
-        marginTop: spacing,
-      },
-    display: 'flex',
-    flexDirection: 'column',
-    ...(isMobile && isCollapsible
-      ? {
-          position: 'absolute',
-          zIndex: 'modal',
-          top: 0,
-          left: { base: '-100%', lg: '0' },
-          bottom: 0,
-        }
-      : {
-          position: 'relative',
-        }),
-  }
-
-  const context = {
-    ...disclosure,
-    breakpoints,
-    isMobile,
-    variant,
-    size,
-  }
-
-  const variants = motionPresets[isCondensed ? 'none' : motionPreset || 'none']
-
-  return (
-    <SidebarProvider value={context}>
-      <SidebarStylesProvider value={styles}>
-        <MotionBox
-          ref={ref}
-          initial={false}
-          animate={!isInitial && (!isCollapsible || isOpen ? 'enter' : 'exit')}
-          variants={variants}
-          __css={{
-            ...containerStyles,
-            ...styles.container,
-          }}
-          {...containerProps}
-          id={disclosure.getDisclosureProps().id}
-          className={cx('sui-sidebar', className)}
-          data-compact={dataAttr(isCondensed)}
-          data-collapsible={dataAttr(isMobile && isCollapsible)}
-        >
-          {children}
-        </MotionBox>
-      </SidebarStylesProvider>
-    </SidebarProvider>
-  )
-})
-
-Sidebar.displayName = 'Sidebar'
-Sidebar.id = 'Sidebar'
+export const SidebarRoot = withContext(SidebarRootPrimitive, 'root')
 
 /**
  * Button that toggles the sidebar visibility.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = (
-  props
-) => {
-  const { sx, pos, position, variant = 'ghost', icon, isRound, ...rest } = props
-  const { isOpen, isMobile, getButtonProps } = useSidebarToggleButton()
-  const styles = useStyleConfig('SuiSidebarToggleButton', props)
-  const btnStyles = useStyleConfig('Button', {
-    ...props,
-    variant,
-  })
+export const SidebarTrigger = withContext(ToggleTriggerPrimitive, 'trigger', {
+  forwardAsChild: true,
+})
 
-  const p = pos ?? position ?? sx?.pos ?? sx?.position
-
-  const buttonStyles: SystemStyleObject = {
-    display: 'inline-flex',
-    appearance: 'none',
-    alignItems: 'center',
-    justifyContent: 'center',
-    userSelect: 'none',
-    whiteSpace: 'nowrap',
-    verticalAlign: 'middle',
-    outline: 'none',
-    ...btnStyles,
-    ...(isMobile
-      ? !p
-        ? { position: 'fixed', top: 3, left: 3, zIndex: 'popover' }
-        : {}
-      : { display: 'none' }),
-    ...styles,
-  }
-
-  const _icon = icon ? (
-    runIfFn(icon, {
-      isOpen,
-    })
-  ) : (
-    <HamburgerIcon aria-hidden="true" focusable="false" />
-  )
+export const SidebarBackdropPrimitive = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  const { setOpen, open } = useSidebar()
 
   return (
-    <chakra.button
-      __css={buttonStyles}
-      padding="0"
-      borderRadius={isRound ? 'full' : undefined}
-      aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
-      data-state={isOpen ? 'open' : 'closed'}
-      {...rest}
-      {...getButtonProps(props)}
-      sx={sx}
-      className={cx('sui-sidebar__toggle-button', props.className)}
-    >
-      {_icon}
-    </chakra.button>
+    <Presence present={open}>
+      <sui.div ref={ref} onClick={() => setOpen(false)} {...props} />
+    </Presence>
   )
-}
+})
 
 /**
  * Overlay shown when sidebar is open on mobile.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarOverlay: React.FC<SidebarOverlayProps> = (props) => {
-  const { onClose, isOpen, isMobile } = useSidebarContext()
-
-  const styles = useSidebarStyles()
-
-  return (
-    <Portal>
-      <AnimatePresence>
-        {isMobile && isOpen && (
-          <MotionBox
-            animate={isOpen ? 'enter' : 'exit'}
-            initial="exit"
-            variants={{
-              enter: { opacity: 1 },
-              exit: { opacity: 0 },
-            }}
-            position="fixed"
-            top="0"
-            right="0"
-            bottom="0"
-            left="0"
-            zIndex="overlay"
-            {...props}
-            onClick={onClose}
-            __css={styles.overlay}
-          />
-        )}
-      </AnimatePresence>
-    </Portal>
-  )
-}
-
-SidebarToggleButton.displayName = 'SidebarToggleButton'
+export const SidebarBackdrop = withContext(SidebarBackdropPrimitive, 'overlay')
 
 /**
  * Sidebar section that can contain sidebar items.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarSection: React.FC<SidebarSectionProps> = (props) => {
-  const { direction = 'column', ...rest } = props
-  const styles = useSidebarStyles()
-  const sectionStyles = {
-    display: 'flex',
-    flexDirection: direction,
-    ...styles.section,
-  }
+export const SidebarSection = withContext('div', 'section')
 
-  return (
-    <chakra.div
-      __css={sectionStyles}
-      {...rest}
-      className={cx('sui-sidebar__section', props.className)}
-    />
-  )
-}
+/**
+ * Sidebar header section.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
+export const SidebarHeader = withContext('div', 'section', {
+  defaultProps: {
+    flexDirection: 'row',
+  },
+})
 
-SidebarSection.displayName = 'SidebarSection'
+/**
+ * Sidebar body section, used for the main content of the sidebar.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
+export const SidebarBody = withContext('div', 'section', {
+  defaultProps: {
+    flex: 1,
+    overflowY: 'auto',
+  },
+})
+
+/**
+ * Sidebar footer section.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
+export const SidebarFooter = withContext('div', 'section')
+
+const SidebarTrackPrimitive = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  const { setOpen } = useSidebar()
+  return <sui.div ref={ref} onClick={() => setOpen(false)} {...props} />
+})
+
+/**
+ * Sidebar track section.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
+export const SidebarTrack = withContext(SidebarTrackPrimitive, 'track', {
+  forwardAsChild: true,
+})

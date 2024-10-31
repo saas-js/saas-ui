@@ -1,22 +1,21 @@
 import * as React from 'react'
 
 import {
+  HTMLChakraProps,
+  SystemProps,
+  ThemingProps,
+  Tooltip,
+  TooltipProps,
   chakra,
   forwardRef,
   omitThemingProps,
-  HTMLChakraProps,
-  ThemingProps,
-  SystemProps,
   useMultiStyleConfig,
-  Tooltip,
-  TooltipProps,
 } from '@chakra-ui/react'
-
 import { cx, dataAttr } from '@chakra-ui/utils'
-import { useLink } from '../provider'
 
-import { useSidebarContext } from './use-sidebar'
+import { useLink } from '../provider'
 import { NavItemStylesProvider, useNavItemStyles } from './nav-context'
+import { useSidebarContext } from './sidebar.context'
 
 export interface NavItemLabelProps extends HTMLChakraProps<'span'> {}
 
@@ -33,7 +32,7 @@ export const NavItemLabel = forwardRef<NavItemLabelProps, 'span'>(
         {children}
       </chakra.span>
     )
-  }
+  },
 )
 
 NavItemLabel.displayName = 'NavItemLabel'

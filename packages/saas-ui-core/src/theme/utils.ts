@@ -3,7 +3,6 @@ export function scaleToken(value: string | number) {
 }
 
 export function radiusToken(value: string | number) {
-  console.log(`calc(${value} * var(--scale-factor) * var(--radius-factor))`)
   return `calc(${value} * var(--scale-factor) * var(--radius-factor))`
 }
 

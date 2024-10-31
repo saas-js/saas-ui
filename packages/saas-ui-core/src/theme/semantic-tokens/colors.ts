@@ -18,6 +18,11 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.gray.400}', _dark: '{colors.gray.400}' },
     },
   },
+  sidebar: {
+    bg: {
+      value: { _light: '{colors.gray.50}', _dark: '{colors.gray.950}' },
+    },
+  },
   bg: {
     DEFAULT: {
       value: { _light: '{colors.white}', _dark: '{colors.black}' },

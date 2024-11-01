@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '#system'
 
 export const sidebarNavItemSlotRecipe = defineSlotRecipe({
   className: 'sui-sidebar-nav-item',
-  slots: ['item', 'button', 'endElement'],
+  slots: ['item', 'button'],
   base: {
     item: {
       position: 'relative',
@@ -16,7 +16,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       textOverflow: 'ellipsis',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      cursor: 'cursor.pointer',
+      cursor: 'button',
       transitionProperty: 'common',
       transitionDuration: 'fast',
       focusVisibleRing: 'outside',
@@ -51,6 +51,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           borderRadius: 'md',
           px: 2,
           height: 8,
+          '&:has(:nth-child(3))': {
+            pe: 0,
+          },
         },
       },
     },

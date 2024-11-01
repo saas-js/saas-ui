@@ -71,7 +71,7 @@ export function SidebarProvider(props: SidebarProviderProps) {
 
   const mode = modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp
   const isFlyout = mode === 'flyout'
-  console.log({ mode, isMobile })
+
   const [openMobile, setOpenMobile] = useState(false)
 
   const disclosure = useDisclosure({
@@ -117,7 +117,6 @@ export const useSidebarTrigger = () => {
   const getFlyoutButtonProps = (props: HTMLSystemProps<'button'>) => {
     return {
       onMouseEnter: callAll(() => {
-        console.log('enter', context)
         context?.setOpen(true)
       }, props?.onMouseEnter),
       'data-state': context.open ? 'open' : 'closed',

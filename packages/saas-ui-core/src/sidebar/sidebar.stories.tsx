@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import {
+  Badge,
   Box,
   Breadcrumb,
   Collapsible,
@@ -22,6 +23,7 @@ import { atom, useAtom } from 'jotai'
 import {
   RiAddLine,
   RiArrowRightSFill,
+  RiCloseLine,
   RiFolderFill,
   RiInbox2Fill,
   RiOrganizationChart,
@@ -33,6 +35,7 @@ import {
 import { AppShell } from '../app-shell/index.ts'
 import { PersonaAvatar } from '../persona/persona.tsx'
 import { Sidebar, useSidebar } from './index.ts'
+import { SidebarNavItemEndElement } from './sidebar.tsx'
 
 export interface SkeletonTextProps extends SkeletonProps {
   noOfLines?: number
@@ -66,7 +69,7 @@ const SkeletonText = React.forwardRef<HTMLDivElement, SkeletonTextProps>(
   },
 )
 
-const modeAtom = atom<'flyout' | 'collapsible'>('flyout')
+const modeAtom = atom<'flyout' | 'collapsible'>('collapsible')
 
 function SidebarLayout(props: { children: React.ReactElement }) {
   const [mode, setMode] = useAtom(modeAtom)
@@ -219,6 +222,10 @@ export const Default: Story = {
                   <Sidebar.NavButton active>
                     <RiInbox2Fill />
                     Inbox
+                    <Spacer />
+                    <Badge bg="none" px="2">
+                      12
+                    </Badge>
                   </Sidebar.NavButton>
                 </Sidebar.NavItem>
                 <Sidebar.NavItem>
@@ -270,12 +277,40 @@ export const Default: Story = {
                       <Sidebar.NavButton>
                         <Text>🌟</Text>
                         Chakra v3
+                        <Spacer />
+                        <IconButton
+                          variant="ghost"
+                          aria-label="Remove from favourites"
+                          title="Remove from favourites"
+                          size="xs"
+                          opacity="0"
+                          _parentHover={{
+                            opacity: 0.6,
+                            _hover: { opacity: 1 },
+                          }}
+                        >
+                          <RiCloseLine />
+                        </IconButton>
                       </Sidebar.NavButton>
                     </Sidebar.NavItem>
                     <Sidebar.NavItem>
                       <Sidebar.NavButton>
                         <Text>🎨</Text>
                         Design systems
+                        <Spacer />
+                        <IconButton
+                          variant="ghost"
+                          aria-label="Remove from favourites"
+                          title="Remove from favourites"
+                          size="xs"
+                          opacity="0"
+                          _parentHover={{
+                            opacity: 0.6,
+                            _hover: { opacity: 1 },
+                          }}
+                        >
+                          <RiCloseLine />
+                        </IconButton>
                       </Sidebar.NavButton>
                     </Sidebar.NavItem>
                   </Sidebar.GroupContent>

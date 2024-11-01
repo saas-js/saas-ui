@@ -22,4 +22,5 @@ export const conditions = defineConditions({
   groupExpanded:
     '.group:is([aria-expanded=true], [data-expanded], [data-state=expanded]) &, [role=group]:is([aria-expanded=true], [data-expanded], [data-state=expanded]) &',
   groupInvalid: '.group:invalid &, [role=group]:invalid &',
+  parentHover: 'button:hover > &, a:hover > &',
 })

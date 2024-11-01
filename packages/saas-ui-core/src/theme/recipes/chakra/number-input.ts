@@ -1,7 +1,7 @@
 import { defineSlotRecipe, defineStyle } from '@chakra-ui/react'
 import { numberInputAnatomy } from '@chakra-ui/react/anatomy'
 
-import { mapEntries } from '../../utils'
+import { mapEntries } from '../../../utils'
 import { inputRecipe } from './input'
 
 const triggerStyle = defineStyle({

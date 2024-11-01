@@ -25,6 +25,9 @@ export const semanticColors = defineSemanticTokens.colors({
     fg: {
       value: { _light: '{colors.gray.900}', _dark: '{colors.gray.200}' },
     },
+    border: {
+      value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' },
+    },
     accent: {
       bg: {
         value: { _light: '{colors.gray.200/40}', _dark: '{colors.gray.900}' },

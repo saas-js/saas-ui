@@ -6,6 +6,7 @@ import {
   Collapsible,
   Flex,
   HStack,
+  Icon,
   IconButton,
   Menu,
   Portal,
@@ -17,7 +18,9 @@ import {
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
 import type { Meta, StoryObj } from '@storybook/react'
+import { atom, useAtom, useAtomValue } from 'jotai'
 import {
+  LuChevronRight,
   LuFolder,
   LuInbox,
   LuPanelRight,
@@ -27,7 +30,7 @@ import {
   LuWorkflow,
 } from 'react-icons/lu'
 
-import { AppShell } from '../app-shell'
+import { AppShell } from '../app-shell/index.ts'
 import { PersonaAvatar } from '../persona/persona.tsx'
 import { Sidebar, useSidebar } from './index.ts'
 
@@ -63,61 +66,74 @@ const SkeletonText = React.forwardRef<HTMLDivElement, SkeletonTextProps>(
   },
 )
 
+const modeAtom = atom<'flyout' | 'collapsible'>('flyout')
+
+function SidebarLayout(props: { children: React.ReactElement }) {
+  const [mode, setMode] = useAtom(modeAtom)
+
+  return (
+    <Sidebar.Provider mode={mode}>
+      <AppShell sidebar={props.children}>
+        <HStack
+          px="4"
+          minH="12"
+          alignItems="center"
+          borderBottomWidth="1px"
+          gap="2"
+        >
+          <Sidebar.Trigger asChild>
+            <IconButton
+              variant="ghost"
+              aria-label="Toggle sidebar"
+              _open={{
+                display: 'none',
+              }}
+              onClick={() => setMode(mode === 'flyout' ? 'collapsible' : mode)}
+            >
+              <LuPanelRight />
+            </IconButton>
+          </Sidebar.Trigger>
+
+          <Breadcrumb.Root>
+            <Breadcrumb.List>
+              <Breadcrumb.Item>
+                <Breadcrumb.Link>Inbox</Breadcrumb.Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Separator />
+              <Breadcrumb.Item>
+                <Breadcrumb.CurrentLink>Saas UI</Breadcrumb.CurrentLink>
+              </Breadcrumb.Item>
+            </Breadcrumb.List>
+          </Breadcrumb.Root>
+        </HStack>
+
+        <Box flex="1" overflow="auto" px="4" py="4">
+          <HStack gap="4">
+            <Box flex="1">
+              <Skeleton height="100px" />
+              <SkeletonText noOfLines={6} />
+            </Box>
+
+            <Box flex="1">
+              <Skeleton height="100px" />
+              <SkeletonText noOfLines={6} />
+            </Box>
+          </HStack>
+        </Box>
+      </AppShell>
+    </Sidebar.Provider>
+  )
+}
+
 export default {
   title: 'Components/Layout/Sidebar',
   parameters: { layout: 'fullscreen' },
   component: Sidebar.Root,
   decorators: [
     (Story) => (
-      <Sidebar.Provider defaultOpen>
-        <AppShell sidebar={<Story />} height="100vh">
-          <HStack
-            px="4"
-            minH="12"
-            alignItems="center"
-            borderBottomWidth="1px"
-            gap="2"
-          >
-            <Sidebar.Trigger asChild>
-              <IconButton
-                variant="ghost"
-                aria-label="Toggle sidebar"
-                _open={{
-                  display: 'none',
-                }}
-              >
-                <LuPanelRight />
-              </IconButton>
-            </Sidebar.Trigger>
-
-            <Breadcrumb.Root>
-              <Breadcrumb.List>
-                <Breadcrumb.Item>
-                  <Breadcrumb.Link>Dashboard</Breadcrumb.Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Separator />
-                <Breadcrumb.Item>
-                  <Breadcrumb.CurrentLink>Users</Breadcrumb.CurrentLink>
-                </Breadcrumb.Item>
-              </Breadcrumb.List>
-            </Breadcrumb.Root>
-          </HStack>
-
-          <Box flex="1" overflow="auto" px="4" py="4">
-            <HStack gap="4">
-              <Box flex="1">
-                <Skeleton height="100px" />
-                <SkeletonText noOfLines={6} />
-              </Box>
-
-              <Box flex="1">
-                <Skeleton height="100px" />
-                <SkeletonText noOfLines={6} />
-              </Box>
-            </HStack>
-          </Box>
-        </AppShell>
-      </Sidebar.Provider>
+      <SidebarLayout>
+        <Story />
+      </SidebarLayout>
     ),
   ],
 } as Meta
@@ -171,87 +187,113 @@ function WorkspaceMenu() {
 type Story = StoryObj<typeof Sidebar.Root>
 
 export const Default: Story = {
-  args: {
-    children: (
-      <>
-        <Sidebar.Header direction="row">
-          <WorkspaceMenu />
-          <Spacer />
-          <IconButton variant="ghost" rounded="full">
-            <LuSearch />
-          </IconButton>
-          <Sidebar.Trigger>
-            <IconButton
-              variant="ghost"
-              aria-label="Toggle sidebar"
-              rounded="full"
-            >
-              <LuPanelRightOpen />
-            </IconButton>
-          </Sidebar.Trigger>
-        </Sidebar.Header>
-        <Sidebar.Body flex="1" overflowY="auto">
-          <Sidebar.Group>
-            <Sidebar.GroupContent>
-              <Sidebar.NavItem>
-                <Sidebar.NavButton active>
-                  <LuInbox />
-                  Inbox
-                </Sidebar.NavButton>
-              </Sidebar.NavItem>
-              <Sidebar.NavItem>
-                <Sidebar.NavButton>
-                  <LuFolder />
-                  Projects
-                </Sidebar.NavButton>
-              </Sidebar.NavItem>
-              <Sidebar.NavItem>
-                <Sidebar.NavButton>
-                  <LuWorkflow />
-                  Workflows
-                </Sidebar.NavButton>
-              </Sidebar.NavItem>
-            </Sidebar.GroupContent>
-          </Sidebar.Group>
+  render: (props) => {
+    const [mode, setMode] = useAtom(modeAtom)
 
-          <Collapsible.Root asChild>
-            <Sidebar.Group>
-              <Collapsible.Trigger asChild>
-                <Sidebar.GroupTitle>Favourites</Sidebar.GroupTitle>
-              </Collapsible.Trigger>
-              <Sidebar.GroupEndElement>
+    return (
+      <>
+        <Sidebar.FlyoutTrigger />
+        <Sidebar.Root {...props}>
+          <Sidebar.Header direction="row">
+            <WorkspaceMenu />
+            <Spacer />
+            <IconButton variant="ghost" rounded="full">
+              <LuSearch />
+            </IconButton>
+            {mode === 'collapsible' && (
+              <Sidebar.Trigger asChild>
                 <IconButton
                   variant="ghost"
-                  aria-label="Add to favourites"
-                  size="xs"
+                  aria-label="Toggle sidebar"
+                  rounded="full"
                 >
-                  <LuPlus />
+                  <LuPanelRightOpen />
                 </IconButton>
-              </Sidebar.GroupEndElement>
-              <Collapsible.Content>
-                <Sidebar.GroupContent>
-                  <Sidebar.NavItem>
-                    <Sidebar.NavButton>
-                      <Text>🌟</Text>
-                      Chakra v3
-                    </Sidebar.NavButton>
-                  </Sidebar.NavItem>
-                  <Sidebar.NavItem>
-                    <Sidebar.NavButton>
-                      <Text>🎨</Text>
-                      Design systems
-                    </Sidebar.NavButton>
-                  </Sidebar.NavItem>
-                </Sidebar.GroupContent>
-              </Collapsible.Content>
+              </Sidebar.Trigger>
+            )}
+          </Sidebar.Header>
+          <Sidebar.Body flex="1" overflowY="auto">
+            <Sidebar.Group>
+              <Sidebar.GroupContent>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton active>
+                    <LuInbox />
+                    Inbox
+                  </Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton>
+                    <LuFolder />
+                    Projects
+                  </Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton>
+                    <LuWorkflow />
+                    Workflows
+                  </Sidebar.NavButton>
+                </Sidebar.NavItem>
+              </Sidebar.GroupContent>
             </Sidebar.Group>
-          </Collapsible.Root>
-        </Sidebar.Body>
-        <Sidebar.Footer></Sidebar.Footer>
 
-        <Sidebar.Track />
+            <Collapsible.Root asChild defaultOpen>
+              <Sidebar.Group>
+                <Sidebar.GroupHeader>
+                  <Collapsible.Trigger asChild>
+                    <Sidebar.GroupTitle>
+                      Favourites{' '}
+                      <Icon
+                        ms="1"
+                        transition="transform"
+                        _groupOpen={{ transform: 'rotate(90deg)' }}
+                      >
+                        <LuChevronRight />
+                      </Icon>
+                    </Sidebar.GroupTitle>
+                  </Collapsible.Trigger>
+
+                  <Sidebar.GroupEndElement>
+                    <IconButton
+                      variant="ghost"
+                      aria-label="Add to favourites"
+                      size="xs"
+                      opacity="0"
+                      _groupHover={{ opacity: 0.6, _hover: { opacity: 1 } }}
+                    >
+                      <LuPlus />
+                    </IconButton>
+                  </Sidebar.GroupEndElement>
+                </Sidebar.GroupHeader>
+                <Collapsible.Content>
+                  <Sidebar.GroupContent>
+                    <Sidebar.NavItem>
+                      <Sidebar.NavButton>
+                        <Text>🌟</Text>
+                        Chakra v3
+                      </Sidebar.NavButton>
+                    </Sidebar.NavItem>
+                    <Sidebar.NavItem>
+                      <Sidebar.NavButton>
+                        <Text>🎨</Text>
+                        Design systems
+                      </Sidebar.NavButton>
+                    </Sidebar.NavItem>
+                  </Sidebar.GroupContent>
+                </Collapsible.Content>
+              </Sidebar.Group>
+            </Collapsible.Root>
+          </Sidebar.Body>
+          <Sidebar.Footer></Sidebar.Footer>
+
+          <Sidebar.Track
+            onClick={() =>
+              setMode(mode === 'flyout' ? 'collapsible' : 'flyout')
+            }
+          />
+        </Sidebar.Root>
+        {mode === 'flyout' && <Sidebar.Backdrop />}
       </>
-    ),
+    )
   },
 }
 

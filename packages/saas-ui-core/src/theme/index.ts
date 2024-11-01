@@ -2,6 +2,7 @@ import { defineConfig } from '@chakra-ui/react'
 
 import { animationStyles } from './animation-styles'
 import { breakpoints } from './breakpoints'
+import { conditions } from './conditions'
 import { globalCss } from './global-css'
 import { layerStyles } from './layer-styles'
 import { recipes } from './recipes'
@@ -67,4 +68,5 @@ export const defaultThemeConfig = defineConfig({
     layerStyles: layerStyles,
     animationStyles: animationStyles,
   },
+  conditions,
 })

@@ -1,7 +1,7 @@
 import { defineSlotRecipe } from '@chakra-ui/react'
 import { pinInputAnatomy } from '@chakra-ui/react/anatomy'
 
-import { mapEntries } from '../../utils'
+import { mapEntries } from '../../../utils'
 import { inputRecipe } from './input'
 
 const { variants, defaultVariants } = inputRecipe

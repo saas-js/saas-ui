@@ -4820,6 +4820,7 @@ __metadata:
     "@saas-ui/theme": "workspace:*"
     "@zag-js/dom-event": "npm:^0.77.0"
     "@zag-js/dom-utils": "npm:^0.2.4"
+    jotai: "npm:^2.10.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
@@ -5022,12 +5023,9 @@ __metadata:
   dependencies:
     "@saas-ui/core": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
-    "@saas-ui/modals": "workspace:*"
-    "@saas-ui/theme": "workspace:*"
   peerDependencies:
-    "@chakra-ui/react": ">=3.0.0-next.1"
+    "@chakra-ui/react": ^3.0.0
     "@emotion/react": ^11
-    "@emotion/styled": ^11
     react: ">=18"
     react-dom: ">=18"
   languageName: unknown
@@ -14834,6 +14832,21 @@ __metadata:
   version: 1.4.0
   resolution: "jju@npm:1.4.0"
   checksum: 10/1067ff8ce02221faac5a842116ed0ec79a53312a111d0bf8342a80bd02c0a3fdf0b8449694a65947db0a3e8420e8b326dffb489c7dd5866efc380c0d1708a707
+  languageName: node
+  linkType: hard
+
+"jotai@npm:^2.10.1":
+  version: 2.10.1
+  resolution: "jotai@npm:2.10.1"
+  peerDependencies:
+    "@types/react": ">=17.0.0"
+    react: ">=17.0.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react:
+      optional: true
+  checksum: 10/6d01b3daa88d9edbce06776fb70921f7341c5bd5787cd3d3dd91a820760838ebe5abafe7563f0d04957a1d863b557999260ad33d225ce1d54e5fdd9a1a93af0e
   languageName: node
   linkType: hard
 

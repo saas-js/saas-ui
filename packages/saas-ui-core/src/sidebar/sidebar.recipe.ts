@@ -9,7 +9,9 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     'body',
     'footer',
     'trigger',
+    'flyoutTrigger',
     'group',
+    'groupHeader',
     'groupTitle',
     'groupEndElement',
     'groupContent',
@@ -19,6 +21,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
   ],
   base: {
     root: {
+      '--sidebar-z-index': 'zIndex.layer-3',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -27,7 +30,8 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       bg: 'blackAlpha.200',
       position: 'fixed',
       inset: 0,
-      zIndex: 'layer-3',
+      '--sidebar-backdrop-z-index': 'zIndex.layer-3',
+      zIndex: 'calc(var(--sidebar-backdrop-z-index) - 2)',
       _open: {
         animationName: 'fade-in',
         animationDuration: 'slow',
@@ -50,12 +54,12 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     header: {
       display: 'flex',
       flexDirection: 'row',
-      py: 3,
+      py: 2,
     },
     body: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 2,
+      gap: 4,
       flex: 1,
       py: 3,
       overflowY: 'auto',
@@ -63,27 +67,40 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     footer: {
       display: 'flex',
       flexDirection: 'column',
-      py: 3,
+      py: 2,
     },
     group: {
       position: 'relative',
     },
+    groupHeader: {
+      display: 'flex',
+      flexDirection: 'row',
+      gap: 1,
+      height: 6,
+      borderRadius: 'md',
+      fontSize: 'xs',
+      transitionProperty: 'common',
+      transitionDuration: 'fast',
+      _groupCollapsible: {
+        cursor: 'button',
+        userSelect: 'none',
+        _hover: {
+          bg: 'sidebar.accent.bg/80',
+        },
+      },
+    },
     groupTitle: {
       display: 'flex',
       alignItems: 'center',
-      my: 1,
-      height: 8,
+      flex: 1,
       px: 2,
-      fontSize: 'xs',
       fontWeight: 'medium',
       color: 'sidebar.fg/70',
-      transitionProperty: 'common',
-      transitionDuration: 'fast',
     },
     groupEndElement: {
-      position: 'absolute',
-      top: 2,
-      right: 0,
+      '& > button': {
+        boxSize: 6,
+      },
     },
     groupContent: {
       display: 'flex',
@@ -91,17 +108,49 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       gap: '1',
     },
     track: {
+      display: 'flex',
+      justifyContent: 'center',
       position: 'absolute',
       top: 0,
-      right: 0,
+      right: '-4px',
       bottom: 0,
-      width: '4px',
+      width: '7px',
+      cursor: 'button',
+      _after: {
+        content: '""',
+        display: 'block',
+        height: '100%',
+        width: '2px',
+        opacity: 0,
+        transitionProperty: 'opacity',
+        transitionDuration: 'fast',
+        transitionDelay: '0.2s',
+        bg: 'sidebar.accent.fg/60',
+        pointerEvents: 'none',
+      },
+      _hover: {
+        _after: {
+          opacity: 1,
+        },
+      },
+    },
+    flyoutTrigger: {
+      display: 'none',
     },
   },
   variants: {
     mode: {
       collapsible: {
         root: {
+          base: {
+            position: 'fixed',
+            height: '100dvh',
+            zIndex: 'layer-3',
+          },
+          md: {
+            position: 'relative',
+            height: 'auto',
+          },
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
@@ -110,7 +159,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
           transitionProperty: 'margin-left',
           _open: {
             marginLeft: 0,
-            transitionDuration: 'normal',
+            transitionDuration: 'moderate',
             transitionTimingFunction: 'bounce-in',
           },
           _closed: {
@@ -122,10 +171,41 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       },
       flyout: {
         root: {
-          width: '280px',
-          maxWidth: ['100vw', '320px'],
-          minWidth: '220px',
+          position: 'fixed',
+          top: 2,
+          left: 2,
+          bottom: 2,
+          zIndex: 'var(--sidebar-z-index)',
+          width: 'var(--sidebar-width, 280px)',
+          maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
+          minWidth: 'var(--sidebar-min-width, 220px)',
           bg: 'sidebar.bg',
+          borderColor: 'sidebar.border',
+          boxShadow: 'none',
+          borderWidth: '1px',
+          borderRadius: 'lg',
+          _open: {
+            transitionDuration: 'moderate',
+            transitionTimingFunction: 'ease-out',
+            boxShadow: 'lg',
+          },
+          _closed: {
+            left: 'calc(var(--sidebar-width, 280px) * -1)',
+            transitionDuration: 'fast',
+            transitionTimingFunction: 'ease-in-out',
+          },
+        },
+        flyoutTrigger: {
+          display: 'block',
+          position: 'absolute',
+          '--sidebar-flyout-trigger-z-index': 'zIndex.layer-3',
+          zIndex: 'calc(var(--sidebar-flyout-trigger-z-index) - 1)',
+          height: '100%',
+          width: '8px',
+        },
+        track: {
+          top: '8px',
+          bottom: '8px',
         },
       },
       compact: {},

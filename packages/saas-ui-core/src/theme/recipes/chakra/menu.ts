@@ -27,7 +27,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       textDecoration: 'none',
       color: 'fg',
       userSelect: 'none',
-      borderRadius: 'l1',
+      borderRadius: 'l3',
       width: '100%',
       display: 'flex',
       cursor: 'menuitem',
@@ -75,7 +75,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       subtle: {
         item: {
           _highlighted: {
-            bg: { _light: 'bg.muted', _dark: 'bg.emphasized' },
+            bg: 'bg.subtle',
           },
         },
       },

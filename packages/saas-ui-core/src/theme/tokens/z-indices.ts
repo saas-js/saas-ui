@@ -17,6 +17,7 @@ export const zIndices = defineTokens.zIndex({
   'layer-4': {
     value: 1000,
   },
+
   hide: { value: -1 },
   base: { value: 0 },
   docked: { value: 10 },

@@ -1,3 +1,5 @@
+'use client'
+
 import { useMemo, useState } from 'react'
 
 import {
@@ -9,8 +11,9 @@ import {
 import type { HTMLSystemProps } from '#system'
 
 import { callAll } from '../utils/call-all.ts'
-import { getBreakpoints } from './sidebar-utils.ts'
 import type { SidebarProps } from './sidebar.types.ts'
+
+export type SidebarMode = 'flyout' | 'collapsible'
 
 export interface UseSidebarReturn {
   open: boolean
@@ -19,7 +22,7 @@ export interface UseSidebarReturn {
   isMobile?: boolean
   openMobile?: boolean
   setOpenMobile: (open: boolean) => void
-  breakpoints?: boolean
+  mode: SidebarMode
 }
 
 const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
@@ -29,11 +32,9 @@ const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
 
 export interface SidebarProviderProps extends SidebarProps {
   /**
-   * Define the breakpoint for the mobile nav. Use `false` to disable the mobile nav.
-   *
-   * @default "lg"
+   * The mode of the sidebar.
    */
-  toggleBreakpoint?: false | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  mode: SidebarMode
   /**
    * Control the default visibility of the sidebar.
    */
@@ -53,16 +54,28 @@ export interface SidebarProviderProps extends SidebarProps {
 }
 
 export function SidebarProvider(props: SidebarProviderProps) {
-  const { children, toggleBreakpoint, defaultOpen, open, onOpenChange } = props
+  const {
+    children,
+    defaultOpen = true,
+    open,
+    onOpenChange,
+    mode: modeProp,
+  } = props
 
-  const isMobile = useBreakpointValue(getBreakpoints(toggleBreakpoint), {
-    fallback: undefined,
-  })
+  const isMobile = useBreakpointValue(
+    { base: true, md: false },
+    {
+      fallback: undefined,
+    },
+  )
+
+  const mode = modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp
+  const isFlyout = mode === 'flyout'
 
   const [openMobile, setOpenMobile] = useState(false)
 
   const disclosure = useDisclosure({
-    defaultOpen: isMobile ? openMobile : defaultOpen,
+    defaultOpen: isMobile ? openMobile : isFlyout ? false : defaultOpen,
     open: isMobile ? openMobile : open,
     onOpen: () => {
       isMobile ? setOpenMobile(true) : onOpenChange?.(true)
@@ -79,8 +92,9 @@ export function SidebarProvider(props: SidebarProviderProps) {
       isMobile,
       openMobile,
       setOpenMobile,
+      mode,
     }
-  }, [disclosure, toggleBreakpoint, isMobile, openMobile])
+  }, [disclosure, isMobile, openMobile, mode])
 
   return (
     <SidebarContextProvider value={context}>{children}</SidebarContextProvider>
@@ -100,9 +114,20 @@ export const useSidebarTrigger = () => {
     }
   }
 
+  const getFlyoutButtonProps = (props: HTMLSystemProps<'button'>) => {
+    return {
+      onMouseEnter: callAll(() => {
+        console.log('enter', context)
+        context?.setOpen(true)
+      }, props?.onMouseEnter),
+      'data-state': context.open ? 'open' : 'closed',
+    }
+  }
+
   return {
     open: context?.open,
     isMobile: context?.isMobile,
     getButtonProps,
+    getFlyoutButtonProps,
   }
 }

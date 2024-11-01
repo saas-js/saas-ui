@@ -2,7 +2,12 @@ import React, { forwardRef, useState } from 'react'
 
 import { type HTMLProps, Presence, type PresenceProps } from '@ark-ui/react'
 
-import { type HTMLSystemProps, createSlotRecipeContext, sui } from '#system'
+import {
+  type HTMLSystemProps,
+  type SlotRecipeProps,
+  createSlotRecipeContext,
+  sui,
+} from '#system'
 
 import { callAll, dataAttr } from '../utils/index.ts'
 import {
@@ -21,12 +26,27 @@ const { withContext, useRecipeResult, StylesProvider, ClassNamesProvider } =
 export const SidebarProvider = function SidebarProvider(
   props: SidebarProviderProps,
 ) {
-  const { styles, classNames, props: rootProps } = useRecipeResult(props)
+  return (
+    <SidebarProviderContext {...props}>
+      <RecipeProvider {...props}>{props.children}</RecipeProvider>
+    </SidebarProviderContext>
+  )
+}
+
+function RecipeProvider(
+  props: SlotRecipeProps<'sidebar'> & { children: React.ReactNode },
+) {
+  const { mode } = useSidebar()
+
+  const { styles, classNames } = useRecipeResult({
+    ...props,
+    mode,
+  })
 
   return (
     <StylesProvider value={styles}>
       <ClassNamesProvider value={classNames}>
-        <SidebarProviderContext {...rootProps} mode={props.mode} />
+        {props.children}
       </ClassNamesProvider>
     </StylesProvider>
   )
@@ -120,9 +140,13 @@ export const SidebarBackdropPrimitive = forwardRef<
   HTMLDivElement,
   SidebarBackdropPrimitiveProps
 >((props, ref) => {
-  const { setOpen, open, mode } = useSidebar()
+  const { setOpen, isMobile, open, mode } = useSidebar()
 
   const [enabled, setEnabled] = useState(false)
+
+  if (!isMobile && mode !== 'flyout') {
+    return null
+  }
 
   const backdropProps = {
     onClick: () => {

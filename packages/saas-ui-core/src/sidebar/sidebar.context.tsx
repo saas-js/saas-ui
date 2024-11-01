@@ -71,7 +71,7 @@ export function SidebarProvider(props: SidebarProviderProps) {
 
   const mode = modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp
   const isFlyout = mode === 'flyout'
-
+  console.log({ mode, isMobile })
   const [openMobile, setOpenMobile] = useState(false)
 
   const disclosure = useDisclosure({

@@ -18,17 +18,17 @@ import {
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
 import type { Meta, StoryObj } from '@storybook/react'
-import { atom, useAtom, useAtomValue } from 'jotai'
+import { atom, useAtom } from 'jotai'
 import {
-  LuChevronRight,
-  LuFolder,
-  LuInbox,
-  LuPanelRight,
-  LuPanelRightOpen,
-  LuPlus,
-  LuSearch,
-  LuWorkflow,
-} from 'react-icons/lu'
+  RiAddLine,
+  RiArrowRightSFill,
+  RiFolderFill,
+  RiInbox2Fill,
+  RiOrganizationChart,
+  RiSearchLine,
+  RiSideBarLine,
+  RiSidebarFoldLine,
+} from 'react-icons/ri'
 
 import { AppShell } from '../app-shell/index.ts'
 import { PersonaAvatar } from '../persona/persona.tsx'
@@ -90,7 +90,7 @@ function SidebarLayout(props: { children: React.ReactElement }) {
               }}
               onClick={() => setMode(mode === 'flyout' ? 'collapsible' : mode)}
             >
-              <LuPanelRight />
+              <RiSideBarLine />
             </IconButton>
           </Sidebar.Trigger>
 
@@ -198,7 +198,7 @@ export const Default: Story = {
             <WorkspaceMenu />
             <Spacer />
             <IconButton variant="ghost" rounded="full">
-              <LuSearch />
+              <RiSearchLine />
             </IconButton>
             {mode === 'collapsible' && (
               <Sidebar.Trigger asChild>
@@ -207,7 +207,7 @@ export const Default: Story = {
                   aria-label="Toggle sidebar"
                   rounded="full"
                 >
-                  <LuPanelRightOpen />
+                  <RiSidebarFoldLine />
                 </IconButton>
               </Sidebar.Trigger>
             )}
@@ -217,19 +217,19 @@ export const Default: Story = {
               <Sidebar.GroupContent>
                 <Sidebar.NavItem>
                   <Sidebar.NavButton active>
-                    <LuInbox />
+                    <RiInbox2Fill />
                     Inbox
                   </Sidebar.NavButton>
                 </Sidebar.NavItem>
                 <Sidebar.NavItem>
                   <Sidebar.NavButton>
-                    <LuFolder />
+                    <RiFolderFill />
                     Projects
                   </Sidebar.NavButton>
                 </Sidebar.NavItem>
                 <Sidebar.NavItem>
                   <Sidebar.NavButton>
-                    <LuWorkflow />
+                    <RiOrganizationChart />
                     Workflows
                   </Sidebar.NavButton>
                 </Sidebar.NavItem>
@@ -247,7 +247,7 @@ export const Default: Story = {
                         transition="transform"
                         _groupOpen={{ transform: 'rotate(90deg)' }}
                       >
-                        <LuChevronRight />
+                        <RiArrowRightSFill />
                       </Icon>
                     </Sidebar.GroupTitle>
                   </Collapsible.Trigger>
@@ -260,7 +260,7 @@ export const Default: Story = {
                       opacity="0"
                       _groupHover={{ opacity: 0.6, _hover: { opacity: 1 } }}
                     >
-                      <LuPlus />
+                      <RiAddLine />
                     </IconButton>
                   </Sidebar.GroupEndElement>
                 </Sidebar.GroupHeader>
@@ -291,7 +291,7 @@ export const Default: Story = {
             }
           />
         </Sidebar.Root>
-        {mode === 'flyout' && <Sidebar.Backdrop />}
+        <Sidebar.Backdrop />
       </>
     )
   },

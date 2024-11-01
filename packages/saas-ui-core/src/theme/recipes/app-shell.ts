@@ -28,11 +28,16 @@ export const appShellSlotRecipe = defineSlotRecipe({
   variants: {
     variant: {
       plain: {},
+      raised: {
+        main: {
+          boxShadow: 'sm',
+        },
+      },
     },
   },
 
   defaultVariants: {
-    variant: 'plain',
+    variant: 'raised',
     colorPalette: 'gray',
   },
 })

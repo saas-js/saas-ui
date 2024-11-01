@@ -150,11 +150,11 @@ export const sidebarSlotRecipe = defineSlotRecipe({
           md: {
             position: 'relative',
             height: 'auto',
+            zIndex: 'unset',
           },
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
-          borderRightWidth: '1px',
           bg: 'sidebar.bg',
           transitionProperty: 'margin-left',
           _open: {

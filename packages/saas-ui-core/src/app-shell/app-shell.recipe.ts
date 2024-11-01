@@ -22,7 +22,7 @@ export const appShellSlotRecipe = defineSlotRecipe({
     },
   },
   variants: {
-    variant: {
+    position: {
       static: {
         root: {
           height: '100vh',
@@ -35,8 +35,18 @@ export const appShellSlotRecipe = defineSlotRecipe({
         },
       },
     },
+    variant: {
+      plain: {},
+      raised: {
+        main: {
+          boxShadow: 'xs',
+          zIndex: 'layer-1',
+        },
+      },
+    },
   },
   defaultVariants: {
-    variant: 'static',
+    position: 'static',
+    variant: 'raised',
   },
 })

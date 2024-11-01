@@ -10,7 +10,7 @@ export const semanticShadows = defineSemanticTokens.shadows({
   },
   sm: {
     value: {
-      base: '0px 2px 4px {colors.blackAlpha.300}, 0px 0px 1px {colors.blackAlpha.400}',
+      base: '0px 2px 4px {colors.blackAlpha.300}, 0px 0px 1px {colors.blackAlpha.100}',
       _dark:
         '0px 2px 4px {colors.blackAlpha.700}, 0px 0px 1px inset {colors.whiteAlpha.400}',
     },

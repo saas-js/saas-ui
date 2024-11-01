@@ -77,52 +77,56 @@ function SidebarLayout(props: { children: React.ReactElement }) {
   return (
     <Sidebar.Provider mode={mode}>
       <AppShell sidebar={props.children}>
-        <HStack
-          px="4"
-          minH="12"
-          alignItems="center"
-          borderBottomWidth="1px"
-          gap="2"
-        >
-          <Sidebar.Trigger asChild>
-            <IconButton
-              variant="ghost"
-              aria-label="Toggle sidebar"
-              _open={{
-                display: 'none',
-              }}
-              onClick={() => setMode(mode === 'flyout' ? 'collapsible' : mode)}
-            >
-              <RiSideBarLine />
-            </IconButton>
-          </Sidebar.Trigger>
+        <Stack height="full" flex="1" boxShadow="sm">
+          <HStack
+            px="4"
+            minH="12"
+            alignItems="center"
+            borderBottomWidth="1px"
+            gap="2"
+          >
+            <Sidebar.Trigger asChild>
+              <IconButton
+                variant="ghost"
+                aria-label="Toggle sidebar"
+                _open={{
+                  display: 'none',
+                }}
+                onClick={() =>
+                  setMode(mode === 'flyout' ? 'collapsible' : mode)
+                }
+              >
+                <RiSideBarLine />
+              </IconButton>
+            </Sidebar.Trigger>
 
-          <Breadcrumb.Root>
-            <Breadcrumb.List>
-              <Breadcrumb.Item>
-                <Breadcrumb.Link>Inbox</Breadcrumb.Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Separator />
-              <Breadcrumb.Item>
-                <Breadcrumb.CurrentLink>Saas UI</Breadcrumb.CurrentLink>
-              </Breadcrumb.Item>
-            </Breadcrumb.List>
-          </Breadcrumb.Root>
-        </HStack>
-
-        <Box flex="1" overflow="auto" px="4" py="4">
-          <HStack gap="4">
-            <Box flex="1">
-              <Skeleton height="100px" />
-              <SkeletonText noOfLines={6} />
-            </Box>
-
-            <Box flex="1">
-              <Skeleton height="100px" />
-              <SkeletonText noOfLines={6} />
-            </Box>
+            <Breadcrumb.Root>
+              <Breadcrumb.List>
+                <Breadcrumb.Item>
+                  <Breadcrumb.Link>Inbox</Breadcrumb.Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Separator />
+                <Breadcrumb.Item>
+                  <Breadcrumb.CurrentLink>Saas UI</Breadcrumb.CurrentLink>
+                </Breadcrumb.Item>
+              </Breadcrumb.List>
+            </Breadcrumb.Root>
           </HStack>
-        </Box>
+
+          <Box flex="1" overflow="auto" px="4" py="4">
+            <HStack gap="4">
+              <Box flex="1">
+                <Skeleton height="100px" />
+                <SkeletonText noOfLines={6} />
+              </Box>
+
+              <Box flex="1">
+                <Skeleton height="100px" />
+                <SkeletonText noOfLines={6} />
+              </Box>
+            </HStack>
+          </Box>
+        </Stack>
       </AppShell>
     </Sidebar.Provider>
   )

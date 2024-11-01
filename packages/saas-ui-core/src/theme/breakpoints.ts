@@ -1,9 +1,9 @@
 export const breakpointValues = {
-  sm: 480,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
-  '2xl': 1536,
+  sm: '480px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
 }
 
 export const breakpoints = Object.fromEntries(

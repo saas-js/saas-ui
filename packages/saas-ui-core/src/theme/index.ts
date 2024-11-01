@@ -6,6 +6,7 @@ import { globalCss } from './global-css'
 import { layerStyles } from './layer-styles'
 import { recipes } from './recipes'
 import { semanticColors } from './semantic-tokens/colors'
+import { semanticRadii } from './semantic-tokens/radii'
 import { semanticShadows } from './semantic-tokens/shadows'
 import { slotRecipes } from './slot-recipes'
 import { textStyles } from './text-styles'
@@ -14,6 +15,7 @@ import { aspectRatios } from './tokens/aspect-ratios'
 import { blurs } from './tokens/blurs'
 import { borders } from './tokens/borders'
 import { colors } from './tokens/colors'
+import { cursor } from './tokens/cursor'
 import { durations } from './tokens/durations'
 import { easings } from './tokens/easings'
 import { fontSizes } from './tokens/font-sizes'
@@ -29,8 +31,8 @@ import { zIndices } from './tokens/z-indices'
 
 export const defaultThemeConfig = defineConfig({
   preflight: true,
-  cssVarsPrefix: 'sui',
-  cssVarsRoot: ':where(:root, :host)',
+  cssVarsPrefix: 'chakra',
+  cssVarsRoot: ':where(html, .chakra-theme)',
   globalCss: globalCss,
   theme: {
     breakpoints: breakpoints,
@@ -52,9 +54,11 @@ export const defaultThemeConfig = defineConfig({
       spacing,
       sizes,
       zIndex: zIndices,
+      cursor,
     },
     semanticTokens: {
       colors: semanticColors,
+      radii: semanticRadii,
       shadows: semanticShadows,
     },
     recipes: recipes,

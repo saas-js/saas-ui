@@ -6,11 +6,11 @@ export const checkmarkRecipe = defineRecipe({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    flexShrink: 0,
-    verticalAlign: 'top',
+    flexShrink: '0',
     color: 'white',
     borderWidth: '1px',
     borderColor: 'transparent',
+    borderRadius: 'l1',
     focusVisibleRing: 'outside',
     _invalid: {
       colorPalette: 'red',
@@ -22,49 +22,54 @@ export const checkmarkRecipe = defineRecipe({
   },
   variants: {
     size: {
+      xs: {
+        boxSize: '3',
+      },
       sm: {
-        boxSize: '3.5',
-        borderRadius: 'xs',
+        boxSize: '4',
       },
       md: {
-        boxSize: '4',
-        borderRadius: 'xs',
+        boxSize: '5',
+        p: '0.5',
       },
       lg: {
-        boxSize: '5',
-        borderRadius: 'sm',
+        boxSize: '6',
+        p: '0.5',
       },
     },
 
     variant: {
-      outline: {
-        borderWidth: '1px',
+      solid: {
         borderColor: 'border',
-        '&:is([data-checked], [data-indeterminate])': {
+        '&:is([data-state=checked], [data-state=indeterminate])': {
           bg: 'colorPalette.solid',
           color: 'colorPalette.contrast',
           borderColor: 'colorPalette.solid',
         },
       },
+      outline: {
+        borderColor: 'border',
+        '&:is([data-state=checked], [data-state=indeterminate])': {
+          color: 'colorPalette.fg',
+          borderColor: 'colorPalette.solid',
+        },
+      },
       subtle: {
-        borderWidth: '1px',
-        bg: 'colorPalette.subtle',
-        borderColor: 'colorPalette.subtle',
-        '&:is([data-checked], [data-indeterminate])': {
+        bg: 'colorPalette.muted',
+        borderColor: 'colorPalette.muted',
+        '&:is([data-state=checked], [data-state=indeterminate])': {
           color: 'colorPalette.fg',
         },
       },
       plain: {
-        '&:is([data-checked], [data-indeterminate])': {
+        '&:is([data-state=checked], [data-state=indeterminate])': {
           color: 'colorPalette.fg',
         },
       },
       inverted: {
-        bg: 'bg',
-        borderWidth: '1px',
         borderColor: 'border',
         color: 'colorPalette.fg',
-        '&:is([data-checked], [data-indeterminate])': {
+        '&:is([data-state=checked], [data-state=indeterminate])': {
           borderColor: 'colorPalette.solid',
         },
       },
@@ -72,7 +77,7 @@ export const checkmarkRecipe = defineRecipe({
   },
 
   defaultVariants: {
-    variant: 'outline',
+    variant: 'solid',
     size: 'md',
   },
 })

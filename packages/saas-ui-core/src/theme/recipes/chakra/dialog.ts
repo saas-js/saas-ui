@@ -29,7 +29,8 @@ export const dialogSlotRecipe = defineSlotRecipe({
       position: 'fixed',
       left: 0,
       top: 0,
-      zIndex: 'modal',
+      '--dialog-z-index': 'zIndex.modal',
+      zIndex: 'calc(var(--dialog-z-index) + var(--layer-index, 0))',
       justifyContent: 'center',
       overscrollBehaviorY: 'none',
     },
@@ -39,11 +40,13 @@ export const dialogSlotRecipe = defineSlotRecipe({
       position: 'relative',
       width: '100%',
       outline: 0,
-      borderRadius: 'lg',
+      borderRadius: 'l3',
       textStyle: 'sm',
-      zIndex: 'modal',
+      my: 'var(--dialog-margin, var(--dialog-base-margin))',
+      '--dialog-z-index': 'zIndex.modal',
+      zIndex: 'calc(var(--dialog-z-index) + var(--layer-index, 0))',
       bg: 'bg.panel',
-      shadow: 'lg',
+      boxShadow: 'lg',
       _open: {
         animationDuration: 'moderate',
       },
@@ -53,44 +56,60 @@ export const dialogSlotRecipe = defineSlotRecipe({
     },
     header: {
       flex: 0,
-      paddingX: '6',
-      paddingTop: '6',
-      paddingBottom: '4',
+      px: '6',
+      pt: '6',
+      pb: '4',
     },
     body: {
       flex: '1',
-      paddingX: '6',
-      paddingTop: '2',
-      paddingBottom: '6',
+      px: '6',
+      pt: '2',
+      pb: '6',
     },
     footer: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
       gap: '3',
-      paddingX: '6',
-      paddingTop: '2',
-      paddingBottom: '4',
+      px: '6',
+      pt: '2',
+      pb: '4',
+    },
+    title: {
+      textStyle: 'lg',
+      fontWeight: 'semibold',
+    },
+    description: {
+      color: 'fg.muted',
     },
   },
 
   variants: {
-    centered: {
-      true: {
+    placement: {
+      center: {
         positioner: {
           alignItems: 'center',
         },
         content: {
-          my: 'auto',
+          '--dialog-base-margin': 'auto',
           mx: 'auto',
         },
       },
-      false: {
+      top: {
         positioner: {
           alignItems: 'flex-start',
         },
         content: {
-          my: '16',
+          '--dialog-base-margin': 'spacing.16',
+          mx: 'auto',
+        },
+      },
+      bottom: {
+        positioner: {
+          alignItems: 'flex-end',
+        },
+        content: {
+          '--dialog-base-margin': 'spacing.16',
           mx: 'auto',
         },
       },
@@ -111,6 +130,7 @@ export const dialogSlotRecipe = defineSlotRecipe({
       outside: {
         positioner: {
           overflow: 'auto',
+          pointerEvents: 'auto',
         },
       },
     },
@@ -148,14 +168,14 @@ export const dialogSlotRecipe = defineSlotRecipe({
         content: {
           width: '100%',
           height: '100%',
-          my: '0',
+          '--dialog-margin': '0',
         },
       },
       full: {
         content: {
           maxW: '100vw',
           minH: '100vh',
-          my: '0',
+          '--dialog-margin': '0',
           borderRadius: '0',
         },
       },
@@ -199,7 +219,7 @@ export const dialogSlotRecipe = defineSlotRecipe({
   defaultVariants: {
     size: 'md',
     scrollBehavior: 'outside',
-    centered: false,
+    placement: 'top',
     motionPreset: 'scale',
   },
 })

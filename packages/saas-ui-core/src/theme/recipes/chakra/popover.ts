@@ -12,11 +12,18 @@ export const popoverSlotRecipe = defineSlotRecipe({
       textStyle: 'sm',
       '--popover-bg': 'colors.bg.panel',
       bg: 'var(--popover-bg)',
-      shadow: 'md',
-      width: 'xs',
-      borderRadius: 'var(--popover-radius)',
-      zIndex: 'popover',
-      outline: 0,
+      boxShadow: 'lg',
+      '--popover-size': 'sizes.xs',
+      '--popover-mobile-size': 'calc(100dvw - 1rem)',
+      width: {
+        base: 'min(var(--popover-mobile-size), var(--popover-size))',
+        sm: 'var(--popover-size)',
+      },
+      borderRadius: 'l3',
+      '--popover-z-index': 'zIndex.popover',
+      zIndex: 'calc(var(--popover-z-index) + var(--layer-index, 0))',
+      outline: '0',
+      transformOrigin: 'var(--transform-origin)',
       _open: {
         animationStyle: 'scale-fade-in',
         animationDuration: 'fast',
@@ -32,18 +39,13 @@ export const popoverSlotRecipe = defineSlotRecipe({
     },
     body: {
       padding: 'var(--popover-padding)',
-      flex: '1 1 0%',
+      flex: '1',
     },
     footer: {
       display: 'flex',
       alignItems: 'center',
       paddingInline: 'var(--popover-padding)',
       paddingBottom: 'var(--popover-padding)',
-    },
-    closeTrigger: {
-      position: 'absolute!',
-      top: '1',
-      insetEnd: '1',
     },
     arrow: {
       '--arrow-size': 'sizes.3',
@@ -59,25 +61,21 @@ export const popoverSlotRecipe = defineSlotRecipe({
       xs: {
         content: {
           '--popover-padding': 'spacing.3',
-          '--popover-radius': 'radii.sm',
         },
       },
       sm: {
         content: {
           '--popover-padding': 'spacing.4',
-          '--popover-radius': 'radii.sm',
         },
       },
       md: {
         content: {
           '--popover-padding': 'spacing.5',
-          '--popover-radius': 'radii.md',
         },
       },
       lg: {
         content: {
           '--popover-padding': 'spacing.6',
-          '--popover-radius': 'radii.lg',
         },
       },
     },

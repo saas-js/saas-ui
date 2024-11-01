@@ -6,7 +6,7 @@ export const dataListSlotRecipe = defineSlotRecipe({
   className: 'chakra-data-list',
   base: {
     itemLabel: {
-      color: 'fg.subtle',
+      color: 'fg.muted',
       display: 'flex',
       alignItems: 'center',
       gap: '1',
@@ -48,7 +48,7 @@ export const dataListSlotRecipe = defineSlotRecipe({
     size: {
       sm: {
         root: {
-          gap: '2',
+          gap: '3',
         },
         item: {
           textStyle: 'xs',

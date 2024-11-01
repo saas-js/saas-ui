@@ -64,20 +64,20 @@
   },
   "homepage": "https://github.com/saas-ui/saas-ui#readme",
   "devDependencies": {
-    "@chakra-ui/react": "^3.0.1",
+    "@chakra-ui/react": "^3.0.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@saas-ui/react": "workspace:*",
     "@saas-ui/theme-glass": "workspace:*",
-    "@storybook/types": "^8.3.6",
-    "framer-motion": "^11.11.10",
+    "@storybook/types": "^8.4.0",
+    "framer-motion": "^11.11.11",
     "react": "^18.3.1",
     "tsup": "^8.3.5"
   },
   "dependencies": {
-    "@storybook/components": "^8.3.6",
-    "@storybook/manager-api": "^8.3.6",
-    "@storybook/preview-api": "^8.3.6"
+    "@storybook/components": "^8.4.0",
+    "@storybook/manager-api": "^8.4.0",
+    "@storybook/preview-api": "^8.4.0"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.0.0",

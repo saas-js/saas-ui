@@ -26,20 +26,20 @@ export const timelineSlotRecipe = defineSlotRecipe({
       position: 'absolute',
       borderStartWidth: 'var(--timeline-thickness)',
       ms: 'calc(-1 * var(--timeline-thickness) / 2)',
-      insetInlineStart: 'calc(var(--timeline-size) / 2)',
+      insetInlineStart: 'calc(var(--timeline-indicator-size) / 2)',
       insetBlock: '0',
       borderColor: 'border',
     },
     indicator: {
       outline: '2px solid {colors.bg}',
       position: 'relative',
-      flexShrink: 0,
-      boxSize: 'var(--timeline-size)',
+      flexShrink: '0',
+      boxSize: 'var(--timeline-indicator-size)',
       fontSize: 'var(--timeline-font-size)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      rounded: 'full',
+      borderRadius: 'full',
       fontWeight: 'medium',
     },
     connector: {
@@ -48,7 +48,22 @@ export const timelineSlotRecipe = defineSlotRecipe({
     },
     content: {
       pb: '6',
-      mt: '-0.5',
+      display: 'flex',
+      flexDirection: 'column',
+      width: 'full',
+      gap: '2',
+    },
+    title: {
+      display: 'flex',
+      fontWeight: 'medium',
+      flexWrap: 'wrap',
+      gap: '1.5',
+      alignItems: 'center',
+      mt: 'var(--timeline-margin)',
+    },
+    description: {
+      color: 'fg.muted',
+      textStyle: 'xs',
     },
   },
 
@@ -56,7 +71,7 @@ export const timelineSlotRecipe = defineSlotRecipe({
     variant: {
       subtle: {
         indicator: {
-          bg: 'bg.subtle',
+          bg: 'bg.muted',
         },
       },
       solid: {
@@ -77,16 +92,40 @@ export const timelineSlotRecipe = defineSlotRecipe({
     size: {
       sm: {
         root: {
-          '--timeline-size': 'sizes.4',
-          '--timeline-margin': '0px',
+          '--timeline-indicator-size': 'sizes.4',
           '--timeline-font-size': 'fontSizes.2xs',
+        },
+        title: {
+          textStyle: 'xs',
         },
       },
       md: {
         root: {
-          '--timeline-size': 'sizes.6',
-          '--timeline-margin': '2px',
+          '--timeline-indicator-size': 'sizes.5',
           '--timeline-font-size': 'fontSizes.xs',
+        },
+        title: {
+          textStyle: 'sm',
+        },
+      },
+      lg: {
+        root: {
+          '--timeline-indicator-size': 'sizes.6',
+          '--timeline-font-size': 'fontSizes.xs',
+        },
+        title: {
+          mt: '0.5',
+          textStyle: 'sm',
+        },
+      },
+      xl: {
+        root: {
+          '--timeline-indicator-size': 'sizes.8',
+          '--timeline-font-size': 'fontSizes.sm',
+        },
+        title: {
+          mt: '1.5',
+          textStyle: 'sm',
         },
       },
     },

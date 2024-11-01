@@ -5,11 +5,12 @@ export const badgeRecipe = defineRecipe({
   base: {
     display: 'inline-flex',
     alignItems: 'center',
+    borderRadius: 'l2',
     gap: '1',
     fontWeight: 'medium',
     fontVariantNumeric: 'tabular-nums',
     whiteSpace: 'nowrap',
-    verticalAlign: 'middle',
+    userSelect: 'none',
   },
   variants: {
     variant: {
@@ -24,13 +25,13 @@ export const badgeRecipe = defineRecipe({
       outline: {
         color: 'colorPalette.fg',
         shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.emphasized',
+        shadowColor: 'colorPalette.muted',
       },
       surface: {
-        bg: 'colorPalette.muted',
+        bg: 'colorPalette.subtle',
         color: 'colorPalette.fg',
         shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.subtle',
+        shadowColor: 'colorPalette.muted',
       },
       plain: {
         color: 'colorPalette.fg',
@@ -39,36 +40,23 @@ export const badgeRecipe = defineRecipe({
     size: {
       xs: {
         textStyle: '2xs',
-        borderRadius: 'xs',
         px: '1',
-        _empty: {
-          height: '1',
-        },
+        minH: '4',
       },
       sm: {
         textStyle: 'xs',
-        borderRadius: 'sm',
         px: '1.5',
-        _empty: {
-          height: '2',
-        },
+        minH: '5',
       },
       md: {
         textStyle: 'sm',
-        borderRadius: 'sm',
         px: '2',
-        _empty: {
-          height: '4',
-        },
+        minH: '6',
       },
       lg: {
         textStyle: 'sm',
-        borderRadius: 'sm',
-        px: '2',
-        py: '0.5',
-        _empty: {
-          height: '4',
-        },
+        px: '2.5',
+        minH: '7',
       },
     },
   },

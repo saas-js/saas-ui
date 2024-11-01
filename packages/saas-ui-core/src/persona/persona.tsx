@@ -5,9 +5,7 @@ import {
   type AvatarRootProps,
   HTMLChakraProps,
   type ImageProps,
-  SystemStyleObject,
 } from '@chakra-ui/react'
-import { dataAttr } from '@chakra-ui/utils'
 
 import {
   type HTMLSystemProps,
@@ -15,6 +13,8 @@ import {
   createSlotRecipeContext,
   sui,
 } from '#system'
+
+import { dataAttr } from '../utils'
 
 const {
   useStyles: usePersonaStyles,

@@ -38,7 +38,7 @@ export const progressSlotRecipe = defineSlotRecipe({
     valueText: {
       textStyle: 'xs',
       lineHeight: '1',
-      fontWeight: 'semibold',
+      fontWeight: 'medium',
     },
   },
 
@@ -47,7 +47,7 @@ export const progressSlotRecipe = defineSlotRecipe({
       outline: {
         track: {
           shadow: 'inset',
-          bgColor: 'bg.subtle',
+          bgColor: 'bg.muted',
         },
         range: {
           bgColor: 'colorPalette.solid',
@@ -55,7 +55,7 @@ export const progressSlotRecipe = defineSlotRecipe({
       },
       subtle: {
         track: {
-          bgColor: 'bg.subtle',
+          bgColor: 'colorPalette.muted',
         },
         range: {
           bgColor: 'colorPalette.solid/72',
@@ -67,10 +67,10 @@ export const progressSlotRecipe = defineSlotRecipe({
       square: {},
       rounded: {
         track: {
-          borderRadius: 'sm',
+          borderRadius: 'l1',
         },
       },
-      pill: {
+      full: {
         track: {
           borderRadius: 'full',
         },
@@ -102,16 +102,19 @@ export const progressSlotRecipe = defineSlotRecipe({
 
     size: {
       xs: {
-        track: { h: '1' },
-      },
-      sm: {
         track: { h: '1.5' },
       },
-      md: {
+      sm: {
         track: { h: '2' },
       },
-      lg: {
+      md: {
         track: { h: '2.5' },
+      },
+      lg: {
+        track: { h: '3' },
+      },
+      xl: {
+        track: { h: '4' },
       },
     },
   },

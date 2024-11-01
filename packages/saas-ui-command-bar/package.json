@@ -73,15 +73,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/anatomy": "^2.3.4",
-    "@chakra-ui/react-utils": "^2.0.12",
-    "@chakra-ui/styled-system": "^2.12.0",
-    "@chakra-ui/theme-tools": "^2.2.6",
-    "@chakra-ui/utils": "^2.2.2",
-    "cmdk": "^1.0.0"
+    "cmdk": "^1.0.3"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
+    "@chakra-ui/react": ">=3",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },

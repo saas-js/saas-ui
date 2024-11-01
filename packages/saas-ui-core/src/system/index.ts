@@ -1,7 +1,8 @@
 import type { ElementType } from 'react'
 
 import { HTMLChakraProps, chakra } from '@chakra-ui/react'
-import type { Dict } from '@chakra-ui/utils'
+
+export type Dict = Record<string, any>
 
 export const sui = chakra
 

@@ -1,11 +1,4 @@
-import {
-  HTMLChakraProps,
-  IconButtonProps,
-  type SlotRecipeProps,
-} from '@chakra-ui/react'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
-
-import type { HTMLSystemProps } from '#system'
+import { HTMLChakraProps, type SlotRecipeProps } from '@chakra-ui/react'
 
 export interface SidebarOptions {
   /**

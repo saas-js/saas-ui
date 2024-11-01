@@ -74,17 +74,9 @@
     "title": "Saas UI",
     "url": "https://storybook.saas-ui.pro"
   },
-  "dependencies": {
-    "@chakra-ui/anatomy": "^2.3.4",
-    "@chakra-ui/styled-system": "^2.12.0",
-    "@chakra-ui/theme-tools": "^2.2.6",
-    "@chakra-ui/utils": "^2.2.2"
-  },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
+    "@chakra-ui/react": "^3.0.0",
     "@emotion/react": ">=11.1.5",
-    "@emotion/styled": ">=11.1.5",
-    "framer-motion": ">=4.1.17",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },

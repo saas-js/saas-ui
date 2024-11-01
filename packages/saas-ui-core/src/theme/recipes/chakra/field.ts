@@ -6,25 +6,22 @@ export const fieldSlotRecipe = defineSlotRecipe({
   slots: fieldAnatomy.keys(),
   base: {
     requiredIndicator: {
-      marginStart: '0.5',
       color: 'fg.error',
-      verticalAlign: 'middle',
-      lineHeight: 'normal',
+      lineHeight: '1',
     },
     root: {
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
       width: '100%',
       position: 'relative',
-      gap: '2',
+      gap: '1.5',
     },
     label: {
-      display: 'block',
+      display: 'flex',
+      alignItems: 'center',
       textAlign: 'start',
       textStyle: 'sm',
       fontWeight: 'medium',
-      marginEnd: '3',
+      gap: '1',
       userSelect: 'none',
       _disabled: {
         opacity: '0.5',
@@ -34,14 +31,38 @@ export const fieldSlotRecipe = defineSlotRecipe({
       display: 'inline-flex',
       alignItems: 'center',
       fontWeight: 'medium',
-      gap: '2',
+      gap: '1',
       color: 'fg.error',
       textStyle: 'xs',
     },
     helperText: {
-      color: 'fg.subtle',
-      lineHeight: 'normal',
+      color: 'fg.muted',
       textStyle: 'xs',
     },
+  },
+
+  variants: {
+    orientation: {
+      vertical: {
+        root: {
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+        },
+      },
+      horizontal: {
+        root: {
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        },
+        label: {
+          flex: '0 0 var(--field-label-width, 80px)',
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    orientation: 'vertical',
   },
 })

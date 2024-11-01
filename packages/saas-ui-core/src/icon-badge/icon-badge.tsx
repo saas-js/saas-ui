@@ -3,9 +3,9 @@
 import * as React from 'react'
 import { cloneElement, isValidElement } from 'react'
 
-import { cx } from '@chakra-ui/utils'
-
 import { type HTMLSystemProps, RecipeProps, sui, useRecipe } from '#system'
+
+import { cx } from '../utils'
 
 ////////////////////////////////////////////////////////////////////////////////////
 

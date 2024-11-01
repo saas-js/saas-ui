@@ -1,16 +1,17 @@
 import React, { forwardRef } from 'react'
 
-import { Presence } from '@ark-ui/react'
+import { type HTMLProps, Presence } from '@ark-ui/react'
 
 import { type HTMLSystemProps, createSlotRecipeContext, sui } from '#system'
 
+import { dataAttr } from '../utils/data-attr.ts'
 import {
   SidebarProvider as SidebarProviderContext,
   type SidebarProviderProps,
   useSidebar,
   useSidebarTrigger,
-} from './sidebar.context'
-import { SidebarProps } from './sidebar.types'
+} from './sidebar.context.tsx'
+import { SidebarProps } from './sidebar.types.ts'
 
 const { withRootProvider, withContext } = createSlotRecipeContext({
   key: 'sidebar',
@@ -102,30 +103,21 @@ export const SidebarSection = withContext('div', 'section')
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarHeader = withContext('div', 'section', {
-  defaultProps: {
-    flexDirection: 'row',
-  },
-})
+export const SidebarHeader = withContext('div', 'header')
 
 /**
  * Sidebar body section, used for the main content of the sidebar.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarBody = withContext('div', 'section', {
-  defaultProps: {
-    flex: 1,
-    overflowY: 'auto',
-  },
-})
+export const SidebarBody = withContext('div', 'body')
 
 /**
  * Sidebar footer section.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarFooter = withContext('div', 'section')
+export const SidebarFooter = withContext('div', 'footer')
 
 const SidebarTrackPrimitive = forwardRef<
   HTMLDivElement,
@@ -143,3 +135,40 @@ const SidebarTrackPrimitive = forwardRef<
 export const SidebarTrack = withContext(SidebarTrackPrimitive, 'track', {
   forwardAsChild: true,
 })
+
+export const SidebarGroup = withContext('div', 'group')
+
+export const SidebarGroupTitle = withContext('h5', 'groupTitle')
+
+export const SidebarGroupEndElement = withContext('div', 'groupEndElement')
+
+export const SidebarGroupContent = withContext('div', 'groupContent')
+
+const { withProvider: withItemProvider, withContext: withItemContext } =
+  createSlotRecipeContext({
+    key: 'sidebarNavItem',
+  })
+
+export const SidebarNavItem = withItemProvider('div', 'item')
+
+export interface SidebarNavButtonProps extends HTMLProps<'button'> {
+  active?: boolean
+}
+
+export const SidebarNavButton = withItemContext(
+  forwardRef<HTMLButtonElement, SidebarNavButtonProps>((props, ref) => {
+    const { children, active, ...rest } = props
+
+    return (
+      <button ref={ref} data-active={dataAttr(active)} {...rest}>
+        {children}
+      </button>
+    )
+  }),
+  'button',
+  {
+    forwardAsChild: true,
+  },
+)
+
+export const SidebarNavItemEndElement = withItemContext('div', 'endElement')

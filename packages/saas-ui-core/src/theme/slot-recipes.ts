@@ -3,6 +3,7 @@ import { gridListSlotRecipe } from '../grid-list/grid-list.recipe'
 import { loadingOverlaySlotRecipe } from '../loading-overlay/loading-overlay.recipe'
 import { navbarSlotRecipe } from '../navbar/navbar.recipe'
 import { personaSlotRecipe } from '../persona/persona.recipe'
+import { sidebarNavItemSlotRecipe } from '../sidebar/sidebar-item.recipe'
 import { sidebarSlotRecipe } from '../sidebar/sidebar.recipe'
 import { accordionSlotRecipe } from './recipes/chakra/accordion'
 import { actionBarSlotRecipe } from './recipes/chakra/action-bar'
@@ -98,4 +99,5 @@ export const slotRecipes = {
   gridList: gridListSlotRecipe,
   navbar: navbarSlotRecipe,
   sidebar: sidebarSlotRecipe,
+  sidebarNavItem: sidebarNavItemSlotRecipe,
 }

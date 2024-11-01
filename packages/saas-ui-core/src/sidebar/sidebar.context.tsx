@@ -1,7 +1,6 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import {
-  UseDisclosureReturn,
   createContext,
   useBreakpointValue,
   useDisclosure,

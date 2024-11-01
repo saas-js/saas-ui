@@ -1,12 +1,11 @@
-import { cx } from '@chakra-ui/utils'
 import {
-  chakra,
-  useStyleConfig,
-  omitThemingProps,
   Container,
-  ThemingProps,
-  StyleProps,
   HTMLChakraProps,
+  StyleProps,
+  ThemingProps,
+  chakra,
+  omitThemingProps,
+  useStyleConfig,
 } from '@chakra-ui/react'
 
 export interface SectionProps
@@ -19,7 +18,6 @@ export interface SectionProps
 export default function Section({
   children,
   innerWidth,
-  className,
   ...props
 }: SectionProps) {
   const styles = useStyleConfig('Section', props)
@@ -27,11 +25,7 @@ export default function Section({
   const ownProps = omitThemingProps(props)
 
   return (
-    <chakra.div
-      __css={styles}
-      className={cx('section', className)}
-      {...ownProps}
-    >
+    <chakra.div __css={styles} {...ownProps}>
       <Container height="full" maxW={innerWidth}>
         {children}
       </Container>

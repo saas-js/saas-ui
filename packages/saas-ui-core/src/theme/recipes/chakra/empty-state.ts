@@ -6,9 +6,7 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
   className: 'chakra-empty-state',
   base: {
     root: {
-      rounded: 'md',
       width: 'full',
-      bg: 'bg',
     },
     content: {
       display: 'flex',
@@ -20,27 +18,44 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: 'fg.muted',
+      color: 'fg.subtle',
       _icon: {
         boxSize: '1em',
       },
     },
     title: {
-      textStyle: 'lg',
       fontWeight: 'semibold',
     },
     description: {
       textStyle: 'sm',
-      color: 'fg.subtle',
+      color: 'fg.muted',
     },
   },
 
   variants: {
     size: {
+      sm: {
+        root: {
+          px: '4',
+          py: '6',
+        },
+        title: {
+          textStyle: 'md',
+        },
+        content: {
+          gap: '4',
+        },
+        indicator: {
+          textStyle: '2xl',
+        },
+      },
       md: {
         root: {
           px: '8',
           py: '12',
+        },
+        title: {
+          textStyle: 'lg',
         },
         content: {
           gap: '6',
@@ -53,6 +68,9 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
         root: {
           px: '12',
           py: '16',
+        },
+        title: {
+          textStyle: 'xl',
         },
         content: {
           gap: '8',

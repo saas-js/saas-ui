@@ -9,12 +9,12 @@ export const breadcrumbSlotRecipe = defineSlotRecipe({
       display: 'flex',
       alignItems: 'center',
       wordBreak: 'break-word',
-      color: 'fg.subtle',
+      color: 'fg.muted',
     },
     link: {
       outline: '0',
       textDecoration: 'none',
-      rounded: 'xs',
+      borderRadius: 'l1',
       focusRing: 'outside',
       display: 'inline-flex',
       alignItems: 'center',
@@ -25,7 +25,7 @@ export const breadcrumbSlotRecipe = defineSlotRecipe({
       alignItems: 'center',
     },
     separator: {
-      color: 'fg.subtle',
+      color: 'fg.muted',
       opacity: '0.8',
       _icon: {
         boxSize: '1em',
@@ -48,7 +48,7 @@ export const breadcrumbSlotRecipe = defineSlotRecipe({
           color: 'colorPalette.fg',
           textDecoration: 'underline',
           textUnderlineOffset: '0.2em',
-          textDecorationColor: 'colorPalette.emphasized',
+          textDecorationColor: 'colorPalette.muted',
         },
         currentLink: {
           color: 'colorPalette.fg',
@@ -56,7 +56,7 @@ export const breadcrumbSlotRecipe = defineSlotRecipe({
       },
       plain: {
         link: {
-          color: 'fg.subtle',
+          color: 'fg.muted',
           _hover: { color: 'fg' },
         },
         currentLink: {
@@ -69,19 +69,19 @@ export const breadcrumbSlotRecipe = defineSlotRecipe({
       sm: {
         list: {
           gap: '1',
-          fontSize: 'xs',
+          textStyle: 'xs',
         },
       },
       md: {
         list: {
           gap: '1.5',
-          fontSize: 'sm',
+          textStyle: 'sm',
         },
       },
       lg: {
         list: {
           gap: '2',
-          fontSize: 'md',
+          textStyle: 'md',
         },
       },
     },

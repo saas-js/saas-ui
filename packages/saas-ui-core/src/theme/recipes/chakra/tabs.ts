@@ -6,30 +6,13 @@ export const tabsSlotRecipe = defineSlotRecipe({
   className: 'chakra-tabs',
   base: {
     root: {
+      '--tabs-trigger-radius': 'radii.l2',
       position: 'relative',
-
       _horizontal: {
         display: 'block',
       },
       _vertical: {
         display: 'flex',
-      },
-    },
-    trigger: {
-      outline: 0,
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: 'medium',
-      position: 'relative',
-      gap: '2',
-      _focusVisible: {
-        zIndex: 1,
-        outline: '2px solid',
-        outlineColor: 'focusRing',
-      },
-      _disabled: {
-        cursor: 'not-allowed',
-        opacity: 0.5,
       },
     },
     list: {
@@ -38,6 +21,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
       isolation: 'isolate',
       '--tabs-indicator-shadow': 'shadows.xs',
       '--tabs-indicator-bg': 'colors.bg',
+      minH: 'var(--tabs-height)',
       _horizontal: {
         flexDirection: 'row',
       },
@@ -45,22 +29,35 @@ export const tabsSlotRecipe = defineSlotRecipe({
         flexDirection: 'column',
       },
     },
-    content: {
-      mt: 'var(--tabs-gap-y)',
-      ms: 'var(--tabs-gap-x)',
-      width: 'var(--tabs-width)',
+    trigger: {
+      outline: '0',
+      minW: 'var(--tabs-height)',
       height: 'var(--tabs-height)',
+      display: 'flex',
+      alignItems: 'center',
+      fontWeight: 'medium',
+      position: 'relative',
+      cursor: 'button',
+      gap: '2',
       _focusVisible: {
+        zIndex: 1,
         outline: '2px solid',
-        outlineColor: 'focusRing',
+        outlineColor: 'colorPalette.focusRing',
       },
+      _disabled: {
+        cursor: 'not-allowed',
+        opacity: 0.5,
+      },
+    },
+    content: {
+      focusVisibleRing: 'inside',
       _horizontal: {
-        '--tabs-width': '100%',
-        '--tabs-gap-y': 'spacing.2',
+        width: '100%',
+        pt: 'var(--tabs-content-padding)',
       },
       _vertical: {
-        '--tabs-height': '100%',
-        '--tabs-gap-x': 'spacing.2',
+        height: '100%',
+        ps: 'var(--tabs-content-padding)',
       },
     },
     indicator: {
@@ -108,8 +105,8 @@ export const tabsSlotRecipe = defineSlotRecipe({
     size: {
       sm: {
         root: {
-          '--tabs-trigger-radius': 'radii.sm',
-          '--tabs-indicator-radius': 'radii.sm',
+          '--tabs-height': 'sizes.9',
+          '--tabs-content-padding': 'spacing.3',
         },
         trigger: {
           py: '1',
@@ -119,23 +116,23 @@ export const tabsSlotRecipe = defineSlotRecipe({
       },
       md: {
         root: {
-          '--tabs-trigger-radius': 'radii.sm',
-          '--tabs-indicator-radius': 'radii.sm',
+          '--tabs-height': 'sizes.10',
+          '--tabs-content-padding': 'spacing.4',
         },
         trigger: {
-          py: '1.5',
+          py: '2',
           px: '4',
           textStyle: 'sm',
         },
       },
       lg: {
         root: {
-          '--tabs-trigger-radius': 'radii.sm',
-          '--tabs-indicator-radius': 'radii.sm',
+          '--tabs-height': 'sizes.11',
+          '--tabs-content-padding': 'spacing.4.5',
         },
         trigger: {
           py: '2',
-          px: '5',
+          px: '4.5',
           textStyle: 'md',
         },
       },
@@ -144,6 +141,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
     variant: {
       line: {
         list: {
+          display: 'flex',
           borderColor: 'border',
           _horizontal: {
             borderBottomWidth: '1px',
@@ -153,7 +151,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
           },
         },
         trigger: {
-          color: 'fg.subtle',
+          color: 'fg.muted',
           _disabled: {
             _active: { bg: 'initial' },
           },
@@ -175,9 +173,9 @@ export const tabsSlotRecipe = defineSlotRecipe({
       subtle: {
         trigger: {
           borderRadius: 'var(--tabs-trigger-radius)',
-          color: 'fg.subtle',
+          color: 'fg.muted',
           _selected: {
-            bg: 'colorPalette.muted',
+            bg: 'colorPalette.subtle',
             color: 'colorPalette.fg',
           },
         },
@@ -185,13 +183,14 @@ export const tabsSlotRecipe = defineSlotRecipe({
 
       enclosed: {
         list: {
-          bg: 'bg.subtle',
+          bg: 'bg.muted',
           padding: '1',
-          borderRadius: 'md',
+          borderRadius: 'l3',
+          minH: 'calc(var(--tabs-height) - 4px)',
         },
         trigger: {
           justifyContent: 'center',
-          color: 'fg.subtle',
+          color: 'fg.muted',
           borderRadius: 'var(--tabs-trigger-radius)',
           _selected: {
             bg: 'bg',
@@ -206,11 +205,12 @@ export const tabsSlotRecipe = defineSlotRecipe({
           '--line-thickness': '1px',
           '--line-offset': 'calc(var(--line-thickness) * -1)',
           borderColor: 'border',
+          display: 'flex',
           _horizontal: {
             _before: {
               content: '""',
               position: 'absolute',
-              bottom: 'var(--line-offset)',
+              bottom: '0px',
               width: '100%',
               borderBottomWidth: 'var(--line-thickness)',
               borderBottomColor: 'border',
@@ -221,18 +221,18 @@ export const tabsSlotRecipe = defineSlotRecipe({
               content: '""',
               position: 'absolute',
               insetInline: 'var(--line-offset)',
-              height: '100%',
+              height: 'calc(100% - calc(var(--line-thickness) * 2))',
               borderEndWidth: 'var(--line-thickness)',
               borderEndColor: 'border',
             },
           },
         },
         trigger: {
-          color: 'fg.subtle',
+          color: 'fg.muted',
           borderWidth: '1px',
           borderColor: 'transparent',
           _selected: {
-            bg: 'bg',
+            bg: 'currentBg',
             color: 'colorPalette.fg',
           },
           _horizontal: {
@@ -258,6 +258,10 @@ export const tabsSlotRecipe = defineSlotRecipe({
 
       plain: {
         trigger: {
+          color: 'fg.muted',
+          _selected: {
+            color: 'colorPalette.fg',
+          },
           borderRadius: 'var(--tabs-trigger-radius)',
           '&[data-selected][data-ssr]': {
             bg: 'var(--tabs-indicator-bg)',

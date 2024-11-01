@@ -11,28 +11,44 @@ export const tagSlotRecipe = defineSlotRecipe({
   base: {
     root: {
       display: 'inline-flex',
-      verticalAlign: 'top',
       alignItems: 'center',
+      verticalAlign: 'top',
       maxWidth: '100%',
       userSelect: 'none',
-      _icon: {
-        fontSize: 'md',
-      },
+      borderRadius: 'l2',
       focusVisibleRing: 'outside',
     },
     label: {
       lineClamp: '1',
-      lineHeight: '1.2',
-      px: '0.2em',
     },
     closeTrigger: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       outline: '0',
-      borderRadius: 'xs',
-      color: 'currentColor/60',
-      focusVisibleRing: 'outside',
+      borderRadius: 'l1',
+      color: 'currentColor',
+      focusVisibleRing: 'inside',
+      focusRingWidth: '2px',
+    },
+    startElement: {
+      flexShrink: 0,
+      boxSize: 'var(--tag-element-size)',
+      ms: 'var(--tag-element-offset)',
+      '&:has([data-scope=avatar])': {
+        boxSize: 'var(--tag-avatar-size)',
+        ms: 'calc(var(--tag-element-offset) * 1.5)',
+      },
+      _icon: { boxSize: '100%' },
+    },
+    endElement: {
+      flexShrink: 0,
+      boxSize: 'var(--tag-element-size)',
+      me: 'var(--tag-element-offset)',
+      _icon: { boxSize: '100%' },
+      '&:has(button)': {
+        ms: 'calc(var(--tag-element-offset) * -1)',
+      },
     },
   },
 
@@ -40,26 +56,54 @@ export const tagSlotRecipe = defineSlotRecipe({
     size: {
       sm: {
         root: {
-          fontSize: 'xs',
-          padding: '0.5',
+          px: '1.5',
+          minH: '4.5',
           gap: '1',
-          borderRadius: 'sm',
+          '--tag-avatar-size': 'spacing.3',
+          '--tag-element-size': 'spacing.3',
+          '--tag-element-offset': '-2px',
+        },
+        label: {
+          textStyle: 'xs',
         },
       },
       md: {
         root: {
-          fontSize: 'sm',
-          padding: '1',
+          px: '1.5',
+          minH: '5',
           gap: '1',
-          borderRadius: 'md',
+          '--tag-avatar-size': 'spacing.3.5',
+          '--tag-element-size': 'spacing.3.5',
+          '--tag-element-offset': '-2px',
+        },
+        label: {
+          textStyle: 'xs',
         },
       },
       lg: {
         root: {
-          fontSize: 'sm',
-          padding: '1.5',
-          gap: '1',
-          borderRadius: 'md',
+          px: '2',
+          minH: '6',
+          gap: '1.5',
+          '--tag-avatar-size': 'spacing.4.5',
+          '--tag-element-size': 'spacing.4',
+          '--tag-element-offset': '-3px',
+        },
+        label: {
+          textStyle: 'sm',
+        },
+      },
+      xl: {
+        root: {
+          px: '2.5',
+          minH: '8',
+          gap: '1.5',
+          '--tag-avatar-size': 'spacing.6',
+          '--tag-element-size': 'spacing.4.5',
+          '--tag-element-offset': '-4px',
+        },
+        label: {
+          textStyle: 'sm',
         },
       },
     },

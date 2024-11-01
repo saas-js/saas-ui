@@ -8,10 +8,11 @@ export const menuSlotRecipe = defineSlotRecipe({
     content: {
       outline: 0,
       bg: 'bg.panel',
-      boxShadow: 'sm',
-      color: 'inherit',
-      zIndex: 'dropdown',
-      borderRadius: 'md',
+      boxShadow: 'lg',
+      color: 'fg',
+      '--menu-z-index': 'zIndex.dropdown',
+      zIndex: 'calc(var(--menu-z-index) + var(--layer-index, 0))',
+      borderRadius: 'l2',
       overflow: 'hidden',
       _open: {
         animationStyle: 'slide-fade-in',
@@ -24,10 +25,12 @@ export const menuSlotRecipe = defineSlotRecipe({
     },
     item: {
       textDecoration: 'none',
-      color: 'inherit',
+      color: 'fg',
       userSelect: 'none',
+      borderRadius: 'l1',
       width: '100%',
       display: 'flex',
+      cursor: 'menuitem',
       alignItems: 'center',
       textAlign: 'start',
       position: 'relative',
@@ -43,7 +46,7 @@ export const menuSlotRecipe = defineSlotRecipe({
     itemGroupLabel: {
       px: '2',
       py: '1.5',
-      fontWeight: 'medium',
+      fontWeight: 'semibold',
       textStyle: 'sm',
     },
     indicator: {
@@ -61,7 +64,7 @@ export const menuSlotRecipe = defineSlotRecipe({
     },
     separator: {
       height: '1px',
-      bg: 'bg.subtle',
+      bg: 'bg.muted',
       my: '1',
       mx: '-1',
     },
@@ -72,7 +75,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       subtle: {
         item: {
           _highlighted: {
-            bg: { _light: 'bg.subtle', _dark: 'bg.emphasized' },
+            bg: { _light: 'bg.muted', _dark: 'bg.emphasized' },
           },
         },
       },
@@ -95,7 +98,6 @@ export const menuSlotRecipe = defineSlotRecipe({
         item: {
           gap: '1',
           textStyle: 'xs',
-          borderRadius: 'sm',
           py: '1',
           px: '1.5',
         },
@@ -108,7 +110,6 @@ export const menuSlotRecipe = defineSlotRecipe({
         item: {
           gap: '2',
           textStyle: 'sm',
-          borderRadius: 'sm',
           py: '1.5',
           px: '2',
         },

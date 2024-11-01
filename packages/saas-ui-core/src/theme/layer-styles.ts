@@ -2,6 +2,12 @@ import { defineLayerStyles } from '@chakra-ui/react'
 
 export const layerStyles = defineLayerStyles({
   // fill: some background color + color combination
+  'fill.muted': {
+    value: {
+      background: 'colorPalette.muted',
+      color: 'colorPalette.fg',
+    },
+  },
   'fill.subtle': {
     value: {
       background: 'colorPalette.subtle',
@@ -13,7 +19,7 @@ export const layerStyles = defineLayerStyles({
       background: 'colorPalette.muted',
       color: 'colorPalette.fg',
       boxShadow: 'inset 0 0 0px 1px var(--shadow-color)',
-      boxShadowColor: 'colorPalette.emphasized',
+      boxShadowColor: 'colorPalette.subtle',
     },
   },
   'fill.solid': {
@@ -28,7 +34,7 @@ export const layerStyles = defineLayerStyles({
     value: {
       color: 'colorPalette.fg',
       boxShadow: 'inset 0 0 0px 1px var(--shadow-color)',
-      boxShadowColor: 'colorPalette.emphasized',
+      boxShadowColor: 'colorPalette.subtle',
     },
   },
   'outline.solid': {
@@ -102,5 +108,9 @@ export const layerStyles = defineLayerStyles({
       opacity: '0.5',
       cursor: 'not-allowed',
     },
+  },
+
+  none: {
+    value: {},
   },
 })

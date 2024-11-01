@@ -12,9 +12,10 @@ export const radiomarkRecipe = defineRecipe({
     borderWidth: '1px',
     borderColor: 'transparent',
     borderRadius: 'full',
-    _focus: {
+    cursor: 'radio',
+    _focusVisible: {
       outline: '2px solid',
-      outlineColor: 'focusRing',
+      outlineColor: 'colorPalette.focusRing',
       outlineOffset: '2px',
     },
     _invalid: {
@@ -23,6 +24,7 @@ export const radiomarkRecipe = defineRecipe({
     },
     _disabled: {
       opacity: '0.5',
+      cursor: 'disabled',
     },
 
     '& .dot': {
@@ -36,10 +38,9 @@ export const radiomarkRecipe = defineRecipe({
 
   variants: {
     variant: {
-      outline: {
+      solid: {
         borderWidth: '1px',
         borderColor: 'border',
-        bg: 'bg',
         _checked: {
           bg: 'colorPalette.solid',
           color: 'colorPalette.contrast',
@@ -49,20 +50,20 @@ export const radiomarkRecipe = defineRecipe({
 
       subtle: {
         borderWidth: '1px',
-        bg: 'colorPalette.subtle',
-        borderColor: 'colorPalette.subtle',
+        bg: 'colorPalette.muted',
+        borderColor: 'colorPalette.muted',
         color: 'transparent',
         _checked: {
           color: 'colorPalette.fg',
         },
       },
 
-      classic: {
+      outline: {
         borderWidth: '1px',
         borderColor: 'inherit',
         _checked: {
           color: 'colorPalette.fg',
-          borderColor: 'currentcolor',
+          borderColor: 'colorPalette.solid',
         },
         '& .dot': {
           scale: '0.6',
@@ -81,22 +82,26 @@ export const radiomarkRecipe = defineRecipe({
     },
 
     size: {
-      sm: {
+      xs: {
         boxSize: '3',
       },
 
-      md: {
+      sm: {
         boxSize: '4',
       },
 
-      lg: {
+      md: {
         boxSize: '5',
+      },
+
+      lg: {
+        boxSize: '6',
       },
     },
   },
 
   defaultVariants: {
-    variant: 'outline',
+    variant: 'solid',
     size: 'md',
   },
 })

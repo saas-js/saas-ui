@@ -5,8 +5,8 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
     "./src": {
@@ -36,7 +36,7 @@
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
     "directory": "packages/saas-ui-react"
   },
   "keywords": [
@@ -57,14 +57,11 @@
   },
   "dependencies": {
     "@saas-ui/core": "workspace:*",
-    "@saas-ui/hooks": "workspace:*",
-    "@saas-ui/modals": "workspace:*",
-    "@saas-ui/theme": "workspace:*"
+    "@saas-ui/hooks": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=3.0.0-next.1",
+    "@chakra-ui/react": "^3.0.0",
     "@emotion/react": "^11",
-    "@emotion/styled": "^11",
     "react": ">=18",
     "react-dom": ">=18"
   }

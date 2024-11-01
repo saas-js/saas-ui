@@ -1,18 +1,6 @@
 import { defineGlobalStyles } from '@chakra-ui/react'
 
-import { breakpointValues } from './breakpoints'
-import { fluid } from './utils'
-
 const empty = 'var(--chakra-empty,/*!*/ /*!*/)'
-
-// const fluidFontSizes = {
-//   'min-max': fluid({
-//     property: 'fluid-text-size',
-//     from: breakpointValues.sm,
-//     to: breakpointValues['2xl'],
-//     divider: 1,
-//   }),
-// }
 
 export const globalCss = defineGlobalStyles({
   '*': {
@@ -64,6 +52,9 @@ export const globalCss = defineGlobalStyles({
   },
   '*::placeholder': {
     color: 'fg.subtle',
+  },
+  '*::selection': {
+    bg: 'colorPalette.muted/80',
   },
   '[data-radius="none"]': {
     '--radius-factor': '0',

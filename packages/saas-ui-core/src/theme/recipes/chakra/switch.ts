@@ -50,7 +50,7 @@ export const switchSlotRecipe = defineSlotRecipe({
       gap: '0.5rem',
       flexShrink: 0,
       justifyContent: 'flex-start',
-      cursor: 'pointer',
+      cursor: 'switch',
       borderRadius: 'full',
       position: 'relative',
       width: 'var(--switch-width)',
@@ -86,7 +86,7 @@ export const switchSlotRecipe = defineSlotRecipe({
         control: {
           borderRadius: 'full',
           bg: 'bg.emphasized',
-          focusRing: 'outside',
+          focusVisibleRing: 'outside',
           _checked: {
             bg: 'colorPalette.solid',
           },
@@ -107,7 +107,7 @@ export const switchSlotRecipe = defineSlotRecipe({
         control: {
           borderRadius: 'full',
           height: 'calc(var(--switch-height) / 2)',
-          bg: 'bg.subtle',
+          bg: 'bg.muted',
           boxShadow: 'inset',
           _checked: {
             bg: 'colorPalette.solid/60',
@@ -120,7 +120,7 @@ export const switchSlotRecipe = defineSlotRecipe({
           top: 'calc(var(--switch-height) * -0.25)',
           bg: 'white',
           boxShadow: 'xs',
-          focusRing: 'outside',
+          focusVisibleRing: 'outside',
           _checked: {
             bg: 'colorPalette.solid',
           },

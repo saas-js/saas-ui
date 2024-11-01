@@ -3,7 +3,7 @@ import * as React from 'react'
 import {
   Box,
   Breadcrumb,
-  Button,
+  Collapsible,
   Flex,
   HStack,
   IconButton,
@@ -17,7 +17,15 @@ import {
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
 import type { Meta, StoryObj } from '@storybook/react'
-import { LuPanelRight, LuPanelRightOpen, LuSearch } from 'react-icons/lu'
+import {
+  LuFolder,
+  LuInbox,
+  LuPanelRight,
+  LuPanelRightOpen,
+  LuPlus,
+  LuSearch,
+  LuWorkflow,
+} from 'react-icons/lu'
 
 import { AppShell } from '../app-shell'
 import { PersonaAvatar } from '../persona/persona.tsx'
@@ -116,45 +124,47 @@ export default {
 
 function WorkspaceMenu() {
   return (
-    <Menu.Root>
-      <Menu.Trigger asChild>
-        <Button variant="ghost" rounded="full">
-          <Flex
-            boxSize="5"
-            p="1"
-            rounded="full"
-            bg="bg.inverted"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <SaasUIIcon color="white" />
-          </Flex>
-          Saas.js
-        </Button>
-      </Menu.Trigger>
-      <Menu.Positioner>
-        <Menu.Content>
-          <Menu.Item value="account">Account</Menu.Item>
-          <Menu.Item value="settings">Workspace settings</Menu.Item>
-          <Menu.Separator />
-          <Menu.Root>
-            <Menu.TriggerItem>Switch workspace</Menu.TriggerItem>
+    <Sidebar.NavItem>
+      <Menu.Root>
+        <Menu.Trigger asChild>
+          <Sidebar.NavButton>
+            <Flex
+              boxSize="5"
+              p="5px"
+              rounded="full"
+              bg="bg.inverted"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <SaasUIIcon color="white" />
+            </Flex>
+            Saas.js
+          </Sidebar.NavButton>
+        </Menu.Trigger>
+        <Menu.Positioner>
+          <Menu.Content>
+            <Menu.Item value="account">Account</Menu.Item>
+            <Menu.Item value="settings">Workspace settings</Menu.Item>
+            <Menu.Separator />
+            <Menu.Root>
+              <Menu.TriggerItem>Switch workspace</Menu.TriggerItem>
 
-            <Portal>
-              <Menu.Positioner>
-                <Menu.Content>
-                  <Menu.Item value="saasjs">Saas.js</Menu.Item>
-                  <Menu.Item value="acme">ACME</Menu.Item>
-                  <Menu.Separator />
-                  <Menu.Item value="create">Create new workspace</Menu.Item>
-                </Menu.Content>
-              </Menu.Positioner>
-            </Portal>
-          </Menu.Root>
-          <Menu.Item value="signout">Sign out</Menu.Item>
-        </Menu.Content>
-      </Menu.Positioner>
-    </Menu.Root>
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content>
+                    <Menu.Item value="saasjs">Saas.js</Menu.Item>
+                    <Menu.Item value="acme">ACME</Menu.Item>
+                    <Menu.Separator />
+                    <Menu.Item value="create">Create new workspace</Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </Menu.Root>
+            <Menu.Item value="signout">Sign out</Menu.Item>
+          </Menu.Content>
+        </Menu.Positioner>
+      </Menu.Root>
+    </Sidebar.NavItem>
   )
 }
 
@@ -181,11 +191,63 @@ export const Default: Story = {
           </Sidebar.Trigger>
         </Sidebar.Header>
         <Sidebar.Body flex="1" overflowY="auto">
-          <Text>Content</Text>
+          <Sidebar.Group>
+            <Sidebar.GroupContent>
+              <Sidebar.NavItem>
+                <Sidebar.NavButton active>
+                  <LuInbox />
+                  Inbox
+                </Sidebar.NavButton>
+              </Sidebar.NavItem>
+              <Sidebar.NavItem>
+                <Sidebar.NavButton>
+                  <LuFolder />
+                  Projects
+                </Sidebar.NavButton>
+              </Sidebar.NavItem>
+              <Sidebar.NavItem>
+                <Sidebar.NavButton>
+                  <LuWorkflow />
+                  Workflows
+                </Sidebar.NavButton>
+              </Sidebar.NavItem>
+            </Sidebar.GroupContent>
+          </Sidebar.Group>
+
+          <Collapsible.Root asChild>
+            <Sidebar.Group>
+              <Collapsible.Trigger asChild>
+                <Sidebar.GroupTitle>Favourites</Sidebar.GroupTitle>
+              </Collapsible.Trigger>
+              <Sidebar.GroupEndElement>
+                <IconButton
+                  variant="ghost"
+                  aria-label="Add to favourites"
+                  size="xs"
+                >
+                  <LuPlus />
+                </IconButton>
+              </Sidebar.GroupEndElement>
+              <Collapsible.Content>
+                <Sidebar.GroupContent>
+                  <Sidebar.NavItem>
+                    <Sidebar.NavButton>
+                      <Text>🌟</Text>
+                      Chakra v3
+                    </Sidebar.NavButton>
+                  </Sidebar.NavItem>
+                  <Sidebar.NavItem>
+                    <Sidebar.NavButton>
+                      <Text>🎨</Text>
+                      Design systems
+                    </Sidebar.NavButton>
+                  </Sidebar.NavItem>
+                </Sidebar.GroupContent>
+              </Collapsible.Content>
+            </Sidebar.Group>
+          </Collapsible.Root>
         </Sidebar.Body>
-        <Sidebar.Footer>
-          <Text>Footer</Text>
-        </Sidebar.Footer>
+        <Sidebar.Footer></Sidebar.Footer>
 
         <Sidebar.Track />
       </>

@@ -5,11 +5,16 @@ export const sidebarSlotRecipe = defineSlotRecipe({
   slots: [
     'root',
     'backdrop',
-    'section',
+    'header',
+    'body',
+    'footer',
     'trigger',
     'group',
     'groupTitle',
+    'groupEndElement',
+    'groupContent',
     'item',
+    'itemEndElement',
     'track',
   ],
   base: {
@@ -42,43 +47,49 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       verticalAlign: 'middle',
       outline: 'none',
     },
-    section: {
+    header: {
+      display: 'flex',
+      flexDirection: 'row',
+      py: 3,
+    },
+    body: {
       display: 'flex',
       flexDirection: 'column',
+      gap: 2,
+      flex: 1,
+      py: 3,
+      overflowY: 'auto',
     },
-    group: {},
+    footer: {
+      display: 'flex',
+      flexDirection: 'column',
+      py: 3,
+    },
+    group: {
+      position: 'relative',
+    },
     groupTitle: {
       display: 'flex',
       alignItems: 'center',
-      px: 3,
       my: 1,
-      height: 6,
-      fontSize: 'sm',
+      height: 8,
+      px: 2,
+      fontSize: 'xs',
       fontWeight: 'medium',
-      color: 'muted',
+      color: 'sidebar.fg/70',
       transitionProperty: 'common',
-      transitionDuration: 'normal',
-      '&.sui-collapse-toggle .chakra-icon': {
-        opacity: 0,
-      },
-      '&.sui-collapse-toggle': {
-        cursor: 'pointer',
-        borderRadius: 'md',
-        _hover: {
-          bg: 'blackAlpha.100',
-          '& .chakra-icon': {
-            opacity: 1,
-          },
-          _dark: {
-            bg: 'whiteAlpha.200',
-          },
-        },
-      },
-      '[data-compact] &': {
-        opacity: 0,
-      },
+      transitionDuration: 'fast',
     },
-    item: {},
+    groupEndElement: {
+      position: 'absolute',
+      top: 2,
+      right: 0,
+    },
+    groupContent: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1',
+    },
     track: {
       position: 'absolute',
       top: 0,
@@ -126,10 +137,13 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     },
     size: {
       md: {
-        root: {
-          py: 3,
+        header: {
+          px: 3,
         },
-        section: {
+        body: {
+          px: 3,
+        },
+        footer: {
           px: 3,
         },
       },

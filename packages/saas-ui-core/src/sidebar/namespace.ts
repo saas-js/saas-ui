@@ -8,4 +8,11 @@ export {
   SidebarBody as Body,
   SidebarFooter as Footer,
   SidebarTrack as Track,
+  SidebarGroup as Group,
+  SidebarGroupTitle as GroupTitle,
+  SidebarGroupEndElement as GroupEndElement,
+  SidebarGroupContent as GroupContent,
+  SidebarNavItem as NavItem,
+  SidebarNavButton as NavButton,
+  SidebarNavItemEndElement as NavItemEndElement,
 } from './sidebar'

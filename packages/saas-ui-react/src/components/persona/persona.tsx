@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Persona as PersonaPrimitive } from '@saas-ui/core/persona'
+import * as PersonaPrimitive from './namespace.tsx'
 
 interface PersonaOptions {
   /**
@@ -60,68 +60,84 @@ export interface PersonaProps
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const Persona: React.FC<PersonaProps> = (props) => {
-  const {
-    name,
-    presence,
-    presenceIcon,
-    isOutOfOffice,
-    label,
-    secondaryLabel,
-    tertiaryLabel,
-    size,
-    hideDetails,
-    children,
-    /** Avatar props */
-    getInitials,
-    icon,
-    loading,
-    onError,
-    src,
-    srcSet,
-    ...rest
-  } = props
+export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
+  (props, ref) => {
+    const {
+      name,
+      presence,
+      presenceIcon,
+      isOutOfOffice,
+      label,
+      secondaryLabel,
+      tertiaryLabel,
+      size,
+      hideDetails,
+      children,
+      /** Avatar props */
+      getInitials,
+      icon,
+      loading,
+      onError,
+      src,
+      srcSet,
+      ...rest
+    } = props
 
-  return (
-    <PersonaPrimitive.Root
-      outOfOffice={isOutOfOffice}
-      presence={presence}
-      size={size}
-      {...rest}
-    >
-      <PersonaPrimitive.Avatar
-        name={name}
+    return (
+      <PersonaPrimitive.Root
+        ref={ref}
+        outOfOffice={isOutOfOffice}
+        presence={presence}
         size={size}
-        getInitials={getInitials}
-        icon={icon}
-        loading={loading}
-        onError={onError}
-        src={src}
-        srcSet={srcSet}
+        {...rest}
       >
-        <PersonaPrimitive.PresenceBadge>
-          {presenceIcon}
-        </PersonaPrimitive.PresenceBadge>
-      </PersonaPrimitive.Avatar>
+        <PersonaPrimitive.Avatar
+          name={name}
+          size={size}
+          getInitials={getInitials}
+          icon={icon}
+          loading={loading}
+          onError={onError}
+          src={src}
+          srcSet={srcSet}
+        >
+          <PersonaPrimitive.PresenceBadge>
+            {presenceIcon}
+          </PersonaPrimitive.PresenceBadge>
+        </PersonaPrimitive.Avatar>
 
-      {!hideDetails && (
-        <PersonaPrimitive.Details>
-          <PersonaPrimitive.Label>{label || name}</PersonaPrimitive.Label>
-          {secondaryLabel && (
-            <PersonaPrimitive.SecondaryLabel>
-              {secondaryLabel}
-            </PersonaPrimitive.SecondaryLabel>
-          )}
-          {tertiaryLabel && (
-            <PersonaPrimitive.TertiaryLabel>
-              {tertiaryLabel}
-            </PersonaPrimitive.TertiaryLabel>
-          )}
-          {children}
-        </PersonaPrimitive.Details>
-      )}
-    </PersonaPrimitive.Root>
-  )
-}
+        {!hideDetails && (
+          <PersonaPrimitive.Details>
+            <PersonaPrimitive.Label>{label || name}</PersonaPrimitive.Label>
+            {secondaryLabel && (
+              <PersonaPrimitive.SecondaryLabel>
+                {secondaryLabel}
+              </PersonaPrimitive.SecondaryLabel>
+            )}
+            {tertiaryLabel && (
+              <PersonaPrimitive.TertiaryLabel>
+                {tertiaryLabel}
+              </PersonaPrimitive.TertiaryLabel>
+            )}
+            {children}
+          </PersonaPrimitive.Details>
+        )}
+      </PersonaPrimitive.Root>
+    )
+  },
+)
 
 Persona.displayName = 'Persona'
+
+export interface PersonaAvatarProps
+  extends Omit<
+    PersonaProps,
+    'hideDetails' | 'label' | 'secondaryLabel' | 'tertiaryLabel' | 'children'
+  > {}
+
+export const PersonaAvatar = React.forwardRef<
+  HTMLDivElement,
+  PersonaAvatarProps
+>(function PersonaAvatar(props, ref) {
+  return <Persona ref={ref} {...props} hideDetails />
+})

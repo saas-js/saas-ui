@@ -3,10 +3,10 @@ import * as React from 'react'
 import { Container, VStack } from '@chakra-ui/react'
 import { FiMinus, FiPhone } from 'react-icons/fi'
 
-import { Persona } from './persona'
+import { Persona } from './persona.tsx'
 
 export default {
-  title: 'Components/Data display/Persona',
+  title: 'Components/Persona',
   decorators: [
     (Story: any) => (
       <Container mt="40px">

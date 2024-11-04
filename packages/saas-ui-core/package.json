@@ -10,17 +10,17 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./app-shell": {
-      "sui": "./src/app-shell/index.ts",
-      "require": "./dist/app-shell/index.cjs",
-      "types": "./dist/app-shell/index.d.ts",
-      "import": "./dist/app-shell/index.js"
+    "./grid-list": {
+      "sui": "./src/grid-list/index.ts",
+      "require": "./dist/grid-list/index.cjs",
+      "types": "./dist/grid-list/index.d.ts",
+      "import": "./dist/grid-list/index.js"
     },
-    "./command": {
-      "sui": "./src/command/index.ts",
-      "require": "./dist/command/index.cjs",
-      "types": "./dist/command/index.d.ts",
-      "import": "./dist/command/index.js"
+    "./navbar": {
+      "sui": "./src/navbar/index.ts",
+      "require": "./dist/navbar/index.cjs",
+      "types": "./dist/navbar/index.d.ts",
+      "import": "./dist/navbar/index.js"
     },
     "./error-boundary": {
       "sui": "./src/error-boundary/index.ts",
@@ -28,41 +28,21 @@
       "types": "./dist/error-boundary/index.d.ts",
       "import": "./dist/error-boundary/index.js"
     },
-    "./icon-badge": {
-      "sui": "./src/icon-badge/index.ts",
-      "require": "./dist/icon-badge/index.cjs",
-      "types": "./dist/icon-badge/index.d.ts",
-      "import": "./dist/icon-badge/index.js"
-    },
-    "./link": {
-      "sui": "./src/link/index.ts",
-      "require": "./dist/link/index.cjs",
-      "types": "./dist/link/index.d.ts",
-      "import": "./dist/link/index.js"
-    },
-    "./loading-overlay": {
-      "sui": "./src/loading-overlay/index.ts",
-      "require": "./dist/loading-overlay/index.cjs",
-      "types": "./dist/loading-overlay/index.d.ts",
-      "import": "./dist/loading-overlay/index.js"
-    },
-    "./persona": {
-      "sui": "./src/persona/index.ts",
-      "require": "./dist/persona/index.cjs",
-      "types": "./dist/persona/index.d.ts",
-      "import": "./dist/persona/index.js"
+    "./sidebar": {
+      "sui": "./src/sidebar/index.ts",
+      "require": "./dist/sidebar/index.cjs",
+      "types": "./dist/sidebar/index.d.ts",
+      "import": "./dist/sidebar/index.js"
     },
     "./utils": {
       "sui": "./src/utils/index.ts",
       "require": "./dist/utils/index.cjs",
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.js"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
   "imports": {
+    "#utils": "./src/utils",
     "#system": "./src/system"
   },
   "scripts": {

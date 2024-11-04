@@ -3,7 +3,7 @@ import type {
   AuthOptions,
   AuthStateChangeCallback,
   AuthProviderProps,
-} from '@saas-ui/auth'
+} from '@saas-ui/auth-provider'
 
 import type {
   AuthChangeEvent,

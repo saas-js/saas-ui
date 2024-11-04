@@ -1,58 +1,14 @@
 import React, { forwardRef, useState } from 'react'
 
-import { type HTMLProps, Presence, type PresenceProps } from '@ark-ui/react'
+import { Presence, type PresenceProps } from '@ark-ui/react'
 
-import {
-  type HTMLSystemProps,
-  type SlotRecipeProps,
-  createSlotRecipeContext,
-  sui,
-} from '#system'
+import { type HTMLSystemProps, sui } from '#system'
 
 import { callAll, dataAttr } from '../utils/index.ts'
-import {
-  SidebarProvider as SidebarProviderContext,
-  type SidebarProviderProps,
-  useSidebar,
-  useSidebarTrigger,
-} from './sidebar.context.tsx'
+import { useSidebar, useSidebarTrigger } from './sidebar.context.tsx'
 import { SidebarProps } from './sidebar.types.ts'
 
-const { withContext, useRecipeResult, StylesProvider, ClassNamesProvider } =
-  createSlotRecipeContext({
-    key: 'sidebar',
-  })
-
-export const SidebarProvider = function SidebarProvider(
-  props: SidebarProviderProps,
-) {
-  return (
-    <SidebarProviderContext {...props}>
-      <RecipeProvider {...props}>{props.children}</RecipeProvider>
-    </SidebarProviderContext>
-  )
-}
-
-function RecipeProvider(
-  props: SlotRecipeProps<'sidebar'> & { children: React.ReactNode },
-) {
-  const { mode } = useSidebar()
-
-  const { styles, classNames } = useRecipeResult({
-    ...props,
-    mode,
-  })
-
-  return (
-    <StylesProvider value={styles}>
-      <ClassNamesProvider value={classNames}>
-        {props.children}
-      </ClassNamesProvider>
-    </StylesProvider>
-  )
-}
-
-const SidebarRootPrimitive = React.forwardRef<HTMLDivElement, SidebarProps>(
+export const SidebarRoot = React.forwardRef<HTMLDivElement, SidebarProps>(
   (props, ref) => {
     const { children, ...containerProps } = props
 
@@ -73,7 +29,7 @@ const SidebarRootPrimitive = React.forwardRef<HTMLDivElement, SidebarProps>(
 
 export interface SidebarTriggerProps extends HTMLSystemProps<'button'> {}
 
-const ToggleTriggerPrimitive = forwardRef<
+export const SidebarTrigger = forwardRef<
   HTMLButtonElement,
   SidebarTriggerProps
 >((props, ref) => {
@@ -89,7 +45,7 @@ const ToggleTriggerPrimitive = forwardRef<
 
 export interface SidebarFlyoutTriggerProps extends HTMLSystemProps<'button'> {}
 
-const FlyoutTriggerPrimitive = forwardRef<
+export const SidebarFlyoutTrigger = forwardRef<
   HTMLButtonElement,
   SidebarFlyoutTriggerProps
 >((props, ref) => {
@@ -103,194 +59,122 @@ const FlyoutTriggerPrimitive = forwardRef<
   )
 })
 
-/**
- * Side navigation, commonly used as the primary navigation
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-export const SidebarRoot = withContext(SidebarRootPrimitive, 'root')
-
-/**
- * Button that toggles the sidebar visibility.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-export const SidebarTrigger = withContext(ToggleTriggerPrimitive, 'trigger', {
-  forwardAsChild: true,
-})
-
-/**
- * Opens the sidebar when hovering over the trigger.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-export const SidebarFlyoutTrigger = withContext(
-  FlyoutTriggerPrimitive,
-  'flyoutTrigger',
-  {
-    forwardAsChild: true,
-  },
-)
-
-interface SidebarBackdropPrimitiveProps
-  extends HTMLProps<'div'>,
+export interface SidebarBackdropProps
+  extends HTMLSystemProps<'div'>,
     PresenceProps {}
 
-export const SidebarBackdropPrimitive = forwardRef<
-  HTMLDivElement,
-  SidebarBackdropPrimitiveProps
->((props, ref) => {
-  const { setOpen, isMobile, open, mode } = useSidebar()
+export const SidebarBackdrop = forwardRef<HTMLDivElement, SidebarBackdropProps>(
+  (props, ref) => {
+    const { setOpen, isMobile, open, mode } = useSidebar()
 
-  const [enabled, setEnabled] = useState(false)
+    const [enabled, setEnabled] = useState(false)
 
-  if (!isMobile && mode !== 'flyout') {
-    return null
-  }
+    if (!isMobile && mode !== 'flyout') {
+      return null
+    }
 
-  const backdropProps = {
-    onClick: () => {
-      if (mode !== 'flyout') {
-        setOpen(false)
-      }
-    },
-    onMouseEnter: () => {
-      if (mode === 'flyout') {
-        setOpen(false)
-      }
-    },
-  }
+    const backdropProps = {
+      onClick: () => {
+        if (mode !== 'flyout') {
+          setOpen(false)
+        }
+      },
+      onMouseEnter: () => {
+        if (mode === 'flyout') {
+          setOpen(false)
+        }
+      },
+    }
 
-  return (
-    <Presence
-      present={open}
-      unmountOnExit
-      lazyMount
-      onAnimationStart={() => {
-        setEnabled(false)
-      }}
-      onAnimationEnd={() => {
-        setEnabled(true)
-      }}
-      asChild
-    >
-      <sui.div
-        ref={ref}
-        {...backdropProps}
-        pointerEvents={enabled ? 'auto' : 'none'}
-        {...props}
-      />
-    </Presence>
-  )
-})
-
-/**
- * Overlay shown when sidebar is open on mobile.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-export const SidebarBackdrop = withContext(
-  SidebarBackdropPrimitive,
-  'backdrop',
-  {
-    forwardAsChild: true,
+    return (
+      <Presence
+        present={open}
+        unmountOnExit
+        lazyMount
+        onAnimationStart={() => {
+          setEnabled(false)
+        }}
+        onAnimationEnd={() => {
+          setEnabled(true)
+        }}
+        asChild
+      >
+        <sui.div
+          ref={ref}
+          data-visible={enabled}
+          {...backdropProps}
+          {...props}
+        />
+      </Presence>
+    )
   },
 )
-
-/**
- * Sidebar section that can contain sidebar items.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-export const SidebarSection = withContext('div', 'section')
 
 /**
  * Sidebar header section.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarHeader = withContext('div', 'header')
+export const SidebarHeader = sui.header
 
 /**
  * Sidebar body section, used for the main content of the sidebar.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarBody = withContext('div', 'body')
+export const SidebarBody = sui.div
 
 /**
  * Sidebar footer section.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarFooter = withContext('div', 'footer')
+export const SidebarFooter = sui.div
 
-const SidebarTrackPrimitive = forwardRef<
-  HTMLDivElement,
-  HTMLSystemProps<'div'>
->((props, ref) => {
-  const { setOpen, mode } = useSidebar()
-  return (
-    <sui.div
-      ref={ref}
-      {...props}
-      onClick={callAll(() => {
-        if (mode !== 'flyout') {
-          setOpen(false)
-        }
-      }, props.onClick)}
-    />
-  )
-})
-
-/**
- * Sidebar track section.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-export const SidebarTrack = withContext(SidebarTrackPrimitive, 'track', {
-  forwardAsChild: true,
-})
-
-export const SidebarGroup = withContext('div', 'group', {
-  defaultProps: {
-    role: 'group',
-  },
-})
-
-export const SidebarGroupHeader = withContext('div', 'groupHeader')
-
-export const SidebarGroupTitle = withContext('h5', 'groupTitle')
-
-export const SidebarGroupEndElement = withContext('div', 'groupEndElement')
-
-export const SidebarGroupContent = withContext('div', 'groupContent')
-
-const { withProvider: withItemProvider, withContext: withItemContext } =
-  createSlotRecipeContext({
-    key: 'sidebarNavItem',
-  })
-
-export const SidebarNavItem = withItemProvider('div', 'item')
-
-export interface SidebarNavButtonProps extends HTMLProps<'button'> {
-  active?: boolean
-}
-
-export const SidebarNavButton = withItemContext(
-  forwardRef<HTMLButtonElement, SidebarNavButtonProps>((props, ref) => {
-    const { children, active, ...rest } = props
-
+export const SidebarTrack = forwardRef<HTMLDivElement, HTMLSystemProps<'div'>>(
+  (props, ref) => {
+    const { setOpen, mode } = useSidebar()
     return (
-      <button ref={ref} data-active={dataAttr(active)} {...rest}>
-        {children}
-      </button>
+      <sui.div
+        ref={ref}
+        {...props}
+        onClick={callAll(() => {
+          if (mode !== 'flyout') {
+            setOpen(false)
+          }
+        }, props.onClick)}
+      />
     )
-  }),
-  'button',
-  {
-    forwardAsChild: true,
   },
 )
 
-export const SidebarNavItemEndElement = withItemContext('div', 'endElement')
+export const SidebarGroup = sui.div
+
+export const SidebarGroupHeader = sui.div
+
+export const SidebarGroupTitle = sui.h5
+
+export const SidebarGroupEndElement = sui.div
+
+export const SidebarGroupContent = sui.div
+
+export const SidebarNavItem = sui.div
+
+export interface SidebarNavButtonProps extends HTMLSystemProps<'button'> {
+  active?: boolean
+}
+
+export const SidebarNavButton = forwardRef<
+  HTMLButtonElement,
+  SidebarNavButtonProps
+>((props, ref) => {
+  const { children, active, ...rest } = props
+
+  return (
+    <sui.button ref={ref} data-active={dataAttr(active)} {...rest}>
+      {children}
+    </sui.button>
+  )
+})
+
+export const SidebarNavItemEndElement = sui.div

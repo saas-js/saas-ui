@@ -1,10 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": ".",
-    "customConditions": ["sui"]
+    "customConditions": ["sui"],
+    "paths": {
+      "#components/*": ["src/components/*"]
+    }
   },
+  "include": ["src/**/*"],
   "exclude": [
     "src/tests",
     "**/*.spec.ts",

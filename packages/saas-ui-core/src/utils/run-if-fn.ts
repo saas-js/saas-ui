@@ -8,3 +8,7 @@ export function runIfFn<T, U>(
 ): T {
   return isFunction(valueOrFn) ? valueOrFn(...args) : valueOrFn
 }
+
+export type MaybeRenderProp<P> =
+  | React.ReactNode
+  | ((props: P) => React.ReactNode)

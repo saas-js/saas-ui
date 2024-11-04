@@ -1,21 +1,20 @@
 import * as React from 'react'
 
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
-  AlertDialogProps,
-  ButtonGroup,
-  ButtonGroupProps,
-  Button,
-  ButtonProps,
-} from '@chakra-ui/react'
+import { Button, ButtonProps, Dialog } from '@chakra-ui/react'
 
 export interface ConfirmDialogProps
-  extends Omit<AlertDialogProps, 'leastDestructiveRef'> {
+  extends Omit<
+    Dialog.RootProps,
+    'leastDestructiveRef' | 'onOpenChange' | 'open'
+  > {
+  /**
+   * Whether the dialog is open
+   */
+  open: boolean
+  /**
+   * Callback when the dialog is opened or closed
+   */
+  onOpenChange: (details: Dialog.OpenChangeDetails) => void
   /**
    * The dialog title
    */
@@ -39,7 +38,7 @@ export interface ConfirmDialogProps
   /**
    * The button group props
    */
-  buttonGroupProps?: ButtonGroupProps
+  footerProps?: Dialog.FooterProps
   /**
    * Close the dialog on cancel
    * @default true
@@ -50,6 +49,14 @@ export interface ConfirmDialogProps
    * @default true
    */
   closeOnConfirm?: boolean
+  /**
+   * Hide the backdrop
+   */
+  hideBackdrop?: boolean
+  /**
+   * Hide the close button
+   */
+  hideCloseButton?: boolean
   /**
    * Defines which button gets initial focus
    * https://www.w3.org/TR/wai-aria-practices/#alertdialog
@@ -72,12 +79,14 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     confirmLabel = 'Confirm',
     cancelProps,
     confirmProps,
-    buttonGroupProps,
-    isOpen,
+    footerProps,
+    open,
     closeOnCancel = true,
     closeOnConfirm = true,
+    hideBackdrop = false,
+    hideCloseButton = false,
     leastDestructiveFocus = 'cancel',
-    onClose,
+    onOpenChange,
     onCancel,
     onConfirm,
     children,
@@ -96,7 +105,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         await result
       }
 
-      closeOnConfirm && onClose()
+      closeOnConfirm && onOpenChange({ open: false })
       /* eslint-disable no-useless-catch */
     } catch (e: any) {
       throw e
@@ -107,45 +116,47 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   }
 
   return (
-    <AlertDialog
-      isOpen={isOpen}
-      onClose={onClose}
+    <Dialog.Root
+      open={open}
+      onOpenChange={onOpenChange}
+      size="sm"
       {...rest}
-      leastDestructiveRef={
-        leastDestructiveFocus === 'cancel' ? cancelRef : confirmRef
+      initialFocusEl={() =>
+        leastDestructiveFocus === 'cancel'
+          ? cancelRef.current
+          : confirmRef.current
       }
     >
-      <AlertDialogOverlay>
-        <AlertDialogContent>
-          <AlertDialogHeader>{title}</AlertDialogHeader>
+      {!hideBackdrop && <Dialog.Backdrop />}
+      <Dialog.Positioner>
+        <Dialog.Content>
+          <Dialog.Header>{title}</Dialog.Header>
 
-          <AlertDialogBody>{children}</AlertDialogBody>
+          <Dialog.Body>{children}</Dialog.Body>
 
-          <AlertDialogFooter>
-            <ButtonGroup {...buttonGroupProps}>
-              <Button
-                ref={cancelRef}
-                {...cancelProps}
-                onClick={() => {
-                  onCancel?.()
+          <Dialog.Footer {...footerProps}>
+            <Button
+              ref={cancelRef}
+              {...cancelProps}
+              onClick={() => {
+                onCancel?.()
 
-                  closeOnCancel && onClose()
-                }}
-              >
-                {cancelProps?.children || cancelLabel}
-              </Button>
-              <Button
-                ref={confirmRef}
-                isLoading={isLoading}
-                {...confirmProps}
-                onClick={handleConfirm}
-              >
-                {confirmProps?.children || confirmLabel}
-              </Button>
-            </ButtonGroup>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialogOverlay>
-    </AlertDialog>
+                closeOnCancel && onOpenChange({ open: false })
+              }}
+            >
+              {cancelProps?.children || cancelLabel}
+            </Button>
+            <Button
+              ref={confirmRef}
+              disabled={isLoading}
+              {...confirmProps}
+              onClick={handleConfirm}
+            >
+              {confirmProps?.children || confirmLabel}
+            </Button>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog.Positioner>
+    </Dialog.Root>
   )
 }

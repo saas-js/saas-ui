@@ -2,11 +2,10 @@ import React from 'react'
 
 import { ChakraProvider } from '@chakra-ui/react'
 import '@fontsource-variable/inter'
+import { defaultSystem } from '@saas-ui/react'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import type { Preview, ReactRenderer } from '@storybook/react'
-
-import { defaultSystem } from '../../saas-ui-core/src/preset'
 
 /**
  * Add global context for RTL-LTR switching

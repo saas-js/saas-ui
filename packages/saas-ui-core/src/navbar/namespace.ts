@@ -4,6 +4,6 @@ export {
   NavbarBrand as Brand,
   NavbarItem as Item,
   NavbarLink as Link,
-} from './navbar'
+} from './navbar.tsx'
 
-export type { NavbarRootProps as RootProps } from './navbar'
+export type { NavbarRootProps as RootProps } from './navbar.tsx'

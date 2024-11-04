@@ -1,68 +1,60 @@
 import * as React from 'react'
 
 import { mergeRefs } from '@chakra-ui/react'
-import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
+
+import { type HTMLSystemProps, sui } from '#system'
+import { type MaybeRenderProp, cx, runIfFn } from '#utils'
 
 import {
-  type HTMLSystemProps,
-  type SlotRecipeProps,
-  createSlotRecipeContext,
-  sui,
-} from '#system'
-
-import { callAll, cx, dataAttr } from '../utils'
-import {
+  type GridListItemProps,
   GridListProvider,
   useGridList,
-  useGridListContext,
+  useGridListItem,
 } from './grid-list.context.ts'
 
-const {
-  useStyles: useGridListStyles,
-  withContext,
-  withProvider,
-} = createSlotRecipeContext({
-  key: 'gridList',
-})
-
-export { useGridListStyles }
-
 interface GridListRootOptions {
-  // /**
-  //  * An array of list items
-  //  */
-  // // items?: Array<GridListItemProps>
+  /**
+   * An array of list items
+   */
+  items?: Array<GridListItemProps>
+  /**
+   * The children to render inside the grid list
+   */
+  children?: MaybeRenderProp<{
+    items: GridListItemProps[]
+  }>
 }
 
 export interface GridListRootProps
   extends GridListRootOptions,
-    HTMLSystemProps<'ul'>,
-    SlotRecipeProps<'sui-grid-list'> {}
+    Omit<HTMLSystemProps<'ul'>, 'children'> {}
 
 /**
  * React component to render lists of data
  */
-export const GridListRoot = withProvider<HTMLUListElement, GridListRootProps>(
-  React.forwardRef((props, ref) => {
-    const { items, children, ...rest } = props
+export const GridListRoot = React.forwardRef<
+  HTMLUListElement,
+  GridListRootProps
+>((props, ref) => {
+  const { items, children, ...rest } = props
 
-    const { listProps, ...context } = useGridList(props)
+  const { listProps, ...context } = useGridList(props)
 
-    return (
-      <GridListProvider value={context}>
-        <sui.ul
-          ref={mergeRefs(ref, context.containerRef)}
-          {...rest}
-          {...listProps}
-          className={cx('sui-list', props.className)}
-        >
-          {children}
-        </sui.ul>
-      </GridListProvider>
-    )
-  }),
-  'root',
-)
+  return (
+    <GridListProvider value={context}>
+      <sui.ul
+        ref={mergeRefs(ref, context.containerRef)}
+        {...rest}
+        {...listProps}
+        className={cx('sui-list', props.className)}
+      >
+        {runIfFn(children, {
+          items: items ?? [],
+        })}
+      </sui.ul>
+    </GridListProvider>
+  )
+})
 
 export interface GridListHeaderProps extends HTMLSystemProps<'li'> {
   /**
@@ -75,26 +67,21 @@ export interface GridListHeaderProps extends HTMLSystemProps<'li'> {
   level?: number
 }
 
-export const GridListHeader = withContext<HTMLLIElement, GridListHeaderProps>(
-  'li',
-  'header',
-  {
-    defaultProps: {
-      role: 'heading',
-      level: 1,
-    },
-  },
-)
+export const GridListHeader = React.forwardRef<
+  HTMLLIElement,
+  GridListHeaderProps
+>((props, ref) => {
+  const { children, ...rest } = props
 
-export interface GridListItemProps extends HTMLSystemProps<'li'> {
-  disabled?: boolean
-}
+  return (
+    <sui.li ref={ref} {...rest}>
+      {children}
+    </sui.li>
+  )
+})
 
-/**
- * Adding `onClick` or `href` props will wrap the content in a `GridListButton`
- */
-export const GridListItem = withContext<HTMLLIElement, GridListItemProps>(
-  React.forwardRef((props, ref) => {
+export const GridListItem = React.forwardRef<HTMLLIElement, GridListItemProps>(
+  (props, ref) => {
     const { children, ...rest } = props
 
     const { itemProps } = useGridListItem(props)
@@ -104,86 +91,9 @@ export const GridListItem = withContext<HTMLLIElement, GridListItemProps>(
         {children}
       </sui.li>
     )
-  }),
-  'item',
+  },
 )
-
-const useGridListItem = (props: GridListItemProps) => {
-  const {
-    id: containerId,
-    containerRef,
-    focusId,
-    setFocusId,
-  } = useGridListContext()
-
-  const id = `${containerId}-${React.useId()}`
-  const buttonId = props.id ?? id
-
-  const isFocused = focusId === buttonId
-
-  function getItems() {
-    return queryAll(
-      containerRef.current,
-      `.sui-list__item-button:not([aria-disabled=true])`,
-    )
-  }
-
-  const itemProps = {
-    id: buttonId,
-    ['data-focus']: dataAttr(isFocused),
-    ['aria-disabled']: props.disabled ? true : undefined,
-    tabIndex: props.disabled ? -1 : 0,
-    onFocus: callAll(props.onFocus, () => {
-      setFocusId(buttonId)
-    }),
-    onKeyDown: callAll(
-      props.onKeyDown,
-      React.useCallback(
-        (e: React.KeyboardEvent) => {
-          const items = getItems()
-
-          const keyMap: Record<string, React.KeyboardEventHandler> = {
-            ArrowUp: () => {
-              prevById(items, buttonId)?.focus()
-            },
-            ArrowDown: () => {
-              nextById(items, buttonId)?.focus()
-            },
-            Home: () => {
-              items[0]?.focus()
-            },
-            End: () => {
-              items[items.length - 1]?.focus()
-            },
-          }
-
-          if (keyMap[e.key]) {
-            e.preventDefault()
-            keyMap[e.key](e)
-          }
-        },
-        [buttonId],
-      ),
-    ),
-    onClick: (e: React.MouseEvent<HTMLLIElement>) => {
-      if (props.disabled) {
-        e.preventDefault()
-        e.stopPropagation()
-        return
-      }
-
-      props.onClick?.(e)
-    },
-  }
-
-  return {
-    itemProps,
-  }
-}
 
 export interface GridListCellProps extends HTMLSystemProps<'div'> {}
 
-export const GridListCell = withContext<HTMLDivElement, GridListCellProps>(
-  'div',
-  'cell',
-)
+export const GridListCell = sui.div

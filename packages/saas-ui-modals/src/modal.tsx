@@ -1,32 +1,29 @@
 import * as React from 'react'
 
-import {
-  Modal as ChakraModal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  ModalProps as ChakraModalProps,
-  ModalContentProps,
-  ModalHeaderProps,
-  ModalFooterProps,
-} from '@chakra-ui/react'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
-import { runIfFn } from '@chakra-ui/utils'
+import { Dialog } from '@chakra-ui/react'
+import { MaybeRenderProp, runIfFn } from '@saas-ui/core/utils'
+import { CloseButton } from '@saas-ui/react/close-button'
 
-export interface BaseModalProps extends Omit<ChakraModalProps, 'children'> {
+export interface BaseModalProps
+  extends Omit<Dialog.RootProps, 'children' | 'onOpenChange'> {
   /**
    * The modal title
    */
   title?: React.ReactNode
   /**
+   * Whether the modal is open
+   */
+  open: boolean
+  /**
+   * Callback when the modal is opened or closed
+   */
+  onOpenChange: (details: Dialog.OpenChangeDetails) => void
+  /**
    * The modal children
    */
   children: MaybeRenderProp<{
-    isOpen: boolean
-    onClose: () => void
+    open: boolean
+    setOpen: (open: boolean) => void
   }>
   /**
    * The modal footer
@@ -39,19 +36,19 @@ export interface BaseModalProps extends Omit<ChakraModalProps, 'children'> {
   /**
    * Hide the overlay
    */
-  hideOverlay?: boolean
+  hideBackdrop?: boolean
   /**
    * Props for the modal header
    */
-  headerProps?: ModalHeaderProps
+  headerProps?: Dialog.HeaderProps
   /**
    * Props for the modal content
    */
-  contentProps?: ModalContentProps
+  contentProps?: Dialog.ContentProps
   /**
    * Props for the modal footer
    */
-  footerProps?: ModalFooterProps
+  footerProps?: Dialog.FooterProps
 }
 
 export const BaseModal: React.FC<BaseModalProps> = (props) => {
@@ -59,41 +56,45 @@ export const BaseModal: React.FC<BaseModalProps> = (props) => {
     title,
     footer,
     children,
-    isOpen,
-    onClose,
+    open,
+    onOpenChange,
     hideCloseButton,
-    hideOverlay,
+    hideBackdrop,
     headerProps,
     contentProps,
     footerProps,
     ...rest
   } = props
   return (
-    <ChakraModal isOpen={isOpen} onClose={onClose} {...rest}>
-      {!hideOverlay && <ModalOverlay />}
-      <ModalContent {...contentProps}>
-        {title && <ModalHeader {...headerProps}>{title}</ModalHeader>}
-        {!hideCloseButton && <ModalCloseButton />}
-        {runIfFn(children, {
-          isOpen,
-          onClose,
-        })}
-        {footer && <ModalFooter {...footerProps}>{footer}</ModalFooter>}
-      </ModalContent>
-    </ChakraModal>
+    <Dialog.Root open={open} onOpenChange={onOpenChange} {...rest}>
+      {!hideBackdrop && <Dialog.Backdrop />}
+      <Dialog.Positioner>
+        <Dialog.Content {...contentProps}>
+          {title && <Dialog.Header {...headerProps}>{title}</Dialog.Header>}
+          {!hideCloseButton && (
+            <Dialog.CloseTrigger asChild>
+              <CloseButton />
+            </Dialog.CloseTrigger>
+          )}
+          <Dialog.Context>
+            {({ open, setOpen }) => runIfFn(children, { open, setOpen })}
+          </Dialog.Context>
+          {footer && <Dialog.Footer {...footerProps}>{footer}</Dialog.Footer>}
+        </Dialog.Content>
+      </Dialog.Positioner>
+    </Dialog.Root>
   )
 }
 
 export const Modal: React.FC<BaseModalProps> = (props) => {
-  const { children, isOpen, onClose, ...rest } = props
+  const { children, open, onOpenChange, ...rest } = props
   return (
-    <BaseModal {...rest} isOpen={isOpen} onClose={onClose}>
-      <ModalBody>
-        {runIfFn(children, {
-          isOpen,
-          onClose,
-        })}
-      </ModalBody>
+    <BaseModal {...rest} open={open} onOpenChange={onOpenChange}>
+      <Dialog.Body>
+        <Dialog.Context>
+          {({ open, setOpen }) => runIfFn(children, { open, setOpen })}
+        </Dialog.Context>
+      </Dialog.Body>
     </BaseModal>
   )
 }

@@ -7,7 +7,7 @@ import { RiCloseLine, RiSearch2Line } from 'react-icons/ri'
 import { SearchInput, SearchInputProps } from './search-input'
 
 export default {
-  title: 'Components/Forms/SearchInput',
+  title: 'Components/SearchInput',
   component: SearchInput,
   decorators: [
     (Story: any) => (

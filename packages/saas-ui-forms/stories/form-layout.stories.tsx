@@ -1,10 +1,11 @@
-import { Container, Heading } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { Form, FormLayout, Field, SubmitButton, DisplayIf } from '../src'
+import { Container, Heading } from '@chakra-ui/react'
+
+import { DisplayIf, Field, Form, FormLayout, SubmitButton } from '../src'
 
 export default {
-  title: 'Components/Forms/FormLayout',
+  title: 'Forms/FormLayout',
   decorators: [
     (Story: any) => (
       <Container mt="40px">

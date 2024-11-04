@@ -3,18 +3,27 @@
   "version": "2.8.9",
   "description": "Saas UI - The React component library for startups.",
   "source": "src/index.ts",
+  "type": "module",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
-    "./src": {
-      "default": "./src/index.ts"
+    "./components/*": {
+      "sui": "./src/components/*/index.ts",
+      "types": "./dist/components/*/index.d.ts",
+      "require": "./dist/components/*/index.cjs",
+      "import": "./dist/components/*/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "imports": {
+    "#system": "./src/system",
+    "#components/*": "./src/components/*"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -64,5 +73,8 @@
     "@emotion/react": "^11",
     "react": ">=18",
     "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "react-icons": "^5.3.0"
   }
 }

@@ -1,4 +1,4 @@
-import { HTMLChakraProps, type SlotRecipeProps } from '@chakra-ui/react'
+import type { HTMLSystemProps } from '#system'
 
 export interface SidebarOptions {
   /**
@@ -21,9 +21,4 @@ export interface SidebarOptions {
   onOpenChange?: (open: boolean) => void
 }
 
-export interface SidebarProps
-  extends SidebarOptions,
-    HTMLChakraProps<'div'>,
-    SlotRecipeProps<'sidebar'> {}
-
-export interface SidebarSectionProps extends HTMLChakraProps<'div'> {}
+export interface SidebarProps extends SidebarOptions, HTMLSystemProps<'div'> {}

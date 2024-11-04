@@ -1,14 +1,12 @@
 import { LoadedClerk, SignInCreateParams, OAuthProvider } from '@clerk/types'
 
-import {} from '@clerk/clerk-react'
-
 import {
   AuthParams,
   AuthOptions,
   User,
   AuthProviderProps,
   AuthStateChangeCallback,
-} from '@saas-ui/auth'
+} from '@saas-ui/auth-provider'
 
 /**
  * Clerk auth service
@@ -17,12 +15,15 @@ import {
  * @param client Clerk
  * @returns {AuthProviderProps}
  */
-export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
-  if (!clerk?.client) {
-    throw new Error('Clerk client not available.')
-  }
-
+export const createAuthService = (
+  clerk: LoadedClerk
+): AuthProviderProps | undefined => {
   const client = clerk.client
+
+  if (!client) {
+    console.error('Clerk client not available.')
+    return
+  }
 
   let authCallback: AuthStateChangeCallback | null
 
@@ -64,25 +65,28 @@ export const createAuthService = (clerk: LoadedClerk): AuthProviderProps => {
       return onLoadUser()
     }
 
-    /* @ts-ignore */
-    const { emailAddressId } = signIn.supportedFirstFactors.find(
+    const firstFactor = signIn.supportedFirstFactors?.find(
       (ff) => ff.strategy === 'email_link' && ff.safeIdentifier === params.email
     )
 
-    const { startMagicLinkFlow } = client.signIn.createMagicLinkFlow()
+    if (firstFactor && 'emailAddressId' in firstFactor) {
+      const emailAddressId = firstFactor.emailAddressId
 
-    startMagicLinkFlow({
-      emailAddressId: emailAddressId,
-      redirectUrl: window.location.href + '/#ml_callback',
-    }).then(async (result) => {
-      if (result.status === 'complete') {
-        await clerk.setActive({
-          session: result.createdSessionId,
-        })
+      const { startEmailLinkFlow } = client.signIn.createEmailLinkFlow()
 
-        authCallback?.(await onLoadUser())
-      }
-    })
+      startEmailLinkFlow({
+        emailAddressId: emailAddressId,
+        redirectUrl: window.location.href + '/#ml_callback',
+      }).then(async (result) => {
+        if (result.status === 'complete') {
+          await clerk.setActive({
+            session: result.createdSessionId,
+          })
+
+          authCallback?.(await onLoadUser())
+        }
+      })
+    }
   }
 
   const onAuthStateChange = (callback: AuthStateChangeCallback) => {

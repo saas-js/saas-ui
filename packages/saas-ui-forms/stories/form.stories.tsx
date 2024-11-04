@@ -1,48 +1,44 @@
-import { StoryObj } from '@storybook/react'
-import {
-  Container,
-  Stack,
-  Button,
-  FormControl,
-  Input,
-  FormLabel,
-  HStack,
-  Tooltip,
-  forwardRef,
-  Box,
-  FormHelperText,
-  FormErrorMessage,
-} from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as yup from 'yup'
+import {
+  Box,
+  Button,
+  Container,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
+  FormLabel,
+  HStack,
+  Input,
+  Stack,
+  Tooltip,
+  forwardRef,
+} from '@chakra-ui/react'
+import { splitProps } from '@saas-ui/core/utils'
+import { StoryObj } from '@storybook/react'
+import { LuInfo } from 'react-icons/lu'
 import { z } from 'zod'
 
-import { LuInfo } from 'react-icons/lu'
-import { splitProps } from '@saas-ui/core/utils'
-
-import { createYupForm } from '../yup/src'
-import { createZodForm } from '../zod/src'
 import { JTDDataType, createAjvForm } from '../ajv/src'
-
 import {
+  DisplayIf,
+  Field,
   Form,
   FormLayout,
-  Field,
-  DisplayIf,
   SubmitButton,
-  createForm,
   UseFormReturn,
   createField,
+  createForm,
   useBaseField,
 } from '../src'
-
+import { GetBaseField } from '../src/types'
+import { createYupForm } from '../yup/src'
+import { createZodForm } from '../zod/src'
 import { onSubmit } from './helpers'
 
-import { GetBaseField } from '../src/types'
-
 export default {
-  title: 'Components/Forms/Form',
+  title: 'Forms/Form',
   component: Form,
   decorators: [
     (Story: any) => (
@@ -124,7 +120,7 @@ export const WithValidationRules: Story = {
 }
 
 const CustomField = createField<{ customFieldProp?: string }>(
-  forwardRef((props, ref) => <div ref={ref}>{props.customFieldProp}</div>)
+  forwardRef((props, ref) => <div ref={ref}>{props.customFieldProp}</div>),
 )
 
 const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {

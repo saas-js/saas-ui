@@ -1,28 +1,9 @@
 import * as React from 'react'
-import { Button, Stack, Container, MenuItem } from '@chakra-ui/react'
+
+import { Button, Container, Stack } from '@chakra-ui/react'
 
 import { createModals } from '../src'
-import { MenuDialogList } from '../src/menu'
-
-import { FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
-import { FormDialog } from '../src/form'
-import { createField } from '@saas-ui/forms'
-import { createZodForm, createZodFormDialog } from '@saas-ui/forms/zod'
-
-import * as z from 'zod'
-
-const CustomField = createField((props: { customFieldProps: string }) => (
-  <div>custom</div>
-))
-
-const ZodForm = createZodForm({
-  fields: {
-    custom: CustomField,
-  },
-})
-
-const ZodFormDialog = createZodFormDialog(ZodForm)
 
 interface CustomModalProps extends Omit<BaseModalProps, 'children'> {
   customProp: 'test'
@@ -43,12 +24,11 @@ const CustomModal: React.FC<CustomModalProps> = ({
 const { ModalsProvider: ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
-    form: ZodFormDialog,
   },
 })
 
 export default {
-  title: 'Components/Overlay/Modals Manager',
+  title: 'Modals/Modals Manager',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -160,43 +140,11 @@ export const Basic = () => {
           modals.drawer({
             title: 'My drawer',
             body: 'My drawer',
-            placement: 'left',
+            placement: 'end',
           })
         }
       >
         Open left drawer
-      </Button>
-      <Button
-        onClick={() =>
-          modals.menu({
-            title: 'Menu',
-            body: (
-              <MenuDialogList>
-                <MenuItem>Item 1</MenuItem>
-                <MenuItem>Item 1</MenuItem>
-              </MenuDialogList>
-            ),
-          })
-        }
-      >
-        Open menu dialog
-      </Button>
-      <Button
-        onClick={() => {
-          modals.form({
-            title: 'Form',
-            schema: z.object({
-              title: z.string(),
-            }),
-            defaultValues: {
-              title: 'My title',
-            },
-            onError: (error) => console.log(error),
-            onSubmit: ({ title }) => Promise.resolve(),
-          })
-        }}
-      >
-        Open form dialog
       </Button>
     </Stack>
   )
@@ -213,78 +161,6 @@ export const Custom = () => {
           type: 'custom',
           children: 'My modal',
           customProp: 'test',
-        })
-      }
-    >
-      Open modal
-    </Button>
-  )
-}
-
-export const Form = () => {
-  const modals = useModals()
-
-  return (
-    <Button
-      onClick={() => {
-        const id = modals.form({
-          title: 'My Modal',
-          schema: z.object({
-            title: z.string(),
-          }),
-          onError: (error) => console.error('error', error),
-          onChange: (values) => console.log('change', values),
-          children: ({ Field }) => (
-            <FormLayout>
-              <Field name="title" label="Title" />
-            </FormLayout>
-          ),
-          defaultValues: {
-            title: 'My title',
-          },
-          onSubmit: (data) =>
-            new Promise((resolve) => {
-              setTimeout(() => {
-                resolve(null)
-                modals.closeAll()
-              }, 2000)
-            }),
-        })
-      }}
-    >
-      Open modal
-    </Button>
-  )
-}
-
-export const CustomForm = () => {
-  const modals = useModals()
-
-  return (
-    <Button
-      onClick={() =>
-        modals.open(FormDialog, {
-          title: 'My Modal',
-          schema: z.object({
-            title: z.string(),
-          }),
-          onError: (error) => console.error('error', error),
-          onChange: (values) => console.log('change', values),
-          children: ({ Field }) => (
-            <FormLayout>
-              <Field name="title" label="Title" />
-            </FormLayout>
-          ),
-          defaultValues: {
-            title: 'My title',
-          },
-          onSubmit: (data) =>
-            new Promise((resolve) => {
-              setTimeout(() => {
-                resolve(null)
-                modals.closeAll()
-              }, 2000)
-            }),
         })
       }
     >

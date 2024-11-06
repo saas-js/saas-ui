@@ -3,14 +3,18 @@
 import * as React from 'react'
 import { cloneElement, isValidElement } from 'react'
 
-import { type HTMLSystemProps, RecipeProps, sui, useRecipe } from '#system'
-
-import { cx } from '../utils'
+import {
+  type HTMLChakraProps,
+  RecipeProps,
+  chakra,
+  useRecipe,
+} from '@chakra-ui/react'
+import { cx } from '@saas-ui/core/utils'
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface IconBadgeProps
-  extends HTMLSystemProps<'div'>,
+  extends HTMLChakraProps<'div'>,
     RecipeProps<'iconBadge'> {
   /**
    * The icon to display
@@ -42,14 +46,14 @@ export const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(
       : null
 
     return (
-      <sui.div
+      <chakra.div
         ref={ref}
         {...localProps}
         css={[styles, props.css]}
         className={cx(recipe.className, props.className)}
       >
         {_children}
-      </sui.div>
+      </chakra.div>
     )
   },
 )

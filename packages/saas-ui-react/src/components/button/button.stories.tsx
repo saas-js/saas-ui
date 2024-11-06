@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HStack } from '@chakra-ui/react'
+import { Box, HStack, Stack } from '@chakra-ui/react'
 
 import { Button } from './button.tsx'
 
@@ -17,14 +17,83 @@ export const Default = {
 
 export const Variants = {
   render: () => (
+    <Stack gap="4">
+      <HStack>
+        <Button variant="glass" colorPalette="indigo">
+          Primary
+        </Button>
+        <Button variant="surface">Secondary</Button>
+      </HStack>
+      <HStack>
+        <Button variant="solid">Solid</Button>
+        <Button variant="glass">Glass</Button>
+        <Button variant="surface">Surface</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="subtle">Subtle</Button>
+        <Button variant="ghost">Ghost</Button>
+      </HStack>
+      <HStack>
+        <Button variant="solid" colorPalette="neutral">
+          Solid
+        </Button>
+        <Button variant="glass" colorPalette="neutral">
+          Glass
+        </Button>
+        <Button variant="surface" colorPalette="neutral">
+          Surface
+        </Button>
+        <Button variant="outline" colorPalette="neutral">
+          Outline
+        </Button>
+        <Button variant="subtle" colorPalette="neutral">
+          Subtle
+        </Button>
+        <Button variant="ghost" colorPalette="neutral">
+          Ghost
+        </Button>
+      </HStack>
+      <HStack>
+        <Button variant="solid" colorPalette="blue">
+          Solid
+        </Button>
+        <Button variant="glass" colorPalette="blue">
+          Glass
+        </Button>
+        <Button variant="surface" colorPalette="blue">
+          Surface
+        </Button>
+        <Button variant="outline" colorPalette="blue">
+          Outline
+        </Button>
+        <Button variant="subtle" colorPalette="blue">
+          Subtle
+        </Button>
+        <Button variant="ghost" colorPalette="blue">
+          Ghost
+        </Button>
+      </HStack>
+    </Stack>
+  ),
+}
+
+export const Sizes = {
+  render: () => (
     <HStack>
-      <Button>Default</Button>
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="subtle">Subtle</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="plain">Plain</Button>
+      <Button size="xs" variant="glass">
+        XSmall
+      </Button>
+      <Button size="sm" variant="glass">
+        Small
+      </Button>
+      <Button size="md" variant="glass">
+        Medium
+      </Button>
+      <Button size="lg" variant="glass">
+        Large
+      </Button>
+      <Button size="xl" variant="glass">
+        XLarge
+      </Button>
     </HStack>
   ),
 }

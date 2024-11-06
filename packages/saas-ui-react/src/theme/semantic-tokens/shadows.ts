@@ -3,14 +3,14 @@ import { defineSemanticTokens } from '@chakra-ui/react'
 export const semanticShadows = defineSemanticTokens.shadows({
   xs: {
     value: {
-      base: '0px 1px 2px {colors.blackAlpha.300}, 0px 0px 1px {colors.blackAlpha.400}',
+      base: '0px 1px 2px {colors.blackAlpha.300}, 0px 0px 1px {colors.blackAlpha.100}',
       _dark:
         '0px 1px 1px {colors.blackAlpha.800}, 0px 0px 1px inset {colors.whiteAlpha.300}',
     },
   },
   sm: {
     value: {
-      base: '0px 2px 4px {colors.blackAlpha.300}, 0px 0px 1px {colors.blackAlpha.100}',
+      base: '0px 4px 4px -1px {colors.blackAlpha.50}, 0px 0px 1px 1px {colors.blackAlpha.100}',
       _dark:
         '0px 2px 4px {colors.blackAlpha.700}, 0px 0px 1px inset {colors.whiteAlpha.400}',
     },

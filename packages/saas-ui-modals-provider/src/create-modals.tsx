@@ -1,4 +1,3 @@
-import { defaultModals } from './default-modals'
 import {
   ModalsContextValue,
   ModalsProvider,
@@ -7,18 +6,15 @@ import {
 } from './provider'
 
 export interface CreateModalsOptions<
-  TModalDefs extends Record<string, React.FC<any>>
+  TModalDefs extends Record<string, React.FC<any>>,
 > {
   modals: TModalDefs
 }
 
 export const createModals = <TModalDefs extends Record<string, React.FC<any>>>(
-  options: CreateModalsOptions<TModalDefs>
+  options: CreateModalsOptions<TModalDefs>,
 ) => {
-  const modals = {
-    ...defaultModals,
-    ...options.modals,
-  }
+  const modals = options.modals
   const Provider = (props: Omit<ModalsProviderProps, 'modals'>) => {
     return <ModalsProvider children={props.children} modals={modals} />
   }

@@ -1,12 +1,10 @@
 import * as React from 'react'
 
-import { defaultModals } from './default-modals'
-import { ConfirmDialogProps } from './dialog'
-import { DrawerProps } from './drawer'
-import { BaseModalProps } from './modal'
-
 export interface ModalsContextValue<
-  TModals extends Record<string, React.FC<any>> = Record<string, React.FC<any>>,
+  TModals extends Record<string, React.ComponentType<any>> = Record<
+    string,
+    React.ComponentType<any>
+  >,
   TTypes extends Extract<keyof TModals, string> = Extract<
     keyof TModals,
     string
@@ -14,7 +12,7 @@ export interface ModalsContextValue<
 > {
   open: <T extends OpenOptions<TTypes>>(
     componentOrOptions: T extends {
-      component: infer TComponent extends React.FC<any>
+      component: infer TComponent extends React.ComponentType<any>
     }
       ? WithModalOptions<React.ComponentPropsWithRef<TComponent>>
       : T extends {
@@ -26,47 +24,52 @@ export interface ModalsContextValue<
       ? WithModalOptions<React.ComponentPropsWithRef<T>>
       : never,
   ) => ModalId
-  drawer: (options: DrawerOptions) => ModalId
-  alert: (options: ConfirmDialogOptions) => ModalId
-  confirm: (options: ConfirmDialogOptions) => ModalId
+  alert: <T extends AlertDialogOptions>(options: T) => ModalId
+  confirm: <T extends ConfirmDialogOptions>(options: T) => ModalId
   close: (id: ModalId) => void
   closeAll: () => void
 }
 
 export const ModalsContext = React.createContext<ModalsContextValue<
-  typeof defaultModals
+  Record<string, React.ComponentType<any>>
 > | null>(null)
 
 export interface ModalsProviderProps<
-  TModals extends Record<string, React.FC<any>> = Record<string, React.FC<any>>,
+  TModals extends Record<string, React.ComponentType<any>> = Record<
+    string,
+    React.FC<any>
+  >,
 > {
   children: React.ReactNode
   modals?: TModals
+  render?: (props: ModalsContextValue<TModals>) => React.ReactNode
 }
 
 export type ModalId = string | number
 
 type WithModalOptions<T> = Omit<T, 'open' | 'onOpenChange'> & ModalOptions
 
-interface ModalOptions
-  extends Omit<
-    BaseModalProps,
-    'open' | 'onOpenChange' | 'placement' | 'children'
-  > {
+export interface ModalOptions {
+  title?: string
+  children?: React.ReactNode
+  open?: boolean
+  onOpenChange?: (details: { open: boolean }) => void
   onClose?: (args: { force?: boolean }) => Promise<boolean | undefined> | void
   [key: string]: any
 }
 
-export interface DrawerOptions
-  extends Omit<ModalOptions, 'placement'>,
-    Omit<
-      DrawerProps,
-      'open' | 'onOpenChange' | 'children' | 'title' | 'size'
-    > {}
+export interface AlertDialogOptions extends ModalOptions {
+  onConfirm?: () => Promise<void> | void
+  confirmProps?: React.HTMLProps<HTMLButtonElement>
+}
 
-export interface ConfirmDialogOptions
-  extends ModalOptions,
-    Omit<ConfirmDialogProps, 'open' | 'onOpenChange' | 'children'> {}
+export interface ConfirmDialogOptions extends ModalOptions {
+  leastDestructiveFocus?: 'cancel' | 'confirm'
+  onConfirm?: () => Promise<void> | void
+  onCancel?: () => Promise<void> | void
+  confirmProps?: React.HTMLProps<HTMLButtonElement>
+  cancelProps?: React.HTMLProps<HTMLButtonElement>
+}
 
 export interface OpenOptions<TModalTypes extends string> extends ModalOptions {
   type?: TModalTypes
@@ -105,7 +108,7 @@ export interface ModalConfig<
    * Render a custom modal component.
    * This will ignore the `type` param.
    */
-  component?: React.FC<BaseModalProps>
+  component?: React.ComponentType<ModalOptions>
   /**
    * Whether the modal is open or not.
    * This is used internally to keep track of the modal state.
@@ -131,10 +134,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   })
 
   const getModalComponent = React.useMemo(() => {
-    const _modals: Record<string, React.FC<any>> = {
-      ...defaultModals,
-      ...modals,
-    }
+    const _modals: Record<string, React.ComponentType<any>> = modals || {}
 
     return (type = 'modal') => {
       const component = _modals[type] || _modals.modal
@@ -200,29 +200,12 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
     [_instances],
   )
 
-  const drawer = React.useCallback(
-    (options: DrawerOptions) => {
-      return open<DrawerOptions>({
-        ...options,
-        type: 'drawer',
-      })
-    },
-    [open],
-  )
-
   const alert = React.useCallback(
     (options: ConfirmDialogOptions) => {
       return open({
         ...options,
-        scope: 'alert',
         type: 'alert',
-        cancelProps: {
-          display: 'none',
-        },
-        confirmProps: {
-          label: 'OK',
-        },
-        leastDestructiveFocus: 'confirm',
+        scope: 'alert',
       })
     },
     [open],
@@ -230,10 +213,10 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
 
   const confirm = React.useCallback(
     (options: ConfirmDialogOptions) => {
-      return open<ConfirmDialogOptions>({
+      return open({
         ...options,
-        scope: 'alert',
         type: 'confirm',
+        scope: 'alert',
       })
     },
     [open],
@@ -305,13 +288,12 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
   const context = React.useMemo(
     () => ({
       open,
-      drawer,
       alert,
       confirm,
       close,
       closeAll,
     }),
-    [open, drawer, alert, confirm, close, closeAll],
+    [open, alert, confirm, close, closeAll],
   )
 
   const content = React.useMemo(
@@ -319,13 +301,13 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       Object.entries(activeModals).map(([scope, config]) => {
         const Component = config.component || getModalComponent(config.type)
 
-        const { title, body, children, ...props } = config.props || {}
+        const { title, children, ...props } = config.props || {}
 
         return (
           <Component
             key={scope}
             title={title}
-            children={body || children}
+            children={children}
             {...props}
             open={!!config.open}
             onOpenChange={(details) =>
@@ -335,7 +317,7 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
           />
         )
       }),
-    [activeModals],
+    [activeModals, getModalComponent],
   )
 
   return (

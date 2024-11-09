@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { Drawer as ChakraDrawer, IconButton } from '@chakra-ui/react'
+import { type HTMLChakraProps } from '@chakra-ui/react'
 import { MaybeRenderProp, runIfFn } from '@saas-ui/core/utils'
+import { Drawer as BaseDrawer } from '@saas-ui/react/drawer'
 
-export interface BaseDrawerProps
-  extends Omit<ChakraDrawer.RootProps, 'children'> {
+export interface DrawerProps extends Omit<BaseDrawer.RootProps, 'children'> {
   /**
    * The drawer title
    */
@@ -16,7 +16,7 @@ export interface BaseDrawerProps
   /**
    * Callback when the drawer is opened or closed
    */
-  onOpenChange: (details: ChakraDrawer.OpenChangeDetails) => void
+  onOpenChange: (details: { open: boolean }) => void
   /**
    * The drawer children
    */
@@ -39,18 +39,22 @@ export interface BaseDrawerProps
   /**
    * Props for the modal header
    */
-  headerProps?: ChakraDrawer.HeaderProps
+  headerProps?: HTMLChakraProps<'div'>
   /**
    * Props for the modal content
    */
-  contentProps?: ChakraDrawer.ContentProps
+  contentProps?: BaseDrawer.ContentProps
   /**
    * Props for the modal footer
    */
-  footerProps?: ChakraDrawer.FooterProps
+  footerProps?: HTMLChakraProps<'div'>
+  /**
+   * Props for the modal body
+   */
+  bodyProps?: HTMLChakraProps<'div'>
 }
 
-export const BaseDrawer: React.FC<BaseDrawerProps> = (props) => {
+export const Drawer: React.FC<DrawerProps> = (props) => {
   const {
     title,
     children,
@@ -61,50 +65,27 @@ export const BaseDrawer: React.FC<BaseDrawerProps> = (props) => {
     hideBackdrop,
     headerProps,
     contentProps,
+    bodyProps,
     footerProps,
     ...rest
   } = props
   return (
-    <ChakraDrawer.Root open={open} onOpenChange={onOpenChange} {...rest}>
-      {!hideBackdrop && <ChakraDrawer.Backdrop />}
-      <ChakraDrawer.Positioner>
-        <ChakraDrawer.Content {...contentProps}>
-          {title && (
-            <ChakraDrawer.Header {...headerProps}>{title}</ChakraDrawer.Header>
-          )}
-          {!hideCloseButton && (
-            <ChakraDrawer.CloseTrigger>
-              <IconButton variant="ghost" />
-            </ChakraDrawer.CloseTrigger>
-          )}
-          <ChakraDrawer.Context>
+    <BaseDrawer.Root open={open} onOpenChange={onOpenChange} {...rest}>
+      {!hideBackdrop && <BaseDrawer.Backdrop />}
+      <BaseDrawer.Content {...contentProps}>
+        {title && (
+          <BaseDrawer.Header {...headerProps}>{title}</BaseDrawer.Header>
+        )}
+        {!hideCloseButton && <BaseDrawer.CloseTrigger />}
+        <BaseDrawer.Body {...bodyProps}>
+          <BaseDrawer.Context>
             {({ open, setOpen }) => runIfFn(children, { open, setOpen })}
-          </ChakraDrawer.Context>
-          {footer && (
-            <ChakraDrawer.Footer {...footerProps}>{footer}</ChakraDrawer.Footer>
-          )}
-        </ChakraDrawer.Content>
-      </ChakraDrawer.Positioner>
-    </ChakraDrawer.Root>
-  )
-}
-
-export interface DrawerProps extends BaseDrawerProps {
-  /**
-   * Drawer footer content, wrapped with `DrawerFooter`
-   */
-  footer?: React.ReactNode
-}
-
-export const Drawer: React.FC<DrawerProps> = (props) => {
-  const { children, ...rest } = props
-  return (
-    <BaseDrawer {...rest}>
-      <ChakraDrawer.Body>
-        <ChakraDrawer.Context>
-          {({ open, setOpen }) => runIfFn(children, { open, setOpen })}
-        </ChakraDrawer.Context>
-      </ChakraDrawer.Body>
-    </BaseDrawer>
+          </BaseDrawer.Context>
+        </BaseDrawer.Body>
+        {footer && (
+          <BaseDrawer.Footer {...footerProps}>{footer}</BaseDrawer.Footer>
+        )}
+      </BaseDrawer.Content>
+    </BaseDrawer.Root>
   )
 }

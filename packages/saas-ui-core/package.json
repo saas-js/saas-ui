@@ -1,7 +1,7 @@
 {
   "name": "@saas-ui/core",
   "version": "2.5.5",
-  "description": "Saas UI - The React component library for startups.",
+  "description": "Unstyled primitives for building React applications.",
   "type": "module",
   "exports": {
     ".": {
@@ -60,24 +60,22 @@
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
-    "directory": "packages/saas-ui-react"
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-core"
   },
   "keywords": [
     "react",
     "ui",
-    "chakra-ui",
     "design-system",
     "react-components",
     "uikit",
     "accessible",
     "components",
-    "emotion",
     "library"
   ],
   "storybook": {
@@ -86,24 +84,16 @@
   },
   "dependencies": {
     "@ark-ui/react": "^4.2.0",
-    "@react-aria/interactions": "^3.22.4",
     "@react-aria/utils": "^3.25.3",
-    "@saas-ui/theme": "workspace:*",
     "@zag-js/dom-event": "^0.77.0",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=3.0.0-next.13",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^3.0.2",
-    "@react-types/shared": "^3.25.0",
     "jotai": "^2.10.1",
-    "react-icons": "^5.3.0",
     "tsup": "^8.3.5"
   }
 }

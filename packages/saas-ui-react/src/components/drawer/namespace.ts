@@ -10,4 +10,10 @@ export {
   DrawerDescription as Description,
   DrawerTitle as Title,
   DrawerTrigger as Trigger,
+  DrawerContext as Context,
+} from './drawer.tsx'
+
+export type {
+  DrawerContentProps as ContentProps,
+  DrawerRootProps as RootProps,
 } from './drawer.tsx'

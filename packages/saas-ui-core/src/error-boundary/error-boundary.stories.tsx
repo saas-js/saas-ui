@@ -1,11 +1,8 @@
 import * as React from 'react'
 
-import { Button, EmptyState } from '@chakra-ui/react'
 import { Meta } from '@storybook/react'
 
-import { system } from '../preset.ts'
-import { SuiProvider } from '../provider/sui-provider.tsx'
-import { ErrorBoundary } from './'
+import { ErrorBoundary, ErrorProvider } from './'
 
 export default {
   title: 'Utilities/ErrorBoundary',
@@ -13,12 +10,9 @@ export default {
   decorators: [
     (Story) => {
       return (
-        <SuiProvider
-          value={system}
-          onError={(err) => console.log('ERROR', err)}
-        >
+        <ErrorProvider onError={(err) => console.log('ERROR', err)}>
           <Story />
-        </SuiProvider>
+        </ErrorProvider>
       )
     },
   ],
@@ -41,15 +35,10 @@ export const CustomFallback = () => {
   return (
     <ErrorBoundary
       fallback={
-        <EmptyState.Root>
-          <EmptyState.Title>Whoops, this was not expected</EmptyState.Title>
-          <EmptyState.Description>
-            Something terribly went wrong, but it's not your fault.
-          </EmptyState.Description>
-          <EmptyState.Content>
-            <Button>Refresh</Button>
-          </EmptyState.Content>
-        </EmptyState.Root>
+        <div>
+          <h1>Whoops, this was unexpected</h1>
+          <p>Something terribly went wrong, but it's not your fault.</p>
+        </div>
       }
     >
       <Err />

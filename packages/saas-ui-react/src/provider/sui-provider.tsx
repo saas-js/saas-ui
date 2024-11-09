@@ -4,7 +4,6 @@ import { ChakraProvider, ChakraProviderProps } from '@chakra-ui/react'
 
 export interface SuiContextValue {
   linkComponent?: React.ElementType<any>
-  onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
 export const SuiContext = React.createContext<SuiContextValue>({})
@@ -18,10 +17,12 @@ export interface SuiProviderProps extends ChakraProviderProps {
 export function SuiProvider(props: SuiProviderProps) {
   const { linkComponent, onError, children, ...rest } = props
 
-  const context = {
-    linkComponent,
-    onError,
-  }
+  const context = React.useMemo(
+    () => ({
+      linkComponent,
+    }),
+    [],
+  )
 
   return (
     <SuiContext.Provider value={context}>

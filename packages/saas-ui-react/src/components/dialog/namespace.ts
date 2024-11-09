@@ -10,4 +10,9 @@ export {
   DialogDescription as Description,
   DialogTitle as Title,
   DialogTrigger as Trigger,
+  DialogContext as Context,
+} from './dialog.tsx'
+export type {
+  DialogContentProps as ContentProps,
+  DialogRootProps as RootProps,
 } from './dialog.tsx'

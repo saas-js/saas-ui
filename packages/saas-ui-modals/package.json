@@ -5,28 +5,22 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
     "./zod": {
+      "sui": "./src/zod/index.ts",
       "types": "./dist/zod/index.d.ts",
       "require": "./dist/zod/index.js",
       "import": "./dist/zod/index.mjs"
     },
-    "./zod/src": {
-      "default": "./src/zod/index.ts"
-    },
     "./yup": {
+      "sui": "./src/yup/index.ts",
       "types": "./dist/yup/index.d.ts",
       "require": "./dist/yup/index.js",
       "import": "./dist/yup/index.mjs"
-    },
-    "./yup/src": {
-      "default": "./src/yup/index.ts"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
   "typesVersions": {
@@ -59,7 +53,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
@@ -87,7 +81,8 @@
   "dependencies": {
     "@saas-ui/core": "workspace:*",
     "@saas-ui/forms": "workspace:*",
-    "@saas-ui/hooks": "workspace:*"
+    "@saas-ui/hooks": "workspace:*",
+    "@saas-ui/modals-provider": "workspace:*"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^3.0.0",

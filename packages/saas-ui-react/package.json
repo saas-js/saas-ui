@@ -11,7 +11,7 @@
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
-    "./components/*": {
+    "./*": {
       "sui": "./src/components/*/index.ts",
       "types": "./dist/components/*/index.d.ts",
       "require": "./dist/components/*/index.cjs",
@@ -40,7 +40,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {

@@ -1,8 +1,10 @@
 import * as React from 'react'
 
-import { Button, ButtonProps, Dialog } from '@chakra-ui/react'
+import { Button, ButtonProps, type HTMLChakraProps } from '@chakra-ui/react'
+import { callAll } from '@saas-ui/core/utils'
+import { Dialog } from '@saas-ui/react/dialog'
 
-export interface ConfirmDialogProps
+export interface AlertDialogProps
   extends Omit<
     Dialog.RootProps,
     'leastDestructiveRef' | 'onOpenChange' | 'open'
@@ -14,31 +16,21 @@ export interface ConfirmDialogProps
   /**
    * Callback when the dialog is opened or closed
    */
-  onOpenChange: (details: Dialog.OpenChangeDetails) => void
+  onOpenChange: (details: { open: boolean }) => void
   /**
    * The dialog title
    */
   title?: React.ReactNode
-  /**
-   * The cancel button label
-   */
-  cancelLabel?: React.ReactNode
-  /**
-   * The confirm button label
-   */
-  confirmLabel?: React.ReactNode
-  /**
-   * The cancel button props
-   */
-  cancelProps?: ButtonProps
-  /**
-   * The confirm button props
-   */
-  confirmProps?: ButtonProps
-  /**
-   * The button group props
-   */
-  footerProps?: Dialog.FooterProps
+  translations?: {
+    cancel?: React.ReactNode
+    confirm?: React.ReactNode
+    close?: React.ReactNode
+  }
+  slotProps?: {
+    cancel?: ButtonProps
+    confirm?: ButtonProps
+    footer?: HTMLChakraProps<'div'>
+  }
   /**
    * Close the dialog on cancel
    * @default true
@@ -52,7 +44,7 @@ export interface ConfirmDialogProps
   /**
    * Hide the backdrop
    */
-  hideBackdrop?: boolean
+  backdrop?: boolean
   /**
    * Hide the close button
    */
@@ -72,19 +64,14 @@ export interface ConfirmDialogProps
   onConfirm?: () => Promise<void> | void
 }
 
-export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
+export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
   const {
     title,
-    cancelLabel = 'Cancel',
-    confirmLabel = 'Confirm',
-    cancelProps,
-    confirmProps,
-    footerProps,
+    translations,
+    slotProps,
     open,
     closeOnCancel = true,
     closeOnConfirm = true,
-    hideBackdrop = false,
-    hideCloseButton = false,
     leastDestructiveFocus = 'cancel',
     onOpenChange,
     onCancel,
@@ -115,11 +102,16 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     /* eslint-enable */
   }
 
+  const titleId = React.useId()
+  const contentId = React.useId()
+
   return (
     <Dialog.Root
       open={open}
       onOpenChange={onOpenChange}
       size="sm"
+      aria-labelledby={titleId}
+      aria-describedby={contentId}
       {...rest}
       initialFocusEl={() =>
         leastDestructiveFocus === 'cancel'
@@ -127,36 +119,38 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
           : confirmRef.current
       }
     >
-      {!hideBackdrop && <Dialog.Backdrop />}
-      <Dialog.Positioner>
-        <Dialog.Content>
-          <Dialog.Header>{title}</Dialog.Header>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title id={titleId}>{title}</Dialog.Title>
+        </Dialog.Header>
 
-          <Dialog.Body>{children}</Dialog.Body>
+        <Dialog.Body id={contentId}>{children}</Dialog.Body>
 
-          <Dialog.Footer {...footerProps}>
-            <Button
-              ref={cancelRef}
-              {...cancelProps}
-              onClick={() => {
-                onCancel?.()
+        <Dialog.Footer {...slotProps?.footer}>
+          <Button
+            ref={cancelRef}
+            variant="ghost"
+            colorPalette="gray"
+            {...slotProps?.cancel}
+            onClick={callAll(slotProps?.cancel?.onClick, () => {
+              onCancel?.()
 
-                closeOnCancel && onOpenChange({ open: false })
-              }}
-            >
-              {cancelProps?.children || cancelLabel}
-            </Button>
-            <Button
-              ref={confirmRef}
-              disabled={isLoading}
-              {...confirmProps}
-              onClick={handleConfirm}
-            >
-              {confirmProps?.children || confirmLabel}
-            </Button>
-          </Dialog.Footer>
-        </Dialog.Content>
-      </Dialog.Positioner>
+              closeOnCancel && onOpenChange({ open: false })
+            })}
+          >
+            {slotProps?.cancel?.children || translations?.cancel || 'Cancel'}
+          </Button>
+          <Button
+            ref={confirmRef}
+            variant="solid"
+            disabled={isLoading}
+            {...slotProps?.confirm}
+            onClick={callAll(handleConfirm, slotProps?.confirm?.onClick)}
+          >
+            {slotProps?.confirm?.children || translations?.confirm || 'OK'}
+          </Button>
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog.Root>
   )
 }

@@ -1,12 +1,11 @@
 import * as React from 'react'
 
 import { Button, Container, Stack } from '@chakra-ui/react'
-import { createModals } from '@saas-ui/modals-provider'
 
-import { ModalsProvider, useModals } from '../src/index.ts'
-import { Modal, ModalProps } from '../src/modal.tsx'
+import { createModals } from '../src'
+import { BaseModalProps, Modal } from '../src/modal'
 
-interface CustomModalProps extends Omit<ModalProps, 'children'> {
+interface CustomModalProps extends Omit<BaseModalProps, 'children'> {
   customProp: 'test'
   children?: React.ReactNode
 }
@@ -22,7 +21,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
   </Modal>
 )
 
-const custom = createModals({
+const { ModalsProvider: ModalsProvider, useModals } = createModals({
   modals: {
     custom: CustomModal,
   },
@@ -30,9 +29,6 @@ const custom = createModals({
 
 export default {
   title: 'Modals/Modals Manager',
-  parameters: {
-    layout: 'fullscreen',
-  },
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -53,7 +49,7 @@ export const Basic = () => {
         onClick={() => {
           const id = modals.open({
             title: 'My Modal',
-            children: <>My modal</>,
+            body: <>My modal</>,
             footer: <Button onClick={() => modals.close(id)}>Close</Button>,
           })
         }}
@@ -64,7 +60,7 @@ export const Basic = () => {
         onClick={() => {
           const id = modals.open({
             title: 'My Modal',
-            children: <>My modal</>,
+            body: <>My modal</>,
             size: 'xl',
             footer: <Button onClick={() => modals.close(id)}>Close</Button>,
           })
@@ -76,7 +72,7 @@ export const Basic = () => {
         onClick={() =>
           modals.alert({
             title: 'Import finished',
-            children: 'Your import has finish and can now be used.',
+            body: 'Your import has finish and can now be used.',
           })
         }
       >
@@ -86,12 +82,10 @@ export const Basic = () => {
         onClick={() =>
           modals.confirm({
             title: 'Delete user?',
-            children: 'Are you sure you want to delete this user?',
-            slotProps: {
-              confirm: {
-                colorPalette: 'red',
-                children: 'Delete',
-              },
+            body: 'Are you sure you want to delete this user?',
+            confirmProps: {
+              colorScheme: 'red',
+              children: 'Delete',
             },
           })
         }
@@ -100,8 +94,7 @@ export const Basic = () => {
       </Button>
       <Button
         onClick={() =>
-          modals.open({
-            type: 'drawer',
+          modals.drawer({
             title: 'My drawer',
             body: (
               <Stack>
@@ -109,12 +102,10 @@ export const Basic = () => {
                   onClick={() =>
                     modals.confirm({
                       title: 'Delete user?',
-                      children: 'Are you sure you want to delete this user?',
-                      slotProps: {
-                        confirm: {
-                          colorPalette: 'red',
-                          children: 'Delete',
-                        },
+                      body: 'Are you sure you want to delete this user?',
+                      confirmProps: {
+                        colorScheme: 'red',
+                        children: 'Delete',
                       },
                     })
                   }
@@ -123,10 +114,9 @@ export const Basic = () => {
                 </Button>
                 <Button
                   onClick={() =>
-                    modals.open({
-                      type: 'drawer',
+                    modals.drawer({
                       title: 'Subdrawer',
-                      children: (
+                      body: (
                         <>
                           <Button onClick={() => modals.closeAll()}>
                             Close all
@@ -147,10 +137,9 @@ export const Basic = () => {
       </Button>
       <Button
         onClick={() =>
-          modals.open({
-            type: 'drawer',
+          modals.drawer({
             title: 'My drawer',
-            children: 'My drawer',
+            body: 'My drawer',
             placement: 'end',
           })
         }
@@ -161,40 +150,40 @@ export const Basic = () => {
   )
 }
 
-// export const Custom = () => {
-//   const modals = useModals()
+export const Custom = () => {
+  const modals = useModals()
 
-//   return (
-//     <Button
-//       onClick={() =>
-//         modals.open({
-//           title: 'My Modal',
-//           type: 'custom',
-//           children: 'My modal',
-//           customProp: 'test',
-//         })
-//       }
-//     >
-//       Open modal
-//     </Button>
-//   )
-// }
+  return (
+    <Button
+      onClick={() =>
+        modals.open({
+          title: 'My Modal',
+          type: 'custom',
+          children: 'My modal',
+          customProp: 'test',
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
 
-// export const CustomAsComponent = () => {
-//   const modals = useModals()
+export const CustomAsComponent = () => {
+  const modals = useModals()
 
-//   return (
-//     <Button
-//       onClick={() =>
-//         modals.open(CustomModal, {
-//           customProp: 'test',
-//         })
-//       }
-//     >
-//       Open modal
-//     </Button>
-//   )
-// }
+  return (
+    <Button
+      onClick={() =>
+        modals.open(CustomModal, {
+          customProp: 'test',
+        })
+      }
+    >
+      Open modal
+    </Button>
+  )
+}
 
 export const OnClose = () => {
   const modals = useModals()
@@ -271,7 +260,7 @@ export const AsyncConfirmDialog = () => {
           onConfirm: () =>
             new Promise((resolve) => {
               setTimeout(() => {
-                resolve(void 0)
+                resolve()
               }, 2000)
             }),
         })

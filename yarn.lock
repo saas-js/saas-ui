@@ -4632,20 +4632,12 @@ __metadata:
   resolution: "@saas-ui/core@workspace:packages/saas-ui-core"
   dependencies:
     "@ark-ui/react": "npm:^4.2.0"
-    "@chakra-ui/react": "npm:^3.0.2"
-    "@react-aria/interactions": "npm:^3.22.4"
     "@react-aria/utils": "npm:^3.25.3"
-    "@react-types/shared": "npm:^3.25.0"
-    "@saas-ui/theme": "workspace:*"
     "@zag-js/dom-event": "npm:^0.77.0"
     "@zag-js/dom-utils": "npm:^0.2.4"
     jotai: "npm:^2.10.1"
-    react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ">=3.0.0-next.13"
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
     react: ">=18"
     react-dom: ">=18"
   languageName: unknown
@@ -4766,6 +4758,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@saas-ui/modals-provider@workspace:*, @saas-ui/modals-provider@workspace:packages/saas-ui-modals-provider":
+  version: 0.0.0-use.local
+  resolution: "@saas-ui/modals-provider@workspace:packages/saas-ui-modals-provider"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@saas-ui/modals@workspace:*, @saas-ui/modals@workspace:packages/saas-ui-modals":
   version: 0.0.0-use.local
   resolution: "@saas-ui/modals@workspace:packages/saas-ui-modals"
@@ -4773,6 +4774,7 @@ __metadata:
     "@saas-ui/core": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/hooks": "workspace:*"
+    "@saas-ui/modals-provider": "workspace:*"
     yup: "npm:^1.4.0"
     zod: "npm:^3.23.8"
   peerDependencies:
@@ -4919,7 +4921,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/theme@workspace:*, @saas-ui/theme@workspace:packages/saas-ui-theme":
+"@saas-ui/theme@workspace:packages/saas-ui-theme":
   version: 0.0.0-use.local
   resolution: "@saas-ui/theme@workspace:packages/saas-ui-theme"
   peerDependencies:

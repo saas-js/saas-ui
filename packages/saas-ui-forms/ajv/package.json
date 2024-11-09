@@ -16,7 +16,7 @@
   "main": "../dist/ajv/index.js",
   "module": "../dist/ajv/index.mjs",
   "types": "../dist/ajv/index.d.ts",
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "peerDependencies": {
     "@chakra-ui/utils": "^2.0.14",

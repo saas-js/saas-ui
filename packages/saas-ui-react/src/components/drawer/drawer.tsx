@@ -4,7 +4,7 @@ import { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'
 
 import { CloseButton } from '#components/close-button'
 
-interface DrawerContentProps extends ChakraDrawer.ContentProps {
+export interface DrawerContentProps extends ChakraDrawer.ContentProps {
   portalled?: boolean
   portalRef?: React.RefObject<HTMLElement>
   offset?: ChakraDrawer.ContentProps['padding']
@@ -51,3 +51,6 @@ export const DrawerBackdrop = ChakraDrawer.Backdrop
 export const DrawerDescription = ChakraDrawer.Description
 export const DrawerTitle = ChakraDrawer.Title
 export const DrawerActionTrigger = ChakraDrawer.ActionTrigger
+export const DrawerContext = ChakraDrawer.Context
+
+export type DrawerRootProps = ChakraDrawer.RootProps

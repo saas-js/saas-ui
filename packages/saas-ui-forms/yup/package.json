@@ -16,7 +16,7 @@
   "main": "../dist/yup/index.js",
   "module": "../dist/yup/index.mjs",
   "types": "../dist/yup/index.d.ts",
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "peerDependencies": {
     "@hookform/resolvers": "^3.0.0",

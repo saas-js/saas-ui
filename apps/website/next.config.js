@@ -117,6 +117,7 @@ let config = {
 
     config.resolve = {
       ...config.resolve,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }
 
     config.module.rules.push({

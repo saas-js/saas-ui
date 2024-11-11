@@ -23,7 +23,7 @@
     "@types/lodash.debounce": "^4.0.9",
     "framer-motion": "^11.9.0",
     "lodash.debounce": "^4.0.8",
-    "next": "^14.2.14",
+    "next": "^14.2.17",
     "next-seo": "^6.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

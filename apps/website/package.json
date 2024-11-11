@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.4.9",
+  "version": "2.4.10",
   "private": true,
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "scripts": {
@@ -17,10 +17,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/react": "^4.1.0",
-    "@chakra-ui/next-js": "^2.4.1",
-    "@chakra-ui/props-docs": "^2.4.1",
-    "@chakra-ui/react": "^2.10.1",
+    "@ark-ui/react": "^4.3.0",
+    "@chakra-ui/next-js": "^2.4.3",
+    "@chakra-ui/props-docs": "^2.4.3",
+    "@chakra-ui/react": "^2.10.4",
     "@chakra-ui/react-env": "^3.1.0",
     "@dnd-kit/core": "^6.1.0",
     "@dnd-kit/modifiers": "^7.0.0",
@@ -34,6 +34,7 @@
     "@next/bundle-analyzer": "^14.2.14",
     "@octokit/rest": "^21.0.2",
     "@radix-ui/react-navigation-menu": "^1.2.1",
+    "@saas-ui-pro/react": "workspace:*",
     "@saas-ui/command-bar": "workspace:^",
     "@saas-ui/file-upload": "workspace:*",
     "@saas-ui/forms": "workspace:*",
@@ -51,8 +52,8 @@
     "framer-motion": "^11.9.0",
     "github-slugger": "^2.0.0",
     "match-sorter": "^6.3.4",
-    "next": "14.2.12",
-    "next-contentlayer2": "^0.5.1",
+    "next": "14.2.17",
+    "next-contentlayer2": "^0.5.3",
     "next-mdx-remote": "^4.4.1",
     "next-seo": "^6.6.0",
     "prism-react-renderer": "^1.3.5",

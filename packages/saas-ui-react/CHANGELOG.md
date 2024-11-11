@@ -1,5 +1,19 @@
 # @saas-ui/react
 
+## 2.11.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/data-table@13.0.2
+  - @saas-ui/nprogress@2.2.1
+  - @saas-ui/hotkeys@2.5.1
+  - @saas-ui/modals@2.4.2
+  - @saas-ui/forms@2.9.1
+  - @saas-ui/theme@2.6.1
+  - @saas-ui/core@2.8.1
+
 ## 2.11.1
 
 ### Patch Changes

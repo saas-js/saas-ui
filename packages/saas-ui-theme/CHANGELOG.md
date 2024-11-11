@@ -1,5 +1,11 @@
 # @saas-ui/theme
 
+## 2.6.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
 ## 2.6.0
 
 ### Minor Changes

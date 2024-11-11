@@ -1,5 +1,14 @@
 # @saas-ui/modals
 
+## 2.4.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/react-utils@2.2.1
+  - @saas-ui/forms@2.9.1
+
 ## 2.4.1
 
 ### Patch Changes

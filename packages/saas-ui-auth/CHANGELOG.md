@@ -1,5 +1,14 @@
 # @saas-ui/auth
 
+## 3.6.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/forms@2.9.1
+  - @saas-ui/core@2.8.1
+
 ## 3.6.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/core",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Saas UI - The React component library for startups.",
   "exports": {
     ".": {
@@ -81,14 +81,14 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.11.1",
-    "@chakra-ui/theme-tools": "^2.2.5",
-    "@chakra-ui/utils": "^2.2.1",
+    "@chakra-ui/styled-system": "^2.12.1",
+    "@chakra-ui/theme-tools": "^2.2.7",
+    "@chakra-ui/utils": "^2.2.3",
     "@react-aria/interactions": "^3.22.3",
     "@react-aria/utils": "^3.25.3",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*",
-    "@zag-js/dom-event": "^0.73.0",
+    "@zag-js/dom-event": "^0.73.1",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {

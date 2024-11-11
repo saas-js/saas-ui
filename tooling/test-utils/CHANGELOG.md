@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 4.2.2
+
+### Patch Changes
+
+- Updated dependencies [862937a]
+  - @saas-ui/react@2.11.2
+
 ## 4.2.1
 
 ### Patch Changes

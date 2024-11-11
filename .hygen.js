@@ -3,11 +3,11 @@ const path = require('path')
 
 // Todo read this from the main package.json or git?
 const config = {
-  author: 'Eelco Wiersma <eelco@appulse.nl>',
+  author: 'Eelco Wiersma <eelco@saas-ui.dev>',
   org: 'saas-ui',
   packagesDir: 'packages',
   appsDir: 'apps',
-  blocksDir: 'packages/pro/saas-ui/blocks/src',
+  blocksDir: 'packages/pro/packages/blocks/src',
 }
 
 const packageName = (org, name, separator = '/') => {
@@ -76,7 +76,7 @@ module.exports = {
       return path.join(config.appsDir, app)
     },
     /**
-     * Returns the blocks directory, eg: packages/pro/saas-ui/blocks/src/
+     * Returns the blocks directory, eg: packages/pro/packages/blocks/src/
      * @param {string} category
      * @param {string} name
      * @returns

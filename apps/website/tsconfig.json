@@ -31,16 +31,16 @@
       "@saas-ui/use-hotkeys": ["../../packages/saas-ui/use-hotkeys/src"],
       "@saas-ui/data-table": ["../../packages/saas-ui/data-table/src"],
       "@saas-ui-pro/feature-flags": [
-        "../../packages/pro/saas-ui/feature-flags/src"
+        "../../packages/pro/packages/feature-flags/src"
       ],
-      "@saas-ui-pro/react": ["../../packages/pro/saas-ui/react/src"],
+      "@saas-ui-pro/react": ["../../packages/pro/packages/react/src"],
       "@saas-ui-pro/theme-glass": [
-        "../../packages/pro/saas-ui/pro-theme-glass/src"
+        "../../packages/pro/packages/pro-theme-glass/src"
       ],
       "@saas-ui/theme-glass/components/src": [
         "../../packages/saas-ui-theme-glass/src/components"
       ],
-      "@saas-ui-pro/kanban": ["../../packages/pro/saas-ui/kanban/src"]
+      "@saas-ui-pro/kanban": ["../../packages/pro/packages/kanban/src"]
     },
     "incremental": true,
     "plugins": [

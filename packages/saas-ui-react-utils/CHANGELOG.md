@@ -1,5 +1,11 @@
 # @saas-ui/react-utils
 
+## 2.2.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
 ## 2.2.0
 
 ### Minor Changes

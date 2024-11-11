@@ -1,5 +1,14 @@
 # @saas-ui/date-picker
 
+## 0.15.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/modals@2.4.2
+  - @saas-ui/core@2.8.1
+
 ## 0.15.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/file-upload
 
+## 0.6.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
 ## 0.6.0
 
 ### Minor Changes

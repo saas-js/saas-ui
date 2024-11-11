@@ -1,5 +1,14 @@
 # @saas-ui/data-table
 
+## 13.0.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/react@2.11.2
+  - @saas-ui/core@2.8.1
+
 ## 13.0.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 2.9.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/core@2.8.1
+
 ## 2.9.0
 
 ### Minor Changes

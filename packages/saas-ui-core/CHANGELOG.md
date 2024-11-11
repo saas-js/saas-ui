@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.8.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/react-utils@2.2.1
+  - @saas-ui/theme@2.6.1
+
 ## 2.8.0
 
 ### Minor Changes

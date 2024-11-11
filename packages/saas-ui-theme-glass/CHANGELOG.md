@@ -1,5 +1,11 @@
 # @saas-ui/theme-glass
 
+## 0.7.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
 ## 0.7.0
 
 ### Minor Changes

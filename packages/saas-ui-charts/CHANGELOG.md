@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 0.14.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
 ## 0.14.0
 
 ### Minor Changes

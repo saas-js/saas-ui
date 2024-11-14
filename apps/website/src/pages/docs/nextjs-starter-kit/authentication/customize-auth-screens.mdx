@@ -5,22 +5,22 @@ description: How to customize the built-in authentication screens
 
 ## Configure your auth screens
 
-The auth screen configuration can be changed in `apps/web/config/auth.ts`
+The auth screen configuration can be changed in `apps/web/config/auth.config.ts`
 
 ### 1. Authentication type
 
 Here you can change your preferred authentication type, `magiclink` or `password`.
 
 ```ts
-export const authType = 'password'
+authType: 'password'
 ```
 
 ### 2. Oauth providers
 
-And the OAuth providers you want to use. Set `authProviders` to undefined to disable social login.
+And the OAuth providers you want to use. Set `authProviders` to undefined to hide social login.
 
 ```ts
-export const authProviders: AvailableProviders = {
+authProviders: {
   google: {
     icon: FaGoogle,
     name: 'Google',

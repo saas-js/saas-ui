@@ -69,7 +69,37 @@ GOOGLE_CLIENT_ID=<your-client-id>
 GOOGLE_CLIENT_SECRET=<your-client-secret>
 ```
 
-Now you can add the new provider to your authenication screens. Refer to the
+Now you can add the new provider to your authenication screens.
+
+```tsx
+// apps/web/config/auth.config.ts
+import { type AuthTypeEnum, AvailableProviders } from '@saas-ui/auth'
+import { FaGoogle } from 'react-icons/fa'
+
+interface AuthConfig {
+  authType: AuthTypeEnum
+  authProviders?: AvailableProviders
+}
+
+export const authConfig: AuthConfig = {
+  /**
+   * The authentication type, magiclink or password
+   */
+  authType: 'magiclink',
+
+  /**
+   * Available OAuth providers for single sign on.
+   */
+  authProviders: {
+    google: {
+      icon: FaGoogle,
+      name: 'Google',
+    },
+  },
+}
+```
+
+For more information on how to customize the authentication screens, refer to the
 [customize auth screens](/docs/nextjs-starterkit/authentication/customize-auth-screens)
 documentation for more information.
 

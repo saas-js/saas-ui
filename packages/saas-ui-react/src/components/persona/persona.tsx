@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import * as PersonaPrimitive from './namespace.tsx'
+import * as PersonaPrimitive from './namespace.ts'
 
 interface PersonaOptions {
   /**

@@ -5,16 +5,11 @@ import {
   type AvatarRootProps,
   HTMLChakraProps,
   type ImageProps,
-} from '@chakra-ui/react'
-
-import {
-  type HTMLSystemProps,
   SlotRecipeProps,
+  chakra,
   createSlotRecipeContext,
-  sui,
-} from '#system'
-
-import { dataAttr } from '../utils'
+} from '@chakra-ui/react'
+import { dataAttr } from '@saas-ui/core/utils'
 
 const {
   useStyles: usePersonaStyles,
@@ -97,7 +92,7 @@ export const PersonaRoot = withProvider<HTMLDivElement, PersonaRootProps>(
     const { outOfOffice, presence, ...rest } = props
 
     return (
-      <sui.div
+      <chakra.div
         ref={ref}
         {...rest}
         data-out-of-office={dataAttr(outOfOffice)}
@@ -171,14 +166,14 @@ export const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
   },
 )
 
-export interface PersonaPresenceBadgeProps extends HTMLSystemProps<'span'> {}
+export interface PersonaPresenceBadgeProps extends HTMLChakraProps<'span'> {}
 
 export const PersonaPresenceBadge = withContext<
   HTMLSpanElement,
   PersonaPresenceBadgeProps
 >('span', 'presence')
 
-export interface PersonaDetailsProps extends HTMLSystemProps<'div'> {}
+export interface PersonaDetailsProps extends HTMLChakraProps<'div'> {}
 
 /**
  * Wrapper component for the labels.
@@ -190,7 +185,7 @@ export const PersonaDetails = withContext<HTMLDivElement, PersonaDetailsProps>(
   'details',
 )
 
-export interface PersonaLabelProps extends HTMLSystemProps<'span'> {}
+export interface PersonaLabelProps extends HTMLChakraProps<'span'> {}
 
 /**
  * The main label, usually a name.

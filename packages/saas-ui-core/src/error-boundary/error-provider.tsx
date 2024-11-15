@@ -9,14 +9,14 @@ export interface ErrorContextValue {
   onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
-const context = React.createContext<ErrorContextValue>({})
+export const ErrorContext = React.createContext<ErrorContextValue>({})
 
 export const ErrorProvider = (props: ErrorProviderProps) => {
   const { children, onError } = props
 
   const value = React.useMemo(() => ({ onError }), [onError])
 
-  return <context.Provider value={value}>{children}</context.Provider>
+  return <ErrorContext.Provider value={value}>{children}</ErrorContext.Provider>
 }
 
-export const useErrorContext = () => React.useContext(context)
+export const useErrorContext = () => React.useContext(ErrorContext)

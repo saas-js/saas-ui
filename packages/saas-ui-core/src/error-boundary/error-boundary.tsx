@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { SuiContext } from '../provider'
+import { ErrorContext } from './error-provider.tsx'
 
 export interface ErrorBoundaryProps {
   fallback?: React.ReactNode
@@ -21,9 +21,9 @@ export interface ErrorBoundaryState {
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   state: ErrorBoundaryState
 
-  static contextType = SuiContext
+  static contextType = ErrorContext
 
-  declare context: React.ContextType<typeof SuiContext>
+  declare context: React.ContextType<typeof ErrorContext>
 
   constructor(props: ErrorBoundaryProps) {
     super(props)

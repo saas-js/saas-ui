@@ -16,7 +16,7 @@ export {
   SidebarNavItem as NavItem,
   SidebarNavButton as NavButton,
   SidebarNavItemEndElement as NavItemEndElement,
-} from './sidebar.ts'
+} from './sidebar.tsx'
 
 export type {
   SidebarRootProps as RootProps,
@@ -24,4 +24,4 @@ export type {
   SidebarFlyoutTriggerProps as FlyoutTriggerProps,
   SidebarProviderProps as ProviderProps,
   SidebarTriggerProps as TriggerProps,
-} from './sidebar.ts'
+} from './sidebar.tsx'

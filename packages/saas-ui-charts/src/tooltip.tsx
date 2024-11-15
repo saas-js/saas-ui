@@ -1,15 +1,16 @@
-import { Box, HStack, Text, useStyleConfig } from '@chakra-ui/react'
 import React from 'react'
+
+import { Box, HStack, Text, useSlotRecipe } from '@chakra-ui/react'
 import {
   NameType,
-  ValueType,
   Props,
+  ValueType,
 } from 'recharts/types/component/DefaultTooltipContent'
 
 export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
   props: Props<TValue, TName> & {
     categoryColors: Record<string, string>
-  }
+  },
 ) => {
   const {
     categoryColors,
@@ -22,9 +23,19 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
     labelClassName,
     label,
     labelFormatter,
+    accessibilityLayer,
+    itemSorter,
+    separator,
+    ...rest
   } = props
 
-  const tooltipTheme = useStyleConfig('Tooltip')
+  const tooltipRecipe = useSlotRecipe({
+    key: 'tooltip',
+  })
+
+  const [variantProps, restProps] = tooltipRecipe.splitVariantProps(rest)
+
+  const styles = tooltipRecipe(variantProps)
 
   const renderContent = () => {
     if (payload && payload.length) {
@@ -61,7 +72,7 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
             as="li"
             key={`tooltip-item-${i}`}
             style={finalItemStyle}
-            spacing="1"
+            gap="1"
           >
             <Box
               rounded="full"
@@ -101,7 +112,8 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
       flexDirection="column"
       className={wrapperClassName}
       style={contentStyle}
-      sx={tooltipTheme}
+      css={styles.content}
+      {...restProps}
     >
       <Text w="full" className={labelClassName} style={labelStyle}>
         {React.isValidElement(finalLabel) ? finalLabel : `${finalLabel}`}

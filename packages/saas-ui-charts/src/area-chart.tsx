@@ -1,23 +1,26 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useId, useTheme } from '@chakra-ui/react'
+import { Box, type BoxProps, useToken } from '@chakra-ui/react'
 import {
-  AreaChart as ReAreaChart,
   Area,
+  CartesianGrid,
+  Legend,
+  AreaChart as ReAreaChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from 'recharts'
+import type { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
-import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
 import { BaseChartProps, CurveType } from './types'
+import { createCategoryColors } from './utils'
 
-export interface AreaChartProps extends BaseChartProps {
+export interface AreaChartProps
+  extends Omit<BoxProps, 'animationDuration' | 'height'>,
+    BaseChartProps {
   /**
    * Whether to connect null values.
    */
@@ -35,10 +38,25 @@ export interface AreaChartProps extends BaseChartProps {
    */
   stack?: boolean
   /**
+   * The type of offset function used to generate the lower and upper values in the series array. The four types are built-in offsets in d3-shape.
+   */
+  stackOffset?: 'expand' | 'none' | 'wiggle' | 'silhouette'
+  /**
    * The area chart variant.
    * @default gradient
    */
   variant?: 'solid' | 'gradient' | 'line'
+  /**
+   * The lower bound of the y-axis.
+   * @default 0
+   */
+  minValue?: number | 'auto'
+
+  /**
+   * The upper bound of the y-axis.
+   * @default 'auto'
+   */
+  maxValue?: number | 'auto'
 }
 
 /**
@@ -50,7 +68,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     const {
       data = [],
       categories = [],
-      colors = ['primary', 'cyan'],
+      colors = ['accent', 'cyan'],
       height,
       connectNulls = false,
       curveType = 'linear',
@@ -66,6 +84,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       showXAxis = true,
       showYAxis = true,
       stack = false,
+      stackOffset,
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
@@ -73,12 +92,20 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       variant = 'gradient',
       tooltipContent,
       children,
+      minValue = 0,
+      maxValue = 'auto',
+      ...rest
     } = props
 
-    const theme = useTheme()
-    const id = useId()
+    const id = React.useId()
 
-    const categoryColors = createCategoryColors(categories, colors, theme)
+    const colorTokens = useToken(
+      'colors',
+      colors.map((c) => (c.includes('.') ? c : `${c}.solid`)),
+    )
+
+    const categoryColors = createCategoryColors(categories, colorTokens)
+
     const getColor = (category: string) => {
       return categoryColors[category]
     }
@@ -98,23 +125,34 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       }
     }
 
+    const yAxisDomain: AxisDomain = [minValue, maxValue]
+
     return (
       <Box
         ref={ref}
         height={height}
         fontSize="sm"
-        sx={{
-          '--chart-gradient-start-opacity': '0.8',
-          '--chart-gradient-end-opacity': '0',
-        }}
+        {...rest}
+        css={[
+          {
+            '--chart-gradient-start-opacity': '0.8',
+            '--chart-gradient-end-opacity': '0',
+            '--chart-grid-stroke-opacity': '0.8',
+            '--chart-axis-color': 'var(--chakra-colors-fg-muted)',
+            _dark: {
+              '--chart-grid-stroke-opacity': '0.3',
+            },
+          },
+          props.css,
+        ]}
       >
-        <ResponsiveContainer width="100%" height="100%">
-          <ReAreaChart data={data}>
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
+          <ReAreaChart data={data} stackOffset={stackOffset}>
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
                 vertical={false}
-                strokeOpacity={useColorModeValue(0.8, 0.3)}
+                strokeOpacity="var(--chart-grid-stroke-opacity)"
               />
             )}
 
@@ -133,7 +171,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
               axisLine={false}
               minTickGap={5}
               style={{
-                color: 'var(--chakra-colors-muted)',
+                color: 'var(--chart-axis-color)',
               }}
             />
 
@@ -143,11 +181,14 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
               axisLine={false}
               tickLine={false}
               tick={{ transform: 'translate(-3, 0)' }}
+              // 5 is the default, but 6 typically gives better results
+              tickCount={6}
               type="number"
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
+              domain={yAxisDomain}
               style={{
-                color: 'var(--chakra-colors-muted)',
+                color: 'var(--chart-axis-color)',
               }}
             />
 
@@ -229,5 +270,5 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
         </ResponsiveContainer>
       </Box>
     )
-  }
+  },
 )

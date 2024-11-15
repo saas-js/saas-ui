@@ -1,4 +1,4 @@
-export { Sparkline, Sparklines } from './sparkline'
+export { Sparkline } from './sparkline'
 export type { SparklineProps } from './sparkline'
 export { AreaChart } from './area-chart'
 export type { AreaChartProps } from './area-chart'

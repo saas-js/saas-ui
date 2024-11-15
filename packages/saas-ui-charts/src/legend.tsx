@@ -1,4 +1,6 @@
-import { Box, HStack, forwardRef } from '@chakra-ui/react'
+import { forwardRef } from 'react'
+
+import { Box, HStack } from '@chakra-ui/react'
 import { Payload } from 'recharts/types/component/DefaultLegendContent'
 
 export interface ChartLegendProps {
@@ -6,12 +8,12 @@ export interface ChartLegendProps {
   categoryColors: Record<string, string>
 }
 
-export const ChartLegend = forwardRef<ChartLegendProps, 'div'>(
+export const ChartLegend = forwardRef<HTMLDivElement, ChartLegendProps>(
   ({ payload, categoryColors }, ref) => {
     return (
-      <HStack ref={ref} justifyContent="flex-end" spacing="2">
+      <HStack ref={ref} justifyContent="flex-end" gap="2">
         {payload?.map((entry, index) => (
-          <HStack key={`item-${index}`} spacing="1">
+          <HStack key={`item-${index}`} gap="1">
             <Box
               rounded="full"
               bg={categoryColors[entry.value as string] ?? entry.color}
@@ -22,5 +24,5 @@ export const ChartLegend = forwardRef<ChartLegendProps, 'div'>(
         ))}
       </HStack>
     )
-  }
+  },
 )

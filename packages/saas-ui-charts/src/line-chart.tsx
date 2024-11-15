@@ -1,25 +1,28 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
+import { Box, type BoxProps, useToken } from '@chakra-ui/react'
 import {
-  LineChart as ReLineChart,
+  CartesianGrid,
+  Legend,
   Line,
+  LineChart as ReLineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from 'recharts'
+import type { LineDot } from 'recharts/types/cartesian/Line'
 import type { CurveType } from 'recharts/types/shape/Curve'
-
-import { ChartLegend } from './legend'
-import { createCategoryColors } from './utils'
-import { ChartTooltip } from './tooltip'
-import { BaseChartProps } from './types'
 import { AxisDomain } from 'recharts/types/util/types'
 
-export interface LineChartProps extends BaseChartProps {
+import { ChartLegend } from './legend'
+import { ChartTooltip } from './tooltip'
+import { BaseChartProps } from './types'
+import { createCategoryColors } from './utils'
+
+export interface LineChartProps
+  extends Omit<BoxProps, 'animationDuration' | 'height'>,
+    BaseChartProps {
   /**
    * Whether to connect null values.
    */
@@ -29,6 +32,12 @@ export interface LineChartProps extends BaseChartProps {
    * The curve type of the line.
    */
   curveType?: CurveType
+
+  /**
+   * Whether to show line dots.
+   * @default false
+   */
+  dot?: LineDot
 
   /**
    * The width of the line.
@@ -57,10 +66,11 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     const {
       data = [],
       categories = [],
-      colors = ['primary'],
+      colors = ['accent'],
       height,
       connectNulls = false,
       curveType = 'linear',
+      dot = false,
       index = 'date',
       startEndOnly = false,
       intervalType = 'equidistantPreserveStart',
@@ -80,11 +90,16 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       valueFormatter,
       tooltipContent,
       children,
+      ...rest
     } = props
 
-    const theme = useTheme()
+    const colorTokens = useToken(
+      'colors',
+      colors.map((c) => (c.includes('.') ? c : `${c}.solid`)),
+    )
 
-    const categoryColors = createCategoryColors(categories, colors, theme)
+    const categoryColors = createCategoryColors(categories, colorTokens)
+
     const getColor = (category: string) => {
       return categoryColors[category]
     }
@@ -92,14 +107,29 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     const yAxisDomain: AxisDomain = [minValue, maxValue]
 
     return (
-      <Box ref={ref} height={height} fontSize="sm">
-        <ResponsiveContainer width="100%" height="100%">
+      <Box
+        ref={ref}
+        height={height}
+        fontSize="sm"
+        {...rest}
+        css={[
+          {
+            '--chart-grid-stroke-opacity': '0.8',
+            '--chart-axis-color': 'var(--chakra-colors-fg-muted)',
+            _dark: {
+              '--chart-grid-stroke-opacity': '0.3',
+            },
+          },
+          props.css,
+        ]}
+      >
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
           <ReLineChart data={data}>
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
                 vertical={false}
-                strokeOpacity={useColorModeValue(0.8, 0.3)}
+                strokeOpacity="var(--chart-grid-stroke-opacity)"
               />
             )}
 
@@ -118,7 +148,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               axisLine={false}
               minTickGap={5}
               style={{
-                color: 'var(--chakra-colors-muted)',
+                color: 'var(--chart-axis-color)',
               }}
             />
 
@@ -129,11 +159,13 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               tickLine={false}
               domain={yAxisDomain}
               tick={{ transform: 'translate(-3, 0)' }}
+              // 5 is the default, but 6 typically gives better results
+              tickCount={6}
               type="number"
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
               style={{
-                color: 'var(--chakra-colors-muted)',
+                color: 'var(--chart-axis-color)',
               }}
             />
 
@@ -176,7 +208,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 key={category}
                 type={curveType}
                 dataKey={category}
-                dot={false}
+                dot={dot}
                 stroke={getColor(category)}
                 strokeWidth={strokeWidth}
                 strokeLinejoin="round"
@@ -190,5 +222,5 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
         </ResponsiveContainer>
       </Box>
     )
-  }
+  },
 )

@@ -3479,16 +3479,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngneat/falso@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "@ngneat/falso@npm:7.2.0"
-  dependencies:
-    seedrandom: "npm:3.0.5"
-    uuid: "npm:8.3.2"
-  checksum: 10/a8551eb455594ee1bb9d1a3a48d5a6228e403875f768d76c0b5b23650a59fe88bf97c148738edee591a00f09e3e3aaf9c4483108f47ea30c85107267a861cd5c
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -4643,24 +4633,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/data-table@workspace:packages/saas-ui-data-table":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/data-table@workspace:packages/saas-ui-data-table"
-  dependencies:
-    "@ngneat/falso": "npm:^7.2.0"
-    "@saas-ui/core": "workspace:*"
-    "@tanstack/react-table": "npm:^8.20.5"
-  peerDependencies:
-    "@chakra-ui/react": ^3.0.0
-    "@emotion/react": ">=11.0.0"
-    "@emotion/styled": ">=11.0.0"
-    "@saas-ui/react": "workspace:*"
-    framer-motion: ">=6.0.0"
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-  languageName: unknown
-  linkType: soft
-
 "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker":
   version: 0.0.0-use.local
   resolution: "@saas-ui/date-picker@workspace:packages/saas-ui-date-picker"
@@ -4742,22 +4714,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/hotkeys@workspace:packages/saas-ui-hotkeys":
-  version: 0.0.0-use.local
-  resolution: "@saas-ui/hotkeys@workspace:packages/saas-ui-hotkeys"
-  dependencies:
-    "@saas-ui/core": "workspace:*"
-    "@saas-ui/use-hotkeys": "workspace:*"
-  peerDependencies:
-    "@chakra-ui/react": ^3.0.0
-    "@emotion/react": ">=11.0.0"
-    "@emotion/styled": ">=11.0.0"
-    framer-motion: ">=6.0.0"
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-  languageName: unknown
-  linkType: soft
-
 "@saas-ui/modals-provider@workspace:*, @saas-ui/modals-provider@workspace:packages/saas-ui-modals-provider":
   version: 0.0.0-use.local
   resolution: "@saas-ui/modals-provider@workspace:packages/saas-ui-modals-provider"
@@ -4798,6 +4754,8 @@ __metadata:
   dependencies:
     "@tanem/react-nprogress": "npm:^5.0.52"
   peerDependencies:
+    "@chakra-ui/react": ^3.1.1
+    "@saas-ui/core": "workspace:*"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
   languageName: unknown
@@ -4930,7 +4888,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/use-hotkeys@workspace:*, @saas-ui/use-hotkeys@workspace:packages/saas-ui-use-hotkeys":
+"@saas-ui/use-hotkeys@workspace:packages/saas-ui-use-hotkeys":
   version: 0.0.0-use.local
   resolution: "@saas-ui/use-hotkeys@workspace:packages/saas-ui-use-hotkeys"
   peerDependencies:
@@ -4950,8 +4908,9 @@ __metadata:
     "@react-three/drei": "npm:^9.115.0"
     "@react-three/fiber": "npm:^8.17.10"
     "@saas-ui/assets": "workspace:*"
-    "@saas-ui/core": "workspace:*"
     "@saas-ui/forms": "workspace:*"
+    "@saas-ui/modals": "workspace:*"
+    "@saas-ui/react": "workspace:*"
     "@shikijs/rehype": "npm:1.22.2"
     "@shikijs/transformers": "npm:1.22.2"
     "@svgr/core": "npm:8.1.0"
@@ -5711,7 +5670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:8.20.5, @tanstack/react-table@npm:^8.20.5":
+"@tanstack/react-table@npm:8.20.5":
   version: 8.20.5
   resolution: "@tanstack/react-table@npm:8.20.5"
   dependencies:
@@ -17974,13 +17933,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"seedrandom@npm:3.0.5":
-  version: 3.0.5
-  resolution: "seedrandom@npm:3.0.5"
-  checksum: 10/acad5e516c04289f61c2fb9848f449b95f58362b75406b79ec51e101ec885293fc57e3675d2f39f49716336559d7190f7273415d185fead8cd27b171ebf7d8fb
-  languageName: node
-  linkType: hard
-
 "semver@npm:2 || 3 || 4 || 5, semver@npm:^5.6.0":
   version: 5.7.2
   resolution: "semver@npm:5.7.2"
@@ -19884,15 +19836,6 @@ __metadata:
   version: 3.11.0
   resolution: "utility-types@npm:3.11.0"
   checksum: 10/a3c51463fc807ed04ccc8b5d0fa6e31f3dcd7a4cbd30ab4bc6d760ce5319dd493d95bf04244693daf316f97e9ab2a37741edfed8748ad38572a595398ad0fdaf
-  languageName: node
-  linkType: hard
-
-"uuid@npm:8.3.2":
-  version: 8.3.2
-  resolution: "uuid@npm:8.3.2"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 10/9a5f7aa1d6f56dd1e8d5f2478f855f25c645e64e26e347a98e98d95781d5ed20062d6cca2eecb58ba7c84bc3910be95c0451ef4161906abaab44f9cb68ffbdd1
   languageName: node
   linkType: hard
 

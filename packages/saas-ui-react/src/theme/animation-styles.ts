@@ -1,6 +1,6 @@
 import { defineAnimationStyles } from '@chakra-ui/react'
 
-export const animationStyles = defineAnimationStyles({
+export const animationStyles: any = defineAnimationStyles({
   'slide-fade-in': {
     value: {
       transformOrigin: 'var(--transform-origin)',

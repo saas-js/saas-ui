@@ -34,6 +34,12 @@
       "types": "./dist/sidebar/index.d.ts",
       "import": "./dist/sidebar/index.js"
     },
+    "./steps": {
+      "sui": "./src/steps/index.ts",
+      "require": "./dist/steps/index.cjs",
+      "types": "./dist/steps/index.d.ts",
+      "import": "./dist/steps/index.js"
+    },
     "./utils": {
       "sui": "./src/utils/index.ts",
       "require": "./dist/utils/index.cjs",
@@ -83,9 +89,9 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@ark-ui/react": "^4.2.0",
+    "@ark-ui/react": "^4.4.4",
     "@react-aria/utils": "^3.25.3",
-    "@zag-js/dom-event": "^0.77.0",
+    "@zag-js/dom-event": "^0.77.1",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
@@ -93,7 +99,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "jotai": "^2.10.1",
+    "jotai": "^2.10.3",
     "tsup": "^8.3.5"
   }
 }

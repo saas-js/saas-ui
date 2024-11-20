@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 import { Box, Button, Container } from '@chakra-ui/react'
-import { Form as YupForm } from '@saas-ui/forms/yup'
 
 import {
   ArrayField,
@@ -25,6 +24,7 @@ import {
   useFormContext,
   useWatch,
 } from '../src'
+import { Form as YupForm } from '../yup'
 import { onSubmit } from './helpers'
 
 export default {
@@ -209,7 +209,7 @@ const AddButton = () => {
           focusName: `arrayField.${fields.length}.id`,
         })
       }
-      isDisabled={isDisabled}
+      disabled={isDisabled}
     >
       Add record
     </Button>
@@ -266,7 +266,7 @@ export const CustomArrayField = () => (
                         key={field.key as string}
                         index={i}
                       >
-                        <ArrayFieldRowFields columns={3} spacing={1}>
+                        <ArrayFieldRowFields columns={3} gap={1}>
                           <Field name="arrayField.$.id" placeholder="Id" />
                           <Field name="arrayField.$.name" placeholder="Name" />
                           <Box>

@@ -1,9 +1,9 @@
-import { BaseFieldProps, ValueOf } from './types'
+import { get } from '@saas-ui/core/utils'
 
-import { get } from '@chakra-ui/utils'
 import { ArrayFieldProps } from './array-field'
-import { ObjectFieldProps } from './object-field'
 import { DefaultFields } from './default-fields'
+import { ObjectFieldProps } from './object-field'
+import { BaseFieldProps, ValueOf } from './types'
 
 export type FieldResolver = {
   getFields(): BaseFieldProps[]

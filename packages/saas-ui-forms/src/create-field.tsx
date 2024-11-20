@@ -1,15 +1,16 @@
-import * as React from 'react'
-import { Controller } from 'react-hook-form'
+import React, {
+  type ForwardRefRenderFunction,
+  type PropsWithoutRef,
+  forwardRef,
+} from 'react'
 
-import { forwardRef, useMergeRefs } from '@chakra-ui/react'
-import { callAllHandlers } from '@chakra-ui/utils'
+import { callAll, mergeRefs, splitProps } from '@saas-ui/core/utils'
+import { Controller, type RegisterOptions } from 'react-hook-form'
 
-import { splitProps } from '@saas-ui/core'
-
-import { BaseFieldProps, FieldProps, GetBaseField } from './types'
 import { BaseField } from './base-field'
-import { useFormContext } from './form-context'
 import { useFieldsContext } from './fields-context'
+import { useFormContext } from './form-context'
+import { BaseFieldProps, GetBaseField } from './types'
 
 interface CreateFieldProps<ExtraFieldProps extends object = object> {
   displayName: string
@@ -19,9 +20,9 @@ interface CreateFieldProps<ExtraFieldProps extends object = object> {
 
 const _createField = (
   InputComponent: React.FC<any>,
-  { displayName, hideLabel, getBaseField: getBaseFieldProp }: CreateFieldProps
+  { displayName, hideLabel, getBaseField: getBaseFieldProp }: CreateFieldProps,
 ) => {
-  const Field = forwardRef<any, 'div'>((props, ref) => {
+  const Field = forwardRef<HTMLDivElement, any>((props, ref) => {
     const { id, name, label, isRequired, rules } = props
 
     const inputRules = {
@@ -35,7 +36,7 @@ const _createField = (
 
     const { extraProps, BaseField } = React.useMemo(
       () => getBaseField(),
-      [getBaseField]
+      [getBaseField],
     )
 
     const [, inputProps] = splitProps(
@@ -44,17 +45,17 @@ const _createField = (
         'children',
         'name',
         'label',
-        'isRequired',
-        'isDisabled',
-        'isInvalid',
-        'isReadOnly',
+        'required',
+        'disabled',
+        'invalid',
+        'readOnly',
         'help',
         'hideLabel',
-      ].concat(extraProps)
+      ].concat(extraProps),
     )
 
     return (
-      <BaseField hideLabel={hideLabel} {...props}>
+      <BaseField name={name} hideLabel={hideLabel} {...props}>
         <InputComponent
           ref={ref}
           id={id}
@@ -73,34 +74,33 @@ const _createField = (
 }
 
 const withControlledInput = (InputComponent: React.FC<any>) => {
-  return forwardRef<FieldProps, typeof InputComponent>(
-    ({ name, rules, ...inputProps }, ref) => {
-      const { control } = useFormContext()
+  return forwardRef<typeof InputComponent, ControlProps>((props, ref) => {
+    const { name, rules, ...inputProps } = props
+    const { control } = useFormContext()
 
-      const onChange = inputProps.onChange as (...event: any[]) => void
+    const onChange = inputProps.onChange as (...event: any[]) => void
 
-      return (
-        <Controller
-          name={name}
-          control={control}
-          rules={rules}
-          render={({ field: { ref: _ref, ...field } }) => (
-            <InputComponent
-              {...field}
-              {...inputProps}
-              onChange={callAllHandlers(onChange, field.onChange)}
-              onBlur={callAllHandlers(inputProps.onBlur, field.onBlur)}
-              ref={useMergeRefs(ref, _ref)}
-            />
-          )}
-        />
-      )
-    }
-  )
+    return (
+      <Controller
+        name={name}
+        control={control}
+        rules={rules}
+        render={({ field: { ref: _ref, ...field } }) => (
+          <InputComponent
+            {...field}
+            {...inputProps}
+            onChange={callAll(onChange, field.onChange)}
+            onBlur={callAll(inputProps.onBlur, field.onBlur)}
+            ref={mergeRefs(ref, _ref)}
+          />
+        )}
+      />
+    )
+  })
 }
 
 const withUncontrolledInput = (InputComponent: React.FC<any>) => {
-  return forwardRef<FieldProps, typeof InputComponent>(
+  return forwardRef<typeof InputComponent, ControlProps>(
     ({ name, rules, ...inputProps }, ref) => {
       const { register } = useFormContext()
 
@@ -112,19 +112,28 @@ const withUncontrolledInput = (InputComponent: React.FC<any>) => {
         <InputComponent
           {...field}
           {...inputProps}
-          onChange={callAllHandlers(onChange, field.onChange)}
-          onBlur={callAllHandlers(inputProps.onBlur, field.onBlur)}
-          ref={useMergeRefs(ref, _ref)}
+          onChange={callAll(onChange, field.onChange)}
+          onBlur={callAll(inputProps.onBlur, field.onBlur)}
+          ref={mergeRefs(ref, _ref)}
         />
       )
-    }
+    },
   )
 }
 
-export interface CreateFieldOptions<TProps extends object> {
+export interface CreateFieldOptions {
   isControlled?: boolean
   hideLabel?: boolean
   BaseField?: React.FC<any>
+}
+
+interface ControlProps {
+  name: string
+  onChange: (...event: any[]) => void
+  onBlur: (...event: any[]) => void
+  value: unknown
+  disabled?: boolean
+  rules?: RegisterOptions
 }
 
 /**
@@ -135,15 +144,18 @@ export interface CreateFieldOptions<TProps extends object> {
  * @param options.isControlled Set this to true if this is a controlled field.
  * @param options.hideLabel Hide the field label, for example for the checkbox field.
  */
-export const createField = <TProps extends object>(
-  component: React.FC<TProps>,
-  options?: CreateFieldOptions<TProps>
+export const createField = <TType = unknown, TProps extends object = object>(
+  component: ForwardRefRenderFunction<
+    TType,
+    PropsWithoutRef<TProps & ControlProps>
+  >,
+  options?: CreateFieldOptions,
 ) => {
   let InputComponent
   if (options?.isControlled) {
-    InputComponent = withControlledInput(component)
+    InputComponent = withControlledInput(forwardRef(component))
   } else {
-    InputComponent = withUncontrolledInput(component)
+    InputComponent = withUncontrolledInput(forwardRef(component))
   }
 
   const Field = _createField(InputComponent, {

@@ -3,24 +3,13 @@
   "version": "2.4.1",
   "description": "A modal manager for Chakra UI",
   "source": "src/index.ts",
+  "type": "module",
   "exports": {
     ".": {
       "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./zod": {
-      "sui": "./src/zod/index.ts",
-      "types": "./dist/zod/index.d.ts",
-      "require": "./dist/zod/index.js",
-      "import": "./dist/zod/index.mjs"
-    },
-    "./yup": {
-      "sui": "./src/yup/index.ts",
-      "types": "./dist/yup/index.d.ts",
-      "require": "./dist/yup/index.js",
-      "import": "./dist/yup/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     }
   },
   "typesVersions": {
@@ -35,8 +24,8 @@
       ]
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",

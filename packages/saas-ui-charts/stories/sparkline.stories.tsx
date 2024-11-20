@@ -1,17 +1,6 @@
 import * as React from 'react'
 
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Container,
-  HStack,
-  Heading,
-  SimpleGrid,
-  Stat,
-  StatHelpText,
-  StatLabel,
-} from '@chakra-ui/react'
+import { Card, Container, SimpleGrid, Stat } from '@chakra-ui/react'
 import { StoryObj } from '@storybook/react'
 
 import { Sparkline } from '../src'
@@ -31,7 +20,9 @@ export default {
 
 type Story = StoryObj<typeof Sparkline>
 
-const currencyFormatter = (value) => {
+const currencyFormatter = (
+  value: number | bigint | Intl.StringNumericLiteral,
+) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -55,7 +46,9 @@ export const Basic: Story = {
           <Stat.Root>
             <Stat.Label>Revenue</Stat.Label>
             <Stat.ValueText>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
             </Stat.ValueText>
             <Sparkline {...args} height="60px" mx="-4" />
           </Stat.Root>
@@ -82,7 +75,9 @@ export const SolidVariant: Story = {
           <Stat.Root>
             <Stat.Label>Revenue</Stat.Label>
             <Stat.ValueText>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
             </Stat.ValueText>
             <Sparkline
               {...args}
@@ -128,7 +123,9 @@ export const Multiple: Story = {
               <Stat.UpIndicator /> {percentage}%
             </Stat.HelpText>
             <Stat.ValueText>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
             </Stat.ValueText>
             <Sparkline {...args} height="60px" mx="-6" />
           </Stat.Root>
@@ -164,12 +161,14 @@ export const Stacked: Story = {
       <Card.Root maxW="300px" size="sm">
         <Card.Body>
           <Stat.Root pos="relative">
-            <StatLabel>Revenue</StatLabel>
+            <Stat.Label>Revenue</Stat.Label>
             <Stat.HelpText pos="absolute" top="0" right="0">
               <Stat.UpIndicator /> {percentage}%
             </Stat.HelpText>
             <Stat.ValueText>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
             </Stat.ValueText>
             <Sparkline {...args} height="60px" mx="-4" />
           </Stat.Root>
@@ -219,7 +218,7 @@ export const Metrics = () => {
             <Stat.Label color="muted">Revenue</Stat.Label>
             <Stat.ValueText>
               {currencyFormatter(
-                revenueData[revenueData.length - 1].value ?? 0,
+                Number(revenueData[revenueData.length - 1].value ?? 0),
               )}
             </Stat.ValueText>
             <Sparkline
@@ -268,7 +267,9 @@ export const Metrics = () => {
           <Stat.Root>
             <Stat.Label color="muted">Average customer value</Stat.Label>
             <Stat.ValueText>
-              {currencyFormatter(valueData[valueData.length - 1].value ?? 0)}
+              {currencyFormatter(
+                Number(valueData[valueData.length - 1].value ?? 0),
+              )}
             </Stat.ValueText>
             <Sparkline
               data={valueData}

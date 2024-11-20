@@ -1,5 +1,5 @@
 import React from 'react'
-import { defaultFieldTypes, InputField } from './default-fields'
+
 import type { GetBaseField } from './types'
 
 export interface FieldsContextValue {
@@ -26,7 +26,7 @@ export const useFieldsContext = () => {
 
 export const useField = (
   type: string,
-  fallback: React.FC<any>
+  fallback: React.FC<any>,
 ): React.FC<any> => {
   const context = React.useContext(FieldsContext)
   return context?.fields?.[type] || fallback

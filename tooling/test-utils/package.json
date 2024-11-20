@@ -44,8 +44,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^8.4.0",
-    "@storybook/types": "^8.4.0",
+    "@storybook/react": "^8.4.5",
+    "@storybook/types": "^8.4.5",
     "react": "^18.3.1"
   }
 }

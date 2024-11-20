@@ -57,7 +57,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@clerk/types": "^4.28.0",
+    "@clerk/types": "^4.34.0",
     "@saas-ui/auth-provider": "workspace:*"
   },
   "peerDependencies": {

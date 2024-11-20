@@ -1,6 +1,6 @@
 import { defineTextStyles } from '@chakra-ui/react'
 
-export const textStyles = defineTextStyles({
+export const textStyles: any = defineTextStyles({
   '2xs': { value: { fontSize: '2xs', lineHeight: '0.75rem' } },
   xs: { value: { fontSize: 'xs', lineHeight: '1rem' } },
   sm: { value: { fontSize: 'sm', lineHeight: '1.25rem' } },

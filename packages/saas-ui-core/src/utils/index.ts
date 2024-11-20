@@ -13,5 +13,6 @@ export { runIfFn } from './run-if-fn.ts'
 export { mapEntries } from './entries.ts'
 export { getChildOfType } from './get-child-of-type.ts'
 export { getChildrenOfType } from './get-children-of-type.ts'
-
+export { mergeRefs } from './merge-refs.ts'
+export { get } from './get.ts'
 export type { MaybeRenderProp } from './run-if-fn.ts'

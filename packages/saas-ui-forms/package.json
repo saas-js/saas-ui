@@ -101,16 +101,14 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.2.1",
-    "@hookform/resolvers": "^3.9.0",
+    "@hookform/resolvers": "^3.9.1",
     "@saas-ui/core": "workspace:*",
-    "react-hook-form": "^7.53.0"
+    "@saas-ui/react": "workspace:*",
+    "react-hook-form": "^7.53.2"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "^3.0.0",
     "@emotion/react": ">=11.0.0",
-    "@emotion/styled": ">=11.0.0",
-    "framer-motion": ">=6.0.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
@@ -118,10 +116,10 @@
     "@types/json-schema": "^7.0.15",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
-    "json-schema-to-ts": "^2.12.0",
+    "json-schema-to-ts": "^3.1.1",
     "tsd": "^0.31.2",
-    "tsup": "^8.3.0",
-    "typescript": "^5.6.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
     "yup": "^1.4.0",
     "zod": "^3.23.8"
   },

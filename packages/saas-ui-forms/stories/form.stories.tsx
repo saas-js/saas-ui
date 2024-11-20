@@ -5,17 +5,11 @@ import {
   Box,
   Button,
   Container,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
   HStack,
   Input,
   Stack,
   Tooltip,
-  forwardRef,
 } from '@chakra-ui/react'
-import { splitProps } from '@saas-ui/core/utils'
 import { StoryObj } from '@storybook/react'
 import { LuInfo } from 'react-icons/lu'
 import { z } from 'zod'
@@ -119,54 +113,54 @@ export const WithValidationRules: Story = {
   },
 }
 
-const CustomField = createField<{ customFieldProp?: string }>(
-  forwardRef((props, ref) => <div ref={ref}>{props.customFieldProp}</div>),
+const CustomField = createField<HTMLDivElement, { customFieldProp?: string }>(
+  (props, ref) => <div ref={ref}>{props.customFieldProp}</div>,
 )
 
-const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
-  return {
-    extraProps: ['infoLabel'],
-    BaseField: (props) => {
-      const [{ children, infoLabel }, fieldProps] = splitProps(props, [
-        'children',
-        'infoLabel',
-      ])
+// const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
+//   return {
+//     extraProps: ['infoLabel'],
+//     BaseField: (props) => {
+//       const [{ children, infoLabel }, fieldProps] = splitProps(props, [
+//         'children',
+//         'infoLabel',
+//       ])
 
-      const { controlProps, label, help, hideLabel, error } =
-        useBaseField(fieldProps)
+//       const { controlProps, label, help, hideLabel, error } =
+//         useBaseField(fieldProps)
 
-      return (
-        <FormControl {...controlProps} isInvalid={!!error}>
-          {!hideLabel ? (
-            <HStack alignItems="center" mb="2" spacing="0">
-              <FormLabel mb="0">{label}</FormLabel>
-              {infoLabel ? (
-                <Tooltip label={infoLabel}>
-                  <span>
-                    <LuInfo />
-                  </span>
-                </Tooltip>
-              ) : null}
-            </HStack>
-          ) : null}
-          <Box>
-            {children}
-            {help && !error?.message ? (
-              <FormHelperText>{help}</FormHelperText>
-            ) : null}
-            {error?.message && (
-              <FormErrorMessage>{error?.message}</FormErrorMessage>
-            )}
-          </Box>
-        </FormControl>
-      )
-    },
-  }
-}
+//       return (
+//         <Field {...controlProps} invalid={!!error}>
+//           {!hideLabel ? (
+//             <HStack alignItems="center" mb="2" spacing="0">
+//               <FormLabel mb="0">{label}</FormLabel>
+//               {infoLabel ? (
+//                 <Tooltip label={infoLabel}>
+//                   <span>
+//                     <LuInfo />
+//                   </span>
+//                 </Tooltip>
+//               ) : null}
+//             </HStack>
+//           ) : null}
+//           <Box>
+//             {children}
+//             {help && !error?.message ? (
+//               <FormHelperText>{help}</FormHelperText>
+//             ) : null}
+//             {error?.message && (
+//               <FormErrorMessage>{error?.message}</FormErrorMessage>
+//             )}
+//           </Box>
+//         </FormControl>
+//       )
+//     },
+//   }
+// }
 
 const TypedForm = createForm({
   fields: { custom: CustomField },
-  getBaseField,
+  // getBaseField,
 })
 
 export const BasicTyped: Story = {
@@ -224,7 +218,7 @@ export const CustomBaseField: Story = {
 
 const ZodForm = createZodForm({
   fields: { custom: CustomField },
-  getBaseField,
+  // getBaseField,
 })
 
 const zodSchema = z.object({
@@ -264,7 +258,7 @@ export const WithZodSchema: StoryObj<typeof ZodForm> = {
 
 const YupForm = createYupForm({
   fields: { custom: CustomField },
-  getBaseField,
+  // getBaseField,
 })
 
 const yupSchema = yup.object({
@@ -482,32 +476,32 @@ export const WithOnChange = () => {
   )
 }
 
-export const WithRegister = () => {
-  return (
-    <Stack>
-      <Form<PostInputs>
-        defaultValues={{
-          firstName: 'Eelco',
-          lastName: 'Wiersma',
-        }}
-        onSubmit={onSubmit}
-        onChange={(e) => console.log('change', e)}
-      >
-        {({ Field, register }) => {
-          return (
-            <FormLayout>
-              <Field name="firstName" label="First name" />
-              <FormControl>
-                <FormLabel>Last name</FormLabel>
-                <Input {...register('lastName')} />
-              </FormControl>
-            </FormLayout>
-          )
-        }}
-      </Form>
-    </Stack>
-  )
-}
+// export const WithRegister = () => {
+//   return (
+//     <Stack>
+//       <Form<PostInputs>
+//         defaultValues={{
+//           firstName: 'Eelco',
+//           lastName: 'Wiersma',
+//         }}
+//         onSubmit={onSubmit}
+//         onChange={(e) => console.log('change', e)}
+//       >
+//         {({ Field, register }) => {
+//           return (
+//             <FormLayout>
+//               <Field name="firstName" label="First name" />
+//               <FormControl>
+//                 <FormLabel>Last name</FormLabel>
+//                 <Input {...register('lastName')} />
+//               </FormControl>
+//             </FormLayout>
+//           )
+//         }}
+//       </Form>
+//     </Stack>
+//   )
+// }
 
 export const WithCustomSubmit = () => (
   <>

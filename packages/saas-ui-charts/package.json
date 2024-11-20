@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^2.12.1",
-    "recharts": "^2.13.0"
+    "recharts": "^2.13.3"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.9.0 <3",
@@ -38,8 +38,8 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "prop-types": "^15.8.1",
-    "tsup": "^8.3.0"
+    "tsup": "^8.3.5"
   }
 }

@@ -1,35 +1,27 @@
-import * as React from 'react'
+import React, { forwardRef } from 'react'
 
-import {
-  chakra,
-  ResponsiveValue,
-  forwardRef,
-  Button,
-  ButtonProps,
-} from '@chakra-ui/react'
-import { PlusIcon, MinusIcon } from '@saas-ui/core/icons'
-
-import { FormLayout, FormLayoutProps } from './layout'
-import { BaseField } from './base-field'
-import { BaseFieldProps } from './types'
-
-import { mapNestedFields } from './utils'
-
-import {
-  useArrayField,
-  useArrayFieldRow,
-  useArrayFieldContext,
-  ArrayFieldProvider,
-  ArrayFieldOptions,
-  ArrayFieldRowProvider,
-  useArrayFieldRowContext,
-  useArrayFieldRemoveButton,
-  useArrayFieldAddButton,
-  UseArrayFieldReturn,
-} from './use-array-field'
+import { Button, ButtonProps, chakra } from '@chakra-ui/react'
+import type { MaybeRenderProp } from '@saas-ui/core/utils'
+import { MinusIcon, PlusIcon } from '@saas-ui/react/icons'
 import { FieldPath, FieldValues } from 'react-hook-form'
-import { isFunction, MaybeRenderProp } from '@chakra-ui/utils'
+
+import { BaseField } from './base-field'
 import { useFieldProps } from './form-context'
+import { FormLayout, FormLayoutProps } from './form-layout'
+import { BaseFieldProps } from './types'
+import {
+  ArrayFieldOptions,
+  ArrayFieldProvider,
+  ArrayFieldRowProvider,
+  UseArrayFieldReturn,
+  useArrayField,
+  useArrayFieldAddButton,
+  useArrayFieldContext,
+  useArrayFieldRemoveButton,
+  useArrayFieldRow,
+  useArrayFieldRowContext,
+} from './use-array-field'
+import { mapNestedFields } from './utils'
 
 export interface ArrayFieldButtonProps extends ButtonProps {}
 
@@ -40,14 +32,6 @@ interface ArrayField {
 
 interface ArrayFieldRowProps extends FormLayoutProps {
   /**
-   * Amount of field columns
-   */
-  columns?: ResponsiveValue<number>
-  /**
-   * Spacing between fields
-   */
-  spacing?: ResponsiveValue<string | number>
-  /**
    * The array index
    */
   index: number
@@ -56,6 +40,7 @@ interface ArrayFieldRowProps extends FormLayoutProps {
    */
   children: React.ReactNode
 }
+
 /**
  * Render prop component, to get access to the internal fields state. Must be a child of ArrayFieldContainer.
  *
@@ -77,14 +62,6 @@ export const ArrayFieldRow: React.FC<ArrayFieldRowProps> = ({
 ArrayFieldRow.displayName = 'ArrayFieldRow'
 
 export interface ArrayFieldRowFieldsProps extends FormLayoutProps {
-  /**
-   * Amount of field columns
-   */
-  columns?: ResponsiveValue<number>
-  /**
-   * Spacing between fields
-   */
-  spacing?: ResponsiveValue<string | number>
   /**
    * The fields
    */
@@ -131,7 +108,7 @@ export const ArrayFieldRowContainer: React.FC<ArrayFieldRowProps> = ({
 
   return (
     <ArrayFieldRowProvider value={context}>
-      <chakra.div {...rest} __css={styles}>
+      <chakra.div {...rest} css={styles}>
         {children}
       </chakra.div>
     </ArrayFieldRowProvider>
@@ -146,7 +123,7 @@ ArrayFieldRowContainer.displayName = 'ArrayFieldRowContainer'
  * @see Docs https://saas-ui.dev/docs/components/forms/array-field
  */
 export const ArrayFieldRemoveButton: React.FC<ArrayFieldButtonProps> = (
-  props
+  props,
 ) => {
   return (
     <Button aria-label="Remove row" {...useArrayFieldRemoveButton()} {...props}>
@@ -197,17 +174,18 @@ export const ArrayField = forwardRef(
   (props: ArrayFieldProps, ref: React.ForwardedRef<UseArrayFieldReturn>) => {
     const { children, ...containerProps } = props
 
-    const rowFn = isFunction(children)
-      ? children
-      : (fields: ArrayField[]) => (
-          <>
-            {fields.map(({ id }, index: number) => (
-              <ArrayFieldRow key={id} index={index}>
-                {children}
-              </ArrayFieldRow>
-            )) || null}
-          </>
-        )
+    const rowFn =
+      typeof children === 'function'
+        ? children
+        : (fields: ArrayField[]) => (
+            <>
+              {fields.map(({ id }, index: number) => (
+                <ArrayFieldRow key={id} index={index}>
+                  {children}
+                </ArrayFieldRow>
+              )) || null}
+            </>
+          )
 
     return (
       <ArrayFieldContainer ref={ref} {...containerProps}>
@@ -215,11 +193,11 @@ export const ArrayField = forwardRef(
         <ArrayFieldAddButton />
       </ArrayFieldContainer>
     )
-  }
+  },
 ) as ((
   props: ArrayFieldProps & {
     ref?: React.ForwardedRef<UseArrayFieldReturn>
-  }
+  },
 ) => React.ReactElement) & {
   displayName: string
 }
@@ -260,7 +238,7 @@ export const ArrayFieldContainer = React.forwardRef(
       children,
       ...fieldProps
     }: ArrayFieldContainerProps,
-    ref: React.ForwardedRef<UseArrayFieldReturn>
+    ref: React.ForwardedRef<UseArrayFieldReturn>,
   ) => {
     const overrides = useFieldProps(name)
 
@@ -282,7 +260,7 @@ export const ArrayFieldContainer = React.forwardRef(
         </BaseField>
       </ArrayFieldProvider>
     )
-  }
+  },
 )
 
 ArrayFieldContainer.displayName = 'ArrayFieldContainer'

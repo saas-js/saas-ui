@@ -59,7 +59,7 @@ const parseKeys = (keys: string | string[]) => {
   return keys.reduce((memo: Array<string[]>, command: string) => {
     memo.push(
       splitKeys(command.toLowerCase()).reduce(
-        (keys: string[], key: string, i, command) => {
+        (keys: string[], key: string, _i, command) => {
           if (command.length === 1 && shiftedKeys[key]) {
             return ['shift', shiftedKeys[key]]
           }
@@ -70,8 +70,8 @@ const parseKeys = (keys: string | string[]) => {
           }
           return keys
         },
-        []
-      )
+        [],
+      ),
     )
     return memo
   }, [])
@@ -92,7 +92,7 @@ export const toAriaKeyshortcuts = (keys: string | string[]) => {
 
 const keysMatch = (
   pressedKeys: Set<string>,
-  targetKeys: Array<Set<string>>
+  targetKeys: Array<Set<string>>,
 ): boolean =>
   targetKeys.some((b) => {
     return (
@@ -150,7 +150,7 @@ export const useHotkeys = (
   keys: string | string[],
   callback: (event: KeyboardEvent) => void,
   options: UseHotkeysOptions | Array<any> = [],
-  deps?: Array<any>
+  deps?: Array<any>,
 ) => {
   let _options: UseHotkeysOptions = {}
   if (Array.isArray(options)) {
@@ -174,7 +174,7 @@ export const useHotkeys = (
 
   const targetKeys: Array<Set<string>> = useMemo(
     () => parseKeys(keys).map((k) => new Set(k)),
-    []
+    [],
   )
 
   const pressedKeys: Set<string> = useMemo(() => new Set(), [])
@@ -225,7 +225,7 @@ export const useHotkeys = (
     }
   }
 
-  function onKeyUp(event: Event) {
+  function onKeyUp() {
     // reset all keys on keyup
     pressedKeys.clear()
   }

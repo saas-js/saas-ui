@@ -1,6 +1,6 @@
 import { defineLayerStyles } from '@chakra-ui/react'
 
-export const layerStyles = defineLayerStyles({
+export const layerStyles: any = defineLayerStyles({
   // fill: some background color + color combination
   'fill.muted': {
     value: {

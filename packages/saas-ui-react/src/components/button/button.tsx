@@ -1,9 +1,9 @@
 import { forwardRef } from 'react'
 
-import type { ButtonProps as ChakraButtonProps } from '@chakra-ui/react'
+import type { ButtonProps as ButtonPrimitiveProps } from '@chakra-ui/react'
 import {
   AbsoluteCenter,
-  Button as ChakraButton,
+  Button as ButtonPrimitive,
   Span,
   Spinner,
 } from '@chakra-ui/react'
@@ -13,7 +13,7 @@ interface ButtonLoadingProps {
   loadingText?: React.ReactNode
 }
 
-export interface ButtonProps extends ChakraButtonProps, ButtonLoadingProps {}
+export interface ButtonProps extends ButtonPrimitiveProps, ButtonLoadingProps {}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, ref) {
@@ -22,15 +22,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       loadingText,
       children,
-      variant,
-      colorPalette = variant === 'primary' ? 'accent' : 'gray',
+      variant = 'glass',
+      colorPalette = variant === 'glass' ? 'accent' : 'gray',
       ...rest
     } = props
     return (
-      <ChakraButton
+      <ButtonPrimitive
         colorPalette={colorPalette}
         disabled={loading || disabled}
-        variant={variant}
+        variant={variant as any}
         ref={ref}
         {...rest}
       >
@@ -49,7 +49,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ) : (
           children
         )}
-      </ChakraButton>
+      </ButtonPrimitive>
     )
   },
 )

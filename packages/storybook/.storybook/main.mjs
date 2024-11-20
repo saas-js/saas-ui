@@ -7,14 +7,7 @@ export default {
     '../../saas-ui-modals/stories/*.stories.tsx',
     '../../saas-ui-nprogress/stories/*.stories.tsx',
     '../../saas-ui-charts/stories/*.stories.tsx',
-    // '../../saas-ui-auth/stories/*.stories.tsx',
-
-    // '../../saas-ui-command-bar/stories/*.stories.tsx',
-    // '../../saas-ui-forms/stories/*.stories.tsx',
-    // '../../saas-ui-forms/**/*.stories.tsx',
-    // '../../saas-ui-date-picker/stories/*.stories.tsx',
-    // '../../saas-ui-hotkeys/stories/*.stories.tsx',
-    // '../../saas-ui-hotkeys/stories/*.stories.tsx',
+    '../../saas-ui-forms/stories/*.stories.tsx',
   ],
 
   addons: [

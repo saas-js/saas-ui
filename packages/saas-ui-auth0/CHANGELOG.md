@@ -1,5 +1,16 @@
 # @saas-ui/auth0
 
+## 1.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/auth-provider@2.0.0-alpha.0
+
 ## 0.3.0
 
 ### Minor Changes

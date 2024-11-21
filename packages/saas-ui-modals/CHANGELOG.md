@@ -1,5 +1,20 @@
 # @saas-ui/modals
 
+## 3.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/modals-provider@1.0.0-alpha.0
+  - @saas-ui/forms@3.0.0-alpha.0
+  - @saas-ui/hooks@3.0.0-alpha.0
+  - @saas-ui/react@3.0.0-alpha.0
+  - @saas-ui/core@3.0.0-alpha.0
+
 ## 2.4.1
 
 ### Patch Changes

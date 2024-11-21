@@ -1,5 +1,16 @@
 # @saas-ui/test-utils
 
+## 5.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-alpha.0
+
 ## 4.0.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/use-hotkeys
 
+## 2.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
 ## 1.1.3
 
 ### Patch Changes

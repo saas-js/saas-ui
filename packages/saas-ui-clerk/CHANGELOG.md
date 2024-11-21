@@ -1,5 +1,16 @@
 # @saas-ui/clerk
 
+## 5.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/auth-provider@2.0.0-alpha.0
+
 ## 4.0.0
 
 ### Major Changes

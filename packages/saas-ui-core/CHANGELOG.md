@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
 ## 2.5.5
 
 ### Patch Changes
@@ -1883,8 +1889,9 @@
   Add this somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers

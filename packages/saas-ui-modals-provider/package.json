@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals-provider",
-  "version": "0.0.1",
+  "version": "1.0.0-alpha.0",
   "description": "A UI library agnostic modal manager for React",
   "source": "src/index.ts",
   "exports": {

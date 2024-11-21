@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 3.0.0-alpha.0
+
+### Major Changes
+
+- v3 alpha release
+
 ## 2.3.2
 
 ### Patch Changes

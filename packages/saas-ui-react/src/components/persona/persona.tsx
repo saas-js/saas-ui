@@ -88,7 +88,6 @@ export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
         ref={ref}
         outOfOffice={isOutOfOffice}
         presence={presence}
-        size={size}
         {...rest}
       >
         <PersonaPrimitive.Avatar

@@ -28,11 +28,10 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.12.1",
     "recharts": "^2.13.3"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "^3.0.0",
     "@emotion/react": ">=11",
     "react": ">=18",
     "react-dom": ">=18"

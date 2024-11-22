@@ -3,8 +3,8 @@ import React, { forwardRef, useState } from 'react'
 import { Presence, type PresenceProps } from '@ark-ui/react'
 
 import { type HTMLSystemProps, sui } from '#system'
+import { callAll, dataAttr } from '#utils'
 
-import { callAll, dataAttr } from '../utils/index.ts'
 import { useSidebar, useSidebarTrigger } from './sidebar.context.tsx'
 import { SidebarProps } from './sidebar.types.ts'
 
@@ -148,17 +148,46 @@ export const SidebarTrack = forwardRef<HTMLDivElement, HTMLSystemProps<'div'>>(
   },
 )
 
-export const SidebarGroup = sui.div
+export const SidebarGroup = forwardRef<HTMLDivElement, HTMLSystemProps<'div'>>(
+  (props, ref) => {
+    return <sui.div ref={ref} {...props} />
+  },
+)
 
-export const SidebarGroupHeader = sui.div
+export const SidebarGroupHeader = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  return <sui.div ref={ref} {...props} />
+})
 
-export const SidebarGroupTitle = sui.h5
+export const SidebarGroupTitle = forwardRef<
+  HTMLHeadingElement,
+  HTMLSystemProps<'h5'>
+>((props, ref) => {
+  return <sui.h5 ref={ref} {...props} />
+})
 
-export const SidebarGroupEndElement = sui.div
+export const SidebarGroupEndElement = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  return <sui.div ref={ref} {...props} />
+})
 
-export const SidebarGroupContent = sui.div
+export const SidebarGroupContent = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  return <sui.div ref={ref} {...props} />
+})
 
-export const SidebarNavItem = sui.div
+export const SidebarNavItem = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  return <sui.div ref={ref} {...props} />
+})
 
 export interface SidebarNavButtonProps extends HTMLSystemProps<'button'> {
   active?: boolean
@@ -177,4 +206,9 @@ export const SidebarNavButton = forwardRef<
   )
 })
 
-export const SidebarNavItemEndElement = sui.div
+export const SidebarNavItemEndElement = forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  return <sui.div ref={ref} {...props} />
+})

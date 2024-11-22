@@ -4,9 +4,7 @@ import { createContext } from '@chakra-ui/react'
 import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
 
 import type { HTMLSystemProps } from '#system'
-import { dataAttr } from '#utils'
-
-import { callAll } from '../utils/call-all'
+import { callAll, dataAttr } from '#utils'
 
 interface GridListContext {
   id: string

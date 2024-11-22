@@ -7,8 +7,8 @@ import {
   type StepsChangeDetails,
   chakra,
 } from '@chakra-ui/react'
-import { callAllHandlers, cx } from '@chakra-ui/utils'
 import { useStepperContext } from '@saas-ui/core'
+import { callAll, cx } from '@saas-ui/core/utils'
 import { Steps } from '@saas-ui/react/steps'
 import { FieldValues } from 'react-hook-form'
 
@@ -156,7 +156,7 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
       children="Back"
       {...props}
       className={cx('sui-form__prev-button', props.className)}
-      onClick={callAllHandlers(props.onClick, prevStep)}
+      onClick={callAll(props.onClick, prevStep)}
     />
   )
 }

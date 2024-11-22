@@ -9,11 +9,11 @@ import {
 } from '@chakra-ui/react'
 
 import type { HTMLSystemProps } from '#system'
+import { callAll } from '#utils'
 
-import { callAll } from '../utils/call-all.ts'
 import type { SidebarProps } from './sidebar.types.ts'
 
-export type SidebarMode = 'flyout' | 'collapsible'
+export type SidebarMode = 'flyout' | 'collapsible' | 'compact'
 
 export interface UseSidebarReturn {
   open: boolean
@@ -33,8 +33,9 @@ const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
 export interface SidebarProviderProps extends SidebarProps {
   /**
    * The mode of the sidebar.
+   * @default 'collapsible'
    */
-  mode: SidebarMode
+  mode?: SidebarMode
   /**
    * Control the default visibility of the sidebar.
    */
@@ -59,7 +60,7 @@ export function SidebarProvider(props: SidebarProviderProps) {
     defaultOpen = true,
     open,
     onOpenChange,
-    mode: modeProp,
+    mode: modeProp = 'collapsible',
   } = props
 
   const isMobile = useBreakpointValue(

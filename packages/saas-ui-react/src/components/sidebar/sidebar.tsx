@@ -1,10 +1,7 @@
-import React, { type HTMLProps } from 'react'
+import React from 'react'
 
-import {
-  type HTMLChakraProps,
-  type SlotRecipeProps,
-  createSlotRecipeContext,
-} from '@chakra-ui/react'
+import type { HTMLChakraProps, SlotRecipeProps } from '@chakra-ui/react'
+import { createSlotRecipeContext } from '@chakra-ui/react'
 import { Sidebar, useSidebar } from '@saas-ui/core/sidebar'
 
 const {
@@ -21,7 +18,7 @@ export { useSidebar, useSidebarStyles }
 
 export interface SidebarProviderProps
   extends Sidebar.ProviderProps,
-    SlotRecipeProps<'sidebar'> {}
+    Omit<SlotRecipeProps<'sidebar'>, 'mode'> {}
 
 export const SidebarProvider = function SidebarProvider(
   props: SidebarProviderProps,
@@ -141,9 +138,13 @@ export const SidebarFooter = withContext<
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarTrack = withContext(Sidebar.Track, 'track', {
-  forwardAsChild: true,
-})
+export const SidebarTrack = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  Sidebar.Track,
+  'track',
+  {
+    forwardAsChild: true,
+  },
+)
 
 export const SidebarGroup = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   Sidebar.Group,
@@ -185,15 +186,18 @@ const {
 
 export { useSidebarItemStyles }
 
-export const SidebarNavItem = withItemProvider(Sidebar.NavItem, 'item')
+export const SidebarNavItem = withItemProvider<
+  HTMLDivElement,
+  HTMLChakraProps<'div'>
+>(Sidebar.NavItem, 'item')
 
-export interface SidebarNavButtonProps extends HTMLProps<'button'> {
+export interface SidebarNavButtonProps extends Sidebar.NavButtonProps {
   active?: boolean
 }
 
 export const SidebarNavButton = withItemContext<
   HTMLButtonElement,
-  Sidebar.NavButtonProps
+  SidebarNavButtonProps
 >(Sidebar.NavButton, 'button', {
   forwardAsChild: true,
 })

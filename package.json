@@ -50,8 +50,8 @@
     "create:block": "yarn hygen blocks new",
     "build:web": "yarn w website build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
-    "build:tokens": "chakra typegen packages/saas-ui-core/src/preset.ts",
-    "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-core/src/preset.ts",
+    "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
+    "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue && yarn build:tokens",
     "build:packages:force": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue --force && yarn build:tokens",
     "watch:theme": "turbo run build --filter='./packages/saas-ui-theme' -- --watch",
@@ -72,7 +72,7 @@
     "tooling/storybook-addon"
   ],
   "devDependencies": {
-    "@chakra-ui/cli": "^3.1.2",
+    "@chakra-ui/cli": "^3.2.0",
     "@changesets/cli": "^2.27.9",
     "@manypkg/get-packages": "^2.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
@@ -105,7 +105,7 @@
     "unist-util-visit": "4.0.0",
     "react": "18.2.0",
     "@emotion/react": "11.11.1",
-    "@chakra-ui/react": "3.0.2"
+    "@chakra-ui/react": "https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9223#4"
   },
   "packageManager": "yarn@4.2.2"
 }

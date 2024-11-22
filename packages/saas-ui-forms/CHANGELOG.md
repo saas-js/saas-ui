@@ -1,5 +1,17 @@
 # @saas-ui/forms
 
+## 3.0.0-alpha.1
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Patch Changes
+
+- Updated dependencies [550e5a6]
+  - @saas-ui/react@3.0.0-alpha.1
+  - @saas-ui/core@3.0.0-alpha.1
+
 ## 3.0.0-alpha.0
 
 ### Major Changes

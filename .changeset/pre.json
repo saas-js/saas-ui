@@ -25,6 +25,7 @@
     "@saas-ui/test-utils": "4.0.9"
   },
   "changesets": [
+    "gorgeous-masks-rescue",
     "popular-ducks-compete"
   ]
 }

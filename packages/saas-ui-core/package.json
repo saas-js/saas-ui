@@ -11,34 +11,34 @@
       "import": "./dist/index.js"
     },
     "./grid-list": {
-      "sui": "./src/grid-list/index.ts",
-      "require": "./dist/grid-list/index.cjs",
-      "types": "./dist/grid-list/index.d.ts",
-      "import": "./dist/grid-list/index.js"
+      "sui": "./src/components/grid-list/index.ts",
+      "require": "./dist/components/grid-list/index.cjs",
+      "types": "./dist/components/grid-list/index.d.ts",
+      "import": "./dist/components/grid-list/index.js"
     },
     "./navbar": {
-      "sui": "./src/navbar/index.ts",
-      "require": "./dist/navbar/index.cjs",
-      "types": "./dist/navbar/index.d.ts",
-      "import": "./dist/navbar/index.js"
+      "sui": "./src/components/navbar/index.ts",
+      "require": "./dist/components/navbar/index.cjs",
+      "types": "./dist/components/navbar/index.d.ts",
+      "import": "./dist/components/navbar/index.js"
     },
     "./error-boundary": {
-      "sui": "./src/error-boundary/index.ts",
-      "require": "./dist/error-boundary/index.cjs",
-      "types": "./dist/error-boundary/index.d.ts",
-      "import": "./dist/error-boundary/index.js"
+      "sui": "./src/components/error-boundary/index.ts",
+      "require": "./dist/components/error-boundary/index.cjs",
+      "types": "./dist/components/error-boundary/index.d.ts",
+      "import": "./dist/components/error-boundary/index.js"
     },
     "./sidebar": {
-      "sui": "./src/sidebar/index.ts",
-      "require": "./dist/sidebar/index.cjs",
-      "types": "./dist/sidebar/index.d.ts",
-      "import": "./dist/sidebar/index.js"
+      "sui": "./src/components/sidebar/index.ts",
+      "require": "./dist/components/sidebar/index.cjs",
+      "types": "./dist/components/sidebar/index.d.ts",
+      "import": "./dist/components/sidebar/index.js"
     },
     "./steps": {
-      "sui": "./src/steps/index.ts",
-      "require": "./dist/steps/index.cjs",
-      "types": "./dist/steps/index.d.ts",
-      "import": "./dist/steps/index.js"
+      "sui": "./src/components/steps/index.ts",
+      "require": "./dist/components/steps/index.cjs",
+      "types": "./dist/components/steps/index.d.ts",
+      "import": "./dist/components/steps/index.js"
     },
     "./utils": {
       "sui": "./src/utils/index.ts",
@@ -53,7 +53,7 @@
   },
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts src/utils/index.ts src/icons/index.ts --config tsup.config.ts",
+    "build": "tsup --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -91,6 +91,7 @@
   "dependencies": {
     "@ark-ui/react": "^4.4.4",
     "@react-aria/utils": "^3.25.3",
+    "@saas-ui/hooks": "workspace:*",
     "@zag-js/dom-event": "^0.77.1",
     "@zag-js/dom-utils": "^0.2.4"
   },

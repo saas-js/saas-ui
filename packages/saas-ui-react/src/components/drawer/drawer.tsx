@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { DialogContext } from '@ark-ui/react/dialog'
 import { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'
 
 import { CloseButton } from '#components/close-button'
@@ -51,6 +52,6 @@ export const DrawerBackdrop = ChakraDrawer.Backdrop
 export const DrawerDescription = ChakraDrawer.Description
 export const DrawerTitle = ChakraDrawer.Title
 export const DrawerActionTrigger = ChakraDrawer.ActionTrigger
-export const DrawerContext = ChakraDrawer.Context
+export const DrawerContext = DialogContext
 
 export type DrawerRootProps = ChakraDrawer.RootProps

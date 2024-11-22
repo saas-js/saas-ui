@@ -20,7 +20,6 @@
   "license": "MIT",
   "peerDependencies": {
     "@saas-ui/modals": "*",
-    "@chakra-ui/utils": "^2.0.14",
     "@hookform/resolvers": "^3.0.0",
     "react-hook-form": "^7.43.9",
     "zod": "^3.21.4"

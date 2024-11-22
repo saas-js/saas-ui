@@ -4,6 +4,8 @@ import { Dialog as ChakraDialog, Portal } from '@chakra-ui/react'
 
 import { CloseButton } from '#components/close-button'
 
+export { DialogContext } from '@ark-ui/react/dialog'
+
 export interface DialogContentProps extends ChakraDialog.ContentProps {
   portalled?: boolean
   portalRef?: React.RefObject<HTMLElement>
@@ -63,4 +65,3 @@ export const DialogTitle = ChakraDialog.Title
 export const DialogDescription = ChakraDialog.Description
 export const DialogTrigger = ChakraDialog.Trigger
 export const DialogActionTrigger = ChakraDialog.ActionTrigger
-export const DialogContext = ChakraDialog.Context

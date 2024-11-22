@@ -14,6 +14,9 @@ function removeDirective(fileName: string) {
 
 export default defineConfig({
   ...config,
+  entry: ['src/index.ts', 'src/components/**/index.ts'],
+  tsconfig: 'tsconfig.json',
+  sourcemap: false,
   async onSuccess() {
     await Promise.all([
       removeDirective('index.cjs'),

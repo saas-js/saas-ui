@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsup'
+
 import config from '../../../tsup.config'
 
 export default defineConfig({
@@ -8,9 +9,7 @@ export default defineConfig({
     'ajv',
     'react-hook-form',
     '@saas-ui/forms',
-    '@saas-ui/modals',
     '@hookform/resolvers/ajv',
-    '@chakra-ui/utils',
   ],
   clean: false,
 })

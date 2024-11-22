@@ -2,12 +2,7 @@
 
 import { forwardRef, useRef } from 'react'
 
-import type {
-  ButtonProps,
-  GroupProps,
-  InputProps,
-  StackProps,
-} from '@chakra-ui/react'
+import type { ButtonProps, GroupProps, InputProps } from '@chakra-ui/react'
 import {
   IconButton,
   Input,

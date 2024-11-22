@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import { createContext } from '@chakra-ui/utils'
-import { FocusableElement } from '@chakra-ui/utils'
+import { createContext } from '@chakra-ui/react'
 import {
   type UseStepperProps,
   type UseStepperReturn,
@@ -15,7 +14,7 @@ import { DisplayIfProps } from './display-if'
 import { FormProps } from './form'
 import { ObjectFieldProps } from './object-field'
 import { FormStepProps, StepsOptions } from './step-form'
-import { FieldProps, StepFormChildren } from './types'
+import { FieldProps, type FocusableElement, StepFormChildren } from './types'
 import { UseArrayFieldReturn } from './use-array-field'
 
 export interface StepState {

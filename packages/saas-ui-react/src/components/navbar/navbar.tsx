@@ -1,4 +1,5 @@
-import { type HTMLChakraProps, createSlotRecipeContext } from '@chakra-ui/react'
+import type { HTMLChakraProps } from '@chakra-ui/react'
+import { createSlotRecipeContext } from '@chakra-ui/react'
 import { Navbar } from '@saas-ui/core/navbar'
 
 const {
@@ -11,17 +12,16 @@ const {
 
 export { useNavbarStyles }
 
-export type NavbarRootProps = Navbar.RootProps & HTMLChakraProps<'div'>
+export interface NavbarRootProps
+  extends Navbar.RootProps,
+    Omit<HTMLChakraProps<'div'>, keyof Navbar.RootProps> {}
 
 export const NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(
   Navbar.Root,
   'root',
 )
 
-export const NavbarBrand = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Navbar.Brand,
-  'brand',
-)
+export const NavbarBrand = withContext(Navbar.Brand, 'brand')
 
 export const NavbarContent = withContext<
   HTMLDivElement,

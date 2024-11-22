@@ -1,8 +1,8 @@
 import { defineSlotRecipe } from '@chakra-ui/react'
-import { collapsibleAnataomy } from '@chakra-ui/react/anatomy'
+import { collapsibleAnatomy } from '@chakra-ui/react/anatomy'
 
 export const collapsibleSlotRecipe = defineSlotRecipe({
-  slots: collapsibleAnataomy.keys(),
+  slots: collapsibleAnatomy.keys(),
   className: 'chakra-collapsible',
   base: {
     content: {

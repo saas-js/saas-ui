@@ -1,4 +1,4 @@
-import type { MaybeRenderProp } from '@chakra-ui/utils'
+import type { MaybeRenderProp } from '@saas-ui/core/utils'
 import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 
 import type { ArrayFieldProps } from './array-field'

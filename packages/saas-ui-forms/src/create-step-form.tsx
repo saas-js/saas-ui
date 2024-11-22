@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo } from 'react'
 
-import { runIfFn } from '@chakra-ui/utils'
 import { StepperProvider } from '@saas-ui/core'
+import { runIfFn } from '@saas-ui/core/utils'
 
 import {
   ArrayField,

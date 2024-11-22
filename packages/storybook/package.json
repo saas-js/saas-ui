@@ -12,7 +12,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
-    "@chakra-ui/react": "^3.1.2",
+    "@chakra-ui/react": "^3.2.0",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@fontsource-variable/inter": "^5.1.0",

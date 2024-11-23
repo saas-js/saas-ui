@@ -52,7 +52,7 @@ interface PersonaOptions {
 
 export interface PersonaProps
   extends PersonaOptions,
-    PersonaPrimitive.AvatarProps,
+    Omit<PersonaPrimitive.AvatarProps, 'size'>,
     PersonaPrimitive.RootProps {}
 
 /**

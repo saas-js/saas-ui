@@ -17,6 +17,7 @@ export default defineConfig({
   entry: ['src/index.ts', 'src/components/**/index.ts'],
   tsconfig: 'tsconfig.json',
   sourcemap: false,
+  external: ['@chakra-ui/react', '@saas-ui/core'],
   async onSuccess() {
     await Promise.all([
       removeDirective('index.cjs'),

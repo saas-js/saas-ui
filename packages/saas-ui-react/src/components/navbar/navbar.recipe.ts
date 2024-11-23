@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '@chakra-ui/react'
 
 export const navbarSlotRecipe = defineSlotRecipe({
   className: 'sui-navbar',
-  slots: ['root', 'content', 'brand', 'item'],
+  slots: ['root', 'content', 'brand', 'item', 'link'],
   base: {
     root: {
       display: 'flex',

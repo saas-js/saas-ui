@@ -25,11 +25,6 @@ export const inputRecipe = defineRecipe({
 
   variants: {
     size: {
-      '2xs': {
-        textStyle: 'xs',
-        px: '2',
-        '--input-height': 'sizes.7',
-      },
       xs: {
         textStyle: 'xs',
         px: '2',
@@ -54,11 +49,6 @@ export const inputRecipe = defineRecipe({
         textStyle: 'md',
         px: '4.5',
         '--input-height': 'sizes.12',
-      },
-      '2xl': {
-        textStyle: 'lg',
-        px: '5',
-        '--input-height': 'sizes.16',
       },
     },
 

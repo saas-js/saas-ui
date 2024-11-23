@@ -44,7 +44,7 @@ export interface AppShellProps extends HTMLChakraProps<'div'> {
 }
 
 export interface AppShellRootProps
-  extends AppShellProps,
+  extends Omit<AppShellProps, 'position'>,
     SlotRecipeProps<'appShell'> {}
 
 /**

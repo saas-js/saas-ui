@@ -1,16 +1,17 @@
 import * as React from 'react'
+
 import {
-  useWatch,
+  FieldPath,
   FieldValues,
   UseFormReturn,
-  FieldPath,
+  useWatch,
 } from 'react-hook-form'
 
-import { useFormContext } from './form-context'
+import { useFormContext } from './form-context.tsx'
 
 export interface DisplayIfProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > {
   children: React.ReactElement
   name: TName
@@ -20,7 +21,7 @@ export interface DisplayIfProps<
   condition?: (value: unknown, context: UseFormReturn<TFieldValues>) => boolean
   onToggle?: (
     conditionMatched: boolean,
-    context: UseFormReturn<TFieldValues>
+    context: UseFormReturn<TFieldValues>,
   ) => void
 }
 /**
@@ -30,7 +31,7 @@ export interface DisplayIfProps<
  */
 export const DisplayIf = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   children,
   name,

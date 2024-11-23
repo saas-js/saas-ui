@@ -20,19 +20,10 @@
       "require": "./dist/zod/index.js",
       "types": "./dist/zod/index.d.ts",
       "import": "./dist/zod/index.mjs"
-    },
-    "./ajv": {
-      "sui": "./dist/ajv/index.ts",
-      "require": "./dist/ajv/index.js",
-      "types": "./dist/ajv/index.d.ts",
-      "import": "./dist/ajv/index.mjs"
     }
   },
   "typesVersions": {
     "*": {
-      "ajv": [
-        "./dist/ajv/index.d.ts"
-      ],
       "yup": [
         "./dist/yup/index.d.ts"
       ],
@@ -46,11 +37,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup && yarn build:zod && yarn build:ajv",
+    "build": "yarn build:package && yarn build:yup && yarn build:zod",
     "build:package": "tsup src/index.ts --config tsup.config.ts",
     "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
     "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",
-    "build:ajv": "tsup ajv/src/index.ts --config ajv/tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit",

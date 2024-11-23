@@ -1,9 +1,9 @@
 import { get } from '@saas-ui/core/utils'
 
-import { ArrayFieldProps } from './array-field'
-import { DefaultFields } from './default-fields'
-import { ObjectFieldProps } from './object-field'
-import { BaseFieldProps, ValueOf } from './types'
+import { ArrayFieldProps } from './array-field.tsx'
+import { DefaultFields } from './default-fields.tsx'
+import { ObjectFieldProps } from './object-field.tsx'
+import { BaseFieldProps, ValueOf } from './types.ts'
 
 export type FieldResolver = {
   getFields(): BaseFieldProps[]

@@ -2,7 +2,6 @@
   "name": "@saas-ui/react",
   "version": "3.0.0-alpha.1",
   "description": "Saas UI - The React component library for startups.",
-  "source": "src/index.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -33,8 +32,7 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {

@@ -2,7 +2,6 @@
   "name": "@saas-ui/modals",
   "version": "2.4.1",
   "description": "A modal manager for Chakra UI",
-  "source": "src/index.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -35,8 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {

@@ -2,39 +2,30 @@
   "name": "@saas-ui/forms",
   "version": "2.9.0",
   "description": "Fully functional forms for Chakra UI.",
-  "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
-    "./src": {
-      "default": "./src/index.ts"
-    },
     "./yup": {
+      "sui": "./dist/yup/index.ts",
       "require": "./dist/yup/index.js",
       "types": "./dist/yup/index.d.ts",
       "import": "./dist/yup/index.mjs"
     },
-    "./yup/src": {
-      "default": "./yup/src/index.ts"
-    },
     "./zod": {
+      "sui": "./dist/zod/index.ts",
       "require": "./dist/zod/index.js",
       "types": "./dist/zod/index.d.ts",
       "import": "./dist/zod/index.mjs"
     },
-    "./zod/src": {
-      "default": "./zod/src/index.ts"
-    },
     "./ajv": {
+      "sui": "./dist/ajv/index.ts",
       "require": "./dist/ajv/index.js",
       "types": "./dist/ajv/index.d.ts",
       "import": "./dist/ajv/index.mjs"
-    },
-    "./ajv/src": {
-      "default": "./ajv/src/index.ts"
     }
   },
   "typesVersions": {
@@ -66,8 +57,7 @@
     "tsd": "tsd"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {

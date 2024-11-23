@@ -2,15 +2,12 @@
   "name": "@saas-ui/supabase",
   "version": "2.4.0",
   "description": "Saas UI Supabase Auth integration",
-  "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
@@ -24,9 +21,7 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src",
-    "services"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {

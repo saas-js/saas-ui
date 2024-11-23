@@ -2,7 +2,6 @@
   "name": "@saas-ui/nprogress",
   "version": "2.0.3",
   "description": "Nprogress Component",
-  "source": "src/index.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -29,8 +28,7 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {

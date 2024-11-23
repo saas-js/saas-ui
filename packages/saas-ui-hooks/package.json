@@ -52,7 +52,6 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.4.6",
     "react": ">=18.0.0"
   }
 }

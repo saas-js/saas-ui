@@ -1,9 +1,7 @@
 import * as React from 'react'
 
-import { mergeRefs } from '@chakra-ui/react'
-
 import { type HTMLSystemProps, sui } from '#system'
-import { type MaybeRenderProp, cx, runIfFn } from '#utils'
+import { type MaybeRenderProp, cx, mergeRefs, runIfFn } from '#utils'
 
 import {
   type GridListItemProps,

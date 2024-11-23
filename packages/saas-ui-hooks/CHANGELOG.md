@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 3.0.0-alpha.3
+
+### Patch Changes
+
+- cee2e9c: Removed chakra ui dependency of core package
+
 ## 3.0.0-alpha.2
 
 ### Minor Changes

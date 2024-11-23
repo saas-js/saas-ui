@@ -1,5 +1,11 @@
 # @saas-ui/test-utils
 
+## 5.0.0-alpha.3
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-alpha.3
+
 ## 5.0.0-alpha.2
 
 ### Minor Changes

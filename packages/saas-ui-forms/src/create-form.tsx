@@ -2,7 +2,7 @@ import React, { ForwardedRef, forwardRef, useMemo } from 'react'
 
 import { defaultFieldTypes } from './default-fields'
 import { objectFieldResolver } from './field-resolver'
-import { GetFieldResolver } from './field-resolver'
+import type { GetFieldResolver } from './field-resolver'
 import { FieldsProvider } from './fields-context'
 import { FieldValues, Form, FormProps, GetResolver } from './form'
 import { GetBaseField, WithFields } from './types'

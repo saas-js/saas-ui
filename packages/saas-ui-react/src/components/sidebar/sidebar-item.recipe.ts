@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '@chakra-ui/react'
 
 export const sidebarNavItemSlotRecipe = defineSlotRecipe({
   className: 'sui-sidebar-nav-item',
-  slots: ['item', 'button'],
+  slots: ['item', 'button', 'endElement'],
   base: {
     item: {
       position: 'relative',

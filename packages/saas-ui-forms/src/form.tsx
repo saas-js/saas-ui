@@ -16,7 +16,7 @@ import {
 
 import { ArrayField, ArrayFieldProps } from './array-field.tsx'
 import { DisplayIf, DisplayIfProps } from './display-if.tsx'
-import { FieldResolver } from './field-resolver.tsx'
+import type { FieldResolver } from './field-resolver.tsx'
 import { Field as DefaultField } from './field.tsx'
 import { AutoFields } from './fields.tsx'
 import { FormProvider } from './form-context.tsx'

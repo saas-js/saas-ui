@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { ArrayField } from './array-field'
 import { Field } from './field'
-import { FieldResolver } from './field-resolver'
+import type { FieldResolver } from './field-resolver'
 import { useFormContext } from './form-context'
 import { FormLayout } from './form-layout'
 import { ObjectField } from './object-field'

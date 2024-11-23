@@ -2,14 +2,10 @@
 
 import { useMemo, useState } from 'react'
 
-import {
-  createContext,
-  useBreakpointValue,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { useDisclosure, useIsMobile } from '@saas-ui/hooks'
 
 import type { HTMLSystemProps } from '#system'
-import { callAll } from '#utils'
+import { callAll, createContext } from '#utils'
 
 import type { SidebarProps } from './sidebar.types.ts'
 
@@ -63,12 +59,7 @@ export function SidebarProvider(props: SidebarProviderProps) {
     mode: modeProp = 'collapsible',
   } = props
 
-  const isMobile = useBreakpointValue(
-    { base: true, md: false },
-    {
-      fallback: undefined,
-    },
-  )
+  const isMobile = useIsMobile()
 
   const mode = modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp
   const isFlyout = mode === 'flyout'

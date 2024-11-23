@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/clerk",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "description": "Clerk Authentication Service for Saas UI",
   "exports": {
     ".": {

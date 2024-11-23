@@ -1,5 +1,16 @@
 # @saas-ui/supabase
 
+## 3.0.0-alpha.2
+
+### Minor Changes
+
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [6459de4]
+  - @saas-ui/auth-provider@2.0.0-alpha.2
+
 ## 3.0.0-alpha.1
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @saas-ui/props-docs
 
+## 3.0.0-alpha.2
+
+### Minor Changes
+
+- 6459de4: Removed src exports and files from packages
+
 ## 3.0.0-alpha.1
 
 ### Major Changes

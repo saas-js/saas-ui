@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/charts",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "exports": {
     ".": {
       "sui": "./src/index.ts",

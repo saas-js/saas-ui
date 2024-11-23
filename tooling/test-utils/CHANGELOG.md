@@ -1,5 +1,16 @@
 # @saas-ui/test-utils
 
+## 5.0.0-alpha.2
+
+### Minor Changes
+
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [6459de4]
+  - @saas-ui/react@3.0.0-alpha.2
+
 ## 5.0.0-alpha.1
 
 ### Major Changes

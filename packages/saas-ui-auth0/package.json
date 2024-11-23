@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/auth0",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Auth0 authentication for Saas UI",
   "exports": {
     ".": {

@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.4
+
+### Patch Changes
+
+- 7808a76: Restructure slot components and add ui namespaces to recipes
+
 ## 3.0.0-alpha.3
 
 ### Patch Changes

@@ -25,6 +25,7 @@
     "@saas-ui/test-utils": "4.0.9"
   },
   "changesets": [
+    "flat-pumas-grow",
     "gorgeous-masks-rescue",
     "modern-mangos-push",
     "popular-ducks-compete",

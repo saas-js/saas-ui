@@ -15,7 +15,7 @@ import { cx } from '@saas-ui/core/utils'
 
 export interface IconBadgeProps
   extends HTMLChakraProps<'div'>,
-    RecipeProps<'iconBadge'> {
+    RecipeProps<'suiIconBadge'> {
   /**
    * The icon to display
    */
@@ -30,7 +30,7 @@ export interface IconBadgeProps
 export const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(
   (props, ref) => {
     const { icon, children, ...rest } = props
-    const recipe = useRecipe({ key: 'iconBadge', recipe: props.recipe })
+    const recipe = useRecipe({ key: 'suiIconBadge', recipe: props.recipe })
     const [variantProps, localProps] = recipe.splitVariantProps(rest)
     const styles = recipe(variantProps)
 

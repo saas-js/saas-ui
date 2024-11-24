@@ -1573,9 +1573,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9223#4":
+"@chakra-ui/react@https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9240#1":
   version: 3.2.0
-  resolution: "@chakra-ui/react@https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9223#4"
+  resolution: "@chakra-ui/react@https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9240#1"
   dependencies:
     "@ark-ui/react": "npm:4.4.3"
     "@emotion/is-prop-valid": "npm:1.3.1"
@@ -1588,7 +1588,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10/84b1f93ecbf46b5b484c2ef1611f91cc39d1166a619526cae53f4ef1d6c543ddc2fd47f6c4cc9a6010499881cb9000780875e6a2319bf2d22da2119b32b207f2
+  checksum: 10/21cbce2d35d7689f4bbb62800a86da86a794436eccca7749c19a75c251ba848d67009a6c562c75a8d2c9a7b6d8eb4a63bfb57a83b3bc6b364d5bb06f08031e00
   languageName: node
   linkType: hard
 
@@ -4013,7 +4013,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/hooks@workspace:packages/saas-ui-hooks"
   peerDependencies:
-    "@chakra-ui/react": ">=2.4.6"
     react: ">=18.0.0"
   languageName: unknown
   linkType: soft

@@ -41,6 +41,6 @@ export const recipes = {
   checkmark: checkmarkRecipe,
   radiomark: radiomarkRecipe,
   // Saas UI
-  command: commandRecipe,
-  iconBadge: iconBadgeRecipe,
+  suiCommand: commandRecipe,
+  suiIconBadge: iconBadgeRecipe,
 }

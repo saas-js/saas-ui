@@ -1,1 +1,1 @@
-export * as Steps from './namespace.ts'
+export * as Steps from './steps.tsx'

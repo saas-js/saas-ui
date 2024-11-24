@@ -1,6 +1,7 @@
 import * as React from 'react'
 
-import * as PersonaPrimitive from './namespace.ts'
+import * as PersonaPrimitive from './persona-primitive.tsx'
+import type { Presence } from './presence.ts'
 
 interface PersonaOptions {
   /**
@@ -21,7 +22,7 @@ interface PersonaOptions {
    * - dnd
    * - away
    */
-  presence?: PersonaPrimitive.Presence
+  presence?: Presence
   /**
    * The icon shown in the AvatarBadge
    */
@@ -52,7 +53,7 @@ interface PersonaOptions {
 
 export interface PersonaProps
   extends PersonaOptions,
-    Omit<PersonaPrimitive.AvatarProps, 'size'>,
+    PersonaPrimitive.AvatarProps,
     PersonaPrimitive.RootProps {}
 
 /**

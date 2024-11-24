@@ -33,9 +33,7 @@ import {
 } from 'react-icons/ri'
 
 import { AppShell } from '../app-shell/index.ts'
-import { PersonaAvatar } from '../persona/persona.tsx'
-import { Sidebar, useSidebar } from './index.ts'
-import { SidebarNavItemEndElement } from './sidebar.tsx'
+import { Sidebar } from './index.ts'
 
 export interface SkeletonTextProps extends SkeletonProps {
   noOfLines?: number

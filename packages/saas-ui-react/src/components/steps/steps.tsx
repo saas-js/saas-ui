@@ -7,14 +7,14 @@ interface StepInfoProps {
   description?: React.ReactNode
 }
 
-export interface StepsItemProps
+interface StepsItemProps
   extends Omit<ChakraSteps.ItemProps, 'title'>,
     StepInfoProps {
   completedIcon?: React.ReactNode
   icon?: React.ReactNode
 }
 
-export const StepsItem = (props: StepsItemProps) => {
+const StepsItem = (props: StepsItemProps) => {
   const { title, description, completedIcon, icon, ...rest } = props
   return (
     <ChakraSteps.Item {...rest}>
@@ -52,12 +52,12 @@ const StepInfo = (props: StepInfoProps) => {
   )
 }
 
-export interface StepsIndicatorProps {
+interface StepsIndicatorProps {
   completedIcon: React.ReactNode
   icon?: React.ReactNode
 }
 
-export const StepsIndicator = (props: StepsIndicatorProps) => {
+const StepsIndicator = (props: StepsIndicatorProps) => {
   const { icon = <ChakraSteps.Number />, completedIcon } = props
   return (
     <ChakraSteps.Indicator>
@@ -66,17 +66,34 @@ export const StepsIndicator = (props: StepsIndicatorProps) => {
   )
 }
 
-export const StepsList = ChakraSteps.List
+const StepsList = ChakraSteps.List
 
-export type StepsRootProps = ChakraSteps.RootProps
-export const StepsRoot = ChakraSteps.Root
-export const StepsContent = ChakraSteps.Content
-export const StepsCompletedContent = ChakraSteps.CompletedContent
+type StepsRootProps = ChakraSteps.RootProps
+const StepsRoot = ChakraSteps.Root
+const StepsContent = ChakraSteps.Content
+const StepsCompletedContent = ChakraSteps.CompletedContent
 
-export const StepsNextTrigger = (props: ChakraSteps.NextTriggerProps) => {
+const StepsNextTrigger = (props: ChakraSteps.NextTriggerProps) => {
   return <ChakraSteps.NextTrigger {...props} />
 }
 
-export const StepsPrevTrigger = (props: ChakraSteps.PrevTriggerProps) => {
+const StepsPrevTrigger = (props: ChakraSteps.PrevTriggerProps) => {
   return <ChakraSteps.PrevTrigger {...props} />
+}
+
+export {
+  StepsRoot as Root,
+  StepsContent as Content,
+  StepsCompletedContent as CompletedContent,
+  StepsList as List,
+  StepsIndicator as Indicator,
+  StepsItem as Item,
+  StepsNextTrigger as NextTrigger,
+  StepsPrevTrigger as PrevTrigger,
+}
+
+export type {
+  StepsRootProps as RootProps,
+  StepsItemProps as ItemProps,
+  StepsIndicatorProps as IndicatorProps,
 }

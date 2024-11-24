@@ -15,7 +15,7 @@ const {
   withContext,
   useStyles: useAppShellStyles,
 } = createSlotRecipeContext({
-  key: 'appShell',
+  key: 'suiAppShell',
 })
 
 export { useAppShellStyles }
@@ -45,7 +45,7 @@ export interface AppShellProps extends HTMLChakraProps<'div'> {
 
 export interface AppShellRootProps
   extends Omit<AppShellProps, 'position'>,
-    SlotRecipeProps<'appShell'> {}
+    SlotRecipeProps<'suiAppShell'> {}
 
 /**
  * The App Shell defines the main structure of your app.

@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '@chakra-ui/react'
 
 export const gridListSlotRecipe = defineSlotRecipe({
   className: 'sui-grid-list',
-  slots: ['root', 'item', 'header', 'icon'],
+  slots: ['root', 'item', 'header', 'cell'],
   base: {
     root: {
       py: 2,
@@ -66,7 +66,7 @@ export const gridListSlotRecipe = defineSlotRecipe({
       fontWeight: 'semibold',
       color: 'muted',
     },
-    icon: {
+    cell: {
       display: 'flex',
       flexShrink: 0,
     },

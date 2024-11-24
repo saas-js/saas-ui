@@ -7,71 +7,15 @@ import {
   type ImageProps,
   SlotRecipeProps,
   chakra,
-  createSlotRecipeContext,
 } from '@chakra-ui/react'
 import { dataAttr } from '@saas-ui/core/utils'
 
-const {
-  useStyles: usePersonaStyles,
-  withProvider,
-  withContext,
-} = createSlotRecipeContext({
-  key: 'persona',
-})
+import { withContext, withProvider } from './persona.context.ts'
+import type { Presence } from './presence.ts'
 
-export { usePersonaStyles }
-
-export type Presence = 'online' | 'offline' | 'busy' | 'dnd' | 'away'
-
-interface PresenceConfig {
-  label: string
-  color: string
-}
-
-export type PresenceOptions<P extends string = Presence> = Record<
-  P,
-  PresenceConfig
->
-
-/**
- * The presence configuration object.
- *
- * Default presence values: online, offline, busy, dnd, away
- *
- * You can overwrite colors in the theme semantic tokens.
- * theme.semanticTokens.colors['presence.online'] = 'cyan.500'
- *
- * Or add a custom presence value
- * theme.semanticTokens.colors['presence.vacay'] = 'blue.500'
- *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
- */
-export const defaultPresenceOptions: PresenceOptions = {
-  online: {
-    label: 'Online',
-    color: 'presence.online',
-  },
-  offline: {
-    label: 'Offline',
-    color: 'presence.offline',
-  },
-  busy: {
-    label: 'Busy',
-    color: 'presence.busy',
-  },
-  dnd: {
-    label: 'Do-not-disturb',
-    color: 'presence.dnd',
-  },
-  away: {
-    label: 'Away',
-    color: 'presence.away',
-  },
-}
-
-export interface PersonaRootProps
+interface PersonaRootProps
   extends HTMLChakraProps<'div'>,
-    SlotRecipeProps<'persona'> {
+    SlotRecipeProps<'suiPersona'> {
   /**
    * Indicates that a person is out of office. Changes the presence badge style.
    */
@@ -87,8 +31,8 @@ export interface PersonaRootProps
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const PersonaRoot = withProvider<HTMLDivElement, PersonaRootProps>(
-  forwardRef((props, ref) => {
+const PersonaRoot = withProvider<HTMLDivElement, PersonaRootProps>(
+  forwardRef<HTMLDivElement, PersonaRootProps>((props, ref) => {
     const { outOfOffice, presence, ...rest } = props
 
     return (
@@ -121,9 +65,7 @@ interface PersonaAvatarOptions {
   name?: string
 }
 
-export interface PersonaAvatarProps
-  extends PersonaAvatarOptions,
-    AvatarRootProps {
+interface PersonaAvatarProps extends PersonaAvatarOptions, AvatarRootProps {
   src?: string
   srcSet?: string
   loading?: ImageProps['loading']
@@ -137,7 +79,7 @@ export interface PersonaAvatarProps
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
+const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
   (props, ref) => {
     const {
       name,
@@ -166,33 +108,33 @@ export const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
   },
 )
 
-export interface PersonaPresenceBadgeProps extends HTMLChakraProps<'span'> {}
+interface PersonaPresenceBadgeProps extends HTMLChakraProps<'span'> {}
 
-export const PersonaPresenceBadge = withContext<
+const PersonaPresenceBadge = withContext<
   HTMLSpanElement,
   PersonaPresenceBadgeProps
 >('span', 'presence')
 
-export interface PersonaDetailsProps extends HTMLChakraProps<'div'> {}
+interface PersonaDetailsProps extends HTMLChakraProps<'div'> {}
 
 /**
  * Wrapper component for the labels.
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const PersonaDetails = withContext<HTMLDivElement, PersonaDetailsProps>(
+const PersonaDetails = withContext<HTMLDivElement, PersonaDetailsProps>(
   'div',
   'details',
 )
 
-export interface PersonaLabelProps extends HTMLChakraProps<'span'> {}
+interface PersonaLabelProps extends HTMLChakraProps<'span'> {}
 
 /**
  * The main label, usually a name.
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const PersonaLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
+const PersonaLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
   'span',
   'label',
 )
@@ -204,17 +146,35 @@ PersonaLabel.displayName = 'PersonaLabel'
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const PersonaSecondaryLabel = withContext<
-  HTMLSpanElement,
-  PersonaLabelProps
->('span', 'secondaryLabel')
+const PersonaSecondaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
+  'span',
+  'secondaryLabel',
+)
 
 /**
  * The tertiary label, typically a status message.
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const PersonaTertiaryLabel = withContext<
-  HTMLSpanElement,
-  PersonaLabelProps
->('span', 'tertiaryLabel')
+const PersonaTertiaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
+  'span',
+  'tertiaryLabel',
+)
+
+export {
+  PersonaRoot as Root,
+  PersonaAvatar as Avatar,
+  PersonaPresenceBadge as PresenceBadge,
+  PersonaDetails as Details,
+  PersonaLabel as Label,
+  PersonaSecondaryLabel as SecondaryLabel,
+  PersonaTertiaryLabel as TertiaryLabel,
+}
+
+export type {
+  PersonaRootProps as RootProps,
+  PersonaAvatarProps as AvatarProps,
+  PersonaPresenceBadgeProps as PresenceBadgeProps,
+  PersonaDetailsProps as DetailsProps,
+  PersonaLabelProps as LabelProps,
+}

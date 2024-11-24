@@ -5,24 +5,15 @@ import {
   type PresenceBaseProps,
   splitPresenceProps,
 } from '@ark-ui/react/presence'
-import {
-  HTMLChakraProps,
-  SlotRecipeProps,
-  chakra,
-  createSlotRecipeContext,
-} from '@chakra-ui/react'
+import { HTMLChakraProps, SlotRecipeProps, chakra } from '@chakra-ui/react'
 
 import { Spinner } from '#components/spinner'
 
-const { useStyles, withContext, withProvider } = createSlotRecipeContext({
-  key: 'loadingOverlay',
-})
+import { withContext, withProvider } from './loading-overlay.context.ts'
 
-export const useLoadingOverlayStyles = useStyles
-
-export interface LoadingOverlayProps
+interface LoadingOverlayProps
   extends HTMLChakraProps<'div'>,
-    SlotRecipeProps<'loadingOverlay'>,
+    SlotRecipeProps<'suiLoadingOverlay'>,
     PresenceBaseProps {
   /**
    * Show or hide the LoadingOverlay.
@@ -43,12 +34,25 @@ const LoadingOverlay: React.FC<LoadingOverlayProps> = (props) => {
   )
 }
 
-export const LoadingOverlayRoot = withProvider(LoadingOverlay, 'root')
+const LoadingOverlayRoot = withProvider<HTMLDivElement, LoadingOverlayProps>(
+  LoadingOverlay,
+  'root',
+)
 
 LoadingOverlayRoot.displayName = 'LoadingOverlay'
 
-export const LoadingOverlaySpinner = Spinner
+const LoadingOverlaySpinner = Spinner
 
-export interface LoadingTextProps extends HTMLChakraProps<'p'> {}
+interface LoadingTextProps extends HTMLChakraProps<'p'> {}
 
-export const LoadingOverlayText = withContext('p', 'text')
+const LoadingOverlayText = withContext<HTMLParagraphElement, LoadingTextProps>(
+  'p',
+  'text',
+)
+
+export {
+  LoadingOverlayRoot as Root,
+  LoadingOverlaySpinner as Spinner,
+  LoadingOverlayText as Text,
+}
+export type { LoadingOverlayProps as RootProps, LoadingTextProps as TextProps }

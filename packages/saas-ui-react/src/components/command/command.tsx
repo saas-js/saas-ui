@@ -9,10 +9,12 @@ import {
 } from '@chakra-ui/react'
 
 const { withContext } = createRecipeContext({
-  key: 'command',
+  key: 'suiCommand',
 })
 
-export interface CommandBaseProps extends RecipeProps<'span'>, UnstyledProp {}
+export interface CommandBaseProps
+  extends RecipeProps<'suiCommand'>,
+    UnstyledProp {}
 
 export interface CommandProps
   extends HTMLChakraProps<'span', CommandBaseProps> {}

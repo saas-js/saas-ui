@@ -1,1 +1,1 @@
-export * as Navbar from './namespace'
+export * as Navbar from './navbar.tsx'

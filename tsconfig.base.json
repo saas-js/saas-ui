@@ -22,7 +22,6 @@
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "types": ["node", "vitest/globals"]
+    "noUnusedParameters": false
   }
 }

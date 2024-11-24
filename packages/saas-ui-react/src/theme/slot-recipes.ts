@@ -94,11 +94,11 @@ export const slotRecipes = {
   status: statusSlotRecipe,
   timeline: timelineSlotRecipe,
   // Saas UI Recipes
-  appShell: appShellSlotRecipe,
-  loadingOverlay: loadingOverlaySlotRecipe,
-  persona: personaSlotRecipe,
-  gridList: gridListSlotRecipe,
-  navbar: navbarSlotRecipe,
-  sidebar: sidebarSlotRecipe,
-  sidebarNavItem: sidebarNavItemSlotRecipe,
+  suiAppShell: appShellSlotRecipe,
+  suiLoadingOverlay: loadingOverlaySlotRecipe,
+  suiPersona: personaSlotRecipe,
+  suiGridList: gridListSlotRecipe,
+  suiNavbar: navbarSlotRecipe,
+  suiSidebar: sidebarSlotRecipe,
+  suiSidebarNavItem: sidebarNavItemSlotRecipe,
 }

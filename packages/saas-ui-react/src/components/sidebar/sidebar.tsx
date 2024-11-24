@@ -1,28 +1,22 @@
 import React from 'react'
 
 import type { HTMLChakraProps, SlotRecipeProps } from '@chakra-ui/react'
-import { createSlotRecipeContext } from '@chakra-ui/react'
 import { Sidebar, useSidebar } from '@saas-ui/core/sidebar'
 
-const {
-  withContext,
-  useRecipeResult,
-  StylesProvider,
+import {
   ClassNamesProvider,
-  useStyles: useSidebarStyles,
-} = createSlotRecipeContext({
-  key: 'sidebar',
-})
+  StylesProvider,
+  useRecipeResult,
+  withContext,
+  withItemContext,
+  withItemProvider,
+} from './sidebar.context.ts'
 
-export { useSidebar, useSidebarStyles }
-
-export interface SidebarProviderProps
+interface SidebarProviderProps
   extends Sidebar.ProviderProps,
-    Omit<SlotRecipeProps<'sidebar'>, 'mode'> {}
+    Omit<SlotRecipeProps<'suiSidebar'>, 'mode'> {}
 
-export const SidebarProvider = function SidebarProvider(
-  props: SidebarProviderProps,
-) {
+const SidebarProvider = function SidebarProvider(props: SidebarProviderProps) {
   return (
     <Sidebar.Provider {...props}>
       <RecipeProvider {...props}>{props.children}</RecipeProvider>
@@ -31,7 +25,7 @@ export const SidebarProvider = function SidebarProvider(
 }
 
 function RecipeProvider(
-  props: SlotRecipeProps<'sidebar'> & { children: React.ReactNode },
+  props: SlotRecipeProps<'suiSidebar'> & { children: React.ReactNode },
 ) {
   const { mode } = useSidebar()
 
@@ -49,42 +43,41 @@ function RecipeProvider(
   )
 }
 
-export interface SidebarRootProps
-  extends Sidebar.RootProps,
-    HTMLChakraProps<'div'> {}
+interface SidebarRootProps extends Sidebar.RootProps, HTMLChakraProps<'div'> {}
 
 /**
  * Side navigation, commonly used as the primary navigation
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarRoot = withContext<HTMLDivElement, SidebarRootProps>(
+const SidebarRoot = withContext<HTMLDivElement, SidebarRootProps>(
   Sidebar.Root,
   'root',
 )
 
-export interface SidebarTriggerProps extends HTMLChakraProps<'button'> {}
+interface SidebarTriggerProps extends HTMLChakraProps<'button'> {}
 
 /**
  * Button that toggles the sidebar visibility.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarTrigger = withContext<
-  HTMLButtonElement,
-  SidebarTriggerProps
->(Sidebar.Trigger, 'trigger', {
-  forwardAsChild: true,
-})
+const SidebarTrigger = withContext<HTMLButtonElement, SidebarTriggerProps>(
+  Sidebar.Trigger,
+  'trigger',
+  {
+    forwardAsChild: true,
+  },
+)
 
-export interface SidebarFlyoutTriggerProps extends HTMLChakraProps<'button'> {}
+interface SidebarFlyoutTriggerProps extends HTMLChakraProps<'button'> {}
 
 /**
  * Opens the sidebar when hovering over the trigger.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarFlyoutTrigger = withContext<
+const SidebarFlyoutTrigger = withContext<
   HTMLButtonElement,
   SidebarFlyoutTriggerProps
 >(Sidebar.FlyoutTrigger, 'flyoutTrigger', {
@@ -96,29 +89,30 @@ export const SidebarFlyoutTrigger = withContext<
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarBackdrop = withContext<
-  HTMLDivElement,
-  HTMLChakraProps<'div'>
->(Sidebar.Backdrop, 'backdrop', {
-  forwardAsChild: true,
-})
+const SidebarBackdrop = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  Sidebar.Backdrop,
+  'backdrop',
+  {
+    forwardAsChild: true,
+  },
+)
 
 /**
  * Sidebar header section.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarHeader = withContext<
-  HTMLDivElement,
-  HTMLChakraProps<'div'>
->(Sidebar.Header, 'header')
+const SidebarHeader = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  Sidebar.Header,
+  'header',
+)
 
 /**
  * Sidebar body section, used for the main content of the sidebar.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarBody = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+const SidebarBody = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   Sidebar.Body,
   'body',
 )
@@ -128,17 +122,17 @@ export const SidebarBody = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarFooter = withContext<
-  HTMLDivElement,
-  HTMLChakraProps<'div'>
->(Sidebar.Footer, 'footer')
+const SidebarFooter = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  Sidebar.Footer,
+  'footer',
+)
 
 /**
  * Sidebar track section.
  *
  * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
  */
-export const SidebarTrack = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+const SidebarTrack = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   Sidebar.Track,
   'track',
   {
@@ -146,7 +140,7 @@ export const SidebarTrack = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   },
 )
 
-export const SidebarGroup = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+const SidebarGroup = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   Sidebar.Group,
   'group',
   {
@@ -156,53 +150,77 @@ export const SidebarGroup = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   },
 )
 
-export const SidebarGroupHeader = withContext<
-  HTMLDivElement,
-  HTMLChakraProps<'div'>
->(Sidebar.GroupHeader, 'groupHeader')
+const SidebarGroupHeader = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  Sidebar.GroupHeader,
+  'groupHeader',
+)
 
-export const SidebarGroupTitle = withContext<
+const SidebarGroupTitle = withContext<
   HTMLHeadingElement,
   HTMLChakraProps<'h5'>
 >(Sidebar.GroupTitle, 'groupTitle')
 
-export const SidebarGroupEndElement = withContext<
+const SidebarGroupEndElement = withContext<
   HTMLDivElement,
   HTMLChakraProps<'div'>
 >(Sidebar.GroupEndElement, 'groupEndElement')
 
-export const SidebarGroupContent = withContext<
-  HTMLDivElement,
-  HTMLChakraProps<'div'>
->(Sidebar.GroupContent, 'groupContent')
+const SidebarGroupContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  Sidebar.GroupContent,
+  'groupContent',
+)
 
-const {
-  withProvider: withItemProvider,
-  withContext: withItemContext,
-  useStyles: useSidebarItemStyles,
-} = createSlotRecipeContext({
-  key: 'sidebarNavItem',
-})
+interface SidebarNavItemProps
+  extends SlotRecipeProps<'suiSidebarNavItem'>,
+    HTMLChakraProps<'div'> {}
 
-export { useSidebarItemStyles }
+const SidebarNavItem = withItemProvider<HTMLDivElement, SidebarNavItemProps>(
+  Sidebar.NavItem,
+  'item',
+)
 
-export const SidebarNavItem = withItemProvider<
-  HTMLDivElement,
-  HTMLChakraProps<'div'>
->(Sidebar.NavItem, 'item')
-
-export interface SidebarNavButtonProps extends Sidebar.NavButtonProps {
+interface SidebarNavButtonProps
+  extends Sidebar.NavButtonProps,
+    HTMLChakraProps<'button'> {
   active?: boolean
 }
 
-export const SidebarNavButton = withItemContext<
+const SidebarNavButton = withItemContext<
   HTMLButtonElement,
   SidebarNavButtonProps
 >(Sidebar.NavButton, 'button', {
   forwardAsChild: true,
 })
 
-export const SidebarNavItemEndElement = withItemContext<
+const SidebarNavItemEndElement = withItemContext<
   HTMLDivElement,
   HTMLChakraProps<'div'>
 >(Sidebar.NavItemEndElement, 'endElement')
+
+export {
+  SidebarProvider as Provider,
+  SidebarRoot as Root,
+  SidebarTrigger as Trigger,
+  SidebarFlyoutTrigger as FlyoutTrigger,
+  SidebarBackdrop as Backdrop,
+  SidebarHeader as Header,
+  SidebarBody as Body,
+  SidebarFooter as Footer,
+  SidebarTrack as Track,
+  SidebarGroup as Group,
+  SidebarGroupHeader as GroupHeader,
+  SidebarGroupTitle as GroupTitle,
+  SidebarGroupEndElement as GroupEndElement,
+  SidebarGroupContent as GroupContent,
+  SidebarNavItem as NavItem,
+  SidebarNavButton as NavButton,
+  SidebarNavItemEndElement as NavItemEndElement,
+}
+
+export type {
+  SidebarRootProps as RootProps,
+  SidebarTriggerProps as TriggerProps,
+  SidebarFlyoutTriggerProps as FlyoutTriggerProps,
+  SidebarNavItemProps as NavItemProps,
+  SidebarNavButtonProps as NavButtonProps,
+}

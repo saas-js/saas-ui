@@ -1,1 +1,2 @@
-export * as LoadingOverlay from './namespace.ts'
+export * as LoadingOverlay from './loading-overlay.tsx'
+export { useLoadingOverlayStyles } from './loading-overlay.context.ts'

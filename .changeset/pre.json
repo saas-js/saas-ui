@@ -25,6 +25,8 @@
     "@saas-ui/test-utils": "4.0.9"
   },
   "changesets": [
+    "beige-fans-eat",
+    "dry-berries-report",
     "flat-pumas-grow",
     "gorgeous-masks-rescue",
     "modern-mangos-push",

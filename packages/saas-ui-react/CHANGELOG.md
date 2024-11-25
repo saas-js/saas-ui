@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.5
+
+### Minor Changes
+
+- e9fec88: Added toaster and menu components
+- f62c3d6: Export all components from root barrel file
+
 ## 3.0.0-alpha.4
 
 ### Patch Changes

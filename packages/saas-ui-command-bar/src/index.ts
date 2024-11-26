@@ -7,7 +7,6 @@ export {
   CommandBarEmpty,
   CommandBarInput,
   CommandBarList,
-  CommandBarOverlay,
   CommandBarLoading,
   CommandBarContent,
 } from './command-bar'

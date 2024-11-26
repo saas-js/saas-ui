@@ -186,11 +186,12 @@ export interface CommandBarDialogProps
   extends Omit<ModalProps, 'variant' | 'isOpen' | 'onClose'> {
   closeOnSelect?: boolean
   contentProps?: ModalContentProps
+  overlay?: boolean
 }
 
 export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
   (props, ref) => {
-    const { children, contentProps, ...rest } = props
+    const { children, contentProps, overlay, ...rest } = props
 
     const { getDialogProps } = useCommandBarContext()
 
@@ -199,6 +200,7 @@ export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
         <ModalContent ref={ref} bg="transparent" {...contentProps}>
           {children}
         </ModalContent>
+        {overlay && <CommandBarOverlay />}
       </Modal>
     )
   }
@@ -206,4 +208,4 @@ export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
 
 CommandBarDialog.displayName = 'CommandBarDialog'
 
-export const CommandBarOverlay = ModalOverlay
+const CommandBarOverlay = ModalOverlay

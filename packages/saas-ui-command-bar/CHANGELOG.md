@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.9.0
+
+### Minor Changes
+
+- 9550dd4: Add overlay prop to control overlay rendering to CommandBarDialog
+
 ## 0.8.1
 
 ### Patch Changes

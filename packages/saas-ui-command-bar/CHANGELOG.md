@@ -1,5 +1,11 @@
 # @saas-ui/command-bar
 
+## 0.9.1
+
+### Patch Changes
+
+- 2e9cbf1: Fix overlay position
+
 ## 0.9.0
 
 ### Minor Changes

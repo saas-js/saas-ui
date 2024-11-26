@@ -26,6 +26,9 @@ import {
   Button,
   Container,
   Kbd,
+  Modal,
+  ModalContent,
+  ModalOverlay,
   Spinner,
   useDisclosure,
 } from '@chakra-ui/react'
@@ -228,6 +231,36 @@ export const DisabledItems = () => {
           <CommandBarItem>Fish</CommandBarItem>
         </CommandBarList>
       </CommandBarContent>
+    </CommandBar>
+  )
+}
+
+export const Overlay = () => {
+  const [isLoading, setLoading] = React.useState(false)
+
+  return (
+    <CommandBar isOpen onSelect={(item) => console.log(item)}>
+      <CommandBarDialog overlay>
+        <CommandBarContent>
+          <CommandBarInput placeholder="Type a command or search..." />
+
+          <CommandBarList>
+            {isLoading && <CommandBarLoading>Hang on…</CommandBarLoading>}
+
+            <CommandBarEmpty>No results found.</CommandBarEmpty>
+
+            <CommandBarGroup heading="Fruits">
+              <CommandBarItem>Apple</CommandBarItem>
+              <CommandBarItem>Orange</CommandBarItem>
+              <CommandBarSeparator />
+              <CommandBarItem isDisabled>Pear</CommandBarItem>
+              <CommandBarItem>Blueberry</CommandBarItem>
+            </CommandBarGroup>
+
+            <CommandBarItem>Fish</CommandBarItem>
+          </CommandBarList>
+        </CommandBarContent>
+      </CommandBarDialog>
     </CommandBar>
   )
 }

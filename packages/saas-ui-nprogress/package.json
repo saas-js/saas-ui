@@ -63,7 +63,7 @@
     "@tanem/react-nprogress": "^5.0.53"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.1.1",
+    "@chakra-ui/react": "^3.2.1",
     "@saas-ui/core": "workspace:*",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"

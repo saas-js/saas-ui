@@ -5,7 +5,8 @@
     "baseUrl": ".",
     "customConditions": ["sui"],
     "paths": {
-      "#components/*": ["src/components/*"]
+      "#components/*": ["src/components/*"],
+      "compositions/*": ["../../apps/compositions/src/*"]
     }
   },
   "include": ["src/**/*"],

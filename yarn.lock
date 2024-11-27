@@ -29,67 +29,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ark-ui/react@npm:4.4.3":
-  version: 4.4.3
-  resolution: "@ark-ui/react@npm:4.4.3"
-  dependencies:
-    "@internationalized/date": "npm:3.5.6"
-    "@zag-js/accordion": "npm:0.77.1"
-    "@zag-js/anatomy": "npm:0.77.1"
-    "@zag-js/auto-resize": "npm:0.77.1"
-    "@zag-js/avatar": "npm:0.77.1"
-    "@zag-js/carousel": "npm:0.77.1"
-    "@zag-js/checkbox": "npm:0.77.1"
-    "@zag-js/clipboard": "npm:0.77.1"
-    "@zag-js/collapsible": "npm:0.77.1"
-    "@zag-js/collection": "npm:0.77.1"
-    "@zag-js/color-picker": "npm:0.77.1"
-    "@zag-js/color-utils": "npm:0.77.1"
-    "@zag-js/combobox": "npm:0.77.1"
-    "@zag-js/core": "npm:0.77.1"
-    "@zag-js/date-picker": "npm:0.77.1"
-    "@zag-js/date-utils": "npm:0.77.1"
-    "@zag-js/dialog": "npm:0.77.1"
-    "@zag-js/dom-query": "npm:0.77.1"
-    "@zag-js/editable": "npm:0.77.1"
-    "@zag-js/file-upload": "npm:0.77.1"
-    "@zag-js/file-utils": "npm:0.77.1"
-    "@zag-js/highlight-word": "npm:0.77.1"
-    "@zag-js/hover-card": "npm:0.77.1"
-    "@zag-js/i18n-utils": "npm:0.77.1"
-    "@zag-js/menu": "npm:0.77.1"
-    "@zag-js/number-input": "npm:0.77.1"
-    "@zag-js/pagination": "npm:0.77.1"
-    "@zag-js/pin-input": "npm:0.77.1"
-    "@zag-js/popover": "npm:0.77.1"
-    "@zag-js/presence": "npm:0.77.1"
-    "@zag-js/progress": "npm:0.77.1"
-    "@zag-js/qr-code": "npm:0.77.1"
-    "@zag-js/radio-group": "npm:0.77.1"
-    "@zag-js/rating-group": "npm:0.77.1"
-    "@zag-js/react": "npm:0.77.1"
-    "@zag-js/select": "npm:0.77.1"
-    "@zag-js/signature-pad": "npm:0.77.1"
-    "@zag-js/slider": "npm:0.77.1"
-    "@zag-js/splitter": "npm:0.77.1"
-    "@zag-js/steps": "npm:0.77.1"
-    "@zag-js/switch": "npm:0.77.1"
-    "@zag-js/tabs": "npm:0.77.1"
-    "@zag-js/tags-input": "npm:0.77.1"
-    "@zag-js/time-picker": "npm:0.77.1"
-    "@zag-js/timer": "npm:0.77.1"
-    "@zag-js/toast": "npm:0.77.1"
-    "@zag-js/toggle-group": "npm:0.77.1"
-    "@zag-js/tooltip": "npm:0.77.1"
-    "@zag-js/tree-view": "npm:0.77.1"
-    "@zag-js/types": "npm:0.77.1"
-  peerDependencies:
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-  checksum: 10/3c6759aaecd5e613234b58e1ce5b391ca5919f362f2a4cfa2842b9b1c49ce707c55c7a9a3d014e5ce3ac0b505ec93fa0e576e94a8f319a094417db52113fd584
-  languageName: node
-  linkType: hard
-
 "@ark-ui/react@npm:4.4.4, @ark-ui/react@npm:^4.4.4":
   version: 4.4.4
   resolution: "@ark-ui/react@npm:4.4.4"
@@ -1573,11 +1512,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9240#1":
-  version: 3.2.0
-  resolution: "@chakra-ui/react@https://pkg.pr.new/chakra-ui/chakra-ui/@chakra-ui/react@9240#1"
+"@chakra-ui/react@npm:3.2.1, @chakra-ui/react@npm:^3.2.0, @chakra-ui/react@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@chakra-ui/react@npm:3.2.1"
   dependencies:
-    "@ark-ui/react": "npm:4.4.3"
+    "@ark-ui/react": "npm:4.4.4"
     "@emotion/is-prop-valid": "npm:1.3.1"
     "@emotion/serialize": "npm:1.3.2"
     "@emotion/use-insertion-effect-with-fallbacks": "npm:1.1.0"
@@ -1588,7 +1527,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10/21cbce2d35d7689f4bbb62800a86da86a794436eccca7749c19a75c251ba848d67009a6c562c75a8d2c9a7b6d8eb4a63bfb57a83b3bc6b364d5bb06f08031e00
+  checksum: 10/66ec97a29cbabfd081bae95d65d9dabd887694307940d86c1a205046c89a5a101cfe9426b9231e0c533fb02d5931ba4f097ed0d415f81a725d8ee0dfdd273786
   languageName: node
   linkType: hard
 
@@ -3948,7 +3887,7 @@ __metadata:
     recharts: "npm:^2.13.3"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.0.0
+    "@chakra-ui/react": ^3.2.1
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
@@ -4002,7 +3941,7 @@ __metadata:
     yup: "npm:^1.4.0"
     zod: "npm:^3.23.8"
   peerDependencies:
-    "@chakra-ui/react": ^3.0.0
+    "@chakra-ui/react": ^3.2.1
     "@emotion/react": ">=11.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -4037,7 +3976,7 @@ __metadata:
     yup: "npm:^1.4.0"
     zod: "npm:^3.23.8"
   peerDependencies:
-    "@chakra-ui/react": ^3.0.0
+    "@chakra-ui/react": ^3.2.1
     "@emotion/react": ">=11.0.0"
     "@saas-ui/react": "workspace:*"
     react: ">=18.0.0"
@@ -4057,7 +3996,7 @@ __metadata:
   dependencies:
     "@tanem/react-nprogress": "npm:^5.0.53"
   peerDependencies:
-    "@chakra-ui/react": ^3.1.1
+    "@chakra-ui/react": ^3.2.1
     "@saas-ui/core": "workspace:*"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -4083,7 +4022,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.0.0
+    "@chakra-ui/react": ^3.2.1
     "@emotion/react": ^11
     react: ">=18"
     react-dom: ">=18"
@@ -4171,7 +4110,7 @@ __metadata:
   resolution: "@saas-ui/web-v3@workspace:apps/v3"
   dependencies:
     "@ark-ui/react": "npm:4.4.4"
-    "@chakra-ui/react": "npm:3.2.0"
+    "@chakra-ui/react": "npm:3.2.1"
     "@emotion/react": "npm:11.13.5"
     "@octokit/rest": "npm:^21.0.2"
     "@react-three/drei": "npm:^9.117.3"
@@ -7974,7 +7913,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "compositions@workspace:apps/compositions"
   dependencies:
-    "@chakra-ui/react": "npm:3.2.0"
+    "@chakra-ui/react": "npm:3.2.1"
     "@hookform/resolvers": "npm:3.9.1"
     "@tanstack/react-table": "npm:8.20.5"
     "@types/react": "npm:^18.3.12"
@@ -15267,7 +15206,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-react": "npm:^7.25.9"
     "@babel/preset-typescript": "npm:^7.26.0"
-    "@chakra-ui/react": "npm:^3.2.0"
+    "@chakra-ui/react": "npm:^3.2.1"
     "@emotion/react": "npm:^11.13.5"
     "@emotion/styled": "npm:^11.13.5"
     "@fontsource-variable/inter": "npm:^5.1.0"

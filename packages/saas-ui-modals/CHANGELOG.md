@@ -1,5 +1,20 @@
 # @saas-ui/modals
 
+## 3.0.0-alpha.6
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+
+### Patch Changes
+
+- Updated dependencies [95c8652]
+  - @saas-ui/modals-provider@1.0.0-alpha.3
+  - @saas-ui/forms@3.0.0-alpha.6
+  - @saas-ui/hooks@3.0.0-alpha.4
+  - @saas-ui/react@3.0.0-alpha.6
+  - @saas-ui/core@3.0.0-alpha.4
+
 ## 3.0.0-alpha.5
 
 ### Patch Changes

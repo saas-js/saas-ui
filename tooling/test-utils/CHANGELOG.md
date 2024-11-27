@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 5.0.0-alpha.6
+
+### Patch Changes
+
+- Updated dependencies [95c8652]
+  - @saas-ui/react@3.0.0-alpha.6
+
 ## 5.0.0-alpha.5
 
 ### Patch Changes

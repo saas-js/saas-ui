@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 1.0.0-alpha.3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+
 ## 1.0.0-alpha.2
 
 ### Minor Changes

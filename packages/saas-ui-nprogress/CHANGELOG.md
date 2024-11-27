@@ -1,5 +1,16 @@
 # @saas-ui/nprogress
 
+## 3.0.0-alpha.4
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+
+### Patch Changes
+
+- Updated dependencies [95c8652]
+  - @saas-ui/core@3.0.0-alpha.4
+
 ## 3.0.0-alpha.3
 
 ### Patch Changes

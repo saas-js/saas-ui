@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/core",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "Unstyled primitives for building React applications.",
   "type": "module",
   "exports": {

@@ -5593,6 +5593,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-use-rect@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@radix-ui/react-use-rect@npm:1.1.0"
+  dependencies:
+    "@radix-ui/rect": "npm:1.1.0"
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10/facc9528af43df3b01952dbb915ff751b5924db2c31d41f053ddea19a7cc5cac5b096c4d7a2059e8f564a3f0d4a95bcd909df8faed52fa01709af27337628e2c
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-visually-hidden@npm:1.1.0":
   version: 1.1.0
   resolution: "@radix-ui/react-visually-hidden@npm:1.1.0"
@@ -5609,6 +5624,13 @@ __metadata:
     "@types/react-dom":
       optional: true
   checksum: 10/9e30775dc3bd562722b5671d91545e3e16111f9d1942c98188cb84935eb4a7d31ef1ad1e028e1f1d41e490392f295fbd55424106263869cc7028de9f6141363d
+  languageName: node
+  linkType: hard
+
+"@radix-ui/rect@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@radix-ui/rect@npm:1.1.0"
+  checksum: 10/3ffdc5e3f7bcd91de4d5983513bd11c3a82b89b966e5c1bd8c17690a8f5da2d83fa156474c7b68fc6b9465df2281f81983b146e1d9dc57d332abda05751a9cbc
   languageName: node
   linkType: hard
 
@@ -6303,7 +6325,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@npm:^0.38.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/packages/react":
+"@saas-ui-pro/react@npm:^0.39.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/packages/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/packages/react"
   dependencies:
@@ -6312,12 +6334,14 @@ __metadata:
     "@chakra-ui/theme-tools": "npm:^2.2.7"
     "@chakra-ui/utils": "npm:^2.2.3"
     "@ngneat/falso": "npm:^7.2.0"
+    "@radix-ui/react-use-rect": "npm:^1.1.0"
     "@react-hookz/web": "npm:^24.0.4"
     "@saas-ui-pro/onboarding": "workspace:*"
     "@saas-ui/date-picker": "npm:^0.15.1"
     "@saas-ui/forms": "npm:^2.9.0"
     "@saas-ui/react-utils": "npm:^2.2.0"
     "@saas-ui/theme": "npm:^2.6.0"
+    "@tanstack/react-query": "npm:^5.16.0"
     "@tanstack/react-table": "npm:^8.20.5"
     "@tanstack/react-virtual": "npm:^3.10.8"
     "@zag-js/dom-utils": "npm:^0.2.4"
@@ -7058,6 +7082,23 @@ __metadata:
   peerDependencies:
     storybook: ^8.4.2
   checksum: 10/81bdd9d758aa2b2faaa19ae6e27b6367e8522db3e8f6f2c72a452079ab35abf220472ff7ee6f7ed105dcfa7c23a2300df4753f8b5b5850a706a4c60492567735
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-links@npm:^8.3.6":
+  version: 8.4.5
+  resolution: "@storybook/addon-links@npm:8.4.5"
+  dependencies:
+    "@storybook/csf": "npm:^0.1.11"
+    "@storybook/global": "npm:^5.0.0"
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^8.4.5
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 10/47cd11c9aab7a5d3ab2f6517316973ce1a8f118d845f4dac2bc3864597252fe8d0ab3e62695a6fcd0ea8c72097260b99545392d9a6fe8be646e5b352481f48cd
   languageName: node
   linkType: hard
 
@@ -8089,6 +8130,24 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 10/85415327d6c3b41ed81b463786959c1b154e69e5093ea349cfbe4fc9547c4585b5be17ea47a47f4d08b4a3f8432a2b1280c664ecd9b0fd94ab0138d93170542d
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.61.5":
+  version: 5.61.5
+  resolution: "@tanstack/query-core@npm:5.61.5"
+  checksum: 10/e84a9dbd93cf5fa7abe7d4ba607e054cf15621194e1ec0145e05b826c0a27123947f0cc937cafe6254fb2289c0013b2283796f8c3844c0a19ed6082fb70a6632
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.16.0":
+  version: 5.61.5
+  resolution: "@tanstack/react-query@npm:5.61.5"
+  dependencies:
+    "@tanstack/query-core": "npm:5.61.5"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10/ae2108b03cc4b02c0dd08ddab44a157cdfa9949ccf5d4f4f7aa2d11ff345b3bc7a405138322ad99a538f476a77b2a188eb199119806df507cc988f09e8b34535
   languageName: node
   linkType: hard
 
@@ -22627,7 +22686,7 @@ __metadata:
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.13.3"
     "@emotion/styled": "npm:^11.13.0"
-    "@saas-ui-pro/react": "npm:^0.38.0"
+    "@saas-ui-pro/react": "npm:^0.39.0"
     "@saas-ui/file-upload": "npm:^0.6.0"
     "@saas-ui/react": "npm:^2.11.1"
     "@saas-ui/registry": "workspace:*"
@@ -22648,6 +22707,7 @@ __metadata:
     "@storybook/addon-a11y": "npm:^8.3.6"
     "@storybook/addon-docs": "npm:^8.3.6"
     "@storybook/addon-essentials": "npm:^8.3.6"
+    "@storybook/addon-links": "npm:^8.3.6"
     "@storybook/addon-storysource": "npm:^8.3.6"
     "@storybook/builder-vite": "npm:^8.3.6"
     "@storybook/cli": "npm:^8.3.6"

@@ -197,10 +197,10 @@ export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
 
     return (
       <Modal scrollBehavior="inside" {...getDialogProps(rest)}>
+        {overlay && <CommandBarOverlay />}
         <ModalContent ref={ref} bg="transparent" {...contentProps}>
           {children}
         </ModalContent>
-        {overlay && <CommandBarOverlay />}
       </Modal>
     )
   }

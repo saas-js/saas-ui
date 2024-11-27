@@ -101,6 +101,9 @@ const baseStyle = definePartsStyle({
     py: 2,
     h: 12,
   },
+  dialog: {
+    borderWidth: '1px',
+  },
 })
 
 /**

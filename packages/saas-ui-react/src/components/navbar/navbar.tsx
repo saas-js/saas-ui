@@ -1,6 +1,9 @@
+import { forwardRef } from 'react'
+
 import type { HTMLChakraProps, SlotRecipeProps } from '@chakra-ui/react'
 import { Navbar } from '@saas-ui/core/navbar'
 
+import { useLink } from '../../provider/use-link.tsx'
 import { withContext, withProvider } from './navbar.context.ts'
 
 interface NavbarRootProps
@@ -28,9 +31,26 @@ const NavbarItem = withContext<HTMLLIElement, HTMLChakraProps<'li'>>(
   'item',
 )
 
-const NavbarLink = withContext<HTMLAnchorElement, HTMLChakraProps<'a'>>(
-  Navbar.Link,
+interface NavbarLinkProps extends HTMLChakraProps<'a'> {
+  active?: boolean
+}
+
+const NavbarLink = withContext<HTMLAnchorElement, NavbarLinkProps>(
+  forwardRef<HTMLAnchorElement, NavbarLinkProps>((props, ref) => {
+    const Link = useLink()
+
+    const { active, ...rest } = props
+
+    return (
+      <Navbar.Link asChild {...rest} ref={ref}>
+        <Link data-active={active ? '' : undefined} {...props} />
+      </Navbar.Link>
+    )
+  }),
   'link',
+  {
+    forwardAsChild: true,
+  },
 )
 
 export {

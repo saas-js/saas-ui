@@ -2,8 +2,15 @@
 
 import { forwardRef } from 'react'
 
-import { AbsoluteCenter, Menu as ChakraMenu, Portal } from '@chakra-ui/react'
-import { LuCheck, LuChevronRight } from 'react-icons/lu'
+import {
+  AbsoluteCenter,
+  type ButtonProps,
+  Menu as ChakraMenu,
+  Portal,
+} from '@chakra-ui/react'
+
+import { Button } from '#components/button/index.ts'
+import { CheckIcon, ChevronRightIcon } from '#components/icons/index.ts'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {
   portalled?: boolean
@@ -40,7 +47,7 @@ const MenuCheckboxItem = forwardRef<
   return (
     <ChakraMenu.CheckboxItem ref={ref} {...props}>
       <ChakraMenu.ItemIndicator hidden={false}>
-        <LuCheck />
+        <CheckIcon />
       </ChakraMenu.ItemIndicator>
       {props.children}
     </ChakraMenu.CheckboxItem>
@@ -54,7 +61,7 @@ const MenuRadioItem = forwardRef<HTMLDivElement, ChakraMenu.RadioItemProps>(
       <ChakraMenu.RadioItem ps="8" ref={ref} {...rest}>
         <AbsoluteCenter axis="horizontal" left="4" asChild>
           <ChakraMenu.ItemIndicator>
-            <LuCheck />
+            <CheckIcon />
           </ChakraMenu.ItemIndicator>
         </AbsoluteCenter>
         <ChakraMenu.ItemText>{children}</ChakraMenu.ItemText>
@@ -90,8 +97,20 @@ const MenuTriggerItem = forwardRef<HTMLDivElement, MenuTriggerItemProps>(
       <ChakraMenu.TriggerItem ref={ref} {...rest}>
         {startIcon}
         {children}
-        <LuChevronRight />
+        <ChevronRightIcon />
       </ChakraMenu.TriggerItem>
+    )
+  },
+)
+
+interface MenuButtonProps extends ButtonProps, ChakraMenu.TriggerProps {}
+
+const MenuButton = forwardRef<HTMLButtonElement, MenuButtonProps>(
+  function MenuButton(props, ref) {
+    return (
+      <MenuTrigger ref={ref} {...props} asChild>
+        <Button />
+      </MenuTrigger>
     )
   },
 )
@@ -121,9 +140,18 @@ export {
   MenuItemText as ItemText,
   MenuItemCommand as ItemCommand,
   MenuTrigger as Trigger,
+  MenuButton as Button,
 }
 
+type MenuRootProps = ChakraMenu.RootProps
+type MenuTriggerProps = ChakraMenu.TriggerProps
+type MenuItemProps = ChakraMenu.ItemProps
+
 export type {
+  MenuRootProps as RootProps,
   MenuContentProps as ContentProps,
+  MenuTriggerProps as TriggerProps,
   MenuTriggerItemProps as TriggerItemProps,
+  MenuItemProps as ItemProps,
+  MenuButtonProps as ButtonProps,
 }

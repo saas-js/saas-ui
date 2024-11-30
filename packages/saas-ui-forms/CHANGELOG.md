@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 3.0.0-alpha.8
+
+### Patch Changes
+
+- Updated dependencies [64e680e]
+- Updated dependencies [64e680e]
+  - @saas-ui/react@3.0.0-alpha.8
+
 ## 3.0.0-alpha.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.8
+
+### Patch Changes
+
+- 64e680e: Update default button colorPalette to gray
+- 64e680e: Export Menu.Context
+
 ## 3.0.0-alpha.7
 
 ### Major Changes

@@ -14,7 +14,11 @@ function removeDirective(fileName: string) {
 
 export default defineConfig({
   ...config,
-  entry: ['src/index.ts', 'src/components/**/index.ts'],
+  entry: [
+    'src/index.ts',
+    'src/theme/tokens/colors.ts',
+    'src/components/**/index.ts',
+  ],
   tsconfig: 'tsconfig.json',
   sourcemap: false,
   external: ['@chakra-ui/react', '@saas-ui/core'],

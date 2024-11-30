@@ -170,6 +170,27 @@ export const semanticColors = defineSemanticTokens.colors({
     },
   },
 
+  slate: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.slate.900}', _dark: '{colors.slate.200}' },
+    },
+    muted: {
+      value: { _light: '{colors.slate.100}', _dark: '{colors.slate.900}' },
+    },
+    subtle: {
+      value: { _light: '{colors.slate.200}', _dark: '{colors.slate.800}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.slate.300}', _dark: '{colors.slate.700}' },
+    },
+    solid: {
+      value: { _light: '{colors.slate.500}', _dark: '{colors.slate.500}' },
+    },
+  },
+
   gray: {
     contrast: {
       value: { _light: 'white', _dark: 'white' },
@@ -188,6 +209,48 @@ export const semanticColors = defineSemanticTokens.colors({
     },
     solid: {
       value: { _light: '{colors.gray.500}', _dark: '{colors.gray.500}' },
+    },
+  },
+
+  zinc: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.zinc.900}', _dark: '{colors.zinc.200}' },
+    },
+    muted: {
+      value: { _light: '{colors.zinc.100}', _dark: '{colors.zinc.900}' },
+    },
+    subtle: {
+      value: { _light: '{colors.zinc.200}', _dark: '{colors.zinc.800}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.zinc.300}', _dark: '{colors.zinc.700}' },
+    },
+    solid: {
+      value: { _light: '{colors.zinc.500}', _dark: '{colors.zinc.500}' },
+    },
+  },
+
+  stone: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.stone.900}', _dark: '{colors.stone.200}' },
+    },
+    muted: {
+      value: { _light: '{colors.stone.100}', _dark: '{colors.stone.900}' },
+    },
+    subtle: {
+      value: { _light: '{colors.stone.200}', _dark: '{colors.stone.800}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.stone.300}', _dark: '{colors.stone.700}' },
+    },
+    solid: {
+      value: { _light: '{colors.stone.500}', _dark: '{colors.stone.500}' },
     },
   },
 
@@ -233,6 +296,69 @@ export const semanticColors = defineSemanticTokens.colors({
     },
   },
 
+  amber: {
+    contrast: {
+      value: { _light: 'black', _dark: 'black' },
+    },
+    fg: {
+      value: { _light: '{colors.amber.700}', _dark: '{colors.amber.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.amber.50}', _dark: '{colors.amber.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.amber.100}', _dark: '{colors.amber.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.amber.200}', _dark: '{colors.amber.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.amber.600}', _dark: '{colors.amber.600}' },
+    },
+  },
+
+  yellow: {
+    contrast: {
+      value: { _light: 'black', _dark: 'black' },
+    },
+    fg: {
+      value: { _light: '{colors.yellow.700}', _dark: '{colors.yellow.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.yellow.50}', _dark: '{colors.yellow.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.yellow.100}', _dark: '{colors.yellow.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.yellow.200}', _dark: '{colors.yellow.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.yellow.600}', _dark: '{colors.yellow.600}' },
+    },
+  },
+
+  lime: {
+    contrast: {
+      value: { _light: 'black', _dark: 'black' },
+    },
+    fg: {
+      value: { _light: '{colors.lime.700}', _dark: '{colors.lime.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.lime.50}', _dark: '{colors.lime.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.lime.100}', _dark: '{colors.lime.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.lime.200}', _dark: '{colors.lime.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.lime.600}', _dark: '{colors.lime.600}' },
+    },
+  },
+
   green: {
     contrast: {
       value: { _light: 'white', _dark: 'white' },
@@ -254,45 +380,24 @@ export const semanticColors = defineSemanticTokens.colors({
     },
   },
 
-  blue: {
+  emerald: {
     contrast: {
       value: { _light: 'white', _dark: 'white' },
     },
     fg: {
-      value: { _light: '{colors.blue.700}', _dark: '{colors.blue.300}' },
+      value: { _light: '{colors.emerald.700}', _dark: '{colors.emerald.300}' },
     },
     muted: {
-      value: { _light: '{colors.blue.50}', _dark: '{colors.blue.950}' },
+      value: { _light: '{colors.emerald.50}', _dark: '{colors.emerald.950}' },
     },
     subtle: {
-      value: { _light: '{colors.blue.100}', _dark: '{colors.blue.900}' },
+      value: { _light: '{colors.emerald.100}', _dark: '{colors.emerald.900}' },
     },
     emphasized: {
-      value: { _light: '{colors.blue.200}', _dark: '{colors.blue.800}' },
+      value: { _light: '{colors.emerald.200}', _dark: '{colors.emerald.800}' },
     },
     solid: {
-      value: { _light: '{colors.blue.600}', _dark: '{colors.blue.600}' },
-    },
-  },
-
-  yellow: {
-    contrast: {
-      value: { _light: 'black', _dark: 'black' },
-    },
-    fg: {
-      value: { _light: '{colors.yellow.700}', _dark: '{colors.yellow.300}' },
-    },
-    muted: {
-      value: { _light: '{colors.yellow.50}', _dark: '{colors.yellow.950}' },
-    },
-    subtle: {
-      value: { _light: '{colors.yellow.100}', _dark: '{colors.yellow.900}' },
-    },
-    emphasized: {
-      value: { _light: '{colors.yellow.200}', _dark: '{colors.yellow.800}' },
-    },
-    solid: {
-      value: { _light: '{colors.yellow.300}', _dark: '{colors.yellow.300}' },
+      value: { _light: '{colors.emerald.600}', _dark: '{colors.emerald.600}' },
     },
   },
 
@@ -317,6 +422,69 @@ export const semanticColors = defineSemanticTokens.colors({
     },
   },
 
+  cyan: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.cyan.700}', _dark: '{colors.cyan.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.cyan.50}', _dark: '{colors.cyan.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.cyan.100}', _dark: '{colors.cyan.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.cyan.200}', _dark: '{colors.cyan.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.cyan.600}', _dark: '{colors.cyan.600}' },
+    },
+  },
+
+  sky: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.sky.700}', _dark: '{colors.sky.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.sky.50}', _dark: '{colors.sky.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.sky.100}', _dark: '{colors.sky.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.sky.200}', _dark: '{colors.sky.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.sky.600}', _dark: '{colors.sky.600}' },
+    },
+  },
+
+  blue: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.blue.700}', _dark: '{colors.blue.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.blue.50}', _dark: '{colors.blue.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.blue.100}', _dark: '{colors.blue.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.blue.200}', _dark: '{colors.blue.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.blue.600}', _dark: '{colors.blue.600}' },
+    },
+  },
+
   indigo: {
     contrast: {
       value: { _light: 'white', _dark: 'white' },
@@ -335,6 +503,27 @@ export const semanticColors = defineSemanticTokens.colors({
     },
     solid: {
       value: { _light: '{colors.indigo.600}', _dark: '{colors.indigo.600}' },
+    },
+  },
+
+  violet: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.violet.700}', _dark: '{colors.violet.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.violet.50}', _dark: '{colors.violet.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.violet.100}', _dark: '{colors.violet.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.violet.200}', _dark: '{colors.violet.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.violet.600}', _dark: '{colors.violet.600}' },
     },
   },
 
@@ -359,6 +548,27 @@ export const semanticColors = defineSemanticTokens.colors({
     },
   },
 
+  fuchsia: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' },
+    },
+    fg: {
+      value: { _light: '{colors.fuchsia.700}', _dark: '{colors.fuchsia.300}' },
+    },
+    muted: {
+      value: { _light: '{colors.fuchsia.50}', _dark: '{colors.fuchsia.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.fuchsia.100}', _dark: '{colors.fuchsia.900}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.fuchsia.200}', _dark: '{colors.fuchsia.800}' },
+    },
+    solid: {
+      value: { _light: '{colors.fuchsia.600}', _dark: '{colors.fuchsia.600}' },
+    },
+  },
+
   pink: {
     contrast: {
       value: { _light: 'white', _dark: 'white' },
@@ -380,24 +590,24 @@ export const semanticColors = defineSemanticTokens.colors({
     },
   },
 
-  cyan: {
+  rose: {
     contrast: {
       value: { _light: 'white', _dark: 'white' },
     },
     fg: {
-      value: { _light: '{colors.cyan.700}', _dark: '{colors.cyan.300}' },
+      value: { _light: '{colors.rose.700}', _dark: '{colors.rose.300}' },
     },
     muted: {
-      value: { _light: '{colors.cyan.50}', _dark: '{colors.cyan.950}' },
+      value: { _light: '{colors.rose.50}', _dark: '{colors.rose.950}' },
     },
     subtle: {
-      value: { _light: '{colors.cyan.100}', _dark: '{colors.cyan.900}' },
+      value: { _light: '{colors.rose.100}', _dark: '{colors.rose.900}' },
     },
     emphasized: {
-      value: { _light: '{colors.cyan.200}', _dark: '{colors.cyan.800}' },
+      value: { _light: '{colors.rose.200}', _dark: '{colors.rose.800}' },
     },
     solid: {
-      value: { _light: '{colors.cyan.600}', _dark: '{colors.cyan.600}' },
+      value: { _light: '{colors.rose.600}', _dark: '{colors.rose.600}' },
     },
   },
 })

@@ -46,16 +46,6 @@ type Story = StoryObj<typeof Navbar.Root>
 
 const AppLogo = () => <SaasUIIcon width="28px" height="28px" />
 
-const Link = forwardRef<HTMLAnchorElement, HTMLProps<HTMLAnchorElement>>(
-  ({ children, ...props }, ref) => {
-    return (
-      <Link ref={ref} onClick={(e) => e.preventDefault()} {...props}>
-        {children}
-      </Link>
-    )
-  },
-)
-
 export interface SkeletonTextProps extends SkeletonProps {
   noOfLines?: number
 }
@@ -132,7 +122,7 @@ const App = React.forwardRef(({ children, navbar }: any, ref: any) => {
 
 App.displayName = 'App'
 
-const Template = (args: Navbar.RootProps) => {
+const Template: Story['render'] = (args) => {
   const parentRef = React.useRef(null)
 
   return (
@@ -143,26 +133,26 @@ const Template = (args: Navbar.RootProps) => {
             <AppLogo />
           </Navbar.Brand>
           <HStack display={{ base: 'hidden', md: 'flex' }}>
-            <Navbar.Item asChild>
-              <Link href="#">Features</Link>
+            <Navbar.Item>
+              <Navbar.Link active href="#">
+                Features
+              </Navbar.Link>
             </Navbar.Item>
-            <Navbar.Item active asChild>
-              <Link href="#">Customers</Link>
+            <Navbar.Item>
+              <Navbar.Link href="#">Customers</Navbar.Link>
             </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Integrations</Link>
+            <Navbar.Item>
+              <Navbar.Link href="#">Integrations</Navbar.Link>
             </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Pricing</Link>
+            <Navbar.Item>
+              <Navbar.Link href="#">Pricing</Navbar.Link>
             </Navbar.Item>
           </HStack>
           <HStack justifyContent="end" gap="2">
-            <Navbar.Item asChild>
-              <Link href="#">Login</Link>
+            <Navbar.Item>
+              <Navbar.Link href="#">Login</Navbar.Link>
             </Navbar.Item>
-            <Button variant="solid" asChild>
-              <Link href="#">Sign Up</Link>
-            </Button>
+            <Button variant="solid">Sign Up</Button>
           </HStack>
         </Navbar.Content>
       </Navbar.Root>
@@ -170,266 +160,270 @@ const Template = (args: Navbar.RootProps) => {
   )
 }
 
-const WithMenuTemplate = (args: Navbar.RootProps) => {
-  const parentRef = React.useRef(null)
-  const mobileNav = useDisclosure()
-  const menuItems = ['Features', 'Customers', 'Integrations', 'Pricing']
-
-  return (
-    <App ref={parentRef}>
-      <Navbar.Root parentRef={parentRef} position="sticky" {...args}>
-        <Navbar.Content>
-          <Navbar.Brand>
-            <AppLogo />
-          </Navbar.Brand>
-
-          <HStack display={{ base: 'none', sm: 'flex' }}>
-            <Navbar.Item asChild>
-              <Link href="#">Features</Link>
-            </Navbar.Item>
-            <Navbar.Item active asChild>
-              <Link href="#">Customers</Link>
-            </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Integrations</Link>
-            </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Pricing</Link>
-            </Navbar.Item>
-          </HStack>
-
-          <HStack justifyContent="end" gap="2">
-            <Navbar.Item asChild>
-              <Link href="#">Login</Link>
-            </Navbar.Item>
-
-            <Button variant="solid" asChild>
-              <Link href="#">Sign Up</Link>
-            </Button>
-
-            <Button
-              aria-label={mobileNav.open ? 'Close menu' : 'Open menu'}
-              display={{ base: 'inline-flex', sm: 'none' }}
-              onClick={mobileNav.onToggle}
-              variant="ghost"
-            >
-              {mobileNav.open ? <FiX /> : <FiMenu />}
-            </Button>
-          </HStack>
-        </Navbar.Content>
-
-        <Drawer.Root open={mobileNav.open} onOpenChange={mobileNav.onToggle}>
-          <Drawer.Backdrop />
-          <Drawer.Content>
-            <Drawer.Header>
-              <Drawer.CloseTrigger>
-                <Button variant="ghost">
-                  <LuX />
-                </Button>
-              </Drawer.CloseTrigger>
-            </Drawer.Header>
-            <Drawer.Body fontSize="md">
-              <Stack direction="column" gap="4">
-                {menuItems.map((item, index) => (
-                  <Navbar.Item key={`${item}-${index}`} width="full" asChild>
-                    <Link href="#">{item}</Link>
-                  </Navbar.Item>
-                ))}
-              </Stack>
-            </Drawer.Body>
-          </Drawer.Content>
-        </Drawer.Root>
-      </Navbar.Root>
-    </App>
-  )
-}
-
-const WithUserMenuTemplate = (args: Navbar.RootProps) => {
-  return (
-    <App>
-      <Navbar.Root {...args}>
-        <Navbar.Content>
-          <Navbar.Brand>
-            <AppLogo />
-          </Navbar.Brand>
-
-          <HStack display={{ base: 'hidden', sm: 'flex' }}>
-            <Navbar.Item asChild active>
-              <Link href="#">Inbox</Link>
-            </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Contacts</Link>
-            </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Tasks</Link>
-            </Navbar.Item>
-          </HStack>
-
-          <Box>
-            <Menu.Root>
-              <Menu.Trigger>
-                <Persona.Avatar
-                  src="/showcase-avatar.jpg"
-                  name="Beatriz"
-                  size="xs"
-                >
-                  <Persona.PresenceBadge presence="online" />
-                </Persona.Avatar>
-              </Menu.Trigger>
-              <Menu.Content>
-                <Menu.ItemGroup title="beatriz@saas-ui.dev">
-                  <Menu.Item value="profile" asChild>
-                    <Link href="#">Profile</Link>
-                  </Menu.Item>
-                  <Menu.Item value="settings" asChild>
-                    <Link href="#">Settings</Link>
-                  </Menu.Item>
-                  <Menu.Item value="help" asChild>
-                    <Link href="#">Help & feedback</Link>
-                  </Menu.Item>
-                </Menu.ItemGroup>
-                <Menu.Separator />
-                <Menu.Item value="logout" asChild>
-                  <Link href="#">Log out</Link>
-                </Menu.Item>
-              </Menu.Content>
-            </Menu.Root>
-          </Box>
-        </Navbar.Content>
-      </Navbar.Root>
-    </App>
-  )
-}
-
-const WithSearchInputTemplate = (args: Navbar.RootProps) => {
-  return (
-    <App>
-      <Navbar.Root {...args}>
-        <Navbar.Content>
-          <Navbar.Brand>
-            <AppLogo />
-          </Navbar.Brand>
-
-          <HStack display={{ base: 'hidden', sm: 'flex' }} gap="1">
-            <Navbar.Item asChild>
-              <Link href="#">Inbox</Link>
-            </Navbar.Item>
-            <Navbar.Item active asChild>
-              <Link href="#">Contacts</Link>
-            </Navbar.Item>
-            <Navbar.Item asChild>
-              <Link href="#">Tasks</Link>
-            </Navbar.Item>
-          </HStack>
-
-          <HStack gap="4">
-            <Box width="180px">
-              <SearchInput size="sm" />
-            </Box>
-            <Menu.Root>
-              <Menu.Trigger>
-                <Persona.Avatar
-                  src="/showcase-avatar.jpg"
-                  name="Beatriz"
-                  size="xs"
-                >
-                  <Persona.PresenceBadge presence="online" />
-                </Persona.Avatar>
-              </Menu.Trigger>
-              <Menu.Content>
-                <Menu.ItemGroup title="beatriz@saas-ui.dev">
-                  <Menu.Item value="profile" asChild>
-                    <Link href="#">Profile</Link>
-                  </Menu.Item>
-                  <Menu.Item value="settings" asChild>
-                    <Link href="#">Settings</Link>
-                  </Menu.Item>
-                  <Menu.Item value="help" asChild>
-                    <Link href="#">Help & feedback</Link>
-                  </Menu.Item>
-                </Menu.ItemGroup>
-                <Menu.Separator />
-                <Menu.Item value="logout" asChild>
-                  <Link href="#">Log out</Link>
-                </Menu.Item>
-              </Menu.Content>
-            </Menu.Root>
-          </HStack>
-        </Navbar.Content>
-      </Navbar.Root>
-    </App>
-  )
-}
-
-export const Static: Story = {
+export const Default: Story = {
   render: Template,
-
-  args: {
-    position: 'static',
-  },
 }
 
-export const Sticky: Story = {
-  render: Template,
+// const WithMenuTemplate = (args: Navbar.RootProps) => {
+//   const parentRef = React.useRef(null)
+//   const mobileNav = useDisclosure()
+//   const menuItems = ['Features', 'Customers', 'Integrations', 'Pricing']
 
-  args: {
-    position: 'sticky',
-  },
-}
+//   return (
+//     <App ref={parentRef}>
+//       <Navbar.Root parentRef={parentRef} position="sticky" {...args}>
+//         <Navbar.Content>
+//           <Navbar.Brand>
+//             <AppLogo />
+//           </Navbar.Brand>
 
-export const Border: Story = {
-  render: Template,
+//           <HStack display={{ base: 'none', sm: 'flex' }}>
+//             <Navbar.Item asChild>
+//               <Link href="#">Features</Link>
+//             </Navbar.Item>
+//             <Navbar.Item active asChild>
+//               <Link href="#">Customers</Link>
+//             </Navbar.Item>
+//             <Navbar.Item asChild>
+//               <Link href="#">Integrations</Link>
+//             </Navbar.Item>
+//             <Navbar.Item asChild>
+//               <Link href="#">Pricing</Link>
+//             </Navbar.Item>
+//           </HStack>
 
-  args: {
-    position: 'sticky',
-    borderBottomWidth: '1px',
-  },
-}
+//           <HStack justifyContent="end" gap="2">
+//             <Navbar.Item asChild>
+//               <Link href="#">Login</Link>
+//             </Navbar.Item>
 
-export const BlurredBg: Story = {
-  render: Template,
+//             <Button variant="solid" asChild>
+//               <Link href="#">Sign Up</Link>
+//             </Button>
 
-  args: {
-    position: 'sticky',
-    borderBottomWidth: '1px',
-    background: 'transparent',
-    backdropFilter: 'blur(4px)',
-  },
-}
+//             <Button
+//               aria-label={mobileNav.open ? 'Close menu' : 'Open menu'}
+//               display={{ base: 'inline-flex', sm: 'none' }}
+//               onClick={mobileNav.onToggle}
+//               variant="ghost"
+//             >
+//               {mobileNav.open ? <FiX /> : <FiMenu />}
+//             </Button>
+//           </HStack>
+//         </Navbar.Content>
 
-export const Shadow: Story = {
-  render: Template,
+//         <Drawer.Root open={mobileNav.open} onOpenChange={mobileNav.onToggle}>
+//           <Drawer.Backdrop />
+//           <Drawer.Content>
+//             <Drawer.Header>
+//               <Drawer.CloseTrigger>
+//                 <Button variant="ghost">
+//                   <LuX />
+//                 </Button>
+//               </Drawer.CloseTrigger>
+//             </Drawer.Header>
+//             <Drawer.Body fontSize="md">
+//               <Stack direction="column" gap="4">
+//                 {menuItems.map((item, index) => (
+//                   <Navbar.Item key={`${item}-${index}`} width="full" asChild>
+//                     <Link href="#">{item}</Link>
+//                   </Navbar.Item>
+//                 ))}
+//               </Stack>
+//             </Drawer.Body>
+//           </Drawer.Content>
+//         </Drawer.Root>
+//       </Navbar.Root>
+//     </App>
+//   )
+// }
 
-  args: {
-    position: 'sticky',
-    background: 'transparent',
-    backdropFilter: 'blur(4px)',
-    css: {
-      '&:not([data-at-top])': {
-        borderBottomWidth: '1px',
-        boxShadow: 'lg',
-      },
-    },
-  },
-}
+// const WithUserMenuTemplate = (args: Navbar.RootProps) => {
+//   return (
+//     <App>
+//       <Navbar.Root {...args}>
+//         <Navbar.Content>
+//           <Navbar.Brand>
+//             <AppLogo />
+//           </Navbar.Brand>
 
-export const HideOnScroll: Story = {
-  render: Template,
+//           <HStack display={{ base: 'hidden', sm: 'flex' }}>
+//             <Navbar.Item asChild active>
+//               <Link href="#">Inbox</Link>
+//             </Navbar.Item>
+//             <Navbar.Item asChild>
+//               <Link href="#">Contacts</Link>
+//             </Navbar.Item>
+//             <Navbar.Item asChild>
+//               <Link href="#">Tasks</Link>
+//             </Navbar.Item>
+//           </HStack>
 
-  args: {
-    position: 'sticky',
-    shouldHideOnScroll: true,
-  },
-}
+//           <Box>
+//             <Menu.Root>
+//               <Menu.Trigger>
+//                 <Persona.Avatar
+//                   src="/showcase-avatar.jpg"
+//                   name="Beatriz"
+//                   size="xs"
+//                 >
+//                   <Persona.PresenceBadge presence="online" />
+//                 </Persona.Avatar>
+//               </Menu.Trigger>
+//               <Menu.Content>
+//                 <Menu.ItemGroup title="beatriz@saas-ui.dev">
+//                   <Menu.Item value="profile" asChild>
+//                     <Link href="#">Profile</Link>
+//                   </Menu.Item>
+//                   <Menu.Item value="settings" asChild>
+//                     <Link href="#">Settings</Link>
+//                   </Menu.Item>
+//                   <Menu.Item value="help" asChild>
+//                     <Link href="#">Help & feedback</Link>
+//                   </Menu.Item>
+//                 </Menu.ItemGroup>
+//                 <Menu.Separator />
+//                 <Menu.Item value="logout" asChild>
+//                   <Link href="#">Log out</Link>
+//                 </Menu.Item>
+//               </Menu.Content>
+//             </Menu.Root>
+//           </Box>
+//         </Navbar.Content>
+//       </Navbar.Root>
+//     </App>
+//   )
+// }
 
-export const WithMenu: Story = {
-  render: WithMenuTemplate,
-}
+// const WithSearchInputTemplate = (args: Navbar.RootProps) => {
+//   return (
+//     <App>
+//       <Navbar.Root {...args}>
+//         <Navbar.Content>
+//           <Navbar.Brand>
+//             <AppLogo />
+//           </Navbar.Brand>
 
-export const WithUserMenu: Story = {
-  render: WithUserMenuTemplate,
-}
+//           <HStack display={{ base: 'hidden', sm: 'flex' }} gap="1">
+//             <Navbar.Item asChild>
+//               <Link href="#">Inbox</Link>
+//             </Navbar.Item>
+//             <Navbar.Item active asChild>
+//               <Link href="#">Contacts</Link>
+//             </Navbar.Item>
+//             <Navbar.Item asChild>
+//               <Link href="#">Tasks</Link>
+//             </Navbar.Item>
+//           </HStack>
 
-export const WithSearchInput: Story = {
-  render: WithSearchInputTemplate,
-}
+//           <HStack gap="4">
+//             <Box width="180px">
+//               <SearchInput size="sm" />
+//             </Box>
+//             <Menu.Root>
+//               <Menu.Trigger>
+//                 <Persona.Avatar
+//                   src="/showcase-avatar.jpg"
+//                   name="Beatriz"
+//                   size="xs"
+//                 >
+//                   <Persona.PresenceBadge presence="online" />
+//                 </Persona.Avatar>
+//               </Menu.Trigger>
+//               <Menu.Content>
+//                 <Menu.ItemGroup title="beatriz@saas-ui.dev">
+//                   <Menu.Item value="profile" asChild>
+//                     <Link href="#">Profile</Link>
+//                   </Menu.Item>
+//                   <Menu.Item value="settings" asChild>
+//                     <Link href="#">Settings</Link>
+//                   </Menu.Item>
+//                   <Menu.Item value="help" asChild>
+//                     <Link href="#">Help & feedback</Link>
+//                   </Menu.Item>
+//                 </Menu.ItemGroup>
+//                 <Menu.Separator />
+//                 <Menu.Item value="logout" asChild>
+//                   <Link href="#">Log out</Link>
+//                 </Menu.Item>
+//               </Menu.Content>
+//             </Menu.Root>
+//           </HStack>
+//         </Navbar.Content>
+//       </Navbar.Root>
+//     </App>
+//   )
+// }
+
+// export const Static: Story = {
+//   render: Template,
+
+//   args: {
+//     position: 'static',
+//   },
+// }
+
+// export const Sticky: Story = {
+//   render: Template,
+
+//   args: {
+//     position: 'sticky',
+//   },
+// }
+
+// export const Border: Story = {
+//   render: Template,
+
+//   args: {
+//     position: 'sticky',
+//     borderBottomWidth: '1px',
+//   },
+// }
+
+// export const BlurredBg: Story = {
+//   render: Template,
+
+//   args: {
+//     position: 'sticky',
+//     borderBottomWidth: '1px',
+//     background: 'transparent',
+//     backdropFilter: 'blur(4px)',
+//   },
+// }
+
+// export const Shadow: Story = {
+//   render: Template,
+
+//   args: {
+//     position: 'sticky',
+//     background: 'transparent',
+//     backdropFilter: 'blur(4px)',
+//     css: {
+//       '&:not([data-at-top])': {
+//         borderBottomWidth: '1px',
+//         boxShadow: 'lg',
+//       },
+//     },
+//   },
+// }
+
+// export const HideOnScroll: Story = {
+//   render: Template,
+
+//   args: {
+//     position: 'sticky',
+//     shouldHideOnScroll: true,
+//   },
+// }
+
+// export const WithMenu: Story = {
+//   render: WithMenuTemplate,
+// }
+
+// export const WithUserMenu: Story = {
+//   render: WithUserMenuTemplate,
+// }
+
+// export const WithSearchInput: Story = {
+//   render: WithSearchInputTemplate,
+// }

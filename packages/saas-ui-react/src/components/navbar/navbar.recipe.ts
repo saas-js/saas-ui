@@ -39,7 +39,7 @@ export const navbarSlotRecipe = defineSlotRecipe({
       whiteSpace: 'nowrap',
       boxSizing: 'border-box',
     },
-    item: {
+    link: {
       bg: 'transparent',
       color: 'currentColor',
       display: 'inline-flex',
@@ -95,7 +95,7 @@ export const navbarSlotRecipe = defineSlotRecipe({
           },
           gap: 4,
         },
-        item: {
+        link: {
           px: 3,
           h: 8,
         },

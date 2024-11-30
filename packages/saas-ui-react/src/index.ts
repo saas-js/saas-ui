@@ -6,7 +6,7 @@ export type { SuiContextValue, SuiProviderProps } from './provider/index.ts'
 
 export * from './components/app-shell/index.ts'
 export * from './components/avatar/index.ts'
-export * from './components/breadcrumbs/index.ts'
+export * from './components/breadcrumb/index.ts'
 export * from './components/button/index.ts'
 export * from './components/checkbox/index.ts'
 export * from './components/close-button/index.ts'

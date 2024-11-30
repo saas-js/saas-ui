@@ -19,7 +19,7 @@ export default defineConfig({
     'src/theme/tokens/colors.ts',
     'src/components/**/index.ts',
   ],
-  tsconfig: 'tsconfig.json',
+  tsconfig: './tsconfig.json',
   sourcemap: false,
   external: ['@chakra-ui/react', '@saas-ui/core'],
   async onSuccess() {

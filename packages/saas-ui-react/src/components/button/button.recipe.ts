@@ -3,6 +3,7 @@ import { defineRecipe } from '@chakra-ui/react'
 export const buttonRecipe = defineRecipe({
   className: 'chakra-button',
   base: {
+    colorPalette: 'gray',
     display: 'inline-flex',
     appearance: 'none',
     alignItems: 'center',

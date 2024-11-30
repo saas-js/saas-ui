@@ -119,6 +119,7 @@ const MenuRadioItemGroup = ChakraMenu.RadioItemGroup
 const MenuContextTrigger = ChakraMenu.ContextTrigger
 const MenuRoot = ChakraMenu.Root
 const MenuSeparator = ChakraMenu.Separator
+const MenuContext = ChakraMenu.Context
 
 const MenuItem = ChakraMenu.Item
 const MenuItemText = ChakraMenu.ItemText
@@ -141,6 +142,7 @@ export {
   MenuItemCommand as ItemCommand,
   MenuTrigger as Trigger,
   MenuButton as Button,
+  MenuContext as Context,
 }
 
 type MenuRootProps = ChakraMenu.RootProps

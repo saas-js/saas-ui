@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.9
+
+### Minor Changes
+
+- f0f5ab0: Improve Navbar composition
+
 ## 3.0.0-alpha.8
 
 ### Patch Changes

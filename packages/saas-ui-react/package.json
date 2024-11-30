@@ -10,6 +10,12 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     },
+    "./theme/colors": {
+      "sui": "./src/theme/tokens/colors.ts",
+      "types": "./dist/theme/tokens/colors.d.ts",
+      "require": "./dist/theme/tokens/colors.cjs",
+      "import": "./dist/theme/tokens/colors.js"
+    },
     "./*": {
       "sui": "./src/components/*/index.ts",
       "types": "./dist/components/*/index.d.ts",

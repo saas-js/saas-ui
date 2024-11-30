@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.7
+
+### Major Changes
+
+- 8e760c5: Added new wide gammut color tokens
+
 ## 3.0.0-alpha.6
 
 ### Minor Changes

@@ -22,6 +22,8 @@ export const textStyles = {
   sectionTitle: {
     fontWeight: 'semibold',
     lineHeight: '1.1',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
     // '-webkit-background-clip': 'text',
     // '-webkit-text-fill-color': 'transparent',
     backgroundImage:

@@ -2280,53 +2280,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentlayer2/cli@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@contentlayer2/cli@npm:0.5.1"
+"@contentlayer2/cli@npm:0.5.3":
+  version: 0.5.3
+  resolution: "@contentlayer2/cli@npm:0.5.3"
   dependencies:
-    "@contentlayer2/core": "npm:0.5.1"
-    "@contentlayer2/utils": "npm:0.5.1"
+    "@contentlayer2/core": "npm:0.5.3"
+    "@contentlayer2/utils": "npm:0.5.3"
     clipanion: "npm:^3.2.1"
     typanion: "npm:^3.12.1"
-  checksum: 10/2e89e9b2f1f9e060e26e9ed2f4e9ad4c463783f245cc1377b4489f9af439ee96f411d7ac37b726bfc8b0f482b28b2f67cdc54f4c9e84956e83fc0601fbc190af
+  checksum: 10/f762fc8696fa05998d8be51419f6006940bed2f86e4d683bccc33953b71d6aed9abedb3aead34e1835dd55deafd6e2fda8c47d28dddcf08f97fffc9d5648f9f8
   languageName: node
   linkType: hard
 
-"@contentlayer2/client@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@contentlayer2/client@npm:0.5.1"
+"@contentlayer2/client@npm:0.5.3":
+  version: 0.5.3
+  resolution: "@contentlayer2/client@npm:0.5.3"
   dependencies:
-    "@contentlayer2/core": "npm:0.5.1"
-  checksum: 10/b933f0a826069b4652f318d358bcbe835e7cebf67a82c347ccba87c954966cf1a28d7267d897f3e4791a54ea8dcd64702be96292898027f0e218703168a91bbb
-  languageName: node
-  linkType: hard
-
-"@contentlayer2/core@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@contentlayer2/core@npm:0.5.1"
-  dependencies:
-    "@contentlayer2/utils": "npm:0.5.1"
-    camel-case: "npm:^4.1.2"
-    comment-json: "npm:^4.2.3"
-    esbuild: "npm:>=0.17"
-    gray-matter: "npm:^4.0.3"
-    mdx-bundler: "npm:^10.0.2"
-    rehype-stringify: "npm:^10.0.0"
-    remark-frontmatter: "npm:^5.0.0"
-    remark-parse: "npm:^11.0.0"
-    remark-rehype: "npm:^11.1.0"
-    source-map-support: "npm:^0.5.21"
-    type-fest: "npm:^4.10.0"
-    unified: "npm:^11.0.4"
-  peerDependencies:
-    esbuild: ">=0.17"
-    markdown-wasm: 1.x
-  peerDependenciesMeta:
-    esbuild:
-      optional: true
-    markdown-wasm:
-      optional: true
-  checksum: 10/504bc232c8dd851329f12ab486c8c3ffff441789e534ae111135aec23bef5085284b77d0d772b0c07b9a46cd11923e4f0ec8f56adf8e2ca054329ed7feea6a30
+    "@contentlayer2/core": "npm:0.5.3"
+  checksum: 10/b2308fcece101e7282f0194430d798788e49a86d81782e66432b8f74031efde441a5ce86d3eb6e8b7549b51f4fb46945484c4bb0d54b843dd65b1a8a632f9f58
   languageName: node
   linkType: hard
 
@@ -2359,12 +2330,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentlayer2/source-files@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@contentlayer2/source-files@npm:0.5.1"
+"@contentlayer2/source-files@npm:0.5.3":
+  version: 0.5.3
+  resolution: "@contentlayer2/source-files@npm:0.5.3"
   dependencies:
-    "@contentlayer2/core": "npm:0.5.1"
-    "@contentlayer2/utils": "npm:0.5.1"
+    "@contentlayer2/core": "npm:0.5.3"
+    "@contentlayer2/utils": "npm:0.5.3"
     chokidar: "npm:^3.5.3"
     fast-glob: "npm:^3.2.12"
     gray-matter: "npm:^4.0.3"
@@ -2374,51 +2345,18 @@ __metadata:
     unified: "npm:^11.0.4"
     yaml: "npm:^2.3.1"
     zod: "npm:^3.22.4"
-  checksum: 10/7c53bc9bdf668dcb9881490ca28b569886037525e67de94303128cff2cd5781b6b2ea371ad71b4df9d78a1419f706c8e38c6961bb6ff14946146281cfd722ef2
+  checksum: 10/4485b2770192b157ef3ae202012b6067cf442c62931d0198a39aad810d3dfa3588add06c916586e015355ed2309ed7c6e88622018f1831397ae03198b3abc52f
   languageName: node
   linkType: hard
 
-"@contentlayer2/source-remote-files@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@contentlayer2/source-remote-files@npm:0.5.1"
+"@contentlayer2/source-remote-files@npm:0.5.3":
+  version: 0.5.3
+  resolution: "@contentlayer2/source-remote-files@npm:0.5.3"
   dependencies:
-    "@contentlayer2/core": "npm:0.5.1"
-    "@contentlayer2/source-files": "npm:0.5.1"
-    "@contentlayer2/utils": "npm:0.5.1"
-  checksum: 10/d09d1e4ad928ad7c59487ac1604b7d7e80879a122a09571b012b366a20d84b928c3a55adaa6febfbae0a9225a732823f5d04c299aca226940940da2c0f141d7b
-  languageName: node
-  linkType: hard
-
-"@contentlayer2/utils@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@contentlayer2/utils@npm:0.5.1"
-  dependencies:
-    "@effect-ts/core": "npm:^0.60.5"
-    "@effect-ts/otel": "npm:^0.15.1"
-    "@effect-ts/otel-sdk-trace-node": "npm:^0.15.1"
-    "@js-temporal/polyfill": "npm:^0.4.4"
-    "@opentelemetry/api": "npm:^1.8.0"
-    "@opentelemetry/core": "npm:^1.24.0"
-    "@opentelemetry/exporter-trace-otlp-grpc": "npm:^0.51.0"
-    "@opentelemetry/resources": "npm:^1.21.0"
-    "@opentelemetry/sdk-trace-base": "npm:^1.21.0"
-    "@opentelemetry/sdk-trace-node": "npm:^1.21.0"
-    "@opentelemetry/semantic-conventions": "npm:^1.21.0"
-    chokidar: "npm:^3.5.3"
-    hash-wasm: "npm:^4.11.0"
-    inflection: "npm:^3.0.0"
-    memfs: "npm:^4.8.2"
-    oo-ascii-tree: "npm:^1.94.0"
-    ts-pattern: "npm:^5.0.6"
-    type-fest: "npm:^4.10.0"
-  peerDependenciesMeta:
-    "@effect-ts/core":
-      optional: true
-    "@effect-ts/otel":
-      optional: true
-    "@effect-ts/otel-node":
-      optional: true
-  checksum: 10/b325f9cb757558cfd118d034c4b977451343e596d91596fa211e20f2216e44cbdd16ebaeec624f6a8f79c3c093c65e4d527aee06a63cd004ebb4c802d4900b4f
+    "@contentlayer2/core": "npm:0.5.3"
+    "@contentlayer2/source-files": "npm:0.5.3"
+    "@contentlayer2/utils": "npm:0.5.3"
+  checksum: 10/8e15f346704049c27932f60e046f9d1ee26af218a250792afd7dde30fcfdb4d1ad456e2337bb5adf1215849f830eb6f1efd5e3e2ddb021cb9c227533954b5b97
   languageName: node
   linkType: hard
 
@@ -12210,19 +12148,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentlayer2@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "contentlayer2@npm:0.5.1"
+"contentlayer2@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "contentlayer2@npm:0.5.3"
   dependencies:
-    "@contentlayer2/cli": "npm:0.5.1"
-    "@contentlayer2/client": "npm:0.5.1"
-    "@contentlayer2/core": "npm:0.5.1"
-    "@contentlayer2/source-files": "npm:0.5.1"
-    "@contentlayer2/source-remote-files": "npm:0.5.1"
-    "@contentlayer2/utils": "npm:0.5.1"
+    "@contentlayer2/cli": "npm:0.5.3"
+    "@contentlayer2/client": "npm:0.5.3"
+    "@contentlayer2/core": "npm:0.5.3"
+    "@contentlayer2/source-files": "npm:0.5.3"
+    "@contentlayer2/source-remote-files": "npm:0.5.3"
+    "@contentlayer2/utils": "npm:0.5.3"
   bin:
     contentlayer2: ./bin/cli.cjs
-  checksum: 10/0c4adec353240a2da8b4b83bb1d445e8646bf5aa4ed6fc81beb1d59c6dea6d603e970fff09c3abe7f25394186324a8063ca928c45c8282fca53f070db2899c33
+  checksum: 10/8b9912c4ea0775d2c2b3a0a956bbd665f5fea6302e7ea1065a7dcc3a528aec0f328c2312ce6bb883dcbb620e84c93a36cfc3d07f577828bf5841b318c4d732b8
   languageName: node
   linkType: hard
 
@@ -22808,6 +22746,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     react-is: "npm:^18.3.1"
     react-test-renderer: "npm:^18.3.1"
+    rehype-slug: "npm:^6.0.0"
     rimraf: "npm:^4.4.1"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
@@ -25895,7 +25834,7 @@ __metadata:
     canvas-confetti: "npm:^1.9.3"
     change-case: "npm:^5.4.4"
     concurrently: "npm:^8.2.2"
-    contentlayer2: "npm:^0.5.1"
+    contentlayer2: "npm:^0.5.3"
     date-fns: "npm:^3.6.0"
     electron-to-chromium: "npm:^1.5.31"
     eslint: "npm:^8.57.1"

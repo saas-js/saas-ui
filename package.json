@@ -116,5 +116,8 @@
   "resolutions": {
     "unist-util-visit": "4.0.0"
   },
-  "packageManager": "yarn@4.2.2"
+  "packageManager": "yarn@4.2.2",
+  "dependencies": {
+    "rehype-slug": "^6.0.0"
+  }
 }

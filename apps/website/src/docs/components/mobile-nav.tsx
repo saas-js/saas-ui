@@ -15,7 +15,7 @@ import {
   useColorModeValue,
   useUpdateEffect,
 } from '@chakra-ui/react'
-import { AnimatePresence, motion, useElementScroll } from 'framer-motion'
+import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import useRouteChanged from '@/hooks/use-route-changed'
 import { getRoutes } from '@/layouts/mdx'
 import NextLink from 'next/link'
@@ -117,70 +117,63 @@ export function MobileNavContent(props: MobileNavContentProps) {
     <AnimatePresence>
       {isOpen && (
         <RemoveScroll forwardProps>
-          <motion.div
-            transition={{ duration: 0.08 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <Flex
+            direction="column"
+            w="100vw"
+            bg={bgColor}
+            h="100vh"
+            overflow="auto"
+            position="fixed"
+            top="0"
+            left="0"
+            zIndex="sticky"
+            pb="8"
+            backdropFilter="blur(5px)"
           >
-            <Flex
-              direction="column"
-              w="100%"
-              bg={bgColor}
-              h="100vh"
-              overflow="auto"
-              position="fixed"
-              top="0"
-              left="0"
-              zIndex="sticky"
-              pb="8"
-              backdropFilter="blur(5px)"
-            >
-              <Box>
-                <Flex justify="space-between" px="8" pt="4" pb="4">
-                  <Logo />
-                  <HStack spacing="5">
-                    <CloseButton ref={closeBtnRef} onClick={onClose} />
-                  </HStack>
-                </Flex>
-                <Grid
-                  px="6"
-                  pb="6"
-                  pt="2"
-                  shadow={shadow}
-                  templateColumns="repeat(1, 1fr)"
-                  gap="1px"
-                >
-                  {headerNav.map(
-                    ({ href, id, title, colorScheme, ...props }, i) => {
-                      return (
-                        <NavLink
-                          href={href || `/#${id}`}
-                          key={i}
-                          {...(props as any)}
-                        >
-                          {title}
-                        </NavLink>
-                      )
-                    }
-                  )}
-                </Grid>
-              </Box>
-
-              <ScrollView
-                onScroll={(scrolled) => {
-                  setShadow(scrolled ? 'md' : undefined)
-                }}
+            <Box>
+              <Flex justify="space-between" px="8" pt="4" pb="4">
+                <Logo />
+                <HStack spacing="5">
+                  <CloseButton ref={closeBtnRef} onClick={onClose} />
+                </HStack>
+              </Flex>
+              <Grid
+                px="6"
+                pb="6"
+                pt="2"
+                shadow={shadow}
+                templateColumns="repeat(1, 1fr)"
+                gap="1px"
               >
-                {pathname.match('docs') ? (
-                  <SidebarContent
-                    pathname={pathname}
-                    routes={getRoutes(asPath)}
-                  />
-                ) : null}
-              </ScrollView>
-            </Flex>
-          </motion.div>
+                {headerNav.map(
+                  ({ href, id, title, colorScheme, ...props }, i) => {
+                    return (
+                      <NavLink
+                        href={href || `/#${id}`}
+                        key={i}
+                        {...(props as any)}
+                      >
+                        {title}
+                      </NavLink>
+                    )
+                  }
+                )}
+              </Grid>
+            </Box>
+
+            <ScrollView
+              onScroll={(scrolled) => {
+                setShadow(scrolled ? 'md' : undefined)
+              }}
+            >
+              {pathname.match('docs') ? (
+                <SidebarContent
+                  pathname={pathname}
+                  routes={getRoutes(asPath)}
+                />
+              ) : null}
+            </ScrollView>
+          </Flex>
         </RemoveScroll>
       )}
     </AnimatePresence>
@@ -191,9 +184,13 @@ const ScrollView = (props: BoxProps & { onScroll?: any }) => {
   const { onScroll, ...rest } = props
   const [y, setY] = React.useState(0)
   const elRef = React.useRef<any>()
-  const { scrollY } = useElementScroll(elRef)
+  const { scrollY } = useScroll({
+    container: elRef,
+  })
+
   React.useEffect(() => {
-    return scrollY.onChange(() => setY(scrollY.get()))
+    const unsub = scrollY.on('change', () => setY(scrollY.get()))
+    return () => unsub()
   }, [scrollY])
 
   useUpdateEffect(() => {

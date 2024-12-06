@@ -18,6 +18,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.gray.400}', _dark: '{colors.gray.400}' },
     },
   },
+
   sidebar: {
     bg: {
       value: { _light: '{colors.gray.50}', _dark: '{colors.gray.950}' },
@@ -37,6 +38,7 @@ export const semanticColors = defineSemanticTokens.colors({
       },
     },
   },
+
   bg: {
     DEFAULT: {
       value: { _light: '{colors.white}', _dark: '{colors.black}' },
@@ -69,15 +71,19 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.blue.50}', _dark: '{colors.blue.950}' },
     },
   },
+
   fg: {
     DEFAULT: {
       value: { _light: '{colors.black}', _dark: '{colors.gray.50}' },
     },
+    muted: {
+      value: { _light: '{colors.gray.500}', _dark: '{colors.gray.500}' },
+    },
     subtle: {
       value: { _light: '{colors.gray.600}', _dark: '{colors.gray.400}' },
     },
-    muted: {
-      value: { _light: '{colors.gray.400}', _dark: '{colors.gray.500}' },
+    emphasized: {
+      value: { _light: '{colors.gray.800}', _dark: '{colors.gray.200}' },
     },
     inverted: {
       value: { _light: '{colors.gray.50}', _dark: '{colors.black}' },
@@ -95,15 +101,16 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.blue.600}', _dark: '{colors.blue.300}' },
     },
   },
+
   border: {
     DEFAULT: {
       value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' },
     },
-    subtle: {
-      value: { _light: '{colors.gray.100}', _dark: '{colors.gray.900}' },
-    },
     muted: {
       value: { _light: '{colors.gray.50}', _dark: '{colors.gray.950}' },
+    },
+    subtle: {
+      value: { _light: '{colors.gray.100}', _dark: '{colors.gray.900}' },
     },
     emphasized: {
       value: { _light: '{colors.gray.300}', _dark: '{colors.gray.700}' },
@@ -124,6 +131,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.blue.500}', _dark: '{colors.blue.400}' },
     },
   },
+
   focusRing: {
     value: { _light: '{colors.blue.600/50}', _dark: '{colors.blue.500/50}' },
   },
@@ -133,19 +141,22 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: 'white', _dark: 'white' },
     },
     fg: {
-      value: { _light: '{colors.purple.700}', _dark: '{colors.purple.300}' },
+      value: { _light: '{colors.indigo.700}', _dark: '{colors.indigo.300}' },
     },
     muted: {
-      value: { _light: '{colors.purple.50}', _dark: '{colors.purple.950}' },
+      value: { _light: '{colors.indigo.50}', _dark: '{colors.indigo.950}' },
     },
     subtle: {
-      value: { _light: '{colors.purple.100}', _dark: '{colors.purple.900}' },
+      value: { _light: '{colors.indigo.100}', _dark: '{colors.indigo.900}' },
     },
     emphasized: {
-      value: { _light: '{colors.purple.200}', _dark: '{colors.purple.800}' },
+      value: { _light: '{colors.indigo.200}', _dark: '{colors.indigo.800}' },
     },
     solid: {
-      value: { _light: '{colors.purple.600}', _dark: '{colors.purple.600}' },
+      value: { _light: '{colors.indigo.600}', _dark: '{colors.indigo.600}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.indigo.600}', _dark: '{colors.indigo.600}' },
     },
   },
 
@@ -168,6 +179,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.gray.900}', _dark: '{colors.white}' },
     },
+    focusRing: {
+      value: { _light: '{colors.gray.600}', _dark: '{colors.gray.600}' },
+    },
   },
 
   slate: {
@@ -188,6 +202,9 @@ export const semanticColors = defineSemanticTokens.colors({
     },
     solid: {
       value: { _light: '{colors.slate.500}', _dark: '{colors.slate.500}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.slate.600}', _dark: '{colors.slate.600}' },
     },
   },
 
@@ -210,6 +227,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.gray.500}', _dark: '{colors.gray.500}' },
     },
+    focusRing: {
+      value: { _light: '{colors.gray.600}', _dark: '{colors.gray.600}' },
+    },
   },
 
   zinc: {
@@ -230,6 +250,9 @@ export const semanticColors = defineSemanticTokens.colors({
     },
     solid: {
       value: { _light: '{colors.zinc.500}', _dark: '{colors.zinc.500}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.zinc.600}', _dark: '{colors.zinc.600}' },
     },
   },
 
@@ -252,6 +275,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.stone.500}', _dark: '{colors.stone.500}' },
     },
+    focusRing: {
+      value: { _light: '{colors.stone.600}', _dark: '{colors.stone.600}' },
+    },
   },
 
   red: {
@@ -273,6 +299,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.red.600}', _dark: '{colors.red.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.red.600}', _dark: '{colors.red.600}' },
+    },
   },
 
   orange: {
@@ -292,7 +321,10 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.orange.200}', _dark: '{colors.orange.800}' },
     },
     solid: {
-      value: { _light: '{colors.orange.600}', _dark: '{colors.orange.500}' },
+      value: { _light: '{colors.orange.600}', _dark: '{colors.orange.600}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.orange.600}', _dark: '{colors.orange.600}' },
     },
   },
 
@@ -313,7 +345,10 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.amber.200}', _dark: '{colors.amber.800}' },
     },
     solid: {
-      value: { _light: '{colors.amber.600}', _dark: '{colors.amber.600}' },
+      value: { _light: '{colors.amber.400}', _dark: '{colors.amber.400}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.amber.400}', _dark: '{colors.amber.400}' },
     },
   },
 
@@ -334,7 +369,10 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.yellow.200}', _dark: '{colors.yellow.800}' },
     },
     solid: {
-      value: { _light: '{colors.yellow.600}', _dark: '{colors.yellow.600}' },
+      value: { _light: '{colors.yellow.400}', _dark: '{colors.yellow.400}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.yellow.400}', _dark: '{colors.yellow.400}' },
     },
   },
 
@@ -355,7 +393,10 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.lime.200}', _dark: '{colors.lime.800}' },
     },
     solid: {
-      value: { _light: '{colors.lime.600}', _dark: '{colors.lime.600}' },
+      value: { _light: '{colors.lime.400}', _dark: '{colors.lime.400}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.lime.400}', _dark: '{colors.lime.400}' },
     },
   },
 
@@ -376,6 +417,9 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.green.200}', _dark: '{colors.green.800}' },
     },
     solid: {
+      value: { _light: '{colors.green.600}', _dark: '{colors.green.600}' },
+    },
+    focusRing: {
       value: { _light: '{colors.green.600}', _dark: '{colors.green.600}' },
     },
   },
@@ -399,6 +443,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.emerald.600}', _dark: '{colors.emerald.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.emerald.600}', _dark: '{colors.emerald.600}' },
+    },
   },
 
   teal: {
@@ -418,6 +465,9 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.teal.200}', _dark: '{colors.teal.800}' },
     },
     solid: {
+      value: { _light: '{colors.teal.600}', _dark: '{colors.teal.600}' },
+    },
+    focusRing: {
       value: { _light: '{colors.teal.600}', _dark: '{colors.teal.600}' },
     },
   },
@@ -441,6 +491,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.cyan.600}', _dark: '{colors.cyan.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.cyan.600}', _dark: '{colors.cyan.600}' },
+    },
   },
 
   sky: {
@@ -460,6 +513,9 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.sky.200}', _dark: '{colors.sky.800}' },
     },
     solid: {
+      value: { _light: '{colors.sky.600}', _dark: '{colors.sky.600}' },
+    },
+    focusRing: {
       value: { _light: '{colors.sky.600}', _dark: '{colors.sky.600}' },
     },
   },
@@ -483,6 +539,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.blue.600}', _dark: '{colors.blue.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.blue.600}', _dark: '{colors.blue.600}' },
+    },
   },
 
   indigo: {
@@ -502,6 +561,9 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.indigo.200}', _dark: '{colors.indigo.800}' },
     },
     solid: {
+      value: { _light: '{colors.indigo.600}', _dark: '{colors.indigo.600}' },
+    },
+    focusRing: {
       value: { _light: '{colors.indigo.600}', _dark: '{colors.indigo.600}' },
     },
   },
@@ -525,6 +587,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.violet.600}', _dark: '{colors.violet.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.violet.600}', _dark: '{colors.violet.600}' },
+    },
   },
 
   purple: {
@@ -544,6 +609,9 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.purple.200}', _dark: '{colors.purple.800}' },
     },
     solid: {
+      value: { _light: '{colors.purple.600}', _dark: '{colors.purple.600}' },
+    },
+    focusRing: {
       value: { _light: '{colors.purple.600}', _dark: '{colors.purple.600}' },
     },
   },
@@ -567,6 +635,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.fuchsia.600}', _dark: '{colors.fuchsia.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.fuchsia.600}', _dark: '{colors.fuchsia.600}' },
+    },
   },
 
   pink: {
@@ -588,6 +659,9 @@ export const semanticColors = defineSemanticTokens.colors({
     solid: {
       value: { _light: '{colors.pink.600}', _dark: '{colors.pink.600}' },
     },
+    focusRing: {
+      value: { _light: '{colors.pink.600}', _dark: '{colors.pink.600}' },
+    },
   },
 
   rose: {
@@ -607,6 +681,9 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.rose.200}', _dark: '{colors.rose.800}' },
     },
     solid: {
+      value: { _light: '{colors.rose.600}', _dark: '{colors.rose.600}' },
+    },
+    focusRing: {
       value: { _light: '{colors.rose.600}', _dark: '{colors.rose.600}' },
     },
   },

@@ -36,7 +36,7 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
   const [variantProps, restProps] = tooltipRecipe.splitVariantProps(rest)
 
   const styles = tooltipRecipe(variantProps)
-
+  console.log(payload)
   const renderContent = () => {
     if (payload && payload.length) {
       const items = payload.map((entry, i) => {
@@ -60,13 +60,14 @@ export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
         if (finalFormatter && finalValue != null && finalName != null) {
           const formatted =
             finalFormatter?.(value, name, entry, i, payload) ?? value
+
           if (Array.isArray(formatted)) {
             ;[finalValue, finalName] = formatted
           } else {
             finalValue = formatted
           }
         }
-
+        console.log(entry)
         return (
           <HStack
             as="li"

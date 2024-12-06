@@ -428,18 +428,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.20.5, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.0, @babel/parser@npm:^7.25.9, @babel/parser@npm:^7.26.0":
-  version: 7.26.1
-  resolution: "@babel/parser@npm:7.26.1"
-  dependencies:
-    "@babel/types": "npm:^7.26.0"
-  bin:
-    parser: ./bin/babel-parser.js
-  checksum: 10/87d6248c6a1f962621b4505e24ee89c9869d40640beb231d6befb2d56112a84a654b15980941300617aa3211ca9632cc1644c6d3f72ea3427f220133d11d9c0c
-  languageName: node
-  linkType: hard
-
-"@babel/parser@npm:^7.26.2":
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.20.5, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.0, @babel/parser@npm:^7.25.9, @babel/parser@npm:^7.26.0, @babel/parser@npm:^7.26.2":
   version: 7.26.2
   resolution: "@babel/parser@npm:7.26.2"
   dependencies:
@@ -1538,9 +1527,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.2.2":
-  version: 3.2.2
-  resolution: "@chakra-ui/react@npm:3.2.2"
+"@chakra-ui/react@npm:3.2.3":
+  version: 3.2.3
+  resolution: "@chakra-ui/react@npm:3.2.3"
   dependencies:
     "@ark-ui/react": "npm:4.4.4"
     "@emotion/is-prop-valid": "npm:1.3.1"
@@ -1553,7 +1542,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10/dd1735b1b56f5f3bf5844582e298a01f42dc981e095a49234f60db862430c178beb3c74051cbee54477c9812e6515a2dec3e3ba496722a343c413ab572240724
+  checksum: 10/0d6b11b38f9f10a2e61b91f447fe4a83f99d1aa1c0793effada95812fb36624377f67ca5adc67914c9c963a4c6f6ac37169baaf79733f2b34aaeb8e5ac704496
   languageName: node
   linkType: hard
 
@@ -4092,7 +4081,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
     "@saas-ui/react": ^3.0.0-alpha.7
     react: ">=18"
@@ -4109,7 +4098,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
     "@saas-ui/react": ^3.0.0-alpha.7
     react: ">=18"
@@ -4136,7 +4125,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
     "@saas-ui/react": 3.0.0-alpha.7
     react: ">=18"
@@ -4177,7 +4166,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/charts@workspace:packages/saas-ui-charts":
+"@saas-ui/charts@workspace:*, @saas-ui/charts@workspace:packages/saas-ui-charts":
   version: 0.0.0-use.local
   resolution: "@saas-ui/charts@workspace:packages/saas-ui-charts"
   dependencies:
@@ -4186,7 +4175,7 @@ __metadata:
     recharts: "npm:^2.13.3"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
@@ -4321,7 +4310,7 @@ __metadata:
     yup: "npm:^1.4.0"
     zod: "npm:^3.23.8"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11.0.0"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -4365,7 +4354,7 @@ __metadata:
     yup: "npm:^1.4.0"
     zod: "npm:^3.23.8"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11.0.0"
     "@saas-ui/react": "workspace:*"
     react: ">=18.0.0"
@@ -4385,7 +4374,7 @@ __metadata:
   dependencies:
     "@tanem/react-nprogress": "npm:^5.0.53"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@saas-ui/core": "workspace:*"
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -4443,7 +4432,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.2
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ^11
     react: ">=18"
     react-dom: ">=18"
@@ -4466,7 +4455,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/storybook-addon@workspace:tooling/storybook-addon"
   dependencies:
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@emotion/react": "npm:^11.13.5"
     "@emotion/styled": "npm:^11.13.5"
     "@saas-ui/react": "workspace:*"
@@ -4479,7 +4468,7 @@ __metadata:
     tsup: "npm:^8.3.5"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-    "@saas-ui/react": ">=3.0.0-alpha.9"
+    "@saas-ui/react": ">=3.0.0-alpha.10"
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"
@@ -4543,13 +4532,14 @@ __metadata:
   resolution: "@saas-ui/web-v3@workspace:apps/v3"
   dependencies:
     "@ark-ui/react": "npm:4.4.4"
-    "@chakra-ui/react": "npm:3.2.2"
+    "@chakra-ui/react": "npm:3.2.3"
     "@emotion/react": "npm:11.13.5"
     "@octokit/rest": "npm:^21.0.2"
     "@react-three/drei": "npm:^9.117.3"
     "@react-three/fiber": "npm:^8.17.10"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/assets": "workspace:*"
+    "@saas-ui/charts": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/modals": "workspace:*"
     "@saas-ui/react": "workspace:*"
@@ -4867,7 +4857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-toolbars@npm:8.4.6":
+"@storybook/addon-toolbars@npm:8.4.6, @storybook/addon-toolbars@npm:^8.4.5":
   version: 8.4.6
   resolution: "@storybook/addon-toolbars@npm:8.4.6"
   peerDependencies:
@@ -4876,16 +4866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-toolbars@npm:^8.4.5":
-  version: 8.4.5
-  resolution: "@storybook/addon-toolbars@npm:8.4.5"
-  peerDependencies:
-    storybook: ^8.4.5
-  checksum: 10/92ea0f877b0c31f18bbba8de57e405e3700bc637f7658489fe904b2529fa5311e7d6e45ac748d65709cd27bccb2dfd4e2f703fc7a87e7769ec29bb10b4dabdcd
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-viewport@npm:8.4.6":
+"@storybook/addon-viewport@npm:8.4.6, @storybook/addon-viewport@npm:^8.4.5":
   version: 8.4.6
   resolution: "@storybook/addon-viewport@npm:8.4.6"
   dependencies:
@@ -4893,17 +4874,6 @@ __metadata:
   peerDependencies:
     storybook: ^8.4.6
   checksum: 10/06e95780da6619bbf60f84df5a4bdb04e237265cd070dc605114f1f0ffdbfa14f2d64d307ed7354459ff11f53550a8cb26db2010f5720f4634deb831d7950816
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-viewport@npm:^8.4.5":
-  version: 8.4.5
-  resolution: "@storybook/addon-viewport@npm:8.4.5"
-  dependencies:
-    memoizerific: "npm:^1.11.3"
-  peerDependencies:
-    storybook: ^8.4.5
-  checksum: 10/bd7703be9b9639ab715a7f45dc1ed80572ca0c53db8b348e35cfd61990c923018f1add1298dbba728b5fd44a85d9018b26bd51ce19ba22ed0743c3118b8ac014
   languageName: node
   linkType: hard
 
@@ -8495,14 +8465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-spinners@npm:^2.5.0":
-  version: 2.6.1
-  resolution: "cli-spinners@npm:2.6.1"
-  checksum: 10/3e2dc5df72cf02120bebe256881fc8e3ec49867e5023d39f1e7340d7da57964f5236f4c75e568aa9dea6460b56f7a6d5870b89453c743c6c15e213cb52be2122
-  languageName: node
-  linkType: hard
-
-"cli-spinners@npm:^2.9.2":
+"cli-spinners@npm:^2.5.0, cli-spinners@npm:^2.9.2":
   version: 2.9.2
   resolution: "cli-spinners@npm:2.9.2"
   checksum: 10/a0a863f442df35ed7294424f5491fa1756bd8d2e4ff0c8736531d886cec0ece4d85e8663b77a5afaf1d296e3cbbebff92e2e99f52bbea89b667cbe789b994794
@@ -8695,7 +8658,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "compositions@workspace:apps/compositions"
   dependencies:
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@hookform/resolvers": "npm:3.9.1"
     "@tanstack/react-table": "npm:8.19.3"
     "@types/react": "npm:^18.3.12"
@@ -10927,27 +10890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^11.11.11":
-  version: 11.11.11
-  resolution: "framer-motion@npm:11.11.11"
-  dependencies:
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    "@emotion/is-prop-valid": "*"
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  peerDependenciesMeta:
-    "@emotion/is-prop-valid":
-      optional: true
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 10/2fd6142861ed29cf2ef1d33a0ba9360fc551fd2e2d986b5303d578c93be7707c2058b08430e6c4b03d88a386d1b44bb842b06fb05f69ca4f961f907dd4399e8e
-  languageName: node
-  linkType: hard
-
-"framer-motion@npm:^11.11.17":
+"framer-motion@npm:^11.11.11, framer-motion@npm:^11.11.17":
   version: 11.12.0
   resolution: "framer-motion@npm:11.12.0"
   dependencies:
@@ -12390,10 +12333,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-unicode-supported@npm:*":
-  version: 2.0.0
-  resolution: "is-unicode-supported@npm:2.0.0"
-  checksum: 10/000b80639dedaf59a385f1c0a57f97a4d1435e0723716f24cc19ad94253a7a0a9f838bdc9ac49b10a29ac93b01f52ae9b2ed358a8876caf1eb74d73b4ede92b2
+"is-unicode-supported@npm:*, is-unicode-supported@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "is-unicode-supported@npm:2.1.0"
+  checksum: 10/f254e3da6b0ab1a57a94f7273a7798dd35d1d45b227759f600d0fa9d5649f9c07fa8d3c8a6360b0e376adf916d151ec24fc9a50c5295c58bae7ca54a76a063f9
   languageName: node
   linkType: hard
 
@@ -12408,13 +12351,6 @@ __metadata:
   version: 1.3.0
   resolution: "is-unicode-supported@npm:1.3.0"
   checksum: 10/20a1fc161afafaf49243551a5ac33b6c4cf0bbcce369fcd8f2951fbdd000c30698ce320de3ee6830497310a8f41880f8066d440aa3eb0a853e2aa4836dd89abc
-  languageName: node
-  linkType: hard
-
-"is-unicode-supported@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "is-unicode-supported@npm:2.1.0"
-  checksum: 10/f254e3da6b0ab1a57a94f7273a7798dd35d1d45b227759f600d0fa9d5649f9c07fa8d3c8a6360b0e376adf916d151ec24fc9a50c5295c58bae7ca54a76a063f9
   languageName: node
   linkType: hard
 
@@ -15873,20 +15809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recast@npm:^0.23.3, recast@npm:^0.23.5":
-  version: 0.23.6
-  resolution: "recast@npm:0.23.6"
-  dependencies:
-    ast-types: "npm:^0.16.1"
-    esprima: "npm:~4.0.0"
-    source-map: "npm:~0.6.1"
-    tiny-invariant: "npm:^1.3.3"
-    tslib: "npm:^2.0.1"
-  checksum: 10/3b7bfac05a4ec427738f3a9dc3c955a863eb5bdf42817310a2f521da127613f833c648acee95fd11b4c906186a0b283d873b787d72e3d323a0f42abfcaf4b1f9
-  languageName: node
-  linkType: hard
-
-"recast@npm:^0.23.9":
+"recast@npm:^0.23.3, recast@npm:^0.23.5, recast@npm:^0.23.9":
   version: 0.23.9
   resolution: "recast@npm:0.23.9"
   dependencies:
@@ -16478,7 +16401,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "saas-ui-blocks@workspace:packages/pro/packages/blocks"
   dependencies:
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@dnd-kit/core": "npm:^6.1.0"
     "@dnd-kit/modifiers": "npm:^7.0.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
@@ -16500,7 +16423,7 @@ __metadata:
   resolution: "saas-ui-storybook-pro@workspace:packages/pro/packages/storybook"
   dependencies:
     "@babel/core": "npm:^7.26.0"
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@fontsource-variable/inter": "npm:^5.1.0"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/react": "npm:3.0.0-alpha.7"
@@ -16538,7 +16461,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-react": "npm:^7.25.9"
     "@babel/preset-typescript": "npm:^7.26.0"
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@emotion/react": "npm:^11.13.5"
     "@emotion/styled": "npm:^11.13.5"
     "@fontsource-variable/inter": "npm:^5.1.0"
@@ -18094,14 +18017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.4.0":
-  version: 2.6.2
-  resolution: "tslib@npm:2.6.2"
-  checksum: 10/bd26c22d36736513980091a1e356378e8b662ded04204453d353a7f34a4c21ed0afc59b5f90719d4ba756e581a162ecbf93118dc9c6be5acf70aa309188166ca
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.1.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7

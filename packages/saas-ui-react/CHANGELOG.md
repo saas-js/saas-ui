@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.10
+
+### Patch Changes
+
+- 212a7e6: Add missing focusRing semantic tokens
+- 942e9a0: Improved SidebarNavItem positioning
+- 212a7e6: Improved yellow color tokens
+- 65fac53: Fixed semantic token inconsistencies
+
 ## 3.0.0-alpha.9
 
 ### Minor Changes

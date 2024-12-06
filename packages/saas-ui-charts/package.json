@@ -28,7 +28,7 @@
     "recharts": "^2.13.3"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.2.1",
+    "@chakra-ui/react": "^3.2.3",
     "@emotion/react": ">=11",
     "react": ">=18",
     "react-dom": ">=18"

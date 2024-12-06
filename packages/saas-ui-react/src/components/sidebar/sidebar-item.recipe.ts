@@ -23,6 +23,13 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       '& > svg': {
         boxSize: 4,
       },
+      '&:has([data-slot="endElement"])': {
+        pe: 0,
+      },
+    },
+    endElement: {
+      display: 'flex',
+      gap: '1px',
     },
   },
   variants: {
@@ -51,9 +58,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           borderRadius: 'md',
           px: 2,
           height: 8,
-          '&:has(:nth-child(3))': {
-            pe: 0,
-          },
+        },
+        endElement: {
+          pe: '1',
         },
       },
     },

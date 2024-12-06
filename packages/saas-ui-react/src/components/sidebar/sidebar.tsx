@@ -192,10 +192,14 @@ const SidebarNavButton = withItemContext<
   forwardAsChild: true,
 })
 
-const SidebarNavItemEndElement = withItemContext<
+const SidebarNavButtonEndElement = withItemContext<
   HTMLDivElement,
   HTMLChakraProps<'div'>
->(Sidebar.NavItemEndElement, 'endElement')
+>(Sidebar.NavItemEndElement, 'endElement', {
+  defaultProps: {
+    'data-slot': 'endElement',
+  },
+})
 
 export {
   SidebarProvider as Provider,
@@ -214,7 +218,7 @@ export {
   SidebarGroupContent as GroupContent,
   SidebarNavItem as NavItem,
   SidebarNavButton as NavButton,
-  SidebarNavItemEndElement as NavItemEndElement,
+  SidebarNavButtonEndElement as NavButtonEndElement,
 }
 
 export type {

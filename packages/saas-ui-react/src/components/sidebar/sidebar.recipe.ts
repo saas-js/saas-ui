@@ -15,8 +15,6 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     'groupTitle',
     'groupEndElement',
     'groupContent',
-    'item',
-    'itemEndElement',
     'track',
   ],
   base: {
@@ -225,6 +223,9 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         },
         footer: {
           px: 3,
+        },
+        groupEndElement: {
+          pe: '1',
         },
       },
     },

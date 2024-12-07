@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import * as PersonaPrimitive from './persona-primitive.tsx'
+import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { Presence } from './presence.ts'
 
 interface PersonaOptions {
@@ -54,7 +55,8 @@ interface PersonaOptions {
 export interface PersonaProps
   extends PersonaOptions,
     PersonaPrimitive.AvatarProps,
-    PersonaPrimitive.RootProps {}
+    PersonaPrimitive.RootProps,
+    PersonaVariantProps {}
 
 /**
  * The wrapper component that handles default composition.

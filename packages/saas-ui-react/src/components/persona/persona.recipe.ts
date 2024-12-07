@@ -1,4 +1,8 @@
-import { defineSlotRecipe, defineStyle } from '@chakra-ui/react'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+  defineStyle,
+} from '@chakra-ui/react'
 
 const baseStyleLabel = defineStyle({
   overflow: 'hidden',
@@ -92,3 +96,5 @@ export const personaSlotRecipe = defineSlotRecipe({
     size: 'md',
   },
 })
+
+export type PersonaVariantProps = RecipeVariantProps<typeof personaSlotRecipe>

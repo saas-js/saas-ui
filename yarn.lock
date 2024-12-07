@@ -4065,6 +4065,8 @@ __metadata:
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@zag-js/core": "npm:^0.73.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
@@ -4078,6 +4080,8 @@ __metadata:
   resolution: "@saas-ui-pro/kanban@workspace:packages/pro/packages/kanban"
   dependencies:
     "@saas-ui-pro/kanban-core": "workspace:*"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
@@ -4094,7 +4098,9 @@ __metadata:
   resolution: "@saas-ui-pro/onboarding@workspace:packages/pro/packages/onboarding"
   dependencies:
     "@floating-ui/react": "npm:^0.26.28"
-    "@saas-ui/core": "npm:^3.0.0-alpha.3"
+    "@saas-ui/core": "npm:^3.0.0-alpha.4"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
@@ -4106,32 +4112,47 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@npm:^0.39.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/packages/react":
+"@saas-ui-pro/react@npm:^0.40.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/packages/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/packages/react"
   dependencies:
     "@ark-ui/react": "npm:^4.4.4"
+    "@chakra-ui/react": "npm:^3.2.2"
+    "@emotion/react": "npm:^11.11.1"
     "@ngneat/falso": "npm:^7.2.0"
     "@react-hookz/web": "npm:^24.0.4"
     "@saas-ui-pro/onboarding": "workspace:*"
     "@saas-ui/core": "npm:3.0.0-alpha.4"
     "@saas-ui/forms": "npm:3.0.0-alpha.7"
     "@saas-ui/hooks": "npm:3.0.0-alpha.4"
+    "@saas-ui/react": "npm:^3.0.0-alpha.8"
     "@tanstack/react-table": "npm:^8.20.5"
     "@tanstack/react-virtual": "npm:^3.10.9"
     "@zag-js/dom-utils": "npm:^0.2.4"
     date-fns: "npm:^4.1.0"
     polished: "npm:^4.3.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
     "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
-    "@saas-ui/react": 3.0.0-alpha.7
+    "@saas-ui/react": ^3.0.0-alpha.8
     react: ">=18"
     react-dom: ">=18"
   languageName: unknown
   linkType: soft
+
+"@saas-ui/assets@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@saas-ui/assets@npm:1.1.0"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  checksum: 10/49a4aa006cde878af020bf4643e8069a235bcf1f3d284887c5e3438a71ea1ee2f38eb6f4bedcc8caa2055566d58ca8e73a868f9a505a3a673bbd079a04d4df90
+  languageName: node
+  linkType: hard
 
 "@saas-ui/assets@workspace:*, @saas-ui/assets@workspace:packages/saas-ui-assets":
   version: 0.0.0-use.local
@@ -4242,7 +4263,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/core@npm:3.0.0-alpha.4, @saas-ui/core@npm:^3.0.0-alpha.3":
+"@saas-ui/core@npm:3.0.0-alpha.4":
   version: 3.0.0-alpha.4
   resolution: "@saas-ui/core@npm:3.0.0-alpha.4"
   dependencies:
@@ -4258,7 +4279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saas-ui/core@workspace:*, @saas-ui/core@workspace:packages/saas-ui-core":
+"@saas-ui/core@npm:^3.0.0-alpha.4, @saas-ui/core@workspace:*, @saas-ui/core@workspace:packages/saas-ui-core":
   version: 0.0.0-use.local
   resolution: "@saas-ui/core@workspace:packages/saas-ui-core"
   dependencies:
@@ -4422,7 +4443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@npm:^3.0.0-alpha.8, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -4468,7 +4489,7 @@ __metadata:
     tsup: "npm:^8.3.5"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-    "@saas-ui/react": ">=3.0.0-alpha.10"
+    "@saas-ui/react": ">=3.0.0-alpha.11"
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"
@@ -16407,7 +16428,8 @@ __metadata:
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.13.5"
-    "@saas-ui-pro/react": "npm:^0.39.0"
+    "@saas-ui-pro/react": "npm:^0.40.0"
+    "@saas-ui/assets": "npm:^1.1.0"
     "@saas-ui/react": "npm:^3.0.0-alpha.7"
     "@saas-ui/registry": "workspace:*"
     "@tsconfig/recommended": "npm:^1.0.8"
@@ -16424,6 +16446,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.26.0"
     "@chakra-ui/react": "npm:^3.2.3"
+    "@emotion/react": "npm:^11.11.1"
     "@fontsource-variable/inter": "npm:^5.1.0"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/react": "npm:3.0.0-alpha.7"

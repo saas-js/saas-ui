@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.11
+
+### Patch Changes
+
+- 19309d4: Improved Sidebar recipe with beter balance and added --sidebar-item-icon-color variable
+- 19309d4: Improved font size balance
+
 ## 3.0.0-alpha.10
 
 ### Patch Changes

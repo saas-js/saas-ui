@@ -55,8 +55,7 @@ interface PersonaOptions {
 export interface PersonaProps
   extends PersonaOptions,
     PersonaPrimitive.AvatarProps,
-    PersonaPrimitive.RootProps,
-    PersonaVariantProps {}
+    PersonaPrimitive.RootProps {}
 
 /**
  * The wrapper component that handles default composition.

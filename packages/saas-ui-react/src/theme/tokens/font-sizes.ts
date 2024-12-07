@@ -3,8 +3,8 @@ import { defineTokens } from '@chakra-ui/react'
 import { scaleToken } from '../utils'
 
 export const fontSizes = defineTokens.fontSizes({
-  '2xs': { value: scaleToken('0.65rem') },
-  xs: { value: scaleToken('0.725rem') },
+  '2xs': { value: scaleToken('0.75rem') },
+  xs: { value: scaleToken('0.8125rem') },
   sm: { value: scaleToken('0.875rem') },
   md: { value: scaleToken('1rem') },
   lg: { value: scaleToken('1.125rem') },

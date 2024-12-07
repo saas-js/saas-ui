@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.12
+
+### Patch Changes
+
+- 61ce1b5: Fixed sidebar item end element positioning
+
 ## 3.0.0-alpha.11
 
 ### Patch Changes

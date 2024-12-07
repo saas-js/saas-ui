@@ -33,7 +33,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
     endElement: {
       display: 'flex',
       gap: '1px',
-      me: 'auto',
+      ms: 'auto',
     },
   },
   variants: {

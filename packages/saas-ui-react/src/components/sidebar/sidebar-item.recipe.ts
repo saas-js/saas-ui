@@ -6,6 +6,8 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
   base: {
     item: {
       position: 'relative',
+      fontSize: 'sm',
+      py: '1px',
     },
     button: {
       display: 'flex',
@@ -22,6 +24,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       focusVisibleRing: 'outside',
       '& > svg': {
         boxSize: 4,
+        color: 'var(--sidebar-item-icon-color)',
       },
       '&:has([data-slot="endElement"])': {
         pe: 0,
@@ -30,6 +33,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
     endElement: {
       display: 'flex',
       gap: '1px',
+      me: 'auto',
     },
   },
   variants: {
@@ -38,13 +42,16 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
         button: {
           bg: 'transparent',
           color: 'sidebar.accent.fg/85',
+          '--sidebar-item-icon-color': 'sidebar.accent.fg/85',
           _hover: {
             bg: 'sidebar.accent.bg/90',
             color: 'sidebar.accent.fg',
+            '--sidebar-item-icon-color': 'sidebar.accent.fg',
           },
           _active: {
             bg: 'sidebar.accent.bg',
             color: 'sidebar.accent.fg',
+            '--sidebar-item-icon-color': 'sidebar.accent.fg',
           },
         },
       },

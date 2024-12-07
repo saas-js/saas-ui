@@ -3,6 +3,7 @@ import { defineRecipe } from '@chakra-ui/react'
 export const commandRecipe = defineRecipe({
   className: 'sui-command',
   base: {
+    colorPalette: 'gray',
     display: 'inline-flex',
     gap: 1,
     '[role=tooltip] > &': {

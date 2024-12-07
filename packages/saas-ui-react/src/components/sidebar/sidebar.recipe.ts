@@ -101,9 +101,9 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       },
     },
     groupContent: {
+      pt: 1,
       display: 'flex',
       flexDirection: 'column',
-      gap: '1',
     },
     track: {
       display: 'flex',

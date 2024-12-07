@@ -280,19 +280,22 @@ export const Default: Story = {
                         <Text>🌟</Text>
                         Chakra v3
                         <Spacer />
-                        <IconButton
-                          variant="ghost"
-                          aria-label="Remove from favourites"
-                          title="Remove from favourites"
-                          size="xs"
+                        <Sidebar.NavButtonEndElement
                           opacity="0"
                           _parentHover={{
                             opacity: 0.6,
                             _hover: { opacity: 1 },
                           }}
                         >
-                          <RiCloseLine />
-                        </IconButton>
+                          <IconButton
+                            variant="ghost"
+                            aria-label="Remove from favourites"
+                            title="Remove from favourites"
+                            size="xs"
+                          >
+                            <RiCloseLine />
+                          </IconButton>
+                        </Sidebar.NavButtonEndElement>
                       </Sidebar.NavButton>
                     </Sidebar.NavItem>
                     <Sidebar.NavItem>
@@ -300,19 +303,22 @@ export const Default: Story = {
                         <Text>🎨</Text>
                         Design systems
                         <Spacer />
-                        <IconButton
-                          variant="ghost"
-                          aria-label="Remove from favourites"
-                          title="Remove from favourites"
-                          size="xs"
+                        <Sidebar.NavButtonEndElement
                           opacity="0"
                           _parentHover={{
                             opacity: 0.6,
                             _hover: { opacity: 1 },
                           }}
                         >
-                          <RiCloseLine />
-                        </IconButton>
+                          <IconButton
+                            variant="ghost"
+                            aria-label="Remove from favourites"
+                            title="Remove from favourites"
+                            size="xs"
+                          >
+                            <RiCloseLine />
+                          </IconButton>
+                        </Sidebar.NavButtonEndElement>
                       </Sidebar.NavButton>
                     </Sidebar.NavItem>
                   </Sidebar.GroupContent>

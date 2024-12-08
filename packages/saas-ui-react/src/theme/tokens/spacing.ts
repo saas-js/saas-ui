@@ -11,6 +11,7 @@ export const spacing = defineTokens.spacing({
   3: { value: scaleToken('0.75rem') },
   3.5: { value: scaleToken('0.875rem') },
   4: { value: scaleToken('1rem') },
+  4.5: { value: scaleToken('1.125rem') },
   5: { value: scaleToken('1.25rem') },
   6: { value: scaleToken('1.5rem') },
   7: { value: scaleToken('1.75rem') },

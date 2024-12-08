@@ -3,10 +3,10 @@ import * as React from 'react'
 import * as Yup from 'yup'
 import * as z from 'zod'
 import { Container } from '@chakra-ui/react'
-import { createYupForm } from '@saas-ui/forms/yup'
-import { createZodForm, zodMeta } from '@saas-ui/forms/zod'
 
 import { Form, ObjectSchema, SubmitButton } from '../src'
+import { createYupForm } from '../yup/src'
+import { createZodForm, zodMeta } from '../zod/src'
 import { onSubmit } from './helpers'
 
 export default {
@@ -135,7 +135,7 @@ export const CustomSubmit = () => (
       },
       submit: {
         children: 'Save',
-        variant: 'secondary',
+        variant: 'subtle',
       },
     }}
   />

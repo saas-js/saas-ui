@@ -1,4 +1,4 @@
-import { Box, Steps as ChakraSteps } from '@chakra-ui/react'
+import { Box, Steps as ChakraSteps, useStepsContext } from '@chakra-ui/react'
 
 import { CheckIcon } from '../icons'
 
@@ -90,6 +90,7 @@ export {
   StepsItem as Item,
   StepsNextTrigger as NextTrigger,
   StepsPrevTrigger as PrevTrigger,
+  useStepsContext as useContext,
 }
 
 export type {

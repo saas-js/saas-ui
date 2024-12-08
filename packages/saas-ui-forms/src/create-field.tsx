@@ -23,10 +23,10 @@ const _createField = (
   { displayName, hideLabel, getBaseField: getBaseFieldProp }: CreateFieldProps,
 ) => {
   const Field = forwardRef<HTMLDivElement, any>((props, ref) => {
-    const { id, name, label, isRequired, rules } = props
+    const { id, label, required, rules } = props
 
     const inputRules = {
-      required: isRequired,
+      required,
       ...rules,
     }
 
@@ -34,37 +34,35 @@ const _createField = (
 
     const getBaseField = fieldContext?.getBaseField ?? getBaseFieldProp
 
-    const { extraProps, BaseField } = React.useMemo(
+    const { props: extraProps, Component } = React.useMemo(
       () => getBaseField(),
       [getBaseField],
     )
 
-    const [, inputProps] = splitProps(
+    const rootProps = {
+      name: props.name,
+      label: props.label,
+      disabled: props.disabled,
+      invalid: props.invalid,
+      readOnly: props.readOnly,
+      required: props.required,
+    }
+
+    const [baseFieldProps, inputProps] = splitProps(
       props,
-      [
-        'children',
-        'name',
-        'label',
-        'required',
-        'disabled',
-        'invalid',
-        'readOnly',
-        'help',
-        'hideLabel',
-      ].concat(extraProps),
+      ['orientation', 'help', 'hideLabel'].concat(extraProps),
     )
 
     return (
-      <BaseField name={name} hideLabel={hideLabel} {...props}>
+      <Component {...rootProps} {...baseFieldProps}>
         <InputComponent
           ref={ref}
           id={id}
-          name={name}
           label={hideLabel ? label : undefined} // Only pass down the label when it should be inline.
           {...inputProps}
           rules={inputRules}
         />
-      </BaseField>
+      </Component>
     )
   })
 
@@ -161,10 +159,11 @@ export const createField = <TType = unknown, TProps extends object = object>(
   const Field = _createField(InputComponent, {
     displayName: `${component.displayName ?? 'Custom'}Field`,
     hideLabel: options?.hideLabel,
-    getBaseField: () => ({
-      extraProps: [],
-      BaseField,
-    }),
+    getBaseField: () =>
+      ({
+        props: [],
+        Component: BaseField,
+      }) as any,
   }) as React.FC<Omit<BaseFieldProps, keyof TProps> & TProps>
 
   return Field

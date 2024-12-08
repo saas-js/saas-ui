@@ -81,7 +81,7 @@ export const CustomSpacing = () => (
       }}
       onSubmit={() => Promise.resolve()}
     >
-      <FormLayout spacing={10}>
+      <FormLayout gap={10}>
         <FormLayout columns={[1, null, 2]}>
           <Field name="firstName" label="First name" />
           <Field name="lastName" label="Last name" />
@@ -114,10 +114,10 @@ export const Compact = () => (
   <>
     <Form
       defaultValues={{
-        prefix: null,
-        initials: null,
-        lastName: null,
-        gender: null,
+        prefix: '',
+        initials: '',
+        lastName: '',
+        gender: [],
       }}
       onSubmit={() => Promise.resolve()}
     >

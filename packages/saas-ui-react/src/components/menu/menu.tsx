@@ -108,8 +108,8 @@ interface MenuButtonProps extends ButtonProps, ChakraMenu.TriggerProps {}
 const MenuButton = forwardRef<HTMLButtonElement, MenuButtonProps>(
   function MenuButton(props, ref) {
     return (
-      <MenuTrigger ref={ref} {...props} asChild>
-        <Button />
+      <MenuTrigger ref={ref} asChild>
+        <Button {...props} />
       </MenuTrigger>
     )
   },

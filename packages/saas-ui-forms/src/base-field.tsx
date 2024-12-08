@@ -19,15 +19,16 @@ const isTouched = (
 }
 
 export const useBaseField = (props: BaseFieldProps) => {
-  const [fieldProps] = splitProps(props, ['name', 'label', 'help', 'hideLabel'])
-
-  const [controlProps] = splitProps(props, [
-    // 'id',
-    // 'orientation',
-    // 'disabled',
-    // 'invalid',
-    // 'readOnly',
-    // 'required',
+  // TODO: Clean up these props / types
+  const [fieldProps, rootProps] = splitProps(props, [
+    'name',
+    'label',
+    'help',
+    'hideLabel',
+    'placeholder',
+    'rules',
+    'type',
+    'children',
   ])
 
   const { formState } = useFormContext()
@@ -37,7 +38,7 @@ export const useBaseField = (props: BaseFieldProps) => {
 
   return {
     ...fieldProps,
-    controlProps,
+    rootProps,
     error,
     touched,
   }
@@ -45,16 +46,20 @@ export const useBaseField = (props: BaseFieldProps) => {
 
 /**
  * The default BaseField component
- * Composes the Chakra UI FormControl component, with FormLabel, FormHelperText and FormErrorMessage.
+ * Composes the Chakra UI Field component, with Label, HelperText and ErrorText.
  */
 export const BaseField: React.FC<BaseFieldProps> = (props) => {
-  const { label, help, hideLabel, error } = useBaseField(props)
+  const { rootProps, label, hideLabel, help, error } = useBaseField(props)
 
-  const isInvalid = !!error //|| controlProps.
+  const isInvalid = !!error
 
   return (
-    <Field.Root invalid={isInvalid} {...props}>
-      {label && !hideLabel ? <Field.Label>{label}</Field.Label> : null}
+    <Field.Root invalid={isInvalid} {...rootProps}>
+      {label && !hideLabel ? (
+        <Field.Label>
+          {label} <Field.RequiredIndicator />
+        </Field.Label>
+      ) : null}
       <Box width="full">
         {props.children}
         {help && !error?.message ? (

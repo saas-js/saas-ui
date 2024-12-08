@@ -18,7 +18,6 @@ export const selectSlotRecipe = defineSlotRecipe({
       width: 'full',
       minH: 'var(--select-trigger-height)',
       px: 'var(--select-trigger-padding-x)',
-      borderRadius: 'l2',
       userSelect: 'none',
       textAlign: 'start',
       focusVisibleRing: 'inside',
@@ -80,7 +79,7 @@ export const selectSlotRecipe = defineSlotRecipe({
       textAlign: 'start',
       borderRadius: 'l1',
       _highlighted: {
-        bg: { _light: 'bg.muted', _dark: 'bg.emphasized' },
+        bg: 'bg.subtle',
       },
       _disabled: {
         pointerEvents: 'none',
@@ -143,7 +142,7 @@ export const selectSlotRecipe = defineSlotRecipe({
     size: {
       xs: {
         root: {
-          '--select-trigger-height': 'sizes.8',
+          '--select-trigger-height': 'sizes.6',
           '--select-trigger-padding-x': 'spacing.2',
         },
         content: {
@@ -152,6 +151,7 @@ export const selectSlotRecipe = defineSlotRecipe({
           textStyle: 'xs',
         },
         trigger: {
+          borderRadius: 'sm',
           textStyle: 'xs',
           gap: '1',
         },
@@ -173,7 +173,7 @@ export const selectSlotRecipe = defineSlotRecipe({
 
       sm: {
         root: {
-          '--select-trigger-height': 'sizes.9',
+          '--select-trigger-height': 'sizes.7',
           '--select-trigger-padding-x': 'spacing.2.5',
         },
         content: {
@@ -181,6 +181,7 @@ export const selectSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
         },
         trigger: {
+          borderRadius: 'sm',
           textStyle: 'sm',
           gap: '1',
         },
@@ -205,7 +206,7 @@ export const selectSlotRecipe = defineSlotRecipe({
 
       md: {
         root: {
-          '--select-trigger-height': 'sizes.10',
+          '--select-trigger-height': 'sizes.8',
           '--select-trigger-padding-x': 'spacing.3',
         },
         content: {
@@ -229,6 +230,7 @@ export const selectSlotRecipe = defineSlotRecipe({
           px: '2',
         },
         trigger: {
+          borderRadius: 'md',
           textStyle: 'sm',
           gap: '2',
         },
@@ -242,7 +244,7 @@ export const selectSlotRecipe = defineSlotRecipe({
 
       lg: {
         root: {
-          '--select-trigger-height': 'sizes.12',
+          '--select-trigger-height': 'sizes.10',
           '--select-trigger-padding-x': 'spacing.4',
         },
         content: {
@@ -261,6 +263,7 @@ export const selectSlotRecipe = defineSlotRecipe({
           px: '3',
         },
         trigger: {
+          borderRadius: 'md',
           textStyle: 'md',
           py: '3',
           gap: '2',

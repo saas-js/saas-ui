@@ -87,8 +87,14 @@ export interface BaseFieldProps<
 }
 
 export type GetBaseField<TProps extends object = object> = () => {
-  extraProps: string[]
-  BaseField: React.FC<
+  /**
+   * Extra props to pass to the component
+   */
+  props: Array<Extract<keyof TProps, string>>
+  /**
+   * The component to render
+   */
+  Component: React.FC<
     Omit<BaseFieldProps, 'name'> & {
       name: string
       children: React.ReactNode

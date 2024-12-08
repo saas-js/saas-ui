@@ -1538,7 +1538,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.2.2, @chakra-ui/react@npm:^3.2.2":
+"@chakra-ui/react@npm:3.2.3, @chakra-ui/react@npm:^3.2.3":
+  version: 3.2.3
+  resolution: "@chakra-ui/react@npm:3.2.3"
+  dependencies:
+    "@ark-ui/react": "npm:4.4.4"
+    "@emotion/is-prop-valid": "npm:1.3.1"
+    "@emotion/serialize": "npm:1.3.2"
+    "@emotion/use-insertion-effect-with-fallbacks": "npm:1.1.0"
+    "@emotion/utils": "npm:1.4.1"
+    "@pandacss/is-valid-prop": "npm:0.41.0"
+    csstype: "npm:3.1.3"
+  peerDependencies:
+    "@emotion/react": ">=11"
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10/0d6b11b38f9f10a2e61b91f447fe4a83f99d1aa1c0793effada95812fb36624377f67ca5adc67914c9c963a4c6f6ac37169baaf79733f2b34aaeb8e5ac704496
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/react@npm:^3.2.2":
   version: 3.2.2
   resolution: "@chakra-ui/react@npm:3.2.2"
   dependencies:
@@ -4076,6 +4095,8 @@ __metadata:
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@zag-js/core": "npm:^0.73.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
@@ -4089,10 +4110,12 @@ __metadata:
   resolution: "@saas-ui-pro/kanban@workspace:packages/pro/packages/kanban"
   dependencies:
     "@saas-ui-pro/kanban-core": "workspace:*"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
     "@saas-ui/react": ^3.0.0-alpha.7
     react: ">=18"
@@ -4105,11 +4128,13 @@ __metadata:
   resolution: "@saas-ui-pro/onboarding@workspace:packages/pro/packages/onboarding"
   dependencies:
     "@floating-ui/react": "npm:^0.26.28"
-    "@saas-ui/core": "npm:^3.0.0-alpha.3"
+    "@saas-ui/core": "npm:^3.0.0-alpha.4"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
     "@saas-ui/react": ^3.0.0-alpha.7
     react: ">=18"
@@ -4117,32 +4142,47 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui-pro/react@npm:^0.39.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/packages/react":
+"@saas-ui-pro/react@npm:^0.40.0, @saas-ui-pro/react@workspace:*, @saas-ui-pro/react@workspace:packages/pro/packages/react":
   version: 0.0.0-use.local
   resolution: "@saas-ui-pro/react@workspace:packages/pro/packages/react"
   dependencies:
     "@ark-ui/react": "npm:^4.4.4"
+    "@chakra-ui/react": "npm:^3.2.2"
+    "@emotion/react": "npm:^11.11.1"
     "@ngneat/falso": "npm:^7.2.0"
     "@react-hookz/web": "npm:^24.0.4"
     "@saas-ui-pro/onboarding": "workspace:*"
     "@saas-ui/core": "npm:3.0.0-alpha.4"
     "@saas-ui/forms": "npm:3.0.0-alpha.7"
     "@saas-ui/hooks": "npm:3.0.0-alpha.4"
+    "@saas-ui/react": "npm:^3.0.0-alpha.8"
     "@tanstack/react-table": "npm:^8.20.5"
     "@tanstack/react-virtual": "npm:^3.10.9"
     "@zag-js/dom-utils": "npm:^0.2.4"
     date-fns: "npm:^4.1.0"
     polished: "npm:^4.3.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.3.0"
     tsup: "npm:^8.3.5"
   peerDependencies:
-    "@chakra-ui/react": ^3.2.1
+    "@chakra-ui/react": ^3.2.3
     "@emotion/react": ">=11"
-    "@saas-ui/react": 3.0.0-alpha.7
+    "@saas-ui/react": ^3.0.0-alpha.8
     react: ">=18"
     react-dom: ">=18"
   languageName: unknown
   linkType: soft
+
+"@saas-ui/assets@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@saas-ui/assets@npm:1.1.0"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  checksum: 10/49a4aa006cde878af020bf4643e8069a235bcf1f3d284887c5e3438a71ea1ee2f38eb6f4bedcc8caa2055566d58ca8e73a868f9a505a3a673bbd079a04d4df90
+  languageName: node
+  linkType: hard
 
 "@saas-ui/assets@workspace:*, @saas-ui/assets@workspace:packages/saas-ui-assets":
   version: 0.0.0-use.local
@@ -4177,7 +4217,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/charts@workspace:packages/saas-ui-charts":
+"@saas-ui/charts@workspace:*, @saas-ui/charts@workspace:packages/saas-ui-charts":
   version: 0.0.0-use.local
   resolution: "@saas-ui/charts@workspace:packages/saas-ui-charts"
   dependencies:
@@ -4253,7 +4293,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/core@npm:3.0.0-alpha.4, @saas-ui/core@npm:^3.0.0-alpha.3":
+"@saas-ui/core@npm:3.0.0-alpha.4, @saas-ui/core@npm:^3.0.0-alpha.4":
   version: 3.0.0-alpha.4
   resolution: "@saas-ui/core@npm:3.0.0-alpha.4"
   dependencies:
@@ -4433,6 +4473,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@saas-ui/react@npm:^3.0.0-alpha.8":
+  version: 3.0.0-alpha.12
+  resolution: "@saas-ui/react@npm:3.0.0-alpha.12"
+  dependencies:
+    "@ark-ui/react": "npm:^4.4.4"
+    "@saas-ui/core": "npm:3.0.0-alpha.4"
+    "@saas-ui/hooks": "npm:3.0.0-alpha.4"
+  peerDependencies:
+    "@chakra-ui/react": ^3.2.3
+    "@emotion/react": ^11
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10/d5d72f50cb5dd98184060edbd8def5a813a74b70a4fe1654c985dba3e88f1bea899cf4e06b967e0630a869b63181a8b672229889ca6f24ac05d5675b37b5c952
+  languageName: node
+  linkType: hard
+
 "@saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
@@ -4543,13 +4599,14 @@ __metadata:
   resolution: "@saas-ui/web-v3@workspace:apps/v3"
   dependencies:
     "@ark-ui/react": "npm:4.4.4"
-    "@chakra-ui/react": "npm:3.2.2"
+    "@chakra-ui/react": "npm:3.2.3"
     "@emotion/react": "npm:11.13.5"
     "@octokit/rest": "npm:^21.0.2"
     "@react-three/drei": "npm:^9.117.3"
     "@react-three/fiber": "npm:^8.17.10"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/assets": "workspace:*"
+    "@saas-ui/charts": "workspace:*"
     "@saas-ui/forms": "workspace:*"
     "@saas-ui/modals": "workspace:*"
     "@saas-ui/react": "workspace:*"
@@ -8695,7 +8752,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "compositions@workspace:apps/compositions"
   dependencies:
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@hookform/resolvers": "npm:3.9.1"
     "@tanstack/react-table": "npm:8.19.3"
     "@types/react": "npm:^18.3.12"
@@ -16478,13 +16535,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "saas-ui-blocks@workspace:packages/pro/packages/blocks"
   dependencies:
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
     "@dnd-kit/core": "npm:^6.1.0"
     "@dnd-kit/modifiers": "npm:^7.0.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.13.5"
-    "@saas-ui-pro/react": "npm:^0.39.0"
+    "@saas-ui-pro/react": "npm:^0.40.0"
+    "@saas-ui/assets": "npm:^1.1.0"
     "@saas-ui/react": "npm:^3.0.0-alpha.7"
     "@saas-ui/registry": "workspace:*"
     "@tsconfig/recommended": "npm:^1.0.8"
@@ -16500,7 +16558,8 @@ __metadata:
   resolution: "saas-ui-storybook-pro@workspace:packages/pro/packages/storybook"
   dependencies:
     "@babel/core": "npm:^7.26.0"
-    "@chakra-ui/react": "npm:^3.2.2"
+    "@chakra-ui/react": "npm:^3.2.3"
+    "@emotion/react": "npm:^11.11.1"
     "@fontsource-variable/inter": "npm:^5.1.0"
     "@saas-ui-pro/react": "workspace:*"
     "@saas-ui/react": "npm:3.0.0-alpha.7"

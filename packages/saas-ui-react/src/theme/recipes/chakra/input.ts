@@ -9,7 +9,6 @@ export const inputRecipe = defineRecipe({
     position: 'relative',
     appearance: 'none',
     textAlign: 'start',
-    borderRadius: 'l2',
     _disabled: {
       layerStyle: 'disabled',
     },
@@ -26,28 +25,33 @@ export const inputRecipe = defineRecipe({
   variants: {
     size: {
       xs: {
+        borderRadius: 'sm',
         textStyle: 'xs',
         px: '2',
-        '--input-height': 'sizes.8',
+        '--input-height': 'sizes.6',
       },
       sm: {
+        borderRadius: 'sm',
         textStyle: 'sm',
         px: '2.5',
-        '--input-height': 'sizes.9',
+        '--input-height': 'sizes.7',
       },
       md: {
+        borderRadius: 'md',
         textStyle: 'sm',
         px: '3',
-        '--input-height': 'sizes.10',
+        '--input-height': 'sizes.8',
       },
       lg: {
-        textStyle: 'md',
-        px: '4',
-        '--input-height': 'sizes.11',
-      },
-      xl: {
+        borderRadius: 'lg',
         textStyle: 'md',
         px: '4.5',
+        '--input-height': 'sizes.10',
+      },
+      xl: {
+        borderRadius: 'lg',
+        textStyle: 'md',
+        px: '6',
         '--input-height': 'sizes.12',
       },
     },

@@ -5,11 +5,13 @@ import {
   Box,
   Button,
   Container,
+  Field as FieldPrimitive,
   HStack,
   Input,
   Stack,
-  Tooltip,
 } from '@chakra-ui/react'
+import { splitProps } from '@saas-ui/core/utils'
+import { Tooltip } from '@saas-ui/react'
 import { StoryObj } from '@storybook/react'
 import { LuInfo } from 'react-icons/lu'
 import { z } from 'zod'
@@ -117,50 +119,52 @@ const CustomField = createField<HTMLDivElement, { customFieldProp?: string }>(
   (props, ref) => <div ref={ref}>{props.customFieldProp}</div>,
 )
 
-// const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
-//   return {
-//     extraProps: ['infoLabel'],
-//     BaseField: (props) => {
-//       const [{ children, infoLabel }, fieldProps] = splitProps(props, [
-//         'children',
-//         'infoLabel',
-//       ])
+const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
+  return {
+    props: ['infoLabel'],
+    Component: (props) => {
+      const [{ children, infoLabel }, fieldProps] = splitProps(props, [
+        'children',
+        'infoLabel',
+      ])
 
-//       const { controlProps, label, help, hideLabel, error } =
-//         useBaseField(fieldProps)
+      const { controlProps, label, help, hideLabel, error } =
+        useBaseField(fieldProps)
 
-//       return (
-//         <Field {...controlProps} invalid={!!error}>
-//           {!hideLabel ? (
-//             <HStack alignItems="center" mb="2" spacing="0">
-//               <FormLabel mb="0">{label}</FormLabel>
-//               {infoLabel ? (
-//                 <Tooltip label={infoLabel}>
-//                   <span>
-//                     <LuInfo />
-//                   </span>
-//                 </Tooltip>
-//               ) : null}
-//             </HStack>
-//           ) : null}
-//           <Box>
-//             {children}
-//             {help && !error?.message ? (
-//               <FormHelperText>{help}</FormHelperText>
-//             ) : null}
-//             {error?.message && (
-//               <FormErrorMessage>{error?.message}</FormErrorMessage>
-//             )}
-//           </Box>
-//         </FormControl>
-//       )
-//     },
-//   }
-// }
+      return (
+        <FieldPrimitive.Root {...controlProps} invalid={!!error}>
+          {!hideLabel ? (
+            <HStack alignItems="center" mb="2" gap="0">
+              <FieldPrimitive.Label mb="0">{label}</FieldPrimitive.Label>
+              {infoLabel ? (
+                <Tooltip content={infoLabel}>
+                  <span>
+                    <LuInfo />
+                  </span>
+                </Tooltip>
+              ) : null}
+            </HStack>
+          ) : null}
+          <Box>
+            {children}
+            {help && !error?.message ? (
+              <FieldPrimitive.HelperText>{help}</FieldPrimitive.HelperText>
+            ) : null}
+            {error?.message && (
+              <FieldPrimitive.ErrorText>
+                {error?.message}
+              </FieldPrimitive.ErrorText>
+            )}
+          </Box>
+        </FieldPrimitive.Root>
+      )
+    },
+  }
+}
 
 const TypedForm = createForm({
   fields: { custom: CustomField },
-  // getBaseField,
+  getBaseField,
 })
 
 export const BasicTyped: Story = {
@@ -218,7 +222,7 @@ export const CustomBaseField: Story = {
 
 const ZodForm = createZodForm({
   fields: { custom: CustomField },
-  // getBaseField,
+  getBaseField,
 })
 
 const zodSchema = z.object({
@@ -258,7 +262,7 @@ export const WithZodSchema: StoryObj<typeof ZodForm> = {
 
 const YupForm = createYupForm({
   fields: { custom: CustomField },
-  // getBaseField,
+  getBaseField,
 })
 
 const yupSchema = yup.object({

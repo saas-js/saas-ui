@@ -87,15 +87,15 @@ export const radiomarkRecipe = defineRecipe({
       },
 
       sm: {
-        boxSize: '4',
+        boxSize: '3.5',
       },
 
       md: {
-        boxSize: '5',
+        boxSize: '4',
       },
 
       lg: {
-        boxSize: '6',
+        boxSize: '5',
       },
     },
   },

@@ -46,7 +46,7 @@ export const buttonRecipe = defineRecipe({
         minW: '8',
         textStyle: 'sm',
         borderRadius: 'md',
-        px: '3',
+        px: '2.5',
       },
       md: {
         gap: '2',
@@ -54,7 +54,7 @@ export const buttonRecipe = defineRecipe({
         minW: '8',
         borderRadius: 'md',
         textStyle: 'sm',
-        px: '4',
+        px: '3',
       },
       lg: {
         gap: '3',
@@ -62,7 +62,7 @@ export const buttonRecipe = defineRecipe({
         minW: '10',
         borderRadius: 'lg',
         textStyle: 'md',
-        px: '5',
+        px: '4.5',
       },
       xl: {
         gap: '3',

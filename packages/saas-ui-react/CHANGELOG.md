@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.13
+
+### Patch Changes
+
+- b51aff9: Improved form components recipes sizing
+- b51aff9: Fixed passing menu button props to button component
+
 ## 3.0.0-alpha.12
 
 ### Patch Changes

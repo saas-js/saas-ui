@@ -1,5 +1,18 @@
 # @saas-ui/forms
 
+## 3.0.0-alpha.13
+
+### Major Changes
+
+- b51aff9: BREAKING: getBaseField should now return props and Component
+
+### Patch Changes
+
+- b51aff9: Improved prop handling of base field
+- Updated dependencies [b51aff9]
+- Updated dependencies [b51aff9]
+  - @saas-ui/react@3.0.0-alpha.13
+
 ## 3.0.0-alpha.12
 
 ### Patch Changes

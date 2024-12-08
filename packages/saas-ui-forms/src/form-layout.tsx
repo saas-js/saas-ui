@@ -28,7 +28,7 @@ export interface FormLayoutProps
  * @see https://saas-ui.dev/docs/components/forms/form
  */
 export const FormLayout = forwardRef<HTMLDivElement, FormLayoutProps>(
-  ({ children, rowGap = 4, ...props }, ref) => {
+  ({ children, gap = 4, ...props }, ref) => {
     const recipe = useRecipe({
       key: 'formLayout',
     })
@@ -44,7 +44,7 @@ export const FormLayout = forwardRef<HTMLDivElement, FormLayoutProps>(
         className={cx('sui-form-layout', props.className)}
         css={[
           {
-            rowGap,
+            gap,
           },
           styles,
           props.css,

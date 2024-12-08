@@ -9,7 +9,6 @@ export const textareaRecipe = defineRecipe({
     position: 'relative',
     appearance: 'none',
     textAlign: 'start',
-    borderRadius: 'l2',
     _disabled: {
       layerStyle: 'disabled',
     },
@@ -23,30 +22,35 @@ export const textareaRecipe = defineRecipe({
   variants: {
     size: {
       xs: {
+        borderRadius: 'sm',
         textStyle: 'xs',
         px: '2',
         py: '1.5',
         scrollPaddingBottom: '1.5',
       },
       sm: {
+        borderRadius: 'sm',
         textStyle: 'sm',
         px: '2.5',
         py: '2',
         scrollPaddingBottom: '2',
       },
       md: {
+        borderRadius: 'md',
         textStyle: 'sm',
         px: '3',
         py: '2',
         scrollPaddingBottom: '2',
       },
       lg: {
+        borderRadius: 'md',
         textStyle: 'md',
         px: '4',
         py: '3',
         scrollPaddingBottom: '3',
       },
       xl: {
+        borderRadius: 'lg',
         textStyle: 'md',
         px: '4.5',
         py: '3.5',

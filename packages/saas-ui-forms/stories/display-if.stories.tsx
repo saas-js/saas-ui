@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import * as Yup from 'yup'
 import { Container } from '@chakra-ui/react'
-import { yupResolver } from '@saas-ui/forms/yup'
 
 import { DisplayIf, Field, Form, FormLayout, SubmitButton } from '../src'
+import { yupResolver } from '../yup/src'
 import { onSubmit } from './helpers'
 
 export default {

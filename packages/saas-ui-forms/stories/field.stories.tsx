@@ -2,6 +2,7 @@ import * as React from 'react'
 
 // import * as yup from 'yup'
 import {
+  Badge,
   Box,
   Container,
   Field,
@@ -68,7 +69,14 @@ export const Basic = () => (
   >
     {({ Field }) => (
       <FormLayout>
-        <Field name="text" label="Text" type="text" />
+        <Field
+          name="text"
+          label="Text"
+          type="text"
+          onChange={(value) => {
+            console.log(value)
+          }}
+        />
         <Field
           name="number"
           label="Number"
@@ -76,7 +84,7 @@ export const Basic = () => (
           min={1}
           max={10}
           placeholder="Number"
-          startElement={<InputAddon>$</InputAddon>}
+          startElement={'$'}
         />
         <Field name="textarea" label="Textarea" type="textarea" />
         <Field name="switch" label="Switch" type="switch" />
@@ -138,7 +146,7 @@ export const Horizontal = () => (
           min={1}
           max={10}
           placeholder="Number"
-          startElement={<InputAddon>$</InputAddon>}
+          startElement="$"
           orientation="horizontal"
         />
         <Field
@@ -648,22 +656,24 @@ export const WithId = () => {
 
 const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
   return {
-    extraProps: ['infoLabel'],
-    BaseField: (props) => {
-      const { controlProps, label, help, hideLabel, error } =
-        useBaseField(props)
-
-      const isInvalid = !!error || controlProps.isInvalid
-
-      const { direction, ...rest } = controlProps
+    props: ['infoLabel'],
+    Component: (props) => {
+      const { rootProps, label, help, hideLabel, error } = useBaseField(props)
 
       return (
-        <Field.Root
-          {...rest}
-          invalid={isInvalid}
-          orientation={direction === 'row' ? 'horizontal' : undefined}
-        >
-          {label && !hideLabel ? <Field.Label>{label}</Field.Label> : null}
+        <Field.Root invalid={!!error} {...rootProps}>
+          {label && !hideLabel ? (
+            <Field.Label>
+              {label}{' '}
+              <Field.RequiredIndicator
+                fallback={
+                  <Badge colorPalette="gray" size="xs">
+                    Optional
+                  </Badge>
+                }
+              />
+            </Field.Label>
+          ) : null}
           <Box width="full">
             {props.children}
             {help && !error?.message ? (

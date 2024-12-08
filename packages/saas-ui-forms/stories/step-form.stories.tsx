@@ -1,30 +1,21 @@
-import * as React from 'react'
+import React, { forwardRef } from 'react'
 
 import * as Yup from 'yup'
 import * as z from 'zod'
 import {
   Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
   Checkbox,
   Container,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
+  DataList,
   HStack,
   Spacer,
   Text,
   Tooltip,
-  forwardRef,
 } from '@chakra-ui/react'
-import { ButtonGroup } from '@chakra-ui/react'
-import { Property, PropertyList } from '@saas-ui/core'
-import { StepsCompleted } from '@saas-ui/core'
-import { splitProps } from '@saas-ui/core'
-import { StoryObj } from '@storybook/react'
+import { splitProps } from '@saas-ui/core/utils'
+import { Steps } from '@saas-ui/react'
+import type { StoryObj } from '@storybook/react'
 import { LuInfo } from 'react-icons/lu'
 
 import {

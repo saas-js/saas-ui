@@ -26,14 +26,14 @@ export const checkmarkRecipe = defineRecipe({
         boxSize: '3',
       },
       sm: {
-        boxSize: '4',
+        boxSize: '3.5',
       },
       md: {
-        boxSize: '5',
+        boxSize: '4',
         p: '0.5',
       },
       lg: {
-        boxSize: '6',
+        boxSize: '5',
         p: '0.5',
       },
     },

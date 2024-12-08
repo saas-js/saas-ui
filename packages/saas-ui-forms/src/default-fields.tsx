@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import {
   Input,
@@ -78,8 +78,14 @@ export const SwitchField = createField<HTMLInputElement, SwitchFieldProps>(
   },
 )
 
-export interface SelectFieldProps
-  extends Omit<Select.RootProps<FieldOption>, 'collection'> {
+export interface SelectFieldProps<Multiple extends boolean = boolean>
+  extends Omit<
+    Select.RootProps<FieldOption>,
+    'collection' | 'value' | 'multiple' | 'onChange' | 'onValueChange'
+  > {
+  multiple?: Multiple
+  value?: Multiple extends true ? Array<string> : string
+  onChange?: (value: Multiple extends true ? Array<string> : string) => void
   options: FieldOptions
   placeholder?: string
   triggerProps?: Select.TriggerProps
@@ -94,23 +100,35 @@ export const SelectField = createField<HTMLDivElement, SelectFieldProps>(
       options,
       placeholder,
       onChange,
-      onValueChange,
       onBlur,
+      multiple = false,
+      value: valueProp,
       ...rest
     } = props
 
-    const collection = createListCollection({
-      items: options,
-    })
+    const collection = useMemo(
+      () =>
+        createListCollection({
+          items: options,
+        }),
+      [options],
+    )
+
+    const value = multiple
+      ? [...(valueProp ?? [])]
+      : valueProp
+        ? [valueProp as string]
+        : []
 
     return (
       <Select.Root
         ref={ref}
         collection={collection}
         onValueChange={(details) => {
-          onChange(details.value)
+          onChange(multiple ? details.value : details.value[0])
         }}
         onInteractOutside={() => onBlur()}
+        value={value}
         {...rest}
       >
         <Select.Trigger {...triggerProps}>

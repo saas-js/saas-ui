@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 1.0.0-alpha.4
+
+### Minor Changes
+
+- c9a0a0e: Added PieChart component
+
 ## 1.0.0-alpha.3
 
 ### Minor Changes

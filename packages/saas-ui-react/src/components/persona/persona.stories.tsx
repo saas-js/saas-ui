@@ -26,6 +26,8 @@ const persona = {
 export const Basic = () => (
   <>
     <VStack gap="8">
+      <Persona {...persona} presence="online" size="2xs" />
+
       <Persona {...persona} presence="online" size="xs" />
 
       <Persona {...persona} presence="online" size="sm" />
@@ -35,6 +37,8 @@ export const Basic = () => (
       <Persona {...persona} presence="online" size="lg" />
 
       <Persona {...persona} presence="online" size="xl" />
+
+      <Persona {...persona} presence="online" size="2xl" />
     </VStack>
   </>
 )

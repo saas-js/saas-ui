@@ -24,6 +24,7 @@ export const personaSlotRecipe = defineSlotRecipe({
   ],
   base: {
     root: {
+      '--presence-border-color': 'var(--bg-currentcolor)',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -35,11 +36,11 @@ export const personaSlotRecipe = defineSlotRecipe({
       position: 'absolute',
       bottom: 0,
       right: 0,
-      boxSize: '1em',
-      transform: 'translate(15%, 15%)',
-      borderWidth: '0.15em',
+      boxSize: 'calc(var(--avatar-size) / 3)',
+      transform: 'translate(12%, 12%)',
+      borderWidth: '0.10em',
       borderRadius: '50%',
-      borderColor: 'bg.panel',
+      borderColor: 'var(--presence-border-color)',
       bg: 'var(--persona-presence)',
     },
     details: {
@@ -60,8 +61,14 @@ export const personaSlotRecipe = defineSlotRecipe({
   },
   variants: {
     size: {
+      '2xs': {
+        details: { ms: 1 },
+        label: { fontSize: '2xs' },
+        secondaryLabel: { display: 'none' },
+        tertiaryLabel: { display: 'none' },
+      },
       xs: {
-        details: { ms: 2 },
+        details: { ms: 1.5 },
         label: { fontSize: 'xs' },
         secondaryLabel: { display: 'none' },
         tertiaryLabel: { display: 'none' },
@@ -89,6 +96,12 @@ export const personaSlotRecipe = defineSlotRecipe({
         label: { fontSize: 'lg' },
         secondaryLabel: { fontSize: 'md' },
         tertiaryLabel: { fontSize: 'md' },
+      },
+      '2xl': {
+        details: { ms: 4 },
+        label: { fontSize: 'xl' },
+        secondaryLabel: { fontSize: 'lg' },
+        tertiaryLabel: { fontSize: 'lg' },
       },
     },
   },

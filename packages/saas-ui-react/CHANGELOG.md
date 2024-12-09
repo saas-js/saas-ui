@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.14
+
+### Patch Changes
+
+- 0067207: Fixed issue where paddingStart would not apply to grouped inputs
+- 0067207: Added 4.5 spacing
+
 ## 3.0.0-alpha.13
 
 ### Patch Changes

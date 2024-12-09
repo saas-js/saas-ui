@@ -6,6 +6,7 @@ export const avatarSlotRecipe = defineSlotRecipe({
   className: 'chakra-avatar',
   base: {
     root: {
+      '--avatar-font-size': 'calc(var(--avatar-size) / 2)',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -48,44 +49,38 @@ export const avatarSlotRecipe = defineSlotRecipe({
       },
       '2xs': {
         root: {
-          '--avatar-font-size': 'fontSizes.2xs',
-          '--avatar-size': 'sizes.6',
+          '--avatar-size': 'sizes.5',
         },
       },
       xs: {
         root: {
-          '--avatar-font-size': 'fontSizes.xs',
-          '--avatar-size': 'sizes.8',
+          '--avatar-size': 'sizes.6',
         },
       },
       sm: {
         root: {
-          '--avatar-font-size': 'fontSizes.sm',
           '--avatar-size': 'sizes.9',
         },
       },
       md: {
         root: {
-          '--avatar-font-size': 'fontSizes.md',
-          '--avatar-size': 'sizes.10',
+          '--avatar-size': 'sizes.12',
         },
       },
       lg: {
         root: {
-          '--avatar-font-size': 'fontSizes.md',
-          '--avatar-size': 'sizes.11',
+          '--avatar-size': 'sizes.14',
         },
       },
       xl: {
         root: {
-          '--avatar-font-size': 'fontSizes.lg',
-          '--avatar-size': 'sizes.12',
+          '--avatar-size': 'sizes.16',
         },
       },
       '2xl': {
         root: {
-          '--avatar-font-size': 'fontSizes.xl',
-          '--avatar-size': 'sizes.16',
+          '--avatar-font-size': 'calc(var(--avatar-size) / 2)',
+          '--avatar-size': 'sizes.20',
         },
       },
     },

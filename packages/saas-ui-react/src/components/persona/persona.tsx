@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import * as PersonaPrimitive from './persona-primitive.tsx'
-import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { Presence } from './presence.ts'
 
 interface PersonaOptions {
@@ -54,7 +53,7 @@ interface PersonaOptions {
 
 export interface PersonaProps
   extends PersonaOptions,
-    PersonaPrimitive.AvatarProps,
+    Omit<PersonaPrimitive.AvatarProps, 'size'>,
     PersonaPrimitive.RootProps {}
 
 /**
@@ -90,6 +89,7 @@ export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
         ref={ref}
         outOfOffice={isOutOfOffice}
         presence={presence}
+        size={size}
         {...rest}
       >
         <PersonaPrimitive.Avatar
@@ -102,9 +102,11 @@ export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
           src={src}
           srcSet={srcSet}
         >
-          <PersonaPrimitive.PresenceBadge>
-            {presenceIcon}
-          </PersonaPrimitive.PresenceBadge>
+          {presence ? (
+            <PersonaPrimitive.PresenceBadge>
+              {presenceIcon}
+            </PersonaPrimitive.PresenceBadge>
+          ) : null}
         </PersonaPrimitive.Avatar>
 
         {!hideDetails && (

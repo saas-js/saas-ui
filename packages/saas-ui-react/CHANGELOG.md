@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.15
+
+### Patch Changes
+
+- 2285040: Improved avatar and persona sizes
+- 2285040: No longer showing presence badge if no presence is set
+
 ## 3.0.0-alpha.14
 
 ### Patch Changes

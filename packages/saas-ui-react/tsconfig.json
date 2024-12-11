@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "paths": {
       "#components/*": ["src/components/*"],
+      "#types": ["src/types.ts"],
       "compositions/*": ["../../apps/compositions/src/*"]
     }
   },

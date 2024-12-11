@@ -1,38 +1,38 @@
 import * as React from 'react'
 
-import { Kbd } from '@chakra-ui/react'
 import {
   type HTMLChakraProps,
-  type RecipeProps,
+  Kbd,
+  type KbdProps,
   UnstyledProp,
   createRecipeContext,
 } from '@chakra-ui/react'
+
+import type { RecipeProps } from '#types'
+
+import type { CommandVariantProps } from './command.recipe.ts'
 
 const { withContext } = createRecipeContext({
   key: 'suiCommand',
 })
 
 export interface CommandBaseProps
-  extends RecipeProps<'suiCommand'>,
+  extends RecipeProps<'suiCommand', CommandVariantProps>,
     UnstyledProp {}
 
 export interface CommandProps
-  extends HTMLChakraProps<'span', CommandBaseProps> {}
-
-const Key: React.FC<HTMLChakraProps<'span'>> = ({ children }) => {
-  if (typeof children !== 'string') {
-    return <>{children}</>
-  }
-
-  if (['then', 'or', '+'].includes(children)) {
-    return <span>{children}</span>
-  }
-
-  return <Kbd>{children}</Kbd>
+  extends HTMLChakraProps<'span'>,
+    CommandBaseProps,
+    CommandVariantProps {
+  /**
+   * The modifiers to use for the command.
+   * @default ['then', 'or', '+']
+   */
+  modifiers?: Array<string>
 }
 
-export const Command: React.FC<HTMLChakraProps<'span'>> = (props) => {
-  const { children, ...rest } = props
+export const Command: React.FC<CommandProps> = (props) => {
+  const { children, modifiers, ...rest } = props
 
   if (typeof children !== 'string') {
     return <>{children}</>
@@ -41,12 +41,27 @@ export const Command: React.FC<HTMLChakraProps<'span'>> = (props) => {
   const keys = children.split(/\s|\+/)
 
   return (
-    <CommandRoot {...rest}>
+    <StyledCommand {...rest}>
       {keys.map((key) => (
-        <Key key={key}>{key}</Key>
+        <Key key={key} modifiers={modifiers} size={props.size}>
+          {key}
+        </Key>
       ))}
-    </CommandRoot>
+    </StyledCommand>
   )
 }
 
-const CommandRoot = withContext('span')
+const StyledCommand = withContext<HTMLDivElement, CommandBaseProps>('span')
+
+const Key: React.FC<KbdProps & { modifiers?: Array<string> }> = (props) => {
+  const { modifiers = ['then', 'or', '+'], children, ...rest } = props
+  if (typeof children !== 'string') {
+    return <>{children}</>
+  }
+
+  if (modifiers.includes(children)) {
+    return <span>{children}</span>
+  }
+
+  return <Kbd {...rest}>{children}</Kbd>
+}

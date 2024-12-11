@@ -25,6 +25,16 @@ export const Basic = {
   ),
 }
 
+export const Sizes = {
+  render: () => (
+    <VStack>
+      <Command size="sm">shift+X</Command>
+      <Command size="md">A then B</Command>
+      <Command size="lg">alt or option</Command>
+    </VStack>
+  ),
+}
+
 export const TooltipCommand = {
   render: () => (
     <Tooltip.Root>
@@ -38,7 +48,7 @@ export const TooltipCommand = {
           </Tooltip.Arrow>
 
           <>
-            Inbox <Command>G then I</Command>
+            Inbox <Command size="sm">G then I</Command>
           </>
         </Tooltip.Content>
       </Tooltip.Positioner>

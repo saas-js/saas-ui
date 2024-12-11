@@ -1,4 +1,4 @@
-import { defineRecipe } from '@chakra-ui/react'
+import { type RecipeVariantProps, defineRecipe } from '@chakra-ui/react'
 
 export const commandRecipe = defineRecipe({
   className: 'sui-command',
@@ -6,6 +6,7 @@ export const commandRecipe = defineRecipe({
     colorPalette: 'gray',
     display: 'inline-flex',
     gap: 1,
+    color: 'fg.muted',
     '[role=tooltip] > &': {
       ms: 1,
       _before: {
@@ -15,4 +16,22 @@ export const commandRecipe = defineRecipe({
       },
     },
   },
+  variants: {
+    size: {
+      sm: {
+        fontSize: 'xs',
+      },
+      md: {
+        fontSize: 'sm',
+      },
+      lg: {
+        fontSize: 'md',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
 })
+
+export type CommandVariantProps = RecipeVariantProps<typeof commandRecipe>

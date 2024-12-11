@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.16
+
+### Patch Changes
+
+- 205580d: Added option to customize the Command modifiers
+- 205580d: Added size variant to Command
+
 ## 3.0.0-alpha.15
 
 ### Patch Changes

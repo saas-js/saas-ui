@@ -5,7 +5,6 @@ export const gridListSlotRecipe = defineSlotRecipe({
   slots: ['root', 'item', 'header', 'cell'],
   base: {
     root: {
-      py: 2,
       position: 'relative',
     },
     item: {
@@ -14,35 +13,14 @@ export const gridListSlotRecipe = defineSlotRecipe({
       alignItems: 'center',
       justifyContent: 'space-between',
       flex: 1,
-      cursor: 'pointer',
       userSelect: 'none',
-      transitionProperty: 'common',
-      transitionDuration: 'normal',
       borderRadius: 'inherit',
       outline: 'none',
-      _hover: {
-        bg: 'blackAlpha.50',
-        _dark: {
-          bg: 'whiteAlpha.50',
-        },
-      },
       _focusVisible: {
         boxShadow: 'outline',
       },
-      _focus: {
-        bg: 'blackAlpha.50',
-        _dark: {
-          bg: 'whiteAlpha.50',
-        },
-      },
-      _active: {
-        bg: 'blackAlpha.100',
-        _dark: {
-          bg: 'whiteAlpha.100',
-        },
-      },
       _disabled: {
-        cursor: 'inherit',
+        cursor: 'disabled',
         opacity: 0.5,
         _hover: {
           bg: 'transparent',
@@ -64,50 +42,92 @@ export const gridListSlotRecipe = defineSlotRecipe({
       position: 'sticky',
       fontSize: 'md',
       fontWeight: 'semibold',
-      color: 'muted',
+      color: 'fg.muted',
     },
     cell: {
-      display: 'flex',
       flexShrink: 0,
     },
   },
   variants: {
+    interactive: {
+      true: {
+        item: {
+          cursor: 'button',
+          transitionProperty: 'bg',
+          transitionDuration: 'fast',
+          _hover: {
+            bg: 'bg.subtle',
+          },
+          _active: {
+            bg: 'bg.subtle',
+          },
+        },
+      },
+    },
+    variant: {
+      simple: {},
+      rounded: {
+        item: {
+          borderRadius: 'md',
+          mb: 0.5,
+        },
+      },
+    },
     size: {
       sm: {
         root: {
-          fontSize: 'sm',
+          textStyle: 'sm',
+          py: 0.5,
         },
         item: {
           py: 1,
-          px: 1,
+          px: 2,
+          gap: 1,
         },
         header: {
           py: 1,
-          px: 1,
-        },
-        cell: {
-          px: 1,
+          px: 2,
         },
       },
       md: {
         root: {
-          fontSize: 'md',
+          textStyle: 'md',
+          py: 1,
         },
         item: {
           py: 2,
-          px: 2,
+          px: 3,
+          gap: 2,
         },
         header: {
           py: 2,
-          px: 2,
-        },
-        cell: {
-          px: 2,
+          px: 3,
         },
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: 'rounded',
+      size: 'sm',
+      css: {
+        root: {
+          p: 1,
+        },
+      },
+    },
+    {
+      variant: 'rounded',
+      size: 'md',
+      css: {
+        root: {
+          p: 2,
+        },
+      },
+    },
+  ],
   defaultVariants: {
+    variant: 'simple',
     size: 'md',
   },
 })

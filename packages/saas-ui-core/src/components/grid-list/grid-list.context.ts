@@ -3,12 +3,11 @@ import * as React from 'react'
 import { createContext } from '@chakra-ui/react'
 import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
 
-import type { HTMLSystemProps } from '#system'
 import { callAll, dataAttr } from '#utils'
 
 interface GridListContext {
   id: string
-  containerRef: React.RefObject<HTMLUListElement>
+  containerRef: React.RefObject<HTMLDivElement>
   focusId: string | null
   setFocusId: React.Dispatch<React.SetStateAction<string | null>>
 }
@@ -26,13 +25,13 @@ function queryAllItems(root: HTMLElement | null) {
 
 export interface UseGridListProps {
   id?: string
-  onBlur?: React.FocusEventHandler<HTMLUListElement>
+  onBlur?: React.FocusEventHandler<HTMLDivElement>
 }
 
 export const useGridList = (props: UseGridListProps) => {
   const id = React.useId()
 
-  const ref = React.useRef<HTMLUListElement>(null)
+  const ref = React.useRef<HTMLDivElement>(null)
 
   const [focusId, setFocusId] = React.useState<string | null>(null)
 
@@ -56,11 +55,15 @@ export const useGridList = (props: UseGridListProps) => {
   }
 }
 
-export interface GridListItemProps extends HTMLSystemProps<'li'> {
+export interface GridListItemOptions {
+  id?: string
   disabled?: boolean
+  onFocus?: React.FocusEventHandler<HTMLDivElement>
+  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
-export const useGridListItem = (props: GridListItemProps) => {
+export const useGridListItem = (props: GridListItemOptions) => {
   const {
     id: containerId,
     containerRef,
@@ -117,7 +120,7 @@ export const useGridListItem = (props: GridListItemProps) => {
         [buttonId],
       ),
     ),
-    onClick: (e: React.MouseEvent<HTMLLIElement>) => {
+    onClick: (e: React.MouseEvent<HTMLDivElement>) => {
       if (props.disabled) {
         e.preventDefault()
         e.stopPropagation()

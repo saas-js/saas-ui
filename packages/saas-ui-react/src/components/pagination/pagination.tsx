@@ -109,7 +109,6 @@ export const NextButton = forwardRef<
   ChakraPagination.NextTriggerProps
 >(function PaginationNextTrigger(props, ref) {
   const { size, variantMap } = useRootProps()
-  const { nextPage } = usePaginationContext()
 
   return (
     <ChakraPagination.NextTrigger ref={ref} asChild {...props}>
@@ -136,7 +135,7 @@ export const Items = (props: React.HTMLAttributes<HTMLElement>) => {
   )
 }
 
-interface PageTextProps extends TextProps {
+export interface PageTextProps extends TextProps {
   format?: 'short' | 'compact' | 'long'
 }
 
@@ -160,3 +159,4 @@ export const PageText = forwardRef<HTMLParagraphElement, PageTextProps>(
 
 export const PrevTrigger = ChakraPagination.PrevTrigger
 export const NextTrigger = ChakraPagination.NextTrigger
+export const Context = ChakraPagination.Context

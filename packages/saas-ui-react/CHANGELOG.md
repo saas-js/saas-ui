@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.17
+
+### Minor Changes
+
+- a2ef175: Added Pagination component
+
 ## 3.0.0-alpha.16
 
 ### Patch Changes

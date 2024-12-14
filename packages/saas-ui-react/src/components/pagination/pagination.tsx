@@ -16,7 +16,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   EllipsisIcon,
-} from '#components/icons/icons.ts'
+} from '#components/icons/icons.tsx'
 
 interface ButtonVariantMap {
   current: ButtonProps['variant']

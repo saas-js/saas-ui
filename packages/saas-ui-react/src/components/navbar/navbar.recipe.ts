@@ -14,7 +14,7 @@ export const navbarSlotRecipe = defineSlotRecipe({
       top: 0,
       insetX: 0,
       transitionProperty: 'common',
-      transitionDuration: 'normal',
+      transitionDuration: 'moderate',
       transitionTimingFunction: 'ease-in-out',
       _hidden: {
         transform: 'translateY(-100%)',
@@ -50,7 +50,7 @@ export const navbarSlotRecipe = defineSlotRecipe({
       boxSizing: 'border-box',
       borderRadius: 'md',
       transitionProperty: 'common',
-      transitionDuration: 'normal',
+      transitionDuration: 'moderate',
       lineHeight: 1,
       _focusVisible: {
         outline: 'none',

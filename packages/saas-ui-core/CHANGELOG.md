@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.5
+
+### Minor Changes
+
+- eb02362: Improved GridList aria props
+
 ## 3.0.0-alpha.4
 
 ### Minor Changes

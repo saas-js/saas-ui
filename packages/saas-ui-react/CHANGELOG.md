@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.18
+
+### Minor Changes
+
+- eb02362: Improved GridList recipe
+
+### Patch Changes
+
+- e7fe684: Export Pagination Context component
+- eb02362: Add missing PaginationPageTextProps export
+- Updated dependencies [eb02362]
+  - @saas-ui/core@3.0.0-alpha.5
+
 ## 3.0.0-alpha.17
 
 ### Minor Changes

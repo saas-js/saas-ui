@@ -1,7 +1,6 @@
 import { forwardRef } from 'react'
 
 import {
-  type HTMLChakraProps,
   type RecipeProps,
   SimpleGrid,
   SimpleGridProps,
@@ -15,22 +14,21 @@ export interface FormLayoutOptions {
 }
 
 export interface FormLayoutProps
-  extends RecipeProps<'formLayout'>,
-    FormLayoutOptions,
-    Omit<HTMLChakraProps<'div'>, 'columns'> {}
+  extends RecipeProps<'suiFormLayout'>,
+    SimpleGridProps {}
 
 /**
  * Create consistent field spacing and positioning.
  *
  * Renders form items in a `SimpleGrid`
- * @see https://chakra-ui.com/docs/layout/simple-grid
+ * @see https://chakra-ui.com/docs/components/simple-grid
  *
  * @see https://saas-ui.dev/docs/components/forms/form
  */
 export const FormLayout = forwardRef<HTMLDivElement, FormLayoutProps>(
   ({ children, gap = 4, ...props }, ref) => {
     const recipe = useRecipe({
-      key: 'formLayout',
+      key: 'suiFormLayout',
     })
 
     const [variantProps, gridProps] = recipe.splitVariantProps(props)

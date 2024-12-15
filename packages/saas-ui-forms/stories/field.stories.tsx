@@ -6,6 +6,7 @@ import {
   Box,
   Container,
   Field,
+  Group,
   HStack,
   InputAddon,
   Tooltip,
@@ -31,7 +32,7 @@ export default {
   title: 'Forms/Field',
   decorators: [
     (Story: any) => (
-      <Container mt="40px">
+      <Container mt="40px" maxWidth="lg">
         <Story />
       </Container>
     ),
@@ -181,6 +182,7 @@ export const Horizontal = () => (
           label="Password"
           type="password"
           orientation="horizontal"
+          help="This is a help text"
         />
         <Field
           name="checkbox"
@@ -203,7 +205,9 @@ export const Horizontal = () => (
           orientation="horizontal"
         />
 
-        <SubmitButton>Submit</SubmitButton>
+        <Group ps="8.5rem">
+          <SubmitButton>Submit</SubmitButton>
+        </Group>
       </FormLayout>
     )}
   </Form>

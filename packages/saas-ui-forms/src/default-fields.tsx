@@ -33,7 +33,11 @@ export interface InputFieldProps extends InputProps {
 export const InputField = createField<HTMLInputElement, InputFieldProps>(
   ({ type = 'text', startElement, endElement, size, ...rest }, ref) => {
     return (
-      <InputGroup startElement={startElement} endElement={endElement}>
+      <InputGroup
+        startElement={startElement}
+        endElement={endElement}
+        width="full"
+      >
         <Input type={type} size={size} {...rest} ref={ref} />
       </InputGroup>
     )

@@ -25,7 +25,11 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     } = props
     return (
       <ChakraNumberInput.Root ref={rootRef} {...rest}>
-        <InputGroup startElement={startElement} endElement={endElement}>
+        <InputGroup
+          startElement={startElement}
+          endElement={endElement}
+          width="full"
+        >
           <ChakraNumberInput.Input ref={ref} {...inputProps} />
         </InputGroup>
 

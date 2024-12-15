@@ -60,13 +60,12 @@ export const BaseField: React.FC<BaseFieldProps> = (props) => {
           {label} <Field.RequiredIndicator />
         </Field.Label>
       ) : null}
-      <Box width="full">
-        {props.children}
-        {help && !error?.message ? (
-          <Field.HelperText>{help}</Field.HelperText>
-        ) : null}
-        {error?.message && <Field.ErrorText>{error?.message}</Field.ErrorText>}
-      </Box>
+
+      {props.children}
+      {help && !error?.message ? (
+        <Field.HelperText>{help}</Field.HelperText>
+      ) : null}
+      {error?.message && <Field.ErrorText>{error?.message}</Field.ErrorText>}
     </Field.Root>
   )
 }

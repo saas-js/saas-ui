@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 1.0.0-alpha.5
+
+### Patch Changes
+
+- e8d0ed6: Removed console.log
+
 ## 1.0.0-alpha.4
 
 ### Minor Changes

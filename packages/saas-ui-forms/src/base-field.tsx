@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, Field } from '@chakra-ui/react'
+import { Field } from '@chakra-ui/react'
 import { splitProps } from '@saas-ui/core/utils'
 import { FormState, get } from 'react-hook-form'
 

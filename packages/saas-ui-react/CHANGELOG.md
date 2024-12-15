@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.19
+
+### Patch Changes
+
+- ba3b566: Improved Sidebar contrast
+- 38082d4: Improved horizontal field styles
+- ba3b566: Improved focusRing styles
+- ba3b566: Added SegmentControl stories and made sizing consistent with buttons
+- 3a73bc8: Fixed incorrect props type for GridListRoot
+- ba3b566: Sidebar.Button now renders a div with role="button"
+- 727b902: Allow click event on Sidebar.Track to be prevented
+
 ## 3.0.0-alpha.18
 
 ### Minor Changes

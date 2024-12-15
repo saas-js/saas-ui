@@ -138,11 +138,11 @@ export const SidebarTrack = forwardRef<HTMLDivElement, HTMLSystemProps<'div'>>(
       <sui.div
         ref={ref}
         {...props}
-        onClick={callAll(() => {
-          if (mode !== 'flyout') {
+        onClick={callAll(props.onClick, (e) => {
+          if (!e.defaultPrevented && mode !== 'flyout') {
             setOpen(false)
           }
-        }, props.onClick)}
+        })}
       />
     )
   },

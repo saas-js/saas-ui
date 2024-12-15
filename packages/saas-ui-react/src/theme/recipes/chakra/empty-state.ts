@@ -7,6 +7,11 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
   base: {
     root: {
       width: 'full',
+      height: 'full',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     content: {
       display: 'flex',

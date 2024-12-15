@@ -29,12 +29,14 @@ import { radii } from './tokens/radius'
 import { sizes } from './tokens/sizes'
 import { spacing } from './tokens/spacing'
 import { zIndices } from './tokens/z-indices'
+import { utilities } from './utilities'
 
 export const defaultThemeConfig = defineConfig({
   preflight: true,
   cssVarsPrefix: 'chakra',
   cssVarsRoot: ':where(html, .chakra-theme)',
   globalCss: globalCss,
+  utilities: utilities,
   theme: {
     breakpoints: breakpoints,
     keyframes: keyframes,

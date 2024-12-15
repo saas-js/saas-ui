@@ -21,6 +21,7 @@ export const selectSlotRecipe = defineSlotRecipe({
       userSelect: 'none',
       textAlign: 'start',
       focusVisibleRing: 'inside',
+      focusRingWidth: 0,
       _placeholderShown: {
         color: 'fg.muted',
       },
@@ -29,6 +30,12 @@ export const selectSlotRecipe = defineSlotRecipe({
       },
       _invalid: {
         borderColor: 'border.error',
+      },
+      _hover: {
+        borderColor: 'border.emphasized',
+        _focusVisible: {
+          borderColor: 'var(--focus-ring-color)',
+        },
       },
     },
     indicatorGroup: {

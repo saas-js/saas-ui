@@ -60,9 +60,7 @@ export const switchSlotRecipe = defineSlotRecipe({
         cursor: 'not-allowed',
       },
       _invalid: {
-        outline: '2px solid',
-        outlineColor: 'border.error',
-        outlineOffset: '2px',
+        focusRingColor: 'border.error',
       },
     },
 

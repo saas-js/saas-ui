@@ -51,12 +51,21 @@ export const fieldSlotRecipe = defineSlotRecipe({
       },
       horizontal: {
         root: {
-          flexDirection: 'row',
+          display: 'grid',
+          gridTemplateColumns: 'var(--field-label-width, 8rem) 1fr',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          '&:has(textarea)': {
+            alignItems: 'flex-start',
+            '& label': {
+              pt: 1.5,
+            },
+          },
         },
-        label: {
-          flex: '0 0 var(--field-label-width, 80px)',
+        helperText: {
+          gridColumn: 2,
+        },
+        errorText: {
+          gridColumn: 2,
         },
       },
     },

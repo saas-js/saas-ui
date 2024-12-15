@@ -6,8 +6,8 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
   slots: segmentGroupAnatomy.keys(),
   base: {
     root: {
-      '--segment-radius': 'radii.l2',
-      borderRadius: 'l2',
+      '--segment-radius': 'radii.md',
+      borderRadius: 'md',
       display: 'inline-flex',
       boxShadow: 'inset',
       minW: 'max-content',
@@ -15,6 +15,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       position: 'relative',
       isolation: 'isolate',
       bg: 'bg.muted',
+      borderWidth: '1px',
     },
 
     item: {
@@ -23,32 +24,40 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       userSelect: 'none',
       fontSize: 'sm',
       position: 'relative',
-      color: 'fg',
+      color: 'fg.subtle',
+      cursor: 'button',
       borderRadius: 'var(--segment-radius)',
       _disabled: {
         opacity: '0.5',
       },
+      _hover: {
+        color: 'fg',
+      },
       '&:has(input:focus-visible)': {
-        focusRing: 'outside',
+        focusRing: 'inside',
+        focusRingWidth: '1px',
       },
       _before: {
         content: '""',
         position: 'absolute',
         insetInlineStart: 0,
-        insetBlock: '1.5',
+        insetBlock: '0',
         bg: 'border',
         width: '1px',
         transition: 'opacity 0.2s',
+      },
+      _checked: {
+        color: 'fg',
       },
       '& + &[data-state=checked], &[data-state=checked] + &, &:first-of-type': {
         _before: {
           opacity: '0',
         },
       },
-
       '&[data-state=checked][data-ssr]': {
         shadow: 'sm',
         bg: 'bg',
+        color: 'fg',
         borderRadius: 'var(--segment-radius)',
       },
     },
@@ -56,7 +65,10 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
     indicator: {
       shadow: 'sm',
       pos: 'absolute',
-      bg: { _light: 'bg', _dark: 'bg.emphasized' },
+      bg: {
+        base: 'bg',
+        _dark: 'bg.emphasized',
+      },
       width: 'var(--width)',
       height: 'var(--height)',
       top: 'var(--top)',
@@ -80,7 +92,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       sm: {
         root: {
-          height: '8',
+          height: '7',
         },
         item: {
           textStyle: 'sm',
@@ -90,7 +102,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       md: {
         root: {
-          height: '10',
+          height: '8',
         },
         item: {
           textStyle: 'sm',

@@ -9,6 +9,7 @@ const baseStyleLabel = defineStyle({
   whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
   minW: 0,
+  color: 'fg',
 })
 
 export const personaSlotRecipe = defineSlotRecipe({
@@ -52,11 +53,11 @@ export const personaSlotRecipe = defineSlotRecipe({
     label: baseStyleLabel,
     secondaryLabel: {
       ...baseStyleLabel,
-      color: 'fg.muted',
+      color: 'fg/60',
     },
     tertiaryLabel: {
       ...baseStyleLabel,
-      color: 'fg.muted',
+      color: 'fg/60',
     },
   },
   variants: {

@@ -41,8 +41,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
       gap: '2',
       _focusVisible: {
         zIndex: 1,
-        outline: '2px solid',
-        outlineColor: 'colorPalette.focusRing',
+        focusVisibleRing: 'outside',
       },
       _disabled: {
         cursor: 'not-allowed',

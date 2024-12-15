@@ -43,7 +43,7 @@ export const buttonRecipe = defineRecipe({
       sm: {
         gap: '2',
         h: '7',
-        minW: '8',
+        minW: '7',
         textStyle: 'sm',
         borderRadius: 'md',
         px: '2.5',
@@ -163,10 +163,10 @@ export const buttonRecipe = defineRecipe({
       ghost: {
         color: 'colorPalette.fg',
         _hover: {
-          bg: 'colorPalette.muted',
+          bg: 'colorPalette.subtle',
         },
         _expanded: {
-          bg: 'colorPalette.muted',
+          bg: 'colorPalette.subtle',
         },
       },
 
@@ -175,6 +175,15 @@ export const buttonRecipe = defineRecipe({
       },
     },
   },
+
+  compoundVariants: [
+    {
+      variant: 'plain',
+      css: {
+        px: 0,
+      },
+    },
+  ],
 
   defaultVariants: {
     size: 'md',

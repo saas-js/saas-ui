@@ -75,7 +75,7 @@ function SidebarLayout(props: { children: React.ReactElement }) {
   return (
     <Sidebar.Provider mode={mode}>
       <AppShell sidebar={props.children}>
-        <Stack height="full" flex="1" boxShadow="sm">
+        <Stack height="full" flex="1" borderLeftWidth="1px" boxShadow="sm">
           <HStack
             px="4"
             minH="12"

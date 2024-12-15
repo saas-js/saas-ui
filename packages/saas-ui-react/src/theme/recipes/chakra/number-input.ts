@@ -37,6 +37,7 @@ export const numberInputSlotRecipe = defineSlotRecipe({
       position: 'relative',
       zIndex: '0',
       isolation: 'isolate',
+      width: 'full',
     },
     input: {
       ...inputRecipe.base,

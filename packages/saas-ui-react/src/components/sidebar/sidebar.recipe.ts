@@ -98,6 +98,9 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     groupEndElement: {
       '& > button': {
         boxSize: 6,
+        _hover: {
+          bg: 'transparent',
+        },
       },
     },
     groupContent: {
@@ -208,11 +211,6 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       },
       compact: {},
     },
-    variant: {
-      muted: {},
-      solid: {},
-      subtle: {},
-    },
     size: {
       md: {
         header: {
@@ -232,7 +230,6 @@ export const sidebarSlotRecipe = defineSlotRecipe({
   },
   defaultVariants: {
     mode: 'collapsible',
-    variant: 'muted',
     size: 'md',
   },
 })

@@ -21,7 +21,8 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       cursor: 'button',
       transitionProperty: 'common',
       transitionDuration: 'fast',
-      focusVisibleRing: 'outside',
+      focusVisibleRing: 'inside',
+      focusRingWidth: '1px',
       '& > svg': {
         boxSize: 4,
         color: 'var(--sidebar-item-icon-color)',
@@ -34,6 +35,11 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       display: 'flex',
       gap: '1px',
       ms: 'auto',
+      '& button': {
+        _hover: {
+          bg: 'transparent',
+        },
+      },
     },
   },
   variants: {

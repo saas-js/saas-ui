@@ -21,7 +21,7 @@ export const semanticColors = defineSemanticTokens.colors({
 
   sidebar: {
     bg: {
-      value: { _light: '{colors.gray.50}', _dark: '{colors.gray.950}' },
+      value: { _light: '{colors.gray.100}', _dark: '{colors.gray.900}' },
     },
     fg: {
       value: { _light: '{colors.gray.900}', _dark: '{colors.gray.200}' },
@@ -31,7 +31,7 @@ export const semanticColors = defineSemanticTokens.colors({
     },
     accent: {
       bg: {
-        value: { _light: '{colors.gray.200/40}', _dark: '{colors.gray.900}' },
+        value: { _light: '{colors.gray.200/80}', _dark: '{colors.gray.900}' },
       },
       fg: {
         value: { _light: '{colors.gray.900}', _dark: '{colors.gray.200}' },
@@ -130,10 +130,6 @@ export const semanticColors = defineSemanticTokens.colors({
     info: {
       value: { _light: '{colors.blue.500}', _dark: '{colors.blue.400}' },
     },
-  },
-
-  focusRing: {
-    value: { _light: '{colors.blue.600/50}', _dark: '{colors.blue.500/50}' },
   },
 
   accent: {

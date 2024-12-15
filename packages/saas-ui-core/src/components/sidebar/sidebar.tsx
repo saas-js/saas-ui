@@ -189,20 +189,20 @@ export const SidebarNavItem = forwardRef<
   return <sui.div ref={ref} {...props} />
 })
 
-export interface SidebarNavButtonProps extends HTMLSystemProps<'button'> {
+export interface SidebarNavButtonProps extends HTMLSystemProps<'div'> {
   active?: boolean
 }
 
 export const SidebarNavButton = forwardRef<
-  HTMLButtonElement,
+  HTMLDivElement,
   SidebarNavButtonProps
 >((props, ref) => {
   const { children, active, ...rest } = props
 
   return (
-    <sui.button ref={ref} data-active={dataAttr(active)} {...rest}>
+    <sui.div ref={ref} data-active={dataAttr(active)} role="button" {...rest}>
       {children}
-    </sui.button>
+    </sui.div>
   )
 })
 

@@ -6,7 +6,6 @@ export const collapsibleSlotRecipe = defineSlotRecipe({
   className: 'chakra-collapsible',
   base: {
     content: {
-      overflow: 'hidden',
       _open: {
         animationName: 'expand-height, fade-in',
         animationDuration: 'moderate',
@@ -14,6 +13,7 @@ export const collapsibleSlotRecipe = defineSlotRecipe({
       _closed: {
         animationName: 'collapse-height, fade-out',
         animationDuration: 'moderate',
+        overflow: 'hidden',
       },
     },
   },

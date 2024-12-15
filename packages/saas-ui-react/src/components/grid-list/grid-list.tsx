@@ -1,14 +1,17 @@
-import type { HTMLChakraProps, SlotRecipeProps } from '@chakra-ui/react'
+import type { HTMLChakraProps } from '@chakra-ui/react'
 import { GridList } from '@saas-ui/core/grid-list'
 
+import type { SlotRecipeProps } from '#types'
+
 import { withContext, withProvider } from './grid-list.context.ts'
+import type { GridListVariantProps } from './grid-list.recipe.ts'
 
 interface GridListRootProps
   extends GridList.RootProps,
     HTMLChakraProps<'div'>,
-    SlotRecipeProps<'suiGridList'> {}
+    SlotRecipeProps<'suiGridList', GridListVariantProps> {}
 
-const GridListRoot = withProvider<HTMLDivElement, GridList.RootProps>(
+const GridListRoot = withProvider<HTMLDivElement, GridListRootProps>(
   GridList.Root,
   'root',
 )

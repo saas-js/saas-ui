@@ -43,7 +43,7 @@ export const buttonRecipe = defineRecipe({
       sm: {
         gap: '2',
         h: '7',
-        minW: '8',
+        minW: '7',
         textStyle: 'sm',
         borderRadius: 'md',
         px: '2.5',

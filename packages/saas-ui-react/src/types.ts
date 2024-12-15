@@ -2,6 +2,7 @@ import {
   RecipeProps as ChakraRecipeProps,
   SlotRecipeProps as ChakraSlotRecipeProps,
   type RecipeDefinition,
+  type SlotRecipeDefinition,
 } from '@chakra-ui/react'
 
 export type RecipeProps<T, DefaultRecipe> =
@@ -10,6 +11,8 @@ export type RecipeProps<T, DefaultRecipe> =
     : ChakraRecipeProps<T>
 
 export type SlotRecipeProps<T, DefaultSlotRecipe> =
-  ChakraSlotRecipeProps<T> extends { recipe?: RecipeDefinition }
-    ? ChakraSlotRecipeProps<T> & DefaultSlotRecipe
-    : ChakraSlotRecipeProps<T>
+  ChakraSlotRecipeProps<T> extends { variant?: any }
+    ? ChakraSlotRecipeProps<T>
+    : ChakraSlotRecipeProps<T> & DefaultSlotRecipe
+
+type Test = ChakraSlotRecipeProps<'suiGridList'>

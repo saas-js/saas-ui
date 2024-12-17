@@ -142,7 +142,7 @@ const TestimonialTabs = () => {
               _before={{ content: '"“"' }}
               _after={{ content: '"“"' }}
             >
-              Saas-ui is fantastic if you want to build fast-as-thought with
+              Saas UI is fantastic if you want to build fast-as-thought with
               beautiful defaults and still have the flexibility to customize
               when time allows. I truly love building with it!!
             </Text>
@@ -264,21 +264,6 @@ const Pricing = () => {
               </Tab>
             </TabList>
           </Tabs>
-
-          <Alert
-            status="info"
-            colorScheme="primary"
-            borderRadius="full"
-            maxW="sm"
-            borderWidth="1px"
-            justifyContent="center"
-            mt="8"
-            py="2"
-          >
-            <AlertTitle fontSize="sm" fontWeight="medium" textAlign="center">
-              50% off on all Figma licenses during early access.
-            </AlertTitle>
-          </Alert>
         </Stack>
 
         <SimpleGrid
@@ -303,7 +288,7 @@ const Pricing = () => {
                 >
                   €99,-
                 </Text>
-                <Text>€49,-</Text>
+                <Text>€79,-</Text>
               </HStack>
             }
           >
@@ -320,7 +305,7 @@ const Pricing = () => {
               <PricingFeature title="3000+ variants" />
               <PricingFeature title="Auto-layout" />
               <PricingFeature title="Theming with Figma variables" />
-              <PricingFeature title="Dark mode (soon)" color="muted" />
+              <PricingFeature title="Dark mode" />
               <PricingFeature
                 title="1 year of updates"
                 help="Renew your license for 40% discount after one year to keep receiving updates."
@@ -375,7 +360,7 @@ const Pricing = () => {
               <PricingFeature title="3000+ variants" />
               <PricingFeature title="Auto-layout" />
               <PricingFeature title="Theming with Figma variables" />
-              <PricingFeature title="Dark mode (soon)" color="muted" />
+              <PricingFeature title="Dark mode" />
               <PricingFeature
                 title="1 year of updates"
                 help="Renew your license for 40% discount after one year to keep receiving updates."
@@ -412,7 +397,7 @@ const Pricing = () => {
                 >
                   €799,-
                 </Text>
-                <Text>€399,-</Text>
+                <Text>€599,-</Text>
               </HStack>
             }
           >
@@ -429,7 +414,7 @@ const Pricing = () => {
               <PricingFeature title="3000+ variants" />
               <PricingFeature title="Auto-layout" />
               <PricingFeature title="Theming with Figma variables" />
-              <PricingFeature title="Dark mode (soon)" color="muted" />
+              <PricingFeature title="Dark mode" />
               <PricingFeature
                 title="1 year of updates"
                 help="Renew your license for 40% discount after one year to keep receiving updates."

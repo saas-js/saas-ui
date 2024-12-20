@@ -2,14 +2,13 @@
 
 import { useMemo, useState } from 'react'
 
+import { useControllableState } from '@chakra-ui/react'
 import { useDisclosure, useIsMobile } from '@saas-ui/hooks'
 
 import type { HTMLSystemProps } from '#system'
 import { callAll, createContext } from '#utils'
 
-import type { SidebarProps } from './sidebar.types.ts'
-
-export type SidebarMode = 'flyout' | 'collapsible' | 'compact'
+import type { SidebarMode, SidebarProps } from './sidebar.types.ts'
 
 export interface UseSidebarReturn {
   open: boolean
@@ -19,6 +18,7 @@ export interface UseSidebarReturn {
   openMobile?: boolean
   setOpenMobile: (open: boolean) => void
   mode: SidebarMode
+  setMode: (mode: SidebarMode) => void
 }
 
 const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
@@ -26,9 +26,9 @@ const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
   strict: true,
 })
 
-export interface SidebarProviderProps extends SidebarProps {
+export interface SidebarProviderProps extends Omit<SidebarProps, 'children'> {
   /**
-   * The mode of the sidebar.
+   * The mode of the sidebar. Flyout mode is only available on desktop.
    * @default 'collapsible'
    */
   mode?: SidebarMode
@@ -43,7 +43,11 @@ export interface SidebarProviderProps extends SidebarProps {
   /**
    * Callback invoked when the sidebar is opened.
    */
-  onOpenChange?: (open: boolean) => void
+  onOpenChange?: (details: { open: boolean; mode: SidebarMode }) => void
+  /**
+   * Callback invoked when the mode of the sidebar is changed.
+   */
+  onModeChange?: (details: { mode: SidebarMode }) => void
   /**
    * The content of the sidebar.
    */
@@ -57,11 +61,18 @@ export function SidebarProvider(props: SidebarProviderProps) {
     open,
     onOpenChange,
     mode: modeProp = 'collapsible',
+    onModeChange,
   } = props
 
   const isMobile = useIsMobile()
 
-  const mode = modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp
+  const [mode, setMode] = useControllableState({
+    value: modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp,
+    onChange: (mode) => {
+      onModeChange?.({ mode })
+    },
+  })
+
   const isFlyout = mode === 'flyout'
 
   const [openMobile, setOpenMobile] = useState(false)
@@ -70,9 +81,20 @@ export function SidebarProvider(props: SidebarProviderProps) {
     defaultOpen: isMobile ? openMobile : isFlyout ? false : defaultOpen,
     open: isMobile ? openMobile : open,
     onOpen: () => {
-      isMobile ? setOpenMobile(true) : onOpenChange?.(true)
+      isMobile
+        ? setOpenMobile(true)
+        : onOpenChange?.({
+            open: true,
+            mode,
+          })
     },
-    onClose: () => (isMobile ? setOpenMobile(false) : onOpenChange?.(false)),
+    onClose: () =>
+      isMobile
+        ? setOpenMobile(false)
+        : onOpenChange?.({
+            open: false,
+            mode,
+          }),
   })
 
   const context = useMemo(() => {
@@ -85,6 +107,7 @@ export function SidebarProvider(props: SidebarProviderProps) {
       openMobile,
       setOpenMobile,
       mode,
+      setMode,
     }
   }, [disclosure, isMobile, openMobile, mode])
 

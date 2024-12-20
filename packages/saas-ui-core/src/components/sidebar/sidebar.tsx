@@ -5,8 +5,20 @@ import { Presence, type PresenceProps } from '@ark-ui/react'
 import { type HTMLSystemProps, sui } from '#system'
 import { callAll, dataAttr } from '#utils'
 
-import { useSidebar, useSidebarTrigger } from './sidebar.context.tsx'
+import {
+  type UseSidebarReturn,
+  useSidebar,
+  useSidebarTrigger,
+} from './sidebar.context.tsx'
 import { SidebarProps } from './sidebar.types.ts'
+
+export const SidebarContext = function SidebarContext(props: {
+  children: (context: UseSidebarReturn) => React.ReactNode
+}) {
+  const context = useSidebar()
+
+  return props.children(context)
+}
 
 export const SidebarRoot = React.forwardRef<HTMLDivElement, SidebarProps>(
   (props, ref) => {

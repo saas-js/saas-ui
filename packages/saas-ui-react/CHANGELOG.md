@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.21
+
+### Patch Changes
+
+- 6f9f04d: Fixed issue where Sidebar mode could not be controlled
+- Updated dependencies [6f9f04d]
+  - @saas-ui/core@3.0.0-alpha.7
+
 ## 3.0.0-alpha.20
 
 ### Minor Changes

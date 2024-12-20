@@ -60,13 +60,14 @@ export function SidebarProvider(props: SidebarProviderProps) {
     defaultOpen = true,
     open,
     onOpenChange,
-    mode: modeProp = 'collapsible',
+    mode: modeProp,
     onModeChange,
   } = props
 
   const isMobile = useIsMobile()
 
-  const [mode, setMode] = useControllableState({
+  const [mode, setMode] = useControllableState<SidebarMode>({
+    defaultValue: 'collapsible',
     value: modeProp === 'flyout' && isMobile ? 'collapsible' : modeProp,
     onChange: (mode) => {
       onModeChange?.({ mode })

@@ -25,6 +25,7 @@ const GridListItem = withContext<HTMLDivElement, GridListItemProps>(
   'item',
   {
     forwardProps: ['role'],
+    forwardAsChild: false,
   },
 )
 

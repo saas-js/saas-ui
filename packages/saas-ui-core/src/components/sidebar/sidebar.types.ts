@@ -1,12 +1,8 @@
 import type { HTMLSystemProps } from '#system'
 
+export type SidebarMode = 'flyout' | 'collapsible' | 'compact'
+
 export interface SidebarOptions {
-  /**
-   * Define the for the mobile nav. Use `false` to disable the mobile nav.
-   *
-   * @default "lg"
-   */
-  toggleBreakpoint?: false | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   /**
    * Control the default visibility of the sidebar.
    */
@@ -18,7 +14,16 @@ export interface SidebarOptions {
   /**
    * Callback invoked when the sidebar is opened.
    */
-  onOpenChange?: (open: boolean) => void
+  onOpenChange?: (details: { open: boolean; mode: SidebarMode }) => void
+  /**
+   * The mode of the sidebar.
+   * @default 'collapsible'
+   */
+  mode?: SidebarMode
+  /**
+   * Callback invoked when the mode of the sidebar is changed.
+   */
+  onModeChange?: (details: { mode: SidebarMode }) => void
 }
 
 export interface SidebarProps extends SidebarOptions, HTMLSystemProps<'div'> {}

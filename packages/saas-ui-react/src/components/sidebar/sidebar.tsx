@@ -201,8 +201,11 @@ const SidebarNavButtonEndElement = withItemContext<
   },
 })
 
+const SidebarContext = Sidebar.Context
+
 export {
   SidebarProvider as Provider,
+  SidebarContext as Context,
   SidebarRoot as Root,
   SidebarTrigger as Trigger,
   SidebarFlyoutTrigger as FlyoutTrigger,

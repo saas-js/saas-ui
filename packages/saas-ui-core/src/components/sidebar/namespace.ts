@@ -1,5 +1,6 @@
 export {
   SidebarRoot as Root,
+  SidebarContext as Context,
   SidebarTrigger as Trigger,
   SidebarFlyoutTrigger as FlyoutTrigger,
   SidebarBackdrop as Backdrop,
@@ -23,11 +24,11 @@ export type {
   SidebarTriggerProps as TriggerProps,
 } from './sidebar.tsx'
 
-export type { SidebarProps as RootProps } from './sidebar.types.ts'
+export type {
+  SidebarProps as RootProps,
+  SidebarMode as Mode,
+} from './sidebar.types.ts'
 
 export { SidebarProvider as Provider } from './sidebar.context.tsx'
 
-export type {
-  SidebarProviderProps as ProviderProps,
-  SidebarMode as Mode,
-} from './sidebar.context.tsx'
+export type { SidebarProviderProps as ProviderProps } from './sidebar.context.tsx'

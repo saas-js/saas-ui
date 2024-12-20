@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.6
+
+### Minor Changes
+
+- f85d493: Added Sidebar.Context component that allows you to access sidebar context using a render prop
+- f85d493: Sidebar mode can now be controlled using the sidebar context
+
 ## 3.0.0-alpha.5
 
 ### Minor Changes

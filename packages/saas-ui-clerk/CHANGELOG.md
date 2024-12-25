@@ -1,5 +1,12 @@
 # @saas-ui/clerk
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [71b0300]
+  - @saas-ui/auth-provider@1.2.0
+
 ## 4.0.0
 
 ### Major Changes

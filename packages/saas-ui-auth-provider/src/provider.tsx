@@ -65,36 +65,36 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
    * The signup method
    */
-  onSignup?: (
-    params: AuthParams,
+  onSignup?: <Params extends AuthParams>(
+    params: Params,
     options?: AuthOptions
   ) => Promise<TUser | undefined | null>
   /**
    * The login method
    */
-  onLogin?: (
-    params: AuthParams,
+  onLogin?: <Params extends AuthParams>(
+    params: Params,
     options?: AuthOptions
   ) => Promise<TUser | undefined | null>
   /**
    * Request to reset a password.
    */
-  onResetPassword?: (
-    params: Required<Pick<AuthParams, 'email'>>,
+  onResetPassword?: <Params extends { email: string }>(
+    params: Params,
     options?: AuthOptions
   ) => Promise<any>
   /**
    * Update the password.
    */
-  onUpdatePassword?: (
-    params: Required<Pick<AuthParams, 'password'>>,
+  onUpdatePassword?: <Params extends { password: string }>(
+    params: Params,
     options?: AuthOptions
   ) => Promise<any>
   /**
    * Verify an one time password (2fa)
    */
-  onVerifyOtp?: (
-    params: OtpParams,
+  onVerifyOtp?: <Params extends { otp: string }>(
+    params: Params,
     options?: AuthOptions
   ) => Promise<boolean | undefined | null>
   /**

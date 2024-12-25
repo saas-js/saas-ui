@@ -1,5 +1,12 @@
 # @saas-ui/auth0
 
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies [ac0b682]
+  - @saas-ui/auth-provider@1.2.1
+
 ## 0.3.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/supabase",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Saas UI Supabase Auth integration",
   "source": "src/index.ts",
   "exports": {

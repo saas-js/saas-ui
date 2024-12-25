@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/auth-provider",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Authentication provider primivites",
   "source": "src/index.ts",
   "exports": {

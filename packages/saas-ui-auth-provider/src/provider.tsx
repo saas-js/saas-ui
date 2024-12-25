@@ -23,6 +23,18 @@ export interface AuthParams {
   [key: string]: any
 }
 
+export interface ResetPasswordParams {
+  email: string
+}
+
+export interface UpdatePasswordParams {
+  password: string
+}
+
+export interface OtpParams {
+  otp: string
+}
+
 export type ExtraAuthOptions = Record<string, unknown>
 export type AuthOptions<ExtraOptions extends object = ExtraAuthOptions> = {
   /**
@@ -65,35 +77,37 @@ export interface AuthProviderProps<TUser extends User = DefaultUser> {
   /**
    * The signup method
    */
-  onSignup?: <Params extends AuthParams>(
+  onSignup?: <Params extends AuthParams = AuthParams>(
     params: Params,
     options?: AuthOptions
   ) => Promise<TUser | undefined | null>
   /**
    * The login method
    */
-  onLogin?: <Params extends AuthParams>(
+  onLogin?: <Params extends AuthParams = AuthParams>(
     params: Params,
     options?: AuthOptions
   ) => Promise<TUser | undefined | null>
   /**
    * Request to reset a password.
    */
-  onResetPassword?: <Params extends { email: string }>(
+  onResetPassword?: <Params extends ResetPasswordParams = ResetPasswordParams>(
     params: Params,
     options?: AuthOptions
   ) => Promise<any>
   /**
    * Update the password.
    */
-  onUpdatePassword?: <Params extends { password: string }>(
+  onUpdatePassword?: <
+    Params extends UpdatePasswordParams = UpdatePasswordParams,
+  >(
     params: Params,
     options?: AuthOptions
   ) => Promise<any>
   /**
    * Verify an one time password (2fa)
    */
-  onVerifyOtp?: <Params extends { otp: string }>(
+  onVerifyOtp?: <Params extends OtpParams = OtpParams>(
     params: Params,
     options?: AuthOptions
   ) => Promise<boolean | undefined | null>
@@ -121,13 +135,6 @@ export type AuthFunction<
   TParams = AuthParams,
   TExtraOptions extends object = Record<string, unknown>,
 > = (params: TParams, options?: AuthOptions<TExtraOptions>) => Promise<any>
-
-interface OtpParams extends AuthParams {
-  otp: string
-}
-
-type ResetPasswordParams = Required<Pick<AuthParams, 'email'>>
-type UpdatePasswordParams = Required<Pick<AuthParams, 'password'>>
 
 export interface AuthContextValue<TUser extends User = DefaultUser> {
   isAuthenticated: boolean

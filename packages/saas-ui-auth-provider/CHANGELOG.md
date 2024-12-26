@@ -1,5 +1,11 @@
 # @saas-ui/auth-provider
 
+## 1.2.2
+
+### Patch Changes
+
+- eb53116: Added optional token prop to update password handler
+
 ## 1.2.1
 
 ### Patch Changes

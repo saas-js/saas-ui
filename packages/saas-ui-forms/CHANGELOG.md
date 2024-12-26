@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.10.0
+
+### Minor Changes
+
+- eb53116: Added support for ZodEffects schema to Form
+
 ## 2.9.1
 
 ### Patch Changes

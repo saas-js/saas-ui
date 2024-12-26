@@ -25,14 +25,18 @@ export interface AuthParams {
 
 export interface ResetPasswordParams {
   email: string
+  [key: string]: any
 }
 
 export interface UpdatePasswordParams {
   password: string
+  token?: string
+  [key: string]: any
 }
 
 export interface OtpParams {
   otp: string
+  [key: string]: any
 }
 
 export type ExtraAuthOptions = Record<string, unknown>

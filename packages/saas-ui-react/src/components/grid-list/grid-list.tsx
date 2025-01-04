@@ -23,10 +23,6 @@ interface GridListItemProps
 const GridListItem = withContext<HTMLDivElement, GridListItemProps>(
   GridList.Item,
   'item',
-  {
-    forwardProps: ['role'],
-    forwardAsChild: false,
-  },
 )
 
 interface GridListHeaderProps

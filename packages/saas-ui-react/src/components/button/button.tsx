@@ -23,12 +23,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loadingText,
       children,
       variant = 'glass',
-      colorPalette = variant === 'glass' ? 'accent' : 'gray',
       ...rest
     } = props
     return (
       <ButtonPrimitive
-        colorPalette={colorPalette}
         disabled={loading || disabled}
         variant={variant as any}
         ref={ref}

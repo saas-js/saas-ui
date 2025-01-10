@@ -3,6 +3,8 @@ import React from 'react'
 import { HStack, Icon, VStack } from '@chakra-ui/react'
 import { LuGitBranch, LuPlus } from 'react-icons/lu'
 
+import { Status } from '#components/status/status.js'
+
 import { Avatar } from '../avatar'
 import { Tag } from './tag.tsx'
 
@@ -19,22 +21,22 @@ export const Default = {
 
 export const Sizes = () => {
   return (
-    <VStack>
+    <HStack>
       <Tag size="sm">Small</Tag>
       <Tag size="md">Medium</Tag>
       <Tag size="lg">Large</Tag>
       <Tag size="xl">XLarge</Tag>
-    </VStack>
+    </HStack>
   )
 }
 
 export const Variants = () => {
   return (
-    <VStack>
+    <HStack>
       <Tag variant="solid">Tag</Tag>
       <Tag variant="outline">Tag</Tag>
       <Tag variant="subtle">Tag</Tag>
-    </VStack>
+    </HStack>
   )
 }
 
@@ -65,7 +67,7 @@ const colors = [
 
 export const Colors = () => {
   return (
-    <VStack>
+    <VStack alignItems="flex-start">
       {colors.map((color) => (
         <HStack>
           <Tag variant="solid" colorPalette={color}>
@@ -85,7 +87,7 @@ export const Colors = () => {
 
 export const Closable = () => {
   return (
-    <VStack>
+    <HStack>
       <Tag size="sm" closable>
         Frontend
       </Tag>
@@ -98,22 +100,54 @@ export const Closable = () => {
       <Tag size="xl" closable>
         Frontend
       </Tag>
-    </VStack>
+    </HStack>
   )
 }
 
 export const WithIcon = () => {
   return (
-    <Tag
-      startElement={
-        <Icon color="green.500">
-          <LuGitBranch />
-        </Icon>
-      }
-      size="lg"
-    >
-      2 PRs
-    </Tag>
+    <HStack>
+      <Tag
+        startElement={
+          <Icon color="green.500">
+            <LuGitBranch />
+          </Icon>
+        }
+        size="sm"
+      >
+        2 PRs
+      </Tag>
+      <Tag
+        startElement={
+          <Icon color="green.500">
+            <LuGitBranch />
+          </Icon>
+        }
+        size="md"
+      >
+        2 PRs
+      </Tag>
+      <Tag
+        startElement={
+          <Icon color="green.500">
+            <LuGitBranch />
+          </Icon>
+        }
+        size="lg"
+      >
+        2 PRs
+      </Tag>
+      <Tag
+        startElement={
+          <Icon color="green.500">
+            <LuGitBranch />
+          </Icon>
+        }
+        size="xl"
+      >
+        2 PRs
+      </Tag>
+    </HStack>
   )
 }
 
@@ -150,6 +184,25 @@ export const WithAvatar = () => {
         }
         size="xl"
       >
+        John Doe
+      </Tag>
+    </HStack>
+  )
+}
+
+export const WithStatus = () => {
+  return (
+    <HStack>
+      <Tag startElement={<Status value="success" />} size="sm">
+        John Doe
+      </Tag>
+      <Tag startElement={<Status value="success" />} size="md">
+        John Doe
+      </Tag>
+      <Tag startElement={<Status value="success" />} size="lg">
+        John Doe
+      </Tag>
+      <Tag startElement={<Status value="success" />} size="xl">
         John Doe
       </Tag>
     </HStack>

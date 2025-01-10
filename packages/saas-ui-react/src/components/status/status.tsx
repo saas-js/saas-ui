@@ -22,8 +22,8 @@ export const Status = forwardRef<HTMLDivElement, StatusProps>(
     const color = value ? `status.${value}` : undefined
 
     return (
-      <ChakraStatus.Root ref={ref} bg={color} {...rest}>
-        <ChakraStatus.Indicator />
+      <ChakraStatus.Root ref={ref} {...rest}>
+        <ChakraStatus.Indicator bg={color} />
         {children}
       </ChakraStatus.Root>
     )

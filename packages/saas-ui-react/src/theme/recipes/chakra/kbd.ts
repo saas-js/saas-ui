@@ -29,7 +29,7 @@ export const kbdRecipe = defineRecipe({
         color: 'colorPalette.fg',
       },
       subtle: {
-        bg: 'colorPalette.muted',
+        bg: 'colorPalette.subtle',
         color: 'colorPalette.fg',
       },
       plain: {

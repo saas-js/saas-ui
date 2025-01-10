@@ -79,21 +79,11 @@ export const Variants = {
 export const Sizes = {
   render: () => (
     <HStack>
-      <Button size="xs" variant="glass">
-        XSmall
-      </Button>
-      <Button size="sm" variant="glass">
-        Small
-      </Button>
-      <Button size="md" variant="glass">
-        Medium
-      </Button>
-      <Button size="lg" variant="glass">
-        Large
-      </Button>
-      <Button size="xl" variant="glass">
-        XLarge
-      </Button>
+      <Button size="xs">XSmall</Button>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+      <Button size="xl">XLarge</Button>
     </HStack>
   ),
 }

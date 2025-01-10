@@ -35,24 +35,20 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
   },
 )
 
-export const DialogCloseTrigger = forwardRef<
+export const DialogCloseButton = forwardRef<
   HTMLButtonElement,
   ChakraDialog.CloseTriggerProps
 >(function DialogCloseTrigger(props, ref) {
   return (
-    <ChakraDialog.CloseTrigger
-      position="absolute"
-      top="2"
-      insetEnd="2"
-      {...props}
-      asChild
-    >
+    <ChakraDialog.CloseTrigger position="absolute" {...props} asChild>
       <CloseButton size="sm" ref={ref}>
         {props.children}
       </CloseButton>
     </ChakraDialog.CloseTrigger>
   )
 })
+
+export const DialogCloseTrigger = ChakraDialog.CloseTrigger
 
 export type DialogRootProps = ChakraDialog.RootProps
 

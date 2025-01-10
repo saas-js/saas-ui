@@ -75,7 +75,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
         {title && (
           <BaseDialog.Header {...headerProps}>{title}</BaseDialog.Header>
         )}
-        {!hideCloseButton && <BaseDialog.CloseTrigger />}
+        {!hideCloseButton && <BaseDialog.CloseButton />}
         <BaseDialog.Body>
           <BaseDialog.Context>
             {({ open, setOpen }) => runIfFn(children, { open, setOpen })}

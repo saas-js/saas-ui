@@ -1,5 +1,27 @@
 # @saas-ui/modals
 
+## 3.0.0-alpha.22
+
+### Major Changes
+
+- Renamed ModalOptions.children to ModalOptions.body
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @saas-ui/react@3.0.0-alpha.22
+  - @saas-ui/modals-provider@1.0.0-alpha.4
+  - @saas-ui/forms@3.0.0-alpha.22
+
 ## 3.0.0-alpha.21
 
 ### Patch Changes

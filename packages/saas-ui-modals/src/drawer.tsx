@@ -76,7 +76,7 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
         {title && (
           <BaseDrawer.Header {...headerProps}>{title}</BaseDrawer.Header>
         )}
-        {!hideCloseButton && <BaseDrawer.CloseTrigger />}
+        {!hideCloseButton && <BaseDrawer.CloseButton />}
         <BaseDrawer.Body {...bodyProps}>
           <BaseDrawer.Context>
             {({ open, setOpen }) => runIfFn(children, { open, setOpen })}

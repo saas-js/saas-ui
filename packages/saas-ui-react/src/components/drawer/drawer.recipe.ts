@@ -56,8 +56,7 @@ export const drawerSlotRecipe = defineSlotRecipe({
     header: {
       flex: 0,
       px: '6',
-      pt: '6',
-      pb: '4',
+      py: '4',
     },
     body: {
       px: '6',
@@ -80,6 +79,10 @@ export const drawerSlotRecipe = defineSlotRecipe({
     },
     description: {
       color: 'fg.muted',
+    },
+    closeTrigger: {
+      top: '4',
+      insetEnd: '4',
     },
   },
 
@@ -185,10 +188,10 @@ export const drawerSlotRecipe = defineSlotRecipe({
     contained: {
       true: {
         positioner: {
-          padding: '4',
+          padding: '2',
         },
         content: {
-          borderRadius: 'l3',
+          borderRadius: 'md',
         },
       },
     },
@@ -197,5 +200,6 @@ export const drawerSlotRecipe = defineSlotRecipe({
   defaultVariants: {
     size: 'xs',
     placement: 'end',
+    contained: true,
   },
 })

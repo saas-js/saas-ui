@@ -103,7 +103,7 @@ export const buttonRecipe = defineRecipe({
         color: 'colorPalette.contrast',
         '--btn-shadow': 'shadows.sm',
         boxShadow:
-          '0 0 0 1px rgba(0,0,0,0.4) inset, 0px 2px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
+          '0 0 0 1px rgba(0,0,0,0.25) inset, 0px 2px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
         textShadow: '0 1px 2px rgba(0,0,0,0.3)',
         overflow: 'clip',
         _after: {
@@ -122,29 +122,32 @@ export const buttonRecipe = defineRecipe({
         _hover: {
           bg: 'colorPalette.solid',
           _after: {
-            opacity: 0.24,
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.8) 40%, rgba(0,0,0,0.6))',
           },
         },
         _expanded: {
           bg: 'colorPalette.solid',
           _after: {
-            opacity: 0.24,
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.8) 40%, rgba(0,0,0,0.6))',
           },
         },
       },
 
       surface: {
-        bg: 'colorPalette.surface',
-        borderWidth: '0.5px',
-        borderColor: 'colorPalette.emphasized',
+        bg: 'colorPalette.muted/20',
+        borderWidth: '1px',
+        borderColor: 'colorPalette.emphasized/90',
         color: 'colorPalette.fg',
-        shadow: 'sm',
-        shadowColor: 'colorPalette.emphasized',
+        shadow: 'xs',
         _hover: {
           bg: 'colorPalette.muted',
+          borderColor: 'colorPalette.emphasized',
         },
         _expanded: {
           bg: 'colorPalette.muted',
+          borderColor: 'colorPalette.emphasized',
         },
       },
 
@@ -187,7 +190,7 @@ export const buttonRecipe = defineRecipe({
 
   defaultVariants: {
     size: 'md',
-    variant: 'solid',
+    variant: 'surface',
     colorPalette: 'gray',
   },
 })

@@ -1,5 +1,21 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.22
+
+### Minor Changes
+
+- Added Status component
+- Added Badge and Tag components
+
+### Patch Changes
+
+- Fixed GridList prop forwarding
+- Changed default Button variant to surface
+- Fixed issue where Button colorPalette could not be changed using the recipe
+- Rename Drawer and Dialog CloseTrigger to CloseButton
+- Improved Button glass variant hover color
+- Improved semantic grays and shadows balance
+
 ## 3.0.0-alpha.21
 
 ### Patch Changes

@@ -109,7 +109,7 @@ export const Basic = () => {
                   onClick={() =>
                     modals.confirm({
                       title: 'Delete user?',
-                      children: 'Are you sure you want to delete this user?',
+                      body: 'Are you sure you want to delete this user?',
                       slotProps: {
                         confirm: {
                           colorPalette: 'red',
@@ -126,7 +126,7 @@ export const Basic = () => {
                     modals.open({
                       type: 'drawer',
                       title: 'Subdrawer',
-                      children: (
+                      body: (
                         <>
                           <Button onClick={() => modals.closeAll()}>
                             Close all
@@ -150,8 +150,8 @@ export const Basic = () => {
           modals.open({
             type: 'drawer',
             title: 'My drawer',
-            children: 'My drawer',
-            placement: 'end',
+            body: 'My drawer',
+            placement: 'start',
           })
         }
       >
@@ -160,41 +160,6 @@ export const Basic = () => {
     </Stack>
   )
 }
-
-// export const Custom = () => {
-//   const modals = useModals()
-
-//   return (
-//     <Button
-//       onClick={() =>
-//         modals.open({
-//           title: 'My Modal',
-//           type: 'custom',
-//           children: 'My modal',
-//           customProp: 'test',
-//         })
-//       }
-//     >
-//       Open modal
-//     </Button>
-//   )
-// }
-
-// export const CustomAsComponent = () => {
-//   const modals = useModals()
-
-//   return (
-//     <Button
-//       onClick={() =>
-//         modals.open(CustomModal, {
-//           customProp: 'test',
-//         })
-//       }
-//     >
-//       Open modal
-//     </Button>
-//   )
-// }
 
 export const OnClose = () => {
   const modals = useModals()
@@ -264,9 +229,13 @@ export const AsyncConfirmDialog = () => {
         modals.confirm({
           title: 'Delete user',
           body: 'Are you sure you want to delete this user?',
-          confirmProps: {
-            children: 'Delete',
-            colorScheme: 'red',
+          translations: {
+            confirm: 'Delete',
+          },
+          slotProps: {
+            confirm: {
+              colorPalette: 'red',
+            },
           },
           onConfirm: () =>
             new Promise((resolve) => {

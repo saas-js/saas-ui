@@ -44,7 +44,7 @@ export const avatarSlotRecipe = defineSlotRecipe({
       full: {
         root: {
           '--avatar-size': '100%',
-          '--avatar-font-size': '100%',
+          '--avatar-font-size': 'calc(var(--tag-avatar-size) / 2)',
         },
       },
       '2xs': {
@@ -131,6 +131,6 @@ export const avatarSlotRecipe = defineSlotRecipe({
   defaultVariants: {
     size: 'md',
     shape: 'full',
-    variant: 'subtle',
+    variant: 'solid',
   },
 })

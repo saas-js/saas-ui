@@ -1,5 +1,15 @@
 # @saas-ui/modals-provider
 
+## 1.0.0-alpha.4
+
+### Major Changes
+
+- Renamed ModalOptions.children to ModalOptions.body
+
+### Minor Changes
+
+- Removed confirmProps and cancelProps
+
 ## 1.0.0-alpha.3
 
 ### Minor Changes

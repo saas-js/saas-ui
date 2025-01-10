@@ -73,6 +73,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     groupHeader: {
       display: 'flex',
       flexDirection: 'row',
+      alignItems: 'center',
       gap: 1,
       height: 6,
       borderRadius: 'md',

@@ -52,11 +52,14 @@ export const tagSlotRecipe = defineSlotRecipe({
       justifyContent: 'center',
       flexShrink: 0,
       boxSize: 'var(--tag-element-size)',
+      _icon: { boxSize: '80% !important' },
       '&:has([data-scope=avatar])': {
         boxSize: 'var(--tag-avatar-size)',
         ms: 'var(--tag-element-offset)',
       },
-      _icon: { boxSize: '100%' },
+      '&:has([class*="status__root"])': {
+        width: 'var(--tag-status-size)',
+      },
     },
     endElement: {
       flexShrink: 0,
@@ -76,6 +79,7 @@ export const tagSlotRecipe = defineSlotRecipe({
           minH: '5',
           gap: '1',
           '--tag-avatar-size': 'spacing.3.5',
+          '--tag-status-size': 'spacing.2',
           '--tag-element-size': 'spacing.3.5',
           '--tag-element-offset': 'spacing.-0.5',
         },
@@ -89,6 +93,7 @@ export const tagSlotRecipe = defineSlotRecipe({
           minH: '6',
           gap: '1',
           '--tag-avatar-size': 'spacing.4',
+          '--tag-status-size': 'spacing.2',
           '--tag-element-size': 'spacing.4',
           '--tag-element-offset': 'spacing.-1',
         },
@@ -102,6 +107,7 @@ export const tagSlotRecipe = defineSlotRecipe({
           minH: '7',
           gap: '1',
           '--tag-avatar-size': 'spacing.5',
+          '--tag-status-size': 'spacing.2',
           '--tag-element-size': 'spacing.5',
           '--tag-element-offset': 'spacing.-1.5',
         },
@@ -118,11 +124,12 @@ export const tagSlotRecipe = defineSlotRecipe({
           minH: '8',
           gap: '1.5',
           '--tag-avatar-size': 'spacing.6',
+          '--tag-status-size': 'spacing.2',
           '--tag-element-size': 'spacing.6',
           '--tag-element-offset': 'spacing.-2',
         },
         label: {
-          textStyle: 'sm',
+          textStyle: 'md',
         },
         closeTrigger: {
           padding: '3px',

@@ -1,1 +1,1 @@
-export { IconButton, type IconButtonProps } from '@chakra-ui/react'
+export { IconButton, type IconButtonProps } from './icon-button.tsx'

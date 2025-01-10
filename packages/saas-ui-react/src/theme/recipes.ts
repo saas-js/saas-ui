@@ -1,8 +1,8 @@
+import { badgeRecipe } from '#components/badge/badge.recipe.ts'
 import { buttonRecipe } from '#components/button/button.recipe.ts'
 import { commandRecipe } from '#components/command/command.recipe.ts'
 import { iconBadgeRecipe } from '#components/icon-badge/icon-badge.recipe.ts'
 
-import { badgeRecipe } from './recipes/chakra/badge'
 import { checkmarkRecipe } from './recipes/chakra/checkmark'
 import { codeRecipe } from './recipes/chakra/code'
 import { containerRecipe } from './recipes/chakra/container'

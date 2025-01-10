@@ -81,6 +81,7 @@ export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
       onError,
       src,
       srcSet,
+      fallback,
       ...rest
     } = props
 
@@ -101,6 +102,7 @@ export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
           onError={onError}
           src={src}
           srcSet={srcSet}
+          fallback={fallback}
         >
           {presence ? (
             <PersonaPrimitive.PresenceBadge>

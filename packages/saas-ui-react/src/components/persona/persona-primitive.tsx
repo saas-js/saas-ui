@@ -1,8 +1,6 @@
 import React, { forwardRef } from 'react'
 
 import {
-  Avatar,
-  type AvatarRootProps,
   type ConfigSlotRecipes,
   HTMLChakraProps,
   type ImageProps,
@@ -11,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 import { dataAttr } from '@saas-ui/core/utils'
 
+import { Avatar, type AvatarProps } from '../avatar/avatar.tsx'
 import { withContext, withProvider } from './persona.context.ts'
 import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { Presence } from './presence.ts'
@@ -74,7 +73,7 @@ interface PersonaAvatarOptions {
   name?: string
 }
 
-interface PersonaAvatarProps extends PersonaAvatarOptions, AvatarRootProps {
+interface PersonaAvatarProps extends PersonaAvatarOptions, AvatarProps {
   src?: string
   srcSet?: string
   loading?: ImageProps['loading']
@@ -103,16 +102,9 @@ const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
     } = props
 
     return (
-      <Avatar.Root ref={ref} {...rest}>
-        <Avatar.Fallback>{getInitials(name)}</Avatar.Fallback>
-        <Avatar.Image
-          src={src}
-          srcSet={srcSet}
-          loading={loading}
-          onError={onError}
-        />
+      <Avatar ref={ref} {...rest}>
         {children}
-      </Avatar.Root>
+      </Avatar>
     )
   },
 )

@@ -5,7 +5,7 @@ export const badgeRecipe = defineRecipe({
   base: {
     display: 'inline-flex',
     alignItems: 'center',
-    borderRadius: 'l2',
+    borderRadius: 'full',
     gap: '1',
     fontWeight: 'medium',
     fontVariantNumeric: 'tabular-nums',
@@ -25,13 +25,13 @@ export const badgeRecipe = defineRecipe({
       outline: {
         color: 'colorPalette.fg',
         shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.muted',
+        shadowColor: 'colorPalette.subtle',
       },
       surface: {
-        bg: 'colorPalette.subtle',
+        bg: 'colorPalette.muted/20',
         color: 'colorPalette.fg',
         shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.muted',
+        shadowColor: 'colorPalette.subtle',
       },
       plain: {
         color: 'colorPalette.fg',

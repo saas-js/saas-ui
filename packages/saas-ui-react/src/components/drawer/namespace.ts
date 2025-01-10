@@ -1,6 +1,7 @@
 export {
   DrawerRoot as Root,
   DrawerContent as Content,
+  DrawerCloseButton as CloseButton,
   DrawerCloseTrigger as CloseTrigger,
   DrawerHeader as Header,
   DrawerBody as Body,

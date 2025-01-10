@@ -1,6 +1,7 @@
 export {
   DialogRoot as Root,
   DialogContent as Content,
+  DialogCloseButton as CloseButton,
   DialogCloseTrigger as CloseTrigger,
   DialogHeader as Header,
   DialogBody as Body,

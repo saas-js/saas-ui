@@ -17,21 +17,9 @@ export interface ButtonProps extends ButtonPrimitiveProps, ButtonLoadingProps {}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, ref) {
-    const {
-      loading,
-      disabled,
-      loadingText,
-      children,
-      variant = 'glass',
-      ...rest
-    } = props
+    const { loading, disabled, loadingText, children, ...rest } = props
     return (
-      <ButtonPrimitive
-        disabled={loading || disabled}
-        variant={variant as any}
-        ref={ref}
-        {...rest}
-      >
+      <ButtonPrimitive disabled={loading || disabled} ref={ref} {...rest}>
         {loading && !loadingText ? (
           <>
             <AbsoluteCenter display="inline-flex">

@@ -51,7 +51,7 @@ type WithModalOptions<T> = Omit<T, 'open' | 'onOpenChange'> & ModalOptions
 
 export interface ModalOptions {
   title?: string
-  children?: React.ReactNode
+  body?: React.ReactNode
   open?: boolean
   onOpenChange?: (details: { open: boolean }) => void
   onClose?: (args: { force?: boolean }) => Promise<boolean | undefined> | void
@@ -60,15 +60,12 @@ export interface ModalOptions {
 
 export interface AlertDialogOptions extends ModalOptions {
   onConfirm?: () => Promise<void> | void
-  confirmProps?: React.HTMLProps<HTMLButtonElement>
 }
 
 export interface ConfirmDialogOptions extends ModalOptions {
   leastDestructiveFocus?: 'cancel' | 'confirm'
   onConfirm?: () => Promise<void> | void
   onCancel?: () => Promise<void> | void
-  confirmProps?: React.HTMLProps<HTMLButtonElement>
-  cancelProps?: React.HTMLProps<HTMLButtonElement>
 }
 
 export interface OpenOptions<TModalTypes extends string> extends ModalOptions {
@@ -301,20 +298,21 @@ export function ModalsProvider({ children, modals }: ModalsProviderProps) {
       Object.entries(activeModals).map(([scope, config]) => {
         const Component = config.component || getModalComponent(config.type)
 
-        const { title, children, ...props } = config.props || {}
+        const { title, body, ...props } = config.props || {}
 
         return (
           <Component
             key={scope}
             title={title}
-            children={children}
             {...props}
             open={!!config.open}
             onOpenChange={(details) =>
               details.open === false && close(config.id)
             }
             onExitComplete={() => closeComplete(config.id)}
-          />
+          >
+            {body}
+          </Component>
         )
       }),
     [activeModals, getModalComponent],

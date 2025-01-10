@@ -7,6 +7,7 @@ export const statusSlotRecipe = defineSlotRecipe({
 
   base: {
     root: {
+      colorPalette: 'gray',
       display: 'inline-flex',
       alignItems: 'center',
       gap: '2',

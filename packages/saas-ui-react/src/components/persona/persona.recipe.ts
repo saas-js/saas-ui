@@ -64,7 +64,7 @@ export const personaSlotRecipe = defineSlotRecipe({
     size: {
       '2xs': {
         details: { ms: 1 },
-        label: { fontSize: '2xs' },
+        label: { fontSize: 'xs' },
         secondaryLabel: { display: 'none' },
         tertiaryLabel: { display: 'none' },
       },

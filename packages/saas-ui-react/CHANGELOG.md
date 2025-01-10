@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.23
+
+### Patch Changes
+
+- 8ac704a: Improved tag recipe and support status component.
+
 ## 3.0.0-alpha.22
 
 ### Minor Changes

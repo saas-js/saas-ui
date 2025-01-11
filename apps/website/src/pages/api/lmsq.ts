@@ -126,7 +126,7 @@ async function handleNewOrder(data: any) {
     email: attr.email,
     firstName,
     lastName: lastName.join(' '),
-    license: data.attributes.first_order_item.product_name,
+    license: data.attributes?.first_order_item?.product_name,
   }
 
   fetch('https://app.loops.so/api/v1/events/send', {

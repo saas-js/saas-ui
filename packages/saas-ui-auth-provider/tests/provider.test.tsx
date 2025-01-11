@@ -49,6 +49,14 @@ const createAuthService = (): AuthProviderProps => {
 
       throw new Error('Sign up failed')
     },
+    onResetPassword: async (params) => {
+      const { email } = params
+      return { email }
+    },
+    onUpdatePassword: async (params) => {
+      const { password, token } = params
+      return { password, token }
+    },
     onGetToken: async () => {
       return token
     },

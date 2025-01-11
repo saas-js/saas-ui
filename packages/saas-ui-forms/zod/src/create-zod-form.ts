@@ -18,6 +18,9 @@ export interface CreateZodFormProps<
   resolverOptions?: ResolverArgs[2]
 }
 
+type InferObjectSchema<T extends z.ZodTypeAny | z.ZodEffects<z.ZodTypeAny>> =
+  T extends z.ZodEffects<infer TSchema> ? z.infer<TSchema> : z.infer<T>
+
 export type ZodFormType<
   FieldDefs,
   ExtraProps = object,
@@ -25,8 +28,10 @@ export type ZodFormType<
   ExtraOverrides = object,
   Type extends 'zod' = 'zod',
 > = (<
-  TSchema extends z.AnyZodObject = z.AnyZodObject,
-  TFieldValues extends z.infer<TSchema> = z.infer<TSchema>,
+  TSchema extends
+    | z.AnyZodObject
+    | z.ZodEffects<z.AnyZodObject> = z.AnyZodObject,
+  TFieldValues extends InferObjectSchema<TSchema> = InferObjectSchema<TSchema>,
   TContext extends object = object,
 >(
   props: WithFields<

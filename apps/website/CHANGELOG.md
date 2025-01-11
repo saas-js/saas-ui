@@ -1,5 +1,14 @@
 # website
 
+## 2.4.13
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/forms@2.10.0
+  - @saas-ui/file-upload@0.6.1
+  - @saas-ui/react@2.11.3
+
 ## 2.4.12
 
 ### Patch Changes

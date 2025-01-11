@@ -1,5 +1,14 @@
 # @saas-ui/react
 
+## 2.11.3
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/forms@2.10.0
+  - @saas-ui/modals@2.4.3
+  - @saas-ui/data-table@13.0.3
+
 ## 2.11.2
 
 ### Patch Changes

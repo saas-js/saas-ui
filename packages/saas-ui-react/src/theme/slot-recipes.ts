@@ -10,6 +10,7 @@ import { sidebarNavItemSlotRecipe } from '#components/sidebar/sidebar-item.recip
 import { sidebarSlotRecipe } from '#components/sidebar/sidebar.recipe.ts'
 import { statusSlotRecipe } from '#components/status/status.recipe.ts'
 import { tagSlotRecipe } from '#components/tag/tag.recipe.ts'
+import { toastSlotRecipe } from '#components/toaster/toast.recipe.ts'
 
 import { accordionSlotRecipe } from './recipes/chakra/accordion'
 import { actionBarSlotRecipe } from './recipes/chakra/action-bar'
@@ -46,7 +47,6 @@ import { switchSlotRecipe } from './recipes/chakra/switch'
 import { tableSlotRecipe } from './recipes/chakra/table'
 import { tabsSlotRecipe } from './recipes/chakra/tabs'
 import { timelineSlotRecipe } from './recipes/chakra/timeline'
-import { toastSlotRecipe } from './recipes/chakra/toast'
 import { tooltipSlotRecipe } from './recipes/chakra/tooltip'
 
 export const slotRecipes = {

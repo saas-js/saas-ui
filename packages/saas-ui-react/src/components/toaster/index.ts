@@ -1,1 +1,3 @@
-export * from './toaster.tsx'
+export { Toaster, toast } from './toaster.tsx'
+
+export type { ToasterProps } from './toaster.tsx'

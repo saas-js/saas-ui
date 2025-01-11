@@ -1,5 +1,14 @@
 # saas-ui-storybook
 
+## 3.0.0-alpha.24
+
+### Patch Changes
+
+- Updated dependencies [ac2d80d]
+- Updated dependencies [9d47676]
+  - @saas-ui/react@3.0.0-alpha.24
+  - @saas-ui/storybook-addon@4.0.0-alpha.11
+
 ## 3.0.0-alpha.23
 
 ### Patch Changes

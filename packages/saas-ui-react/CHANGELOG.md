@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.24
+
+### Minor Changes
+
+- ac2d80d: Improved toaster styles and allow setting global defaults
+
+### Patch Changes
+
+- 9d47676: Improved tabs recipe, new pills variant and xs size
+
 ## 3.0.0-alpha.23
 
 ### Patch Changes

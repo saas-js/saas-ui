@@ -107,7 +107,7 @@
     "unist-util-visit": "4.0.0",
     "react": "18.2.0",
     "@emotion/react": "11.11.1",
-    "@chakra-ui/react": "3.2.3"
+    "@chakra-ui/react": "3.3.0"
   },
   "packageManager": "yarn@4.2.2"
 }

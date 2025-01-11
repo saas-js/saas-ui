@@ -428,22 +428,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< Updated upstream
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.20.5, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.0, @babel/parser@npm:^7.25.9, @babel/parser@npm:^7.26.0":
-  version: 7.26.1
-  resolution: "@babel/parser@npm:7.26.1"
-  dependencies:
-    "@babel/types": "npm:^7.26.0"
-  bin:
-    parser: ./bin/babel-parser.js
-  checksum: 10/87d6248c6a1f962621b4505e24ee89c9869d40640beb231d6befb2d56112a84a654b15980941300617aa3211ca9632cc1644c6d3f72ea3427f220133d11d9c0c
-  languageName: node
-  linkType: hard
-
-"@babel/parser@npm:^7.26.3":
-=======
 "@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.20.5, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.0, @babel/parser@npm:^7.25.9, @babel/parser@npm:^7.26.0, @babel/parser@npm:^7.26.3":
->>>>>>> Stashed changes
   version: 7.26.3
   resolution: "@babel/parser@npm:7.26.3"
   dependencies:
@@ -4256,7 +4241,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/core@npm:3.0.0-alpha.4, @saas-ui/core@npm:^3.0.0-alpha.4":
+"@saas-ui/core@npm:3.0.0-alpha.4":
   version: 3.0.0-alpha.4
   resolution: "@saas-ui/core@npm:3.0.0-alpha.4"
   dependencies:
@@ -4269,6 +4254,22 @@ __metadata:
     react: ">=18"
     react-dom: ">=18"
   checksum: 10/cadc17da9555e9730f716bc0f8c5ff01e14049fe5c6493a866bbd94176054f8d781625a3b40851cd94d95ac775d1c6305221e7e9e1684bffef3516d61c2a2439
+  languageName: node
+  linkType: hard
+
+"@saas-ui/core@npm:3.0.0-alpha.7, @saas-ui/core@npm:^3.0.0-alpha.4":
+  version: 3.0.0-alpha.7
+  resolution: "@saas-ui/core@npm:3.0.0-alpha.7"
+  dependencies:
+    "@ark-ui/react": "npm:^4.4.4"
+    "@react-aria/utils": "npm:^3.25.3"
+    "@saas-ui/hooks": "npm:3.0.0-alpha.4"
+    "@zag-js/dom-event": "npm:^0.77.1"
+    "@zag-js/dom-utils": "npm:^0.2.4"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10/6157b5aedf253343653baa4fd81cfe8425a97342b3fc75fe2af0cc3f28540ce1ec3e5622ba9928d756d15a6eb13e9af92278a9cb0e4b8c2010c2a79086401e56
   languageName: node
   linkType: hard
 
@@ -4437,18 +4438,18 @@ __metadata:
   linkType: hard
 
 "@saas-ui/react@npm:^3.0.0-alpha.8":
-  version: 3.0.0-alpha.12
-  resolution: "@saas-ui/react@npm:3.0.0-alpha.12"
+  version: 3.0.0-alpha.24
+  resolution: "@saas-ui/react@npm:3.0.0-alpha.24"
   dependencies:
     "@ark-ui/react": "npm:^4.4.4"
-    "@saas-ui/core": "npm:3.0.0-alpha.4"
+    "@saas-ui/core": "npm:3.0.0-alpha.7"
     "@saas-ui/hooks": "npm:3.0.0-alpha.4"
   peerDependencies:
     "@chakra-ui/react": ^3.2.3
     "@emotion/react": ^11
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10/d5d72f50cb5dd98184060edbd8def5a813a74b70a4fe1654c985dba3e88f1bea899cf4e06b967e0630a869b63181a8b672229889ca6f24ac05d5675b37b5c952
+  checksum: 10/2a11eb1765dea73b22c9ba65f5242cb957cc64d6d05785b2f1709a665298e4e544d11eef607757a358baff22b151e34d4b74e2dbd966c2b0466b4cc81f222de5
   languageName: node
   linkType: hard
 
@@ -4498,11 +4499,7 @@ __metadata:
     tsup: "npm:^8.3.5"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-<<<<<<< Updated upstream
     "@saas-ui/react": ">=2.8.9"
-=======
-    "@saas-ui/react": ">=3.0.0-alpha.24"
->>>>>>> Stashed changes
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"
@@ -8438,14 +8435,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-spinners@npm:^2.5.0":
-  version: 2.6.1
-  resolution: "cli-spinners@npm:2.6.1"
-  checksum: 10/3e2dc5df72cf02120bebe256881fc8e3ec49867e5023d39f1e7340d7da57964f5236f4c75e568aa9dea6460b56f7a6d5870b89453c743c6c15e213cb52be2122
-  languageName: node
-  linkType: hard
-
-"cli-spinners@npm:^2.9.2":
+"cli-spinners@npm:^2.5.0, cli-spinners@npm:^2.9.2":
   version: 2.9.2
   resolution: "cli-spinners@npm:2.9.2"
   checksum: 10/a0a863f442df35ed7294424f5491fa1756bd8d2e4ff0c8736531d886cec0ece4d85e8663b77a5afaf1d296e3cbbebff92e2e99f52bbea89b667cbe789b994794
@@ -10870,10 +10860,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< Updated upstream
 "framer-motion@npm:^11.11.11":
-  version: 11.11.11
-  resolution: "framer-motion@npm:11.11.11"
+  version: 11.12.0
+  resolution: "framer-motion@npm:11.12.0"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -10887,14 +10876,11 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/2fd6142861ed29cf2ef1d33a0ba9360fc551fd2e2d986b5303d578c93be7707c2058b08430e6c4b03d88a386d1b44bb842b06fb05f69ca4f961f907dd4399e8e
+  checksum: 10/abf754298623fbb5f50c36fd41ecd3c5c099f91bc6f30d5f6ef64f245ab7089cf199387a60871ac28aa34550c0ea27ceb158f829166a3e3ca1a4cbb5e4ca1f9f
   languageName: node
   linkType: hard
 
 "framer-motion@npm:^11.15.0":
-=======
-"framer-motion@npm:^11.11.11, framer-motion@npm:^11.15.0":
->>>>>>> Stashed changes
   version: 11.15.0
   resolution: "framer-motion@npm:11.15.0"
   dependencies:
@@ -12328,10 +12314,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-unicode-supported@npm:*":
-  version: 2.0.0
-  resolution: "is-unicode-supported@npm:2.0.0"
-  checksum: 10/000b80639dedaf59a385f1c0a57f97a4d1435e0723716f24cc19ad94253a7a0a9f838bdc9ac49b10a29ac93b01f52ae9b2ed358a8876caf1eb74d73b4ede92b2
+"is-unicode-supported@npm:*, is-unicode-supported@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "is-unicode-supported@npm:2.1.0"
+  checksum: 10/f254e3da6b0ab1a57a94f7273a7798dd35d1d45b227759f600d0fa9d5649f9c07fa8d3c8a6360b0e376adf916d151ec24fc9a50c5295c58bae7ca54a76a063f9
   languageName: node
   linkType: hard
 
@@ -12346,13 +12332,6 @@ __metadata:
   version: 1.3.0
   resolution: "is-unicode-supported@npm:1.3.0"
   checksum: 10/20a1fc161afafaf49243551a5ac33b6c4cf0bbcce369fcd8f2951fbdd000c30698ce320de3ee6830497310a8f41880f8066d440aa3eb0a853e2aa4836dd89abc
-  languageName: node
-  linkType: hard
-
-"is-unicode-supported@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "is-unicode-supported@npm:2.1.0"
-  checksum: 10/f254e3da6b0ab1a57a94f7273a7798dd35d1d45b227759f600d0fa9d5649f9c07fa8d3c8a6360b0e376adf916d151ec24fc9a50c5295c58bae7ca54a76a063f9
   languageName: node
   linkType: hard
 
@@ -15550,7 +15529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.3.1, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18, react-dom@npm:^18.3.1":
+"react-dom@npm:18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -15761,12 +15740,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
+"react@npm:18.3.1":
+  version: 18.3.1
+  resolution: "react@npm:18.3.1"
   dependencies:
     loose-envify: "npm:^1.1.0"
-  checksum: 10/b9214a9bd79e99d08de55f8bef2b7fc8c39630be97c4e29d7be173d14a9a10670b5325e94485f74cd8bff4966ef3c78ee53c79a7b0b9b70cba20aa8973acc694
+  checksum: 10/261137d3f3993eaa2368a83110466fc0e558bc2c7f7ae7ca52d94f03aac945f45146bd85e5f481044db1758a1dbb57879e2fcdd33924e2dde1bdc550ce73f7bf
   languageName: node
   linkType: hard
 
@@ -15832,20 +15811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recast@npm:^0.23.3, recast@npm:^0.23.5":
-  version: 0.23.6
-  resolution: "recast@npm:0.23.6"
-  dependencies:
-    ast-types: "npm:^0.16.1"
-    esprima: "npm:~4.0.0"
-    source-map: "npm:~0.6.1"
-    tiny-invariant: "npm:^1.3.3"
-    tslib: "npm:^2.0.1"
-  checksum: 10/3b7bfac05a4ec427738f3a9dc3c955a863eb5bdf42817310a2f521da127613f833c648acee95fd11b4c906186a0b283d873b787d72e3d323a0f42abfcaf4b1f9
-  languageName: node
-  linkType: hard
-
-"recast@npm:^0.23.9":
+"recast@npm:^0.23.3, recast@npm:^0.23.5, recast@npm:^0.23.9":
   version: 0.23.9
   resolution: "recast@npm:0.23.9"
   dependencies:
@@ -18314,11 +18280,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
   version: 5.7.2
-  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=b45daf"
+  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/ff27fc124bceb8969be722baa38af945b2505767cf794de3e2715e58f61b43780284060287d651fcbbdfb6f917f4653b20f4751991f17e0706db389b9bb3f75d
+  checksum: 10/d75ca10141afc64fd3474b41a8b082b640555bed388d237558aed64e5827ddadb48f90932c7f4205883f18f5bcab8b6a739a2cfac95855604b0dfeb34bc2f3eb
   languageName: node
   linkType: hard
 

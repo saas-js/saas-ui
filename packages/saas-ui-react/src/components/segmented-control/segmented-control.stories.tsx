@@ -1,3 +1,6 @@
+import React from 'react'
+
+import { Stack } from '@chakra-ui/react'
 import { Meta, StoryObj } from '@storybook/react'
 
 import { SegmentedControl } from './index.ts'
@@ -16,10 +19,29 @@ export const Default: Story = {
   },
 }
 
-export const Small: Story = {
-  args: {
-    defaultValue: 'One',
-    items: ['One', 'Two', 'Three'],
-    size: 'sm',
-  },
+export const Sizes = () => {
+  return (
+    <Stack alignItems="flex-start">
+      <SegmentedControl
+        defaultValue="One"
+        items={['One', 'Two', 'Three']}
+        size="xs"
+      />
+      <SegmentedControl
+        defaultValue="One"
+        items={['One', 'Two', 'Three']}
+        size="sm"
+      />
+      <SegmentedControl
+        defaultValue="One"
+        items={['One', 'Two', 'Three']}
+        size="md"
+      />
+      <SegmentedControl
+        defaultValue="One"
+        items={['One', 'Two', 'Three']}
+        size="lg"
+      />
+    </Stack>
+  )
 }

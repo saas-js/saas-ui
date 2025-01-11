@@ -105,7 +105,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
           height: '8',
         },
         item: {
-          textStyle: 'sm',
+          textStyle: 'md',
           px: '4',
           gap: '2',
         },

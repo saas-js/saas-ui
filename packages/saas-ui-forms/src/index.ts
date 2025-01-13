@@ -179,6 +179,14 @@ export type {
   DefaultFieldOverrides,
   WithStepFields,
   GetBaseField,
+  ArrayFieldPath,
+  MergeFieldProps,
+  FieldOption,
+  FieldOverrides,
+  FormChildren,
+  ShallowMerge,
+  StepFormChildren,
+  ValueOf,
 } from './types'
 
 // Exporting from './create-form'

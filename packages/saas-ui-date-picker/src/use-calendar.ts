@@ -26,22 +26,25 @@ export const useCalendar = (props: AriaCalendarProps<DateValue>) => {
 
   const [action, setAction] = useState<CalendarAction>('calendar')
 
-  const [focusedValue, setFocusedValue] = useControllableState<DateValue>({
-    value: props.focusedValue,
-    defaultValue: props.defaultFocusedValue,
-    onChange: props.onFocusChange as any,
-  })
+  const [focusedValue, setFocusedValue] =
+    useControllableState<DateValue | null>({
+      value: props.focusedValue,
+      defaultValue: props.defaultFocusedValue ?? contextCalendarProps.value,
+      onChange: props.onFocusChange as any,
+    })
 
   const state = useCalendarState({
     ...contextCalendarProps,
-    focusedValue,
+    focusedValue: focusedValue ?? undefined,
     onFocusChange: setFocusedValue,
     locale,
     createCalendar,
   })
 
   useEffect(() => {
-    setFocusedValue(state.value)
+    if (state.value) {
+      setFocusedValue(state.value)
+    }
   }, [state.value])
 
   const ref = useRef<HTMLDivElement>(null)

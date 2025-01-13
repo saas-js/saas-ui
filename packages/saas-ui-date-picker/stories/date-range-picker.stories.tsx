@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { Button, Container, Portal, VStack } from '@chakra-ui/react'
 
@@ -10,6 +10,7 @@ import {
   DateRangePickerCalendar,
   DatePickerDialog,
   DatePickerTrigger,
+  type DateRangePickerProps,
 } from '../src'
 
 export default {
@@ -28,14 +29,19 @@ export default {
   ],
 } as Meta
 
+type Story = StoryObj<
+  Omit<DateRangePickerProps, 'children'> & { children?: React.ReactNode }
+>['render']
+
 const Template: Story = (args) => {
   const { children, ...rest } = args
   const [value, setValue] = React.useState<DateRangeValue | undefined>({
     start: null,
     end: null,
   })
+
   return (
-    <DateRangePicker onChange={setValue} {...rest}>
+    <DateRangePicker value={value} {...rest} onChange={setValue}>
       <DatePickerTrigger>
         <Button>
           {value

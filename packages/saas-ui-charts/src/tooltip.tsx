@@ -6,10 +6,15 @@ import {
   Props,
 } from 'recharts/types/component/DefaultTooltipContent'
 
+export interface ChartTooltipProps<
+  TValue extends ValueType,
+  TName extends NameType,
+> extends Props<TValue, TName> {
+  categoryColors: Record<string, string>
+}
+
 export const ChartTooltip = <TValue extends ValueType, TName extends NameType>(
-  props: Props<TValue, TName> & {
-    categoryColors: Record<string, string>
-  }
+  props: ChartTooltipProps<TValue, TName>
 ) => {
   const {
     categoryColors,

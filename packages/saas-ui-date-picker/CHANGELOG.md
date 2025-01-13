@@ -1,5 +1,12 @@
 # @saas-ui/date-picker
 
+## 0.15.4
+
+### Patch Changes
+
+- 00532de: Fixed issue where calendar would trigger uncontrolled state update warning
+  - @saas-ui/modals@2.4.4
+
 ## 0.15.3
 
 ### Patch Changes

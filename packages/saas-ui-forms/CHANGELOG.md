@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 2.11.0
+
+### Minor Changes
+
+- 091fd38: Exported additional types from `index.ts` to make them accessible for external use, improving type coverage and usability.
+
 ## 2.10.0
 
 ### Minor Changes

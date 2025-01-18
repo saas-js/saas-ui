@@ -6743,7 +6743,7 @@ __metadata:
     tsup: "npm:^8.3.0"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0 <3"
-    "@saas-ui/react": ">=2.11.2"
+    "@saas-ui/react": ">=2.11.4"
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"

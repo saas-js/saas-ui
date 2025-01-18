@@ -65,12 +65,16 @@ const sidebar = {
           path: '/docs/nextjs-starter-kit/authentication',
         },
         {
-          title: 'Auth.js (NextAuth)',
-          path: '/docs/nextjs-starter-kit/authentication/authjs',
+          title: 'Better auth',
+          path: '/docs/nextjs-starter-kit/authentication/better-auth',
         },
         {
           title: 'Supabase',
           path: '/docs/nextjs-starter-kit/authentication/supabase',
+        },
+        {
+          title: 'Next Auth (deprecated)',
+          path: '/docs/nextjs-starter-kit/authentication/authjs',
         },
         // {
         //   title: 'Clerk',

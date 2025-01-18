@@ -7,28 +7,71 @@ description: How to customize the built-in authentication screens
 
 The auth screen configuration can be changed in `apps/web/config/auth.config.ts`
 
-### 1. Authentication type
+### Authentication type
 
-Here you can change your preferred authentication type, `magiclink` or `password`.
+To change the authentication type, for example from `password` to `magiclink` follow these steps:
 
-```ts
-authType: 'password'
-```
+1. Change the `loginSchema` in `apps/web/features/auth/schema/login.schema.ts` and remove the `password` field.
 
-### 2. Oauth providers
+2. Update the `LoginPage` form and remove the password `Field` component.
 
-And the OAuth providers you want to use. Set `authProviders` to undefined to hide social login.
+Follow the same steps for the `signupSchema` and `SignupPage`.
 
-```ts
-authProviders: {
-  google: {
-    icon: FaGoogle,
-    name: 'Google',
-  },
-  github: {
-    icon: FaGithub,
-    name: 'Github',
-  },
+Make sure to update the authentication provider configuration as well, please follow the specific documentation for the authentication provider you are using.
+
+### Adding social (OAuth) providers
+
+Social providers can be modified in `apps/web/features/auth/providers.tsx`.
+
+```tsx
+import { Button, Stack } from '@chakra-ui/react'
+import { useLocalStorageValue } from '@react-hookz/web'
+import { useAuth } from '@saas-ui/auth-provider'
+import { FaGoogle, FaGithub } from 'react-icons/fa6'
+
+import { LastUsedProvider } from './last-used'
+
+export function Providers() {
+  const auth = useAuth()
+
+  const lastUsed = useLocalStorageValue('lastUsedProvider')
+
+  return (
+    <Stack gap="2" mb="4">
+      <LastUsedProvider value="google">
+        <Button
+          leftIcon={<FaGoogle />}
+          height="9"
+          variant="outline"
+          onClick={() =>
+            auth
+              .logIn({
+                provider: 'google',
+              })
+              .then(() => lastUsed.set('google'))
+          }
+        >
+          Continue with Google
+        </Button>
+      </LastUsedProvider>
+      <LastUsedProvider value="github">
+        <Button
+          leftIcon={<FaGithub />}
+          height="9"
+          variant="outline"
+          onClick={() =>
+            auth
+              .logIn({
+                provider: 'github',
+              })
+              .then(() => lastUsed.set('github'))
+          }
+        >
+          Continue with Github
+        </Button>
+      </LastUsedProvider>
+    </Stack>
+  )
 }
 ```
 

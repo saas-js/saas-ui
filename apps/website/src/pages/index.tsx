@@ -1323,12 +1323,17 @@ export default Home
 export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
+      // announcement: {
+      //   title: 'Support us with your GitHub star 🤩',
+      //   description:
+      //     '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
+      //   href: 'https://github.com/saas-js/saas-ui',
+      //   action: false,
+      // },
       announcement: {
-        title: 'Support us with your GitHub star 🤩',
-        description:
-          '<img src="https://img.shields.io/github/stars/saas-js/saas-ui.svg?style=social&label=Star" />',
-        href: 'https://github.com/saas-js/saas-ui',
-        action: false,
+        title: 'Introducing: Better Auth integration',
+        href: '/blog/better-auth-authentication-provider',
+        action: 'Read more',
       },
       header: {
         position: 'fixed',

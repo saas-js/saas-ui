@@ -4,7 +4,6 @@ const empty = 'var(--chakra-empty,/*!*/ /*!*/)'
 
 export const globalCss = defineGlobalStyles({
   '*': {
-    fontFeatureSettings: '"cv11"',
     '--ring-inset': empty,
     '--ring-offset-width': '0px',
     '--ring-offset-color': '#fff',
@@ -41,8 +40,14 @@ export const globalCss = defineGlobalStyles({
     '--global-color-border': 'colors.border',
     '--cursor-button': 'default',
     '--radius-factor': '1',
+    '--radius-control': '1',
+    '--radius-panel': '1',
+    '--radius-indicator': '1',
     '--radius-full': '9999px',
     '--scale-factor': '1',
+    '--overlay-translucency': '90%',
+    '--overlay-effect': 'blur({blurs.lg})',
+    '--backdrop-effect': 'none',
   },
   body: {
     color: 'fg',
@@ -55,40 +60,5 @@ export const globalCss = defineGlobalStyles({
   },
   '*::selection': {
     bg: 'colorPalette.muted/80',
-  },
-  '[data-radius="none"]': {
-    '--radius-factor': '0',
-    '--radius-full': '0',
-  },
-  '[data-radius="sm"]': {
-    '--radius-factor': '0.9',
-    '--radius-full': '0',
-  },
-  '[data-radius="md"]': {
-    '--radius-factor': '1',
-    '--radius-full': '0',
-  },
-  '[data-radius="lg"]': {
-    '--radius-factor': '1.5',
-    '--radius-full': '0',
-  },
-  '[data-radius="full"]': {
-    '--radius-factor': '1.5',
-    '--radius-full': '9999px',
-  },
-  '[data-scale="xs"]': {
-    '--scale-factor': '0.9',
-  },
-  '[data-scale="sm"]': {
-    '--scale-factor': '0.95',
-  },
-  '[data-scale="md"]': {
-    '--scale-factor': '1',
-  },
-  '[data-scale="lg"]': {
-    '--scale-factor': '1.05',
-  },
-  '[data-scale="xl"]': {
-    '--scale-factor': '1.1',
   },
 })

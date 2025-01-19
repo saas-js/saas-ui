@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '@chakra-ui/react'
 import { emptyStateAnatomy } from '@chakra-ui/react/anatomy'
 
 export const emptyStateSlotRecipe = defineSlotRecipe({
-  slots: emptyStateAnatomy.keys(),
+  slots: emptyStateAnatomy.extendWith('actions').keys(),
   className: 'chakra-empty-state',
   base: {
     root: {
@@ -23,7 +23,7 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: 'fg.subtle',
+      color: 'colorPalette.solid',
       _icon: {
         boxSize: '1em',
       },
@@ -35,6 +35,11 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
       textStyle: 'sm',
       color: 'fg.muted',
     },
+    actions: {
+      display: 'flex',
+      flexDirection: 'row',
+      gap: '2',
+    },
   },
 
   variants: {
@@ -44,14 +49,20 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
           px: '4',
           py: '6',
         },
+        indicator: {
+          textStyle: '3xl',
+          mb: '2',
+        },
         title: {
           textStyle: 'md',
         },
-        content: {
-          gap: '4',
+        description: {
+          textStyle: 'xs',
         },
-        indicator: {
-          textStyle: '2xl',
+        content: {},
+
+        actions: {
+          mt: '2',
         },
       },
       md: {
@@ -59,14 +70,19 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
           px: '8',
           py: '12',
         },
+        indicator: {
+          textStyle: '4xl',
+          mb: '3',
+        },
         title: {
           textStyle: 'lg',
         },
-        content: {
-          gap: '6',
+        description: {
+          textStyle: 'sm',
         },
-        indicator: {
-          textStyle: '4xl',
+        content: {},
+        actions: {
+          mt: '3',
         },
       },
       lg: {
@@ -74,14 +90,31 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
           px: '12',
           py: '16',
         },
+        indicator: {
+          textStyle: '6xl',
+          mb: '4',
+        },
         title: {
           textStyle: 'xl',
         },
-        content: {
-          gap: '8',
+        description: {
+          textStyle: 'md',
         },
-        indicator: {
-          textStyle: '6xl',
+        content: {},
+        actions: {
+          mt: '4',
+        },
+      },
+    },
+    align: {
+      start: {
+        content: {
+          alignItems: 'flex-start',
+        },
+      },
+      center: {
+        content: {
+          alignItems: 'center',
         },
       },
     },
@@ -89,5 +122,6 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
 
   defaultVariants: {
     size: 'md',
+    align: 'center',
   },
 })

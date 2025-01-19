@@ -1,10 +1,6 @@
 import { forwardRef } from 'react'
 
-import {
-  Dialog as ChakraDialog,
-  type DialogContentProps,
-  Portal,
-} from '@chakra-ui/react'
+import { Dialog as ChakraDialog, Portal } from '@chakra-ui/react'
 
 import { CloseButton as CloseButtonBase } from '#components/close-button'
 
@@ -57,6 +53,7 @@ export const CloseTrigger = ChakraDialog.CloseTrigger
 export type RootProps = ChakraDialog.RootProps
 
 export const Root = ChakraDialog.Root
+export const Context = ChakraDialog.Context
 export const Footer = ChakraDialog.Footer
 export const Header = ChakraDialog.Header
 export const Body = ChakraDialog.Body

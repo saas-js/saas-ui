@@ -73,6 +73,20 @@ export const semanticColors = defineSemanticTokens.colors({
     panel: {
       value: { _light: '{colors.white}', _dark: '{colors.gray.950}' },
     },
+    overlay: {
+      value: {
+        _light:
+          'color-mix(in oklch, {colors.white} var(--overlay-translucency), transparent)',
+        _dark:
+          'color-mix(in srgb, var(--overlay-translucency), {colors.gray.950} 100%)',
+      },
+    },
+    backdrop: {
+      value: {
+        _light: '{colors.black/30}',
+        _dark: '{colors.black/30}',
+      },
+    },
     error: {
       value: { _light: '{colors.red.50}', _dark: '{colors.red.950}' },
     },

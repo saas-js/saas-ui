@@ -6,14 +6,15 @@ export const menuSlotRecipe = defineSlotRecipe({
   slots: menuAnatomy.keys(),
   base: {
     content: {
+      layerStyle: 'overlay',
+      boxShadow: 'md',
+      borderWidth: '1px',
+      borderColor: 'border',
       outline: 0,
-      bg: 'bg.panel',
-      boxShadow: 'lg',
       color: 'fg',
       maxHeight: 'var(--available-height)',
-      '--menu-z-index': 'zIndex.dropdown',
+      '--menu-z-index': 'zIndex.layer-3',
       zIndex: 'calc(var(--menu-z-index) + var(--layer-index, 0))',
-      borderRadius: 'l2',
       overflow: 'hidden',
       _open: {
         animationStyle: 'slide-fade-in',
@@ -28,7 +29,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       textDecoration: 'none',
       color: 'fg',
       userSelect: 'none',
-      borderRadius: 'l3',
+      borderRadius: 'control.md',
       width: '100%',
       display: 'flex',
       cursor: 'menuitem',
@@ -94,7 +95,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       sm: {
         content: {
           minW: '8rem',
-          padding: '1',
+          padding: '0.5',
         },
         item: {
           gap: '1',
@@ -106,7 +107,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       md: {
         content: {
           minW: '8rem',
-          padding: '1.5',
+          padding: '1',
         },
         item: {
           gap: '2',

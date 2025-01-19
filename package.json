@@ -74,7 +74,7 @@
     "tooling/storybook-addon"
   ],
   "devDependencies": {
-    "@chakra-ui/cli": "^3.2.2",
+    "@chakra-ui/cli": "^3.4.0",
     "@changesets/cli": "^2.27.9",
     "@manypkg/get-packages": "^2.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
@@ -105,10 +105,11 @@
   },
   "resolutions": {
     "unist-util-visit": "4.0.0",
-    "react": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "@emotion/react": "11.11.1",
-    "@chakra-ui/react": "3.2.4",
-    "@ark-ui/react": "4.4.4"
+    "@chakra-ui/react": "3.3.1",
+    "@ark-ui/react": "4.8.0"
   },
-  "packageManager": "yarn@4.2.2"
+  "packageManager": "yarn@4.6.0"
 }

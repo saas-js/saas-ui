@@ -1,3 +1,1 @@
-import * as Drawer from './namespace.ts'
-
-export { Drawer }
+export * as Drawer from './drawer.tsx'

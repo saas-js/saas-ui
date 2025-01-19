@@ -13,13 +13,6 @@ import { withContext, withProvider } from './persona.context.ts'
 import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { Presence } from './presence.ts'
 
-// export type SlotRecipeProps<
-//   T,
-//   FallbackVariants = unknown,
-// > = T extends keyof ConfigSlotRecipes
-//   ? ConfigSlotRecipes[T]['__type'] & { recipe?: SlotRecipeDefinition }
-//   : { recipe?: SlotRecipeDefinition } & FallbackVariants
-
 interface PersonaRootProps
   extends HTMLChakraProps<'div'>,
     SlotRecipeProps<'suiPersona'>,

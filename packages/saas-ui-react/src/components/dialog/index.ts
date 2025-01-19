@@ -1,1 +1,1 @@
-export * as Dialog from './namespace.ts'
+export * as Dialog from './dialog.tsx'

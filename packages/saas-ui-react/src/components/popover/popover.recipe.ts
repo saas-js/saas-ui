@@ -6,22 +6,22 @@ export const popoverSlotRecipe = defineSlotRecipe({
   slots: popoverAnatomy.keys(),
   base: {
     content: {
+      layerStyle: 'overlay',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
       textStyle: 'sm',
       '--popover-bg': 'colors.bg.panel',
       bg: 'var(--popover-bg)',
-      boxShadow: 'lg',
       '--popover-size': 'sizes.xs',
       '--popover-mobile-size': 'calc(100dvw - 1rem)',
       width: {
         base: 'min(var(--popover-mobile-size), var(--popover-size))',
         sm: 'var(--popover-size)',
       },
-      borderRadius: 'l3',
-      '--popover-z-index': 'zIndex.popover',
+      '--popover-z-index': 'zIndex.layer-2',
       zIndex: 'calc(var(--popover-z-index) + var(--layer-index, 0))',
+      borderWidth: '1px',
       outline: '0',
       transformOrigin: 'var(--transform-origin)',
       _open: {

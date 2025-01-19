@@ -7,7 +7,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
   base: {
     root: {
       colorPalette: 'gray',
-      '--tabs-trigger-radius': 'radii.md',
+      '--tabs-trigger-radius': 'radii.control.md',
       position: 'relative',
       _horizontal: {
         display: 'block',
@@ -201,6 +201,24 @@ export const tabsSlotRecipe = defineSlotRecipe({
             bg: 'colorPalette.subtle !important',
             color: 'colorPalette.fg !important',
             borderColor: 'colorPalette.solid/50',
+          },
+        },
+      },
+
+      ghost: {
+        list: {
+          gap: 2,
+        },
+        trigger: {
+          borderRadius: 'var(--tabs-trigger-radius)',
+          color: 'fg.muted',
+          _hover: {
+            bg: 'bg.muted',
+            color: 'fg.subtle',
+          },
+          _selected: {
+            bg: 'colorPalette.subtle !important',
+            color: 'colorPalette.fg !important',
           },
         },
       },

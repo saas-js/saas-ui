@@ -41,9 +41,9 @@ export const Basic = () => {
   )
 }
 
-export const Contained = () => {
+export const Attached = () => {
   return (
-    <Drawer.Root defaultOpen contained>
+    <Drawer.Root defaultOpen attached>
       <Drawer.Backdrop />
       <Drawer.Trigger asChild>
         <Button variant="outline" size="sm">

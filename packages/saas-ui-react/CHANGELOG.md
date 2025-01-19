@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.26
+
+### Patch Changes
+
+- c51e12c: Improved radii tokens
+
 ## 3.0.0-alpha.25
 
 ### Minor Changes

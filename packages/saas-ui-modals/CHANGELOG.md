@@ -1,5 +1,17 @@
 # @saas-ui/modals
 
+## 3.0.0-alpha.25
+
+### Patch Changes
+
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [8d8ffaa]
+  - @saas-ui/react@3.0.0-alpha.25
+  - @saas-ui/forms@3.0.0-alpha.25
+
 ## 3.0.0-alpha.24
 
 ### Patch Changes

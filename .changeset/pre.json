@@ -32,7 +32,8 @@
     "@saas-ui-pro/onboarding": "0.15.1",
     "@saas-ui-pro/react": "0.39.0",
     "@saas-ui/registry": "0.1.0",
-    "saas-ui-storybook-pro": "37.0.0"
+    "saas-ui-storybook-pro": "37.0.0",
+    "@chakra-ui/compositions": "1.0.0"
   },
   "changesets": [
     "afraid-avocados-roll",
@@ -42,11 +43,13 @@
     "chatty-comics-design",
     "chilly-lizards-visit",
     "chilly-mugs-shave",
+    "clever-coats-melt",
     "cool-jars-rhyme",
     "curly-hounds-lick",
     "dry-berries-report",
     "dry-shirts-travel",
     "empty-games-explain",
+    "fair-kings-battle",
     "fair-pants-grab",
     "fast-dolls-jump",
     "fifty-balloons-stare",
@@ -76,6 +79,7 @@
     "olive-cougars-kick",
     "olive-mails-melt",
     "popular-ducks-compete",
+    "real-dolphins-tease",
     "shy-deers-protect",
     "silver-hotels-drum",
     "six-moles-raise",
@@ -84,6 +88,7 @@
     "ten-walls-doubt",
     "tough-comics-hunt",
     "tough-pugs-smoke",
+    "tricky-spoons-serve",
     "twenty-dodos-float",
     "two-taxis-itch",
     "unlucky-pens-sit",
@@ -91,6 +96,7 @@
     "unlucky-tomatoes-arrive",
     "violet-spies-wink",
     "weak-horses-smile",
+    "wet-emus-sit",
     "wild-bobcats-shout",
     "wild-knives-worry",
     "young-dingos-judge"

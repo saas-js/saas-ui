@@ -1,5 +1,18 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.25
+
+### Minor Changes
+
+- 8d8ffaa: Translucency and backdrop effect of overlay elements can now be configured
+- 8d8ffaa: Added FileUpload component
+- 8d8ffaa: Added Popover component
+- 8d8ffaa: Added semantic tokens and scales for control, panel and indicator
+
+### Patch Changes
+
+- 8d8ffaa: Added ghost variant to tabs recipe
+
 ## 3.0.0-alpha.24
 
 ### Minor Changes

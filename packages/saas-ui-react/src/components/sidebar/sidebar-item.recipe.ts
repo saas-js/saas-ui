@@ -63,14 +63,40 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       },
     },
     size: {
+      sm: {
+        item: {
+          fontSize: 'sm',
+        },
+        button: {
+          borderRadius: 'control.md',
+          px: 1.5,
+          height: 7,
+        },
+        endElement: {
+          pe: '1',
+        },
+      },
       md: {
         item: {
           fontSize: 'sm',
         },
         button: {
-          borderRadius: 'md',
-          px: 2,
+          borderRadius: 'control.md',
+          px: 3,
           height: 8,
+        },
+        endElement: {
+          pe: '1',
+        },
+      },
+      lg: {
+        item: {
+          fontSize: 'sm',
+        },
+        button: {
+          borderRadius: 'control.lg',
+          px: 3,
+          height: 10,
         },
         endElement: {
           pe: '1',

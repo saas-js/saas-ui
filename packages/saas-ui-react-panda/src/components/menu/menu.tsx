@@ -4,9 +4,9 @@ import { Portal } from '@ark-ui/react'
 import { Menu as ArkMenu } from '@ark-ui/react/menu'
 import { styled } from '@saas-ui/panda/jsx'
 import { menu } from '@saas-ui/panda/recipes'
-import { LuCheck, LuChevronRight } from 'react-icons/lu'
 
 import { createStyleContext } from '../context'
+import { CheckIcon, ChevronRightIcon } from '../icons'
 
 const { withProvider, withContext } = createStyleContext(menu)
 
@@ -207,7 +207,7 @@ export const CheckboxItem = forwardRef<HTMLDivElement, MenuCheckboxItemProps>(
     return (
       <MenuCheckboxItemBase ref={ref} {...props}>
         <MenuIndicatorBase hidden={false}>
-          <LuCheck />
+          <CheckIcon />
         </MenuIndicatorBase>
         {props.children}
       </MenuCheckboxItemBase>
@@ -228,7 +228,7 @@ export const RadioItem = forwardRef<HTMLDivElement, MenuRadioItemProps>(
             transform: 'translateY(-50%)',
           }}
         >
-          <LuCheck />
+          <CheckIcon />
         </MenuItemIndicatorBase>
         <MenuItemTextBase>{children}</MenuItemTextBase>
       </MenuRadioItemBase>
@@ -263,7 +263,7 @@ export const TriggerItem = forwardRef<HTMLDivElement, MenuTriggerItemProps>(
       <MenuTriggerItemBase ref={ref} {...rest}>
         {startIcon}
         {children}
-        <LuChevronRight />
+        <ChevronRightIcon />
       </MenuTriggerItemBase>
     )
   },

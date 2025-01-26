@@ -1,5 +1,8 @@
-import { styled } from '@saas-ui/panda/jsx'
 import { ComponentProps } from 'react'
+
+import { styled } from '@saas-ui/panda/jsx'
+
+import { createIcon } from './create-icon'
 
 interface SvgProps extends ComponentProps<typeof styled.svg> {}
 
@@ -12,3 +15,15 @@ export const CloseIcon = (props: SvgProps) => (
     />
   </styled.svg>
 )
+
+export const CheckIcon = createIcon({
+  path: (
+    <g>
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </g>
+  ),
+})
+
+export const ChevronRightIcon = createIcon({
+  path: <polyline points="9 18 15 12 9 6"></polyline>,
+})

@@ -17,12 +17,15 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "tsup src/index.ts --config tsup.config.ts --watch",
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "files": [
     "dist",
@@ -64,7 +67,21 @@
     "react-icons": "^5.4.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "3.2.4",
+    "@storybook/addon-a11y": "8.5.1",
+    "@storybook/addon-essentials": "8.5.1",
+    "@storybook/addon-interactions": "8.5.1",
+    "@storybook/addon-onboarding": "8.5.1",
+    "@storybook/addon-themes": "8.5.1",
+    "@storybook/blocks": "8.5.1",
+    "@storybook/manager-api": "^8.5.1",
+    "@storybook/react": "8.5.1",
+    "@storybook/react-vite": "8.5.1",
+    "@storybook/test": "8.5.1",
+    "@storybook/theming": "^8.5.1",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "storybook": "8.5.1",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

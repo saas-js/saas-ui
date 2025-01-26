@@ -1,9 +1,11 @@
+import { ComponentProps, ReactNode, RefObject, forwardRef } from 'react'
+
 import { Portal } from '@ark-ui/react'
 import { Menu as ArkMenu } from '@ark-ui/react/menu'
 import { styled } from '@saas-ui/panda/jsx'
 import { menu } from '@saas-ui/panda/recipes'
-import { ComponentProps, forwardRef, ReactNode, RefObject } from 'react'
 import { LuCheck, LuChevronRight } from 'react-icons/lu'
+
 import { createStyleContext } from '../context'
 
 const { withProvider, withContext } = createStyleContext(menu)
@@ -25,9 +27,9 @@ const MenuTriggerBase = withContext(
       defaultProps: {
         asChild: true,
       },
-    }
+    },
   ),
-  'trigger'
+  'trigger',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +39,7 @@ export interface MenuContextTriggerProps
 
 const MenuContextTriggerBase = withContext(
   styled(ArkMenu.ContextTrigger),
-  'contextTrigger'
+  'contextTrigger',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -74,7 +76,7 @@ export interface MenuArrowTipProps
 
 export const MenuArrowTipBase = withContext(
   styled(ArkMenu.ArrowTip),
-  'arrowTip'
+  'arrowTip',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +100,7 @@ const MenuItemGroupBase = withContext(styled(ArkMenu.ItemGroup), 'itemGroup')
 
 const MenuItemGroupLabelBase = withContext(
   styled(ArkMenu.ItemGroupLabel),
-  'itemGroupLabel'
+  'itemGroupLabel',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -135,7 +137,7 @@ export interface MenuItemIndicatorBaseProps
 
 const MenuItemIndicatorBase = withContext(
   styled(ArkMenu.ItemIndicator),
-  'itemIndicator'
+  'itemIndicator',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -148,11 +150,11 @@ const MenuCheckboxItemBase = withContext(styled(ArkMenu.CheckboxItem), 'item')
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuRadioItemGroupProps
-  extends ComponentProps<typeof MenuRadioItemGroup> {}
+  extends ComponentProps<typeof RadioItemGroup> {}
 
 const MenuRadioItemGroupBase = withContext(
   styled(ArkMenu.RadioItemGroup),
-  'itemGroup'
+  'itemGroup',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -177,7 +179,7 @@ interface MenuContentProps extends MenuContentBaseProps {
   portalRef?: RefObject<HTMLElement>
 }
 
-export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
+export const Content = forwardRef<HTMLDivElement, MenuContentProps>(
   function MenuContent(props, ref) {
     const { portalled = true, portalRef, ...rest } = props
     return (
@@ -187,34 +189,33 @@ export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
         </MenuPositionerBase>
       </Portal>
     )
-  }
+  },
 )
 
-export const MenuArrow = forwardRef<HTMLDivElement, MenuArrowBaseProps>(
+export const Arrow = forwardRef<HTMLDivElement, MenuArrowBaseProps>(
   function MenuArrow(props, ref) {
     return (
       <MenuArrowBase ref={ref} {...props}>
         <MenuArrowTipBase />
       </MenuArrowBase>
     )
-  }
+  },
 )
 
-export const MenuCheckboxItem = forwardRef<
-  HTMLDivElement,
-  MenuCheckboxItemProps
->(function MenuCheckboxItem(props, ref) {
-  return (
-    <MenuCheckboxItemBase ref={ref} {...props}>
-      <MenuIndicatorBase hidden={false}>
-        <LuCheck />
-      </MenuIndicatorBase>
-      {props.children}
-    </MenuCheckboxItemBase>
-  )
-})
+export const CheckboxItem = forwardRef<HTMLDivElement, MenuCheckboxItemProps>(
+  function MenuCheckboxItem(props, ref) {
+    return (
+      <MenuCheckboxItemBase ref={ref} {...props}>
+        <MenuIndicatorBase hidden={false}>
+          <LuCheck />
+        </MenuIndicatorBase>
+        {props.children}
+      </MenuCheckboxItemBase>
+    )
+  },
+)
 
-export const MenuRadioItem = forwardRef<HTMLDivElement, MenuRadioItemProps>(
+export const RadioItem = forwardRef<HTMLDivElement, MenuRadioItemProps>(
   function MenuRadioItem(props, ref) {
     const { children, ...rest } = props
     return (
@@ -232,10 +233,10 @@ export const MenuRadioItem = forwardRef<HTMLDivElement, MenuRadioItemProps>(
         <MenuItemTextBase>{children}</MenuItemTextBase>
       </MenuRadioItemBase>
     )
-  }
+  },
 )
 
-export const MenuItemGroup = forwardRef<HTMLDivElement, MenuItemGroupProps>(
+export const ItemGroup = forwardRef<HTMLDivElement, MenuItemGroupProps>(
   function MenuItemGroup(props, ref) {
     const { title, children, ...rest } = props
     return (
@@ -248,14 +249,14 @@ export const MenuItemGroup = forwardRef<HTMLDivElement, MenuItemGroupProps>(
         {children}
       </MenuItemGroupBase>
     )
-  }
+  },
 )
 
 export interface MenuTriggerItemProps extends MenuTriggerItemBaseProps {
   startIcon?: ReactNode
 }
 
-export const MenuTriggerItem = forwardRef<HTMLDivElement, MenuTriggerItemProps>(
+export const TriggerItem = forwardRef<HTMLDivElement, MenuTriggerItemProps>(
   function MenuTriggerItem(props, ref) {
     const { startIcon, children, ...rest } = props
     return (
@@ -265,14 +266,14 @@ export const MenuTriggerItem = forwardRef<HTMLDivElement, MenuTriggerItemProps>(
         <LuChevronRight />
       </MenuTriggerItemBase>
     )
-  }
+  },
 )
 
-export const MenuRoot = MenuRootBase
-export const MenuRadioItemGroup = MenuRadioItemGroupBase
-export const MenuContextTrigger = MenuContextTriggerBase
-export const MenuSeparator = MenuSeparatorBase
-export const MenuItem = MenuItemBase
-export const MenuItemText = MenuItemTextBase
-export const MenuItemCommand = MenuItemCommandBase
-export const MenuTrigger = MenuTriggerBase
+export const Root = MenuRootBase
+export const RadioItemGroup = MenuRadioItemGroupBase
+export const ContextTrigger = MenuContextTriggerBase
+export const Separator = MenuSeparatorBase
+export const Item = MenuItemBase
+export const ItemText = MenuItemTextBase
+export const ItemCommand = MenuItemCommandBase
+export const Trigger = MenuTriggerBase

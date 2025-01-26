@@ -18,13 +18,7 @@ import {
   Badge,
   Button,
   Card,
-  MenuContent,
-  MenuItem,
-  MenuItemCommand,
-  MenuRadioItem,
-  MenuRadioItemGroup,
-  MenuRoot,
-  MenuTrigger,
+  Menu,
   Sidebar,
   Tag,
 } from '@saas-ui/react-panda'
@@ -226,72 +220,72 @@ export function MenuShowcase() {
       <Title>Menu</Title>
 
       <Wrap>
-        <MenuRoot>
-          <MenuTrigger>
+        <Menu.Root>
+          <Menu.Trigger>
             <Button variant="outline" size="sm">
               Open
             </Button>
-          </MenuTrigger>
-          <MenuContent>
-            <MenuItem value="new-txt-a">
-              New Text File <MenuItemCommand>⌘E</MenuItemCommand>
-            </MenuItem>
-            <MenuItem value="new-file-a">
-              New File... <MenuItemCommand>⌘N</MenuItemCommand>
-            </MenuItem>
-            <MenuItem value="new-win-a">
-              New Window <MenuItemCommand>⌘⇧N</MenuItemCommand>
-            </MenuItem>
-            <MenuItem value="open-file-a">
-              Open File... <MenuItemCommand>⌘O</MenuItemCommand>
-            </MenuItem>
-            <MenuItem value="export-a">
-              Export <MenuItemCommand>⌘S</MenuItemCommand>
-            </MenuItem>
-          </MenuContent>
-        </MenuRoot>
+          </Menu.Trigger>
+          <Menu.Content>
+            <Menu.Item value="new-txt-a">
+              New Text File <Menu.ItemCommand>⌘E</Menu.ItemCommand>
+            </Menu.Item>
+            <Menu.Item value="new-file-a">
+              New File... <Menu.ItemCommand>⌘N</Menu.ItemCommand>
+            </Menu.Item>
+            <Menu.Item value="new-win-a">
+              New Window <Menu.ItemCommand>⌘⇧N</Menu.ItemCommand>
+            </Menu.Item>
+            <Menu.Item value="open-file-a">
+              Open File... <Menu.ItemCommand>⌘O</Menu.ItemCommand>
+            </Menu.Item>
+            <Menu.Item value="export-a">
+              Export <Menu.ItemCommand>⌘S</Menu.ItemCommand>
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Root>
 
-        <MenuRoot>
-          <MenuTrigger>
+        <Menu.Root>
+          <Menu.Trigger>
             <Button variant="outline" size="sm">
               <HiSortAscending /> Sort
             </Button>
-          </MenuTrigger>
-          <MenuContent minW="10rem">
-            <MenuRadioItemGroup
+          </Menu.Trigger>
+          <Menu.Content minW="10rem">
+            <Menu.RadioItemGroup
               value={value}
               onValueChange={(e) => setValue(e.value)}
             >
-              <MenuRadioItem value="asc">Ascending</MenuRadioItem>
-              <MenuRadioItem value="desc">Descending</MenuRadioItem>
-            </MenuRadioItemGroup>
-          </MenuContent>
-        </MenuRoot>
+              <Menu.RadioItem value="asc">Ascending</Menu.RadioItem>
+              <Menu.RadioItem value="desc">Descending</Menu.RadioItem>
+            </Menu.RadioItemGroup>
+          </Menu.Content>
+        </Menu.Root>
 
-        <MenuRoot>
-          <MenuTrigger>
+        <Menu.Root>
+          <Menu.Trigger>
             <Button variant="outline" size="sm">
               Edit
             </Button>
-          </MenuTrigger>
-          <MenuContent>
-            <MenuItem value="cut" valueText="cut">
+          </Menu.Trigger>
+          <Menu.Content>
+            <Menu.Item value="cut" valueText="cut">
               <LuScissors />
               <Box flex="1">Cut</Box>
-              <MenuItemCommand>⌘X</MenuItemCommand>
-            </MenuItem>
-            <MenuItem value="copy" valueText="copy">
+              <Menu.ItemCommand>⌘X</Menu.ItemCommand>
+            </Menu.Item>
+            <Menu.Item value="copy" valueText="copy">
               <LuCopy />
               <Box flex="1">Copy</Box>
-              <MenuItemCommand>⌘C</MenuItemCommand>
-            </MenuItem>
-            <MenuItem value="paste" valueText="paste">
+              <Menu.ItemCommand>⌘C</Menu.ItemCommand>
+            </Menu.Item>
+            <Menu.Item value="paste" valueText="paste">
               <LuClipboardPaste />
               <Box flex="1">Paste</Box>
-              <MenuItemCommand>⌘V</MenuItemCommand>
-            </MenuItem>
-          </MenuContent>
-        </MenuRoot>
+              <Menu.ItemCommand>⌘V</Menu.ItemCommand>
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Root>
       </Wrap>
     </Wrapper>
   )
@@ -300,7 +294,7 @@ export function MenuShowcase() {
 export function SidebarShowcase() {
   return (
     <Sidebar.Root>
-      <Sidebar.Trigger>Open Menu</Sidebar.Trigger>
+      <Sidebar.Trigger>Open Menu.</Sidebar.Trigger>
       <Sidebar.Backdrop />
       <Sidebar.Header>
         <styled.h2>Sidebar</styled.h2>

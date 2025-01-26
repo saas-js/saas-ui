@@ -61,7 +61,7 @@
     "build:storybook-addon": "yarn w @saas-ui/storybook-addon build",
     "build:props-docs": "yarn typedocs && yarn w @saas-ui/props-docs build",
     "typedocs": "tsx scripts/typedocs.ts",
-    "preinstall": "rm -rf node_modules/odiff-bin"
+    "preinstall": "rimraf node_modules/odiff-bin"
   },
   "workspaces": [
     "packages/saas-ui-panda",

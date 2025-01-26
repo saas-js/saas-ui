@@ -28,6 +28,7 @@
   },
   "scripts": {
     "w": "yarn workspace",
+    "dev:panda": "yarn turbo dev",
     "dev:web": "yarn w website dev",
     "dev:palette": "yarn w palette-docs dev",
     "changelog:gen": "ts-node scripts/changelog-generate.ts",
@@ -50,6 +51,7 @@
     "create:block": "yarn hygen blocks new",
     "build:web": "yarn w website build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
+    "build:panda": "turbo run build --filter='./packages/panda'",
     "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue",
@@ -62,15 +64,9 @@
     "preinstall": "rm -rf node_modules/odiff-bin"
   },
   "workspaces": [
-    "apps/v3",
-    "apps/compositions",
-    "packages/storybook",
-    "packages/pro/packages/*",
-    "packages/saas-ui-*",
-    "tooling/next-workspaces",
-    "tooling/test-utils",
-    "tooling/props-docs",
-    "tooling/storybook-addon"
+    "packages/saas-ui-panda",
+    "packages/saas-ui-react-panda",
+    "apps/panda-testing"
   ],
   "devDependencies": {
     "@chakra-ui/cli": "^3.2.2",

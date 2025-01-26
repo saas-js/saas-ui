@@ -1,0 +1,72 @@
+{
+  "name": "@saas-ui/panda",
+  "description": "The styled system for Saas UI panda",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./css": {
+      "types": "./styled-system/css/index.d.ts",
+      "require": "./styled-system/css/index.js",
+      "import": "./styled-system/css/index.js"
+    },
+    "./tokens": {
+      "types": "./styled-system/tokens/index.d.ts",
+      "require": "./styled-system/tokens/index.js",
+      "import": "./styled-system/tokens/index.js"
+    },
+    "./types": {
+      "types": "./styled-system/types/index.d.ts",
+      "require": "./styled-system/types/index.js",
+      "import": "./styled-system/types/index.js"
+    },
+    "./patterns": {
+      "types": "./styled-system/patterns/index.d.ts",
+      "require": "./styled-system/patterns/index.js",
+      "import": "./styled-system/patterns/index.js"
+    },
+    "./recipes": {
+      "types": "./styled-system/recipes/index.d.ts",
+      "require": "./styled-system/recipes/index.js",
+      "import": "./styled-system/recipes/index.js"
+    },
+    "./jsx": {
+      "types": "./styled-system/jsx/index.d.ts",
+      "require": "./styled-system/jsx/index.js",
+      "import": "./styled-system/jsx/index.js"
+    }
+  },
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"panda codegen --watch\" \"tsup src/index.ts --config tsup.config.ts --watch\"",
+    "clean": "rimraf --no-glob ./dist",
+    "build": "panda codegen && tsup src/index.ts --config tsup.config.ts",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "source": "src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "ImExoOdeex <odeex722@gmail.com>",
+  "dependencies": {
+    "@chakra-ui/panda-preset": "^3.4.0",
+    "@pandacss/dev": "^0.51.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "tsup": "^8.3.5"
+  }
+}

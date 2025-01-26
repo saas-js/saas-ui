@@ -1,0 +1,70 @@
+{
+  "name": "@saas-ui/react-panda",
+  "version": "2.11.3",
+  "description": "Saas UI - The React component library for startups.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
+  "source": "src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup src/index.ts --config tsup.config.ts --watch",
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsup src/index.ts --config tsup.config.ts",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "ImExoOdeex <odeex722@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-react-panda"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@ark-ui/react": "^4.8.1",
+    "@saas-ui/panda": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+}

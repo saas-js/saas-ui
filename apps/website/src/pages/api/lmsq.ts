@@ -117,7 +117,13 @@ async function handleNewOrder(data: any) {
   )
 
   const customer = await response.json()
-  const attr = customer.data.attributes
+
+  const attr = customer.data?.attributes
+
+  if (!attr) {
+    console.log('No customer attributes found', customer)
+    return
+  }
 
   const [firstName, ...lastName] = attr.name.split(' ')
 

@@ -6,11 +6,11 @@ interface ButtonVariant {
   /**
  * @default "md"
  */
-size: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
+size: "xs" | "sm" | "md" | "lg" | "xl"
 /**
- * @default "solid"
+ * @default "surface"
  */
-variant: "solid" | "subtle" | "surface" | "outline" | "ghost" | "plain"
+variant: "solid" | "subtle" | "glass" | "surface" | "outline" | "ghost" | "plain"
 }
 
 type ButtonVariantMap = {
@@ -18,7 +18,7 @@ type ButtonVariantMap = {
 }
 
 export type ButtonVariantProps = {
-  [key in keyof ButtonVariant]?: ConditionalValue<ButtonVariant[key]> | undefined
+  [key in keyof ButtonVariant]?: ButtonVariant[key] | undefined
 }
 
 export interface ButtonRecipe {

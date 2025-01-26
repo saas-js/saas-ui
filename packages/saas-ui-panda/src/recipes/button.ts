@@ -4,17 +4,15 @@ export const buttonRecipe = defineRecipe({
   className: 'button',
   jsx: ['Button'],
   base: {
+    colorPalette: 'gray',
     display: 'inline-flex',
     appearance: 'none',
     alignItems: 'center',
     justifyContent: 'center',
     userSelect: 'none',
     position: 'relative',
-    borderRadius: 'l2',
     whiteSpace: 'nowrap',
     verticalAlign: 'middle',
-    borderWidth: '1px',
-    borderColor: 'transparent',
     cursor: 'pointer',
     flexShrink: '0',
     outline: '0',
@@ -28,92 +26,57 @@ export const buttonRecipe = defineRecipe({
       layerStyle: 'disabled',
     },
     _icon: {
-      flexShrink: '0',
+      fontSize: '1em',
+      flexShrink: 0,
     },
   },
   variants: {
     size: {
-      '2xs': {
+      xs: {
+        gap: '1',
         h: '6',
         minW: '6',
         textStyle: 'xs',
+        borderRadius: 'sm',
         px: '2',
-        gap: '1',
-        _icon: {
-          width: '3.5',
-          height: '3.5',
-        },
-      },
-      xs: {
-        h: '8',
-        minW: '8',
-        textStyle: 'xs',
-        px: '2.5',
-        gap: '1',
-        _icon: {
-          width: '4',
-          height: '4',
-        },
       },
       sm: {
-        h: '9',
-        minW: '9',
-        px: '3.5',
-        textStyle: 'sm',
         gap: '2',
-        _icon: {
-          width: '4',
-          height: '4',
-        },
+        h: '7',
+        minW: '7',
+        textStyle: 'sm',
+        borderRadius: 'md',
+        px: '2.5',
       },
       md: {
-        h: '10',
-        minW: '10',
-        textStyle: 'sm',
-        px: '4',
         gap: '2',
-        _icon: {
-          width: '5',
-          height: '5',
-        },
+        h: '8',
+        minW: '8',
+        borderRadius: 'md',
+        textStyle: 'sm',
+        px: '3',
       },
       lg: {
-        h: '11',
-        minW: '11',
-        textStyle: 'md',
-        px: '5',
         gap: '3',
-        _icon: {
-          width: '5',
-          height: '5',
-        },
+        h: '10',
+        minW: '10',
+        borderRadius: 'lg',
+        textStyle: 'md',
+        px: '4.5',
       },
       xl: {
+        gap: '3',
         h: '12',
         minW: '12',
-        textStyle: 'md',
-        px: '5',
-        gap: '2.5',
-        _icon: {
-          width: '5',
-          height: '5',
-        },
-      },
-      '2xl': {
-        h: '16',
-        minW: '16',
+        borderRadius: 'lg',
         textStyle: 'lg',
-        px: '7',
-        gap: '3',
-        _icon: {
-          width: '6',
-          height: '6',
-        },
+        px: '6',
       },
     },
     variant: {
       solid: {
         bg: 'colorPalette.solid',
+        boxShadow: 'sm',
         color: 'colorPalette.contrast',
         _hover: {
           bg: 'colorPalette.solid/90',
@@ -122,39 +85,83 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.solid/90',
         },
       },
+
       subtle: {
-        bg: 'colorPalette.subtle',
+        bg: 'colorPalette.muted',
         color: 'colorPalette.fg',
         _hover: {
-          bg: 'colorPalette.muted',
+          bg: 'colorPalette.subtle',
         },
         _expanded: {
-          bg: 'colorPalette.muted',
+          bg: 'colorPalette.subtle',
         },
       },
+
+      glass: {
+        bg: 'colorPalette.solid',
+        color: 'colorPalette.contrast',
+        '--btn-shadow': 'shadows.sm',
+        boxShadow:
+          '0 0 0 1px rgba(0,0,0,0.25) inset, 0px 2px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
+        textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+        overflow: 'clip',
+        _after: {
+          content: '""',
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          background: 'linear-gradient(180deg, white 40%, rgba(0,0,0,0.2))',
+          opacity: 0.2,
+          transitionProperty: 'opacity',
+          transitionDuration: 'moderate',
+          pointerEvents: 'none',
+        },
+        _hover: {
+          bg: 'colorPalette.solid',
+          _after: {
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.8) 40%, rgba(0,0,0,0.6))',
+          },
+        },
+        _expanded: {
+          bg: 'colorPalette.solid',
+          _after: {
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.8) 40%, rgba(0,0,0,0.6))',
+          },
+        },
+      },
+
       surface: {
-        bg: 'colorPalette.subtle',
-        color: 'colorPalette.fg',
-        shadow: '0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.muted',
-        _hover: {
-          bg: 'colorPalette.muted',
-        },
-        _expanded: {
-          bg: 'colorPalette.muted',
-        },
-      },
-      outline: {
+        bg: 'colorPalette.muted/20',
         borderWidth: '1px',
-        borderColor: 'colorPalette.muted',
+        borderColor: 'colorPalette.emphasized/90',
         color: 'colorPalette.fg',
+        shadow: 'xs',
         _hover: {
-          bg: 'colorPalette.subtle',
+          bg: 'colorPalette.muted',
+          borderColor: 'colorPalette.emphasized',
         },
         _expanded: {
-          bg: 'colorPalette.subtle',
+          bg: 'colorPalette.muted',
+          borderColor: 'colorPalette.emphasized',
         },
       },
+
+      outline: {
+        borderWidth: '0.5px',
+        borderColor: 'colorPalette.emphasized',
+        color: 'colorPalette.fg',
+        _hover: {
+          bg: 'colorPalette.muted',
+        },
+        _expanded: {
+          bg: 'colorPalette.muted',
+        },
+      },
+
       ghost: {
         color: 'colorPalette.fg',
         _hover: {
@@ -164,13 +171,24 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.subtle',
         },
       },
+
       plain: {
         color: 'colorPalette.fg',
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: 'plain',
+      css: {
+        px: 0,
+      },
+    },
+  ],
+
   defaultVariants: {
     size: 'md',
-    variant: 'solid',
+    variant: 'surface',
+    colorPalette: 'gray',
   },
 })

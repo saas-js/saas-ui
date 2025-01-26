@@ -3,22 +3,29 @@ import { createRecipe, mergeRecipes } from './create-recipe.js';
 
 const buttonFn = /* @__PURE__ */ createRecipe('button', {
   "size": "md",
-  "variant": "solid"
-}, [])
+  "variant": "surface",
+  "colorPalette": "gray"
+}, [
+  {
+    "variant": "plain",
+    "css": {
+      "px": 0
+    }
+  }
+])
 
 const buttonVariantMap = {
   "size": [
-    "2xs",
     "xs",
     "sm",
     "md",
     "lg",
-    "xl",
-    "2xl"
+    "xl"
   ],
   "variant": [
     "solid",
     "subtle",
+    "glass",
     "surface",
     "outline",
     "ghost",

@@ -1,14 +1,16 @@
 'use client'
 
+import { useState } from 'react'
+
 import {
   Box,
   Flex,
   FlexProps,
   Grid,
   GridItem,
-  styled,
   type StyledComponent,
   Wrap,
+  styled,
 } from '@saas-ui/panda/jsx'
 import { ComponentProps } from '@saas-ui/panda/types'
 import {
@@ -27,7 +29,6 @@ import {
   Tag,
 } from '@saas-ui/react-panda'
 import { ChevronDownIcon } from 'lucide-react'
-import { useState } from 'react'
 import { HiSortAscending } from 'react-icons/hi'
 import { LuClipboardPaste, LuCopy, LuScissors } from 'react-icons/lu'
 
@@ -66,6 +67,13 @@ export function ButtonShowcase() {
       <Title>Button</Title>
 
       <Wrap>
+        <Button size={'xl'}>Extra large</Button>
+        <Button size={'lg'}>Large</Button>
+        <Button size={'md'}>Medium</Button>
+        <Button size={'sm'}>Small</Button>
+        <Button size={'xs'}>Extra Small</Button>
+      </Wrap>
+      <Wrap>
         <Button variant={'solid'} colorPalette={'purple'}>
           Solid
         </Button>
@@ -74,6 +82,9 @@ export function ButtonShowcase() {
         </Button>
         <Button variant={'subtle'} colorPalette={'purple'}>
           Subtle
+        </Button>
+        <Button variant={'glass'} colorPalette={'purple'}>
+          Glass
         </Button>
         <Button variant={'outline'} colorPalette={'purple'}>
           Outline

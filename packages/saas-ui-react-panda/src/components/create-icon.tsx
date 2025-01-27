@@ -1,5 +1,3 @@
-import { Icon, IconProps } from './icon'
-
 interface CreateIconOptions {
   /**
    * The icon `svg` viewBox
@@ -14,15 +12,15 @@ interface CreateIconOptions {
   /**
    * Default props automatically passed to the component; overwriteable
    */
-  defaultProps?: IconProps
+  defaultProps?: React.SVGProps<SVGSVGElement>
 }
 
 export const createIcon = (props: CreateIconOptions) => {
   const { path, defaultProps, viewBox = '0 0 24 24' } = props
 
-  return (props: IconProps) => (
-    <Icon {...defaultProps} viewBox={viewBox} {...props}>
+  return (props: React.SVGProps<SVGSVGElement>) => (
+    <svg {...defaultProps} width={24} height={24} viewBox={viewBox} {...props}>
       {path}
-    </Icon>
+    </svg>
   )
 }

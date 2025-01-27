@@ -10,14 +10,14 @@ import { CheckIcon, ChevronRightIcon } from '../icons'
 
 const { withProvider, withContext } = createStyleContext(menu)
 
-export interface MenuRootProps extends ComponentProps<typeof ArkMenu.Root> {}
+export interface MenuRootProps extends ComponentProps<typeof ArkMenu.Root> { }
 
 export const MenuRootBase = withProvider(styled(ArkMenu.Root))
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuTriggerProps
-  extends ComponentProps<typeof MenuTriggerBase> {}
+  extends ComponentProps<typeof MenuTriggerBase> { }
 
 const MenuTriggerBase = withContext(
   styled(
@@ -35,7 +35,7 @@ const MenuTriggerBase = withContext(
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuContextTriggerProps
-  extends ComponentProps<typeof MenuContextTriggerBase> {}
+  extends ComponentProps<typeof MenuContextTriggerBase> { }
 
 const MenuContextTriggerBase = withContext(
   styled(ArkMenu.ContextTrigger),
@@ -45,34 +45,34 @@ const MenuContextTriggerBase = withContext(
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuPositionerProps
-  extends ComponentProps<typeof MenuPositionerBase> {}
+  extends ComponentProps<typeof MenuPositionerBase> { }
 
 const MenuPositionerBase = withContext(styled(ArkMenu.Positioner), 'positioner')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuSeparatorProps
-  extends ComponentProps<typeof MenuSeparatorBase> {}
+  extends ComponentProps<typeof MenuSeparatorBase> { }
 
 const MenuSeparatorBase = withContext(styled(ArkMenu.Separator), 'separator')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-interface MenuContentBaseProps extends ComponentProps<typeof MenuContentBase> {}
+interface MenuContentBaseProps extends ComponentProps<typeof MenuContentBase> { }
 
 const MenuContentBase = withContext(styled(ArkMenu.Content), 'content')
 
 // arrow
 
 export interface MenuArrowBaseProps
-  extends ComponentProps<typeof MenuArrowBase> {}
+  extends ComponentProps<typeof MenuArrowBase> { }
 
 const MenuArrowBase = withContext(styled(ArkMenu.Arrow), 'arrow')
 
 // arrow tip
 
 export interface MenuArrowTipProps
-  extends ComponentProps<typeof MenuArrowTipBase> {}
+  extends ComponentProps<typeof MenuArrowTipBase> { }
 
 export const MenuArrowTipBase = withContext(
   styled(ArkMenu.ArrowTip),
@@ -82,14 +82,14 @@ export const MenuArrowTipBase = withContext(
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuIndicatorProps
-  extends ComponentProps<typeof MenuIndicatorBase> {}
+  extends ComponentProps<typeof MenuIndicatorBase> { }
 
 const MenuIndicatorBase = withContext(styled(ArkMenu.Indicator), 'indicator')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuItemGroupProps
-  extends ComponentProps<typeof MenuItemGroupBase> {}
+  extends ComponentProps<typeof MenuItemGroupBase> { }
 
 const MenuItemGroupBase = withContext(styled(ArkMenu.ItemGroup), 'itemGroup')
 
@@ -105,35 +105,35 @@ const MenuItemGroupLabelBase = withContext(
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-export interface MenuItemProps extends ComponentProps<typeof MenuItemBase> {}
+export interface MenuItemProps extends ComponentProps<typeof MenuItemBase> { }
 
 const MenuItemBase = withContext(styled(ArkMenu.Item), 'item')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuTriggerItemBaseProps
-  extends ComponentProps<typeof MenuTriggerItemBase> {}
+  extends ComponentProps<typeof MenuTriggerItemBase> { }
 
 const MenuTriggerItemBase = withContext(styled(ArkMenu.TriggerItem), 'item')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuItemTextProps
-  extends ComponentProps<typeof MenuItemTextBase> {}
+  extends ComponentProps<typeof MenuItemTextBase> { }
 
 const MenuItemTextBase = withContext(styled(ArkMenu.ItemText), 'itemText')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuItemCommandBaseProps
-  extends ComponentProps<typeof MenuItemCommandBase> {}
+  extends ComponentProps<typeof MenuItemCommandBase> { }
 
 const MenuItemCommandBase = withContext(styled.kbd, 'itemCommand')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuItemIndicatorBaseProps
-  extends ComponentProps<typeof MenuItemIndicatorBase> {}
+  extends ComponentProps<typeof MenuItemIndicatorBase> { }
 
 const MenuItemIndicatorBase = withContext(
   styled(ArkMenu.ItemIndicator),
@@ -143,14 +143,14 @@ const MenuItemIndicatorBase = withContext(
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuCheckboxItemProps
-  extends ComponentProps<typeof MenuCheckboxItemBase> {}
+  extends ComponentProps<typeof MenuCheckboxItemBase> { }
 
 const MenuCheckboxItemBase = withContext(styled(ArkMenu.CheckboxItem), 'item')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuRadioItemGroupProps
-  extends ComponentProps<typeof RadioItemGroup> {}
+  extends ComponentProps<typeof RadioItemGroup> { }
 
 const MenuRadioItemGroupBase = withContext(
   styled(ArkMenu.RadioItemGroup),
@@ -160,7 +160,7 @@ const MenuRadioItemGroupBase = withContext(
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuRadioItemProps
-  extends ComponentProps<typeof MenuRadioItemBase> {}
+  extends ComponentProps<typeof MenuRadioItemBase> { }
 
 const MenuRadioItemBase = withContext(styled(ArkMenu.RadioItem), 'item')
 
@@ -169,10 +169,10 @@ const MenuRadioItemBase = withContext(styled(ArkMenu.RadioItem), 'item')
 export const MenuContext = ArkMenu.Context
 export const MenuItemContext = ArkMenu.ItemContext
 
-export interface MenuOpenChangeDetails extends ArkMenu.OpenChangeDetails {}
-export interface MenuSelectionDetails extends ArkMenu.SelectionDetails {}
+export interface MenuOpenChangeDetails extends ArkMenu.OpenChangeDetails { }
+export interface MenuSelectionDetails extends ArkMenu.SelectionDetails { }
 export interface MenuHighlightChangeDetails
-  extends ArkMenu.HighlightChangeDetails {}
+  extends ArkMenu.HighlightChangeDetails { }
 
 interface MenuContentProps extends MenuContentBaseProps {
   portalled?: boolean
@@ -207,7 +207,7 @@ export const CheckboxItem = forwardRef<HTMLDivElement, MenuCheckboxItemProps>(
     return (
       <MenuCheckboxItemBase ref={ref} {...props}>
         <MenuIndicatorBase hidden={false}>
-          <CheckIcon />
+          <CheckIcon height={16} width={16} />
         </MenuIndicatorBase>
         {props.children}
       </MenuCheckboxItemBase>
@@ -228,7 +228,7 @@ export const RadioItem = forwardRef<HTMLDivElement, MenuRadioItemProps>(
             transform: 'translateY(-50%)',
           }}
         >
-          <CheckIcon />
+          <CheckIcon height={16} width={16} />
         </MenuItemIndicatorBase>
         <MenuItemTextBase>{children}</MenuItemTextBase>
       </MenuRadioItemBase>

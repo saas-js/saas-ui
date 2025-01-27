@@ -32,7 +32,7 @@ export const CloseButton = forwardRef<
 >(function DrawerCloseTrigger(props, ref) {
   const { children, ...rest } = props
   return (
-    <ChakraDrawer.CloseTrigger position="absolute" {...rest} asChild>
+    <ChakraDrawer.CloseTrigger {...rest} asChild>
       <CloseButtonBase size="sm" ref={ref}>
         {children}
       </CloseButtonBase>

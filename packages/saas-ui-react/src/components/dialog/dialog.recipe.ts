@@ -12,7 +12,7 @@ export const dialogSlotRecipe = defineSlotRecipe({
       top: 0,
       w: '100vw',
       h: '100dvh',
-      zIndex: 'modal',
+      zIndex: 'calc(var(--dialog-z-index) + var(--layer-index, 0) - 1)',
       _open: {
         animationName: 'fade-in',
         animationDuration: 'slow',
@@ -42,7 +42,6 @@ export const dialogSlotRecipe = defineSlotRecipe({
       outline: 0,
       textStyle: 'sm',
       my: 'var(--dialog-margin, var(--dialog-base-margin))',
-      '--dialog-z-index': 'zIndex.layer-4',
       zIndex: 'calc(var(--dialog-z-index) + var(--layer-index, 0))',
       layerStyle: 'overlay',
       _open: {
@@ -53,6 +52,10 @@ export const dialogSlotRecipe = defineSlotRecipe({
       },
     },
     header: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       flex: 0,
       px: '6',
       py: '4',
@@ -78,10 +81,6 @@ export const dialogSlotRecipe = defineSlotRecipe({
     },
     description: {
       color: 'fg.muted',
-    },
-    closeTrigger: {
-      top: '4',
-      insetEnd: '4',
     },
   },
 

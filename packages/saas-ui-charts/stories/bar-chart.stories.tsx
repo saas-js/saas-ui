@@ -143,35 +143,3 @@ export const StackedBySign: Story = {
     )
   },
 }
-
-export const StackedBySign: Story = {
-  args: {
-    data: createData({
-      startDate: '2023-12-01',
-      endDate: '2023-12-31',
-      categories: ['New', 'Active', 'Churned'],
-      startValues: [50, 30, -20],
-      growthRate: 1.05,
-    }),
-    height: '300px',
-    categories: ['New', 'Active', 'Churned'],
-    colors: ['green', 'blue', 'red'],
-    stack: true,
-    stackOffset: 'sign',
-    barSize: 8,
-  },
-  render: (args) => {
-    return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Developers
-          </Heading>
-        </CardHeader>
-        <CardBody>
-          <BarChart {...args} />
-        </CardBody>
-      </Card>
-    )
-  },
-}

@@ -55,10 +55,11 @@ function Highlight({
         <div style={liveEditorStyle} data-language={language}>
           <pre className={className} style={style}>
             {tokens.map((line, i) => {
-              const lineProps = getLineProps({ line, key: i })
+              const { key, ...lineProps } = getLineProps({ line, key: i })
+
               return (
                 <chakra.div
-                  key={i}
+                  key={key ?? i}
                   px="5"
                   bg={shouldHighlightLine(i) ? 'whiteAlpha.200' : undefined}
                   {...lineProps}

@@ -7,12 +7,8 @@ import {
   Text,
   Spinner,
   Center,
-  IconButton,
-  ButtonGroup,
   Card,
   CardBody,
-  Button,
-  Box,
 } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
@@ -20,7 +16,6 @@ import { ButtonLink } from '@/components/link'
 
 import {
   useLocalStorage,
-  Link,
   FormLayout,
   SubmitButton,
   useSnackbar,
@@ -30,21 +25,11 @@ import { Form } from '@saas-ui/forms/zod'
 
 import * as z from 'zod'
 
-import { FaGithub, FaDiscord } from 'react-icons/fa'
-
 import confetti from 'canvas-confetti'
-import { useCurrentUser } from '@saas-ui/auth'
-import { User } from '@supabase/supabase-js'
 
 export function RedeemForm(props) {
   const router = useRouter()
   const snackbar = useSnackbar()
-
-  const user = useCurrentUser<User>()
-
-  const hasDiscord = user?.identities?.some(
-    (identity) => identity.provider === 'discord'
-  )
 
   const [data, setData] = useLocalStorage<{
     licenseKey: string
@@ -56,7 +41,7 @@ export function RedeemForm(props) {
   const [licenseKey, setLicenseKey] = useState<string>('')
 
   const [loading, setLoading] = useState<boolean>(true)
-
+  const [success, setSuccess] = useState<boolean>(false)
   const celebrate = () => {
     confetti({
       zIndex: 999,
@@ -99,8 +84,16 @@ export function RedeemForm(props) {
 
   const handleSubmit = async ({ licenseKey, githubAccount }) => {
     setTimeout(() => {
-      /* @ts-ignore */
-      window?.pirsch?.('Redeem Submitted')
+      try {
+        /* @ts-ignore */
+        window?.pirsch?.('Redeem Submitted', {
+          meta: {
+            aff: localStorage.getItem('aff'),
+          },
+        })
+      } catch (e) {
+        console.log(e)
+      }
     })
     return fetch('/api/redeem', {
       method: 'POST',
@@ -124,6 +117,7 @@ export function RedeemForm(props) {
           discordInvite: response.discordInvite,
           githubInvited: response.githubInvited,
         })
+        setSuccess(true)
       })
       .catch((error) => {
         console.error(error)
@@ -131,19 +125,6 @@ export function RedeemForm(props) {
         window?.pirsch?.('Redeem Failed')
       })
   }
-
-  useEffect(() => {
-    if (user && data?.licenseKey && !user.user_metadata?.licenses) {
-      fetch('/api/sync', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          licenseKey: data.licenseKey,
-          githubAccount: data.githubAccount,
-        }),
-      })
-    }
-  }, [user, data])
 
   let content
 
@@ -153,7 +134,7 @@ export function RedeemForm(props) {
         <Spinner />
       </Center>
     )
-  } else if (data) {
+  } else if (success && data) {
     content = (
       <Stack spacing="4" fontSize="md">
         <Heading size="md">
@@ -166,51 +147,13 @@ export function RedeemForm(props) {
         {data.githubInvited || !router.query.sale_id ? (
           <Text>
             Your Github account <strong>{data.githubAccount}</strong> has been
-            added to the private{' '}
-            <Link href="https://github.com/saas-js/saas-ui-pro" target="_blank">
-              Github repo
-            </Link>
-            .
+            added to the GitHub members team.
           </Text>
         ) : (
           <Text>You will receive a Github invite shortly.</Text>
         )}
 
-        <Text>
-          Your opinion is very important to me, please don&apos;t hestitate to
-          reach out when you have any questions or feedback, especially if you
-          don&apos;t like something :)
-        </Text>
-
-        <Text>Here are some links to get your started.</Text>
-
-        <ButtonGroup>
-          <ButtonLink href="/docs/pro/overview">Documentation</ButtonLink>
-          <ButtonLink
-            href={data.discordInvite}
-            leftIcon={<FaDiscord />}
-            target="_blank"
-          >
-            Discord
-          </ButtonLink>
-
-          <ButtonLink
-            variant="ghost"
-            href="https://github.com/saas-js/saas-ui-pro"
-            leftIcon={<FaGithub />}
-            target="_blank"
-          >
-            Github
-          </ButtonLink>
-
-          <ButtonLink
-            href="https://roadmap.saas-ui.dev"
-            variant="ghost"
-            target="_blank"
-          >
-            Roadmap
-          </ButtonLink>
-        </ButtonGroup>
+        <ButtonLink href="/account">Continue to your account</ButtonLink>
       </Stack>
     )
   } else {

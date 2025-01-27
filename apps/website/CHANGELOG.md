@@ -1,5 +1,150 @@
 # website
 
+## 2.4.14
+
+### Patch Changes
+
+- Updated dependencies [091fd38]
+  - @saas-ui/forms@2.11.0
+  - @saas-ui/file-upload@0.6.1
+  - @saas-ui/react@2.11.4
+
+## 2.4.13
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/forms@2.10.0
+  - @saas-ui/file-upload@0.6.1
+  - @saas-ui/react@2.11.3
+
+## 2.4.12
+
+### Patch Changes
+
+- Updated dependencies [2e9cbf1]
+  - @saas-ui/command-bar@0.9.1
+
+## 2.4.11
+
+### Patch Changes
+
+- Updated dependencies [9550dd4]
+  - @saas-ui/command-bar@0.9.0
+
+## 2.4.10
+
+### Patch Changes
+
+- Updated dependencies [862937a]
+  - @saas-ui/command-bar@0.8.1
+  - @saas-ui/file-upload@0.6.1
+  - @saas-ui/forms@2.9.1
+  - @saas-ui/react@2.11.2
+
+## 2.4.9
+
+### Patch Changes
+
+- @saas-ui/react@2.11.1
+
+## 2.4.8
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/command-bar@0.8.0
+  - @saas-ui/file-upload@0.6.0
+  - @saas-ui/palette@2.2.0
+  - @saas-ui/forms@2.9.0
+  - @saas-ui/react@2.11.0
+
+## 2.4.7
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/react@2.10.5
+  - @saas-ui/forms@2.8.2
+  - @saas-ui/file-upload@0.5.0
+
+## 2.4.6
+
+### Patch Changes
+
+- Updated dependencies [a863a5e]
+  - @saas-ui/react@2.10.4
+
+## 2.4.5
+
+### Patch Changes
+
+- @saas-ui/react@2.10.3
+
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [7669720]
+  - @saas-ui/react@2.10.2
+
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/react@2.10.1
+  - @saas-ui/forms@2.8.1
+  - @saas-ui/file-upload@0.5.0
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/command-bar@0.7.0
+  - @saas-ui/forms@2.8.0
+  - @saas-ui/react@2.10.0
+
+## 2.4.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/command-bar@0.6.1
+  - @saas-ui/forms@2.7.1
+  - @saas-ui/react@2.9.1
+
+## 2.4.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/command-bar@0.6.0
+  - @saas-ui/forms@2.7.0
+  - @saas-ui/react@2.9.0
+
+## 2.3.41
+
+### Patch Changes
+
+- Updated dependencies [5e000e0]
+  - @saas-ui/react@2.8.11
+  - @saas-ui/forms@2.6.11
+
+## 2.3.40
+
+### Patch Changes
+
+- Updated dependencies [fc2203a]
+  - @saas-ui/forms@2.6.10
+  - @saas-ui/react@2.8.10
+
 ## 2.3.39
 
 ### Patch Changes

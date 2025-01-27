@@ -49,7 +49,7 @@ export const Testimonials = () => {
           <Testimonial
             name="Makenna Smutz"
             description="Founder - Heron"
-            avatar="https://pbs.twimg.com/profile_images/1672077486082101251/oYuIjezD_normal.jpg"
+            avatar="https://pbs.twimg.com/profile_images/1811466062195576832/i3ZWxctd_400x400.jpg"
             fontSize="md"
             href="https://twitter.com/KenzSmutz/status/1531625230011088898"
           >
@@ -95,7 +95,7 @@ export const Testimonials = () => {
           <Testimonial
             name="Felipe Barcelos"
             description="CTO - NotifyLog"
-            avatar="https://pbs.twimg.com/profile_images/1547957562120609796/9IhP_Vug_400x400.jpg"
+            avatar="https://pbs.twimg.com/profile_images/1745449170293702657/3lqSo1oy_400x400.png"
             href="https://notifylog.com/"
             fontSize="md"
           >

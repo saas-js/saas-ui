@@ -5,7 +5,7 @@ import weakMemoize from '@emotion/weak-memoize'
 import { FrameContextConsumer, useFrame } from 'react-frame-component'
 import { SaasProvider } from '@saas-ui/react'
 import theme from '../../../../styles/theme'
-import { ColorMode, GlobalStyle, useColorMode } from '@chakra-ui/system'
+import { ColorMode, GlobalStyle, useColorMode } from '@chakra-ui/react'
 
 let memoizedCreateCacheWithContainer = weakMemoize((container: Node) => {
   let newCache = createCache({ key: 'frame', container })

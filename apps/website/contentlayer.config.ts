@@ -118,9 +118,10 @@ const contentLayerConfig = makeSource({
   contentDirPath: 'src/pages',
 
   documentTypes: [Blog, Doc, Changelog],
+
   mdx: {
-    rehypePlugins: [rehypeMdxCodeMeta],
-    remarkPlugins: [rehypeSlug, remarkGfm, remarkEmoji],
+    rehypePlugins: [rehypeSlug, rehypeMdxCodeMeta],
+    remarkPlugins: [remarkGfm, remarkEmoji],
   },
 })
 

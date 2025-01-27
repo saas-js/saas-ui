@@ -1,7 +1,6 @@
 import Frame from 'react-frame-component'
 import { FrameProvider } from './frame-provider'
 import { useEffect, useState } from 'react'
-import { forwardRef } from '@chakra-ui/system'
 import { Portal, useMergeRefs } from '@chakra-ui/react'
 import { SaasProviderProps } from '@saas-ui/react'
 

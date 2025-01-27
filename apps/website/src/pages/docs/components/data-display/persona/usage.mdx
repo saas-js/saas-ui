@@ -229,7 +229,7 @@ export default function Sizes() {
 
 ```jsx
 import { Avatar, AvatarBadge } from '@chakra-ui/react'
-import { TimeIcon } from '@chakra-ui/icons'
+import { FiClock } from 'react-icons/fi'
 import {
   PersonaContainer,
   PersonaDetails,
@@ -247,7 +247,7 @@ export default function CustomPersona({
     <PersonaContainer size="lg">
       <Avatar name={name}>
         <AvatarBadge boxSize="1em" border="0" bg="presence.away">
-          <TimeIcon />
+          <FiClock />
         </AvatarBadge>
       </Avatar>
       <PersonaDetails>
@@ -263,7 +263,7 @@ export default function CustomPersona({
 ### Status icon
 
 ```jsx
-import { PhoneIcon } from '@chakra-ui/icons'
+import { FiPhone } from 'react-icons/fi'
 import { Persona } from '@saas-ui/react'
 
 export default function StatusIcon() {
@@ -273,7 +273,7 @@ export default function StatusIcon() {
       presence="busy"
       secondaryLabel={
         <>
-          <PhoneIcon /> On a call
+          <FiPhone /> On a call
         </>
       }
     />

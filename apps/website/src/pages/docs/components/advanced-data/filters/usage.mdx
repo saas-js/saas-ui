@@ -362,6 +362,14 @@ export default function ListPage() {
 
 Filter `items` can be async. This is useful when you need to fetch data from an API.
 
+The `items` handler receives the current query, filter id and value as arguments.
+
+<Info>
+  Values returned from the `items` handler will be cached, but the handler will
+  execute on every change. It's up to you to make sure any requests get deduped,
+  using React Query or similar.
+</Info>
+
 ```jsx inline=true
 import { Spacer, Badge } from '@chakra-ui/react'
 import {
@@ -392,7 +400,7 @@ export default function ListPage() {
         label: 'Tag',
         icon: <FiTag />,
         type: 'enum',
-        items: async (query) => {
+        items: async ({ query, id, value }) => {
           console.log('query', query)
           const tags = await getTags(query)
           return tags.map((tag) => ({

@@ -1,6 +1,6 @@
 import { Badge } from '@chakra-ui/react'
 import pkg from '../../../../packages/saas-ui-react/package.json'
-import proPkg from '../../../../packages/pro/saas-ui/react/package.json'
+import proPkg from '../../../../packages/pro/packages/react/package.json'
 
 export const Version = (props: { version?: string; pro?: boolean }) => {
   return (

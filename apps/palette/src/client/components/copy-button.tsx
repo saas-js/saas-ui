@@ -4,9 +4,9 @@ import {
   Tooltip,
   useClipboard,
 } from '@chakra-ui/react'
-import React from 'react'
 
-import { CopyIcon, CheckIcon } from '@chakra-ui/icons'
+import React from 'react'
+import { FiCheck, FiCopy } from 'react-icons/fi'
 
 interface CopyButtonProps extends ButtonProps {
   code: string
@@ -34,7 +34,7 @@ function CopyButton({ code, ...props }: CopyButtonProps) {
         aria-label="copy"
         onClick={onCopy}
       >
-        {hasCopied ? <CheckIcon /> : <CopyIcon />}
+        {hasCopied ? <FiCheck /> : <FiCopy />}
       </IconButton>
     </Tooltip>
   )

@@ -11,32 +11,32 @@
     "generate": "prisma generate"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^1.1.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@prisma/client": "^5.8.1",
-    "@saas-ui/assets": "^1.0.0",
-    "@saas-ui/auth": "^2.4.5",
-    "@saas-ui/react": "^2.5.5",
-    "framer-motion": "^11.0.3",
-    "next": "^14.1.0",
-    "next-auth": "^4.24.5",
-    "nodemailer": "^6.9.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "typescript": "^5.3.3"
+    "@auth/prisma-adapter": "^2.7.2",
+    "@chakra-ui/react": "^2.10.3",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@prisma/client": "^5.21.1",
+    "@saas-ui/assets": "^1.1.0",
+    "@saas-ui/auth": "^3.4.3",
+    "@saas-ui/react": "^2.10.2",
+    "framer-motion": "^11.11.9",
+    "next": "^14.2.15",
+    "next-auth": "^4.24.8",
+    "nodemailer": "^6.9.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.10",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "prisma": "^5.8.1"
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "prisma": "^5.21.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui.git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
     "directory": "examples/next-auth"
   },
   "bugs": {

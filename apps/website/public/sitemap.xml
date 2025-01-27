@@ -9,7 +9,5 @@
   <sitemap>
     <loc>https://www.saas-ui.dev/docs.xml</loc>
   </sitemap>
-  <sitemap>
-    <loc>https://www.saas-ui.dev/changelog.xml</loc>
-  </sitemap>
+
 </sitemapindex>

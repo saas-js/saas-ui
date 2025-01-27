@@ -1,7 +1,7 @@
 {
   "name": "saas-ui-storybook",
   "type": "module",
-  "version": "2.0.9",
+  "version": "2.1.12",
   "scripts": {
     "dev": "storybook dev -p 6006 --debug",
     "build": "storybook build --debug --loglevel verbose"

@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.27
+
+### Patch Changes
+
+- 56b0623: Update with upstream changes
+- 56b0623: Fixed issue where backdrop would render on top of dialog and drawer
+
 ## 3.0.0-alpha.26
 
 ### Patch Changes

@@ -231,6 +231,115 @@
 - Updated dependencies
   - @saas-ui/react@3.0.0-alpha.0
 
+## 4.2.4
+
+### Patch Changes
+
+- @saas-ui/react@2.11.4
+
+## 4.2.3
+
+### Patch Changes
+
+- @saas-ui/react@2.11.3
+
+## 4.2.2
+
+### Patch Changes
+
+- Updated dependencies [862937a]
+  - @saas-ui/react@2.11.2
+
+## 4.2.1
+
+### Patch Changes
+
+- @saas-ui/react@2.11.1
+
+## 4.2.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/react@2.11.0
+
+## 4.1.7
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/react@2.10.5
+
+## 4.1.6
+
+### Patch Changes
+
+- Updated dependencies [a863a5e]
+  - @saas-ui/react@2.10.4
+
+## 4.1.5
+
+### Patch Changes
+
+- @saas-ui/react@2.10.3
+
+## 4.1.4
+
+### Patch Changes
+
+- Updated dependencies [7669720]
+  - @saas-ui/react@2.10.2
+
+## 4.1.3
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/react@2.10.1
+
+## 4.1.2
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/react@2.10.0
+
+## 4.1.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/react@2.9.1
+
+## 4.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/react@2.9.0
+
+## 4.0.11
+
+### Patch Changes
+
+- Updated dependencies [5e000e0]
+  - @saas-ui/react@2.8.11
+
+## 4.0.10
+
+### Patch Changes
+
+- @saas-ui/react@2.8.10
+
 ## 4.0.9
 
 ### Patch Changes

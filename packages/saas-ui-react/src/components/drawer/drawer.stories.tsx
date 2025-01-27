@@ -22,6 +22,7 @@ export const Basic = () => {
       <Drawer.Content>
         <Drawer.Header>
           <Drawer.Title>Drawer Title</Drawer.Title>
+          <Drawer.CloseButton />
         </Drawer.Header>
         <Drawer.Body>
           <p>
@@ -35,7 +36,6 @@ export const Basic = () => {
           </Drawer.ActionTrigger>
           <Button>Save</Button>
         </Drawer.Footer>
-        <Drawer.CloseButton />
       </Drawer.Content>
     </Drawer.Root>
   )
@@ -53,6 +53,7 @@ export const Attached = () => {
       <Drawer.Content>
         <Drawer.Header>
           <Drawer.Title>Drawer Title</Drawer.Title>
+          <Drawer.CloseButton />
         </Drawer.Header>
         <Drawer.Body>
           <p>
@@ -66,7 +67,6 @@ export const Attached = () => {
           </Drawer.ActionTrigger>
           <Button>Save</Button>
         </Drawer.Footer>
-        <Drawer.CloseButton />
       </Drawer.Content>
     </Drawer.Root>
   )

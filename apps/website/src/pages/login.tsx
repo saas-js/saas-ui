@@ -1,4 +1,5 @@
 import SaasUIGlyph from '@/components/saas-ui-glyph'
+import { getAbsoluteUrl } from '@/utils/get-absolute-url'
 import { Center, Container } from '@chakra-ui/react'
 import { AvailableProviders, LoginView } from '@saas-ui/auth'
 import { useSnackbar } from '@saas-ui/react'
@@ -13,15 +14,8 @@ const providers: AvailableProviders = {
   discord: {
     name: 'Discord',
     icon: () => <FaDiscord size="1.1rem" color="#7289da" />,
+    scopes: 'guilds.join',
   },
-}
-
-const getAbsoluteUrl = (path: string) => {
-  if (typeof window === 'undefined') {
-    return path
-  }
-  const url = new URL(path, window.location.origin)
-  return url.toString()
 }
 
 export default function LoginPage() {
@@ -29,10 +23,18 @@ export default function LoginPage() {
 
   const redirectUrl = router.query.redirectUrl?.toString() || ''
 
+  const callbackPort = router.query.callbackPort?.toString() || ''
+
+  const url = callbackPort
+    ? getAbsoluteUrl(`/cli?port=${callbackPort}`)
+    : getAbsoluteUrl(redirectUrl)
+
   const snackbar = useSnackbar()
 
+  console.log(url)
+
   return (
-    <Center h="calc(100vh - 260px)">
+    <Center h="calc(100vh - 260px)" minH="500px">
       <Container maxW="container.sm" py="20">
         <Center py="8">
           <SaasUIGlyph width="48px" />
@@ -40,7 +42,7 @@ export default function LoginPage() {
         <LoginView
           title="Log in to Saas UI"
           providers={providers}
-          redirectUrl={getAbsoluteUrl(redirectUrl)}
+          redirectUrl={url}
           onError={(e) => snackbar.error(e.message)}
           fields={{
             submit: {

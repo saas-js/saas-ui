@@ -28,7 +28,7 @@ import {
   HTMLChakraProps,
   ThemingProps,
   omitThemingProps
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 
 interface <%= component %>Options {
 }

@@ -1,0 +1,135 @@
+---
+title: Conventions
+description: Learn about the conventions used in the API.
+---
+
+## Overview
+
+The API lives in the `packages/api` folder and is split into multiple modules.
+A module consists of a service, a set of procedures, schemas and DTO types.
+
+- **Module**: A module groups related functionality together.
+- **Service**: A service defines the business logic for a specific domain.
+- **Procedure**: Exposes a service to the client and can be a query, mutation, or subscription.
+- **Schema**: A Zod schema that defines the shape of the input and output of a procedure.
+- **DTO**: Data Transfer Object, a type that is shared between the client and the server.
+
+## Modules
+
+Each module is a folder that contains the following files:
+
+- `module.service.ts`: The business logic for the module.
+- `module.router.ts`: The procedures that are exposed to the client.
+- `module.schema.ts`: The schemas for the procedures.
+
+## Services
+
+Defining the business logic in a service allows us to keep the API layer thin and focused on handling requests and responses.
+Services can also be used in other parts of the application, such as background jobs or cron tasks.
+
+Methods in a service should be pure functions that take input and return output.
+
+Naming your functions in a service should be descriptive and follow a consistent pattern.
+
+Some examples:
+
+- `createUser`
+- `updateUser`
+- `deleteUser`
+- `getUserById`
+- `listUsers`
+
+## Routers
+
+A router is a collection of procedures that are exposed to the client.
+Learn more about defining procedures in the [Procedures](/docs/nextjs-starterkit/api/define-procedures) section.
+
+## Schemas
+
+Schemas are used to validate the input and output of procedures.
+We use Zod to define schemas because it provides a simple and expressive way to define data shapes and works well with tRPC and TypeScript.
+
+To speed up development, you can generate the schemas from your database models.
+
+<Info>
+  Schema's that are inferred from the database models should not be shared with
+  the client to prevent leaking any implementation details.
+</Info>
+
+```ts
+import { z } from 'zod'
+
+import { createInsertSchema, users } from '@acme/db'
+
+const UserSchema = createInsertSchema(users)
+
+export type UserDTO = z.infer<typeof UserSchema>
+
+export const CreateUserSchema = createInsertSchema(users)
+
+export const UpdateUserSchema = createInsertSchema(users)
+```
+
+## Example module
+
+### Service
+
+We define a service for the `users` module that contains the business logic for managing users.
+
+```ts
+// packages/api/modules/users/users.service.ts
+import { eq } from 'drizzle-orm'
+import { z } from 'zod'
+
+import { db, users } from '@acme/db'
+
+import { UpdateUserSchema } from './users.schema'
+
+export const updateUserById = async (
+  input: z.infer<typeof UpdateUserSchema>
+) => {
+  const { id, ...$set } = input
+  const result = await db
+    .update(users)
+    .set($set)
+    .where(eq(users.id, id))
+    .returning({
+      id: users.id,
+    })
+
+  return result[0]
+}
+```
+
+### Router
+
+We define a router for the `users` module that exposes the `updateProfile` procedure to the client.
+
+```ts
+// packages/api/modules/users/users.router.ts
+import { z } from 'zod'
+
+import { createTRPCRouter, protectedProcedure, TRPCError } from '#trpc'
+
+import { UpdateUserSchema } from './users.schema.ts'
+import { updateUserById } from './users.service'
+
+export const usersRouter = createTRPCRouter({
+  updateProfile: protectedProcedure
+    .input(UpdateUserSchema.pick({ name: true, email: true, avatar: true }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        await updateUserById({
+          id: ctx.session.user.id,
+          ...input,
+        })
+      } catch (error: unknown) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to update profile',
+          cause: error,
+        })
+      }
+    }),
+})
+```

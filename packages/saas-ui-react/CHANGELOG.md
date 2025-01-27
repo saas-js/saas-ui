@@ -235,11 +235,187 @@
 
 - v3 alpha release
 
+## 2.11.4
+
+### Patch Changes
+
+- Updated dependencies [091fd38]
+  - @saas-ui/forms@2.11.0
+  - @saas-ui/modals@2.4.4
+  - @saas-ui/data-table@13.0.4
+
+## 2.11.3
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/forms@2.10.0
+  - @saas-ui/modals@2.4.3
+  - @saas-ui/data-table@13.0.3
+
+## 2.11.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/data-table@13.0.2
+  - @saas-ui/nprogress@2.2.1
+  - @saas-ui/hotkeys@2.5.1
+  - @saas-ui/modals@2.4.2
+  - @saas-ui/forms@2.9.1
+  - @saas-ui/theme@2.6.1
+  - @saas-ui/core@2.8.1
+
+## 2.11.1
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/hooks@2.3.0
+  - @saas-ui/modals@2.4.1
+  - @saas-ui/data-table@13.0.1
+
+## 2.11.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/data-table@13.0.0
+  - @saas-ui/nprogress@2.2.0
+  - @saas-ui/hotkeys@2.5.0
+  - @saas-ui/modals@2.4.0
+  - @saas-ui/forms@2.9.0
+  - @saas-ui/hooks@2.2.0
+  - @saas-ui/theme@2.6.0
+  - @saas-ui/core@2.8.0
+
+## 2.10.5
+
+### Patch Changes
+
+- c9daf50: Fixed issue where link component prop would not be passed to NavItem
+- Updated dependencies [c9daf50]
+  - @saas-ui/core@2.7.2
+  - @saas-ui/data-table@12.0.5
+  - @saas-ui/forms@2.8.2
+  - @saas-ui/hotkeys@2.4.2
+  - @saas-ui/modals@2.3.5
+
+## 2.10.4
+
+### Patch Changes
+
+- a863a5e: Updated package type to fix next 15 support
+- Updated dependencies [a863a5e]
+  - @saas-ui/modals@2.3.4
+  - @saas-ui/data-table@12.0.4
+
+## 2.10.3
+
 ### Patch Changes
 
 - Updated dependencies
+  <<<<<<< HEAD
   - @saas-ui/hooks@3.0.0-alpha.0
-  - @saas-ui/core@3.0.0-alpha.0
+  - # @saas-ui/core@3.0.0-alpha.0
+  - @saas-ui/modals@2.3.3
+  - @saas-ui/data-table@12.0.3
+
+## 2.10.2
+
+### Patch Changes
+
+- 7669720: Fixed publint issues
+- Updated dependencies [7669720]
+  - @saas-ui/modals@2.3.2
+  - @saas-ui/data-table@12.0.2
+
+## 2.10.1
+
+### Patch Changes
+
+- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by internal Link prop if href is passed
+- Updated dependencies [5e24ec4]
+  - @saas-ui/core@2.7.1
+  - @saas-ui/data-table@12.0.1
+  - @saas-ui/forms@2.8.1
+  - @saas-ui/hotkeys@2.4.1
+  - @saas-ui/modals@2.3.1
+
+## 2.10.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/hotkeys@2.4.0
+  - @saas-ui/modals@2.3.0
+  - @saas-ui/forms@2.8.0
+  - @saas-ui/core@2.7.0
+  - @saas-ui/data-table@12.0.0
+
+## 2.9.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/data-table@11.0.1
+  - @saas-ui/nprogress@2.1.1
+  - @saas-ui/hotkeys@2.3.1
+  - @saas-ui/modals@2.2.1
+  - @saas-ui/forms@2.7.1
+  - @saas-ui/theme@2.5.1
+  - @saas-ui/core@2.6.1
+
+## 2.9.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/data-table@11.0.0
+  - @saas-ui/nprogress@2.1.0
+  - @saas-ui/hotkeys@2.3.0
+  - @saas-ui/modals@2.2.0
+  - @saas-ui/forms@2.7.0
+  - @saas-ui/hooks@2.1.0
+  - @saas-ui/theme@2.5.0
+  - @saas-ui/core@2.6.0
+
+## 2.8.11
+
+### Patch Changes
+
+- 5e000e0: Removed background color from loading overlay fill variant
+- Updated dependencies [5e000e0]
+  - @saas-ui/theme@2.4.2
+  - @saas-ui/core@2.5.6
+  - @saas-ui/data-table@10.0.11
+  - @saas-ui/forms@2.6.11
+  - @saas-ui/hotkeys@2.2.14
+  - @saas-ui/modals@2.1.41
+
+## 2.8.10
+
+### Patch Changes
+
+- Updated dependencies [fc2203a]
+  - @saas-ui/forms@2.6.10
+  - @saas-ui/modals@2.1.40
+  - @saas-ui/data-table@10.0.10
+    > > > > > > > v3
 
 ## 2.8.9
 

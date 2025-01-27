@@ -1,0 +1,59 @@
+---
+title: Supabase Authentication
+description: Configure the Supabase authentication service
+---
+
+Supabase is an open source Firebase alternative that provides a Postgres database, authentication, and real-time data sync.
+
+## Install
+
+Install the Supabase auth service in the Next.js app.
+
+```bash
+yarn workspace web add @acme/auth-supabase
+```
+
+## Configure
+
+Edit `apps/web/.env` and add your public Supabase URL and KEY. You can find your project URL and KEY in the [Supabase console](https://supabase.com/dashboard).
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL="https://x.supabase.co"
+NEXT_PUBLIC_SUPABASE_KEY="x"
+```
+
+Edit `apps/web/features/auth/auth-service` and create the supabase authentication service.
+
+```ts
+import { createAuthService } from '@acme/auth-supabase/client'
+
+export const authService = createAuthService()
+```
+
+Update the next.js Middleware `apps/web/middleware.ts` to use the Supabase authentication service.
+
+```ts
+import { auth } from '@acme/auth-supabase/middleware'
+
+export default auth
+```
+
+Replace all `getSession` imports with the `getSession` from `@acme/auth-supabase` in the following files:
+
+- `apps/web/app/(app)/layout.tsx`
+- `apps/web/app/api/trpc/[trpc]/route.ts`
+- `apps/web/lib/trpc/rsc.ts`
+
+If you have any other files that use `getSession` you will need to replace them as well.
+
+```ts
+import { getSession } from '@acme/auth-supabase'
+```
+
+Now your frontend is configured to use Supabase authentication.
+
+Try it out by running `yarn dev:web` and navigating to `http://localhost:3000`.
+
+## Next steps
+
+- [Customize auth screens](/docs/nextjs-starterkit/authentication/customize-auth-screens)

@@ -66,6 +66,73 @@
 
 - v3 alpha release
 
+## 2.8.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/react-utils@2.2.1
+  - @saas-ui/theme@2.6.1
+
+## 2.8.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/react-utils@2.2.0
+  - @saas-ui/theme@2.6.0
+
+## 2.7.2
+
+### Patch Changes
+
+- c9daf50: Fixed issue where link component prop would not be passed to NavItem
+
+## 2.7.1
+
+### Patch Changes
+
+- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by internal Link prop if href is passed
+
+## 2.7.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+## 2.6.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/react-utils@2.1.1
+  - @saas-ui/theme@2.5.1
+
+## 2.6.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/react-utils@2.1.0
+  - @saas-ui/theme@2.5.0
+
+## 2.5.6
+
+### Patch Changes
+
+- Updated dependencies [5e000e0]
+  - @saas-ui/theme@2.4.2
+
 ## 2.5.5
 
 ### Patch Changes

@@ -73,6 +73,30 @@
 - Updated dependencies
   - @saas-ui/core@3.0.0-alpha.0
 
+## 2.2.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
+## 2.2.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+## 2.1.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
+## 2.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 2.0.3
 
 ### Patch Changes

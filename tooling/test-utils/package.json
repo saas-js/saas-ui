@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=3",
-    "@emotion/styled": ">=11",
+    "@emotion/react": ">=11",
     "@storybook/addon-a11y": ">=8",
     "@storybook/client-api": ">=8",
     "@storybook/preview-web": ">=8",

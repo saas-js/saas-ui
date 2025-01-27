@@ -1,0 +1,172 @@
+---
+title: Define procedures
+description: Learn how to extend your API by defining procedures.
+---
+
+A procedure is a function that is exposed to the client, it can be one of:
+
+- a `Query` - used to fetch data.
+- a `Mutation` - used to modify data.
+- a `Subscription` - used to listen to data changes.
+
+## Base procedures
+
+Reusable base procedures is a pattern that allows you to define a set of procedures that can be reused across multiple services.
+
+The starterkit ships with a set of base procedures that you can use to get started.
+
+### Public procedure
+
+A public procedure is available to all clients and doesn't require authentication.
+
+```ts
+// packages/api/modules/posts/posts.router.ts
+import { z } from 'zod'
+
+import { createTRPCRouter, publicProcedure, TRPCError } from '#trpc'
+
+import { getLatestPosts } from './posts.service'
+
+export const postsRouter = createTRPCRouter({
+  latestPosts: publicProcedure.input(
+    z.object({
+      offset: z.number().default(0),
+      limit: z.number().default(10),
+    })
+  ).query(async ({ input }) {
+    try {
+      return await getLatestPosts(input)
+    } catch (error: unknown) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        message: 'Failed to fetch latest posts',
+        cause: error,
+      })
+    }
+  })
+})
+```
+
+### Protected procedure
+
+A protected procedure requires a user to be authenticated.
+
+You can access the `session` and `user` object in the `ctx` argument.
+
+```ts
+// packages/api/modules/posts/posts.router.ts
+import { z } from 'zod'
+
+import { createTRPCRouter, protectedProcedure, TRPCError } from '#trpc'
+
+import { addComment } from './posts.service'
+
+export const postsRouter = createTRPCRouter({
+  addComment: protectedProcedure.input(
+    z.object({
+      postId: z.string(),
+      content: z.string(),
+    })
+  ).mutation(async ({ ctx, input }) {
+    try {
+      return await addComment({
+        userId: ctx.session.user.id,
+        ...input,
+      })
+    } catch (error: unknown) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        message: 'Failed to add comment',
+        cause: error,
+      })
+    }
+  })
+})
+```
+
+### Workspace procedure
+
+A workspace procedure requires the user to be authenticated and belong to the supplied workspace.
+
+The `workspaceId` is passed in the input object. Both `workspace` and `workspaceMember` are available in the `ctx` object.
+
+The `workspaceMember` object contains the `role` of the user in the workspace.
+
+```ts
+// packages/api/modules/posts/posts.router.ts
+import { z } from 'zod'
+
+import { createTRPCRouter, workspaceProcedure, TRPCError } from '#trpc'
+
+import { createPost } from './posts.service'
+
+export const postsRouter = createTRPCRouter({
+  createPost: workspaceProcedure.input(
+    z.object({
+      content: z.string(),
+    })
+  ).mutation(async ({ ctx, input }) {
+    try {
+      if (!['admin', 'editor'].includes(ctx.workspaceMember.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'You do not have permission to create posts',
+        })
+      }
+
+      return await createPost({
+        workspaceId: ctx.workspace.id,
+        authorId: ctx.session.user.id,
+        ...input,
+      })
+    } catch (error: unknown) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        message: 'Failed to create post',
+        cause: error,
+      })
+    }
+  })
+})
+```
+
+### Admin procedure
+
+An admin procedure requires the user to be authenticated and have the `admin` role.
+
+This procedure extends the `workspaceProcedure` and supplies the same `ctx` object.
+
+```ts
+// packages/api/modules/posts/posts.router.ts
+import { z } from 'zod'
+
+import { createTRPCRouter, adminProcedure, TRPCError } from '#trpc'
+
+import { deletePost } from './posts.service'
+
+export const postsRouter = createTRPCRouter({
+  deletePost: adminProcedure.input(
+    z.object({
+      id: z.string(),
+    })
+  ).mutation(async ({ ctx, input }) {
+    try {
+      return await deletePost({
+        workspaceId: ctx.workspace.id,
+        id: input.id,
+      })
+    } catch (error: unknown) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        message: 'Failed to delete post',
+        cause: error,
+      })
+    }
+  })
+})
+```
+
+## Next steps
+
+- [Read more about tRPC procedures](https://trpc.io/docs/server/procedures)
+- [Fetching data](/docs/nextjs-starterkit/api/fetching-data)

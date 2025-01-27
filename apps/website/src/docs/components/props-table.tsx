@@ -1,5 +1,4 @@
 import { getPropDoc } from '@saas-ui/props-docs'
-import { getPropDoc as getChakraPropDoc } from '@chakra-ui/props-docs'
 import { transparentize } from '@chakra-ui/theme-tools'
 import {
   Box,
@@ -152,7 +151,7 @@ const customTable: Record<string, any> = {
 }
 
 function makePropsTable({ of, omit, only }: MakePropsTableOptions) {
-  const props = customTable[of] ?? getPropDoc(of) ?? getChakraPropDoc(of)
+  const props = customTable[of] ?? getPropDoc(of)
 
   if (!props) return []
 

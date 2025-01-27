@@ -22,6 +22,7 @@ export const Basic = () => {
       <Dialog.Content>
         <Dialog.Header>
           <Dialog.Title>Dialog Title</Dialog.Title>
+          <Dialog.CloseButton />
         </Dialog.Header>
         <Dialog.Body>
           <p>
@@ -35,7 +36,6 @@ export const Basic = () => {
           </Dialog.ActionTrigger>
           <Button>Save</Button>
         </Dialog.Footer>
-        <Dialog.CloseButton />
       </Dialog.Content>
     </Dialog.Root>
   )
@@ -53,6 +53,8 @@ export const Contained = () => {
       <Dialog.Content>
         <Dialog.Header>
           <Dialog.Title>Dialog Title</Dialog.Title>
+
+          <Dialog.CloseButton />
         </Dialog.Header>
         <Dialog.Body>
           <p>
@@ -66,7 +68,6 @@ export const Contained = () => {
           </Dialog.ActionTrigger>
           <Button>Save</Button>
         </Dialog.Footer>
-        <Dialog.CloseButton />
       </Dialog.Content>
     </Dialog.Root>
   )

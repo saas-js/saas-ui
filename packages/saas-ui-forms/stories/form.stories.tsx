@@ -47,14 +47,30 @@ export default {
 
 type Story = StoryObj<typeof Form>
 
-const loginSchema = yup.object({
-  email: yup.string().email().required().label('Email address'),
-  password: yup
-    .string()
-    .required()
-    .label('Password')
-    .meta({ type: 'password' }),
+const loginSchema = z.object({
+  email: z.string().email().describe('Email address'),
+  password: z.string().describe(
+    zodMeta({
+      label: 'Password',
+      type: 'password',
+    }),
+  ),
 })
+
+const signupSchema = z
+  .object({
+    email: z.string().email().describe('Email address'),
+    password: z.string().describe('Password').min(8),
+    confirmPassword: z.string().describe('Confirm password'),
+  })
+  .superRefine((data, ctx) => {
+    if (data.password !== data.confirmPassword) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Passwords do not match',
+      })
+    }
+  })
 
 export const Basic: Story = {
   render() {
@@ -253,6 +269,35 @@ export const WithZodSchema: StoryObj<typeof ZodForm> = {
               infoLabel="Hello there"
             />
             <SubmitButton />
+          </FormLayout>
+        )}
+      </ZodForm>
+    )
+  },
+}
+
+export const ZodSuperRefine: StoryObj<typeof ZodForm> = {
+  render(props) {
+    return (
+      <ZodForm
+        schema={signupSchema}
+        defaultValues={{
+          email: '',
+          password: '',
+          confirmPassword: '',
+        }}
+        onSubmit={props?.onSubmit || onSubmit}
+      >
+        {({ Field }) => (
+          <FormLayout>
+            <Field name="email" label="Email" />
+            <Field name="password" label="Password" type="password" />
+            <Field
+              name="confirmPassword"
+              type="password"
+              label="Confirm password"
+            />
+            <SubmitButton>Sign up</SubmitButton>
           </FormLayout>
         )}
       </ZodForm>

@@ -19,7 +19,6 @@ import { PackageManagers } from './package-managers'
 import * as React from 'react'
 import CodeBlock from './codeblock/codeblock'
 import ComponentLinks from './component-links'
-import IconsList from './icons-list'
 import { LinkCard } from '../link-card'
 import { QuickLink } from '../quick-link'
 import { NpmAuthToken } from '../npm-auth-token'
@@ -154,7 +153,6 @@ export const MDXComponents = {
   BestPractises,
   HStack,
   ComponentLinks,
-  IconsList,
   PropsTable,
   FrameworkLinks,
   FrameworkLinksPro,

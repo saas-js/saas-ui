@@ -35,45 +35,45 @@ A full working example can be found in the [examples](https://github.com/saas-js
 yarn add @clerk/clerk-react @saas-ui/clerk @saas-ui/auth
 ```
 
-## Import
-
-```js
-import { ClerkAuthProvider } from '@saas-ui/clerk'
-```
-
 ## Usage
 
 ### Setup AuthProvider
 
-Add `ClerkAuthProvider` to the root of your app and configure the auth service.
-
-<Info>
-  ClerkAuthProvider will add `ClerkProvider` for you, so you can use all
-  build-in Clerk hooks and components in your app.
-</Info>
+Add `ClerkProvider` to the root of your app and configure the auth service.
 
 ```tsx
+import { useMemo } from 'react'
+import { SaasProvider } from '@saas-ui/react'
+import { createAuthService } from '@saas-ui/clerk'
 import { AuthProvider } from '@saas-ui/auth'
-import { ClerkAuthProvider } from '@saas-ui/clerk'
+import { useClerk, ClerkProvider } from '@clerk/clerk-react'
 
-// You can find the publishable key in the Clerk dashboard.
-
-// Authentication with frontendApi is considered legacy.
-const frontendApi = 'clerk.x.x.lcl.dev'
-
-function App({ children }) {
+export function Provider({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkAuthProvider
-      frontendApi={frontendApi}
-      publishableKey={process.env.CLERK_PUBLISABLE_KEY}
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
     >
-      {({ authService }) => (
-        <SaasProvider>
-          <AuthProvider {...authService}>{children}</AuthProvider>
-        </SaasProvider>
-      )}
-    </ClerkAuthProvider>
+      <SaasProvider>
+        <AuthServiceProvider>{children}</AuthServiceProvider>
+      </SaasProvider>
+    </ClerkProvider>
   )
+}
+
+function AuthServiceProvider({ children }: { children: React.ReactNode }) {
+  const clerk = useClerk()
+
+  const authService = useMemo(() => {
+    if (clerk.loaded) {
+      return createAuthService(clerk)
+    }
+  }, [clerk.loaded])
+
+  if (!clerk.loaded) {
+    return null
+  }
+
+  return <AuthProvider {...authService}>{children}</AuthProvider>
 }
 ```
 
@@ -92,9 +92,3 @@ You can enable this under `Configure > User & Authentication > Email, Phone, Use
 ## Next steps
 
 That's it! Check the [Auth documentation](/docs/components/authentication/auth) to see how to add authentication screens to your app.
-
-## Props
-
-### ClerkAuthProvider Props
-
-<PropsTable of="ClerkAuthProvider" />

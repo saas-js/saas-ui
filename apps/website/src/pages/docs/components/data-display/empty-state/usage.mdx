@@ -62,13 +62,13 @@ import {
   EmptyStateDescription,
   EmptyStateActions,
 } from '@saas-ui/react'
-import { WarningIcon } from '@chakra-ui/icons'
+import { FiAlertCircle } from 'react-icons/fi'
 
 export default function CustomEmptyState() {
   return (
     <EmptyStateContainer colorScheme="red">
       <EmptyStateBody>
-        <EmptyStateIcon as={WarningIcon} />
+        <EmptyStateIcon as={FiAlertCircle} />
 
         <EmptyStateTitle>Whoops, something went wrong</EmptyStateTitle>
         <EmptyStateDescription>Where do you want to go?</EmptyStateDescription>

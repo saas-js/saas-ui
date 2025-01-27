@@ -1,5 +1,126 @@
 # palette
 
+## 1.5.12
+
+### Patch Changes
+
+- @saas-ui/react@2.11.4
+- @saas-ui/theme-glass@0.7.1
+
+## 1.5.11
+
+### Patch Changes
+
+- @saas-ui/react@2.11.3
+- @saas-ui/theme-glass@0.7.1
+
+## 1.5.10
+
+### Patch Changes
+
+- Updated dependencies [862937a]
+  - @saas-ui/theme-glass@0.7.1
+  - @saas-ui/react@2.11.2
+
+## 1.5.9
+
+### Patch Changes
+
+- @saas-ui/react@2.11.1
+- @saas-ui/theme-glass@0.7.0
+
+## 1.5.8
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/theme-glass@0.7.0
+  - @saas-ui/palette@2.2.0
+  - @saas-ui/react@2.11.0
+
+## 1.5.7
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/react@2.10.5
+  - @saas-ui/theme-glass@0.6.1
+
+## 1.5.6
+
+### Patch Changes
+
+- Updated dependencies [a863a5e]
+  - @saas-ui/react@2.10.4
+  - @saas-ui/theme-glass@0.6.1
+
+## 1.5.5
+
+### Patch Changes
+
+- @saas-ui/react@2.10.3
+- @saas-ui/theme-glass@0.6.1
+
+## 1.5.4
+
+### Patch Changes
+
+- Updated dependencies [7669720]
+  - @saas-ui/react@2.10.2
+  - @saas-ui/theme-glass@0.6.1
+
+## 1.5.3
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/react@2.10.1
+  - @saas-ui/theme-glass@0.6.1
+
+## 1.5.2
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/react@2.10.0
+  - @saas-ui/theme-glass@0.6.1
+
+## 1.5.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/theme-glass@0.6.1
+  - @saas-ui/react@2.9.1
+
+## 1.5.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/theme-glass@0.6.0
+  - @saas-ui/react@2.9.0
+
+## 1.4.43
+
+### Patch Changes
+
+- Updated dependencies [5e000e0]
+  - @saas-ui/react@2.8.11
+  - @saas-ui/theme-glass@0.5.5
+
+## 1.4.42
+
+### Patch Changes
+
+- @saas-ui/react@2.8.10
+- @saas-ui/theme-glass@0.5.5
+
 ## 1.4.41
 
 ### Patch Changes

@@ -109,7 +109,7 @@ export const CustomYAxisBounds: Story = {
     categories: ['Backend', 'Frontend'],
     colors: ['purple', 'cyan'],
     minValue: 20,
-    maxValue: 50
+    maxValue: 50,
   },
   render: (args) => {
     return (
@@ -124,5 +124,5 @@ export const CustomYAxisBounds: Story = {
         </CardBody>
       </Card>
     )
-  }
+  },
 }

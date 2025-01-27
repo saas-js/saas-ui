@@ -1,4 +1,4 @@
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 import { CalendarAria } from '@react-aria/calendar'
 import { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 

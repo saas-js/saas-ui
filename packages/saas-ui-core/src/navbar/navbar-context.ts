@@ -1,4 +1,4 @@
-import { createContext } from '@chakra-ui/react-context'
+import { createContext } from '@chakra-ui/utils'
 
 import { UseNavbarReturn } from './use-navbar'
 import { SystemStyleObject } from '@chakra-ui/styled-system'

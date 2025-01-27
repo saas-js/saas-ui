@@ -1,5 +1,141 @@
 # @saas-ui/auth
 
+## 3.6.5
+
+### Patch Changes
+
+- Updated dependencies [091fd38]
+  - @saas-ui/forms@2.11.0
+
+## 3.6.4
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+- Updated dependencies [eb53116]
+  - @saas-ui/forms@2.10.0
+  - @saas-ui/auth-provider@1.2.2
+
+## 3.6.3
+
+### Patch Changes
+
+- Updated dependencies [ac0b682]
+  - @saas-ui/auth-provider@1.2.1
+
+## 3.6.2
+
+### Patch Changes
+
+- Updated dependencies [71b0300]
+  - @saas-ui/auth-provider@1.2.0
+
+## 3.6.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/forms@2.9.1
+  - @saas-ui/core@2.8.1
+
+## 3.6.0
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/hooks@2.3.0
+  - @saas-ui/auth-provider@1.1.0
+
+## 3.5.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/forms@2.9.0
+  - @saas-ui/hooks@2.2.0
+  - @saas-ui/core@2.8.0
+
+## 3.4.4
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/core@2.7.2
+  - @saas-ui/forms@2.8.2
+
+## 3.4.3
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/core@2.7.1
+  - @saas-ui/forms@2.8.1
+
+## 3.4.2
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/forms@2.8.0
+  - @saas-ui/core@2.7.0
+
+## 3.4.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/forms@2.7.1
+  - @saas-ui/core@2.6.1
+
+## 3.4.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/forms@2.7.0
+  - @saas-ui/hooks@2.1.0
+  - @saas-ui/core@2.6.0
+
+## 3.3.1
+
+### Patch Changes
+
+- @saas-ui/core@2.5.6
+- @saas-ui/forms@2.6.11
+
+## 3.3.0
+
+### Minor Changes
+
+- c8c696e: onGetToken no longer required for authentication service
+
+## 3.3.0-next.0
+
+### Minor Changes
+
+- c8c696e: onGetToken no longer required for authentication service
+
+## 3.2.2
+
+### Patch Changes
+
+- Updated dependencies [fc2203a]
+  - @saas-ui/forms@2.6.10
+
 ## 3.2.1
 
 ### Patch Changes

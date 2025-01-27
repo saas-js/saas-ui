@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { hooks, render, act, fireEvent } from '@saas-ui/test-utils'
-import { Button } from '@chakra-ui/button'
+import { Button } from '@chakra-ui/react'
 import {
   RouterProvider,
   useNavigate,

@@ -1,5 +1,92 @@
 # @saas-ui/forms
 
+## 2.11.0
+
+### Minor Changes
+
+- 091fd38: Exported additional types from `index.ts` to make them accessible for external use, improving type coverage and usability.
+
+## 2.10.0
+
+### Minor Changes
+
+- eb53116: Added support for ZodEffects schema to Form
+
+## 2.9.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/core@2.8.1
+
+## 2.9.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/core@2.8.0
+
+## 2.8.2
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/core@2.7.2
+
+## 2.8.1
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/core@2.7.1
+
+## 2.8.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/core@2.7.0
+
+## 2.7.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/core@2.6.1
+
+## 2.7.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/core@2.6.0
+
+## 2.6.11
+
+### Patch Changes
+
+- @saas-ui/core@2.5.6
+
+## 2.6.10
+
+### Patch Changes
+
+- fc2203a: Fixed issue where custom base field would trigger additional re-render and loose field focus
+
 ## 2.6.9
 
 ### Patch Changes

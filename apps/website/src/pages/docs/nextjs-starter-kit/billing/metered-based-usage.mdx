@@ -1,0 +1,46 @@
+---
+title: 'Metered based usage'
+description: 'How to set up and record metered based usage in your application'
+---
+
+Metered based usage is a usage type where the usage is calculated based on the amount of resources used. Examples are:
+
+- AI tokens
+- Storage
+- Bandwidth
+- API requests
+
+## Registering usage
+
+Stripe supports metered based usage through the [meters API](https://docs.stripe.com/api/billing/meter).
+To enable metered based usage you need to create a meter in Stripe for each feature that has a metered based usage type.
+
+[Learn more about meters in Stripe](https://docs.stripe.com/billing/subscriptions/usage-based/implementation-guide).
+
+To register usage you can call the `registerUsage` method of the billing adapter in your procedures.
+
+```ts
+// packages/api/modules/my-module/my-module.router.ts
+import { z } from 'zod'
+
+import {
+  TRPCError,
+  adminProcedure,
+  createTRPCRouter,
+  publicProcedure,
+} from '#trpc'
+
+export const myModuleRouter = createTRPCRouter({
+  chatCompletion: adminProcedure.query(async ({ input, ctx }) => {
+    const account = await getAccount(input.workspaceId)
+
+    // call to openai
+
+    return await ctx.adapters.billing?.registerUsage?.({
+      customerId: account?.customerId,
+      featureId: 'chat-completions',
+      quantity: 1, // eg the tokens used
+    })
+  }),
+})
+```

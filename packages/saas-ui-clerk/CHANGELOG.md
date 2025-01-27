@@ -1,5 +1,114 @@
 # @saas-ui/clerk
 
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/auth-provider@1.2.2
+
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [ac0b682]
+  - @saas-ui/auth-provider@1.2.1
+
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [71b0300]
+  - @saas-ui/auth-provider@1.2.0
+
+## 4.0.0
+
+### Major Changes
+
+- a69829a: Updated to Clerk React 5 and Clerk Nextjs 6
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/auth-provider@1.1.0
+
+## 3.2.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/auth@3.5.0
+
+## 3.1.4
+
+### Patch Changes
+
+- @saas-ui/auth@3.4.4
+
+## 3.1.3
+
+### Patch Changes
+
+- @saas-ui/auth@3.4.3
+
+## 3.1.2
+
+### Patch Changes
+
+- @saas-ui/auth@3.4.2
+
+## 3.1.1
+
+### Patch Changes
+
+- Updated dependencies [f0ee3db]
+  - @saas-ui/auth@3.4.1
+
+## 3.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/auth@3.4.0
+
+## 3.0.50
+
+### Patch Changes
+
+- @saas-ui/auth@3.3.1
+
+## 3.0.49
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0
+
+## 3.0.49-next.0
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0-next.0
+
+## 3.0.48
+
+### Patch Changes
+
+- @saas-ui/auth@3.2.2
+
 ## 3.0.47
 
 ### Patch Changes

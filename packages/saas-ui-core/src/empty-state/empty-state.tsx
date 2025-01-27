@@ -3,7 +3,6 @@ import {
   forwardRef,
   Icon,
   chakra,
-  As,
   ThemingProps,
   omitThemingProps,
   useMultiStyleConfig,
@@ -27,7 +26,7 @@ export interface EmptyStateProps
   extends Omit<EmptyStateContainerProps, 'title'> {
   title?: React.ReactNode
   description?: React.ReactNode
-  icon?: As
+  icon?: React.ElementType
   actions?: React.ReactNode
   footer?: React.ReactNode
   children?: React.ReactNode

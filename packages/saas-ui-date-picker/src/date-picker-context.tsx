@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { createContext } from '@chakra-ui/react-utils'
-import { SystemStyleObject } from '@chakra-ui/system'
+import { SystemStyleObject } from '@chakra-ui/styled-system'
 import {
   DatePickerState,
   DateRangePickerState,
@@ -11,7 +10,7 @@ import {
   useCalendarCell as useAriaCalendarCell,
 } from '@react-aria/calendar'
 import { CalendarState, RangeCalendarState } from '@react-stately/calendar'
-import { dataAttr } from '@chakra-ui/utils'
+import { createContext, dataAttr } from '@chakra-ui/utils'
 import {
   Calendar,
   CalendarDate,
@@ -193,11 +192,11 @@ export const useCalendarCell = (
       ...buttonProps,
       ['data-selected']: dataAttr(isSelected),
       ['data-invalid']: dataAttr(isInvalid),
-      ['data-selection-start']: dataAttr(isSelectionStart),
-      ['data-selection-end']: dataAttr(isSelectionEnd),
+      ['data-selection-start']: dataAttr(isSelectionStart ?? undefined),
+      ['data-selection-end']: dataAttr(isSelectionEnd ?? undefined),
       ['data-range-start']: dataAttr(isRangeStart),
       ['data-range-end']: dataAttr(isRangeEnd),
-      ['data-highlighted']: dataAttr(isRange),
+      ['data-highlighted']: dataAttr(isRange ?? undefined),
       ['data-today']: dataAttr(isSameDay(date, now(context.timeZone))),
       ['data-outside-visible-range']: dataAttr(isOutsideVisibleRange),
       ['data-unavailable']: dataAttr(isUnavailable),

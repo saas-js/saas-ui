@@ -1,11 +1,10 @@
-import { createContext, PropGetter } from '@chakra-ui/react-utils'
 import {
   ResponsiveValue,
   ThemeTypings,
   UseDisclosureReturn,
 } from '@chakra-ui/react'
 import { useAppShellContext } from '../app-shell/app-shell-context'
-import { callAllHandlers } from '@chakra-ui/utils'
+import { callAllHandlers, createContext, PropGetter } from '@chakra-ui/utils'
 
 type Variants = 'compact' | 'default'
 

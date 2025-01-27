@@ -1,5 +1,74 @@
 # @saas-ui/hotkeys
 
+## 2.5.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/core@2.8.1
+
+## 2.5.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/core@2.8.0
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/core@2.7.2
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/core@2.7.1
+
+## 2.4.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/core@2.7.0
+
+## 2.3.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/core@2.6.1
+
+## 2.3.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/core@2.6.0
+
+## 2.2.14
+
+### Patch Changes
+
+- @saas-ui/core@2.5.6
+
 ## 2.2.13
 
 ### Patch Changes

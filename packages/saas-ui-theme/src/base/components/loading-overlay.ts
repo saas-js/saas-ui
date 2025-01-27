@@ -8,7 +8,6 @@ const baseStyle = definePartsStyle({
   overlay: {
     p: 4,
   },
-  text: {},
 })
 
 const variantFill = definePartsStyle(() => {
@@ -16,10 +15,6 @@ const variantFill = definePartsStyle(() => {
     overlay: {
       flex: 1,
       height: '100%',
-      bg: 'whiteAlpha.400',
-      _dark: {
-        bg: 'blackAlpha.400',
-      },
     },
   }
 })

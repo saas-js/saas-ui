@@ -18,6 +18,7 @@ import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
 import { BaseChartProps } from './types'
 import { AxisDomain } from 'recharts/types/util/types'
+import type { LineDot } from 'recharts/types/cartesian/Line'
 
 export interface LineChartProps extends BaseChartProps {
   /**
@@ -29,6 +30,12 @@ export interface LineChartProps extends BaseChartProps {
    * The curve type of the line.
    */
   curveType?: CurveType
+
+  /**
+   * Whether to show line dots.
+   * @default false
+   */
+  dot?: LineDot
 
   /**
    * The width of the line.
@@ -61,6 +68,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       height,
       connectNulls = false,
       curveType = 'linear',
+      dot = false,
       index = 'date',
       startEndOnly = false,
       intervalType = 'equidistantPreserveStart',
@@ -93,7 +101,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
 
     return (
       <Box ref={ref} height={height} fontSize="sm">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
           <ReLineChart data={data}>
             {showGrid && (
               <CartesianGrid
@@ -129,6 +137,8 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               tickLine={false}
               domain={yAxisDomain}
               tick={{ transform: 'translate(-3, 0)' }}
+              // 5 is the default, but 6 typically gives better results
+              tickCount={6}
               type="number"
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
@@ -176,7 +186,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 key={category}
                 type={curveType}
                 dataKey={category}
-                dot={false}
+                dot={dot}
                 stroke={getColor(category)}
                 strokeWidth={strokeWidth}
                 strokeLinejoin="round"

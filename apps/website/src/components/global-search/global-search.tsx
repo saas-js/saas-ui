@@ -9,6 +9,7 @@ import {
   CommandBarItem,
   CommandBarList,
   useCommandState,
+  type CommandBarProps,
 } from '@saas-ui/command-bar'
 
 import coreSidebar from '@/data/core-sidebar'
@@ -21,7 +22,7 @@ import { Fragment } from 'react'
 const items = [
   {
     title: 'Getting started',
-    items: coreSidebar.routes.filter((item) => !item.header),
+    items: coreSidebar.routes.filter((item) => !item.heading),
   },
   {
     title: 'Components',
@@ -43,13 +44,13 @@ const SubItem = (props) => {
   return <CommandBarItem {...props} />
 }
 
-export const GlobalSearch = (props) => {
-  const { onClose } = props
+export const GlobalSearch = (props: Omit<CommandBarProps, 'children'>) => {
+  const { onClose, ...rest } = props
   const router = useRouter()
   return (
-    <CommandBar {...props}>
-      <CommandBarDialog>
-        <CommandBarContent>
+    <CommandBar onClose={onClose} {...rest}>
+      <CommandBarDialog returnFocusOnClose={false}>
+        <CommandBarContent borderWidth="1px">
           <CommandBarInput placeholder="Search docs..." autoFocus />
 
           <CommandBarList px="2">
@@ -75,6 +76,8 @@ export const GlobalSearch = (props) => {
                           value={path}
                           isDisabled={heading && !routes?.length}
                           borderRadius="md"
+                          py="1"
+                          height="10"
                           onSelect={(e) => {
                             if (heading) {
                               return
@@ -83,7 +86,7 @@ export const GlobalSearch = (props) => {
                             } else if (action) {
                               action()
                             }
-                            onClose()
+                            onClose?.()
                           }}
                           sx={{
                             '&[data-disabled=true]': {
@@ -105,7 +108,6 @@ export const GlobalSearch = (props) => {
                         </CommandBarItem>
 
                         {routes?.map(({ title, path, action }: any, i) => {
-                          console.log(path, item.path)
                           if (path === item.path) {
                             return null
                           }
@@ -121,7 +123,7 @@ export const GlobalSearch = (props) => {
                                 } else if (action) {
                                   action()
                                 }
-                                onClose()
+                                onClose?.()
                               }}
                             >
                               {title}

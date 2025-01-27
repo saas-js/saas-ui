@@ -1,8 +1,9 @@
 import { NextAuthProvider } from '@/context/AuthProvider'
-import { SaasProvider } from '@saas-ui/react'
+import { ModalsProvider, SaasProvider } from '@saas-ui/react'
 import { authConfig } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
 import { ColorModeScript } from '@chakra-ui/react'
+
 import { cookies } from 'next/headers'
 
 export default async function RootLayout({
@@ -21,8 +22,10 @@ export default async function RootLayout({
     <html lang="en" data-theme={colorMode} style={{ colorScheme: colorMode }}>
       <body className={`chakra-ui-${colorMode}`}>
         <SaasProvider>
-          <ColorModeScript initialColorMode={colorMode} type="cookie" />
-          <NextAuthProvider session={session}>{children}</NextAuthProvider>
+          <ModalsProvider>
+            <ColorModeScript initialColorMode={colorMode} type="cookie" />
+            <NextAuthProvider session={session}>{children}</NextAuthProvider>
+          </ModalsProvider>
         </SaasProvider>
       </body>
     </html>

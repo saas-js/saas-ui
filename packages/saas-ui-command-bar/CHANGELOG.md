@@ -1,5 +1,47 @@
 # @saas-ui/command-bar
 
+## 0.9.1
+
+### Patch Changes
+
+- 2e9cbf1: Fix overlay position
+
+## 0.9.0
+
+### Minor Changes
+
+- 9550dd4: Add overlay prop to control overlay rendering to CommandBarDialog
+
+## 0.8.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
+## 0.8.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+## 0.7.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+## 0.6.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
+## 0.6.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 0.5.3
 
 ### Patch Changes

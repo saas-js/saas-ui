@@ -8,8 +8,7 @@ import {
   useMultiStyleConfig,
   createStylesContext,
 } from '@chakra-ui/react'
-import { cx } from '@chakra-ui/utils'
-import { createContext } from '@chakra-ui/react-utils'
+import { cx, createContext } from '@chakra-ui/utils'
 
 import { Kbd } from '@chakra-ui/react'
 

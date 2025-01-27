@@ -45,11 +45,10 @@ const Redeem = () => {
               : 'You can find your license key in the purchase confirmation e-mail.'}
           </Text>
 
-          <Text textAlign="center" color="muted" mb="10">
-            After activating you will get access to our private Github
-            repository,
-            <br />
-            blocks and private Discord channels where you can get support.
+          <Text textAlign="center" color="muted" mb="10" maxW="container.md">
+            After activating you will be invited to our GitHub organization and
+            get access to the private repositories and Discord channels where
+            you can get support.
           </Text>
 
           <RedeemForm maxW="xl" />

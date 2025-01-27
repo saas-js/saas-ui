@@ -1,5 +1,35 @@
 # @saas-ui/file-upload
 
+## 0.6.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
+## 0.6.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+## 0.5.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+## 0.4.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
+## 0.4.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 0.3.0
 
 ### Minor Changes

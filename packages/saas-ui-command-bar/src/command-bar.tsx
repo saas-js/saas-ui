@@ -19,7 +19,7 @@ import {
   useCommandBarContext,
   useCommandBarStyles,
 } from './command-bar-context'
-import { cx, dataAttr } from '@chakra-ui/utils'
+import { cx } from '@chakra-ui/utils'
 import { useCommandBar, CommandBarOptions } from './command-bar-context'
 
 import {
@@ -186,16 +186,18 @@ export interface CommandBarDialogProps
   extends Omit<ModalProps, 'variant' | 'isOpen' | 'onClose'> {
   closeOnSelect?: boolean
   contentProps?: ModalContentProps
+  overlay?: boolean
 }
 
 export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
   (props, ref) => {
-    const { children, contentProps, ...rest } = props
+    const { children, contentProps, overlay, ...rest } = props
 
     const { getDialogProps } = useCommandBarContext()
 
     return (
       <Modal scrollBehavior="inside" {...getDialogProps(rest)}>
+        {overlay && <CommandBarOverlay />}
         <ModalContent ref={ref} bg="transparent" {...contentProps}>
           {children}
         </ModalContent>
@@ -206,4 +208,4 @@ export const CommandBarDialog = forwardRef<CommandBarDialogProps, 'div'>(
 
 CommandBarDialog.displayName = 'CommandBarDialog'
 
-export const CommandBarOverlay = ModalOverlay
+const CommandBarOverlay = ModalOverlay

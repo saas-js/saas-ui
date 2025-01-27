@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useId, useTheme } from '@chakra-ui/react'
+import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
 import {
   AreaChart as ReAreaChart,
   Area,
@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts'
+import type { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
 import { createCategoryColors } from './utils'
@@ -35,10 +36,25 @@ export interface AreaChartProps extends BaseChartProps {
    */
   stack?: boolean
   /**
+   * The type of offset function used to generate the lower and upper values in the series array. The four types are built-in offsets in d3-shape.
+   */
+  stackOffset?: 'expand' | 'none' | 'wiggle' | 'silhouette'
+  /**
    * The area chart variant.
    * @default gradient
    */
   variant?: 'solid' | 'gradient' | 'line'
+  /**
+   * The lower bound of the y-axis.
+   * @default 0
+   */
+  minValue?: number | 'auto'
+
+  /**
+   * The upper bound of the y-axis.
+   * @default 'auto'
+   */
+  maxValue?: number | 'auto'
 }
 
 /**
@@ -66,6 +82,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       showXAxis = true,
       showYAxis = true,
       stack = false,
+      stackOffset,
       yAxisWidth = 40,
       legendHeight = 32,
       animationDuration = 500,
@@ -73,10 +90,12 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       variant = 'gradient',
       tooltipContent,
       children,
+      minValue = 0,
+      maxValue = 'auto',
     } = props
 
     const theme = useTheme()
-    const id = useId()
+    const id = React.useId()
 
     const categoryColors = createCategoryColors(categories, colors, theme)
     const getColor = (category: string) => {
@@ -98,6 +117,8 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       }
     }
 
+    const yAxisDomain: AxisDomain = [minValue, maxValue]
+
     return (
       <Box
         ref={ref}
@@ -108,8 +129,8 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
           '--chart-gradient-end-opacity': '0',
         }}
       >
-        <ResponsiveContainer width="100%" height="100%">
-          <ReAreaChart data={data}>
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
+          <ReAreaChart data={data} stackOffset={stackOffset}>
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
@@ -143,9 +164,12 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
               axisLine={false}
               tickLine={false}
               tick={{ transform: 'translate(-3, 0)' }}
+              // 5 is the default, but 6 typically gives better results
+              tickCount={6}
               type="number"
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
+              domain={yAxisDomain}
               style={{
                 color: 'var(--chakra-colors-muted)',
               }}

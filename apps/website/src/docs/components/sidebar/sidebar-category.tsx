@@ -55,7 +55,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef])
 
   return (
-    <chakra.div ps="10" ref={ref} {...rest}>
+    <chakra.div ps="7" ref={ref} {...rest}>
       <chakra.p
         className="sidebar-category-header"
         width="full"

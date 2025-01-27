@@ -8,7 +8,7 @@ import {
 
 import { useFormContext } from './form-context'
 
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 
 export interface UseArrayFieldReturn extends UseFieldArrayReturn {
   /**

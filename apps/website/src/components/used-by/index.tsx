@@ -2,21 +2,25 @@ import { Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import Section, { SectionProps } from '../marketing/section-wrapper'
 import { Polypane } from '../logos/customers/polypane'
 import { Aidbase } from '../logos/customers/aidbase'
-import { Ownco } from '../logos/customers/ownco'
 import { YouGotBud } from '../logos/customers/you-got-bud'
-import { Startec } from '../logos/customers/startec'
+import { Voxtell } from '../logos/customers/voxtell'
 import { Eqtble } from '../logos/customers/eqtble'
+import { Yext } from '../logos/customers/yext'
+import { Growtha } from '../logos/customers/growtha'
 
 export const UsedBy = (props?: Omit<SectionProps, 'children'>) => {
   return (
-    <Section innerWidth="container.xl" {...props}>
+    <Section innerWidth="container.xl" pt="12" {...props}>
       <Heading size="md" fontWeight="medium" textAlign="center" mb="12">
-        Used by indie founders and startups worldwide
+        Used by indie founders and established startups
       </Heading>
-      <SimpleGrid
-        spacing="12"
+      <Flex
+        gap="4"
+        rowGap="12"
+        flexDirection="row"
+        justifyContent="space-around"
+        flexWrap="wrap"
         userSelect="none"
-        columns={{ base: 2, md: 3, xl: 6 }}
         scale={{ base: 0.4, lg: 1 }}
       >
         <Flex justifyContent="center" gap="2" whiteSpace="nowrap">
@@ -29,21 +33,18 @@ export const UsedBy = (props?: Omit<SectionProps, 'children'>) => {
           <Aidbase height="30px" />
         </Flex>
         <Flex justifyContent="center">
-          <Ownco height="26px" />
-        </Flex>
-        <Flex justifyContent="center" gap="2">
-          <YouGotBud height="30px" />
-          <Text fontWeight="bold" fontSize="xl">
-            You Got Bud
-          </Text>
+          <Yext height="30px" />
         </Flex>
         <Flex justifyContent="center">
-          <Startec height="30px" />
+          <Voxtell height="24px" />
+        </Flex>
+        <Flex justifyContent="center" gap="2">
+          <Growtha height="28px" />
         </Flex>
         <Flex justifyContent="center">
           <Eqtble height="24px" />
         </Flex>
-      </SimpleGrid>
+      </Flex>
     </Section>
   )
 }

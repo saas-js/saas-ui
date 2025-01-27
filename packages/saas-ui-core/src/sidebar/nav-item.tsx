@@ -102,6 +102,7 @@ export interface NavItemProps
  */
 export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
   const {
+    as,
     href,
     icon,
     inset,
@@ -126,14 +127,14 @@ export const NavItem = forwardRef<NavItemProps, 'a'>((props, ref) => {
     label = <NavItemLabel>{label}</NavItemLabel>
   }
 
-  let as
-  if (href) {
-    as = Link
+  let asLink = as
+  if (href && !as) {
+    asLink = Link
   }
 
   const link = (
     <chakra.a
-      as={as}
+      as={asLink}
       aria-current={isActive ? 'page' : undefined}
       {...rest}
       ref={ref}

@@ -1,5 +1,62 @@
 # @saas-ui/supabase
 
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/auth-provider@1.2.2
+
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [ac0b682]
+  - @saas-ui/auth-provider@1.2.1
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [71b0300]
+  - @saas-ui/auth-provider@1.2.0
+
+## 2.4.0
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/auth-provider@1.1.0
+
+## 2.3.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/auth@3.5.0
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0
+
+## 2.2.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [c8c696e]
+  - @saas-ui/auth@3.3.0-next.0
+
 ## 2.2.0
 
 ### Minor Changes

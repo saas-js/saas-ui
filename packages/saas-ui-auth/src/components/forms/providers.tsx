@@ -4,7 +4,7 @@ import { SimpleGrid, Icon, ButtonProps } from '@chakra-ui/react'
 import { callAllHandlers } from '@chakra-ui/utils'
 
 import { ProviderButton } from '../provider-button'
-import { AuthOptions } from '../../provider'
+import { AuthOptions } from '@saas-ui/auth-provider'
 
 export interface Provider extends ButtonProps {
   /**
@@ -30,7 +30,7 @@ export interface AvailableProviders {
 }
 
 export interface ProvidersProps<
-  TProviders extends AvailableProviders = AvailableProviders
+  TProviders extends AvailableProviders = AvailableProviders,
 > {
   /**
    * The available providers
@@ -52,7 +52,7 @@ export interface ProvidersProps<
 }
 
 export const Providers = <
-  TProviders extends AvailableProviders = AvailableProviders
+  TProviders extends AvailableProviders = AvailableProviders,
 >({
   providers,
   onSignIn,

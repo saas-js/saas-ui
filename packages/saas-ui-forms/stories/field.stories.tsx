@@ -1,15 +1,30 @@
 import {
+  Box,
   Container,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
+  FormLabel,
+  HStack,
   InputLeftAddon,
   InputLeftElement,
   InputRightAddon,
   InputRightElement,
+  Tooltip,
 } from '@chakra-ui/react'
 import * as React from 'react'
 import * as yup from 'yup'
 import { z } from 'zod'
 
-import { FormLayout, SubmitButton, createForm } from '../src'
+import { LuInfo } from 'react-icons/lu'
+
+import {
+  FormLayout,
+  SubmitButton,
+  createForm,
+  useBaseField,
+  type GetBaseField,
+} from '../src'
 
 export default {
   title: 'Components/Forms/Field',
@@ -31,6 +46,7 @@ import { FiCheck, FiPhone } from 'react-icons/fi'
 import { createZodForm } from '../zod/src'
 import { createYupForm } from '../yup/src'
 import { createAjvForm } from '../ajv/src'
+import { splitProps } from '@saas-ui/core'
 
 const ZodForm = createZodForm()
 const YupForm = createYupForm()
@@ -642,4 +658,66 @@ export const WithEventHandlers = () => {
       )}
     </YupForm>
   )
+}
+
+const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
+  return {
+    extraProps: ['infoLabel'],
+    BaseField: (props) => {
+      const { controlProps, label, help, hideLabel, error } =
+        useBaseField(props)
+
+      const isInvalid = !!error || controlProps.isInvalid
+
+      const { direction, ...rest } = controlProps
+
+      return (
+        <FormControl
+          {...rest}
+          isInvalid={isInvalid}
+          variant={direction === 'row' ? 'horizontal' : undefined}
+        >
+          {label && !hideLabel ? <FormLabel>{label}</FormLabel> : null}
+          <Box>
+            {props.children}
+            {help && !error?.message ? (
+              <FormHelperText>{help}</FormHelperText>
+            ) : null}
+            {error?.message && (
+              <FormErrorMessage>{error?.message}</FormErrorMessage>
+            )}
+          </Box>
+        </FormControl>
+      )
+    },
+  }
+}
+
+const CustomForm = createForm({
+  getBaseField,
+})
+
+export const CustomBaseField = {
+  render() {
+    return (
+      <CustomForm onSubmit={console.log} defaultValues={{ name: '' }}>
+        {({ Field }) => {
+          return (
+            <FormLayout>
+              <FormLayout>
+                <Field
+                  name="name"
+                  type="text"
+                  label="Name"
+                  rules={{
+                    required: 'Required',
+                  }}
+                />
+              </FormLayout>
+            </FormLayout>
+          )
+        }}
+      </CustomForm>
+    )
+  },
 }

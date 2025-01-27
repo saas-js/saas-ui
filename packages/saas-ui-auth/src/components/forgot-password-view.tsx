@@ -1,5 +1,5 @@
 import { SubmitHandler } from '@saas-ui/forms'
-import { useResetPassword } from '../provider'
+import { useResetPassword } from '@saas-ui/auth-provider'
 import {
   AuthFormContainer,
   AuthFormOptions,

@@ -1,4 +1,4 @@
-import { createContext } from '@chakra-ui/react-utils'
+import { createContext } from '@chakra-ui/utils'
 import { debounce } from 'lodash'
 import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { usePalette } from './palette'
@@ -60,5 +60,5 @@ interface EditorState {
 
 export type UseEditorReturn = [
   EditorState,
-  Dispatch<SetStateAction<EditorState>>
+  Dispatch<SetStateAction<EditorState>>,
 ]

@@ -8,8 +8,7 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { runIfFn, cx } from '@chakra-ui/utils'
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
+import { runIfFn, cx, MaybeRenderProp } from '@chakra-ui/utils'
 import { ChevronDownIcon, ChevronRightIcon } from '../icons'
 
 import { CollapseProvider, useCollapseContext, useCollapse } from '../collapse'

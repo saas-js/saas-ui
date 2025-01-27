@@ -1,8 +1,9 @@
-import { Box, BoxProps, useId, useTheme } from '@chakra-ui/react'
+import { Box, BoxProps, useTheme } from '@chakra-ui/react'
 
 import { AreaChart, Area, ResponsiveContainer, YAxis } from 'recharts'
 import type { CurveProps } from 'recharts'
 import { createCategoryColors } from './utils'
+import { useId } from 'react'
 
 export interface SparklineProps extends BoxProps {
   /**
@@ -106,7 +107,7 @@ export const Sparkline = (props: SparklineProps) => {
         ...rest.sx,
       }}
     >
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth="0">
         <AreaChart
           data={data}
           margin={{ top: 2, right: 0, left: 0, bottom: 0 }}

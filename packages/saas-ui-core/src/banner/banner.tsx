@@ -11,15 +11,10 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   HTMLChakraProps,
-  As,
   createStylesContext,
-  useId,
-  ComponentWithAs,
   Icon,
 } from '@chakra-ui/react'
-import { callAllHandlers, cx } from '@chakra-ui/utils'
-
-import { createContext } from '@chakra-ui/react-utils'
+import { callAllHandlers, cx, createContext } from '@chakra-ui/utils'
 
 import { InfoIcon, WarningIcon, CheckIcon } from './icons'
 
@@ -111,7 +106,7 @@ export const Banner = forwardRef<BannerProps, 'div'>((props, ref) => {
   }
 
   const context = {
-    id: id || `banner-${useId()}`,
+    id: id || `banner-${React.useId()}`,
     status,
     onClose,
     isOpen,
@@ -251,7 +246,7 @@ export const BannerActions = forwardRef<BannerActionsProps, 'div'>(
 BannerActions.displayName = 'BannerActions'
 
 export interface BannerIconProps extends HTMLChakraProps<'span'> {
-  icon?: As
+  icon?: React.ElementType
 }
 
 /**

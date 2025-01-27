@@ -3,9 +3,8 @@ import Pagination from '@/docs/components/pagination'
 import Sidebar from '@/docs/components/sidebar/sidebar'
 import docsSidebar from '@/data/docs-sidebar'
 import coreSidebar from '@/data/core-sidebar'
-import componentsSidebar from '@/data/components-sidebar'
-import hooksSidebar from '@/data/hooks-sidebar'
 import proSidebar from '@/data/pro-sidebar'
+import nextjsSidebar from '@/data/nextjs-sidebar'
 import guidesSidebar from '@/data/guides-sidebar'
 import * as React from 'react'
 import {
@@ -23,10 +22,10 @@ export function getRoutes(slug: string) {
   const configMap = {
     '/docs/core': coreSidebar,
     '/docs/components': coreSidebar,
-    '/docs/hooks': hooksSidebar,
+    '/docs/hooks': coreSidebar,
     '/docs/guides': guidesSidebar,
     '/docs/pro': proSidebar,
-    '/changelog': { routes: [] },
+    '/docs/nextjs-starter-kit': nextjsSidebar,
     '/blog': { routes: [] },
   }
 

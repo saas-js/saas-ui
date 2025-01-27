@@ -8,7 +8,7 @@ export {
   useResetPassword,
   useSignUp,
   useUpdatePassword,
-} from './provider'
+} from '@saas-ui/auth-provider'
 export type {
   AuthActionEnum,
   AuthContextValue,
@@ -23,7 +23,7 @@ export type {
   UseLoginProps,
   User,
   AuthProviderProps,
-} from './provider'
+} from '@saas-ui/auth-provider'
 
 export {
   Auth,

@@ -1,5 +1,124 @@
 # @saas-ui/modals
 
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [091fd38]
+  - @saas-ui/forms@2.11.0
+
+## 2.4.3
+
+### Patch Changes
+
+- Updated dependencies [eb53116]
+  - @saas-ui/forms@2.10.0
+
+## 2.4.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/react-utils@2.2.1
+  - @saas-ui/forms@2.9.1
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [a69829a]
+  - @saas-ui/hooks@2.3.0
+
+## 2.4.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/react-utils@2.2.0
+  - @saas-ui/forms@2.9.0
+  - @saas-ui/hooks@2.2.0
+
+## 2.3.5
+
+### Patch Changes
+
+- @saas-ui/forms@2.8.2
+
+## 2.3.4
+
+### Patch Changes
+
+- a863a5e: Updated package type to fix next 15 support
+
+## 2.3.3
+
+### Patch Changes
+
+- Fixed incorrect types versions
+
+## 2.3.2
+
+### Patch Changes
+
+- 7669720: Fixed publint issues
+
+## 2.3.1
+
+### Patch Changes
+
+- @saas-ui/forms@2.8.1
+
+## 2.3.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/forms@2.8.0
+
+## 2.2.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/react-utils@2.1.1
+  - @saas-ui/forms@2.7.1
+
+## 2.2.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/react-utils@2.1.0
+  - @saas-ui/forms@2.7.0
+  - @saas-ui/hooks@2.1.0
+
+## 2.1.41
+
+### Patch Changes
+
+- @saas-ui/forms@2.6.11
+
+## 2.1.40
+
+### Patch Changes
+
+- Updated dependencies [fc2203a]
+  - @saas-ui/forms@2.6.10
+
 ## 2.1.39
 
 ### Patch Changes

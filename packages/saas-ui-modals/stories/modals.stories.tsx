@@ -8,7 +8,9 @@ import { FormLayout } from '@saas-ui/forms'
 import { BaseModalProps, Modal } from '../src/modal'
 import { FormDialog } from '../src/form'
 import { createField } from '@saas-ui/forms'
-import { createZodForm, createZodFormDialog } from '@saas-ui/forms/zod'
+import { createZodForm } from '@saas-ui/forms/zod'
+
+import { createZodFormDialog } from '../src/zod'
 
 import * as z from 'zod'
 

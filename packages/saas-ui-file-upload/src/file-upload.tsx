@@ -12,7 +12,7 @@ import {
   ThemingProps,
 } from '@chakra-ui/react'
 
-import { pick, runIfFn, split } from '@chakra-ui/utils'
+import { pick, runIfFn, split, MaybeRenderProp } from '@chakra-ui/utils'
 import {
   FileUploadProvider,
   useFileUpload,
@@ -23,7 +23,6 @@ import {
   FileUploadRenderContext,
 } from './file-upload-context'
 
-import { MaybeRenderProp } from '@chakra-ui/react-utils'
 import { fileUploadTheme } from './file-upload-theme'
 import { FileChangeDetails } from '@zag-js/file-upload'
 

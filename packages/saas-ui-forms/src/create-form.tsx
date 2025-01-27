@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from 'react'
+import React, { ForwardedRef, useMemo } from 'react'
 import { forwardRef } from '@chakra-ui/react'
 
 import { FieldsProvider } from './fields-context'
@@ -73,10 +73,13 @@ export function createForm<
         ...rest
       } = props
 
-      const fieldsContext = {
-        fields: { ...defaultFieldTypes, ...fields },
-        getBaseField,
-      }
+      const fieldsContext = useMemo(
+        () => ({
+          fields: { ...defaultFieldTypes, ...fields },
+          getBaseField,
+        }),
+        [fields, getBaseField]
+      )
 
       return (
         <FieldsProvider value={fieldsContext}>

@@ -1,5 +1,91 @@
 # @saas-ui/charts
 
+## 0.15.0
+
+### Minor Changes
+
+- 97ba81d: Exported ChartTooltip
+
+## 0.14.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
+## 0.14.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+## 0.13.2
+
+### Patch Changes
+
+- 8272a28: Fixed responsive container warning
+
+## 0.13.1
+
+### Patch Changes
+
+- 1e79ddf: Bump version
+
+## 0.13.0
+
+### Minor Changes
+
+- b2b6a72: Updated recharts to remove defaultProps warning, thanks to @JackoPlane
+
+## 0.12.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
+## 0.12.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+## 0.11.9
+
+### Patch Changes
+
+- ecc4efb: Added dot prop to line chart
+- 222bf5a: Improved tick rendering with low fixed maxValue
+
+## 0.11.8
+
+### Patch Changes
+
+- 3eed648: Use css variable for chart tooltip category labels
+
+## 0.11.7
+
+### Patch Changes
+
+- 12108b6: Added minValue and maxValue to bar and area charts
+
+## 0.11.6
+
+### Patch Changes
+
+- 88fe6b7: Added barSize prop
+- fc897e3: Added sign option to barchart stackOffset
+
+## 0.11.5
+
+### Patch Changes
+
+- 8bc6ed5: Fixed forwarding missing stackOffset props
+
+## 0.11.4
+
+### Patch Changes
+
+- a82e51e: Added support for stackOffset
+
 ## 0.11.3
 
 ### Patch Changes

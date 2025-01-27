@@ -1,5 +1,35 @@
 # @saas-ui/theme
 
+## 2.6.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+
+## 2.6.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+## 2.5.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+
+## 2.5.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+## 2.4.2
+
+### Patch Changes
+
+- 5e000e0: Removed background color from loading overlay fill variant
+
 ## 2.4.1
 
 ### Patch Changes

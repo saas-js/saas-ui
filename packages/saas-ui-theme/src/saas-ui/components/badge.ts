@@ -1,13 +1,28 @@
-import { defineCssVars, defineStyleConfig } from '@chakra-ui/styled-system'
-
-import { Badge } from '@chakra-ui/theme/components'
+import {
+  defineCssVars,
+  defineStyle,
+  defineStyleConfig,
+} from '@chakra-ui/styled-system'
+import { transparentize } from '@chakra-ui/theme-tools'
 
 const vars = defineCssVars('badge', ['bg', 'color', 'shadow', 'border'])
+
+const variantOutline = defineStyle((props) => {
+  const { colorScheme: c, theme } = props
+  const darkColor = transparentize(`${c}.200`, 0.8)(theme)
+  return {
+    [vars.color.variable]: `colors.${c}.500`,
+    _dark: {
+      [vars.color.variable]: darkColor,
+    },
+    [vars.shadow.variable]: `inset 0 0 0px 1px ${vars.color.reference}`,
+  }
+})
 
 export const badgeTheme = defineStyleConfig({
   variants: {
     outline: (props) => {
-      const styles = Badge.variants?.outline(props)
+      const styles = variantOutline(props)
 
       return {
         ...styles,
@@ -20,7 +35,7 @@ export const badgeTheme = defineStyleConfig({
       }
     },
     ghost: (props) => {
-      const styles = Badge.variants?.outline(props)
+      const styles = variantOutline(props)
 
       return {
         ...styles,

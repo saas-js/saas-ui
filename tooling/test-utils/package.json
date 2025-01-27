@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/test-utils",
-  "version": "4.0.9",
+  "version": "4.2.4",
   "private": true,
   "description": "Testing utilities for Chakra UI's components",
   "keywords": [
@@ -34,8 +34,7 @@
     "react-test-renderer": "^18.3.1"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.3.9",
-    "@chakra-ui/system": ">=2.3.8",
+    "@chakra-ui/react": ">=2.3.9 <3",
     "@emotion/react": ">=11",
     "@emotion/styled": ">=11",
     "@storybook/addon-a11y": ">=8",
@@ -47,8 +46,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^8.1.10",
-    "@storybook/types": "^8.1.10",
+    "@storybook/react": "^8.3.5",
+    "@storybook/types": "^8.3.5",
     "react": "^18.3.1"
   }
 }

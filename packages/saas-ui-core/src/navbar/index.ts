@@ -1,9 +1,9 @@
-export type { NavbarProps } from './navbar'
 export type { NavbarBrandProps } from './navbar-brand'
 export type { NavbarContentProps } from './navbar-content'
 export type { NavbarItemProps } from './navbar-item'
 
 export { useNavbar } from './use-navbar'
+export type { NavbarProps } from './use-navbar'
 
 export { NavbarProvider, useNavbarContext } from './navbar-context'
 

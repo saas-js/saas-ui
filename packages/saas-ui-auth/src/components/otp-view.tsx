@@ -1,5 +1,5 @@
 import { SubmitHandler } from '@saas-ui/forms'
-import { useOtp } from '../provider'
+import { useOtp } from '@saas-ui/auth-provider'
 import { AuthFormContainer, AuthViewOptions, AuthFormTitle } from './auth-form'
 import { OtpForm, OtpFormProps, OtpSubmitParams } from './forms/otp-form'
 import { AuthFormSuccess } from './success'

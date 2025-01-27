@@ -8,6 +8,6 @@ export type MotionBoxProps = Merge<
   HTMLMotionProps<'div'>
 >
 
-const MotionBox = motion(chakra.div)
+const MotionBox = chakra(motion.div)
 
 export default MotionBox

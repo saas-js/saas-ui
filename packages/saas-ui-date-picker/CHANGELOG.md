@@ -1,5 +1,134 @@
 # @saas-ui/date-picker
 
+## 0.15.4
+
+### Patch Changes
+
+- 00532de: Fixed issue where calendar would trigger uncontrolled state update warning
+  - @saas-ui/modals@2.4.4
+
+## 0.15.3
+
+### Patch Changes
+
+- @saas-ui/modals@2.4.3
+
+## 0.15.2
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/modals@2.4.2
+  - @saas-ui/core@2.8.1
+
+## 0.15.1
+
+### Patch Changes
+
+- @saas-ui/modals@2.4.1
+
+## 0.15.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+### Patch Changes
+
+- Updated dependencies [803ede7]
+  - @saas-ui/modals@2.4.0
+  - @saas-ui/core@2.8.0
+
+## 0.14.5
+
+### Patch Changes
+
+- Updated dependencies [c9daf50]
+  - @saas-ui/core@2.7.2
+  - @saas-ui/modals@2.3.5
+
+## 0.14.4
+
+### Patch Changes
+
+- Updated dependencies [a863a5e]
+  - @saas-ui/modals@2.3.4
+
+## 0.14.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/modals@2.3.3
+
+## 0.14.2
+
+### Patch Changes
+
+- Updated dependencies [7669720]
+  - @saas-ui/modals@2.3.2
+
+## 0.14.1
+
+### Patch Changes
+
+- Updated dependencies [5e24ec4]
+  - @saas-ui/core@2.7.1
+  - @saas-ui/modals@2.3.1
+
+## 0.14.0
+
+### Minor Changes
+
+- fc799df: Removed deprecated Chakra UI dependency
+
+### Patch Changes
+
+- Updated dependencies [fc799df]
+  - @saas-ui/modals@2.3.0
+  - @saas-ui/core@2.7.0
+
+## 0.13.1
+
+### Patch Changes
+
+- f0ee3db: Updated to Chakra 2.10
+- Updated dependencies [f0ee3db]
+  - @saas-ui/modals@2.2.1
+  - @saas-ui/core@2.6.1
+
+## 0.13.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
+### Patch Changes
+
+- Updated dependencies [2ac496a]
+  - @saas-ui/modals@2.2.0
+  - @saas-ui/core@2.6.0
+
+## 0.12.43
+
+### Patch Changes
+
+- @saas-ui/core@2.5.6
+- @saas-ui/modals@2.1.41
+
+## 0.12.42
+
+### Patch Changes
+
+- @saas-ui/modals@2.1.40
+
+## 0.12.41
+
+### Patch Changes
+
+- 5db3102: fix(date-picker): expose useDatePickerInput and useDateRangePicker hooks
+
 ## 0.12.40
 
 ### Patch Changes

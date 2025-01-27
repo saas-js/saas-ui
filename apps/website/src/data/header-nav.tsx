@@ -1,11 +1,10 @@
 import { NavLinkProps } from '@/components/nav-link'
-import { Badge, HStack, Text } from '@chakra-ui/react'
 
 const headerNav: (NavLinkProps & { authenticated?: boolean })[] = [
-  { id: 'home', label: 'Home', display: 'none' },
+  { id: 'home', label: 'Home' },
   {
-    href: '/themes',
-    label: 'Themes',
+    href: '/nextjs-starter-kit',
+    label: 'Next.js starter kit',
   },
   {
     href: '/figma',
@@ -13,22 +12,7 @@ const headerNav: (NavLinkProps & { authenticated?: boolean })[] = [
   },
   {
     href: '/blocks',
-    label: (
-      <HStack justifyContent="center">
-        <Text>Blocks</Text>
-        <Badge
-          rounded="full"
-          colorScheme="primary"
-          variant="solid"
-          lineHeight={1.2}
-          py="0.5"
-          px="1.5"
-          fontSize="2xs"
-        >
-          New
-        </Badge>
-      </HStack>
-    ),
+    label: 'Blocks',
   },
   {
     href: '/pricing',

@@ -9,7 +9,7 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
   SystemStyleObject,
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 
 import { cx } from '@chakra-ui/utils'
 

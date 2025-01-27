@@ -10,6 +10,11 @@ export type {
 } from './date-picker'
 
 export {
+  useDatePickerInput,
+  useDateRangePickerInput,
+} from './date-picker-context'
+
+export {
   DatePickerDialog,
   DatePickerAnchor,
   DatePickerTrigger,

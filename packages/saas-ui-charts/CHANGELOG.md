@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 1.0.0-alpha.6
+
+### Patch Changes
+
+- 724807d: Fixed issue where content prop would be passed to dom element
+
 ## 1.0.0-alpha.5
 
 ### Patch Changes

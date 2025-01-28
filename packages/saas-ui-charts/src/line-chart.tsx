@@ -175,12 +175,15 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 content={
                   tooltipContent
                     ? tooltipContent
-                    : (props) => (
-                        <ChartTooltip
-                          {...props}
-                          categoryColors={categoryColors}
-                        />
-                      )
+                    : (props) => {
+                        const { content, ...rest } = props
+                        return (
+                          <ChartTooltip
+                            {...rest}
+                            categoryColors={categoryColors}
+                          />
+                        )
+                      }
                 }
               />
             )}

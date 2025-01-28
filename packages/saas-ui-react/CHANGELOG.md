@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.28
+
+### Patch Changes
+
+- 6a8bf46: Decreased default overlay translucency
+- 6a8bf46: Fix dialog backdrop z-index
+
 ## 3.0.0-alpha.27
 
 ### Patch Changes

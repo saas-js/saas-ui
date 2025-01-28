@@ -45,7 +45,7 @@ export const globalCss = defineGlobalStyles({
     // '--radius-indicator': '1',
     '--radius-full': '9999px',
     '--scale-factor': '1',
-    '--overlay-translucency': '90%',
+    '--overlay-translucency': '95%',
     '--overlay-effect': 'blur({blurs.lg})',
     '--backdrop-effect': 'none',
   },

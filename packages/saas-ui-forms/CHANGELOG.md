@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 3.0.0-alpha.29
+
+### Major Changes
+
+- New useForm hook that returns typed form components
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-alpha.29
+
 ## 3.0.0-alpha.28
 
 ### Patch Changes

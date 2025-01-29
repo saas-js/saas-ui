@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.29
+
+### Patch Changes
+
+- Improved text selection color contrast
+
 ## 3.0.0-alpha.28
 
 ### Patch Changes

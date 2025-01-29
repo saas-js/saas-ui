@@ -1587,7 +1587,7 @@ __metadata:
   resolution: "@chakra-ui/compositions@workspace:apps/compositions"
   dependencies:
     "@chakra-ui/react": "npm:^3.4.0"
-    "@hookform/resolvers": "npm:3.9.1"
+    "@hookform/resolvers": "npm:3.10.0"
     "@tanstack/react-table": "npm:8.19.3"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
@@ -1595,7 +1595,7 @@ __metadata:
     react: "npm:^18"
     react-dom: "npm:^18"
     react-frame-component: "npm:5.2.7"
-    react-hook-form: "npm:7.53.2"
+    react-hook-form: "npm:7.54.2"
     react-icons: "npm:5.4.0"
     react-lorem-ipsum: "npm:1.4.10"
     react-markdown: "npm:9.0.1"
@@ -2970,7 +2970,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:3.9.1, @hookform/resolvers@npm:^3.9.1":
+"@hookform/resolvers@npm:3.10.0, @hookform/resolvers@npm:^3.10.0":
+  version: 3.10.0
+  resolution: "@hookform/resolvers@npm:3.10.0"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 10/92d3601b2cedb4f52e9e086cc4bd6a20b493f59ecfb1af8b8e465057f0445aa83cf5a6d482a831cdf5d1321a73269173633222eefde0adb515d3820c1525b0cb
+  languageName: node
+  linkType: hard
+
+"@hookform/resolvers@npm:^3.9.1":
   version: 3.9.1
   resolution: "@hookform/resolvers@npm:3.9.1"
   peerDependencies:
@@ -4525,14 +4534,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@saas-ui/forms@workspace:packages/saas-ui-forms"
   dependencies:
-    "@hookform/resolvers": "npm:^3.9.1"
+    "@hookform/resolvers": "npm:^3.10.0"
     "@saas-ui/core": "workspace:*"
     "@saas-ui/react": "workspace:*"
     "@types/json-schema": "npm:^7.0.15"
     ajv: "npm:^8.17.1"
     ajv-errors: "npm:^3.0.0"
     json-schema-to-ts: "npm:^3.1.1"
-    react-hook-form: "npm:^7.53.2"
+    react-hook-form: "npm:^7.54.2"
     tsd: "npm:^0.31.2"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
@@ -4697,7 +4706,7 @@ __metadata:
     tsup: "npm:^8.3.5"
   peerDependencies:
     "@chakra-ui/react": ">=2.0.0"
-    "@saas-ui/react": ">=3.0.0-alpha.26"
+    "@saas-ui/react": ">=3.0.0-alpha.28"
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"
@@ -11492,6 +11501,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globrex@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "globrex@npm:0.1.2"
+  checksum: 10/81ce62ee6f800d823d6b7da7687f841676d60ee8f51f934ddd862e4057316d26665c4edc0358d4340a923ac00a514f8b67c787e28fe693aae16350f4e60d55e9
+  languageName: node
+  linkType: hard
+
 "glsl-noise@npm:^0.0.0":
   version: 0.0.0
   resolution: "glsl-noise@npm:0.0.0"
@@ -15759,7 +15775,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:7.53.2, react-hook-form@npm:^7.53.2":
+"react-hook-form@npm:7.54.2, react-hook-form@npm:^7.54.2":
+  version: 7.54.2
+  resolution: "react-hook-form@npm:7.54.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 10/b156d15b6246c76d0275e5722d9056014693e014d0e3dec06e44bf2672ee549aaba4366de5144d18c4cab29e631f3b2b84269d4fd5727ca17aad9b970fde6960
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.53.2":
   version: 7.53.2
   resolution: "react-hook-form@npm:7.53.2"
   peerDependencies:
@@ -16780,6 +16805,7 @@ __metadata:
     storybook: "npm:8.4.5"
     typescript: "npm:^5.6.3"
     vite: "npm:^5.4.11"
+    vite-tsconfig-paths: "npm:^5.1.4"
   languageName: unknown
   linkType: soft
 
@@ -18285,6 +18311,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfck@npm:^3.0.3":
+  version: 3.1.4
+  resolution: "tsconfck@npm:3.1.4"
+  peerDependencies:
+    typescript: ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 10/4fb02e75ff374a82052b4800970bebe4466b5a6e7193d74e7b875cc8225acb5037fb4e7dcd4a5cd751c22129360cb13b4d5536897eae131d69c1a20fb18a99b4
+  languageName: node
+  linkType: hard
+
 "tsconfig-paths@npm:^3.15.0":
   version: 3.15.0
   resolution: "tsconfig-paths@npm:3.15.0"
@@ -19021,6 +19061,22 @@ __metadata:
   bin:
     vite-node: vite-node.mjs
   checksum: 10/53d90523bf114dce26d5f66aa01aa05c33d33c7b87e8129b8a7f1c0d5014a9922f61feb9df01b54c1f851214604f7e8d2ff58ca257d3bf28539eafa8e8d72b81
+  languageName: node
+  linkType: hard
+
+"vite-tsconfig-paths@npm:^5.1.4":
+  version: 5.1.4
+  resolution: "vite-tsconfig-paths@npm:5.1.4"
+  dependencies:
+    debug: "npm:^4.1.1"
+    globrex: "npm:^0.1.2"
+    tsconfck: "npm:^3.0.3"
+  peerDependencies:
+    vite: "*"
+  peerDependenciesMeta:
+    vite:
+      optional: true
+  checksum: 10/b409dbd17829f560021a71dba3e473b9c06dcf5fdc9d630b72c1f787145ec478b38caff1be04868971ac8bdcbf0f5af45eeece23dbc9c59c54b901f867740ae0
   languageName: node
   linkType: hard
 

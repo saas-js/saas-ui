@@ -79,3 +79,30 @@ export const ZodForm = () => {
     </form.Form>
   )
 }
+
+export const ZodFormConditional = () => {
+  const form = useZodForm({
+    defaultValues: {
+      name: '',
+      description: '',
+    },
+    schema: z.object({
+      name: z.string().min(1, { message: 'Name is required' }),
+      description: z.string().min(1, { message: 'Description is required' }),
+    }),
+  })
+
+  return (
+    <form.Form onSubmit={onSubmit}>
+      <FormLayout>
+        <form.Field type="text" name="name" label="Name" />
+
+        <form.DisplayIf name="name" condition={(value) => !!value}>
+          <form.Field type="text" name="description" label="Description" />
+        </form.DisplayIf>
+
+        <SubmitButton />
+      </FormLayout>
+    </form.Form>
+  )
+}

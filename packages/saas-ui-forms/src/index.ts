@@ -1,6 +1,9 @@
 // Import and export Form and StepForm
 import { createForm } from './create-form'
 
+export { useForm, useZodForm } from './use-form'
+export type { UseZodFormProps, UseFormReturn, UseFormProps } from './use-form'
+
 // import { createStepForm } from './create-step-form'
 
 // Exporting from './display-field'
@@ -271,12 +274,10 @@ export type {
   UseFormClearErrors,
   UseFormGetValues,
   UseFormHandleSubmit,
-  UseFormProps,
   UseFormRegister,
   UseFormRegisterReturn,
   UseFormReset,
   UseFormResetField,
-  UseFormReturn,
   UseFormSetError,
   UseFormSetFocus,
   UseFormSetValue,
@@ -311,7 +312,6 @@ export {
   appendErrors,
   useController,
   useFieldArray,
-  useForm,
   useFormState,
   useWatch,
   Controller,

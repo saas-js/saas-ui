@@ -1,0 +1,107 @@
+---
+title: Calling procedures
+description: Learn how to call queries and mutations in your app.
+---
+
+## Overview
+
+There are two ways to call procedures. In client components we use the `useQuery` and `useMutation` hooks to call the procedures.
+On the server we use the `trpc` api caller to call the procedures directly.
+
+## Client
+
+The client uses [Tanstack Query](https://tanstack.com/query/latest) to manage data fetching and caching.
+
+### useQuery
+
+```tsx
+import { api } from '#lib/trpc/react'
+
+export function ContactPage(props: {
+  params: {
+    id: string
+  }
+}) {
+  const { data, isLoading } = api.contacts.byId.useQuery({
+    id,
+  })
+
+  // render the page
+}
+```
+
+### useSuspenseQuery
+
+`useSuspenseQuery` is very useful as it guarantees data to be defined, so you don't have to check for `isLoading` for conditional rendering.
+
+It's recommended to prefetch your data as early as possible.
+
+```tsx
+// for example in a page or layout route
+import { Outlet, createFileRoute, notFound } from '@tanstack/react-router'
+
+import { WorkspaceNotFound } from '#features/workspaces/workspace.not-found'
+
+export const Route = createFileRoute('/_app/$workspace')({
+  beforeLoad: async ({ params, context }) => {
+    const workspace = await context.trpc.workspaces.bySlug.ensureData({
+      slug: params?.workspace,
+    })
+
+    if (!workspace) {
+      throw notFound()
+    }
+
+    return { workspace }
+  },
+  notFoundComponent: WorkspaceNotFound,
+  component: RouteComponent,
+})
+
+function RouteComponent() {
+  return <Outlet />
+}
+```
+
+```tsx
+import { api } from '#lib/trpc/react'
+
+export function WorkspacePage(props: { slug: string }) {
+  const [data] = api.workspaces.bySlug.useSuspenseQuery({
+    slug: props.slug,
+  })
+
+  return <div>{data.name}</div>
+}
+```
+
+### useMutation
+
+```tsx
+import { api } from '#lib/trpc/react'
+
+export default function ProfilePage() {
+  const { user } = useAuth()
+
+  const utils = api.useUtils()
+
+  const mutation = api.users.updateProfile.useMutation({
+    onSettled: () => {
+      // Invalidate the user cache, so the updated user is refetched
+      utils.users.invalidate()
+    },
+  })
+
+  return (
+    <button
+      onClick={() => {
+        mutation.mutate({
+          name: 'John Doe',
+        })
+      }}
+    >
+      Save
+    </button>
+  )
+}
+```

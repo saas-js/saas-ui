@@ -11,7 +11,7 @@ The folder structure looks as following:
 
 | Path                       | Package name         | Description                                                                          |
 | -------------------------- | -------------------- | ------------------------------------------------------------------------------------ |
-| `apps/web`                 | web                  | Next.js (app router) app.                                                            |
+| `apps/web`                 | web                  | Tanstack Router (Vite) app.                                                          |
 | `apps/web/features/common` |                      | The app's common functionality, for example layouts, that is shared across features. |
 | `apps/web/features/*`      |                      | Domain specific code is grouped within individual features.                          |
 | `packages/api`             | @acme/api            | The tRPC API service.                                                                |
@@ -23,7 +23,6 @@ The folder structure looks as following:
 | `packages/db`              | @acme/db             | Database schemas and migrations using Drizzle                                        |
 | `packages/email`           | @acme/email          | Email service using Resend                                                           |
 | `packages/i18n`            | @acme/i18n           | i18n helpers and utilities                                                           |
-| `packages/next`            | @acme/next           | Next.js helpers and utilities                                                        |
 | `packages/ui`              | @acme/ui             | This is your shared UI library, and included all custom pre-built components         |
 | `packages/theme`           | @acme/theme          | Your custom Chakra UI theme. This extends the Saas UI Pro theme by default.          |
 

@@ -1,18 +1,16 @@
 ---
 title: Environment variables
-description: How to configure environment variables in the Saas UI Next.js starter kit.
+description: How to configure environment variables in the TanStack Router starter kit.
 ---
 
-The Saas UI Next.js starter kit uses environment variables to configure the application.
+The TanStack Router starter kit uses environment variables to configure the application.
 This allows you to separate configuration from your codebase and keep sensitive information secure.
 
 ## Configuration
 
 <Info>
   We recommend _NEVER_ to check in any .env files in order to prevent leaking
-  secrets into your Git repository. This is unlike [recommendations by
-  Next.js](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables#default-environment-variables),
-  but we believe it is the better/safer approach.
+  secrets into your Git repository.
 </Info>
 
 Environment variables should always be configured using your CI/CD provider. For example, GitHub Actions, Vercel, etc. Never store secrets in your repository.

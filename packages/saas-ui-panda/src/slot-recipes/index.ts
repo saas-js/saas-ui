@@ -32,6 +32,7 @@ import { ratingGroupSlotRecipe } from './rating-group'
 import { segmentGroupSlotRecipe } from './segment-group'
 import { selectSlotRecipe } from './select'
 import { sidebarSlotRecipe } from './sidebar'
+import { sidebarNavItemSlotRecipe } from './sidebar-item'
 import { sliderSlotRecipe } from './slider'
 import { statSlotRecipe } from './stat'
 import { statusSlotRecipe } from './status'
@@ -80,7 +81,6 @@ export const slotRecipes = {
   slider: sliderSlotRecipe,
   stat: statSlotRecipe,
   steps: stepsSlotRecipe,
-  sidebar: sidebarSlotRecipe,
   swittch: switchSlotRecipe,
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,
@@ -90,4 +90,6 @@ export const slotRecipes = {
   status: statusSlotRecipe,
   timeline: timelineSlotRecipe,
   colorPicker: colorPickerSlotRecipe,
+  sidebar: sidebarSlotRecipe,
+  sidebarItem: sidebarNavItemSlotRecipe,
 }

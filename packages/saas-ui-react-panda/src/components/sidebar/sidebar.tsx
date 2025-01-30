@@ -1,14 +1,16 @@
-import { Presence, type PresenceProps } from '@ark-ui/react'
-import { styled } from '@saas-ui/panda/jsx'
-import { sidebar } from '@saas-ui/panda/recipes'
 import React, { forwardRef, useState } from 'react'
+
+import { Presence, type PresenceProps, ark } from '@ark-ui/react'
+import { styled } from '@saas-ui/panda/jsx'
+import { sidebar, sidebarItem } from '@saas-ui/panda/recipes'
 import { callAll, dataAttr } from 'src/utils'
+
 import { createStyleContext } from '../context'
 import { HTMLSuiProps } from '../types'
 import {
   SidebarProvider,
-  useSidebar,
   UseSidebarReturn,
+  useSidebar,
   useSidebarTrigger,
 } from './sidebar.context'
 import { SidebarProps } from './sidebar.types'
@@ -48,10 +50,20 @@ export const SidebarRoot = withProvider(
       </SidebarProvider>
     )
   }),
-  'root'
+  'root',
 )
 
 export interface SidebarTriggerProps extends HTMLSuiProps<'button'> {}
+
+const StyledButtonForwardChild = styled(
+  ark.button,
+  {},
+  {
+    defaultProps: {
+      asChild: true,
+    },
+  },
+)
 
 export const SidebarTrigger = withContext(
   forwardRef<HTMLButtonElement, SidebarTriggerProps>((props, ref) => {
@@ -59,12 +71,12 @@ export const SidebarTrigger = withContext(
     const { getButtonProps } = useSidebarTrigger()
 
     return (
-      <styled.button {...getButtonProps(rest)} ref={ref} {...rest}>
+      <StyledButtonForwardChild {...getButtonProps(rest)} ref={ref} {...rest}>
         {children}
-      </styled.button>
+      </StyledButtonForwardChild>
     )
   }),
-  'trigger'
+  'trigger',
 )
 
 export interface SidebarFlyoutTriggerProps extends HTMLSuiProps<'button'> {}
@@ -75,12 +87,16 @@ export const SidebarFlyoutTrigger = withContext(
     const { getFlyoutButtonProps } = useSidebarTrigger()
 
     return (
-      <styled.button ref={ref} {...rest} {...getFlyoutButtonProps(rest)}>
+      <StyledButtonForwardChild
+        ref={ref}
+        {...rest}
+        {...getFlyoutButtonProps(rest)}
+      >
         {children}
-      </styled.button>
+      </StyledButtonForwardChild>
     )
   }),
-  'flyoutTrigger'
+  'flyoutTrigger',
 )
 
 export interface SidebarBackdropProps
@@ -132,7 +148,7 @@ export const SidebarBackdrop = withContext(
       </Presence>
     )
   }),
-  'backdrop'
+  'backdrop',
 )
 
 export const SidebarHeader = withContext(styled.header, 'header')
@@ -156,7 +172,7 @@ export const SidebarTrack = withContext(
       />
     )
   }),
-  'track'
+  'track',
 )
 
 export interface SidebarGroupProps extends HTMLSuiProps<'div'> {}
@@ -165,7 +181,7 @@ export const SidebarGroup = withContext(
   forwardRef<HTMLDivElement, SidebarGroupProps>((props, ref) => {
     return <styled.div ref={ref} {...props} />
   }),
-  'group'
+  'group',
 )
 
 export interface SidebarGroupHeaderProps extends HTMLSuiProps<'div'> {}
@@ -174,7 +190,7 @@ export const SidebarGroupHeader = withContext(
   forwardRef<HTMLDivElement, SidebarGroupHeaderProps>((props, ref) => {
     return <styled.div ref={ref} {...props} />
   }),
-  'groupHeader'
+  'groupHeader',
 )
 
 export interface SidebarGroupTitleProps extends HTMLSuiProps<'h5'> {}
@@ -183,7 +199,7 @@ export const SidebarGroupTitle = withContext(
   forwardRef<HTMLHeadingElement, SidebarGroupTitleProps>((props, ref) => {
     return <styled.h5 ref={ref} {...props} />
   }),
-  'groupTitle'
+  'groupTitle',
 )
 
 export interface SidebarGroupEndElementProps extends HTMLSuiProps<'div'> {}
@@ -192,7 +208,7 @@ export const SidebarGroupEndElement = withContext(
   forwardRef<HTMLDivElement, SidebarGroupEndElementProps>((props, ref) => {
     return <styled.div ref={ref} {...props} />
   }),
-  'groupEndElement'
+  'groupEndElement',
 )
 
 export interface SidebarGroupContentProps extends HTMLSuiProps<'div'> {}
@@ -201,23 +217,28 @@ export const SidebarGroupContent = withContext(
   forwardRef<HTMLDivElement, SidebarGroupContentProps>((props, ref) => {
     return <styled.div ref={ref} {...props} />
   }),
-  'groupContent'
+  'groupContent',
 )
+
+const {
+  withProvider: withSidebarItemProvider,
+  withContext: withSidebarItemContext,
+} = createStyleContext(sidebarItem)
 
 export interface SidebarNavItemProps extends HTMLSuiProps<'div'> {}
 
-export const SidebarNavItem = withContext(
+export const SidebarNavItem = withSidebarItemProvider(
   forwardRef<HTMLDivElement, SidebarNavItemProps>((props, ref) => {
     return <styled.div ref={ref} {...props} />
   }),
-  'group'
+  'item',
 )
 
 export interface SidebarNavButtonProps extends HTMLSuiProps<'div'> {
   active?: boolean
 }
 
-export const SidebarNavButton = withContext(
+export const SidebarNavButton = withSidebarItemContext(
   forwardRef<HTMLDivElement, SidebarNavButtonProps>((props, ref) => {
     const { children, active, ...rest } = props
 
@@ -231,14 +252,15 @@ export const SidebarNavButton = withContext(
         {children}
       </styled.div>
     )
-  })
+  }),
+  'button',
 )
 
 export interface SidebarNavItemEndElementProps extends HTMLSuiProps<'div'> {}
 
-export const SidebarNavItemEndElement = forwardRef<
-  HTMLDivElement,
-  SidebarNavItemEndElementProps
->((props, ref) => {
-  return <styled.div ref={ref} {...props} />
-})
+export const SidebarNavItemEndElement = withSidebarItemContext(
+  forwardRef<HTMLDivElement, SidebarNavItemEndElementProps>((props, ref) => {
+    return <styled.div ref={ref} {...props} />
+  }),
+  'endElement',
+)

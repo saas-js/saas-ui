@@ -39,6 +39,7 @@
     "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
     "storybook": "yarn w saas-ui-storybook dev",
+    "storybook:panda": "cd packages/saas-ui-react-panda && yarn storybook",
     "build:storybook": "yarn w saas-ui-storybook build",
     "prepare": "husky install",
     "clean": "turbo run clean",

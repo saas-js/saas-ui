@@ -82,7 +82,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       transitionProperty: 'common',
       transitionDuration: 'fast',
       _groupCollapsible: {
-        cursor: 'button',
+        cursor: 'pointer',
         userSelect: 'none',
         _hover: {
           bg: 'sidebar.accent.bg/80',
@@ -118,7 +118,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       right: '-4px',
       bottom: 0,
       width: '7px',
-      cursor: 'button',
+      cursor: 'pointer',
       _after: {
         content: '""',
         display: 'block',
@@ -158,7 +158,10 @@ export const sidebarSlotRecipe = defineSlotRecipe({
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
-          bg: 'sidebar.bg',
+          bg: {
+            _light: 'color-mix(in srgb, {colors.bg}, #000 7%)',
+            _dark: 'color-mix(in srgb, {colors.bg}, #fff 7%)',
+          },
           transitionProperty: 'margin-left',
           _open: {
             marginLeft: 0,

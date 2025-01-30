@@ -1,8 +1,10 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+
 import { useControllableState, useDisclosure, useIsMobile } from 'src/hooks'
 import { callAll, createContext } from 'src/utils'
+
 import { HTMLSuiProps } from '../types'
 import type { SidebarMode, SidebarProps } from './sidebar.types.ts'
 

@@ -198,12 +198,15 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                 content={
                   tooltipContent
                     ? tooltipContent
-                    : (props) => (
-                        <ChartTooltip
-                          {...props}
-                          categoryColors={categoryColors}
-                        />
-                      )
+                    : (props) => {
+                        const { content, ...rest } = props
+                        return (
+                          <ChartTooltip
+                            {...rest}
+                            categoryColors={categoryColors}
+                          />
+                        )
+                      }
                 }
               />
             )}

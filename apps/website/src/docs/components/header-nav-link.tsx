@@ -3,11 +3,11 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-function NavLink(props: HTMLChakraProps<'a'>) {
+function NavLink(props: HTMLChakraProps<'a'> & { href: string }) {
   const { href, ...rest } = props
   const { pathname } = useRouter()
 
-  const [, group] = href.split('/')
+  const [, group] = href?.split('/') || []
   const isActive = pathname.includes(group)
 
   return (

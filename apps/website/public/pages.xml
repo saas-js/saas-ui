@@ -10,9 +10,9 @@
     <atom:link href="https://saas-ui.dev/pages.xml" rel="self" type="application/rss+xml"/>
 
     <item>
-      <guid>https://saas-ui.dev/nextjs-boilerplate</guid>
-      <title>Next.js boilerplate for SaaS, B2B and internal tools</title>
-      <link>https://saas-ui.dev/nextjs-boilerplate</link>
+      <guid>https://saas-ui.dev/nextjs-starter-kit</guid>
+      <title>Next.js starter kit for B2B SaaS startups and internal tools</title>
+      <link>https://saas-ui.dev/nextjs-starter-kit</link>
       <description>Saas UI gives you everything you need to build beautiful and intuitive frontends.</description>
       <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     </item>

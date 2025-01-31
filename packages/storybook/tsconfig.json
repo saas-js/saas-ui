@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "compositions/*": ["../../apps/compositions/src/*"]
+    }
   },
   "include": [".storybook/*.ts"]
 }

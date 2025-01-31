@@ -6,13 +6,13 @@ export const drawerSlotRecipe = defineSlotRecipe({
   className: 'chakra-drawer',
   base: {
     backdrop: {
-      bg: 'blackAlpha.500',
+      layerStyle: 'backdrop',
       pos: 'fixed',
       insetInlineStart: 0,
       top: 0,
       w: '100vw',
       h: '100dvh',
-      zIndex: 'modal',
+      zIndex: 'calc(var(--z-index) - 1)',
       _open: {
         animationName: 'fade-in',
         animationDuration: 'slow',
@@ -23,13 +23,15 @@ export const drawerSlotRecipe = defineSlotRecipe({
       },
     },
     positioner: {
+      '--drawer-z-index': 'zIndex.layer-4',
       display: 'flex',
       width: '100vw',
       height: '100dvh',
       position: 'fixed',
+      padding: 2,
       insetInlineStart: 0,
       top: 0,
-      zIndex: 'modal',
+      zIndex: 'calc(var(--drawer-z-index) + var(--layer-index, 0))',
       overscrollBehaviorY: 'none',
     },
     content: {
@@ -38,12 +40,11 @@ export const drawerSlotRecipe = defineSlotRecipe({
       position: 'relative',
       width: '100%',
       outline: 0,
-      zIndex: 'modal',
+      zIndex: 'calc(var(--drawer-z-index) + var(--layer-index, 0))',
       textStyle: 'sm',
       maxH: '100dvh',
       color: 'inherit',
-      bg: 'bg.panel',
-      boxShadow: 'lg',
+      layerStyle: 'overlay',
       _open: {
         animationDuration: 'slowest',
         animationTimingFunction: 'ease-in-smooth',
@@ -54,6 +55,10 @@ export const drawerSlotRecipe = defineSlotRecipe({
       },
     },
     header: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       flex: 0,
       px: '6',
       py: '4',
@@ -79,10 +84,6 @@ export const drawerSlotRecipe = defineSlotRecipe({
     },
     description: {
       color: 'fg.muted',
-    },
-    closeTrigger: {
-      top: '4',
-      insetEnd: '4',
     },
   },
 
@@ -185,13 +186,13 @@ export const drawerSlotRecipe = defineSlotRecipe({
       },
     },
 
-    contained: {
+    attached: {
       true: {
         positioner: {
-          padding: '2',
+          padding: 0,
         },
         content: {
-          borderRadius: 'md',
+          borderRadius: 'none',
         },
       },
     },
@@ -200,6 +201,5 @@ export const drawerSlotRecipe = defineSlotRecipe({
   defaultVariants: {
     size: 'xs',
     placement: 'end',
-    contained: true,
   },
 })

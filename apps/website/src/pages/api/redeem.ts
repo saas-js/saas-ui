@@ -144,6 +144,31 @@ const addGithubCollaborator = async (username) => {
   }
 }
 
+const inviteGithubMember = async (username: string) => {
+  try {
+    const response = await fetch(
+      `https://api.github.com/orgs/saas-js/teams/members/memberships/${username}`,
+      {
+        headers: {
+          Authorization:
+            'Basic ' +
+            Buffer.from(process.env.GITHUB_PERSONAL_TOKEN!).toString('base64'),
+          Accept: 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        method: 'PUT',
+        body: JSON.stringify({
+          role: 'member',
+        }),
+      }
+    )
+
+    return response.status === 200
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 const isLemonLicense = (licenseKey) => {
   return !!licenseKey.match(
     /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
@@ -240,7 +265,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       console.error('[Supabase]', err)
     }
 
-    const githubInvited = await addGithubCollaborator(req.body.githubAccount)
+    const githubInvited = await inviteGithubMember(req.body.githubAccount)
 
     const npmAccount = await addNpmAccount(
       req.body.githubAccount.toLowerCase(),

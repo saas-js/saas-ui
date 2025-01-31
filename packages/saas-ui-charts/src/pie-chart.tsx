@@ -83,7 +83,10 @@ export function PieChart(props: PieChartProps) {
           content={
             tooltipContent
               ? tooltipContent
-              : (props) => <ChartTooltip {...props} categoryColors={colors} />
+              : (props) => {
+                  const { content, ...rest } = props
+                  return <ChartTooltip {...rest} categoryColors={colors} />
+                }
           }
         />
       )}

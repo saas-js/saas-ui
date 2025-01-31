@@ -1,5 +1,25 @@
 # @saas-ui/forms
 
+## 2.11.0
+
+### Minor Changes
+
+- 091fd38: Exported additional types from `index.ts` to make them accessible for external use, improving type coverage and usability.
+
+## 2.10.0
+
+### Minor Changes
+
+- eb53116: Added support for ZodEffects schema to Form
+
+## 2.9.1
+
+### Patch Changes
+
+- 862937a: Bump chakra version
+- Updated dependencies [862937a]
+  - @saas-ui/core@2.8.1
+
 ## 2.9.0
 
 ### Minor Changes
@@ -1312,8 +1332,9 @@
   Add this somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers

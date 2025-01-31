@@ -20,9 +20,7 @@ export default {
 
 type Story = StoryObj<typeof Sparkline>
 
-const currencyFormatter = (
-  value: number | bigint | Intl.StringNumericLiteral,
-) => {
+const currencyFormatter = (value: number | bigint) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -50,7 +48,7 @@ export const Basic: Story = {
                 Number(args.data[args.data.length - 1].value ?? 0),
               )}
             </Stat.ValueText>
-            <Sparkline {...args} height="60px" mx="-4" />
+            <Sparkline {...args} height="60px" mx="-3" />
           </Stat.Root>
         </Card.Body>
       </Card.Root>
@@ -70,7 +68,7 @@ export const SolidVariant: Story = {
   },
   render: (args) => {
     return (
-      <Card.Root maxW="300px">
+      <Card.Root maxW="300px" overflow="clip">
         <Card.Body pb="0">
           <Stat.Root>
             <Stat.Label>Revenue</Stat.Label>
@@ -82,7 +80,7 @@ export const SolidVariant: Story = {
             <Sparkline
               {...args}
               height="60px"
-              mx="-6"
+              mx="-3"
               strokeWidth={1.5}
               curveType="natural"
             />
@@ -127,7 +125,7 @@ export const Multiple: Story = {
                 Number(args.data[args.data.length - 1].value ?? 0),
               )}
             </Stat.ValueText>
-            <Sparkline {...args} height="60px" mx="-6" />
+            <Sparkline {...args} height="60px" mx="-3" />
           </Stat.Root>
         </Card.Body>
       </Card.Root>
@@ -170,7 +168,7 @@ export const Stacked: Story = {
                 Number(args.data[args.data.length - 1].value ?? 0),
               )}
             </Stat.ValueText>
-            <Sparkline {...args} height="60px" mx="-4" />
+            <Sparkline {...args} height="60px" mx="-2" />
           </Stat.Root>
         </Card.Body>
       </Card.Root>
@@ -225,7 +223,7 @@ export const Metrics = () => {
               data={revenueData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
           </Stat.Root>
         </Card.Body>
@@ -241,7 +239,7 @@ export const Metrics = () => {
               data={customerData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
           </Stat.Root>
         </Card.Body>
@@ -257,7 +255,7 @@ export const Metrics = () => {
               data={churnData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
           </Stat.Root>
         </Card.Body>
@@ -275,7 +273,7 @@ export const Metrics = () => {
               data={valueData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
           </Stat.Root>
         </Card.Body>

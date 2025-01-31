@@ -19,7 +19,7 @@ export const QuickLink = (props) => {
           {icon}
         </Box>
       )}
-      <Text fontWeight="bold" mb="2">
+      <Text fontWeight="semibold" mb="1">
         {title}
       </Text>
       <Text color="muted" fontSize="md" mb="4">
@@ -41,7 +41,6 @@ export const QuickLink = (props) => {
         _hover={{
           textDecoration: 'none',
         }}
-        sx={{ '.chakra-card:hover &': { color: 'secondary.400' } }}
       >
         {label}
       </Button>

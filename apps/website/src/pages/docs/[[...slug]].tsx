@@ -85,7 +85,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       doc,
       tabsData,
-      header: { position: 'sticky', borderBottomWidth: '1px' },
+      header: {
+        position: 'sticky',
+        borderBottomWidth: '1px',
+        maxWidth: 'container.2xl',
+      },
       footer: false,
     },
   }

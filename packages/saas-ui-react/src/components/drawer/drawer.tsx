@@ -3,15 +3,15 @@ import { forwardRef } from 'react'
 import { DialogContext } from '@ark-ui/react/dialog'
 import { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'
 
-import { CloseButton } from '#components/close-button'
+import { CloseButton as CloseButtonBase } from '#components/close-button'
 
-export interface DrawerContentProps extends ChakraDrawer.ContentProps {
+export interface ContentProps extends ChakraDrawer.ContentProps {
   portalled?: boolean
   portalRef?: React.RefObject<HTMLElement>
   offset?: ChakraDrawer.ContentProps['padding']
 }
 
-export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
+export const Content = forwardRef<HTMLDivElement, ContentProps>(
   function DrawerContent(props, ref) {
     const { children, portalled = true, portalRef, offset, ...rest } = props
     return (
@@ -26,30 +26,30 @@ export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
   },
 )
 
-export const DrawerCloseButton = forwardRef<
+export const CloseButton = forwardRef<
   HTMLButtonElement,
   ChakraDrawer.CloseTriggerProps
 >(function DrawerCloseTrigger(props, ref) {
   const { children, ...rest } = props
   return (
-    <ChakraDrawer.CloseTrigger position="absolute" {...rest} asChild>
-      <CloseButton size="sm" ref={ref}>
+    <ChakraDrawer.CloseTrigger {...rest} asChild>
+      <CloseButtonBase size="sm" ref={ref}>
         {children}
-      </CloseButton>
+      </CloseButtonBase>
     </ChakraDrawer.CloseTrigger>
   )
 })
 
-export const DrawerCloseTrigger = ChakraDrawer.CloseTrigger
-export const DrawerTrigger = ChakraDrawer.Trigger
-export const DrawerRoot = ChakraDrawer.Root
-export const DrawerFooter = ChakraDrawer.Footer
-export const DrawerHeader = ChakraDrawer.Header
-export const DrawerBody = ChakraDrawer.Body
-export const DrawerBackdrop = ChakraDrawer.Backdrop
-export const DrawerDescription = ChakraDrawer.Description
-export const DrawerTitle = ChakraDrawer.Title
-export const DrawerActionTrigger = ChakraDrawer.ActionTrigger
-export const DrawerContext = DialogContext
+export const CloseTrigger = ChakraDrawer.CloseTrigger
+export const Trigger = ChakraDrawer.Trigger
+export const Root = ChakraDrawer.Root
+export const Footer = ChakraDrawer.Footer
+export const Header = ChakraDrawer.Header
+export const Body = ChakraDrawer.Body
+export const Backdrop = ChakraDrawer.Backdrop
+export const Description = ChakraDrawer.Description
+export const Title = ChakraDrawer.Title
+export const ActionTrigger = ChakraDrawer.ActionTrigger
+export const Context = DialogContext
 
-export type DrawerRootProps = ChakraDrawer.RootProps
+export type RootProps = ChakraDrawer.RootProps

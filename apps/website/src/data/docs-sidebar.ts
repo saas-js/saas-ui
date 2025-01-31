@@ -18,11 +18,6 @@ const sidebar = {
       icon: FiBookOpen,
     },
     {
-      title: 'Changelog',
-      icon: FiClock,
-      path: '/changelog',
-    },
-    {
       title: 'Core',
       icon: FiCircle,
       heading: true,

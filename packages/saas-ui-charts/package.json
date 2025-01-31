@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/charts",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "exports": {
     ".": {
       "sui": "./src/index.ts",
@@ -25,7 +25,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "recharts": "^2.13.3"
+    "recharts": "^2.15.1"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^3.2.1",

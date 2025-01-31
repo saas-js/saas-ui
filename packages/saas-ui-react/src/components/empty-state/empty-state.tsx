@@ -1,10 +1,21 @@
-import { EmptyState as ChakraEmptyState, VStack } from "@chakra-ui/react"
-import { forwardRef } from "react"
+import { forwardRef } from 'react'
+
+import {
+  Box,
+  type BoxProps,
+  EmptyState as ChakraEmptyState,
+  useEmptyStateStyles,
+} from '@chakra-ui/react'
 
 export interface EmptyStateProps extends ChakraEmptyState.RootProps {
   title: string
   description?: string
   icon?: React.ReactNode
+}
+
+const EmptyStateActions = (props: BoxProps) => {
+  const { actions } = useEmptyStateStyles()
+  return <Box {...props} css={[actions, props.css]} />
 }
 
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
@@ -16,17 +27,15 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
           {icon && (
             <ChakraEmptyState.Indicator>{icon}</ChakraEmptyState.Indicator>
           )}
+
+          <ChakraEmptyState.Title>{title}</ChakraEmptyState.Title>
           {description ? (
-            <VStack textAlign="center">
-              <ChakraEmptyState.Title>{title}</ChakraEmptyState.Title>
-              <ChakraEmptyState.Description>
-                {description}
-              </ChakraEmptyState.Description>
-            </VStack>
-          ) : (
-            <ChakraEmptyState.Title>{title}</ChakraEmptyState.Title>
-          )}
-          {children}
+            <ChakraEmptyState.Description>
+              {description}
+            </ChakraEmptyState.Description>
+          ) : null}
+
+          <EmptyStateActions>{children}</EmptyStateActions>
         </ChakraEmptyState.Content>
       </ChakraEmptyState.Root>
     )

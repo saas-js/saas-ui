@@ -22,6 +22,7 @@ export const Basic = () => {
       <Drawer.Content>
         <Drawer.Header>
           <Drawer.Title>Drawer Title</Drawer.Title>
+          <Drawer.CloseButton />
         </Drawer.Header>
         <Drawer.Body>
           <p>
@@ -35,15 +36,14 @@ export const Basic = () => {
           </Drawer.ActionTrigger>
           <Button>Save</Button>
         </Drawer.Footer>
-        <Drawer.CloseButton />
       </Drawer.Content>
     </Drawer.Root>
   )
 }
 
-export const Contained = () => {
+export const Attached = () => {
   return (
-    <Drawer.Root defaultOpen contained>
+    <Drawer.Root defaultOpen attached>
       <Drawer.Backdrop />
       <Drawer.Trigger asChild>
         <Button variant="outline" size="sm">
@@ -53,6 +53,7 @@ export const Contained = () => {
       <Drawer.Content>
         <Drawer.Header>
           <Drawer.Title>Drawer Title</Drawer.Title>
+          <Drawer.CloseButton />
         </Drawer.Header>
         <Drawer.Body>
           <p>
@@ -66,7 +67,6 @@ export const Contained = () => {
           </Drawer.ActionTrigger>
           <Button>Save</Button>
         </Drawer.Footer>
-        <Drawer.CloseButton />
       </Drawer.Content>
     </Drawer.Root>
   )

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "2.9.0",
+  "version": "2.11.0",
   "description": "Fully functional forms for Chakra UI.",
   "exports": {
     ".": {
@@ -81,10 +81,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.9.1",
+    "@hookform/resolvers": "^3.10.0",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/react": "workspace:*",
-    "react-hook-form": "^7.53.2"
+    "react-hook-form": "^7.54.2"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^3.2.1",

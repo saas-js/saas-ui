@@ -231,13 +231,13 @@ export default function Page() {
 
 ### ZodFormDialog
 
-To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod`.
+To use Zod schemas, you can import `FormDialog` from `@saas-ui/modals/zod`.
 
 ```jsx inline=true
 import { Button, useDisclosure } from '@chakra-ui/react'
 import { FormLayout, createFormDialog } from '@saas-ui/react'
 import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
-import { FormDialog } from '@saas-ui/forms/zod'
+import { FormDialog } from '@saas-ui/modals/zod'
 import * as z from 'zod'
 
 const schema = z.object({
@@ -278,13 +278,13 @@ export default function Page() {
 
 ### YupFormDialog
 
-To use Yup schemas, you can import `FormDialog` from `@saas-ui/forms/yup`.
+To use Yup schemas, you can import `FormDialog` from `@saas-ui/modals/yup`.
 
 ```jsx inline=true
 import { Button, useDisclosure } from '@chakra-ui/react'
 import { FormLayout, createFormDialog } from '@saas-ui/react'
 import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
-import { FormDialog } from '@saas-ui/forms/yup'
+import { FormDialog } from '@saas-ui/modals/yup'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({

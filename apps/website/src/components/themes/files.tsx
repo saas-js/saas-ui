@@ -1,4 +1,3 @@
-import { DownloadIcon } from '@chakra-ui/icons'
 import {
   Badge,
   Box,
@@ -22,6 +21,7 @@ import {
   StructuredListItem,
 } from '@saas-ui/react'
 import { FaFilePdf, FaFilePowerpoint, FaFileWord } from 'react-icons/fa'
+import { FiDownload } from 'react-icons/fi'
 
 export const DiskUsage = () => {
   return (
@@ -148,7 +148,7 @@ export const Files = () => {
             </StructuredListCell>
             <StructuredListCell>
               <IconButton
-                icon={<DownloadIcon />}
+                icon={<FiDownload />}
                 aria-label="Download"
                 variant="ghost"
               />

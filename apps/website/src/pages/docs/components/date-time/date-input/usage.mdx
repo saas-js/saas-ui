@@ -122,14 +122,14 @@ import {
   DatePickerDialog,
   DatePickerCalendar,
 } from '@saas-ui/date-picker'
-import { CalendarIcon } from '@chakra-ui/icons'
+import { FiCalendar } from 'react-icons/fi'
 
 export default function CustomCalendarIcon() {
   return (
     <FormControl>
       <FormLabel>Date</FormLabel>
       <DatePicker placement="bottom-end" granularity="day">
-        <DatePickerInput calendarIcon={<CalendarIcon />} />
+        <DatePickerInput calendarIcon={<FiCalendar />} />
         <DatePickerDialog>
           <DatePickerCalendar />
         </DatePickerDialog>
@@ -153,14 +153,14 @@ import {
   DatePickerDialog,
   DatePickerCalendar,
 } from '@saas-ui/date-picker'
-import { CalendarIcon } from '@chakra-ui/icons'
+import { FiCalendar } from 'react-icons/fi'
 
 export default function UsingPortal() {
   return (
     <FormControl>
       <FormLabel>Date</FormLabel>
       <DatePicker placement="bottom-end" granularity="day">
-        <DatePickerInput calendarIcon={<CalendarIcon />} />
+        <DatePickerInput calendarIcon={<FiCalendar />} />
         <Portal>
           <DatePickerDialog>
             <DatePickerCalendar />

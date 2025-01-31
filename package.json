@@ -31,12 +31,12 @@
     "dev:panda": "yarn turbo dev",
     "dev:web": "yarn w website dev",
     "dev:palette": "yarn w palette-docs dev",
-    "changelog:gen": "ts-node scripts/changelog-generate.ts",
-    "changelog:write": "ts-node scripts/changelog-write.ts",
+    "changelog:gen": "tsx scripts/changelog-generate.ts",
+    "changelog:write": "tsx scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
     "changeset:next": "yarn changeset pre enter next",
     "changeset:version": "yarn changelog:gen && changeset version",
-    "publish:next": "yarn workspaces foreach --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
+    "publish:next": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
     "publish": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
     "storybook": "yarn w saas-ui-storybook dev",
     "storybook:panda": "cd packages/saas-ui-react-panda && yarn storybook",
@@ -72,7 +72,7 @@
     "apps/panda-testing"
   ],
   "devDependencies": {
-    "@chakra-ui/cli": "^3.2.2",
+    "@chakra-ui/cli": "^3.4.0",
     "@changesets/cli": "^2.27.9",
     "@manypkg/get-packages": "^2.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
@@ -106,8 +106,8 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "@emotion/react": "11.11.1",
-    "@chakra-ui/react": "3.2.4",
-    "@ark-ui/react": "4.4.4"
+    "@chakra-ui/react": "3.4.0",
+    "@ark-ui/react": "4.8.1"
   },
   "packageManager": "yarn@4.6.0"
 }

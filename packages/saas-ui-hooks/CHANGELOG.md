@@ -1,5 +1,23 @@
 # @saas-ui/system
 
+## 2.3.0
+
+### Minor Changes
+
+- a69829a: Moved AuthProvider into a separate package
+
+## 2.2.0
+
+### Minor Changes
+
+- 803ede7: Updated Chakra UI version range to >=2.9.0 <3
+
+## 2.1.0
+
+### Minor Changes
+
+- 2ac496a: Upgraded to Chakra UI v2.9.3
+
 ## 2.0.3
 
 ### Patch Changes

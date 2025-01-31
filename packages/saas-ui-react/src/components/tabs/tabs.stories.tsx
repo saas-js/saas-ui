@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Stack } from '@chakra-ui/react'
-import { LuCheckSquare, LuFolder, LuUser } from 'react-icons/lu'
+import { LuFolder, LuSlidersHorizontal, LuUser } from 'react-icons/lu'
 
 import { Tabs } from './index.ts'
 
@@ -22,8 +22,8 @@ export const Basic = () => {
           Projects
         </Tabs.Trigger>
         <Tabs.Trigger value="tasks">
-          <LuCheckSquare />
-          Settings
+          <LuSlidersHorizontal />
+          Preferences
         </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -49,8 +49,8 @@ export const Variants = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -71,8 +71,8 @@ export const Variants = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -93,8 +93,8 @@ export const Variants = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -115,8 +115,30 @@ export const Variants = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="projects">Manage your projects</Tabs.Content>
+        <Tabs.Content value="tasks">
+          Manage your tasks for freelancers
+        </Tabs.Content>
+      </Tabs.Root>
+
+      <Tabs.Root defaultValue="members" variant="ghost">
+        <Tabs.List>
+          <Tabs.Trigger value="members">
+            <LuUser />
+            Members
+          </Tabs.Trigger>
+          <Tabs.Trigger value="projects">
+            <LuFolder />
+            Projects
+          </Tabs.Trigger>
+          <Tabs.Trigger value="tasks">
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -132,7 +154,7 @@ export const Variants = () => {
 export const Sizes = () => {
   return (
     <Stack gap="8">
-      <Tabs.Root defaultValue="members" size="xs">
+      <Tabs.Root defaultValue="members" size="xs" variant="pills">
         <Tabs.List>
           <Tabs.Trigger value="members">
             <LuUser />
@@ -143,8 +165,8 @@ export const Sizes = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -154,7 +176,7 @@ export const Sizes = () => {
         </Tabs.Content>
       </Tabs.Root>
 
-      <Tabs.Root defaultValue="members" size="sm">
+      <Tabs.Root defaultValue="members" size="sm" variant="pills">
         <Tabs.List>
           <Tabs.Trigger value="members">
             <LuUser />
@@ -165,8 +187,8 @@ export const Sizes = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -176,7 +198,7 @@ export const Sizes = () => {
         </Tabs.Content>
       </Tabs.Root>
 
-      <Tabs.Root defaultValue="members" size="md">
+      <Tabs.Root defaultValue="members" size="md" variant="pills">
         <Tabs.List>
           <Tabs.Trigger value="members">
             <LuUser />
@@ -187,8 +209,8 @@ export const Sizes = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>
@@ -198,7 +220,7 @@ export const Sizes = () => {
         </Tabs.Content>
       </Tabs.Root>
 
-      <Tabs.Root defaultValue="members" size="lg">
+      <Tabs.Root defaultValue="members" size="lg" variant="pills">
         <Tabs.List>
           <Tabs.Trigger value="members">
             <LuUser />
@@ -209,8 +231,8 @@ export const Sizes = () => {
             Projects
           </Tabs.Trigger>
           <Tabs.Trigger value="tasks">
-            <LuCheckSquare />
-            Settings
+            <LuSlidersHorizontal />
+            Preferences
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="members">Manage your team members</Tabs.Content>

@@ -1,7 +1,6 @@
 import React from 'react'
 import * as Chakra from '@chakra-ui/react'
 import { Badge, BadgeProps, chakra } from '@chakra-ui/react'
-import * as Icons from '@chakra-ui/icons'
 import * as SaasUI from '@saas-ui/react'
 import * as SaasUIAuth from '@saas-ui/auth'
 import * as SaasUIForms from '@saas-ui/forms'
@@ -15,6 +14,8 @@ import * as z from 'zod'
 import * as yup from 'yup'
 import * as YupForm from '@saas-ui/forms/yup'
 import * as ZodForm from '@saas-ui/forms/zod'
+import * as ZodModal from '@saas-ui/modals/zod'
+import * as YupModal from '@saas-ui/modals/yup'
 import SaasUILogo from '@/components/saas-ui'
 import SaasUIGlyph from '@/components/saas-ui-glyph'
 import * as Assets from '@saas-ui/assets'
@@ -174,7 +175,6 @@ const ReactLiveScope = {
   ...SaasUIForms,
   ...SaasUIFeatures,
   ...DatePicker,
-  ...Icons,
   ...CommandBar,
   yup,
   yupResolver: yupResolver,
@@ -196,6 +196,8 @@ const ReactLiveScope = {
     '@saas-ui/forms': SaasUIForms,
     '@saas-ui/forms/zod': ZodForm,
     '@saas-ui/forms/yup': YupForm,
+    '@saas-ui/modals/zod': ZodModal,
+    '@saas-ui/modals/yup': YupModal,
     '@saas-ui/command-bar': CommandBar,
     '@saas-ui/file-upload': FileUpload,
     '@saas-ui-pro/react': SaasUIPro,
@@ -204,7 +206,6 @@ const ReactLiveScope = {
     '@saas-ui/date-picker': DatePicker,
     '@saas-ui/assets': Assets,
     '@saas-ui/charts': Charts,
-    '@chakra-ui/icons': Icons,
     'date-fns': {
       startOfDay,
       subDays,

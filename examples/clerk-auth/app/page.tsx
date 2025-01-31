@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Center } from '@chakra-ui/react'
+import { Button, Center } from '@chakra-ui/react'
 import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
 import { useAuth } from '@saas-ui/auth'
 import NextLink from 'next/link'

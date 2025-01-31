@@ -1,4 +1,6 @@
+import { Box } from '@chakra-ui/react'
 import MotionBox, { MotionBoxProps } from './box'
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useInView, IntersectionOptions } from 'react-intersection-observer'
 
@@ -8,6 +10,7 @@ export const FallInPlace = ({
   translateY = '20px',
   initialInView,
   threshold,
+  transition,
   onChange,
   ...rest
 }: MotionBoxProps & {
@@ -25,7 +28,7 @@ export const FallInPlace = ({
   })
 
   return (
-    <MotionBox
+    <motion.div
       ref={ref}
       initial={{ scale: 1, opacity: 0, translateY }}
       animate={inView && { scale: 1, opacity: 1, translateY: 0 }}
@@ -34,10 +37,10 @@ export const FallInPlace = ({
         ease: 'easeOut',
         duration: 2,
         delay: initialInView ? delay : 0,
+        ...transition,
       }}
-      {...rest}
     >
-      {children}
-    </MotionBox>
+      <Box {...rest}>{children}</Box>
+    </motion.div>
   )
 }

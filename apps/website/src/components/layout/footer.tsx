@@ -16,7 +16,7 @@ export interface FooterProps extends BoxProps {
 const Footer = ({ children, columns = 4, ...rest }: FooterProps) => {
   return (
     <Box {...rest}>
-      <Container maxW="container.2xl" px="8" py="8">
+      <Container maxW="container.xl" px="8" py="8">
         <SimpleGrid columns={columns}>{children}</SimpleGrid>
       </Container>
     </Box>

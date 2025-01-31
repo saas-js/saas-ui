@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.8
+
+### Patch Changes
+
+- 0f49a18: Removed imports from @chakra-ui/react
+- Updated dependencies [0f49a18]
+  - @saas-ui/hooks@3.0.0-alpha.5
+
 ## 3.0.0-alpha.7
 
 ### Patch Changes

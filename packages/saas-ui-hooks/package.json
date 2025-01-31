@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/hooks",
-  "version": "3.0.0-alpha.4",
+  "version": "3.0.0-alpha.5",
   "description": "Saas UI react hooks",
   "exports": {
     ".": {

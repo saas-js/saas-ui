@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.30
+
+### Patch Changes
+
+- Updated dependencies [0f49a18]
+  - @saas-ui/hooks@3.0.0-alpha.5
+  - @saas-ui/core@3.0.0-alpha.8
+
 ## 3.0.0-alpha.29
 
 ### Patch Changes

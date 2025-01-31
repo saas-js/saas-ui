@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 3.0.0-alpha.5
+
+### Patch Changes
+
+- 0f49a18: Removed imports from @chakra-ui/react
+
 ## 3.0.0-alpha.4
 
 ### Minor Changes

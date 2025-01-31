@@ -8,38 +8,15 @@ import {
   FlexProps,
   Grid,
   GridItem,
-  HStack,
   type StyledComponent,
   Wrap,
   styled,
 } from '@saas-ui/panda/jsx'
 import { ComponentProps } from '@saas-ui/panda/types'
-import {
-  Accordion,
-  Badge,
-  Button,
-  Card,
-  Menu,
-  Sidebar,
-  Tag,
-  Text,
-} from '@saas-ui/react-panda'
-import {
-  ChevronDownIcon,
-  FolderIcon,
-  InboxIcon,
-  MenuIcon,
-  PlusIcon,
-  SearchIcon,
-  XIcon,
-} from 'lucide-react'
+import { Accordion, Badge, Button, Card, Menu, Tag } from '@saas-ui/react-panda'
+import { ChevronDownIcon } from 'lucide-react'
 import { HiSortAscending } from 'react-icons/hi'
-import {
-  LuClipboardPaste,
-  LuCopy,
-  LuScissors,
-  LuWorkflow,
-} from 'react-icons/lu'
+import { LuClipboardPaste, LuCopy, LuScissors } from 'react-icons/lu'
 
 export function Headings() {
   return (
@@ -303,159 +280,5 @@ export function MenuShowcase() {
         </Menu.Root>
       </Wrap>
     </Wrapper>
-  )
-}
-
-export function SidebarShowcase() {
-  return (
-    <>
-      {/* <Sidebar.Trigger>Open Menu.</Sidebar.Trigger> */}
-      <Sidebar.Provider>
-        <Sidebar.Trigger>
-          <Button
-            p={'0!'}
-            aspectRatio={'square'}
-            w={'fit-content'}
-            variant={'ghost'}
-          >
-            <MenuIcon />
-          </Button>
-        </Sidebar.Trigger>
-        <Sidebar.Root>
-          <Sidebar.Header
-            direction="row"
-            justifyContent={'space-between'}
-            alignItems={'center'}
-          >
-            <Text>Sidebar</Text>
-            {/* <WorkspaceMenu /> */}
-            {/* <Spacer /> */}
-            <Button
-              p="0!"
-              aspectRatio="square"
-              w="fit-content"
-              variant="ghost"
-              rounded="full"
-            >
-              <SearchIcon />
-            </Button>
-            {/* <Sidebar.Trigger asChild>
-              <Button
-                variant="ghost"
-                aria-label="Toggle sidebar"
-                p="0!"
-                aspectRatio="square"
-                w="fit-content"
-                rounded="full"
-              >
-                <ArrowLeftToLine />
-              </Button>
-            </Sidebar.Trigger> */}
-          </Sidebar.Header>
-          <Sidebar.Body flex="1" overflowY="auto">
-            <Sidebar.Group>
-              <Sidebar.GroupContent>
-                <Sidebar.NavItem>
-                  <Sidebar.NavButton justifyContent="space-between" active>
-                    <HStack>
-                      <InboxIcon height={16} width={16} />
-                      Inbox
-                    </HStack>
-                    <Badge px="2">12</Badge>
-                  </Sidebar.NavButton>
-                </Sidebar.NavItem>
-                <Sidebar.NavItem>
-                  <Sidebar.NavButton>
-                    <FolderIcon />
-                    Projects
-                  </Sidebar.NavButton>
-                </Sidebar.NavItem>
-                <Sidebar.NavItem>
-                  <Sidebar.NavButton>
-                    <LuWorkflow />
-                    Workflows
-                  </Sidebar.NavButton>
-                </Sidebar.NavItem>
-              </Sidebar.GroupContent>
-            </Sidebar.Group>
-
-            <Sidebar.Group>
-              <Sidebar.GroupHeader>
-                <Sidebar.GroupTitle>Favorites</Sidebar.GroupTitle>
-
-                <Sidebar.GroupEndElement>
-                  <Button
-                    variant="ghost"
-                    aria-label="Add to favorites"
-                    size="xs"
-                    opacity="0"
-                    p={'0!'}
-                    aspectRatio={'square'}
-                    w={'fit-content'}
-                    _groupHover={{ opacity: 0.6, _hover: { opacity: 1 } }}
-                  >
-                    <PlusIcon />
-                  </Button>
-                </Sidebar.GroupEndElement>
-              </Sidebar.GroupHeader>
-              <Sidebar.GroupContent>
-                <Sidebar.NavItem>
-                  <Sidebar.NavButton justifyContent="space-between">
-                    🌟 Chakra v3
-                    {/* <Spacer /> */}
-                    {/* <Sidebar.NavButtonEndElement
-                          opacity="0"
-                          _parentHover={{
-                            opacity: 0.6,
-                            _hover: { opacity: 1 },
-                          }}
-                        > */}
-                    <Button
-                      p={'0!'}
-                      aspectRatio={'square'}
-                      w={'fit-content'}
-                      variant="ghost"
-                      aria-label="Remove from favorites"
-                      title="Remove from favorites"
-                      size="xs"
-                    >
-                      <XIcon />
-                    </Button>
-                    {/* </Sidebar.NavButtonEndElement> */}
-                  </Sidebar.NavButton>
-                </Sidebar.NavItem>
-                <Sidebar.NavItem>
-                  <Sidebar.NavButton justifyContent="space-between">
-                    🎨 Design systems
-                    {/* <Spacer /> */}
-                    {/* <Sidebar.NavButtonEndElement
-                          opacity="0"
-                          _parentHover={{
-                            opacity: 0.6,
-                            _hover: { opacity: 1 },
-                          }}
-                        > */}
-                    <Button
-                      variant="ghost"
-                      aria-label="Remove from favorites"
-                      title="Remove from favorites"
-                      size="xs"
-                      p={'0!'}
-                      aspectRatio={'square'}
-                      w={'fit-content'}
-                    >
-                      <XIcon />
-                    </Button>
-                    {/* </Sidebar.NavButtonEndElement> */}
-                  </Sidebar.NavButton>
-                </Sidebar.NavItem>
-              </Sidebar.GroupContent>
-            </Sidebar.Group>
-          </Sidebar.Body>
-          <Sidebar.Footer></Sidebar.Footer>
-        </Sidebar.Root>
-        <Sidebar.Backdrop />
-      </Sidebar.Provider>
-    </>
   )
 }

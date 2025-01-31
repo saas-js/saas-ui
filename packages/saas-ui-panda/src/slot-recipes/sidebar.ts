@@ -20,7 +20,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
   ],
   base: {
     root: {
-      '--sidebar-z-index': 'zindex.modal',
+      '--sidebar-z-index': 'zIndex.modal',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -29,7 +29,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       bg: 'blackAlpha.200',
       position: 'fixed',
       inset: 0,
-      '--sidebar-backdrop-z-index': 'zIndex.layer-3',
+      '--sidebar-backdrop-z-index': 'zIndex.overlay',
       zIndex: 'calc(var(--sidebar-backdrop-z-index) - 2)',
       _open: {
         animationName: 'fade-in',
@@ -147,21 +147,28 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         root: {
           base: {
             position: 'fixed',
+            top: 0,
             height: '100dvh',
-            zIndex: 'layer-3',
+            zIndex: 'var(--sidebar-z-index)',
+
+            bg: {
+              _light: 'bg',
+              _dark: 'bg',
+            },
           },
           md: {
             position: 'relative',
             height: 'auto',
             zIndex: 'unset',
+            bg: {
+              _light: 'color-mix(in srgb, {colors.bg}, #000 7%)',
+              _dark: 'color-mix(in srgb, {colors.bg}, #fff 7%)',
+            },
           },
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
-          bg: {
-            _light: 'color-mix(in srgb, {colors.bg}, #000 7%)',
-            _dark: 'color-mix(in srgb, {colors.bg}, #fff 7%)',
-          },
+
           transitionProperty: 'margin-left',
           _open: {
             marginLeft: 0,
@@ -185,7 +192,10 @@ export const sidebarSlotRecipe = defineSlotRecipe({
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
-          bg: 'sidebar.bg',
+          bg: {
+            _light: 'color-mix(in srgb, {colors.bg}, #000 7%)',
+            _dark: 'color-mix(in srgb, {colors.bg}, #fff 7%)',
+          },
           borderColor: 'sidebar.border',
           boxShadow: 'none',
           borderWidth: '1px',
@@ -204,7 +214,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         flyoutTrigger: {
           display: 'block',
           position: 'absolute',
-          '--sidebar-flyout-trigger-z-index': 'zIndex.layer-3',
+          '--sidebar-flyout-trigger-z-index': '{zIndex.overlay}',
           zIndex: 'calc(var(--sidebar-flyout-trigger-z-index) - 1)',
           height: '100%',
           width: '8px',

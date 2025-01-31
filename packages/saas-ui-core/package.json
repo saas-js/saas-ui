@@ -52,6 +52,7 @@
     "#system": "./src/system"
   },
   "scripts": {
+    "dev": "tsup --config tsup.config.ts --watch",
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",

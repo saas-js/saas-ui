@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^4.8.1",
+    "@saas-ui/core": "workspace:*",
     "@saas-ui/panda": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

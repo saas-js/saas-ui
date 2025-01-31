@@ -13,6 +13,7 @@ export {
   SidebarNavButton as NavButton,
   SidebarNavItem as NavItem,
   SidebarNavItemEndElement as NavItemEndElement,
+  SidebarProvider as Provider,
   SidebarRoot as Root,
   SidebarTrack as Track,
   SidebarTrigger as Trigger,
@@ -28,6 +29,3 @@ export type {
   SidebarMode as Mode,
   SidebarProps as RootProps,
 } from './sidebar.types'
-
-export { SidebarProvider as Provider } from './sidebar.context'
-export type { SidebarProviderProps as ProviderProps } from './sidebar.context'

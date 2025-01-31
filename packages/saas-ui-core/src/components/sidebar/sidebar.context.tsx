@@ -2,8 +2,11 @@
 
 import { useMemo, useState } from 'react'
 
-import { useControllableState } from '@chakra-ui/react'
-import { useDisclosure, useIsMobile } from '@saas-ui/hooks'
+import {
+  useControllableState,
+  useDisclosure,
+  useIsMobile,
+} from '@saas-ui/hooks'
 
 import type { HTMLSystemProps } from '#system'
 import { callAll, createContext } from '#utils'

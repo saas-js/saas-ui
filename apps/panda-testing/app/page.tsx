@@ -1,4 +1,5 @@
 import { Flex } from '@saas-ui/panda/jsx'
+
 import {
   AccordionShowcase,
   BadgeShowcase,
@@ -6,7 +7,6 @@ import {
   CardShowcase,
   Headings,
   MenuShowcase,
-  SidebarShowcase,
   TagShowcase,
 } from './showcase'
 
@@ -27,7 +27,6 @@ export default function Home() {
       <BadgeShowcase />
       <TagShowcase />
       <MenuShowcase />
-      <SidebarShowcase />
     </Flex>
   )
 }

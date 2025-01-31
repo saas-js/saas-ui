@@ -1,8 +1,11 @@
-import { ark } from '@ark-ui/react'
+import { type ComponentProps, forwardRef } from 'react'
+
+import { type PolymorphicProps, ark } from '@ark-ui/react'
 import { styled } from '@saas-ui/panda/jsx'
 import { button } from '@saas-ui/panda/recipes'
-import { ComponentProps, forwardRef } from 'react'
+
 import { Spinner } from '../spinner'
+import { HTMLSuiProps } from '../types'
 
 export interface ButtonProps extends ComponentProps<typeof StyledButton> {}
 
@@ -14,7 +17,8 @@ interface ButtonLoadingProps {
 }
 
 export interface ButtonProps
-  extends ComponentProps<typeof StyledButton>,
+  extends HTMLSuiProps<'button'>,
+    PolymorphicProps,
     ButtonLoadingProps {}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -55,5 +59,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       </StyledButton>
     )
-  }
+  },
 )

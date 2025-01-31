@@ -1,3 +1,5 @@
+import { JSX } from 'react'
+
 import { HTMLArkProps, ark } from '@ark-ui/react'
 
 export type Dict = Record<string, any>

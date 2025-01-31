@@ -52,7 +52,7 @@
     "create:block": "yarn hygen blocks new",
     "build:web": "yarn w website build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
-    "build:panda": "turbo run build --filter='./packages/panda'",
+    "build:panda": "turbo run build",
     "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue",
@@ -66,7 +66,9 @@
   },
   "workspaces": [
     "packages/saas-ui-panda",
+    "packages/saas-ui-core",
     "packages/saas-ui-react-panda",
+    "packages/saas-ui-hooks",
     "apps/panda-testing"
   ],
   "devDependencies": {

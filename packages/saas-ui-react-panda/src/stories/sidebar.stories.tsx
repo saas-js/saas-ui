@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { HStack } from '@saas-ui/panda/jsx'
 import type { Meta, StoryObj } from '@storybook/react'
 import 'react-icons'
@@ -36,12 +34,11 @@ function IconButton(props: ButtonProps) {
 
 export const Default: Story = {
   render: (props) => {
-    const [mode, setMode] = React.useState<'flyout' | 'collapsible'>('flyout')
-
     return (
       <Sidebar.Provider>
         <Sidebar.Trigger>
           <Button
+            display={{ base: 'flex', md: 'none' }}
             p={'0!'}
             aspectRatio={'square'}
             w={'fit-content'}
@@ -59,18 +56,19 @@ export const Default: Story = {
             <Text>Sidebar</Text>
             {/* <WorkspaceMenu /> */}
             {/* <Spacer /> */}
-            <Button
-              p="0!"
-              aspectRatio="square"
-              w="fit-content"
-              variant="ghost"
-              rounded="full"
-            >
-              <RiSearchLine />
-            </Button>
-            {mode === 'collapsible' && (
+            <HStack>
+              <Button
+                p="0!"
+                aspectRatio="square"
+                w="fit-content"
+                variant="ghost"
+                rounded="full"
+              >
+                <RiSearchLine />
+              </Button>
               <Sidebar.Trigger asChild>
                 <Button
+                  display={{ base: 'flex', md: 'none' }}
                   variant="ghost"
                   aria-label="Toggle sidebar"
                   p="0!"
@@ -81,7 +79,7 @@ export const Default: Story = {
                   <RiSidebarFoldLine />
                 </Button>
               </Sidebar.Trigger>
-            )}
+            </HStack>
           </Sidebar.Header>
           <Sidebar.Body flex="1" overflowY="auto">
             <Sidebar.Group>
@@ -176,11 +174,13 @@ export const Default: Story = {
           </Sidebar.Body>
           <Sidebar.Footer></Sidebar.Footer>
 
-          <Sidebar.Track
+          {/* <Sidebar.Track
             onClick={() =>
               setMode(mode === 'flyout' ? 'collapsible' : 'flyout')
             }
-          />
+          >
+            <Button>Track</Button>
+          </Sidebar.Track> */}
         </Sidebar.Root>
         <Sidebar.Backdrop />
       </Sidebar.Provider>

@@ -1,9 +1,8 @@
 import * as React from 'react'
 
-import { createContext } from '@chakra-ui/react'
 import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
 
-import { callAll, dataAttr } from '#utils'
+import { callAll, createContext, dataAttr } from '#utils'
 
 interface GridListContext {
   id: string

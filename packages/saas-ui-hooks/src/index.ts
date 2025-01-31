@@ -1,3 +1,4 @@
+export { useControllableState } from './use-controllable-state'
 export { usePromise } from './use-promise'
 export type { UsePromise } from './use-promise'
 export { useLocalStorage } from './use-local-storage'

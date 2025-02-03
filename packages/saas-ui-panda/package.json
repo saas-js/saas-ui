@@ -62,7 +62,6 @@
   },
   "author": "ImExoOdeex <odeex722@gmail.com>",
   "dependencies": {
-    "@chakra-ui/panda-preset": "^3.4.0",
     "@pandacss/dev": "^0.51.1"
   },
   "devDependencies": {

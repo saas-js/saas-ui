@@ -1,5 +1,5 @@
 {
-  "name": "@saas-ui/panda",
+  "name": "@saas-ui/panda-preset",
   "description": "The styled system for Saas UI panda",
   "exports": {
     ".": {

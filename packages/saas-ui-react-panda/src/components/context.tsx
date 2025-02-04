@@ -9,10 +9,11 @@ import {
   createElement,
   forwardRef,
   useContext,
-  useMemo,
 } from 'react'
 
 import { cx } from '@saas-ui/panda-preset/css'
+import { styled } from '@saas-ui/panda-preset/jsx'
+import { JsxFactoryOptions, StyledComponent } from '@saas-ui/panda-preset/types'
 
 type GenericProps = Record<string, unknown>
 type StyleRecipe = {
@@ -28,36 +29,26 @@ export type ComponentVariants<T extends ElementType, R extends StyleRecipe> = (
   props: CombineProps<ComponentProps<T>, StyleVariantProps<R>>,
 ) => JSX.Element
 
-export const createStyleContext = <R extends StyleRecipe>(
-  recipe: R,
-  shouldForwardVariantProp?: (prop: string) => boolean,
-) => {
+export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const StyleContext = createContext<StyleSlotRecipe<R> | null>(null)
 
   const withProvider = <T extends ElementType>(
     Component: T,
     slot?: StyleSlot<R>,
-  ): ComponentVariants<T, R> => {
-    const StyledComponent = forwardRef((props: any, ref) => {
+    options?: JsxFactoryOptions<ComponentProps<T>>,
+  ): ComponentVariants<StyledComponent<T, ComponentProps<T>>, R> => {
+    const StyledComponent = forwardRef<any, any>((props: any, ref) => {
       const [variantProps, otherProps] = recipe.splitVariantProps(props)
       const slotStyles = recipe(variantProps) as StyleSlotRecipe<R>
-      const forwardedVariantProps = useMemo(() => {
-        const variantKeys = Object.keys(variantProps)
-        return variantKeys.reduce((acc, key) => {
-          if (shouldForwardVariantProp?.(key)) {
-            acc[key] = variantProps[key]
-          }
-          return acc
-        }, {} as any)
-      }, [shouldForwardVariantProp, variantProps])
+
+      const SuperComponent = styled(Component, {}, options) as any
 
       return (
         <StyleContext.Provider value={slotStyles}>
-          <Component
+          <SuperComponent
             ref={ref}
             {...otherProps}
             className={cx(slotStyles[slot ?? ''], otherProps.className)}
-            {...forwardedVariantProps}
           />
         </StyleContext.Provider>
       )
@@ -68,17 +59,20 @@ export const createStyleContext = <R extends StyleRecipe>(
   const withContext = <T extends ElementType>(
     Component: T,
     slot?: StyleSlot<R>,
-  ): T => {
-    if (!slot) return Component
+    options?: JsxFactoryOptions<ComponentProps<T>>,
+  ): StyledComponent<T, ComponentProps<T>> => {
+    if (!slot) return Component as any
     const StyledComponent = forwardRef((props: any, ref) => {
       const slotStyles = useContext(StyleContext)
-      return createElement(Component, {
+      const SuperComponent = styled(Component, {}, options) as any
+
+      return createElement(SuperComponent, {
         ...props,
         className: cx(slotStyles?.[slot ?? ''], props.className),
         ref,
       })
     })
-    return StyledComponent as unknown as T
+    return StyledComponent as any
   }
 
   return {

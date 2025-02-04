@@ -11,8 +11,8 @@ import {
   type StyledComponent,
   Wrap,
   styled,
-} from '@saas-ui/panda/jsx'
-import { ComponentProps } from '@saas-ui/panda/types'
+} from '@saas-ui/panda-preset/jsx'
+import { ComponentProps } from '@saas-ui/panda-preset/types'
 import { Accordion, Badge, Button, Card, Menu, Tag } from '@saas-ui/react-panda'
 import { ChevronDownIcon } from 'lucide-react'
 import { HiSortAscending } from 'react-icons/hi'

@@ -1,4 +1,4 @@
-import { HStack, Stack } from '@saas-ui/panda/jsx'
+import { HStack, Stack } from '@saas-ui/panda-preset/jsx'
 import { Button } from 'src/components'
 
 export default {

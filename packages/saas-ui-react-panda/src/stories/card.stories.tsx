@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, LinkOverlay } from '@saas-ui/panda/jsx'
+import { Box, Flex, Grid, LinkOverlay } from '@saas-ui/panda-preset/jsx'
 import { Meta } from '@storybook/react'
 import { FaGithub, FaSlack } from 'react-icons/fa6'
 import { FiMoreVertical } from 'react-icons/fi'

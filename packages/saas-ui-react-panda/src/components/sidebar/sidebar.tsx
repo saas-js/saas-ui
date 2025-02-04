@@ -2,8 +2,8 @@ import { ComponentProps, PropsWithChildren, forwardRef } from 'react'
 
 import { PolymorphicProps } from '@ark-ui/react'
 import { Sidebar, type SidebarProviderProps } from '@saas-ui/core/sidebar'
-import { Box, BoxProps, splitCssProps, styled } from '@saas-ui/panda/jsx'
-import { sidebar, sidebarItem } from '@saas-ui/panda/recipes'
+import { Box, BoxProps, splitCssProps, styled } from '@saas-ui/panda-preset/jsx'
+import { sidebar, sidebarItem } from '@saas-ui/panda-preset/recipes'
 
 import { createStyleContext } from '../context'
 import { HTMLSuiProps } from '../types'

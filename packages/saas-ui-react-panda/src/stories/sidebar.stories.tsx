@@ -1,4 +1,4 @@
-import { HStack } from '@saas-ui/panda/jsx'
+import { HStack } from '@saas-ui/panda-preset/jsx'
 import type { Meta, StoryObj } from '@storybook/react'
 import 'react-icons'
 import { IoMdMenu } from 'react-icons/io'

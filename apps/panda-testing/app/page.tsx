@@ -1,4 +1,4 @@
-import { Flex } from '@saas-ui/panda/jsx'
+import { Flex } from '@saas-ui/panda-preset/jsx'
 
 import {
   AccordionShowcase,

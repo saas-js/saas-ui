@@ -1,4 +1,4 @@
-import { Box } from '@saas-ui/panda/jsx'
+import { Box } from '@saas-ui/panda-preset/jsx'
 
 export const BackgroundGradient = () => {
   const fallbackBackground =

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { VStack } from '@saas-ui/panda/jsx'
+import { VStack } from '@saas-ui/panda-preset/jsx'
 import type { Preview } from '@storybook/react'
 
 import './index.css'

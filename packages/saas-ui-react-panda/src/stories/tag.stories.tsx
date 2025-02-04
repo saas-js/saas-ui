@@ -1,4 +1,4 @@
-import { HStack } from '@saas-ui/panda/jsx'
+import { HStack } from '@saas-ui/panda-preset/jsx'
 import { LuGitBranch } from 'react-icons/lu'
 import { Icon, Tag } from 'src/components'
 

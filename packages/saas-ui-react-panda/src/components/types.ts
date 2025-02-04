@@ -1,8 +1,8 @@
-import { Dict, DistributiveOmit } from '@saas-ui/panda/types'
+import { ComponentPropsWithoutRef, ElementType } from 'react'
 
 import { PolymorphicProps } from '@ark-ui/react'
-import { Assign, JsxStyleProps } from '@saas-ui/panda/types'
-import { ComponentPropsWithoutRef, ElementType } from 'react'
+import { Dict, DistributiveOmit } from '@saas-ui/panda-preset/types'
+import { Assign, JsxStyleProps } from '@saas-ui/panda-preset/types'
 
 interface HtmlProps {
   htmlSize?: number

@@ -1,10 +1,10 @@
 import { ComponentProps } from 'react'
 
-import { styled } from '@saas-ui/panda/jsx'
+import { styled } from '@saas-ui/panda-preset/jsx'
 
 import { createIcon } from './create-icon'
 
-interface SvgProps extends ComponentProps<typeof styled.svg> { }
+interface SvgProps extends ComponentProps<typeof styled.svg> {}
 
 export const CloseIcon = (props: SvgProps) => (
   <styled.svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -17,17 +17,15 @@ export const CloseIcon = (props: SvgProps) => (
 )
 
 export const CheckIcon = createIcon({
-  viewBox: "0 0 24 24",
+  viewBox: '0 0 24 24',
   defaultProps: {
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: '2',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
   },
-  path: (
-    <path d="M20 6 9 17l-5-5"></path>
-  ),
+  path: <path d="M20 6 9 17l-5-5"></path>,
 })
 
 export const ChevronRightIcon = createIcon({

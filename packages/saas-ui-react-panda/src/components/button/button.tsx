@@ -1,8 +1,8 @@
 import { type ComponentProps, forwardRef } from 'react'
 
 import { type PolymorphicProps, ark } from '@ark-ui/react'
-import { styled } from '@saas-ui/panda/jsx'
-import { button } from '@saas-ui/panda/recipes'
+import { styled } from '@saas-ui/panda-preset/jsx'
+import { button } from '@saas-ui/panda-preset/recipes'
 
 import { Spinner } from '../spinner'
 import { HTMLSuiProps } from '../types'

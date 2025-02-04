@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@saas-ui/panda": "workspace:*",
+    "@saas-ui/panda-preset": "workspace:*",
     "@saas-ui/react-panda": "workspace:*",
     "lucide-react": "^0.473.0",
     "next": "15.1.5",

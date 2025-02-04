@@ -1,8 +1,8 @@
 import { ComponentProps } from 'react'
 
 import { ark } from '@ark-ui/react'
-import { styled } from '@saas-ui/panda/jsx'
-import { card } from '@saas-ui/panda/recipes'
+import { styled } from '@saas-ui/panda-preset/jsx'
+import { card } from '@saas-ui/panda-preset/recipes'
 
 import { createStyleContext } from '../context'
 

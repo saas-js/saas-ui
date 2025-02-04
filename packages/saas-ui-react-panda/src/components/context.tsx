@@ -1,8 +1,6 @@
 /**
  * Recipe style context for multi-slot components
  */
-
-import { cx } from '@saas-ui/panda/css'
 import {
   type ComponentProps,
   type ElementType,
@@ -13,6 +11,8 @@ import {
   useContext,
   useMemo,
 } from 'react'
+
+import { cx } from '@saas-ui/panda-preset/css'
 
 type GenericProps = Record<string, unknown>
 type StyleRecipe = {
@@ -25,18 +25,18 @@ type StyleVariantProps<R extends StyleRecipe> = Parameters<R>[0]
 type CombineProps<T, U> = Omit<T, keyof U> & U
 
 export type ComponentVariants<T extends ElementType, R extends StyleRecipe> = (
-  props: CombineProps<ComponentProps<T>, StyleVariantProps<R>>
+  props: CombineProps<ComponentProps<T>, StyleVariantProps<R>>,
 ) => JSX.Element
 
 export const createStyleContext = <R extends StyleRecipe>(
   recipe: R,
-  shouldForwardVariantProp?: (prop: string) => boolean
+  shouldForwardVariantProp?: (prop: string) => boolean,
 ) => {
   const StyleContext = createContext<StyleSlotRecipe<R> | null>(null)
 
   const withProvider = <T extends ElementType>(
     Component: T,
-    slot?: StyleSlot<R>
+    slot?: StyleSlot<R>,
   ): ComponentVariants<T, R> => {
     const StyledComponent = forwardRef((props: any, ref) => {
       const [variantProps, otherProps] = recipe.splitVariantProps(props)
@@ -67,7 +67,7 @@ export const createStyleContext = <R extends StyleRecipe>(
 
   const withContext = <T extends ElementType>(
     Component: T,
-    slot?: StyleSlot<R>
+    slot?: StyleSlot<R>,
   ): T => {
     if (!slot) return Component
     const StyledComponent = forwardRef((props: any, ref) => {

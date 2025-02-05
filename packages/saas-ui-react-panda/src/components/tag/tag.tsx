@@ -2,18 +2,31 @@ import { ComponentProps, forwardRef } from 'react'
 
 import { tag } from '@saas-ui/panda-preset/recipes'
 
-import { createStyleContext } from '../context'
+import { HTMLSuiProps, createStyleContext } from '../context'
 import { CloseIcon } from '../icons'
 
 const { withProvider, withContext } = createStyleContext(tag)
 
-const Root = withProvider('span', 'root')
-const Label = withContext('span', 'label')
-const CloseTrigger = withContext('span', 'closeTrigger', {
-  defaultProps: { children: <CloseIcon /> },
-})
-const StartElement = withContext('span', 'startElement')
-const EndElement = withContext('span', 'endElement')
+const Root = withProvider<HTMLSpanElement, HTMLSuiProps<'span'>>('span', 'root')
+const Label = withContext<HTMLSpanElement, HTMLSuiProps<'span'>>(
+  'span',
+  'label',
+)
+const CloseTrigger = withContext<HTMLSpanElement, HTMLSuiProps<'span'>>(
+  'span',
+  'closeTrigger',
+  {
+    defaultProps: { children: <CloseIcon /> },
+  },
+)
+const StartElement = withContext<HTMLSpanElement, HTMLSuiProps<'span'>>(
+  'span',
+  'startElement',
+)
+const EndElement = withContext<HTMLSpanElement, HTMLSuiProps<'span'>>(
+  'span',
+  'endElement',
+)
 
 export interface TagProps extends ComponentProps<typeof Root> {
   startElement?: React.ReactNode

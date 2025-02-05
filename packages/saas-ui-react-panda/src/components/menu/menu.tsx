@@ -1,11 +1,30 @@
 import { ComponentProps, ReactNode, RefObject, forwardRef } from 'react'
 
 import { Portal } from '@ark-ui/react'
-import { Menu as ArkMenu } from '@ark-ui/react/menu'
+import {
+  Menu as ArkMenu,
+  type MenuArrowBaseProps as ArkMenuArrowBaseProps,
+  type MenuArrowTipBaseProps as ArkMenuArrowTipBaseProps,
+  type MenuCheckboxItemBaseProps as ArkMenuCheckboxItemBaseProps,
+  type MenuContentBaseProps as ArkMenuContentBaseProps,
+  type MenuContextTriggerBaseProps as ArkMenuContextTriggerBaseProps,
+  type MenuIndicatorBaseProps as ArkMenuIndicatorBaseProps,
+  type MenuItemBaseProps as ArkMenuItemBaseProps,
+  type MenuItemGroupBaseProps as ArkMenuItemGroupBaseProps,
+  type MenuItemGroupLabelBaseProps as ArkMenuItemGroupLabelBaseProps,
+  type MenuItemIndicatorBaseProps as ArkMenuItemIndicatorBaseProps,
+  type MenuItemTextBaseProps as ArkMenuItemTextBaseProps,
+  type MenuPositionerProps as ArkMenuPositionerProps,
+  type MenuRadioItemBaseProps as ArkMenuRadioItemBaseProps,
+  type MenuRadioItemGroupBaseProps as ArkMenuRadioItemGroupBaseProps,
+  type MenuSeparatorBaseProps as ArkMenuSeparatorBaseProps,
+  type MenuTriggerItemBaseProps as ArkMenuTriggerItemBaseProps,
+  type MenuTriggerProps as ArkMenuTriggerProps,
+} from '@ark-ui/react/menu'
 import '@saas-ui/panda-preset/jsx'
 import { menu } from '@saas-ui/panda-preset/recipes'
 
-import { createStyleContext } from '../context'
+import { HTMLSuiProps, createStyleContext } from '../context'
 import { CheckIcon, ChevronRightIcon } from '../icons'
 
 const { withProvider, withContext } = createStyleContext(menu)
@@ -16,12 +35,10 @@ export const MenuRootBase = withProvider(ArkMenu.Root)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-export interface MenuTriggerProps
-  extends ComponentProps<typeof MenuTriggerBase> {}
+export interface MenuTriggerProps extends ArkMenuTriggerProps {}
 
-const MenuTriggerBase = withContext(
+const MenuTriggerBase = withContext<HTMLDivElement, MenuTriggerProps>(
   ArkMenu.Trigger,
-
   'trigger',
   {
     defaultProps: {
@@ -33,128 +50,187 @@ const MenuTriggerBase = withContext(
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuContextTriggerProps
-  extends ComponentProps<typeof MenuContextTriggerBase> {}
+  extends ArkMenuContextTriggerBaseProps,
+    HTMLSuiProps<'button'> {}
 
-const MenuContextTriggerBase = withContext(
-  ArkMenu.ContextTrigger,
-  'contextTrigger',
-)
+const MenuContextTriggerBase = withContext<
+  HTMLButtonElement,
+  MenuContextTriggerProps
+>(ArkMenu.ContextTrigger, 'contextTrigger')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuPositionerProps
-  extends ComponentProps<typeof MenuPositionerBase> {}
+  extends ArkMenuPositionerProps,
+    Omit<HTMLSuiProps<'div'>, keyof ArkMenuPositionerProps> {}
 
-const MenuPositionerBase = withContext(ArkMenu.Positioner, 'positioner')
-
-////////////////////////////////////////////////////////////////////////////////////
-
-export interface MenuSeparatorProps
-  extends ComponentProps<typeof MenuSeparatorBase> {}
-
-const MenuSeparatorBase = withContext(ArkMenu.Separator, 'separator')
+const MenuPositionerBase = withContext<HTMLDivElement, MenuPositionerProps>(
+  ArkMenu.Positioner,
+  'positioner',
+)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-interface MenuContentBaseProps extends ComponentProps<typeof MenuContentBase> {}
+export interface MenuSeparatorBaseProps
+  extends ArkMenuSeparatorBaseProps,
+    HTMLSuiProps<'hr'> {}
 
-const MenuContentBase = withContext(ArkMenu.Content, 'content')
+const MenuSeparatorBase = withContext<HTMLHRElement, MenuSeparatorBaseProps>(
+  ArkMenu.Separator,
+  'separator',
+)
+
+////////////////////////////////////////////////////////////////////////////////////
+
+interface MenuContentBaseProps
+  extends ArkMenuContentBaseProps,
+    HTMLSuiProps<'div'> {}
+
+const MenuContentBase = withContext<HTMLDivElement, MenuContentBaseProps>(
+  ArkMenu.Content,
+  'content',
+)
 
 // arrow
 
 export interface MenuArrowBaseProps
-  extends ComponentProps<typeof MenuArrowBase> {}
+  extends ArkMenuArrowBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuArrowBase = withContext(ArkMenu.Arrow, 'arrow')
+const MenuArrowBase = withContext<HTMLDivElement, MenuArrowBaseProps>(
+  ArkMenu.Arrow,
+  'arrow',
+)
 
 // arrow tip
 
 export interface MenuArrowTipProps
-  extends ComponentProps<typeof MenuArrowTipBase> {}
+  extends ArkMenuArrowTipBaseProps,
+    HTMLSuiProps<'div'> {}
 
-export const MenuArrowTipBase = withContext(ArkMenu.ArrowTip, 'arrowTip')
+const MenuArrowTipBase = withContext<HTMLDivElement, MenuArrowTipProps>(
+  ArkMenu.ArrowTip,
+  'arrowTip',
+)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuIndicatorProps
-  extends ComponentProps<typeof MenuIndicatorBase> {}
+  extends ArkMenuIndicatorBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuIndicatorBase = withContext(ArkMenu.Indicator, 'indicator')
+const MenuIndicatorBase = withContext<HTMLDivElement, MenuIndicatorProps>(
+  ArkMenu.Indicator,
+  'indicator',
+)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuItemGroupProps
-  extends ComponentProps<typeof MenuItemGroupBase> {}
+  extends ArkMenuItemGroupBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuItemGroupBase = withContext(ArkMenu.ItemGroup, 'itemGroup')
-
-////////////////////////////////////////////////////////////////////////////////////
-
-// export interface MenuItemGroupLabelProps
-//   extends ComponentProps<typeof MenuItemGroupLabelBase> {}
-
-const MenuItemGroupLabelBase = withContext(
-  ArkMenu.ItemGroupLabel,
-  'itemGroupLabel',
+const MenuItemGroupBase = withContext<HTMLDivElement, MenuItemGroupProps>(
+  ArkMenu.ItemGroup,
+  'itemGroup',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-export interface MenuItemProps extends ComponentProps<typeof MenuItemBase> {}
+export interface MenuItemGroupLabelProps
+  extends ArkMenuItemGroupLabelBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuItemBase = withContext(ArkMenu.Item, 'item')
+const MenuItemGroupLabelBase = withContext<
+  HTMLDivElement,
+  MenuItemGroupLabelProps
+>(ArkMenu.ItemGroupLabel, 'itemGroupLabel')
+
+////////////////////////////////////////////////////////////////////////////////////
+
+export interface MenuItemProps
+  extends ArkMenuItemBaseProps,
+    HTMLSuiProps<'div'> {}
+
+const MenuItemBase = withContext<HTMLDivElement, MenuItemProps>(
+  ArkMenu.Item,
+  'item',
+)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuTriggerItemBaseProps
-  extends ComponentProps<typeof MenuTriggerItemBase> {}
+  extends ArkMenuTriggerItemBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuTriggerItemBase = withContext(ArkMenu.TriggerItem, 'item')
+const MenuTriggerItemBase = withContext<
+  HTMLDivElement,
+  MenuTriggerItemBaseProps
+>(ArkMenu.TriggerItem, 'item')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuItemTextProps
-  extends ComponentProps<typeof MenuItemTextBase> {}
+  extends ArkMenuItemTextBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuItemTextBase = withContext(ArkMenu.ItemText, 'itemText')
-
-////////////////////////////////////////////////////////////////////////////////////
-
-export interface MenuItemCommandBaseProps
-  extends ComponentProps<typeof MenuItemCommandBase> {}
-
-const MenuItemCommandBase = withContext('kbd', 'itemCommand')
-
-////////////////////////////////////////////////////////////////////////////////////
-
-export interface MenuItemIndicatorBaseProps
-  extends ComponentProps<typeof MenuItemIndicatorBase> {}
-
-const MenuItemIndicatorBase = withContext(
-  ArkMenu.ItemIndicator,
-  'itemIndicator',
+const MenuItemTextBase = withContext<HTMLDivElement, MenuItemTextProps>(
+  ArkMenu.ItemText,
+  'itemText',
 )
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-export interface MenuCheckboxItemProps
-  extends ComponentProps<typeof MenuCheckboxItemBase> {}
+export interface MenuItemCommandBaseProps extends HTMLSuiProps<'kbd'> {}
 
-const MenuCheckboxItemBase = withContext(ArkMenu.CheckboxItem, 'item')
+const MenuItemCommandBase = withContext<
+  HTMLSpanElement,
+  MenuItemCommandBaseProps
+>('kbd', 'itemCommand')
+
+////////////////////////////////////////////////////////////////////////////////////
+
+export interface MenuItemIndicatorBaseProps
+  extends ArkMenuItemIndicatorBaseProps,
+    HTMLSuiProps<'div'> {}
+
+const MenuItemIndicatorBase = withContext<
+  HTMLDivElement,
+  MenuItemIndicatorBaseProps
+>(ArkMenu.ItemIndicator, 'itemIndicator')
+
+////////////////////////////////////////////////////////////////////////////////////
+
+export interface MenuCheckboxItemProps
+  extends ArkMenuCheckboxItemBaseProps,
+    HTMLSuiProps<'div'> {}
+
+const MenuCheckboxItemBase = withContext<HTMLDivElement, MenuCheckboxItemProps>(
+  ArkMenu.CheckboxItem,
+  'item',
+)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuRadioItemGroupProps
-  extends ComponentProps<typeof RadioItemGroup> {}
+  extends ArkMenuRadioItemGroupBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuRadioItemGroupBase = withContext(ArkMenu.RadioItemGroup, 'itemGroup')
+const MenuRadioItemGroupBase = withContext<
+  HTMLDivElement,
+  MenuRadioItemGroupProps
+>(ArkMenu.RadioItemGroup, 'itemGroup')
 
 ////////////////////////////////////////////////////////////////////////////////////
 
 export interface MenuRadioItemProps
-  extends ComponentProps<typeof MenuRadioItemBase> {}
+  extends ArkMenuRadioItemBaseProps,
+    HTMLSuiProps<'div'> {}
 
-const MenuRadioItemBase = withContext(ArkMenu.RadioItem, 'item')
+const MenuRadioItemBase = withContext<HTMLDivElement, MenuRadioItemProps>(
+  ArkMenu.RadioItem,
+  'item',
+)
 
 ////////////////////////////////////////////////////////////////////////////////////
 

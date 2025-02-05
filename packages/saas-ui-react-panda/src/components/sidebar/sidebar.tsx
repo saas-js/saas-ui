@@ -1,6 +1,3 @@
-import { ComponentProps, PropsWithChildren } from 'react'
-
-import { PolymorphicProps } from '@ark-ui/react'
 import { Sidebar, type SidebarProviderProps } from '@saas-ui/core/sidebar'
 import { sidebar, sidebarItem } from '@saas-ui/panda-preset/recipes'
 
@@ -19,27 +16,22 @@ export const SidebarProvider = withProvider(function SidebarProvider(
   return <Sidebar.Provider {...ctx}>{props.children}</Sidebar.Provider>
 })
 
-export const SidebarRoot = withContext(Sidebar.Root, 'root')
+export interface SidebarRootProps
+  extends HTMLSuiProps<'div'>,
+    Sidebar.RootProps {}
 
-// added PolymorphicProps, because it was showing that "asChild" does not exist, but it clearly does
+export const SidebarRoot = withContext<HTMLDivElement, SidebarRootProps>(
+  Sidebar.Root,
+  'root',
+)
+
 export interface SidebarTriggerProps
-  extends ComponentProps<typeof SidebarTrigger>,
-    PolymorphicProps,
-    PropsWithChildren {}
+  extends HTMLSuiProps<'div'>,
+    Sidebar.TriggerProps {}
 
-export const SidebarTrigger = withContext(Sidebar.Trigger, 'trigger', {
-  defaultProps: {
-    asChild: true,
-  },
-})
-
-export interface SidebarFlyoutTriggerProps
-  extends ComponentProps<typeof SidebarFlyoutTrigger>,
-    PolymorphicProps {}
-
-export const SidebarFlyoutTrigger = withContext(
-  Sidebar.FlyoutTrigger,
-  'flyoutTrigger',
+export const SidebarTrigger = withContext<HTMLDivElement, SidebarTriggerProps>(
+  Sidebar.Trigger,
+  'trigger',
   {
     defaultProps: {
       asChild: true,
@@ -47,50 +39,73 @@ export const SidebarFlyoutTrigger = withContext(
   },
 )
 
-export interface SidebarBackdropProps
+export interface SidebarFlyoutTriggerProps
   extends HTMLSuiProps<'div'>,
-    PolymorphicProps {}
+    Sidebar.FlyoutTriggerProps {}
 
-export const SidebarBackdrop = withContext(Sidebar.Backdrop, 'backdrop')
-
-export const SidebarHeader = withContext(Sidebar.Header, 'header')
-export const SidebarBody = withContext(Sidebar.Body, 'body')
-export const SidebarFooter = withContext(Sidebar.Footer, 'footer')
-
-export interface SidebarTrackProps extends HTMLSuiProps<'div'> {}
-
-export const SidebarTrack = withContext(Sidebar.Track, 'track', {
-  defaultProps: { asChild: true },
+export const SidebarFlyoutTrigger = withContext<
+  HTMLDivElement,
+  SidebarFlyoutTriggerProps
+>(Sidebar.FlyoutTrigger, 'flyoutTrigger', {
+  defaultProps: {
+    asChild: true,
+  },
 })
 
-export interface SidebarGroupProps extends HTMLSuiProps<'div'> {}
+export interface SidebarBackdropProps extends HTMLSuiProps<'div'> {}
 
-export const SidebarGroup = withContext(Sidebar.Group, 'group')
+export const SidebarBackdrop = withContext<
+  HTMLDivElement,
+  SidebarBackdropProps
+>(Sidebar.Backdrop, 'backdrop')
 
-export interface SidebarGroupHeaderProps extends HTMLSuiProps<'div'> {}
-
-export const SidebarGroupHeader = withContext(
-  Sidebar.GroupHeader,
-  'groupHeader',
+export const SidebarHeader = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  Sidebar.Header,
+  'header',
 )
 
-export interface SidebarGroupTitleProps extends HTMLSuiProps<'h5'> {}
-
-export const SidebarGroupTitle = withContext(Sidebar.GroupTitle, 'groupTitle')
-
-export interface SidebarGroupEndElementProps extends HTMLSuiProps<'div'> {}
-
-export const SidebarGroupEndElement = withContext(
-  Sidebar.GroupEndElement,
-  'groupEndElement',
+export const SidebarBody = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  Sidebar.Body,
+  'body',
 )
 
-export interface SidebarGroupContentProps extends HTMLSuiProps<'div'> {}
-
-export const SidebarGroupContent = withContext(
-  Sidebar.GroupContent,
-  'groupContent',
+export const SidebarFooter = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  Sidebar.Footer,
+  'footer',
 )
+
+export const SidebarTrack = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  Sidebar.Track,
+  'track',
+  {
+    defaultProps: { asChild: true },
+  },
+)
+
+export const SidebarGroup = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  Sidebar.Group,
+  'group',
+)
+
+export const SidebarGroupHeader = withContext<
+  HTMLDivElement,
+  HTMLSuiProps<'div'>
+>(Sidebar.GroupHeader, 'groupHeader')
+
+export const SidebarGroupTitle = withContext<
+  HTMLHeadingElement,
+  HTMLSuiProps<'h5'>
+>(Sidebar.GroupTitle, 'groupTitle')
+
+export const SidebarGroupEndElement = withContext<
+  HTMLDivElement,
+  HTMLSuiProps<'div'>
+>(Sidebar.GroupEndElement, 'groupEndElement')
+
+export const SidebarGroupContent = withContext<
+  HTMLDivElement,
+  HTMLSuiProps<'div'>
+>(Sidebar.GroupContent, 'groupContent')
 
 const {
   withProvider: withSidebarItemProvider,
@@ -99,23 +114,21 @@ const {
 
 export interface SidebarNavItemProps extends HTMLSuiProps<'div'> {}
 
-export const SidebarNavItem = withSidebarItemProvider(Sidebar.NavItem, 'item')
+export const SidebarNavItem = withSidebarItemProvider<
+  HTMLDivElement,
+  SidebarNavItemProps
+>(Sidebar.NavItem, 'item')
 
 export interface SidebarNavButtonProps
   extends HTMLSuiProps<'div'>,
-    PropsWithChildren {
-  active?: boolean
-}
+    Sidebar.NavButtonProps {}
 
-export const SidebarNavButton = withSidebarItemContext(
-  Sidebar.NavButton,
-  'button',
-)
+export const SidebarNavButton = withSidebarItemContext<
+  HTMLDivElement,
+  SidebarNavButtonProps
+>(Sidebar.NavButton, 'button')
 
-export interface SidebarNavItemEndElementProps extends HTMLSuiProps<'div'> {}
-
-export const SidebarNavItemEndElement = withSidebarItemContext(
-  Sidebar.NavItemEndElement,
-  'endElement',
-  { defaultProps: { 'data-slot': 'endElement' } },
-)
+export const SidebarNavItemEndElement = withSidebarItemContext<
+  HTMLDivElement,
+  HTMLSuiProps<'div'>
+>(Sidebar.NavItemEndElement, 'endElement')

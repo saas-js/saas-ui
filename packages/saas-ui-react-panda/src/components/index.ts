@@ -9,3 +9,6 @@ export * from './spinner'
 export * from './tag'
 export * from './typography'
 export * from './image'
+export type { HTMLSuiProps } from './context'
+
+export { createStyleContext } from './context'

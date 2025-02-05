@@ -1,16 +1,26 @@
-import { ComponentProps } from 'react'
-
 import { ark } from '@ark-ui/react'
-import { card } from '@saas-ui/panda-preset/recipes'
+import { type CardVariantProps, card } from '@saas-ui/panda-preset/recipes'
 
-import { createStyleContext } from '../context'
+import { type HTMLSuiProps, createStyleContext } from '../context'
 
 const { withProvider, withContext } = createStyleContext(card)
 
-export type CardProps = ComponentProps<typeof Root>
+export interface RootProps extends HTMLSuiProps<'div', CardVariantProps> {}
 
-export const Root = withProvider(ark.div, 'root')
-export const Body = withContext(ark.div, 'body')
-export const Header = withContext(ark.div, 'header')
-export const Footer = withContext(ark.div, 'footer')
-export const Title = withContext(ark.h3, 'title')
+export const Root = withProvider<HTMLDivElement, RootProps>(ark.div, 'root')
+export const Body = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  ark.div,
+  'body',
+)
+export const Header = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  ark.div,
+  'header',
+)
+export const Footer = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  ark.div,
+  'footer',
+)
+export const Title = withContext<HTMLHeadingElement, HTMLSuiProps<'h3'>>(
+  ark.h3,
+  'title',
+)

@@ -18,9 +18,10 @@
       "import": "./styled-system/tokens/index.js"
     },
     "./types": {
-      "types": "./styled-system/types/index.d.ts",
-      "require": "./styled-system/types/index.js",
-      "import": "./styled-system/types/index.js"
+      "types": "./styled-system/types/index.d.ts"
+    },
+    "./types/*": {
+      "types": "./styled-system/types/*.d.ts"
     },
     "./patterns": {
       "types": "./styled-system/patterns/index.d.ts",

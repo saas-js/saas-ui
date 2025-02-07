@@ -73,7 +73,7 @@
     "tooling/storybook-addon"
   ],
   "devDependencies": {
-    "@chakra-ui/cli": "^3.5.1",
+    "@chakra-ui/cli": "^3.7.0",
     "@changesets/cli": "^2.27.9",
     "@manypkg/get-packages": "^2.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",

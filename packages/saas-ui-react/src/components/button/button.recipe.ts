@@ -82,7 +82,7 @@ export const buttonRecipe = defineRecipe({
         _hover: {
           bg: 'colorPalette.solid/90',
         },
-        _expanded: {
+        _popupExpanded: {
           bg: 'colorPalette.solid/90',
         },
       },
@@ -93,7 +93,7 @@ export const buttonRecipe = defineRecipe({
         _hover: {
           bg: 'colorPalette.subtle',
         },
-        _expanded: {
+        _popupExpanded: {
           bg: 'colorPalette.subtle',
         },
       },
@@ -126,7 +126,7 @@ export const buttonRecipe = defineRecipe({
               'linear-gradient(180deg, rgba(255,255,255,0.8) 40%, rgba(0,0,0,0.6))',
           },
         },
-        _expanded: {
+        _popupExpanded: {
           bg: 'colorPalette.solid',
           _after: {
             background:
@@ -145,7 +145,7 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.muted',
           borderColor: 'colorPalette.emphasized',
         },
-        _expanded: {
+        _popupExpanded: {
           bg: 'colorPalette.muted',
           borderColor: 'colorPalette.emphasized',
         },
@@ -158,7 +158,7 @@ export const buttonRecipe = defineRecipe({
         _hover: {
           bg: 'colorPalette.muted',
         },
-        _expanded: {
+        _popupExpanded: {
           bg: 'colorPalette.muted',
         },
       },
@@ -168,7 +168,7 @@ export const buttonRecipe = defineRecipe({
         _hover: {
           bg: 'colorPalette.subtle',
         },
-        _expanded: {
+        _popupExpanded: {
           bg: 'colorPalette.subtle',
         },
       },

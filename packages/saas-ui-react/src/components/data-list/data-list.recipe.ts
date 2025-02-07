@@ -75,6 +75,6 @@ export const dataListSlotRecipe = defineSlotRecipe({
 
   defaultVariants: {
     size: 'md',
-    orientation: 'vertical',
+    orientation: 'horizontal',
   },
 })

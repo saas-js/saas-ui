@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-alpha.31
+
+### Patch Changes
+
+- Inputs now use semanti radii tokens
+- SegmentGroup now use semantic radii tokens
+- Forward ref to LoadingOverlay.Root
+
 ## 3.0.0-alpha.30
 
 ### Patch Changes

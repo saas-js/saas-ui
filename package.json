@@ -28,7 +28,7 @@
   },
   "scripts": {
     "w": "yarn workspace",
-    "dev:web": "yarn w website dev",
+    "dev:web": "yarn w @saas-ui/web-v3 dev",
     "dev:palette": "yarn w palette-docs dev",
     "changelog:gen": "tsx scripts/changelog-generate.ts",
     "changelog:write": "tsx scripts/changelog-write.ts",
@@ -74,7 +74,7 @@
     "tooling/storybook-addon"
   ],
   "devDependencies": {
-    "@chakra-ui/cli": "^3.4.0",
+    "@chakra-ui/cli": "^3.7.0",
     "@changesets/cli": "^2.27.9",
     "@manypkg/get-packages": "^2.2.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",

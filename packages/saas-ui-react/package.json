@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "3.0.0-alpha.30",
+  "version": "3.0.0-alpha.31",
   "description": "Saas UI - The React component library for startups.",
   "type": "module",
   "exports": {
@@ -69,7 +69,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@ark-ui/react": "^4.8.1",
+    "@ark-ui/react": "^4.9.1",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/hooks": "workspace:*"
   },

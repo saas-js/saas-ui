@@ -9,7 +9,7 @@ export default {
 
 export const Basic = () => {
   return (
-    <Menu.Root>
+    <Menu.Root defaultOpen>
       <Menu.Button>Open</Menu.Button>
 
       <Menu.Content>
@@ -25,7 +25,7 @@ export const Basic = () => {
 
 export const MenuWithSubmenu = () => {
   return (
-    <Menu.Root>
+    <Menu.Root defaultOpen>
       <Menu.Button>Open</Menu.Button>
 
       <Menu.Content>
@@ -41,6 +41,21 @@ export const MenuWithSubmenu = () => {
         </Menu.Root>
         <Menu.Item value="open-file">Open File...</Menu.Item>
         <Menu.Item value="export">Export</Menu.Item>
+      </Menu.Content>
+    </Menu.Root>
+  )
+}
+
+export const MenuWithItemGroup = () => {
+  return (
+    <Menu.Root defaultOpen>
+      <Menu.Button>Open</Menu.Button>
+
+      <Menu.Content>
+        <Menu.ItemGroup title="File">
+          <Menu.Item value="new-txt">New Text File</Menu.Item>
+          <Menu.Item value="new-file">New File...</Menu.Item>
+        </Menu.ItemGroup>
       </Menu.Content>
     </Menu.Root>
   )

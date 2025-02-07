@@ -6,8 +6,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
   slots: segmentGroupAnatomy.keys(),
   base: {
     root: {
-      '--segment-radius': 'radii.md',
-      borderRadius: 'md',
+      borderRadius: 'var(--segment-radius)',
       display: 'inline-flex',
       boxShadow: 'inset',
       minW: 'max-content',
@@ -82,6 +81,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
     size: {
       xs: {
         root: {
+          '--segment-radius': 'radii.control.sm',
           height: '6',
         },
         item: {
@@ -92,6 +92,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       sm: {
         root: {
+          '--segment-radius': 'radii.control.md',
           height: '7',
         },
         item: {
@@ -102,6 +103,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       md: {
         root: {
+          '--segment-radius': 'radii.control.md',
           height: '8',
         },
         item: {
@@ -112,6 +114,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       lg: {
         root: {
+          '--segment-radius': 'radii.control.lg',
           height: '10',
         },
         item: {

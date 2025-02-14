@@ -44,6 +44,7 @@
   "scripts": {
     "dev": "concurrently \"panda codegen --watch\" \"tsup src/index.ts --config tsup.config.ts --watch\"",
     "clean": "rimraf --no-glob ./dist",
+    "sync": "bun scripts/sync.ts",
     "build": "panda codegen && tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
@@ -63,10 +64,15 @@
   },
   "author": "ImExoOdeex <odeex722@gmail.com>",
   "dependencies": {
-    "@pandacss/dev": "^0.51.1"
+    "@chakra-ui/react": "^3.8.0",
+    "@emotion/react": "^11.14.0",
+    "@pandacss/dev": "^0.51.1",
+    "globby": "^14.1.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "tsup": "^8.3.5"
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   }
 }

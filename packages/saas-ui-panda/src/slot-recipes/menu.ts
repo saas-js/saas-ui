@@ -1,8 +1,7 @@
 import { defineSlotRecipe } from '../def'
 
 export const menuSlotRecipe = defineSlotRecipe({
-  className: 'menu',
-  jsx: ['Menu', 'Menu.*'],
+  className: 'chakra-menu',
   slots: [
     'arrow',
     'arrowTip',
@@ -22,14 +21,14 @@ export const menuSlotRecipe = defineSlotRecipe({
   ],
   base: {
     content: {
-      bg: 'bg',
+      layerStyle: 'overlay',
       boxShadow: 'md',
       borderWidth: '1px',
       borderColor: 'border',
       outline: 0,
       color: 'fg',
       maxHeight: 'var(--available-height)',
-      '--menu-z-index': 'menu',
+      '--menu-z-index': 'zIndex.layer-3',
       zIndex: 'calc(var(--menu-z-index) + var(--layer-index, 0))',
       overflow: 'hidden',
       _open: {
@@ -45,10 +44,10 @@ export const menuSlotRecipe = defineSlotRecipe({
       textDecoration: 'none',
       color: 'fg',
       userSelect: 'none',
-      borderRadius: 'md',
+      borderRadius: 'control.md',
       width: '100%',
       display: 'flex',
-      cursor: 'pointer',
+      cursor: 'menuitem',
       alignItems: 'center',
       textAlign: 'start',
       position: 'relative',
@@ -87,7 +86,6 @@ export const menuSlotRecipe = defineSlotRecipe({
       mx: '-1',
     },
   },
-
   variants: {
     variant: {
       subtle: {
@@ -106,7 +104,6 @@ export const menuSlotRecipe = defineSlotRecipe({
         },
       },
     },
-
     size: {
       sm: {
         content: {
@@ -134,7 +131,6 @@ export const menuSlotRecipe = defineSlotRecipe({
       },
     },
   },
-
   defaultVariants: {
     size: 'md',
     variant: 'subtle',

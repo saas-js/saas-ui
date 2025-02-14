@@ -1,45 +1,64 @@
-import { defineGlobalStyles } from "./def"
+import { defineGlobalStyles } from '../src/def'
+
+const empty = 'var(--chakra-empty,/*!*/ /*!*/)'
 
 export const globalCss = defineGlobalStyles({
-  "*": {
-    fontFeatureSettings: '"cv11"',
-    "--ring-inset": "var(--empty,/*!*/ /*!*/)",
-    "--ring-offset-width": "0px",
-    "--ring-offset-color": "#fff",
-    "--ring-color": "rgba(66, 153, 225, 0.6)",
-    "--ring-offset-shadow": "0 0 #0000",
-    "--ring-shadow": "0 0 #0000",
-    "--brightness": "var(--empty,/*!*/ /*!*/)",
-    "--contrast": "var(--empty,/*!*/ /*!*/)",
-    "--grayscale": "var(--empty,/*!*/ /*!*/)",
-    "--hue-rotate": "var(--empty,/*!*/ /*!*/)",
-    "--invert": "var(--empty,/*!*/ /*!*/)",
-    "--saturate": "var(--empty,/*!*/ /*!*/)",
-    "--sepia": "var(--empty,/*!*/ /*!*/)",
-    "--drop-shadow": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-blur": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-brightness": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-contrast": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-grayscale": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-hue-rotate": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-invert": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-opacity": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-saturate": "var(--empty,/*!*/ /*!*/)",
-    "--backdrop-sepia": "var(--empty,/*!*/ /*!*/)",
-    "--global-font-mono": "fonts.mono",
-    "--global-font-body": "fonts.body",
-    "--global-color-border": "colors.border",
+  '*': {
+    '--ring-inset': empty,
+    '--ring-offset-width': '0px',
+    '--ring-offset-color': '#fff',
+    '--ring-color': 'rgba(66, 153, 225, 0.6)',
+    '--ring-offset-shadow': '0 0 #0000',
+    '--ring-shadow': '0 0 #0000',
+    ...Object.fromEntries(
+      [
+        'brightness',
+        'contrast',
+        'grayscale',
+        'hue-rotate',
+        'invert',
+        'saturate',
+        'sepia',
+        'drop-shadow',
+      ].map((prop) => [`--${prop}`, empty]),
+    ),
+    ...Object.fromEntries(
+      [
+        'blur',
+        'brightness',
+        'contrast',
+        'grayscale',
+        'hue-rotate',
+        'invert',
+        'opacity',
+        'saturate',
+        'sepia',
+      ].map((prop) => [`--backdrop-${prop}`, empty]),
+    ),
+    '--global-font-mono': 'fonts.mono',
+    '--global-font-body': 'fonts.body',
+    '--global-color-border': 'colors.border',
+    '--cursor-button': 'default',
+    // '--radius-factor': '1',
+    // '--radius-control': '1',
+    // '--radius-panel': '1',
+    // '--radius-indicator': '1',
+    '--radius-full': '9999px',
+    '--scale-factor': '1',
+    '--overlay-translucency': '95%',
+    '--overlay-effect': 'blur({blurs.lg})',
+    '--backdrop-effect': 'none',
   },
-  html: {
-    color: "fg",
-    bg: "bg",
-    lineHeight: "1.5",
-    colorPalette: "gray",
+  body: {
+    color: 'fg',
+    bg: 'bg',
+    lineHeight: '1.5',
+    colorPalette: 'accent',
   },
-  "*::placeholder": {
-    color: "fg.muted/80",
+  '*::placeholder': {
+    color: 'fg.subtle',
   },
-  "*::selection": {
-    bg: "colorPalette.muted/80",
+  '*::selection': {
+    bg: 'colorPalette.solid/20',
   },
 })

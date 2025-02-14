@@ -1,9 +1,9 @@
-import { colors } from "./colors"
-import { radii } from "./radii"
-import { shadows } from "./shadows"
+import { semanticColors } from './colors'
+import { semanticRadii } from './radii'
+import { semanticShadows } from './shadows'
 
 export const semanticTokens = {
-  colors,
-  shadows,
-  radii,
+  colors: semanticColors,
+  radii: semanticRadii,
+  shadows: semanticShadows,
 }

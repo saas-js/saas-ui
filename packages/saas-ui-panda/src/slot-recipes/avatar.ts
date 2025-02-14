@@ -1,110 +1,105 @@
-import { defineSlotRecipe } from "../def"
+import { defineSlotRecipe } from '../def'
 
 export const avatarSlotRecipe = defineSlotRecipe({
-  slots: ["root", "image", "fallback"],
-  className: "avatar",
+  slots: ['root', 'image', 'fallback'],
+  className: 'chakra-avatar',
   base: {
     root: {
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontWeight: "medium",
-      position: "relative",
-      verticalAlign: "top",
-      flexShrink: "0",
-      userSelect: "none",
-      width: "var(--avatar-size)",
-      height: "var(--avatar-size)",
-      fontSize: "var(--avatar-font-size)",
-      borderRadius: "var(--avatar-radius)",
-      "&[data-group-item]": {
-        borderWidth: "2px",
-        borderColor: "bg",
+      '--avatar-font-size': 'calc(var(--avatar-size) / 2)',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontWeight: 'medium',
+      position: 'relative',
+      verticalAlign: 'top',
+      flexShrink: '0',
+      userSelect: 'none',
+      width: 'var(--avatar-size)',
+      height: 'var(--avatar-size)',
+      fontSize: 'var(--avatar-font-size)',
+      borderRadius: 'var(--avatar-radius)',
+      '&[data-group-item]': {
+        borderWidth: '2px',
+        borderColor: 'bg',
       },
     },
     image: {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      borderRadius: "var(--avatar-radius)",
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: 'var(--avatar-radius)',
     },
     fallback: {
-      lineHeight: "1",
-      textTransform: "uppercase",
-      fontWeight: "medium",
-      fontSize: "var(--avatar-font-size)",
-      borderRadius: "var(--avatar-radius)",
+      lineHeight: '1',
+      textTransform: 'uppercase',
+      fontWeight: 'medium',
+      fontSize: 'var(--avatar-font-size)',
+      borderRadius: 'var(--avatar-radius)',
     },
   },
   variants: {
     size: {
       full: {
         root: {
-          "--avatar-size": "100%",
-          "--avatar-font-size": "100%",
+          '--avatar-size': '100%',
+          '--avatar-font-size': 'calc(var(--tag-avatar-size) / 2)',
         },
       },
-      "2xs": {
+      '2xs': {
         root: {
-          "--avatar-font-size": "fontSizes.2xs",
-          "--avatar-size": "sizes.6",
+          '--avatar-size': 'sizes.5',
         },
       },
       xs: {
         root: {
-          "--avatar-font-size": "fontSizes.xs",
-          "--avatar-size": "sizes.8",
+          '--avatar-size': 'sizes.6',
         },
       },
       sm: {
         root: {
-          "--avatar-font-size": "fontSizes.sm",
-          "--avatar-size": "sizes.9",
+          '--avatar-size': 'sizes.9',
         },
       },
       md: {
         root: {
-          "--avatar-font-size": "fontSizes.md",
-          "--avatar-size": "sizes.10",
+          '--avatar-size': 'sizes.12',
         },
       },
       lg: {
         root: {
-          "--avatar-font-size": "fontSizes.md",
-          "--avatar-size": "sizes.11",
+          '--avatar-size': 'sizes.14',
         },
       },
       xl: {
         root: {
-          "--avatar-font-size": "fontSizes.lg",
-          "--avatar-size": "sizes.12",
+          '--avatar-size': 'sizes.16',
         },
       },
-      "2xl": {
+      '2xl': {
         root: {
-          "--avatar-font-size": "fontSizes.xl",
-          "--avatar-size": "sizes.16",
+          '--avatar-font-size': 'calc(var(--avatar-size) / 2)',
+          '--avatar-size': 'sizes.20',
         },
       },
     },
     variant: {
       solid: {
         root: {
-          bg: "colorPalette.solid",
-          color: "colorPalette.contrast",
+          bg: 'colorPalette.solid',
+          color: 'colorPalette.contrast',
         },
       },
       subtle: {
         root: {
-          bg: "colorPalette.muted",
-          color: "colorPalette.fg",
+          bg: 'colorPalette.muted',
+          color: 'colorPalette.fg',
         },
       },
       outline: {
         root: {
-          color: "colorPalette.fg",
-          borderWidth: "1px",
-          borderColor: "colorPalette.muted",
+          color: 'colorPalette.fg',
+          borderWidth: '1px',
+          borderColor: 'colorPalette.muted',
         },
       },
     },
@@ -112,28 +107,28 @@ export const avatarSlotRecipe = defineSlotRecipe({
       square: {},
       rounded: {
         root: {
-          "--avatar-radius": "radii.l3",
+          '--avatar-radius': 'radii.l3',
         },
       },
       full: {
         root: {
-          "--avatar-radius": "radii.full",
+          '--avatar-radius': 'radii.full',
         },
       },
     },
     borderless: {
       true: {
         root: {
-          "&[data-group-item]": {
-            borderWidth: "0px",
+          '&[data-group-item]': {
+            borderWidth: '0px',
           },
         },
       },
     },
   },
   defaultVariants: {
-    size: "md",
-    shape: "full",
-    variant: "subtle",
+    size: 'md',
+    shape: 'full',
+    variant: 'solid',
   },
 })

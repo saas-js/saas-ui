@@ -1,16 +1,14 @@
-import { defineUtilities } from './def'
-
 const createFocusRing = (selector: string) => {
   return {
     values: ['outside', 'inside', 'mixed', 'none'],
     transform(value: any, { token }: any) {
       const focusRingColor = token('colors.colorPalette.focusRing')
-      const styles: Record<string, any> = {
+      const styles: Record = {
         inside: {
           '--focus-ring-color': focusRingColor,
           [selector]: {
             outlineOffset: '0px',
-            outlineWidth: 'var(--focus-ring-width, 1px)',
+            outlineWidth: 'var(--focus-ring-width, 0)',
             outlineColor: 'var(--focus-ring-color)',
             outlineStyle: 'var(--focus-ring-style, solid)',
             borderColor: 'var(--focus-ring-color)',
@@ -19,7 +17,7 @@ const createFocusRing = (selector: string) => {
         outside: {
           '--focus-ring-color': focusRingColor,
           [selector]: {
-            outlineWidth: 'var(--focus-ring-width, 2px)',
+            outlineWidth: 'var(--focus-ring-width, 1px)',
             outlineOffset: 'var(--focus-ring-offset, 2px)',
             outlineStyle: 'var(--focus-ring-style, solid)',
             outlineColor: 'var(--focus-ring-color)',
@@ -48,40 +46,9 @@ const createFocusRing = (selector: string) => {
   }
 }
 
-export const utilities = defineUtilities({
+export const utilities = {
   focusRing: createFocusRing('&:is(:focus, [data-focus])'),
   focusVisibleRing: createFocusRing(
-    '&:is(:focus-visible, [data-focus-visible])'
+    '&:is(:focus-visible, [data-focus-visible])',
   ),
-  focusRingColor: {
-    values: 'colors',
-    transform(value, { utils }) {
-      const prop = '--focus-ring-color'
-      const mix = utils.colorMix(value)
-      if (mix.invalid) return { [prop]: value }
-      const cssVar = '--mix-' + prop
-      return {
-        [cssVar]: mix.value,
-        [prop]: `var(${cssVar}, ${mix.color})`,
-      }
-    },
-  },
-  focusRingOffset: {
-    values: 'spacing',
-    transform: (v) => ({ '--focus-ring-offset': v }),
-  },
-  focusRingWidth: {
-    values: 'borderWidths',
-    property: 'outlineWidth',
-    transform: (v) => ({ '--focus-ring-width': v }),
-  },
-  focusRingStyle: {
-    values: 'borderStyles',
-    property: 'outlineStyle',
-    transform: (v) => ({ '--focus-ring-style': v }),
-  },
-  boxSize: {
-    values: 'sizes',
-    transform: (v) => ({ width: v, height: v }),
-  },
-})
+}

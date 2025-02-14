@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '../def'
 
 export const tagSlotRecipe = defineSlotRecipe({
   slots: ['root', 'label', 'closeTrigger', 'startElement', 'endElement'],
-  className: 'tag',
+  className: 'chakra-tag',
   base: {
     root: {
       colorPalette: 'neutral',
@@ -47,7 +47,9 @@ export const tagSlotRecipe = defineSlotRecipe({
       justifyContent: 'center',
       flexShrink: 0,
       boxSize: 'var(--tag-element-size)',
-      _icon: { boxSize: '80% !important' },
+      _icon: {
+        boxSize: '80% !important',
+      },
       '&:has([data-scope=avatar])': {
         boxSize: 'var(--tag-avatar-size)',
         ms: 'var(--tag-element-offset)',
@@ -59,13 +61,14 @@ export const tagSlotRecipe = defineSlotRecipe({
     endElement: {
       flexShrink: 0,
       boxSize: 'var(--tag-element-size)',
-      _icon: { boxSize: '100%' },
+      _icon: {
+        boxSize: '100%',
+      },
       '&:has(button)': {
         me: 'var(--tag-element-offset)',
       },
     },
   },
-
   variants: {
     size: {
       sm: {
@@ -131,7 +134,6 @@ export const tagSlotRecipe = defineSlotRecipe({
         },
       },
     },
-
     variant: {
       subtle: {
         root: {
@@ -162,7 +164,6 @@ export const tagSlotRecipe = defineSlotRecipe({
       },
     },
   },
-
   defaultVariants: {
     size: 'md',
     variant: 'surface',

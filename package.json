@@ -67,6 +67,7 @@
   "workspaces": [
     "packages/saas-ui-panda",
     "packages/saas-ui-core",
+    "packages/saas-ui-react",
     "packages/saas-ui-react-panda",
     "packages/saas-ui-hooks",
     "apps/panda-testing"

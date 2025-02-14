@@ -1,5 +1,7 @@
 import type {
+  Conditions,
   Config,
+  CssKeyframes,
   GlobalStyleObject,
   Preset,
   RecipeConfig,
@@ -7,7 +9,7 @@ import type {
   SlotRecipeConfig,
   Tokens,
   UtilityConfig,
-} from "@pandacss/types"
+} from '@pandacss/types'
 
 export const defineConfig = (config: Config) => config
 
@@ -23,6 +25,10 @@ export const defineAnimationStyles = (animationStyles: any) => animationStyles
 
 export const defineGlobalStyles = (globalStyles: GlobalStyleObject) =>
   globalStyles
+
+export const defineKeyframes = (keyframes: CssKeyframes) => keyframes
+
+export const defineConditions = (conditions: Conditions) => conditions
 
 type ProxyValue<T> = {
   <Value>(definition: Value extends T ? Value : T): Value

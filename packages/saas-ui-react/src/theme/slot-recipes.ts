@@ -85,7 +85,7 @@ export const slotRecipes = {
   slider: sliderSlotRecipe,
   stat: statSlotRecipe,
   steps: stepsSlotRecipe,
-  switch: switchSlotRecipe,
+  swittch: switchSlotRecipe,
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,
   tag: tagSlotRecipe,

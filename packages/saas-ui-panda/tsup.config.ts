@@ -1,7 +1,9 @@
-import { defineConfig } from 'tsup'
+import { Options, defineConfig } from 'tsup'
+
 import config from '../../tsup.config'
 
 export default defineConfig({
-  ...config,
+  // it's showing error else
+  ...(config as unknown as Options),
   external: ['@pandacss/dev'],
 })

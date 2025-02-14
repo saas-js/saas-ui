@@ -1,106 +1,38 @@
-import { defineTokens } from "../def"
+import { defineTokens } from '../../src/def'
+import { scaleToken } from '../utils'
 
 export const spacing = defineTokens.spacing({
-  "1": {
-    value: "0.25rem",
-  },
-  "2": {
-    value: "0.5rem",
-  },
-  "3": {
-    value: "0.75rem",
-  },
-  "4": {
-    value: "1rem",
-  },
-  "5": {
-    value: "1.25rem",
-  },
-  "6": {
-    value: "1.5rem",
-  },
-  "7": {
-    value: "1.75rem",
-  },
-  "8": {
-    value: "2rem",
-  },
-  "9": {
-    value: "2.25rem",
-  },
-  "10": {
-    value: "2.5rem",
-  },
-  "11": {
-    value: "2.75rem",
-  },
-  "12": {
-    value: "3rem",
-  },
-  "14": {
-    value: "3.5rem",
-  },
-  "16": {
-    value: "4rem",
-  },
-  "20": {
-    value: "5rem",
-  },
-  "24": {
-    value: "6rem",
-  },
-  "28": {
-    value: "7rem",
-  },
-  "32": {
-    value: "8rem",
-  },
-  "36": {
-    value: "9rem",
-  },
-  "40": {
-    value: "10rem",
-  },
-  "44": {
-    value: "11rem",
-  },
-  "48": {
-    value: "12rem",
-  },
-  "52": {
-    value: "13rem",
-  },
-  "56": {
-    value: "14rem",
-  },
-  "60": {
-    value: "15rem",
-  },
-  "64": {
-    value: "16rem",
-  },
-  "72": {
-    value: "18rem",
-  },
-  "80": {
-    value: "20rem",
-  },
-  "96": {
-    value: "24rem",
-  },
-  "0.5": {
-    value: "0.125rem",
-  },
-  "1.5": {
-    value: "0.375rem",
-  },
-  "2.5": {
-    value: "0.625rem",
-  },
-  "3.5": {
-    value: "0.875rem",
-  },
-  "4.5": {
-    value: "1.125rem",
-  },
+  0.5: { value: scaleToken('0.125rem') },
+  1: { value: scaleToken('0.25rem') },
+  1.5: { value: scaleToken('0.375rem') },
+  2: { value: scaleToken('0.5rem') },
+  2.5: { value: scaleToken('0.625rem') },
+  3: { value: scaleToken('0.75rem') },
+  3.5: { value: scaleToken('0.875rem') },
+  4: { value: scaleToken('1rem') },
+  4.5: { value: scaleToken('1.125rem') },
+  5: { value: scaleToken('1.25rem') },
+  6: { value: scaleToken('1.5rem') },
+  7: { value: scaleToken('1.75rem') },
+  8: { value: scaleToken('2rem') },
+  9: { value: scaleToken('2.25rem') },
+  10: { value: scaleToken('2.5rem') },
+  12: { value: scaleToken('3rem') },
+  14: { value: scaleToken('3.5rem') },
+  16: { value: scaleToken('4rem') },
+  20: { value: scaleToken('5rem') },
+  24: { value: scaleToken('6rem') },
+  28: { value: scaleToken('7rem') },
+  32: { value: scaleToken('8rem') },
+  36: { value: scaleToken('9rem') },
+  40: { value: scaleToken('10rem') },
+  44: { value: scaleToken('11rem') },
+  48: { value: scaleToken('12rem') },
+  52: { value: scaleToken('13rem') },
+  56: { value: scaleToken('14rem') },
+  60: { value: scaleToken('15rem') },
+  64: { value: scaleToken('16rem') },
+  72: { value: scaleToken('18rem') },
+  80: { value: scaleToken('20rem') },
+  96: { value: scaleToken('24rem') },
 })

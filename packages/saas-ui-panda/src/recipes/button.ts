@@ -1,8 +1,7 @@
 import { defineRecipe } from '../def'
 
 export const buttonRecipe = defineRecipe({
-  className: 'button',
-  jsx: ['Button'],
+  className: 'chakra-button',
   base: {
     colorPalette: 'gray',
     display: 'inline-flex',
@@ -37,7 +36,7 @@ export const buttonRecipe = defineRecipe({
         h: '6',
         minW: '6',
         textStyle: 'xs',
-        borderRadius: 'sm',
+        borderRadius: 'control.sm',
         px: '2',
       },
       sm: {
@@ -45,14 +44,14 @@ export const buttonRecipe = defineRecipe({
         h: '7',
         minW: '7',
         textStyle: 'sm',
-        borderRadius: 'md',
+        borderRadius: 'control.md',
         px: '2.5',
       },
       md: {
         gap: '2',
         h: '8',
         minW: '8',
-        borderRadius: 'md',
+        borderRadius: 'control.md',
         textStyle: 'sm',
         px: '3',
       },
@@ -60,7 +59,7 @@ export const buttonRecipe = defineRecipe({
         gap: '3',
         h: '10',
         minW: '10',
-        borderRadius: 'lg',
+        borderRadius: 'control.lg',
         textStyle: 'md',
         px: '4.5',
       },
@@ -68,7 +67,7 @@ export const buttonRecipe = defineRecipe({
         gap: '3',
         h: '12',
         minW: '12',
-        borderRadius: 'lg',
+        borderRadius: 'control.lg',
         textStyle: 'lg',
         px: '6',
       },
@@ -85,7 +84,6 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.solid/90',
         },
       },
-
       subtle: {
         bg: 'colorPalette.muted',
         color: 'colorPalette.fg',
@@ -96,7 +94,6 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.subtle',
         },
       },
-
       glass: {
         bg: 'colorPalette.solid',
         color: 'colorPalette.contrast',
@@ -133,7 +130,6 @@ export const buttonRecipe = defineRecipe({
           },
         },
       },
-
       surface: {
         bg: 'colorPalette.muted/20',
         borderWidth: '1px',
@@ -149,7 +145,6 @@ export const buttonRecipe = defineRecipe({
           borderColor: 'colorPalette.emphasized',
         },
       },
-
       outline: {
         borderWidth: '0.5px',
         borderColor: 'colorPalette.emphasized',
@@ -161,7 +156,6 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.muted',
         },
       },
-
       ghost: {
         color: 'colorPalette.fg',
         _hover: {
@@ -171,7 +165,6 @@ export const buttonRecipe = defineRecipe({
           bg: 'colorPalette.subtle',
         },
       },
-
       plain: {
         color: 'colorPalette.fg',
       },
@@ -185,7 +178,6 @@ export const buttonRecipe = defineRecipe({
       },
     },
   ],
-
   defaultVariants: {
     size: 'md',
     variant: 'surface',

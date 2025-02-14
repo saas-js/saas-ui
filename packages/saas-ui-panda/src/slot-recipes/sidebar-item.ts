@@ -1,8 +1,7 @@
-import { defineSlotRecipe } from 'src/def'
+import { defineSlotRecipe } from '../def'
 
 export const sidebarNavItemSlotRecipe = defineSlotRecipe({
   className: 'sui-sidebar-nav-item',
-  jsx: ['Sidebar.NavItem', 'Sidebar.NavButton', 'Sidebar.NavItemEndElement'],
   slots: ['item', 'button', 'endElement'],
   base: {
     item: {
@@ -19,14 +18,14 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       textOverflow: 'ellipsis',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      cursor: 'pointer',
+      cursor: 'button',
       transitionProperty: 'common',
       transitionDuration: 'fast',
       focusVisibleRing: 'inside',
       focusRingWidth: '1px',
       '& > svg': {
         boxSize: 4,
-        // color: '',
+        color: 'var(--sidebar-item-icon-color)',
       },
       '&:has([data-slot="endElement"])': {
         pe: 0,
@@ -48,17 +47,17 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       muted: {
         button: {
           bg: 'transparent',
-          color: 'fg/85',
-          '--sidebar-item-icon-color': 'fg/85',
+          color: 'sidebar.accent.fg/85',
+          '--sidebar-item-icon-color': 'sidebar.accent.fg/85',
           _hover: {
             bg: 'sidebar.accent.bg/90',
-            color: 'fg',
-            '--sidebar-item-icon-color': 'fg',
+            color: 'sidebar.accent.fg',
+            '--sidebar-item-icon-color': 'sidebar.accent.fg',
           },
           _active: {
             bg: 'sidebar.accent.bg',
-            color: 'fg',
-            '--sidebar-item-icon-color': 'fg',
+            color: 'sidebar.accent.fg',
+            '--sidebar-item-icon-color': 'sidebar.accent.fg',
           },
         },
       },
@@ -69,7 +68,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           fontSize: 'sm',
         },
         button: {
-          borderRadius: 'l2',
+          borderRadius: 'control.md',
           px: 1.5,
           height: 7,
         },
@@ -82,7 +81,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           fontSize: 'sm',
         },
         button: {
-          borderRadius: 'l2',
+          borderRadius: 'control.md',
           px: 3,
           height: 8,
         },
@@ -95,7 +94,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           fontSize: 'sm',
         },
         button: {
-          borderRadius: 'l3',
+          borderRadius: 'control.lg',
           px: 3,
           height: 10,
         },

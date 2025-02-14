@@ -1,6 +1,6 @@
-import { defineAnimationStyles } from './def'
+import { defineAnimationStyles } from '../src/def'
 
-export const animationStyles = defineAnimationStyles({
+export const animationStyles: any = defineAnimationStyles({
   'slide-fade-in': {
     value: {
       transformOrigin: 'var(--transform-origin)',
@@ -18,6 +18,7 @@ export const animationStyles = defineAnimationStyles({
       },
     },
   },
+
   'slide-fade-out': {
     value: {
       transformOrigin: 'var(--transform-origin)',
@@ -35,12 +36,14 @@ export const animationStyles = defineAnimationStyles({
       },
     },
   },
+
   'scale-fade-in': {
     value: {
       transformOrigin: 'var(--transform-origin)',
       animationName: 'scale-in, fade-in',
     },
   },
+
   'scale-fade-out': {
     value: {
       transformOrigin: 'var(--transform-origin)',

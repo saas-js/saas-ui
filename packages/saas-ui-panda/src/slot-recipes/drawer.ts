@@ -1,213 +1,217 @@
-import { defineSlotRecipe } from "../def"
+import { defineSlotRecipe } from '../def'
 
 export const drawerSlotRecipe = defineSlotRecipe({
   slots: [
-    "trigger",
-    "backdrop",
-    "positioner",
-    "content",
-    "title",
-    "description",
-    "closeTrigger",
-    "header",
-    "body",
-    "footer",
-    "backdrop",
+    'trigger',
+    'backdrop',
+    'positioner',
+    'content',
+    'title',
+    'description',
+    'closeTrigger',
+    'header',
+    'body',
+    'footer',
+    'backdrop',
   ],
-  className: "drawer",
+  className: 'chakra-drawer',
   base: {
     backdrop: {
-      bg: "blackAlpha.500",
-      pos: "fixed",
+      layerStyle: 'backdrop',
+      pos: 'fixed',
       insetInlineStart: 0,
       top: 0,
-      w: "100vw",
-      h: "100dvh",
-      zIndex: "modal",
+      w: '100vw',
+      h: '100dvh',
+      zIndex: 'calc(var(--z-index) - 1)',
       _open: {
-        animationName: "fade-in",
-        animationDuration: "slow",
+        animationName: 'fade-in',
+        animationDuration: 'slow',
       },
       _closed: {
-        animationName: "fade-out",
-        animationDuration: "moderate",
+        animationName: 'fade-out',
+        animationDuration: 'moderate',
       },
     },
     positioner: {
-      display: "flex",
-      width: "100vw",
-      height: "100dvh",
-      position: "fixed",
+      '--drawer-z-index': 'zIndex.layer-4',
+      display: 'flex',
+      width: '100vw',
+      height: '100dvh',
+      position: 'fixed',
+      padding: 2,
       insetInlineStart: 0,
       top: 0,
-      zIndex: "modal",
-      overscrollBehaviorY: "none",
+      zIndex: 'calc(var(--drawer-z-index) + var(--layer-index, 0))',
+      overscrollBehaviorY: 'none',
     },
     content: {
-      display: "flex",
-      flexDirection: "column",
-      position: "relative",
-      width: "100%",
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      width: '100%',
       outline: 0,
-      zIndex: "modal",
-      textStyle: "sm",
-      maxH: "100dvh",
-      color: "inherit",
-      bg: "bg.panel",
-      boxShadow: "lg",
+      zIndex: 'calc(var(--drawer-z-index) + var(--layer-index, 0))',
+      textStyle: 'sm',
+      maxH: '100dvh',
+      color: 'inherit',
+      layerStyle: 'overlay',
       _open: {
-        animationDuration: "slowest",
-        animationTimingFunction: "ease-in-smooth",
+        animationDuration: 'slowest',
+        animationTimingFunction: 'ease-in-smooth',
       },
       _closed: {
-        animationDuration: "slower",
-        animationTimingFunction: "ease-in-smooth",
+        animationDuration: 'slower',
+        animationTimingFunction: 'ease-in-smooth',
       },
     },
     header: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       flex: 0,
-      px: "6",
-      pt: "6",
-      pb: "4",
+      px: '6',
+      py: '4',
     },
     body: {
-      px: "6",
-      py: "2",
-      flex: "1",
-      overflow: "auto",
+      px: '6',
+      py: '2',
+      flex: '1',
+      overflow: 'auto',
     },
     footer: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-end",
-      gap: "3",
-      px: "6",
-      pt: "2",
-      pb: "4",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      gap: '3',
+      px: '6',
+      pt: '2',
+      pb: '4',
     },
     title: {
-      textStyle: "lg",
-      fontWeight: "semibold",
+      textStyle: 'lg',
+      fontWeight: 'semibold',
     },
     description: {
-      color: "fg.muted",
+      color: 'fg.muted',
     },
   },
   variants: {
     size: {
       xs: {
         content: {
-          maxW: "xs",
+          maxW: 'xs',
         },
       },
       sm: {
         content: {
-          maxW: "md",
+          maxW: 'md',
         },
       },
       md: {
         content: {
-          maxW: "lg",
+          maxW: 'lg',
         },
       },
       lg: {
         content: {
-          maxW: "2xl",
+          maxW: '2xl',
         },
       },
       xl: {
         content: {
-          maxW: "4xl",
+          maxW: '4xl',
         },
       },
       full: {
         content: {
-          maxW: "100vw",
-          h: "100dvh",
+          maxW: '100vw',
+          h: '100dvh',
         },
       },
     },
     placement: {
       start: {
         positioner: {
-          justifyContent: "flex-start",
+          justifyContent: 'flex-start',
         },
         content: {
           _open: {
             animationName: {
-              base: "slide-from-left-full, fade-in",
-              _rtl: "slide-from-right-full, fade-in",
+              base: 'slide-from-left-full, fade-in',
+              _rtl: 'slide-from-right-full, fade-in',
             },
           },
           _closed: {
             animationName: {
-              base: "slide-to-left-full, fade-out",
-              _rtl: "slide-to-right-full, fade-out",
+              base: 'slide-to-left-full, fade-out',
+              _rtl: 'slide-to-right-full, fade-out',
             },
           },
         },
       },
       end: {
         positioner: {
-          justifyContent: "flex-end",
+          justifyContent: 'flex-end',
         },
         content: {
           _open: {
             animationName: {
-              base: "slide-from-right-full, fade-in",
-              _rtl: "slide-from-left-full, fade-in",
+              base: 'slide-from-right-full, fade-in',
+              _rtl: 'slide-from-left-full, fade-in',
             },
           },
           _closed: {
             animationName: {
-              base: "slide-to-right-full, fade-out",
-              _rtl: "slide-to-right-full, fade-out",
+              base: 'slide-to-right-full, fade-out',
+              _rtl: 'slide-to-right-full, fade-out',
             },
           },
         },
       },
       top: {
         positioner: {
-          alignItems: "flex-start",
+          alignItems: 'flex-start',
         },
         content: {
-          maxW: "100%",
+          maxW: '100%',
           _open: {
-            animationName: "slide-from-top-full, fade-in",
+            animationName: 'slide-from-top-full, fade-in',
           },
           _closed: {
-            animationName: "slide-to-top-full, fade-out",
+            animationName: 'slide-to-top-full, fade-out',
           },
         },
       },
       bottom: {
         positioner: {
-          alignItems: "flex-end",
+          alignItems: 'flex-end',
         },
         content: {
-          maxW: "100%",
+          maxW: '100%',
           _open: {
-            animationName: "slide-from-bottom-full, fade-in",
+            animationName: 'slide-from-bottom-full, fade-in',
           },
           _closed: {
-            animationName: "slide-to-bottom-full, fade-out",
+            animationName: 'slide-to-bottom-full, fade-out',
           },
         },
       },
     },
-    contained: {
+    attached: {
       true: {
         positioner: {
-          padding: "4",
+          padding: 0,
         },
         content: {
-          borderRadius: "l3",
+          borderRadius: 'none',
         },
       },
     },
   },
   defaultVariants: {
-    size: "xs",
-    placement: "end",
+    size: 'xs',
+    placement: 'end',
   },
 })

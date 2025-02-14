@@ -2,7 +2,6 @@ import { defineSlotRecipe } from '../def'
 
 export const sidebarSlotRecipe = defineSlotRecipe({
   className: 'sui-sidebar',
-  jsx: ['Sidebar'],
   slots: [
     'root',
     'backdrop',
@@ -20,7 +19,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
   ],
   base: {
     root: {
-      '--sidebar-z-index': 'zIndex.modal',
+      '--sidebar-z-index': 'zIndex.layer-3',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -29,7 +28,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       bg: 'blackAlpha.200',
       position: 'fixed',
       inset: 0,
-      '--sidebar-backdrop-z-index': 'zIndex.overlay',
+      '--sidebar-backdrop-z-index': 'zIndex.layer-3',
       zIndex: 'calc(var(--sidebar-backdrop-z-index) - 2)',
       _open: {
         animationName: 'fade-in',
@@ -82,7 +81,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       transitionProperty: 'common',
       transitionDuration: 'fast',
       _groupCollapsible: {
-        cursor: 'pointer',
+        cursor: 'button',
         userSelect: 'none',
         _hover: {
           bg: 'sidebar.accent.bg/80',
@@ -118,7 +117,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       right: '-4px',
       bottom: 0,
       width: '7px',
-      cursor: 'pointer',
+      cursor: 'button',
       _after: {
         content: '""',
         display: 'block',
@@ -147,28 +146,18 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         root: {
           base: {
             position: 'fixed',
-            top: 0,
             height: '100dvh',
-            zIndex: 'var(--sidebar-z-index)',
-
-            bg: {
-              _light: 'bg',
-              _dark: 'bg',
-            },
+            zIndex: 'layer-3',
           },
           md: {
             position: 'relative',
             height: 'auto',
             zIndex: 'unset',
-            bg: {
-              _light: 'color-mix(in srgb, {colors.bg}, #000 7%)',
-              _dark: 'color-mix(in srgb, {colors.bg}, #fff 7%)',
-            },
           },
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
-
+          bg: 'sidebar.bg',
           transitionProperty: 'margin-left',
           _open: {
             marginLeft: 0,
@@ -192,10 +181,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
           width: 'var(--sidebar-width, 280px)',
           maxWidth: ['100vw', 'var(--sidebar-max-width, 320px)'],
           minWidth: 'var(--sidebar-min-width, 220px)',
-          bg: {
-            _light: 'color-mix(in srgb, {colors.bg}, #000 7%)',
-            _dark: 'color-mix(in srgb, {colors.bg}, #fff 7%)',
-          },
+          bg: 'sidebar.bg',
           borderColor: 'sidebar.border',
           boxShadow: 'none',
           borderWidth: '1px',
@@ -214,7 +200,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         flyoutTrigger: {
           display: 'block',
           position: 'absolute',
-          '--sidebar-flyout-trigger-z-index': '{zIndex.overlay}',
+          '--sidebar-flyout-trigger-z-index': 'zIndex.layer-3',
           zIndex: 'calc(var(--sidebar-flyout-trigger-z-index) - 1)',
           height: '100%',
           width: '8px',

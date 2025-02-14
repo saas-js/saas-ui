@@ -8,5 +8,5 @@ export const cursor = defineTokens.cursor({
   option: { value: 'default' },
   radio: { value: 'default' },
   slider: { value: 'default' },
-  switch: { value: 'pointer' },
+  swittch: { value: 'pointer' },
 })

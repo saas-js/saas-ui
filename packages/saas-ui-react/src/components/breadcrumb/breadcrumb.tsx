@@ -1,13 +1,15 @@
+'use client'
+
 import { Children, Fragment, forwardRef, isValidElement } from 'react'
 
 import { Breadcrumb, type SystemStyleObject } from '@chakra-ui/react'
 
-interface BreadcrumbRootProps extends Breadcrumb.RootProps {
+export interface RootProps extends Breadcrumb.RootProps {
   separator?: React.ReactNode
   separatorGap?: SystemStyleObject['gap']
 }
 
-const BreadcrumbRoot = forwardRef<HTMLDivElement, BreadcrumbRootProps>(
+export const Root = forwardRef<HTMLDivElement, RootProps>(
   function BreadcrumbRoot(props, ref) {
     const { separator = '/', separatorGap, children, ...rest } = props
     const validChildren = Children.toArray(children).filter(isValidElement)
@@ -31,15 +33,6 @@ const BreadcrumbRoot = forwardRef<HTMLDivElement, BreadcrumbRootProps>(
   },
 )
 
-const BreadcrumbLink = Breadcrumb.Link
-const BreadcrumbCurrentLink = Breadcrumb.CurrentLink
-const BreadcrumbEllipsis = Breadcrumb.Ellipsis
-
-export {
-  BreadcrumbRoot as Root,
-  BreadcrumbLink as Link,
-  BreadcrumbCurrentLink as CurrentLink,
-  BreadcrumbEllipsis as Ellipsis,
-}
-
-export type { BreadcrumbRootProps as RootProps }
+export const Link = Breadcrumb.Link
+export const CurrentLink = Breadcrumb.CurrentLink
+export const Ellipsis = Breadcrumb.Ellipsis

@@ -12,12 +12,13 @@ export const hoverCardSlotRecipe = defineSlotRecipe({
       textStyle: 'sm',
       '--hovercard-bg': 'colors.bg.panel',
       bg: 'var(--hovercard-bg)',
-      boxShadow: 'lg',
       maxWidth: '80',
-      borderRadius: 'l3',
-      zIndex: 'popover',
+      '--hover-card-z-index': 'zIndex.layer-2',
+      zIndex: 'calc(var(--hover-card-z-index) + var(--layer-index, 0))',
       transformOrigin: 'var(--transform-origin)',
+      borderWidth: '1px',
       outline: '0',
+      layerStyle: 'overlay',
       _open: {
         animationStyle: 'slide-fade-in',
         animationDuration: 'fast',
@@ -42,21 +43,25 @@ export const hoverCardSlotRecipe = defineSlotRecipe({
       xs: {
         content: {
           padding: '3',
+          borderRadius: 'panel.sm',
         },
       },
       sm: {
         content: {
           padding: '4',
+          borderRadius: 'panel.md',
         },
       },
       md: {
         content: {
           padding: '5',
+          borderRadius: 'panel.md',
         },
       },
       lg: {
         content: {
           padding: '6',
+          borderRadius: 'panel.lg',
         },
       },
     },

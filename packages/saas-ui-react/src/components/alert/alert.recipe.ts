@@ -11,7 +11,6 @@ export const alertSlotRecipe = defineSlotRecipe({
       display: 'flex',
       alignItems: 'flex-start',
       position: 'relative',
-      borderRadius: 'l3',
     },
     title: {
       fontWeight: 'medium',
@@ -82,7 +81,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           bg: 'colorPalette.subtle',
           color: 'colorPalette.fg',
           shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-          shadowColor: 'colorPalette.muted',
+          shadowColor: 'colorPalette.solid',
         },
         indicator: {
           color: 'colorPalette.fg',
@@ -93,7 +92,7 @@ export const alertSlotRecipe = defineSlotRecipe({
         root: {
           color: 'colorPalette.fg',
           shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-          shadowColor: 'colorPalette.muted',
+          shadowColor: 'colorPalette.subtle',
         },
         indicator: {
           color: 'colorPalette.fg',
@@ -118,6 +117,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           px: '3',
           py: '3',
           textStyle: 'xs',
+          borderRadius: 'panel.sm',
         },
         indicator: {
           textStyle: 'lg',
@@ -129,6 +129,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           px: '4',
           py: '4',
           textStyle: 'sm',
+          borderRadius: 'panel.md',
         },
         indicator: {
           textStyle: 'xl',
@@ -140,6 +141,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           px: '4',
           py: '4',
           textStyle: 'md',
+          borderRadius: 'panel.lg',
         },
         indicator: {
           textStyle: '2xl',

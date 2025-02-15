@@ -2693,9 +2693,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/panda-preset@workspace:*, @saas-ui/panda-preset@workspace:packages/saas-ui-panda":
+"@saas-ui/panda-preset@workspace:*, @saas-ui/panda-preset@workspace:packages/saas-ui-panda-preset":
   version: 0.0.0-use.local
-  resolution: "@saas-ui/panda-preset@workspace:packages/saas-ui-panda"
+  resolution: "@saas-ui/panda-preset@workspace:packages/saas-ui-panda-preset"
   dependencies:
     "@chakra-ui/react": "npm:^3.8.0"
     "@emotion/react": "npm:^11.14.0"

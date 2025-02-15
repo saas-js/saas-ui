@@ -65,7 +65,7 @@
     "preinstall": "rimraf node_modules/odiff-bin"
   },
   "workspaces": [
-    "packages/saas-ui-panda",
+    "packages/saas-ui-panda-preset",
     "packages/saas-ui-core",
     "packages/saas-ui-react",
     "packages/saas-ui-react-panda",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import {
   Presence,
@@ -22,17 +22,21 @@ interface LoadingOverlayProps
   loading?: boolean
 }
 
-const LoadingOverlay: React.FC<LoadingOverlayProps> = (props) => {
-  const { children, loading = true, ...rest } = props
+const LoadingOverlay = forwardRef<HTMLDivElement, LoadingOverlayProps>(
+  (props, ref) => {
+    const { children, loading = true, ...rest } = props
 
-  const [presenceProps, rootProps] = splitPresenceProps(rest)
+    const [presenceProps, rootProps] = splitPresenceProps(rest)
 
-  return (
-    <Presence present={loading} {...presenceProps} asChild>
-      <chakra.div {...rootProps}>{children}</chakra.div>
-    </Presence>
-  )
-}
+    return (
+      <Presence present={loading} {...presenceProps} asChild>
+        <chakra.div ref={ref} {...rootProps}>
+          {children}
+        </chakra.div>
+      </Presence>
+    )
+  },
+)
 
 const LoadingOverlayRoot = withProvider<HTMLDivElement, LoadingOverlayProps>(
   LoadingOverlay,

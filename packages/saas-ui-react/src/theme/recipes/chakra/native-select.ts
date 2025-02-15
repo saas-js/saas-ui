@@ -1,7 +1,7 @@
 import { defineSlotRecipe } from '@chakra-ui/react'
 import { nativeSelectAnatomy } from '@chakra-ui/react/anatomy'
 
-import { selectSlotRecipe } from './select'
+import { selectSlotRecipe } from '../../../components/select/select.recipe'
 
 export const nativeSelectSlotRecipe = defineSlotRecipe({
   className: 'chakra-native-select',

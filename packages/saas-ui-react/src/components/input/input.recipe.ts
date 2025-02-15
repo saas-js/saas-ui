@@ -25,31 +25,31 @@ export const inputRecipe = defineRecipe({
   variants: {
     size: {
       xs: {
-        borderRadius: 'sm',
+        borderRadius: 'control.sm',
         textStyle: 'xs',
         px: '2',
         '--input-height': 'sizes.6',
       },
       sm: {
-        borderRadius: 'sm',
+        borderRadius: 'control.md',
         textStyle: 'sm',
         px: '2.5',
         '--input-height': 'sizes.7',
       },
       md: {
-        borderRadius: 'md',
+        borderRadius: 'control.md',
         textStyle: 'sm',
         px: '3',
         '--input-height': 'sizes.8',
       },
       lg: {
-        borderRadius: 'lg',
+        borderRadius: 'control.lg',
         textStyle: 'md',
         px: '4.5',
         '--input-height': 'sizes.10',
       },
       xl: {
-        borderRadius: 'lg',
+        borderRadius: 'control.lg',
         textStyle: 'md',
         px: '6',
         '--input-height': 'sizes.12',

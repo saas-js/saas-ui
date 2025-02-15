@@ -1,13 +1,14 @@
 import { defineSlotRecipe } from '@chakra-ui/react'
 import { checkboxAnatomy } from '@chakra-ui/react/anatomy'
 
-import { checkmarkRecipe } from './checkmark'
+import { checkmarkRecipe } from '../checkmark/checkmark.recipe'
 
 export const checkboxSlotRecipe = defineSlotRecipe({
   slots: checkboxAnatomy.keys(),
   className: 'chakra-checkbox',
   base: {
     root: {
+      colorPalette: 'accent',
       display: 'inline-flex',
       gap: '2',
       alignItems: 'center',

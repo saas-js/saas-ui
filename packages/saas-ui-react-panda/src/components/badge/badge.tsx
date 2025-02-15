@@ -1,8 +1,8 @@
 import { ComponentProps, forwardRef } from 'react'
 
 import { ark } from '@ark-ui/react'
-import { styled } from '@saas-ui/panda-preset/jsx'
-import { badge } from '@saas-ui/panda-preset/recipes'
+import { styled } from '@saas-ui/react-panda/styled-system/jsx'
+import { badge } from '@saas-ui/react-panda/styled-system/recipes'
 
 const StyledBadge = styled(ark.span, badge)
 

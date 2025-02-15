@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
 
 import { ark } from '@ark-ui/react'
-import { styled } from '@saas-ui/panda-preset/jsx'
+import { styled } from '@saas-ui/react-panda/styled-system/jsx'
 
 export interface TextProps extends ComponentProps<typeof ark.p> {}
 export interface HeadingProps extends ComponentProps<typeof ark.h2> {}

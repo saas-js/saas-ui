@@ -1,8 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
   "compilerOptions": {
-    "baseUrl": "."
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@saas-ui/react-panda/styled-system/*": ["styled-system/*"]
+    }
   },
-  "exclude": []
+  "include": ["src", "styled-system"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -33,7 +33,7 @@ export async function writeFiles() {
         relativePath.replace('.ts', '').replaceAll('\\', '/'),
       )
       .replaceAll('saas-ui-', '')
-      .replaceAll('switch:', 'swittch:')
+    // .replaceAll('switch:', 'swittch:')
 
     updatedContent = await format(updatedContent)
 

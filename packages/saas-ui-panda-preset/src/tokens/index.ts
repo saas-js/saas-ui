@@ -9,7 +9,6 @@ import { easings } from './easings'
 import { fontSizes } from './font-sizes'
 import { fontWeights } from './font-weights'
 import { fonts } from './fonts'
-import { keyframes } from './keyframes'
 import { letterSpacings } from './letter-spacings'
 import { lineHeights } from './line-heights'
 import { radii } from './radii'
@@ -29,7 +28,6 @@ export const tokens = {
   fontSizes,
   fontWeights,
   fonts,
-  keyframes,
   letterSpacings,
   lineHeights,
   radii,

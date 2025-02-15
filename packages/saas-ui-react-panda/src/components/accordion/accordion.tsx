@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
 
 import { Accordion as ArkAccordion } from '@ark-ui/react/accordion'
-import { accordion } from '@saas-ui/panda-preset/recipes'
+import { accordion } from '@saas-ui/react-panda/styled-system/recipes'
 
 import { createStyleContext } from '../context'
 

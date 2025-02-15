@@ -11,8 +11,8 @@ import {
 } from 'react'
 
 import type { PolymorphicProps } from '@ark-ui/react'
-import { cx } from '@saas-ui/panda-preset/css'
-import { styled } from '@saas-ui/panda-preset/jsx'
+import { cx } from '@saas-ui/react-panda/styled-system/css'
+import { styled } from '@saas-ui/react-panda/styled-system/jsx'
 import {
   type Assign,
   type Dict,
@@ -21,7 +21,7 @@ import {
   JsxHTMLProps,
   type JsxStyleProps,
   StyledComponent,
-} from '@saas-ui/panda-preset/types'
+} from '@saas-ui/react-panda/styled-system/types'
 
 type GenericProps = Record<string, any>
 type StyleRecipe = {

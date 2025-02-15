@@ -61,10 +61,8 @@ export const menuSlotRecipe = defineSlotRecipe({
       flex: '1',
     },
     itemGroupLabel: {
-      px: '2',
-      py: '1.5',
-      fontWeight: 'semibold',
       textStyle: 'sm',
+      color: 'fg.subtle',
     },
     indicator: {
       display: 'inline-flex',
@@ -116,6 +114,11 @@ export const menuSlotRecipe = defineSlotRecipe({
           py: '1',
           px: '1.5',
         },
+        itemGroupLabel: {
+          textStyle: 'xs',
+          py: '1',
+          px: '1.5',
+        },
       },
       md: {
         content: {
@@ -124,6 +127,11 @@ export const menuSlotRecipe = defineSlotRecipe({
         },
         item: {
           gap: '2',
+          textStyle: 'sm',
+          py: '1.5',
+          px: '2',
+        },
+        itemGroupLabel: {
           textStyle: 'sm',
           py: '1.5',
           px: '2',

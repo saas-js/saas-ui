@@ -1,5 +1,8 @@
 import { Sidebar, type SidebarProviderProps } from '@saas-ui/core/sidebar'
-import { sidebar, sidebarItem } from '@saas-ui/panda-preset/recipes'
+import {
+  sidebar,
+  sidebarNavItem,
+} from '@saas-ui/react-panda/styled-system/recipes'
 
 import { createStyleContext } from '../context'
 import { HTMLSuiProps } from '../types'
@@ -110,7 +113,7 @@ export const SidebarGroupContent = withContext<
 const {
   withProvider: withSidebarItemProvider,
   withContext: withSidebarItemContext,
-} = createStyleContext(sidebarItem)
+} = createStyleContext(sidebarNavItem)
 
 export interface SidebarNavItemProps extends HTMLSuiProps<'div'> {}
 

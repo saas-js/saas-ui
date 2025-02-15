@@ -5,6 +5,7 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
   className: 'chakra-empty-state',
   base: {
     root: {
+      colorPalette: 'accent',
       width: 'full',
       height: 'full',
       display: 'flex',
@@ -57,7 +58,9 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
         description: {
           textStyle: 'xs',
         },
-        content: {},
+        content: {
+          textStyle: 'xs',
+        },
         actions: {
           mt: '2',
         },
@@ -77,7 +80,9 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
         description: {
           textStyle: 'sm',
         },
-        content: {},
+        content: {
+          textStyle: 'sm',
+        },
         actions: {
           mt: '3',
         },
@@ -97,7 +102,9 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
         description: {
           textStyle: 'md',
         },
-        content: {},
+        content: {
+          textStyle: 'md',
+        },
         actions: {
           mt: '4',
         },

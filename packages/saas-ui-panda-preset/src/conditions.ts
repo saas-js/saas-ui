@@ -24,4 +24,6 @@ export const conditions = defineConditions({
   groupInvalid: '.group:invalid &, [role=group]:invalid &',
   parentHover: 'button:hover &, a:hover &, [role=button]:hover &',
   pressable: '&:is(a, button, [role=button])',
+  popupExpanded:
+    '&:is([aria-haspopup][aria-expanded=true], [aria-haspopup][data-expanded], [aria-haspopup][data-state=expanded])',
 })

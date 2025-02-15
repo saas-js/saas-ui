@@ -111,6 +111,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "@emotion/react": "11.11.1",
+    "tsup": "8.3.5",
     "@chakra-ui/react": "3.7.0",
     "@ark-ui/react": "4.8.1"
   },

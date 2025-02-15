@@ -6,9 +6,12 @@ export default defineConfig({
   jsxFramework: 'react',
   outExtension: 'js',
   jsxStyleProps: 'all',
-  importMap: '@saas-ui/panda-preset',
+  // importMap: '@saas-ui/react-panda/styled-system',
   preflight: true,
-  include: ['./app/**/*.{js,jsx,ts,tsx}'],
+  include: [
+    './app/**/*.{js,jsx,ts,tsx}',
+    '../../packages/saas-ui-react-panda/dist/panda.buildinfo.json',
+  ],
   exclude: [],
   theme: {
     extend: {},

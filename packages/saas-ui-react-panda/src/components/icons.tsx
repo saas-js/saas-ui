@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react'
 
-import { styled } from '@saas-ui/panda-preset/jsx'
+import { styled } from '@saas-ui/react-panda/styled-system/jsx'
 
 import { createIcon } from './create-icon'
 

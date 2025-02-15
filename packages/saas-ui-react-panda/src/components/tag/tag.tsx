@@ -1,6 +1,6 @@
 import { ComponentProps, forwardRef } from 'react'
 
-import { tag } from '@saas-ui/panda-preset/recipes'
+import { tag } from '@saas-ui/react-panda/styled-system/recipes'
 
 import { HTMLSuiProps, createStyleContext } from '../context'
 import { CloseIcon } from '../icons'

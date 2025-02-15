@@ -21,8 +21,8 @@ import {
   type MenuTriggerItemBaseProps as ArkMenuTriggerItemBaseProps,
   type MenuTriggerProps as ArkMenuTriggerProps,
 } from '@ark-ui/react/menu'
-import '@saas-ui/panda-preset/jsx'
-import { menu } from '@saas-ui/panda-preset/recipes'
+import '@saas-ui/react-panda/styled-system/jsx'
+import { menu } from '@saas-ui/react-panda/styled-system/recipes'
 
 import { HTMLSuiProps, createStyleContext } from '../context'
 import { CheckIcon, ChevronRightIcon } from '../icons'

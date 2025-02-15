@@ -1,5 +1,8 @@
 import { ark } from '@ark-ui/react'
-import { type CardVariantProps, card } from '@saas-ui/panda-preset/recipes'
+import {
+  type CardVariantProps,
+  card,
+} from '@saas-ui/react-panda/styled-system/recipes'
 
 import { type HTMLSuiProps, createStyleContext } from '../context'
 

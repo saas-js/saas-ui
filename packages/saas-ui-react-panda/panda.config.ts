@@ -6,8 +6,10 @@ export default defineConfig({
   jsxFramework: 'react',
   outExtension: 'js',
   jsxStyleProps: 'all',
-  importMap: '@saas-ui/panda-preset',
+  // maybe move to @saas-ui/styled-system?
+  importMap: '@saas-ui/react-panda/styled-system',
   preflight: true,
+  // I think we need a separate config for the stories?
   include: ['./src/**/*.{js,jsx,ts,tsx}', './.storybook/**/*.{js,jsx,ts,tsx}'],
   exclude: [],
   staticCss: {

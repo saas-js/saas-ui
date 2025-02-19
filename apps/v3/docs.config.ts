@@ -104,7 +104,7 @@ const docsLinks: NavItem = {
             { title: 'Password Input', url: 'password-input' },
             { title: 'Pin Input', url: 'pin-input' },
             { title: 'Popover', url: 'popover' },
-            { title: 'Progress Circle', url: 'progress-circle' },
+            // { title: 'Progress Circle', url: 'progress-circle' },
             { title: 'Progress', url: 'progress' },
             { title: 'Radio Card', url: 'radio-card' },
             { title: 'Radio', url: 'radio' },

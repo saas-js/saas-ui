@@ -115,6 +115,7 @@ export {
 export { PinInput, type PinInputProps } from './components/pin-input/index.ts'
 export { Popover } from './components/popover/index.ts'
 export { Progress } from './components/progress/index.ts'
+export { ProgressCircle } from './components/progress-circle/index.ts'
 export {
   Radio,
   RadioGroup,

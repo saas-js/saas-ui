@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"velite --watch\" \"next dev\"",
-    "build": "next build",
+    "build": "velite --clean && next build",
     "start": "next start",
     "lint": "next lint",
     "dev:content": "velite --watch",

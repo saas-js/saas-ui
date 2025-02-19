@@ -6,7 +6,7 @@ import Link, { LinkProps } from 'next/link'
 export const LinkButton = forwardRef<
   HTMLAnchorElement,
   ButtonProps & LinkProps
->((props, ref) => {
+>(function LinkButton(props, ref) {
   const {
     href,
     as,

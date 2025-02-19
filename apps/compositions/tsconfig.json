@@ -10,7 +10,9 @@
     "strict": true,
     "customConditions": ["sui"],
     "paths": {
-      "compositions/*": ["./src/*"]
+      "compositions/*": ["./src/*"],
+      "@saas-ui/react": ["../packages/saas-ui-react/src/index.ts"],
+      "@saas-ui/react/*": ["../packages/saas-ui-react/src/components/*"]
     }
   }
 }

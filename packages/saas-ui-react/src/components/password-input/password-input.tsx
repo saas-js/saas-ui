@@ -2,21 +2,23 @@
 
 import { forwardRef, useRef } from 'react'
 
-import type { ButtonProps, GroupProps, InputProps } from '@chakra-ui/react'
-import {
-  IconButton,
-  Input,
-  mergeRefs,
-  useControllableState,
-} from '@chakra-ui/react'
+import { mergeRefs, useControllableState } from '@chakra-ui/react'
 import { LuEye, LuEyeOff } from 'react-icons/lu'
 
-import { InputGroup } from '../input-group'
+import {
+  IconButton,
+  type IconButtonProps,
+} from '#components/icon-button/index.ts'
+import {
+  InputGroup,
+  type InputGroupProps,
+} from '#components/input-group/index.ts'
+import { Input, type InputProps } from '#components/input/index.ts'
 
 export interface PasswordInputProps
   extends InputProps,
     PasswordVisibilityProps {
-  rootProps?: GroupProps
+  rootProps?: InputGroupProps
 }
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
@@ -73,7 +75,7 @@ export interface PasswordVisibilityProps {
   visibilityIcon?: { on: React.ReactNode; off: React.ReactNode }
 }
 
-const VisibilityTrigger = forwardRef<HTMLButtonElement, ButtonProps>(
+const VisibilityTrigger = forwardRef<HTMLButtonElement, IconButtonProps>(
   function VisibilityTrigger(props, ref) {
     return (
       <IconButton

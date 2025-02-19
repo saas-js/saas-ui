@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { NativeSelect as Select } from '@chakra-ui/react'
+import { NativeSelect as Select } from '@chakra-ui/react/native-select'
 
 import { ChevronDownIcon } from '../icons'
 

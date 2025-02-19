@@ -1,5 +1,5 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
 import { progressAnatomy } from '@chakra-ui/react/anatomy'
+import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
 export const progressCircleSlotRecipe = defineSlotRecipe({
   className: 'chakra-progress-circle',

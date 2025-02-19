@@ -1,5 +1,5 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
 import { hoverCardAnatomy } from '@chakra-ui/react/anatomy'
+import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
 export const hoverCardSlotRecipe = defineSlotRecipe({
   className: 'chakra-hover-card',

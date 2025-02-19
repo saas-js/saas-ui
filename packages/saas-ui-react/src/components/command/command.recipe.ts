@@ -1,4 +1,7 @@
-import { type RecipeVariantProps, defineRecipe } from '@chakra-ui/react'
+import {
+  type RecipeVariantProps,
+  defineRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const commandRecipe = defineRecipe({
   className: 'sui-command',

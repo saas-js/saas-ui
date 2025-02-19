@@ -2,8 +2,9 @@
 
 import { forwardRef } from 'react'
 
-import type { CollectionItem } from '@chakra-ui/react'
-import { Portal, Select as SelectPrimitive } from '@chakra-ui/react'
+import type { CollectionItem } from '@chakra-ui/react/collection'
+import { Portal } from '@chakra-ui/react/portal'
+import { Select as SelectPrimitive } from '@chakra-ui/react/select'
 
 import { CloseButton } from '#components/close-button'
 

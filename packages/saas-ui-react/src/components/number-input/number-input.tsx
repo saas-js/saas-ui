@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { NumberInput as ChakraNumberInput } from '@chakra-ui/react'
+import { NumberInput as ChakraNumberInput } from '@chakra-ui/react/number-input'
 
 import { InputGroup } from '#components/input-group/index.ts'
 

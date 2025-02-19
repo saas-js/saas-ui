@@ -1,4 +1,7 @@
-import { type RecipeVariantProps, defineSlotRecipe } from '@chakra-ui/react'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const gridListSlotRecipe = defineSlotRecipe({
   className: 'sui-grid-list',

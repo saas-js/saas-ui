@@ -2,7 +2,8 @@
 
 import { forwardRef, useMemo } from 'react'
 
-import { For, SegmentGroup } from '@chakra-ui/react'
+import { For } from '@chakra-ui/react/for'
+import { SegmentGroup } from '@chakra-ui/react/segment-group'
 
 interface Item {
   value: string

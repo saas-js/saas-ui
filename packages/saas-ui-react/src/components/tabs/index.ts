@@ -1,1 +1,6 @@
-export { Tabs, useTabsContext, useTabsStyles } from '@chakra-ui/react/tabs'
+export {
+  Tabs,
+  useTabsContext,
+  useTabsStyles,
+  useTabs,
+} from '@chakra-ui/react/tabs'

@@ -2,15 +2,14 @@
 
 import * as React from 'react'
 
-import type { ButtonProps, RecipeProps } from '@chakra-ui/react'
+import { Span } from '@chakra-ui/react'
 import {
-  Button,
   FileUpload as ChakraFileUpload,
-  Span,
   useFileUploadContext,
-  useRecipe,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react/file-upload'
+import { type RecipeProps, useRecipe } from '@chakra-ui/react/styled-system'
 
+import { Button, type ButtonProps } from '#components/button'
 import { CloseButton } from '#components/close-button/close-button'
 
 export interface RootProps extends ChakraFileUpload.RootProps {

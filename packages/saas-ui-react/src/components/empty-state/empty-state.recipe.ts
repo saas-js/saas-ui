@@ -1,5 +1,5 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
 import { emptyStateAnatomy } from '@chakra-ui/react/anatomy'
+import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
 export const emptyStateSlotRecipe = defineSlotRecipe({
   slots: emptyStateAnatomy.extendWith('actions').keys(),

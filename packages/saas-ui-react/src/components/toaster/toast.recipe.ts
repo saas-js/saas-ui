@@ -1,5 +1,5 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
 import { toastAnatomy } from '@chakra-ui/react/anatomy'
+import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
 export const toastSlotRecipe = defineSlotRecipe({
   slots: toastAnatomy.keys(),

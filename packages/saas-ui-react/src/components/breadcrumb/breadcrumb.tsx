@@ -2,7 +2,8 @@
 
 import { Children, Fragment, forwardRef, isValidElement } from 'react'
 
-import { Breadcrumb, type SystemStyleObject } from '@chakra-ui/react'
+import { Breadcrumb } from '@chakra-ui/react/breadcrumb'
+import type { SystemStyleObject } from '@chakra-ui/react/styled-system'
 
 export interface RootProps extends Breadcrumb.RootProps {
   separator?: React.ReactNode

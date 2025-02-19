@@ -1,6 +1,7 @@
-import { Box, Steps as ChakraSteps, useStepsContext } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react/box'
+import { Steps as ChakraSteps, useStepsContext } from '@chakra-ui/react/steps'
 
-import { CheckIcon } from '../icons'
+import { CheckIcon } from '#components/icons'
 
 interface StepInfoProps {
   title?: React.ReactNode

@@ -2,14 +2,13 @@ import * as React from 'react'
 
 import {
   type HTMLChakraProps,
-  Kbd,
-  type KbdProps,
   UnstyledProp,
   createRecipeContext,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react/styled-system'
 
 import type { RecipeProps } from '#types'
 
+import { Kbd, type KbdProps } from '../kbd/index.ts'
 import type { CommandVariantProps } from './command.recipe.ts'
 
 const { withContext } = createRecipeContext({

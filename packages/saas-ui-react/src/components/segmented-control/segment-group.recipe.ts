@@ -1,5 +1,5 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
 import { segmentGroupAnatomy } from '@chakra-ui/react/anatomy'
+import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
 export const segmentGroupSlotRecipe = defineSlotRecipe({
   className: 'chakra-segment-group',

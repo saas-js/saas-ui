@@ -1,4 +1,4 @@
-import { createSlotRecipeContext } from '@chakra-ui/react'
+import { createSlotRecipeContext } from '@chakra-ui/react/styled-system'
 
 export const {
   withProvider,

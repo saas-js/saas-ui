@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
-import type { SpinnerProps as ChakraSpinnerProps } from '@chakra-ui/react'
-import { Spinner as ChakraSpinner } from '@chakra-ui/react'
+import { Spinner as ChakraSpinner } from '@chakra-ui/react/spinner'
+import type { SpinnerProps as ChakraSpinnerProps } from '@chakra-ui/react/spinner'
 
 export interface SpinnerProps extends ChakraSpinnerProps {
   loading?: boolean

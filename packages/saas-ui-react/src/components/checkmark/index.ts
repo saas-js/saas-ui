@@ -1,1 +1,1 @@
-export { Checkmark, type CheckmarkProps } from '@chakra-ui/react'
+export { Checkmark, type CheckmarkProps } from '@chakra-ui/react/checkmark'

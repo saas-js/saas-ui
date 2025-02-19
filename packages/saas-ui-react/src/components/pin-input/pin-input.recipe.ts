@@ -1,5 +1,5 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
 import { pinInputAnatomy } from '@chakra-ui/react/anatomy'
+import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
 import { mapEntries } from '../../theme/utils.ts'
 import { inputRecipe } from '../input/input.recipe.ts'

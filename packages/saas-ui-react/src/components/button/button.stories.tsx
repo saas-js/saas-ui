@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Box, HStack, Stack } from '@chakra-ui/react'
 
-import { Button } from './button.tsx'
+import { Button } from './index.ts'
 
 export default {
   title: 'Components/Button',

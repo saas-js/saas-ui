@@ -2,7 +2,7 @@
 
 import { forwardRef } from 'react'
 
-import { Alert as AlertPrimitive } from '@chakra-ui/react'
+import { Alert as AlertPrimitive } from '@chakra-ui/react/alert'
 
 import { CloseButton } from '../close-button'
 

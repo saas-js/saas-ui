@@ -2,14 +2,11 @@
 
 import { forwardRef } from 'react'
 
-import {
-  AbsoluteCenter,
-  type ButtonProps,
-  Menu as ChakraMenu,
-  Portal,
-} from '@chakra-ui/react'
+import { AbsoluteCenter } from '@chakra-ui/react/center'
+import { Menu as ChakraMenu } from '@chakra-ui/react/menu'
+import { Portal } from '@chakra-ui/react/portal'
 
-import { Button } from '#components/button/index.ts'
+import { Button, type ButtonProps } from '#components/button/index.ts'
 import { CheckIcon, ChevronRightIcon } from '#components/icons/index.ts'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {

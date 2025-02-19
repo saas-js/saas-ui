@@ -2,7 +2,7 @@ import {
   type RecipeVariantProps,
   defineSlotRecipe,
   defineStyle,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react/styled-system'
 
 const baseStyleLabel = defineStyle({
   overflow: 'hidden',

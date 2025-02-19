@@ -2,8 +2,9 @@
 
 import { forwardRef } from 'react'
 
-import type { GroupProps, SlotRecipeProps } from '@chakra-ui/react'
-import { Avatar as ChakraAvatar, Group } from '@chakra-ui/react'
+import { Avatar as ChakraAvatar } from '@chakra-ui/react/avatar'
+import { Group, type GroupProps } from '@chakra-ui/react/group'
+import type { SlotRecipeProps } from '@chakra-ui/react/styled-system'
 
 type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>
 

@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { Accordion } from '@chakra-ui/react'
+import { Accordion } from '@chakra-ui/react/accordion'
 
 import { ChevronRightIcon } from '../icons/icons.tsx'
 

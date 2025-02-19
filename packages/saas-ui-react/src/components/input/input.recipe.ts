@@ -1,4 +1,4 @@
-import { defineRecipe } from '@chakra-ui/react'
+import { defineRecipe } from '@chakra-ui/react/styled-system'
 
 export const inputRecipe = defineRecipe({
   className: 'chakra-input',

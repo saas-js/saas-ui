@@ -1,9 +1,10 @@
 import { cloneElement, forwardRef, isValidElement } from 'react'
 
-import type { BoxProps, InputElementProps } from '@chakra-ui/react'
-import { Group, InputElement } from '@chakra-ui/react'
+import { Group, type GroupProps } from '@chakra-ui/react/group'
 
-export interface InputGroupProps extends BoxProps {
+import { InputElement, type InputElementProps } from '#components/input'
+
+export interface InputGroupProps extends GroupProps {
   startElementProps?: InputElementProps
   endElementProps?: InputElementProps
   startElement?: React.ReactNode

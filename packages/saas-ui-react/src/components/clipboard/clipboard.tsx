@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Clipboard as ChakraClipboard } from '@chakra-ui/react'
+import { Clipboard as ChakraClipboard } from '@chakra-ui/react/clipboard'
 
 import { Button, type ButtonProps } from '../button'
 import { IconButton, type IconButtonProps } from '../icon-button'

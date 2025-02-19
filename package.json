@@ -48,7 +48,7 @@
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",
     "create:block": "yarn hygen blocks new",
-    "build:web": "yarn w website build",
+    "build:web": "yarn w @saas-ui/web-v3 build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
     "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",

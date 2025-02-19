@@ -1712,6 +1712,7 @@ __metadata:
   dependencies:
     "@chakra-ui/react": "npm:^3.7.0"
     "@hookform/resolvers": "npm:3.10.0"
+    "@saas-ui/forms": "workspace:*"
     "@saas-ui/react": "workspace:*"
     "@tanstack/react-table": "npm:8.19.3"
     "@types/react": "npm:^18"

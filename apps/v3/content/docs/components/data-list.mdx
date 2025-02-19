@@ -1,0 +1,51 @@
+---
+title: DataList
+description: Used to display a list of similar data items.
+links:
+  source: components/data-list
+  storybook: components-data-list--basic
+  recipe: data-list
+---
+
+<ExampleTabs name="data-list-basic" />
+
+## Anatomy
+
+```jsx
+import { DataList } from '@saas-ui/react/data-list'
+```
+
+```jsx
+<DataList>
+  <DataList.Item>
+    <DataList.Label>Label</DataList.Label>
+    <DataList.Value>Value</DataList.Value>
+  </DataList.Item>
+</DataList>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the datalist component.
+
+<ExampleTabs name="data-list-with-sizes" />
+
+### Orientation
+
+Use the `orientation` prop to change the orientation of the datalist component.
+
+<ExampleTabs name="data-list-orientation" />
+
+### Separator
+
+Use the `divideY` prop to add a separator between items.
+
+<ExampleTabs name="data-list-with-separator" />
+
+## Props
+
+### Root
+
+<PropTable component="DataList" part="Root" />

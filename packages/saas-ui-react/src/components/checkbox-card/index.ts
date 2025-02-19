@@ -1,1 +1,1 @@
-export { CheckboxCard } from './checkbox-card.tsx'
+export { CheckboxCard, type CheckboxCardProps } from './checkbox-card.tsx'

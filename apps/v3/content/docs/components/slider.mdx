@@ -1,0 +1,106 @@
+---
+title: Slider
+description: Used to allow users to make selections from a range of values.
+links:
+  source: components/slider
+  storybook: components-slider--basic
+  recipe: slider
+  ark: https://ark-ui.com/react/docs/components/slider
+---
+
+<ExampleTabs name="slider-basic" />
+
+## Anatomy
+
+```jsx
+import { Slider } from '@saas-ui/react/slider'
+```
+
+```jsx
+<Slider defaultValue={[40]} />
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the slider.
+
+<ExampleTabs name="slider-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the slider.
+
+<ExampleTabs name="slider-with-variants" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color of the slider.
+
+<ExampleTabs name="slider-with-colors" />
+
+### Label
+
+Use the `label` prop to add a label to the slider.
+
+<ExampleTabs name="slider-with-label" />
+
+### Range Slider
+
+Set the `value` or `defaultValue` prop to an array to create a range slider.
+
+<ExampleTabs name="slider-with-multiple-thumbs" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the value of the slider.
+
+<ExampleTabs name="slider-controlled" />
+
+### Hook Form
+
+Here's an example of how to integrate a slider with `react-hook-form`.
+
+<ExampleTabs name="slider-with-hook-form" />
+
+### Disabled
+
+Use the `disabled` prop to disable the slider.
+
+<ExampleTabs name="slider-disabled" />
+
+### Change End
+
+Use the `onValueChangeEnd` prop to listen to the end of the slider change.
+
+<ExampleTabs name="slider-change-end" />
+
+### Steps
+
+Use the `step` prop to set the step value of the slider.
+
+<ExampleTabs name="slider-with-step" />
+
+### Thumb Contained
+
+Use the `thumbAlignment` and `thumbSize` prop to contain the thumb within the
+track.
+
+<ExampleTabs name="slider-thumb-contained" />
+
+### Marks
+
+Use the `marks` prop to display marks on the slider.
+
+<ExampleTabs name="slider-with-marks" />
+
+### Vertical
+
+Use the `orientation` prop to change the orientation of the slider.
+
+<ExampleTabs name="slider-vertical" />
+
+## Props
+
+<PropTable component="Slider" part="Root" />

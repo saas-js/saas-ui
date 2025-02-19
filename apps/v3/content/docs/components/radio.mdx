@@ -1,0 +1,68 @@
+---
+title: Radio
+description: Used to select one option from several options
+links:
+  source: components/radio
+  storybook: components-radio--basic
+  recipe: radio-group
+  ark: https://ark-ui.com/react/docs/components/radio
+---
+
+<ExampleTabs name="radio-basic" />
+
+## Anatomy
+
+```jsx
+import { Radio, RadioGroup } from '@saas-ui/react/radio'
+```
+
+```jsx
+<RadioGroup>
+  <Radio />
+</RadioGroup>
+```
+
+## Examples
+
+### Controlled
+
+Use the `value` and `onValueChange` prop to control the selected radio button
+
+<ExampleTabs name="radio-controlled" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color scheme of the component.
+
+<ExampleTabs name="radio-with-colors" />
+
+### Sizes
+
+Use the `size` prop to change the size of the radio component.
+
+<ExampleTabs name="radio-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the appearance of the radio component.
+
+<ExampleTabs name="radio-with-variants" />
+
+### Disabled
+
+Use the `disabled` prop to make the radio disabled.
+
+<ExampleTabs name="radio-disabled" />
+
+### Hook Form
+
+Use the `Controller` component from `react-hook-form` to control the radio group
+withing a form
+
+<ExampleTabs name="radio-with-hook-form" />
+
+## Props
+
+### Root
+
+<PropTable component="RadioGroup" part="Root" />

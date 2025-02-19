@@ -1,0 +1,74 @@
+---
+title: Steps
+description: Used to indicate progress through a multi-step process
+links:
+  source: components/steps
+  storybook: components-steps--basic
+  recipe: steps
+  ark: https://ark-ui.com/react/docs/components/steps
+---
+
+<ExampleTabs name="steps-basic" />
+
+## Anatomy
+
+```jsx
+import { Steps } from '@saas-ui/react/steps'
+```
+
+```jsx
+<Steps.Root>
+  <Steps.List>
+    <Steps.Item />
+  </Steps.List>
+  <Steps.Content />
+  <Steps.CompleteContent />
+  <Steps.PrevTrigger />
+  <Steps.NextTrigger />
+</Steps.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the steps component.
+
+<ExampleTabs name="steps-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the appearance of the steps component.
+
+<ExampleTabs name="steps-with-variants" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color scheme of the component.
+
+<ExampleTabs name="steps-with-colors" />
+
+### Vertical
+
+Use the `orientation` prop to change the orientation of the steps component.
+
+<ExampleTabs name="steps-vertical" />
+
+### Icon
+
+Pass the `icon` prop to the `StepsItem` component to display an icon.
+
+<ExampleTabs name="steps-with-icon" />
+
+### Description
+
+Pass the `description` prop to the `StepsItem` component to display a
+description.
+
+<ExampleTabs name="steps-with-description" />
+
+## Props
+
+### Root
+
+<PropTable component="Steps" part="Root" />

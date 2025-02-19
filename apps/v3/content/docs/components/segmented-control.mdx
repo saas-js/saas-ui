@@ -1,0 +1,71 @@
+---
+title: Segmented Control
+description: Used to pick one choice from a linear set of options
+links:
+  source: components/segmented-control
+  storybook: components-segmented-control--basic
+  recipe: segmented-group
+  ark: https://ark-ui.com/react/docs/components/segment-group
+---
+
+<ExampleTabs name="segmented-control-basic" />
+
+## Anatomy
+
+```jsx
+import { SegmentedControl } from '@saas-ui/react/segmented-control'
+```
+
+```jsx
+<SegmentedControl items={[]} />
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the segmented control.
+
+<ExampleTabs name="segmented-control-with-sizes" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the selected item.
+
+<ExampleTabs name="segmented-control-controlled" />
+
+### Hook Form
+
+Here's an example of how to use the `SegmentedControl` with `react-hook-form`.
+
+<ExampleTabs name="segmented-control-with-hook-form" />
+
+### Disabled
+
+Use the `disabled` prop to disable the segmented control.
+
+<ExampleTabs name="segmented-control-with-disabled" />
+
+### Disabled Item
+
+Use the `disabled` prop on the item to disable it.
+
+<ExampleTabs name="segmented-control-with-disabled-item" />
+
+### Icon
+
+Render the `label` as a `ReactNode` to render an icon.
+
+<ExampleTabs name="segmented-control-with-icon" />
+
+### Card
+
+Here's an example of how to use the `SegmentedControl` within a `Card`.
+
+<ExampleTabs name="segmented-control-in-card" />
+
+## Props
+
+### Root
+
+<PropTable component="SegmentGroup" part="Root" />

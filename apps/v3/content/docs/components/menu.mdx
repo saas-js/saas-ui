@@ -1,0 +1,93 @@
+---
+title: Menu
+description: Used to create an accessible dropdown menu
+links:
+  source: components/menu
+  storybook: components-menu--basic
+  recipe: menu
+  ark: https://ark-ui.com/react/docs/components/menu
+---
+
+<ExampleTabs name="menu-basic" />
+
+## Anatomy
+
+```jsx
+import { Menu } from '@saas-ui/react/menu'
+```
+
+```jsx
+<Menu.Root>
+  <Menu.Button />
+  <Menu.Content>
+    <Menu.Item value="item" />
+  </Menu.Content>
+</Menu.Root>
+```
+
+## Examples
+
+### Command
+
+Use the `MenuItemCommand` component to display a command in the menu.
+
+<ExampleTabs name="menu-with-command" />
+
+### Context menu
+
+Use the `MenuContextTrigger` component to create a context menu.
+
+<ExampleTabs name="menu-with-context-trigger" />
+
+### Group
+
+Use the `MenuItemGroup` component to group related menu items.
+
+<ExampleTabs name="menu-with-group" />
+
+### Submenu
+
+Here's an example of how to create a submenu.
+
+<ExampleTabs name="menu-with-submenu" />
+
+### Links
+
+Pass the `asChild` prop to the `MenuItem` component to render a link.
+
+<ExampleTabs name="menu-with-links" />
+
+### With Radio
+
+Here's an example of how to create a menu with radio.
+
+<ExampleTabs name="menu-with-radio-items" />
+
+### Icon and Command
+
+Compose the menu to include icons and commands.
+
+<ExampleTabs name="menu-with-icon-and-command" />
+
+### Placement
+
+Use the `positioning.placement` prop to control the placement of the menu.
+
+<ExampleTabs name="menu-with-placement" />
+
+### Mixed Layout
+
+Here's an example of how to create a mixed layout of menu items. In this layout,
+the top horizontal menu includes common menu items.
+
+<ExampleTabs name="menu-with-mixed-layout" />
+
+## Props
+
+### Root
+
+<PropTable component="Menu" part="Root" />
+
+### Item
+
+<PropTable component="Menu" part="Item" />

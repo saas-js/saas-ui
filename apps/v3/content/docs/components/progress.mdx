@@ -1,0 +1,82 @@
+---
+title: Progress
+description: Used to display the progress status for a task.
+links:
+  source: components/progress
+  storybook: components-progress--basic
+  recipe: progress
+  ark: https://ark-ui.com/react/docs/components/progress-linear
+---
+
+<ExampleTabs name="progress-basic" />
+
+## Anatomy
+
+```jsx
+import { Progress } from '@saas-ui/react/progress'
+```
+
+```jsx
+<Progress.Root>
+  <Progress.Label />
+  <Progress.ValueText />
+  <Progress.Bar />
+</Progress.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the progress bar.
+
+<ExampleTabs name="progress-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the progress bar.
+
+<ExampleTabs name="progress-with-variants" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color of the progress bar.
+
+<ExampleTabs name="progress-with-colors" />
+
+### Inline Label
+
+Compose the `ProgressLabel` and `ProgressValueText` components to create an
+inline label for the progress bar.
+
+<ExampleTabs name="progress-with-inline-label" />
+
+### Info tip
+
+Use the `info` prop to add a tooltip to the progress bar.
+
+<ExampleTabs name="progress-with-label-info" />
+
+### Indeterminate
+
+Set the value to `null` to show an indeterminate progress bar.
+
+<ExampleTabs name="progress-indeterminate" />
+
+### Stripes
+
+Set the `striped` prop to `true` to add stripes to the progress bar.
+
+<ExampleTabs name="progress-with-stripes" />
+
+### Animated Stripes
+
+Set the `animated` prop to `true` to animate the stripes.
+
+<ExampleTabs name="progress-with-animated-stripes" />
+
+## Props
+
+### Root
+
+<PropTable component="Progress" part="Root" />

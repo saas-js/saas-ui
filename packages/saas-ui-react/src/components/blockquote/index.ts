@@ -1,1 +1,1 @@
-export { Blockquote } from '@chakra-ui/react/blockquote'
+export { Blockquote, type BlockquoteProps } from './blockquote.tsx'

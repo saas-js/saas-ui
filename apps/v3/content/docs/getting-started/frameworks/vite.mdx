@@ -1,0 +1,117 @@
+---
+title: Using Saas UI in Vite
+description: A guide for installing Saas UI with Vite.js projects
+---
+
+## Templates
+
+Use the vite template below to get started quickly.
+
+:::card-group
+
+<ResourceCard
+  type="github"
+  title="Vite template"
+  url="https://github.com/chakra-ui/chakra-vite-template"
+/>
+
+:::
+
+## Installation
+
+> The minimum node version required is Node.20.x
+
+:::steps
+
+### Install dependencies
+
+```bash
+npm i @saas-ui/react@alpha @chakra-ui/react @emotion/react
+```
+
+### Setup provider
+
+Wrap your application with the `SuiProvider` component at the root of your
+application.
+
+This provider composes the following:
+
+- `SuiProvider` from `@saas-ui/react` for the styling system
+
+```tsx title="src/main.tsx" {1,8,10}
+import React from 'react'
+
+import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import ReactDOM from 'react-dom/client'
+
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <SuiProvider value={defaultSystem}>
+      <App />
+    </SuiProvider>
+  </React.StrictMode>,
+)
+```
+
+### Update tsconfig
+
+If you're using TypeScript, in the `tsconfig.app.json` file, make sure the
+`compilerOptions` includes the following:
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
+### Setup Vite Config Paths
+
+In your project, set up a vite config path to automatically sync `tsconfig` with
+vite using the command:
+
+```bash
+npm i -D vite-tsconfig-paths
+```
+
+Update the `vite.config.ts` file:
+
+```ts {3} /tsconfigPaths()/
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), tsconfigPaths()],
+})
+```
+
+### Enjoy!
+
+With the power of the snippets and the primitive components from Saas UI, you
+can build your UI faster.
+
+```tsx
+import { HStack } from '@chakra-ui/react'
+import { Button } from '@saas-ui/react'
+
+const Demo = () => {
+  return (
+    <HStack>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+    </HStack>
+  )
+}
+```
+
+:::

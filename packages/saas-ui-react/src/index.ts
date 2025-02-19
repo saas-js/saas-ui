@@ -14,7 +14,10 @@ export {
   BadgePropsProvider,
   type BadgeProps,
 } from './components/badge/index.ts'
-export { Blockquote } from './components/blockquote/index.ts'
+export {
+  Blockquote,
+  type BlockquoteProps,
+} from './components/blockquote/index.ts'
 export { Breadcrumb } from './components/breadcrumb/index.ts'
 export { Button, type ButtonProps } from './components/button/index.ts'
 export {
@@ -24,7 +27,10 @@ export {
 export { Card } from './components/card/index.ts'
 export { Checkbox, type CheckboxProps } from './components/checkbox/index.ts'
 export { Checkmark, type CheckmarkProps } from './components/checkmark/index.ts'
-export { CheckboxCard } from './components/checkbox-card/index.ts'
+export {
+  CheckboxCard,
+  type CheckboxCardProps,
+} from './components/checkbox-card/index.ts'
 export { Clipboard } from './components/clipboard/index.ts'
 export {
   CloseButton,

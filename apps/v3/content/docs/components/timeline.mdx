@@ -1,0 +1,55 @@
+---
+title: Timeline
+description: Used to display a list of events in chronological order
+links:
+  source: components/timeline
+  storybook: components-timeline--basic
+  recipe: timeline
+---
+
+<ExampleTabs name="timeline-basic" />
+
+## Anatomy
+
+```jsx
+import { Timeline } from '@saas-ui/react/timeline'
+```
+
+```jsx
+<Timeline.Root>
+  <Timeline.Item />
+  <Timeline.Item />
+</Timeline.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the timeline.
+
+<ExampleTabs name="timeline-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the variant of the timeline.
+
+<ExampleTabs name="timeline-with-variants" />
+
+### Content Before
+
+Here's an example of a timeline with content before the timeline indicator.
+
+<ExampleTabs name="timeline-with-content-before" />
+
+### Alternating Content
+
+Here's an example of a timeline with alternating content.
+
+<ExampleTabs name="timeline-alternating" />
+
+## Props
+
+### Root
+
+<PropTable component="Timeline" part="Root" />

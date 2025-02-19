@@ -1,0 +1,58 @@
+---
+title: Skeleton
+description: Used to render a placeholder while the content is loading.
+links:
+  source: components/skeleton
+  storybook: components-skeleton--basic
+  recipe: skeleton
+---
+
+<ExampleTabs name="skeleton-basic" />
+
+## Anatomy
+
+```jsx
+import { Skeleton, SkeletonCircle, SkeletonText } from '@saas-ui/react/skeleton'
+```
+
+```jsx
+<SkeletonCircle size="10" />
+<SkeletonText noOfLines={2} />
+<Skeleton height="200px" />
+```
+
+## Examples
+
+### Feed
+
+Use the `Skeleton` component to create a feed skeleton.
+
+<ExampleTabs name="skeleton-for-feed" />
+
+### Text
+
+Use the `SkeletonText` component to create a skeleton for text.
+
+<ExampleTabs name="skeleton-for-text" />
+
+### With Children
+
+Use the `loading` prop to show the skeleton while the content is loading.
+
+<ExampleTabs name="skeleton-with-children" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the Skeleton.
+
+<ExampleTabs name="skeleton-with-variants" />
+
+### Content Loading
+
+When `loading` is changed to `false`, the Skeleton component will fade in.
+
+<ExampleTabs name="skeleton-with-loaded" />
+
+## Props
+
+<PropTable component="Skeleton" part="Skeleton" />

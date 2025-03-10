@@ -680,10 +680,12 @@ const HighlightBox = (props) => {
   const { children, ...rest } = props
   return (
     <Card
-      as={VStack}
-      bg={useColorModeValue('gray.100', 'gray.900')}
+      display="flex"
+      flexDirection="column"
+      bg="gray.100"
       bgGradient="linear(to-bl,white, gray.50)"
       _dark={{
+        bg: 'gray.900',
         bgGradient: 'linear(to-bl, whiteAlpha.50, transparent)',
       }}
       borderRadius="lg"

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+
 const isBrowser = typeof window !== 'undefined'
 
 function setItem(key: string, value: string) {
@@ -51,12 +52,12 @@ const triggerCustomEvent = (detail: StorageEventDetail) => {
  * Works like useState but stores the value as JSON in localStorage.
  * Updates work across multiple tabs using StorageEvent.
  *
- * Setting undefined will remote the localStorage item.
+ * Setting undefined will remove the localStorage item.
  */
 export const useLocalStorage = <T = string>(
   key: string,
   defaultValue: T,
-  options: UseLocalStorageOptions<T> = {}
+  options: UseLocalStorageOptions<T> = {},
 ) => {
   const { serialize = serializeJSON, deserialize = deserializeJSON } = options
 

@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "../../packages/saas-ui-react/src/components/info-tip/info-tip.tsx"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "strict": true,
+    "customConditions": ["sui"],
+    "paths": {
+      "compositions/*": ["./src/*"],
+      "@saas-ui/react": ["../packages/saas-ui-react/src/index.ts"],
+      "@saas-ui/react/*": ["../packages/saas-ui-react/src/components/*"]
+    }
+  }
+}

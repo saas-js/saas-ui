@@ -2,19 +2,23 @@
   "name": "@saas-ui/nprogress",
   "version": "2.2.1",
   "description": "Nprogress Component",
-  "source": "src/index.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "sui": "./src/index.ts",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
     },
-    "./src": {
-      "default": "./src/index.ts"
+    "./next-pages-router": {
+      "sui": "./src/next-pages-router.tsx",
+      "require": "./dist/next-pages-router.cjs",
+      "types": "./dist/next-pages-router.d.ts",
+      "import": "./dist/next-pages-router.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -24,19 +28,18 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
     "directory": "packages/saas-ui-nprogress"
   },
   "keywords": [
@@ -57,14 +60,11 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.2.3",
-    "@tanem/react-nprogress": "^5.0.51"
+    "@tanem/react-nprogress": "^5.0.53"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": ">=5.5.0",
+    "@chakra-ui/react": "^3.2.1",
+    "@saas-ui/core": "workspace:*",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   }

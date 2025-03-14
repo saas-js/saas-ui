@@ -3,20 +3,17 @@
   "version": "0.15.0",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -28,18 +25,17 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.12.1",
-    "recharts": "^2.13.0"
+    "recharts": "^2.15.1"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "^3.2.1",
     "@emotion/react": ">=11",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "prop-types": "^15.8.1",
-    "tsup": "^8.3.0"
+    "tsup": "^8.3.5"
   }
 }

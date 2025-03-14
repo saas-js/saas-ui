@@ -1,0 +1,64 @@
+---
+title: Field
+description: Used to add labels, help text, and error messages to form fields.
+links:
+  source: components/field
+  storybook: components-field--basic
+  recipe: field
+  ark: https://ark-ui.com/react/docs/components/field
+---
+
+<ExampleTabs name="field-basic" />
+
+## Anatomy
+
+```jsx
+import { Field } from '@saas-ui/react/field'
+```
+
+```jsx
+<Field.Root>
+  <Field.Label />
+  <Field.Control />
+  <Field.HelperText />
+  <Field.ErrorText />
+</Field.Root>
+```
+
+## Examples
+
+### Helper Text
+
+Use the `helperText` prop to add helper text to the field.
+
+<ExampleTabs name="field-with-helper-text" />
+
+### Error Text
+
+Use the `invalid` and `errorText` to indicate that the field is invalid.
+
+<ExampleTabs name="field-with-error-text" />
+
+### Disabled
+
+Use the `disabled` prop to disable the field.
+
+<ExampleTabs name="field-with-disabled" />
+
+### Textarea
+
+Here's how to use the field component with a textarea.
+
+<ExampleTabs name="field-with-textarea" />
+
+### Native Select
+
+Here's how to use the field component with a native select.
+
+<ExampleTabs name="field-with-native-select" />
+
+## Props
+
+### Root
+
+<PropTable component="Field" part="Root" />

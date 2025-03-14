@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Chakra 3.0",
+    "type": "release",
+    "description": "Chakra UI v3.0 is out - with supercharged components from Ark UI",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 86
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:r}=arguments[0];function _createMdxContent(i){const l={a:\"a\",code:\"code\",h2:\"h2\",li:\"li\",p:\"p\",pre:\"pre\",span:\"span\",ul:\"ul\",...i.components};return r(e,{children:[n(l.h2,{id:\"overview\",children:n(l.a,{className:\"subheading-anchor\",href:\"#overview\",children:\"Overview\"})}),\"\\n\",n(l.p,{children:\"The Chakra UI 3.0 preview release is now available. This early preview is\\nintended to gather feedback from the community before the final release.\"}),\"\\n\",n(l.p,{children:\"The key features of Chakra 3.0 are:\"}),\"\\n\",r(l.ul,{children:[\"\\n\",n(l.li,{children:\"Next.js RSC\"}),\"\\n\",n(l.li,{children:\"Supercharged components from Ark UI\"}),\"\\n\",n(l.li,{children:\"New theming API\"}),\"\\n\",n(l.li,{children:\"New composable components\"}),\"\\n\",n(l.li,{children:\"New layout components\"}),\"\\n\",n(l.li,{children:\"New hooks\"}),\"\\n\",n(l.li,{children:\"New utilities\"}),\"\\n\"]}),\"\\n\",n(l.h2,{id:\"try-it-out\",children:n(l.a,{className:\"subheading-anchor\",href:\"#try-it-out\",children:\"Try it out\"})}),\"\\n\",n(l.p,{children:\"Try it out and give us your feedback.\"}),\"\\n\",n(l.pre,{className:\"shiki plastic\",style:{backgroundColor:\"#21252B\",color:\"#A9B2C3\"},tabIndex:\"0\",children:n(l.code,{children:r(l.span,{className:\"line\",children:[n(l.span,{style:{color:\"#B57EDC\"},children:\"npm\"}),n(l.span,{style:{color:\"#98C379\"},children:\" install\"}),n(l.span,{style:{color:\"#98C379\"},children:\" @chakra-ui/react@next\"})]})})}),\"\\n\",n(l.h2,{id:\"thanks\",children:n(l.a,{className:\"subheading-anchor\",href:\"#thanks\",children:\"Thanks\"})}),\"\\n\",n(l.p,{children:\"We'd like to thank the following contributors for their work on Chakra 3.0:\"}),\"\\n\",r(l.ul,{children:[\"\\n\",n(l.li,{children:\"Segun Adebayo\"}),\"\\n\",n(l.li,{children:\"Esther Agbaje\"}),\"\\n\",n(l.li,{children:\"Christian\"}),\"\\n\"]})]})}return{default:function(e={}){const{wrapper:r}=e.components||{};return r?n(r,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};",
+    "authors": [
+      "sage"
+    ],
+    "publishedAt": "2024-05-01",
+    "toc": [
+      {
+        "title": "Overview",
+        "url": "#overview",
+        "items": []
+      },
+      {
+        "title": "Try it out",
+        "url": "#try-it-out",
+        "items": []
+      },
+      {
+        "title": "Thanks",
+        "url": "#thanks",
+        "items": []
+      }
+    ],
+    "slug": "blog/v3.0"
+  }
+]

@@ -1,14 +1,15 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "paths": {
-      "@saas-ui/core/icons": ["../saas-ui-core/src/icons"],
       "@saas-ui/forms/zod": ["./zod/src"],
       "@saas-ui/forms/yup": ["./yup/src"]
     }
   },
   "include": ["src"],
   "exclude": [
+    "**/node_modules",
     "src/tests",
     "**/*.spec.ts",
     "**/*.spec.tsx",

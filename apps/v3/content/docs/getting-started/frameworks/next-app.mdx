@@ -1,0 +1,47 @@
+---
+title: Using Saas UI in Next.js (App)
+description: A guide for installing Saas UI with Next.js app directory
+---
+
+## Templates
+
+Use one of the following templates to get started quickly. The templates are
+configured correctly to use Saas UI.
+
+:::card-group
+
+<ResourceCard
+  type="github"
+  title="Next.js app template"
+  url="https://github.com/chakra-ui/chakra-next-app-template"
+/>
+
+<ResourceCard
+  type="github"
+  title="Next.js pages template"
+  url="https://github.com/chakra-ui/chakra-next-pages-template"
+/>
+
+:::
+
+## Installation
+
+> The minimum node version required is Node.20.x
+
+:::steps
+
+### Install dependencies
+
+```bash
+npm i @saas-ui/react@alpha @chakra-ui/react @emotion/react
+```
+
+### Setup provider
+
+Wrap your application with the `SuiProvider` at the root of your application.
+
+```jsx
+import { SuiProvider, defaultSystem } from '@saas-ui/react'
+```
+
+:::

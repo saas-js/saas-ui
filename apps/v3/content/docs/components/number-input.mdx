@@ -1,0 +1,101 @@
+---
+title: Number Input
+description:
+  Used to enter a number, and increment or decrement the value using stepper
+  buttons.
+links:
+  source: components/number-input
+  storybook: components-number-input--basic
+  recipe: number-input
+  ark: https://ark-ui.com/react/docs/components/number-input
+---
+
+<ExampleTabs name="number-input-basic" />
+
+## Anatomy
+
+```jsx
+import { NumberInput } from '@saas-ui/react/number-input'
+```
+
+```jsx
+<NumberInput name="number" />
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the number input.
+
+<ExampleTabs name="number-input-with-sizes" />
+
+### Formatting
+
+Use the `formatOptions` prop to format the number input value. The value of this
+maps to `Intl.NumberFormatOptions` and is applied based on the current locale.
+
+<ExampleTabs name="number-input-with-format-options" />
+
+### Min and Max
+
+Use the `min` and `max` props to set the minimum and maximum values of the
+number input.
+
+If value entered is less than `min` or greater than `max`, the value will be
+clamped to the nearest boundary on blur, or enter key press.
+
+<ExampleTabs name="number-input-with-min-max" />
+
+### Step
+
+Use the `step` prop to change the increment or decrement interval of the number
+input.
+
+<ExampleTabs name="number-input-with-step" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the value of the number
+input.
+
+<ExampleTabs name="number-input-controlled" />
+
+### Mouse Wheel
+
+Use the `allowMouseWheel` prop to enable or disable the mouse wheel to change
+
+<ExampleTabs name="number-input-with-mouse-wheel" />
+
+### Disabled
+
+Use the `disabled` prop to disable the number input.
+
+<ExampleTabs name="number-input-with-disabled" />
+
+### Invalid
+
+Use the `Field` component and pass the `invalid` prop to indicate that the
+number input is invalid.
+
+<ExampleTabs name="number-input-with-invalid" />
+
+### Helper Text
+
+Use the `Field` component and pass the `helperText` prop to add helper text to
+the number input.
+
+<ExampleTabs name="number-input-with-field" />
+
+### Hook Form
+
+Here is an example of how to use the `NumberInput` component with
+`react-hook-form`.
+
+<ExampleTabs name="number-input-with-hook-form" />
+
+## Props
+
+### Root
+
+<PropTable component="NumberInput" part="Root" />

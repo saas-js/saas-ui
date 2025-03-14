@@ -2,15 +2,12 @@
   "name": "@saas-ui/clerk",
   "version": "4.0.3",
   "description": "Clerk Authentication Service for Saas UI",
-  "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
@@ -24,19 +21,18 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
     "directory": "packages/saas-ui-clerk"
   },
   "keywords": [
@@ -57,7 +53,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@clerk/types": "^4.28.0",
+    "@clerk/types": "^4.45.0",
     "@saas-ui/auth-provider": "workspace:*"
   },
   "peerDependencies": {

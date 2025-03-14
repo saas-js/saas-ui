@@ -25,29 +25,27 @@
   },
   "dependencies": {
     "@saas-ui/react": "workspace:*",
-    "@testing-library/dom": "^9.3.4",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^15.0.7",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "14.5.2",
     "@types/jest-axe": "^3.5.9",
-    "jest-axe": "^8.0.0",
+    "jest-axe": "^9.0.0",
     "react-test-renderer": "^18.3.1"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.3.9 <3",
+    "@chakra-ui/react": ">=3",
     "@emotion/react": ">=11",
-    "@emotion/styled": ">=11",
     "@storybook/addon-a11y": ">=8",
     "@storybook/client-api": ">=8",
     "@storybook/preview-web": ">=8",
     "@storybook/react": ">=8",
-    "framer-motion": ">=5.5.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^8.3.5",
-    "@storybook/types": "^8.3.5",
+    "@storybook/react": "^8.4.5",
+    "@storybook/types": "^8.4.5",
     "react": "^18.3.1"
   }
 }

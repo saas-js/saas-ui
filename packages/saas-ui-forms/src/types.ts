@@ -1,18 +1,21 @@
-import type { FormControlProps } from '@chakra-ui/react'
-import type { MaybeRenderProp } from '@chakra-ui/utils'
+import type { MaybeRenderProp } from '@saas-ui/core/utils'
 import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
+
+import type { ArrayFieldProps } from './array-field'
 import type { DefaultFields } from './default-fields'
 import type { FormProps, FormRenderContext } from './form'
-import type { SubmitButtonProps } from './submit-button'
 import type { ObjectFieldProps } from './object-field'
-import type { ArrayFieldProps } from './array-field'
-import type { StepFormRenderContext, UseStepFormProps } from './use-step-form'
 import type { StepsOptions } from './step-form'
+import type { SubmitButtonProps } from './submit-button'
+import type { StepFormRenderContext, UseStepFormProps } from './use-step-form'
+
+export interface FocusableElement {
+  focus(options?: FocusOptions): void
+}
 
 export type FieldOption = { label?: string; value: string }
 export type FieldOptions<TOption extends FieldOption = FieldOption> =
-  | Array<string>
-  | Array<TOption>
+  Array<TOption>
 
 export type ValueOf<T> = T[keyof T]
 export type ShallowMerge<A, B> = Omit<A, keyof B> & B
@@ -42,7 +45,7 @@ export type ArrayFieldPath<Name extends string> = Name extends string
 export interface BaseFieldProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> extends Omit<FormControlProps, 'label' | 'type' | 'onChange'> {
+> {
   /**
    * The field name
    */
@@ -78,14 +81,20 @@ export interface BaseFieldProps<
    */
   placeholder?: string
   /**
-   * Whether the label is positioned vertically or horizontally
+   * React children
    */
-  direction?: 'row' | 'column'
+  children?: React.ReactNode
 }
 
 export type GetBaseField<TProps extends object = object> = () => {
-  extraProps: string[]
-  BaseField: React.FC<
+  /**
+   * Extra props to pass to the component
+   */
+  props: Array<Extract<keyof TProps, string>>
+  /**
+   * The component to render
+   */
+  Component: React.FC<
     Omit<BaseFieldProps, 'name'> & {
       name: string
       children: React.ReactNode
@@ -182,7 +191,7 @@ export type WithFields<
   ExtraOverrides = object,
 > =
   TFormProps extends FormProps<
-    infer TSchema,
+    infer _TSchema,
     infer TFieldValues,
     infer TContext,
     infer TExtraFieldProps

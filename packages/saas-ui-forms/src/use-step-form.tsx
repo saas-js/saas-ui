@@ -1,12 +1,21 @@
 import * as React from 'react'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
-import { createContext } from '@chakra-ui/utils'
+
+import { createContext } from '@chakra-ui/react'
 import {
-  useStepper,
+  type UseStepperProps,
+  type UseStepperReturn,
   useStep,
-  UseStepperProps,
-  UseStepperReturn,
+  useStepper,
 } from '@saas-ui/core'
+import { FieldValues, SubmitHandler } from 'react-hook-form'
+
+import { ArrayFieldProps } from './array-field'
+import { DisplayIfProps } from './display-if'
+import { FormProps } from './form'
+import { ObjectFieldProps } from './object-field'
+import { FormStepProps, StepsOptions } from './step-form'
+import { FieldProps, type FocusableElement, StepFormChildren } from './types'
+import { UseArrayFieldReturn } from './use-array-field'
 
 export interface StepState {
   name: string
@@ -32,15 +41,6 @@ export const [StepFormProvider, useStepFormContext] =
     errorMessage:
       'useStepFormContext: `context` is undefined. Seems you forgot to wrap step form components in `<StepForm />`',
   })
-
-import { FocusableElement } from '@chakra-ui/utils'
-import { FormProps } from './form'
-import { FormStepProps, StepsOptions } from './step-form'
-import { FieldProps, StepFormChildren } from './types'
-import { DisplayIfProps } from './display-if'
-import { ArrayFieldProps } from './array-field'
-import { UseArrayFieldReturn } from './use-array-field'
-import { ObjectFieldProps } from './object-field'
 
 type StepName<T extends { [k: number]: { readonly name: string } }> =
   T[number]['name']
@@ -87,7 +87,7 @@ export function useStepForm<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext>
+  props: UseStepFormProps<TSteps, TFieldValues, TContext>,
 ): UseStepFormReturn<TFieldValues> {
   const {
     onChange,
@@ -98,7 +98,7 @@ export function useStepForm<
   } = props
   const stepper = useStepper(rest)
 
-  const [options, setOptions] = React.useState<TSteps | undefined>(stepsOptions)
+  const [options] = React.useState<TSteps | undefined>(stepsOptions)
 
   const { activeStep, isLastStep, nextStep } = stepper
 
@@ -135,7 +135,7 @@ export function useStepForm<
         // Step submission failed.
       }
     },
-    [steps, activeStep, isLastStep, mergedData]
+    [steps, activeStep, isLastStep, mergedData],
   )
 
   const getFormProps = React.useCallback(() => {
@@ -166,7 +166,7 @@ export function useStepForm<
         }
       })
     },
-    [steps, options]
+    [steps, options],
   )
 
   return {

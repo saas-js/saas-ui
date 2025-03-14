@@ -1,79 +1,86 @@
 {
   "name": "@saas-ui/core",
   "version": "2.8.1",
-  "description": "Saas UI - The React component library for startups.",
+  "description": "Unstyled primitives for building React applications.",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "sui": "./src/index.ts",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
     },
-    "./icons": {
-      "require": "./dist/icons/index.js",
-      "types": "./dist/icons/index.d.ts",
-      "import": "./dist/icons/index.mjs"
+    "./grid-list": {
+      "sui": "./src/components/grid-list/index.ts",
+      "require": "./dist/components/grid-list/index.cjs",
+      "types": "./dist/components/grid-list/index.d.ts",
+      "import": "./dist/components/grid-list/index.js"
+    },
+    "./navbar": {
+      "sui": "./src/components/navbar/index.ts",
+      "require": "./dist/components/navbar/index.cjs",
+      "types": "./dist/components/navbar/index.d.ts",
+      "import": "./dist/components/navbar/index.js"
+    },
+    "./error-boundary": {
+      "sui": "./src/components/error-boundary/index.ts",
+      "require": "./dist/components/error-boundary/index.cjs",
+      "types": "./dist/components/error-boundary/index.d.ts",
+      "import": "./dist/components/error-boundary/index.js"
+    },
+    "./sidebar": {
+      "sui": "./src/components/sidebar/index.ts",
+      "require": "./dist/components/sidebar/index.cjs",
+      "types": "./dist/components/sidebar/index.d.ts",
+      "import": "./dist/components/sidebar/index.js"
+    },
+    "./steps": {
+      "sui": "./src/components/steps/index.ts",
+      "require": "./dist/components/steps/index.cjs",
+      "types": "./dist/components/steps/index.d.ts",
+      "import": "./dist/components/steps/index.js"
     },
     "./utils": {
-      "require": "./dist/utils/index.js",
+      "sui": "./src/utils/index.ts",
+      "require": "./dist/utils/index.cjs",
       "types": "./dist/utils/index.d.ts",
-      "import": "./dist/utils/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
-    },
-    "./icons/src": {
-      "default": "./src/icons/index.ts"
-    },
-    "./utils/src": {
-      "default": "./src/utils/index.ts"
+      "import": "./dist/utils/index.js"
     }
   },
-  "typesVersions": {
-    "*": {
-      "icons": [
-        "dist/icons/index.d.ts"
-      ],
-      "utils": [
-        "dist/utils/index.d.ts"
-      ]
-    }
+  "imports": {
+    "#utils": "./src/utils",
+    "#system": "./src/system"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts src/utils/index.ts src/icons/index.ts --config tsup.config.ts",
+    "build": "tsup --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
-    "directory": "packages/saas-ui-react"
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-core"
   },
   "keywords": [
     "react",
     "ui",
-    "chakra-ui",
     "design-system",
     "react-components",
     "uikit",
     "accessible",
     "components",
-    "emotion",
     "library"
   ],
   "storybook": {
@@ -81,25 +88,18 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.12.1",
-    "@chakra-ui/theme-tools": "^2.2.7",
-    "@chakra-ui/utils": "^2.2.3",
-    "@react-aria/interactions": "^3.22.3",
+    "@ark-ui/react": "^4.9.1",
     "@react-aria/utils": "^3.25.3",
-    "@saas-ui/react-utils": "workspace:*",
-    "@saas-ui/theme": "workspace:*",
-    "@zag-js/dom-event": "^0.73.1",
+    "@saas-ui/hooks": "workspace:*",
+    "@zag-js/dom-event": "^0.77.1",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": ">=5.5.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "tsup": "^8.3.0"
+    "jotai": "^2.10.3",
+    "tsup": "^8.3.5"
   }
 }

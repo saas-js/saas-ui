@@ -2,7 +2,12 @@
   "extends": "../../tsconfig.base.json",
   "include": ["src"],
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "#system": ["./src/system/index.ts"],
+      "#utils": ["./src/utils/index.ts"]
+    }
   },
   "exclude": [
     "src/tests",

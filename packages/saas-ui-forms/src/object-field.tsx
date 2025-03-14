@@ -1,33 +1,27 @@
 import * as React from 'react'
-import {
-  FormControl,
-  FormLabel,
-  FormLabelProps,
-  ResponsiveValue,
-  useStyleConfig,
-} from '@chakra-ui/react'
 
-import { FormLayout } from './layout'
-import { BaseFieldProps } from './types'
-
-import { mapNestedFields } from './utils'
+import { Field as FieldPrimivite } from '@chakra-ui/react'
+import { dataAttr } from '@saas-ui/core/utils'
 import { FieldPath, FieldValues } from 'react-hook-form'
+
 import { useFieldProps } from './form-context'
+import { FormLayout, type FormLayoutOptions } from './form-layout'
+import { BaseFieldProps } from './types'
+import { mapNestedFields } from './utils'
 
 export interface ObjectFieldProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> extends BaseFieldProps {
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> extends Omit<BaseFieldProps, keyof FormLayoutOptions>,
+    FormLayoutOptions {
   name: TName
   children: React.ReactNode
-  columns?: ResponsiveValue<number>
-  spacing?: ResponsiveValue<string | number>
 }
 
-export const FormLegend = (props: FormLabelProps) => {
-  const styles = useStyleConfig('SuiFormLegend')
-  return <FormLabel as="legend" sx={styles} {...props} />
+export const FormLegend = (props: FieldPrimivite.LabelProps) => {
+  return <FieldPrimivite.Label as="legend" {...props} />
 }
+
 /**
  * The object field component.
  *
@@ -40,26 +34,24 @@ export const ObjectField: React.FC<ObjectFieldProps> = (props) => {
     hideLabel: hideLabelProp,
     children,
     columns: columnsProp,
-    spacing: spacingProp,
+    gap: gapProp,
     ...fieldProps
   } = props
 
-  const { hideLabel, columns, spacing, ...overrides } = useFieldProps(
-    name
-  ) as Omit<ObjectFieldProps, 'name'>
+  const { hideLabel, columns, gap, ...overrides } = useFieldProps(name) as Omit<
+    ObjectFieldProps,
+    'name'
+  >
+
+  const hidden = hideLabelProp || hideLabel
 
   return (
-    <FormControl name={name} as="fieldset" {...fieldProps} {...overrides}>
-      <FormLegend display={hideLabelProp || hideLabel ? 'none' : 'block'}>
-        {label}
-      </FormLegend>
-      <FormLayout
-        columns={columnsProp || columns}
-        gridGap={spacingProp || spacing}
-      >
+    <FieldPrimivite.Root as="fieldset" {...fieldProps} {...overrides}>
+      <FormLegend data-hidden={dataAttr(hidden)}>{label}</FormLegend>
+      <FormLayout columns={columnsProp || columns} gridGap={gapProp || gap}>
         {mapNestedFields(name, children)}
       </FormLayout>
-    </FormControl>
+    </FieldPrimivite.Root>
   )
 }
 

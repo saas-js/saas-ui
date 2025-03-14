@@ -1,31 +1,22 @@
 import * as React from 'react'
 
-import { FieldValues } from 'react-hook-form'
-
 import {
-  chakra,
   Button,
   ButtonProps,
   HTMLChakraProps,
-  ThemingProps,
+  type StepsChangeDetails,
+  chakra,
 } from '@chakra-ui/react'
-
-import { callAllHandlers, cx } from '@chakra-ui/utils'
-
-import {
-  Steps,
-  StepsItem,
-  StepsItemProps,
-  StepsProps,
-  useStepperContext,
-} from '@saas-ui/core'
+import { useStepperContext } from '@saas-ui/core'
+import { callAll, cx } from '@saas-ui/core/utils'
+import { Steps } from '@saas-ui/react/steps'
+import { FieldValues } from 'react-hook-form'
 
 import { SubmitButton } from './submit-button'
-
 import {
-  useFormStep,
-  UseStepFormProps,
   FormStepSubmitHandler,
+  UseStepFormProps,
+  useFormStep,
 } from './use-step-form'
 
 export type StepsOptions<TSchema, TName extends string = string> = {
@@ -42,7 +33,7 @@ export type StepsOptions<TSchema, TName extends string = string> = {
 export interface StepFormProps<
   TSteps extends StepsOptions<any> = StepsOptions<any>,
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
 > extends UseStepFormProps<TSteps, TFieldValues, TContext> {}
 
 export interface FormStepOptions<TName extends string = string> {
@@ -60,8 +51,8 @@ export interface FormStepOptions<TName extends string = string> {
   resolver?: any
 }
 
-export interface FormStepperProps extends StepsProps, ThemingProps<'Stepper'> {
-  render?: StepsItemProps['render']
+export interface FormStepperProps extends Steps.RootProps {
+  // render?: Steps.['render']
 }
 
 /**
@@ -69,59 +60,60 @@ export interface FormStepperProps extends StepsProps, ThemingProps<'Stepper'> {
  *
  * @see Docs https://saas-ui.dev/docs/components/forms/step-form
  */
-export const FormStepper: React.FC<FormStepperProps> = (props) => {
-  const { activeIndex, setIndex } = useStepperContext()
+export const FormStepper = React.forwardRef<HTMLDivElement, FormStepperProps>(
+  (props, ref) => {
+    const { activeIndex, setIndex } = useStepperContext()
 
-  const {
-    children,
-    orientation,
-    variant,
-    colorScheme,
-    size,
-    onChange: onChangeProp,
-    render,
-    ...rest
-  } = props
+    const {
+      children,
+      orientation,
+      variant,
+      colorScheme,
+      size,
+      onStepChange: onStepChangeProp,
+      ...rest
+    } = props
 
-  const elements = React.Children.map(children, (child) => {
-    if (
-      React.isValidElement<FormStepProps>(child) &&
-      child?.type === FormStep
-    ) {
-      const { isCompleted } = useFormStep(child.props) // Register this step
-      return (
-        <StepsItem
-          render={render}
-          name={child.props.name}
-          title={child.props.title}
-          isCompleted={isCompleted}
-          {...rest}
-        >
-          {child.props.children}
-        </StepsItem>
-      )
-    }
-    return child
-  })
+    const elements = React.Children.map(children, (child, index) => {
+      if (
+        React.isValidElement<FormStepProps>(child) &&
+        child?.type === FormStep
+      ) {
+        const { isCompleted } = useFormStep(child.props) // Register this step
+        return (
+          <Steps.Item
+            index={index}
+            title={child.props.title}
+            data-completed={isCompleted}
+            {...rest}
+          >
+            {child.props.children}
+          </Steps.Item>
+        )
+      }
+      return child
+    })
 
-  const onChange = React.useCallback((i: number) => {
-    setIndex(i)
-    onChangeProp?.(i)
-  }, [])
+    const onChange = React.useCallback((details: StepsChangeDetails) => {
+      setIndex(details.step)
+      onStepChangeProp?.(details)
+    }, [])
 
-  return (
-    <Steps
-      orientation={orientation}
-      step={activeIndex}
-      variant={variant}
-      colorScheme={colorScheme}
-      size={size}
-      onChange={onChange}
-    >
-      {elements}
-    </Steps>
-  )
-}
+    return (
+      <Steps.Root
+        ref={ref}
+        orientation={orientation}
+        step={activeIndex}
+        variant={variant}
+        colorScheme={colorScheme}
+        size={size}
+        onStepChange={onChange}
+      >
+        {elements}
+      </Steps.Root>
+    )
+  },
+)
 
 export interface FormStepProps<TName extends string = string>
   extends FormStepOptions<TName>,
@@ -134,7 +126,7 @@ export interface FormStepProps<TName extends string = string>
  * @see Docs https://saas-ui.dev/docs/components/forms/step-form
  */
 export const FormStep = <TName extends string = string>(
-  props: FormStepProps<TName>
+  props: FormStepProps<TName>,
 ) => {
   const { name, children, className, onSubmit, ...rest } = props
   const step = useFormStep({ name, onSubmit })
@@ -160,11 +152,11 @@ export const PrevButton: React.FC<ButtonProps> = (props) => {
 
   return (
     <Button
-      isDisabled={isFirstStep || isCompleted}
+      disabled={isFirstStep || isCompleted}
       children="Back"
       {...props}
       className={cx('sui-form__prev-button', props.className)}
-      onClick={callAllHandlers(props.onClick, prevStep)}
+      onClick={callAll(props.onClick, prevStep)}
     />
   )
 }
@@ -188,7 +180,7 @@ export const NextButton: React.FC<NextButtonProps> = (props) => {
   return (
     <SubmitButton
       {...rest}
-      isDisabled={isCompleted}
+      disabled={isCompleted}
       className={cx('sui-form__next-button', props.className)}
     >
       {isLastStep || isCompleted ? submitLabel : label}

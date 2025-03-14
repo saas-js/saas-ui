@@ -1,19 +1,10 @@
 import * as React from 'react'
+
+import { Field } from '@chakra-ui/react'
+import { splitProps } from '@saas-ui/core/utils'
 import { FormState, get } from 'react-hook-form'
 
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  FormHelperText,
-  FormErrorMessage,
-  useBreakpointValue,
-} from '@chakra-ui/react'
-
-import { splitProps } from '@saas-ui/core'
-
 import { useFormContext } from './form-context'
-
 import type { BaseFieldProps } from './types'
 
 const getError = (name: string, formState: FormState<{ [x: string]: any }>) => {
@@ -22,21 +13,22 @@ const getError = (name: string, formState: FormState<{ [x: string]: any }>) => {
 
 const isTouched = (
   name: string,
-  formState: FormState<{ [x: string]: any }>
+  formState: FormState<{ [x: string]: any }>,
 ) => {
   return get(formState.touchedFields, name)
 }
 
 export const useBaseField = (props: BaseFieldProps) => {
-  const [fieldProps] = splitProps(props, ['name', 'label', 'help', 'hideLabel'])
-
-  const [controlProps] = splitProps(props, [
-    'id',
-    'direction',
-    'isDisabled',
-    'isInvalid',
-    'isReadOnly',
-    'isRequired',
+  // TODO: Clean up these props / types
+  const [fieldProps, rootProps] = splitProps(props, [
+    'name',
+    'label',
+    'help',
+    'hideLabel',
+    'placeholder',
+    'rules',
+    'type',
+    'children',
   ])
 
   const { formState } = useFormContext()
@@ -46,7 +38,7 @@ export const useBaseField = (props: BaseFieldProps) => {
 
   return {
     ...fieldProps,
-    controlProps,
+    rootProps,
     error,
     touched,
   }
@@ -54,32 +46,27 @@ export const useBaseField = (props: BaseFieldProps) => {
 
 /**
  * The default BaseField component
- * Composes the Chakra UI FormControl component, with FormLabel, FormHelperText and FormErrorMessage.
+ * Composes the Chakra UI Field component, with Label, HelperText and ErrorText.
  */
 export const BaseField: React.FC<BaseFieldProps> = (props) => {
-  const { controlProps, label, help, hideLabel, error } = useBaseField(props)
+  const { rootProps, label, hideLabel, help, error } = useBaseField(props)
 
-  const isInvalid = !!error || controlProps.isInvalid
-
-  const { direction, ...rest } = controlProps
+  const isInvalid = !!error
 
   return (
-    <FormControl
-      {...rest}
-      isInvalid={isInvalid}
-      variant={direction === 'row' ? 'horizontal' : undefined}
-    >
-      {label && !hideLabel ? <FormLabel>{label}</FormLabel> : null}
-      <Box>
-        {props.children}
-        {help && !error?.message ? (
-          <FormHelperText>{help}</FormHelperText>
-        ) : null}
-        {error?.message && (
-          <FormErrorMessage>{error?.message}</FormErrorMessage>
-        )}
-      </Box>
-    </FormControl>
+    <Field.Root invalid={isInvalid} {...rootProps}>
+      {label && !hideLabel ? (
+        <Field.Label>
+          {label} <Field.RequiredIndicator />
+        </Field.Label>
+      ) : null}
+
+      {props.children}
+      {help && !error?.message ? (
+        <Field.HelperText>{help}</Field.HelperText>
+      ) : null}
+      {error?.message && <Field.ErrorText>{error?.message}</Field.ErrorText>}
+    </Field.Root>
   )
 }
 

@@ -1,14 +1,10 @@
-import { ConfirmDialog } from './dialog'
-import { MenuDialog } from './menu'
-import { FormDialog } from './form'
+import { AlertDialog } from './alert-dialog'
 import { Drawer } from './drawer'
 import { Modal } from './modal'
 
 export const defaultModals = {
-  alert: ConfirmDialog,
-  confirm: ConfirmDialog,
+  alert: AlertDialog,
+  confirm: AlertDialog,
   drawer: Drawer,
   modal: Modal,
-  menu: MenuDialog,
-  form: FormDialog,
 }

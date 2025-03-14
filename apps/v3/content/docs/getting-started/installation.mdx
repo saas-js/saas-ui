@@ -1,0 +1,75 @@
+---
+title: Installation
+description: How to install and set up Saas UI in your project
+---
+
+## Framework Guide
+
+Saas UI works in all modern React frameworks, we've put together step-by-step
+guides for these frameworks
+
+:::card-group
+
+<Card title="Next.js" href="/docs/get-started/frameworks/next-app" icon="nextjs">
+
+Easily add Saas UI with Next.js app directory
+
+</Card>
+
+<Card title="Remix" href="/docs/get-started/frameworks/remix" icon="remix">
+
+Use Saas UI in your Remix application
+
+</Card>
+
+<Card title="Vite" href="/docs/get-started/frameworks/vite" icon="vite">
+
+Use Saas UI in your Vite application
+
+</Card>
+
+:::
+
+> The minimum node version required is Node.20.x
+
+## Installation
+
+To manually set up Saas UI in your project, follow the steps below.
+
+:::steps
+
+### Install `@chakra-ui/react`
+
+```bash
+npm i @saas-ui/react@alpha @chakra-ui/react @emotion/react
+```
+
+### Setup provider
+
+Wrap your application with the `SuiProvider` at the root of your application.
+
+```jsx
+import { SuiProvider, defaultSystem } from '@saas-ui/react'
+
+function App({ Component, pageProps }) {
+  return (
+    <SuiProvider system={defaultSystem}>
+      <Component {...pageProps} />
+    </SuiProvider>
+  )
+}
+```
+
+:::
+
+Now you can start using Saas UI components in your project.
+
+## CLI
+
+Install elements, blocks and templates from the CLI.
+
+TBD
+
+## Ejecting
+
+TBD

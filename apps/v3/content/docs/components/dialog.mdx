@@ -1,0 +1,105 @@
+---
+title: Dialog
+description: Used to display a dialog prompt
+links:
+  source: components/dialog
+  storybook: components-dialog--basic
+  recipe: dialog
+  ark: https://ark-ui.com/react/docs/components/dialog
+---
+
+<ExampleTabs name="dialog-basic" />
+
+## Anatomy
+
+```jsx
+import { Dialog } from '@saas-ui/react/dialog'
+```
+
+```jsx
+<Dialog.Root>
+  <Dialog.Backdrop />
+  <Dialog.Trigger />
+  <Dialog.Content>
+    <Dialog.Header>
+      <Dialog.Title />
+
+      <Dialog.CloseButton />
+    </Dialog.Header>
+    <Dialog.Body />
+    <Dialog.Footer>
+      <Dialog.CloseTrigger asChild>
+        <Button>Close</Button>
+      </Dialog.CloseTrigger>
+    </Dialog.Footer>
+  </Dialog.Content>
+</Dialog.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the dialog component.
+
+<ExampleTabs name="dialog-with-sizes" />
+
+### Cover
+
+Use the `size="cover"` prop to make the dialog component cover the entire screen
+while revealing a small portion of the page behind.
+
+<ExampleTabs name="dialog-with-cover" />
+
+### Controlled
+
+Use the `open` and `onOpenChange` prop to control the visibility of the dialog
+component.
+
+<ExampleTabs name="dialog-controlled" />
+
+### Initial Focus
+
+Use the `initialFocusEl` prop to set the initial focus of the dialog component.
+
+<ExampleTabs name="dialog-with-initial-focus" />
+
+### Inside Scroll
+
+Use the `scrollBehavior=inside` prop to change the scroll behavior of the dialog
+when its content overflows.
+
+<ExampleTabs name="dialog-with-inside-scroll" />
+
+### Outside Scroll
+
+Use the `scrollBehavior=outside` prop to change the scroll behavior of the
+dialog when its content overflows.
+
+<ExampleTabs name="dialog-with-outside-scroll" />
+
+### Motion Preset
+
+Use the `motionPreset` prop to change the animation of the dialog component.
+
+<ExampleTabs name="dialog-with-motion-preset" />
+
+### Alert Dialog
+
+Set the `role: "alertdialog"` prop to change the dialog component to an alert
+dialog.
+
+<ExampleTabs name="dialog-with-role" />
+
+### With DataList
+
+Here's an example of how to compose the dialog component with the `DataList`
+component.
+
+<ExampleTabs name="dialog-with-datalist" />
+
+## Props
+
+### Root
+
+<PropTable component="Dialog" part="Root" />

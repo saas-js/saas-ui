@@ -1,0 +1,83 @@
+---
+title: Tag
+description: Used for categorizing or labeling content
+links:
+  source: components/tag
+  storybook: components-tag--basic
+  recipe: tag
+---
+
+<ExampleTabs name="tag-basic" />
+
+## Anatomy
+
+```jsx
+import { Tag } from '@saas-ui/react/tag'
+```
+
+```jsx
+<Tag>Tag here</Tag>
+```
+
+## Examples
+
+### Icon
+
+Use the `startElement` prop to add an icon to the tag.
+
+<ExampleTabs name="tag-with-icon" />
+
+### Variants
+
+Use the `variant` prop to change the appearance of the tag.
+
+<ExampleTabs name="tag-with-variants" />
+
+### Sizes
+
+Use the `size` prop to change the size of the tag.
+
+<ExampleTabs name="tag-with-sizes" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color of the tag.
+
+<ExampleTabs name="tag-with-colors" />
+
+### Closable
+
+Use the `closable` prop to make the tag closable.
+
+<ExampleTabs name="tag-with-close" />
+
+### Overflow
+
+Use the `maxWidth` prop to control the maximum width of the tag. When the
+content exceeds this width, it will be truncated with an ellipsis.
+
+> This is particularly useful when dealing with dynamic or user-generated
+> content where the length might vary.
+
+<ExampleTabs name="tag-with-overflow" />
+
+### Avatar
+
+Here's an example of a tag with an avatar.
+
+<ExampleTabs name="tag-with-avatar" />
+
+### As Button
+
+Use the `asChild` prop to render the tag as a button.
+
+> Note that you'll need to import the Tag from `@chakra-ui/react` to use this
+> prop.
+
+<ExampleTabs name="tag-as-button" />
+
+## Props
+
+### Root
+
+<PropTable component="Tag" part="Root" />

@@ -1,0 +1,59 @@
+---
+title: Hover Card
+description: Used to display content when hovering over an element
+links:
+  source: components/hover-card
+  storybook: components-hover-card--basic
+  recipe: hover-card
+  ark: https://ark-ui.com/react/docs/components/hover-card
+---
+
+<ExampleTabs name="hover-card-basic" />
+
+## Anatomy
+
+```jsx
+import { HoverCard } from '@saas-ui/react/hover-card'
+```
+
+```jsx
+<HoverCard.Root>
+  <HoverCard.Trigger />
+  <HoverCard.Content>
+    <HoverCard.Arrow />
+  </HoverCard.Content>
+</HoverCard.Root>
+```
+
+## Examples
+
+### Controlled
+
+Use the `open` and `onOpenChange` to control the visibility of the hover card.
+
+<ExampleTabs name="hover-card-controlled" />
+
+### Delays
+
+Control the open and close delays using the `openDelay` and `closeDelay` props.
+
+<ExampleTabs name="hover-card-with-delay" />
+
+### Placement
+
+Use the `positioning.placement` prop to configure the underlying `floating-ui`
+positioning logic.
+
+<ExampleTabs name="hover-card-with-placement" />
+
+## Accessibility
+
+HoverCard should be used solely for supplementary information that is not
+essential for understanding the context.
+
+It is inaccessible to screen readers and cannot be activated via keyboard, so
+avoid placing crucial content within it.
+
+## Props
+
+<PropTable component="HoverCard" part="Root" />

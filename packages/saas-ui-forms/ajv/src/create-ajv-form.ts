@@ -1,12 +1,13 @@
 import {
-  createForm,
   CreateFormProps,
-  FieldValues,
   FormProps,
   WithFields,
+  createForm,
 } from '@saas-ui/forms'
-import { ajvFieldResolver, ajvResolver } from './ajv-resolver'
 import { JTDDataType } from 'ajv/dist/jtd'
+
+import { ajvFieldResolver, ajvResolver } from './ajv-resolver'
+
 type ResolverArgs = Parameters<typeof ajvResolver>
 
 export interface CreateAjvFormProps<FieldDefs>
@@ -26,15 +27,15 @@ type ParseJsonSchema<T> = T extends { type: 'object' }
 export type AjvFormType<
   FieldDefs,
   ExtraProps = object,
-  JsonSchema extends Record<string, any> = Record<string, any>
+  JsonSchema extends Record<string, any> = Record<string, any>,
 > = (<
   TSchema extends JsonSchema = JsonSchema,
   TFieldValues extends ParseJsonSchema<TSchema> = ParseJsonSchema<TSchema>,
-  TContext extends object = object
+  TContext extends object = object,
 >(
   props: WithFields<FormProps<TSchema, TFieldValues, TContext>, FieldDefs> & {
     ref?: React.ForwardedRef<HTMLFormElement>
-  } & ExtraProps
+  } & ExtraProps,
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
@@ -47,7 +48,7 @@ export type AjvFormType<
  * @see https://ajv.js.org/json-type-definition.html
  */
 export function createAjvForm<FieldDefs>(
-  options?: CreateAjvFormProps<FieldDefs>
+  options?: CreateAjvFormProps<FieldDefs>,
 ) {
   return createForm({
     resolver: (schema: any) =>

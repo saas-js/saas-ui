@@ -1,5 +1,8 @@
-import React, { useMemo } from 'react'
-import { forwardRef } from '@chakra-ui/react'
+import React, { forwardRef, useMemo } from 'react'
+
+import { StepperProvider } from '@saas-ui/core'
+import { runIfFn } from '@saas-ui/core/utils'
+
 import {
   ArrayField,
   DisplayIf,
@@ -10,18 +13,16 @@ import {
   ObjectField,
   defaultFieldTypes,
 } from './'
-import { Form } from './form'
 import { Field } from './field'
+import { Form } from './form'
+import { GetResolver } from './form'
 import { FormStep, StepsOptions } from './step-form'
+import { GetBaseField, WithStepFields } from './types'
 import {
   StepFormProvider,
   UseStepFormProps,
   useStepForm,
 } from './use-step-form'
-import { StepperProvider } from '@saas-ui/core'
-import { runIfFn } from '@chakra-ui/utils'
-import { GetResolver } from './form'
-import { GetBaseField, WithStepFields } from './types'
 
 export type StepFormType<
   FieldDefs,
@@ -40,7 +41,7 @@ export type StepFormType<
     ExtraOverrides
   > & {
     ref?: React.ForwardedRef<HTMLFormElement>
-  } & ExtraProps
+  } & ExtraProps,
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
@@ -70,12 +71,12 @@ export function createStepForm<
       ? ExtraFieldProps
       : object
 
-  const StepForm = forwardRef<any, 'div'>((props, ref) => {
+  const StepForm = forwardRef<HTMLFormElement, any>((props, ref) => {
     const { children, steps, ...rest } = props
 
     const stepper = useStepForm({
-      resolver,
-      fieldResolver,
+      // resolver: resolver(props),
+      // fieldResolver: fieldResolver(,
       ...props,
     })
 

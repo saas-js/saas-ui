@@ -1,3 +1,2 @@
-export { NProgress } from './nprogress'
-export type { NProgressProps } from './nprogress'
-export { NProgressNextRouter } from './next-router'
+export { NProgress } from './nprogress.tsx'
+export type { NProgressProps } from './nprogress.tsx'

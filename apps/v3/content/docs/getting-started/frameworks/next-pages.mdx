@@ -1,0 +1,79 @@
+---
+title: Using Saas UI in Next.js (Pages)
+description: A guide for installing Saas UI with Next.js pages directory
+---
+
+## Templates
+
+Use one of the following templates to get started quickly. The templates are
+configured correctly to use Saas UI.
+
+:::card-group
+
+<ResourceCard
+  type="github"
+  title="Next.js app template"
+  url="https://github.com/chakra-ui/chakra-next-app-template"
+/>
+
+<ResourceCard
+  type="github"
+  title="Next.js pages template"
+  url="https://github.com/chakra-ui/chakra-next-pages-template"
+/>
+
+:::
+
+## Installation
+
+> The minimum node version required is Node.20.x
+
+:::steps
+
+### Install dependencies
+
+```bash
+npm i @saas-ui/react@alpha @chakra-ui/react @emotion/react
+```
+
+### Setup provider
+
+Wrap your application with the `SuiProvider` component at the root of your
+application.
+
+This provider composes the following:
+
+- `SaasProvider` from `@saas-ui/react` for the styling system
+
+```tsx title="pages/_app.tsx" {1,5,7}
+import { SuiProvider, defaultSystem } from '@saas-ui/react'
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <SuiProvider value={defaultSystem}>
+      <Component {...pageProps} />
+    </SuiProvider>
+  )
+}
+```
+
+In the `pages/_document.tsx` file, add the `suppressHydrationWarning` prop to
+the `html` element.
+
+```tsx title="pages/_document.tsx" {5}
+import { Head, Html, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html suppressHydrationWarning>
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
+```
+
+:::

@@ -1,24 +1,17 @@
 import * as React from 'react'
 
+import { Button, ButtonProps, Dialog } from '@chakra-ui/react'
+import { runIfFn } from '@saas-ui/core/utils'
 import {
-  ModalBody,
-  ModalFooter,
-  Button,
-  forwardRef,
-  ButtonProps,
-} from '@chakra-ui/react'
-import { runIfFn } from '@saas-ui/react-utils'
-
-import {
-  Form,
   AutoFields,
-  SubmitButton,
-  FormProps,
-  FieldValues,
-  FieldResolver,
-  FieldProps,
-  FormType,
   DefaultFieldOverrides,
+  FieldProps,
+  FieldResolver,
+  FieldValues,
+  Form,
+  FormProps,
+  FormType,
+  SubmitButton,
 } from '@saas-ui/forms'
 
 import { BaseModal, BaseModalProps } from './modal'
@@ -137,7 +130,7 @@ type MergeDialogProps<T> =
 type IsSchemaType<T, Schema, FieldDefs> =
   T extends DefaultFormType<FieldDefs>
     ? T extends (
-        props: FormProps<infer TSchema, infer TFieldValues, infer TContext>
+        props: FormProps<infer TSchema, infer TFieldValues, infer TContext>,
       ) => any
       ? Schema extends TSchema
         ? true
@@ -155,7 +148,7 @@ export type DefaultFormType<
   TFieldValues extends Record<string, any> = any,
   TContext extends object = object,
 >(
-  props: any
+  props: any,
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
@@ -173,7 +166,7 @@ export function createFormDialog<
     ExtraOverrides
   > = DefaultFormType<FieldDefs, ExtraProps, ExtraFieldProps, ExtraOverrides>,
 >(Form: TFormType) {
-  const Dialog = forwardRef<any, 'div'>((props, ref) => {
+  const Dialog = React.forwardRef<HTMLDivElement, any>((props, ref) => {
     const { isOpen, onClose, footer, children, ...rest } = props
     const { modalProps, formProps, fields } = useFormProps(rest)
     return (
@@ -188,12 +181,12 @@ export function createFormDialog<
         >
           {(form: any) => (
             <>
-              <ModalBody height="100%">
+              <Dialog.Body height="100%">
                 {runIfFn(children, form) || <AutoFields />}
-              </ModalBody>
+              </Dialog.Body>
 
               {footer || (
-                <ModalFooter>
+                <Dialog.Footer>
                   <Button
                     variant="ghost"
                     mr={3}
@@ -203,7 +196,7 @@ export function createFormDialog<
                     {fields?.cancel?.children ?? 'Cancel'}
                   </Button>
                   <SubmitButton {...fields?.submit} />
-                </ModalFooter>
+                </Dialog.Footer>
               )}
             </>
           )}

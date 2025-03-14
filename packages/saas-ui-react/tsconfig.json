@@ -1,11 +1,27 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["src"],
   "compilerOptions": {
-    "baseUrl": "."
+    "lib": ["DOM", "ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "customConditions": ["sui"],
+    "incremental": true,
+    "tsBuildInfoFile": "dist/.tsbuildinfo.json",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "#components/*": ["src/components/*"],
+      "#types": ["src/types.ts"],
+      "compositions/*": ["../../apps/compositions/src/*"]
+    }
   },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
-    "src/tests",
     "**/*.spec.ts",
     "**/*.spec.tsx",
     "**/*.test.ts",

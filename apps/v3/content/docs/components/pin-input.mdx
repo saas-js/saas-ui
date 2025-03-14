@@ -1,0 +1,79 @@
+---
+title: Pin Input
+description: Used to capture a pin code or otp from the user
+links:
+  source: components/pin-input
+  storybook: components-pin-input--basic
+  recipe: pin-input
+  ark: https://ark-ui.com/react/docs/components/pin-input
+---
+
+<ExampleTabs name="pin-input-basic" />
+
+## Anatomy
+
+```jsx
+import { PinInput } from '@saas-ui/react/pin-input'
+```
+
+```jsx
+<PinInput />
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the pin input component.
+
+<ExampleTabs name="pin-input-with-sizes" />
+
+### One time code
+
+Use the `otp` prop to make the pin input component behave like a one-time code
+input. This helps improve the user experience when entering OTP codes.
+
+<ExampleTabs name="pin-input-with-otp" />
+
+### Mask
+
+Use the `mask` prop to obscure the entered pin code.
+
+<ExampleTabs name="pin-input-with-mask" />
+
+### Placeholder
+
+Use the `placeholder` prop to add a placeholder to the pin input component.
+
+<ExampleTabs name="pin-input-with-placeholder" />
+
+### Field
+
+Here's an example of how to compose the `Field` and the `PinInput` components
+
+<ExampleTabs name="pin-input-with-field" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the value of the pin input
+
+<ExampleTabs name="pin-input-controlled" />
+
+### Attached
+
+Use the `attached` prop to attach the pin input to the input field
+
+<ExampleTabs name="pin-input-attached" />
+
+### Alphanumeric
+
+Use the `type` prop to allow the user to enter alphanumeric characters. Values
+can be either `alphanumeric`, `numeric`, or `alphabetic`
+
+<ExampleTabs name="pin-input-alphanumeric" />
+
+## Props
+
+### Root
+
+<PropTable component="PinInput" part="Root" />

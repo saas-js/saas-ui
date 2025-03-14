@@ -1,6 +1,5 @@
 import { ajvResolver } from '@hookform/resolvers/ajv'
-import { objectFieldResolver, FieldResolver } from '@saas-ui/forms'
-
+import { objectFieldResolver } from '@saas-ui/forms'
 import { JSONSchemaType } from 'ajv'
 
 export { ajvResolver }

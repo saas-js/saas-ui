@@ -1,7 +1,10 @@
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { get } from '@chakra-ui/utils'
-import { FieldProps } from '@saas-ui/forms'
+import { get } from '@saas-ui/core/utils'
+
+// import { FieldProps } from '@saas-ui/forms'
+
+type FieldProps = any
 
 export { zodResolver }
 
@@ -12,7 +15,7 @@ export type ExtraProps = {
 }
 
 const getType = (
-  field: z.ZodTypeAny
+  field: z.ZodTypeAny,
 ): 'array' | 'object' | 'number' | 'date' | 'select' | 'text' => {
   if (['ZodDefault', 'ZodOptional'].includes(field._def.typeName)) {
     return getType(field._def.innerType)

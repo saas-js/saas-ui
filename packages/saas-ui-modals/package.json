@@ -2,31 +2,13 @@
   "name": "@saas-ui/modals",
   "version": "2.4.4",
   "description": "A modal manager for Chakra UI",
-  "source": "src/index.ts",
+  "type": "module",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./zod": {
-      "types": "./dist/zod/index.d.ts",
-      "require": "./dist/zod/index.js",
-      "import": "./dist/zod/index.mjs"
-    },
-    "./zod/src": {
-      "default": "./src/zod/index.ts"
-    },
-    "./yup": {
-      "types": "./dist/yup/index.d.ts",
-      "require": "./dist/yup/index.js",
-      "import": "./dist/yup/index.mjs"
-    },
-    "./yup/src": {
-      "default": "./src/yup/index.ts"
-    },
-    "./src": {
-      "default": "./src/index.ts"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     }
   },
   "typesVersions": {
@@ -41,8 +23,8 @@
       ]
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
@@ -52,19 +34,18 @@
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
     "directory": "packages/saas-ui-modals"
   },
   "keywords": [
@@ -85,16 +66,15 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.2.3",
+    "@saas-ui/core": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
-    "@saas-ui/react-utils": "workspace:*"
+    "@saas-ui/modals-provider": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "^3.2.1",
     "@emotion/react": ">=11.0.0",
-    "@emotion/styled": ">=11.0.0",
-    "framer-motion": ">=6.0.0",
+    "@saas-ui/react": "workspace:*",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },

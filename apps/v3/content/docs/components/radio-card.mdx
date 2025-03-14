@@ -1,0 +1,66 @@
+---
+title: Radio Card
+description: Used to select an option from list
+links:
+  source: components/radio-card
+  storybook: components-radio-card--basic
+  recipe: radio-card
+  ark: https://ark-ui.com/react/docs/components/radio-group
+---
+
+<ExampleTabs name="radio-card-basic" />
+
+## Anatomy
+
+A RadioCard is a form element with a larger interaction surface represented as a
+card.
+
+```jsx
+import { RadioCard } from '@saas-ui/react/radio-card'
+```
+
+```jsx
+<RadioCard.Root>
+  <RadioCard.Label />
+  <RadioCard.Item />
+</RadioCard.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the radio card.
+
+<ExampleTabs name="radio-card-with-sizes" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color of the radio card.
+
+<ExampleTabs name="radio-card-with-colors" />
+
+### Icon
+
+Here's an example of a RadioCard with an icon.
+
+<ExampleTabs name="radio-card-with-icon" />
+
+### Centered
+
+Here's an example of a RadioCard with centered text.
+
+<ExampleTabs name="radio-card-centered" />
+
+### Addon
+
+Use the `RadioCardItemAddon` component to add an addon below the radio card
+content.
+
+<ExampleTabs name="radio-card-with-addon" />
+
+## Props
+
+### Root
+
+<PropTable component="RadioCard" part="Root" />

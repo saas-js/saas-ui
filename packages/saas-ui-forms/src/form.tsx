@@ -1,39 +1,36 @@
-import * as React from 'react'
+import React, { forwardRef } from 'react'
 
-import { chakra, HTMLChakraProps, forwardRef } from '@chakra-ui/react'
+import { HTMLChakraProps, chakra } from '@chakra-ui/react'
+import { type MaybeRenderProp, cx, runIfFn } from '@saas-ui/core/utils'
 import {
-  FocusableElement,
-  cx,
-  runIfFn,
-  MaybeRenderProp,
-} from '@chakra-ui/utils'
-
-import {
-  useForm,
-  UseFormProps,
-  UseFormReturn,
   FieldValues,
-  SubmitHandler,
-  SubmitErrorHandler,
   ResolverOptions,
   ResolverResult,
+  SubmitErrorHandler,
+  SubmitHandler,
+  UseFormProps,
+  UseFormReturn,
   WatchObserver,
+  useForm,
 } from 'react-hook-form'
-import { FormProvider } from './form-context'
-import { FieldResolver } from './field-resolver'
+
+import { ArrayField, ArrayFieldProps } from './array-field.tsx'
+import { DisplayIf, DisplayIfProps } from './display-if.tsx'
+import type { FieldResolver } from './field-resolver.tsx'
+import { Field as DefaultField } from './field.tsx'
+import { AutoFields } from './fields.tsx'
+import { FormProvider } from './form-context.tsx'
+import { FormLayout } from './form-layout.tsx'
+import { ObjectField, ObjectFieldProps } from './object-field.tsx'
+import { SubmitButton } from './submit-button.tsx'
+import {
+  DefaultFieldOverrides,
+  FieldProps,
+  type FocusableElement,
+} from './types.ts'
+import { UseArrayFieldReturn } from './use-array-field.tsx'
 
 export type { UseFormReturn, FieldValues, SubmitHandler }
-
-import { FieldProps, DefaultFieldOverrides } from './types'
-
-import { Field as DefaultField } from './field'
-import { FormLayout } from './layout'
-import { AutoFields } from './fields'
-import { SubmitButton } from './submit-button'
-import { DisplayIf, DisplayIfProps } from './display-if'
-import { ArrayField, ArrayFieldProps } from './array-field'
-import { ObjectField, ObjectFieldProps } from './object-field'
-import { UseArrayFieldReturn } from './use-array-field'
 
 export interface FormRenderContext<
   TFieldValues extends FieldValues = FieldValues,
@@ -130,7 +127,7 @@ export const Form = forwardRef(
       TExtraFieldProps,
       TFieldTypes
     >,
-    ref: React.ForwardedRef<HTMLFormElement>
+    ref: React.ForwardedRef<HTMLFormElement>,
   ) => {
     const {
       mode = 'all',
@@ -218,7 +215,7 @@ export const Form = forwardRef(
         </chakra.form>
       </FormProvider>
     )
-  }
+  },
 ) as FormComponent
 
 export type FormComponent = (<
@@ -236,7 +233,7 @@ export type FormComponent = (<
     TFieldTypes
   > & {
     ref?: React.ForwardedRef<HTMLFormElement>
-  }
+  },
 ) => React.ReactElement) & {
   displayName?: string
 }
@@ -247,9 +244,9 @@ export type GetResolver = <
   TFieldValues extends FieldValues,
   TContext extends object,
 >(
-  schema: unknown
+  schema: unknown,
 ) => (
   values: TFieldValues,
   context: TContext | undefined,
-  options: ResolverOptions<TFieldValues>
+  options: ResolverOptions<TFieldValues>,
 ) => Promise<ResolverResult<TFieldValues>>

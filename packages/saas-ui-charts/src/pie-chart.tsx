@@ -17,6 +17,7 @@ export interface PieChartProps {
   height?: number
   valueFormatter?: (value: number) => string
   showTooltip?: boolean
+  showLabel?: boolean
   /**
    * Render custom tooltip content.
    */
@@ -32,6 +33,7 @@ export function PieChart(props: PieChartProps) {
     data,
     valueFormatter,
     showTooltip,
+    showLabel,
     tooltipContent,
   } = props
 
@@ -67,6 +69,7 @@ export function PieChart(props: PieChartProps) {
         cy="50%"
         innerRadius={innerRadius}
         outerRadius={outerRadius}
+        label={showLabel}
         stroke="none"
         paddingAngle={2}
         isAnimationActive={false}

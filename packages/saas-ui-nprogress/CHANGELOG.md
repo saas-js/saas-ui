@@ -1,5 +1,29 @@
 # @saas-ui/nprogress
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [f85d493]
+- Updated dependencies [f85d493]
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [eb02362]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [6f9f04d]
+- Updated dependencies [6459de4]
+- Updated dependencies [0f49a18]
+  - @saas-ui/core@3.0.0-next.0
+
 ## 2.2.1
 
 ### Patch Changes

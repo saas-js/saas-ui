@@ -23,8 +23,8 @@
     "paths": {
       "@/*": ["./*"],
       "compositions/*": ["../compositions/src/*"],
-      "@saas-ui/react": ["../packages/saas-ui-react/src/index.ts"],
-      "@saas-ui/react/*": ["../packages/saas-ui-react/src/*"]
+      "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
+      "@saas-ui/react/*": ["../../packages/saas-ui-react/src/*"]
     },
     "target": "ES2017"
   },

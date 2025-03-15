@@ -1,5 +1,21 @@
 # @saas-ui/system
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- cee2e9c: Removed chakra ui dependency of core package
+- 0f49a18: Removed imports from @chakra-ui/react
+
 ## 2.3.0
 
 ### Minor Changes

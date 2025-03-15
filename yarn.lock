@@ -4653,17 +4653,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@saas-ui/assets@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@saas-ui/assets@npm:1.1.0"
-  peerDependencies:
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-  checksum: 10/49a4aa006cde878af020bf4643e8069a235bcf1f3d284887c5e3438a71ea1ee2f38eb6f4bedcc8caa2055566d58ca8e73a868f9a505a3a673bbd079a04d4df90
-  languageName: node
-  linkType: hard
-
-"@saas-ui/assets@workspace:*, @saas-ui/assets@workspace:packages/saas-ui-assets":
+"@saas-ui/assets@npm:^2.0.0-next.0, @saas-ui/assets@workspace:*, @saas-ui/assets@workspace:packages/saas-ui-assets":
   version: 0.0.0-use.local
   resolution: "@saas-ui/assets@workspace:packages/saas-ui-assets"
   peerDependencies:
@@ -4952,7 +4942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saas-ui/react@npm:^3.0.0-alpha.7, @saas-ui/react@npm:^3.0.0-alpha.8":
+"@saas-ui/react@npm:^3.0.0-alpha.8":
   version: 3.0.0-alpha.24
   resolution: "@saas-ui/react@npm:3.0.0-alpha.24"
   dependencies:
@@ -4968,7 +4958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
+"@saas-ui/react@npm:^3.0.0-next.0, @saas-ui/react@workspace:*, @saas-ui/react@workspace:packages/saas-ui-react":
   version: 0.0.0-use.local
   resolution: "@saas-ui/react@workspace:packages/saas-ui-react"
   dependencies:
@@ -5014,7 +5004,7 @@ __metadata:
     tsup: "npm:^8.4.0"
   peerDependencies:
     "@chakra-ui/react": ^3.0.0
-    "@saas-ui/react": ^3.0.0
+    "@saas-ui/react": ^3.0.0-next.0
     "@storybook/components": ">=8.0.0"
     "@storybook/manager-api": ">=8.0.0"
     "@storybook/preview-api": ">=8.0.0"
@@ -18563,8 +18553,8 @@ __metadata:
     "@dnd-kit/utilities": "npm:^3.2.2"
     "@emotion/react": "npm:^11.14.0"
     "@saas-ui-pro/react": "npm:^0.41.1"
-    "@saas-ui/assets": "npm:^1.1.0"
-    "@saas-ui/react": "npm:^3.0.0-alpha.7"
+    "@saas-ui/assets": "npm:^2.0.0-next.0"
+    "@saas-ui/react": "npm:^3.0.0-next.0"
     "@saas-ui/registry": "workspace:*"
     "@tsconfig/recommended": "npm:^1.0.8"
     framer-motion: "npm:^11.18.2"

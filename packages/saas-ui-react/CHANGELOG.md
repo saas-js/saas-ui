@@ -1,5 +1,92 @@
 # @saas-ui/react
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+- 8e760c5: Added new wide gammut color tokens
+
+### Minor Changes
+
+- e9fec88: Added toaster and menu components
+- 8d8ffaa: Translucency and backdrop effect of overlay elements can now be configured
+- c680574: Added Status component
+- f62c3d6: Export all components from root barrel file
+- f85d493: Added Sidebar.Context component that allows you to access sidebar context using a render prop
+- a2ef175: Added Pagination component
+- eb02362: Improved GridList recipe
+- f85d493: Sidebar mode can now be controlled using the sidebar context
+- c680574: Added Badge and Tag components
+- 95c8652: Update to Chakra UI 3.2.1
+- ac2d80d: Improved toaster styles and allow setting global defaults
+- 15e093e: Added new components, Accordion, Alert, Checkbox, HoverCard
+- 8d8ffaa: Added FileUpload component
+- 6459de4: Removed src exports and files from packages
+- 8d8ffaa: Added Popover component
+- 8d8ffaa: Added semantic tokens and scales for control, panel and indicator
+- f0f5ab0: Improve Navbar composition
+
+### Patch Changes
+
+- ba3b566: Improved Sidebar contrast
+- 2285040: Improved avatar and persona sizes
+- 64e680e: Update default button colorPalette to gray
+- 53716c5: Fixed GridList prop forwarding
+- 5115e8f: Improved text selection color contrast
+- 212a7e6: Add missing focusRing semantic tokens
+- 38082d4: Improved horizontal field styles
+- c680574: Changed default Button variant to surface
+- 942e9a0: Improved SidebarNavItem positioning
+- 8d8ffaa: Added ghost variant to tabs recipe
+- 53716c5: Fixed issue where Button colorPalette could not be changed using the recipe
+- 205580d: Added option to customize the Command modifiers
+- 7808a76: Restructure slot components and add ui namespaces to recipes
+- e7fe684: Export Pagination Context component
+- c680574: Rename Drawer and Dialog CloseTrigger to CloseButton
+- b51aff9: Improved form components recipes sizing
+- 212a7e6: Improved yellow color tokens
+- ce8c247: Inputs now use semanti radii tokens
+- 19309d4: Improved Sidebar recipe with beter balance and added --sidebar-item-icon-color variable
+- ce8c247: SegmentGroup now use semantic radii tokens
+- ce8c247: Forward ref to LoadingOverlay.Root
+- c680574: Improved Button glass variant hover color
+- ba3b566: Improved focusRing styles
+- 6a8bf46: Decreased default overlay translucency
+- 0067207: Fixed issue where paddingStart would not apply to grouped inputs
+- b51aff9: Fixed passing menu button props to button component
+- 205580d: Added size variant to Command
+- ba3b566: Added SegmentControl stories and made sizing consistent with buttons
+- 56b0623: Update with upstream changes
+- 6a8bf46: Fix dialog backdrop z-index
+- c680574: Improved semantic grays and shadows balance
+- 8ac704a: Improved tag recipe and support status component.
+- 6f9f04d: Fixed issue where Sidebar mode could not be controlled
+- eb02362: Add missing PaginationPageTextProps export
+- 56b0623: Fixed issue where backdrop would render on top of dialog and drawer
+- c51e12c: Improved radii tokens
+- 0067207: Added 4.5 spacing
+- 65fac53: Fixed semantic token inconsistencies
+- 61ce1b5: Fixed sidebar item end element positioning
+- 3a73bc8: Fixed incorrect props type for GridListRoot
+- 9d47676: Improved tabs recipe, new pills variant and xs size
+- 64e680e: Export Menu.Context
+- 2285040: No longer showing presence badge if no presence is set
+- ba3b566: Sidebar.Button now renders a div with role="button"
+- 19309d4: Improved font size balance
+- 727b902: Allow click event on Sidebar.Track to be prevented
+- Updated dependencies [f85d493]
+- Updated dependencies [f85d493]
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [eb02362]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [6f9f04d]
+- Updated dependencies [6459de4]
+- Updated dependencies [0f49a18]
+  - @saas-ui/core@3.0.0-next.0
+  - @saas-ui/hooks@3.0.0-next.0
+
 ## 2.11.4
 
 ### Patch Changes
@@ -3007,8 +3094,9 @@
   Add this somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers

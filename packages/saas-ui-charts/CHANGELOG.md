@@ -1,5 +1,23 @@
 # @saas-ui/charts
 
+## 1.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- c9a0a0e: Added PieChart component
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- 724807d: Fixed issue where content prop would be passed to dom element
+- 7e2c16d: Added showLabel prop to render labels on pie chart
+- e8d0ed6: Removed console.log
+
 ## 0.15.0
 
 ### Minor Changes

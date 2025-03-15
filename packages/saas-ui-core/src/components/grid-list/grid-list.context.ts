@@ -6,7 +6,7 @@ import { callAll, createContext, dataAttr } from '#utils'
 
 interface GridListContext {
   id: string
-  containerRef: React.RefObject<HTMLDivElement>
+  containerRef: React.RefObject<HTMLDivElement | null>
   focusId: string | null
   setFocusId: React.Dispatch<React.SetStateAction<string | null>>
 }

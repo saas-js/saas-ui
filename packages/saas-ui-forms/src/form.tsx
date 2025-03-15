@@ -249,4 +249,4 @@ export type GetResolver = <
   values: TFieldValues,
   context: TContext | undefined,
   options: ResolverOptions<TFieldValues>,
-) => Promise<ResolverResult<TFieldValues>>
+) => ResolverResult<TFieldValues> | Promise<ResolverResult<TFieldValues>>

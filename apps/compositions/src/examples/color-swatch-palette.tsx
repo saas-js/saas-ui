@@ -1,4 +1,6 @@
-import { ColorSwatch, Group } from "@chakra-ui/react"
+'use client'
+
+import { ColorSwatch, Group } from '@chakra-ui/react'
 
 export const ColorSwatchPalette = () => {
   return (
@@ -10,4 +12,4 @@ export const ColorSwatchPalette = () => {
   )
 }
 
-const swatches = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"]
+const swatches = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']

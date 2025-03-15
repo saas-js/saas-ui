@@ -1,10 +1,12 @@
-import { Container, For, Stack } from "@chakra-ui/react"
-import { DecorativeBox } from "compositions/lib/decorative-box"
+'use client'
+
+import { Container, For, Stack } from '@chakra-ui/react'
+import { DecorativeBox } from 'compositions/lib/decorative-box'
 
 export const ContainerWithSizes = () => {
   return (
     <Stack>
-      <For each={["sm", "md", "xl", "2xl"]}>
+      <For each={['sm', 'md', 'xl', '2xl']}>
         {(size) => (
           <Container key={size} maxW={size} px="2">
             <DecorativeBox>

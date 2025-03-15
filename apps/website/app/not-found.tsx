@@ -1,3 +1,5 @@
+'use client'
+
 import { Header } from '@/components/docs/header'
 import { Box } from '@chakra-ui/react'
 import { EmptyState } from '@saas-ui/react'

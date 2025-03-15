@@ -8,7 +8,11 @@ export { Accordion } from './components/accordion/index.ts'
 export { ActionBar } from './components/action-bar/index.ts'
 export { Alert, type AlertProps } from './components/alert/index.ts'
 export { AppShell, type AppShellProps } from './components/app-shell/index.ts'
-export { Avatar, AvatarGroup, AvatarProps } from './components/avatar/index.ts'
+export {
+  Avatar,
+  AvatarGroup,
+  type AvatarProps,
+} from './components/avatar/index.ts'
 export {
   Badge,
   BadgePropsProvider,
@@ -140,7 +144,7 @@ export {
 } from './components/skeleton/index.ts'
 export {
   SegmentedControl,
-  SegmentedControlProps,
+  type SegmentedControlProps,
 } from './components/segmented-control/index.ts'
 export {
   Sidebar,

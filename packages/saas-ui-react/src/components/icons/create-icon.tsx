@@ -1,3 +1,5 @@
+'use client'
+
 import type { IconProps } from '@chakra-ui/react/icon'
 import { createIcon as _createIcon } from '@chakra-ui/react/icon'
 

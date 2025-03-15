@@ -1,19 +1,19 @@
-// import * as TypographyDocs from 'compositions/lib/typography-token-doc'
+import * as TypographyDocs from 'compositions/lib/typography-token-doc'
 import * as runtime from 'react/jsx-runtime'
 import { Kbd } from '@chakra-ui/react'
+import { AspectRatioTokenDoc } from 'compositions/lib/aspect-ratio-token-doc'
+import { BorderRadiusTokenDoc } from 'compositions/lib/border-radius-token-doc'
+import { BreakpointDoc } from 'compositions/lib/breakpoint-doc'
+import {
+  ColorSemanticTokenDoc,
+  ColorTokenDoc,
+} from 'compositions/lib/color-token-doc'
+import { DurationTokenDoc, KeyframeDoc } from 'compositions/lib/keyframe-doc'
+import { ShadowTokenDoc } from 'compositions/lib/shadow-token-doc'
+import { SizesTokenDoc } from 'compositions/lib/sizes-token-doc'
+import { SpacingTokenDoc } from 'compositions/lib/spacing-token-doc'
+import { ZIndexTokenDoc } from 'compositions/lib/z-index-token-doc'
 
-// import { AspectRatioTokenDoc } from 'compositions/lib/aspect-ratio-token-toc'
-// import { BorderRadiusTokenDoc } from 'compositions/lib/border-radius-token-doc'
-// import { BreakpointDoc } from 'compositions/lib/breakpoint-doc'
-// import {
-//   ColorSemanticTokenDoc,
-//   ColorTokenDoc,
-// } from 'compositions/lib/color-token-doc'
-// import { DurationTokenDoc, KeyframeDoc } from 'compositions/lib/keyframe-doc'
-// import { ShadowTokenDoc } from 'compositions/lib/shadow-token-doc'
-// import { SizesTokenDoc } from 'compositions/lib/sizes-token-doc'
-// import { SpacingTokenDoc } from 'compositions/lib/spacing-token-doc'
-// import { ZIndexTokenDoc } from 'compositions/lib/z-index-token-doc'
 import { Example, ExampleTabs } from './example'
 import { ExamplePreview } from './example-preview'
 import { Anchor } from './mdx/anchor'
@@ -63,18 +63,18 @@ const sharedComponents = {
   ComponentGrid,
   ResourceCard: ResourceCard,
   'code-block': CodeBlock,
-  // ColorTokenDoc,
-  // ColorSemanticTokenDoc,
-  // ShadowTokenDoc,
-  // BorderRadiusTokenDoc,
-  // ...TypographyDocs,
-  // SpacingTokenDoc,
-  // KeyframeDoc,
-  // BreakpointDoc,
-  // DurationTokenDoc,
-  // AspectRatioTokenDoc,
-  // SizesTokenDoc,
-  // ZIndexTokenDoc,
+  ColorTokenDoc,
+  ColorSemanticTokenDoc,
+  ShadowTokenDoc,
+  BorderRadiusTokenDoc,
+  ...TypographyDocs,
+  SpacingTokenDoc,
+  KeyframeDoc,
+  BreakpointDoc,
+  DurationTokenDoc,
+  AspectRatioTokenDoc,
+  SizesTokenDoc,
+  ZIndexTokenDoc,
 }
 
 const useMDXComponent = (code: string) => {

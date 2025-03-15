@@ -1,3 +1,5 @@
+'use client'
+
 import { FormatByte, HStack, Text } from '@chakra-ui/react'
 import { InfoTip } from '@saas-ui/react'
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, ToggleTip } from '@saas-ui/react'
 import { LuInfo } from 'react-icons/lu'
 

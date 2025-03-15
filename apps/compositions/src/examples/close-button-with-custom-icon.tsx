@@ -1,3 +1,5 @@
+'use client'
+
 import { CloseButton } from '@saas-ui/react'
 import { RiCloseLine } from 'react-icons/ri'
 

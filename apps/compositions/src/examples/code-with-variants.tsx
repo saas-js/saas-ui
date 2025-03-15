@@ -1,4 +1,6 @@
-import { Code, Stack } from "@chakra-ui/react"
+'use client'
+
+import { Code, Stack } from '@chakra-ui/react'
 
 export const CodeWithVariants = () => {
   return (

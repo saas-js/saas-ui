@@ -1,5 +1,7 @@
-import { Container } from "@chakra-ui/react"
-import { DecorativeBox } from "compositions/lib/decorative-box"
+'use client'
+
+import { Container } from '@chakra-ui/react'
+import { DecorativeBox } from 'compositions/lib/decorative-box'
 
 export const ContainerWithFluid = () => {
   return (

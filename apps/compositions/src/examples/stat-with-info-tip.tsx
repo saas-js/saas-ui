@@ -1,6 +1,6 @@
-import { Stat } from '@saas-ui/react'
+'use client'
 
-import { InfoTip } from '../../../../packages/saas-ui-react/src/components/info-tip/info-tip'
+import { InfoTip, Stat } from '@saas-ui/react'
 
 export const StatWithInfoTip = () => {
   return (

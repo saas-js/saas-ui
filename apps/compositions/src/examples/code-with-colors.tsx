@@ -1,5 +1,7 @@
-import { Code, Stack, Text } from "@chakra-ui/react"
-import { colorPalettes } from "compositions/lib/color-palettes"
+'use client'
+
+import { Code, Stack, Text } from '@chakra-ui/react'
+import { colorPalettes } from 'compositions/lib/color-palettes'
 
 export const CodeWithColors = () => {
   return (

@@ -24,7 +24,8 @@
       "@/*": ["./*"],
       "compositions/*": ["../compositions/src/*"],
       "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
-      "@saas-ui/react/*": ["../../packages/saas-ui-react/src/*"]
+      "@saas-ui/react/*": ["../../packages/saas-ui-react/src/*"],
+      "@saas-ui/forms": ["../../packages/saas-ui-forms/src/index.ts"]
     },
     "target": "ES2017"
   },

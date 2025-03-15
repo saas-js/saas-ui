@@ -30,7 +30,8 @@
       "@saas-ui/core": ["../../packages/saas-ui-core/src/index.ts"],
       "@saas-ui/core/utils": ["../../packages/saas-ui-core/src/utils/index.ts"],
       "@saas-ui/core/*": ["../../packages/saas-ui-core/src/components/*"],
-      "@saas-ui/assets": ["../../packages/saas-ui-assets/src/index.ts"]
+      "@saas-ui/assets": ["../../packages/saas-ui-assets/src/index.ts"],
+      "@saas-ui/hooks": ["../../packages/saas-ui-hooks/src/index.ts"]
     },
     "target": "ES2017"
   },

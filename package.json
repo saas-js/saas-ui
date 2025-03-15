@@ -28,7 +28,7 @@
   },
   "scripts": {
     "w": "yarn workspace",
-    "dev:web": "yarn w @saas-ui/web-v3 dev",
+    "dev:web": "yarn w website dev",
     "dev:palette": "yarn w palette-docs dev",
     "changelog:gen": "tsx scripts/changelog-generate.ts",
     "changelog:write": "tsx scripts/changelog-write.ts",
@@ -48,7 +48,7 @@
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",
     "create:block": "yarn hygen blocks new",
-    "build:web": "yarn w @saas-ui/web-v3 build",
+    "build:web": "yarn w website build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
     "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",
@@ -62,7 +62,7 @@
     "preinstall": "rm -rf node_modules/odiff-bin"
   },
   "workspaces": [
-    "apps/v3",
+    "apps/website",
     "apps/compositions",
     "packages/storybook",
     "packages/pro/packages/*",

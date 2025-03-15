@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef, useState } from 'react'
 
 import { Presence, type PresenceProps } from '@ark-ui/react'

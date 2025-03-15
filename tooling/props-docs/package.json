@@ -33,7 +33,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "glob": "^11.0.0",
+    "glob": "^11.0.1",
     "outdent": "^0.8.0"
   },
   "devDependencies": {

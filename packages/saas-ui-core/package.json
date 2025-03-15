@@ -88,10 +88,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@ark-ui/react": "^4.9.1",
-    "@react-aria/utils": "^3.25.3",
+    "@ark-ui/react": "^5.0.1",
+    "@react-aria/utils": "^3.28.1",
     "@saas-ui/hooks": "workspace:*",
-    "@zag-js/dom-event": "^0.77.1",
+    "@zag-js/dom-event": "^0.80.0",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
@@ -99,7 +99,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "jotai": "^2.10.3",
-    "tsup": "^8.3.5"
+    "jotai": "^2.12.2",
+    "tsup": "^8.4.0"
   }
 }

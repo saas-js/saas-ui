@@ -27,8 +27,8 @@
     "@saas-ui/react": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.0.1",
-    "@testing-library/user-event": "14.5.2",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "14.6.1",
     "@types/jest-axe": "^3.5.9",
     "jest-axe": "^9.0.0",
     "react-test-renderer": "^18.3.1"
@@ -44,8 +44,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^8.4.5",
-    "@storybook/types": "^8.4.5",
+    "@storybook/react": "^8.6.6",
+    "@storybook/types": "^8.6.6",
     "react": "^18.3.1"
   }
 }

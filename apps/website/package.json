@@ -28,6 +28,7 @@
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/charts": "workspace:*",
     "@saas-ui/forms": "workspace:*",
+    "@saas-ui/hooks": "workspace:*",
     "@saas-ui/modals": "workspace:*",
     "@saas-ui/react": "workspace:*",
     "@shikijs/rehype": "3.2.1",

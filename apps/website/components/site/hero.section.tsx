@@ -11,6 +11,7 @@ import {
   Stack,
   Tabs,
 } from '@chakra-ui/react'
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { HiArrowRight } from 'react-icons/hi'
@@ -40,12 +41,18 @@ const ComponentDemos = () => {
           position="relative"
         >
           <Tabs.Content value="crm" height="100%" p="0">
-            <CRMDemo />
+            <ErrorBoundary errorComponent={ErrorFallback}>
+              <CRMDemo />
+            </ErrorBoundary>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs.Root>
     </Container>
   )
+}
+
+function ErrorFallback(props: { error: Error }) {
+  return <div>Error</div>
 }
 
 export const HeroSection = () => (

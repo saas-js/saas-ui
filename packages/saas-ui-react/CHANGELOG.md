@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.1
+
+### Patch Changes
+
+- f13c1ce: Fixed issue where types were not exported with type prefix
+
 ## 3.0.0-next.0
 
 ### Major Changes

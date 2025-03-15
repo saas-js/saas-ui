@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "3.0.0-next.0",
+  "version": "3.0.0-next.1",
   "description": "Saas UI - The React component library for startups.",
   "type": "module",
   "exports": {

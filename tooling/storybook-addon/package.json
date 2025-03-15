@@ -70,7 +70,7 @@
     "@saas-ui/react": "workspace:*",
     "@storybook/types": "^8.6.6",
     "framer-motion": "^11.18.2",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "tsup": "^8.4.0"
   },
   "dependencies": {

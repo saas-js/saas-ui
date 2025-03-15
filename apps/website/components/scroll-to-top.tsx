@@ -1,15 +1,16 @@
-"use client"
+'use client'
 
-import { HStack, Span } from "@chakra-ui/react"
-import { LuArrowUpCircle } from "react-icons/lu"
-import { useScrollPosition } from "../lib/use-scroll-position"
+import { HStack, Span } from '@chakra-ui/react'
+import { LuCircleArrowUp } from 'react-icons/lu'
+
+import { useScrollPosition } from '../lib/use-scroll-position'
 
 export const ScrollToTop = () => {
   const percent = useScrollPosition()
   const show = percent > 0.25
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -22,13 +23,13 @@ export const ScrollToTop = () => {
       cursor="pointer"
       animationDuration="0.2s"
       animationFillMode="forwards"
-      data-state={show ? "open" : "closed"}
-      _open={{ animationName: "fade-in" }}
-      _closed={{ animationName: "fade-out" }}
-      css={{ "& svg": { fontSize: "lg" } }}
+      data-state={show ? 'open' : 'closed'}
+      _open={{ animationName: 'fade-in' }}
+      _closed={{ animationName: 'fade-out' }}
+      css={{ '& svg': { fontSize: 'lg' } }}
     >
       <button onClick={scrollToTop}>
-        <LuArrowUpCircle />
+        <LuCircleArrowUp />
         <Span fontSize="0.8rem">Scroll to top</Span>
       </button>
     </HStack>

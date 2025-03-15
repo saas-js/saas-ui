@@ -26,8 +26,8 @@ import {
 } from '@saas-ui/react'
 import {
   LuActivity,
-  LuBarChart,
   LuBuilding2,
+  LuChartBar,
   LuChevronRight,
   LuListTodo,
   LuPanelLeftClose,
@@ -215,7 +215,7 @@ function AppSidebar() {
                   </Sidebar.NavItem>
                   <Sidebar.NavItem>
                     <Sidebar.NavButton active>
-                      <LuBarChart />
+                      <LuChartBar />
                       Reports
                     </Sidebar.NavButton>
                   </Sidebar.NavItem>

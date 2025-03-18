@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Box, BoxProps, Button, Container, HStack } from '@chakra-ui/react'
 import { Navigation } from './navigation-menu'
 import Logo from './logo'
-import { useScroll } from 'framer-motion'
+import { useScroll, useMotionValueEvent } from 'framer-motion'
 import {
   Banner,
   BannerActions,
@@ -44,9 +44,10 @@ const Header = (props: HeaderProps) => {
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
 
   const { scrollY } = useScroll()
-  React.useEffect(() => {
-    return scrollY.onChange(() => setY(scrollY.get()))
-  }, [scrollY])
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setY(latest)
+  })
 
   return (
     <Box

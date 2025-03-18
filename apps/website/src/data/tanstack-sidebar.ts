@@ -73,14 +73,6 @@ const sidebar = {
           path: '/docs/tanstack-router-starter-kit/authentication/supabase',
         },
         {
-          title: 'Next Auth (deprecated)',
-          path: '/docs/tanstack-router-starter-kit/authentication/authjs',
-        },
-        // {
-        //   title: 'Clerk',
-        //   path: '/docs/tanstack-router-starter-kit/authentication/clerk',
-        // },
-        {
           title: 'Customize auth screens',
           path: '/docs/tanstack-router-starter-kit/authentication/customize-auth-screens',
         },

@@ -226,22 +226,23 @@ const Pricing = () => {
         </VStack>
 
         <Stack mb="14" align="center">
-          <Tabs variant="segments" maxW="lg" index={1}>
+          <Tabs variant="segments" width="full" maxW="xl" index={1}>
             <TabList justifyContent="stretch">
               <Tab
                 as={Link}
                 href="/pricing"
                 alignItems="flex-start"
+                justifyContent="flex-start"
                 height="auto"
                 py="3"
                 px="3"
                 flex="1"
               >
-                <Icon as={FaReact} boxSize="8" me="3" />
+                <Icon as={FaReact} boxSize="6" me="2" />
                 <VStack alignItems="flex-start" spacing="1">
-                  <Text fontSize="sm">React</Text>
+                  <Text>React</Text>
                   <Text size="xs" color="muted" fontWeight="normal">
-                    React component library and Next.js starter kit
+                    React components and starter kits
                   </Text>
                 </VStack>
               </Tab>
@@ -249,16 +250,17 @@ const Pricing = () => {
                 as={Link}
                 href="/pricing/figma"
                 alignItems="flex-start"
+                justifyContent="flex-start"
                 height="auto"
                 py="3"
                 px="3"
                 flex="1"
               >
-                <Icon as={FaFigma} boxSize="8" me="3" />
+                <Icon as={FaFigma} boxSize="6" me="2" />
                 <VStack alignItems="flex-start" spacing="1">
-                  <Text fontSize="sm">Figma</Text>
+                  <Text>Figma</Text>
                   <Text size="xs" color="muted" fontWeight="normal">
-                    Official Figma design system &amp; UI Kit
+                    Figma design system &amp; UI Kit
                   </Text>
                 </VStack>
               </Tab>

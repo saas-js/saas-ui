@@ -106,7 +106,7 @@ async function handleRenewOrder(licenseKey) {
 
 async function handleNewOrder(data: any) {
   const response = await fetch(
-    `https://api.lemonsqueezy.com/v1/orders/${data.id}/customer`,
+    `https://api.lemonsqueezy.com/v1/customers/${data.attributes.customer_id}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.LEMON_API_KEY}`,
@@ -117,7 +117,13 @@ async function handleNewOrder(data: any) {
   )
 
   const customer = await response.json()
-  const attr = customer.data.attributes
+
+  const attr = customer?.attributes
+
+  if (!attr) {
+    console.log('No customer attributes found', customer)
+    return
+  }
 
   const [firstName, ...lastName] = attr.name.split(' ')
 
@@ -126,7 +132,7 @@ async function handleNewOrder(data: any) {
     email: attr.email,
     firstName,
     lastName: lastName.join(' '),
-    license: data.attributes?.first_order_item?.product_name,
+    license: data?.attributes?.first_order_item?.product_name,
   }
 
   fetch('https://app.loops.so/api/v1/events/send', {

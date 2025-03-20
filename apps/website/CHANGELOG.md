@@ -1,5 +1,12 @@
 # @saas-ui/web-v3
 
+## 0.1.1-next.37
+
+### Patch Changes
+
+- Updated dependencies [ab6d489]
+  - @saas-ui/charts@1.0.0-next.1
+
 ## 0.1.1-next.36
 
 ### Patch Changes

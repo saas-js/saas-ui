@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- ab6d489: PieChart inner and outer radius can now be configured
+
 ## 1.0.0-next.0
 
 ### Major Changes

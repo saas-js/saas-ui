@@ -15,6 +15,8 @@ export interface PieChartProps {
   data: Array<Record<string, any>>
   width?: number
   height?: number
+  innerRadius?: number
+  outerRadius?: number
   valueFormatter?: (value: number) => string
   showTooltip?: boolean
   showLabel?: boolean
@@ -28,6 +30,8 @@ export function PieChart(props: PieChartProps) {
   const {
     width = 200,
     height = 200,
+    innerRadius = (width / 2) * 0.7,
+    outerRadius = (width / 2) * 0.98,
     category,
     categoryColors = [],
     data,
@@ -36,9 +40,6 @@ export function PieChart(props: PieChartProps) {
     showLabel,
     tooltipContent,
   } = props
-
-  const innerRadius = (width / 2) * 0.7
-  const outerRadius = (width / 2) * 0.98
 
   const colorTokens = useToken(
     'colors',

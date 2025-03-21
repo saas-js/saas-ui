@@ -4,77 +4,77 @@ const sidebar = {
   routes: [
     {
       title: 'Overview',
-      path: '/docs/nextjs-starter-kit',
+      path: '/docs/tanstack-router-starter-kit',
     },
     {
       title: 'Tech stack',
-      path: '/docs/nextjs-starter-kit/tech-stack',
+      path: '/docs/tanstack-router-starter-kit/tech-stack',
     },
     {
       title: 'Project structure',
-      path: '/docs/nextjs-starter-kit/project-structure',
+      path: '/docs/tanstack-router-starter-kit/project-structure',
     },
     {
       title: 'CLI commands',
-      path: '/docs/nextjs-starter-kit/commands',
+      path: '/docs/tanstack-router-starter-kit/commands',
     },
     {
       title: 'Installation',
-      path: '/docs/nextjs-starter-kit/installation',
+      path: '/docs/tanstack-router-starter-kit/installation',
       open: false,
       heading: true,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starter-kit/installation',
+          path: '/docs/tanstack-router-starter-kit/installation',
         },
         {
           title: 'Clone the repository',
-          path: '/docs/nextjs-starter-kit/installation/clone-repository',
+          path: '/docs/tanstack-router-starter-kit/installation/clone-repository',
         },
         {
           title: 'Run the application',
-          path: '/docs/nextjs-starter-kit/installation/run-application',
+          path: '/docs/tanstack-router-starter-kit/installation/run-application',
         },
         {
           title: 'Using PNPM',
-          path: '/docs/nextjs-starter-kit/installation/using-pnpm',
+          path: '/docs/tanstack-router-starter-kit/installation/using-pnpm',
         },
       ],
     },
     {
       title: 'Configuration',
-      path: '/docs/nextjs-starter-kit/configuration',
+      path: '/docs/tanstack-router-starter-kit/configuration',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Environment variables',
-          path: '/docs/nextjs-starter-kit/configuration/environment-variables',
+          path: '/docs/tanstack-router-starter-kit/configuration/environment-variables',
         },
       ],
     },
     {
       title: 'Authentication',
-      path: '/docs/nextjs-starter-kit/authentication',
+      path: '/docs/tanstack-router-starter-kit/authentication',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starter-kit/authentication',
+          path: '/docs/tanstack-router-starter-kit/authentication',
         },
         {
           title: 'Better auth',
-          path: '/docs/nextjs-starter-kit/authentication/better-auth',
+          path: '/docs/tanstack-router-starter-kit/authentication/better-auth',
         },
         {
           title: 'Supabase',
-          path: '/docs/nextjs-starter-kit/authentication/supabase',
+          path: '/docs/tanstack-router-starter-kit/authentication/supabase',
         },
         {
           title: 'Customize auth screens',
-          path: '/docs/nextjs-starter-kit/authentication/customize-auth-screens',
+          path: '/docs/tanstack-router-starter-kit/authentication/customize-auth-screens',
         },
       ],
     },
@@ -86,193 +86,193 @@ const sidebar = {
       routes: [
         {
           title: 'Configuration',
-          path: '/docs/nextjs-starter-kit/theming/configuration',
+          path: '/docs/tanstack-router-starter-kit/theming/configuration',
         },
         {
           title: 'Fonts',
-          path: '/docs/nextjs-starter-kit/theming/fonts',
+          path: '/docs/tanstack-router-starter-kit/theming/fonts',
         },
         {
           title: 'Logo',
-          path: '/docs/nextjs-starter-kit/theming/logo',
+          path: '/docs/tanstack-router-starter-kit/theming/logo',
         },
       ],
     },
     {
       title: 'API',
-      path: '/docs/nextjs-starter-kit/api',
+      path: '/docs/tanstack-router-starter-kit/api',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starter-kit/api',
+          path: '/docs/tanstack-router-starter-kit/api',
         },
         {
           title: 'Conventions',
-          path: '/docs/nextjs-starter-kit/api/conventions',
+          path: '/docs/tanstack-router-starter-kit/api/conventions',
         },
         {
           title: 'Define procedures',
-          path: '/docs/nextjs-starter-kit/api/define-procedures',
+          path: '/docs/tanstack-router-starter-kit/api/define-procedures',
         },
         {
           title: 'Router context',
-          path: '/docs/nextjs-starter-kit/api/router-context',
+          path: '/docs/tanstack-router-starter-kit/api/router-context',
         },
         {
           title: 'Calling procedures',
-          path: '/docs/nextjs-starter-kit/api/calling-procedures',
+          path: '/docs/tanstack-router-starter-kit/api/calling-procedures',
         },
       ],
     },
     {
       title: 'API procedures',
-      path: '/docs/nextjs-starter-kit/api-procedures',
+      path: '/docs/tanstack-router-starter-kit/api-procedures',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Auth',
-          path: '/docs/nextjs-starter-kit/api-procedures/auth',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/auth',
         },
         {
           title: 'Billing',
-          path: '/docs/nextjs-starter-kit/api-procedures/billing',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/billing',
         },
         {
           title: 'Users',
-          path: '/docs/nextjs-starter-kit/api-procedures/users',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/users',
         },
         {
           title: 'Workspace members',
-          path: '/docs/nextjs-starter-kit/api-procedures/workspace-members',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/workspace-members',
         },
         {
           title: 'Workspaces',
-          path: '/docs/nextjs-starter-kit/api-procedures/workspaces',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/workspaces',
         },
         {
           title: 'Notifications',
-          path: '/docs/nextjs-starter-kit/api-procedures/notifications',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/notifications',
         },
         {
           title: 'Tags',
-          path: '/docs/nextjs-starter-kit/api-procedures/tags',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/tags',
         },
         {
           title: 'Contacts',
-          path: '/docs/nextjs-starter-kit/api-procedures/contacts',
+          path: '/docs/tanstack-router-starter-kit/api-procedures/contacts',
         },
       ],
     },
     {
       title: 'Database',
-      path: '/docs/nextjs-starter-kit/database',
+      path: '/docs/tanstack-router-starter-kit/database',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starter-kit/database',
+          path: '/docs/tanstack-router-starter-kit/database',
         },
         {
           title: 'Migrations',
-          path: '/docs/nextjs-starter-kit/database/migrations',
+          path: '/docs/tanstack-router-starter-kit/database/migrations',
         },
         {
           title: 'Schema',
-          path: '/docs/nextjs-starter-kit/database/schema',
+          path: '/docs/tanstack-router-starter-kit/database/schema',
         },
         {
           title: 'Seed data',
-          path: '/docs/nextjs-starter-kit/database/seed-data',
+          path: '/docs/tanstack-router-starter-kit/database/seed-data',
         },
         {
           title: 'Drizzle Studio',
-          path: '/docs/nextjs-starter-kit/database/studio',
+          path: '/docs/tanstack-router-starter-kit/database/studio',
         },
       ],
     },
     {
       title: 'Development',
-      path: '/docs/nextjs-starter-kit/development',
+      path: '/docs/tanstack-router-starter-kit/development',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Updating dependencies',
-          path: '/docs/nextjs-starter-kit/development/updating-dependencies',
+          path: '/docs/tanstack-router-starter-kit/development/updating-dependencies',
         },
         {
           title: 'Adding pages',
-          path: '/docs/nextjs-starter-kit/development/adding-pages',
+          path: '/docs/tanstack-router-starter-kit/development/adding-pages',
         },
         {
           title: 'Forms and validation',
-          path: '/docs/nextjs-starter-kit/development/forms-and-validation',
+          path: '/docs/tanstack-router-starter-kit/development/forms-and-validation',
         },
         {
           title: 'Error handling',
-          path: '/docs/nextjs-starter-kit/development/error-handling',
+          path: '/docs/tanstack-router-starter-kit/development/error-handling',
         },
       ],
     },
     {
       title: 'Billing',
-      path: '/docs/nextjs-starter-kit/billing',
+      path: '/docs/tanstack-router-starter-kit/billing',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Overview',
-          path: '/docs/nextjs-starter-kit/billing',
+          path: '/docs/tanstack-router-starter-kit/billing',
         },
         {
           title: 'Billing plans',
-          path: '/docs/nextjs-starter-kit/billing/plans',
+          path: '/docs/tanstack-router-starter-kit/billing/plans',
         },
         {
           title: 'Stripe',
-          path: '/docs/nextjs-starter-kit/billing/stripe',
+          path: '/docs/tanstack-router-starter-kit/billing/stripe',
         },
         {
           title: 'Unit based usage',
-          path: '/docs/nextjs-starter-kit/billing/unit-based-usage',
+          path: '/docs/tanstack-router-starter-kit/billing/unit-based-usage',
         },
         {
           title: 'Metered usage',
-          path: '/docs/nextjs-starter-kit/billing/metered-based-usage',
+          path: '/docs/tanstack-router-starter-kit/billing/metered-based-usage',
         },
         {
           title: 'Webhooks',
-          path: '/docs/nextjs-starter-kit/billing/webhooks',
+          path: '/docs/tanstack-router-starter-kit/billing/webhooks',
         },
       ],
     },
     {
       title: 'Deployments',
-      path: '/docs/nextjs-starter-kit/deployments',
+      path: '/docs/tanstack-router-starter-kit/deployments',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Preparation',
-          path: '/docs/nextjs-starter-kit/deployments/preparation',
+          path: '/docs/tanstack-router-starter-kit/deployments/preparation',
         },
         {
           title: 'Deploy to Vercel',
-          path: '/docs/nextjs-starter-kit/deployments/vercel',
+          path: '/docs/tanstack-router-starter-kit/deployments/vercel',
         },
         {
           title: 'Deploy to Netlify',
-          path: '/docs/nextjs-starter-kit/deployments/netlify',
+          path: '/docs/tanstack-router-starter-kit/deployments/netlify',
         },
       ],
     },
     // {
     //   title: 'Troubleshooting',
-    //   path: '/docs/nextjs-starter-kit/troubleshooting',
+    //   path: '/docs/tanstack-router-starter-kit/troubleshooting',
     //   heading: true,
     //   open: false,
     //   routes: [
@@ -286,17 +286,17 @@ const sidebar = {
     // },
     {
       title: 'Contributing',
-      path: '/docs/nextjs-starter-kit/contributing',
+      path: '/docs/tanstack-router-starter-kit/contributing',
       heading: true,
       open: false,
       routes: [
         {
           title: 'Report bugs or feature requests',
-          path: '/docs/nextjs-starter-kit/contributing/bugs-and-feature-requests',
+          path: '/docs/tanstack-router-starter-kit/contributing/bugs-and-feature-requests',
         },
         {
           title: 'Contribute to the project',
-          path: '/docs/nextjs-starter-kit/contributing/contributing',
+          path: '/docs/tanstack-router-starter-kit/contributing/contributing',
         },
       ],
     },

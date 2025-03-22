@@ -14,12 +14,17 @@ export {
   defineTextStyles,
   defineTokens,
   chakra,
+  useRecipe,
+  useSlotRecipe,
+  useChakraContext,
+  useToken,
 } from '@chakra-ui/react/styled-system'
 export type {
   RecipeProps,
   SlotRecipeProps,
   RecipeDefinition,
   SlotRecipeDefinition,
+  HTMLChakraProps,
 } from '@chakra-ui/react/styled-system'
 
 export { SuiProvider, SuiContext, useLink, useSui } from './provider/index.ts'

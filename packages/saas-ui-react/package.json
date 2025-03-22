@@ -11,10 +11,10 @@
       "import": "./dist/index.js"
     },
     "./preset": {
-      "sui": "./src/theme/index.ts",
-      "types": "./dist/theme/index.d.ts",
-      "require": "./dist/theme/index.cjs",
-      "import": "./dist/theme/index.js"
+      "sui": "./src/preset.ts",
+      "types": "./dist/preset.d.ts",
+      "require": "./dist/preset.cjs",
+      "import": "./dist/preset.js"
     },
     "./preset/colors": {
       "sui": "./src/theme/tokens/colors.ts",
@@ -38,7 +38,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts",
+    "build": "NODE_OPTIONS='--max-old-space-size=24384' tsup --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

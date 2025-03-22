@@ -19,6 +19,10 @@ export {
   type BadgeProps,
 } from './components/badge/index.ts'
 export {
+  BackButton,
+  type BackButtonProps,
+} from './components/back-button/index.ts'
+export {
   Blockquote,
   type BlockquoteProps,
 } from './components/blockquote/index.ts'
@@ -102,6 +106,7 @@ export {
   type NumberInputProps,
 } from './components/number-input/index.ts'
 export { Menu } from './components/menu/index.ts'
+export { Page, usePageStyles } from './components/page/index.ts'
 export { Pagination } from './components/pagination/index.ts'
 export {
   PasswordInput,

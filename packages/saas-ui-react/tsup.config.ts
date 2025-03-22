@@ -16,6 +16,7 @@ export default defineConfig({
   ...config,
   entry: [
     'src/index.ts',
+    'src/preset.ts',
     'src/theme/tokens/colors.ts',
     'src/components/**/index.ts',
   ],

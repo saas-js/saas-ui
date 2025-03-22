@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 3.0.0-next.2
+
+### Minor Changes
+
+- ec22a57: Re-export all remaining Chakra UI components
+- 928abff: Added Page and BackButton component
+
+### Patch Changes
+
+- 26f5452: Added /preset export that exports the Chakra UI preset
+
 ## 3.0.0-next.1
 
 ### Patch Changes

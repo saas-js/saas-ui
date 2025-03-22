@@ -1,2 +1,2 @@
-export { Radio, RadioGroup } from './radio'
-export type { RadioProps, RadioGroupProps } from './radio'
+export { Radio } from './radio'
+export type { RadioProps } from './radio'

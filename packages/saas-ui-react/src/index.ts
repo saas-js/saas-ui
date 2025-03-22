@@ -115,22 +115,18 @@ export {
 export {
   Persona,
   PersonaAvatar,
-  type Presence,
+  type PersonaPresence,
   type PersonaAvatarProps,
-  type PresenceConfig,
+  type PersonaPresenceConfig,
   type PersonaProps,
-  defaultPresenceOptions,
+  defaultPersonaPresenceOptions,
 } from './components/persona/index.ts'
 export { PinInput, type PinInputProps } from './components/pin-input/index.ts'
 export { Popover } from './components/popover/index.ts'
 export { Progress } from './components/progress/index.ts'
 export { ProgressCircle } from './components/progress-circle/index.ts'
-export {
-  Radio,
-  RadioGroup,
-  type RadioGroupProps,
-  type RadioProps,
-} from './components/radio/index.ts'
+export { Radio, type RadioProps } from './components/radio/index.ts'
+export { RadioGroup } from './components/radio-group/index.ts'
 export { RadioCard } from './components/radio-card/index.ts'
 export { RatingGroup } from './components/rating-group/index.ts'
 export {
@@ -182,3 +178,57 @@ export {
   ToggleTip,
   type ToggleTipProps,
 } from './components/toggle-tip/index.ts'
+
+export {
+  AspectRatio,
+  type AspectRatioProps,
+} from './components/aspect-ratio/index.ts'
+
+export { Bleed, type BleedProps } from './components/bleed/index.ts'
+
+export { Box, type BoxProps } from '@chakra-ui/react/box'
+export { Center, type CenterProps } from '@chakra-ui/react/center'
+export { ClientOnly } from '@chakra-ui/react/client-only'
+export { ColorPicker } from '@chakra-ui/react/color-picker'
+export { ColorSwatch } from '@chakra-ui/react/color-swatch'
+export {
+  type EnvironmentContext,
+  EnvironmentProvider,
+  type EnvironmentProviderProps,
+  type RootNode,
+  useEnvironmentContext,
+} from '@chakra-ui/react/env'
+export { Float } from '@chakra-ui/react/float'
+export { FocusTrap } from '@chakra-ui/react/focus-trap'
+export {
+  FormatByte,
+  type FormatByteProps,
+  FormatNumber,
+  type FormatNumberProps,
+} from '@chakra-ui/react/format'
+export { Grid, type GridProps } from '@chakra-ui/react/grid'
+export { Group } from '@chakra-ui/react/group'
+export { Highlight } from '@chakra-ui/react/highlight'
+export {
+  LocaleProvider,
+  type LocaleProviderProps,
+  useLocaleContext,
+} from '@chakra-ui/react/locale'
+export { Portal } from '@chakra-ui/react/portal'
+export { Presence, type PresenceProps } from '@chakra-ui/react/presence'
+export { QrCode } from '@chakra-ui/react/qr-code'
+export { Show } from '@chakra-ui/react/show'
+export { Spacer } from '@chakra-ui/react/spacer'
+export { Stack, type StackProps } from '@chakra-ui/react/stack'
+export { Toggle } from '@chakra-ui/react/toggle'
+export {
+  Em,
+  type EmProps,
+  Strong,
+  type StrongProps,
+  Text,
+  type TextProps,
+  TextPropsProvider,
+} from '@chakra-ui/react/typography'
+export { VisuallyHidden } from '@chakra-ui/react/visually-hidden'
+export { Wrap, type WrapProps } from '@chakra-ui/react/wrap'

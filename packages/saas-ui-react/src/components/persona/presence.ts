@@ -1,13 +1,13 @@
-export type Presence = 'online' | 'offline' | 'busy' | 'dnd' | 'away'
+export type PersonaPresence = 'online' | 'offline' | 'busy' | 'dnd' | 'away'
 
-export interface PresenceConfig {
+export interface PersonaPresenceConfig {
   label: string
   color: string
 }
 
-export type PresenceOptions<P extends string = Presence> = Record<
+export type PersonaPresenceOptions<P extends string = PersonaPresence> = Record<
   P,
-  PresenceConfig
+  PersonaPresenceConfig
 >
 
 /**
@@ -23,7 +23,7 @@ export type PresenceOptions<P extends string = Presence> = Record<
  *
  * @see Docs https://saas-ui.dev/docs/components/data-display/persona
  */
-export const defaultPresenceOptions: PresenceOptions = {
+export const defaultPersonaPresenceOptions: PersonaPresenceOptions = {
   online: {
     label: 'Online',
     color: 'presence.online',

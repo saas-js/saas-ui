@@ -1,7 +1,7 @@
 import { radioGroupAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
-import { radiomarkRecipe } from './radiomark.recipe.ts'
+import { radiomarkRecipe } from '../radio/radiomark.recipe.ts'
 
 export const radioGroupSlotRecipe = defineSlotRecipe({
   className: 'chakra-radio-group',

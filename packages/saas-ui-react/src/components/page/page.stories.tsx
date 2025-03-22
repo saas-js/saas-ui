@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Box, type BoxProps, Button, Text } from '@chakra-ui/react'
 import type { Meta } from '@storybook/react'
 
@@ -48,15 +50,16 @@ export const Basic = {
   ),
 }
 
-export const WithToolbar = {
+export const WithActions = {
   render: () => (
     <Page.Root>
       <Page.Header
         title="Page with toolbar"
         actions={
-          <Toolbar>
-            <ToolbarButton label="Save" colorScheme="white" variant="subtle" />
-          </Toolbar>
+          <ButtonGroup>
+            <Button variant="primary">Save</Button>
+            <Button variant="secondary">Cancel</Button>
+          </ButtonGroup>
         }
       />
       <Page.Body>
@@ -102,34 +105,6 @@ export const WithLoading = {
   ),
 }
 
-export const VariantHero = {
-  render: () => (
-    <Page.Root variant="hero" colorScheme="purple">
-      <Page.Header
-        title="Analytics"
-        description={
-          <Page.Description maxW="400px">
-            Get detailed analytics to measure and analyze how users engage with
-            your apps description
-          </Page.Description>
-        }
-        actions={
-          <Toolbar>
-            <ToolbarButton
-              label="Upgrade"
-              colorScheme="white"
-              variant="subtle"
-            />
-          </Toolbar>
-        }
-      />
-      <Page.Body>
-        <PageContent />
-      </Page.Body>
-    </Page.Root>
-  ),
-}
-
 export const VariantSettings = {
   render: () => (
     <Page.Root variant="settings">
@@ -141,16 +116,16 @@ export const VariantSettings = {
   ),
 }
 
-export const SettingsWithToolbar = {
+export const SettingsWithActions = {
   render: () => (
     <Page.Root variant="settings">
       <Page.Header
         title="Settings page"
         description="Manage your settings"
         actions={
-          <Toolbar>
+          <ButtonGroup>
             <Button variant="primary">Save</Button>
-          </Toolbar>
+          </ButtonGroup>
         }
       />
       <Page.Body>

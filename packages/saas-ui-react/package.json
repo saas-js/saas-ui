@@ -10,7 +10,13 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     },
-    "./theme/colors": {
+    "./preset": {
+      "sui": "./src/theme/index.ts",
+      "types": "./dist/theme/index.d.ts",
+      "require": "./dist/theme/index.cjs",
+      "import": "./dist/theme/index.js"
+    },
+    "./preset/colors": {
       "sui": "./src/theme/tokens/colors.ts",
       "types": "./dist/theme/tokens/colors.d.ts",
       "require": "./dist/theme/tokens/colors.cjs",

@@ -1,5 +1,26 @@
 export { defaultSystem, defaultConfig } from './preset.ts'
-export { createSystem } from '@chakra-ui/react'
+export {
+  createSystem,
+  defineAnimationStyles,
+  defineConditions,
+  defineConfig,
+  defineGlobalStyles,
+  defineKeyframes,
+  defineLayerStyles,
+  defineRecipe,
+  defineSemanticTokens,
+  defineSlotRecipe,
+  defineStyle,
+  defineTextStyles,
+  defineTokens,
+  chakra,
+} from '@chakra-ui/react/styled-system'
+export type {
+  RecipeProps,
+  SlotRecipeProps,
+  RecipeDefinition,
+  SlotRecipeDefinition,
+} from '@chakra-ui/react/styled-system'
 
 export { SuiProvider, SuiContext, useLink, useSui } from './provider/index.ts'
 export type { SuiContextValue, SuiProviderProps } from './provider/index.ts'
@@ -206,14 +227,21 @@ export {
   type FormatNumberProps,
 } from './components/format/index.ts'
 export { Grid, type GridProps } from './components/grid/index.ts'
-export { Group } from './components/group/index.ts'
-export { Highlight } from './components/highlight/index.ts'
-export { Portal } from './components/portal/index.ts'
+export { Group, type GroupProps } from './components/group/index.ts'
+export { Highlight, type HighlightProps } from './components/highlight/index.ts'
+export { Portal, type PortalProps } from './components/portal/index.ts'
 export { Presence, type PresenceProps } from './components/presence/index.ts'
 export { QrCode } from './components/qr-code/index.ts'
-export { Show } from './components/show/index.ts'
-export { Spacer } from './components/spacer/index.ts'
-export { Stack, type StackProps } from './components/stack/index.ts'
+export { Show, type ShowProps } from './components/show/index.ts'
+export { Spacer, type SpacerProps } from './components/spacer/index.ts'
+export {
+  Stack,
+  type StackProps,
+  HStack,
+  VStack,
+  StackSeparator,
+  type StackSeparatorProps,
+} from './components/stack/index.ts'
 export { Toggle } from './components/toggle/index.ts'
 export {
   Em,

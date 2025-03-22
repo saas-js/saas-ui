@@ -81,14 +81,12 @@ export {
   InputAddon,
   InputElement,
   InputPropsProvider,
+  InputGroup,
   type InputAddonProps,
   type InputElementProps,
+  type InputGroupProps,
   type InputProps,
 } from './components/input/index.ts'
-export {
-  InputGroup,
-  type InputGroupProps,
-} from './components/input-group/index.ts'
 export { InfoTip, type InfoTipProps } from './components/info-tip/index.ts'
 export { Kbd, type KbdProps } from './components/kbd/index.ts'
 export { Link, type LinkProps } from './components/link/index.ts'
@@ -155,8 +153,10 @@ export {
 } from './components/sidebar/index.ts'
 export {
   SkipNavLink,
+  type SkipNavLinkProps,
   SkipNavContent,
-} from './components/skip-nav-link/index.ts'
+  type SkipNavContentProps,
+} from './components/skip-nav/index.ts'
 export { Slider, type SliderProps } from './components/slider/index.ts'
 export { Spinner, type SpinnerProps } from './components/spinner/index.ts'
 export { Status, type StatusProps } from './components/status/index.ts'

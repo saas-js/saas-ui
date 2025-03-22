@@ -10,14 +10,15 @@ import {
   createListCollection,
 } from '@chakra-ui/react'
 import { Checkbox, type CheckboxProps } from '@saas-ui/react/checkbox'
-import { InputGroup } from '@saas-ui/react/input-group'
+import { InputGroup } from '@saas-ui/react/input'
 import { NumberInput, type NumberInputProps } from '@saas-ui/react/number-input'
 import {
   PasswordInput,
   type PasswordInputProps,
 } from '@saas-ui/react/password-input'
 import { PinInput, type PinInputProps } from '@saas-ui/react/pin-input'
-import { Radio, RadioGroup, type RadioGroupProps } from '@saas-ui/react/radio'
+import { Radio } from '@saas-ui/react/radio'
+import { RadioGroup } from '@saas-ui/react/radio-group'
 import { Select } from '@saas-ui/react/select'
 import { Switch, type SwitchProps } from '@saas-ui/react/switch'
 
@@ -171,7 +172,7 @@ export const CheckboxField = createField<HTMLInputElement, CheckboxFieldProps>(
   },
 )
 
-export interface RadioFieldProps extends RadioGroupProps {
+export interface RadioFieldProps extends RadioGroup.RootProps {
   type: 'radio'
   options: FieldOptions
   flexDirection?: SystemStyleObject['flexDirection']
@@ -182,7 +183,7 @@ export const RadioField = createField<HTMLInputElement, RadioFieldProps>(
   (props, ref) => {
     const { options, onChange, flexDirection = 'column', gap, ...rest } = props
     return (
-      <RadioGroup
+      <RadioGroup.Root
         ref={ref}
         onValueChange={({ value }) => {
           onChange?.(value)
@@ -196,7 +197,7 @@ export const RadioField = createField<HTMLInputElement, RadioFieldProps>(
             </Radio>
           ))}
         </Stack>
-      </RadioGroup>
+      </RadioGroup.Root>
     )
   },
   {

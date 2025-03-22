@@ -1,5 +1,3 @@
-'use client'
-
 import { forwardRef, useMemo } from 'react'
 
 import {
@@ -16,6 +14,8 @@ import {
   ChevronRightIcon,
   EllipsisIcon,
 } from '#components/icons/icons.tsx'
+
+;('use client')
 
 interface ButtonVariantMap {
   current: ButtonProps['variant']

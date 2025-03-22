@@ -6,10 +6,9 @@ import {
   type HTMLChakraProps,
   type SlotRecipeProps,
   chakra,
-  useSlotRecipe,
 } from '@chakra-ui/react'
-import { LoadingOverlay } from '@saas-ui/react/loading-overlay'
 
+import { LoadingOverlay } from '../loading-overlay/index.ts'
 import {
   PageProvider,
   useClassNames,
@@ -102,10 +101,6 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
 
     return (
       <chakra.header ref={ref} css={css} {...rest} className={props.className}>
-        {/* <chakra.div
-          css={styles.headerContent}
-          className={classNames.headerContent}
-        > */}
         {React.isValidElement(nav)
           ? React.cloneElement(nav, {
               gridArea: 'nav',
@@ -117,7 +112,6 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
               gridArea: 'actions',
             } as any)
           : null}
-        {/* </chakra.div> */}
 
         {React.isValidElement(footer)
           ? React.cloneElement(footer, {

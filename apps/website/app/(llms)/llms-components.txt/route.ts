@@ -5,9 +5,13 @@ export const dynamic = "force-static"
 
 export async function GET() {
   let content =
-    "<SYSTEM>This is the full developer documentation for Chakra UI v3.</SYSTEM>\n\n"
+    "<SYSTEM>Documentation for all components in Chakra UI v3.</SYSTEM>\n\n"
 
-  for (const doc of docs) {
+  const componentDocs = docs.filter((doc) =>
+    doc.slug.startsWith("docs/components"),
+  )
+
+  for (const doc of componentDocs) {
     if (!doc.llm || doc.llm?.length === 0) continue
     const llm = cleanupContent(doc.llm)
     content += `# ${doc.title}\n\n${llm}\n\n`

@@ -11,7 +11,7 @@ import { dataAttr } from '@saas-ui/core/utils'
 import { Avatar, type AvatarProps } from '../avatar/avatar.tsx'
 import { withContext, withProvider } from './persona.context.ts'
 import type { PersonaVariantProps } from './persona.recipe.ts'
-import type { Presence } from './presence.ts'
+import type { PersonaPresence } from './presence.ts'
 
 interface PersonaRootProps
   extends HTMLChakraProps<'div'>,
@@ -24,7 +24,7 @@ interface PersonaRootProps
   /**
    * The presence status of the person
    */
-  presence?: Presence
+  presence?: PersonaPresence
 }
 
 /**

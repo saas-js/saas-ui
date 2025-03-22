@@ -1,13 +1,36 @@
+import { getBaseUrl } from '../shared'
+
+export const dynamic = 'force-static'
+
 export const GET = async () => {
-  const baseUrl =
-    process.env.VERCEL_URL ?? process.env.HOST ?? 'http://localhost:3000'
+  const baseUrl = getBaseUrl()
 
   const documentSets = [
     {
       title: 'Complete documentation',
       href: `${baseUrl}/llms-full.txt`,
       description:
-        'The complete Saas UI v3 documentation including all components, styling, theming and cli',
+        'The complete Saas UI v3 documentation including all components, styling and theming',
+    },
+    {
+      title: 'Components',
+      href: `${baseUrl}/llms-components.txt`,
+      description: 'Documentation for all components in Saas UI v3.',
+    },
+    {
+      title: 'Styling',
+      href: `${baseUrl}/llms-styling.txt`,
+      description: 'Documentation for the styling system in Saas UI v3.',
+    },
+    {
+      title: 'Theming',
+      href: `${baseUrl}/llms-theming.txt`,
+      description: 'Documentation for theming Saas UI v3.',
+    },
+    {
+      title: 'Migrating to v3',
+      href: `${baseUrl}/llms-v3-migration.txt`,
+      description: 'Documentation for migrating to Saas UI v3.',
     },
   ]
 
@@ -24,7 +47,7 @@ export const GET = async () => {
 const TEMPLATE = `
 # Saas UI v3 Documentation for LLMs
 
-> Saas UI is a React UI library for building B2B tools and SaaS applications. It's a modern, feature-rich, and easy-to-use library that helps you build beautiful and responsive web applications quickly.
+> Saas UI is a design system and component library for building high tier B2B SaaS products.
 
 ## Documentation Sets
 

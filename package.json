@@ -107,7 +107,8 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "@emotion/react": "11.11.1",
-    "@chakra-ui/react": "3.12.0"
+    "@chakra-ui/react": "3.13.0",
+    "@ark-ui/react": "5.1.0"
   },
   "packageManager": "yarn@4.6.0"
 }

@@ -9,10 +9,7 @@ import {
   IconButton,
   type IconButtonProps,
 } from '#components/icon-button/index.ts'
-import {
-  InputGroup,
-  type InputGroupProps,
-} from '#components/input-group/index.ts'
+import { InputGroup, type InputGroupProps } from '#components/input/index.ts'
 import { Input, type InputProps } from '#components/input/index.ts'
 
 export interface PasswordInputProps

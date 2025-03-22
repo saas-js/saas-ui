@@ -3,9 +3,9 @@
 import { forwardRef } from 'react'
 
 import { type ButtonProps, IconButton } from '@chakra-ui/react'
-import { Link } from '@saas-ui/react'
 
 import { ArrowLeftIcon } from '../icons/icons.tsx'
+import { Link } from '../link/index.ts'
 
 export interface BackButtonProps extends ButtonProps {
   'aria-label'?: string

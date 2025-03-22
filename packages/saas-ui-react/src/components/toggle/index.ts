@@ -1,4 +1,1 @@
-export {
-  Toggle,
-  type ToggleProps,
-} from '@chakra-ui/react/toggle'
+export { Toggle } from '@chakra-ui/react/toggle'

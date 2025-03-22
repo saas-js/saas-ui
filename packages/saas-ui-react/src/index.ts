@@ -112,6 +112,7 @@ export { Fieldset, useFieldsetContext } from './components/fieldset/index.ts'
 export { GridList } from './components/grid-list/index.ts'
 export { Heading, type HeadingProps } from './components/heading/index.ts'
 export { HoverCard } from './components/hover-card/index.ts'
+export { createIcon } from './components/icons/create-icon.tsx'
 export { Icon, type IconProps } from './components/icon/index.ts'
 export { IconBadge } from './components/icon-badge/index.ts'
 export {

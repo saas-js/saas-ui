@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Popover } from '#components/popover'
+import { Portal } from '#components/portal'
 
 export interface ToggleTipProps extends Popover.RootProps {
   /**
@@ -42,18 +43,19 @@ export const ToggleTip = React.forwardRef<HTMLDivElement, ToggleTipProps>(
       <Popover.Root {...rest} positioning={{ ...rest.positioning, gutter: 4 }}>
         <Popover.Trigger asChild>{children}</Popover.Trigger>
 
-        <Popover.Content
-          width="auto"
-          px="2"
-          py="1"
-          textStyle="xs"
-          rounded="sm"
-          portalled={portalled}
-          ref={ref}
-        >
-          {showArrow && <Popover.Arrow />}
-          {content}
-        </Popover.Content>
+        <Portal disabled={!portalled} container={portalRef}>
+          <Popover.Content
+            width="auto"
+            px="2"
+            py="1"
+            textStyle="xs"
+            rounded="sm"
+            ref={ref}
+          >
+            {showArrow && <Popover.Arrow />}
+            {content}
+          </Popover.Content>
+        </Portal>
       </Popover.Root>
     )
   },

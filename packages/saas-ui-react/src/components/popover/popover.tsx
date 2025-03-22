@@ -1,34 +1,17 @@
-import { type RefObject, forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react/popover'
-import { Portal } from '@chakra-ui/react/portal'
 
 import { CloseButton as CloseButtonBase } from '#components/close-button/index.ts'
 
-export interface ContentProps extends ChakraPopover.ContentProps {
-  portalled?: boolean
-  portalRef?: RefObject<HTMLElement>
-}
+export interface ContentProps extends ChakraPopover.ContentProps {}
 
 export const Content = forwardRef<HTMLDivElement, ContentProps>(
   function PopoverContent(props, ref) {
-    // TODO: fix this, somehow the experimental dts build fails when deconstructing props
-    const portalled = props.portalled ?? false
-    const portalRef = props.portalRef ?? undefined
-    const children = props.children ?? null
-
-    delete props.portalled
-    delete props.portalRef
-    delete props.children
-
     return (
-      <Portal disabled={!portalled} container={portalRef}>
-        <ChakraPopover.Positioner>
-          <ChakraPopover.Content ref={ref} {...props}>
-            {children}
-          </ChakraPopover.Content>
-        </ChakraPopover.Positioner>
-      </Portal>
+      <ChakraPopover.Positioner>
+        <ChakraPopover.Content ref={ref} {...props} />
+      </ChakraPopover.Positioner>
     )
   },
 )

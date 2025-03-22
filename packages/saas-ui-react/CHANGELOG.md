@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 3.0.0-next.8
+
+### Patch Changes
+
+- Fix Popover props
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Export createIcon
+
 ## 3.0.0-next.6
 
 ### Patch Changes

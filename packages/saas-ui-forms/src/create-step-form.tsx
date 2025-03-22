@@ -74,6 +74,7 @@ export function createStepForm<
   const StepForm = forwardRef<HTMLFormElement, any>((props, ref) => {
     const { children, steps, ...rest } = props
 
+    // @ts-expect-error
     const stepper = useStepForm({
       // resolver: resolver(props),
       // fieldResolver: fieldResolver(,

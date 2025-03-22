@@ -1,29 +1,39 @@
-import * as React from 'react'
+import { type RefObject, forwardRef } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react/popover'
 import { Portal } from '@chakra-ui/react/portal'
 
-import { CloseButton as CloseButtonBase } from '#components/close-button'
+import { CloseButton as CloseButtonBase } from '#components/close-button/index.ts'
 
-interface ContentProps extends ChakraPopover.ContentProps {
+export interface ContentProps extends ChakraPopover.ContentProps {
   portalled?: boolean
-  portalRef?: React.RefObject<HTMLElement>
+  portalRef?: RefObject<HTMLElement>
 }
 
-export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
+export const Content = forwardRef<HTMLDivElement, ContentProps>(
   function PopoverContent(props, ref) {
-    const { portalled = true, portalRef, ...rest } = props
+    // TODO: fix this, somehow the experimental dts build fails when deconstructing props
+    const portalled = props.portalled ?? false
+    const portalRef = props.portalRef ?? undefined
+    const children = props.children ?? null
+
+    delete props.portalled
+    delete props.portalRef
+    delete props.children
+
     return (
       <Portal disabled={!portalled} container={portalRef}>
         <ChakraPopover.Positioner>
-          <ChakraPopover.Content ref={ref} {...rest} />
+          <ChakraPopover.Content ref={ref} {...props}>
+            {children}
+          </ChakraPopover.Content>
         </ChakraPopover.Positioner>
       </Portal>
     )
   },
 )
 
-export const Arrow = React.forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
+export const Arrow = forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
   function PopoverArrow(props, ref) {
     return (
       <ChakraPopover.Arrow {...props} ref={ref}>
@@ -33,7 +43,7 @@ export const Arrow = React.forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
   },
 )
 
-export const CloseButton = React.forwardRef<
+export const CloseButton = forwardRef<
   HTMLButtonElement,
   ChakraPopover.CloseTriggerProps
 >(function PopoverCloseTrigger(props, ref) {
@@ -60,5 +70,6 @@ export const Header = ChakraPopover.Header
 export const Root = ChakraPopover.Root
 export const Body = ChakraPopover.Body
 export const Trigger = ChakraPopover.Trigger
+export const Context = ChakraPopover.Context
 
 export type RootProps = ChakraPopover.RootProps

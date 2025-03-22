@@ -14,16 +14,6 @@ export type { DrawerProps } from './drawer'
 export { Modal } from './modal'
 export type { ModalProps } from './modal'
 
-// Exporting from './form'
-// export { FormDialog, createFormDialog } from './form'
-// export type {
-//   DefaultFormType,
-//   FormDialogFieldOverrides,
-//   FormDialogProps,
-// } from './form'
-
-// Exporting from './provider'
-
 const { useModals, ModalsProvider } = createModals({
   modals: defaultModals,
 })

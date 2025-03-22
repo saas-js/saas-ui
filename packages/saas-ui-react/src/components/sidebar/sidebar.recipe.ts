@@ -80,6 +80,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       fontSize: 'xs',
       transitionProperty: 'common',
       transitionDuration: 'fast',
+      // @ts-expect-error
       _groupCollapsible: {
         cursor: 'button',
         userSelect: 'none',

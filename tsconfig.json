@@ -1,3 +1,17 @@
 {
-  "include": []
+  "include": [],
+  "references": [
+    {
+      "path": "./packages/saas-ui-core/tsconfig.json"
+    },
+    {
+      "path": "./packages/saas-ui-react/tsconfig.json"
+    },
+    {
+      "path": "./packages/saas-ui-forms/tsconfig.json"
+    },
+    {
+      "path": "./packages/saas-ui-modals/tsconfig.json"
+    }
+  ]
 }

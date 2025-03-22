@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.1
+
+### Patch Changes
+
+- 860649d: Improved build speed and output
+
 ## 3.0.0-next.0
 
 ### Major Changes

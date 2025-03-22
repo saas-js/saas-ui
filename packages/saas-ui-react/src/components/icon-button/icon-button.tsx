@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { Button, type ButtonProps } from '#components/button'
+import { Button, type ButtonProps } from '#components/button/index.ts'
 
 export interface IconButtonProps extends ButtonProps {}
 

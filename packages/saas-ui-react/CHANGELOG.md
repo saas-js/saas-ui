@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-next.3
+
+### Patch Changes
+
+- 860649d: Improved build speed and output
+- Updated dependencies [860649d]
+  - @saas-ui/core@3.0.0-next.1
+
 ## 3.0.0-next.2
 
 ### Minor Changes

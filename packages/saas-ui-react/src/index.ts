@@ -185,42 +185,36 @@ export {
 } from './components/aspect-ratio/index.ts'
 
 export { Bleed, type BleedProps } from './components/bleed/index.ts'
-
-export { Box, type BoxProps } from '@chakra-ui/react/box'
-export { Center, type CenterProps } from '@chakra-ui/react/center'
-export { ClientOnly } from '@chakra-ui/react/client-only'
-export { ColorPicker } from '@chakra-ui/react/color-picker'
-export { ColorSwatch } from '@chakra-ui/react/color-swatch'
+export { Box, type BoxProps } from './components/box/index.ts'
+export { Center, type CenterProps } from './components/center/index.ts'
+export { ClientOnly } from './components/client-only/index.ts'
+export { ColorPicker } from './components/color-picker/index.ts'
+export { ColorSwatch } from './components/color-swatch/index.ts'
 export {
   type EnvironmentContext,
   EnvironmentProvider,
   type EnvironmentProviderProps,
   type RootNode,
   useEnvironmentContext,
-} from '@chakra-ui/react/env'
-export { Float } from '@chakra-ui/react/float'
-export { FocusTrap } from '@chakra-ui/react/focus-trap'
+} from './components/env/index.ts'
+export { Float } from './components/float/index.ts'
+export { FocusTrap } from './components/focus-trap/index.ts'
 export {
   FormatByte,
   type FormatByteProps,
   FormatNumber,
   type FormatNumberProps,
-} from '@chakra-ui/react/format'
-export { Grid, type GridProps } from '@chakra-ui/react/grid'
-export { Group } from '@chakra-ui/react/group'
-export { Highlight } from '@chakra-ui/react/highlight'
-export {
-  LocaleProvider,
-  type LocaleProviderProps,
-  useLocaleContext,
-} from '@chakra-ui/react/locale'
-export { Portal } from '@chakra-ui/react/portal'
-export { Presence, type PresenceProps } from '@chakra-ui/react/presence'
-export { QrCode } from '@chakra-ui/react/qr-code'
-export { Show } from '@chakra-ui/react/show'
-export { Spacer } from '@chakra-ui/react/spacer'
-export { Stack, type StackProps } from '@chakra-ui/react/stack'
-export { Toggle } from '@chakra-ui/react/toggle'
+} from './components/format/index.ts'
+export { Grid, type GridProps } from './components/grid/index.ts'
+export { Group } from './components/group/index.ts'
+export { Highlight } from './components/highlight/index.ts'
+export { Portal } from './components/portal/index.ts'
+export { Presence, type PresenceProps } from './components/presence/index.ts'
+export { QrCode } from './components/qr-code/index.ts'
+export { Show } from './components/show/index.ts'
+export { Spacer } from './components/spacer/index.ts'
+export { Stack, type StackProps } from './components/stack/index.ts'
+export { Toggle } from './components/toggle/index.ts'
 export {
   Em,
   type EmProps,
@@ -228,7 +222,6 @@ export {
   type StrongProps,
   Text,
   type TextProps,
-  TextPropsProvider,
-} from '@chakra-ui/react/typography'
-export { VisuallyHidden } from '@chakra-ui/react/visually-hidden'
-export { Wrap, type WrapProps } from '@chakra-ui/react/wrap'
+} from './components/typography/index.ts'
+export { VisuallyHidden } from './components/visually-hidden/index.ts'
+export { Wrap, type WrapProps } from './components/wrap/index.ts'

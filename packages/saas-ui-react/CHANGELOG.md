@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Export hooks
+
 ## 3.0.0-next.5
 
 ### Patch Changes

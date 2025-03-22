@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/compositions",
-  "version": "1.0.1-next.5",
+  "version": "1.0.1-next.6",
   "description": "Registry for component compositions",
   "scripts": {
     "typecheck": "tsc --noEmit"

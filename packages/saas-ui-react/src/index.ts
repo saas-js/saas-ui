@@ -1,4 +1,5 @@
 export { defaultSystem, defaultConfig } from './preset.ts'
+
 export {
   createSystem,
   defineAnimationStyles,
@@ -26,6 +27,22 @@ export type {
   SlotRecipeDefinition,
   HTMLChakraProps,
 } from '@chakra-ui/react/styled-system'
+
+export {
+  useMediaQuery,
+  useBreakpoint,
+  useBreakpointValue,
+  useControllableState,
+  useDisclosure,
+} from '@chakra-ui/react'
+
+export type {
+  UseDisclosureProps,
+  UseDisclosureReturn,
+  UseControllableStateProps,
+  UseBreakpointOptions,
+  UseBreakpointValueOptions,
+} from '@chakra-ui/react'
 
 export { SuiProvider, SuiContext, useLink, useSui } from './provider/index.ts'
 export type { SuiContextValue, SuiProviderProps } from './provider/index.ts'

@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.4
+
+### Patch Changes
+
+- e86d242: Export Chakra UI styled system utilities
+
 ## 3.0.0-next.3
 
 ### Patch Changes

@@ -7,9 +7,8 @@ import { useLink } from '../../provider/use-link.tsx'
 import { withContext, withProvider } from './navbar.context.ts'
 
 interface NavbarRootProps
-  extends Navbar.RootProps,
-    SlotRecipeProps<'suiNavbar'>,
-    Omit<HTMLChakraProps<'div'>, keyof Navbar.RootProps> {}
+  extends SlotRecipeProps<'suiNavbar'>,
+    HTMLChakraProps<'div', Navbar.RootProps> {}
 
 const NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(
   Navbar.Root,
@@ -26,12 +25,12 @@ const NavbarContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   'content',
 )
 
-const NavbarItem = withContext<HTMLLIElement, HTMLChakraProps<'li'>>(
-  Navbar.Item,
-  'item',
-)
+const NavbarItem = withContext<
+  HTMLLIElement,
+  HTMLChakraProps<'li', Navbar.ItemProps>
+>(Navbar.Item, 'item')
 
-interface NavbarLinkProps extends HTMLChakraProps<'a'> {
+interface NavbarLinkProps extends HTMLChakraProps<'a', Navbar.LinkProps> {
   active?: boolean
 }
 

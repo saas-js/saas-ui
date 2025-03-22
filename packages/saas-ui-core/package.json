@@ -48,8 +48,16 @@
     }
   },
   "imports": {
-    "#utils": "./src/utils",
-    "#system": "./src/system"
+    "#utils": [
+      "./src/utils/index.ts",
+      "./src/utils/index.js",
+      "./src/utils/index.cjs"
+    ],
+    "#system": [
+      "./src/system/index.ts",
+      "./src/system/index.js",
+      "./src/system/index.cjs"
+    ]
   },
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
@@ -99,6 +107,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.52.1",
     "jotai": "^2.12.2",
     "tsup": "^8.4.0"
   }

@@ -7,8 +7,7 @@ import { withContext, withProvider } from './grid-list.context.ts'
 import type { GridListVariantProps } from './grid-list.recipe.ts'
 
 interface GridListRootProps
-  extends GridList.RootProps,
-    HTMLChakraProps<'div'>,
+  extends HTMLChakraProps<'div', GridList.RootProps>,
     SlotRecipeProps<'suiGridList', GridListVariantProps> {}
 
 const GridListRoot = withProvider<HTMLDivElement, GridListRootProps>(
@@ -17,8 +16,7 @@ const GridListRoot = withProvider<HTMLDivElement, GridListRootProps>(
 )
 
 interface GridListItemProps
-  extends GridList.ItemProps,
-    HTMLChakraProps<'div'> {}
+  extends HTMLChakraProps<'div', GridList.ItemProps> {}
 
 const GridListItem = withContext<HTMLDivElement, GridListItemProps>(
   GridList.Item,
@@ -26,8 +24,7 @@ const GridListItem = withContext<HTMLDivElement, GridListItemProps>(
 )
 
 interface GridListHeaderProps
-  extends GridList.HeaderProps,
-    HTMLChakraProps<'header'> {}
+  extends HTMLChakraProps<'header', GridList.HeaderProps> {}
 
 const GridListHeader = withContext<HTMLDivElement, GridListHeaderProps>(
   GridList.Header,
@@ -35,8 +32,7 @@ const GridListHeader = withContext<HTMLDivElement, GridListHeaderProps>(
 )
 
 interface GridListCellProps
-  extends GridList.CellProps,
-    HTMLChakraProps<'div'> {}
+  extends HTMLChakraProps<'div', GridList.CellProps> {}
 
 const GridListCell = withContext<HTMLDivElement, GridListCellProps>(
   GridList.Cell,

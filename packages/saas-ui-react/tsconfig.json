@@ -14,14 +14,16 @@
     "allowImportingTsExtensions": true,
     "strict": true,
     "skipLibCheck": true,
+    "rootDir": ".",
     "paths": {
       "#components/*": ["src/components/*"],
-      "#types": ["src/types.ts"],
-      "compositions/*": ["../../apps/compositions/src/*"]
+      "#types": ["src/types.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
+    "**/node_modules",
+    "../saas-ui-core",
     "**/*.spec.ts",
     "**/*.spec.tsx",
     "**/*.test.ts",

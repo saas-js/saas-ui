@@ -62,13 +62,17 @@ export const NavbarContent = forwardRef<
   return <sui.ul {...props} ref={ref} />
 })
 
-export const NavbarItem = forwardRef<HTMLLIElement, HTMLSystemProps<'li'>>(
+export interface NavbarItemProps extends HTMLSystemProps<'li'> {}
+
+export const NavbarItem = forwardRef<HTMLLIElement, NavbarItemProps>(
   (props, ref) => {
     return <sui.li {...props} ref={ref} />
   },
 )
 
-export const NavbarLink = forwardRef<HTMLAnchorElement, HTMLSystemProps<'a'>>(
+export interface NavbarLinkProps extends HTMLSystemProps<'a'> {}
+
+export const NavbarLink = forwardRef<HTMLAnchorElement, NavbarLinkProps>(
   (props, ref) => {
     return <sui.a {...props} ref={ref} />
   },

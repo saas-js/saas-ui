@@ -1,7 +1,7 @@
 import { checkboxCardAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
-import { checkmarkRecipe } from '#components/checkmark/checkmark.recipe.ts'
+import { checkmarkRecipe } from '../checkmark/checkmark.recipe.ts'
 
 export const checkboxCardSlotRecipe = defineSlotRecipe({
   slots: checkboxCardAnatomy.keys(),

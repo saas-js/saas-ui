@@ -46,7 +46,7 @@ function RecipeProvider(
   )
 }
 
-interface SidebarRootProps extends Sidebar.RootProps, HTMLChakraProps<'div'> {}
+interface SidebarRootProps extends HTMLChakraProps<'div', Sidebar.RootProps> {}
 
 /**
  * Side navigation, commonly used as the primary navigation
@@ -183,8 +183,7 @@ const SidebarNavItem = withItemProvider<HTMLDivElement, SidebarNavItemProps>(
 )
 
 interface SidebarNavButtonProps
-  extends Sidebar.NavButtonProps,
-    HTMLChakraProps<'button'> {
+  extends HTMLChakraProps<'button', Sidebar.NavButtonProps> {
   active?: boolean
 }
 

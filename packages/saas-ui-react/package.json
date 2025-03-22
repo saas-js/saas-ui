@@ -16,11 +16,11 @@
       "require": "./dist/preset.cjs",
       "import": "./dist/preset.js"
     },
-    "./preset/colors": {
-      "sui": "./src/theme/tokens/colors.ts",
-      "types": "./dist/theme/tokens/colors.d.ts",
-      "require": "./dist/theme/tokens/colors.cjs",
-      "import": "./dist/theme/tokens/colors.js"
+    "./colors": {
+      "sui": "./src/colors.ts",
+      "types": "./dist/colors.d.ts",
+      "require": "./dist/colors.cjs",
+      "import": "./dist/colors.js"
     },
     "./*": {
       "sui": "./src/components/*/index.ts",
@@ -38,7 +38,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts",
+    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts ",
+    "build:components": "tsup --config tsup.components.config.ts --dts-only",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist --project tsconfig.json",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -87,6 +89,8 @@
   },
   "devDependencies": {
     "react-icons": "^5.5.0",
-    "tsup": "^8.4.0"
+    "rimraf": "^6.0.1",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
   }
 }

@@ -1,4 +1,4 @@
-import { HTMLArkProps, ark } from '@ark-ui/react'
+import { type HTMLArkProps, ark } from '@ark-ui/react'
 
 export type Dict = Record<string, any>
 

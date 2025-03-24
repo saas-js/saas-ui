@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.1-next.44",
+  "version": "0.1.1-next.46",
   "private": true,
   "scripts": {
     "dev": "concurrently \"velite --watch\" \"next dev\"",

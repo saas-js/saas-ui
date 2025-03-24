@@ -1,5 +1,17 @@
 # @saas-ui/react
 
+## 3.0.0-next.10
+
+### Patch Changes
+
+- Export useClipboard, Flex, SimpleGrid
+
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Export Span
+
 ## 3.0.0-next.8
 
 ### Patch Changes

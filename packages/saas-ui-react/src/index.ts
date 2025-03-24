@@ -83,6 +83,8 @@ export {
   type CheckboxCardProps,
 } from './components/checkbox-card/index.ts'
 export { Clipboard } from './components/clipboard/index.ts'
+export { useClipboard } from './components/clipboard/index.ts'
+export type { UseClipboardReturn } from './components/clipboard/index.ts'
 export {
   CloseButton,
   type CloseButtonProps,
@@ -229,7 +231,12 @@ export {
 } from './components/aspect-ratio/index.ts'
 
 export { Bleed, type BleedProps } from './components/bleed/index.ts'
-export { Box, type BoxProps } from './components/box/index.ts'
+export {
+  Box,
+  type BoxProps,
+  Span,
+  type SpanProps,
+} from './components/box/index.ts'
 export { Center, type CenterProps } from './components/center/index.ts'
 export { ClientOnly } from './components/client-only/index.ts'
 export { ColorPicker } from './components/color-picker/index.ts'
@@ -249,12 +256,23 @@ export {
   FormatNumber,
   type FormatNumberProps,
 } from './components/format/index.ts'
-export { Grid, type GridProps } from './components/grid/index.ts'
+export {
+  Grid,
+  type GridProps,
+  SimpleGrid,
+  type SimpleGridProps,
+  GridItem,
+  type GridItemProps,
+} from './components/grid/index.ts'
 export { Group, type GroupProps } from './components/group/index.ts'
 export { Highlight, type HighlightProps } from './components/highlight/index.ts'
 export { Portal, type PortalProps } from './components/portal/index.ts'
 export { Presence, type PresenceProps } from './components/presence/index.ts'
-export { QrCode } from './components/qr-code/index.ts'
+export { QrCode, useQrCode } from './components/qr-code/index.ts'
+export type {
+  UseQrCodeProps,
+  UseQrCodeReturn,
+} from './components/qr-code/index.ts'
 export { Show, type ShowProps } from './components/show/index.ts'
 export { Spacer, type SpacerProps } from './components/spacer/index.ts'
 export {
@@ -276,3 +294,4 @@ export {
 } from './components/typography/index.ts'
 export { VisuallyHidden } from './components/visually-hidden/index.ts'
 export { Wrap, type WrapProps } from './components/wrap/index.ts'
+export { Flex, type FlexProps } from './components/flex/index.ts'

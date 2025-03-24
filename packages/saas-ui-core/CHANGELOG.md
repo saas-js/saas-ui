@@ -1,4 +1,4 @@
-# @saas-ui/react
+# @saas-ui/core
 
 ## 3.0.0-next.1
 

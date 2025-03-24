@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.12
+
+### Patch Changes
+
+- 2afe09f: Fixed zIndex value of dialog and drawer recipes
+
 ## 3.0.0-next.11
 
 ### Patch Changes

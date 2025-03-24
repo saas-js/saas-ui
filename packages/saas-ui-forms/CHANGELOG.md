@@ -1,5 +1,13 @@
 # @saas-ui/forms
 
+## 3.0.0-next.12
+
+### Patch Changes
+
+- 2afe09f: Fixed missing ref prop on form field type
+- Updated dependencies [2afe09f]
+  - @saas-ui/react@3.0.0-next.12
+
 ## 3.0.0-next.11
 
 ### Patch Changes

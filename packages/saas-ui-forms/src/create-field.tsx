@@ -164,7 +164,9 @@ export const createField = <TType = unknown, TProps extends object = object>(
         props: [],
         Component: BaseField,
       }) as any,
-  }) as React.FC<Omit<BaseFieldProps, keyof TProps> & TProps>
+  }) as React.ForwardRefExoticComponent<
+    Omit<BaseFieldProps, keyof TProps> & TProps & React.RefAttributes<TType>
+  >
 
   return Field
 }

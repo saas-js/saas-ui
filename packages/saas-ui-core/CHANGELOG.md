@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.2
+
+### Patch Changes
+
+- dae627e: Import HTMLArkProps as type
+
 ## 3.0.0-next.1
 
 ### Patch Changes

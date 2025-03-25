@@ -6,6 +6,8 @@ import { cx } from '@saas-ui/core/utils'
 import {
   type DefaultValues,
   type FieldValues,
+  type SubmitErrorHandler,
+  type SubmitHandler,
   UseFormProps as UseHookFormProps,
   type UseFormReturn as UseHookFormReturn,
   useForm as useHookForm,
@@ -23,7 +25,10 @@ import type { UseArrayFieldReturn } from './use-array-field'
 export interface UseFormProps<
   TFieldValues extends FieldValues,
   TContext extends object,
-> extends UseHookFormProps<TFieldValues, TContext> {}
+> extends UseHookFormProps<TFieldValues, TContext> {
+  onSubmit: SubmitHandler<TFieldValues>
+  onInvalid?: SubmitErrorHandler<FieldValues>
+}
 
 export interface UseFormReturn<
   TFieldValues extends FieldValues,
@@ -41,12 +46,21 @@ export interface UseFormReturn<
 export function useForm<
   TFieldValues extends FieldValues,
   TContext extends object,
->(props: UseFormProps<TFieldValues, TContext> = {}) {
-  const form = useHookForm<TFieldValues, TContext>(props)
+>(props: UseFormProps<TFieldValues, TContext>) {
+  const { onSubmit, onInvalid, ...rest } = props
+
+  const form = useHookForm<TFieldValues, TContext>(rest)
 
   const FormComponent = forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
     function FormComponent(props, ref) {
-      return <Form {...props} form={form} ref={ref} />
+      return (
+        <Form
+          {...props}
+          form={form}
+          onSubmit={props.onSubmit ?? form.handleSubmit(onSubmit, onInvalid)}
+          ref={ref}
+        />
+      )
     },
   )
 
@@ -66,18 +80,15 @@ export interface FormProps<
 > extends HTMLChakraProps<'form'> {
   children: React.ReactNode
   form: ReturnType<typeof useHookForm<TFieldValues, TContext>>
-  onSubmit: (data: any) => void
-  onError?: (errors: any) => void
 }
 
 export const Form = forwardRef<HTMLFormElement, FormProps>(
   function Form(props, ref) {
-    const { children, form, onSubmit, onError, ...rest } = props
+    const { children, form, ...rest } = props
     return (
       <FormProvider {...form}>
         <chakra.form
           ref={ref}
-          onSubmit={form.handleSubmit(onSubmit, onError)}
           {...rest}
           className={cx('sui-form', props.className)}
         >
@@ -100,9 +111,9 @@ export interface UseZodFormProps<
   TContext extends object = object,
 > extends Omit<UseHookFormProps<TFieldValues, TContext>, 'defaultValues'> {
   schema: TSchema
-  defaultValues?:
-    | DefaultValues<InferObjectSchema<TSchema>>
-    | AsyncDefaultValues<InferObjectSchema<TSchema>>
+  onSubmit: SubmitHandler<TFieldValues>
+  onInvalid?: SubmitErrorHandler<FieldValues>
+  defaultValues?: DefaultValues<TFieldValues> | AsyncDefaultValues<TFieldValues>
 }
 
 export function useZodForm<
@@ -114,8 +125,8 @@ export function useZodForm<
 >(props: UseZodFormProps<TSchema, TFieldValues, TContext>) {
   const { schema, ...rest } = props
 
-  return useForm({
-    resolver: zodResolver(schema) as any,
+  return useForm<TFieldValues, TContext>({
+    resolver: zodResolver(schema as any),
     ...rest,
   })
 }

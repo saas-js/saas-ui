@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-next.14
+
+### Patch Changes
+
+- 78d7999: fix: export Sidebar.Provider props type
+- 042ec4f: Added start and endElement props to Menu.CheckboxItem and RadioItem
+
 ## 3.0.0-next.13
 
 ### Patch Changes

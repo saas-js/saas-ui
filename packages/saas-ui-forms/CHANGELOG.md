@@ -1,5 +1,18 @@
 # @saas-ui/forms
 
+## 3.0.0-next.14
+
+### Minor Changes
+
+- 546dca1: BREAKING: Form onSubmit prop moved to useForm, Form onSubmit now accepts the native onSubmit handler and will override the build in form handler.
+- 546dca1: BREAKING: Form onError moved to useForm and renamed to onInvalid
+
+### Patch Changes
+
+- Updated dependencies [78d7999]
+- Updated dependencies [042ec4f]
+  - @saas-ui/react@3.0.0-next.14
+
 ## 3.0.0-next.13
 
 ### Patch Changes

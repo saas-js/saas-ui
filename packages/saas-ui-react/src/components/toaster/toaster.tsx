@@ -67,7 +67,7 @@ export const Toaster = (props?: ToasterProps) => {
               </Stack>
 
               {closable !== false && (
-                <Toast.CloseTrigger>
+                <Toast.CloseTrigger asChild>
                   <CloseButton size="xs" />
                 </Toast.CloseTrigger>
               )}

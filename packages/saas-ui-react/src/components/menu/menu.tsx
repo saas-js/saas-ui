@@ -2,7 +2,6 @@
 
 import { forwardRef } from 'react'
 
-import { AbsoluteCenter } from '@chakra-ui/react/center'
 import { Menu as ChakraMenu } from '@chakra-ui/react/menu'
 import { Portal } from '@chakra-ui/react/portal'
 
@@ -37,35 +36,53 @@ const MenuArrow = forwardRef<HTMLDivElement, ChakraMenu.ArrowProps>(
   },
 )
 
-const MenuCheckboxItem = forwardRef<
-  HTMLDivElement,
-  ChakraMenu.CheckboxItemProps
->(function MenuCheckboxItem(props, ref) {
-  return (
-    <ChakraMenu.CheckboxItem ref={ref} {...props}>
-      <ChakraMenu.ItemIndicator hidden={false}>
-        <CheckIcon />
-      </ChakraMenu.ItemIndicator>
-      {props.children}
-    </ChakraMenu.CheckboxItem>
-  )
-})
+interface MenuCheckboxItemProps extends ChakraMenu.CheckboxItemProps {
+  startElement?: React.ReactNode
+  endElement?: React.ReactNode
+}
 
-const MenuRadioItem = forwardRef<HTMLDivElement, ChakraMenu.RadioItemProps>(
-  function MenuRadioItem(props, ref) {
-    const { children, ...rest } = props
+const MenuCheckboxItem = forwardRef<HTMLDivElement, MenuCheckboxItemProps>(
+  function MenuCheckboxItem(props, ref) {
+    const { children, startElement, endElement, ...rest } = props
     return (
-      <ChakraMenu.RadioItem ps="8" ref={ref} {...rest}>
-        <AbsoluteCenter axis="horizontal" left="4" asChild>
-          <ChakraMenu.ItemIndicator>
-            <CheckIcon />
-          </ChakraMenu.ItemIndicator>
-        </AbsoluteCenter>
+      <ChakraMenu.CheckboxItem ref={ref} {...rest}>
+        {startElement}
         <ChakraMenu.ItemText>{children}</ChakraMenu.ItemText>
+        {endElement}
+      </ChakraMenu.CheckboxItem>
+    )
+  },
+)
+
+interface MenuRadioItemProps extends ChakraMenu.RadioItemProps {
+  startElement?: React.ReactNode
+  endElement?: React.ReactNode
+}
+
+const MenuRadioItem = forwardRef<HTMLDivElement, MenuRadioItemProps>(
+  function MenuRadioItem(props, ref) {
+    const { children, startElement, endElement, ...rest } = props
+    return (
+      <ChakraMenu.RadioItem ref={ref} {...rest}>
+        {startElement}
+        <ChakraMenu.ItemText>{children}</ChakraMenu.ItemText>
+        {endElement}
       </ChakraMenu.RadioItem>
     )
   },
 )
+
+const MenuItemIndicator = forwardRef<
+  HTMLDivElement,
+  ChakraMenu.ItemIndicatorProps
+>(function MenuItemIndicator(props, ref) {
+  const { children = <CheckIcon />, ...rest } = props
+  return (
+    <ChakraMenu.ItemIndicator ref={ref} {...rest}>
+      {children}
+    </ChakraMenu.ItemIndicator>
+  )
+})
 
 const MenuItemGroup = forwardRef<HTMLDivElement, ChakraMenu.ItemGroupProps>(
   function MenuItemGroup(props, ref) {
@@ -129,6 +146,7 @@ export {
   MenuArrow as Arrow,
   MenuCheckboxItem as CheckboxItem,
   MenuRadioItem as RadioItem,
+  MenuItemIndicator as ItemIndicator,
   MenuItemGroup as ItemGroup,
   MenuTriggerItem as TriggerItem,
   MenuRadioItemGroup as RadioItemGroup,
@@ -153,4 +171,5 @@ export type {
   MenuTriggerItemProps as TriggerItemProps,
   MenuItemProps as ItemProps,
   MenuButtonProps as ButtonProps,
+  MenuRadioItemProps as RadioItemProps,
 }

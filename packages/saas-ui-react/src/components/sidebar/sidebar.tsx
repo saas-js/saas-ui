@@ -183,9 +183,7 @@ const SidebarNavItem = withItemProvider<HTMLDivElement, SidebarNavItemProps>(
 )
 
 interface SidebarNavButtonProps
-  extends HTMLChakraProps<'button', Sidebar.NavButtonProps> {
-  active?: boolean
-}
+  extends HTMLChakraProps<'button', Sidebar.NavButtonProps> {}
 
 const SidebarNavButton = withItemContext<
   HTMLButtonElement,
@@ -227,6 +225,7 @@ export {
 }
 
 export type {
+  SidebarProviderProps as ProviderProps,
   SidebarRootProps as RootProps,
   SidebarTriggerProps as TriggerProps,
   SidebarFlyoutTriggerProps as FlyoutTriggerProps,

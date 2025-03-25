@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.13
+
+### Patch Changes
+
+- f995ba3: Fixed zIndex prop value
+
 ## 3.0.0-next.12
 
 ### Patch Changes

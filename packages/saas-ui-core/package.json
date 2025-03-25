@@ -96,7 +96,7 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.0.1",
+    "@ark-ui/react": "^5.2.0",
     "@react-aria/utils": "^3.28.1",
     "@saas-ui/hooks": "workspace:*",
     "@zag-js/dom-event": "^0.80.0",

@@ -54,7 +54,7 @@ export const Basic = () => {
           const id = modals.open({
             title: 'My Modal',
             children: <>My modal</>,
-            footer: <Button onClick={() => modals.close(id)}>Close</Button>,
+            footer: <Button onClick={() => modals.closeAll()}>Close</Button>,
           })
         }}
       >

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/test-utils",
-  "version": "5.0.0-next.12",
+  "version": "5.0.0-next.13",
   "private": true,
   "description": "Testing utilities for Chakra UI's components",
   "keywords": [
@@ -44,8 +44,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^8.6.6",
-    "@storybook/types": "^8.6.6",
+    "@storybook/react": "^8.6.9",
+    "@storybook/types": "^8.6.9",
     "react": "^19.0.0"
   }
 }

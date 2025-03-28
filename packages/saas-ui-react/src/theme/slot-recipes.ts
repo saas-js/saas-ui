@@ -24,6 +24,7 @@ import { menuSlotRecipe } from '#components/menu/menu.recipe.ts'
 import { nativeSelectSlotRecipe } from '#components/native-select/native-select.recipe.ts'
 import { navbarSlotRecipe } from '#components/navbar/navbar.recipe.ts'
 import { numberInputSlotRecipe } from '#components/number-input/number-input.recipe.ts'
+import { pageSlotRecipe } from '#components/page/page.recipe.ts'
 import { personaSlotRecipe } from '#components/persona/persona.recipe.ts'
 import { pinInputSlotRecipe } from '#components/pin-input/pin-input.recipe.ts'
 import { popoverSlotRecipe } from '#components/popover/popover.recipe.ts'
@@ -32,6 +33,7 @@ import { progressSlotRecipe } from '#components/progress/progress.recipe.ts'
 import { radioCardSlotRecipe } from '#components/radio-card/radio-card.recipe.ts'
 import { radioGroupSlotRecipe } from '#components/radio-group/radio-group.recipe.ts'
 import { ratingGroupSlotRecipe } from '#components/rating-group/rating-group.recipe.ts'
+import { sectionSlotRecipe } from '#components/section/section.recipe.ts'
 import { segmentGroupSlotRecipe } from '#components/segmented-control/segment-group.recipe.ts'
 import { selectSlotRecipe } from '#components/select/select.recipe.ts'
 import { sidebarNavItemSlotRecipe } from '#components/sidebar/sidebar-nav-item.recipe.ts'
@@ -100,4 +102,6 @@ export const slotRecipes = {
   suiNavbar: navbarSlotRecipe,
   suiSidebar: sidebarSlotRecipe,
   suiSidebarNavItem: sidebarNavItemSlotRecipe,
+  suiPage: pageSlotRecipe,
+  suiSection: sectionSlotRecipe,
 }

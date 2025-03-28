@@ -15,11 +15,14 @@ export {
   defineTextStyles,
   defineTokens,
   chakra,
+  createRecipeContext,
+  createSlotRecipeContext,
   useRecipe,
   useSlotRecipe,
   useChakraContext,
   useToken,
 } from '@chakra-ui/react/styled-system'
+
 export type {
   RecipeProps,
   SlotRecipeProps,
@@ -34,6 +37,8 @@ export {
   useBreakpointValue,
   useControllableState,
   useDisclosure,
+  createListCollection,
+  createContext,
 } from '@chakra-ui/react'
 
 export type {
@@ -273,6 +278,7 @@ export type {
   UseQrCodeProps,
   UseQrCodeReturn,
 } from './components/qr-code/index.ts'
+export { Section, useSectionStyles } from './components/section/index.ts'
 export { Show, type ShowProps } from './components/show/index.ts'
 export { Spacer, type SpacerProps } from './components/spacer/index.ts'
 export {

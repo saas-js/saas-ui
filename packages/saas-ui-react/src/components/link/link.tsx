@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link as ChakraLink, type LinkProps } from '@chakra-ui/react/link'
 
-import { useLink } from '../../provider'
+import { useLink } from '../../provider/use-link.tsx'
 
 export type { LinkProps }
 

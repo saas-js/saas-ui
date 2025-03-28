@@ -9,12 +9,11 @@ import {
   LinkBox,
   LinkOverlay,
   SimpleGrid,
-  Spacer,
   Text,
 } from '@chakra-ui/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { FaGithub, FaSlack, FaXTwitter } from 'react-icons/fa6'
-import { LuArrowRight, LuMoreVertical } from 'react-icons/lu'
+import { FaGithub, FaSlack } from 'react-icons/fa6'
+import { LuArrowRight, LuEllipsisVertical } from 'react-icons/lu'
 
 import { Avatar } from '#components/avatar/avatar.js'
 
@@ -54,7 +53,7 @@ export const Media = () => (
           variant="ghost"
           alignSelf="flex-start"
         >
-          <LuMoreVertical />
+          <LuEllipsisVertical />
         </IconButton>
       </Card.Header>
       <Image height="256px" src="/mountains.jpg" objectFit="cover" />

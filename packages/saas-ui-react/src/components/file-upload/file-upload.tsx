@@ -9,8 +9,8 @@ import {
 } from '@chakra-ui/react/file-upload'
 import { type RecipeProps, useRecipe } from '@chakra-ui/react/styled-system'
 
-import { Button, type ButtonProps } from '#components/button'
-import { CloseButton } from '#components/close-button/close-button'
+import { Button, type ButtonProps } from '../button/index.ts'
+import { CloseButton } from '../close-button/index.ts'
 
 export interface RootProps extends ChakraFileUpload.RootProps {
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>

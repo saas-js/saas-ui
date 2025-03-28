@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { callAll } from '@saas-ui/core/utils'
 
-import { CloseIcon, SearchIcon } from '#components/icons'
+import { CloseIcon, SearchIcon } from '../icons/index.ts'
 
 export interface SearchInputProps extends InputProps {
   value?: string

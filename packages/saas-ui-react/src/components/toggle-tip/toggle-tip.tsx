@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Popover } from '#components/popover'
-import { Portal } from '#components/portal'
+import { Popover } from '../popover/index.ts'
+import { Portal } from '../portal/index.ts'
 
 export interface ToggleTipProps extends Popover.RootProps {
   /**

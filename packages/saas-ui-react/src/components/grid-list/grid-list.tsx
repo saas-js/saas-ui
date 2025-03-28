@@ -1,13 +1,12 @@
 import type { HTMLChakraProps } from '@chakra-ui/react/styled-system'
 import { GridList } from '@saas-ui/core/grid-list'
 
-import type { SlotRecipeProps } from '#types'
-
+import type { SlotRecipeProps } from '../../types.ts'
 import { withContext, withProvider } from './grid-list.context.ts'
 import type { GridListVariantProps } from './grid-list.recipe.ts'
 
 interface GridListRootProps
-  extends HTMLChakraProps<'div', GridList.RootProps>,
+  extends HTMLChakraProps<'div'>,
     SlotRecipeProps<'suiGridList', GridListVariantProps> {}
 
 const GridListRoot = withProvider<HTMLDivElement, GridListRootProps>(
@@ -15,24 +14,21 @@ const GridListRoot = withProvider<HTMLDivElement, GridListRootProps>(
   'root',
 )
 
-interface GridListItemProps
-  extends HTMLChakraProps<'div', GridList.ItemProps> {}
+interface GridListItemProps extends HTMLChakraProps<'div'> {}
 
 const GridListItem = withContext<HTMLDivElement, GridListItemProps>(
   GridList.Item,
   'item',
 )
 
-interface GridListHeaderProps
-  extends HTMLChakraProps<'header', GridList.HeaderProps> {}
+interface GridListHeaderProps extends HTMLChakraProps<'header'> {}
 
 const GridListHeader = withContext<HTMLDivElement, GridListHeaderProps>(
   GridList.Header,
   'header',
 )
 
-interface GridListCellProps
-  extends HTMLChakraProps<'div', GridList.CellProps> {}
+interface GridListCellProps extends HTMLChakraProps<'div'> {}
 
 const GridListCell = withContext<HTMLDivElement, GridListCellProps>(
   GridList.Cell,

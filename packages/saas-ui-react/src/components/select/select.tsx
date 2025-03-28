@@ -6,7 +6,7 @@ import type { CollectionItem } from '@chakra-ui/react/collection'
 import { Portal } from '@chakra-ui/react/portal'
 import { Select as SelectPrimitive } from '@chakra-ui/react/select'
 
-import { CloseButton } from '#components/close-button'
+import { CloseButton } from '../close-button/index.ts'
 
 export interface SelectTriggerProps extends SelectPrimitive.ControlProps {
   clearable?: boolean

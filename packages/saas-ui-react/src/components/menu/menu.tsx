@@ -5,8 +5,8 @@ import { forwardRef } from 'react'
 import { Menu as ChakraMenu } from '@chakra-ui/react/menu'
 import { Portal } from '@chakra-ui/react/portal'
 
-import { Button, type ButtonProps } from '#components/button/index.ts'
-import { CheckIcon, ChevronRightIcon } from '#components/icons/index.ts'
+import { Button, type ButtonProps } from '../button/index.ts'
+import { CheckIcon, ChevronRightIcon } from '../icons/index.ts'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {
   portalled?: boolean

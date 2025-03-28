@@ -1,20 +1,13 @@
 import * as React from 'react'
 
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  HStack,
-  Tag,
-  Text,
-} from '@chakra-ui/react'
+import { Box, Card, Container, HStack, Tag, Text } from '@chakra-ui/react'
 import { Meta, StoryObj } from '@storybook/react'
 import { FiMail, FiMessageSquare } from 'react-icons/fi'
 
 import { Avatar } from '../avatar/index.ts'
 import { Checkbox } from '../checkbox/index.ts'
-import { Radio, RadioGroup } from '../radio/index.ts'
+import { RadioGroup } from '../radio-group/index.ts'
+import { Radio } from '../radio/index.ts'
 import { Switch } from '../switch/index.ts'
 import { GridList } from './index.ts'
 
@@ -214,7 +207,7 @@ export const WithRadio: Story = {
     const [checked, setChecked] = React.useState('1')
     return (
       <Box width="400px">
-        <RadioGroup name="variant" value={checked}>
+        <RadioGroup.Root name="variant" value={checked}>
           <GridList.Root>
             {tshirtVariants.map((variant) => {
               const isChecked = checked === variant.id
@@ -241,7 +234,7 @@ export const WithRadio: Story = {
               )
             })}
           </GridList.Root>
-        </RadioGroup>
+        </RadioGroup.Root>
       </Box>
     )
   },

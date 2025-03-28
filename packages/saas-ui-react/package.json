@@ -1,50 +1,40 @@
 {
   "name": "@saas-ui/react",
-  "version": "3.0.0-next.15",
+  "version": "3.0.0-next.16",
   "description": "Saas UI - The React component library for startups.",
   "type": "module",
   "exports": {
     ".": {
       "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     },
     "./preset": {
       "sui": "./src/preset.ts",
       "types": "./dist/preset.d.ts",
-      "require": "./dist/preset.cjs",
       "import": "./dist/preset.js"
     },
     "./colors": {
       "sui": "./src/colors.ts",
       "types": "./dist/colors.d.ts",
-      "require": "./dist/colors.cjs",
       "import": "./dist/colors.js"
     },
     "./*": {
       "sui": "./src/components/*/index.ts",
       "types": "./dist/components/*/index.d.ts",
-      "require": "./dist/components/*/index.cjs",
       "import": "./dist/components/*/index.js"
     }
   },
-  "imports": {
-    "#components/*": [
-      "./src/components/*",
-      "./src/components/*/index.ts",
-      "./dist/components/*/index.cjs",
-      "./dist/components/*/index.js"
-    ]
-  },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts ",
+    "build:tsup": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts ",
     "build:components": "tsup --config tsup.components.config.ts --dts-only",
     "build:types": "tsc --emitDeclarationOnly --outDir dist --project tsconfig.json",
+    "prebuild": "yarn clean",
+    "build": "tsc --outDir dist --project tsconfig.json",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

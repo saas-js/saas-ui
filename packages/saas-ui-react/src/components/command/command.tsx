@@ -6,8 +6,7 @@ import {
   createRecipeContext,
 } from '@chakra-ui/react/styled-system'
 
-import type { RecipeProps } from '#types'
-
+import type { RecipeProps } from '../../types.ts'
 import { Kbd, type KbdProps } from '../kbd/index.ts'
 import type { CommandVariantProps } from './command.recipe.ts'
 

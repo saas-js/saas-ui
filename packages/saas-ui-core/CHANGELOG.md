@@ -1,5 +1,12 @@
 # @saas-ui/core
 
+## 3.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/hooks@3.0.0-next.1
+
 ## 3.0.0-next.2
 
 ### Patch Changes

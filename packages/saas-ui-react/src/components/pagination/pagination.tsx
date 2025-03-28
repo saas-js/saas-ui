@@ -7,13 +7,13 @@ import {
 import { Text, type TextProps } from '@chakra-ui/react/typography'
 import { createContext } from '@saas-ui/core/utils'
 
-import { Button, type ButtonProps } from '#components/button'
-import { IconButton } from '#components/icon-button'
+import { Button, type ButtonProps } from '../button/index.ts'
+import { IconButton } from '../icon-button/index.ts'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   EllipsisIcon,
-} from '#components/icons/icons'
+} from '../icons/icons.tsx'
 
 interface ButtonVariantMap {
   current: ButtonProps['variant']

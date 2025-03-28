@@ -5,12 +5,9 @@ import { forwardRef, useRef } from 'react'
 import { mergeRefs, useControllableState } from '@chakra-ui/react'
 import { LuEye, LuEyeOff } from 'react-icons/lu'
 
-import {
-  IconButton,
-  type IconButtonProps,
-} from '#components/icon-button/index.ts'
-import { InputGroup, type InputGroupProps } from '#components/input/index.ts'
-import { Input, type InputProps } from '#components/input/index.ts'
+import { IconButton, type IconButtonProps } from '../icon-button/index.ts'
+import { InputGroup, type InputGroupProps } from '../input/index.ts'
+import { Input, type InputProps } from '../input/index.ts'
 
 export interface PasswordInputProps
   extends InputProps,

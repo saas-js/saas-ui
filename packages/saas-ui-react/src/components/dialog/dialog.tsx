@@ -3,7 +3,7 @@ import { type RefObject, forwardRef } from 'react'
 import { Dialog as ChakraDialog } from '@chakra-ui/react/dialog'
 import { Portal } from '@chakra-ui/react/portal'
 
-import { CloseButton as CloseButtonBase } from '#components/close-button/index.ts'
+import { CloseButton as CloseButtonBase } from '../close-button/index.ts'
 
 export interface ContentProps extends ChakraDialog.ContentProps {
   portalled?: boolean

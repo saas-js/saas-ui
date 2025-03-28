@@ -2,11 +2,11 @@ import { forwardRef } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react/popover'
 
-import { CloseButton as CloseButtonBase } from '#components/close-button/index.ts'
+import { CloseButton, type CloseButtonProps } from '../close-button/index.ts'
 
-export interface ContentProps extends ChakraPopover.ContentProps {}
+interface PopoverContentProps extends ChakraPopover.ContentProps {}
 
-export const Content = forwardRef<HTMLDivElement, ContentProps>(
+const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
   function PopoverContent(props, ref) {
     return (
       <ChakraPopover.Positioner>
@@ -16,7 +16,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
   },
 )
 
-export const Arrow = forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
+const PopoverArrow = forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
   function PopoverArrow(props, ref) {
     return (
       <ChakraPopover.Arrow {...props} ref={ref}>
@@ -26,33 +26,46 @@ export const Arrow = forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
   },
 )
 
-export const CloseButton = forwardRef<
+interface PopoverCloseButtonProps
+  extends CloseButtonProps,
+    ChakraPopover.CloseTriggerProps {}
+
+const PopoverCloseButton = forwardRef<
   HTMLButtonElement,
-  ChakraPopover.CloseTriggerProps
+  PopoverCloseButtonProps
 >(function PopoverCloseTrigger(props, ref) {
   return (
-    <ChakraPopover.CloseTrigger
-      position="absolute"
-      top="1"
-      insetEnd="1"
-      {...props}
-      asChild
-      ref={ref}
-    >
-      <CloseButtonBase size="sm" />
+    <ChakraPopover.CloseTrigger ref={ref} asChild>
+      <CloseButton position="absolute" top="1" insetEnd="1" {...props} />
     </ChakraPopover.CloseTrigger>
   )
 })
 
-export const CloseTrigger = ChakraPopover.CloseTrigger
+const PopoverCloseTrigger = ChakraPopover.CloseTrigger
+const PopoverTitle = ChakraPopover.Title
+const PopoverDescription = ChakraPopover.Description
+const PopoverFooter = ChakraPopover.Footer
+const PopoverHeader = ChakraPopover.Header
+const PopoverRoot = ChakraPopover.Root
+const PopoverBody = ChakraPopover.Body
+const PopoverTrigger = ChakraPopover.Trigger
+const PopoverContext = ChakraPopover.Context
 
-export const Title = ChakraPopover.Title
-export const Description = ChakraPopover.Description
-export const Footer = ChakraPopover.Footer
-export const Header = ChakraPopover.Header
-export const Root = ChakraPopover.Root
-export const Body = ChakraPopover.Body
-export const Trigger = ChakraPopover.Trigger
-export const Context = ChakraPopover.Context
+export {
+  PopoverContent as Content,
+  PopoverArrow as Arrow,
+  PopoverCloseButton as CloseButton,
+  PopoverCloseTrigger as CloseTrigger,
+  PopoverTitle as Title,
+  PopoverDescription as Description,
+  PopoverFooter as Footer,
+  PopoverHeader as Header,
+  PopoverRoot as Root,
+  PopoverBody as Body,
+  PopoverTrigger as Trigger,
+  PopoverContext as Context,
+}
 
-export type RootProps = ChakraPopover.RootProps
+type PopoverRootProps = ChakraPopover.RootProps
+
+export type { PopoverRootProps as RootProps }

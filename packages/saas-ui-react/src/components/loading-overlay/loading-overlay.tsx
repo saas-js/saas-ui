@@ -7,8 +7,7 @@ import {
 } from '@ark-ui/react/presence'
 import { HTMLChakraProps, SlotRecipeProps, chakra } from '@chakra-ui/react'
 
-import { Spinner } from '#components/spinner'
-
+import { Spinner } from '../spinner/index.ts'
 import { withContext, withProvider } from './loading-overlay.context.ts'
 
 interface LoadingOverlayProps

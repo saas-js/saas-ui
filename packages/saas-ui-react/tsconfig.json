@@ -10,15 +10,12 @@
     "incremental": true,
     "tsBuildInfoFile": "dist/.tsbuildinfo.json",
     "declaration": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
     "strict": true,
     "skipLibCheck": true,
-    "rootDir": ".",
-    "paths": {
-      "#components/*": ["src/components/*", "src/components/*/index.ts"],
-      "#types": ["src/types.ts"]
-    }
+    "rootDir": "."
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

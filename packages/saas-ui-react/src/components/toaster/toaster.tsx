@@ -11,8 +11,8 @@ import {
   createToaster,
 } from '@chakra-ui/react/toast'
 
-import { CloseButton } from '#components/close-button'
-import { Spinner } from '#components/spinner'
+import { CloseButton } from '../close-button/index.ts'
+import { Spinner } from '../spinner/index.ts'
 
 const defaultOptions: CreateToasterProps = {
   placement: 'bottom-end',

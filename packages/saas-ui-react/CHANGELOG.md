@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-next.15
+
+### Patch Changes
+
+- d4fb186: Added Section component
+- a169eb7: Fixed issue where Toast close trigger would render two buttons
+- d4fb186: Export createListCollection
+
 ## 3.0.0-next.14
 
 ### Patch Changes

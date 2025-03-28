@@ -1,5 +1,12 @@
 # @saas-ui/nprogress
 
+## 3.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [d87c2ac]
+  - @saas-ui/core@3.0.0-next.4
+
 ## 3.0.0-next.3
 
 ### Patch Changes

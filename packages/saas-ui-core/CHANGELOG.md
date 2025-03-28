@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.4
+
+### Patch Changes
+
+- d87c2ac: Improved build and fixed types
+
 ## 3.0.0-next.3
 
 ### Patch Changes

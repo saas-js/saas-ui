@@ -39,6 +39,7 @@ export {
   useDisclosure,
   createListCollection,
   createContext,
+  mergeRefs,
 } from '@chakra-ui/react'
 
 export type {

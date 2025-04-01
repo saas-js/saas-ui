@@ -81,6 +81,26 @@ export interface BaseFieldProps<
    */
   placeholder?: string
   /**
+   * Whether the field is invalid
+   */
+  invalid?: boolean
+  /**
+   * Whether the field is required
+   */
+  required?: boolean
+  /**
+   * Whether the field is disabled
+   */
+  disabled?: boolean
+  /**
+   * Whether the field is read-only
+   */
+  readOnly?: boolean
+  /**
+   * Orientation of the field
+   */
+  orientation?: 'horizontal' | 'vertical'
+  /**
    * React children
    */
   children?: React.ReactNode

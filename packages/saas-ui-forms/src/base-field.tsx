@@ -19,7 +19,6 @@ const isTouched = (
 }
 
 export const useBaseField = (props: BaseFieldProps) => {
-  // TODO: Clean up these props / types
   const [fieldProps, rootProps] = splitProps(props, [
     'name',
     'label',
@@ -51,10 +50,10 @@ export const useBaseField = (props: BaseFieldProps) => {
 export const BaseField: React.FC<BaseFieldProps> = (props) => {
   const { rootProps, label, hideLabel, help, error } = useBaseField(props)
 
-  const isInvalid = !!error
+  const isInvalid = !!error || rootProps.invalid
 
   return (
-    <Field.Root invalid={isInvalid} {...rootProps}>
+    <Field.Root {...rootProps} invalid={isInvalid}>
       {label && !hideLabel ? (
         <Field.Label>
           {label} <Field.RequiredIndicator />

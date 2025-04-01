@@ -1,8 +1,10 @@
 import { forwardRef } from 'react'
 
 import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { cx } from '@saas-ui/core/utils'
+import type { StandardSchemaV1 } from '@standard-schema/spec'
 import {
   type DefaultValues,
   type FieldValues,
@@ -24,16 +26,19 @@ import type { UseArrayFieldReturn } from './use-array-field'
 
 export interface UseFormProps<
   TFieldValues extends FieldValues,
-  TContext extends object,
-> extends UseHookFormProps<TFieldValues, TContext> {
-  onSubmit: SubmitHandler<TFieldValues>
+  TContext = any,
+  TTransformedValues = TFieldValues,
+> extends UseHookFormProps<TFieldValues, TContext, TTransformedValues> {
+  schema?: StandardSchemaV1<TFieldValues, TTransformedValues>
+  onSubmit: SubmitHandler<TTransformedValues>
   onInvalid?: SubmitErrorHandler<FieldValues>
 }
 
 export interface UseFormReturn<
-  TFieldValues extends FieldValues,
-  TContext extends object,
-> extends UseHookFormReturn<TFieldValues, TContext> {
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+> extends UseHookFormReturn<TFieldValues, TContext, TTransformedValues> {
   Form: React.FC<Omit<FormProps<TFieldValues, TContext>, 'form'>>
   Field: React.FC<FieldProps<TFieldValues>>
   DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
@@ -44,12 +49,20 @@ export interface UseFormReturn<
 }
 
 export function useForm<
-  TFieldValues extends FieldValues,
-  TContext extends object,
->(props: UseFormProps<TFieldValues, TContext>) {
-  const { onSubmit, onInvalid, ...rest } = props
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+>(props: UseFormProps<TFieldValues, TContext, TTransformedValues>) {
+  const { onSubmit, onInvalid, resolver, ...rest } = props
 
-  const form = useHookForm<TFieldValues, TContext>(rest)
+  const form = useHookForm<TFieldValues, TContext, TTransformedValues>({
+    ...rest,
+    resolver: props.schema
+      ? standardSchemaResolver<TFieldValues, TContext, TTransformedValues>(
+          props.schema,
+        )
+      : resolver,
+  })
 
   const FormComponent = forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
     function FormComponent(props, ref) {
@@ -71,15 +84,18 @@ export function useForm<
     DisplayIf,
     ArrayField,
     ObjectField,
-  } as UseFormReturn<TFieldValues, TContext>
+  } as UseFormReturn<TFieldValues, TContext, TTransformedValues>
 }
 
 export interface FormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
+  TContext = any,
+  TTransformedValues = TFieldValues,
 > extends HTMLChakraProps<'form'> {
   children: React.ReactNode
-  form: ReturnType<typeof useHookForm<TFieldValues, TContext>>
+  form: ReturnType<
+    typeof useHookForm<TFieldValues, TContext, TTransformedValues>
+  >
 }
 
 export const Form = forwardRef<HTMLFormElement, FormProps>(
@@ -97,8 +113,12 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       </FormProvider>
     )
   },
-) as <TFieldValues extends FieldValues, TContext extends object>(
-  props: FormProps<TFieldValues, TContext> & {
+) as <
+  TFieldValues extends FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+>(
+  props: FormProps<TFieldValues, TContext, TTransformedValues> & {
     ref?: React.Ref<HTMLFormElement>
   },
 ) => React.ReactElement
@@ -116,6 +136,9 @@ export interface UseZodFormProps<
   defaultValues?: DefaultValues<TFieldValues> | AsyncDefaultValues<TFieldValues>
 }
 
+/**
+ * @deprecated Use useForm instead, which supports standard schema out of the box.
+ */
 export function useZodForm<
   TSchema extends
     | z.AnyZodObject

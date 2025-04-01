@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 3.0.0-next.20
+
+### Minor Changes
+
+- f18c762: useForm now supports standard schema, with support for zod, valibot, arktype and more.
+
+### Patch Changes
+
+- Updated dependencies [729b57d]
+  - @saas-ui/react@3.0.0-next.20
+
 ## 3.0.0-next.19
 
 ### Patch Changes

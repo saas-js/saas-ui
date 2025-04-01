@@ -266,7 +266,6 @@ export type {
   SubmitErrorHandler,
   SubmitHandler,
   TriggerConfig,
-  UnpackNestedValue,
   UseControllerProps,
   UseControllerReturn,
   UseFieldArrayProps,

@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.20
+
+### Patch Changes
+
+- 729b57d: Export FileUpload.Context
+
 ## 3.0.0-next.19
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.21
+
+### Patch Changes
+
+- b48ad37: Fixed missing import extension
+
 ## 3.0.0-next.20
 
 ### Patch Changes

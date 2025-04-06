@@ -23,26 +23,39 @@ const CRMDemo = dynamic(
   },
 )
 
+const EmailDemo = dynamic(
+  () =>
+    import('@/components/site/demo/email-demo').then((mod) => mod.EmailDemo),
+  {
+    ssr: false,
+  },
+)
+
 const ComponentDemos = () => {
   return (
     <Container maxW="8xl">
-      <Tabs.Root defaultValue="crm">
+      <Tabs.Root defaultValue="crm" lazyMount>
         <Tabs.List mb="4">
           <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
-          <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
+          <Tabs.Trigger value="email">Email</Tabs.Trigger>
           <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
         </Tabs.List>
 
         <Tabs.ContentGroup
           borderRadius="md"
           borderWidth="1px"
-          height="85vh"
+          height="800px"
           overflow="clip"
           position="relative"
         >
           <Tabs.Content value="crm" height="100%" p="0">
             <ErrorBoundary errorComponent={ErrorFallback}>
               <CRMDemo />
+            </ErrorBoundary>
+          </Tabs.Content>
+          <Tabs.Content value="email" height="100%" p="0">
+            <ErrorBoundary errorComponent={ErrorFallback}>
+              <EmailDemo />
             </ErrorBoundary>
           </Tabs.Content>
         </Tabs.ContentGroup>
@@ -52,6 +65,7 @@ const ComponentDemos = () => {
 }
 
 function ErrorFallback(props: { error: Error }) {
+  console.error(props.error)
   return <div>Error</div>
 }
 

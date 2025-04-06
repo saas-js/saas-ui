@@ -1540,6 +1540,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/charts@npm:^3.15.0":
+  version: 3.15.0
+  resolution: "@chakra-ui/charts@npm:3.15.0"
+  peerDependencies:
+    "@chakra-ui/react": ">=3"
+    react: ">=18"
+    react-dom: ">=18"
+    recharts: ">=2"
+  checksum: 10/7d149730331d9fe9f8712f3b1101ccbe927700d642339e23c0e92c5ab0deba208decf79b715872443d60016c53553244bd1d9ecb063e180cee01fd6be8cbc4ec
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/cli@npm:^3.14.0":
   version: 3.14.0
   resolution: "@chakra-ui/cli@npm:3.14.0"
@@ -16466,6 +16478,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recharts@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "recharts@npm:2.15.2"
+  dependencies:
+    clsx: "npm:^2.0.0"
+    eventemitter3: "npm:^4.0.1"
+    lodash: "npm:^4.17.21"
+    react-is: "npm:^18.3.1"
+    react-smooth: "npm:^4.0.4"
+    recharts-scale: "npm:^0.4.4"
+    tiny-invariant: "npm:^1.3.1"
+    victory-vendor: "npm:^36.6.8"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10/53bc5e7bb05968f192ae028f5d607ffec3187c8b505e85646768305080fb0da5eb8d6aa5eed6a28186293858c45ee330f029ca065f71ae3aafe3061a07dc400c
+  languageName: node
+  linkType: hard
+
 "recma-build-jsx@npm:^1.0.0":
   version: 1.0.0
   resolution: "recma-build-jsx@npm:1.0.0"
@@ -19752,6 +19783,7 @@ __metadata:
   resolution: "website@workspace:apps/website"
   dependencies:
     "@ark-ui/react": "npm:^5.2.0"
+    "@chakra-ui/charts": "npm:^3.15.0"
     "@chakra-ui/react": "npm:^3.14.0"
     "@emotion/react": "npm:11.14.0"
     "@octokit/rest": "npm:^21.1.1"
@@ -19785,6 +19817,7 @@ __metadata:
     react: "npm:19.0.0"
     react-dom: "npm:19.0.0"
     react-icons: "npm:5.5.0"
+    recharts: "npm:^2.15.2"
     rehype-autolink-headings: "npm:7.1.0"
     rehype-slug: "npm:6.0.0"
     remark-directive: "npm:4.0.0"

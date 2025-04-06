@@ -1,3 +1,4 @@
+import { Chart, useChart } from '@chakra-ui/charts'
 import {
   Badge,
   Card,
@@ -16,7 +17,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
-import { BarChart, PieChart } from '@saas-ui/charts'
+import { PieChart } from '@saas-ui/charts'
 import {
   AppShell,
   Menu,
@@ -38,6 +39,7 @@ import {
   LuWorkflow,
   LuX,
 } from 'react-icons/lu'
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 export function CRMDemo() {
   return (
@@ -409,7 +411,50 @@ function ReportsPage() {
 }
 
 function RevenueChart() {
-  return null
+  const chart = useChart({
+    data: [
+      { date: 'Jan', Revenue: 12500 },
+      { date: 'Feb', Revenue: 15800 },
+      { date: 'Mar', Revenue: 14200 },
+      { date: 'Apr', Revenue: 16900 },
+      { date: 'May', Revenue: 13600 },
+      { date: 'Jun', Revenue: 11200 },
+      { date: 'Jul', Revenue: 17500 },
+      { date: 'Aug', Revenue: 19200 },
+      { date: 'Sep', Revenue: 18100 },
+      { date: 'Oct', Revenue: 21500 },
+    ],
+    series: [{ name: 'Revenue', color: 'indigo.solid' }],
+  })
+
+  return (
+    <Chart.Root chart={chart} height={240}>
+      <BarChart data={chart.data} barSize={20}>
+        <CartesianGrid stroke={chart.color('border.subtle')} vertical={false} />
+        <XAxis axisLine={false} tickLine={false} dataKey={chart.key('date')} />
+        <YAxis
+          axisLine={false}
+          tickLine={false}
+          domain={[0, 100]}
+          tickFormatter={(value) =>
+            Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            }).format(value)
+          }
+        />
+        {chart.series.map((item) => (
+          <Bar
+            key={item.name}
+            isAnimationActive={false}
+            dataKey={chart.key(item.name)}
+            fill={chart.color(item.color)}
+            radius={2}
+          />
+        ))}
+      </BarChart>
+    </Chart.Root>
+  )
   // return (
   //   <BarChart
   //     categories={['Revenue']}

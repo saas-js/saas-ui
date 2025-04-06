@@ -13,6 +13,7 @@
     "jsx": "preserve",
     "jsxImportSource": "react",
     "incremental": true,
+    "allowImportingTsExtensions": true,
     "customConditions": ["sui", "sui-pro"],
     "baseUrl": ".",
     "plugins": [

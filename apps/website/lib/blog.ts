@@ -1,9 +1,9 @@
 export const formatBlogDate = (date: string) => {
   const dateObj = new Date(date)
-  return dateObj.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  return dateObj.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   })
 }
 
@@ -14,10 +14,11 @@ interface Author {
 }
 
 const authorMap: Record<string, Author> = {
-  sage: {
-    name: "Segun Adebayo",
-    image: "https://bit.ly/sage-adebayo",
-    x: { url: "https://x.com/sage_adebayo", username: "@thesegunadebayo" },
+  eelco: {
+    name: 'Eelco Wiersma',
+    image:
+      'https://gravatar.com/avatar/dc8572726ca3a50f4255f522b36c040d?size=256&cache=1743934247580',
+    x: { url: 'https://x.com/eelcodotdev', username: '@eelcodotdev' },
   },
 }
 

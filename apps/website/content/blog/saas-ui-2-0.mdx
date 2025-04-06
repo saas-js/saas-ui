@@ -1,8 +1,7 @@
 ---
 title: Saas UI 2.0 is out!
-date: '2023-06-30'
-author: Eelco Wiersma
-avatar: /eelco128.jpg
+publishedAt: '2023-06-30'
+authors: ['eelco']
 description: After a lot of hard work we are proud to announce the release of Saas UI 2.0!
 ---
 
@@ -32,7 +31,7 @@ export default function MyForm = () => {
 
 ```tsx
 // form.tsx
-import { createForm, createField } from '@saas-ui/react'
+import { createField, createForm } from '@saas-ui/react'
 
 // zod
 // import {createZodForm} from '@saas-ui/forms/zod'
@@ -43,7 +42,7 @@ import { createForm, createField } from '@saas-ui/react'
 const MyCustomField = createField(
   React.forwardRef((props, ref) => {
     return <input ref={ref} {...props} />
-  })
+  }),
 )
 
 const MyCustomControlledField = createField(
@@ -52,7 +51,7 @@ const MyCustomControlledField = createField(
   }),
   {
     isControlled: true,
-  }
+  },
 )
 
 export const Form = createForm({
@@ -170,11 +169,11 @@ export default function MyStepForm = () => {
 To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod` (or `@saas-ui/forms/yup` for Yup schemas)
 
 ```jsx
-import { Button, useDisclosure } from '@chakra-ui/react'
-import { FormLayout, createFormDialog } from '@saas-ui/react'
-import { FiUsers, FiTag, FiArchive } from 'react-icons/fi'
-import { FormDialog } from '@saas-ui/forms/zod'
 import * as z from 'zod'
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormDialog } from '@saas-ui/forms/zod'
+import { FormLayout, createFormDialog } from '@saas-ui/react'
+import { FiArchive, FiTag, FiUsers } from 'react-icons/fi'
 
 const schema = z.object({
   title: z.string().describe('Title'),
@@ -217,8 +216,8 @@ export default function Page() {
 The modals manager now has a new API that allows you to create modals or change the default modals in a convenient way.
 
 ```tsx
-import { createModals } from '@saas-ui/react'
 import { FormDialog } from '@saas-ui/forms/zod'
+import { createModals } from '@saas-ui/react'
 
 const { ModalsProvider, useModals } = createModals({
   modals: {

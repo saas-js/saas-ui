@@ -1,17 +1,17 @@
----
-author: 'Subha Chanda'
+authors: ['eelco']
 title: 'Building a Modern SaaS Dashboard with Saas UI and Next.js App Router'
 description: "Dashboards are essential for every SaaS app, and UI libraries do help you build them fast. Let's look at how Saas UI can help."
-date: '2023-12-02'
+publishedAt: '2023-12-02'
 tags:
-  [
-    'nextjs',
-    'react',
-    'next app router',
-    'saas ui',
-    'dashboard',
-    'app development',
-  ]
+[
+'nextjs',
+'react',
+'next app router',
+'saas ui',
+'dashboard',
+'app development',
+]
+
 ---
 
 ![](https://cdn-images-1.medium.com/max/1600/0*Bca0aG3lWN0MIBti)
@@ -155,18 +155,15 @@ import {
 } from '@chakra-ui/react'
 import {
   AppShell,
-  Sidebar,
-  SidebarSection,
   NavItem,
   PersonaAvatar,
+  Sidebar,
+  SidebarSection,
   SidebarToggleButton,
 } from '@saas-ui/react'
-
-import { FiBarChart, FiHome, FiSettings, FiUsers } from 'react-icons/fi'
-
 import Image from 'next/image'
-
 import Logo from 'public/logoipsum-288.svg'
+import { FiBarChart, FiHome, FiSettings, FiUsers } from 'react-icons/fi'
 
 export function SidebarLayout({ children }) {
   return (
@@ -242,13 +239,14 @@ import {
 } from '@chakra-ui/react'
 import {
   AppShell,
-  Sidebar,
-  SidebarSection,
   NavItem,
   PersonaAvatar,
+  Sidebar,
+  SidebarSection,
   SidebarToggleButton,
 } from '@saas-ui/react'
-
+import Image from 'next/image'
+import Logo from 'public/logoipsum-288.svg'
 import {
   FiBarChart,
   FiHome,
@@ -257,10 +255,6 @@ import {
   FiSun,
   FiUsers,
 } from 'react-icons/fi'
-
-import Image from 'next/image'
-
-import Logo from 'public/logoipsum-288.svg'
 
 export function SidebarLayout({ children }) {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -319,8 +313,9 @@ export function SidebarLayout({ children }) {
 Now, open the `layout.js` file again and add the new SidebarLayout:
 
 ```tsx
-import { Providers } from './providers'
 import SidebarLayout from '@/components/SidebarLayout'
+
+import { Providers } from './providers'
 
 export default function RootLayout({ children }) {
   return (
@@ -375,7 +370,7 @@ export default async function Home() {
   ]
 
   const users = await fetch('https://jsonplaceholder.typicode.com/users').then(
-    (res) => res.json()
+    (res) => res.json(),
   )
 
   console.log(users)
@@ -414,8 +409,8 @@ The DataTable component is built using the [_DataTable_ component](https://saas-
 Change the body of the page like this:
 
 ```tsx
-import { Box } from '@chakra-ui/react'
 import { DataTable } from '@/components/DataTable'
+import { Box } from '@chakra-ui/react'
 
 export default async function Home() {
   const COLUMNS = [
@@ -476,6 +471,7 @@ Now change the `DataTable.jsx` file to the following:
 'use client'
 
 import React from 'react'
+
 import { Card, CardBody, CardHeader } from '@chakra-ui/react'
 import { DataTable as DataTableRoot, SearchInput } from '@saas-ui/react'
 import { getFilteredRowModel } from '@tanstack/react-table'
@@ -528,10 +524,10 @@ import {
   Grid,
   GridItem,
   Stat,
+  StatArrow,
+  StatHelpText,
   StatLabel,
   StatNumber,
-  StatHelpText,
-  StatArrow,
 } from '@chakra-ui/react'
 
 export function Summary({ currentUsersCount, oldUsersCount }) {
@@ -611,13 +607,13 @@ The [TimelineIcon](https://saas-ui.dev/docs/components/data-display/timeline#col
 ```tsx
 import { Card, CardBody, CardHeader, Heading, Text } from '@chakra-ui/react'
 import {
+  PersonaAvatar,
   Timeline,
+  TimelineContent,
+  TimelineIcon,
   TimelineItem,
   TimelineSeparator,
-  TimelineIcon,
   TimelineTrack,
-  TimelineContent,
-  PersonaAvatar,
 } from '@saas-ui/react'
 
 export function Recent() {
@@ -725,7 +721,7 @@ export default async function Home() {
   ]
 
   const users = await fetch('https://jsonplaceholder.typicode.com/users').then(
-    (res) => res.json()
+    (res) => res.json(),
   )
 
   return (

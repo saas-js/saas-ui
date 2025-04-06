@@ -1,11 +1,11 @@
-import { OpenGraphImage, size } from "@/components/open-graph-image"
-import { ImageResponse } from "next/og"
+import { OpenGraphImage, size } from '@/components/open-graph-image'
+import { ImageResponse } from 'next/og'
 
-export const runtime = "edge"
+export const runtime = 'edge'
 
-export { size } from "@/components/open-graph-image"
+export { size } from '@/components/open-graph-image'
 
-export const contentType = "image/png"
+export const contentType = 'image/png'
 
 type Params = {
   category?: string
@@ -14,12 +14,12 @@ type Params = {
 
 export async function GET(request: Request, context: { params: Params }) {
   const satoshiBold = fetch(
-    new URL("../../public/fonts/Satoshi-Bold.otf", import.meta.url),
+    new URL('../../public/fonts/Satoshi-Bold.otf', import.meta.url),
   ).then((res) => res.arrayBuffer())
 
-  const backgroundArrayBuffer = await fetch(
-    new URL("../../public/open-graph-bg.png", import.meta.url),
-  ).then((res) => res.arrayBuffer())
+  // const backgroundArrayBuffer = await fetch(
+  //   new URL("../../public/open-graph-bg.png", import.meta.url),
+  // ).then((res) => res.arrayBuffer())
 
   const { category, title } = context.params
 
@@ -28,22 +28,22 @@ export async function GET(request: Request, context: { params: Params }) {
       <OpenGraphImage
         category={category}
         title={title}
-        backgroundSrc={backgroundArrayBuffer}
+        // backgroundSrc={backgroundArrayBuffer}
       />
     ),
     {
       ...size,
       fonts: [
         {
-          name: "Satoshi",
+          name: 'Satoshi',
           data: await satoshiBold,
-          style: "normal",
+          style: 'normal',
           weight: 700,
         },
       ],
       status: 200,
       headers: {
-        "Cache-Control": "public, max-age=31536000, immutable",
+        'Cache-Control': 'public, max-age=31536000, immutable',
       },
     },
   )

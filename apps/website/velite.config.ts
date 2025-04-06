@@ -112,7 +112,7 @@ const blogs = defineCollection({
   schema: s
     .object({
       title: s.string(),
-      type: s.enum(['release', 'announcement', 'article']),
+      type: s.enum(['release', 'announcement', 'article']).default('article'),
       description: s.string(),
       metadata: s.metadata(),
       content: s.mdx(),

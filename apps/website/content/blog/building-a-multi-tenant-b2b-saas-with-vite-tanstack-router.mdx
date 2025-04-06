@@ -1,9 +1,8 @@
 ---
-author: 'Eelco Wiersma'
-avatar: /eelco128.jpg
+authors: ['eelco']
 title: 'Building a multi-tenant B2B SaaS with Vite, Tanstack React Router and Query - Part 1: The boilerplate'
 description: "In this article, we'll start building a multi-tenant B2B SaaS using Vite, Tanstack React Router, React Query, Chakra UI and Saas UI."
-date: '2024-02-23'
+publishedAt: '2024-02-23'
 tags:
   ['vite', 'tanstack router', 'react query', 'react', 'saas ui', 'chakra ui']
 ---
@@ -45,9 +44,9 @@ The router plugin will handle generating the route tree and types for us.
 
 ```typescript
 // vite.config.ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
 import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -238,9 +237,10 @@ After installing the dependencies, we need to add the `QueryClientProvider` to t
 
 ```tsx
 import { forwardRef } from 'react'
+
 import { LinkProps, SaasProvider } from '@saas-ui/react'
-import { RouterProvider, createRouter, Link } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
 
 import { routeTree } from '../routeTree.gen'
 
@@ -270,7 +270,7 @@ const LinkComponent = forwardRef<HTMLAnchorElement, Pick<LinkProps, 'href'>>(
   (props, ref) => {
     const { href, ...rest } = props
     return <Link ref={ref} to={href} {...rest} />
-  }
+  },
 )
 
 export const Provider = () => {
@@ -299,9 +299,9 @@ Edit `src/router/__root.tsx` and change `createRootRoute` to `createRootRouteWit
 ```tsx
 import { QueryClient } from '@tanstack/react-query'
 import {
-  createRootRouteWithContext,
   Link,
   Outlet,
+  createRootRouteWithContext,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 
@@ -327,9 +327,9 @@ Now we can create a simple loader to fetch some data. Create a new file called `
 We don't have an actual API to fetch data from, so we'll just return some dummy data for now.
 
 ```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { useQuery, queryOptions } from '@tanstack/react-query'
 import { Box, Heading } from '@chakra-ui/react'
+import { queryOptions, useQuery } from '@tanstack/react-query'
+import { createFileRoute } from '@tanstack/react-router'
 
 const profileQueryOptions = queryOptions({
   queryKey: ['profile'],
@@ -468,7 +468,7 @@ Let's clean up the root layout that we created initially. Edit `src/routes/__roo
 
 ```tsx
 import { QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
+import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 
 export const Route = createRootRouteWithContext<{
@@ -560,11 +560,12 @@ function OnboardingLayout() {
 And create the page route in `src/routes/_onboarding/getting-started.tsx`.
 
 ```tsx
+import { FormEvent } from 'react'
+
 import { Center, Container, Heading } from '@chakra-ui/react'
 import { Field, Form, FormLayout, SubmitButton } from '@saas-ui/react'
 import { useMutation } from '@tanstack/react-query'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { FormEvent } from 'react'
 
 const slugify = (value: string) => {
   return value

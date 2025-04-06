@@ -1,7 +1,7 @@
 import { blogs } from '@/.velite'
 import { BlogCard } from '@/components/blog-card'
 import { HighlightHeading, Subheading } from '@/components/site/typography'
-import { Box, Container, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Box, Container, Heading, SimpleGrid, Stack } from '@chakra-ui/react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -19,12 +19,12 @@ export default function BlogPage() {
       <Container>
         <Stack gap={{ base: '5', md: '10' }} mb="20">
           <Stack gap="5" pr="4" maxW="3xl" px="1.5">
-            <HighlightHeading as="h1" query="Updates">
-              Chakra UI News and Updates
-            </HighlightHeading>
+            <Heading as="h2" size="5xl">
+              Saas UI News and Updates
+            </Heading>
             <Subheading>
-              Catch up on the latest Chakra news, covering releases, framework
-              developments, and other essential information.
+              Catch up on the latest Saas UI news, covering releases, framework
+              developments, and other essential information
             </Subheading>
           </Stack>
         </Stack>

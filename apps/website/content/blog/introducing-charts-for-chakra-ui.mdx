@@ -1,0 +1,776 @@
+---
+title: Introducing 4 new Open Source data visualization components for Chakra UI.
+date: '2024-01-12'
+author: Eelco Wiersma
+avatar: /eelco128.jpg
+description: Build beautiful metrics dashboards faster with Area, Bar, Line and Sparkline charts for Chakra UI.
+---
+
+Charts are an important part of any SaaS dashboard. They provide a quick insights into important and complex information and help users to understand the data better.
+The `AreaChart` and `Sparkline` have been available in [Saas UI Pro](/pricing) for some time now, but today we're excited to release them fully Open Source, and together with 2 new chart types and improved APIs.
+These components are built on top of [Recharts](https://recharts.org/en-US/) and are designed to build beautiful charts fast and with ease, while leaving enough room for customization.
+
+## Area Chart
+
+The Area Chart is a great way to visualize data over time. It's especially useful when you want to visualize how data points change and form a pattern over a period. The Area Chart fills the area between the data line and the X-axis, making it easy to see fluctuations and trends.
+
+```jsx inline=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { AreaChart } from '@saas-ui/charts'
+
+export default function Page() {
+  return (
+    <Card>
+      <CardHeader pb="0">
+        <Heading as="h4" fontWeight="medium" size="md">
+          Developers
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <AreaChart
+          data={data}
+          categories={['Backend', 'Frontend']}
+          colors={['primary', 'secondary']}
+          height="300px"
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    Backend: 40,
+    Frontend: 21,
+  },
+  {
+    date: 'Dec 2',
+    Backend: 38,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 3',
+    Backend: 49,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 4',
+    Backend: 48,
+    Frontend: 29,
+  },
+  {
+    date: 'Dec 5',
+    Backend: 50,
+    Frontend: 22,
+  },
+  {
+    date: 'Dec 6',
+    Backend: 42,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 7',
+    Backend: 41,
+    Frontend: 28,
+  },
+  {
+    date: 'Dec 8',
+    Backend: 44,
+    Frontend: 23,
+  },
+  {
+    date: 'Dec 9',
+    Backend: 44,
+    Frontend: 24,
+  },
+  {
+    date: 'Dec 10',
+    Backend: 44,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 11',
+    Backend: 46,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 12',
+    Backend: 48,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 13',
+    Backend: 46,
+    Frontend: 25,
+  },
+  {
+    date: 'Dec 14',
+    Backend: 50,
+    Frontend: 28,
+  },
+  {
+    date: 'Dec 15',
+    Backend: 42,
+    Frontend: 34,
+  },
+  {
+    date: 'Dec 16',
+    Backend: 58,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 17',
+    Backend: 49,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 18',
+    Backend: 44,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 19',
+    Backend: 46,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 20',
+    Backend: 44,
+    Frontend: 35,
+  },
+  {
+    date: 'Dec 21',
+    Backend: 51,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 22',
+    Backend: 58,
+    Frontend: 36,
+  },
+  {
+    date: 'Dec 23',
+    Backend: 46,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 24',
+    Backend: 61,
+    Frontend: 30,
+  },
+  {
+    date: 'Dec 25',
+    Backend: 56,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 26',
+    Backend: 55,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 27',
+    Backend: 47,
+    Frontend: 32,
+  },
+  {
+    date: 'Dec 28',
+    Backend: 55,
+    Frontend: 33,
+  },
+  {
+    date: 'Dec 29',
+    Backend: 61,
+    Frontend: 32,
+  },
+  {
+    date: 'Dec 30',
+    Backend: 62,
+    Frontend: 29,
+  },
+  {
+    date: 'Dec 31',
+    Backend: 52,
+    Frontend: 37,
+  },
+]
+```
+
+## Line Chart
+
+The Line Chart component is similar to the Area Chart but focuses solely on the data line, making it ideal for displaying data trends without the area fill. It's a great choice when you want to emphasize the actual data points' values.
+
+```jsx inline=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { LineChart } from '@saas-ui/charts'
+
+const valueFormatter = (value) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value)
+}
+
+export default function Page() {
+  return (
+    <Card>
+      <CardHeader pb="0">
+        <Heading as="h4" fontWeight="medium" size="md">
+          Revenue over time
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <LineChart
+          data={data}
+          categories={['Revenue']}
+          valueFormatter={valueFormatter}
+          yAxisWidth={80}
+          height="300px"
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Jan 1',
+    Revenue: 1475,
+  },
+  {
+    date: 'Jan 8',
+    Revenue: 1936,
+  },
+  {
+    date: 'Jan 15',
+    Revenue: 1555,
+  },
+  {
+    date: 'Jan 22',
+    Revenue: 1557,
+  },
+  {
+    date: 'Jan 29',
+    Revenue: 1977,
+  },
+  {
+    date: 'Feb 5',
+    Revenue: 2315,
+  },
+  {
+    date: 'Feb 12',
+    Revenue: 1736,
+  },
+  {
+    date: 'Feb 19',
+    Revenue: 1981,
+  },
+  {
+    date: 'Feb 26',
+    Revenue: 2581,
+  },
+  {
+    date: 'Mar 5',
+    Revenue: 2592,
+  },
+  {
+    date: 'Mar 12',
+    Revenue: 2635,
+  },
+  {
+    date: 'Mar 19',
+    Revenue: 2074,
+  },
+  {
+    date: 'Mar 26',
+    Revenue: 2984,
+  },
+  {
+    date: 'Apr 2',
+    Revenue: 2254,
+  },
+  {
+    date: 'Apr 9',
+    Revenue: 3159,
+  },
+  {
+    date: 'Apr 16',
+    Revenue: 2804,
+  },
+  {
+    date: 'Apr 23',
+    Revenue: 2602,
+  },
+  {
+    date: 'Apr 30',
+    Revenue: 2840,
+  },
+  {
+    date: 'May 7',
+    Revenue: 3299,
+  },
+  {
+    date: 'May 14',
+    Revenue: 3487,
+  },
+  {
+    date: 'May 21',
+    Revenue: 3439,
+  },
+  {
+    date: 'May 28',
+    Revenue: 3095,
+  },
+  {
+    date: 'Jun 4',
+    Revenue: 3252,
+  },
+  {
+    date: 'Jun 11',
+    Revenue: 4096,
+  },
+  {
+    date: 'Jun 18',
+    Revenue: 4193,
+  },
+  {
+    date: 'Jun 25',
+    Revenue: 4759,
+  },
+]
+```
+
+## Bar Chart
+
+If you need to compare different categories or data points, the Bar Chart component is an excellent choice. It displays data as horizontal or vertical bars, making it easy to visualize relative values and comparisons.
+
+```jsx inline=true
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
+import { BarChart } from '@saas-ui/charts'
+
+export default function Page() {
+  return (
+    <Card>
+      <CardHeader pb="0">
+        <Heading as="h4" fontWeight="medium" size="md">
+          Customers
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <BarChart
+          data={data}
+          categories={['New', 'Active', 'Churned']}
+          colors={['green', 'blue', 'red']}
+          variant="solid"
+          height="300px"
+        />
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    New: 46,
+    Active: 26,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 2',
+    New: 47,
+    Active: 23,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 3',
+    New: 40,
+    Active: 25,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 4',
+    New: 50,
+    Active: 28,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 5',
+    New: 53,
+    Active: 31,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 6',
+    New: 61,
+    Active: 34,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 7',
+    New: 65,
+    Active: 37,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 8',
+    New: 54,
+    Active: 39,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 9',
+    New: 55,
+    Active: 43,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 10',
+    New: 64,
+    Active: 40,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 11',
+    New: 65,
+    Active: 46,
+    Churned: 2,
+  },
+  {
+    date: 'Dec 12',
+    New: 68,
+    Active: 42,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 13',
+    New: 88,
+    Active: 51,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 14',
+    New: 81,
+    Active: 44,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 15',
+    New: 83,
+    Active: 51,
+    Churned: 3,
+  },
+  {
+    date: 'Dec 16',
+    New: 97,
+    Active: 52,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 17',
+    New: 106,
+    Active: 51,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 18',
+    New: 106,
+    Active: 58,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 19',
+    New: 112,
+    Active: 51,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 20',
+    New: 121,
+    Active: 60,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 21',
+    New: 100,
+    Active: 73,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 22',
+    New: 135,
+    Active: 63,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 23',
+    New: 109,
+    Active: 79,
+    Churned: 4,
+  },
+  {
+    date: 'Dec 24',
+    New: 130,
+    Active: 84,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 25',
+    New: 126,
+    Active: 88,
+    Churned: 6,
+  },
+  {
+    date: 'Dec 26',
+    New: 163,
+    Active: 98,
+    Churned: 5,
+  },
+  {
+    date: 'Dec 27',
+    New: 133,
+    Active: 106,
+    Churned: 7,
+  },
+  {
+    date: 'Dec 28',
+    New: 180,
+    Active: 97,
+    Churned: 7,
+  },
+  {
+    date: 'Dec 29',
+    New: 138,
+    Active: 89,
+    Churned: 7,
+  },
+  {
+    date: 'Dec 30',
+    New: 147,
+    Active: 108,
+    Churned: 6,
+  },
+  {
+    date: 'Dec 31',
+    New: 168,
+    Active: 115,
+    Churned: 8,
+  },
+]
+```
+
+## Sparkline
+
+The Sparkline component is a compact and minimalistic data visualization tool.
+It's great for displaying data trends within a limited space, like in a [data table](/docs/components/advanced-data/data-grid) or a dashboard using the Chakra UI `Stat` component. Sparklines are typically used to show trends or changes over time quickly.
+
+```jsx inline=true center=true
+import {
+  Card,
+  CardBody,
+  Stat,
+  StatLabel,
+  StatHelpText,
+  StatArrow,
+  StatNumber,
+} from '@chakra-ui/react'
+import { Sparkline } from '@saas-ui/charts'
+
+export default function Page() {
+  const value = Number(data[data.length - 1].value ?? 0)
+  const compareValue = Number(data[data.length - 1].compareValue ?? 0)
+
+  const percentage = Math.round(((value - compareValue) / value) * 100)
+
+  return (
+    <Card width="300px">
+      <CardBody>
+        <Stat pos="relative">
+          <StatLabel>New customers</StatLabel>
+          <StatHelpText pos="absolute" top="0" right="0">
+            <StatArrow type="increase" /> {percentage}%
+          </StatHelpText>
+          <StatNumber>{data[data.length - 1].value ?? 0}</StatNumber>
+          <Sparkline
+            data={data}
+            categories={['value', 'compareValue']}
+            colors={['orange', 'gray']}
+            height="60px"
+            mx="-4"
+          />
+        </Stat>
+      </CardBody>
+    </Card>
+  )
+}
+
+const data = [
+  {
+    date: 'Dec 1',
+    value: 40,
+    compareValue: 21,
+  },
+  {
+    date: 'Dec 2',
+    value: 38,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 3',
+    value: 49,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 4',
+    value: 48,
+    compareValue: 29,
+  },
+  {
+    date: 'Dec 5',
+    value: 50,
+    compareValue: 22,
+  },
+  {
+    date: 'Dec 6',
+    value: 42,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 7',
+    value: 41,
+    compareValue: 28,
+  },
+  {
+    date: 'Dec 8',
+    value: 44,
+    compareValue: 23,
+  },
+  {
+    date: 'Dec 9',
+    value: 44,
+    compareValue: 24,
+  },
+  {
+    date: 'Dec 10',
+    value: 44,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 11',
+    value: 46,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 12',
+    value: 48,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 13',
+    value: 46,
+    compareValue: 25,
+  },
+  {
+    date: 'Dec 14',
+    value: 50,
+    compareValue: 28,
+  },
+  {
+    date: 'Dec 15',
+    value: 42,
+    compareValue: 34,
+  },
+  {
+    date: 'Dec 16',
+    value: 58,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 17',
+    value: 49,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 18',
+    value: 44,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 19',
+    value: 46,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 20',
+    value: 44,
+    compareValue: 35,
+  },
+  {
+    date: 'Dec 21',
+    value: 51,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 22',
+    value: 58,
+    compareValue: 36,
+  },
+  {
+    date: 'Dec 23',
+    value: 46,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 24',
+    value: 61,
+    compareValue: 30,
+  },
+  {
+    date: 'Dec 25',
+    value: 56,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 26',
+    value: 55,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 27',
+    value: 47,
+    compareValue: 32,
+  },
+  {
+    date: 'Dec 28',
+    value: 55,
+    compareValue: 33,
+  },
+  {
+    date: 'Dec 29',
+    value: 61,
+    compareValue: 32,
+  },
+  {
+    date: 'Dec 30',
+    value: 62,
+    compareValue: 29,
+  },
+  {
+    date: 'Dec 31',
+    value: 52,
+    compareValue: 37,
+  },
+]
+```
+
+These new data visualization components make it easier than ever to integrate interactive and visually appealing charts and graphs into your React applications. Whether you need to display trends, compare data points, or show compact trend summaries, these components have got you covered. So, start visualizing your data with Saas UI today!
+
+## Links
+
+- [Area Chart](/docs/components/visualization/area-chart)
+- [Line Chart](/docs/components/visualization/line-chart)
+- [Bar Chart](/docs/components/visualization/bar-chart)
+- [Sparkline](/docs/components/visualization/sparkline)
+
+- [Recharts](https://recharts.org/)

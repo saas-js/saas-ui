@@ -91,12 +91,10 @@ export const HeroSection = () => (
               borderWidth="1px"
               variant="solid"
             >
-              <Link href="/docs/get-started/installation">
-                Explore components
-              </Link>
+              <Link href="/docs">Explore components</Link>
             </Button>
             <Button variant="glass" colorPalette="accent" size="lg">
-              <Link href="/docs/get-started/installation">Buy Pro</Link>
+              <Link href="/docs">Buy Pro</Link>
             </Button>
           </Stack>
         </Stack>

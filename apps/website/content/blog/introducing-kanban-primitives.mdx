@@ -1,0 +1,119 @@
+---
+title: Introducing Kanban primitives
+date: '2023-10-06'
+author: Eelco Wiersma
+avatar: /eelco128.jpg
+description: Build interactive Kanban boards with Saas UI Pro
+---
+
+I'm excited to announce that the Kanban primitives are now available in Saas UI Pro.
+Kanban boards are an essential tool in any kind of business software. They allow you to visualize processes and optimize workflows, like tasks, issues, or sales pipelines.
+
+## Kanban primitives
+
+The Kanban primitives are a set of components that allow you to build interactive Kanban boards with ease.
+The primitives are unstyled and allow for maximum customization.
+They are built on top of the [Dnd kit](https://dndkit.com) library and work really well together with [Tanstack React table](https://tanstack.com/table/v8).
+
+Some of the features of the Kanban primitives are:
+
+- Drag and drop items between columns
+- Drag and drop columns
+- Drag and drop items within a column
+- Customizable drag overlay
+- Customizable column headers and cards
+- Remove cards from the board with drag and drop
+- Show / hide columns
+
+You can see the Kanboard in action on the contacts page of the [Saas UI Pro demo](https://demo.saas-ui.dev).
+
+<Tweet>
+  <p lang="en" dir="ltr">
+    Kanban primitives and Kanban Board (
+    <a href="https://twitter.com/tan_stack?ref_src=twsrc%5Etfw">@tan_stack</a>{' '}
+    Table integration) are now available in Saas UI Pro 🤩
+    <a href="https://t.co/Qnfip5YfMg">https://t.co/Qnfip5YfMg</a> <a href="https://t.co/eiUF3D1oDU">pic.twitter.com/eiUF3D1oDU</a>
+  </p>
+  &mdash; Saas UI (@saas_js) <a href="https://twitter.com/saas_js/status/1703067566497800569?ref_src=twsrc%5Etfw">September 16, 2023</a>
+</Tweet>
+
+## Live Example
+
+Building something with the Kanban primitives is really easy.
+
+```jsx
+import { Card, CardBody } from '@chakra-ui/react'
+import {
+  Kanban,
+  KanbanColumn,
+  KanbanColumnHeader,
+  KanbanColumnBody,
+  KanbanColumnHandle,
+  KanbanCard,
+  KanbanDragOverlay,
+} from '@saas-ui-pro/kanban'
+
+const columnDefs: Record<string, { title: string }> = {
+  todo: {
+    title: 'Todo',
+  },
+  doing: {
+    title: 'Doing',
+  },
+  done: {
+    title: 'Done',
+  },
+}
+
+export default function Basic() {
+  return (
+    <Kanban defaultItems={kanbanItems}>
+      {({ columns, items, activeId }) => {
+        return (
+          <>
+            {columns.map((columnId) => (
+              <KanbanColumn id={columnId} minWidth="200px">
+                <KanbanColumnHeader>
+                  {columnDefs[columnId]?.title} ({items[columnId]?.length})
+                </KanbanColumnHeader>
+                <KanbanColumnBody>
+                  {items[columnId].map((itemId) => {
+                    return (
+                      <KanbanCard id={itemId}>
+                        <Card minHeight="80px" w="full" fontSize="sm">
+                          <CardBody>{itemId}</CardBody>
+                        </Card>
+                      </KanbanCard>
+                    )
+                  })}
+                </KanbanColumnBody>
+              </KanbanColumn>
+            ))}
+
+            <KanbanDragOverlay>
+              {activeId ? (
+                <KanbanCard id={activeId}>
+                  <Card
+                    minHeight="80px"
+                    w="full"
+                    fontSize="sm"
+                    cursor="grabbing"
+                  >
+                    <CardBody>{activeId}</CardBody>
+                  </Card>
+                </KanbanCard>
+              ) : null}
+            </KanbanDragOverlay>
+          </>
+        )
+      }}
+    </Kanban>
+  )
+}
+```
+
+We'd love to see what you've built with the Kanban primitives. Feel free to [share your creations on X](https://x.com/saas_js) or join us on [Discord](/discord).
+
+## What's next
+
+- [Kanban documentation](/docs/components/advanced-data/kanban)

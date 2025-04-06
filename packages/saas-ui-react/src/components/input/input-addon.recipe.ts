@@ -1,6 +1,6 @@
 import { defineRecipe } from '@chakra-ui/react/styled-system'
 
-import { inputRecipe } from './input.recipe'
+import { inputRecipe } from './input.recipe.ts'
 
 export const inputAddonRecipe = defineRecipe({
   className: 'chakra-input-addon',

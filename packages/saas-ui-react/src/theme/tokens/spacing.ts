@@ -1,6 +1,6 @@
 import { defineTokens } from '@chakra-ui/react'
 
-import { scaleToken } from '../utils'
+import { scaleToken } from '../utils.ts'
 
 export const spacing = defineTokens.spacing({
   0.5: { value: scaleToken('0.125rem') },

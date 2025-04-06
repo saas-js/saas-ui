@@ -2,6 +2,7 @@
   "name": "saas-ui",
   "description": "The frontend stack for SaaS companies",
   "private": true,
+  "type": "module",
   "author": "Eelco Wiersma <eelco@appulse.nl>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",

@@ -1,6 +1,6 @@
 import { defineTokens } from '@chakra-ui/react'
 
-import { spacing } from './spacing'
+import { spacing } from './spacing.ts'
 
 const largeSizes = defineTokens.sizes({
   '3xs': { value: '14rem' },

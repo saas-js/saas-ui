@@ -5,7 +5,11 @@ import importPlugin from 'eslint-plugin-import'
 import storybookPlugin from 'eslint-plugin-storybook'
 
 export default [
+  prettierConfig,
+  importPlugin.flatConfigs.typescript,
+
   {
+    files: ['packages/**/src/**/*.ts', 'packages/**/src/**/*.tsx'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -15,7 +19,9 @@ export default [
     },
     settings: {
       'import/resolver': {
-        typescript: {},
+        typescript: {
+          extensions: ['.ts', '.tsx'],
+        },
       },
     },
     plugins: {
@@ -23,12 +29,7 @@ export default [
       import: importPlugin,
       storybook: storybookPlugin,
     },
-    extends: [
-      'eslint:recommended',
-      prettierConfig,
-      'plugin:import/typescript',
-      'plugin:storybook/recommended',
-    ],
+
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',

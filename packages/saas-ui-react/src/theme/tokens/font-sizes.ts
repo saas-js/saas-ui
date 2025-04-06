@@ -1,6 +1,6 @@
 import { defineTokens } from '@chakra-ui/react'
 
-import { scaleToken } from '../utils'
+import { scaleToken } from '../utils.ts'
 
 export const fontSizes = defineTokens.fontSizes({
   '2xs': { value: scaleToken('0.675rem') },

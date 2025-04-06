@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "3.0.0-next.22",
+  "version": "3.0.0-next.26",
   "description": "Saas UI - The React component library for startups.",
   "type": "module",
   "exports": {
@@ -35,7 +35,7 @@
     "build:types": "tsc --emitDeclarationOnly --outDir dist --project tsconfig.json",
     "prebuild": "yarn clean",
     "build": "tsc --outDir dist --project tsconfig.json",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },

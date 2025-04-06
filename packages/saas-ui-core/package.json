@@ -62,7 +62,7 @@
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup --config tsup.config.ts",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },

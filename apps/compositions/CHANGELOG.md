@@ -1,5 +1,37 @@
 # @chakra-ui/compositions
 
+## 1.0.1-next.26
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.26
+  - @saas-ui/forms@3.0.0-next.26
+
+## 1.0.1-next.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.25
+  - @saas-ui/forms@3.0.0-next.25
+
+## 1.0.1-next.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.24
+  - @saas-ui/forms@3.0.0-next.24
+
+## 1.0.1-next.23
+
+### Patch Changes
+
+- Updated dependencies [fc4a915]
+  - @saas-ui/react@3.0.0-next.23
+  - @saas-ui/forms@3.0.0-next.23
+
 ## 1.0.1-next.22
 
 ### Patch Changes

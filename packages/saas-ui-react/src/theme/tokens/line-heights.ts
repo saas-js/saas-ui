@@ -1,6 +1,6 @@
 import { defineTokens } from '@chakra-ui/react'
 
-import { scaleToken } from '../utils'
+import { scaleToken } from '../utils.ts'
 
 export const lineHeights = defineTokens.lineHeights({
   shorter: { value: scaleToken('1.25') },

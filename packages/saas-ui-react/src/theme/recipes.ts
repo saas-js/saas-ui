@@ -1,6 +1,6 @@
 import { badgeRecipe } from '../components/badge/badge.recipe.ts'
 import { buttonRecipe } from '../components/button/button.recipe.ts'
-import { checkmarkRecipe } from '../components/checkmark/checkmark.recipe'
+import { checkmarkRecipe } from '../components/checkmark/checkmark.recipe.ts'
 import { codeRecipe } from '../components/code/code.recipe.ts'
 import { commandRecipe } from '../components/command/command.recipe.ts'
 import { containerRecipe } from '../components/container/container.recipe.ts'

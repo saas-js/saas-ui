@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/forms",
-  "version": "3.0.0-next.22",
+  "version": "3.0.0-next.26",
   "description": "Fully functional forms for Chakra UI.",
   "exports": {
     ".": {
@@ -41,7 +41,7 @@
     "build:package": "tsup src/index.ts --config tsup.config.ts",
     "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
     "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit",
     "tsd": "tsd"

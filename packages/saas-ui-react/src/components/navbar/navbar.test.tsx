@@ -1,15 +1,15 @@
 import * as React from 'react'
+
 import { render, testStories } from '@saas-ui/test-utils'
 
-import { Navbar, NavbarBrand, NavbarItem, NavbarContent } from './index'
-
-import * as stories from './navbar.stories'
+import * as stories from './navbar.stories.tsx'
+import { Navbar } from './index.ts'
 
 testStories<typeof stories>(stories)
 
 describe('Navbar', () => {
   it('should render correctly', () => {
-    const wrapper = render(<Navbar />)
+    const wrapper = render(<Navbar.Root />)
 
     expect(() => wrapper.unmount()).not.toThrow()
   })
@@ -17,15 +17,15 @@ describe('Navbar', () => {
   it('ref should be forwarded', () => {
     const ref = React.createRef<HTMLDivElement>()
 
-    render(<Navbar ref={ref} />)
+    render(<Navbar.Root ref={ref} />)
     expect(ref.current).not.toBeNull()
   })
 
   it('should render correctly with brand', () => {
     const wrapper = render(
-      <Navbar>
-        <NavbarBrand data-testid="navbar-test">Saas UI</NavbarBrand>
-      </Navbar>
+      <Navbar.Root>
+        <Navbar.Brand data-testid="navbar-test">Saas UI</Navbar.Brand>
+      </Navbar.Root>,
     )
 
     expect(wrapper.getByTestId('navbar-test')).toBeInTheDocument()
@@ -33,13 +33,13 @@ describe('Navbar', () => {
 
   it('should render correctly content children', () => {
     const wrapper = render(
-      <Navbar>
-        <NavbarContent data-testid="navbar-content-test">
-          <NavbarItem>Dashboard</NavbarItem>
-          <NavbarItem>Contacts</NavbarItem>
-          <NavbarItem>Settings</NavbarItem>
-        </NavbarContent>
-      </Navbar>
+      <Navbar.Root>
+        <Navbar.Content data-testid="navbar-content-test">
+          <Navbar.Item>Dashboard</Navbar.Item>
+          <Navbar.Item>Contacts</Navbar.Item>
+          <Navbar.Item>Settings</Navbar.Item>
+        </Navbar.Content>
+      </Navbar.Root>,
     )
 
     const navbarContent = wrapper.getByTestId('navbar-content-test')

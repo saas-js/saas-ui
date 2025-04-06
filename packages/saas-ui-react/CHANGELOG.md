@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.22
+
+### Patch Changes
+
+- 40e4dea: Fixed missing import extensions
+
 ## 3.0.0-next.21
 
 ### Patch Changes

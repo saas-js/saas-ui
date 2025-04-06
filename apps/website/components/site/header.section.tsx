@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { BsGithub } from 'react-icons/bs'
 
 import { LinkButton } from '../link-button'
 
@@ -85,21 +86,20 @@ const DesktopNav = () => (
       ))}
     </HStack>
     <HStack gap="1" justifyContent="flex-end">
-      <SocialLinks
-        items={[{ type: 'github', href: 'https://github.com/saas-js/saas-ui' }]}
-      />
+      <Button asChild variant="ghost" size="sm">
+        <Link href="/login" target="_blank">
+          <BsGithub /> 1.5k
+        </Link>
+      </Button>
       <ColorModeButton />
-      <Separator orientation="vertical" height="4" />
-      <LinkButton href="/login" variant="ghost" colorPalette="gray" size="sm">
-        Log in
-      </LinkButton>
+      <Separator orientation="vertical" height="4" mx="2" />
       <LinkButton
         href="/pricing"
         colorPalette="accent"
         variant="glass"
         size="sm"
       >
-        Buy Pro
+        Get Pro
       </LinkButton>
     </HStack>
   </HStack>

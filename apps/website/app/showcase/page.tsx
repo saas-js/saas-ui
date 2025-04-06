@@ -16,7 +16,7 @@ import { showcases } from '.velite'
 
 export const metadata: Metadata = {
   title: 'Showcase',
-  description: 'A collection of apps built with Saas UI',
+  description: 'A collection of SaaS products powered by Saas UI',
   openGraph: {
     images: `/og?title=Showcase`,
   },
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <VStack pt="10" pb="16" gap="10">
-      <VStack>
+    <VStack pt="20" pb="16" gap="10">
+      <VStack py="20">
         <Heading as="h1" textStyle={{ base: '4xl', md: '5xl' }}>
           Showcase
         </Heading>
@@ -35,7 +35,7 @@ export default function Page() {
           textAlign="center"
           color="fg.subtle"
         >
-          A collection of apps built with Saas UI
+          A collection of SaaS products powered by Saas UI.
         </Text>
       </VStack>
 
@@ -47,7 +47,7 @@ export default function Page() {
                 src={image}
                 alt={title}
                 aspectRatio="16/9"
-                objectFit="cover"
+                objectFit="fill"
               />
 
               <CardBody>

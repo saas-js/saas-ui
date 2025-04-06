@@ -1,21 +1,26 @@
-import { Clipboard } from "@ark-ui/react/clipboard"
-import { IconButton } from "@chakra-ui/react"
-import { LuCheck, LuClipboard } from "react-icons/lu"
+import { Clipboard } from '@ark-ui/react/clipboard'
+import { Button, type ButtonProps } from '@saas-ui/react'
+import { LuCheck, LuClipboard } from 'react-icons/lu'
 
-interface Props {
+interface CopyButtonProps extends ButtonProps {
   value: string
+  children?: React.ReactNode
+  hideIndicator?: boolean
 }
 
-export const CopyButton = (props: Props) => {
-  const { value } = props
+export const CopyButton = (props: CopyButtonProps) => {
+  const { value, children, hideIndicator, ...rest } = props
   return (
-    <Clipboard.Root className="dark" value={value}>
+    <Clipboard.Root value={value}>
       <Clipboard.Trigger asChild>
-        <IconButton colorPalette="gray" variant="ghost" size="sm">
-          <Clipboard.Indicator copied={<LuCheck />}>
-            <LuClipboard />
-          </Clipboard.Indicator>
-        </IconButton>
+        <Button colorPalette="gray" variant="ghost" size="sm" {...rest}>
+          {children}
+          {!hideIndicator && (
+            <Clipboard.Indicator copied={<LuCheck />}>
+              <LuClipboard />
+            </Clipboard.Indicator>
+          )}
+        </Button>
       </Clipboard.Trigger>
     </Clipboard.Root>
   )

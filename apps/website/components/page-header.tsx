@@ -1,11 +1,12 @@
-import { HStack, Heading, Link, Span, Stack, Text } from "@chakra-ui/react"
-import { LuArrowUpRight } from "react-icons/lu"
-import { titleCase } from "scule"
-import { ResourceIcon } from "./resource-icon"
+import { HStack, Heading, Link, Span, Stack, Text } from '@chakra-ui/react'
+import { LuArrowUpRight } from 'react-icons/lu'
+import { titleCase } from 'scule'
+
+import { ResourceIcon } from './resource-icon'
 
 interface PageHeaderProps {
   title: string
-  description: string
+  description?: string
   links?: {
     source?: string
     storybook?: string
@@ -21,7 +22,7 @@ export const PageHeader = (props: PageHeaderProps) => {
       <Heading as="h1" size="3xl" letterSpacing="tight">
         {title}
       </Heading>
-      <Text color="fg.subtle">{description}</Text>
+      {description && <Text color="fg.subtle">{description}</Text>}
       {links && (
         <HStack gap="6" mb="4" wrap="wrap">
           {Object.entries(links).map(([title, url]) => (
@@ -33,7 +34,7 @@ export const PageHeader = (props: PageHeaderProps) => {
               color="fg.subtle"
               key={title + url}
               href={url}
-              _icon={{ fontSize: "1em" }}
+              _icon={{ fontSize: '1em' }}
             >
               <ResourceIcon type={title} />
               {titleCase(title)}

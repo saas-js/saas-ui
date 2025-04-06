@@ -4,7 +4,7 @@ export const system = createSystem(defaultConfig, {
   theme: {
     tokens: {
       fonts: {
-        heading: { value: 'var(--font-guton)' },
+        heading: { value: 'var(--font-inter)' },
         body: { value: 'var(--font-inter)' },
       },
     },

@@ -15,8 +15,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { FaGithub, FaSlack } from 'react-icons/fa6'
 import { LuArrowRight, LuEllipsisVertical } from 'react-icons/lu'
 
-import { Avatar } from '#components/avatar/avatar.js'
-
+import { Avatar } from '../avatar/index.ts'
 import { Button } from '../button/index.ts'
 import { Persona } from '../persona/index.ts'
 import { Card } from './index.ts'

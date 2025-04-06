@@ -2,119 +2,62 @@
 
 import { Annoucement } from '@/components/annoucement'
 import { Subheading } from '@/components/site/typography'
-import {
-  Box,
-  Button,
-  Container,
-  HStack,
-  Heading,
-  Stack,
-  Tabs,
-} from '@chakra-ui/react'
-import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
-import dynamic from 'next/dynamic'
+import { Box, Button, Container, Heading, Stack } from '@chakra-ui/react'
 import Link from 'next/link'
 import { HiArrowRight } from 'react-icons/hi'
 
-const CRMDemo = dynamic(
-  () => import('@/components/site/demo/crm-demo').then((mod) => mod.CRMDemo),
-  {
-    ssr: false,
-  },
-)
+import { CopyButton } from '../copy-button'
 
-const EmailDemo = dynamic(
-  () =>
-    import('@/components/site/demo/email-demo').then((mod) => mod.EmailDemo),
-  {
-    ssr: false,
-  },
-)
-
-const ComponentDemos = () => {
+export const HeroSection = () => {
   return (
-    <Container maxW="8xl">
-      <Tabs.Root defaultValue="crm" lazyMount>
-        <Tabs.List mb="4">
-          <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
-          <Tabs.Trigger value="email">Email</Tabs.Trigger>
-          <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
-        </Tabs.List>
+    <Box px="8">
+      <Box pt="32" overflow="hidden" position="relative">
+        <Container maxW="8xl" zIndex="1" height="100%">
+          <Stack
+            gap={{ base: '5', md: '8' }}
+            mb="20"
+            alignItems="center"
+            textAlign="center"
+          >
+            <Annoucement justifySelf="center" asChild>
+              <Link href="#">
+                Saas UI 3.0 is here!
+                <HiArrowRight />
+              </Link>
+            </Annoucement>
+            <Stack gap="5" pr="4" maxW="4xl" alignItems="center">
+              <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
+                Build products customers love.
+              </Heading>
+              <Subheading>
+                Saas UI is a complete toolkit for building premium SaaS
+                applications that look good and perform well. Start with our
+                free component library, and use our ready made templates and
+                starter kits to ship faster.
+              </Subheading>
+            </Stack>
 
-        <Tabs.ContentGroup
-          borderRadius="md"
-          borderWidth="1px"
-          height="800px"
-          overflow="clip"
-          position="relative"
-        >
-          <Tabs.Content value="crm" height="100%" p="0">
-            <ErrorBoundary errorComponent={ErrorFallback}>
-              <CRMDemo />
-            </ErrorBoundary>
-          </Tabs.Content>
-          <Tabs.Content value="email" height="100%" p="0">
-            <ErrorBoundary errorComponent={ErrorFallback}>
-              <EmailDemo />
-            </ErrorBoundary>
-          </Tabs.Content>
-        </Tabs.ContentGroup>
-      </Tabs.Root>
-    </Container>
+            <Stack direction={{ base: 'column', sm: 'row' }} gap="3">
+              <Button
+                size="lg"
+                minW="180px"
+                asChild
+                variant="glass"
+                colorPalette="accent"
+              >
+                <Link href="/docs">Documentation</Link>
+              </Button>
+              <CopyButton
+                variant="outline"
+                size="lg"
+                value="npm i @saas-ui/react"
+              >
+                &gt; npm i @saas-ui/react
+              </CopyButton>
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </Box>
   )
 }
-
-function ErrorFallback(props: { error: Error }) {
-  console.error(props.error)
-  return <div>Error</div>
-}
-
-export const HeroSection = () => (
-  <Box px="8">
-    <Box pt="32" overflow="hidden" position="relative">
-      <Container maxW="8xl" zIndex="1" height="100%">
-        <Stack
-          gap={{ base: '5', md: '8' }}
-          mb="20"
-          alignItems="center"
-          textAlign="center"
-        >
-          <Annoucement justifySelf="center" asChild>
-            <Link href="#">
-              Saas UI 3.0 is here!
-              <HiArrowRight />
-            </Link>
-          </Annoucement>
-          <Stack gap="5" pr="4" maxW="3xl" alignItems="center">
-            <Heading as="h1" fontSize="7xl" lineHeight="1">
-              Build products customers love.
-            </Heading>
-            <Subheading>
-              Saas UI is a purpose-built toolkit for building high-quality SaaS
-              apps. Start with our free component library and build fullstack
-              apps with production-ready templates and starter kits.
-            </Subheading>
-          </Stack>
-
-          <Stack direction={{ base: 'column', sm: 'row' }} gap="3">
-            <Button
-              size="lg"
-              minW="180px"
-              asChild
-              colorPalette="gray"
-              borderWidth="1px"
-              variant="solid"
-            >
-              <Link href="/docs">Explore components</Link>
-            </Button>
-            <Button variant="glass" colorPalette="accent" size="lg">
-              <Link href="/docs">Buy Pro</Link>
-            </Button>
-          </Stack>
-        </Stack>
-      </Container>
-    </Box>
-
-    <ComponentDemos />
-  </Box>
-)

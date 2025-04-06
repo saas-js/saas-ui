@@ -9,7 +9,7 @@ import { ButtonGroup } from '../button-group/index.ts'
 import { Page } from './index.ts'
 
 export default {
-  title: 'Components/Layout/Page',
+  title: 'Components/Page',
   component: Page.Root,
   parameters: {
     layout: 'fullscreen',

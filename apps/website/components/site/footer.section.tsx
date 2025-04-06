@@ -2,7 +2,6 @@ import { Logo } from '@/components/logo'
 import {
   Box,
   Container,
-  HStack,
   Heading,
   SimpleGrid,
   Stack,
@@ -29,7 +28,11 @@ const linkTree = [
     items: [
       { label: 'Next.js starter kit', href: '/nextjs-starter-kit' },
       { label: 'Next.js boilerplate', href: '/nextjs-starter-kit' },
-      { label: 'Base components', href: '/docs/components' },
+      {
+        label: 'Tanstack Router starter kit',
+        href: '/tanstack-router-starter-kit',
+      },
+      { label: 'React components', href: '/docs/components' },
       { label: 'Figma UI kit', href: '/figma' },
       { label: 'Blocks', href: '/blocks' },
     ],
@@ -58,7 +61,7 @@ export const FooterSection = () => {
           <Stack align="flex-start" gap="4">
             <Logo />
             <Text color="fg.subtle">
-              Crafted by <a href="https://appulse.net">Saas UI B.V.</a> &copy;{' '}
+              Crafted by Saas UI B.V. in the Netherlands &copy;{' '}
               {new Date().getFullYear()}
             </Text>
           </Stack>
@@ -70,7 +73,7 @@ export const FooterSection = () => {
             pb="20"
           >
             {linkTree.map((column) => (
-              <Stack key={column.title} direction="column" gap="4">
+              <Stack key={column.title} direction="column" gap="2.5">
                 <Heading as="h5" size="md" fontWeight="medium">
                   {column.title}
                 </Heading>

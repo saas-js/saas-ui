@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "title": "Voxtell AI",
+    "description": "AI voice assistant for your business.",
+    "url": "https://voxtell.ai",
+    "image": "/showcases/voxtellai.png"
+  },
+  {
+    "title": "Growtha",
+    "description": "Healthcare SEO platform.",
+    "url": "https://growtha.com",
+    "image": "/showcases/growtha.png"
+  },
+  {
+    "title": "Otteri",
+    "description": "All-in-one AI platform.",
+    "url": "https://otteri.ai",
+    "image": "/showcases/otteri.png"
+  }
+]

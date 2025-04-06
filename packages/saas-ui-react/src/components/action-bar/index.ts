@@ -1,1 +1,1 @@
-export * as ActionBar from './action-bar'
+export * as ActionBar from './action-bar.tsx'

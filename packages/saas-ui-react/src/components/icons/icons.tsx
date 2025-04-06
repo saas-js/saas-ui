@@ -1,4 +1,4 @@
-import { createIcon } from './create-icon'
+import { createIcon } from './create-icon.tsx'
 
 export const ChevronUpIcon = createIcon({
   displayName: 'ChevronUpIcon',

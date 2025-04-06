@@ -1,2 +1,2 @@
-export { NativeSelect } from './native-select'
-export type { NativeSelectProps } from './native-select'
+export { NativeSelect } from './native-select.tsx'
+export type { NativeSelectProps } from './native-select.tsx'

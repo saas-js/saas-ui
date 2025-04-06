@@ -1,1 +1,1 @@
-export * as Select from './namespace'
+export * as Select from './namespace.ts'

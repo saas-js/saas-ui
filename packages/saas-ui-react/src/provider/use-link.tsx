@@ -2,7 +2,7 @@ import React from 'react'
 
 import { chakra } from '@chakra-ui/react'
 
-import { useSui } from './sui-provider'
+import { useSui } from './sui-provider.tsx'
 
 export function useLink(): React.ElementType {
   const context = useSui()

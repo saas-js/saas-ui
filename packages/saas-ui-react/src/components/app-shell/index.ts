@@ -1,3 +1,3 @@
-export { AppShell } from './app-shell'
+export { AppShell } from './app-shell.tsx'
 
-export type { AppShellProps } from './app-shell'
+export type { AppShellProps } from './app-shell.tsx'

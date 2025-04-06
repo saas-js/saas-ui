@@ -4,7 +4,7 @@ import { forwardRef } from 'react'
 
 import { Alert as AlertPrimitive } from '@chakra-ui/react/alert'
 
-import { CloseButton } from '../close-button'
+import { CloseButton } from '../close-button/index.ts'
 
 export interface AlertProps extends Omit<AlertPrimitive.RootProps, 'title'> {
   startElement?: React.ReactNode

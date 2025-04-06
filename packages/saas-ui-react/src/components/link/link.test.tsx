@@ -2,9 +2,8 @@ import * as React from 'react'
 
 import { render } from '@saas-ui/test-utils'
 
-import { SaasProvider } from '../provider'
-
-import { Link } from './link'
+import { SuiProvider } from '../../provider/index.ts'
+import { Link } from './link.tsx'
 
 interface LinkComponentProps {
   href: string
@@ -21,7 +20,7 @@ const LinkComponent: React.FC<LinkComponentProps> = (props) => {
 }
 
 const renderLink = (ui: React.ReactNode) => {
-  return render(<SaasProvider linkComponent={LinkComponent}>{ui}</SaasProvider>)
+  return render(<SuiProvider linkComponent={LinkComponent}>{ui}</SuiProvider>)
 }
 
 test('should render the link', async () => {

@@ -28,7 +28,7 @@ export const RadioVariantTable = () => {
               <For each={recipe.variantMap.variant}>
                 {(v) => (
                   <td>
-                    <RadioGroup
+                    <RadioGroup.Root
                       defaultValue="1"
                       colorPalette={c}
                       variant={v}
@@ -39,7 +39,7 @@ export const RadioVariantTable = () => {
                         <Radio value="1">Radio</Radio>
                         <Radio value="2">Radio</Radio>
                       </HStack>
-                    </RadioGroup>
+                    </RadioGroup.Root>
                   </td>
                 )}
               </For>

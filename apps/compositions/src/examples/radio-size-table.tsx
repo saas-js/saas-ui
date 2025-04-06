@@ -28,7 +28,7 @@ export const RadioSizeTable = () => {
               <For each={recipe.variantMap.size}>
                 {(v) => (
                   <td>
-                    <RadioGroup
+                    <RadioGroup.Root
                       colorPalette={c}
                       size={v}
                       defaultValue="1"
@@ -38,7 +38,7 @@ export const RadioSizeTable = () => {
                         <Radio value="1">Radio</Radio>
                         <Radio value="2">Radio</Radio>
                       </HStack>
-                    </RadioGroup>
+                    </RadioGroup.Root>
                   </td>
                 )}
               </For>

@@ -37,7 +37,7 @@ export const RadioWithHookForm = () => {
           name="value"
           control={control}
           render={({ field }) => (
-            <RadioGroup
+            <RadioGroup.Root
               name={field.name}
               value={field.value}
               onValueChange={({ value }) => {
@@ -55,7 +55,7 @@ export const RadioWithHookForm = () => {
                   </Radio>
                 ))}
               </HStack>
-            </RadioGroup>
+            </RadioGroup.Root>
           )}
         />
 

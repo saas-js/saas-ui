@@ -6,15 +6,15 @@ import { Radio, RadioGroup } from '@saas-ui/react'
 export const RadioWithSizes = () => {
   return (
     <HStack gap="4">
-      <RadioGroup size="sm">
+      <RadioGroup.Root size="sm">
         <Radio value="react">Radio (sm)</Radio>
-      </RadioGroup>
-      <RadioGroup size="md">
+      </RadioGroup.Root>
+      <RadioGroup.Root size="md">
         <Radio value="react">Radio (md)</Radio>
-      </RadioGroup>
-      <RadioGroup size="lg">
+      </RadioGroup.Root>
+      <RadioGroup.Root size="lg">
         <Radio value="react">Radio (lg)</Radio>
-      </RadioGroup>
+      </RadioGroup.Root>
     </HStack>
   )
 }

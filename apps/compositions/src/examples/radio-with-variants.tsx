@@ -8,7 +8,7 @@ export const RadioWithVariants = () => {
     <Stack gap="4">
       <For each={['solid', 'outline', 'subtle']}>
         {(variant) => (
-          <RadioGroup
+          <RadioGroup.Root
             key={variant}
             variant={variant}
             defaultValue="react"
@@ -19,7 +19,7 @@ export const RadioWithVariants = () => {
               Radio ({variant})
             </Radio>
             <Radio value="vue">Vue ({variant})</Radio>
-          </RadioGroup>
+          </RadioGroup.Root>
         )}
       </For>
     </Stack>

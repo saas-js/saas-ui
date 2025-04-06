@@ -81,10 +81,10 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@standard-schema/spec": "^1.0.0",
     "@hookform/resolvers": "^5.0.0",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/react": "workspace:*",
+    "@standard-schema/spec": "^1.0.0",
     "react-hook-form": "^7.55.0",
     "zod": "^3.24.2"
   },

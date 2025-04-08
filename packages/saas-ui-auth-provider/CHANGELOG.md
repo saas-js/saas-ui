@@ -1,5 +1,11 @@
 # @saas-ui/auth-provider
 
+## 1.3.0
+
+### Minor Changes
+
+- e0e539e: useAuth now returns error if loadUser has thrown an error
+
 ## 1.2.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/supabase
 
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [e0e539e]
+  - @saas-ui/auth-provider@1.3.0
+
 ## 2.4.3
 
 ### Patch Changes

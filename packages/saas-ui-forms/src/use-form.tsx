@@ -24,6 +24,8 @@ import { ObjectField, type ObjectFieldProps } from './object-field'
 import type { FieldProps } from './types'
 import type { UseArrayFieldReturn } from './use-array-field'
 
+export type { StandardSchemaV1 } from '@standard-schema/spec'
+
 export interface UseFormProps<
   TFieldValues extends FieldValues,
   TContext = any,

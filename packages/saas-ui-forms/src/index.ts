@@ -2,7 +2,12 @@
 import { createForm } from './create-form'
 
 export { useForm, useZodForm } from './use-form'
-export type { UseZodFormProps, UseFormReturn, UseFormProps } from './use-form'
+export type {
+  UseZodFormProps,
+  UseFormReturn,
+  UseFormProps,
+  StandardSchemaV1,
+} from './use-form'
 
 // import { createStepForm } from './create-step-form'
 

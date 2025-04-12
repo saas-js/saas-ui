@@ -3,6 +3,7 @@ import { defineRecipe } from '@chakra-ui/react/styled-system'
 export const iconBadgeRecipe = defineRecipe({
   className: 'sui-icon-badge',
   base: {
+    colorPalette: 'gray',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',

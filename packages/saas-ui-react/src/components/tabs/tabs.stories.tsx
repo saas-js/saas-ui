@@ -151,6 +151,126 @@ export const Variants = () => {
   )
 }
 
+export const ColorPalette = () => {
+  return (
+    <Stack gap="8">
+      <Tabs.Root defaultValue="members" colorPalette="accent">
+        <Tabs.List>
+          <Tabs.Trigger value="members">
+            <LuUser />
+            Members
+          </Tabs.Trigger>
+          <Tabs.Trigger value="projects">
+            <LuFolder />
+            Projects
+          </Tabs.Trigger>
+          <Tabs.Trigger value="tasks">
+            <LuSlidersHorizontal />
+            Preferences
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="projects">Manage your projects</Tabs.Content>
+        <Tabs.Content value="tasks">
+          Manage your tasks for freelancers
+        </Tabs.Content>
+      </Tabs.Root>
+
+      <Tabs.Root
+        defaultValue="members"
+        variant="enclosed"
+        colorPalette="accent"
+      >
+        <Tabs.List>
+          <Tabs.Trigger value="members">
+            <LuUser />
+            Members
+          </Tabs.Trigger>
+          <Tabs.Trigger value="projects">
+            <LuFolder />
+            Projects
+          </Tabs.Trigger>
+          <Tabs.Trigger value="tasks">
+            <LuSlidersHorizontal />
+            Preferences
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="projects">Manage your projects</Tabs.Content>
+        <Tabs.Content value="tasks">
+          Manage your tasks for freelancers
+        </Tabs.Content>
+      </Tabs.Root>
+
+      <Tabs.Root defaultValue="members" variant="outline" colorPalette="accent">
+        <Tabs.List>
+          <Tabs.Trigger value="members">
+            <LuUser />
+            Members
+          </Tabs.Trigger>
+          <Tabs.Trigger value="projects">
+            <LuFolder />
+            Projects
+          </Tabs.Trigger>
+          <Tabs.Trigger value="tasks">
+            <LuSlidersHorizontal />
+            Preferences
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="projects">Manage your projects</Tabs.Content>
+        <Tabs.Content value="tasks">
+          Manage your tasks for freelancers
+        </Tabs.Content>
+      </Tabs.Root>
+
+      <Tabs.Root defaultValue="members" variant="pills" colorPalette="accent">
+        <Tabs.List>
+          <Tabs.Trigger value="members">
+            <LuUser />
+            Members
+          </Tabs.Trigger>
+          <Tabs.Trigger value="projects">
+            <LuFolder />
+            Projects
+          </Tabs.Trigger>
+          <Tabs.Trigger value="tasks">
+            <LuSlidersHorizontal />
+            Preferences
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="projects">Manage your projects</Tabs.Content>
+        <Tabs.Content value="tasks">
+          Manage your tasks for freelancers
+        </Tabs.Content>
+      </Tabs.Root>
+
+      <Tabs.Root defaultValue="members" variant="ghost" colorPalette="accent">
+        <Tabs.List>
+          <Tabs.Trigger value="members">
+            <LuUser />
+            Members
+          </Tabs.Trigger>
+          <Tabs.Trigger value="projects">
+            <LuFolder />
+            Projects
+          </Tabs.Trigger>
+          <Tabs.Trigger value="tasks">
+            <LuSlidersHorizontal />
+            Preferences
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="projects">Manage your projects</Tabs.Content>
+        <Tabs.Content value="tasks">
+          Manage your tasks for freelancers
+        </Tabs.Content>
+      </Tabs.Root>
+    </Stack>
+  )
+}
+
 export const Sizes = () => {
   return (
     <Stack gap="8">

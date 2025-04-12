@@ -24,42 +24,43 @@ export const cardSlotRecipe = defineSlotRecipe({
     },
     header: {
       padding: 'var(--card-padding)',
-      paddingBlock: 'calc(var(--card-padding) / 1.5)',
       display: 'flex',
       flexDirection: 'column',
-      gap: '1.5',
+      gap: '1',
     },
     body: {
       padding: 'var(--card-padding)',
-      paddingBlock: 'calc(var(--card-padding) / 1.5)',
       flex: '1',
       display: 'flex',
       flexDirection: 'column',
+      '&:is(.chakra-card__header + &)': {
+        paddingTop: 0,
+      },
     },
     footer: {
       display: 'flex',
       alignItems: 'center',
       gap: '2',
       padding: 'var(--card-padding)',
-      paddingBlock: 'calc(var(--card-padding) / 1.5)',
+      paddingTop: 0,
     },
   },
   variants: {
     size: {
       sm: {
         root: {
-          '--card-padding': 'spacing.2',
+          '--card-padding': 'spacing.2.5',
         },
         title: {
-          textStyle: 'md',
+          fontSize: 'sm',
         },
       },
       md: {
         root: {
-          '--card-padding': 'spacing.3',
+          '--card-padding': 'spacing.4',
         },
         title: {
-          textStyle: 'lg',
+          fontSize: 'md',
         },
       },
       lg: {
@@ -67,7 +68,7 @@ export const cardSlotRecipe = defineSlotRecipe({
           '--card-padding': 'spacing.6',
         },
         title: {
-          textStyle: 'xl',
+          fontSize: 'lg',
         },
       },
     },
@@ -111,6 +112,14 @@ export const cardSlotRecipe = defineSlotRecipe({
         root: {
           bg: 'colorPalette.solid',
           color: 'colorPalette.contrast',
+          _pressable: {
+            _hover: {
+              bg: 'colorPalette.solid/80',
+            },
+          },
+        },
+        description: {
+          color: 'colorPalette.contrast/80',
         },
       },
     },

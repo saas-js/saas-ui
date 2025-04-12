@@ -3,9 +3,8 @@ import React from 'react'
 import { HStack, Icon, VStack } from '@chakra-ui/react'
 import { LuGitBranch, LuPlus } from 'react-icons/lu'
 
-import { Status } from '#components/status/status.js'
-
-import { Avatar } from '../avatar'
+import { Avatar } from '../avatar/index.ts'
+import { Status } from '../status/index.ts'
 import { Tag } from './tag.tsx'
 
 export default {

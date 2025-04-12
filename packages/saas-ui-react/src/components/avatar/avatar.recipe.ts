@@ -49,27 +49,27 @@ export const avatarSlotRecipe = defineSlotRecipe({
       },
       '2xs': {
         root: {
-          '--avatar-size': 'sizes.5',
+          '--avatar-size': 'sizes.4',
         },
       },
       xs: {
         root: {
-          '--avatar-size': 'sizes.6',
+          '--avatar-size': 'sizes.5',
         },
       },
       sm: {
         root: {
-          '--avatar-size': 'sizes.9',
+          '--avatar-size': 'sizes.6',
         },
       },
       md: {
         root: {
-          '--avatar-size': 'sizes.12',
+          '--avatar-size': 'sizes.9',
         },
       },
       lg: {
         root: {
-          '--avatar-size': 'sizes.14',
+          '--avatar-size': 'sizes.12',
         },
       },
       xl: {
@@ -79,7 +79,6 @@ export const avatarSlotRecipe = defineSlotRecipe({
       },
       '2xl': {
         root: {
-          '--avatar-font-size': 'calc(var(--avatar-size) / 2)',
           '--avatar-size': 'sizes.20',
         },
       },
@@ -110,7 +109,7 @@ export const avatarSlotRecipe = defineSlotRecipe({
     shape: {
       square: {},
       rounded: {
-        root: { '--avatar-radius': 'radii.l3' },
+        root: { '--avatar-radius': 'radii.indicator.md' },
       },
       full: {
         root: { '--avatar-radius': 'radii.full' },

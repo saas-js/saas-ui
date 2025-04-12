@@ -53,9 +53,6 @@ export const dialogSlotRecipe = defineSlotRecipe({
     },
     header: {
       display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
       flex: 0,
       px: '6',
       py: '4',
@@ -82,9 +79,32 @@ export const dialogSlotRecipe = defineSlotRecipe({
     description: {
       color: 'fg.muted',
     },
+    closeTrigger: {
+      position: 'absolute',
+      top: '4',
+      right: '4',
+    },
   },
 
   variants: {
+    variant: {
+      dialog: {},
+      confirm: {
+        content: {
+          textAlign: 'center',
+        },
+        header: {
+          flexDirection: 'column',
+          alignItems: 'center',
+        },
+        footer: {
+          display: 'flex',
+          flexDirection: 'column-reverse',
+          justifyContent: 'stretch',
+          alignItems: 'stretch',
+        },
+      },
+    },
     placement: {
       center: {
         positioner: {
@@ -215,11 +235,21 @@ export const dialogSlotRecipe = defineSlotRecipe({
       none: {},
     },
   },
-
+  compoundVariants: [
+    {
+      variant: 'confirm',
+      css: {
+        content: {
+          maxW: 'xs',
+        },
+      },
+    },
+  ],
   defaultVariants: {
     size: 'md',
     scrollBehavior: 'outside',
     placement: 'top',
     motionPreset: 'scale',
+    variant: 'dialog',
   },
 })

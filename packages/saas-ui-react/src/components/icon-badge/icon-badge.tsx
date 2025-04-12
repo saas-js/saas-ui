@@ -19,7 +19,7 @@ export interface IconBadgeProps
   /**
    * The icon to display
    */
-  icon: React.ReactNode
+  icon?: React.ReactNode
 
   /**
    * A11y: A label that describes the icon

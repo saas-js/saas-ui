@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Status } from '#components/status/status.js'
+import { Status } from '../status/status.tsx'
 
 import { DataList } from './index.ts'
 

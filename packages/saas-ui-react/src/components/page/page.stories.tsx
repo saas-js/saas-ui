@@ -1,6 +1,14 @@
 import React from 'react'
 
-import { Box, type BoxProps, Button, Text } from '@chakra-ui/react'
+import {
+  Box,
+  type BoxProps,
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+  Button,
+  Text,
+} from '@chakra-ui/react'
 import type { Meta } from '@storybook/react'
 
 import { AppShell } from '../app-shell/index.ts'
@@ -26,7 +34,7 @@ export default {
 const PageContent = (props: BoxProps) => {
   return (
     <Box {...props}>
-      <Text>
+      <Text textStyle="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed nibh
         sit amet nulla ultricies vehicula. Proin consequat auctor vestibulum.
         Phasellus sit amet fringilla erat, nec placerat dui. In iaculis ex non
@@ -56,9 +64,10 @@ export const WithActions = {
       <Page.Header
         title="Page with toolbar"
         actions={
-          <ButtonGroup>
-            <Button variant="primary">Save</Button>
-            <Button variant="secondary">Cancel</Button>
+          <ButtonGroup justifyContent="flex-end">
+            <Button variant="glass" colorPalette="accent" size="sm">
+              Save
+            </Button>
           </ButtonGroup>
         }
       />
@@ -87,6 +96,32 @@ export const WithBackButton = {
   render: () => (
     <Page.Root>
       <Page.Header title="Page with back button" nav={<BackButton />} />
+      <Page.Body>
+        <PageContent />
+      </Page.Body>
+    </Page.Root>
+  ),
+}
+
+export const WithBreadcrumbs = {
+  render: () => (
+    <Page.Root>
+      <Page.Header
+        title="Page with back button"
+        nav={
+          <Breadcrumb.Root>
+            <BreadcrumbList>
+              <Breadcrumb.Item>
+                <Breadcrumb.Link>Home</Breadcrumb.Link>
+              </Breadcrumb.Item>
+              <BreadcrumbSeparator />
+              <Breadcrumb.Item>
+                <Breadcrumb.CurrentLink>Home</Breadcrumb.CurrentLink>
+              </Breadcrumb.Item>
+            </BreadcrumbList>
+          </Breadcrumb.Root>
+        }
+      />
       <Page.Body>
         <PageContent />
       </Page.Body>

@@ -26,10 +26,7 @@ export const loadingOverlaySlotRecipe = defineSlotRecipe({
         root: {
           flex: 1,
           height: '100%',
-          bg: {
-            base: 'whiteAlpha.400',
-            _dark: 'blackAlpha.400',
-          },
+          bg: 'currentBg',
         },
       },
       fullscreen: {
@@ -37,20 +34,14 @@ export const loadingOverlaySlotRecipe = defineSlotRecipe({
           position: 'fixed',
           inset: 0,
           zIndex: 'modal',
-          bg: {
-            base: 'white',
-            _dark: 'gray.800',
-          },
+          bg: 'bg',
         },
       },
       overlay: {
         root: {
           position: 'absolute',
           inset: 0,
-          bg: {
-            base: 'whiteAlpha.300',
-            _dark: 'blackAlpha.300',
-          },
+          bg: 'currentBg/50',
         },
       },
     },

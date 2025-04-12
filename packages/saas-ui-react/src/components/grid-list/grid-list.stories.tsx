@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, Card, Container, HStack, Tag, Text } from '@chakra-ui/react'
+import { Box, Card, Container, HStack, Text } from '@chakra-ui/react'
 import { Meta, StoryObj } from '@storybook/react'
 import { FiMail, FiMessageSquare } from 'react-icons/fi'
 
@@ -9,6 +9,7 @@ import { Checkbox } from '../checkbox/index.ts'
 import { RadioGroup } from '../radio-group/index.ts'
 import { Radio } from '../radio/index.ts'
 import { Switch } from '../switch/index.ts'
+import { Tag } from '../tag/index.ts'
 import { GridList } from './index.ts'
 
 export default {
@@ -44,28 +45,24 @@ export const Basic: Story = {
       <>
         <GridList.Item>
           <GridList.Cell>
-            <Text fontWeight="bold">Elliot Alderson</Text>
-            <Text fontSize="sm" color="fg.muted">
+            <Text fontWeight="medium">Elliot Alderson</Text>
+            <Text textStyle="sm" color="fg.muted">
               Hacker
             </Text>
           </GridList.Cell>
           <GridList.Cell>
-            <Tag.Root>
-              <Tag.Label>admin</Tag.Label>
-            </Tag.Root>
+            <Tag>Admin</Tag>
           </GridList.Cell>
         </GridList.Item>
         <GridList.Item>
           <GridList.Cell>
-            <Text fontWeight="bold">Tyrell Wellick</Text>
-            <Text fontSize="sm" color="fg.muted">
+            <Text fontWeight="medium">Tyrell Wellick</Text>
+            <Text textStyle="sm" color="fg.muted">
               CEO
             </Text>
           </GridList.Cell>
           <GridList.Cell>
-            <Tag.Root>
-              <Tag.Label>owner</Tag.Label>
-            </Tag.Root>
+            <Tag>Owner</Tag>
           </GridList.Cell>
         </GridList.Item>
       </>
@@ -78,31 +75,31 @@ export const WithIcons: Story = {
     children: (
       <>
         <GridList.Item>
-          <GridList.Cell width="14">
+          <GridList.Cell>
             <Avatar name="Elliot Alderson" size="sm" />
           </GridList.Cell>
           <GridList.Cell flex="1">
-            <Text fontWeight="bold">Elliot Alderson</Text>
-            <Text fontSize="sm" color="fg.muted">
+            <Text fontWeight="medium">Elliot Alderson</Text>
+            <Text textStyle="sm" color="fg.muted">
               Hacker
             </Text>
           </GridList.Cell>
           <GridList.Cell>
-            <Tag.Root>admin</Tag.Root>
+            <Tag>Admin</Tag>
           </GridList.Cell>
         </GridList.Item>
         <GridList.Item>
-          <GridList.Cell width="14">
+          <GridList.Cell>
             <Avatar name="Tyrell Wellick" size="sm" />
           </GridList.Cell>
           <GridList.Cell flex="1">
-            <Text fontWeight="bold">Tyrell Wellick</Text>
-            <Text fontSize="sm" color="fg.muted">
+            <Text fontWeight="medium">Tyrell Wellick</Text>
+            <Text textStyle="sm" color="fg.muted">
               CEO
             </Text>
           </GridList.Cell>
           <GridList.Cell>
-            <Tag.Root>owner</Tag.Root>
+            <Tag>owner</Tag>
           </GridList.Cell>
         </GridList.Item>
       </>
@@ -116,31 +113,31 @@ export const WithHeader: Story = {
       <>
         <GridList.Header>Users</GridList.Header>
         <GridList.Item>
-          <GridList.Cell width="14">
+          <GridList.Cell>
             <Avatar name="Elliot Alderson" size="sm" />
           </GridList.Cell>
           <GridList.Cell flex="1">
-            <Text fontWeight="bold">Elliot Alderson</Text>
-            <Text fontSize="sm" color="fg.muted">
+            <Text fontWeight="medium">Elliot Alderson</Text>
+            <Text textStyle="sm" color="fg.muted">
               Hacker
             </Text>
           </GridList.Cell>
           <GridList.Cell>
-            <Tag.Root>admin</Tag.Root>
+            <Tag>Admin</Tag>
           </GridList.Cell>
         </GridList.Item>
         <GridList.Item>
-          <GridList.Cell width="14">
+          <GridList.Cell>
             <Avatar name="Tyrell Wellick" size="sm" />
           </GridList.Cell>
           <GridList.Cell flex="1">
-            <Text fontWeight="bold">Tyrell Wellick</Text>
-            <Text fontSize="sm" color="fg.muted">
+            <Text fontWeight="medium">Tyrell Wellick</Text>
+            <Text textStyle="sm" color="fg.muted">
               CEO
             </Text>
           </GridList.Cell>
           <GridList.Cell>
-            <Tag.Root>owner</Tag.Root>
+            <Tag>Owner</Tag>
           </GridList.Cell>
         </GridList.Item>
       </>
@@ -220,7 +217,7 @@ export const WithRadio: Story = {
                   mb="2"
                   aria-selected={isChecked}
                   _selected={{
-                    borderColor: 'colorPalette.emphasized',
+                    borderColor: 'border.emphasized',
                   }}
                 >
                   <GridList.Cell flex="1" flexDirection="column">
@@ -242,26 +239,35 @@ export const WithRadio: Story = {
 
 export const WithSwitch: Story = {
   render: () => {
+    const [values, setValues] = React.useState({
+      email: false,
+      chat: false,
+    })
+
     return (
       <Card.Root width="100%" maxW="320px">
-        <GridList.Root>
+        <GridList.Root interactive>
           <GridList.Header>Notifications</GridList.Header>
-          <GridList.Item>
-            <GridList.Cell>
+          <GridList.Item
+            onClick={() => setValues({ ...values, email: !values.email })}
+          >
+            <GridList.Cell px="2">
               <FiMail />
             </GridList.Cell>
             <GridList.Cell flex="1">Email</GridList.Cell>
             <GridList.Cell>
-              <Switch aria-label="Email" />
+              <Switch aria-label="Email" checked={values.email} />
             </GridList.Cell>
           </GridList.Item>
-          <GridList.Item>
-            <GridList.Cell>
+          <GridList.Item
+            onClick={() => setValues({ ...values, chat: !values.chat })}
+          >
+            <GridList.Cell px="2">
               <FiMessageSquare />
             </GridList.Cell>
             <GridList.Cell flex="1">Chat</GridList.Cell>
             <GridList.Cell>
-              <Switch aria-label="Chat" />
+              <Switch aria-label="Chat" checked={values.chat} />
             </GridList.Cell>
           </GridList.Item>
         </GridList.Root>
@@ -349,6 +355,17 @@ export const Rounded: Story = {
         </GridList.Root>
       </Card.Root>
     )
+  },
+}
+
+const states = {
+  'in-progress': {
+    color: 'amber',
+    label: 'In progress',
+  },
+  todo: {
+    color: 'gray',
+    label: 'Todo',
   },
 }
 
@@ -479,26 +496,25 @@ export const StickyHeaders: Story = {
           <GridList.Cell flex="1">
             <Text lineClamp={1}>{issue.title}</Text>
           </GridList.Cell>
-          <GridList.Cell color="fg.muted" as={HStack}>
+          <GridList.Cell color="fg.muted" display="flex" gap="1">
             {issue.labels.map((label: any) => (
-              <Tag.Root
+              <Tag
                 key={label}
                 variant="outline"
-                size="sm"
+                size="md"
                 borderRadius="full"
-                colorPalette="gray"
-                px="2"
-                py="1"
                 color="fg.muted"
                 _hover={{
                   color: 'fg',
                 }}
               >
-                <Tag.Label>{label}</Tag.Label>
-              </Tag.Root>
+                {label}
+              </Tag>
             ))}
           </GridList.Cell>
-          <GridList.Cell color="fg.muted">{issue.date}</GridList.Cell>
+          <GridList.Cell color="fg.muted" textStyle="xs">
+            {issue.date}
+          </GridList.Cell>
         </GridList.Item>
       )
     }
@@ -508,12 +524,16 @@ export const StickyHeaders: Story = {
         <GridList.Root py="0">
           <GridList.Header
             fontWeight="normal"
-            bg="gray.200"
-            _dark={{ bg: 'gray.700' }}
-            color="app-text"
+            bg="bg.muted/95"
+            boxShadow="0 1px 0 0 var(--chakra-colors-border), 0 -1px 0 0 var(--chakra-colors-border)"
+            color="fg.subtle"
             position="sticky"
             top="0"
             zIndex="popover"
+            gap="2"
+            _first={{
+              borderTopWidth: '0',
+            }}
           >
             In Progress{' '}
             <Text as="span" color="fg.muted">
@@ -523,12 +543,13 @@ export const StickyHeaders: Story = {
           {inProgress.map(renderIssue)}
           <GridList.Header
             fontWeight="normal"
-            bg="gray.200"
-            _dark={{ bg: 'gray.700' }}
-            color="app-text"
+            bg="bg.muted/95"
+            boxShadow="0 1px 0 0 var(--chakra-colors-border), 0 -1px 0 0 var(--chakra-colors-border)"
+            color="fg.subtle"
             position="sticky"
             top="0"
             zIndex="popover"
+            gap="2"
           >
             Todo{' '}
             <Text as="span" color="fg.muted">

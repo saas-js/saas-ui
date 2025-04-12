@@ -1,7 +1,10 @@
 import React from 'react'
 
 import {
+  Badge,
+  Container,
   Group,
+  HStack,
   Heading,
   Icon,
   IconButton,
@@ -9,14 +12,17 @@ import {
   LinkBox,
   LinkOverlay,
   SimpleGrid,
+  Span,
+  Stack,
   Text,
 } from '@chakra-ui/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { FaGithub, FaSlack } from 'react-icons/fa6'
+import { FaBug, FaGithub, FaSlack } from 'react-icons/fa6'
 import { LuArrowRight, LuEllipsisVertical } from 'react-icons/lu'
 
 import { Avatar } from '../avatar/index.ts'
 import { Button } from '../button/index.ts'
+import { IconBadge } from '../icon-badge/index.ts'
 import { Persona } from '../persona/index.ts'
 import { Card } from './index.ts'
 
@@ -24,9 +30,153 @@ export default {
   title: 'Components/Card',
   component: Card.Root,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <Container maxW="3xl">
+        <Story />
+      </Container>
+    ),
+  ],
 } satisfies Meta
 
 type Story = StoryObj<typeof Card>
+
+const variants = ['outline', 'elevated', 'subtle', 'solid'] as const
+
+export const Outline = () => {
+  return (
+    <Stack gap="8">
+      {variants.map((variant) => (
+        <SimpleGrid columns={[1, null, 3]} gap="2">
+          <Card.Root variant={variant}>
+            <Card.Header>
+              <HStack>
+                <IconBadge boxSize="10" fontSize="2xl" bg="bg">
+                  <FaGithub />
+                </IconBadge>
+                <Stack gap="0">
+                  <Card.Title>Github</Card.Title>
+                  <Span textStyle="xs" opacity="0.6">
+                    Enabled
+                  </Span>
+                </Stack>
+              </HStack>
+              <Card.Description>
+                Automatically link pull requests to issues with two way sync.
+              </Card.Description>
+            </Card.Header>
+          </Card.Root>
+          <Card.Root variant={variant}>
+            <Card.Header>
+              <HStack>
+                <IconBadge boxSize="10" fontSize="2xl" bg="bg">
+                  <FaSlack />
+                </IconBadge>
+                <Stack gap="0">
+                  <Card.Title>Slack</Card.Title>
+                  <Span textStyle="xs" opacity="0.6">
+                    Enabled
+                  </Span>
+                </Stack>
+              </HStack>
+              <Card.Description>
+                Send notifications when issues are created or updated.
+              </Card.Description>
+            </Card.Header>
+          </Card.Root>
+          <Card.Root variant={variant}>
+            <Card.Header>
+              <HStack>
+                <IconBadge boxSize="10" fontSize="2xl" bg="bg">
+                  <FaBug />
+                </IconBadge>
+                <Stack gap="0">
+                  <Card.Title>Sentry</Card.Title>
+                  <Span textStyle="xs" opacity="0.6">
+                    Disabled
+                  </Span>
+                </Stack>
+              </HStack>
+              <Card.Description>
+                Automatically track errors and crashes in your application.
+              </Card.Description>
+            </Card.Header>
+          </Card.Root>
+        </SimpleGrid>
+      ))}
+    </Stack>
+  )
+}
+export const Interactive = () => (
+  <SimpleGrid columns={[1, null, 3]} gap="2">
+    <Card.Root variant="outline" role="button" asChild>
+      <LinkBox>
+        <Card.Header>
+          <HStack>
+            <IconBadge boxSize="10" fontSize="2xl">
+              <FaGithub />
+            </IconBadge>
+            <Stack gap="0">
+              <Card.Title asChild>
+                <LinkOverlay href="#">Github</LinkOverlay>
+              </Card.Title>
+              <Span color="fg.muted" textStyle="xs">
+                Enabled
+              </Span>
+            </Stack>
+          </HStack>
+          <Card.Description>
+            Automatically link pull requests to issues with two way sync.
+          </Card.Description>
+        </Card.Header>
+      </LinkBox>
+    </Card.Root>
+    <Card.Root variant="outline" role="button" asChild>
+      <LinkBox>
+        <Card.Header>
+          <HStack>
+            <IconBadge boxSize="10" fontSize="2xl">
+              <FaSlack />
+            </IconBadge>
+            <Stack gap="0">
+              <Card.Title asChild>
+                <LinkOverlay href="#">Slack</LinkOverlay>
+              </Card.Title>
+              <Span color="fg.muted" textStyle="xs">
+                Enabled
+              </Span>
+            </Stack>
+          </HStack>
+          <Card.Description>
+            Send notifications when issues are created or updated.
+          </Card.Description>
+        </Card.Header>
+      </LinkBox>
+    </Card.Root>
+    <Card.Root variant="outline" role="button" asChild>
+      <LinkBox>
+        <Card.Header>
+          <HStack>
+            <IconBadge boxSize="10" fontSize="2xl">
+              <FaBug />
+            </IconBadge>
+            <Stack gap="0">
+              <Card.Title asChild>
+                <LinkOverlay href="#">Sentry</LinkOverlay>
+              </Card.Title>
+              <Span color="fg.muted" textStyle="xs">
+                Disabled
+              </Span>
+            </Stack>
+          </HStack>
+          <Card.Description>
+            Automatically track errors and crashes in your application.
+          </Card.Description>
+        </Card.Header>
+      </LinkBox>
+    </Card.Root>
+  </SimpleGrid>
+)
 
 export const Media = () => (
   <>
@@ -80,104 +230,25 @@ export const Media = () => (
   </>
 )
 
-export const Outline = () => (
-  <SimpleGrid columns={[1, null, 2]} gap="2">
-    <Card.Root variant="outline">
-      <Card.Header>
-        <Icon me="2" boxSize="6">
-          <FaGithub />
-        </Icon>
-        <Heading size="md">Github</Heading>
-      </Card.Header>
-      <Card.Body>
-        <Text color="fg.muted" textStyle="md">
-          Link pull requests
-        </Text>
-      </Card.Body>
-      <Card.Footer>
-        <Group>
-          <Button colorScheme="gray" variant="surface">
-            Enable
-          </Button>
-          <Button variant="ghost">Learn more</Button>
-        </Group>
-      </Card.Footer>
-    </Card.Root>
-    <Card.Root variant="outline">
-      <Card.Header>
-        <Icon me="2" boxSize="6">
-          <FaSlack />
-        </Icon>
-        <Heading size="md">Slack</Heading>
-      </Card.Header>
-      <Card.Body>
-        <Text color="fg.muted" textStyle="md">
-          Send push notifications
-        </Text>
-      </Card.Body>
-      <Card.Footer>
-        <Group>
-          <Button colorScheme="gray" variant="surface">
-            Enable
-          </Button>
-          <Button variant="ghost">Learn more</Button>
-        </Group>
-      </Card.Footer>
-    </Card.Root>
-  </SimpleGrid>
-)
-
-export const Footer = () => (
-  <Card.Root colorPalette="accent" variant="subtle" maxW="xl">
+export const Actions = () => (
+  <Card.Root width="360px">
     <Card.Header>
-      <Card.Title>Getting started</Card.Title>
-    </Card.Header>
-    <Card.Body>
-      <Text textStyle="md">
-        Welcome to Saas UI, in the next steps we will walk you through all the
-        basic features of Saas UI.
+      <HStack>
+        <Badge>React</Badge>
+        <Badge>Figma</Badge>
+      </HStack>
+      <Text textStyle="3xl" fontWeight="bold">
+        $399
       </Text>
-    </Card.Body>
+      <Card.Title>Team license</Card.Title>
+      <Card.Description>
+        Perfect for teams up to 10 users. Can be used on unlimited projects.
+      </Card.Description>
+    </Card.Header>
     <Card.Footer>
-      <Group>
-        <Button variant="solid" colorPalette="accent">
-          Continue
-        </Button>
-        <Button variant="ghost">Dismiss</Button>
-      </Group>
+      <Button variant="solid" colorPalette="accent" width="full">
+        Buy now
+      </Button>
     </Card.Footer>
-  </Card.Root>
-)
-
-export const Interactive = () => (
-  <Card.Root asChild width="100%" maxW="400px" role="button" variant="elevated">
-    <LinkBox>
-      <Card.Header>
-        <Avatar src="/chakra-ui-logomark-colored.svg" size="sm" me="2" />
-        <LinkOverlay href="#">
-          <Heading size="sm">Chakra UI</Heading>
-        </LinkOverlay>
-      </Card.Header>
-      <Card.Body>
-        <Text fontSize="md" color="muted">
-          Chakra UI is a simple, modular and accessible component library that
-          gives you the building blocks you need to build your React
-          applications.
-        </Text>
-      </Card.Body>
-      <Card.Footer>
-        <Button variant="plain" _parentHover={{ colorPalette: 'teal' }}>
-          Learn more
-          <Icon
-            transform="translateX(-5px)"
-            transitionProperty="common"
-            transitionDuration="moderate"
-            css={{ _parentHover: { transform: 'translateX(0)' } }}
-          >
-            <LuArrowRight />
-          </Icon>
-        </Button>
-      </Card.Footer>
-    </LinkBox>
   </Card.Root>
 )

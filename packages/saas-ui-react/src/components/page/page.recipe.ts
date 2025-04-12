@@ -23,11 +23,9 @@ export const pageSlotRecipe = defineSlotRecipe({
     },
     title: {
       fontWeight: 'medium',
-      fontSize: 'sm',
     },
     description: {
       color: 'fg.muted',
-      fontSize: 'xs',
     },
     body: {
       flex: 1,
@@ -59,6 +57,10 @@ export const pageSlotRecipe = defineSlotRecipe({
         },
         title: {
           me: 4,
+          textStyle: 'sm',
+        },
+        description: {
+          textStyle: 'xs',
         },
       },
       settings: {

@@ -18,11 +18,11 @@ export const menuSlotRecipe = defineSlotRecipe({
       overflow: 'hidden',
       _open: {
         animationStyle: 'slide-fade-in',
-        animationDuration: 'fast',
+        animationDuration: 'fastest',
       },
       _closed: {
         animationStyle: 'slide-fade-out',
-        animationDuration: 'faster',
+        animationDuration: 'fastest',
       },
     },
     item: {

@@ -43,9 +43,8 @@ export const gridListSlotRecipe = defineSlotRecipe({
       display: 'flex',
       flexDirection: 'row',
       position: 'sticky',
-      fontSize: 'md',
-      fontWeight: 'semibold',
-      color: 'fg.muted',
+      fontWeight: 'medium',
+      color: 'fg.subtle',
     },
     cell: {
       flexShrink: 0,
@@ -88,7 +87,7 @@ export const gridListSlotRecipe = defineSlotRecipe({
           gap: 1,
         },
         header: {
-          py: 1,
+          py: 0.5,
           px: 2,
         },
       },
@@ -103,7 +102,7 @@ export const gridListSlotRecipe = defineSlotRecipe({
           gap: 2,
         },
         header: {
-          py: 2,
+          py: 1,
           px: 3,
         },
       },

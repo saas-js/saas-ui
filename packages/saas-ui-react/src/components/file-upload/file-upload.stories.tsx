@@ -3,8 +3,7 @@ import React from 'react'
 import { Box, Heading, Text } from '@chakra-ui/react'
 import { LuCloudUpload } from 'react-icons/lu'
 
-import { Button } from '#components/button/button.js'
-
+import { Button } from '../button/index.ts'
 import { FileUpload } from './index.ts'
 
 export default {

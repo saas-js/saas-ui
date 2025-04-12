@@ -57,11 +57,8 @@ export const navbarSlotRecipe = defineSlotRecipe({
         boxShadow: 'outline',
       },
       _hover: {
-        bg: 'blackAlpha.100',
+        bg: 'bg.muted',
         textDecoration: 'none',
-        _dark: {
-          bg: 'whiteAlpha.200',
-        },
       },
       _active: {
         fontWeight: 'semibold',

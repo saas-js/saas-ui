@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.27
+
+### Patch Changes
+
+- 5013269: Improved theme inconsistencies
+
 ## 3.0.0-next.26
 
 ### Patch Changes

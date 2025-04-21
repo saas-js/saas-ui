@@ -1,14 +1,14 @@
-import { cleanupContent } from "../shared"
-import { default as docs } from ".velite/docs.json"
+import { cleanupContent } from '../shared'
+import { default as docs } from '.velite/docs.json'
 
-export const dynamic = "force-static"
+export const dynamic = 'force-static'
 
 export async function GET() {
   let content =
-    "<SYSTEM>Documentation for all components in Chakra UI v3.</SYSTEM>\n\n"
+    '<SYSTEM>Documentation for all components in Saas UI v3.</SYSTEM>\n\n'
 
   const componentDocs = docs.filter((doc) =>
-    doc.slug.startsWith("docs/components"),
+    doc.slug.startsWith('docs/components'),
   )
 
   for (const doc of componentDocs) {
@@ -19,8 +19,8 @@ export async function GET() {
 
   return new Response(content, {
     headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
     },
   })
 }

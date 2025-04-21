@@ -3,9 +3,9 @@ import {
   findMatchingDocs,
   minifyContent,
   parseComponent,
-} from "../../shared"
+} from '../../shared'
 
-export const dynamic = "force-static"
+export const dynamic = 'force-static'
 
 interface Params {
   component: string
@@ -16,8 +16,8 @@ export async function GET(_request: Request, ctx: { params: Promise<Params> }) {
   const { minify, component } = parseComponent(componentParam)
 
   let content = !minify
-    ? `<SYSTEM>Documentation for the ${component} component in Chakra UI v3.</SYSTEM>\n\n`
-    : ""
+    ? `<SYSTEM>Documentation for the ${component} component in Saas UI v3.</SYSTEM>\n\n`
+    : ''
 
   const componentDocs = findMatchingDocs(component)
 
@@ -31,8 +31,8 @@ export async function GET(_request: Request, ctx: { params: Promise<Params> }) {
 
   return new Response(content, {
     headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
     },
   })
 }

@@ -1,13 +1,13 @@
-import { default as docs } from ".velite/docs.json"
+import { default as docs } from '.velite/docs.json'
 
-export const dynamic = "force-static"
+export const dynamic = 'force-static'
 
 export async function GET() {
   let content =
-    "<SYSTEM>Documentation for migrating to Chakra UI v3.</SYSTEM>\n\n"
+    '<SYSTEM>Documentation for migrating to Saas UI v3.</SYSTEM>\n\n'
 
   const stylingDocs = docs.filter((doc) =>
-    doc.slug.startsWith("docs/get-started/migration"),
+    doc.slug.startsWith('docs/get-started/migration'),
   )
 
   for (const doc of stylingDocs) {
@@ -18,8 +18,8 @@ export async function GET() {
 
   return new Response(content, {
     headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
     },
   })
 }

@@ -26,4 +26,5 @@ export const conditions = defineConditions({
   pressable: '&:is(a, button, [role=button])',
   popupExpanded:
     '&:is([aria-haspopup][aria-expanded=true], [aria-haspopup][data-expanded], [aria-haspopup][data-state=expanded])',
+  rowHover: 'tr:hover &, [role=row]:hover &',
 })

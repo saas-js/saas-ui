@@ -49,14 +49,17 @@ export const globalCss = defineGlobalStyles({
     '--overlay-effect': 'blur({blurs.lg})',
     '--backdrop-effect': 'none',
   },
+  '.dark *': {
+    '--overlay-translucency': '85%',
+  },
   body: {
     color: 'fg',
     bg: 'bg',
     lineHeight: '1.5',
     colorPalette: 'accent',
   },
-  '*::placeholder': {
-    color: 'fg.subtle',
+  '*::placeholder, *[data-placeholder]': {
+    color: 'fg.muted/90',
   },
   '*::selection': {
     bg: 'colorPalette.solid/20',

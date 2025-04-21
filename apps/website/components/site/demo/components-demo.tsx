@@ -65,12 +65,7 @@ export const ComponentsDemo = () => {
 
 function DemoCard(props: { children: React.ReactNode }) {
   return (
-    <Card.Root
-      size="lg"
-      variant="elevated"
-      borderColor="border.emphasized/80"
-      textStyle="sm"
-    >
+    <Card.Root size="lg" variant="elevated" textStyle="sm">
       {props.children}
     </Card.Root>
   )
@@ -82,13 +77,7 @@ function AuthCard(props: {
   footer: React.ReactNode
 }) {
   return (
-    <Card.Root
-      size="lg"
-      variant="elevated"
-      bg="bg.subtle"
-      borderColor="border.emphasized/80"
-      textStyle="sm"
-    >
+    <Card.Root size="lg" variant="elevated" bg="bg.subtle" textStyle="sm">
       <Card.Body borderRadius="lg" borderBottomWidth="1px" bg="bg.panel" p="6">
         <Flex mx="auto" mb="6">
           <LogoIcon color="var(--chakra-colors-accent-solid)" height="32px" />
@@ -101,6 +90,8 @@ function AuthCard(props: {
         {props.children}
       </Card.Body>
       <Card.Footer
+        pt="3"
+        pb="3"
         borderBottomRadius="md"
         textAlign="center"
         justifyContent="center"

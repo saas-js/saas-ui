@@ -135,7 +135,7 @@ export const CommandMenu = (props: Props) => {
                         <Text
                           textStyle="sm"
                           fontWeight="medium"
-                          color="teal.600"
+                          color="fg.subtle"
                         >
                           {item.category}
                         </Text>

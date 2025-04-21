@@ -7,7 +7,7 @@ import { Stack } from '@chakra-ui/react'
 
 export default function Page() {
   return (
-    <Stack gap="8" bg="bg.subtle">
+    <Stack gap="8" bg="bg.muted">
       <HeaderSection />
       <HeroSection />
       <DemoSection />

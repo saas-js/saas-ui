@@ -41,7 +41,7 @@ const HeaderRoot = chakra('header', {
   },
 })
 
-const TopNavLink = chakra(Link, {
+const PrimaryNavLink = chakra(Link, {
   base: {
     fontSize: 'sm',
     color: 'fg.subtle',
@@ -53,16 +53,23 @@ const TopNavLink = chakra(Link, {
       color: 'fg',
     },
   },
-  variants: {
-    variant: {
-      tab: {
-        py: '2',
-        borderBottomWidth: '2px',
-        borderColor: 'transparent',
-        transition: 'border-color 0.2s',
-        _hover: { borderColor: 'border' },
-        _currentPage: { borderColor: 'fg!' },
-      },
+})
+
+const SecondaryNavLink = chakra(Link, {
+  base: {
+    fontSize: 'sm',
+    color: 'fg.subtle',
+    py: '2',
+    _currentPage: {
+      color: 'fg',
+      fontWeight: 'medium',
+      layerStyle: 'indicator.bottom',
+      borderTopRadius: '3px',
+      '--indicator-offset-y': '-1px',
+      '--indicator-color': 'colors.colorPalette.solid',
+    },
+    _hover: {
+      color: 'fg',
     },
   },
 })
@@ -99,13 +106,13 @@ const HeaderPrimaryNavbar = () => {
     <HStack gap="8" minH="48px" aria-label="primary navigation">
       <HeaderLogoLink />
       {items.map((item) => (
-        <TopNavLink
+        <PrimaryNavLink
           key={item.title}
           href={item.url || '#'}
           aria-current={item.current ? 'page' : undefined}
         >
           {item.title}
-        </TopNavLink>
+        </PrimaryNavLink>
       ))}
     </HStack>
   )
@@ -117,21 +124,20 @@ const HeaderSecondaryNavbar = () => {
   return (
     <HStack as="nav" gap="6" aria-label="secondary navigation">
       {items.map((item) => (
-        <TopNavLink
+        <SecondaryNavLink
           key={item.title}
-          variant="tab"
           href={item.url || '#'}
           aria-current={item.current ? 'page' : undefined}
         >
           {item.title}
-        </TopNavLink>
+        </SecondaryNavLink>
       ))}
     </HStack>
   )
 }
 
 interface HeaderVersionMenuProps {
-  containerRef?: React.RefObject<HTMLElement>
+  containerRef?: React.RefObject<HTMLElement | null>
 }
 
 const HeaderVersionMenu = ({ containerRef }: HeaderVersionMenuProps) => (
@@ -157,7 +163,7 @@ const HeaderMobileMenuDropdown = () => {
   const primaryNavItems = route.getPrimaryNavItems()
   const secondaryNavItems = route.getSecondaryNavItems()
 
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
   const pathnameRef = useRef(pathname)
 
@@ -229,11 +235,11 @@ const HeaderDesktopActions = () => {
   return (
     <HStack gap="2" minH="48px" flexShrink="1" minW="0">
       <HeaderVersionMenu />
+      <CommandMenu
+        trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
+      />
       <HeaderSocialLinks />
       <ColorModeButton />
-      <CommandMenu
-        trigger={<SearchButton width="256px" size="sm" flexShrink="1" />}
-      />
     </HStack>
   )
 }

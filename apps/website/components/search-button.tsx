@@ -1,11 +1,12 @@
-import { Button, ButtonProps, IconButton, Kbd, Span } from "@chakra-ui/react"
-import { forwardRef } from "react"
-import { LuSearch } from "react-icons/lu"
+import { forwardRef } from 'react'
+
+import { Button, ButtonProps, IconButton, Kbd, Span } from '@chakra-ui/react'
+import { LuSearch } from 'react-icons/lu'
 
 export const SearchButton = forwardRef<HTMLButtonElement, ButtonProps>(
   function SearchButton(props, ref) {
     return (
-      <Button variant="subtle" color="fg.subtle!" ref={ref} {...props}>
+      <Button variant="outline" color="fg.subtle!" ref={ref} {...props}>
         <LuSearch />
         <Span
           ms="1"
@@ -23,6 +24,7 @@ export const SearchButton = forwardRef<HTMLButtonElement, ButtonProps>(
           bg="bg"
           fontSize="0.8em"
           letterSpacing="widest"
+          color="fg.subtle"
           me="-1"
         >
           ⌘K

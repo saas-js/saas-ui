@@ -32,12 +32,11 @@ const EmailDemo = dynamic(
 export const DemoSection = () => {
   return (
     <Container maxW="8xl">
-      <Tabs.Root defaultValue="components" lazyMount>
+      <Tabs.Root defaultValue="components" colorPalette="accent" lazyMount>
         <Tabs.List mb="4">
           <Tabs.Trigger value="components">Components</Tabs.Trigger>
           <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
           <Tabs.Trigger value="email">Email</Tabs.Trigger>
-          <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
         </Tabs.List>
 
         <Tabs.ContentGroup>

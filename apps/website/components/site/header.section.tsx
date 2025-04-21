@@ -20,6 +20,7 @@ import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 
 import { LinkButton } from '../link-button'
+import { Navigation } from './navigation'
 
 const HeaderRoot = chakra(Container, {
   base: {
@@ -42,7 +43,6 @@ const LogoLink = () => (
 const NAV_LINKS = [
   { title: 'Docs', url: '/docs' },
   { title: 'Resources', url: '/resources' },
-  { title: 'Pricing', url: '/pricing' },
   { title: 'Showcase', url: '/showcase' },
 ]
 
@@ -58,7 +58,8 @@ const DesktopNav = () => (
       display={{ base: 'none', md: 'flex' }}
       flex="1"
     >
-      {NAV_LINKS.map((item) => (
+      <Navigation />
+      {/* {NAV_LINKS.map((item) => (
         <HStack
           className="nav-item"
           key={item.title}
@@ -83,7 +84,7 @@ const DesktopNav = () => (
         >
           <Link href={item.url}>{item.title}</Link>
         </HStack>
-      ))}
+      ))} */}
     </HStack>
     <HStack gap="1" justifyContent="flex-end">
       <Button asChild variant="ghost" size="sm">

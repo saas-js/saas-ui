@@ -271,7 +271,6 @@ export const docsConfig: DocsConfig = {
   navigation: [
     docsLinks,
     { title: 'Resources', url: 'resources' },
-    { title: 'Pricing', url: 'pricing' },
     { title: 'Showcase', url: 'showcase' },
   ],
 }

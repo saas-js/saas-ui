@@ -25,15 +25,17 @@ export const HeroSection = () => {
                 <HiArrowRight />
               </Link>
             </Annoucement>
-            <Stack gap="5" pr="4" maxW="4xl" alignItems="center">
+            <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
                 Build products customers love.
               </Heading>
               <Subheading>
-                Saas UI is a complete toolkit for building premium SaaS
-                applications that look good and perform well. Start with our
-                free component library, and use our ready made templates and
-                starter kits to ship faster.
+                The complete toolkit for building premium SaaS applications.
+                <br />
+                Free component library, premium templates and comprehensive
+                starter kits
+                <br /> —everything you need to ship faster without compromising
+                quality.
               </Subheading>
             </Stack>
 

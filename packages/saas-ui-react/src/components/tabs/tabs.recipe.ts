@@ -178,6 +178,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
             _horizontal: {
               layerStyle: 'indicator.bottom',
               borderTopRadius: '3px',
+              '--indicator-offset-x': 'spacing.3',
               '--indicator-offset-y': '-1px',
               '--indicator-color': 'colors.colorPalette.solid',
             },

@@ -102,8 +102,11 @@ export const buttonRecipe = defineRecipe({
         bg: 'colorPalette.solid',
         color: 'colorPalette.contrast',
         '--btn-shadow': 'shadows.sm',
-        boxShadow:
-          '0 0 0 1px rgba(0,0,0,0.25) inset, 0px 2px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
+        boxShadow: {
+          base: '0 0 0 1px rgba(0,0,0,0.25) inset, 0px 2px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
+          _dark:
+            ' 0px 1px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
+        },
         textShadow: '0 1px 2px rgba(0,0,0,0.3)',
         overflow: 'clip',
         _after: {

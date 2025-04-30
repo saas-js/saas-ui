@@ -40,8 +40,7 @@ export interface AppShellBaseProps {
 }
 
 export interface AppShellRootProps
-  extends AppShellBaseProps,
-    HTMLChakraProps<'div'>,
+  extends HTMLChakraProps<'div'>,
     SlotRecipeProps<'suiAppShell'> {}
 
 /**
@@ -70,7 +69,11 @@ export const AppShellMain = withContext<HTMLDivElement, AppShellMainProps>(
   { forwardAsChild: true },
 )
 
-export const AppShell = forwardRef<HTMLDivElement, AppShellRootProps>(
+export interface AppShellProps
+  extends AppShellBaseProps,
+    HTMLChakraProps<'div'> {}
+
+export const AppShell = forwardRef<HTMLDivElement, AppShellProps>(
   (props, ref) => {
     const { header, sidebar, aside, footer, children, ...rootProps } = props
 

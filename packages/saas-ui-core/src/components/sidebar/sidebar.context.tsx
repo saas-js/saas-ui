@@ -11,7 +11,7 @@ import {
 import type { HTMLSystemProps } from '#system'
 import { callAll, createContext } from '#utils'
 
-import type { SidebarMode, SidebarProps } from './sidebar.types.ts'
+import type { SidebarMode, SidebarOptions } from './sidebar.types.ts'
 
 export interface UseSidebarReturn {
   open: boolean
@@ -29,28 +29,7 @@ const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
   strict: true,
 })
 
-export interface SidebarProviderProps extends Omit<SidebarProps, 'children'> {
-  /**
-   * The mode of the sidebar. Flyout mode is only available on desktop.
-   * @default 'collapsible'
-   */
-  mode?: SidebarMode
-  /**
-   * Control the default visibility of the sidebar.
-   */
-  defaultOpen?: boolean
-  /**
-   * Control the visibility of the sidebar.
-   */
-  open?: boolean
-  /**
-   * Callback invoked when the sidebar is opened.
-   */
-  onOpenChange?: (details: { open: boolean; mode: SidebarMode }) => void
-  /**
-   * Callback invoked when the mode of the sidebar is changed.
-   */
-  onModeChange?: (details: { mode: SidebarMode }) => void
+export interface SidebarProviderProps extends Omit<SidebarOptions, 'children'> {
   /**
    * The content of the sidebar.
    */

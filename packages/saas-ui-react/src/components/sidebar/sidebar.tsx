@@ -19,7 +19,7 @@ interface SidebarProviderProps
   extends Sidebar.ProviderProps,
     Omit<SlotRecipeProps<'suiSidebar'>, 'mode'> {}
 
-const SidebarProvider = function SidebarProvider(props: SidebarProviderProps) {
+function SidebarProvider(props: SidebarProviderProps) {
   return (
     <Sidebar.Provider {...props}>
       <RecipeProvider {...props}>{props.children}</RecipeProvider>

@@ -47,7 +47,8 @@ function RecipeProvider(
 }
 
 interface SidebarRootProps
-  extends HTMLChakraProps<'div', Sidebar.RootBaseProps> {}
+  extends HTMLChakraProps<'div'>,
+    Sidebar.RootBaseProps {}
 
 /**
  * Side navigation, commonly used as the primary navigation

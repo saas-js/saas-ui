@@ -8,7 +8,7 @@ export const statSlotRecipe = defineSlotRecipe({
     root: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '1',
+      gap: '0',
       position: 'relative',
       flex: '1',
     },

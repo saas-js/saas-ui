@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useMemo } from 'react'
 
 import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
@@ -66,17 +66,23 @@ export function useForm<
       : resolver,
   })
 
-  const FormComponent = forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
-    function FormComponent(props, ref) {
-      return (
-        <Form
-          {...props}
-          form={form}
-          onSubmit={props.onSubmit ?? form.handleSubmit(onSubmit, onInvalid)}
-          ref={ref}
-        />
-      )
-    },
+  const FormComponent = useMemo(
+    () =>
+      forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
+        function FormComponent(props, ref) {
+          return (
+            <Form
+              {...props}
+              form={form}
+              onSubmit={
+                props.onSubmit ?? form.handleSubmit(onSubmit, onInvalid)
+              }
+              ref={ref}
+            />
+          )
+        },
+      ),
+    [form, onSubmit, onInvalid],
   )
 
   return {

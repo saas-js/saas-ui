@@ -11,16 +11,18 @@ export const [StepperProvider, useStepperContext] =
 
 export interface UseStepperProps {
   step?: number | string
-  isCompleted?: boolean
+  steps?: string[]
+  completed?: boolean
   onChange?(index: number): void
 }
 
 export function useStepper(props: UseStepperProps) {
-  const { step, onChange } = props
+  const { step, onChange, steps } = props
 
   const [activeIndex, setIndex] = React.useState(0)
 
-  const stepsRef = React.useRef<string[]>([])
+  const stepsRef = React.useRef<string[]>(steps || [])
+  const initializedRef = React.useRef(false)
 
   const [, onUpdate] = React.useState(Date.now())
 
@@ -28,9 +30,11 @@ export function useStepper(props: UseStepperProps) {
     (name: string) => {
       const newSteps = [...stepsRef.current]
 
-      if (newSteps.indexOf(name) === -1) {
-        newSteps.push(name)
+      if (newSteps.indexOf(name) !== -1) {
+        return
       }
+
+      newSteps.push(name)
 
       stepsRef.current = newSteps
       onUpdate(Date.now())
@@ -68,6 +72,11 @@ export function useStepper(props: UseStepperProps) {
   }, [step])
 
   React.useEffect(() => {
+    if (!initializedRef.current) {
+      initializedRef.current = true
+      return
+    }
+
     onChange?.(activeIndex)
   }, [activeIndex, onChange])
 
@@ -77,7 +86,7 @@ export function useStepper(props: UseStepperProps) {
     activeIndex,
     isFirstStep: activeIndex === 0,
     isLastStep: activeIndex === stepsRef.current.length - 1,
-    isCompleted: activeIndex >= stepsRef.current.length,
+    completed: activeIndex >= stepsRef.current.length,
     setIndex,
     setStep,
     nextStep,
@@ -92,30 +101,33 @@ export function useStepper(props: UseStepperProps) {
 export type UseStepperReturn = ReturnType<typeof useStepper>
 
 export interface UseStepProps {
-  name?: string
-  isActive?: boolean
-  isCompleted?: boolean
+  id?: string
+  active?: boolean
+  completed?: boolean
 }
 
 export function useStep(props: UseStepProps) {
-  const { name, isActive, isCompleted } = props
+  const { id, active, completed } = props
 
-  const { registerStep, unregisterStep, activeStep } = useStepperContext()
+  const { stepsRef, registerStep, unregisterStep, activeStep } =
+    useStepperContext()
 
   React.useEffect(() => {
-    if (!name) {
+    console.log('useStep', id)
+    if (!id) {
       return
     }
-    registerStep(name)
+
+    registerStep(id)
 
     return () => {
-      unregisterStep(name)
+      unregisterStep(id)
     }
-  }, [])
+  }, [stepsRef])
 
   return {
-    isActive: name ? activeStep === name : isActive,
-    isCompleted,
+    active: id ? activeStep === id : active,
+    completed,
   }
 }
 
@@ -126,7 +138,7 @@ export function useStepperPrevButton({ label = 'Back' } = {}) {
   const { isFirstStep, prevStep } = useStepperContext()
 
   return {
-    isDisabled: isFirstStep,
+    disabled: isFirstStep,
     onClick: prevStep,
     children: label,
   }
@@ -139,10 +151,10 @@ export function useStepperNextButton({
   label = 'Next',
   submitLabel = 'Submit',
 } = {}) {
-  const { isLastStep, isCompleted, nextStep } = useStepperContext()
+  const { isLastStep, completed, nextStep } = useStepperContext()
 
   return {
-    isDisabled: isCompleted,
+    disabled: completed,
     onClick: nextStep,
     children: isLastStep ? submitLabel : label,
   }

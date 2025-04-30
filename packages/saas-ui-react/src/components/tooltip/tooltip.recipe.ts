@@ -13,7 +13,7 @@ export const tooltipSlotRecipe = defineSlotRecipe({
       color: 'fg',
       px: '2.5',
       py: '1',
-      borderRadius: 'l2',
+      borderRadius: 'panel.sm',
       fontWeight: 'medium',
       textStyle: 'xs',
       boxShadow: 'md',

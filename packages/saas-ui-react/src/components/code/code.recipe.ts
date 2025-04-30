@@ -10,7 +10,7 @@ export const codeRecipe = defineRecipe({
     fontFamily: 'mono',
     alignItems: 'center',
     display: 'inline-flex',
-    borderRadius: 'l2',
+    borderRadius: 'indicator.md',
   },
   variants,
   defaultVariants,

@@ -25,7 +25,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       flexDirection: 'column',
     },
     backdrop: {
-      bg: 'blackAlpha.200',
+      layerStyle: 'backdrop',
       position: 'fixed',
       inset: 0,
       '--sidebar-backdrop-z-index': 'zIndex.layer-3',

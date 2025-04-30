@@ -2,36 +2,69 @@ import * as React from 'react'
 
 import { createContext } from '@chakra-ui/react'
 import {
+  StepperProvider,
   type UseStepperProps,
   type UseStepperReturn,
   useStep,
   useStepper,
-} from '@saas-ui/core'
-import { FieldValues, SubmitHandler } from 'react-hook-form'
+} from '@saas-ui/core/steps'
+import {
+  FieldValues,
+  type SubmitErrorHandler,
+  SubmitHandler,
+} from 'react-hook-form'
 
-import { ArrayFieldProps } from './array-field'
-import { DisplayIfProps } from './display-if'
-import { FormProps } from './form'
-import { ObjectFieldProps } from './object-field'
-import { FormStepProps, StepsOptions } from './step-form'
-import { FieldProps, type FocusableElement, StepFormChildren } from './types'
-import { UseArrayFieldReturn } from './use-array-field'
+import type { FormProps } from './form'
+import { FormStep, FormStepProps } from './step-form'
+import {
+  type StandardSchemaV1,
+  type UseFormProps,
+  type UseFormReturn,
+  useForm,
+} from './use-form'
 
-export interface StepState {
-  name: string
-  schema?: any
-  resolver?: any
-  isActive?: boolean
-  isCompleted?: boolean
-  onSubmit?: FormStepSubmitHandler
+export type StepOptions<
+  TStepId extends string = string,
+  TFieldValues extends FieldValues = FieldValues,
+  TTransformedValues = TFieldValues,
+> = {
+  /**
+   * The step id
+   */
+  id: TStepId
+  /**
+   * Schema
+   */
+  schema?: StandardSchemaV1<TFieldValues, TTransformedValues>
+  /**
+   * Default values
+   */
+  defaultValues?: TFieldValues
+  /**
+   * On submit
+   */
+  onSubmit?: FormStepSubmitHandler<TFieldValues>
 }
 
-export type FormStepSubmitHandler<
+export interface StepState<
   TFieldValues extends FieldValues = FieldValues,
-> = (data: TFieldValues, stepper: UseStepperReturn) => Promise<void>
+  TTransformedValues = TFieldValues,
+> {
+  id: string
+  schema?: StandardSchemaV1<TFieldValues, TTransformedValues>
+  defaultValues: TFieldValues
+  active?: boolean
+  completed?: boolean
+  onSubmit?: FormStepSubmitHandler<TTransformedValues>
+}
+
+export type FormStepSubmitHandler<TValues> = (
+  data: TValues,
+  stepper: UseStepperReturn,
+) => Promise<void>
 
 export interface StepFormContext extends UseStepperReturn {
-  updateStep(state: StepState): void
+  updateStep(state: Partial<StepState>): void
   steps: Record<string, StepState>
 }
 
@@ -42,61 +75,60 @@ export const [StepFormProvider, useStepFormContext] =
       'useStepFormContext: `context` is undefined. Seems you forgot to wrap step form components in `<StepForm />`',
   })
 
-type StepName<T extends { [k: number]: { readonly name: string } }> =
-  T[number]['name']
-
-export interface StepFormRenderContext<
-  TSteps extends StepsOptions<any> = StepsOptions<any>,
-  TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TFieldTypes = FieldProps<TFieldValues>,
-> extends UseStepFormReturn<TFieldValues> {
-  Field: React.FC<TFieldTypes & React.RefAttributes<FocusableElement>>
-  FormStep: React.FC<FormStepProps<StepName<TSteps>>>
-  DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
-  ArrayField: React.FC<
-    ArrayFieldProps<TFieldValues> & React.RefAttributes<UseArrayFieldReturn>
-  >
-  ObjectField: React.FC<ObjectFieldProps<TFieldValues>>
-}
+type StepId<T extends { [k: number]: { readonly id: string } }> =
+  T[number]['id']
 
 export interface UseStepFormProps<
-  TSteps extends StepsOptions<any> = StepsOptions<any>,
+  TSteps extends StepOptions[] = StepOptions[],
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
+  TTransformedValues = TFieldValues,
 > extends Omit<UseStepperProps, 'onChange'>,
-    Omit<FormProps<any, TFieldValues, TContext>, 'children'> {
-  steps?: TSteps
-  children: StepFormChildren<any, TSteps, TFieldValues, TContext>
+    Omit<
+      UseFormProps<TFieldValues, TContext, TTransformedValues>,
+      'schema' | 'onSubmit' | 'onInvalid'
+    > {
+  onSubmit: SubmitHandler<any>
+  onInvalid?: SubmitErrorHandler<any>
+  onStepChange?(details: { step: TSteps[number]['id']; index: number }): void
+  steps: TSteps
 }
 
 export interface UseStepFormReturn<
+  TSteps extends StepOptions[] = StepOptions[],
   TFieldValues extends FieldValues = FieldValues,
-> extends UseStepperReturn {
-  getFormProps(): {
-    onSubmit: SubmitHandler<TFieldValues>
-    schema?: any
-    resolver?: any
-  }
+  TContext = any,
+  TTransformedValues = TFieldValues,
+> extends UseStepperReturn,
+    UseFormReturn<TFieldValues, TContext, TTransformedValues> {
   updateStep(step: any): void
   steps: Record<string, any>
+  Step: React.FC<FormStepProps<StepId<TSteps>>>
 }
 
 export function useStepForm<
-  TSteps extends StepsOptions<any> = StepsOptions<any>,
+  TSteps extends StepOptions[] = StepOptions[],
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
+  TTransformedValues = TFieldValues,
 >(
-  props: UseStepFormProps<TSteps, TFieldValues, TContext>,
-): UseStepFormReturn<TFieldValues> {
+  props: UseStepFormProps<TSteps, TFieldValues, TContext, TTransformedValues>,
+): UseStepFormReturn<TSteps, TFieldValues, TContext, TTransformedValues> {
   const {
-    onChange,
     steps: stepsOptions,
-    resolver,
-    fieldResolver,
-    ...rest
+    step,
+    onStepChange,
+    completed,
+    ...formProps
   } = props
-  const stepper = useStepper(rest)
+  const stepper = useStepper({
+    completed,
+    steps: React.useMemo(() => stepsOptions.map((s) => s.id), [stepsOptions]),
+    step,
+    onChange: (index) => {
+      onStepChange?.({ step: stepsOptions[index].id, index })
+    },
+  })
 
   const [options] = React.useState<TSteps | undefined>(stepsOptions)
 
@@ -104,7 +136,7 @@ export function useStepForm<
 
   const [steps, updateSteps] = React.useState<Record<string, StepState>>({})
 
-  const mergedData = React.useRef<TFieldValues>({} as any)
+  const mergedData = React.useRef({} as TTransformedValues)
 
   const onSubmitStep: SubmitHandler<TFieldValues> = React.useCallback(
     async (data) => {
@@ -121,7 +153,7 @@ export function useStepForm<
 
           updateStep({
             ...step,
-            isCompleted: true,
+            completed: true,
           })
 
           nextStep() // show completed step
@@ -138,28 +170,30 @@ export function useStepForm<
     [steps, activeStep, isLastStep, mergedData],
   )
 
-  const getFormProps = React.useCallback(() => {
-    const step = steps[activeStep]
+  const currentStep = React.useMemo(
+    () => steps[activeStep],
+    [steps, activeStep],
+  )
 
-    return {
-      onSubmit: onSubmitStep,
-      schema: step?.schema,
-      resolver: step?.schema
-        ? /* @todo fix resolver type */ (resolver as any)?.(step.schema)
-        : undefined,
-      fieldResolver: step?.schema
-        ? (fieldResolver as any)?.(step.schema)
-        : undefined,
-    }
-  }, [steps, onSubmitStep, activeStep, resolver, fieldResolver])
+  const form = useForm<any>({
+    ...formProps,
+    schema: currentStep?.schema,
+    resolver: formProps.resolver,
+    defaultValues: currentStep?.defaultValues,
+    onSubmit: onSubmitStep,
+  })
 
   const updateStep = React.useCallback(
     (step: StepState) => {
-      const stepOptions = options?.find((s) => s.name === step.name)
+      const stepOptions = options?.find((s) => s.id === step.id)
+      if (!stepOptions) {
+        throw new Error(`Step ${step.id} not configured`)
+      }
+
       updateSteps((steps) => {
         return {
           ...steps,
-          [step.name]: {
+          [step.id]: {
             ...step,
             schema: stepOptions?.schema,
           },
@@ -169,33 +203,56 @@ export function useStepForm<
     [steps, options],
   )
 
+  const ctx = React.useMemo(
+    () => ({
+      ...form,
+      ...stepper,
+      updateStep,
+      steps,
+    }),
+    [form, stepper, updateStep, steps],
+  )
+
+  const FormComponent = React.useMemo(
+    () =>
+      React.forwardRef<HTMLFormElement, Omit<FormProps<any, any, any>, 'form'>>(
+        function FormComponent(props, ref) {
+          return (
+            <StepperProvider value={stepper}>
+              <StepFormProvider value={ctx}>
+                <form.Form {...props} ref={ref} />
+              </StepFormProvider>
+            </StepperProvider>
+          )
+        },
+      ),
+    [stepper, ctx, form.Form],
+  )
+
+  console.log('ctx', ctx)
+
   return {
-    getFormProps,
-    updateStep,
-    steps,
-    ...stepper,
-  }
+    ...ctx,
+    Form: FormComponent,
+    Step: FormStep,
+  } as UseStepFormReturn<TSteps, TFieldValues, TContext, TTransformedValues>
 }
 
-export interface UseFormStepProps {
-  name: string
-  schema?: any
-  resolver?: any
-  onSubmit?: FormStepSubmitHandler
+export interface UseFormStepProps<TStepId extends string = string> {
+  id: TStepId
 }
 
-export function useFormStep(props: UseFormStepProps): StepState {
-  const { name, schema, resolver, onSubmit } = props
-  const step = useStep({ name })
+export function useFormStep<TStepId extends string = string>(
+  props: UseFormStepProps<TStepId>,
+): StepState {
+  const { id } = props
 
-  const { steps, updateStep } = useStepFormContext()
+  const step = useStep({ id })
 
-  React.useEffect(() => {
-    updateStep({ name, schema, resolver, onSubmit })
-  }, [name, schema])
+  const { steps } = useStepFormContext()
 
   return {
     ...step,
-    ...(steps[name] || { name, schema }),
+    ...(steps[id] || { id }),
   }
 }

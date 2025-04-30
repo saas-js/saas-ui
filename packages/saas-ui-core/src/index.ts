@@ -1,12 +1,15 @@
-export { ErrorBoundary } from './components/error-boundary'
+export {
+  ErrorBoundary,
+  ErrorProvider,
+} from './components/error-boundary/index.ts'
 export type {
   ErrorBoundaryProps,
   ErrorBoundaryState,
-} from './components/error-boundary'
+} from './components/error-boundary/index.ts'
 
-export { GridList } from './components/grid-list'
-export { Navbar } from './components/navbar'
-export { Sidebar } from './components/sidebar'
+export { GridList } from './components/grid-list/index.ts'
+export { Navbar } from './components/navbar/index.ts'
+export { Sidebar } from './components/sidebar/index.ts'
 
 export {
   useStepper,
@@ -15,13 +18,13 @@ export {
   useStepperContext,
   useStepperNextButton,
   useStepperPrevButton,
-} from './components/steps'
+} from './components/steps/index.ts'
 
 export type {
   UseStepProps,
   UseStepperProps,
   UseStepperReturn,
-} from './components/steps'
+} from './components/steps/index.ts'
 
 export { sui } from './system/index.ts'
 export type { HTMLSystemProps } from './system/index.ts'

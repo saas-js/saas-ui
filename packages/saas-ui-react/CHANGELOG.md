@@ -1,5 +1,12 @@
 # @saas-ui/react
 
+## 3.0.0-next.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.6
+
 ## 3.0.0-next.29
 
 ### Patch Changes

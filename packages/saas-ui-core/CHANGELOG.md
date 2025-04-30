@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Fixed build
+
 ## 3.0.0-next.5
 
 ### Patch Changes

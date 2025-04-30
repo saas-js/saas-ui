@@ -8,6 +8,6 @@ export default defineConfig({
     'src/index.ts',
     'src/utils/index.ts',
     'src/system/index.ts',
-    'src/components/**/*.ts',
+    'src/components/**/index.ts',
   ],
 })

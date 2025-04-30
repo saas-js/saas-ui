@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.5
+
+### Patch Changes
+
+- c2372f9: Removed duplicate SidebarProvider props
+
 ## 3.0.0-next.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-next.29
+
+### Patch Changes
+
+- 495b0c6: Removed position variant from AppShell recipe in favor of a single fullscreen prop for fixed positioning
+- Updated dependencies [c2372f9]
+  - @saas-ui/core@3.0.0-next.5
+
 ## 3.0.0-next.28
 
 ### Patch Changes

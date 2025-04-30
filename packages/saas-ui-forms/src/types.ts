@@ -5,9 +5,7 @@ import type { ArrayFieldProps } from './array-field'
 import type { DefaultFields } from './default-fields'
 import type { FormProps, FormRenderContext } from './form'
 import type { ObjectFieldProps } from './object-field'
-import type { StepsOptions } from './step-form'
 import type { SubmitButtonProps } from './submit-button'
-import type { StepFormRenderContext, UseStepFormProps } from './use-step-form'
 
 export interface FocusableElement {
   focus(options?: FocusOptions): void
@@ -223,44 +221,6 @@ export type WithFields<
           TContext,
           TExtraFieldProps
         >
-        fields?: FieldOverrides<FieldDefs, TFieldValues> & {
-          submit?: SubmitButtonProps
-        } & ExtraOverrides
-      }
-    : never
-
-// StepForm types
-export type StepFormChildren<
-  FieldDefs,
-  TSteps extends StepsOptions<any> = StepsOptions<any>,
-  TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-> = MaybeRenderProp<
-  StepFormRenderContext<
-    TSteps,
-    TFieldValues,
-    TContext,
-    MergeFieldProps<
-      FieldDefs extends never
-        ? DefaultFields
-        : ShallowMerge<DefaultFields, FieldDefs>,
-      TFieldValues
-    >
-  >
->
-
-export type WithStepFields<
-  TStepFormProps extends UseStepFormProps<any, any, any>,
-  FieldDefs,
-  ExtraOverrides = object,
-> =
-  TStepFormProps extends UseStepFormProps<
-    infer TSteps,
-    infer TFieldValues,
-    infer TContext
-  >
-    ? Omit<TStepFormProps, 'children' | 'fields'> & {
-        children?: StepFormChildren<FieldDefs, TSteps, TFieldValues, TContext>
         fields?: FieldOverrides<FieldDefs, TFieldValues> & {
           submit?: SubmitButtonProps
         } & ExtraOverrides

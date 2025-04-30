@@ -20,7 +20,7 @@ const {
 
 export { useAppShellStyles }
 
-export interface AppShellProps extends HTMLChakraProps<'div'> {
+export interface AppShellBaseProps {
   /**
    * The top header navigation
    */
@@ -37,14 +37,11 @@ export interface AppShellProps extends HTMLChakraProps<'div'> {
    * The footer
    */
   footer?: React.ReactNode
-  /**
-   * The main content
-   */
-  children: React.ReactNode
 }
 
 export interface AppShellRootProps
-  extends Omit<AppShellProps, 'position'>,
+  extends AppShellBaseProps,
+    HTMLChakraProps<'div'>,
     SlotRecipeProps<'suiAppShell'> {}
 
 /**

@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 3.0.0-next.28
+
+### Patch Changes
+
+- bab2041: Improved semantic token consistency
+- b136ede: Improved dark mode styles for buttons
+- dd1f9e1: Improved dark mode styles for overlay layers
+- dd1f9e1: Added \_rowHover condition
+- bab2041: Improved Stat spacing
+
 ## 3.0.0-next.27
 
 ### Patch Changes

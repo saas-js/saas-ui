@@ -7,14 +7,12 @@ import {
   DataList,
   Flex,
   Grid,
-  HStack,
   Heading,
   Icon,
   IconButton,
   List,
   Portal,
   Spacer,
-  Stack,
   Text,
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
@@ -47,7 +45,7 @@ export function CRMDemo() {
   return (
     <Sidebar.Provider mode="collapsible" variant="inset">
       <Sidebar.FlyoutTrigger />
-      <AppShell sidebar={<AppSidebar />} height="100%" bg="bg">
+      <AppShell sidebar={<AppSidebar />} height="100%" bg="sidebar.bg">
         <Sidebar.Inset>
           <ReportsPage />
         </Sidebar.Inset>

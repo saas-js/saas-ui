@@ -62,7 +62,6 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
     },
 
     indicator: {
-      shadow: 'sm',
       pos: 'absolute',
       bg: {
         base: 'bg',
@@ -74,6 +73,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       left: 'var(--left)',
       zIndex: -1,
       borderRadius: 'var(--segment-radius)',
+      boxShadow: '0 0 0 1px {colors.border.emphasized}',
     },
   },
 

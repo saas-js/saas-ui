@@ -146,6 +146,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       minHeight: '0',
       display: 'flex',
       flexDirection: 'column',
+      bg: 'bg.content',
     },
   },
   variants: {
@@ -162,8 +163,8 @@ export const sidebarSlotRecipe = defineSlotRecipe({
           borderColor: 'sidebar.border',
           borderWidth: '1px',
           borderRadius: 'panel.md',
-          marginBlock: 2,
-          marginEnd: 2,
+          marginBlock: 'var(--inset-gap, {spacing.2})',
+          marginEnd: 'var(--inset-gap, {spacing.2})',
           overflow: 'clip',
         },
       },
@@ -256,6 +257,23 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: 'inset',
+      mode: 'collapsible',
+      css: {
+        root: {
+          py: 'var(--inset-gap, {spacing.2})',
+
+          _closed: {
+            '& [class*="__inset"]': {
+              ps: 'var(--inset-gap, {spacing.2})',
+            },
+          },
+        },
+      },
+    },
+  ],
   defaultVariants: {
     variant: 'sidebar',
     mode: 'collapsible',

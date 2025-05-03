@@ -70,6 +70,9 @@ export const semanticColors = defineSemanticTokens.colors({
     inverted: {
       value: { _light: '{colors.black}', _dark: '{colors.white}' },
     },
+    content: {
+      value: { _light: '{colors.gray.50}', _dark: '{colors.gray.950}' },
+    },
     panel: {
       value: { _light: '{colors.white}', _dark: '{colors.gray.900}' },
     },

@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 3.0.0-next.35
+
+### Patch Changes
+
+- Updated dependencies [4f78230]
+  - @saas-ui/react@3.0.0-next.35
+
 ## 3.0.0-next.34
 
 ### Patch Changes

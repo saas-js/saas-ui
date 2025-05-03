@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.35
+
+### Patch Changes
+
+- 4f78230: Improved dark mode styling and added scrollbar styles
+
 ## 3.0.0-next.34
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 3.0.0-next.31
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.7
+- @saas-ui/react@3.0.0-next.31
+
 ## 3.0.0-next.30
 
 ### Patch Changes

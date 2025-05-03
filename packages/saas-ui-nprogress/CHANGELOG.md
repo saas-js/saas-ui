@@ -1,5 +1,11 @@
 # @saas-ui/nprogress
 
+## 3.0.0-next.7
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.7
+
 ## 3.0.0-next.6
 
 ### Patch Changes

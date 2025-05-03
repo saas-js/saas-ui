@@ -2,11 +2,7 @@
 
 import { useMemo, useState } from 'react'
 
-import {
-  useControllableState,
-  useDisclosure,
-  useIsMobile,
-} from '@saas-ui/hooks'
+import { useControllableState, useIsMobile, useOpenState } from '@saas-ui/hooks'
 
 import type { HTMLSystemProps } from '#system'
 import { callAll, createContext } from '#utils'
@@ -15,7 +11,7 @@ import type { SidebarMode, SidebarOptions } from './sidebar.types.ts'
 
 export interface UseSidebarReturn {
   open: boolean
-  setOpen: (open: boolean) => void
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
   toggle: () => void
   isMobile?: boolean
   openMobile?: boolean
@@ -60,39 +56,33 @@ export function SidebarProvider(props: SidebarProviderProps) {
 
   const [openMobile, setOpenMobile] = useState(false)
 
-  const disclosure = useDisclosure({
+  const openState = useOpenState({
     defaultOpen: isMobile ? openMobile : isFlyout ? false : defaultOpen,
     open: isMobile ? openMobile : open,
-    onOpen: () => {
-      isMobile
-        ? setOpenMobile(true)
-        : onOpenChange?.({
-            open: true,
-            mode,
-          })
+    onOpenChange(details) {
+      if (isMobile) {
+        setOpenMobile(details.open)
+      } else {
+        onOpenChange?.({
+          open: details.open,
+          mode,
+        })
+      }
     },
-    onClose: () =>
-      isMobile
-        ? setOpenMobile(false)
-        : onOpenChange?.({
-            open: false,
-            mode,
-          }),
   })
 
   const context = useMemo(() => {
     return {
-      open: disclosure.open,
-      setOpen: (open: boolean = true) =>
-        open ? disclosure.onOpen() : disclosure.onClose(),
-      toggle: disclosure.onToggle,
+      open: openState.open ?? false,
+      setOpen: openState.setOpen,
+      toggle: () => openState.setOpen((prev) => !prev),
       isMobile,
       openMobile,
       setOpenMobile,
       mode,
       setMode,
     }
-  }, [disclosure, isMobile, openMobile, mode])
+  }, [openState, isMobile, openMobile, mode])
 
   return (
     <SidebarContextProvider value={context}>{children}</SidebarContextProvider>

@@ -2,6 +2,7 @@ import { docsConfig } from '@/docs.config'
 import type { Metadata } from 'next'
 import { Figtree, Inter, Outfit, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
+import Script from 'next/script'
 
 import { Provider } from './provider'
 import './scrollbar.css'
@@ -78,6 +79,66 @@ export default function RootLayout({
     >
       <body>
         <Provider>{children}</Provider>
+
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `
+              ;((w)=>{const P=(w.Productlane={queue:{}});["set","open","close","toggle","on","off","init"].forEach(m=>{P[m]=(n=>function(){P.queue[n]={args:arguments}})(m)})})(window);
+
+              Productlane.init({
+                widgetKey: "3f1be0cf-0681-439d-86b6-5826ed5dea8b",
+                theme: {
+                  "--text-color-primary": "#111827",
+                  "--text-color-primary-dark": "#FFFFFF",
+                  "--text-color-secondary": "#9CA3AF",
+                  "--text-color-secondary-dark": "#9CA3AF",
+                  "--text-color-highlight": "#1692A4",
+                  "--text-color-highlight-dark": "#1692A4",
+                  "--background-color-primary": "#FFFFFF",
+                  "--background-color-primary-dark": "#111827",
+                  "--background-color-secondary": "#F3F4F6",
+                  "--background-color-secondary-dark": "#1F2937",
+                  "--border-color-primary": "#E5E7EB",
+                  "--border-color-primary-dark": "#1F2937",
+                }
+              })
+            `,
+          }}
+        />
+
+        <Script
+          defer
+          crossOrigin="anonymous"
+          src="https://widget.productlane.com/latest.productlane-widget.min.js"
+        />
+
+        <Script
+          id="pirschjs"
+          strategy="afterInteractive"
+          src="https://api.pirsch.io/pirsch.js"
+          data-code="6VI7VAQoe3eG33JAw0giyqequwucCiou"
+        />
+        <Script
+          id="pirscheventsjs"
+          strategy="afterInteractive"
+          src="https://api.pirsch.io/pirsch-events.js"
+          data-code="6VI7VAQoe3eG33JAw0giyqequwucCiou"
+        />
+        {/* <Script
+          id="crisp-js"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+            `,
+          }}
+        /> */}
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `window.lemonSqueezyAffiliateConfig = { store: "saas-ui" };`,
+          }}
+        />
+        <Script src="https://lmsqueezy.com/affiliate.js" defer />
       </body>
     </html>
   )

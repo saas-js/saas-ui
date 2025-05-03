@@ -61,7 +61,7 @@
   },
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup --config tsup.config.ts",
+    "build": "tsc --project tsconfig.build.json",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
@@ -109,6 +109,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.52.1",
     "jotai": "^2.12.2",
-    "tsup": "^8.4.0"
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
   }
 }

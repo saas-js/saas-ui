@@ -6,43 +6,36 @@
   "exports": {
     ".": {
       "sui": "./src/index.ts",
-      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
     "./grid-list": {
       "sui": "./src/components/grid-list/index.ts",
-      "require": "./dist/components/grid-list/index.cjs",
       "types": "./dist/components/grid-list/index.d.ts",
       "import": "./dist/components/grid-list/index.js"
     },
     "./navbar": {
       "sui": "./src/components/navbar/index.ts",
-      "require": "./dist/components/navbar/index.cjs",
       "types": "./dist/components/navbar/index.d.ts",
       "import": "./dist/components/navbar/index.js"
     },
     "./error-boundary": {
       "sui": "./src/components/error-boundary/index.ts",
-      "require": "./dist/components/error-boundary/index.cjs",
       "types": "./dist/components/error-boundary/index.d.ts",
       "import": "./dist/components/error-boundary/index.js"
     },
     "./sidebar": {
       "sui": "./src/components/sidebar/index.ts",
-      "require": "./dist/components/sidebar/index.cjs",
       "types": "./dist/components/sidebar/index.d.ts",
       "import": "./dist/components/sidebar/index.js"
     },
     "./steps": {
       "sui": "./src/components/steps/index.ts",
-      "require": "./dist/components/steps/index.cjs",
       "types": "./dist/components/steps/index.d.ts",
       "import": "./dist/components/steps/index.js"
     },
     "./utils": {
       "sui": "./src/utils/index.ts",
-      "require": "./dist/utils/index.cjs",
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.js"
     }
@@ -50,13 +43,11 @@
   "imports": {
     "#utils": [
       "./src/utils/index.ts",
-      "./src/utils/index.js",
-      "./src/utils/index.cjs"
+      "./dist/utils/index.js"
     ],
     "#system": [
       "./src/system/index.ts",
-      "./src/system/index.js",
-      "./src/system/index.cjs"
+      "./dist/system/index.js"
     ]
   },
   "scripts": {

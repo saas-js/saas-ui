@@ -37,8 +37,7 @@ export const pageSlotRecipe = defineSlotRecipe({
     variant: {
       panel: {
         root: {
-          '--page-bg-color': 'colors.bg.muted',
-          bg: 'color-mix(in srgb, var(--page-bg-color) 50%, white)',
+          bg: 'var(--page-bg-color, {colors.bg.muted})',
           zIndex: 1,
         },
         header: {

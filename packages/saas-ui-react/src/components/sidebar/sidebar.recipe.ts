@@ -16,6 +16,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     'groupEndElement',
     'groupContent',
     'track',
+    'inset',
   ],
   base: {
     root: {
@@ -140,8 +141,33 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     flyoutTrigger: {
       display: 'none',
     },
+    inset: {
+      height: '100%',
+      minHeight: '0',
+      display: 'flex',
+      flexDirection: 'column',
+    },
   },
   variants: {
+    variant: {
+      sidebar: {
+        root: {
+          borderRightWidth: '1px',
+          borderLeftColor: 'sidebar.border',
+        },
+        inset: {},
+      },
+      inset: {
+        inset: {
+          borderColor: 'sidebar.border',
+          borderWidth: '1px',
+          borderRadius: 'panel.md',
+          marginBlock: 2,
+          marginEnd: 2,
+          overflow: 'clip',
+        },
+      },
+    },
     mode: {
       collapsible: {
         root: {
@@ -231,6 +257,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     },
   },
   defaultVariants: {
+    variant: 'sidebar',
     mode: 'collapsible',
     size: 'md',
   },

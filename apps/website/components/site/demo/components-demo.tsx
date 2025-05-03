@@ -77,7 +77,13 @@ function AuthCard(props: {
   footer: React.ReactNode
 }) {
   return (
-    <Card.Root size="lg" variant="elevated" bg="bg.subtle" textStyle="sm">
+    <Card.Root
+      size="lg"
+      variant="elevated"
+      bg="bg.subtle"
+      _dark={{ bg: 'whiteAlpha.100' }}
+      textStyle="sm"
+    >
       <Card.Body borderRadius="lg" borderBottomWidth="1px" bg="bg.panel" p="6">
         <Flex mx="auto" mb="6">
           <LogoIcon color="var(--chakra-colors-accent-solid)" height="32px" />

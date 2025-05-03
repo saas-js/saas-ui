@@ -36,10 +36,10 @@ export const semanticColors = defineSemanticTokens.colors({
 
   sidebar: {
     bg: {
-      value: { _light: '{colors.gray.100}', _dark: '{colors.gray.900}' },
+      value: { _light: '{colors.gray.100}', _dark: '{colors.black}' },
     },
     fg: {
-      value: { _light: '{colors.gray.900}', _dark: '{colors.gray.200}' },
+      value: { _light: '{colors.gray.900}', _dark: '{colors.gray.100}' },
     },
     border: {
       value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' },
@@ -71,14 +71,14 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.black}', _dark: '{colors.white}' },
     },
     panel: {
-      value: { _light: '{colors.white}', _dark: '{colors.gray.950}' },
+      value: { _light: '{colors.white}', _dark: '{colors.gray.900}' },
     },
     overlay: {
       value: {
         _light:
           'color-mix(in oklch, {colors.white} var(--overlay-translucency), transparent)',
         _dark:
-          'color-mix(in oklch, {colors.gray.800} var(--overlay-translucency), transparent)',
+          'color-mix(in oklch, {colors.gray.900} var(--overlay-translucency), transparent)',
       },
     },
     backdrop: {

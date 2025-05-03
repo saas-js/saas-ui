@@ -1,5 +1,12 @@
 # @chakra-ui/compositions
 
+## 1.0.1-next.32
+
+### Patch Changes
+
+- @saas-ui/forms@3.0.0-next.32
+- @saas-ui/react@3.0.0-next.32
+
 ## 1.0.1-next.31
 
 ### Patch Changes

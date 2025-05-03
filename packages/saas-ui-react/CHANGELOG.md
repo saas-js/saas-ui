@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.34
+
+### Minor Changes
+
+- 964ffa7: Added Sidebar.Inset component and inset vairant
+
 ## 3.0.0-next.33
 
 ### Patch Changes

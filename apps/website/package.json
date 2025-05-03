@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.1-next.69",
+  "version": "0.1.1-next.70",
   "private": true,
   "scripts": {
     "dev": "concurrently \"velite --watch\" \"next dev --turbo --port 3020\"",

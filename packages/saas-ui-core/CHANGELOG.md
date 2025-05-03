@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Fix: subpath imports
+
 ## 3.0.0-next.8
 
 ### Patch Changes

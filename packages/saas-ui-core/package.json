@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/core",
-  "version": "3.0.0-next.8",
+  "version": "3.0.0-next.9",
   "description": "Unstyled primitives for building React applications.",
   "type": "module",
   "exports": {
@@ -42,12 +42,12 @@
   },
   "imports": {
     "#utils": [
-      "./src/utils/index.ts",
-      "./dist/utils/index.js"
+      "./dist/utils/index.js",
+      "./src/utils/index.ts"
     ],
     "#system": [
-      "./src/system/index.ts",
-      "./dist/system/index.js"
+      "./dist/system/index.js",
+      "./src/system/index.ts"
     ]
   },
   "scripts": {

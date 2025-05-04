@@ -1,34 +1,54 @@
 import * as React from 'react'
-import type { AppProps } from 'next/app'
-import { extendTheme } from '@chakra-ui/react'
-import PaletteProvider, { usePalette } from '@/providers/palette'
-import { SaasProvider, baseTheme, theme as saasTheme } from '@saas-ui/react'
-import { theme as glassTheme } from '@saas-ui/theme-glass'
 
-import '@fontsource/inter/variable.css'
+import PaletteProvider, { usePalette } from '@/providers/palette'
+// import '@fontsource/inter/variable.css'
+import type { SystemContext } from '@chakra-ui/react'
+import {
+  SuiProvider,
+  Toaster,
+  createSystem,
+  defaultSystem,
+  defineConfig,
+} from '@saas-ui/react'
+import { ThemeProvider as NextThemeProvider } from 'next-themes'
+import type { AppProps } from 'next/app'
 
 interface ThemeProviderProps {
   children: React.ReactNode
 }
 
-const themes: Record<string, any> = {
-  'Chakra UI': baseTheme,
-  'Saas UI': saasTheme,
-  Glass: glassTheme,
+// const themes: Record<string, any> = {
+//   'Chakra UI': baseTheme,
+//   'Saas UI': saasTheme,
+//   Glass: glassTheme,
+// }
+
+const SystemContext = React.createContext<SystemContext>(defaultSystem)
+
+export function useSystem() {
+  return React.useContext(SystemContext)
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {
   const [{ colors, options }] = usePalette()
-  const theme = React.useMemo(() => {
-    return extendTheme(
-      {
-        colors,
+
+  const system = React.useMemo(() => {
+    const config = defineConfig({
+      theme: {
+        tokens: {
+          colors,
+        },
       },
-      themes[options.theme]
-    )
+    })
+
+    return createSystem(defaultSystem, config)
   }, [colors, options.theme])
 
-  return <SaasProvider theme={theme}>{children}</SaasProvider>
+  return (
+    <SuiProvider value={system}>
+      <SystemContext.Provider value={system}>{children}</SystemContext.Provider>
+    </SuiProvider>
+  )
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -41,9 +61,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme: 'Saas UI',
       }}
     >
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <NextThemeProvider attribute="class" disableTransitionOnChange>
+        <ThemeProvider>
+          <Toaster />
+          {/* <Component {...pageProps} /> */}
+        </ThemeProvider>
+      </NextThemeProvider>
     </PaletteProvider>
   )
 }

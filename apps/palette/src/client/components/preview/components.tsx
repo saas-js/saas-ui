@@ -1,19 +1,22 @@
 import {
-  VStack,
-  HStack,
-  Button,
   Badge,
+  Button,
+  HStack,
   Spinner,
   SpinnerProps,
-  Switch,
-  Radio,
-  Checkbox,
-  useColorModeValue,
+  VStack,
 } from '@chakra-ui/react'
+import { Checkbox, Radio, RadioGroup, Switch } from '@saas-ui/react'
 
 const StyledSpinner = ({ colorScheme }: SpinnerProps) => {
-  const color = useColorModeValue(`${colorScheme}.500`, `${colorScheme}.500`)
-  return <Spinner color={color} />
+  return (
+    <Spinner
+      color={{
+        base: `${colorScheme}.500`,
+        _dark: `${colorScheme}.500`,
+      }}
+    />
+  )
 }
 
 const ComponentPreview = () => {
@@ -31,7 +34,7 @@ const ComponentPreview = () => {
   ]
   return (
     <>
-      <VStack spacing="8" alignItems="stretch">
+      <VStack gap="8" alignItems="stretch">
         <HStack>
           {colors.map((colorScheme) => (
             <Button key={colorScheme} colorScheme={colorScheme} variant="solid">
@@ -101,9 +104,11 @@ const ComponentPreview = () => {
         <HStack>
           <Switch isChecked />
 
-          <Radio isChecked />
+          <RadioGroup>
+            <Radio />
+          </RadioGroup>
 
-          <Checkbox isChecked />
+          <Checkbox checked />
         </HStack>
       </VStack>
     </>

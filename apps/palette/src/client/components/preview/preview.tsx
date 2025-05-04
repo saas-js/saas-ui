@@ -1,51 +1,43 @@
-import {
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-  Badge,
-} from '@chakra-ui/react'
-
-import PalettePreview from './palette'
-import ComponentPreview from './components'
+import { Badge, Tabs } from '@chakra-ui/react'
 
 import CodePreview from './code'
-import JsonPreview from './json'
+import ComponentPreview from './components'
 import FigmaPreview from './figma'
+import JsonPreview from './json'
+import PalettePreview from './palette'
 
 export const Preview = () => {
   return (
-    <Tabs colorScheme="primary" variant="enclosed">
-      <TabList mb="4">
-        <Tab>Colors</Tab>
-        <Tab>Components</Tab>
-        <Tab>Code</Tab>
-        <Tab>JSON</Tab>
-        <Tab>
+    <Tabs.Root colorScheme="primary" variant="enclosed">
+      <Tabs.List mb="4">
+        <Tabs.Tab>Colors</Tabs.Tab>
+        <Tabs.Tab>Components</Tabs.Tab>
+        <Tabs.Tab>Code</Tabs.Tab>
+        <Tabs.Tab>JSON</Tabs.Tab>
+        <Tabs.Tab>
           Figma{' '}
           <Badge bg="primary.500" fontSize="xs" ms="2">
             new
           </Badge>
-        </Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>
+        </Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panels>
+        <Tabs.Panel>
           <PalettePreview />
-        </TabPanel>
-        <TabPanel>
+        </Tabs.Panel>
+        <Tabs.Panel>
           <ComponentPreview />
-        </TabPanel>
-        <TabPanel position="relative">
+        </Tabs.Panel>
+        <Tabs.Panel position="relative">
           <CodePreview />
-        </TabPanel>
-        <TabPanel position="relative">
+        </Tabs.Panel>
+        <Tabs.Panel position="relative">
           <JsonPreview />
-        </TabPanel>
-        <TabPanel>
+        </Tabs.Panel>
+        <Tabs.Panel>
           <FigmaPreview />
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
+        </Tabs.Panel>
+      </Tabs.Panels>
+    </Tabs.Root>
   )
 }

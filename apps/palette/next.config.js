@@ -1,10 +1,7 @@
-const withWorkspaces = require('@saas-ui/next-workspaces')
-const webpack = require('webpack')
+// const withWorkspaces = require('@saas-ui/next-workspaces')
+// const webpack = require('webpack')
 
-module.exports = withWorkspaces({
-  basePath: '../../',
-  workspaces: ['packages'],
-})({
+module.exports = {
   reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
@@ -12,15 +9,15 @@ module.exports = withWorkspaces({
       use: ['@svgr/webpack'],
     })
 
-    config.plugins = config.plugins.concat([
-      new webpack.NormalModuleReplacementPlugin(
-        /@saas-ui\/(?!props-docs)([a-z0-9-]+)$/,
-        (resource) => {
-          resource.request = resource.request + '/src'
-        }
-      ),
-    ])
+    // config.plugins = config.plugins.concat([
+    //   new webpack.NormalModuleReplacementPlugin(
+    //     /@saas-ui\/(?!props-docs)([a-z0-9-]+)$/,
+    //     (resource) => {
+    //       resource.request = resource.request + '/src'
+    //     },
+    //   ),
+    // ])
 
     return config
   },
-})
+}

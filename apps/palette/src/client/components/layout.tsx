@@ -1,29 +1,16 @@
 import React from 'react'
-import {
-  Flex,
-  Box,
-  Heading,
-  Text,
-  HStack,
-  Container,
-  Spinner,
-  Link,
-  useColorMode,
-  Stack,
-  Button,
-} from '@chakra-ui/react'
+
+import { Box, Flex, HStack, Link } from '@chakra-ui/react'
 
 import { ColorModeToggle } from './color-mode-toggle'
-import SEO from '@/components/seo'
-
-import Logo from './saas-ui'
-import {
-  Banner,
-  BannerActions,
-  BannerContent,
-  BannerDescription,
-} from '@saas-ui/react'
+// import {
+//   Banner,
+//   BannerActions,
+//   BannerContent,
+//   BannerDescription,
+// } from '@saas-ui/react'
 import { Nav } from './nav'
+import Logo from './saas-ui'
 
 export interface LayoutProps {
   children?: React.ReactNode
@@ -32,7 +19,7 @@ export interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Banner
+      {/* <Banner
         variant="solid"
         colorScheme="purple"
         py="2"
@@ -47,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
             Learn more
           </Button>
         </BannerActions>
-      </Banner>
+      </Banner> */}
       <Flex direction="column" flex="1" minH="0">
         <Flex py="4" px="6" borderBottomWidth="1px" align="center">
           <Box width="100px" mr="8" pos="absolute">
@@ -56,7 +43,7 @@ export default function Layout({ children }: LayoutProps) {
             </Link>
           </Box>
           <Box flex="1" p="2"></Box>
-          <HStack spacing="2">
+          <HStack gap="2">
             <Nav />
 
             <ColorModeToggle />

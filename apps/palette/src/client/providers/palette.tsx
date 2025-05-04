@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+
 import { createPalette } from '@saas-ui/palette'
 
 export const PaletteContext: any = React.createContext({})

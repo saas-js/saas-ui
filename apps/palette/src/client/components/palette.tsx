@@ -1,20 +1,18 @@
+import React from 'react'
+
 import {
   Box,
   Flex,
   FlexProps,
-  Grid,
   GridProps,
-  HStack,
   SimpleGrid,
   Stack,
   Text,
   useClipboard,
-  useTheme,
 } from '@chakra-ui/react'
-import React from 'react'
-
+import { toast } from '@saas-ui/react'
+import { colors } from '@saas-ui/react/colors'
 import chroma from 'chroma-js'
-import { useSnackbar } from '@saas-ui/react'
 
 type ColorPaletteProps = FlexProps & { color: string; name?: string }
 
@@ -37,27 +35,32 @@ export const ColorName = (props: FlexProps) => {
 export const ColorPalette = (props: ColorPaletteProps) => {
   const { color, name, ...rest } = props
 
-  const snackbar = useSnackbar()
-
-  const theme = useTheme()
+  // const system = useSystem()
+  const system = { colors }
+  console.log('system', system)
 
   let colorCode = color
   const [hue, shade] = color.split('.')
 
   if (shade && hue) {
-    colorCode = theme.colors[hue][shade]
+    colorCode = system.colors?.[hue]?.value?.[shade]
   }
 
-  if (color in theme.colors && typeof theme.colors[color] === 'string') {
-    colorCode = theme.colors[color]
+  if (
+    color in system.colors &&
+    typeof system.colors?.[color]?.value === 'string'
+  ) {
+    colorCode = system.colors?.[color]?.value
   }
 
   const { onCopy } = useClipboard(colorCode)
 
   const lightContrast =
-    Math.round(chroma.contrast(colorCode, theme.colors.white) * 100) / 100
+    Math.round(chroma.contrast(colorCode, system.colors.white.value) * 100) /
+    100
   const darkContrast =
-    Math.round(chroma.contrast(colorCode, theme.colors.black) * 100) / 100
+    Math.round(chroma.contrast(colorCode, system.colors.black.value) * 100) /
+    100
 
   const textColor = lightContrast < 4.5 ? 'black' : 'white'
   const contrast = lightContrast < 4.5 ? darkContrast : lightContrast
@@ -72,7 +75,7 @@ export const ColorPalette = (props: ColorPaletteProps) => {
         color={textColor}
         fontSize="sm"
         overflow="hidden"
-        sx={{
+        css={{
           position: 'absolute',
           width: '100%',
           cursor: 'pointer',
@@ -97,7 +100,7 @@ export const ColorPalette = (props: ColorPaletteProps) => {
           },
         }}
         onClick={() => {
-          snackbar.info(`Copied ${colorCode}`)
+          toast.info(`Copied ${colorCode}`)
           onCopy()
         }}
       >
@@ -119,8 +122,9 @@ export const ColorPalette = (props: ColorPaletteProps) => {
 
 export const ColorPalettes = (props: { color: string; name: string }) => {
   const { color, name } = props
-  const theme = useTheme()
-  const keys = Object.keys(theme.colors[color])
+  // const system = useSystem()
+  const system = { colors }
+  const keys = Object.keys(system.colors?.[color]?.value)
 
   return (
     <>

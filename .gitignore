@@ -63,3 +63,6 @@ yarn-error.log*
 .contentlayer
 
 .changelogrc
+
+new-illustrations
+illustrations

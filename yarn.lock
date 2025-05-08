@@ -3276,7 +3276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.13.0, @emotion/styled@npm:^11.14.0":
+"@emotion/styled@npm:^11.14.0":
   version: 11.14.0
   resolution: "@emotion/styled@npm:11.14.0"
   dependencies:
@@ -13503,7 +13503,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^11.18.2, framer-motion@npm:^11.3.28":
+"framer-motion@npm:^11.18.2":
   version: 11.18.2
   resolution: "framer-motion@npm:11.18.2"
   dependencies:
@@ -17858,9 +17858,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "palette-docs@workspace:apps/palette"
   dependencies:
-    "@chakra-ui/react": "npm:^3.3.0"
-    "@emotion/react": "npm:^11.13.0"
-    "@emotion/styled": "npm:^11.13.0"
+    "@chakra-ui/react": "npm:^3.17.0"
+    "@emotion/react": "npm:^11.14.0"
     "@fontsource/inter": "npm:^5.2.5"
     "@saas-ui/next-workspaces": "npm:^0.3.0"
     "@saas-ui/react": "workspace:*"
@@ -17869,7 +17868,6 @@ __metadata:
     "@types/react": "npm:^18.3.3"
     eslint: "npm:^8.57.0"
     eslint-config-next: "npm:^14.2.5"
-    framer-motion: "npm:^11.3.28"
     lodash.debounce: "npm:^4.0.8"
     next: "npm:^15.3.1"
     next-seo: "npm:^6.5.0"

@@ -11,15 +11,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.3.0",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
+    "@chakra-ui/react": "^3.17.0",
+    "@emotion/react": "^11.14.0",
     "@fontsource/inter": "^5.2.5",
     "@saas-ui/next-workspaces": "^0.3.0",
     "@saas-ui/react": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "@types/lodash.debounce": "^4.0.9",
-    "framer-motion": "^11.3.28",
     "lodash.debounce": "^4.0.8",
     "next": "^15.3.1",
     "next-seo": "^6.5.0",

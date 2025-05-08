@@ -1,66 +1,72 @@
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
+import {
+	type Dispatch,
+	type SetStateAction,
+	useEffect,
+	useMemo,
+	useState,
+} from "react";
 
-import { createContext } from '@chakra-ui/react'
-import { debounce } from 'lodash'
+import { createContext } from "@chakra-ui/react";
+import { debounce } from "lodash";
 
-import { usePalette } from './palette'
+import { usePalette } from "./palette";
 
-const baseColor = '#6d28d9'
-const grayColor = '#1f2937'
+const baseColor = "#6d28d9";
+const grayColor = "#1f2937";
 
 export const [EditorProvider, useEditorContext] =
-  createContext<UseEditorReturn>()
+	createContext<UseEditorReturn>();
 
 export const useEditor = (): UseEditorReturn => {
-  const [{ colors: palette, color: base, options }, setPalette] = usePalette()
+	const [{ colors: palette, color: base, options }, setPalette] = usePalette();
 
-  const [state, setState] = useState({
-    theme: options?.theme || 'Saas UI',
-    color: base || baseColor,
-    gray: options?.colors?.gray || grayColor,
-    blackLuminance: options?.blackLuminance || 0.005,
-  })
+	const [state, setState] = useState({
+		theme: options?.theme || "Saas UI",
+		color: base || baseColor,
+		gray: options?.colors?.gray || grayColor,
+		blackLuminance: options?.blackLuminance || 0.005,
+	});
 
-  const { theme, color, gray, blackLuminance } = state
+	const { theme, color, gray, blackLuminance } = state;
 
-  const updatePalette = useMemo(
-    () =>
-      debounce((color: any, options) => {
-        if (color.match(/#[0-9a-fA-F]{6}/)) {
-          setPalette(color, options)
-        }
-      }, 200),
-    [setPalette],
-  )
+	const updatePalette = useMemo(
+		() =>
+			debounce((color: string, options: any) => {
+				// if (color.match(/#[0-9a-fA-F]{6}/)) {
+				// 	setPalette(color, options);
+				// }
+			}, 200),
+		[setPalette],
+	);
 
-  useEffect(() => {
-    updatePalette(color, {
-      colors: {
-        gray,
-        primary: color,
-      },
-      blackLuminance,
-      theme,
-    })
-  }, [color, gray, blackLuminance, theme, updatePalette])
+	useEffect(() => {
+		updatePalette(color, {
+			colors: {
+				gray,
+				primary: color,
+			},
+			blackLuminance,
+			theme,
+		});
+	}, [color, gray, blackLuminance, theme, updatePalette]);
 
-  useEffect(() => {
-    return () => {
-      updatePalette.cancel()
-    }
-  }, [updatePalette])
+	useEffect(() => {
+		return () => {
+			updatePalette.cancel();
+		};
+	}, [updatePalette]);
 
-  return [state, setState]
-}
+	return [state, setState];
+};
 
 interface EditorState {
-  theme: string
-  color: string
-  gray: string
-  blackLuminance: number
+	theme: string;
+	color: string;
+	gray: string;
+	blackLuminance: number;
 }
 
 export type UseEditorReturn = [
-  EditorState,
-  Dispatch<SetStateAction<EditorState>>,
-]
+	EditorState,
+	Dispatch<SetStateAction<EditorState>>,
+];

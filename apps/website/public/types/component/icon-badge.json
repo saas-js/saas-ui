@@ -1,0 +1,16 @@
+{
+  "IconBadge": {
+    "props": {
+      "icon": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "The icon to display"
+      },
+      "aria-label": {
+        "type": "string",
+        "isRequired": false,
+        "description": "A11y: A label that describes the icon"
+      }
+    }
+  }
+}

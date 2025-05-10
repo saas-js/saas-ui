@@ -7,8 +7,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "SVGSVGElement",
-    "tag": "svg"
+    "element": "SVGSVGElement"
   },
   "CircleRange": {
     "props": {
@@ -18,8 +17,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "SVGCircleElement",
-    "tag": "circle"
+    "element": "SVGCircleElement"
   },
   "CircleTrack": {
     "props": {
@@ -29,8 +27,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "SVGCircleElement",
-    "tag": "circle"
+    "element": "SVGCircleElement"
   },
   "Label": {
     "props": {
@@ -40,8 +37,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLabelElement",
-    "tag": "label"
+    "element": "HTMLLabelElement"
   },
   "Range": {
     "props": {
@@ -51,8 +47,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "Root": {
     "props": {
@@ -61,10 +56,33 @@
         "isRequired": false,
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       },
+      "defaultValue": {
+        "type": "number",
+        "isRequired": false,
+        "defaultValue": "50",
+        "description": "The initial value of the progress bar when rendered.\nUse when you don't need to control the value of the progress bar."
+      },
+      "formatOptions": {
+        "type": "NumberFormatOptions",
+        "isRequired": false,
+        "defaultValue": "{ style: \"percent\" }",
+        "description": "The options to use for formatting the value."
+      },
+      "id": {
+        "type": "string",
+        "isRequired": false,
+        "description": "The unique identifier of the machine."
+      },
       "ids": {
         "type": "Partial<{ root: string; track: string; label: string; circle: string }>",
         "isRequired": false,
         "description": "The ids of the elements in the progress bar. Useful for composition."
+      },
+      "locale": {
+        "type": "string",
+        "isRequired": false,
+        "defaultValue": "\"en-US\"",
+        "description": "The locale to use for formatting the value."
       },
       "max": {
         "type": "number",
@@ -78,8 +96,13 @@
         "defaultValue": "0",
         "description": "The minimum allowed value of the progress bar."
       },
+      "onValueChange": {
+        "type": "(details: ValueChangeDetails) => void",
+        "isRequired": false,
+        "description": "Callback fired when the value changes."
+      },
       "orientation": {
-        "type": "Orientation",
+        "type": "'horizontal' | 'vertical'",
         "isRequired": false,
         "defaultValue": "\"horizontal\"",
         "description": "The orientation of the element."
@@ -92,12 +115,10 @@
       "value": {
         "type": "number",
         "isRequired": false,
-        "defaultValue": "50",
-        "description": "The current value of the progress bar."
+        "description": "The controlled value of the progress bar."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "RootProvider": {
     "props": {
@@ -111,8 +132,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "Track": {
     "props": {
@@ -122,8 +142,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "ValueText": {
     "props": {
@@ -133,8 +152,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLSpanElement",
-    "tag": "span"
+    "element": "HTMLSpanElement"
   },
   "View": {
     "props": {
@@ -148,7 +166,6 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLSpanElement",
-    "tag": "span"
+    "element": "HTMLSpanElement"
   }
 }

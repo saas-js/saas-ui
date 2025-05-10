@@ -1,6 +1,6 @@
-import { docs } from '.velite'
+import { allDocs } from 'content-collections'
 
-const gettingStarted = docs
+const gettingStarted = allDocs
   .filter((page) => page.category.startsWith('docs/getting-started'))
   .map((page) => ({
     label: page.title,
@@ -9,7 +9,7 @@ const gettingStarted = docs
     category: 'Getting started',
   }))
 
-const styling = docs
+const styling = allDocs
   .filter((page) => page.category.startsWith('docs/styling'))
   .map((page) => ({
     label: page.title,
@@ -18,7 +18,7 @@ const styling = docs
     category: 'Styling',
   }))
 
-const theming = docs
+const theming = allDocs
   .filter((page) => page.category.startsWith('docs/theming'))
   .map((page) => ({
     label: page.title,
@@ -27,7 +27,7 @@ const theming = docs
     category: 'Styling',
   }))
 
-const components = docs
+const components = allDocs
   .filter((page) => page.category.startsWith('docs/components'))
   .map((page) => ({
     label: page.title,

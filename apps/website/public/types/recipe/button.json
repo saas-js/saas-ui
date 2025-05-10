@@ -3,19 +3,19 @@
     "props": {
       "colorPalette": {
         "defaultValue": "gray",
-        "type": "\"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"accent\"",
+        "type": "\"gray\" | \"zinc\" | \"neutral\" | \"stone\" | \"red\" | \"orange\" | \"amber\" | \"yellow\" | \"lime\" | \"green\" | \"emerald\" | \"teal\" | \"cyan\" | \"sky\" | \"blue\" | \"indigo\" | \"violet\" | \"purple\" | \"fuchsia\" | \"pink\" | \"rose\" | \"presence\" | \"status\" | \"sidebar\" | \"sidebar.accent\" | \"accent\" | \"slate\"",
         "isRequired": false,
         "description": "The color palette of the component"
       },
       "size": {
-        "type": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+        "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
         "defaultValue": "md",
         "isRequired": false,
         "description": "The size of the component"
       },
       "variant": {
-        "type": "\"solid\" | \"subtle\" | \"surface\" | \"outline\" | \"ghost\" | \"plain\"",
-        "defaultValue": "solid",
+        "type": "\"solid\" | \"subtle\" | \"glass\" | \"surface\" | \"outline\" | \"ghost\" | \"plain\"",
+        "defaultValue": "surface",
         "isRequired": false,
         "description": "The variant of the component"
       }

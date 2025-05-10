@@ -76,6 +76,7 @@ const docsLinks: NavItem = {
             { title: 'Accordion', url: 'accordion' },
             { title: 'Action Bar', url: 'action-bar' },
             { title: 'Alert', url: 'alert' },
+            { title: 'App Shell', url: 'app-shell' },
             { title: 'Avatar', url: 'avatar' },
             { title: 'Badge', url: 'badge' },
             { title: 'Breadcrumb', url: 'breadcrumb' },
@@ -93,6 +94,7 @@ const docsLinks: NavItem = {
             { title: 'Empty State', url: 'empty-state' },
             { title: 'Field', url: 'field' },
             { title: 'File Upload', url: 'file-upload' },
+            { title: 'GridList', url: 'grid-list' },
             { title: 'Hover Card', url: 'hover-card' },
             { title: 'Icon', url: 'icon' },
             { title: 'Icon Badge', url: 'icon-badge' },
@@ -100,6 +102,7 @@ const docsLinks: NavItem = {
             { title: 'Input', url: 'input' },
             { title: 'Menu', url: 'menu' },
             { title: 'Number Input', url: 'number-input' },
+            { title: 'Page', url: 'page' },
             { title: 'Pagination', url: 'pagination' },
             { title: 'Password Input', url: 'password-input' },
             { title: 'Pin Input', url: 'pin-input' },
@@ -113,6 +116,7 @@ const docsLinks: NavItem = {
             { title: 'Select (Native)', url: 'native-select' },
             { title: 'Select', url: 'select' },
             { title: 'Separator', url: 'separator' },
+            { title: 'Sidebar', url: 'sidebar' },
             { title: 'Skeleton', url: 'skeleton' },
             { title: 'Slider', url: 'slider' },
             { title: 'Spinner', url: 'spinner' },
@@ -264,9 +268,9 @@ export const docsConfig: DocsConfig = {
   url: 'https://saas-ui.dev',
   xHandle: '@saas-ui',
   repoUrl: 'https://github.com/saas-js/saas-ui',
-  repoBranch: 'main',
+  repoBranch: 'v3',
   get editUrl() {
-    return `${this.repoUrl}/tree/${this.repoBranch}/apps/www/content`
+    return `${this.repoUrl}/tree/${this.repoBranch}/apps/website/content/docs`
   },
   navigation: [
     docsLinks,

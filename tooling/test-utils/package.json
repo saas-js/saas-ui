@@ -37,8 +37,6 @@
     "@chakra-ui/react": ">=3",
     "@emotion/react": ">=11",
     "@storybook/addon-a11y": ">=8",
-    "@storybook/client-api": ">=8",
-    "@storybook/preview-web": ">=8",
     "@storybook/react": ">=8",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"

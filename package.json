@@ -28,18 +28,18 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "scripts": {
-    "w": "yarn workspace",
-    "dev:web": "yarn w website dev",
-    "dev:palette": "yarn w palette-docs dev",
+    "w": "pnpm --filter",
+    "dev:web": "pnpm --filter website dev",
+    "dev:palette": "pnpm --filter palette-docs dev",
     "changelog:gen": "tsx scripts/changelog-generate.ts",
     "changelog:write": "tsx scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
-    "changeset:next": "yarn changeset pre enter next",
-    "changeset:version": "yarn changelog:gen && changeset version",
-    "publish:next": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish --access public --tag next",
-    "publish": "yarn workspaces foreach -Wp --from '@saas-ui/*' --exclude '@saas-ui/pro' --exclude '@saas-ui-pro/*' npm publish && yarn changeset tag",
-    "storybook": "yarn w saas-ui-storybook dev",
-    "build:storybook": "yarn w saas-ui-storybook build",
+    "changeset:next": "pnpm changeset pre enter next",
+    "changeset:version": "pnpm changelog:gen && changeset version",
+    "publish:next": "pnpm --filter '@saas-ui/*' --filter '!@saas-ui/pro' --filter '!@saas-ui-pro/*' publish --access public --tag next",
+    "publish": "pnpm --filter '@saas-ui/*' --filter '!@saas-ui/pro' --filter '!@saas-ui-pro/*' publish && pnpm changeset tag",
+    "storybook": "pnpm --filter saas-ui-storybook dev",
+    "build:storybook": "pnpm --filter saas-ui-storybook build",
     "prepare": "husky install",
     "clean": "turbo run clean",
     "test": "vitest",
@@ -48,8 +48,8 @@
     "lint": "turbo run lint",
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",
-    "create:block": "yarn hygen blocks new",
-    "build:web": "yarn w website build",
+    "create:block": "pnpm hygen blocks new",
+    "build:web": "pnpm --filter website build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
     "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",
@@ -57,22 +57,11 @@
     "build:packages:force": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue --force",
     "watch:theme": "turbo run build --filter='./packages/saas-ui-theme' -- --watch",
     "clean:packages": "turbo run clean",
-    "build:storybook-addon": "yarn w @saas-ui/storybook-addon build",
-    "build:props-docs": "yarn typedocs && yarn w @saas-ui/props-docs build",
+    "build:storybook-addon": "pnpm --filter @saas-ui/storybook-addon build",
+    "build:props-docs": "pnpm typedocs && pnpm --filter @saas-ui/props-docs build",
     "typedocs": "tsx scripts/typedocs.ts",
     "preinstall": "rm -rf node_modules/odiff-bin"
   },
-  "workspaces": [
-    "apps/website",
-    "apps/compositions",
-    "packages/storybook",
-    "packages/pro/packages/*",
-    "packages/saas-ui-*",
-    "tooling/next-workspaces",
-    "tooling/test-utils",
-    "tooling/props-docs",
-    "tooling/storybook-addon"
-  ],
   "devDependencies": {
     "@chakra-ui/cli": "^3.14.0",
     "@changesets/cli": "^2.28.1",
@@ -113,5 +102,5 @@
     "@chakra-ui/react": "3.16.1",
     "@ark-ui/react": "5.6.0"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
 }

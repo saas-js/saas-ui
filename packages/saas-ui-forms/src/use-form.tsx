@@ -85,8 +85,13 @@ export function useForm<
     [form, onSubmit, onInvalid],
   )
 
+  const submit = useMemo(() => {
+    return form.handleSubmit(onSubmit, onInvalid)
+  }, [form, onSubmit, onInvalid])
+
   return {
     ...form,
+    submit,
     Form: FormComponent,
     Field,
     DisplayIf,

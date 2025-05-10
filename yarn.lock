@@ -5940,6 +5940,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@saas-ui/core@npm:3.0.0-next.9":
+  version: 3.0.0-next.9
+  resolution: "@saas-ui/core@npm:3.0.0-next.9"
+  dependencies:
+    "@ark-ui/react": "npm:^5.2.0"
+    "@react-aria/utils": "npm:^3.28.1"
+    "@saas-ui/hooks": "npm:3.0.0-next.2"
+    "@zag-js/dom-event": "npm:^0.80.0"
+    "@zag-js/dom-utils": "npm:^0.2.4"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10/f2aa1cee2a8f5478aba17647dac7cd8bbe1c65503a90ba48d2c853d81601d40d14fae841afc26075bd9e3e5255fb56b78630f6847767a7cf1b511e847aea83fb
+  languageName: node
+  linkType: hard
+
 "@saas-ui/core@npm:^3.0.0-next.0, @saas-ui/core@workspace:*, @saas-ui/core@workspace:packages/saas-ui-core":
   version: 0.0.0-use.local
   resolution: "@saas-ui/core@workspace:packages/saas-ui-core"
@@ -6002,6 +6018,15 @@ __metadata:
   peerDependencies:
     react: ">=18.0.0"
   checksum: 10/f753f8ce94e35a3805b62faf67c613dca0f94634d7c3b623e1e00e18c41bf6bd7a96b4f0a8a743618da79fdbac2268ed6f0485eeda0f7e69c29b60a8d114d5df
+  languageName: node
+  linkType: hard
+
+"@saas-ui/hooks@npm:3.0.0-next.2":
+  version: 3.0.0-next.2
+  resolution: "@saas-ui/hooks@npm:3.0.0-next.2"
+  peerDependencies:
+    react: ">=18.0.0"
+  checksum: 10/ad4a39e8fffd7ea08a33461a7ea08dee01105f523844d81b933b4c71f8e731dd0bd95f0241d940dc26b586af93b5bc6af5e59798aa083bfbd881267260dd24ab
   languageName: node
   linkType: hard
 
@@ -6116,6 +6141,22 @@ __metadata:
     react-dom: ">=18"
   languageName: unknown
   linkType: soft
+
+"@saas-ui/react@npm:next":
+  version: 3.0.0-next.35
+  resolution: "@saas-ui/react@npm:3.0.0-next.35"
+  dependencies:
+    "@ark-ui/react": "npm:^5.2.0"
+    "@saas-ui/core": "npm:3.0.0-next.9"
+    "@saas-ui/hooks": "npm:3.0.0-next.2"
+  peerDependencies:
+    "@chakra-ui/react": ^3.13.0
+    "@emotion/react": ^11
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10/85af79d072d6efac7dbab1d72441849df8385ffd4dcbf113d9b3361fb4c7057f2eeab9dc9e89622661294bc4bad8ee47c45c96b671be08bb8a2df345ab48a41d
+  languageName: node
+  linkType: hard
 
 "@saas-ui/registry@workspace:*, @saas-ui/registry@workspace:packages/pro/packages/registry":
   version: 0.0.0-use.local
@@ -17862,7 +17903,7 @@ __metadata:
     "@emotion/react": "npm:^11.14.0"
     "@fontsource/inter": "npm:^5.2.5"
     "@saas-ui/next-workspaces": "npm:^0.3.0"
-    "@saas-ui/react": "workspace:*"
+    "@saas-ui/react": "npm:next"
     "@svgr/webpack": "npm:^5.5.0"
     "@types/lodash.debounce": "npm:^4.0.9"
     "@types/react": "npm:^18.3.3"

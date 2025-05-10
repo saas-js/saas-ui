@@ -15,7 +15,7 @@
     "@emotion/react": "^11.14.0",
     "@fontsource/inter": "^5.2.5",
     "@saas-ui/next-workspaces": "^0.3.0",
-    "@saas-ui/react": "workspace:*",
+    "@saas-ui/react": "next",
     "@svgr/webpack": "^5.5.0",
     "@types/lodash.debounce": "^4.0.9",
     "lodash.debounce": "^4.0.8",

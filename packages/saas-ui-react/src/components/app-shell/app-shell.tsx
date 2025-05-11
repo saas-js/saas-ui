@@ -20,7 +20,7 @@ const {
 
 export { useAppShellStyles }
 
-export interface AppShellProps extends HTMLChakraProps<'div'> {
+export interface AppShellBaseProps {
   /**
    * The top header navigation
    */
@@ -37,14 +37,10 @@ export interface AppShellProps extends HTMLChakraProps<'div'> {
    * The footer
    */
   footer?: React.ReactNode
-  /**
-   * The main content
-   */
-  children: React.ReactNode
 }
 
 export interface AppShellRootProps
-  extends Omit<AppShellProps, 'position'>,
+  extends HTMLChakraProps<'div'>,
     SlotRecipeProps<'suiAppShell'> {}
 
 /**
@@ -73,7 +69,11 @@ export const AppShellMain = withContext<HTMLDivElement, AppShellMainProps>(
   { forwardAsChild: true },
 )
 
-export const AppShell = forwardRef<HTMLDivElement, AppShellRootProps>(
+export interface AppShellProps
+  extends AppShellBaseProps,
+    HTMLChakraProps<'div'> {}
+
+export const AppShell = forwardRef<HTMLDivElement, AppShellProps>(
   (props, ref) => {
     const { header, sidebar, aside, footer, children, ...rootProps } = props
 

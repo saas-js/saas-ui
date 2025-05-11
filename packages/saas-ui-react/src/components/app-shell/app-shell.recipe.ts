@@ -7,6 +7,7 @@ export const appShellSlotRecipe = defineSlotRecipe({
     root: {
       display: 'flex',
       flexDirection: 'column',
+      height: '100dvh',
     },
     content: {
       display: 'flex',
@@ -22,13 +23,8 @@ export const appShellSlotRecipe = defineSlotRecipe({
     },
   },
   variants: {
-    position: {
-      static: {
-        root: {
-          height: '100dvh',
-        },
-      },
-      fullscreen: {
+    fullscreen: {
+      true: {
         root: {
           position: 'fixed',
           inset: 0,
@@ -40,7 +36,7 @@ export const appShellSlotRecipe = defineSlotRecipe({
     },
   },
   defaultVariants: {
-    position: 'static',
+    fullscreen: false,
     variant: 'plain',
   },
 })

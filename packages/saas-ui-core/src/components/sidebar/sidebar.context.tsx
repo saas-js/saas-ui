@@ -2,20 +2,16 @@
 
 import { useMemo, useState } from 'react'
 
-import {
-  useControllableState,
-  useDisclosure,
-  useIsMobile,
-} from '@saas-ui/hooks'
+import { useControllableState, useIsMobile, useOpenState } from '@saas-ui/hooks'
 
 import type { HTMLSystemProps } from '#system'
 import { callAll, createContext } from '#utils'
 
-import type { SidebarMode, SidebarProps } from './sidebar.types.ts'
+import type { SidebarMode, SidebarOptions } from './sidebar.types.ts'
 
 export interface UseSidebarReturn {
   open: boolean
-  setOpen: (open: boolean) => void
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
   toggle: () => void
   isMobile?: boolean
   openMobile?: boolean
@@ -29,28 +25,7 @@ const [SidebarContextProvider, useSidebar] = createContext<UseSidebarReturn>({
   strict: true,
 })
 
-export interface SidebarProviderProps extends Omit<SidebarProps, 'children'> {
-  /**
-   * The mode of the sidebar. Flyout mode is only available on desktop.
-   * @default 'collapsible'
-   */
-  mode?: SidebarMode
-  /**
-   * Control the default visibility of the sidebar.
-   */
-  defaultOpen?: boolean
-  /**
-   * Control the visibility of the sidebar.
-   */
-  open?: boolean
-  /**
-   * Callback invoked when the sidebar is opened.
-   */
-  onOpenChange?: (details: { open: boolean; mode: SidebarMode }) => void
-  /**
-   * Callback invoked when the mode of the sidebar is changed.
-   */
-  onModeChange?: (details: { mode: SidebarMode }) => void
+export interface SidebarProviderProps extends Omit<SidebarOptions, 'children'> {
   /**
    * The content of the sidebar.
    */
@@ -81,39 +56,33 @@ export function SidebarProvider(props: SidebarProviderProps) {
 
   const [openMobile, setOpenMobile] = useState(false)
 
-  const disclosure = useDisclosure({
+  const openState = useOpenState({
     defaultOpen: isMobile ? openMobile : isFlyout ? false : defaultOpen,
     open: isMobile ? openMobile : open,
-    onOpen: () => {
-      isMobile
-        ? setOpenMobile(true)
-        : onOpenChange?.({
-            open: true,
-            mode,
-          })
+    onOpenChange(details) {
+      if (isMobile) {
+        setOpenMobile(details.open)
+      } else {
+        onOpenChange?.({
+          open: details.open,
+          mode,
+        })
+      }
     },
-    onClose: () =>
-      isMobile
-        ? setOpenMobile(false)
-        : onOpenChange?.({
-            open: false,
-            mode,
-          }),
   })
 
   const context = useMemo(() => {
     return {
-      open: disclosure.open,
-      setOpen: (open: boolean = true) =>
-        open ? disclosure.onOpen() : disclosure.onClose(),
-      toggle: disclosure.onToggle,
+      open: openState.open ?? false,
+      setOpen: openState.setOpen,
+      toggle: () => openState.setOpen((prev) => !prev),
       isMobile,
       openMobile,
       setOpenMobile,
       mode,
       setMode,
     }
-  }, [disclosure, isMobile, openMobile, mode])
+  }, [openState, isMobile, openMobile, mode])
 
   return (
     <SidebarContextProvider value={context}>{children}</SidebarContextProvider>

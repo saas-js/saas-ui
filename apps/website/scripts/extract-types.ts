@@ -1,6 +1,6 @@
-import { readFile } from "node:fs/promises"
-import { dirname } from "node:path"
-import ts, { readConfigFile } from "typescript"
+import { readFile } from 'node:fs/promises'
+import { dirname } from 'node:path'
+import ts, { readConfigFile } from 'typescript'
 
 interface Prop {
   type: string
@@ -20,8 +20,8 @@ interface TypeSearchOptions {
 function formatValue(value: string | undefined) {
   if (!value) return
   // convert "\"column\"", to "column"
-  const x = value.replace(/^"(.*)"$/, "$1")
-  return x === "true" ? true : x === "false" ? false : x
+  const x = value.replace(/^"(.*)"$/, '$1')
+  return x === 'true' ? true : x === 'false' ? false : x
 }
 
 async function extractPropertiesOfTypeName(
@@ -31,7 +31,7 @@ async function extractPropertiesOfTypeName(
   { shouldIgnoreProperty = () => false }: TypeSearchOptions = {},
 ) {
   const regexSearchTerm =
-    typeof searchTerm === "string" ? `^${searchTerm}$` : searchTerm
+    typeof searchTerm === 'string' ? `^${searchTerm}$` : searchTerm
 
   const typeStatements = sourceFile.statements.filter(
     (statement) =>
@@ -54,21 +54,21 @@ async function extractPropertiesOfTypeName(
       const propertyName = property.getName()
       const type = typeChecker.getTypeOfSymbolAtLocation(property, sourceFile)
 
-      let [, typeString] = property.valueDeclaration?.getText().split(":") ?? []
-      typeString = typeString?.trim().replace(";", "")
+      let [, typeString] = property.valueDeclaration?.getText().split(':') ?? []
+      typeString = typeString?.trim().replace(';', '')
 
       const docTags = property.getJsDocTags()
 
       const defaultValue =
         docTags
-          .find((tag) => tag.name === "default")
+          .find((tag) => tag.name === 'default')
           ?.text?.map((doc) => doc.text)
-          ?.join("\n") || undefined
+          ?.join('\n') || undefined
 
       const nonNullableType = type.getNonNullableType()
 
       const typeName = typeChecker.typeToString(nonNullableType)
-      const required = nonNullableType === type && typeName !== "any"
+      const required = nonNullableType === type && typeName !== 'any'
 
       properties[propertyName] = {
         type: typeString,
@@ -78,14 +78,14 @@ async function extractPropertiesOfTypeName(
           property
             .getDocumentationComment(typeChecker)
             .map((comment) => comment.text)
-            .join("\n") || undefined,
+            .join('\n') || undefined,
       }
     }
 
     let typeName = (typeStatement as any).name.getText() as string
 
     if (/Props$/.test(typeName)) {
-      typeName = typeName.replace(/Props$/, "")
+      typeName = typeName.replace(/Props$/, '')
       results[typeName] = properties
     }
   }
@@ -146,9 +146,9 @@ function extractTypeExports(code: string) {
   let match = exportedTypeRegex.exec(code)
 
   while (match != null) {
-    const types = match[1].split(",").map((s) => s.trim())
+    const types = match[1].split(',').map((s) => s.trim())
     types.forEach((type) => {
-      let [typeName] = type.split(" ") ?? []
+      let [typeName] = type.split(' ') ?? []
       exported[typeName] = true
     })
     match = exportedTypeRegex.exec(code)
@@ -162,15 +162,15 @@ function extractTypeExports(code: string) {
 function shouldIgnoreProperty(property: ts.Symbol) {
   const sourceFileName = getSourceFileName(property)
   const isExternal = /(node_modules|styled-system|@types\/react|apps\/)/.test(
-    sourceFileName ?? "",
+    sourceFileName ?? '',
   )
-  const isExcludedByName = ["children"].includes(property.getName())
+  const isExcludedByName = ['children'].includes(property.getName())
   return isExternal || isExcludedByName
 }
 
 export async function extractTypes(file: string) {
-  const content = await readFile(file, "utf8")
-  const searchType = createTypeSearch("tsconfig.json", { shouldIgnoreProperty })
+  const content = await readFile(file, 'utf8')
+  const searchType = createTypeSearch('tsconfig.json', { shouldIgnoreProperty })
 
   const promises = await Promise.all(
     extractTypeExports(content)?.map(searchType),

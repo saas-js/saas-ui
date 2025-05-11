@@ -7,8 +7,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLSpanElement",
-    "tag": "span"
+    "element": "HTMLSpanElement"
   },
   "HiddenInput": {
     "props": {
@@ -18,8 +17,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLInputElement",
-    "tag": "input"
+    "element": "HTMLInputElement"
   },
   "Label": {
     "props": {
@@ -29,8 +27,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLSpanElement",
-    "tag": "span"
+    "element": "HTMLSpanElement"
   },
   "Root": {
     "props": {
@@ -42,7 +39,7 @@
       "checked": {
         "type": "boolean",
         "isRequired": false,
-        "description": "Whether the switch is checked."
+        "description": "The controlled checked state of the switch"
       },
       "disabled": {
         "type": "boolean",
@@ -50,7 +47,7 @@
         "description": "Whether the switch is disabled."
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  hiddenInput: string\n  control: string\n  label: string\n  thumb: string\n}>",
+        "type": "Partial<{ root: string; hiddenInput: string; control: string; label: string; thumb: string }>",
         "isRequired": false,
         "description": "The ids of the elements in the switch. Useful for composition."
       },
@@ -91,8 +88,7 @@
         "description": "The value of switch input. Useful for form submission."
       }
     },
-    "element": "HTMLLabelElement",
-    "tag": "label"
+    "element": "HTMLLabelElement"
   },
   "RootProvider": {
     "props": {
@@ -106,8 +102,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLabelElement",
-    "tag": "label"
+    "element": "HTMLLabelElement"
   },
   "Thumb": {
     "props": {
@@ -117,7 +112,6 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLSpanElement",
-    "tag": "span"
+    "element": "HTMLSpanElement"
   }
 }

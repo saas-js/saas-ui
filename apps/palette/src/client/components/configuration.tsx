@@ -7,9 +7,10 @@ import {
   Field,
   HStack,
   Input,
+  Select,
+  Slider,
   VStack,
-} from '@chakra-ui/react'
-import { Select, Slider } from '@saas-ui/react'
+} from '@saas-ui/react'
 import { FaXTwitter } from 'react-icons/fa6'
 
 import Section from './section'

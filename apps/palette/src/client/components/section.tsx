@@ -1,5 +1,6 @@
 import React from 'react'
-import { Flex, Box, BoxProps, Heading, Text } from '@chakra-ui/react'
+
+import { Box, BoxProps, Flex, Heading, Text } from '@saas-ui/react'
 
 export interface SectionProps extends BoxProps {
   title?: string

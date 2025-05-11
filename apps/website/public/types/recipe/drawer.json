@@ -3,7 +3,7 @@
     "props": {
       "colorPalette": {
         "defaultValue": "gray",
-        "type": "\"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"accent\"",
+        "type": "\"gray\" | \"zinc\" | \"neutral\" | \"stone\" | \"red\" | \"orange\" | \"amber\" | \"yellow\" | \"lime\" | \"green\" | \"emerald\" | \"teal\" | \"cyan\" | \"sky\" | \"blue\" | \"indigo\" | \"violet\" | \"purple\" | \"fuchsia\" | \"pink\" | \"rose\" | \"presence\" | \"status\" | \"sidebar\" | \"sidebar.accent\" | \"accent\" | \"slate\"",
         "isRequired": false,
         "description": "The color palette of the component"
       },
@@ -19,10 +19,10 @@
         "isRequired": false,
         "description": "The placement of the component"
       },
-      "contained": {
+      "attached": {
         "type": "\"true\" | \"false\"",
         "isRequired": false,
-        "description": "The contained of the component"
+        "description": "The attached of the component"
       }
     }
   }

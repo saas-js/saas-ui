@@ -1,12 +1,16 @@
 {
-  "Indicator": {
+  "": {
     "props": {
-      "checked": {
-        "type": "React.ReactElement",
+      "icon": {
+        "type": "React.ReactNode",
         "isRequired": false
       },
-      "indeterminate": {
-        "type": "React.ReactElement",
+      "inputProps": {
+        "type": "React.InputHTMLAttributes<HTMLInputElement>",
+        "isRequired": false
+      },
+      "rootRef": {
+        "type": "React.Ref<HTMLLabelElement>",
         "isRequired": false
       }
     }

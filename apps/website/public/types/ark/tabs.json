@@ -12,8 +12,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "TabIndicator": {
     "props": {
@@ -23,8 +22,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "TabList": {
     "props": {
@@ -34,8 +32,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "TabTrigger": {
     "props": {
@@ -55,8 +52,7 @@
         "description": "Whether the tab is disabled"
       }
     },
-    "element": "HTMLButtonElement",
-    "tag": "button"
+    "element": "HTMLButtonElement"
   },
   "Root": {
     "props": {
@@ -79,7 +75,12 @@
       "defaultValue": {
         "type": "string",
         "isRequired": false,
-        "description": "The initial value of the tabs when it is first rendered.\nUse when you do not need to control the state of the tabs."
+        "description": "The initial selected tab value when rendered.\nUse when you don't need to control the selected tab value."
+      },
+      "deselectable": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Whether the active tab can be deselected when clicking on it."
       },
       "id": {
         "type": "string",
@@ -87,7 +88,7 @@
         "description": "The unique identifier of the machine."
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  trigger: string\n  list: string\n  content: string\n  indicator: string\n}>",
+        "type": "Partial<{ root: string; trigger: string; list: string; content: string; indicator: string }>",
         "isRequired": false,
         "description": "The ids of the elements in the tabs. Useful for composition."
       },
@@ -102,6 +103,11 @@
         "isRequired": false,
         "defaultValue": "true",
         "description": "Whether the keyboard navigation will loop from last tab to first, and vice versa."
+      },
+      "navigate": {
+        "type": "(details: NavigateDetails) => void",
+        "isRequired": false,
+        "description": "Function to navigate to the selected tab when clicking on it.\nUseful if tab triggers are anchor elements."
       },
       "onFocusChange": {
         "type": "(details: FocusChangeDetails) => void",
@@ -133,11 +139,10 @@
       "value": {
         "type": "string",
         "isRequired": false,
-        "description": "The selected tab id"
+        "description": "The controlled selected tab value"
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   },
   "RootProvider": {
     "props": {
@@ -163,7 +168,6 @@
         "description": "Whether to unmount on exit."
       }
     },
-    "element": "HTMLDivElement",
-    "tag": "div"
+    "element": "HTMLDivElement"
   }
 }

@@ -1,21 +1,19 @@
 {
   "name": "website",
-  "version": "0.1.1-next.63",
+  "version": "0.1.1-next.71",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"velite --watch\" \"next dev --turbo --port 3020\"",
-    "build": "velite --clean && next build",
+    "dev": "next dev --turbo --port 3020",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:content": "velite --watch",
-    "build:content": "velite --clean",
-    "types:ark": "yarn tsx scripts/types/ark.ts",
-    "types:recipe": "yarn tsx scripts/types/recipe.ts",
-    "types:component": "yarn tsx scripts/types/component.ts",
-    "generate:composition": "yarn tsx scripts/composition.ts",
-    "generate:types": "yarn types:ark && yarn types:recipe && yarn types:component",
-    "generate:icon": "yarn tsx scripts/generate-icon.ts",
-    "prebuild": "yarn generate:composition && yarn build:content"
+    "types:ark": "pnpm tsx scripts/types/ark.ts",
+    "types:recipe": "pnpm tsx scripts/types/recipe.ts",
+    "types:component": "pnpm tsx scripts/types/component.ts",
+    "generate:composition": "pnpm tsx scripts/composition.ts",
+    "generate:types": "pnpm types:ark && pnpm types:recipe && pnpm types:component",
+    "generate:icon": "pnpm tsx scripts/generate-icon.ts",
+    "prebuild": "pnpm generate:composition"
   },
   "dependencies": {
     "@ark-ui/react": "^5.2.0",
@@ -26,7 +24,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.9",
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
-    "@saas-ui-pro/react": "workspace:*",
+    "@saas-ui-pro/react": "^1.0.0-next.2",
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/charts": "workspace:*",
     "@saas-ui/forms": "workspace:*",
@@ -56,10 +54,12 @@
     "shiki": "3.2.1",
     "three": "^0.174.0",
     "unist-util-visit": "5.0.0",
-    "use-mask-input": "^3.4.2",
-    "velite": "0.2.2"
+    "use-mask-input": "^3.4.2"
   },
   "devDependencies": {
+    "@content-collections/core": "^0.8.2",
+    "@content-collections/mdx": "^0.2.2",
+    "@content-collections/next": "^0.2.6",
     "@svgr/core": "8.1.0",
     "@types/mdast": "^4.0.4",
     "@types/node": "^22.13.13",
@@ -70,6 +70,7 @@
     "concurrently": "^9.1.2",
     "eslint": "^9.23.0",
     "eslint-config-next": "15.2.3",
+    "fumadocs-core": "^15.3.0",
     "typescript": "^5.8.2"
   }
 }

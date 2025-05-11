@@ -19,7 +19,7 @@ interface SidebarProviderProps
   extends Sidebar.ProviderProps,
     Omit<SlotRecipeProps<'suiSidebar'>, 'mode'> {}
 
-const SidebarProvider = function SidebarProvider(props: SidebarProviderProps) {
+function SidebarProvider(props: SidebarProviderProps) {
   return (
     <Sidebar.Provider {...props}>
       <RecipeProvider {...props}>{props.children}</RecipeProvider>
@@ -47,7 +47,8 @@ function RecipeProvider(
 }
 
 interface SidebarRootProps
-  extends HTMLChakraProps<'div', Sidebar.RootBaseProps> {}
+  extends HTMLChakraProps<'div'>,
+    Sidebar.RootBaseProps {}
 
 /**
  * Side navigation, commonly used as the primary navigation
@@ -144,6 +145,16 @@ const SidebarTrack = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   },
 )
 
+/**
+ * Sidebar inset.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
+ */
+const SidebarInset = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
+  'div',
+  'inset',
+)
+
 const SidebarGroup = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   Sidebar.Group,
   'group',
@@ -216,6 +227,7 @@ export {
   SidebarBody as Body,
   SidebarFooter as Footer,
   SidebarTrack as Track,
+  SidebarInset as Inset,
   SidebarGroup as Group,
   SidebarGroupHeader as GroupHeader,
   SidebarGroupTitle as GroupTitle,

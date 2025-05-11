@@ -16,6 +16,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     'groupEndElement',
     'groupContent',
     'track',
+    'inset',
   ],
   base: {
     root: {
@@ -25,7 +26,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       flexDirection: 'column',
     },
     backdrop: {
-      bg: 'blackAlpha.200',
+      layerStyle: 'backdrop',
       position: 'fixed',
       inset: 0,
       '--sidebar-backdrop-z-index': 'zIndex.layer-3',
@@ -140,8 +141,34 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     flyoutTrigger: {
       display: 'none',
     },
+    inset: {
+      height: '100%',
+      minHeight: '0',
+      display: 'flex',
+      flexDirection: 'column',
+      bg: 'bg.content',
+    },
   },
   variants: {
+    variant: {
+      sidebar: {
+        root: {
+          borderRightWidth: '1px',
+          borderLeftColor: 'sidebar.border',
+        },
+        inset: {},
+      },
+      inset: {
+        inset: {
+          borderColor: 'sidebar.border',
+          borderWidth: '1px',
+          borderRadius: 'panel.md',
+          marginBlock: 'var(--inset-gap, {spacing.2})',
+          marginEnd: 'var(--inset-gap, {spacing.2})',
+          overflow: 'clip',
+        },
+      },
+    },
     mode: {
       collapsible: {
         root: {
@@ -230,7 +257,25 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: 'inset',
+      mode: 'collapsible',
+      css: {
+        root: {
+          py: 'var(--inset-gap, {spacing.2})',
+
+          _closed: {
+            '& [class*="__inset"]': {
+              ps: 'var(--inset-gap, {spacing.2})',
+            },
+          },
+        },
+      },
+    },
+  ],
   defaultVariants: {
+    variant: 'sidebar',
     mode: 'collapsible',
     size: 'md',
   },

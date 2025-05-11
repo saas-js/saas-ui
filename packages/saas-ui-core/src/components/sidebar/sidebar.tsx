@@ -12,7 +12,6 @@ import {
   useSidebar,
   useSidebarTrigger,
 } from './sidebar.context.tsx'
-import { SidebarProps } from './sidebar.types.ts'
 
 export const SidebarContext = function SidebarContext(props: {
   children: (context: UseSidebarReturn) => React.ReactNode
@@ -22,24 +21,25 @@ export const SidebarContext = function SidebarContext(props: {
   return props.children(context)
 }
 
-export const SidebarRoot = React.forwardRef<HTMLDivElement, SidebarProps>(
-  (props, ref) => {
-    const { children, ...containerProps } = props
+export const SidebarRoot = React.forwardRef<
+  HTMLDivElement,
+  HTMLSystemProps<'div'>
+>((props, ref) => {
+  const { children, ...containerProps } = props
 
-    const { open, mode } = useSidebar()
+  const { open, mode } = useSidebar()
 
-    return (
-      <sui.div
-        ref={ref}
-        data-state={open ? 'open' : 'closed'}
-        data-mode={mode}
-        {...containerProps}
-      >
-        {children}
-      </sui.div>
-    )
-  },
-)
+  return (
+    <sui.div
+      ref={ref}
+      data-state={open ? 'open' : 'closed'}
+      data-mode={mode}
+      {...containerProps}
+    >
+      {children}
+    </sui.div>
+  )
+})
 
 export interface SidebarTriggerProps extends HTMLSystemProps<'button'> {}
 

@@ -54,7 +54,7 @@ export const actionBarSlotRecipe = defineSlotRecipe({
       textStyle: 'sm',
       px: '4',
       py: '1',
-      borderRadius: 'l2',
+      borderRadius: 'control.md',
       borderWidth: '1px',
       borderStyle: 'dashed',
     },

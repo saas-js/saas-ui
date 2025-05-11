@@ -1,4 +1,4 @@
-import { ClientOnly, IconButton, Skeleton } from '@chakra-ui/react'
+import { ClientOnly, IconButton, Skeleton } from '@saas-ui/react'
 import { useTheme } from 'next-themes'
 import { FiMoon, FiSun } from 'react-icons/fi'
 

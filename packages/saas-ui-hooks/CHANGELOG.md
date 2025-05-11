@@ -1,5 +1,15 @@
 # @saas-ui/system
 
+## 3.0.0-next.2
+
+### Major Changes
+
+- 121029e: Removed useDisclosure hook
+
+### Minor Changes
+
+- 121029e: Added useOpenState hook
+
 ## 3.0.0-next.1
 
 ### Patch Changes

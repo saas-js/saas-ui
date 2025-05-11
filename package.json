@@ -60,7 +60,7 @@
     "build:storybook-addon": "pnpm --filter @saas-ui/storybook-addon build",
     "build:props-docs": "pnpm typedocs && pnpm --filter @saas-ui/props-docs build",
     "typedocs": "tsx scripts/typedocs.ts",
-    "preinstall": "rm -rf node_modules/odiff-bin"
+    "preinstall": "rimraf node_modules/odiff-bin"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^3.14.0",

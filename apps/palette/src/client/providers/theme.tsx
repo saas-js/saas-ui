@@ -1,38 +1,41 @@
-"use client";
+'use client'
 
-import React, { createContext, type PropsWithChildren } from "react";
+import React, { type PropsWithChildren, createContext } from 'react'
 
 import {
-	defaultSystem,
-	type SystemContext as ISystemContext,
-} from "@chakra-ui/react";
-import { SuiProvider, createSystem, defineConfig } from "@saas-ui/react";
-import { usePalette } from "./palette";
+  SuiProvider,
+  createSystem,
+  defaultConfig,
+  defaultSystem,
+  defineConfig,
+} from '@saas-ui/react'
 
-const SystemContext = createContext<ISystemContext>(defaultSystem);
+import { usePalette } from './palette'
+
+const SystemContext = createContext<typeof defaultSystem>(defaultSystem)
 
 export function useSystem() {
-	return React.useContext(SystemContext);
+  return React.useContext(SystemContext)
 }
 
 export default function ThemeProvider({ children }: PropsWithChildren) {
-	const [{ colors, options }] = usePalette();
+  const [{ colors, options }] = usePalette()
 
-	const system = React.useMemo(() => {
-		const config = defineConfig({
-			theme: {
-				tokens: {
-					colors,
-				},
-			},
-		});
+  const system = React.useMemo(() => {
+    const config = defineConfig({
+      theme: {
+        tokens: {
+          colors,
+        },
+      },
+    })
 
-		return createSystem(defaultSystem, config);
-	}, [colors]);
+    return createSystem(defaultConfig, config)
+  }, [colors])
 
-	return (
-		<SuiProvider value={system}>
-			<SystemContext.Provider value={system}>{children}</SystemContext.Provider>
-		</SuiProvider>
-	);
+  return (
+    <SuiProvider value={system}>
+      <SystemContext.Provider value={system}>{children}</SystemContext.Provider>
+    </SuiProvider>
+  )
 }

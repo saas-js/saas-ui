@@ -1,6 +1,5 @@
-import { Code } from '@chakra-ui/react'
-
 import { usePalette } from '@/providers/palette'
+import { Code } from '@saas-ui/react'
 
 import CopyButton from '../copy-button'
 

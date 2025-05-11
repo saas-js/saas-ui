@@ -1,15 +1,15 @@
 import React from 'react'
-import {
-  Flex,
-  Box,
-  Heading,
-  Text,
-  Container,
-  Spinner,
-  Stack,
-} from '@chakra-ui/react'
 
 import SEO from '@/components/seo'
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Spinner,
+  Stack,
+  Text,
+} from '@saas-ui/react'
 
 export interface PageProps {
   title?: string

@@ -1,5 +1,37 @@
 # @saas-ui/core
 
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Fix: subpath imports
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- c89b27d: Removed cjs exports
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies [121029e]
+- Updated dependencies [121029e]
+  - @saas-ui/hooks@3.0.0-next.2
+
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Fixed build
+
+## 3.0.0-next.5
+
+### Patch Changes
+
+- c2372f9: Removed duplicate SidebarProvider props
+
 ## 3.0.0-next.4
 
 ### Patch Changes

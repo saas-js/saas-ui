@@ -1,19 +1,19 @@
-import { consola } from "consola"
-import { findUpSync } from "find-up"
-import { ensureDirSync } from "fs-extra"
-import { readFileSync, readdirSync } from "node:fs"
-import { writeFile } from "node:fs/promises"
-import { basename, extname, join } from "node:path"
+import { consola } from 'consola'
+import { sync } from 'find-up'
+import { ensureDirSync } from 'fs-extra'
+import { readFileSync, readdirSync } from 'node:fs'
+import { writeFile } from 'node:fs/promises'
+import { basename, extname, join } from 'node:path'
 
 function getBaseDirectory() {
-  const dir = findUpSync("compositions", { type: "directory" })
-  if (!dir) throw new ReferenceError("Could not find compositions directory")
+  const dir = sync('compositions', { type: 'directory' })
+  if (!dir) throw new ReferenceError('Could not find compositions directory')
   return dir
 }
 
 function getWwwOutput() {
-  const dir = findUpSync("public", { type: "directory" })
-  if (!dir) throw new ReferenceError("Could not find public directory")
+  const dir = sync('public', { type: 'directory' })
+  if (!dir) throw new ReferenceError('Could not find public directory')
   return dir
 }
 
@@ -31,7 +31,7 @@ function isNpmDependency(dependencies: string[], _import: string) {
 }
 
 function isFileDependency(_import: string) {
-  return _import.startsWith(".") || _import.startsWith("compositions/ui")
+  return _import.startsWith('.') || _import.startsWith('compositions/ui')
 }
 
 function resolveDependency(specifier: string, dependencies: string[]) {
@@ -61,52 +61,52 @@ function getDependencies(imports: Set<string>, dependencies: string[]) {
 const setFileExtension = (file: string, ext: string) =>
   basename(file, extname(file)) + ext
 
-const excludedDependencies = ["@chakra-ui/react", "react", "react-dom"]
+const excludedDependencies = ['@chakra-ui/react', 'react', 'react-dom']
 
 const camelCase = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const getFileName = (file: string) => basename(file, extname(file))
 
 const getComponentName = (file: string) =>
-  getFileName(file).split("-").map(camelCase).join("")
+  getFileName(file).split('-').map(camelCase).join('')
 
 async function main() {
   const dir = getBaseDirectory()
   const publicDir = getWwwOutput()
 
-  const pkgJson = readFileSync(join(dir, "package.json"), "utf-8")
+  const pkgJson = readFileSync(join(dir, 'package.json'), 'utf-8')
 
   const dependencies = Object.keys(JSON.parse(pkgJson).dependencies).filter(
     (dep) => !excludedDependencies.includes(dep),
   )
 
-  const srcDir = join(dir, "src", "ui")
+  const srcDir = join(dir, 'src', 'ui')
   //   const examplesDir = join(dir, "src", "examples")
 
-  const files = readdirSync(srcDir, { encoding: "utf-8" })
+  const files = readdirSync(srcDir, { encoding: 'utf-8' })
 
   const result = files.map((file) => {
     const filePath = join(srcDir, file)
-    const content = readFileSync(filePath, "utf-8")
+    const content = readFileSync(filePath, 'utf-8')
     const { npmDependencies, fileDependencies } = getDependencies(
       getImports(content),
       dependencies,
     )
     return {
-      path: join(publicDir, "compositions", setFileExtension(file, ".json")),
+      path: join(publicDir, 'compositions', setFileExtension(file, '.json')),
       data: {
-        type: "composition",
+        type: 'composition',
         npmDependencies: Array.from(npmDependencies),
         fileDependencies: Array.from(fileDependencies),
         id: getFileName(file),
-        file: { name: file, content: content.replace("compositions/ui", ".") },
+        file: { name: file, content: content.replace('compositions/ui', '.') },
         component: getComponentName(file),
       },
     }
   })
 
   result.push({
-    path: join(publicDir, "compositions", "index.json"),
+    path: join(publicDir, 'compositions', 'index.json'),
     //@ts-expect-error
     data: result.map(({ data }) => ({
       type: data.type,
@@ -118,7 +118,7 @@ async function main() {
     })),
   })
 
-  ensureDirSync(join(publicDir, "compositions"))
+  ensureDirSync(join(publicDir, 'compositions'))
 
   const promises = result.map(({ path, data }) => {
     const content = JSON.stringify(data, null, 2)
@@ -127,7 +127,7 @@ async function main() {
 
   await Promise.all(promises)
 
-  consola.success("Composition files generated 🎉. Happy coding!")
+  consola.success('Composition files generated 🎉. Happy coding!')
 }
 
 main().catch((err) => {

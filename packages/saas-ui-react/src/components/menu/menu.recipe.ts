@@ -100,6 +100,7 @@ export const menuSlotRecipe = defineSlotRecipe({
           textStyle: 'xs',
           py: '1',
           px: '1.5',
+          ps: 'var(--menu-item-inset, {sizes.1.5})',
         },
         itemGroupLabel: {
           textStyle: 'xs',
@@ -117,6 +118,7 @@ export const menuSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
           py: '1.5',
           px: '2',
+          ps: 'var(--menu-item-inset, {sizes.2})',
         },
         itemGroupLabel: {
           textStyle: 'sm',

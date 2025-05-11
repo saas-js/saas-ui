@@ -1,4 +1,32 @@
 {
+  "": {
+    "props": {
+      "name": {
+        "type": "string",
+        "isRequired": false
+      },
+      "src": {
+        "type": "string",
+        "isRequired": false
+      },
+      "srcSet": {
+        "type": "string",
+        "isRequired": false
+      },
+      "loading": {
+        "type": "ImageProps['loading']",
+        "isRequired": false
+      },
+      "icon": {
+        "type": "React.ReactElement",
+        "isRequired": false
+      },
+      "fallback": {
+        "type": "React.ReactNode",
+        "isRequired": false
+      }
+    }
+  },
   "Root": {
     "props": {
       "as": {
@@ -15,18 +43,6 @@
         "type": "boolean",
         "isRequired": false,
         "description": "Whether to remove the component's style."
-      }
-    }
-  },
-  "Fallback": {
-    "props": {
-      "name": {
-        "type": "string",
-        "isRequired": false
-      },
-      "icon": {
-        "type": "React.ReactElement",
-        "isRequired": false
       }
     }
   }

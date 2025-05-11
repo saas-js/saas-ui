@@ -1,19 +1,18 @@
 import { Chart, useChart } from '@chakra-ui/charts'
 import {
   Badge,
+  ButtonGroup,
   Card,
   Collapsible,
   DataList,
   Flex,
   Grid,
-  HStack,
   Heading,
   Icon,
   IconButton,
   List,
   Portal,
   Spacer,
-  Stack,
   Text,
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
@@ -21,6 +20,7 @@ import { PieChart } from '@saas-ui/charts'
 import {
   AppShell,
   Menu,
+  Page,
   SegmentedControl,
   Sidebar,
   useSidebar,
@@ -43,10 +43,12 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 export function CRMDemo() {
   return (
-    <Sidebar.Provider mode="collapsible">
+    <Sidebar.Provider mode="collapsible" variant="inset">
       <Sidebar.FlyoutTrigger />
-      <AppShell sidebar={<AppSidebar />} height="100%" bg="bg">
-        <ReportsPage />
+      <AppShell sidebar={<AppSidebar />} height="100%" bg="sidebar.bg">
+        <Sidebar.Inset>
+          <ReportsPage />
+        </Sidebar.Inset>
       </AppShell>
     </Sidebar.Provider>
   )
@@ -55,7 +57,7 @@ export function CRMDemo() {
 function AppSidebar() {
   return (
     <>
-      <Sidebar.Root borderRightWidth="1px">
+      <Sidebar.Root>
         <Sidebar.Header direction="row">
           <WorkspaceMenu />
           <Spacer />
@@ -281,132 +283,131 @@ function ReportsPage() {
   const { open } = useSidebar()
 
   return (
-    <Stack height="100%" bg="bg.muted/50" gap="0">
-      <HStack
-        px="4"
-        py="2"
-        borderBottomWidth="1px"
-        alignItems="center"
-        height="10"
-      >
-        {!open && (
-          <Sidebar.Trigger asChild>
-            <IconButton variant="ghost">
-              <LuPanelLeftOpen />
-            </IconButton>
-          </Sidebar.Trigger>
-        )}
-        <Heading as="h2" size="sm" fontWeight="medium">
-          Reports
-        </Heading>
-        <Spacer />
-        <SegmentedControl
-          size="xs"
-          items={['Last year', 'Last month', 'Last 7 days']}
-          defaultValue="Last year"
-        />
-      </HStack>
-      <Grid templateColumns="repeat(3, 1fr)" gap="4" p="4">
-        <Card.Root gridColumn="span 2">
-          <Card.Header gap="0">
-            <Heading as="h3" size="sm" fontWeight="medium" color="fg.muted">
-              Revenue
-            </Heading>
-            <Text fontSize="lg" color="fg" fontWeight="medium">
-              {Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              }).format(12500)}
-            </Text>
-          </Card.Header>
-          <Card.Body>
-            <RevenueChart />
-          </Card.Body>
-        </Card.Root>
-        <Card.Root gridColumn="span 1">
-          <Card.Header gap="0">
-            <Heading as="h3" size="sm" fontWeight="medium" color="fg.subtle">
-              Customer metrics
-            </Heading>
-          </Card.Header>
-          <Card.Body>
-            <DataList.Root
-              orientation="vertical"
-              display="grid"
-              gridTemplateColumns="1fr 1fr"
-              gap="4"
-            >
-              <DataList.Item fontSize="xs">
-                <DataList.ItemLabel>Acquisition cost</DataList.ItemLabel>
-                <DataList.ItemValue fontWeight="medium" fontSize="lg">
-                  {Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                  }).format(233)}
-                </DataList.ItemValue>
-              </DataList.Item>
-              <DataList.Item fontSize="xs">
-                <DataList.ItemLabel>Lifetime value</DataList.ItemLabel>
-                <DataList.ItemValue fontWeight="medium" fontSize="lg">
-                  {Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                  }).format(893)}
-                </DataList.ItemValue>
-              </DataList.Item>
-              <DataList.Item fontSize="xs">
-                <DataList.ItemLabel>Churn rate</DataList.ItemLabel>
-                <DataList.ItemValue fontWeight="medium" fontSize="lg">
-                  4.5%
-                </DataList.ItemValue>
-              </DataList.Item>
-              <DataList.Item fontSize="xs">
-                <DataList.ItemLabel>Retention rate</DataList.ItemLabel>
-                <DataList.ItemValue fontWeight="medium" fontSize="lg">
-                  95.5%
-                </DataList.ItemValue>
-              </DataList.Item>
-              <DataList.Item fontSize="xs" gridColumn="span 2">
-                <DataList.ItemLabel>Churn by tier</DataList.ItemLabel>
-                <DataList.ItemValue alignItems="center" gap="4">
-                  <ChurnRateByTierChart />
+    <Page.Root>
+      <Page.Header
+        nav={
+          !open ? (
+            <Sidebar.Trigger asChild>
+              <IconButton variant="ghost">
+                <LuPanelLeftOpen />
+              </IconButton>
+            </Sidebar.Trigger>
+          ) : null
+        }
+        title="Reports"
+        actions={
+          <ButtonGroup gridArea="actions" justifyContent="end">
+            <SegmentedControl
+              size="xs"
+              items={['Last year', 'Last month', 'Last 7 days']}
+              defaultValue="Last year"
+            />
+          </ButtonGroup>
+        }
+      ></Page.Header>
+      <Page.Body>
+        <Grid templateColumns="repeat(3, 1fr)" gap="4" p="4">
+          <Card.Root gridColumn="span 2">
+            <Card.Header gap="0">
+              <Heading as="h3" size="sm" fontWeight="medium" color="fg.muted">
+                Revenue
+              </Heading>
+              <Text fontSize="lg" color="fg" fontWeight="medium">
+                {Intl.NumberFormat('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                }).format(12500)}
+              </Text>
+            </Card.Header>
+            <Card.Body>
+              <RevenueChart />
+            </Card.Body>
+          </Card.Root>
+          <Card.Root gridColumn="span 1">
+            <Card.Header gap="0">
+              <Heading as="h3" size="sm" fontWeight="medium" color="fg.subtle">
+                Customer metrics
+              </Heading>
+            </Card.Header>
+            <Card.Body>
+              <DataList.Root
+                orientation="vertical"
+                display="grid"
+                gridTemplateColumns="1fr 1fr"
+                gap="4"
+              >
+                <DataList.Item fontSize="xs">
+                  <DataList.ItemLabel>Acquisition cost</DataList.ItemLabel>
+                  <DataList.ItemValue fontWeight="medium" fontSize="lg">
+                    {Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD',
+                    }).format(233)}
+                  </DataList.ItemValue>
+                </DataList.Item>
+                <DataList.Item fontSize="xs">
+                  <DataList.ItemLabel>Lifetime value</DataList.ItemLabel>
+                  <DataList.ItemValue fontWeight="medium" fontSize="lg">
+                    {Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD',
+                    }).format(893)}
+                  </DataList.ItemValue>
+                </DataList.Item>
+                <DataList.Item fontSize="xs">
+                  <DataList.ItemLabel>Churn rate</DataList.ItemLabel>
+                  <DataList.ItemValue fontWeight="medium" fontSize="lg">
+                    4.5%
+                  </DataList.ItemValue>
+                </DataList.Item>
+                <DataList.Item fontSize="xs">
+                  <DataList.ItemLabel>Retention rate</DataList.ItemLabel>
+                  <DataList.ItemValue fontWeight="medium" fontSize="lg">
+                    95.5%
+                  </DataList.ItemValue>
+                </DataList.Item>
+                <DataList.Item fontSize="xs" gridColumn="span 2">
+                  <DataList.ItemLabel>Churn by tier</DataList.ItemLabel>
+                  <DataList.ItemValue alignItems="center" gap="4">
+                    <ChurnRateByTierChart />
 
-                  <List.Root variant="plain">
-                    <List.Item alignItems="center">
-                      <List.Indicator
-                        bg="indigo.solid"
-                        boxSize="2"
-                        borderRadius="full"
-                        minH="2"
-                      />
-                      Starter: 7%
-                    </List.Item>
-                    <List.Item alignItems="center">
-                      <List.Indicator
-                        bg="pink.solid"
-                        boxSize="2"
-                        borderRadius="full"
-                        minH="2"
-                      />
-                      Pro: 4%
-                    </List.Item>
-                    <List.Item alignItems="center">
-                      <List.Indicator
-                        bg="fg"
-                        boxSize="2"
-                        borderRadius="full"
-                        minH="2"
-                      />
-                      Enterprise: 2.5%
-                    </List.Item>
-                  </List.Root>
-                </DataList.ItemValue>
-              </DataList.Item>
-            </DataList.Root>
-          </Card.Body>
-        </Card.Root>
-      </Grid>
-    </Stack>
+                    <List.Root variant="plain">
+                      <List.Item alignItems="center">
+                        <List.Indicator
+                          bg="indigo.solid"
+                          boxSize="2"
+                          borderRadius="full"
+                          minH="2"
+                        />
+                        Starter: 7%
+                      </List.Item>
+                      <List.Item alignItems="center">
+                        <List.Indicator
+                          bg="pink.solid"
+                          boxSize="2"
+                          borderRadius="full"
+                          minH="2"
+                        />
+                        Pro: 4%
+                      </List.Item>
+                      <List.Item alignItems="center">
+                        <List.Indicator
+                          bg="fg"
+                          boxSize="2"
+                          borderRadius="full"
+                          minH="2"
+                        />
+                        Enterprise: 2.5%
+                      </List.Item>
+                    </List.Root>
+                  </DataList.ItemValue>
+                </DataList.Item>
+              </DataList.Root>
+            </Card.Body>
+          </Card.Root>
+        </Grid>
+      </Page.Body>
+    </Page.Root>
   )
 }
 

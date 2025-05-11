@@ -1,5 +1,65 @@
 # @saas-ui/react
 
+## 3.0.0-next.35
+
+### Patch Changes
+
+- 4f78230: Improved dark mode styling and added scrollbar styles
+
+## 3.0.0-next.34
+
+### Minor Changes
+
+- 964ffa7: Added Sidebar.Inset component and inset vairant
+
+## 3.0.0-next.33
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.9
+
+## 3.0.0-next.32
+
+### Patch Changes
+
+- Updated dependencies [c89b27d]
+  - @saas-ui/core@3.0.0-next.8
+
+## 3.0.0-next.31
+
+### Patch Changes
+
+- Updated dependencies [121029e]
+- Updated dependencies [121029e]
+  - @saas-ui/hooks@3.0.0-next.2
+  - @saas-ui/core@3.0.0-next.7
+
+## 3.0.0-next.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.6
+
+## 3.0.0-next.29
+
+### Patch Changes
+
+- 495b0c6: Removed position variant from AppShell recipe in favor of a single fullscreen prop for fixed positioning
+- Updated dependencies [c2372f9]
+  - @saas-ui/core@3.0.0-next.5
+
+## 3.0.0-next.28
+
+### Patch Changes
+
+- bab2041: Improved semantic token consistency
+- b136ede: Improved dark mode styles for buttons
+- dd1f9e1: Improved dark mode styles for overlay layers
+- dd1f9e1: Added \_rowHover condition
+- bab2041: Improved Stat spacing
+
 ## 3.0.0-next.27
 
 ### Patch Changes

@@ -8,6 +8,7 @@ import { ExamplePreview } from './example-preview'
 
 interface Props {
   name: string
+  padding?: BoxProps['padding']
 }
 
 interface CodeProps extends Props {
@@ -110,7 +111,7 @@ export const ExampleLinkTree = (props: LinkTreeProps) => {
 }
 
 export const Example = (props: Props) => {
-  const { name } = props
+  const { name, padding = { base: '6', sm: '10' } } = props
   if (!name) return null
   return (
     <Box
@@ -120,7 +121,7 @@ export const Example = (props: Props) => {
       overflow="hidden"
       divideY="1px"
     >
-      <Box padding="10">
+      <Box padding={padding}>
         <ExamplePreview name={name} />
       </Box>
       <ExampleCodeWrapper maxHeight="400px">
@@ -131,7 +132,7 @@ export const Example = (props: Props) => {
 }
 
 export const ExampleTabs = (props: Props) => {
-  const { name } = props
+  const { name, padding = { base: '6', sm: '10' } } = props
   if (!name) return null
   return (
     <Tabs.Root
@@ -146,7 +147,7 @@ export const ExampleTabs = (props: Props) => {
         <Tabs.Trigger value="code">Code</Tabs.Trigger>
       </Tabs.List>
       <Tabs.ContentGroup borderWidth="1px" rounded="md" overflow="hidden">
-        <Tabs.Content value="preview" mt="0!" padding={{ base: '6', sm: '10' }}>
+        <Tabs.Content value="preview" mt="0!" padding={padding}>
           <ExamplePreview name={name} />
         </Tabs.Content>
         <Tabs.Content value="code" mt="0!" pt="0!">

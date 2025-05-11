@@ -1,13 +1,19 @@
-import { findUpSync } from "find-up"
-import { readdir } from "fs/promises"
-import { dirname, extname, resolve } from "path/posix"
+import { sync } from 'find-up'
+import { readdir } from 'fs/promises'
+import { dirname, extname, resolve } from 'path/posix'
 
-const isFileType = (file: string) => extname(file).startsWith(".ts")
+const isFileType = (file: string) => extname(file).startsWith('.ts')
 
 export const getComponentDir = () => {
-  const rootPath = findUpSync("pnpm-workspace.yaml")
-  if (!rootPath) throw new Error("Not found")
-  return resolve(dirname(rootPath), "packages", "react", "src", "components")
+  const rootPath = sync('pnpm-workspace.yaml')
+  if (!rootPath) throw new Error('Not found')
+  return resolve(
+    dirname(rootPath),
+    'packages',
+    'saas-ui-react',
+    'src',
+    'components',
+  )
 }
 
 export const getComponentList = async () => {
@@ -17,20 +23,20 @@ export const getComponentList = async () => {
 }
 
 export const staticComponentList = [
-  "aspect-ratio",
-  "bleed",
-  "box",
-  "center",
-  "container",
-  "flex",
-  "float",
-  "grid",
-  "group",
-  "highlight",
-  "portal",
-  "for",
-  "client-only",
-  "show",
-  "checkmark",
-  "radiomark",
+  'aspect-ratio',
+  'bleed',
+  'box',
+  'center',
+  'container',
+  'flex',
+  'float',
+  'grid',
+  'group',
+  'highlight',
+  'portal',
+  'for',
+  'client-only',
+  'show',
+  'checkmark',
+  'radiomark',
 ]

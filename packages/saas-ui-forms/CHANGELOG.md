@@ -1,5 +1,71 @@
 # @saas-ui/forms
 
+## 3.0.0-next.35
+
+### Patch Changes
+
+- Updated dependencies [4f78230]
+  - @saas-ui/react@3.0.0-next.35
+
+## 3.0.0-next.34
+
+### Patch Changes
+
+- Updated dependencies [964ffa7]
+  - @saas-ui/react@3.0.0-next.34
+
+## 3.0.0-next.33
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.9
+  - @saas-ui/react@3.0.0-next.33
+
+## 3.0.0-next.32
+
+### Patch Changes
+
+- Updated dependencies [c89b27d]
+  - @saas-ui/core@3.0.0-next.8
+  - @saas-ui/react@3.0.0-next.32
+
+## 3.0.0-next.31
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.7
+- @saas-ui/react@3.0.0-next.31
+
+## 3.0.0-next.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.6
+  - @saas-ui/react@3.0.0-next.30
+
+## 3.0.0-next.29
+
+### Patch Changes
+
+- Updated dependencies [c2372f9]
+- Updated dependencies [495b0c6]
+  - @saas-ui/core@3.0.0-next.5
+  - @saas-ui/react@3.0.0-next.29
+
+## 3.0.0-next.28
+
+### Patch Changes
+
+- 8726803: Export StandardSchemaV1 type
+- Updated dependencies [bab2041]
+- Updated dependencies [b136ede]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [bab2041]
+  - @saas-ui/react@3.0.0-next.28
+
 ## 3.0.0-next.27
 
 ### Patch Changes

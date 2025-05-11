@@ -25,7 +25,6 @@ export type {
 } from './sidebar.tsx'
 
 export type {
-  SidebarProps as RootProps,
   SidebarOptions as RootBaseProps,
   SidebarMode as Mode,
 } from './sidebar.types.ts'

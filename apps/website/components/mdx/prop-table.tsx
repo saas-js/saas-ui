@@ -1,4 +1,4 @@
-import { deepMerge } from "@/lib/deep-merge"
+import { deepMerge } from '@/lib/deep-merge'
 import {
   Box,
   Code,
@@ -8,12 +8,12 @@ import {
   Stack,
   Table,
   Text,
-} from "@chakra-ui/react"
-import NextLink from "next/link"
-import { existsSync, readFileSync } from "node:fs"
-import { join } from "node:path"
-import { LuMinus } from "react-icons/lu"
-import { kebabCase } from "scule"
+} from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { LuMinus } from 'react-icons/lu'
+import { kebabCase } from 'scule'
 
 interface PropTableProps {
   component: string
@@ -28,8 +28,8 @@ interface Properties {
 }
 
 const stringify = (value: any) => {
-  if (value === "true") return `true`
-  if (value === "false") return `false`
+  if (value === 'true') return `true`
+  if (value === 'false') return `false`
   return JSON.stringify(value)
 }
 
@@ -44,23 +44,27 @@ const sortEntries = (props: Record<string, any>): [string, Properties][] => {
 }
 
 function getType(baseDir: string, componentName?: string): Record<string, any> {
-  const path = join(
-    process.cwd(),
-    "public",
-    "types",
-    baseDir,
-    `${componentName}.json`,
-  )
-  if (!existsSync(path)) return {}
-  return JSON.parse(readFileSync(path, "utf-8"))
+  try {
+    const path = join(
+      process.cwd(),
+      'public',
+      'types',
+      baseDir,
+      `${componentName}.json`,
+    )
+    if (!existsSync(path)) return {}
+    return JSON.parse(readFileSync(path, 'utf-8'))
+  } catch (error) {
+    return {}
+  }
 }
 
 async function getComponentTypes(component: string) {
   const componentName = kebabCase(component)
-  const arkTypes = getType("ark", componentName)
-  const recipeTypes = getType("recipe", componentName)
-  const componentTypes = getType("component", componentName)
-  const staticTypes = getType("static", componentName)
+  const arkTypes = getType('ark', componentName)
+  const recipeTypes = getType('recipe', componentName)
+  const componentTypes = getType('component', componentName)
+  const staticTypes = getType('static', componentName)
   return deepMerge({}, arkTypes, recipeTypes, componentTypes, staticTypes)
 }
 
@@ -108,7 +112,7 @@ export const PropTable = async (props: PropTableProps) => {
             <Table.Row key={name}>
               <Table.Cell width="36" px="4" py="2" verticalAlign="top">
                 <Code size="sm" variant="surface" fontWeight="bold">
-                  {name}{" "}
+                  {name}{' '}
                 </Code>
                 {property.isRequired && (
                   <Span color="fg.error" ms="1">
@@ -133,14 +137,14 @@ export const PropTable = async (props: PropTableProps) => {
                     {property.type.replaceAll('"', "'")}
                   </Code>
                   <Text fontSize="sm">{property.description}</Text>
-                  {name === "asChild" && (
+                  {name === 'asChild' && (
                     <Text as="span">
-                      For more details, read our{" "}
+                      For more details, read our{' '}
                       <Link asChild>
                         <NextLink href={`/docs/guides/composition`}>
                           Composition
                         </NextLink>
-                      </Link>{" "}
+                      </Link>{' '}
                       guide.
                     </Text>
                   )}

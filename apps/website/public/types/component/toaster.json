@@ -1,0 +1,10 @@
+{
+  "Toaster": {
+    "props": {
+      "closable": {
+        "type": "boolean",
+        "isRequired": false
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "SegmentedControl": {
+    "props": {
+      "items": {
+        "type": "Array<string | Item>",
+        "isRequired": true
+      }
+    }
+  }
+}

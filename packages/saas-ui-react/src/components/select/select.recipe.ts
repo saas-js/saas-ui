@@ -56,15 +56,16 @@ export const selectSlotRecipe = defineSlotRecipe({
       color: { base: 'fg.muted', _disabled: 'fg.subtle', _invalid: 'fg.error' },
     },
     content: {
-      background: 'bg.panel',
+      layerStyle: 'overlay',
+      boxShadow: 'md',
+      borderWidth: '1px',
+      borderColor: 'border',
       display: 'flex',
       flexDirection: 'column',
       zIndex: 'dropdown',
-      borderRadius: 'l2',
       outline: 0,
       maxH: '96',
       overflowY: 'auto',
-      boxShadow: 'md',
       _open: {
         animationStyle: 'slide-fade-in',
         animationDuration: 'fast',
@@ -84,7 +85,7 @@ export const selectSlotRecipe = defineSlotRecipe({
       justifyContent: 'space-between',
       flex: '1',
       textAlign: 'start',
-      borderRadius: 'l1',
+      borderRadius: 'control.md',
       _highlighted: {
         bg: 'bg.subtle',
       },

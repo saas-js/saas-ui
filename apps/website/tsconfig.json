@@ -23,6 +23,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "content-collections": ["./.content-collections/generated"],
       "compositions/*": ["../compositions/src/*"],
       "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
       "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],

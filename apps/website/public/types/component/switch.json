@@ -1,4 +1,24 @@
 {
+  "": {
+    "props": {
+      "inputProps": {
+        "type": "React.InputHTMLAttributes<HTMLInputElement>",
+        "isRequired": false
+      },
+      "rootRef": {
+        "type": "React.Ref<HTMLLabelElement>",
+        "isRequired": false
+      },
+      "trackLabel": {
+        "type": "{ on",
+        "isRequired": false
+      },
+      "thumbLabel": {
+        "type": "{ on",
+        "isRequired": false
+      }
+    }
+  },
   "Root": {
     "props": {
       "as": {
@@ -15,22 +35,6 @@
         "type": "boolean",
         "isRequired": false,
         "description": "Whether to remove the component's style."
-      }
-    }
-  },
-  "Indicator": {
-    "props": {
-      "fallback": {
-        "type": "React.ReactNode",
-        "isRequired": false
-      }
-    }
-  },
-  "ThumbIndicator": {
-    "props": {
-      "fallback": {
-        "type": "React.ReactNode",
-        "isRequired": false
       }
     }
   }

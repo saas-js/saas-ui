@@ -1,18 +1,10 @@
 {
-  "NativeSelectRoot": {
+  "NativeSelect": {
     "props": {
       "icon": {
         "type": "React.ReactNode",
         "isRequired": false
       },
-      "disabled": {
-        "type": "boolean",
-        "isRequired": false
-      }
-    }
-  },
-  "NativeSelectField": {
-    "props": {
       "placeholder": {
         "type": "string",
         "isRequired": false

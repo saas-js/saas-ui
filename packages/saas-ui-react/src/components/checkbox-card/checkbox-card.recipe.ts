@@ -8,11 +8,12 @@ export const checkboxCardSlotRecipe = defineSlotRecipe({
   className: 'chakra-checkbox-card',
   base: {
     root: {
+      colorPalette: 'accent',
       display: 'flex',
       flexDirection: 'column',
       userSelect: 'none',
       position: 'relative',
-      borderRadius: 'l2',
+      borderRadius: 'panel.md',
       flex: '1',
       focusVisibleRing: 'outside',
       _disabled: {
@@ -28,7 +29,7 @@ export const checkboxCardSlotRecipe = defineSlotRecipe({
       display: 'inline-flex',
       flex: '1',
       position: 'relative',
-      borderRadius: 'inherit',
+      borderRadius: 'panel.md',
       justifyContent: 'var(--checkbox-card-justify)',
       alignItems: 'var(--checkbox-card-align)',
     },

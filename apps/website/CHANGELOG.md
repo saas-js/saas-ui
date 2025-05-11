@@ -1,5 +1,82 @@
 # @saas-ui/web-v3
 
+## 0.1.1-next.71
+
+### Patch Changes
+
+- Updated dependencies [4f78230]
+  - @saas-ui/react@3.0.0-next.35
+  - @saas-ui/forms@3.0.0-next.35
+  - @saas-ui/modals@3.0.0-next.35
+
+## 0.1.1-next.70
+
+### Patch Changes
+
+- Updated dependencies [964ffa7]
+  - @saas-ui/react@3.0.0-next.34
+  - @saas-ui-pro/react@1.0.0-next.1
+  - @saas-ui/forms@3.0.0-next.34
+  - @saas-ui/modals@3.0.0-next.34
+
+## 0.1.1-next.69
+
+### Patch Changes
+
+- @saas-ui/forms@3.0.0-next.33
+- @saas-ui/modals@3.0.0-next.33
+- @saas-ui/react@3.0.0-next.33
+
+## 0.1.1-next.68
+
+### Patch Changes
+
+- @saas-ui/forms@3.0.0-next.32
+- @saas-ui/modals@3.0.0-next.32
+- @saas-ui/react@3.0.0-next.32
+
+## 0.1.1-next.67
+
+### Patch Changes
+
+- Updated dependencies [121029e]
+- Updated dependencies [121029e]
+  - @saas-ui/hooks@3.0.0-next.2
+  - @saas-ui/modals@3.0.0-next.31
+  - @saas-ui/react@3.0.0-next.31
+  - @saas-ui/forms@3.0.0-next.31
+
+## 0.1.1-next.66
+
+### Patch Changes
+
+- @saas-ui/forms@3.0.0-next.30
+- @saas-ui/modals@3.0.0-next.30
+- @saas-ui/react@3.0.0-next.30
+
+## 0.1.1-next.65
+
+### Patch Changes
+
+- Updated dependencies [495b0c6]
+  - @saas-ui/react@3.0.0-next.29
+  - @saas-ui/forms@3.0.0-next.29
+  - @saas-ui/modals@3.0.0-next.29
+
+## 0.1.1-next.64
+
+### Patch Changes
+
+- Updated dependencies [bab2041]
+- Updated dependencies [8726803]
+- Updated dependencies [b136ede]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [bab2041]
+  - @saas-ui/react@3.0.0-next.28
+  - @saas-ui/forms@3.0.0-next.28
+  - @saas-ui/modals@3.0.0-next.28
+
 ## 0.1.1-next.63
 
 ### Patch Changes

@@ -170,7 +170,6 @@ export type {
   FieldOverrides,
   FormChildren,
   ShallowMerge,
-  StepFormChildren,
   ValueOf,
 } from './types'
 

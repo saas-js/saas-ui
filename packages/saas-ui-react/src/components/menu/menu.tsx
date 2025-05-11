@@ -2,6 +2,7 @@
 
 import { forwardRef } from 'react'
 
+import { Flex } from '@chakra-ui/react'
 import { Menu as ChakraMenu } from '@chakra-ui/react/menu'
 import { Portal } from '@chakra-ui/react/portal'
 
@@ -78,9 +79,11 @@ const MenuItemIndicator = forwardRef<
 >(function MenuItemIndicator(props, ref) {
   const { children = <CheckIcon />, ...rest } = props
   return (
-    <ChakraMenu.ItemIndicator ref={ref} {...rest}>
-      {children}
-    </ChakraMenu.ItemIndicator>
+    <Flex alignItems="center" justifyContent="center" w="4">
+      <ChakraMenu.ItemIndicator ref={ref} {...rest}>
+        {children}
+      </ChakraMenu.ItemIndicator>
+    </Flex>
   )
 })
 

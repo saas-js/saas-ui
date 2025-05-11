@@ -3,15 +3,21 @@
     "props": {
       "colorPalette": {
         "defaultValue": "gray",
-        "type": "\"gray\" | \"red\" | \"orange\" | \"yellow\" | \"green\" | \"teal\" | \"blue\" | \"cyan\" | \"purple\" | \"pink\" | \"accent\"",
+        "type": "\"gray\" | \"zinc\" | \"neutral\" | \"stone\" | \"red\" | \"orange\" | \"amber\" | \"yellow\" | \"lime\" | \"green\" | \"emerald\" | \"teal\" | \"cyan\" | \"sky\" | \"blue\" | \"indigo\" | \"violet\" | \"purple\" | \"fuchsia\" | \"pink\" | \"rose\" | \"presence\" | \"status\" | \"sidebar\" | \"sidebar.accent\" | \"accent\" | \"slate\"",
         "isRequired": false,
         "description": "The color palette of the component"
       },
-      "centered": {
-        "type": "\"true\" | \"false\"",
-        "defaultValue": false,
+      "variant": {
+        "type": "\"dialog\" | \"confirm\"",
+        "defaultValue": "dialog",
         "isRequired": false,
-        "description": "The centered of the component"
+        "description": "The variant of the component"
+      },
+      "placement": {
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "defaultValue": "top",
+        "isRequired": false,
+        "description": "The placement of the component"
       },
       "scrollBehavior": {
         "type": "\"inside\" | \"outside\"",
@@ -20,7 +26,7 @@
         "description": "The scrollBehavior of the component"
       },
       "size": {
-        "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"full\"",
+        "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"cover\" | \"full\"",
         "defaultValue": "md",
         "isRequired": false,
         "description": "The size of the component"

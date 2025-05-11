@@ -19,8 +19,12 @@ export const MenuWithRadioItems = () => {
           value={value}
           onValueChange={(e) => setValue(e.value)}
         >
-          <Menu.RadioItem value="asc">Ascending</Menu.RadioItem>
-          <Menu.RadioItem value="desc">Descending</Menu.RadioItem>
+          <Menu.RadioItem value="asc" startElement={<Menu.ItemIndicator />}>
+            Ascending
+          </Menu.RadioItem>
+          <Menu.RadioItem value="desc" startElement={<Menu.ItemIndicator />}>
+            Descending
+          </Menu.RadioItem>
         </Menu.RadioItemGroup>
       </Menu.Content>
     </Menu.Root>

@@ -15,16 +15,25 @@ import { ButtonLink } from '../link'
 
 const GlobalBanner = () => {
   return (
-    <Banner variant="solid" bg="black" display="flex" justifyContent="center">
+    <Banner
+      variant="solid"
+      // bg="black"
+      colorScheme="primary"
+      display="flex"
+      justifyContent="center"
+      py="1"
+    >
       <BannerContent alignItems="center" justifyContent="center" fontSize="sm">
-        <BannerTitle>We&apos;re live on DevHunt:</BannerTitle>
-        <BannerDescription>tool of the week contest</BannerDescription>
+        <BannerTitle>Saas UI v3 beta is now available!</BannerTitle>
+        <BannerDescription>
+          Check out the new docs and give us feedback on Github
+        </BannerDescription>
         <BannerActions>
           <ButtonLink
-            href="https://devhunt.org/tool/saas-ui"
+            href="https://beta.saas-ui.dev"
             colorScheme="white"
             size="xs"
-            rel="noopener"
+            height="6"
           >
             Check it out
           </ButtonLink>
@@ -66,7 +75,7 @@ const Header = (props: HeaderProps) => {
       }}
       {...rest}
     >
-      {/* <GlobalBanner /> */}
+      <GlobalBanner />
       <Box
         zIndex="1"
         position="relative"

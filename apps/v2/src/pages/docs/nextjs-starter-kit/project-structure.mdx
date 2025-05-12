@@ -11,11 +11,11 @@ The folder structure looks as following:
 
 | Path                       | Package name         | Description                                                                          |
 | -------------------------- | -------------------- | ------------------------------------------------------------------------------------ |
-| `apps/web`                 | web                  | Next.js (app router) frontend app.                                                   |
+| `apps/web`                 | web                  | Next.js (app router) app.                                                            |
 | `apps/web/features/common` |                      | The app's common functionality, for example layouts, that is shared across features. |
 | `apps/web/features/*`      |                      | Domain specific code is grouped within individual features.                          |
 | `packages/api`             | @acme/api            | The tRPC API service.                                                                |
-| `packages/auth-authjs`     | @acme/auth-authjs    | Auth.js (NextAuth) authentication adapter                                            |
+| `packages/better-auth`     | @acme/better-auth    | Better Auth authentication adapter                                                   |
 | `packages/auth-supabase`   | @acme/auth-supabase  | Supabase authentication adapter                                                      |
 | `packages/billing-stripe`  | @acme/billing-stripe | Stripe billing adapter                                                               |
 | `packages/config`          | @acme/config         | Configuration for billing plans and feature flags                                    |

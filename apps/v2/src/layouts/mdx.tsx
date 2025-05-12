@@ -5,6 +5,7 @@ import docsSidebar from '@/data/docs-sidebar'
 import coreSidebar from '@/data/core-sidebar'
 import proSidebar from '@/data/pro-sidebar'
 import nextjsSidebar from '@/data/nextjs-sidebar'
+import tanstackSidebar from '@/data/tanstack-sidebar'
 import guidesSidebar from '@/data/guides-sidebar'
 import * as React from 'react'
 import {
@@ -26,6 +27,7 @@ export function getRoutes(slug: string) {
     '/docs/guides': guidesSidebar,
     '/docs/pro': proSidebar,
     '/docs/nextjs-starter-kit': nextjsSidebar,
+    '/docs/tanstack-router-starter-kit': tanstackSidebar,
     '/blog': { routes: [] },
   }
 

@@ -252,12 +252,13 @@ const Pricing = () => {
         </VStack>
 
         <Stack mb="14" align="center">
-          <Tabs variant="segments" maxW="lg">
+          <Tabs variant="segments" width="full" maxW="xl">
             <TabList justifyContent="stretch">
               <Tab
                 as={Link}
                 href="/pricing"
                 alignItems="flex-start"
+                justifyContent="flex-start"
                 height="auto"
                 py="3"
                 px="3"
@@ -267,7 +268,7 @@ const Pricing = () => {
                 <VStack alignItems="flex-start" spacing="1">
                   <Text>React</Text>
                   <Text size="xs" color="muted" fontWeight="normal">
-                    React component library and Next.js starter kit
+                    React components and starter kits
                   </Text>
                 </VStack>
               </Tab>
@@ -275,6 +276,7 @@ const Pricing = () => {
                 as={Link}
                 href="/pricing/figma"
                 alignItems="flex-start"
+                justifyContent="flex-start"
                 height="auto"
                 py="3"
                 px="3"
@@ -284,7 +286,7 @@ const Pricing = () => {
                 <VStack alignItems="flex-start" spacing="1">
                   <Text>Figma</Text>
                   <Text size="xs" color="muted" fontWeight="normal">
-                    Official Figma design system &amp; UI Kit
+                    Figma design system &amp; UI Kit
                   </Text>
                 </VStack>
               </Tab>
@@ -295,16 +297,15 @@ const Pricing = () => {
         <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
-            description="Basic components, perfect to get started."
+            description="Free components and templates."
             price="Free forever"
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
+              <PricingFeature title="Free blocks" />
               <PricingFeature title="Forms (react-hook-form)" />
               <PricingFeature title="Modals manager" />
               <PricingFeature title="Hotkeys" />
-              <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
             </PricingFeatures>
             <ButtonLink href="/docs" variant="outline" mt="10">
@@ -312,7 +313,7 @@ const Pricing = () => {
             </ButtonLink>
           </PricingBox>
           <PricingBox
-            title="Bootstrap"
+            title="Single license"
             price={
               <HStack>
                 <Text
@@ -320,12 +321,12 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €247,-
+                  €347,-
                 </Text>
-                <Text>€197,-</Text>
+                <Text>€297,-</Text>
               </HStack>
             }
-            description="Single license for developers and small teams."
+            description="For one developer."
           >
             <PricingFeatures>
               <PricingFeature
@@ -340,10 +341,7 @@ const Pricing = () => {
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Next.js starter kit</Text>{' '}
-                    <Tag colorScheme="green" size="sm">
-                      Updated
-                    </Tag>
+                    <Text as="span">Next + Tanstack starter kits</Text>
                   </HStack>
                 }
               />
@@ -383,7 +381,7 @@ const Pricing = () => {
             </ButtonLink>
           </PricingBox>
           <PricingBox
-            title="Startup"
+            title="Team license"
             highlight="primary.500"
             price={
               <HStack>
@@ -397,7 +395,7 @@ const Pricing = () => {
                 <Text>€797,-</Text>
               </HStack>
             }
-            description="Unlimited license for growing teams or agencies."
+            description="For growing teams or agencies."
           >
             <PricingFeatures>
               <PricingFeature
@@ -461,13 +459,7 @@ const Pricing = () => {
 
 const PricingFeatures = ({ children }) => {
   return (
-    <VStack
-      align="stretch"
-      justifyContent="stretch"
-      spacing="4"
-      mb="8"
-      flex="1"
-    >
+    <VStack align="stretch" spacing="4" mb="8" flex="1">
       {children}
     </VStack>
   )
@@ -541,7 +533,7 @@ const PricingBox = ({
       }}
       {...props}
     >
-      <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
+      <Heading as="h3" size="md" fontWeight="bold" fontSize="lg">
         {title}
       </Heading>
       <Box color={useColorModeValue('gray.500', 'gray.400')} fontSize="md">
@@ -565,15 +557,15 @@ const MemberShip = () => {
           <Text>Enterprise</Text>
         </HStack>
       }
-      description="Our experts join your team to help you move faster."
+      description="Get expert support."
       price={
         <Stack spacing="0" mt="-4">
-          <Text fontSize="sm" color="gray.400" fontWeight="medium">
+          <Text fontSize="sm" color="muted" fontWeight="medium">
             Starting at
           </Text>
           <HStack>
             <Text>€4750,-</Text>
-            <Text fontSize="sm" color="gray.400" fontWeight="medium">
+            <Text fontSize="sm" color="muted" fontWeight="medium">
               / month
             </Text>
           </HStack>
@@ -582,8 +574,9 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
-          title={<strong>1 spot available</strong>}
-          iconColor="green.400"
+          title="Custom license pricing"
+          iconColor="cyan.500"
+          help="Customized pricing based on your needs."
         />
         <PricingFeature
           title="One request at a time"
@@ -596,7 +589,7 @@ const MemberShip = () => {
           help="Setup a boilerplate project according to your needs."
         />
         <PricingFeature
-          title="Design-system setup"
+          title="Design system setup"
           iconColor="cyan.500"
           help="Set up you theme based on your brand and design."
         />

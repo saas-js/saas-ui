@@ -1,4 +1,3 @@
-import { blogs } from '@/.velite'
 import { MDXContent } from '@/components/mdx-content'
 import { formatBlogDate, getBlogAuthor } from '@/lib/blog'
 import {
@@ -12,19 +11,23 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { Avatar } from '@saas-ui/react'
+import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 interface Props {
-  params: { slug: string[] }
+  params: Promise<{ slug: string }>
 }
 
 export const generateStaticParams = async () => {
-  return blogs.map((blog) => ({ slug: blog.slug.replace('blog/', '') }))
+  return allBlogs.map((blog) => ({ slug: blog.slug.replace('blog/', '') }))
 }
 
-export const generateMetadata = ({ params }: Props): Metadata => {
-  const blog = blogs.find((blog) => blog.slug === `blog/${params.slug}`)
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const { slug } = await params
+  const blog = allBlogs.find((blog) => blog.slug === `blog/${slug}`)
 
   return {
     title: blog?.title,
@@ -35,23 +38,24 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   }
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const blog = blogs.find((blog) => blog.slug === `blog/${params.slug}`)
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  console.log(slug)
+  const blog = allBlogs.find((blog) => blog.slug === slug)
   if (!blog) return notFound()
 
   return (
-    <Container pb="20" maxW="5xl">
-      <Stack py="8" gap="6">
-        <HStack>
+    <Container py="20" maxW="5xl">
+      <Stack py="8" gap="2">
+        <HStack textStyle="xs" color="fg.subtle">
           <Badge
             variant="subtle"
             textTransform="capitalize"
-            size="lg"
-            colorPalette="teal"
+            colorPalette="primary"
           >
             {blog.type}
           </Badge>
-          <Span color="fg.subtle">·</Span>
+          <Span>·</Span>
           {formatBlogDate(blog.publishedAt)}
         </HStack>
         <Heading size="4xl">{blog.title}</Heading>
@@ -77,7 +81,7 @@ export default function BlogPostPage({ params }: Props) {
         </Stack>
       </Stack>
       <Separator my="10" />
-      <MDXContent code={blog.content} />
+      <MDXContent code={blog.code} />
     </Container>
   )
 }

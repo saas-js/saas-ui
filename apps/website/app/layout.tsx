@@ -1,4 +1,4 @@
-import { docsConfig } from '@/docs.config'
+import { websiteConfig } from '@/website.config'
 import type { Metadata } from 'next'
 import { Figtree, Inter, Outfit, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
@@ -57,10 +57,10 @@ const guton = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: docsConfig.titleTemplate,
-    default: docsConfig.title,
+    template: websiteConfig.titleTemplate,
+    default: websiteConfig.title,
   },
-  description: docsConfig.description,
+  description: websiteConfig.description,
   openGraph: {
     images: '/og-image.png',
   },

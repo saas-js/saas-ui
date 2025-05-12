@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/page-header'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { Toc } from '@/components/toc'
 import { Box, Show, Stack } from '@chakra-ui/react'
-import { allDocs } from 'content-collections'
+import { allPros } from 'content-collections'
 import { getTableOfContents } from 'fumadocs-core/server'
 import { notFound } from 'next/navigation'
 
@@ -19,7 +19,7 @@ interface Props {
 export default async function Page(props: Props) {
   const params = await props.params
 
-  const page = allDocs.find((doc) => {
+  const page = allPros.find((doc) => {
     return doc.slug === params.slug.join('/')
   })
 
@@ -87,11 +87,11 @@ export const generateMetadata = async (props: Props) => {
 }
 
 export function generateStaticParams() {
-  return allDocs.map((item) => ({
+  return allPros.map((item) => ({
     slug: item.slug.split('/').slice(1),
   }))
 }
 
 function getPageBySlug(slug: string[]) {
-  return allDocs.find((doc) => doc.slug === ['docs', ...slug].join('/'))
+  return allPros.find((doc) => doc.slug === ['pro', 'docs', ...slug].join('/'))
 }

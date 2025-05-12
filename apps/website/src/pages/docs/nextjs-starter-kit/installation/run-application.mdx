@@ -23,10 +23,22 @@ ln -s apps/web/.env .env
 mklink apps/web/.env .env
 ```
 
-Then run the following command to start the local database and run database migrations:
+Then run the following command to start the local database:
 
 ```bash
-docker-compose up && yarn db:migrate
+docker-compose up
+```
+
+Generate the initial migration files:
+
+```bash
+yarn db:generate
+```
+
+Run migrate to apply the changes to the database:
+
+```bash
+yarn db:migrate
 ```
 
 To run the Next.js application, run the following command:

@@ -77,6 +77,12 @@ const CustomFooter = () => {
             Products
           </Heading>
           <Stack>
+            <FooterLink href="/docs/tanstack-router-starter-kit">
+              TanStack Router Starter Kit
+            </FooterLink>
+            <FooterLink href="/docs/tanstack-router-starter-kit">
+              TanStack Router Boilerplate
+            </FooterLink>
             <FooterLink href="/nextjs-starter-kit">
               Next.js Starter Kit
             </FooterLink>

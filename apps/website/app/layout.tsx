@@ -81,6 +81,7 @@ export default function RootLayout({
         <Provider>{children}</Provider>
 
         <Script
+          id="productlane-script"
           dangerouslySetInnerHTML={{
             __html: `
               ;((w)=>{const P=(w.Productlane={queue:{}});["set","open","close","toggle","on","off","init"].forEach(m=>{P[m]=(n=>function(){P.queue[n]={args:arguments}})(m)})})(window);
@@ -134,6 +135,7 @@ export default function RootLayout({
           }}
         /> */}
         <Script
+          id="lemon-squeezy-affiliate-config"
           dangerouslySetInnerHTML={{
             __html: `window.lemonSqueezyAffiliateConfig = { store: "saas-ui" };`,
           }}

@@ -1,11 +1,12 @@
-"use client"
+'use client'
 
-import { For, Kbd, Span, useRecipe } from "@chakra-ui/react"
-import { colorPalettes } from "compositions/lib/color-palettes"
-import { PlaygroundTable } from "compositions/lib/playground-table"
+import { For, Kbd, Span, useRecipe } from '@chakra-ui/react'
+
+import { colorPalettes } from '../lib/color-palettes'
+import { PlaygroundTable } from '../lib/playground-table'
 
 export const KbdSizeTable = () => {
-  const recipe = useRecipe({ key: "kbd" })
+  const recipe = useRecipe({ key: 'kbd' })
   return (
     <PlaygroundTable>
       <thead>

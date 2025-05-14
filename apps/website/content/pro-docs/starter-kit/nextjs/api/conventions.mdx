@@ -86,7 +86,7 @@ import { db, users } from '@acme/db'
 import { UpdateUserSchema } from './users.schema'
 
 export const updateUserById = async (
-  input: z.infer<typeof UpdateUserSchema>
+  input: z.infer<typeof UpdateUserSchema>,
 ) => {
   const { id, ...$set } = input
   const result = await db
@@ -109,7 +109,7 @@ We define a router for the `users` module that exposes the `updateProfile` proce
 // packages/api/modules/users/users.router.ts
 import { z } from 'zod'
 
-import { createTRPCRouter, protectedProcedure, TRPCError } from '#trpc'
+import { TRPCError, createTRPCRouter, protectedProcedure } from '#trpc'
 
 import { UpdateUserSchema } from './users.schema.ts'
 import { updateUserById } from './users.service'

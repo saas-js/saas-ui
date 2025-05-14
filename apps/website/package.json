@@ -3,7 +3,7 @@
   "version": "0.1.1-next.71",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo --port 3020",
+    "dev": "next dev --port 3020",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -67,6 +67,7 @@
     "eslint": "^9.23.0",
     "eslint-config-next": "15.2.3",
     "fumadocs-core": "^15.3.0",
+    "next-rspack": "^15.3.2",
     "typescript": "^5.8.2"
   }
 }

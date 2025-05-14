@@ -1,6 +1,7 @@
-import { For, Stack, VStack } from "@chakra-ui/react"
-import { DecorativeBox } from "compositions/lib/decorative-box"
-import { LuBox } from "react-icons/lu"
+import { For, Stack, VStack } from '@chakra-ui/react'
+import { LuBox } from 'react-icons/lu'
+
+import { DecorativeBox } from '../lib/decorative-box'
 
 export const ForWithFallback = () => {
   return (

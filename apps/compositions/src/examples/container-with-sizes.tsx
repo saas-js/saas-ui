@@ -1,7 +1,8 @@
 'use client'
 
 import { Container, For, Stack } from '@chakra-ui/react'
-import { DecorativeBox } from 'compositions/lib/decorative-box'
+
+import { DecorativeBox } from '../lib/decorative-box'
 
 export const ContainerWithSizes = () => {
   return (

@@ -87,11 +87,17 @@ export const generateMetadata = async (props: Props) => {
 }
 
 export function generateStaticParams() {
-  return allPros.map((item) => ({
-    slug: item.slug.split('/').slice(1),
-  }))
+  const paths = allPros.map((item) => {
+    return {
+      slug: item.slug.split('/'),
+    }
+  })
+
+  return paths
 }
 
 function getPageBySlug(slug: string[]) {
-  return allPros.find((doc) => doc.slug === ['pro', 'docs', ...slug].join('/'))
+  return allPros.find((doc) => {
+    return doc.slug === slug.join('/')
+  })
 }

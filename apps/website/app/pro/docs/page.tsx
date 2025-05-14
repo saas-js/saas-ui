@@ -1,5 +1,5 @@
-import DocsPage from './[...slug]/page'
+import { redirect } from 'next/navigation'
 
 export default function Page() {
-  return <DocsPage params={{ slug: ['index'] }} />
+  redirect('/pro/docs/introduction')
 }

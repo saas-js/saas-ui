@@ -1,5 +1,5 @@
 import * as TypographyDocs from 'compositions/lib/typography-token-doc'
-import { Kbd } from '@chakra-ui/react'
+import { Kbd, SimpleGrid } from '@chakra-ui/react'
 import { useMDXComponent } from '@content-collections/mdx/react'
 import { AspectRatioTokenDoc } from 'compositions/lib/aspect-ratio-token-doc'
 import { BorderRadiusTokenDoc } from 'compositions/lib/border-radius-token-doc'
@@ -28,6 +28,7 @@ import { H1, H2, H3, H4 } from './mdx/heading'
 import { Img } from './mdx/image'
 import { Li, Ol, Ul } from './mdx/list'
 import { PropTable } from './mdx/prop-table'
+import { QuickLink } from './mdx/quick-link'
 import { ResourceCard } from './mdx/resource-card'
 import { Steps } from './mdx/steps'
 import { Table } from './mdx/table'
@@ -53,12 +54,15 @@ const sharedComponents = {
   steps: Steps,
   callout: Callout,
   'code-group': CodeGroup,
+  SimpleGrid,
+  Info: Callout,
   Example: Example,
   ExampleTabs: ExampleTabs,
   ExamplePreview: ExamplePreview,
   card: Card,
   'card-group': CardGroup,
   Card,
+  QuickLink,
   PropTable,
   ComponentGrid,
   ResourceCard: ResourceCard,

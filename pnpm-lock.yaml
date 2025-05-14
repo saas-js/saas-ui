@@ -866,19 +866,25 @@ importers:
       '@zag-js/dom-utils':
         specifier: ^0.2.4
         version: 0.2.4
+    devDependencies:
+      '@microsoft/api-extractor':
+        specifier: ^7.52.1
+        version: 7.52.7(@types/node@22.15.17)
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+      jotai:
+        specifier: ^2.12.2
+        version: 2.12.4(@types/react@19.0.12)(react@19.0.0)
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
-    devDependencies:
-      '@microsoft/api-extractor':
-        specifier: ^7.52.1
-        version: 7.52.7(@types/node@22.15.17)
-      jotai:
-        specifier: ^2.12.2
-        version: 2.12.4(@types/react@19.0.12)(react@19.0.0)
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
@@ -1016,13 +1022,19 @@ importers:
       '@saas-ui/hooks':
         specifier: workspace:*
         version: link:../saas-ui-hooks
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
-    devDependencies:
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@19.0.0)
@@ -1033,7 +1045,7 @@ importers:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
       typescript:
-        specifier: ^5.8.2
+        specifier: ^5.8.3
         version: 5.8.3
 
   packages/saas-ui-supabase:
@@ -14893,7 +14905,7 @@ snapshots:
       minimatch: 3.1.2
       natural-compare: 1.4.0
       optionator: 0.9.4
-      zod: 3.24.4
+      zod: 3.24.2
     transitivePeerDependencies:
       - supports-color
 

@@ -10,6 +10,7 @@ import {
   Toast,
   createToaster,
 } from '@chakra-ui/react/toast'
+import '@zag-js/toast'
 
 import { CloseButton } from '../close-button/index.ts'
 import { Spinner } from '../spinner/index.ts'

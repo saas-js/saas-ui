@@ -107,7 +107,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@hookform/resolvers':
         specifier: 4.1.3
         version: 4.1.3(react-hook-form@7.54.2(react@19.0.0))
@@ -174,7 +174,7 @@ importers:
         version: 3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -341,7 +341,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@dnd-kit/core':
         specifier: ^6.3.1
         version: 6.3.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -521,7 +521,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -577,7 +577,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -642,7 +642,7 @@ importers:
     devDependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -691,7 +691,7 @@ importers:
         version: 7.27.1
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -813,7 +813,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -893,7 +893,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -942,7 +942,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -988,7 +988,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/core':
         specifier: workspace:*
         version: link:../saas-ui-core
@@ -1009,7 +1009,7 @@ importers:
         version: 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -1083,7 +1083,7 @@ importers:
         version: 7.27.1(@babel/core@7.27.1)
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -1199,7 +1199,7 @@ importers:
     devDependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -1226,7 +1226,7 @@ importers:
     dependencies:
       '@chakra-ui/react':
         specifier: 3.16.1
-        version: 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -10293,14 +10293,14 @@ snapshots:
 
   '@chakra-ui/charts@3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       recharts: 2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
   '@chakra-ui/cli@3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@clack/prompts': 0.10.1
       '@pandacss/is-valid-prop': 0.53.6
       '@types/cli-table': 0.3.4
@@ -10323,7 +10323,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/is-prop-valid': 1.3.1
@@ -11810,7 +11810,7 @@ snapshots:
 
   '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@saas-ui/react@packages+saas-ui-react)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@floating-ui/react': 0.27.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11820,7 +11820,7 @@ snapshots:
 
   '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@floating-ui/react': 0.27.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11831,7 +11831,7 @@ snapshots:
   '@saas-ui-pro/react@1.0.0-next.2(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@saas-ui/react@packages+saas-ui-react)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@react-hookz/web': 25.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui-pro/onboarding': 1.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@saas-ui/react@packages+saas-ui-react)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11851,7 +11851,7 @@ snapshots:
   '@saas-ui-pro/react@1.0.0-next.2(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@react-hookz/web': 25.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui-pro/onboarding': 1.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11885,7 +11885,7 @@ snapshots:
 
   '@saas-ui/forms@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@hookform/resolvers': 4.1.3(react-hook-form@7.56.3(react@19.0.0))
       '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11901,7 +11901,7 @@ snapshots:
   '@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/hooks': 3.0.0-next.0(react@19.0.0)
@@ -14678,8 +14678,8 @@ snapshots:
       '@typescript-eslint/parser': 8.32.0(eslint@9.26.0)(typescript@5.8.3)
       eslint: 9.26.0
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0)(eslint@9.26.0)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0)
+      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0))(eslint@9.26.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.26.0)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.26.0)
       eslint-plugin-react: 7.37.5(eslint@9.26.0)
       eslint-plugin-react-hooks: 5.2.0(eslint@9.26.0)
@@ -14713,7 +14713,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0)(eslint@9.26.0):
+  eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0))(eslint@9.26.0):
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.4.0
@@ -14724,7 +14724,7 @@ snapshots:
       tinyglobby: 0.2.13
       unrs-resolver: 1.7.2
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.26.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -14742,6 +14742,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0))(eslint@9.26.0))(eslint@9.26.0):
+    dependencies:
+      debug: 3.2.7
+    optionalDependencies:
+      '@typescript-eslint/parser': 8.32.0(eslint@9.26.0)(typescript@5.8.3)
+      eslint: 9.26.0
+      eslint-import-resolver-node: 0.3.9
+      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0))(eslint@9.26.0)
+    transitivePeerDependencies:
+      - supports-color
+
   eslint-module-utils@2.12.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0):
     dependencies:
       debug: 3.2.7
@@ -14751,6 +14762,35 @@ snapshots:
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 4.3.4(eslint-plugin-import@2.31.0)(eslint@9.26.0)
     transitivePeerDependencies:
+      - supports-color
+
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.26.0):
+    dependencies:
+      '@rtsao/scc': 1.1.0
+      array-includes: 3.1.8
+      array.prototype.findlastindex: 1.2.6
+      array.prototype.flat: 1.3.3
+      array.prototype.flatmap: 1.3.3
+      debug: 3.2.7
+      doctrine: 2.1.0
+      eslint: 9.26.0
+      eslint-import-resolver-node: 0.3.9
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0))(eslint@9.26.0))(eslint@9.26.0)
+      hasown: 2.0.2
+      is-core-module: 2.16.1
+      is-glob: 4.0.3
+      minimatch: 3.1.2
+      object.fromentries: 2.0.8
+      object.groupby: 1.0.3
+      object.values: 1.2.1
+      semver: 6.3.1
+      string.prototype.trimend: 1.0.9
+      tsconfig-paths: 3.15.0
+    optionalDependencies:
+      '@typescript-eslint/parser': 8.32.0(eslint@9.26.0)(typescript@5.8.3)
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
       - supports-color
 
   eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.3.4)(eslint@9.26.0):

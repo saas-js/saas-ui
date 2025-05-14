@@ -33,7 +33,7 @@
     "build:tsup": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts ",
     "build:components": "tsup --config tsup.components.config.ts --dts-only",
     "build:types": "tsc --emitDeclarationOnly --outDir dist --project tsconfig.json",
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "build": "tsc --outDir dist --project tsconfig.json",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",

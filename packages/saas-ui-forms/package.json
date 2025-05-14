@@ -37,7 +37,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup && yarn build:zod",
+    "build": "pnpm build:package && pnpm build:yup && pnpm build:zod",
     "build:package": "tsup src/index.ts --config tsup.config.ts",
     "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
     "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",

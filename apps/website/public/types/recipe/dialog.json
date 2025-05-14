@@ -1,0 +1,42 @@
+{
+  "Root": {
+    "props": {
+      "colorPalette": {
+        "defaultValue": "gray",
+        "type": "\"gray\" | \"zinc\" | \"neutral\" | \"stone\" | \"red\" | \"orange\" | \"amber\" | \"yellow\" | \"lime\" | \"green\" | \"emerald\" | \"teal\" | \"cyan\" | \"sky\" | \"blue\" | \"indigo\" | \"violet\" | \"purple\" | \"fuchsia\" | \"pink\" | \"rose\" | \"presence\" | \"status\" | \"sidebar\" | \"sidebar.accent\" | \"accent\" | \"slate\"",
+        "isRequired": false,
+        "description": "The color palette of the component"
+      },
+      "variant": {
+        "type": "\"dialog\" | \"confirm\"",
+        "defaultValue": "dialog",
+        "isRequired": false,
+        "description": "The variant of the component"
+      },
+      "placement": {
+        "type": "\"center\" | \"top\" | \"bottom\"",
+        "defaultValue": "top",
+        "isRequired": false,
+        "description": "The placement of the component"
+      },
+      "scrollBehavior": {
+        "type": "\"inside\" | \"outside\"",
+        "defaultValue": "outside",
+        "isRequired": false,
+        "description": "The scrollBehavior of the component"
+      },
+      "size": {
+        "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"cover\" | \"full\"",
+        "defaultValue": "md",
+        "isRequired": false,
+        "description": "The size of the component"
+      },
+      "motionPreset": {
+        "type": "\"scale\" | \"slide-in-bottom\" | \"slide-in-top\" | \"slide-in-left\" | \"slide-in-right\" | \"none\"",
+        "defaultValue": "scale",
+        "isRequired": false,
+        "description": "The motionPreset of the component"
+      }
+    }
+  }
+}

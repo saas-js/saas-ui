@@ -1,13 +1,15 @@
+import React from 'react'
+
 import {
-  createForm,
   CreateFormProps,
   FormProps,
-  WithFields,
   GetBaseField,
+  WithFields,
+  createForm,
 } from '@saas-ui/forms'
+import { AnyObjectSchema, InferType } from 'yup'
+
 import { yupFieldResolver, yupResolver } from './yup-resolver'
-import { InferType, AnyObjectSchema } from 'yup'
-import React from 'react'
 
 type ResolverArgs = Parameters<typeof yupResolver>
 
@@ -38,7 +40,7 @@ export type YupFormType<
     ExtraOverrides
   > & {
     ref?: React.ForwardedRef<HTMLFormElement>
-  } & ExtraProps
+  } & ExtraProps,
 ) => React.ReactElement) & {
   displayName?: string
   id?: 'YupForm'
@@ -46,9 +48,9 @@ export type YupFormType<
 
 export const createYupForm = <
   FieldDefs,
-  TGetBaseField extends GetBaseField<any> = GetBaseField<any>,
+  TGetBaseField extends GetBaseField = GetBaseField,
 >(
-  options?: CreateYupFormProps<FieldDefs, TGetBaseField>
+  options?: CreateYupFormProps<FieldDefs, TGetBaseField>,
 ) => {
   type ExtraFieldProps =
     TGetBaseField extends GetBaseField<infer ExtraFieldProps>
@@ -60,7 +62,7 @@ export const createYupForm = <
       yupResolver(
         schema,
         options?.schemaOptions,
-        options?.resolverOptions
+        options?.resolverOptions,
       ) as any,
     fieldResolver: yupFieldResolver,
     ...options,

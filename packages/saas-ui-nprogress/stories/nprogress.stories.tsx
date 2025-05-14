@@ -1,18 +1,18 @@
 import * as React from 'react'
-import { Story, Meta } from '@storybook/react'
+
+import { Meta, StoryObj } from '@storybook/react'
 
 import { NProgress } from '../src'
 
 export default {
-  title: 'Components/Feedback/NProgress',
+  title: 'NProgress/NProgress',
   component: NProgress,
 } as Meta
 
-const Template: Story = ({ isAnimating, ...args }) => (
-  <NProgress isAnimating={isAnimating} {...args} />
-)
+type Story = StoryObj<typeof NProgress>
 
-export const Default = Template.bind({})
-Default.args = {
-  isAnimating: true,
+export const Default: Story = {
+  args: {
+    isAnimating: true,
+  },
 }

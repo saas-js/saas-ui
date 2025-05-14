@@ -1,19 +1,15 @@
 import * as React from 'react'
 
 import {
-  chakra,
-  forwardRef,
   HTMLChakraProps,
-  ThemingProps,
-  omitThemingProps,
-  useColorModeValue,
-  useMultiStyleConfig,
-  SystemStyleObject,
+  type SlotRecipeProps,
+  chakra,
+  useSlotRecipe,
 } from '@chakra-ui/react'
-
-import { cx } from '@chakra-ui/utils'
-
+import { cx, dataAttr } from '@saas-ui/core/utils'
 import { useNProgress } from '@tanem/react-nprogress'
+
+import { nprogressSlotRecipe } from './nprogress.recipe.ts'
 
 interface NProgressOptions {
   /**
@@ -25,51 +21,51 @@ interface NProgressOptions {
 export interface NProgressProps
   extends NProgressOptions,
     HTMLChakraProps<'div'>,
-    ThemingProps<'SuiNProgress'> {}
+    SlotRecipeProps<'nprogress'> {}
 /**
  * Show feedback when switching pages and content is loading in the background.
  *
  * @see Docs https://saas-ui.dev/docs/components/feedback/nprogress
  */
-export const NProgress = forwardRef<NProgressProps, 'div'>((props, ref) => {
-  const styles = useMultiStyleConfig('SuiNProgress', props)
+export const NProgress = React.forwardRef<HTMLDivElement, NProgressProps>(
+  (props, ref) => {
+    const { isAnimating, colorPalette = 'accent', ...rest } = props
 
-  const { colorScheme: c } = props
+    const recipe = useSlotRecipe({
+      key: 'nprogress',
+      recipe: nprogressSlotRecipe,
+    })
 
-  const { children, isAnimating, ...containerProps } = omitThemingProps(props)
+    const [variantProps, restProps] = recipe.splitVariantProps({
+      colorPalette,
+      ...rest,
+    })
 
-  const { animationDuration, isFinished, progress } = useNProgress({
-    isAnimating,
-  })
+    const styles = recipe(variantProps)
 
-  const barStyles: SystemStyleObject = {
-    width: '100%',
-    height: '2px',
-    bg: useColorModeValue(`${c}.500`, `${c}.300`),
-    ...styles.bar,
-  }
+    const { animationDuration, isFinished, progress } = useNProgress({
+      isAnimating,
+    })
 
-  return (
-    <chakra.div
-      ref={ref}
-      __css={styles.container}
-      position="fixed"
-      top="0"
-      left="0"
-      width="100%"
-      opacity={isFinished ? 0 : 1}
-      zIndex="overlay"
-      transition={`opacity ${animationDuration}ms linear`}
-      {...containerProps}
-      className={cx('sui-nprogress', props.className)}
-    >
+    return (
       <chakra.div
-        __css={barStyles}
-        ml={`${(-1 + progress) * 100}%;`}
-        transition={`margin-left ${animationDuration}ms linear`}
-      ></chakra.div>
-    </chakra.div>
-  )
-})
+        ref={ref}
+        data-finished={dataAttr(isFinished)}
+        {...restProps}
+        className={cx('sui-nprogress', props.className)}
+        css={[styles.root, props.css]}
+        style={
+          {
+            '--nprogress-duration': `${animationDuration}ms`,
+            '--nprogress-offset': `${(-1 + progress) * 100}%`,
+            ...props.style,
+          } as React.CSSProperties
+        }
+      >
+        <chakra.div css={styles.bar}></chakra.div>
+      </chakra.div>
+    )
+  },
+)
 
 NProgress.displayName = 'NProgress'

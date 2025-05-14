@@ -1,5 +1,15 @@
 # @saas-ui/props-docs
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 6459de4: Removed src exports and files from packages
+
 ## 2.3.2
 
 ### Patch Changes

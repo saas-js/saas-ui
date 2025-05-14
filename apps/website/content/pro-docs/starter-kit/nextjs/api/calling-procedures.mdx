@@ -1,0 +1,135 @@
+---
+title: Calling procedures
+description: Learn how to call queries and mutations in your app.
+---
+
+## Overview
+
+There are two ways to call procedures. In client components we use the `useQuery` and `useMutation` hooks to call the procedures.
+On the server we use the `trpc` api caller to call the procedures directly.
+
+## Client
+
+The client uses [Tanstack Query](https://tanstack.com/query/latest) to manage data fetching and caching.
+
+### useQuery
+
+```tsx
+'use client'
+
+import { api } from '#lib/trpc/react'
+
+export function ContactPage(props: {
+  params: {
+    id: string
+  }
+}) {
+  const { data, isLoading } = api.contacts.byId.useQuery({
+    id,
+  })
+
+  // render the page
+}
+```
+
+### useSuspenseQuery
+
+`useSuspenseQuery` is very useful as it guarantees data to be defined, so you don't have to check for `isLoading` for conditional rendering.
+It also enables you use Next.js streaming to render the page as soon as the data is available.
+
+```tsx
+// in a server component, eg page or layout
+import { Suspense } from 'react'
+import { api, HydrateClient } from '#lib/trpc/rsc'
+import { ContactPage } from '#components/contact-page'
+
+export default async function Page(params: { id: string }) {
+  api.contacts.byId.prefetch({
+    id: params.id,
+  })
+
+  return (
+    <HydrateClient>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ContactPage id={params.id} />
+      </Suspense>
+    </HydrateClient>
+  )
+}
+```
+
+```tsx
+// in a client component
+import { api } from '#lib/trpc/react'
+
+export function ContactPage(props: { id: string }) {
+  const [data] = api.contacts.byId.useSuspenseQuery({
+    id,
+  })
+
+  return <div>{data.name}</div>
+}
+```
+
+### useMutation
+
+```tsx
+'use client'
+
+import { api } from '#lib/trpc/react'
+
+export default function ProfilePage() {
+  const { user } = useAuth()
+
+  const utils = api.useUtils()
+
+  const mutation = api.users.updateProfile.useMutation({
+    onSettled: () => {
+      // Invalidate the user cache, so the updated user is refetched
+      utils.users.invalidate()
+    },
+  })
+
+  return (
+    <button
+      onClick={() => {
+        mutation.mutate({
+          name: 'John Doe',
+        })
+      }}
+    >
+      Save
+    </button>
+  )
+}
+```
+
+## Server
+
+To fetch and use the data on the server, you can use the `caller` object.
+
+```ts
+// app/[slug]/layout.tsx
+import { caller } from '#lib/trpc/rsc'
+
+export default Layout(props: {
+  children: React.ReactNode
+  params: {
+    slug: string
+  }
+}) {
+  const workspace = await caller.workspaces.bySlug({
+    slug: props.params.slug,
+  })
+
+  if (!workspace) {
+    notFound()
+  }
+
+  return (
+    <div>
+      {props.children}
+    </div>
+  )
+}
+```

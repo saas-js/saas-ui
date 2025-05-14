@@ -1,11 +1,12 @@
-import { Box, BoxProps, useTheme } from '@chakra-ui/react'
+import { forwardRef, useId } from 'react'
 
-import { AreaChart, Area, ResponsiveContainer, YAxis } from 'recharts'
+import { Box, BoxProps, useToken } from '@chakra-ui/react'
+import { Area, AreaChart, ResponsiveContainer, YAxis } from 'recharts'
 import type { CurveProps } from 'recharts'
-import { createCategoryColors } from './utils'
-import { useId } from 'react'
 
-export interface SparklineProps extends BoxProps {
+import { createCategoryColors } from './utils'
+
+export interface SparklineProps extends Omit<BoxProps, 'animationDuration'> {
   /**
    * The chart data.
    */
@@ -59,112 +60,117 @@ export interface SparklineProps extends BoxProps {
  * Sparkline
  * @see Docs https://saas-ui.dev/docs/components/visualization/sparkline
  */
-export const Sparkline = (props: SparklineProps) => {
-  const {
-    data = [],
-    categories = ['value'],
-    curveType,
-    colors = ['primary', 'gray'],
-    strokeWidth = 1,
-    variant = 'gradient',
-    showAnimation = false,
-    animationDuration = 500,
-    connectNulls = true,
-    stack = false,
-    ...rest
-  } = props
-  const theme = useTheme()
+export const Sparkline = forwardRef<HTMLDivElement, SparklineProps>(
+  (props, ref) => {
+    const {
+      data = [],
+      categories = ['value'],
+      curveType,
+      colors = ['accent', 'gray'],
+      strokeWidth = 1,
+      variant = 'gradient',
+      showAnimation = false,
+      animationDuration = 500,
+      connectNulls = true,
+      stack = false,
+      ...rest
+    } = props
 
-  const id = useId()
+    const id = useId()
 
-  const categoryColors = createCategoryColors(categories, colors, theme)
-  const getColor = (category: string) => {
-    return categoryColors[category]
-  }
+    const colorTokens = useToken(
+      'colors',
+      colors.map((c) => (c.includes('.') ? c : `${c}.solid`)),
+    )
 
-  const getGradientId = (category: string) => {
-    return `${id}-${category}-gradient`
-  }
+    const categoryColors = createCategoryColors(categories, colorTokens)
 
-  const getFill = (category: string) => {
-    switch (variant) {
-      case 'solid':
-        return getColor(category)
-      case 'gradient':
-        return `url(#${getGradientId(category)})`
-      default:
-        return 'transparent'
+    const getColor = (category: string) => {
+      return categoryColors[category]
     }
-  }
 
-  return (
-    <Box
-      {...rest}
-      sx={{
-        '--sparkline-fill-opacity': '0.2',
-        '--sparkline-gradient-start-opacity': '0.8',
-        '--sparkline-gradient-end-opacity': '0',
-        ...rest.sx,
-      }}
-    >
-      <ResponsiveContainer width="100%" height="100%" minWidth="0">
-        <AreaChart
-          data={data}
-          margin={{ top: 2, right: 0, left: 0, bottom: 0 }}
-        >
-          <defs>
-            {categories.map((category) => (
-              <linearGradient
-                key={category}
-                id={getGradientId(category)}
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop
-                  offset="5%"
-                  stopColor={getColor(category)}
-                  stopOpacity="var(--sparkline-gradient-start-opacity))"
-                />
-                <stop
-                  offset="95%"
-                  stopColor={getColor(category)}
-                  stopOpacity="var(--sparkline-gradient-end-opacity)"
-                />
-              </linearGradient>
-            ))}
-          </defs>
+    const getGradientId = (category: string) => {
+      return `${id}-${category}-gradient`
+    }
 
-          <YAxis
-            tick={false}
-            axisLine={false}
-            width={0}
-            domain={['dataMin', 'dataMax']}
-          />
+    const getFill = (category: string) => {
+      switch (variant) {
+        case 'solid':
+          return getColor(category)
+        case 'gradient':
+          return `url(#${getGradientId(category)})`
+        default:
+          return 'transparent'
+      }
+    }
 
-          {categories.map((category) => (
-            <Area
-              key={category}
-              dataKey={category}
-              stroke={getColor(category)}
-              strokeWidth={strokeWidth}
-              fill={getFill(category)}
-              fillOpacity="var(--sparkline-fill-opacity)"
-              type={curveType}
-              isAnimationActive={showAnimation}
-              animationDuration={animationDuration}
-              connectNulls={connectNulls}
-              stackId={stack ? 'a' : undefined}
+    return (
+      <Box
+        ref={ref}
+        {...rest}
+        css={[
+          {
+            '--sparkline-fill-opacity': '0.2',
+            '--sparkline-gradient-start-opacity': '0.8',
+            '--sparkline-gradient-end-opacity': '0',
+          },
+          rest.css,
+        ]}
+      >
+        <ResponsiveContainer width="100%" height="100%" minWidth="0">
+          <AreaChart
+            data={data}
+            margin={{ top: 2, right: 0, left: 0, bottom: 0 }}
+          >
+            <defs>
+              {categories.map((category) => (
+                <linearGradient
+                  key={category}
+                  id={getGradientId(category)}
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop
+                    offset="5%"
+                    stopColor={getColor(category)}
+                    stopOpacity="var(--sparkline-gradient-start-opacity))"
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor={getColor(category)}
+                    stopOpacity="var(--sparkline-gradient-end-opacity)"
+                  />
+                </linearGradient>
+              ))}
+            </defs>
+
+            <YAxis
+              tick={false}
+              axisLine={false}
+              width={0}
+              domain={['dataMin', 'dataMax']}
             />
-          ))}
-        </AreaChart>
-      </ResponsiveContainer>
-    </Box>
-  )
-}
 
-/**
- * @deprecated Use `Sparkline` instead.
- */
-export const Sparklines = Sparkline
+            {categories.map((category) => (
+              <Area
+                key={category}
+                dataKey={category}
+                stroke={getColor(category)}
+                strokeWidth={strokeWidth}
+                fill={getFill(category)}
+                fillOpacity="var(--sparkline-fill-opacity)"
+                type={curveType}
+                isAnimationActive={showAnimation}
+                animationDuration={animationDuration}
+                connectNulls={connectNulls}
+                stackId={stack ? 'a' : undefined}
+              />
+            ))}
+          </AreaChart>
+        </ResponsiveContainer>
+      </Box>
+    )
+  },
+)

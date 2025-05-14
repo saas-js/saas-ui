@@ -1,17 +1,11 @@
 import * as React from 'react'
-import { RegisterOptions, FieldValues } from 'react-hook-form'
 
-import { FocusableElement } from '@chakra-ui/utils'
-import { useField } from './fields-context'
-import { FieldProps } from './types'
-import { useFieldProps } from './form-context'
+import { FieldValues, RegisterOptions } from 'react-hook-form'
+
 import { InputField } from './default-fields'
-
-export interface Option {
-  value: string
-  label?: string
-  [key: string]: unknown
-}
+import { useField } from './fields-context'
+import { useFieldProps } from './form-context'
+import { FieldProps, type FocusableElement } from './types'
 
 export type FieldRules = Pick<
   RegisterOptions,
@@ -33,18 +27,18 @@ const defaultInputType = 'text'
 export const Field = React.forwardRef(
   <TFieldValues extends FieldValues = FieldValues>(
     props: FieldProps<TFieldValues>,
-    ref: React.ForwardedRef<FocusableElement>
+    ref: React.ForwardedRef<FocusableElement>,
   ) => {
     const { type = defaultInputType, name } = props
     const overrides = useFieldProps(name)
     const InputComponent = useField(overrides?.type || type, InputField)
 
     return <InputComponent ref={ref} {...props} {...overrides} />
-  }
+  },
 ) as (<TFieldValues extends FieldValues>(
   props: FieldProps<TFieldValues> & {
     ref?: React.ForwardedRef<FocusableElement>
-  }
+  },
 ) => React.ReactElement) & {
   displayName?: string
 }

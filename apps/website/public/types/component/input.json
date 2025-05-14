@@ -1,0 +1,10 @@
+{
+  "Input": {
+    "props": {
+      "placeholder": {
+        "type": "React.ReactNode",
+        "isRequired": false
+      }
+    }
+  }
+}

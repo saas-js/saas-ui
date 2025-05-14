@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Guton';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local('Guton'),
+    url('Guton-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Guton';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local('Guton'),
+    url('Guton-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Guton';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local('Guton'),
+    url('Guton-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Guton';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Guton'),
+    url('Guton-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Guton';
+  font-style: normal;
+  font-weight: 800;
+  src:
+    local('Guton'),
+    url('Guton-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Guton';
+  font-style: normal;
+  font-weight: 900;
+  src:
+    local('Guton'),
+    url('Guton-Black.woff') format('woff');
+}

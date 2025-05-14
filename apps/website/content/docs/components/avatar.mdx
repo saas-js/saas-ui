@@ -1,0 +1,78 @@
+---
+title: Avatar
+description: Used to represent user profile picture or initials
+links:
+  source: components/avatar
+  storybook: components-avatar--basic
+  recipe: avatar
+  ark: https://ark-ui.com/react/docs/components/avatar
+---
+
+<ExampleTabs name="avatar-basic" />
+
+## Anatomy
+
+```jsx
+import { Avatar, AvatarGroup } from '@saas-ui/react/avatar'
+```
+
+```jsx
+<AvatarGroup>
+  <Avatar />
+</AvatarGroup>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the avatar
+
+<ExampleTabs name="avatar-with-sizes" />
+
+### Shape
+
+Use the `shape` prop to change the shape of the avatar, from `rounded` to
+`square`
+
+<ExampleTabs name="avatar-with-shape" />
+
+### Fallback
+
+The initials of the name can be used as a fallback when the `src` prop is not
+provided or when the image fails to load.
+
+<ExampleTabs name="avatar-with-fallback" />
+
+### Ring
+
+Use the `outline*` props to add a ring around the avatar
+
+<ExampleTabs name="avatar-with-ring" />
+
+### Group
+
+Use the `Group` component to group multiple avatars together
+
+<ExampleTabs name="avatar-with-group" />
+
+### Stacking
+
+When using the `AvatarGroup` component, you can use the `stacking` prop to
+change the stacking order of the avatars
+
+<ExampleTabs name="avatar-group-with-stacking" />
+
+## Props
+
+### Root
+
+<PropTable component="Avatar" part="Root" />
+
+### Fallback
+
+<PropTable component="Avatar" part="Fallback" />
+
+### Image
+
+<PropTable component="Avatar" part="Image" />

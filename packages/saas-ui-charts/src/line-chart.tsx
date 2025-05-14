@@ -1,26 +1,28 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
+import { Box, type BoxProps, useToken } from '@chakra-ui/react'
 import {
-  LineChart as ReLineChart,
+  CartesianGrid,
+  Legend,
   Line,
+  LineChart as ReLineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from 'recharts'
+import type { LineDot } from 'recharts/types/cartesian/Line'
 import type { CurveType } from 'recharts/types/shape/Curve'
+import { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
-import { createCategoryColors } from './utils'
 import { ChartTooltip } from './tooltip'
 import { BaseChartProps } from './types'
-import { AxisDomain } from 'recharts/types/util/types'
-import type { LineDot } from 'recharts/types/cartesian/Line'
+import { createCategoryColors } from './utils'
 
-export interface LineChartProps extends BaseChartProps {
+export interface LineChartProps
+  extends Omit<BoxProps, 'animationDuration' | 'height'>,
+    BaseChartProps {
   /**
    * Whether to connect null values.
    */
@@ -64,7 +66,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     const {
       data = [],
       categories = [],
-      colors = ['primary'],
+      colors = ['accent'],
       height,
       connectNulls = false,
       curveType = 'linear',
@@ -88,11 +90,16 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       valueFormatter,
       tooltipContent,
       children,
+      ...rest
     } = props
 
-    const theme = useTheme()
+    const colorTokens = useToken(
+      'colors',
+      colors.map((c) => (c.includes('.') ? c : `${c}.solid`)),
+    )
 
-    const categoryColors = createCategoryColors(categories, colors, theme)
+    const categoryColors = createCategoryColors(categories, colorTokens)
+
     const getColor = (category: string) => {
       return categoryColors[category]
     }
@@ -100,14 +107,29 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
     const yAxisDomain: AxisDomain = [minValue, maxValue]
 
     return (
-      <Box ref={ref} height={height} fontSize="sm">
+      <Box
+        ref={ref}
+        height={height}
+        fontSize="sm"
+        {...rest}
+        css={[
+          {
+            '--chart-grid-stroke-opacity': '0.8',
+            '--chart-axis-color': 'var(--chakra-colors-fg-muted)',
+            _dark: {
+              '--chart-grid-stroke-opacity': '0.3',
+            },
+          },
+          props.css,
+        ]}
+      >
         <ResponsiveContainer width="100%" height="100%" minWidth="0">
           <ReLineChart data={data}>
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
                 vertical={false}
-                strokeOpacity={useColorModeValue(0.8, 0.3)}
+                strokeOpacity="var(--chart-grid-stroke-opacity)"
               />
             )}
 
@@ -126,7 +148,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               axisLine={false}
               minTickGap={5}
               style={{
-                color: 'var(--chakra-colors-muted)',
+                color: 'var(--chart-axis-color)',
               }}
             />
 
@@ -143,7 +165,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
               style={{
-                color: 'var(--chakra-colors-muted)',
+                color: 'var(--chart-axis-color)',
               }}
             />
 
@@ -153,12 +175,15 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 content={
                   tooltipContent
                     ? tooltipContent
-                    : (props) => (
-                        <ChartTooltip
-                          {...props}
-                          categoryColors={categoryColors}
-                        />
-                      )
+                    : (props) => {
+                        const { content, ...rest } = props
+                        return (
+                          <ChartTooltip
+                            {...rest}
+                            categoryColors={categoryColors}
+                          />
+                        )
+                      }
                 }
               />
             )}
@@ -200,5 +225,5 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
         </ResponsiveContainer>
       </Box>
     )
-  }
+  },
 )

@@ -1,0 +1,108 @@
+---
+title: Select
+description: Used to pick a value from predefined options.
+links:
+  source: components/select
+  storybook: components-select--basic
+  recipe: select
+  ark: https://ark-ui.com/react/docs/components/select
+---
+
+<ExampleTabs name="select-basic" />
+
+## Anatomy
+
+```jsx
+import { Select } from '@saas-ui/react/select'
+```
+
+```jsx
+<Select.Root items={[]}>
+  <Select.Label />
+  <Select.Trigger>
+    <Select.ValueText placeholder="Select" />
+  </Select.Trigger>
+  <Select.Content>
+    <Select.Item />
+  </Select.Content>
+</Select.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the select component.
+
+<ExampleTabs name="select-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the appearance of the select component.
+
+<ExampleTabs name="select-with-variants" />
+
+### Option Group
+
+Use the `SelectItemGroup` component to group select options.
+
+<ExampleTabs name="select-with-option-group" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the select component.
+
+<ExampleTabs name="select-controlled" />
+
+### Hook Form
+
+Here's an example of how to use the `Select` component with `react-hook-form`.
+
+<ExampleTabs name="select-with-hook-form" />
+
+### Disabled
+
+Use the `disabled` prop to disable the select component.
+
+<ExampleTabs name="select-with-disabled" />
+
+### Invalid
+
+Use the `invalid` prop to indicate that the select component has an error.
+
+<ExampleTabs name="select-with-invalid" />
+
+### Positioning
+
+Use the `positioning` prop to control the underlying `floating-ui` options of
+the select component.
+
+<ExampleTabs name="select-with-positioning" />
+
+### Within Popover
+
+Use the `Select` within a `Popover` component.
+
+<ExampleTabs name="select-in-popover" />
+
+### Avatar Select
+
+Here's an example of how to compose the `Select` and the `Avatar`.
+
+<ExampleTabs name="select-with-avatar" />
+
+### Clear Trigger
+
+Pass the `clearable` prop to the `SelectTrigger`.
+
+<ExampleTabs name="select-with-clear" />
+
+### Overflow
+
+<ExampleTabs name="select-with-overflow" />
+
+## Props
+
+### Root
+
+<PropTable component="Select" part="Root" />

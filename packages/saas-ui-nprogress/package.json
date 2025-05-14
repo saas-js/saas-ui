@@ -67,5 +67,12 @@
     "@saas-ui/core": "workspace:*",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4"
   }
 }

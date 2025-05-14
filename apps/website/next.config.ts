@@ -42,4 +42,4 @@ const nextConfig = {
   },
 } satisfies NextConfig
 
-export default withRspack(withContentCollections(nextConfig))
+export default withContentCollections(nextConfig)

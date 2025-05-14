@@ -23,7 +23,6 @@
     "@radix-ui/react-navigation-menu": "^1.2.9",
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
-    "@saas-ui-pro/react": "next",
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/charts": "workspace:*",
     "@saas-ui/forms": "workspace:*",

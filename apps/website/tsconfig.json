@@ -24,16 +24,16 @@
     "paths": {
       "@/*": ["./*"],
       "content-collections": ["./.content-collections/generated"],
-      "compositions/*": ["../compositions/src/*"],
-      "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
-      "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
-      "@saas-ui/forms": ["../../packages/saas-ui-forms/src/index.ts"],
-      "@saas-ui/charts": ["../../packages/saas-ui-charts/src/index.ts"],
-      "@saas-ui/core": ["../../packages/saas-ui-core/src/index.ts"],
-      "@saas-ui/core/utils": ["../../packages/saas-ui-core/src/utils/index.ts"],
-      "@saas-ui/core/*": ["../../packages/saas-ui-core/src/components/*"],
-      "@saas-ui/assets": ["../../packages/saas-ui-assets/src/index.ts"],
-      "@saas-ui/hooks": ["../../packages/saas-ui-hooks/src/index.ts"]
+      "compositions/*": ["../compositions/src/*"]
+      // "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
+      // "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
+      // "@saas-ui/forms": ["../../packages/saas-ui-forms/src/index.ts"],
+      // "@saas-ui/charts": ["../../packages/saas-ui-charts/src/index.ts"],
+      // "@saas-ui/core": ["../../packages/saas-ui-core/src/index.ts"],
+      // "@saas-ui/core/utils": ["../../packages/saas-ui-core/src/utils/index.ts"],
+      // "@saas-ui/core/*": ["../../packages/saas-ui-core/src/components/*"],
+      // "@saas-ui/assets": ["../../packages/saas-ui-assets/src/index.ts"],
+      // "@saas-ui/hooks": ["../../packages/saas-ui-hooks/src/index.ts"]
     },
     "target": "ES2017"
   },

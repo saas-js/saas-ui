@@ -37,7 +37,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup && yarn build:zod",
+    "build": "pnpm build:package && pnpm build:yup && pnpm build:zod",
     "build:package": "tsup src/index.ts --config tsup.config.ts",
     "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
     "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",
@@ -97,8 +97,12 @@
   "devDependencies": {
     "tsd": "^0.31.2",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "typescript": "^5.8.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4"
   },
   "tsd": {
     "directory": "tests"

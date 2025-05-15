@@ -1,7 +1,8 @@
-import { getBaseUrl } from "../shared"
-import { default as docs } from ".velite/docs.json"
+import { allDocs as docs } from 'content-collections'
 
-export const dynamic = "force-static"
+import { getBaseUrl } from '../shared'
+
+export const dynamic = 'force-static'
 
 export async function GET() {
   const baseUrl = `${getBaseUrl()}/llms-component`
@@ -10,11 +11,11 @@ export async function GET() {
   docs
     .filter(
       (doc) =>
-        doc.slug.startsWith("docs/components/") &&
-        !doc.slug.includes("concepts"),
+        doc.slug.startsWith('docs/components/') &&
+        !doc.slug.includes('concepts'),
     )
     .forEach((doc) => {
-      const parts = doc.slug.split("/")
+      const parts = doc.slug.split('/')
       const component = parts[2]
       components.add({
         id: component,
@@ -25,8 +26,8 @@ export async function GET() {
 
   return Response.json(Array.from(components), {
     headers: {
-      "Content-Type": "application/json",
-      "Cache-Control": "public, max-age=3600",
+      'Content-Type': 'application/json',
+      'Cache-Control': 'public, max-age=3600',
     },
   })
 }

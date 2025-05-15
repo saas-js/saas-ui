@@ -64,10 +64,10 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
       />
       <script
         dangerouslySetInnerHTML={{
-          __html: `window.lemonSqueezyAffiliateConfig = { store: "saas-ui" };`,
+          __html: `window.lemonSqueezyAffiliateConfig = { store: "saas-ui", debug: true };`,
         }}
       />
-      <script src="https://lmsqueezy.com/affiliate.js" defer></script>
+      <script src="https://lmsqueezy.com/affiliate.js" async></script>
     </>
   )
 }

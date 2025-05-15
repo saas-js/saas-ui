@@ -153,6 +153,7 @@ export interface AuthContextValue<TUser extends User = DefaultUser> {
   logOut: (options?: AuthOptions) => Promise<unknown>
   loadUser: () => void
   getToken?: () => Promise<AuthToken>
+  error: unknown | null
 }
 
 const createAuthContext = <TUser extends User = DefaultUser>() => {
@@ -180,6 +181,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
   const [isLoading, setLoading] = useState(true)
   const restoreRef = React.useRef(false)
   const isFetchingRef = React.useRef(false)
+  const [error, setError] = useState<Error | unknown | null>(null)
 
   useEffect(() => {
     if (onAuthStateChange) {
@@ -212,6 +214,8 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
         return
       }
 
+      setError(null)
+
       if (
         (typeof onGetToken === 'undefined' || (await onGetToken())) &&
         !isFetchingRef.current
@@ -227,7 +231,8 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
           setUser(null)
         }
       }
-    } catch {
+    } catch (error: unknown) {
+      setError(error)
       setAuthenticated(false)
       setUser(null)
     } finally {
@@ -326,6 +331,7 @@ export const AuthProvider = <TUser extends User = DefaultUser>({
     getToken,
     resetPassword,
     updatePassword,
+    error,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

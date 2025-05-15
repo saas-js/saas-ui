@@ -1,10 +1,10 @@
 import { Box } from '@chakra-ui/react'
 import Link, { type LinkProps } from 'next/link'
 
-export const Anchor = (props: LinkProps) => {
+export const Anchor = (props: LinkProps & { children: React.ReactNode }) => {
   return (
     <Box
-      // asChild
+      asChild
       css={{
         color: 'fg',
         textDecoration: 'underline',

@@ -4,14 +4,12 @@ import { MDXPagination } from '@/components/mdx-pagination'
 import { PageHeader } from '@/components/page-header'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { Toc } from '@/components/toc'
-import { docsConfig } from '@/docs.config'
-import { flattenToc } from '@/lib/flatten-toc'
 import { Box, Show, Stack } from '@chakra-ui/react'
 import { allDocs } from 'content-collections'
 import { getTableOfContents } from 'fumadocs-core/server'
-import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import { docsConfig } from '../docs.config'
 import { SidebarEnd } from '../sidebar'
 
 interface Props {
@@ -24,7 +22,7 @@ export default async function Page(props: Props) {
   const page = allDocs.find((doc) => {
     return doc.slug === params.slug.join('/')
   })
-  console.log(page)
+
   if (!page) {
     return notFound()
   }

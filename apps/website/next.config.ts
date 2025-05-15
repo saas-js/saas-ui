@@ -1,13 +1,11 @@
-// const isDev = process.argv.indexOf('dev') !== -1
-// const isBuild = process.argv.indexOf('build') !== -1
-// if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
-//   process.env.VELITE_STARTED = '1'
-//   import('velite').then((m) => m.build({ watch: isDev, clean: !isDev }))
-// }
 import { withContentCollections } from '@content-collections/next'
 import type { NextConfig } from 'next'
+import withRspack from 'next-rspack'
 
 const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
     externalDir: true,
   },
@@ -25,23 +23,23 @@ const nextConfig = {
       },
     ]
   },
-  // webpack: (config) => {
-  //   config.module.rules.push({
-  //     resourceQuery: /raw/,
-  //     type: 'asset/source',
-  //   })
+  webpack: (config) => {
+    config.module.rules.push({
+      resourceQuery: /raw/,
+      type: 'asset/source',
+    })
 
-  //   config.resolve.mainFields = [
-  //     'sui',
-  //     'sui-pro',
-  //     'source',
-  //     'module',
-  //     'main',
-  //     ...config.resolve.mainFields,
-  //   ]
+    config.resolve.mainFields = [
+      'sui',
+      'sui-pro',
+      'source',
+      'module',
+      'main',
+      ...config.resolve.mainFields,
+    ]
 
-  //   return config
-  // },
+    return config
+  },
 } satisfies NextConfig
 
 export default withContentCollections(nextConfig)

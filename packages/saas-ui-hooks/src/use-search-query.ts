@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { useControllableState } from '@chakra-ui/react'
+import { useControllableState } from './use-controllable-state'
 
 const regExpSyntaxCharacter = /[.*+?^${}()|[\]\\]/g
 

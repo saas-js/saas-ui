@@ -1,4 +1,4 @@
-import { default as docs } from '.velite/docs.json'
+import { allDocs as docs } from 'content-collections'
 
 export const dynamic = 'force-static'
 

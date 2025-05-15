@@ -5,23 +5,24 @@ tags: ['nextjs', 'app']
 category: frameworks
 ---
 
+<Info>
+  These docs are for Chakra UI v2. For v3 docs, please see [Saas UI v3
+  beta](https://beta.saas-ui.dev).
+</Info>
+
 ### Installation
 
 In your Next.js project, install Saas UI and its peer dependencies:
 
 <PackageManagers
   command={{
-    npm: 'npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
-    yarn: 'yarn add @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
-    pnpm: 'pnpm add @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
+    npm: 'npm i @saas-ui/react @chakra-ui/react@^2 @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
+    yarn: 'yarn add @saas-ui/react @chakra-ui/react@^2 @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
+    pnpm: 'pnpm add @saas-ui/react @chakra-ui/react@^2 @chakra-ui/next-js @emotion/react @emotion/styled framer-motion',
   }}
 />
 
 ### Setup Provider
-
-Next.js 13 introduced a new `app/` directory / folder structure. By default it
-uses Server Components. However, **Chakra UI only works in client-side
-components**.
 
 Saas UI and Chakra UI have added `use client` directive to the top of all
 components so they are automatically treated as client-side components.

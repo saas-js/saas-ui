@@ -11,7 +11,11 @@ overrides:
   '@types/react': 19.0.12
   '@types/react-dom': 19.0.4
   '@emotion/react': 11.11.1
+<<<<<<< HEAD
   '@chakra-ui/react': 3.17.0
+=======
+  '@chakra-ui/react': 3.16.1
+>>>>>>> upstream/v3
   '@ark-ui/react': 5.6.0
 
 importers:
@@ -20,7 +24,11 @@ importers:
     devDependencies:
       '@chakra-ui/cli':
         specifier: ^3.14.0
+<<<<<<< HEAD
         version: 3.17.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+=======
+        version: 3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+>>>>>>> upstream/v3
       '@changesets/cli':
         specifier: ^2.28.1
         version: 2.29.3
@@ -75,6 +83,12 @@ importers:
       lint-staged:
         specifier: ^15.5.0
         version: 15.5.2
+<<<<<<< HEAD
+=======
+      next:
+        specifier: ^15.3.2
+        version: 15.3.2(@babel/core@7.27.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -101,13 +115,22 @@ importers:
         version: 1.0.10
       vitest:
         specifier: ^3.0.9
+<<<<<<< HEAD
         version: 3.1.3(@types/debug@4.1.12)(@types/node@22.15.17)(jsdom@26.1.0)(tsx@4.19.4)(yaml@2.7.1)
+=======
+        version: 3.1.3(@types/debug@4.1.12)(@types/node@22.15.17)(jsdom@26.1.0)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
 
   apps/compositions:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@hookform/resolvers':
         specifier: 4.1.3
         version: 4.1.3(react-hook-form@7.54.2(react@19.0.0))
@@ -171,10 +194,17 @@ importers:
         version: 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@chakra-ui/charts':
         specifier: ^3.15.0
+<<<<<<< HEAD
         version: 3.17.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@chakra-ui/react':
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@chakra-ui/react':
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -190,9 +220,12 @@ importers:
       '@react-three/fiber':
         specifier: ^9.1.0
         version: 9.1.2(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.174.0)
+<<<<<<< HEAD
       '@saas-ui-pro/react':
         specifier: ^1.0.0-next.2
         version: 1.0.0-next.2(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@saas-ui/react@packages+saas-ui-react)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+>>>>>>> upstream/v3
       '@saas-ui/assets':
         specifier: workspace:*
         version: link:../../packages/saas-ui-assets
@@ -227,7 +260,11 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       next:
+<<<<<<< HEAD
         specifier: ^15.3.1
+=======
+        specifier: ^15.3.2
+>>>>>>> upstream/v3
         version: 15.3.2(@babel/core@7.27.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next-themes:
         specifier: 0.4.6
@@ -241,6 +278,7 @@ importers:
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
       react-frame-component:
         specifier: ^5.2.7
         version: 5.2.7(prop-types@15.8.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -253,6 +291,11 @@ importers:
       react-use:
         specifier: ^17.6.0
         version: 17.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+      react-icons:
+        specifier: 5.5.0
+        version: 5.5.0(react@19.0.0)
+>>>>>>> upstream/v3
       recharts:
         specifier: ^2.15.2
         version: 2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -326,6 +369,12 @@ importers:
       fumadocs-core:
         specifier: ^15.3.0
         version: 15.3.0(@types/react@19.0.12)(next@15.3.2(@babel/core@7.27.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+<<<<<<< HEAD
+=======
+      next-rspack:
+        specifier: ^15.3.2
+        version: 15.3.2(@swc/helpers@0.5.17)
+>>>>>>> upstream/v3
       typescript:
         specifier: ^5.8.2
         version: 5.8.3
@@ -346,8 +395,13 @@ importers:
   packages/pro/packages/blocks:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@dnd-kit/core':
         specifier: ^6.3.1
         version: 6.3.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -365,13 +419,21 @@ importers:
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@saas-ui-pro/react':
         specifier: ^1.0.0-next.0
+<<<<<<< HEAD
         version: 1.0.0-next.2(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 1.0.0-next.2(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@saas-ui/assets':
         specifier: ^2.0.0-next.0
         version: 2.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/react':
         specifier: ^3.0.0-next.0
+<<<<<<< HEAD
         version: 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@saas-ui/registry':
         specifier: workspace:*
         version: link:../registry
@@ -526,8 +588,13 @@ importers:
   packages/pro/packages/kanban:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -536,7 +603,11 @@ importers:
         version: link:../kanban-core
       '@saas-ui/react':
         specifier: ^3.0.0-next.0
+<<<<<<< HEAD
         version: 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
     devDependencies:
       react:
         specifier: 19.0.0
@@ -582,8 +653,13 @@ importers:
   packages/pro/packages/onboarding:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -595,7 +671,11 @@ importers:
         version: 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/react':
         specifier: ^3.0.0-next.0
+<<<<<<< HEAD
         version: 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
     devDependencies:
       react:
         specifier: 19.0.0
@@ -626,7 +706,11 @@ importers:
         version: 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/forms':
         specifier: 3.0.0-next.0
+<<<<<<< HEAD
         version: 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@saas-ui/hooks':
         specifier: 3.0.0-next.0
         version: 3.0.0-next.0(react@19.0.0)
@@ -647,8 +731,13 @@ importers:
         version: 4.3.1
     devDependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -657,7 +746,11 @@ importers:
         version: 7.3.0
       '@saas-ui/react':
         specifier: ^3.0.0-next.0
+<<<<<<< HEAD
         version: 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -696,8 +789,13 @@ importers:
         specifier: ^7.26.10
         version: 7.27.1
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -709,7 +807,11 @@ importers:
         version: link:../react
       '@saas-ui/react':
         specifier: 3.0.0-next.0
+<<<<<<< HEAD
         version: 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        version: 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@storybook/addon-a11y':
         specifier: ^8.6.6
         version: 8.6.12(storybook@8.6.9(prettier@3.5.3))
@@ -727,7 +829,11 @@ importers:
         version: 8.6.12(storybook@8.6.9(prettier@3.5.3))
       '@storybook/builder-vite':
         specifier: ^8.6.6
+<<<<<<< HEAD
         version: 8.6.12(storybook@8.6.9(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+        version: 8.6.12(storybook@8.6.9(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       '@storybook/cli':
         specifier: ^8.6.6
         version: 8.6.12(@babel/preset-env@7.27.2(@babel/core@7.27.1))(prettier@3.5.3)
@@ -742,13 +848,21 @@ importers:
         version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)
       '@storybook/react-vite':
         specifier: ^8.6.6
+<<<<<<< HEAD
         version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.2)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+        version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.2)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       '@storybook/theming':
         specifier: ^8.6.6
         version: 8.6.12(storybook@8.6.9(prettier@3.5.3))
       '@vitejs/plugin-react':
         specifier: ^4.3.4
+<<<<<<< HEAD
         version: 4.4.1(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+        version: 4.4.1(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       chromatic:
         specifier: ^11.27.0
         version: 11.28.2
@@ -775,28 +889,64 @@ importers:
         version: 8.6.9(prettier@3.5.3)
       vite:
         specifier: ^6.2.2
+<<<<<<< HEAD
         version: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
 
   packages/saas-ui-assets:
     dependencies:
+=======
+        version: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+
+  packages/saas-ui-assets:
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
 
   packages/saas-ui-auth-provider:
     dependencies:
+=======
+      tsup:
+        specifier: ^8.4.0
+        version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  packages/saas-ui-auth-provider:
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
     devDependencies:
       typescript:
         specifier: ^5.8.2
+=======
+      typescript:
+        specifier: ^5.8.3
+>>>>>>> upstream/v3
         version: 5.8.3
 
   packages/saas-ui-auth0:
@@ -804,16 +954,20 @@ importers:
       '@saas-ui/auth-provider':
         specifier: workspace:*
         version: link:../saas-ui-auth-provider
+<<<<<<< HEAD
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+=======
+>>>>>>> upstream/v3
     devDependencies:
       '@auth0/auth0-spa-js':
         specifier: 2.1.3
         version: 2.1.3
+<<<<<<< HEAD
 
   packages/saas-ui-charts:
     dependencies:
@@ -823,25 +977,72 @@ importers:
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
+=======
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
+=======
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  packages/saas-ui-charts:
+    dependencies:
+      '@chakra-ui/react':
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@emotion/react':
+        specifier: 11.11.1
+        version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
+>>>>>>> upstream/v3
       recharts:
         specifier: ^2.15.1
         version: 2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
+<<<<<<< HEAD
+=======
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
+<<<<<<< HEAD
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
+=======
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      tsup:
+        specifier: ^8.4.0
+        version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
 
   packages/saas-ui-clerk:
     dependencies:
@@ -851,12 +1052,28 @@ importers:
       '@saas-ui/auth-provider':
         specifier: workspace:*
         version: link:../saas-ui-auth-provider
+<<<<<<< HEAD
+=======
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
+=======
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
 
   packages/saas-ui-core:
     dependencies:
@@ -875,12 +1092,29 @@ importers:
       '@zag-js/dom-utils':
         specifier: ^0.2.4
         version: 0.2.4
+<<<<<<< HEAD
+=======
+    devDependencies:
+      '@microsoft/api-extractor':
+        specifier: ^7.52.1
+        version: 7.52.7(@types/node@22.15.17)
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+      jotai:
+        specifier: ^2.12.2
+        version: 2.12.4(@types/react@19.0.12)(react@19.0.0)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
     devDependencies:
       '@microsoft/api-extractor':
         specifier: ^7.52.1
@@ -888,6 +1122,8 @@ importers:
       jotai:
         specifier: ^2.12.2
         version: 2.12.4(@types/react@19.0.12)(react@19.0.0)
+=======
+>>>>>>> upstream/v3
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
@@ -898,8 +1134,13 @@ importers:
   packages/saas-ui-forms:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -915,12 +1156,15 @@ importers:
       '@standard-schema/spec':
         specifier: ^1.0.0
         version: 1.0.0
+<<<<<<< HEAD
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+=======
+>>>>>>> upstream/v3
       react-hook-form:
         specifier: ^7.55.0
         version: 7.56.3(react@19.0.0)
@@ -928,6 +1172,21 @@ importers:
         specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
+<<<<<<< HEAD
+=======
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+>>>>>>> upstream/v3
       tsd:
         specifier: ^0.31.2
         version: 0.31.2
@@ -935,6 +1194,7 @@ importers:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
       typescript:
+<<<<<<< HEAD
         specifier: ^5.8.2
         version: 5.8.3
 
@@ -943,12 +1203,39 @@ importers:
       react:
         specifier: 19.0.0
         version: 19.0.0
+=======
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  packages/saas-ui-hooks:
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
 
   packages/saas-ui-modals:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -967,13 +1254,29 @@ importers:
       '@saas-ui/react':
         specifier: workspace:*
         version: link:../saas-ui-react
+<<<<<<< HEAD
+=======
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
     devDependencies:
+=======
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
       yup:
         specifier: ^1.6.1
         version: 1.6.1
@@ -982,31 +1285,63 @@ importers:
         version: 3.24.2
 
   packages/saas-ui-modals-provider:
+<<<<<<< HEAD
     dependencies:
+=======
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
+=======
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
 
   packages/saas-ui-nprogress:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@saas-ui/core':
         specifier: workspace:*
         version: link:../saas-ui-core
       '@tanem/react-nprogress':
         specifier: ^5.0.55
         version: 5.0.55(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+<<<<<<< HEAD
+=======
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
 
   packages/saas-ui-palette:
     dependencies:
@@ -1023,6 +1358,11 @@ importers:
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
+=======
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
 
   packages/saas-ui-react:
     dependencies:
@@ -1030,8 +1370,13 @@ importers:
         specifier: 5.6.0
         version: 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -1041,13 +1386,26 @@ importers:
       '@saas-ui/hooks':
         specifier: workspace:*
         version: link:../saas-ui-hooks
+<<<<<<< HEAD
+=======
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
     devDependencies:
+=======
+>>>>>>> upstream/v3
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@19.0.0)
@@ -1058,7 +1416,11 @@ importers:
         specifier: ^8.4.0
         version: 8.4.0(@microsoft/api-extractor@7.52.7(@types/node@22.15.17))(@swc/core@1.11.24(@swc/helpers@0.5.17))(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
       typescript:
+<<<<<<< HEAD
         specifier: ^5.8.2
+=======
+        specifier: ^5.8.3
+>>>>>>> upstream/v3
         version: 5.8.3
 
   packages/saas-ui-supabase:
@@ -1066,25 +1428,61 @@ importers:
       '@saas-ui/auth-provider':
         specifier: workspace:*
         version: link:../saas-ui-auth-provider
+<<<<<<< HEAD
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+=======
+>>>>>>> upstream/v3
     devDependencies:
       '@supabase/supabase-js':
         specifier: ^2.49.2
         version: 2.49.4
+<<<<<<< HEAD
 
   packages/saas-ui-use-hotkeys:
     dependencies:
+=======
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       react:
         specifier: 19.0.0
         version: 19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+<<<<<<< HEAD
+=======
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  packages/saas-ui-use-hotkeys:
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+>>>>>>> upstream/v3
 
   packages/storybook:
     dependencies:
@@ -1104,14 +1502,23 @@ importers:
         specifier: ^7.27.0
         version: 7.27.1(@babel/core@7.27.1)
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@emotion/styled':
         specifier: ^11.14.0
+<<<<<<< HEAD
         version: 11.14.0(@emotion/react@11.11.1(react@19.0.0))(react@19.0.0)
+=======
+        version: 11.14.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@types/react@19.0.12)(react@19.0.0)
+>>>>>>> upstream/v3
       '@fontsource-variable/inter':
         specifier: ^5.2.5
         version: 5.2.5
@@ -1156,7 +1563,11 @@ importers:
         version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)
       '@storybook/react-vite':
         specifier: ^8.6.9
+<<<<<<< HEAD
         version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.2)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+        version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.2)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       '@storybook/types':
         specifier: ^8.6.9
         version: 8.6.12(storybook@8.6.9(prettier@3.5.3))
@@ -1165,7 +1576,11 @@ importers:
         version: 1.11.24(@swc/helpers@0.5.17)
       '@vitejs/plugin-react':
         specifier: ^4.3.4
+<<<<<<< HEAD
         version: 4.4.1(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+        version: 4.4.1(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       framer-motion:
         specifier: ^11.18.2
         version: 11.18.2(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1180,11 +1595,25 @@ importers:
         version: 5.8.3
       vite:
         specifier: ^6.2.3
+<<<<<<< HEAD
         version: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
       vite-tsconfig-paths:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
     devDependencies:
+=======
+        version: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+      vite-tsconfig-paths:
+        specifier: ^5.1.4
+        version: 5.1.4(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.12
+        version: 19.0.12
+      '@types/react-dom':
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.12)
+>>>>>>> upstream/v3
       storybook:
         specifier: 8.6.9
         version: 8.6.9(prettier@3.5.3)
@@ -1220,14 +1649,23 @@ importers:
         version: 19.0.0(react@19.0.0)
     devDependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@emotion/styled':
         specifier: ^11.14.0
+<<<<<<< HEAD
         version: 11.14.0(@emotion/react@11.11.1(react@19.0.0))(react@19.0.0)
+=======
+        version: 11.14.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@types/react@19.0.12)(react@19.0.0)
+>>>>>>> upstream/v3
       '@saas-ui/react':
         specifier: workspace:*
         version: link:../../packages/saas-ui-react
@@ -1247,8 +1685,13 @@ importers:
   tooling/test-utils:
     dependencies:
       '@chakra-ui/react':
+<<<<<<< HEAD
         specifier: 3.17.0
         version: 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+        specifier: 3.16.1
+        version: 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@19.0.12)(react@19.0.0)
@@ -1903,7 +2346,11 @@ packages:
   '@chakra-ui/charts@3.17.0':
     resolution: {integrity: sha512-F0hmiGM6S3mILB168NCGbgNEXWjM6edpoNf5K1rEQ4OtifjRAL8SLRePh0fs9J2YNQh59S702laa+arATad9MA==}
     peerDependencies:
+<<<<<<< HEAD
       '@chakra-ui/react': 3.17.0
+=======
+      '@chakra-ui/react': 3.16.1
+>>>>>>> upstream/v3
       react: 19.0.0
       react-dom: 19.0.0
       recharts: '>=2'
@@ -1912,10 +2359,17 @@ packages:
     resolution: {integrity: sha512-930P5aUP9yDI/59amE4FyO4gnq3zqLAGHEg0BCtGRjB/DlfjOurz/RJMvMU853L9KVfdGt+i5OWeV2upq9mSkg==}
     hasBin: true
     peerDependencies:
+<<<<<<< HEAD
       '@chakra-ui/react': 3.17.0
 
   '@chakra-ui/react@3.17.0':
     resolution: {integrity: sha512-b6syn8PTCAEqXQa52KtVFs2lAavFTldb2SkBbAqmrlWQyE58jTxpgxaEsYsqQxq/bljwC0xHsh5/ACU7Xwr6sA==}
+=======
+      '@chakra-ui/react': 3.16.1
+
+  '@chakra-ui/react@3.16.1':
+    resolution: {integrity: sha512-LOfPrI2L2JdFo1tt/7C+WLJj8NCyZMviWhaRPIY5/oirmvhMuGF+xUTtR+6iKUBk0QcH2ZRsDHbuhtAxCoco0w==}
+>>>>>>> upstream/v3
     peerDependencies:
       '@emotion/react': 11.11.1
       react: 19.0.0
@@ -2347,9 +2801,12 @@ packages:
   '@floating-ui/dom@1.6.13':
     resolution: {integrity: sha512-umqzocjDgNRGTuO7Q8CU32dkHkECqI8ZdMZ5Swb6QAM0t5rnlrN3lGo1hdpscRd3WS8T6DKYK4ephgIH9iRh3w==}
 
+<<<<<<< HEAD
   '@floating-ui/dom@1.7.0':
     resolution: {integrity: sha512-lGTor4VlXcesUMh1cupTUTDoCxMb0V6bm3CnxHzQcw8Eaf1jQbgQX4i02fYgT0vJ82tb5MZ4CZk1LRGkktJCzg==}
 
+=======
+>>>>>>> upstream/v3
   '@floating-ui/react-dom@2.1.2':
     resolution: {integrity: sha512-06okr5cgPzMNBy+Ycse2A6udMi4bqwW/zgBF/rwjcNqWkyr82Mcg8b0vjX8OJpZFy/FKjJmw6wV7t44kK6kW7A==}
     peerDependencies:
@@ -2560,6 +3017,12 @@ packages:
     resolution: {integrity: sha512-R8gLRTZeyp03ymzP/6Lil/28tGeGEzhx1q2k703KGWRAI1VdvPIXdG70VJc2pAMw3NA6JKL5hhFu1sJX0Mnn/A==}
     engines: {node: '>=6.0.0'}
 
+<<<<<<< HEAD
+=======
+  '@jridgewell/source-map@0.3.6':
+    resolution: {integrity: sha512-1ZJTZebgqllO79ue2bm3rIGud/bOe0pP5BjSRCRxxYkEZS8STV7zN84UBbiYu7jy+eCKSnVIUgoWWE/tt+shMQ==}
+
+>>>>>>> upstream/v3
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
@@ -2621,6 +3084,27 @@ packages:
     resolution: {integrity: sha512-9LfmxKTb1v+vUS1/emSk1f5ePmTLkb9Le9AxOB5T0XM59EUumwcS45z05h7aiZx3GI0Bl7mjb3FMEglYj+acuQ==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
+=======
+  '@module-federation/error-codes@0.11.2':
+    resolution: {integrity: sha512-ik1Qnn0I+WyEdprTck9WGlH41vGsVdUg8cfO+ZM02qOb2cZm5Vu3SlxGAobj6g7uAj0g8yINnd7h7Dci40BxQA==}
+
+  '@module-federation/runtime-core@0.11.2':
+    resolution: {integrity: sha512-dia5kKybi6MFU0s5PgglJwN27k7n9Sf69Cy5xZ4BWaP0qlaXTsxHKO0PECHNt2Pt8jDdyU29sQ4DwAQfxpnXJQ==}
+
+  '@module-federation/runtime-tools@0.11.2':
+    resolution: {integrity: sha512-4MJTGAxVq6vxQRkTtTlH7Mm9AVqgn0X9kdu+7RsL7T/qU+jeYsbrntN2CWG3GVVA8r5JddXyTI1iJ0VXQZLV1w==}
+
+  '@module-federation/runtime@0.11.2':
+    resolution: {integrity: sha512-Ya9u/L6z2LvhgpqxuKCB7LcigIIRf1BbaxAZIH7mzbq/A7rZtTP7v+73E433jvgiAlbAfPSZkeoYGele6hfRwA==}
+
+  '@module-federation/sdk@0.11.2':
+    resolution: {integrity: sha512-SBFe5xOamluT900J4AGBx+2/kCH/JbfqXoUwPSAC6PRzb8Y7LB0posnOGzmqYsLZXT37vp3d6AmJDsVoajDqxw==}
+
+  '@module-federation/webpack-bundler-runtime@0.11.2':
+    resolution: {integrity: sha512-WdwIE6QF+MKs/PdVu0cKPETF743JB9PZ62/qf7Uo3gU4fjsUMc37RnbJZ/qB60EaHHfjwp1v6NnhZw1r4eVsnw==}
+
+>>>>>>> upstream/v3
   '@monogrid/gainmap-js@3.1.0':
     resolution: {integrity: sha512-Obb0/gEd/HReTlg8ttaYk+0m62gQJmCblMOjHSMHRrBP2zdfKMHLCRbh/6ex9fSUJMKdjjIEiohwkbGD3wj2Nw==}
     peerDependencies:
@@ -2776,6 +3260,12 @@ packages:
     resolution: {integrity: sha512-qtSrqCqRU93SjEBedz987tvWao1YQSELjBhGkHYGVP7Dg0lBWP6d+uZEIt5gxTAYio/YWWlhivmRABvRfPLmnQ==}
     engines: {node: '>= 16.0.0'}
 
+<<<<<<< HEAD
+=======
+  '@pandacss/is-valid-prop@0.41.0':
+    resolution: {integrity: sha512-BE6h6CsJk14ugIRrsazJtN3fcg+KDFRat1Bs93YFKH6jd4DOb1yUyVvC70jKqPVvg70zEcV8acZ7VdcU5TLu+w==}
+
+>>>>>>> upstream/v3
   '@pandacss/is-valid-prop@0.53.6':
     resolution: {integrity: sha512-TgWBQmz/5j/oAMjavqJAjQh1o+yxhYspKvepXPn4lFhAN3yBhilrw9HliAkvpUr0sB2CkJ2BYMpFXbAJYEocsA==}
 
@@ -3226,6 +3716,82 @@ packages:
     cpu: [x64]
     os: [win32]
 
+<<<<<<< HEAD
+=======
+  '@rspack/binding-darwin-arm64@1.3.4':
+    resolution: {integrity: sha512-cVfzvtVf05VumGrxFz9Tk0QHk4jWBcQBNQuaql2enco8NKnzuX+v0+VP2mbNfvgICBgrHWKRYinAX5IxTEJdCw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@rspack/binding-darwin-x64@1.3.4':
+    resolution: {integrity: sha512-vXzf8xI+njdOSXGyI39lqkH/bSwyrx4jXW9+Pj2zbmRJVHZVyJsrx4kSpOoZX5zx/a7BbvuHRwrmmJS2HEOobw==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@rspack/binding-linux-arm64-gnu@1.3.4':
+    resolution: {integrity: sha512-c45kQrqzR05Jc62oAetiAXrnPWhyt3Pz1h2LF62OW8SYXxdBskAKpWntTts/T96HMLqNPH3MAfDKxyfOb/n0eQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@rspack/binding-linux-arm64-musl@1.3.4':
+    resolution: {integrity: sha512-/dUvkcBVnV95tA7BpeA6IZhrbpwxFzvgU6qF/iKxyHdMjwHdjn1Um7nR00TPOn/SIHzljafHpL6CuVTLNB5xvA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@rspack/binding-linux-x64-gnu@1.3.4':
+    resolution: {integrity: sha512-jZgGKoH7RyqJbyEcvhEE9wqK6mwoWxLF3c3LD2+e+dKVcO5iCfMuulCGdzUnYyvH97CtvN5j0/20PErRXubyjg==}
+    cpu: [x64]
+    os: [linux]
+
+  '@rspack/binding-linux-x64-musl@1.3.4':
+    resolution: {integrity: sha512-Xko8mZ598vQDubig4rLTuCDjXplSDJbJEg6B3NykGaE6CMH2bI/6KJfVKEKo25ayNzoouT/1MxyOxB4mQuspbA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@rspack/binding-win32-arm64-msvc@1.3.4':
+    resolution: {integrity: sha512-Q+pU/MRylYB3XoNTM1LYPxWV1KUxeZY6R54twtoDFXhZn/PDflP7qH1BHQ0KN50HuG5ZK89CaFSPMF7+vs6HNA==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@rspack/binding-win32-ia32-msvc@1.3.4':
+    resolution: {integrity: sha512-aqP/l+YAG4L9I1klW3uSq+olafw8xzAP+4cd/Nyy2SSDnhWsDgawxJyO6FIeM+hXwC73ChH9pcXHGgEC7iCcHw==}
+    cpu: [ia32]
+    os: [win32]
+
+  '@rspack/binding-win32-x64-msvc@1.3.4':
+    resolution: {integrity: sha512-xDU1njA1gIzIL6Nt5ARW4vWeVgwf00i7tPONg+6fJyMgwuFfwq2qEG7UFSBOedYjsSTCW+UoBh7riN7lRiFIvw==}
+    cpu: [x64]
+    os: [win32]
+
+  '@rspack/binding@1.3.4':
+    resolution: {integrity: sha512-wDRqqNfrVXuHAEm25mPlhroKN+v4uwhihVnZF4duz0I0L5rbsUNCy7uEda0GrBXkj3jkKLfg60mSd9MCZD0JZw==}
+
+  '@rspack/core@1.3.4':
+    resolution: {integrity: sha512-NIIk/0XUkyU9G8eby6kKO3YFpeDn8RsUIzNuElcfi1rWuuK+NLasDqUYOFqqlNBKnZpmtZ+SXAV9jE5k/i3uwg==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@rspack/tracing': ^1.x
+      '@swc/helpers': '>=0.5.1'
+    peerDependenciesMeta:
+      '@rspack/tracing':
+        optional: true
+      '@swc/helpers':
+        optional: true
+
+  '@rspack/lite-tapable@1.0.1':
+    resolution: {integrity: sha512-VynGOEsVw2s8TAlLf/uESfrgfrq2+rcXB1muPJYBWbsm1Oa6r5qVQhjA5ggM6z/coYPrsVMgovl3Ff7Q7OCp1w==}
+    engines: {node: '>=16.0.0'}
+
+  '@rspack/plugin-react-refresh@1.2.0':
+    resolution: {integrity: sha512-DTsbtggCfsiXE5QQtYMS8rKfEF8GIjwPDbgIT6Kg8BlAjpJY4jT5IisyhfIi7YOT3d5RIvu60iFB6Kr9sSMsnA==}
+    peerDependencies:
+      react-refresh: '>=0.10.0 <1.0.0'
+      webpack-hot-middleware: 2.x
+    peerDependenciesMeta:
+      webpack-hot-middleware:
+        optional: true
+
+>>>>>>> upstream/v3
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
@@ -3255,9 +3821,15 @@ packages:
     resolution: {integrity: sha512-bsbUucn41UXrQK7wgM8CNM/jagBytEyJqXw/umtI8d68vFm1Jwxh1OtLrlW7uGZgjCWiiPH6ooUNa1aVsuVr3Q==}
 
   '@saas-ui-pro/onboarding@1.0.0-next.0':
+<<<<<<< HEAD
     resolution: {integrity: sha512-R9M/pcv9s+lK0he2HljjYHUisD7+c+9gF4+szqdpvIPrLVSAhhvxrpoMf6VapovfnWo4waElLV10zvqpfiMPAQ==}
     peerDependencies:
       '@chakra-ui/react': 3.17.0
+=======
+    resolution: {integrity: sha512-LpxTZtYdxN4El4f85k0XywPIemV0LIckt9bdFpNZHp8nRetGedgYoAXsE5omdmlverdIV5MsVhNlm53lK9YvKA==}
+    peerDependencies:
+      '@chakra-ui/react': 3.16.1
+>>>>>>> upstream/v3
       '@emotion/react': 11.11.1
       '@saas-ui/react': ^3.0.0-next.0
       react: 19.0.0
@@ -3266,7 +3838,11 @@ packages:
   '@saas-ui-pro/react@1.0.0-next.2':
     resolution: {integrity: sha512-4fWOpVecq8OTTMB50tntbwP1if04VH9qVH0DvrJsW+n6dPC/nX2zLC5A49yjH7f8rLSDXOxYc5iuChVutawlpg==}
     peerDependencies:
+<<<<<<< HEAD
       '@chakra-ui/react': 3.17.0
+=======
+      '@chakra-ui/react': 3.16.1
+>>>>>>> upstream/v3
       '@emotion/react': 11.11.1
       '@saas-ui/react': '>=3.0.0-next.14'
       react: 19.0.0
@@ -3287,7 +3863,11 @@ packages:
   '@saas-ui/forms@3.0.0-next.0':
     resolution: {integrity: sha512-Mu2mLUBoakdMD+z0ZOR3rLNvz+O9hn9/t0UTsC/wm4FsF3fBpCgEjYz14nI99d8vwAF5fnI6e9bvZniGH7plfQ==}
     peerDependencies:
+<<<<<<< HEAD
       '@chakra-ui/react': 3.17.0
+=======
+      '@chakra-ui/react': 3.16.1
+>>>>>>> upstream/v3
       '@emotion/react': 11.11.1
       react: 19.0.0
       react-dom: 19.0.0
@@ -3300,7 +3880,11 @@ packages:
   '@saas-ui/react@3.0.0-next.0':
     resolution: {integrity: sha512-Blcxrw0GD4frtNI8xjUokph2bRiG4l7LleM05sw4228gcXFrLohJtzkF4DmkSytfIMIcrVPXoYE/3tFBvAqo3A==}
     peerDependencies:
+<<<<<<< HEAD
       '@chakra-ui/react': 3.17.0
+=======
+      '@chakra-ui/react': 3.16.1
+>>>>>>> upstream/v3
       '@emotion/react': 11.11.1
       react: 19.0.0
       react-dom: 19.0.0
@@ -3895,9 +4479,12 @@ packages:
   '@types/babel__traverse@7.20.7':
     resolution: {integrity: sha512-dkO5fhS7+/oos4ciWxyEyjWe48zmG6wbCheo/G2ZnHx4fs3EU6YC6UM8rk56gAjNJ9P3MTH2jo5jb92/K6wbng==}
 
+<<<<<<< HEAD
   '@types/chroma-js@2.4.5':
     resolution: {integrity: sha512-6ISjhzJViaPCy2q2e6PgK+8HcHQDQ0V2LDiKmYAh+jJlLqDa6HbwDh0wOevHY0kHHUx0iZwjSRbVD47WOUx5EQ==}
 
+=======
+>>>>>>> upstream/v3
   '@types/cli-table@0.3.4':
     resolution: {integrity: sha512-GsALrTL69mlwbAw/MHF1IPTadSLZQnsxe7a80G8l4inN/iEXCOcVeT/S7aRc6hbhqzL9qZ314kHPDQnQ3ev+HA==}
 
@@ -4918,9 +5505,12 @@ packages:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
 
+<<<<<<< HEAD
   chroma-js@2.6.0:
     resolution: {integrity: sha512-BLHvCB9s8Z1EV4ethr6xnkl/P2YRFOGqfgvuMG/MyCbZPrTA+NeiByY6XvgF0zP4/2deU2CXnWyMa3zu1LqQ3A==}
 
+=======
+>>>>>>> upstream/v3
   chromatic@11.28.2:
     resolution: {integrity: sha512-aCmUPcZUs4/p9zRZdMreOoO/5JqO2DiJC3md1/vRx8dlMRcmR/YI5ZbgXZcai2absVR+6hsXZ5XiPxV2sboTuQ==}
     hasBin: true
@@ -5024,6 +5614,12 @@ packages:
     resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
+=======
+  commander@2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+
+>>>>>>> upstream/v3
   commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
@@ -6186,6 +6782,12 @@ packages:
     resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
+=======
+  html-entities@2.6.0:
+    resolution: {integrity: sha512-kig+rMn/QOVRvr7c86gQ8lWXq+Hkv6CbAH1hLu+RG338StTpE8Z0b44SDVaqVu7HGKf27frdmUYEs9hTUX/cLQ==}
+
+>>>>>>> upstream/v3
   html-url-attributes@3.0.1:
     resolution: {integrity: sha512-ol6UPyBWqsrO6EJySPz2O7ZSr856WDrEzM5zMqp+FJJLGMW35cLYmmZnl0vztAZxRUoNZJFTCohfjuIJ8I4QBQ==}
 
@@ -7247,6 +7849,12 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
+<<<<<<< HEAD
+=======
+  next-rspack@15.3.2:
+    resolution: {integrity: sha512-xnwTg4cnIxHNXQNg3HYZtwMDFpYO4vhD7ki8CehISpdtg39ZODNBFSovokH1Mh+tdq4xaBu0MSUSocVSvznxtA==}
+
+>>>>>>> upstream/v3
   next-themes@0.4.6:
     resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
     peerDependencies:
@@ -7815,6 +8423,13 @@ packages:
     peerDependencies:
       react: 19.0.0
 
+<<<<<<< HEAD
+=======
+  react-refresh@0.12.0:
+    resolution: {integrity: sha512-suLIhrU2IHKL5JEKR/fAwJv7bbeq4kJ+pJopf77jHwuR+HmJS/HbrPIGsTBUVfw7tXPOmYv7UJ7PCaN49e8x4A==}
+    engines: {node: '>=0.10.0'}
+
+>>>>>>> upstream/v3
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
@@ -8566,6 +9181,14 @@ packages:
     resolution: {integrity: sha512-wK0Ri4fOGjv/XPy8SBHZChl8CM7uMc5VML7SqiQ0zG7+J5Vr+RMQDoHa2CNT6KHUnTGIXH34UDMkPzAUyapBZg==}
     engines: {node: '>=8'}
 
+<<<<<<< HEAD
+=======
+  terser@5.39.0:
+    resolution: {integrity: sha512-LBAhFyLho16harJoWMg/nZsQYgTrg5jXOn2nCYjRUcZZEdE3qa2zb8QEDRUGVZBW4rlazf2fxkg8tztybTaqWw==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+>>>>>>> upstream/v3
   thenify-all@1.6.0:
     resolution: {integrity: sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==}
     engines: {node: '>=0.8'}
@@ -10207,16 +10830,28 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
+<<<<<<< HEAD
   '@chakra-ui/charts@3.17.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@chakra-ui/react': 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+  '@chakra-ui/charts@3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+    dependencies:
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       recharts: 2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
+<<<<<<< HEAD
   '@chakra-ui/cli@3.17.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@chakra-ui/react': 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+  '@chakra-ui/cli@3.17.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+    dependencies:
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@clack/prompts': 0.10.1
       '@pandacss/is-valid-prop': 0.53.6
       '@types/cli-table': 0.3.4
@@ -10239,7 +10874,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   '@chakra-ui/react@3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+=======
+  '@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+>>>>>>> upstream/v3
     dependencies:
       '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@emotion/is-prop-valid': 1.3.1
@@ -10247,7 +10886,11 @@ snapshots:
       '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.0.0)
       '@emotion/utils': 1.4.2
+<<<<<<< HEAD
       '@pandacss/is-valid-prop': 0.53.6
+=======
+      '@pandacss/is-valid-prop': 0.41.0
+>>>>>>> upstream/v3
       csstype: 3.1.3
       fast-safe-stringify: 2.1.1
       react: 19.0.0
@@ -10593,7 +11236,11 @@ snapshots:
 
   '@emotion/sheet@1.4.0': {}
 
+<<<<<<< HEAD
   '@emotion/styled@11.14.0(@emotion/react@11.11.1(react@19.0.0))(react@19.0.0)':
+=======
+  '@emotion/styled@11.14.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@types/react@19.0.12)(react@19.0.0)':
+>>>>>>> upstream/v3
     dependencies:
       '@babel/runtime': 7.27.1
       '@emotion/babel-plugin': 11.13.5
@@ -10603,6 +11250,11 @@ snapshots:
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.0.0)
       '@emotion/utils': 1.4.2
       react: 19.0.0
+<<<<<<< HEAD
+=======
+    optionalDependencies:
+      '@types/react': 19.0.12
+>>>>>>> upstream/v3
     transitivePeerDependencies:
       - supports-color
 
@@ -10758,6 +11410,7 @@ snapshots:
       '@floating-ui/core': 1.7.0
       '@floating-ui/utils': 0.2.9
 
+<<<<<<< HEAD
   '@floating-ui/dom@1.7.0':
     dependencies:
       '@floating-ui/core': 1.7.0
@@ -10766,6 +11419,11 @@ snapshots:
   '@floating-ui/react-dom@2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@floating-ui/dom': 1.7.0
+=======
+  '@floating-ui/react-dom@2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@floating-ui/dom': 1.6.13
+>>>>>>> upstream/v3
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
@@ -10929,12 +11587,20 @@ snapshots:
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
+<<<<<<< HEAD
   '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))':
+=======
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))':
+>>>>>>> upstream/v3
     dependencies:
       glob: 10.4.5
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.8.3)
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
     optionalDependencies:
       typescript: 5.8.3
 
@@ -10948,6 +11614,15 @@ snapshots:
 
   '@jridgewell/set-array@1.2.1': {}
 
+<<<<<<< HEAD
+=======
+  '@jridgewell/source-map@0.3.6':
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.8
+      '@jridgewell/trace-mapping': 0.3.25
+    optional: true
+
+>>>>>>> upstream/v3
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
   '@jridgewell/trace-mapping@0.3.25':
@@ -11091,6 +11766,34 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
+=======
+  '@module-federation/error-codes@0.11.2': {}
+
+  '@module-federation/runtime-core@0.11.2':
+    dependencies:
+      '@module-federation/error-codes': 0.11.2
+      '@module-federation/sdk': 0.11.2
+
+  '@module-federation/runtime-tools@0.11.2':
+    dependencies:
+      '@module-federation/runtime': 0.11.2
+      '@module-federation/webpack-bundler-runtime': 0.11.2
+
+  '@module-federation/runtime@0.11.2':
+    dependencies:
+      '@module-federation/error-codes': 0.11.2
+      '@module-federation/runtime-core': 0.11.2
+      '@module-federation/sdk': 0.11.2
+
+  '@module-federation/sdk@0.11.2': {}
+
+  '@module-federation/webpack-bundler-runtime@0.11.2':
+    dependencies:
+      '@module-federation/runtime': 0.11.2
+      '@module-federation/sdk': 0.11.2
+
+>>>>>>> upstream/v3
   '@monogrid/gainmap-js@3.1.0(three@0.174.0)':
     dependencies:
       promise-worker-transferable: 1.0.4
@@ -11230,6 +11933,11 @@ snapshots:
 
   '@orama/orama@3.1.6': {}
 
+<<<<<<< HEAD
+=======
+  '@pandacss/is-valid-prop@0.41.0': {}
+
+>>>>>>> upstream/v3
   '@pandacss/is-valid-prop@0.53.6': {}
 
   '@parcel/watcher-android-arm64@2.5.1':
@@ -11602,6 +12310,65 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.2':
     optional: true
 
+<<<<<<< HEAD
+=======
+  '@rspack/binding-darwin-arm64@1.3.4':
+    optional: true
+
+  '@rspack/binding-darwin-x64@1.3.4':
+    optional: true
+
+  '@rspack/binding-linux-arm64-gnu@1.3.4':
+    optional: true
+
+  '@rspack/binding-linux-arm64-musl@1.3.4':
+    optional: true
+
+  '@rspack/binding-linux-x64-gnu@1.3.4':
+    optional: true
+
+  '@rspack/binding-linux-x64-musl@1.3.4':
+    optional: true
+
+  '@rspack/binding-win32-arm64-msvc@1.3.4':
+    optional: true
+
+  '@rspack/binding-win32-ia32-msvc@1.3.4':
+    optional: true
+
+  '@rspack/binding-win32-x64-msvc@1.3.4':
+    optional: true
+
+  '@rspack/binding@1.3.4':
+    optionalDependencies:
+      '@rspack/binding-darwin-arm64': 1.3.4
+      '@rspack/binding-darwin-x64': 1.3.4
+      '@rspack/binding-linux-arm64-gnu': 1.3.4
+      '@rspack/binding-linux-arm64-musl': 1.3.4
+      '@rspack/binding-linux-x64-gnu': 1.3.4
+      '@rspack/binding-linux-x64-musl': 1.3.4
+      '@rspack/binding-win32-arm64-msvc': 1.3.4
+      '@rspack/binding-win32-ia32-msvc': 1.3.4
+      '@rspack/binding-win32-x64-msvc': 1.3.4
+
+  '@rspack/core@1.3.4(@swc/helpers@0.5.17)':
+    dependencies:
+      '@module-federation/runtime-tools': 0.11.2
+      '@rspack/binding': 1.3.4
+      '@rspack/lite-tapable': 1.0.1
+      caniuse-lite: 1.0.30001717
+    optionalDependencies:
+      '@swc/helpers': 0.5.17
+
+  '@rspack/lite-tapable@1.0.1': {}
+
+  '@rspack/plugin-react-refresh@1.2.0(react-refresh@0.12.0)':
+    dependencies:
+      error-stack-parser: 2.1.4
+      html-entities: 2.6.0
+      react-refresh: 0.12.0
+
+>>>>>>> upstream/v3
   '@rtsao/scc@1.1.0': {}
 
   '@rushstack/eslint-patch@1.11.0': {}
@@ -11640,6 +12407,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
+<<<<<<< HEAD
   '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(@saas-ui/react@packages+saas-ui-react)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@chakra-ui/react': 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11691,6 +12459,29 @@ snapshots:
       '@saas-ui/forms': 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/hooks': 3.0.0-next.0(react@19.0.0)
       '@saas-ui/react': 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+  '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
+      '@floating-ui/react': 0.27.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui/react': 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  '@saas-ui-pro/react@1.0.0-next.2(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
+      '@react-hookz/web': 25.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui-pro/onboarding': 1.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui/forms': 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui/hooks': 3.0.0-next.0(react@19.0.0)
+      '@saas-ui/react': 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@tanstack/react-table': 8.21.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/react-virtual': 3.13.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@zag-js/dom-utils': 0.2.4
@@ -11715,6 +12506,7 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+<<<<<<< HEAD
   '@saas-ui/forms@3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@chakra-ui/react': 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -11722,6 +12514,15 @@ snapshots:
       '@hookform/resolvers': 4.1.3(react-hook-form@7.56.3(react@19.0.0))
       '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/react': 3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+  '@saas-ui/forms@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
+      '@hookform/resolvers': 4.1.3(react-hook-form@7.56.3(react@19.0.0))
+      '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@saas-ui/react': 3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       react-hook-form: 7.56.3(react@19.0.0)
@@ -11730,10 +12531,17 @@ snapshots:
     dependencies:
       react: 19.0.0
 
+<<<<<<< HEAD
   '@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.17.0(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@chakra-ui/react': 3.17.0(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+=======
+  '@saas-ui/react@3.0.0-next.0(@chakra-ui/react@3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@ark-ui/react': 5.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@chakra-ui/react': 3.16.1(@emotion/react@11.11.1(@types/react@19.0.12)(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+>>>>>>> upstream/v3
       '@emotion/react': 11.11.1(@types/react@19.0.12)(react@19.0.0)
       '@saas-ui/core': 3.0.0-next.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@saas-ui/hooks': 3.0.0-next.0(react@19.0.0)
@@ -11972,13 +12780,21 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+<<<<<<< HEAD
   '@storybook/builder-vite@8.6.12(storybook@8.6.9(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))':
+=======
+  '@storybook/builder-vite@8.6.12(storybook@8.6.9(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))':
+>>>>>>> upstream/v3
     dependencies:
       '@storybook/csf-plugin': 8.6.12(storybook@8.6.9(prettier@3.5.3))
       browser-assert: 1.2.1
       storybook: 8.6.9(prettier@3.5.3)
       ts-dedent: 2.2.0
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
 
   '@storybook/cli@8.6.12(@babel/preset-env@7.27.2(@babel/core@7.27.1))(prettier@3.5.3)':
     dependencies:
@@ -12142,11 +12958,19 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       storybook: 8.6.9(prettier@3.5.3)
 
+<<<<<<< HEAD
   '@storybook/react-vite@8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.2)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))':
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
       '@rollup/pluginutils': 5.1.4(rollup@4.40.2)
       '@storybook/builder-vite': 8.6.12(storybook@8.6.9(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+  '@storybook/react-vite@8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.2)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))':
+    dependencies:
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.2)
+      '@storybook/builder-vite': 8.6.12(storybook@8.6.9(prettier@3.5.3))(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       '@storybook/react': 8.6.12(@storybook/test@8.6.12(storybook@8.6.9(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.9(prettier@3.5.3))(typescript@5.8.3)
       find-up: 5.0.0
       magic-string: 0.30.17
@@ -12156,7 +12980,11 @@ snapshots:
       resolve: 1.22.10
       storybook: 8.6.9(prettier@3.5.3)
       tsconfig-paths: 4.2.0
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
     optionalDependencies:
       '@storybook/test': 8.6.12(storybook@8.6.9(prettier@3.5.3))
     transitivePeerDependencies:
@@ -12543,8 +13371,11 @@ snapshots:
     dependencies:
       '@babel/types': 7.27.1
 
+<<<<<<< HEAD
   '@types/chroma-js@2.4.5': {}
 
+=======
+>>>>>>> upstream/v3
   '@types/cli-table@0.3.4': {}
 
   '@types/cross-spawn@6.0.6':
@@ -12877,14 +13708,22 @@ snapshots:
 
   '@visulima/boxen@1.0.30': {}
 
+<<<<<<< HEAD
   '@vitejs/plugin-react@4.4.1(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))':
+=======
+  '@vitejs/plugin-react@4.4.1(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))':
+>>>>>>> upstream/v3
     dependencies:
       '@babel/core': 7.27.1
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.27.1)
       '@babel/plugin-transform-react-jsx-source': 7.27.1(@babel/core@7.27.1)
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
     transitivePeerDependencies:
       - supports-color
 
@@ -12902,13 +13741,21 @@ snapshots:
       chai: 5.2.0
       tinyrainbow: 2.0.0
 
+<<<<<<< HEAD
   '@vitest/mocker@3.1.3(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))':
+=======
+  '@vitest/mocker@3.1.3(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))':
+>>>>>>> upstream/v3
     dependencies:
       '@vitest/spy': 3.1.3
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -13902,8 +14749,11 @@ snapshots:
 
   chownr@2.0.0: {}
 
+<<<<<<< HEAD
   chroma-js@2.6.0: {}
 
+=======
+>>>>>>> upstream/v3
   chromatic@11.28.2: {}
 
   ci-info@3.9.0: {}
@@ -13985,6 +14835,12 @@ snapshots:
 
   commander@13.1.0: {}
 
+<<<<<<< HEAD
+=======
+  commander@2.20.3:
+    optional: true
+
+>>>>>>> upstream/v3
   commander@4.1.1: {}
 
   commondir@1.0.1: {}
@@ -15463,6 +16319,11 @@ snapshots:
     dependencies:
       whatwg-encoding: 3.1.1
 
+<<<<<<< HEAD
+=======
+  html-entities@2.6.0: {}
+
+>>>>>>> upstream/v3
   html-url-attributes@3.0.1: {}
 
   html-void-elements@3.0.0: {}
@@ -16823,6 +17684,19 @@ snapshots:
 
   neo-async@2.6.2: {}
 
+<<<<<<< HEAD
+=======
+  next-rspack@15.3.2(@swc/helpers@0.5.17):
+    dependencies:
+      '@rspack/core': 1.3.4(@swc/helpers@0.5.17)
+      '@rspack/plugin-react-refresh': 1.2.0(react-refresh@0.12.0)
+      react-refresh: 0.12.0
+    transitivePeerDependencies:
+      - '@rspack/tracing'
+      - '@swc/helpers'
+      - webpack-hot-middleware
+
+>>>>>>> upstream/v3
   next-themes@0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -17409,6 +18283,11 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
+<<<<<<< HEAD
+=======
+  react-refresh@0.12.0: {}
+
+>>>>>>> upstream/v3
   react-refresh@0.17.0: {}
 
   react-remove-scroll-bar@2.3.8(@types/react@19.0.12)(react@19.0.0):
@@ -18391,6 +19270,17 @@ snapshots:
 
   term-size@2.2.1: {}
 
+<<<<<<< HEAD
+=======
+  terser@5.39.0:
+    dependencies:
+      '@jridgewell/source-map': 0.3.6
+      acorn: 8.14.1
+      commander: 2.20.3
+      source-map-support: 0.5.21
+    optional: true
+
+>>>>>>> upstream/v3
   thenify-all@1.6.0:
     dependencies:
       thenify: 3.3.1
@@ -18905,13 +19795,21 @@ snapshots:
       d3-time: 3.1.0
       d3-timer: 3.0.1
 
+<<<<<<< HEAD
   vite-node@3.1.3(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1):
+=======
+  vite-node@3.1.3(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1):
+>>>>>>> upstream/v3
     dependencies:
       cac: 6.7.14
       debug: 4.4.0
       es-module-lexer: 1.7.0
       pathe: 2.0.3
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -18926,18 +19824,30 @@ snapshots:
       - tsx
       - yaml
 
+<<<<<<< HEAD
   vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)):
+=======
+  vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)):
+>>>>>>> upstream/v3
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.3)
     optionalDependencies:
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
     transitivePeerDependencies:
       - supports-color
       - typescript
 
+<<<<<<< HEAD
   vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1):
+=======
+  vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1):
+>>>>>>> upstream/v3
     dependencies:
       esbuild: 0.25.4
       fdir: 6.4.4(picomatch@4.0.2)
@@ -18948,6 +19858,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.15.17
       fsevents: 2.3.3
+<<<<<<< HEAD
       tsx: 4.19.4
       yaml: 2.7.1
 
@@ -18955,6 +19866,16 @@ snapshots:
     dependencies:
       '@vitest/expect': 3.1.3
       '@vitest/mocker': 3.1.3(vite@6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1))
+=======
+      terser: 5.39.0
+      tsx: 4.19.4
+      yaml: 2.7.1
+
+  vitest@3.1.3(@types/debug@4.1.12)(@types/node@22.15.17)(jsdom@26.1.0)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1):
+    dependencies:
+      '@vitest/expect': 3.1.3
+      '@vitest/mocker': 3.1.3(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))
+>>>>>>> upstream/v3
       '@vitest/pretty-format': 3.1.3
       '@vitest/runner': 3.1.3
       '@vitest/snapshot': 3.1.3
@@ -18971,8 +19892,13 @@ snapshots:
       tinyglobby: 0.2.13
       tinypool: 1.0.2
       tinyrainbow: 2.0.0
+<<<<<<< HEAD
       vite: 6.3.5(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
       vite-node: 3.1.3(@types/node@22.15.17)(tsx@4.19.4)(yaml@2.7.1)
+=======
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+      vite-node: 3.1.3(@types/node@22.15.17)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
+>>>>>>> upstream/v3
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/debug': 4.1.12

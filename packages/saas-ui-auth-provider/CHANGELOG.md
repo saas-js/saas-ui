@@ -11,6 +11,12 @@
 - 95c8652: Update to Chakra UI 3.2.1
 - 6459de4: Removed src exports and files from packages
 
+## 1.3.0
+
+### Minor Changes
+
+- e0e539e: useAuth now returns error if loadUser has thrown an error
+
 ## 1.2.2
 
 ### Patch Changes

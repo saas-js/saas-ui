@@ -1,4 +1,5 @@
-import { FlattenNavItem, NavItem, docsConfig } from '@/docs.config'
+import { docsConfig } from '@/app/docs/docs.config'
+import { FlattenNavItem, NavItem } from '@/website.config'
 import { usePathname } from 'next/navigation'
 
 const join = (...args: Array<string | undefined>) =>

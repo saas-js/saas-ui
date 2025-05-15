@@ -1,15 +1,15 @@
-import { colorPalettes } from "compositions/lib/color-palettes"
-import { default as docs } from ".velite/docs.json"
+import { colorPalettes } from 'compositions/lib/color-palettes'
+import { allDocs as docs } from 'content-collections'
 
 export function getBaseUrl() {
-  return process.env.VERCEL_URL ?? process.env.HOST ?? "http://localhost:3000"
+  return process.env.VERCEL_URL ?? process.env.HOST ?? 'http://localhost:3000'
 }
 
 ///////////////////////////////////////////////////////////////////////
 
 const excludeSet = new Map([
-  ["checkbox", ["checkbox-card"]],
-  ["radio", ["radio-card"]],
+  ['checkbox', ['checkbox-card']],
+  ['radio', ['radio-card']],
 ])
 
 export function findMatchingDocs(component: string) {
@@ -28,8 +28,8 @@ export function findMatchingDocs(component: string) {
 ///////////////////////////////////////////////////////////////////////
 
 export function parseComponent(component: string) {
-  const minify = !component.includes("-full.txt")
-  component = component.replace(".txt", "").replace("-full", "")
+  const minify = !component.includes('-full.txt')
+  component = component.replace('.txt', '').replace('-full', '')
   return { minify, component }
 }
 
@@ -40,10 +40,10 @@ const colorPaletteRegex =
 const colorPaletteReplacement = JSON.stringify(colorPalettes)
 
 export function replaceColorPalettes(content: string) {
-  const hasColorPaletteImport = content.includes("lib/color-palettes")
+  const hasColorPaletteImport = content.includes('lib/color-palettes')
   if (hasColorPaletteImport) {
     content = content
-      .replace(colorPaletteRegex, "")
+      .replace(colorPaletteRegex, '')
       .replace(/colorPalettes/g, colorPaletteReplacement)
   }
   return content
@@ -57,14 +57,14 @@ const boxImportRegex =
   /import\s+{\s*(?:.*,\s*)?Box(?:\s*,\s*.*)?}\s+from\s+["']@chakra-ui\/react["']/g
 
 export function replaceDecorativeBox(content: string) {
-  const hasDecorativeBoxImport = content.includes("lib/decorative-box")
+  const hasDecorativeBoxImport = content.includes('lib/decorative-box')
   if (hasDecorativeBoxImport) {
     const isBoxImported = content.match(boxImportRegex)
     content = content.replace(
       decorativeBoxRegex,
-      isBoxImported ? "" : 'import { Box } from "@chakra-ui/react"\n',
+      isBoxImported ? '' : 'import { Box } from "@chakra-ui/react"\n',
     )
-    content = content.replace(/DecorativeBox/g, "Box")
+    content = content.replace(/DecorativeBox/g, 'Box')
   }
   return content
 }
@@ -78,10 +78,10 @@ export function cleanupContent(content: string) {
 }
 
 export function minifyContent(content: string) {
-  const examplesStart = content.indexOf("## Examples")
-  const setupStart = content.indexOf("## Setup")
-  const usageStart = content.indexOf("## Usage")
-  const propsStart = content.indexOf("## Props")
+  const examplesStart = content.indexOf('## Examples')
+  const setupStart = content.indexOf('## Setup')
+  const usageStart = content.indexOf('## Usage')
+  const propsStart = content.indexOf('## Props')
 
   if (examplesStart !== -1 && propsStart !== -1) {
     content = content.slice(0, examplesStart) + content.slice(propsStart)
@@ -92,7 +92,7 @@ export function minifyContent(content: string) {
   }
 
   // Remove ::: blocks with any content inside them
-  content = content.replace(/\n:::.+?[\r\n]+([\s\S]*?)[\r\n]+:::\n/g, "")
+  content = content.replace(/\n:::.+?[\r\n]+([\s\S]*?)[\r\n]+:::\n/g, '')
 
   return content
 }

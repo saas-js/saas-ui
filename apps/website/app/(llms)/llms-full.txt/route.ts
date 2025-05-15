@@ -1,5 +1,6 @@
+import { allDocs as docs } from 'content-collections'
+
 import { cleanupContent } from '../shared'
-import { default as docs } from '.velite/docs.json'
 
 export const dynamic = 'force-static'
 

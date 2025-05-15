@@ -80,6 +80,7 @@
     "framer-motion": "^11.18.2",
     "husky": "^9.1.7",
     "hygen": "^6.2.11",
+    "next": "^15.3.2",
     "jsdom": "^26.0.0",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",

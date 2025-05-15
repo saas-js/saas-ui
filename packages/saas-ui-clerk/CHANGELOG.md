@@ -18,6 +18,13 @@
 - Updated dependencies [6459de4]
   - @saas-ui/auth-provider@2.0.0-next.0
 
+## 4.0.4
+
+### Patch Changes
+
+- Updated dependencies [e0e539e]
+  - @saas-ui/auth-provider@1.3.0
+
 ## 4.0.3
 
 ### Patch Changes

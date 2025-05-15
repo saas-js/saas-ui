@@ -9,10 +9,9 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
+import { allShowcases as showcases } from 'content-collections'
 import { Metadata } from 'next'
 import Link from 'next/link'
-
-import { showcases } from '.velite'
 
 export const metadata: Metadata = {
   title: 'Showcase',

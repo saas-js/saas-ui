@@ -25,9 +25,13 @@ const styles = {
       fontSize: 'lg',
     },
     '.parity-banner': {
-      position: 'relative',
-      top: '60px',
+      position: 'fixed !important',
+      bottom: '10px',
       zIndex: 10,
+      borderRadius: 'md',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: 'fit-content',
     },
   }),
 }

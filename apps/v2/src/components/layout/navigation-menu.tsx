@@ -1,7 +1,5 @@
-import React from 'react'
-import * as NavigationMenu from '@radix-ui/react-navigation-menu'
+import { MobileNavButton, MobileNavContent } from '@/docs/components/mobile-nav'
 import {
-  Badge,
   Box,
   Button,
   chakra,
@@ -16,39 +14,34 @@ import {
   MenuItem,
   MenuList,
   Spacer,
+  Stack,
   Tooltip,
   useDisclosure,
   useUpdateEffect,
   type HTMLChakraProps,
 } from '@chakra-ui/react'
+import { keyframes } from '@emotion/react'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
+import { SaasUIIcon } from '@saas-ui/assets'
+import { useAuth } from '@saas-ui/auth'
 import {
   ChevronDownIcon,
   IconBadge,
   SearchInput,
   useHotkeys,
 } from '@saas-ui/react'
-import { useAuth } from '@saas-ui/auth'
-import { GlobalSearch } from '../global-search/global-search'
-import { useRouter } from 'next/router'
-import { MobileNavButton, MobileNavContent } from '@/docs/components/mobile-nav'
-import { FaGithub } from 'react-icons/fa'
+import Image from 'next/image'
 import Link from 'next/link'
-import ThemeToggle from './theme-toggle'
+import { useRouter } from 'next/router'
+import React from 'react'
+import { FaGithub } from 'react-icons/fa'
+import { FaDiscord, FaX } from 'react-icons/fa6'
+import { LuBook, LuMap } from 'react-icons/lu'
+import { GlobalSearch } from '../global-search/global-search'
+import { NextjsIcon } from '../logos/nextjs'
 import NavLink from '../nav-link'
 import Logo from './logo'
-import { SaasUIIcon } from '@saas-ui/assets'
-import { NextjsIcon } from '../logos/nextjs'
-import { FigmaLogo } from '../logos/figma'
-import { FaDiscord, FaFigma, FaX } from 'react-icons/fa6'
-import {
-  LuBook,
-  LuBookCopy,
-  LuBox,
-  LuFileClock,
-  LuMap,
-  LuSquare,
-} from 'react-icons/lu'
-import { keyframes } from '@emotion/react'
+import ThemeToggle from './theme-toggle'
 
 export const Navigation = () => {
   const router = useRouter()
@@ -189,17 +182,21 @@ export const Navigation = () => {
           </NavigationMenu.Item> */}
 
           <NavigationMenu.Item>
-            <NavigationMenuLink href="/nextjs-starter-kit">
-              Starter kit
+            <NavigationMenuLink asChild>
+              <Link href="/nextjs-starter-kit">Starter kit</Link>
             </NavigationMenuLink>
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuLink href="/blocks">Blocks</NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <Link href="/blocks">Blocks</Link>
+            </NavigationMenuLink>
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuLink href="/figma">Figma</NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <Link href="/figma">Figma</Link>
+            </NavigationMenuLink>
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
@@ -210,36 +207,31 @@ export const Navigation = () => {
               <List
                 sx={{
                   '@media only screen and (min-width: 600px)': {
-                    width: '800px',
+                    width: '600px',
                     maxWidth: '80vw',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gridTemplateRows: 'repeat(4, 1fr)',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gridTemplateRows: 'repeat(2, 1fr)',
                   },
                 }}
               >
                 <li
-                  style={{ gridColumn: '1 / span 1', gridRow: 'span 4' }}
+                  style={{ gridColumn: '1 / span 1', gridRow: 'span 1' }}
                   role="group"
                 >
                   <NavigationMenu.Link asChild>
-                    <Callout href="/docs" height="180px">
-                      <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
+                    <Callout href="/docs">
+                      <IconBadge bg="white" _dark={{ bg: 'gray.900' }}>
                         <SaasUIIcon width="16px" height="16px" />
                       </IconBadge>
-                      <CalloutHeading>Saas UI</CalloutHeading>
-                      <CalloutText>Learn how to use Saas UI.</CalloutText>
-                      <Spacer />
-                      <HStack alignItems="flex-end">
-                        <CalloutLink href="/docs">Introduction</CalloutLink>
-                        <CalloutLink href="/docs/components">
-                          Components
-                        </CalloutLink>
-                      </HStack>
+                      <Stack gap="0">
+                        <CalloutHeading>Saas UI</CalloutHeading>
+                        <CalloutText>Open source components.</CalloutText>
+                      </Stack>
                     </Callout>
                   </NavigationMenu.Link>
                 </li>
                 <li
-                  style={{ gridColumn: '2 / span 1', gridRow: '1 / span 4' }}
+                  style={{ gridColumn: '1 / span 1', gridRow: '2 / span 1' }}
                   role="group"
                 >
                   <NavigationMenu.Link asChild>
@@ -251,19 +243,41 @@ export const Navigation = () => {
                           color="var(--chakra-colors-teal-400)"
                         />
                       </IconBadge>
-                      <CalloutHeading>Saas UI Pro</CalloutHeading>
-                      <CalloutText>Learn how to use Saas UI Pro.</CalloutText>
-                      <Spacer />
-                      <HStack alignItems="flex-end">
-                        <CalloutLink href="/docs/pro">
-                          Getting started
-                        </CalloutLink>
-                      </HStack>
+                      <Stack gap="0">
+                        <CalloutHeading>Saas UI Pro</CalloutHeading>
+                        <CalloutText>
+                          Premium components and utilities.
+                        </CalloutText>
+                      </Stack>
                     </Callout>
                   </NavigationMenu.Link>
                 </li>
                 <li
-                  style={{ gridColumn: '3 / span 1', gridRow: '1 / span 4' }}
+                  style={{ gridColumn: '2 / span 1', gridRow: '1 / span 1' }}
+                  role="group"
+                >
+                  <NavigationMenu.Link asChild>
+                    <Callout href="/docs/tanstack-router-starter-kit">
+                      <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
+                        {/* <TanStack width="16px" height="16px" /> */}
+                        <Image
+                          src="/img/frameworks/tanstack.png"
+                          alt="TanStack Router"
+                          width={16}
+                          height={16}
+                        />
+                      </IconBadge>
+                      <Stack gap="0">
+                        <CalloutHeading>TanStack Router (beta)</CalloutHeading>
+                        <CalloutText>
+                          TanStack Router SaaS starter kit.
+                        </CalloutText>
+                      </Stack>
+                    </Callout>
+                  </NavigationMenu.Link>
+                </li>
+                <li
+                  style={{ gridColumn: '2 / span 1', gridRow: '2 / span 1' }}
                   role="group"
                 >
                   <NavigationMenu.Link asChild>
@@ -271,16 +285,12 @@ export const Navigation = () => {
                       <IconBadge mb="2" bg="white" _dark={{ bg: 'gray.900' }}>
                         <NextjsIcon width="16px" height="16px" />
                       </IconBadge>
-                      <CalloutHeading>Next.js starter kit</CalloutHeading>
-                      <CalloutText>
-                        Learn to build apps with Next.js.
-                      </CalloutText>
-                      <Spacer />
-                      <HStack alignItems="flex-end">
-                        <CalloutLink href="/docs/nextjs-starter-kit">
-                          Getting started
-                        </CalloutLink>
-                      </HStack>
+                      <Stack gap="0">
+                        <CalloutHeading>Next.js</CalloutHeading>
+                        <CalloutText>
+                          Production ready Next.js SaaS starter kit.
+                        </CalloutText>
+                      </Stack>
                     </Callout>
                   </NavigationMenu.Link>
                 </li>
@@ -373,7 +383,9 @@ export const Navigation = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenuLink href="/pricing">Pricing</NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <Link href="/pricing">Pricing</Link>
+            </NavigationMenuLink>
           </NavigationMenu.Item>
         </HStack>
 
@@ -631,6 +643,7 @@ const NavigationMenuViewport = chakra(NavigationMenu.Viewport, {
   baseStyle: {
     position: 'relative',
     transformOrigin: 'top center',
+    left: '100px',
     marginTop: 0,
     width: '100%',
     bg: 'white',
@@ -764,13 +777,14 @@ const ListItemText = chakra('p', {
   },
 })
 
-const Callout = chakra('a', {
+const Callout = chakra(Link, {
   baseStyle: {
     display: 'flex',
-    justifyContent: 'flex-end',
-    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
     width: '100%',
     height: '100%',
+    gap: 2,
     // background: 'blackAlpha.50',
     borderRadius: 'md',
     padding: 3,

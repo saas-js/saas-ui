@@ -16,7 +16,8 @@ import rehypeSlug from 'rehype-slug'
 import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
 
-import { docsConfig } from './docs.config'
+import { docsConfig } from './app/docs/docs.config'
+import { docsConfig as proConfig } from './app/pro/docs/docs.config'
 import { remarkCallout } from './lib/remark-callout'
 import { remarkCard } from './lib/remark-card'
 import { remarkCodeTitle } from './lib/remark-code-title'
@@ -126,6 +127,60 @@ const docs = defineCollection({
   },
 })
 
+const proDocs = defineCollection({
+  name: 'Pro',
+  directory: 'content/pro-docs',
+  include: ['**/*.mdx'],
+  schema: (z) => ({
+    title: z.string(),
+    description: z.string(),
+    metadata: z.record(z.string()).optional(),
+    content: z.string(),
+    status: z.string().optional(),
+    toc: z.array(z.string()).optional(),
+    code: z.string().optional(),
+    llm: z
+      .custom()
+      .transform(async (data: any) => replaceExampleTabs(data?.content ?? '')),
+    hideToc: z.boolean().optional(),
+    composition: z.boolean().optional(),
+    links: z
+      .object({
+        source: z.string().optional(),
+        storybook: z.string().optional(),
+        recipe: z.string().optional(),
+        ark: z.string().optional(),
+      })
+      .optional(),
+  }),
+  transform: async (doc, context) => {
+    const code = await compileMDX(context, doc, mdxConfig)
+
+    const links = doc.links || {}
+    return {
+      ...doc,
+      code,
+      slug: slugify(doc._meta.path),
+      links: {
+        ...links,
+        source: links.source
+          ? `${proConfig.repoUrl}/tree/${proConfig.repoBranch}/packages/react/src/${links.source}`
+          : undefined,
+        storybook: links.storybook
+          ? `${proConfig.storybookUrl}/?path=/story/${links.storybook}`
+          : undefined,
+        recipe: links.recipe
+          ? `${proConfig.repoUrl}/tree/${proConfig.repoBranch}/packages/react/src/theme/recipes/${links.recipe}.ts`
+          : undefined,
+      },
+      category: doc._meta.path
+        .replace(/.*\/content\//, '')
+        .replace(/\/[^/]*$/, '')
+        .replace(cwd, ''),
+    }
+  },
+})
+
 const notes = defineCollection({
   name: 'Notes',
   directory: 'content/notes',
@@ -191,7 +246,7 @@ const blogs = defineCollection({
 
 export default defineConfig({
   root: cwd,
-  collections: [docs, showcases, notes, blogs],
+  collections: [docs, proDocs, showcases, notes, blogs],
 })
 
 function replaceExampleTabs(text: string) {

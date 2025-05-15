@@ -7,8 +7,8 @@ import { Logo } from '@/components/logo'
 import { MobileSearchButton, SearchButton } from '@/components/search-button'
 import { SocialLinks } from '@/components/social-links'
 import { VersionMenu } from '@/components/version-menu'
-import { docsConfig } from '@/docs.config'
 import { useRoute } from '@/lib/use-route'
+import { websiteConfig } from '@/website.config'
 import {
   Box,
   Container,
@@ -152,7 +152,7 @@ const HeaderVersionMenu = ({ containerRef }: HeaderVersionMenuProps) => (
 )
 
 const HeaderSocialLinks = () => (
-  <SocialLinks items={[{ type: 'github', href: docsConfig.repoUrl }]} />
+  <SocialLinks items={[{ type: 'github', href: websiteConfig.repoUrl }]} />
 )
 
 const HeaderMobileMenuDropdown = () => {

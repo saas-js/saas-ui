@@ -1,11 +1,12 @@
-"use client"
+'use client'
 
-import { Code, For, Span, useRecipe } from "@chakra-ui/react"
-import { colorPalettes } from "compositions/lib/color-palettes"
-import { PlaygroundTable } from "compositions/lib/playground-table"
+import { Code, For, Span, useRecipe } from '@chakra-ui/react'
+
+import { colorPalettes } from '../lib/color-palettes'
+import { PlaygroundTable } from '../lib/playground-table'
 
 export const CodeSizeTable = () => {
-  const recipe = useRecipe({ key: "code" })
+  const recipe = useRecipe({ key: 'code' })
   return (
     <PlaygroundTable>
       <thead>

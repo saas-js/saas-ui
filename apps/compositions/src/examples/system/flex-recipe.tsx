@@ -1,27 +1,28 @@
-"use client"
+'use client'
 
-import { chakra } from "@chakra-ui/react"
-import { DecorativeBox } from "compositions/lib/decorative-box"
+import { chakra } from '@chakra-ui/react'
 
-const Flex = chakra("div", {
+import { DecorativeBox } from '../../lib/decorative-box'
+
+const Flex = chakra('div', {
   base: {
-    display: "flex",
-    gap: "4",
+    display: 'flex',
+    gap: '4',
   },
   variants: {
     direction: {
-      row: { flexDirection: "row" },
-      column: { flexDirection: "column" },
+      row: { flexDirection: 'row' },
+      column: { flexDirection: 'column' },
     },
     align: {
-      start: { alignItems: "flex-start" },
-      center: { alignItems: "center" },
-      end: { alignItems: "flex-end" },
+      start: { alignItems: 'flex-start' },
+      center: { alignItems: 'center' },
+      end: { alignItems: 'flex-end' },
     },
     justify: {
-      start: { justifyContent: "flex-start" },
-      center: { justifyContent: "center" },
-      end: { justifyContent: "flex-end" },
+      start: { justifyContent: 'flex-start' },
+      center: { justifyContent: 'center' },
+      end: { justifyContent: 'flex-end' },
     },
   },
 })

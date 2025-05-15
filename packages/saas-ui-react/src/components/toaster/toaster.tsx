@@ -7,6 +7,7 @@ import { Stack } from '@chakra-ui/react/stack'
 import {
   Toaster as ChakraToaster,
   type CreateToasterProps,
+  CreateToasterReturn,
   Toast,
   createToaster,
 } from '@chakra-ui/react/toast'
@@ -14,12 +15,14 @@ import {
 import { CloseButton } from '../close-button/index.ts'
 import { Spinner } from '../spinner/index.ts'
 
+export type { CreateToasterProps, CreateToasterReturn }
+
 const defaultOptions: CreateToasterProps = {
   placement: 'bottom-end',
   pauseOnPageIdle: true,
 }
 
-export let toast = createToaster(defaultOptions)
+export let toast = createToaster(defaultOptions) as CreateToasterReturn
 
 export interface ToasterProps extends Partial<CreateToasterProps> {
   closable?: boolean

@@ -23,7 +23,7 @@ export const Prose = chakra('div', {
       textDecoration: 'underline',
       textUnderlineOffset: '3px',
       textDecorationThickness: '2px',
-      textDecorationColor: 'border.muted',
+      textDecorationColor: 'primary.subtle',
       fontWeight: '500',
     },
     '& strong': {

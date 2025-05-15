@@ -1,4 +1,4 @@
-import { docsConfig } from '@/docs.config'
+import { websiteConfig } from '@/website.config'
 import type { Metadata } from 'next'
 import { Figtree, Inter, Outfit, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
@@ -57,10 +57,10 @@ const guton = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: docsConfig.titleTemplate,
-    default: docsConfig.title,
+    template: websiteConfig.titleTemplate,
+    default: websiteConfig.title,
   },
-  description: docsConfig.description,
+  description: websiteConfig.description,
   openGraph: {
     images: '/og-image.png',
   },
@@ -81,6 +81,7 @@ export default function RootLayout({
         <Provider>{children}</Provider>
 
         <Script
+          id="productlane-script"
           dangerouslySetInnerHTML={{
             __html: `
               ;((w)=>{const P=(w.Productlane={queue:{}});["set","open","close","toggle","on","off","init"].forEach(m=>{P[m]=(n=>function(){P.queue[n]={args:arguments}})(m)})})(window);
@@ -134,6 +135,7 @@ export default function RootLayout({
           }}
         /> */}
         <Script
+          id="lemon-squeezy-affiliate-config"
           dangerouslySetInnerHTML={{
             __html: `window.lemonSqueezyAffiliateConfig = { store: "saas-ui" };`,
           }}

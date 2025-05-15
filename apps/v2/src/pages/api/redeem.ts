@@ -163,7 +163,12 @@ const inviteGithubMember = async (username: string) => {
       }
     )
 
-    return response.status === 200
+    if (response.status !== 200) {
+      console.error('Failed to invite github member', response)
+      return false
+    }
+
+    return true
   } catch (err) {
     console.error(err)
   }

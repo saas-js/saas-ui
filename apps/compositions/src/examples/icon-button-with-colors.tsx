@@ -1,6 +1,7 @@
-import { For, HStack, IconButton } from "@chakra-ui/react"
-import { colorPalettes } from "compositions/lib/color-palettes"
-import { LuSearch } from "react-icons/lu"
+import { For, HStack, IconButton } from '@chakra-ui/react'
+import { LuSearch } from 'react-icons/lu'
+
+import { colorPalettes } from '../lib/color-palettes'
 
 export const IconButtonWithColors = () => {
   return (

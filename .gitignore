@@ -59,10 +59,8 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 
-# Contentlayer
+# Docs
 .contentlayer
+.content-collections
 
 .changelogrc
-
-new-illustrations
-illustrations

@@ -533,8 +533,8 @@ function StarterKitFeatures() {
         >
           <HStack gap="4" mt="4">
             <Image
-              src="/img/frameworks/authjs.webp"
-              alt="Auth.js"
+              src="/img/frameworks/better-auth.svg"
+              alt="Better Auth"
               height="40"
               width="40"
             />

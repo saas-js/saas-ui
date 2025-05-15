@@ -1,5 +1,6 @@
-import { Grid, GridItem } from "@chakra-ui/react"
-import { DecorativeBox } from "compositions/lib/decorative-box"
+import { Grid, GridItem } from '@chakra-ui/react'
+
+import { DecorativeBox } from '../lib/decorative-box'
 
 export const GridSpanningColumns = () => {
   return (

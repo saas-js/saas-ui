@@ -41,6 +41,11 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
-    "storybook": "8.6.9"
+    "storybook": "8.6.9",
+    "typescript": "^5.8.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4"
   }
 }

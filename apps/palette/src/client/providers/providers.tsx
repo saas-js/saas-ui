@@ -19,12 +19,12 @@ export default function Providers({
 				theme: "Saas UI",
 			}}
 		>
-			<NextThemeProvider attribute="class" disableTransitionOnChange>
-				<ThemeProvider>
-					<Toaster />
+			<ThemeProvider>
+				<NextThemeProvider attribute="class" disableTransitionOnChange>
 					{children}
-				</ThemeProvider>
-			</NextThemeProvider>
+					<Toaster />
+				</NextThemeProvider>
+			</ThemeProvider>
 		</PaletteProvider>
 	);
 }

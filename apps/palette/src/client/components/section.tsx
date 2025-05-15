@@ -1,39 +1,39 @@
-import React from 'react'
+import type React from "react";
 
-import { Box, BoxProps, Flex, Heading, Text } from '@saas-ui/react'
+import { Box, type BoxProps, Flex, Heading, Text } from "@saas-ui/react";
 
 export interface SectionProps extends BoxProps {
-  title?: string
-  description?: string
-  children: React.ReactNode
+	title?: string;
+	description?: string;
+	children: React.ReactNode;
 }
 
 export default function Section({
-  title,
-  description,
-  children,
-  ...otherProps
+	title,
+	description,
+	children,
+	...otherProps
 }: SectionProps) {
-  let heading
-  if (title || description) {
-    heading = (
-      <Box>
-        <Heading size="md" mb="4">
-          {title}
-        </Heading>
-        {description && (
-          <Text size="md" color="gray.400">
-            {description}
-          </Text>
-        )}
-      </Box>
-    )
-  }
+	let heading;
+	if (title || description) {
+		heading = (
+			<Box>
+				<Heading size="md" mb="4">
+					{title}
+				</Heading>
+				{description && (
+					<Text fontSize="md" color="gray.400">
+						{description}
+					</Text>
+				)}
+			</Box>
+		);
+	}
 
-  return (
-    <Flex flex="1" direction={'column'} mb="12" {...otherProps}>
-      {heading}
-      <Box flex="1">{children}</Box>
-    </Flex>
-  )
+	return (
+		<Flex flex="1" direction={"column"} mb="12" {...otherProps}>
+			{heading}
+			<Box flex="1">{children}</Box>
+		</Flex>
+	);
 }

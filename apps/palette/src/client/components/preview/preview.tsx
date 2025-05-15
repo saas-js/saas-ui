@@ -1,42 +1,27 @@
 import { Badge, Tabs } from "@saas-ui/react";
-import CodePreview from "./code";
-import ComponentPreview from "./components";
-import FigmaPreview from "./figma";
-import JsonPreview from "./json";
-import PalettePreview from "./palette";
 
 export const Preview = () => {
 	return (
-		<Tabs.Root colorScheme="primary" variant="enclosed">
+		<Tabs.Root colorPalette="primary" variant="outline" defaultValue="colors">
 			<Tabs.List mb="4">
-				<Tabs.Tab>Colors</Tabs.Tab>
-				<Tabs.Tab>Components</Tabs.Tab>
-				<Tabs.Tab>Code</Tabs.Tab>
-				<Tabs.Tab>JSON</Tabs.Tab>
-				<Tabs.Tab>
+				<Tabs.Trigger value="colors">Colors</Tabs.Trigger>
+				<Tabs.Trigger value="components">Components</Tabs.Trigger>
+				<Tabs.Trigger value="code">Code</Tabs.Trigger>
+				<Tabs.Trigger value="json">JSON</Tabs.Trigger>
+				<Tabs.Trigger value="figma">
 					Figma{" "}
 					<Badge bg="primary.500" fontSize="xs" ms="2">
 						new
 					</Badge>
-				</Tabs.Tab>
+				</Tabs.Trigger>
 			</Tabs.List>
-			<Tabs.Panels>
-				<Tabs.Panel>
-					<PalettePreview />
-				</Tabs.Panel>
-				<Tabs.Panel>
-					<ComponentPreview />
-				</Tabs.Panel>
-				<Tabs.Panel position="relative">
-					<CodePreview />
-				</Tabs.Panel>
-				<Tabs.Panel position="relative">
-					<JsonPreview />
-				</Tabs.Panel>
-				<Tabs.Panel>
-					<FigmaPreview />
-				</Tabs.Panel>
-			</Tabs.Panels>
+			<Tabs.Content value="colors">{/* <PalettePreview /> */}</Tabs.Content>
+			<Tabs.Content value="components">
+				{/* <ComponentPreview /> */}
+			</Tabs.Content>
+			<Tabs.Content value="code">{/* <CodePreview /> */}</Tabs.Content>
+			<Tabs.Content value="json">{/* <JsonPreview /> */}</Tabs.Content>
+			<Tabs.Content value="figma">{/* <FigmaPreview /> */}</Tabs.Content>
 		</Tabs.Root>
 	);
 };

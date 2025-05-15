@@ -6,9 +6,8 @@ import {
 	useState,
 } from "react";
 
+import debounce from "@/functions/debounce";
 import { createContext } from "@chakra-ui/react";
-import { debounce } from "lodash";
-
 import { usePalette } from "./palette";
 
 const baseColor = "#6d28d9";

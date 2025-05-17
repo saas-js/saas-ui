@@ -4,13 +4,24 @@ import chroma, { type Color } from "chroma-js";
 const names: Record<number, string> = {
 	0: "red",
 	30: "orange",
+	40: "amber",
 	50: "yellow",
+	90: "lime",
 	150: "green",
+	160: "emerald",
 	180: "teal",
-	190: "cyan",
-	210: "blue",
-	260: "purple",
-	330: "pink",
+	200: "cyan",
+	230: "sky",
+	250: "blue",
+	270: "indigo",
+	290: "violet",
+	300: "purple",
+	320: "fuchsia",
+	340: "pink",
+	350: "rose",
+	360: "stone",
+	370: "neutral",
+	380: "zinc",
 };
 
 const hueName = (h: number) => {
@@ -23,6 +34,13 @@ export interface PaletteColors {
 	[index: string]: string;
 }
 
+function parseOklchString(str: string) {
+	const match = str.match(/oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)\s*\)/);
+	if (!match) throw new Error("Invalid OKLCH string");
+	const [, l, c, h] = match.map(Number);
+	return chroma.oklch(l, c, h);
+}
+
 const getLumsFromThemeColors = (name: string) => {
 	const lums = [];
 	let color = colors[name as keyof typeof colors];
@@ -31,10 +49,23 @@ const getLumsFromThemeColors = (name: string) => {
 		color = colors.red; // fallback lums from red, @todo select lums based on hue range.
 	}
 
-	console.log("chroma", chroma);
+	// console.log("chroma", chroma);
 
 	for (const lum in color) {
-		lums.push(chroma.hex(color[lum as keyof typeof color]).luminance());
+		// console.log(
+		// 	"color[lum as keyof typeof color].value",
+		// 	color[lum as keyof typeof color].value,
+		// );
+		const oklch = parseOklchString(color[lum as keyof typeof color].value);
+		// console.log("oklch", {
+		// 	oklch,
+		// 	str: color[lum as keyof typeof color].value,
+		// });
+		const hex = chroma(oklch).hex();
+		// console.log("hex", hex);
+		const luminance = chroma(hex).luminance();
+		// console.log("luminance", luminance);
+		lums.push(luminance);
 	}
 
 	return lums;
@@ -70,7 +101,10 @@ const createBlack = (hex: string, lum = 0) => {
 
 const createShades = (hex: string, lums: Array<number>) => {
 	return lums.map((lum) => {
-		return chroma(hex).luminance(lum).hex();
+		const color = chroma(hex).luminance(lum);
+		return color.hex();
+		// const [l, c, h] = color.oklch();
+		// return `oklch(${l}% ${c} ${h})`;
 	});
 };
 
@@ -92,6 +126,7 @@ const mapValues = (values: Array<string>) => {
 		"700",
 		"800",
 		"900",
+		"950",
 	];
 	const obj: Record<string, string> = {};
 
@@ -108,18 +143,21 @@ export interface PaletteOptions {
 }
 
 export const createPalette = (hex: string, options: PaletteOptions = {}) => {
+	const start = performance.now();
 	const colors = options.colors || {};
 	const color = chroma(hex);
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const palette: any = {};
 	const [hue, sat, lte] = color.hsl();
 
-	const hues = createHues(36)(hue); // 36 so we have steps of 10
+	const hues = createHues(36)(hue); // 36 so we have steps of 10s
 
 	const gray = colors.gray || color.hex();
 
 	palette.black = createBlack(gray, options.blackLuminance);
 	palette.gray = mapValues(createShades(gray, getLumsFromThemeColors("gray")));
+
+	// console.log("hues", hues);
 
 	// biome-ignore lint/complexity/noForEach: <explanation>
 	hues.forEach((h) => {
@@ -134,6 +172,8 @@ export const createPalette = (hex: string, options: PaletteOptions = {}) => {
 		if (colors[name]) {
 			c = chroma.hex(colors[name]);
 		}
+
+		// console.log("name", name);
 
 		palette[name] = mapValues(
 			createShades(c.hex(), getLumsFromThemeColors(name)),
@@ -150,6 +190,11 @@ export const createPalette = (hex: string, options: PaletteOptions = {}) => {
 			);
 		}
 	});
+
+	const end = performance.now();
+	console.log(`createPalette took ${end - start}ms`);
+
+	console.log("palette", palette);
 
 	return Object.assign(palette);
 };

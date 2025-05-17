@@ -11,9 +11,11 @@ interface CopyButtonProps extends ButtonProps {
 }
 
 function CopyButton({ code, ...props }: CopyButtonProps) {
-  const { hasCopied, onCopy } = useClipboard(code)
+  const { copied, copy } = useClipboard({
+    value: code,
+  })
 
-  const label = hasCopied ? 'Copied' : 'Copy'
+  const label = copied ? 'Copied' : 'Copy'
 
   return (
     <Tooltip content={label}>
@@ -30,9 +32,9 @@ function CopyButton({ code, ...props }: CopyButtonProps) {
         _hover={{ bg: 'none' }}
         {...props}
         aria-label="copy"
-        onClick={onCopy}
+        onClick={copy}
       >
-        {hasCopied ? <FiCheck /> : <FiCopy />}
+        {copied ? <FiCheck /> : <FiCopy />}
       </IconButton>
     </Tooltip>
   )

@@ -1,84 +1,36 @@
-"use client";
+import ColorsPage from '@/components'
+import type { Metadata } from 'next'
 
-import { useMemo } from "react";
+export const metadata: Metadata = {
+  title: 'Color palette generator',
+  description: 'Quickly generate custom color palettes for Chakra UI.',
+  openGraph: {
+    title: 'Saas UI: Color Palette Generator',
+    description: 'Quickly generate custom color palettes for Chakra UI.',
+    url: 'https://palette.saas-ui.dev',
+    siteName: 'Saas UI: Color Palette Generator for Chakra UI.',
+    images: [
+      {
+        url: 'https://palette.saas-ui.dev/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Saas UI: Color Palette Generator for Chakra UI.',
+      },
+      {
+        url: 'https://palette.saas-ui.dev/twitter-og-image.jpg',
+        width: 1012,
+        height: 506,
+        alt: 'Saas UI: Color Palette Generator for Chakra UI.',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
 
-import PaletteConfiguration from "@/components/configuration";
-import Layout from "@/components/layout";
-import Page from "@/components/page";
-import { Preview } from "@/components/preview";
-import {
-	EditorProvider,
-	type UseEditorReturn,
-	useEditor,
-} from "@/providers/editor";
-import {
-	Box,
-	Button,
-	Drawer,
-	HStack,
-	useBreakpointValue,
-	useDisclosure,
-} from "@saas-ui/react";
-import { FiSliders } from "react-icons/fi";
-
-export default function ColorsPage() {
-	const [state, setState] = useEditor();
-
-	const ctx = useMemo<UseEditorReturn>(
-		() => [state, setState],
-		[state, setState],
-	);
-
-	const isMobile = useBreakpointValue({ base: true, lg: false });
-	const { open, onOpen, onClose, onToggle } = useDisclosure();
-
-	return (
-		<EditorProvider value={ctx}>
-			<Layout>
-				<HStack alignItems="flex-start">
-					<Page
-						title="Color palette generator"
-						description="Quickly generate custom color palettes for Chakra UI."
-					>
-						{isMobile && (
-							<Button onClick={onToggle} mb="8">
-								<FiSliders /> Configure
-							</Button>
-						)}
-						<Preview />
-					</Page>
-					{isMobile ? (
-						<>
-							<Drawer.Root
-								isOpen={open}
-								// placement="right"
-								onClose={onClose}
-							>
-								<Drawer.Content>
-									<Drawer.CloseButton />
-									<Drawer.Body pt="8">
-										<PaletteConfiguration />
-									</Drawer.Body>
-								</Drawer.Content>
-							</Drawer.Root>
-						</>
-					) : (
-						<Box
-							width="30%"
-							maxW="320px"
-							borderLeftWidth="1px"
-							top="0"
-							position="sticky"
-							height="100vh"
-							overflowY="auto"
-							py="4"
-							px="4"
-						>
-							<PaletteConfiguration />
-						</Box>
-					)}
-				</HStack>
-			</Layout>
-		</EditorProvider>
-	);
+export default function Home() {
+  return <ColorsPage />
 }

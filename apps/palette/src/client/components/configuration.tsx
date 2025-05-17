@@ -1,60 +1,62 @@
-import { useCallback } from "react";
+import { useCallback } from 'react'
 
-import { useEditorContext } from "@/providers/editor";
+import { useEditorContext } from '@/providers/editor'
 import {
-	Button,
-	ButtonGroup,
-	Field,
-	HStack,
-	Slider,
-	VStack,
-} from "@saas-ui/react";
-import { FaXTwitter } from "react-icons/fa6";
+  Box,
+  Button,
+  ButtonGroup,
+  Field,
+  HStack,
+  Input,
+  Slider,
+  VStack,
+} from '@saas-ui/react'
+import { FaXTwitter } from 'react-icons/fa6'
 
-import ColorPicker from "./color-picker";
-import Section from "./section";
+import ColorPicker from './color-picker'
+import Section from './section'
 
 const PaletteConfiguration = () => {
-	const [state, setState] = useEditorContext();
+  const [state, setState] = useEditorContext()
 
-	const { theme, color, gray, blackLuminance } = state;
+  const { color, gray, blackLuminance } = state
 
-	const handleChange = useCallback(
-		(key: string) => {
-			return (e: any) => {
-				if (typeof e === "string") {
-					setState((state) => ({
-						...state,
-						[key]: e,
-					}));
-				} else {
-					setState((state) => ({
-						...state,
-						[key]: e.target?.value,
-					}));
-				}
-			};
-		},
-		[setState],
-	);
+  const handleChange = useCallback(
+    (key: string) => {
+      return (e: any) => {
+        if (typeof e === 'string') {
+          setState((state) => ({
+            ...state,
+            [key]: e,
+          }))
+        } else {
+          setState((state) => ({
+            ...state,
+            [key]: e.target?.value,
+          }))
+        }
+      }
+    },
+    [setState],
+  )
 
-	const onReset = useCallback(() => {
-		setState((state) => {
-			// @todo get these values from the default themes
-			return {
-				...state,
-				color: "#6d28d9",
-				gray: "#1f2937",
-				blackLuminance: 0.005,
-			};
-		});
-	}, [setState]);
+  const onReset = useCallback(() => {
+    setState((state) => {
+      // @todo get these values from the default themes
+      return {
+        ...state,
+        color: '#6d28d9',
+        gray: '#1f2937',
+        blackLuminance: 0.005,
+      }
+    })
+  }, [setState])
 
-	return (
-		<form onSubmit={() => null}>
-			<Section title="Configuration">
-				<VStack gap={4}>
-					{/* <Field.Root>
+  return (
+    <form onSubmit={() => null}>
+      <Section title="Configuration">
+        <VStack gap={4}>
+          {/* <Field.Root>
 						<Field.Label>Theme</Field.Label>
 
 						<Select.Root
@@ -74,79 +76,78 @@ const PaletteConfiguration = () => {
 							</Select.Content>
 						</Select.Root>
 					</Field.Root> */}
-					<Field.Root>
-						<Field.Label>Primary color</Field.Label>
-						<HStack w={"full"}>
-							<ColorPicker onChange={handleChange("color")} value={color} />
-							{/* <Input
-								type="text"
-								onChange={handleChange("color")}
-								value={color}
-								w={"full"}
-							/> */}
-						</HStack>
-						<Field.HelperText>
-							Select your primary brand color here, all other colors will be
-							generated based of this.
-						</Field.HelperText>
-					</Field.Root>
-					<Field.Root>
-						<Field.Label>Gray tint</Field.Label>
-						<HStack w={"full"}>
-							<ColorPicker onChange={handleChange("gray")} value={gray} />
-							{/* <Input
-								type="text"
-								onChange={handleChange("gray")}
-								value={gray}
-								w={"full"}
-							/> */}
-						</HStack>
-						<Field.HelperText>
-							Choose a gray tint that compliments your base color to make your
-							theme pop.
-						</Field.HelperText>
-					</Field.Root>
-					<Field.Root>
-						<Field.Label>Black luminance</Field.Label>
-						<Slider
-							onValueChange={(value: { value: number[] }) => {
-								const val = value.value[0];
-								if (val !== blackLuminance) {
-									setState((state) => ({
-										...state,
-										blackLuminance: val,
-									}));
-								}
-							}}
-							value={[blackLuminance]}
-							min={0}
-							max={0.01}
-							step={0.001}
-							w={"full"}
-						/>
+          <Field.Root>
+            <Field.Label>Primary color</Field.Label>
+            <HStack w={'full'}>
+              <ColorPicker onChange={handleChange('color')} value={color} />
+              <Input
+                type="text"
+                onChange={handleChange('color')}
+                value={color}
+                w={'full'}
+              />
+            </HStack>
+            <Field.HelperText>
+              Select your primary brand color here, all other colors will be
+              generated based of this.
+            </Field.HelperText>
+          </Field.Root>
+          <Field.Root>
+            <Field.Label>Gray tint</Field.Label>
+            <HStack w={'full'}>
+              <ColorPicker onChange={handleChange('gray')} value={gray} />
+              <Input
+                type="text"
+                onChange={handleChange('gray')}
+                value={gray}
+                w={'full'}
+              />
+            </HStack>
+            <Field.HelperText>
+              Choose a gray tint that compliments your base color to make your
+              theme pop.
+            </Field.HelperText>
+          </Field.Root>
+          <Field.Root>
+            <Field.Label>Black luminance</Field.Label>
+            <Slider
+              onValueChange={(value: { value: number[] }) => {
+                const val = value.value[0]
+                if (val !== blackLuminance) {
+                  setState((state) => ({
+                    ...state,
+                    blackLuminance: val,
+                  }))
+                }
+              }}
+              value={[blackLuminance]}
+              min={0}
+              max={0.01}
+              step={0.001}
+              w={'full'}
+            />
 
-						<Field.HelperText>
-							Slightly increase the luminance to make your blacks more organic.
-						</Field.HelperText>
-					</Field.Root>
+            <Field.HelperText>
+              Slightly increase the luminance to make your blacks more organic.
+            </Field.HelperText>
+          </Field.Root>
 
-					{/* TODO: */}
-					{/* <Divider /> */}
+          <Box h="1px" w="full" bg="border" />
 
-					<ButtonGroup>
-						<Button asChild variant="solid" colorScheme="primary">
-							<a href="https://twitter.com/intent/tweet?text=I%20created%20my%20%40chakra_ui%20color%20palette%20with%20%40saas_js%20%F0%9F%A4%A9%0A%0A%0Ahttps%3A//palette.saas-ui.dev%20">
-								<FaXTwitter />
-								Share on X
-							</a>
-						</Button>
+          <ButtonGroup>
+            <Button asChild variant="solid" colorScheme="primary">
+              <a href="https://twitter.com/intent/tweet?text=I%20created%20my%20%40chakra_ui%20color%20palette%20with%20%40saas_js%20%F0%9F%A4%A9%0A%0A%0Ahttps%3A//palette.saas-ui.dev%20">
+                <FaXTwitter />
+                Share on X
+              </a>
+            </Button>
 
-						<Button onClick={onReset}>Reset</Button>
-					</ButtonGroup>
-				</VStack>
-			</Section>
-		</form>
-	);
-};
+            <Button onClick={onReset}>Reset</Button>
+          </ButtonGroup>
+        </VStack>
+      </Section>
+    </form>
+  )
+}
 
-export default PaletteConfiguration;
+export default PaletteConfiguration

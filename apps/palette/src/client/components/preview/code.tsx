@@ -9,6 +9,7 @@ import CopyButton from '../copy-button'
 const CodePreview = () => {
   const [{ theme }] = useEditorContext()
   const [{ colors }] = usePalette()
+
   const code = useMemo(() => {
     switch (theme) {
       case 'Chakra UI':
@@ -30,28 +31,79 @@ const CodePreview = () => {
 
 export default CodePreview
 
-export const exampleCodeChakra = ({ colors }: any) => `
-import { extendTheme } from '@chakra-ui/react'
+export function transformColors(colors: Record<string, any>) {
+  return Object.entries(colors).reduce(
+    (acc, [key, value]) => {
+      let newVal: any
+
+      if (typeof value === 'string') {
+        newVal = { value }
+      } else {
+        newVal = Object.entries(value).reduce(
+          (acc, [shade, color]) => {
+            acc[shade] = { value: color }
+            return acc
+          },
+          {} as Record<string, { value: any }>,
+        )
+      }
+
+      acc[key] = newVal
+
+      return acc
+    },
+    {} as Record<string, { value: any }>,
+  )
+}
+
+export const exampleCodeChakra = ({
+  colors,
+}: {
+  colors: Record<string, any>
+}) => {
+  const transformedColors = transformColors(colors)
+
+  return `import { extendTheme } from '@chakra-ui/react'
 import { baseTheme } from '@saas-ui/react' // Only required if you use Saas UI components.
 
-const colors = ${JSON.stringify(colors, null, 2)}
+const colors = ${JSON.stringify(transformedColors, null, 2)}
 
-const theme = extendTheme({
-  colors
-}, baseTheme)
+const config = defineConfig({
+  theme: {
+    tokens: {
+      colors,
+    },
+  },
+});
 
-export default theme
+const system = createSystem(defaultConfig, config);
+
+export default system;
 `
+}
 
-export const exampleCodeSaas = ({ colors }: any) => `
-import { extendTheme } from '@chakra-ui/react'
+export const exampleCodeSaas = ({
+  colors,
+}: {
+  colors: Record<string, any>
+}) => {
+  const transformedColors = transformColors(colors)
+
+  return `import { extendTheme } from '@chakra-ui/react'
 import { theme as baseTheme } from '@saas-ui/react'
 
-const colors = ${JSON.stringify(colors, null, 2)}
+const colors = ${JSON.stringify(transformedColors, null, 2)}
 
-const theme = extendTheme({
-  colors
-}, baseTheme)
+const config = defineConfig({
+  theme: {
+    tokens: {
+      colors,
+    },
+  },
+});
 
-export default theme
+const system = createSystem(defaultConfig, config);
+
+export default system;
 `
+}

@@ -28,7 +28,18 @@ const FigmaPreview = () => {
             accessible-first palettes for Chakra UI in Figma.
           </Text>
 
-          <List.Root color="muted" gap="3">
+          <List.Root
+            color="fg.muted"
+            gap="3"
+            listStyleType="none"
+            css={{
+              '& > li': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
+              },
+            }}
+          >
             <List.Item>
               <Icon as={FiCheck} color="primary.500" />
               Generate &apos;Hues&apos; or &apos;Opacities&apos; palettes

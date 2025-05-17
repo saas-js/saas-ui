@@ -3,20 +3,18 @@ import {
   Button,
   Checkbox,
   HStack,
-  Radio,
-  RadioGroup,
   Spinner,
   type SpinnerProps,
   Switch,
   VStack,
 } from '@saas-ui/react'
 
-const StyledSpinner = ({ colorScheme }: SpinnerProps) => {
+const StyledSpinner = ({ colorPalette }: SpinnerProps) => {
   return (
     <Spinner
       color={{
-        base: `${colorScheme}.500`,
-        _dark: `${colorScheme}.500`,
+        base: `${colorPalette}.500`,
+        _dark: `${colorPalette}.500`,
       }}
     />
   )
@@ -39,79 +37,92 @@ const ComponentPreview = () => {
     <>
       <VStack gap="8" alignItems="stretch">
         <HStack>
-          {colors.map((colorScheme) => (
-            <Button key={colorScheme} colorScheme={colorScheme} variant="solid">
-              {colorScheme}
+          {colors.map((colorPalette) => (
+            <Button
+              key={colorPalette}
+              colorPalette={colorPalette}
+              variant="solid"
+            >
+              {colorPalette}
             </Button>
           ))}
         </HStack>
         <HStack>
-          {colors.map((colorScheme) => (
+          {colors.map((colorPalette) => (
             <Button
-              key={colorScheme}
-              colorScheme={colorScheme}
+              key={colorPalette}
+              colorPalette={colorPalette}
               variant="outline"
             >
-              {colorScheme}
+              {colorPalette}
             </Button>
           ))}
         </HStack>
         <HStack>
-          {colors.map((colorScheme) => (
-            <Button key={colorScheme} colorScheme={colorScheme} variant="ghost">
-              {colorScheme}
-            </Button>
-          ))}
-        </HStack>
-        <HStack>
-          {colors.map((colorScheme) => (
+          {colors.map((colorPalette) => (
             <Button
-              key={colorScheme}
-              colorScheme={colorScheme}
+              key={colorPalette}
+              colorPalette={colorPalette}
+              variant="ghost"
+            >
+              {colorPalette}
+            </Button>
+          ))}
+        </HStack>
+        <HStack>
+          {colors.map((colorPalette) => (
+            <Button
+              key={colorPalette}
+              colorPalette={colorPalette}
               variant="subtle"
             >
-              {colorScheme}
+              {colorPalette}
             </Button>
           ))}
         </HStack>
         <HStack>
-          {colors.map((colorScheme) => (
-            <Badge key={colorScheme} colorScheme={colorScheme} variant="solid">
-              {colorScheme}
-            </Badge>
-          ))}
-        </HStack>
-        <HStack>
-          {colors.map((colorScheme) => (
-            <Badge key={colorScheme} colorScheme={colorScheme} mr={2}>
-              {colorScheme}
-            </Badge>
-          ))}
-        </HStack>
-        <HStack>
-          {colors.map((colorScheme) => (
+          {colors.map((colorPalette) => (
             <Badge
-              key={colorScheme}
-              colorScheme={colorScheme}
+              key={colorPalette}
+              colorPalette={colorPalette}
+              variant="solid"
+            >
+              {colorPalette}
+            </Badge>
+          ))}
+        </HStack>
+        <HStack>
+          {colors.map((colorPalette) => (
+            <Badge key={colorPalette} colorPalette={colorPalette} mr={2}>
+              {colorPalette}
+            </Badge>
+          ))}
+        </HStack>
+        <HStack>
+          {colors.map((colorPalette) => (
+            <Badge
+              key={colorPalette}
+              colorPalette={colorPalette}
               variant="outline"
             >
-              {colorScheme}
+              {colorPalette}
             </Badge>
           ))}
         </HStack>
         <HStack>
-          {colors.map((colorScheme) => (
-            <StyledSpinner key={colorScheme} colorScheme={colorScheme} />
+          {colors.map((colorPalette) => (
+            <StyledSpinner key={colorPalette} colorPalette={colorPalette} />
           ))}
         </HStack>
         <HStack>
-          <Switch isChecked />
+          <Switch colorPalette="primary" checked />
 
-          <RadioGroup>
-            <Radio />
-          </RadioGroup>
+          {/* TODO: */}
+          {/* <RadioGroup defaultValue="primary">
+            <Radio colorPalette="primary" value="primary" />
+          </RadioGroup> */}
 
-          <Checkbox checked />
+          <Checkbox colorPalette="primary" checked />
         </HStack>
       </VStack>
     </>

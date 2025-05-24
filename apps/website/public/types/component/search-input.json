@@ -1,0 +1,34 @@
+{
+  "SearchInput": {
+    "props": {
+      "value": {
+        "type": "string",
+        "isRequired": false
+      },
+      "defaultValue": {
+        "type": "string",
+        "isRequired": false
+      },
+      "placeholder": {
+        "type": "string",
+        "isRequired": false
+      },
+      "icon": {
+        "type": "React.ReactElement",
+        "isRequired": false
+      },
+      "resetIcon": {
+        "type": "React.ReactElement",
+        "isRequired": false
+      },
+      "endElement": {
+        "type": "React.ReactElement",
+        "isRequired": false
+      },
+      "onReset": {
+        "type": "() => void",
+        "isRequired": false
+      }
+    }
+  }
+}

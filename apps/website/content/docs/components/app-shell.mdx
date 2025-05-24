@@ -1,0 +1,38 @@
+---
+title: App Shell
+package: '@saas-ui/core'
+description: The App Shell defines the main structure of your app.
+links:
+  source: components/app-shell
+  storybook: components-app-shell--basic
+  recipe: app-shell
+---
+
+## Anatomy
+
+```ts
+import { AppShell } from '@saas-ui/react'
+```
+
+## Usage
+
+The AppShell component provides a structured layout container that helps you build consistent application interfaces.
+It manages the composition and positioning of key UI elements like navbars and sidebars.
+
+### Navbar layout
+
+AppShell will fit itself into the viewport by default, using `height="100dvh"`.
+
+<ExampleTabs name="app-shell-navbar" padding="0" />
+
+### Sidebar layout
+
+AppShell with a Sidebar and Page.
+
+<ExampleTabs name="app-shell-sidebar" padding="0" />
+
+## Props
+
+### AppShell
+
+<PropTable component="AppShell" part="AppShell" />

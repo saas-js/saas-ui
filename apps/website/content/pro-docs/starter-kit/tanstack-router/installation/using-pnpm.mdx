@@ -1,0 +1,34 @@
+---
+title: Using PNPM
+description: How to use PNPM instead of Yarn.
+---
+
+If you prefer to use `pnpm` instead of `yarn`, you need to set up the `pnpm` workspace.
+
+Create `.pnpm-workspace.yaml` in the root of your project with the following content:
+
+```yaml
+packages:
+  - 'apps/*'
+  - 'packages/*'
+```
+
+The recommended way to install PNPM is using `corepack`, you can enable `corepack` using the following command:
+
+```bash
+corepack enable
+```
+
+Install PNPM:
+
+```bash
+corepack prepare pnpm@latest --activate
+```
+
+Then run the following command to install all dependencies:
+
+```bash
+pnpm i
+```
+
+Make sure you also update the `scripts` in `package.json` to use `pnpm` instead of `yarn`.

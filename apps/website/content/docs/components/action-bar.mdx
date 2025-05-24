@@ -1,0 +1,56 @@
+---
+title: Action Bar
+description: Used to display a bottom action bar with a set of actions
+links:
+  source: components/action-bar
+  storybook: components-action-bar--basic
+  recipe: action-bar
+---
+
+<ExampleTabs name="action-bar-basic" />
+
+## Anatomy
+
+The action bar is designed to be controlled by table or checkbox selections. It
+provides a set of actions that can be performed on the selected items.
+
+```jsx
+import { ActionBar } from '@saas-ui/react/action-bar'
+```
+
+```jsx
+<ActionBar.Root>
+  <ActionBar.Content>
+    <ActionBar.CloseTrigger />
+    <ActionBar.SelectionTrigger />
+    <ActionBar.Separator />
+    <Button />
+  </ActionBar.Content>
+</ActionBar.Root>
+```
+
+## Examples
+
+### Close Trigger
+
+Render the `ActionBarCloseTrigger` to close the action bar, and pass the
+`onOpenChange` handler to control the visibility of the action bar.
+
+> The `open` and `onOpenChange` props control the visibility of the action bar.
+
+<ExampleTabs name="action-bar-with-close-trigger" />
+
+### Within Dialog
+
+Here's an example of composing the `ActionBar` and the `Dialog` to perform a
+delete action on a set of selected items.
+
+> Press the `Delete projects` button to open the dialog.
+
+<ExampleTabs name="action-bar-with-dialog" />
+
+## Props
+
+### Root
+
+<PropTable component="ActionBar" part="Root" />

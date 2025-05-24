@@ -1,4 +1,87 @@
-# @saas-ui/react
+# @saas-ui/core
+
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Fix: subpath imports
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- c89b27d: Removed cjs exports
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies [121029e]
+- Updated dependencies [121029e]
+  - @saas-ui/hooks@3.0.0-next.2
+
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Fixed build
+
+## 3.0.0-next.5
+
+### Patch Changes
+
+- c2372f9: Removed duplicate SidebarProvider props
+
+## 3.0.0-next.4
+
+### Patch Changes
+
+- d87c2ac: Improved build and fixed types
+
+## 3.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/hooks@3.0.0-next.1
+
+## 3.0.0-next.2
+
+### Patch Changes
+
+- dae627e: Import HTMLArkProps as type
+
+## 3.0.0-next.1
+
+### Patch Changes
+
+- 860649d: Improved build speed and output
+
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- f85d493: Added Sidebar.Context component that allows you to access sidebar context using a render prop
+- f85d493: Sidebar mode can now be controlled using the sidebar context
+- 95c8652: Update to Chakra UI 3.2.1
+- eb02362: Improved GridList aria props
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- cee2e9c: Removed chakra ui dependency of core package
+- 6f9f04d: Fixed issue where Sidebar mode could not be controlled
+- 0f49a18: Removed imports from @chakra-ui/react
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [6459de4]
+- Updated dependencies [0f49a18]
+  - @saas-ui/hooks@3.0.0-next.0
 
 ## 2.8.1
 
@@ -1950,8 +2033,9 @@
   Add this somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers

@@ -1,0 +1,55 @@
+---
+title: IconBadge
+description: Used to display an svg icon
+links:
+  source: components/icon-badge
+  storybook: components-icon-badge--basic
+---
+
+<ExampleTabs name="icon-basic" />
+
+## Anatomy
+
+```jsx
+import { IconBadge } from '@saas-ui/react/icon-badge'
+```
+
+```jsx
+<Icon as={LuUser} />
+
+<Icon><User /></Icon>
+```
+
+:::warning
+
+When rendering an icon as a child, the component needs to have a ref forwarded.
+
+:::
+
+## Built-in Icons
+
+Saas UI uses Lucide icons by default, but you can use any icon library.
+
+```jsx
+import { ChevronUpIcon } from '@saas-ui/react/icons'
+```
+
+## Examples
+
+### React Icons
+
+Integrate with popular react icon libraries like `react-icons`
+
+<ExampleTabs name="icon-with-react-icon" />
+
+### Custom svg
+
+Use the `asChild` prop to render custom svg icons within the `Icon` component
+
+<ExampleTabs name="icon-with-custom-svg" />
+
+### Create Icon
+
+Use the `createIcon` utility to create custom icons
+
+<ExampleTabs name="icon-with-create-icon" />

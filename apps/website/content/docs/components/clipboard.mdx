@@ -1,0 +1,58 @@
+---
+title: Clipboard
+description: Used to copy text to the clipboard
+links:
+  source: components/clipboard
+  storybook: components-clipboard--basic
+  recipe: clipboard
+  ark: https://ark-ui.com/react/docs/components/clipboard
+---
+
+<ExampleTabs name="clipboard-basic" />
+
+## Anatomy
+
+```jsx
+import { Clipboard } from '@saas-ui/react/clipboard'
+```
+
+```jsx
+<Clipboard.Root value="...">
+  <Clipboard.Button />
+  <Clipboard.IconButton />
+  <Clipboard.Input />
+</ClipboardRoot>
+```
+
+## Examples
+
+### Copy Button
+
+Use the `Clipboard.Button` or `Clipboard.IconButton` components to create a copy
+button.
+
+<ExampleTabs name="clipboard-with-button" />
+
+### Custom labels
+
+Use the `copied` prop to change the label when the text is copied.
+
+<ExampleTabs name="clipboard-with-custom-labels" />
+
+### Input
+
+Use the `Clipboard.Input` component to create a copy input.
+
+<ExampleTabs name="clipboard-with-input" />
+
+### Timeout
+
+Use the `timeout` prop to change the duration of the copy message.
+
+<ExampleTabs name="clipboard-with-timeout" />
+
+## Props
+
+### Root
+
+<PropTable component="Clipboard" part="Root" />

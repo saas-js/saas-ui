@@ -1,0 +1,86 @@
+---
+title: Contributing to Saas UI
+description: The guide to contributing to Saas UI v3.0
+---
+
+We love receiving contributions, we're forever grateful for your help.
+
+## Overview
+
+Here are a few ways you can help improve Saas UI
+
+- **Improve the documentation**: Add new examples, fix typos, or add missing
+  information.
+- **Fix bugs**: Report bugs, fix bugs, or add missing features.
+- **Contribute to the code**: Propose new features by opening a Github
+  Discussion, or find existing bugs to work on.
+- **Improve the code**: Improve the code, fix bugs, or add missing features.
+
+## Architecture
+
+Saas v3.x is built on top of Chakra UI v3.x, and is a composition of two projects in the Chakra ecosystem, Ark UI and
+Zag.js.
+
+- [Chakra UI](https://github.com/chakra-ui/chakra-ui) - The foundation of Saas UI
+- [Ark UI](https://github.com/chakra-ui/ark) - State machine from Zag.js converted to headless UI components
+- [Zag.js](https://github.com/chakra-ui/zag) - Component logic modelled as a state machine
+
+### Filing Issues
+
+Before opening an issue, please check the following:
+
+- If the issue is a logic or accessibility bug, then it's most likely a bug in
+  Zag.js. Consider opening an issue in the Zag.js repository.
+
+- If it's a styling issue, then you can fix it directly in the Saas UI repo.
+
+### Feature Requests
+
+Feel free to open any feature requests, we'll review them to see if they're a good fit for Saas UI or if they should be implemented in Chakra UI or Zag.js.
+
+## Local Setup
+
+- Clone the repository
+
+```bash
+git clone https://github.com/saas-ui/saas-ui.git
+```
+
+- Install dependencies
+
+```bash
+yarn
+```
+
+- Build local version of all packages
+
+```bash
+yarn build:packages
+```
+
+- Start storybook
+
+```bash
+yarn storybook
+```
+
+- Start documentation website
+
+```bash
+yarn dev:website
+```
+
+- Run tests
+
+```bash
+yarn test
+```
+
+## Recommended Extensions
+
+We recommend using the following extensions in your editor:
+
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
+- [MDX](https://mdxjs.com/)

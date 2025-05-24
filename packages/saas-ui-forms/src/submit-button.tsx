@@ -1,9 +1,9 @@
-import * as React from 'react'
+import { forwardRef } from 'react'
 
+import { Button, ButtonProps } from '@saas-ui/react/button'
 import { useFormContext } from 'react-hook-form'
 
-import { Button, ButtonProps, forwardRef } from '@chakra-ui/react'
-import { useFieldProps } from './form-context'
+import { useFieldProps } from './form-context.tsx'
 
 export interface SubmitButtonProps extends ButtonProps {
   /**
@@ -15,20 +15,22 @@ export interface SubmitButtonProps extends ButtonProps {
    */
   disableIfInvalid?: boolean
 }
+
 /**
  * A button with type submit and default color scheme primary and isLoading state when the form is submitting.
  *
  * @see Docs https://saas-ui.dev/docs/components/forms/form
  */
-export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
+export const SubmitButton = forwardRef<HTMLButtonElement, SubmitButtonProps>(
   (props, ref) => {
     const {
-      variant = 'primary',
+      variant = 'glass',
+      colorPalette = 'accent',
       children = 'Submit',
       disableIfUntouched: disableIfUntouchedProp = false,
       disableIfInvalid: disableIfInvalidProp = false,
-      isDisabled: isDisabledProp,
-      isLoading,
+      disabled: disabledProp,
+      loading,
       ...rest
     } = props
     const { formState } = useFormContext()
@@ -48,21 +50,22 @@ export const SubmitButton = forwardRef<SubmitButtonProps, 'button'>(
     const isDisabled =
       (disableIfUntouched && !formState.isDirty) ||
       (disableIfInvalid && !formState.isValid) ||
-      isDisabledProp
+      disabledProp
 
     return (
       <Button
         ref={ref}
-        variant={variant}
+        variant={variant as any}
+        colorPalette={colorPalette}
         type="submit"
-        isLoading={formState.isSubmitting || isLoading}
-        isDisabled={isDisabled}
+        loading={formState.isSubmitting || loading}
+        disabled={isDisabled}
         children={children}
         {...rest}
         {...fieldProps}
       />
     )
-  }
+  },
 )
 
 SubmitButton.displayName = 'SubmitButton'

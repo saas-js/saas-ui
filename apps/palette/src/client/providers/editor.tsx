@@ -1,6 +1,8 @@
-import { createContext } from '@chakra-ui/utils'
-import { debounce } from 'lodash'
 import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
+
+import { createContext } from '@chakra-ui/react'
+import { debounce } from 'lodash'
+
 import { usePalette } from './palette'
 
 const baseColor = '#6d28d9'
@@ -28,7 +30,7 @@ export const useEditor = (): UseEditorReturn => {
           setPalette(color, options)
         }
       }, 200),
-    [setPalette]
+    [setPalette],
   )
 
   useEffect(() => {

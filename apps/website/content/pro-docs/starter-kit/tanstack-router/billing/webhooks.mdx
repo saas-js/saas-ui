@@ -1,0 +1,25 @@
+---
+title: 'Billing webhooks'
+description: 'How to handle billing webhooks in your application'
+---
+
+The starter kit makes sure your application is in sync with your billing provider by using webhooks.
+
+By default Stripe is used as the billing provider and all required events are handled for you.
+In case you want to add custom logic you can add your own event handler.
+
+Edit `apps/web/app/api/webhooks/stripe/route.ts` to add your own event handlers.
+
+```ts
+import { createStripeWebhookHandler } from '@acme/billing-stripe'
+
+export const POST = createStripeWebhookHandler({
+  onEvent: async (event) => {
+    console.log('[Stripe] Received event:', event.type)
+  },
+})
+```
+
+The `onEvent` function is called for all events that you've enabled in your Stripe dashboard.
+
+Read more about webhooks in the [Stripe documentation](https://docs.stripe.com/webhooks).

@@ -3,5 +3,5 @@
 if [[ $VERCEL_ENV == "production"  ]] ; then 
   yarn build:web
 else 
-  pnpm build:web
+  pnpm build:packages && pnpm build:web
 fi

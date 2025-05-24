@@ -1,0 +1,68 @@
+---
+title: Card
+description: Used to display content related to a single subject.
+links:
+  source: components/card
+  storybook: components-card--basic
+  recipe: card
+---
+
+<ExampleTabs name="card-basic" />
+
+## Anatomy
+
+```jsx
+import { Card } from '@saas-ui/react/card'
+```
+
+```jsx
+<Card.Root>
+  <Card.Header />
+  <Card.Body />
+  <Card.Footer />
+</Card.Root>
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the visual style of the Card.
+
+<ExampleTabs name="card-with-variants" />
+
+### Within Form
+
+Use the Card component within a form to group related fields together.
+
+<ExampleTabs name="card-with-form" />
+
+### Sizes
+
+Use the `size` prop to change the size of the Card.
+
+<ExampleTabs name="card-with-sizes" />
+
+### With Image
+
+Use the Card component to display an image.
+
+<ExampleTabs name="card-with-image" />
+
+### Horizontal
+
+Use the Card component to display content horizontally.
+
+<ExampleTabs name="card-horizontal" />
+
+### With Avatar
+
+Use the Card component to display an avatar.
+
+<ExampleTabs name="card-with-avatar" />
+
+## Props
+
+### Root
+
+<PropTable component="Card" part="Root" />

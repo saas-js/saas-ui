@@ -1,0 +1,89 @@
+---
+title: Switch
+description: Used to capture a binary state
+links:
+  source: components/switch
+  storybook: components-switch--basic
+  recipe: switch
+  ark: https://ark-ui.com/react/docs/components/switch
+---
+
+<ExampleTabs name="switch-basic" />
+
+## Anatomy
+
+```jsx
+import { Switch } from '@saas-ui/react/switch'
+```
+
+```jsx
+<Switch>Label</Switch>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the switch component.
+
+<ExampleTabs name="switch-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the switch.
+
+<ExampleTabs name="switch-with-variants" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color scheme of the component.
+
+<ExampleTabs name="switch-with-colors" />
+
+### Controlled
+
+Use the `checked` and `onCheckedChange` prop to control the state of the switch.
+
+<ExampleTabs name="switch-controlled" />
+
+### Hook Form
+
+Here's an example of integrating the switch with `react-hook-form`.
+
+<ExampleTabs name="switch-with-hook-form" />
+
+### Disabled
+
+Use the `disabled` prop to disable the switch.
+
+<ExampleTabs name="switch-with-disabled" />
+
+### Invalid
+
+Use the `invalid` prop to indicate an error state for the switch.
+
+<ExampleTabs name="switch-with-invalid" />
+
+### Tooltip
+
+Here's an example of a switch with a tooltip.
+
+<ExampleTabs name="switch-with-tooltip" />
+
+### Track Label
+
+Use the `trackLabel` prop to display different label based on the checked state.
+
+<ExampleTabs name="switch-with-track-label" />
+
+### Thumb Label
+
+Use the `thumbLabel` prop to add an icon to the switch thumb.
+
+<ExampleTabs name="switch-with-thumb-label" />
+
+## Props
+
+### Root
+
+<PropTable component="Switch" part="Root" />

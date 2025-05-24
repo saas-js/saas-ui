@@ -1,0 +1,75 @@
+---
+title: Tooltip
+description: Used to display additional information when a user hovers over an element.
+links:
+  source: components/tooltip
+  storybook: components-tooltip--basic
+  recipe: tooltip
+  ark: https://ark-ui.com/react/docs/components/tooltip
+---
+
+<ExampleTabs name="tooltip-basic" />
+
+## Anatomy
+
+```jsx
+import { Tooltip } from '@saas-ui/react/tooltip'
+```
+
+```jsx
+<Tooltip content="...">
+  <button />
+</Tooltip>
+```
+
+## Examples
+
+### Arrow
+
+Use the `showArrow` prop to show an arrow on the tooltip.
+
+<ExampleTabs name="tooltip-with-arrow" />
+
+### Placement
+
+Use the `positioning.placement` prop to change the position of the tooltip.
+
+<ExampleTabs name="tooltip-with-placement" />
+
+### Offset
+
+Use the `positioning.offset` prop to change the offset of the tooltip.
+
+<ExampleTabs name="tooltip-with-offset" />
+
+### Delay
+
+Use the `openDelay` and `closeDelay` prop to change the delay of the tooltip.
+
+<ExampleTabs name="tooltip-with-delay" />
+
+### Controlled
+
+Use the `open` and `onOpenChange` prop to control the visibility of the tooltip.
+
+<ExampleTabs name="tooltip-controlled" />
+
+### Interactive
+
+Use the `interactive` prop to keep the tooltip open when interacting with its
+content.
+
+<ExampleTabs name="tooltip-with-interactive" />
+
+### Disabled
+
+Use the `disabled` prop to disable the tooltip. When disabled, the tooltip will
+not be shown.
+
+<ExampleTabs name="tooltip-with-disabled" />
+
+## Props
+
+### Root
+
+<PropTable component="tooltip" part="root" />

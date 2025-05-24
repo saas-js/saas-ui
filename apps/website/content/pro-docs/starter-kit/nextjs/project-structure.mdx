@@ -1,0 +1,39 @@
+---
+title: Project structure
+description: How to find your way in the project.
+---
+
+The starter kit is setup as a monorepo which is managed by Yarn 4 and Turbo Repo.
+
+## Folder structure
+
+The folder structure looks as following:
+
+| Path                       | Package name         | Description                                                                          |
+| -------------------------- | -------------------- | ------------------------------------------------------------------------------------ |
+| `apps/web`                 | web                  | Next.js (app router) app.                                                            |
+| `apps/web/features/common` |                      | The app's common functionality, for example layouts, that is shared across features. |
+| `apps/web/features/*`      |                      | Domain specific code is grouped within individual features.                          |
+| `packages/api`             | @acme/api            | The tRPC API service.                                                                |
+| `packages/better-auth`     | @acme/better-auth    | Better Auth authentication adapter                                                   |
+| `packages/auth-supabase`   | @acme/auth-supabase  | Supabase authentication adapter                                                      |
+| `packages/billing-stripe`  | @acme/billing-stripe | Stripe billing adapter                                                               |
+| `packages/config`          | @acme/config         | Configuration for billing plans and feature flags                                    |
+| `packages/env`             | @acme/env            | Type-safe environment variables                                                      |
+| `packages/db`              | @acme/db             | Database schemas and migrations using Drizzle                                        |
+| `packages/email`           | @acme/email          | Email service using Resend                                                           |
+| `packages/i18n`            | @acme/i18n           | i18n helpers and utilities                                                           |
+| `packages/next`            | @acme/next           | Next.js helpers and utilities                                                        |
+| `packages/ui`              | @acme/ui             | This is your shared UI library, and included all custom pre-built components         |
+| `packages/theme`           | @acme/theme          | Your custom Chakra UI theme. This extends the Saas UI Pro theme by default.          |
+
+## Features
+
+Application code is grouped by feature, this means that all related assets, like components, hook, pages are grouped in a single feature folder. This setup will help to keep the code base maintainable as it grows. It will make it easier to add/remove new features and prevent any unwanted side effects when refactoring or removing functionality, due to too much interdependencies.
+
+A few rules to make sure the codebase stays maintainable.
+
+- Shared functionality is located in the `common` feature, other features can import from here.
+- Treat features as standalone packages, keep them as decoupled as possible.
+- If a component is used in multiple features and doesn't depend on external state (like data fetching), consider adding it to the ui library, otherwise add it to the `common` feature.
+- Keep components clean, eg if there is complex business logic, like useQuery or useMutation hooks, move them into a separate hook in `hooks/`

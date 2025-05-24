@@ -1,11 +1,13 @@
 import * as React from 'react'
+
 import {
+  FieldValues,
   FormProvider as HookFormProvider,
   FormProviderProps as HookFormProviderProps,
   useFormContext as useHookFormContext,
-  FieldValues,
 } from 'react-hook-form'
-import { FieldResolver } from './field-resolver'
+
+import type { FieldResolver } from './field-resolver'
 import type { BaseFieldProps } from './types'
 
 export type FormContextValue<
@@ -49,7 +51,7 @@ export const useFormContext = <
 }
 
 export const useFieldProps = <TFieldValues extends FieldValues = FieldValues>(
-  name: string
+  name: string,
 ): BaseFieldProps<TFieldValues> | undefined => {
   const parsedName = name?.replace(/\.[0-9]/g, '.$')
   const context = useFormContext()
@@ -67,7 +69,7 @@ export const FormProvider = <
   TContext = any,
   TSchema = any,
 >(
-  props: FormProviderProps<TFieldValues, TContext, TSchema>
+  props: FormProviderProps<TFieldValues, TContext, TSchema>,
 ) => {
   const { children, fieldResolver, schema, fields, ...rest } = props
   return (

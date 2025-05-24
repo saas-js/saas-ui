@@ -1,4 +1,4 @@
-import { SystemProps } from '@chakra-ui/styled-system'
+import { SystemStyleObject } from '@chakra-ui/react'
 import { TooltipProps } from 'recharts'
 
 export type { CurveType } from 'recharts/types/shape/Curve'
@@ -33,7 +33,7 @@ export interface BaseChartProps {
   /**
    * The height of the chart.
    */
-  height: SystemProps['height']
+  height: SystemStyleObject['height']
   /**
    * Format the value of the x-axis.
    * @param value

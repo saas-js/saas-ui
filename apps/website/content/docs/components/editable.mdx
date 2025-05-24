@@ -1,0 +1,62 @@
+---
+title: Editable
+description: Used for inline renaming of some text.
+links:
+  source: components/editable
+  storybook: components-editable--basic
+  recipe: editable
+  ark: https://ark-ui.com/react/docs/components/editable
+---
+
+<ExampleTabs name="editable-basic" />
+
+## Anatomy
+
+```jsx
+import { Editable } from '@saas-ui/react/editable'
+```
+
+```jsx
+<Editable.Root>
+  <Editable.Preview />
+  <Editable.Input />
+</Editable.Root>
+```
+
+## Examples
+
+### Controlled
+
+<ExampleTabs name="editable-controlled" />
+
+### With Double Click
+
+Use the `activationMode` prop to make the content editable when users double
+click.
+
+<ExampleTabs name="editable-with-double-click" />
+
+### Disabled
+
+Use the `disabled` prop to disable the editable component.
+
+<ExampleTabs name="editable-disabled" />
+
+### TextArea
+
+You can make a text area editable.
+
+<ExampleTabs name="editable-with-textarea" />
+
+### With Controls
+
+Add controls such as "edit", "cancel" and "submit" to `Editable` for better user
+experience.
+
+<ExampleTabs name="editable-with-controls" />
+
+## Props
+
+### Root
+
+<PropTable component="Editable" part="Root" />

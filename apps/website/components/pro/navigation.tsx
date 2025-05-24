@@ -72,16 +72,20 @@ export const Navigation = () => {
                   <ListItem title="Tanstack Router" href="/pro/tanstack-router">
                     Tanstack Router and tRPC
                   </ListItem>
-                  <ListItem title="Zero Sync" href="/pro/zero-sync">
+                  {/* <ListItem title="Zero Sync" href="/pro/zero-sync">
                     Tanstack Router and Zero Sync
-                  </ListItem>
+                  </ListItem> */}
                 </Stack>
               </List>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
+            <NavigationMenuLink href="/pro/pricing">Pricing</NavigationMenuLink>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/pro/docs">Docs</NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { SideNav } from '@/components/sidenav'
-import { useRoute } from '@/lib/use-route'
+import { useRoute } from '@/lib/use-pro-route'
 import { Box, BoxProps, Portal, Stack, Text, chakra } from '@chakra-ui/react'
 import { Breadcrumb, Drawer } from '@saas-ui/react'
 import { usePathname } from 'next/navigation'
@@ -11,6 +11,10 @@ import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
 
 export const SidebarStart = (props: BoxProps) => {
   const route = useRoute()
+
+  console.log({
+    route: route.getSidebarNavItems(),
+  })
   return (
     <Box
       className="no-bg-scrollbar"

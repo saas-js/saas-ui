@@ -19,7 +19,9 @@ import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 
+import { CommandMenu } from '../docs/command-menu'
 import { LinkButton } from '../link-button'
+import { SearchButton } from '../search-button'
 import { Navigation } from './navigation'
 
 const HeaderRoot = chakra(Container, {
@@ -59,47 +61,19 @@ const DesktopNav = () => (
       flex="1"
     >
       <Navigation />
-      {/* {NAV_LINKS.map((item) => (
-        <HStack
-          className="nav-item"
-          key={item.title}
-          minH="8"
-          px="3"
-          rounded="md"
-          focusRing="outside"
-          asChild
-          fontWeight="medium"
-          color="fg.subtle"
-          textStyle="sm"
-          transitionProperty="color"
-          transitionDuration="fast"
-          _hover={{
-            color: 'fg',
-          }}
-          css={{
-            'main-nav:has(a:hover) &, .nav-item:is(:hover) ~ &': {
-              color: 'fg.muted',
-            },
-          }}
-        >
-          <Link href={item.url}>{item.title}</Link>
-        </HStack>
-      ))} */}
     </HStack>
-    <HStack gap="1" justifyContent="flex-end">
+    <HStack gap="0" justifyContent="flex-end">
+      <CommandMenu
+        trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
+      />
       <Button asChild variant="ghost" size="sm">
-        <Link href="/login" target="_blank">
+        <Link href="https://github.com/saas-js/saas-ui" target="_blank">
           <BsGithub /> 1.5k
         </Link>
       </Button>
       <ColorModeButton />
       <Separator orientation="vertical" height="4" mx="2" />
-      <LinkButton
-        href="/pricing"
-        colorPalette="accent"
-        variant="glass"
-        size="sm"
-      >
+      <LinkButton href="/pro" colorPalette="accent" variant="glass" size="sm">
         Get Pro
       </LinkButton>
     </HStack>

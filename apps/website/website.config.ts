@@ -27,6 +27,7 @@ export interface NavItem {
   url?: string
   status?: string
   items?: NavItem[]
+  external?: boolean
 }
 
 export interface FlattenNavItem extends Omit<NavItem, 'items'> {}

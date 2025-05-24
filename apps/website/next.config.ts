@@ -1,6 +1,5 @@
 import { withContentCollections } from '@content-collections/next'
 import type { NextConfig } from 'next'
-import withRspack from 'next-rspack'
 
 const nextConfig = {
   typescript: {

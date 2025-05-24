@@ -26,10 +26,11 @@ import { usePathname } from 'next/navigation'
 import { BsGithub } from 'react-icons/bs'
 import { LuMenu } from 'react-icons/lu'
 
-import { LinkButton } from '../link-button'
-import { Navigation } from '../site/navigation'
-import { HeaderVersionMenu } from '../site/version-menu'
-import { CommandMenu } from './command-menu'
+import { CommandMenu } from '../../docs/command-menu'
+import { LinkButton } from '../../link-button'
+import { HeaderVersionMenu } from '../../site/version-menu'
+import { Navigation } from '../navigation'
+import { ProLogoLink } from '../pro-logo'
 
 const HeaderRoot = chakra('header', {
   base: {
@@ -95,33 +96,6 @@ const TopNavMobileLink = chakra(Link, {
     },
   },
 })
-
-const HeaderLogoLink = () => {
-  return (
-    <Link href="/" aria-label="Saas UI, Back to homepage">
-      <Logo />
-    </Link>
-  )
-}
-
-const HeaderPrimaryNavbar = () => {
-  const route = useRoute()
-  const items = route.getPrimaryNavItems()
-  return (
-    <HStack gap="8" minH="48px" aria-label="primary navigation">
-      <HeaderLogoLink />
-      {items.map((item) => (
-        <PrimaryNavLink
-          key={item.title}
-          href={item.url || '#'}
-          aria-current={item.current ? 'page' : undefined}
-        >
-          {item.title}
-        </PrimaryNavLink>
-      ))}
-    </HStack>
-  )
-}
 
 const HeaderSecondaryNavbar = () => {
   const route = useRoute()
@@ -237,8 +211,13 @@ const HeaderDesktopActions = () => {
         </IconButton>
         <ColorModeButton />
         <Separator orientation="vertical" height="4" mx="2" />
-        <LinkButton href="/pro" colorPalette="accent" variant="glass" size="sm">
-          Get Pro
+        <LinkButton
+          href="/pro/pricing"
+          colorPalette="accent"
+          variant="glass"
+          size="sm"
+        >
+          Get Access
         </LinkButton>
       </HStack>
     </HStack>
@@ -259,7 +238,7 @@ const HeaderDesktopNavbar = () => {
   return (
     <Box hideBelow="md">
       <HStack py="2">
-        <HeaderLogoLink />
+        <ProLogoLink />
         <Navigation />
         <Spacer />
         <HeaderDesktopActions />
@@ -272,7 +251,7 @@ const HeaderDesktopNavbar = () => {
 const HeaderMobileNavbar = () => {
   return (
     <HStack hideFrom="md" h="full">
-      <HeaderLogoLink />
+      <ProLogoLink />
       <Spacer />
       <HeaderMobileActions />
     </HStack>

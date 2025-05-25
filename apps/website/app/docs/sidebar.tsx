@@ -151,7 +151,13 @@ function SidebarItem({ item }: { item: NavItem }) {
                   zIndex: -1,
                 }}
               >
-                <Sidebar.NavButton asChild>
+                <Sidebar.NavButton
+                  asChild
+                  _currentPage={{
+                    bg: 'sidebar.accent.bg',
+                    color: 'sidebar.accent.fg',
+                  }}
+                >
                   <Link
                     href={item.url!}
                     aria-current={

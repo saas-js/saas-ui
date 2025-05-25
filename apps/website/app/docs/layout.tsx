@@ -3,6 +3,7 @@ import {
   Box,
   Container,
   Flex,
+  HStack,
   SkipNavContent,
   SkipNavLink,
 } from '@chakra-ui/react'
@@ -30,7 +31,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           />
           <SkipNavContent />
 
-          <Container maxW="6xl">{children}</Container>
+          <Container maxW="6xl">
+            <HStack alignItems="start">{children}</HStack>
+          </Container>
         </Flex>
       </main>
     </>

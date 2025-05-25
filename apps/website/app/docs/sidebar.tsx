@@ -9,6 +9,7 @@ import {
   BoxProps,
   Collapsible,
   Group,
+  Icon,
   Portal,
   Stack,
   Text,
@@ -18,6 +19,7 @@ import { Breadcrumb, Drawer, Sidebar } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
+import { LuChevronRight } from 'react-icons/lu'
 
 import type { NavItem } from './docs.config'
 
@@ -118,29 +120,38 @@ function SidebarItem({ item }: { item: NavItem }) {
             }}
           >
             <Sidebar.GroupTitle>{item.title}</Sidebar.GroupTitle>
+            <Sidebar.GroupEndElement>
+              <Icon
+                as={LuChevronRight}
+                _groupOpen={{
+                  transform: 'rotate(90deg)',
+                }}
+                transition="transform 0.2s ease-in-out"
+              />
+            </Sidebar.GroupEndElement>
           </Sidebar.GroupHeader>
         </Collapsible.Trigger>
 
         <Collapsible.Content asChild>
-          <Sidebar.GroupContent paddingBottom="4">
+          <Sidebar.GroupContent paddingBottom="2">
             {item.items?.map((item) => (
-              <Sidebar.NavItem key={item.title}>
-                <Sidebar.NavButton
-                  ps="8"
-                  _before={{
-                    content: '""',
-                    display: 'block',
-                    height: '100%',
-                    width: '1px',
-                    bg: 'border',
-                    position: 'absolute',
-                    left: 4,
-                    top: 0,
-                    bottom: 0,
-                    zIndex: -1,
-                  }}
-                  asChild
-                >
+              <Sidebar.NavItem
+                key={item.title}
+                ps="4"
+                _before={{
+                  content: '""',
+                  display: 'block',
+                  height: '100%',
+                  width: '1px',
+                  bg: 'border',
+                  position: 'absolute',
+                  left: 2,
+                  top: 0,
+                  bottom: 0,
+                  zIndex: -1,
+                }}
+              >
+                <Sidebar.NavButton asChild>
                   <Link
                     href={item.url!}
                     aria-current={

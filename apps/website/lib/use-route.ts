@@ -88,25 +88,30 @@ export function useRoute() {
     return items[index - 1] || null
   }
 
-  function getSidebarNavItems() {
+  function getSidebarNavItems(secondaryNav: NavItem = getSecondaryNav()) {
     const primaryNav = getPrimaryNav()
-    const secondaryNav = getSecondaryNav()
+
     return (
       secondaryNav?.items?.map((group) => ({
         ...group,
         items:
-          group?.items?.map((item) => ({
-            status: item.status,
-            title: item.title,
-            url:
-              item.url?.startsWith('http') || item.external
-                ? item.url
-                : join(primaryNav.url, secondaryNav.url, group.url, item.url),
-            current: currentUrl.startsWith(
+          group?.items?.map((item) => {
+            console.log(
               join(primaryNav.url, secondaryNav.url, group.url, item.url),
-            ),
-            external: item.external,
-          })) || [],
+            )
+            return {
+              status: item.status,
+              title: item.title,
+              url:
+                item.url?.startsWith('http') || item.external
+                  ? item.url
+                  : join(primaryNav.url, secondaryNav.url, group.url, item.url),
+              current: currentUrl.startsWith(
+                join(primaryNav.url, secondaryNav.url, group.url, item.url),
+              ),
+              external: item.external,
+            }
+          }) || [],
       })) || []
     )
   }

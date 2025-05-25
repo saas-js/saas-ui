@@ -96,6 +96,7 @@ const docs = defineCollection({
         storybook: z.string().optional(),
         recipe: z.string().optional(),
         ark: z.string().optional(),
+        pro: z.string().optional(),
       })
       .optional(),
   }),
@@ -118,6 +119,7 @@ const docs = defineCollection({
         recipe: links.recipe
           ? `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/packages/react/src/theme/recipes/${links.recipe}.ts`
           : undefined,
+        pro: links.pro ? `/pro/pricing` : undefined,
       },
       category: doc._meta.path
         .replace(/.*\/content\//, '')

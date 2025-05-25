@@ -1,3 +1,5 @@
+'use client'
+
 import { Box } from '@chakra-ui/react'
 import Link, { type LinkProps } from 'next/link'
 
@@ -11,7 +13,7 @@ export const Anchor = (props: LinkProps & { children: React.ReactNode }) => {
         textUnderlineOffset: '3px',
         textDecorationThickness: '2px',
         textDecorationColor: 'border.emphasized',
-        fontWeight: '500',
+        fontWeight: 'medium',
       }}
     >
       <Link {...props}>

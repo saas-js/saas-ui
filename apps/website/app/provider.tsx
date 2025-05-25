@@ -1,6 +1,6 @@
 'use client'
 
-import { ChakraProvider } from '@chakra-ui/react'
+import { SuiProvider } from '@saas-ui/react'
 import { Toaster } from '@saas-ui/react/toaster'
 import { ThemeProvider } from 'next-themes'
 
@@ -8,11 +8,11 @@ import { system } from './theme'
 
 export const Provider = (props: { children: React.ReactNode }) => {
   return (
-    <ChakraProvider value={system}>
+    <SuiProvider value={system}>
       <ThemeProvider attribute="class" disableTransitionOnChange>
         {props.children}
         <Toaster />
       </ThemeProvider>
-    </ChakraProvider>
+    </SuiProvider>
   )
 }

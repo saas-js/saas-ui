@@ -59,6 +59,11 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
             color: 'sidebar.accent.fg',
             '--sidebar-item-icon-color': 'sidebar.accent.fg',
           },
+          _currentPage: {
+            bg: 'sidebar.accent.bg',
+            color: 'sidebar.accent.fg',
+            '--sidebar-item-icon-color': 'sidebar.accent.fg',
+          },
         },
       },
     },

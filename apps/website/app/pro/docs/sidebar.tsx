@@ -12,23 +12,19 @@ import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
 export const SidebarStart = (props: BoxProps) => {
   const route = useRoute()
 
-  console.log({
-    route: route.getSidebarNavItems(),
-  })
   return (
     <Box
       className="no-bg-scrollbar"
       as="aside"
       position="sticky"
       top="var(--header-height)"
-      pe="5"
-      ms="-3"
+      px="5"
       py="8"
       flexShrink="0"
       height="var(--content-height)"
       overflowY="auto"
       overscrollBehavior="contain"
-      width="16rem"
+      width="300px"
       hideBelow="md"
       fontSize="sm"
       {...props}

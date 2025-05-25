@@ -1,6 +1,13 @@
-import { Header } from "@/components/docs/header"
-import { Container, SkipNavContent, SkipNavLink } from "@chakra-ui/react"
-import { MobileSidebarNav, SidebarStart } from "./sidebar"
+import { Header } from '@/components/docs/header'
+import {
+  Box,
+  Container,
+  Flex,
+  SkipNavContent,
+  SkipNavLink,
+} from '@chakra-ui/react'
+
+import { MobileSidebarNav, SidebarStart } from './sidebar'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,11 +16,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
       <main>
         <MobileSidebarNav />
-        <Container display="flex">
+        <Flex maxWidth="full">
           <SidebarStart />
+          <Box
+            position="fixed"
+            top="0"
+            left="300px"
+            height="100%"
+            borderRightWidth="1px"
+            borderColor="border.subtle"
+            pointerEvents="none"
+            zIndex="layer-2"
+          />
           <SkipNavContent />
-          {children}
-        </Container>
+
+          <Container maxW="6xl">{children}</Container>
+        </Flex>
       </main>
     </>
   )

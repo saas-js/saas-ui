@@ -45,7 +45,7 @@ export default async function Page(props: Props) {
           description={page.description}
           links={page.links}
         />
-        <Box>
+        <Box fontSize="md">
           <MDXContent code={page.code} />
           <MDXPagination />
         </Box>

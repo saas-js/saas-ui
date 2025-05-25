@@ -1,4 +1,4 @@
-import { Box, type BoxProps } from "@chakra-ui/react"
+import { Box, type BoxProps } from '@chakra-ui/react'
 
 export const P = (props: BoxProps) => {
   return (
@@ -6,13 +6,13 @@ export const P = (props: BoxProps) => {
       as="p"
       {...props}
       css={{
-        color: "fg.subtle",
-        lineHeight: "1.75",
-        marginTop: "1em",
-        marginBottom: "1em",
-        _first: { marginTop: "0" },
-        _last: { marginBottom: "0" },
-        "& + .example-tabs": { marginTop: "2em" },
+        color: 'fg.subtle',
+        lineHeight: '1.75',
+        marginTop: '1em',
+        marginBottom: '1em',
+        _first: { marginTop: '0' },
+        _last: { marginBottom: '0' },
+        '& + .example-tabs': { marginTop: '2em' },
       }}
     />
   )
@@ -24,8 +24,8 @@ export const Strong = (props: BoxProps) => {
       as="strong"
       {...props}
       css={{
-        fontWeight: "semibold",
-        color: "fg",
+        fontWeight: 'semibold',
+        color: 'fg',
       }}
     />
   )

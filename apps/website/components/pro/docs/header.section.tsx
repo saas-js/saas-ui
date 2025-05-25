@@ -17,9 +17,11 @@ import {
   Portal,
   Separator,
   Spacer,
+  Span,
   VStack,
   chakra,
 } from '@chakra-ui/react'
+import { SaasUIIcon } from '@saas-ui/assets'
 import { Drawer, IconButton } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -39,8 +41,9 @@ const HeaderRoot = chakra('header', {
     top: '0',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
-    minHeight: '64px',
+    minHeight: '54px',
     borderBottom: '1px solid',
     borderColor: 'border.subtle',
     zIndex: '10',
@@ -51,6 +54,7 @@ const PrimaryNavLink = chakra(Link, {
   base: {
     fontSize: 'sm',
     color: 'fg.subtle',
+    fontWeight: 'medium',
     _currentPage: {
       color: 'fg',
       fontWeight: 'medium',
@@ -195,35 +199,6 @@ const HeaderMobileMenuDropdown = () => {
   )
 }
 
-const HeaderDesktopActions = () => {
-  return (
-    <HStack gap="2" minH="48px" flexShrink="1" minW="0">
-      <HeaderVersionMenu />
-      <CommandMenu
-        trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
-      />
-
-      <HStack gap="0" justifyContent="flex-end">
-        <IconButton asChild variant="ghost" size="sm" aria-label="Github">
-          <Link href="https://github.com/saas-js/saas-ui" target="_blank">
-            <BsGithub />
-          </Link>
-        </IconButton>
-        <ColorModeButton />
-        <Separator orientation="vertical" height="4" mx="2" />
-        <LinkButton
-          href="/pro/pricing"
-          colorPalette="accent"
-          variant="glass"
-          size="sm"
-        >
-          Get Access
-        </LinkButton>
-      </HStack>
-    </HStack>
-  )
-}
-
 const HeaderMobileActions = () => {
   return (
     <HStack>
@@ -237,11 +212,49 @@ const HeaderMobileActions = () => {
 const HeaderDesktopNavbar = () => {
   return (
     <Box hideBelow="md">
-      <HStack py="2">
-        <ProLogoLink />
-        <Navigation />
+      <HStack py="2" minH="48px">
+        <HStack width="300px">
+          <HStack asChild>
+            <Link href="/docs">
+              <>
+                <SaasUIIcon color="black" width="24px" height="24px" />
+
+                <Span fontSize="lg" color="fg.subtle">
+                  Documentation
+                </Span>
+              </>
+            </Link>
+          </HStack>
+        </HStack>
+
+        <HStack gap="4">
+          <PrimaryNavLink href="/docs">Component system</PrimaryNavLink>
+          <PrimaryNavLink href="/docs">Pro components</PrimaryNavLink>
+          <PrimaryNavLink href="/docs">Starter kits</PrimaryNavLink>
+        </HStack>
+
         <Spacer />
-        <HeaderDesktopActions />
+        <CommandMenu
+          trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
+        />
+        <HeaderVersionMenu />
+        <HStack gap="0" justifyContent="flex-end">
+          <IconButton asChild variant="ghost" size="sm" aria-label="Github">
+            <Link href="https://github.com/saas-js/saas-ui" target="_blank">
+              <BsGithub />
+            </Link>
+          </IconButton>
+          <ColorModeButton />
+          <Separator orientation="vertical" height="4" mx="2" />
+          <LinkButton
+            href="/pro/pricing"
+            colorPalette="accent"
+            variant="glass"
+            size="sm"
+          >
+            Get Access
+          </LinkButton>
+        </HStack>
       </HStack>
       <HeaderSecondaryNavbar />
     </Box>
@@ -261,10 +274,10 @@ const HeaderMobileNavbar = () => {
 export const Header = () => {
   return (
     <HeaderRoot>
-      <Container>
+      <Box width="full" px="8">
         <HeaderDesktopNavbar />
         <HeaderMobileNavbar />
-      </Container>
+      </Box>
     </HeaderRoot>
   )
 }

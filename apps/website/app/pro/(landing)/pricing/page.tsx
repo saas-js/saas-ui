@@ -102,7 +102,7 @@ function Pricing() {
             Single license
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Individual
+            Individuals
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
@@ -153,7 +153,7 @@ function Pricing() {
             Team license
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Team
+            Teams
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">

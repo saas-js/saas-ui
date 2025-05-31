@@ -3,7 +3,7 @@
 import { Header } from '@/components/pro/docs/header.section'
 import { Box } from '@chakra-ui/react'
 import { EmptyState } from '@saas-ui/react'
-import { LuServerCrash } from 'react-icons/lu'
+import { TbError404 } from 'react-icons/tb'
 
 export default function NotFound() {
   return (
@@ -16,8 +16,8 @@ export default function NotFound() {
       <Header />
       <EmptyState
         minH="90dvh"
-        icon={<LuServerCrash />}
-        title="404. Page not found"
+        icon={<TbError404 />}
+        title="Page not found"
         description="The page you are looking for does not exist."
       />
     </Box>

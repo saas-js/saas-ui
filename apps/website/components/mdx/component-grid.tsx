@@ -27,7 +27,7 @@ export const ComponentGrid = () => {
             focusRing="inside"
             overflow="hidden"
           >
-            <Link href={`/${item.slug}`}>
+            <Link href={`/docs/${item.slug}`}>
               <Center
                 height="120px"
                 bg="bg.subtle"

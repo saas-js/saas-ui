@@ -224,7 +224,7 @@ const HeaderDesktopNavbar = () => {
               </Link>
             </Menu.Item>
             <Menu.Item value="components" asChild>
-              <Link href="/docs/components/button">Components</Link>
+              <Link href="/docs/components/overview">Components</Link>
             </Menu.Item>
             <Menu.Item value="theming" asChild>
               <Link href="/docs/theming/overview">Theming</Link>

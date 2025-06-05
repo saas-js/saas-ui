@@ -186,6 +186,9 @@ importers:
       chroma-js:
         specifier: ^2.6.0
         version: 2.6.0
+      colorizr:
+        specifier: ^3.0.8
+        version: 3.0.8
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -5683,6 +5686,9 @@ packages:
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
+
+  colorizr@3.0.8:
+    resolution: {integrity: sha512-5B5bNiGU/iEbdL3JsiIYRf57T0CuJjHSgVfe3SP3W3ePe2waJuEYl+llzwm1ZhxIcVyA+gThRlBu3yXBV3tAQQ==}
 
   colors@1.0.3:
     resolution: {integrity: sha512-pFGrxThWcWQ2MsAz6RtgeWe4NK2kUE1WfsrvvlctdII745EW9I0yflqhe7++M5LEc7bV2c/9/5zc8sFcpL0Drw==}
@@ -15832,6 +15838,8 @@ snapshots:
     optional: true
 
   colorette@2.0.20: {}
+
+  colorizr@3.0.8: {}
 
   colors@1.0.3: {}
 

@@ -20,6 +20,7 @@
     "@types/lodash.debounce": "^4.0.9",
     "babel-plugin-react-compiler": "19.1.0-rc.2",
     "chroma-js": "^2.6.0",
+    "colorizr": "^3.0.8",
     "lodash.debounce": "^4.0.8",
     "next": "^15.3.2",
     "next-seo": "^6.5.0",

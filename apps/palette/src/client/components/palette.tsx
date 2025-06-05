@@ -13,6 +13,7 @@ import {
   useClipboard,
 } from '@saas-ui/react'
 import chroma from 'chroma-js'
+import { convert } from 'colorizr'
 
 type ColorPaletteProps = FlexProps & { color: string; name?: string }
 
@@ -32,18 +33,22 @@ export const ColorName = (props: FlexProps) => {
   )
 }
 
-function parseOklchString(str: string) {
-  const match = str.match(/oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)\s*\)/)
-  if (!match) throw new Error('Invalid OKLCH string')
-  const [, l, c, h] = match.map(Number)
+// function parseOklchString(str: string) {
+//   const match = str.match(/oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)\s*\)/)
+//   if (!match) throw new Error('Invalid OKLCH string')
+//   const [, l, c, h] = match.map(Number)
 
-  if (Number.isNaN(l) || Number.isNaN(c) || Number.isNaN(h)) {
-    console.warn('Invalid OKLCH string', str)
-    return str
-  }
+//   if (Number.isNaN(l) || Number.isNaN(c) || Number.isNaN(h)) {
+//     console.warn('Invalid OKLCH string', str)
+//     return str
+//   }
 
-  return chroma.oklch(l, c, h)
-}
+//   return chroma.oklch(l, c, h)
+// }
+
+// function constructOklchString(lch: LCH) {
+//   return `oklch(${lch.l}% ${lch.c} ${lch.h})`
+// }
 
 export const ColorPalette = (props: ColorPaletteProps) => {
   const { color, name, ...rest } = props
@@ -69,7 +74,7 @@ export const ColorPalette = (props: ColorPaletteProps) => {
    * Converting to hex to calculate contrast
    */
   const hex = colorCode.startsWith('oklch')
-    ? chroma(parseOklchString(colorCode)).hex()
+    ? convert(colorCode, 'hex')
     : colorCode
 
   const lightContrast = Math.round(chroma.contrast(hex, '#ffffff') * 100) / 100
@@ -77,6 +82,8 @@ export const ColorPalette = (props: ColorPaletteProps) => {
 
   const textColor = lightContrast < 4.5 ? 'black' : 'white'
   const contrast = lightContrast < 4.5 ? darkContrast : lightContrast
+
+  colorCode = convert(colorCode, 'oklch')
 
   return (
     <Flex flex="1" position="relative" {...rest}>

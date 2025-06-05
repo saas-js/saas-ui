@@ -1,20 +1,19 @@
+import type React from 'react'
+
+import { usePalette } from '@/providers/palette'
 import {
   Box,
   Flex,
-  FlexProps,
-  Grid,
-  GridProps,
-  HStack,
+  type FlexProps,
+  type GridProps,
   SimpleGrid,
   Stack,
   Text,
+  toast,
   useClipboard,
-  useTheme,
-} from '@chakra-ui/react'
-import React from 'react'
-
+} from '@saas-ui/react'
 import chroma from 'chroma-js'
-import { useSnackbar } from '@saas-ui/react'
+import { convert } from 'colorizr'
 
 type ColorPaletteProps = FlexProps & { color: string; name?: string }
 
@@ -34,50 +33,77 @@ export const ColorName = (props: FlexProps) => {
   )
 }
 
+// function parseOklchString(str: string) {
+//   const match = str.match(/oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)\s*\)/)
+//   if (!match) throw new Error('Invalid OKLCH string')
+//   const [, l, c, h] = match.map(Number)
+
+//   if (Number.isNaN(l) || Number.isNaN(c) || Number.isNaN(h)) {
+//     console.warn('Invalid OKLCH string', str)
+//     return str
+//   }
+
+//   return chroma.oklch(l, c, h)
+// }
+
+// function constructOklchString(lch: LCH) {
+//   return `oklch(${lch.l}% ${lch.c} ${lch.h})`
+// }
+
 export const ColorPalette = (props: ColorPaletteProps) => {
   const { color, name, ...rest } = props
 
-  const snackbar = useSnackbar()
-
-  const theme = useTheme()
+  const [{ colors }] = usePalette()
 
   let colorCode = color
   const [hue, shade] = color.split('.')
 
   if (shade && hue) {
-    colorCode = theme.colors[hue][shade]
+    colorCode = colors?.[hue]?.[shade]
   }
 
-  if (color in theme.colors && typeof theme.colors[color] === 'string') {
-    colorCode = theme.colors[color]
+  if (color in colors && typeof colors?.[color] === 'string') {
+    colorCode = colors?.[color]
   }
 
-  const { onCopy } = useClipboard(colorCode)
+  const { copy } = useClipboard({
+    value: colorCode,
+  })
 
-  const lightContrast =
-    Math.round(chroma.contrast(colorCode, theme.colors.white) * 100) / 100
-  const darkContrast =
-    Math.round(chroma.contrast(colorCode, theme.colors.black) * 100) / 100
+  /**
+   * Converting to hex to calculate contrast
+   */
+  const hex = colorCode.startsWith('oklch')
+    ? convert(colorCode, 'hex')
+    : colorCode
+
+  const lightContrast = Math.round(chroma.contrast(hex, '#ffffff') * 100) / 100
+  const darkContrast = Math.round(chroma.contrast(hex, '#000000') * 100) / 100
 
   const textColor = lightContrast < 4.5 ? 'black' : 'white'
   const contrast = lightContrast < 4.5 ? darkContrast : lightContrast
+
+  colorCode = convert(colorCode, 'oklch')
 
   return (
     <Flex flex="1" position="relative" {...rest}>
       <Flex
         height="3rem"
         flex="1"
-        boxShadow="inner"
+        boxShadow={{
+          base: 'inner',
+          _dark: 'none',
+        }}
         bg={color}
         color={textColor}
         fontSize="sm"
         overflow="hidden"
-        sx={{
+        css={{
           position: 'absolute',
           width: '100%',
           cursor: 'pointer',
           transitionProperty: 'width, height',
-          transitionDuration: 'normal',
+          transitionDuration: 'moderate',
           '& > div': {
             opacity: 0,
           },
@@ -97,8 +123,8 @@ export const ColorPalette = (props: ColorPaletteProps) => {
           },
         }}
         onClick={() => {
-          snackbar.info(`Copied ${colorCode}`)
-          onCopy()
+          toast.info({ title: `Copied ${colorCode}` })
+          copy()
         }}
       >
         <Stack width="100%" textAlign="center" p="4">
@@ -119,8 +145,10 @@ export const ColorPalette = (props: ColorPaletteProps) => {
 
 export const ColorPalettes = (props: { color: string; name: string }) => {
   const { color, name } = props
-  const theme = useTheme()
-  const keys = Object.keys(theme.colors[color])
+  const [{ colors }] = usePalette()
+  if (!colors?.[color]?.['50']) return null
+
+  const keys = Object.keys(colors?.[color])
 
   return (
     <>
@@ -137,5 +165,5 @@ export const ColorPalettes = (props: { color: string; name: string }) => {
 }
 
 export const ColorWrapper: React.FC<GridProps> = (props) => (
-  <SimpleGrid columns={11} {...props} spacing="0" />
+  <SimpleGrid columns={12} {...props} gap="0" />
 )

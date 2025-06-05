@@ -1,7 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
+import {
+  type Dispatch,
+  type SetStateAction,
+  startTransition,
+  useEffect,
+  useState,
+} from 'react'
 
 import { createContext } from '@chakra-ui/react'
-import { debounce } from 'lodash'
 
 import { usePalette } from './palette'
 
@@ -14,7 +19,7 @@ export const [EditorProvider, useEditorContext] =
 export const useEditor = (): UseEditorReturn => {
   const [{ colors: palette, color: base, options }, setPalette] = usePalette()
 
-  const [state, setState] = useState({
+  const [state, setState] = useState<EditorState>({
     theme: options?.theme || 'Saas UI',
     color: base || baseColor,
     gray: options?.colors?.gray || grayColor,
@@ -23,32 +28,37 @@ export const useEditor = (): UseEditorReturn => {
 
   const { theme, color, gray, blackLuminance } = state
 
-  const updatePalette = useMemo(
-    () =>
-      debounce((color: any, options) => {
-        if (color.match(/#[0-9a-fA-F]{6}/)) {
-          setPalette(color, options)
-        }
-      }, 200),
-    [setPalette],
-  )
+  // const updatePalette = useMemo(
+  // 	() =>
+  // 		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // 		// debounce((color: string, options: Record<string, any>) => {
+  // 			// if (color.match(/#[0-9a-fA-F]{6}/)) {
+  // 			setPalette(color, options)
+  // 			// }
+  // 		// }, 200),
+  // 		,
+  // 	[setPalette],
+  // );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    updatePalette(color, {
-      colors: {
-        gray,
-        primary: color,
-      },
-      blackLuminance,
-      theme,
+    startTransition(() => {
+      setPalette(color, {
+        colors: {
+          gray,
+          primary: color,
+        },
+        blackLuminance,
+        theme,
+      })
     })
-  }, [color, gray, blackLuminance, theme, updatePalette])
+  }, [color, gray, blackLuminance, theme])
 
-  useEffect(() => {
-    return () => {
-      updatePalette.cancel()
-    }
-  }, [updatePalette])
+  // useEffect(() => {
+  // 	return () => {
+  // 		updatePalette.cancel();
+  // 	};
+  // }, [updatePalette]);
 
   return [state, setState]
 }

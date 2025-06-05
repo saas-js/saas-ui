@@ -1,15 +1,14 @@
-import React from 'react'
+import type React from 'react'
+
 import {
-  Flex,
   Box,
-  Heading,
-  Text,
   Container,
+  Flex,
+  Heading,
   Spinner,
   Stack,
-} from '@chakra-ui/react'
-
-import SEO from '@/components/seo'
+  Text,
+} from '@saas-ui/react'
 
 export interface PageProps {
   title?: string
@@ -27,7 +26,7 @@ export default function Page({
   fullWidth,
   children,
 }: PageProps) {
-  let content
+  let content: React.ReactNode
   if (isLoading) {
     content = <Spinner justifySelf="center" />
   } else {
@@ -41,12 +40,11 @@ export default function Page({
 
   return (
     <>
-      <SEO title={title} description={description}></SEO>
       <Flex direction="column" flex="1" minH="0">
         <Box flex="1" overflow="auto">
           <Container maxW={containerWidth} pt="8">
             <Stack mb="6">
-              <Heading size="xl">{title}</Heading>
+              <Heading size="4xl">{title}</Heading>
               <Text opacity="0.6" fontSize="1.2em">
                 {description}
               </Text>

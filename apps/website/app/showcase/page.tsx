@@ -1,15 +1,17 @@
 import {
+  Badge,
   CardBody,
   CardDescription,
   CardRoot,
   CardTitle,
+  Container,
   Heading,
   Image,
   SimpleGrid,
+  Stack,
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { allShowcases as showcases } from 'content-collections'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -21,42 +23,55 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Page() {
+export default async function Page() {
+  const { default: showcases } = await import('../../content/showcases.json')
+
   return (
-    <VStack pt="20" pb="16" gap="10">
-      <VStack py="20">
-        <Heading as="h1" textStyle={{ base: '4xl', md: '5xl' }}>
-          Showcase
-        </Heading>
-        <Text
-          textWrap="balance"
-          maxWidth="2xl"
-          textAlign="center"
-          color="fg.subtle"
+    <Container maxW="6xl">
+      <VStack pt="20" pb="16" gap="10">
+        <Stack py="20" width="full" alignItems="flex-start">
+          <Badge variant="outline" size="lg" colorPalette="gray">
+            Showcase
+          </Badge>
+
+          <Heading as="h1" size="6xl" lineHeight="1.2">
+            Products powered
+            <br /> by Saas UI
+          </Heading>
+
+          <Text textStyle="xl" color="fg.subtle">
+            Trusted by 600+ developers and teams worldwide.
+          </Text>
+        </Stack>
+
+        <SimpleGrid
+          minChildWidth="480px"
+          gap="6"
+          columns={{
+            base: 1,
+            md: 2,
+            lg: 3,
+          }}
         >
-          A collection of SaaS products powered by Saas UI.
-        </Text>
+          {showcases?.map(({ title, description, url, image }) => (
+            <CardRoot size="sm" key={url} asChild overflow="hidden">
+              <Link href={url}>
+                <Image
+                  src={image}
+                  alt={title}
+                  aspectRatio="16/9"
+                  objectFit="fill"
+                />
+
+                <CardBody>
+                  <CardTitle textStyle="sm">{title}</CardTitle>
+                  <CardDescription>{description}</CardDescription>
+                </CardBody>
+              </Link>
+            </CardRoot>
+          ))}
+        </SimpleGrid>
       </VStack>
-
-      <SimpleGrid minChildWidth="240px" gap="6">
-        {showcases.map(({ title, description, url, image }) => (
-          <CardRoot size="sm" key={url} asChild overflow="hidden">
-            <Link href={url}>
-              <Image
-                src={image}
-                alt={title}
-                aspectRatio="16/9"
-                objectFit="fill"
-              />
-
-              <CardBody>
-                <CardTitle textStyle="sm">{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
-              </CardBody>
-            </Link>
-          </CardRoot>
-        ))}
-      </SimpleGrid>
-    </VStack>
+    </Container>
   )
 }

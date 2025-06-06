@@ -42,19 +42,19 @@ export const Navigation = () => {
                     Community
                   </Text>
 
-                  <ListItem title="Components" href="/">
-                    Open source React components and design system.
+                  <ListItem title="Component system" href="/ui">
+                    Open source React components.
                   </ListItem>
                 </Stack>
                 <Stack gap="0">
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Pro
                   </Text>
-                  <ListItem title="Figma" href="/pro/figma">
-                    Premium Figma UI kit.
-                  </ListItem>
                   <ListItem title="Blocks" href="/pro/blocks">
                     Pre-built React components.
+                  </ListItem>
+                  <ListItem title="Figma" href="/pro/figma">
+                    Premium Figma UI kit.
                   </ListItem>
                 </Stack>
                 <Stack gap="0">

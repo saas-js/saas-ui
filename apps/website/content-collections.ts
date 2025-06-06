@@ -183,52 +183,39 @@ const proDocs = defineCollection({
   },
 })
 
-const notes = defineCollection({
-  name: 'Notes',
-  directory: 'content/notes',
-  include: ['**/*.mdx'],
-  schema: (z) => ({
-    title: z.string(),
-    description: z.string(),
-    metadata: z.record(z.string()).optional(),
-    content: z.string(),
-    code: z.string().optional(),
-  }),
-  transform: async (doc, context) => {
-    const code = await compileMDX(context, doc, mdxConfig)
-    return {
-      ...doc,
-      code,
-    }
-  },
-})
-
-const showcases = defineCollection({
-  name: 'Showcases',
-  directory: 'content/showcases.json',
-  include: ['**/*.mdx'],
-  schema: (z) => ({
-    title: z.string(),
-    description: z.string().optional(),
-    url: z.string(),
-    image: z.string(),
-  }),
-  transform: async (doc, context) => {
-    const code = await compileMDX(context, doc, mdxConfig)
-    return {
-      ...doc,
-      code,
-    }
-  },
-})
-
 const blogs = defineCollection({
   name: 'Blog',
   directory: 'content/blog',
   include: ['**/*.mdx'],
   schema: (z) => ({
     title: z.string(),
-    type: z.enum(['release', 'announcement', 'article']).default('article'),
+    type: z.enum(['announcement', 'article']).default('article'),
+    description: z.string(),
+    metadata: z.record(z.string()).optional(),
+    content: z.string(),
+    authors: z.array(z.string()),
+    publishedAt: z.string(),
+    toc: z.array(z.string()).optional(),
+  }),
+  transform: async (doc, context) => {
+    const code = await compileMDX(context, doc, mdxConfig)
+    return {
+      ...doc,
+      code,
+      slug: slugify(doc._meta.path),
+    }
+  },
+})
+
+const changelog = defineCollection({
+  name: 'Changelog',
+  directory: 'content/changelog',
+  include: ['**/*.mdx'],
+  schema: (z) => ({
+    title: z.string(),
+    version: z.string().optional(),
+    packages: z.array(z.string()).optional(),
+    products: z.array(z.string()).optional(),
     description: z.string(),
     metadata: z.record(z.string()).optional(),
     content: z.string(),
@@ -248,7 +235,7 @@ const blogs = defineCollection({
 
 export default defineConfig({
   root: cwd,
-  collections: [docs, proDocs, showcases, notes, blogs],
+  collections: [docs, proDocs, blogs, changelog],
 })
 
 function replaceExampleTabs(text: string) {

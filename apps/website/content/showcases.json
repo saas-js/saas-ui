@@ -16,5 +16,17 @@
     "url": "https://otteri.ai",
     "description": "All-in-one AI platform.",
     "image": "/showcases/otteri.png"
+  },
+  {
+    "title": "LocalXpose",
+    "url": "https://localxpose.io",
+    "description": "Access your system remotely.",
+    "image": "/showcases/localxpose.png"
+  },
+  {
+    "title": "Yext",
+    "url": "https://yext.com",
+    "description": "Online presence management.",
+    "image": "/showcases/yext.png"
   }
 ]

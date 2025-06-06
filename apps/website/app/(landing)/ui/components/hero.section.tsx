@@ -1,7 +1,5 @@
 'use client'
 
-import { ActionArrow } from '@/components/action-arrow'
-import { Annoucement } from '@/components/annoucement'
 import { CopyButton } from '@/components/copy-button'
 import { Subheading } from '@/components/site/typography'
 import { Box, Button, Container, Heading, Stack } from '@chakra-ui/react'
@@ -18,23 +16,14 @@ export const HeroSection = () => {
             alignItems="center"
             textAlign="center"
           >
-            <Annoucement justifySelf="center" asChild>
-              <Link href="/changelog/3.0">
-                Saas UI 3.0 is here!
-                <ActionArrow />
-              </Link>
-            </Annoucement>
             <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
-                Build products customers love.
+                The React component library for startups.
               </Heading>
               <Subheading>
-                The complete toolkit for building premium SaaS applications.
-                <br />
-                Free component library, premium templates and comprehensive
-                starter kits
-                <br /> —everything you need to ship faster without compromising
-                quality.
+                Saas UI is an open source React component system built on Chakra
+                UI. Designed to help you build beautiful, modern SaaS
+                applications.
               </Subheading>
             </Stack>
 

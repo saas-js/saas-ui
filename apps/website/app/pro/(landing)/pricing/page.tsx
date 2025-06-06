@@ -312,6 +312,17 @@ function FAQ() {
             </Accordion.Item>
             <Accordion.Item value="4">
               <Accordion.ItemTrigger fontSize="md" fontWeight="medium">
+                Do you offer refunds?
+              </Accordion.ItemTrigger>
+              <Accordion.ItemContent fontSize="md">
+                No, due to the nature of the product being a digital download we
+                do not offer refunds. We encourage you to try to open source and
+                free components and read through the Pro documentation carefully
+                to see if the product is a good fit.
+              </Accordion.ItemContent>
+            </Accordion.Item>
+            <Accordion.Item value="4">
+              <Accordion.ItemTrigger fontSize="md" fontWeight="medium">
                 Do you offer support?
               </Accordion.ItemTrigger>
               <Accordion.ItemContent fontSize="md">
@@ -346,7 +357,7 @@ function Benefits() {
                 lineHeight="1"
                 fontWeight="medium"
               >
-                Build, launch and scale with Saas UI Pro
+                Build, launch, and scale with Saas UI Pro
               </Heading>
 
               <Text fontWeight="medium" color="fg.subtle">

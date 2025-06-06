@@ -39,7 +39,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 const pro = `
 ## Saas UI Pro License Agreement
 
-Last updated 18th of September, 2024
+Last updated 1st of June, 2025
 
 This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Saas UI B.V. ("SAAS UI") for the use of Saas UI Pro (the "SOFTWARE") or Saas UI Figma Pro (the "DESIGN SYSTEM").
 
@@ -77,9 +77,7 @@ You may not redistribute the SOFTWARE to anyone and via any means other than to 
 Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy contact us at hello@saas-ui.dev.
 
 ### Refunds
-SAAS UI offers limited refunds on SOFTWARE and DESIGN SYSTEM within 14 days of purchase. Contact hello@saas-ui.dev for assistance.
-
-If we issue a refund, you agree to delete all files within 24 hours and are not permitted to use SOFTWARE or DESIGN SYSTEM in projects (including personal/non-commercial projects).
+SAAS UI offers no refunds on SOFTWARE and DESIGN SYSTEM. We encourage you to try to open source and free components, and read through the Pro documentation carefully to see if the product is a good fit.
 
 ### Indemnity
 You agree to indemnify and hold harmless SAAS UI and its resellers for any third-party claims, actions or suits, as well as any related expenses, liabilities, damages, settlements or fees arising from your use or misuse of the Software, or a violation of any terms of this license.

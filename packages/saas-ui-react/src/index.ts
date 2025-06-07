@@ -99,6 +99,18 @@ export { Container, type ContainerProps } from './components/container/index.ts'
 export { Code, type CodeProps } from './components/code/index.ts'
 export { Collapsible } from './components/collapsible/index.ts'
 export {
+  ColorModeProvider,
+  DarkMode,
+  LightMode,
+  useColorMode,
+  useColorModeValue,
+  ColorModeTrigger,
+} from './components/color-mode/index.ts'
+export type {
+  ColorMode,
+  UseColorModeReturn,
+} from './components/color-mode/index.ts'
+export {
   Combobox,
   useCombobox,
   useComboboxContext,

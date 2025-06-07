@@ -210,6 +210,9 @@ importers:
       '@saas-ui/react':
         specifier: workspace:*
         version: link:../../packages/saas-ui-react
+      '@saas-ui/use-hotkeys':
+        specifier: workspace:*
+        version: link:../../packages/saas-ui-use-hotkeys
       '@shikijs/rehype':
         specifier: 3.2.1
         version: 3.2.1

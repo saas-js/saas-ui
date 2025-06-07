@@ -73,7 +73,8 @@
   "dependencies": {
     "@ark-ui/react": "^5.9.1",
     "@saas-ui/core": "workspace:*",
-    "@saas-ui/hooks": "workspace:*"
+    "@saas-ui/hooks": "workspace:*",
+    "next-themes": "^0.4.6"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^3.20.0",

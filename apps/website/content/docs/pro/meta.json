@@ -1,0 +1,5 @@
+{
+  "title": "Pro components",
+  "root": true,
+  "pages": ["getting-started", "components"]
+}

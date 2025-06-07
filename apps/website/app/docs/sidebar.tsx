@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { SideNav } from '@/components/sidenav'
 import { useRoute } from '@/lib/use-route'
@@ -8,25 +8,34 @@ import {
   Box,
   BoxProps,
   Collapsible,
-  Group,
   Icon,
   Portal,
+  Separator,
   Stack,
   Text,
   chakra,
 } from '@chakra-ui/react'
 import { Breadcrumb, Drawer, Sidebar } from '@saas-ui/react'
+import { searchPath } from 'fumadocs-core/breadcrumb'
+import type { PageTree } from 'fumadocs-core/server'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
 import { LuChevronRight } from 'react-icons/lu'
 
-import type { NavItem } from './docs.config'
+export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
+  const { tree, ...rest } = props
 
-export const SidebarStart = (props: BoxProps) => {
-  const route = useRoute()
+  const pathname = usePathname()
 
-  const primaryNav = route.getPrimaryNav()
+  const path = useMemo(() => {
+    return searchPath(tree.children, pathname) ?? []
+  }, [tree, pathname])
+
+  const root =
+    (path.findLast(
+      (item) => item.type === 'folder' && item.root,
+    ) as PageTree.Root) ?? tree
 
   return (
     <Sidebar.Provider>
@@ -44,46 +53,47 @@ export const SidebarStart = (props: BoxProps) => {
         fontSize="sm"
         borderRightWidth="0"
         bg="transparent"
-        {...props}
+        {...rest}
       >
-        <Sidebar.Body gap="6" px="4" py="8">
-          {primaryNav.items?.map((group) => (
-            <Sidebar.Group key={group.title}>
-              <Sidebar.GroupHeader>
-                <Sidebar.GroupTitle color="fg">
-                  {group.title}
-                </Sidebar.GroupTitle>
-              </Sidebar.GroupHeader>
-              <Sidebar.GroupContent>
-                {route.getSidebarNavItems(group)?.map((item) => (
-                  <SidebarItem
-                    key={item.title}
-                    item={{
-                      ...item,
-                      url: `/${primaryNav.url}/${group.url}/${item.url}`,
-                    }}
-                  />
-                ))}
-              </Sidebar.GroupContent>
-            </Sidebar.Group>
-          ))}
+        <Sidebar.Body gap="0" px="4" py="8">
+          {root.children?.map((item) => {
+            if (item.type === 'separator') {
+              return <Separator />
+            }
+
+            if (item.type === 'folder') {
+              return (
+                <Sidebar.Group key={item.$id} my="3">
+                  <Sidebar.GroupHeader>
+                    <Sidebar.GroupTitle color="fg">
+                      {item.name}
+                    </Sidebar.GroupTitle>
+                  </Sidebar.GroupHeader>
+                  <Sidebar.GroupContent>
+                    {item.children?.map((item) => (
+                      <SidebarItem key={item.$id} item={item} />
+                    ))}
+                  </Sidebar.GroupContent>
+                </Sidebar.Group>
+              )
+            }
+
+            return <SidebarItem key={item.$id} item={item} />
+          })}
         </Sidebar.Body>
       </Sidebar.Root>
     </Sidebar.Provider>
   )
 }
 
-function SidebarItem({ item }: { item: NavItem }) {
-  const route = useRoute()
+function SidebarItem({ item }: { item: PageTree.Node }) {
+  const pathname = usePathname()
 
-  const isActive = item.url ? route.currentUrl === item.url : false
-  const isGroupActive = item.items?.some(
-    (item) => route.currentUrl === item.url,
-  )
+  if (item.type === 'page') {
+    const isActive = item.url ? pathname === item.url : false
 
-  if (!item.items || item.items.length === 0) {
     return (
-      <Sidebar.NavItem key={item.title}>
+      <Sidebar.NavItem key={item.$id}>
         <Sidebar.NavButton
           asChild
           active={isActive}
@@ -97,18 +107,26 @@ function SidebarItem({ item }: { item: NavItem }) {
         >
           {item.url ? (
             <Link href={item.url} aria-current={isActive ? 'page' : undefined}>
-              {item.title}
+              {item.name}
             </Link>
           ) : (
-            <Text>{item.title}</Text>
+            <Text>{item.name}</Text>
           )}
         </Sidebar.NavButton>
       </Sidebar.NavItem>
     )
   }
 
+  if (item.type === 'separator') {
+    return <Separator />
+  }
+
+  const isGroupActive = item.children?.some(
+    (item) => item.type === 'page' && pathname === item.url,
+  )
+
   return (
-    <Collapsible.Root asChild key={item.title} defaultOpen={isGroupActive}>
+    <Collapsible.Root asChild key={item.$id} defaultOpen={isGroupActive}>
       <Sidebar.Group>
         <Collapsible.Trigger asChild>
           <Sidebar.GroupHeader
@@ -119,7 +137,7 @@ function SidebarItem({ item }: { item: NavItem }) {
               bg: 'sidebar.accent.bg',
             }}
           >
-            <Sidebar.GroupTitle>{item.title}</Sidebar.GroupTitle>
+            <Sidebar.GroupTitle>{item.name}</Sidebar.GroupTitle>
             <Sidebar.GroupEndElement>
               <Icon
                 as={LuChevronRight}
@@ -134,41 +152,49 @@ function SidebarItem({ item }: { item: NavItem }) {
 
         <Collapsible.Content asChild>
           <Sidebar.GroupContent paddingBottom="2">
-            {item.items?.map((item) => (
-              <Sidebar.NavItem
-                key={item.title}
-                ps="4"
-                _before={{
-                  content: '""',
-                  display: 'block',
-                  height: '100%',
-                  width: '1px',
-                  bg: 'border',
-                  position: 'absolute',
-                  left: 2,
-                  top: 0,
-                  bottom: 0,
-                  zIndex: -1,
-                }}
-              >
-                <Sidebar.NavButton
-                  asChild
-                  _currentPage={{
-                    bg: 'sidebar.accent.bg',
-                    color: 'sidebar.accent.fg',
+            {item.children?.map((item) => {
+              if (item.type === 'separator') {
+                return <Separator />
+              }
+
+              if (item.type === 'folder') {
+                return <SidebarItem key={item.$id} item={item} />
+              }
+
+              return (
+                <Sidebar.NavItem
+                  key={item.$id}
+                  ps="4"
+                  _before={{
+                    content: '""',
+                    display: 'block',
+                    height: '100%',
+                    width: '1px',
+                    bg: 'border',
+                    position: 'absolute',
+                    left: 2,
+                    top: 0,
+                    bottom: 0,
+                    zIndex: -1,
                   }}
                 >
-                  <Link
-                    href={item.url!}
-                    aria-current={
-                      item.url === route.currentUrl ? 'page' : undefined
-                    }
+                  <Sidebar.NavButton
+                    asChild
+                    _currentPage={{
+                      bg: 'sidebar.accent.bg',
+                      color: 'sidebar.accent.fg',
+                    }}
                   >
-                    {item.title}
-                  </Link>
-                </Sidebar.NavButton>
-              </Sidebar.NavItem>
-            ))}
+                    <Link
+                      href={item.url!}
+                      aria-current={item.url === pathname ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </Link>
+                  </Sidebar.NavButton>
+                </Sidebar.NavItem>
+              )
+            })}
           </Sidebar.GroupContent>
         </Collapsible.Content>
       </Sidebar.Group>

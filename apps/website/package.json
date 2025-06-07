@@ -30,6 +30,7 @@
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/modals": "workspace:*",
     "@saas-ui/react": "workspace:*",
+    "@saas-ui/use-hotkeys": "workspace:*",
     "@shikijs/rehype": "3.2.1",
     "@shikijs/transformers": "3.2.1",
     "hastscript": "9.0.1",

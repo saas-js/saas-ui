@@ -96,9 +96,6 @@ export function useRoute() {
         ...group,
         items:
           group?.items?.map((item) => {
-            console.log(
-              join(primaryNav.url, secondaryNav.url, group.url, item.url),
-            )
             return {
               status: item.status,
               title: item.title,

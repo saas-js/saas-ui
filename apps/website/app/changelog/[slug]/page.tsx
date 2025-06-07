@@ -40,7 +40,7 @@ export const generateMetadata = async ({
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  console.log(slug)
+
   const blog = allBlogs.find((blog) => blog.slug === slug)
   if (!blog) return notFound()
 

@@ -1,5 +1,10 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { type Options, compileMDX } from '@content-collections/mdx'
+import {
+  createDocSchema,
+  createMetaSchema,
+  transformMDX,
+} from '@fumadocs/content-collections/configuration'
 import rehypeShiki from '@shikijs/rehype'
 import {
   transformerMetaHighlight,
@@ -77,29 +82,43 @@ const docs = defineCollection({
   name: 'Docs',
   directory: 'content/docs',
   include: ['**/*.mdx'],
-  schema: (z) => ({
-    title: z.string(),
-    description: z.string(),
-    metadata: z.record(z.string()).optional(),
-    content: z.string(),
-    status: z.string().optional(),
-    toc: z.array(z.string()).optional(),
-    code: z.string().optional(),
-    llm: z
-      .custom()
-      .transform(async (data: any) => replaceExampleTabs(data?.content ?? '')),
-    hideToc: z.boolean().optional(),
-    composition: z.boolean().optional(),
-    links: z
-      .object({
-        source: z.string().optional(),
-        storybook: z.string().optional(),
-        recipe: z.string().optional(),
-        ark: z.string().optional(),
-        pro: z.string().optional(),
-      })
-      .optional(),
-  }),
+  schema: (z) => {
+    return {
+      ...createDocSchema(z),
+      links: z
+        .object({
+          source: z.string().optional(),
+          storybook: z.string().optional(),
+          recipe: z.string().optional(),
+          ark: z.string().optional(),
+          pro: z.string().optional(),
+        })
+        .optional(),
+    }
+  },
+  // schema: (z) => ({
+  //   title: z.string(),
+  //   description: z.string(),
+  //   metadata: z.record(z.string()).optional(),
+  //   content: z.string(),
+  //   status: z.string().optional(),
+  //   toc: z.array(z.string()).optional(),
+  //   code: z.string().optional(),
+  //   llm: z
+  //     .custom()
+  //     .transform(async (data: any) => replaceExampleTabs(data?.content ?? '')),
+  //   hideToc: z.boolean().optional(),
+  //   composition: z.boolean().optional(),
+  //   links: z
+  //     .object({
+  //       source: z.string().optional(),
+  //       storybook: z.string().optional(),
+  //       recipe: z.string().optional(),
+  //       ark: z.string().optional(),
+  //       pro: z.string().optional(),
+  //     })
+  //     .optional(),
+  // }),
   transform: async (doc, context) => {
     const code = await compileMDX(context, doc, mdxConfig)
 
@@ -129,58 +148,12 @@ const docs = defineCollection({
   },
 })
 
-const proDocs = defineCollection({
-  name: 'Pro',
-  directory: 'content/pro-docs',
-  include: ['**/*.mdx'],
-  schema: (z) => ({
-    title: z.string(),
-    description: z.string(),
-    metadata: z.record(z.string()).optional(),
-    content: z.string(),
-    status: z.string().optional(),
-    toc: z.array(z.string()).optional(),
-    code: z.string().optional(),
-    llm: z
-      .custom()
-      .transform(async (data: any) => replaceExampleTabs(data?.content ?? '')),
-    hideToc: z.boolean().optional(),
-    composition: z.boolean().optional(),
-    links: z
-      .object({
-        source: z.string().optional(),
-        storybook: z.string().optional(),
-        recipe: z.string().optional(),
-        ark: z.string().optional(),
-      })
-      .optional(),
-  }),
-  transform: async (doc, context) => {
-    const code = await compileMDX(context, doc, mdxConfig)
-
-    const links = doc.links || {}
-    return {
-      ...doc,
-      code,
-      slug: slugify(doc._meta.path),
-      links: {
-        ...links,
-        source: links.source
-          ? `${proConfig.repoUrl}/tree/${proConfig.repoBranch}/packages/react/src/${links.source}`
-          : undefined,
-        storybook: links.storybook
-          ? `${proConfig.storybookUrl}/?path=/story/${links.storybook}`
-          : undefined,
-        recipe: links.recipe
-          ? `${proConfig.repoUrl}/tree/${proConfig.repoBranch}/packages/react/src/theme/recipes/${links.recipe}.ts`
-          : undefined,
-      },
-      category: doc._meta.path
-        .replace(/.*\/content\//, '')
-        .replace(/\/[^/]*$/, '')
-        .replace(cwd, ''),
-    }
-  },
+const metas = defineCollection({
+  name: 'meta',
+  directory: 'content/docs',
+  include: '**/meta.json',
+  parser: 'json',
+  schema: createMetaSchema,
 })
 
 const blogs = defineCollection({
@@ -235,7 +208,7 @@ const changelog = defineCollection({
 
 export default defineConfig({
   root: cwd,
-  collections: [docs, proDocs, blogs, changelog],
+  collections: [docs, metas, blogs, changelog],
 })
 
 function replaceExampleTabs(text: string) {

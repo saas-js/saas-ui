@@ -1,12 +1,13 @@
 'use client'
 
-import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useCallback, useMemo, useState } from 'react'
 
 import { data } from '@/lib/search'
 import { Combobox, createListCollection } from '@ark-ui/react'
-import { useEnvironmentContext } from '@ark-ui/react/environment'
 import { Center, Input, Stack, Text, chakra } from '@chakra-ui/react'
 import { Dialog } from '@saas-ui/react'
+import { useHotkeys } from '@saas-ui/use-hotkeys'
+import { useDocsSearch } from 'fumadocs-core/search/client'
 import { matchSorter } from 'match-sorter'
 import { useRouter } from 'next/navigation'
 
@@ -61,12 +62,19 @@ export const CommandMenu = (props: Props) => {
   const [open, setOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const { matchEntries, filteredItems } = useFilteredItems(data, inputValue)
+
+  const { search, setSearch, query } = useDocsSearch({
+    type: 'fetch',
+  })
+
   const router = useRouter()
 
-  useHotkey(setOpen, { disable: props.disableHotkey })
+  useHotkeys(['cmd+k', 'ctrl+k'], () => !props.disableHotkey && setOpen(true), [
+    props.disableHotkey,
+  ])
 
   const collection = createListCollection({
-    items: filteredItems,
+    items: Array.isArray(query.data) ? query.data : [],
   })
 
   return (
@@ -89,7 +97,7 @@ export const CommandMenu = (props: Props) => {
             setOpen(false)
             router.push(`/${e.value}`)
           }}
-          onInputValueChange={({ inputValue }) => setInputValue(inputValue)}
+          onInputValueChange={({ inputValue }) => setSearch(inputValue)}
         >
           <ComboboxControl>
             <ComboboxInput asChild>
@@ -182,33 +190,4 @@ const useFilteredItems = (data: Record<string, Item[]>, inputValue: string) => {
   const filteredItems = useMemo(() => Object.values(matches).flat(), [matches])
 
   return { matchEntries, filteredItems }
-}
-
-const useHotkey = (
-  setOpen: (open: boolean) => void,
-  options: { disable?: boolean },
-) => {
-  const { disable } = options
-  const env = useEnvironmentContext()
-
-  useEffect(() => {
-    if (disable) return
-
-    const document = env.getDocument()
-    const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator?.platform)
-    const hotkey = isMac ? 'metaKey' : 'ctrlKey'
-
-    const handleKeydown = (event: KeyboardEvent) => {
-      if (event.key?.toLowerCase() === 'k' && event[hotkey]) {
-        event.preventDefault()
-        setOpen(true)
-      }
-    }
-
-    document.addEventListener('keydown', handleKeydown, true)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeydown, true)
-    }
-  }, [env, setOpen, disable])
 }

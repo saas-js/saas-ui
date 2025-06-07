@@ -237,7 +237,7 @@ const HeaderDesktopNavbar = () => {
           <HoverMenu
             trigger={
               <PrimaryNavLink
-                href="/docs/pro"
+                href="/docs/pro/getting-started/introduction"
                 onClick={(e) => {
                   e.preventDefault()
                 }}
@@ -248,13 +248,15 @@ const HeaderDesktopNavbar = () => {
             }
           >
             <Menu.Item value="pro-components" asChild>
-              <Link href="/docs/pro/overview">Getting started</Link>
+              <Link href="/docs/pro/getting-started/introduction">
+                Getting started
+              </Link>
             </Menu.Item>
             <Menu.Item value="data-grid" asChild>
-              <Link href="/docs/pro/data-grid">Data grid</Link>
+              <Link href="/docs/pro/components/data-grid">Data grid</Link>
             </Menu.Item>
             <Menu.Item value="kanban" asChild>
-              <Link href="/docs/pro/kanban">Kanban</Link>
+              <Link href="/docs/pro/components/kanban">Kanban</Link>
             </Menu.Item>
           </HoverMenu>
 

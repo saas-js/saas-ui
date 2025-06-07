@@ -1,0 +1,22 @@
+{
+  "title": "Tanstack Router starter kit",
+  "root": true,
+  "pages": [
+    "index",
+    "project-structure",
+    "tech-stack",
+    "commands",
+    "installation",
+    "configuration",
+    "authentication",
+    "theming",
+    "api",
+    "api-procedures",
+    "database",
+    "deployment",
+    "billing",
+    "deployments",
+    "contributing",
+    "..."
+  ]
+}

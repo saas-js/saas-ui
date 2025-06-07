@@ -174,6 +174,7 @@ function Pricing() {
             <Text fontWeight="medium" mb="2">
               Everything in Individual plan, plus:
             </Text>
+
             <List.Root gap="2" variant="plain">
               <List.Item>
                 <List.Indicator asChild color="fg.muted">
@@ -211,12 +212,16 @@ function Pricing() {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            Starting at $4750
+            Starting at $1000/month
           </Text>
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for teams who want to move fast.
+              Customized plans for organizations who want to move fast.
+            </Text>
+
+            <Text fontWeight="medium" mb="2">
+              Everything in Team plan, plus:
             </Text>
 
             <List.Root gap="2" variant="plain">
@@ -224,19 +229,13 @@ function Pricing() {
                 <List.Indicator asChild color="fg.muted">
                   <TbCheck />
                 </List.Indicator>
-                Expert guidance and support
+                Unlimited developers
               </List.Item>
               <List.Item>
                 <List.Indicator asChild color="fg.muted">
                   <TbCheck />
                 </List.Indicator>
                 Dedicated support channel
-              </List.Item>
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Custom features and integrations
               </List.Item>
             </List.Root>
           </Box>

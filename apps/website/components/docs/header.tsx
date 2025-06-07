@@ -303,7 +303,7 @@ const HeaderDesktopNavbar = () => {
             variant="glass"
             size="sm"
           >
-            Get Access
+            Get Pro
           </LinkButton>
         </HStack>
       </HStack>

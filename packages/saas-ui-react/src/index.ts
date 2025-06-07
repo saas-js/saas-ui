@@ -98,6 +98,13 @@ export {
 export { Container, type ContainerProps } from './components/container/index.ts'
 export { Code, type CodeProps } from './components/code/index.ts'
 export { Collapsible } from './components/collapsible/index.ts'
+export {
+  Combobox,
+  useCombobox,
+  useComboboxContext,
+  useComboboxItemContext,
+  useComboboxStyles,
+} from './components/combobox/index.ts'
 export { Command } from './components/command/index.ts'
 export { DataList, useDataListStyles } from './components/data-list/index.ts'
 export { Dialog } from './components/dialog/index.ts'

@@ -31,7 +31,7 @@ export const accordionSlotRecipe = defineSlotRecipe({
     },
     itemBody: {
       pt: 'var(--accordion-padding-y)',
-      pb: 'calc(var(--accordion-padding-y) * 2)',
+      // pb: 'calc(var(--accordion-padding-y) * 2)',
     },
     itemContent: {
       overflow: 'hidden',
@@ -115,6 +115,9 @@ export const accordionSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
           py: 'var(--accordion-padding-y)',
         },
+        itemContent: {
+          textStyle: 'sm',
+        },
       },
       md: {
         root: {
@@ -125,6 +128,9 @@ export const accordionSlotRecipe = defineSlotRecipe({
           textStyle: 'md',
           py: 'var(--accordion-padding-y)',
         },
+        itemContent: {
+          textStyle: 'md',
+        },
       },
       lg: {
         root: {
@@ -134,6 +140,9 @@ export const accordionSlotRecipe = defineSlotRecipe({
         itemTrigger: {
           textStyle: 'lg',
           py: 'var(--accordion-padding-y)',
+        },
+        itemContent: {
+          textStyle: 'lg',
         },
       },
     },

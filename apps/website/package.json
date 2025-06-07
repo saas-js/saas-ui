@@ -17,8 +17,9 @@
   "dependencies": {
     "@ark-ui/react": "^5.2.0",
     "@chakra-ui/charts": "^3.15.0",
-    "@chakra-ui/react": "^3.14.0",
+    "@chakra-ui/react": "^3.20.0",
     "@emotion/react": "11.14.0",
+    "@fumadocs/content-collections": "^1.2.0",
     "@octokit/rest": "^21.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.9",
     "@react-three/drei": "^10.0.5",

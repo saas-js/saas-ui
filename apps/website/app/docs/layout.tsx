@@ -1,4 +1,6 @@
+import { allDocs } from '@/.content-collections/generated'
 import { Header } from '@/components/docs/header'
+import { source } from '@/lib/source'
 import {
   Box,
   Container,
@@ -11,6 +13,10 @@ import {
 import { MobileSidebarNav, SidebarStart } from './sidebar'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const tree = source.pageTree
+
+  console.log(tree)
+
   return (
     <>
       <SkipNavLink>Skip to Content</SkipNavLink>

@@ -12,6 +12,6 @@ onlyBuiltDependencies:
   - '@parcel/watcher'
 overrides:
   '@ark-ui/react': '5.9.1'
-  '@chakra-ui/react': '3.18.0'
+  '@chakra-ui/react': '3.20.0'
   'react': '19.0.0'
   '@types/react': '19.0.12'

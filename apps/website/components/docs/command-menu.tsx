@@ -1,15 +1,14 @@
 'use client'
 
-import { ReactNode, useCallback, useMemo, useState } from 'react'
+import { ReactNode, useState } from 'react'
 
-import { data } from '@/lib/search'
 import { Combobox, createListCollection } from '@ark-ui/react'
-import { Center, Input, Stack, Text, chakra } from '@chakra-ui/react'
+import { Center, HStack, Icon, Input, Text, chakra } from '@chakra-ui/react'
 import { Dialog } from '@saas-ui/react'
 import { useHotkeys } from '@saas-ui/use-hotkeys'
 import { useDocsSearch } from 'fumadocs-core/search/client'
-import { matchSorter } from 'match-sorter'
 import { useRouter } from 'next/navigation'
+import { TbFile, TbHash } from 'react-icons/tb'
 
 const ComboboxRoot = chakra(Combobox.Root, {
   base: {
@@ -60,11 +59,10 @@ interface Props {
 
 export const CommandMenu = (props: Props) => {
   const [open, setOpen] = useState(false)
-  const [inputValue, setInputValue] = useState('')
-  const { matchEntries, filteredItems } = useFilteredItems(data, inputValue)
 
   const { search, setSearch, query } = useDocsSearch({
-    type: 'fetch',
+    type: 'static',
+    delayMs: 400,
   })
 
   const router = useRouter()
@@ -74,7 +72,8 @@ export const CommandMenu = (props: Props) => {
   ])
 
   const collection = createListCollection({
-    items: Array.isArray(query.data) ? query.data : [],
+    items: Array.isArray(query.data) ? query.data.slice(0, 20) : [],
+    itemToValue: (item) => item.id,
   })
 
   return (
@@ -84,7 +83,7 @@ export const CommandMenu = (props: Props) => {
       onOpenChange={(event) => setOpen(event.open)}
     >
       <Dialog.Trigger asChild>{props.trigger}</Dialog.Trigger>
-      <Dialog.Content p="2" width={{ base: '100%', sm: 'md' }}>
+      <Dialog.Content p="2" width={{ base: '100%', sm: '2xl' }} maxWidth="100%">
         <ComboboxRoot
           open
           disableLayer
@@ -92,16 +91,23 @@ export const CommandMenu = (props: Props) => {
           placeholder="Search the docs"
           selectionBehavior="clear"
           loopFocus={false}
-          collection={collection}
+          collection={collection as any}
           onValueChange={(e) => {
             setOpen(false)
-            router.push(`/${e.value}`)
+
+            const item = collection.items?.find(
+              (item) => item.id === e.value[0],
+            )
+
+            if (item) {
+              router.push(item.url)
+            }
           }}
           onInputValueChange={({ inputValue }) => setSearch(inputValue)}
         >
           <ComboboxControl>
             <ComboboxInput asChild>
-              <Input />
+              <Input size="lg" borderWidth="0" />
             </ComboboxInput>
           </ComboboxControl>
           <ComboboxContent
@@ -113,81 +119,91 @@ export const CommandMenu = (props: Props) => {
             overscrollBehavior="contain"
           >
             <ComboboxList>
-              {matchEntries.length === 0 && (
-                <Center p="3" minH="40">
-                  <Text color="fg.subtle" textStyle="sm">
-                    No results found for <Text as="strong">{inputValue}</Text>
-                  </Text>
-                </Center>
-              )}
-              {matchEntries.map(([key, items]) => (
-                <ComboboxItemGroup key={key}>
-                  <ComboboxItemGroupLabel
-                    textTransform="capitalize"
-                    color="fg.subtle"
-                    fontWeight="medium"
-                  >
-                    {key}
-                  </ComboboxItemGroupLabel>
-                  {items.map((item) => (
+              {query.data?.length === 0 ||
+                (query.data === 'empty' && (
+                  <Center p="3" minH="40">
+                    <Text color="fg.subtle" textStyle="sm">
+                      No results found for <Text as="strong">{search}</Text>
+                    </Text>
+                  </Center>
+                ))}
+
+              <ComboboxItemGroup>
+                {collection.items?.map((item) => {
+                  return (
                     <ComboboxItem
-                      key={item.value}
+                      key={item.id}
+                      data-type={item.type}
                       item={item}
                       persistFocus
                       height="auto"
                       px="4"
-                      py="3"
+                      py="2"
+                      mb="2px"
+                      css={{
+                        '&[data-type="page"]': {
+                          bg: 'bg.subtle/70',
+                          _hover: {
+                            bg: 'bg.subtle',
+                          },
+                        },
+                        '&[data-type="heading"], &[data-type="text"]': {
+                          ps: 10,
+                          position: 'relative',
+                          _before: {
+                            content: '""',
+                            display: 'block',
+                            w: '1px',
+                            h: 'full',
+                            bg: 'border',
+                            position: 'absolute',
+                            left: 6,
+                            top: 0,
+                            flexShrink: 0,
+                          },
+                        },
+                      }}
                     >
-                      <Stack gap="0">
-                        <Text fontWeight="medium">{item.label}</Text>
-                        <Text
-                          textStyle="sm"
-                          fontWeight="medium"
-                          color="fg.subtle"
-                        >
-                          {item.category}
-                        </Text>
-                        <Text
-                          textStyle="sm"
-                          color="fg.subtle"
-                          mt="0.5"
-                          lineClamp={2}
-                        >
-                          {item.description}
-                        </Text>
-                      </Stack>
+                      <HStack>
+                        {item.type === 'page' ? (
+                          <Icon
+                            as={TbFile}
+                            color="fg.subtle"
+                            boxSize="5"
+                            alignSelf="start"
+                          />
+                        ) : (
+                          <Icon as={TbHash} color="fg.subtle" />
+                        )}
+
+                        {item.type === 'page' ? (
+                          <>
+                            <Text
+                              fontSize="sm"
+                              fontWeight="medium"
+                              lineClamp={1}
+                              flex="1"
+                            >
+                              {item.content}
+                            </Text>
+                            <Text fontSize="xs" color="fg.subtle" lineClamp={1}>
+                              {item.url}
+                            </Text>
+                          </>
+                        ) : (
+                          <Text fontSize="sm" lineClamp={1}>
+                            {item.content}
+                          </Text>
+                        )}
+                      </HStack>
                     </ComboboxItem>
-                  ))}
-                </ComboboxItemGroup>
-              ))}
+                  )
+                })}
+              </ComboboxItemGroup>
             </ComboboxList>
           </ComboboxContent>
         </ComboboxRoot>
       </Dialog.Content>
     </Dialog.Root>
   )
-}
-
-const useFilteredItems = (data: Record<string, Item[]>, inputValue: string) => {
-  const items = useMemo(() => Object.values(data).flat(), [data])
-
-  const filter = useCallback(
-    (value: string): Record<string, Item[]> => {
-      if (!value)
-        return Object.fromEntries(
-          Object.entries(data).map(([key, value]) => [key, value.slice(0, 4)]),
-        )
-
-      const results = matchSorter(items, value, {
-        keys: ['label', 'description'],
-      })
-      return results.length ? { 'Search Results': results.slice(0, 8) } : {}
-    },
-    [items, data],
-  )
-  const matches = useMemo(() => filter(inputValue), [inputValue, filter])
-  const matchEntries = useMemo(() => Object.entries(matches), [matches])
-  const filteredItems = useMemo(() => Object.values(matches).flat(), [matches])
-
-  return { matchEntries, filteredItems }
 }

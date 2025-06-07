@@ -14,7 +14,8 @@ import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from '@shikijs/transformers'
-import { rehypeToc, remarkHeading } from 'fumadocs-core/mdx-plugins'
+import { rehypeToc, remarkHeading, structure } from 'fumadocs-core/mdx-plugins'
+import { remarkStructure } from 'fumadocs-core/mdx-plugins'
 import fs from 'node:fs'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
@@ -22,7 +23,6 @@ import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
 
 import { docsConfig } from './app/docs/docs.config'
-import { docsConfig as proConfig } from './app/pro/docs/docs.config'
 import { remarkCallout } from './lib/remark-callout'
 import { remarkCard } from './lib/remark-card'
 import { remarkCodeTitle } from './lib/remark-code-title'
@@ -41,6 +41,7 @@ const mdxConfig = {
     remarkSteps,
     remarkCard,
     remarkHeading,
+    remarkStructure,
   ],
   rehypePlugins: [
     rehypeSlug,
@@ -94,6 +95,7 @@ const docs = defineCollection({
           pro: z.string().optional(),
         })
         .optional(),
+      structuredData: z.any().optional(),
     }
   },
   // schema: (z) => ({
@@ -144,6 +146,7 @@ const docs = defineCollection({
         .replace(/.*\/content\//, '')
         .replace(/\/[^/]*$/, '')
         .replace(cwd, ''),
+      structuredData: structure(doc.content) as any,
     }
   },
 })

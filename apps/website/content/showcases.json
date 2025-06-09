@@ -12,6 +12,12 @@
     "image": "/showcases/growtha.png"
   },
   {
+    "title": "Mindlytics",
+    "url": "https://www.mindlytics.ai",
+    "description": "User behavioral analytics for LLM applications and AI agents.",
+    "image": "/showcases/mindlytics.png"
+  },
+  {
     "title": "Otteri",
     "url": "https://otteri.ai",
     "description": "All-in-one AI platform.",
@@ -28,5 +34,17 @@
     "url": "https://yext.com",
     "description": "Online presence management.",
     "image": "/showcases/yext.png"
+  },
+  {
+    "title": "Baseload",
+    "url": "https://baseload.ai",
+    "description": "Unlock Solar PV Potential with AI.",
+    "image": "/showcases/baseload.png"
+  },
+  {
+    "title": "FlashSERP",
+    "url": "https://www.flashserp.com",
+    "description": "All-in-one API indexing tool",
+    "image": "/showcases/flashserp.png"
   }
 ]

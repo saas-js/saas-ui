@@ -64,7 +64,7 @@ const DesktopNav = () => (
     </HStack>
     <HStack gap="0" justifyContent="flex-end">
       <CommandMenu
-        trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
+        trigger={<SearchButton width="160px" size="sm" flexShrink="1" />}
       />
       <Button asChild variant="ghost" size="sm">
         <Link href="https://github.com/saas-js/saas-ui" target="_blank">

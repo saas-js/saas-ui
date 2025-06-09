@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 
 const styles = defineStyle({
-  color: { _light: 'teal.600', _dark: 'teal.500' },
+  color: { _light: 'indigo.600', _dark: 'indigo.500' },
   position: 'relative',
   px: '2',
   display: 'inline-block',
@@ -20,7 +20,7 @@ const styles = defineStyle({
     content: "''",
     w: 'full',
     h: 'full',
-    bg: 'teal.500/10',
+    bg: 'indigo.500/10',
     roundedStart: 'md',
     pointerEvents: 'none',
     bottom: '-0.5',

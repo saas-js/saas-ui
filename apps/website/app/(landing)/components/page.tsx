@@ -1,22 +1,19 @@
 import { CustomersSection } from '@/components/site/customers.section'
-import { Testimonials } from '@/components/site/testimonials'
+import { GetStartedSection } from '@/components/site/get-started.section'
+import { TestimonialsSection } from '@/components/site/testimonials.section'
 import {
   Box,
-  Button,
-  ButtonGroup,
   Container,
   Grid,
   HStack,
   Heading,
   List,
-  ListItem,
   Text,
 } from '@chakra-ui/react'
-import Link from 'next/link'
-import { FaGithub } from 'react-icons/fa'
 import { TbCheck } from 'react-icons/tb'
 
 import { ComponentsSection } from './components/components.section'
+import { DesignSystemSection } from './components/design-system.section'
 import { HeroSection } from './components/hero.section'
 
 export default function Page() {
@@ -26,9 +23,8 @@ export default function Page() {
       <ComponentsSection />
       <CustomersSection />
       <BenefitsSection />
-      <Container maxW="8xl" py="16">
-        <Testimonials />
-      </Container>
+      <DesignSystemSection />
+      <TestimonialsSection />
       <GetStartedSection />
     </>
   )
@@ -43,7 +39,7 @@ function BenefitsSection() {
       borderStyle="dashed"
       py="16"
     >
-      <Container maxW="8xl" px="4">
+      <Container maxW="8xl">
         <HStack gap="4" mb="12" alignItems="flex-end">
           <Box flex="1">
             <Heading as="h3" textStyle="6xl" lineHeight="1.2">
@@ -55,7 +51,8 @@ function BenefitsSection() {
           <Box flex="1">
             <Text textStyle="lg" color="fg.subtle">
               Pre-built, production-ready components that maintain design
-              consistency, while accelerating development speed.
+              consistency, while accelerating development speed and time to
+              market.
             </Text>
           </Box>
         </HStack>
@@ -73,7 +70,7 @@ function BenefitsSection() {
               benefits={[
                 'Battle-tested components used in production',
                 'Built-in accessibility (WCAG compliance)',
-                'Consistent design language accross your product',
+                'Consistent design language across your product',
               ]}
             />
             <BenefitsList
@@ -102,44 +99,6 @@ function BenefitsList(props: { benefits: Array<string> }) {
         </List.Item>
       ))}
     </List.Root>
-  )
-}
-
-function GetStartedSection() {
-  return (
-    <Box
-      as="section"
-      borderTopWidth="1px"
-      borderBottomWidth="1px"
-      borderStyle="dashed"
-    >
-      <Container maxW="8xl">
-        <HStack
-          borderLeftWidth="1px"
-          borderRightWidth="1px"
-          borderStyle="dashed"
-          p="16"
-          gap="4"
-          alignItems="flex-end"
-          justifyContent="space-between"
-        >
-          <Text textStyle="4xl" fontWeight="medium">
-            Join hundreds of developers <br /> building better SaaS interfaces.
-          </Text>
-
-          <ButtonGroup>
-            <Button asChild>
-              <Link href="https://github.com/saas-ui/saas-ui">
-                <FaGithub /> Github
-              </Link>
-            </Button>
-            <Button variant="glass" colorPalette="accent" asChild>
-              <Link href="/docs">Documentation</Link>
-            </Button>
-          </ButtonGroup>
-        </HStack>
-      </Container>
-    </Box>
   )
 }
 

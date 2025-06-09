@@ -42,7 +42,7 @@ export const Navigation = () => {
                     Community
                   </Text>
 
-                  <ListItem title="Component system" href="/ui">
+                  <ListItem title="Component system" href="/components">
                     Open source React components.
                   </ListItem>
                 </Stack>
@@ -61,12 +61,12 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Starter kits
                   </Text>
-                  <ListItem title="Next.js" href="/pro/starterkits/nextjs">
+                  <ListItem title="Next.js" href="/pro/starter-kits/nextjs">
                     Next.js and tRPC
                   </ListItem>
                   <ListItem
                     title="Tanstack Router"
-                    href="/pro/starterkits/tanstack-router"
+                    href="/pro/starter-kits/tanstack-router"
                   >
                     Tanstack Router and tRPC
                   </ListItem>

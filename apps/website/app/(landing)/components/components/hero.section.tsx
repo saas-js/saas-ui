@@ -1,7 +1,6 @@
 'use client'
 
-import { ActionArrow } from '@/components/action-arrow'
-import { Annoucement } from '@/components/annoucement'
+import { CopyButton } from '@/components/copy-button'
 import { Subheading } from '@/components/site/typography'
 import { Box, Button, Container, Heading, Stack } from '@chakra-ui/react'
 import Link from 'next/link'
@@ -17,21 +16,14 @@ export const HeroSection = () => {
             alignItems="center"
             textAlign="center"
           >
-            <Annoucement justifySelf="center" asChild>
-              <Link href="/changelog/3.0">
-                Saas UI 3.0 is here!
-                <ActionArrow />
-              </Link>
-            </Annoucement>
             <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
-                Launch polished SaaS apps in half the time
+                The React component library for startups.
               </Heading>
               <Subheading>
-                Complete toolkit with 60+ free React components, premium
-                templates and fullstack starter kits. Everything you need to
-                ship beautiful, consistent B2B products without the design
-                guesswork.
+                Saas UI is an open source React component system built on Chakra
+                UI. Designed to help you build beautiful, consistent SaaS
+                applications.
               </Subheading>
             </Stack>
 
@@ -43,17 +35,17 @@ export const HeroSection = () => {
                 variant="glass"
                 colorPalette="accent"
               >
-                <Link href="/components">Browse components</Link>
+                <Link href="/docs/components/overview">
+                  View all components
+                </Link>
               </Button>
-              <Button
-                size="lg"
-                minW="180px"
-                asChild
+              <CopyButton
                 variant="outline"
-                colorPalette="neutral"
+                size="lg"
+                value="npm i @saas-ui/react"
               >
-                <Link href="/pro/starter-kits">View Starter Kits</Link>
-              </Button>
+                &gt; npm i @saas-ui/react
+              </CopyButton>
             </Stack>
           </Stack>
         </Container>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Container, Tabs } from '@chakra-ui/react'
+import { Box, Container, Tabs } from '@chakra-ui/react'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import dynamic from 'next/dynamic'
 
@@ -31,33 +31,46 @@ const EmailDemo = dynamic(
 
 export const DemoSection = () => {
   return (
-    <Container maxW="8xl">
+    <Box position="relative">
       <Tabs.Root defaultValue="components" colorPalette="accent" lazyMount>
-        <Tabs.List mb="4">
+        <Tabs.List mb="4" maxW="8xl" mx="auto">
           <Tabs.Trigger value="components">Components</Tabs.Trigger>
           <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
           <Tabs.Trigger value="email">Email</Tabs.Trigger>
         </Tabs.List>
 
         <Tabs.ContentGroup>
-          <Tabs.Content value="components" height="768px">
+          <Tabs.Content value="components" height="768px" maxW="8xl" mx="auto">
             <ErrorBoundary errorComponent={ErrorFallback}>
               <ComponentsDemo />
             </ErrorBoundary>
           </Tabs.Content>
-          <TabContentEnclosed value="crm">
+          <TabContentEnclosed value="crm" maxW="8xl" mx="auto">
             <ErrorBoundary errorComponent={ErrorFallback}>
               <CRMDemo />
             </ErrorBoundary>
           </TabContentEnclosed>
-          <TabContentEnclosed value="email">
+          <TabContentEnclosed value="email" maxW="8xl" mx="auto">
             <ErrorBoundary errorComponent={ErrorFallback}>
               <EmailDemo />
             </ErrorBoundary>
           </TabContentEnclosed>
         </Tabs.ContentGroup>
       </Tabs.Root>
-    </Container>
+
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        right="0"
+        bottom="0"
+        pointerEvents="none"
+        bgGradient="to-b"
+        gradientFrom="transparent"
+        gradientVia="transparent"
+        gradientTo="bg.muted"
+      />
+    </Box>
   )
 }
 

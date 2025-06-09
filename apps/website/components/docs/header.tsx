@@ -214,7 +214,7 @@ const HeaderDesktopNavbar = () => {
                     : undefined
                 }
               >
-                Component system <LuChevronDown />
+                Saas UI <LuChevronDown />
               </PrimaryNavLink>
             }
           >
@@ -243,7 +243,7 @@ const HeaderDesktopNavbar = () => {
                 }}
                 aria-current={path.startsWith('/docs/pro') ? 'page' : undefined}
               >
-                Pro components <LuChevronDown />
+                Saas UI Pro <LuChevronDown />
               </PrimaryNavLink>
             }
           >

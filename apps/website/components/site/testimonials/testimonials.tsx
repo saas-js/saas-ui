@@ -10,7 +10,7 @@ export const Testimonials = () => {
         textStyle="4xl"
         lineHeight="1.2"
         textAlign="center"
-        mb="8"
+        mb="16"
       >
         Loved by developers and designers
       </Section.Title>

@@ -82,17 +82,7 @@ interface PersonaAvatarProps extends PersonaAvatarOptions, AvatarProps {
  */
 const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
   (props, ref) => {
-    const {
-      name,
-      getInitials = (name?: string | null) => name?.[0],
-      icon,
-      loading,
-      onError,
-      src,
-      srcSet,
-      children,
-      ...rest
-    } = props
+    const { children, ...rest } = props
 
     return (
       <Avatar ref={ref} {...rest}>

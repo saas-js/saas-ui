@@ -52,7 +52,7 @@ export const HeroSection = () => {
                 variant="outline"
                 colorPalette="neutral"
               >
-                <Link href="/pro/starter-kits">View Starter Kits</Link>
+                <Link href="/pro/starter-kits">View starter kits</Link>
               </Button>
             </Stack>
           </Stack>

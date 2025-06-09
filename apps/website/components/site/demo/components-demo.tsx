@@ -278,8 +278,20 @@ export const FilesCard = () => {
 
 function ConfirmDialog() {
   return (
-    <Dialog.Root modal={false} open preventScroll={false} trapFocus={false}>
-      <Dialog.Content my="0" borderWidth="1px" boxShadow="md">
+    <Dialog.Root
+      modal={false}
+      skipAnimationOnMount
+      open
+      preventScroll={false}
+      trapFocus={false}
+    >
+      <Dialog.Content
+        my="0"
+        borderWidth="1px"
+        boxShadow="md"
+        transition="none"
+        animationDuration="0ms"
+      >
         <Dialog.Header>
           <Dialog.Title>Confirm</Dialog.Title>
         </Dialog.Header>

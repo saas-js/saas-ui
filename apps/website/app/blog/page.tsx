@@ -12,10 +12,14 @@ export const metadata: Metadata = {
   },
 }
 
+const sortedBlogs = allBlogs.sort((a, b) => {
+  return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+})
+
 export default function BlogPage() {
-  const firstTwo = allBlogs.slice(0, 2)
-  const nextThree = allBlogs.slice(2, 5)
-  const remaining = allBlogs.slice(5)
+  const firstTwo = sortedBlogs.slice(0, 2)
+  const nextThree = sortedBlogs.slice(2, 5)
+  const remaining = sortedBlogs.slice(5)
 
   return (
     <Box py="20">

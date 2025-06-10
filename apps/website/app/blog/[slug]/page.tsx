@@ -2,6 +2,8 @@ import { MDXContent } from '@/components/mdx-content'
 import { formatBlogDate, getBlogAuthor } from '@/lib/blog'
 import {
   Badge,
+  Box,
+  Button,
   Container,
   HStack,
   Heading,
@@ -10,10 +12,12 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { Avatar } from '@saas-ui/react'
+import { Avatar, BackButton } from '@saas-ui/react'
 import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { TbArrowLeft } from 'react-icons/tb'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -47,9 +51,17 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <Container py="20" maxW="5xl">
       <Stack py="8" gap="2">
+        <Box>
+          <Button variant="ghost" asChild>
+            <Link href="/blog">
+              <TbArrowLeft /> All posts
+            </Link>
+          </Button>
+        </Box>
+        <Separator my="10" />
         <HStack textStyle="xs" color="fg.subtle">
           <Badge
-            variant="subtle"
+            variant="outline"
             textTransform="capitalize"
             colorPalette="primary"
           >

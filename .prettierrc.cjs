@@ -17,4 +17,5 @@ module.exports = {
   importOrderSortSpecifiers: true,
   importOrderGroupNamespaceSpecifiers: true,
   plugins: ['@trivago/prettier-plugin-sort-imports'],
+  proseWrap: 'always',
 }

@@ -74,8 +74,8 @@ export function ProductsSection() {
         subtitle="Starter kits"
         badge={<ProBadge />}
         description={[
-          'Skip weeks of foundation work with our production-ready React starter kits. Authentication, payments, database, and beautiful UI —all integrated and ready to customize.',
-          'Built with the latest tech stack including Saas UI Pro, tRPC, Drizzle ORM, and Stripe. Focus on your unique features while we handle the boring (but essential) parts.',
+          'Skip weeks of foundational work with our production-ready React starter kits. Authentication, payments, database, and beautiful UI —all integrated and ready to customize.',
+          'Built with solid and scalable tech stacks including tRPC, Drizzle, and Stripe. Focus on your unique features while we handle the boring (but essential) parts.',
         ]}
         primaryAction={{
           label: 'View starter kits',

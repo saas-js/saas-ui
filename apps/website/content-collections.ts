@@ -86,6 +86,7 @@ const docs = defineCollection({
   schema: (z) => {
     return {
       ...createDocSchema(z),
+      hideToc: z.boolean().optional(),
       links: z
         .object({
           source: z.string().optional(),

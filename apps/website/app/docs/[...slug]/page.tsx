@@ -50,17 +50,17 @@ export default async function Page(props: Props) {
         </Box>
       </Stack>
 
-      {/* <Show when={!page.data.}> */}
-      <SidebarEnd visibility={toc?.length === 0 ? 'hidden' : undefined}>
-        <Toc items={toc} />
-        <Stack borderTopWidth="1px" pt="4" align="start">
-          <EditPageButton
-            href={`${docsConfig.editUrl}/${page.data.slug}.mdx`}
-          />
-          <ScrollToTop />
-        </Stack>
-      </SidebarEnd>
-      {/* </Show> */}
+      <Show when={!page.data.hideToc}>
+        <SidebarEnd visibility={toc?.length === 0 ? 'hidden' : undefined}>
+          <Toc items={toc} />
+          <Stack borderTopWidth="1px" pt="4" align="start">
+            <EditPageButton
+              href={`${docsConfig.editUrl}/${page.data.slug}.mdx`}
+            />
+            <ScrollToTop />
+          </Stack>
+        </SidebarEnd>
+      </Show>
     </>
   )
 }

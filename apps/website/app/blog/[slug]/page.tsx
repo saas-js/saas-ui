@@ -12,7 +12,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { Avatar, BackButton } from '@saas-ui/react'
+import { Avatar } from '@saas-ui/react'
 import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -46,6 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
 
   const blog = allBlogs.find((blog) => blog.slug === slug)
+
   if (!blog) return notFound()
 
   return (

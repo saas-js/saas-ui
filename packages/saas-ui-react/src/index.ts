@@ -161,6 +161,12 @@ export {
 export { InfoTip, type InfoTipProps } from './components/info-tip/index.ts'
 export { Kbd, type KbdProps } from './components/kbd/index.ts'
 export { Link, type LinkProps } from './components/link/index.ts'
+export {
+  LinkBox,
+  LinkOverlay,
+  type LinkBoxProps,
+  type LinkOverlayProps,
+} from './components/link-box/index.ts'
 export { Loader } from './components/loader/index.ts'
 export { List } from './components/list/index.ts'
 export { LoadingOverlay } from './components/loading-overlay/index.ts'

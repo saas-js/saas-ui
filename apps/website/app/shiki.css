@@ -31,7 +31,7 @@ code .diff.remove {
 }
 
 code .diff.remove:before {
-  content: "-";
+  content: '-';
   color: #f14158;
 }
 
@@ -43,7 +43,7 @@ code .diff.add {
 }
 
 code .diff.add:before {
-  content: "+";
+  content: '+';
   color: #3dd68c;
 }
 

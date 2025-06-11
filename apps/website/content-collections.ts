@@ -6,6 +6,7 @@ import {
   transformMDX,
 } from '@fumadocs/content-collections/configuration'
 import rehypeShiki from '@shikijs/rehype'
+import rehypeShikiFromHighlighter from '@shikijs/rehype/core'
 import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
@@ -21,6 +22,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
+import { bundledLanguages, getSingletonHighlighter } from 'shiki'
 
 import { docsConfig } from './app/docs/docs.config'
 import { remarkCallout } from './lib/remark-callout'
@@ -28,6 +30,16 @@ import { remarkCard } from './lib/remark-card'
 import { remarkCodeTitle } from './lib/remark-code-title'
 import { remarkCodeGroup } from './lib/remark-codegroup'
 import { remarkSteps } from './lib/remark-steps'
+import { indigoDarkTheme } from './lib/shiki-theme-indigo-dark'
+import { indigoLightTheme } from './lib/shiki-theme-indigo-light'
+
+const highlighter = await getSingletonHighlighter({
+  themes: [],
+  langs: Object.keys(bundledLanguages),
+})
+
+await highlighter.loadTheme(indigoLightTheme)
+await highlighter.loadTheme(indigoDarkTheme)
 
 const cwd = process.cwd()
 
@@ -46,7 +58,8 @@ const mdxConfig = {
   rehypePlugins: [
     rehypeSlug,
     [
-      rehypeShiki,
+      rehypeShikiFromHighlighter,
+      highlighter,
       {
         transformers: [
           transformerNotationDiff(),
@@ -56,7 +69,10 @@ const mdxConfig = {
           transformerMetaHighlight(),
           transformerMetaWordHighlight(),
         ],
-        theme: 'plastic',
+        themes: {
+          light: 'indigo-light',
+          dark: 'indigo-dark',
+        },
       },
     ],
     [

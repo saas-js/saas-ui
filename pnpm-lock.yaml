@@ -214,11 +214,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/saas-ui-use-hotkeys
       '@shikijs/rehype':
-        specifier: 3.2.1
-        version: 3.2.1
+        specifier: 3.6.0
+        version: 3.6.0
       '@shikijs/transformers':
-        specifier: 3.2.1
-        version: 3.2.1
+        specifier: 3.6.0
+        version: 3.6.0
       hastscript:
         specifier: 9.0.1
         version: 9.0.1
@@ -3536,9 +3536,6 @@ packages:
   '@shikijs/langs@3.6.0':
     resolution: {integrity: sha512-IdZkQJaLBu1LCYCwkr30hNuSDfllOT8RWYVZK1tD2J03DkiagYKRxj/pDSl8Didml3xxuyzUjgtioInwEQM/TA==}
 
-  '@shikijs/rehype@3.2.1':
-    resolution: {integrity: sha512-wj4TXI1PQ3TNPyXudUzKfdFIMneTxFym3HKKfWRzbOSAS8P4mECR+ttdUPhYU1dxrXrsatWxTJezOcEjiA0z8g==}
-
   '@shikijs/rehype@3.6.0':
     resolution: {integrity: sha512-r0Rr2hvXXqLl5DJ1Lx7RImU81XsK2bjThaym/lujl2A0r7SId0u1s+bcWYfFKb+7mCLH7MXF+jdzCtdWGOcYCQ==}
 
@@ -3547,9 +3544,6 @@ packages:
 
   '@shikijs/themes@3.6.0':
     resolution: {integrity: sha512-Fq2j4nWr1DF4drvmhqKq8x5vVQ27VncF8XZMBuHuQMZvUSS3NBgpqfwz/FoGe36+W6PvniZ1yDlg2d4kmYDU6w==}
-
-  '@shikijs/transformers@3.2.1':
-    resolution: {integrity: sha512-oIT40p8LOPV/6XLnUrVPeRtJtbu0Mpl+BjGFuMXw870eX9zTSQlidg7CsksFDVyUiSAOC/CH1RQm+ldZp0/6eQ==}
 
   '@shikijs/transformers@3.6.0':
     resolution: {integrity: sha512-PYkU54lYV0RCaUG8n2FNTF+YWiU3uPhcjLGq2x/C8lIrUX9GVnRb3bK+R5xtdFHbuctntATKm7ondp/H/dux9Q==}
@@ -11933,15 +11927,6 @@ snapshots:
     dependencies:
       '@shikijs/types': 3.6.0
 
-  '@shikijs/rehype@3.2.1':
-    dependencies:
-      '@shikijs/types': 3.2.1
-      '@types/hast': 3.0.4
-      hast-util-to-string: 3.0.1
-      shiki: 3.2.1
-      unified: 11.0.5
-      unist-util-visit: 5.0.0
-
   '@shikijs/rehype@3.6.0':
     dependencies:
       '@shikijs/types': 3.6.0
@@ -11958,11 +11943,6 @@ snapshots:
   '@shikijs/themes@3.6.0':
     dependencies:
       '@shikijs/types': 3.6.0
-
-  '@shikijs/transformers@3.2.1':
-    dependencies:
-      '@shikijs/core': 3.2.1
-      '@shikijs/types': 3.2.1
 
   '@shikijs/transformers@3.6.0':
     dependencies:

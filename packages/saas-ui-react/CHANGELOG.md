@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.37
+
+### Minor Changes
+
+- 2c0282d: Added Linkbox and LinkOverlay components
+
 ## 3.0.0-next.36
 
 ### Minor Changes

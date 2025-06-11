@@ -1,5 +1,12 @@
 # @saas-ui/storybook-addon
 
+## 7.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [2c0282d]
+  - @saas-ui/react@3.0.0-next.37
+
 ## 7.0.0-next.3
 
 ### Patch Changes

@@ -23,7 +23,7 @@ const _createField = (
   { displayName, hideLabel, getBaseField: getBaseFieldProp }: CreateFieldProps,
 ) => {
   const Field = forwardRef<HTMLDivElement, any>((props, ref) => {
-    const { id, label, required, rules } = props
+    const { id, required, rules } = props
 
     const inputRules = {
       required,

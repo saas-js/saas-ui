@@ -1,5 +1,11 @@
 # @saas-ui/charts
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+
 ## 1.0.0-next.1
 
 ### Patch Changes
@@ -58,7 +64,8 @@
 
 ### Minor Changes
 
-- b2b6a72: Updated recharts to remove defaultProps warning, thanks to @JackoPlane
+- b2b6a72: Updated recharts to remove defaultProps warning, thanks to
+  @JackoPlane
 
 ## 0.12.1
 
@@ -292,7 +299,8 @@
 ### Patch Changes
 
 - f172105: Updated dependencies
-- 15dd8a7: Chart tooltips are now consistent with Chakra UI and work properly in light/dark mode.
+- 15dd8a7: Chart tooltips are now consistent with Chakra UI and work properly in
+  light/dark mode.
 - 15dd8a7: Charts now support variant property, line, gradient or solid.
 
 ## 0.0.2

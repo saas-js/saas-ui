@@ -1,5 +1,11 @@
 # @saas-ui/modals-provider
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+
 ## 1.0.0-next.0
 
 ### Major Changes

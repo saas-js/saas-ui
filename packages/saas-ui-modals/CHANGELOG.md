@@ -1,5 +1,22 @@
 # @saas-ui/modals
 
+## 3.0.0-next.36
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+- Updated dependencies [49f551b]
+- Updated dependencies [49f551b]
+- Updated dependencies [868950d]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [a8c3577]
+  - @saas-ui/forms@3.0.0-next.36
+  - @saas-ui/react@3.0.0-next.36
+  - @saas-ui/modals-provider@1.0.0-next.1
+  - @saas-ui/hooks@3.0.0-next.3
+  - @saas-ui/core@3.0.0-next.10
+
 ## 3.0.0-next.35
 
 ### Patch Changes
@@ -667,7 +684,8 @@
 
 ### Patch Changes
 
-- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
+- bc1997b0: Fixed issue where form dialog content would overflow when using
+  using scrollbehavior inside
 
 ## 2.1.18
 
@@ -724,7 +742,8 @@
 
 ### Patch Changes
 
-- 4c81f542: Fixed issue where modals manager would throw an error when opening multiple modals.
+- 4c81f542: Fixed issue where modals manager would throw an error when opening
+  multiple modals.
   - @saas-ui/forms@2.3.4
 
 ## 2.1.10
@@ -765,7 +784,8 @@
 
 ### Patch Changes
 
-- bcd6d65c: Fixed issue where closing large models with modals manager would flicker
+- bcd6d65c: Fixed issue where closing large models with modals manager would
+  flicker
 - Updated dependencies [9ad407a7]
 - Updated dependencies [654ad186]
 - Updated dependencies [87fcdc2c]
@@ -861,11 +881,14 @@
 
 ### Minor Changes
 
-- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
+- 84e59fec: Added new createModals method to create typesafe modals managers
+  with support for custom modals
 - 1177329d: BaseModal now accepts header, content and footer props
 - 046e42b8: Updated to Chakra UI 2.7
-- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
-- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific
+  FormDialogs
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a
+  spinner when a promise is returned
 
 ### Patch Changes
 
@@ -961,7 +984,8 @@
 
 ### Minor Changes
 
-- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a
+  spinner when a promise is returned
 
 ### Patch Changes
 
@@ -1033,7 +1057,8 @@
 
 ### Minor Changes
 
-- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific
+  FormDialogs
 
 ### Patch Changes
 
@@ -1085,7 +1110,8 @@
 
 ### Minor Changes
 
-- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
+- 84e59fec: Added new createModals method to create typesafe modals managers
+  with support for custom modals
 - 1177329d: BaseModal now accepts header, content and footer props
 
 ### Patch Changes
@@ -1242,7 +1268,8 @@
 
 ### Patch Changes
 
-- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to
+  flicker, due to config reset before closing animation was finished.
 - Updated dependencies [523b5ca]
   - @saas-ui/forms@1.4.2
 
@@ -1360,7 +1387,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ### Patch Changes
 
@@ -1422,7 +1450,8 @@
 
 - 15c3960: Re-publish.
 - 1744543: Updated dependencies.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
 - Updated dependencies [3ae6be1]
@@ -1502,7 +1531,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]
   - @saas-ui/button@1.0.0-rc.3
@@ -1744,7 +1774,8 @@
 ### Patch Changes
 
 - 70340f0: useModal now has the correct types
-- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context ref
+- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context
+  ref
 - Updated dependencies [9245460]
   - @saas-ui/forms@0.5.3
 

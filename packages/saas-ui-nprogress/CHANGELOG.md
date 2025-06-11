@@ -1,5 +1,12 @@
 # @saas-ui/nprogress
 
+## 3.0.0-next.10
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+  - @saas-ui/core@3.0.0-next.10
+
 ## 3.0.0-next.9
 
 ### Patch Changes
@@ -219,7 +226,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ## 1.0.0
 
@@ -238,7 +246,8 @@
 
 - 15c3960: Re-publish.
 - 1744543: Updated dependencies.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
 
@@ -252,7 +261,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 
 ## 1.0.0-rc.2
 

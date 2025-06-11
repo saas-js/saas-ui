@@ -1,31 +1,17 @@
 import * as React from 'react'
 
-// import * as yup from 'yup'
-import {
-  Badge,
-  Box,
-  Container,
-  Field,
-  Group,
-  HStack,
-  InputAddon,
-  Tooltip,
-} from '@chakra-ui/react'
+import { Badge, Box, Container, Field, Group } from '@chakra-ui/react'
 
-// import { splitProps } from '@saas-ui/core/utils'
-// import { FiCheck, FiPhone } from 'react-icons/fi'
-// import { LuInfo } from 'react-icons/lu'
-// import { z } from 'zod'
-// import { createAjvForm } from '../ajv/src'
 import {
+  FieldsProvider,
   FormLayout,
   type GetBaseField,
   SubmitButton,
   createForm,
+  defaultFieldTypes,
   useBaseField,
+  useForm,
 } from '../src'
-// import { createYupForm } from '../yup/src'
-// import { createZodForm } from '../zod/src'
 import { onSubmit } from './helpers.ts'
 
 export default {
@@ -33,25 +19,21 @@ export default {
   decorators: [
     (Story: any) => (
       <Container mt="40px" maxWidth="lg">
-        <Story />
+        <FieldsProvider
+          value={{
+            fields: defaultFieldTypes,
+          }}
+        >
+          <Story />
+        </FieldsProvider>
       </Container>
     ),
   ],
 }
 
-// const helpSchema = yup.object({
-//   email: yup.string().email().required().label('Email'),
-// })
-
-// const ZodForm = createZodForm()
-// const YupForm = createYupForm()
-// const AjvForm = createAjvForm()
-
-const Form = createForm()
-
-export const Basic = () => (
-  <Form
-    defaultValues={{
+export const Basic = () => {
+  const form = useForm({
+    defaultValues: {
       text: 'Text field',
       number: 10,
       textarea: 'Lorem ipsum',
@@ -63,22 +45,17 @@ export const Basic = () => (
       checkbox: true,
       radio: 'Radio 1',
       pin: '',
-    }}
-    onSubmit={(values) => {
+    },
+    onSubmit: (values) => {
       console.log(values)
-    }}
-  >
-    {({ Field }) => (
+    },
+  })
+
+  return (
+    <form.Form>
       <FormLayout>
-        <Field
-          name="text"
-          label="Text"
-          type="text"
-          onChange={(value) => {
-            console.log(value)
-          }}
-        />
-        <Field
+        <form.Field name="text" label="Text" type="text" />
+        <form.Field
           name="number"
           label="Number"
           type="number"
@@ -87,36 +64,36 @@ export const Basic = () => (
           placeholder="Number"
           startElement={'$'}
         />
-        <Field name="textarea" label="Textarea" type="textarea" />
-        <Field name="switch" label="Switch" type="switch" />
-        <Field
+        <form.Field name="textarea" label="Textarea" type="textarea" />
+        <form.Field name="switch" label="Switch" type="switch" />
+        <form.Field
           name="select"
           label="Select"
           type="select"
           options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
         />
-        <Field
+        <form.Field
           name="multipleselect"
           label="Multiple Select"
           type="select"
           options={[{ value: 'Select 1' }, { value: 'Select 2' }]}
           multiple
         />
-        <Field name="password" label="Password" type="password" />
-        <Field name="checkbox" label="Checkbox" type="checkbox" />
-        <Field
+        <form.Field name="password" label="Password" type="password" />
+        <form.Field name="checkbox" label="Checkbox" type="checkbox" />
+        <form.Field
           name="radio"
           label="Radio"
           type="radio"
           options={[{ value: 'Radio 1' }, { value: 'Radio 2' }]}
         />
-        <Field name="pin" label="Pin" type="pin" pinLength={4} />
+        <form.Field name="pin" label="Pin" type="pin" pinLength={4} />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>
-    )}
-  </Form>
-)
+    </form.Form>
+  )
+}
 
 export const Horizontal = () => (
   <Form

@@ -154,20 +154,29 @@ export const SelectField = createField<HTMLDivElement, SelectFieldProps>(
   },
 )
 
-export interface CheckboxFieldProps extends CheckboxProps {
+export interface CheckboxFieldProps extends Omit<CheckboxProps, 'value'> {
   type: 'checkbox'
   label?: string
+  value?: boolean
 }
 
 export const CheckboxField = createField<HTMLInputElement, CheckboxFieldProps>(
-  ({ label, type, ...props }, ref) => {
+  ({ label, type, onChange, value, ...props }, ref) => {
     return (
-      <Checkbox ref={ref} {...props}>
+      <Checkbox
+        ref={ref}
+        checked={value}
+        onCheckedChange={({ checked }) => {
+          onChange?.(checked)
+        }}
+        {...props}
+      >
         {label}
       </Checkbox>
     )
   },
   {
+    isControlled: true,
     hideLabel: true,
   },
 )

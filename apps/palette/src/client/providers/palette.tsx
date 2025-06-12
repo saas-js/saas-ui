@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react'
 
-import { createPalette } from '@saas-ui/palette'
+import { createPalette } from '@/functions/create-palette'
 
 type PaletteContextType = [
   {
@@ -28,7 +28,7 @@ interface PaletteProviderProps
     color: string
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     options?: Record<string, any>
-  }> {}
+  }> { }
 
 const PaletteProvider = ({
   color = '#6d28d9',

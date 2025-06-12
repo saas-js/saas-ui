@@ -25,9 +25,12 @@ const PalettePreview = () => {
       'transparent',
       'white',
       'whiteAlpha',
+      'primary'
     ]
     for (const color of colorsToRemove) {
-      allColors.splice(allColors.indexOf(color), 1)
+      if (allColors.includes(color)) {
+        allColors.splice(allColors.indexOf(color), 1)
+      }
     }
 
     return allColors

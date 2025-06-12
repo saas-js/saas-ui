@@ -168,6 +168,9 @@ importers:
       '@fontsource/inter':
         specifier: ^5.2.5
         version: 5.2.5
+      '@radix-ui/colors':
+        specifier: ^3.0.0
+        version: 3.0.0
       '@saas-ui/palette':
         specifier: workspace:*
         version: link:../../packages/saas-ui-palette
@@ -183,12 +186,18 @@ importers:
       babel-plugin-react-compiler:
         specifier: 19.1.0-rc.2
         version: 19.1.0-rc.2
+      bezier-easing:
+        specifier: ^2.1.0
+        version: 2.1.0
       chroma-js:
         specifier: ^2.6.0
         version: 2.6.0
       colorizr:
         specifier: ^3.0.8
         version: 3.0.8
+      colorjs.io:
+        specifier: ^0.5.2
+        version: 0.5.2
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -3126,6 +3135,9 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
+  '@radix-ui/colors@3.0.0':
+    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
+
   '@radix-ui/primitive@1.1.2':
     resolution: {integrity: sha512-XnbHrrprsNqZKQhStrSwgRUQzoCI1glLzdw79xiZPoofhGICeZRSQ3dIxAKH1gb3OHfNf4d6f+vAv3kil2eggA==}
 
@@ -5418,6 +5430,9 @@ packages:
     resolution: {integrity: sha512-pbnl5XzGBdrFU/wT4jqmJVPn2B6UHPBOhzMQkY/SPUPB6QtUXtmBHBIwCbXJol93mOpGMnQyP/+BB19q04xj7g==}
     engines: {node: '>=4'}
 
+  bezier-easing@2.1.0:
+    resolution: {integrity: sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==}
+
   bidi-js@1.0.3:
     resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
 
@@ -5689,6 +5704,9 @@ packages:
 
   colorizr@3.0.8:
     resolution: {integrity: sha512-5B5bNiGU/iEbdL3JsiIYRf57T0CuJjHSgVfe3SP3W3ePe2waJuEYl+llzwm1ZhxIcVyA+gThRlBu3yXBV3tAQQ==}
+
+  colorjs.io@0.5.2:
+    resolution: {integrity: sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw==}
 
   colors@1.0.3:
     resolution: {integrity: sha512-pFGrxThWcWQ2MsAz6RtgeWe4NK2kUE1WfsrvvlctdII745EW9I0yflqhe7++M5LEc7bV2c/9/5zc8sFcpL0Drw==}
@@ -12365,6 +12383,8 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
+  '@radix-ui/colors@3.0.0': {}
+
   '@radix-ui/primitive@1.1.2': {}
 
   '@radix-ui/react-collection@1.1.6(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
@@ -15547,6 +15567,8 @@ snapshots:
     dependencies:
       is-windows: 1.0.2
 
+  bezier-easing@2.1.0: {}
+
   bidi-js@1.0.3:
     dependencies:
       require-from-string: 2.0.2
@@ -15840,6 +15862,8 @@ snapshots:
   colorette@2.0.20: {}
 
   colorizr@3.0.8: {}
+
+  colorjs.io@0.5.2: {}
 
   colors@1.0.3: {}
 

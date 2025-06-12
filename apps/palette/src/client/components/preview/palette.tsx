@@ -13,7 +13,6 @@ import {
 
 const PalettePreview = () => {
   const [{ colors }] = usePalette()
-  console.log('colors', colors)
 
   const mappedColors = useMemo(() => {
     const allColors = Object.keys(colors)

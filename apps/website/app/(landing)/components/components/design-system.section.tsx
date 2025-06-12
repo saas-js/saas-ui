@@ -1,11 +1,6 @@
 import { ExampleCode, ExampleCodeWrapper } from '@/components/example'
+import { Subheading } from '@/components/site/typography'
 import {
-  BlitzHeading,
-  HighlightHeading,
-  Subheading,
-} from '@/components/site/typography'
-import {
-  Badge,
   Box,
   Container,
   Heading,
@@ -13,27 +8,24 @@ import {
   Span,
   Stack,
   Tabs,
+  Text,
 } from '@chakra-ui/react'
 import { LuBox, LuPaintBucket, LuType } from 'react-icons/lu'
 
 const items = [
   {
     icon: <LuBox />,
-    value: 'site/design-tokens',
-    label: 'Tokens',
-    description: 'Streamline design decisions with semantic tokens',
-  },
-  {
-    icon: <LuType />,
-    value: 'site/typography',
-    label: 'Typography',
-    description: 'Customise your font related properties in one place',
+    value: 'site/semantic-tokens',
+    label: 'Semantic tokens',
+    description:
+      'Our token system gives you intelligent design decisions out of the box—colors, spacing, and sizing that work together harmoniously while remaining easy to customize for your brand.',
   },
   {
     icon: <LuPaintBucket />,
     value: 'site/recipes',
     label: 'Recipes',
-    description: 'Design components variants with ease',
+    description:
+      'Pre-built component variants and compositions that let developers quickly assemble complex UI patterns without wrestling with CSS or design decisions.',
   },
 ]
 
@@ -46,15 +38,13 @@ export const DesignSystemSection = () => {
           direction={{ base: 'column', md: 'row' }}
         >
           <Stack align="flex-start" gap="4" flex="1" maxW="576px">
-            <Badge variant="outline" colorPalette="gray">
-              Design System
-            </Badge>
+            <Text textStyle="sm">Component System</Text>
             <Heading as="h2" textStyle="4xl">
-              Build your design system on top of Chakra UI
+              Component system designed for scale
             </Heading>
             <Subheading textStyle="lg">
-              Spend less time writing UI code and more time building a great
-              experience for your customers.
+              Move fast with a carefully crafted component system built to grow
+              with your product. Easy to use and customize.
             </Subheading>
             <List.Root variant="plain" align="start" gap="6" mt="4">
               {items.map((item) => (
@@ -69,17 +59,23 @@ export const DesignSystemSection = () => {
             </List.Root>
           </Stack>
 
-          <Box flex="1" className="dark" flexShrink="0">
+          <Box flex="1" flexShrink="0">
             <Tabs.Root
-              rounded="lg"
+              variant="pills"
+              rounded="panel.lg"
+              borderWidth="1px"
               p="2"
               defaultValue={items[0].value}
-              variant="subtle"
-              shadow="inset"
               flex="1"
               bg="bg"
             >
-              <Tabs.List p="2">
+              <Tabs.List
+                p="2"
+                border="0"
+                _before={{
+                  display: 'none',
+                }}
+              >
                 {items.map((item) => (
                   <Tabs.Trigger key={item.value} value={item.value}>
                     {item.icon}
@@ -87,10 +83,10 @@ export const DesignSystemSection = () => {
                   </Tabs.Trigger>
                 ))}
               </Tabs.List>
-              <Tabs.ContentGroup mt="2">
+              <Tabs.ContentGroup>
                 {items.map((item) => (
-                  <Tabs.Content key={item.value} value={item.value}>
-                    <ExampleCodeWrapper bg="bg!" px="4" py="4">
+                  <Tabs.Content key={item.value} value={item.value} p="0">
+                    <ExampleCodeWrapper px="4" bg="transparent!">
                       <ExampleCode
                         name={item.value}
                         ext="ts"

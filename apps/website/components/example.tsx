@@ -137,16 +137,34 @@ export const ExampleTabs = (props: Props) => {
   return (
     <Tabs.Root
       className="example-tabs"
-      variant="ghost"
+      variant="outline"
       defaultValue={'preview'}
       mb="4em"
       unmountOnExit
     >
-      <Tabs.List mb="4">
+      <Tabs.List
+        borderBottomWidth="0"
+        _before={{
+          display: 'none',
+        }}
+        mb="-2px"
+      >
         <Tabs.Trigger value="preview">Preview</Tabs.Trigger>
-        <Tabs.Trigger value="code">Code</Tabs.Trigger>
+        <Tabs.Trigger
+          value="code"
+          _selected={{
+            bg: 'bg.muted',
+          }}
+        >
+          Code
+        </Tabs.Trigger>
       </Tabs.List>
-      <Tabs.ContentGroup borderWidth="1px" rounded="md" overflow="hidden">
+      <Tabs.ContentGroup
+        borderWidth="1px"
+        rounded="md"
+        borderTopStartRadius="0"
+        overflow="hidden"
+      >
         <Tabs.Content value="preview" mt="0!" padding={padding}>
           <ExamplePreview name={name} />
         </Tabs.Content>

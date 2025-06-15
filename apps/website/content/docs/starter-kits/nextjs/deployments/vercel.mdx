@@ -1,0 +1,31 @@
+---
+title: Deploy to Vercel
+description: This guide will show you how to deploy to Vercel
+---
+
+Follow these steps to deploy the monorepo to Vercel.
+
+1. Create a new project on Vercel.
+2. Connect your GitHub account.
+3. Find the repository you want to deploy and click `import`.
+4. Select `/` as the root directory.
+5. Make sure `Include source files outside of the Root Directory in the Build Step.` is checked.
+6. Override the build command with;
+
+```bash
+turbo run build
+```
+
+7. Output directory
+
+```bash
+apps/web/.next
+```
+
+8. Make sure to add the required environment variables.
+
+See [environment variables](/docs/nextjs-starter-kit/configuration/environment-variables) for more information.
+
+<Info>Always generate new secrets when deploying to production.</Info>
+
+9. Click deploy and celebrate 🎉

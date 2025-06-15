@@ -1,60 +1,46 @@
-import { StoryObj } from '@storybook/react'
-import {
-  Container,
-  Text,
-  Spacer,
-  Box,
-  Alert,
-  AlertTitle,
-  AlertDescription,
-  AlertIcon,
-  forwardRef,
-  Checkbox,
-  FormControl,
-  HStack,
-  FormLabel,
-  Tooltip,
-  FormHelperText,
-  FormErrorMessage,
-} from '@chakra-ui/react'
-import * as React from 'react'
+import React, { forwardRef } from 'react'
 
 import * as Yup from 'yup'
 import * as z from 'zod'
+import {
+  Alert,
+  Box,
+  Checkbox,
+  Container,
+  DataList,
+  HStack,
+  Spacer,
+  Text,
+  Tooltip,
+} from '@chakra-ui/react'
+import { splitProps } from '@saas-ui/core/utils'
+import { Steps } from '@saas-ui/react'
+import type { StoryObj } from '@storybook/react'
+import { LuInfo } from 'react-icons/lu'
 
 import {
   Field,
   FormLayout,
-  FormValue,
-  useStepFormContext,
-  FormStepSubmitHandler,
-  FormStepProps,
   FormState,
-  useFormContext,
-  UseFormReturn,
-  useWatch,
-  createField,
+  FormStepProps,
+  FormStepSubmitHandler,
+  FormValue,
   GetBaseField,
+  UseFormReturn,
+  createField,
   useBaseField,
+  useFormContext,
+  useStepFormContext,
+  useWatch,
 } from '../src'
-
-import { FormStepper, FormStep, PrevButton, NextButton } from '../src/step-form'
-
 import { StepForm, createStepForm } from '../src'
-
-import { ButtonGroup } from '@chakra-ui/react'
-
-import { PropertyList, Property } from '@saas-ui/core'
-
-import { onSubmit } from './helpers'
-import { StepsCompleted } from '@saas-ui/core'
+import { FormStep, FormStepper, NextButton, PrevButton } from '../src/step-form'
 import { StepForm as YupStepForm } from '../yup/src'
 import { StepForm as ZodStepForm, createZodStepForm } from '../zod/src'
-import { LuInfo } from 'react-icons/lu'
-import { splitProps } from '@saas-ui/core'
+import { onSubmit } from './helpers'
 
 export default {
-  title: 'Components/Forms/StepForm',
+  title: 'Forms/StepForm',
   component: StepForm,
   decorators: [
     (Story: any) => (
@@ -68,7 +54,7 @@ export default {
 const CustomField = createField(
   forwardRef((props: { customFieldProps: string }, ref) => (
     <div ref={ref}>custom</div>
-  ))
+  )),
 )
 
 const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
@@ -583,7 +569,7 @@ export const WithState = () => {
         },
       },
     ],
-    []
+    [],
   )
 
   return (
@@ -688,7 +674,7 @@ const TermsCard = createField(
   }),
   {
     isControlled: true,
-  }
+  },
 )
 
 const CustomZodStepForm = createZodStepForm({

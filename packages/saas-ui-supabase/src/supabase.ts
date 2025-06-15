@@ -1,30 +1,21 @@
 import type {
-  AuthParams,
   AuthOptions,
-  AuthStateChangeCallback,
+  AuthParams,
   AuthProviderProps,
+  AuthStateChangeCallback,
 } from '@saas-ui/auth-provider'
-
 import type {
   AuthChangeEvent,
   AuthResponse,
   OAuthResponse,
   Provider,
   Session,
-  User,
+  SignOut,
   SupabaseClient,
+  User,
   VerifyEmailOtpParams,
   VerifyMobileOtpParams,
-  SignOut,
 } from '@supabase/supabase-js'
-
-interface RecoveryParams {
-  access_token?: string
-  refresh_token?: string
-  expires_in?: string
-  token_type?: string
-  type?: string
-}
 
 interface OtpParams extends AuthParams {
   otp: string
@@ -72,7 +63,7 @@ interface SupabaseServiceAuthOptions {
 
 export const createAuthService = <Client extends SupabaseClient>(
   supabase: Client,
-  serviceOptions?: SupabaseServiceAuthOptions
+  serviceOptions?: SupabaseServiceAuthOptions,
 ): AuthProviderProps<User> => {
   const onLogin = async (
     params: AuthParams,
@@ -80,7 +71,7 @@ export const createAuthService = <Client extends SupabaseClient>(
       data?: object
       captchaToken?: string
       scopes?: string
-    }>
+    }>,
   ) => {
     const options = {
       ...serviceOptions?.loginOptions,
@@ -130,7 +121,7 @@ export const createAuthService = <Client extends SupabaseClient>(
       captchaToken?: string
       emailRedirectTo?: string
       data?: object
-    }>
+    }>,
   ) => {
     async function signup() {
       const { email, phone, password } = params
@@ -169,7 +160,7 @@ export const createAuthService = <Client extends SupabaseClient>(
 
   const onVerifyOtp = async (
     params: OtpParams,
-    options?: AuthOptions<{ captchaToken?: string }>
+    options?: AuthOptions<{ captchaToken?: string }>,
   ) => {
     const { email, phone, otp, type } = params
 
@@ -216,9 +207,9 @@ export const createAuthService = <Client extends SupabaseClient>(
 
   const onAuthStateChange = (callback: AuthStateChangeCallback<User>) => {
     const { data } = supabase.auth.onAuthStateChange(
-      (event: AuthChangeEvent, session: Session | null) => {
+      (_event: AuthChangeEvent, session: Session | null) => {
         callback(session?.user)
-      }
+      },
     )
 
     return () => data?.subscription.unsubscribe()
@@ -242,7 +233,7 @@ export const createAuthService = <Client extends SupabaseClient>(
 
   const onResetPassword = async (
     { email }: Required<Pick<AuthParams, 'email'>>,
-    options?: AuthOptions
+    options?: AuthOptions,
   ) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       ...serviceOptions?.resetPasswordOptions,
@@ -278,7 +269,7 @@ export const createAuthService = <Client extends SupabaseClient>(
 }
 
 function isOauthResponse(
-  response: AuthResponse | OAuthResponse
+  response: AuthResponse | OAuthResponse,
 ): response is OAuthResponse {
   return Boolean((response as OAuthResponse).data?.provider)
 }

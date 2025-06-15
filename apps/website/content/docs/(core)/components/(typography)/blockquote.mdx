@@ -1,0 +1,68 @@
+---
+title: Blockquote
+description: Used to quote text content from an external source
+links:
+  source: components/blockquote
+  storybook: components-blockquote--basic
+  recipe: blockquote
+---
+
+<ExampleTabs name="blockquote-basic" />
+
+## Usage
+
+```jsx
+import { Blockquote } from '@saas-ui/react'
+
+export default function Example() {
+  return (
+    <Blockquote>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </Blockquote>
+  )
+}
+```
+
+## Examples
+
+### With Cite
+
+Use the `cite` prop to provide the source of the blockquote. This will be
+displayed below the blockquote.
+
+<ExampleTabs name="blockquote-with-cite" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color of the blockquote.
+
+<ExampleTabs name="blockquote-with-colors" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the blockquote. Values can
+be either `subtle`, `solid`, `plain`.
+
+<ExampleTabs name="blockquote-with-variants" />
+
+### Icon
+
+Use the `showIcon` prop to show an icon on the blockquote. The default icon is a
+double quote.
+
+<ExampleTabs name="blockquote-with-icon" />
+
+### Custom Icon
+
+Use the `icon` prop to change the icon of the blockquote.
+
+<ExampleTabs name="blockquote-with-custom-icon" />
+
+## Props
+
+### Root
+
+<PropTable component="Blockquote" part="Root" />

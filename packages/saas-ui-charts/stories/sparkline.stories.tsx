@@ -1,24 +1,13 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Container,
-  HStack,
-  Heading,
-  SimpleGrid,
-  Stat,
-  StatArrow,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-} from '@chakra-ui/react'
 import * as React from 'react'
+
+import { Card, Container, SimpleGrid, Stat } from '@chakra-ui/react'
 import { StoryObj } from '@storybook/react'
+
 import { Sparkline } from '../src'
 import { createData } from './utils'
 
 export default {
-  title: 'Components/Visualization/Sparkline',
+  title: 'Visualization/Sparkline',
   component: Sparkline,
   decorators: [
     (Story: React.ComponentType) => (
@@ -31,7 +20,7 @@ export default {
 
 type Story = StoryObj<typeof Sparkline>
 
-const currencyFormatter = (value) => {
+const currencyFormatter = (value: number | bigint) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -50,17 +39,19 @@ export const Basic: Story = {
   },
   render: (args) => {
     return (
-      <Card maxW="300px">
-        <CardBody>
-          <Stat>
-            <StatLabel>Revenue</StatLabel>
-            <StatNumber>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
-            </StatNumber>
-            <Sparkline {...args} height="60px" mx="-4" />
-          </Stat>
-        </CardBody>
-      </Card>
+      <Card.Root maxW="300px">
+        <Card.Body>
+          <Stat.Root>
+            <Stat.Label>Revenue</Stat.Label>
+            <Stat.ValueText>
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
+            </Stat.ValueText>
+            <Sparkline {...args} height="60px" mx="-3" />
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -77,23 +68,25 @@ export const SolidVariant: Story = {
   },
   render: (args) => {
     return (
-      <Card maxW="300px">
-        <CardBody pb="0">
-          <Stat>
-            <StatLabel>Revenue</StatLabel>
-            <StatNumber>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
-            </StatNumber>
+      <Card.Root maxW="300px" overflow="clip">
+        <Card.Body pb="0">
+          <Stat.Root>
+            <Stat.Label>Revenue</Stat.Label>
+            <Stat.ValueText>
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
+            </Stat.ValueText>
             <Sparkline
               {...args}
               height="60px"
-              mx="-4"
+              mx="-3"
               strokeWidth={1.5}
               curveType="natural"
             />
-          </Stat>
-        </CardBody>
-      </Card>
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -108,32 +101,34 @@ export const Multiple: Story = {
       growthRate: 1.01,
     }),
     categories: ['compareValue', 'value'],
-    colors: ['gray.300', 'primary'],
+    colors: ['gray', 'purple'],
     curveType: 'monotone',
   },
   render: (args) => {
     const value = Number(args.data[args.data.length - 1].value ?? 0)
     const compareValue = Number(
-      args.data[args.data.length - 1].compareValue ?? 0
+      args.data[args.data.length - 1].compareValue ?? 0,
     )
 
     const percentage = Math.round(((value - compareValue) / value) * 100)
 
     return (
-      <Card maxW="300px">
-        <CardBody>
-          <Stat pos="relative">
-            <StatLabel>Revenue</StatLabel>
-            <StatHelpText pos="absolute" top="0" right="0">
-              <StatArrow type="increase" /> {percentage}%
-            </StatHelpText>
-            <StatNumber>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
-            </StatNumber>
-            <Sparkline {...args} height="60px" mx="-4" />
-          </Stat>
-        </CardBody>
-      </Card>
+      <Card.Root maxW="300px">
+        <Card.Body>
+          <Stat.Root pos="relative">
+            <Stat.Label>Revenue</Stat.Label>
+            <Stat.HelpText pos="absolute" top="0" right="0">
+              <Stat.UpIndicator /> {percentage}%
+            </Stat.HelpText>
+            <Stat.ValueText>
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
+            </Stat.ValueText>
+            <Sparkline {...args} height="60px" mx="-3" />
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -148,33 +143,35 @@ export const Stacked: Story = {
       growthRate: 1.01,
     }),
     categories: ['compareValue', 'value'],
-    colors: ['gray.300', 'primary'],
+    colors: ['gray.300', 'purple'],
     curveType: 'monotone',
     stack: true,
   },
   render: (args) => {
     const value = Number(args.data[args.data.length - 1].value ?? 0)
     const compareValue = Number(
-      args.data[args.data.length - 1].compareValue ?? 0
+      args.data[args.data.length - 1].compareValue ?? 0,
     )
 
     const percentage = Math.round(((value - compareValue) / value) * 100)
 
     return (
-      <Card maxW="300px">
-        <CardBody>
-          <Stat pos="relative">
-            <StatLabel>Revenue</StatLabel>
-            <StatHelpText pos="absolute" top="0" right="0">
-              <StatArrow type="increase" /> {percentage}%
-            </StatHelpText>
-            <StatNumber>
-              {currencyFormatter(args.data[args.data.length - 1].value ?? 0)}
-            </StatNumber>
-            <Sparkline {...args} height="60px" mx="-4" />
-          </Stat>
-        </CardBody>
-      </Card>
+      <Card.Root maxW="300px" size="sm">
+        <Card.Body>
+          <Stat.Root pos="relative">
+            <Stat.Label>Revenue</Stat.Label>
+            <Stat.HelpText pos="absolute" top="0" right="0">
+              <Stat.UpIndicator /> {percentage}%
+            </Stat.HelpText>
+            <Stat.ValueText>
+              {currencyFormatter(
+                Number(args.data[args.data.length - 1].value ?? 0),
+              )}
+            </Stat.ValueText>
+            <Sparkline {...args} height="60px" mx="-2" />
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -212,73 +209,75 @@ export const Metrics = () => {
   })
 
   return (
-    <SimpleGrid columns={[2, null, 4]} spacing="4">
-      <Card maxW="300px">
-        <CardBody>
-          <Stat>
-            <StatLabel color="muted">Revenue</StatLabel>
-            <StatNumber>
+    <SimpleGrid columns={[2, null, 4]} gap="4">
+      <Card.Root maxW="300px" size="sm">
+        <Card.Body>
+          <Stat.Root>
+            <Stat.Label color="muted">Revenue</Stat.Label>
+            <Stat.ValueText>
               {currencyFormatter(
-                revenueData[revenueData.length - 1].value ?? 0
+                Number(revenueData[revenueData.length - 1].value ?? 0),
               )}
-            </StatNumber>
+            </Stat.ValueText>
             <Sparkline
               data={revenueData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
-          </Stat>
-        </CardBody>
-      </Card>
-      <Card maxW="300px">
-        <CardBody>
-          <Stat>
-            <StatLabel color="muted">Signups</StatLabel>
-            <StatNumber>
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
+      <Card.Root maxW="300px" size="sm">
+        <Card.Body>
+          <Stat.Root>
+            <Stat.Label color="muted">Signups</Stat.Label>
+            <Stat.ValueText>
               {customerData[customerData.length - 1].value ?? 0}
-            </StatNumber>
+            </Stat.ValueText>
             <Sparkline
               data={customerData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
-          </Stat>
-        </CardBody>
-      </Card>
-      <Card maxW="300px">
-        <CardBody>
-          <Stat>
-            <StatLabel color="muted">Churn</StatLabel>
-            <StatNumber>
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
+      <Card.Root maxW="300px" size="sm">
+        <Card.Body>
+          <Stat.Root>
+            <Stat.Label color="muted">Churn</Stat.Label>
+            <Stat.ValueText>
               {churnData[churnData.length - 1].value ?? 0}
-            </StatNumber>
+            </Stat.ValueText>
             <Sparkline
               data={churnData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
-          </Stat>
-        </CardBody>
-      </Card>
-      <Card maxW="300px">
-        <CardBody>
-          <Stat>
-            <StatLabel color="muted">Average customer value</StatLabel>
-            <StatNumber>
-              {currencyFormatter(valueData[valueData.length - 1].value ?? 0)}
-            </StatNumber>
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
+      <Card.Root maxW="300px" size="sm">
+        <Card.Body>
+          <Stat.Root>
+            <Stat.Label color="muted">Average customer value</Stat.Label>
+            <Stat.ValueText>
+              {currencyFormatter(
+                Number(valueData[valueData.length - 1].value ?? 0),
+              )}
+            </Stat.ValueText>
             <Sparkline
               data={valueData}
               variant="gradient"
               height="40px"
-              mx="-4"
+              mx="-2"
             />
-          </Stat>
-        </CardBody>
-      </Card>
+          </Stat.Root>
+        </Card.Body>
+      </Card.Root>
     </SimpleGrid>
   )
 }

@@ -1,5 +1,97 @@
 # @saas-ui/nprogress
 
+## 3.0.0-next.10
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+  - @saas-ui/core@3.0.0-next.10
+
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.9
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- Updated dependencies [c89b27d]
+  - @saas-ui/core@3.0.0-next.8
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.7
+
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.6
+
+## 3.0.0-next.5
+
+### Patch Changes
+
+- Updated dependencies [c2372f9]
+  - @saas-ui/core@3.0.0-next.5
+
+## 3.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [d87c2ac]
+  - @saas-ui/core@3.0.0-next.4
+
+## 3.0.0-next.3
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.3
+
+## 3.0.0-next.2
+
+### Patch Changes
+
+- Updated dependencies [dae627e]
+  - @saas-ui/core@3.0.0-next.2
+
+## 3.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [860649d]
+  - @saas-ui/core@3.0.0-next.1
+
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [f85d493]
+- Updated dependencies [f85d493]
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [eb02362]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [6f9f04d]
+- Updated dependencies [6459de4]
+- Updated dependencies [0f49a18]
+  - @saas-ui/core@3.0.0-next.0
+
 ## 2.2.1
 
 ### Patch Changes
@@ -134,7 +226,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ## 1.0.0
 
@@ -153,7 +246,8 @@
 
 - 15c3960: Re-publish.
 - 1744543: Updated dependencies.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
 
@@ -167,7 +261,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 
 ## 1.0.0-rc.2
 

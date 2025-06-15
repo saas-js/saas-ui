@@ -1,36 +1,34 @@
-import { Box, Button, Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
-
-import { Form as YupForm } from '@saas-ui/forms/yup'
+import { Box, Button, Container } from '@chakra-ui/react'
 
 import {
-  Form,
-  FormLayout,
-  Field,
   ArrayField,
+  ArrayFieldAddButton,
   ArrayFieldContainer,
-  ArrayFieldRows,
+  ArrayFieldProps,
   ArrayFieldRow,
   ArrayFieldRowContainer,
   ArrayFieldRowFields,
-  useArrayFieldContext,
-  useArrayFieldRowContext,
-  useArrayFieldAddButton,
-  useArrayFieldRemoveButton,
-  UseArrayFieldReturn,
+  ArrayFieldRows,
+  Field,
+  Form,
+  FormLayout,
   SubmitButton,
-  ArrayFieldProps,
-  ArrayFieldAddButton,
+  UseArrayFieldReturn,
+  useArrayFieldAddButton,
+  useArrayFieldContext,
+  useArrayFieldRemoveButton,
+  useArrayFieldRowContext,
   useFormContext,
   useWatch,
 } from '../src'
-
+import { Form as YupForm } from '../yup'
 import { onSubmit } from './helpers'
 
 export default {
-  title: 'Components/Forms/ArrayField',
+  title: 'Forms/ArrayField',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -211,7 +209,7 @@ const AddButton = () => {
           focusName: `arrayField.${fields.length}.id`,
         })
       }
-      isDisabled={isDisabled}
+      disabled={isDisabled}
     >
       Add record
     </Button>
@@ -235,7 +233,7 @@ export const CustomArrayField = () => (
             id: Yup.string().required(),
             name: Yup.string().required(),
             lastName: Yup.string().required(),
-          })
+          }),
         ),
       })}
       defaultValues={{
@@ -268,7 +266,7 @@ export const CustomArrayField = () => (
                         key={field.key as string}
                         index={i}
                       >
-                        <ArrayFieldRowFields columns={3} spacing={1}>
+                        <ArrayFieldRowFields columns={3} gap={1}>
                           <Field name="arrayField.$.id" placeholder="Id" />
                           <Field name="arrayField.$.name" placeholder="Name" />
                           <Box>
@@ -346,7 +344,7 @@ const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
   })
 
   const [prevState, setPrevState] = React.useState(
-    formState.getValues('arrayField')
+    formState.getValues('arrayField'),
   )
 
   React.useEffect(() => {
@@ -378,7 +376,7 @@ export const WatchArrayField = () => {
             id: Yup.number().required(),
             title: Yup.string().required(),
             description: Yup.string(),
-          })
+          }),
         ),
       })}
       defaultValues={{

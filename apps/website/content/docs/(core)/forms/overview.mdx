@@ -1,0 +1,179 @@
+---
+title: Forms
+sidebarTitle: Overview
+description: Build powerful, consistent, and type-safe forms with ease.
+---
+
+Saas UI provides a set of form utilities, hooks and components that are built on
+top of [react-hook-form](https://react-hook-form.com/), [Zod](https://zod.dev/)
+and [Chakra UI](https://chakra-ui.com/).
+
+## Installation
+
+Saas UI forms ships as a separate NPM package.
+
+```bash
+npm install @saas-ui/forms
+```
+
+## Usage
+
+```tsx
+import { SubmitButton, useForm } from '@saas-ui/forms'
+
+function MyForm() {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <form.Form>
+      <form.Field name="name" />
+
+      <SubmitButton>Submit</SubmitButton>
+    </form.Form>
+  )
+}
+```
+
+### Schema validation
+
+The `useForm` hook supports any Standard Schema supported schema library. We
+recommend using [Zod](https://zod.dev/) for form validation, but you can use
+other libraries like [Valibot](https://valibot.dev/) or
+[ArkType](https://arktype.io).
+
+The default values and field names are inferred from the schema for Type-Safe
+forms.
+
+When using a schema the form will not submit until the schema is valid, and
+validation errors will be displayed along with the form fields.
+
+Use the `onInvalid` callback to handle validation errors, for example to trigger
+a toast notification.
+
+```tsx
+import { SubmitButton, useForm } from '@saas-ui/forms'
+import { toast } from '@saas-ui/react'
+import { z } from 'zod'
+
+const schema = z.object({
+  name: z.string().min(1),
+})
+
+function MyForm() {
+  const form = useForm({
+    schema,
+    defaultValues: {
+      name: '',
+    },
+    onInvalid: (errors) => {
+      console.log(errors)
+
+      toast.error({
+        title: 'Invalid form',
+        description: 'Please check the form for errors',
+      })
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <form.Form>
+      <form.Field name="name" />
+
+      <SubmitButton>Submit</SubmitButton>
+    </form.Form>
+  )
+}
+```
+
+### Built in fields
+
+Saas UI provides a set of built-in field types that can be used to create
+beautiful forms rapidly with minimal code.
+
+Support for the following field types is built in:
+
+- `text`
+- `email`
+- `number`
+- `email`
+- `password`
+- `textarea`
+- `select`
+- `checkbox`
+- `radio`
+
+The `form.Field` component can be used to create a field for any of these types.
+
+See the [Fields](/docs/forms/fields) page for more details.
+
+### Submit button
+
+The `SubmitButton` component is a simple button that will submit the form when
+clicked.
+
+If the `onSubmit` callback is async, the `SubmitButton` will show a loading
+state when the form is submitted.
+
+To disable the button when the form is untouched or invalid, use the
+`disableIfUntouched` and `disableIfInvalid` props.
+
+```tsx
+import { SubmitButton, useForm } from '@saas-ui/forms'
+
+function MyForm() {
+  const form = useForm({
+    onSubmit: async (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <SubmitButton disableIfUntouched disableIfInvalid>
+      Submit
+    </SubmitButton>
+  )
+}
+```
+
+### Conditional fields
+
+The `DisplayIf` component can be used to conditionally render fields based on
+the values of other fields.
+
+```tsx
+import { SubmitButton, useForm } from '@saas-ui/forms'
+
+function MyForm() {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+      age: '',
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <form.Form>
+      <form.Field name="name" />
+
+      <form.DisplayIf name="name" condition={(value) => value !== 'Balrog'}>
+        <form.Field name="age" />
+      </form.DisplayIf>
+
+      <SubmitButton>Submit</SubmitButton>
+    </form.Form>
+  )
+}
+```

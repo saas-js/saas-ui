@@ -17,7 +17,7 @@ to: "<%= h.packageDir(org, name) %>/package.json"
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "microbundle --tsconfig ./tsconfig.json -f cjs,modern --compress",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },

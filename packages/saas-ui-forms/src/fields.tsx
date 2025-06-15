@@ -1,13 +1,12 @@
 import * as React from 'react'
 
-import { FormLayout } from './layout'
-import { BaseFieldProps } from './types'
-import { Field } from './field'
-
 import { ArrayField } from './array-field'
-import { ObjectField } from './object-field'
-import { FieldResolver } from './field-resolver'
+import { Field } from './field'
+import type { FieldResolver } from './field-resolver'
 import { useFormContext } from './form-context'
+import { FormLayout } from './form-layout'
+import { ObjectField } from './object-field'
+import { BaseFieldProps } from './types'
 
 export interface FieldsProps<TSchema = any> {
   schema?: TSchema
@@ -21,7 +20,7 @@ const mapNestedFields = (resolver: FieldResolver, name: string) => {
     ?.map(
       (
         { name, type, ...nestedFieldProps }: BaseFieldProps,
-        i
+        i,
       ): React.ReactNode => (
         <Field
           key={name || i}
@@ -29,7 +28,7 @@ const mapNestedFields = (resolver: FieldResolver, name: string) => {
           type={type as any}
           {...nestedFieldProps}
         />
-      )
+      ),
     )
 }
 
@@ -61,12 +60,7 @@ export const AutoFields: React.FC<FieldsProps> = ({
   return (
     <FormLayout {...props}>
       {fields?.map(
-        ({
-          name,
-          type,
-          defaultValue,
-          ...fieldProps
-        }: BaseFieldProps): React.ReactNode => {
+        ({ name, type, ...fieldProps }: BaseFieldProps): React.ReactNode => {
           if (type === 'array') {
             return (
               <ArrayField key={name} name={name} {...fieldProps}>
@@ -86,11 +80,11 @@ export const AutoFields: React.FC<FieldsProps> = ({
               key={name}
               name={name}
               type={type as any}
-              defaultValue={defaultValue}
+              // defaultValue={defaultValue}
               {...fieldProps}
             />
           )
-        }
+        },
       )}
     </FormLayout>
   )

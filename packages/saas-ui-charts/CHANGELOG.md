@@ -1,5 +1,35 @@
 # @saas-ui/charts
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+
+## 1.0.0-next.1
+
+### Patch Changes
+
+- ab6d489: PieChart inner and outer radius can now be configured
+
+## 1.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- c9a0a0e: Added PieChart component
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- 724807d: Fixed issue where content prop would be passed to dom element
+- 7e2c16d: Added showLabel prop to render labels on pie chart
+- e8d0ed6: Removed console.log
+
 ## 0.15.0
 
 ### Minor Changes
@@ -34,7 +64,8 @@
 
 ### Minor Changes
 
-- b2b6a72: Updated recharts to remove defaultProps warning, thanks to @JackoPlane
+- b2b6a72: Updated recharts to remove defaultProps warning, thanks to
+  @JackoPlane
 
 ## 0.12.1
 
@@ -268,7 +299,8 @@
 ### Patch Changes
 
 - f172105: Updated dependencies
-- 15dd8a7: Chart tooltips are now consistent with Chakra UI and work properly in light/dark mode.
+- 15dd8a7: Chart tooltips are now consistent with Chakra UI and work properly in
+  light/dark mode.
 - 15dd8a7: Charts now support variant property, line, gradient or solid.
 
 ## 0.0.2

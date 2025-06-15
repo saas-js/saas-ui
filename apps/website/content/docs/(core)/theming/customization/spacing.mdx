@@ -1,0 +1,40 @@
+---
+title: Spacing
+description: Learn how to customize spacing in Chakra UI
+---
+
+:::info
+
+Please read the [overview](/docs/theming/customization/overview) first to learn
+how to properly customize the styling engine, and get type safety.
+
+:::
+
+## Example
+
+Here's an example of how to customize spacing in Chakra UI.
+
+```tsx title="theme.ts"
+import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react"
+
+const customConfig = defineConfig({
+  theme: {
+    tokens: {
+      spacing: {
+        "128": { value: "32rem" },
+        "144": { value: "36rem" },
+      },
+    },
+  },
+})
+
+export const system = createSystem(defaultConfig, customConfig)
+```
+
+## Usage
+
+Here's how to use the custom spacing in Chakra UI.
+
+```tsx
+<Box margin="128" />
+```

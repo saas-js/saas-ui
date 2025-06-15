@@ -1,7 +1,7 @@
 #!/bin/bash
  
 if [[ $VERCEL_ENV == "production"  ]] ; then 
-  yarn
+  npx vercel-submodules --all --verbose && yarn
 else 
   pnpm install
 fi

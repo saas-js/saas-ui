@@ -1,37 +1,52 @@
 {
   "name": "@saas-ui/react",
-  "version": "2.11.4",
+  "version": "3.0.0-next.37",
   "description": "Saas UI - The React component library for startups.",
+  "type": "module",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
     },
-    "./src": {
-      "default": "./src/index.ts"
+    "./preset": {
+      "sui": "./src/preset.ts",
+      "types": "./dist/preset.d.ts",
+      "import": "./dist/preset.js"
+    },
+    "./colors": {
+      "sui": "./src/colors.ts",
+      "types": "./dist/colors.d.ts",
+      "import": "./dist/colors.js"
+    },
+    "./*": {
+      "sui": "./src/components/*/index.ts",
+      "types": "./dist/components/*/index.d.ts",
+      "import": "./dist/components/*/index.js"
     }
   },
-  "source": "src/index.ts",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "tsup src/index.ts --config tsup.config.ts",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "build:tsup": "NODE_OPTIONS='--max-old-space-size=16384' tsup --config tsup.config.ts ",
+    "build:components": "tsup --config tsup.components.config.ts --dts-only",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist --project tsconfig.json",
+    "prebuild": "pnpm clean",
+    "build": "tsc --outDir dist --project tsconfig.json",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
@@ -56,22 +71,25 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.2.3",
+    "@ark-ui/react": "^5.9.1",
     "@saas-ui/core": "workspace:*",
-    "@saas-ui/data-table": "workspace:*",
-    "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
-    "@saas-ui/hotkeys": "workspace:*",
-    "@saas-ui/modals": "workspace:*",
-    "@saas-ui/nprogress": "workspace:*",
-    "@saas-ui/theme": "workspace:*"
+    "next-themes": "^0.4.6"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "^3.20.0",
     "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": ">=5.5.0",
     "react": ">=18",
     "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "react-icons": "^5.5.0",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4"
   }
 }

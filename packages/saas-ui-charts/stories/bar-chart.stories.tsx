@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import {
   Card,
   CardBody,
@@ -5,13 +7,13 @@ import {
   Container,
   Heading,
 } from '@chakra-ui/react'
-import * as React from 'react'
 import { StoryObj } from '@storybook/react'
+
 import { BarChart } from '../src'
 import { createData } from './utils'
 
 export default {
-  title: 'Components/Visualization/BarChart',
+  title: 'Visualization/BarChart',
   component: BarChart,
   decorators: [
     (Story: React.ComponentType) => (
@@ -45,16 +47,14 @@ export const Basic: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Revenue growth
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Revenue growth</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <BarChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -74,16 +74,14 @@ export const Multiple: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Developers
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Developers</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <BarChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -104,16 +102,14 @@ export const Stacked: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Developers
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Developers</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <BarChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -136,16 +132,14 @@ export const StackedBySign: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Developers
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Developers</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <BarChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }

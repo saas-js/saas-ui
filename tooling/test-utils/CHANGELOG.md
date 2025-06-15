@@ -1,5 +1,348 @@
 # @saas-ui/test-utils
 
+## 5.0.0-next.37
+
+### Patch Changes
+
+- Updated dependencies [2c0282d]
+  - @saas-ui/react@3.0.0-next.37
+
+## 5.0.0-next.36
+
+### Patch Changes
+
+- Updated dependencies [868950d]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [6e53bc7]
+  - @saas-ui/react@3.0.0-next.36
+
+## 5.0.0-next.35
+
+### Patch Changes
+
+- Updated dependencies [4f78230]
+  - @saas-ui/react@3.0.0-next.35
+
+## 5.0.0-next.34
+
+### Patch Changes
+
+- Updated dependencies [964ffa7]
+  - @saas-ui/react@3.0.0-next.34
+
+## 5.0.0-next.33
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.33
+
+## 5.0.0-next.32
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.32
+
+## 5.0.0-next.31
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.31
+
+## 5.0.0-next.30
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.30
+
+## 5.0.0-next.29
+
+### Patch Changes
+
+- Updated dependencies [495b0c6]
+  - @saas-ui/react@3.0.0-next.29
+
+## 5.0.0-next.28
+
+### Patch Changes
+
+- Updated dependencies [bab2041]
+- Updated dependencies [b136ede]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [bab2041]
+  - @saas-ui/react@3.0.0-next.28
+
+## 5.0.0-next.27
+
+### Patch Changes
+
+- Updated dependencies [5013269]
+  - @saas-ui/react@3.0.0-next.27
+
+## 5.0.0-next.26
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.26
+
+## 5.0.0-next.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.25
+
+## 5.0.0-next.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.24
+
+## 5.0.0-next.23
+
+### Patch Changes
+
+- Updated dependencies [fc4a915]
+  - @saas-ui/react@3.0.0-next.23
+
+## 5.0.0-next.22
+
+### Patch Changes
+
+- Updated dependencies [40e4dea]
+  - @saas-ui/react@3.0.0-next.22
+
+## 5.0.0-next.21
+
+### Patch Changes
+
+- Updated dependencies [b48ad37]
+  - @saas-ui/react@3.0.0-next.21
+
+## 5.0.0-next.20
+
+### Patch Changes
+
+- Updated dependencies [729b57d]
+  - @saas-ui/react@3.0.0-next.20
+
+## 5.0.0-next.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.19
+
+## 5.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.18
+
+## 5.0.0-next.17
+
+### Patch Changes
+
+- Updated dependencies [d87c2ac]
+  - @saas-ui/react@3.0.0-next.17
+
+## 5.0.0-next.16
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.16
+
+## 5.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [d4fb186]
+- Updated dependencies [a169eb7]
+- Updated dependencies [d4fb186]
+  - @saas-ui/react@3.0.0-next.15
+
+## 5.0.0-next.14
+
+### Patch Changes
+
+- Updated dependencies [78d7999]
+- Updated dependencies [042ec4f]
+  - @saas-ui/react@3.0.0-next.14
+
+## 5.0.0-next.13
+
+### Patch Changes
+
+- Updated dependencies [f995ba3]
+  - @saas-ui/react@3.0.0-next.13
+
+## 5.0.0-next.12
+
+### Patch Changes
+
+- Updated dependencies [2afe09f]
+  - @saas-ui/react@3.0.0-next.12
+
+## 5.0.0-next.11
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.11
+
+## 5.0.0-next.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.10
+
+## 5.0.0-next.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.9
+
+## 5.0.0-next.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.8
+
+## 5.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.7
+
+## 5.0.0-next.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.6
+
+## 5.0.0-next.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.5
+
+## 5.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [e86d242]
+  - @saas-ui/react@3.0.0-next.4
+
+## 5.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies [860649d]
+  - @saas-ui/react@3.0.0-next.3
+
+## 5.0.0-next.2
+
+### Patch Changes
+
+- Updated dependencies [ec22a57]
+- Updated dependencies [928abff]
+- Updated dependencies [26f5452]
+  - @saas-ui/react@3.0.0-next.2
+
+## 5.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [f13c1ce]
+  - @saas-ui/react@3.0.0-next.1
+
+## 5.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [ba3b566]
+- Updated dependencies [e9fec88]
+- Updated dependencies [2285040]
+- Updated dependencies [64e680e]
+- Updated dependencies [53716c5]
+- Updated dependencies [5115e8f]
+- Updated dependencies [212a7e6]
+- Updated dependencies [38082d4]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [c680574]
+- Updated dependencies [c680574]
+- Updated dependencies [f62c3d6]
+- Updated dependencies [942e9a0]
+- Updated dependencies [f85d493]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [a2ef175]
+- Updated dependencies [eb02362]
+- Updated dependencies [53716c5]
+- Updated dependencies [205580d]
+- Updated dependencies [7808a76]
+- Updated dependencies [e7fe684]
+- Updated dependencies [f85d493]
+- Updated dependencies [c680574]
+- Updated dependencies [c680574]
+- Updated dependencies [b51aff9]
+- Updated dependencies [212a7e6]
+- Updated dependencies [550e5a6]
+- Updated dependencies [ce8c247]
+- Updated dependencies [19309d4]
+- Updated dependencies [ce8c247]
+- Updated dependencies [ce8c247]
+- Updated dependencies [c680574]
+- Updated dependencies [ba3b566]
+- Updated dependencies [95c8652]
+- Updated dependencies [6a8bf46]
+- Updated dependencies [ac2d80d]
+- Updated dependencies [0067207]
+- Updated dependencies [b51aff9]
+- Updated dependencies [205580d]
+- Updated dependencies [ba3b566]
+- Updated dependencies [8e760c5]
+- Updated dependencies [56b0623]
+- Updated dependencies [6a8bf46]
+- Updated dependencies [15e093e]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [c680574]
+- Updated dependencies [8ac704a]
+- Updated dependencies [6f9f04d]
+- Updated dependencies [eb02362]
+- Updated dependencies [6459de4]
+- Updated dependencies [56b0623]
+- Updated dependencies [c51e12c]
+- Updated dependencies [0067207]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [65fac53]
+- Updated dependencies [61ce1b5]
+- Updated dependencies [3a73bc8]
+- Updated dependencies [9d47676]
+- Updated dependencies [64e680e]
+- Updated dependencies [2285040]
+- Updated dependencies [ba3b566]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [f0f5ab0]
+- Updated dependencies [19309d4]
+- Updated dependencies [727b902]
+  - @saas-ui/react@3.0.0-next.0
+
 ## 4.2.4
 
 ### Patch Changes
@@ -1136,7 +1479,8 @@
 ### Patch Changes
 
 - 15c3960: Re-publish.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
 - Updated dependencies [68c7b62]
@@ -1228,7 +1572,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - Updated dependencies [de0dce2]
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]

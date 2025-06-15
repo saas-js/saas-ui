@@ -1,5 +1,30 @@
 # @saas-ui/auth0
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [6e53bc7]
+  - @saas-ui/auth-provider@2.0.0-next.1
+
+## 1.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [6459de4]
+  - @saas-ui/auth-provider@2.0.0-next.0
+
 ## 0.3.4
 
 ### Patch Changes

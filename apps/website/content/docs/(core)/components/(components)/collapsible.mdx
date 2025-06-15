@@ -1,0 +1,38 @@
+---
+title: Collapsible
+description: Used to expand and collapse additional content.
+links:
+  source: components/collapsible
+  storybook: components-collapsible--basic
+  recipe: collapsible
+  ark: https://ark-ui.com/react/docs/components/collapsible
+---
+
+<ExampleTabs name="collapsible-basic" />
+
+## Anatomy
+
+```jsx
+import { Collapsible } from '@saas-ui/react/collapsible'
+```
+
+```jsx
+<Collapsible.Root>
+  <Collapsible.Trigger />
+  <Collapsible.Content />
+</Collapsible.Root>
+```
+
+## Examples
+
+### Lazy Mounted
+
+Use the `unmountOnExit` prop to make the content unmount when collapsed.
+
+<ExampleTabs name="collapsible-lazy-mounted" />
+
+## Props
+
+### Root
+
+<PropTable component="Collapsible" part="Root" />

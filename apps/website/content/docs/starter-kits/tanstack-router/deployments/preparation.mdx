@@ -1,0 +1,46 @@
+---
+title: Preparing for deployment
+description: This guide will show you how to prepare your project for deployment.
+---
+
+## Environment variables
+
+Copy the `.env.example` file to `.env.production` and replace the values with the values obtained in the following steps.
+
+We'll keep this file as a reference so you can easily copy paste the configuration to your cloud provider settings.
+Make sure to delete it again after you're ready.
+
+<Info>
+  There are better ways to manage environment variables by using a secret
+  manager, but for now we'll keep it simple.
+</Info>
+
+## Authentication
+
+If you're using Better Auth, generate a new `AUTH_SECRET` and replace the value in the `.env.production` file.
+
+## Database
+
+Set up a new database in your preferred cloud provider and update the `DATABASE_URL` in the `.env.production` file.
+
+## Email
+
+Configure your domain in Resend (or your preferred email provider) so you can send emails from your application.
+
+Add the `EMAIL_FROM` and `RESEND_API_KEY` to the `.env.production` file.
+
+## Stripe
+
+To make sure subscriptions and payments are synced with your database, you need to set up webhooks for your Stripe account.
+You can find more information in the [Stripe documentation](https://stripe.com/docs/webhooks).
+
+The webhook should point to `https://your-app.com/api/webhooks/stripe`.
+
+After creating the webhook in Stripe, add the `STRIPE_WEBHOOK_SECRET` to the `.env.production` file.
+Copy the Stripe secret for your live environment and add it to the `.env.production` file as `STRIPE_SECRET_KEY`.
+
+Make sure to configure products and prices in Stripe before deploying your application.
+
+## Billing
+
+TBD

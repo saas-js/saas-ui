@@ -1,0 +1,33 @@
+---
+title: API Overview
+description: Consuming and extending the API
+---
+
+## Overview
+
+The Next.js starter kit comes with a fully functional API built with [tRPC](https://trpc.io) v11 and is inspired by [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
+
+tRPC is a modern TypeScript-first API framework that is designed to be easy to use and extend.
+It gives you automatic TypeSafety and autocompletion without the need for build steps.
+
+The API runs in a Next.js route handler by default, but can easily be customized to run in a separate (eg. Fastify) server or serverless (AWS Lambda) function.
+
+<SimpleGrid columns={[1, null, null, 2]} spacing={[4, null, 8]}>
+  <QuickLink
+    href="/docs/nextjs-starter-kit/api/conventions"
+    width="100%"
+    mt="8"
+    title="Conventions"
+    description="Learn about the conventions used in the API."
+    label="Get started"
+  />
+
+  <QuickLink
+    href="/docs/nextjs-starter-kit/api/define-procedures"
+    width="100%"
+    mt="8"
+    title="Define procedures"
+    description="Learn how to extend the API."
+    label="Get started"
+  />
+</SimpleGrid>

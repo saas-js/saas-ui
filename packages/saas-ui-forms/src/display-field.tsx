@@ -1,17 +1,18 @@
 import * as React from 'react'
-import { useFormContext } from './form-context'
-import {
-  Text,
-  FormControl,
-  FormControlProps,
-  FormLabel,
-} from '@chakra-ui/react'
 
-import { FieldProps } from './types'
+import { Field as FieldPrimivite, Text } from '@chakra-ui/react'
+import type { FieldPath, FieldValues } from 'react-hook-form'
 
-export interface DisplayFieldProps
-  extends Omit<FormControlProps, 'onChange'>,
-    Omit<FieldProps, 'type' | 'label' | 'onChange'> {}
+import { useFormContext } from './form-context.tsx'
+import type { ArrayFieldPath } from './types.ts'
+
+export interface DisplayFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> extends Omit<FieldPrimivite.RootProps, 'type' | 'onChange' | 'defaultValue'> {
+  name: TName | ArrayFieldPath<TName>
+  label?: string
+}
 
 /**
  * Display a field value.
@@ -21,16 +22,17 @@ export interface DisplayFieldProps
 export const DisplayField: React.FC<DisplayFieldProps> = ({
   name,
   label,
-  placeholder,
   ...props
 }) => {
   return (
-    <FormControl {...props}>
-      {label ? <FormLabel htmlFor={name}>{label}</FormLabel> : null}
+    <FieldPrimivite.Root {...props}>
+      {label ? (
+        <FieldPrimivite.Label htmlFor={name}>{label}</FieldPrimivite.Label>
+      ) : null}
       <Text fontSize="md">
         <FormValue name={name} />
       </Text>
-    </FormControl>
+    </FieldPrimivite.Root>
   )
 }
 

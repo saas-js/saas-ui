@@ -1,4 +1,95 @@
-# @saas-ui/react
+# @saas-ui/core
+
+## 3.0.0-next.10
+
+### Patch Changes
+
+- Updated dependencies [6e53bc7]
+  - @saas-ui/hooks@3.0.0-next.3
+
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Fix: subpath imports
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- c89b27d: Removed cjs exports
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies [121029e]
+- Updated dependencies [121029e]
+  - @saas-ui/hooks@3.0.0-next.2
+
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Fixed build
+
+## 3.0.0-next.5
+
+### Patch Changes
+
+- c2372f9: Removed duplicate SidebarProvider props
+
+## 3.0.0-next.4
+
+### Patch Changes
+
+- d87c2ac: Improved build and fixed types
+
+## 3.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/hooks@3.0.0-next.1
+
+## 3.0.0-next.2
+
+### Patch Changes
+
+- dae627e: Import HTMLArkProps as type
+
+## 3.0.0-next.1
+
+### Patch Changes
+
+- 860649d: Improved build speed and output
+
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- f85d493: Added Sidebar.Context component that allows you to access sidebar
+  context using a render prop
+- f85d493: Sidebar mode can now be controlled using the sidebar context
+- 95c8652: Update to Chakra UI 3.2.1
+- eb02362: Improved GridList aria props
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- cee2e9c: Removed chakra ui dependency of core package
+- 6f9f04d: Fixed issue where Sidebar mode could not be controlled
+- 0f49a18: Removed imports from @chakra-ui/react
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [6459de4]
+- Updated dependencies [0f49a18]
+  - @saas-ui/hooks@3.0.0-next.0
 
 ## 2.8.1
 
@@ -31,7 +122,8 @@
 
 ### Patch Changes
 
-- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by internal Link prop if href is passed
+- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by
+  internal Link prop if href is passed
 
 ## 2.7.0
 
@@ -77,7 +169,8 @@
 
 ### Patch Changes
 
-- 12c35ea: Fixed issue where NavGroup title would always render collapsible state
+- 12c35ea: Fixed issue where NavGroup title would always render collapsible
+  state
 - b61ff73: Improve styling overrides for EmptyStateIcon
 
 ## 2.5.3
@@ -97,11 +190,14 @@
 
 ### Patch Changes
 
-- 5fb8082: Fixed issue where the SearchInput reset button could be interacted with when disabled
-- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+- 5fb8082: Fixed issue where the SearchInput reset button could be interacted
+  with when disabled
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent
+  other keys from triggering
 - d94ccec: Fixed aria role of PropertyList
 - 06ec4b6: Fixed issue where snackbar promise would not close
-- 1ff54a2: Fixed issue where text selection was disabled inside ContextMenuTrigger on mouse devices
+- 1ff54a2: Fixed issue where text selection was disabled inside
+  ContextMenuTrigger on mouse devices
 
 ## 2.5.0
 
@@ -120,7 +216,8 @@
 ### Patch Changes
 
 - 20c7175: Added forwardRef to ContextMenuTrigger
-- ca911e4: Fixed issue where global toast default options would not apply to snackbar
+- ca911e4: Fixed issue where global toast default options would not apply to
+  snackbar
 
 ## 2.4.3
 
@@ -148,8 +245,10 @@
 
 ### Minor Changes
 
-- 4a95712: Improved snackbar.promise method to not rethrow error when the error option is a function
-- 4a95712: Improved snackbar.promise success prop to accept an optional function callback
+- 4a95712: Improved snackbar.promise method to not rethrow error when the error
+  option is a function
+- 4a95712: Improved snackbar.promise success prop to accept an optional function
+  callback
 
 ## 2.3.6
 
@@ -199,7 +298,8 @@
 
 ### Minor Changes
 
-- 78bc41d0: Improved timeline behavior so it scales automatically with the icon and ocontent size used.
+- 78bc41d0: Improved timeline behavior so it scales automatically with the icon
+  and ocontent size used.
 
 ### Patch Changes
 
@@ -207,7 +307,8 @@
 - 8782a76b: Improved Navbar inner padding on small screens
 - 8782a76b: Added new left-accent variant to the NavItem theme
 - 8782a76b: Updated NavGroup to no longer be collapsible by default
-- 8782a76b: Fixed issue where SidebarToggleButton style props would not have any effect
+- 8782a76b: Fixed issue where SidebarToggleButton style props would not have any
+  effect
 - 8782a76b: Export SaasProviderProps
 - 8782a76b: Added data-state attribute to SidebarToggleButton
 - 8782a76b: NavItem href prop no longer has # as default
@@ -244,7 +345,8 @@
 
 ### Patch Changes
 
-- 3ddca73d: Fixed issue where NavGroup collapse would not receive defaultIsOpen prop
+- 3ddca73d: Fixed issue where NavGroup collapse would not receive defaultIsOpen
+  prop
 - Updated dependencies [4e728c26]
   - @saas-ui/theme@2.2.1
 
@@ -258,7 +360,8 @@
 
 ### Patch Changes
 
-- dddb3d1a: Fixed issue where width would not be applied to the SearchInput container element
+- dddb3d1a: Fixed issue where width would not be applied to the SearchInput
+  container element
 - 91412d77: Fixed SearchInput reset when uncontrolled
 - 91412d77: Fixed theme incompatibility with Chakra UI 2.8
 - Updated dependencies [31d05ed5]
@@ -270,13 +373,15 @@
 
 ### Patch Changes
 
-- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to SaasProvider context
+- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to
+  SaasProvider context
 
 ## 2.1.2
 
 ### Patch Changes
 
-- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would not overflow correctly
+- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would
+  not overflow correctly
 
 ## 2.1.1
 
@@ -323,14 +428,18 @@
 
 ### Major Changes
 
-- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be
+  consistent with Suspense.
 - 83f54180: Secondary button now uses solid variant and gray colorScheme.
-- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton
+  and useStepperPrevButton
 - 83f54180: Renamed Loader to LoadingOverlay.
 - 0a11d7b6: Renamed Sidebar condensed variant to compact.
 - 3a15e8c8: Improve StructuredList API.
-- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
-- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider
+  component.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now
+  expects a single breakpoint or false to disable auto toggle.
 
 ### Minor Changes
 
@@ -338,10 +447,13 @@
 - e94ca3c0: Added TimeLine to core components.
 - 83f54180: Added new tertiary button variant.
 - 046e42b8: Updated to Chakra UI 2.7
-- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- e52f63fa: useSnackbar promise error option now accepts a function with err
+  param or SnackbarOptions
 - 76887bda: AppShell now controls the Sidebar disclosure state.
-- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
-- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context,
+  using the new AppShell context.
+- 27a68bca: useLocalStorage now updates all hook instances on the current page
+  when the value changed
 - 826c561a: EmptyState title and description no longer use Header and Text
 
 ### Patch Changes
@@ -361,7 +473,8 @@
 - 0fda9fee: Fix ContextMenu and OverflowMenu exports.
 - a7ef6dd9: Fixed issue where types for exports were not detected
 - 83f54180: Fix NavItem focus outline color.
-- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom
+  element
 - b895e5bd: Add Timeline theme to theme package.
 - 0319aa57: Bump version
 - 166978bd: Fix esm bundle filename.
@@ -421,7 +534,8 @@
 
 ### Major Changes
 
-- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider
+  component.
 
 ### Minor Changes
 
@@ -447,7 +561,8 @@
 
 ### Minor Changes
 
-- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- e52f63fa: useSnackbar promise error option now accepts a function with err
+  param or SnackbarOptions
 
 ## 2.0.0-rc.22
 
@@ -492,7 +607,8 @@
 
 ### Patch Changes
 
-- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom
+  element
 
 ## 2.0.0-next.16
 
@@ -583,20 +699,23 @@
 
 ### Major Changes
 
-- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton
+  and useStepperPrevButton
 
 ## 2.0.0-next.4
 
 ### Major Changes
 
-- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be
+  consistent with Suspense.
 - 83f54180: Secondary button now uses solid variant and gray colorScheme.
 - 83f54180: Renamed Loader to LoadingOverlay.
 
 ### Minor Changes
 
 - 83f54180: Added new tertiary button variant.
-- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 27a68bca: useLocalStorage now updates all hook instances on the current page
+  when the value changed
 
 ### Patch Changes
 
@@ -618,12 +737,14 @@
 ### Major Changes
 
 - 0a11d7b6: Renamed Sidebar condensed variant to compact.
-- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now
+  expects a single breakpoint or false to disable auto toggle.
 
 ### Minor Changes
 
 - 76887bda: AppShell now controls the Sidebar disclosure state.
-- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context,
+  using the new AppShell context.
 
 ## 2.0.0-next.1
 
@@ -656,7 +777,8 @@
 
 ### Minor Changes
 
-- aea16c7: BREAKING: Improved Sidebar behavior and theme. Remove deprecated label prop on NavItem.
+- aea16c7: BREAKING: Improved Sidebar behavior and theme. Remove deprecated
+  label prop on NavItem.
 
 ### Patch Changes
 
@@ -744,7 +866,8 @@
 
 - 523b5ca: Fixed default value for Switch fields.
 - a050ea1: Support disable sorting on individual columns in DataTable
-- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to
+  flicker, due to config reset before closing animation was finished.
 - Updated dependencies [523b5ca]
 - Updated dependencies [a050ea1]
 - Updated dependencies [c8f7b32]
@@ -831,7 +954,8 @@
 
 ### Patch Changes
 
-- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported
+  presence value is passed.
 - Updated dependencies [7b426e8]
 - Updated dependencies [0a77fc0]
 - Updated dependencies [bc1f403]
@@ -949,7 +1073,8 @@
 ### Patch Changes
 
 - b88c087: Added missing onChange handler on FormDialog, thanks to @eliandersoh
-- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support custom user types.
+- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support
+  custom user types.
 - 62f3d4c: User.email now is optional
 - Updated dependencies [b88c087]
 - Updated dependencies [62f3d4c]
@@ -961,7 +1086,8 @@
 
 ### Patch Changes
 
-- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the
+  internal HookForm handlers.
 - Updated dependencies [dfd61ed]
 - Updated dependencies [0d83ca5]
 - Updated dependencies [40a9465]
@@ -983,7 +1109,8 @@
 
 - d003608: Form now accepts a render function with form state props.
 - d003608: Re-export all React Hook Form types and hooks
-- d003608: New onChange prop for Form that triggers when the form state is changed.
+- d003608: New onChange prop for Form that triggers when the form state is
+  changed.
 
 ### Patch Changes
 
@@ -1032,7 +1159,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ### Patch Changes
 
@@ -1091,7 +1219,8 @@
 
 ### Patch Changes
 
-- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise
+  is returned.
 - 273c10d: Fixed a typo in the AuthForm styles provider.
 - 8d03628: PasswordInput width now applied to the FormGroup element.
 - Updated dependencies [1ff5f3a]
@@ -1183,7 +1312,8 @@
 ### Patch Changes
 
 - 68c7b62: Card now has a isHoverable property to support hover styles.
-- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are
+  passed.
 - fca06e4: Added Json Schema (ajv) support for AutoForm.
 - da3c4e4: Added ErrorBoundary component.
 - de0dce2: Scale reset button icon based on the input size.
@@ -1192,7 +1322,8 @@
 - 1744543: Updated dependencies.
 - bd3438d: FormStep now supports an onSubmit handler.
 - 6133901: No longer passing down label to input fields.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 43dff99: Option labels are now optional.
 - 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
 - d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
@@ -1203,7 +1334,8 @@
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 38f7171: #50 - Fixed StepForm render prop types.
 - 2ec8c91: Fixed vertical divider rendering incorrectly.
-- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles
+  components.
 - 5f80cea: AutoForm now renders children.
 - 532a7d4: Fixed all theme onconsistencies.
 - 42beaa4: Added missing dependency.
@@ -1212,7 +1344,8 @@
 - 07491fd: ContextMenu now passing down all props to the internal Menu.
 - d1fb472: Select now renders a hidden input with the current value.
 - 870db1f: New primary and secondary Button variant.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use
+  variant="primary" instead.
 - Updated dependencies [68c7b62]
 - Updated dependencies [3ae6be1]
 - Updated dependencies [c8621b8]
@@ -1410,8 +1543,10 @@
 ### Patch Changes
 
 - de0dce2: Scale reset button icon based on the input size.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use
+  variant="primary" instead.
 - Updated dependencies [de0dce2]
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]
@@ -1494,7 +1629,8 @@
 
 ### Patch Changes
 
-- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are
+  passed.
 - 6133901: No longer passing down label to input fields.
 - ddec417: ArrayField no longer passing down items to the container element.
 - 5f80cea: AutoForm now renders children.
@@ -1579,7 +1715,8 @@
 ### Patch Changes
 
 - 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
-- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles
+  components.
 - 3dee538: Spacing between pin inputs can now be configured.
 - 07491fd: ContextMenu now passing down all props to the internal Menu.
 - Updated dependencies [4bb613c]
@@ -1926,11 +2063,13 @@
 
 ### Minor Changes
 
-- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default Form resolvers
+- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default
+  Form resolvers
 
   <Form> no longer accepts a Yup `schema` by default.
 
-  Use a schema resolver to use schema support. All hookform resolvers are supported.
+  Use a schema resolver to use schema support. All hookform resolvers are
+  supported.
 
   ```ts
   import { yupResolver } from '@hookform/resolvers/yup'
@@ -1946,12 +2085,13 @@
   const form = <AutoForm {...yupForm(schema)} />
   ```
 
-  Alternatively you can configure a default resolver for all forms.
-  Add this somewhere in the root of your project.
+  Alternatively you can configure a default resolver for all forms. Add this
+  somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers
@@ -2012,7 +2152,8 @@
 
 - 70340f0: useModal now has the correct types
 - 9245460: Make sure Field ref is focusable
-- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context ref
+- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context
+  ref
 - Updated dependencies [70340f0]
 - Updated dependencies [9245460]
 - Updated dependencies [6c78c30]
@@ -2319,7 +2460,8 @@
 
 ### Minor Changes
 
-- 385b760: Improved Typescript support for forms, conditionally render form fields with DisplayIf
+- 385b760: Improved Typescript support for forms, conditionally render form
+  fields with DisplayIf
 - f88d99a: Added new OverflowMenu component
 
 ### Patch Changes
@@ -2339,7 +2481,8 @@
 
 ### Patch Changes
 
-- AuthProvider now checks if a user is authenticated when logIn or signUp are succesful.
+- AuthProvider now checks if a user is authenticated when logIn or signUp are
+  succesful.
 - Updated dependencies
   - @saas-ui/auth@0.4.4
 
@@ -2367,7 +2510,8 @@
 ### Patch Changes
 
 - 65cd402: Added new FormDialog component
-- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and return isCollapsible param.
+- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and
+  return isCollapsible param.
 - 46dd92b: NumberInput stepper can now be hidden and supports custom icons.
 - Updated dependencies [65cd402]
 - Updated dependencies [4b8a1cb]
@@ -2536,7 +2680,8 @@
 ### Patch Changes
 
 - 7141944: Improve button color accesibility
-- e448f31: Saas UI theme now longer shows outlines when buttons/links are focused with a mouse click
+- e448f31: Saas UI theme now longer shows outlines when buttons/links are
+  focused with a mouse click
 - 6c55bef: Now using semantic tokens for presence colors
 - 9673005: Improved typescript support and fixed issue with invalid states
 - Updated dependencies [7141944]

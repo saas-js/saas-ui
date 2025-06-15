@@ -1,0 +1,14 @@
+{
+  "Portal": {
+    "props": {
+      "container": {
+        "type": "RefObject<HTMLElement | null>",
+        "isRequired": false
+      },
+      "disabled": {
+        "type": "boolean",
+        "isRequired": false
+      }
+    }
+  }
+}

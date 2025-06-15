@@ -1,18 +1,16 @@
-import { Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
-import { createYupForm } from '../yup/src'
-
 import * as z from 'zod'
-import { createZodForm, zodMeta } from '../zod/src'
+import { Container } from '@chakra-ui/react'
 
 import { Form, ObjectSchema, SubmitButton } from '../src'
-
+import { createYupForm } from '../yup/src'
+import { createZodForm, zodMeta } from '../zod/src'
 import { onSubmit } from './helpers'
 
 export default {
-  title: 'Components/Forms/AutoForm',
+  title: 'Forms/AutoForm',
   decorators: [
     (Story: any) => (
       <Container mt="40px">
@@ -71,7 +69,7 @@ const schema = Yup.object().shape({
     .of(
       Yup.object().shape({
         address: Yup.string().label('Email address'),
-      })
+      }),
     )
     .label('Email addresses'),
 })
@@ -137,7 +135,7 @@ export const CustomSubmit = () => (
       },
       submit: {
         children: 'Save',
-        variant: 'secondary',
+        variant: 'subtle',
       },
     }}
   />
@@ -222,7 +220,7 @@ export const ZodSchemaArray = () => (
         .array(
           z.object({
             todo: z.string().describe('Todo'),
-          })
+          }),
         )
         .min(1, 'Add minimal 1 todo')
         .max(10, 'Maximum 10 todos')

@@ -1,5 +1,30 @@
 # @saas-ui/clerk
 
+## 5.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [6e53bc7]
+  - @saas-ui/auth-provider@2.0.0-next.1
+
+## 5.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [6459de4]
+  - @saas-ui/auth-provider@2.0.0-next.0
+
 ## 4.0.4
 
 ### Patch Changes
@@ -853,7 +878,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ### Patch Changes
 
@@ -928,7 +954,8 @@
 
 - 15c3960: Re-publish.
 - 1744543: Updated dependencies.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 7d8ce57: Updated to Clerk React 3.4.1
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
@@ -982,7 +1009,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - Updated dependencies [dc6376f]
   - @saas-ui/auth@1.0.0-rc.9
 

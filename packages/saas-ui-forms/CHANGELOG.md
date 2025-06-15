@@ -1,10 +1,398 @@
 # @saas-ui/forms
 
+## 3.0.0-next.37
+
+### Patch Changes
+
+- Updated dependencies [2c0282d]
+  - @saas-ui/react@3.0.0-next.37
+
+## 3.0.0-next.36
+
+### Patch Changes
+
+- 49f551b: Fixed issue where checkbox field value was incorrect
+- 49f551b: Fixed issue where hideLabel would not be passed to field component
+- 6e53bc7: Updated to Chakra UI v3.20
+- a8c3577: Add submit method to useForm response
+- Updated dependencies [868950d]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [6e53bc7]
+  - @saas-ui/react@3.0.0-next.36
+  - @saas-ui/core@3.0.0-next.10
+
+## 3.0.0-next.35
+
+### Patch Changes
+
+- Updated dependencies [4f78230]
+  - @saas-ui/react@3.0.0-next.35
+
+## 3.0.0-next.34
+
+### Patch Changes
+
+- Updated dependencies [964ffa7]
+  - @saas-ui/react@3.0.0-next.34
+
+## 3.0.0-next.33
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.9
+  - @saas-ui/react@3.0.0-next.33
+
+## 3.0.0-next.32
+
+### Patch Changes
+
+- Updated dependencies [c89b27d]
+  - @saas-ui/core@3.0.0-next.8
+  - @saas-ui/react@3.0.0-next.32
+
+## 3.0.0-next.31
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.7
+- @saas-ui/react@3.0.0-next.31
+
+## 3.0.0-next.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/core@3.0.0-next.6
+  - @saas-ui/react@3.0.0-next.30
+
+## 3.0.0-next.29
+
+### Patch Changes
+
+- Updated dependencies [c2372f9]
+- Updated dependencies [495b0c6]
+  - @saas-ui/core@3.0.0-next.5
+  - @saas-ui/react@3.0.0-next.29
+
+## 3.0.0-next.28
+
+### Patch Changes
+
+- 8726803: Export StandardSchemaV1 type
+- Updated dependencies [bab2041]
+- Updated dependencies [b136ede]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [dd1f9e1]
+- Updated dependencies [bab2041]
+  - @saas-ui/react@3.0.0-next.28
+
+## 3.0.0-next.27
+
+### Patch Changes
+
+- Updated dependencies [5013269]
+  - @saas-ui/react@3.0.0-next.27
+
+## 3.0.0-next.26
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.26
+
+## 3.0.0-next.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.25
+
+## 3.0.0-next.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.24
+
+## 3.0.0-next.23
+
+### Patch Changes
+
+- Updated dependencies [fc4a915]
+  - @saas-ui/react@3.0.0-next.23
+
+## 3.0.0-next.22
+
+### Patch Changes
+
+- Updated dependencies [40e4dea]
+  - @saas-ui/react@3.0.0-next.22
+
+## 3.0.0-next.21
+
+### Patch Changes
+
+- Updated dependencies [b48ad37]
+  - @saas-ui/react@3.0.0-next.21
+
+## 3.0.0-next.20
+
+### Minor Changes
+
+- f18c762: useForm now supports standard schema, with support for zod, valibot,
+  arktype and more.
+
+### Patch Changes
+
+- Updated dependencies [729b57d]
+  - @saas-ui/react@3.0.0-next.20
+
+## 3.0.0-next.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.19
+
+## 3.0.0-next.18
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.18
+
+## 3.0.0-next.17
+
+### Patch Changes
+
+- Updated dependencies [d87c2ac]
+  - @saas-ui/react@3.0.0-next.17
+  - @saas-ui/core@3.0.0-next.4
+
+## 3.0.0-next.16
+
+### Patch Changes
+
+- @saas-ui/core@3.0.0-next.3
+- @saas-ui/react@3.0.0-next.16
+
+## 3.0.0-next.15
+
+### Patch Changes
+
+- Updated dependencies [d4fb186]
+- Updated dependencies [a169eb7]
+- Updated dependencies [d4fb186]
+  - @saas-ui/react@3.0.0-next.15
+
+## 3.0.0-next.14
+
+### Minor Changes
+
+- 546dca1: BREAKING: Form onSubmit prop moved to useForm, Form onSubmit now
+  accepts the native onSubmit handler and will override the build in form
+  handler.
+- 546dca1: BREAKING: Form onError moved to useForm and renamed to onInvalid
+
+### Patch Changes
+
+- Updated dependencies [78d7999]
+- Updated dependencies [042ec4f]
+  - @saas-ui/react@3.0.0-next.14
+
+## 3.0.0-next.13
+
+### Patch Changes
+
+- Updated dependencies [f995ba3]
+  - @saas-ui/react@3.0.0-next.13
+
+## 3.0.0-next.12
+
+### Patch Changes
+
+- 2afe09f: Fixed missing ref prop on form field type
+- Updated dependencies [2afe09f]
+  - @saas-ui/react@3.0.0-next.12
+
+## 3.0.0-next.11
+
+### Patch Changes
+
+- Updated dependencies [dae627e]
+  - @saas-ui/core@3.0.0-next.2
+  - @saas-ui/react@3.0.0-next.11
+
+## 3.0.0-next.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.10
+
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.9
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.8
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.7
+
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.6
+
+## 3.0.0-next.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/react@3.0.0-next.5
+
+## 3.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [e86d242]
+  - @saas-ui/react@3.0.0-next.4
+
+## 3.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies [860649d]
+  - @saas-ui/react@3.0.0-next.3
+  - @saas-ui/core@3.0.0-next.1
+
+## 3.0.0-next.2
+
+### Patch Changes
+
+- Updated dependencies [ec22a57]
+- Updated dependencies [928abff]
+- Updated dependencies [26f5452]
+  - @saas-ui/react@3.0.0-next.2
+
+## 3.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [f13c1ce]
+  - @saas-ui/react@3.0.0-next.1
+
+## 3.0.0-next.0
+
+### Major Changes
+
+- 78e70fb: New useForm hook that returns typed form components
+- 550e5a6: Upgrade to Chakra v3
+- b51aff9: BREAKING: getBaseField should now return props and Component
+
+### Minor Changes
+
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- 38082d4: Improved horizontal field styles
+- b51aff9: Improved prop handling of base field
+- cee2e9c: Removed chakra ui dependency of core package
+- 56b0623: Update with upstream changes
+- Updated dependencies [ba3b566]
+- Updated dependencies [e9fec88]
+- Updated dependencies [2285040]
+- Updated dependencies [64e680e]
+- Updated dependencies [53716c5]
+- Updated dependencies [5115e8f]
+- Updated dependencies [212a7e6]
+- Updated dependencies [38082d4]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [c680574]
+- Updated dependencies [c680574]
+- Updated dependencies [f62c3d6]
+- Updated dependencies [942e9a0]
+- Updated dependencies [f85d493]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [a2ef175]
+- Updated dependencies [eb02362]
+- Updated dependencies [53716c5]
+- Updated dependencies [205580d]
+- Updated dependencies [7808a76]
+- Updated dependencies [e7fe684]
+- Updated dependencies [f85d493]
+- Updated dependencies [c680574]
+- Updated dependencies [c680574]
+- Updated dependencies [b51aff9]
+- Updated dependencies [212a7e6]
+- Updated dependencies [550e5a6]
+- Updated dependencies [ce8c247]
+- Updated dependencies [19309d4]
+- Updated dependencies [ce8c247]
+- Updated dependencies [ce8c247]
+- Updated dependencies [c680574]
+- Updated dependencies [ba3b566]
+- Updated dependencies [95c8652]
+- Updated dependencies [6a8bf46]
+- Updated dependencies [eb02362]
+- Updated dependencies [ac2d80d]
+- Updated dependencies [0067207]
+- Updated dependencies [b51aff9]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [205580d]
+- Updated dependencies [ba3b566]
+- Updated dependencies [8e760c5]
+- Updated dependencies [56b0623]
+- Updated dependencies [6a8bf46]
+- Updated dependencies [15e093e]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [c680574]
+- Updated dependencies [8ac704a]
+- Updated dependencies [6f9f04d]
+- Updated dependencies [eb02362]
+- Updated dependencies [6459de4]
+- Updated dependencies [56b0623]
+- Updated dependencies [c51e12c]
+- Updated dependencies [0067207]
+- Updated dependencies [0f49a18]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [65fac53]
+- Updated dependencies [61ce1b5]
+- Updated dependencies [3a73bc8]
+- Updated dependencies [9d47676]
+- Updated dependencies [64e680e]
+- Updated dependencies [2285040]
+- Updated dependencies [ba3b566]
+- Updated dependencies [8d8ffaa]
+- Updated dependencies [f0f5ab0]
+- Updated dependencies [19309d4]
+- Updated dependencies [727b902]
+  - @saas-ui/react@3.0.0-next.0
+  - @saas-ui/core@3.0.0-next.0
+
 ## 2.11.0
 
 ### Minor Changes
 
-- 091fd38: Exported additional types from `index.ts` to make them accessible for external use, improving type coverage and usability.
+- 091fd38: Exported additional types from `index.ts` to make them accessible for
+  external use, improving type coverage and usability.
 
 ## 2.10.0
 
@@ -85,13 +473,15 @@
 
 ### Patch Changes
 
-- fc2203a: Fixed issue where custom base field would trigger additional re-render and loose field focus
+- fc2203a: Fixed issue where custom base field would trigger additional
+  re-render and loose field focus
 
 ## 2.6.9
 
 ### Patch Changes
 
-- df5d37f: feat(forms): get types for optional, map options for NativeEnum, map …
+- df5d37f: feat(forms): get types for optional, map options for NativeEnum, map
+  …
 
 ## 2.6.8
 
@@ -160,7 +550,8 @@
 
 ### Minor Changes
 
-- 9fe1899: Improved Select types, value type is now string or string[] depending on the multiple prop
+- 9fe1899: Improved Select types, value type is now string or string[] depending
+  on the multiple prop
 
 ### Patch Changes
 
@@ -219,7 +610,8 @@
 ### Minor Changes
 
 - 73d09d9: Added support for leftAddon and rightAddon on number input types
-- efca417: Improved ObjectSchema type definitions to be more strict and inherit correct field type props
+- efca417: Improved ObjectSchema type definitions to be more strict and inherit
+  correct field type props
 
 ### Patch Changes
 
@@ -240,13 +632,15 @@
 
 ### Patch Changes
 
-- 29e5c317: Fixed issue where submit label could not be overwritten using the fields prop
+- 29e5c317: Fixed issue where submit label could not be overwritten using the
+  fields prop
 
 ## 2.3.10
 
 ### Patch Changes
 
-- 52e7490c: Fixed issue where theming props would be forwarded to form layout element
+- 52e7490c: Fixed issue where theming props would be forwarded to form layout
+  element
 - Updated dependencies [afb87d86]
   - @saas-ui/core@2.3.5
 
@@ -254,7 +648,8 @@
 
 ### Patch Changes
 
-- 2f170bf7: Fixed issue where SubmitButton theming props could not be overwritten with AutoForm
+- 2f170bf7: Fixed issue where SubmitButton theming props could not be
+  overwritten with AutoForm
 - Updated dependencies [aa3c97a0]
   - @saas-ui/core@2.3.4
 
@@ -308,7 +703,8 @@
 
 ### Patch Changes
 
-- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields prop
+- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields
+  prop
 - Updated dependencies [d5ca55e4]
   - @saas-ui/core@2.2.3
 
@@ -347,7 +743,8 @@
 
 ### Patch Changes
 
-- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in FormDialog
+- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in
+  FormDialog
 - Updated dependencies [4a3c9dc7]
   - @saas-ui/core@2.1.3
 
@@ -363,7 +760,8 @@
 - 654ad186: Fixed issue where Field would not infer correct onChange handler
 - 87fcdc2c: Fixed issue where not all StepForm data would be passed to onSubmit
 - 9ad407a7: ZodForm now infers defaultValues from the schema
-- be52e785: Fixed issue where placeholder would not be passed to the NumberInputField
+- be52e785: Fixed issue where placeholder would not be passed to the
+  NumberInputField
 
 ## 2.1.3
 
@@ -436,20 +834,24 @@
 ### Major Changes
 
 - d7c87a31: Moved form resolvers into a separate package.
-- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- 532011d6: Restructured the Select component to make it atomic, the new
+  composition is Select, SelectButton, SelectList and SelectOption.
 - 8b82d945: Removed button package.
 - f1e99198: Restructured packages.
-- 39e778d8: Form will now render AutoField by default when no children are passed.
+- 39e778d8: Form will now render AutoField by default when no children are
+  passed.
 
 ### Minor Changes
 
 - 532011d6: Select can now supports theming using the SuiSelect theme config.
 - a8ea24da: PasswordInput now accepts leftAddon property.
 - 046e42b8: Updated to Chakra UI 2.7
-- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific
+  FormDialogs
 - a9ca90dd: Updated to Chakra UI 2.6.x
 - 6dd737ce: Select field now renders invalid state.
-- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
+- c85541cb: AutoForm field props can now be overridden using the fields prop on
+  Form
 
 ### Patch Changes
 
@@ -460,12 +862,14 @@
 - f1e99198: Migrated from microbundle to tsup for builds
 - 01ac442f: Fixed modal form handler type inference
 - a7ef6dd9: Fixed issue where types for exports were not detected
-- 6c63217c: object and array field props can now be overridden using the fields prop
+- 6c63217c: object and array field props can now be overridden using the fields
+  prop
 - d6e9a39d: Form fields overries types now support array and object type props
 - b5912297: Fix Select button overflow.
 - 0319aa57: Bump version
 - 166978bd: Fix esm bundle filename.
-- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are
+  required.
 - Updated dependencies [189190c6]
 - Updated dependencies [1177329d]
 - Updated dependencies [e23790a8]
@@ -571,7 +975,8 @@
 
 ### Patch Changes
 
-- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
+- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are
+  required.
   - @saas-ui/core@2.0.0-rc.21
 
 ## 2.0.0-rc.23
@@ -637,7 +1042,8 @@
 
 ### Minor Changes
 
-- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
+- 2d18cdc2: New createFormDialog function to create Zod or Yup specific
+  FormDialogs
 
 ### Patch Changes
 
@@ -657,7 +1063,8 @@
 ### Patch Changes
 
 - Bump version
-- 6c63217c: object and array field props can now be overridden using the fields prop
+- 6c63217c: object and array field props can now be overridden using the fields
+  prop
 - Updated dependencies
   - @saas-ui/core@2.0.0-next.11
 
@@ -707,14 +1114,17 @@
 
 ### Major Changes
 
-- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
-- 39e778d8: Form will now render AutoField by default when no children are passed.
+- 532011d6: Restructured the Select component to make it atomic, the new
+  composition is Select, SelectButton, SelectList and SelectOption.
+- 39e778d8: Form will now render AutoField by default when no children are
+  passed.
 
 ### Minor Changes
 
 - 532011d6: Select can now supports theming using the SuiSelect theme config.
 - 6dd737ce: Select field now renders invalid state.
-- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
+- c85541cb: AutoForm field props can now be overridden using the fields prop on
+  Form
 
 ## 2.0.0-next.5
 
@@ -815,7 +1225,8 @@
 
 ### Patch Changes
 
-- 382e095: InputRightButton no longer exported from forms package to prevent conflicts.
+- 382e095: InputRightButton no longer exported from forms package to prevent
+  conflicts.
 
 ## 1.5.2
 
@@ -918,7 +1329,8 @@
 
 ### Patch Changes
 
-- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the
+  internal HookForm handlers.
   - @saas-ui/stepper@1.1.2
 
 ## 1.2.0
@@ -927,7 +1339,8 @@
 
 - d003608: Form now accepts a render function with form state props.
 - d003608: Re-export all React Hook Form types and hooks
-- d003608: New onChange prop for Form that triggers when the form state is changed.
+- d003608: New onChange prop for Form that triggers when the form state is
+  changed.
 
 ## 1.1.2
 
@@ -945,7 +1358,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ### Patch Changes
 
@@ -964,7 +1378,8 @@
 
 ### Patch Changes
 
-- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise
+  is returned.
 - Updated dependencies [8d03628]
   - @saas-ui/password-input@1.0.2
 
@@ -1006,7 +1421,8 @@
 - 1744543: Updated dependencies.
 - bd3438d: FormStep now supports an onSubmit handler.
 - 6133901: No longer passing down label to input fields.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 43dff99: Option labels are now optional.
 - d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
 - ddec417: ArrayField no longer passing down items to the container element.
@@ -1018,7 +1434,8 @@
 - 532a7d4: Fixed all theme onconsistencies.
 - 1c247cb: InputField now has type="text" by default.
 - d1fb472: Select now renders a hidden input with the current value.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use
+  colorScheme="primary" instead.
 - Updated dependencies [3ae6be1]
 - Updated dependencies [c8621b8]
 - Updated dependencies [15c3960]
@@ -1089,8 +1506,10 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use colorScheme="primary" instead.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use
+  colorScheme="primary" instead.
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]
   - @saas-ui/button@1.0.0-rc.3
@@ -1308,11 +1727,13 @@
 
 ### Minor Changes
 
-- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default Form resolvers
+- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default
+  Form resolvers
 
   <Form> no longer accepts a Yup `schema` by default.
 
-  Use a schema resolver to use schema support. All hookform resolvers are supported.
+  Use a schema resolver to use schema support. All hookform resolvers are
+  supported.
 
   ```ts
   import { yupResolver } from '@hookform/resolvers/yup'
@@ -1328,12 +1749,13 @@
   const form = <AutoForm {...yupForm(schema)} />
   ```
 
-  Alternatively you can configure a default resolver for all forms.
-  Add this somewhere in the root of your project.
+  Alternatively you can configure a default resolver for all forms. Add this
+  somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers
@@ -1423,13 +1845,15 @@
 
 ### Patch Changes
 
-- e691413: DisplayIf now check if value is set by default, set isRequired on fields when required = true
+- e691413: DisplayIf now check if value is set by default, set isRequired on
+  fields when required = true
 
 ## 0.3.0
 
 ### Minor Changes
 
-- 385b760: Improved Typescript support for forms, conditionally render form fields with DisplayIf
+- 385b760: Improved Typescript support for forms, conditionally render form
+  fields with DisplayIf
 
 ## 0.2.5
 

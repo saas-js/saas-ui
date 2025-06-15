@@ -1,0 +1,110 @@
+---
+title: Supabase Authentication
+description: Configure the Supabase authentication service
+---
+
+Supabase is an open source Firebase alternative that provides a Postgres database, authentication, and real-time data sync.
+
+<Info>
+  You can access the `supabase` branch of the Next.js Starter Kit to see the
+  complete code for this example.
+</Info>
+
+## Install
+
+Install the Supabase auth service in the Next.js app.
+
+```bash
+yarn workspace web add @acme/auth-supabase
+```
+
+## Configure
+
+Edit `apps/web/.env` and add your public Supabase URL and KEY. You can find your project URL and KEY in the [Supabase console](https://supabase.com/dashboard).
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL="https://x.supabase.co"
+NEXT_PUBLIC_SUPABASE_KEY="x"
+```
+
+## Setup
+
+Edit `apps/web/features/auth/auth-service` and create the supabase authentication service.
+
+```ts
+import {
+  createAuthService,
+  createSupabaseBrowserClient,
+} from '@acme/auth-supabase/client'
+
+export const supabase = createSupabaseBrowserClient()
+
+export const authService = createAuthService(supabase, {
+  loginOptions: {
+    redirectTo: '/auth/callback',
+  },
+  signupOptions: {
+    emailRedirectTo: '/auth/callback',
+  },
+})
+```
+
+Update the next.js Middleware `apps/web/middleware.ts` to use the Supabase authentication service.
+
+```ts
+import { NextResponse } from 'next/server'
+
+import { auth } from '@acme/auth-supabase/middleware'
+
+const publicRoutes = [
+  '/login',
+  '/signup',
+  '/forgot-password',
+  '/reset-password',
+]
+
+export default auth((req) => {
+  if (!req.auth && !publicRoutes.includes(req.nextUrl.pathname)) {
+    const redirectTo = new URL(req.nextUrl.pathname, req.nextUrl.origin)
+    const newUrl = new URL('/login', req.nextUrl.origin)
+    newUrl.searchParams.set('redirectTo', redirectTo.toString())
+    return NextResponse.redirect(newUrl)
+  }
+
+  return NextResponse.next()
+})
+```
+
+Replace all `getSession` imports with the `getSession` from `@acme/auth-supabase` in the following files:
+
+- `apps/web/app/(app)/layout.tsx`
+- `apps/web/app/api/trpc/[trpc]/route.ts`
+- `apps/web/lib/trpc/rsc.ts`
+
+If you have any other files that use `getSession` you will need to replace them as well.
+
+```ts
+import { getSession } from '@acme/auth-supabase'
+```
+
+If you previously used another auth service, like Better Auth, you can also remove the drizzle schema from `packages/db/drizzle.config.ts`.
+
+Now your app is configured to use Supabase authentication.
+
+Try it out by running `yarn dev:web` and navigating to `http://localhost:3000`.
+
+## Additional resources
+
+If you need access to `auth.users` table of Supabase, you can use the Supabase utilities from `drizzle-orm/supabase`.
+
+```tsx
+import { authUsers } from 'drizzle-orm/supabase'
+```
+
+More information here: [drizzle-orm/supabase](https://github.com/drizzle-team/drizzle-orm/tree/main/src/supabase)
+
+Drizzle also supports [Row-level security (RLS)](https://orm.drizzle.team/docs/rls), which allows you to configure policies and roles for accessing data in your database.
+
+## Next steps
+
+- [Customize auth screens](/docs/nextjs-starter-kit/authentication/customize-auth-screens)

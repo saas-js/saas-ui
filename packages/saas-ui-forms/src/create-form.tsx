@@ -1,12 +1,11 @@
-import React, { ForwardedRef, useMemo } from 'react'
-import { forwardRef } from '@chakra-ui/react'
+import React, { ForwardedRef, forwardRef, useMemo } from 'react'
 
-import { FieldsProvider } from './fields-context'
-import { Form, FieldValues, FormProps, GetResolver } from './form'
-import { GetBaseField, WithFields } from './types'
-import { objectFieldResolver } from './field-resolver'
-import { GetFieldResolver } from './field-resolver'
 import { defaultFieldTypes } from './default-fields'
+import { objectFieldResolver } from './field-resolver'
+import type { GetFieldResolver } from './field-resolver'
+import { FieldsProvider } from './fields-context'
+import { FieldValues, Form, FormProps, GetResolver } from './form'
+import { GetBaseField, WithFields } from './types'
 
 export interface CreateFormProps<
   FieldDefs,
@@ -34,7 +33,7 @@ export type FormType<
     ExtraOverrides
   > & {
     ref?: React.ForwardedRef<HTMLFormElement>
-  } & ExtraProps
+  } & ExtraProps,
 ) => React.ReactElement) & {
   displayName?: string
   id?: string
@@ -64,7 +63,7 @@ export function createForm<
         FormProps<TSchema, TFieldValues, TContext, ExtraFieldProps>,
         FieldDefs
       >,
-      ref: ForwardedRef<HTMLFormElement>
+      ref: ForwardedRef<HTMLFormElement>,
     ) => {
       const {
         schema,
@@ -78,7 +77,7 @@ export function createForm<
           fields: { ...defaultFieldTypes, ...fields },
           getBaseField,
         }),
-        [fields, getBaseField]
+        [fields, getBaseField],
       )
 
       return (
@@ -91,7 +90,7 @@ export function createForm<
           />
         </FieldsProvider>
       )
-    }
+    },
   ) as FormType<FieldDefs, object, ExtraFieldProps>
 
   DefaultForm.displayName = 'Form'

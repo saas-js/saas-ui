@@ -1,16 +1,14 @@
-import { Container } from '@chakra-ui/react'
 import * as React from 'react'
 
 import * as Yup from 'yup'
+import { Container } from '@chakra-ui/react'
 
 import { Form, FormLayout, SubmitButton } from '../src'
-
 import { Form as YupForm } from '../yup/src'
-
 import { onSubmit } from './helpers'
 
 export default {
-  title: 'Components/Forms/ObjectField',
+  title: 'Forms/ObjectField',
   decorators: [
     (Story: any) => (
       <Container mt="40px">

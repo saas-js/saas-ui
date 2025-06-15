@@ -1,17 +1,13 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Container,
-  Heading,
-} from '@chakra-ui/react'
 import * as React from 'react'
+
+import { Card, Container, Heading } from '@chakra-ui/react'
 import { StoryObj } from '@storybook/react'
+
 import { LineChart } from '../src'
 import { createData } from './utils'
 
 export default {
-  title: 'Components/Visualization/LineChart',
+  title: 'Visualization/LineChart',
   component: LineChart,
   decorators: [
     (Story: React.ComponentType) => (
@@ -45,28 +41,18 @@ export const Basic: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Revenue growth
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Revenue growth</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <LineChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
-console.log(
-  createData({
-    startDate: '2023-12-01',
-    endDate: '2023-12-31',
-    categories: ['Backend', 'Frontend'],
-    startValues: [50, 30],
-    growthRate: 1.01,
-  })
-)
+
 export const Multiple: Story = {
   args: {
     data: createData({
@@ -82,16 +68,14 @@ export const Multiple: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Developers
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Developers</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <LineChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }
@@ -113,16 +97,14 @@ export const CustomYAxisBounds: Story = {
   },
   render: (args) => {
     return (
-      <Card>
-        <CardHeader pb="0">
-          <Heading as="h4" fontWeight="medium" size="md">
-            Developers
-          </Heading>
-        </CardHeader>
-        <CardBody>
+      <Card.Root size="sm">
+        <Card.Header pb="0">
+          <Card.Title>Developers</Card.Title>
+        </Card.Header>
+        <Card.Body>
           <LineChart {...args} />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     )
   },
 }

@@ -6,7 +6,7 @@ import {
   IconButton,
   Menu,
   Page,
-  PersonaAvatar,
+  Persona,
   Sidebar,
   Spacer,
 } from '@saas-ui/react'
@@ -25,11 +25,9 @@ export const AppShellSidebar = () => {
               <Menu.Root>
                 <Menu.Trigger asChild>
                   <IconButton variant="ghost" size="sm" aria-label="User menu">
-                    <PersonaAvatar
-                      presence="online"
-                      size="xs"
-                      src="/showcase-avatar.jpg"
-                    />
+                    <Persona.Root presence="online">
+                      <Persona.Avatar size="xs" src="/showcase-avatar.jpg" />
+                    </Persona.Root>
                   </IconButton>
                 </Menu.Trigger>
                 <Menu.Content>

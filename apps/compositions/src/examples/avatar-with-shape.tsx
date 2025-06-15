@@ -5,20 +5,20 @@ export const AvatarWithShape = () => {
   return (
     <HStack gap="4">
       <Avatar
-        name="Dan Abramov"
-        src="https://bit.ly/dan-abramov"
+        name="David Wilson"
+        src="/avatars/1.png"
         shape="square"
         size="lg"
       />
       <Avatar
-        name="Sage Adebayo"
-        src="https://bit.ly/sage-adebayo"
+        name="Marcus Chen"
+        src="/avatars/2.png"
         shape="rounded"
         size="lg"
       />
       <Avatar
-        name="Random User"
-        src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04"
+        name="Sarah Johnson"
+        src="/avatars/3.png"
         shape="full"
         size="lg"
       />

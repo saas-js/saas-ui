@@ -189,11 +189,8 @@ export {
 } from './components/password-input/index.ts'
 export {
   Persona,
-  PersonaAvatar,
   type PersonaPresence,
-  type PersonaAvatarProps,
   type PersonaPresenceConfig,
-  type PersonaProps,
   defaultPersonaPresenceOptions,
 } from './components/persona/index.ts'
 export { PinInput, type PinInputProps } from './components/pin-input/index.ts'

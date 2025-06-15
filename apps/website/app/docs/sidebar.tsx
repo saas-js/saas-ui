@@ -70,8 +70,8 @@ export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
                     </Sidebar.GroupTitle>
                   </Sidebar.GroupHeader>
                   <Sidebar.GroupContent>
-                    {item.children?.map((item) => (
-                      <SidebarItem key={item.$id} item={item} />
+                    {item.children?.map((item, index) => (
+                      <SidebarItem key={`${item.$id}-${index}`} item={item} />
                     ))}
                   </Sidebar.GroupContent>
                 </Sidebar.Group>

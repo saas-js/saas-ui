@@ -12,21 +12,21 @@ export const AvatarWithRing = () => {
   return (
     <HStack gap="4">
       <Avatar
-        name="Random"
+        name="David Wilson"
         colorPalette="pink"
-        src="https://randomuser.me/api/portraits/men/70.jpg"
+        src="/avatars/1.png"
         css={ringCss}
       />
       <Avatar
-        name="Random"
+        name="Marcus Chen"
         colorPalette="green"
-        src="https://randomuser.me/api/portraits/men/54.jpg"
+        src="/avatars/2.png"
         css={ringCss}
       />
       <Avatar
-        name="Random"
+        name="Sarah Johnson"
         colorPalette="blue"
-        src="https://randomuser.me/api/portraits/men/42.jpg"
+        src="/avatars/3.png"
         css={ringCss}
       />
     </HStack>

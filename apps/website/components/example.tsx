@@ -1,6 +1,7 @@
 import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
 import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@chakra-ui/react'
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import Link from 'next/link'
 
 import { CopyButton } from './copy-button'
@@ -122,7 +123,9 @@ export const Example = (props: Props) => {
       divideY="1px"
     >
       <Box padding={padding}>
-        <ExamplePreview name={name} />
+        <ErrorBoundary errorComponent={() => <Box>Error</Box>}>
+          <ExamplePreview name={name} />
+        </ErrorBoundary>
       </Box>
       <ExampleCodeWrapper maxHeight="400px">
         <ExampleCode name={name} />

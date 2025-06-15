@@ -1,17 +1,26 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 
 import {
+  AvatarPropsProvider,
   HTMLChakraProps,
   type ImageProps,
   type SlotRecipeProps,
   chakra,
+  mergeProps,
 } from '@chakra-ui/react'
 import { dataAttr } from '@saas-ui/core/utils'
+import { cx } from '@saas-ui/core/utils'
 
 import { Avatar, type AvatarProps } from '../avatar/avatar.tsx'
-import { withContext, withProvider } from './persona.context.ts'
+import {
+  ClassNamesProvider,
+  StylesProvider,
+  usePropsContext,
+  useRecipeResult,
+  withContext,
+} from './persona.context.ts'
 import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { PersonaPresence } from './presence.ts'
 
@@ -32,30 +41,56 @@ interface PersonaRootProps
 /**
  * The root component that provides context and styles.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
-const PersonaRoot = withProvider<HTMLDivElement, PersonaRootProps>(
-  forwardRef<HTMLDivElement, PersonaRootProps>((props, ref) => {
-    const { outOfOffice, presence, ...rest } = props
+const PersonaRoot = forwardRef<HTMLDivElement, PersonaRootProps>(
+  (props, ref) => {
+    const propsContext = usePropsContext()
+
+    const mergedProps = useMemo(
+      () => mergeProps(propsContext, props),
+      [propsContext, props],
+    )
+
+    const {
+      styles,
+      props: rootProps,
+      classNames,
+    } = useRecipeResult(mergedProps)
+
+    const className = classNames['root']
+
+    const { outOfOffice, presence, ...rest } = rootProps
 
     return (
-      <chakra.div
-        ref={ref}
-        {...rest}
-        data-out-of-office={dataAttr(outOfOffice)}
-        data-presence={presence}
-        css={[
-          presence
-            ? {
-                '--persona-presence': `colors.presence.${presence}`,
-              }
-            : undefined,
-          rest.css,
-        ]}
-      />
+      <StylesProvider value={styles}>
+        <ClassNamesProvider value={classNames}>
+          <AvatarPropsProvider
+            value={{
+              size: props.size,
+            }}
+          >
+            <chakra.div
+              ref={ref}
+              {...rest}
+              data-out-of-office={dataAttr(outOfOffice)}
+              data-presence={presence}
+              css={[
+                presence
+                  ? {
+                      '--persona-presence': `colors.presence.${presence}`,
+                    }
+                  : undefined,
+                styles['root'],
+                rest.css,
+              ]}
+              className={cx(className, rest.className)}
+            />
+          </AvatarPropsProvider>
+        </ClassNamesProvider>
+      </StylesProvider>
     )
-  }),
-  'root',
+  },
 )
 
 interface PersonaAvatarOptions {
@@ -80,7 +115,7 @@ interface PersonaAvatarProps extends PersonaAvatarOptions, AvatarProps {
 /**
  * An avatar with optional status badge.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
 const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
   (props, ref) => {
@@ -106,7 +141,7 @@ interface PersonaDetailsProps extends HTMLChakraProps<'div'> {}
 /**
  * Wrapper component for the labels.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
 const PersonaDetails = withContext<HTMLDivElement, PersonaDetailsProps>(
   'div',
@@ -118,7 +153,7 @@ interface PersonaLabelProps extends HTMLChakraProps<'span'> {}
 /**
  * The main label, usually a name.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
 const PersonaLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
   'span',
@@ -130,7 +165,7 @@ PersonaLabel.displayName = 'PersonaLabel'
 /**
  * The secondary label, usually the role of a person.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
 const PersonaSecondaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
   'span',
@@ -140,7 +175,7 @@ const PersonaSecondaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
 /**
  * The tertiary label, typically a status message.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
 const PersonaTertiaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
   'span',

@@ -4,7 +4,7 @@ import { Persona, defineStyle } from '@saas-ui/react'
 
 export const PersonaWithRing = () => {
   return (
-    <Persona.Root>
+    <Persona.Root presence="online">
       <Persona.Avatar name="David Wilson" src="/avatars/1.png" css={ringCss} />
       <Persona.Details>
         <Persona.Label>David Wilson</Persona.Label>
@@ -16,7 +16,7 @@ export const PersonaWithRing = () => {
 
 const ringCss = defineStyle({
   outlineWidth: '2px',
-  outlineColor: 'presence.online',
+  outlineColor: 'var(--persona-presence)',
   outlineOffset: '2px',
   outlineStyle: 'solid',
 })

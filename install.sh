@@ -1,7 +1,7 @@
 #!/bin/bash
  
 # Define variables for new URL components
-token=$GIT_TOKEN
+token=$GITHUB_TOKEN
 
 # Construct the new URL with authentication
 new_url="https://${token}@github.com/saas-js/saas-ui-pro.git"

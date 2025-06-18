@@ -74,6 +74,7 @@ export const DateRangePickerContainer: React.FC<
     defaultValue,
     minValue,
     maxValue,
+    /* @ts-ignore */
     onChange,
     shouldCloseOnSelect: closeOnSelect || granularity === 'day',
   })

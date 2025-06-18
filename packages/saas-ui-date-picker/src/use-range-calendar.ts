@@ -1,3 +1,5 @@
+import type {} from '@react-types/button'
+
 import { AriaRangeCalendarProps } from '@react-aria/calendar'
 import { useRangeCalendar as useAriaRangeCalendar } from '@react-aria/calendar'
 import { useRangeCalendarState } from '@react-stately/calendar'

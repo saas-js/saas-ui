@@ -117,6 +117,15 @@ let config = {
 
     config.resolve = {
       ...config.resolve,
+      conditionNames: [
+        'sui-pro',
+        'browser',
+        'node',
+        'development',
+        'production',
+        'import',
+        'require',
+      ],
     }
 
     config.module.rules.push({
@@ -124,19 +133,19 @@ let config = {
       use: [defaultLoaders.babel],
     })
 
-    config.plugins = config.plugins.concat([
-      new webpack.NormalModuleReplacementPlugin(
-        /\@saas-ui(?:-pro)?\/([a-z0-9-\/]+)$/,
-        (resource) => {
-          if (
-            !resource.request.match(/^@saas-ui\/(props-docs)$/) &&
-            !resource.request.match('/src')
-          ) {
-            resource.request = resource.request + '/src'
-          }
-        }
-      ),
-    ])
+    // config.plugins = config.plugins.concat([
+    //   new webpack.NormalModuleReplacementPlugin(
+    //     /\@saas-ui(?:-pro)?\/([a-z0-9-\/]+)$/,
+    //     (resource) => {
+    //       if (
+    //         !resource.request.match(/^@saas-ui\/(props-docs)$/) &&
+    //         !resource.request.match('/src')
+    //       ) {
+    //         resource.request = resource.request + '/src'
+    //       }
+    //     }
+    //   ),
+    // ])
 
     return config
   },

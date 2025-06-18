@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Mon, 11 Nov 2024 10:44:25 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 18 Jun 2025 14:34:05 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -25,16 +25,6 @@
     <title>Getting started</title>
     <link>https://saas-ui.dev/docs</link>
     <description>An advanced component library built on Chakra UI for building high quality SaaS products at speed.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/guides</guid>
-    <title>Guides overview</title>
-    <link>https://saas-ui.dev/docs/guides</link>
-    <description>Learn how to build apps with Saas UI</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -81,6 +71,16 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/guides</guid>
+    <title>Guides overview</title>
+    <link>https://saas-ui.dev/docs/guides</link>
+    <description>Learn how to build apps with Saas UI</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
     <title>useCollapse</title>
     <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
@@ -95,36 +95,6 @@
     <title>useLocalStorage</title>
     <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
     <description>React hook to manage localStorage</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro</guid>
-    <title>Saas UI Pro</title>
-    <link>https://saas-ui.dev/docs/pro</link>
-    <description>A premium design system, React component library, and starterkit for SaaS projects.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/overview</guid>
-    <title>Pro</title>
-    <link>https://saas-ui.dev/docs/pro/overview</link>
-    <description>A modern clean dashboard UI for B2B SaaS and internal tools.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/pro/upgrading-to-v1</guid>
-    <title>Upgrading to v1</title>
-    <link>https://saas-ui.dev/docs/pro/upgrading-to-v1</link>
-    <description>How to upgrade to v1</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -171,83 +141,73 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/guides/auth/auth0</guid>
-    <title>Auth0</title>
-    <link>https://saas-ui.dev/docs/guides/auth/auth0</link>
-    <description>Integrating Auth0 authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/pro</guid>
+    <title>Saas UI Pro</title>
+    <link>https://saas-ui.dev/docs/pro</link>
+    <description>A premium design system, React component library, and starterkit for SaaS projects.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/guides/auth/clerk</guid>
-    <title>Clerk</title>
-    <link>https://saas-ui.dev/docs/guides/auth/clerk</link>
-    <description>Integrating Clerk authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/pro/overview</guid>
+    <title>Pro</title>
+    <link>https://saas-ui.dev/docs/pro/overview</link>
+    <description>A modern clean dashboard UI for B2B SaaS and internal tools.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/guides/auth/custom-auth-service</guid>
-    <title>Custom auth service</title>
-    <link>https://saas-ui.dev/docs/guides/auth/custom-auth-service</link>
-    <description>How to create a custom auth service</description>
+    <guid>https://saas-ui.dev/docs/pro/upgrading-to-v1</guid>
+    <title>Upgrading to v1</title>
+    <link>https://saas-ui.dev/docs/pro/upgrading-to-v1</link>
+    <description>How to upgrade to v1</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/guides/auth/magic</guid>
-    <title>Magic</title>
-    <link>https://saas-ui.dev/docs/guides/auth/magic</link>
-    <description>Integrating Magic authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/commands</guid>
+    <title>CLI commands</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/commands</link>
+    <description>A list of useful commands for working with the Tanstack Router starter kit.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/guides/auth/supabase</guid>
-    <title>Supabase</title>
-    <link>https://saas-ui.dev/docs/guides/auth/supabase</link>
-    <description>Integrating Supabase authentication with Saas UI.</description>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit</guid>
+    <title>TanStack Router (SPA) starter kit</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit</link>
+    <description>A premium TanStack Router starter kit for SaaS and B2B projects with a focus on design, accessibility, and development speed.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/guides/forms/overview</guid>
-    <title>Forms overview</title>
-    <link>https://saas-ui.dev/docs/guides/forms/overview</link>
-    <description>Learn how to use Saas UI form builder</description>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/project-structure</guid>
+    <title>Project structure</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/project-structure</link>
+    <description>How to find your way in the project.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/core/installation/blitzjs-guide</guid>
-    <title>Blitz JS</title>
-    <link>https://saas-ui.dev/docs/core/installation/blitzjs-guide</link>
-    <description>A guide for installing Saas UI with blitzjs projects</description>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/tech-stack</guid>
+    <title>Tech stack</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/tech-stack</link>
+    <description>An overview of technologies used in the TanStack Router starter kit.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>blitzjs</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/cra-guide</guid>
-    <title>Create React App</title>
-    <link>https://saas-ui.dev/docs/core/installation/cra-guide</link>
-    <description>A guide for installing Saas UI with create-react-app projects</description>
     
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>create-react-app</category>
   </item>
 
   <item>
@@ -268,16 +228,6 @@
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     <category>nextjs</category>
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/core/installation/redwoodjs-guide</guid>
-    <title>RedwoodJS</title>
-    <link>https://saas-ui.dev/docs/core/installation/redwoodjs-guide</link>
-    <description>A guide for installing Saas UI with redwoodjs projects</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    <category>redwoodjs</category>
   </item>
 
   <item>
@@ -341,20 +291,60 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/installation/dependabot</guid>
-    <title>Setting up Dependabot</title>
-    <link>https://saas-ui.dev/docs/pro/installation/dependabot</link>
-    <description>How to configure Dependabot with the private NPM registry.</description>
+    <guid>https://saas-ui.dev/docs/guides/auth/auth0</guid>
+    <title>Auth0</title>
+    <link>https://saas-ui.dev/docs/guides/auth/auth0</link>
+    <description>Integrating Auth0 authentication with Saas UI.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/pro/theming/configuration</guid>
-    <title>Setting the Saas UI Pro theme</title>
-    <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
-    <description>How to setup the Saas UI Pro theme in your project.</description>
+    <guid>https://saas-ui.dev/docs/guides/auth/clerk</guid>
+    <title>Clerk</title>
+    <link>https://saas-ui.dev/docs/guides/auth/clerk</link>
+    <description>Integrating Clerk authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/custom-auth-service</guid>
+    <title>Custom auth service</title>
+    <link>https://saas-ui.dev/docs/guides/auth/custom-auth-service</link>
+    <description>How to create a custom auth service</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/magic</guid>
+    <title>Magic</title>
+    <link>https://saas-ui.dev/docs/guides/auth/magic</link>
+    <description>Integrating Magic authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/auth/supabase</guid>
+    <title>Supabase</title>
+    <link>https://saas-ui.dev/docs/guides/auth/supabase</link>
+    <description>Integrating Supabase authentication with Saas UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/guides/forms/overview</guid>
+    <title>Forms overview</title>
+    <link>https://saas-ui.dev/docs/guides/forms/overview</link>
+    <description>Learn how to use Saas UI form builder</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -495,6 +485,16 @@
     <title>Auth.js (NextAuth) authentication</title>
     <link>https://saas-ui.dev/docs/nextjs-starter-kit/authentication/authjs</link>
     <description>Using Auth.js (NextAuth) as your authentication service.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/nextjs-starter-kit/authentication/better-auth</guid>
+    <title>Better Auth integration</title>
+    <link>https://saas-ui.dev/docs/nextjs-starter-kit/authentication/better-auth</link>
+    <description>Using Better Auth as your authentication service.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -831,6 +831,486 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/pro/installation/dependabot</guid>
+    <title>Setting up Dependabot</title>
+    <link>https://saas-ui.dev/docs/pro/installation/dependabot</link>
+    <description>How to configure Dependabot with the private NPM registry.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/pro/theming/configuration</guid>
+    <title>Setting the Saas UI Pro theme</title>
+    <link>https://saas-ui.dev/docs/pro/theming/configuration</link>
+    <description>How to setup the Saas UI Pro theme in your project.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/calling-procedures</guid>
+    <title>Calling procedures</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/calling-procedures</link>
+    <description>Learn how to call queries and mutations in your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/conventions</guid>
+    <title>Conventions</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/conventions</link>
+    <description>Learn about the conventions used in the API.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/define-procedures</guid>
+    <title>Define procedures</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/define-procedures</link>
+    <description>Learn how to extend your API by defining procedures.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api</guid>
+    <title>API Overview</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api</link>
+    <description>Consuming and extending the API</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/router-context</guid>
+    <title>Router context</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api/router-context</link>
+    <description>Learn how to use the router context in your app.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/auth</guid>
+    <title>Auth router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/auth</link>
+    <description>An overview of the Auth router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/billing</guid>
+    <title>Billing router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/billing</link>
+    <description>An overview of the Billing router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/contacts</guid>
+    <title>Contacts router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/contacts</link>
+    <description>An overview of the Contacts router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/notifications</guid>
+    <title>Notifications router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/notifications</link>
+    <description>An overview of the Notifications router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/tags</guid>
+    <title>Tags router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/tags</link>
+    <description>An overview of the tags router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/users</guid>
+    <title>Users router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/users</link>
+    <description>An overview of the Users router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/workspace-members</guid>
+    <title>Workspace members router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/workspace-members</link>
+    <description>An overview of the workspace members router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/workspaces</guid>
+    <title>Workspaces router</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/api-procedures/workspaces</link>
+    <description>An overview of the workspaces router</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication/better-auth</guid>
+    <title>Better Auth integration</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication/better-auth</link>
+    <description>Using Better Auth as your authentication service.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication/customize-auth-screens</guid>
+    <title>Customize authentication screens</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication/customize-auth-screens</link>
+    <description>How to customize the built-in authentication screens</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication</guid>
+    <title>Authentication</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication</link>
+    <description>How to configure authentication.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication/supabase</guid>
+    <title>Supabase Authentication</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/authentication/supabase</link>
+    <description>Configure the Supabase authentication service</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing</guid>
+    <title>Billing</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing</link>
+    <description>Learn how to manage billing in your application</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/metered-based-usage</guid>
+    <title>Metered based usage</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/metered-based-usage</link>
+    <description>How to set up and record metered based usage in your application</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/plans</guid>
+    <title>Billing plans</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/plans</link>
+    <description>How to configure and use billing plans</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/stripe</guid>
+    <title>Stripe</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/stripe</link>
+    <description>How to configure and use Stripe</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/unit-based-usage</guid>
+    <title>Unit based usage</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/unit-based-usage</link>
+    <description>How to set up and record unit based usage in your application</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/webhooks</guid>
+    <title>Billing webhooks</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/billing/webhooks</link>
+    <description>How to handle billing webhooks in your application</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/configuration/environment-variables</guid>
+    <title>Environment variables</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/configuration/environment-variables</link>
+    <description>How to configure environment variables in the TanStack Router starter kit.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/contributing/bugs-and-feature-requests</guid>
+    <title>Report bugs and feature requests</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/contributing/bugs-and-feature-requests</link>
+    <description>How to report bugs and request features</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/contributing/contributing</guid>
+    <title>Contributing</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/contributing/contributing</link>
+    <description>How to contribute to the TanStack Router starter kit</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/netlify</guid>
+    <title>Deploy to Netlify</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/netlify</link>
+    <description>This guide will show you how to deploy to Netlify</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/preparation</guid>
+    <title>Preparing for deployment</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/preparation</link>
+    <description>This guide will show you how to prepare your project for deployment.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/vercel</guid>
+    <title>Deploy to Vercel</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/vercel</link>
+    <description>This guide will show you how to deploy to Vercel</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/database</guid>
+    <title>Database overview</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database</link>
+    <description>Introduction into the database and ORM used in the Saas UI starterkit</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/migrations</guid>
+    <title>Database migrations</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/migrations</link>
+    <description>How to create and run database migrations in the Saas UI starterkit</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/schema</guid>
+    <title>Database schema</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/schema</link>
+    <description>Learn how to extend and modify the database schema</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/seed-data</guid>
+    <title>Seed data</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/seed-data</link>
+    <description>Learn how to seed data into your database</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/studio</guid>
+    <title>Drizzle Studio</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/studio</link>
+    <description>Explore your database using Drizzle Studio</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/adding-pages</guid>
+    <title>Adding pages</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/adding-pages</link>
+    <description>How to add new pages to your app</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/error-handling</guid>
+    <title>Error handling</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/error-handling</link>
+    <description>How to handle errors in your application.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/forms-and-validation</guid>
+    <title>Forms and validation</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/forms-and-validation</link>
+    <description>How to create and validate forms.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/development</guid>
+    <title>Development</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/development</link>
+    <description>Get started with developing your TanStack Router application.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/updating-dependencies</guid>
+    <title>Updating dependencies</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/development/updating-dependencies</link>
+    <description>How to keep your app up to date.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation/clone-repository</guid>
+    <title>Clone the Git repository</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation/clone-repository</link>
+    <description>Learn how to clone the Saas UI Git repository.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation</guid>
+    <title>Installation</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation</link>
+    <description>Getting started quickly with the TanStack Router starter kit.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation/run-application</guid>
+    <title>Run the application</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation/run-application</link>
+    <description>How to run the application locally.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation/using-pnpm</guid>
+    <title>Using PNPM</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/installation/using-pnpm</link>
+    <description>How to use PNPM instead of Yarn.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/theming/configuration</guid>
+    <title>Configure your theme</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/theming/configuration</link>
+    <description>How to configure and customize your theme.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/theming/fonts</guid>
+    <title>Fonts</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/theming/fonts</link>
+    <description>How to configure fonts in TanStack Router starter kit.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/theming/logo</guid>
+    <title>Logo</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/theming/logo</link>
+    <description>How to change the logo in the TanStack Router starter kit.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</guid>
     <title>BulkActions</title>
     <link>https://saas-ui.dev/docs/components/advanced-data/bulk-actions/usage</link>
@@ -881,20 +1361,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/command/usage</guid>
-    <title>Command</title>
-    <link>https://saas-ui.dev/docs/components/data-display/command/usage</link>
-    <description>A command is used to show which key or combination of keys performs a given action.</description>
+    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</guid>
+    <title>AuthProvider</title>
+    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</link>
+    <description>Authentication state management and hooks.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</guid>
-    <title>AuthProvider</title>
-    <link>https://saas-ui.dev/docs/components/authentication/auth-provider/usage</link>
-    <description>Authentication state management and hooks.</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/command/usage</guid>
+    <title>Command</title>
+    <link>https://saas-ui.dev/docs/components/data-display/command/usage</link>
+    <description>A command is used to show which key or combination of keys performs a given action.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -921,16 +1401,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/persona/usage</guid>
-    <title>Persona</title>
-    <link>https://saas-ui.dev/docs/components/data-display/persona/usage</link>
-    <description>A component that represents a person and their status.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/data-display/empty-state/usage</guid>
     <title>EmptyState</title>
     <link>https://saas-ui.dev/docs/components/data-display/empty-state/usage</link>
@@ -951,10 +1421,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/structured-list/usage</guid>
-    <title>StructuredList</title>
-    <link>https://saas-ui.dev/docs/components/data-display/structured-list/usage</link>
-    <description>A component used to display collections of data in a consistent manner.</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/persona/usage</guid>
+    <title>Persona</title>
+    <link>https://saas-ui.dev/docs/components/data-display/persona/usage</link>
+    <description>A component that represents a person and their status.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -971,10 +1441,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
-    <title>Timeline</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
-    <description>Display a list of events in chronological order.</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/structured-list/usage</guid>
+    <title>StructuredList</title>
+    <link>https://saas-ui.dev/docs/components/data-display/structured-list/usage</link>
+    <description>A component used to display collections of data in a consistent manner.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -985,6 +1455,16 @@
     <title>DateInput</title>
     <link>https://saas-ui.dev/docs/components/date-time/date-input/usage</link>
     <description>Allow users to enter or select a Date and Time value.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
+    <title>Timeline</title>
+    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
+    <description>Display a list of events in chronological order.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1071,20 +1551,60 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
-    <title>ArrayField</title>
-    <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
-    <description>Form field component to handle array type values.</description>
+    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</guid>
+    <title>Tour Dialog</title>
+    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</link>
+    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</guid>
-    <title>Tour Dialog</title>
-    <link>https://saas-ui.dev/docs/components/engagement/tour-dialog/usage</link>
-    <description>A tour dialog is used convey benefits or instructions for a new features.</description>
+    <guid>https://saas-ui.dev/docs/components/feedback/banner/usage</guid>
+    <title>Banner</title>
+    <link>https://saas-ui.dev/docs/components/feedback/banner/usage</link>
+    <description>Banners are used to communicate accouncements and important information.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/feedback/loader/usage</guid>
+    <title>LoadingOverlay</title>
+    <link>https://saas-ui.dev/docs/components/feedback/loader/usage</link>
+    <description>A loading indicator that fills it's parent.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/feedback/nprogress/usage</guid>
+    <title>NProgress</title>
+    <link>https://saas-ui.dev/docs/components/feedback/nprogress/usage</link>
+    <description>Show feedback when switching pages and content is loading in the background.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/usage</guid>
+    <title>Snackbar</title>
+    <link>https://saas-ui.dev/docs/components/feedback/snackbar/usage</link>
+    <description>The snackbar component is used to give feedback after certain actions.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/forms/array-field/usage</guid>
+    <title>ArrayField</title>
+    <link>https://saas-ui.dev/docs/components/forms/array-field/usage</link>
+    <description>Form field component to handle array type values.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1121,20 +1641,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form/usage</guid>
-    <title>Form</title>
-    <link>https://saas-ui.dev/docs/components/forms/form/usage</link>
-    <description>Create fully functional React forms with just a few lines of code.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/form-layout/usage</guid>
+    <title>FormLayout</title>
+    <link>https://saas-ui.dev/docs/components/forms/form-layout/usage</link>
+    <description>Arrange fields in a form with consistant spacing and positioning.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form-layout/usage</guid>
-    <title>FormLayout</title>
-    <link>https://saas-ui.dev/docs/components/forms/form-layout/usage</link>
-    <description>Arrange fields in a form with consistant spacing and positioning.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/form/usage</guid>
+    <title>Form</title>
+    <link>https://saas-ui.dev/docs/components/forms/form/usage</link>
+    <description>Create fully functional React forms with just a few lines of code.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1191,40 +1711,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/loader/usage</guid>
-    <title>LoadingOverlay</title>
-    <link>https://saas-ui.dev/docs/components/feedback/loader/usage</link>
-    <description>A loading indicator that fills it's parent.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/banner/usage</guid>
-    <title>Banner</title>
-    <link>https://saas-ui.dev/docs/components/feedback/banner/usage</link>
-    <description>Banners are used to communicate accouncements and important information.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/snackbar/usage</guid>
-    <title>Snackbar</title>
-    <link>https://saas-ui.dev/docs/components/feedback/snackbar/usage</link>
-    <description>The snackbar component is used to give feedback after certain actions.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/feedback/nprogress/usage</guid>
-    <title>NProgress</title>
-    <link>https://saas-ui.dev/docs/components/feedback/nprogress/usage</link>
-    <description>Show feedback when switching pages and content is loading in the background.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
+    <title>Navbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
+    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1245,16 +1735,6 @@
     <title>Page</title>
     <link>https://saas-ui.dev/docs/components/layout/page/usage</link>
     <description>Page makes it easy to implement consistent page layouts throughout your app.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
-    <title>Navbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
-    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1331,10 +1811,80 @@
   </item>
 
   <item>
+    <guid>https://saas-ui.dev/docs/components/utils/error-boundary/usage</guid>
+    <title>ErrorBoundary</title>
+    <link>https://saas-ui.dev/docs/components/utils/error-boundary/usage</link>
+    <description>A container component that catches errors and displays a fallback UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
     <guid>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</guid>
     <title>ToggleButton</title>
     <link>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</link>
     <description>Toggle between different states in your app with either a checkbox or radio mode.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/utils/feature-flags/usage</guid>
+    <title>Feature Flags</title>
+    <link>https://saas-ui.dev/docs/components/utils/feature-flags/usage</link>
+    <description>Expose features to your users using feature flags.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/utils/resize-box/usage</guid>
+    <title>ResizeBox</title>
+    <link>https://saas-ui.dev/docs/components/utils/resize-box/usage</link>
+    <description>Utility hook and component to create resizable panels.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/area-chart/usage</guid>
+    <title>Area Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/area-chart/usage</link>
+    <description>An area chart is a visual representation that shows quantitative data as a series of points connected by straight line segments, filled below with color.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</guid>
+    <title>Bar Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</link>
+    <description>A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/line-chart/usage</guid>
+    <title>Line Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/line-chart/usage</link>
+    <description>A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/sparkline/usage</guid>
+    <title>Sparkline</title>
+    <link>https://saas-ui.dev/docs/components/visualization/sparkline/usage</link>
+    <description>A sparkline component is a minimalist, inline graphic displaying trends or variations.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1385,76 +1935,6 @@
     <title>ResponsiveMenu</title>
     <link>https://saas-ui.dev/docs/components/overlay/responsive-menu/usage</link>
     <description>A mobile friendly Menu component.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/utils/error-boundary/usage</guid>
-    <title>ErrorBoundary</title>
-    <link>https://saas-ui.dev/docs/components/utils/error-boundary/usage</link>
-    <description>A container component that catches errors and displays a fallback UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/utils/resize-box/usage</guid>
-    <title>ResizeBox</title>
-    <link>https://saas-ui.dev/docs/components/utils/resize-box/usage</link>
-    <description>Utility hook and component to create resizable panels.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/area-chart/usage</guid>
-    <title>Area Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/area-chart/usage</link>
-    <description>An area chart is a visual representation that shows quantitative data as a series of points connected by straight line segments, filled below with color.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/utils/feature-flags/usage</guid>
-    <title>Feature Flags</title>
-    <link>https://saas-ui.dev/docs/components/utils/feature-flags/usage</link>
-    <description>Expose features to your users using feature flags.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</guid>
-    <title>Bar Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</link>
-    <description>A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/line-chart/usage</guid>
-    <title>Line Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/line-chart/usage</link>
-    <description>A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/sparkline/usage</guid>
-    <title>Sparkline</title>
-    <link>https://saas-ui.dev/docs/components/visualization/sparkline/usage</link>
-    <description>A sparkline component is a minimalist, inline graphic displaying trends or variations.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

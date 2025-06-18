@@ -60,12 +60,15 @@ function getComponentCode(componentFolder: string, componentName: string) {
 const getRootFolder = () => {
   return path.join(
     process.env.PROJECT_CWD ?? process.cwd(),
-    '/packages/pro/packages/blocks'
+    '../../packages/pro/packages/blocks'
   )
 }
 
 export function getAllComponents(): ComponentInfo[] {
   const rootFolder = getRootFolder()
+
+  console.log('rootFolder', rootFolder)
+
   const categories = fs.readdirSync(rootFolder)
 
   const components: ComponentInfo[] = []

@@ -55,7 +55,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "yarn build:package && yarn build:yup && yarn build:zod && yarn build:ajv",
+    "build": "pnpm build:package && pnpm build:yup && pnpm build:zod && pnpm build:ajv",
     "build:package": "tsup src/index.ts --config tsup.config.ts",
     "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
     "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",
@@ -116,6 +116,8 @@
   },
   "devDependencies": {
     "@types/json-schema": "^7.0.15",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.2",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
     "json-schema-to-ts": "^2.12.0",

@@ -7,7 +7,7 @@
     "dev": "concurrently \"contentlayer2 dev\" \"next dev --port 3020\"",
     "dev:next": "next dev --port 3020",
     "dev:contentlayer": "contentlayer2 dev",
-    "build": "yarn gen:contentlayer && next build",
+    "build": "pnpm run gen:contentlayer && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",

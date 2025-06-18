@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.5.6",
-    "@chakra-ui/react": "^2.10.4",
+    "@chakra-ui/react": "^2.10.9",
     "@changesets/cli": "^2.27.9",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",

@@ -20,7 +20,7 @@
     "@ark-ui/react": "^4.3.0",
     "@chakra-ui/next-js": "^2.4.3",
     "@chakra-ui/props-docs": "^2.4.3",
-    "@chakra-ui/react": "^2.10.4",
+    "@chakra-ui/react": "^2.10.9",
     "@chakra-ui/react-env": "^3.1.0",
     "@dnd-kit/core": "^6.1.0",
     "@dnd-kit/modifiers": "^7.0.0",
@@ -76,7 +76,8 @@
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.41.3",
     "@types/node": "^18.19.54",
-    "@types/react": "^18.3.11",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.2",
     "concurrently": "^8.2.2",
     "electron-to-chromium": "^1.5.31",
     "eslint": "^8.57.1",

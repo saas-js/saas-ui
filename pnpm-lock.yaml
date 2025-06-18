@@ -199,6 +199,9 @@ importers:
       '@types/react':
         specifier: 18.3.23
         version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18.3.2
+        version: 18.3.7(@types/react@18.3.23)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -386,6 +389,9 @@ importers:
       '@types/react':
         specifier: 18.3.23
         version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18.3.2
+        version: 18.3.7(@types/react@18.3.23)
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
@@ -1245,22 +1251,22 @@ importers:
         specifier: 3.8.2
         version: 3.8.2
       '@react-aria/calendar':
-        specifier: ^3.8.3
+        specifier: 3.8.3
         version: 3.8.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/datepicker':
-        specifier: ^3.14.5
+        specifier: 3.14.5
         version: 3.14.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/i18n':
-        specifier: ^3.12.3
-        version: 3.12.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 3.12.3
+        version: 3.12.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/interactions':
-        specifier: ^3.25.3
+        specifier: 3.25.3
         version: 3.25.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-stately/calendar':
-        specifier: ^3.8.2
+        specifier: 3.8.2
         version: 3.8.2(react@18.3.1)
       '@react-stately/datepicker':
-        specifier: ^3.14.2
+        specifier: 3.14.2
         version: 3.14.2(react@18.3.1)
       '@saas-ui/core':
         specifier: workspace:*
@@ -4639,6 +4645,11 @@ packages:
     peerDependencies:
       react: 18.3.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@react-aria/i18n@3.12.3':
+    resolution: {integrity: sha512-0Tp/4JwnCVNKDfuknPF+/xf3/woOc8gUjTU2nCjO3mCVb4FU7KFtjxQ2rrx+6hpIVG6g+N9qfMjRa/ggVH0CJg==}
+    peerDependencies:
+      react: 18.3.1
 
   '@react-aria/interactions@3.25.3':
     resolution: {integrity: sha512-J1bhlrNtjPS/fe5uJQ+0c7/jiXniwa4RQlP+Emjfc/iuqpW2RhbF9ou5vROcLzWIyaW8tVMZ468J68rAs/aZ5A==}
@@ -12639,7 +12650,7 @@ snapshots:
 
   '@babel/generator@7.17.7':
     dependencies:
-      '@babel/types': 7.17.0
+      '@babel/types': 7.27.6
       jsesc: 2.5.2
       source-map: 0.5.7
 
@@ -15756,6 +15767,20 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@react-aria/i18n@3.12.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@internationalized/date': 3.8.2
+      '@internationalized/message': 3.1.8
+      '@internationalized/number': 3.6.3
+      '@internationalized/string': 3.2.7
+      '@react-aria/ssr': 3.9.9(react@18.3.1)
+      '@react-aria/utils': 3.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-types/shared': 3.30.0(react@18.3.1)
+      '@swc/helpers': 0.5.17
+      react: 18.3.1
+    transitivePeerDependencies:
+      - react-dom
+
   '@react-aria/interactions@3.25.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@react-aria/ssr': 3.9.9(react@18.3.1)
@@ -16125,7 +16150,7 @@ snapshots:
       '@internationalized/date': 3.8.2
       '@react-aria/calendar': 3.8.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/datepicker': 3.14.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@react-aria/i18n': 3.12.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/i18n': 3.12.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/interactions': 3.25.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-stately/calendar': 3.8.2(react@18.3.1)
       '@react-stately/datepicker': 3.14.2(react@18.3.1)
@@ -17241,7 +17266,7 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 18.19.112
+      '@types/node': 20.19.1
 
   '@types/glob@8.1.0':
     dependencies:
@@ -17288,7 +17313,7 @@ snapshots:
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 18.19.112
+      '@types/node': 20.19.1
 
   '@types/lodash.debounce@4.0.9':
     dependencies:
@@ -17324,7 +17349,7 @@ snapshots:
 
   '@types/node-fetch@2.6.12':
     dependencies:
-      '@types/node': 18.19.112
+      '@types/node': 20.19.1
       form-data: 4.0.3
 
   '@types/node@12.20.55': {}
@@ -17410,7 +17435,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 18.19.112
+      '@types/node': 20.19.1
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -21685,7 +21710,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 18.19.112
+      '@types/node': 20.19.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -23690,7 +23715,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 18.19.112
+      '@types/node': 20.19.1
       long: 5.3.2
 
   protocols@2.0.2: {}

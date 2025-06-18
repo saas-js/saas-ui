@@ -1,3 +1,4 @@
+import type {} from 'csstype'
 import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
 import { dataAttr } from '@chakra-ui/utils'
 import { useResizeObserver } from '@react-aria/utils'

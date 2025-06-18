@@ -89,6 +89,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/theme": ">=2 <3",
     "react": ">=18.0.0"
   }
 }

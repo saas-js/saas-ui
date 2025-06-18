@@ -67,8 +67,6 @@ const getRootFolder = () => {
 export function getAllComponents(): ComponentInfo[] {
   const rootFolder = getRootFolder()
 
-  console.log('rootFolder', rootFolder)
-
   const categories = fs.readdirSync(rootFolder)
 
   const components: ComponentInfo[] = []

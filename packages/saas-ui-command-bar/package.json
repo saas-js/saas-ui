@@ -5,11 +5,13 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
     "./theme": {
+      "sui": "./src/command-bar-theme.ts",
       "require": "./dist/command-bar-theme.js",
       "types": "./dist/command-bar-theme.d.ts",
       "import": "./dist/command-bar-theme.mjs"

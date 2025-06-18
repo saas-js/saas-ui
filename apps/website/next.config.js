@@ -118,6 +118,7 @@ let config = {
     config.resolve = {
       ...config.resolve,
       conditionNames: [
+        'sui',
         'sui-pro',
         'browser',
         'node',

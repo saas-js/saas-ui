@@ -4,6 +4,7 @@
   "description": "Saas UI - The React component library for startups.",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"

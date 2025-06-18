@@ -5,11 +5,13 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
     "./zod": {
+      "sui": "./src/zod/index.ts",
       "types": "./dist/zod/index.d.ts",
       "require": "./dist/zod/index.js",
       "import": "./dist/zod/index.mjs"
@@ -18,6 +20,7 @@
       "default": "./src/zod/index.ts"
     },
     "./yup": {
+      "sui": "./src/yup/index.ts",
       "types": "./dist/yup/index.d.ts",
       "require": "./dist/yup/index.js",
       "import": "./dist/yup/index.mjs"

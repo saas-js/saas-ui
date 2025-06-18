@@ -5,6 +5,7 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
@@ -13,6 +14,7 @@
       "default": "./src/index.ts"
     },
     "./anatomy": {
+      "sui": "./src/anatomy/index.ts",
       "require": "./dist/anatomy/index.js",
       "types": "./dist/anatomy/index.d.ts",
       "import": "./dist/anatomy/index/.mjs"
@@ -21,6 +23,7 @@
       "default": "./src/anatomy/index.ts"
     },
     "./components": {
+      "sui": "./src/components/index.ts",
       "types": "./dist/components/index.d.ts",
       "import": "./dist/components/index.mjs",
       "require": "./dist/components/index.js"

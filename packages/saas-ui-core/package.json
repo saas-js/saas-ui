@@ -4,16 +4,19 @@
   "description": "Saas UI - The React component library for startups.",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
     "./icons": {
+      "sui": "./src/icons/index.ts",
       "require": "./dist/icons/index.js",
       "types": "./dist/icons/index.d.ts",
       "import": "./dist/icons/index.mjs"
     },
     "./utils": {
+      "sui": "./src/utils/index.ts",
       "require": "./dist/utils/index.js",
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.mjs"

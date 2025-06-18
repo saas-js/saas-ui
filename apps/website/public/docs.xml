@@ -7,7 +7,7 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Wed, 18 Jun 2025 14:34:05 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 18 Jun 2025 15:40:09 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/docs.xml" rel="self" type="application/rss+xml"/>
       
   <item>
@@ -81,26 +81,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
-    <title>useCollapse</title>
-    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
-    <description>React hook that helps creating accesssible Collapse components.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
-    <title>useLocalStorage</title>
-    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
-    <description>React hook to manage localStorage</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/nextjs-starter-kit/commands</guid>
     <title>CLI commands</title>
     <link>https://saas-ui.dev/docs/nextjs-starter-kit/commands</link>
@@ -135,6 +115,26 @@
     <title>Tech stack</title>
     <link>https://saas-ui.dev/docs/nextjs-starter-kit/tech-stack</link>
     <description>An overview of technologies used in the Saas UI Next.js starter kit.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-collapse</guid>
+    <title>useCollapse</title>
+    <link>https://saas-ui.dev/docs/hooks/use-collapse</link>
+    <description>React hook that helps creating accesssible Collapse components.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/hooks/use-local-storage</guid>
+    <title>useLocalStorage</title>
+    <link>https://saas-ui.dev/docs/hooks/use-local-storage</link>
+    <description>React hook to manage localStorage</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -601,16 +601,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/nextjs-starter-kit/configuration/environment-variables</guid>
-    <title>Environment variables</title>
-    <link>https://saas-ui.dev/docs/nextjs-starter-kit/configuration/environment-variables</link>
-    <description>How to configure environment variables in the Saas UI Next.js starter kit.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/nextjs-starter-kit/contributing/bugs-and-feature-requests</guid>
     <title>Report bugs and feature requests</title>
     <link>https://saas-ui.dev/docs/nextjs-starter-kit/contributing/bugs-and-feature-requests</link>
@@ -625,6 +615,16 @@
     <title>Contributing</title>
     <link>https://saas-ui.dev/docs/nextjs-starter-kit/contributing/contributing</link>
     <description>How to contribute to the Next.js starter kit</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/nextjs-starter-kit/configuration/environment-variables</guid>
+    <title>Environment variables</title>
+    <link>https://saas-ui.dev/docs/nextjs-starter-kit/configuration/environment-variables</link>
+    <description>How to configure environment variables in the Saas UI Next.js starter kit.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1111,36 +1111,6 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/netlify</guid>
-    <title>Deploy to Netlify</title>
-    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/netlify</link>
-    <description>This guide will show you how to deploy to Netlify</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/preparation</guid>
-    <title>Preparing for deployment</title>
-    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/preparation</link>
-    <description>This guide will show you how to prepare your project for deployment.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/vercel</guid>
-    <title>Deploy to Vercel</title>
-    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/vercel</link>
-    <description>This guide will show you how to deploy to Vercel</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/database</guid>
     <title>Database overview</title>
     <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database</link>
@@ -1185,6 +1155,36 @@
     <title>Drizzle Studio</title>
     <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/database/studio</link>
     <description>Explore your database using Drizzle Studio</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/netlify</guid>
+    <title>Deploy to Netlify</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/netlify</link>
+    <description>This guide will show you how to deploy to Netlify</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/preparation</guid>
+    <title>Preparing for deployment</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/preparation</link>
+    <description>This guide will show you how to prepare your project for deployment.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/vercel</guid>
+    <title>Deploy to Vercel</title>
+    <link>https://saas-ui.dev/docs/tanstack-router-starter-kit/deployments/vercel</link>
+    <description>This guide will show you how to deploy to Vercel</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1451,20 +1451,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-input/usage</guid>
-    <title>DateInput</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-input/usage</link>
-    <description>Allow users to enter or select a Date and Time value.</description>
+    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
+    <title>Timeline</title>
+    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
+    <description>Display a list of events in chronological order.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/data-display/timeline/usage</guid>
-    <title>Timeline</title>
-    <link>https://saas-ui.dev/docs/components/data-display/timeline/usage</link>
-    <description>Display a list of events in chronological order.</description>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-input/usage</guid>
+    <title>DateInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-input/usage</link>
+    <description>Allow users to enter or select a Date and Time value.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1501,20 +1501,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</guid>
-    <title>DateRangeInput</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</link>
-    <description>Allow users to enter or select a Date and Time range.</description>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</guid>
+    <title>DateRangePicker</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</link>
+    <description>Allow users to select a Date and Time value.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</guid>
-    <title>DateRangePicker</title>
-    <link>https://saas-ui.dev/docs/components/date-time/date-range-picker/usage</link>
-    <description>Allow users to select a Date and Time value.</description>
+    <guid>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</guid>
+    <title>DateRangeInput</title>
+    <link>https://saas-ui.dev/docs/components/date-time/date-range-input/usage</link>
+    <description>Allow users to enter or select a Date and Time range.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1641,20 +1641,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form-layout/usage</guid>
-    <title>FormLayout</title>
-    <link>https://saas-ui.dev/docs/components/forms/form-layout/usage</link>
-    <description>Arrange fields in a form with consistant spacing and positioning.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/form/usage</guid>
+    <title>Form</title>
+    <link>https://saas-ui.dev/docs/components/forms/form/usage</link>
+    <description>Create fully functional React forms with just a few lines of code.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/forms/form/usage</guid>
-    <title>Form</title>
-    <link>https://saas-ui.dev/docs/components/forms/form/usage</link>
-    <description>Create fully functional React forms with just a few lines of code.</description>
+    <guid>https://saas-ui.dev/docs/components/forms/form-layout/usage</guid>
+    <title>FormLayout</title>
+    <link>https://saas-ui.dev/docs/components/forms/form-layout/usage</link>
+    <description>Arrange fields in a form with consistant spacing and positioning.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1711,20 +1711,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
-    <title>Navbar</title>
-    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
-    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/app-shell/usage</guid>
+    <title>App Shell</title>
+    <link>https://saas-ui.dev/docs/components/layout/app-shell/usage</link>
+    <description>The App Shell defines the main structure of your app.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/app-shell/usage</guid>
-    <title>App Shell</title>
-    <link>https://saas-ui.dev/docs/components/layout/app-shell/usage</link>
-    <description>The App Shell defines the main structure of your app.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/navbar/usage</guid>
+    <title>Navbar</title>
+    <link>https://saas-ui.dev/docs/components/layout/navbar/usage</link>
+    <description>Top navigation, typically used as primary navigation in websites or stacked application layouts.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1751,20 +1751,20 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/sidebar/usage</guid>
-    <title>Sidebar</title>
-    <link>https://saas-ui.dev/docs/components/layout/sidebar/usage</link>
-    <description>Side navigation, commonly used as the primary navigation in web applications.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/split-page/usage</guid>
+    <title>SplitPage</title>
+    <link>https://saas-ui.dev/docs/components/layout/split-page/usage</link>
+    <description>SplitPage allows you to create mobile friendly layouts with split panes.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/layout/split-page/usage</guid>
-    <title>SplitPage</title>
-    <link>https://saas-ui.dev/docs/components/layout/split-page/usage</link>
-    <description>SplitPage allows you to create mobile friendly layouts with split panes.</description>
+    <guid>https://saas-ui.dev/docs/components/layout/sidebar/usage</guid>
+    <title>Sidebar</title>
+    <link>https://saas-ui.dev/docs/components/layout/sidebar/usage</link>
+    <description>Side navigation, commonly used as the primary navigation in web applications.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1811,80 +1811,10 @@
   </item>
 
   <item>
-    <guid>https://saas-ui.dev/docs/components/utils/error-boundary/usage</guid>
-    <title>ErrorBoundary</title>
-    <link>https://saas-ui.dev/docs/components/utils/error-boundary/usage</link>
-    <description>A container component that catches errors and displays a fallback UI.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
     <guid>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</guid>
     <title>ToggleButton</title>
     <link>https://saas-ui.dev/docs/components/navigation/toggle-button/usage</link>
     <description>Toggle between different states in your app with either a checkbox or radio mode.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/utils/feature-flags/usage</guid>
-    <title>Feature Flags</title>
-    <link>https://saas-ui.dev/docs/components/utils/feature-flags/usage</link>
-    <description>Expose features to your users using feature flags.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/utils/resize-box/usage</guid>
-    <title>ResizeBox</title>
-    <link>https://saas-ui.dev/docs/components/utils/resize-box/usage</link>
-    <description>Utility hook and component to create resizable panels.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/area-chart/usage</guid>
-    <title>Area Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/area-chart/usage</link>
-    <description>An area chart is a visual representation that shows quantitative data as a series of points connected by straight line segments, filled below with color.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</guid>
-    <title>Bar Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</link>
-    <description>A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/line-chart/usage</guid>
-    <title>Line Chart</title>
-    <link>https://saas-ui.dev/docs/components/visualization/line-chart/usage</link>
-    <description>A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.</description>
-    
-    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://saas-ui.dev/docs/components/visualization/sparkline/usage</guid>
-    <title>Sparkline</title>
-    <link>https://saas-ui.dev/docs/components/visualization/sparkline/usage</link>
-    <description>A sparkline component is a minimalist, inline graphic displaying trends or variations.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
@@ -1935,6 +1865,76 @@
     <title>ResponsiveMenu</title>
     <link>https://saas-ui.dev/docs/components/overlay/responsive-menu/usage</link>
     <description>A mobile friendly Menu component.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/utils/error-boundary/usage</guid>
+    <title>ErrorBoundary</title>
+    <link>https://saas-ui.dev/docs/components/utils/error-boundary/usage</link>
+    <description>A container component that catches errors and displays a fallback UI.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/utils/feature-flags/usage</guid>
+    <title>Feature Flags</title>
+    <link>https://saas-ui.dev/docs/components/utils/feature-flags/usage</link>
+    <description>Expose features to your users using feature flags.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/utils/resize-box/usage</guid>
+    <title>ResizeBox</title>
+    <link>https://saas-ui.dev/docs/components/utils/resize-box/usage</link>
+    <description>Utility hook and component to create resizable panels.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</guid>
+    <title>Bar Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/bar-chart/usage</link>
+    <description>A bar chart component is a visual representation using rectangular bars to compare quantities across different categories or time periods.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/area-chart/usage</guid>
+    <title>Area Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/area-chart/usage</link>
+    <description>An area chart is a visual representation that shows quantitative data as a series of points connected by straight line segments, filled below with color.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/line-chart/usage</guid>
+    <title>Line Chart</title>
+    <link>https://saas-ui.dev/docs/components/visualization/line-chart/usage</link>
+    <description>A line chart is a visual representation that shows quantitative data as a series of points connected by straight line segments.</description>
+    
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/docs/components/visualization/sparkline/usage</guid>
+    <title>Sparkline</title>
+    <link>https://saas-ui.dev/docs/components/visualization/sparkline/usage</link>
+    <description>A sparkline component is a minimalist, inline graphic displaying trends or variations.</description>
     
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     

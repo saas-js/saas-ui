@@ -1,6 +1,5 @@
 packages:
-  - apps/website
-  - apps/compositions
+  - apps/*
   - packages/storybook
   - packages/pro/packages/*
   - packages/saas-ui-*
@@ -10,8 +9,3 @@ packages:
   - tooling/storybook-addon
 onlyBuiltDependencies:
   - '@parcel/watcher'
-overrides:
-  '@ark-ui/react': '5.12.0'
-  '@chakra-ui/react': '3.20.0'
-  'react': '19.0.0'
-  '@types/react': '19.0.12'

@@ -81,13 +81,13 @@
     "cmdk": "^1.0.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
-    "react": ">=18.0.0",
+    "@chakra-ui/react": "2.10.9",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "react-icons": "^5.3.0",
-    "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.2"
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.3.2",
+    "react-icons": "^5.3.0"
   }
 }

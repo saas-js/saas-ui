@@ -88,8 +88,8 @@
     "@chakra-ui/theme-tools": "^2.2.7"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@chakra-ui/theme": ">=2 <3",
-    "react": ">=18.0.0"
+    "react": "18.3.1"
   }
 }

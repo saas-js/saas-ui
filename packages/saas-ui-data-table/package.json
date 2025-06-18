@@ -61,15 +61,17 @@
     "@tanstack/react-table": "^8.20.5"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@emotion/react": ">=11.0.0",
     "@emotion/styled": ">=11.0.0",
     "@saas-ui/react": "workspace:*",
     "framer-motion": ">=6.0.0",
-    "react": ">=18.0.0",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.3.2",
     "@ngneat/falso": "^6.4.0"
   }
 }

@@ -1,9 +1,9 @@
-import { dataAttr, PropGetter } from '@chakra-ui/utils'
-import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
+import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 import { useResizeObserver } from '@react-aria/utils'
 import { useScrollPosition } from '@saas-ui/hooks'
 import { HTMLMotionProps } from 'framer-motion'
-import type { HTMLChakraProps, ThemingProps } from '@chakra-ui/react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 type MotionProps = Pick<
   HTMLMotionProps<'div'>,

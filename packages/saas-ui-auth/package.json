@@ -65,11 +65,11 @@
     "@saas-ui/hooks": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@emotion/react": ">=11.0.0",
     "@emotion/styled": ">=11.0.0",
     "framer-motion": ">=6.0.0",
-    "react": ">=18.0.0",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
   }
 }

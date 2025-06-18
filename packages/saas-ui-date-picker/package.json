@@ -70,20 +70,20 @@
     "@saas-ui/modals": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@emotion/react": ">=11.0.0",
     "@emotion/styled": ">=11.0.0",
     "framer-motion": ">=6.0.0",
-    "react": ">=18.0.0",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.2",
+    "@react-types/button": "3.12.2",
     "@react-types/datepicker": "^3.12.2",
     "@react-types/shared": "^3.30.0",
-    "@react-types/button": "^3.12.2",
     "@saas-ui/forms": "workspace:*",
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.3.2",
     "date-fns": "^3.6.0"
   }
 }

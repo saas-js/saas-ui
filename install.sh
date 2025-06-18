@@ -28,4 +28,4 @@ cat .gitmodules
 git submodule sync
 git submodule update --init --recursive
 
-pnpm install
+pnpm install --no-frozen-lockfile

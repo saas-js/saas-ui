@@ -1,7 +1,7 @@
 #!/bin/bash
  
 if [[ $VERCEL_ENV == "production"  ]] ; then 
-  yarn build:web
+  pnpm build:web
 else 
   pnpm build:web
 fi

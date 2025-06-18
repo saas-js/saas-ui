@@ -1,7 +1,7 @@
 #!/bin/bash
  
 if [[ $VERCEL_ENV == "production"  ]] ; then 
-  yarn
+  pnpm install
 else 
   pnpm install
 fi

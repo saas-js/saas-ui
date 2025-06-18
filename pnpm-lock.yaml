@@ -1170,6 +1170,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.25.3
         version: 3.29.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@saas-ui/hotkeys':
+        specifier: workspace:*
+        version: link:../saas-ui-hotkeys
       '@saas-ui/react-utils':
         specifier: workspace:*
         version: link:../saas-ui-react-utils
@@ -1192,6 +1195,12 @@ importers:
         specifier: '>=18'
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@types/react':
+        specifier: 18.3.23
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18.3.2
+        version: 18.3.7(@types/react@18.3.23)
       tsup:
         specifier: ^8.3.0
         version: 8.3.5(@swc/core@1.12.1(@swc/helpers@0.5.17))(jiti@2.4.2)(postcss@8.5.6)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0)
@@ -1473,6 +1482,13 @@ importers:
       react-dom:
         specifier: '>=18.0.0'
         version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/react':
+        specifier: 18.3.23
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18.3.2
+        version: 18.3.7(@types/react@18.3.23)
 
   packages/saas-ui-modals:
     dependencies:
@@ -13595,7 +13611,7 @@ snapshots:
     dependencies:
       '@chakra-ui/hooks': 2.4.5(react@19.0.0)
       '@chakra-ui/styled-system': 2.12.4(react@19.0.0)
-      '@chakra-ui/theme': 3.4.9(@chakra-ui/styled-system@2.12.4(react@18.3.1))(react@19.0.0)
+      '@chakra-ui/theme': 3.4.9(@chakra-ui/styled-system@2.12.4(react@19.0.0))(react@19.0.0)
       '@chakra-ui/utils': 2.2.5(react@19.0.0)
       '@emotion/react': 11.14.0(@types/react@18.3.23)(react@19.0.0)
       '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@18.3.23)(react@19.0.0))(@types/react@18.3.23)(react@19.0.0)
@@ -13663,10 +13679,10 @@ snapshots:
     transitivePeerDependencies:
       - react
 
-  '@chakra-ui/theme-tools@2.2.9(@chakra-ui/styled-system@2.12.4(react@18.3.1))(react@19.0.0)':
+  '@chakra-ui/theme-tools@2.2.9(@chakra-ui/styled-system@2.12.4(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@chakra-ui/anatomy': 2.3.6
-      '@chakra-ui/styled-system': 2.12.4(react@18.3.1)
+      '@chakra-ui/styled-system': 2.12.4(react@19.0.0)
       '@chakra-ui/utils': 2.2.5(react@19.0.0)
       color2k: 2.0.3
     transitivePeerDependencies:
@@ -13688,11 +13704,11 @@ snapshots:
     transitivePeerDependencies:
       - react
 
-  '@chakra-ui/theme@3.4.9(@chakra-ui/styled-system@2.12.4(react@18.3.1))(react@19.0.0)':
+  '@chakra-ui/theme@3.4.9(@chakra-ui/styled-system@2.12.4(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@chakra-ui/anatomy': 2.3.6
-      '@chakra-ui/styled-system': 2.12.4(react@18.3.1)
-      '@chakra-ui/theme-tools': 2.2.9(@chakra-ui/styled-system@2.12.4(react@18.3.1))(react@19.0.0)
+      '@chakra-ui/styled-system': 2.12.4(react@19.0.0)
+      '@chakra-ui/theme-tools': 2.2.9(@chakra-ui/styled-system@2.12.4(react@19.0.0))(react@19.0.0)
       '@chakra-ui/utils': 2.2.5(react@19.0.0)
     transitivePeerDependencies:
       - react

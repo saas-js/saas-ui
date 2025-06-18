@@ -70,6 +70,7 @@
     "remark-code-titles": "^0.1.2",
     "remark-emoji": "^3.1.2",
     "remark-gfm": "^4.0.0",
+    "unist-util-visit": "^5.0.0",
     "yup": "^1.4.0",
     "zod": "^3.23.8"
   },

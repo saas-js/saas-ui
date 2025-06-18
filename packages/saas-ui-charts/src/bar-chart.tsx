@@ -140,10 +140,12 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
           '--chart-cursor-bg': 'var(--chakra-colors-blackAlpha-100)',
           '--chart-gradient-start-opacity': '0.8',
           '--chart-gradient-end-opacity': '80',
+          '--chart-grid-stroke-opacity': '0.8',
           _dark: {
             '--chart-cursor-bg': 'var(--chakra-colors-whiteAlpha-100)',
             '--chart-gradient-start-opacity': '80',
             '--chart-gradient-end-opacity': '0.8',
+            '--chart-grid-stroke-opacity': '0.3',
           },
         }}
       >
@@ -154,12 +156,13 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             barGap={barGap}
             barSize={barSize}
             stackOffset={stackOffset}
+            layout="vertical"
           >
             {showGrid && (
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
                 vertical={false}
-                strokeOpacity={useColorModeValue(0.8, 0.3)}
+                strokeOpacity="var(--chart-grid-stroke-opacity)"
               />
             )}
 

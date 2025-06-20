@@ -5,8 +5,8 @@ import React, { forwardRef } from 'react'
 import { type HTMLSystemProps, sui } from '#system'
 import { createContext } from '#utils'
 
-import { UseNavbarProps, splitNavbarProps, useNavbar } from './use-navbar'
-import type { UseNavbarReturn } from './use-navbar'
+import { UseNavbarProps, splitNavbarProps, useNavbar } from './use-navbar.ts'
+import type { UseNavbarReturn } from './use-navbar.ts'
 
 export const [NavbarProvider, useNavbarContext] =
   createContext<UseNavbarReturn>({

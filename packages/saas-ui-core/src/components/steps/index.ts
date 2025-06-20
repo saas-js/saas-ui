@@ -5,10 +5,10 @@ export {
   useStepperContext,
   useStepperNextButton,
   useStepperPrevButton,
-} from './use-stepper'
+} from './use-stepper.tsx'
 
 export type {
   UseStepProps,
   UseStepperProps,
   UseStepperReturn,
-} from './use-stepper'
+} from './use-stepper.tsx'

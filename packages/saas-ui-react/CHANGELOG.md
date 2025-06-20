@@ -1,5 +1,16 @@
 # @saas-ui/react
 
+## 3.0.0-next.38
+
+### Major Changes
+
+- 3e6b10b: Changed Persona composition to an open component
+
+### Patch Changes
+
+- Updated dependencies [bb98745]
+  - @saas-ui/core@3.0.0-next.11
+
 ## 3.0.0-next.37
 
 ### Minor Changes

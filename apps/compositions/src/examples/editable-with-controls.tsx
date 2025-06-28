@@ -1,5 +1,7 @@
-import { Editable, IconButton } from "@chakra-ui/react"
-import { LuCheck, LuPencilLine, LuX } from "react-icons/lu"
+'use client'
+
+import { Editable, IconButton } from '@saas-ui/react'
+import { LuCheck, LuPencilLine, LuX } from 'react-icons/lu'
 
 export const EditableWithControls = () => {
   return (

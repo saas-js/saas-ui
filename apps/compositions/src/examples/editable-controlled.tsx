@@ -1,10 +1,11 @@
-"use client"
+'use client'
 
-import { Editable } from "@chakra-ui/react"
-import { useState } from "react"
+import { useState } from 'react'
+
+import { Editable } from '@saas-ui/react'
 
 export const EditableControlled = () => {
-  const [name, setName] = useState("")
+  const [name, setName] = useState('')
   return (
     <Editable.Root
       value={name}

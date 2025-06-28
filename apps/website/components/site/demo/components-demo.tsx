@@ -65,7 +65,7 @@ export const ComponentsDemo = () => {
 
 function DemoCard(props: { children: React.ReactNode }) {
   return (
-    <Card.Root size="lg" variant="elevated" textStyle="sm">
+    <Card.Root variant="elevated" textStyle="sm">
       {props.children}
     </Card.Root>
   )
@@ -96,7 +96,6 @@ function AuthCard(props: {
         {props.children}
       </Card.Body>
       <Card.Footer
-        pt="3"
         pb="3"
         borderBottomRadius="md"
         textAlign="center"
@@ -230,7 +229,7 @@ export const FilesCard = () => {
 
   return (
     <DemoCard>
-      <Card.Header>
+      <Card.Header pb="1">
         <Card.Title>
           Files{' '}
           <Span ms="2" fontSize="xs" fontWeight="normal" color="fg.muted">
@@ -265,7 +264,7 @@ export const FilesCard = () => {
               </Text>
             </GridList.Cell>
             <GridList.Cell>
-              <IconButton aria-label="Download" variant="ghost">
+              <IconButton aria-label="Download" variant="ghost" size="sm">
                 <LuDownload />
               </IconButton>
             </GridList.Cell>
@@ -378,7 +377,7 @@ const NotificationItem: React.FC<NotificationItemProps> = (props) => {
         },
       }}
     >
-      <Field.Root>
+      <Field.Root ps="2">
         <GridList.Cell flex="1">
           <Field.Label textStyle="sm" userSelect="none">
             {title}

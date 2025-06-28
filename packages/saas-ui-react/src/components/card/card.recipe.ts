@@ -24,6 +24,7 @@ export const cardSlotRecipe = defineSlotRecipe({
     },
     header: {
       padding: 'var(--card-padding)',
+      paddingBottom: 'calc(var(--card-padding) / 2)',
       display: 'flex',
       flexDirection: 'column',
       gap: '1',
@@ -34,7 +35,10 @@ export const cardSlotRecipe = defineSlotRecipe({
       display: 'flex',
       flexDirection: 'column',
       '&:is(.chakra-card__header + &)': {
-        paddingTop: 0,
+        paddingTop: 'calc(var(--card-padding) / 2)',
+      },
+      '&:has(+ .chakra-card__footer)': {
+        paddingBottom: 'calc(var(--card-padding) / 2)',
       },
     },
     footer: {
@@ -42,7 +46,7 @@ export const cardSlotRecipe = defineSlotRecipe({
       alignItems: 'center',
       gap: '2',
       padding: 'var(--card-padding)',
-      paddingTop: 0,
+      paddingTop: 'calc(var(--card-padding) / 2)',
     },
   },
   variants: {

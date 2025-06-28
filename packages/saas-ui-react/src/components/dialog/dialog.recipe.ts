@@ -56,12 +56,18 @@ export const dialogSlotRecipe = defineSlotRecipe({
       flex: 0,
       px: '6',
       py: '4',
+      paddingBottom: '2',
     },
     body: {
       flex: '1',
       px: '6',
-      pt: '2',
-      pb: '6',
+      py: '4',
+      '&:is(.chakra-dialog__header + &)': {
+        paddingTop: '2',
+      },
+      '&:has(+ .chakra-dialog__footer)': {
+        paddingBottom: '2',
+      },
     },
     footer: {
       display: 'flex',

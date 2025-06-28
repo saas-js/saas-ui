@@ -14,10 +14,18 @@ function formatComponentName(name: string) {
 export const ExamplePreview = (props: Props) => {
   const { name } = props
   const componentName = formatComponentName(name)
+
   const Component = dynamic(() =>
-    import(`../../compositions/src/examples/${name}`).then(
-      (mod) => mod[componentName],
-    ),
+    import(`../../compositions/src/examples/${name}`)
+      .catch(() => {
+        console.error(`Example ${name} not found`)
+      })
+      .then((mod) => (mod ? mod[componentName] : Fallback)),
   )
+
   return <Component />
+}
+
+function Fallback() {
+  return <div>Example not found</div>
 }

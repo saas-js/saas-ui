@@ -46,11 +46,11 @@ export function FounderSection() {
               logic that breaks every time you touch it.
             </Text>
 
-            <Persona
-              name="Eelco Wiersma"
-              src="/eelco128.jpg"
-              secondaryLabel="Founder Saas UI"
-            />
+            <Persona.Root>
+              <Persona.Avatar src="/eelco128.jpg" name="Eelco Wiersma" />
+              <Persona.Label>Eelco Wiersma</Persona.Label>
+              <Persona.SecondaryLabel>Founder Saas UI</Persona.SecondaryLabel>
+            </Persona.Root>
           </Box>
         </Grid>
       </Container>

@@ -42,6 +42,7 @@ export const skeletonRecipe = defineRecipe({
       },
       none: {
         animation: 'none',
+        background: 'bg.muted',
       },
     },
   },

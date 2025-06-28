@@ -6,12 +6,9 @@ description:
   minimal code.
 ---
 
-## Built-in fields
-
 The `form.Field` component can be used to create a field for any of these types.
 
-- `text`
-- `email`
+- `text`, `email`, `url`, `phone`, `time`
 - `number`
 - `password`
 - `textarea`
@@ -21,8 +18,25 @@ The `form.Field` component can be used to create a field for any of these types.
 
 If no `type` is provided, the field will default to `text`.
 
+## Setup
+
+Add `FieldsProvider` to your app to make the fields available to all forms.
+
 ```tsx
-import { SubmitButton, useForm } from '@saas-ui/forms'
+import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
+
+function MyApp() {
+  return (
+    <FieldsProvider value={{ fields: defaultFieldTypes }}>
+      <App />
+    </FieldsProvider>
+  )
+```
+
+## Basic usage
+
+```tsx
+import { FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 
 function MyForm() {
   const form = useForm({
@@ -37,14 +51,46 @@ function MyForm() {
 
   return (
     <form.Form>
-      <form.Field name="name" type="text" />
-      <form.Field name="email" type="email" />
+      <FormLayout>
+        <form.Field name="name" type="text" />
+        <form.Field name="email" type="email" />
+      </FormLayout>
 
       <SubmitButton>Save</SubmitButton>
     </form.Form>
   )
 }
 ```
+
+## Built-in fields
+
+### Text Field
+
+<ExampleTabs name="form-text" />
+
+### Number Field
+
+<ExampleTabs name="form-number" />
+
+### Password Field
+
+<ExampleTabs name="form-password" />
+
+### Select Field
+
+<ExampleTabs name="form-select" />
+
+### Checkbox Field
+
+<ExampleTabs name="form-checkbox" />
+
+### Radio Field
+
+<ExampleTabs name="form-radio" />
+
+### Switch Field
+
+<ExampleTabs name="form-switch" />
 
 ## Custom fields
 
@@ -120,7 +166,8 @@ The `createField` function returns a React component that can be used to render
 the field.
 
 ```tsx
-import { createField, useForm } from '@saas-ui/forms'
+// App.tsx
+import { createField, FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
 
 const CustomInputField = createField<HTMLInputElement, InputFieldProps>(
   (props, ref) => {
@@ -128,11 +175,26 @@ const CustomInputField = createField<HTMLInputElement, InputFieldProps>(
   },
 )
 
+export default function App() {
+  return (
+    <FieldsProvider value={{
+      fields: {
+        ...defaultFieldTypes
+        custom: CustomInputField,
+      }
+    }}>
+      <App />
+    </FieldsProvider>
+  )
+}
+```
+
+```tsx
+// Form.tsx
+import { useForm } from '@saas-ui/forms'
+
 function MyForm() {
   const form = useForm({
-    fields: {
-      custom: CustomInputField,
-    },
     defaultValues: {
       name: '',
     },

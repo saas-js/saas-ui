@@ -2,7 +2,7 @@ import { defineSlotRecipe } from '@chakra-ui/react'
 
 export const navbarSlotRecipe = defineSlotRecipe({
   className: 'sui-navbar',
-  slots: ['root', 'content', 'brand', 'item', 'link'],
+  slots: ['root', 'content', 'brand', 'itemGroup', 'item', 'link'],
   base: {
     root: {
       display: 'flex',
@@ -39,6 +39,13 @@ export const navbarSlotRecipe = defineSlotRecipe({
       whiteSpace: 'nowrap',
       boxSizing: 'border-box',
     },
+    itemGroup: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      height: 'full',
+      bg: 'transparent',
+    },
     link: {
       bg: 'transparent',
       color: 'currentColor',
@@ -48,7 +55,7 @@ export const navbarSlotRecipe = defineSlotRecipe({
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       boxSizing: 'border-box',
-      borderRadius: 'md',
+      borderRadius: 'control.md',
       transitionProperty: 'common',
       transitionDuration: 'moderate',
       lineHeight: 1,
@@ -75,8 +82,20 @@ export const navbarSlotRecipe = defineSlotRecipe({
       },
       solid: {
         root: {
-          bg: 'colorPalette.500',
+          bg: 'colorPalette.solid',
           color: 'colorPalette.contrast',
+        },
+        link: {
+          _hover: {
+            bg: 'colorPalette.contrast/10',
+          },
+        },
+      },
+      glass: {
+        root: {
+          bg: 'bg.overlay',
+          backdropFilter: 'var(--overlay-effect)',
+          color: 'fg',
         },
       },
     },

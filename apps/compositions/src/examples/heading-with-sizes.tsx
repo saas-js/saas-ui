@@ -1,8 +1,8 @@
-import { Heading, Stack } from "@chakra-ui/react"
+import { Heading, Stack } from '@chakra-ui/react'
 
 export const HeadingWithSizes = () => {
   return (
-    <Stack gap="2" align="flex-start">
+    <Stack gap="2" align="flex-start" pb="2">
       <Heading size="sm">Heading (sm)</Heading>
       <Heading size="md">Heading (md)</Heading>
       <Heading size="lg">Heading (lg)</Heading>

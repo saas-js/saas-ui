@@ -3,6 +3,7 @@ import { defineRecipe } from '@chakra-ui/react/styled-system'
 export const radiomarkRecipe = defineRecipe({
   className: 'chakra-radiomark',
   base: {
+    colorPalette: 'accent',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',

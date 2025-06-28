@@ -1,36 +1,80 @@
 import { defineTextStyles } from '@chakra-ui/react'
 
 export const textStyles: any = defineTextStyles({
-  '2xs': { value: { fontSize: '2xs', lineHeight: '0.75rem' } },
-  xs: { value: { fontSize: 'xs', lineHeight: '1rem' } },
-  sm: { value: { fontSize: 'sm', lineHeight: '1.25rem' } },
-  md: { value: { fontSize: 'md', lineHeight: '1.5rem' } },
-  lg: { value: { fontSize: 'lg', lineHeight: '1.75rem' } },
-  xl: { value: { fontSize: 'xl', lineHeight: '1.875rem' } },
-  '2xl': { value: { fontSize: '2xl', lineHeight: '2rem' } },
-  '3xl': { value: { fontSize: '3xl', lineHeight: '2.375rem' } },
+  '2xs': {
+    value: {
+      fontSize: '2xs',
+      lineHeight: '2xs',
+    },
+  },
+  xs: {
+    value: {
+      fontSize: 'xs',
+      lineHeight: 'xs',
+    },
+  },
+  sm: {
+    value: {
+      fontSize: 'sm',
+      lineHeight: 'sm',
+    },
+  },
+  md: {
+    value: {
+      fontSize: 'md',
+      lineHeight: 'md',
+    },
+  },
+  lg: {
+    value: {
+      fontSize: 'lg',
+      lineHeight: 'lg',
+    },
+  },
+  xl: {
+    value: {
+      fontSize: 'xl',
+      lineHeight: 'xl',
+    },
+  },
+  '2xl': {
+    value: {
+      fontSize: '2xl',
+      lineHeight: '2xl',
+    },
+  },
+  '3xl': {
+    value: {
+      fontSize: '3xl',
+      lineHeight: '3xl',
+    },
+  },
   '4xl': {
     value: {
       fontSize: '4xl',
-      lineHeight: '2.75rem',
-      letterSpacing: '-0.025em',
+      lineHeight: '4xl',
+      letterSpacing: 'tight',
     },
   },
   '5xl': {
     value: {
       fontSize: '5xl',
-      lineHeight: '3.75rem',
-      letterSpacing: '-0.025em',
+      lineHeight: '5xl',
+      letterSpacing: 'tight',
     },
   },
   '6xl': {
-    value: { fontSize: '6xl', lineHeight: '4.5rem', letterSpacing: '-0.025em' },
+    value: {
+      fontSize: '6xl',
+      lineHeight: '6xl',
+      letterSpacing: 'tighter',
+    },
   },
   '7xl': {
     value: {
       fontSize: '7xl',
-      lineHeight: '5.75rem',
-      letterSpacing: '-0.025em',
+      lineHeight: '7xl',
+      letterSpacing: 'tightest',
     },
   },
   none: {

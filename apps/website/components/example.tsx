@@ -5,11 +5,14 @@ import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import Link from 'next/link'
 
 import { CopyButton } from './copy-button'
+import { ExampleCanvas } from './example-canvas'
 import { ExamplePreview } from './example-preview'
 
 interface Props {
   name: string
   padding?: BoxProps['padding']
+  maxHeight?: BoxProps['maxHeight']
+  overflow?: BoxProps['overflow']
 }
 
 interface CodeProps extends Props {
@@ -135,8 +138,9 @@ export const Example = (props: Props) => {
 }
 
 export const ExampleTabs = (props: Props) => {
-  const { name, padding = { base: '6', sm: '10' } } = props
+  const { name, padding = { base: '6', sm: '10' }, maxHeight, overflow } = props
   if (!name) return null
+
   return (
     <Tabs.Root
       className="example-tabs"
@@ -168,8 +172,14 @@ export const ExampleTabs = (props: Props) => {
         borderTopStartRadius="0"
         overflow="hidden"
       >
-        <Tabs.Content value="preview" mt="0!" padding={padding}>
-          <ExamplePreview name={name} />
+        <Tabs.Content
+          value="preview"
+          mt="0!"
+          padding={padding}
+          maxHeight={maxHeight}
+          overflow={overflow}
+        >
+          <ExampleCanvas name={name} />
         </Tabs.Content>
         <Tabs.Content value="code" mt="0!" pt="0!">
           <ExampleCodeWrapper maxHeight="480px">

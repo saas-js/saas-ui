@@ -8,17 +8,61 @@ export const headingRecipe = defineRecipe({
   },
   variants: {
     size: {
-      xs: { textStyle: 'xs' },
-      sm: { textStyle: 'sm' },
-      md: { textStyle: 'md' },
-      lg: { textStyle: 'lg' },
-      xl: { textStyle: 'xl' },
-      '2xl': { textStyle: '2xl' },
-      '3xl': { textStyle: '3xl' },
-      '4xl': { textStyle: '4xl' },
-      '5xl': { textStyle: '5xl' },
-      '6xl': { textStyle: '6xl' },
-      '7xl': { textStyle: '7xl' },
+      xs: {
+        fontSize: 'xs',
+        lineHeight: 'heading.xs',
+        letterSpacing: 'heading.xs',
+      },
+      sm: {
+        fontSize: 'sm',
+        lineHeight: 'heading.sm',
+        letterSpacing: 'heading.sm',
+      },
+      md: {
+        fontSize: 'md',
+        lineHeight: 'heading.md',
+        letterSpacing: 'heading.md',
+      },
+      lg: {
+        fontSize: 'lg',
+        lineHeight: 'heading.lg',
+        letterSpacing: 'heading.lg',
+      },
+      xl: {
+        fontSize: 'xl',
+        lineHeight: 'heading.xl',
+        letterSpacing: 'heading.xl',
+      },
+      '2xl': {
+        fontSize: '2xl',
+        lineHeight: 'heading.2xl',
+        letterSpacing: 'heading.2xl',
+      },
+      '3xl': {
+        fontSize: '3xl',
+        lineHeight: 'heading.3xl',
+        letterSpacing: 'heading.3xl',
+      },
+      '4xl': {
+        fontSize: '4xl',
+        lineHeight: 'heading.4xl',
+        letterSpacing: 'heading.4xl',
+      },
+      '5xl': {
+        fontSize: '5xl',
+        lineHeight: 'heading.5xl',
+        letterSpacing: 'heading.5xl',
+      },
+      '6xl': {
+        fontSize: '6xl',
+        lineHeight: 'heading.6xl',
+        letterSpacing: 'heading.6xl',
+      },
+      '7xl': {
+        fontSize: '7xl',
+        lineHeight: 'heading.7xl',
+        letterSpacing: 'heading.7xl',
+      },
     },
   },
   defaultVariants: {

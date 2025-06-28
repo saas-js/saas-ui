@@ -49,13 +49,19 @@ export const NavbarRoot = forwardRef<HTMLDivElement, NavbarRootProps>(
   },
 )
 
+export const NavbarContent = forwardRef<HTMLDivElement, HTMLSystemProps<'div'>>(
+  (props, ref) => {
+    return <sui.div {...props} ref={ref} />
+  },
+)
+
 export const NavbarBrand = forwardRef<HTMLDivElement, HTMLSystemProps<'div'>>(
   (props, ref) => {
     return <sui.div {...props} ref={ref} />
   },
 )
 
-export const NavbarContent = forwardRef<
+export const NavbarItemGroup = forwardRef<
   HTMLUListElement,
   HTMLSystemProps<'ul'>
 >((props, ref) => {

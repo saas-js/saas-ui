@@ -1,0 +1,35 @@
+---
+title: GridList
+description: Used to display a list of interactive items.
+links:
+  source: components/list
+  storybook: components-list--basic
+  recipe: list
+---
+
+<ExampleTabs name="grid-list-basic" />
+
+## Usage
+
+```jsx
+import { GridList } from '@saas-ui/react/grid-list'
+```
+
+```jsx
+<GridList.Root>
+  <GridList.Header>Header</GridList.Header>
+  <GridList.Item>
+    <GridList.Cell>Cell</GridList.Cell>
+  </GridList.Item>
+</GridList.Root>
+```
+
+## Examples
+
+### With Header
+
+<ExampleTabs name="grid-list-with-header" />
+
+## Props
+
+<PropTable component="GridList" part="Root" />

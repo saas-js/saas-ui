@@ -1,0 +1,52 @@
+---
+title: Sidebar
+package: '@saas-ui/react'
+description: The Sidebar component is used to display a sidebar menu.
+links:
+  source: components/sidebar
+  storybook: components-sidebar--basic
+  recipe: sidebar
+---
+
+<ExampleTabs name="sidebar-basic" />
+
+## Anatomy
+
+```ts
+import { Sidebar } from '@saas-ui/react'
+```
+
+```tsx
+<Sidebar.Provider>
+  <Sidebar.FlyoutTrigger />
+  <Sidebar.Root>
+    <Sidebar.Header></Sidebar.Header>
+    <Sidebar.Content>
+      <Sidebar.Group>
+        <Sidebar.GroupHeader>
+          <Sidebar.GroupTitle>Navigation</Sidebar.GroupTitle>
+        </Sidebar.GroupHeader>
+        <Sidebar.GroupItem>
+          <Sidebar.NavItem>
+            <Sidebar.NavButton>Home</Sidebar.NavButton>
+          </Sidebar.NavItem>
+        </Sidebar.GroupItem>
+      </Sidebar.Group>
+    </Sidebar.Content>
+    <Sidebar.Footer></Sidebar.Footer>
+  </Sidebar.Root>
+  <Sidebar.Backdrop />
+</Sidebar.Provider>
+```
+
+## Usage
+
+### Basic sidebar
+
+<ExampleTabs name="app-shell-sidebar" padding="0" />
+
+## Props
+
+### AppShell
+
+<PropTable component="AppShell" part="AppShell" />

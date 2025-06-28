@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.39
+
+### Patch Changes
+
+- 9c24d1f: Improved text style tokens and heading line heights
+
 ## 3.0.0-next.38
 
 ### Major Changes

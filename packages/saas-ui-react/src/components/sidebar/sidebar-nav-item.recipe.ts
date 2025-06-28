@@ -23,6 +23,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       transitionDuration: 'fast',
       focusVisibleRing: 'inside',
       focusRingWidth: '1px',
+      _disabled: {
+        layerStyle: 'disabled',
+      },
       '& > svg': {
         boxSize: 4,
         color: 'var(--sidebar-item-icon-color)',

@@ -121,7 +121,11 @@ export { Command } from './components/command/index.ts'
 export { DataList, useDataListStyles } from './components/data-list/index.ts'
 export { Dialog } from './components/dialog/index.ts'
 export { Drawer } from './components/drawer/index.ts'
-export { Editable } from './components/editable/index.ts'
+export {
+  Editable,
+  useEditable,
+  useEditableContext,
+} from './components/editable/index.ts'
 export {
   EmptyState,
   type EmptyStateProps,

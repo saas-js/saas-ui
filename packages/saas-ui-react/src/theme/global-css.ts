@@ -41,15 +41,11 @@ export const globalCss = defineGlobalStyles({
     '--cursor-button': 'default',
     '--radius-full': '9999px',
     '--scale-factor': '1',
-    '--overlay-translucency': '95%',
     '--overlay-effect': 'blur({blurs.lg})',
     '--backdrop-effect': 'none',
     '--scrollbar-color': 'colors.border.emphasized',
     scrollbarWidth: 'thin',
     scrollbarColor: 'var(--scrollbar-color) transparent',
-  },
-  '.dark *': {
-    '--overlay-translucency': '85%',
   },
   body: {
     color: 'fg',

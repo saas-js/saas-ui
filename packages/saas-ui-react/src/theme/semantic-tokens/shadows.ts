@@ -56,4 +56,12 @@ export const semanticShadows = defineSemanticTokens.shadows({
         'inset 0 -1px 2px 0 {colors.gray.300/4}, inset 0 0 0 1px {colors.gray.300/4}',
     },
   },
+  overlay: {
+    value: {
+      _light:
+        '0px 8px 16px {colors.gray.900/5}, 0px 0px 4px {colors.gray.900/5}, 0px 0px 1px {colors.gray.500/80}',
+      _dark:
+        '0px 8px 16px {black/20}, 0px 0px 3px {colors.gray.900/20}, 0px 0px 1px {colors.gray.100/80}',
+    },
+  },
 })

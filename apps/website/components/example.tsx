@@ -1,6 +1,7 @@
 import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
 import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@chakra-ui/react'
+import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import Link from 'next/link'
 
@@ -179,7 +180,13 @@ export const ExampleTabs = (props: Props) => {
           maxHeight={maxHeight}
           overflow={overflow}
         >
-          <ExampleCanvas name={name} />
+          <FieldsProvider
+            value={{
+              fields: defaultFieldTypes,
+            }}
+          >
+            <ExamplePreview name={props.name} />
+          </FieldsProvider>
         </Tabs.Content>
         <Tabs.Content value="code" mt="0!" pt="0!">
           <ExampleCodeWrapper maxHeight="480px">

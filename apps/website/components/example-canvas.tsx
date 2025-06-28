@@ -14,7 +14,7 @@ export function ExampleCanvas(props: { name: string }) {
 
   return (
     <Box>
-      <Splitter.Root
+      {/* <Splitter.Root
         size={size}
         panels={[
           { id: 'a', minSize: 320 },
@@ -27,17 +27,17 @@ export function ExampleCanvas(props: { name: string }) {
         }}
         onResizeEnd={() => setResizing(false)}
       >
-        <Splitter.Panel id="a">
-          <FieldsProvider
-            value={{
-              fields: defaultFieldTypes,
-            }}
-          >
-            {/* <Box pointerEvents={resizing ? 'none' : undefined}> */}
-            <ExamplePreview name={props.name} />
-            {/* </Box> */}
-          </FieldsProvider>
-        </Splitter.Panel>
+        <Splitter.Panel id="a"> */}
+      <FieldsProvider
+        value={{
+          fields: defaultFieldTypes,
+        }}
+      >
+        {/* <Box pointerEvents={resizing ? 'none' : undefined}> */}
+        <ExamplePreview name={props.name} />
+        {/* </Box> */}
+      </FieldsProvider>
+      {/* </Splitter.Panel>
 
         <Splitter.ResizeTrigger id="a:b" aria-label="Resize">
           <Box
@@ -57,7 +57,7 @@ export function ExampleCanvas(props: { name: string }) {
         </Splitter.ResizeTrigger>
 
         <Splitter.Panel id="b"></Splitter.Panel>
-      </Splitter.Root>
+      </Splitter.Root> */}
     </Box>
   )
 }

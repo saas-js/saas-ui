@@ -127,9 +127,7 @@ export const Example = (props: Props) => {
       divideY="1px"
     >
       <Box padding={padding}>
-        <ErrorBoundary errorComponent={() => <Box>Error</Box>}>
-          <ExamplePreview name={name} />
-        </ErrorBoundary>
+        <ExamplePreview name={name} />
       </Box>
       <ExampleCodeWrapper maxHeight="400px">
         <ExampleCode name={name} />

@@ -1,5 +1,6 @@
 import { codeToHtml } from 'shiki'
 
+import { indigoDarkTheme } from './shiki-theme-indigo-dark'
 import { indigoLightTheme } from './shiki-theme-indigo-light'
 
 export const highlightCode = (
@@ -8,7 +9,10 @@ export const highlightCode = (
 ) => {
   return codeToHtml(code, {
     lang: 'tsx',
-    theme: indigoLightTheme,
+    themes: {
+      light: indigoLightTheme,
+      dark: indigoDarkTheme,
+    },
     ...opts,
   })
 }

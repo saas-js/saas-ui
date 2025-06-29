@@ -87,15 +87,12 @@ export const comboboxSlotRecipe = defineSlotRecipe({
 
     content: {
       layerStyle: 'overlay',
-      boxShadow: 'md',
-      borderWidth: '1px',
-      borderColor: 'border',
       display: 'flex',
       flexDirection: 'column',
       '--menu-z-index': 'zIndex.layer-3',
       zIndex: 'calc(var(--menu-z-index) + var(--layer-index, 0))',
       outline: 0,
-      maxH: '96',
+      maxH: 'var(--available-height)',
       overflowY: 'auto',
       _open: {
         animationStyle: 'slide-fade-in',
@@ -210,12 +207,16 @@ export const comboboxSlotRecipe = defineSlotRecipe({
           '--combobox-item-padding-x': 'spacing.1',
           '--combobox-item-padding-y': 'spacing.0.5',
           '--combobox-indicator-size': 'sizes.3.5',
+          borderRadius: 'panel.sm',
           p: '0.5',
           textStyle: 'xs',
         },
         trigger: {
           textStyle: 'xs',
           gap: '1',
+        },
+        item: {
+          borderRadius: 'calc({radii.panel.sm} - {sizes.0.5})',
         },
       },
 
@@ -232,12 +233,16 @@ export const comboboxSlotRecipe = defineSlotRecipe({
           '--combobox-item-padding-x': 'spacing.1.5',
           '--combobox-item-padding-y': 'spacing.1',
           '--combobox-indicator-size': 'sizes.4',
-          p: '0.5',
+          borderRadius: 'panel.md',
+          p: '1',
           textStyle: 'xs',
         },
         trigger: {
           textStyle: 'xs',
           gap: '1',
+        },
+        item: {
+          borderRadius: 'calc({radii.panel.md} - {sizes.0.5})',
         },
       },
 
@@ -254,6 +259,7 @@ export const comboboxSlotRecipe = defineSlotRecipe({
           '--combobox-item-padding-x': 'spacing.2',
           '--combobox-item-padding-y': 'spacing.1.5',
           '--combobox-indicator-size': 'sizes.4',
+          borderRadius: 'panel.lg',
           p: '1',
           textStyle: 'sm',
         },
@@ -265,6 +271,9 @@ export const comboboxSlotRecipe = defineSlotRecipe({
         trigger: {
           textStyle: 'sm',
           gap: '2',
+        },
+        item: {
+          borderRadius: 'calc({radii.panel.lg} - {sizes.1})',
         },
       },
 
@@ -281,13 +290,17 @@ export const comboboxSlotRecipe = defineSlotRecipe({
           '--combobox-item-padding-y': 'spacing.2',
           '--combobox-item-padding-x': 'spacing.3',
           '--combobox-indicator-size': 'sizes.5',
-          p: '1.5',
+          borderRadius: 'panel.lg',
+          p: '1',
           textStyle: 'md',
         },
         trigger: {
           textStyle: 'md',
           py: '3',
           gap: '2',
+        },
+        item: {
+          borderRadius: 'calc({radii.panel.lg} - {sizes.1})',
         },
       },
     },

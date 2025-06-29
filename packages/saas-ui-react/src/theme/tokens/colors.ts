@@ -1,5 +1,28 @@
 import { defineTokens } from '@chakra-ui/react'
 
+export type ColorPalette =
+  | 'gray'
+  | 'zinc'
+  | 'neutral'
+  | 'stone'
+  | 'red'
+  | 'orange'
+  | 'amber'
+  | 'yellow'
+  | 'lime'
+  | 'green'
+  | 'emerald'
+  | 'teal'
+  | 'cyan'
+  | 'sky'
+  | 'blue'
+  | 'indigo'
+  | 'violet'
+  | 'purple'
+  | 'fuchsia'
+  | 'pink'
+  | 'rose'
+
 export const colors = defineTokens.colors({
   transparent: { value: 'transparent' },
   current: { value: 'currentColor' },

@@ -1,37 +1,34 @@
-import { Logo, LogoIcon } from '@/components/logo'
+import { LogoIcon } from '@/components/logo'
 import { Chart, useChart } from '@chakra-ui/charts'
+import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 import {
-  Badge,
+  Avatar,
+  AvatarGroup,
   Box,
   Button,
+  Card,
   DataList,
   Dialog,
   Field,
   Flex,
   Grid,
+  GridList,
   HStack,
   Heading,
   Icon,
   IconButton,
-  Separator,
-  Span,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
-import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
-import {
-  Avatar,
-  AvatarGroup,
-  GridList,
   Link,
   Menu,
   PinInput,
   ProgressCircle,
   RadioCard,
+  Separator,
+  Span,
+  Stack,
   Stat,
   Switch,
+  Text,
 } from '@saas-ui/react'
-import { Card } from '@saas-ui/react/card'
 import {
   FaFilePdf,
   FaFilePowerpoint,
@@ -39,7 +36,7 @@ import {
   FaGoogle,
 } from 'react-icons/fa'
 import { LuDownload } from 'react-icons/lu'
-import { Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, Tooltip } from 'recharts'
 
 export const ComponentsDemo = () => {
   return (
@@ -229,7 +226,7 @@ export const FilesCard = () => {
 
   return (
     <DemoCard>
-      <Card.Header pb="1">
+      <Card.Header>
         <Card.Title>
           Files{' '}
           <Span ms="2" fontSize="xs" fontWeight="normal" color="fg.muted">

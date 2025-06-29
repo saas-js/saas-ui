@@ -29,6 +29,9 @@ export type {
   RecipeDefinition,
   SlotRecipeDefinition,
   HTMLChakraProps,
+  SystemConfig,
+  ConditionalValue,
+  SystemStyleObject,
 } from '@chakra-ui/react/styled-system'
 
 export {
@@ -269,7 +272,12 @@ export {
   Span,
   type SpanProps,
 } from './components/box/index.ts'
-export { Center, type CenterProps } from './components/center/index.ts'
+export {
+  Center,
+  type CenterProps,
+  AbsoluteCenter,
+  type AbsoluteCenterProps,
+} from './components/center/index.ts'
 export { ClientOnly } from './components/client-only/index.ts'
 export { ColorPicker } from './components/color-picker/index.ts'
 export { ColorSwatch } from './components/color-swatch/index.ts'
@@ -328,3 +336,5 @@ export {
 export { VisuallyHidden } from './components/visually-hidden/index.ts'
 export { Wrap, type WrapProps } from './components/wrap/index.ts'
 export { Flex, type FlexProps } from './components/flex/index.ts'
+
+export type { ColorPalette } from './theme/tokens/colors.ts'

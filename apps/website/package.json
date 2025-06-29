@@ -33,6 +33,7 @@
     "@saas-ui/use-hotkeys": "workspace:*",
     "@shikijs/rehype": "3.6.0",
     "@shikijs/transformers": "3.6.0",
+    "@tanstack/react-virtual": "^3.13.9",
     "hastscript": "9.0.1",
     "match-sorter": "8.0.0",
     "mdast": "3.0.0",

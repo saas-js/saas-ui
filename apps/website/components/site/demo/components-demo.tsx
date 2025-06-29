@@ -1,5 +1,7 @@
 import { LogoIcon } from '@/components/logo'
 import { Chart, useChart } from '@chakra-ui/charts'
+// import from Chakra UI because we want to render it inline.
+import { Dialog } from '@chakra-ui/react'
 import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 import {
   Avatar,
@@ -8,7 +10,6 @@ import {
   Button,
   Card,
   DataList,
-  Dialog,
   Field,
   Flex,
   Grid,

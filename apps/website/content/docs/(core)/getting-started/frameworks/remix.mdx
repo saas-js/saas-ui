@@ -3,6 +3,8 @@ title: Using Saas in Remix
 description: A guide for installing Saas UI with Remix projects
 ---
 
+> **React Router v7** is now recommended instead of Remix.
+
 ## Templates
 
 Use the remix template below to get started quickly.
@@ -12,7 +14,7 @@ Use the remix template below to get started quickly.
 <ResourceCard
   type="github"
   title="Remix template"
-  url="https://github.com/chakra-ui/chakra-remix-template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/remix-ts"
 />
 
 :::
@@ -24,7 +26,7 @@ Use the remix template below to get started quickly.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react
+npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
 ```
 
 ### Setup emotion cache
@@ -32,7 +34,7 @@ npm i @saas-ui/react@next @chakra-ui/react @emotion/react
 Using snippets from the Remix sandbox, you can add the emotion cache to your
 application.
 
-[Emotion cache snippet](https://github.com/chakra-ui/chakra-ui/blob/main/sandbox/remix-ts/app/emotion)
+[Emotion cache snippet](https://github.com/saas-js/saas-ui/blob/main/examples/remix-ts/app/emotion)
 
 ### Setup root
 
@@ -49,11 +51,14 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import { SuiProvider, defaultSystem } from "@saas-ui/react"
+import { ThemeProvider } from "next-themes"
 
 export default function App() {
   return (
     <SuiProvider value={defaultSystem}>
-      <Outlet />
+      <ThemeProvider attribute="class" disableTransitionOnChange>
+        <Outlet />
+      </ThemeProvider>
     </SuiProvider>
   )
 }

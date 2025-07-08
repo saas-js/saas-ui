@@ -1,0 +1,86 @@
+---
+title: Using Saas UI with TanStack
+description: A guide for installing Saas UI with TanStack projects
+---
+
+## Templates
+
+Use one of the following templates to get started quickly. The templates are
+configured correctly to use Saas UI.
+
+:::card-group
+
+<ResourceCard
+  type="github"
+  title="TanStack template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/tanstack"
+/>
+
+:::
+
+## Installation
+
+> The minimum node version required is Node.20.x
+
+:::steps
+
+### Install dependencies
+
+```bash
+npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
+```
+
+### Setup provider
+
+Wrap your application with the `SuiProvider` component at the root of your
+application.
+
+This provider composes the following:
+
+- `SuiProvider` from `@saas-ui/react` for the styling system
+- `ThemeProvider` from `next-themes` for color mode
+
+```tsx title="src/routes/__root.tsx" {1,8,10}
+import React from 'react'
+
+import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ThemeProvider } from 'next-themes'
+import ReactDOM from 'react-dom/client'
+...
+
+function RootDocument({ children }: { children: React.ReactNode }) {
+  return (
+    <html>
+      <head>
+        <HeadContent />
+      </head>
+      <SuiProvider value={defaultSystem}>
+        <ThemeProvider attribute="class" disableTransitionOnChange>
+          ...
+        </ThemeProvider>
+      </SuiProvider>
+    </html>
+  )
+}
+```
+
+### Enjoy!
+
+With the power of the snippets and the primitive components from Saas UI, you
+can build your UI faster.
+
+```tsx
+import { HStack } from '@chakra-ui/react'
+import { Button } from '@saas-ui/react'
+
+const Demo = () => {
+  return (
+    <HStack>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+    </HStack>
+  )
+}
+```
+
+:::

@@ -8,6 +8,7 @@ packages:
   - tooling/test-utils
   - tooling/props-docs
   - tooling/storybook-addon
+  - examples/*
 onlyBuiltDependencies:
   - '@parcel/watcher'
 overrides:

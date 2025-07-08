@@ -12,14 +12,8 @@ configured correctly to use Saas UI.
 
 <ResourceCard
   type="github"
-  title="Next.js app template"
-  url="https://github.com/chakra-ui/chakra-next-app-template"
-/>
-
-<ResourceCard
-  type="github"
   title="Next.js pages template"
-  url="https://github.com/chakra-ui/chakra-next-pages-template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/next-pages"
 />
 
 :::
@@ -33,7 +27,7 @@ configured correctly to use Saas UI.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react
+npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
 ```
 
 ### Setup provider
@@ -44,14 +38,18 @@ application.
 This provider composes the following:
 
 - `SaasProvider` from `@saas-ui/react` for the styling system
+- `ThemeProvider` from `next-themes` for color mode
 
 ```tsx title="pages/_app.tsx" {1,5,7}
 import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ThemeProvider } from 'next-themes'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <SuiProvider value={defaultSystem}>
-      <Component {...pageProps} />
+      <ThemeProvider attribute="class" disableTransitionOnChange>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </SuiProvider>
   )
 }
@@ -73,6 +71,16 @@ export default function Document() {
       </body>
     </Html>
   )
+}
+```
+
+### Use Saas UI components
+
+```tsx title="app/page.tsx"
+import { Button } from '@saas-ui/react'
+
+export default function Home() {
+  return <Button>Click me</Button>
 }
 ```
 

@@ -1,0 +1,50 @@
+{
+  "name": "remix-ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "remix-serve ./build/server/index.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "workspace:*",
+    "@emotion/cache": "11",
+    "@emotion/react": "11",
+    "@emotion/server": "11",
+    "@remix-run/node": "^2.16.8",
+    "@remix-run/react": "^2.16.8",
+    "@remix-run/serve": "^2.16.8",
+    "isbot": "^5.1.28",
+    "react-icons": "5.5.0",
+    "@saas-ui/react": "3.0.0-next.39",
+    "next-themes": "^0.4.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.16.8",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.29.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.5.6",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=20.x"
+  }
+}

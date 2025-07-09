@@ -1,22 +1,22 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
+import { Box, useTheme } from '@chakra-ui/react'
 import {
-  BarChart as ReBarChart,
   Bar,
+  CartesianGrid,
+  Legend,
+  BarChart as ReBarChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from 'recharts'
 import type { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
 import { ChartTooltip } from './tooltip'
-import { createCategoryColors } from './utils'
 import { BaseChartProps } from './types'
+import { createCategoryColors } from './utils'
 
 export interface BarChartProps extends BaseChartProps {
   /**
@@ -156,7 +156,6 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             barGap={barGap}
             barSize={barSize}
             stackOffset={stackOffset}
-            layout="vertical"
           >
             {showGrid && (
               <CartesianGrid

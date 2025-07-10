@@ -11,6 +11,7 @@ overrides:
   '@chakra-ui/react': 2.10.9
   react: 18.3.1
   react-icons: 5.5.0
+  kleur: 3.0.3
 
 importers:
 
@@ -534,8 +535,8 @@ importers:
         specifier: ^7.0.5
         version: 7.0.6
       kleur:
-        specifier: ^4.1.5
-        version: 4.1.5
+        specifier: 3.0.3
+        version: 3.0.3
       lodash.template:
         specifier: ^4.5.0
         version: 4.5.0
@@ -9082,10 +9083,6 @@ packages:
 
   kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
-    engines: {node: '>=6'}
-
-  kleur@4.1.5:
-    resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
   klona@2.0.6:
@@ -21279,8 +21276,6 @@ snapshots:
 
   kleur@3.0.3: {}
 
-  kleur@4.1.5: {}
-
   klona@2.0.6: {}
 
   langbase@1.1.62(react@18.3.1)(ws@8.18.2):
@@ -25075,7 +25070,7 @@ snapshots:
     dependencies:
       dequal: 2.0.3
       diff: 5.2.0
-      kleur: 4.1.5
+      kleur: 3.0.3
       sade: 1.8.1
 
   v8-to-istanbul@9.3.0:

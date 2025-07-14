@@ -1,5 +1,15 @@
 # @saas-ui/date-picker
 
+## 0.16.0
+
+### Minor Changes
+
+- 61c9256: Added firstDayOfWeek prop
+
+### Patch Changes
+
+- 61c9256: Fixed issue where not all days would render if start of week is sunday
+
 ## 0.15.4
 
 ### Patch Changes

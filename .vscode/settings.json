@@ -1,6 +1,6 @@
 {
   "search.exclude": {
-    "packages/pro/**": true
+    // "packages/pro/**": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifierEnding": "minimal"

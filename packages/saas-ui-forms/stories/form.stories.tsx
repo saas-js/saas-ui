@@ -20,7 +20,6 @@ import {
   defaultFieldTypes,
   useBaseField,
   useForm,
-  useZodForm,
 } from '../src'
 import { GetBaseField } from '../src/types'
 import { onSubmit } from './helpers'
@@ -169,7 +168,7 @@ const getBaseField: GetBaseField<{ infoLabel?: string }> = () => {
   }
 }
 
-export const WithCustomField: StoryObj<typeof useZodForm> = {
+export const WithCustomField: StoryObj<typeof useForm> = {
   render(props) {
     const form = useForm({
       defaultValues: {
@@ -213,7 +212,7 @@ const zodSchema = z.object({
   age: z.number(),
 })
 
-export const WithStandardSchema: StoryObj<typeof useZodForm> = {
+export const WithStandardSchema: StoryObj<typeof useForm> = {
   render() {
     const form = useForm({
       schema: zodSchema,
@@ -236,7 +235,7 @@ export const WithStandardSchema: StoryObj<typeof useZodForm> = {
   },
 }
 
-export const WithZodSchema: StoryObj<typeof useZodForm> = {
+export const WithZodSchema: StoryObj<typeof useForm> = {
   render() {
     const form = useZodForm({
       schema: zodSchema,
@@ -275,9 +274,9 @@ const signupSchema = z
     }
   })
 
-export const ZodSuperRefine: StoryObj<typeof useZodForm> = {
+export const ZodSuperRefine: StoryObj<typeof useForm> = {
   render() {
-    const form = useZodForm({
+    const form = useForm({
       schema: signupSchema,
       defaultValues: {
         email: '',
@@ -304,7 +303,7 @@ export const ZodSuperRefine: StoryObj<typeof useZodForm> = {
 }
 
 export const ZodFormConditional = () => {
-  const form = useZodForm({
+  const form = useForm({
     defaultValues: {
       name: '',
       description: '',
@@ -324,6 +323,44 @@ export const ZodFormConditional = () => {
         <form.DisplayIf name="name" condition={(value) => !!value}>
           <form.Field type="text" name="description" label="Description" />
         </form.DisplayIf>
+
+        <SubmitButton />
+      </FormLayout>
+    </form.Form>
+  )
+}
+
+export const FieldOnChange = () => {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+      slug: '',
+    },
+    schema: z.object({
+      name: z.string().min(1, { message: 'Name is required' }),
+      slug: z.string().min(1, { message: 'Slug is required' }),
+    }),
+    onSubmit,
+  })
+
+  return (
+    <form.Form>
+      <FormLayout>
+        <form.Field
+          type="text"
+          name="name"
+          label="Name"
+          onChange={(e) => {
+            // this will override the field.onChange handler, so need to set 'name' as well.
+            form.setValue('name', e.target.value)
+            form.setValue(
+              'slug',
+              e.target.value.toLowerCase().replace(/ /g, '-'),
+            )
+          }}
+        />
+
+        <form.Field type="text" name="slug" label="Slug" />
 
         <SubmitButton />
       </FormLayout>

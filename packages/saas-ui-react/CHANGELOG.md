@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 3.0.0-next.40
+
+### Patch Changes
+
+- f774f7a: Improved EmptyState alignment
+- d638488: Improved combobox sizes
+- f774f7a: EmptyState description now accepts react components
+- d638488: Improved card and dialog padding
+- 5c032b5: Added --label-width css var to change data list label width
+
 ## 3.0.0-next.39
 
 ### Patch Changes

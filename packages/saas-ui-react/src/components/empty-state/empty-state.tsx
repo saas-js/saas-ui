@@ -9,7 +9,7 @@ import {
 
 export interface EmptyStateProps extends ChakraEmptyState.RootProps {
   title: string
-  description?: string
+  description?: React.ReactNode
   icon?: React.ReactNode
 }
 
@@ -21,6 +21,9 @@ const EmptyStateActions = (props: BoxProps) => {
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   function EmptyState(props, ref) {
     const { title, description, icon, children, ...rest } = props
+
+    const as = typeof description === 'string' ? 'p' : 'div'
+
     return (
       <ChakraEmptyState.Root ref={ref} {...rest}>
         <ChakraEmptyState.Content>
@@ -30,7 +33,7 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
 
           <ChakraEmptyState.Title>{title}</ChakraEmptyState.Title>
           {description ? (
-            <ChakraEmptyState.Description>
+            <ChakraEmptyState.Description as={as}>
               {description}
             </ChakraEmptyState.Description>
           ) : null}

@@ -19,6 +19,7 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      gap: '0.25rem',
     },
     indicator: {
       display: 'flex',
@@ -35,6 +36,11 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
     description: {
       textStyle: 'sm',
       color: 'fg.muted',
+      '&:is(div)': {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0.5rem',
+      },
     },
     actions: {
       display: 'flex',
@@ -63,7 +69,6 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
         content: {
           textStyle: 'xs',
         },
-
         actions: {
           mt: '2',
         },
@@ -122,6 +127,7 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
       center: {
         content: {
           alignItems: 'center',
+          textAlign: 'center',
         },
       },
     },

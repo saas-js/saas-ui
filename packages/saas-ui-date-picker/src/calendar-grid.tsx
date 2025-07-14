@@ -16,14 +16,16 @@ export interface CalendarGridProps {
 }
 
 export const CalendarGrid: React.FC<CalendarGridProps> = ({ offset = {} }) => {
-  const { state, locale } = useCalendarContext()
+  const { state, locale, firstDayOfWeek } = useCalendarContext()
 
   const startDate = state.visibleRange.start.add(offset)
   const endDate = endOfMonth(startDate)
+
   const { gridProps, headerProps, weekDays } = useCalendarGrid(
     {
       startDate,
       endDate,
+      firstDayOfWeek,
     },
     state
   )
@@ -35,7 +37,11 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({ offset = {} }) => {
   }
 
   // Get the number of weeks in the month so we can render the proper number of rows.
-  const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale)
+  const weeksInMonth = getWeeksInMonth(
+    state.visibleRange.start,
+    locale,
+    firstDayOfWeek
+  )
 
   return (
     <chakra.table {...gridProps} __css={gridStyles}>

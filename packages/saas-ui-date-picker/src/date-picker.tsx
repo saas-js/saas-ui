@@ -66,6 +66,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     locale: localeProp,
     timeZone = getLocalTimeZone() || 'UTC',
     hourCycle = 12,
+    firstDayOfWeek,
   } = props
 
   const { locale } = useLocale()
@@ -122,6 +123,7 @@ export const DatePickerContainer = (props: DatePickerContainerProps) => {
     state,
     hourCycle,
     timeZone,
+    firstDayOfWeek,
     groupProps,
     labelProps,
     fieldProps,

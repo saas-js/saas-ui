@@ -72,3 +72,8 @@ WithTime24H.args = {
   hourCycle: 24,
   children: <DateRangePickerTimeField />,
 }
+
+export const StartOfWeek = Template.bind({})
+StartOfWeek.args = {
+  firstDayOfWeek: 'sun',
+}

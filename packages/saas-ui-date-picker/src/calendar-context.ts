@@ -5,6 +5,7 @@ import { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 interface CalendarProviderValue extends CalendarAria {
   state: CalendarState | RangeCalendarState
   locale: string
+  firstDayOfWeek?: 'sun' | 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat'
   titleProps: {
     onClick: () => void
   }

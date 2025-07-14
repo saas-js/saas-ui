@@ -33,6 +33,7 @@ interface BaseContextValue {
   locale: string
   hourCycle: 12 | 24
   timeZone: string
+  firstDayOfWeek?: 'sun' | 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat'
   createCalendar?(name: string): Calendar
 }
 

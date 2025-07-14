@@ -53,7 +53,7 @@ export const Variants = () => {
             Preferences
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="members">Line variant (default)</Tabs.Content>
         <Tabs.Content value="projects">Manage your projects</Tabs.Content>
         <Tabs.Content value="tasks">
           Manage your tasks for freelancers
@@ -75,7 +75,7 @@ export const Variants = () => {
             Preferences
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="members">Enclosed variant</Tabs.Content>
         <Tabs.Content value="projects">Manage your projects</Tabs.Content>
         <Tabs.Content value="tasks">
           Manage your tasks for freelancers
@@ -97,7 +97,7 @@ export const Variants = () => {
             Preferences
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="members">Outline variant</Tabs.Content>
         <Tabs.Content value="projects">Manage your projects</Tabs.Content>
         <Tabs.Content value="tasks">
           Manage your tasks for freelancers
@@ -119,7 +119,7 @@ export const Variants = () => {
             Preferences
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="members">Pills variant</Tabs.Content>
         <Tabs.Content value="projects">Manage your projects</Tabs.Content>
         <Tabs.Content value="tasks">
           Manage your tasks for freelancers
@@ -141,7 +141,7 @@ export const Variants = () => {
             Preferences
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="members">Manage your team members</Tabs.Content>
+        <Tabs.Content value="members">Ghost variant</Tabs.Content>
         <Tabs.Content value="projects">Manage your projects</Tabs.Content>
         <Tabs.Content value="tasks">
           Manage your tasks for freelancers

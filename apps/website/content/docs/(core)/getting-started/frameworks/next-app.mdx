@@ -13,13 +13,7 @@ configured correctly to use Saas UI.
 <ResourceCard
   type="github"
   title="Next.js app template"
-  url="https://github.com/chakra-ui/chakra-next-app-template"
-/>
-
-<ResourceCard
-  type="github"
-  title="Next.js pages template"
-  url="https://github.com/chakra-ui/chakra-next-pages-template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/next-app"
 />
 
 :::
@@ -33,15 +27,56 @@ configured correctly to use Saas UI.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react
+npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
 ```
 
 ### Setup provider
 
-Wrap your application with the `SuiProvider` at the root of your application.
+Create a `providers.tsx` file in the `app` directory and wrap your application
+with the `SuiProvider` and `ThemeProvider` at the root of your application.
 
-```jsx
+```tsx title="app/providers.ts"
+'use client'
+
 import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ThemeProvider } from 'next-themes'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <SuiProvider value={defaultSystem}>
+      <ThemeProvider attribute="class" disableTransitionOnChange>
+        {children}
+      </ThemeProvider>
+    </SuiProvider>
+  )
+}
+```
+
+```tsx title="app/layout.tsx"
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html suppressHydrationWarning>
+      <head />
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+### Use Saas UI components
+
+```tsx title="app/page.tsx"
+import { Button } from '@saas-ui/react'
+
+export default function Home() {
+  return <Button>Click me</Button>
+}
 ```
 
 :::

@@ -183,19 +183,13 @@ export const Navigation = () => {
 
           <NavigationMenu.Item>
             <NavigationMenuLink asChild>
-              <Link href="/nextjs-starter-kit">Starter kit</Link>
+              <Link href="/nextjs-starter-kit">Starter kits</Link>
             </NavigationMenuLink>
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
             <NavigationMenuLink asChild>
               <Link href="/blocks">Blocks</Link>
-            </NavigationMenuLink>
-          </NavigationMenu.Item>
-
-          <NavigationMenu.Item>
-            <NavigationMenuLink asChild>
-              <Link href="/figma">Figma</Link>
             </NavigationMenuLink>
           </NavigationMenu.Item>
 

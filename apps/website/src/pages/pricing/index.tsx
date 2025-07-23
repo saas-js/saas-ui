@@ -251,49 +251,6 @@ const Pricing = () => {
           </Box>
         </VStack>
 
-        <Stack mb="14" align="center">
-          <Tabs variant="segments" width="full" maxW="xl">
-            <TabList justifyContent="stretch">
-              <Tab
-                as={Link}
-                href="/pricing"
-                alignItems="flex-start"
-                justifyContent="flex-start"
-                height="auto"
-                py="3"
-                px="3"
-                flex="1"
-              >
-                <Icon as={FaReact} boxSize="6" me="2" />
-                <VStack alignItems="flex-start" spacing="1">
-                  <Text>React</Text>
-                  <Text size="xs" color="muted" fontWeight="normal">
-                    React components and starter kits
-                  </Text>
-                </VStack>
-              </Tab>
-              <Tab
-                as={Link}
-                href="/pricing/figma"
-                alignItems="flex-start"
-                justifyContent="flex-start"
-                height="auto"
-                py="3"
-                px="3"
-                flex="1"
-              >
-                <Icon as={FaFigma} boxSize="6" me="2" />
-                <VStack alignItems="flex-start" spacing="1">
-                  <Text>Figma</Text>
-                  <Text size="xs" color="muted" fontWeight="normal">
-                    Figma design system &amp; UI Kit
-                  </Text>
-                </VStack>
-              </Tab>
-            </TabList>
-          </Tabs>
-        </Stack>
-
         <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
             title="Open Source"

@@ -40,7 +40,7 @@ import {
   LuBookOpen,
   LuFileCode,
   LuFileText,
-  LuGanttChartSquare,
+  LuSquareChartGantt,
   LuRotateCw,
 } from 'react-icons/lu'
 import { NextjsIcon } from '../logos/nextjs'
@@ -94,7 +94,7 @@ const Header = () => {
             </HStack>
           }
         />
-        <NavLink href="/figma" isActive={isActive('/figma')} label="Figma" />
+
         <NavLink
           href="/nextjs-starter-kit"
           isActive={isActive('/nextjs-starter-kit')}
@@ -170,7 +170,7 @@ const Header = () => {
                   as={Link}
                   href="https://roadmap.saas-ui.dev"
                   borderRadius="md"
-                  icon={<LuGanttChartSquare size="1.2em" />}
+                  icon={<LuSquareChartGantt size="1.2em" />}
                 >
                   Roadmap
                 </MenuItem>

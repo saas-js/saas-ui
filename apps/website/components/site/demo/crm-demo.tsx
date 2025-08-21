@@ -1,6 +1,5 @@
 import { Chart, useChart } from '@chakra-ui/charts'
 import { SaasUIIcon } from '@saas-ui/assets'
-import { PieChart } from '@saas-ui/charts'
 import {
   Badge,
   ButtonGroup,
@@ -486,18 +485,19 @@ function RevenueChart() {
 }
 
 function ChurnRateByTierChart() {
-  return (
-    <PieChart
-      category="tier"
-      categoryColors={['indigo', 'pink', 'fg']}
-      data={[
-        { tier: 'Starter', value: 7 },
-        { tier: 'Pro', value: 4 },
-        { tier: 'Enterprise', value: 2.5 },
-      ]}
-      valueFormatter={(value) => `${value}%`}
-      width={100}
-      height={100}
-    />
-  )
+  return null
+  // return (
+  // <PieChart
+  //   category="tier"
+  //   categoryColors={['indigo', 'pink', 'fg']}
+  //   data={[
+  //     { tier: 'Starter', value: 7 },
+  //     { tier: 'Pro', value: 4 },
+  //     { tier: 'Enterprise', value: 2.5 },
+  //   ]}
+  //   valueFormatter={(value) => `${value}%`}
+  //   width={100}
+  //   height={100}
+  // />
+  // )
 }

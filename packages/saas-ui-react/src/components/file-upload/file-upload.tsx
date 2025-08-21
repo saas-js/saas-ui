@@ -2,11 +2,11 @@
 
 import * as React from 'react'
 
-import { Span } from '@chakra-ui/react'
 import {
   FileUpload as ChakraFileUpload,
   useFileUploadContext,
 } from '@chakra-ui/react/file-upload'
+import { Span } from '@chakra-ui/react/span'
 import { type RecipeProps, useRecipe } from '@chakra-ui/react/styled-system'
 
 import { Button, type ButtonProps } from '../button/index.ts'
@@ -94,7 +94,7 @@ export const List = React.forwardRef<HTMLUListElement, ListProps>(
 
     return (
       <ChakraFileUpload.ItemGroup ref={ref} {...rest}>
-        {acceptedFiles.map((file) => (
+        {acceptedFiles.map((file: File) => (
           <Item
             key={file.name}
             file={file}

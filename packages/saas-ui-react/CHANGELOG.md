@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.41
+
+### Minor Changes
+
+- a635505: Updated to Chakra 3.25.0
+
 ## 3.0.0-next.40
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.1-next.76",
+  "version": "0.1.1-next.77",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 3020",
@@ -25,7 +25,6 @@
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
     "@saas-ui/assets": "workspace:*",
-    "@saas-ui/charts": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "@saas-ui/modals": "workspace:*",

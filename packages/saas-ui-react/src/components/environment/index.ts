@@ -4,4 +4,4 @@ export {
   type EnvironmentProviderProps,
   type RootNode,
   useEnvironmentContext,
-} from '@chakra-ui/react/env'
+} from '@chakra-ui/react/environment'

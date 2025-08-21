@@ -1,4 +1,4 @@
-import { HStack, Kbd } from '@chakra-ui/react'
+import { HStack, Kbd } from '@saas-ui/react'
 import { Input, InputGroup, NativeSelect } from '@saas-ui/react'
 import { LuSearch } from 'react-icons/lu'
 

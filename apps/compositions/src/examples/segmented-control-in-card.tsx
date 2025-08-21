@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, Heading } from '@chakra-ui/react'
+import { Button, Card, Heading } from '@saas-ui/react'
 import { Field, SegmentedControl } from '@saas-ui/react'
 import { LuSearch } from 'react-icons/lu'
 

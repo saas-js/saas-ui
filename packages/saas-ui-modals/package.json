@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/modals",
-  "version": "3.0.0-next.35",
+  "version": "3.0.0-next.41",
   "description": "A modal manager for Chakra UI",
   "type": "module",
   "exports": {
@@ -60,7 +60,7 @@
     "@saas-ui/modals-provider": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.2.1",
+    "@chakra-ui/react": "^3.20.0",
     "@emotion/react": ">=11.0.0",
     "@saas-ui/react": "workspace:*",
     "react": ">=18.0.0",
@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "yup": "^1.6.1",
-    "zod": "^3.24.2",
+    "zod": "^3.25.76",
     "typescript": "^5.8.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

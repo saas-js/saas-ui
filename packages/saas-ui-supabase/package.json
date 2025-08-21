@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/supabase",
-  "version": "3.0.0-next.0",
+  "version": "3.0.0-next.1",
   "description": "Saas UI Supabase Auth integration",
   "exports": {
     ".": {

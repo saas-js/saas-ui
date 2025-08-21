@@ -1,4 +1,4 @@
-import { VStack } from '@chakra-ui/react'
+import { VStack } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

@@ -1,0 +1,80 @@
+---
+title: Progress Circle
+description: Used to display a task's progress in a circular form.
+links:
+  source: components/progress-circle
+  storybook: components-progress-circle--basic
+  recipe: progress-circle
+  ark: https://ark-ui.com/react/docs/components/progress-circular
+---
+
+<ExampleTabs name="progress-circle-basic" />
+
+## Usage
+
+```tsx
+import { ProgressCircle } from '@saas-ui/react/progress-circle'
+```
+
+```tsx
+<ProgressCircle.Root>
+  <ProgressCircle.Circle>
+    <ProgressCircle.Track />
+    <ProgressCircle.Range />
+  </ProgressCircle.Circle>
+  <ProgressCircle.ValueText />
+</ProgressCircle.Root>
+```
+
+## Examples
+
+### Rounded
+
+Use the `strokeLinecap` prop on `ProgressCircle.Range` to make the ends of the
+progress circle rounded.
+
+<ExampleTabs name="progress-circle-with-round-cap" />
+
+### Sizes
+
+Use the `size` prop to change the size of the progress circle component.
+
+<ExampleTabs name="progress-circle-with-sizes" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color scheme of the component.
+
+<ExampleTabs name="progress-circle-with-colors" />
+
+### Value Text
+
+Render the `ProgressCircle.ValueText` component to display the progress value.
+
+<ExampleTabs name="progress-circle-with-value-text" />
+
+### Custom Thickness
+
+Pass the `--thickness` css variable to the `ProgressCircleRing` component to
+change the thickness of the ring.
+
+<ExampleTabs name="progress-circle-with-thickness" />
+
+### Indeterminate
+
+Set the `value` prop to `null` to render the indeterminate state.
+
+<ExampleTabs name="progress-circle-indeterminate" />
+
+### Color
+
+Pass the `stroke` prop to the `ProgressCircle.Range` component to change the
+color of the range.
+
+<ExampleTabs name="progress-circle-with-range-color" />
+
+## Props
+
+### Root
+
+<PropTable component="ProgressCircle" part="Root" />

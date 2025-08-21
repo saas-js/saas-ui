@@ -1,0 +1,262 @@
+---
+title: Does Your Startup Need a Design System? (Probably Not Yet)
+description:
+  'Should your startup build a design system? Probably not yet. Learn why rigid
+  design guidelines slow you down and what to use instead to ship faster while
+  finding product-market fit.'
+publishedAt: '2025-06-10'
+authors: ['eelco']
+---
+
+Every startup founder scrolling through design Twitter has seen them: those
+gorgeous, meticulously documented design systems from companies like Shopify,
+Atlassian, and Airbnb. Component libraries with pixel-perfect spacing,
+comprehensive color palettes, and documentation that would make a technical
+writer weep with joy.
+
+And then the thought creeps in: "We should probably build one of these."
+
+Here's the thing though – you probably shouldn't. At least not yet.
+
+## The Short Answer: No (For Now)
+
+Design systems are built for scale, not speed. They solve problems that come
+with having dozens of designers, hundreds of developers, and products that need
+to feel cohesive across multiple teams and platforms. They're optimization tools
+for companies that have already found their groove.
+
+Your startup, on the other hand, is still figuring out what product you're
+actually building. You're pivoting, iterating, and probably throwing away entire
+features every few weeks. In this environment, rigid design guidelines aren't
+just unnecessary – they're actively harmful.
+
+Think about it: when you're still discovering what your users actually want, why
+would you want to lock yourself into predetermined ways of presenting
+information? When you might completely change your user flow next month, why
+spend time documenting the "correct" way to build forms?
+
+## Why Design Systems Can Actually Slow You Down
+
+The biggest lie about design systems is that they save time. Sure, they do –
+eventually. But the upfront investment is massive, and the ongoing maintenance
+is real. Every new component needs documentation. Every edge case needs to be
+considered. Every change needs to be propagated across your entire system.
+
+I've watched startup teams spend weeks debating the exact shade of blue for
+their primary button while their conversion rates were tanking. I've seen
+designers create comprehensive spacing systems for products that were about to
+be completely redesigned based on user feedback.
+
+This isn't just theoretical waste – it's opportunity cost. Every hour spent
+creating the "perfect" button component is an hour not spent talking to users,
+analyzing data, or building the feature that might actually move the needle.
+
+Rigid guidelines also create a different kind of friction: they make
+experimentation harder. Want to try a completely different approach to your
+checkout flow? Well, first you need to figure out how it fits into your existing
+design system. Want to test a bold new visual direction? Better update seventeen
+different component specifications first.
+
+## What You Need Instead: An Evolving Component System
+
+Instead of a design system, build a component system. The difference is
+philosophical but crucial.
+
+A design system starts with rules and tries to enforce them. A component system
+starts with reusable pieces and lets patterns emerge naturally. You build
+components as you need them, refactor them when they become unwieldy, and throw
+them away when they're no longer useful.
+
+This approach gives you the benefits of consistency (shared components naturally
+create visual coherence) without the overhead of formal documentation and
+governance. Your button component will evolve based on real usage patterns, not
+theoretical edge cases you imagined in a workshop.
+
+### Start with Pre-Built Components (But Keep Them Flexible)
+
+Here's where tools like SaaS UI come in handy. Rather than building everything
+from scratch or committing to a full design system, you can start with a
+pre-built component library specifically designed for startups and SaaS
+products.
+
+SaaS UI gives you professionally designed components out of the box – buttons,
+forms, navigation, data tables, and more – without the overhead of creating and
+maintaining your own design system. You get the visual consistency and
+development speed benefits without having to predict every possible use case or
+spend weeks documenting spacing systems.
+
+The key is treating these as a starting point, not a straitjacket. Use the
+components as-is when they work perfectly for your needs. Customize them when
+you need something slightly different. Fork or replace them entirely when your
+product evolves beyond what they can handle.
+
+This approach lets you move fast early on while still maintaining a cohesive
+look and feel. You're not starting from a blank slate, but you're also not
+locked into someone else's vision of what your product should look like.
+
+Start simple. Use pre-built components where they make sense, build custom ones
+where you need them, and let your system evolve organically. When you find
+yourself customizing the same component in the same way multiple times, that's
+when you know it's time to create your own version.
+
+The key is letting your system grow organically based on actual needs rather
+than trying to predict every possible use case upfront. This keeps you flexible
+enough to respond quickly to user feedback and market changes while still
+maintaining some level of consistency.
+
+## The Magic Number: Under 20 Developers
+
+Here's a rough rule of thumb: if you have fewer than 20 developers, you probably
+don't need a formal design system yet.
+
+Why 20? It's around the point where communication overhead starts to exceed the
+cost of systematization. When you have 5 developers, they can all talk to each
+other daily. They know what everyone is working on, they can coordinate
+directly, and inconsistencies are easy to spot and fix.
+
+Once you hit 20+, you start having teams that don't talk to each other
+regularly. You have developers joining who don't know the informal conventions.
+You have multiple products or features being built simultaneously. This is when
+shared systems start to provide real value.
+
+Before that point, the coordination required to maintain a design system – the
+meetings, the documentation, the governance – often costs more than the problems
+it solves.
+
+## Cross-Functional Teams Change Everything
+
+One of the biggest advantages early-stage startups have is tight collaboration
+between designers and developers. When your designer sits next to your front-end
+developer (literally or virtually), they can hash out implementation details in
+real-time. They can make decisions together, iterate quickly, and maintain
+consistency through ongoing communication rather than formal documentation.
+
+This kind of collaboration makes many of the traditional benefits of design
+systems less relevant. You don't need detailed specifications when the person
+who designed it is sitting right there to answer questions. You don't need
+comprehensive documentation when the team is small enough to maintain shared
+context.
+
+The magic happens when designers and developers are working together daily, not
+when they're coordinating through handoffs and specification documents. Invest
+in that collaboration rather than trying to systematize away the need for
+communication.
+
+## Code as Your Source of Truth
+
+Here's a controversial take: your components are better documentation than your
+documentation.
+
+A well-built React component tells you exactly how it behaves, what props it
+accepts, and how it handles different states. It's always up to date because it
+literally is the thing being used in production. It can't drift out of sync with
+reality because it is reality.
+
+Compare this to traditional design system workflows where you have Figma files
+with meticulously defined design tokens, Notion pages documenting spacing
+systems, and Confluence wikis explaining component usage – all of which require
+constant maintenance to stay accurate. How many times have you seen beautifully
+crafted Figma components with perfectly organized token libraries that don't
+match what actually shipped? Or design tokens that specify 16px spacing while
+the production code uses 15px because "it looked better"?
+
+The problem with maintaining parallel sources of truth is that they inevitably
+diverge. Designers update the Figma tokens but forget to tell developers.
+Developers tweak the code for a specific use case but don't update the design
+file. Before you know it, your "single source of truth" has become three
+different sources of conflicting information.
+
+This doesn't mean you should avoid all documentation or abandon Figma entirely –
+good prop types, clear component names, and helpful comments are crucial. Visual
+design exploration still needs to happen somewhere. But it does mean you should
+be skeptical of elaborate token systems and documentation hierarchies that
+promise perfect synchronization between design and code.
+
+Instead, prioritize making your code self-documenting and treat your design
+files as exploration tools rather than specification documents. When you find a
+spacing value that works in production, that becomes the source of truth – not
+whatever you originally planned in Figma.
+
+Tools like Storybook can help bridge this gap by automatically generating
+component documentation from your actual code, but even then, keep it simple.
+Focus on showing what the component does rather than prescribing how it should
+be used or maintaining complex token mappings that will inevitably fall out of
+sync.
+
+## When to Actually Build a Design System
+
+So when do you actually need a design system? Here are the clear signals:
+
+**You have multiple teams building UI independently.** When teams start shipping
+inconsistent experiences because they're not coordinating directly, it's time
+for shared standards.
+
+**You're spending significant time on design debt.** If you're regularly having
+to go back and make the same visual updates across dozens of screens,
+systematization will save time.
+
+**You have new team members regularly.** When onboarding someone new requires
+explaining dozens of informal conventions, formal documentation starts to pay
+for itself.
+
+**You're building multiple products.** If you want your mobile app to feel
+consistent with your web app, you need shared standards that work across
+platforms.
+
+**You have dedicated design system resources.** Don't build a design system
+unless you have someone whose job it is to maintain it. Orphaned design systems
+are worse than no system at all.
+
+Until you hit these markers, resist the urge to formalize. Keep building, keep
+learning, and keep iterating. Your design system will be much better when you
+actually understand the problems it needs to solve.
+
+## Embrace the Chaos (But With Better Tools)
+
+Early-stage startup development is supposed to be chaotic. You're exploring
+unknown territory, testing hypotheses, and learning from users. This process
+requires flexibility, experimentation, and the ability to change direction
+quickly.
+
+Design systems are tools for bringing order to chaos – but premature order can
+kill the creativity and agility that startups need to succeed. The visual
+inconsistencies that keep you up at night probably aren't even noticed by your
+users, who are much more concerned with whether your product actually solves
+their problems.
+
+But that doesn't mean you should start from absolute zero. Using pre-built
+component libraries like SaaS UI gives you a middle ground – enough structure to
+look professional and move quickly, but enough flexibility to adapt as you learn
+what your product needs to be.
+
+Think of it like using a framework versus writing everything from scratch. You
+wouldn't build your own web server when Express.js exists, and you probably
+shouldn't build your own button components when good ones already exist. Save
+your innovation energy for the parts of your product that actually differentiate
+you from competitors.
+
+Focus on building something people want first. Worry about systematizing it
+later. Your future self, armed with real user data and a clearer product vision,
+will build a much better design system than your current self trying to predict
+the future.
+
+The most successful startups I know spent their early days moving fast and
+breaking things, not documenting the proper way to break them. They used
+whatever tools helped them ship faster – including pre-built component libraries
+– and saved the custom design system for when they had found something worth
+systematizing.
+
+## Ready to Ship Faster?
+
+If you're convinced that pre-built components are the way to go (and you should
+be), then you need tools built specifically for this approach. SaaS UI gives you
+everything we've talked about in this post: professional components that evolve
+with your product, flexibility to customize without rebuilding from scratch, and
+the speed to focus on what actually differentiates your startup.
+
+Stop spending weeks building basic UI components. Stop maintaining design token
+libraries that drift out of sync. Start shipping features that matter to your
+users. Get SaaS UI and build your MVP faster than your competitors can document
+their button specifications.
+
+[Explore components](/components)

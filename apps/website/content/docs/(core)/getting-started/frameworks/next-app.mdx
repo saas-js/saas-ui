@@ -1,0 +1,82 @@
+---
+title: Using Saas UI in Next.js (App)
+description: A guide for installing Saas UI with Next.js app directory
+---
+
+## Templates
+
+Use one of the following templates to get started quickly. The templates are
+configured correctly to use Saas UI.
+
+:::card-group
+
+<ResourceCard
+  type="github"
+  title="Next.js app template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/next-app"
+/>
+
+:::
+
+## Installation
+
+> The minimum node version required is Node.20.x
+
+:::steps
+
+### Install dependencies
+
+```bash
+npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
+```
+
+### Setup provider
+
+Create a `providers.tsx` file in the `app` directory and wrap your application
+with the `SuiProvider` and `ThemeProvider` at the root of your application.
+
+```tsx title="app/providers.ts"
+'use client'
+
+import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ThemeProvider } from 'next-themes'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <SuiProvider value={defaultSystem}>
+      <ThemeProvider attribute="class" disableTransitionOnChange>
+        {children}
+      </ThemeProvider>
+    </SuiProvider>
+  )
+}
+```
+
+```tsx title="app/layout.tsx"
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html suppressHydrationWarning>
+      <head />
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+### Use Saas UI components
+
+```tsx title="app/page.tsx"
+import { Button } from '@saas-ui/react'
+
+export default function Home() {
+  return <Button>Click me</Button>
+}
+```
+
+:::

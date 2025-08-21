@@ -1,4 +1,4 @@
-import { Grid } from '@chakra-ui/react'
+import { Grid } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

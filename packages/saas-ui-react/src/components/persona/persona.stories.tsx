@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Container, VStack } from '@chakra-ui/react'
 import { FiMinus, FiPhone } from 'react-icons/fi'
 
-import { Persona } from './persona.tsx'
+import { Persona } from './persona-composed.tsx'
 
 export default {
   title: 'Components/Persona',

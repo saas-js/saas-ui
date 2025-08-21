@@ -30,7 +30,7 @@ export const dataListSlotRecipe = defineSlotRecipe({
           gap: '4',
         },
         itemLabel: {
-          minWidth: '120px',
+          minWidth: 'var(--label-width, 120px)',
         },
       },
       vertical: {

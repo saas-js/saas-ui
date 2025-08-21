@@ -23,7 +23,7 @@ const _createField = (
   { displayName, hideLabel, getBaseField: getBaseFieldProp }: CreateFieldProps,
 ) => {
   const Field = forwardRef<HTMLDivElement, any>((props, ref) => {
-    const { id, label, required, rules } = props
+    const { id, required, rules } = props
 
     const inputRules = {
       required,
@@ -54,14 +54,12 @@ const _createField = (
     )
 
     return (
-      <Component {...rootProps} {...baseFieldProps}>
-        <InputComponent
-          ref={ref}
-          id={id}
-          label={hideLabel ? label : undefined} // Only pass down the label when it should be inline.
-          {...inputProps}
-          rules={inputRules}
-        />
+      <Component
+        {...rootProps}
+        {...baseFieldProps}
+        hideLabel={hideLabel ?? baseFieldProps.hideLabel}
+      >
+        <InputComponent ref={ref} id={id} {...inputProps} rules={inputRules} />
       </Component>
     )
   })

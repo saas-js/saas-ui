@@ -1,5 +1,6 @@
-import { Box, Center, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Box, Center, SimpleGrid, Stack } from '@saas-ui/react'
 import { allDocs } from 'content-collections'
+import { createGetUrl } from 'fumadocs-core/source'
 import Link from 'next/link'
 import { LuCode } from 'react-icons/lu'
 import { kebabCase } from 'scule'
@@ -7,14 +8,25 @@ import { kebabCase } from 'scule'
 import { getComponent } from '../illustrations'
 
 const components = allDocs.filter(
-  (doc) => doc.slug.includes('components/') && !doc.slug.includes('concepts/'),
+  (doc) =>
+    doc.slug.includes('components/') &&
+    !doc.slug.includes('pro/') &&
+    !doc.slug.includes('concepts/') &&
+    !doc.slug.includes('overview'),
 )
+
+const getUrl = createGetUrl('/docs')
 
 export const ComponentGrid = () => {
   return (
     <SimpleGrid minChildWidth="240px" gap="6" mt="8">
       {components.map((item) => {
-        const key = kebabCase(item.slug).replace('docs-components-', '')
+        const parts = item.slug.split('/').filter((part) => !part.includes('('))
+
+        const path = parts.join('/')
+        const component = parts[parts.length - 1]
+
+        const key = kebabCase(component)
         const Illustration = getComponent(key) ?? LuCode
 
         return (
@@ -27,7 +39,7 @@ export const ComponentGrid = () => {
             focusRing="inside"
             overflow="hidden"
           >
-            <Link href={`/${item.slug}`}>
+            <Link href={getUrl(path.split('/'))}>
               <Center
                 height="120px"
                 bg="bg.subtle"

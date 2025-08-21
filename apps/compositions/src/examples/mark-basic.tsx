@@ -1,4 +1,6 @@
-import { Mark, Text } from "@chakra-ui/react"
+'use client'
+
+import { Mark, Text } from '@saas-ui/react'
 
 export const MarkBasic = () => {
   return (

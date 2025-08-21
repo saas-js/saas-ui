@@ -1,4 +1,4 @@
-import { AspectRatio } from '@chakra-ui/react'
+import { AspectRatio } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

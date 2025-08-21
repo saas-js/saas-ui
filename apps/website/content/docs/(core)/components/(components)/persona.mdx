@@ -1,0 +1,93 @@
+---
+title: Persona
+description: Used to represent a user or entity
+links:
+  source: components/persona
+  storybook: components-persona--basic
+  recipe: persona
+  ark: https://ark-ui.com/react/docs/components/avatar
+---
+
+<ExampleTabs name="persona-basic" />
+
+## Anatomy
+
+```jsx
+import { Persona } from '@saas-ui/react/persona'
+```
+
+```jsx
+<Persona.Root>
+  <Persona.Avatar>
+    <Persona.PresenceBadge />
+  </Persona.Avatar>
+  <Persona.Details>
+    <Persona.Label />
+    <Persona.SecondaryLabel />
+    <Persona.TertiaryLabel />
+  </Persona.Details>
+</Persona.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the avatar
+
+<ExampleTabs name="persona-sizes" />
+
+### Shape
+
+Use the `shape` prop to change the shape of the avatar, from `rounded` to
+`square`
+
+<ExampleTabs name="persona-with-shape" />
+
+### Presence
+
+Use the `presence` prop to change the presence of the avatar
+
+<ExampleTabs name="persona-with-presence" />
+
+### Out of office
+
+Use the `outOfOffice` prop to change the out of office status of the avatar
+
+<ExampleTabs name="persona-out-of-office" />
+
+### Ring
+
+Use the `outline*` props to add a ring around the avatar
+
+<ExampleTabs name="persona-with-ring" />
+
+## Props
+
+### Root
+
+<PropTable component="Persona" part="Root" />
+
+### Avatar
+
+<PropTable component="Persona" part="Avatar" />
+
+### PresenceBadge
+
+<PropTable component="Persona" part="PresenceBadge" />
+
+### Details
+
+<PropTable component="Persona" part="Details" />
+
+### Label
+
+<PropTable component="Persona" part="Label" />
+
+### SecondaryLabel
+
+<PropTable component="Persona" part="SecondaryLabel" />
+
+### TertiaryLabel
+
+<PropTable component="Persona" part="TertiaryLabel" />

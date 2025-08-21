@@ -1,4 +1,4 @@
-import { chakra, useColorModeValue } from '@chakra-ui/react'
+import { chakra, useColorModeValue } from '@saas-ui/react'
 
 export const Ownco = (props: any) => {
   return (

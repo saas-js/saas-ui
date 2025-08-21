@@ -1,1 +1,5 @@
-export { Editable } from '@chakra-ui/react/editable'
+export {
+  Editable,
+  useEditable,
+  useEditableContext,
+} from '@chakra-ui/react/editable'

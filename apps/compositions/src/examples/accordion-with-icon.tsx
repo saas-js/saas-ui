@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, Icon, Stack } from '@chakra-ui/react'
+import { Heading, Icon, Stack } from '@saas-ui/react'
 import { Accordion } from '@saas-ui/react'
 import { LuChartBarStacked, LuTags } from 'react-icons/lu'
 

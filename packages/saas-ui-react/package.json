@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "3.0.0-next.35",
+  "version": "3.0.0-next.41",
   "description": "Saas UI - The React component library for startups.",
   "type": "module",
   "exports": {
@@ -71,12 +71,13 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.9.1",
+    "@ark-ui/react": "^5.20.0",
     "@saas-ui/core": "workspace:*",
-    "@saas-ui/hooks": "workspace:*"
+    "@saas-ui/hooks": "workspace:*",
+    "next-themes": "^0.4.6"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.13.0",
+    "@chakra-ui/react": "^3.25.0",
     "@emotion/react": "^11",
     "react": ">=18",
     "react-dom": ">=18"

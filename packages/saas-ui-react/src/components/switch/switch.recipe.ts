@@ -6,6 +6,7 @@ export const switchSlotRecipe = defineSlotRecipe({
   className: 'chakra-switch',
   base: {
     root: {
+      colorPalette: 'accent',
       display: 'inline-flex',
       gap: '2.5',
       alignItems: 'center',

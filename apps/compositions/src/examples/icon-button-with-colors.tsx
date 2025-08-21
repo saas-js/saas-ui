@@ -1,4 +1,4 @@
-import { For, HStack, IconButton } from '@chakra-ui/react'
+import { For, HStack, IconButton } from '@saas-ui/react'
 import { LuSearch } from 'react-icons/lu'
 
 import { colorPalettes } from '../lib/color-palettes'

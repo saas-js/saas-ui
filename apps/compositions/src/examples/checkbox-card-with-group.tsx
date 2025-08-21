@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckboxGroup, Flex, Text } from '@chakra-ui/react'
+import { CheckboxGroup, Flex, Text } from '@saas-ui/react'
 import { CheckboxCard } from '@saas-ui/react'
 
 export const CheckboxCardWithGroup = () => {

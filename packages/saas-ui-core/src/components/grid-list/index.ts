@@ -1,1 +1,1 @@
-export * as GridList from './namespace'
+export * as GridList from './namespace.ts'

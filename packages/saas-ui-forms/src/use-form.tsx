@@ -66,6 +66,9 @@ export function useForm<
       : resolver,
   })
 
+  const stableOnSubmit = useMemo(() => onSubmit, [onSubmit])
+  const stableOnInvalid = useMemo(() => onInvalid, [onInvalid])
+
   const FormComponent = useMemo(
     () =>
       forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
@@ -75,19 +78,20 @@ export function useForm<
               {...props}
               form={form}
               onSubmit={
-                props.onSubmit ?? form.handleSubmit(onSubmit, onInvalid)
+                props.onSubmit ??
+                form.handleSubmit(stableOnSubmit, stableOnInvalid)
               }
               ref={ref}
             />
           )
         },
       ),
-    [form, onSubmit, onInvalid],
+    [form, stableOnSubmit, stableOnInvalid],
   )
 
   const submit = useMemo(() => {
-    return form.handleSubmit(onSubmit, onInvalid)
-  }, [form, onSubmit, onInvalid])
+    return form.handleSubmit(stableOnSubmit, stableOnInvalid)
+  }, [form, stableOnSubmit, stableOnInvalid])
 
   return {
     ...form,

@@ -1,6 +1,6 @@
 'use client'
 
-import { Text } from '@chakra-ui/react'
+import { Text } from '@saas-ui/react'
 import { Timeline } from '@saas-ui/react'
 import { LuCheck, LuPackage, LuShip } from 'react-icons/lu'
 

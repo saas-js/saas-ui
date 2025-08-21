@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

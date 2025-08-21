@@ -21,7 +21,6 @@ export const popoverSlotRecipe = defineSlotRecipe({
       },
       '--popover-z-index': 'zIndex.layer-2',
       zIndex: 'calc(var(--popover-z-index) + var(--layer-index, 0))',
-      borderWidth: '1px',
       outline: '0',
       transformOrigin: 'var(--transform-origin)',
       _open: {

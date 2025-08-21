@@ -1,0 +1,214 @@
+---
+title: Fields
+sidebarTitle: Fields
+description:
+  Built-in field types that can be used to create beautiful forms rapidly with
+  minimal code.
+---
+
+The `form.Field` component can be used to create a field for any of these types.
+
+- `text`, `email`, `url`, `phone`, `time`
+- `number`
+- `password`
+- `textarea`
+- `select`
+- `checkbox`
+- `radio`
+
+If no `type` is provided, the field will default to `text`.
+
+## Setup
+
+Add `FieldsProvider` to your app to make the fields available to all forms.
+
+```tsx
+import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
+
+function MyApp() {
+  return (
+    <FieldsProvider value={{ fields: defaultFieldTypes }}>
+      <App />
+    </FieldsProvider>
+  )
+```
+
+## Basic usage
+
+```tsx
+import { FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
+
+function MyForm() {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <form.Form>
+      <FormLayout>
+        <form.Field name="name" type="text" />
+        <form.Field name="email" type="email" />
+      </FormLayout>
+
+      <SubmitButton>Save</SubmitButton>
+    </form.Form>
+  )
+}
+```
+
+## Built-in fields
+
+### Text Field
+
+<ExampleTabs name="form-text" />
+
+### Number Field
+
+<ExampleTabs name="form-number" />
+
+### Password Field
+
+<ExampleTabs name="form-password" />
+
+### Select Field
+
+<ExampleTabs name="form-select" />
+
+### Checkbox Field
+
+<ExampleTabs name="form-checkbox" />
+
+### Radio Field
+
+<ExampleTabs name="form-radio" />
+
+### Switch Field
+
+<ExampleTabs name="form-switch" />
+
+## Custom fields
+
+Since `useForm` is built on top of `react-hook-form`, you can use any of the
+[react-hook-form](https://react-hook-form.com/docs/useform) API to create custom
+fields.
+
+This is useful when you need to create a one off field that is not supported by
+the built-in fields.
+
+```tsx
+import { Controller, SubmitButton, useForm } from '@saas-ui/forms'
+
+function MyForm() {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <form.Form>
+      <Controller
+        control={form.control}
+        name="name"
+        render={({ field }) => <Input {...field} />}
+      />
+
+      <SubmitButton>Submit</SubmitButton>
+    </form.Form>
+  )
+}
+```
+
+To create a re-usable custom field, you can use the `createField` function to
+define a field type that can be passed to the `useForm` hook.
+
+```tsx
+import { createField, useForm } from '@saas-ui/forms'
+
+interface InputFieldProps extends InputProps {
+  type?: string
+  startElement?: React.ReactNode
+  endElement?: React.ReactNode
+}
+
+const InputField = createField<HTMLInputElement, InputFieldProps>(
+  ({ type = 'text', startElement, endElement, size, ...rest }, ref) => {
+    return (
+      <InputGroup
+        startElement={startElement}
+        endElement={endElement}
+        width="full"
+      >
+        <Input type={type} size={size} {...rest} ref={ref} />
+      </InputGroup>
+    )
+  },
+)
+```
+
+The `createField` function takes two arguments:
+
+- The component to render
+- An options object
+
+The options object can be used to configure the field type.
+
+The `createField` function returns a React component that can be used to render
+the field.
+
+```tsx
+// App.tsx
+import { createField, FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
+
+const CustomInputField = createField<HTMLInputElement, InputFieldProps>(
+  (props, ref) => {
+    return <Input {...props} type="text" ref={ref} />
+  },
+)
+
+export default function App() {
+  return (
+    <FieldsProvider value={{
+      fields: {
+        ...defaultFieldTypes
+        custom: CustomInputField,
+      }
+    }}>
+      <App />
+    </FieldsProvider>
+  )
+}
+```
+
+```tsx
+// Form.tsx
+import { useForm } from '@saas-ui/forms'
+
+function MyForm() {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  return (
+    <form.Form>
+      <form.Field name="name" type="custom" />
+
+      <SubmitButton>Submit</SubmitButton>
+    </form.Form>
+  )
+}
+```

@@ -1,7 +1,7 @@
 {
   "name": "saas-ui-storybook",
   "type": "module",
-  "version": "3.0.0-next.35",
+  "version": "3.0.0-next.41",
   "scripts": {
     "dev": "storybook dev -p 6006 --debug",
     "build": "storybook build --debug --loglevel verbose"
@@ -12,7 +12,7 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.27.0",
-    "@chakra-ui/react": "^3.14.0",
+    "@chakra-ui/react": "^3.20.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource-variable/inter": "^5.2.5",

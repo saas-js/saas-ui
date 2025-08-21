@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, Input, Text } from '@chakra-ui/react'
+import { Heading, Input, Text } from '@saas-ui/react'
 import { Field, Tabs } from '@saas-ui/react'
 
 export const TabsNested = () => {

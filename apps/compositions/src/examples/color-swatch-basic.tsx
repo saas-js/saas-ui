@@ -1,6 +1,6 @@
 'use client'
 
-import { ColorSwatch } from '@chakra-ui/react'
+import { ColorSwatch } from '@saas-ui/react'
 
 export const ColorSwatchBasic = () => {
   return <ColorSwatch value="#bada55" />

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@chakra-ui/react'
+import { Box } from '@saas-ui/react'
 import { Button, Menu } from '@saas-ui/react'
 import { LuClipboardPaste, LuCopy, LuScissors } from 'react-icons/lu'
 

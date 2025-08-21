@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 
-import { createListCollection } from '@chakra-ui/react'
+import { createListCollection } from '@saas-ui/react'
 import { Button, Dialog, Select } from '@saas-ui/react'
 
 export const SelectInDialog = () => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack } from '@chakra-ui/react'
+import { HStack } from '@saas-ui/react'
 import { Tag } from '@saas-ui/react'
 import { LuActivity } from 'react-icons/lu'
 

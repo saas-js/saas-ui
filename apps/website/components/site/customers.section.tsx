@@ -9,7 +9,7 @@ import {
   SimpleGrid,
   Span,
   Stack,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 
 import { Aidbase } from './logos/customers/aidbase'
 import { Eqtble } from './logos/customers/eqtble'

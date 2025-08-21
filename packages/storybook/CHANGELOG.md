@@ -1,5 +1,62 @@
 # saas-ui-storybook
 
+## 3.0.0-next.41
+
+### Patch Changes
+
+- Updated dependencies [a635505]
+  - @saas-ui/react@3.0.0-next.41
+  - @saas-ui/storybook-addon@7.0.0-next.6
+
+## 3.0.0-next.40
+
+### Patch Changes
+
+- Updated dependencies [f774f7a]
+- Updated dependencies [d638488]
+- Updated dependencies [f774f7a]
+- Updated dependencies [d638488]
+- Updated dependencies [5c032b5]
+  - @saas-ui/react@3.0.0-next.40
+  - @saas-ui/storybook-addon@7.0.0-next.5
+
+## 3.0.0-next.39
+
+### Patch Changes
+
+- Updated dependencies [9c24d1f]
+  - @saas-ui/react@3.0.0-next.39
+  - @saas-ui/storybook-addon@7.0.0-next.5
+
+## 3.0.0-next.38
+
+### Patch Changes
+
+- Updated dependencies [3e6b10b]
+- Updated dependencies [bb98745]
+  - @saas-ui/react@3.0.0-next.38
+  - @saas-ui/core@3.0.0-next.11
+  - @saas-ui/storybook-addon@7.0.0-next.5
+
+## 3.0.0-next.37
+
+### Patch Changes
+
+- Updated dependencies [2c0282d]
+  - @saas-ui/react@3.0.0-next.37
+  - @saas-ui/storybook-addon@7.0.0-next.4
+
+## 3.0.0-next.36
+
+### Patch Changes
+
+- Updated dependencies [868950d]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [6e53bc7]
+  - @saas-ui/react@3.0.0-next.36
+  - @saas-ui/storybook-addon@7.0.0-next.3
+  - @saas-ui/core@3.0.0-next.10
+
 ## 3.0.0-next.35
 
 ### Patch Changes

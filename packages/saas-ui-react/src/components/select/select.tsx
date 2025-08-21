@@ -2,7 +2,10 @@
 
 import { forwardRef } from 'react'
 
-import type { CollectionItem } from '@chakra-ui/react/collection'
+import type {
+  CollectionItem,
+  ListCollection,
+} from '@chakra-ui/react/collection'
 import { Portal } from '@chakra-ui/react/portal'
 import { Select as SelectPrimitive } from '@chakra-ui/react/select'
 
@@ -100,10 +103,12 @@ export const SelectValueText = forwardRef<
   )
 })
 
-export interface SelectRootProps<T> extends SelectPrimitive.RootProps<T> {}
+export interface SelectRootProps<T> extends SelectPrimitive.RootProps<T> {
+  collection: ListCollection<T>
+}
 
 export const SelectRoot = forwardRef(function SelectRoot<
-  T extends CollectionItem,
+  T extends CollectionItem = CollectionItem,
 >(props: SelectRootProps<T>, ref: React.Ref<HTMLDivElement>) {
   return (
     <SelectPrimitive.Root
@@ -112,7 +117,7 @@ export const SelectRoot = forwardRef(function SelectRoot<
       positioning={{ sameWidth: true, ...props.positioning }}
     />
   )
-}) as <T extends CollectionItem>(
+}) as <T extends CollectionItem = CollectionItem>(
   props: SelectRootProps<T> & React.RefAttributes<HTMLDivElement>,
 ) => React.ReactElement
 

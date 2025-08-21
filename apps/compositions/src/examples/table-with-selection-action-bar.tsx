@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Kbd, Table } from '@chakra-ui/react'
+import { Kbd, Table } from '@saas-ui/react'
 import { ActionBar, Button, Checkbox } from '@saas-ui/react'
 
 export const TableWithSelectionActionBar = () => {

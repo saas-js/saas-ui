@@ -1,5 +1,63 @@
 # @chakra-ui/compositions
 
+## 1.0.1-next.41
+
+### Patch Changes
+
+- Updated dependencies [a635505]
+  - @saas-ui/forms@3.0.0-next.41
+  - @saas-ui/react@3.0.0-next.41
+
+## 1.0.1-next.40
+
+### Patch Changes
+
+- Updated dependencies [f774f7a]
+- Updated dependencies [6904f47]
+- Updated dependencies [d638488]
+- Updated dependencies [f774f7a]
+- Updated dependencies [d638488]
+- Updated dependencies [5c032b5]
+  - @saas-ui/react@3.0.0-next.40
+  - @saas-ui/forms@3.0.0-next.40
+
+## 1.0.1-next.39
+
+### Patch Changes
+
+- Updated dependencies [9c24d1f]
+  - @saas-ui/react@3.0.0-next.39
+  - @saas-ui/forms@3.0.0-next.39
+
+## 1.0.1-next.38
+
+### Patch Changes
+
+- Updated dependencies [3e6b10b]
+  - @saas-ui/react@3.0.0-next.38
+  - @saas-ui/forms@3.0.0-next.38
+
+## 1.0.1-next.37
+
+### Patch Changes
+
+- Updated dependencies [2c0282d]
+  - @saas-ui/react@3.0.0-next.37
+  - @saas-ui/forms@3.0.0-next.37
+
+## 1.0.1-next.36
+
+### Patch Changes
+
+- Updated dependencies [49f551b]
+- Updated dependencies [49f551b]
+- Updated dependencies [868950d]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [a8c3577]
+  - @saas-ui/forms@3.0.0-next.36
+  - @saas-ui/react@3.0.0-next.36
+
 ## 1.0.1-next.35
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @saas-ui/supabase
 
+## 3.0.0-next.1
+
+### Patch Changes
+
+- Updated dependencies [6e53bc7]
+  - @saas-ui/auth-provider@2.0.0-next.1
+
 ## 3.0.0-next.0
 
 ### Major Changes
@@ -139,12 +146,14 @@
 
 ### Minor Changes
 
-- ccf2824d: Fixed issue where supabase client would not redirect after magic link login
+- ccf2824d: Fixed issue where supabase client would not redirect after magic
+  link login
 - adfc8dfd: Updated Supabase and fixed issue with client types
 
 ### Patch Changes
 
-- ccf2824d: Fixed issue where Supabase client would throw an error when social login is initialized
+- ccf2824d: Fixed issue where Supabase client would throw an error when social
+  login is initialized
 - Updated dependencies [ccf2824d]
   - @saas-ui/auth@2.1.0
 

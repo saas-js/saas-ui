@@ -1,4 +1,4 @@
-import { chakra, useColorModeValue } from '@chakra-ui/react'
+import { chakra, useColorModeValue } from '@saas-ui/react'
 
 export const YouGotBud = (props: any) => (
   <chakra.svg viewBox="0 0 38 41" focusable="false" {...props}>

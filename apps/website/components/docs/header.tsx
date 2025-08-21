@@ -1,29 +1,33 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 
 import { ColorModeButton } from '@/components/docs/color-mode-button'
-import { Logo } from '@/components/logo'
 import { MobileSearchButton, SearchButton } from '@/components/search-button'
 import { SocialLinks } from '@/components/social-links'
-import { VersionMenu } from '@/components/version-menu'
 import { useRoute } from '@/lib/use-route'
 import { websiteConfig } from '@/website.config'
+import { HoverCard } from '@ark-ui/react'
+import { SaasUIIcon } from '@saas-ui/assets'
 import {
   Box,
-  Container,
   DrawerTrigger,
   HStack,
   Portal,
+  Separator,
   Spacer,
+  Span,
   VStack,
   chakra,
-} from '@chakra-ui/react'
-import { Drawer, IconButton } from '@saas-ui/react'
+} from '@saas-ui/react'
+import { Drawer, IconButton, Menu } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LuMenu } from 'react-icons/lu'
+import { BsGithub } from 'react-icons/bs'
+import { LuChevronDown, LuMenu } from 'react-icons/lu'
 
+import { LinkButton } from '../link-button'
+import { HeaderVersionMenu } from '../site/version-menu'
 import { CommandMenu } from './command-menu'
 
 const HeaderRoot = chakra('header', {
@@ -33,8 +37,9 @@ const HeaderRoot = chakra('header', {
     top: '0',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
-    minHeight: '64px',
+    minHeight: '54px',
     borderBottom: '1px solid',
     borderColor: 'border.subtle',
     zIndex: '10',
@@ -43,8 +48,13 @@ const HeaderRoot = chakra('header', {
 
 const PrimaryNavLink = chakra(Link, {
   base: {
+    display: 'inline-flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '2',
     fontSize: 'sm',
     color: 'fg.subtle',
+    fontWeight: 'medium',
     _currentPage: {
       color: 'fg',
       fontWeight: 'medium',
@@ -52,23 +62,7 @@ const PrimaryNavLink = chakra(Link, {
     _hover: {
       color: 'fg',
     },
-  },
-})
-
-const SecondaryNavLink = chakra(Link, {
-  base: {
-    fontSize: 'sm',
-    color: 'fg.subtle',
-    py: '2',
-    _currentPage: {
-      color: 'fg',
-      fontWeight: 'medium',
-      layerStyle: 'indicator.bottom',
-      borderTopRadius: '3px',
-      '--indicator-offset-y': '-1px',
-      '--indicator-color': 'colors.colorPalette.solid',
-    },
-    _hover: {
+    _open: {
       color: 'fg',
     },
   },
@@ -90,66 +84,6 @@ const TopNavMobileLink = chakra(Link, {
     },
   },
 })
-
-const HeaderLogoLink = () => {
-  return (
-    <Link href="/" aria-label="Saas UI, Back to homepage">
-      <Logo />
-    </Link>
-  )
-}
-
-const HeaderPrimaryNavbar = () => {
-  const route = useRoute()
-  const items = route.getPrimaryNavItems()
-  return (
-    <HStack gap="8" minH="48px" aria-label="primary navigation">
-      <HeaderLogoLink />
-      {items.map((item) => (
-        <PrimaryNavLink
-          key={item.title}
-          href={item.url || '#'}
-          aria-current={item.current ? 'page' : undefined}
-        >
-          {item.title}
-        </PrimaryNavLink>
-      ))}
-    </HStack>
-  )
-}
-
-const HeaderSecondaryNavbar = () => {
-  const route = useRoute()
-  const items = route.getSecondaryNavItems()
-  return (
-    <HStack as="nav" gap="6" aria-label="secondary navigation">
-      {items.map((item) => (
-        <SecondaryNavLink
-          key={item.title}
-          href={item.url || '#'}
-          aria-current={item.current ? 'page' : undefined}
-        >
-          {item.title}
-        </SecondaryNavLink>
-      ))}
-    </HStack>
-  )
-}
-
-interface HeaderVersionMenuProps {
-  containerRef?: React.RefObject<HTMLElement | null>
-}
-
-const HeaderVersionMenu = ({ containerRef }: HeaderVersionMenuProps) => (
-  <VersionMenu
-    items={[
-      { title: 'v3', value: '3.0.x-beta', url: '#' },
-      { title: 'v2', value: '2.11.x', url: 'https://v2.saas-ui.dev' },
-      { title: 'v1', value: '1.5.x', url: 'https://v1.saas-ui.dev' },
-    ]}
-    containerRef={containerRef}
-  />
-)
 
 const HeaderSocialLinks = () => (
   <SocialLinks items={[{ type: 'github', href: websiteConfig.repoUrl }]} />
@@ -231,19 +165,6 @@ const HeaderMobileMenuDropdown = () => {
   )
 }
 
-const HeaderDesktopActions = () => {
-  return (
-    <HStack gap="2" minH="48px" flexShrink="1" minW="0">
-      <HeaderVersionMenu />
-      <CommandMenu
-        trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
-      />
-      <HeaderSocialLinks />
-      <ColorModeButton />
-    </HStack>
-  )
-}
-
 const HeaderMobileActions = () => {
   return (
     <HStack>
@@ -255,14 +176,139 @@ const HeaderMobileActions = () => {
 }
 
 const HeaderDesktopNavbar = () => {
+  const path = usePathname()
+
   return (
     <Box hideBelow="md">
-      <HStack py="2">
-        <HeaderPrimaryNavbar />
+      <HStack py="2" minH="48px">
+        <HStack width="300px">
+          <HStack asChild>
+            <Link href="/docs">
+              <>
+                <SaasUIIcon color="black" width="24px" height="24px" />
+
+                <Span fontSize="lg" color="fg.subtle">
+                  Documentation
+                </Span>
+              </>
+            </Link>
+          </HStack>
+        </HStack>
+
+        <HStack gap="4">
+          <HoverMenu
+            trigger={
+              <PrimaryNavLink
+                onClick={(e) => {
+                  e.preventDefault()
+                }}
+                href="/docs/getting-started/introduction"
+                aria-current={
+                  [
+                    '/docs/getting-started',
+                    '/docs/components',
+                    '/docs/theming',
+                    '/docs/styling',
+                  ].some((route) => path.startsWith(route))
+                    ? 'page'
+                    : undefined
+                }
+              >
+                Saas UI <LuChevronDown />
+              </PrimaryNavLink>
+            }
+          >
+            <Menu.Item value="getting-started" asChild>
+              <Link href="/docs/getting-started/introduction">
+                Getting started
+              </Link>
+            </Menu.Item>
+            <Menu.Item value="components" asChild>
+              <Link href="/docs/components/overview">Components</Link>
+            </Menu.Item>
+            <Menu.Item value="theming" asChild>
+              <Link href="/docs/theming/overview">Theming</Link>
+            </Menu.Item>
+            <Menu.Item value="styling" asChild>
+              <Link href="/docs/styling/overview">Styling</Link>
+            </Menu.Item>
+          </HoverMenu>
+
+          <HoverMenu
+            trigger={
+              <PrimaryNavLink
+                href="/docs/pro/getting-started/introduction"
+                onClick={(e) => {
+                  e.preventDefault()
+                }}
+                aria-current={path.startsWith('/docs/pro') ? 'page' : undefined}
+              >
+                Saas UI Pro <LuChevronDown />
+              </PrimaryNavLink>
+            }
+          >
+            <Menu.Item value="pro-components" asChild>
+              <Link href="/docs/pro/getting-started/introduction">
+                Getting started
+              </Link>
+            </Menu.Item>
+            <Menu.Item value="data-grid" asChild>
+              <Link href="/docs/pro/components/data-grid">Data grid</Link>
+            </Menu.Item>
+            <Menu.Item value="kanban" asChild>
+              <Link href="/docs/pro/components/kanban">Kanban</Link>
+            </Menu.Item>
+          </HoverMenu>
+
+          <HoverMenu
+            trigger={
+              <PrimaryNavLink
+                href="/docs/starter-kits"
+                onClick={(e) => {
+                  e.preventDefault()
+                }}
+                aria-current={
+                  path.startsWith('/docs/starter-kits') ? 'page' : undefined
+                }
+              >
+                Starter kits <LuChevronDown />
+              </PrimaryNavLink>
+            }
+          >
+            <Menu.Item value="nextjs" asChild>
+              <Link href="/docs/starter-kits/nextjs">Next.js</Link>
+            </Menu.Item>
+            <Menu.Item value="tanstack-router" asChild>
+              <Link href="/docs/starter-kits/tanstack-router">
+                Tanstack Router
+              </Link>
+            </Menu.Item>
+          </HoverMenu>
+        </HStack>
+
         <Spacer />
-        <HeaderDesktopActions />
+        <CommandMenu
+          trigger={<SearchButton width="200px" size="sm" flexShrink="1" />}
+        />
+        <HeaderVersionMenu />
+        <HStack gap="0" justifyContent="flex-end">
+          <IconButton asChild variant="ghost" size="sm" aria-label="Github">
+            <Link href="https://github.com/saas-js/saas-ui" target="_blank">
+              <BsGithub />
+            </Link>
+          </IconButton>
+          <ColorModeButton />
+          <Separator orientation="vertical" height="4" mx="2" />
+          <LinkButton
+            href="/pro/pricing"
+            colorPalette="accent"
+            variant="glass"
+            size="sm"
+          >
+            Get Pro
+          </LinkButton>
+        </HStack>
       </HStack>
-      <HeaderSecondaryNavbar />
     </Box>
   )
 }
@@ -270,7 +316,7 @@ const HeaderDesktopNavbar = () => {
 const HeaderMobileNavbar = () => {
   return (
     <HStack hideFrom="md" h="full">
-      <HeaderLogoLink />
+      {/* <ProLogoLink /> */}
       <Spacer />
       <HeaderMobileActions />
     </HStack>
@@ -280,10 +326,55 @@ const HeaderMobileNavbar = () => {
 export const Header = () => {
   return (
     <HeaderRoot>
-      <Container>
+      <Box width="full" px="5">
         <HeaderDesktopNavbar />
         <HeaderMobileNavbar />
-      </Container>
+      </Box>
     </HeaderRoot>
+  )
+}
+
+function HoverMenu({
+  trigger,
+  children,
+}: {
+  trigger: React.ReactNode
+  children: React.ReactNode
+}) {
+  const triggerId = useId()
+  const contentId = useId()
+
+  return (
+    <HoverCard.Root
+      ids={{ trigger: triggerId, content: contentId }}
+      openDelay={100}
+      closeDelay={100}
+    >
+      <HoverCard.Context>
+        {({ open }) => (
+          <Menu.Root
+            ids={{
+              trigger: triggerId,
+              content: contentId,
+            }}
+            composite
+            open={open}
+            closeOnSelect={false}
+          >
+            <HoverCard.Trigger asChild>
+              <Menu.Trigger asChild>
+                <div>{trigger}</div>
+              </Menu.Trigger>
+            </HoverCard.Trigger>
+
+            <HoverCard.Positioner>
+              <HoverCard.Content asChild id={contentId}>
+                <Menu.Content id={contentId}>{children}</Menu.Content>
+              </HoverCard.Content>
+            </HoverCard.Positioner>
+          </Menu.Root>
+        )}
+      </HoverCard.Context>
+    </HoverCard.Root>
   )
 }

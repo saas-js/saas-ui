@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
-import { Editable, Input, Stack } from "@chakra-ui/react"
-import { useRef } from "react"
+import { useRef } from 'react'
+
+import { Editable, Input, Stack } from '@saas-ui/react'
 
 export const EditableWithFinalFocus = () => {
   const ref = useRef<HTMLInputElement>(null)

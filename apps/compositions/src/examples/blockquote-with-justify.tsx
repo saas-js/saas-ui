@@ -1,6 +1,6 @@
 'use client'
 
-import { For, HStack, Stack, Text } from '@chakra-ui/react'
+import { For, HStack, Stack, Text } from '@saas-ui/react'
 import { Blockquote } from '@saas-ui/react'
 
 export const BlockquoteWithJustify = () => {

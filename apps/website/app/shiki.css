@@ -31,7 +31,7 @@ code .diff.remove {
 }
 
 code .diff.remove:before {
-  content: "-";
+  content: '-';
   color: #f14158;
 }
 
@@ -43,7 +43,7 @@ code .diff.add {
 }
 
 code .diff.add:before {
-  content: "+";
+  content: '+';
   color: #3dd68c;
 }
 
@@ -72,4 +72,14 @@ code .highlighted-word {
   + span {
     background: transparent !important;
   }
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
 }

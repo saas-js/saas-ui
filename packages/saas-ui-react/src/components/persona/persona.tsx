@@ -1,10 +1,99 @@
-import * as React from 'react'
+'use client'
 
-import * as PersonaPrimitive from './persona-primitive.tsx'
+import React, { forwardRef, useMemo } from 'react'
+
+import {
+  AvatarPropsProvider,
+  HTMLChakraProps,
+  type ImageProps,
+  type SlotRecipeProps,
+  chakra,
+  mergeProps,
+} from '@chakra-ui/react'
+import { dataAttr } from '@saas-ui/core/utils'
+import { cx } from '@saas-ui/core/utils'
+
+import { Avatar, type AvatarProps } from '../avatar/avatar.tsx'
+import {
+  ClassNamesProvider,
+  StylesProvider,
+  usePropsContext,
+  useRecipeResult,
+  withContext,
+} from './persona.context.ts'
 import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { PersonaPresence } from './presence.ts'
 
-interface PersonaOptions {
+interface PersonaRootProps
+  extends HTMLChakraProps<'div'>,
+    SlotRecipeProps<'suiPersona'>,
+    PersonaVariantProps {
+  /**
+   * Indicates that a person is out of office. Changes the presence badge style.
+   */
+  outOfOffice?: boolean
+  /**
+   * The presence status of the person
+   */
+  presence?: PersonaPresence
+}
+
+/**
+ * The root component that provides context and styles.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/persona
+ */
+const PersonaRoot = forwardRef<HTMLDivElement, PersonaRootProps>(
+  (props, ref) => {
+    const propsContext = usePropsContext()
+
+    const mergedProps = useMemo(
+      () => mergeProps(propsContext, props),
+      [propsContext, props],
+    )
+
+    const {
+      styles,
+      props: rootProps,
+      classNames,
+    } = useRecipeResult(mergedProps)
+
+    const className = classNames['root']
+
+    const { outOfOffice, presence, ...rest } = rootProps
+
+    return (
+      <StylesProvider value={styles}>
+        <ClassNamesProvider value={classNames}>
+          <AvatarPropsProvider
+            value={{
+              size: props.size,
+            }}
+          >
+            <chakra.div
+              ref={ref}
+              {...rest}
+              data-out-of-office={dataAttr(outOfOffice)}
+              data-presence={presence}
+              css={[
+                presence
+                  ? {
+                      '--persona-presence': `colors.presence.${presence}`,
+                    }
+                  : undefined,
+                styles['root'],
+                rest.css,
+              ]}
+              className={cx(className, rest.className)}
+            />
+          </AvatarPropsProvider>
+        </ClassNamesProvider>
+      </StylesProvider>
+    )
+  },
+)
+
+interface PersonaAvatarOptions {
   /**
    * The name of the person in the avatar.
    *
@@ -12,139 +101,101 @@ interface PersonaOptions {
    * - If `src` is not loaded, the name will be used to create the initials
    */
   name?: string
-  /**
-   * The presence status of the person
-   *
-   * If set will add an AvatarBadge with color configured in `Presence`
-   * Default presence options:
-   * - online
-   * - offline
-   * - busy
-   * - dnd
-   * - away
-   */
-  presence?: PersonaPresence
-  /**
-   * The icon shown in the AvatarBadge
-   */
-  presenceIcon?: React.ReactNode
-  /**
-   * Indicates that a person is out of office. Changes the presence badge style.
-   */
-  isOutOfOffice?: boolean
-  /**
-   * Primary label of the persona, defaults to the name
-   */
-  label?: React.ReactNode
-  /**
-   * Secondary label, usually the role of the person
-   * Only visible from md size and up.
-   */
-  secondaryLabel?: React.ReactNode
-  /**
-   * Tertiary label, usually the status of the person.
-   * Only visible from lg size and up.
-   */
-  tertiaryLabel?: React.ReactNode
-  /**
-   * Hide the persona details next to the avatar.
-   */
-  hideDetails?: boolean
 }
 
-export interface PersonaProps
-  extends PersonaOptions,
-    Omit<PersonaPrimitive.AvatarProps, 'size'>,
-    Omit<PersonaPrimitive.RootProps, 'presence'>,
-    PersonaVariantProps {}
+interface PersonaAvatarProps extends PersonaAvatarOptions, AvatarProps {
+  src?: string
+  srcSet?: string
+  loading?: ImageProps['loading']
+  icon?: React.ReactElement
+  fallback?: React.ReactNode
+  getInitials?: (name?: string | null) => string | null
+}
 
 /**
- * The wrapper component that handles default composition.
+ * An avatar with optional status badge.
  *
- * @see Docs https://saas-ui.dev/docs/components/data-display/persona
+ * @see Docs https://saas-ui.dev/docs/components/persona
  */
-export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
+const PersonaAvatar = forwardRef<HTMLDivElement, PersonaAvatarProps>(
   (props, ref) => {
-    const {
-      name,
-      presence,
-      presenceIcon,
-      isOutOfOffice,
-      label,
-      secondaryLabel,
-      tertiaryLabel,
-      size,
-      hideDetails,
-      children,
-      /** Avatar props */
-      getInitials,
-      icon,
-      loading,
-      onError,
-      src,
-      srcSet,
-      fallback,
-      ...rest
-    } = props
+    const { children, ...rest } = props
 
     return (
-      <PersonaPrimitive.Root
-        ref={ref}
-        outOfOffice={isOutOfOffice}
-        presence={presence}
-        size={size}
-        {...rest}
-      >
-        <PersonaPrimitive.Avatar
-          name={name}
-          size={size}
-          getInitials={getInitials}
-          icon={icon}
-          loading={loading}
-          onError={onError}
-          src={src}
-          srcSet={srcSet}
-          fallback={fallback}
-        >
-          {presence ? (
-            <PersonaPrimitive.PresenceBadge>
-              {presenceIcon}
-            </PersonaPrimitive.PresenceBadge>
-          ) : null}
-        </PersonaPrimitive.Avatar>
-
-        {!hideDetails && (
-          <PersonaPrimitive.Details>
-            <PersonaPrimitive.Label>{label || name}</PersonaPrimitive.Label>
-            {secondaryLabel && (
-              <PersonaPrimitive.SecondaryLabel>
-                {secondaryLabel}
-              </PersonaPrimitive.SecondaryLabel>
-            )}
-            {tertiaryLabel && (
-              <PersonaPrimitive.TertiaryLabel>
-                {tertiaryLabel}
-              </PersonaPrimitive.TertiaryLabel>
-            )}
-            {children}
-          </PersonaPrimitive.Details>
-        )}
-      </PersonaPrimitive.Root>
+      <Avatar ref={ref} {...rest}>
+        {children}
+      </Avatar>
     )
   },
 )
 
-Persona.displayName = 'Persona'
+interface PersonaPresenceBadgeProps extends HTMLChakraProps<'span'> {}
 
-export interface PersonaAvatarProps
-  extends Omit<
-    PersonaProps,
-    'hideDetails' | 'label' | 'secondaryLabel' | 'tertiaryLabel' | 'children'
-  > {}
+const PersonaPresenceBadge = withContext<
+  HTMLSpanElement,
+  PersonaPresenceBadgeProps
+>('span', 'presence')
 
-export const PersonaAvatar = React.forwardRef<
-  HTMLDivElement,
-  PersonaAvatarProps
->(function PersonaAvatar(props, ref) {
-  return <Persona ref={ref} {...props} hideDetails />
-})
+interface PersonaDetailsProps extends HTMLChakraProps<'div'> {}
+
+/**
+ * Wrapper component for the labels.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/persona
+ */
+const PersonaDetails = withContext<HTMLDivElement, PersonaDetailsProps>(
+  'div',
+  'details',
+)
+
+interface PersonaLabelProps extends HTMLChakraProps<'span'> {}
+
+/**
+ * The main label, usually a name.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/persona
+ */
+const PersonaLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
+  'span',
+  'label',
+)
+
+PersonaLabel.displayName = 'PersonaLabel'
+
+/**
+ * The secondary label, usually the role of a person.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/persona
+ */
+const PersonaSecondaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
+  'span',
+  'secondaryLabel',
+)
+
+/**
+ * The tertiary label, typically a status message.
+ *
+ * @see Docs https://saas-ui.dev/docs/components/persona
+ */
+const PersonaTertiaryLabel = withContext<HTMLSpanElement, PersonaLabelProps>(
+  'span',
+  'tertiaryLabel',
+)
+
+export {
+  PersonaRoot as Root,
+  PersonaAvatar as Avatar,
+  PersonaPresenceBadge as PresenceBadge,
+  PersonaDetails as Details,
+  PersonaLabel as Label,
+  PersonaSecondaryLabel as SecondaryLabel,
+  PersonaTertiaryLabel as TertiaryLabel,
+}
+
+export type {
+  PersonaRootProps as RootProps,
+  PersonaAvatarProps as AvatarProps,
+  PersonaPresenceBadgeProps as PresenceBadgeProps,
+  PersonaDetailsProps as DetailsProps,
+  PersonaLabelProps as LabelProps,
+}

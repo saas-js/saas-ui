@@ -1,6 +1,6 @@
 'use client'
 
-import { Field, Input, Stack, Textarea } from '@chakra-ui/react'
+import { Field, Input, Stack, Textarea } from '@saas-ui/react'
 import { Button, Popover } from '@saas-ui/react'
 
 export const PopoverWithForm = () => {

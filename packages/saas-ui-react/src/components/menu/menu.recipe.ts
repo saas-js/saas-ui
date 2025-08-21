@@ -7,15 +7,12 @@ export const menuSlotRecipe = defineSlotRecipe({
   base: {
     content: {
       layerStyle: 'overlay',
-      boxShadow: 'md',
-      borderWidth: '1px',
-      borderColor: 'border',
       outline: 0,
       color: 'fg',
       maxHeight: 'var(--available-height)',
       '--menu-z-index': 'zIndex.layer-3',
       zIndex: 'calc(var(--menu-z-index) + var(--layer-index, 0))',
-      overflow: 'hidden',
+      overflowY: 'auto',
       _open: {
         animationStyle: 'slide-fade-in',
         animationDuration: 'fastest',
@@ -24,6 +21,7 @@ export const menuSlotRecipe = defineSlotRecipe({
         animationStyle: 'slide-fade-out',
         animationDuration: 'fastest',
       },
+      scrollbar: 'thin',
     },
     item: {
       textDecoration: 'none',
@@ -46,6 +44,8 @@ export const menuSlotRecipe = defineSlotRecipe({
       flex: '1',
     },
     itemGroupLabel: {
+      display: 'flex',
+      alignItems: 'center',
       textStyle: 'sm',
       color: 'fg.subtle',
     },
@@ -75,7 +75,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       subtle: {
         item: {
           _highlighted: {
-            bg: 'bg.subtle',
+            bg: 'bg.emphasized',
           },
         },
       },
@@ -93,18 +93,19 @@ export const menuSlotRecipe = defineSlotRecipe({
       sm: {
         content: {
           minW: '8rem',
-          padding: '0.5',
+          padding: '1',
+          borderRadius: 'panel.md',
         },
         item: {
           gap: '1',
           textStyle: 'xs',
-          py: '1',
+          minH: '6',
           px: '1.5',
           ps: 'var(--menu-item-inset, {sizes.1.5})',
         },
         itemGroupLabel: {
           textStyle: 'xs',
-          py: '1',
+          minH: '6',
           px: '1.5',
         },
       },
@@ -116,13 +117,13 @@ export const menuSlotRecipe = defineSlotRecipe({
         item: {
           gap: '2',
           textStyle: 'sm',
-          py: '1.5',
+          minH: '7',
           px: '2',
           ps: 'var(--menu-item-inset, {sizes.2})',
         },
         itemGroupLabel: {
           textStyle: 'sm',
-          py: '1.5',
+          minH: '7',
           px: '2',
         },
       },
@@ -131,6 +132,6 @@ export const menuSlotRecipe = defineSlotRecipe({
 
   defaultVariants: {
     size: 'md',
-    variant: 'subtle',
+    variant: 'solid',
   },
 })

@@ -11,10 +11,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.17.0",
-    "@emotion/react": "^11.14.0",
-    "@fontsource/inter": "^5.2.5",
-    "@radix-ui/colors": "^3.0.0",
+    "@chakra-ui/react": "^3.25.0",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/inter": "^5.0.20",
+    "@saas-ui/palette": "workspace:*",
     "@saas-ui/react": "workspace:*",
     "@svgr/webpack": "^5.5.0",
     "@types/lodash.debounce": "^4.0.9",

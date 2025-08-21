@@ -1,13 +1,12 @@
-import { Box, type BoxProps, Code as ChakraCode } from '@chakra-ui/react'
+import { Box, type BoxProps, Code as ChakraCode } from '@saas-ui/react'
 
 export const Pre = (props: BoxProps) => {
   return (
     <Box
-      as="pre"
       {...props}
       css={{
         backgroundColor: 'bg.subtle',
-        shadow: 'inset',
+        borderWidth: '1px',
         marginTop: '1.6em',
         marginBottom: '1.6em',
         borderRadius: 'md',
@@ -24,7 +23,9 @@ export const Pre = (props: BoxProps) => {
           padding: '0',
         },
       }}
-    />
+    >
+      <pre>{props.children}</pre>
+    </Box>
   )
 }
 

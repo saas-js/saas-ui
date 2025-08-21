@@ -23,6 +23,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
       transitionDuration: 'fast',
       focusVisibleRing: 'inside',
       focusRingWidth: '1px',
+      _disabled: {
+        layerStyle: 'disabled',
+      },
       '& > svg': {
         boxSize: 4,
         color: 'var(--sidebar-item-icon-color)',
@@ -55,6 +58,11 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
             '--sidebar-item-icon-color': 'sidebar.accent.fg',
           },
           _active: {
+            bg: 'sidebar.accent.bg',
+            color: 'sidebar.accent.fg',
+            '--sidebar-item-icon-color': 'sidebar.accent.fg',
+          },
+          _currentPage: {
             bg: 'sidebar.accent.bg',
             color: 'sidebar.accent.fg',
             '--sidebar-item-icon-color': 'sidebar.accent.fg',

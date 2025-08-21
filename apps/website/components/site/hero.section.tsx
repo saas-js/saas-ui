@@ -1,12 +1,10 @@
 'use client'
 
+import { ActionArrow } from '@/components/action-arrow'
 import { Annoucement } from '@/components/annoucement'
 import { Subheading } from '@/components/site/typography'
-import { Box, Button, Container, Heading, Stack } from '@chakra-ui/react'
+import { Box, Button, Container, Heading, Stack } from '@saas-ui/react'
 import Link from 'next/link'
-import { HiArrowRight } from 'react-icons/hi'
-
-import { CopyButton } from '../copy-button'
 
 export const HeroSection = () => {
   return (
@@ -20,22 +18,20 @@ export const HeroSection = () => {
             textAlign="center"
           >
             <Annoucement justifySelf="center" asChild>
-              <Link href="#">
+              <Link href="/changelog/3.0">
                 Saas UI 3.0 is here!
-                <HiArrowRight />
+                <ActionArrow />
               </Link>
             </Annoucement>
             <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
-                Build products customers love.
+                Launch polished SaaS apps in half the time
               </Heading>
               <Subheading>
-                The complete toolkit for building premium SaaS applications.
-                <br />
-                Free component library, premium templates and comprehensive
-                starter kits
-                <br /> —everything you need to ship faster without compromising
-                quality.
+                Complete toolkit with 60+ free React components, premium
+                templates and fullstack starter kits. Everything you need to
+                ship beautiful, consistent B2B products without the design
+                guesswork.
               </Subheading>
             </Stack>
 
@@ -47,15 +43,17 @@ export const HeroSection = () => {
                 variant="glass"
                 colorPalette="accent"
               >
-                <Link href="/docs">Documentation</Link>
+                <Link href="/components">Browse components</Link>
               </Button>
-              <CopyButton
-                variant="outline"
+              <Button
                 size="lg"
-                value="npm i @saas-ui/react"
+                minW="180px"
+                asChild
+                variant="outline"
+                colorPalette="neutral"
               >
-                &gt; npm i @saas-ui/react
-              </CopyButton>
+                <Link href="/pro/starter-kits">View starter kits</Link>
+              </Button>
             </Stack>
           </Stack>
         </Container>

@@ -3,10 +3,10 @@
 import { forwardRef, useRef } from 'react'
 
 import { mergeRefs, useControllableState } from '@chakra-ui/react'
-import { LuEye, LuEyeOff } from 'react-icons/lu'
 
 import { IconButton, type IconButtonProps } from '../icon-button/index.ts'
-import { InputGroup, type InputGroupProps } from '../input/index.ts'
+import { EyeIcon, EyeOffIcon } from '../icons/icons.tsx'
+import { InputGroup, type InputGroupProps } from '../input-group/index.ts'
 import { Input, type InputProps } from '../input/index.ts'
 
 export interface PasswordInputProps
@@ -22,7 +22,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
       defaultVisible,
       visible: visibleProp,
       onVisibleChange,
-      visibilityIcon = { on: <LuEye />, off: <LuEyeOff /> },
+      visibilityIcon = { on: <EyeIcon />, off: <EyeOffIcon /> },
       ...rest
     } = props
 

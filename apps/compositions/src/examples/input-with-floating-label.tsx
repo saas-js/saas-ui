@@ -1,4 +1,4 @@
-import { Box, defineStyle } from '@chakra-ui/react'
+import { Box, defineStyle } from '@saas-ui/react'
 import { Field, Input } from '@saas-ui/react'
 
 export const InputWithFloatingLabel = () => {

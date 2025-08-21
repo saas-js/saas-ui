@@ -1,0 +1,89 @@
+---
+title: Customize authentication screens
+description: How to customize the built-in authentication screens
+---
+
+## Configure your auth screens
+
+The auth screen configuration can be changed in `apps/web/config/auth.config.ts`
+
+### Authentication type
+
+To change the authentication type, for example from `password` to `magiclink`
+follow these steps:
+
+1. Change the `loginSchema` in `apps/web/features/auth/schema/login.schema.ts`
+   and remove the `password` field.
+
+2. Update the `LoginPage` form and remove the password `Field` component.
+
+Follow the same steps for the `signupSchema` and `SignupPage`.
+
+Make sure to update the authentication provider configuration as well, please
+follow the specific documentation for the authentication provider you are using.
+
+### Adding social (OAuth) providers
+
+Social providers can be modified in `apps/web/features/auth/providers.tsx`.
+
+```tsx
+import { useLocalStorageValue } from '@react-hookz/web'
+import { useAuth } from '@saas-ui/auth-provider'
+import { Button, Stack } from '@saas-ui/react'
+import { FaGithub, FaGoogle } from 'react-icons/fa6'
+
+import { LastUsedProvider } from './last-used'
+
+export function Providers() {
+  const auth = useAuth()
+
+  const lastUsed = useLocalStorageValue('lastUsedProvider')
+
+  return (
+    <Stack gap="2" mb="4">
+      <LastUsedProvider value="google">
+        <Button
+          leftIcon={<FaGoogle />}
+          height="9"
+          variant="outline"
+          onClick={() =>
+            auth
+              .logIn({
+                provider: 'google',
+              })
+              .then(() => lastUsed.set('google'))
+          }
+        >
+          Continue with Google
+        </Button>
+      </LastUsedProvider>
+      <LastUsedProvider value="github">
+        <Button
+          leftIcon={<FaGithub />}
+          height="9"
+          variant="outline"
+          onClick={() =>
+            auth
+              .logIn({
+                provider: 'github',
+              })
+              .then(() => lastUsed.set('github'))
+          }
+        >
+          Continue with Github
+        </Button>
+      </LastUsedProvider>
+    </Stack>
+  )
+}
+```
+
+## Customize the auth screens
+
+### Login screen
+
+The login screen is located in `apps/web/features/auth/login/login-page.tsx`.
+
+### Signup screen
+
+The signup screen is located in `apps/web/features/auth/signup/signup-page.tsx`.

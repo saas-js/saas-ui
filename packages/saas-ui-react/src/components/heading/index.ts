@@ -1,1 +1,1 @@
-export { Heading, type HeadingProps } from '@chakra-ui/react/typography'
+export { Heading, type HeadingProps } from '@chakra-ui/react/heading'

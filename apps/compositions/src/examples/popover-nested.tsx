@@ -1,6 +1,6 @@
 'use client'
 
-import { Text } from '@chakra-ui/react'
+import { Text } from '@saas-ui/react'
 import { Button, Popover } from '@saas-ui/react'
 
 export const PopoverNested = () => {

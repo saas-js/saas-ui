@@ -29,6 +29,9 @@ export type {
   RecipeDefinition,
   SlotRecipeDefinition,
   HTMLChakraProps,
+  SystemConfig,
+  ConditionalValue,
+  SystemStyleObject,
 } from '@chakra-ui/react/styled-system'
 
 export {
@@ -98,11 +101,34 @@ export {
 export { Container, type ContainerProps } from './components/container/index.ts'
 export { Code, type CodeProps } from './components/code/index.ts'
 export { Collapsible } from './components/collapsible/index.ts'
+export {
+  ColorModeProvider,
+  DarkMode,
+  LightMode,
+  useColorMode,
+  useColorModeValue,
+  ColorModeTrigger,
+} from './components/color-mode/index.ts'
+export type {
+  ColorMode,
+  UseColorModeReturn,
+} from './components/color-mode/index.ts'
+export {
+  Combobox,
+  useCombobox,
+  useComboboxContext,
+  useComboboxItemContext,
+  useComboboxStyles,
+} from './components/combobox/index.ts'
 export { Command } from './components/command/index.ts'
 export { DataList, useDataListStyles } from './components/data-list/index.ts'
 export { Dialog } from './components/dialog/index.ts'
 export { Drawer } from './components/drawer/index.ts'
-export { Editable } from './components/editable/index.ts'
+export {
+  Editable,
+  useEditable,
+  useEditableContext,
+} from './components/editable/index.ts'
 export {
   EmptyState,
   type EmptyStateProps,
@@ -130,18 +156,30 @@ export {
 export { Image, type ImageProps } from './components/image/index.ts'
 export {
   Input,
-  InputAddon,
-  InputElement,
   InputPropsProvider,
-  InputGroup,
-  type InputAddonProps,
-  type InputElementProps,
-  type InputGroupProps,
   type InputProps,
 } from './components/input/index.ts'
+export {
+  InputAddon,
+  type InputAddonProps,
+} from './components/input-addon/index.ts'
+export {
+  InputElement,
+  type InputElementProps,
+} from './components/input-element/index.ts'
+export {
+  InputGroup,
+  type InputGroupProps,
+} from './components/input-group/index.ts'
 export { InfoTip, type InfoTipProps } from './components/info-tip/index.ts'
 export { Kbd, type KbdProps } from './components/kbd/index.ts'
 export { Link, type LinkProps } from './components/link/index.ts'
+export {
+  LinkBox,
+  LinkOverlay,
+  type LinkBoxProps,
+  type LinkOverlayProps,
+} from './components/link-box/index.ts'
 export { Loader } from './components/loader/index.ts'
 export { List } from './components/list/index.ts'
 export { LoadingOverlay } from './components/loading-overlay/index.ts'
@@ -164,11 +202,8 @@ export {
 } from './components/password-input/index.ts'
 export {
   Persona,
-  PersonaAvatar,
   type PersonaPresence,
-  type PersonaAvatarProps,
   type PersonaPresenceConfig,
-  type PersonaProps,
   defaultPersonaPresenceOptions,
 } from './components/persona/index.ts'
 export { PinInput, type PinInputProps } from './components/pin-input/index.ts'
@@ -237,13 +272,13 @@ export {
 } from './components/aspect-ratio/index.ts'
 
 export { Bleed, type BleedProps } from './components/bleed/index.ts'
-export {
-  Box,
-  type BoxProps,
-  Span,
-  type SpanProps,
-} from './components/box/index.ts'
+export { Box, type BoxProps } from './components/box/index.ts'
+export { Span, type SpanProps } from './components/span/index.ts'
 export { Center, type CenterProps } from './components/center/index.ts'
+export {
+  AbsoluteCenter,
+  type AbsoluteCenterProps,
+} from './components/absolute-center/index.ts'
 export { ClientOnly } from './components/client-only/index.ts'
 export { ColorPicker } from './components/color-picker/index.ts'
 export { ColorSwatch } from './components/color-swatch/index.ts'
@@ -253,7 +288,7 @@ export {
   type EnvironmentProviderProps,
   type RootNode,
   useEnvironmentContext,
-} from './components/env/index.ts'
+} from './components/environment/index.ts'
 export { Float } from './components/float/index.ts'
 export { FocusTrap } from './components/focus-trap/index.ts'
 export {
@@ -265,11 +300,13 @@ export {
 export {
   Grid,
   type GridProps,
-  SimpleGrid,
-  type SimpleGridProps,
   GridItem,
   type GridItemProps,
 } from './components/grid/index.ts'
+export {
+  SimpleGrid,
+  type SimpleGridProps,
+} from './components/simple-grid/index.ts'
 export { Group, type GroupProps } from './components/group/index.ts'
 export { Highlight, type HighlightProps } from './components/highlight/index.ts'
 export { Portal, type PortalProps } from './components/portal/index.ts'
@@ -291,14 +328,11 @@ export {
   type StackSeparatorProps,
 } from './components/stack/index.ts'
 export { Toggle } from './components/toggle/index.ts'
-export {
-  Em,
-  type EmProps,
-  Strong,
-  type StrongProps,
-  Text,
-  type TextProps,
-} from './components/typography/index.ts'
+export { Text, type TextProps } from './components/text/index.ts'
+export { Em, type EmProps } from './components/em/index.ts'
+export { Strong, type StrongProps } from './components/strong/index.ts'
 export { VisuallyHidden } from './components/visually-hidden/index.ts'
 export { Wrap, type WrapProps } from './components/wrap/index.ts'
 export { Flex, type FlexProps } from './components/flex/index.ts'
+
+export type { ColorPalette } from './theme/tokens/colors.ts'

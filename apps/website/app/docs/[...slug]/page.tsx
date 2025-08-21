@@ -4,7 +4,8 @@ import { MDXPagination } from '@/components/mdx-pagination'
 import { PageHeader } from '@/components/page-header'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { Toc } from '@/components/toc'
-import { Box, Show, Stack } from '@chakra-ui/react'
+import { source } from '@/lib/source'
+import { Box, Show, Stack } from '@saas-ui/react'
 import { allDocs } from 'content-collections'
 import { getTableOfContents } from 'fumadocs-core/server'
 import { notFound } from 'next/navigation'
@@ -19,15 +20,13 @@ interface Props {
 export default async function Page(props: Props) {
   const params = await props.params
 
-  const page = allDocs.find((doc) => {
-    return doc.slug === params.slug.join('/')
-  })
+  const page = source.getPage(params.slug)
 
   if (!page) {
     return notFound()
   }
 
-  const toc = await getTableOfContents(page.content)
+  const toc = await getTableOfContents(page.data.content)
 
   return (
     <>
@@ -41,21 +40,23 @@ export default async function Page(props: Props) {
         minHeight="var(--content-height)"
       >
         <PageHeader
-          title={page.title}
-          description={page.description}
-          links={page.links}
+          title={page.data.title}
+          description={page.data.description}
+          links={page.data.links}
         />
-        <Box>
-          <MDXContent code={page.code} />
+        <Box fontSize="md">
+          <MDXContent code={page.data.code} />
           <MDXPagination />
         </Box>
       </Stack>
 
-      <Show when={!page.hideToc}>
+      <Show when={!page.data.hideToc}>
         <SidebarEnd visibility={toc?.length === 0 ? 'hidden' : undefined}>
           <Toc items={toc} />
           <Stack borderTopWidth="1px" pt="4" align="start">
-            <EditPageButton href={`${docsConfig.editUrl}/${page.slug}.mdx`} />
+            <EditPageButton
+              href={`${docsConfig.editUrl}/${page.data.slug}.mdx`}
+            />
             <ScrollToTop />
           </Stack>
         </SidebarEnd>
@@ -64,32 +65,42 @@ export default async function Page(props: Props) {
   )
 }
 
-export const generateMetadata = async (props: Props) => {
+// export const generateMetadata = async (props: Props) => {
+//   const params = await props.params
+
+//   const page = getPageBySlug(params.slug)
+
+//   const category = page?.slug
+//     .replace('docs/', '')
+//     .split('/')
+//     .slice(0, -1)
+//     .join(' > ')
+//     ?.replace('-', ' ')
+//     .replace(/\b\w/g, (l) => l.toUpperCase())
+
+//   return {
+//     title: page?.title,
+//     description: page?.description,
+//     openGraph: {
+//       images: `/og?title=${page?.title}&category=${category}`,
+//     },
+//   }
+// }
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug?: string[] }>
+}) {
   const params = await props.params
-
-  const page = getPageBySlug(params.slug)
-
-  const category = page?.slug
-    .replace('docs/', '')
-    .split('/')
-    .slice(0, -1)
-    .join(' > ')
-    ?.replace('-', ' ')
-    .replace(/\b\w/g, (l) => l.toUpperCase())
-
+  const page = source.getPage(params.slug)
+  if (!page) notFound()
   return {
-    title: page?.title,
-    description: page?.description,
-    openGraph: {
-      images: `/og?title=${page?.title}&category=${category}`,
-    },
+    title: page.data.title,
+    description: page.data.description,
   }
 }
 
-export function generateStaticParams() {
-  return allDocs.map((item) => ({
-    slug: item.slug.split('/').slice(1),
-  }))
+export async function generateStaticParams() {
+  return source.generateParams()
 }
 
 function getPageBySlug(slug: string[]) {

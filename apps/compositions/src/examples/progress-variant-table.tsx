@@ -6,7 +6,7 @@ import {
   Span,
   Stack,
   useSlotRecipe,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Progress } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'

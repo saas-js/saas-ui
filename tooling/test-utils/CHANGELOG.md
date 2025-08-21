@@ -1,5 +1,53 @@
 # @saas-ui/test-utils
 
+## 5.0.0-next.41
+
+### Patch Changes
+
+- Updated dependencies [a635505]
+  - @saas-ui/react@3.0.0-next.41
+
+## 5.0.0-next.40
+
+### Patch Changes
+
+- Updated dependencies [f774f7a]
+- Updated dependencies [d638488]
+- Updated dependencies [f774f7a]
+- Updated dependencies [d638488]
+- Updated dependencies [5c032b5]
+  - @saas-ui/react@3.0.0-next.40
+
+## 5.0.0-next.39
+
+### Patch Changes
+
+- Updated dependencies [9c24d1f]
+  - @saas-ui/react@3.0.0-next.39
+
+## 5.0.0-next.38
+
+### Patch Changes
+
+- Updated dependencies [3e6b10b]
+  - @saas-ui/react@3.0.0-next.38
+
+## 5.0.0-next.37
+
+### Patch Changes
+
+- Updated dependencies [2c0282d]
+  - @saas-ui/react@3.0.0-next.37
+
+## 5.0.0-next.36
+
+### Patch Changes
+
+- Updated dependencies [868950d]
+- Updated dependencies [6e53bc7]
+- Updated dependencies [6e53bc7]
+  - @saas-ui/react@3.0.0-next.36
+
 ## 5.0.0-next.35
 
 ### Patch Changes
@@ -1463,7 +1511,8 @@
 ### Patch Changes
 
 - 15c3960: Re-publish.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
 - Updated dependencies [68c7b62]
@@ -1555,7 +1604,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - Updated dependencies [de0dce2]
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]

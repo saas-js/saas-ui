@@ -7,7 +7,7 @@ export async function GET() {
     '<SYSTEM>Documentation for migrating to Saas UI v3.</SYSTEM>\n\n'
 
   const stylingDocs = docs.filter((doc) =>
-    doc.slug.startsWith('docs/get-started/migration'),
+    doc.slug.startsWith('docs/getting-started/migration'),
   )
 
   for (const doc of stylingDocs) {

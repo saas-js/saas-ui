@@ -248,7 +248,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
         trigger: {
           justifyContent: 'center',
           color: 'fg.muted',
-          borderRadius: 'var(--tabs-trigger-radius)',
+          borderRadius: 'calc({radii.md} - 1px)',
           _hover: {
             color: 'fg.subtle',
           },

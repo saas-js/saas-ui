@@ -1,6 +1,6 @@
 'use client'
 
-import { Flex, Link, Stack, StackProps, Text, chakra } from '@chakra-ui/react'
+import { Flex, Link, Stack, StackProps, Text, chakra } from '@saas-ui/react'
 import NextLink from 'next/link'
 
 const Section = ({ children }: { children: React.ReactNode }) => {

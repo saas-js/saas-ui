@@ -1,1 +1,1 @@
-export { Mark } from '@chakra-ui/react/typography'
+export { Mark } from '@chakra-ui/react/mark'

@@ -9,6 +9,7 @@ import { cardSlotRecipe } from '../components/card/card.recipe.ts'
 import { checkboxCardSlotRecipe } from '../components/checkbox-card/checkbox-card.recipe.ts'
 import { checkboxSlotRecipe } from '../components/checkbox/checkbox.recipe.ts'
 import { collapsibleSlotRecipe } from '../components/collapsible/collapsible.recipe.ts'
+import { comboboxSlotRecipe } from '../components/combobox/combobox.recipe.ts'
 import { dataListSlotRecipe } from '../components/data-list/data-list.recipe.ts'
 import { dialogSlotRecipe } from '../components/dialog/dialog.recipe.ts'
 import { drawerSlotRecipe } from '../components/drawer/drawer.recipe.ts'
@@ -62,6 +63,7 @@ export const slotRecipes = {
   checkbox: checkboxSlotRecipe,
   checkboxCard: checkboxCardSlotRecipe,
   collapsible: collapsibleSlotRecipe,
+  combobox: comboboxSlotRecipe,
   dataList: dataListSlotRecipe,
   dialog: dialogSlotRecipe,
   drawer: drawerSlotRecipe,

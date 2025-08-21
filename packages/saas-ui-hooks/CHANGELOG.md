@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 3.0.0-next.3
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+
 ## 3.0.0-next.2
 
 ### Major Changes
@@ -79,7 +85,8 @@
 ### Minor Changes
 
 - 046e42b8: Updated to Chakra UI 2.7
-- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 27a68bca: useLocalStorage now updates all hook instances on the current page
+  when the value changed
 
 ### Patch Changes
 
@@ -117,7 +124,8 @@
 
 ### Minor Changes
 
-- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 27a68bca: useLocalStorage now updates all hook instances on the current page
+  when the value changed
 
 ## 2.0.0-next.1
 
@@ -170,13 +178,15 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ## 1.0.2
 
 ### Patch Changes
 
-- d88b04d: useLocalStorage now returns the defaultValue if no value is available and is updated across tabs.
+- d88b04d: useLocalStorage now returns the defaultValue if no value is available
+  and is updated across tabs.
 
 ## 1.0.1
 
@@ -201,7 +211,8 @@
 
 - 15c3960: Re-publish.
 - 1744543: Updated dependencies.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 532a7d4: Fixed all theme onconsistencies.
 
@@ -215,7 +226,8 @@
 
 ### Patch Changes
 
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 
 ## 1.0.0-rc.2
 

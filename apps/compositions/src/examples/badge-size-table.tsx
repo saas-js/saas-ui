@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Span, useRecipe } from '@chakra-ui/react'
+import { For, Span, useRecipe } from '@saas-ui/react'
 import { Badge } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'

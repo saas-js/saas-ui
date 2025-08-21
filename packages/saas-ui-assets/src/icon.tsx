@@ -5,7 +5,7 @@ export interface SaasUIIconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const SaasUIIcon: React.FC<SaasUIIconProps> = (props) => {
-  const { color = '#8952e0', ...rest } = props
+  const { color = 'oklch(0.511 0.262 276.966)', ...rest } = props
   return (
     <svg version="1.1" viewBox="0 0 1683 1634" {...rest}>
       <g fill={color}>

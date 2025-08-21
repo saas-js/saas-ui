@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react'
+import { chakra } from '@saas-ui/react'
 
 export const Aidbase = (props: any) => (
   <chakra.svg

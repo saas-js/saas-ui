@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { Button, ButtonProps, IconButton, Kbd, Span } from '@chakra-ui/react'
+import { Button, ButtonProps, IconButton, Kbd, Span } from '@saas-ui/react'
 import { LuSearch } from 'react-icons/lu'
 
 export const SearchButton = forwardRef<HTMLButtonElement, ButtonProps>(

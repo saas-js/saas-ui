@@ -1,8 +1,8 @@
 import { forwardRef } from 'react'
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
-import { Box, HStack, type HTMLChakraProps, chakra } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
+import { Box, HStack, type HTMLChakraProps, chakra } from '@saas-ui/react'
 import Link from 'next/link'
 
 const enterFromRight = keyframes({

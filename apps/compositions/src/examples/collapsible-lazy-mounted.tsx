@@ -1,6 +1,6 @@
 'use client'
 
-import { Collapsible } from '@chakra-ui/react'
+import { Collapsible } from '@saas-ui/react'
 import { Button, Card } from '@saas-ui/react'
 
 export const CollapsibleLazyMounted = () => (

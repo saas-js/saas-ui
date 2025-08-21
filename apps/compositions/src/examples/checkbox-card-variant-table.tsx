@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Span, Stack, useSlotRecipe } from '@chakra-ui/react'
+import { For, Span, Stack, useSlotRecipe } from '@saas-ui/react'
 import { CheckboxCard, type CheckboxCardProps } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'

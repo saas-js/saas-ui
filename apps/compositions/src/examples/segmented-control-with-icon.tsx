@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack } from '@chakra-ui/react'
+import { HStack } from '@saas-ui/react'
 import { SegmentedControl } from '@saas-ui/react'
 import { LuGrid2X2, LuList, LuTable } from 'react-icons/lu'
 

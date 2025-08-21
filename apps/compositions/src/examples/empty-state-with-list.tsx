@@ -1,6 +1,6 @@
 'use client'
 
-import { List } from '@chakra-ui/react'
+import { List } from '@saas-ui/react'
 import { EmptyState } from '@saas-ui/react'
 import { LuSearch } from 'react-icons/lu'
 

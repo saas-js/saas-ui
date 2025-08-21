@@ -1,7 +1,7 @@
 'use client'
 
-import { For, HStack, Span, useSlotRecipe } from '@chakra-ui/react'
-import { Avatar } from '@saas-ui/react'
+import { For } from '@saas-ui/react'
+import { Avatar, HStack, Span, useSlotRecipe } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

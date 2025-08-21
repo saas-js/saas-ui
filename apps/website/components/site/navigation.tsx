@@ -1,9 +1,4 @@
-import React from 'react'
-
-import { useUpdateEffect } from '@/lib/use-update-effect'
-import { HStack, Stack, Text, useDisclosure } from '@chakra-ui/react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { HStack, Stack, Text } from '@saas-ui/react'
 
 import {
   List,
@@ -47,33 +42,33 @@ export const Navigation = () => {
                     Community
                   </Text>
 
-                  <ListItem title="Components" href="/">
-                    Open source React components and design system.
+                  <ListItem title="Component system" href="/components">
+                    Open source React components.
                   </ListItem>
                 </Stack>
                 <Stack gap="0">
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Pro
                   </Text>
-                  <ListItem title="Figma" href="/pro/figma">
-                    Premium Figma UI kit.
-                  </ListItem>
                   <ListItem title="Blocks" href="/pro/blocks">
                     Pre-built React components.
+                  </ListItem>
+                  <ListItem title="Figma" href="/pro/figma">
+                    Premium Figma UI kit.
                   </ListItem>
                 </Stack>
                 <Stack gap="0">
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Starter kits
                   </Text>
-                  <ListItem title="Next.js" href="/pro/starterkit/">
+                  <ListItem title="Next.js" href="/pro/starter-kits/nextjs">
                     Next.js and tRPC
                   </ListItem>
-                  <ListItem title="Tanstack Router" href="/pro/tanstack-router">
+                  <ListItem
+                    title="Tanstack Router"
+                    href="/pro/starter-kits/tanstack-router"
+                  >
                     Tanstack Router and tRPC
-                  </ListItem>
-                  <ListItem title="Zero Sync" href="/pro/zero-sync">
-                    Tanstack Router and Zero Sync
                   </ListItem>
                 </Stack>
               </List>

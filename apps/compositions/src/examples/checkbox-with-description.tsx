@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@chakra-ui/react'
+import { Box } from '@saas-ui/react'
 import { Checkbox } from '@saas-ui/react'
 
 export const CheckboxWithDescription = () => {

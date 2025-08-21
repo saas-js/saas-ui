@@ -2,8 +2,8 @@
 
 import { ColorModeButton } from '@/components/docs/color-mode-button'
 import { Logo } from '@/components/logo'
-import { SocialLinks } from '@/components/social-links'
 import {
+  Badge,
   Box,
   Button,
   Container,
@@ -14,13 +14,14 @@ import {
   Spacer,
   Stack,
   chakra,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 
 import { LinkButton } from '../link-button'
 import { Navigation } from './navigation'
+import { ProLogoLink } from './pro-logo'
 
 const HeaderRoot = chakra(Container, {
   base: {
@@ -32,14 +33,6 @@ const HeaderRoot = chakra(Container, {
   },
 })
 
-const LogoLink = () => (
-  <HStack asChild focusRing="outside">
-    <Link href="/" aria-label="Chakra UI, Back to homepage">
-      <Logo color="fg" />
-    </Link>
-  </HStack>
-)
-
 const NAV_LINKS = [
   { title: 'Docs', url: '/docs' },
   { title: 'Resources', url: '/resources' },
@@ -49,7 +42,7 @@ const NAV_LINKS = [
 const DesktopNav = () => (
   <HStack gap="6" as="nav" aria-label="primary navigation">
     <HStack>
-      <LogoLink />
+      <ProLogoLink />
     </HStack>
     <HStack
       className="main-nav"
@@ -59,32 +52,6 @@ const DesktopNav = () => (
       flex="1"
     >
       <Navigation />
-      {/* {NAV_LINKS.map((item) => (
-        <HStack
-          className="nav-item"
-          key={item.title}
-          minH="8"
-          px="3"
-          rounded="md"
-          focusRing="outside"
-          asChild
-          fontWeight="medium"
-          color="fg.subtle"
-          textStyle="sm"
-          transitionProperty="color"
-          transitionDuration="fast"
-          _hover={{
-            color: 'fg',
-          }}
-          css={{
-            'main-nav:has(a:hover) &, .nav-item:is(:hover) ~ &': {
-              color: 'fg.muted',
-            },
-          }}
-        >
-          <Link href={item.url}>{item.title}</Link>
-        </HStack>
-      ))} */}
     </HStack>
     <HStack gap="1" justifyContent="flex-end">
       <Button asChild variant="ghost" size="sm">
@@ -100,7 +67,7 @@ const DesktopNav = () => (
         variant="glass"
         size="sm"
       >
-        Get Pro
+        Get Access
       </LinkButton>
     </HStack>
   </HStack>
@@ -153,7 +120,7 @@ const MobileNav = () => {
       <Dialog.Positioner>
         <Dialog.Content m="0" shadow="none" borderRadius="0" bg="bg">
           <HeaderRoot>
-            <LogoLink />
+            <ProLogoLink />
             <Spacer />
             <MobileNavCloseTrigger />
           </HeaderRoot>

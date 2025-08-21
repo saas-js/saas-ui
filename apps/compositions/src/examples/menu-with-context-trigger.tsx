@@ -1,6 +1,6 @@
 'use client'
 
-import { Center } from '@chakra-ui/react'
+import { Center } from '@saas-ui/react'
 import { Menu } from '@saas-ui/react'
 
 export const MenuWithContextTrigger = () => {

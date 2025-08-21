@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { HStack } from '@chakra-ui/react'
+import { HStack } from '@saas-ui/react'
 import { Pagination } from '@saas-ui/react'
 
 export const PaginationControlled = () => {

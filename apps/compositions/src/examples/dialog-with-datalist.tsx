@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, Textarea, VStack } from '@chakra-ui/react'
+import { HStack, Textarea, VStack } from '@saas-ui/react'
 import { Avatar, Badge, Button, DataList, Dialog } from '@saas-ui/react'
 
 export const DialogWithDatalist = () => {

@@ -1,14 +1,19 @@
 import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
-import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@chakra-ui/react'
+import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
+import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@saas-ui/react'
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import Link from 'next/link'
 
 import { CopyButton } from './copy-button'
+import { ExampleCanvas } from './example-canvas'
 import { ExamplePreview } from './example-preview'
 
 interface Props {
   name: string
   padding?: BoxProps['padding']
+  maxHeight?: BoxProps['maxHeight']
+  overflow?: BoxProps['overflow']
 }
 
 interface CodeProps extends Props {
@@ -132,23 +137,54 @@ export const Example = (props: Props) => {
 }
 
 export const ExampleTabs = (props: Props) => {
-  const { name, padding = { base: '6', sm: '10' } } = props
+  const { name, padding = { base: '6', sm: '10' }, maxHeight, overflow } = props
   if (!name) return null
+
   return (
     <Tabs.Root
       className="example-tabs"
-      variant="ghost"
+      variant="outline"
       defaultValue={'preview'}
       mb="4em"
       unmountOnExit
     >
-      <Tabs.List mb="4">
+      <Tabs.List
+        borderBottomWidth="0"
+        _before={{
+          display: 'none',
+        }}
+        mb="-2px"
+      >
         <Tabs.Trigger value="preview">Preview</Tabs.Trigger>
-        <Tabs.Trigger value="code">Code</Tabs.Trigger>
+        <Tabs.Trigger
+          value="code"
+          _selected={{
+            bg: 'bg.muted',
+          }}
+        >
+          Code
+        </Tabs.Trigger>
       </Tabs.List>
-      <Tabs.ContentGroup borderWidth="1px" rounded="md" overflow="hidden">
-        <Tabs.Content value="preview" mt="0!" padding={padding}>
-          <ExamplePreview name={name} />
+      <Tabs.ContentGroup
+        borderWidth="1px"
+        rounded="md"
+        borderTopStartRadius="0"
+        overflow="hidden"
+      >
+        <Tabs.Content
+          value="preview"
+          mt="0!"
+          padding={padding}
+          maxHeight={maxHeight}
+          overflow={overflow}
+        >
+          <FieldsProvider
+            value={{
+              fields: defaultFieldTypes,
+            }}
+          >
+            <ExamplePreview name={props.name} />
+          </FieldsProvider>
         </Tabs.Content>
         <Tabs.Content value="code" mt="0!" pt="0!">
           <ExampleCodeWrapper maxHeight="480px">

@@ -45,8 +45,14 @@ export const editableSlotRecipe = defineSlotRecipe({
       transitionDuration: 'moderate',
       width: 'full',
       focusVisibleRing: 'inside',
-      focusRingWidth: '2px',
+      focusRingWidth: '1px',
       _placeholder: { opacity: 0.6 },
+      '--focus-color': 'colors.colorPalette.focusRing',
+      '--error-color': 'colors.border.error',
+      _invalid: {
+        focusRingColor: 'var(--error-color)',
+        borderColor: 'var(--error-color)',
+      },
     },
 
     control: {

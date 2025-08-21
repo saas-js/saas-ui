@@ -1,21 +1,32 @@
 ---
-title: Introducing 4 new Open Source data visualization components for Chakra UI.
+title:
+  Introducing 4 new Open Source data visualization components for Chakra UI.
 publishedAt: '2024-01-12'
 authors: ['eelco']
-description: Build beautiful metrics dashboards faster with Area, Bar, Line and Sparkline charts for Chakra UI.
+description:
+  Build beautiful metrics dashboards faster with Area, Bar, Line and Sparkline
+  charts for Chakra UI.
 ---
 
-Charts are an important part of any SaaS dashboard. They provide a quick insights into important and complex information and help users to understand the data better.
-The `AreaChart` and `Sparkline` have been available in [Saas UI Pro](/pricing) for some time now, but today we're excited to release them fully Open Source, and together with 2 new chart types and improved APIs.
-These components are built on top of [Recharts](https://recharts.org/en-US/) and are designed to build beautiful charts fast and with ease, while leaving enough room for customization.
+Charts are an important part of any SaaS dashboard. They provide a quick
+insights into important and complex information and help users to understand the
+data better. The `AreaChart` and `Sparkline` have been available in
+[Saas UI Pro](/pricing) for some time now, but today we're excited to release
+them fully Open Source, and together with 2 new chart types and improved APIs.
+These components are built on top of [Recharts](https://recharts.org/en-US/) and
+are designed to build beautiful charts fast and with ease, while leaving enough
+room for customization.
 
 ## Area Chart
 
-The Area Chart is a great way to visualize data over time. It's especially useful when you want to visualize how data points change and form a pattern over a period. The Area Chart fills the area between the data line and the X-axis, making it easy to see fluctuations and trends.
+The Area Chart is a great way to visualize data over time. It's especially
+useful when you want to visualize how data points change and form a pattern over
+a period. The Area Chart fills the area between the data line and the X-axis,
+making it easy to see fluctuations and trends.
 
 ```jsx inline=true
-import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
 import { AreaChart } from '@saas-ui/charts'
+import { Card, CardBody, CardHeader, Heading } from '@saas-ui/react'
 
 export default function Page() {
   return (
@@ -198,11 +209,13 @@ const data = [
 
 ## Line Chart
 
-The Line Chart component is similar to the Area Chart but focuses solely on the data line, making it ideal for displaying data trends without the area fill. It's a great choice when you want to emphasize the actual data points' values.
+The Line Chart component is similar to the Area Chart but focuses solely on the
+data line, making it ideal for displaying data trends without the area fill.
+It's a great choice when you want to emphasize the actual data points' values.
 
 ```jsx inline=true
-import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
 import { LineChart } from '@saas-ui/charts'
+import { Card, CardBody, CardHeader, Heading } from '@saas-ui/react'
 
 const valueFormatter = (value) => {
   return new Intl.NumberFormat('en-US', {
@@ -342,11 +355,13 @@ const data = [
 
 ## Bar Chart
 
-If you need to compare different categories or data points, the Bar Chart component is an excellent choice. It displays data as horizontal or vertical bars, making it easy to visualize relative values and comparisons.
+If you need to compare different categories or data points, the Bar Chart
+component is an excellent choice. It displays data as horizontal or vertical
+bars, making it easy to visualize relative values and comparisons.
 
 ```jsx inline=true
-import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
 import { BarChart } from '@saas-ui/charts'
+import { Card, CardBody, CardHeader, Heading } from '@saas-ui/react'
 
 export default function Page() {
   return (
@@ -562,9 +577,13 @@ const data = [
 ## Sparkline
 
 The Sparkline component is a compact and minimalistic data visualization tool.
-It's great for displaying data trends within a limited space, like in a [data table](/docs/components/advanced-data/data-grid) or a dashboard using the Chakra UI `Stat` component. Sparklines are typically used to show trends or changes over time quickly.
+It's great for displaying data trends within a limited space, like in a
+[data table](/docs/components/advanced-data/data-grid) or a dashboard using the
+Chakra UI `Stat` component. Sparklines are typically used to show trends or
+changes over time quickly.
 
 ```jsx inline=true center=true
+import { Sparkline } from '@saas-ui/charts'
 import {
   Card,
   CardBody,
@@ -573,8 +592,7 @@ import {
   StatHelpText,
   StatLabel,
   StatNumber,
-} from '@chakra-ui/react'
-import { Sparkline } from '@saas-ui/charts'
+} from '@saas-ui/react'
 
 export default function Page() {
   const value = Number(data[data.length - 1].value ?? 0)
@@ -763,7 +781,11 @@ const data = [
 ]
 ```
 
-These new data visualization components make it easier than ever to integrate interactive and visually appealing charts and graphs into your React applications. Whether you need to display trends, compare data points, or show compact trend summaries, these components have got you covered. So, start visualizing your data with Saas UI today!
+These new data visualization components make it easier than ever to integrate
+interactive and visually appealing charts and graphs into your React
+applications. Whether you need to display trends, compare data points, or show
+compact trend summaries, these components have got you covered. So, start
+visualizing your data with Saas UI today!
 
 ## Links
 

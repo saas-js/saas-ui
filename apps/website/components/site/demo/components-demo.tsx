@@ -1,37 +1,35 @@
-import { Logo, LogoIcon } from '@/components/logo'
+import { LogoIcon } from '@/components/logo'
 import { Chart, useChart } from '@chakra-ui/charts'
-import {
-  Badge,
-  Box,
-  Button,
-  DataList,
-  Dialog,
-  Field,
-  Flex,
-  Grid,
-  HStack,
-  Heading,
-  Icon,
-  IconButton,
-  Separator,
-  Span,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
+// import from Chakra UI because we want to render it inline.
+import { Dialog } from '@chakra-ui/react'
 import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 import {
   Avatar,
   AvatarGroup,
+  Box,
+  Button,
+  Card,
+  DataList,
+  Field,
+  Flex,
+  Grid,
   GridList,
+  HStack,
+  Heading,
+  Icon,
+  IconButton,
   Link,
   Menu,
   PinInput,
   ProgressCircle,
   RadioCard,
+  Separator,
+  Span,
+  Stack,
   Stat,
   Switch,
+  Text,
 } from '@saas-ui/react'
-import { Card } from '@saas-ui/react/card'
 import {
   FaFilePdf,
   FaFilePowerpoint,
@@ -39,7 +37,7 @@ import {
   FaGoogle,
 } from 'react-icons/fa'
 import { LuDownload } from 'react-icons/lu'
-import { Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, Tooltip } from 'recharts'
 
 export const ComponentsDemo = () => {
   return (
@@ -65,7 +63,7 @@ export const ComponentsDemo = () => {
 
 function DemoCard(props: { children: React.ReactNode }) {
   return (
-    <Card.Root size="lg" variant="elevated" textStyle="sm">
+    <Card.Root variant="elevated" textStyle="sm">
       {props.children}
     </Card.Root>
   )
@@ -96,7 +94,6 @@ function AuthCard(props: {
         {props.children}
       </Card.Body>
       <Card.Footer
-        pt="3"
         pb="3"
         borderBottomRadius="md"
         textAlign="center"
@@ -265,7 +262,7 @@ export const FilesCard = () => {
               </Text>
             </GridList.Cell>
             <GridList.Cell>
-              <IconButton aria-label="Download" variant="ghost">
+              <IconButton aria-label="Download" variant="ghost" size="sm">
                 <LuDownload />
               </IconButton>
             </GridList.Cell>
@@ -278,8 +275,20 @@ export const FilesCard = () => {
 
 function ConfirmDialog() {
   return (
-    <Dialog.Root modal={false} open preventScroll={false} trapFocus={false}>
-      <Dialog.Content my="0" borderWidth="1px" boxShadow="md">
+    <Dialog.Root
+      modal={false}
+      skipAnimationOnMount
+      open
+      preventScroll={false}
+      trapFocus={false}
+    >
+      <Dialog.Content
+        my="0"
+        borderWidth="1px"
+        boxShadow="md"
+        transition="none"
+        animationDuration="0ms"
+      >
         <Dialog.Header>
           <Dialog.Title>Confirm</Dialog.Title>
         </Dialog.Header>
@@ -366,7 +375,7 @@ const NotificationItem: React.FC<NotificationItemProps> = (props) => {
         },
       }}
     >
-      <Field.Root>
+      <Field.Root ps="2">
         <GridList.Cell flex="1">
           <Field.Label textStyle="sm" userSelect="none">
             {title}

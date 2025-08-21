@@ -1,6 +1,6 @@
 'use client'
 
-import { AbsoluteCenter, Box, Button } from '@chakra-ui/react'
+import { AbsoluteCenter, Box, Button } from '@saas-ui/react'
 import { Accordion } from '@saas-ui/react'
 import LoremIpsum from 'react-lorem-ipsum'
 

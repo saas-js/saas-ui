@@ -11,7 +11,7 @@ export const system = createSystem(defaultConfig, {
   },
   globalCss: {
     ':root': {
-      '--header-height': { base: '64px', md: '104px' },
+      '--header-height': { base: '54px' },
       '--content-height': 'calc(100dvh - var(--header-height))',
     },
   },

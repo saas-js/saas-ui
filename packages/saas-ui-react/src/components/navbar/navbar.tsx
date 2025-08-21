@@ -25,6 +25,11 @@ const NavbarContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   'content',
 )
 
+const NavbarItemGroup = withContext<HTMLUListElement, HTMLChakraProps<'ul'>>(
+  'ul',
+  'itemGroup',
+)
+
 const NavbarItem = withContext<
   HTMLLIElement,
   HTMLChakraProps<'li', Navbar.ItemProps>
@@ -54,8 +59,9 @@ const NavbarLink = withContext<HTMLAnchorElement, NavbarLinkProps>(
 
 export {
   NavbarRoot as Root,
-  NavbarBrand as Brand,
   NavbarContent as Content,
+  NavbarBrand as Brand,
+  NavbarItemGroup as ItemGroup,
   NavbarItem as Item,
   NavbarLink as Link,
 }

@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import { Code, Editable, Stack, useEditable } from "@chakra-ui/react"
+import { Code, Editable, Stack, useEditable } from '@saas-ui/react'
 
 export const EditableWithStore = () => {
   const editable = useEditable({
-    defaultValue: "Click to edit",
+    defaultValue: 'Click to edit',
   })
 
   return (
@@ -13,7 +13,7 @@ export const EditableWithStore = () => {
         <Editable.Preview />
         <Editable.Input />
       </Editable.RootProvider>
-      <Code>{editable.editing ? "editing" : "not editing"}</Code>
+      <Code>{editable.editing ? 'editing' : 'not editing'}</Code>
     </Stack>
   )
 }

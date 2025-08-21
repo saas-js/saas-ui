@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Stack, Text } from '@chakra-ui/react'
+import { For, Stack, Text } from '@saas-ui/react'
 import { Accordion } from '@saas-ui/react'
 
 export const AccordionSizes = () => {
@@ -16,8 +16,8 @@ export const AccordionSizes = () => {
               collapsible
               defaultValue={['b']}
             >
-              {items.map((item, index) => (
-                <Accordion.Item key={index} value={item.value}>
+              {items.map((item) => (
+                <Accordion.Item key={item.value} value={item.value}>
                   <Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
                   <Accordion.ItemContent>{item.text}</Accordion.ItemContent>
                 </Accordion.Item>

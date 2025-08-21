@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Span, Stack, useSlotRecipe } from '@chakra-ui/react'
+import { For, Span, Stack, useSlotRecipe } from '@saas-ui/react'
 import { Avatar, Tag } from '@saas-ui/react'
 import { HiCheck, HiOutlineBriefcase } from 'react-icons/hi'
 

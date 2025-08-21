@@ -1,6 +1,6 @@
 'use client'
 
-import { Input, Stack } from '@chakra-ui/react'
+import { Input, Stack } from '@saas-ui/react'
 import { Button, Field, Textarea } from '@saas-ui/react'
 import { useForm } from 'react-hook-form'
 

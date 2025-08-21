@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, HStack, Image } from '@chakra-ui/react'
+import { Box, HStack, Image } from '@saas-ui/react'
 import { Badge, Button, Card } from '@saas-ui/react'
 
 export const CardHorizontal = () => (

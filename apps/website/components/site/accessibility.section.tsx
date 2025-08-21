@@ -9,27 +9,28 @@ import {
   Stack,
   Tabs,
   Text,
-} from "@chakra-ui/react"
-import Link from "next/link"
+} from '@saas-ui/react'
+import Link from 'next/link'
+
 // import { DemoCode } from "../demo-code"
-import { Blob } from "./blob"
+import { Blob } from './blob'
 // import { AccessibilityDemo } from "./data/accessibility-demo"
-import { BlitzFillIcon } from "./icons"
+import { BlitzFillIcon } from './icons'
 
 const Intro = () => (
-  <Stack gap={{ base: "4", md: "10" }}>
-    <Stack gap={{ base: "3", md: "7" }} align="flex-start">
-      <Stack gap={{ base: "3", md: "6" }}>
+  <Stack gap={{ base: '4', md: '10' }}>
+    <Stack gap={{ base: '3', md: '7' }} align="flex-start">
+      <Stack gap={{ base: '3', md: '6' }}>
         <HStack gap="4" color="teal.500">
           <BlitzFillIcon />
           <Text fontWeight="bold">Accessible UI Components</Text>
         </HStack>
-        <Heading textStyle={{ base: "3xl", md: "5xl" }} fontWeight="bold">
+        <Heading textStyle={{ base: '3xl', md: '5xl' }} fontWeight="bold">
           Less code. More speed
         </Heading>
       </Stack>
-      <Text textStyle={{ base: "lg", md: "2xl" }}>
-        Meet the system for modern product development.{" "}
+      <Text textStyle={{ base: 'lg', md: '2xl' }}>
+        Meet the system for modern product development.{' '}
         <Span color="gray.400">
           Streamline issues, projects, and product roadmaps.
         </Span>
@@ -38,21 +39,23 @@ const Intro = () => (
     <Button
       asChild
       colorPalette="teal"
-      size={{ base: "md", md: "lg" }}
+      size={{ base: 'md', md: 'lg' }}
       bg="teal.500"
       color="black"
       w="fit-content"
       px="8"
     >
-      <Link href="/docs/get-started/overview/installation">Start Building</Link>
+      <Link href="/docs/getting-started/overview/installation">
+        Start Building
+      </Link>
     </Button>
   </Stack>
 )
 
 const Testimonial = () => (
   <Stack
-    gap={{ base: "4", md: "10" }}
-    pl={{ base: "4", md: "9" }}
+    gap={{ base: '4', md: '10' }}
+    pl={{ base: '4', md: '9' }}
     borderLeft="solid 4px"
     borderColor="teal.500"
   >
@@ -82,8 +85,8 @@ const Testimonial = () => (
 const CodePreviewSection = () => (
   <Flex
     css={{
-      "&, & *": {
-        minW: "0",
+      '&, & *': {
+        minW: '0',
       },
     }}
     bg="#040A0A"
@@ -100,11 +103,11 @@ const CodePreviewSection = () => (
       flexDir="column"
     >
       <Tabs.List p="2">
-        {["Preview", "Code"].map((tab) => (
+        {['Preview', 'Code'].map((tab) => (
           <Tabs.Trigger
             key={tab}
             value={tab}
-            bg={{ base: "#050D0D/10", _selected: "teal.500/10!" }}
+            bg={{ base: '#050D0D/10', _selected: 'teal.500/10!' }}
             rounded="0"
             cursor="pointer"
           >
@@ -128,8 +131,8 @@ const CodePreviewSection = () => (
           value="Code"
           mt="0"
           css={{
-            "&  pre": {
-              overflow: "auto",
+            '&  pre': {
+              overflow: 'auto',
             },
           }}
         >
@@ -150,10 +153,10 @@ export const Accessibility = async () => (
   <Container>
     <Flex justify="center">
       <Flex
-        gap={{ base: "10", md: "20" }}
+        gap={{ base: '10', md: '20' }}
         flex="1"
         pos="relative"
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: 'column', md: 'row' }}
       >
         <Blob
           width="765px"
@@ -164,7 +167,7 @@ export const Accessibility = async () => (
         />
         <Blob width="765px" height="765px" top="-70%" right="-20%" />
 
-        <Stack gap={{ base: "6", md: "12" }} flex="1">
+        <Stack gap={{ base: '6', md: '12' }} flex="1">
           <Intro />
           <Testimonial />
         </Stack>

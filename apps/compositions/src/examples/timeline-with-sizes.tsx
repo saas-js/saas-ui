@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, For, Span, Stack } from '@chakra-ui/react'
+import { Badge, For, Span, Stack } from '@saas-ui/react'
 import { Avatar, Timeline } from '@saas-ui/react'
 import { LuCheck } from 'react-icons/lu'
 

@@ -24,9 +24,11 @@
     "paths": {
       "@/*": ["./*"],
       "content-collections": ["./.content-collections/generated"],
-      "compositions/*": ["../compositions/src/*"]
-      // "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
-      // "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
+      "compositions/*": ["../compositions/src/*"],
+      "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
+      "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
+      "zod/v4": ["./node_modules/zod/dist/types/v4/index.d.ts"],
+      "zod/v4/core": ["./node_modules/zod/dist/types/v4/core/index.d.ts"]
       // "@saas-ui/forms": ["../../packages/saas-ui-forms/src/index.ts"],
       // "@saas-ui/charts": ["../../packages/saas-ui-charts/src/index.ts"],
       // "@saas-ui/core": ["../../packages/saas-ui-core/src/index.ts"],

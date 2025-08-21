@@ -1,7 +1,7 @@
 'use client'
 
-import type { AlertRootProps } from '@chakra-ui/react'
-import { For, Span, useSlotRecipe } from '@chakra-ui/react'
+import type { AlertRootProps } from '@saas-ui/react'
+import { For, Span, useSlotRecipe } from '@saas-ui/react'
 import { Alert } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'

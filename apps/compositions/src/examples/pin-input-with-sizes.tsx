@@ -1,6 +1,6 @@
 'use client'
 
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import { PinInput } from '@saas-ui/react'
 
 export const PinInputWithSizes = () => {

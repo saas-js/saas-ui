@@ -1,9 +1,4 @@
-import React from 'react'
-
-import { useUpdateEffect } from '@/lib/use-update-effect'
-import { HStack, Stack, Text, useDisclosure } from '@chakra-ui/react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { HStack, Stack, Text } from '@saas-ui/react'
 
 import {
   List,
@@ -66,14 +61,14 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Starter kits
                   </Text>
-                  <ListItem title="Next.js" href="/pro/starterkit/">
+                  <ListItem title="Next.js" href="/pro/starterkits/nextjs">
                     Next.js and tRPC
                   </ListItem>
-                  <ListItem title="Tanstack Router" href="/pro/tanstack-router">
+                  <ListItem
+                    title="Tanstack Router"
+                    href="/pro/starterkits/tanstack-router"
+                  >
                     Tanstack Router and tRPC
-                  </ListItem>
-                  <ListItem title="Zero Sync" href="/pro/zero-sync">
-                    Tanstack Router and Zero Sync
                   </ListItem>
                 </Stack>
               </List>
@@ -81,7 +76,11 @@ export const Navigation = () => {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
+            <NavigationMenuLink href="/pro/pricing">Pricing</NavigationMenuLink>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/pro/docs">Docs</NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
